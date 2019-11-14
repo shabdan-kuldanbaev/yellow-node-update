@@ -1,0 +1,11 @@
+.instaTape {
+  display: flex;
+  max-width: 1100px;
+  margin: 80px auto;
+
+  img {
+    width: calc(20% - 15px);
+    margin: 0 7.5px;
+    border-radius: 2.5px;
+  }
+}

@@ -1,0 +1,11 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+
+.advantages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 80px 0;
+  background-color: $accent-color;
+}

@@ -1,0 +1,23 @@
+:global(.slick-slider) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 50px 0;
+}
+
+:global(.slick-list) {
+  width: 100%;
+  max-width: 36%;
+  overflow-x: hidden;
+}
+
+:global(.slick-track) {
+  display: flex;
+}
+
+.arrow {
+  margin: auto;
+  cursor: pointer;
+}

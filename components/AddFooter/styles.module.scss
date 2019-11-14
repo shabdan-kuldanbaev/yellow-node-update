@@ -1,0 +1,17 @@
+.addFooterContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 60px);
+  padding: 30px;
+  transform: translateY(0px);
+  transition: transform 1s, opacity 1s;
+  transition-delay: 1s;
+  transition-timing-function: ease;
+  opacity: 1;
+}

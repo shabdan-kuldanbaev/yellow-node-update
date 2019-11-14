@@ -1,0 +1,77 @@
+@import 'styles/utils/variables';
+
+.headerContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  width: calc(100% - 60px);
+  background-color: rgba(0, 0, 0, .05);
+  transform: translateY(0);
+  transition: transform 1s, opacity 1s;
+  transition-timing-function: ease;
+  opacity: 1;
+
+  ul {
+    li {
+      position: relative;
+      display: inline-block;
+      margin-left: 55px;
+      cursor: pointer;
+      // min-width: 150px;
+
+      .underline {
+        text-decoration: none;
+
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: $accent-color;
+          transform: scaleX(0);
+          transition: all 0.5s;
+        }
+
+        &:hover:before {
+          transform: scaleX(1);
+        }
+      }
+
+      &:last-child {
+        border-radius: 3px;
+        padding: 15px;
+        border: 1px solid $accent-color;
+
+        span:before {
+          height: 0;
+        }
+
+        &:hover {
+          background-color: $accent-color;
+          transition: background-color, .5s;
+          
+          span { 
+            color: $black;
+          }
+        }
+      }
+
+      .dark {
+        color: $white;
+      }
+
+      .light {
+        color: $black;
+      }
+    }
+  }
+}

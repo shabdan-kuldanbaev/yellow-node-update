@@ -1,0 +1,15 @@
+export { default as AddFooter } from 'components/AddFooter';
+export { default as AdvantagesItems } from 'components/AdvantagesItems';
+export { default as ButtonMore } from 'components/ButtonMore';
+export { default as Carousel } from 'components/Carousel';
+// export { default as Duck } from 'components/Duck';
+export { default as FeedbackForm } from 'components/FeedbackForm';
+export { default as GridArticles } from 'components/GridArticles';
+export { default as Header } from 'components/Header';
+export { default as InstaTape } from 'components/InstaTape';
+export { default as Logo } from 'components/Logo';
+export { default as Partners } from 'components/Partners';
+export { default as ScrollIcon } from 'components/ScrollIcon';
+export { default as SectionTitle } from 'components/SectionTitle';
+export { default as SocialIcons } from 'components/SocialIcons';
+export { default as Works } from 'components/Works';

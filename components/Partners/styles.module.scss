@@ -1,0 +1,33 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+
+.partnersContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100vh;
+  padding: 60px 20px;
+
+  h1 {
+    @include h1-title;
+
+    color: $white;
+  }
+}
+
+.partners {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin-top: 42.5px;
+}
+
+.partnersItem {
+  text-align: center;
+
+  img {
+    width: 90%;
+  }
+}

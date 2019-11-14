@@ -1,0 +1,21 @@
+@keyframes swing {
+  33% {
+    transform: translateY(0);
+  }
+  66% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.swing {
+  animation: swing 1.5s infinite ease;
+  animation-delay: 2s;
+  cursor: pointer;
+}
+
+.swing:hover {
+  animation-play-state: paused;
+}
