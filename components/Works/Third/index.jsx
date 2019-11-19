@@ -1,8 +1,9 @@
 import React from 'react';
-import rnd from './images/Portfolio3.png';
+
+import styles from './styles.module.scss';
 
 const Third = () => (
-  <img src={rnd} alt="third" />
+  <div className={styles.thirdContainer} />
 );
 
 export default Third;

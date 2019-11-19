@@ -1,41 +1,72 @@
 @import 'styles/utils/variables';
-
+@import 'styles/utils/mixins';
 
 .carouselItem {
+  @include flex(column, initial, center);
+
   & > p {
-    line-height: 1.55;
-    letter-spacing: 0.5px;
+    margin-top: 50px;
+    line-height: 2.08;
+    letter-spacing: 0.6px;
+    text-align: center;
     color: $text-color;
+
+    &::first-letter {
+      margin-left: 25px;
+    }
+
+    &::before {
+      content: url('../images/quote.svg');
+      position: absolute;
+      transform: translate(0, 3px) scale(.75, .75);
+    }
   }
 
-  .personInfo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  
-    img {
-      max-width: 180px;
-      margin-right: 36px;
-    }
-  
-    .personName {
-      display: flex;
+  & > img {
+    max-width: 130px;
+    border-radius: 5px;
+  }
+
+  .personName {
+    @include flex(row, initial, center);
+    margin-top: 80px;
+
+    @include phone {
       flex-direction: column;
-      justify-content: center;
-  
-      span {
-        font-weight: bold;
-        line-height: 1.55;
-        letter-spacing: 0.5px;
-        color: $text-color;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-weight: bold;
+      line-height: 1.55;
+      letter-spacing: 0.5px;
+      color: #0e0e0f;
+
+      @include phone {
+        text-align: center;
       }
-  
-      p {
-        margin: 0;
-        font-size: .675rem;
-        line-height: 2.21;
-        letter-spacing: 0.35px;
-        color: $text-color;
+    }
+
+    .divider {
+      margin: 0 7px;
+      font-weight: normal;
+      color: $text-color;
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    .position {
+      margin: 0;
+      font-size: .675rem;
+      line-height: 2.21;
+      letter-spacing: 0.35px;
+      color: $text-color;
+
+      @include phone {
+        font-size: .7rem;
+        text-align: center;
       }
     }
   }

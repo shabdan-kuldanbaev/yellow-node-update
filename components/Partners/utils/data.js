@@ -1,8 +1,10 @@
-import techCrunch from '../images/tech-crunch.svg';
-import time from '../images/time.svg';
-import productHunt from '../images/product-hunt.svg';
-import esquire from '../images/esquire.svg';
-import theWeek from '../images/the-week.svg';
+import {
+  techCrunch,
+  time,
+  productHunt,
+  esquire,
+  theWeek,
+ } from '../images';
 
 export const partners = [
   {

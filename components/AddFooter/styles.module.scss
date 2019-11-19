@@ -1,17 +1,54 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+
 .addFooterContainer {
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 99999;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: calc(100% - 60px);
-  padding: 30px;
+  @include flex(row, space-between, center);
+  width: calc(100% - 110px);
+  padding: 20px 55px;
   transform: translateY(0px);
-  transition: transform 1s, opacity 1s;
-  transition-delay: 1s;
+  transition: transform $default-transition-time, opacity $default-transition-time;
+  transition-delay: $default-transition-time;
   transition-timing-function: ease;
   opacity: 1;
+
+  .scrollTitle {
+    display: none;
+  }
+
+  @include phone {
+    width: calc(100% - 40px);
+    padding: 20px;
+    @include flex(row, center, center);
+
+    & > * {
+      display: none;
+    }
+
+    .scrollTitle {
+      display: block;
+      font-size: .8rem;
+      color: $white;
+      text-transform: uppercase;
+      opacity: .5;
+      animation: swing 1.5s infinite ease;
+      animation-delay: 2s;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes swing {
+  0% {
+    opacity: .5;
+  }
+  50% {
+    opacity: .2;
+  }
+  100% {
+    opacity: .5;
+  }
 }

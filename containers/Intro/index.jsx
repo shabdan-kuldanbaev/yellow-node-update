@@ -5,12 +5,13 @@ import {
   Header,
   AddFooter,
   Partners,
+  // Duck,
 } from 'components';
 
-// const DynamicComponent = dynamic(() => import('../../components/Duck'));
+// const DynamicComponent = dynamic(() => import('components/Duck'));
 
 const Intro = () => (
-  <section id="intro">
+  <section>
     {/* <DynamicComponent /> */}
     <Header theme="dark" />
     <AddFooter theme="dark" />

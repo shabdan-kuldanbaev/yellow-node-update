@@ -8,21 +8,24 @@ const GridArticles = () => (
     {articles.map(art => (
       art.priority === 'low'
         ? (
-          <div key={`blog/${art.id}`} className={`${styles.item} ${styles[art.priority]}`}>
-            <div className={styles.image} style={{ backgroundImage: `url(${art.image})` }} />
+          <div key={`blog/${art.id}`} className={styles[art.priority]}>
+            <div className={styles.imgContainer}>
+              <div className={styles.image} style={{ backgroundImage: `url(${art.image})` }} />
+            </div>
             <span className={styles.title}>{art.title}</span>
             <span className={styles.publishedDate}>{art.publishedDate}</span>
           </div>
         )
         : (
-          <div
-            key={`blog/${art.id}`}
-            className={`${styles.item} ${styles[art.priority]}`}
-            style={{ backgroundImage: `url(${art.image})` }}
-          >
+          <div key={`blog/${art.id}`} className={styles[art.priority]}>
             <div className={styles.overlay} />
-            <span className={styles.title}>{art.title}</span>
-            <span className={styles.publishedDate}>{art.publishedDate}</span>
+            <div className={styles.imgContainer}>
+              <div className={styles.image} style={{ backgroundImage: `url(${art.image})` }} />
+            </div>
+            <div className={styles.desc}>
+              <span className={styles.title}>{art.title}</span>
+              <span className={styles.publishedDate}>{art.publishedDate}</span>
+            </div>
           </div>
         )
     ))}

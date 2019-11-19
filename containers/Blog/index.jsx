@@ -8,7 +8,7 @@ import {
 import styles from './styles.module.scss';
 
 const Blog = () => (
-  <section id="blog" className={styles.blog}>
+  <section className={styles.blog}>
     <SectionTitle title="Blog" subtitle="How we do what we do" />
     <GridArticles />
     <ButtonMore href="/blog" title="Read more stories" />

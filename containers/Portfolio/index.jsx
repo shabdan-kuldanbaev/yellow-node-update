@@ -8,7 +8,7 @@ import {
 import styles from './styles.module.scss';
 
 const Portfolio = () => (
-  <section id="portfolio" className={styles.portfolio}>
+  <section className={styles.portfolio}>
     <SectionTitle title="Portfolio" subtitle="We brainstorm, contribute, and grow your product together. Every step of the way." />
     <Works />
     <SectionTitle title="check out more works by Yellow" subtitle="We brainstorm, contribute, and grow your product together. Every step of the way." />

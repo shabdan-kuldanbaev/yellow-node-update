@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'proptypes';
+import PropTypes from 'prop-types';
 
 import styles from './styles.module.scss';
 
@@ -10,14 +10,13 @@ const CarouselItem = ({
   text,
 }) => (
   <div className={styles.carouselItem}>
-    <div className={styles.personInfo}>
-      <img src={avatar} alt={name} />
-      <div className={styles.personName}>
-        <span>{name}</span>
-        <p>{position}</p>
-      </div>
-    </div>
+    <img src={avatar} alt={name} />
     <p>{text}</p>
+    <div className={styles.personName}>
+      <span className={styles.title}>{name}</span>
+      <span className={styles.divider}>—</span>
+      <span className={styles.position}>{position}</span>
+    </div>
   </div>
 );
 

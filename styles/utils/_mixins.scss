@@ -1,27 +1,58 @@
 @import './variables';
 
+@mixin tablet {
+  @media (max-width: $max-tablet-size) { @content; }
+}
+
+@mixin below-tablet {
+  @media (max-width: $default-tablet-size) { @content; }
+}
+
+@mixin phone {
+  @media (max-width: $max-mobile-size) { @content; }
+}
+
 @mixin h1-title {
+  margin-top: 0;
   font-weight: bold;
-  // font-size: 1.71875rem;
   font-size: 2.7rem;
   letter-spacing: 1.37px;
   text-transform: uppercase;
   text-align: center;
+
+  @include phone {
+    font-size: 1.2rem;
+  }
 }
 
 @mixin buttonMore {
-  margin-top: 50px;
-  padding: 15px 30px;
+  width: 240px;
+  margin-top: $more-button-indent;
+  padding: 16.5px 0 13.5px 0;
   line-height: 1.55;
   letter-spacing: 0.5px;
   border-radius: 2.5px;
-  border: solid 0.5px $black;
-  transition: color .5s, background-color .5s;
+  border: solid 1px $black;
+  text-align: center;
+  transition: border calc(#{$default-transition-time} / 3), background-color calc(#{$default-transition-time} / 3);
   cursor: pointer;
 
   &:hover {
-    color: $white;
-    background-color: $black;
-    transition: color .5s, background-color .5s;
+    border: solid 1px transparent;
+    background-color: $accent-color;
+    transition: border calc(#{$default-transition-time} / 3), background-color $default-transition-time;
   }
+}
+
+@mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $fw;
+} 
+
+@font-face {
+	font-family: "Sonny Gothic Condensed Ultra Black";
+	src: url("styles/fonts/Sonny-Gothic-Condensed-Ultra-Black.otf") format("opentype");
 }

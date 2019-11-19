@@ -1,8 +1,9 @@
 import React from 'react';
-import rnd from './images/Portfolio2.png';
+
+import styles from './styles.module.scss';
 
 const Second = () => (
-  <img src={rnd} alt="second" />
+  <div className={styles.secondContainer} />
 );
 
 export default Second;

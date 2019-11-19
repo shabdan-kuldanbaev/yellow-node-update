@@ -6,3 +6,19 @@ $white: #fff;
 $text-color: #4e4d51;
 $footer-accent-color: #b7b7b7;
 $footer-default-button-color: #373738;
+$footer-default-range-color: #5c5c5c;
+
+$section-indent: 150px;
+$side-indent: 20px;
+$more-button-indent: calc(#{$section-indent} / 2);
+$default-transition-time: .7s;
+$max-content-width: 1100px;
+
+//sizes
+$max-tablet-size: 1024px;
+$default-tablet-size: 768px;
+$max-mobile-size: 568px;
+
+//fonts
+$default-font: "Montserrat";
+$main-title-font: 'Sonny Gothic Condensed Ultra Black', sans-serif

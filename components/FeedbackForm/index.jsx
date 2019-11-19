@@ -1,5 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+import Link from 'next/link';
 import Slider from 'rc-slider';
+import {
+  SectionTitle,
+  Upload,
+  AnimatedInput,
+} from 'components';
 import { addThousandsSeparators } from 'utils/helper';
 import { services, budget } from './utils/data';
 
@@ -7,23 +13,12 @@ import 'rc-slider/assets/index.css';
 import styles from './styles.module.scss';
 
 const FeedbackForm = () => {
-  const [selectedFiles, setFile] = useState([]);
   const [projectBudget, setBudget] = useState(addThousandsSeparators(budget.min));
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleOnChange = ({ target: { files } }) => {
-    const arrFiles = [];
-    for (let i = 0; i < files.length; i += 1) arrFiles.push(files[i]);
-    setFile(arrFiles);
-  };
-
   const handleOnClick = ({ target: { classList } }) => {
     classList.toggle(styles.selected);
-  };
-
-  const handleOnUnpinFile = ({ target: { dataset } }) => {
-    setFile(selectedFiles.filter(file => file.name !== dataset.fileName));
   };
 
   const handleOnSliderChange = (value) => {
@@ -41,75 +36,83 @@ const FeedbackForm = () => {
   const sliderSettings = {
     ...budget,
     defaultValue: budget.min,
-    step: null,
+    step: 20000,
     onChange: handleOnSliderChange,
   };
 
   return (
-    <form className={styles.form}>
-      <div className={styles.inputs}>
-        <input
-          type="text"
-          placeholder="Your full name"
-          value={fullName}
-          onChange={handleOnNameChange}
-        />
-        <input
-          type="text"
-          placeholder="Your email address"
-          value={email}
-          onChange={handleOnEmailChange}
-        />
-      </div>
-      <div className={styles.services}>
-        <span>Pick necessary services (optional)</span>
-        <div className={styles.serviceOptions}>
-          {services.map(service => (
-            <button
-              key={`service/${service}`}
-              type="button"
-              className={styles.service}
-              onClick={handleOnClick}
-            >
-              {service}
-            </button>
-          ))}
+    <div className={styles.formContainer}>
+      <SectionTitle title="LET’S MOVE FORWARD" />
+      <p>
+        Fill in this form or
+        <a
+          href="mailto:hi@yellow.systems"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          send us an e-email
+        </a>
+      </p>
+      <form className={styles.form}>
+        <div className={styles.services}>
+          <span>Pick necessary services (optional)</span>
+          <div className={styles.serviceOptions}>
+            {services.map(service => (
+              <button
+                key={`service/${service}`}
+                type="button"
+                className={styles.service}
+                onClick={handleOnClick}
+              >
+                {service}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className={styles.budget}>
-        <span>Your budget is up to </span>
-        <span className={styles.price}>{`$ ${projectBudget}`}</span>
-        <Slider {...sliderSettings} />
-      </div>
-      <div className={styles.uploadFile}>
-        <div className={styles.attachmentManage}>
-          <input type="text" placeholder="About your project" />
-          <label htmlFor="files">Attach</label>
-          <input
-            id="files"
-            type="file"
-            onChange={handleOnChange}
-            multiple
-            className={styles.hide}
+        <div className={`${styles.budget} ${ projectBudget.length === 1 && styles.initialBudget}`}>
+          {projectBudget.length > 1
+            ? (
+              <Fragment>
+                <span>Your budget is up to </span>
+                <span className={styles.price}>{`$ ${projectBudget}`}</span>
+                {projectBudget === addThousandsSeparators(budget.max) && <span> or more</span>}
+              </Fragment>
+            )
+            : <span>Your budget</span>
+          }
+          <Slider {...sliderSettings} />
+        </div>
+        <div className={styles.inputs}>
+          <AnimatedInput
+            value={fullName}
+            handleOnChange={handleOnNameChange}
+            placeholder="Your full name"
+          />
+          <AnimatedInput
+            value={email}
+            handleOnChange={handleOnEmailChange}
+            placeholder="Your email"
           />
         </div>
-        <div className={styles.attachedFiles}>
-          {selectedFiles.map((file, index) => (
-            <div className={styles.file} key={`file/${index}`}>
-              <span>{file.name}</span>
-              <span>{file.size}</span>
-              <button
-                data-file-name={file.name}
-                type="button"
-                onClick={handleOnUnpinFile}
-              >
-                X
-              </button>
-            </div> 
-          ))}
+        <Upload />
+        <div className={styles.checkboxContainer}>
+          <label className={styles.checkbox}>
+            <span>I accept your</span>
+            <Link href="/privacy-policy">
+                <span className={styles.link}>Privacy Policy</span>
+              </Link>
+            <input type="checkbox" />
+            <span className={styles.checkmark} />
+          </label>
+          <label className={styles.checkbox}>
+            <span>Send me NDA</span>
+            <input type="checkbox" />
+            <span className={styles.checkmark} />
+          </label>
         </div>
-      </div>
-    </form>
+        <button type="submit" className={styles.submit}>Send</button>
+      </form>
+    </div>
   );
 };
 

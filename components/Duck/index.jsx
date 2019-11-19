@@ -3,7 +3,6 @@ import * as THREE from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
-import DuckModel from './model/Duck_0.3.obj';
 
 import * as styles from './styles.module.scss';
 
@@ -46,7 +45,6 @@ const s = {
 const Duck = () => {
   const containerRef = useRef(null);
   const sloganRef = useRef(null);
-  const overlay = useRef(null);
 
   const animationTypes = ['appear', 'getTogether', 'pagination'];
   // 500 = 9s
@@ -134,7 +132,8 @@ const Duck = () => {
     scene = new THREE.Scene();
     camera.lookAt(scene.position);
     const loader = new OBJLoader();
-    loader.load(DuckModel, (obj) => {
+    loader.load('model/Duck_0.3.obj', (obj) => {
+      console.log(obj);
       mat = new THREE.ShaderMaterial({
         uniforms: {
           time: {
@@ -464,7 +463,6 @@ const Duck = () => {
         <h1 ref={sloganRef} className="letter-container">WE CREATE FANTASTIC SOFTWARE</h1>
       </div>
       <div id="container" ref={containerRef} />
-      <div ref={overlay} className={styles.overlay} />
     </Fragment>
   );
 };

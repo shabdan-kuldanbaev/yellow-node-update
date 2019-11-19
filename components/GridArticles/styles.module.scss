@@ -1,35 +1,85 @@
 @import 'styles/utils/variables';
+@import 'styles/utils/mixins';
 
 .articlesGrid {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: 80px auto 0 auto;
-
-  .item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 10px;
-    cursor: pointer;
-  }
+  @include flex(row, initial, initial, wrap);
+  max-width: $max-content-width;
+  margin: 100px auto 0 auto;
 
   .high, .medium {
-    z-index: 1;
-    justify-content: flex-end;
-    height: 420px;
-    border-radius: 7.5px;
-    background-position: center;
-    background-size: cover;
+    margin: 10px;
+    cursor: pointer;
 
+    .imgContainer {
+      height: 420px;
+      border-radius: 7.5px;
+      overflow: hidden;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      cursor: pointer;
+  
+      .image {
+        @include flex(column, flex-end);
+        height: 100%;
+        border-radius: 7.5px;
+        background-position: center;
+        background-size: cover;
+        will-change: transform;
+        transition: transform $default-transition-time;
+  
+        @include phone {
+          height: 100%;
+          border-radius: 7.5px;
+          justify-content: flex-start;
+        }
+      }
+
+      @include phone {
+        height: 230px;
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      z-index: 1;
+      height: 420px;
+      border-radius: 7.5px;
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.61), rgba(51, 125, 255, 0));
+    }
+
+    .desc {
+      position: absolute;
+      z-index: 1;
+      @include flex(column);
+      transform: translateY(-100%);
+
+      @include phone {
+        position: relative;
+        transform: translateY(0);
+
+        .title {
+          margin-top: 15px;
+          padding: 0;
+          font-size: .825rem;
+          font-weight: bold;
+          line-height: 1.5;
+          color: $black;
+        }
+    
+        .publishedDate {
+          padding: 0;
+          margin-top: 10px;
+          font-size: .625rem;
+          font-weight: bold;
+          line-height: 1.5;
+          color: #9a999c;
+        }
+      }
+    }
+    
     .title, .publishedDate {
       padding: 0 25px;
       font-weight: bold;
       color: $white;
-    }
-
-    .title {
-      font-size: 1.3625rem;
     }
 
     .publishedDate {
@@ -38,42 +88,87 @@
       font-size: .725rem;
     }
 
-    .overlay {
-      position: absolute;
-      z-index: -1;
-      height: 420px;
-      border-radius: 7.5px;
-      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.61), rgba(51, 125, 255, 0));
+    &:hover {
+      .image {
+        will-change: transform;
+        transform: scale(1.05, 1.05);
+        transition: transform $default-transition-time;
+      }
     }
   }
 
   .high {
-    width: calc(70% - 20px);
+    width: calc(66.66% - 20px);
+
+    .title {
+      font-size: 1.7rem;
+    }
 
     .overlay {
-      width: calc(70% - 20px);
-      max-width: 750px;
+      width: calc(66.66% - 20px);
+      max-width: calc(#{$max-content-width} * 0.6666 - 20px);
+    }
+
+    .desc {
+      max-width: calc(#{$max-content-width} * 0.6666 - 20px);
     }
   }
 
   .medium {
-    width: calc(30% - 20px);
+    width: calc(33.33% - 20px);
+
+    .title {
+      font-size: 1.3625rem;
+    }
 
     .overlay {
-      width: calc(30% - 20px);
-      max-width: 310px;
+      width: calc(33.33% - 20px);
+      max-width: calc(#{$max-content-width} * 0.3333 - 20px);
+    }
+
+    .desc {
+      max-width: calc(#{$max-content-width} * 0.3333 - 20px);
     }
   }
 
   .low {
+    @include flex(column);
     width: calc(33.33% - 20px);
+    margin: 10px;
+    cursor: pointer;
 
-    .image {
+    .imgContainer {
       width: 100%;
       height: 200px;
       border-radius: 7.5px;
-      background-position: center;
-      background-size: cover;
+      overflow: hidden;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+
+      @include phone {
+        height: 230px;
+      }
+
+      &:hover {
+        .image {
+          will-change: transform;
+          transform: scale(1.05, 1.05);
+          transition: transform $default-transition-time;
+        }
+      }
+
+      .image {
+        width: 100%;
+        height: 100%;
+        border-radius: 7.5px;
+        background-position: center;
+        background-size: cover;
+        transition: transform $default-transition-time;
+        will-change: transform;
+
+        @include phone {
+          height: 100%;
+        }
+      }
     }
 
     .title {
@@ -84,11 +179,32 @@
     }
 
     .publishedDate {
-      margin-top: 15px;
+      margin-top: 10px;
       font-size: .625rem;
       font-weight: bold;
       line-height: 1.5;
       color: #9a999c;
+    }
+  }
+
+  @include phone {
+    flex-direction: column;
+
+    .high, .medium {
+      width: 100%;
+      height: auto;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .low {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .overlay {
+      display: none;
     }
   }
 }

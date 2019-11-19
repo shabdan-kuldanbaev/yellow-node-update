@@ -1,8 +1,7 @@
+@import 'styles/utils/mixins';
+
 .socialContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  @include flex(row, flex-start, center);
 
   a {
     margin-right: 25px;

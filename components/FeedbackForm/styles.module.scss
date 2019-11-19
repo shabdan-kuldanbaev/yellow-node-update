@@ -1,172 +1,242 @@
 @import 'styles/utils/variables';
+@import 'styles/utils/mixins';
 
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 400px;
-  color: $footer-accent-color;
+.formContainer {
+  @include flex(column);
 
-  span, label, input {
-    font-size: .75rem;
+  & > p {
+    margin: 0;
+    font-size: .9rem;
+    color: $footer-accent-color;
     line-height: 1.94;
     letter-spacing: 0.4px;
+
+    a {
+      margin-left: 5px;
+      color: $accent-color;
+      text-decoration: underline;
+    }
   }
 
-  input {
-    padding: 5px 0;
-    border: 0 none;
-    border-bottom: solid 0.5px #979797;
-    background-color: transparent;
+  .form {
+    @include flex(column);
+    width: 100%;
+    max-width: 400px;
     color: $footer-accent-color;
-    outline: none;
-
-    &::placeholder {
-      font-family: "Montserrat";
+  
+    span, label, input {
       font-size: .75rem;
       line-height: 1.94;
       letter-spacing: 0.4px;
-      color: $footer-accent-color;
     }
-  }
-
-  .inputs {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 70px;
-
+  
     input {
-      width: 45%;
+      padding: 15px 0 5px 0;
+      border: 0 none;
+      border-bottom: solid 0.5px #979797;
+      background-color: transparent;
+      color: $footer-accent-color;
+      outline: none;
     }
-  }
+  
+    .inputs {
+      @include flex(row, space-between);
+      margin-top: 50px;
 
-  .services {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-
-    .serviceOptions {
-      margin-top: 5px;
-
-      button {
-        padding: 0 10px;
-        margin-right: 5px;
-        font-size: .75rem;
-        line-height: 2.21;
-        letter-spacing: 0.35px;
-        text-align: center;
-        border: solid 2px $footer-default-button-color;
-        border-radius: 2.5px;
-        outline: none;
-        color: #d7d7d7;
-        background-color: $footer-default-button-color;
-        transition: background-color .3s, color .3s;
-        cursor: pointer;
-
-        &:hover {
-          background-color: transparent;
-          transition: background-color .3s, color .3s;
-        }
+      & > div {
+        width: 45%;
       }
+    }
+  
+    .services {
+      @include flex(column);
+      margin-top: 40px;
+  
+      .serviceOptions {
+        margin-top: 5px;
+  
+        button {
+          padding: 2px 12px;
+          margin-right: 8px;
+          font-size: .75rem;
+          line-height: 2.21;
+          letter-spacing: 0.35px;
+          text-align: center;
+          border: 0 none;
+          border-radius: 2.5px;
+          outline: none;
+          color: #d7d7d7;
+          background-color: $footer-default-button-color;
+          transition: background-color $default-transition-time, color $default-transition-time;
+          cursor: pointer;
 
-      .selected {
-        border: solid 2px $accent-color;
-        background-color: $accent-color;
-        color: $black;
-
-        &:hover {
+          @include phone {
+            margin-bottom: 8px;
+          }
+        }
+  
+        .selected {
+          border: 0 none;
           background-color: $accent-color;
+          color: $black;
+  
+          &:hover {
+            background-color: $accent-color;
+          }
         }
       }
     }
-  }
-
-  .budget {
-    margin-top: 40px;
-
-    .price {
-      color: $accent-color;
-    }
-
-    :global(.rc-slider) {
-      margin-top: 20px;
-    }
-
-    :global(.rc-slider-rail) {
-      background-color: #5c5c5c;
-    }
-
-    :global(.rc-slider-track) {
-      background-color: $accent-color;
-    }
-
-    :global(.rc-slider-dot) {
-      border: 2px solid #5c5c5c;
-      background-color: #5c5c5c;
-    }
-
-    :global(.rc-slider-handle) {
-      border: solid 3px $accent-color;
-      background-color: $black;
-
-      &:active, &:focus {
-        box-shadow: none;
-      }
-    }
-
-    :global(.rc-slider-dot-active) {
-      border: 2px solid $accent-color;
-      background-color: $accent-color;
-    }
-  }
-
-  .uploadFile {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-
-    .attachmentManage {
-      display: flex;
-
-      input {
-        width: 100%;
+  
+    .budget {
+      margin-top: 40px;
+  
+      .price {
+        color: $accent-color;
       }
   
-      label {
-        padding: 4px 0;
-        border: 0 none;
-        border-bottom: solid 0.5px #979797;
+      :global(.rc-slider) {
+        margin-top: 20px;
+      }
+  
+      :global(.rc-slider-rail) {
+        background-color: $footer-default-range-color;
+      }
+  
+      :global(.rc-slider-track) {
+        background-color: $accent-color;
+      }
+  
+      :global(.rc-slider-dot) {
+        border: 2px solid $footer-default-range-color;
+        background-color: $footer-default-range-color;
+      }
+  
+      :global(.rc-slider-handle) {
+        border: solid 3px $accent-color;
+        background-color: $black;
+  
+        &:active, &:focus {
+          box-shadow: none;
+        }
+      }
+  
+      :global(.rc-slider-dot-active) {
+        border: 2px solid $accent-color;
+        background-color: $accent-color;
+      }
+    }
+
+    .initialBudget {
+      :global(.rc-slider-handle) {
+        border: solid 3px $footer-default-range-color;
+        background-color: $black;
+      }
+    }
+
+    .checkboxContainer {
+      @include flex(row, flex-start, center);
+      margin-top: 50px;
+
+      .checkbox {
+        @include flex(row, flex-start, center);
+        position: relative;
+        padding-left: 25px;
         cursor: pointer;
-      }
-    }
+        user-select: none;
 
-    .attachedFiles {
-      
-      .file {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-        padding: 5px 10px;
-        background-color: #222223;
-
-        span:first-child {
-          margin-right: auto;
+        span {
+          font-size: .7rem;
         }
 
-        button {
-          padding: 0;
-          margin-left: 15px;
-          border: 0 none;
-          outline: none;
+        .link {
+          margin-left: 5px;
+          text-decoration: underline;
+        }
+  
+        &:hover input ~ .checkmark {
           background-color: transparent;
-          color: $footer-accent-color;
+        }
+  
+        input {
+          position: absolute;
+          height: 0;
+          width: 0;
+          opacity: 0;
           cursor: pointer;
+  
+          &:checked ~ .checkmark {
+            background-color: transparent;
+  
+            &:after {
+              display: block;
+            }
+          }
+        }
+  
+        .checkmark {
+          position: absolute;
+          top: 2px;
+          left: 0;
+          height: 12.5px;
+          width: 12.5px;
+          border: 1px solid $footer-accent-color;
+          border-radius: 2.5px;
+          background-color: transparent;
+  
+          &:after {
+            display: none;
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 3px;
+            height: 6px;
+            border: solid $footer-accent-color;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+          }
+        }
+
+        &:last-child {
+          margin-left: 40px;
+        }
+      }
+
+      @include phone {
+        flex-direction: column;
+
+        label:last-child {
+          margin-top: 20px;
+          margin-left: 0 !important;
         }
       }
     }
-  }
 
-  .hide {
-    display: none;
+    .submit {
+      align-self: flex-start;
+      margin-top: 70px;
+      padding: 10px 50px;
+      border-radius: 5px;
+      border: solid 1px $accent-color;
+      background-color: transparent;
+      color: $accent-color;
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.55;
+      letter-spacing: 0.5px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color $default-transition-time, color $default-transition-time;
+
+      &:hover {
+        background-color: $accent-color;
+        color: $black;
+        transition: background-color $default-transition-time, color $default-transition-time;
+      }
+
+      @include phone {
+        margin: 70px auto 0 auto;
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'proptypes';
+import PropTypes from 'prop-types';
 import SocialIcons from '../SocialIcons';
 import ScrollIcon from '../ScrollIcon';
 
@@ -9,6 +9,7 @@ const AddFooter = ({ theme }) => (
   <section className={styles.addFooterContainer}>
     <SocialIcons theme={theme} />
     <ScrollIcon theme={theme} />
+    <span className={styles.scrollTitle}>scroll down</span>
   </section>
 );
 

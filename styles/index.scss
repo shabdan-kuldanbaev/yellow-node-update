@@ -3,7 +3,7 @@
 html {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat";
+  font-family: $default-font;
   font-size: 16px;
 
   body {
@@ -13,6 +13,7 @@ html {
   }
   
   canvas {
-    position: fixed;
+    position: absolute;
+    top: 0;
   }
 }

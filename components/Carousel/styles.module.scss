@@ -1,23 +1,55 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+
 :global(.slick-slider) {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @include flex(row, center, center);
   width: 100%;
   margin: 50px 0;
 }
 
 :global(.slick-list) {
-  width: 100%;
-  max-width: 36%;
-  overflow-x: hidden;
+  max-width: 50%;
+  will-change: height;
+  transition: height calc(#{$default-transition-time} / 2);
+
+  @include phone {
+    max-width: 100%;
+  }
 }
 
-:global(.slick-track) {
-  display: flex;
+:global(.slick-dots) {
+  bottom: -85px;
+
+  li {
+    width: 13px;
+    height: 13px;
+  }
+
+  button {
+    width: 13px !important;
+    height: 13px !important;
+    padding: 0 !important;
+    border: 2px solid $text-color !important;
+    border-radius: 2.5px;
+
+    &::before {
+      content: '' !important;
+    }
+  }
+}
+
+:global(.slick-active) {
+  button {
+    background-color: $text-color !important;
+  }
 }
 
 .arrow {
   margin: auto;
+  padding: 50px;
   cursor: pointer;
+
+  @include phone {
+    display: none;
+  }
 }

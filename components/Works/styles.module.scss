@@ -1,7 +1,13 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+
 .worksContainer {
-  margin-top: 80px;
+  width: 100%;
+  margin: $section-indent 0;
  
-  img {
-    width: 100%;
+  div {
+    width: calc(100% + 2 * #{$side-indent});
+    height: 100vh;
+    margin-left: calc(-1 * #{$side-indent});
   }
 }

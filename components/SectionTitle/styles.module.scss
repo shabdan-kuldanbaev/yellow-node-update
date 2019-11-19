@@ -2,10 +2,7 @@
 @import 'styles/utils/mixins';
 
 .titleContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  @include flex(column, flex-start, center);
 
   h1 {
     @include h1-title;
