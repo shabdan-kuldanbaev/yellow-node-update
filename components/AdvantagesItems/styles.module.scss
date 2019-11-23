@@ -33,7 +33,7 @@
     }
   }
   
-  span {
+  & > span {
     margin-top: 20px;
     font-size: 1rem;
     font-weight: bold;
@@ -56,6 +56,10 @@
 
     @include phone {
       width: 100%;
+    }
+
+    span {
+      font-weight: 400;
     }
   }
 }

@@ -5,9 +5,89 @@
   width: 100%;
   margin: $section-indent 0;
  
-  div {
-    width: calc(100% + 2 * #{$side-indent});
-    height: 100vh;
+  .work {
+    @include flex(row, space-between, center);
+    width: calc(100% + 2 * #{$side-indent} - 20%);
+    min-height: 100vh;
     margin-left: calc(-1 * #{$side-indent});
+    padding: 0 10%;
+
+    @include phone {
+      @include flex(column-reverse, initial, initial);
+      padding: 20% 10%;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-family: $main-title-font;
+      font-size: 4rem;
+      letter-spacing: 2.25px;
+      color: $white;
+
+      @include phone {
+        font-size: 3rem;
+      }
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.53;
+      letter-spacing: 0.5px;
+      color: $white;
+      word-wrap: normal;
+    }
+
+    button {
+      @include buttonMore();
+      margin-top: 40px;
+      border: 1px solid $white;
+      background-color: transparent;
+      color: $white;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: $white;
+      }
+    }
+
+    img {
+      width: 50%;
+      height: auto;
+      max-height: 80%;
+
+      @include phone {
+        width: 100%;
+      }
+    }
+
+    &:first-child {
+      background-color: #026ed0;
+
+      button {
+        &:hover {
+          color: #026ed0;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: #3d2424;
+
+      button {
+        &:hover {
+          color: #3d2424;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      background-color: #fe232a;
+
+      button {
+        &:hover {
+          color: #fe232a;
+        }
+      }
+    }
   }
 }

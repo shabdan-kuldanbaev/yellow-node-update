@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  InstaLogo,
   InstaTape,
   SectionTitle,
   ButtonMore,
@@ -9,6 +10,7 @@ import styles from './styles.module.scss';
 
 const Insta = () => (
   <section className={styles.insta}>
+    <InstaLogo />
     <SectionTitle title="Live" subtitle="How we live and work" />
     <InstaTape />
     <ButtonMore href="/insta" title="Follow on Instagram" />

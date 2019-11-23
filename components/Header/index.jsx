@@ -22,7 +22,7 @@ const Header = ({ theme }) => {
       </ul>
       <div className={styles.mobileMenu}>
         <ul>{menuList.map(item => (
-          <li>
+          <li key={`menuItem/${item.name}`}>
             <Link href={item.href}>
               <span>{item.name}</span>
             </Link>

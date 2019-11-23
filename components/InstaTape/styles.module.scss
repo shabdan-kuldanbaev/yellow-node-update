@@ -3,21 +3,29 @@
 
 .instaTape {
   @include flex();
+  width: 100%;
   max-width: $max-content-width;
-  margin: 80px auto 0 auto;
+  margin-top: 80px;
 
   img {
-    width: calc(25vw - 15px);
+    width: calc(25vw - 21px);
     max-width: calc(#{$max-content-width} / 4 - 15px);
-    height: calc(25vw - 15px);
+    height: calc(25vw - 21px);
     max-height: calc(#{$max-content-width} / 4 - 15px);
     margin: 0 7.5px;
     border-radius: 2.5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   @include phone {
     flex-wrap: wrap;
-    margin: 80px 0 0 0;
 
     img {
       width: 100%;

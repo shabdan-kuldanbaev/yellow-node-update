@@ -18,6 +18,10 @@
     }
   }
 
+  h1 {
+    text-align: left !important;
+  }
+
   .form {
     @include flex(column);
     width: 100%;

@@ -105,12 +105,17 @@
     }
 
     .overlay {
-      width: calc(66.66% - 20px);
+      width: calc(66.66% - 47px);
       max-width: calc(#{$max-content-width} * 0.6666 - 20px);
     }
 
     .desc {
+      width: calc(66.66% - 47px);
       max-width: calc(#{$max-content-width} * 0.6666 - 20px);
+
+      @include phone {
+        width: 100%;
+      }
     }
   }
 
@@ -122,12 +127,17 @@
     }
 
     .overlay {
-      width: calc(33.33% - 20px);
+      width: calc(33.33% - 33px);
       max-width: calc(#{$max-content-width} * 0.3333 - 20px);
     }
 
     .desc {
+      width: calc(33.33% - 33px);
       max-width: calc(#{$max-content-width} * 0.3333 - 20px);
+
+      @include phone {
+        width: 100%;
+      }
     }
   }
 

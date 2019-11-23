@@ -8,7 +8,7 @@ const AdvantagesItems = () => (
       <div className={styles.advItem} key={`advantages/${adv.title}`}>
         <img src={adv.image} alt={adv.title} />
         <span>{adv.title}</span>
-        <p>{adv.desc}</p>
+        <p dangerouslySetInnerHTML={{ __html: adv.desc }} />
       </div>
     ))}
   </div>
