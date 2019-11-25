@@ -6,9 +6,15 @@ export default function Logo() {
     <div className={styles['logo-wrapper']}>
       <div className={styles['logo-image']}>
         <div className={styles.logo}>
-          <div className={styles['logo-border']} />
-          <div className={styles['logo-circle']} />
-          <div className={styles['logo-dot']} />
+          <div className={styles['logo-border']}>
+            <div className={styles.overlay} />
+          </div>
+          <div className={styles['logo-circle']}>
+            <div className={styles.overlay} />
+          </div>
+          <div className={styles['logo-dot']}>
+            {/* <div className={styles.overlay} /> */}
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,15 @@
 @import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
+.overflowApp {
+  height: 100%;
+  overflow: hidden;
+}
+
+.hideScroll {
+  transform: translateY(200px);
+}
+
 .headerContainer {
   position: absolute;
   top: 0;
@@ -203,7 +212,7 @@
   }
   
   .mobileMenuOpened {
-    height: 100%;
+    height: calc(100% - 20px);
 
     .burger {
       hr {

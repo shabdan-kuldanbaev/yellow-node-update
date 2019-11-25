@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, Fragment } from 'react';
+import React, { useEffect, useRef, Fragment, useState } from 'react';
 import * as THREE from 'three';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
+import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
+import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
 
 import * as styles from './styles.module.scss';
 
@@ -45,6 +45,7 @@ const s = {
 const Duck = () => {
   const containerRef = useRef(null);
   const sloganRef = useRef(null);
+  const [isObjLoaded, setLoaded] = useState(false);
 
   const animationTypes = ['appear', 'getTogether', 'pagination'];
   // 500 = 9s
@@ -132,43 +133,39 @@ const Duck = () => {
     scene = new THREE.Scene();
     camera.lookAt(scene.position);
     const loader = new OBJLoader();
-    loader.load('model/Duck_0.3.obj', (obj) => {
-      console.log(obj);
+    loader.load('https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj', (obj) => {
       mat = new THREE.ShaderMaterial({
         uniforms: {
           time: {
             type: "f",
-            value: 0
+            value: 0,
           },
           resolution: {
             type: "v2",
-            value: new THREE.Vector2(window.innerWidth, window.innerHeight)
+            value: new THREE.Vector2(window.innerWidth, window.innerHeight),
           },
           mouse: {
             type: "v3",
-            value: new THREE.Vector3(0, 0, 0)
+            value: new THREE.Vector3(0, 0, 0),
           },
           scale: {
             type: "f",
-            value: window.innerHeight / 2
+            value: window.innerHeight / 2,
           },
         },
         vertexShader: s.vs,
-        fragmentShader: s.fs
+        fragmentShader: s.fs,
       });
 
       const positions = combineBuffer(obj, 'position');
 
       createMesh(positions, scene);
 
-      setTimeout(() => {
-        document.getElementsByTagName('header')[0].classList.add(styles.animate);
-        document.getElementsByTagName('footer')[0].classList.add(styles.animate);
-      }, 500);
-
       document.addEventListener('mousemove', onDocumentMouseMove, false);
       document.addEventListener('touchmove', onDocumentMouseMove, false);
       document.addEventListener('touchstart', onDocumentMouseMove, false);
+    }, (xhr) => {
+      if (xhr.loaded / xhr.total * 100 === 100) setLoaded(true); 
     });
   
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -194,7 +191,7 @@ const Duck = () => {
     composer.setSize(window.innerWidth, window.innerHeight);
   }
 
-  const onDocumentMouseDown = (ev) => {
+  const onDocumentMouseDown = () => {
     if (options.initial.isAppear) {
       options.initial.currentAnimation = animationTypes[2];
       sloganRef.current.style.opacity = 0;
@@ -202,7 +199,7 @@ const Duck = () => {
     };
   }
 
-  const onDocumentMouseUp = (ev) => {
+  const onDocumentMouseUp = () => {
     if (options.initial.isAppear) {
       options.initial.currentAnimation = animationTypes[1];
       sloganRef.current.style.opacity = .1;
@@ -222,7 +219,7 @@ const Duck = () => {
     meshes[0].worldToLocal(mat.uniforms.mouse.value);
   }
 
-  const onWindowScroll = (e) => {
+  const onWindowScroll = () => {
     const ratio = window.pageYOffset / window.innerHeight;
     const canvas = document.querySelector('canvas');
     canvas.style.opacity = 1 - ratio;
@@ -418,44 +415,47 @@ const Duck = () => {
 
   useEffect(() => {
     init();
-    animate();
 
-    window.addEventListener('scroll', onWindowScroll, false);
+    if (isObjLoaded) {
+      animate();
 
-    if (sloganRef) {
-      const str = sloganRef.current.textContent;
-      let newStr = '';
+      window.addEventListener('scroll', onWindowScroll, false);
 
-      for (let i = 0; i < str.length; i += 1) {
-        if (str[i] === ' ') newStr += ' ';
-        else newStr += `<span class='letter'>${str[i]}</span>`;
+      if (sloganRef) {
+        const str = sloganRef.current.textContent;
+        let newStr = '';
+
+        for (let i = 0; i < str.length; i += 1) {
+          if (str[i] === ' ') newStr += ' ';
+          else newStr += `<span class='letter'>${str[i]}</span>`;
+        };
+
+        sloganRef.current.innerHTML = newStr;
       };
 
-      sloganRef.current.innerHTML = newStr;
-    };
+      window.anime.timeline({ loop: false })
+        .add({
+          targets: '.letter-container .letter',
+          opacity: [0, 1],
+          easing: "easeInOutQuad",
+          duration: 2250,
+          delay: (el, i) => 150 * (i + 1)
+        }).add({
+          targets: '.letter-container',
+          opacity: .1,
+          duration: 1000,
+          easing: "easeOutExpo",
+          delay: 0,
+        });
 
-    window.anime.timeline({ loop: false })
-      .add({
-        targets: '.letter-container .letter',
-        opacity: [0, 1],
-        easing: "easeInOutQuad",
-        duration: 2250,
-        delay: (el, i) => 150 * (i + 1)
-      }).add({
-        targets: '.letter-container',
-        opacity: .1,
-        duration: 1000,
-        easing: "easeOutExpo",
-        delay: 0,
-      });
-
-    setTimeout(() => {
-      options.initial.currentAnimation = animationTypes[1];
-      sloganRef.current.classList.add(styles.setBlur);
-      document.addEventListener('mousedown', onDocumentMouseDown, false);
-      document.addEventListener('mouseup', onDocumentMouseUp, false);
-    }, 5700);
-  }, []);
+      setTimeout(() => {
+        options.initial.currentAnimation = animationTypes[1];
+        sloganRef.current.classList.add(styles.setBlur);
+        document.addEventListener('mousedown', onDocumentMouseDown, false);
+        document.addEventListener('mouseup', onDocumentMouseUp, false);
+      }, 5700);
+    }
+  });
 
   return (
     <Fragment>

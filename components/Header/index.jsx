@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Logo from '../Logo';
@@ -9,9 +9,23 @@ import styles from './styles.module.scss';
 const Header = ({ theme }) => {
   const [isMenuOpened, setMenuState] = useState(false);
 
+  useEffect(() => {
+    const html = document.querySelector('html');
+    const scrollLabel = document.querySelector('section > section > span');
+
+    if (isMenuOpened) {
+      html.classList.add(styles.overflowApp);
+      scrollLabel.classList.add(styles.hideScroll);
+    }
+    else {
+      html.classList.remove(styles.overflowApp);
+      scrollLabel.classList.remove(styles.hideScroll);
+    }
+  });
+
   return (
     <header className={`${styles.headerContainer} ${isMenuOpened ? styles.mobileMenuOpened : styles.mobileMenuClosed}`}>
-      <Logo theme={theme} />
+      {!isMenuOpened && <Logo theme={theme} />}
       <ul className={styles.desktopMenu}>{menuList.map(item => (
         <li key={`menuItem/${item.name}`}>
           <Link href={item.href}>

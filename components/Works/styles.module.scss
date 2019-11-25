@@ -8,7 +8,7 @@
   .work {
     @include flex(row, space-between, center);
     width: calc(100% + 2 * #{$side-indent} - 20%);
-    min-height: 100vh;
+    height: 100vh;
     margin-left: calc(-1 * #{$side-indent});
     padding: 0 10%;
 
@@ -18,9 +18,10 @@
     }
 
     h1 {
+      margin-top: 0;
       margin-bottom: 40px;
-      font-family: $main-title-font;
-      font-size: 4rem;
+      font-weight: 700;
+      font-size: 6rem;
       letter-spacing: 2.25px;
       color: $white;
 
@@ -31,18 +32,22 @@
 
     p {
       margin: 0;
+      margin-top: -20px;
+      font-size: 1.5rem;
       line-height: 1.53;
       letter-spacing: 0.5px;
       color: $white;
+      opacity: .8;
       word-wrap: normal;
     }
 
     button {
       @include buttonMore();
-      margin-top: 40px;
+      margin-top: 60px;
       border: 1px solid $white;
       background-color: transparent;
       color: $white;
+      letter-spacing: 0.45px;
       font-size: 1rem;
 
       &:hover {
@@ -50,10 +55,10 @@
       }
     }
 
-    img {
+    .imgWrapper {
+      @include flex(row, center, center);
       width: 50%;
-      height: auto;
-      max-height: 80%;
+      height: 80%;
 
       @include phone {
         width: 100%;
@@ -61,32 +66,44 @@
     }
 
     &:first-child {
-      background-color: #026ed0;
+      background-color: $works-first-accent-color;
 
       button {
         &:hover {
-          color: #026ed0;
+          color: $works-first-accent-color;
         }
+      }
+
+      img {
+        width: 100%;
       }
     }
 
     &:nth-child(2) {
-      background-color: #3d2424;
+      background-color: $works-second-accent-color;
 
       button {
         &:hover {
-          color: #3d2424;
+          color: $works-second-accent-color;
         }
+      }
+
+      img {
+        height: 100%;
       }
     }
 
     &:nth-child(3) {
-      background-color: #fe232a;
+      background-color: $works-third-accent-color;
 
       button {
         &:hover {
-          color: #fe232a;
+          color: $works-third-accent-color;
         }
+      }
+
+      img {
+        width: 100%;
       }
     }
   }

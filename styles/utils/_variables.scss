@@ -7,6 +7,9 @@ $text-color: #4e4d51;
 $footer-accent-color: #b7b7b7;
 $footer-default-button-color: #373738;
 $footer-default-range-color: #5c5c5c;
+$works-first-accent-color: #026ed0;
+$works-second-accent-color: #3d2424;
+$works-third-accent-color: #fe232a;
 
 $section-indent: 150px;
 $side-indent: 20px;
@@ -21,4 +24,12 @@ $max-mobile-size: 568px;
 
 //fonts
 $default-font: "Montserrat";
-$main-title-font: 'Sonny Gothic Condensed Ultra Black', sans-serif
+$main-title-font: 'Sonny Gothic Condensed Ultra Black', sans-serif;
+
+//insta logo
+$box_h: 135px;
+$border: 12px;
+$initial-radius: 35px;
+$max-radius: 150px;
+$gradient-border: linear-gradient(45deg, #fccc63, #e95950, #bc2a8d);
+$gradient-dot: linear-gradient(45deg, #e95950, #bc2a8d);

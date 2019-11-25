@@ -1,5 +1,6 @@
 @import 'styles/utils/variables';
 @import 'styles/utils/mixins';
+@import 'utils/theme/animations';
 
 .addFooterContainer {
   position: absolute;
@@ -34,21 +35,9 @@
       color: $white;
       text-transform: uppercase;
       opacity: .5;
-      animation: swing 1.5s infinite ease;
+      animation: blinking 1.5s infinite ease;
       animation-delay: 2s;
       cursor: pointer;
     }
-  }
-}
-
-@keyframes swing {
-  0% {
-    opacity: .5;
-  }
-  50% {
-    opacity: .2;
-  }
-  100% {
-    opacity: .5;
   }
 }
