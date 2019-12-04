@@ -3,18 +3,17 @@
 @import 'utils/theme/animations';
 
 .addFooterContainer {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
   left: 0;
+  top: calc(100vh - 104px);
   z-index: 99999;
   @include flex(row, space-between, center);
   width: calc(100% - 110px);
-  padding: 20px 55px;
-  transform: translateY(0px);
-  transition: transform $default-transition-time, opacity $default-transition-time;
-  transition-delay: $default-transition-time;
-  transition-timing-function: ease;
-  opacity: 1;
+  padding: 40px 55px;
+  opacity: 0;
+  transform: translate3d(0, 100%, 0);
+  transition: transform calc(#{$default-transition-time} * 2),
+              opacity calc(#{$default-transition-time} * 2);
 
   .scrollTitle {
     display: none;
@@ -40,4 +39,23 @@
       cursor: pointer;
     }
   }
+}
+
+.animate {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.down {
+  will-change: transform;
+  transform: translate3d(0, 40px, 0);
+  opacity: 0;
+  transition: transform $default-transition-time, opacity $default-transition-time;
+}
+
+.up {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  transition: transform $default-transition-time, opacity $default-transition-time;
 }

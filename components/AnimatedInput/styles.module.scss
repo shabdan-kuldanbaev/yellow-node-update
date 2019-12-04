@@ -10,7 +10,7 @@
     user-select: none;
     cursor: text;
     transform: translateY(15px);
-    transition: transform calc(#{$default-transition-time} / 3), font-size calc(#{$default-transition-time} / 3);
+    transition: transform $accelerated-transition-time, font-size $accelerated-transition-time;
   }
   
   input {
@@ -22,6 +22,6 @@
   label {
     font-size: .6rem !important;
     transform: translateY(0);
-    transition: transform calc(#{$default-transition-time} / 3), font-size calc(#{$default-transition-time} / 3);
+    transition: transform $accelerated-transition-time, font-size $accelerated-transition-time;
   }
 }

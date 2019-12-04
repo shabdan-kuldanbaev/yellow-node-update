@@ -11,19 +11,18 @@
 }
 
 .headerContainer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
   @include flex(row, space-between, center);
   width: calc(100% - 110px);
   padding: 10px 55px;
-  background-color: rgba(0, 0, 0, .05);
-  transform: translateY(0);
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
   transition: transform $default-transition-time,
-              opacity $default-transition-time;
-  transition-timing-function: ease;
-  opacity: 1;
+              opacity $default-transition-time,
+              background-color $default-transition-time;
 
   .desktopMenu {
     li {
@@ -31,10 +30,10 @@
       display: inline-block;
       margin-left: 55px;
       cursor: pointer;
+      user-select: none;
 
       .underline {
         text-decoration: none;
-        transition: color $default-transition-time;
 
         &:before {
           content: "";
@@ -46,7 +45,7 @@
           height: 1px;
           background-color: $accent-color;
           transform: scaleX(0);
-          transition: all $default-transition-time;
+          transition: transform $default-transition-time;
         }
 
         &:hover:before {
@@ -59,31 +58,42 @@
         padding: 15px;
         margin-left: 40px;
         border: 1px solid $white;
-        transition: background-color $default-transition-time,
-                    border $default-transition-time;
+        transition: border $accelerated-transition-time;
 
         span:before {
           height: 0;
         }
 
         &:hover {
+          will-change: border;
           border: 1px solid $accent-color;
-          background-color: $accent-color;
-          transition: background-color $default-transition-time,
-                      border $default-transition-time;
+          transition: border $default-transition-time;
           
           span {
-            transition: color $default-transition-time;
-            color: $black;
+            will-change: color;
+            color: $accent-color;
+            transition: color $accelerated-transition-time;
           }
         }
       }
+    }
 
-      .dark {
-        color: $white;
+    .dark {
+      &:last-child {
+        border: 1px solid $white;
       }
 
-      .light {
+      span {
+        color: $white;
+      }
+    }
+
+    .light {
+      &:last-child {
+        border: 1px solid $black;
+      }
+
+      span {
         color: $black;
       }
     }
@@ -115,6 +125,7 @@
       @include flex(row, center, center);
       width: 100vw;
       height: 100%;
+      max-height: 100vh;
       background-color: $black;
 
       ul {
@@ -140,7 +151,7 @@
 
       .mobileMenuFooter {
         position: fixed;
-        bottom: 20px;
+        bottom: 50px;
         @include flex(row, space-around);
         width: 100%;
 
@@ -153,6 +164,38 @@
         }
       }
     }
+  }
+
+  &.additional {
+    padding: 0 55px;
+    will-change: transform;
+    background-color: $white;
+
+    path {
+      fill: $black;
+    }
+  
+    .desktopMenu {
+      li:last-child {
+        border: 1px solid $black;
+
+        &:hover {
+          border: 1px solid $accent-color;
+        }
+      }
+    
+      span {
+        color: $black;
+      }
+    }   
+  }
+
+  &.down {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  &.up {
+    transform: translate3d(0, 0, 0);
   }
 
   @include phone {
@@ -212,7 +255,7 @@
   }
   
   .mobileMenuOpened {
-    height: calc(100% - 20px);
+    height: calc(100% - 10px);
 
     .burger {
       hr {
@@ -256,4 +299,9 @@
       }
     }
   }
+}
+
+.animate {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }

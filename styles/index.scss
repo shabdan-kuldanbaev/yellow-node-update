@@ -10,10 +10,9 @@ html {
     margin: 0;
     padding: 0;
     background-color: $black;
-  }
-  
-  canvas {
-    position: absolute;
-    top: 0;
+
+    & > div > section {
+      background-color: $black;
+    }
   }
 }

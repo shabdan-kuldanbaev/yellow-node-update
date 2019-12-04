@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import Link from 'next/link';
+import cn from 'classnames';
 import Slider from 'rc-slider';
 import {
   SectionTitle,
@@ -16,6 +17,10 @@ const FeedbackForm = () => {
   const [projectBudget, setBudget] = useState(addThousandsSeparators(budget.min));
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
+  const budgetClassName = cn({
+    [`${styles.budget}`]: true,
+    [`${styles.initialBudget}`]: projectBudget.length === 1, 
+  });
 
   const handleOnClick = ({ target: { classList } }) => {
     classList.toggle(styles.selected);
@@ -69,7 +74,7 @@ const FeedbackForm = () => {
             ))}
           </div>
         </div>
-        <div className={`${styles.budget} ${ projectBudget.length === 1 && styles.initialBudget}`}>
+        <div className={budgetClassName}>
           {projectBudget.length > 1
             ? (
               <Fragment>

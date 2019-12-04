@@ -5,4 +5,5 @@
   @include flex(column, flex-start, center);
   padding: $section-indent $side-indent;
   background-color: $accent-color;
+  min-height: calc(90vh - 2 * #{$section-indent});
 }

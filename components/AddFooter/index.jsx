@@ -1,17 +1,55 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import SocialIcons from '../SocialIcons';
 import ScrollIcon from '../ScrollIcon';
 
 import styles from './styles.module.scss';
 
-const AddFooter = ({ theme }) => (
-  <section className={styles.addFooterContainer}>
-    <SocialIcons theme={theme} />
-    <ScrollIcon theme={theme} />
-    <span className={styles.scrollTitle}>scroll down</span>
-  </section>
-);
+const AddFooter = ({
+  theme,
+  setScroll,
+  isModelLoaded,
+}) => {
+  let oldY = 0;
+  const scrollLabel = useRef(null);
+  const [direction, setDirection] = useState('');
+  const footerClassName = cn({
+    [`${styles.addFooterContainer}`]: true,
+    [`${styles[direction]}`]: true,
+    [`${styles.animate}`]: isModelLoaded,
+  });
+
+  const handleOnScroll = () => {
+    const pageYOffset = window.pageYOffset;
+
+    if (pageYOffset < 200 && oldY > pageYOffset) setDirection('up');
+
+    if (pageYOffset > 100 && oldY < pageYOffset) setDirection('down');
+
+    oldY = pageYOffset;
+  };
+
+  useEffect(() => {
+    oldY = window.pageYOffset;
+    handleOnScroll();
+    setScroll(scrollLabel.current);
+
+    window.addEventListener('scroll', handleOnScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleOnScroll);
+    };
+  }, []);
+
+  return (
+    <section className={footerClassName}>
+      <SocialIcons theme={theme} />
+      <ScrollIcon theme={theme} />
+      <span ref={scrollLabel} className={styles.scrollTitle}>scroll down</span>
+    </section>
+  );
+};
 
 AddFooter.defaultProps = {
   theme: 'dark',
@@ -19,6 +57,8 @@ AddFooter.defaultProps = {
 
 AddFooter.propTypes = {
   theme: PropTypes.string,
+  setScroll: PropTypes.func.isRequired,
+  isModelLoaded: PropTypes.bool.isRequired,
 };
 
 export default AddFooter;

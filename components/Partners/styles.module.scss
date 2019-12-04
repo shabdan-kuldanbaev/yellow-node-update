@@ -3,7 +3,6 @@
 
 .partnersContainer {
   @include flex(column, center, center);
-  margin-top: 100vh;
   padding: $section-indent $side-indent;
 
   h1 {
@@ -13,10 +12,9 @@
 }
 
 .partners {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 60%;
+  @include flex(row, space-between, center);
+  width: 100%;
+  max-width: 1150px;
   margin-top: 42.5px;
 
   @include phone {

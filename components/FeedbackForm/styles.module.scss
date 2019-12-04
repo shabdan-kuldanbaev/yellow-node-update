@@ -230,7 +230,7 @@
       letter-spacing: 0.5px;
       text-align: center;
       cursor: pointer;
-      transition: background-color $default-transition-time, color $default-transition-time;
+      transition: background-color $accelerated-transition-time, color $accelerated-transition-time;
 
       &:hover {
         background-color: $accent-color;

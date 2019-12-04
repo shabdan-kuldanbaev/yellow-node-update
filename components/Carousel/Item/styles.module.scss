@@ -11,14 +11,14 @@
     text-align: center;
     color: $text-color;
 
-    &::first-letter {
-      margin-left: 25px;
-    }
-
     &::before {
       content: url('../images/quote.svg');
-      position: absolute;
+      position: relative;
       transform: translate(0, 3px) scale(.75, .75);
+    }
+
+    &::first-letter {
+      margin-left: 25px;
     }
   }
 

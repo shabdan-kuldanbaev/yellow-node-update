@@ -1,5 +1,7 @@
 @import 'styles/utils/variables';
+@import 'styles/utils/mixins';
 @import 'utils/theme/animations';
+
 
 .logo-image {
   height: $box_h;
@@ -9,7 +11,11 @@
 
 .logo {
   &-wrapper {
-    transform: rotate(-30deg);
+    transform: rotate(-30deg) scale(.6);
+
+    @include phone {
+      transform: rotate(-30deg) scale(.3);
+    }
   }
 
   & > div {
@@ -17,19 +23,17 @@
     top: 50%;
     left: 50%;
     z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(row, center, center);
     background-image: $gradient-border;
 
     &.logo-dot {
+      right: 29%;
+      top: 21%;
+      left: auto;
       width: 8px;
       height: 8px;
       border-radius: $max-radius;
       background-image: $gradient-dot;
-      right: 29%;
-      top: 21%;
-      left: auto;
     }
   }
 

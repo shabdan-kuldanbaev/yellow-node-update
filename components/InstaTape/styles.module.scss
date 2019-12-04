@@ -1,6 +1,8 @@
 @import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
+$imgIndent: 7.5px;
+
 .instaTape {
   @include flex();
   width: 100%;
@@ -8,19 +10,16 @@
   margin-top: 80px;
 
   img {
-    width: calc(25vw - 21px);
-    max-width: calc(#{$max-content-width} / 4 - 15px);
-    height: calc(25vw - 21px);
-    max-height: calc(#{$max-content-width} / 4 - 15px);
-    margin: 0 7.5px;
-    border-radius: 2.5px;
+    width: calc(#{$max-content-width} / 4 - #{$imgIndent} * 2);
+    height: calc(#{$max-content-width} / 4 - #{$imgIndent} * 2);
+    margin: 0 $imgIndent;
+    border-radius: 5px;
+  }
 
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
+  @media (max-width: calc(#{$max-content-width} + 4 * #{$aricleIndent})) {
+    img {
+      width: calc(100% / 4 - #{$imgIndent} * 2);
+      height: calc(100% / 4 - #{$imgIndent} * 2);
     }
   }
 
@@ -35,13 +34,13 @@
       margin: 0 0 15px 0;
 
       &:nth-child(2) {
-        width: calc(50% - 7.5px);
-        margin-right: 7.5px;
+        width: calc(50% - #{$imgIndent});
+        margin-right: $imgIndent;
       }
 
       &:nth-child(3) {
-        width: calc(50% - 7.5px);
-        margin-left: 7.5px;
+        width: calc(50% - #{$imgIndent});
+        margin-left: $imgIndent;
       }
 
       &:last-child {

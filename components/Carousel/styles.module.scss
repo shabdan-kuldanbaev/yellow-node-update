@@ -8,7 +8,7 @@
 }
 
 :global(.slick-list) {
-  max-width: 50%;
+  max-width: $max-content-width;
   will-change: height;
   transition: height calc(#{$default-transition-time} / 2);
 

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Header,
   AddFooter,
@@ -6,13 +7,30 @@ import {
   Duck,
 } from 'components';
 
-const Intro = () => (
-  <section>
-    <Duck />
-    <Header theme="dark" />
-    <AddFooter theme="dark" />
-    <Partners />
-  </section>
-);
+const Intro = ({ theme }) => {
+  const [scrollLabel, setScroll] = useState({});
+  const [isModelLoaded, setLoaded] = useState(false);
+
+  return (
+    <section>
+      <Duck handleOnLoaded={setLoaded} />
+      <Header
+        theme={theme}
+        scrollLabel={scrollLabel}
+        isModelLoaded={isModelLoaded}
+      />
+      <AddFooter
+        theme={theme}
+        setScroll={setScroll}
+        isModelLoaded={isModelLoaded}
+      />
+      <Partners />
+    </section>
+  );
+};
+
+Intro.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
 
 export default Intro;

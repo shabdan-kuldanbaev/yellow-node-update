@@ -2,7 +2,20 @@
 @import 'styles/utils/mixins';
 
 .insta {
+  position: relative;
+  z-index: 2;
   @include flex(column, flex-start, center);
   padding: $section-indent $side-indent;
   background-color: $white;
+
+  & > :global(.animated) {
+    position: absolute;
+    margin-left: -98px;
+    margin-top: -43px;
+
+    @include phone {
+      margin-left: -50px;
+      margin-top: -55px;
+    }
+  }
 }

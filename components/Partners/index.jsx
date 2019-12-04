@@ -6,19 +6,17 @@ import styles from './styles.module.scss';
 
 const Partners = () => (
   <div className={styles.partnersContainer}>
-    <ScrollAnimation
-      animateIn="fadeInUp"
-      animateOnce={true}
-    >
+    <ScrollAnimation animateIn="fadeInUp" animateOnce offset={300}>
       <h1>and get featured on</h1>
     </ScrollAnimation>
     <div className={styles.partners}>
       {partners.map((partner, index) => (
         <ScrollAnimation
           key={`partner/${partner.title}`}
-          delay={200 * index}
+          delay={100 * index}
           animateIn="fadeInUp"
-          animateOnce={true}
+          animateOnce
+          offset={300}
         >
           <div className={styles.partnersItem}>
             <img src={partner.image} alt={partner.title} />
