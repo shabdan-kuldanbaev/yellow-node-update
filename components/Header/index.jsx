@@ -11,6 +11,7 @@ const Header = ({
   theme,
   scrollLabel,
   isModelLoaded,
+  section,
 }) => {
   const [isMenuOpened, setMenuState] = useState(false);
   const [isAdditional, setAdditional] = useState(false);
@@ -28,10 +29,10 @@ const Header = ({
   const handleOnScroll = () => {
     const pageYOffset = window.pageYOffset;
 
-    if (pageYOffset > 300) setAdditional(true);
+    if (section.current.getBoundingClientRect().bottom < 0) setAdditional(true);
     else setAdditional(false);
 
-    if (oldY < pageYOffset && pageYOffset > 200) setDirection('down');
+    if (oldY < pageYOffset) setDirection('down');
     else setDirection('up');
 
     oldY = pageYOffset;

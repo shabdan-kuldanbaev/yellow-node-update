@@ -33,19 +33,23 @@
       user-select: none;
 
       .underline {
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
         text-decoration: none;
 
         &:before {
           content: "";
           position: absolute;
-          bottom: -2px;
+          bottom: -5px;
           left: 0;
           display: block;
           width: 100%;
-          height: 1px;
-          background-color: $accent-color;
+          height: 1.6px;
+          background-color: $white;
           transform: scaleX(0);
           transition: transform $default-transition-time;
+          transform-origin: center left;
         }
 
         &:hover:before {
@@ -57,8 +61,8 @@
         border-radius: 3px;
         padding: 15px;
         margin-left: 40px;
-        border: 1px solid $white;
-        transition: border $accelerated-transition-time;
+        border: 1.6px solid $white;
+        transition: border $accelerated-transition-time, background-color $accelerated-transition-time;
 
         span:before {
           height: 0;
@@ -66,7 +70,7 @@
 
         &:hover {
           will-change: border;
-          border: 1px solid $accent-color;
+          border: 1.6px solid $accent-color;
           transition: border $default-transition-time;
           
           span {
@@ -80,7 +84,7 @@
 
     .dark {
       &:last-child {
-        border: 1px solid $white;
+        border: 1.6px solid $white;
       }
 
       span {
@@ -90,7 +94,7 @@
 
     .light {
       &:last-child {
-        border: 1px solid $black;
+        border: 1.6px solid $black;
       }
 
       span {
@@ -167,35 +171,58 @@
   }
 
   &.additional {
+    height: 65px;
     padding: 0 55px;
     will-change: transform;
     background-color: $white;
+    border-bottom: 1px solid #ededed;
 
-    path {
-      fill: $black;
+    svg {
+      width: 100px;
+
+      path {
+        fill: $black;
+      }
     }
   
     .desktopMenu {
       li:last-child {
-        border: 1px solid $black;
+        background-color: $accent-color;
+        border: 0 none;
+        transition: background-color $accelerated-transition-time;
 
         &:hover {
-          border: 1px solid $accent-color;
+          background-color: #E9D205;
+          transition: background-color $accelerated-transition-time;
+        }
+
+        span {
+          color: $black;
+
+          &:hover {
+            color: $black;
+          }
         }
       }
     
       span {
         color: $black;
+
+        &:before {
+          background-color: $black;
+        }
       }
     }   
   }
 
   &.down {
-    transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -50%, 0);
+    opacity: 0;
   }
 
   &.up {
     transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
 
   @include phone {

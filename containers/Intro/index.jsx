@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   Header,
@@ -10,14 +10,16 @@ import {
 const Intro = ({ theme }) => {
   const [scrollLabel, setScroll] = useState({});
   const [isModelLoaded, setLoaded] = useState(false);
+  const section = useRef(null);
 
   return (
-    <section>
+    <section ref={section}>
       <Duck handleOnLoaded={setLoaded} />
       <Header
         theme={theme}
         scrollLabel={scrollLabel}
         isModelLoaded={isModelLoaded}
+        section={section}
       />
       <AddFooter
         theme={theme}
