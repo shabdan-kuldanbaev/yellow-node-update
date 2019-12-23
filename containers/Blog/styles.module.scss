@@ -1,0 +1,8 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+
+.blog {
+  @include flex(column, flex-start, center);
+  padding: $section-indent $side-indent;
+  background-color: $white;
+}

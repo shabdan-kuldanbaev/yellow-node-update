@@ -1,0 +1,70 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+
+.contactsContainer {
+  @include phone {
+    margin-top: $section-indent;
+  }
+
+  & > div {
+    display: block;
+    text-align: left;
+
+    h1 {
+      text-align: left;
+    }
+
+    @include phone {
+      text-align: center;
+
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+
+  .contacts {
+    @include flex(column);
+
+    a {
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: $footer-accent-color;
+    }
+
+    @include phone {
+      @include flex(column, flex-start, center);
+    }
+  }
+
+  .social {
+    margin-top: 50px;
+
+    span {
+      color: $footer-accent-color;
+    }
+
+    .icons {
+      margin-top: 15px;
+
+      img {
+        margin-right: 20px;
+        transform: translateY(0);
+        transition: transform .2s;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+
+      @include phone {
+        a:last-child {
+
+          img {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}

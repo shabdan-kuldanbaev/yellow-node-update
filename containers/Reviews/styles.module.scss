@@ -1,0 +1,7 @@
+@import 'styles/utils/mixins';
+
+.reviews {
+  @include flex(column, flex-start, center);
+  padding: $section-indent $side-indent;
+  background-color: #f7f8f7;
+}

@@ -1,0 +1,11 @@
+@import 'utils/theme/animations';
+
+.swing {
+  animation: swing 1.5s infinite ease;
+  animation-delay: 2s;
+  cursor: pointer;
+}
+
+.swing:hover {
+  animation-play-state: paused;
+}
