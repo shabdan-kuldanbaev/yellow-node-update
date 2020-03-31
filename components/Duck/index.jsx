@@ -1,10 +1,16 @@
-import React, { useEffect, useRef, Fragment, useState } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  Fragment,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
 import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
 import { shaders, animationTypes } from './utils/data';
+import { animated, useSpring } from 'react-spring';
 
 import * as styles from './styles.module.scss';
 
@@ -18,6 +24,15 @@ const Duck = ({ handleOnLoaded }) => {
   // 500 = 9s
   const initialAnimationTime = 500;
   let animationDelay = 0.0001;
+
+  // for Parallax
+  const calc = o => `translateY(${o * 0.13}px)`;
+  const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
+  const handleOffset = () => {
+    const posY = containerText.current.getBoundingClientRect().top;
+    const offset = window.pageYOffset - posY;
+    set({ offset });
+  };
 
   const options = {
     initial: {
@@ -202,30 +217,33 @@ const Duck = ({ handleOnLoaded }) => {
   };
 
   const onDocumentTouchMove = ev => {
-    // TO DO
+    // TODO
     // cancelAnimationFrame(animationId);
       // animationId = 0;
     // }
-  }; 
+  };
 
   const setOpacity = ratio => {
     canvas.style.opacity = (1 - 2 * ratio);
-    text.style.opacity = (1 - 4 * ratio);
+    // text.style.opacity = (1 - 4 * ratio);
   };
 
-  const setTextPosition = pageYOffset => {
-    if (pageYOffset > 0 && pageYOffset < 200) {
-      movement = pageYOffset * .5;
-      text.style.transform = `translate3d(0, ${movement}px, 0)`;
-    };
-  };
+
+  // const setTextPosition = pageYOffset => {
+  //   if (pageYOffset > 0 && pageYOffset < 200) {
+  //     movement = pageYOffset * .5;
+  //     text.style.transform = `translate3d(0, ${movement}px, 0)`;
+  //   };
+  // };
+
 
   const handleOnScroll = () => {
     const pageYOffset = window.pageYOffset;
     const ratio = pageYOffset / window.innerHeight;
     
     setOpacity(ratio);
-    setTextPosition(pageYOffset);
+    //  setTextPosition(pageYOffset); // ----------------------------------------
+    handleOffset();
 
     if (canvas.getBoundingClientRect().top < -200) {
       if (animationId !== 0) {
@@ -445,7 +463,7 @@ const Duck = ({ handleOnLoaded }) => {
       const ratio = pageYOffset / window.innerHeight;
       text = containerText.current;
 
-      setTextPosition(pageYOffset);
+      //  setTextPosition(pageYOffset); //----------------------------------------
       setOpacity(ratio);
       animateSlogan();
       animate();
@@ -487,7 +505,14 @@ const Duck = ({ handleOnLoaded }) => {
   return (
     <Fragment>
       <div className={styles.text} ref={containerText}>
-        <h1 ref={sloganRef} className="letter-container">WE CREATE FANTASTIC SOFTWARE</h1>
+        <animated.div style={{
+          position: 'absolute',
+          transform: offset.interpolate(calc),
+        }}>
+          <h1 ref={sloganRef} className="letter-container">
+            WE CREATE FANTASTIC SOFTWARE
+          </h1>
+        </animated.div>
       </div>
       <div className={styles.canvasContainer} ref={containerCanvas} />
     </Fragment>

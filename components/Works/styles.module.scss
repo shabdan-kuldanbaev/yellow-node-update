@@ -1,10 +1,13 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
 .worksContainer {
   width: calc(100% + 2 * #{$side-indent});
   min-height: 300vh;
-  margin: $section-indent 0;
+  margin: 0 0 $section-indent 0;
+
+  @include phone {
+    margin: 0 0 $mobile-section-indent 0;
+  }
  
   .work {
     position: relative;
@@ -14,32 +17,42 @@
     height: 100vh;
     margin-left: calc(-1 * #{$side-indent});
     padding: 0 10%;
-    background-color: $black;
+    background-color: #30292a;
     will-change: background-color;
-    transition: background-color $default-transition-time;
+    transition: background-color $default-transition-time ease;
+    transition-timing-function: linear;
 
     @include phone {
-      @include flex(column-reverse, initial, initial);
-      width: calc(100% - 40px);
+      @include flex(column-reverse, center, center);
+      width: calc(100% - 10%);
+      margin: auto;
       height: auto;
-      padding: 20% 10%;
+      padding: 20% 5%;
     }
 
     .desc {
-      opacity: 0;
+      opacity: 1;
       transform: translate3d(0, 100px, 0);
       transition: transform $default-transition-time, opacity $default-transition-time;
 
+      @include phone {
+        @include flex(column, center, center);
+      }
+
       h1 {
-        margin-top: 0;
+        margin-top: 40px;
         margin-bottom: 40px;
-        font-weight: 700;
+        font-weight: 800;
         font-size: 6rem;
         letter-spacing: 2.25px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.01;
         color: $white;
   
         @include phone {
-          font-size: 3rem;
+          width: 100%;
+          font-size: 2.5rem;
         }
       }
   
@@ -48,10 +61,15 @@
         margin-top: -20px;
         font-size: 1.5rem;
         line-height: 1.53;
+        font-family: Montserrat;
         letter-spacing: 0.5px;
         color: $white;
         opacity: .8;
         word-wrap: normal;
+
+        @include phone {
+          font-size: 18px;
+        }
       }
   
       button {
@@ -59,8 +77,10 @@
         margin-top: 60px;
         border: 1px solid $white;
         background-color: transparent;
+        border-radius: $buttonRadius;
         color: $white;
-        letter-spacing: 0.45px;
+        line-height: 1.55;
+        letter-spacing: 0.5px;
         font-size: 1rem;
   
         &:hover {
@@ -77,13 +97,13 @@
       width: 50%;
       height: 80%;
       @include flex(row, center, center);
-      opacity: 0;
+      opacity: 1;
       transform: scale(.9);
       transition: transform $default-transition-time, opacity $default-transition-time;
 
       .content {
         position: absolute;
-        opacity: 0;
+        opacity: 1;
         transform: scale(0.6) translate3d(-29%, -31%, 0);
         transition: opacity $default-transition-time;
       }
@@ -138,42 +158,13 @@
 }
 
 .firstIsActive {
-  // background-color: #81cbdd !important;
   background-image: linear-gradient(45deg, #026ed0 0%, #05a7ea 99%);
-  transition-delay: .8s !important;
-
-  .desc {
-    opacity: 1 !important;
-    transform: translate3d(0, 0, 0) !important;
-  }
-
-  .imgWrapper {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-    transition-delay: .4s !important;
-
-    .content {
-      opacity: 1 !important;
-      transition-delay: .8s !important;
-    }
-  }
 }
 
 .secondIsActive {
-  // background-color: $works-second-accent-color !important;
   background-image: linear-gradient(45deg, #3d2424 0%, #714a4a 99%);
-  transition-delay: .4s !important;
-
-  .desc {
-    opacity: 1 !important;
-    transform: translate3d(0, 0, 0) !important;
-  }
 
   .imgWrapper {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-    transition-delay: .2s !important;
-
     .content {
       display: none;
     }
@@ -181,20 +172,7 @@
 }
 
 .thirdIsActive {
-  // background-color: $works-third-accent-color !important;
-  background-image: linear-gradient(45deg, #fe232a 0%, #ff4954 100%);
-  transition-delay: .4s !important;
-
-  .desc {
-    opacity: 1 !important;
-    transform: translate3d(0, 0, 0) !important;
-  }
-
   .imgWrapper {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-    transition-delay: .2s !important;
-
     .content {
       display: none;
     }

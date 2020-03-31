@@ -1,4 +1,3 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
 .carouselItem {
@@ -10,6 +9,10 @@
     letter-spacing: 0.6px;
     text-align: center;
     color: $text-color;
+
+    @include phone {
+      font-size: 0.9375rem;
+    }
 
     &::before {
       content: url('../images/quote.svg');
@@ -34,6 +37,7 @@
     @include phone {
       flex-direction: column;
       flex-wrap: wrap;
+      margin-top: 50px;
     }
 
     .title {

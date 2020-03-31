@@ -1,10 +1,14 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
 .articlesGrid {
   @include flex(row, initial, initial, wrap);
   max-width: $max-content-width;
   margin: 100px auto 0 auto;
+
+  @include phone {
+    flex-direction: column;
+    margin-top: 60px;
+  }
 
   @for $i from 1 through 5 {
     & > div:nth-child(#{$i}) {
@@ -23,12 +27,22 @@
     margin: $aricleIndent;
     cursor: pointer;
 
+    @include phone {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     .imgContainer {
       height: 480px;
       border-radius: 7.5px;
       overflow: hidden;
       -webkit-mask-image: -webkit-radial-gradient(white, black);
       cursor: pointer;
+
+      @include phone {
+        height: 230px;
+      }
   
       .image {
         @include flex(column, flex-end);
@@ -37,6 +51,12 @@
         background-size: cover;
         will-change: transform;
         transition: transform $default-transition-time;
+
+        @include phone {
+          height: 100%;
+          border-radius: 7.5px;
+          justify-content: flex-start;
+        }
       }
     }
 
@@ -46,6 +66,10 @@
       height: 480px;
       border-radius: 7.5px;
       background-image: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(51, 125, 255, 0) 50%);
+
+      @include phone {
+        display: none;
+      }
     }
 
     .desc {
@@ -53,20 +77,46 @@
       z-index: 1;
       @include flex(column);
       transform: translateY(-100%);
+
+      @include phone {
+        width: 100%;
+        position: relative;
+        transform: translateY(0);
+      }
+
+      .title, .publishedDate {
+        padding: 0 25px;
+        font-weight: bold;
+        color: $white;
+      }
+  
+      .title {
+        @include phone {
+          margin-top: 15px;
+          padding: 0;
+          font-size: .825rem;
+          font-weight: bold;
+          line-height: 1.5;
+          color: $black;
+        }
+      }
+  
+      .publishedDate {
+        padding-bottom: 25px;
+        margin-top: 17px;
+        font-size: .725rem;
+  
+        @include phone {
+          padding: 0;
+          margin-top: 10px;
+          font-size: .625rem;
+          font-weight: bold;
+          line-height: 1.5;
+          color: #9a999c;
+        }
+      }
     }
     
-    .title, .publishedDate {
-      padding: 0 25px;
-      font-weight: bold;
-      color: $white;
-    }
-
-    .publishedDate {
-      padding-bottom: 25px;
-      margin-top: 17px;
-      font-size: .725rem;
-    }
-
     &:hover {
       .image {
         will-change: transform;
@@ -106,12 +156,22 @@
     margin: $aricleIndent;
     cursor: pointer;
 
+    @include phone {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     .imgContainer {
       width: 100%;
       height: 240px;
       border-radius: 7.5px;
       overflow: hidden;
       -webkit-mask-image: -webkit-radial-gradient(white, black);
+
+      @include phone {
+        height: 230px;
+      }
 
       &:hover {
         .image {
@@ -128,6 +188,10 @@
         background-size: cover;
         transition: transform $default-transition-time;
         will-change: transform;
+
+        @include phone {
+          height: 100%;
+        }
       }
     }
 
@@ -150,73 +214,18 @@
   @media (max-width: calc(#{$max-content-width} + 4 * #{$aricleIndent})) {
     .high {
       width: calc(66.66vw - 2 * #{$aricleIndent} - 2 * #{$side-indent} * .6666);
+
+      @include phone {
+        width: 100%;
+      }
     }
   
     .medium {
       width: calc(33.33vw - 2 * #{$aricleIndent} - 2 * #{$side-indent} * .3333);
-    }
-  }
 
-  @include phone {
-    flex-direction: column;
-
-    .high, .medium {
-      width: 100%;
-      height: auto;
-      margin-left: 0;
-      margin-right: 0;
-
-      .imgContainer {
-        height: 230px;
-
-        .image {
-          height: 100%;
-          border-radius: 7.5px;
-          justify-content: flex-start;
-        }
-      }
-
-      .desc {
+      @include phone {
         width: 100%;
-        position: relative;
-        transform: translateY(0);
-
-        .title {
-          margin-top: 15px;
-          padding: 0;
-          font-size: .825rem;
-          font-weight: bold;
-          line-height: 1.5;
-          color: $black;
-        }
-    
-        .publishedDate {
-          padding: 0;
-          margin-top: 10px;
-          font-size: .625rem;
-          font-weight: bold;
-          line-height: 1.5;
-          color: #9a999c;
-        }
       }
-    }
-
-    .low {
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-
-      .imgContainer {
-        height: 230px;
-
-        .image {
-          height: 100%;
-        }
-      }
-    }
-
-    .overlay {
-      display: none;
     }
   }
 }

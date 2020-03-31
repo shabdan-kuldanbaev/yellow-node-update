@@ -16,7 +16,11 @@ const Insta = () => (
     </ScrollAnimation>
     <SectionTitle title="Live" subtitle="How we live and work" />
     <InstaTape />
-    <ButtonMore href="/insta" title="Follow on Instagram" />
+    <ButtonMore
+      href="/insta"
+      title="Follow on Instagram"
+      buttonStyle={styles.instaButton}
+    />
   </section>
 );
 

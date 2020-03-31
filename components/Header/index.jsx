@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import cn from 'classnames';
 import Logo from '../Logo';
 import { menuList, socialLinks } from './utils/data';
-
+import MobileMenu from './MobileMenu';
+import Nav from './Nav';
 import styles from './styles.module.scss';
 
 const Header = ({
@@ -19,8 +19,7 @@ const Header = ({
   let oldY = 0;
   const headerClassName = cn({
     [`${styles.headerContainer}`]: true,
-    [`${styles.mobileMenuOpened}`]: isMenuOpened,
-    [`${styles.mobileMenuClosed}`]: !isMenuOpened,
+    [`${styles.mobileHeaderHeight}`]: isMenuOpened,
     [`${styles.animate}`]: isModelLoaded,
     [`${styles.additional}`]: isAdditional,
     [`${styles[direction]}`]: isModelLoaded,
@@ -63,41 +62,13 @@ const Header = ({
   return (
     <header className={headerClassName}>
       {!isMenuOpened && <Logo theme={theme} />}
-      <ul className={styles.desktopMenu}>{menuList.map(item => (
-        <li key={`menuItem/${item.name}`} className={styles[theme]}>
-          <Link href={item.href}>
-            <span className={`${styles.underline} ${styles.underlineThick}`}>{item.name}</span>
-          </Link>
-        </li>
-      ))}
-      </ul>
-      <div className={styles.mobileMenu}>
-        <ul>{menuList.map(item => (
-          <li key={`menuItem/${item.name}`}>
-            <Link href={item.href}>
-              <span>{item.name}</span>
-            </Link>
-          </li>
-        ))}
-        </ul>
-        <div className={styles.mobileMenuFooter}>
-          {socialLinks.map(link => (
-            <a
-              key={`links/${link.title}`}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {link.title}
-            </a>
-          ))}
-        </div>
-      </div>
-      <div className={styles.burger} onClick={() => setMenuState(!isMenuOpened)}>
-        <hr />
-        <hr />
-        <hr />
-      </div>
+      <Nav theme={theme} />
+      <MobileMenu
+        menuList={menuList}
+        socialLinks={socialLinks}
+        isMenuOpened={isMenuOpened}
+        setMenuState={setMenuState}
+      />
     </header>
   );
 };

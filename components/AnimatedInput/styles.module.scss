@@ -1,8 +1,8 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
 .animatedInput {
   @include flex(column);
+  margin-bottom: 20px;
 
   label {
     position: absolute;

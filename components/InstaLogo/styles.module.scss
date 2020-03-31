@@ -1,7 +1,5 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 @import 'utils/theme/animations';
-
 
 .logo-image {
   height: $box_h;
@@ -14,7 +12,7 @@
     transform: rotate(-30deg) scale(.6);
 
     @include phone {
-      transform: rotate(-30deg) scale(.3);
+      transform: rotate(-30deg) scale(.5);
     }
   }
 

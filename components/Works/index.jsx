@@ -1,26 +1,44 @@
-import React, { useState, useRef, useEffect } from 'react';
-
-// need if color change animation
-
-// import variables from 'styles/utils/_variables.scss';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import cn from 'classnames';
+import variables from 'styles/utils/_variables.scss';
 import { works } from './utils/data';
 import screenContent from './images/screenContent.png';
 
 import styles from './styles.module.scss';
 
 const Works = () => {
-  // const colors = [...Object.values(variables)];
+  useEffect(() => {
+    AOS.init({
+      duration : 5000
+    })
+  },[])
+
+  let options = {
+    parallax: true,
+    parallaxOptions: {type: 'reveal', percentage: 100, property: 'translate'},
+    scrollBar: true,
+    autoScrolling: false,
+    css3: true,
+  };
+  
+  // TODO const colors = [...Object.values(variables)];
   let animateItemsFrom = 300;
-  // const [backgroundColor, setColor] = useState(colors[0]);
+  // TODO const [backgroundColor, setColor] = useState(colors[0]);
   const refs = [useRef(null), useRef(null), useRef(null)];
 
   const handleOnScroll = () => {
-    // refs.forEach((ref, index) => {
-    //   const refY = ref.current.getBoundingClientRect().top;
-    //   if (refY < 300) {
-    //     setColor(colors[index]);
-    //   };
-    // });
+    refs.forEach((ref, index) => {
+      const refY = ref.current.getBoundingClientRect().top;
+      if (refY < 300) {
+        setColor(colors[index]);
+      };
+    });
 
     if (refs[0].current.getBoundingClientRect().top < 0) {
       refs[1].current.style.position = 'fixed';
@@ -62,33 +80,47 @@ const Works = () => {
     };
   };
 
-  useEffect(() => {
-    animateItemsFrom = refs[0].current.getBoundingClientRect().height / 2;
-    handleOnScroll();
-    window.addEventListener('scroll', handleOnScroll);
+  // TODO
+  // useEffect(() => {
+  //   animateItemsFrom = refs[0].current.getBoundingClientRect().height / 2;
+  //   handleOnScroll();
+  //   window.addEventListener('scroll', handleOnScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleOnScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleOnScroll);
+  //   };
+  // }, []);
 
   return (
     <div className={styles.worksContainer}>
       {works.map((work, index) => (
         <div
-          className={styles.work}
+          className={cn(styles.work,{
+            [`${styles.firstIsActive}`]: index === 0,
+            [`${styles.secondIsActive}`]: index === 1,
+            [`${styles.thirdIsActive}`]: index === 2,
+          })}
           key={`works/${work.name}`}
           data-index={index}
           ref={refs[index]}
         >
-          <div className={styles.desc}>
+           <div class="fp-bg"></div>
+          <div
+            data-aos="fade-up"
+            data-aos-delay="500"
+            className={styles.desc}
+          >
             <h1>{work.name}</h1>
             <p dangerouslySetInnerHTML={{ __html: work.description }} />
             <button type="button">See full case study</button>
           </div>
-          <div className={styles.imgWrapper}>
+          <div
+            data-aos='zoom-in-down'
+            data-aos-delay="1000"
+            className={styles.imgWrapper}
+          >
             <img src={work.image} alt={work.image} />
-            <img className={styles.content} src={screenContent} alt="content" />
+            {/* TODO <img className={styles.content} src={screenContent} alt="content" /> */}
           </div>
         </div>
       ))}

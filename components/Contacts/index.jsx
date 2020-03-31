@@ -1,25 +1,33 @@
 import React from 'react';
-import { SectionTitle } from 'components';
+import { SectionTitle, ButtonMore } from 'components';
 import { socialNetworks } from './utils/data';
-
+import { rocketIcon } from './images';
 import styles from './styles.module.scss';
 
 const Contacts = () => (
   <div className={styles.contactsContainer}>
-    <SectionTitle title="Contacts" />
+    <SectionTitle title="Contacts" styleTitle={styles.mobileFooterTitle} />
     <div className={styles.contacts}>
-      <a
-        href="mailto:hi@yellow.systems"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        hi@yellow.systems
-      </a>
-      <a href="tel:+14156709070">US: +1 415 670 9070</a>
-      <a href="tel:+375445840208">BY: +375 44 584 02 08</a>
+      <span>Email:</span>
+      <span>
+        <a
+          href="mailto:hi@yellow.systems"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          hi@yellow.systems
+        </a>
+      </span>
+      <span>Phone US:</span>
+      <span>
+        <a href="tel:+14156709070">+1 415 670 9070</a>
+      </span>
+      <span>Phone BY:</span>
+      <span>
+        <a href="tel:+375445840208">+375 44 584 02 08</a>
+      </span>
     </div>
     <div className={styles.social}>
-      <span>Follow</span>
       <div className={styles.icons}>
         {socialNetworks.map(network => (
           <a
@@ -32,6 +40,19 @@ const Contacts = () => (
           </a>
         ))}
       </div>
+    </div>
+    <div className={styles.estimationButton}>
+      <ButtonMore
+        href="/"
+        title="Get an estimation"
+        buttonStyle={styles.button}
+      />
+    </div>
+    <div className={styles.text}>
+      <span>© Copyright 2020 Yellow.</span><span> All Rights Reserved. Privacy Policy</span>
+    </div>
+    <div className={styles.rocket}>
+      <img src={rocketIcon} alt=""/>
     </div>
   </div>
 );

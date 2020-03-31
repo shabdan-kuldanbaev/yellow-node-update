@@ -1,18 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import cn from 'classnames';
 
-import styles from './styles.module.scss';
-
-const ButtonMore = ({ href, title }) => (
+const ButtonMore = ({
+  href,
+  title,
+  buttonStyle,
+}) => (
   <Link href={href}>
-    <span className={styles.button}>{title}</span>
+    <div className={cn({[buttonStyle]: buttonStyle})}>
+      {title}
+    </div>
   </Link>
 );
+
+ButtonMore.defaultProps = {
+  buttonStyle: null,
+};
 
 ButtonMore.propTypes = {
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  buttonStyle: PropTypes.string.isRequired,
 };
 
 export default ButtonMore;

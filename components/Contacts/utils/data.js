@@ -1,10 +1,8 @@
 import {
   instaIcon,
-  facebookIcon,
   linkedinIcon,
   mediumIcon,
   dribbbleIcon,
-  behanceIcon,
  } from '../images';
 
 export const socialNetworks = [
@@ -12,16 +10,6 @@ export const socialNetworks = [
     title: 'instagram',
     href: 'https://www.instagram.com/yellow.systems',
     image: instaIcon,
-  },
-  {
-    title: 'behance',
-    href: '',
-    image: behanceIcon,
-  },
-  {
-    title: 'dribbble',
-    href: '',
-    image: dribbbleIcon,
   },
   {
     title: 'medium',
@@ -34,8 +22,8 @@ export const socialNetworks = [
     image: linkedinIcon,
   },
   {
-    title: 'facebook',
-    href: 'https://www.facebook.com/yellow.systems',
-    image: facebookIcon,
+    title: 'dribbble',
+    href: '',
+    image: dribbbleIcon,
   },
 ];

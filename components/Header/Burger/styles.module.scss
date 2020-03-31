@@ -1,0 +1,70 @@
+@import 'styles/utils/mixins';
+
+.burger {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px 20px;
+  cursor: pointer;
+
+  @include phone {
+    display: block;
+  }
+
+  hr {
+    width: 20px;
+    height: 2px;
+    margin: 5px 0;
+    border: 0 none;
+    border-radius: 5px;
+  }
+}
+
+.burgerOpened {
+  hr {
+    background-color: $white;
+
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(3px, 3px);
+      transition: transform $default-transition-time,
+                  background-color $default-transition-time;
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+      transition: opacity $default-transition-time,
+                  background-color $default-transition-time;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+      transition: transform $default-transition-time,
+                  background-color $default-transition-time;
+    }
+  }
+}
+
+.burgerClosed {
+  hr {
+    background-color: $white;
+
+    &:nth-child(1) {
+      transform: rotate(0) translate(0, 0);
+      transition: transform $default-transition-time,
+                  background-color $default-transition-time;
+    }
+
+    &:nth-child(2) {
+      opacity: 1;
+      transition: opacity $default-transition-time,
+                  background-color $default-transition-time;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(0) translate(0, 0);
+      transition: transform $default-transition-time,
+                  background-color $default-transition-time;
+    }
+  }
+}

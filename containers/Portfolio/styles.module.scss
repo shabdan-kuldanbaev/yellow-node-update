@@ -1,8 +1,25 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
 .portfolio {
   @include flex(column, flex-start, center);
-  padding: $section-indent $side-indent;
-  background-color: $white;
+  padding: 0 $side-indent $section-indent $side-indent;
+  background-color: #30292a;
+
+  @include phone {
+    padding: 0 $side-indent $mobile-section-indent;
+  }
+
+  .title {
+    color: $white;
+  }
+
+  .subtitle {
+    @include flex(column, center, center);
+    color: $white;
+  }
+
+  .portfolioButton {
+    @include buttonMore($accent-color, $works-third-accent-color, $accent-color, $accent-color);
+    margin-top: $mobile-more-button-indent;
+  }
 }
