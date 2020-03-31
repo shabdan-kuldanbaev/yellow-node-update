@@ -43,15 +43,25 @@
         margin-top: 0; 
       }
 
-      a {
+      a:nth-of-type(1) {
         font-size: 1rem;
         text-decoration: none;
         color: $footer-accent-color;
         font-weight: 500;
         position: relative;
         transition: color $accelerated-transition-time;
+        
+        &:hover {
+          color: $accent-color;
+          
+          &:before {
+            border: solid 0.5px $accent-color;
+          }
+        }
       }
-  
+    }
+
+    span:nth-of-type(2) {
       a:before {
         position: absolute;
         display: block;
@@ -60,14 +70,6 @@
         bottom: -4px;
         width: 100%;
         left: 0%;
-      }
-      
-      a:hover {
-        color: $accent-color;
-        
-        &:before {
-          border: solid 0.5px $accent-color;
-        }
       }
     }
 

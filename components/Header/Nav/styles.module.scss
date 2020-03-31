@@ -87,3 +87,38 @@
     }
   }
 }
+
+.additionalNav {
+  .dark {
+    span {
+      color: $black;
+    }
+  }
+
+  li:last-child {
+    background-color: $accent-color;
+    border: 0 none;
+    transition: background-color $accelerated-transition-time;
+
+    &:hover {
+      background-color: #E9D205;
+      transition: background-color $accelerated-transition-time;
+    }
+
+    span {
+      color: $black;
+
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+
+  span {
+    color: $black;
+
+    &:before {
+      background-color: $black;
+    }
+  }
+}

@@ -1,4 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, {
+  useRef,
+  useState,
+  useEffect,
+} from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import cn from 'classnames';
 import PropTypes from 'prop-types';

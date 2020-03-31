@@ -83,3 +83,15 @@
     }
   }
 }
+
+.additionalMobileMenu {
+  @include phone {
+    ul {
+      li {
+        span:not(:last-child) {
+          color: $white;
+        }
+      }
+    }
+  }
+}

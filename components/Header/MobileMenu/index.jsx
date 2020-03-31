@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import styles from './styles.module.scss';
 import cn from 'classnames';
 import Link from 'next/link';
@@ -9,12 +9,22 @@ const MobileMenu = ({
   socialLinks,
   isMenuOpened,
   setMenuState,
+  isAdditional,
 }) => {
   const mobileMenuClassName = cn({
     [`${styles.mobileMenu}`]: true,
     [`${styles.mobileMenuOpened}`]: isMenuOpened,
     [`${styles.mobileMenuClosed}`]: !isMenuOpened,
+    [`${styles.additionalMobileMenu}`]: isAdditional,
   });
+
+  const setOverflowForBody = (value) => {
+    document.body.style.overflow = value;
+  };
+
+  useEffect(() => {
+    isMenuOpened ? setOverflowForBody('hidden') : setOverflowForBody('scroll');
+  }, [isMenuOpened]);
 
   return (
     <Fragment>
@@ -40,7 +50,11 @@ const MobileMenu = ({
           ))}
         </div>
       </div>
-      <Burger isMenuOpened={isMenuOpened} setMenuState={setMenuState} />
+      <Burger
+        isMenuOpened={isMenuOpened}
+        setMenuState={setMenuState}
+        isAdditional={isAdditional}
+      />
     </Fragment>
   );
 }

@@ -34,7 +34,7 @@
     font-style: normal;
     line-height: 1.47;
     letter-spacing: normal;
-    color: #0e0e0f;
+    color: $feedback-submit-color;
   }
 }
 
@@ -49,36 +49,17 @@
   border-radius: $buttonRadius;
   text-align: center;
   cursor: pointer;
-  transition: border $accelerated-transition-time, background-color $accelerated-transition-time;
+  transition: border $accelerated-transition-time, background-color $accelerated-transition-time, color $default-transition-time;
   overflow: hidden;
   color: $textColor;
   border: solid 1px $borderColor;
 
-  &:before {
-    position: absolute;
-    display: block;
-    content: "";
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    overflow: hidden;
-    background-color: $backHoverColor;
-    transform: scaleY(0);
-    transform-origin: center top;
-    transition: transform $accelerated-transition-time ease-in;
-    z-index: -1;
-  }
-
   &:hover {
     will-change: border;
+    background-color: $backHoverColor;
+    border: solid 1px $backHoverColor;
     color: $textHoverColor;
-    transition: border $accelerated-transition-time, background-color $default-transition-time, color $default-transition-time;
-  }
-
-  &:hover:before {
-    transform: scaleY(1);
-    transform-origin: center bottom;
+    transition: border $accelerated-transition-time, background-color $accelerated-transition-time, color $default-transition-time;
   }
 }
 

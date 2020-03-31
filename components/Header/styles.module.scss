@@ -21,51 +21,22 @@
   transform: translate3d(0, -100%, 0);
   transition: transform $default-transition-time,
               opacity $default-transition-time,
-              background-color $default-transition-time;
+              background-color $default-transition-time,
+              margin $default-transition-time * 6;
 
   &.additional {
-    height: 65px;
-    padding: 0 55px;
     will-change: transform;
-    background: linear-gradient(45deg, rgba(238, 207, 186, 0.541), rgba(197, 221, 232, 0.562));
+    background-color: $white;
 
     svg {
-      width: 100px;
-
       path {
         fill: $black;
       }
     }
-  
-    // desktopMenu
+
     ul {
-      li:last-child {
-        background-color: $accent-color;
-        border: 0 none;
-        transition: background-color $accelerated-transition-time;
-
-        &:hover {
-          background-color: #E9D205;
-          transition: background-color $accelerated-transition-time;
-        }
-
-        span {
-          color: $black;
-
-          &:hover {
-            color: $black;
-          }
-        }
-      }
-    
-      span {
-        color: $black;
-
-        &:before {
-          background-color: $black;
-        }
-      }
-    }   
+      margin: 0;
+    }
   }
 
   &.down {
