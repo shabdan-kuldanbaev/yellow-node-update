@@ -4,4 +4,8 @@
   @include flex(column, flex-start, center);
   padding: $section-indent $side-indent;
   background-color: #f7f8f7;
+
+  @include phone {
+    padding: $mobile-section-indent $side-indent;
+  }
 }

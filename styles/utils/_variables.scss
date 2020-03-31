@@ -4,22 +4,39 @@ $hover-accent-color: #FFD603;
 $black: #000;
 $white: #fff;
 $text-color: #4e4d51;
-$footer-accent-color: #b7b7b7;
+$footer-accent-color: #b8b8b8;
 $footer-default-button-color: #373738;
 $footer-default-range-color: #5c5c5c;
 $works-first-accent-color: #026ed0;
 $works-second-accent-color: #3d2424;
-$works-third-accent-color: #fe232a;
+$works-third-accent-color: #30292a;
+$form-label-text-color: #9a9996;
+$upload-text-color: #555555;
+$upload-hr-color: #d1d3d3;
+$upload-file-background-color: #efeff0;
+$feedback-submit-color: #0e0e0f;
+$grid-articles-published-date-color: #9a999c;
 
-$section-indent: 150px;
+$section-indent: 100px;
+$mobile-section-indent: 80px;
 $side-indent: 20px;
 $more-button-indent: calc(#{$section-indent} / 2);
+$mobile-more-button-indent: calc(#{$mobile-section-indent} / 2);
 $default-transition-time: .5s;
 $accelerated-transition-time: calc(#{$default-transition-time} / 2);
 $max-content-width: 1300px;
 $aricleIndent: 10px;
 
+//radius
+$buttonRadius: 60px;
+
 //sizes
+$ultra-hd: 3840px;
+$quad-hd: 2560px;
+$full-hd: 1920px;
+$macbook-thirteen: 1440px;
+$desktop: 1366px;
+$macbook-twelve: 1280px;
 $max-tablet-size: 1024px;
 $default-tablet-size: 768px;
 $max-mobile-size: 568px;

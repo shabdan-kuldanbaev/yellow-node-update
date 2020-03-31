@@ -8,17 +8,17 @@ import {
 export const advantages = [
   {
     title: 'Mobile',
-    desc: 'Killer features all over the place',
+    desc: '<span>Killer features all over the place</span>',
     image: mobile,
   },
   {
     title: 'Cloud',
-    desc: 'Sky is the limit',
+    desc: '<span>Sky is the limit</span>',
     image: cloud,
   },
   {
     title: 'AI',
-    desc: 'Making machines smart again',
+    desc: '<span>Making machines smart again</span>',
     image: AI,
   },
   {

@@ -8,12 +8,13 @@
   },
   "parser": "babel-eslint",
   "extends": "airbnb",
-  "root": true,
   "rules": {
     "indent": [
       "error",
       2
     ],
+    "no-unused-expressions": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "max-len": [

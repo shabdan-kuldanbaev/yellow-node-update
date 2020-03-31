@@ -22,8 +22,12 @@ const AnimatedInput = ({
     setActive(true);
   };
 
+  const handleOnOutsideClick = () => {
+    value === '' && setActive(false)
+  }
+
   return (
-    <OutsideClickHandler onOutsideClick={() => setActive(false)}>
+    <OutsideClickHandler onOutsideClick={handleOnOutsideClick}>
       <div className={animatedInput} onClick={handleOnClick}>
         <label htmlFor={value}>{placeholder}</label>
         <input

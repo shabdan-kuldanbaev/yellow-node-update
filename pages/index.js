@@ -9,6 +9,7 @@ import {
   Insta,
   Footer,
 } from 'containers';
+import { FeedbackForm } from 'components';
 
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
@@ -29,7 +30,8 @@ const App = () => {
       <Reviews />
       <Blog />
       <Insta />
-      <Footer />
+      <FeedbackForm />
+      <Footer theme={theme} />
     </Fragment>
   );
 };

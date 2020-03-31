@@ -1,4 +1,3 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
 .advantages {
@@ -6,4 +5,12 @@
   padding: $section-indent $side-indent;
   background-color: $accent-color;
   min-height: calc(90vh - 2 * #{$section-indent});
+
+  @include phone {
+    padding: $mobile-section-indent $side-indent;
+  }
+
+  .subtitle {
+    @include flex(column, center, center);
+  }
 }

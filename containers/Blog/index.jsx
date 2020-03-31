@@ -11,7 +11,11 @@ const Blog = () => (
   <section className={styles.blog}>
     <SectionTitle title="Blog" subtitle="How we do what we do" />
     <GridArticles />
-    <ButtonMore href="/blog" title="Read more stories" />
+    <ButtonMore
+      href="/blog"
+      title="Read more stories"
+      buttonStyle={styles.blogButton}
+    />
   </section>
 );
 

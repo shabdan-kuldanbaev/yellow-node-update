@@ -29,7 +29,7 @@ const Upload = () => {
         <AnimatedInput
           value={projectDescription}
           handleOnChange={handleOnDescChange}
-          placeholder="About your project"
+          placeholder="Project details (optional)"
         />
         <label htmlFor="files">
           <img src={attachIcon} alt="attach" />

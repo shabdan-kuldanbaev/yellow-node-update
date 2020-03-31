@@ -1,20 +1,49 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
 .formContainer {
-  @include flex(column);
+  position: relative;
+  z-index: 2;
+  @include flex(column, flex-start, center);
+  padding: $section-indent $side-indent;
+  background-color: $white;
 
-  & > p {
+  @include phone {
+    padding: $mobile-section-indent - 20px $side-indent;
+  }
+
+  .subtitle{
     margin: 0;
     font-size: .9rem;
-    color: $footer-accent-color;
-    line-height: 1.94;
-    letter-spacing: 0.4px;
+    line-height: 1.55;
+    letter-spacing: 0.5px;
 
     a {
+      position: relative;
+      color: $black;
       margin-left: 5px;
+      text-decoration: none;
+      font-size: .9rem;
+      line-height: 1.55;
+      letter-spacing: 0.5px;
+      transition: color $accelerated-transition-time, border $accelerated-transition-time;
+    }
+
+    a:before {
+      position: absolute;
+      display: block;
+      content: "";
+      border: solid 0.5px $feedback-submit-color;
+      bottom: -4px;
+      width: 100%;
+      left: 0%;
+    }
+    
+    a:hover {
       color: $accent-color;
-      text-decoration: underline;
+
+      &:before {
+        border: solid 0.5px $accent-color;
+      }
     }
   }
 
@@ -23,223 +52,56 @@
   }
 
   .form {
-    @include flex(column);
+    @include flex(column, initial, center);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     color: $footer-accent-color;
   
     span, label, input {
-      font-size: .75rem;
+      font-size: 0.75rem;
       line-height: 1.94;
       letter-spacing: 0.4px;
+      color: $form-label-text-color;
+    }
+
+    label {
+      font-weight: 600;
     }
   
     input {
       padding: 15px 0 5px 0;
       border: 0 none;
-      border-bottom: solid 0.5px #979797;
+      border-bottom: solid 0.5px $upload-hr-color;
       background-color: transparent;
-      color: $footer-accent-color;
+      color: $upload-text-color;
       outline: none;
     }
-  
+    
     .inputs {
-      @include flex(row, space-between);
+      @include flex(column);
       margin-top: 50px;
+      
+      &:nth-child(1) {
+        width: 100%;
+      } 
 
       & > div {
-        width: 45%;
-      }
-    }
-  
-    .services {
-      @include flex(column);
-      margin-top: 40px;
-  
-      .serviceOptions {
-        margin-top: 5px;
-  
-        button {
-          padding: 2px 12px;
-          margin-right: 8px;
-          font-size: .75rem;
-          line-height: 2.21;
-          letter-spacing: 0.35px;
-          text-align: center;
-          border: 0 none;
-          border-radius: 2.5px;
-          outline: none;
-          color: #d7d7d7;
-          background-color: $footer-default-button-color;
-          transition: background-color $default-transition-time, color $default-transition-time;
-          cursor: pointer;
-
-          @include phone {
-            margin-bottom: 8px;
-          }
-        }
-  
-        .selected {
-          border: 0 none;
-          background-color: $accent-color;
-          color: $black;
-  
-          &:hover {
-            background-color: $accent-color;
-          }
-        }
-      }
-    }
-  
-    .budget {
-      margin-top: 40px;
-  
-      .price {
-        color: $accent-color;
-      }
-  
-      :global(.rc-slider) {
-        margin-top: 20px;
-      }
-  
-      :global(.rc-slider-rail) {
-        background-color: $footer-default-range-color;
-      }
-  
-      :global(.rc-slider-track) {
-        background-color: $accent-color;
-      }
-  
-      :global(.rc-slider-dot) {
-        border: 2px solid $footer-default-range-color;
-        background-color: $footer-default-range-color;
-      }
-  
-      :global(.rc-slider-handle) {
-        border: solid 3px $accent-color;
-        background-color: $black;
-  
-        &:active, &:focus {
-          box-shadow: none;
-        }
-      }
-  
-      :global(.rc-slider-dot-active) {
-        border: 2px solid $accent-color;
-        background-color: $accent-color;
-      }
-    }
-
-    .initialBudget {
-      :global(.rc-slider-handle) {
-        border: solid 3px $footer-default-range-color;
-        background-color: $black;
-      }
-    }
-
-    .checkboxContainer {
-      @include flex(row, flex-start, center);
-      margin-top: 50px;
-
-      .checkbox {
-        @include flex(row, flex-start, center);
-        position: relative;
-        padding-left: 25px;
-        cursor: pointer;
-        user-select: none;
-
-        span {
-          font-size: .7rem;
-        }
-
-        .link {
-          margin-left: 5px;
-          text-decoration: underline;
-        }
-  
-        &:hover input ~ .checkmark {
-          background-color: transparent;
-        }
-  
-        input {
-          position: absolute;
-          height: 0;
-          width: 0;
-          opacity: 0;
-          cursor: pointer;
-  
-          &:checked ~ .checkmark {
-            background-color: transparent;
-  
-            &:after {
-              display: block;
-            }
-          }
-        }
-  
-        .checkmark {
-          position: absolute;
-          top: 2px;
-          left: 0;
-          height: 12.5px;
-          width: 12.5px;
-          border: 1px solid $footer-accent-color;
-          border-radius: 2.5px;
-          background-color: transparent;
-  
-          &:after {
-            display: none;
-            content: "";
-            position: absolute;
-            left: 4px;
-            top: 1px;
-            width: 3px;
-            height: 6px;
-            border: solid $footer-accent-color;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-          }
-        }
-
-        &:last-child {
-          margin-left: 40px;
-        }
-      }
-
-      @include phone {
-        flex-direction: column;
-
-        label:last-child {
-          margin-top: 20px;
-          margin-left: 0 !important;
-        }
+        width: 100%;
       }
     }
 
     .submit {
-      align-self: flex-start;
-      margin-top: 70px;
-      padding: 10px 50px;
-      border-radius: 5px;
-      border: solid 1px $accent-color;
-      background-color: transparent;
-      color: $accent-color;
-      font-size: 1rem;
-      font-weight: 300;
+      @include buttonMore($black, $black, $accent-color, $accent-color);
+      background-color: $accent-color;
+      color: $feedback-submit-color;
       line-height: 1.55;
       letter-spacing: 0.5px;
       text-align: center;
-      cursor: pointer;
-      transition: background-color $accelerated-transition-time, color $accelerated-transition-time;
-
-      &:hover {
-        background-color: $accent-color;
-        color: $black;
-        transition: background-color $default-transition-time, color $default-transition-time;
-      }
+      font-size: 1rem;
 
       @include phone {
-        margin: 70px auto 0 auto;
+        width: 90%;
+        margin: $mobile-more-button-indent auto 0;
       }
     }
   }

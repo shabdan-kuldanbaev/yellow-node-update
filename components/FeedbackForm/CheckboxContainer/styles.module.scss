@@ -1,0 +1,94 @@
+@import 'styles/utils/mixins';
+
+.checkboxContainer {
+  @include flex(row, flex-start, center);
+  margin-top: 10px;
+  width: 100%;
+
+  @include phone {
+    @include flex(column);
+
+    label:last-child {
+      margin-top: 20px;
+      margin-left: 0 !important;
+    }
+  }
+
+  .checkbox {
+    @include flex(row, flex-start, center);
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    user-select: none;
+
+    span {
+      font-size: .7rem;
+      font-weight: normal;
+      color: $upload-text-color;
+    }
+
+    .link {
+      margin-left: 5px;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .link:before {
+      position: absolute;
+      display: block;
+      content: "";
+      border: solid 0.5px $upload-text-color;
+      bottom: 1px;
+      width: 100%;
+      left: 0%;
+    }
+
+    &:hover input ~ .checkmark {
+      background-color: transparent;
+    }
+
+    input {
+      position: absolute;
+      height: 0;
+      width: 0;
+      opacity: 0;
+      cursor: pointer;
+
+      &:checked ~ .checkmark {
+        background-color: transparent;
+
+        &:after {
+          display: block;
+        }
+      }
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      height: 12.5px;
+      width: 12.5px;
+      border: 1px solid $upload-text-color;
+      border-radius: 2.5px;
+      background-color: transparent;
+
+      &:after {
+        display: none;
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 1px;
+        width: 3px;
+        height: 6px;
+        border: solid $upload-text-color;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+
+    &:last-child {
+      margin-left: 40px;
+    }
+  }
+}
