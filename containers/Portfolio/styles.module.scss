@@ -3,7 +3,7 @@
 .portfolio {
   @include flex(column, flex-start, center);
   padding: 0 $side-indent $section-indent $side-indent;
-  background-color: #30292a;
+  background-color: $works-third-accent-color;
 
   @include phone {
     padding: 0 $side-indent $mobile-section-indent;

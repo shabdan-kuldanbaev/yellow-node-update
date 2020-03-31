@@ -3,30 +3,14 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import cn from 'classnames';
 import variables from 'styles/utils/_variables.scss';
 import { works } from './utils/data';
 import screenContent from './images/screenContent.png';
-
+import ScrollAnimation from 'react-animate-on-scroll';
 import styles from './styles.module.scss';
 
 const Works = () => {
-  useEffect(() => {
-    AOS.init({
-      duration : 5000
-    })
-  },[])
-
-  let options = {
-    parallax: true,
-    parallaxOptions: {type: 'reveal', percentage: 100, property: 'translate'},
-    scrollBar: true,
-    autoScrolling: false,
-    css3: true,
-  };
-  
   // TODO const colors = [...Object.values(variables)];
   let animateItemsFrom = 300;
   // TODO const [backgroundColor, setColor] = useState(colors[0]);
@@ -95,7 +79,7 @@ const Works = () => {
     <div className={styles.worksContainer}>
       {works.map((work, index) => (
         <div
-          className={cn(styles.work,{
+          className={cn(styles.work, {
             [`${styles.firstIsActive}`]: index === 0,
             [`${styles.secondIsActive}`]: index === 1,
             [`${styles.thirdIsActive}`]: index === 2,
@@ -104,23 +88,28 @@ const Works = () => {
           data-index={index}
           ref={refs[index]}
         >
-           <div class="fp-bg"></div>
-          <div
-            data-aos="fade-up"
-            data-aos-delay="500"
-            className={styles.desc}
-          >
-            <h1>{work.name}</h1>
-            <p dangerouslySetInnerHTML={{ __html: work.description }} />
-            <button type="button">See full case study</button>
+          <div className={styles.desc}>
+              <ScrollAnimation
+                delay={300}
+                animateIn="fadeInUp"
+                animateOnce
+                offset={10}
+              >
+                    <h1>{work.name}</h1>
+                    <p dangerouslySetInnerHTML={{ __html: work.description }} />
+                    <button type="button">See full case study</button>
+            </ScrollAnimation>
           </div>
-          <div
-            data-aos='zoom-in-down'
-            data-aos-delay="1000"
-            className={styles.imgWrapper}
-          >
-            <img src={work.image} alt={work.image} />
-            {/* TODO <img className={styles.content} src={screenContent} alt="content" /> */}
+          <div className={styles.imgWrapper}>
+            <ScrollAnimation
+                delay={700}
+                animateIn="zoomIn"
+                animateOnce
+                offset={10}
+              >
+                <img src={work.image} alt={work.image} />
+                {/* TODO <img className={styles.content} src={screenContent} alt="content" /> */}
+            </ScrollAnimation>
           </div>
         </div>
       ))}
