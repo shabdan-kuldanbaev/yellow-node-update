@@ -9,12 +9,12 @@ import {
 
 const Intro = ({ theme }) => {
   const [scrollLabel, setScroll] = useState({});
-  const [isModelLoaded, setLoaded] = useState(true);
+  const [isModelLoaded, setLoaded] = useState(false);
   const section = useRef(null);
 
   return (
     <section ref={section}>
-      {/* <Duck handleOnLoaded={setLoaded} /> */}
+      <Duck handleOnLoaded={setLoaded} />
       <Header
         theme={theme}
         scrollLabel={scrollLabel}
