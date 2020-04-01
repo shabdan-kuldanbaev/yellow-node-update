@@ -22,7 +22,7 @@ ButtonMore.defaultProps = {
 ButtonMore.propTypes = {
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  buttonStyle: PropTypes.string.isRequired,
+  buttonStyle: PropTypes.string,
 };
 
 export default ButtonMore;

@@ -10,3 +10,5 @@ export const themes = {
 };
 
 export const addThousandsSeparators = (value) => value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+export const toInt = str => parseInt(str, 10);

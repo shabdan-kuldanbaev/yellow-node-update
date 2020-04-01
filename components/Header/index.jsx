@@ -6,6 +6,8 @@ import { menuList, socialLinks } from './utils/data';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
+import { toInt } from 'utils/helper';
+import { phoneResolution } from 'styles/utils/_variables.scss';
 
 const Header = ({
   theme,
@@ -32,7 +34,7 @@ const Header = ({
     if (section.current.getBoundingClientRect().bottom < 0) setAdditional(true);
     else setAdditional(false);
 
-    if (innerWidth < 568) {
+    if (innerWidth < toInt(phoneResolution)) {
       if (oldY < pageYOffset) setDirection('down');
       else setDirection('up');
     }
@@ -85,6 +87,7 @@ Header.propTypes = {
   theme: PropTypes.string,
   scrollLabel: PropTypes.instanceOf(Object).isRequired,
   isModelLoaded: PropTypes.bool.isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Header;

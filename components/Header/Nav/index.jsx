@@ -22,6 +22,7 @@ Nav.defaultProps = {
 
 Nav.propTypes = {
   theme: PropTypes.string,
+  isAdditional: PropTypes.bool.isRequired,
 };
 
 export default Nav;

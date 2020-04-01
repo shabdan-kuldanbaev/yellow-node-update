@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 
 const Burger = ({
   isMenuOpened,
@@ -22,5 +23,11 @@ const Burger = ({
     </div>
   );
 }
+
+Burger.propTypes = {
+  isMenuOpened: PropTypes.bool.isRequired,
+  setMenuState: PropTypes.func.isRequired,
+  isAdditional: PropTypes.bool.isRequired,
+};
 
 export default Burger;

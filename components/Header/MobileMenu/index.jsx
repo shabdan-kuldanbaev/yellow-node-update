@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import cn from 'classnames';
 import Link from 'next/link';
 import Burger from '../Burger';
+import PropTypes from 'prop-types';
 
 const MobileMenu = ({
   menuList,
@@ -58,5 +59,13 @@ const MobileMenu = ({
     </Fragment>
   );
 }
+
+MobileMenu.propTypes = {
+  menuList: PropTypes.instanceOf(Array).isRequired,
+  socialLinks: PropTypes.instanceOf(Array).isRequired,
+  isMenuOpened: PropTypes.bool.isRequired,
+  setMenuState: PropTypes.func.isRequired,
+  isAdditional: PropTypes.bool.isRequired,
+};
 
 export default MobileMenu;

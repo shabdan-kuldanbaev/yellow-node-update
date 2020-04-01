@@ -47,7 +47,9 @@ SectionTitle.defaultProps = {
 
 SectionTitle.propTypes = {
   title: PropTypes.string.isRequired,
+  styleTitle: PropTypes.string,
   subtitle: PropTypes.string,
+  styleSubtitle: PropTypes.string,
   isFeedbackForm: PropTypes.bool,
 };
 

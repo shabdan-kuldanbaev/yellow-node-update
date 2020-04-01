@@ -1,6 +1,8 @@
 @import 'styles/utils/mixins';
 
 .desktopMenu {
+  transition: margin $default-transition-time;
+
   @include phone {
     display: none;
   }
@@ -94,21 +96,34 @@
     }
   }
 
-  li:last-child {
-    background-color: $accent-color;
-    border: 0 none;
-    transition: background-color $accelerated-transition-time;
-
-    &:hover {
-      background-color: #E9D205;
-      transition: background-color $accelerated-transition-time;
+  li:not(:last-child) {
+    .underline {
+      &:before {
+        background-color: $black;
+      }
     }
+  }
+
+  li:last-child {
+    background-color: transparent;
+    color: $accent-color;
+    border: 1.6px solid $accent-color !important;
+    transition: background-color $accelerated-transition-time, color $accelerated-transition-time, border $accelerated-transition-time;
 
     span {
-      color: $black;
+      color: $accent-color;
+    }
 
-      &:hover {
-        color: $black;
+    &:hover {
+      background-color: $accent-color;
+      color: $white;
+      border: 1.6px solid $accent-color;
+      transition: background-color $accelerated-transition-time, color $accelerated-transition-time, border $accelerated-transition-time;
+
+      span {
+        will-change: color;
+        color: $white;
+        transition: color $accelerated-transition-time;
       }
     }
   }
