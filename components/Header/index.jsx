@@ -6,6 +6,8 @@ import { menuList, socialLinks } from './utils/data';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
+import { toInt } from 'utils/helper';
+import { phoneResolution } from 'styles/utils/_variables.scss';
 
 const Header = ({
   theme,
@@ -15,7 +17,7 @@ const Header = ({
 }) => {
   const [isMenuOpened, setMenuState] = useState(false);
   const [isAdditional, setAdditional] = useState(false);
-  const [direction, setDirection] = useState('down');
+  const [direction, setDirection] = useState('up');
   let oldY = 0;
   const headerClassName = cn({
     [`${styles.headerContainer}`]: true,
@@ -27,12 +29,15 @@ const Header = ({
 
   const handleOnScroll = () => {
     const pageYOffset = window.pageYOffset;
+    const innerWidth = window.innerWidth;
 
     if (section.current.getBoundingClientRect().bottom < 0) setAdditional(true);
     else setAdditional(false);
 
-    if (oldY < pageYOffset) setDirection('down');
-    else setDirection('up');
+    if (innerWidth < toInt(phoneResolution)) {
+      if (oldY < pageYOffset) setDirection('down');
+      else setDirection('up');
+    }
 
     oldY = pageYOffset;
   };
@@ -62,12 +67,13 @@ const Header = ({
   return (
     <header className={headerClassName}>
       {!isMenuOpened && <Logo theme={theme} />}
-      <Nav theme={theme} />
+      <Nav theme={theme} isAdditional={isAdditional} />
       <MobileMenu
         menuList={menuList}
         socialLinks={socialLinks}
         isMenuOpened={isMenuOpened}
         setMenuState={setMenuState}
+        isAdditional={isAdditional}
       />
     </header>
   );
@@ -81,6 +87,7 @@ Header.propTypes = {
   theme: PropTypes.string,
   scrollLabel: PropTypes.instanceOf(Object).isRequired,
   isModelLoaded: PropTypes.bool.isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Header;

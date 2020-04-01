@@ -99,13 +99,15 @@ footer {
       }
 
       .button {
-        @include buttonMore($black, $black, $accent-color, $accent-color);
-        background-color: $accent-color;
-        color: $feedback-submit-color;
+        @include buttonMore($white, $accent-color, transparent, $white);
         line-height: 1.55;
         letter-spacing: 0.5px;
         text-align: center;
         font-size: 0.875rem !important;
+
+        &:hover {
+          border-color: $accent-color;
+        }
         
         @include phone {
           width: 90%;

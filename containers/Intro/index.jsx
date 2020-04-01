@@ -31,8 +31,12 @@ const Intro = ({ theme }) => {
   );
 };
 
+Intro.defaultProps = {
+  theme: 'dark',
+};
+
 Intro.propTypes = {
-  theme: PropTypes.string.isRequired,
+  theme: PropTypes.string,
 };
 
 export default Intro;

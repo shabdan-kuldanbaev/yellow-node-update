@@ -1,6 +1,8 @@
 @import 'styles/utils/mixins';
 
 .desktopMenu {
+  transition: margin $default-transition-time;
+
   @include phone {
     display: none;
   }
@@ -83,6 +85,54 @@
 
     span {
       color: $black;
+    }
+  }
+}
+
+.additionalNav {
+  .dark {
+    span {
+      color: $black;
+    }
+  }
+
+  li:not(:last-child) {
+    .underline {
+      &:before {
+        background-color: $black;
+      }
+    }
+  }
+
+  li:last-child {
+    background-color: transparent;
+    color: $accent-color;
+    border: 1.6px solid $accent-color !important;
+    transition: background-color $accelerated-transition-time, color $accelerated-transition-time, border $accelerated-transition-time;
+
+    span {
+      color: $accent-color;
+    }
+
+    &:hover {
+      background-color: $accent-color;
+      color: $white;
+      border: 1.6px solid $accent-color;
+      transition: background-color $accelerated-transition-time, color $accelerated-transition-time, border $accelerated-transition-time;
+
+      span {
+        will-change: color;
+        color: $white;
+        transition: color $accelerated-transition-time;
+      }
+    }
+  }
+
+  span {
+    color: $black;
+
+    &:before {
+      background-color: $black;
     }
   }
 }

@@ -18,26 +18,28 @@
     margin: 5px 0;
     border: 0 none;
     border-radius: 5px;
+    background-color: $white;
   }
 }
 
 .burgerOpened {
   hr {
-    background-color: $white;
-
     &:nth-child(1) {
+      background-color: $white;
       transform: rotate(45deg) translate(3px, 3px);
       transition: transform $default-transition-time,
                   background-color $default-transition-time;
     }
 
     &:nth-child(2) {
+      background-color: $white;
       opacity: 0;
       transition: opacity $default-transition-time,
                   background-color $default-transition-time;
     }
 
     &:nth-child(3) {
+      background-color: $white;
       transform: rotate(-45deg) translate(7px, -7px);
       transition: transform $default-transition-time,
                   background-color $default-transition-time;
@@ -47,8 +49,6 @@
 
 .burgerClosed {
   hr {
-    background-color: $white;
-
     &:nth-child(1) {
       transform: rotate(0) translate(0, 0);
       transition: transform $default-transition-time,
@@ -65,6 +65,15 @@
       transform: rotate(0) translate(0, 0);
       transition: transform $default-transition-time,
                   background-color $default-transition-time;
+    }
+  }
+}
+
+.additionalBurger {
+  hr {
+    @include phone {
+      background-color: $black;
+      transition: background-color $accelerated-transition-time;
     }
   }
 }

@@ -23,7 +23,8 @@ const FeedbackForm = () => {
   return (
     <div className={styles.formContainer}>
       <SectionTitle
-        title="Let’s move forward"      
+        title="Let’s move forward"
+        styleTitle={styles.title}
         subtitle
         styleSubtitle={styles.subtitle}
         isFeedbackForm

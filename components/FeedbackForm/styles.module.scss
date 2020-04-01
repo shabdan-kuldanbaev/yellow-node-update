@@ -11,11 +11,18 @@
     padding: $mobile-section-indent - 20px $side-indent;
   }
 
+  .title {
+    @include phone {
+      width: 105%;
+    }
+  }
+
   .subtitle{
     margin: 0;
     font-size: .9rem;
     line-height: 1.55;
     letter-spacing: 0.5px;
+    width: 105%;
 
     a {
       position: relative;
@@ -57,7 +64,7 @@
     max-width: 500px;
     color: $footer-accent-color;
   
-    span, label, input {
+    span, label {
       font-size: 0.75rem;
       line-height: 1.94;
       letter-spacing: 0.4px;
@@ -69,7 +76,8 @@
     }
   
     input {
-      padding: 15px 0 5px 0;
+      font-size: 1rem;
+      padding: 18px 0 8px;
       border: 0 none;
       border-bottom: solid 0.5px $upload-hr-color;
       background-color: transparent;
