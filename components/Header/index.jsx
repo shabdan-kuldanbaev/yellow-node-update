@@ -11,9 +11,10 @@ import { phoneResolution } from 'styles/utils/_variables.scss';
 
 const Header = ({
   theme,
+  introSection,
   scrollLabel,
   isModelLoaded,
-  section,
+  setMobileMenuState,
 }) => {
   const [isMenuOpened, setMenuState] = useState(false);
   const [isAdditional, setAdditional] = useState(false);
@@ -27,11 +28,16 @@ const Header = ({
     [`${styles[direction]}`]: isModelLoaded,
   });
 
+  const setMobMenuState = (isOpened) => {
+    setMenuState(isOpened);
+    setMobileMenuState(isOpened);
+  };
+
   const handleOnScroll = () => {
     const pageYOffset = window.pageYOffset;
     const innerWidth = window.innerWidth;
 
-    if (section.current.getBoundingClientRect().bottom < 0) setAdditional(true);
+    if (introSection.current.getBoundingClientRect().bottom < 0) setAdditional(true);
     else setAdditional(false);
 
     if (innerWidth < toInt(phoneResolution)) {
@@ -72,7 +78,7 @@ const Header = ({
         menuList={menuList}
         socialLinks={socialLinks}
         isMenuOpened={isMenuOpened}
-        setMenuState={setMenuState}
+        setMenuState={setMobMenuState}
         isAdditional={isAdditional}
       />
     </header>
@@ -85,9 +91,10 @@ Header.defaultProps = {
 
 Header.propTypes = {
   theme: PropTypes.string,
+  introSection: PropTypes.instanceOf(Object).isRequired,
   scrollLabel: PropTypes.instanceOf(Object).isRequired,
   isModelLoaded: PropTypes.bool.isRequired,
-  section: PropTypes.instanceOf(Object).isRequired,
+  setMobileMenuState: PropTypes.func.isRequired,
 };
 
 export default Header;

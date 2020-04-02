@@ -19,7 +19,6 @@ const Burger = ({
     <div className={burgerClassName} onClick={() => setMenuState(!isMenuOpened)}>
       <hr />
       <hr />
-      <hr />
     </div>
   );
 }

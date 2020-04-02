@@ -2,11 +2,12 @@
 
 .worksContainer {
   width: calc(100% + 2 * #{$side-indent});
-  min-height: 300vh;
   margin: 0 0 $section-indent 0;
-
+  min-height: 300vh;
+  
   @include phone {
     margin: 0 0 $mobile-section-indent 0;
+    min-height: 300vh;
   }
  
   .work {
@@ -22,15 +23,33 @@
     transition: background-color $default-transition-time ease;
     transition-timing-function: linear;
 
-    @include phone {
-      @include flex(column-reverse, center, center);
+    @include tablet {
+      @include flex(column-reverse, space-evenly, center);
       width: calc(100% - 10%);
       margin: auto;
-      height: auto;
-      padding: 20% 5%;
+      padding: 0 5%;
     }
 
-    .desc div {
+    @include below-tablet {
+      @include flex(column-reverse, space-evenly, center);
+      width: calc(100% - 10%);
+      margin: auto;
+      padding: 0 5%;
+    }
+
+    @include phone {
+      @include flex(column-reverse, flex-start, center);
+      width: calc(100% - 10%);
+      margin: auto;
+      padding: 0 5%;
+    }
+
+    .desc {
+      @include below-tablet {
+        width: 100%;
+      }
+
+      div {
       opacity: 1;
       transform: translate3d(0, 100px, 0);
       transition: transform $default-transition-time, opacity $default-transition-time;
@@ -49,10 +68,27 @@
         font-style: normal;
         line-height: 1.01;
         color: $white;
+
+        @include below-tablet {
+          font-size: 3rem;
+        }
   
         @include phone {
           width: 100%;
-          font-size: 2.5rem;
+          font-size: 1.5rem;
+          margin-bottom: 35px;
+        }
+
+        @include phone-height-500 {
+          margin-top: 0px;
+        }
+
+        @include phone-height-650 {
+          margin-top: 40px;
+        }
+
+        @include phone-height-900 { 
+          margin-top: initial;
         }
       }
   
@@ -67,7 +103,7 @@
         word-wrap: normal;
 
         @include phone {
-          font-size: 18px;
+          font-size: 14px;
         }
       }
   
@@ -90,12 +126,27 @@
         &:before {
           background-color: $white;
         }
+
+        @include phone-height-500 {
+          margin-top: 40px;
+          margin-bottom: 20px;
+        }
+
+        @include phone-height-650 {
+          margin-top: 50px;
+          margin-bottom: 40px;
+        }
+
+        @include phone-height-900 { 
+          margin-bottom: auto;
+        }
       }
     }
+  }
 
     .imgWrapper {
       width: 50%;
-      height: 80%;
+
       div {
         width: 100%;
         height: 100%;
@@ -111,13 +162,30 @@
           transition: opacity $default-transition-time;
         }
       }
+
+      @include tablet {
+        width: 70%;
+      }
+
+      @include below-tablet {
+        width: 70%;
+      }
+
       @include phone {
-        width: 100%;
+        height: 55%;
       }
     }
 
     &:first-child div {
       z-index: 4;
+
+      @include below-tablet {
+        width: 100%;
+      }
+
+      @include phone {
+        width: auto;
+      }
 
       div button {
         &:hover {
@@ -138,10 +206,21 @@
       }
 
       img {
-        height: 100%;
+        max-width: 100%;
+        height: auto;
+
+        @include tablet {
+          max-width: 100%;
+          height: auto;
+        }
+
+        @include below-tablet {
+          max-width: 100%;
+          height: auto;
+        }
 
         @include phone {
-          width: 100%;
+          max-width: 100%;
         }
       }
     }

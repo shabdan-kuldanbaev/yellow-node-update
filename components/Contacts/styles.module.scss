@@ -43,7 +43,7 @@
         margin-top: 0; 
       }
 
-      a:nth-of-type(1) {
+      a {
         font-size: 1rem;
         text-decoration: none;
         color: $footer-accent-color;
@@ -52,8 +52,9 @@
         transition: color $accelerated-transition-time;
         
         &:hover {
+          cursor: pointer;
           color: $accent-color;
-          
+
           &:before {
             border: solid 0.5px $accent-color;
           }
@@ -62,6 +63,8 @@
     }
 
     span:nth-of-type(2) {
+      padding-bottom: 4px;
+
       a:before {
         position: absolute;
         display: block;
@@ -70,6 +73,18 @@
         bottom: -4px;
         width: 100%;
         left: 0%;
+        transition: border $accelerated-transition-time;
+      }
+
+      &:hover {
+        cursor: pointer;
+        a {
+          color: $accent-color;
+          
+          &:before {
+            border: solid 0.5px $accent-color;
+          }
+        }
       }
     }
 

@@ -99,14 +99,16 @@ footer {
       }
 
       .button {
-        @include buttonMore($white, $accent-color, transparent, $white);
+        @include buttonMore($white, $accent-color, $accent-color, $white);
         line-height: 1.55;
         letter-spacing: 0.5px;
         text-align: center;
-        font-size: 0.875rem !important;
+        font-size: 14px !important;
 
         &:hover {
           border-color: $accent-color;
+          color: $black;
+          transition: border-color $default-transition-time, color $default-transition-time;
         }
         
         @include phone {

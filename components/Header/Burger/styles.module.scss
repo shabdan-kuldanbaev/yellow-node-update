@@ -5,20 +5,24 @@
   position: fixed;
   top: 0;
   right: 0;
-  padding: 20px 20px;
+  padding: 27px 20px;
   cursor: pointer;
 
   @include phone {
-    display: block;
+    @include flex(column, center, flex-end);
   }
 
   hr {
     width: 20px;
     height: 2px;
-    margin: 5px 0;
+    margin: 3px 0;
     border: 0 none;
     border-radius: 5px;
     background-color: $white;
+  }
+
+  hr:nth-of-type(2) {
+    width: 10px;
   }
 }
 
@@ -32,16 +36,11 @@
     }
 
     &:nth-child(2) {
+      width: 20px;
       background-color: $white;
-      opacity: 0;
-      transition: opacity $default-transition-time,
-                  background-color $default-transition-time;
-    }
-
-    &:nth-child(3) {
-      background-color: $white;
-      transform: rotate(-45deg) translate(7px, -7px);
+      transform: rotate(-45deg) translate(3px, -3px);
       transition: transform $default-transition-time,
+                  width $default-transition-time,
                   background-color $default-transition-time;
     }
   }
@@ -56,12 +55,6 @@
     }
 
     &:nth-child(2) {
-      opacity: 1;
-      transition: opacity $default-transition-time,
-                  background-color $default-transition-time;
-    }
-
-    &:nth-child(3) {
       transform: rotate(0) translate(0, 0);
       transition: transform $default-transition-time,
                   background-color $default-transition-time;

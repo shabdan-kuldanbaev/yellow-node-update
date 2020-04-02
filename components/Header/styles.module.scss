@@ -21,15 +21,44 @@
   transform: translate3d(0, -100%, 0);
   transition: transform $default-transition-time,
               opacity $default-transition-time,
+              padding $default-transition-time,
               background-color 0,
               margin $default-transition-time * 6;
 
-  &.additional {
-    will-change: transform;
-    background-color: $white;
-    transition: transform $default-transition-time, opacity $default-transition-time, background-color $default-transition-time;
+  svg {
+    transition: width $default-transition-time;
+  }
+
+  @include phone {
+    width: calc(100% - 40px);
+    padding: 10px 20px;
 
     svg {
+      width: 35%;
+    }
+  }
+
+  &.additional {
+    padding: 0px 55px;
+    will-change: transform;
+    background-color: $white;
+    transition: transform $default-transition-time,
+                opacity $default-transition-time,
+                padding $default-transition-time * 1.5,
+                background-color $default-transition-time;
+
+    @include phone {
+      padding: 10px 20px;
+    }
+
+    svg {
+      width: 100px;
+      transition: width $default-transition-time;
+
+      @include phone {
+        width: 35%;
+      }
+
       path {
         fill: $black;
       }
@@ -48,15 +77,6 @@
   &.up {
     transform: translate3d(0, 0, 0);
     opacity: 1;
-  }
-
-  @include phone {
-    width: calc(100% - 40px);
-    padding: 10px 20px;
-
-    svg {
-      width: 35%;
-    }
   }
 }
 

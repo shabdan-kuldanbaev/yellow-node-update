@@ -26,13 +26,15 @@ const SectionTitle = ({
           : (
             <p className={cn({[styleSubtitle]: styleSubtitle})}>
               Fill in this form or
-              <a
-                href="mailto:hi@yellow.systems"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                send us an e-mail
-              </a>
+              <span>
+                <a
+                  href="mailto:hi@yellow.systems"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  send us an e-mail
+                </a>
+              </span>
             </p>
         )}
       </ScrollAnimation>

@@ -1,15 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SocialIcons from '../SocialIcons';
 import ScrollIcon from '../ScrollIcon';
-
 import styles from './styles.module.scss';
 
 const AddFooter = ({
   theme,
   setScroll,
   isModelLoaded,
+  isMobileMenuOpened,
 }) => {
   let oldY = 0;
   const scrollLabel = useRef(null);
@@ -46,7 +50,7 @@ const AddFooter = ({
     <section className={footerClassName}>
       <SocialIcons theme={theme} />
       <ScrollIcon theme={theme} />
-      <span ref={scrollLabel} className={styles.scrollTitle}>scroll down</span>
+      {!isMobileMenuOpened && <span ref={scrollLabel} className={styles.scrollTitle}>scroll down</span>}
     </section>
   );
 };
@@ -59,6 +63,7 @@ AddFooter.propTypes = {
   theme: PropTypes.string,
   setScroll: PropTypes.func.isRequired,
   isModelLoaded: PropTypes.bool.isRequired,
+  isMobileMenuOpened: PropTypes.bool.isRequired,
 };
 
 export default AddFooter;
