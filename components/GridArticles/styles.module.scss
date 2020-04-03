@@ -7,7 +7,7 @@
 
   @include phone {
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: $after-mobile-title-margin;
   }
 
   @for $i from 1 through 5 {

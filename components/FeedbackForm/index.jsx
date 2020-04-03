@@ -7,18 +7,23 @@ import {
 } from 'components';
 import styles from './styles.module.scss';
 import { CheckboxContainer } from './CheckboxContainer';
+import { validateEmail } from 'utils/helper';
 
 const FeedbackForm = () => {
   const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState({value: '', isValidate: true});
 
   const handleOnNameChange = ({ target: { value } }) => {
     setFullName(value);
   };
 
   const handleOnEmailChange = ({ target: { value } }) => {
-    setEmail(value);
+    setEmail({ ...email, value: value });
   };
+
+  const handleOnBlurEmail = (value) => {
+    setEmail({ value: value, isValidate: validateEmail(value) });
+  }
 
   return (
     <div className={styles.formContainer}>
@@ -35,11 +40,15 @@ const FeedbackForm = () => {
             value={fullName}
             handleOnChange={handleOnNameChange}
             placeholder="Name"
+            isValidate
           />
           <AnimatedInput
-            value={email}
+            value={email.value}
             handleOnChange={handleOnEmailChange}
             placeholder="Email"
+            type="email"
+            isValidate={email.isValidate}
+            handleOnBlurEmail={handleOnBlurEmail}
           />
         </div>
         <Upload />

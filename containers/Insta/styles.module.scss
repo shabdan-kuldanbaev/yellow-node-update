@@ -8,17 +8,18 @@
   background-color: $white;
 
   @include phone {
-    padding: $mobile-section-indent $side-indent;
+    padding: 235px $side-indent $after-mobile-title-margin;
+    overflow: hidden;
   }
 
   & > :global(.animated) {
     position: absolute;
-    margin-left: -98px;
-    margin-top: -43px;
+    margin-left: -83px;
+    margin-top: -60px;
 
     @include phone {
-      margin-left: 5px;
-      margin-top: -120px;
+      margin-left: 27px;
+      margin-top: -160px;
     }
   }
 

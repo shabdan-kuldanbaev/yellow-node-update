@@ -21,14 +21,38 @@
 
   @include phone {
     align-items: flex-end;
+    width: 100%;
 
     h1 {
-      padding: 20px;
-      font-size: 1.45rem;
-      transform: translateY(-40%);
+      padding: 5px;
+      font-size: 1.25rem;
       color: $white !important;
       text-shadow: none !important;
       opacity: 1 !important;
+    }
+  }
+
+  @include phone-height-500 {
+    h1 {
+      transform: translateY(-130px);
+    }
+  }
+
+  @include phone-height-650 {
+    h1 {
+      transform: translateY(-160px);
+    }
+  }
+
+  @include phone-height-730 {
+    h1 {
+      transform: translateY(-190px);
+    }
+  }
+
+  @include phone-height-800 {
+    h1 {
+      transform: translateY(-230px);
     }
   }
 }

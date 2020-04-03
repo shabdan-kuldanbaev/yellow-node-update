@@ -2,7 +2,7 @@
 
 .animatedInput {
   @include flex(column);
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 
   label {
     position: absolute;
@@ -11,6 +11,10 @@
     cursor: text;
     transform: translateY(15px);
     transition: transform $accelerated-transition-time, font-size $accelerated-transition-time;
+
+    @include phone {
+      transform: translateY(10px);
+    }
   }
   
   input {
@@ -20,8 +24,32 @@
 
 .active {
   label {
-    font-size: .6rem !important;
-    transform: translateY(0);
-    transition: transform $accelerated-transition-time, font-size $accelerated-transition-time;
+    font-weight: bold;
+    font-size: 14px !important;
+    transform: translateY(-5px);
+    transition: transform $accelerated-transition-time,
+                font-size $accelerated-transition-time;
+
+    @include phone {
+      transform: translateY(-15px);
+    }
+  }
+}
+
+.focus {
+  input {
+    border-bottom-color: $black !important;
+  }
+}
+
+.error {
+  input {
+    border-bottom-color: $input-error-color !important;
+  }
+}
+
+.default {
+  input {
+    border-bottom-color: $upload-hr-color !important;
   }
 }

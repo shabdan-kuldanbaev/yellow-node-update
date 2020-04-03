@@ -52,6 +52,9 @@ const Contacts = () => (
       <span>© Copyright 2020 Yellow.</span><span> All Rights Reserved. Privacy Policy</span>
     </div>
     <div className={styles.rocket}>
+      <div class={styles.stars} />
+      <div class={styles.stars2} />
+      <div class={styles.stars3} />
       <img src={rocketIcon} alt=""/>
     </div>
   </div>

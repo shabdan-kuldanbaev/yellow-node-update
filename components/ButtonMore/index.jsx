@@ -7,9 +7,10 @@ const ButtonMore = ({
   href,
   title,
   buttonStyle,
+  handleOnClick,
 }) => (
   <Link href={href}>
-    <div className={cn({[buttonStyle]: buttonStyle})}>
+    <div className={cn({[buttonStyle]: buttonStyle})} onClick={handleOnClick}>
       {title}
     </div>
   </Link>
@@ -23,6 +24,7 @@ ButtonMore.propTypes = {
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   buttonStyle: PropTypes.string,
+  handleOnClick: PropTypes.func.isRequired,
 };
 
 export default ButtonMore;

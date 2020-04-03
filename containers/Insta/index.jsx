@@ -6,12 +6,15 @@ import {
   ButtonMore,
 } from 'components';
 import ScrollAnimation from 'react-animate-on-scroll';
-
 import styles from './styles.module.scss';
 
 const Insta = () => (
   <section className={styles.insta}>
-    <ScrollAnimation animateIn="fadeInUp" animateOnce>
+    <ScrollAnimation
+      animateIn="zoomIn"
+      animateOnce
+      delay={1500}
+    >
       <InstaLogo />
     </ScrollAnimation>
     <SectionTitle title="Live" subtitle="How we live and work" />

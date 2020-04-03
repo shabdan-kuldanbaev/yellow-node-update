@@ -7,7 +7,10 @@ const AdvantagesItems = () => (
   <div className={styles.advantagesContainer}>
     {advantages.map(adv => (
       <div className={styles.advItem} key={`advantages/${adv.title}`}>
-        <ScrollAnimation animateIn="fadeInUp" animateOnce>
+        <ScrollAnimation
+          animateIn="flipInX" // TODO animateIn="fadeInUp"
+          animateOnce
+        >
           <img src={adv.image} alt={adv.title} />
           <p className={styles.title}>{adv.title}</p>
           <p className={styles.desc} dangerouslySetInnerHTML={{ __html: adv.desc }} />

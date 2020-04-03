@@ -20,10 +20,6 @@
     border-radius: 5px;
     background-color: $white;
   }
-
-  hr:nth-of-type(2) {
-    width: 10px;
-  }
 }
 
 .burgerOpened {
@@ -31,8 +27,7 @@
     &:nth-child(1) {
       background-color: $white;
       transform: rotate(45deg) translate(3px, 3px);
-      transition: transform $default-transition-time,
-                  background-color $default-transition-time;
+      transition: transform $default-transition-time;
     }
 
     &:nth-child(2) {
@@ -40,8 +35,7 @@
       background-color: $white;
       transform: rotate(-45deg) translate(3px, -3px);
       transition: transform $default-transition-time,
-                  width $default-transition-time,
-                  background-color $default-transition-time;
+                  width $default-transition-time;
     }
   }
 }
@@ -50,14 +44,12 @@
   hr {
     &:nth-child(1) {
       transform: rotate(0) translate(0, 0);
-      transition: transform $default-transition-time,
-                  background-color $default-transition-time;
+      transition: transform $default-transition-time;
     }
 
     &:nth-child(2) {
       transform: rotate(0) translate(0, 0);
-      transition: transform $default-transition-time,
-                  background-color $default-transition-time;
+      transition: transform $default-transition-time;
     }
   }
 }
@@ -66,7 +58,6 @@
   hr {
     @include phone {
       background-color: $black;
-      transition: background-color $accelerated-transition-time;
     }
   }
 }

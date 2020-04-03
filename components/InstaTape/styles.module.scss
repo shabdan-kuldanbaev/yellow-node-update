@@ -25,6 +25,7 @@ $imgIndent: 7.5px;
 
   @include phone {
     flex-wrap: wrap;
+    margin-top: $after-mobile-title-margin;
 
     img {
       width: 100%;

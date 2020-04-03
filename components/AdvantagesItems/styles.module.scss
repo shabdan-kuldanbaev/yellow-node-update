@@ -1,13 +1,32 @@
 @import 'styles/utils/mixins';
 
 .advantagesContainer {
-  @include flex(row, center, flex-start, wrap);
+  @include flex(row, center, space-between, wrap);
   width: 100%;
-  max-width: 1600px;
+  height: 100%;
   margin: auto;
-  margin-top: 80px;
+
+  @include ultra-hd {
+    width: 80%;
+  }
+
+  @include quad-hd {
+    width: 90%;
+  }
+
+  @include full-hd {
+    width: 100%;
+    height: auto;
+    margin-top: 80px;
+  }
+
+  @include tablet {
+    @include flex(row, center, center, wrap);
+    height: auto;
+  }
 
   @include phone {
+    height: auto;
     margin-top: 30px;
   }
 }
@@ -22,7 +41,11 @@
   }
 
   &:last-child {
-    margin-top: 100px;
+    margin-top: 10%;
+
+    @include tablet {
+      margin-top: inherit;
+    }
   }
 
   :global(.animated) {

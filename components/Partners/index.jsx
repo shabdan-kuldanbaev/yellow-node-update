@@ -1,30 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { partners } from './utils/data';
-
 import styles from './styles.module.scss';
+import { toInt } from 'utils/helper';
+import { phoneResolution } from 'styles/utils/_variables.scss';
 
-const Partners = () => (
-  <div className={styles.partnersContainer}>
-    <ScrollAnimation animateIn="fadeInUp" animateOnce offset={300}>
-      <h1>and get featured on</h1>
-    </ScrollAnimation>
-    <div className={styles.partners}>
-      {partners.map((partner, index) => (
-        <ScrollAnimation
-          key={`partner/${partner.title}`}
-          delay={100 * index}
-          animateIn="fadeInUp"
-          animateOnce
-          offset={300}
-        >
-          <div className={styles.partnersItem}>
-            <img src={partner.image} alt={partner.title} />
-          </div>
-        </ScrollAnimation>
-      ))}
+const Partners = () => {
+  const [increaseTime, setIncreaseTime] = useState(5);
+
+  useEffect(() => {
+    if (window.innerWidth < toInt(phoneResolution)) setIncreaseTime(1);
+  }, []);
+
+  return (
+    <div className={styles.partnersContainer}>
+      <ScrollAnimation animateIn="fadeInUp" animateOnce offset={300}>
+        <h1>And get featured on</h1>
+      </ScrollAnimation>
+      <div className={styles.partners}>
+        {partners.map((partner, index) => (
+          <ScrollAnimation
+            key={`partner/${partner.title}`}
+            delay={100 * index * increaseTime}
+            animateIn="fadeInUp"
+            animateOnce
+            offset={10}
+          >
+            <div className={styles.partnersItem}>
+              <img src={partner.image} alt={partner.title} />
+            </div>
+          </ScrollAnimation>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Partners;

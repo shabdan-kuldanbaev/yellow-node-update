@@ -1,11 +1,10 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 @import 'utils/theme/animations';
 
 .addFooterContainer {
   position: fixed;
   left: 0;
-  top: calc(100vh - 104px);
+  top: calc(100vh - 150px);
   z-index: 99999;
   @include flex(row, space-between, center);
   width: calc(100% - 110px);
@@ -34,7 +33,7 @@
       color: $white;
       text-transform: uppercase;
       opacity: .5;
-      animation: blinking 1.5s infinite ease;
+      animation: blinking 1.7s infinite ease;
       animation-delay: 2s;
       cursor: pointer;
     }
@@ -58,4 +57,8 @@
   transform: translate3d(0, 0, 0);
   opacity: 1;
   transition: transform $default-transition-time, opacity $default-transition-time;
+}
+
+.underFirstBlock {
+  opacity: 0;
 }
