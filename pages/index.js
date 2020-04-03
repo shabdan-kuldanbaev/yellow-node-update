@@ -1,4 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, {
+  Fragment,
+  useState,
+  useRef,
+} from 'react';
 import Head from 'next/head';
 import {
   Intro,
@@ -7,7 +11,7 @@ import {
   Portfolio,
   Reviews,
   Insta,
-  Footer,
+  Layout,
 } from 'containers';
 import { FeedbackForm } from 'components';
 
@@ -16,6 +20,7 @@ import 'styles/index.scss';
 
 const App = () => {
   const [theme, setTheme] = useState('dark'); 
+  const introSection = useRef(null);
 
   return (
     <Fragment>
@@ -24,14 +29,15 @@ const App = () => {
         <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,300,400,800&display=swap" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
       </Head>
-      <Intro theme={theme} />
-      <Advantages />
-      <Portfolio />
-      <Reviews />
-      <Blog />
-      <Insta />
-      <FeedbackForm />
-      <Footer theme={theme} />
+      <Layout theme={theme} introSection={introSection}>
+        <Intro theme={theme} introSection={introSection} />
+        <Advantages />
+        <Portfolio />
+        <Reviews />
+        <Blog />
+        <Insta />
+        <FeedbackForm />
+      </Layout>
     </Fragment>
   );
 };

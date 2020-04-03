@@ -6,6 +6,14 @@
   background-color: $accent-color;
   min-height: calc(90vh - 2 * #{$section-indent});
 
+  @include ultra-hd {
+    min-height: auto;
+  }
+
+  @include full-hd {
+    min-height: calc(90vh - 2 * #{$section-indent});
+  }
+
   @include phone {
     padding: $mobile-section-indent $side-indent;
   }

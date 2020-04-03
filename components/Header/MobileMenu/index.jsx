@@ -8,14 +8,14 @@ import PropTypes from 'prop-types';
 const MobileMenu = ({
   menuList,
   socialLinks,
-  isMenuOpened,
-  setMenuState,
+  isMobileMenuOpened,
+  setMobileMenuState,
   isAdditional,
 }) => {
   const mobileMenuClassName = cn({
     [`${styles.mobileMenu}`]: true,
-    [`${styles.mobileMenuOpened}`]: isMenuOpened,
-    [`${styles.mobileMenuClosed}`]: !isMenuOpened,
+    [`${styles.mobileMenuOpened}`]: isMobileMenuOpened,
+    [`${styles.mobileMenuClosed}`]: !isMobileMenuOpened,
     [`${styles.additionalMobileMenu}`]: isAdditional,
   });
 
@@ -24,8 +24,8 @@ const MobileMenu = ({
   };
 
   useEffect(() => {
-    isMenuOpened ? setOverflowForBody('hidden') : setOverflowForBody('scroll');
-  }, [isMenuOpened]);
+    isMobileMenuOpened ? setOverflowForBody('hidden') : setOverflowForBody('scroll');
+  }, [isMobileMenuOpened]);
 
   return (
     <Fragment>
@@ -52,8 +52,8 @@ const MobileMenu = ({
         </div>
       </div>
       <Burger
-        isMenuOpened={isMenuOpened}
-        setMenuState={setMenuState}
+        isMobileMenuOpened={isMobileMenuOpened}
+        setMobileMenuState={setMobileMenuState}
         isAdditional={isAdditional}
       />
     </Fragment>
@@ -63,8 +63,8 @@ const MobileMenu = ({
 MobileMenu.propTypes = {
   menuList: PropTypes.instanceOf(Array).isRequired,
   socialLinks: PropTypes.instanceOf(Array).isRequired,
-  isMenuOpened: PropTypes.bool.isRequired,
-  setMenuState: PropTypes.func.isRequired,
+  isMobileMenuOpened: PropTypes.bool.isRequired,
+  setMobileMenuState: PropTypes.func.isRequired,
   isAdditional: PropTypes.bool.isRequired,
 };
 

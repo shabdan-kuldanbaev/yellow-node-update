@@ -4,20 +4,23 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 const Burger = ({
-  isMenuOpened,
-  setMenuState,
+  isMobileMenuOpened,
+  setMobileMenuState,
   isAdditional,
 }) => {
   const burgerClassName = cn({
     [`${styles.burger}`]: true,
-    [`${styles.burgerOpened}`]: isMenuOpened,
-    [`${styles.burgerClosed}`]: !isMenuOpened,
+    [`${styles.burgerOpened}`]: isMobileMenuOpened,
+    [`${styles.burgerClosed}`]: !isMobileMenuOpened,
     [`${styles.additionalBurger}`]: isAdditional,
   });
 
+  const handleOnClick = () => {
+    setMobileMenuState(!isMobileMenuOpened);
+  };
+
   return (
-    <div className={burgerClassName} onClick={() => setMenuState(!isMenuOpened)}>
-      <hr />
+    <div className={burgerClassName} onClick={handleOnClick}>
       <hr />
       <hr />
     </div>
@@ -25,8 +28,8 @@ const Burger = ({
 }
 
 Burger.propTypes = {
-  isMenuOpened: PropTypes.bool.isRequired,
-  setMenuState: PropTypes.func.isRequired,
+  isMobileMenuOpened: PropTypes.bool.isRequired,
+  setMobileMenuState: PropTypes.func.isRequired,
   isAdditional: PropTypes.bool.isRequired,
 };
 

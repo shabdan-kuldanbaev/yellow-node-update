@@ -23,7 +23,7 @@
   }
 
   .instaButton {
-    @include buttonMore($black, $black, $accent-color);
+    @include buttonMore($black, $black, $accent-color, $black);
 
     @include phone {
       margin-top: $mobile-more-button-indent;

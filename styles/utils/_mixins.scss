@@ -8,6 +8,14 @@
   flex-wrap: $fw;
 }
 
+@mixin ultra-hd {
+  @media (max-width: $ultra-hd) { @content; }
+}
+
+@mixin full-hd {
+  @media (max-width: $full-hd) { @content; }
+}
+
 @mixin tablet {
   @media (max-width: $max-tablet-size) { @content; }
 }
@@ -18,6 +26,18 @@
 
 @mixin phone {
   @media (max-width: $max-mobile-size) { @content; }
+}
+
+@mixin phone-height-500 {
+  @media (max-width: $max-mobile-size) and (min-height: 500px) { @content; }
+}
+
+@mixin phone-height-650 {
+  @media (max-width: $max-mobile-size) and (min-height: 650px) { @content; }
+}
+
+@mixin phone-height-900 {
+  @media (max-width: $max-mobile-size) and (min-height: 900px) { @content; }
 }
 
 @mixin h1-title {
@@ -49,17 +69,23 @@
   border-radius: $buttonRadius;
   text-align: center;
   cursor: pointer;
-  transition: border $accelerated-transition-time, background-color $accelerated-transition-time, color $default-transition-time;
   overflow: hidden;
   color: $textColor;
   border: solid 1px $borderColor;
-
+  // TODO box-shadow: 0;
+  transition: box-shadow $accelerated-transition-time,
+              background-color $accelerated-transition-time,
+              color $default-transition-time;
+  
   &:hover {
+    // TODO box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     will-change: border;
     background-color: $backHoverColor;
     border: solid 1px $backHoverColor;
     color: $textHoverColor;
-    transition: border $accelerated-transition-time, background-color $accelerated-transition-time, color $default-transition-time;
+    transition: box-shadow $accelerated-transition-time,
+                background-color $accelerated-transition-time,
+                color $default-transition-time;
   }
 }
 

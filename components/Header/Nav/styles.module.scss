@@ -48,7 +48,9 @@
       padding: 15px;
       margin-left: 40px;
       border: 1.6px solid $white;
-      transition: border $accelerated-transition-time, background-color $accelerated-transition-time;
+      transition: border $accelerated-transition-time,
+                  padding $accelerated-transition-time,
+                  background-color $accelerated-transition-time;
 
       span:before {
         height: 0;
@@ -105,24 +107,23 @@
   }
 
   li:last-child {
-    background-color: transparent;
+    background-color: $accent-color;
     color: $accent-color;
     border: 1.6px solid $accent-color !important;
-    transition: background-color $accelerated-transition-time, color $accelerated-transition-time, border $accelerated-transition-time;
+    padding: 10px 15px;
+    transition: background-color $accelerated-transition-time,
+                color $accelerated-transition-time,
+                padding $accelerated-transition-time,
+                border $accelerated-transition-time;
 
     span {
-      color: $accent-color;
+      color: $black;
     }
 
     &:hover {
-      background-color: $accent-color;
-      color: $white;
-      border: 1.6px solid $accent-color;
-      transition: background-color $accelerated-transition-time, color $accelerated-transition-time, border $accelerated-transition-time;
-
       span {
         will-change: color;
-        color: $white;
+        color: $black;
         transition: color $accelerated-transition-time;
       }
     }

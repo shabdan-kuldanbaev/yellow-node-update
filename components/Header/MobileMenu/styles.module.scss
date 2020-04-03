@@ -26,7 +26,7 @@
         cursor: pointer;
 
         &:last-child {
-          border-radius: 3px;
+          border-radius: $buttonRadius;
           padding: 15px;
           background-color: $accent-color;
           color: $black;
