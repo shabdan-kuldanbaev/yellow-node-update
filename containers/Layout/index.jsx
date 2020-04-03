@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header';
+import { Header } from 'components';
 import Footer from './Footer';
 
 const Layout = ({
@@ -10,7 +10,7 @@ const Layout = ({
 }) => (
   <Fragment>
     <Header theme={theme} introSection={introSection} />
-      {children}
+    {children}
     <Footer theme={theme} />
   </Fragment>
 );

@@ -8,30 +8,30 @@ import Nav from './Nav';
 import styles from './styles.module.scss';
 import { toInt } from 'utils/helper';
 import { phoneResolution } from 'styles/utils/_variables.scss';
+import { selectIsModelLoaded, selectScrollOfAddedFooter } from 'redux/selectors/home';
+import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
+import { setMobileMenuState } from 'redux/actions/layout';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 const Header = ({
   theme,
   introSection,
-  scrollLabel,
+  scrollOfAddedFooter,
   isModelLoaded,
   setMobileMenuState,
+  isMobileMenuOpened,
 }) => {
-  const [isMenuOpened, setMenuState] = useState(false);
   const [isAdditional, setAdditional] = useState(false);
   const [direction, setDirection] = useState('up');
   let oldY = 0;
   const headerClassName = cn({
     [`${styles.headerContainer}`]: true,
-    [`${styles.mobileHeaderHeight}`]: isMenuOpened,
+    [`${styles.mobileHeaderHeight}`]: isMobileMenuOpened,
     [`${styles.animate}`]: isModelLoaded,
     [`${styles.additional}`]: isAdditional,
     [`${styles[direction]}`]: isModelLoaded,
   });
-
-  const setMobMenuState = (isOpened) => {
-    setMenuState(isOpened);
-    setMobileMenuState(isOpened);
-  };
 
   const handleOnScroll = () => {
     const pageYOffset = window.pageYOffset;
@@ -54,13 +54,13 @@ const Header = ({
     oldY = window.pageYOffset;
     handleOnScroll();
 
-    if (isMenuOpened) {
+    if (isMobileMenuOpened) {
       html.classList.add(styles.overflowApp);
-      if (scrollLabel.classList) scrollLabel.classList.add(styles.hideScroll);
+      if (scrollOfAddedFooter.classList) scrollOfAddedFooter.classList.add(styles.hideScroll);
     }
     else {
       html.classList.remove(styles.overflowApp);
-      if (scrollLabel.classList) scrollLabel.classList.remove(styles.hideScroll);
+      if (scrollOfAddedFooter.classList) scrollOfAddedFooter.classList.remove(styles.hideScroll);
     }
 
     window.addEventListener('scroll', handleOnScroll);
@@ -72,13 +72,13 @@ const Header = ({
 
   return (
     <header className={headerClassName}>
-      {!isMenuOpened && <Logo theme={theme} />}
+      {!isMobileMenuOpened && <Logo theme={theme} />}
       <Nav theme={theme} isAdditional={isAdditional} />
       <MobileMenu
         menuList={menuList}
         socialLinks={socialLinks}
-        isMenuOpened={isMenuOpened}
-        setMenuState={setMobMenuState}
+        isMobileMenuOpened={isMobileMenuOpened}
+        setMobileMenuState={setMobileMenuState}
         isAdditional={isAdditional}
       />
     </header>
@@ -92,9 +92,15 @@ Header.defaultProps = {
 Header.propTypes = {
   theme: PropTypes.string,
   introSection: PropTypes.instanceOf(Object).isRequired,
-  scrollLabel: PropTypes.instanceOf(Object).isRequired,
+  scrollOfAddedFooter: PropTypes.instanceOf(Object).isRequired,
   isModelLoaded: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,
 };
 
-export default Header;
+const mapStateToProps = createStructuredSelector({
+  isModelLoaded: selectIsModelLoaded(),
+  scrollOfAddedFooter: selectScrollOfAddedFooter(),
+  isMobileMenuOpened : selectIsMobileMenuOpened(),
+});
+
+export default connect(mapStateToProps, { setMobileMenuState })(Header);

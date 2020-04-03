@@ -2,12 +2,11 @@
 
 .worksContainer {
   width: calc(100% + 2 * #{$side-indent});
-  margin: 0 0 $section-indent 0;
+  margin: 0 0 $section-indent;
   min-height: 300vh;
   
   @include phone {
-    margin: 0 0 $mobile-section-indent 0;
-    min-height: 300vh;
+    margin: 0 0 $mobile-section-indent;
   }
  
   .work {
@@ -30,18 +29,8 @@
       padding: 0 5%;
     }
 
-    @include below-tablet {
-      @include flex(column-reverse, space-evenly, center);
-      width: calc(100% - 10%);
-      margin: auto;
-      padding: 0 5%;
-    }
-
     @include phone {
       @include flex(column-reverse, flex-start, center);
-      width: calc(100% - 10%);
-      margin: auto;
-      padding: 0 5%;
     }
 
     .desc {
@@ -103,7 +92,7 @@
         word-wrap: normal;
 
         @include phone {
-          font-size: 14px;
+          font-size: 0.875rem;
         }
       }
   
@@ -208,20 +197,6 @@
       img {
         max-width: 100%;
         height: auto;
-
-        @include tablet {
-          max-width: 100%;
-          height: auto;
-        }
-
-        @include below-tablet {
-          max-width: 100%;
-          height: auto;
-        }
-
-        @include phone {
-          max-width: 100%;
-        }
       }
     }
 
