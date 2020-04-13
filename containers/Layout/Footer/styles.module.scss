@@ -31,7 +31,7 @@ footer {
       padding: 80px 0 $side-indent;
 
       @include phone {
-        padding-bottom: 30px;
+        padding-bottom: 50px;
       }
     }
 
@@ -67,7 +67,6 @@ footer {
           }
         }
 
-
         li:last-child {
           border: none;
           padding: 0;
@@ -76,13 +75,13 @@ footer {
             content: "";
             position: absolute;
             bottom: -5px;
-            left: 0;
             display: block;
-            width: 100%;
-            height: 1.6px;
-            background-color: $white;
-            transform: scaleX(0);
-            transition: transform $default-transition-time;
+            width: 0;
+            left: 50%;
+            height: 2px;
+            background-color: $accent-color;
+            transform: translateX(-50%);
+            transition: width $default-transition-time ease-in-out;
             transform-origin: center left;
           }
 
@@ -91,9 +90,9 @@ footer {
               color: $white;
             }
           }
-    
-          &:hover:before {
-            transform: scaleX(1);
+          
+          &:hover:before, &:focus:before {
+            width: 100%;
           }
         }
       }
@@ -108,7 +107,9 @@ footer {
         &:hover {
           border-color: $accent-color;
           color: $black;
-          transition: border-color $default-transition-time, color $default-transition-time;
+          transition: background-color $default-transition-time,
+                      color $default-transition-time,
+                      border-color $default-transition-time;
         }
         
         @include phone {

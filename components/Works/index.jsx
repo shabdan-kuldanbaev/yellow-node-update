@@ -52,20 +52,20 @@ const Works = () => {
           ref={refs[index]}
         >
           <div className={styles.desc}>
-              <ScrollAnimation
-                delay={10}
-                animateIn="fadeInUp"
-                animateOnce
-                offset={10}
-              >
-                    <h1>{work.name}</h1>
-                    <p dangerouslySetInnerHTML={{ __html: work.description }} />
-                    <button type="button">See full case study</button>
+            <ScrollAnimation
+              delay={10}
+              animateIn="fadeInUp"
+              animateOnce
+              offset={10}
+            >
+              <h1>{work.name}</h1>
+              <p dangerouslySetInnerHTML={{ __html: work.description }} />
+              <button type="button">See full case study</button>
             </ScrollAnimation>
           </div>
           <div className={styles.imgWrapper}>
             <ScrollAnimation
-                delay={300}
+                delay={700}
                 animateIn="zoomIn"
                 animateOnce
                 offset={10}

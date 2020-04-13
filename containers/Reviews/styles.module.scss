@@ -2,10 +2,10 @@
 
 .reviews {
   @include flex(column, flex-start, center);
-  padding: $section-indent $side-indent;
-  background-color: #f7f8f7;
+  padding: $section-indent $side-indent 150px $side-indent;
+  background-color: $reviews-background;
 
   @include phone {
-    padding: $mobile-section-indent $side-indent;
+    padding: $mobile-section-indent $side-indent 130px $side-indent;
   }
 }

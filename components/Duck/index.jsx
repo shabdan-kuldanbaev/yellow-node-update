@@ -11,6 +11,8 @@ import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/Rende
 import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
 import { shaders, animationTypes } from './utils/data';
 import { animated, useSpring } from 'react-spring';
+import { toInt } from 'utils/helper';
+import { phoneResolution } from 'styles/utils/_variables.scss';
 
 import * as styles from './styles.module.scss';
 
@@ -24,6 +26,7 @@ const Duck = ({ handleOnLoaded }) => {
   // 500 = 9s
   const initialAnimationTime = 500;
   let animationDelay = 0.0001;
+  let isMobile = 0;
 
   // for Parallax
   const calc = o => `translateY(${o * 0.13}px)`;
@@ -80,7 +83,8 @@ const Duck = ({ handleOnLoaded }) => {
 
   const createCamera = () => {
     camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 1, 50000);
-    camera.position.set(0, 0, 5000);
+    if (isMobile) camera.position.set(6000, 0, 0);
+    else camera.position.set(0, 0, 5000);
     scene = new THREE.Scene();
     camera.lookAt(scene.position);
   };
@@ -116,7 +120,7 @@ const Duck = ({ handleOnLoaded }) => {
     }, (xhr) => {
       if (xhr.loaded / xhr.total * 100 === 100) {
         setLoaded(true);
-        handleOnLoaded(true);
+        // TODO handleOnLoaded(true);
       }; 
     });
   };
@@ -288,7 +292,14 @@ const Duck = ({ handleOnLoaded }) => {
     geometry.addAttribute('initialPosition', positions.clone());
     geometry.attributes.position.setDynamic(true);
 
-    originals = [{ positions: { x: 0, y: 0, z: 0 } }];
+    if (isMobile) {
+      if (window.innerHeight <= 700) { originals = [{ positions: { x: 0, y: 250, z: 0 } }]; }
+      if (window.innerHeight > 700 && window.innerHeight <= 800) { originals = [{ positions: { x: 0, y: 270, z: 0 } }]; }
+      if (window.innerHeight > 800) { originals = [{ positions: { x: 0, y: 265, z: 0 } }]; }
+    } else {
+      originals = [{ positions: { x: 0, y: 0, z: 0 } }];
+    }
+
     clones = [
       {
         positions: { x: 0, y: 0, z: 0 },
@@ -395,7 +406,7 @@ const Duck = ({ handleOnLoaded }) => {
           const positions = mesh.geometry.attributes.position;
           const count = positions.count;
 
-          setRotateAnimation(mesh);
+          if (!isMobile) setRotateAnimation(mesh);
 
           for (let i = 0; i < count; i += 1) {
             let ix = initialPosition.getX(i);
@@ -456,6 +467,8 @@ const Duck = ({ handleOnLoaded }) => {
   };
 
   useEffect(() => {
+    isMobile = window.innerWidth < toInt(phoneResolution);
+    if (isMobile) options.default.meshScale = 45;
     init();
 
     if (isModelLoaded) {
@@ -509,9 +522,9 @@ const Duck = ({ handleOnLoaded }) => {
           position: 'absolute',
           transform: offset.interpolate(calc),
         }}>
-          <h1 ref={sloganRef} className="letter-container">
+          {isModelLoaded && <h1 ref={sloganRef} className="letter-container">
             WE CREATE FANTASTIC SOFTWARE
-          </h1>
+          </h1>}
         </animated.div>
       </div>
       <div className={styles.canvasContainer} ref={containerCanvas} />

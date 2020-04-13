@@ -2,6 +2,10 @@
 @import 'utils/theme/animations';
 
 .contactsContainer {
+  @include phone {
+    overflow: hidden;
+  }
+
   .mobileFooterTitle {
     margin-bottom: 60px;
     font-size: 1.8rem;
@@ -49,6 +53,9 @@
         color: $footer-accent-color;
         font-weight: 500;
         position: relative;
+        width: 99%;
+        left: 0.5%;
+        border-bottom: 1px $feedback-submit-color solid;
         transition: color $accelerated-transition-time;
         
         &:hover {
@@ -56,7 +63,7 @@
           color: $accent-color;
 
           &:before {
-            border: solid 0.5px $accent-color;
+            border-bottom: 1px $accent-color solid;
           }
         }
       }
@@ -69,10 +76,10 @@
         position: absolute;
         display: block;
         content: "";
-        border: solid 0.5px $footer-accent-color;
+        border-bottom: 1px $footer-accent-color solid;
         bottom: -4px;
-        width: 100%;
-        left: 0%;
+        width: 99%;
+        left: 0.5%;
         transition: border $accelerated-transition-time;
       }
 
@@ -82,7 +89,7 @@
           color: $accent-color;
           
           &:before {
-            border: solid 0.5px $accent-color;
+            border-bottom: 1px $accent-color solid;
           }
         }
       }
@@ -159,17 +166,76 @@
     @include phone {
       @include flex(column, flex-start, center);
       margin-top: 70px;
+
+      span:first-child {
+        margin-bottom: 5px;
+      }
     }
   }
 
+
+
   .rocket {
-    display: none;
-    width: 100%;
+    @include flex(column, center, center);
+    text-align: center;
+    position: relative;
+    
+    @function box-shadow($stars) {
+      $bxshadow: ();
+      @for $i from 1 to $stars {
+        $bxshadow: append($bxshadow, (random(400) + 0px) (random(200) + 0px) gray, comma);
+      }
+      @return unquote($bxshadow);
+    }
+
+    $bxshadow-small: box-shadow(10);
+    $bxshadow-middle: box-shadow(5);
+    $bxshadow-large: box-shadow(4);
+
+    img {
+      display: none;
+    }
+
     @include phone {
-      animation: rocket 2.5s infinite ease-in-out;
-      animation-delay: 1s;
-      display: block;
-      margin-top: 70px;
+      .stars {
+        position: absolute;
+        height: 2px;
+        width: 2px;
+        border-radius: 50%;
+        z-index: 0;
+        box-shadow: $bxshadow-small;
+        transform: translate(-200px, -80px);
+        animation: animStar 13s linear infinite;
+      }
+      
+      .stars2 {
+        position: absolute;
+        height: 3px;
+        width: 3px;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: $bxshadow-middle;
+        transform: translate(-200px, -80px);
+        animation: animStar 8s linear infinite;
+      }
+
+      .stars3 {
+        position: absolute;
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: $bxshadow-large;
+        transform: translate(-200px, -80px);
+        animation: animStar 5s linear infinite;
+      }
+
+      img {
+        display: block;
+        z-index: 3;
+        margin-top: 50px;
+        animation: vibrate1 3s 0s infinite linear;
+      }
     }
   }
 }

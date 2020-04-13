@@ -22,7 +22,7 @@
     user-select: none;
 
     span {
-      font-size: .7rem;
+      font-size: 0.75rem;
       font-weight: normal;
       color: $upload-text-color;
     }
@@ -31,16 +31,27 @@
       margin-left: 5px;
       text-decoration: none;
       position: relative;
-    }
+      transition: color $accelerated-transition-time;
 
-    .link:before {
-      position: absolute;
-      display: block;
-      content: "";
-      border: solid 0.5px $upload-text-color;
-      bottom: 1px;
-      width: 100%;
-      left: 0%;
+      &:before {
+        position: absolute;
+        display: block;
+        content: "";
+        border-bottom: 1px $feedback-submit-color solid;
+        bottom: 1px;
+        width: 99%;
+        left: 0.5%;
+        transition: border $accelerated-transition-time;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $accent-color;
+
+        &:before {
+          border-bottom: 1px $accent-color solid;
+        }
+      }
     }
 
     &:hover input ~ .checkmark {
@@ -65,10 +76,10 @@
 
     .checkmark {
       position: absolute;
-      top: 2px;
+      top: 3px;
       left: 0;
-      height: 12.5px;
-      width: 12.5px;
+      height: 14px;
+      width: 14px;
       border: 1px solid $upload-text-color;
       border-radius: 2.5px;
       background-color: transparent;
@@ -77,8 +88,8 @@
         display: none;
         content: "";
         position: absolute;
-        left: 4px;
-        top: 1px;
+        left: 5px;
+        top: 2px;
         width: 3px;
         height: 6px;
         border: solid $upload-text-color;

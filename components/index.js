@@ -17,3 +17,4 @@ export { default as SectionTitle } from 'components/SectionTitle';
 export { default as SocialIcons } from 'components/SocialIcons';
 export { default as Upload } from 'components/Upload';
 export { default as Works } from 'components/Works';
+export { default as CookiesNotification } from 'components/CookiesNotification';

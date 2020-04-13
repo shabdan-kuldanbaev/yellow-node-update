@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { AnimatedInput } from 'components';
 import attachIcon from './images/attach.svg';
 import unpinFile from './images/unpin.svg';
-
 import styles from './styles.module.scss';
 
 const Upload = () => {
@@ -30,6 +29,7 @@ const Upload = () => {
           value={projectDescription}
           handleOnChange={handleOnDescChange}
           placeholder="Project details (optional)"
+          isValidate
         />
         <label htmlFor="files">
           <img src={attachIcon} alt="attach" />

@@ -24,6 +24,7 @@ const Header = ({
 }) => {
   const [isAdditional, setAdditional] = useState(false);
   const [direction, setDirection] = useState('up');
+  const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   let oldY = 0;
   const headerClassName = cn({
     [`${styles.headerContainer}`]: true,
@@ -31,19 +32,24 @@ const Header = ({
     [`${styles.animate}`]: isModelLoaded,
     [`${styles.additional}`]: isAdditional,
     [`${styles[direction]}`]: isModelLoaded,
+    [styles.deleteTextOfLogo]: isLogoTextHidden,
   });
-
+  
   const handleOnScroll = () => {
     const pageYOffset = window.pageYOffset;
     const innerWidth = window.innerWidth;
+    const intro = introSection.current.getBoundingClientRect();
+    const isMobile = innerWidth > toInt(phoneResolution);
 
-    if (introSection.current.getBoundingClientRect().bottom < 0) setAdditional(true);
+    if (intro.bottom < 0) setAdditional(true);
     else setAdditional(false);
 
-    if (innerWidth < toInt(phoneResolution)) {
-      if (oldY < pageYOffset) setDirection('down');
-      else setDirection('up');
-    }
+    if (intro.top < -300 && isMobile) setIsLogoTextHidden(true);
+    else setIsLogoTextHidden(false);
+
+    if (oldY < pageYOffset && (isMobile ? intro.top < -700 : intro.top < -200)) {
+      setDirection('down');
+    } else setDirection('up');
 
     oldY = pageYOffset;
   };
@@ -72,7 +78,11 @@ const Header = ({
 
   return (
     <header className={headerClassName}>
-      {!isMobileMenuOpened && <Logo theme={theme} />}
+        {!isMobileMenuOpened && (
+          <div className={styles.logo}>
+            <Logo theme={theme} />
+          </div>
+        )}
       <Nav theme={theme} isAdditional={isAdditional} />
       <MobileMenu
         menuList={menuList}

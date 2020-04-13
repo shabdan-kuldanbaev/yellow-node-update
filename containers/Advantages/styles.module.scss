@@ -1,24 +1,35 @@
 @import 'styles/utils/mixins';
 
 .advantages {
-  @include flex(column, flex-start, center);
-  padding: $section-indent $side-indent;
+  @include flex(column, center, center);
   background-color: $accent-color;
-  min-height: calc(90vh - 2 * #{$section-indent});
+  min-height: calc(100vh - 100px * 2);
 
   @include ultra-hd {
-    min-height: auto;
+    padding: 300px $side-indent $section-indent;
+  }
+
+  @include quad-hd {
+    padding: $section-indent $side-indent;
   }
 
   @include full-hd {
     min-height: calc(90vh - 2 * #{$section-indent});
   }
 
+  @include tablet {
+    min-height: auto;
+  }
+  
   @include phone {
     padding: $mobile-section-indent $side-indent;
   }
 
   .subtitle {
     @include flex(column, center, center);
+    line-height: 1.55;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: $black;
   }
 }

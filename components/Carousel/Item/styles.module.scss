@@ -16,8 +16,8 @@
 
     &::before {
       content: url('../images/quote.svg');
-      position: relative;
-      transform: translate(0, 3px) scale(.75, .75);
+      position: absolute;
+      transform: translate(-5px, 3px) scale(.70, .70);
     }
 
     &::first-letter {

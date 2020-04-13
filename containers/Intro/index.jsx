@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   AddFooter,
   Partners,
-  // TODO Duck,
+  Duck,
 } from 'components';
 import { selectIsModelLoaded } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
@@ -20,7 +20,7 @@ const Intro = ({
   isMobileMenuOpened,
 }) => (
   <section ref={introSection}>
-    {/* TODO <Duck handleOnLoaded={setLoaded} /> */}
+    <Duck handleOnLoaded={setLoaded} />
     <AddFooter
       theme={theme}
       isModelLoaded={isModelLoaded}

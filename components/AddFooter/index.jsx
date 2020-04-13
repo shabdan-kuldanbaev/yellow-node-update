@@ -18,18 +18,22 @@ const AddFooter = ({
   let oldY = 0;
   const scrollLabel = useRef(null);
   const [direction, setDirection] = useState('');
+  const [isTopOfPage, setTopOfPage] = useState(false);
   const footerClassName = cn({
     [`${styles.addFooterContainer}`]: true,
     [`${styles[direction]}`]: true,
     [`${styles.animate}`]: isModelLoaded,
-  });
+    [`${styles.notOnTop}`]: !isTopOfPage,
+  }); 
 
   const handleOnScroll = () => {
     const pageYOffset = window.pageYOffset;
-
-    if (pageYOffset < 200 && oldY > pageYOffset) setDirection('up');
-
-    if (pageYOffset > 100 && oldY < pageYOffset) setDirection('down');
+    
+    if (pageYOffset < 250) {
+      setTopOfPage(true);
+      if (pageYOffset < 200 && oldY > pageYOffset) setDirection('up');
+      if (pageYOffset > 100 && oldY < pageYOffset) setDirection('down');
+    } else setTopOfPage(false);
 
     oldY = pageYOffset;
   };

@@ -1,9 +1,12 @@
-@import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
 .partnersContainer {
   @include flex(column, center, center);
-  padding: $section-indent $side-indent;
+  padding: $section-indent $side-indent 200px;
+
+  @include phone {
+    padding: $section-indent $side-indent;
+  }
 
   h1 {
     @include h1-title;
