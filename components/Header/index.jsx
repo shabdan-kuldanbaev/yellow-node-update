@@ -39,15 +39,15 @@ const Header = ({
     const pageYOffset = window.pageYOffset;
     const innerWidth = window.innerWidth;
     const intro = introSection.current.getBoundingClientRect();
-    const mobileResolution = innerWidth > toInt(phoneResolution);
+    const isMobile = innerWidth > toInt(phoneResolution);
 
     if (intro.bottom < 0) setAdditional(true);
     else setAdditional(false);
 
-    if (intro.top < -300 && mobileResolution) setIsLogoTextHidden(true);
+    if (intro.top < -300 && isMobile) setIsLogoTextHidden(true);
     else setIsLogoTextHidden(false);
 
-    if (oldY < pageYOffset && (mobileResolution ? intro.top < -700 : intro.top < -200)) {
+    if (oldY < pageYOffset && (isMobile ? intro.top < -700 : intro.top < -200)) {
       setDirection('down');
     } else setDirection('up');
 

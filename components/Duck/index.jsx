@@ -26,7 +26,7 @@ const Duck = ({ handleOnLoaded }) => {
   // 500 = 9s
   const initialAnimationTime = 500;
   let animationDelay = 0.0001;
-  let mobileResolution = 0;
+  let isMobile = 0;
 
   // for Parallax
   const calc = o => `translateY(${o * 0.13}px)`;
@@ -83,7 +83,7 @@ const Duck = ({ handleOnLoaded }) => {
 
   const createCamera = () => {
     camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 1, 50000);
-    if (mobileResolution) camera.position.set(6000, 0, 0);
+    if (isMobile) camera.position.set(6000, 0, 0);
     else camera.position.set(0, 0, 5000);
     scene = new THREE.Scene();
     camera.lookAt(scene.position);
@@ -292,21 +292,14 @@ const Duck = ({ handleOnLoaded }) => {
     geometry.addAttribute('initialPosition', positions.clone());
     geometry.attributes.position.setDynamic(true);
 
-    if (mobileResolution && window.innerHeight < 600) {
-      originals = [{ positions: { x: 0, y: 250, z: 0 } }];
-    }
-    else if (mobileResolution && window.innerHeight >= 600 && window.innerHeight <= 700) {
-      originals = [{ positions: { x: 0, y: 250, z: 0 } }];
-    }
-    else if (mobileResolution && window.innerHeight > 700 && window.innerHeight <= 800) {
-      originals = [{ positions: { x: 0, y: 270, z: 0 } }];
-    }
-    else if (mobileResolution && window.innerHeight > 800) {
-      originals = [{ positions: { x: 0, y: 265, z: 0 } }];
-    }
-    else {
+    if (isMobile) {
+      if (window.innerHeight <= 700) { originals = [{ positions: { x: 0, y: 250, z: 0 } }]; }
+      if (window.innerHeight > 700 && window.innerHeight <= 800) { originals = [{ positions: { x: 0, y: 270, z: 0 } }]; }
+      if (window.innerHeight > 800) { originals = [{ positions: { x: 0, y: 265, z: 0 } }]; }
+    } else {
       originals = [{ positions: { x: 0, y: 0, z: 0 } }];
     }
+
     clones = [
       {
         positions: { x: 0, y: 0, z: 0 },
@@ -413,7 +406,7 @@ const Duck = ({ handleOnLoaded }) => {
           const positions = mesh.geometry.attributes.position;
           const count = positions.count;
 
-          if (!mobileResolution) setRotateAnimation(mesh);
+          if (!isMobile) setRotateAnimation(mesh);
 
           for (let i = 0; i < count; i += 1) {
             let ix = initialPosition.getX(i);
@@ -474,8 +467,8 @@ const Duck = ({ handleOnLoaded }) => {
   };
 
   useEffect(() => {
-    mobileResolution = window.innerWidth < toInt(phoneResolution);
-    if (mobileResolution) options.default.meshScale = 45;
+    isMobile = window.innerWidth < toInt(phoneResolution);
+    if (isMobile) options.default.meshScale = 45;
     init();
 
     if (isModelLoaded) {
