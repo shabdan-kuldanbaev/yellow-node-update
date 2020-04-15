@@ -6,7 +6,7 @@ import { notificationData } from './utils/data';
 import { ButtonMore } from 'components';
 
 const CookiesNotification = ({ text }) => {
-  const [isShown, setIsShown] = useState(true);
+  const [isShown, setIsShown] = useState(false);
 
   const handlerOnClose = () => {
     setIsShown(false);

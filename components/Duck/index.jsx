@@ -195,16 +195,16 @@ const Duck = ({ handleOnLoaded }) => {
   const onDocumentMouseDown = () => {
     if (options.initial.isAppear) {
       options.initial.currentAnimation = animationTypes[2];
-      sloganRef.current.style.opacity = 0;
-      sloganRef.current.style.transition = 'opacity 1s';
+      sloganRef.current ? sloganRef.current.style.opacity = 0 : null;
+      sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
     };
   };
 
   const onDocumentMouseUp = () => {
     if (options.initial.isAppear) {
       options.initial.currentAnimation = animationTypes[1];
-      sloganRef.current.style.opacity = .1;
-      sloganRef.current.style.transition = 'opacity 1s';
+      sloganRef.current ? sloganRef.current.style.opacity = .1 : null;
+      sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
     };
   };
 
@@ -381,6 +381,7 @@ const Duck = ({ handleOnLoaded }) => {
   };
 
   const render = () => {
+    console.log('qwe');
     // animation
     switch (options.initial.currentAnimation) {
       case 'appear': {

@@ -4,4 +4,5 @@ export { default as Insta } from 'containers/Insta';
 export { default as Intro } from 'containers/Intro';
 export { default as Portfolio } from 'containers/Portfolio';
 export { default as Reviews } from 'containers/Reviews';
-export { default as Layout } from '../containers/Layout';
+export { default as Layout } from 'containers/Layout';
+export { default as BlogCommon } from 'containers/BlogCommon';

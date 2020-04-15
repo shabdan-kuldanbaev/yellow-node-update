@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Header, CookiesNotification } from 'components';
+import {
+  Header,
+  CookiesNotification,
+  Loader,
+} from 'components';
 import Footer from './Footer';
 
 const Layout = ({
+  isLoading,
   children,
   theme,
   introSection,
@@ -11,7 +16,9 @@ const Layout = ({
   <Fragment>
     <CookiesNotification />
     <Header theme={theme} introSection={introSection} />
-    {children}
+    <Loader isLoading={isLoading}>
+      {children}
+    </Loader>
     <Footer theme={theme} />
   </Fragment>
 );

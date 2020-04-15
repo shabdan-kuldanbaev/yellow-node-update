@@ -4,17 +4,25 @@ import Link from 'next/link';
 import { menuList } from './utils/data';
 import styles from './styles.module.scss';
 import cn from 'classnames';
-  
-const Nav = ({ theme, isAdditional }) => (
-  <ul className={cn(styles.desktopMenu, {[styles.additionalNav]: isAdditional })}>{menuList.map(item => (
-    <li key={`menuItem/${item.name}`} className={styles[theme]}>
+import { useRouter } from  'next/router';
+
+const Nav = ({
+  theme,
+  currentPage,
+}) => {
+  const { asPath } = useRouter();
+
+    return (
+    <ul className={cn(styles.desktopMenu, {[styles.additionalNav]: currentPage && currentPage !== ''})}>{menuList.map(item => (
+      <li key={`menuItem/${item.name}`} className={styles[theme]}>
         <Link href={item.href}>
-        <span className={styles.underline}>{item.name}</span>
+          <span className={cn(styles.underline, { [styles.activeNav]: asPath.includes(item.name.toLowerCase()) })}>{item.name}</span>
         </Link>
-    </li>
-    ))}
-  </ul>
-);
+      </li>
+      ))}
+    </ul>
+  );
+};
 
 Nav.defaultProps = {
   theme: 'dark',
@@ -23,6 +31,7 @@ Nav.defaultProps = {
 Nav.propTypes = {
   theme: PropTypes.string,
   isAdditional: PropTypes.bool.isRequired,
+  currentPage: PropTypes.string.isRequired,
 };
 
 export default Nav;

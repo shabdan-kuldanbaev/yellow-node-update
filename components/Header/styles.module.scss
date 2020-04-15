@@ -27,6 +27,7 @@
   }
 
   .logo {
+    cursor: pointer;
     text-align: center;
     width: $logo-size;
     height: 50px;
@@ -49,12 +50,22 @@
     margin: 0;
   }
 
+  &.notHome {
+    background-color: $header-additional-color;
+
+    svg {
+      width: $logo-size;
+
+      path {
+        fill: $black;
+      }
+    }
+  }
+
   &.additional {
     will-change: transform;
     padding: 0px 55px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    background-color: rgba(255, 255, 255, .98);
+    background-color: $header-additional-color;
     transition: transform $default-transition-time, padding $default-transition-time * 1.5;
 
     @include phone {

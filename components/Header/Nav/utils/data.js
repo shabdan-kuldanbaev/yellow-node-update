@@ -9,7 +9,7 @@ export const menuList = [
   },
   {
     name: 'Blog',
-    href: '/blog',
+    href: '/blog?category=latest&page=1',
   },
   {
     name: 'Company',

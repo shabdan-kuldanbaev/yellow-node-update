@@ -1,26 +1,71 @@
-import React, { Fragment } from 'react';
+import React, {
+  Fragment,
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
 import { Provider } from 'react-redux';
 import withReduxSaga from 'next-redux-saga';
 import Head from 'next/head';
 import withRedux from 'next-redux-wrapper';
 import configureStore from 'redux/store';
+import { Layout } from 'containers';
+import Logo from 'components/Logo/images/logo.svg';
+import Router from 'next/router';
+
+import 'animate.css/animate.min.css';
+import 'styles/index.scss';
 
 const App = ({
   Component,
   pageProps,
   store,
-}) => (
-  <Fragment>
-    <Head>
-      <title>Yellow</title>
-      <link rel="shortcut icon" href="https://media-exp1.licdn.com/dms/image/C4E0BAQFQR1Bi4npy3w/company-logo_200_200/0?e=1593648000&v=beta&t=G1nk-pWIHcDv9jH87ntcvgl5Ri_exz7rryrdykN6DOw" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-    </Head>
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
-  </Fragment>
-);
+}) => {
+  const [theme, setTheme] = useState('dark');
+  const introSection = useRef(null);
+  const [isLoading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    const handleRouteChangeStart = () => {
+      setLoading(false);
+    }
+    const handleRouteChangeComplete = () => {
+      setLoading(true);
+    }
+  
+    Router.events.on('routeChangeStart', handleRouteChangeStart);
+    Router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    return () => {
+      Router.events.off('routeChangeStart', handleRouteChangeStart);
+      Router.events.off('routeChangeComplete', handleRouteChangeComplete);
+    }
+  }, []);
+
+  return (
+    <Fragment>
+      <Head>
+        <title>Yellow</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,300,400,800&display=swap" rel="stylesheet" />
+        <link rel="shortcut icon" href={Logo} />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+      </Head>
+      <Provider store={store}>
+        <Layout
+          isLoading={isLoading}
+          theme={theme}
+          introSection={introSection}
+        >
+          <Component
+            {...pageProps}
+            theme={theme}
+            introSection={introSection}
+          />
+        </Layout>
+      </Provider>
+    </Fragment>
+  );
+};
 
 App.getInitialProps = async ({ Component, ctx }) => {
   let pageProps = {};

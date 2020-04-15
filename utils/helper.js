@@ -1,3 +1,5 @@
+import { phoneResolution } from 'styles/utils/_variables.scss';
+
 export const themes = {
   dark: {
     main: '#FFF',
@@ -18,3 +20,5 @@ export const validateEmail = (email) => {
   if(reg.test(email) === false) return false;
   return reg.test(email);
 }
+
+export const mobileResolution = toInt(phoneResolution);

@@ -4,7 +4,6 @@ import {
   SectionTitle,
   ButtonMore,
 } from 'components';
-
 import styles from './styles.module.scss';
 
 const Blog = () => (

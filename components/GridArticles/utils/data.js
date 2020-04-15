@@ -21,6 +21,8 @@ export const articles = [
     publishedDate: 'iOS / UX',
     image: defaultImage,
     priority: 'low',
+    description: `A lot of people think that a great idea is the one and only key to cashing in with a successful startup.
+                  The sad truth is that this kind of thinking is what frequently sinks a startup.`,
   },
   {
     id: 4,
@@ -28,6 +30,7 @@ export const articles = [
     publishedDate: 'iOS / UX',
     image: defaultImage,
     priority: 'low',
+    description: `Managing information about hotels and getting that information out to potential customers is a daunting process.`,
   },
   {
     id: 5,
@@ -35,5 +38,59 @@ export const articles = [
     publishedDate: 'iOS / UX',
     image: defaultImage,
     priority: 'low',
+    description: `Google is one of the most famous tech companies in the world. Their solutions are present in every area of our life,
+                  and software development is no exception. But what if something prevents us from.`,
+  },
+  {
+    id: 6,
+    title: '7 Key Benefits of Continuous Delivery for Businesses',
+    publishedDate: 'iOS / UX',
+    image: defaultImage,
+    priority: 'low',
+    description: `A lot of people think that a great idea is the one and only key to cashing in with a successful startup.
+                  The sad truth is that this kind of thinking is what frequently sinks a startup.`,
+  },
+  {
+    id: 7,
+    title: 'How to Create a Cloud-Based Contact Center Platform?',
+    publishedDate: 'iOS / UX',
+    image: defaultImage,
+    priority: 'low',
+    description: `Managing information about hotels and getting that information out to potential customers is a daunting process.`,
+  },
+  {
+    id: 8,
+    title: 'Yellow Recognized as an Industry Leader',
+    publishedDate: 'iOS / UX',
+    image: defaultImage,
+    priority: 'low',
+    description: `Google is one of the most famous tech companies in the world. Their solutions are present in every area of our life,
+                  and software development is no exception. But what if something prevents us from.`,
+  },
+  {
+    id: 9,
+    title: '7 Key Benefits of Continuous Delivery for Businesses',
+    publishedDate: 'iOS / UX',
+    image: defaultImage,
+    priority: 'low',
+    description: `A lot of people think that a great idea is the one and only key to cashing in with a successful startup.
+                  The sad truth is that this kind of thinking is what frequently sinks a startup.`,
+  },
+  {
+    id: 10,
+    title: 'How to Create a Cloud-Based Contact Center Platform?',
+    publishedDate: 'iOS / UX',
+    image: defaultImage,
+    priority: 'low',
+    description: `Managing information about hotels and getting that information out to potential customers is a daunting process.`,
+  },
+  {
+    id: 11,
+    title: 'Yellow Recognized as an Industry Leader',
+    publishedDate: 'iOS / UX',
+    image: defaultImage,
+    priority: 'low',
+    description: `Google is one of the most famous tech companies in the world. Their solutions are present in every area of our life,
+                  and software development is no exception. But what if something prevents us from.`,
   },
 ]; 

@@ -13,6 +13,7 @@ import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { useRouter } from 'next/router';
 
 const Header = ({
   theme,
@@ -22,43 +23,50 @@ const Header = ({
   setMobileMenuState,
   isMobileMenuOpened,
 }) => {
+  const { asPath } = useRouter();
+  const currentPage = asPath.split('/')[1] || '';
   const [isAdditional, setAdditional] = useState(false);
   const [direction, setDirection] = useState('up');
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   let oldY = 0;
+  // debugger
   const headerClassName = cn({
     [`${styles.headerContainer}`]: true,
     [`${styles.mobileHeaderHeight}`]: isMobileMenuOpened,
     [`${styles.animate}`]: isModelLoaded,
     [`${styles.additional}`]: isAdditional,
     [`${styles[direction]}`]: isModelLoaded,
+    [styles.notHome]: currentPage !== '',
     [styles.deleteTextOfLogo]: isLogoTextHidden,
   });
   
   const handleOnScroll = () => {
     const pageYOffset = window.pageYOffset;
     const innerWidth = window.innerWidth;
-    const intro = introSection.current.getBoundingClientRect();
-    const mobileResolution = innerWidth > toInt(phoneResolution);
 
-    if (intro.bottom < 0) setAdditional(true);
-    else setAdditional(false);
+    if (introSection.current) {
+      const intro = introSection.current.getBoundingClientRect();
+      const mobileResolution = innerWidth > toInt(phoneResolution);
 
-    if (intro.top < -300 && mobileResolution) setIsLogoTextHidden(true);
-    else setIsLogoTextHidden(false);
+      if (intro.bottom < 0) setAdditional(true);
+      else setAdditional(false);
 
-    if (oldY < pageYOffset && (mobileResolution ? intro.top < -700 : intro.top < -200)) {
-      setDirection('down');
-    } else setDirection('up');
+      if (intro.top < -300 && mobileResolution) setIsLogoTextHidden(true);
+      else setIsLogoTextHidden(false);
 
-    oldY = pageYOffset;
+      if (oldY < pageYOffset && (mobileResolution ? intro.top < -700 : intro.top < -200)) {
+        setDirection('down');
+      } else setDirection('up');
+
+      oldY = pageYOffset;
+    }
   };
 
   useEffect(() => {
     // to fix with redux
     const html = document.querySelector('html');
     oldY = window.pageYOffset;
-    handleOnScroll();
+    if (currentPage === '') handleOnScroll();
 
     if (isMobileMenuOpened) {
       html.classList.add(styles.overflowApp);
@@ -69,10 +77,10 @@ const Header = ({
       if (scrollOfAddedFooter.classList) scrollOfAddedFooter.classList.remove(styles.hideScroll);
     }
 
-    window.addEventListener('scroll', handleOnScroll);
+    if (currentPage === '') window.addEventListener('scroll', handleOnScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleOnScroll);
+      if (currentPage === '') window.removeEventListener('scroll', handleOnScroll);
     };
   }, []);
 
@@ -83,7 +91,11 @@ const Header = ({
             <Logo theme={theme} />
           </div>
         )}
-      <Nav theme={theme} isAdditional={isAdditional} />
+      <Nav
+        theme={theme}
+        isAdditional={isAdditional}
+        currentPage={currentPage}
+      />
       <MobileMenu
         menuList={menuList}
         socialLinks={socialLinks}

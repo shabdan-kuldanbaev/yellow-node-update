@@ -1,0 +1,135 @@
+@import 'styles/utils/mixins';
+
+.subscribeBlock {
+  @include flex(column, center, center);
+  width: 100%;
+  height: 400px;
+  margin: 100px 0;
+
+  @include phone {
+    height: 460px;
+    margin: 50px 0;
+  }
+
+  .subscribe {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    @include flex(column, center, center);
+    background-color: $subscribe-background-color;
+
+    @include phone {
+      height: 460px;
+    }
+
+    .content {
+      @include flex(column, center, center);
+      width: 430px;
+
+      @include phone {
+        width: 85%;
+      }
+
+      .title {
+        text-align: center;
+        line-height: 0.75;
+        font-weight: bold;
+        font-size: 23px;
+
+        @include phone {
+          line-height: 1.25;
+        }
+      }
+      
+      .subtitle {
+        margin: 30px auto;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.5;
+        
+        @include phone {
+          line-height: 1.43;
+        }
+      }
+  
+      .inputBlock {
+        @include flex(row, center, center);
+        width: 100%;
+
+        @include phone {
+          flex-direction: column;
+
+          div:nth-of-type(1) {
+            margin-top: 10px;
+            width: 100%;
+
+            & > div { margin-bottom: 20px; }
+
+            label {
+              font-size: 1.0625rem;
+              line-height: 1.94;
+              letter-spacing: 0.4px;
+              color: $black;
+              font-weight: 500;
+            }
+            
+            input {
+              font-size: 1.125rem;
+              padding: 20px 0 8px;
+              border: 0 none;
+              border-bottom: solid 0.5px $upload-hr-color;
+              background-color: transparent;
+              color: $upload-text-color;
+              outline: none;
+            }
+          }
+        }
+  
+        .input {
+          display: block;
+          outline: none;
+          margin-right: 20px;
+          padding: 12px 20px;
+          width: 50%;
+          height: auto;
+          border-radius: 60px;
+          box-shadow: 0 2px 6.5px 0 rgba(89, 89, 89, 0.05);
+          border: solid 0.5px #ffffff;
+          background-color: #ffffff;
+          font-size: 0.875rem;
+  
+          &::placeholder {
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 1.55;
+            color: #9a9996;
+          }
+
+          @include phone {
+            margin-right: 0;
+            display: none;
+          }
+        }
+  
+        .button {
+          @include buttonMore($black, $black, $accent-color, $accent-color);
+          background-color: $accent-color;
+          color: $feedback-submit-color;
+          line-height: 1.55;
+          letter-spacing: 0.5px;
+          text-align: center;
+          font-size: 0.875rem !important;
+          margin: auto 0;
+          padding: 10px 20px;
+          width: auto;
+          
+          @include phone {
+            margin: 25px auto 0;
+            transform: translateX(0px);
+            width: 55%;
+          }
+        }
+      }
+    }
+  }
+}
