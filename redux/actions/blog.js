@@ -1,21 +1,16 @@
 import { actionTypes } from './actionTypes';
 
-export const getPost = payload => ({
-  type: actionTypes.GET_POST_PENDING,
+export const getArticle = payload => ({
+  type: actionTypes.GET_ARTICLE_PENDING,
   payload,
 });
 
-export const loadPosts = payload => ({
-  type: actionTypes.LOAD_POSTS_PENDING,
+export const loadArticles = payload => ({
+  type: actionTypes.LOAD_ARTICLES_PENDING,
   payload,
 });
 
 export const setTotalCount = payload => ({
-  type: actionTypes.SET_TOTAL_POSTS_COUNT,
-  payload,
-});
-
-export const setLimit = payload => ({
-  type: actionTypes.SET_LIMIT,
+  type: actionTypes.SET_TOTAL_ARTICLES_COUNT,
   payload,
 });

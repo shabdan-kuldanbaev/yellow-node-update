@@ -33,10 +33,15 @@ $mobile-more-button-indent: calc(#{$mobile-section-indent} / 2);
 $default-transition-time: .5s;
 $accelerated-transition-time: calc(#{$default-transition-time} / 2);
 $button-transition-time: .3;
-$max-content-width: 1300px;
-$aricleIndent: 10px;
+$aricleIndent: 15px;
 $after-mobile-title-margin: 60px; 
-$logo-size: 131px;
+$logo-size: 120px;
+$max-content-width: 1300px;
+$max-content-width-full-hd: 1170px;
+$max-content-width-macbook-fifteen: 1050px;
+$max-content-width-macbook-twelve: 1000px;
+$shadow-for-yellow-button: 0px 5px 20px -10px rgba(0,0,0,0.57);
+$shadow-time-for-yellow-button: .4s;
 
 //radius
 $buttonRadius: 60px;
@@ -45,6 +50,7 @@ $buttonRadius: 60px;
 $ultra-hd: 3840px;
 $quad-hd: 2560px;
 $full-hd: 1920px;
+$macbook-fifteen: 1445px;
 $macbook-thirteen: 1440px;
 $desktop: 1366px;
 $macbook-twelve: 1280px;

@@ -1,0 +1,255 @@
+@import 'styles/utils/mixins';
+
+.worksContainer {
+  width: calc(100% + 2 * #{$side-indent});
+  margin: 0 0 $section-indent;
+  min-height: 300vh;
+  
+  @include phone {
+    margin: 0 0 $mobile-section-indent;
+  }
+ 
+  .work {
+    position: relative;
+    z-index: 5;
+    @include flex(row, space-between, center);
+    width: calc(80% + #{$side-indent});
+    height: 100vh;
+    margin-left: calc(-1 * #{$side-indent});
+    padding: 0 10%;
+    background-color: $works-third-accent-color;
+    will-change: background-color;
+    transition: background-color $default-transition-time ease;
+    transition-timing-function: linear;
+
+    @include tablet {
+      @include flex(column-reverse, center, flex-start);
+      width: calc(100% - 10%);
+      margin: auto;
+      padding: 0 5%;
+    }
+
+    @include phone {
+      @include flex(column-reverse, flex-start, center);
+    }
+
+    .desc {
+      @include below-tablet {
+        width: 100%;
+      }
+
+      div {
+      opacity: 1;
+      transform: translate3d(0, 100px, 0);
+      transition: transform $default-transition-time, opacity $default-transition-time;
+
+      @include phone {
+        @include flex(column, center, center);
+      }
+
+      h1 {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        font-weight: 800;
+        font-size: 6rem;
+        letter-spacing: 2.25px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.01;
+        color: $white;
+
+        @include tablet {
+          margin-top: 0px;
+        }
+
+        @include below-tablet {
+          font-size: 3rem;
+        }
+  
+        @include phone {
+          width: 100%;
+          font-size: 1.5rem;
+          margin-bottom: 35px;
+        }
+
+        @include phone-height-500 {
+          margin-top: 0px;
+        }
+
+        @include phone-height-650 {
+          margin-top: 40px;
+        }
+
+        @include phone-height-900 { 
+          margin-top: initial;
+        }
+      }
+  
+      p {
+        margin: 0;
+        margin-top: -20px;
+        font-size: 1.5rem;
+        line-height: 1.53;
+        letter-spacing: 0.5px;
+        color: $white;
+        opacity: .8;
+        word-wrap: normal;
+
+        @include phone {
+          text-align: left;
+          font-size: 0.875rem;
+          width: 100%;
+        }
+      }
+  
+      button {
+        @include buttonMore();
+        margin-top: 60px;
+        border: 1px solid $white;
+        background-color: transparent;
+        border-radius: $buttonRadius;
+        color: $white;
+        line-height: 1.55;
+        letter-spacing: 0.5px;
+        font-size: 1rem;
+        transition: background-color $default-transition-time,
+                    color $default-transition-time,
+                    border-color $default-transition-time;
+  
+        &:hover {
+          border: 1px solid $white;
+          color: $works-first-accent-color;
+          transition: background-color $default-transition-time,
+                      color $default-transition-time,
+                      border-color $default-transition-time;
+        }
+  
+        &:before {
+          background-color: $white;
+        }
+
+        @include phone-height-500 {
+          margin-top: 40px;
+          margin-bottom: 20px;
+        }
+
+        @include phone-height-650 {
+          margin-top: 50px;
+          margin-bottom: 40px;
+        }
+
+        @include phone-height-900 { 
+          margin-bottom: auto;
+        }
+      }
+    }
+  }
+
+    .imgWrapper {
+      div {
+        width: 100%;
+        height: 100%;
+        @include flex(row, center, center);
+        opacity: 1;
+        transform: scale(.9);
+        transition: transform $default-transition-time, opacity $default-transition-time;
+
+        .content {
+          position: absolute;
+          opacity: 1;
+          transform: scale(0.6) translate3d(-29%, -31%, 0);
+          transition: opacity $default-transition-time;
+        }
+      }
+    }
+
+    &:first-child div {
+      z-index: 4;
+
+      div button {
+        &:hover {
+          color: $works-first-accent-color;
+        }
+      }
+
+      img {
+        width: 100%;
+
+        @include quad-hd {
+          width: 90%;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      div button {
+        &:hover {
+          color: $works-second-accent-color;
+        }
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+
+        @include quad-hd {
+          width: 80%;
+        }
+
+        @include full-hd {
+          width: 75%;
+        }
+
+        @include below-tablet {
+          width: 70%;
+        }
+
+        @include phone-height-800 {
+          width: 100%;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      div button {
+        &:hover {
+          color: $works-third-accent-color;
+        }
+      }
+
+      img {
+        width: 100%;
+
+        @include quad-hd {
+          width: 90%;
+        }
+
+        @include phone-height-800 {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.firstIsActive {
+  background-image: linear-gradient(45deg, #026ed0 0%, #05a7ea 99%);
+}
+
+.secondIsActive {
+  background-image: linear-gradient(45deg, #3d2424 0%, #714a4a 99%);
+
+  .imgWrapper {
+    .content {
+      display: none;
+    }
+  }
+}
+
+.thirdIsActive {
+  .imgWrapper {
+    .content {
+      display: none;
+    }
+  }
+}

@@ -19,21 +19,24 @@
     }
 
     .underline {
-      font-size: 0.875rem;
-      font-weight: bold;
+      font-size: 14px;
+      font-weight: 450;
       text-decoration: none;
-      letter-spacing: 0.35px;
+      letter-spacing: 0.5px;
       
       &:before {
         content: "";
         position: absolute;
         bottom: -5px;
-        left: 0;
         display: block;
         width: 0;
         left: 50%;
         height: 2px;
         background-color: $accent-color;
+        -ms-transform: translateY(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
         transform: translateX(-50%);
         transition: width $default-transition-time ease-in-out;
         transform-origin: center left;
@@ -41,11 +44,13 @@
 
       &:hover:before, &:focus:before {
         width: 100%;
+        transform-origin: center left;
       }
 
       &.activeNav {
         &:before {
           width: 100%;
+          transform-origin: center left;
         }
       }
     }
@@ -55,8 +60,11 @@
       padding: 10px 15px;
       margin-left: 40px;
       border: 1.6px solid $white;
-      transition: border $accelerated-transition-time,
-                  padding $accelerated-transition-time;
+      color: $white;
+
+      transition: border $default-transition-time * 2
+      padding $default-transition-time * 2
+      color $default-transition-time * 2;
 
       span:before {
         height: 0;
@@ -65,12 +73,16 @@
       &:hover {
         will-change: border;
         border: 1.6px solid $accent-color;
-        transition: border $default-transition-time;
+        transition: border $default-transition-time * 2;
+
+        transition: border $default-transition-time * 2
+        padding $default-transition-time * 2
+        color $default-transition-time * 2;
         
         span {
           will-change: color;
           color: $accent-color;
-          transition: color $accelerated-transition-time;
+          transition: color $default-transition-time * 2;
         }
       }
     }
@@ -112,20 +124,33 @@
     }
   }
 
+  li {
+    transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+  }
+
   li:last-child {
     background-color: $accent-color;
     color: $accent-color;
     border: 1.6px solid $accent-color !important;
-
+    transition: border $default-transition-time * 3
+                padding $default-transition-time * 3
+                color $default-transition-time * 3;
+    
     span {
       color: $black;
     }
 
     &:hover {
+      box-shadow: $shadow-for-yellow-button;
+      transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+
       span {
         will-change: color;
         color: $black;
-        transition: color $accelerated-transition-time;
+        
+        transition: border $default-transition-time * 3
+                    padding $default-transition-time * 3
+                    color $default-transition-time * 3;
       }
     }
   }
@@ -135,6 +160,57 @@
 
     &:before {
       background-color: $black;
+    }
+  }
+}
+
+.additionalNavForBlog {
+  .dark {
+    span {
+      color: $black;
+    }
+  }
+
+  li {
+    .underline {
+      &:before {
+        background-color: $accent-color;
+      }
+    }
+  }
+
+  li:last-child {
+    border: 1.6px solid transparent !important;
+    padding: 0;
+    padding-right: 15px;
+
+    @include below-tablet {
+      margin-left: 21px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      display: block;
+      width: 0;
+      left: 50%;
+      height: 2px;
+      background-color: $accent-color;
+      transform: translateX(-50%);
+      transition: width $default-transition-time ease-in-out;
+      transform-origin: center left;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+    }
+
+    &:hover {
+      span {
+        color: $black;
+      }
+    }
+    
+    &:hover:before, &:focus:before {
+      width: 100%;
     }
   }
 }

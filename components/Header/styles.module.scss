@@ -15,8 +15,8 @@
   left: 0;
   z-index: 9999;
   @include flex(row, space-between, center);
-  width: calc(100% - 110px);
-  padding: 10px 55px;
+  width: calc(100% - 34px);
+  padding: 17.5px 17px;
   opacity: 1;
   transform: translate3d(0, -100%, 0);
   transition: transform $default-transition-time, padding $default-transition-time;
@@ -30,7 +30,7 @@
     cursor: pointer;
     text-align: center;
     width: $logo-size;
-    height: 50px;
+    height: 45px;
     overflow: hidden;
     transition: width $default-transition-time ease;
 
@@ -46,6 +46,16 @@
     }
   }
 
+  .categories {
+    display: none;
+
+    @include phone {
+      display: block;
+      position: fixed;
+      right: 65px;
+    }
+  }
+
   ul {
     margin: 0;
   }
@@ -54,17 +64,23 @@
     background-color: $header-additional-color;
 
     svg {
-      width: $logo-size;
+      // width: $logo-size;
 
       path {
         fill: $black;
+      }
+    }
+
+    div:last-child {
+      hr {
+        background-color: $black;
       }
     }
   }
 
   &.additional {
     will-change: transform;
-    padding: 0px 55px;
+    padding: 10px 17px;
     background-color: $header-additional-color;
     transition: transform $default-transition-time, padding $default-transition-time * 1.5;
 
@@ -73,7 +89,7 @@
     }
     
     svg {
-      width: $logo-size - 16px;
+      // width: $logo-size - 16px;
 
       @include phone {
         width: 100%;

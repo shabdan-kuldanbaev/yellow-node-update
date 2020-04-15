@@ -11,6 +11,7 @@ const AnimatedInput = ({
   isValidate,
   type,
   handleOnBlurEmail,
+  withoutLabel,
 }) => {
   const inputRef = useRef();
   const [isInputActived, setActive] = useState(false);
@@ -44,11 +45,12 @@ const AnimatedInput = ({
   return (
     <OutsideClickHandler onOutsideClick={handleOnOutsideClick}>
       <div className={animatedInput} onClick={handleOnClick}>
-        <label htmlFor={value}>{placeholder}</label>
+        {!withoutLabel && <label htmlFor={value}>{placeholder}</label>}
         <input
           onFocus={handleOnFocus}
           onBlur={handleOnBlur}
           ref={inputRef}
+          placeholder={ withoutLabel && !isInputActived ? placeholder : ''}
           type="text"
           id={value}
           value={value}
@@ -59,10 +61,15 @@ const AnimatedInput = ({
   );
 };
 
+AnimatedInput.defaultProps = {
+  withoutLabel: false,
+}
+
 AnimatedInput.propTypes = {
   value: PropTypes.string.isRequired,
   handleOnChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
+  withoutLabel: PropTypes.bool,
 };
 
 export default AnimatedInput;

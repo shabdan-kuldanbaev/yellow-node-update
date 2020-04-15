@@ -6,11 +6,11 @@
   background-color: $white;
 
   @include below-tablet {
-    padding: 60px $side-indent;
+    // padding: 60px $side-indent;
   }
 
   @include phone {
-    padding: $mobile-section-indent $side-indent;
+    padding: 0 $side-indent $mobile-section-indent;
   }
 
   .paginationContainer {
@@ -18,15 +18,14 @@
     padding-left: 0;
     list-style: none;
     transform: scale(0.9);
-    margin-top: $section-indent + 30px;
+    margin-top: $section-indent;
   
     @include tablet {
-      margin-top: $section-indent;
+      margin-top: 60px;
       transform: scale(1);
     }
 
     @include below-tablet {
-      margin-top: 60px;
       transform: scale(0.9);
     }
 
@@ -40,6 +39,10 @@
       svg {
         path{
           stroke: $pagination;
+
+          &:hover {
+            stroke: $active-pagination-color;
+          }
         }
       }
   
@@ -57,6 +60,10 @@
       text-decoration: none;
       cursor: pointer;
       outline: none;
+
+      &:hover {
+        color: $active-pagination-color;
+      }
   
       @include phone {
         font-size: 16px;

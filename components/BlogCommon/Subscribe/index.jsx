@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { ButtonMore, AnimatedInput } from 'components';
 import styles from './styles.module.scss';
-import { validateEmail } from 'utils/helper';
+import { withValidateEmail } from 'hocs';
 
-const Subscribe = ({ isMobile }) => {
-  const [email, setEmail] = useState({value: '', isValidate: true});
-  const handleOnEmailChange = ({ target: { value } }) => {
-    setEmail({ value: value, isValidate: validateEmail(value) });
-  };
-  const handleOnBlurEmail = (value) => {
-    setEmail({ value: value, isValidate: validateEmail(value) });
+const Subscribe = ({
+  isMobile,
+  email,
+  handleOnEmailChange,
+  handleOnBlurEmail,
+}) => {
+  const placeholderText = 'Email';
+  const [currentPlaceholder, setCurrentPlaceholder] = useState(placeholderText);
+  const handleOnFocus = () => {
+    setCurrentPlaceholder('');
+  }
+  const handleOnBlur = () => {
+    setCurrentPlaceholder(placeholderText);
   }
 
   return (
@@ -26,9 +32,11 @@ const Subscribe = ({ isMobile }) => {
             {!isMobile
               ? (
                 <input
+                  onFocus={handleOnFocus}
+                  onBlur={handleOnBlur}
                   className={styles.input}
                   type="email"
-                  placeholder="Email"
+                  placeholder={currentPlaceholder}
                   value={email.value}
                   onChange={handleOnEmailChange}
                   handleOnBlurEmail={handleOnBlurEmail}
@@ -38,7 +46,7 @@ const Subscribe = ({ isMobile }) => {
                 <AnimatedInput
                   value={email.value}
                   handleOnChange={handleOnEmailChange}
-                  placeholder="Email"
+                  placeholder={placeholderText}
                   type="email"
                   isValidate={email.isValidate}
                   handleOnBlurEmail={handleOnBlurEmail}
@@ -57,4 +65,4 @@ const Subscribe = ({ isMobile }) => {
   );
 };
 
-export default Subscribe;
+export default withValidateEmail(Subscribe);

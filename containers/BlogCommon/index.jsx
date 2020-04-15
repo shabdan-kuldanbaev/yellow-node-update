@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { LineOfSelect, GridArticles } from 'components/BlogCommon';
+import { SelectionBlock, Articles } from 'components/BlogCommon';
 import styles from './styles.module.scss';
 import ReactPaginate from 'react-paginate';
 import { articlesData, arrows } from './utils/data';
@@ -7,35 +7,34 @@ import { mobileResolution, toInt } from 'utils/helper';
 import Router, { useRouter } from 'next/router';
 import {
   selectIsLoading,
-  selectPosts,
+  selectArticles,
   selectTotalCount,
-  selectLimit,
+  selectDesktopLimit,
+  selectMobileLimit,
 } from 'redux/selectors/blog';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import {
-  loadPosts,
-  setTotalCount,
-  setLimit,
-} from 'redux/actions/blog';
+import { loadArticles, setTotalCount } from 'redux/actions/blog';
 
 const BlogCommon = ({
+  introSection,
   articles,
   isLoading,
-  loadPosts: loadNewPosts,
+  loadArticles: loadNewArticles,
   setTotalCount: setTotalArticlesCount,
   totalCount,
-  setLimit: setCurrentLimit,
-  limit,
+  desktopLimit,
+  mobileLimit,
 }) => {
-  const [isMobile, setMobile] = useState(false);
-  const { pathname, query: { category, page }, asPath } = useRouter();
-  const currentPage = parseInt(page) - 1;
-
-  let pagesCounter = Math.ceil(totalCount / (limit + 1) );
-  // console.log('totalCount ', totalCount, '; limit: ', limit, '; pagesCounter ', pagesCounter);
-  let pageRangeDisplayed = isMobile ? 2 : 4;
-  
+  const {
+    pathname,
+    asPath,
+    query: { category, page },
+  } = useRouter();
+  const [isMobileResolution, setMobileResolution] = useState(null);
+  const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
+  const pagesCounter = Math.ceil(totalCount / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
+  const currentPage = parseInt(page);
 
   const handleOnPageClick = ({ selected }) => {
     window.scrollTo(0, 0);
@@ -49,31 +48,53 @@ const BlogCommon = ({
   };
 
   useEffect(() => {
+    window.innerWidth < mobileResolution
+      ? setMobileResolution(true)
+      : setMobileResolution(false);
+
     const newArticles = category !== 'latest'
       ? articlesData.filter(article => article.category === category)
       : articlesData;
-    // console.log('newArticles.length - ', newArticles.length);
-
     setTotalArticlesCount(newArticles.length);
-    if (window.innerWidth < mobileResolution) {
-      setMobile(m => !m);
-      setCurrentLimit(4);
+  }, []);
+
+  useEffect(() => {
+    if (isMobileResolution !== null) {
+      let currentLimit = isMobileResolution
+        ? deviceLimit
+        : toInt(page) === 1 ? deviceLimit : deviceLimit + 1;
+      loadNewArticles({ currentPage, currentLimit, category });
     }
-    let currentLimit = toInt(page) === 1 ? limit : limit + 1;
-    loadNewPosts({ page, currentLimit, category });
-  }, [])
+  }, [isMobileResolution]);
+
+  // TODO console.log('BlogCommon: ', {
+  //   introSection,
+  //   articles,
+  //   isLoading,
+  //   loadPosts: loadNewArticles,
+  //   setTotalCount: setTotalArticlesCount,
+  //   totalCount,
+  //   desktopLimit,
+  //   mobileLimit,
+  //   pathname,
+  //   asPath,
+  //   category,
+  //   page,
+  //   pagesCounter,
+  //   isMobileResolution,
+  // });
 
   return (
-    <section className={styles.blog}>
-      <LineOfSelect urlPath={asPath} />
-      <GridArticles
+    <section ref={introSection} className={styles.blog}>
+      {!isMobileResolution && <SelectionBlock urlPath={asPath} />}
+      <Articles
         articles={articles}
         isLoading={isLoading}
         page={page}
       />
       <ReactPaginate
         pageCount={pagesCounter}
-        pageRangeDisplayed={pageRangeDisplayed}
+        pageRangeDisplayed={3}
         marginPagesDisplayed={1}
         previousLabel={arrows.prev}
         nextLabel={arrows.next}
@@ -86,7 +107,7 @@ const BlogCommon = ({
         previousLinkClassName={styles.paginationPrev}
         nextLinkClassName={styles.paginationNext}
         disableInitialCallback={true}
-        initialPage={currentPage}
+        initialPage={currentPage - 1}
         onPageChange={handleOnPageClick}
       />
     </section>
@@ -95,13 +116,10 @@ const BlogCommon = ({
 
 const mapStateToProps = createStructuredSelector({
   isLoading: selectIsLoading(),
-  articles: selectPosts(),
+  articles: selectArticles(),
   totalCount: selectTotalCount(),
-  limit: selectLimit(),
+  desktopLimit: selectDesktopLimit(),
+  mobileLimit: selectMobileLimit(),
 });
 
-export default connect(mapStateToProps, {
-  loadPosts,
-  setTotalCount,
-  setLimit,
-})(BlogCommon);
+export default connect(mapStateToProps, { loadArticles, setTotalCount })(BlogCommon);

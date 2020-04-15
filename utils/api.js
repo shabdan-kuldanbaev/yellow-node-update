@@ -2,8 +2,8 @@ import { articlesData } from 'containers/BlogCommon/utils/data';
 import { priority } from 'utils/constants';
 
 export const api = {
-  getPost: slug => articlesData.find(article => article.slug === slug),
-  loadPosts: (skip, limit, category) => {
+  getArticle: slug => articlesData.find(article => article.slug === slug),
+  loadArticles: (skip, limit, category) => {
     let leftEdge = (skip - 1) * limit;
     let rightEdge = skip * limit;
 
@@ -15,8 +15,9 @@ export const api = {
 
       return inOrder.filter((article, index) => index >= leftEdge && index < rightEdge);
     } else {
-      let newArticles = articlesData.filter(article => article.category === category);
-      return newArticles.filter((article, index) => index >= leftEdge && index < rightEdge);
+      return articlesData
+        .filter(article => article.category === category)
+        .filter((article, index) => index >= leftEdge && index < rightEdge);
     }
   }
 };

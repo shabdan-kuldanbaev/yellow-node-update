@@ -1,0 +1,43 @@
+@import 'styles/utils/mixins';
+
+.insta {
+  position: relative;
+  z-index: 2;
+  @include flex(column, flex-start, center);
+  padding: $section-indent $side-indent;
+  background-color: $white;
+  
+
+  @include phone {
+    padding: 235px $side-indent $after-mobile-title-margin;
+    overflow: hidden;
+  }
+
+  // TODO & > :global(.animated) {
+  //   position: absolute;
+  //   margin-left: -83px;
+  //   margin-top: -60px;
+
+  //   @include phone {
+  //     margin-left: 27px;
+  //     margin-top: -160px;
+  //   }
+  // }
+
+  .instaButton {
+    @include buttonMore($black, $black, $accent-color, $black);
+    transition: background-color $default-transition-time,
+                color $default-transition-time,
+                border-color $default-transition-time;
+
+    &:hover {
+      transition: background-color $default-transition-time,
+                  color $default-transition-time,
+                  border-color $default-transition-time;
+    }
+
+    @include phone {
+      margin-top: $mobile-more-button-indent;
+    }
+  }
+}

@@ -7,42 +7,39 @@ const initialState = Immutable.fromJS({
   all: [],
   totalCount: null,
   error: {},
-  limit: 11,
+  limit: { desktop: 11, mobile: 4, },
 });
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.GET_POST_PENDING:
+    case actionTypes.GET_ARTICLE_PENDING:
       return state.set('isLoading', true);
 
-    case actionTypes.GET_POST_SUCCESS:
+    case actionTypes.GET_ARTICLE_SUCCESS:
       return state
         .set('isLoading', false)
         .set('single', action.payload);
 
-    case actionTypes.GET_POST_FAILED:
+    case actionTypes.GET_ARTICLE_FAILED:
       return state
         .set('isLoading', false)
         .set('error', action.payload);
 
-    case actionTypes.LOAD_POSTS_PENDING:
+    case actionTypes.LOAD_ARTICLES_PENDING:
       return state.set('isLoading', true);
 
-    case actionTypes.LOAD_POSTS_SUCCESS:
+    case actionTypes.LOAD_ARTICLES_SUCCESS:
       return state
         .set('isLoading', false)
         .set('all', action.payload);
 
-    case actionTypes.LOAD_POSTS_FAILED:
+    case actionTypes.LOAD_ARTICLES_FAILED:
       return state
         .set('isLoading', false)
         .set('error', action.payload);
 
-    case actionTypes.SET_TOTAL_POSTS_COUNT:
+    case actionTypes.SET_TOTAL_ARTICLES_COUNT:
       return state.set('totalCount', action.payload);
-
-    case actionTypes.SET_LIMIT:
-      return state.set('limit', action.payload);
 
     default:
       return state;

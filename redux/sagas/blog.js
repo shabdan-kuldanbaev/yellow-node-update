@@ -9,30 +9,30 @@ import { actionTypes } from '../actions/actionTypes';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* getPost({ payload }) {
+function* getArticle({ payload }) {
   try {
-    const response = yield call(api.getPost, payload);
+    const response = yield call(api.getArticle, payload);
 
-    yield put({ type: actionTypes.GET_POST_SUCCESS, payload: response });
+    yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: response });
   } catch (err) {
-    yield put({ type: actionTypes.GET_POST_FAILED, payload: err });
+    yield put({ type: actionTypes.GET_ARTICLE_FAILED, payload: err });
   }
 }
 
-function* loadPosts({ payload }) {
+function* loadArticles({ payload }) {
   try {
-    const { page, currentLimit, category } = payload;
-    const response = yield call(api.loadPosts, page, currentLimit, category);
+    const { currentPage, currentLimit, category } = payload;
+    const response = yield call(api.loadArticles, currentPage, currentLimit, category);
 
-    yield put({ type: actionTypes.LOAD_POSTS_SUCCESS, payload: response });
+    yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: response });
   } catch (err) {
-    yield put({ type: actionTypes.LOAD_POSTS_FAILED, payload: err });
+    yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: err });
   }
 }
 
 export function* loadBlogDataWatcher() {
   yield all([
-    yield takeLatest(actionTypes.GET_POST_PENDING, getPost),
-    yield takeLatest(actionTypes.LOAD_POSTS_PENDING, loadPosts),
+    yield takeLatest(actionTypes.GET_ARTICLE_PENDING, getArticle),
+    yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
   ]);
 }

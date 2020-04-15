@@ -2,6 +2,7 @@
 
 .mobileMenu {
   display: none;
+  transition: transform .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
   @include phone {
     position: fixed;
@@ -55,26 +56,29 @@
   opacity: 1;
   touch-action: initial;
   user-select: initial;
-  transform: scaleY(1);
+  position: fixed;
+  transform: translateX(0vw);
   transition: opacity $default-transition-time;
+  transition: transform .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
   @for $i from 1 through 5 {
     li:nth-child(#{$i}) {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0vw);
       transition: transform $default-transition-time,
                   opacity $default-transition-time;
-      transition-delay: calc(#{$default-transition-time} * #{$i} / 5);
+      transition-delay: calc(#{$default-transition-time * 2} * #{$i} / 5);
     }
   }
 }
 
 .mobileMenuClosed {
-  transform: scaleY(0);
+  transform: translateX(-100vh);
   opacity: 0;
   touch-action: none;
   user-select: none;
   transition: opacity $default-transition-time;
+  transition: transform .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
   ul {
     li {

@@ -1,0 +1,123 @@
+@import 'styles/utils/mixins';
+
+.selectionBlock {
+  @include flex(row, center, center);
+  width: calc(100% - #{$side-indent});
+  max-width: $max-content-width - $side-indent * 2;
+
+  @include full-hd {
+    max-width: $max-content-width-full-hd - $side-indent * 2;
+  }
+
+  @include macbook-fifteen {
+    max-width: $max-content-width-macbook-fifteen - $side-indent * 2;
+  }
+
+  @include macbook-twelve {
+    max-width: $max-content-width-macbook-twelve - $side-indent * 2;
+  }
+
+  @include below-tablet {
+    @include flex(row, center, flex-start);
+  }
+
+  @include phone {
+    width: auto;
+  }
+
+  .buttons {
+    width: 25%;
+    @include flex(row, flex-end, center);
+    position: relative;
+    z-index: 1;
+    transition: z-index .5s cubic-bezier(0.575, 0.410, 0.300, 1.000);
+
+    @include phone {
+      width: auto;
+    }
+    
+    img {
+      position: absolute;
+      width: 16.5px;
+      cursor: pointer;
+      right: 160px;
+      transition: transform .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+      &:hover {
+        transform: rotate(360deg);
+        transition: transform .3s cubic-bezier(0.575, 0.410, 0.300, 1.000);
+      }
+
+      @include phone {
+        top: 1px;
+        right: 95px;
+      }
+    }
+
+    .button {
+      @include buttonMore($black, $black, $accent-color, $accent-color);
+      background-color: $accent-color;
+      color: $feedback-submit-color;
+      line-height: 1.55;
+      text-align: center;
+      margin: auto 0;
+      padding: 10px 20px;
+      width: auto;
+      font-weight: 550;
+      font-size: 13.5px !important;
+      letter-spacing: 0.9px;
+      transition: box-shadow 0.4s ease 0s;
+
+      @include below-tablet {
+        // transform: translateX(-80px);
+      }
+      
+      @include phone {
+        display: none;
+      }
+
+      &:hover {
+        box-shadow: $shadow-for-yellow-button;
+        transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+      }
+    }
+
+    .categoryTitleInHeader {
+      display: none;
+
+      @include phone {
+        display: block;
+        cursor: pointer;
+        font-weight: 500;
+        color: #3a3a3a;
+        font-size: 15px;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+.showCategories {
+  div:nth-of-type(1) {
+    transform: translateY(0%);
+    transition: transform .3s cubic-bezier(0.575, 0.410, 0.300, 1.000);
+  }
+
+  .buttons {
+    @include phone {
+      z-index: -1;
+      transition: z-index .3s cubic-bezier(0.575, 0.410, 0.300, 1.000);
+    }
+  }
+
+  // TODO &:after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   background: rgba(0,0,0,.3);
+  //   z-index: 1;
+  // }
+}

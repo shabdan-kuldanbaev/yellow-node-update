@@ -1,0 +1,118 @@
+@import 'styles/utils/mixins';
+
+.categories {
+  width: 75%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  @include phone {
+    $qwe: 100%;
+    width: auto;
+    // -webkit-backdrop-filter: blur(10px);
+    // backdrop-filter: blur(10px);
+    // background-color: $white;
+    background-color: rgba(255, 255, 255, .96);
+    border: 1px solid $grid-articles-published-date-color;
+
+    border-radius: 5px;
+    color: #333;
+    line-height: 1.5;
+    position: fixed;
+    // width: calc(#{$qwe} - $side-indent * 2) !important;
+    height: auto;
+    top: $side-indent;
+    right: $side-indent;
+    left: $side-indent;
+    // $side-indent;
+    padding: 16px;
+    transform: translateY(-150%);
+    transition: transform .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+
+  .categoryTitle {
+    display: none;
+    position: relative;
+
+    @include phone {
+      display: block;
+    }
+
+    span {
+      @include phone {
+        display: block;
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+        text-align: left;
+        color: #3a3a3a;
+        line-height: 1.5;
+        margin-bottom: 30px;
+        font-weight: 500;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 16px;
+      right: 0;
+      width: 20px;
+      height: 16px;
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    @include flex(row, space-between, center);
+    flex-wrap: wrap;
+    line-height: 2;
+
+    @include below-tablet {
+      @include flex(row, flex-start, center);
+      flex-wrap: wrap;
+    }
+
+    @include phone {
+      line-height: 1;
+      @include flex(column, flex-start, center);
+    }
+
+    li {
+      cursor: pointer;
+      list-style-type: none;
+      font-weight: 500;
+      font-size: 13.5px;
+      letter-spacing: 0.9px;
+
+      @include below-tablet {
+        margin-right: 20px;
+      }
+
+      @include phone {
+        margin: 0;
+        font-size: 18px;
+        color: #3a3a3a;
+        font-weight: 100;
+        margin-bottom: 20px;
+      }
+    
+      a {
+        color: $grid-articles-published-date-color;
+        text-decoration: none;
+
+        &:hover {
+          color: $black;
+        }
+      }
+
+      &.selectedBlock {
+        a {
+          color: $black;
+        }
+      }
+    }
+  }
+}

@@ -2,18 +2,17 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Logo from '../Logo';
-import { menuList, socialLinks } from './utils/data';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
-import { toInt } from 'utils/helper';
-import { phoneResolution } from 'styles/utils/_variables.scss';
+import { mobileResolution } from 'utils/helper';
 import { selectIsModelLoaded, selectScrollOfAddedFooter } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { useRouter } from 'next/router';
+import { SelectionBlock } from 'components/BlogCommon';
 
 const Header = ({
   theme,
@@ -25,40 +24,49 @@ const Header = ({
 }) => {
   const { asPath } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
+  const isHomePage = currentPage === '';
   const [isAdditional, setAdditional] = useState(false);
   const [direction, setDirection] = useState('up');
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   let oldY = 0;
-  // debugger
+
   const headerClassName = cn({
     [`${styles.headerContainer}`]: true,
     [`${styles.mobileHeaderHeight}`]: isMobileMenuOpened,
     [`${styles.animate}`]: isModelLoaded,
     [`${styles.additional}`]: isAdditional,
     [`${styles[direction]}`]: isModelLoaded,
-    [styles.notHome]: currentPage !== '',
+    [styles.notHome]: !isHomePage && !isMobileMenuOpened,
     [styles.deleteTextOfLogo]: isLogoTextHidden,
   });
   
   const handleOnScroll = () => {
     const pageYOffset = window.pageYOffset;
-    const innerWidth = window.innerWidth;
-
+    let isMobile = window.innerWidth < mobileResolution;
+    
     if (introSection.current) {
-      const intro = introSection.current.getBoundingClientRect();
-      const mobileResolution = innerWidth > toInt(phoneResolution);
+      let intro = introSection.current.getBoundingClientRect();
+      
+      if (isHomePage) {
+        intro.bottom < 0
+          ? setAdditional(true)
+          : setAdditional(false);
+        intro.top < -200 && !isMobile
+          ? setIsLogoTextHidden(true)
+          : setIsLogoTextHidden(false);
+        oldY < pageYOffset && (!isMobile ? intro.top < -700 : intro.top < -200)
+          ? setDirection('down')
+          : setDirection('up');
+  
+        oldY = pageYOffset;
+      }
 
-      if (intro.bottom < 0) setAdditional(true);
-      else setAdditional(false);
-
-      if (intro.top < -300 && mobileResolution) setIsLogoTextHidden(true);
-      else setIsLogoTextHidden(false);
-
-      if (oldY < pageYOffset && (mobileResolution ? intro.top < -700 : intro.top < -200)) {
-        setDirection('down');
-      } else setDirection('up');
-
-      oldY = pageYOffset;
+      if (!isHomePage) {
+        oldY < pageYOffset && intro.top < -50
+          ? setDirection('down')
+          : setDirection('up');
+        oldY = pageYOffset;
+      }
     }
   };
 
@@ -66,7 +74,7 @@ const Header = ({
     // to fix with redux
     const html = document.querySelector('html');
     oldY = window.pageYOffset;
-    if (currentPage === '') handleOnScroll();
+    handleOnScroll();
 
     if (isMobileMenuOpened) {
       html.classList.add(styles.overflowApp);
@@ -77,28 +85,32 @@ const Header = ({
       if (scrollOfAddedFooter.classList) scrollOfAddedFooter.classList.remove(styles.hideScroll);
     }
 
-    if (currentPage === '') window.addEventListener('scroll', handleOnScroll);
-
+    window.addEventListener('scroll', handleOnScroll);
     return () => {
-      if (currentPage === '') window.removeEventListener('scroll', handleOnScroll);
+      window.removeEventListener('scroll', handleOnScroll);
     };
   }, []);
 
   return (
     <header className={headerClassName}>
-        {!isMobileMenuOpened && (
-          <div className={styles.logo}>
-            <Logo theme={theme} />
-          </div>
-        )}
+      {!isMobileMenuOpened && (
+        <div className={styles.logo}>
+          <Logo theme={theme} />
+        </div>
+      )}
+      {currentPage.includes('blog') && (
+        <div className={styles.categories}>
+          <SelectionBlock urlPath={asPath} />
+        </div>
+      )}
       <Nav
         theme={theme}
         isAdditional={isAdditional}
         currentPage={currentPage}
+        isMobileMenuOpened={isMobileMenuOpened}
+        setMobileMenuState={setMobileMenuState}
       />
       <MobileMenu
-        menuList={menuList}
-        socialLinks={socialLinks}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenuState}
         isAdditional={isAdditional}

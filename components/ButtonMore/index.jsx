@@ -8,20 +8,27 @@ const ButtonMore = ({
   title,
   buttonStyle,
   handleOnClick,
-}) => (
-  <Link href={href}>
+}) => href.length === 0
+  ? (
     <div className={cn({[buttonStyle]: buttonStyle})} onClick={handleOnClick}>
       {title}
     </div>
-  </Link>
-);
+  )
+  : (
+    <Link href={href}>
+      <div className={cn({[buttonStyle]: buttonStyle})} onClick={handleOnClick}>
+        {title}
+      </div>
+    </Link>
+  );
 
 ButtonMore.defaultProps = {
+  href: '',
   buttonStyle: null,
 };
 
 ButtonMore.propTypes = {
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   title: PropTypes.string.isRequired,
   buttonStyle: PropTypes.string,
   handleOnClick: PropTypes.func.isRequired,

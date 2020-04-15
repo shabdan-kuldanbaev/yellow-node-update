@@ -35,6 +35,12 @@
       padding: 4px 0;
       border: 0 none;
       cursor: pointer;
+      
+      img:hover {
+        color: $black;
+        filter: brightness(0.7);
+        transition: color $default-transition-time;
+      }
     }
   }
 

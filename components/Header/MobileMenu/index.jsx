@@ -4,6 +4,8 @@ import cn from 'classnames';
 import Link from 'next/link';
 import Burger from '../Burger';
 import PropTypes from 'prop-types';
+import { useOverflowForBody } from 'hooks';
+import { menuList, socialLinks } from './utils/data';
 
 const MobileMenu = ({
   menuList,
@@ -19,19 +21,25 @@ const MobileMenu = ({
     [`${styles.additionalMobileMenu}`]: isAdditional,
   });
 
-  const setOverflowForBody = (value) => {
-    document.body.style.overflow = value;
-  };
+  const handleOnClickLi = () => {
+    setMobileMenuState(!isMobileMenuOpened);
+  }
 
-  useEffect(() => {
-    isMobileMenuOpened ? setOverflowForBody('hidden') : setOverflowForBody('scroll');
-  }, [isMobileMenuOpened]);
+  useOverflowForBody(isMobileMenuOpened);
+
+  // TODO const setOverflowForBody = (value) => {
+  //   document.body.style.overflow = value;
+  // };
+
+  // useEffect(() => {
+  //   isMobileMenuOpened ? setOverflowForBody('hidden') : setOverflowForBody('scroll');
+  // }, [isMobileMenuOpened]);
 
   return (
     <Fragment>
       <div className={mobileMenuClassName}>
         <ul>{menuList.map(item => (
-          <li key={`menuItem/${item.name}`}>
+          <li key={`menuItem/${item.name}`} onClick={handleOnClickLi}>
             <Link href={item.href}>
               <span>{item.name}</span>
             </Link>
@@ -59,6 +67,11 @@ const MobileMenu = ({
     </Fragment>
   );
 }
+
+MobileMenu.defaultProps = {
+  menuList,
+  socialLinks,
+};
 
 MobileMenu.propTypes = {
   menuList: PropTypes.instanceOf(Array).isRequired,

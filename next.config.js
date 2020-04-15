@@ -6,6 +6,7 @@ const withObj = require('webpack-obj-loader');
 const withFonts = require('next-fonts');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
+const withTM = require("next-transpile-modules");
 
 // TODO const nextConfig = {
 //   webpack: (config, { isServer }) => {
@@ -45,6 +46,16 @@ const nextConfig = {
     /* eslint-disable */
     require('dotenv').config();
 
+    // Unshift polyfills in main entrypoint.
+    const originalEntry = config.entry;
+    config.entry = async () => {
+      const entries = await originalEntry();
+      if (entries['main.js']) {
+        entries['main.js'].unshift('./polyfill.js');
+      }
+      return entries;
+    };
+
     config.plugins = config.plugins || [];
 
     config.plugins = [
@@ -58,9 +69,21 @@ const nextConfig = {
     /* eslint-enable */
     return config;
   },
+
+  transpileModules: [
+    "express-http-context",
+    "ip-regex",
+    "is-ip",
+    "logform",
+    "winston-transport",
+    "triple-beam",
+    "intersection-observer-polyfill",
+    "react-intersection-observer"
+  ],
 };
 
 module.exports = withPlugins([
+  withTM,
   [withSass, {
     cssModules: true,
     cssLoaderOptions: {
