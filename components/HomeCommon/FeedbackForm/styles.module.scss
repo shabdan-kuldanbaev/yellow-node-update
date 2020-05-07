@@ -137,7 +137,7 @@
       letter-spacing: 0.5px;
       text-align: center;
       font-size: 1rem;
-      transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+      transition: background-color $shadow-time-for-yellow-button;
 
       @include phone {
         width: 90%;
@@ -145,8 +145,8 @@
       }
 
       &:hover {
-        box-shadow: $shadow-for-yellow-button;
-        transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+        background-color: $accent-dark-color;
+        transition: background-color $shadow-time-for-yellow-button;
       }
     }
   }

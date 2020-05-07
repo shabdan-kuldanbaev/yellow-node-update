@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Logo from '../Logo';
-import MobileMenu from './MobileMenu';
-import Nav from './Nav';
-import styles from './styles.module.scss';
 import { mobileResolution } from 'utils/helper';
 import { selectIsModelLoaded, selectScrollOfAddedFooter } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { useRouter } from 'next/router';
 import { SelectionBlock } from 'components/BlogCommon';
+import styles from './styles.module.scss';
+import Nav from './Nav';
+import MobileMenu from './MobileMenu';
+import Logo from '../Logo';
 
 const Header = ({
   theme,
@@ -39,14 +38,14 @@ const Header = ({
     [styles.notHome]: !isHomePage && !isMobileMenuOpened,
     [styles.deleteTextOfLogo]: isLogoTextHidden,
   });
-  
+
   const handleOnScroll = () => {
-    const pageYOffset = window.pageYOffset;
-    let isMobile = window.innerWidth < mobileResolution;
-    
+    const { pageYOffset } = window;
+    const isMobile = window.innerWidth < mobileResolution;
+
     if (introSection.current) {
-      let intro = introSection.current.getBoundingClientRect();
-      
+      const intro = introSection.current.getBoundingClientRect();
+
       if (isHomePage) {
         intro.bottom < 0
           ? setAdditional(true)
@@ -57,7 +56,7 @@ const Header = ({
         oldY < pageYOffset && (!isMobile ? intro.top < -700 : intro.top < -200)
           ? setDirection('down')
           : setDirection('up');
-  
+
         oldY = pageYOffset;
       }
 
@@ -79,8 +78,7 @@ const Header = ({
     if (isMobileMenuOpened) {
       html.classList.add(styles.overflowApp);
       if (scrollOfAddedFooter.classList) scrollOfAddedFooter.classList.add(styles.hideScroll);
-    }
-    else {
+    } else {
       html.classList.remove(styles.overflowApp);
       if (scrollOfAddedFooter.classList) scrollOfAddedFooter.classList.remove(styles.hideScroll);
     }
@@ -131,10 +129,10 @@ Header.propTypes = {
   setMobileMenuState: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = createStructuredSelector({
-  isModelLoaded: selectIsModelLoaded(),
-  scrollOfAddedFooter: selectScrollOfAddedFooter(),
-  isMobileMenuOpened : selectIsMobileMenuOpened(),
+const mapStateToProps = (state) => ({
+  isModelLoaded: selectIsModelLoaded(state),
+  scrollOfAddedFooter: selectScrollOfAddedFooter(state),
+  isMobileMenuOpened: selectIsMobileMenuOpened(state),
 });
 
 export default connect(mapStateToProps, { setMobileMenuState })(Header);

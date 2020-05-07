@@ -1,16 +1,11 @@
-import { Map } from 'immutable';
-import { createSelector } from 'reselect';
+export const selectIsLoading = (state) => state.blog.isLoading;
 
-const selectBlog = () => state => state.get('blog', Map());
+export const selectArticle = (state) => state.blog.single;
 
-export const selectIsLoading = () => createSelector(selectBlog(), blog => blog.get('isLoading'));
+export const selectArticles = (state) => state.blog.all;
 
-export const selectArticle = () => createSelector(selectBlog(), blog => blog.get('single'));
+export const selectTotalCount = (state) => state.blog.totalCount;
 
-export const selectArticles = () => createSelector(selectBlog(), blog => blog.get('all'));
+export const selectDesktopLimit = (state) => state.blog.limit.desktop;
 
-export const selectTotalCount = () => createSelector(selectBlog(), blog => blog.get('totalCount'));
-
-export const selectDesktopLimit = () => createSelector(selectBlog(), blog => blog.getIn(['limit', 'desktop']));
-
-export const selectMobileLimit = () => createSelector(selectBlog(), blog => blog.getIn(['limit', 'mobile']));
+export const selectMobileLimit = (state) => state.blog.limit.mobile;

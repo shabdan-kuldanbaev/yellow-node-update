@@ -1,15 +1,15 @@
 import React from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
 import {
   ButtonMore,
   AnimatedInput,
   // TODO PrivacyPolicyCheckbox,
 } from 'components';
-import CloseIcon from './images/close.svg';
 import Link from 'next/link';
 import { useOverflowForBody } from 'hooks';
 import { withValidateEmail } from 'hocs';
+import CloseIcon from './images/close.svg';
+import styles from './styles.module.scss';
 
 const FullscreenSubscribe = ({
   isFullscreenSubscribe,
@@ -21,7 +21,7 @@ const FullscreenSubscribe = ({
   useOverflowForBody(isFullscreenSubscribe);
 
   return (
-    <section className={cn(styles.fullscreenSubscribe, {[styles.show]: isFullscreenSubscribe})}>
+    <section className={cn(styles.fullscreenSubscribe, { [styles.show]: isFullscreenSubscribe })}>
       <img
         onClick={closeFullscreenSubscribe}
         src={CloseIcon}
@@ -48,16 +48,16 @@ const FullscreenSubscribe = ({
               />
 
               {/* TODO */}
-                          <label className={styles.checkbox}>
-                            <span>I accept your</span>
-                            <Link href="/privacy-policy">
-                                <span className={styles.link}>Privacy Policy</span>
-                            </Link>
-                            <input type="checkbox" />
-                            <span className={styles.checkmark} />
-                          </label>
+              <label className={styles.checkbox}>
+                <span>I accept your</span>
+                <Link href="/privacy-policy">
+                  <span className={styles.link}>Privacy Policy</span>
+                </Link>
+                <input type="checkbox" />
+                <span className={styles.checkmark} />
+              </label>
               {/* TODO */}
-              
+
               <ButtonMore
                 handleOnClick=""
                 title="Subscribe"

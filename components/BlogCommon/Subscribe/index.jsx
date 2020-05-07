@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ButtonMore, AnimatedInput } from 'components';
-import styles from './styles.module.scss';
 import { withValidateEmail } from 'hocs';
+import styles from './styles.module.scss';
 
 const Subscribe = ({
   isMobile,
@@ -13,10 +13,10 @@ const Subscribe = ({
   const [currentPlaceholder, setCurrentPlaceholder] = useState(placeholderText);
   const handleOnFocus = () => {
     setCurrentPlaceholder('');
-  }
+  };
   const handleOnBlur = () => {
     setCurrentPlaceholder(placeholderText);
-  }
+  };
 
   return (
     <section className={styles.subscribeBlock}>
@@ -51,7 +51,7 @@ const Subscribe = ({
                   isValidate={email.isValidate}
                   handleOnBlurEmail={handleOnBlurEmail}
                 />
-            )}
+              )}
             <ButtonMore
               handleOnClick=""
               href="/blog"

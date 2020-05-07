@@ -44,8 +44,16 @@
   @media (max-width: $default-tablet-size) { @content; }
 }
 
+@mixin below-tablet-horizontal {
+  @media (max-width: $max-tablet-size) and (max-height: 800px) { @content; }
+}
+
 @mixin phone {
   @media (max-width: $max-mobile-size) { @content; }
+}
+
+@mixin horizontal-mobile {
+  @media (max-height: $horizontal-mobile) { @content; }
 }
 
 @mixin phone-height-500 {

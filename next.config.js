@@ -6,39 +6,6 @@ const withObj = require('webpack-obj-loader');
 const withFonts = require('next-fonts');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
-const withTM = require("next-transpile-modules");
-
-// TODO const nextConfig = {
-//   webpack: (config, { isServer }) => {
-//     /* eslint-disable */
-//     config.plugins = config.plugins || [];
-
-//     if (isServer) {
-//       const objModels = /\.obj$/;
-//       const origExternals = [...config.externals]
-//       config.externals = [
-//         (context, request, callback) => {
-//           if (request.match(objModels)) return callback()
-//           if (typeof origExternals[0] === 'function') {
-//             origExternals[0](context, request, callback)
-//           } else {
-//             callback()
-//           }
-//         },
-//         ...(typeof origExternals[0] === 'function' ? [] : origExternals),
-//       ]
-
-//       config.module.rules.unshift({
-//         test: objModels,
-//         loader: 'webpack-obj-loader',
-//       })
-//     }
-
-//     config.plugins = [ ...config.plugins];
-//     /* eslint-enable */
-//     return config;
-//   },
-// };
 
 const nextConfig = {
   distDir: 'build',
@@ -51,7 +18,7 @@ const nextConfig = {
     config.entry = async () => {
       const entries = await originalEntry();
       if (entries['main.js']) {
-        entries['main.js'].unshift('./polyfill.js');
+        entries['main.js'].unshift('./polyfills.js');
       }
       return entries;
     };
@@ -69,21 +36,9 @@ const nextConfig = {
     /* eslint-enable */
     return config;
   },
-
-  transpileModules: [
-    "express-http-context",
-    "ip-regex",
-    "is-ip",
-    "logform",
-    "winston-transport",
-    "triple-beam",
-    "intersection-observer-polyfill",
-    "react-intersection-observer"
-  ],
 };
 
 module.exports = withPlugins([
-  withTM,
   [withSass, {
     cssModules: true,
     cssLoaderOptions: {

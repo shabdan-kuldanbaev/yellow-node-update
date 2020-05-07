@@ -139,7 +139,7 @@
           margin: auto 0;
           padding: 15px 45px;
           width: auto;
-          transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+          transition: background-color $shadow-time-for-yellow-button;
           
           @include phone {
             margin: 25px auto 0;
@@ -148,8 +148,8 @@
           }
 
           &:hover {
-            box-shadow: $shadow-for-yellow-button;
-            transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+            background-color: $accent-dark-color;
+            transition: background-color $shadow-time-for-yellow-button;
           }
         }
       }

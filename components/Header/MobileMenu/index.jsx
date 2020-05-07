@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect } from 'react';
-import styles from './styles.module.scss';
 import cn from 'classnames';
 import Link from 'next/link';
-import Burger from '../Burger';
 import PropTypes from 'prop-types';
 import { useOverflowForBody } from 'hooks';
+import Burger from '../Burger';
+import styles from './styles.module.scss';
 import { menuList, socialLinks } from './utils/data';
 
 const MobileMenu = ({
@@ -23,7 +23,7 @@ const MobileMenu = ({
 
   const handleOnClickLi = () => {
     setMobileMenuState(!isMobileMenuOpened);
-  }
+  };
 
   useOverflowForBody(isMobileMenuOpened);
 
@@ -38,16 +38,17 @@ const MobileMenu = ({
   return (
     <Fragment>
       <div className={mobileMenuClassName}>
-        <ul>{menuList.map(item => (
-          <li key={`menuItem/${item.name}`} onClick={handleOnClickLi}>
-            <Link href={item.href}>
-              <span>{item.name}</span>
-            </Link>
-          </li>
-        ))}
+        <ul>
+          {menuList.map((item) => (
+            <li key={`menuItem/${item.name}`} onClick={handleOnClickLi}>
+              <Link href={item.href}>
+                <span>{item.name}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
         <div className={styles.mobileMenuFooter}>
-          {socialLinks.map(link => (
+          {socialLinks.map((link) => (
             <a
               key={`links/${link.title}`}
               href={link.href}
@@ -66,7 +67,7 @@ const MobileMenu = ({
       />
     </Fragment>
   );
-}
+};
 
 MobileMenu.defaultProps = {
   menuList,

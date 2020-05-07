@@ -24,11 +24,11 @@ const AddFooter = ({
     [`${styles[direction]}`]: true,
     [`${styles.animate}`]: isModelLoaded,
     [`${styles.notOnTop}`]: !isTopOfPage,
-  }); 
+  });
 
   const handleOnScroll = () => {
-    const pageYOffset = window.pageYOffset;
-    
+    const { pageYOffset } = window;
+
     if (pageYOffset < 250) {
       setTopOfPage(true);
       if (pageYOffset < 200 && oldY > pageYOffset) setDirection('up');

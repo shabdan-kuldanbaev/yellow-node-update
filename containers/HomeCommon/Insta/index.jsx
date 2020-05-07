@@ -15,7 +15,7 @@ const Insta = () => (
       animateOnce
       delay={0}
     > */}
-      <InstaLogo />
+    <InstaLogo />
     {/* </ScrollAnimation> */}
     <SectionTitle title="Live" subtitle="How we live and work" />
     <InstaTape />

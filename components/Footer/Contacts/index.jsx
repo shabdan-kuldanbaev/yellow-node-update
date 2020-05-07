@@ -29,7 +29,7 @@ const Contacts = () => (
     </div>
     <div className={styles.social}>
       <div className={styles.icons}>
-        {socialNetworks.map(network => (
+        {socialNetworks.map((network) => (
           <a
             key={`networks/${network.title}`}
             href={network.href}
@@ -49,13 +49,14 @@ const Contacts = () => (
       />
     </div>
     <div className={styles.text}>
-      <span>© Copyright 2020 Yellow.</span><span> All Rights Reserved. Privacy Policy</span>
+      <span>© Copyright 2020 Yellow.</span>
+      <span> All Rights Reserved. Privacy Policy</span>
     </div>
     <div className={styles.rocket}>
       <div className={styles.stars} />
       <div className={styles.stars2} />
       <div className={styles.stars3} />
-      <img src={rocketIcon} alt=""/>
+      <img src={rocketIcon} alt="" />
     </div>
   </div>
 );

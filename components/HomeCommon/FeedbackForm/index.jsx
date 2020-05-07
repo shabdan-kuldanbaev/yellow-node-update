@@ -5,9 +5,9 @@ import {
   AnimatedInput,
   ButtonMore,
 } from 'components';
+import { withValidateEmail } from 'hocs';
 import styles from './styles.module.scss';
 import { CheckboxContainer } from './CheckboxContainer';
-import { withValidateEmail } from 'hocs';
 
 const FeedbackForm = ({
   email,

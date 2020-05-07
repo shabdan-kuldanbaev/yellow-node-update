@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import { ButtonMore } from 'components';
 import styles from './styles.module.scss';
 import { notificationData } from './utils/data';
-import { ButtonMore } from 'components';
 
 const CookiesNotification = ({ text }) => {
   const [isShown, setIsShown] = useState(false);
@@ -13,7 +13,7 @@ const CookiesNotification = ({ text }) => {
   };
 
   return (
-    <div className={cn(styles.cookiesNotification, {[styles.hide]: !isShown })}>
+    <div className={cn(styles.cookiesNotification, { [styles.hide]: !isShown })}>
       <p>{text}</p>
       <ButtonMore
         handleOnClick={handlerOnClose}
@@ -31,7 +31,7 @@ const CookiesNotification = ({ text }) => {
 
 CookiesNotification.defaultProps = {
   text: notificationData.text,
-}
+};
 
 CookiesNotification.propTypes = {
   text: PropTypes.string,

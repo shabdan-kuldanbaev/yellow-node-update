@@ -41,12 +41,6 @@
       width: 16.5px;
       cursor: pointer;
       right: 160px;
-      transition: transform .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-
-      &:hover {
-        transform: rotate(360deg);
-        transition: transform .3s cubic-bezier(0.575, 0.410, 0.300, 1.000);
-      }
 
       @include phone {
         top: 1px;
@@ -66,7 +60,7 @@
       font-weight: 550;
       font-size: 13.5px !important;
       letter-spacing: 0.9px;
-      transition: box-shadow 0.4s ease 0s;
+      transition: background-color $shadow-time-for-yellow-button;
 
       @include below-tablet {
         // transform: translateX(-80px);
@@ -77,8 +71,8 @@
       }
 
       &:hover {
-        box-shadow: $shadow-for-yellow-button;
-        transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+        background-color: $accent-dark-color;
+        transition: background-color $shadow-time-for-yellow-button;
       }
     }
 
@@ -110,14 +104,12 @@
     }
   }
 
-  // TODO &:after {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   background: rgba(0,0,0,.3);
-  //   z-index: 1;
-  // }
+  // background-color: rgba(1,1,1,0.75);
+  // overflow: auto;
+  // position: fixed;
+  // left: 0;
+  // right: 0;
+  // top: 0;
+  // bottom: 0;
+  // z-index: 100;
 }

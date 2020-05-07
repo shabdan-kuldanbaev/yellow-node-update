@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { partners } from './utils/data';
-import styles from './styles.module.scss';
 import { toInt } from 'utils/helper';
 import { phoneResolution } from 'styles/utils/_variables.scss';
+import { partners } from './utils/data';
+import styles from './styles.module.scss';
 
 const Partners = () => {
   const [increaseTime, setIncreaseTime] = useState(5);

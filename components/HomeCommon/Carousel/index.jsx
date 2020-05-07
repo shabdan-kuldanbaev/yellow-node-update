@@ -4,7 +4,7 @@ import CarouselItem from './Item';
 import { nextArrow, backArrow } from './images';
 import { reviews } from './utils/data';
 
-import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './styles.module.scss';
 
@@ -39,7 +39,7 @@ const Carousel = () => {
 
   return (
     <Slider {...settings}>
-      {reviews.map(review => <CarouselItem key={review.id} {...review} />)}
+      {reviews.map((review) => <CarouselItem key={review.id} {...review} />)}
     </Slider>
   );
 };

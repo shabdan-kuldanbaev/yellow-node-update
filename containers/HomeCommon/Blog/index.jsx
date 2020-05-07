@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
 import { SectionTitle, ButtonMore } from 'components';
 import { Articles } from 'components/BlogCommon';
-import styles from './styles.module.scss';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { loadArticles } from 'redux/actions/blog';
 import { tagsForBlog } from 'utils/constants';
 import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
+import styles from './styles.module.scss';
 
 const Blog = ({
   articles,
   isLoading,
-  loadArticles: loadNewArticles ,
+  loadArticles: loadNewArticles,
 }) => {
   const currentPage = 1;
   const currentLimit = 5;
@@ -38,9 +37,9 @@ const Blog = ({
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  isLoading: selectIsLoading(),
-  articles: selectArticles(),
+const mapStateToProps = (state) => ({
+  isLoading: selectIsLoading(state),
+  articles: selectArticles(state),
 });
 
 export default connect(mapStateToProps, { loadArticles })(Blog);

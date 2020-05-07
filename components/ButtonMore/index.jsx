@@ -8,19 +8,19 @@ const ButtonMore = ({
   title,
   buttonStyle,
   handleOnClick,
-}) => href.length === 0
+}) => (href.length === 0
   ? (
-    <div className={cn({[buttonStyle]: buttonStyle})} onClick={handleOnClick}>
+    <div className={cn({ [buttonStyle]: buttonStyle })} onClick={handleOnClick}>
       {title}
     </div>
   )
   : (
     <Link href={href}>
-      <div className={cn({[buttonStyle]: buttonStyle})} onClick={handleOnClick}>
+      <div className={cn({ [buttonStyle]: buttonStyle })} onClick={handleOnClick}>
         {title}
       </div>
     </Link>
-  );
+  ));
 
 ButtonMore.defaultProps = {
   href: '',

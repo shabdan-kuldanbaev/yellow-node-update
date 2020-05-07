@@ -95,19 +95,19 @@ const Duck = ({ handleOnLoaded }) => {
       mat = new THREE.ShaderMaterial({
         uniforms: {
           time: {
-            type: "f",
+            type: 'f',
             value: 0,
           },
           resolution: {
-            type: "v2",
+            type: 'v2',
             value: new THREE.Vector2(window.innerWidth, window.innerHeight),
           },
           mouse: {
-            type: "v3",
+            type: 'v3',
             value: new THREE.Vector3(0, 0, 0),
           },
           scale: {
-            type: "f",
+            type: 'f',
             value: window.innerHeight / 2,
           },
         },
@@ -121,7 +121,7 @@ const Duck = ({ handleOnLoaded }) => {
       if (xhr.loaded / xhr.total * 100 === 100) {
         setLoaded(true);
         // TODO handleOnLoaded(true);
-      }; 
+      }
     });
   };
 
@@ -133,16 +133,16 @@ const Duck = ({ handleOnLoaded }) => {
     renderer.autoClear = false;
   };
 
-  const setRandomPosition = mesh => {
+  const setRandomPosition = (mesh) => {
     const positions = mesh.geometry.attributes.position;
-    const count = positions.count;
+    const { count } = positions;
 
     for (let i = 0; i < count; i += 1) {
       let px = positions.getX(i);
       let py = positions.getY(i);
       let pz = positions.getZ(i);
 
-      if (scatterStep < .0125) scatterStep += 0.01;
+      if (scatterStep < 0.0125) scatterStep += 0.01;
 
       positions.setXYZ(
         i,
@@ -155,14 +155,14 @@ const Duck = ({ handleOnLoaded }) => {
     positions.needsUpdate = true;
   };
 
-  const setRotateAnimation = mesh => {
+  const setRotateAnimation = (mesh) => {
     if (options.initial.rotationDirection === 'left') {
-      if (mesh.rotation.y > 0) mesh.rotation.y += - .1 * options.default.rotationSpeed
+      if (mesh.rotation.y > 0) mesh.rotation.y += -0.1 * options.default.rotationSpeed;
       else options.initial.rotationDirection = 'right';
     }
 
     if (options.initial.rotationDirection === 'right') {
-      if (mesh.rotation.y > -3) mesh.rotation.y -= - .1 * options.default.rotationSpeed
+      if (mesh.rotation.y > -3) mesh.rotation.y -= -0.1 * options.default.rotationSpeed;
       else options.initial.rotationDirection = 'left';
     }
   };
@@ -171,7 +171,7 @@ const Duck = ({ handleOnLoaded }) => {
     createCamera();
     loadModel();
     createRenderer();
-    
+
     containerCanvas.current.innerHTML = '';
     containerCanvas.current.appendChild(renderer.domElement);
     canvas = renderer.domElement;
@@ -197,7 +197,7 @@ const Duck = ({ handleOnLoaded }) => {
       options.initial.currentAnimation = animationTypes[2];
       sloganRef.current ? sloganRef.current.style.opacity = 0 : null;
       sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
-    };
+    }
   };
 
   const onDocumentMouseUp = () => {
@@ -521,13 +521,13 @@ const Duck = ({ handleOnLoaded }) => {
   return (
     <Fragment>
       <div className={styles.text} ref={containerText}>
-        <animated.div style={{
-          position: 'absolute',
-          transform: offset.interpolate(calc),
-        }}>
-          {isModelLoaded && <h1 ref={sloganRef} className="letter-container">
-            WE CREATE FANTASTIC SOFTWARE
-          </h1>}
+        <animated.div
+          style={{
+            position: 'absolute',
+            transform: offset.interpolate(calc),
+          }}
+        >
+          {isModelLoaded && <h1 ref={sloganRef} className="letter-container">WE CREATE FANTASTIC SOFTWARE</h1>}
         </animated.div>
       </div>
       <div className={styles.canvasContainer} ref={containerCanvas} />

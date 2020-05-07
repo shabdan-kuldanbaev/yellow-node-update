@@ -35,11 +35,28 @@
       padding: 4px 0;
       border: 0 none;
       cursor: pointer;
-      
-      img:hover {
-        color: $black;
-        filter: brightness(0.7);
-        transition: color $default-transition-time;
+
+      svg {
+        g {
+          path {
+            fill: $attach-color;
+            filter: brightness(1);
+            transition: fill $default-transition-time,
+                        filter $default-transition-time;
+          }
+        }
+      }
+
+      &:hover {
+        svg {
+          g {
+            path {
+              fill: $attach-hover-color;
+              transition: fill $default-transition-time,
+                          filter $default-transition-time;
+            }
+          }
+        }
       }
     }
   }

@@ -2,7 +2,7 @@
 
 .blog {
   @include flex(column, flex-start, center);
-  padding: $section-indent $side-indent;
+  padding: $section-indent + 30px $side-indent $section-indent;
   background-color: $white;
 
   @include below-tablet {

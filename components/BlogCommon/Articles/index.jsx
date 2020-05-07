@@ -5,12 +5,12 @@ import React, {
   Fragment,
 } from 'react';
 import cn from 'classnames';
-import Subscribe from '../Subscribe';
 import { mobileResolution, toInt } from 'utils/helper';
-import styles from './styles.module.scss';
 import { LinkWrapper, Loader } from 'components';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
+import styles from './styles.module.scss';
+import Subscribe from '../Subscribe';
 
 const Articles = ({
   articles,
@@ -36,14 +36,14 @@ const Articles = ({
 
   useEffect(() => {
     // if (articlesGrid.current.getBoundingClientRect().top < window.innerHeight) {
-      //setAnimated(true);
+    // setAnimated(true);
     // }
     window.innerWidth < mobileResolution
       ? setMobile(true)
       : setMobile(false);
 
     // const timer = setTimeout(() => {
-      // if (articlesGrid.current) articlesGrid.current.classList.add(styles.animate);
+    // if (articlesGrid.current) articlesGrid.current.classList.add(styles.animate);
     // }, 100);
 
     // window.addEventListener('scroll', handleOnScroll);
@@ -60,7 +60,7 @@ const Articles = ({
       <Loader isLoading={!isLoading}>
         {articles && articles.map((art, index) => (
           <Fragment>
-            {/* first variant */}
+            {/* TODO first variant */}
             {/* {isMobile
               ? index === 3 && <Subscribe isMobile={isMobile} />
               : pageNumber === 1
@@ -68,15 +68,17 @@ const Articles = ({
                 : index === 9 && <Subscribe isMobile={isMobile} />
             } */}
             {/* second variant */}
-            {pageNumber === 1 && ( isMobile
+            {pageNumber === 1 && (isMobile
               ? (index === 3 && <Subscribe isMobile={isMobile} />)
-              : (index === 8 && <Subscribe isMobile={isMobile} />))
-            }
-            <div key={`articles/${art.id}`} className={cn({
-              [styles.high]: index === 0 && pageNumber === 1,
-              [styles.medium]: index === 1 && pageNumber === 1,
-              [styles.low]: (pageNumber === 1 && index !== 0 && index !== 1) || pageNumber !== 1,
-            })}>
+              : (index === 8 && <Subscribe isMobile={isMobile} />))}
+            <div
+              key={`articles/${art.id}`}
+              className={cn({
+                [styles.high]: index === 0 && pageNumber === 1,
+                [styles.medium]: index === 1 && pageNumber === 1,
+                [styles.low]: (pageNumber === 1 && index !== 0 && index !== 1) || pageNumber !== 1,
+              })}
+            >
               <LinkWrapper
                 isLocalLink
                 dynamicRouting="/blog/[article]"
@@ -88,19 +90,18 @@ const Articles = ({
                 </div>
                 <div className={styles.desc}>
                   { !isMobile && (index === 0 || index === 1) && pageNumber === 1
-                      ? (
-                        <Fragment>
-                          <span className={styles.title}>{art.title}</span>
-                          <span className={styles.publishedDate}>{art.category}</span>
-                        </Fragment>
-                      )
-                      : (
-                        <Fragment>
-                          <span className={styles.publishedDate}>{art.category}</span>
-                          <span className={styles.title}>{art.title}</span>
-                        </Fragment>
-                      )
-                  }
+                    ? (
+                      <Fragment>
+                        <span className={styles.title}>{art.title}</span>
+                        <span className={styles.publishedDate}>{art.category}</span>
+                      </Fragment>
+                    )
+                    : (
+                      <Fragment>
+                        <span className={styles.publishedDate}>{art.category}</span>
+                        <span className={styles.title}>{art.title}</span>
+                      </Fragment>
+                    )}
                   {/* TODO {isMobile
                     ? <span className={styles.publishedDate}>{art.category} - {art.id}</span>
                     : <span className={styles.title}>{art.title}</span>
@@ -113,8 +114,7 @@ const Articles = ({
                     ? <p className={styles.description}>{art.description}</p>
                     : pageNumber !== 1
                       ? <p className={styles.description}>{art.description}</p>
-                      : index !== 0 && index !== 1 && asPath.length !== 1 && <p className={styles.description}>{art.description}</p>
-                  }
+                      : index !== 0 && index !== 1 && asPath.length !== 1 && <p className={styles.description}>{art.description}</p>}
                 </div>
               </LinkWrapper>
             </div>

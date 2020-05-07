@@ -132,25 +132,22 @@
     background-color: $accent-color;
     color: $accent-color;
     border: 1.6px solid $accent-color !important;
-    transition: border $default-transition-time * 3
-                padding $default-transition-time * 3
-                color $default-transition-time * 3;
+    transition: border $shadow-time-for-yellow-button,
+                background-color $shadow-time-for-yellow-button;
     
     span {
       color: $black;
     }
 
     &:hover {
-      box-shadow: $shadow-for-yellow-button;
-      transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+      background-color: $accent-dark-color;
+      border: 1.6px solid $accent-dark-color !important;
+      transition: border $shadow-time-for-yellow-button,
+                  background-color $shadow-time-for-yellow-button;
 
       span {
         will-change: color;
         color: $black;
-        
-        transition: border $default-transition-time * 3
-                    padding $default-transition-time * 3
-                    color $default-transition-time * 3;
       }
     }
   }
@@ -194,10 +191,10 @@
       bottom: -5px;
       display: block;
       width: 0;
-      left: 50%;
+      left: calc(50% - 21.5px);
       height: 2px;
       background-color: $accent-color;
-      transform: translateX(-50%);
+      transform: translateX(calc(-50% + 15px));
       transition: width $default-transition-time ease-in-out;
       transform-origin: center left;
       -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -210,7 +207,7 @@
     }
     
     &:hover:before, &:focus:before {
-      width: 100%;
+      width: calc(100% - 15px);
     }
   }
 }

@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
-import styles from './styles.module.scss';
 import { ButtonMore } from 'components';
+import cn from 'classnames';
+import { useOverflowForBody } from 'hooks';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
+import { setMobileCategoriesState } from 'redux/actions/layout';
+import styles from './styles.module.scss';
 import SearchIcon from './images/search.svg';
 import FullscreenSearch from '../FullscreenSearch';
 import FullscreenSubscribe from '../FullscreenSubscribe';
-import cn from 'classnames';
 import { tags } from './utils/data';
 import Categories from './Categories';
 
 const SelectionBlock = ({ urlPath }) => {
   const [isFullscreenSearch, setFullscreenSearch] = useState(null);
   const [isFullscreenSubscribe, setFullscreenSubscribe] = useState(null);
-  const [isMobileCategoties, setMobileCategoties] = useState(null);
   const openFullscreenSearch = () => setFullscreenSearch(true);
   const closeFullscreenSearch = () => setFullscreenSearch(false);
   const openFullscreenSubscribe = () => setFullscreenSubscribe(true);
   const closeFullscreenSubscribe = () => setFullscreenSubscribe(false);
-  const openMobileCategoties = () => setMobileCategoties(true);
-  const closeMobileCategoties = () => setMobileCategoties(false);
+
+  const dispatch = useDispatch();
+  const isMobileCategoties = useSelector((state) => selectIsMobileCategotiesOpened(state));
+  const openMobileCategoties = () => dispatch(setMobileCategoriesState(true));
+  const closeMobileCategoties = () => dispatch(setMobileCategoriesState(false));
+
+  useOverflowForBody(isMobileCategoties);
 
   return (
-    <div className={cn(styles.selectionBlock, {[styles.showCategories]: isMobileCategoties})}>
+    <div className={cn(styles.selectionBlock, { [styles.showCategories]: isMobileCategoties })}>
       <Categories
         tags={tags}
         urlPath={urlPath}

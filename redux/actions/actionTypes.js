@@ -1,7 +1,8 @@
 export const actionTypes = {
   SET_MOBILE_MENU_STATE: 'layout/SET_MOBILE_MENU_STATE',
+  SET_MOBILE_CATEGORIES_STATE: 'layout/SET_MOBILE_CATEGORIES_STATE',
   /* ------------------------ */
-  SET_MODEL_LOADING : 'home/SET_MODEL_LOADING',
+  SET_MODEL_LOADING: 'home/SET_MODEL_LOADING',
   SET_SCROLL_OF_ADDED_FOOTER: 'home/SET_SCROLL_OF_ADDED_FOOTER',
   /* ------------------------ */
   GET_ARTICLE_PENDING: 'blog/GET_ARTICLE_PENDING',
@@ -11,6 +12,6 @@ export const actionTypes = {
   LOAD_ARTICLES_PENDING: 'blog/LOAD_ARTICLES_PENDING',
   LOAD_ARTICLES_SUCCESS: 'blog/LOAD_ARTICLES_SUCCESS',
   LOAD_ARTICLES_FAILED: 'blog/LOAD_ARTICLES_FAILED',
-    /* ------------------------ */
+  /* ------------------------ */
   SET_TOTAL_ARTICLES_COUNT: 'blog/SET_TOTAL_ARTICLES_COUNT',
 };

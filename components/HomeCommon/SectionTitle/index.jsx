@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ScrollAnimation from 'react-animate-on-scroll';
-import styles from './styles.module.scss';
 import cn from 'classnames';
+import styles from './styles.module.scss';
 
 const SectionTitle = ({
   title,
@@ -13,7 +13,7 @@ const SectionTitle = ({
 }) => (
   <div className={styles.titleContainer}>
     <ScrollAnimation animateIn="fadeInUp" animateOnce>
-      <h1 className={cn({[styleTitle]: styleTitle})}>{title}</h1>
+      <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
     </ScrollAnimation>
     {subtitle && (
       <ScrollAnimation
@@ -21,9 +21,9 @@ const SectionTitle = ({
         animateOnce
       >
         {!isFeedbackForm
-          ? <span className={cn({[styleSubtitle]: styleSubtitle})}>{subtitle}</span>
+          ? <span className={cn({ [styleSubtitle]: styleSubtitle })}>{subtitle}</span>
           : (
-            <p className={cn({[styleSubtitle]: styleSubtitle})}>
+            <p className={cn({ [styleSubtitle]: styleSubtitle })}>
               Fill in this form or
               <span>
                 <a
@@ -35,7 +35,7 @@ const SectionTitle = ({
                 </a>
               </span>
             </p>
-        )}
+          )}
       </ScrollAnimation>
     )}
   </div>
@@ -44,12 +44,12 @@ SectionTitle.defaultProps = {
   styleTitle: null,
   styleSubtitle: null,
   isFeedbackForm: false,
-}
+};
 
 SectionTitle.propTypes = {
   title: PropTypes.string.isRequired,
   styleTitle: PropTypes.string,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.string.isRequired,
   styleSubtitle: PropTypes.string,
   isFeedbackForm: PropTypes.bool,
 };

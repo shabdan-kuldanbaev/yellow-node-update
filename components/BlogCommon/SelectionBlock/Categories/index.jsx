@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './styles.module.scss';
 import { LinkWrapper } from 'components';
-import CloseIcon from './images/close.svg';
 import cn from 'classnames';
 import { useOverflowForBody } from 'hooks';
+import CloseIcon from './images/close.svg';
+import styles from './styles.module.scss';
 
 const Categories = ({
   tags,

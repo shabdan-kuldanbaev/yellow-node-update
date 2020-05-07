@@ -16,7 +16,7 @@
   line-height: 1.5;
   font-weight: 550;
   margin-bottom: 12px;
-  color: #3a3a3a;
+  color: #a7a8ab;
 }
 
 @mixin mobileTitle {
@@ -34,7 +34,7 @@
 @mixin description {
   cursor: text;
   font-size: 15.5px;
-  line-height: 1.9;
+  line-height: 1.75;
   color: $black;
   margin: 0;
   text-align: left;
@@ -44,7 +44,6 @@
   }
 
   @include phone {
-    line-height: 1.9;
     font-size: 16px;
   }
 }
@@ -342,10 +341,10 @@
         .publishedDate {
           font-size: 11px;
           text-transform: uppercase;
-          font-weight: 550;
+          font-weight: 500;
           line-height: 1.95;
           letter-spacing: 2.2px;
-          color: #3a3a3a;
+          color: $blog-article-categories-color;
           margin-bottom: 8px;
 
           @include phone {

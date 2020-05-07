@@ -1,8 +1,8 @@
 import React from 'react';
 import ScrollAnimation from 'react-animate-on-scroll';
+import Fade from 'react-reveal/Fade';
 import { advantages } from './utils/data';
 import styles from './styles.module.scss';
-import Fade from 'react-reveal/Fade';
 
 const AdvantagesItems = () => (
   <div className={styles.advantagesContainer}>
@@ -20,7 +20,7 @@ const AdvantagesItems = () => (
               <p className={styles.desc} dangerouslySetInnerHTML={{ __html: adv.desc }} />
             </div>
           </Fade>
-      </ScrollAnimation>
+        </ScrollAnimation>
       </div>
     ))}
   </div>

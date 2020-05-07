@@ -1,47 +1,51 @@
-import Immutable from 'immutable';
 import { actionTypes } from 'actions/actionTypes';
 
-const initialState = Immutable.fromJS({
+const initialState = {
   isLoading: false,
   single: {},
   all: [],
   totalCount: null,
   error: {},
-  limit: { desktop: 11, mobile: 4, },
-});
+  limit: { desktop: 11, mobile: 4 },
+};
+
+const handlers = {
+  [actionTypes.GET_ARTICLE_PENDING]: (state) => ({
+    ...state,
+    isLoading: true,
+  }),
+  [actionTypes.GET_ARTICLE_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    single: payload,
+  }),
+  [actionTypes.GET_ARTICLE_FAILED]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    error: payload,
+  }),
+  [actionTypes.LOAD_ARTICLES_PENDING]: (state) => ({
+    ...state,
+    isLoading: true,
+  }),
+  [actionTypes.LOAD_ARTICLES_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    all: payload,
+  }),
+  [actionTypes.LOAD_ARTICLES_FAILED]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    error: payload,
+  }),
+  [actionTypes.SET_TOTAL_ARTICLES_COUNT]: (state, { payload }) => ({
+    ...state,
+    totalCount: payload,
+  }),
+  DEFAULT: (state) => state,
+};
 
 export default (state = initialState, action) => {
-  switch (action.type) {
-    case actionTypes.GET_ARTICLE_PENDING:
-      return state.set('isLoading', true);
-
-    case actionTypes.GET_ARTICLE_SUCCESS:
-      return state
-        .set('isLoading', false)
-        .set('single', action.payload);
-
-    case actionTypes.GET_ARTICLE_FAILED:
-      return state
-        .set('isLoading', false)
-        .set('error', action.payload);
-
-    case actionTypes.LOAD_ARTICLES_PENDING:
-      return state.set('isLoading', true);
-
-    case actionTypes.LOAD_ARTICLES_SUCCESS:
-      return state
-        .set('isLoading', false)
-        .set('all', action.payload);
-
-    case actionTypes.LOAD_ARTICLES_FAILED:
-      return state
-        .set('isLoading', false)
-        .set('error', action.payload);
-
-    case actionTypes.SET_TOTAL_ARTICLES_COUNT:
-      return state.set('totalCount', action.payload);
-
-    default:
-      return state;
-  }
+  const handler = handlers[action.type] || handlers.DEFAULT;
+  return handler(state, action);
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import cn from 'classnames';
+import { useRouter } from 'next/router';
 import { menuList } from './utils/data';
 import styles from './styles.module.scss';
-import cn from 'classnames';
-import { useRouter } from  'next/router';
 
 const Nav = ({
   theme,
@@ -17,16 +17,19 @@ const Nav = ({
     [styles.desktopMenu]: true,
     [styles.additionalNav]: !isBlog && (isAdditional || currentPage && currentPage !== ''),
     [styles.additionalNavForBlog]: isBlog,
-  })
+  });
 
   return (
     <ul className={ulStyles}>
-      {menuList && menuList.map(item => (
+      {menuList && menuList.map((item) => (
         <li key={`menuItem/${item.name}`} className={styles[theme]}>
           <Link href={item.href}>
-            <span onClick="" className={cn(styles.underline, {
-              [styles.activeNav]: asPath.includes(item.name.toLowerCase())
-            })}>
+            <span
+              onClick=""
+              className={cn(styles.underline, {
+                [styles.activeNav]: asPath.includes(item.name.toLowerCase()),
+              })}
+            >
               {item.name}
             </span>
           </Link>

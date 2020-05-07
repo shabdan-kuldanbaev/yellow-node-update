@@ -10,21 +10,19 @@ import {
 } from 'containers';
 import { FeedbackForm } from 'components';
 
-const App = ({ theme, introSection}) => {
-  return (
-    <Fragment>
-      <Head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-      </Head>
-      <Intro theme={theme} introSection={introSection} />
-      <Advantages />
-      <Portfolio />
-      <Reviews />
-      <Blog />
-      <Insta />
-      <FeedbackForm />
-    </Fragment>
-  );
-};
+const App = ({ theme, introSection }) => (
+  <Fragment>
+    <Head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js" />
+    </Head>
+    <Intro theme={theme} introSection={introSection} />
+    <Advantages />
+    <Portfolio />
+    <Reviews />
+    <Blog />
+    <Insta />
+    <FeedbackForm />
+  </Fragment>
+);
 
 export default App;

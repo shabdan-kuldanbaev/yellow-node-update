@@ -1,5 +1,6 @@
 //colors
 $accent-color: #ffe603;
+$accent-dark-color: #f5dc00;
 $hover-accent-color: #FFD603;
 $black: #000;
 $white: #fff;
@@ -23,16 +24,27 @@ $text-nothing-found-color: #424242;
 $subscribe-background-color: #f8f8fa;
 $active-pagination-color: #f16522;
 $pagination: rgba(35,37,44,0.25);
+$blog-article-categories-color: #a7a8ab;
+$attach-color: #B7B7B7;
+$attach-hover-color: #7f7f7f;
+$header-border-bottom-color: #e6e6e6;
 
-//sizes and time
+//time
+$default-transition-time: .5s;
+$button-transition-time: .3;
+$shadow-time-for-yellow-button: .4s;
+$accelerated-transition-time: calc(#{$default-transition-time} / 2);
+$changing-portfolio-color: 1.5s;
+
+//radius
+$buttonRadius: 60px;
+
+//sizes
 $section-indent: 100px;
 $mobile-section-indent: 80px;
 $side-indent: 20px;
 $more-button-indent: calc(#{$section-indent} / 2);
 $mobile-more-button-indent: calc(#{$mobile-section-indent} / 2);
-$default-transition-time: .5s;
-$accelerated-transition-time: calc(#{$default-transition-time} / 2);
-$button-transition-time: .3;
 $aricleIndent: 15px;
 $after-mobile-title-margin: 60px; 
 $logo-size: 120px;
@@ -41,10 +53,6 @@ $max-content-width-full-hd: 1170px;
 $max-content-width-macbook-fifteen: 1050px;
 $max-content-width-macbook-twelve: 1000px;
 $shadow-for-yellow-button: 0px 5px 20px -10px rgba(0,0,0,0.57);
-$shadow-time-for-yellow-button: .4s;
-
-//radius
-$buttonRadius: 60px;
 
 //resolutions size
 $ultra-hd: 3840px;
@@ -57,6 +65,7 @@ $macbook-twelve: 1280px;
 $max-tablet-size: 1024px;
 $default-tablet-size: 768px;
 $max-mobile-size: 568px;
+$horizontal-mobile: 450px;
 
 //fonts
 $default-font: "Montserrat";

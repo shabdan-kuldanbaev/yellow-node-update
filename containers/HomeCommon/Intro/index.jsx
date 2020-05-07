@@ -8,7 +8,6 @@ import {
 import { selectIsModelLoaded } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { setModelLoading, setScrollOfAddedFooter } from 'redux/actions/home';
 
 const Intro = ({
@@ -45,9 +44,9 @@ Intro.propTypes = {
 };
 
 
-const mapStateToProps = createStructuredSelector({
-  isModelLoad: selectIsModelLoaded(),
-  isMobileMenuOpened: selectIsMobileMenuOpened(),
+const mapStateToProps = (state) => ({
+  isModelLoad: selectIsModelLoaded(state),
+  isMobileMenuOpened: selectIsMobileMenuOpened(state),
 });
 
 export default connect(mapStateToProps, { setModelLoading, setScrollOfAddedFooter })(Intro);

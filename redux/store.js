@@ -1,5 +1,4 @@
 import { applyMiddleware, createStore } from 'redux';
-import { fromJS } from 'immutable';
 import createSagaMiddleware from 'redux-saga';
 import rootReducers from './reducers';
 import rootSaga from './sagas';
@@ -18,7 +17,7 @@ function configureStore(initialState) {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     rootReducers,
-    fromJS({ ...initialState }),
+    initialState,
     bindMiddleware([sagaMiddleware]),
   );
 

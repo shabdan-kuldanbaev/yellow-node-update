@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { themes } from 'utils/helper';
 import { socialNetworks } from './utils/data';
-
 import styles from './styles.module.scss';
 
 const SocialIcons = ({ theme }) => (
   <div className={styles.socialContainer}>
-    {socialNetworks.map(network => (
+    {socialNetworks.map((network) => (
       <a
         key={`social/${network.title}`}
         href={network.href}

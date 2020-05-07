@@ -1,6 +1,3 @@
-import { Map } from 'immutable';
-import { createSelector } from 'reselect';
+export const selectIsMobileMenuOpened = (state) => state.layout.isMobileMenuOpened;
 
-const selectLayout = () => state => state.get('layout', Map());
-
-export const selectIsMobileMenuOpened  = () => createSelector(selectLayout(), layout => layout.get('isMobileMenuOpened'));
+export const selectIsMobileCategotiesOpened = (state) => state.layout.isMobileCategotiesOpened;

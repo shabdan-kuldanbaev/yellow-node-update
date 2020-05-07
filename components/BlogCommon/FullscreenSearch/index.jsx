@@ -1,14 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
+import { useOverflowForBody } from 'hooks';
 import styles from './styles.module.scss';
 import CloseIcon from './images/close.svg';
-import { useOverflowForBody } from 'hooks';
 
 const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
   useOverflowForBody(isFullscreenSearch);
 
   return (
-    <section className={cn(styles.search, {[styles.show]: isFullscreenSearch})}>
+    <section className={cn(styles.search, { [styles.show]: isFullscreenSearch })}>
       <img
         onClick={closeFullscreenSearch}
         src={CloseIcon}

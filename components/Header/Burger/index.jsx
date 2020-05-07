@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './styles.module.scss';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import styles from './styles.module.scss';
 
 const Burger = ({
   isMobileMenuOpened,
@@ -25,7 +25,7 @@ const Burger = ({
       <hr />
     </div>
   );
-}
+};
 
 Burger.propTypes = {
   isMobileMenuOpened: PropTypes.bool.isRequired,

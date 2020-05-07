@@ -18,6 +18,7 @@
       "error",
       2
     ],
+    "react/jsx-fragments": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-unused-expressions": "off",
@@ -41,13 +42,14 @@
       "error",
       2
     ],
-    "react/prop-types": [
-      "enabled",
-      {
-        "ignore": "ignore",
-        "customValidators": "customValidator"
-      }
-    ],
+    "react/prop-types": "off",
+    // TODO "react/prop-types": [
+    //   "enabled",
+    //   {
+    //     "ignore": "ignore",
+    //     "customValidators": "customValidator"
+    //   }
+    // ],
     "react/jsx-filename-extension": [
       1,
       {

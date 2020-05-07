@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AnimatedInput } from 'components';
-import attachIcon from './images/attach.svg';
+import { Attach } from './Attach';
 import unpinFile from './images/unpin.svg';
 import styles from './styles.module.scss';
 
@@ -15,7 +15,7 @@ const Upload = () => {
   };
 
   const handleOnUnpinFile = ({ target: { dataset } }) => {
-    setFile(selectedFiles.filter(file => file.name !== dataset.fileName));
+    setFile(selectedFiles.filter((file) => file.name !== dataset.fileName));
   };
 
   const handleOnDescChange = ({ target: { value } }) => {
@@ -32,7 +32,7 @@ const Upload = () => {
           isValidate
         />
         <label htmlFor="files">
-          <img src={attachIcon} alt="attach" />
+          <Attach />
         </label>
         <input
           id="files"
@@ -53,9 +53,8 @@ const Upload = () => {
               type="button"
               onClick={handleOnUnpinFile}
               style={{ backgroundImage: `url(${unpinFile})` }}
-            >
-            </button>
-          </div> 
+            />
+          </div>
         ))}
       </div>
     </div>

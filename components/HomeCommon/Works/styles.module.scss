@@ -1,9 +1,23 @@
 @import 'styles/utils/mixins';
 
+.animationOfAppearanceBefore {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: transform $default-transition-time,
+              opacity $default-transition-time;
+}
+
+.animationOfAppearance {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform $default-transition-time,
+              opacity $default-transition-time;
+}
+
 .worksContainer {
   width: calc(100% + 2 * #{$side-indent});
   margin: 0 0 $section-indent;
-  min-height: 300vh;
+  // TODO min-height: 300vh;
   
   @include phone {
     margin: 0 0 $mobile-section-indent;
@@ -12,153 +26,240 @@
   .work {
     position: relative;
     z-index: 5;
-    @include flex(row, space-between, center);
-    width: calc(80% + #{$side-indent});
+    @include flex(row, center, center);
+    width: 100%;
     height: 100vh;
-    margin-left: calc(-1 * #{$side-indent});
-    padding: 0 10%;
-    background-color: $works-third-accent-color;
     will-change: background-color;
     transition: background-color $default-transition-time ease;
     transition-timing-function: linear;
+    // border-bottom: 2px solid black;
+    // border-top: 2px solid black;
 
     @include tablet {
-      @include flex(column-reverse, center, flex-start);
-      width: calc(100% - 10%);
-      margin: auto;
-      padding: 0 5%;
+      @include flex(column-reverse, space-evenly, center);
+    }
+
+    @include below-tablet {
+      height: auto;
+      margin-top: 70px;
+      margin-bottom: 100px;
+    }
+
+    @include below-tablet-horizontal {
+      @include flex(row, center, center);
+    }
+
+    @include horizontal-mobile {
+      height: auto;
     }
 
     @include phone {
-      @include flex(column-reverse, flex-start, center);
+      @include flex(column-reverse, center, center);
+      height: auto;
+      margin-bottom: 150px;
     }
 
     .desc {
+      width: 50%;
+      // background-color: rgba(255, 166, 0, 0.4);
+      @include flex(row, center, center);
+
+      @include tablet {
+        width: 100%;
+        justify-content: normal;
+        max-height: 50%;
+      }
+
       @include below-tablet {
         width: 100%;
       }
 
-      div {
-      opacity: 1;
-      transform: translate3d(0, 100px, 0);
-      transition: transform $default-transition-time, opacity $default-transition-time;
-
-      @include phone {
-        @include flex(column, center, center);
+      @include below-tablet-horizontal {
+        width: 50%;
+        justify-content: center;
       }
 
-      h1 {
-        margin-top: 40px;
-        margin-bottom: 40px;
-        font-weight: 800;
-        font-size: 6rem;
-        letter-spacing: 2.25px;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.01;
-        color: $white;
+      @include phone {
+        width: 100%;
+      }
+
+      @include horizontal-mobile {
+        // background-color: rgba(0, 0, 139, 0.4);
+        max-height: initial;
+      }
+      
+      div {
+        max-width: 80%;
+        height: 100%;
+        // background-color: rgba(218, 112, 214, 0.4);
+        opacity: 1;
+        transition: transform $default-transition-time, opacity $default-transition-time;
 
         @include tablet {
-          margin-top: 0px;
+          // background-color: rgba(255, 0, 0, 0.4);
+          max-width: $max-content-width-macbook-twelve;
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+          // background-color: rgba(102, 51, 153, 0.4);
         }
 
         @include below-tablet {
-          font-size: 3rem;
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+          // background-color: rgba(0, 128, 0, 0.4);
         }
-  
+
+        @include below-tablet-horizontal {
+          padding-left: 0px;
+          // background-color: rgba(240, 230, 140, 0.4);
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
         @include phone {
+          // background-color: rgba(0, 255, 255, 0.4);
+          @include flex(column, center, center);
           width: 100%;
-          font-size: 1.5rem;
-          margin-bottom: 35px;
-        }
-
-        @include phone-height-500 {
-          margin-top: 0px;
-        }
-
-        @include phone-height-650 {
-          margin-top: 40px;
-        }
-
-        @include phone-height-900 { 
-          margin-top: initial;
-        }
-      }
-  
-      p {
-        margin: 0;
-        margin-top: -20px;
-        font-size: 1.5rem;
-        line-height: 1.53;
-        letter-spacing: 0.5px;
-        color: $white;
-        opacity: .8;
-        word-wrap: normal;
-
-        @include phone {
+          max-width: 100%;
+          margin: 0;
+          padding-left: 0px;
           text-align: left;
-          font-size: 0.875rem;
-          width: 100%;
         }
-      }
-  
-      button {
-        @include buttonMore();
-        margin-top: 60px;
-        border: 1px solid $white;
-        background-color: transparent;
-        border-radius: $buttonRadius;
-        color: $white;
-        line-height: 1.55;
-        letter-spacing: 0.5px;
-        font-size: 1rem;
-        transition: background-color $default-transition-time,
-                    color $default-transition-time,
-                    border-color $default-transition-time;
-  
-        &:hover {
+
+        h1 {
+          margin-top: 0;
+          margin-bottom: 60px;
+          font-weight: 800;
+          font-size: 4.125rem;
+          letter-spacing: 2.25px;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.01;
+          color: $white;
+
+          @include below-tablet {
+            font-size: 3rem;
+            margin-top: 40px;
+          }
+
+          @include below-tablet-horizontal {
+            font-size: 2.5rem;
+          }
+    
+          @include phone {
+            max-width: calc(100% - 40px);
+            font-size: 2.5rem;
+            margin: 40px auto 25px 20px;
+          }
+        }
+    
+        p {
+          margin: 0;
+          margin-top: -20px;
+          font-size: 1.25rem;
+          line-height: 1.53;
+          letter-spacing: 0.5px;
+          color: $white;
+          opacity: .8;
+          word-wrap: normal;
+
+          @include below-tablet-horizontal {
+            font-size: 1rem;
+          }
+
+          @include phone {
+            max-width: calc(100% - 40px);
+            font-size: 1rem;
+            max-width: 100%;
+            margin: auto 20px auto;
+          }
+        }
+      
+        button {
+          @include buttonMore();
+          margin-top: 60px;
           border: 1px solid $white;
-          color: $works-first-accent-color;
+          background-color: transparent;
+          border-radius: $buttonRadius;
+          color: $white;
+          line-height: 1.55;
+          letter-spacing: 0.5px;
+          font-size: 1rem;
           transition: background-color $default-transition-time,
                       color $default-transition-time,
                       border-color $default-transition-time;
-        }
-  
-        &:before {
-          background-color: $white;
-        }
+    
+          &:hover {
+            border: 1px solid $white;
+            color: $works-first-accent-color;
+            transition: background-color $default-transition-time,
+                        color $default-transition-time,
+                        border-color $default-transition-time;
+          }
+    
+          &:before {
+            background-color: $white;
+          }
 
-        @include phone-height-500 {
-          margin-top: 40px;
-          margin-bottom: 20px;
-        }
-
-        @include phone-height-650 {
-          margin-top: 50px;
-          margin-bottom: 40px;
-        }
-
-        @include phone-height-900 { 
-          margin-bottom: auto;
+          @include below-tablet {
+            margin-top: 40px; 
+          }
         }
       }
     }
-  }
 
     .imgWrapper {
+      width: 50%;
+      height: 100%;
+      // background-color: rgba(128, 128, 128, 0.4);
+
+      @include tablet {
+        width: auto;
+        max-height: 50%;
+      }
+
+      @include below-tablet-horizontal {
+        width: 50%;
+      }
+
+      @include phone {
+        width: 100%;
+      }
+
       div {
+        // background-color: rgba(178, 34, 34, 0.4);
         width: 100%;
         height: 100%;
+        transform: scale(.9);
         @include flex(row, center, center);
         opacity: 1;
-        transform: scale(.9);
         transition: transform $default-transition-time, opacity $default-transition-time;
 
-        .content {
-          position: absolute;
-          opacity: 1;
-          transform: scale(0.6) translate3d(-29%, -31%, 0);
-          transition: opacity $default-transition-time;
+        @include ultra-hd {
+          transform: scale(1);
+        }
+
+        @include quad-hd {
+          transform: scale(.9);
+        }
+
+        @include tablet {
+          width: auto;
+          height: 100%;
+          max-height: auto;
+        }
+
+        @include phone {
+          width: 100%;
+          transform: scale(0.95);
+        }
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
         }
       }
     }
@@ -171,41 +272,12 @@
           color: $works-first-accent-color;
         }
       }
-
-      img {
-        width: 100%;
-
-        @include quad-hd {
-          width: 90%;
-        }
-      }
     }
 
     &:nth-child(2) {
       div button {
         &:hover {
           color: $works-second-accent-color;
-        }
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-
-        @include quad-hd {
-          width: 80%;
-        }
-
-        @include full-hd {
-          width: 75%;
-        }
-
-        @include below-tablet {
-          width: 70%;
-        }
-
-        @include phone-height-800 {
-          width: 100%;
         }
       }
     }
@@ -216,40 +288,6 @@
           color: $works-third-accent-color;
         }
       }
-
-      img {
-        width: 100%;
-
-        @include quad-hd {
-          width: 90%;
-        }
-
-        @include phone-height-800 {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
-
-.firstIsActive {
-  background-image: linear-gradient(45deg, #026ed0 0%, #05a7ea 99%);
-}
-
-.secondIsActive {
-  background-image: linear-gradient(45deg, #3d2424 0%, #714a4a 99%);
-
-  .imgWrapper {
-    .content {
-      display: none;
-    }
-  }
-}
-
-.thirdIsActive {
-  .imgWrapper {
-    .content {
-      display: none;
     }
   }
 }

@@ -31,16 +31,16 @@ const AnimatedInput = ({
 
   const handleOnFocus = () => {
     setFocus(true);
-  }
+  };
 
   const handleOnBlur = () => {
     setFocus(false);
     if (type === 'email' && value !== '') handleOnBlurEmail(value);
-  }
+  };
 
   const handleOnOutsideClick = () => {
-    value === '' && setActive(false)
-  }
+    value === '' && setActive(false);
+  };
 
   return (
     <OutsideClickHandler onOutsideClick={handleOnOutsideClick}>
@@ -50,7 +50,7 @@ const AnimatedInput = ({
           onFocus={handleOnFocus}
           onBlur={handleOnBlur}
           ref={inputRef}
-          placeholder={ withoutLabel && !isInputActived ? placeholder : ''}
+          placeholder={withoutLabel && !isInputActived ? placeholder : ''}
           type="text"
           id={value}
           value={value}
@@ -63,7 +63,7 @@ const AnimatedInput = ({
 
 AnimatedInput.defaultProps = {
   withoutLabel: false,
-}
+};
 
 AnimatedInput.propTypes = {
   value: PropTypes.string.isRequired,

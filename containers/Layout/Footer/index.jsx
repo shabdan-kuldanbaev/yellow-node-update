@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Contacts, ButtonMore } from 'components';
 import Nav from 'components/Header/Nav';
-import styles from './styles.module.scss';
 import PropTypes from 'prop-types';
+import styles from './styles.module.scss';
 
 const Footer = ({ theme }) => {
   // TODO const footerRef = useRef(null);
@@ -54,6 +54,6 @@ Footer.defaultProps = {
 
 Footer.propTypes = {
   theme: PropTypes.string,
-}
+};
 
 export default Footer;

@@ -24,21 +24,21 @@ const App = ({
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
   const [isLoading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     const handleRouteChangeStart = () => {
       setLoading(false);
-    }
+    };
     const handleRouteChangeComplete = () => {
       setLoading(true);
-    }
-  
+    };
+
     Router.events.on('routeChangeStart', handleRouteChangeStart);
     Router.events.on('routeChangeComplete', handleRouteChangeComplete);
     return () => {
       Router.events.off('routeChangeStart', handleRouteChangeStart);
       Router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    }
+    };
   }, []);
 
   return (
