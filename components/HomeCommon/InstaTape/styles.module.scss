@@ -28,12 +28,10 @@ $imgIndent: 7.5px;
 
   .imgContainer {
     width: calc(#{$max-content-width} / 4 - #{$imgIndent} * 2);
-    // margin: 0 $imgIndent;
     margin: 0 auto;
-
-    border-radius: 7.5px;
     overflow: hidden;
     box-shadow: 0 0px 29px 0 rgba(0, 0, 0, 0.07);
+    border-radius: $articleRadius;
 
     @include full-hd {
       width: calc(#{$max-content-width-full-hd} / 4 - #{$imgIndent} * 2);
@@ -78,6 +76,7 @@ $imgIndent: 7.5px;
       background-size: cover;
       will-change: transform;
       transition: transform $default-transition-time;
+      border-radius: $articleRadius;
 
       margin-left: auto;
       margin-right: auto;

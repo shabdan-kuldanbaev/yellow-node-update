@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { selectArticle, selectIsLoading } from 'redux/selectors/blog';
-import { connect } from 'react-redux';
 import { getArticle } from 'redux/actions/blog';
 import { Loader } from 'components';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Article = ({
-  currentArticle,
-  getArticle: getArticleAction,
-  isLoading,
-}) => {
+export const Article = () => {
   const { query: { article } } = useRouter();
+  const dispatch = useDispatch();
+  const currentArticle = useSelector((state) => selectArticle(state));
+  const isLoading = useSelector((state) => selectIsLoading(state));
 
   useEffect(() => {
-    if (article) getArticleAction(article);
+    if (article) dispatch(getArticle(article));
   }, []);
 
   return (
@@ -30,10 +29,3 @@ const Article = ({
     </Loader>
   );
 };
-
-const mapStateToProps = (state) => ({
-  currentArticle: selectArticle(state),
-  isLoading: selectIsLoading(state),
-});
-
-export default connect(mapStateToProps, { getArticle })(Article);

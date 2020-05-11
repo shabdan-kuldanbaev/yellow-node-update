@@ -30,13 +30,12 @@ const Header = ({
   let oldY = 0;
 
   const headerClassName = cn({
-    [`${styles.headerContainer}`]: true,
-    [`${styles.mobileHeaderHeight}`]: isMobileMenuOpened,
-    [`${styles.animate}`]: isModelLoaded,
-    [`${styles.additional}`]: isAdditional,
-    [`${styles[direction]}`]: isModelLoaded,
-    [styles.notHome]: !isHomePage && !isMobileMenuOpened,
-    [styles.deleteTextOfLogo]: isLogoTextHidden,
+    [styles.headerContainer]: true,
+    [styles.animate]: isModelLoaded,
+    [styles.additional]: isAdditional,
+    [styles[direction]]: isModelLoaded,
+    [styles.notHome]: !isHomePage,
+    [styles.deleteTextOfLogo]: isLogoTextHidden && isHomePage,
   });
 
   const handleOnScroll = () => {
@@ -70,32 +69,20 @@ const Header = ({
   };
 
   useEffect(() => {
-    // to fix with redux
-    const html = document.querySelector('html');
     oldY = window.pageYOffset;
     handleOnScroll();
-
-    if (isMobileMenuOpened) {
-      html.classList.add(styles.overflowApp);
-      if (scrollOfAddedFooter.classList) scrollOfAddedFooter.classList.add(styles.hideScroll);
-    } else {
-      html.classList.remove(styles.overflowApp);
-      if (scrollOfAddedFooter.classList) scrollOfAddedFooter.classList.remove(styles.hideScroll);
-    }
 
     window.addEventListener('scroll', handleOnScroll);
     return () => {
       window.removeEventListener('scroll', handleOnScroll);
     };
-  }, []);
+  }, [currentPage]);
 
   return (
     <header className={headerClassName}>
-      {!isMobileMenuOpened && (
-        <div className={styles.logo}>
-          <Logo theme={theme} />
-        </div>
-      )}
+      <div className={styles.logo}>
+        <Logo theme={theme} />
+      </div>
       {currentPage.includes('blog') && (
         <div className={styles.categories}>
           <SelectionBlock urlPath={asPath} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './styles.module.scss';
+import { Brackets } from '../images';
 
 const CarouselItem = ({
   avatar,
@@ -11,7 +11,10 @@ const CarouselItem = ({
 }) => (
   <div className={styles.carouselItem}>
     <img src={avatar} alt={name} />
-    <p>{text}</p>
+    <p>
+      <img src={Brackets} alt="Brackets" />
+      {text}
+    </p>
     <div className={styles.personName}>
       <span className={styles.title}>{name}</span>
       <span className={styles.divider}>—</span>

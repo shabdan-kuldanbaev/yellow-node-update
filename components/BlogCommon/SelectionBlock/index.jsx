@@ -35,6 +35,7 @@ const SelectionBlock = ({ urlPath }) => {
         isMobileCategoties={isMobileCategoties}
         closeMobileCategoties={closeMobileCategoties}
       />
+      {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
         <img
           src={SearchIcon}

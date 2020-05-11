@@ -9,19 +9,17 @@
     letter-spacing: 0.6px;
     text-align: center;
     color: $text-color;
+    position: relative;
 
     @include phone {
       font-size: 0.9375rem;
     }
 
-    &::before {
-      content: url('../images/quote.svg');
-      position: absolute;
-      transform: translate(-5px, 3px) scale(.70, .70);
-    }
-
-    &::first-letter {
-      margin-left: 25px;
+    img {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      transform: translate(-5px, 4px) scale(.65, .65);
     }
   }
 

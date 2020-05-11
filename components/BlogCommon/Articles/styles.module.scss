@@ -1,4 +1,5 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/theme/_animations';
 
 @mixin mobileImageContainer {
   height: 230px;
@@ -49,10 +50,10 @@
 }
 
 .articlesGrid {
-  // background-color: hotpink;
   @include flex(row, initial, initial, wrap);
   max-width: $max-content-width;
   margin: 13px auto 0 auto;
+  animation: appearanceFromBelow 0.6s ease;
 
   @include full-hd {
     max-width: $max-content-width-full-hd;

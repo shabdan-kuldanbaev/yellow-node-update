@@ -33,10 +33,7 @@
         left: 50%;
         height: 2px;
         background-color: $accent-color;
-        -ms-transform: translateY(-50%);
-        -webkit-transform: translateX(-50%);
-        -moz-transform: translateX(-50%);
-        -o-transform: translateX(-50%);
+        outline: 1px solid transparent;
         transform: translateX(-50%);
         transition: width $default-transition-time ease-in-out;
         transform-origin: center left;

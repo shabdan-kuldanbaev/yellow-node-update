@@ -27,11 +27,6 @@ const Portfolio = () => {
       refs[2].current.getBoundingClientRect().bottom,
     ];
 
-    // console.log('firstTop', firstTop);
-    // console.log('firstBottom', firstBottom);
-    // console.log('secondBottom', secondBottom);
-    // console.log('thirdBottom', thirdBottom);
-
     if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
       setBlockNumber(2);
     } else if (secondBottom < halfHeight) {

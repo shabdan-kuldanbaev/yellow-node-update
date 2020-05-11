@@ -5,29 +5,24 @@
   height: 100%;
   margin: 0;
   padding: 0;
+  z-index: 2;
 
   @include phone {
     $qwe: 100%;
     width: auto;
-    // -webkit-backdrop-filter: blur(10px);
-    // backdrop-filter: blur(10px);
-    // background-color: $white;
     background-color: rgba(255, 255, 255, .96);
-    border: 1px solid $grid-articles-published-date-color;
-
+    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     color: #333;
     line-height: 1.5;
     position: fixed;
-    // width: calc(#{$qwe} - $side-indent * 2) !important;
     height: auto;
-    top: $side-indent;
-    right: $side-indent;
-    left: $side-indent;
-    // $side-indent;
+    top: $side-indent / 2;
+    right: $side-indent / 2;
+    left: $side-indent / 2;
     padding: 16px;
     transform: translateY(-150%);
-    transition: transform .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: transform 0.5s ease-in;
   }
 
   .categoryTitle {
@@ -43,7 +38,7 @@
         display: block;
         margin: 0;
         padding: 0;
-        font-size: 30px;
+        font-size: 1.875rem;
         text-align: left;
         color: #3a3a3a;
         line-height: 1.5;

@@ -188,9 +188,9 @@
       @return unquote($bxshadow);
     }
 
-    $bxshadow-small: box-shadow(10);
-    $bxshadow-middle: box-shadow(5);
-    $bxshadow-large: box-shadow(4);
+    $bxshadow-small: box-shadow(15);
+    $bxshadow-middle: box-shadow(8);
+    // $bxshadow-large: box-shadow(4);
 
     img {
       display: none;
@@ -205,7 +205,8 @@
         z-index: 0;
         box-shadow: $bxshadow-small;
         transform: translate(-200px, -80px);
-        animation: animStar 13s linear infinite;
+        // animation: animStar 13s linear infinite;
+        animation: flicker 2.2s linear infinite;
       }
       
       .stars2 {
@@ -216,25 +217,37 @@
         z-index: 1;
         box-shadow: $bxshadow-middle;
         transform: translate(-200px, -80px);
-        animation: animStar 8s linear infinite;
+        // animation: animStar 8s linear infinite;
+        animation: flicker 3s linear infinite 1s;
       }
 
       .stars3 {
         position: absolute;
-        height: 5px;
-        width: 5px;
+        // height: 5px;
+        // width: 5px;
+        // border-radius: 50%;
+        // z-index: 1;
+        // box-shadow: $bxshadow-large;
+        // transform: translate(-200px, -80px);
+        // // animation: animStar 5s linear infinite;
+        // animation: flicker 2s linear infinite;
+        position: absolute;
+        height: 2px;
+        width: 2px;
         border-radius: 50%;
-        z-index: 1;
-        box-shadow: $bxshadow-large;
+        z-index: 0;
+        box-shadow: $bxshadow-small;
         transform: translate(-200px, -80px);
-        animation: animStar 5s linear infinite;
+        // animation: animStar 13s linear infinite;
+        animation: flicker 1.5s linear infinite 1.5s;
+
       }
 
       img {
         display: block;
         z-index: 3;
         margin-top: 50px;
-        animation: vibrate1 3s 0s infinite linear;
+        animation: rocket 2s infinite linear;
       }
     }
   }

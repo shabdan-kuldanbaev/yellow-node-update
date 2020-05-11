@@ -4,6 +4,7 @@
   @include flex(row, center, center);
   width: calc(100% - #{$side-indent});
   max-width: $max-content-width - $side-indent * 2;
+  position: relative;
 
   @include full-hd {
     max-width: $max-content-width-full-hd - $side-indent * 2;
@@ -23,6 +24,24 @@
 
   @include phone {
     width: auto;
+  }
+
+  .darkBackground {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: $black;
+    opacity: 0.5;
+    display: none;
+
+    @include phone {
+      display: block;
+    }
   }
 
   .buttons {
@@ -94,22 +113,6 @@
 .showCategories {
   div:nth-of-type(1) {
     transform: translateY(0%);
-    transition: transform .3s cubic-bezier(0.575, 0.410, 0.300, 1.000);
+    transition: transform 0.5s ease-in-out;
   }
-
-  .buttons {
-    @include phone {
-      z-index: -1;
-      transition: z-index .3s cubic-bezier(0.575, 0.410, 0.300, 1.000);
-    }
-  }
-
-  // background-color: rgba(1,1,1,0.75);
-  // overflow: auto;
-  // position: fixed;
-  // left: 0;
-  // right: 0;
-  // top: 0;
-  // bottom: 0;
-  // z-index: 100;
 }

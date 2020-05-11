@@ -1,4 +1,4 @@
-export { default as Article } from 'components/BlogCommon/Article';
+export { Article } from 'components/BlogCommon/Article';
 export { default as Articles } from 'components/BlogCommon/Articles';
 export { default as SelectionBlock } from 'components/BlogCommon/SelectionBlock';
 export { default as FullscreenSearch } from 'components/BlogCommon/FullscreenSearch';

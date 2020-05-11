@@ -55,8 +55,8 @@ const Contacts = () => (
     <div className={styles.rocket}>
       <div className={styles.stars} />
       <div className={styles.stars2} />
-      <div className={styles.stars3} />
-      <img src={rocketIcon} alt="" />
+      {/* <div className={styles.stars3} /> */}
+      <img src={rocketIcon} alt="roket" />
     </div>
   </div>
 );

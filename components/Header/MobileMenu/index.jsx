@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -8,8 +8,8 @@ import styles from './styles.module.scss';
 import { menuList, socialLinks } from './utils/data';
 
 const MobileMenu = ({
-  menuList,
-  socialLinks,
+  menuList: menuItems,
+  socialLinks: socialItems,
   isMobileMenuOpened,
   setMobileMenuState,
   isAdditional,
@@ -27,19 +27,11 @@ const MobileMenu = ({
 
   useOverflowForBody(isMobileMenuOpened);
 
-  // TODO const setOverflowForBody = (value) => {
-  //   document.body.style.overflow = value;
-  // };
-
-  // useEffect(() => {
-  //   isMobileMenuOpened ? setOverflowForBody('hidden') : setOverflowForBody('scroll');
-  // }, [isMobileMenuOpened]);
-
   return (
     <Fragment>
       <div className={mobileMenuClassName}>
         <ul>
-          {menuList.map((item) => (
+          {menuItems.map((item) => (
             <li key={`menuItem/${item.name}`} onClick={handleOnClickLi}>
               <Link href={item.href}>
                 <span>{item.name}</span>
@@ -48,7 +40,7 @@ const MobileMenu = ({
           ))}
         </ul>
         <div className={styles.mobileMenuFooter}>
-          {socialLinks.map((link) => (
+          {socialItems.map((link) => (
             <a
               key={`links/${link.title}`}
               href={link.href}
@@ -75,8 +67,8 @@ MobileMenu.defaultProps = {
 };
 
 MobileMenu.propTypes = {
-  menuList: PropTypes.instanceOf(Array).isRequired,
-  socialLinks: PropTypes.instanceOf(Array).isRequired,
+  menuList: PropTypes.instanceOf(Array),
+  socialLinks: PropTypes.instanceOf(Array),
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,
   isAdditional: PropTypes.bool.isRequired,

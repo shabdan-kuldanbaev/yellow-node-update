@@ -19,8 +19,9 @@
   }
 
   @include phone {
-    width: calc(100% - 40px);
-    padding: 20px;
+    top: 81vh;
+    width: 100%;
+    padding: 0px;
     @include flex(row, center, center);
 
     & > * {
@@ -29,7 +30,7 @@
 
     .scrollTitle {
       display: block;
-      font-size: .8rem;
+      font-size: 0.8125rem;
       color: $white;
       text-transform: uppercase;
       opacity: .5;

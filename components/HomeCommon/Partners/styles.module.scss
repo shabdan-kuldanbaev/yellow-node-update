@@ -10,7 +10,7 @@
 
   h1 {
     @include h1-title;
-    color: $white;
+    color: $white !important;
   }
 }
 

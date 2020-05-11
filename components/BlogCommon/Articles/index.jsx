@@ -18,45 +18,18 @@ const Articles = ({
   page,
 }) => {
   const { asPath } = useRouter();
-  // const [isAnimated, setAnimated] = useState(false);
   const [isMobile, setMobile] = useState(false);
   const articlesGrid = useRef(null);
   const pageNumber = toInt(page);
-  const gridClassName = cn({
-    [`${styles.articlesGrid}`]: true,
-    // [`${styles.animate}`]: isAnimated,
-  });
-
-  // const handleOnScroll = () => {
-  //   if (articlesGrid.current.getBoundingClientRect().top < window.innerHeight) {
-  //     console.log(articlesGrid.current.getBoundingClientRect().top);
-  //     setAnimated(true);
-  //   };
-  // }
 
   useEffect(() => {
-    // if (articlesGrid.current.getBoundingClientRect().top < window.innerHeight) {
-    // setAnimated(true);
-    // }
     window.innerWidth < mobileResolution
       ? setMobile(true)
       : setMobile(false);
-
-    // const timer = setTimeout(() => {
-    // if (articlesGrid.current) articlesGrid.current.classList.add(styles.animate);
-    // }, 100);
-
-    // window.addEventListener('scroll', handleOnScroll);
-    return () => {
-      // window.removeEventListener('scroll', handleOnScroll);
-
-      // if (articlesGrid.current) articlesGrid.current.classList.remove(styles.animate);
-      // clearTimeout(timer);
-    };
   }, []);
 
   return (
-    <div className={gridClassName} ref={articlesGrid}>
+    <div className={styles.articlesGrid} ref={articlesGrid}>
       <Loader isLoading={!isLoading}>
         {articles && articles.map((art, index) => (
           <Fragment>
@@ -127,6 +100,8 @@ const Articles = ({
 
 Articles.propTypes = {
   articles: PropTypes.instanceOf(Array).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  page: PropTypes.string.isRequired,
 };
 
 export default Articles;

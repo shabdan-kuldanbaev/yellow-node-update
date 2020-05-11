@@ -65,8 +65,6 @@
     border-bottom: 0.5px solid $header-border-bottom-color;
 
     svg {
-      // width: $logo-size;
-
       path {
         fill: $black;
       }
@@ -94,8 +92,6 @@
     }
     
     svg {
-      // width: $logo-size - 16px;
-
       @include phone {
         width: 100%;
       }
@@ -116,12 +112,6 @@
   }
 }
 
-@include phone {
-  .mobileHeaderHeight {
-    height: calc(100% - 10px);
-  }
-}
-
 .animate {
   transform: translate3d(0, 0, 0);
 }
@@ -134,7 +124,7 @@
 
   &.additional {
     .logo {
-      width: 46px;
+      width: 47px;
     }
   }
 }
