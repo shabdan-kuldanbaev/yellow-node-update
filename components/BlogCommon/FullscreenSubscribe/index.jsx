@@ -3,11 +3,11 @@ import cn from 'classnames';
 import {
   ButtonMore,
   AnimatedInput,
-  // TODO PrivacyPolicyCheckbox,
+  CheckboxContainer,
 } from 'components';
-import Link from 'next/link';
 import { useOverflowForBody } from 'hooks';
 import { withValidateEmail } from 'hocs';
+import PropTypes from 'prop-types';
 import CloseIcon from './images/close.svg';
 import styles from './styles.module.scss';
 
@@ -30,34 +30,23 @@ const FullscreenSubscribe = ({
       <div className={styles.subscribeBlock}>
         <div className={styles.subscribe}>
           <div className={styles.content}>
-            <span className={styles.title}>
-              Join for weekly insights
-            </span>
-            <span className={styles.subtitle}>
-              We’ll send how-to articles, case studies, and Yalantis updates to your inbox every Thursday!
-            </span>
+            <span className={styles.title}>Join for weekly insights</span>
+            <span className={styles.subtitle}>We’ll send how-to articles, case studies, and Yalantis updates to your inbox every Thursday!</span>
             <div className={styles.inputBlock}>
               <AnimatedInput
                 value={email.value}
                 handleOnChange={handleOnEmailChange}
                 placeholder="Enter your email address"
-                withoutLabel
+                isWithoutLabel
                 type="email"
                 isValidate={email.isValidate}
                 handleOnBlurEmail={handleOnBlurEmail}
               />
-
-              {/* TODO */}
-              <label className={styles.checkbox}>
-                <span>I accept your</span>
-                <Link href="/privacy-policy">
-                  <span className={styles.link}>Privacy Policy</span>
-                </Link>
-                <input type="checkbox" />
-                <span className={styles.checkmark} />
-              </label>
-              {/* TODO */}
-
+              <CheckboxContainer
+                text="I accept your"
+                isThereLink
+                linkText="Privacy Policy"
+              />
               <ButtonMore
                 handleOnClick=""
                 title="Subscribe"
@@ -69,6 +58,18 @@ const FullscreenSubscribe = ({
       </div>
     </section>
   );
+};
+
+FullscreenSubscribe.defaultProps = {
+  isFullscreenSubscribe: false,
+};
+
+FullscreenSubscribe.propTypes = {
+  isFullscreenSubscribe: PropTypes.bool,
+  closeFullscreenSubscribe: PropTypes.func.isRequired,
+  email: PropTypes.instanceOf(Object).isRequired,
+  handleOnEmailChange: PropTypes.func.isRequired,
+  handleOnBlurEmail: PropTypes.func.isRequired,
 };
 
 export default withValidateEmail(FullscreenSubscribe);

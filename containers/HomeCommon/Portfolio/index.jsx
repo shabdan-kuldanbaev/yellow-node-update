@@ -11,7 +11,7 @@ import {
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
-const Portfolio = () => {
+export const Portfolio = () => {
   const [backgroundColor, setBackgroundColor] = useState('firstBlock');
   const [blockNumber, setBlockNumber] = useState(1);
   const refs = [useRef(null), useRef(null), useRef(null)];
@@ -27,13 +27,9 @@ const Portfolio = () => {
       refs[2].current.getBoundingClientRect().bottom,
     ];
 
-    if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
-      setBlockNumber(2);
-    } else if (secondBottom < halfHeight) {
-      setBlockNumber(3);
-    } else {
-      setBlockNumber(1);
-    }
+    if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) setBlockNumber(2);
+    else if (secondBottom < halfHeight) setBlockNumber(3);
+    else setBlockNumber(1);
   };
 
   useEffect(() => {
@@ -48,8 +44,8 @@ const Portfolio = () => {
 
   useEffect(() => {
     handleOnScroll();
-    window.addEventListener('scroll', handleOnScroll);
 
+    window.addEventListener('scroll', handleOnScroll);
     return () => {
       window.removeEventListener('scroll', handleOnScroll);
     };
@@ -74,5 +70,3 @@ const Portfolio = () => {
     </section>
   );
 };
-
-export default Portfolio;

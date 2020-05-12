@@ -4,10 +4,10 @@ import {
   Upload,
   AnimatedInput,
   ButtonMore,
+  CheckboxContainer,
 } from 'components';
 import { withValidateEmail } from 'hocs';
 import styles from './styles.module.scss';
-import { CheckboxContainer } from './CheckboxContainer';
 
 const FeedbackForm = ({
   email,
@@ -15,9 +15,7 @@ const FeedbackForm = ({
   handleOnBlurEmail,
 }) => {
   const [fullName, setFullName] = useState('');
-  const handleOnNameChange = ({ target: { value } }) => {
-    setFullName(value);
-  };
+  const handleOnNameChange = ({ target: { value } }) => setFullName(value);
 
   return (
     <div className={styles.formContainer}>
@@ -46,7 +44,14 @@ const FeedbackForm = ({
           />
         </div>
         <Upload />
-        <CheckboxContainer />
+        <div className={styles.checkboxContainer}>
+          <CheckboxContainer
+            text="I accept your"
+            isThereLink
+            linkText="Privacy Policy"
+          />
+          <CheckboxContainer text="Send me NDA" />
+        </div>
         <ButtonMore
           href="/"
           title="Send"

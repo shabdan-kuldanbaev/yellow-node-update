@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-export const Logo = () => (
+export const InstaLogo = () => (
   <div className={styles['logo-wrapper']}>
     <div className={styles['logo-image']}>
       <div className={styles.logo}>
@@ -16,5 +16,3 @@ export const Logo = () => (
     </div>
   </div>
 );
-
-export default Logo;

@@ -4,7 +4,7 @@ import {
   productHunt,
   esquire,
   theWeek,
- } from '../images';
+} from '../images';
 
 export const partners = [
   {

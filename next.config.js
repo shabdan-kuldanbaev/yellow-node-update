@@ -1,5 +1,5 @@
 const withSass = require('@zeit/next-sass');
-const withCSS = require('@zeit/next-css')
+const withCSS = require('@zeit/next-css');
 const withImages = require('next-images');
 const withPlugins = require('next-compose-plugins');
 const withObj = require('webpack-obj-loader');
@@ -43,7 +43,7 @@ module.exports = withPlugins([
     cssModules: true,
     cssLoaderOptions: {
       importLoaders: 1,
-      localIdentName: "[local]___[hash:base64:5]",
+      localIdentName: '[local]___[hash:base64:5]',
     },
   }],
   withImages,

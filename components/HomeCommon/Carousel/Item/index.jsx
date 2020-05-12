@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import { Brackets } from '../images';
 
-const CarouselItem = ({
+export const CarouselItem = ({
   avatar,
   name,
   position,
@@ -29,5 +29,3 @@ CarouselItem.propTypes = {
   position: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
-
-export default CarouselItem;

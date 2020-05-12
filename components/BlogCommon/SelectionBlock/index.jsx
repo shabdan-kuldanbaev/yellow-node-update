@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
-import { ButtonMore } from 'components';
+import {
+  ButtonMore,
+  FullscreenSearch,
+  FullscreenSubscribe,
+} from 'components';
 import cn from 'classnames';
 import { useOverflowForBody } from 'hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
 import { setMobileCategoriesState } from 'redux/actions/layout';
+import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import SearchIcon from './images/search.svg';
-import FullscreenSearch from '../FullscreenSearch';
-import FullscreenSubscribe from '../FullscreenSubscribe';
 import { tags } from './utils/data';
 import Categories from './Categories';
 
 const SelectionBlock = ({ urlPath }) => {
-  const [isFullscreenSearch, setFullscreenSearch] = useState(null);
-  const [isFullscreenSubscribe, setFullscreenSubscribe] = useState(null);
+  const [isFullscreenSearch, setFullscreenSearch] = useState(false);
+  const [isFullscreenSubscribe, setFullscreenSubscribe] = useState(false);
   const openFullscreenSearch = () => setFullscreenSearch(true);
   const closeFullscreenSearch = () => setFullscreenSearch(false);
   const openFullscreenSubscribe = () => setFullscreenSubscribe(true);
@@ -53,6 +56,10 @@ const SelectionBlock = ({ urlPath }) => {
       <FullscreenSubscribe isFullscreenSubscribe={isFullscreenSubscribe} closeFullscreenSubscribe={closeFullscreenSubscribe} />
     </div>
   );
+};
+
+SelectionBlock.propTypes = {
+  urlPath: PropTypes.string.isRequired,
 };
 
 export default SelectionBlock;

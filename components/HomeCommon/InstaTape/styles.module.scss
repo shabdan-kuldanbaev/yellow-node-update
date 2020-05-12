@@ -1,8 +1,6 @@
 @import 'styles/utils/variables';
 @import 'styles/utils/mixins';
 
-$imgIndent: 7.5px;
-
 .instaTape {
   @include flex();
   width: 100%;
@@ -30,7 +28,7 @@ $imgIndent: 7.5px;
     width: calc(#{$max-content-width} / 4 - #{$imgIndent} * 2);
     margin: 0 auto;
     overflow: hidden;
-    box-shadow: 0 0px 29px 0 rgba(0, 0, 0, 0.07);
+    box-shadow: 0 0px 29px 0 $insta-tape-box-shadow-color;
     border-radius: $articleRadius;
 
     @include full-hd {

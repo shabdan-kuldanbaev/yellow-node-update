@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SelectionBlock, Articles } from 'components/BlogCommon';
+import { SelectionBlock, Articles } from 'components';
 import ReactPaginate from 'react-paginate';
 import { mobileResolution, toInt } from 'utils/helper';
 import Router, { useRouter } from 'next/router';
@@ -33,7 +33,7 @@ const BlogCommon = ({
   const [isMobileResolution, setMobileResolution] = useState(null);
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
   const pagesCounter = Math.ceil(totalCount / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
-  const currentPage = parseInt(page);
+  const currentPage = toInt(page);
 
   const handleOnPageClick = ({ selected }) => {
     window.scrollTo(0, 0);
@@ -61,27 +61,10 @@ const BlogCommon = ({
     if (isMobileResolution !== null) {
       const currentLimit = isMobileResolution
         ? deviceLimit
-        : toInt(page) === 1 ? deviceLimit : deviceLimit + 1;
+        : currentPage === 1 ? deviceLimit : deviceLimit + 1;
       loadNewArticles({ currentPage, currentLimit, category });
     }
   }, [isMobileResolution]);
-
-  // TODO console.log('BlogCommon: ', {
-  //   introSection,
-  //   articles,
-  //   isLoading,
-  //   loadPosts: loadNewArticles,
-  //   setTotalCount: setTotalArticlesCount,
-  //   totalCount,
-  //   desktopLimit,
-  //   mobileLimit,
-  //   pathname,
-  //   asPath,
-  //   category,
-  //   page,
-  //   pagesCounter,
-  //   isMobileResolution,
-  // });
 
   return (
     <section ref={introSection} className={styles.blog}>

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ScrollAnimation from 'react-animate-on-scroll';
 import cn from 'classnames';
+import { Animated, LinkWrapper } from 'components';
 import styles from './styles.module.scss';
 
-const SectionTitle = ({
+export const SectionTitle = ({
   title,
   styleTitle,
   subtitle,
@@ -12,31 +12,24 @@ const SectionTitle = ({
   isFeedbackForm,
 }) => (
   <div className={styles.titleContainer}>
-    <ScrollAnimation animateIn="fadeInUp" animateOnce>
+    <Animated animateIn="fadeInUp" animateOnce>
       <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
-    </ScrollAnimation>
+    </Animated>
     {subtitle && (
-      <ScrollAnimation
-        animateIn="fadeInUp"
-        animateOnce
-      >
+      <Animated animateIn="fadeInUp" animateOnce>
         {!isFeedbackForm
           ? <span className={cn({ [styleSubtitle]: styleSubtitle })}>{subtitle}</span>
           : (
             <p className={cn({ [styleSubtitle]: styleSubtitle })}>
               Fill in this form or
               <span>
-                <a
-                  href="mailto:hi@yellow.systems"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>
                   send us an e-mail
-                </a>
+                </LinkWrapper>
               </span>
             </p>
           )}
-      </ScrollAnimation>
+      </Animated>
     )}
   </div>
 );
@@ -53,5 +46,3 @@ SectionTitle.propTypes = {
   styleSubtitle: PropTypes.string,
   isFeedbackForm: PropTypes.bool,
 };
-
-export default SectionTitle;

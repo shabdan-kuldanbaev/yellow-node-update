@@ -10,10 +10,7 @@ const initialState = {
 };
 
 const handlers = {
-  [actionTypes.GET_ARTICLE_PENDING]: (state) => ({
-    ...state,
-    isLoading: true,
-  }),
+  [actionTypes.GET_ARTICLE_PENDING]: (state) => ({ ...state, isLoading: true }),
   [actionTypes.GET_ARTICLE_SUCCESS]: (state, { payload }) => ({
     ...state,
     isLoading: false,
@@ -24,10 +21,7 @@ const handlers = {
     isLoading: false,
     error: payload,
   }),
-  [actionTypes.LOAD_ARTICLES_PENDING]: (state) => ({
-    ...state,
-    isLoading: true,
-  }),
+  [actionTypes.LOAD_ARTICLES_PENDING]: (state) => ({ ...state, isLoading: true }),
   [actionTypes.LOAD_ARTICLES_SUCCESS]: (state, { payload }) => ({
     ...state,
     isLoading: false,
@@ -38,10 +32,7 @@ const handlers = {
     isLoading: false,
     error: payload,
   }),
-  [actionTypes.SET_TOTAL_ARTICLES_COUNT]: (state, { payload }) => ({
-    ...state,
-    totalCount: payload,
-  }),
+  [actionTypes.SET_TOTAL_ARTICLES_COUNT]: (state, { payload }) => ({ ...state, totalCount: payload }),
   DEFAULT: (state) => state,
 };
 

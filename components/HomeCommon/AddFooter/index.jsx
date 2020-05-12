@@ -5,11 +5,10 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import SocialIcons from '../SocialIcons';
-import ScrollIcon from '../ScrollIcon';
+import { SocialIcons, ScrollIcon } from 'components';
 import styles from './styles.module.scss';
 
-const AddFooter = ({
+export const AddFooter = ({
   theme,
   setScroll,
   isModelLoaded,
@@ -19,12 +18,6 @@ const AddFooter = ({
   const scrollLabel = useRef(null);
   const [direction, setDirection] = useState('');
   const [isTopOfPage, setTopOfPage] = useState(false);
-  const footerClassName = cn({
-    [`${styles.addFooterContainer}`]: true,
-    [`${styles[direction]}`]: true,
-    [`${styles.animate}`]: isModelLoaded,
-    [`${styles.notOnTop}`]: !isTopOfPage,
-  });
 
   const handleOnScroll = () => {
     const { pageYOffset } = window;
@@ -44,14 +37,17 @@ const AddFooter = ({
     setScroll(scrollLabel.current);
 
     window.addEventListener('scroll', handleOnScroll);
-
     return () => {
       window.removeEventListener('scroll', handleOnScroll);
     };
   }, []);
 
   return (
-    <section className={footerClassName}>
+    <section className={cn(styles.addFooterContainer, styles[direction], {
+      [styles.animate]: isModelLoaded,
+      [styles.notOnTop]: !isTopOfPage,
+    })}
+    >
       <SocialIcons theme={theme} />
       <ScrollIcon theme={theme} />
       {!isMobileMenuOpened && <span ref={scrollLabel} className={styles.scrollTitle}>scroll down</span>}
@@ -69,5 +65,3 @@ AddFooter.propTypes = {
   isModelLoaded: PropTypes.bool.isRequired,
   isMobileMenuOpened: PropTypes.bool.isRequired,
 };
-
-export default AddFooter;

@@ -1,29 +1,30 @@
 import React from 'react';
-import ScrollAnimation from 'react-animate-on-scroll';
-import Fade from 'react-reveal/Fade';
+import { Animated } from 'components';
 import { advantages } from './utils/data';
 import styles from './styles.module.scss';
 
-const AdvantagesItems = () => (
+export const AdvantagesItems = () => (
   <div className={styles.advantagesContainer}>
     {advantages.map((adv, index) => (
       <div className={styles.advItem} key={`advantages/${adv.title}`}>
-        <ScrollAnimation
+        <Animated
           animateIn="fadeInUp"
           animateOnce
           delay={index * 90}
         >
           <img src={adv.image} alt={adv.title} />
-          <Fade bottom cascade>
+          <Animated
+            isFade
+            bottom
+            cascade
+          >
             <div>
               <p className={styles.title}>{adv.title}</p>
               <p className={styles.desc} dangerouslySetInnerHTML={{ __html: adv.desc }} />
             </div>
-          </Fade>
-        </ScrollAnimation>
+          </Animated>
+        </Animated>
       </div>
     ))}
   </div>
 );
-
-export default AdvantagesItems;

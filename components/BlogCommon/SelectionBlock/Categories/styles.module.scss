@@ -10,10 +10,10 @@
   @include phone {
     $qwe: 100%;
     width: auto;
-    background-color: rgba(255, 255, 255, .96);
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: $header-additional-color;
+    border: 1px solid $blog-selection-block-mobile-categories-border-color;
     border-radius: 5px;
-    color: #333;
+    color: $blog-selection-block-categories-color;
     line-height: 1.5;
     position: fixed;
     height: auto;
@@ -40,7 +40,7 @@
         padding: 0;
         font-size: 1.875rem;
         text-align: left;
-        color: #3a3a3a;
+        color: $blog-article-title-color;
         line-height: 1.5;
         margin-bottom: 30px;
         font-weight: 500;
@@ -89,7 +89,7 @@
       @include phone {
         margin: 0;
         font-size: 18px;
-        color: #3a3a3a;
+        color: $blog-article-title-color;
         font-weight: 100;
         margin-bottom: 20px;
       }
@@ -97,9 +97,11 @@
       a {
         color: $grid-articles-published-date-color;
         text-decoration: none;
+        transition: color $default-transition-time;
 
         &:hover {
           color: $black;
+          transition: color $default-transition-time;
         }
       }
 

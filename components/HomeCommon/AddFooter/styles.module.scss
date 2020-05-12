@@ -24,7 +24,7 @@
     padding: 0px;
     @include flex(row, center, center);
 
-    & > * {
+    & > div, svg {
       display: none;
     }
 

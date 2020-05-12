@@ -6,14 +6,8 @@ const initialState = {
 };
 
 const handlers = {
-  [actionTypes.SET_MOBILE_MENU_STATE]: (state, { payload }) => ({
-    ...state,
-    isMobileMenuOpened: payload,
-  }),
-  [actionTypes.SET_MOBILE_CATEGORIES_STATE]: (state, { payload }) => ({
-    ...state,
-    isMobileCategotiesOpened: payload,
-  }),
+  [actionTypes.SET_MOBILE_MENU_STATE]: (state, { payload }) => ({ ...state, isMobileMenuOpened: payload }),
+  [actionTypes.SET_MOBILE_CATEGORIES_STATE]: (state, { payload }) => ({ ...state, isMobileCategotiesOpened: payload }),
   DEFAULT: (state) => state,
 };
 

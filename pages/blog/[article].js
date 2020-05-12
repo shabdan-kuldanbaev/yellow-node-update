@@ -1,3 +1,3 @@
-import { Article } from 'components/BlogCommon';
+import { Article } from 'components';
 
 export default Article;

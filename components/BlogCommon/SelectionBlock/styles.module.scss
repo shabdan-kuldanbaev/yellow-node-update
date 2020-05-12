@@ -80,10 +80,6 @@
       font-size: 13.5px !important;
       letter-spacing: 0.9px;
       transition: background-color $shadow-time-for-yellow-button;
-
-      @include below-tablet {
-        // transform: translateX(-80px);
-      }
       
       @include phone {
         display: none;
@@ -102,7 +98,7 @@
         display: block;
         cursor: pointer;
         font-weight: 500;
-        color: #3a3a3a;
+        color: $blog-article-title-color;
         font-size: 15px;
         line-height: 1;
       }

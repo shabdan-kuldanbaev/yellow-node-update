@@ -17,7 +17,6 @@
 .partners {
   @include flex(row, space-between, center);
   width: 100%;
-  // max-width: 1150px;
   max-width: $max-content-width;
   margin-top: 42.5px;
 

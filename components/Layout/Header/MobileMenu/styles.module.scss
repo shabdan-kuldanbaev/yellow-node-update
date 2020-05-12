@@ -1,0 +1,110 @@
+@import 'styles/utils/mixins';
+
+.mobileMenu {
+  display: none;
+  transition: transform .3s ease;
+
+  @include phone {
+    @include flex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $black;
+
+    ul {
+      padding: 0;
+      text-align: center;
+
+      li {
+        margin: 30px 0;
+        list-style: none;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+
+        a {
+          color: $white;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        &:last-child {
+          border-radius: $buttonRadius;
+          padding: 16px 34px;
+          background-color: $accent-color;
+          
+          a {
+            color: $black;  
+          }
+        }
+      }
+    }
+
+    .mobileMenuFooter {
+      padding: 0px;
+      position: fixed;
+      top: 81vh;
+      @include flex(row, space-around);
+      width: 100%;
+
+      a {
+        color: $white;
+        opacity: .3;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.mobileMenuOpened {
+  opacity: 1;
+  touch-action: initial;
+  user-select: initial;
+  position: fixed;
+  transform: translateX(0vw);
+  transition: opacity $default-transition-time;
+  transition: transform $default-transition-time ease;
+
+  @for $i from 1 through 5 {
+    li:nth-child(#{$i}) {
+      opacity: 1;
+      transform: translateX(0vw);
+      transition: transform $default-transition-time,
+                  opacity $default-transition-time;
+      transition-delay: calc(#{$default-transition-time * 2} * #{$i} / 5);
+    }
+  }
+}
+
+.mobileMenuClosed {
+  transform: translateX(-100vh);
+  opacity: 0;
+  touch-action: none;
+  user-select: none;
+  transition: opacity $default-transition-time;
+  transition: transform $default-transition-time ease;
+
+  ul {
+    li {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+  }
+}
+
+.additionalMobileMenu {
+  @include phone {
+    ul {
+      li {
+        span:not(:last-child) {
+          color: $white;
+        }
+      }
+    }
+  }
+}

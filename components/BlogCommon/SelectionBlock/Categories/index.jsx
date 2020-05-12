@@ -2,6 +2,7 @@ import React from 'react';
 import { LinkWrapper } from 'components';
 import cn from 'classnames';
 import { useOverflowForBody } from 'hooks';
+import PropTypes from 'prop-types';
 import CloseIcon from './images/close.svg';
 import styles from './styles.module.scss';
 
@@ -38,6 +39,17 @@ const Categories = ({
       </ul>
     </div>
   );
+};
+
+Categories.defaultProps = {
+  isMobileCategoties: false,
+};
+
+Categories.propTypes = {
+  tags: PropTypes.instanceOf(Array).isRequired,
+  urlPath: PropTypes.string.isRequired,
+  isMobileCategoties: PropTypes.bool,
+  closeMobileCategoties: PropTypes.func.isRequired,
 };
 
 export default Categories;

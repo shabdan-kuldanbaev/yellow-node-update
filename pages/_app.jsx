@@ -10,7 +10,7 @@ import Head from 'next/head';
 import withRedux from 'next-redux-wrapper';
 import configureStore from 'redux/store';
 import { Layout } from 'containers';
-import Logo from 'components/Logo/images/logo.svg';
+import Logo from 'components/Common/Logo/images/logo.svg';
 import Router from 'next/router';
 
 import 'animate.css/animate.min.css';
@@ -23,15 +23,11 @@ const App = ({
 }) => {
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
-  const [isLoading, setLoading] = useState(true);
+  const [isPageLoaded, setPageLoad] = useState(true);
 
   useEffect(() => {
-    const handleRouteChangeStart = () => {
-      setLoading(false);
-    };
-    const handleRouteChangeComplete = () => {
-      setLoading(true);
-    };
+    const handleRouteChangeStart = () => setPageLoad(false);
+    const handleRouteChangeComplete = () => setPageLoad(true);
 
     Router.events.on('routeChangeStart', handleRouteChangeStart);
     Router.events.on('routeChangeComplete', handleRouteChangeComplete);
@@ -52,7 +48,7 @@ const App = ({
       </Head>
       <Provider store={store}>
         <Layout
-          isLoading={isLoading}
+          isLoading={isPageLoaded}
           theme={theme}
           introSection={introSection}
         >

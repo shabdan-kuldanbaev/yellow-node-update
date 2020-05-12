@@ -5,9 +5,9 @@ import {
   CookiesNotification,
   Loader,
 } from 'components';
-import Footer from './Footer';
+import { Footer } from './Footer';
 
-const Layout = ({
+export const Layout = ({
   isLoading,
   children,
   theme,
@@ -32,5 +32,3 @@ Layout.propTypes = {
   theme: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
-
-export default Layout;

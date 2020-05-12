@@ -16,7 +16,7 @@ import { phoneResolution } from 'styles/utils/_variables.scss';
 
 import * as styles from './styles.module.scss';
 
-const Duck = ({ handleOnLoaded }) => {
+export const Duck = ({ handleOnLoaded }) => {
   const containerCanvas = useRef(null);
   const containerText = useRef(null);
   const sloganRef = useRef(null);
@@ -538,5 +538,3 @@ const Duck = ({ handleOnLoaded }) => {
 Duck.propTypes = {
   handleOnLoaded: PropTypes.func.isRequired,
 };
-
-export default Duck;

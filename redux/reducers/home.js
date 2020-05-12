@@ -6,14 +6,8 @@ const initialState = {
 };
 
 const handlers = {
-  [actionTypes.SET_MODEL_LOADING]: (state, { payload }) => ({
-    ...state,
-    isModelLoaded: payload,
-  }),
-  [actionTypes.SET_SCROLL_OF_ADDED_FOOTER]: (state, { payload }) => ({
-    ...state,
-    scrollOfAddedFooter: payload,
-  }),
+  [actionTypes.SET_MODEL_LOADING]: (state, { payload }) => ({ ...state, isModelLoaded: payload }),
+  [actionTypes.SET_SCROLL_OF_ADDED_FOOTER]: (state, { payload }) => ({ ...state, scrollOfAddedFooter: payload }),
   DEFAULT: (state) => state,
 };
 

@@ -129,6 +129,27 @@
       }
     }
 
+    .checkboxContainer {
+      @include flex(row, flex-start, center);
+      margin-top: 10px;
+      width: 100%;
+    
+      @include phone {
+        @include flex(column);
+    
+        label:last-child {
+          margin-top: 20px;
+          margin-left: 0 !important;
+        }
+      }
+    }
+
+    a:last-child {
+      @include phone {
+        width: 90%;
+      }
+    }
+
     .submit {
       @include buttonMore($black, $black, $accent-color, $accent-color);
       background-color: $accent-color;
@@ -140,7 +161,6 @@
       transition: background-color $shadow-time-for-yellow-button;
 
       @include phone {
-        width: 90%;
         margin: $mobile-more-button-indent auto 0;
       }
 

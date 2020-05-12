@@ -5,14 +5,14 @@
       {
         "transform-runtime": {
           "useESModules": false
-      },
-      "preset-env": {
+        },
+        "preset-env": {
           "targets": {
-              "browsers": [">0.03%"]
+            "browsers": [">0.03%"]
           },
           "useBuiltIns": "usage",
           "corejs": 2
-      }
+        }
       }
     ]
   ]

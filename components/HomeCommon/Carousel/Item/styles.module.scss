@@ -42,7 +42,7 @@
       font-weight: bold;
       line-height: 1.55;
       letter-spacing: 0.5px;
-      color: #0e0e0f;
+      color: $feedback-submit-color;
 
       @include phone {
         text-align: center;

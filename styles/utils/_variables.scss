@@ -20,14 +20,20 @@ $grid-articles-published-date-color: #9a999c;
 $input-error-color: red;
 $reviews-background: #f7f8f7;
 $header-additional-color: rgba(255, 255, 255, .98);
+$blocg-search-background-color: rgba(255, 255, 255, 0.93);
 $text-nothing-found-color: #424242;
 $subscribe-background-color: #f8f8fa;
 $active-pagination-color: #f16522;
 $pagination: rgba(35,37,44,0.25);
 $blog-article-categories-color: #a7a8ab;
+$blog-article-title-color: #3a3a3a;
 $attach-color: #B7B7B7;
 $attach-hover-color: #7f7f7f;
 $header-border-bottom-color: #e6e6e6;
+$blog-selection-block-categories-color: #333;
+$blog-selection-block-mobile-categories-border-color: rgba(0, 0, 0, 0.5);
+$blog-subscribe-input-box-shadow-color: rgba(0, 0, 0, 0.04);
+$blog-subscribe-input-box-shadow-focus-color: rgba(0, 0, 0, 0.1);
 
 //time
 $default-transition-time: .5s;
@@ -72,13 +78,15 @@ $horizontal-mobile: 450px;
 $default-font: "Montserrat";
 $main-title-font: 'Sonny Gothic Condensed Ultra Black', sans-serif;
 
-//insta logo
+//insta
+$imgIndent: 7.5px;
 $box_h: 250px;
 $border: 30px;
 $initial-radius: 50px;
 $max-radius: 300px;
 $gradient-border: linear-gradient(45deg, #fccc63, #e95950, #bc2a8d);
 $gradient-dot: linear-gradient(45deg, #e95950, #bc2a8d);
+$insta-tape-box-shadow-color: rgba(0, 0, 0, 0.07);
 
 :export {
   firstColor: $works-first-accent-color;

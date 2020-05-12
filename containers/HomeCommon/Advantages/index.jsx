@@ -2,7 +2,7 @@ import React from 'react';
 import { AdvantagesItems, SectionTitle } from 'components';
 import styles from './styles.module.scss';
 
-const Advantages = () => (
+export const Advantages = () => (
   <section className={styles.advantages}>
     <SectionTitle
       title="We kick ass on"
@@ -12,5 +12,3 @@ const Advantages = () => (
     <AdvantagesItems />
   </section>
 );
-
-export default Advantages;

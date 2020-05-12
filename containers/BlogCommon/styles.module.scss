@@ -5,10 +5,6 @@
   padding: $section-indent + 30px $side-indent $section-indent;
   background-color: $white;
 
-  @include below-tablet {
-    // padding: 60px $side-indent;
-  }
-
   @include phone {
     padding: 0 $side-indent $mobile-section-indent;
   }
@@ -39,9 +35,11 @@
       svg {
         path{
           stroke: $pagination;
+          transition: stroke $default-transition-time;
 
           &:hover {
             stroke: $active-pagination-color;
+            transition: stroke $default-transition-time;
           }
         }
       }
@@ -60,9 +58,11 @@
       text-decoration: none;
       cursor: pointer;
       outline: none;
+      transition: color $default-transition-time;
 
       &:hover {
         color: $active-pagination-color;
+        transition: color $default-transition-time;
       }
   
       @include phone {
@@ -81,7 +81,6 @@
   
     .paginationActiveLink {
       color: $active-pagination-color;
-      // color: $black;
       font-weight: 500;
     }
   

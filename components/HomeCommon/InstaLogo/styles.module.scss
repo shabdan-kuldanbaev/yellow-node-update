@@ -10,14 +10,12 @@
 .logo {
   &-wrapper {
     transform: rotate(-30deg) scale(.4);
-    // TODO
     position: absolute;
     margin-left: -83px;
     margin-top: -60px;
 
     @include phone {
       transform: rotate(-30deg) scale(.35);
-      // TODO
       margin-left: 27px;
       margin-top: -160px;
     }

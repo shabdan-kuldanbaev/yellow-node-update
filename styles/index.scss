@@ -5,12 +5,17 @@ html {
   padding: 0;
   font-family: $default-font;
   font-size: 16px;
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
+
+  ::selection {
+    background-color: $accent-color;
+  }
 
   body {
     margin: 0;
     padding: 0;
     background-color: $black;
+    transition: background-color $default-transition-time;
 
     & > div > section {
       background-color: $black;

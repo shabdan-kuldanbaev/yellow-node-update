@@ -30,7 +30,7 @@ export const shaders = {
         vec2 uv = vUv;
         gl_FragColor = vec4(1.0, 0.9, 0.01, 1.0);
       }
-`
+`,
 };
 
 export const animationTypes = ['appear', 'getTogether', 'pagination'];

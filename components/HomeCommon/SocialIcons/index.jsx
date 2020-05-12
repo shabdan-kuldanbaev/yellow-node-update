@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { themes } from 'utils/helper';
+import { LinkWrapper } from 'components';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
 
-const SocialIcons = ({ theme }) => (
+export const SocialIcons = ({ theme }) => (
   <div className={styles.socialContainer}>
     {socialNetworks.map((network) => (
-      <a
+      <LinkWrapper
         key={`social/${network.title}`}
-        href={network.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        path={network.href}
+        isLocalLink
       >
         {network.image(themes[theme].main, themes[theme].secondary)}
-      </a>
+      </LinkWrapper>
     ))}
   </div>
 );
@@ -26,6 +26,3 @@ SocialIcons.defaultProps = {
 SocialIcons.propTypes = {
   theme: PropTypes.string,
 };
-
-
-export default SocialIcons;

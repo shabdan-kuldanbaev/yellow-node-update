@@ -13,7 +13,10 @@ export const works = [
   },
   {
     name: 'Fireaway',
-    description: 'Fireaway is the simplest chat in the world. It is a single-use anonymous chat, where you don’t need to register – just open the browser tab, invite a friend with the link, and start chatting! Fireaway is the simplest chat in the world. It is a single-use anonymous chat, where you don’t need to register – just open the browser tab, invite a friend with the link, and start chatting!',
+    description: `Fireaway is the simplest chat in the world. It is a single-use anonymous chat,
+                  where you don’t need to register – just open the browser tab, invite a friend with the link,
+                  and start chatting! Fireaway is the simplest chat in the world. It is a single-use anonymous chat,
+                  where you don’t need to register – just open the browser tab, invite a friend with the link, and start chatting!`,
     image: fireaway,
   },
 ];
