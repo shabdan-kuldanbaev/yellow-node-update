@@ -19,7 +19,7 @@ export const Intro = ({ theme, introSection }) => {
 
   return (
     <section ref={introSection}>
-      <Duck handleOnLoaded={setLoaded} />
+      <Duck handleOnLoaded={setLoaded} isModelLoaded={isModelLoaded} />
       <AddFooter
         theme={theme}
         isModelLoaded={isModelLoaded}
