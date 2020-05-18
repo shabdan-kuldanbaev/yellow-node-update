@@ -1,5 +1,6 @@
 // Layout
-export { Header } from 'components/Layout/Header';
+export { default as Header } from 'components/Layout/Header';
+export { Footer } from 'components/Layout/Footer';
 export { Contacts } from 'components/Layout/Footer/Contacts';
 
 // Common
@@ -12,6 +13,7 @@ export { LinkWrapper } from 'components/Common/LinkWrapper';
 export { default as Loader } from 'components/Common/Loader';
 export { default as Logo } from 'components/Common/Logo';
 export { Upload } from 'components/Common/Upload';
+export { ModalWindow } from 'components/Common/ModalWindow';
 
 // HomeCommon
 export { default as FeedbackForm } from 'components/HomeCommon/FeedbackForm';
@@ -28,7 +30,7 @@ export { SectionTitle } from 'components/HomeCommon/SectionTitle';
 export { Works } from 'components/HomeCommon/Works';
 
 // BlogCommon
-export { Article } from 'components/BlogCommon/Article';
+export { default as Article } from 'components/BlogCommon/Article';
 export { default as Articles } from 'components/BlogCommon/Articles';
 export { default as SelectionBlock } from 'components/BlogCommon/SelectionBlock';
 export { default as SearchIcon } from 'components/BlogCommon/SelectionBlock/images/search.svg';

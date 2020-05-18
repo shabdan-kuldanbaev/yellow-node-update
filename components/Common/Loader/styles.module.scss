@@ -15,7 +15,7 @@
     height: 60px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: $accent-color;
+    border-top-color: $turbo-100;
     animation: spin 2.5s linear infinite;
 
     &:before {
@@ -27,7 +27,7 @@
       bottom: 5px;
       border-radius: 50%;
       border: 3px solid transparent;
-      border-top-color: $accent-color;
+      border-top-color: $turbo-100;
       animation: spin 2s linear infinite;
     }
 
@@ -40,7 +40,7 @@
       bottom: 15px;
       border-radius: 50%;
       border: 3px solid transparent;
-      border-top-color: $accent-color;
+      border-top-color: $turbo-100;
       animation: spin 1.5s linear infinite;
     }
 

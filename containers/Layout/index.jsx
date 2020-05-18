@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import {
   Header,
+  Footer,
   CookiesNotification,
   Loader,
 } from 'components';
-import { Footer } from './Footer';
 
 export const Layout = ({
   isLoading,
@@ -28,6 +28,7 @@ Layout.defaultProps = {
 };
 
 Layout.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
   children: PropTypes.instanceOf(Object),
   theme: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,

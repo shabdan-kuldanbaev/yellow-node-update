@@ -24,40 +24,36 @@
     letter-spacing: 0.5px;
     width: 105%;
 
-    span {
-      padding-bottom: 4px;
+    a {
+      position: relative;
+      color: $black;
+      margin-left: 5px;
+      text-decoration: none;
+      font-size: .9rem;
+      line-height: 1.55;
+      letter-spacing: 0.5px;
+      transition: color $accelerated-transition-time;
+    }
+
+    a:before {
+      position: absolute;
+      display: block;
+      content: "";
+      border-bottom: 1px $woodsmoke solid;
+      bottom: -2px;
+      width: 99%;
+      left: 0.5%;
+      transition: border $accelerated-transition-time;
+    }
+
+    &:hover {
+      cursor: pointer;
 
       a {
-        position: relative;
-        color: $black;
-        margin-left: 5px;
-        text-decoration: none;
-        font-size: .9rem;
-        line-height: 1.55;
-        letter-spacing: 0.5px;
-        transition: color $accelerated-transition-time;
-      }
+        color: $turbo-100;
 
-      a:before {
-        position: absolute;
-        display: block;
-        content: "";
-        border-bottom: 1px $feedback-submit-color solid;
-        bottom: -2px;
-        width: 99%;
-        left: 0.5%;
-        transition: border $accelerated-transition-time;
-      }
-
-      &:hover {
-        cursor: pointer;
-
-        a {
-          color: $accent-color;
-
-          &:before {
-            border-bottom: 1px $accent-color solid;;
-          }
+        &:before {
+          border-bottom: 1px $turbo-100 solid;;
         }
       }
     }
@@ -72,7 +68,7 @@
     width: 100%;
     max-width: 650px;
     max-height: auto;
-    color: $footer-accent-color;
+    color: $silver;
     margin-bottom: 200px;
 
     @include tablet {
@@ -106,9 +102,9 @@
       font-size: 1.125rem;
       padding: 30px 0 8px;
       border: 0 none;
-      border-bottom: solid 0.5px $upload-hr-color;
+      border-bottom: solid 0.5px $iron;
       background-color: transparent;
-      color: $upload-text-color;
+      color: $emperor;
       outline: none;
 
       @include phone {
@@ -151,9 +147,9 @@
     }
 
     .submit {
-      @include buttonMore($black, $black, $accent-color, $accent-color);
-      background-color: $accent-color;
-      color: $feedback-submit-color;
+      @include buttonMore($black, $black, $turbo-100, $turbo-100);
+      background-color: $turbo-100;
+      color: $woodsmoke;
       line-height: 1.55;
       letter-spacing: 0.5px;
       text-align: center;
@@ -165,7 +161,7 @@
       }
 
       &:hover {
-        background-color: $accent-dark-color;
+        background-color: $turbo-200;
         transition: background-color $shadow-time-for-yellow-button;
       }
     }
@@ -175,7 +171,7 @@
 .active {
   .form {
     input {
-      border-bottom-color: $accent-color;
+      border-bottom-color: $turbo-100;
     }
   }
 }

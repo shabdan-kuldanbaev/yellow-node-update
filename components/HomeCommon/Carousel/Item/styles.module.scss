@@ -8,7 +8,7 @@
     line-height: 2.08;
     letter-spacing: 0.6px;
     text-align: center;
-    color: $text-color;
+    color: $scarpa-flow;
     position: relative;
 
     @include phone {
@@ -42,7 +42,7 @@
       font-weight: bold;
       line-height: 1.55;
       letter-spacing: 0.5px;
-      color: $feedback-submit-color;
+      color: $woodsmoke;
 
       @include phone {
         text-align: center;
@@ -52,7 +52,7 @@
     .divider {
       margin: 0 7px;
       font-weight: normal;
-      color: $text-color;
+      color: $scarpa-flow;
 
       @include phone {
         display: none;
@@ -64,7 +64,7 @@
       font-size: .675rem;
       line-height: 2.21;
       letter-spacing: 0.35px;
-      color: $text-color;
+      color: $scarpa-flow;
 
       @include phone {
         font-size: .7rem;

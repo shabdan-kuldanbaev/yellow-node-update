@@ -38,7 +38,7 @@
           transition: stroke $default-transition-time;
 
           &:hover {
-            stroke: $active-pagination-color;
+            stroke: $flamingo;
             transition: stroke $default-transition-time;
           }
         }
@@ -61,7 +61,7 @@
       transition: color $default-transition-time;
 
       &:hover {
-        color: $active-pagination-color;
+        color: $flamingo;
         transition: color $default-transition-time;
       }
   
@@ -80,7 +80,7 @@
     }
   
     .paginationActiveLink {
-      color: $active-pagination-color;
+      color: $flamingo;
       font-weight: 500;
     }
   

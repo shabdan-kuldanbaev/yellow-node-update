@@ -63,7 +63,7 @@
 
   &.notHome {
     background-color: $header-additional-color;
-    border-bottom: 0.5px solid $header-border-bottom-color;
+    border-bottom: 0.5px solid $mercury;
 
     svg {
       path {
@@ -82,7 +82,7 @@
     will-change: transform;
     padding: 10px 17px;
     background-color: $header-additional-color;
-    border-bottom: 0.5px solid $header-border-bottom-color;
+    border-bottom: 0.5px solid $mercury;
     transition: transform $default-transition-time,
                 border-bottom $default-transition-time,
                 padding $default-transition-time * 1.5;

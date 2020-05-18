@@ -3,23 +3,11 @@ import Slider from 'react-slick';
 import { CarouselItem } from './Item';
 import { nextArrow, backArrow } from './images';
 import { reviews } from './utils/data';
+import { Arrow } from './Arrow';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import styles from './styles.module.scss';
-
-const Arrow = ({
-  src,
-  alt,
-  onClick,
-}) => (
-  <img
-    src={src}
-    alt={alt}
-    onClick={onClick}
-    className={styles.arrow}
-  />
-);
+import './styles.module.scss';
 
 export const Carousel = () => {
   const settings = {

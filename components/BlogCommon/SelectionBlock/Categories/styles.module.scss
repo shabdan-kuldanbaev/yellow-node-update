@@ -8,12 +8,11 @@
   z-index: 2;
 
   @include phone {
-    $qwe: 100%;
     width: auto;
     background-color: $header-additional-color;
     border: 1px solid $blog-selection-block-mobile-categories-border-color;
     border-radius: 5px;
-    color: $blog-selection-block-categories-color;
+    color: $mine-shaft;
     line-height: 1.5;
     position: fixed;
     height: auto;
@@ -40,7 +39,7 @@
         padding: 0;
         font-size: 1.875rem;
         text-align: left;
-        color: $blog-article-title-color;
+        color: $mine-shaft;
         line-height: 1.5;
         margin-bottom: 30px;
         font-weight: 500;
@@ -89,13 +88,13 @@
       @include phone {
         margin: 0;
         font-size: 18px;
-        color: $blog-article-title-color;
+        color: $mine-shaft;
         font-weight: 100;
         margin-bottom: 20px;
       }
     
       a {
-        color: $grid-articles-published-date-color;
+        color: $mountain-mis;
         text-decoration: none;
         transition: color $default-transition-time;
 

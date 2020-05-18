@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import styles from './styles.module.scss';
 
 export const LinkWrapper = ({
   isLocalLink,
@@ -15,11 +16,10 @@ export const LinkWrapper = ({
 }) => (
   <Link href={dynamicRouting.length > 0 ? dynamicRouting : path} as={path}>
     <a
-      className={cn({ [className]: !isImage })}
+      className={cn(styles.link, { [className]: !isImage })}
       href={path}
       target={isLocalLink ? '' : '_blank'}
       rel={isLocalLink ? '' : 'noopener noreferrer'}
-      style={{ textDecoration: 'none' }}
     >
       {!isImage ? children : (
         <div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { mobileResolution } from 'utils/helper';
@@ -7,12 +8,17 @@ import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
 import { useRouter } from 'next/router';
 import { SelectionBlock, Logo } from 'components';
-import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles.module.scss';
 import Nav from './Nav';
 import MobileMenu from './MobileMenu';
 
-export const Header = ({ theme, introSection }) => {
+const Header = ({
+  theme,
+  introSection,
+  isModelLoaded,
+  isMobileMenuOpened,
+  setMobileMenuState: setMobileMenu,
+}) => {
   const { asPath } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
   const isHomePage = currentPage === '';
@@ -20,11 +26,6 @@ export const Header = ({ theme, introSection }) => {
   const [direction, setDirection] = useState('up');
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   let oldY = 0;
-
-  const dispatch = useDispatch();
-  const setMobileMenu = (value) => dispatch(setMobileMenuState(value));
-  const isModelLoaded = useSelector((state) => selectIsModelLoaded(state));
-  const isMobileMenuOpened = useSelector((state) => selectIsMobileMenuOpened(state));
 
   const headerClassName = cn({
     [styles.headerContainer]: true,
@@ -111,4 +112,14 @@ Header.defaultProps = {
 Header.propTypes = {
   theme: PropTypes.string,
   introSection: PropTypes.instanceOf(Object).isRequired,
+  isModelLoaded: PropTypes.bool.isRequired,
+  isMobileMenuOpened: PropTypes.bool.isRequired,
+  setMobileMenuState: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  isModelLoaded: selectIsModelLoaded(state),
+  isMobileMenuOpened: selectIsMobileMenuOpened(state),
+});
+
+export default connect(mapStateToProps, { setMobileMenuState })(Header);

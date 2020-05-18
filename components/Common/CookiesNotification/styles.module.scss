@@ -32,9 +32,9 @@
   }
   
   .button {
-    @include buttonMore($black, $black, $accent-color, $accent-color);
-    background-color: $accent-color;
-    color: $feedback-submit-color;
+    @include buttonMore($black, $black, $turbo-100, $turbo-100);
+    background-color: $turbo-100;
+    color: $woodsmoke;
     line-height: 1.55;
     letter-spacing: 0.5px;
     text-align: center;

@@ -68,9 +68,9 @@
     }
 
     .button {
-      @include buttonMore($black, $black, $accent-color, $accent-color);
-      background-color: $accent-color;
-      color: $feedback-submit-color;
+      @include buttonMore($black, $black, $turbo-100, $turbo-100);
+      background-color: $turbo-100;
+      color: $woodsmoke;
       line-height: 1.55;
       text-align: center;
       margin: auto 0;
@@ -86,7 +86,7 @@
       }
 
       &:hover {
-        background-color: $accent-dark-color;
+        background-color: $turbo-200;
         transition: background-color $shadow-time-for-yellow-button;
       }
     }
@@ -98,7 +98,7 @@
         display: block;
         cursor: pointer;
         font-weight: 500;
-        color: $blog-article-title-color;
+        color: $mine-shaft;
         font-size: 15px;
         line-height: 1;
       }

@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import cn from 'classnames';
 import { LinkWrapper } from 'components';
 import PropTypes from 'prop-types';
-import { useOverflowForBody } from 'hooks';
+import { setOverflowForBody } from 'utils/helper';
 import Burger from '../Burger';
 import styles from './styles.module.scss';
 import { menuList, socialLinks } from './utils/data';
@@ -16,7 +16,9 @@ const MobileMenu = ({
 }) => {
   const closeMenu = () => setMobileMenuState(!isMobileMenuOpened);
 
-  useOverflowForBody(isMobileMenuOpened);
+  useEffect(() => {
+    setOverflowForBody(isMobileMenuOpened);
+  }, [isMobileMenuOpened]);
 
   return (
     <Fragment>

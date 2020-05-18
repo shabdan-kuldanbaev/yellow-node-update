@@ -1,3 +1,3 @@
-import { BlogCommon } from 'containers';
+import { BlogContainer } from 'containers';
 
-export default BlogCommon;
+export default BlogContainer;

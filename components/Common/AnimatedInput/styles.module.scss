@@ -44,12 +44,12 @@
 
 .error {
   input {
-    border-bottom-color: $input-error-color !important;
+    border-bottom-color: $red !important;
   }
 }
 
 .default {
   input {
-    border-bottom-color: $upload-hr-color !important;
+    border-bottom-color: $iron !important;
   }
 }

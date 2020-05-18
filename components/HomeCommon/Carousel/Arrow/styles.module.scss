@@ -1,0 +1,15 @@
+@import 'styles/utils/mixins';
+
+.arrow {
+  margin: auto 70px;
+  padding: 50px;
+  cursor: pointer;
+
+  @include tablet {
+    margin: auto;
+  }
+
+  @include phone {
+    display: none;
+  }
+}

@@ -183,7 +183,7 @@
     
           &:hover {
             border: 1px solid $white;
-            color: $works-first-accent-color;
+            color: $science-blue;
             transition: background-color $default-transition-time,
                         color $default-transition-time,
                         border-color $default-transition-time;
@@ -256,7 +256,7 @@
 
       div button {
         &:hover {
-          color: $works-first-accent-color;
+          color: $science-blue;
         }
       }
     }
@@ -264,7 +264,7 @@
     &:nth-child(2) {
       div button {
         &:hover {
-          color: $works-second-accent-color;
+          color: $english-walnut;
         }
       }
     }
@@ -272,7 +272,7 @@
     &:nth-child(3) {
       div button {
         &:hover {
-          color: $works-third-accent-color;
+          color: $thunder;
         }
       }
     }

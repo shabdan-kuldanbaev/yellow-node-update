@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LinkWrapper } from 'components';
 import cn from 'classnames';
-import { useOverflowForBody } from 'hooks';
+import { setOverflowForBody } from 'utils/helper';
 import PropTypes from 'prop-types';
 import CloseIcon from './images/close.svg';
 import styles from './styles.module.scss';
@@ -12,7 +12,9 @@ const Categories = ({
   isMobileCategoties,
   closeMobileCategoties,
 }) => {
-  useOverflowForBody(isMobileCategoties);
+  useEffect(() => {
+    setOverflowForBody(isMobileCategoties);
+  }, [isMobileCategoties]);
 
   return (
     <div className={styles.categories}>
