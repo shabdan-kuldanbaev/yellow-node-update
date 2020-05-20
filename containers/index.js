@@ -7,3 +7,7 @@ export { Insta } from 'containers/HomeCommon/Insta';
 export { Intro } from 'containers/HomeCommon/Intro';
 export { Portfolio } from 'containers/HomeCommon/Portfolio';
 export { Reviews } from 'containers/HomeCommon/Reviews';
+
+
+// Portfolio
+export { default as PortfolioContainer } from 'containers/Portfolio/index';

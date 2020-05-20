@@ -1,0 +1,259 @@
+@import 'styles/utils/mixins';
+
+.animationOfAppearanceBefore {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: transform $default-transition-time,
+              opacity $default-transition-time;
+}
+
+.animationOfAppearance {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform $default-transition-time,
+              opacity $default-transition-time;
+}
+
+.worksContainer {
+  width: calc(100% + 2 * #{$side-indent});
+  margin: 0;
+  background-color: $white;
+  
+  @include phone {
+    width: 100%;
+    margin: 0;
+  }
+ 
+  .work {
+    position: relative;
+    z-index: 5;
+    @include flex(row, space-evenly, center);
+    width: 100%;
+    height: 100vh;
+    will-change: background-color;
+    transition: background-color $default-transition-time ease;
+    transition-timing-function: linear;
+
+    @include tablet {
+      @include flex(column-reverse, flex-end, center);
+      height: auto;
+      padding-bottom: 120px;
+
+      &:first-child {
+        padding-top: 130px;
+      }
+    }
+
+    @include below-tablet-horizontal {
+      @include flex(row, center, center);
+    }
+
+    @include phone {
+      @include flex(column-reverse, center, center);
+      height: auto;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      padding-bottom: 100px;
+
+
+      &:first-child {
+        padding-top: 0px;
+      }
+    }
+
+    @include horizontal-mobile {
+      height: auto;
+      @include flex(row, center, center);
+
+      &:first-child {
+        padding-top: 80px;
+      }
+    }
+
+    .desc {
+      width: 40%;
+      @include flex(row, center, center);
+
+      @include tablet {
+        width: 100%;
+        justify-content: normal;
+        max-height: 50%;
+        margin-top: 50px;
+      }
+
+      @include below-tablet {
+        width: 100%;
+        margin-top: 30px;
+      }
+
+      @include below-tablet-horizontal {
+        width: 50%;
+        justify-content: center;
+      }
+
+      @include phone {
+        width: 100%;
+        margin-top: auto;
+      }
+
+      @include horizontal-mobile {
+        max-height: initial;
+      }
+      
+      div {
+        max-width: 80%;
+        height: 100%;
+        opacity: 1;
+        transition: transform $default-transition-time, opacity $default-transition-time;
+
+        @include tablet {
+          max-width: $max-content-width-macbook-twelve;
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
+        @include below-tablet {
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
+        @include below-tablet-horizontal {
+          padding-left: 0px;
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
+        @include phone {
+          @include flex(column, center, center);
+          width: 100%;
+          max-width: 100%;
+          margin: 0;
+          padding-left: 0px;
+          text-align: left;
+        }
+
+        h1 {
+          margin-top: 0;
+          margin-bottom: 60px;
+          font-weight: 800;
+          font-size: 4.125rem;
+          letter-spacing: 2.25px;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.01;
+          color: $black;
+
+          @include below-tablet {
+            font-size: 3rem;
+            margin-top: 40px;
+          }
+
+          @include below-tablet-horizontal {
+            font-size: 2.5rem;
+          }
+    
+          @include phone {
+            max-width: calc(100% - 40px);
+            font-size: 2.5rem;
+            margin: 40px auto 25px 0px;
+          }
+        }
+    
+        p {
+          margin: 0;
+          margin-top: -20px;
+          font-size: 1.25rem;
+          line-height: 1.53;
+          letter-spacing: 0.5px;
+          color: $black;
+          opacity: .8;
+          word-wrap: normal;
+
+          @include below-tablet-horizontal {
+            font-size: 1rem;
+          }
+
+          @include phone {
+            max-width: calc(100% - 40px);
+            font-size: 1rem;
+            max-width: 100%;
+            margin: auto 20px auto 0px;
+          }
+        }
+      
+        button {
+          @include buttonMore($black, $black, $accent-color, $black);
+          margin-top: 60px;
+          background-color: transparent;
+          border-radius: $buttonRadius;
+          color: $black;
+          line-height: 1.55;
+          letter-spacing: 0.5px;
+          font-size: 1rem;
+          border: 1px solid $black;
+          transition: background-color $default-transition-time,
+                      color $default-transition-time,
+                      border-color $default-transition-time;
+    
+          &:hover {
+            border: 1px solid $accent-color;
+            color: $black;
+            transition: background-color $default-transition-time,
+                        color $default-transition-time,
+                        border-color $default-transition-time;
+          }
+    
+          &:before {
+            background-color: $black;
+          }
+
+          @include below-tablet {
+            margin-top: 40px; 
+          }
+        }
+      }
+    }
+
+    .imgWrapper {
+      width: 50%;
+      height: 100%;
+
+      @include tablet {
+        width: calc(100% - (40px + 40px));
+        margin-right: 40px;
+        margin-left: 40px;
+        max-height: 50%;
+      }
+
+      @include below-tablet-horizontal {
+        width: 50%;
+      }
+
+      @include phone {
+        width: 100%;
+      }
+
+      div {
+        width: 100%;
+        height: 100%;
+        @include flex(column, center, center);
+
+        div {
+          @include flex(row, center, center);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          width: 100%;
+          height: 0px;
+          padding-top: calc(100% / 1.5);
+          border-radius: 7.5px;
+          opacity: 1;
+          transition: transform $default-transition-time, opacity $default-transition-time;
+        }
+      }
+    }
+  }
+}

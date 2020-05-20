@@ -35,3 +35,6 @@ export { default as SearchIcon } from 'components/BlogCommon/SelectionBlock/imag
 export { default as FullscreenSearch } from 'components/BlogCommon/FullscreenSearch';
 export { default as FullscreenSubscribe } from 'components/BlogCommon/FullscreenSubscribe';
 export { default as Subscribe } from 'components/BlogCommon/Subscribe';
+
+// PortfolioCommon
+export { Portfolio } from 'components/PortfolioCommon/index';

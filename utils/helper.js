@@ -1,4 +1,4 @@
-import { phoneResolution } from 'styles/utils/_variables.scss';
+import { phoneResolution, horizontalMobile } from 'styles/utils/_variables.scss';
 
 export const themes = {
   dark: {
@@ -22,3 +22,4 @@ export const validateEmail = (email) => {
 };
 
 export const mobileResolution = toInt(phoneResolution);
+export const horizontalPhone = toInt(horizontalMobile);

@@ -4,6 +4,8 @@ export const actionTypes = {
   /* ------------------------ */
   SET_MODEL_LOADING: 'home/SET_MODEL_LOADING',
   SET_SCROLL_OF_ADDED_FOOTER: 'home/SET_SCROLL_OF_ADDED_FOOTER',
+  SET_DUCK: 'home/SET_DUCK',
+  SET_HOMEPAGE_VISIT: 'home/SET_HOMEPAGE_VISIT',
   /* ------------------------ */
   GET_ARTICLE_PENDING: 'blog/GET_ARTICLE_PENDING',
   GET_ARTICLE_SUCCESS: 'blog/GET_ARTICLE_SUCCESS',

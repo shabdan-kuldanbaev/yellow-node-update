@@ -28,9 +28,9 @@ export const Header = ({ theme, introSection }) => {
 
   const headerClassName = cn({
     [styles.headerContainer]: true,
-    [styles.animate]: isModelLoaded,
+    [styles.animate]: isHomePage ? isModelLoaded : true,
     [styles.additional]: isAdditional,
-    [styles[direction]]: isModelLoaded,
+    [styles[direction]]: isHomePage ? isModelLoaded : true,
     [styles.notHome]: !isHomePage,
     [styles.deleteTextOfLogo]: isLogoTextHidden && isHomePage,
   });

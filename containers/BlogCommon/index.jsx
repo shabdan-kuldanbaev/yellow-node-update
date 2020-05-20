@@ -54,6 +54,7 @@ const BlogCommon = ({
     const newArticles = category !== 'latest'
       ? articlesData.filter((article) => article.category === category)
       : articlesData;
+
     setTotalArticlesCount(newArticles.length);
   }, []);
 

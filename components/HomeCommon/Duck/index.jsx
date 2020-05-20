@@ -19,32 +19,37 @@ import { useRouter } from 'next/router';
 import { shaders, animationTypes } from './utils/data';
 import * as styles from './styles.module.scss';
 
-export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
+let camera;
+let animationId = 0;
+let r = 0;
+const meshes = [];
+const meshClones = [];
+let composer;
+let mat = 0;
+
+export const Duck = ({
+  handleOnLoaded,
+  isModelLoaded,
+  setDuckToRedux,
+  duck,
+  // setVisitOfHomepage,
+  // isHomepageVisit,
+}) => {
   const { asPath } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
   const isHomePage = currentPage === '';
 
-  const [loadObj, setLoadObj] = useState(null);
+  const [isAnimate, setAnimate] = useState(false);
+  const [isDuckLoad, setDuckLoad] = useState(false);
 
   const containerCanvas = useRef(null);
   const containerText = useRef(null);
   const sloganRef = useRef(null);
   let canvas = null;
-  // 500 = 9s
-  const initialAnimationTime = 500;
+  const initialAnimationTime = 500; // 500 = 9s
   let animationDelay = 0.0001;
   let isMobile = 0;
 
-  // for Parallax // ✅
-  const calc = (o) => `translateY(${o * 0.13}px)`;
-  const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
-  const handleOffset = () => {
-    const posY = containerText.current.getBoundingClientRect().top;
-    const offset = window.pageYOffset - posY;
-    set({ offset });
-  };
-
-  // ✅
   const options = {
     initial: {
       modelScale: 0,
@@ -76,37 +81,41 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     },
   };
 
-  // ✅
-  let camera;
+  // let camera;
   let scene;
   let renderer;
   let originals;
-  const meshes = [];
+  // const meshes = [];
+  // const meshClones = [];
   let clones;
-  const meshClones = [];
-  let composer;
+  // let composer;
   const raycaster = new THREE.Raycaster();
   const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
   const mouse = { x: 0, y: 0 };
   let scatterStep = 0;
-  let mat = 0;
-  let animationId = 0;
+  // let mat = 0;
+  // let animationId = 0;
   // let movement = 0;
 
-  // ✅
+  // for Parallax
+  const calc = (o) => `translateY(${o * 0.13}px)`;
+  const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
+  const handleOffset = () => {
+    const offset = window.pageYOffset - containerText.current.getBoundingClientRect().top;
+    set({ offset });
+  };
+
   const loadModel = () => {
     const loader = new OBJLoader();
     loader.load(
       'https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj',
-      (obj) => setLoadObj(obj),
+      (obj) => setDuckToRedux(obj),
       (xhr) => ((xhr.loaded / xhr.total) * 100 === 100) && handleOnLoaded(true),
     );
   };
 
-  // ✅
   const getSpeed = (distance, time) => distance / time;
 
-  // ✅
   const createCamera = () => {
     camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 1, 50000);
     if (isMobile) camera.position.set(6000, 0, 0);
@@ -115,7 +124,6 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     camera.lookAt(scene.position);
   };
 
-  // ✅
   const combineBuffer = (model, bufferName) => {
     let count = 0;
     model.traverse((child) => {
@@ -138,7 +146,6 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     return new THREE.BufferAttribute(combined, 3);
   };
 
-  // ✅
   const createMesh = (positions, scene) => {
     const geometry = new THREE.BufferGeometry();
 
@@ -187,8 +194,11 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
       mesh.rotation.y = options.default.meshRotationY;
       mesh.rotation.z = options.default.meshRotationZ;
 
+
       scene.add(mesh);
-      meshes.push(mesh);
+      if (meshes.length <= 2) {
+        meshes.push(mesh);
+      }
     });
 
     clones.forEach((clone) => {
@@ -206,12 +216,14 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
       mesh.material.transparent = true;
       mesh.material.opacity = clone.opacity;
 
+
       scene.add(mesh);
-      meshClones.push(mesh);
+      if (meshes.length <= 2) {
+        meshClones.push(mesh);
+      }
     });
   };
 
-  // ✅
   const creatShaderMaterialAfterLoadModel = (obj) => {
     mat = new THREE.ShaderMaterial({
       uniforms: {
@@ -236,11 +248,10 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
       fragmentShader: shaders.fs,
     });
 
-    const positions = combineBuffer(obj, 'position'); // ✅
-    createMesh(positions, scene); // ✅
+    const positions = combineBuffer(obj, 'position');
+    createMesh(positions, scene);
   };
 
-  // ✅
   const createRenderer = () => {
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -249,7 +260,6 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     renderer.autoClear = false;
   };
 
-  // ✅
   const setRandomPosition = (mesh) => {
     const positions = mesh.geometry.attributes.position;
     const { count } = positions;
@@ -268,7 +278,6 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     positions.needsUpdate = true;
   };
 
-  // ✅
   const setRotateAnimation = (mesh) => {
     if (options.initial.rotationDirection === 'left') {
       if (mesh.rotation.y > 0) mesh.rotation.y += -0.1 * options.default.rotationSpeed;
@@ -281,7 +290,6 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     }
   };
 
-  // ✅
   const onWindowResize = () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -290,7 +298,7 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     composer.setSize(window.innerWidth, window.innerHeight);
   };
 
-  // ✅⚠️
+  // ⚠️
   const onDocumentMouseDown = () => {
     if (options.initial.isAppear) {
       options.initial.currentAnimation = animationTypes[2];
@@ -299,16 +307,16 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     }
   };
 
-  // ✅⚠️
+  // ⚠️
   const onDocumentMouseUp = () => {
     if (options.initial.isAppear) {
-      options.initial.currentAnimation = animationTypes[1];
+      options.initial.currentAnimation = animationTypes[1]; // ⚠️
       sloganRef.current ? sloganRef.current.style.opacity = 0.1 : null;
       sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
     }
   };
 
-  // ✅⚠️
+  // ⚠️
   const onDocumentMouseMove = (ev) => {
     if (mat) {
       mouse.x = (ev.clientX / window.innerWidth) * 2 - 1;
@@ -320,7 +328,6 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     }
   };
 
-  // ✅
   const setOpacity = () => {
     if (canvas) {
       const { pageYOffset } = window;
@@ -329,18 +336,15 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     }
   };
 
-  // ❌
   const render = () => {
-    // console.log('render');
     // animation
     switch (options.initial.currentAnimation) {
     case 'appear': meshes.forEach((mesh) => {
       const positions = mesh.geometry.attributes.position;
-      const count = positions.count;
       mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
 
       if (!options.initial.isAppear) {
-        for (let i = 0; i < count; i += 1) {
+        for (let i = 0; i < positions.count; i += 1) {
           positions.setXYZ(
             i,
             Math.random() * (Math.random() * (100) - 50),
@@ -356,35 +360,72 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
 
       break;
 
+    case 'scatter': meshes.forEach((mesh) => {
+      const initialPosition = mesh.geometry.attributes.initialPosition;
+
+      const positions = mesh.geometry.attributes.position;
+      mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
+
+      if (options.initial.isAppear) {
+        for (let i = 0; i < positions.count; i += 1) {
+          const ix = initialPosition.getX(i);
+          const iy = initialPosition.getY(i);
+          const iz = initialPosition.getZ(i);
+
+          const px = positions.getX(i);
+          const py = positions.getY(i);
+          const pz = positions.getZ(i);
+
+          const distanceX = px - ix;
+          const distanceY = py - iy;
+          const distanceZ = pz - iz;
+
+          if (animationDelay < 0.005) animationDelay += 0.0000005;
+
+          const animationTime = initialAnimationTime * animationDelay;
+
+          const speedX = getSpeed(distanceX, animationTime);
+          const speedY = getSpeed(distanceY, animationTime);
+          const speedZ = getSpeed(distanceZ, animationTime);
+
+          if (distanceY < 0.0003) {
+            positions.setXYZ(i, px + speedX, py + speedY, pz + speedZ);
+          }
+        }
+      }
+
+      positions.needsUpdate = true;
+    });
+
+      break;
 
     case 'getTogether':
       meshes.forEach((mesh) => {
         const initialPosition = mesh.geometry.attributes.initialPosition;
         const positions = mesh.geometry.attributes.position;
-        const count = positions.count;
 
-        if (!isMobile || !isHomePage) setRotateAnimation(mesh);
+        if (!isMobile || isHomePage) setRotateAnimation(mesh);
 
-        for (let i = 0; i < count; i += 1) {
-          let ix = initialPosition.getX(i);
-          let iy = initialPosition.getY(i);
-          let iz = initialPosition.getZ(i);
+        for (let i = 0; i < positions.count; i += 1) {
+          const ix = initialPosition.getX(i);
+          const iy = initialPosition.getY(i);
+          const iz = initialPosition.getZ(i);
 
-          let px = positions.getX(i);
-          let py = positions.getY(i);
-          let pz = positions.getZ(i);
+          const px = positions.getX(i);
+          const py = positions.getY(i);
+          const pz = positions.getZ(i);
 
-          let distanceX = px - ix;
-          let distanceY = py - iy;
-          let distanceZ = pz - iz;
+          const distanceX = px - ix;
+          const distanceY = py - iy;
+          const distanceZ = pz - iz;
 
           if (animationDelay < 0.01) animationDelay += 0.0000005;
 
           const animationTime = initialAnimationTime * animationDelay;
 
-          let speedX = getSpeed(distanceX, animationTime);
-          let speedY = getSpeed(distanceY, animationTime);
-          let speedZ = getSpeed(distanceZ, animationTime);
+          const speedX = getSpeed(distanceX, animationTime);
+          const speedY = getSpeed(distanceY, animationTime);
+          const speedZ = getSpeed(distanceZ, animationTime);
 
           if (px !== ix && py !== iy && pz !== iz) {
             positions.setXYZ(i, px - speedX, py - speedY, pz - speedZ);
@@ -392,15 +433,14 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
         }
 
         positions.needsUpdate = true;
-        scatterStep = 0;
+        // scatterStep = 0;
       });
 
       meshClones.forEach((mesh) => {
-        const positions = mesh.geometry.attributes.position;
+        if (!isMobile || isHomePage) setRotateAnimation(mesh);
 
-        if (!isMobile || !isHomePage) setRotateAnimation(mesh);
         mesh.material.opacity = 0;
-        positions.needsUpdate = true;
+        mesh.geometry.attributes.position.needsUpdate = true;
         scatterStep = 0;
       });
 
@@ -423,30 +463,38 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     if (composer) composer.render(0.01);
   };
 
-  // ✅⚠️
+  // ❌
   const animate = () => {
-    animationId = requestAnimationFrame(animate);
-    render();// ❌
-  };
-
-  // ✅⚠️
-  const handleOnScroll = () => {
-    setOpacity();// ✅
-    handleOffset();// ✅
-
-    if (canvas) {
-      if (canvas.getBoundingClientRect().top < -200) {
-        if (animationId !== 0) {
-          cancelAnimationFrame(animationId);
-          animationId = 0;
-        }
-      } else if (animationId === 0) {
-        animate();
-      }
+    if (r === 0) {
+      animationId = requestAnimationFrame(animate);
+      render();
+      console.log('r');
     }
   };
 
-  // ✅
+  // ⚠️
+  const handleOnScroll = () => {
+    // setOpacity();
+    // handleOffset();
+
+    // if (containerCanvas) {
+    //   if (containerCanvas.current.getBoundingClientRect().top < -400) {
+    //     setAnimate(false);
+    //     r = 1;
+    //   } else if (containerCanvas.current.getBoundingClientRect().top <= -50 && containerCanvas.current.getBoundingClientRect().top > -400) {
+    //     options.initial.currentAnimation = 'scatter';
+    //     setAnimate(true);
+    //     r = 0;
+    //   } else {
+    //     options.initial.currentAnimation = animationTypes[1]; // ⚠️
+    //     sloganRef.current ? sloganRef.current.style.opacity = 0.1 : null;
+    //     sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
+    //     setAnimate(true);
+    //     r = 0;
+    //   }
+    // }
+  };
+
   const animateSlogan = () => {
     const str = sloganRef.current.textContent;
     let newStr = '';
@@ -459,13 +507,12 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     sloganRef.current.innerHTML = newStr;
   };
 
-  // ✅
   const init = () => {
-    createCamera(); // ✅
-    createRenderer(); // ✅
+    createCamera();
+    createRenderer();
 
-    if (loadObj) {
-      creatShaderMaterialAfterLoadModel(loadObj);// ✅
+    if (duck) {
+      creatShaderMaterialAfterLoadModel(duck);
 
       containerCanvas.current.innerHTML = '';
       containerCanvas.current.appendChild(renderer.domElement);
@@ -478,61 +525,88 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     }
   };
 
-  // ✅
   useEffect(() => {
-    let timer;
+    // let timer;
 
-    if (!isModelLoaded) loadModel();// ✅
+    // if (containerCanvas.current.getBoundingClientRect().top < -400) {
+    //   cancelAnimationFrame(animationId);
+    //   animationId = 0;
+    //   r = 1;
+    // }
 
-    if (loadObj) {
-      isMobile = window.innerWidth < mobileResolution;
-      if (isMobile) options.default.meshScale = 45;
+    // if (!isModelLoaded) loadModel();
 
-      init();// ✅
 
-      setOpacity();// ✅
-      animateSlogan();// ✅
-      animate();// ✅
+    // if (!isAnimate) {
+    //   cancelAnimationFrame(animationId);
+    //   animationId = 0;
+    //   console.log('stop');
 
-      window.anime.timeline({ loop: false })
-        .add({
-          targets: '.letter-container .letter',
-          opacity: [0, 1],
-          easing: 'easeInOutQuad',
-          duration: 2250,
-          delay: (el, i) => 150 * (i + 1),
-        })
-        .add({
-          targets: '.letter-container',
-          opacity: 0.1,
-          duration: 1000,
-          easing: 'easeOutExpo',
-          delay: 0,
-        });
+    //   if (duck && !isDuckLoad) {
+    //     console.log('init');
+    //     setDuckLoad(true);
+    //     isMobile = window.innerWidth < mobileResolution;
+    //     if (isMobile) options.default.meshScale = 45;
 
-      window.addEventListener('scroll', handleOnScroll, false);
-      window.addEventListener('resize', onWindowResize, false);
+    //     init();
 
-      timer = setTimeout(() => {
-        options.initial.currentAnimation = animationTypes[1];
-        if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-        document.addEventListener('mousedown', onDocumentMouseDown, false);
-        document.addEventListener('mouseup', onDocumentMouseUp, false);
-        document.addEventListener('mousemove', onDocumentMouseMove, false);
-      }, 5700);
-    }
+    //     setOpacity();
+    //     animateSlogan();
+    //     animate();
 
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scroll', handleOnScroll);
-      document.removeEventListener('mousedown', onDocumentMouseDown);
-      document.removeEventListener('mouseup', onDocumentMouseUp);
-      document.removeEventListener('mousemove', onDocumentMouseMove);
-      window.removeEventListener('resize', onWindowResize);
-    };
-  }, [loadObj]);
+    //     window.anime.timeline({ loop: false })
+    //       .add({
+    //         targets: '.letter-container .letter',
+    //         opacity: [0, 1],
+    //         easing: 'easeInOutQuad',
+    //         duration: 2250,
+    //         delay: (el, i) => 150 * (i + 1),
+    //       })
+    //       .add({
+    //         targets: '.letter-container',
+    //         opacity: 0.1,
+    //         duration: 1000,
+    //         easing: 'easeOutExpo',
+    //         delay: 0,
+    //       });
 
-  // ✅
+    //     window.addEventListener('resize', onWindowResize, false);
+
+    //     timer = setTimeout(() => {
+    //       options.initial.currentAnimation = animationTypes[1]; // ⚠️
+    //       if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+    //       document.addEventListener('mousedown', onDocumentMouseDown, false);
+    //       document.addEventListener('mouseup', onDocumentMouseUp, false);
+    //       document.addEventListener('mousemove', onDocumentMouseMove, false);
+    //     }, 5700);
+    //   }
+    // } else {
+    //   options.initial.isAppear = true;
+    //   // options.initial.currentAnimation = animationTypes[1];
+
+    //   if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+    //   document.addEventListener('mousedown', onDocumentMouseDown, false);
+    //   document.addEventListener('mouseup', onDocumentMouseUp, false);
+    //   document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+    //   console.log('start');
+    //   animate();
+    // }
+    // window.addEventListener('scroll', handleOnScroll, false);
+    // // }
+    // return () => {
+    //   clearTimeout(timer);
+    //   window.removeEventListener('scroll', handleOnScroll);
+    //   document.removeEventListener('mousedown', onDocumentMouseDown);
+    //   document.removeEventListener('mouseup', onDocumentMouseUp);
+    //   document.removeEventListener('mousemove', onDocumentMouseMove);
+    //   window.removeEventListener('resize', onWindowResize);
+
+    //   cancelAnimationFrame(animationId);
+    //   animationId = 0;
+    // };
+  }, [duck, isAnimate]);
+
   return (
     <Fragment>
       <div className={styles.text} ref={containerText}>
@@ -544,13 +618,12 @@ export const Duck = ({ handleOnLoaded, isModelLoaded }) => {
     </Fragment>
   );
 };
-  // ✅
+
 Duck.propTypes = {
   handleOnLoaded: PropTypes.func.isRequired,
   isModelLoaded: PropTypes.bool.isRequired,
 };
 
-// ✅
 // document.addEventListener('touchmove', onDocumentTouchMove, false);
 // document.addEventListener('touchstart', onDocumentMouseMove, false);
 
