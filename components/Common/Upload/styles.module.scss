@@ -21,9 +21,9 @@
       cursor: text;
       font-size: 1.125rem;
       padding: 30px 0 8px;
-      border-bottom: solid 0.5px $upload-hr-color;
+      border-bottom: solid 0.5px $iron;
       background-color: transparent;
-      color: $upload-text-color;
+      color: $emperor;
       outline: none;
 
       @include phone {
@@ -39,7 +39,7 @@
       svg {
         g {
           path {
-            fill: $attach-color;
+            fill: $nobel;
             filter: brightness(1);
             transition: fill $default-transition-time,
                         filter $default-transition-time;
@@ -51,7 +51,7 @@
         svg {
           g {
             path {
-              fill: $attach-hover-color;
+              fill: $gray;
               transition: fill $default-transition-time,
                           filter $default-transition-time;
             }
@@ -65,7 +65,7 @@
     width: 100%;
     height: 0px;
     border: 0 none;
-    background-color: $upload-hr-color;
+    background-color: $iron;
     transform: translateY(0px);
   }
 
@@ -76,7 +76,7 @@
       @include flex(row, space-between, center);
       padding: 5px 10px;
       border-radius: 2.5px;
-      background-color: $upload-file-background-color;
+      background-color: $athens-gray;
       color: $black;
 
       &:not(:last-child) {
@@ -84,7 +84,7 @@
       }
 
       span {
-        color: $upload-text-color;
+        color: $emperor;
         letter-spacing: 0.4px;
       }
 
@@ -101,7 +101,7 @@
         border: 0 none;
         outline: none;
         background-color: transparent;
-        color: $footer-accent-color;
+        color: $silver;
         cursor: pointer;
       }
     }

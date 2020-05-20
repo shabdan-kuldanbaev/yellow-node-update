@@ -25,7 +25,7 @@
   // }
 
   .instaButton {
-    @include buttonMore($black, $black, $accent-color, $black);
+    @include buttonMore($black, $black, $turbo-100, $black);
     transition: background-color $default-transition-time,
                 color $default-transition-time,
                 border-color $default-transition-time;

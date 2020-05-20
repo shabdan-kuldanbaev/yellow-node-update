@@ -7,7 +7,7 @@
   & > p {
     margin: 0;
     font-size: .9rem;
-    color: $footer-accent-color;
+    color: $silver;
     line-height: 1.94;
     letter-spacing: 0.4px;
 
@@ -26,7 +26,7 @@
     @include flex(column);
     width: 100%;
     max-width: 400px;
-    color: $footer-accent-color;
+    color: $silver;
   
     span, label, input {
       font-size: .75rem;
@@ -39,7 +39,7 @@
       border: 0 none;
       border-bottom: solid 0.5px #979797;
       background-color: transparent;
-      color: $footer-accent-color;
+      color: $silver;
       outline: none;
     }
   
@@ -70,7 +70,7 @@
           border-radius: 2.5px;
           outline: none;
           color: #d7d7d7;
-          background-color: $footer-default-button-color;
+          background-color: $tuna;
           transition: background-color $default-transition-time, color $default-transition-time;
           cursor: pointer;
 
@@ -103,7 +103,7 @@
       }
   
       :global(.rc-slider-rail) {
-        background-color: $footer-default-range-color;
+        background-color: $scorpion;
       }
   
       :global(.rc-slider-track) {
@@ -111,8 +111,8 @@
       }
   
       :global(.rc-slider-dot) {
-        border: 2px solid $footer-default-range-color;
-        background-color: $footer-default-range-color;
+        border: 2px solid $scorpion;
+        background-color: $scorpion;
       }
   
       :global(.rc-slider-handle) {
@@ -132,7 +132,7 @@
 
     .initialBudget {
       :global(.rc-slider-handle) {
-        border: solid 3px $footer-default-range-color;
+        border: solid 3px $scorpion;
         background-color: $black;
       }
     }
@@ -183,7 +183,7 @@
           left: 0;
           height: 12.5px;
           width: 12.5px;
-          border: 1px solid $footer-accent-color;
+          border: 1px solid $silver;
           border-radius: 2.5px;
           background-color: transparent;
   
@@ -195,7 +195,7 @@
             top: 1px;
             width: 3px;
             height: 6px;
-            border: solid $footer-accent-color;
+            border: solid $silver;
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
           }

@@ -1,31 +1,25 @@
 import React, { useState } from 'react';
-import cn from 'classnames';
-import { useOverflowForBody } from 'hooks';
-import { Articles } from 'components';
+import { Articles, ModalWindow } from 'components';
 import PropTypes from 'prop-types';
-import { articlesData } from 'containers/BlogCommon/utils/data'; // TODO
+import { articlesData } from 'containers/Blog/utils/data'; // TODO
 import styles from './styles.module.scss';
-import CloseIcon from './images/close.svg';
 
 const FullscreenSearch = ({
   isFullscreenSearch,
   closeFullscreenSearch,
-  articlesData,
+  articlesData: dataOfArticle,
 }) => {
   const [inputValue, setInputValue] = useState('');
-  const articles = articlesData ? articlesData.filter((item, index) => index < 10) : [];
+  const articles = dataOfArticle ? dataOfArticle.filter((item, index) => index < 10) : [];
 
   const handleOnChangeInput = ({ target: { value } }) => setInputValue(value);
 
-  useOverflowForBody(isFullscreenSearch);
-
   return (
-    <section className={cn(styles.search, { [styles.show]: isFullscreenSearch })}>
-      <img
-        onClick={closeFullscreenSearch}
-        src={CloseIcon}
-        alt="Cloce"
-      />
+    <ModalWindow
+      isModalWindow={isFullscreenSearch}
+      closeModalWindow={closeFullscreenSearch}
+      className={styles.search}
+    >
       <div className={styles.searchBlock}>
         <input
           className={styles.input}
@@ -47,7 +41,7 @@ const FullscreenSearch = ({
             />
           )}
       </div>
-    </section>
+    </ModalWindow>
   );
 };
 

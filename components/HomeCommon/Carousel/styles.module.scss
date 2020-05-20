@@ -40,7 +40,7 @@
     width: 13px !important;
     height: 13px !important;
     padding: 0 !important;
-    border: 2px solid $text-color !important;
+    border: 2px solid $scarpa-flow !important;
     border-radius: 2.5px;
 
     &::before {
@@ -51,20 +51,6 @@
 
 :global(.slick-active) {
   button {
-    background-color: $text-color !important;
-  }
-}
-
-.arrow {
-  margin: auto 70px;
-  padding: 50px;
-  cursor: pointer;
-
-  @include tablet {
-    margin: auto;
-  }
-
-  @include phone {
-    display: none;
+    background-color: $scarpa-flow !important;
   }
 }

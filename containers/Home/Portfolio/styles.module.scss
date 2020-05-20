@@ -33,7 +33,7 @@
     }
   
     .portfolioButton {
-      @include buttonMore($accent-color, $works-third-accent-color, $accent-color, $accent-color);
+      @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
       margin-top: $mobile-more-button-indent;
       z-index: 1;
       transition: background-color $default-transition-time,
@@ -51,17 +51,17 @@
 
 .firstBlock {
   // TODO background-image: linear-gradient(45deg, #026ed0 0%, #05a7ea 99%);
-  background-color: #05a7ea;
+  background-color: $cerulean;
   transition: background-color $changing-portfolio-color ease;
 }
 
 .secondBlock {
   // TODO background-image: linear-gradient(45deg, #3d2424 0%, #714a4a 99%);
-  background-color: #714a4a;
+  background-color: $ferra;
   transition: background-color $changing-portfolio-color ease;
 }
 
 .thirdBlock {
-  background-color: $works-third-accent-color;
+  background-color: $thunder;
   transition: background-color $changing-portfolio-color ease;
 }

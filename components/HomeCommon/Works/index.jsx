@@ -5,7 +5,7 @@ import { Animated } from 'components';
 import { works } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Works = ({ refs, backgroundColor }) => (
+export const Works = ({ refs }) => (
   <div className={styles.worksContainer}>
     {works.map((work, index) => (
       <div

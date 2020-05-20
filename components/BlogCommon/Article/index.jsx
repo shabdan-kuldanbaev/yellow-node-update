@@ -3,21 +3,24 @@ import { useRouter } from 'next/router';
 import { selectArticle, selectIsLoading } from 'redux/selectors/blog';
 import { getArticle } from 'redux/actions/blog';
 import { Loader } from 'components';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import styles from './styles.module.scss';
 
-export const Article = () => {
+const Article = ({
+  currentArticle,
+  isLoading,
+  getArticle: getCurrentArticle,
+}) => {
   const { query: { article } } = useRouter();
-  const dispatch = useDispatch();
-  const currentArticle = useSelector((state) => selectArticle(state));
-  const isLoading = useSelector((state) => selectIsLoading(state));
 
   useEffect(() => {
-    if (article) dispatch(getArticle(article));
+    if (article) getCurrentArticle(article);
   }, []);
 
   return (
     <Loader isLoading={!isLoading}>
-      <section style={{ marginTop: '200px', color: 'white' }}>
+      <section className={styles.article}>
         <span>{currentArticle.id}</span>
         <br />
         <br />
@@ -29,3 +32,16 @@ export const Article = () => {
     </Loader>
   );
 };
+
+Article.propTypes = {
+  currentArticle: PropTypes.instanceOf(Object).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  getArticle: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  currentArticle: selectArticle(state),
+  isLoading: selectIsLoading(state),
+});
+
+export default connect(mapStateToProps, { getArticle })(Article);

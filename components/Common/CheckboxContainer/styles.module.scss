@@ -10,7 +10,7 @@
   span {
     font-size: 0.75rem !important;
     font-weight: normal;
-    color: $upload-text-color !important;
+    color: $emperor !important;
   }
 
   a {
@@ -27,7 +27,7 @@
         position: absolute;
         display: block;
         content: "";
-        border-bottom: 1px $upload-text-color solid;
+        border-bottom: 1px $emperor solid;
         bottom: -2px;
         width: 99%;
         left: 0.5%;
@@ -38,10 +38,10 @@
     &:hover {
       .link {
         cursor: pointer;
-        color: $accent-color !important;
+        color: $turbo-100 !important;
   
         &:before {
-          border-bottom: 1px $accent-color solid;
+          border-bottom: 1px $turbo-100 solid;
         }
       }
     }
@@ -73,7 +73,7 @@
     left: 0;
     height: 14px;
     width: 14px;
-    border: 1px solid $upload-text-color;
+    border: 1px solid $emperor;
     border-radius: 2.5px;
     background-color: transparent;
 
@@ -85,7 +85,7 @@
       top: 2px;
       width: 3px;
       height: 6px;
-      border: solid $upload-text-color;
+      border: solid $emperor;
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
     }

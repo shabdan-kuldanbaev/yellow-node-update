@@ -5,22 +5,24 @@ import {
   Articles,
 } from 'components';
 import { loadArticles } from 'redux/actions/blog';
-import { tagsForBlog } from 'utils/constants';
 import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export const Blog = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector((state) => selectIsLoading(state));
-  const articles = useSelector((state) => selectArticles(state));
-
+const Blog = ({
+  isLoading,
+  articles,
+  loadArticles: loadPartOfArticles,
+}) => {
   const currentPage = 1;
-  const currentLimit = 5;
-  const category = tagsForBlog.latest.name;
 
   useEffect(() => {
-    dispatch(loadArticles({ currentPage, currentLimit, category }));
+    loadPartOfArticles({
+      currentPage,
+      currentLimit: 5,
+      category: 'latest',
+    });
   }, []);
 
   return (
@@ -39,3 +41,16 @@ export const Blog = () => {
     </section>
   );
 };
+
+Blog.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  articles: PropTypes.instanceOf(Array).isRequired,
+  loadArticles: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  isLoading: selectIsLoading(state),
+  articles: selectArticles(state),
+});
+
+export default connect(mapStateToProps, { loadArticles })(Blog);

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { articlesData } from 'containers/BlogCommon/utils/data';
+import { articlesData } from 'containers/Blog/utils/data';
 import { priority } from 'utils/constants';
 
 const apiClient = axios.create({

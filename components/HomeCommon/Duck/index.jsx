@@ -16,6 +16,7 @@ import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
 import { animated, useSpring } from 'react-spring';
 import { mobileResolution } from 'utils/helper';
 import { useRouter } from 'next/router';
+import cn from 'classnames';
 import { shaders, animationTypes } from './utils/data';
 import * as styles from './styles.module.scss';
 
@@ -32,8 +33,8 @@ export const Duck = ({
   isModelLoaded,
   setDuckToRedux,
   duck,
-  // setVisitOfHomepage,
-  // isHomepageVisit,
+  setVisitOfHomepage,
+  isHomepageVisit,
 }) => {
   const { asPath } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
@@ -41,6 +42,7 @@ export const Duck = ({
 
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);
+  // const [isTextShown, setTextShown] = useState(false);
 
   const containerCanvas = useRef(null);
   const containerText = useRef(null);
@@ -97,6 +99,20 @@ export const Duck = ({
   // let animationId = 0;
   // let movement = 0;
 
+  // console.log({
+  //   scene,
+  //   renderer,
+  //   originals,
+  //   clones,
+  //   composer,
+  //   raycaster,
+  //   plane,
+  //   mouse,
+  //   scatterStep,
+  //   mat,
+  //   animationId,
+  // });
+
   // for Parallax
   const calc = (o) => `translateY(${o * 0.13}px)`;
   const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
@@ -106,9 +122,14 @@ export const Duck = ({
   };
 
   const loadModel = () => {
+    // for disable web-security
+    // this is comand befor opening the chrome: open -a Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+    // or use this url befor main url: const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    const url = `${proxyurl}https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj`;
     const loader = new OBJLoader();
     loader.load(
-      'https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj',
+      url,
       (obj) => setDuckToRedux(obj),
       (xhr) => ((xhr.loaded / xhr.total) * 100 === 100) && handleOnLoaded(true),
     );
@@ -404,8 +425,11 @@ export const Duck = ({
         const initialPosition = mesh.geometry.attributes.initialPosition;
         const positions = mesh.geometry.attributes.position;
 
-        if (!isMobile || isHomePage) setRotateAnimation(mesh);
+        if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
 
+        if (window.innerWidth < mobileResolution && (animationId > 800)) r = 1;
+
+        // if (animationId < 675) {
         for (let i = 0; i < positions.count; i += 1) {
           const ix = initialPosition.getX(i);
           const iy = initialPosition.getY(i);
@@ -431,13 +455,14 @@ export const Duck = ({
             positions.setXYZ(i, px - speedX, py - speedY, pz - speedZ);
           }
         }
+        // }
 
         positions.needsUpdate = true;
         // scatterStep = 0;
       });
 
       meshClones.forEach((mesh) => {
-        if (!isMobile || isHomePage) setRotateAnimation(mesh);
+        if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
 
         mesh.material.opacity = 0;
         mesh.geometry.attributes.position.needsUpdate = true;
@@ -468,31 +493,33 @@ export const Duck = ({
     if (r === 0) {
       animationId = requestAnimationFrame(animate);
       render();
-      console.log('r');
+      // console.log('r');
     }
   };
 
   // ⚠️
   const handleOnScroll = () => {
-    // setOpacity();
-    // handleOffset();
+    setOpacity();
+    handleOffset();
 
-    // if (containerCanvas) {
-    //   if (containerCanvas.current.getBoundingClientRect().top < -400) {
-    //     setAnimate(false);
-    //     r = 1;
-    //   } else if (containerCanvas.current.getBoundingClientRect().top <= -50 && containerCanvas.current.getBoundingClientRect().top > -400) {
-    //     options.initial.currentAnimation = 'scatter';
-    //     setAnimate(true);
-    //     r = 0;
-    //   } else {
-    //     options.initial.currentAnimation = animationTypes[1]; // ⚠️
-    //     sloganRef.current ? sloganRef.current.style.opacity = 0.1 : null;
-    //     sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
-    //     setAnimate(true);
-    //     r = 0;
-    //   }
-    // }
+    if (!(window.innerWidth < mobileResolution)) {
+      if (containerCanvas) {
+        if (containerCanvas.current.getBoundingClientRect().top < -400) {
+          setAnimate(false);
+          r = 1;
+        } else if (containerCanvas.current.getBoundingClientRect().top <= -50 && containerCanvas.current.getBoundingClientRect().top > -400) {
+          options.initial.currentAnimation = 'scatter';
+          setAnimate(true);
+          r = 0;
+        } else {
+          options.initial.currentAnimation = animationTypes[1]; // ⚠️
+          sloganRef.current ? sloganRef.current.style.opacity = 0.1 : null;
+          sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
+          setAnimate(true);
+          r = 0;
+        }
+      }
+    }
   };
 
   const animateSlogan = () => {
@@ -526,85 +553,99 @@ export const Duck = ({
   };
 
   useEffect(() => {
-    // let timer;
+    let timer;
 
-    // if (containerCanvas.current.getBoundingClientRect().top < -400) {
-    //   cancelAnimationFrame(animationId);
-    //   animationId = 0;
-    //   r = 1;
+    if (containerCanvas.current.getBoundingClientRect().top < -400) {
+      cancelAnimationFrame(animationId);
+      animationId = 0;
+      r = 1;
+    }
+
+    if (!isModelLoaded) loadModel();
+
+
+    if (!isAnimate) {
+      cancelAnimationFrame(animationId);
+      animationId = 0;
+      console.log('stop');
+
+      if (duck && !isDuckLoad) {
+        console.log('init');
+        setDuckLoad(true);
+        isMobile = window.innerWidth < mobileResolution;
+        if (isMobile) options.default.meshScale = 45;
+
+        init();
+
+        setOpacity();
+        animateSlogan();
+        animate();
+
+        setVisitOfHomepage(true);
+
+        window.anime.timeline({ loop: false })
+          .add({
+            targets: '.letter-container .letter',
+            opacity: [0, 1],
+            easing: 'easeInOutQuad',
+            duration: 2250,
+            delay: (el, i) => 150 * (i + 1),
+          })
+          .add({
+            targets: '.letter-container',
+            opacity: 0.1,
+            duration: 1000,
+            easing: 'easeOutExpo',
+            delay: 0,
+          });
+
+        window.addEventListener('resize', onWindowResize, false);
+
+        if (!isHomepageVisit) {
+          timer = setTimeout(() => {
+            options.initial.currentAnimation = animationTypes[1]; // ⚠️
+            if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+            document.addEventListener('mousedown', onDocumentMouseDown, false);
+            document.addEventListener('mouseup', onDocumentMouseUp, false);
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+            // if (window.innerWidth < mobileResolution && (animationDelay < 0.01)) r = 1;
+
+          }, 5700);
+        } else {
+          options.initial.currentAnimation = animationTypes[1]; // ⚠️
+
+          document.addEventListener('mousedown', onDocumentMouseDown, false);
+          document.addEventListener('mouseup', onDocumentMouseUp, false);
+          document.addEventListener('mousemove', onDocumentMouseMove, false);
+        }
+      }
+    } else {
+      options.initial.isAppear = true;
+      // options.initial.currentAnimation = animationTypes[1];
+
+      if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+      document.addEventListener('mousedown', onDocumentMouseDown, false);
+      document.addEventListener('mouseup', onDocumentMouseUp, false);
+      document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+      console.log('start');
+      animate();
+    }
+    window.addEventListener('scroll', handleOnScroll, false);
     // }
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleOnScroll);
+      document.removeEventListener('mousedown', onDocumentMouseDown);
+      document.removeEventListener('mouseup', onDocumentMouseUp);
+      document.removeEventListener('mousemove', onDocumentMouseMove);
+      window.removeEventListener('resize', onWindowResize);
 
-    // if (!isModelLoaded) loadModel();
-
-
-    // if (!isAnimate) {
-    //   cancelAnimationFrame(animationId);
-    //   animationId = 0;
-    //   console.log('stop');
-
-    //   if (duck && !isDuckLoad) {
-    //     console.log('init');
-    //     setDuckLoad(true);
-    //     isMobile = window.innerWidth < mobileResolution;
-    //     if (isMobile) options.default.meshScale = 45;
-
-    //     init();
-
-    //     setOpacity();
-    //     animateSlogan();
-    //     animate();
-
-    //     window.anime.timeline({ loop: false })
-    //       .add({
-    //         targets: '.letter-container .letter',
-    //         opacity: [0, 1],
-    //         easing: 'easeInOutQuad',
-    //         duration: 2250,
-    //         delay: (el, i) => 150 * (i + 1),
-    //       })
-    //       .add({
-    //         targets: '.letter-container',
-    //         opacity: 0.1,
-    //         duration: 1000,
-    //         easing: 'easeOutExpo',
-    //         delay: 0,
-    //       });
-
-    //     window.addEventListener('resize', onWindowResize, false);
-
-    //     timer = setTimeout(() => {
-    //       options.initial.currentAnimation = animationTypes[1]; // ⚠️
-    //       if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-    //       document.addEventListener('mousedown', onDocumentMouseDown, false);
-    //       document.addEventListener('mouseup', onDocumentMouseUp, false);
-    //       document.addEventListener('mousemove', onDocumentMouseMove, false);
-    //     }, 5700);
-    //   }
-    // } else {
-    //   options.initial.isAppear = true;
-    //   // options.initial.currentAnimation = animationTypes[1];
-
-    //   if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-    //   document.addEventListener('mousedown', onDocumentMouseDown, false);
-    //   document.addEventListener('mouseup', onDocumentMouseUp, false);
-    //   document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-    //   console.log('start');
-    //   animate();
-    // }
-    // window.addEventListener('scroll', handleOnScroll, false);
-    // // }
-    // return () => {
-    //   clearTimeout(timer);
-    //   window.removeEventListener('scroll', handleOnScroll);
-    //   document.removeEventListener('mousedown', onDocumentMouseDown);
-    //   document.removeEventListener('mouseup', onDocumentMouseUp);
-    //   document.removeEventListener('mousemove', onDocumentMouseMove);
-    //   window.removeEventListener('resize', onWindowResize);
-
-    //   cancelAnimationFrame(animationId);
-    //   animationId = 0;
-    // };
+      if (sloganRef.current) sloganRef.current.classList.remove(styles.setBlur);
+      cancelAnimationFrame(animationId);
+      animationId = 0;
+    };
   }, [duck, isAnimate]);
 
   return (

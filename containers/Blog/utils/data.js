@@ -1,5 +1,5 @@
 import React from 'react';
-import { tagsForBlog, priority } from 'utils/constants';
+import { priority } from 'utils/constants';
 
 export const arrows = {
   prev:
@@ -10,6 +10,27 @@ export const arrows = {
   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16">
     <path fill="none" fillRule="evenodd" stroke="#AFC0CE" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1l8 7-8 7" />
   </svg>,
+};
+
+export const tagsForBlog = {
+  latest: {
+    name: 'latest', dynamicRouting: 'latest',
+  },
+  howWeWork: {
+    name: 'How we work', dynamicRouting: 'how-we-work',
+  },
+  softwareDevelopment: {
+    name: 'Software Development', dynamicRouting: 'software-development',
+  },
+  softwareChat: {
+    name: 'Software Chat', dynamicRouting: 'software-chat',
+  },
+  marketing: {
+    name: 'Marketing', dynamicRouting: 'marketing',
+  },
+  yellow: {
+    name: 'Yellow', dynamicRouting: 'yellow',
+  },
 };
 
 export const articlesData = [

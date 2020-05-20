@@ -13,14 +13,13 @@ const Nav = ({
 }) => {
   const { asPath } = useRouter();
   const isBlog = asPath && asPath.includes('blog');
-  const ulStyles = cn({
-    [styles.desktopMenu]: true,
-    [styles.additionalNav]: !isBlog && (isAdditional || currentPage && currentPage !== ''),
-    [styles.additionalNavForBlog]: isBlog,
-  });
 
   return (
-    <ul className={ulStyles}>
+    <ul className={cn(styles.desktopMenu, {
+      [styles.additionalNav]: !isBlog && (isAdditional || currentPage && currentPage !== ''),
+      [styles.additionalNavForBlog]: isBlog,
+    })}
+    >
       {menuList && menuList.map((item) => (
         <li key={`menuItem/${item.name}`} className={styles[theme]}>
           <LinkWrapper path={item.href} isLocalLink>

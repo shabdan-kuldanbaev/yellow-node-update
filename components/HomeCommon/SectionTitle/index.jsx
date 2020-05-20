@@ -22,17 +22,14 @@ export const SectionTitle = ({
           : (
             <p className={cn({ [styleSubtitle]: styleSubtitle })}>
               Fill in this form or
-              <span>
-                <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>
-                  send us an e-mail
-                </LinkWrapper>
-              </span>
+              <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>send us an e-mail</LinkWrapper>
             </p>
           )}
       </Animated>
     )}
   </div>
 );
+
 SectionTitle.defaultProps = {
   styleTitle: null,
   styleSubtitle: null,

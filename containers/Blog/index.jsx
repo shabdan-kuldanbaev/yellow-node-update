@@ -11,11 +11,12 @@ import {
   selectMobileLimit,
 } from 'redux/selectors/blog';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { loadArticles, setTotalCount } from 'redux/actions/blog';
 import { articlesData, arrows } from './utils/data';
 import styles from './styles.module.scss';
 
-const BlogCommon = ({
+const BlogContainer = ({
   introSection,
   articles,
   isLoading,
@@ -63,6 +64,7 @@ const BlogCommon = ({
       const currentLimit = isMobileResolution
         ? deviceLimit
         : currentPage === 1 ? deviceLimit : deviceLimit + 1;
+
       loadNewArticles({ currentPage, currentLimit, category });
     }
   }, [isMobileResolution]);
@@ -97,6 +99,17 @@ const BlogCommon = ({
   );
 };
 
+BlogContainer.propTypes = {
+  introSection: PropTypes.instanceOf(Object).isRequired,
+  articles: PropTypes.instanceOf(Array).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  loadArticles: PropTypes.func.isRequired,
+  setTotalCount: PropTypes.func.isRequired,
+  totalCount: PropTypes.number.isRequired,
+  desktopLimit: PropTypes.number.isRequired,
+  mobileLimit: PropTypes.number.isRequired,
+};
+
 const mapStateToProps = (state) => ({
   isLoading: selectIsLoading(state),
   articles: selectArticles(state),
@@ -105,4 +118,4 @@ const mapStateToProps = (state) => ({
   mobileLimit: selectMobileLimit(state),
 });
 
-export default connect(mapStateToProps, { loadArticles, setTotalCount })(BlogCommon);
+export default connect(mapStateToProps, { loadArticles, setTotalCount })(BlogContainer);

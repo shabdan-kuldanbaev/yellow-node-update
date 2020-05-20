@@ -18,7 +18,7 @@
   }
 
   .blogButton {
-    @include buttonMore($black, $black, $accent-color);
+    @include buttonMore($black, $black, $turbo-100);
     margin-top: $mobile-more-button-indent;
     transition: background-color $default-transition-time,
                 color $default-transition-time,

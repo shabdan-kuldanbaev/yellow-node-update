@@ -185,7 +185,7 @@
         }
       
         button {
-          @include buttonMore($black, $black, $accent-color, $black);
+          @include buttonMore($black, $black, $turbo-100, $black);
           margin-top: 60px;
           background-color: transparent;
           border-radius: $buttonRadius;
@@ -199,7 +199,7 @@
                       border-color $default-transition-time;
     
           &:hover {
-            border: 1px solid $accent-color;
+            border: 1px solid $turbo-100;
             color: $black;
             transition: background-color $default-transition-time,
                         color $default-transition-time,

@@ -10,10 +10,11 @@ import {
 } from 'components';
 import cn from 'classnames';
 import styles from './styles.module.scss';
+import { blockNumbers } from './utils/data';
 
 export const Portfolio = () => {
   const [backgroundColor, setBackgroundColor] = useState('firstBlock');
-  const [blockNumber, setBlockNumber] = useState(1);
+  const [blockNumber, setBlockNumber] = useState(0);
   const refs = [useRef(null), useRef(null), useRef(null)];
 
   const handleOnScroll = () => {
@@ -21,25 +22,20 @@ export const Portfolio = () => {
     const [
       firstBottom,
       secondBottom,
-      thirdBottom] = [
+      thirdBottom,
+    ] = [
       refs[0].current.getBoundingClientRect().bottom,
       refs[1].current.getBoundingClientRect().bottom,
       refs[2].current.getBoundingClientRect().bottom,
     ];
 
-    if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) setBlockNumber(2);
-    else if (secondBottom < halfHeight) setBlockNumber(3);
-    else setBlockNumber(1);
+    if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) setBlockNumber(1);
+    else if (secondBottom < halfHeight) setBlockNumber(2);
+    else setBlockNumber(0);
   };
 
   useEffect(() => {
-    const blocks = {
-      1: 'firstBlock',
-      2: 'secondBlock',
-      3: 'thirdBlock',
-    };
-
-    setBackgroundColor(blocks[blockNumber]);
+    setBackgroundColor(blockNumbers[blockNumber]);
   }, [blockNumber]);
 
   useEffect(() => {

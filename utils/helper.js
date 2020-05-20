@@ -23,3 +23,7 @@ export const validateEmail = (email) => {
 
 export const mobileResolution = toInt(phoneResolution);
 export const horizontalPhone = toInt(horizontalMobile);
+
+export const setOverflowForBody = (isHidden) => {
+  document.body.style.overflow = isHidden ? 'hidden' : 'scroll';
+};

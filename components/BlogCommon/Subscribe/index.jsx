@@ -12,12 +12,9 @@ const Subscribe = ({
 }) => {
   const placeholderText = 'Email';
   const [currentPlaceholder, setCurrentPlaceholder] = useState(placeholderText);
-  const handleOnFocus = () => {
-    setCurrentPlaceholder('');
-  };
-  const handleOnBlur = () => {
-    setCurrentPlaceholder(placeholderText);
-  };
+
+  const handleOnFocus = () => setCurrentPlaceholder('');
+  const handleOnBlur = () => setCurrentPlaceholder(placeholderText);
 
   return (
     <section className={styles.subscribeBlock}>
