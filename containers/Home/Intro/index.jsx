@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   AddFooter,
@@ -30,25 +30,30 @@ const Intro = ({
   setScrollOfAddedFooter: setScroll,
   setDuck: setDuckToRedux,
   setHomepageVisit: setVisitOfHomepage,
-}) => (
-  <section ref={introSection}>
-    <Duck
-      handleOnLoaded={setLoaded}
-      isModelLoaded={isModelLoaded}
-      setDuckToRedux={setDuckToRedux}
-      duck={duck}
-      setVisitOfHomepage={setVisitOfHomepage}
-      isHomepageVisit={isHomepageVisit}
-    />
-    <AddFooter
-      theme={theme}
-      isModelLoaded={isModelLoaded}
-      setScroll={setScroll}
-      isMobileMenuOpened={isMobileMenuOpened}
-    />
-    <Partners />
-  </section>
-);
+}) => {
+  useEffect(() => () => {
+    setVisitOfHomepage(true);
+  }, []);
+
+  return (
+    <section ref={introSection}>
+      <Duck
+        handleOnLoaded={setLoaded}
+        isModelLoaded={isModelLoaded}
+        setDuckToRedux={setDuckToRedux}
+        duck={duck}
+        isHomepageVisit={isHomepageVisit}
+      />
+      <AddFooter
+        theme={theme}
+        isModelLoaded={isModelLoaded}
+        setScroll={setScroll}
+        isMobileMenuOpened={isMobileMenuOpened}
+      />
+      <Partners />
+    </section>
+  );
+};
 
 Intro.defaultProps = {
   theme: 'dark',

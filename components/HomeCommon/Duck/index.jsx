@@ -33,7 +33,6 @@ export const Duck = ({
   isModelLoaded,
   setDuckToRedux,
   duck,
-  setVisitOfHomepage,
   isHomepageVisit,
 }) => {
   const { asPath } = useRouter();
@@ -349,14 +348,6 @@ export const Duck = ({
     }
   };
 
-  const setOpacity = () => {
-    if (canvas) {
-      const { pageYOffset } = window;
-      const ratio = pageYOffset / window.innerHeight;
-      canvas.style.opacity = (1 - 2 * ratio);
-    }
-  };
-
   const render = () => {
     // animation
     switch (options.initial.currentAnimation) {
@@ -421,53 +412,64 @@ export const Duck = ({
       break;
 
     case 'getTogether':
-      meshes.forEach((mesh) => {
-        const initialPosition = mesh.geometry.attributes.initialPosition;
-        const positions = mesh.geometry.attributes.position;
 
-        if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
+      const initPos = meshes[0] ? meshes[0].geometry.attributes.initialPosition : null;
+      const pos = meshes[0] ? meshes[0].geometry.attributes.position : null;
 
-        if (window.innerWidth < mobileResolution && (animationId > 800)) r = 1;
+      const iF = initPos ? Math.trunc(1000 * initPos.array[0]) : 0;
+      const pF = pos ? Math.trunc(1000 * pos.array[0]) : 0;
 
-        // if (animationId < 675) {
-        for (let i = 0; i < positions.count; i += 1) {
-          const ix = initialPosition.getX(i);
-          const iy = initialPosition.getY(i);
-          const iz = initialPosition.getZ(i);
+      if (iF !== pF) {
+        // console.log('!==');
 
-          const px = positions.getX(i);
-          const py = positions.getY(i);
-          const pz = positions.getZ(i);
+        meshes.forEach((mesh) => {
+          const initialPosition = mesh.geometry.attributes.initialPosition;
+          const positions = mesh.geometry.attributes.position;
 
-          const distanceX = px - ix;
-          const distanceY = py - iy;
-          const distanceZ = pz - iz;
+          if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
 
-          if (animationDelay < 0.01) animationDelay += 0.0000005;
+          for (let i = 0; i < positions.count; i += 1) {
+            const ix = initialPosition.getX(i);
+            const iy = initialPosition.getY(i);
+            const iz = initialPosition.getZ(i);
 
-          const animationTime = initialAnimationTime * animationDelay;
+            const px = positions.getX(i);
+            const py = positions.getY(i);
+            const pz = positions.getZ(i);
 
-          const speedX = getSpeed(distanceX, animationTime);
-          const speedY = getSpeed(distanceY, animationTime);
-          const speedZ = getSpeed(distanceZ, animationTime);
+            const distanceX = px - ix;
+            const distanceY = py - iy;
+            const distanceZ = pz - iz;
 
-          if (px !== ix && py !== iy && pz !== iz) {
-            positions.setXYZ(i, px - speedX, py - speedY, pz - speedZ);
+            if (animationDelay < 0.01) animationDelay += 0.0000005;
+
+            const animationTime = initialAnimationTime * animationDelay;
+
+            const speedX = getSpeed(distanceX, animationTime);
+            const speedY = getSpeed(distanceY, animationTime);
+            const speedZ = getSpeed(distanceZ, animationTime);
+
+            if (px !== ix && py !== iy && pz !== iz) {
+              positions.setXYZ(i, px - speedX, py - speedY, pz - speedZ);
+            }
           }
-        }
-        // }
 
-        positions.needsUpdate = true;
-        // scatterStep = 0;
-      });
+          positions.needsUpdate = true;
+          // scatterStep = 0;
+        });
 
-      meshClones.forEach((mesh) => {
-        if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
+        meshClones.forEach((mesh) => {
+          if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
 
-        mesh.material.opacity = 0;
-        mesh.geometry.attributes.position.needsUpdate = true;
-        scatterStep = 0;
-      });
+          mesh.material.opacity = 0;
+          mesh.geometry.attributes.position.needsUpdate = true;
+          scatterStep = 0;
+        });
+      } else if (window.innerWidth < mobileResolution) r = 1;
+      else {
+        meshes.forEach((mesh) => { setRotateAnimation(mesh); });
+        meshClones.forEach((mesh) => { setRotateAnimation(mesh); });
+      }
 
       break;
 
@@ -494,6 +496,14 @@ export const Duck = ({
       animationId = requestAnimationFrame(animate);
       render();
       // console.log('r');
+    }
+  };
+
+  const setOpacity = () => {
+    if (canvas) {
+      const { pageYOffset } = window;
+      const ratio = pageYOffset / window.innerHeight;
+      canvas.style.opacity = (1 - 2 * ratio);
     }
   };
 
@@ -575,29 +585,44 @@ export const Duck = ({
         isMobile = window.innerWidth < mobileResolution;
         if (isMobile) options.default.meshScale = 45;
 
+        r = 0;
         init();
 
         setOpacity();
         animateSlogan();
         animate();
 
-        setVisitOfHomepage(true);
+        if (!isHomepageVisit) {
+          window.anime.timeline({ loop: false })
+            .add({
+              targets: '.letter-container .letter',
+              opacity: [0, 1],
+              easing: 'easeInOutQuad',
+              duration: 2250,
+              delay: (el, i) => 150 * (i + 1),
+            })
+            .add({
+              targets: '.letter-container',
+              opacity: 0.1,
+              duration: 1000,
+              easing: 'easeOutExpo',
+              delay: 0,
+            });
+        } else {
+          const test = () => {
+            if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+          };
 
-        window.anime.timeline({ loop: false })
-          .add({
-            targets: '.letter-container .letter',
-            opacity: [0, 1],
-            easing: 'easeInOutQuad',
-            duration: 2250,
-            delay: (el, i) => 150 * (i + 1),
-          })
-          .add({
-            targets: '.letter-container',
-            opacity: 0.1,
-            duration: 1000,
-            easing: 'easeOutExpo',
-            delay: 0,
-          });
+          window.anime.timeline({ loop: false })
+            .add({
+              targets: '.letter-container',
+              opacity: 0.1,
+              duration: 1000,
+              easing: 'easeOutExpo',
+              delay: 500,
+              complete: () => test(),
+            });
+        }
 
         window.addEventListener('resize', onWindowResize, false);
 
@@ -610,7 +635,6 @@ export const Duck = ({
             document.addEventListener('mousemove', onDocumentMouseMove, false);
 
             // if (window.innerWidth < mobileResolution && (animationDelay < 0.01)) r = 1;
-
           }, 5700);
         } else {
           options.initial.currentAnimation = animationTypes[1]; // ⚠️
@@ -645,6 +669,15 @@ export const Duck = ({
       if (sloganRef.current) sloganRef.current.classList.remove(styles.setBlur);
       cancelAnimationFrame(animationId);
       animationId = 0;
+
+      if (isHomepageVisit) {
+        // camera = null;
+        r = 0;
+        meshes.length = 0;
+        meshClones.length = 0;
+        // composer = null;
+        mat = 0;
+      }
     };
   }, [duck, isAnimate]);
 
