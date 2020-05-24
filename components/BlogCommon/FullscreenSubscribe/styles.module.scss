@@ -1,0 +1,107 @@
+@import 'styles/utils/mixins';
+
+.fullscreenSubscribe {
+  @include flex(column, center, center);
+
+  @include phone {
+    display: none;
+  }
+}
+
+.subscribeBlock {
+  @include flex(column, flex-start, center);
+
+  .subscribe {
+    @include flex(column, center, center);
+
+    .content {
+      @include flex(column, center, center);
+      width: 510px;
+
+      @include phone {
+        width: 85%;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        line-height: 1;
+        letter-spacing: 1.13px;
+
+        @include phone {
+          line-height: 1.25;
+        }
+      }
+      
+      .subtitle {
+        margin: 30px auto;
+        text-align: center;
+        line-height: 1.5;
+        
+        @include phone {
+          line-height: 1.43;
+        }
+      }
+  
+      .inputBlock {
+        @include flex(column, flex-start, center);
+        width: 100%;
+
+        div:nth-of-type(1) {
+          width: 100%;
+
+          & > div { margin-bottom: 30px; }
+
+          input {
+            font-size: 1.125rem;
+            padding: 20px 0 8px;
+            border: 0 none;
+            text-align: center;
+            border-bottom: solid 0.5px $mountain-mis;
+            background-color: transparent;
+            outline: none;
+
+            ::placeholder {
+              color: $mountain-mis;
+              font-weight: normal;
+            }
+          }
+        }
+
+        .checkbox {
+          span {
+            font-size: 1rem;
+          }
+
+          span:last-child {
+            top: auto;
+          }
+        }
+
+
+        .button {
+          @include buttonMore($black, $black, $turbo-100, $black);
+          color: $woodsmoke;
+          line-height: 1.55;
+          letter-spacing: 0.5px;
+          text-align: center;
+          font-size: 1rem;
+          text-align: center;
+          @include flex (row, center);
+          margin-top: 100px;
+
+          transition: background-color $default-transition-time,
+                      color $default-transition-time,
+                      border-color $default-transition-time;
+
+          &:hover {
+            transition: background-color $default-transition-time,
+                        color $default-transition-time,
+                        border-color $default-transition-time;
+          }
+        }
+      }
+    }
+  }
+}

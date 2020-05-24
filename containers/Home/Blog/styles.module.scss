@@ -1,0 +1,33 @@
+@import 'styles/utils/mixins';
+
+.blog {
+  @include flex(column, flex-start, center);
+  padding: $section-indent $side-indent;
+  background-color: $white;
+
+  & > div:first-child {
+    margin-bottom: 70px;
+  }
+
+  @include phone {
+    padding: $mobile-section-indent $side-indent;
+
+    & > div:first-child {
+      margin-bottom: -$after-mobile-title-margin + 20px;
+    }
+  }
+
+  .blogButton {
+    @include buttonMore($black, $black, $turbo-100);
+    margin-top: $mobile-more-button-indent;
+    transition: background-color $default-transition-time,
+                color $default-transition-time,
+                border-color $default-transition-time;
+
+    &:hover {
+      transition: background-color $default-transition-time,
+                  color $default-transition-time,
+                  border-color $default-transition-time;
+    }
+  }
+}

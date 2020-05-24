@@ -1,0 +1,72 @@
+@import 'styles/utils/mixins';
+
+.burger {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 27px 20px;
+  cursor: pointer;
+
+  @include phone {
+    @include flex(column, center, flex-end);
+    z-index: -1;
+  }
+
+  hr {
+    width: 20px;
+    height: 2px;
+    margin: 3px 0;
+    border: 0 none;
+    border-radius: 5px;
+    background-color: $white;
+    transition: background-color $default-transition-time;
+  }
+}
+
+.burgerOpened {
+  z-index: 1;
+
+  hr {
+    &:nth-child(1) {
+      background-color: $white !important;
+      transform: rotate(45deg) translate(3px, 3px);
+      transition: transform $default-transition-time
+                  background-color $default-transition-time;
+    }
+
+    &:nth-child(2) {
+      width: 20px;
+      background-color: $white !important;
+      transform: rotate(-45deg) translate(3px, -3px);
+      transition: transform $default-transition-time,
+                  width $default-transition-time,
+                  background-color $default-transition-time;
+    }
+  }
+}
+
+.burgerClosed {
+  hr {
+    &:nth-child(1) {
+      transform: rotate(0) translate(0, 0);
+      transition: transform $default-transition-time,
+                  background-color $default-transition-time;
+    }
+
+    &:nth-child(2) {
+      width: 10px;
+      transform: rotate(0) translate(0, 0);
+      transition: transform $default-transition-time,
+                  background-color $default-transition-time;
+    }
+  }
+}
+
+.additionalBurger {
+  hr {
+    @include phone {
+      background-color: $black;
+    }
+  }
+}

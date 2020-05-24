@@ -2,15 +2,94 @@
 
 .blog {
   @include flex(column, flex-start, center);
-  padding: $section-indent $side-indent;
+  padding: $section-indent + 30px $side-indent $section-indent;
   background-color: $white;
 
   @include phone {
-    padding: $mobile-section-indent $side-indent;
+    padding: 0 $side-indent $mobile-section-indent;
   }
 
-  .blogButton {
-    @include buttonMore($black, $black, $accent-color);
-    margin-top: $mobile-more-button-indent;
+  .paginationContainer {
+    @include flex(row, flex-start, center);
+    padding-left: 0;
+    list-style: none;
+    transform: scale(0.9);
+    margin-top: $section-indent;
+  
+    @include tablet {
+      margin-top: 60px;
+      transform: scale(1);
+    }
+
+    @include below-tablet {
+      transform: scale(0.9);
+    }
+
+    @include phone {
+      transform: scale(1.1);
+    }
+  
+    li {
+      padding: 15px;
+
+      svg {
+        path{
+          stroke: $pagination;
+          transition: stroke $default-transition-time;
+
+          &:hover {
+            stroke: $flamingo;
+            transition: stroke $default-transition-time;
+          }
+        }
+      }
+  
+      @include phone {
+        svg {
+          height: 10px;
+        }
+      }
+    }
+  
+    a {
+      font-family: $default-font;
+      color: $pagination;
+      font-size: 1.5625rem;
+      text-decoration: none;
+      cursor: pointer;
+      outline: none;
+      transition: color $default-transition-time;
+
+      &:hover {
+        color: $flamingo;
+        transition: color $default-transition-time;
+      }
+  
+      @include phone {
+        font-size: 16px;
+      }
+    }
+  
+    .paginationItem {
+      @include flex(row, center, center);
+      padding: 10px;
+
+      @include phone {
+        padding: 10px 5px;
+      }
+    }
+  
+    .paginationActiveLink {
+      color: $flamingo;
+      font-weight: 500;
+    }
+  
+    .paginationEmptyItem {
+      transform: translateY(-1px);
+  
+      .paginationEmptyLink {
+        letter-spacing: 5px;
+      }
+    }
   }
 }

@@ -1,0 +1,114 @@
+@import 'styles/utils/mixins';
+
+.selectionBlock {
+  @include flex(row, center, center);
+  width: calc(100% - #{$side-indent});
+  max-width: $max-content-width - $side-indent * 2;
+  position: relative;
+
+  @include full-hd {
+    max-width: $max-content-width-full-hd - $side-indent * 2;
+  }
+
+  @include macbook-fifteen {
+    max-width: $max-content-width-macbook-fifteen - $side-indent * 2;
+  }
+
+  @include macbook-twelve {
+    max-width: $max-content-width-macbook-twelve - $side-indent * 2;
+  }
+
+  @include below-tablet {
+    @include flex(row, center, flex-start);
+  }
+
+  @include phone {
+    width: auto;
+  }
+
+  .darkBackground {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: $black;
+    opacity: 0.5;
+    display: none;
+
+    @include phone {
+      display: block;
+    }
+  }
+
+  .buttons {
+    width: 25%;
+    @include flex(row, flex-end, center);
+    position: relative;
+    z-index: 1;
+    transition: z-index .5s cubic-bezier(0.575, 0.410, 0.300, 1.000);
+
+    @include phone {
+      width: auto;
+    }
+    
+    img {
+      position: absolute;
+      width: 16.5px;
+      cursor: pointer;
+      right: 160px;
+
+      @include phone {
+        top: 1px;
+        right: 95px;
+      }
+    }
+
+    .button {
+      @include buttonMore($black, $black, $turbo-100, $turbo-100);
+      background-color: $turbo-100;
+      color: $woodsmoke;
+      line-height: 1.55;
+      text-align: center;
+      margin: auto 0;
+      padding: 10px 20px;
+      width: auto;
+      font-weight: 550;
+      font-size: 13.5px !important;
+      letter-spacing: 0.9px;
+      transition: background-color $shadow-time-for-yellow-button;
+      
+      @include phone {
+        display: none;
+      }
+
+      &:hover {
+        background-color: $turbo-200;
+        transition: background-color $shadow-time-for-yellow-button;
+      }
+    }
+
+    .categoryTitleInHeader {
+      display: none;
+
+      @include phone {
+        display: block;
+        cursor: pointer;
+        font-weight: 500;
+        color: $mine-shaft;
+        font-size: 15px;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+.showCategories {
+  div:nth-of-type(1) {
+    transform: translateY(0%);
+    transition: transform 0.5s ease-in-out;
+  }
+}

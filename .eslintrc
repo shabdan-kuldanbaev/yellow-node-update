@@ -7,12 +7,20 @@
     "localStorage": true
   },
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+  ],
+  "plugins": [
+    "react-hooks"
+  ],
   "rules": {
     "indent": [
       "error",
       2
     ],
+    "react/jsx-fragments": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "no-unused-expressions": "off",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "import/no-unresolved": "off",
@@ -34,13 +42,14 @@
       "error",
       2
     ],
-    "react/prop-types": [
-      "enabled",
-      {
-        "ignore": "ignore",
-        "customValidators": "customValidator"
-      }
-    ],
+    "react/prop-types": "off",
+    // TODO "react/prop-types": [
+    //   "enabled",
+    //   {
+    //     "ignore": "ignore",
+    //     "customValidators": "customValidator"
+    //   }
+    // ],
     "react/jsx-filename-extension": [
       1,
       {

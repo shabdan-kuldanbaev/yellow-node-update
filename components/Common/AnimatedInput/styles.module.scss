@@ -1,0 +1,55 @@
+@import 'styles/utils/mixins';
+
+.animatedInput {
+  @include flex(column);
+  margin-bottom: 35px;
+
+  label {
+    position: absolute;
+    touch-action: none;
+    user-select: none;
+    cursor: text;
+    transform: translateY(15px);
+    transition: transform $accelerated-transition-time, font-size $accelerated-transition-time;
+
+    @include phone {
+      transform: translateY(10px);
+    }
+  }
+  
+  input {
+    width: 100%;
+  }
+}
+
+.active {
+  label {
+    font-weight: bold;
+    font-size: 14px !important;
+    transform: translateY(-5px);
+    transition: transform $accelerated-transition-time,
+                font-size $accelerated-transition-time;
+
+    @include phone {
+      transform: translateY(-15px);
+    }
+  }
+}
+
+.focus {
+  input {
+    border-bottom-color: $black !important;
+  }
+}
+
+.error {
+  input {
+    border-bottom-color: $red !important;
+  }
+}
+
+.default {
+  input {
+    border-bottom-color: $iron !important;
+  }
+}

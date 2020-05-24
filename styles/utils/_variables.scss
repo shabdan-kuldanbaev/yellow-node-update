@@ -1,68 +1,100 @@
-//colors
-$accent-color: #ffe603;
-$hover-accent-color: #FFD603;
+// colors
+$turbo-100: #ffe603;
+$turbo-200: #f5dc00;
+$cerulean: #05a7ea;
+$ferra: #714a4a;
+$gold: #FFD603;
 $black: #000;
 $white: #fff;
-$text-color: #4e4d51;
-$footer-accent-color: #b8b8b8;
-$footer-default-button-color: #373738;
-$footer-default-range-color: #5c5c5c;
-$works-first-accent-color: #026ed0;
-$works-second-accent-color: #3d2424;
-$works-third-accent-color: #30292a;
-$form-label-text-color: #9a9996;
-$upload-text-color: #555555;
-$upload-hr-color: #d1d3d3;
-$upload-file-background-color: #efeff0;
-$feedback-submit-color: #0e0e0f;
-$grid-articles-published-date-color: #9a999c;
-$input-error-color: red;
-$reviews-background: #f7f8f7;
+$scarpa-flow: #4e4d51;
+$silver: #b8b8b8;
+$tuna: #373738;
+$scorpion: #5c5c5c;
+$science-blue: #026ed0;
+$english-walnut: #3d2424;
+$thunder: #30292a;
+$star-dust: #9a9996;
+$emperor: #555555;
+$iron: #d1d3d3;
+$athens-gray: #efeff0;
+$woodsmoke: #0e0e0f;
+$mountain-mis: #9a999c;
+$red: #FF0000;
+$gray-nurse: #f7f8f7;
+$tundora: #424242;
+$athens-gray: #f8f8fa;
+$flamingo: #f16522;
+$aluminium: #a7a8ab;
+$mine-shaft: #3a3a3a;
+$nobel: #B7B7B7;
+$gray: #7f7f7f;
+$mercury: #e6e6e6;
+$mine-shaft: #333;
 
-//sizes and time
+$pagination: rgba(35,37,44,0.25);
+$header-additional-color: rgba(255, 255, 255, .98);
+$blocg-search-background-color: rgba(255, 255, 255, 0.93);
+$blog-selection-block-mobile-categories-border-color: rgba(0, 0, 0, 0.5);
+$blog-subscribe-input-box-shadow-color: rgba(0, 0, 0, 0.04);
+$blog-subscribe-input-box-shadow-focus-color: rgba(0, 0, 0, 0.1);
+
+//time
+$default-transition-time: .5s;
+$button-transition-time: .3;
+$shadow-time-for-yellow-button: .4s;
+$accelerated-transition-time: calc(#{$default-transition-time} / 2);
+$changing-portfolio-color: 1.5s;
+
+//radius
+$buttonRadius: 60px;
+$articleRadius: 7.5px;
+
+//sizes
 $section-indent: 100px;
 $mobile-section-indent: 80px;
 $side-indent: 20px;
 $more-button-indent: calc(#{$section-indent} / 2);
 $mobile-more-button-indent: calc(#{$mobile-section-indent} / 2);
-$default-transition-time: .5s;
-$accelerated-transition-time: calc(#{$default-transition-time} / 2);
-$button-transition-time: .3;
-$max-content-width: 1300px;
-$aricleIndent: 10px;
+$aricleIndent: 15px;
 $after-mobile-title-margin: 60px; 
-$logo-size: 131px;
-
-//radius
-$buttonRadius: 60px;
+$logo-size: 120px;
+$max-content-width: 1300px;
+$max-content-width-full-hd: 1170px;
+$max-content-width-macbook-fifteen: 1050px;
+$max-content-width-macbook-twelve: 1000px;
+$shadow-for-yellow-button: 0px 5px 20px -10px rgba(0,0,0,0.57);
 
 //resolutions size
 $ultra-hd: 3840px;
 $quad-hd: 2560px;
 $full-hd: 1920px;
+$macbook-fifteen: 1445px;
 $macbook-thirteen: 1440px;
 $desktop: 1366px;
 $macbook-twelve: 1280px;
 $max-tablet-size: 1024px;
 $default-tablet-size: 768px;
 $max-mobile-size: 568px;
+$horizontal-mobile: 450px;
 
 //fonts
 $default-font: "Montserrat";
 $main-title-font: 'Sonny Gothic Condensed Ultra Black', sans-serif;
 
-//insta logo
+//insta
+$imgIndent: 7.5px;
 $box_h: 250px;
 $border: 30px;
 $initial-radius: 50px;
 $max-radius: 300px;
 $gradient-border: linear-gradient(45deg, #fccc63, #e95950, #bc2a8d);
 $gradient-dot: linear-gradient(45deg, #e95950, #bc2a8d);
+$insta-tape-box-shadow-color: rgba(0, 0, 0, 0.07);
 
 :export {
-  firstColor: $works-first-accent-color;
-  secondColor: $works-second-accent-color;
-  thirdColor: $works-third-accent-color;
+  firstColor: $science-blue;
+  secondColor: $english-walnut;
+  thirdColor: $thunder;
   phoneResolution: $max-mobile-size;
   logoSize: $logo-size;
 }

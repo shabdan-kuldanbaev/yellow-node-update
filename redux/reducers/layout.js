@@ -1,16 +1,17 @@
-import Immutable from 'immutable';
 import { actionTypes } from 'actions/actionTypes';
 
-const initialState = Immutable.fromJS({
+const initialState = {
   isMobileMenuOpened: false,
-});
+  isMobileCategotiesOpened: false,
+};
+
+const handlers = {
+  [actionTypes.SET_MOBILE_MENU_STATE]: (state, { payload }) => ({ ...state, isMobileMenuOpened: payload }),
+  [actionTypes.SET_MOBILE_CATEGORIES_STATE]: (state, { payload }) => ({ ...state, isMobileCategotiesOpened: payload }),
+  DEFAULT: (state) => state,
+};
 
 export default (state = initialState, action) => {
-  switch (action.type) {
-  case actionTypes.SET_MOBILE_MENU_STATE:
-    return state.set('isMobileMenuOpened', action.payload);
-
-  default:
-    return state;
-  }
+  const handler = handlers[action.type] || handlers.DEFAULT;
+  return handler(state, action);
 };

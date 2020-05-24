@@ -1,4 +1,4 @@
-export const services = [ 'Web', 'iOS', 'Android', 'UI/UX', 'Other' ];
+export const services = ['Web', 'iOS', 'Android', 'UI/UX', 'Other'];
 
 export const budget = {
   min: 0,

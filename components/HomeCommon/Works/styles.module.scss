@@ -1,0 +1,280 @@
+@import 'styles/utils/mixins';
+
+.animationOfAppearanceBefore {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: transform $default-transition-time,
+              opacity $default-transition-time;
+}
+
+.animationOfAppearance {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform $default-transition-time,
+              opacity $default-transition-time;
+}
+
+.worksContainer {
+  width: calc(100% + 2 * #{$side-indent});
+  margin: 0 0 $section-indent;
+  
+  @include phone {
+    margin: 0 0 $mobile-section-indent;
+  }
+ 
+  .work {
+    position: relative;
+    z-index: 5;
+    @include flex(row, center, center);
+    width: 100%;
+    height: 100vh;
+    will-change: background-color;
+    transition: background-color $default-transition-time ease;
+    transition-timing-function: linear;
+
+    @include tablet {
+      @include flex(column-reverse, space-evenly, center);
+    }
+
+    @include below-tablet {
+      height: auto;
+      margin-top: 70px;
+      margin-bottom: 100px;
+    }
+
+    @include below-tablet-horizontal {
+      @include flex(row, center, center);
+    }
+
+    @include horizontal-mobile {
+      height: auto;
+    }
+
+    @include phone {
+      @include flex(column-reverse, center, center);
+      height: auto;
+      margin-bottom: 150px;
+    }
+
+    .desc {
+      width: 50%;
+      @include flex(row, center, center);
+
+      @include tablet {
+        width: 100%;
+        justify-content: normal;
+        max-height: 50%;
+      }
+
+      @include below-tablet {
+        width: 100%;
+      }
+
+      @include below-tablet-horizontal {
+        width: 50%;
+        justify-content: center;
+      }
+
+      @include phone {
+        width: 100%;
+      }
+
+      @include horizontal-mobile {
+        max-height: initial;
+      }
+      
+      div {
+        max-width: 80%;
+        height: 100%;
+        opacity: 1;
+        transition: transform $default-transition-time, opacity $default-transition-time;
+
+        @include tablet {
+          max-width: $max-content-width-macbook-twelve;
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
+        @include below-tablet {
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
+        @include below-tablet-horizontal {
+          padding-left: 0px;
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
+        @include phone {
+          @include flex(column, center, center);
+          width: 100%;
+          max-width: 100%;
+          margin: 0;
+          padding-left: 0px;
+          text-align: left;
+        }
+
+        h1 {
+          margin-top: 0;
+          margin-bottom: 60px;
+          font-weight: 800;
+          font-size: 4.125rem;
+          letter-spacing: 2.25px;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.01;
+          color: $white;
+
+          @include below-tablet {
+            font-size: 3rem;
+            margin-top: 40px;
+          }
+
+          @include below-tablet-horizontal {
+            font-size: 2.5rem;
+          }
+    
+          @include phone {
+            max-width: calc(100% - 40px);
+            font-size: 2.5rem;
+            margin: 40px auto 25px 20px;
+          }
+        }
+    
+        p {
+          margin: 0;
+          margin-top: -20px;
+          font-size: 1.25rem;
+          line-height: 1.53;
+          letter-spacing: 0.5px;
+          color: $white;
+          opacity: .8;
+          word-wrap: normal;
+
+          @include below-tablet-horizontal {
+            font-size: 1rem;
+          }
+
+          @include phone {
+            max-width: calc(100% - 40px);
+            font-size: 1rem;
+            max-width: 100%;
+            margin: auto 20px auto;
+          }
+        }
+      
+        button {
+          @include buttonMore();
+          margin-top: 60px;
+          border: 1px solid $white;
+          background-color: transparent;
+          border-radius: $buttonRadius;
+          color: $white;
+          line-height: 1.55;
+          letter-spacing: 0.5px;
+          font-size: 1rem;
+          transition: background-color $default-transition-time,
+                      color $default-transition-time,
+                      border-color $default-transition-time;
+    
+          &:hover {
+            border: 1px solid $white;
+            color: $science-blue;
+            transition: background-color $default-transition-time,
+                        color $default-transition-time,
+                        border-color $default-transition-time;
+          }
+    
+          &:before {
+            background-color: $white;
+          }
+
+          @include below-tablet {
+            margin-top: 40px; 
+          }
+        }
+      }
+    }
+
+    .imgWrapper {
+      width: 50%;
+      height: 100%;
+
+      @include tablet {
+        width: auto;
+        max-height: 50%;
+      }
+
+      @include below-tablet-horizontal {
+        width: 50%;
+      }
+
+      @include phone {
+        width: 100%;
+      }
+
+      div {
+        width: 100%;
+        height: 100%;
+        transform: scale(.9);
+        @include flex(row, center, center);
+        opacity: 1;
+        transition: transform $default-transition-time, opacity $default-transition-time;
+
+        @include ultra-hd {
+          transform: scale(1);
+        }
+
+        @include quad-hd {
+          transform: scale(.9);
+        }
+
+        @include tablet {
+          width: auto;
+          height: 100%;
+          max-height: auto;
+        }
+
+        @include phone {
+          width: 100%;
+          transform: scale(0.95);
+        }
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+
+    &:first-child div {
+      z-index: 4;
+
+      div button {
+        &:hover {
+          color: $science-blue;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      div button {
+        &:hover {
+          color: $english-walnut;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      div button {
+        &:hover {
+          color: $thunder;
+        }
+      }
+    }
+  }
+}

@@ -1,20 +1,39 @@
-export { default as AddFooter } from 'components/AddFooter';
-export { default as AdvantagesItems } from 'components/AdvantagesItems';
-export { default as AnimatedInput } from 'components/AnimatedInput';
-export { default as ButtonMore } from 'components/ButtonMore';
-export { default as Carousel } from 'components/Carousel';
-export { default as Contacts } from 'components/Contacts';
-export { default as Duck } from 'components/Duck';
-export { default as FeedbackForm } from 'components/FeedbackForm';
-export { default as GridArticles } from 'components/GridArticles';
-export { default as Header } from 'components/Header';
-export { default as InstaLogo } from 'components/InstaLogo';
-export { default as InstaTape } from 'components/InstaTape';
-export { default as Logo } from 'components/Logo';
-export { default as Partners } from 'components/Partners';
-export { default as ScrollIcon } from 'components/ScrollIcon';
-export { default as SectionTitle } from 'components/SectionTitle';
-export { default as SocialIcons } from 'components/SocialIcons';
-export { default as Upload } from 'components/Upload';
-export { default as Works } from 'components/Works';
-export { default as CookiesNotification } from 'components/CookiesNotification';
+// Layout
+export { default as Header } from 'components/Layout/Header';
+export { Footer } from 'components/Layout/Footer';
+export { Contacts } from 'components/Layout/Footer/Contacts';
+
+// Common
+export { Animated } from 'components/Common/Animated';
+export { default as AnimatedInput } from 'components/Common/AnimatedInput';
+export { default as ButtonMore } from 'components/Common/ButtonMore';
+export { CheckboxContainer } from 'components/Common/CheckboxContainer';
+export { default as CookiesNotification } from 'components/Common/CookiesNotification';
+export { LinkWrapper } from 'components/Common/LinkWrapper';
+export { default as Loader } from 'components/Common/Loader';
+export { default as Logo } from 'components/Common/Logo';
+export { Upload } from 'components/Common/Upload';
+export { ModalWindow } from 'components/Common/ModalWindow';
+
+// HomeCommon
+export { default as FeedbackForm } from 'components/HomeCommon/FeedbackForm';
+export { AddFooter } from 'components/HomeCommon/AddFooter';
+export { AdvantagesItems } from 'components/HomeCommon/AdvantagesItems';
+export { Carousel } from 'components/HomeCommon/Carousel';
+export { Duck } from 'components/HomeCommon/Duck';
+export { InstaLogo } from 'components/HomeCommon/InstaLogo';
+export { InstaTape } from 'components/HomeCommon/InstaTape';
+export { Partners } from 'components/HomeCommon/Partners';
+export { ScrollIcon } from 'components/HomeCommon/ScrollIcon';
+export { SocialIcons } from 'components/HomeCommon/SocialIcons';
+export { SectionTitle } from 'components/HomeCommon/SectionTitle';
+export { Works } from 'components/HomeCommon/Works';
+
+// BlogCommon
+export { default as Article } from 'components/BlogCommon/Article';
+export { default as Articles } from 'components/BlogCommon/Articles';
+export { default as SelectionBlock } from 'components/BlogCommon/SelectionBlock';
+export { default as SearchIcon } from 'components/BlogCommon/SelectionBlock/images/search.svg';
+export { default as FullscreenSearch } from 'components/BlogCommon/FullscreenSearch';
+export { default as FullscreenSubscribe } from 'components/BlogCommon/FullscreenSubscribe';
+export { default as Subscribe } from 'components/BlogCommon/Subscribe';

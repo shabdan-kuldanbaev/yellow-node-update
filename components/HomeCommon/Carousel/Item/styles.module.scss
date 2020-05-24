@@ -1,0 +1,75 @@
+@import 'styles/utils/mixins';
+
+.carouselItem {
+  @include flex(column, initial, center);
+
+  & > p {
+    margin-top: 50px;
+    line-height: 2.08;
+    letter-spacing: 0.6px;
+    text-align: center;
+    color: $scarpa-flow;
+    position: relative;
+
+    @include phone {
+      font-size: 0.9375rem;
+    }
+
+    img {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      transform: translate(-5px, 4px) scale(.65, .65);
+    }
+  }
+
+  & > img {
+    max-width: 130px;
+    border-radius: 5px;
+  }
+
+  .personName {
+    @include flex(row, initial, center);
+    margin-top: 80px;
+
+    @include phone {
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .title {
+      font-weight: bold;
+      line-height: 1.55;
+      letter-spacing: 0.5px;
+      color: $woodsmoke;
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .divider {
+      margin: 0 7px;
+      font-weight: normal;
+      color: $scarpa-flow;
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    .position {
+      margin: 0;
+      font-size: .675rem;
+      line-height: 2.21;
+      letter-spacing: 0.35px;
+      color: $scarpa-flow;
+
+      @include phone {
+        font-size: .7rem;
+        text-align: center;
+      }
+    }
+  }
+}

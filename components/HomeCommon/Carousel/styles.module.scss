@@ -1,0 +1,56 @@
+@import 'styles/utils/mixins';
+
+:global(.slick-slider) {
+  @include flex(row, center, center);
+  width: 100%;
+  margin: 50px 0;
+}
+
+:global(.slick-list) {
+  max-width: $max-content-width;
+  will-change: height;
+  transition: height calc(#{$default-transition-time} / 2);
+
+  @include full-hd {
+    max-width: $max-content-width-full-hd;
+  }
+
+  @include macbook-fifteen {
+    max-width: $max-content-width-macbook-fifteen * .8;
+  }
+
+  @include macbook-twelve {
+    max-width: $max-content-width-macbook-twelve;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+:global(.slick-dots) {
+  bottom: -85px;
+
+  li {
+    width: 13px;
+    height: 13px;
+  }
+
+  button {
+    width: 13px !important;
+    height: 13px !important;
+    padding: 0 !important;
+    border: 2px solid $scarpa-flow !important;
+    border-radius: 2.5px;
+
+    &::before {
+      content: '' !important;
+    }
+  }
+}
+
+:global(.slick-active) {
+  button {
+    background-color: $scarpa-flow !important;
+  }
+}

@@ -1,0 +1,131 @@
+@import 'styles/utils/mixins';
+
+.overflowApp {
+  height: 100%;
+  overflow: hidden;
+}
+
+.hideScroll {
+  transform: translateY(200px);
+}
+
+.headerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  @include flex(row, space-between, center);
+  width: calc(100% - 34px);
+  padding: 17.5px 17px;
+  opacity: 1;
+  transform: translate3d(0, -100%, 0);
+  transition: transform $default-transition-time,
+              padding $default-transition-time;
+
+  @include phone {
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+  }
+
+  .logo {
+    cursor: pointer;
+    text-align: center;
+    width: $logo-size;
+    height: 45px;
+    overflow: hidden;
+    transition: width $default-transition-time ease;
+
+    svg {
+      transition: width $default-transition-time;
+
+      @include phone {
+        width: 100%;
+      }
+    }
+    @include phone {
+      width: 35%;
+    }
+  }
+
+  .categories {
+    display: none;
+
+    @include phone {
+      display: block;
+      position: fixed;
+      right: 65px;
+    }
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  &.notHome {
+    background-color: $header-additional-color;
+    border-bottom: 0.5px solid $mercury;
+
+    svg {
+      path {
+        fill: $black;
+      }
+    }
+
+    div:last-child {
+      hr {
+        background-color: $black;
+      }
+    }
+  }
+
+  &.additional {
+    will-change: transform;
+    padding: 10px 17px;
+    background-color: $header-additional-color;
+    border-bottom: 0.5px solid $mercury;
+    transition: transform $default-transition-time,
+                border-bottom $default-transition-time,
+                padding $default-transition-time * 1.5;
+
+
+    @include phone {
+      padding: 10px 20px;
+    }
+    
+    svg {
+      @include phone {
+        width: 100%;
+      }
+
+      path {
+        fill: $black;
+      }
+    }
+  }
+
+  &.down {
+    transform: translate3d(0, -100%, 0);
+    transition: transform .7s;
+  }
+
+  &.up {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate {
+  transform: translate3d(0, 0, 0);
+}
+
+.deleteTextOfLogo {
+  .logo {
+    overflow: hidden;
+    width: 50px;
+  }
+
+  &.additional {
+    .logo {
+      width: 47px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import 'styles/utils/theme/animations';
+
+.swing {
+  animation: swing 1.5s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-delay: 3s;
+  cursor: pointer;
+}
+
+.swing:hover {
+  animation-play-state: paused;
+}

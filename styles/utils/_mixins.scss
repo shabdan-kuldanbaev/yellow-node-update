@@ -20,6 +20,22 @@
   @media (max-width: $full-hd) { @content; }
 }
 
+@mixin macbook-fifteen {
+  @media (max-width: $macbook-fifteen) { @content; }
+}
+
+@mixin macbook-thirteen {
+  @media (max-width: $macbook-thirteen) { @content; }
+}
+
+@mixin macbook-twelve {
+  @media (max-width: $macbook-twelve) { @content; }
+}
+
+@mixin desktop {
+  @media (max-width: $desktop) { @content; }
+}
+
 @mixin tablet {
   @media (max-width: $max-tablet-size) { @content; }
 }
@@ -28,8 +44,16 @@
   @media (max-width: $default-tablet-size) { @content; }
 }
 
+@mixin below-tablet-horizontal {
+  @media (max-width: $max-tablet-size) and (max-height: 800px) { @content; }
+}
+
 @mixin phone {
   @media (max-width: $max-mobile-size) { @content; }
+}
+
+@mixin horizontal-mobile {
+  @media (max-height: $horizontal-mobile) { @content; }
 }
 
 @mixin phone-height-500 {
@@ -66,7 +90,7 @@
     font-style: normal;
     line-height: 1.47;
     letter-spacing: normal;
-    color: $feedback-submit-color;
+    color: $woodsmoke;
   }
 }
 
@@ -84,18 +108,18 @@
   overflow: hidden;
   color: $textColor;
   border: solid 1px $borderColor;
-  transition: background-color $default-transition-time,
-              color $default-transition-time,
-              border-color $default-transition-time;
+  transition: background-color $button-transition-time,
+              color $button-transition-time,
+              border-color $button-transition-time;
   
   &:hover {
     will-change: border;
     background-color: $backHoverColor;
     border: solid 1px $backHoverColor;
     color: $textHoverColor;
-    transition: background-color $default-transition-time,
-                color $default-transition-time,
-                border-color $default-transition-time;
+    transition: background-color $button-transition-time,
+                color $button-transition-time,
+                border-color $button-transition-time;
   }
 }
 

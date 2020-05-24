@@ -1,0 +1,113 @@
+@import 'styles/utils/mixins';
+
+.search {
+  overflow-y: scroll;
+
+  @include phone {
+    z-index: 2;
+  }
+}
+
+.searchBlock {
+  margin-top: 180px !important;
+
+  width: calc(100% - #{$side-indent});
+  max-width: $max-content-width - $side-indent * 2;
+
+  @include full-hd {
+    max-width: $max-content-width-full-hd - $side-indent * 2;
+  }
+
+  @include macbook-fifteen {
+    max-width: $max-content-width-macbook-fifteen - $side-indent * 2;
+  }
+
+  @include macbook-twelve {
+    max-width: $max-content-width-macbook-twelve - $side-indent * 2;
+  }
+
+  @include tablet {
+    padding: 0;
+  }
+
+  @include phone {
+    padding: 0 $side-indent;
+    width: calc(100% - #{$side-indent * 2});
+  }
+
+  .input {
+    cursor: text;
+    width: 100%;
+    padding: 20px 0;
+    margin: 0 0 80px;
+    border: 0;
+    background: transparent;
+    font-weight: 500;
+    font-size: 4rem;
+    outline: none;
+    color: $black;
+    overflow-x: scroll;
+    font-family: $default-font;
+
+    &::placeholder {
+      color: $mountain-mis;
+    }
+
+    @include tablet {
+      margin-bottom: 80px;
+      width: calc(100% - 80px);
+    }
+
+    @include phone {
+      font-size: 2rem;
+      padding: 0;
+      margin-bottom: 60px;
+      width: 100%;
+    }
+  }
+}
+
+.foundArticles {
+  width: 100%;
+  @include flex(column, flex-start, center);
+  background: transparent;
+
+  @include phone {
+    padding: 0 $side-indent;
+    width: calc(100% - #{$side-indent * 2});
+
+    div:nth-of-type(1) {
+      margin-top: 0;
+    }
+  }
+
+  .nothingFound {
+    font-size: 17.5008px;
+    font-weight: 500;
+    font-family: $default-font;
+    color: $tundora;
+    margin: 0;
+    padding: 0;
+    right: 0;
+
+    width: calc(100% - #{$side-indent});
+    max-width: $max-content-width - $side-indent * 2;
+
+    @include full-hd {
+      max-width: $max-content-width-full-hd - $side-indent * 2;
+    }
+  
+    @include macbook-fifteen {
+      max-width: $max-content-width-macbook-fifteen - $side-indent * 2;
+    }
+  
+    @include macbook-twelve {
+      max-width: $max-content-width-macbook-twelve - $side-indent * 2;
+    }
+
+    @include phone {
+      line-height: 24px;
+      width: 100%;
+    }
+  }
+}
