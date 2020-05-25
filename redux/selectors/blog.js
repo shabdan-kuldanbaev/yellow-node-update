@@ -9,3 +9,5 @@ export const selectTotalCount = (state) => state.blog.totalCount;
 export const selectDesktopLimit = (state) => state.blog.limit.desktop;
 
 export const selectMobileLimit = (state) => state.blog.limit.mobile;
+
+export const selectIsFirstVisit = (state) => state.blog.isFirstVisit;

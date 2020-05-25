@@ -14,3 +14,8 @@ export const setTotalCount = (payload) => ({
   type: actionTypes.SET_TOTAL_ARTICLES_COUNT,
   payload,
 });
+
+export const setFirstVisit = (payload) => ({
+  type: actionTypes.SET_FIRST_VISIT_OF_BLOG,
+  payload,
+});

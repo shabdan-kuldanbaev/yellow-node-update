@@ -16,7 +16,6 @@ import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
 import { animated, useSpring } from 'react-spring';
 import { mobileResolution } from 'utils/helper';
 import { useRouter } from 'next/router';
-import cn from 'classnames';
 import { shaders, animationTypes } from './utils/data';
 import * as styles from './styles.module.scss';
 
@@ -41,7 +40,6 @@ export const Duck = ({
 
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);
-  // const [isTextShown, setTextShown] = useState(false);
 
   const containerCanvas = useRef(null);
   const containerText = useRef(null);
@@ -420,7 +418,7 @@ export const Duck = ({
       const pF = pos ? Math.trunc(1000 * pos.array[0]) : 0;
 
       if (iF !== pF) {
-        // console.log('!==');
+        // console.log('iF !== pF');
 
         meshes.forEach((mesh) => {
           const initialPosition = mesh.geometry.attributes.initialPosition;
@@ -467,6 +465,7 @@ export const Duck = ({
         });
       } else if (window.innerWidth < mobileResolution) r = 1;
       else {
+        // console.log('meshes', meshes);
         meshes.forEach((mesh) => { setRotateAnimation(mesh); });
         meshClones.forEach((mesh) => { setRotateAnimation(mesh); });
       }
@@ -563,123 +562,142 @@ export const Duck = ({
   };
 
   useEffect(() => {
-    let timer;
+    // TODO let timer;
 
-    if (containerCanvas.current.getBoundingClientRect().top < -400) {
-      cancelAnimationFrame(animationId);
-      animationId = 0;
-      r = 1;
-    }
-
-    if (!isModelLoaded) loadModel();
-
-
-    if (!isAnimate) {
-      cancelAnimationFrame(animationId);
-      animationId = 0;
-      console.log('stop');
-
-      if (duck && !isDuckLoad) {
-        console.log('init');
-        setDuckLoad(true);
-        isMobile = window.innerWidth < mobileResolution;
-        if (isMobile) options.default.meshScale = 45;
-
-        r = 0;
-        init();
-
-        setOpacity();
-        animateSlogan();
-        animate();
-
-        if (!isHomepageVisit) {
-          window.anime.timeline({ loop: false })
-            .add({
-              targets: '.letter-container .letter',
-              opacity: [0, 1],
-              easing: 'easeInOutQuad',
-              duration: 2250,
-              delay: (el, i) => 150 * (i + 1),
-            })
-            .add({
-              targets: '.letter-container',
-              opacity: 0.1,
-              duration: 1000,
-              easing: 'easeOutExpo',
-              delay: 0,
-            });
-        } else {
-          const test = () => {
-            if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-          };
-
-          window.anime.timeline({ loop: false })
-            .add({
-              targets: '.letter-container',
-              opacity: 0.1,
-              duration: 1000,
-              easing: 'easeOutExpo',
-              delay: 500,
-              complete: () => test(),
-            });
-        }
-
-        window.addEventListener('resize', onWindowResize, false);
-
-        if (!isHomepageVisit) {
-          timer = setTimeout(() => {
-            options.initial.currentAnimation = animationTypes[1]; // ⚠️
-            if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-            document.addEventListener('mousedown', onDocumentMouseDown, false);
-            document.addEventListener('mouseup', onDocumentMouseUp, false);
-            document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-            // if (window.innerWidth < mobileResolution && (animationDelay < 0.01)) r = 1;
-          }, 5700);
-        } else {
-          options.initial.currentAnimation = animationTypes[1]; // ⚠️
-
-          document.addEventListener('mousedown', onDocumentMouseDown, false);
-          document.addEventListener('mouseup', onDocumentMouseUp, false);
-          document.addEventListener('mousemove', onDocumentMouseMove, false);
-        }
-      }
-    } else {
-      options.initial.isAppear = true;
-      // options.initial.currentAnimation = animationTypes[1];
-
-      if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-      document.addEventListener('mousedown', onDocumentMouseDown, false);
-      document.addEventListener('mouseup', onDocumentMouseUp, false);
-      document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-      console.log('start');
-      animate();
-    }
-    window.addEventListener('scroll', handleOnScroll, false);
+    // if (containerCanvas.current.getBoundingClientRect().top < -400) {
+    //   cancelAnimationFrame(animationId);
+    //   animationId = 0;
+    //   r = 1;
     // }
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scroll', handleOnScroll);
-      document.removeEventListener('mousedown', onDocumentMouseDown);
-      document.removeEventListener('mouseup', onDocumentMouseUp);
-      document.removeEventListener('mousemove', onDocumentMouseMove);
-      window.removeEventListener('resize', onWindowResize);
 
-      if (sloganRef.current) sloganRef.current.classList.remove(styles.setBlur);
-      cancelAnimationFrame(animationId);
-      animationId = 0;
+    // if (!isModelLoaded) loadModel();
 
-      if (isHomepageVisit) {
-        // camera = null;
-        r = 0;
-        meshes.length = 0;
-        meshClones.length = 0;
-        // composer = null;
-        mat = 0;
-      }
-    };
+
+    // if (!isAnimate) {
+    //   cancelAnimationFrame(animationId);
+    //   animationId = 0;
+    //   console.log('stop');
+
+    //   if (duck && !isDuckLoad) {
+    //     console.log('init');
+    //     setDuckLoad(true);
+    //     isMobile = window.innerWidth < mobileResolution;
+    //     if (isMobile) options.default.meshScale = 45;
+
+    //     r = 0;
+    //     init();
+
+    //     setOpacity();
+    //     animateSlogan();
+    //     animate();
+
+    //     if (!isHomepageVisit) {
+    //       window.anime.timeline({ loop: false })
+    //         .add({
+    //           targets: '.letter-container .letter',
+    //           opacity: [0, 1],
+    //           easing: 'easeInOutQuad',
+    //           duration: 2250,
+    //           delay: (el, i) => 150 * (i + 1),
+    //         })
+    //         .add({
+    //           targets: '.letter-container',
+    //           opacity: 0.1,
+    //           duration: 1000,
+    //           easing: 'easeOutExpo',
+    //           delay: 0,
+    //         });
+    //     } else {
+    //       const test = () => {
+    //         if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+    //       };
+
+    //       window.anime.timeline({ loop: false })
+    //         .add({
+    //           targets: '.letter-container',
+    //           opacity: 0.1,
+    //           duration: 1000,
+    //           easing: 'easeOutExpo',
+    //           delay: 500,
+    //           complete: () => test(),
+    //         });
+    //     }
+
+    //     window.addEventListener('resize', onWindowResize, false);
+
+    //     if (!isHomepageVisit) {
+    //       timer = setTimeout(() => {
+    //         options.initial.currentAnimation = animationTypes[1]; // ⚠️
+    //         if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+    //         document.addEventListener('mousedown', onDocumentMouseDown, false);
+    //         document.addEventListener('mouseup', onDocumentMouseUp, false);
+    //         document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+    //         // if (window.innerWidth < mobileResolution && (animationDelay < 0.01)) r = 1;
+    //       }, 5700);
+    //     } else {
+    //       options.initial.currentAnimation = animationTypes[1]; // ⚠️
+
+    //       document.addEventListener('mousedown', onDocumentMouseDown, false);
+    //       document.addEventListener('mouseup', onDocumentMouseUp, false);
+    //       document.addEventListener('mousemove', onDocumentMouseMove, false);
+    //     }
+    //   }
+    // } else {
+    //   options.initial.isAppear = true;
+    //   // options.initial.currentAnimation = animationTypes[1];
+
+    //   if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+    //   document.addEventListener('mousedown', onDocumentMouseDown, false);
+    //   document.addEventListener('mouseup', onDocumentMouseUp, false);
+    //   document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+    //   console.log('start');
+    //   animate();
+    // }
+    // window.addEventListener('scroll', handleOnScroll, false);
+    // // }
+    // return () => {
+    //   clearTimeout(timer);
+    //   window.removeEventListener('scroll', handleOnScroll);
+    //   document.removeEventListener('mousedown', onDocumentMouseDown);
+    //   document.removeEventListener('mouseup', onDocumentMouseUp);
+    //   document.removeEventListener('mousemove', onDocumentMouseMove);
+    //   window.removeEventListener('resize', onWindowResize);
+
+    //   if (sloganRef.current) sloganRef.current.classList.remove(styles.setBlur);
+    //   cancelAnimationFrame(animationId);
+    //   animationId = 0;
+
+                        // if (isHomepageVisit) {
+                        //   r = 0;
+                        //   meshes.length = 0;
+                        //   meshClones.length = 0;
+                        //   mat = 0;
+
+                        //   console.log({
+                        //     isHomepageVisit,
+                        //     isAnimate,
+                        //     isDuckLoad,
+                        //   });
+                        // }
+    // };
   }, [duck, isAnimate]);
+
+  // useEffect(() => () => {
+  //     if (isHomepageVisit) {
+  //       r = 0;
+  //       meshes.length = 0;
+  //       meshClones.length = 0;
+  //       mat = 0;
+
+  //       console.log({
+  //         isHomepageVisit,
+  //         isAnimate,
+  //         isDuckLoad,
+  //       });
+  //     }
+  // }, []);
 
   return (
     <Fragment>

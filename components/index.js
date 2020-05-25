@@ -28,6 +28,7 @@ export { ScrollIcon } from 'components/HomeCommon/ScrollIcon';
 export { SocialIcons } from 'components/HomeCommon/SocialIcons';
 export { SectionTitle } from 'components/HomeCommon/SectionTitle';
 export { Works } from 'components/HomeCommon/Works';
+export { PhotoGallery } from 'components/HomeCommon/PhotoGallery';
 
 // BlogCommon
 export { default as Article } from 'components/BlogCommon/Article';

@@ -45,6 +45,7 @@
   }
 
   .buttons {
+    min-height: 43px;
     width: 25%;
     @include flex(row, flex-end, center);
     position: relative;
@@ -62,24 +63,34 @@
       right: 160px;
 
       @include phone {
-        top: 1px;
+        // top: 1px;
+        top: 14px;
         right: 95px;
       }
     }
 
     .button {
-      @include buttonMore($black, $black, $turbo-100, $turbo-100);
-      background-color: $turbo-100;
+      @include buttonMore($black, $black, $turbo-100, $white);
+      
+      // background-color: $turbo-100;
+      // background-color: $science-blue;
       color: $woodsmoke;
       line-height: 1.55;
       text-align: center;
       margin: auto 0;
-      padding: 10px 20px;
+      padding: 0;
+      margin-right: 20px;
       width: auto;
-      font-weight: 550;
-      font-size: 13.5px !important;
-      letter-spacing: 0.9px;
-      transition: background-color $shadow-time-for-yellow-button;
+      
+      
+      // TODO
+      border-radius: 0; //TODO
+      // font-weight: 550;
+      // font-size: 13.5px !important;
+      // letter-spacing: 0.9px;
+      font-weight: 450;
+      font-size: 14px !important;
+      letter-spacing: 0.5px;
       
       @include phone {
         display: none;
@@ -89,6 +100,25 @@
         background-color: $turbo-200;
         transition: background-color $shadow-time-for-yellow-button;
       }
+    }
+
+    .buttonAppearsWithAnimation {
+      border: solid 1px $turbo-100;
+      background-color: $turbo-100;
+      padding: 10px 20px;
+      margin-right: 0;
+
+      transition: border $shadow-time-for-yellow-button,
+                  background-color $shadow-time-for-yellow-button,
+                  margin $default-transition-time,
+                  padding $default-transition-time;
+    }
+
+    .buttonAddStyles {
+      border: solid 1px $turbo-100;
+      background-color: $turbo-100;
+      padding: 10px 20px;
+      margin-right: 0;
     }
 
     .categoryTitleInHeader {

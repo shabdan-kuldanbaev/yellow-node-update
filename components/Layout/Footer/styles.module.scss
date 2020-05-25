@@ -77,30 +77,30 @@ footer {
           border: none;
           padding: 0;
 
-          &:before {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            display: block;
-            width: 0;
-            left: 50%;
-            height: 2px;
-            background-color: $turbo-100;
-            outline: 1px solid transparent;
-            transform: translateX(-50%);
-            transition: width $default-transition-time ease-in-out;
-            transform-origin: center left;
-          }
+          // &:before {
+          //   content: "";
+          //   position: absolute;
+          //   bottom: -5px;
+          //   display: block;
+          //   width: 0;
+          //   left: 50%;
+          //   height: 2px;
+          //   background-color: $turbo-100;
+          //   outline: 1px solid transparent;
+          //   transform: translateX(-50%);
+          //   transition: width $default-transition-time ease-in-out;
+          //   transform-origin: center left;
+          // }
 
           &:hover {
             span {
-              color: $white;
+              color: #9a999c;
             }
           }
           
-          &:hover:before, &:focus:before {
-            width: 100%;
-          }
+          // &:hover:before, &:focus:before {
+          //   width: 100%;
+          // }
         }
       }
 

@@ -1,7 +1,7 @@
 import { actionTypes } from 'actions/actionTypes';
 
 const initialState = {
-  isModelLoaded: false, // TODO false
+  isModelLoaded: true, // TODO false
   scrollOfAddedFooter: {},
   duck: null,
   isHomepageVisit: false,

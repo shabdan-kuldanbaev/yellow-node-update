@@ -1,5 +1,5 @@
 // Layout container
-export { Layout } from 'containers/Layout';
+export { default as Layout } from 'containers/Layout';
 
 // Home container
 export { Advantages } from 'containers/Home/Advantages';
@@ -9,6 +9,7 @@ export { default as Intro } from 'containers/Home/Intro';
 export { Portfolio } from 'containers/Home/Portfolio';
 export { Reviews } from 'containers/Home/Reviews';
 export { Home } from 'containers/Home';
+export { PhotoGalleryContainer } from 'containers/Home/PhotoGallery';
 
 // Blog container
 export { default as BlogContainer } from 'containers/Blog';

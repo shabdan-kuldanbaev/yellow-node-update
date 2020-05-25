@@ -27,14 +27,9 @@ export const Works = ({ refs }) => (
           </Animated>
         </div>
         <div className={cn(styles.imgWrapper, styles.animationOfAppearanceBefore, { [styles.animationOfAppearance]: true })}>
-          <Animated
-            delay={700}
-            animateIn="zoomIn"
-            animateOnce
-            offset={10}
-          >
+          <div>
             <img src={work.image} alt={work.image} />
-          </Animated>
+          </div>
         </div>
       </div>
     ))}

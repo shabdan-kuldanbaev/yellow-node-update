@@ -95,6 +95,7 @@ const Header = ({
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
+        isHeader
       />
       <MobileMenu
         isMobileMenuOpened={isMobileMenuOpened}

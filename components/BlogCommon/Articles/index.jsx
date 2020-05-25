@@ -38,18 +38,20 @@ const Articles = ({
       <Loader isLoading={!isLoading}>
         {articles && articles.map((art, index) => {
           const delay = 80 * index;
-          const effect = (pageNumber === 1
-            ? (index === 0 || index === 1)
-              ? 'zoomIn'
-              : 'fadeInUp'
-            : 'fadeInUp'
+          const effect = 'fadeInUp';
+          // (
+            // pageNumber === 1
+            //   ? (index === 0 || index === 1)
+            //     ? 'zoomIn'
+            //     : 'fadeInUp'
+            //   : 'fadeInUp'
           // || (asPath.includes('=how-we-work') && (index === 0 ? 'bounceIn' : ' jackInTheBox'))
           // || (asPath.includes('=software-development') && (index === 0 ? 'slideInUp' : 'flipInX'))
           // || (asPath.includes('=software-chat') && (index === 0 ? 'fadeInUp' : 'bounceIn'))
           // || (asPath.includes('=marketing') && (index === 0 ? 'slideInUp' : 'zoomIn'))
           // || (asPath.includes('=yellow') && (index === 0 ? 'flipInX' : 'slideInUp'))
           // || (asPath.length === 1 && (index === 0 ? 'zoomIn' : 'fadeInUp')
-          );
+          // );
 
           return (
             <Fragment>

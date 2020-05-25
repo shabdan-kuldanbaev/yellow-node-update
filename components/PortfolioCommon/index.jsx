@@ -15,10 +15,10 @@ export const Portfolio = () => (
       >
         <div className={styles.desc}>
           <Animated
-            delay={10}
+            delay={60}
             animateIn="fadeInUp"
             animateOnce
-            offset={10}
+            // offset={10 * index * 80}
           >
             <h1>{work.name}</h1>
             <p>{work.description}</p>
@@ -27,10 +27,10 @@ export const Portfolio = () => (
         </div>
         <div className={cn(styles.imgWrapper, styles.animationOfAppearanceBefore, { [styles.animationOfAppearance]: true })}>
           <Animated
-            delay={700}
-            animateIn="zoomIn"
+            delay={80}
+            animateIn="fadeInUp"
             animateOnce
-            offset={10}
+            // offset={10 * index * 80}
           >
             <div style={{ backgroundImage: `url(${work.image})` }} />
           </Animated>

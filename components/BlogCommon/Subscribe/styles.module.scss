@@ -3,8 +3,9 @@
 .subscribeBlock {
   @include flex(column, center, center);
   width: 100%;
-  height: 400px;
-  margin: 100px 0;
+  // TODO height: 400px;
+  // TODO margin: 100px 0;
+  margin: 105px 0 150px;
 
   @include phone {
     height: 460px;
@@ -12,13 +13,14 @@
   }
 
   .subscribe {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 400px;
+    // TODO height: 400px;
     @include flex(column, center, center);
-    background-color: $athens-gray;
+    // background-color: $athens-gray;
 
     @include phone {
+      position: absolute;
       height: 460px;
     }
 
@@ -105,8 +107,10 @@
           width: 223px;
           height: 56px;
           border-radius: 82px;
-          background-color: $blocg-search-background-color;
-          box-shadow: 0 0px 29px 0 $blog-subscribe-input-box-shadow-color;
+          // TODO background-color: $blocg-search-background-color;
+          background-color: rgba(255, 255, 255, 0.95);
+          // TODO box-shadow: 0 0px 29px 0 $blog-subscribe-input-box-shadow-color;
+          box-shadow: 0 0px 29px 0 rgba(0, 0, 0, 0.08);
           border: none;
           font-size: 1.125rem;
           padding: 0px 35px;
@@ -124,7 +128,7 @@
 
           @include phone {
             margin-right: 0;
-            display: none;
+            // display: none;
           }
         }
 
