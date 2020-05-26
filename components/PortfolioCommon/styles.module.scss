@@ -1,19 +1,5 @@
 @import 'styles/utils/mixins';
 
-.animationOfAppearanceBefore {
-  opacity: 0;
-  transform: scale(0.7);
-  transition: transform $default-transition-time,
-              opacity $default-transition-time;
-}
-
-.animationOfAppearance {
-  opacity: 1;
-  transform: scale(1);
-  transition: transform $default-transition-time,
-              opacity $default-transition-time;
-}
-
 .worksContainer {
   width: calc(100% + 2 * #{$side-indent});
   margin: 0;
@@ -104,6 +90,7 @@
       }
       
       div {
+        will-change: transform;
         max-width: 80%;
         height: 100%;
         opacity: 1;
@@ -130,7 +117,7 @@
         }
 
         @include phone {
-          @include flex(column, center, center);
+          @include flex(column, center, flex-start);
           width: 100%;
           max-width: 100%;
           margin: 0;
@@ -172,7 +159,6 @@
           line-height: 1.53;
           letter-spacing: 0.5px;
           color: $black;
-          opacity: .8;
           word-wrap: normal;
 
           @include below-tablet-horizontal {
@@ -187,42 +173,144 @@
           }
         }
       
-        button {
-          @include buttonMore($black, $black, $turbo-100, $black);
-          margin-top: 60px;
-          background-color: transparent;
-          border-radius: $buttonRadius;
-          color: $black;
-          line-height: 1.55;
-          letter-spacing: 0.5px;
-          font-size: 1rem;
-          border: 1px solid $black;
-          transition: background-color $default-transition-time,
-                      color $default-transition-time,
-                      border-color $default-transition-time;
+        // with radius
+        // TODO button {
+        //   @include buttonMore($black, $black, $turbo-100, $black);
+        //   margin-top: 60px;
+        //   background-color: transparent;
+        //   border-radius: $buttonRadius;
+        //   color: $black;
+        //   line-height: 1.55;
+        //   letter-spacing: 0.5px;
+        //   font-size: 1rem;
+        //   border: 1px solid $black;
+        //   transition: background-color $default-transition-time,
+        //               color $default-transition-time,
+        //               border-color $default-transition-time;
     
-          &:hover {
-            border: 1px solid $turbo-100;
-            color: $black;
-            transition: background-color $default-transition-time,
-                        color $default-transition-time,
-                        border-color $default-transition-time;
-          }
+        //   &:hover {
+        //     border: 1px solid $turbo-100;
+        //     color: $black;
+        //     transition: background-color $default-transition-time,
+        //                 color $default-transition-time,
+        //                 border-color $default-transition-time;
+        //   }
     
-          &:before {
-            background-color: $black;
+        //   &:before {
+        //     background-color: $black;
+        //   }
+
+        //   @include below-tablet {
+        //     margin-top: 40px; 
+        //   }
+        // }
+
+        .buttonWrap {
+          padding: 5px 0 10px;
+          margin: 35px 0 0;
+          cursor: pointer;
+          width: max-content;
+
+          @include phone {
+            // TODO max-width: calc(100% - 40px);
+            // margin: 15px auto 0 20px;
+            // width: 100%;
           }
 
-          @include below-tablet {
-            margin-top: 40px; 
+          button {
+            border: none;
+            outline: 0px;
+            background-color: transparent;
+            color: $black;
+            line-height: 1.55;
+            letter-spacing: 0.5px;
+            font-size: 1.125rem;
+            position: relative;
+            display: inline-block;
+            padding: 0;
+  
+            &:after {
+              content: '';
+              cursor: pointer;
+              position: absolute;
+              bottom: -5px;
+              right: 0;
+              width: 100%;
+              height: 2px;
+              background-color: $black;
+              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            }
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            button {
+              cursor: pointer;
+
+              &:after {
+                width: 0;
+                transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+              }
+            }
           }
         }
+
+        // with line
+        // TODO button {
+        //   border: none;
+        //   outline: 0px;
+        //   cursor: pointer;
+        //   background-color: transparent;
+        //   color: $black;
+        //   line-height: 1.55;
+        //   letter-spacing: 0.5px;
+        //   font-size: 1.125rem;
+        //   position: relative;
+        //   display: inline-block;
+        //   padding: 15px 15px 15px 55px;
+        //   margin: 35px 0 0;
+        //   transition: padding-left .2s;
+
+    
+        //   &:before {
+        //     content: '';
+        //     top: 50%;
+        //     position: absolute;
+        //     left: 0px;
+        //     margin-top: -2px;
+        //     height: 2px;
+        //     width: 34px;
+        //     background: $black;
+        //     transition: width .2s;
+        //   }
+
+        //   @include below-tablet {
+        //     margin-top: 40px;
+        //   }
+
+        //   @include phone {
+        //     max-width: 100%;
+        //     margin: 15px auto 0 0px;
+        //   }
+
+        //   &:hover {
+        //     padding-left: 70px;
+        //     transition: padding-left .2s;
+
+        //     &:before {  
+        //       width: 50px;
+        //       transition: width .2s;
+        //     }
+        //   }
+        // }
       }
     }
 
     .imgWrapper {
       width: 50%;
       height: 100%;
+      @include flex(column, center, center);
 
       @include tablet {
         width: calc(100% - (40px + 40px));
@@ -241,7 +329,7 @@
 
       div {
         width: 100%;
-        height: 100%;
+        height: max-content;
         @include flex(column, center, center);
 
         div {
@@ -252,7 +340,7 @@
           width: 100%;
           height: 0px;
           padding-top: calc(100% / 1.5);
-          // border-radius: 7.5px;
+          will-change: transform;
           opacity: 1;
           transition: transform $default-transition-time, opacity $default-transition-time;
         }

@@ -14,6 +14,7 @@ export { default as Loader } from 'components/Common/Loader';
 export { default as Logo } from 'components/Common/Logo';
 export { Upload } from 'components/Common/Upload';
 export { ModalWindow } from 'components/Common/ModalWindow';
+export { ParallaxContainer } from 'components/Common/Animated/Parallax';
 
 // HomeCommon
 export { default as FeedbackForm } from 'components/HomeCommon/FeedbackForm';

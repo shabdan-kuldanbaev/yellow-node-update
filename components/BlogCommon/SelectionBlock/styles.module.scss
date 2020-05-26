@@ -63,7 +63,6 @@
       right: 160px;
 
       @include phone {
-        // top: 1px;
         top: 14px;
         right: 95px;
       }
@@ -71,9 +70,6 @@
 
     .button {
       @include buttonMore($black, $black, $turbo-100, $white);
-      
-      // background-color: $turbo-100;
-      // background-color: $science-blue;
       color: $woodsmoke;
       line-height: 1.55;
       text-align: center;
@@ -84,7 +80,6 @@
       
       
       // TODO
-      border-radius: 0; //TODO
       // font-weight: 550;
       // font-size: 13.5px !important;
       // letter-spacing: 0.9px;
@@ -138,6 +133,7 @@
 
 .showCategories {
   div:nth-of-type(1) {
+    will-change: transform;
     transform: translateY(0%);
     transition: transform 0.5s ease-in-out;
   }

@@ -1,15 +1,15 @@
-import { Parallax } from '../components/Common/Animated/Parallax';
+import React from 'react';
 
 const Process = () => (
-  <div style={{ height: '100vh' }}>
-    <Parallax>
-      <div>asgasgsrg</div> 
-      <div>asgasgsrg</div> 
-      <div>asgasgsrg</div> 
-      <div>asgasgsrg</div> 
-      <div>asgasgsrg</div> 
-      <div>asgasgsrg</div> 
-    </Parallax>
+  <div
+    style={{
+      height: '65vh',
+      paddingTop: '300px',
+      textAlign: 'center',
+      backgroundColor: 'white',
+    }}
+  >
+    Process
   </div>
 );
 

@@ -7,8 +7,8 @@ import {
   Loader,
 } from 'components';
 import { useRouter } from 'next/router';
-import { selectIsFirstVisit } from 'redux/selectors/blog';
-import { setFirstVisit } from 'redux/actions/blog';
+import { selectIsBlogOpen } from 'redux/selectors/blog';
+import { setBlogStatus, setFirstVisit } from 'redux/actions/blog';
 import { connect } from 'react-redux';
 
 export const Layout = ({
@@ -16,19 +16,19 @@ export const Layout = ({
   children,
   theme,
   introSection,
-  isFirstVisitBlog,
-  setFirstVisit: test,
+  isBlogOpen,
+  setBlogStatus: setBlogCurrentStatus,
+  setFirstVisit: setFirstVisitOfBlog,
 }) => {
   const { asPath } = useRouter();
 
   useEffect(() => {
-    return () => {
-      if (!asPath.includes('blog') && isFirstVisitBlog) {
-        test(false);
-      }
-      // console.log('Layout isFirstVisit------------------------', isFirstVisit);
-    };
-  }, [isFirstVisitBlog, asPath]);
+    if (asPath.includes('blog') && !isBlogOpen) setBlogCurrentStatus(true);
+    if (!asPath.includes('blog') && isBlogOpen) {
+      setBlogCurrentStatus(false);
+      setFirstVisitOfBlog(false);
+    }
+  }, [asPath]);
 
   return (
     <Fragment>
@@ -51,10 +51,10 @@ Layout.propTypes = {
   children: PropTypes.instanceOf(Object),
   theme: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
-  isFirstVisitBlog: PropTypes.bool.isRequired,
-  setFirstVisit: PropTypes.func.isRequired,
+  isBlogOpen: PropTypes.bool.isRequired,
+  setBlogStatus: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({ isFirstVisitBlog: selectIsFirstVisit(state) });
+const mapStateToProps = (state) => ({ isBlogOpen: selectIsBlogOpen(state) });
 
-export default connect(mapStateToProps, { setFirstVisit })(Layout);
+export default connect(mapStateToProps, { setBlogStatus, setFirstVisit })(Layout);

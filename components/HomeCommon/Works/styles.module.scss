@@ -1,19 +1,5 @@
 @import 'styles/utils/mixins';
 
-.animationOfAppearanceBefore {
-  opacity: 0;
-  transform: scale(0.7);
-  transition: transform $default-transition-time,
-              opacity $default-transition-time;
-}
-
-.animationOfAppearance {
-  opacity: 1;
-  transform: scale(1);
-  transition: transform $default-transition-time,
-              opacity $default-transition-time;
-}
-
 .worksContainer {
   width: calc(100% + 2 * #{$side-indent});
   margin: 0 0 $section-indent;
@@ -25,15 +11,32 @@
   .work {
     position: relative;
     z-index: 5;
-    @include flex(row, center, center);
+    @include flex(row, space-evenly, center);
     width: 100%;
     height: 100vh;
     will-change: background-color;
     transition: background-color $default-transition-time ease;
     transition-timing-function: linear;
 
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+
     @include tablet {
-      @include flex(column-reverse, space-evenly, center);
+      @include flex(column, space-evenly, center);
+      &:nth-child(1n) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    @include below-tablet-horizontal {
+      @include flex(row, center, center);
+      &:nth-child(1n) {
+        flex-direction: initial;
+      }
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
     }
 
     @include below-tablet {
@@ -42,8 +45,11 @@
       margin-bottom: 100px;
     }
 
-    @include below-tablet-horizontal {
-      @include flex(row, center, center);
+    @include phone {
+      @include flex(column-reverse, center, center);
+      height: auto;
+      margin-bottom: 150px;
+      flex-direction: column-reverse;
     }
 
     @include horizontal-mobile {
@@ -51,13 +57,16 @@
     }
 
     @include phone {
+      &:nth-child(1n) {
+        flex-direction: column-reverse;
+      }
       @include flex(column-reverse, center, center);
       height: auto;
       margin-bottom: 150px;
     }
 
     .desc {
-      width: 50%;
+      width: 45%;
       @include flex(row, center, center);
 
       @include tablet {
@@ -87,6 +96,7 @@
         max-width: 80%;
         height: 100%;
         opacity: 1;
+        will-change: transform;
         transition: transform $default-transition-time, opacity $default-transition-time;
 
         @include tablet {
@@ -152,7 +162,6 @@
           line-height: 1.53;
           letter-spacing: 0.5px;
           color: $white;
-          opacity: .8;
           word-wrap: normal;
 
           @include below-tablet-horizontal {
@@ -166,43 +175,62 @@
             margin: auto 20px auto;
           }
         }
-      
-        button {
-          @include buttonMore();
-          margin-top: 60px;
-          border: 1px solid $white;
-          background-color: transparent;
-          border-radius: $buttonRadius;
-          color: $white;
-          line-height: 1.55;
-          letter-spacing: 0.5px;
-          font-size: 1rem;
-          transition: background-color $default-transition-time,
-                      color $default-transition-time,
-                      border-color $default-transition-time;
-    
-          &:hover {
-            border: 1px solid $white;
-            color: $science-blue;
-            transition: background-color $default-transition-time,
-                        color $default-transition-time,
-                        border-color $default-transition-time;
-          }
-    
-          &:before {
-            background-color: $white;
+
+        .buttonWrap {
+          padding: 5px 0 10px;
+          margin: 35px 0 0;
+          cursor: pointer;
+          width: max-content;
+
+          @include phone {
+            max-width: calc(100% - 40px);
+            margin: 15px auto 0 20px;
           }
 
-          @include below-tablet {
-            margin-top: 40px; 
+          button {
+            border: none;
+            outline: 0px;
+            background-color: transparent;
+            color: $white;
+            line-height: 1.55;
+            letter-spacing: 0.5px;
+            font-size: 1.125rem;
+            position: relative;
+            display: inline-block;
+            padding: 0;
+  
+            &:after {
+              content: '';
+              cursor: pointer;
+              position: absolute;
+              bottom: -5px;
+              right: 0;
+              width: 100%;
+              height: 2px;
+              background-color: $white;
+              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            }
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            button {
+              cursor: pointer;
+
+              &:after {
+                width: 0;
+                transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+              }
+            }
           }
         }
       }
     }
 
-    .imgWrapper {
-      width: 50%;
-      height: 100%;
+    .parallax {
+      width: 45%;
+      max-height: 100%;
 
       @include tablet {
         width: auto;
@@ -217,62 +245,32 @@
         width: 100%;
       }
 
+
       div {
-        width: 100%;
-        height: 100%;
-        transform: scale(.9);
-        @include flex(row, center, center);
-        opacity: 1;
-        transition: transform $default-transition-time, opacity $default-transition-time;
+        max-width: 100%;
+        max-height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
 
-        @include ultra-hd {
-          transform: scale(1);
-        }
-
-        @include quad-hd {
-          transform: scale(.9);
-        }
-
-        @include tablet {
-          width: auto;
-          height: 100%;
-          max-height: auto;
-        }
-
-        @include phone {
-          width: 100%;
-          transform: scale(0.95);
-        }
-
-        img {
+        .imgWrapper {
           max-width: 100%;
           max-height: 100%;
-        }
-      }
-    }
 
-    &:first-child div {
-      z-index: 4;
+          img {
+            max-width: 100%;
+            max-height: 80vh;
 
-      div button {
-        &:hover {
-          color: $science-blue;
-        }
-      }
-    }
+            @include tablet {
+              max-height: 60vh;
+            }
 
-    &:nth-child(2) {
-      div button {
-        &:hover {
-          color: $english-walnut;
-        }
-      }
-    }
-
-    &:nth-child(3) {
-      div button {
-        &:hover {
-          color: $thunder;
+            @include phone {
+              max-width: 95vw;
+              max-height: 100vh;
+            }
+          }
         }
       }
     }

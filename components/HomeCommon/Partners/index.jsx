@@ -1,40 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import { mobileResolution } from 'utils/helper';
+import React from 'react';
 import { Animated } from 'components';
+import { animatedType } from 'utils/constants';
 import { partners } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Partners = () => {
-  const [increaseTime, setIncreaseTime] = useState(5);
+export const Partners = () => (
+  <div className={styles.partnersContainer}>
+    <Animated
+      // TODO type={animatedType.isFade}
+      // delay={50}
+      // distance="8px"
+      // bottom
+      // effect="fadeInUp"
 
-  useEffect(() => {
-    if (window.innerWidth < mobileResolution) setIncreaseTime(1);
-  }, []);
-
-  return (
-    <div className={styles.partnersContainer}>
-      <Animated
-        animateIn="fadeInUp"
-        animateOnce
-        offset={100}
-      >
+      type={animatedType.isCastom}
+      translateY={20}
+      opasityDuration={1}
+      transformDuration={1}
+      transitionDelay={270}
+    >
+      <div>
         <h1>And get featured on</h1>
-      </Animated>
-      <div className={styles.partners}>
-        {partners.map((partner, index) => (
-          <Animated
-            key={`partner/${partner.title}`}
-            delay={500 + 95 * index * increaseTime}
-            animateIn="fadeInUp"
-            animateOnce
-            offset={130}
-          >
-            <div className={styles.partnersItem}>
-              <img src={partner.image} alt={partner.title} />
-            </div>
-          </Animated>
-        ))}
       </div>
+    </Animated>
+    <div className={styles.partners}>
+      {partners.map((partner, index) => (
+        <Animated
+          // TODO type={animatedType.isFade}
+          // key={`partner/${partner.title}`}
+          // delay={250 + 55 * index}
+          // distance="8px"
+          // bottom
+          // effect="fadeInUp"
+          // offset={3000}
+
+          type={animatedType.isCastom}
+          translateY={20}
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={300 + 30 * index}
+        >
+          <div className={styles.partnersItem}>
+            <img src={partner.image} alt={partner.title} />
+          </div>
+        </Animated>
+      ))}
     </div>
-  );
-};
+  </div>
+);

@@ -1,40 +1,70 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
-import { Animated } from 'components';
+import { Animated, ParallaxContainer } from 'components';
+import { mobileResolution, horizontalPhone } from 'utils/helper';
+import { animatedType } from 'utils/constants';
 import { works } from './utils/data';
 import styles from './styles.module.scss';
+import ImageWithController from './ImageWithController';
 
-export const Works = ({ refs }) => (
-  <div className={styles.worksContainer}>
-    {works.map((work, index) => (
-      <div
-        className={styles.work}
-        key={`works/${work.name}`}
-        data-index={index}
-        ref={refs[index]}
-      >
-        <div className={styles.desc}>
-          <Animated
-            delay={10}
-            animateIn="fadeInUp"
-            animateOnce
-            offset={10}
-          >
-            <h1>{work.name}</h1>
-            <p>{work.description}</p>
-            <button type="button">See full case study</button>
-          </Animated>
-        </div>
-        <div className={cn(styles.imgWrapper, styles.animationOfAppearanceBefore, { [styles.animationOfAppearance]: true })}>
-          <div>
-            <img src={work.image} alt={work.image} />
+export const Works = ({ refs }) => {
+  const [width, setWidth] = useState(null);
+  const [parallaxValues, setParallaxValues] = useState({ yTop: 80, yBottom: 80 });
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    if (window.innerWidth < mobileResolution || window.innerHeight < horizontalPhone) {
+      setParallaxValues({ yTop: 50, yBottom: 50 });
+    }
+  }, [width]);
+
+  return (
+    <div className={styles.worksContainer}>
+      {works.map((work, index) => (
+        <div
+          className={styles.work}
+          key={`works/${work.name}`}
+          data-index={index}
+          ref={refs[index + 1]}
+        >
+          <div className={styles.desc}>
+            <Animated
+              // TODO type={animatedType.isFade}
+              // delay={10}
+              // distance="60px"
+              // bottom
+              // effect="fadeInUp"
+              // offset={10}
+
+              type={animatedType.isCastom}
+              translateY={50}
+              opasityDuration={1}
+              transformDuration={1}
+              transitionDelay={270}
+            >
+              <div>
+                <h1>{work.name}</h1>
+                <p>{work.description}</p>
+                <div className={styles.buttonWrap}>
+                  <button type="button">See full case study</button>
+                </div>
+              </div>
+            </Animated>
           </div>
+          <ParallaxContainer
+            yTop={parallaxValues.yTop}
+            yBottom={parallaxValues.yBottom}
+            className={styles.parallax}
+          >
+            <div className={styles.imgWrapper}>
+              <ImageWithController src={work.image} alt={work.image} />
+            </div>
+          </ParallaxContainer>
         </div>
-      </div>
-    ))}
-  </div>
-);
+      ))}
+    </div>
+  );
+};
 
 Works.propTypes = {
   refs: PropTypes.instanceOf(Object).isRequired,

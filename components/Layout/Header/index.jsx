@@ -8,6 +8,7 @@ import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
 import { useRouter } from 'next/router';
 import { SelectionBlock, Logo } from 'components';
+import { footerColor } from 'styles/utils/_variables.scss';
 import styles from './styles.module.scss';
 import Nav from './Nav';
 import MobileMenu from './MobileMenu';
@@ -64,14 +65,15 @@ const Header = ({
         oldY = pageYOffset;
       }
     }
+
+    if (pageYOffset > 20) document.body.style.backgroundColor = footerColor;
+    else if (!isHomePage) document.body.style.backgroundColor = '#fff';
+    else document.body.style.backgroundColor = 'black';
   };
 
   useEffect(() => {
     oldY = window.pageYOffset;
     handleOnScroll();
-
-    if (!isHomePage) document.body.style.backgroundColor = 'white';
-    else document.body.style.backgroundColor = 'black';
 
     window.addEventListener('scroll', handleOnScroll);
     return () => {

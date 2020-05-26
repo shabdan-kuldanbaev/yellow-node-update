@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Animated, LinkWrapper } from 'components';
+import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const SectionTitle = ({
@@ -12,11 +13,35 @@ export const SectionTitle = ({
   isFeedbackForm,
 }) => (
   <div className={styles.titleContainer}>
-    <Animated animateIn="fadeInUp" animateOnce>
+    <Animated
+      // TODO type={animatedType.isFade}
+      // delay={0}
+      // distance="30px"
+      // bottom
+      // effect="fadeInUp"
+
+      type={animatedType.isCastom}
+      translateY={20}
+      opasityDuration={1}
+      transformDuration={1}
+      transitionDelay={270}
+    >
       <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
     </Animated>
     {subtitle && (
-      <Animated animateIn="fadeInUp" animateOnce>
+      <Animated
+        // TODO type={animatedType.isFade}
+        // delay={70}
+        // distance="30px"
+        // bottom
+        // effect="fadeInUp"
+
+        type={animatedType.isCastom}
+        translateY={20}
+        opasityDuration={1}
+        transformDuration={1}
+        transitionDelay={300}
+      >
         {!isFeedbackForm
           ? <span className={cn({ [styleSubtitle]: styleSubtitle })}>{subtitle}</span>
           : (

@@ -3,6 +3,7 @@
 .portfolio {
   @include flex(column, flex-start, center);
   padding: 0 $side-indent 200px $side-indent;
+  background-color: $turbo-100;
 
   @include phone {
     padding: 0 $side-indent $mobile-section-indent;
@@ -49,15 +50,18 @@
   }
 }
 
+.zeroBlock {
+  background-color: $turbo-100;
+  transition: background-color $changing-portfolio-color ease;
+}
+
 .firstBlock {
-  // TODO background-image: linear-gradient(45deg, #026ed0 0%, #05a7ea 99%);
-  background-color: $cerulean;
+  background-color: $ferra;
   transition: background-color $changing-portfolio-color ease;
 }
 
 .secondBlock {
-  // TODO background-image: linear-gradient(45deg, #3d2424 0%, #714a4a 99%);
-  background-color: $ferra;
+  background-color: $mortar;
   transition: background-color $changing-portfolio-color ease;
 }
 

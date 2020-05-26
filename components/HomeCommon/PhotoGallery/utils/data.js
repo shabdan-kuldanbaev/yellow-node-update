@@ -32,28 +32,4 @@ export const dataGallary = [
     img: Computer,
     size: 'squareImg',
   },
-  {
-    img: Stairs,
-    size: 'verticalImg',
-  },
-  {
-    img: PhotoCamera,
-    size: 'squareImg',
-  },
-  {
-    img: Girl,
-    size: 'verticalImg',
-  },
-  {
-    img: ManWithBall,
-    size: 'horizontalImg',
-  },
-  {
-    img: DiningRoom,
-    size: 'verticalImg',
-  },
-  {
-    img: Computer,
-    size: 'squareImg',
-  },
 ];

@@ -2,12 +2,14 @@ import React, {
   useState,
   useRef,
   useEffect,
+  Fragment,
 } from 'react';
 import {
   Works,
   SectionTitle,
   ButtonMore,
 } from 'components';
+import { Advantages } from 'containers';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 import { blockNumbers } from './utils/data';
@@ -15,11 +17,12 @@ import { blockNumbers } from './utils/data';
 export const Portfolio = () => {
   const [backgroundColor, setBackgroundColor] = useState('firstBlock');
   const [blockNumber, setBlockNumber] = useState(0);
-  const refs = [useRef(null), useRef(null), useRef(null)];
+  const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
   const handleOnScroll = () => {
-    const halfHeight = refs[0].current.getBoundingClientRect().height / 2;
+    const halfHeight = refs[1].current.getBoundingClientRect().height / 2;
     const [
+      zeroBlock,
       firstBottom,
       secondBottom,
       thirdBottom,
@@ -27,11 +30,22 @@ export const Portfolio = () => {
       refs[0].current.getBoundingClientRect().bottom,
       refs[1].current.getBoundingClientRect().bottom,
       refs[2].current.getBoundingClientRect().bottom,
+      refs[3].current.getBoundingClientRect().bottom,
     ];
 
-    if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) setBlockNumber(1);
-    else if (secondBottom < halfHeight) setBlockNumber(2);
-    else setBlockNumber(0);
+    if (zeroBlock < halfHeight && (firstBottom > halfHeight && secondBottom > halfHeight && thirdBottom > halfHeight)) {
+      setBlockNumber(1);
+    } else if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
+      setBlockNumber(2);
+    } else if (secondBottom < halfHeight) {
+      setBlockNumber(3);
+    } else {
+      setBlockNumber(0);
+    }
+
+    // TODO if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) setBlockNumber(1);
+    // else if (secondBottom < halfHeight) setBlockNumber(2);
+    // else setBlockNumber(0);
   };
 
   useEffect(() => {
@@ -48,21 +62,24 @@ export const Portfolio = () => {
   }, []);
 
   return (
-    <section className={cn(styles.portfolio, styles[backgroundColor])}>
-      <Works refs={refs} />
-      <div className={styles.bottomOfPortfolio}>
-        <SectionTitle
-          title="Check out more works by Yellow"
-          styleTitle={styles.title}
-          subtitle="We brainstorm, contribute, and grow your product together. Every step of the way."
-          styleSubtitle={styles.subtitle}
-        />
-        <ButtonMore
-          href="/portfolio"
-          title="Explore our portfolio"
-          buttonStyle={styles.portfolioButton}
-        />
-      </div>
-    </section>
+    <Fragment>
+      <Advantages refs={refs} className={styles[backgroundColor]} />
+      <section className={cn(styles.portfolio, styles[backgroundColor])}>
+        <Works refs={refs} />
+        <div className={styles.bottomOfPortfolio}>
+          <SectionTitle
+            title="Check out more works by Yellow"
+            styleTitle={styles.title}
+            subtitle="We brainstorm, contribute, and grow your product together. Every step of the way."
+            styleSubtitle={styles.subtitle}
+          />
+          <ButtonMore
+            href="/portfolio"
+            title="Explore our portfolio"
+            buttonStyle={styles.portfolioButton}
+          />
+        </div>
+      </section>
+    </Fragment>
   );
 };

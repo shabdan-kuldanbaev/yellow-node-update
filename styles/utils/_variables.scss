@@ -17,7 +17,7 @@ $star-dust: #9a9996;
 $emperor: #555555;
 $iron: #d1d3d3;
 $athens-gray: #efeff0;
-$woodsmoke: #0e0e0f;
+$woodsmoke: rgb(14, 14, 15);
 $mountain-mis: #9a999c;
 $red: #FF0000;
 $gray-nurse: #f7f8f7;
@@ -31,6 +31,7 @@ $gray: #7f7f7f;
 $mercury: #e6e6e6;
 $mine-shaft: #333;
 $dandelion: #FFD65D;
+$mortar: #49414e;
 
 //transparency color
 $pagination: rgba(35,37,44,0.25);
@@ -100,4 +101,5 @@ $insta-tape-box-shadow-color: rgba(0, 0, 0, 0.07);
   phoneResolution: $max-mobile-size;
   logoSize: $logo-size;
   horizontalMobile: $horizontal-mobile;
+  footerColor: $woodsmoke;
 }

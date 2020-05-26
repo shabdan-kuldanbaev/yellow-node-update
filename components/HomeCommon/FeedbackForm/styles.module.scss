@@ -8,21 +8,26 @@
   background-color: $white;
 
   @include phone {
-    padding: $mobile-section-indent - 20px $side-indent;
+    padding: $mobile-section-indent $side-indent $mobile-section-indent - 20px;
   }
-
-  .title {
-    @include phone {
-      width: 105%;
-    }
-  }
+  
+  div {
+    width: 100%;
+    text-align: center;
+    
+    .title {
+      @include phone {
+        width: 100%;
+      }
+    }  
+  } 
 
   .subtitle{
     margin: 0;
     font-size: .9rem;
     line-height: 1.55;
     letter-spacing: 0.5px;
-    width: 105%;
+    // TODO width: 105%;
 
     a {
       position: relative;
@@ -57,10 +62,6 @@
         }
       }
     }
-  }
-
-  h1 {
-    text-align: left !important;
   }
 
   .form {

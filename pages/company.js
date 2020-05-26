@@ -1,25 +1,16 @@
 import React from 'react';
-import { JSONAnimation } from 'components/Common/Animated/JSONAnimation';
-
-const Container = ({ children }) => (
-  <section style={{
-    backgroundColor: 'white',
-    width: '100vw',
-    height: '100vh',
-    display: 'flex',
-    flexDirection: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-  }}
-  >
-    {children}
-  </section>
-);
 
 const Company = () => (
-  <Container>
-    <JSONAnimation />
-  </Container>
+  <section
+    style={{
+      height: '65vh',
+      paddingTop: '300px',
+      textAlign: 'center',
+      backgroundColor: 'white',
+    }}
+  >
+    Company
+  </section>
 );
 
 export default Company;

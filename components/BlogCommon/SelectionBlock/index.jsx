@@ -11,7 +11,7 @@ import {
 import cn from 'classnames';
 import { setOverflowForBody } from 'utils/helper';
 import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
-import { selectIsFirstVisit } from 'redux/selectors/blog';
+import { selectIsBlogOpen, selectIsFirstVisit } from 'redux/selectors/blog';
 import { setMobileCategoriesState } from 'redux/actions/layout';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -25,6 +25,7 @@ const SelectionBlock = ({
   urlPath,
   isMobileCategoties,
   setMobileCategoriesState: setMobileCategories,
+  isBlogOpen,
   isFirstVisitBlog,
   setFirstVisit: setFirstVisitOfBlog,
 }) => {
@@ -44,17 +45,14 @@ const SelectionBlock = ({
   }, [isMobileCategoties]);
 
   useEffect(() => {
-    if (!isFirstVisitBlog && subscribeRef.current && setFirstVisitOfBlog) {
-      subscribeRef.current.classList.add(styles.buttonAppearsWithAnimation);
-      // console.log('SelectionBlock !isFirstVisitBlog', isFirstVisitBlog);
+    if (!isFirstVisitBlog && isBlogOpen) {
+      subscribeRef.current && subscribeRef.current.classList.add(styles.buttonAppearsWithAnimation);
       setFirstVisitOfBlog(true);
-    } else if (isFirstVisitBlog && subscribeRef.current) {
-      subscribeRef.current.classList.add(styles.buttonAddStyles);
-      // console.log('SelectionBlock isFirstVisitBlog', isFirstVisitBlog);
+    } else if (isFirstVisitBlog) {
+      subscribeRef.current && subscribeRef.current.classList.add(styles.buttonAddStyles);
     }
-  }, []);
+  }, [isBlogOpen]);
 
-  // console.log('sb, isFirstVisitBlog', isFirstVisitBlog);
   return (
     <div className={cn(styles.selectionBlock, { [styles.showCategories]: isMobileCategoties })}>
       <Categories
@@ -74,9 +72,7 @@ const SelectionBlock = ({
           buttonRef={subscribeRef}
           handleOnClick={openFullscreenSubscribe}
           title="Subscribe"
-          buttonStyle={cn(styles.button, {
-            // [styles.buttonAppears]: isFirstVisitBlog,
-          })}
+          buttonStyle={styles.button}
         />
         <span className={styles.categoryTitleInHeader} onClick={openMobileCategoties}>Categories</span>
       </div>
@@ -96,6 +92,7 @@ SelectionBlock.propTypes = {
 
 const mapStateToProps = (state) => ({
   isMobileCategoties: selectIsMobileCategotiesOpened(state),
+  isBlogOpen: selectIsBlogOpen(state),
   isFirstVisitBlog: selectIsFirstVisit(state),
 });
 

@@ -6,7 +6,7 @@ html {
   font-family: $default-font;
   font-size: 16px;
   // scroll-behavior: smooth;
-  background-color: $woodsmoke;
+  // background-color: $woodsmoke !important;
   // background: linear-gradient(to bottom, white 30%, #ffe603 50%, #0e0e0f 70%);
 
   ::selection {
@@ -16,8 +16,10 @@ html {
   body {
     margin: 0;
     padding: 0;
-    background-color: $woodsmoke;
-    transition: background-color $default-transition-time;
+    // background-color: $woodsmoke;
+    // transition: background-color 0s;
+    // background: linear-gradient(to bottom, $white 50%, $woodsmoke 70%);
+    // background: linear-gradient(to bottom, white 30%, #ffe603 50%, #0e0e0f 70%);
 
     & > div > section {
       background-color: $black;

@@ -16,5 +16,6 @@ export const actionTypes = {
   LOAD_ARTICLES_FAILED: 'blog/LOAD_ARTICLES_FAILED',
   /* ------------------------ */
   SET_TOTAL_ARTICLES_COUNT: 'blog/SET_TOTAL_ARTICLES_COUNT',
+  SET_BLOG_STATUS: 'blog/SET_BLOG_STATUS',
   SET_FIRST_VISIT_OF_BLOG: 'blog/SET_FIRST_VISIT_OF_BLOG',
 };

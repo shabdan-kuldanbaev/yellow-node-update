@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-// import { connect } from 'react-redux';
-// import { selectIsFirstVisit } from 'redux/selectors/blog';
 import { menuList } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -13,7 +11,6 @@ const Nav = ({
   currentPage,
   isAdditional,
   isHeader,
-  // isFirstVisitBlog,
 }) => {
   const { asPath } = useRouter();
   const isBlog = asPath && asPath.includes('blog');
@@ -22,8 +19,6 @@ const Nav = ({
     <ul className={cn(styles.desktopMenu, {
       [styles.additionalNav]: !isBlog && (isAdditional || (currentPage && currentPage !== '')),
       [styles.additionalNavForBlog]: isBlog,
-      // [styles.additionalNav]: !isFirstVisitBlog && (isAdditional || (currentPage && currentPage !== '')),
-      // [styles.additionalNavForBlog]: isFirstVisitBlog,
     })}
     >
       {menuList && menuList.map((item) => (
@@ -49,11 +44,6 @@ Nav.propTypes = {
   currentPage: PropTypes.string.isRequired,
   isAdditional: PropTypes.string.isRequired,
   isHeader: PropTypes.bool,
-  // isFirstVisitBlog: PropTypes.bool.isRequired,
 };
 
 export default Nav;
-
-// const mapStateToProps = (state) => ({ isFirstVisitBlog: selectIsFirstVisit(state) });
-
-// export default connect(mapStateToProps)(Nav);

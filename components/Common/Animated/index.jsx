@@ -3,33 +3,41 @@ import React from 'react';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Reveal from 'react-reveal/Reveal';
 import Fade from 'react-reveal/Fade';
+import { animatedType } from 'utils/constants';
+import { CastomAnimation } from './CastomAnimation';
 
-// TODO -> ...props
 export const Animated = (props) => {
-  if (props.isReveal) {
+  // TODO props
+  switch (props.type) {
+  case animatedType.isReveal:
     return (
       <Reveal {...props}>
         {props.children}
       </Reveal>
     );
-  }
-
-  if (props.isFade) {
+  case animatedType.isFade:
     return (
       <Fade {...props}>
         {props.children}
       </Fade>
     );
+  case animatedType.isCastom:
+    return (
+      <CastomAnimation {...props}>
+        {props.children}
+      </CastomAnimation>
+    );
+  default:
+    return (
+      <ScrollAnimation {...props}>
+        {props.children}
+      </ScrollAnimation>
+    );
   }
-
-  return (
-    <ScrollAnimation {...props}>
-      {props.children}
-    </ScrollAnimation>
-  );
 };
 
 Animated.defaultProps = {
   isReveal: false,
   isFade: false,
+  isCastom: false,
 };

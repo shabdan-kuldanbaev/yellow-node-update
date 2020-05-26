@@ -1,47 +1,32 @@
-import React, { useRef, useEffect } from 'react';
-import { animated, useSpring } from 'react-spring/web.cjs';
-// TODO import { animated, useSpring } from 'react-spring/web.cjs';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Parallax } from 'react-scroll-parallax';
+import cn from 'classnames';
 
-export const Parallax = ({ children }) => {
-  const ref = useRef();
-  const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
+export const ParallaxContainer = ({
+  yTop,
+  yBottom,
+  children,
+  className,
+}) => (
+  <Parallax
+    y={[`${yBottom}px`, `${-yTop}px`]}
+    className={cn({ [className]: className })}
+    tagOuter="figure"
+  >
+    {children}
+  </Parallax>
+);
 
-  const calc = o => `translateY(${o * 0.1}px)`;
+ParallaxContainer.defaultProps = {
+  yTop: 100,
+  yBottom: 100,
+  className: null,
+};
 
-  const handleScroll = () => {
-    const posY = ref.current.getBoundingClientRect().top;
-    const offset = window.pageYOffset - posY;
-    set({ offset });
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  });
-
-  return (
-    <div
-      style={{
-        marginTop: '300px',
-        background: '#123456',
-        position: 'relative',
-        width: '100vw',
-        height: '100vh',
-      }}
-      ref={ref}
-    >
-      <animated.div
-        style={{
-          background: 'red',
-          marginTop: '30vh',
-          transform: offset.interpolate(calc),
-        }}
-      >
-        {children}
-      </animated.div>
-    </div>
-  );
+ParallaxContainer.propTypes = {
+  yTop: PropTypes.number,
+  yBottom: PropTypes.number,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };

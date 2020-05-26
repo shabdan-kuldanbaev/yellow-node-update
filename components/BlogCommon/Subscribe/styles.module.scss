@@ -17,7 +17,7 @@
     width: 100%;
     // TODO height: 400px;
     @include flex(column, center, center);
-    // background-color: $athens-gray;
+    // TODO background-color: $athens-gray;
 
     @include phone {
       position: absolute;
@@ -128,7 +128,7 @@
 
           @include phone {
             margin-right: 0;
-            // display: none;
+            // TODO display: none;
           }
         }
 
@@ -149,6 +149,7 @@
           margin: auto 0;
           padding: 15px 45px;
           width: auto;
+          will-change: transform;
           transition: background-color $shadow-time-for-yellow-button;
           
           @include phone {

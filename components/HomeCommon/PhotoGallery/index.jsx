@@ -1,83 +1,47 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { connectAdvanced } from 'react-redux';
 import { dataGallary } from './utils/data';
 import styles from './styles.module.scss';
 import { Arrow } from './Arrow';
 
+// TODO This component will be deleted (only for showing markup)
+
+let left = 0;
+
 export const PhotoGallery = ({ dataGallary: photos }) => {
-  const [translate, setTranslate] = useState(0);
-  const directionData = {
-    left: 'left',
-    right: 'right',
-  };
   const galleryRef = useRef(null);
-  const [isStop, setStope] = useState(true);
-  const [direction, setDirection] = useState(null);
 
   const onDocumentMouseMove = (event) => {
     const leftBorder = window.innerWidth / 3;
     const rightBorder = window.innerWidth / 3 * 2;
 
     if ((leftBorder > event.clientX) || (event.clientX > rightBorder)) {
-      // console.log(event.clientX);
-      console.log(galleryRef);
+      // TODO console.log(event.clientX);
     }
   };
 
-  // (function () {
-  //   let top = 0;
-  //   const par = document.getElementById('par');
-  //   var scroll = function () {
-  //     top++;
-  //     if (top >= par.firstElementChild.offsetHeight) {
-  //       // first element is out of sight, so move to the end of the list
-  //       top = 0;
-  //       par.firstElementChild.style.marginTop = '';// reset to -
-  //       par.appendChild(par.firstElementChild);
-  //     } else {
-  //       par.firstElementChild.style.marginTop = `-${top}px`;
-  //     }
-  //     setTimeout(scroll, 100);
-  //   };
-  //   scroll();
-  // }());
-
-  const handleOnClickArrowLeft = () => {
-    // console.log('handleOnClickArrowLeft');
-    // console.log('handleOnClickArrowLeft');
-    galleryRef.current.style.transform = `translateX(${translate}px`;
-    setTranslate(translate - 100);
-  };
+  const handleOnClickArrowLeft = () => {};
 
   const handleOnClickArrowRight = () => {
-    // console.log('handleOnClickArrowRight');
-    galleryRef.current.style.transform = `translateX(${translate}px`;
-    setTranslate(translate + 100);
-  };
+    const scroll = () => {
+      left += 1;
 
-  useEffect(() => {
-    // let interval;
-    // const onLoad = () => {
-    // let interval = setInterval(() => {
-
-      // console.log(galleryRef.firstElementChild);
-      // const flavoursScrollWidth = galleryRef.current ? galleryRef.current.scrollWidth : 0;
-      // const flavoursScrollLeft = galleryRef.current ? galleryRef.current.scrollWidth : 0;
-      // console.log({ flavoursScrollWidth, flavoursScrollLeft });
-      // if (flavoursScrollLeft !== flavoursScrollWidth) {
-      //   galleryRef.current.scrollTo(flavoursScrollLeft + 1, 0);
-      // }
-
-    // }, 1000);
-    // };
-
-    // document.addEventListener('scroll', onLoad);
-    return () => {
-      // document.removeEventListener('scroll', onLoad);
-      // clearInterval(interval);
+      // TODO console.log({
+      //   offsetLeft: galleryRef.current.children[0].offsetLeft,
+      //   scrollHeight: (-1 * galleryRef.current.children[0].scrollHeight) + (46 * 2),
+      // });
+      // if (galleryRef.current.children[0].offsetLeft <= (-1 * galleryRef.current.children[0].scrollHeight) + (46 * 2)) {
+      if (galleryRef.current.children[0].offsetLeft <= -442) {
+        left = 0;
+        galleryRef.current.children[0].current.style.marginLeft = '';
+        galleryRef && galleryRef.current.appendChild(galleryRef.current.children[0]);
+      } else {
+        galleryRef && (galleryRef.current.children[0].style.marginLeft = `-${left}px`);
+      }
+      // setTimeout(scroll, 30);
     };
-  }, []);
+    scroll();
+  };
 
   return (
     <section className={styles.photoGallery}>
@@ -93,10 +57,10 @@ export const PhotoGallery = ({ dataGallary: photos }) => {
         ))}
       </div>
       <div className={styles.arrowBlockLeft} onClick={handleOnClickArrowLeft}>
-        <Arrow />
+        <Arrow position="left" />
       </div>
       <div className={styles.arrowBlockRight} onClick={handleOnClickArrowRight}>
-        <Arrow />
+        <Arrow position="right" />
       </div>
     </section>
   );

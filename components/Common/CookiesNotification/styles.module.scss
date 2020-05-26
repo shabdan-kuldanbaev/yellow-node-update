@@ -41,6 +41,7 @@
     font-size: 0.875rem !important;
     margin: auto 0;
     padding: 10px 0;
+    will-change: transform;
     transform: translateX(-90px);
     z-index: 9999;
 
@@ -73,6 +74,7 @@
       border: 0 none;
       border-radius: 5px;
       background-color: $white;
+      will-change: transform;
 
       &:nth-of-type(1) {
         transform: rotate(45deg) translate(0px, 2px);

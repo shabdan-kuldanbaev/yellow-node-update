@@ -3,3 +3,9 @@ export const priority = {
   high: 'high',
   medium: 'medium',
 };
+
+export const animatedType = {
+  isReveal: 'isReveal',
+  isFade: 'isFade',
+  isCastom: 'isCastom',
+};

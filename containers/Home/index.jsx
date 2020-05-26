@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import {
   Intro,
   Blog,
-  Advantages,
+  // Advantages,
   Portfolio,
   Reviews,
   // Insta,
@@ -14,7 +14,7 @@ import { FeedbackForm } from 'components';
 export const Home = ({ theme, introSection }) => (
   <Fragment>
     <Intro theme={theme} introSection={introSection} />
-    <Advantages />
+    {/* <Advantages /> */}
     <Portfolio />
     <Reviews />
     <Blog />

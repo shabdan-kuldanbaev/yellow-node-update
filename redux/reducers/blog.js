@@ -7,6 +7,7 @@ const initialState = {
   totalCount: null,
   error: {},
   limit: { desktop: 11, mobile: 4 },
+  isBlogOpen: false,
   isFirstVisit: false,
 };
 
@@ -34,6 +35,7 @@ const handlers = {
     error: payload,
   }),
   [actionTypes.SET_TOTAL_ARTICLES_COUNT]: (state, { payload }) => ({ ...state, totalCount: payload }),
+  [actionTypes.SET_BLOG_STATUS]: (state, { payload }) => ({ ...state, isBlogOpen: payload }),
   [actionTypes.SET_FIRST_VISIT_OF_BLOG]: (state, { payload }) => ({ ...state, isFirstVisit: payload }),
   DEFAULT: (state) => state,
 };

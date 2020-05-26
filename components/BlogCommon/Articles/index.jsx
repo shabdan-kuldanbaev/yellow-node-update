@@ -1,5 +1,4 @@
 import React, {
-  useRef,
   useEffect,
   useState,
   Fragment,
@@ -14,6 +13,7 @@ import {
 } from 'components';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
+import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Articles = ({
@@ -24,7 +24,6 @@ const Articles = ({
 }) => {
   const { asPath } = useRouter();
   const [isMobile, setMobile] = useState(false);
-  const articlesGrid = useRef(null);
   const pageNumber = toInt(page);
 
   useEffect(() => {
@@ -34,24 +33,48 @@ const Articles = ({
   }, []);
 
   return (
-    <div className={styles.articlesGrid} ref={articlesGrid}>
+    <div className={styles.articlesGrid}>
       <Loader isLoading={!isLoading}>
         {articles && articles.map((art, index) => {
-          const delay = 80 * index;
+          const delay = isSearch ? (150 * index) : (250 + 30 * index);
           const effect = 'fadeInUp';
-          // (
-            // pageNumber === 1
-            //   ? (index === 0 || index === 1)
-            //     ? 'zoomIn'
-            //     : 'fadeInUp'
-            //   : 'fadeInUp'
-          // || (asPath.includes('=how-we-work') && (index === 0 ? 'bounceIn' : ' jackInTheBox'))
-          // || (asPath.includes('=software-development') && (index === 0 ? 'slideInUp' : 'flipInX'))
-          // || (asPath.includes('=software-chat') && (index === 0 ? 'fadeInUp' : 'bounceIn'))
-          // || (asPath.includes('=marketing') && (index === 0 ? 'slideInUp' : 'zoomIn'))
-          // || (asPath.includes('=yellow') && (index === 0 ? 'flipInX' : 'slideInUp'))
-          // || (asPath.length === 1 && (index === 0 ? 'zoomIn' : 'fadeInUp')
-          // );
+          const animatioProps = isSearch
+            ? {
+              // TODO type: animatedType.isReveal,
+              // delay: 0,
+              // animateIn: null, // AOS
+              // effect, // Reveal
+
+              type: animatedType.isFade,
+              delay,
+              distance: '50px',
+              bottom: true,
+              effect,
+
+              // TODO type: animatedType.isCastom,
+              // translateY: 50,
+              // opasityDuration: 0.5,
+              // transformDuration: 0.4,
+              // transitionDelay: delay,
+            }
+            : {
+              // TODO delay,
+              // animateIn: effect, // AOS
+              // animateOnce: true, // AOS
+              // offset: 10, // AOS
+
+              // TODO type: animatedType.isFade,
+              // delay,
+              // distance: '200px',
+              // bottom: true,
+              // effect: 'fadeInUp',
+
+              type: animatedType.isCastom,
+              translateY: 50,
+              opasityDuration: 0.5,
+              transformDuration: 0.4,
+              transitionDelay: delay,
+            };
 
           return (
             <Fragment>
@@ -75,14 +98,7 @@ const Articles = ({
                   [styles.low]: (pageNumber === 1 && index !== 0 && index !== 1) || pageNumber !== 1,
                 })}
               >
-                <Animated
-                  isReveal={isSearch}
-                  delay={isSearch ? 0 : delay}
-                  animateIn={!isSearch && effect} // AOS
-                  effect={isSearch && effect} // Reveal
-                  animateOnce // AOS
-                  offset={10} // AOS
-                >
+                <Animated {...animatioProps}>
                   <LinkWrapper
                     isLocalLink
                     dynamicRouting="/blog/[article]"

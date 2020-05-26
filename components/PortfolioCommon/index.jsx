@@ -1,7 +1,6 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import cn from 'classnames';
 import { Animated } from 'components';
+import { animatedType } from 'utils/constants';
 import { works } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -15,24 +14,54 @@ export const Portfolio = () => (
       >
         <div className={styles.desc}>
           <Animated
-            delay={60}
-            animateIn="fadeInUp"
-            animateOnce
-            // offset={10 * index * 80}
+            // TODO type={animatedType.isFade}
+            // delay={10}
+            // distance="20px"
+            // bottom
+            // effect="fadeInUp"
+
+            // TODO delay={100}
+            // animateIn="fadeInUp"
+            // animateOnce
+            // offset={10}
+
+            type={animatedType.isCastom}
+            translateY={70}
+            opasityDuration={1}
+            transformDuration={0.5}
+            transitionDelay={300}
           >
+            {/* TODO <div> */}
             <h1>{work.name}</h1>
             <p>{work.description}</p>
-            <button type="button">See full case study</button>
+            <div className={styles.buttonWrap}>
+              <button type="button">See full case study</button>
+            </div>
+            {/* TODO </div> */}
           </Animated>
         </div>
-        <div className={cn(styles.imgWrapper, styles.animationOfAppearanceBefore, { [styles.animationOfAppearance]: true })}>
+        <div className={styles.imgWrapper}>
           <Animated
-            delay={80}
-            animateIn="fadeInUp"
-            animateOnce
-            // offset={10 * index * 80}
+            // TODO type={animatedType.isFade}
+            // delay={10}
+            // distance="20px"
+            // bottom
+            // effect="fadeInUp"
+
+            // TODO delay={0}
+            // animateIn="fadeInUp"
+            // animateOnce
+            // offset={10}
+
+            type={animatedType.isCastom}
+            translateY={70}
+            opasityDuration={1}
+            transformDuration={0.5}
+            transitionDelay={370}
           >
+            {/* TODO <div> */}
             <div style={{ backgroundImage: `url(${work.image})` }} />
+            {/* TODO </div> */}
           </Animated>
         </div>
       </div>

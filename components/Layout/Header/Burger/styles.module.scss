@@ -29,6 +29,7 @@
 
   hr {
     &:nth-child(1) {
+      will-change: transform;
       background-color: $white !important;
       transform: rotate(45deg) translate(3px, 3px);
       transition: transform $default-transition-time
@@ -37,6 +38,7 @@
 
     &:nth-child(2) {
       width: 20px;
+      will-change: transform;
       background-color: $white !important;
       transform: rotate(-45deg) translate(3px, -3px);
       transition: transform $default-transition-time,
@@ -49,6 +51,7 @@
 .burgerClosed {
   hr {
     &:nth-child(1) {
+      will-change: transform;
       transform: rotate(0) translate(0, 0);
       transition: transform $default-transition-time,
                   background-color $default-transition-time;
@@ -56,6 +59,7 @@
 
     &:nth-child(2) {
       width: 10px;
+      will-change: transform;
       transform: rotate(0) translate(0, 0);
       transition: transform $default-transition-time,
                   background-color $default-transition-time;
