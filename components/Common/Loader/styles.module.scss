@@ -3,56 +3,9 @@
 .preloader {
   @include flex(column, center, center);
   min-height: 100vh;
-  // TODO position: fixed;
-  // width: 100vw;
-  // height: 100vh;
-  // z-index: 99999999999;
-  // background-color: $white;
-
-  @include tablet {
-    height: 80vh;
-    // TODO height: 100vh;
-  }
-
-  .loader {
-    display: block;
-    position: relative;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: $turbo-100;
-    animation: spin 2.5s linear infinite;
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      right: 5px;
-      bottom: 5px;
-      border-radius: 50%;
-      border: 3px solid transparent;
-      border-top-color: $turbo-100;
-      animation: spin 2s linear infinite;
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      right: 15px;
-      bottom: 15px;
-      border-radius: 50%;
-      border: 3px solid transparent;
-      border-top-color: $turbo-100;
-      animation: spin 1.5s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-  }
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999999999;
+  background-color: $white;
 }

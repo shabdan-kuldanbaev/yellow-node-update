@@ -47,7 +47,9 @@ export const SectionTitle = ({
           : (
             <p className={cn({ [styleSubtitle]: styleSubtitle })}>
               Fill in this form or
-              <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>send us an e-mail</LinkWrapper>
+              <span>
+                <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>send us an e-mail</LinkWrapper>
+              </span>
             </p>
           )}
       </Animated>
@@ -59,12 +61,13 @@ SectionTitle.defaultProps = {
   styleTitle: null,
   styleSubtitle: null,
   isFeedbackForm: false,
+  subtitle: '',
 };
 
 SectionTitle.propTypes = {
   title: PropTypes.string.isRequired,
   styleTitle: PropTypes.string,
-  subtitle: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
   styleSubtitle: PropTypes.string,
   isFeedbackForm: PropTypes.bool,
 };

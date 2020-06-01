@@ -1,0 +1,26 @@
+@import 'styles/utils/mixins';
+
+.pageLoading {
+  @include flex(column, center, center);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: $white;
+  z-index: 99999999999;
+
+  svg{
+    font-weight: bold;
+    width: 300px;
+    height: auto;
+  }
+}
+
+.hide {
+  will-change: opacity;
+  transition: opacity .5s ease-in;
+  opacity: 0;
+}
+
+.setZIndex {
+  z-index: -5;
+}

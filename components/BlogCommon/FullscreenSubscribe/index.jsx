@@ -41,11 +41,7 @@ const FullscreenSubscribe = ({
               isThereLink
               linkText="Privacy Policy"
             />
-            <ButtonMore
-              handleOnClick=""
-              title="Subscribe"
-              buttonStyle={styles.button}
-            />
+            <ButtonMore title="Subscribe" buttonStyle={styles.button} />
           </div>
         </div>
       </div>

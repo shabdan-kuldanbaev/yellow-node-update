@@ -2,7 +2,7 @@
 
 .worksContainer {
   width: calc(100% + 2 * #{$side-indent});
-  margin: 0 0 $section-indent;
+  margin: 0 0 120px;
   
   @include phone {
     margin: 0 0 $mobile-section-indent;
@@ -12,67 +12,93 @@
     position: relative;
     z-index: 5;
     @include flex(row, space-evenly, center);
-    width: 100%;
-    height: 100vh;
+    width: calc(100% - (80 * 2));
+    margin: 0 80px;
     will-change: background-color;
     transition: background-color $default-transition-time ease;
     transition-timing-function: linear;
+    min-height: 100vh;
 
     &:nth-child(2n) {
       flex-direction: row-reverse;
     }
 
     @include tablet {
+      margin: auto;
+      min-height: auto;
+      padding: 100px 0px;
+    }
+
+    @include below-tablet-horizontal {
+      @include flex(row, center, center);
+    }
+
+    @include below-tablet {
+      height: auto;
       @include flex(column, space-evenly, center);
+
       &:nth-child(1n) {
         flex-direction: column-reverse;
       }
     }
 
-    @include below-tablet-horizontal {
+    @include horizontal-big-mobile {
       @include flex(row, center, center);
+
       &:nth-child(1n) {
-        flex-direction: initial;
+        flex-direction: row;
       }
+
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
+    }
+    
+    @include horizontal-iphone-x {
+      @include flex(row, center, center);
+
+      &:nth-child(1n) {
+        flex-direction: row;
+      }
+
       &:nth-child(2n) {
         flex-direction: row-reverse;
       }
     }
 
-    @include below-tablet {
-      height: auto;
-      margin-top: 70px;
-      margin-bottom: 100px;
-    }
-
     @include phone {
       @include flex(column-reverse, center, center);
       height: auto;
-      margin-bottom: 150px;
-      flex-direction: column-reverse;
-    }
+      margin-right: 20px;
+      margin-left: 20px;
 
-    @include horizontal-mobile {
-      height: auto;
-    }
-
-    @include phone {
       &:nth-child(1n) {
         flex-direction: column-reverse;
       }
-      @include flex(column-reverse, center, center);
-      height: auto;
-      margin-bottom: 150px;
+    }
+
+    @include horizontal-mobile {
+      @include flex(row, center, center);
+      padding: 50px 0px;
+
+      &:nth-child(1n) {
+        flex-direction: row;
+      }
+
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
     }
 
     .desc {
-      width: 45%;
-      @include flex(row, center, center);
+      @include ultra-hd {
+        width: 50%;
+        @include flex(row, center, center);
+      }
 
-      @include tablet {
-        width: 100%;
-        justify-content: normal;
-        max-height: 50%;
+      @include full-hd {
+        width: 50%;
+        @include flex(row, center, center);
       }
 
       @include below-tablet {
@@ -90,10 +116,12 @@
 
       @include horizontal-mobile {
         max-height: initial;
+        width: 50%;
       }
       
       div {
-        max-width: 80%;
+        max-width: 650px;
+        width: 80%;
         height: 100%;
         opacity: 1;
         will-change: transform;
@@ -120,7 +148,7 @@
         }
 
         @include phone {
-          @include flex(column, center, center);
+          @include flex(column, center, flex-start);
           width: 100%;
           max-width: 100%;
           margin: 0;
@@ -151,13 +179,14 @@
           @include phone {
             max-width: calc(100% - 40px);
             font-size: 2.5rem;
-            margin: 40px auto 25px 20px;
+            margin: 40px auto 25px 0px;
           }
         }
     
         p {
           margin: 0;
           margin-top: -20px;
+          margin-bottom: 35px;
           font-size: 1.25rem;
           line-height: 1.53;
           letter-spacing: 0.5px;
@@ -167,24 +196,27 @@
           @include below-tablet-horizontal {
             font-size: 1rem;
           }
+          
+          @include horizontal-mobile {
+            margin-bottom: 35px;
+          }
 
           @include phone {
             max-width: calc(100% - 40px);
             font-size: 1rem;
             max-width: 100%;
-            margin: auto 20px auto;
+            margin: auto 20px 25px 0px;
           }
         }
 
         .buttonWrap {
           padding: 5px 0 10px;
-          margin: 35px 0 0;
           cursor: pointer;
           width: max-content;
 
           @include phone {
             max-width: calc(100% - 40px);
-            margin: 15px auto 0 20px;
+            margin: 0px auto 0 0px;
           }
 
           button {
@@ -206,8 +238,9 @@
               bottom: -5px;
               right: 0;
               width: 100%;
-              height: 2px;
+              border-bottom: 1.5px $white solid;
               background-color: $white;
+              will-change: transition;
               transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
             }
           }
@@ -220,7 +253,9 @@
 
               &:after {
                 width: 0;
+                will-change: transition;
                 transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+                -webkit-transform: translateZ(0);
               }
             }
           }
@@ -229,13 +264,9 @@
     }
 
     .parallax {
-      width: 45%;
+      width: 50%;
       max-height: 100%;
-
-      @include tablet {
-        width: auto;
-        max-height: 50%;
-      }
+      margin: 0;
 
       @include below-tablet-horizontal {
         width: 50%;
@@ -243,6 +274,10 @@
 
       @include phone {
         width: 100%;
+      }
+
+      @include horizontal-mobile {
+        width: 50%;
       }
 
 
@@ -256,19 +291,42 @@
 
         .imgWrapper {
           max-width: 100%;
-          max-height: 100%;
 
           img {
-            max-width: 100%;
-            max-height: 80vh;
+            @include ultra-hd {
+              max-height: 72vh;
+              min-height: 70vh;
+            }
+
+            @include quad-hd {
+              vertical-align: middle;
+              max-height: calc(100vh - 150px);
+              min-height: calc(100vh - 200px);
+            }
 
             @include tablet {
-              max-height: 60vh;
+              max-height: 780px;
+              min-height: 670px;
+            }
+
+            @include below-tablet {
+              max-height: 480px;
+              min-height: 470px;
+            }
+
+            @include below-tablet-horizontal {
+              max-height: calc(100vh - 150px);
+              min-height: calc(100vh - 200px);
             }
 
             @include phone {
               max-width: 95vw;
               max-height: 100vh;
+            }
+
+            @include horizontal-mobile {
+              max-height: calc(100vh - 150px);
+              min-height: calc(100vh - 200px);
             }
           }
         }

@@ -1,16 +1,3 @@
-import React from 'react';
+import { CompanyContainer } from 'containers';
 
-const Company = () => (
-  <section
-    style={{
-      height: '65vh',
-      paddingTop: '300px',
-      textAlign: 'center',
-      backgroundColor: 'white',
-    }}
-  >
-    Company
-  </section>
-);
-
-export default Company;
+export default CompanyContainer;

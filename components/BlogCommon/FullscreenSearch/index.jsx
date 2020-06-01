@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Articles, ModalWindow } from 'components';
 import PropTypes from 'prop-types';
-import { articlesData } from 'containers/Blog/utils/data'; // TODO
+import { articlesData } from 'containers/Blog/utils/data';
+import { mobileResolution } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const FullscreenSearch = ({
@@ -9,10 +10,22 @@ const FullscreenSearch = ({
   closeFullscreenSearch,
   articlesData: dataOfArticle,
 }) => {
+  const [isMobileResolution, setMobileResolution] = useState(null);
   const [inputValue, setInputValue] = useState('');
   const articles = dataOfArticle ? dataOfArticle.filter((item, index) => index < 10) : [];
 
   const handleOnChangeInput = ({ target: { value } }) => setInputValue(value);
+
+  useEffect(() => {
+    const setResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
+
+    setResize();
+
+    window.addEventListener('resize', setResize);
+    return () => {
+      window.removeEventListener('resize', setResize);
+    };
+  }, [isMobileResolution]);
 
   return (
     <ModalWindow
@@ -38,6 +51,8 @@ const FullscreenSearch = ({
               isLoading={false}
               page={2}
               isSearch
+              isMobileResolution={isMobileResolution}
+              asPath=""
             />
           )}
       </div>

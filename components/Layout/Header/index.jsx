@@ -34,7 +34,7 @@ const Header = ({
     [styles.additional]: isAdditional,
     [styles[direction]]: isHomePage ? isModelLoaded : true,
     [styles.notHome]: !isHomePage,
-    [styles.deleteTextOfLogo]: isLogoTextHidden && isHomePage,
+    [styles.deleteTextOfLogo]: isLogoTextHidden,
   });
 
   const handleOnScroll = () => {
@@ -48,7 +48,7 @@ const Header = ({
         intro.bottom < 0
           ? setAdditional(true)
           : setAdditional(false);
-        intro.top < -200 && !isMobile
+        intro.top < -200
           ? setIsLogoTextHidden(true)
           : setIsLogoTextHidden(false);
         oldY < pageYOffset && (!isMobile ? intro.top < -700 : intro.top < -200)
@@ -59,9 +59,13 @@ const Header = ({
       }
 
       if (!isHomePage) {
+        intro.top < -10
+          ? setIsLogoTextHidden(true)
+          : setIsLogoTextHidden(false);
         oldY < pageYOffset && intro.top < -50
           ? setDirection('down')
           : setDirection('up');
+
         oldY = pageYOffset;
       }
     }

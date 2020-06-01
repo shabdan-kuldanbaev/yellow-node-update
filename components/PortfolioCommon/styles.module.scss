@@ -2,12 +2,12 @@
 
 .worksContainer {
   width: calc(100% + 2 * #{$side-indent});
-  margin: 0;
+  margin: 0 0 350px;
   background-color: $white;
   
   @include phone {
     width: 100%;
-    margin: 0;
+    margin: 0 0 100px;
   }
  
   .work {
@@ -21,6 +21,11 @@
     transition: background-color $default-transition-time ease;
     transition-timing-function: linear;
 
+    &:first-child {
+      height: calc(100vh - 81px);
+      margin-top: 81px;
+    }
+
     @include tablet {
       width: 100%;
       @include flex(column-reverse, flex-end, center);
@@ -29,7 +34,8 @@
       padding-bottom: 120px;
 
       &:first-child {
-        padding-top: 130px;
+        height: auto;
+        margin-top: 160px;
       }
     }
 
@@ -47,6 +53,7 @@
 
       &:first-child {
         padding-top: 0px;
+        margin-top: 0px;
       }
     }
 
@@ -90,10 +97,10 @@
       }
       
       div {
-        will-change: transform;
         max-width: 80%;
         height: 100%;
         opacity: 1;
+        will-change: transform;
         transition: transform $default-transition-time, opacity $default-transition-time;
 
         @include tablet {
@@ -155,6 +162,7 @@
         p {
           margin: 0;
           margin-top: -20px;
+          margin-bottom: 35px;
           font-size: 1.25rem;
           line-height: 1.53;
           letter-spacing: 0.5px;
@@ -169,53 +177,14 @@
             max-width: calc(100% - 40px);
             font-size: 1rem;
             max-width: 100%;
-            margin: auto 20px auto 0px;
+            margin: auto 20px 25px 0px;
           }
         }
-      
-        // with radius
-        // TODO button {
-        //   @include buttonMore($black, $black, $turbo-100, $black);
-        //   margin-top: 60px;
-        //   background-color: transparent;
-        //   border-radius: $buttonRadius;
-        //   color: $black;
-        //   line-height: 1.55;
-        //   letter-spacing: 0.5px;
-        //   font-size: 1rem;
-        //   border: 1px solid $black;
-        //   transition: background-color $default-transition-time,
-        //               color $default-transition-time,
-        //               border-color $default-transition-time;
-    
-        //   &:hover {
-        //     border: 1px solid $turbo-100;
-        //     color: $black;
-        //     transition: background-color $default-transition-time,
-        //                 color $default-transition-time,
-        //                 border-color $default-transition-time;
-        //   }
-    
-        //   &:before {
-        //     background-color: $black;
-        //   }
-
-        //   @include below-tablet {
-        //     margin-top: 40px; 
-        //   }
-        // }
 
         .buttonWrap {
           padding: 5px 0 10px;
-          margin: 35px 0 0;
           cursor: pointer;
           width: max-content;
-
-          @include phone {
-            // TODO max-width: calc(100% - 40px);
-            // margin: 15px auto 0 20px;
-            // width: 100%;
-          }
 
           button {
             border: none;
@@ -236,8 +205,9 @@
               bottom: -5px;
               right: 0;
               width: 100%;
-              height: 2px;
+              border-bottom: 1.5px $black solid;
               background-color: $black;
+              will-change: transition;
               transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
             }
           }
@@ -249,61 +219,14 @@
               cursor: pointer;
 
               &:after {
-                width: 0;
+                width: 0px;
+                will-change: transition;
                 transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+                -webkit-transform: translateZ(0);
               }
             }
           }
         }
-
-        // with line
-        // TODO button {
-        //   border: none;
-        //   outline: 0px;
-        //   cursor: pointer;
-        //   background-color: transparent;
-        //   color: $black;
-        //   line-height: 1.55;
-        //   letter-spacing: 0.5px;
-        //   font-size: 1.125rem;
-        //   position: relative;
-        //   display: inline-block;
-        //   padding: 15px 15px 15px 55px;
-        //   margin: 35px 0 0;
-        //   transition: padding-left .2s;
-
-    
-        //   &:before {
-        //     content: '';
-        //     top: 50%;
-        //     position: absolute;
-        //     left: 0px;
-        //     margin-top: -2px;
-        //     height: 2px;
-        //     width: 34px;
-        //     background: $black;
-        //     transition: width .2s;
-        //   }
-
-        //   @include below-tablet {
-        //     margin-top: 40px;
-        //   }
-
-        //   @include phone {
-        //     max-width: 100%;
-        //     margin: 15px auto 0 0px;
-        //   }
-
-        //   &:hover {
-        //     padding-left: 70px;
-        //     transition: padding-left .2s;
-
-        //     &:before {  
-        //       width: 50px;
-        //       transition: width .2s;
-        //     }
-        //   }
-        // }
       }
     }
 

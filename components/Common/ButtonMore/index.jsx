@@ -36,13 +36,14 @@ ButtonMore.defaultProps = {
   href: '',
   buttonStyle: null,
   buttonRef: null,
+  handleOnClick: null,
 };
 
 ButtonMore.propTypes = {
   href: PropTypes.string,
   title: PropTypes.string.isRequired,
   buttonStyle: PropTypes.string,
-  handleOnClick: PropTypes.func.isRequired,
+  handleOnClick: PropTypes.func,
   buttonRef: PropTypes.instanceOf(Object),
 };
 

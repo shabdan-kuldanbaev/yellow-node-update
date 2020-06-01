@@ -4,7 +4,7 @@ import { dataGallary } from './utils/data';
 import styles from './styles.module.scss';
 import { Arrow } from './Arrow';
 
-// TODO This component will be deleted (only for showing markup)
+// TODO This file will be deleted (only for showing markup)
 
 let left = 0;
 
@@ -48,11 +48,7 @@ export const PhotoGallery = ({ dataGallary: photos }) => {
       <div ref={galleryRef} onMouseMove={onDocumentMouseMove}>
         {photos && photos.map((photo, index) => (
           <div key={`photo/${index}`} className={styles[photo.size]}>
-            <img
-              key={`photo/${index}`}
-              className={styles[photo.size]}
-              style={{ backgroundImage: `url(${photo.img})` }}
-            />
+            <img style={{ backgroundImage: `url(${photo.img})` }} src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
           </div>
         ))}
       </div>

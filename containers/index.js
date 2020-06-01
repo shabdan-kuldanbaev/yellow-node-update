@@ -16,3 +16,12 @@ export { default as BlogContainer } from 'containers/Blog';
 
 // Portfolio
 export { default as PortfolioContainer } from 'containers/Portfolio';
+
+// Portfolio
+export { default as ProcessContainer } from 'containers/Process';
+
+// Company
+export { default as CompanyContainer } from 'containers/Company';
+
+// Company
+export { default as ContactContainer } from 'containers/Contact';

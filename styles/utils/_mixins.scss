@@ -56,6 +56,15 @@
   @media (max-height: $horizontal-mobile) { @content; }
 }
 
+@mixin horizontal-big-mobile {
+  @media (max-width: 830px) and (min-height: $horizontal-mobile) { @content; }
+}
+
+
+@mixin horizontal-iphone-x {
+  @media (max-width: 812px) and (min-height: 380px) { @content; }
+}
+
 @mixin phone-height-500 {
   @media (max-width: $max-mobile-size) and (min-height: 500px) { @content; }
 }

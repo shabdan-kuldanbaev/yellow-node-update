@@ -1,10 +1,14 @@
-import React, { Fragment, useEffect } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import {
   Header,
   Footer,
   CookiesNotification,
-  Loader,
+  PageLoading,
 } from 'components';
 import { useRouter } from 'next/router';
 import { selectIsBlogOpen } from 'redux/selectors/blog';
@@ -21,8 +25,12 @@ export const Layout = ({
   setFirstVisit: setFirstVisitOfBlog,
 }) => {
   const { asPath } = useRouter();
+  const [isBlogLoaded, setBlogLoaded] = useState(false);
+  const handleOnBlogLoad = () => setBlogLoaded(true);
 
   useEffect(() => {
+    if (!asPath.includes('blog')) setBlogLoaded(false);
+
     if (asPath.includes('blog') && !isBlogOpen) setBlogCurrentStatus(true);
     if (!asPath.includes('blog') && isBlogOpen) {
       setBlogCurrentStatus(false);
@@ -32,11 +40,17 @@ export const Layout = ({
 
   return (
     <Fragment>
+      {!isBlogLoaded && (
+        <PageLoading
+          isLoading={isLoading}
+          isBlogOpen={isBlogOpen}
+          handleOnBlogLoad={handleOnBlogLoad}
+          asPath={asPath}
+        />
+      )}
       <CookiesNotification />
       <Header theme={theme} introSection={introSection} />
-      <Loader isLoading={isLoading}>
-        {children}
-      </Loader>
+      {children}
       <Footer theme={theme} />
     </Fragment>
   );

@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import {
   Intro,
   Blog,
-  // Advantages,
+  // TODO Advantages,
   Portfolio,
   Reviews,
-  // Insta,
+  // TODO Insta,
   PhotoGalleryContainer,
 } from 'containers';
 import PropTypes from 'prop-types';
@@ -14,11 +14,11 @@ import { FeedbackForm } from 'components';
 export const Home = ({ theme, introSection }) => (
   <Fragment>
     <Intro theme={theme} introSection={introSection} />
-    {/* <Advantages /> */}
+    {/* TODO <Advantages /> */}
     <Portfolio />
     <Reviews />
     <Blog />
-    {/* <Insta /> */}
+    {/* TODO <Insta /> */}
     <PhotoGalleryContainer />
     <FeedbackForm />
   </Fragment>

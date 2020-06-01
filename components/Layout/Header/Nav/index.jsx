@@ -21,9 +21,14 @@ const Nav = ({
       [styles.additionalNavForBlog]: isBlog,
     })}
     >
-      {menuList && menuList.map((item) => (
+      {menuList && menuList.map((item, index, currentArray) => (
         <li key={`menuItem/${item.name}`} className={styles[theme]}>
           <LinkWrapper path={item.href} isLocalLink>
+            {index === currentArray.length - 1 && (
+              <svg viewBox="0 0 115.2 41">
+                <rect rx="20" ry="30" />
+              </svg>
+            )}
             <span className={cn(styles.underline, { [styles.activeNav]: isHeader && asPath.includes(item.name.toLowerCase()) })}>
               {item.name}
             </span>
@@ -42,7 +47,7 @@ Nav.defaultProps = {
 Nav.propTypes = {
   theme: PropTypes.string,
   currentPage: PropTypes.string.isRequired,
-  isAdditional: PropTypes.string.isRequired,
+  isAdditional: PropTypes.bool.isRequired,
   isHeader: PropTypes.bool,
 };
 

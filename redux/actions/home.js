@@ -19,3 +19,8 @@ export const setHomepageVisit = (payload) => ({
   type: actionTypes.SET_HOMEPAGE_VISIT,
   payload,
 });
+
+export const setFirstHomepageVisit = (payload) => ({
+  type: actionTypes.SET_FIRST_HOMEPAGE_VISIT,
+  payload,
+});

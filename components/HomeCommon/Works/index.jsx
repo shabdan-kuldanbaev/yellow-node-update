@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Animated, ParallaxContainer } from 'components';
+import {
+  Animated,
+  ParallaxContainer,
+  LinkWrapper,
+} from 'components';
 import { mobileResolution, horizontalPhone } from 'utils/helper';
 import { animatedType } from 'utils/constants';
 import { works } from './utils/data';
@@ -9,7 +13,7 @@ import ImageWithController from './ImageWithController';
 
 export const Works = ({ refs }) => {
   const [width, setWidth] = useState(null);
-  const [parallaxValues, setParallaxValues] = useState({ yTop: 80, yBottom: 80 });
+  const [parallaxValues, setParallaxValues] = useState({ yTop: 130, yBottom: 130 });
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -42,13 +46,18 @@ export const Works = ({ refs }) => {
               transformDuration={1}
               transitionDelay={270}
             >
-              <div>
+              {/* TODO <div> */}
                 <h1>{work.name}</h1>
                 <p>{work.description}</p>
-                <div className={styles.buttonWrap}>
+                <LinkWrapper
+                  isLocalLink
+                  dynamicRouting="/"
+                  path="/"
+                  className={styles.buttonWrap}
+                >
                   <button type="button">See full case study</button>
-                </div>
-              </div>
+                </LinkWrapper>
+              {/* </div> */}
             </Animated>
           </div>
           <ParallaxContainer

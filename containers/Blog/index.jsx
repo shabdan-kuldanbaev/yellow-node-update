@@ -31,7 +31,7 @@ const BlogContainer = ({
     asPath,
     query: { category, page },
   } = useRouter();
-  const [isMobileResolution, setMobileResolution] = useState(null);
+  const [isMobileResolution, setMobileResolution] = useState(false);
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
   const pagesCounter = Math.ceil(totalCount / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
   const currentPage = toInt(page);
@@ -48,16 +48,12 @@ const BlogContainer = ({
   };
 
   useEffect(() => {
-    window.innerWidth < mobileResolution
-      ? setMobileResolution(true)
-      : setMobileResolution(false);
-
     const newArticles = category !== 'latest'
       ? articlesData.filter((article) => article.category === category)
       : articlesData;
 
     setTotalArticlesCount(newArticles.length);
-  }, []);
+  }, [category]);
 
   useEffect(() => {
     if (isMobileResolution !== null) {
@@ -67,7 +63,14 @@ const BlogContainer = ({
 
       loadNewArticles({ currentPage, currentLimit, category });
     }
-  }, [isMobileResolution]);
+
+    const setResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
+    setResize();
+    window.addEventListener('resize', setResize);
+    return () => {
+      window.removeEventListener('resize', setResize);
+    };
+  }, [isMobileResolution, asPath]);
 
   return (
     <section ref={introSection} className={styles.blog}>
@@ -75,7 +78,9 @@ const BlogContainer = ({
       <Articles
         articles={articles}
         isLoading={isLoading}
-        page={page}
+        isMobileResolution={isMobileResolution}
+        asPath={asPath}
+        currentPage={currentPage}
       />
       <ReactPaginate
         pageCount={pagesCounter}
@@ -92,7 +97,7 @@ const BlogContainer = ({
         previousLinkClassName={styles.paginationPrev}
         nextLinkClassName={styles.paginationNext}
         disableInitialCallback
-        initialPage={currentPage - 1}
+        forcePage={currentPage - 1}
         onPageChange={handleOnPageClick}
       />
     </section>

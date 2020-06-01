@@ -35,7 +35,7 @@ const AnimatedInput = ({
 
   const handleOnBlur = () => {
     setFocus(false);
-    if (type === 'email' && value !== '') handleOnBlurEmail(value);
+    if (type === 'email' && value !== '') handleOnBlurEmail && handleOnBlurEmail(value);
   };
 
   const handleOnOutsideClick = () => {
@@ -63,6 +63,8 @@ const AnimatedInput = ({
 
 AnimatedInput.defaultProps = {
   isWithoutLabel: false,
+  handleOnBlurEmail: null,
+  type: '',
 };
 
 AnimatedInput.propTypes = {
@@ -70,8 +72,8 @@ AnimatedInput.propTypes = {
   handleOnChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   isValidate: PropTypes.bool.isRequired,
-  type: PropTypes.string.isRequired,
-  handleOnBlurEmail: PropTypes.func.isRequired,
+  type: PropTypes.string,
+  handleOnBlurEmail: PropTypes.func,
   isWithoutLabel: PropTypes.bool,
 };
 

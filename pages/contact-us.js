@@ -1,14 +1,3 @@
-const ContactUs = () => (
-  <div
-    style={{
-      height: '65vh',
-      paddingTop: '300px',
-      textAlign: 'center',
-      backgroundColor: 'white',
-    }}
-  >
-    Contact Us
-  </div>
-);
+import { ContactContainer } from 'containers';
 
-export default ContactUs;
+export default ContactContainer;

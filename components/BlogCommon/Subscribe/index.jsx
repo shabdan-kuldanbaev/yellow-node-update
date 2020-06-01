@@ -33,7 +33,6 @@ const Subscribe = ({
                   placeholder={currentPlaceholder}
                   value={email.value}
                   onChange={handleOnEmailChange}
-                  handleOnBlurEmail={handleOnBlurEmail}
                 />
               )
               : (
@@ -47,7 +46,6 @@ const Subscribe = ({
                 />
               )}
             <ButtonMore
-              handleOnClick=""
               href="/blog"
               title="Submit"
               buttonStyle={styles.button}

@@ -1,5 +1,7 @@
 @import 'styles/utils/mixins';
 
+// TODO This file will be deleted (only for showing markup)
+
 .photoGallery {
   position: relative;
   // max-height: 100vh;
@@ -15,7 +17,7 @@
   z-index: 0;
   max-height: 100vh;
 
-  padding: 100px 0;
+  padding: 200px 0;
 
   @include below-tablet {
     padding: 25px 0;
@@ -41,6 +43,7 @@
     width: 100%;
     vertical-align: middle;
     -ms-overflow-style: none;
+    scrollbar-width: none;
     margin: 0px;
     padding: 0px;
     z-index: 0;
@@ -51,6 +54,12 @@
 
     @include below-tablet {
       height: 300px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+      display: none;
     }
 
     div {
@@ -106,7 +115,7 @@
     .horizontalImg {
       width: 596px;
       height: 350px;
-
+    
       @include below-tablet {
         width: 360px;
         height: 211px;

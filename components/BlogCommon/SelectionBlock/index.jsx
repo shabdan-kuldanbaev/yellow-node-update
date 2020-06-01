@@ -47,7 +47,7 @@ const SelectionBlock = ({
   useEffect(() => {
     if (!isFirstVisitBlog && isBlogOpen) {
       subscribeRef.current && subscribeRef.current.classList.add(styles.buttonAppearsWithAnimation);
-      setFirstVisitOfBlog(true);
+      // TODO setFirstVisitOfBlog(true);
     } else if (isFirstVisitBlog) {
       subscribeRef.current && subscribeRef.current.classList.add(styles.buttonAddStyles);
     }

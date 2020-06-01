@@ -2,20 +2,68 @@
 
 .desktopMenu {
   transition: margin $default-transition-time;
+  @include flex(row, center, center);
 
   @include phone {
     display: none;
   }
   
   li {
-    position: relative;
     display: inline-block;
     margin-left: 55px;
     cursor: pointer;
     user-select: none;
+    outline: none;
+    transition: 1s ease-in-out;
 
     @include below-tablet {
       margin-left: 21px;
+    }
+
+    li > svg {
+      display: none;
+    }
+
+    &:last-child {
+      position: relative;
+      border: 1px solid $mid-gray;
+
+      a {
+        width: 100%;
+        height: 100%;
+        border-radius: 60px;
+
+        & > svg {
+          width: 116px;
+          height: 41px;
+          position: absolute;
+          left: -1px;
+          top: -1px;
+          fill: none;
+          stroke: $turbo-100;
+          stroke-dasharray: 150 480;
+          stroke-dashoffset: 150;
+          transition: stroke 1s ease-in-out,
+                      stroke-dasharray 1s ease-in-out,
+                      stroke-dashoffset 1s ease-in-out;
+  
+          rect {
+            width: 114px;
+            height: 40px;
+            fill: transparent;
+          }
+  
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      &:hover {
+       a > svg {
+          stroke-dashoffset: -480;
+        }
+      }
     }
 
     .underline {
@@ -24,29 +72,9 @@
       text-decoration: none;
       letter-spacing: 0.5px;
       transition: color $default-transition-time;
-      
-      // TODO &:before {
-      //   content: "";
-      //   position: absolute;
-      //   bottom: -5px;
-      //   display: block;
-      //   width: 0;
-      //   left: 50%;
-      //   height: 2px;
-      //   background-color: $turbo-100;
-      //   outline: 1px solid transparent;
-      //   transform: translateX(-50%);
-      //   transition: width $default-transition-time ease-in-out;
-      //   transform-origin: center left;
-      // }
-
-      // TODO &:hover:before, &:focus:before {
-      //   width: 100%;
-      //   transform-origin: center left;
-      // }
 
       &:hover {
-        color: #9a999c;
+        color: $mid-gray;
         transition: color $default-transition-time;
       }
 
@@ -65,13 +93,15 @@
     &:last-child {
       border-radius: 60px;
       padding: 10px 15px;
+      // TODO padding: calc(10px + 1.6px) calc(15px + 1.6px);
+
       margin-left: 40px;
-      border: 1.6px solid $white;
+      // TODO border: 1.6px solid $white;
       color: $white;
 
-      transition: border $default-transition-time * 2
-      padding $default-transition-time * 2
-      color $default-transition-time * 2;
+      transition: border $default-transition-time
+                  padding $default-transition-time
+                  color $default-transition-time;
 
       span:before {
         height: 0;
@@ -79,27 +109,21 @@
 
       &:hover {
         will-change: border;
-        border: 1.6px solid $turbo-100;
-        transition: border $default-transition-time * 2;
-
-        transition: border $default-transition-time * 2
-        padding $default-transition-time * 2
-        color $default-transition-time * 2;
+        // TODO border: 1.6px solid $turbo-100;
+        transition: border $default-transition-time
+                    padding $default-transition-time
+                    color $default-transition-time;
         
         span {
           will-change: color;
           color: $turbo-100;
-          transition: color $default-transition-time * 2;
+          transition: color $default-transition-time;
         }
       }
     }
   }
 
   .dark {
-    &:last-child {
-      border: 1.6px solid $white;
-    }
-
     span {
       color: $white;
     }
@@ -136,28 +160,65 @@
   }
 
   li:last-child {
-    background-color: $turbo-100;
-    color: $turbo-100;
-    border: 1.6px solid $turbo-100 !important;
-    transition: border $shadow-time-for-yellow-button,
-                background-color $shadow-time-for-yellow-button,
-                padding $default-transition-time;
-    
-    span {
+      // TODO padding: calc(10px + 1.6px) calc(15px + 1.6px);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10rem;
       color: $black;
-    }
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: background-color 0.4s, // TODO
+                  width 0.4s,
+                  color 0.4s,
+                  padding 0.4s;
 
-    &:hover {
-      background-color: $turbo-200;
-      border: 1.6px solid $turbo-200 !important;
-      transition: border $shadow-time-for-yellow-button,
-                  background-color $shadow-time-for-yellow-button;
-
-      span {
-        will-change: color;
-        color: $black;
+      & > a > svg {
+        display: none;
       }
-    }
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $turbo-100;
+        transition: background-color 0.4s;
+        border-radius: 10rem;
+        z-index: -2;
+      }
+      
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: darken($turbo-200, 3%);
+        transition: background-color 0.4s,
+                    width 0.4s,
+                    color 0.4s;
+        border-radius: 10rem;
+        z-index: -1;
+      }
+
+      &:hover {
+        // TODO padding: calc(10px + 1.6px) calc(15px + 1.6px);
+        padding: 10px 15px;
+        border: none;
+        color: $black;
+        
+        span {
+          color: $black;
+        }
+  
+        &:before {
+          width: 100%;
+        }
+      }
   }
 
   span {
@@ -185,50 +246,40 @@
   }
 
   li:last-child {
-    border: 1.6px solid transparent !important;
+    border: none;
     padding: 0;
     padding-right: 15px;
+    transition: padding 0.5s;
 
-    transition: border $shadow-time-for-yellow-button,
-                background-color $shadow-time-for-yellow-button,
-                padding $default-transition-time;
+    & > a > svg {
+      display: none;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: background-color $shadow-time-for-yellow-button;
+      border-radius: 10rem;
+      z-index: -2;
+    }
 
     @include below-tablet {
       margin-left: 21px;
     }
 
-    // TODO &:before {
-    //   content: "";
-    //   position: absolute;
-    //   bottom: -5px;
-    //   display: block;
-    //   width: 0;
-    //   left: calc(50% - 21.5px);
-    //   height: 2px;
-    //   background-color: $turbo-100;
-    //   transform: translateX(calc(-50% + 15px));
-    //   transition: width $default-transition-time ease-in-out, padding $default-transition-time;
-    //   transform-origin: center left;
-    //   -webkit-mask-image: -webkit-radial-gradient($white, $black);
-    // }
-
-    // TODO &:hover {
-    //   span {
-    //     color: $black;
-    //   }
-    // }
-    
-    // TODO &:hover:before, &:focus:before {
-    //   width: calc(100% - 15px);
-    // }
-
     &:hover {
+      border: none;
       transition: border $shadow-time-for-yellow-button,
                   background-color $shadow-time-for-yellow-button,
                   padding $default-transition-time;
 
       span {
-        color: #9a999c;
+        color: $mid-gray;
+        transition: color $default-transition-time;
       }
     }
   }

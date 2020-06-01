@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated } from 'components';
+import { Animated, LinkWrapper } from 'components';
 import { animatedType } from 'utils/constants';
 import { works } from './utils/data';
 import styles from './styles.module.scss';
@@ -9,7 +9,7 @@ export const Portfolio = () => (
     {works.map((work, index) => (
       <div
         className={styles.work}
-        key={`works/${work.name}`}
+        key={`works/${index}`}
         data-index={index}
       >
         <div className={styles.desc}>
@@ -34,9 +34,14 @@ export const Portfolio = () => (
             {/* TODO <div> */}
             <h1>{work.name}</h1>
             <p>{work.description}</p>
-            <div className={styles.buttonWrap}>
+            <LinkWrapper
+              isLocalLink
+              dynamicRouting="/"
+              path="/"
+              className={styles.buttonWrap}
+            >
               <button type="button">See full case study</button>
-            </div>
+            </LinkWrapper>
             {/* TODO </div> */}
           </Animated>
         </div>

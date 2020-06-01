@@ -1,0 +1,20 @@
+@import 'styles/utils/mixins';
+
+.process {
+  @include flex(column, flex-start, center);
+  padding: 0px $side-indent 0px;
+  background-color: $white;
+
+  .intro {
+    @include flex(column, center, center);
+    height: 100vh;
+  }
+
+  @include phone {
+    padding: 0px $side-indent 0px;
+
+    & > div {
+      margin-bottom: 50px;
+    }
+  }
+}

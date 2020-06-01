@@ -34,6 +34,7 @@ export const Partners = () => (
           // effect="fadeInUp"
           // offset={3000}
 
+          key={`partner/${index}`}
           type={animatedType.isCastom}
           translateY={20}
           opasityDuration={1}

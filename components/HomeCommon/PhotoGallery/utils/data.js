@@ -33,3 +33,5 @@ export const dataGallary = [
     size: 'squareImg',
   },
 ];
+
+export const directionData = { left: 'left', right: 'right' };

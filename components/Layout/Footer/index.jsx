@@ -9,7 +9,11 @@ export const Footer = ({ theme }) => (
     <div className={styles.forms}>
       <Contacts />
       <div className={styles.footerNav}>
-        <Nav theme={theme} />
+        <Nav
+          theme={theme}
+          currentPage=""
+          isAdditional={false}
+        />
         <ButtonMore
           href="/"
           title="Stay tuned for our updates"

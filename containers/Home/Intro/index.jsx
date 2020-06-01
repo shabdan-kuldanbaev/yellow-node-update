@@ -9,6 +9,7 @@ import {
   selectIsModelLoaded,
   selectDuck,
   selectIsHomepageVisit,
+  selectIsFirstHomepageVisit,
 } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import {
@@ -16,6 +17,7 @@ import {
   setScrollOfAddedFooter,
   setDuck,
   setHomepageVisit,
+  setFirstHomepageVisit,
 } from 'redux/actions/home';
 import { connect } from 'react-redux';
 
@@ -30,9 +32,13 @@ const Intro = ({
   setScrollOfAddedFooter: setScroll,
   setDuck: setDuckToRedux,
   setHomepageVisit: setVisitOfHomepage,
+  setFirstHomepageVisit: setFirstHomeVisit,
+  isFirstHomepageVisit,
 }) => {
   useEffect(() => () => {
     setVisitOfHomepage(true);
+
+    if (!isFirstHomepageVisit) setFirstHomeVisit(true);
   }, []);
 
   return (
@@ -49,6 +55,7 @@ const Intro = ({
         isModelLoaded={isModelLoaded}
         setScroll={setScroll}
         isMobileMenuOpened={isMobileMenuOpened}
+        isFirstHomepageVisit={isFirstHomepageVisit}
       />
       <Partners />
     </section>
@@ -66,6 +73,8 @@ Intro.propTypes = {
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setModelLoading: PropTypes.func.isRequired,
   setScrollOfAddedFooter: PropTypes.func.isRequired,
+  setFirstHomepageVisit: PropTypes.func.isRequired,
+  isFirstHomepageVisit: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -73,6 +82,7 @@ const mapStateToProps = (state) => ({
   isMobileMenuOpened: selectIsMobileMenuOpened(state),
   duck: selectDuck(state),
   isHomepageVisit: selectIsHomepageVisit(state),
+  isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
 });
 
 export default connect(mapStateToProps, {
@@ -80,4 +90,5 @@ export default connect(mapStateToProps, {
   setScrollOfAddedFooter,
   setDuck,
   setHomepageVisit,
+  setFirstHomepageVisit,
 })(Intro);

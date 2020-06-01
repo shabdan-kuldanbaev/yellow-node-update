@@ -27,7 +27,7 @@
 
   @include phone {
     height: auto;
-    margin-top: 30px;
+    margin-top: 0px;
   }
 }
 
@@ -49,7 +49,6 @@
     }
   }
 
-  // TODO :global(.animated) {
   div {
     @include flex(column, flex-start, center);
 
@@ -77,6 +76,10 @@
       line-height: 2;
       text-align: center;
       color: $black;
+
+      @include phone {
+        width: 100%;
+      }
   
       span {
         font-weight: normal;
@@ -95,6 +98,15 @@
   @include phone {
     width: 100%;
     padding: 0;
+    margin: 100px 0 0 0;
+
+    &:nth-child(2) {
+      margin: 100px 0 0 0;
+    }
+
+    &:last-child {
+      margin: 100px 0 0 0;
+    }
 
     :global(.animated) {
       img {

@@ -75,45 +75,90 @@
       text-align: center;
       margin: auto 0;
       padding: 0;
-      margin-right: 20px;
+      // TODO margin-right: calc(15px + 1.6px);
+      margin-right: 15px;
       width: auto;
-      
-      
-      // TODO
-      // font-weight: 550;
-      // font-size: 13.5px !important;
-      // letter-spacing: 0.9px;
       font-weight: 450;
       font-size: 14px !important;
       letter-spacing: 0.5px;
-      
+      border: none;
+      border-radius: 10rem;
+      color: $black;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: background-color 0.4s, // TODO
+                  width 0.4s,
+                  color 0.4s;
+
       @include phone {
         display: none;
       }
-
+  
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $white;
+        transition: background-color $shadow-time-for-yellow-button 1s;
+        border-radius: 10rem;
+        z-index: -2;
+      }
+      
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: darken($turbo-200, 3%);
+        transition: background-color 0.4s,
+                    width 0.4s,
+                    color 0.4s;
+        border-radius: 10rem;
+        z-index: -1;
+      }
       &:hover {
-        background-color: $turbo-200;
-        transition: background-color $shadow-time-for-yellow-button;
+        // TODO padding: calc(10px + 1.6px) calc(15px + 1.6px);
+        padding: 10px 15px;
+        border: none;
+        color: $black;
+  
+        &:before {
+          width: 100%;
+        }
       }
     }
 
     .buttonAppearsWithAnimation {
-      border: solid 1px $turbo-100;
-      background-color: $turbo-100;
-      padding: 10px 20px;
+      // TODO padding: calc(10px + 1.6px) calc(15px + 1.6px);
+      padding: 10px 15px;
       margin-right: 0;
+      background-color: $white;
 
-      transition: border $shadow-time-for-yellow-button,
-                  background-color $shadow-time-for-yellow-button,
-                  margin $default-transition-time,
-                  padding $default-transition-time;
+      transition: margin $default-transition-time 1s,
+                  padding $default-transition-time 1s;
+
+      &:after {
+        background-color: $turbo-100;
+      }
+      
     }
 
     .buttonAddStyles {
-      border: solid 1px $turbo-100;
-      background-color: $turbo-100;
-      padding: 10px 20px;
+      // TODO padding: calc(10px + 1.6px) calc(15px + 1.6px);
+      padding: 10px 15px;
       margin-right: 0;
+
+      &:after {
+        width: 100%;
+        height: 100%;
+        background-color: $turbo-100;
+      }
     }
 
     .categoryTitleInHeader {

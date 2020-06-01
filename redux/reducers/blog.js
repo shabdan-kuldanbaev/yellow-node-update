@@ -4,7 +4,7 @@ const initialState = {
   isLoading: false,
   single: {},
   all: [],
-  totalCount: null,
+  totalCount: 0,
   error: {},
   limit: { desktop: 11, mobile: 4 },
   isBlogOpen: false,

@@ -36,15 +36,49 @@
     .portfolioButton {
       @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
       margin-top: $mobile-more-button-indent;
+      border: none;
+      border-radius: 10rem;
+      color: $black;
+      position: relative;
+      overflow: hidden;
       z-index: 1;
-      transition: background-color $default-transition-time,
-                  color $default-transition-time,
-                  border-color $default-transition-time;
+      transition: background-color 0.4s,
+                  width 0.4s,
+                  color 0.4s;
 
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $turbo-100;
+        border-radius: 10rem;
+        z-index: -2;
+      }
+      
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: darken($turbo-200, 3%);
+        transition: background-color 0.4s,
+                    width 0.4s,
+                    color 0.4s;
+        border-radius: 10rem;
+        z-index: -1;
+      }
       &:hover {
-        transition: background-color $default-transition-time,
-                    color $default-transition-time,
-                    border-color $default-transition-time;
+        border: none;
+        color: $black;
+
+        &:before {
+          width: 100%;
+        }
       }
     }
   }

@@ -22,7 +22,6 @@ const FeedbackForm = ({
       <SectionTitle
         title="Let’s move forward"
         styleTitle={styles.title}
-        subtitle
         styleSubtitle={styles.subtitle}
         isFeedbackForm
       />
@@ -50,7 +49,7 @@ const FeedbackForm = ({
             isThereLink
             linkText="Privacy Policy"
           />
-          <CheckboxContainer text="Send me NDA" />
+          <CheckboxContainer text="Send me NDA" isThereLink={false} />
         </div>
         <ButtonMore
           href="/"

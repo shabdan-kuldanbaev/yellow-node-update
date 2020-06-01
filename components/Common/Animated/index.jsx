@@ -5,9 +5,10 @@ import Reveal from 'react-reveal/Reveal';
 import Fade from 'react-reveal/Fade';
 import { animatedType } from 'utils/constants';
 import { CastomAnimation } from './CastomAnimation';
+import { JSONAnimation } from './JSONAnimation';
 
+// TODO props
 export const Animated = (props) => {
-  // TODO props
   switch (props.type) {
   case animatedType.isReveal:
     return (
@@ -26,6 +27,12 @@ export const Animated = (props) => {
       <CastomAnimation {...props}>
         {props.children}
       </CastomAnimation>
+    );
+  case animatedType.isJSON:
+    return (
+      <JSONAnimation {...props}>
+        {props.children}
+      </JSONAnimation>
     );
   default:
     return (

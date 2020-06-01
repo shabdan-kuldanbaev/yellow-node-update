@@ -3,8 +3,6 @@
 .subscribeBlock {
   @include flex(column, center, center);
   width: 100%;
-  // TODO height: 400px;
-  // TODO margin: 100px 0;
   margin: 105px 0 150px;
 
   @include phone {
@@ -15,9 +13,7 @@
   .subscribe {
     position: relative;
     width: 100%;
-    // TODO height: 400px;
     @include flex(column, center, center);
-    // TODO background-color: $athens-gray;
 
     @include phone {
       position: absolute;
@@ -107,9 +103,7 @@
           width: 223px;
           height: 56px;
           border-radius: 82px;
-          // TODO background-color: $blocg-search-background-color;
           background-color: rgba(255, 255, 255, 0.95);
-          // TODO box-shadow: 0 0px 29px 0 $blog-subscribe-input-box-shadow-color;
           box-shadow: 0 0px 29px 0 rgba(0, 0, 0, 0.08);
           border: none;
           font-size: 1.125rem;
@@ -128,7 +122,6 @@
 
           @include phone {
             margin-right: 0;
-            // TODO display: none;
           }
         }
 
@@ -140,7 +133,6 @@
   
         .button {
           @include buttonMore($black, $black, $turbo-100, $turbo-100);
-          background-color: $turbo-100;
           color: $woodsmoke;
           line-height: 1.55;
           letter-spacing: 0.5px;
@@ -151,16 +143,56 @@
           width: auto;
           will-change: transform;
           transition: background-color $shadow-time-for-yellow-button;
-          
+          border: none;
+          border-radius: 10rem;
+          color: $black;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+          transition: background-color 0.4s, // TODO
+                      width 0.4s,
+                      color 0.4s;
+      
+                                
           @include phone {
             margin: 25px auto 0;
             transform: translateX(0px);
             width: 55% !important;
           }
 
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $turbo-100;
+            border-radius: 10rem;
+            z-index: -2;
+          }
+          
+          &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: darken($turbo-200, 3%);
+            transition: background-color 0.4s,
+                        width 0.4s,
+                        color 0.4s;
+            border-radius: 10rem;
+            z-index: -1;
+          }
           &:hover {
-            background-color: $turbo-200;
-            transition: background-color $shadow-time-for-yellow-button;
+            border: none;
+            color: $black;
+      
+            &:before {
+              width: 100%;
+            }
           }
         }
       }

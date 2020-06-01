@@ -8,4 +8,5 @@ export const animatedType = {
   isReveal: 'isReveal',
   isFade: 'isFade',
   isCastom: 'isCastom',
+  isJSON: 'isJSON',
 };

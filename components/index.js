@@ -15,6 +15,7 @@ export { default as Logo } from 'components/Common/Logo';
 export { Upload } from 'components/Common/Upload';
 export { ModalWindow } from 'components/Common/ModalWindow';
 export { ParallaxContainer } from 'components/Common/Animated/Parallax';
+export { default as PageLoading } from 'components/Common/PageLoading';
 
 // HomeCommon
 export { default as FeedbackForm } from 'components/HomeCommon/FeedbackForm';
@@ -42,3 +43,12 @@ export { default as Subscribe } from 'components/BlogCommon/Subscribe';
 
 // PortfolioCommon
 export { Portfolio } from 'components/PortfolioCommon/index';
+
+// ProcessCommon
+export { Process } from 'components/ProcessCommon/index';
+
+// CompanyCommon
+export { Company } from 'components/CompanyCommon';
+
+// ContactCommon
+export { Contact } from 'components/ContactCommon';
