@@ -1,71 +1,36 @@
-import React, { useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { tabletResolution } from 'utils/helper';
 import PropTypes from 'prop-types';
-import { dataGallary } from './utils/data';
-import styles from './styles.module.scss';
-import { Arrow } from './Arrow';
+import { DesktopCarousel } from './DesktopCarousel';
+import { MobileCarousel } from './MobileCarousel';
+import { gallaryData } from './utils/data';
 
-// TODO This file will be deleted (only for showing markup)
+export const PhotoGallery = ({ gallaryData: photos }) => {
+  const [isMobileResolution, setMobileResolution] = useState(false);
 
-let left = 0;
+  useEffect(() => {
+    const setResize = () => (
+      window.innerWidth <= tabletResolution || window.innerHeight < 450
+        ? setMobileResolution(true)
+        : setMobileResolution(false)
+    );
 
-export const PhotoGallery = ({ dataGallary: photos }) => {
-  const galleryRef = useRef(null);
+    setResize();
 
-  const onDocumentMouseMove = (event) => {
-    const leftBorder = window.innerWidth / 3;
-    const rightBorder = window.innerWidth / 3 * 2;
+    window.addEventListener('resize', setResize);
 
-    if ((leftBorder > event.clientX) || (event.clientX > rightBorder)) {
-      // TODO console.log(event.clientX);
-    }
-  };
+    return () => window.removeEventListener('resize', setResize);
+  }, [isMobileResolution]);
 
-  const handleOnClickArrowLeft = () => {};
-
-  const handleOnClickArrowRight = () => {
-    const scroll = () => {
-      left += 1;
-
-      // TODO console.log({
-      //   offsetLeft: galleryRef.current.children[0].offsetLeft,
-      //   scrollHeight: (-1 * galleryRef.current.children[0].scrollHeight) + (46 * 2),
-      // });
-      // if (galleryRef.current.children[0].offsetLeft <= (-1 * galleryRef.current.children[0].scrollHeight) + (46 * 2)) {
-      if (galleryRef.current.children[0].offsetLeft <= -442) {
-        left = 0;
-        galleryRef.current.children[0].current.style.marginLeft = '';
-        galleryRef && galleryRef.current.appendChild(galleryRef.current.children[0]);
-      } else {
-        galleryRef && (galleryRef.current.children[0].style.marginLeft = `-${left}px`);
-      }
-      // setTimeout(scroll, 30);
-    };
-    scroll();
-  };
-
-  return (
-    <section className={styles.photoGallery}>
-      <div ref={galleryRef} onMouseMove={onDocumentMouseMove}>
-        {photos && photos.map((photo, index) => (
-          <div key={`photo/${index}`} className={styles[photo.size]}>
-            <img style={{ backgroundImage: `url(${photo.img})` }} src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
-          </div>
-        ))}
-      </div>
-      <div className={styles.arrowBlockLeft} onClick={handleOnClickArrowLeft}>
-        <Arrow position="left" />
-      </div>
-      <div className={styles.arrowBlockRight} onClick={handleOnClickArrowRight}>
-        <Arrow position="right" />
-      </div>
-    </section>
-  );
+  return isMobileResolution
+    ? <MobileCarousel photos={photos} />
+    : <DesktopCarousel photos={photos} />;
 };
 
 PhotoGallery.defaultProps = {
-  dataGallary,
+  gallaryData,
 };
 
 PhotoGallery.propTypes = {
-  dataGallary: PropTypes.instanceOf(Array),
+  gallaryData: PropTypes.instanceOf(Array),
 };

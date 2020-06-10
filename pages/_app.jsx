@@ -10,7 +10,7 @@ import Head from 'next/head';
 import withRedux from 'next-redux-wrapper';
 import configureStore from 'redux/store';
 import { Layout } from 'containers';
-import Logo from 'components/Common/Logo/images/logo.svg';
+import Logo from 'components/Common/Logo/images/logo-yellow.svg';
 import Router from 'next/router';
 import { ParallaxProvider } from 'react-scroll-parallax';
 

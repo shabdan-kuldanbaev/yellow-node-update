@@ -37,8 +37,21 @@
     overflow: hidden;
     transition: width $default-transition-time ease;
 
-    svg {
-      transition: width $default-transition-time;
+    & > a {
+      position: relative;
+      @include flex(row, flex-start, center);
+
+      img {
+        width: 44px;
+        height: 44px;
+      }
+
+      svg {
+        position: absolute;
+        transition: width $default-transition-time;
+        top: 0;
+        left: 0;
+      }
     }
   }
 

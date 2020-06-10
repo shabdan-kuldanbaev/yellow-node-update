@@ -3,17 +3,19 @@
 
 .formContainer {
   @include flex(column);
+  padding: 10vh;
+  background-color: $woodsmoke;
 
   & > p {
     margin: 0;
     font-size: .9rem;
-    color: $silver;
+    color: #C0C0C0;
     line-height: 1.94;
     letter-spacing: 0.4px;
 
     a {
       margin-left: 5px;
-      color: $accent-color;
+      color: $turbo-100;
       text-decoration: underline;
     }
   }
@@ -26,7 +28,7 @@
     @include flex(column);
     width: 100%;
     max-width: 400px;
-    color: $silver;
+    color: #C0C0C0;
   
     span, label, input {
       font-size: .75rem;
@@ -39,7 +41,7 @@
       border: 0 none;
       border-bottom: solid 0.5px #979797;
       background-color: transparent;
-      color: $silver;
+      color: #C0C0C0;
       outline: none;
     }
   
@@ -70,7 +72,7 @@
           border-radius: 2.5px;
           outline: none;
           color: #d7d7d7;
-          background-color: $tuna;
+          background-color: #353542;
           transition: background-color $default-transition-time, color $default-transition-time;
           cursor: pointer;
 
@@ -81,11 +83,11 @@
   
         .selected {
           border: 0 none;
-          background-color: $accent-color;
+          background-color: $turbo-100;
           color: $black;
   
           &:hover {
-            background-color: $accent-color;
+            background-color: $turbo-100;
           }
         }
       }
@@ -95,7 +97,7 @@
       margin-top: 40px;
   
       .price {
-        color: $accent-color;
+        color: $turbo-100;
       }
   
       :global(.rc-slider) {
@@ -103,20 +105,20 @@
       }
   
       :global(.rc-slider-rail) {
-        background-color: $scorpion;
+        background-color: #695F62;
       }
   
       :global(.rc-slider-track) {
-        background-color: $accent-color;
+        background-color: $turbo-100;
       }
   
       :global(.rc-slider-dot) {
-        border: 2px solid $scorpion;
-        background-color: $scorpion;
+        border: 2px solid #695F62;
+        background-color: #695F62;
       }
   
       :global(.rc-slider-handle) {
-        border: solid 3px $accent-color;
+        border: solid 3px $turbo-100;
         background-color: $black;
   
         &:active, &:focus {
@@ -125,14 +127,14 @@
       }
   
       :global(.rc-slider-dot-active) {
-        border: 2px solid $accent-color;
-        background-color: $accent-color;
+        border: 2px solid $turbo-100;
+        background-color: $turbo-100;
       }
     }
 
     .initialBudget {
       :global(.rc-slider-handle) {
-        border: solid 3px $scorpion;
+        border: solid 3px #695F62;
         background-color: $black;
       }
     }
@@ -183,7 +185,7 @@
           left: 0;
           height: 12.5px;
           width: 12.5px;
-          border: 1px solid $silver;
+          border: 1px solid #C0C0C0;
           border-radius: 2.5px;
           background-color: transparent;
   
@@ -195,7 +197,7 @@
             top: 1px;
             width: 3px;
             height: 6px;
-            border: solid $silver;
+            border: solid #C0C0C0;
             border-width: 0 2px 2px 0;
             will-change: transform;
             transform: rotate(45deg);
@@ -222,9 +224,9 @@
       margin-top: 70px;
       padding: 10px 50px;
       border-radius: 5px;
-      border: solid 1px $accent-color;
+      border: solid 1px $turbo-100;
       background-color: transparent;
-      color: $accent-color;
+      color: $turbo-100;
       font-size: 1rem;
       font-weight: 300;
       line-height: 1.55;
@@ -234,7 +236,7 @@
       transition: background-color $accelerated-transition-time, color $accelerated-transition-time;
 
       &:hover {
-        background-color: $accent-color;
+        background-color: $turbo-100;
         color: $black;
         transition: background-color $default-transition-time, color $default-transition-time;
       }

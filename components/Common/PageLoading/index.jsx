@@ -5,9 +5,8 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
-import { TestSVG } from './TestSVG';
 
-const PageLoading = ({
+export const PageLoading = ({
   isLoading,
   handleOnBlogLoad,
   asPath,
@@ -37,11 +36,7 @@ const PageLoading = ({
     }
   }, [isPageLoaded, isLoading]);
 
-  return (
-    <div ref={loadRef} className={styles.pageLoading}>
-      <TestSVG />
-    </div>
-  );
+  return <div ref={loadRef} className={styles.pageLoading}>Yellow</div>;
 };
 
 PageLoading.propTypes = {
@@ -49,5 +44,3 @@ PageLoading.propTypes = {
   handleOnBlogLoad: PropTypes.func.isRequired,
   asPath: PropTypes.string.isRequired,
 };
-
-export default PageLoading;

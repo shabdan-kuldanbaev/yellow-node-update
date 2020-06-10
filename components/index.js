@@ -15,7 +15,7 @@ export { default as Logo } from 'components/Common/Logo';
 export { Upload } from 'components/Common/Upload';
 export { ModalWindow } from 'components/Common/ModalWindow';
 export { ParallaxContainer } from 'components/Common/Animated/Parallax';
-export { default as PageLoading } from 'components/Common/PageLoading';
+export { PageLoading } from 'components/Common/PageLoading';
 
 // HomeCommon
 export { default as FeedbackForm } from 'components/HomeCommon/FeedbackForm';

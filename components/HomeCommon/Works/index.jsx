@@ -13,7 +13,7 @@ import ImageWithController from './ImageWithController';
 
 export const Works = ({ refs }) => {
   const [width, setWidth] = useState(null);
-  const [parallaxValues, setParallaxValues] = useState({ yTop: 130, yBottom: 130 });
+  const [parallaxValues, setParallaxValues] = useState({ yTop: 100, yBottom: 100 });
 
   useEffect(() => {
     setWidth(window.innerWidth);

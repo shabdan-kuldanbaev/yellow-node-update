@@ -5,14 +5,10 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
+  line-height: 1.53;
+  letter-spacing: 0.5px;
   background-color: $white;
   z-index: 99999999999;
-
-  svg{
-    font-weight: bold;
-    width: 300px;
-    height: auto;
-  }
 }
 
 .hide {
