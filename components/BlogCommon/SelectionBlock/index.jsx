@@ -27,7 +27,7 @@ const SelectionBlock = ({
   setMobileCategoriesState: setMobileCategories,
   isBlogOpen,
   isFirstVisitBlog,
-  setFirstVisit: setFirstVisitOfBlog,
+  setFirstVisit: setFirstVisitOfBlog, // TODO
 }) => {
   const [isFullscreenSearch, setFullscreenSearch] = useState(false);
   const [isFullscreenSubscribe, setFullscreenSubscribe] = useState(false);

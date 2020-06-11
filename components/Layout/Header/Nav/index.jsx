@@ -21,15 +21,14 @@ const Nav = ({
       [styles.additionalNavForBlog]: isBlog,
     })}
     >
-      {menuList && menuList.map((item, index, currentArray) => (
+      {menuList && menuList.map((item) => (
         <li key={`menuItem/${item.name}`} className={styles[theme]}>
           <LinkWrapper path={item.href} isLocalLink>
-            {index === currentArray.length - 1 && (
-              <svg viewBox="0 0 115.2 41">
-                <rect rx="20" ry="30" />
-              </svg>
+            <span className={cn(
+              styles.underline,
+              // TODO { [styles.activeNav]: isHeader && asPath.includes(item.name.toLowerCase()) },
             )}
-            <span className={cn(styles.underline, { [styles.activeNav]: isHeader && asPath.includes(item.name.toLowerCase()) })}>
+            >
               {item.name}
             </span>
           </LinkWrapper>

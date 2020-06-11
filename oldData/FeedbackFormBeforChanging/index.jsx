@@ -33,8 +33,6 @@ const FeedbackForm = ({
             handleOnChange={handleOnNameChange}
             placeholder="Name"
             isValidate
-            isWithoutLabel
-            isRequired
           />
           <AnimatedInput
             value={email.value}
@@ -43,8 +41,6 @@ const FeedbackForm = ({
             type="email"
             isValidate={email.isValidate}
             handleOnBlurEmail={handleOnBlurEmail}
-            isWithoutLabel
-            isRequired
           />
         </div>
         <Upload />

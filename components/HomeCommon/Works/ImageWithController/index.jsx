@@ -7,7 +7,9 @@ const ImageWithController = ({
   alt,
   parallaxController,
 }) => {
-  const handleLoad = () => parallaxController.update();
+  const handleLoad = () => {
+    parallaxController.update();
+  };
 
   return (
     <img

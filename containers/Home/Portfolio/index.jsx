@@ -1,5 +1,5 @@
 import React, {
-  useState,
+  // TODO useState,
   useRef,
   useEffect,
   Fragment,
@@ -10,17 +10,19 @@ import {
   ButtonMore,
 } from 'components';
 import { Advantages } from 'containers';
-import cn from 'classnames';
+// TODO import cn from 'classnames';
 import styles from './styles.module.scss';
 import { blockNumbers } from './utils/data';
 
 export const Portfolio = () => {
-  const [backgroundColor, setBackgroundColor] = useState('firstBlock');
-  const [blockNumber, setBlockNumber] = useState(0);
+  // TODO const [backgroundColor, setBackgroundColor] = useState('firstBlock');
+  // TODO const [blockNumber, setBlockNumber] = useState(0);
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const portfolioRef = useRef(null);
+  let currentNumber = 4;
 
   const handleOnScroll = () => {
-    const halfHeight = refs[1].current.getBoundingClientRect().height / 2;
+    const halfHeight = refs && refs[1].current.getBoundingClientRect().height / 2;
     const [
       zeroBlock,
       firstBottom,
@@ -34,23 +36,53 @@ export const Portfolio = () => {
     ];
 
     if (zeroBlock < halfHeight && (firstBottom > halfHeight && secondBottom > halfHeight && thirdBottom > halfHeight)) {
-      setBlockNumber(1);
+      // if (currentNumber !== 1) {
+      //   // TODO setBlockNumber(1);
+      //   refs[0].current.classList.remove(styles[blockNumbers[2]]);
+      //   portfolioRef.current.classList.remove(styles[blockNumbers[2]]);
+
+      //   refs[0].current.classList.add(styles[blockNumbers[1]]);
+      //   portfolioRef.current.classList.add(styles[blockNumbers[1]]);
+
+      //   currentNumber = 1;
+      // }
     } else if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
-      setBlockNumber(2);
+      // if (currentNumber !== 2) {
+      //   // TODO setBlockNumber(2);
+      //   refs[0].current.classList.remove(styles[blockNumbers[3]]);
+      //   portfolioRef.current.classList.remove(styles[blockNumbers[3]]);
+
+      //   refs[0].current.classList.add(styles[blockNumbers[2]]);
+      //   portfolioRef.current.classList.add(styles[blockNumbers[2]]);
+
+      //   currentNumber = 2;
+      // }
     } else if (secondBottom < halfHeight) {
-      setBlockNumber(3);
-    } else {
-      setBlockNumber(0);
+      // if (currentNumber !== 3) {
+      //   // TODO setBlockNumber(3);
+      //   refs[0].current.classList.add(styles[blockNumbers[3]]);
+      //   portfolioRef.current.classList.add(styles[blockNumbers[3]]);
+
+      //   currentNumber = 3;
+      // }
+    } else if (currentNumber !== 0) {
+      // // TODO setBlockNumber(0);
+      // refs[0].current.classList.remove(styles[blockNumbers[1]]);
+      // portfolioRef.current.classList.remove(styles[blockNumbers[1]]);
+
+      // refs[0].current.classList.add(styles[blockNumbers[0]]);
+      // portfolioRef.current.classList.add(styles[blockNumbers[0]]);
+      // currentNumber = 0;
     }
 
     // TODO if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) setBlockNumber(1);
     // else if (secondBottom < halfHeight) setBlockNumber(2);
     // else setBlockNumber(0);
   };
-
-  useEffect(() => {
-    setBackgroundColor(blockNumbers[blockNumber]);
-  }, [blockNumber]);
+  // TODO console.log('changed');
+  // useEffect(() => {
+  //   setBackgroundColor(blockNumbers[blockNumber]);
+  // }, [blockNumber]);
 
   useEffect(() => {
     handleOnScroll();
@@ -63,23 +95,32 @@ export const Portfolio = () => {
 
   return (
     <Fragment>
-      <Advantages refs={refs} className={styles[backgroundColor]} />
-      <section className={cn(styles.portfolio, styles[backgroundColor])}>
-        <Works refs={refs} />
-        <div className={styles.bottomOfPortfolio}>
-          <SectionTitle
-            title="Check out more works by Yellow"
-            styleTitle={styles.title}
-            subtitle="We brainstorm, contribute, and grow your product together. Every step of the way."
-            styleSubtitle={styles.subtitle}
-          />
-          <ButtonMore
-            href="/portfolio"
-            title="Explore our portfolio"
-            buttonStyle={styles.portfolioButton}
-          />
-        </div>
-      </section>
+      <div className={styles.gradient}>
+        <Advantages
+          refs={refs}
+          // TODO className={styles[backgroundColor]}
+        />
+        <section
+          ref={portfolioRef}
+          className={styles.portfolio}
+          // TODO className={cn(styles.portfolio, styles[backgroundColor])}
+        >
+          <Works refs={refs} />
+          <div className={styles.bottomOfPortfolio}>
+            <SectionTitle
+              title="Check out more works by Yellow"
+              styleTitle={styles.title}
+              subtitle="We brainstorm, contribute, and grow your product together. Every step of the way."
+              styleSubtitle={styles.subtitle}
+            />
+            <ButtonMore
+              href="/portfolio"
+              title="EXPLORE OUR PORTFOLIO"
+              buttonStyle={styles.portfolioButton}
+            />
+          </div>
+        </section>
+      </div>
     </Fragment>
   );
 };

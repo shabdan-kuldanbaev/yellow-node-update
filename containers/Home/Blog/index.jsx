@@ -50,7 +50,7 @@ const Blog = ({
       />
       <ButtonMore
         href="/blog?category=latest&page=1"
-        title="Read more stories"
+        title="READ MORE STORIES"
         buttonStyle={styles.blogButton}
       />
     </section>

@@ -8,16 +8,20 @@ const AnimatedInput = ({
   value,
   handleOnChange,
   placeholder,
-  isValidate,
   type,
   handleOnBlurEmail,
   isWithoutLabel,
+  isRequired,
+  isValidate,
+  isAttached,
 }) => {
   const inputRef = useRef();
   const [isInputActived, setActive] = useState(false);
   const [isInputFocus, setFocus] = useState(false);
   const animatedInput = cn({
     [styles.animatedInput]: true,
+    [styles.isRequired]: isRequired || isAttached,
+    [styles.isValidate]: !isValidate,
     [styles.active]: isInputActived,
     [styles.focus]: isInputFocus && isValidate,
     [styles.error]: !isValidate && value !== '',
@@ -50,12 +54,14 @@ const AnimatedInput = ({
           onFocus={handleOnFocus}
           onBlur={handleOnBlur}
           ref={inputRef}
-          placeholder={isWithoutLabel && !isInputActived ? placeholder : ''}
+          placeholder={isWithoutLabel && placeholder}
           type="text"
           id={value}
           value={value}
           onChange={handleOnChange}
         />
+        {isRequired && <span className={styles.required}>*</span>}
+        {!isValidate && value !== '' && <span className={styles.invalid}>INVALID</span>}
       </div>
     </OutsideClickHandler>
   );
@@ -65,6 +71,8 @@ AnimatedInput.defaultProps = {
   isWithoutLabel: false,
   handleOnBlurEmail: null,
   type: '',
+  isRequired: false,
+  isAttached: false,
 };
 
 AnimatedInput.propTypes = {
@@ -75,6 +83,8 @@ AnimatedInput.propTypes = {
   type: PropTypes.string,
   handleOnBlurEmail: PropTypes.func,
   isWithoutLabel: PropTypes.bool,
+  isRequired: PropTypes.bool,
+  isAttached: PropTypes.bool,
 };
 
 export default AnimatedInput;

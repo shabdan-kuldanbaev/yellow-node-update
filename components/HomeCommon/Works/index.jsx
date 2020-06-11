@@ -7,18 +7,19 @@ import {
 } from 'components';
 import { mobileResolution, horizontalPhone } from 'utils/helper';
 import { animatedType } from 'utils/constants';
+import cn from 'classnames';
 import { works } from './utils/data';
 import styles from './styles.module.scss';
 import ImageWithController from './ImageWithController';
 
 export const Works = ({ refs }) => {
   const [width, setWidth] = useState(null);
-  const [parallaxValues, setParallaxValues] = useState({ yTop: 100, yBottom: 100 });
+  const [parallaxValues, setParallaxValues] = useState({ yTop: 35, yBottom: 35 });
 
   useEffect(() => {
     setWidth(window.innerWidth);
     if (window.innerWidth < mobileResolution || window.innerHeight < horizontalPhone) {
-      setParallaxValues({ yTop: 50, yBottom: 50 });
+      setParallaxValues({ yTop: 15, yBottom: 15 });
     }
   }, [width]);
 
@@ -65,7 +66,13 @@ export const Works = ({ refs }) => {
             yBottom={parallaxValues.yBottom}
             className={styles.parallax}
           >
-            <div className={styles.imgWrapper}>
+            <div
+              className={cn(
+                { [styles.firstShadow]: index === 0 },
+                { [styles.secondShadow]: index === 1 },
+                { [styles.thirdShadow]: index === 2 },
+              )}
+            >
               <ImageWithController src={work.image} alt={work.image} />
             </div>
           </ParallaxContainer>

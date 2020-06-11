@@ -3,6 +3,7 @@
 .animatedInput {
   @include flex(column);
   margin-bottom: 35px;
+  position: relative;
 
   label {
     position: absolute;
@@ -19,7 +20,42 @@
   }
   
   input {
-    width: 100%;
+    cursor: text;
+    width: auto;
+    border: 0 none;
+    border-bottom: solid 0.5px $gray-suit;
+    background-color: transparent;
+    color: $black;
+    outline: none;
+    transition: border 1s cubic-bezier(.26,1.04,.54,1),
+                color .5s cubic-bezier(.26,1.04,.54,1);
+  }
+
+  .required {
+    width: min-content !important;
+    font-weight: 300;
+    position: absolute;
+    pointer-events: none;
+    right: 0;
+    top: 50%;
+    color: $boulder;
+    margin-top: -.4em;
+    font-size: 23px;
+    line-height: 1.94;
+    letter-spacing: 0.4px;
+  }
+
+  .invalid {
+    margin-right: 2.5ch;
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(.26,1.04,.54,1);
+    font-weight: 300;
+    position: absolute;
+    color: $red;
+    pointer-events: none;
+    right: 0;
+    top: 50%;
+    margin-top: -.1em;
   }
 }
 
@@ -31,27 +67,50 @@
     transform: translateY(-5px);
     transition: transform $accelerated-transition-time,
                 font-size $accelerated-transition-time;
-
+    
     @include phone {
       transform: translateY(-15px);
     }
+  }
+
+  input {
+    border-color: $black;
+    transition: border 1s cubic-bezier(.26,1.04,.54,1),
+                color .5s cubic-bezier(.26,1.04,.54,1);
   }
 }
 
 .focus {
   input {
-    border-bottom-color: $black !important;
+    border-color: $black !important;
   }
 }
 
 .error {
   input {
+    color: $red;
     border-bottom-color: $red !important;
+  }
+
+  .required {
+    color: $red;
   }
 }
 
 .default {
   input {
     border-bottom-color: $iron !important;
+  }
+}
+
+.isRequired {
+  input {
+    padding-right: 15px;
+  }
+}
+
+.isValidate {
+  input {
+    padding-right: 100px;
   }
 }

@@ -91,6 +91,8 @@
     }
 
     .desc {
+      z-index: 3;
+      
       @include ultra-hd {
         width: 50%;
         @include flex(row, center, center);
@@ -280,7 +282,6 @@
         width: 50%;
       }
 
-
       div {
         max-width: 100%;
         max-height: 100%;
@@ -288,9 +289,11 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-
+        position: relative;
+        
         .imgWrapper {
           max-width: 100%;
+          position: relative;
 
           img {
             @include ultra-hd {
@@ -328,6 +331,77 @@
               max-height: calc(100vh - 150px);
               min-height: calc(100vh - 200px);
             }
+          }
+        }
+
+        .forBefore {
+          content: "";
+          position: absolute;
+          display: block;
+          height: 210%;
+          width: 300%;
+          background: url('./images/shadow.png') no-repeat 0 0;
+          background-size: 100%;
+          z-index: -2;
+        }
+
+        .firstShadow {
+          @extend .imgWrapper;
+
+          &:before {
+            @extend .forBefore;
+
+            bottom: -108%;
+            -webkit-transform: rotate(-28deg) scale(-1, 1);
+            -ms-transform: rotate(-28deg) scale(-1, 1);
+            transform: rotate(-28deg) scale(-1, 1);
+            left: -62%;
+
+
+            @include phone {
+              bottom: -113%;
+            }
+          }
+        }
+
+        .secondShadow {
+          @extend .imgWrapper;
+
+          &:before {
+            @extend .forBefore;
+            
+            bottom: -115%;
+            -webkit-transform: rotate(33deg);
+            -ms-transform: rotate(33deg);
+            transform: rotate(33deg);
+            right: -40%;
+
+            @include phone {
+              bottom: -120%;
+            }
+          }
+        }
+
+        .thirdShadow {
+          @extend .imgWrapper;
+
+          &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            z-index: -1;
+            top: 0;
+            right: 4%;
+            height: 98%;
+            width: 92%;
+            border-radius: 120px;
+            box-shadow:
+              0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+              0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+              0 12.5px 10px rgba(0, 0, 0, 0.06),
+              0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+              0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+              0 100px 80px rgba(0, 0, 0, 0.12);
           }
         }
       }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { AdvantagesItems, SectionTitle } from 'components';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 export const Advantages = ({ refs, className }) => (
@@ -13,3 +14,12 @@ export const Advantages = ({ refs, className }) => (
     <AdvantagesItems />
   </section>
 );
+
+Advantages.defaultProps = {
+  className: null,
+};
+
+Advantages.propTypes = {
+  refs: PropTypes.instanceOf(Array).isRequired,
+  className: PropTypes.string,
+};

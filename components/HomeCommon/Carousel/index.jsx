@@ -16,9 +16,7 @@ export const Carousel = () => {
     dots: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    autoplay: true,
+    infinite: true,
     nextArrow: <Arrow src={nextArrow} alt="next" />,
     prevArrow: <Arrow src={backArrow} alt="back" />,
   };

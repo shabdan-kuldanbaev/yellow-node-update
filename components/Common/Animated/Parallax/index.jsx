@@ -10,7 +10,7 @@ export const ParallaxContainer = ({
   className,
 }) => (
   <Parallax
-    y={[`${yBottom}px`, `${-yTop}px`]}
+    y={[`${yBottom}%`, `${-yTop}%`]} // TODO y={[`${yBottom}px`, `${-yTop}px`]}
     className={cn({ [className]: className })}
     tagOuter="figure"
   >
