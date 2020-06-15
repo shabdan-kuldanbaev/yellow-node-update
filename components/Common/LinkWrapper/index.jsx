@@ -14,7 +14,7 @@ export const LinkWrapper = ({
   className,
   children,
 }) => (
-  <Link href={dynamicRouting.length > 0 ? dynamicRouting : path} as={path}>
+  <Link prefetch={false} href={dynamicRouting.length > 0 ? dynamicRouting : path} as={path}>
     <a
       className={cn(styles.link, { [className]: !isImage })}
       href={path}

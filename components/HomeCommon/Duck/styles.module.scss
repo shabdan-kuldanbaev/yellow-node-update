@@ -34,24 +34,28 @@
 
   @include phone-height-500 {
     h1 {
+      will-change: transform;
       transform: translateY(-130px);
     }
   }
 
   @include phone-height-650 {
     h1 {
+      will-change: transform;
       transform: translateY(-160px);
     }
   }
 
   @include phone-height-730 {
     h1 {
+      will-change: transform;
       transform: translateY(-190px);
     }
   }
 
   @include phone-height-800 {
     h1 {
+      will-change: transform;
       transform: translateY(-230px);
     }
   }
@@ -72,6 +76,7 @@
 }
 
 .animate {
+  will-change: transform;
   transform: translateY(0) !important;
   opacity: 1 !important;
 }

@@ -9,9 +9,14 @@ const ButtonMore = ({
   title,
   buttonStyle,
   handleOnClick,
+  buttonRef,
 }) => (href.length === 0
   ? (
-    <div className={cn({ [buttonStyle]: buttonStyle })} onClick={handleOnClick}>
+    <div
+      ref={buttonRef}
+      className={cn({ [buttonStyle]: buttonStyle })}
+      onClick={handleOnClick}
+    >
       {title}
     </div>
   )
@@ -30,13 +35,16 @@ const ButtonMore = ({
 ButtonMore.defaultProps = {
   href: '',
   buttonStyle: null,
+  buttonRef: null,
+  handleOnClick: null,
 };
 
 ButtonMore.propTypes = {
   href: PropTypes.string,
   title: PropTypes.string.isRequired,
   buttonStyle: PropTypes.string,
-  handleOnClick: PropTypes.func.isRequired,
+  handleOnClick: PropTypes.func,
+  buttonRef: PropTypes.instanceOf(Object),
 };
 
 export default ButtonMore;

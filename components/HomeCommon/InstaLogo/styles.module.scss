@@ -9,6 +9,7 @@
 
 .logo {
   &-wrapper {
+    will-change: transform;
     transform: rotate(-30deg) scale(.4);
     position: absolute;
     margin-left: -83px;

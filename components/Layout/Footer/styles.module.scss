@@ -54,6 +54,10 @@ footer {
         padding: 0;
 
         li {
+          svg {
+            display: none;
+          }
+          
           span {
             color: $white;
           }
@@ -77,29 +81,10 @@ footer {
           border: none;
           padding: 0;
 
-          &:before {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            display: block;
-            width: 0;
-            left: 50%;
-            height: 2px;
-            background-color: $turbo-100;
-            outline: 1px solid transparent;
-            transform: translateX(-50%);
-            transition: width $default-transition-time ease-in-out;
-            transform-origin: center left;
-          }
-
           &:hover {
             span {
-              color: $white;
+              color: $mountain-mis;
             }
-          }
-          
-          &:hover:before, &:focus:before {
-            width: 100%;
           }
         }
       }
@@ -109,19 +94,23 @@ footer {
         line-height: 1.55;
         letter-spacing: 0.5px;
         text-align: center;
-        font-size: 14px !important;
-        transition: background-color $default-transition-time,
-                    color $default-transition-time,
-                    border-color $default-transition-time;
-
+        font-size: 0.875rem !important;
+        border-radius: 10rem;
+        color: $white;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        background-color: transparent;
+        transition: background-color 0.4s,
+                    color 0.4s;
+  
         &:hover {
-          border-color: $turbo-100;
+          background-color: $turbo-100;
           color: $black;
-          transition: background-color $default-transition-time,
-                      color $default-transition-time,
-                      border-color $default-transition-time;
+          transition: background-color 0.4s,
+                      color 0.4s;
         }
-        
+
         @include phone {
           width: 90%;
           margin: 50px auto 0 auto;

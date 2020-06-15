@@ -10,6 +10,8 @@
   max-width: $max-content-width;
   will-change: height;
   transition: height calc(#{$default-transition-time} / 2);
+  position: relative;
+  z-index: 3;
 
   @include full-hd {
     max-width: $max-content-width-full-hd;
@@ -25,6 +27,28 @@
 
   @include phone {
     max-width: 100%;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-image: linear-gradient(to left, rgba(247, 248, 247, 0), $gray-nurse);
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(247, 248, 247, 0), $gray-nurse);
+    top: 0; 
+    right: 0;
+    z-index: 5;
   }
 }
 

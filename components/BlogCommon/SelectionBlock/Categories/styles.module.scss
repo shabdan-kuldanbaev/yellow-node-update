@@ -20,6 +20,7 @@
     right: $side-indent / 2;
     left: $side-indent / 2;
     padding: 16px;
+    will-change: transform;
     transform: translateY(-150%);
     transition: transform 0.5s ease-in;
   }
@@ -78,16 +79,20 @@
       cursor: pointer;
       list-style-type: none;
       font-weight: 500;
-      font-size: 13.5px;
+      font-size: 0.8438rem;
       letter-spacing: 0.9px;
 
       @include below-tablet {
         margin-right: 20px;
       }
 
+      @include horizontal-mobile {
+        margin-right: 5px;
+      }
+
       @include phone {
         margin: 0;
-        font-size: 18px;
+        font-size: 1.125rem;
         color: $mine-shaft;
         font-weight: 100;
         margin-bottom: 20px;

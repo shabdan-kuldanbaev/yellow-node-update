@@ -14,6 +14,8 @@ export { default as Loader } from 'components/Common/Loader';
 export { default as Logo } from 'components/Common/Logo';
 export { Upload } from 'components/Common/Upload';
 export { ModalWindow } from 'components/Common/ModalWindow';
+export { ParallaxContainer } from 'components/Common/Animated/Parallax';
+export { PageLoading } from 'components/Common/PageLoading';
 
 // HomeCommon
 export { default as FeedbackForm } from 'components/HomeCommon/FeedbackForm';
@@ -28,6 +30,7 @@ export { ScrollIcon } from 'components/HomeCommon/ScrollIcon';
 export { SocialIcons } from 'components/HomeCommon/SocialIcons';
 export { SectionTitle } from 'components/HomeCommon/SectionTitle';
 export { Works } from 'components/HomeCommon/Works';
+export { PhotoGallery } from 'components/HomeCommon/PhotoGallery';
 
 // BlogCommon
 export { default as Article } from 'components/BlogCommon/Article';
@@ -37,3 +40,15 @@ export { default as SearchIcon } from 'components/BlogCommon/SelectionBlock/imag
 export { default as FullscreenSearch } from 'components/BlogCommon/FullscreenSearch';
 export { default as FullscreenSubscribe } from 'components/BlogCommon/FullscreenSubscribe';
 export { default as Subscribe } from 'components/BlogCommon/Subscribe';
+
+// PortfolioCommon
+export { Portfolio } from 'components/PortfolioCommon/index';
+
+// ProcessCommon
+export { Process } from 'components/ProcessCommon/index';
+
+// CompanyCommon
+export { Company } from 'components/CompanyCommon';
+
+// ContactCommon
+export { Contact } from 'components/ContactCommon';

@@ -2,6 +2,23 @@
 
 .carouselItem {
   @include flex(column, initial, center);
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include phone {
+    max-width: calc(100% - (2 * 10));
+    margin: auto 10px;
+  }
+
+  & > img:nth-of-type(1) {
+    max-width: 130px;
+    max-height: 130px;
+    width: 130px;
+    height: 130px;
+    background-repeat: no-repeat;
+    background-size: 105%;
+    background-position: center;
+  }
 
   & > p {
     margin-top: 50px;
@@ -11,7 +28,12 @@
     color: $scarpa-flow;
     position: relative;
 
+    @include ultra-hd {
+      height: 110px;
+    }
+
     @include phone {
+      height: 350px;
       font-size: 0.9375rem;
     }
 
@@ -19,13 +41,9 @@
       display: inline;
       margin: 0;
       padding: 0;
+      will-change: transform;
       transform: translate(-5px, 4px) scale(.65, .65);
     }
-  }
-
-  & > img {
-    max-width: 130px;
-    border-radius: 5px;
   }
 
   .personName {
@@ -69,6 +87,7 @@
       @include phone {
         font-size: .7rem;
         text-align: center;
+        height: 50px;
       }
     }
   }

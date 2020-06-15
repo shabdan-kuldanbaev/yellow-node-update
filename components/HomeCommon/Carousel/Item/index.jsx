@@ -10,7 +10,11 @@ export const CarouselItem = ({
   text,
 }) => (
   <div className={styles.carouselItem}>
-    <img src={avatar} alt={name} />
+    <img
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      alt={name}
+      style={{ backgroundImage: `url(${avatar})` }}
+    />
     <p>
       <img src={Brackets} alt="Brackets" />
       {text}

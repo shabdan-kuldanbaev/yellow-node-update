@@ -13,6 +13,7 @@ export const AddFooter = ({
   setScroll,
   isModelLoaded,
   isMobileMenuOpened,
+  isFirstHomepageVisit,
 }) => {
   let oldY = 0;
   const scrollLabel = useRef(null);
@@ -50,7 +51,7 @@ export const AddFooter = ({
     >
       <SocialIcons theme={theme} />
       <ScrollIcon theme={theme} />
-      {!isMobileMenuOpened && <span ref={scrollLabel} className={styles.scrollTitle}>scroll down</span>}
+      {!isMobileMenuOpened && !isFirstHomepageVisit && <span ref={scrollLabel} className={styles.scrollTitle}>scroll down</span>}
     </section>
   );
 };
@@ -64,4 +65,5 @@ AddFooter.propTypes = {
   setScroll: PropTypes.func.isRequired,
   isModelLoaded: PropTypes.bool.isRequired,
   isMobileMenuOpened: PropTypes.bool.isRequired,
+  isFirstHomepageVisit: PropTypes.bool.isRequired,
 };

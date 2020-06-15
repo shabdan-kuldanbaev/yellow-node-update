@@ -5,6 +5,7 @@
 
   a {
     margin-right: 25px;
+    will-change: transform;
     transform: translateY(0);
     transition: transform .2s;
 

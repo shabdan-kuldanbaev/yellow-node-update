@@ -30,6 +30,8 @@ export const Upload = () => {
           handleOnChange={handleOnDescChange}
           placeholder="Project details (optional)"
           isValidate
+          isWithoutLabel
+          isAttached
         />
         <label htmlFor="files">
           <Attach />

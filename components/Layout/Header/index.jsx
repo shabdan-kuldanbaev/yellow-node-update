@@ -8,6 +8,7 @@ import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
 import { useRouter } from 'next/router';
 import { SelectionBlock, Logo } from 'components';
+import { footerColor } from 'styles/utils/_variables.scss';
 import styles from './styles.module.scss';
 import Nav from './Nav';
 import MobileMenu from './MobileMenu';
@@ -29,11 +30,11 @@ const Header = ({
 
   const headerClassName = cn({
     [styles.headerContainer]: true,
-    [styles.animate]: isModelLoaded,
+    [styles.animate]: isHomePage ? isModelLoaded : true,
     [styles.additional]: isAdditional,
-    [styles[direction]]: isModelLoaded,
+    [styles[direction]]: isHomePage ? isModelLoaded : true,
     [styles.notHome]: !isHomePage,
-    [styles.deleteTextOfLogo]: isLogoTextHidden && isHomePage,
+    [styles.deleteTextOfLogo]: isLogoTextHidden,
   });
 
   const handleOnScroll = () => {
@@ -47,7 +48,7 @@ const Header = ({
         intro.bottom < 0
           ? setAdditional(true)
           : setAdditional(false);
-        intro.top < -200 && !isMobile
+        intro.top < -200
           ? setIsLogoTextHidden(true)
           : setIsLogoTextHidden(false);
         oldY < pageYOffset && (!isMobile ? intro.top < -700 : intro.top < -200)
@@ -58,20 +59,25 @@ const Header = ({
       }
 
       if (!isHomePage) {
+        intro.top < -10
+          ? setIsLogoTextHidden(true)
+          : setIsLogoTextHidden(false);
         oldY < pageYOffset && intro.top < -50
           ? setDirection('down')
           : setDirection('up');
+
         oldY = pageYOffset;
       }
     }
+
+    if (pageYOffset > 20) document.body.style.backgroundColor = footerColor;
+    else if (!isHomePage) document.body.style.backgroundColor = '#fff';
+    else document.body.style.backgroundColor = 'black';
   };
 
   useEffect(() => {
     oldY = window.pageYOffset;
     handleOnScroll();
-
-    if (!isHomePage) document.body.style.backgroundColor = 'white';
-    else document.body.style.backgroundColor = 'black';
 
     window.addEventListener('scroll', handleOnScroll);
     return () => {
@@ -95,6 +101,7 @@ const Header = ({
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
+        isHeader
       />
       <MobileMenu
         isMobileMenuOpened={isMobileMenuOpened}

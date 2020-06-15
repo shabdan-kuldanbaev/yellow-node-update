@@ -8,17 +8,17 @@ import {
 export const socialNetworks = [
   {
     title: 'instagram',
-    href: 'https://www.instagram.com/yellow.systems',
+    href: '//www.instagram.com/yellow.systems',
     image: instaIcon,
   },
   {
     title: 'medium',
-    href: 'https://medium.com/@yellow',
+    href: '//medium.com/@yellow',
     image: mediumIcon,
   },
   {
     title: 'linkedin',
-    href: 'https://www.linkedin.com/company/yellow-systems',
+    href: '//www.linkedin.com/company/yellow-systems',
     image: linkedinIcon,
   },
   {

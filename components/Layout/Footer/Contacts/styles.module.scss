@@ -72,24 +72,34 @@
     span:nth-of-type(2) {
       padding-bottom: 4px;
 
-      a:before {
-        position: absolute;
-        display: block;
-        content: "";
-        border-bottom: 1px $silver solid;
-        bottom: -4px;
-        width: 99%;
-        left: 0.5%;
-        transition: border $accelerated-transition-time;
+      a {
+        position: relative;
+        text-decoration: none;
+        transition: color $accelerated-transition-time;
+
+        &:before {
+          width: 98%;
+          content: '';
+          cursor: pointer;
+          position: absolute;
+          bottom: -5px;
+          right: 1%;
+          border-bottom: 1.5px $silver solid;
+          transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
       }
 
       &:hover {
         cursor: pointer;
+
         a {
           color: $turbo-100;
-          
+
           &:before {
-            border-bottom: 1px $turbo-100 solid;
+            width: 0;
+            will-change: transition;
+            transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: translateZ(0);
           }
         }
       }
@@ -112,6 +122,7 @@
 
       img {
         margin-right: 20px;
+        will-change: transform;
         transform: translateY(0);
         transition: transform .2s;
 
@@ -157,8 +168,8 @@
   }
 
   .text {
-    opacity: 0.5;
-    font-size: 12px;
+    opacity: 0.32;
+    font-size: 0.75rem;
     letter-spacing: 0.3px;
     color: $white;
     margin-top: 80px;
@@ -204,6 +215,7 @@
         border-radius: 50%;
         z-index: 0;
         box-shadow: $bxshadow-small;
+        will-change: transform;
         transform: translate(-200px, -80px);
         // TODO animation: animStar 13s linear infinite;
         animation: flicker 2.2s linear infinite;
@@ -216,6 +228,7 @@
         border-radius: 50%;
         z-index: 1;
         box-shadow: $bxshadow-middle;
+        will-change: transform;
         transform: translate(-200px, -80px);
         // TODO animation: animStar 8s linear infinite;
         animation: flicker 3s linear infinite 1s;
@@ -237,6 +250,7 @@
         border-radius: 50%;
         z-index: 0;
         box-shadow: $bxshadow-small;
+        will-change: transform;
         transform: translate(-200px, -80px);
         // TODO animation: animStar 13s linear infinite;
         animation: flicker 1.5s linear infinite 1.5s;

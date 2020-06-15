@@ -10,8 +10,9 @@ import Head from 'next/head';
 import withRedux from 'next-redux-wrapper';
 import configureStore from 'redux/store';
 import { Layout } from 'containers';
-import Logo from 'components/Common/Logo/images/logo.svg';
+import Logo from 'components/Common/Logo/images/logo-yellow.svg';
 import Router from 'next/router';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
@@ -47,17 +48,19 @@ const App = ({
         <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
       </Head>
       <Provider store={store}>
-        <Layout
-          isLoading={isPageLoaded}
-          theme={theme}
-          introSection={introSection}
-        >
-          <Component
-            {...pageProps}
+        <ParallaxProvider>
+          <Layout
+            isLoading={isPageLoaded}
             theme={theme}
             introSection={introSection}
-          />
-        </Layout>
+          >
+            <Component
+              {...pageProps}
+              theme={theme}
+              introSection={introSection}
+            />
+          </Layout>
+        </ParallaxProvider>
       </Provider>
     </Fragment>
   );

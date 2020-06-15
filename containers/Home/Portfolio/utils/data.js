@@ -1,1 +1,6 @@
-export const blockNumbers = ['firstBlock', 'secondBlock', 'thirdBlock'];
+export const blockNumbers = [
+  'zeroBlock',
+  'firstBlock',
+  'secondBlock',
+  'thirdBlock',
+];

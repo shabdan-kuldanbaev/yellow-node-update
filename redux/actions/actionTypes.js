@@ -4,6 +4,9 @@ export const actionTypes = {
   /* ------------------------ */
   SET_MODEL_LOADING: 'home/SET_MODEL_LOADING',
   SET_SCROLL_OF_ADDED_FOOTER: 'home/SET_SCROLL_OF_ADDED_FOOTER',
+  SET_DUCK: 'home/SET_DUCK',
+  SET_HOMEPAGE_VISIT: 'home/SET_HOMEPAGE_VISIT',
+  SET_FIRST_HOMEPAGE_VISIT: 'home/SET_FIRST_HOMEPAGE_VISIT',
   /* ------------------------ */
   GET_ARTICLE_PENDING: 'blog/GET_ARTICLE_PENDING',
   GET_ARTICLE_SUCCESS: 'blog/GET_ARTICLE_SUCCESS',
@@ -14,4 +17,6 @@ export const actionTypes = {
   LOAD_ARTICLES_FAILED: 'blog/LOAD_ARTICLES_FAILED',
   /* ------------------------ */
   SET_TOTAL_ARTICLES_COUNT: 'blog/SET_TOTAL_ARTICLES_COUNT',
+  SET_BLOG_STATUS: 'blog/SET_BLOG_STATUS',
+  SET_FIRST_VISIT_OF_BLOG: 'blog/SET_FIRST_VISIT_OF_BLOG',
 };

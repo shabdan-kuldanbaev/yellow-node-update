@@ -6,6 +6,7 @@
 }
 
 .hideScroll {
+  will-change: transform;
   transform: translateY(200px);
 }
 
@@ -18,13 +19,14 @@
   width: calc(100% - 34px);
   padding: 17.5px 17px;
   opacity: 1;
+  will-change: transform;
   transform: translate3d(0, -100%, 0);
   transition: transform $default-transition-time,
               padding $default-transition-time;
 
   @include phone {
-    width: calc(100% - 40px);
-    padding: 10px 20px;
+    width: calc(100% - 30px);
+    padding: 10px 15px;
   }
 
   .logo {
@@ -35,15 +37,21 @@
     overflow: hidden;
     transition: width $default-transition-time ease;
 
-    svg {
-      transition: width $default-transition-time;
+    & > a {
+      position: relative;
+      @include flex(row, flex-start, center);
 
-      @include phone {
-        width: 100%;
+      img {
+        width: 44px;
+        height: 44px;
       }
-    }
-    @include phone {
-      width: 35%;
+
+      svg {
+        position: absolute;
+        transition: width $default-transition-time;
+        top: 0;
+        left: 0;
+      }
     }
   }
 
@@ -89,14 +97,11 @@
 
 
     @include phone {
-      padding: 10px 20px;
+      width: calc(100% - 30px);
+      padding: 10px 15px;
     }
     
     svg {
-      @include phone {
-        width: 100%;
-      }
-
       path {
         fill: $black;
       }
@@ -104,16 +109,19 @@
   }
 
   &.down {
+    will-change: transform;
     transform: translate3d(0, -100%, 0);
     transition: transform .7s;
   }
 
   &.up {
+    will-change: transform;
     transform: translate3d(0, 0, 0);
   }
 }
 
 .animate {
+  will-change: transform;
   transform: translate3d(0, 0, 0);
 }
 

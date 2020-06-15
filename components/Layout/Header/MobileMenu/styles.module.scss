@@ -2,6 +2,7 @@
 
 .mobileMenu {
   display: none;
+  will-change: transform;
   transition: transform .3s ease;
 
   @include phone {
@@ -16,6 +17,7 @@
     background-color: $black;
 
     ul {
+      margin-bottom: 20vh;
       padding: 0;
       text-align: center;
 
@@ -66,6 +68,7 @@
   touch-action: initial;
   user-select: initial;
   position: fixed;
+  will-change: transform;
   transform: translateX(0vw);
   transition: opacity $default-transition-time;
   transition: transform $default-transition-time ease;
@@ -73,6 +76,7 @@
   @for $i from 1 through 5 {
     li:nth-child(#{$i}) {
       opacity: 1;
+      will-change: transform;
       transform: translateX(0vw);
       transition: transform $default-transition-time,
                   opacity $default-transition-time;
@@ -82,6 +86,7 @@
 }
 
 .mobileMenuClosed {
+  will-change: transform;
   transform: translateX(-100vh);
   opacity: 0;
   touch-action: none;
@@ -91,6 +96,7 @@
 
   ul {
     li {
+      will-change: transform;
       opacity: 0;
       transform: translateX(-30px);
     }

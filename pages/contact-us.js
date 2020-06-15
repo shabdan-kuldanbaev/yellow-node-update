@@ -1,3 +1,3 @@
-const ContactUs = () => <div style={{ height: '50vh' }} />;
+import { ContactContainer } from 'containers';
 
-export default ContactUs;
+export default ContactContainer;

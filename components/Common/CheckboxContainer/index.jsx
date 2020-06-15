@@ -11,9 +11,11 @@ export const CheckboxContainer = ({
   <label className={styles.checkbox}>
     <span>{text}</span>
     {isThereLink && (
-      <LinkWrapper path="/privacy-policy" isLocalLink>
-        <span className={styles.link}>{linkText}</span>
-      </LinkWrapper>
+      <span className={styles.link}>
+        <LinkWrapper path="/privacy-policy" isLocalLink>
+          {linkText}
+        </LinkWrapper>
+      </span>
     )}
     <input type="checkbox" />
     <span className={styles.checkmark} />
@@ -22,10 +24,11 @@ export const CheckboxContainer = ({
 
 CheckboxContainer.defaultProps = {
   isThereLink: false,
+  linkText: '',
 };
 
 CheckboxContainer.propTypes = {
   text: PropTypes.string.isRequired,
   isThereLink: PropTypes.bool,
-  linkText: PropTypes.string.isRequired,
+  linkText: PropTypes.string,
 };

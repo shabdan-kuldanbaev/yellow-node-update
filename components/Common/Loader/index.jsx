@@ -1,20 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Spinner from './images/Spinner.svg';
 import styles from './styles.module.scss';
 
-const Loader = ({
-  children,
-  isLoading,
-}) => (!isLoading
+const Loader = ({ children, isLoading }) => (!isLoading
   ? (
     <div className={styles.preloader}>
-      {/* TODO <img src={Spinner} alt="Loading..." /> */}
-      <div
-        src={Spinner}
-        alt="Loading..."
-        className={styles.loader}
-      />
+      <div>Loading...</div>
     </div>
   )
   : children

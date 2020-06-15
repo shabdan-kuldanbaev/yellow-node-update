@@ -1,4 +1,4 @@
-export { default as sevenPM } from './7pm.png';
-export { default as dialogKit } from './DialogKit.png';
-// TODO export { default as dialogKit } from './macScreen.png';
-export { default as fireaway } from './Fireaway.png';
+export { default as firstPhone } from './01.png';
+export { default as secondPhone } from './02.png';
+export { default as thirdPhone } from './03.png';
+export { default as fourthPhone } from './04.png';

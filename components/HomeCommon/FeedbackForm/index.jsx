@@ -22,9 +22,9 @@ const FeedbackForm = ({
       <SectionTitle
         title="Let’s move forward"
         styleTitle={styles.title}
-        subtitle
         styleSubtitle={styles.subtitle}
         isFeedbackForm
+        subtitle="true"
       />
       <form className={styles.form}>
         <div className={styles.inputs}>
@@ -33,6 +33,8 @@ const FeedbackForm = ({
             handleOnChange={handleOnNameChange}
             placeholder="Name"
             isValidate
+            isWithoutLabel
+            isRequired
           />
           <AnimatedInput
             value={email.value}
@@ -41,6 +43,8 @@ const FeedbackForm = ({
             type="email"
             isValidate={email.isValidate}
             handleOnBlurEmail={handleOnBlurEmail}
+            isWithoutLabel
+            isRequired
           />
         </div>
         <Upload />
@@ -50,11 +54,11 @@ const FeedbackForm = ({
             isThereLink
             linkText="Privacy Policy"
           />
-          <CheckboxContainer text="Send me NDA" />
+          <CheckboxContainer text="Send me NDA" isThereLink={false} />
         </div>
         <ButtonMore
           href="/"
-          title="Send"
+          title="SEND"
           buttonStyle={styles.submit}
         />
       </form>

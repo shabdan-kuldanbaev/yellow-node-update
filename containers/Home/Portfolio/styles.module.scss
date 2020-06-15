@@ -1,8 +1,28 @@
 @import 'styles/utils/mixins';
 
+.gradient {
+  background: linear-gradient(
+    to bottom,
+    $turbo-100 20%,
+    #22c1c3 30%,
+    $thunder 90%
+  );
+
+  @include phone {
+    background: linear-gradient(
+      to bottom,
+      $turbo-100 20%,
+      #22c1c3 40%,
+      $thunder 93%
+    );
+  }
+}
+
 .portfolio {
   @include flex(column, flex-start, center);
   padding: 0 $side-indent 200px $side-indent;
+  // TODO background-color: $turbo-100;
+  overflow: hidden;
 
   @include phone {
     padding: 0 $side-indent $mobile-section-indent;
@@ -26,38 +46,59 @@
     .subtitle {
       @include flex(column, center, center);
       color: $white;
+      max-width: 550px;
 
       @include phone {
-        font-size: 14px;
+        font-size: 0.875rem;
       }
     }
-  
+    
     .portfolioButton {
       @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
       margin-top: $mobile-more-button-indent;
+      border-radius: 10rem;
+      color: $white;
+      position: relative;
+      overflow: hidden;
       z-index: 1;
-      transition: background-color $default-transition-time,
-                  color $default-transition-time,
-                  border-color $default-transition-time;
+      background-color: transparent;
+      border: solid 1px $boulder;
+      min-width: 330px;
+      padding: 22px 0;
+      line-height: 1.35;
+      font-weight: 600;
+      transition: background-color 0.4s,
+                  border-color 0.4s,
+                  color 0.4s;
+
+      @include phone {
+        min-width: 300px;
+      }
 
       &:hover {
-        transition: background-color $default-transition-time,
-                    color $default-transition-time,
-                    border-color $default-transition-time;
+        background-color: $turbo-100;
+        color: $black;
+        transition: background-color 0.4s,
+                    border-color 0.4s,
+                    color 0.4s;
       }
     }
+
   }
 }
 
+.zeroBlock {
+  background-color: $turbo-100;
+  transition: background-color $changing-portfolio-color ease;
+}
+
 .firstBlock {
-  // TODO background-image: linear-gradient(45deg, #026ed0 0%, #05a7ea 99%);
-  background-color: $cerulean;
+  background-color: $ferra;
   transition: background-color $changing-portfolio-color ease;
 }
 
 .secondBlock {
-  // TODO background-image: linear-gradient(45deg, #3d2424 0%, #714a4a 99%);
-  background-color: $ferra;
+  background-color: $mortar;
   transition: background-color $changing-portfolio-color ease;
 }
 

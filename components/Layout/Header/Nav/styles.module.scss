@@ -2,94 +2,96 @@
 
 .desktopMenu {
   transition: margin $default-transition-time;
+  @include flex(row, center, center);
 
   @include phone {
     display: none;
   }
   
   li {
-    position: relative;
     display: inline-block;
     margin-left: 55px;
     cursor: pointer;
     user-select: none;
+    outline: none;
+    transition: background-color $default-transition-time,
+                color $default-transition-time;
 
     @include below-tablet {
       margin-left: 21px;
     }
 
-    .underline {
-      font-size: 14px;
-      font-weight: 450;
-      text-decoration: none;
-      letter-spacing: 0.5px;
-      
-      &:before {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        display: block;
-        width: 0;
-        left: 50%;
-        height: 2px;
-        background-color: $turbo-100;
-        outline: 1px solid transparent;
-        transform: translateX(-50%);
-        transition: width $default-transition-time ease-in-out;
-        transform-origin: center left;
-      }
-
-      &:hover:before, &:focus:before {
-        width: 100%;
-        transform-origin: center left;
-      }
-
-      &.activeNav {
-        &:before {
-          width: 100%;
-          transform-origin: center left;
-        }
-      }
+    li > svg {
+      display: none;
     }
 
     &:last-child {
+      position: relative;
       border-radius: 60px;
       padding: 10px 15px;
+      padding: calc(10px + 1.5px) calc(15px + 1.5px);
       margin-left: 40px;
-      border: 1.6px solid $white;
+      border: 1.5px solid $mid-gray;
       color: $white;
+      transition: border $default-transition-time,
+                  padding $default-transition-time,
+                  color $default-transition-time;
 
-      transition: border $default-transition-time * 2
-      padding $default-transition-time * 2
-      color $default-transition-time * 2;
+      span {
+        transition: color $default-transition-time;
+      }
 
       span:before {
         height: 0;
       }
 
+      a {
+        width: 100%;
+        height: 100%;
+        border-radius: 60px;
+      }
+
       &:hover {
         will-change: border;
-        border: 1.6px solid $turbo-100;
-        transition: border $default-transition-time * 2;
-
-        transition: border $default-transition-time * 2
-        padding $default-transition-time * 2
-        color $default-transition-time * 2;
+        border: 1.5px solid $turbo-100;
+        transition: border $default-transition-time,
+                    padding $default-transition-time,
+                    color $default-transition-time;
         
         span {
           will-change: color;
           color: $turbo-100;
-          transition: color $default-transition-time * 2;
+          transition: color $default-transition-time;
+        }
+      }
+    }
+
+    .underline {
+      font-size: 0.875rem;
+      font-weight: 450;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color $default-transition-time;
+
+      &:hover {
+        color: $mid-gray;
+        transition: color $default-transition-time;
+      }
+
+      &.activeNav {
+        // TODO &:before {
+        //   width: 100%;
+        //   transform-origin: center left;
+        // }
+
+        & {
+          // TODO color: #9a999c; 
         }
       }
     }
   }
 
   .dark {
-    &:last-child {
-      border: 1.6px solid $white;
-    }
-
     span {
       color: $white;
     }
@@ -126,28 +128,28 @@
   }
 
   li:last-child {
-    background-color: $turbo-100;
-    color: $turbo-100;
-    border: 1.6px solid $turbo-100 !important;
-    transition: border $shadow-time-for-yellow-button,
-                background-color $shadow-time-for-yellow-button,
-                padding $default-transition-time;
-    
-    span {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10rem;
       color: $black;
-    }
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      background-color: $turbo-100;
+      transform: scale(1);
+      transition: transform 0.4s cubic-bezier(0,0,.2,1);
 
-    &:hover {
-      background-color: $turbo-200;
-      border: 1.6px solid $turbo-200 !important;
-      transition: border $shadow-time-for-yellow-button,
-                  background-color $shadow-time-for-yellow-button;
-
-      span {
-        will-change: color;
+      &:hover {
+        border: none;
         color: $black;
+        transform: scale(.96);
+        transition: transform 0.4s cubic-bezier(0,0,.2,1);
+
+        span {
+          color: $black;
+          transition: color 0.4s cubic-bezier(0,0,.2,1);
+        }
       }
-    }
   }
 
   span {
@@ -175,38 +177,41 @@
   }
 
   li:last-child {
-    border: 1.6px solid transparent !important;
+    border: none;
     padding: 0;
     padding-right: 15px;
-    transition: padding $default-transition-time;
+    transition: padding 0.5s;
+
+    & > a > svg {
+      display: none;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: background-color $shadow-time-for-yellow-button;
+      border-radius: 10rem;
+      z-index: -2;
+    }
 
     @include below-tablet {
       margin-left: 21px;
     }
 
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      display: block;
-      width: 0;
-      left: calc(50% - 21.5px);
-      height: 2px;
-      background-color: $turbo-100;
-      transform: translateX(calc(-50% + 15px));
-      transition: width $default-transition-time ease-in-out, padding $default-transition-time;
-      transform-origin: center left;
-      -webkit-mask-image: -webkit-radial-gradient($white, $black);
-    }
-
     &:hover {
+      border: none;
+      transition: border $shadow-time-for-yellow-button,
+                  background-color $shadow-time-for-yellow-button,
+                  padding $default-transition-time;
+
       span {
-        color: $black;
+        color: $mid-gray;
+        transition: color $default-transition-time;
       }
-    }
-    
-    &:hover:before, &:focus:before {
-      width: calc(100% - 15px);
     }
   }
 }

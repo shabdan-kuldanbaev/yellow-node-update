@@ -10,20 +10,25 @@ const Nav = ({
   theme,
   currentPage,
   isAdditional,
+  isHeader,
 }) => {
   const { asPath } = useRouter();
   const isBlog = asPath && asPath.includes('blog');
 
   return (
     <ul className={cn(styles.desktopMenu, {
-      [styles.additionalNav]: !isBlog && (isAdditional || currentPage && currentPage !== ''),
+      [styles.additionalNav]: !isBlog && (isAdditional || (currentPage && currentPage !== '')),
       [styles.additionalNavForBlog]: isBlog,
     })}
     >
       {menuList && menuList.map((item) => (
         <li key={`menuItem/${item.name}`} className={styles[theme]}>
           <LinkWrapper path={item.href} isLocalLink>
-            <span className={cn(styles.underline, { [styles.activeNav]: asPath.includes(item.name.toLowerCase()) })}>
+            <span className={cn(
+              styles.underline,
+              // TODO { [styles.activeNav]: isHeader && asPath.includes(item.name.toLowerCase()) },
+            )}
+            >
               {item.name}
             </span>
           </LinkWrapper>
@@ -35,12 +40,14 @@ const Nav = ({
 
 Nav.defaultProps = {
   theme: 'dark',
+  isHeader: false,
 };
 
 Nav.propTypes = {
   theme: PropTypes.string,
   currentPage: PropTypes.string.isRequired,
-  isAdditional: PropTypes.string.isRequired,
+  isAdditional: PropTypes.bool.isRequired,
+  isHeader: PropTypes.bool,
 };
 
 export default Nav;

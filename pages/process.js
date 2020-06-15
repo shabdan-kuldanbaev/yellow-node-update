@@ -1,3 +1,3 @@
-const Process = () => <div style={{ height: '50vh' }} />;
+import { ProcessContainer } from '../containers';
 
-export default Process;
+export default ProcessContainer;

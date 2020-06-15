@@ -6,6 +6,6 @@
   background-color: $gray-nurse;
 
   @include phone {
-    padding: $mobile-section-indent $side-indent 130px $side-indent;
+    padding: $mobile-section-indent 0px 130px;
   }
 }

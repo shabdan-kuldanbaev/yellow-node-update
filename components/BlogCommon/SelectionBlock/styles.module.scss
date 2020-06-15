@@ -45,6 +45,7 @@
   }
 
   .buttons {
+    min-height: 43px;
     width: 25%;
     @include flex(row, flex-end, center);
     position: relative;
@@ -62,33 +63,60 @@
       right: 160px;
 
       @include phone {
-        top: 1px;
+        top: 14px;
         right: 95px;
       }
     }
 
     .button {
-      @include buttonMore($black, $black, $turbo-100, $turbo-100);
-      background-color: $turbo-100;
+      @include buttonMore($black, $black, $turbo-100, $white);
       color: $woodsmoke;
       line-height: 1.55;
       text-align: center;
       margin: auto 0;
-      padding: 10px 20px;
+      padding: 0;
+      margin-right: 15px;
       width: auto;
-      font-weight: 550;
-      font-size: 13.5px !important;
-      letter-spacing: 0.9px;
-      transition: background-color $shadow-time-for-yellow-button;
-      
+      font-weight: 450;
+      font-size: 0.875rem !important;
+      letter-spacing: 0.5px;
+      border: none;
+      border-radius: 10rem;
+      color: $black;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      background-color: $turbo-100;
+      transform: scale(1);
+      transition: transform 0.4s cubic-bezier(0,0,.2,1),
+                  width 0.4s,
+                  background-color 0.4s;
+
       @include phone {
         display: none;
       }
-
+      
       &:hover {
-        background-color: $turbo-200;
-        transition: background-color $shadow-time-for-yellow-button;
+        padding: 10px 15px;
+        border: none;
+        color: $black;
+        transform: scale(.96);
+        transition: transform 0.4s cubic-bezier(0,0,.2,1);
       }
+    }
+
+    .buttonAppearsWithAnimation {
+      padding: 10px 15px;
+      margin-right: 0;
+
+      &:after {
+        background-color: $turbo-100;
+      }
+    }
+
+    .buttonAddStyles {
+      padding: 10px 15px;
+      margin-right: 0;
     }
 
     .categoryTitleInHeader {
@@ -99,7 +127,7 @@
         cursor: pointer;
         font-weight: 500;
         color: $mine-shaft;
-        font-size: 15px;
+        font-size: 0.9375rem;
         line-height: 1;
       }
     }
@@ -108,6 +136,7 @@
 
 .showCategories {
   div:nth-of-type(1) {
+    will-change: transform;
     transform: translateY(0%);
     transition: transform 0.5s ease-in-out;
   }

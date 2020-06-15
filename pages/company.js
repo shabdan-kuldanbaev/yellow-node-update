@@ -1,3 +1,3 @@
-const Company = () => <div style={{ height: '50vh' }} />;
+import { CompanyContainer } from 'containers';
 
-export default Company;
+export default CompanyContainer;

@@ -18,16 +18,33 @@
   }
 
   .blogButton {
-    @include buttonMore($black, $black, $turbo-100);
+    @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
     margin-top: $mobile-more-button-indent;
-    transition: background-color $default-transition-time,
-                color $default-transition-time,
-                border-color $default-transition-time;
+    border-radius: 10rem;
+    color: $black;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: transparent;
+    border: solid 1px $black;
+    min-width: 330px;
+    padding: 22px 0;
+    line-height: 1.35;
+    font-weight: 600;
+    transition: background-color 0.4s,
+                border-color 0.4s,
+                color 0.4s;
+
+    @include phone {
+      min-width: 300px;
+    }
 
     &:hover {
-      transition: background-color $default-transition-time,
-                  color $default-transition-time,
-                  border-color $default-transition-time;
+      background-color: $turbo-100;
+      color: $black;
+      transition: background-color 0.4s,
+                  border-color 0.4s,
+                  color 0.4s;
     }
   }
 }

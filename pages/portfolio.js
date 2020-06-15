@@ -1,3 +1,3 @@
-const Portfolio = () => <div style={{ height: '50vh' }} />;
+import { PortfolioContainer } from '../containers';
 
-export default Portfolio;
+export default PortfolioContainer;
