@@ -16,9 +16,10 @@ export { Upload } from 'components/Common/Upload';
 export { ModalWindow } from 'components/Common/ModalWindow';
 export { ParallaxContainer } from 'components/Common/Animated/Parallax';
 export { PageLoading } from 'components/Common/PageLoading';
+export { default as FeedbackForm } from 'components/Common/FeedbackForm';
+export { SectionTitle } from 'components/Common/SectionTitle';
 
 // HomeCommon
-export { default as FeedbackForm } from 'components/HomeCommon/FeedbackForm';
 export { AddFooter } from 'components/HomeCommon/AddFooter';
 export { AdvantagesItems } from 'components/HomeCommon/AdvantagesItems';
 export { Carousel } from 'components/HomeCommon/Carousel';
@@ -28,7 +29,6 @@ export { InstaTape } from 'components/HomeCommon/InstaTape';
 export { Partners } from 'components/HomeCommon/Partners';
 export { ScrollIcon } from 'components/HomeCommon/ScrollIcon';
 export { SocialIcons } from 'components/HomeCommon/SocialIcons';
-export { SectionTitle } from 'components/HomeCommon/SectionTitle';
 export { Works } from 'components/HomeCommon/Works';
 export { PhotoGallery } from 'components/HomeCommon/PhotoGallery';
 
@@ -51,4 +51,6 @@ export { Process } from 'components/ProcessCommon/index';
 export { Company } from 'components/CompanyCommon';
 
 // ContactCommon
-export { Contact } from 'components/ContactCommon';
+export { FeedbackFormWithTitle } from 'components/ContactCommon/FeedbackFormWithTitle';
+export { Calendar } from 'components/ContactCommon/Calendar';
+export { CompanyPeoplePhoto } from 'components/ContactCommon/CompanyPeoplePhoto';

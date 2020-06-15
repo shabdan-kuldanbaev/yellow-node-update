@@ -7,9 +7,9 @@ import {
   Reviews,
   // TODO Insta,
   PhotoGalleryContainer,
+  FeedbackFormContainer,
 } from 'containers';
 import PropTypes from 'prop-types';
-import { FeedbackForm } from 'components';
 
 export const Home = ({ theme, introSection }) => (
   <Fragment>
@@ -20,7 +20,7 @@ export const Home = ({ theme, introSection }) => (
     <Blog />
     {/* TODO <Insta /> */}
     <PhotoGalleryContainer />
-    <FeedbackForm />
+    <FeedbackFormContainer />
   </Fragment>
 );
 

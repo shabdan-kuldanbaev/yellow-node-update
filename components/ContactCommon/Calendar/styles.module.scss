@@ -1,0 +1,131 @@
+@import 'styles/utils/mixins';
+
+.feedbackFormWithTitle {
+  position: relative;
+  z-index: 2;
+  @include flex(row, center, center);
+  background-color: $white;
+  background-color: rgb(219, 210, 170);
+  width: 100%;
+
+  @include phone {
+    padding: $mobile-section-indent $side-indent $mobile-section-indent - 20px;
+  }
+  
+  & > div:first-child {
+    position: relative;
+    z-index: 2;
+    @include flex(row, space-around, flex-start);
+    background-color: $white;
+    background-color: rebeccapurple;
+    width: 100%;
+
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+
+    & > div:first-child {
+      max-width: 550px;
+      width: 100%;
+      @include flex(column, space-around, flex-start);
+      background-color: seagreen;
+      text-align: left;
+  
+      & > div:nth-of-type(1) > h1 {
+        margin-top: 50px;
+        margin-bottom: 60px;
+        font-weight: 800;
+        font-size: 4.125rem;
+        letter-spacing: 2.25px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.01;
+        text-align: left;
+      }
+  
+      & > div:nth-of-type(2) > p {
+        margin: 0;
+        margin-top: -20px;
+        margin-bottom: 35px;
+        font-size: 1.25rem;
+        line-height: 1.53;
+        letter-spacing: 0.5px;
+
+        a {
+          margin-top: -20px;
+          margin-bottom: 35px;
+          font-size: 1.25rem;
+          line-height: 1.53;
+          letter-spacing: 0.5px;
+        }
+      }
+      
+      .title {
+        @include phone {
+          width: 100%;
+        }
+      }
+  
+      .subtitle {
+        margin: 0;
+        font-size: .9rem;
+        line-height: 1.55;
+        letter-spacing: 0.5px;
+    
+        span {
+          cursor: pointer;
+          padding: 0 0 5px;
+          
+          a {
+            margin-left: 5px;
+            text-decoration: none;
+            font-size: .9rem;
+            line-height: 1.55;
+            letter-spacing: 0.5px;
+            transition: color $accelerated-transition-time;
+      
+            border: none;
+            outline: 0px;
+            background-color: transparent;
+            color: $black;
+            position: relative;
+            display: inline-block;
+            padding: 0;
+    
+            &:before {
+              content: '';
+              cursor: pointer;
+              position: absolute;
+              bottom: -2px;
+              right: 0;
+              width: 100%;
+              border-bottom: 1px $black solid;
+              background-color: $black;
+              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            }
+          }
+    
+          &:hover {
+            cursor: pointer;
+    
+            a {
+              &:before {
+                width: 0;
+                will-change: transition;
+                transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+                -webkit-transform: translateZ(0);
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    & > div:nth-of-type(2) {
+      width: 50%;
+      background-color: aquamarine;
+      margin-bottom: 0px;
+      @include flex(row, flex-start, flex-start, wrap);
+    }
+  }
+}

@@ -1,0 +1,163 @@
+@import 'styles/utils/mixins';
+
+.form {
+  @include flex(column, initial, center);
+  width: 100%;
+  max-width: $max-content-width;
+  max-height: auto;
+  color: $silver;
+  margin-bottom: 200px;
+
+  @include tablet {
+    margin-bottom: 100px;
+  }
+
+  @include phone {
+    margin-bottom: 50px;
+  }
+
+  & > div {
+    width: 100%;
+  }
+  
+  label {
+    font-size: 1.4375rem;
+    color: $black;
+    font-weight: 500;
+  }
+
+  input {
+    font-size: 1.4375rem;
+    padding-top: 30px;
+    padding-bottom: 20px;
+
+    @include phone {
+      font-size: 18px;
+      padding-top: 20px;
+      padding-bottom: 8px;
+    }
+  }
+  
+  .inputs {
+    @include flex(row, space-between, center);
+    
+    & > div {
+      width: 45%;
+    }
+
+    @include below-tablet {
+      @include flex(column);
+
+      & > div {
+        width: 100%;
+      }
+    }
+  }
+
+  .budget {
+    margin-top: 40px;
+    text-align: left;
+
+    span {
+      font-size: 1.4375rem;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      color: $boulder;
+    }
+
+    .price {
+      color: $black;
+      font-size: 1.5rem;
+    }
+
+    :global(.rc-slider) {
+      margin-top: 20px;
+    }
+
+    :global(.rc-slider-rail) {
+      background-color: $black-haze;
+    }
+
+    :global(.rc-slider-track) {
+      background-color: $black;
+    }
+
+    :global(.rc-slider-dot) {
+      border: 2px solid #695F62;
+      background-color: #695F62;
+    }
+
+    :global(.rc-slider-handle) {
+      width: 14px;
+      height: 14px;
+      border: solid 3px $black;
+      background-color: $white;
+
+      &:active, &:focus {
+        box-shadow: none;
+      }
+    }
+
+    :global(.rc-slider-dot-active) {
+      border: 2px solid $turbo-100;
+      background-color: $turbo-100;
+    }
+  }
+
+  .initialBudget {
+    :global(.rc-slider-handle) {
+      border: solid 3px $black;
+      background-color: $white;
+    }
+  }
+
+  .checkboxContainer {
+    @include flex(row, flex-start, center);
+    margin-top: 15px;
+    width: 100%;
+  
+    @include phone {
+      @include flex(column);
+  
+      label:last-child {
+        margin-top: 20px;
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  .submit {
+    @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
+    border-radius: 10rem;
+    color: $black;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: transparent;
+    border: solid 1px $black;
+    min-width: 330px;
+    padding: 22px 0;
+    line-height: 1.35;
+    font-weight: 600;
+    margin-top: 100px;
+    transition: background-color 0.4s,
+                border-color 0.4s,
+                color 0.4s;
+
+    @include phone {
+      margin: 60px auto 0;
+    }
+
+    @include phone {
+      min-width: 300px;
+    }
+
+    &:hover {
+      background-color: $turbo-100;
+      color: $black;
+      transition: background-color 0.4s,
+                  border-color 0.4s,
+                  color 0.4s;
+    }
+  }
+}

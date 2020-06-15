@@ -10,6 +10,7 @@ export { Portfolio } from 'containers/Home/Portfolio';
 export { Reviews } from 'containers/Home/Reviews';
 export { Home } from 'containers/Home';
 export { PhotoGalleryContainer } from 'containers/Home/PhotoGallery';
+export { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 
 // Blog container
 export { default as BlogContainer } from 'containers/Blog';
@@ -23,5 +24,5 @@ export { default as ProcessContainer } from 'containers/Process';
 // Company
 export { default as CompanyContainer } from 'containers/Company';
 
-// Company
-export { default as ContactContainer } from 'containers/Contact';
+// Contact
+export { ContactContainer } from 'containers/Contact';

@@ -59,6 +59,10 @@ const FeedbackForm = () => {
         </a>
       </p>
       <form className={styles.form}>
+
+
+
+
         <div className={styles.services}>
           <span>Pick necessary services (optional)</span>
           <div className={styles.serviceOptions}>
@@ -87,6 +91,10 @@ const FeedbackForm = () => {
           }
           <Slider {...sliderSettings} />
         </div>
+        
+
+        
+        
         <div className={styles.inputs}>
           <AnimatedInput
             value={fullName}

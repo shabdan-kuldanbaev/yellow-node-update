@@ -29,6 +29,10 @@
     outline: none;
     transition: border 1s cubic-bezier(.26,1.04,.54,1),
                 color .5s cubic-bezier(.26,1.04,.54,1);
+    
+    &::placeholder {
+      font-family: $default-font;
+    }
   }
 
   .required {
