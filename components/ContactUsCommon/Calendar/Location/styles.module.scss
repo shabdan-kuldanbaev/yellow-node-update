@@ -3,10 +3,13 @@
 .location {
   @include flex(column);
   width: max-content;
-  background-color: darkcyan;
+  // background-color: darkcyan;
   width: 50%;
-  // margin-right: 30px;
   margin-bottom: 35px;
+
+  @include phone {
+    width: 100%;
+  }
 
   .date {
     position: relative;
@@ -34,9 +37,9 @@
     }
 
     &:hover:before {
-      will-change: height;
-      height: 27px;
-      transition: height 0.1s 0s linear;
+      // will-change: height;
+      // height: 27px;
+      // transition: height 0.1s 0s linear;
     }
 
     .showUnderline {

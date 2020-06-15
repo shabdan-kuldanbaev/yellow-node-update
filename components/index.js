@@ -50,7 +50,8 @@ export { Process } from 'components/ProcessCommon/index';
 // CompanyCommon
 export { Company } from 'components/CompanyCommon';
 
-// ContactCommon
-export { FeedbackFormWithTitle } from 'components/ContactCommon/FeedbackFormWithTitle';
-export { Calendar } from 'components/ContactCommon/Calendar';
-export { CompanyPeoplePhoto } from 'components/ContactCommon/CompanyPeoplePhoto';
+// ContactUsCommon
+export { FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
+export { Calendar } from 'components/ContactUsCommon/Calendar';
+export { CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
+export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';

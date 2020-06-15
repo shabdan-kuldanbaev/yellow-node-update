@@ -1,0 +1,184 @@
+@import 'styles/utils/mixins';
+
+.companyContacts {
+  width: 100%;
+
+  // background-color: darkseagreen;
+  @include flex(row, center, flex-start);
+  padding: 200px 0;
+
+  @include tablet {
+    width: 100%;
+    padding: 100px 0 200px;
+  }
+
+  @include phone {
+    padding: 60px $side-indent $mobile-section-indent - 20px; 
+  }
+
+  .imgContainer {
+    max-width: 450px;
+    width: 100%;
+    // height: 100%;
+    // max-width: 35%;
+    // max-height: 600px;
+    @include flex(row, flex-end, flex-end);
+    position: relative;
+
+    @include tablet {
+      width: 100%;
+    }
+
+    @include below-tablet {
+      display: none;
+    }
+
+    .whiteCover {
+      width: 100%;
+      padding-top: calc(100% / 0.7);
+      // background-color: hotpink;
+      position: absolute;
+      z-index: 3;
+      transform: scale(1.05);
+    }
+
+    img {
+      z-index: 2;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 0px;
+      padding-top: calc(100% / 0.7);
+      // background-color: rgb(105, 225, 255);
+    }
+  }
+  
+  .removeWhiteCover {
+    .whiteCover {
+      padding-top: 0;
+      transition: padding 1.5s 0.2s ease;
+      background-color: $white;
+    }
+  }
+
+  .address {
+    max-width: 400px;
+    margin-left: 10%;
+    // background-color: rgb(248, 79, 0);
+    @include flex(column);
+    font-family: $default-font;
+    font-style: normal;
+
+    @include below-tablet {
+      @include flex(column, center, center);
+      margin: 0;
+    }
+
+    @include phone {
+      max-width: 270px;
+    }
+
+    .addressTitle {
+      height: 31.5px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 3.5;
+      color: $black;
+      margin-bottom: 50px;
+      
+      &:not(:first-child) {
+        margin-top: 70px;
+      }
+    }
+
+    .locationAddress {
+      font-size: 30px;
+      line-height: 1.56;
+      color: $gray;
+
+      @include tablet {
+        text-align: center;
+      }
+
+      @include phone {
+        font-size: 20px;
+      }
+    }
+
+    .phoneNumber {
+      font-size: 30px;
+      line-height: 1.56;
+      color: $black;
+
+      @include phone {
+        font-size: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: $silver;
+        font-weight: 500;
+        position: relative;
+        width: 99%;
+        left: 0.5%;
+        transition: color $accelerated-transition-time;
+        
+        &:hover {
+          cursor: pointer;
+          color: $turbo-100;
+
+          &:before {
+            border-bottom: 1px $turbo-100 solid;
+          }
+        }
+
+        @include phone {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .email {
+      padding-bottom: 4px;
+      width: max-content;
+      font-size: 30px;
+      line-height: 1.56;
+
+      @include phone {
+        font-size: 20px;
+      }
+
+      a {
+        position: relative;
+        text-decoration: none;
+        transition: color $accelerated-transition-time;
+        color: $black;
+
+        &:before {
+          width: 98%;
+          content: '';
+          cursor: pointer;
+          position: absolute;
+          bottom: -5px;
+          right: 1%;
+          border-bottom: 1.5px $black solid;
+          transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        a {
+          &:before {
+            width: 0;
+            will-change: transition;
+            transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: translateZ(0);
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,11 +5,13 @@
   z-index: 2;
   @include flex(row, center, center);
   background-color: $white;
-  background-color: rgb(219, 210, 170);
+  // background-color: rgb(219, 210, 170);
   width: 100%;
+  margin-top: 100px;
 
   @include phone {
-    padding: $mobile-section-indent $side-indent $mobile-section-indent - 20px;
+    padding: 60px $side-indent $mobile-section-indent - 20px;
+    margin-top: 0;
   }
   
   & > div:first-child {
@@ -17,22 +19,22 @@
     z-index: 2;
     @include flex(row, space-around, flex-start);
     background-color: $white;
-    background-color: rebeccapurple;
+    // background-color: rebeccapurple;
     width: 100%;
 
-    @include below-tablet {
-      @include flex(column, center, center);
+    @include tablet {
+      @include flex(column, center, flex-start);
     }
 
     & > div:first-child {
       max-width: 550px;
       width: 100%;
       @include flex(column, space-around, flex-start);
-      background-color: seagreen;
+      // background-color: seagreen;
       text-align: left;
   
       & > div:nth-of-type(1) > h1 {
-        margin-top: 50px;
+        margin-top: 10px;
         margin-bottom: 60px;
         font-weight: 800;
         font-size: 4.125rem;
@@ -41,6 +43,19 @@
         font-style: normal;
         line-height: 1.01;
         text-align: left;
+
+        @include tablet {
+          margin-top: 0;
+        }
+
+        @include below-tablet {
+          font-size: 3rem;
+        }
+
+        @include phone {
+          font-size: 2.5rem;
+          margin-bottom: 25px;
+        }
       }
   
       & > div:nth-of-type(2) > p {
@@ -51,12 +66,22 @@
         line-height: 1.53;
         letter-spacing: 0.5px;
 
+        @include phone {
+          margin: 0;
+          padding: 0;
+          font-size: 1rem;
+        }
+
         a {
           margin-top: -20px;
           margin-bottom: 35px;
           font-size: 1.25rem;
           line-height: 1.53;
           letter-spacing: 0.5px;
+
+          @include phone {
+            font-size: 1rem;
+          }
         }
       }
       
@@ -123,9 +148,20 @@
   
     & > div:nth-of-type(2) {
       width: 50%;
-      background-color: aquamarine;
+      max-width: $max-content-width;
+      margin-left: 100px;
+      // background-color: aquamarine;
       margin-bottom: 0px;
       @include flex(row, flex-start, flex-start, wrap);
+
+      @include desktop {
+        margin-left: 0;
+      }
+
+      @include tablet {
+        margin-top: 20px;
+        width: 100%;
+      }
     }
   }
 }

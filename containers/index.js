@@ -23,5 +23,5 @@ export { default as ProcessContainer } from 'containers/Process';
 // Company
 export { default as CompanyContainer } from 'containers/Company';
 
-// Contact
-export { ContactContainer } from 'containers/Contact';
+// ContactUs
+export { ContactUsContainer } from 'containers/ContactUs';

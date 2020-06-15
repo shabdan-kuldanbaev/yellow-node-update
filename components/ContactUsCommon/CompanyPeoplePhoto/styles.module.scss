@@ -1,0 +1,50 @@
+@import 'styles/utils/mixins';
+
+.companyPeoplePhoto {
+  width: 100%;
+  margin-top: 100px;
+  // background-color: slategray;
+
+  @include phone {
+    padding: 60px $side-indent $mobile-section-indent - 20px;
+    margin-top: 0;
+  }
+
+  & > div:first-child div {
+    @include phone {
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  & > div:first-child h1 {
+    @include phone {
+      text-align: left;
+      font-size: 1.4375rem;
+    }
+  }
+
+  .imgContainer {
+    width: 80%;
+    max-width: $max-content-width * 1.5;
+    margin: 70px auto 0;
+    @include flex(column, center, center);
+
+    @include tablet {
+      width: 100%;
+    }
+
+    @include phone {
+      margin-top: 25px;
+    }
+
+    img {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 0px;
+      padding-top: calc(100% / 2);
+    }
+  }
+}

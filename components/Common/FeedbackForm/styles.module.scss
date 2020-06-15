@@ -58,16 +58,29 @@
     margin-top: 40px;
     text-align: left;
 
+    @include phone {
+      margin-top: 10px;
+    }
+
     span {
       font-size: 1.4375rem;
       padding-top: 30px;
       padding-bottom: 20px;
       color: $boulder;
+      // background-color: tan;
+      
+      @include phone {
+        font-size: 1.125rem;
+      }
     }
 
     .price {
       color: $black;
-      font-size: 1.5rem;
+      font-size: 1.4375rem;
+
+      @include phone {
+        font-size: 1.125rem;
+      }
     }
 
     :global(.rc-slider) {
