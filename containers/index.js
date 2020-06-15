@@ -9,7 +9,6 @@ export { default as Intro } from 'containers/Home/Intro';
 export { Portfolio } from 'containers/Home/Portfolio';
 export { Reviews } from 'containers/Home/Reviews';
 export { Home } from 'containers/Home';
-export { PhotoGalleryContainer } from 'containers/Home/PhotoGallery';
 export { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 
 // Blog container

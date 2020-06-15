@@ -15,7 +15,7 @@ export const AdvantagesItems = () => (
           // bottom
           // effect="fadeInUp"
 
-          type={animatedType.isCastom}
+          type={animatedType.isCustom}
           translateY={20}
           opasityDuration={0.8}
           transformDuration={0.8}
@@ -29,7 +29,7 @@ export const AdvantagesItems = () => (
             // bottom
             // effect="fadeInUp"
 
-            type={animatedType.isCastom}
+            type={animatedType.isCustom}
             translateY={20}
             opasityDuration={0.5}
             transformDuration={0.5}

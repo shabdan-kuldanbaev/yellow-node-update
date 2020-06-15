@@ -22,7 +22,7 @@ export const Animated = (props) => {
         {props.children}
       </Fade>
     );
-  case animatedType.isCastom:
+  case animatedType.isCustom:
     return (
       <CastomAnimation {...props}>
         {props.children}
@@ -46,5 +46,5 @@ export const Animated = (props) => {
 Animated.defaultProps = {
   isReveal: false,
   isFade: false,
-  isCastom: false,
+  isCustom: false,
 };

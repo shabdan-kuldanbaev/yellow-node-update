@@ -41,7 +41,7 @@ export const Works = ({ refs }) => {
               // effect="fadeInUp"
               // offset={10}
 
-              type={animatedType.isCastom}
+              type={animatedType.isCustom}
               translateY={50}
               opasityDuration={1}
               transformDuration={1}

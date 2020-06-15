@@ -7,7 +7,7 @@ import {
   Computer,
 } from '../images';
 
-export const gallaryData = [
+export const galleryData = [
   {
     img: Stairs,
     size: 'verticalImg',

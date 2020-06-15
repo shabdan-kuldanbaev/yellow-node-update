@@ -14,10 +14,8 @@ export const PageLoading = ({
   const [isPageLoaded, setPageLoaded] = useState(true);
   const loadRef = useRef(null);
 
-  const asyncTimeout = (time) => new Promise((res) => setTimeout(() => res(), time));
-
   useEffect(() => {
-    if (!isPageLoaded) asyncTimeout(500).then(() => setPageLoaded(true));
+    if (!isPageLoaded) setTimeout(() => setPageLoaded(true), 500);
 
     return () => {
       setPageLoaded(false);
@@ -29,10 +27,11 @@ export const PageLoading = ({
   useEffect(() => {
     if (isPageLoaded && isLoading) {
       loadRef.current && loadRef.current.classList.add(styles.hide);
-      asyncTimeout(500).then(() => {
+
+      setTimeout(() => {
         loadRef.current && loadRef.current.classList.add(styles.setZIndex);
         if (asPath.includes('blog')) handleOnBlogLoad(true);
-      });
+      }, 500);
     }
   }, [isPageLoaded, isLoading]);
 

@@ -3,23 +3,23 @@ import { tabletResolution } from 'utils/helper';
 import PropTypes from 'prop-types';
 import { DesktopCarousel } from './DesktopCarousel';
 import { MobileCarousel } from './MobileCarousel';
-import { gallaryData } from './utils/data';
+import { galleryData } from './utils/data';
 
-export const PhotoGallery = ({ gallaryData: photos }) => {
+export const PhotoGallery = ({ galleryData: photos }) => {
   const [isMobileResolution, setMobileResolution] = useState(false);
 
   useEffect(() => {
-    const setResize = () => (
+    const onResize = () => (
       window.innerWidth <= tabletResolution || window.innerHeight < 450
         ? setMobileResolution(true)
         : setMobileResolution(false)
     );
 
-    setResize();
+    onResize();
 
-    window.addEventListener('resize', setResize);
+    window.addEventListener('resize', onResize);
 
-    return () => window.removeEventListener('resize', setResize);
+    return () => window.removeEventListener('resize', onResize);
   }, [isMobileResolution]);
 
   return isMobileResolution
@@ -28,9 +28,9 @@ export const PhotoGallery = ({ gallaryData: photos }) => {
 };
 
 PhotoGallery.defaultProps = {
-  gallaryData,
+  galleryData,
 };
 
 PhotoGallery.propTypes = {
-  gallaryData: PropTypes.instanceOf(Array),
+  galleryData: PropTypes.instanceOf(Array),
 };

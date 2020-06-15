@@ -6,10 +6,10 @@ import {
   Portfolio,
   Reviews,
   // TODO Insta,
-  PhotoGalleryContainer,
   FeedbackFormContainer,
 } from 'containers';
 import PropTypes from 'prop-types';
+import { PhotoGallery } from 'components';
 
 export const Home = ({ theme, introSection }) => (
   <Fragment>
@@ -19,7 +19,7 @@ export const Home = ({ theme, introSection }) => (
     <Reviews />
     <Blog />
     {/* TODO <Insta /> */}
-    <PhotoGalleryContainer />
+    <PhotoGallery />
     <FeedbackFormContainer />
   </Fragment>
 );

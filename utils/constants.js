@@ -7,6 +7,6 @@ export const priority = {
 export const animatedType = {
   isReveal: 'isReveal',
   isFade: 'isFade',
-  isCastom: 'isCastom',
+  isCustom: 'isCustom',
   isJSON: 'isJSON',
 };

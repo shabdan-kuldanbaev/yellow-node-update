@@ -43,7 +43,7 @@ const Articles = ({
             // bottom: true,
             // effect,
 
-            type: animatedType.isCastom,
+            type: animatedType.isCustom,
             translateY: 50,
             opasityDuration: 0.4,
             transformDuration: 0.5,

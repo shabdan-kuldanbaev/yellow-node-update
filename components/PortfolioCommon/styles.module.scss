@@ -222,7 +222,7 @@
                 width: 0px;
                 will-change: transition;
                 transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
               }
             }
           }

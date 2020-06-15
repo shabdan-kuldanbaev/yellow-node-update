@@ -17,13 +17,13 @@ const FullscreenSearch = ({
   const handleOnChangeInput = ({ target: { value } }) => setInputValue(value);
 
   useEffect(() => {
-    const setResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
+    const onResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
 
-    setResize();
+    onResize();
 
-    window.addEventListener('resize', setResize);
+    window.addEventListener('resize', onResize);
     return () => {
-      window.removeEventListener('resize', setResize);
+      window.removeEventListener('resize', onResize);
     };
   }, [isMobileResolution]);
 

@@ -29,13 +29,13 @@ export const Layout = ({
   const handleOnBlogLoad = () => setBlogLoaded(true);
 
   useEffect(() => {
-    if (!asPath.includes('blog')) setBlogLoaded(false);
+    const isBlogPage = asPath.includes('blog');
 
-    if (asPath.includes('blog') && !isBlogOpen) setBlogCurrentStatus(true);
-    if (!asPath.includes('blog') && isBlogOpen) {
+    if (!isBlogPage && isBlogOpen) {
       setBlogCurrentStatus(false);
       setFirstVisitOfBlog(false);
-    }
+    } else if (!isBlogPage) setBlogLoaded(false);
+    else if (isBlogPage && !isBlogOpen) setBlogCurrentStatus(true);
   }, [asPath]);
 
   return (
