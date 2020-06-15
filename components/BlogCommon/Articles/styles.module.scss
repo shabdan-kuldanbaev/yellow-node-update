@@ -10,7 +10,7 @@
   padding: 0;
   margin: 0;
   margin-top: 10px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 2.2px;
   font-weight: bold;
@@ -22,7 +22,7 @@
 
 @mixin mobileTitle {
   padding: 0;
-  font-size: 19px !important;
+  font-size: 1.1875rem !important;
   font-weight: bold;
   margin-bottom: 20px;
   line-height: 24px;
@@ -34,14 +34,14 @@
 
 @mixin description {
   cursor: text;
-  font-size: 15.5px;
+  font-size: 0.9688rem;
   line-height: 1.75;
   color: $black;
   margin: 0;
   text-align: left;
 
   @include phone {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 
@@ -89,7 +89,7 @@
       .imgContainer {
         height: 480px;
         overflow: hidden;
-        -webkit-mask-image: -webkit-radial-gradient($white, $black);
+        mask-image: radial-gradient($white, $black);
         cursor: pointer;
 
         @include tablet {
@@ -155,7 +155,7 @@
         .title {
           padding: 0 25px;
           color: $white;
-          font-size: 30px;
+          font-size: 1.875rem;
           font-weight: bold;
           line-height: 1.21;
           transition: padding 0.3s ease;
@@ -170,11 +170,11 @@
           padding-bottom: 25px;
           font-weight: 500;
           color: $white;
-          font-size: 11px;
+          font-size: 0.6875rem;
           will-change: transform;
           text-transform: uppercase;
           margin-top: 17px;
-          font-size: 11.6px;
+          font-size: 0.725rem;
           letter-spacing: 2.2px;
           transition: padding 0.3s ease;
     
@@ -217,7 +217,7 @@
       .desc {
         .title {
           @include below-tablet {
-            font-size: 22px;
+            font-size: 1.375rem;
           }
         }
       }
@@ -249,7 +249,7 @@
           font-size: 1.5625rem;
     
           @include below-tablet {
-            font-size: 16px;
+            font-size: 1rem;
           }
         }
       }
@@ -280,7 +280,7 @@
         width: 100%;
         height: 240px;
         overflow: hidden;
-        -webkit-mask-image: -webkit-radial-gradient($white, $black);
+        mask-image: radial-gradient($white, $black);
         margin-bottom: 26px;
 
         @include tablet {
@@ -321,7 +321,7 @@
         @include flex(column);
 
         .publishedDate {
-          font-size: 11px;
+          font-size: 0.6875rem;
           text-transform: uppercase;
           font-weight: 500;
           line-height: 1.95;
@@ -339,7 +339,7 @@
           line-height: 24px;
           color: $mine-shaft;
           margin-bottom: 20px;
-          font-size: 19px;
+          font-size: 1.1875rem;
           line-height: 1.5;
           letter-spacing: 1px;
 

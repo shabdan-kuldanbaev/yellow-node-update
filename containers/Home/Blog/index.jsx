@@ -22,11 +22,11 @@ const Blog = ({
   const currentPage = 1;
 
   useEffect(() => {
-    const setResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
-    setResize();
-    window.addEventListener('resize', setResize);
+    const onResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
+    onResize();
+    window.addEventListener('resize', onResize);
     return () => {
-      window.removeEventListener('resize', setResize);
+      window.removeEventListener('resize', onResize);
     };
   }, [isMobileResolution]);
 

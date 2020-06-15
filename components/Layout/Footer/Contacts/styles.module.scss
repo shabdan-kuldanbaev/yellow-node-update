@@ -99,7 +99,7 @@
             width: 0;
             will-change: transition;
             transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
           }
         }
       }
@@ -169,7 +169,7 @@
 
   .text {
     opacity: 0.32;
-    font-size: 12px;
+    font-size: 0.75rem;
     letter-spacing: 0.3px;
     color: $white;
     margin-top: 80px;

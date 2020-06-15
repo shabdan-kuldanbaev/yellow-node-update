@@ -20,7 +20,7 @@ export const SectionTitle = ({
       // bottom
       // effect="fadeInUp"
 
-      type={animatedType.isCastom}
+      type={animatedType.isCustom}
       translateY={20}
       opasityDuration={1}
       transformDuration={1}
@@ -36,7 +36,7 @@ export const SectionTitle = ({
         // bottom
         // effect="fadeInUp"
 
-        type={animatedType.isCastom}
+        type={animatedType.isCustom}
         translateY={20}
         opasityDuration={1}
         transformDuration={1}

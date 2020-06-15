@@ -40,13 +40,13 @@
     top: 50%;
     color: $boulder;
     margin-top: -.4em;
-    font-size: 23px;
+    font-size: 1.4375rem;
     line-height: 1.94;
     letter-spacing: 0.4px;
   }
 
   .invalid {
-    margin-right: 2.5ch;
+    margin-right: 20px;
     opacity: 1;
     transition: opacity 1s cubic-bezier(.26,1.04,.54,1);
     font-weight: 300;
@@ -62,7 +62,7 @@
 .active {
   label {
     font-weight: bold;
-    font-size: 14px !important;
+    font-size: 0.875rem !important;
     will-change: transform;
     transform: translateY(-5px);
     transition: transform $accelerated-transition-time,

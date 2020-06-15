@@ -79,7 +79,7 @@
       cursor: pointer;
       list-style-type: none;
       font-weight: 500;
-      font-size: 13.5px;
+      font-size: 0.8438rem;
       letter-spacing: 0.9px;
 
       @include below-tablet {
@@ -92,7 +92,7 @@
 
       @include phone {
         margin: 0;
-        font-size: 18px;
+        font-size: 1.125rem;
         color: $mine-shaft;
         font-weight: 100;
         margin-bottom: 20px;

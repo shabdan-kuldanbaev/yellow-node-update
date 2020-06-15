@@ -25,7 +25,7 @@ export const Process = () => (
             // animateOnce
             // offset={10}
 
-            type={animatedType.isCastom}
+            type={animatedType.isCustom}
             translateY={70}
             opasityDuration={1}
             transformDuration={0.5}

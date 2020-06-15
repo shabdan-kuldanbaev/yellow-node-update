@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 export const DesktopCarousel = ({ photos }) => {
-  const gallaty = photos.concat(photos, photos, photos);
+  const gallery = photos.concat(photos, photos, photos);
   const [fullListWidth, setFullListWidth] = useState(0);
   const [carouselContainerRef, listRef] = [useRef(null), useRef(null)];
 
@@ -72,7 +72,7 @@ export const DesktopCarousel = ({ photos }) => {
       >
         <div className={styles.listWrapper}>
           <ul ref={listRef} className={styles.unorderedList}>
-            {gallaty && gallaty.map((photo) => (
+            {gallery && gallery.map((photo) => (
               <li className={styles[photo.size]}>
                 <img src={photo.img} alt="" />
               </li>
