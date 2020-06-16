@@ -6,6 +6,7 @@ import Fade from 'react-reveal/Fade';
 import { animatedType } from 'utils/constants';
 import { CastomAnimation } from './CastomAnimation';
 import { JSONAnimation } from './JSONAnimation';
+import { ParallaxWrapper } from './ParallaxSpring';
 
 // TODO props
 export const Animated = (props) => {
@@ -33,6 +34,12 @@ export const Animated = (props) => {
       <JSONAnimation {...props}>
         {props.children}
       </JSONAnimation>
+    );
+  case animatedType.isParallaxSpring:
+    return (
+      <ParallaxWrapper {...props}>
+        {props.children}
+      </ParallaxWrapper>
     );
   default:
     return (

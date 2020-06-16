@@ -8,13 +8,16 @@
   // background-color: sandybrown;
   padding-bottom: 100px;
   width: 100%;
+  height: calc(100vh - 81px);
+  margin-top: 81px;
 
   @include tablet {
     height: auto;
   }
 
   @include phone {
-    padding: $mobile-section-indent $side-indent $mobile-section-indent - 20px;
+    padding: 40px $side-indent $mobile-section-indent - 20px;
+    margin-top: 0;
   }
   
   & > div:first-child {

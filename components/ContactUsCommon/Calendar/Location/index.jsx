@@ -1,7 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { formatDate } from 'utils/helper';
-import styled from 'styled-components';
 import styles from './styles.module.scss';
 
 export const Location = ({
@@ -10,37 +13,42 @@ export const Location = ({
   location,
   eventTitle,
   eventColor,
-  delayAnimation,
+  animationDelay,
 }) => {
+  const [isShow, setShow] = useState(false);
   const dataRef = useRef(null);
   const startDate = formatDate(beginningDate);
   const finishDate = formatDate(expirationDate);
-  const Span = styled.span`
-    // background-color: red;
-
-    &:before {
-      transform: scaleX(1);
-      opacity: 1;
-      transition-delay: "${delayAnimation}s";s
-    }
-  `;
-
-  const handleOnLoad = () => {
-    if (dataRef) {
-      console.log(dataRef);
-      dataRef.current.classList.add(styles.showUnderline);
-    }
-  };
 
   useEffect(() => {
-    if (dataRef) {
-      console.log(dataRef);
+    if (isShow && dataRef.current) {
+      dataRef.current.classList.add(styles.showUnderline);
+      dataRef.current.children[0].style.transition = `transform 1.2s ${(0.2 + animationDelay * 0.15)}s cubic-bezier(.17,.67,.57,.96)`;
+    } else if (!isShow && dataRef.current) {
+      dataRef.current.classList.remove(styles.showUnderline);
+      dataRef.current.children[0].style.transition = 'transform 0s 0s';
     }
+  }, [isShow]);
+
+  useEffect(() => {
+    const handleOnScroll = () => {
+      if (dataRef.current) {
+        if (dataRef.current.getBoundingClientRect().top < window.innerHeight) setShow(true);
+        else setShow(false);
+      }
+    };
+
+    handleOnScroll();
+    document.addEventListener('scroll', handleOnScroll);
+    return () => document.removeEventListener('scroll', handleOnScroll);
   }, [dataRef]);
 
   return (
     <div className={styles.location}>
-      <Span ref={dataRef} onLoad={handleOnLoad} className={styles.date}>{startDate === finishDate ? startDate : `${startDate} - ${finishDate}`}</Span>
+      <div ref={dataRef} className={styles.date}>
+        <span />
+        {startDate === finishDate ? startDate : `${startDate} - ${finishDate}`}
+      </div>
       <span className={styles.locationTitle}>{location}</span>
       {eventTitle && <div className={styles.eventTitle} style={{ backgroundColor: `${eventColor}` }}>{eventTitle}</div>}
     </div>
@@ -61,5 +69,5 @@ Location.propTypes = {
   location: PropTypes.string,
   eventTitle: PropTypes.string,
   eventColor: PropTypes.string,
-  delayAnimation: PropTypes.number.isRequired,
+  animationDelay: PropTypes.number.isRequired,
 };

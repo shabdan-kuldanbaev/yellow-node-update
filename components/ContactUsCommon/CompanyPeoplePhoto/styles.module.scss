@@ -2,9 +2,13 @@
 
 .companyPeoplePhoto {
   width: 100%;
-  margin-top: 100px;
+  margin-top: 150px;
   // background-color: slategray;
 
+  @include below-tablet {
+    margin-top: 100px;
+  }
+  
   @include phone {
     padding: 60px $side-indent $mobile-section-indent - 20px;
     margin-top: 0;

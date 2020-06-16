@@ -4,7 +4,8 @@
   position: relative;
   z-index: 2;
   @include flex(column, center, center);
-  padding: calc(81px + 40px) 80px 0 80px;
+  // padding: calc(81px + 40px) 80px 0 80px;
+  padding: 0 80px 100px 80px;
   background-color: $white;
   // background-color: goldenrod;
 
@@ -13,6 +14,6 @@
   }
 
   @include phone {
-    padding: 40px $side-indent $mobile-section-indent - 20px;
+    padding: 66px $side-indent $mobile-section-indent - 20px;
   }
 }

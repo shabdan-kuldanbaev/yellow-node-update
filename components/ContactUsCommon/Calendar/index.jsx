@@ -25,7 +25,7 @@ export const Calendar = ({ locationData: locations }) => (
             location={location.location}
             eventTitle={location.eventTitle}
             eventColor={location.eventColor}
-            delayAnimation={index}
+            animationDelay={index}
           />
         ))}
       </div>

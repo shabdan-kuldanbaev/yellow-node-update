@@ -5,4 +5,10 @@
   height: 65vh;
   text-align: center;
   background-color: $white;
+
+
+  // background: linear-gradient(steelblue 30%, slategray 0);
+  // background-size: 100% 60px;
+  // height: 200vh;
+  // @include flex(column, center, center);
 }

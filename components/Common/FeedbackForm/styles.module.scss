@@ -101,8 +101,8 @@
     }
 
     :global(.rc-slider-handle) {
-      width: 14px;
-      height: 14px;
+      width: 14px !important;
+      height: 14px !important;
       border: solid 3px $black;
       background-color: $white;
 

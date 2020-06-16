@@ -4,6 +4,7 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
+import { setOverflowForBody } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const PageLoading = ({
@@ -30,9 +31,10 @@ export const PageLoading = ({
 
       setTimeout(() => {
         loadRef.current && loadRef.current.classList.add(styles.setZIndex);
+        setOverflowForBody(false);
         if (asPath.includes('blog')) handleOnBlogLoad(true);
       }, 500);
-    }
+    } else setOverflowForBody(true);
   }, [isPageLoaded, isLoading]);
 
   return <div ref={loadRef} className={styles.pageLoading}>Yellow</div>;

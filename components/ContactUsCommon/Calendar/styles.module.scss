@@ -7,7 +7,13 @@
   background-color: $white;
   // background-color: rgb(219, 210, 170);
   width: 100%;
-  margin-top: 100px;
+  // margin-top: 100px;
+  // height: 50vh;
+
+  @include below-tablet {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
 
   @include phone {
     padding: 60px $side-indent $mobile-section-indent - 20px;

@@ -7,7 +7,7 @@
   right: 0;
   padding: 27px 20px;
   cursor: pointer;
-
+  
   @include phone {
     @include flex(column, center, flex-end);
     z-index: -1;

@@ -2,14 +2,23 @@
 
 .companyContacts {
   width: 100%;
-
   // background-color: darkseagreen;
   @include flex(row, center, flex-start);
-  padding: 200px 0;
 
-  @include tablet {
+  padding-top: 13.19444vw;
+  padding-bottom: 14.23611vw;
+
+  // padding-left: calc(20% - 80px);
+  // padding-right: calc(20% - 80px);
+
+  // @include tablet {
+  //   width: 100%;
+  //   padding: 100px 0 200px;
+  // }
+
+  @include below-tablet {
     width: 100%;
-    padding: 100px 0 200px;
+    padding: 150px 0 200px;
   }
 
   @include phone {
@@ -17,25 +26,27 @@
   }
 
   .imgContainer {
-    max-width: 450px;
-    width: 100%;
-    // height: 100%;
+    // background-color: rgb(121, 38, 38);
+    z-index: 5;
+    // max-width: 480px;
+    width: 27.3%;
+    height: 37.16vw;
+    // margin-right: 5%;
+    // height: 100% !important;
     // max-width: 35%;
     // max-height: 600px;
     @include flex(row, flex-end, flex-end);
-    position: relative;
-
-    @include tablet {
-      width: 100%;
-    }
 
     @include below-tablet {
       display: none;
+      margin: 0;
     }
 
     .whiteCover {
-      width: 100%;
-      padding-top: calc(100% / 0.7);
+      width: 27.3%;
+      height: 37.16vw;
+      // padding-top: calc(100% / 0.63);
+      // width: calc(41.66667% - 80px);
       // background-color: hotpink;
       position: absolute;
       z-index: 3;
@@ -43,34 +54,48 @@
     }
 
     img {
+      display: none;
       z-index: 2;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       width: 100%;
-      height: 0px;
-      padding-top: calc(100% / 0.7);
+      height: 100%;
+      // padding-top: calc(100% / 0.68);
       // background-color: rgb(105, 225, 255);
     }
   }
   
   .removeWhiteCover {
     .whiteCover {
-      padding-top: 0;
-      transition: padding 1.5s 0.2s ease;
+      // padding-top: 0;
+      height: 0;
+      will-change: height;
+      // transition: padding 1.5s 0.2s ease;
+      transition: height 1.5s 0.2s ease;
       background-color: $white;
+      // background-color: darkgreen;
+    }
+
+    img {
+      display: block;
     }
   }
 
   .address {
-    max-width: 400px;
-    margin-left: 10%;
+    // max-width: 480px;
+    // width: 100%;
+    // width: 41.66667%;
+    width: 27.3%;
+    // margin-left: 16.66667%;
+    margin-left: 10.95%;
     // background-color: rgb(248, 79, 0);
     @include flex(column);
     font-family: $default-font;
     font-style: normal;
 
     @include below-tablet {
+      width: 100%;
       @include flex(column, center, center);
       margin: 0;
     }
@@ -80,25 +105,60 @@
     }
 
     .addressTitle {
-      height: 31.5px;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 3.5;
+      // font-size: 16px;
+      font-size: .69444vw;
+      // font-weight: 500;
       color: $black;
-      margin-bottom: 50px;
+      // margin-bottom: 50px;
+      margin-bottom: 1.73611vw;
       
+      &:first-child {
+        margin-top: 1.1vw;
+      }
+
       &:not(:first-child) {
-        margin-top: 70px;
+        // margin-top: 70px;
+        margin-top: 3.64583vw;
+      }
+
+      @include below-tablet {
+        font-size: 20px;
+        margin-bottom: 60px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+  
+        &:not(:first-child) {
+          // margin-top: 70px;
+          margin-top: 130px;
+        }
+      }
+
+      @include phone {
+        font-size: 16px;
+        margin-bottom: 40px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+  
+        &:not(:first-child) {
+          // margin-top: 70px;
+          margin-top: 110px;
+        }
       }
     }
 
     .locationAddress {
-      font-size: 30px;
-      line-height: 1.56;
+      // font-size: 30px;
+      font-size: 1.73611vw;
       color: $gray;
 
-      @include tablet {
+      @include below-tablet {
         text-align: center;
+        font-size: 30px;
+        line-height: 2;
       }
 
       @include phone {
@@ -107,18 +167,11 @@
     }
 
     .phoneNumber {
-      font-size: 30px;
-      line-height: 1.56;
-      color: $black;
-
-      @include phone {
-        font-size: 20px;
-      }
-
       a {
         text-decoration: none;
-        color: $silver;
-        font-weight: 500;
+        color: $black;
+        font-size: 1.73611vw;
+        // font-weight: 500;
         position: relative;
         width: 99%;
         left: 0.5%;
@@ -133,6 +186,11 @@
           }
         }
 
+        @include below-tablet {
+          line-height: 1.5;
+          font-size: 30px;  
+        }
+
         @include phone {
           font-size: 20px;
         }
@@ -142,8 +200,11 @@
     .email {
       padding-bottom: 4px;
       width: max-content;
-      font-size: 30px;
-      line-height: 1.56;
+      font-size: 1.73611vw;
+
+      @include below-tablet {
+        font-size: 30px;  
+      }
 
       @include phone {
         font-size: 20px;
