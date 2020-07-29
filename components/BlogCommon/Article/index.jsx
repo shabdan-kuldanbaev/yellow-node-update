@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { selectArticle, selectIsLoading } from 'redux/selectors/blog';
 import { getArticle } from 'redux/actions/blog';
 import { Loader } from 'components';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 const Article = ({

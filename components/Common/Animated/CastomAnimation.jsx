@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 export const CastomAnimation = ({
   children,
+  translateX,
   translateY,
   opasityDuration,
   transformDuration,
@@ -29,7 +30,8 @@ export const CastomAnimation = ({
 
   const generalStyles = {
     opacity: '0',
-    transform: `translateY(${translateY}px)`,
+    // transform: `translateY(${translateY}px)`,
+    transform: `translate(${translateX}px, ${translateY}px)`,
     ...secondStyles,
   };
 
@@ -56,6 +58,7 @@ export const CastomAnimation = ({
 };
 
 CastomAnimation.defaultProps = {
+  translateX: 0,
   translateY: 10,
   opasityDuration: 0.05,
   transformDuration: 0.1,
@@ -64,6 +67,7 @@ CastomAnimation.defaultProps = {
 
 CastomAnimation.propTypes = {
   children: PropTypes.instanceOf(Object).isRequired,
+  translateX: PropTypes.number,
   translateY: PropTypes.number,
   opasityDuration: PropTypes.number,
   transformDuration: PropTypes.number,

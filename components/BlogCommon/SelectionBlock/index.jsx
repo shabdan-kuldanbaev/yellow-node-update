@@ -3,23 +3,23 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
+import { connect } from 'react-redux';
+import { selectIsBlogOpen, selectIsFirstVisit } from 'redux/selectors/blog';
+import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
+import { setMobileCategoriesState } from 'redux/actions/layout';
+import { setFirstVisit } from 'redux/actions/blog';
 import {
   ButtonMore,
   FullscreenSearch,
   FullscreenSubscribe,
 } from 'components';
-import cn from 'classnames';
 import { setOverflowForBody } from 'utils/helper';
-import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
-import { selectIsBlogOpen, selectIsFirstVisit } from 'redux/selectors/blog';
-import { setMobileCategoriesState } from 'redux/actions/layout';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { setFirstVisit } from 'redux/actions/blog';
-import styles from './styles.module.scss';
+import Categories from './Categories';
 import SearchIcon from './images/search.svg';
 import { tags } from './utils/data';
-import Categories from './Categories';
+import styles from './styles.module.scss';
 
 const SelectionBlock = ({
   urlPath,

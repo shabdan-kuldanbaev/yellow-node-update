@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { mobileResolution } from 'utils/helper';
+import { useRouter } from 'next/router';
 import { selectIsModelLoaded } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
-import { useRouter } from 'next/router';
 import { SelectionBlock, Logo } from 'components';
+import { mobileResolution } from 'utils/helper';
 import { footerColor } from 'styles/utils/_variables.scss';
-import styles from './styles.module.scss';
-import Nav from './Nav';
 import MobileMenu from './MobileMenu';
+import Nav from './Nav';
+import styles from './styles.module.scss';
 
 const Header = ({
   theme,

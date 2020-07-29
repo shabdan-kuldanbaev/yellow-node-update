@@ -4,15 +4,15 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import { Provider } from 'react-redux';
 import withReduxSaga from 'next-redux-saga';
-import Head from 'next/head';
 import withRedux from 'next-redux-wrapper';
+import { Provider } from 'react-redux';
+import { ParallaxProvider } from 'react-scroll-parallax';
+import Head from 'next/head';
+import Router from 'next/router';
 import configureStore from 'redux/store';
 import { Layout } from 'containers';
 import Logo from 'components/Common/Logo/images/logo-yellow.svg';
-import Router from 'next/router';
-import { ParallaxProvider } from 'react-scroll-parallax';
 
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';

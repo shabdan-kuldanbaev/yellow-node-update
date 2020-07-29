@@ -8,6 +8,10 @@
   padding: 200px 0;
   z-index: 0;
 
+  @include horizontal-mobile {
+    padding: 25px 0;
+  }
+
   @include below-tablet {
     padding: 25px 0;
   }
@@ -82,6 +86,11 @@
         width: 211px;
         height: 211px;
       }
+
+      @include horizontal-mobile {
+        width: 211px;
+        height: 211px;
+      }
     }
 
     .horizontalImg {
@@ -92,6 +101,11 @@
         width: 360px;
         height: 211px;
       }
+
+      @include horizontal-mobile {
+        width: 360px;
+        height: 211px;
+      }
     }
 
     .verticalImg {
@@ -99,6 +113,11 @@
       height: 438px;
 
       @include below-tablet {
+        width: 211px;
+        height: 265px;
+      }
+
+      @include horizontal-mobile {
         width: 211px;
         height: 265px;
       }

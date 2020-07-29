@@ -48,7 +48,11 @@ export { Portfolio } from 'components/PortfolioCommon/index';
 export { Process } from 'components/ProcessCommon/index';
 
 // CompanyCommon
-export { Company } from 'components/CompanyCommon';
+export { AboutUs } from 'components/CompanyCommon/AboutUs';
+export { WhatMakesUsSpecial } from 'components/CompanyCommon/WhatMakesUsSpecial';
+export { WeDevelopFor } from 'components/CompanyCommon/WeDevelopFor';
+export { ManagementTeam } from 'components/CompanyCommon/ManagementTeam';
+export { Awards } from 'components/CompanyCommon/Awards';
 
 // ContactUsCommon
 export { FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';

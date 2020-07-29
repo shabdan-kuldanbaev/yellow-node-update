@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Articles, ModalWindow } from 'components';
 import PropTypes from 'prop-types';
+import { Articles, ModalWindow } from 'components';
 import { articlesData } from 'containers/Blog/utils/data';
 import { mobileResolution } from 'utils/helper';
 import styles from './styles.module.scss';

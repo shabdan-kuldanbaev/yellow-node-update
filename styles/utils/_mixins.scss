@@ -40,8 +40,16 @@
   @media (max-width: $max-tablet-size) { @content; }
 }
 
+@mixin svga {
+  @media (max-width: 815px) { @content; }
+}
+
 @mixin below-tablet {
   @media (max-width: $default-tablet-size) { @content; }
+}
+
+@mixin higher-phone {
+  @media (max-width: 760px) { @content; }
 }
 
 @mixin below-tablet-horizontal {

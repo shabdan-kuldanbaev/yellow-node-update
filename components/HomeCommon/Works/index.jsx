@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import {
   Animated,
   ParallaxContainer,
@@ -7,10 +8,9 @@ import {
 } from 'components';
 import { mobileResolution, horizontalPhone } from 'utils/helper';
 import { animatedType } from 'utils/constants';
-import cn from 'classnames';
+import ImageWithController from './ImageWithController';
 import { works } from './utils/data';
 import styles from './styles.module.scss';
-import ImageWithController from './ImageWithController';
 
 export const Works = ({ refs }) => {
   const [width, setWidth] = useState(null);
@@ -48,16 +48,16 @@ export const Works = ({ refs }) => {
               transitionDelay={270}
             >
               {/* TODO <div> */}
-                <h1>{work.name}</h1>
-                <p>{work.description}</p>
-                <LinkWrapper
-                  isLocalLink
-                  dynamicRouting="/"
-                  path="/"
-                  className={styles.buttonWrap}
-                >
-                  <button type="button">See full case study</button>
-                </LinkWrapper>
+              <h1>{work.name}</h1>
+              <p>{work.description}</p>
+              <LinkWrapper
+                isLocalLink
+                dynamicRouting="/"
+                path="/"
+                className={styles.buttonWrap}
+              >
+                <button type="button">See full case study</button>
+              </LinkWrapper>
               {/* </div> */}
             </Animated>
           </div>

@@ -8,18 +8,18 @@ const Burger = ({
   handleOnClick,
   isAdditional,
 }) => (
-  <div
-    onClick={handleOnClick}
-    className={cn(styles.burger, {
-      [styles.burgerOpened]: isMobileMenuOpened,
-      [styles.burgerClosed]: !isMobileMenuOpened,
-      [styles.additionalBurger]: isAdditional,
-    })}
-  >
-    <hr />
-    <hr />
-  </div>
-);
+    <div
+      onClick={handleOnClick}
+      className={cn(styles.burger, {
+        [styles.burgerOpened]: isMobileMenuOpened,
+        [styles.burgerClosed]: !isMobileMenuOpened,
+        [styles.additionalBurger]: isAdditional,
+      })}
+    >
+      <hr />
+      <hr />
+    </div>
+  );
 
 Burger.propTypes = {
   isMobileMenuOpened: PropTypes.bool.isRequired,

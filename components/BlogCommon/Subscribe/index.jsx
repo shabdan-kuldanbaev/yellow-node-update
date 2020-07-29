@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { ButtonMore, AnimatedInput } from 'components';
 import { withValidateEmail } from 'hocs';
-import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 const Subscribe = ({

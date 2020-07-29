@@ -4,22 +4,22 @@ import React, {
   useEffect,
   Fragment,
 } from 'react';
+// TODO import cn from 'classnames';
+import { Advantages } from 'containers';
 import {
   Works,
   SectionTitle,
   ButtonMore,
 } from 'components';
-import { Advantages } from 'containers';
-// TODO import cn from 'classnames';
-import styles from './styles.module.scss';
 import { blockNumbers } from './utils/data';
+import styles from './styles.module.scss';
 
 export const Portfolio = () => {
   // TODO const [backgroundColor, setBackgroundColor] = useState('firstBlock');
   // TODO const [blockNumber, setBlockNumber] = useState(0);
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const portfolioRef = useRef(null);
-  let currentNumber = 4;
+  const currentNumber = 4;
 
   const handleOnScroll = () => {
     const halfHeight = refs && refs[1].current.getBoundingClientRect().height / 2;
@@ -29,11 +29,11 @@ export const Portfolio = () => {
       secondBottom,
       thirdBottom,
     ] = [
-      refs[0].current.getBoundingClientRect().bottom,
-      refs[1].current.getBoundingClientRect().bottom,
-      refs[2].current.getBoundingClientRect().bottom,
-      refs[3].current.getBoundingClientRect().bottom,
-    ];
+        refs[0].current.getBoundingClientRect().bottom,
+        refs[1].current.getBoundingClientRect().bottom,
+        refs[2].current.getBoundingClientRect().bottom,
+        refs[3].current.getBoundingClientRect().bottom,
+      ];
 
     if (zeroBlock < halfHeight && (firstBottom > halfHeight && secondBottom > halfHeight && thirdBottom > halfHeight)) {
       // if (currentNumber !== 1) {
@@ -98,12 +98,12 @@ export const Portfolio = () => {
       <div className={styles.gradient}>
         <Advantages
           refs={refs}
-          // TODO className={styles[backgroundColor]}
+        // TODO className={styles[backgroundColor]}
         />
         <section
           ref={portfolioRef}
           className={styles.portfolio}
-          // TODO className={cn(styles.portfolio, styles[backgroundColor])}
+        // TODO className={cn(styles.portfolio, styles[backgroundColor])}
         >
           <Works refs={refs} />
           <div className={styles.bottomOfPortfolio}>

@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   FeedbackFormWithTitle,
   Calendar,
   CompanyPeoplePhoto,
   CompanyContacts,
 } from 'components';
-import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 export const ContactUsContainer = ({ introSection }) => (

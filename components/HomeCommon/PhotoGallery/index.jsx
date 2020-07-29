@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { tabletResolution } from 'utils/helper';
 import PropTypes from 'prop-types';
+import { tabletResolution } from 'utils/helper';
 import { DesktopCarousel } from './DesktopCarousel';
 import { MobileCarousel } from './MobileCarousel';
 import { galleryData } from './utils/data';

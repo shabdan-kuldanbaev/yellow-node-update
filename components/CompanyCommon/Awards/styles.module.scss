@@ -1,0 +1,41 @@
+@import 'styles/utils/mixins';
+
+.awards {
+  // background-color: rgba(139, 69, 19, 0.247);
+  @include flex(row, center, center);
+
+  @include phone {
+    @include flex(column, center, center);
+  }
+
+  & > div {
+    height: 6.417vw;
+
+    @include horizontal-mobile {
+      height: 7.417vw;
+    }
+
+    @include phone {
+      width: 60%;
+      height: auto;
+    }
+
+    &:not(:last-child) {
+      margin-right: 50px;
+
+      @include phone {
+        margin-right: 0;
+        margin-bottom: 70px;
+      }
+    }
+
+    img {
+      height: 100%;
+
+      @include phone {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

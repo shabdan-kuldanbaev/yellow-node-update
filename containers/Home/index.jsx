@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
   Intro,
   Blog,
@@ -8,7 +9,6 @@ import {
   // TODO Insta,
   FeedbackFormContainer,
 } from 'containers';
-import PropTypes from 'prop-types';
 import { PhotoGallery } from 'components';
 
 export const Home = ({ theme, introSection }) => (

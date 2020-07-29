@@ -11,42 +11,42 @@ import { ParallaxWrapper } from './ParallaxSpring';
 // TODO props
 export const Animated = (props) => {
   switch (props.type) {
-  case animatedType.isReveal:
-    return (
-      <Reveal {...props}>
-        {props.children}
-      </Reveal>
-    );
-  case animatedType.isFade:
-    return (
-      <Fade {...props}>
-        {props.children}
-      </Fade>
-    );
-  case animatedType.isCustom:
-    return (
-      <CastomAnimation {...props}>
-        {props.children}
-      </CastomAnimation>
-    );
-  case animatedType.isJSON:
-    return (
-      <JSONAnimation {...props}>
-        {props.children}
-      </JSONAnimation>
-    );
-  case animatedType.isParallaxSpring:
-    return (
-      <ParallaxWrapper {...props}>
-        {props.children}
-      </ParallaxWrapper>
-    );
-  default:
-    return (
-      <ScrollAnimation {...props}>
-        {props.children}
-      </ScrollAnimation>
-    );
+    case animatedType.isReveal:
+      return (
+        <Reveal {...props}>
+          {props.children}
+        </Reveal>
+      );
+    case animatedType.isFade:
+      return (
+        <Fade {...props}>
+          {props.children}
+        </Fade>
+      );
+    case animatedType.isCustom:
+      return (
+        <CastomAnimation {...props}>
+          {props.children}
+        </CastomAnimation>
+      );
+    case animatedType.isJSON:
+      return (
+        <JSONAnimation {...props}>
+          {props.children}
+        </JSONAnimation>
+      );
+    case animatedType.isParallaxSpring:
+      return (
+        <ParallaxWrapper {...props}>
+          {props.children}
+        </ParallaxWrapper>
+      );
+    default:
+      return (
+        <ScrollAnimation {...props}>
+          {props.children}
+        </ScrollAnimation>
+      );
   }
 };
 

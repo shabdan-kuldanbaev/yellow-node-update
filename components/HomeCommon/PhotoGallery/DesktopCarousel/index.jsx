@@ -18,9 +18,11 @@ export const DesktopCarousel = ({ photos }) => {
     if (carouselContainerRef.current && fullListWidth) {
       carouselContainerRef.current.style.transform = `translate3d(${offsetValue}px, 0px, 0px)`;
       timer = setInterval(() => {
-        offsetValue -= 1;
-        carouselContainerRef.current.style.transform = `translate3d(${offsetValue}px, 0px, 0px)`;
-        if (offsetValue === fullListWidth) offsetValue = 0;
+        if (carouselContainerRef.current) {
+          offsetValue -= 1;
+          carouselContainerRef.current.style.transform = `translate3d(${offsetValue}px, 0px, 0px)`;
+          if (offsetValue === fullListWidth) offsetValue = 0;
+        }
       }, 2);
     }
   };
@@ -29,9 +31,11 @@ export const DesktopCarousel = ({ photos }) => {
     if (carouselContainerRef.current && fullListWidth) {
       carouselContainerRef.current.style.transform = `translate3d(${offsetValue}px, 0px, 0px)`;
       timer = setInterval(() => {
-        offsetValue += 1;
-        carouselContainerRef.current.style.transform = `translate3d(${offsetValue}px, 0px, 0px)`;
-        if (offsetValue === 0) offsetValue = fullListWidth;
+        if (carouselContainerRef.current) {
+          offsetValue += 1;
+          carouselContainerRef.current.style.transform = `translate3d(${offsetValue}px, 0px, 0px)`;
+          if (offsetValue === 0) offsetValue = fullListWidth;
+        }
       }, 2);
     }
   };
@@ -72,8 +76,8 @@ export const DesktopCarousel = ({ photos }) => {
       >
         <div className={styles.listWrapper}>
           <ul ref={listRef} className={styles.unorderedList}>
-            {gallery && gallery.map((photo) => (
-              <li className={styles[photo.size]}>
+            {gallery && gallery.map((photo, index) => (
+              <li key={`gallary/photo/${index}`} className={styles[photo.size]}>
                 <img src={photo.img} alt="" />
               </li>
             ))}

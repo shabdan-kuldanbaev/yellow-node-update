@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper } from 'components';
-import PropTypes from 'prop-types';
 import { setOverflowForBody } from 'utils/helper';
 import Burger from '../Burger';
-import styles from './styles.module.scss';
 import { menuList, socialLinks } from './utils/data';
+import styles from './styles.module.scss';
 
 const MobileMenu = ({
   menuList: menuItems,

@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Contacts, ButtonMore } from 'components';
 import Nav from 'components/Layout/Header/Nav';
-import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 export const Footer = ({ theme }) => (

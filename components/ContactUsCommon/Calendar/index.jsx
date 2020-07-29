@@ -1,9 +1,9 @@
 import React from 'react';
-import { SectionTitle } from 'components';
 import PropTypes from 'prop-types';
-import styles from './styles.module.scss';
-import { locationData } from './utils/data';
+import { SectionTitle } from 'components';
 import { Location } from './Location';
+import { locationData } from './utils/data';
+import styles from './styles.module.scss';
 
 export const Calendar = ({ locationData: locations }) => (
   <section className={styles.feedbackFormWithTitle}>

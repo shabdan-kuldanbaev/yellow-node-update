@@ -14,8 +14,8 @@ import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/E
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
 import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
 import { animated, useSpring } from 'react-spring';
-import { mobileResolution } from 'utils/helper';
 import { useRouter } from 'next/router';
+import { mobileResolution } from 'utils/helper';
 import { shaders, animationTypes } from './utils/data';
 import * as styles from './styles.module.scss';
 
@@ -47,7 +47,7 @@ export const Duck = ({
   let canvas = null;
   const initialAnimationTime = 500; // 500 = 9s
   let animationDelay = 0.0001;
-  let isMobile = 0;
+  const isMobile = 0;
 
   const options = {
     initial: {
@@ -349,83 +349,34 @@ export const Duck = ({
   const render = () => {
     // animation
     switch (options.initial.currentAnimation) {
-    case 'appear': meshes.forEach((mesh) => {
-      const positions = mesh.geometry.attributes.position;
-      mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
+      case 'appear': meshes.forEach((mesh) => {
+        const positions = mesh.geometry.attributes.position;
+        mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
 
-      if (!options.initial.isAppear) {
-        for (let i = 0; i < positions.count; i += 1) {
-          positions.setXYZ(
-            i,
-            Math.random() * (Math.random() * (100) - 50),
-            Math.random() * (Math.random() * (900) - 450),
-            Math.random() * (Math.random() * (900) - 450),
-          );
-        }
-      }
-
-      positions.needsUpdate = true;
-      options.initial.isAppear = true;
-    });
-
-      break;
-
-    case 'scatter': meshes.forEach((mesh) => {
-      const initialPosition = mesh.geometry.attributes.initialPosition;
-
-      const positions = mesh.geometry.attributes.position;
-      mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
-
-      if (options.initial.isAppear) {
-        for (let i = 0; i < positions.count; i += 1) {
-          const ix = initialPosition.getX(i);
-          const iy = initialPosition.getY(i);
-          const iz = initialPosition.getZ(i);
-
-          const px = positions.getX(i);
-          const py = positions.getY(i);
-          const pz = positions.getZ(i);
-
-          const distanceX = px - ix;
-          const distanceY = py - iy;
-          const distanceZ = pz - iz;
-
-          if (animationDelay < 0.005) animationDelay += 0.0000005;
-
-          const animationTime = initialAnimationTime * animationDelay;
-
-          const speedX = getSpeed(distanceX, animationTime);
-          const speedY = getSpeed(distanceY, animationTime);
-          const speedZ = getSpeed(distanceZ, animationTime);
-
-          if (distanceY < 0.0003) {
-            positions.setXYZ(i, px + speedX, py + speedY, pz + speedZ);
+        if (!options.initial.isAppear) {
+          for (let i = 0; i < positions.count; i += 1) {
+            positions.setXYZ(
+              i,
+              Math.random() * (Math.random() * (100) - 50),
+              Math.random() * (Math.random() * (900) - 450),
+              Math.random() * (Math.random() * (900) - 450),
+            );
           }
         }
-      }
 
-      positions.needsUpdate = true;
-    });
+        positions.needsUpdate = true;
+        options.initial.isAppear = true;
+      });
 
-      break;
+        break;
 
-    case 'getTogether':
+      case 'scatter': meshes.forEach((mesh) => {
+        const initialPosition = mesh.geometry.attributes.initialPosition;
 
-      const initPos = meshes[0] ? meshes[0].geometry.attributes.initialPosition : null;
-      const pos = meshes[0] ? meshes[0].geometry.attributes.position : null;
+        const positions = mesh.geometry.attributes.position;
+        mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
 
-      const iF = initPos ? Math.trunc(1000 * initPos.array[0]) : 0;
-      const pF = pos ? Math.trunc(1000 * pos.array[0]) : 0;
-
-      if (iF !== pF) {
-        // console.log('iF !== pF');
-
-        meshes.forEach((mesh) => {
-          const initialPosition = mesh.geometry.attributes.initialPosition;
-          const positions = mesh.geometry.attributes.position;
-
-          if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
-
+        if (options.initial.isAppear) {
           for (let i = 0; i < positions.count; i += 1) {
             const ix = initialPosition.getX(i);
             const iy = initialPosition.getY(i);
@@ -439,7 +390,7 @@ export const Duck = ({
             const distanceY = py - iy;
             const distanceZ = pz - iz;
 
-            if (animationDelay < 0.01) animationDelay += 0.0000005;
+            if (animationDelay < 0.005) animationDelay += 0.0000005;
 
             const animationTime = initialAnimationTime * animationDelay;
 
@@ -447,43 +398,92 @@ export const Duck = ({
             const speedY = getSpeed(distanceY, animationTime);
             const speedZ = getSpeed(distanceZ, animationTime);
 
-            if (px !== ix && py !== iy && pz !== iz) {
-              positions.setXYZ(i, px - speedX, py - speedY, pz - speedZ);
+            if (distanceY < 0.0003) {
+              positions.setXYZ(i, px + speedX, py + speedY, pz + speedZ);
             }
           }
+        }
 
-          positions.needsUpdate = true;
-          // scatterStep = 0;
-        });
-
-        meshClones.forEach((mesh) => {
-          if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
-
-          mesh.material.opacity = 0;
-          mesh.geometry.attributes.position.needsUpdate = true;
-          scatterStep = 0;
-        });
-      } else if (window.innerWidth < mobileResolution) r = 1;
-      else {
-        // console.log('meshes', meshes);
-        meshes.forEach((mesh) => { setRotateAnimation(mesh); });
-        meshClones.forEach((mesh) => { setRotateAnimation(mesh); });
-      }
-
-      break;
-
-    case 'pagination':
-      meshes.forEach((mesh) => setRandomPosition(mesh));
-
-      meshClones.forEach((mesh, index) => {
-        mesh.material.opacity = 1.0;
-        mesh.scale.x = options.default.meshScale + ((index + 1) * 2);
-        mesh.scale.y = options.default.meshScale + ((index + 1) * 2);
-        mesh.scale.z = options.default.meshScale + ((index + 1) * 2);
-        setRandomPosition(mesh);
+        positions.needsUpdate = true;
       });
 
-      break;
+        break;
+
+      case 'getTogether':
+
+        const initPos = meshes[0] ? meshes[0].geometry.attributes.initialPosition : null;
+        const pos = meshes[0] ? meshes[0].geometry.attributes.position : null;
+
+        const iF = initPos ? Math.trunc(1000 * initPos.array[0]) : 0;
+        const pF = pos ? Math.trunc(1000 * pos.array[0]) : 0;
+
+        if (iF !== pF) {
+          // console.log('iF !== pF');
+
+          meshes.forEach((mesh) => {
+            const initialPosition = mesh.geometry.attributes.initialPosition;
+            const positions = mesh.geometry.attributes.position;
+
+            if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
+
+            for (let i = 0; i < positions.count; i += 1) {
+              const ix = initialPosition.getX(i);
+              const iy = initialPosition.getY(i);
+              const iz = initialPosition.getZ(i);
+
+              const px = positions.getX(i);
+              const py = positions.getY(i);
+              const pz = positions.getZ(i);
+
+              const distanceX = px - ix;
+              const distanceY = py - iy;
+              const distanceZ = pz - iz;
+
+              if (animationDelay < 0.01) animationDelay += 0.0000005;
+
+              const animationTime = initialAnimationTime * animationDelay;
+
+              const speedX = getSpeed(distanceX, animationTime);
+              const speedY = getSpeed(distanceY, animationTime);
+              const speedZ = getSpeed(distanceZ, animationTime);
+
+              if (px !== ix && py !== iy && pz !== iz) {
+                positions.setXYZ(i, px - speedX, py - speedY, pz - speedZ);
+              }
+            }
+
+            positions.needsUpdate = true;
+            // scatterStep = 0;
+          });
+
+          meshClones.forEach((mesh) => {
+            if (!(window.innerWidth < mobileResolution)) setRotateAnimation(mesh);
+
+            mesh.material.opacity = 0;
+            mesh.geometry.attributes.position.needsUpdate = true;
+            scatterStep = 0;
+          });
+        } else if (window.innerWidth < mobileResolution) r = 1;
+        else {
+          // console.log('meshes', meshes);
+          meshes.forEach((mesh) => { setRotateAnimation(mesh); });
+          meshClones.forEach((mesh) => { setRotateAnimation(mesh); });
+        }
+
+        break;
+
+      case 'pagination':
+        meshes.forEach((mesh) => setRandomPosition(mesh));
+
+        meshClones.forEach((mesh, index) => {
+          mesh.material.opacity = 1.0;
+          mesh.scale.x = options.default.meshScale + ((index + 1) * 2);
+          mesh.scale.y = options.default.meshScale + ((index + 1) * 2);
+          mesh.scale.z = options.default.meshScale + ((index + 1) * 2);
+          setRandomPosition(mesh);
+        });
+
+        break;
     }
 
     if (composer) composer.render(0.01);
@@ -669,18 +669,18 @@ export const Duck = ({
     //   cancelAnimationFrame(animationId);
     //   animationId = 0;
 
-                        // if (isHomepageVisit) {
-                        //   r = 0;
-                        //   meshes.length = 0;
-                        //   meshClones.length = 0;
-                        //   mat = 0;
+    // if (isHomepageVisit) {
+    //   r = 0;
+    //   meshes.length = 0;
+    //   meshClones.length = 0;
+    //   mat = 0;
 
-                        //   console.log({
-                        //     isHomepageVisit,
-                        //     isAnimate,
-                        //     isDuckLoad,
-                        //   });
-                        // }
+    //   console.log({
+    //     isHomepageVisit,
+    //     isAnimate,
+    //     isDuckLoad,
+    //   });
+    // }
     // };
   }, [duck, isAnimate]);
 

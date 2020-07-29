@@ -1,15 +1,15 @@
 import React, { useState, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import Slider from 'rc-slider';
+import cn from 'classnames';
 import {
   Upload,
   AnimatedInput,
   ButtonMore,
   CheckboxContainer,
 } from 'components';
-import { withValidateEmail } from 'hocs';
-import PropTypes from 'prop-types';
-import Slider from 'rc-slider';
 import { addThousandsSeparators } from 'utils/helper';
-import cn from 'classnames';
+import { withValidateEmail } from 'hocs';
 import { budget } from './utils/data';
 
 import 'rc-slider/assets/index.css';
