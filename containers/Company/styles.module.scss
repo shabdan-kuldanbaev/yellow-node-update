@@ -53,6 +53,11 @@
     padding-top: 100px;
   }
 
+  @include phone {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
   :global(.slick-list):before {
     background-image: linear-gradient(to left, rgba(247, 248, 247, 0), $white);
   }
@@ -63,6 +68,7 @@
 }
 
 .companyBottom {
+  @include flex(column, center, center);
   padding: 100px 80px 200px;
   background-color: $white;
 

@@ -3,20 +3,34 @@
 .awards {
   // background-color: rgba(139, 69, 19, 0.247);
   @include flex(row, center, center);
+  width: 100%;
+
+  @include ultra-hd {
+    max-width: $max-content-width;
+  }
+
+  @include macbook-fifteen {
+    width: 100%;
+  }
 
   @include phone {
     @include flex(column, center, center);
   }
 
   & > div {
-    height: 6.417vw;
+    height: calc(#{$max-content-width} * 0.0626);
+    border: 1px solid rgba(128, 128, 128, 0.315);
+
+    @include macbook-fifteen {
+      height: 6.417vw;
+    }
 
     @include horizontal-mobile {
       height: 7.417vw;
     }
 
     @include phone {
-      width: 60%;
+      width: 40%;
       height: auto;
     }
 
@@ -25,7 +39,7 @@
 
       @include phone {
         margin-right: 0;
-        margin-bottom: 70px;
+        margin-bottom: 45px;
       }
     }
 

@@ -8,8 +8,21 @@
   padding-bottom: 100px;
   width: 100%;
 
+  @include ultra-hd {
+    max-width: $max-content-width;
+  }
+
+  @include macbook-fifteen {
+    width: 100%;
+  }
+
   @include horizontal-mobile {
     padding-top: 0;
+  }
+
+  @include phone {
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   & > div:first-child {
@@ -77,11 +90,14 @@
         }
         
         .image {
-          // width: 275px;
-          // height: 300px;
           background-color: $silver;
-          width: 22.917vw;
-          height: 25vw;
+          width: calc(#{$max-content-width} * 0.287);
+          height: calc(#{$max-content-width} * 0.313);
+  
+          @include macbook-fifteen {
+            width: 22.917vw;
+            height: 25vw;
+          }
 
           @include phone {
             width: 100%;
@@ -94,10 +110,14 @@
         }
 
         .title {
-          margin-top: 15px;
-          font-size: 1.333vw;
           font-weight: bold;
           color: $black;
+          margin-top: 15px;
+          font-size: 20px;
+
+          @include macbook-fifteen {
+            font-size: 1.333vw;
+          }
 
           @include phone {
             font-size: 1rem;
@@ -105,9 +125,13 @@
         }
 
         .subtitle {
-          margin-top: 5px;
-          font-size: 0.917vw;
           color: $gray-200;
+          margin-top: 5px;
+          font-size: 0.875rem;
+
+          @include macbook-fifteen {
+            font-size: 0.917vw;
+          }
 
           @include phone {
             font-size: 0.6875rem;

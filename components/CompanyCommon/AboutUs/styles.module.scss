@@ -8,8 +8,18 @@
   // background-color: rgba(74, 140, 184, 0.05);
   padding-bottom: 100px;
   width: 100%;
-  height: calc(100vh - 81px);
+  height: auto;
   margin-top: 81px;
+
+  @include ultra-hd {
+    margin-top: 160px;
+    max-width: $max-content-width;
+  }
+
+  @include full-hd {
+    margin-top: 81px;
+    height: calc(100vh - 81px);
+  }
 
   @include macbook-fifteen {
     margin-top: 9.47vw;

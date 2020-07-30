@@ -8,36 +8,23 @@
   padding-top: 100px;
   padding-bottom: 100px;
   width: 100%;
-  // height: calc(100vh - 81px);
-  // margin-top: 81px;
 
-  // @include macbook-fifteen {
-  //   margin-top: 9.47vw;
-  //   height: auto;
-  // }
+  @include ultra-hd {
+    max-width: $max-content-width;
+  }
 
-  // @include desktop {
-  //   padding-top: 30px;
-  //   height: auto;
-  // }
-
-  // @include macbook-twelve {
-  //   margin-top: 8vw;
-  // }
+  @include macbook-fifteen {
+    width: 100%;
+  }
 
   @include horizontal-mobile {
     padding-top: 0;
   }
 
-  // @include tablet {
-  //   height: auto;
-  //   margin-top: 0;
-  // }
-
-  // @include phone {
-  //   padding: 40px $side-indent $mobile-section-indent - 20px;
-  //   margin-top: 0;
-  // }
+  @include phone {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 
   & > div:first-child {
     position: relative;
@@ -93,13 +80,16 @@
     .specialThings {
       width: 100%;
       @include flex(row, space-between, center, wrap);
-
+      
       & > div {
         @include flex(column, center, center);
-        // width: 275px;
-        // height: 150px;
-        width: 22.917vw;
-        height: 12.5vw;
+        width: calc(#{$max-content-width} * 0.287);
+        height: calc(#{$max-content-width} * 0.1565);
+
+        @include macbook-fifteen {
+          width: 22.917vw;
+          height: 12.5vw;
+        }
 
         @include phone {
           width: 100%;
@@ -108,8 +98,13 @@
 
         .title {
           @include flex(column, center, center);
-          width: 13vw;
-          height: 4.16vw;
+          width: calc(#{$max-content-width} * 0.163);
+          height: calc(#{$max-content-width} * 0.0522);
+
+          @include macbook-fifteen {
+            width: 13vw;
+            height: 4.16vw;
+          }
 
           @include phone {
             width: 53vw;
@@ -138,9 +133,14 @@
         }
 
         span {
-          margin-top: 0.833vw;
-          font-size: 1.05vw;
           color: $white;
+          margin-top: calc(#{$max-content-width} * 0.0104);
+          font-size: calc(#{$max-content-width} * 0.011s);
+
+          @include macbook-fifteen {
+            margin-top: 0.833vw;
+            font-size: 1.05vw;
+          }
 
           @include phone {
             margin-top: 4.27vw;
