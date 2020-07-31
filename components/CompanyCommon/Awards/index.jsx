@@ -14,7 +14,7 @@ export const Awards = ({ awards }) => (
         translateY={20}
         opasityDuration={0.8}
         transformDuration={0.8}
-        transitionDelay={495 + 80 * index}
+        transitionDelay={495 + 100 * index}
       >
         <img src={award.image} alt={`award/${index}`} />
       </Animated>

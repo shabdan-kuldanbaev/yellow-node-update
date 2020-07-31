@@ -3,10 +3,18 @@
 .companyPeoplePhoto {
   width: 100%;
   margin-top: 150px;
-  // background-color: slategray;
+  @include flex(column, center, center);
 
   @include below-tablet {
     margin-top: 100px;
+  }
+
+  @include ultra-hd {
+    width: $max-content-width;
+  }
+
+  @include macbook-twelve {
+    width: 100%;
   }
   
   @include phone {
@@ -28,27 +36,96 @@
     }
   }
 
-  .imgContainer {
-    width: 80%;
-    max-width: $max-content-width * 1.5;
-    margin: 70px auto 0;
+  .photoContainer {
+    position: relative;
     @include flex(column, center, center);
+    max-width: $max-content-width;
+    width: calc(#{$max-content-width} * 0.8);
+    height: calc(#{$max-content-width} * 0.46);
+    margin: 70px auto 0;
+
+    @include macbook-twelve {
+      width: calc(100vw - (80px * 2));
+      height: 53vw;
+    }
 
     @include tablet {
-      width: 100%;
+      width: calc(100vw - (40px * 2));
     }
 
     @include phone {
+      width: calc(100vw - (#{$side-indent} * 2));
       margin-top: 25px;
     }
 
-    img {
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+    .photoWrap {
+      position: absolute;
+      width: calc((#{$max-content-width} * 0.8) - 300px);
+      height: calc((#{$max-content-width} * 0.46) - 300px);
+      will-change: width;
+      will-change: height;
+      will-change: opacity;
+
+      @include macbook-twelve {
+        width: calc(100% - 150px);
+        height: calc(53vw - 150px);
+      }
+
+      @include phone {
+        width: calc(100% - 50px);
+        height: calc(53vw - 50px);
+      }
+
+      & > div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        @include flex(column, center, center);
+        overflow: hidden;
+
+        img {
+          position: absolute;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          width: calc(#{$max-content-width} * 0.8);
+          height: calc(#{$max-content-width} * 0.46);
+          opacity: 0;
+
+          @include macbook-twelve {
+            width: calc(100vw - (80px * 2));
+            height: 53vw;
+          }
+
+          @include tablet {
+            width: calc(100vw - (40px * 2));
+          }
+
+          @include phone {
+            width: calc(100vw - (#{$side-indent} * 2));
+          }
+        }
+      }
+    }
+  }
+}
+
+.showPhoto {
+  .photoContainer {
+    .photoWrap {
       width: 100%;
-      height: 0px;
-      padding-top: calc(100% / 2);
+      height: 100%;
+      opacity: 1;
+      will-change: width;
+      will-change: height;
+      will-change: opacity;
+      transition: width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
+                  height 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
+                  opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      & > div > img {
+        opacity: 1;
+        transition: opacity 0.05s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
     }
   }
 }

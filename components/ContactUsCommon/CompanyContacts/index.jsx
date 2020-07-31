@@ -42,18 +42,15 @@ export const CompanyContacts = ({ photo }) => {
       </div>
       <address className={styles.address}>
         <span className={styles.addressTitle}>CONTACT US</span>
-        <span className={styles.locationAddress}>
-          Nemiga 5, Minsk, Belarus
-          <br />
-          220030
-        </span>
+        <div className={styles.locationAddress}>
+          <span>Nemiga 5, Minsk, Belarus</span>
+          <span>220030</span>
+        </div>
         <span className={styles.addressTitle}>PHONES</span>
         <div className={styles.phoneNumber}>
           <LinkWrapper path="tel:+1 415 670 9070" isLocalLink>
             +1 415 670 9070
           </LinkWrapper>
-        </div>
-        <div className={styles.phoneNumber}>
           <LinkWrapper path="tel:+375 44 584 02 08" isLocalLink>
             +375 44 584 02 08
           </LinkWrapper>

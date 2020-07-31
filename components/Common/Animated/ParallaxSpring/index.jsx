@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { animated, useSpring } from 'react-spring/web.cjs';
 import cn from 'classnames';
-import styles from './styles.module.scss';
 
 export const ParallaxWrapper = ({ children, className }) => {
   const containerRef = useRef(null);
@@ -26,7 +25,7 @@ export const ParallaxWrapper = ({ children, className }) => {
   return (
     <div
       ref={containerRef}
-      className={cn(styles.parallaxContainer, { [className]: className })}
+      className={cn({ [className]: className })}
       style={{ position: 'relative' }}
     >
       <animated.div

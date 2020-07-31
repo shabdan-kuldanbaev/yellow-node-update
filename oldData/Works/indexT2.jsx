@@ -61,23 +61,21 @@ export const Works = ({ refs }) => {
               {/* </div> */}
             </Animated>
           </div>
-          <div className={styles.parallax}>
-            <Animated
-              type={animatedType.isParallaxSpring}
-            // className={styles.parallax}
+          <ParallaxContainer
+            yTop={parallaxValues.yTop}
+            yBottom={parallaxValues.yBottom}
+            className={styles.parallax}
+          >
+            <div
+              className={cn(
+                { [styles.firstShadow]: index === 0 },
+                { [styles.secondShadow]: index === 1 },
+                { [styles.thirdShadow]: index === 2 },
+              )}
             >
-              <div
-                className={cn(
-                  { [styles.firstShadow]: index === 0 },
-                  { [styles.secondShadow]: index === 1 },
-                  { [styles.thirdShadow]: index === 2 },
-                )}
-              // style={{ backgroundImage: `url(${work.image})` }}
-              >
-                <img src={work.image} alt={work.image} />
-              </div>
-            </Animated>
-          </div>
+              <ImageWithController src={work.image} alt={work.image} />
+            </div>
+          </ParallaxContainer>
         </div>
       ))}
     </div>

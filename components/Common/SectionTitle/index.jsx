@@ -13,10 +13,26 @@ export const SectionTitle = ({
   isFeedbackForm,
   linkText,
 }) => (
-    <div className={styles.titleContainer}>
+  <div className={styles.titleContainer}>
+    <Animated
+      // TODO type={animatedType.isFade}
+      // delay={0}
+      // distance="30px"
+      // bottom
+      // effect="fadeInUp"
+
+      type={animatedType.isCustom}
+      translateY={20}
+      opasityDuration={1}
+      transformDuration={1}
+      transitionDelay={270}
+    >
+      <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
+    </Animated>
+    {subtitle && (
       <Animated
         // TODO type={animatedType.isFade}
-        // delay={0}
+        // delay={70}
         // distance="30px"
         // bottom
         // effect="fadeInUp"
@@ -25,38 +41,22 @@ export const SectionTitle = ({
         translateY={20}
         opasityDuration={1}
         transformDuration={1}
-        transitionDelay={270}
+        transitionDelay={300}
       >
-        <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
+        {!isFeedbackForm
+          ? <span className={cn({ [styleSubtitle]: styleSubtitle })}>{subtitle}</span>
+          : (
+            <p className={cn({ [styleSubtitle]: styleSubtitle })}>
+              {subtitle}
+              <span>
+                <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>{linkText}</LinkWrapper>
+              </span>
+            </p>
+          )}
       </Animated>
-      {subtitle && (
-        <Animated
-          // TODO type={animatedType.isFade}
-          // delay={70}
-          // distance="30px"
-          // bottom
-          // effect="fadeInUp"
-
-          type={animatedType.isCustom}
-          translateY={20}
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={300}
-        >
-          {!isFeedbackForm
-            ? <span className={cn({ [styleSubtitle]: styleSubtitle })}>{subtitle}</span>
-            : (
-              <p className={cn({ [styleSubtitle]: styleSubtitle })}>
-                {subtitle}
-                <span>
-                  <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>{linkText}</LinkWrapper>
-                </span>
-              </p>
-            )}
-        </Animated>
-      )}
-    </div>
-  );
+    )}
+  </div>
+);
 
 SectionTitle.defaultProps = {
   styleTitle: null,

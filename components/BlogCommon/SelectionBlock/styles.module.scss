@@ -69,10 +69,7 @@
     }
 
     .button {
-      @include buttonMore($black, $black, $turbo-100, $white);
-      color: $woodsmoke;
-      line-height: 1.55;
-      text-align: center;
+      @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
       margin: auto 0;
       padding: 0;
       margin-right: 15px;
@@ -81,16 +78,8 @@
       font-size: 0.875rem !important;
       letter-spacing: 0.5px;
       border: none;
-      border-radius: 10rem;
-      color: $black;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      background-color: $turbo-100;
       transform: scale(1);
-      transition: transform 0.4s cubic-bezier(0,0,.2,1),
-                  width 0.4s,
-                  background-color 0.4s;
+      transition: width $shadow-time-for-yellow-button;
 
       @include phone {
         display: none;
@@ -99,9 +88,7 @@
       &:hover {
         padding: 10px 15px;
         border: none;
-        color: $black;
         transform: scale(.96);
-        transition: transform 0.4s cubic-bezier(0,0,.2,1);
       }
     }
 

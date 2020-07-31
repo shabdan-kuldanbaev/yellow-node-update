@@ -267,10 +267,8 @@
 
     .parallax {
       width: 50%;
-      height: 100%;
       max-height: 100%;
       margin: 0;
-      background-color: darkslategrey;
 
       @include below-tablet-horizontal {
         width: 50%;
@@ -284,98 +282,52 @@
         width: 50%;
       }
 
-      @include phone {
-        max-width: 95vw;
-        max-height: 100vh;
-        width: 95vw;
-        height: max-content;
-      }
-
       div {
-        // max-width: max-content;
-        // max-height: max-content;
-        vertical-align: middle;
+        max-width: 100%;
+        max-height: 100%;
         @include flex(row, center, center);
+        position: relative;
         
-        background-color: rgb(205, 169, 102);
-
-        // @include quad-hd {
-          
-        //   max-height: calc(100vh - 150px);
-        //   min-height: calc(100vh - 200px);
-        // }
-        
-        height: 48.4375vw;
-
-        @include phone {
-          max-width: 95vw;
-          max-height: 100vh;
-          width: 95vw;
-          height: auto;
-        }
-
         .imgWrapper {
-          width: 100%;
-          height: 100%;
-          // max-width: 100%;
-          // max-width: 100%;
+          max-width: 100%;
           position: relative;
-          background-color: mediumblue;
-
-          height: 48.4375vw;
-
-          @include phone {
-            max-width: 95vw;
-            max-height: 100vh;
-            width: 95vw;
-            height: auto;
-          }
 
           img {
-            // width: 150px;
-            // height: 300px;
+            @include ultra-hd {
+              max-height: 72vh;
+              min-height: 70vh;
+            }
 
-            max-width: 100%;
-            max-width: 100%;
-            height: 48.4375vw;
+            @include quad-hd {
+              vertical-align: middle;
+              max-height: calc(100vh - 150px);
+              min-height: calc(100vh - 200px);
+            }
 
-            // @include ultra-hd {
-            //   max-height: 72vh;
-            //   min-height: 70vh;
-            // }
+            @include tablet {
+              max-height: 780px;
+              min-height: 670px;
+            }
 
-              // @include quad-hd {
-              //   vertical-align: middle;
-              //   max-height: calc(100vh - 150px);
-              //   min-height: calc(100vh - 200px);
-              // }
+            @include below-tablet {
+              max-height: 480px;
+              min-height: 470px;
+            }
 
-            // @include tablet {
-            //   max-height: 780px;
-            //   min-height: 670px;
-            // }
-
-            // @include below-tablet {
-            //   max-height: 480px;
-            //   min-height: 470px;
-            // }
-
-            // @include below-tablet-horizontal {
-            //   max-height: calc(100vh - 150px);
-            //   min-height: calc(100vh - 200px);
-            // }
+            @include below-tablet-horizontal {
+              max-height: calc(100vh - 150px);
+              min-height: calc(100vh - 200px);
+            }
 
             @include phone {
               max-width: 95vw;
               max-height: 100vh;
-              width: 95vw;
-              height: auto;
             }
 
-            // @include horizontal-mobile {
-            //   max-height: calc(100vh - 150px);
-            //   min-height: calc(100vh - 200px);
-            // }
+            @include horizontal-mobile {
+              max-height: calc(100vh - 150px);
+              min-height: calc(100vh - 200px);
+            }
           }
         }
 

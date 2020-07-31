@@ -4,8 +4,6 @@
   position: relative;
   z-index: 2;
   @include flex(row, space-between, center, wrap);
-  // @include flex(row, space-evenly, center, wrap);
-  // background-color: rgba(74, 140, 184, 0.05);
   padding-bottom: 100px;
   width: 100%;
   height: auto;
@@ -53,7 +51,6 @@
     position: relative;
     z-index: 2;
     @include flex(column, space-around, flex-start);
-    // background-color: rgba(160, 184, 74, 0.05);
     
     @include tablet {
       @include flex(column, center, flex-start);
@@ -67,37 +64,11 @@
       max-width: 550px;
       width: 100%;
       @include flex(column, space-around, flex-start);
-      // background-color: seagreen;
       text-align: left;
   
       & > div:nth-of-type(1) > h1 {
-        // margin-top: 50px;
+        @include big-title();
         margin-bottom: 50px;
-        font-weight: 800;
-        font-size: 4.125rem;
-        letter-spacing: 2.25px;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.01;
-        text-align: left;
-        // background-color: $flamingo;
-
-        @include tablet {
-          margin-top: 0;
-        }
-
-        @include horizontal-mobile {
-          font-size: 3.125rem;
-        }
-
-        @include below-tablet {
-          font-size: 3rem;
-        }
-
-        @include phone {
-          font-size: 2.1875rem;
-          margin-bottom: 25px;
-        }
       }
     }
 
@@ -106,7 +77,6 @@
         p {
           margin: 0 0 35px 0;
           padding: 0;
-          // background-color: $gold;
           width: 550px;
           font-weight: 500;
           line-height: 1.88;
@@ -135,7 +105,6 @@
     .buttons {
       width: 100%;
       @include flex(row, flex-start, center, wrap);
-      // background-color: rgba(10, 216, 243, 0.267);
       margin-top: 80px;
 
       @include macbook-twelve {
@@ -155,22 +124,10 @@
       }
 
       .submit {
-        @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
-        border-radius: 10rem;
-        color: $black;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-        background-color: transparent;
-        border: solid 1px $black;
+        @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
         min-width: 290px;
         margin: 0;
-        padding: 22px 0;
-        line-height: 1.35;
         font-weight: 600;
-        transition: background-color 0.4s,
-                    border-color 0.4s,
-                    color 0.4s;
 
         @include higher-phone {
           min-width: 38vw;
@@ -179,14 +136,6 @@
         @include phone {
           min-width: 300px;
           margin: 60px auto 0;
-        }
-    
-        &:hover {
-          background-color: $turbo-100;
-          color: $black;
-          transition: background-color 0.4s,
-                      border-color 0.4s,
-                      color 0.4s;
         }
       }
 

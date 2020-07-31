@@ -23,7 +23,7 @@ export const Location = ({
   useEffect(() => {
     if (isShow && dataRef.current) {
       dataRef.current.classList.add(styles.showUnderline);
-      dataRef.current.children[0].style.transition = `transform 1.2s ${(0.2 + animationDelay * 0.15)}s cubic-bezier(.17,.67,.57,.96)`;
+      dataRef.current.children[0].style.transition = `transform 1.2s ${(0.7 + animationDelay * 0.15)}s cubic-bezier(.17,.67,.57,.96)`;
     } else if (!isShow && dataRef.current) {
       dataRef.current.classList.remove(styles.showUnderline);
       dataRef.current.children[0].style.transition = 'transform 0s 0s';

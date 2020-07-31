@@ -2,8 +2,16 @@
 
 .process {
   @include flex(column, flex-start, center);
-  padding: 0px $side-indent 0px;
+  padding: 0px $side-indent;
   background-color: $white;
+
+  @include macbook-fifteen {
+    padding: 0 80px;
+  }
+
+  @include tablet {
+    padding: 0 $side-indent;
+  }
 
   .intro {
     @include flex(column, center, center);

@@ -19,8 +19,8 @@ export const CastomAnimation = ({
 
   const appearanceStyles = {
     opacity: '1',
-    transform: 'translateY(0px)',
-    transitionProperty: 'opacity , transform',
+    transform: 'translate(0px, 0px)',
+    transitionProperty: 'opacity, transform',
     transitionTimingFunction: 'cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.165, 0.84, 0.44, 1)',
     transitionDuration: `${opasityDuration}s, ${transformDuration}s`,
     transitionDelay: `${delayInSeconds}s`,
@@ -30,7 +30,6 @@ export const CastomAnimation = ({
 
   const generalStyles = {
     opacity: '0',
-    // transform: `translateY(${translateY}px)`,
     transform: `translate(${translateX}px, ${translateY}px)`,
     ...secondStyles,
   };

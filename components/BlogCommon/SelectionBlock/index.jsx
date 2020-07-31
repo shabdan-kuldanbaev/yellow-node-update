@@ -67,6 +67,7 @@ const SelectionBlock = ({
           src={SearchIcon}
           alt="Search"
           onClick={openFullscreenSearch}
+          role="presentation"
         />
         <ButtonMore
           buttonRef={subscribeRef}
@@ -74,7 +75,9 @@ const SelectionBlock = ({
           title="Subscribe"
           buttonStyle={styles.button}
         />
-        <span className={styles.categoryTitleInHeader} onClick={openMobileCategoties}>Categories</span>
+        <span className={styles.categoryTitleInHeader} onClick={openMobileCategoties}>
+          Categories
+        </span>
       </div>
       <FullscreenSearch isFullscreenSearch={isFullscreenSearch} closeFullscreenSearch={closeFullscreenSearch} />
       <FullscreenSubscribe isFullscreenSubscribe={isFullscreenSubscribe} closeFullscreenSubscribe={closeFullscreenSubscribe} />

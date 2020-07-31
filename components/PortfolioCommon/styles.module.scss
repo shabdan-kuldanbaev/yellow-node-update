@@ -3,19 +3,22 @@
 .worksContainer {
   width: calc(100% + 2 * #{$side-indent});
   margin: 0 0 350px;
+  width: 100%;
   background-color: $white;
-  
-  @include phone {
+
+  @include ultra-hd {
+    max-width: $max-content-width;
+  }
+
+  @include macbook-fifteen {
     width: 100%;
-    margin: 0 0 100px;
   }
  
   .work {
+    @include flex(row, space-between, center);
     position: relative;
     z-index: 5;
-    @include flex(row, space-evenly, center);
-    width: calc(100% - (80 * 2));
-    margin: 0 80px;
+    width: 100%;
     height: 100vh;
     will-change: background-color;
     transition: background-color $default-transition-time ease;
@@ -133,18 +136,11 @@
         }
 
         h1 {
+          @include big-title();
           margin-top: 0;
           margin-bottom: 60px;
-          font-weight: 800;
-          font-size: 4.125rem;
-          letter-spacing: 2.25px;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.01;
-          color: $black;
-
+          
           @include below-tablet {
-            font-size: 3rem;
             margin-top: 40px;
           }
 
@@ -231,7 +227,7 @@
     }
 
     .imgWrapper {
-      width: 50%;
+      width: 55%;
       height: 100%;
       @include flex(column, center, center);
 

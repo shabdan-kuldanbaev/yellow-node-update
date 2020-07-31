@@ -1,7 +1,6 @@
 @import 'styles/utils/mixins';
 
 .awards {
-  // background-color: rgba(139, 69, 19, 0.247);
   @include flex(row, center, center);
   width: 100%;
 
@@ -19,6 +18,7 @@
 
   & > div {
     height: calc(#{$max-content-width} * 0.0626);
+    // TODO
     border: 1px solid rgba(128, 128, 128, 0.315);
 
     @include macbook-fifteen {

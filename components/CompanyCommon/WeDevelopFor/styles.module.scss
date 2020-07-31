@@ -3,7 +3,6 @@
 .blockOfWeDevelopFor {
   position: relative;
   z-index: 2;
-  // background-color: rgba(192, 6, 199, 0.1);
   padding-top: 100px;
   padding-bottom: 100px;
   width: 100%;
@@ -29,7 +28,6 @@
     position: relative;
     z-index: 2;
     @include flex(column, space-around, flex-start);
-    // background-color: rgba(160, 184, 74, 0.05);
     
     @include tablet {
       @include flex(column, center, flex-start);
@@ -43,35 +41,14 @@
       max-width: 660px;
       width: 100%;
       @include flex(column, space-around, flex-start);
-      // background-color: seagreen;
       text-align: left;
   
       & > div:nth-of-type(1) > h1 {
+        @include big-title();
         margin-bottom: 70px;
-        font-weight: 800;
-        font-size: 4.125rem;
-        letter-spacing: 2.25px;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.01;
-        text-align: left;
-        // background-color: $flamingo;
-
-        @include tablet {
-          margin-top: 0;
-        }
-
-        @include horizontal-mobile {
-          font-size: 3.125rem;
-        }
-
-        @include below-tablet {
-          font-size: 3rem;
-        }
 
         @include phone {
           font-size: 2.1875rem;
-          margin-bottom: 25px;
         }
       }
     }
@@ -113,7 +90,7 @@
           font-weight: bold;
           color: $black;
           margin-top: 15px;
-          font-size: 20px;
+          font-size: 1.25rem;
 
           @include macbook-fifteen {
             font-size: 1.333vw;

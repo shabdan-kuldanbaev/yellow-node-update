@@ -16,7 +16,7 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => (
             translateY={20}
             opasityDuration={0.8}
             transformDuration={0.8}
-            transitionDelay={495 + 80 * index}
+            transitionDelay={495 + 100 * index}
           >
             <div>
               <img src={special.title} alt={special.subtitle} />

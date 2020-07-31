@@ -33,7 +33,7 @@ export const AboutUs = ({ aboutUsText }) => (
           translateY={20}
           opasityDuration={0.8}
           transformDuration={0.8}
-          transitionDelay={600 + 80}
+          transitionDelay={495 + 80}
         >
           <ButtonMore
             href="/"
@@ -46,7 +46,7 @@ export const AboutUs = ({ aboutUsText }) => (
           translateY={20}
           opasityDuration={0.8}
           transformDuration={0.8}
-          transitionDelay={600 + 250}
+          transitionDelay={495 + 250}
         >
           <ButtonMore
             href="/"

@@ -2,19 +2,9 @@
 
 .companyContacts {
   width: 100%;
-  // background-color: darkseagreen;
   @include flex(row, center, flex-start);
-
   padding-top: 13.19444vw;
   padding-bottom: 14.23611vw;
-
-  // padding-left: calc(20% - 80px);
-  // padding-right: calc(20% - 80px);
-
-  // @include tablet {
-  //   width: 100%;
-  //   padding: 100px 0 200px;
-  // }
 
   @include below-tablet {
     width: 100%;
@@ -26,15 +16,9 @@
   }
 
   .imgContainer {
-    // background-color: rgb(121, 38, 38);
     z-index: 5;
-    // max-width: 480px;
     width: 27.3%;
     height: 37.16vw;
-    // margin-right: 5%;
-    // height: 100% !important;
-    // max-width: 35%;
-    // max-height: 600px;
     @include flex(row, flex-end, flex-end);
 
     @include below-tablet {
@@ -45,9 +29,6 @@
     .whiteCover {
       width: 27.3%;
       height: 37.16vw;
-      // padding-top: calc(100% / 0.63);
-      // width: calc(41.66667% - 80px);
-      // background-color: hotpink;
       position: absolute;
       z-index: 3;
       transform: scale(1.05);
@@ -61,20 +42,15 @@
       background-position: center;
       width: 100%;
       height: 100%;
-      // padding-top: calc(100% / 0.68);
-      // background-color: rgb(105, 225, 255);
     }
   }
   
   .removeWhiteCover {
     .whiteCover {
-      // padding-top: 0;
       height: 0;
       will-change: height;
-      // transition: padding 1.5s 0.2s ease;
       transition: height 1.5s 0.2s ease;
       background-color: $white;
-      // background-color: darkgreen;
     }
 
     img {
@@ -83,13 +59,8 @@
   }
 
   .address {
-    // max-width: 480px;
-    // width: 100%;
-    // width: 41.66667%;
     width: 27.3%;
-    // margin-left: 16.66667%;
     margin-left: 10.95%;
-    // background-color: rgb(248, 79, 0);
     @include flex(column);
     font-family: $default-font;
     font-style: normal;
@@ -105,11 +76,8 @@
     }
 
     .addressTitle {
-      // font-size: 16px;
       font-size: .69444vw;
-      // font-weight: 500;
       color: $black;
-      // margin-bottom: 50px;
       margin-bottom: 1.73611vw;
       
       &:first-child {
@@ -117,12 +85,11 @@
       }
 
       &:not(:first-child) {
-        // margin-top: 70px;
         margin-top: 3.64583vw;
       }
 
       @include below-tablet {
-        font-size: 20px;
+        font-size: 1.25rem;
         margin-bottom: 60px;
 
         &:first-child {
@@ -130,13 +97,12 @@
         }
   
         &:not(:first-child) {
-          // margin-top: 70px;
           margin-top: 130px;
         }
       }
 
       @include phone {
-        font-size: 16px;
+        font-size: 1rem;
         margin-bottom: 40px;
 
         &:first-child {
@@ -144,34 +110,48 @@
         }
   
         &:not(:first-child) {
-          // margin-top: 70px;
           margin-top: 110px;
         }
       }
     }
 
     .locationAddress {
-      // font-size: 30px;
+      @include flex(column, center, flex-start);
       font-size: 1.73611vw;
       color: $gray;
 
       @include below-tablet {
         text-align: center;
-        font-size: 30px;
+        font-size: 1.875rem;
         line-height: 2;
+        align-items: center;
       }
 
       @include phone {
-        font-size: 20px;
+        font-size: 1.25rem;
+      }
+
+      span:last-child {
+        margin-top: 0.6vw;
       }
     }
 
     .phoneNumber {
+      @include flex(column, center, flex-start);
+
+      @include below-tablet {
+        align-items: center;
+        width: 280px;
+      }
+
+      @include phone {
+        width: 182px;
+      }
+
       a {
         text-decoration: none;
         color: $black;
         font-size: 1.73611vw;
-        // font-weight: 500;
         position: relative;
         width: 99%;
         left: 0.5%;
@@ -188,11 +168,15 @@
 
         @include below-tablet {
           line-height: 1.5;
-          font-size: 30px;  
+          font-size: 1.875rem;
         }
 
         @include phone {
-          font-size: 20px;
+          font-size: 1.25rem;
+        }
+
+        &:last-child {
+          margin-top: 0.6vw;
         }
       }
     }
@@ -203,11 +187,11 @@
       font-size: 1.73611vw;
 
       @include below-tablet {
-        font-size: 30px;  
+        font-size: 1.875rem;  
       }
 
       @include phone {
-        font-size: 20px;
+        font-size: 1.25rem;
       }
 
       a {

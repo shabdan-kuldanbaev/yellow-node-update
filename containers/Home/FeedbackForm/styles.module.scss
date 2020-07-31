@@ -76,4 +76,8 @@
       }
     }
   }
+
+  & > form {
+    max-width: $max-content-width-macbook-twelve;
+  }
 }

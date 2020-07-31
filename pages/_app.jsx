@@ -46,6 +46,8 @@ const App = ({
         <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,300,400,800&display=swap" rel="stylesheet" />
         <link rel="shortcut icon" href={Logo} />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+        {/* TODO */}
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
       </Head>
       <Provider store={store}>
         <ParallaxProvider>

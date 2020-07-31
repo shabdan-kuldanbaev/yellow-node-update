@@ -18,7 +18,6 @@ export const PhotoGallery = ({ galleryData: photos }) => {
     onResize();
 
     window.addEventListener('resize', onResize);
-
     return () => window.removeEventListener('resize', onResize);
   }, [isMobileResolution]);
 

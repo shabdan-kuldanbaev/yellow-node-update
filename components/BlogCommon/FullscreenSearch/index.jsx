@@ -35,10 +35,10 @@ const FullscreenSearch = ({
     >
       <div className={styles.searchBlock}>
         <input
+          ref={(input) => input && input.focus()}
           className={styles.input}
           type="text"
           placeholder="Type to search"
-          autoFocus
           onChange={handleOnChangeInput}
           value={inputValue}
         />

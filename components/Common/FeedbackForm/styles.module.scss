@@ -3,7 +3,6 @@
 .form {
   @include flex(column, initial, center);
   width: 100%;
-  max-width: $max-content-width;
   max-height: auto;
   color: $silver;
   margin-bottom: 200px;
@@ -21,15 +20,15 @@
   }
   
   label {
-    font-size: 1.4375rem;
+    font-size: 1.1875rem;
     color: $black;
     font-weight: 500;
   }
 
   input {
-    font-size: 1.4375rem;
-    padding-top: 30px;
-    padding-bottom: 20px;
+    font-size: 1.1875rem;
+    padding-top: 0;
+    padding-bottom: 8px;
 
     @include phone {
       font-size: 1.125rem;
@@ -42,7 +41,13 @@
     @include flex(row, space-between, center);
     
     & > div {
-      width: 45%;
+      width: 46%;
+      padding-top: 30px;
+
+      & > div {
+        padding: 0;
+        margin: 0;
+      }
     }
 
     @include below-tablet {
@@ -50,24 +55,27 @@
 
       & > div {
         width: 100%;
+        padding-top: 40px;
       }
+
+      & > div:first-child {
+        padding-top: 0;
+      } 
     }
   }
 
   .budget {
-    margin-top: 40px;
+    margin-top: 50px;
     text-align: left;
 
     @include phone {
-      margin-top: 10px;
+      margin-top: 50px;
     }
 
     span {
-      font-size: 1.4375rem;
-      padding-top: 30px;
+      font-size: 1.1875rem;
       padding-bottom: 20px;
       color: $boulder;
-      // background-color: tan;
       
       @include phone {
         font-size: 1.125rem;
@@ -76,7 +84,7 @@
 
     .price {
       color: $black;
-      font-size: 1.4375rem;
+      font-size: 1.1875rem;
 
       @include phone {
         font-size: 1.125rem;
@@ -96,8 +104,8 @@
     }
 
     :global(.rc-slider-dot) {
-      border: 2px solid #695F62;
-      background-color: #695F62;
+      border: 2px solid $scorpion;
+      background-color: $scorpion;
     }
 
     :global(.rc-slider-handle) {
@@ -140,22 +148,10 @@
   }
 
   .submit {
-    @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
-    border-radius: 10rem;
-    color: $black;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    background-color: transparent;
-    border: solid 1px $black;
+    @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
     min-width: 330px;
-    padding: 22px 0;
-    line-height: 1.35;
     font-weight: 600;
-    margin-top: 100px;
-    transition: background-color 0.4s,
-                border-color 0.4s,
-                color 0.4s;
+    margin-top: 50px;
 
     @include phone {
       margin: 60px auto 0;
@@ -163,14 +159,6 @@
 
     @include phone {
       min-width: 300px;
-    }
-
-    &:hover {
-      background-color: $turbo-100;
-      color: $black;
-      transition: background-color 0.4s,
-                  border-color 0.4s,
-                  color 0.4s;
     }
   }
 }

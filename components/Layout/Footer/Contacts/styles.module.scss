@@ -160,7 +160,7 @@
 
     .button {
       margin-top: 50px;
-      @include buttonMore($black, $black, $turbo-100, $turbo-100);
+      @include button-more($black, $black, $turbo-100, $turbo-100);
       background-color: $turbo-100;
       color: $woodsmoke;
       line-height: 1.55;

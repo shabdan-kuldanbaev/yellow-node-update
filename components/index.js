@@ -18,11 +18,12 @@ export { ParallaxContainer } from 'components/Common/Animated/Parallax';
 export { PageLoading } from 'components/Common/PageLoading';
 export { default as FeedbackForm } from 'components/Common/FeedbackForm';
 export { SectionTitle } from 'components/Common/SectionTitle';
+export { PhotoGallery } from 'components/Common/PhotoGallery';
+export { Carousel } from 'components/Common/Carousel';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';
 export { AdvantagesItems } from 'components/HomeCommon/AdvantagesItems';
-export { Carousel } from 'components/HomeCommon/Carousel';
 export { Duck } from 'components/HomeCommon/Duck';
 export { InstaLogo } from 'components/HomeCommon/InstaLogo';
 export { InstaTape } from 'components/HomeCommon/InstaTape';
@@ -30,7 +31,6 @@ export { Partners } from 'components/HomeCommon/Partners';
 export { ScrollIcon } from 'components/HomeCommon/ScrollIcon';
 export { SocialIcons } from 'components/HomeCommon/SocialIcons';
 export { Works } from 'components/HomeCommon/Works';
-export { PhotoGallery } from 'components/HomeCommon/PhotoGallery';
 
 // BlogCommon
 export { default as Article } from 'components/BlogCommon/Article';
