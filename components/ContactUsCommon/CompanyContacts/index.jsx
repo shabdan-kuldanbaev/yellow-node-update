@@ -13,8 +13,10 @@ export const CompanyContacts = ({ photo }) => {
   const [isShow, setShow] = useState(false);
 
   useEffect(() => {
-    if (isShow) imgContainer.current && imgContainer.current.classList.add(styles.removeWhiteCover);
-    else imgContainer.current && imgContainer.current.classList.remove(styles.removeWhiteCover);
+    if (imgContainer.current) {
+      if (isShow) imgContainer.current.classList.add(styles.removeWhiteCover);
+      else imgContainer.current.classList.remove(styles.removeWhiteCover);
+    }
   }, [isShow]);
 
   useEffect(() => {

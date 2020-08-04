@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "NODE_ENV=development node server.js",
     "build": "NODE_ENV=development NODE_PATH=./ next build",
-    "export": "next export",
-    "start": "NODE_PATH=. next start -p $PORT"
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@react-spring/parallax": "9.0.0-canary.808.8.4a87fcb",

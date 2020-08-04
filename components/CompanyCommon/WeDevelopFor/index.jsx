@@ -13,10 +13,10 @@ export const WeDevelopFor = ({ developFor }) => (
           <Animated
             key={`special/${item.title}`}
             type={animatedType.isCustom}
-            translateY={20}
+            translateY={100}
             opasityDuration={0.8}
             transformDuration={0.8}
-            transitionDelay={495 + 100 * index}
+            transitionDelay={100 + 150 * index}
           >
             <div className={styles.image} />
             <div className={styles.title}>{item.title}</div>

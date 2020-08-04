@@ -25,6 +25,11 @@
 
   @include tablet {
     height: auto;
+    padding-bottom: 150px;
+  }
+
+  @include below-tablet {
+    padding-bottom: 100px;
   }
 
   @include phone {

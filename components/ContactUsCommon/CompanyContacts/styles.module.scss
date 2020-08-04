@@ -1,10 +1,21 @@
 @import 'styles/utils/mixins';
 
+$test: 1.2;
+
 .companyContacts {
+  @include flex(row, space-between, flex-start);
   width: 100%;
-  @include flex(row, center, flex-start);
-  padding-top: 13.19444vw;
-  padding-bottom: 14.23611vw;
+  width: calc(#{$max-content-width} * 0.8);
+  padding: 100px 0;
+
+  @include macbook-fifteen {
+    @include flex(row, center, flex-start);
+    width: calc(100vw - 160px);
+  }
+
+  @include tablet {
+    padding-top: 0px;
+  }
 
   @include below-tablet {
     width: 100%;
@@ -16,10 +27,15 @@
   }
 
   .imgContainer {
-    z-index: 5;
-    width: 27.3%;
-    height: 37.16vw;
     @include flex(row, flex-end, flex-end);
+    z-index: 5;
+    width: calc(#{$max-content-width} * 0.273 * 1.3);
+    height: calc(#{$max-content-width} * 0.4177 * 1.2);
+
+    @include macbook-fifteen {
+      width: calc((100vw - 160px) * 0.273);
+      height: calc((100vw - 160px) * 0.4177);
+    }
 
     @include below-tablet {
       display: none;
@@ -27,11 +43,16 @@
     }
 
     .whiteCover {
-      width: 27.3%;
-      height: 37.16vw;
       position: absolute;
       z-index: 3;
       transform: scale(1.05);
+      width: calc(#{$max-content-width} * 0.273 * 1.5);
+      height: calc(#{$max-content-width} * 0.4177 * 1.5);
+
+      @include macbook-fifteen {
+        width: calc((100vw - 160px) * 0.273);
+        height: calc((100vw - 160px) * 0.4177);
+      }
     }
 
     img {
@@ -59,11 +80,16 @@
   }
 
   .address {
-    width: 27.3%;
-    margin-left: 10.95%;
     @include flex(column);
     font-family: $default-font;
     font-style: normal;
+    width: calc(#{$max-content-width} * 0.273 * #{$test});
+    // margin-left: calc(#{$max-content-width} * 0.1095 * #{$test});
+
+    @include macbook-fifteen {
+      width: calc((100vw - 160px) * 0.273);
+      margin-left: calc((100vw - 160px) * 0.1095);
+    }
 
     @include below-tablet {
       width: 100%;
@@ -76,16 +102,29 @@
     }
 
     .addressTitle {
-      font-size: .69444vw;
       color: $black;
-      margin-bottom: 1.73611vw;
+      font-size: calc(#{$max-content-width} * 0.0078 * #{$test});
+      margin-bottom: calc(#{$max-content-width} * 0.0192 * #{$test});
+
+      @include macbook-fifteen {
+        font-size: calc((100vw - 160px) * 0.0078);
+        margin-bottom: calc((100vw - 160px) * 0.0192);
+      }
       
       &:first-child {
-        margin-top: 1.1vw;
+        margin-top: calc(#{$max-content-width} * 0.0123 * #{$test});
+
+        @include macbook-fifteen {
+          margin-top: calc((100vw - 160px) * 0.0123);
+        }
       }
 
       &:not(:first-child) {
-        margin-top: 3.64583vw;
+        margin-top: calc(#{$max-content-width} * 0.0408 * #{$test});
+
+        @include macbook-fifteen {
+          margin-top: calc((100vw - 160px) * 0.0408);
+        }
       }
 
       @include below-tablet {
@@ -117,8 +156,12 @@
 
     .locationAddress {
       @include flex(column, center, flex-start);
-      font-size: 1.73611vw;
       color: $gray;
+      font-size: calc(#{$max-content-width} * 0.0195 * #{$test});
+
+      @include macbook-fifteen {
+        font-size: calc((100vw - 160px) * 0.0195);
+      }
 
       @include below-tablet {
         text-align: center;
@@ -151,12 +194,16 @@
       a {
         text-decoration: none;
         color: $black;
-        font-size: 1.73611vw;
         position: relative;
         width: 99%;
         left: 0.5%;
         transition: color $accelerated-transition-time;
-        
+        font-size: calc(#{$max-content-width} * 0.0195 * #{$test});
+
+        @include macbook-fifteen {
+          font-size: calc((100vw - 160px) * 0.0195);
+        }
+
         &:hover {
           cursor: pointer;
           color: $turbo-100;
@@ -184,7 +231,11 @@
     .email {
       padding-bottom: 4px;
       width: max-content;
-      font-size: 1.73611vw;
+      font-size: calc(#{$max-content-width} * 0.0195 * #{$test});
+
+      @include macbook-fifteen {
+        font-size: calc((100vw - 160px) * 0.0195);
+      }
 
       @include below-tablet {
         font-size: 1.875rem;  

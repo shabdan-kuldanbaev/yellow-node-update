@@ -290,7 +290,7 @@
 
     .imgWrapper {
       width: 55%;
-      height: 75% !important;
+      height: 75%;
       @include flex(column, center, center);
 
       @include tablet {
@@ -309,38 +309,21 @@
       }
 
       div {
-        width: fill-available;
-        height: fill-available;
-        max-height: fill-available;
         @include flex(column, center, center);
+        max-width: 100% !important;
+        max-height: 100% !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        will-change: transform;
+        opacity: 1;
+        transition: transform $default-transition-time, opacity $default-transition-time;
 
-        @include tablet {
-          max-height: initial;
-        }
-
-        @include below-tablet-horizontal {
-          height: inherit;
-        }
-
-        @include phone {
-          height: auto;
-        }
-
-        div {
-          @include flex(column, center, center);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          will-change: transform;
-          opacity: 1;
-          transition: transform $default-transition-time, opacity $default-transition-time;
-
-          svg {
-            width: auto;
-            height: auto !important;
-            max-width: 100% !important;
-            max-height: 100% !important;
-          }
+        svg {
+          width: auto !important;
+          height: auto !important;
+          max-width: 100% !important;
+          max-height: 100% !important;
         }
       }
     }

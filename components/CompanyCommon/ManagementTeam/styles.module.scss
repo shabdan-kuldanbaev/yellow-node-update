@@ -3,8 +3,8 @@
 .managementTeam {
   position: relative;
   z-index: 2;
-  padding-top: 100px;
   width: 100%;
+  padding: 100px 0px;
 
   @include ultra-hd {
     max-width: $max-content-width;
@@ -71,18 +71,10 @@
 
         @include phone {
           width: 100%;
-          display: none;
-
-          @for $i from 1 to 4 {
-            &:nth-of-type(#{$i}) {
-              display: block;
-            }
-          }
 
           &:not(:first-child) {
             margin-top: 35px;
           }
-
         }
         
         .image {

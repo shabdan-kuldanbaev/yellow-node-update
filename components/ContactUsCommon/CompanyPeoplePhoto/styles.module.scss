@@ -3,11 +3,8 @@
 .companyPeoplePhoto {
   width: 100%;
   margin-top: 150px;
+  margin-bottom: 100px;
   @include flex(column, center, center);
-
-  @include below-tablet {
-    margin-top: 100px;
-  }
 
   @include ultra-hd {
     width: $max-content-width;
@@ -15,6 +12,15 @@
 
   @include macbook-twelve {
     width: 100%;
+  }
+
+  @include tablet {
+    margin-bottom: 150px;
+  }
+
+  @include below-tablet {
+    margin-top: 100px;
+    margin-bottom: 0;
   }
   
   @include phone {

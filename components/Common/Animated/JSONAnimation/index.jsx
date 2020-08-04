@@ -16,14 +16,11 @@ export const JSONAnimation = ({ jsonFile }) => {
   };
 
   return (
-    <div>
-      <Lottie
-        options={defaultOptions}
-        // TODO width={250} height={275}
-        isStopped={state.isStopped}
-        isPaused={state.isPaused}
-      />
-    </div>
+    <Lottie
+      options={defaultOptions}
+      isStopped={state.isStopped}
+      isPaused={state.isPaused}
+    />
   );
 };
 
