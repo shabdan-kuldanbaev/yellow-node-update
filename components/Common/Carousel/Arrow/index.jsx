@@ -18,4 +18,5 @@ export const Arrow = ({
 Arrow.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
