@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 
-export const CastomAnimation = ({
+export const CustomAnimation = ({
   children,
   translateX,
   translateY,
@@ -26,12 +26,10 @@ export const CastomAnimation = ({
     transitionDelay: `${delayInSeconds}s`,
   };
 
-  const secondStyles = isAnimated ? appearanceStyles : {};
-
   const generalStyles = {
     opacity: '0',
     transform: `translate(${translateX}px, ${translateY}px)`,
-    ...secondStyles,
+    ...(isAnimated ? appearanceStyles : {}),
   };
 
   useEffect(() => {
@@ -42,11 +40,8 @@ export const CastomAnimation = ({
     };
 
     handleOnScroll();
-
     window.addEventListener('scroll', handleOnScroll);
-    return () => {
-      window.removeEventListener('scroll', handleOnScroll);
-    };
+    return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 
   return (
@@ -56,7 +51,7 @@ export const CastomAnimation = ({
   );
 };
 
-CastomAnimation.defaultProps = {
+CustomAnimation.defaultProps = {
   translateX: 0,
   translateY: 10,
   opasityDuration: 0.05,
@@ -64,7 +59,7 @@ CastomAnimation.defaultProps = {
   transitionDelay: 500,
 };
 
-CastomAnimation.propTypes = {
+CustomAnimation.propTypes = {
   children: PropTypes.instanceOf(Object).isRequired,
   translateX: PropTypes.number,
   translateY: PropTypes.number,

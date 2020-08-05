@@ -4,7 +4,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import Reveal from 'react-reveal/Reveal';
 import Fade from 'react-reveal/Fade';
 import { animatedType } from 'utils/constants';
-import { CastomAnimation } from './CastomAnimation';
+import { CustomAnimation } from './CustomAnimation';
 import { JSONAnimation } from './JSONAnimation';
 import { ParallaxWrapper } from './ParallaxSpring';
 
@@ -25,9 +25,9 @@ export const Animated = (props) => {
     );
   case animatedType.isCustom:
     return (
-      <CastomAnimation {...props}>
+      <CustomAnimation {...props}>
         {props.children}
-      </CastomAnimation>
+      </CustomAnimation>
     );
   case animatedType.isJSON:
     return (

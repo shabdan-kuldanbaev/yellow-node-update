@@ -8,6 +8,11 @@
   width: 100%;
   height: 100vh;
 
+  @include phone {
+    align-items: flex-end;
+    width: 100%;
+  }
+
   h1 {
     user-select: none;
     font-family: $main-title-font;
@@ -46,11 +51,6 @@
     @include phone-height-800 {
       transform: translateY(-230px);
     }
-  }
-
-  @include phone {
-    align-items: flex-end;
-    width: 100%;
   }
 }
 
