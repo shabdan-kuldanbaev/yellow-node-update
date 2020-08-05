@@ -32,11 +32,7 @@ export const Contacts = () => (
     <div className={styles.social}>
       <div className={styles.icons}>
         {socialNetworks.map((network) => (
-          <LinkWrapper
-            key={`networks/${network.title}`}
-            path={network.href}
-            isLocalLink
-          >
+          <LinkWrapper key={`networks/${network.title}`} path={network.href}>
             <img src={network.image} alt={network.title} />
           </LinkWrapper>
         ))}

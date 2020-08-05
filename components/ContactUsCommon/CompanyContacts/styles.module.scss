@@ -1,0 +1,229 @@
+@import 'styles/utils/mixins';
+
+.companyContacts {
+  width: 100%;
+  @include flex(row, center, flex-start);
+  padding-top: 13.19444vw;
+  padding-bottom: 14.23611vw;
+
+  @include below-tablet {
+    width: 100%;
+    padding: 150px 0 200px;
+  }
+
+  @include phone {
+    padding: 60px $side-indent $mobile-section-indent - 20px; 
+  }
+
+  .imgContainer {
+    z-index: 5;
+    width: 27.3%;
+    height: 37.16vw;
+    @include flex(row, flex-end, flex-end);
+
+    @include below-tablet {
+      display: none;
+      margin: 0;
+    }
+
+    .whiteCover {
+      width: 27.3%;
+      height: 37.16vw;
+      position: absolute;
+      z-index: 3;
+      transform: scale(1.05);
+    }
+
+    img {
+      display: none;
+      z-index: 2;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .removeWhiteCover {
+    .whiteCover {
+      height: 0;
+      will-change: height;
+      transition: height 1.5s 0.2s ease;
+      background-color: $white;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  .address {
+    width: 27.3%;
+    margin-left: 10.95%;
+    @include flex(column);
+    font-family: $default-font;
+    font-style: normal;
+
+    @include below-tablet {
+      width: 100%;
+      @include flex(column, center, center);
+      margin: 0;
+    }
+
+    @include phone {
+      max-width: 270px;
+    }
+
+    .addressTitle {
+      font-size: .69444vw;
+      color: $black;
+      margin-bottom: 1.73611vw;
+      
+      &:first-child {
+        margin-top: 1.1vw;
+      }
+
+      &:not(:first-child) {
+        margin-top: 3.64583vw;
+      }
+
+      @include below-tablet {
+        font-size: 1.25rem;
+        margin-bottom: 60px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+  
+        &:not(:first-child) {
+          margin-top: 130px;
+        }
+      }
+
+      @include phone {
+        font-size: 1rem;
+        margin-bottom: 40px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+  
+        &:not(:first-child) {
+          margin-top: 110px;
+        }
+      }
+    }
+
+    .locationAddress {
+      @include flex(column, center, flex-start);
+      font-size: 1.73611vw;
+      color: $gray;
+
+      @include below-tablet {
+        text-align: center;
+        font-size: 1.875rem;
+        line-height: 2;
+        align-items: center;
+      }
+
+      @include phone {
+        font-size: 1.25rem;
+      }
+
+      span:last-child {
+        margin-top: 0.6vw;
+      }
+    }
+
+    .phoneNumber {
+      @include flex(column, center, flex-start);
+
+      @include below-tablet {
+        align-items: center;
+        width: 280px;
+      }
+
+      @include phone {
+        width: 182px;
+      }
+
+      a {
+        text-decoration: none;
+        color: $black;
+        font-size: 1.73611vw;
+        position: relative;
+        width: 99%;
+        left: 0.5%;
+        transition: color $accelerated-transition-time;
+        
+        &:hover {
+          cursor: pointer;
+          color: $turbo-100;
+
+          &:before {
+            border-bottom: 1px $turbo-100 solid;
+          }
+        }
+
+        @include below-tablet {
+          line-height: 1.5;
+          font-size: 1.875rem;
+        }
+
+        @include phone {
+          font-size: 1.25rem;
+        }
+
+        &:last-child {
+          margin-top: 0.6vw;
+        }
+      }
+    }
+
+    .email {
+      padding-bottom: 4px;
+      width: max-content;
+      font-size: 1.73611vw;
+
+      @include below-tablet {
+        font-size: 1.875rem;  
+      }
+
+      @include phone {
+        font-size: 1.25rem;
+      }
+
+      a {
+        position: relative;
+        text-decoration: none;
+        transition: color $accelerated-transition-time;
+        color: $black;
+
+        &:before {
+          width: 98%;
+          content: '';
+          cursor: pointer;
+          position: absolute;
+          bottom: -5px;
+          right: 1%;
+          border-bottom: 1.5px $black solid;
+          transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        a {
+          &:before {
+            width: 0;
+            will-change: transition;
+            transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: translateZ(0);
+          }
+        }
+      }
+    }
+  }
+}

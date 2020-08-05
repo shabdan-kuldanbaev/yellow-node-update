@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
   Intro,
   Blog,
@@ -6,9 +7,9 @@ import {
   Portfolio,
   Reviews,
   // TODO Insta,
+  FeedbackFormContainer,
 } from 'containers';
-import PropTypes from 'prop-types';
-import { FeedbackForm, PhotoGallery } from 'components';
+import { PhotoGallery } from 'components';
 
 export const Home = ({ theme, introSection }) => (
   <Fragment>
@@ -19,7 +20,7 @@ export const Home = ({ theme, introSection }) => (
     <Blog />
     {/* TODO <Insta /> */}
     <PhotoGallery />
-    <FeedbackForm />
+    <FeedbackFormContainer />
   </Fragment>
 );
 

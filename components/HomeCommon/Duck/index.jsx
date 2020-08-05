@@ -14,8 +14,8 @@ import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/E
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
 import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
 import { animated, useSpring } from 'react-spring';
-import { mobileResolution } from 'utils/helper';
 import { useRouter } from 'next/router';
+import { mobileResolution } from 'utils/helper';
 import { shaders, animationTypes } from './utils/data';
 import * as styles from './styles.module.scss';
 
@@ -47,7 +47,7 @@ export const Duck = ({
   let canvas = null;
   const initialAnimationTime = 500; // 500 = 9s
   let animationDelay = 0.0001;
-  let isMobile = 0;
+  const isMobile = 0;
 
   const options = {
     initial: {
@@ -669,18 +669,18 @@ export const Duck = ({
     //   cancelAnimationFrame(animationId);
     //   animationId = 0;
 
-                        // if (isHomepageVisit) {
-                        //   r = 0;
-                        //   meshes.length = 0;
-                        //   meshClones.length = 0;
-                        //   mat = 0;
+    // if (isHomepageVisit) {
+    //   r = 0;
+    //   meshes.length = 0;
+    //   meshClones.length = 0;
+    //   mat = 0;
 
-                        //   console.log({
-                        //     isHomepageVisit,
-                        //     isAnimate,
-                        //     isDuckLoad,
-                        //   });
-                        // }
+    //   console.log({
+    //     isHomepageVisit,
+    //     isAnimate,
+    //     isDuckLoad,
+    //   });
+    // }
     // };
   }, [duck, isAnimate]);
 

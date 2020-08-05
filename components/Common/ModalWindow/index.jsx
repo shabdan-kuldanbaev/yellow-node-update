@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { setOverflowForBody } from 'utils/helper';
-import PropTypes from 'prop-types';
-import styles from './styles.module.scss';
 import CloseIcon from './images/close.svg';
+import styles from './styles.module.scss';
 
 export const ModalWindow = ({
   isModalWindow,

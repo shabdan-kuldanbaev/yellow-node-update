@@ -9,4 +9,5 @@ export const animatedType = {
   isFade: 'isFade',
   isCustom: 'isCustom',
   isJSON: 'isJSON',
+  isParallaxSpring: 'isParallaxSpring',
 };

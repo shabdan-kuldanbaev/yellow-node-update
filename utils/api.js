@@ -6,21 +6,21 @@ const apiClient = axios.create({
   baseURL: 'https:',
   headers: {
     'Content-Type': 'aplication/json',
-    'Accept': 'aplication/json',
+    Accept: 'aplication/json',
   },
 });
 
 export const API = {
-  getArticle: slug => articlesData.find((article) => article.slug === slug),
+  getArticle: (slug) => articlesData.find((article) => article.slug === slug),
   loadArticles: (skip, limit, category) => {
-    let leftEdge = (skip - 1) * limit;
-    let rightEdge = skip * limit;
+    const leftEdge = (skip - 1) * limit;
+    const rightEdge = skip * limit;
 
     if (category === 'latest') {
-      let high = articlesData.filter((article) => article.priority === priority.high);
-      let medium = articlesData.filter((article) => article.priority === priority.medium);
-      let withoutHighAndMediumArray = articlesData.filter((article) => article.priority !== priority.high && article.priority !== priority.medium);
-      let inOrder = [...high, ...medium, ...withoutHighAndMediumArray];
+      const high = articlesData.filter((article) => article.priority === priority.high);
+      const medium = articlesData.filter((article) => article.priority === priority.medium);
+      const withoutHighAndMediumArray = articlesData.filter((article) => article.priority !== priority.high && article.priority !== priority.medium);
+      const inOrder = [...high, ...medium, ...withoutHighAndMediumArray];
 
       return inOrder.filter((article, index) => index >= leftEdge && index < rightEdge);
     }

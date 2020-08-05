@@ -154,7 +154,7 @@
     }
 
     .submit {
-      @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
+      @include button-more($turbo-100, $thunder, $turbo-100, $turbo-100);
       border-radius: 10rem;
       color: $black;
       position: relative;

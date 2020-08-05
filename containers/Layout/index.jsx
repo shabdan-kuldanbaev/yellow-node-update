@@ -4,16 +4,16 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { useRouter } from 'next/router';
+import { setBlogStatus, setFirstVisit } from 'redux/actions/blog';
+import { selectIsBlogOpen } from 'redux/selectors/blog';
 import {
   Header,
   Footer,
   CookiesNotification,
   PageLoading,
 } from 'components';
-import { useRouter } from 'next/router';
-import { selectIsBlogOpen } from 'redux/selectors/blog';
-import { setBlogStatus, setFirstVisit } from 'redux/actions/blog';
-import { connect } from 'react-redux';
 
 export const Layout = ({
   isLoading,

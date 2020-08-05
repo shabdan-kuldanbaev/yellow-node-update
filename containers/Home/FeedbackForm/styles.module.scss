@@ -1,0 +1,83 @@
+@import 'styles/utils/mixins';
+
+.formContainer {
+  position: relative;
+  z-index: 2;
+  @include flex(column, flex-start, center);
+  padding: $section-indent $side-indent;
+  background-color: $white;
+
+  @include phone {
+    padding: $mobile-section-indent $side-indent $mobile-section-indent - 20px;
+  }
+  
+  & > div:first-child {
+    width: 100%;
+    text-align: center;
+    margin-bottom: $after-mobile-title-margin;
+    
+    .title {
+      @include phone {
+        width: 100%;
+      }
+    }  
+  }
+
+  .subtitle {
+    margin: 0;
+    font-size: .9rem;
+    line-height: 1.55;
+    letter-spacing: 0.5px;
+
+    span {
+      cursor: pointer;
+      padding: 0 0 5px;
+      
+      a {
+        margin-left: 5px;
+        text-decoration: none;
+        font-size: .9rem;
+        line-height: 1.55;
+        letter-spacing: 0.5px;
+        transition: color $accelerated-transition-time;
+  
+        border: none;
+        outline: 0px;
+        background-color: transparent;
+        color: $black;
+        position: relative;
+        display: inline-block;
+        padding: 0;
+
+        &:before {
+          content: '';
+          cursor: pointer;
+          position: absolute;
+          bottom: -2px;
+          right: 0;
+          width: 100%;
+          border-bottom: 1px $black solid;
+          background-color: $black;
+          transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        a {
+          &:before {
+            width: 0;
+            will-change: transition;
+            transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            -webkit-transform: translateZ(0);
+          }
+        }
+      }
+    }
+  }
+
+  & > form {
+    max-width: $max-content-width-macbook-twelve;
+  }
+}

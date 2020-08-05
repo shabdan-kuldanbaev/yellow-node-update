@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
+import { connect } from 'react-redux';
+import { loadArticles } from 'redux/actions/blog';
+import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
 import {
   SectionTitle,
   ButtonMore,
   Articles,
 } from 'components';
-import { loadArticles } from 'redux/actions/blog';
-import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
 import { mobileResolution } from 'utils/helper';
 import styles from './styles.module.scss';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
+import { LinkWrapper } from 'components';
 import { menuList } from './utils/data';
 import styles from './styles.module.scss';
 

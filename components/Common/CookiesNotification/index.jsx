@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import cn from 'classnames';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { ButtonMore } from 'components';
-import styles from './styles.module.scss';
 import { notificationData } from './utils/data';
+import styles from './styles.module.scss';
 
 const CookiesNotification = ({ text }) => {
   const [isShown, setIsShown] = useState(false);

@@ -205,7 +205,7 @@
 }
 
 .buttonOverlap {
-  @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
+  @include button-more($turbo-100, $thunder, $turbo-100, $turbo-100);
   margin-top: $mobile-more-button-indent;
   border: none;
   border-radius: 10rem;

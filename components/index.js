@@ -16,21 +16,21 @@ export { Upload } from 'components/Common/Upload';
 export { ModalWindow } from 'components/Common/ModalWindow';
 export { ParallaxContainer } from 'components/Common/Animated/Parallax';
 export { PageLoading } from 'components/Common/PageLoading';
+export { default as FeedbackForm } from 'components/Common/FeedbackForm';
+export { SectionTitle } from 'components/Common/SectionTitle';
+export { PhotoGallery } from 'components/Common/PhotoGallery';
+export { Carousel } from 'components/Common/Carousel';
 
 // HomeCommon
-export { default as FeedbackForm } from 'components/HomeCommon/FeedbackForm';
 export { AddFooter } from 'components/HomeCommon/AddFooter';
 export { AdvantagesItems } from 'components/HomeCommon/AdvantagesItems';
-export { Carousel } from 'components/HomeCommon/Carousel';
 export { Duck } from 'components/HomeCommon/Duck';
 export { InstaLogo } from 'components/HomeCommon/InstaLogo';
 export { InstaTape } from 'components/HomeCommon/InstaTape';
 export { Partners } from 'components/HomeCommon/Partners';
 export { ScrollIcon } from 'components/HomeCommon/ScrollIcon';
 export { SocialIcons } from 'components/HomeCommon/SocialIcons';
-export { SectionTitle } from 'components/HomeCommon/SectionTitle';
 export { Works } from 'components/HomeCommon/Works';
-export { PhotoGallery } from 'components/HomeCommon/PhotoGallery';
 
 // BlogCommon
 export { default as Article } from 'components/BlogCommon/Article';
@@ -48,7 +48,14 @@ export { Portfolio } from 'components/PortfolioCommon/index';
 export { Process } from 'components/ProcessCommon/index';
 
 // CompanyCommon
-export { Company } from 'components/CompanyCommon';
+export { AboutUs } from 'components/CompanyCommon/AboutUs';
+export { WhatMakesUsSpecial } from 'components/CompanyCommon/WhatMakesUsSpecial';
+export { WeDevelopFor } from 'components/CompanyCommon/WeDevelopFor';
+export { ManagementTeam } from 'components/CompanyCommon/ManagementTeam';
+export { Awards } from 'components/CompanyCommon/Awards';
 
-// ContactCommon
-export { Contact } from 'components/ContactCommon';
+// ContactUsCommon
+export { FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
+export { Calendar } from 'components/ContactUsCommon/Calendar';
+export { CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
+export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { themes } from 'utils/helper';
 import { LinkWrapper } from 'components';
+import { themes } from 'utils/helper';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Articles, ModalWindow } from 'components';
 import PropTypes from 'prop-types';
+import { Articles, ModalWindow } from 'components';
 import { articlesData } from 'containers/Blog/utils/data';
 import { mobileResolution } from 'utils/helper';
 import styles from './styles.module.scss';
@@ -15,16 +15,14 @@ const FullscreenSearch = ({
   const articles = dataOfArticle ? dataOfArticle.filter((item, index) => index < 10) : [];
 
   const handleOnChangeInput = ({ target: { value } }) => setInputValue(value);
+  const focusOnInput = (input) => input && input.focus();
 
   useEffect(() => {
     const onResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
 
     onResize();
-
     window.addEventListener('resize', onResize);
-    return () => {
-      window.removeEventListener('resize', onResize);
-    };
+    return () => window.removeEventListener('resize', onResize);
   }, [isMobileResolution]);
 
   return (
@@ -35,10 +33,10 @@ const FullscreenSearch = ({
     >
       <div className={styles.searchBlock}>
         <input
+          ref={focusOnInput}
           className={styles.input}
           type="text"
           placeholder="Type to search"
-          autoFocus
           onChange={handleOnChangeInput}
           value={inputValue}
         />

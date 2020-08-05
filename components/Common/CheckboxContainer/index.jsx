@@ -1,6 +1,6 @@
 import React from 'react';
-import { LinkWrapper } from 'components';
 import PropTypes from 'prop-types';
+import { LinkWrapper } from 'components';
 import styles from './styles.module.scss';
 
 export const CheckboxContainer = ({

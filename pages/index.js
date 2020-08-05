@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { Home } from 'containers';
-import PropTypes from 'prop-types';
 
 const App = ({ theme, introSection }) => (
   <Fragment>

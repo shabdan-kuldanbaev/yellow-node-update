@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {
   LinkWrapper,
@@ -6,7 +7,6 @@ import {
   Animated,
   Subscribe,
 } from 'components';
-import PropTypes from 'prop-types';
 import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -74,7 +74,7 @@ const Articles = ({
                     <div className={styles.image} style={{ backgroundImage: `url(${art.image})` }} />
                   </div>
                   <div className={styles.desc}>
-                    { !isMobileResolution && (index === 0 || index === 1) && currentPage === 1
+                    {!isMobileResolution && (index === 0 || index === 1) && currentPage === 1
                       ? (
                         <Fragment>
                           <span className={styles.title}>{art.title}</span>

@@ -54,33 +54,13 @@
     }
     
     .portfolioButton {
-      @include buttonMore($turbo-100, $thunder, $turbo-100, $turbo-100);
+      @include button-more($white, $black, transparent, $turbo-100, $boulder, $turbo-100);
       margin-top: $mobile-more-button-indent;
-      border-radius: 10rem;
-      color: $white;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      background-color: transparent;
-      border: solid 1px $boulder;
       min-width: 330px;
-      padding: 22px 0;
-      line-height: 1.35;
       font-weight: 600;
-      transition: background-color 0.4s,
-                  border-color 0.4s,
-                  color 0.4s;
 
       @include phone {
         min-width: 300px;
-      }
-
-      &:hover {
-        background-color: $turbo-100;
-        color: $black;
-        transition: background-color 0.4s,
-                    border-color 0.4s,
-                    color 0.4s;
       }
     }
 

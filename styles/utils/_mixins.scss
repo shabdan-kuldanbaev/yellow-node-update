@@ -40,8 +40,16 @@
   @media (max-width: $max-tablet-size) { @content; }
 }
 
+@mixin svga {
+  @media (max-width: 815px) { @content; }
+}
+
 @mixin below-tablet {
   @media (max-width: $default-tablet-size) { @content; }
+}
+
+@mixin higher-phone {
+  @media (max-width: 760px) { @content; }
 }
 
 @mixin below-tablet-horizontal {
@@ -60,6 +68,9 @@
   @media (max-width: 830px) and (min-height: $horizontal-mobile) { @content; }
 }
 
+@mixin small-phone {
+  @media (max-width: $max-mobile-size) and (max-height: 320px) { @content; }
+}
 
 @mixin horizontal-iphone-x {
   @media (max-width: 812px) and (min-height: 380px) { @content; }
@@ -103,36 +114,100 @@
   }
 }
 
-@mixin buttonMore($textColor: $white, $textHoverColor: $white, $backHoverColor: $white, $borderColor: $black) {
+@mixin big-title {
+  margin-bottom: 60px;
+  font-weight: 800;
+  font-size: 4.125rem;
+  letter-spacing: 2.25px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.01;
+  text-align: left;
+
+  @include tablet {
+    margin-top: 0;
+  }
+
+  @include horizontal-mobile {
+    font-size: 3.125rem;
+  }
+
+  @include below-tablet {
+    font-size: 3rem;
+  }
+
+  @include phone {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+  }
+}
+
+@mixin button-more(
+  $textColor: $white, 
+  $textHoverColor: $white,
+  $backgroundColor: transparent,
+  $backHoverColor: $white,
+  $borderColor: $black,
+  $borderHoverColor: $black,
+) {
   position: relative;
   z-index: 2;
   width: 240px;
   margin-top: $more-button-indent;
-  padding: 16px 0;
+  padding: 22px 0;
   line-height: 1.55;
   letter-spacing: 0.5px;
-  border-radius: $buttonRadius;
+  border-radius: 10rem;
   text-align: center;
   cursor: pointer;
   overflow: hidden;
   color: $textColor;
+  background-color: $backgroundColor;
   border: solid 1px $borderColor;
-  transition: background-color $button-transition-time,
-              color $button-transition-time,
-              border-color $button-transition-time;
-  
+  will-change: transition;
+  transition: background-color $shadow-time-for-yellow-button,
+              border-color $shadow-time-for-yellow-button,
+              color $shadow-time-for-yellow-button,
+              transform $shadow-time-for-yellow-button cubic-bezier(0,0,.2,1);
+
   &:hover {
-    will-change: border;
+    will-change: transition;
     background-color: $backHoverColor;
-    border: solid 1px $backHoverColor;
+    border: solid 1px $borderHoverColor;
     color: $textHoverColor;
-    transition: background-color $button-transition-time,
-                color $button-transition-time,
-                border-color $button-transition-time;
+    transition: background-color $shadow-time-for-yellow-button,
+                border-color $shadow-time-for-yellow-button,
+                color $shadow-time-for-yellow-button,
+                transform $shadow-time-for-yellow-button cubic-bezier(0,0,.2,1);
   }
 }
 
 @font-face {
-	font-family: "Sonny Gothic Condensed Ultra Black";
-	src: url("styles/fonts/Sonny-Gothic-Condensed-Ultra-Black.otf") format("opentype");
+	font-family: 'Sonny Gothic Condensed Ultra Black';
+  src: url('styles/fonts/Sonny-Gothic-Condensed-Ultra-Black.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Helvetica-Bold';
+  src: url('styles/fonts/Helvetica/HelveticaBold/HelveticaBold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Helvetica-Light';
+  src: url('styles/fonts/Helvetica/HelveticaLight/HelveticaLight.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Helvetica-Medium';
+  src: url('styles/fonts/Helvetica/HelveticaMedium/HelveticaMedium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Helvetica-Regular';
+  src: url('styles/fonts/Helvetica/HelveticaRegular/HelveticaRegular.ttf') format('truetype');
+  font-display: swap;
 }

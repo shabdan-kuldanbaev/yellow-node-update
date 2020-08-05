@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {
-  AddFooter,
-  Partners,
-  Duck,
-} from 'components';
+  setModelLoading,
+  setScrollOfAddedFooter,
+  setDuck,
+  setHomepageVisit,
+  setFirstHomepageVisit,
+} from 'redux/actions/home';
 import {
   selectIsModelLoaded,
   selectDuck,
@@ -13,13 +16,10 @@ import {
 } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import {
-  setModelLoading,
-  setScrollOfAddedFooter,
-  setDuck,
-  setHomepageVisit,
-  setFirstHomepageVisit,
-} from 'redux/actions/home';
-import { connect } from 'react-redux';
+  AddFooter,
+  Partners,
+  Duck,
+} from 'components';
 
 const Intro = ({
   theme,

@@ -90,26 +90,10 @@ footer {
       }
 
       .button {
-        @include buttonMore($white, $turbo-100, $turbo-100, $white);
-        line-height: 1.55;
+        @include button-more($white, $black, transparent, $turbo-100, $white, $turbo-100);
         letter-spacing: 0.5px;
-        text-align: center;
+        padding: 16px 0;
         font-size: 0.875rem !important;
-        border-radius: 10rem;
-        color: $white;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-        background-color: transparent;
-        transition: background-color 0.4s,
-                    color 0.4s;
-  
-        &:hover {
-          background-color: $turbo-100;
-          color: $black;
-          transition: background-color 0.4s,
-                      color 0.4s;
-        }
 
         @include phone {
           width: 90%;

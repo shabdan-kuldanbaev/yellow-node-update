@@ -3,7 +3,11 @@
 .uploadFile {
   @include flex(column, initial, initial, wrap);
   width: 100%;
-  margin-top: 20px;
+  margin-top: 60px;
+
+  @include below-tablet {
+    margin-top: 40px;
+  }
 
   .attachmentManage {
     @include flex(row, flex-start, center);
@@ -66,7 +70,7 @@
 
     .file {
       width: auto;
-      @include flex(row, space-between, center);
+      @include flex(row, space-between, center, wrap);
       padding: 5px 10px;
       border-radius: 2.5px;
       background-color: $athens-gray;
@@ -84,11 +88,16 @@
         color: $emperor;
         letter-spacing: 0.4px;
         text-align: left;
+        font-size: 0.875rem;
+
+        @include phone {
+          font-size: 0.75rem;
+        }
       }
 
       span:first-child {
         margin-right: auto;
-        width: 70%;
+        width: 65%;
       }
 
       button {

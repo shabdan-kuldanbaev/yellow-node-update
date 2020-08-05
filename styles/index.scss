@@ -5,6 +5,7 @@ html {
   padding: 0;
   font-family: $default-font;
   font-size: 1rem;
+  -webkit-tap-highlight-color: transparent;
 
   ::selection {
     background-color: $turbo-100;

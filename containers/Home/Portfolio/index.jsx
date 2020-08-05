@@ -4,22 +4,22 @@ import React, {
   useEffect,
   Fragment,
 } from 'react';
+// TODO import cn from 'classnames';
+import { Advantages } from 'containers';
 import {
   Works,
   SectionTitle,
   ButtonMore,
 } from 'components';
-import { Advantages } from 'containers';
-// TODO import cn from 'classnames';
+// TODO import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
-import { blockNumbers } from './utils/data';
 
 export const Portfolio = () => {
   // TODO const [backgroundColor, setBackgroundColor] = useState('firstBlock');
   // TODO const [blockNumber, setBlockNumber] = useState(0);
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const portfolioRef = useRef(null);
-  let currentNumber = 4;
+  const currentNumber = 4;
 
   const handleOnScroll = () => {
     const halfHeight = refs && refs[1].current.getBoundingClientRect().height / 2;
