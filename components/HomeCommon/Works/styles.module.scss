@@ -382,7 +382,7 @@
 
 
             @include phone {
-              bottom: -113%;
+              bottom: -112%;
             }
           }
         }
@@ -398,7 +398,8 @@
             right: -40%;
 
             @include phone {
-              bottom: -120%;
+              bottom: -108%;
+              right: -48%;
             }
           }
         }

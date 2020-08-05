@@ -703,7 +703,13 @@ export const Duck = ({
     <Fragment>
       <div className={styles.text} ref={containerText}>
         <animated.div style={{ position: 'absolute', transform: offset.interpolate(calc) }}>
-          {isModelLoaded && <h1 ref={sloganRef} className="letter-container">WE CREATE FANTASTIC SOFTWARE</h1>}
+          {isModelLoaded && (
+            <h1 ref={sloganRef} className="letter-container">
+              WE CREATE FANTASTIC
+              <br />
+              SOFTWARE
+            </h1>
+          )}
         </animated.div>
       </div>
       <div className={styles.canvasContainer} ref={containerCanvas} />

@@ -17,6 +17,7 @@
     background-color: $black;
 
     ul {
+      height: 114vw;
       margin-bottom: 20vh;
       padding: 0;
       text-align: center;
@@ -45,11 +46,12 @@
 
         &:last-child {
           border-radius: $buttonRadius;
-          padding: 16px 34px;
           background-color: $turbo-100;
           
           a {
-            color: $black;  
+            display: block;
+            color: $black;
+            padding: 16px 34px;
           }
         }
       }
@@ -58,7 +60,7 @@
     .mobileMenuFooter {
       padding: 0px;
       position: fixed;
-      top: 81vh;
+      top: 75vh;
       @include flex(row, space-around);
       width: 100%;
 

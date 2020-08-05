@@ -17,47 +17,40 @@
     line-height: 1.3;
     text-align: center;
     letter-spacing: 3px;
-  }
+    will-change: transform;
 
-  @include phone {
-    align-items: flex-end;
-    width: 100%;
+    @include horizontal-mobile {
+      font-size: 2.3rem;
+    }
 
-    h1 {
+    @include phone {
       padding: 5px;
       font-size: 1.25rem;
       color: $white !important;
       text-shadow: none !important;
       opacity: 1 !important;
     }
-  }
 
-  @include phone-height-500 {
-    h1 {
-      will-change: transform;
+    @include phone-height-500 {
       transform: translateY(-130px);
     }
-  }
-
-  @include phone-height-650 {
-    h1 {
-      will-change: transform;
+  
+    @include phone-height-650 {
       transform: translateY(-160px);
     }
-  }
-
-  @include phone-height-730 {
-    h1 {
-      will-change: transform;
+  
+    @include phone-height-730 {
       transform: translateY(-190px);
     }
-  }
-
-  @include phone-height-800 {
-    h1 {
-      will-change: transform;
+  
+    @include phone-height-800 {
       transform: translateY(-230px);
     }
+  }
+
+  @include phone {
+    align-items: flex-end;
+    width: 100%;
   }
 }
 
