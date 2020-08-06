@@ -31,6 +31,7 @@ export const CompanyPeoplePhoto = ({ photo }) => {
       <SectionTitle
         title="And come to work with us side by side"
         subtitle="We’re always happy to see you here"
+        styleSubtitle={styles.subtitle}
       />
       <div className={styles.photoContainer}>
         <div className={styles.photoWrap}>

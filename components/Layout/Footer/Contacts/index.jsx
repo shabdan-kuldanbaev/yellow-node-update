@@ -41,7 +41,7 @@ export const Contacts = () => (
     <div className={styles.estimationButton}>
       <ButtonMore
         href="/"
-        title="Get an estimation"
+        title="GET AN ESTIMATION"
         buttonStyle={styles.button}
       />
     </div>

@@ -28,12 +28,7 @@
     color: $scarpa-flow;
     position: relative;
 
-    @include ultra-hd {
-      height: 110px;
-    }
-
     @include phone {
-      height: 350px;
       font-size: 0.9375rem;
     }
 

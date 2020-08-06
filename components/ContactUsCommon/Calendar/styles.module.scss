@@ -57,7 +57,7 @@
         @include phone {
           margin: 0;
           padding: 0;
-          font-size: 1rem;
+          font-size: 3.9vw;
         }
 
         a {
@@ -68,7 +68,7 @@
           letter-spacing: 0.5px;
 
           @include phone {
-            font-size: 1rem;
+            font-size: 3.9vw;
           }
         }
       }

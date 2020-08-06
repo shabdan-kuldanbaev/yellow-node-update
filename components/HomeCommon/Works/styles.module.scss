@@ -29,6 +29,10 @@
       padding: 100px 0px;
     }
 
+    @include phone {
+      padding: 100px 0px 0px; 
+    }
+
     @include below-tablet-horizontal {
       @include flex(row, center, center);
     }

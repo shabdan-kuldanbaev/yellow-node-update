@@ -42,6 +42,12 @@
     }
   }
 
+  .subtitle {
+    @include phone {
+      font-size: 3.9vw;
+    }
+  }
+
   .photoContainer {
     position: relative;
     @include flex(column, center, center);

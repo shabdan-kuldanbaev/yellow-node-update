@@ -25,6 +25,16 @@ const Articles = ({
         const effect = 'fadeInUp';
         const animatioProps = isSearch
           ? {
+            // TODO type: animatedType.isCustom,
+            // translateY: 50,
+            // opasityDuration: 0.4,
+            // transformDuration: 0.5,
+            // transitionDelay: delay,
+            // type: animatedType.isReveal,
+            // delay,
+            // distance: '100px',
+            // bottom: true,
+            // effect,
             type: animatedType.isFade,
             delay,
             distance: '50px',
