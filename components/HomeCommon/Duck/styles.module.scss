@@ -24,6 +24,10 @@
     letter-spacing: 3px;
     will-change: transform;
 
+    @include horizontal-mobile {
+      font-size: 2.3rem;
+    }
+
     @include phone {
       padding: 5px;
       font-size: 1.25rem;

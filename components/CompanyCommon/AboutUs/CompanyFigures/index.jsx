@@ -10,11 +10,11 @@ export const CompanyFigures = ({ companyFiguresData }) => (
       <Animated
         key={item.title}
         type={animatedType.isCustom}
-        translateX={100}
+        translateX={150}
         translateY={0}
         opasityDuration={0.8}
         transformDuration={0.8}
-        transitionDelay={1300 + 25 * index}
+        transitionDelay={1300 + 80 * index * 5}
       >
         <div key={item.title} className={styles.item}>
           <div>{`${item.number}${item.isPlus ? '+' : ''}`}</div>

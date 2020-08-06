@@ -12,10 +12,10 @@ export const ManagementTeam = ({ managementTeam }) => (
         <Animated
           key={`special/${index}/${manager.title}`}
           type={animatedType.isCustom}
-          translateY={20}
+          translateY={100}
           opasityDuration={0.8}
           transformDuration={0.8}
-          transitionDelay={495 + 100 * index}
+          transitionDelay={100 + 100 * index}
         >
           <div className={styles.image} />
           <div className={styles.title}>{manager.title}</div>

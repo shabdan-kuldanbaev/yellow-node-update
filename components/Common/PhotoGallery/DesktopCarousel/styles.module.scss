@@ -53,7 +53,7 @@
     vertical-align: baseline;
     visibility: visible;
     z-index: 10;
-    height: 500px;
+    height: 540px;
 
     .listWrapper {
       width: max-content;
@@ -82,20 +82,22 @@
           padding: 0 46px;
         }
 
-
         .squareImg {
-          width: 350px;
-          height: 350px;
+          // TODO width: 350px; height: 350px;
+          width: 420px;
+          height: 420px;
         }
         
         .horizontalImg {
-          width: 596px;
-          height: 350px;
+          // TODO width: 596px; height: 350px;
+          width: 715.2px;
+          height: 420px;
         }
         
         .verticalImg {
-          width: 350px;
-          height: 438px;
+          // TODO width: 350px; // height: 438px;
+          width: 420px;
+          height: 525.6px;
         }
       }
     }

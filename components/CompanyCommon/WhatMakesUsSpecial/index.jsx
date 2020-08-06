@@ -12,10 +12,10 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => (
         <Animated
           key={`special/${special.subtitle}`}
           type={animatedType.isCustom}
-          translateY={20}
+          translateY={100}
           opasityDuration={0.8}
           transformDuration={0.8}
-          transitionDelay={495 + 100 * index}
+          transitionDelay={495 + 150 * index}
         >
           <div>
             <img src={special.title} alt={special.subtitle} />
