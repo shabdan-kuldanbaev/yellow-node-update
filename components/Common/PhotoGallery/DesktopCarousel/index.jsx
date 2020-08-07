@@ -34,6 +34,7 @@ export const DesktopCarousel = ({ photos }) => {
         if (carouselContainerRef.current) {
           offsetValue += 1;
           carouselContainerRef.current.style.transform = `translate3d(${offsetValue}px, 0px, 0px)`;
+          if (offsetValue === 1) offsetValue = fullListWidth - 1;
           if (offsetValue === 0) offsetValue = fullListWidth;
         }
       }, 2);
