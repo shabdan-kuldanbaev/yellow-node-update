@@ -155,9 +155,6 @@
 
     @include phone {
       margin: 60px auto 0;
-    }
-
-    @include phone {
       min-width: 300px;
     }
   }

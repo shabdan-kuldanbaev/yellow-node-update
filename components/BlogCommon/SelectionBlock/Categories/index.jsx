@@ -19,7 +19,7 @@ const Categories = ({
   return (
     <div className={styles.categories}>
       <div className={styles.categoryTitle}>
-        <span>Category</span>
+        <h1>Category</h1>
         <img
           src={CloseIcon}
           alt="Close"

@@ -33,17 +33,18 @@
       display: block;
     }
 
-    span {
+    h1 {
       @include phone {
         display: block;
         margin: 0;
         padding: 0;
         font-size: 1.875rem;
-        text-align: left;
+        text-align: center;
         color: $mine-shaft;
         line-height: 1.5;
         margin-bottom: 30px;
         font-weight: 500;
+        font-weight: bold;
       }
     }
 

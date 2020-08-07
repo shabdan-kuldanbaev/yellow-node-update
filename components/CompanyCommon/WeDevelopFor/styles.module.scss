@@ -19,6 +19,10 @@
   @include tablet {
     @include flex(column, center, flex-start);
   }
+  
+  @include below-tablet {
+    padding: 25px 0;
+  }
 
   @include svga {
     width: 100%;

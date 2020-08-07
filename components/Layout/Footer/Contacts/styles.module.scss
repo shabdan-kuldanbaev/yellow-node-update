@@ -160,18 +160,28 @@
 
     .button {
       margin-top: 50px;
-      @include button-more($black, $black, $turbo-100, $turbo-100);
-      background-color: $turbo-100;
-      color: $woodsmoke;
-      line-height: 1.55;
-      letter-spacing: 0.5px;
-      text-align: center;
-      font-size: 1rem;
+      @include button-more($woodsmoke, $woodsmoke, $turbo-100, $turbo-100);
+      min-width: 330px;
+      font-weight: 600;
+      text-transform: uppercase;
   
       @include phone {
-        width: 90%;
-        margin: 90px auto 0 auto;
+        min-width: 300px;
+        margin: 60px auto 0 auto;
       }
+      // TODO margin-top: 50px;
+      // @include button-more($black, $black, $turbo-100, $turbo-100);
+      // background-color: $turbo-100;
+      // color: $woodsmoke;
+      // line-height: 1.55;
+      // letter-spacing: 0.5px;
+      // text-align: center;
+      // font-size: 1rem;
+  
+      // @include phone {
+      //   width: 90%;
+      //   margin: 90px auto 0 auto;
+      // }
     }
   }
 

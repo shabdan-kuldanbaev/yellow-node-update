@@ -21,13 +21,26 @@ const Articles = ({
   <div className={styles.articlesGrid}>
     <Loader isLoading={!isLoading}>
       {articles && articles.map((art, index) => {
-        const delay = isSearch ? (30 * index) : (250 + 30 * index);
+        const delay = isSearch ? (30 * index) : (250 + 40 * index);
         const effect = 'fadeInUp';
         const animatioProps = isSearch
           ? {
+            // TODO type: animatedType.isCustom,
+            // translateY: 100,
+            // opasityDuration: 0.4,
+            // transformDuration: 0.5,
+            // transitionDelay: delay,
+
+            // TODO type: animatedType.isReveal,
+            // delay,
+            // distance: '100px',
+            // bottom: true,
+            // effect,
+
             type: animatedType.isFade,
             delay,
-            distance: '50px',
+            duration: 400,
+            distance: '100px',
             bottom: true,
             effect,
           }
@@ -44,9 +57,9 @@ const Articles = ({
             // effect,
 
             type: animatedType.isCustom,
-            translateY: 50,
+            translateY: 100,
             opasityDuration: 0.4,
-            transformDuration: 0.5,
+            transformDuration: 0.8,
             transitionDelay: delay,
           };
 

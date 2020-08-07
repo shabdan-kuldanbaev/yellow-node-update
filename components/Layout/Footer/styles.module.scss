@@ -91,14 +91,24 @@ footer {
 
       .button {
         @include button-more($white, $black, transparent, $turbo-100, $white, $turbo-100);
-        letter-spacing: 0.5px;
-        padding: 16px 0;
-        font-size: 0.875rem !important;
-
+        font-size: 1rem;
+        min-width: 330px;
+        font-weight: 600;
+        text-transform: uppercase;
+    
         @include phone {
-          width: 90%;
+          min-width: 300px;
           margin: 50px auto 0 auto;
         }
+        // TODO @include button-more($white, $black, transparent, $turbo-100, $white, $turbo-100);
+        // letter-spacing: 0.5px;
+        // padding: 16px 0;
+        // font-size: 0.875rem !important;
+
+        // @include phone {
+        //   width: 90%;
+        //   margin: 50px auto 0 auto;
+        // }
       }
     }
   }

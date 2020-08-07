@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+} from 'react';
 import PropTypes from 'prop-types';
 import { Articles, ModalWindow } from 'components';
 import { articlesData } from 'containers/Blog/utils/data';
@@ -12,14 +16,24 @@ const FullscreenSearch = ({
 }) => {
   const [isMobileResolution, setMobileResolution] = useState(null);
   const [inputValue, setInputValue] = useState('');
+  const inputRef = useRef(null);
   const articles = dataOfArticle ? dataOfArticle.filter((item, index) => index < 10) : [];
 
   const handleOnChangeInput = ({ target: { value } }) => setInputValue(value);
-  const focusOnInput = (input) => input && input.focus();
+  // TODO const focusOnInput = (input) => input && input.focus();
+  const handleOnCloseModalWindow = () => {
+    closeFullscreenSearch();
+    setInputValue('');
+  };
+
+  useEffect(() => {
+    if (isFullscreenSearch && inputRef && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isFullscreenSearch]);
 
   useEffect(() => {
     const onResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
-
     onResize();
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
@@ -28,12 +42,12 @@ const FullscreenSearch = ({
   return (
     <ModalWindow
       isModalWindow={isFullscreenSearch}
-      closeModalWindow={closeFullscreenSearch}
+      closeModalWindow={handleOnCloseModalWindow}
       className={styles.search}
     >
       <div className={styles.searchBlock}>
         <input
-          ref={focusOnInput}
+          ref={inputRef}
           className={styles.input}
           type="text"
           placeholder="Type to search"
