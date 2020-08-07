@@ -163,6 +163,7 @@
       @include button-more($woodsmoke, $woodsmoke, $turbo-100, $turbo-100);
       min-width: 330px;
       font-weight: 600;
+      text-transform: uppercase;
   
       @include phone {
         min-width: 300px;

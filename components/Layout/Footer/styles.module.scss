@@ -94,6 +94,7 @@ footer {
         font-size: 1rem;
         min-width: 330px;
         font-weight: 600;
+        text-transform: uppercase;
     
         @include phone {
           min-width: 300px;
