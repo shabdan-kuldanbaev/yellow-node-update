@@ -16,7 +16,7 @@ export const Footer = ({ theme }) => (
         />
         <ButtonMore
           href="/"
-          title="Stay tuned for our updates"
+          title="Get an estimation"
           buttonStyle={styles.button}
         />
       </div>

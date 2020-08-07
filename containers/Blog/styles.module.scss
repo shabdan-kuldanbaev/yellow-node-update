@@ -4,6 +4,7 @@
   @include flex(column, flex-start, center);
   padding: $section-indent + 30px $side-indent $section-indent;
   background-color: $white;
+  min-height: calc(100vh - 230px - 487px);
 
   @include phone {
     padding: 0 $side-indent $mobile-section-indent;
