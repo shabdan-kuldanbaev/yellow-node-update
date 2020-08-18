@@ -33,6 +33,8 @@ const Categories = ({
               isLocalLink
               dynamicRouting={`/blog?category=${tag.dynamicRouting}&page=1`}
               path={`/blog?category=${tag.dynamicRouting}&page=1`}
+              // TODO dynamicRouting={`/blog?category=${tag.dynamicRouting}&page=1&limit=11`}
+              // TODO path={`/blog?category=${tag.dynamicRouting}&page=1&limit=11`}
             >
               {tag.name}
             </LinkWrapper>

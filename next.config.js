@@ -4,6 +4,7 @@ const withImages = require('next-images');
 const withPlugins = require('next-compose-plugins');
 const withObj = require('webpack-obj-loader');
 const withFonts = require('next-fonts');
+const withVideos = require('next-videos');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
@@ -52,4 +53,5 @@ module.exports = withPlugins([
   }],
   withObj,
   withFonts,
+  withVideos,
 ], nextConfig);

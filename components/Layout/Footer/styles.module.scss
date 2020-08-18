@@ -26,16 +26,16 @@ footer {
       color: $white;
     }
 
-    & > div {
+    &>div {
       height: max-content;
       padding: 80px 0 $side-indent;
 
-      @include phone {
+      @include higher-phone {
         padding-bottom: 50px;
       }
     }
 
-    @include phone {
+    @include higher-phone {
       @include flex(column, flex-start);
       padding: 0;
       text-align: center;
@@ -45,7 +45,7 @@ footer {
       @include flex(column, inherit, flex-end);
       position: relative;
 
-      @include phone {
+      @include higher-phone {
         display: none;
       }
 
@@ -57,7 +57,7 @@ footer {
           svg {
             display: none;
           }
-          
+
           span {
             color: $white;
           }
@@ -65,13 +65,14 @@ footer {
 
         @include tablet {
           li {
-            margin-left: 30px;
+            margin-left: 28px;
           }
         }
 
         @include below-tablet {
           @include flex(row, inherit, flex-end);
           width: 120%;
+
           li {
             margin-left: 6px;
           }
@@ -80,6 +81,10 @@ footer {
         li:last-child {
           border: none;
           padding: 0;
+
+          a {
+            padding: 0;
+          }
 
           &:hover {
             span {
@@ -90,25 +95,24 @@ footer {
       }
 
       .button {
-        @include button-more($white, $black, transparent, $turbo-100, $white, $turbo-100);
+        @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
         font-size: 1rem;
         min-width: 330px;
         font-weight: 600;
         text-transform: uppercase;
-    
-        @include phone {
+        transform: scale(1);
+        transition: transform 0.4s cubic-bezier(0, 0, .2, 1),
+          padding 0.4s cubic-bezier(0, 0, .2, 1);
+
+        &:hover {
+          transform: scale(.98);
+          transition: transform 0.4s cubic-bezier(0, 0, .2, 1);
+        }
+
+        @include higher-phone {
           min-width: 300px;
           margin: 50px auto 0 auto;
         }
-        // TODO @include button-more($white, $black, transparent, $turbo-100, $white, $turbo-100);
-        // letter-spacing: 0.5px;
-        // padding: 16px 0;
-        // font-size: 0.875rem !important;
-
-        // @include phone {
-        //   width: 90%;
-        //   margin: 50px auto 0 auto;
-        // }
       }
     }
   }

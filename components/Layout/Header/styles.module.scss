@@ -95,7 +95,6 @@
                 border-bottom $default-transition-time,
                 padding $default-transition-time * 1.5;
 
-
     @include phone {
       width: calc(100% - 30px);
       padding: 10px 15px;

@@ -55,7 +55,7 @@
     @include phone {
       width: auto;
     }
-    
+
     img {
       position: absolute;
       width: 16.5px;
@@ -79,16 +79,18 @@
       letter-spacing: 0.5px;
       border: none;
       transform: scale(1);
-      transition: width $shadow-time-for-yellow-button;
+      transition: width $shadow-time-for-yellow-button,
+        transform 0.4s cubic-bezier(0, 0, .2, 1);
 
       @include phone {
         display: none;
       }
-      
+
       &:hover {
         padding: 10px 15px;
         border: none;
         transform: scale(.96);
+        transition: transform 0.4s cubic-bezier(0, 0, .2, 1);
       }
     }
 

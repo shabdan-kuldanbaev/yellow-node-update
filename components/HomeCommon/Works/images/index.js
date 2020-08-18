@@ -1,4 +1,4 @@
-export { default as firstPhone } from './01.png';
-export { default as secondPhone } from './02.png';
-export { default as thirdPhone } from './03.png';
-export { default as fourthPhone } from './04.png';
+export { default as firstPhone } from './1.png';
+export { default as secondPhone } from './2.png';
+export { default as thirdPhone } from './3_with_shadow.png';
+// export { default as thirdPhone } from './3.png';

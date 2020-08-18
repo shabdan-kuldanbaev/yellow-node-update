@@ -3,7 +3,8 @@ import { articlesData } from 'containers/Blog/utils/data';
 import { priority } from 'utils/constants';
 
 const apiClient = axios.create({
-  baseURL: 'https:',
+  // baseURL: 'http://',
+  baseURL: 'http:',
   headers: {
     'Content-Type': 'aplication/json',
     Accept: 'aplication/json',
@@ -12,6 +13,7 @@ const apiClient = axios.create({
 
 export const API = {
   getArticle: (slug) => articlesData.find((article) => article.slug === slug),
+  // loadArticles: (skip, limit, category) => apiClient.get(`/blog?category=${category}&page=${skip}&limit=${limit}`),
   loadArticles: (skip, limit, category) => {
     const leftEdge = (skip - 1) * limit;
     const rightEdge = skip * limit;

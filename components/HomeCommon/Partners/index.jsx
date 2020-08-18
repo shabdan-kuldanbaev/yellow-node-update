@@ -34,12 +34,12 @@ export const Partners = () => (
           // effect="fadeInUp"
           // offset={3000}
 
-          key={`partner/${index}`}
+          key={`partner/${partner.title}`}
           type={animatedType.isCustom}
           translateY={20}
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={300 + 30 * index}
+          opasityDuration={0.8}
+          transformDuration={0.8}
+          transitionDelay={300 + 100 * index}
         >
           <div className={styles.partnersItem}>
             <img src={partner.image} alt={partner.title} />

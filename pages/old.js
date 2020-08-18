@@ -5,6 +5,7 @@ import {
   ButtonOverlap,
   DesktopMenu,
   FeedbackForm,
+  Carousel,
 } from '../oldData';
 
 const CompanyContainer = () => (
@@ -14,6 +15,9 @@ const CompanyContainer = () => (
     <DesktopMenu />
     <ButtonOverlap />
     <FeedbackForm />
+    <div style={{ backgroundColor: 'white', padding: '100px 0' }}>
+      <Carousel />
+    </div>
   </section>
 );
 

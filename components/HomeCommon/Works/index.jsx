@@ -53,6 +53,16 @@ export const Works = ({ refs }) => (
                 { [styles.thirdShadow]: index === 2 },
               )}
             >
+              {work.videoName && (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  className={styles.video}
+                >
+                  <source src={`/videos/${work.videoName}.m4v`} type="video/mp4" />
+                </video>
+              )}
               <img src={work.image} alt={work.image} />
             </div>
           </Animated>
