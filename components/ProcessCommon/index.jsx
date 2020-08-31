@@ -48,9 +48,16 @@ export const Process = () => (
             {/* TODO </div> */}
           </Animated>
         </div>
-        <div className={styles.imgWrapper}>
-          <Animated type={animatedType.isJSON} jsonFile={process.json} />
-        </div>
+        {process.json === ''
+          ? (
+            <div className={styles.imgWrapper}>
+              <img src={process.image} alt={process.name} />
+            </div>
+          ) : (
+            <div className={styles.jsonWrapper}>
+              <Animated type={animatedType.isJSON} jsonFile={process.json} />
+            </div>
+          )}
       </div>
     ))}
   </div>

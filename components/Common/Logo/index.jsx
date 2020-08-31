@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
 import { themes } from 'utils/helper';
 import { logoSize } from 'styles/utils/_variables.scss';
-import RoundLogo from './images/logo-yellow.svg';
+import RoundLogo from './images/yellow_logo.svg';
 
 const Logo = ({ theme }) => (
   <LinkWrapper

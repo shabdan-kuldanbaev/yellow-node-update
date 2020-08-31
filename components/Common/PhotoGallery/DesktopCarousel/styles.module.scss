@@ -6,10 +6,10 @@
   @include flex(column, center, center);
   flex-wrap: wrap;
   max-height: 100vh;
-  padding: 200px 0; 
+  padding: 200px 0;
   z-index: 1;
   overflow: hidden;
-  
+
   @include below-tablet {
     padding: 25px 0;
   }
@@ -28,7 +28,7 @@
     z-index: 15;
 
     &:hover {
-      cursor: url('../images/arrowLeft.svg'), default;
+      cursor: url('../images/arrow-l.svg'), default;
     }
   }
 
@@ -42,7 +42,7 @@
     z-index: 15;
 
     &:hover {
-      cursor: url('../images/arrowRight.svg'), default;
+      cursor: url('../images/arrow-r.svg'), default;
     }
   }
 
@@ -87,13 +87,13 @@
           width: 420px;
           height: 420px;
         }
-        
+
         .horizontalImg {
           // TODO width: 596px; height: 350px;
           width: 715.2px;
           height: 420px;
         }
-        
+
         .verticalImg {
           // TODO width: 350px; // height: 438px;
           width: 420px;

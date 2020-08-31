@@ -1,0 +1,89 @@
+@import 'styles/utils/mixins';
+
+.carouselItem {
+  @include flex(column, initial, center);
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include phone {
+    max-width: calc(100% - (2 * 10));
+    margin: auto 10px;
+  }
+
+  & > img:nth-of-type(1) {
+    max-width: 130px;
+    max-height: 130px;
+    width: 130px;
+    height: 130px;
+    background-repeat: no-repeat;
+    background-size: 105%;
+    background-position: center;
+  }
+
+  & > p {
+    margin-top: 50px;
+    line-height: 2.08;
+    letter-spacing: 0.6px;
+    text-align: center;
+    color: $scarpa-flow;
+    position: relative;
+
+    @include phone {
+      font-size: 0.9375rem;
+    }
+
+    img {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      will-change: transform;
+      transform: translate(-5px, 4px) scale(.65, .65);
+    }
+  }
+
+  .personName {
+    @include flex(row, initial, center);
+    margin-top: 80px;
+
+    @include phone {
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .title {
+      font-weight: bold;
+      line-height: 1.55;
+      letter-spacing: 0.5px;
+      color: $woodsmoke;
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .divider {
+      margin: 0 7px;
+      font-weight: normal;
+      color: $scarpa-flow;
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    .position {
+      margin: 0;
+      font-size: .675rem;
+      line-height: 2.21;
+      letter-spacing: 0.35px;
+      color: $scarpa-flow;
+
+      @include phone {
+        font-size: .7rem;
+        text-align: center;
+        height: 50px;
+      }
+    }
+  }
+}

@@ -42,11 +42,14 @@ $black-haze: #e8e9e9;
 $flush-mahogany: #C43436;
 $alizarin-crimson: #E21E1D;
 $web-orange: #FFAB00;
-$gallery: #EBEBEB;
 $scorpion: #695F62;
+$gallery-100: #EFEFEF;
+$gallery-200: #EBEBEB;
+$alto: #D8D8D8;
+$jumbo: #78777A;
 
 //transparency color
-$pagination: rgba(35,37,44,0.25);
+$pagination: rgba(35, 37, 44, 0.25);
 $header-additional-color: rgba(255, 255, 255, .98);
 $blog-search-background-color: rgba(255, 255, 255, 0.97);
 $blog-selection-block-mobile-categories-border-color: rgba(0, 0, 0, 0.5);
@@ -71,13 +74,13 @@ $side-indent: 20px;
 $more-button-indent: calc(#{$section-indent} / 2);
 $mobile-more-button-indent: calc(#{$mobile-section-indent} / 2);
 $aricleIndent: 15px;
-$after-mobile-title-margin: 60px; 
+$after-mobile-title-margin: 60px;
 $logo-size: 120px;
 $max-content-width: 1300px;
 $max-content-width-full-hd: 1170px;
 $max-content-width-macbook-fifteen: 1050px;
 $max-content-width-macbook-twelve: 1000px;
-$shadow-for-yellow-button: 0px 5px 20px -10px rgba(0,0,0,0.57);
+$shadow-for-yellow-button: 0px 5px 20px -10px rgba(0, 0, 0, 0.57);
 
 //resolutions size
 $ultra-hd: 3840px;
@@ -97,7 +100,8 @@ $default-font: "Montserrat";
 // TODO $default-font: 'Helvetica', sans-serif;
 // TODO $default-font: 'Helvetica-Regular', sans-serif;
 // TODO $default-font: 'Open Sans', sans-serif;
-$main-title-font: 'Sonny Gothic Condensed Ultra Black', sans-serif;
+$main-title-font: 'Sonny Gothic Condensed Ultra Black',
+sans-serif;
 
 //insta
 $imgIndent: 7.5px;

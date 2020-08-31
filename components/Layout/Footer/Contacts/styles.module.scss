@@ -2,7 +2,7 @@
 @import 'styles/utils/theme/animations';
 
 .contactsContainer {
-  @include phone {
+  @include higher-phone {
     overflow: hidden;
   }
 
@@ -11,7 +11,7 @@
     font-size: 1.8rem;
   }
 
-  & > div {
+  &>div {
     display: block;
     text-align: left;
 
@@ -20,7 +20,7 @@
       display: none;
     }
 
-    @include phone {
+    @include higher-phone {
       text-align: center;
 
       h1 {
@@ -38,13 +38,13 @@
       font-weight: 500;
       color: $white;
       margin-bottom: 10px;
-      
+
       &:not(:nth-child(2n)) {
         margin-top: 25px;
       }
 
       &:first-child {
-        margin-top: 0; 
+        margin-top: 0;
       }
 
       a {
@@ -57,7 +57,7 @@
         left: 0.5%;
         border-bottom: 1px $woodsmoke solid;
         transition: color $accelerated-transition-time;
-        
+
         &:hover {
           cursor: pointer;
           color: $turbo-100;
@@ -105,7 +105,7 @@
       }
     }
 
-    @include phone {
+    @include higher-phone {
       @include flex(column, flex-start, center);
     }
   }
@@ -113,10 +113,10 @@
   .social {
     margin-top: 30px;
 
-    @include phone {
+    @include higher-phone {
       margin-top: 80px;
     }
-  
+
     .icons {
       margin-top: 15px;
 
@@ -132,16 +132,15 @@
           will-change: transform;
           transform: translateY(0);
           transition: transform .2s;
-  
+
           &:hover {
             transform: translateY(-5px);
           }
         }
       }
 
-      @include phone {
+      @include higher-phone {
         a:last-child {
-
           img {
             margin-right: 0;
           }
@@ -154,7 +153,7 @@
     display: none;
     margin-top: $mobile-more-button-indent;
 
-    @include phone {
+    @include higher-phone {
       display: block;
     }
 
@@ -164,24 +163,11 @@
       min-width: 330px;
       font-weight: 600;
       text-transform: uppercase;
-  
-      @include phone {
+
+      @include higher-phone {
         min-width: 300px;
         margin: 60px auto 0 auto;
       }
-      // TODO margin-top: 50px;
-      // @include button-more($black, $black, $turbo-100, $turbo-100);
-      // background-color: $turbo-100;
-      // color: $woodsmoke;
-      // line-height: 1.55;
-      // letter-spacing: 0.5px;
-      // text-align: center;
-      // font-size: 1rem;
-  
-      // @include phone {
-      //   width: 90%;
-      //   margin: 90px auto 0 auto;
-      // }
     }
   }
 
@@ -192,7 +178,7 @@
     color: $white;
     margin-top: 80px;
 
-    @include phone {
+    @include higher-phone {
       @include flex(column, flex-start, center);
       margin-top: 70px;
 
@@ -202,18 +188,18 @@
     }
   }
 
-
-
   .rocket {
     @include flex(column, center, center);
     text-align: center;
     position: relative;
-    
+
     @function box-shadow($stars) {
       $bxshadow: ();
+
       @for $i from 1 to $stars {
         $bxshadow: append($bxshadow, (random(400) + 0px) (random(200) + 0px) gray, comma);
       }
+
       @return unquote($bxshadow);
     }
 
@@ -225,7 +211,7 @@
       display: none;
     }
 
-    @include phone {
+    @include higher-phone {
       .stars {
         position: absolute;
         height: 2px;
@@ -238,7 +224,7 @@
         // TODO animation: animStar 13s linear infinite;
         animation: flicker 2.2s linear infinite;
       }
-      
+
       .stars2 {
         position: absolute;
         height: 3px;
@@ -272,7 +258,6 @@
         transform: translate(-200px, -80px);
         // TODO animation: animStar 13s linear infinite;
         animation: flicker 1.5s linear infinite 1.5s;
-
       }
 
       img {

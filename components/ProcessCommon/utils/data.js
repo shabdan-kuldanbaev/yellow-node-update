@@ -1,4 +1,23 @@
-import { Review } from '../json';
+// TODO import {
+//   idea,
+//   research,
+//   prototype,
+//   design,
+//   develop,
+//   review,
+//   test,
+//   launch,
+// } from '../images';
+import {
+  Idea,
+  Research,
+  Prototype,
+  Design,
+  Develop,
+  Review,
+  Test,
+  Launch,
+} from '../json';
 
 export const processes = [
   {
@@ -9,7 +28,8 @@ export const processes = [
                   Does anybody need it at all? How to implement it the right way? We will answer all these questions and
                   more to help you make the final decision.`,
     link: '/process/idea',
-    json: Review,
+    json: Idea,
+    image: '',
   },
   {
     name: 'Research',
@@ -20,7 +40,8 @@ export const processes = [
                   Here we together determine the chances that the project 
                   will survive on the market and the best instruments to create it.`,
     link: '/process/research',
-    json: Review,
+    json: Research,
+    image: '',
   },
   {
     name: 'Prototype',
@@ -30,7 +51,8 @@ export const processes = [
                   This stage determines the product’s functionality 
                   and allows to make mistakes to avoid them in the future.`,
     link: '/process/prototype',
-    json: Review,
+    json: Prototype,
+    image: '',
   },
   {
     name: 'Design',
@@ -42,7 +64,8 @@ export const processes = [
                   But having years of experience behind our back we know 
                   how to make the product both easy to use and good looking.`,
     link: '/process/design',
-    json: Review,
+    json: Design,
+    image: '',
   },
   {
     name: 'Develop',
@@ -53,7 +76,8 @@ export const processes = [
                   We know how to lead your project the right way and always find 
                   the perfect balance between your product and your budget.`,
     link: '/process/develop',
-    json: Review,
+    json: Develop,
+    image: '',
   },
   {
     name: 'Review',
@@ -62,6 +86,7 @@ export const processes = [
                   update is as good as it can be.`,
     link: '/process/review',
     json: Review,
+    image: '',
   },
   {
     name: 'Test',
@@ -71,7 +96,8 @@ export const processes = [
                   We'll help you out here and recommend exactly what you need 
                   to make the release of your product flawless. `,
     link: '/process/test',
-    json: Review,
+    json: Test,
+    image: '',
   },
   {
     name: 'Launch',
@@ -83,6 +109,7 @@ export const processes = [
                   We are always there for you to help with anything that 
                   you may need during post-release support.`,
     link: '/process/launch',
-    json: Review,
+    json: Launch,
+    image: '',
   },
 ];

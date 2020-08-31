@@ -6,3 +6,4 @@ export {
   DesktopMenu,
   ButtonOverlap,
 } from './StylesForButton';
+export { Carousel } from './Carousel';

@@ -23,6 +23,8 @@ function* loadArticles({ payload }) {
   try {
     const { currentPage, currentLimit, category } = payload;
     const response = yield call(API.loadArticles, currentPage, currentLimit, category);
+    // TODO const fetchedArticles = yield call(API.loadArticles, currentPage, currentLimit, category);
+    // TODO const { data: { response } } = fetchedArticles;
 
     yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: response });
   } catch (err) {

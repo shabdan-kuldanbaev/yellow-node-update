@@ -36,7 +36,7 @@ export const AboutUs = ({ aboutUsText }) => (
           transitionDelay={495 + 80}
         >
           <ButtonMore
-            href="/"
+            href="/portfolio"
             title="WHAT WE DO"
             buttonStyle={styles.submit}
           />
@@ -49,7 +49,7 @@ export const AboutUs = ({ aboutUsText }) => (
           transitionDelay={495 + 250}
         >
           <ButtonMore
-            href="/"
+            href="/process"
             title="HOW WE DO IT"
             buttonStyle={styles.submit}
           />

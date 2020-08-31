@@ -4,6 +4,10 @@
   @include flex(column, center, center);
   padding: $section-indent $side-indent 200px;
 
+  @include below-tablet {
+    padding: $section-indent $side-indent 100px;
+  }
+
   @include phone {
     padding: $section-indent $side-indent;
   }
@@ -15,7 +19,7 @@
 }
 
 .partners {
-  @include flex(row, space-between, center);
+  @include flex(row, space-between, center, wrap);
   width: 100%;
   max-width: $max-content-width;
   margin-top: 42.5px;
@@ -32,7 +36,7 @@
     max-width: $max-content-width-macbook-twelve;
   }
 
-  @include phone {
+  @include below-tablet {
     flex-direction: column;
     justify-content: flex-start;
 
@@ -41,6 +45,12 @@
         div {
           margin-bottom: 0;
         }
+      }
+    }
+
+    &>div:last-of-type {
+      div {
+        margin-bottom: 0;
       }
     }
   }
@@ -57,8 +67,7 @@
     margin-right: auto;
   }
 
-  @include phone {
+  @include below-tablet {
     margin-bottom: 70px;
-    width: 65%;
   }
 }
