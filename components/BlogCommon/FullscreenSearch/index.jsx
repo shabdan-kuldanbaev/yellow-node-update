@@ -4,7 +4,7 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-import { Articles, ModalWindow } from 'components';
+import { ArticlesList, ModalWindow } from 'components';
 import { articlesData } from 'containers/Blog/utils/data';
 import { mobileResolution } from 'utils/helper';
 import styles from './styles.module.scss';
@@ -58,7 +58,7 @@ const FullscreenSearch = ({
       <div className={styles.foundArticles}>
         {!inputValue ? <span className={styles.nothingFound}>Nothing Found. Please try again with some different keywords.</span>
           : (
-            <Articles
+            <ArticlesList
               articles={articles}
               isLoading={false}
               page={2}

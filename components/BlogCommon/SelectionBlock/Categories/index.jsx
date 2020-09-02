@@ -12,6 +12,8 @@ const Categories = ({
   isMobileCategoties,
   closeMobileCategoties,
 }) => {
+  const tagsArray = Object.entries(tags).map(([key, value]) => value);
+
   useEffect(() => {
     setOverflowForBody(isMobileCategoties);
   }, [isMobileCategoties]);
@@ -27,7 +29,7 @@ const Categories = ({
         />
       </div>
       <ul>
-        {tags.map((tag) => (
+        {tagsArray && tagsArray.map((tag) => (
           <li key={tag.name} className={cn({ [styles.selectedBlock]: urlPath.includes(tag.dynamicRouting) })}>
             <LinkWrapper
               isLocalLink

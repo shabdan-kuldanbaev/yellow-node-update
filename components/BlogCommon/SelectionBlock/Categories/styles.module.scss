@@ -1,11 +1,17 @@
 @import 'styles/utils/mixins';
 
 .categories {
-  width: 75%;
+  // TODO width: 75%;
+  width: 60%;
   height: 100%;
   margin: 0;
   padding: 0;
   z-index: 2;
+
+
+  @include below-tablet-horizontal {
+    width: 75%;
+  }
 
   @include phone {
     width: auto;
@@ -83,6 +89,10 @@
       font-size: 0.8438rem;
       letter-spacing: 0.9px;
 
+      @include tablet {
+        margin-right: 10px;
+      }
+
       @include below-tablet {
         margin-right: 20px;
       }
@@ -98,7 +108,7 @@
         font-weight: 100;
         margin-bottom: 20px;
       }
-    
+
       a {
         color: $mountain-mis;
         text-decoration: none;

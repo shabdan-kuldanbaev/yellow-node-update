@@ -10,20 +10,11 @@
 
 .searchBlock {
   margin-top: 180px !important;
-
-  width: calc(100% - #{$side-indent});
-  max-width: $max-content-width - $side-indent * 2;
-
-  @include full-hd {
-    max-width: $max-content-width-full-hd - $side-indent * 2;
-  }
+  max-width: 1500px;
+  width: 100%;
 
   @include macbook-fifteen {
-    max-width: $max-content-width-macbook-fifteen - $side-indent * 2;
-  }
-
-  @include macbook-twelve {
-    max-width: $max-content-width-macbook-twelve - $side-indent * 2;
+    width: calc(100% - (2 * 55px));
   }
 
   @include tablet {
@@ -68,10 +59,26 @@
 }
 
 .foundArticles {
-  width: 100%;
-  @include flex(column, flex-start, center);
+  @include flex(column, flex-start, flex-start);
   background: transparent;
+  padding: 50px 55px $section-indent;
   padding-bottom: 150px;
+  max-width: 1500px;
+  width: 100%;
+  min-height: calc(100vh - 230px - 487px);
+
+  @include macbook-fifteen {
+    width: calc(100% - (2 * 55px));
+  }
+
+  @include tablet {
+    padding: 0 25px $section-indent;
+  }
+
+  @include phone {
+    padding: 0 15px $mobile-section-indent;
+  }
+
 
   @include phone {
     padding: 0 $side-indent 150px;
@@ -92,19 +99,11 @@
     padding: 0;
     right: 0;
 
-    width: calc(100% - #{$side-indent});
-    max-width: $max-content-width - $side-indent * 2;
+    max-width: 1500px;
+    width: 100%;
 
-    @include full-hd {
-      max-width: $max-content-width-full-hd - $side-indent * 2;
-    }
-  
     @include macbook-fifteen {
-      max-width: $max-content-width-macbook-fifteen - $side-indent * 2;
-    }
-  
-    @include macbook-twelve {
-      max-width: $max-content-width-macbook-twelve - $side-indent * 2;
+      width: calc(100% - (2 * 55px));
     }
 
     @include phone {

@@ -1,20 +1,16 @@
 @import 'styles/utils/mixins';
 
 .gradient {
-  background: linear-gradient(
-    to bottom,
-    $turbo-100 20%,
-    #22c1c3 30%,
-    $thunder 90%
-  );
+  background: linear-gradient(to bottom,
+      $turbo-100 20%,
+      #22c1c3 30%,
+      $thunder 90%);
 
   @include phone {
-    background: linear-gradient(
-      to bottom,
-      $turbo-100 20%,
-      #22c1c3 40%,
-      $thunder 93%
-    );
+    background: linear-gradient(to bottom,
+        $turbo-100 20%,
+        #22c1c3 40%,
+        $thunder 93%);
   }
 }
 
@@ -42,7 +38,7 @@
         font-size: 1.5rem;
       }
     }
-  
+
     .subtitle {
       @include flex(column, center, center);
       color: $white;
@@ -52,15 +48,15 @@
         font-size: 0.875rem;
       }
     }
-    
+
     .portfolioButton {
       @include button-more($white, $black, transparent, $turbo-100, $boulder, $turbo-100);
-      margin-top: $mobile-more-button-indent;
       min-width: 330px;
       font-weight: 600;
 
       @include phone {
         min-width: 300px;
+        margin-top: $mobile-more-button-indent;
       }
     }
 

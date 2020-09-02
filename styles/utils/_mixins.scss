@@ -9,91 +9,135 @@
 }
 
 @mixin ultra-hd {
-  @media (max-width: $ultra-hd) { @content; }
+  @media (max-width: $ultra-hd) {
+    @content;
+  }
 }
 
 @mixin quad-hd {
-  @media (max-width: $quad-hd) { @content; }
+  @media (max-width: $quad-hd) {
+    @content;
+  }
 }
 
 @mixin full-hd {
-  @media (max-width: $full-hd) { @content; }
+  @media (max-width: $full-hd) {
+    @content;
+  }
 }
 
 @mixin macbook-fifteen {
-  @media (max-width: $macbook-fifteen) { @content; }
+  @media (max-width: $macbook-fifteen) {
+    @content;
+  }
 }
 
 @mixin macbook-thirteen {
-  @media (max-width: $macbook-thirteen) { @content; }
+  @media (max-width: $macbook-thirteen) {
+    @content;
+  }
 }
 
 @mixin macbook-twelve {
-  @media (max-width: $macbook-twelve) { @content; }
+  @media (max-width: $macbook-twelve) {
+    @content;
+  }
 }
 
 @mixin desktop {
-  @media (max-width: $desktop) { @content; }
+  @media (max-width: $desktop) {
+    @content;
+  }
 }
 
 @mixin tablet {
-  @media (max-width: $max-tablet-size) { @content; }
+  @media (max-width: $max-tablet-size) {
+    @content;
+  }
 }
 
 @mixin svga {
-  @media (max-width: 815px) { @content; }
+  @media (max-width: 815px) {
+    @content;
+  }
 }
 
 @mixin below-tablet {
-  @media (max-width: $default-tablet-size) { @content; }
+  @media (max-width: $default-tablet-size) {
+    @content;
+  }
 }
 
 @mixin higher-phone {
-  @media (max-width: 760px) { @content; }
+  @media (max-width: 760px) {
+    @content;
+  }
 }
 
 @mixin below-tablet-horizontal {
-  @media (max-width: $max-tablet-size) and (max-height: 800px) { @content; }
+  @media (max-width: $max-tablet-size) and (max-height: 800px) {
+    @content;
+  }
 }
 
 @mixin phone {
-  @media (max-width: $max-mobile-size) { @content; }
+  @media (max-width: $max-mobile-size) {
+    @content;
+  }
 }
 
 @mixin horizontal-mobile {
-  @media (max-height: $horizontal-mobile) { @content; }
+  @media (max-height: $horizontal-mobile) {
+    @content;
+  }
 }
 
 @mixin horizontal-big-mobile {
-  @media (max-width: 830px) and (min-height: $horizontal-mobile) { @content; }
+  @media (max-width: 830px) and (min-height: $horizontal-mobile) {
+    @content;
+  }
 }
 
 @mixin small-phone {
-  @media (max-width: $max-mobile-size) and (max-height: 320px) { @content; }
+  @media (max-width: $max-mobile-size) and (max-height: 330px) {
+    @content;
+  }
 }
 
 @mixin horizontal-iphone-x {
-  @media (max-width: 812px) and (min-height: 380px) { @content; }
+  @media (max-width: 812px) and (min-height: 380px) {
+    @content;
+  }
 }
 
 @mixin phone-height-500 {
-  @media (max-width: $max-mobile-size) and (min-height: 500px) { @content; }
+  @media (max-width: $max-mobile-size) and (min-height: 500px) {
+    @content;
+  }
 }
 
 @mixin phone-height-650 {
-  @media (max-width: $max-mobile-size) and (min-height: 650px) { @content; }
+  @media (max-width: $max-mobile-size) and (min-height: 650px) {
+    @content;
+  }
 }
 
 @mixin phone-height-730 {
-  @media (max-width: $max-mobile-size) and (min-height: 730px) { @content; }
+  @media (max-width: $max-mobile-size) and (min-height: 730px) {
+    @content;
+  }
 }
 
 @mixin phone-height-800 {
-  @media (max-width: $max-mobile-size) and (min-height: 800px) { @content; }
+  @media (max-width: $max-mobile-size) and (min-height: 800px) {
+    @content;
+  }
 }
 
 @mixin phone-height-900 {
-  @media (max-width: $max-mobile-size) and (min-height: 900px) { @content; }
+  @media (max-width: $max-mobile-size) and (min-height: 900px) {
+    @content;
+  }
 }
 
 @mixin h1-title {
@@ -142,8 +186,7 @@
   }
 }
 
-@mixin button-more(
-  $textColor: $white, 
+@mixin button-more($textColor: $white,
   $textHoverColor: $white,
   $backgroundColor: transparent,
   $backHoverColor: $white,
@@ -166,9 +209,9 @@
   border: solid 1px $borderColor;
   will-change: transition;
   transition: background-color $shadow-time-for-yellow-button,
-              border-color $shadow-time-for-yellow-button,
-              color $shadow-time-for-yellow-button,
-              transform $shadow-time-for-yellow-button cubic-bezier(0,0,.2,1);
+    border-color $shadow-time-for-yellow-button,
+    color $shadow-time-for-yellow-button,
+    transform $shadow-time-for-yellow-button cubic-bezier(0, 0, .2, 1);
 
   &:hover {
     will-change: transition;
@@ -176,38 +219,60 @@
     border: solid 1px $borderHoverColor;
     color: $textHoverColor;
     transition: background-color $shadow-time-for-yellow-button,
-                border-color $shadow-time-for-yellow-button,
-                color $shadow-time-for-yellow-button,
-                transform $shadow-time-for-yellow-button cubic-bezier(0,0,.2,1);
+      border-color $shadow-time-for-yellow-button,
+      color $shadow-time-for-yellow-button,
+      transform $shadow-time-for-yellow-button cubic-bezier(0, 0, .2, 1);
+  }
+}
+
+@mixin seLocationSubscribe($subscribesPosition, $articleCount) {
+  &>section:first-child {
+    order: $subscribesPosition;
+  }
+
+  @for $i from 1 to $articleCount {
+    &>article:nth-of-type(#{$i}) {
+      @if $i < $subscribesPosition {
+        order: calc(#{$i} - 1);
+      }
+
+      @if $i==$subscribesPosition {
+        order: calc(#{$subscribesPosition} - 1);
+      }
+
+      @if $i>$subscribesPosition {
+        order: $i;
+      }
+    }
   }
 }
 
 @font-face {
-	font-family: 'Sonny Gothic Condensed Ultra Black';
+  font-family: 'Sonny Gothic Condensed Ultra Black';
   src: url('styles/fonts/Sonny-Gothic-Condensed-Ultra-Black.otf') format('opentype');
   font-display: swap;
 }
 
 @font-face {
-	font-family: 'Helvetica-Bold';
+  font-family: 'Helvetica-Bold';
   src: url('styles/fonts/Helvetica/HelveticaBold/HelveticaBold.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
-	font-family: 'Helvetica-Light';
+  font-family: 'Helvetica-Light';
   src: url('styles/fonts/Helvetica/HelveticaLight/HelveticaLight.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
-	font-family: 'Helvetica-Medium';
+  font-family: 'Helvetica-Medium';
   src: url('styles/fonts/Helvetica/HelveticaMedium/HelveticaMedium.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
-	font-family: 'Helvetica-Regular';
+  font-family: 'Helvetica-Regular';
   src: url('styles/fonts/Helvetica/HelveticaRegular/HelveticaRegular.ttf') format('truetype');
   font-display: swap;
 }

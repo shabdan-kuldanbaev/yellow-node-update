@@ -7,3 +7,4 @@ export {
   ButtonOverlap,
 } from './StylesForButton';
 export { Carousel } from './Carousel';
+export { default as Blog } from './Blog';

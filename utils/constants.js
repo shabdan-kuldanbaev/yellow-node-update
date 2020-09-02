@@ -11,3 +11,24 @@ export const animatedType = {
   isJSON: 'isJSON',
   isParallaxSpring: 'isParallaxSpring',
 };
+
+export const tagsForBlog = {
+  latest: {
+    name: 'Latest', dynamicRouting: 'latest',
+  },
+  howWeWork: {
+    name: 'How we work', dynamicRouting: 'how-we-work',
+  },
+  softwareDevelopment: {
+    name: 'Software Development', dynamicRouting: 'software-development',
+  },
+  softwareChat: {
+    name: 'Software Chat', dynamicRouting: 'software-chat',
+  },
+  marketing: {
+    name: 'Marketing', dynamicRouting: 'marketing',
+  },
+  yellow: {
+    name: 'Yellow', dynamicRouting: 'yellow',
+  },
+};

@@ -6,6 +6,7 @@ import {
   DesktopMenu,
   FeedbackForm,
   Carousel,
+  Blog,
 } from '../oldData';
 
 const CompanyContainer = () => (
@@ -18,6 +19,7 @@ const CompanyContainer = () => (
     <div style={{ backgroundColor: 'white', padding: '100px 0' }}>
       <Carousel />
     </div>
+    <Blog />
   </section>
 );
 

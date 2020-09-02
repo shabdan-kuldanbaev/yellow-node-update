@@ -7,7 +7,7 @@ import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
 import {
   SectionTitle,
   ButtonMore,
-  Articles,
+  ArticlesList,
 } from 'components';
 import { mobileResolution } from 'utils/helper';
 import styles from './styles.module.scss';
@@ -33,7 +33,7 @@ const Blog = ({
   useEffect(() => {
     loadPartOfArticles({
       currentPage,
-      currentLimit: 5,
+      currentLimit: 3,
       category: 'latest',
     });
   }, []);
@@ -41,7 +41,7 @@ const Blog = ({
   return (
     <section className={styles.blog}>
       <SectionTitle title="Blog" subtitle="How we do what we do" />
-      <Articles
+      <ArticlesList
         articles={articles}
         isLoading={isLoading}
         isMobileResolution={isMobileResolution}

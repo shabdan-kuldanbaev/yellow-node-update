@@ -152,7 +152,6 @@
     @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
     min-width: 330px;
     font-weight: 600;
-    margin-top: 50px;
 
     @include phone {
       margin: 60px auto 0;
