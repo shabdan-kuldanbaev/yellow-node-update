@@ -29,7 +29,7 @@ const MobileMenu = ({
       })}
       >
         <ul>
-          {menuItems.map((item) => (
+          {menuItems && menuItems.map((item) => (
             <li key={`menuItem/${item.name}`} onClick={closeMenu}>
               <LinkWrapper path={item.href} isLocalLink>
                 <span>{item.name}</span>
@@ -38,7 +38,7 @@ const MobileMenu = ({
           ))}
         </ul>
         <div className={styles.mobileMenuFooter}>
-          {socialItems.map((link) => (
+          {socialItems && socialItems.map((link) => (
             <LinkWrapper
               key={`links/${link.title}`}
               path={link.href}

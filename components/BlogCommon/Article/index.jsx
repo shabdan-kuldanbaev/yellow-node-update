@@ -1,47 +1,41 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
-import { selectArticle, selectIsLoading } from 'redux/selectors/blog';
-import { getArticle } from 'redux/actions/blog';
+import get from 'lodash/get';
 import { Loader } from 'components';
+import { DataTypes } from './DataTypes';
 import styles from './styles.module.scss';
 
 const Article = ({
-  currentArticle,
+  introSection,
+  article,
   isLoading,
-  getArticle: getCurrentArticle,
-}) => {
-  const { query: { article } } = useRouter();
-
-  useEffect(() => {
-    if (article) getCurrentArticle(article);
-  }, []);
-
-  return (
-    <Loader isLoading={!isLoading}>
-      <section className={styles.article}>
-        <span>{currentArticle.id}</span>
-        <br />
-        <br />
-        <span>{currentArticle.title}</span>
-        <span>{currentArticle.publishedDate}</span>
-        <p>{currentArticle.description}</p>
-        <img src={currentArticle.image} alt="" />
-      </section>
-    </Loader>
-  );
-};
+}) => (
+  <Loader isLoading={!isLoading}>
+    <section ref={introSection} className={styles.article}>
+      <header className={styles.header}>
+        <div>
+          <div style={{ backgroundImage: `url(${get(article, 'header.image', '')})` }} />
+        </div>
+        <div className={styles.container}>
+          <div>
+            <h1 className={styles.h1}>{get(article, 'header.title', '')}</h1>
+          </div>
+          <div>
+            <p>{get(article, 'header.subtitle', '')}</p>
+          </div>
+        </div>
+      </header>
+      <div className={styles.body}>
+        {get(article, 'body', []).map((item) => <DataTypes type={item.tag} data={item.data} />)}
+      </div>
+    </section>
+  </Loader>
+);
 
 Article.propTypes = {
-  currentArticle: PropTypes.instanceOf(Object).isRequired,
+  introSection: PropTypes.instanceOf(Object).isRequired,
+  article: PropTypes.instanceOf(Object).isRequired,
   isLoading: PropTypes.bool.isRequired,
-  getArticle: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  currentArticle: selectArticle(state),
-  isLoading: selectIsLoading(state),
-});
-
-export default connect(mapStateToProps, { getArticle })(Article);
+export default Article;

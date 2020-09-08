@@ -4,7 +4,8 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components';
+import { LinkWrapper, Animated } from 'components';
+import { animatedType } from 'utils/constants';
 import TestPhoto from './images/bitmap@3x.png';
 import styles from './styles.module.scss';
 
@@ -43,26 +44,74 @@ export const CompanyContacts = ({ photo }) => {
         />
       </div>
       <address className={styles.address}>
-        <span className={styles.addressTitle}>CONTACT US</span>
-        <div className={styles.locationAddress}>
-          <span>Nemiga 5, Minsk, Belarus</span>
-          <span>220030</span>
-        </div>
-        <span className={styles.addressTitle}>PHONES</span>
-        <div className={styles.phoneNumber}>
-          <LinkWrapper path="tel:+1 415 670 9070" isLocalLink>
-            +1 415 670 9070
-          </LinkWrapper>
-          <LinkWrapper path="tel:+375 44 584 02 08" isLocalLink>
-            +375 44 584 02 08
-          </LinkWrapper>
-        </div>
-        <span className={styles.addressTitle}>EMAIL</span>
-        <div className={styles.email}>
-          <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>
-            hi@yellow.systems
-          </LinkWrapper>
-        </div>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={100}
+        >
+          <span className={styles.addressTitle}>CONTACT US</span>
+        </Animated>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={150}
+        >
+          <div className={styles.locationAddress}>
+            <span>Nemiga 5, Minsk, Belarus</span>
+            <span>220030</span>
+          </div>
+        </Animated>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={200}
+        >
+          <span className={styles.addressTitle}>PHONES</span>
+        </Animated>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={250}
+        >
+          <div className={styles.phoneNumber}>
+            <LinkWrapper path="tel:+1 415 670 9070" isLocalLink>
+              +1 415 670 9070
+            </LinkWrapper>
+            <LinkWrapper path="tel:+375 44 584 02 08" isLocalLink>
+              +375 44 584 02 08
+            </LinkWrapper>
+          </div>
+        </Animated>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={300}
+        >
+          <span className={styles.addressTitle}>EMAIL</span>
+        </Animated>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={350}
+        >
+          <div className={styles.email}>
+            <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>
+              hi@yellow.systems
+            </LinkWrapper>
+          </div>
+        </Animated>
       </address>
     </section>
   );

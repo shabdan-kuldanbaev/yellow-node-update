@@ -15,30 +15,18 @@ export const SectionTitle = ({
 }) => (
   <div className={styles.titleContainer}>
     <Animated
-      // TODO type={animatedType.isFade}
-      // delay={0}
-      // distance="30px"
-      // bottom
-      // effect="fadeInUp"
-
       type={animatedType.isCustom}
-      translateY={20}
+      translateY="2.82352941em"
       opasityDuration={1}
       transformDuration={1}
-      transitionDelay={270}
+      transitionDelay={250}
     >
       <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
     </Animated>
     {subtitle && (
       <Animated
-        // TODO type={animatedType.isFade}
-        // delay={70}
-        // distance="30px"
-        // bottom
-        // effect="fadeInUp"
-
         type={animatedType.isCustom}
-        translateY={20}
+        translateY="2.82352941em"
         opasityDuration={1}
         transformDuration={1}
         transitionDelay={300}

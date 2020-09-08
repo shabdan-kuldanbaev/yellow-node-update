@@ -5,7 +5,7 @@ import {
   Blog,
   // TODO Advantages,
   Portfolio,
-  Reviews,
+  ReviewsContainer,
   // TODO Insta,
   FeedbackFormContainer,
 } from 'containers';
@@ -16,7 +16,7 @@ export const Home = ({ theme, introSection }) => (
     <Intro theme={theme} introSection={introSection} />
     {/* TODO <Advantages /> */}
     <Portfolio />
-    <Reviews />
+    <ReviewsContainer />
     <Blog />
     {/* TODO <Insta /> */}
     <PhotoGallery />

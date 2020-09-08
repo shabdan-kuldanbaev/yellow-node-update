@@ -44,15 +44,28 @@
       width: auto;
     }
 
-    img {
-      position: absolute;
-      width: 16.5px;
-      cursor: pointer;
-      right: 160px;
+    &>div:first-child {
+      @include flex(row, center, center);
 
       @include phone {
-        top: 14px;
-        right: 28.5vw;
+        opacity: 1 !important;
+        transform: translate(0, 0) !important;
+      }
+
+      img {
+        position: absolute;
+        width: 16.5px;
+        cursor: pointer;
+        right: 55px;
+
+        @include horizontal-mobile {
+          right: 35px;
+        }
+
+        @include phone {
+          top: -7px;
+          right: 7vw;
+        }
       }
     }
 

@@ -77,18 +77,18 @@ Intro.propTypes = {
   isFirstHomepageVisit: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  isModelLoaded: selectIsModelLoaded(state),
-  isMobileMenuOpened: selectIsMobileMenuOpened(state),
-  duck: selectDuck(state),
-  isHomepageVisit: selectIsHomepageVisit(state),
-  isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
-});
-
-export default connect(mapStateToProps, {
-  setModelLoading,
-  setScrollOfAddedFooter,
-  setDuck,
-  setHomepageVisit,
-  setFirstHomepageVisit,
-})(Intro);
+export default connect(
+  (state) => ({
+    isModelLoaded: selectIsModelLoaded(state),
+    isMobileMenuOpened: selectIsMobileMenuOpened(state),
+    duck: selectDuck(state),
+    isHomepageVisit: selectIsHomepageVisit(state),
+    isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
+  }), {
+    setModelLoading,
+    setScrollOfAddedFooter,
+    setDuck,
+    setHomepageVisit,
+    setFirstHomepageVisit,
+  },
+)(Intro);

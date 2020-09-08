@@ -1,0 +1,169 @@
+@import 'styles/utils/mixins';
+
+.paragraph {
+  div>p {
+    max-width: 850px;
+    margin-top: 30px;
+    margin-bottom: 120px;
+    font-weight: 400;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    padding: 0;
+    color: $cod-gray;
+    font-size: 1.5rem;
+    line-height: 36px;
+    letter-spacing: 0.5px;
+    color: $black;
+    word-wrap: normal;
+
+    @include phone {
+      max-width: calc(100% - 40px);
+      max-width: 100%;
+      margin: 0;
+      margin-bottom: 60px;
+      font-size: 1rem;
+      line-height: 1.53;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+.project {
+  @include flex(column, center, center);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background-color: $white;
+
+  .header {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .container {
+      width: 100%;
+      max-width: $max-content-width - 170px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+
+      @include tablet {
+        max-width: calc(100% - 80px);
+        padding: 0 40px 0;
+      }
+
+      @include phone {
+        max-width: calc(100% - 30px);
+        padding: 0 15px 0;
+      }
+
+      div>h1 {
+        width: 100%;
+        margin: 0;
+        margin-top: 240px;
+        font-size: 82px;
+        font-weight: 700;
+        line-height: 86px;
+        letter-spacing: -2px;
+        color: $white;
+
+        @include phone {
+          font-size: 38px;
+          line-height: 46px;
+        }
+      }
+
+      @extend .paragraph;
+
+      div {
+        @include flex(row, center, center);
+
+        p {
+          margin-top: 60px;
+          color: $white;
+
+          @include phone {
+            margin-top: 30px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .body {
+    max-width: $max-content-width - 170px;
+    padding: 0 0 300px;
+    background-color: $white;
+
+
+    @include macbook-fifteen {
+      padding-bottom: 250px;
+    }
+
+    @include tablet {
+      max-width: calc(100% - 80px);
+      padding: 0 40px 300px;
+    }
+
+    @include below-tablet {
+      padding-bottom: 250px;
+    }
+
+    @include phone {
+      max-width: calc(100% - 30px);
+      padding: 0 15px 200px;
+    }
+
+    div>h2 {
+      margin: 120px 0 0 0;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 54px;
+      letter-spacing: -.85px;
+
+      @include phone {
+        margin: 60px 0 30px 0;
+        line-height: 38px;
+        font-size: 28px;
+      }
+    }
+
+    @extend .paragraph;
+
+    div>img {
+      width: 100%;
+    }
+
+    div>video {
+      width: 100%;
+    }
+
+    div>.additionSubtitle {
+      margin-top: 120px;
+
+      @include phone {
+        margin-top: 60px;
+      }
+    }
+
+    .mediasWrapper {
+      @include flex(row, space-between, flex-start);
+      width: 100%;
+
+      &>div {
+        width: 49%;
+
+        div {
+
+          &>* {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

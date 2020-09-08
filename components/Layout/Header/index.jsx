@@ -6,7 +6,11 @@ import { useRouter } from 'next/router';
 import { selectIsModelLoaded } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
-import { SelectionBlock, Logo } from 'components';
+import {
+  SelectionBlock,
+  Logo,
+  TopProgressBar,
+} from 'components';
 import { mobileResolution } from 'utils/helper';
 import { footerColor } from 'styles/utils/_variables.scss';
 import MobileMenu from './MobileMenu';
@@ -69,20 +73,17 @@ const Header = ({
         oldY = pageYOffset;
       }
     }
-
-    if (pageYOffset > 20) document.body.style.backgroundColor = footerColor;
-    else if (!isHomePage) document.body.style.backgroundColor = '#fff';
-    else document.body.style.backgroundColor = 'black';
+    console.log(asPath);
+    // TODO if (pageYOffset > 20) document.body.style.backgroundColor = footerColor;
+    // else if (!isHomePage) document.body.style.backgroundColor = '#fff';
+    // else document.body.style.backgroundColor = 'black';
   };
 
   useEffect(() => {
     oldY = window.pageYOffset;
     handleOnScroll();
-
     window.addEventListener('scroll', handleOnScroll);
-    return () => {
-      window.removeEventListener('scroll', handleOnScroll);
-    };
+    return () => window.removeEventListener('scroll', handleOnScroll);
   }, [currentPage]);
 
   return (
@@ -108,6 +109,7 @@ const Header = ({
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
       />
+      {(asPath.includes('portfolio') || asPath.includes('blog/')) && asPath.length > 10 && <TopProgressBar elementRef={introSection} />}
     </header>
   );
 };
@@ -124,9 +126,9 @@ Header.propTypes = {
   setMobileMenuState: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  isModelLoaded: selectIsModelLoaded(state),
-  isMobileMenuOpened: selectIsMobileMenuOpened(state),
-});
-
-export default connect(mapStateToProps, { setMobileMenuState })(Header);
+export default connect(
+  (state) => ({
+    isModelLoaded: selectIsModelLoaded(state),
+    isMobileMenuOpened: selectIsMobileMenuOpened(state),
+  }), { setMobileMenuState },
+)(Header);

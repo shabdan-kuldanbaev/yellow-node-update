@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Animated } from 'components';
 import { animatedType } from 'utils/constants';
 import { companyFiguresData } from './utils/data';
@@ -10,11 +11,11 @@ export const CompanyFigures = ({ companyFiguresData }) => (
       <Animated
         key={item.title}
         type={animatedType.isCustom}
-        translateX={150}
-        translateY={0}
-        opasityDuration={0.8}
-        transformDuration={0.8}
-        transitionDelay={1300 + 80 * index * 5}
+        translateX="2.82352941em"
+        translateY="0"
+        opasityDuration={1}
+        transformDuration={1}
+        transitionDelay={1100 + 90 * index * 2}
       >
         <div key={item.title} className={styles.item}>
           <div>{`${item.number}${item.isPlus ? '+' : ''}`}</div>
@@ -27,4 +28,8 @@ export const CompanyFigures = ({ companyFiguresData }) => (
 
 CompanyFigures.defaultProps = {
   companyFiguresData,
+};
+
+CompanyFigures.propTypes = {
+  companyFiguresData: PropTypes.instanceOf(Array),
 };

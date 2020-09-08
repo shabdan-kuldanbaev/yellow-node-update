@@ -17,12 +17,13 @@
   z-index: 9999;
   @include flex(row, space-between, center);
   width: calc(100% - 34px);
+  max-width: 100vw;
   padding: 17.5px 17px;
   opacity: 1;
   will-change: transform;
   transform: translate3d(0, -100%, 0);
   transition: transform $default-transition-time,
-              padding $default-transition-time;
+    padding $default-transition-time;
 
   @include phone {
     width: calc(100% - 30px);
@@ -37,7 +38,7 @@
     overflow: hidden;
     transition: width $default-transition-time ease;
 
-    & > a {
+    &>a {
       position: relative;
       @include flex(row, flex-start, center);
 
@@ -92,14 +93,14 @@
     background-color: $header-additional-color;
     border-bottom: 0.5px solid $mercury;
     transition: transform $default-transition-time,
-                border-bottom $default-transition-time,
-                padding $default-transition-time * 1.5;
+      border-bottom $default-transition-time,
+      padding $default-transition-time * 1.5;
 
     @include phone {
       width: calc(100% - 30px);
       padding: 10px 15px;
     }
-    
+
     svg {
       path {
         fill: $black;

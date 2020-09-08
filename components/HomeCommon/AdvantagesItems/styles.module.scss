@@ -49,41 +49,39 @@
     }
   }
 
-  div {
-    @include flex(column, flex-start, center);
+  @include flex(column, flex-start, center);
 
-    img {
-      width: auto;
-      height: 121px;
-    }
-    
-    .title {
-      margin-top: 30px;
-      font-size: 1.125rem;
-      font-weight: bold;
-      letter-spacing: .5px;
-      text-align: center;
-      color: $black;
-      opacity: .9;
-    }
-  
-    .desc {
-      margin-top: -10px;
-      width: 330px;
-      font-size: .9rem;
-      font-weight: 500;
-      letter-spacing: .45px;
-      line-height: 2;
-      text-align: center;
-      color: $black;
+  &>img {
+    width: auto;
+    height: 121px;
+  }
 
-      @include phone {
-        width: 100%;
-      }
-  
-      span {
-        font-weight: normal;
-      }
+  .title {
+    margin-top: 30px;
+    font-size: 1.125rem;
+    font-weight: bold;
+    letter-spacing: .5px;
+    text-align: center;
+    color: $black;
+    opacity: .9;
+  }
+
+  .desc {
+    margin-top: -10px;
+    width: 330px;
+    font-size: .9rem;
+    font-weight: 500;
+    letter-spacing: .45px;
+    line-height: 2;
+    text-align: center;
+    color: $black;
+
+    @include phone {
+      width: 100%;
+    }
+
+    span {
+      font-weight: normal;
     }
   }
 

@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Reviews } from 'containers';
 import {
   AboutUs,
   WhatMakesUsSpecial,
@@ -8,7 +7,9 @@ import {
   ManagementTeam,
   PhotoGallery,
   Awards,
+  Reviews,
 } from 'components';
+import { reviews } from 'containers/Home/Reviews/utils/data';
 import styles from './styles.module.scss';
 
 export const CompanyContainer = ({ introSection }) => (
@@ -20,7 +21,9 @@ export const CompanyContainer = ({ introSection }) => (
       <ManagementTeam />
     </section>
     <PhotoGallery />
-    <Reviews className={styles.companyReviews} />
+    <div className={styles.companyReviews}>
+      <Reviews reviews={reviews} />
+    </div>
     <section className={styles.companyBottom}>
       <Awards />
     </section>

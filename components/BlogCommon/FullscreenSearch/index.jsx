@@ -6,7 +6,6 @@ import React, {
 import PropTypes from 'prop-types';
 import { ArticlesList, ModalWindow } from 'components';
 import { articlesData } from 'containers/Blog/utils/data';
-import { mobileResolution } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const FullscreenSearch = ({
@@ -14,13 +13,11 @@ const FullscreenSearch = ({
   closeFullscreenSearch,
   articlesData: dataOfArticle,
 }) => {
-  const [isMobileResolution, setMobileResolution] = useState(null);
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
   const articles = dataOfArticle ? dataOfArticle.filter((item, index) => index < 10) : [];
 
   const handleOnChangeInput = ({ target: { value } }) => setInputValue(value);
-  // TODO const focusOnInput = (input) => input && input.focus();
   const handleOnCloseModalWindow = () => {
     closeFullscreenSearch();
     setInputValue('');
@@ -31,13 +28,6 @@ const FullscreenSearch = ({
       inputRef.current.focus();
     }
   }, [isFullscreenSearch]);
-
-  useEffect(() => {
-    const onResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, [isMobileResolution]);
 
   return (
     <ModalWindow
@@ -63,7 +53,6 @@ const FullscreenSearch = ({
               isLoading={false}
               page={2}
               isSearch
-              isMobileResolution={isMobileResolution}
               asPath=""
             />
           )}

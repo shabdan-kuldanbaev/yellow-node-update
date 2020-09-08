@@ -3,7 +3,7 @@
 :global(.slick-slider) {
   @include flex(row, center, center);
   width: 100%;
-  margin: 50px 0;
+  margin: 0;
 }
 
 :global(.slick-list) {
@@ -46,7 +46,7 @@
     width: 20px;
     height: 100%;
     background-image: linear-gradient(to right, rgba(247, 248, 247, 0), $gray-nurse);
-    top: 0; 
+    top: 0;
     right: 0;
     z-index: 5;
   }
@@ -56,25 +56,26 @@
   bottom: -85px;
 
   li {
-    width: 13px;
-    height: 13px;
-  }
+    width: 8px;
+    height: 8px;
 
-  button {
-    width: 13px !important;
-    height: 13px !important;
-    padding: 0 !important;
-    border: 2px solid $scarpa-flow !important;
-    border-radius: 2.5px;
+    button {
+      padding: 0 !important;
+      width: 8px !important;
+      height: 8px !important;
+      border: none !important;
+      border-radius: 50%;
+      background-color: $alto;
 
-    &::before {
-      content: '' !important;
+      &::before {
+        content: '' !important;
+      }
     }
   }
 }
 
 :global(.slick-active) {
   button {
-    background-color: $scarpa-flow !important;
+    background-color: $jumbo !important;
   }
 }

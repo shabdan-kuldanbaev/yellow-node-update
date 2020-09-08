@@ -37,10 +37,8 @@
 
     @include phone {
       display: block;
-    }
 
-    h1 {
-      @include phone {
+      h1 {
         display: block;
         margin: 0;
         padding: 0;
@@ -52,15 +50,15 @@
         font-weight: 500;
         font-weight: bold;
       }
-    }
 
-    img {
-      position: absolute;
-      top: 16px;
-      right: 0;
-      width: 20px;
-      height: 16px;
-      cursor: pointer;
+      img {
+        position: absolute;
+        top: 16px;
+        right: 0;
+        width: 20px;
+        height: 16px;
+        cursor: pointer;
+      }
     }
   }
 

@@ -10,26 +10,14 @@
     margin: auto 10px;
   }
 
-  & > img:nth-of-type(1) {
-    max-width: 130px;
-    max-height: 130px;
-    width: 130px;
-    height: 130px;
-    background-repeat: no-repeat;
-    background-size: 105%;
-    background-position: center;
-  }
-
-  & > p {
+  .text {
+    @include flex(row, center, flex-start);
     margin-top: 50px;
-    line-height: 2.08;
-    letter-spacing: 0.6px;
-    text-align: center;
-    color: $scarpa-flow;
-    position: relative;
+    padding: 20px 0;
 
     @include phone {
-      font-size: 0.9375rem;
+      padding: 20px 7px;
+      position: relative;
     }
 
     img {
@@ -37,52 +25,102 @@
       margin: 0;
       padding: 0;
       will-change: transform;
-      transform: translate(-5px, 4px) scale(.65, .65);
+      transform: translate(-4px, 5px) scale(0.7, .7);
+
+      @include phone {
+        position: absolute;
+        top: 18px;
+        left: -3.5vw;
+      }
+    }
+
+    p {
+      margin: 0;
+      line-height: 2.08;
+      letter-spacing: 0.6px;
+      text-align: center;
+      color: $black;
+      position: relative;
+      max-width: 63%;
+
+      @include full-hd {
+        max-width: 68%;
+      }
+
+      @include macbook-fifteen {
+        max-width: 100%;
+      }
+
+      @include macbook-twelve {
+        max-width: 83%;
+      }
+
+      @include phone {
+        max-width: 100%;
+        font-size: 0.9375rem;
+      }
     }
   }
 
-  .personName {
-    @include flex(row, initial, center);
-    margin-top: 80px;
+  .person {
+    @include flex(row, initial, flex-start);
+    margin-top: 45px;
 
     @include phone {
-      flex-direction: column;
-      flex-wrap: wrap;
       margin-top: 50px;
     }
 
-    .title {
-      font-weight: bold;
-      line-height: 1.55;
-      letter-spacing: 0.5px;
-      color: $woodsmoke;
+    .photo {
+      max-width: 58px;
+      max-height: 58px;
+      width: 58px;
+      height: 58px;
+      background-repeat: no-repeat;
+      background-size: 105%;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      margin-right: 22px;
 
       @include phone {
-        text-align: center;
+        margin-right: 6vw;
       }
     }
 
-    .divider {
-      margin: 0 7px;
-      font-weight: normal;
-      color: $scarpa-flow;
+    .info {
+      @include flex(column, center, flex-start);
+      height: 100%;
 
       @include phone {
-        display: none;
+        max-width: 55vw;
       }
-    }
 
-    .position {
-      margin: 0;
-      font-size: .675rem;
-      line-height: 2.21;
-      letter-spacing: 0.35px;
-      color: $scarpa-flow;
+      .title {
+        font-weight: bold;
+        line-height: 1.55;
+        letter-spacing: 0.5px;
+        color: $woodsmoke;
+        margin-bottom: 3px;
+      }
 
-      @include phone {
-        font-size: .7rem;
-        text-align: center;
-        height: 50px;
+      .position {
+        margin: 0;
+        font-size: .675rem;
+        line-height: 1.5;
+        letter-spacing: 0.35px;
+        color: $scarpa-flow;
+        margin-bottom: 4px;
+
+        @include phone {
+          font-size: .7rem;
+          padding: 0;
+          height: 50px;
+        }
+      }
+
+      .star {
+        margin-right: 5px;
+        width: 15.5px;
       }
     }
   }

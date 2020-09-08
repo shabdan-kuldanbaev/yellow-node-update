@@ -7,7 +7,9 @@ import {
   AnimatedInput,
   ButtonMore,
   CheckboxContainer,
+  Animated,
 } from 'components';
+import { animatedType } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { withValidateEmail } from 'hocs';
 import { budget } from './utils/data';
@@ -38,53 +40,109 @@ const FeedbackForm = ({
   return (
     <form className={styles.form}>
       <div className={styles.inputs}>
-        <AnimatedInput
-          value={fullName}
-          handleOnChange={handleOnNameChange}
-          placeholder="Name"
-          isValidate
-          isWithoutLabel
-          isRequired
-        />
-        <AnimatedInput
-          value={email.value}
-          handleOnChange={handleOnEmailChange}
-          placeholder="Email"
-          type="email"
-          isValidate={email.isValidate}
-          handleOnBlurEmail={handleOnBlurEmail}
-          isWithoutLabel
-          isRequired
-        />
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={500}
+        >
+          <AnimatedInput
+            value={fullName}
+            handleOnChange={handleOnNameChange}
+            placeholder="Name"
+            isValidate
+            isWithoutLabel
+            isRequired
+          />
+        </Animated>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={550}
+        >
+          <AnimatedInput
+            value={email.value}
+            handleOnChange={handleOnEmailChange}
+            placeholder="Email"
+            type="email"
+            isValidate={email.isValidate}
+            handleOnBlurEmail={handleOnBlurEmail}
+            isWithoutLabel
+            isRequired
+          />
+        </Animated>
       </div>
       {isChooseBudget && (
-        <div className={cn(styles.budget, { [styles.initialBudget]: projectBudget.length === 1 })}>
-          {projectBudget.length > 1
-            ? (
-              <Fragment>
-                <span>Your budget is up to </span>
-                <span className={styles.price}>{`$ ${projectBudget}`}</span>
-                {projectBudget === addThousandsSeparators(budgetData.max) && <span> or more</span>}
-              </Fragment>
-            )
-            : <span>Your budget</span>}
-          <Slider {...sliderSettings} />
-        </div>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={600}
+        >
+          <div className={cn(styles.budget, { [styles.initialBudget]: projectBudget.length === 1 })}>
+            {projectBudget.length > 1
+              ? (
+                <Fragment>
+                  <span>Your budget is up to </span>
+                  <span className={styles.price}>{`$ ${projectBudget}`}</span>
+                  {projectBudget === addThousandsSeparators(budgetData.max) && <span> or more</span>}
+                </Fragment>
+              )
+              : <span>Your budget</span>}
+            <Slider {...sliderSettings} />
+          </div>
+        </Animated>
       )}
-      <Upload />
+      <Animated
+        type={animatedType.isCustom}
+        translateY="2.82352941em"
+        opasityDuration={1}
+        transformDuration={1}
+        transitionDelay={650}
+      >
+        <Upload />
+      </Animated>
       <div className={styles.checkboxContainer}>
-        <CheckboxContainer
-          text="I accept your"
-          isThereLink
-          linkText="Privacy Policy"
-        />
-        <CheckboxContainer text="Send me NDA" isThereLink={false} />
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={700}
+        >
+          <CheckboxContainer
+            text="I accept your"
+            isThereLink
+            linkText="Privacy Policy"
+          />
+        </Animated>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={750}
+        >
+          <CheckboxContainer text="Send me NDA" isThereLink={false} />
+        </Animated>
       </div>
-      <ButtonMore
-        href="/"
-        title="SEND"
-        buttonStyle={styles.submit}
-      />
+      <Animated
+        type={animatedType.isCustom}
+        translateY="2.82352941em"
+        opasityDuration={1}
+        transformDuration={1}
+        transitionDelay={800}
+      >
+        <ButtonMore
+          href="/"
+          title="SEND"
+          buttonStyle={styles.submit}
+        />
+      </Animated>
     </form>
   );
 };

@@ -10,6 +10,8 @@ export const animatedType = {
   isCustom: 'isCustom',
   isJSON: 'isJSON',
   isParallaxSpring: 'isParallaxSpring',
+  gsap: 'gsap',
+  imageZoom: 'imageZoom',
 };
 
 export const tagsForBlog = {
@@ -31,4 +33,13 @@ export const tagsForBlog = {
   yellow: {
     name: 'Yellow', dynamicRouting: 'yellow',
   },
+};
+
+export const articleTags = {
+  paragraph: 'paragraph',
+  quote: 'quote',
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  images: 'images',
 };

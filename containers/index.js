@@ -1,24 +1,30 @@
-// Layout container
+// Layout
 export { default as Layout } from 'containers/Layout';
 
-// Home container
+// Home
 export { Advantages } from 'containers/Home/Advantages';
 export { default as Blog } from 'containers/Home/Blog';
 export { Insta } from 'containers/Home/Insta';
 export { default as Intro } from 'containers/Home/Intro';
 export { Portfolio } from 'containers/Home/Portfolio';
-export { Reviews } from 'containers/Home/Reviews';
+export { ReviewsContainer } from 'containers/Home/Reviews';
 export { Home } from 'containers/Home';
 export { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 
-// Blog container
+// Blog
 export { default as BlogContainer } from 'containers/Blog';
+
+// Article
+export { default as ArticleContainer } from 'containers/Article';
 
 // Portfolio
 export { default as PortfolioContainer } from 'containers/Portfolio';
 
 // Portfolio
 export { default as ProcessContainer } from 'containers/Process';
+
+// Project
+export { default as ProjectContainer } from 'containers/Project';
 
 // Company
 export { CompanyContainer } from 'containers/Company';

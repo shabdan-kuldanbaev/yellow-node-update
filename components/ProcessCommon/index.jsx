@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Animated, LinkWrapper } from 'components';
 import { animatedType } from 'utils/constants';
 import { processes } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Process = () => (
+export const Process = ({ processes }) => (
   <div className={styles.processContainer}>
     {processes && processes.map((process, index) => (
       <div
@@ -14,28 +15,24 @@ export const Process = () => (
       >
         <div className={styles.desc}>
           <Animated
-            // TODO type={animatedType.isFade}
-            // delay={10}
-            // distance="20px"
-            // bottom
-            // effect="fadeInUp"
-
-            // TODO delay={100}
-            // animateIn="fadeInUp"
-            // animateOnce
-            // offset={10}
-
             type={animatedType.isCustom}
-            translateY={70}
+            translateY="2.82352941em"
             opasityDuration={1}
-            transformDuration={0.5}
+            transformDuration={1}
             transitionDelay={300}
           >
-            {/* TODO <div> */}
             <h1>
               <span>{`${index + 1}.`}</span>
               {process.name}
             </h1>
+          </Animated>
+          <Animated
+            type={animatedType.isCustom}
+            translateY="2.82352941em"
+            opasityDuration={1}
+            transformDuration={1}
+            transitionDelay={300 + 50}
+          >
             <p>{process.description}</p>
             <LinkWrapper
               isLocalLink
@@ -45,20 +42,30 @@ export const Process = () => (
             >
               <button type="button">Details</button>
             </LinkWrapper>
-            {/* TODO </div> */}
           </Animated>
         </div>
-        {process.json === ''
-          ? (
-            <div className={styles.imgWrapper}>
-              <img src={process.image} alt={process.name} />
-            </div>
-          ) : (
-            <div className={styles.jsonWrapper}>
-              <Animated type={animatedType.isJSON} jsonFile={process.json} />
-            </div>
-          )}
+        <Animated
+          type={animatedType.isCustom}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={200}
+        >
+          <Animated
+            type={animatedType.isJSON}
+            jsonFile={process.json}
+            className={styles.jsonWrapper}
+          />
+        </Animated>
       </div>
     ))}
   </div>
 );
+
+Process.defaultProps = {
+  processes,
+};
+
+Process.propTypes = {
+  processes: PropTypes.instanceOf(Array),
+};

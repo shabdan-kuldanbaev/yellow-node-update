@@ -80,7 +80,7 @@
 
     .desc {
       width: 40%;
-      @include flex(row, flex-start, center);
+      @include flex(column, flex-start, flex-start);
 
       @include tablet {
         width: 100%;

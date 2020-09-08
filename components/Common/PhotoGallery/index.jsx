@@ -1,30 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { tabletResolution } from 'utils/helper';
+import { connect } from 'react-redux';
+import { selectIsTabletResolutions } from 'redux/selectors/layout';
 import { DesktopCarousel } from './DesktopCarousel';
 import { MobileCarousel } from './MobileCarousel';
 import { galleryData } from './utils/data';
 
-export const PhotoGallery = ({ galleryData: photos }) => {
-  const [isMobileResolution, setMobileResolution] = useState(false);
-
-  useEffect(() => {
-    const onResize = () => (
-      window.innerWidth <= tabletResolution || window.innerHeight < 450
-        ? setMobileResolution(true)
-        : setMobileResolution(false)
-    );
-
-    onResize();
-
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, [isMobileResolution]);
-
-  return isMobileResolution
+const PhotoGallery = ({ galleryData: photos, isTabletResolutions }) => (
+  isTabletResolutions
     ? <MobileCarousel photos={photos} />
-    : <DesktopCarousel photos={photos} />;
-};
+    : <DesktopCarousel photos={photos} />
+);
 
 PhotoGallery.defaultProps = {
   galleryData,
@@ -32,4 +18,9 @@ PhotoGallery.defaultProps = {
 
 PhotoGallery.propTypes = {
   galleryData: PropTypes.instanceOf(Array),
+  isTabletResolutions: PropTypes.bool.isRequired,
 };
+
+export default connect(
+  (state) => ({ isTabletResolutions: selectIsTabletResolutions(state) }),
+)(PhotoGallery);

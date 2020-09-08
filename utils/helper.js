@@ -46,3 +46,10 @@ export const formatDate = (date) => {
 
   return `${dd}/${mm}/${yyyy}`;
 };
+
+export const sortingArray = (array = [], tag = '') => {
+  if (array) {
+    if (tag) return array.sort((a, b) => a[tag] - b[tag]);
+    return array.sort((a, b) => a.orderNumber - b.orderNumber);
+  }
+};

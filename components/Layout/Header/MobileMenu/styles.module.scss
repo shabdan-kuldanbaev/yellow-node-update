@@ -4,6 +4,7 @@
   display: none;
   will-change: transform;
   transition: transform $default-transition-time ease-in-out;
+  z-index: 1600000;
 
   @include phone {
     @include flex(row, center, center);
@@ -47,7 +48,7 @@
         &:last-child {
           border-radius: $buttonRadius;
           background-color: $turbo-100;
-          
+
           a {
             display: block;
             color: $black;
@@ -90,7 +91,7 @@
       will-change: transform;
       transform: translateX(0vw);
       transition: transform $default-transition-time,
-                  opacity $default-transition-time;
+        opacity $default-transition-time;
       transition-delay: calc(#{$default-transition-time * 2} * #{$i} / 8);
 
       @include small-phone {
@@ -113,7 +114,7 @@
       opacity: 0;
       transform: translateX(-30px);
       transition: transform $default-transition-time,
-                  opacity $default-transition-time;
+        opacity $default-transition-time;
 
       @include small-phone {
         transform: translateY(-30px);

@@ -49,6 +49,10 @@ $alto: #D8D8D8;
 $jumbo: #78777A;
 $athens-gray: #F1F1F2;
 $java: #22C1C3;
+$cod-gray: #141414;
+$mercury: #E2E2E2;
+$timber-green: #13242A;
+$mirage: #1A2A30;
 
 //transparency color
 $pagination: rgba(35, 37, 44, 0.25);
@@ -60,7 +64,8 @@ $blog-subscribe-input-box-shadow-focus-color: rgba(0, 0, 0, 0.1);
 
 //time
 $default-transition-time: .5s;
-$button-transition-time: .3;
+$button-transition-time: .3s;
+$burger-transition-time: .8s;
 $shadow-time-for-yellow-button: .4s;
 $accelerated-transition-time: calc(#{$default-transition-time} / 2);
 $changing-portfolio-color: 1.5s;
@@ -83,6 +88,9 @@ $max-content-width-full-hd: 1170px;
 $max-content-width-macbook-fifteen: 1050px;
 $max-content-width-macbook-twelve: 1000px;
 $shadow-for-yellow-button: 0px 5px 20px -10px rgba(0, 0, 0, 0.57);
+$burger-item-1: 27px;
+$burger-item-2: 33px;
+$burger-item-3: 39px;
 
 //resolutions size
 $ultra-hd: 3840px;

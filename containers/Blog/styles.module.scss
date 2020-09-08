@@ -2,7 +2,7 @@
 
 .blog {
   @include flex(column, flex-start, center);
-  padding: $section-indent + 30px 55px $section-indent;
+  padding: $section-indent + 30px 50px $section-indent;
   background-color: $white;
   min-height: calc(100vh - 230px - 487px);
 

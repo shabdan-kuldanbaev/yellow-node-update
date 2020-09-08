@@ -2,11 +2,15 @@
 
 .blog {
   @include flex(column, flex-start, center);
-  padding: $section-indent $side-indent;
+  padding: $section-indent 55px;
   background-color: $white;
 
   &>div:first-child {
     margin-bottom: 70px;
+  }
+
+  @include tablet {
+    padding: $section-indent 25px;
   }
 
   @include phone {
@@ -14,6 +18,28 @@
 
     &>div:first-child {
       margin-bottom: -$after-mobile-title-margin + 20px;
+    }
+  }
+
+  &>div:nth-of-type(2) {
+
+    &>article:nth-of-type(4),
+    &>article:nth-of-type(5) {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    @include below-tablet {
+      &>article:nth-of-type(5) {
+        display: none;
+      }
     }
   }
 

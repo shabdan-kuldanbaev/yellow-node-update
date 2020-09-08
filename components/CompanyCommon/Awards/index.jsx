@@ -11,10 +11,10 @@ export const Awards = ({ awards }) => (
       <Animated
         key={`award/${index}`}
         type={animatedType.isCustom}
-        translateY={100}
-        opasityDuration={0.8}
-        transformDuration={0.8}
-        transitionDelay={100 + 150 * index}
+        translateY="2.82352941em"
+        opasityDuration={1}
+        transformDuration={1}
+        transitionDelay={100 + 100 * index}
       >
         <img src={award.image} alt={`award/${index}`} />
       </Animated>

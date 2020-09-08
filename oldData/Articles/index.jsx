@@ -57,7 +57,7 @@ const Articles = ({
             // effect,
 
             type: animatedType.isCustom,
-            translateY: 100,
+            translateY: '100px',
             opasityDuration: 0.4,
             transformDuration: 0.8,
             transitionDelay: delay,
