@@ -21,7 +21,7 @@
   }
 
   @include phone {
-    padding: 60px $side-indent $mobile-section-indent - 20px; 
+    padding: 60px $side-indent $mobile-section-indent - 20px;
   }
 
   .imgContainer {
@@ -63,7 +63,7 @@
       height: 100%;
     }
   }
-  
+
   .removeWhiteCover {
     .whiteCover {
       height: 0;
@@ -107,7 +107,7 @@
         font-size: calc((100vw - 160px) * 0.0078);
         margin-bottom: calc((100vw - 160px) * 0.0192);
       }
-      
+
       &:first-child {
         margin-top: calc(#{$max-content-width} * 0.0123 * 1.2);
 
@@ -131,7 +131,7 @@
         &:first-child {
           margin-top: 0;
         }
-  
+
         &:not(:first-child) {
           margin-top: 130px;
         }
@@ -144,7 +144,7 @@
         &:first-child {
           margin-top: 0;
         }
-  
+
         &:not(:first-child) {
           margin-top: 110px;
         }
@@ -236,7 +236,7 @@
       }
 
       @include below-tablet {
-        font-size: 1.875rem;  
+        font-size: 1.875rem;
       }
 
       @include phone {

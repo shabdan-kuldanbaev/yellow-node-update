@@ -26,7 +26,7 @@
   font-weight: bold;
   margin-bottom: 20px;
   line-height: 24px;
-  font-weight: 550;
+  font-weight: 600;
   color: $mine-shaft;
   line-height: 1.5;
   letter-spacing: 1px;
@@ -67,7 +67,8 @@
     margin-top: $after-mobile-title-margin;
   }
 
-  .high, .medium {
+  .high,
+  .medium {
     margin: $aricleIndent;
     margin-bottom: $aricleIndent;
     cursor: pointer;
@@ -103,7 +104,7 @@
         @include phone {
           @include mobileImageContainer;
         }
-    
+
         .image {
           @include flex(column, flex-end);
           height: 100%;
@@ -145,7 +146,7 @@
         will-change: transform;
         transform: translateY(-100%);
         width: inherit;
-        
+
         @include phone {
           width: 100%;
           position: relative;
@@ -177,7 +178,7 @@
           font-size: 0.725rem;
           letter-spacing: 2.2px;
           transition: padding 0.3s ease;
-    
+
           @include phone {
             @include mobilePublishedDate;
           }
@@ -187,7 +188,7 @@
           @include description;
         }
       }
-      
+
       &:hover {
         .image {
           will-change: transform;
@@ -223,7 +224,8 @@
       }
     }
 
-    .overlay, .desc {
+    .overlay,
+    .desc {
       width: inherit;
     }
   }
@@ -247,7 +249,7 @@
       .desc {
         .title {
           font-size: 1.5625rem;
-    
+
           @include below-tablet {
             font-size: 1rem;
           }
@@ -255,7 +257,8 @@
       }
     }
 
-    .overlay, .desc {
+    .overlay,
+    .desc {
       width: inherit;
     }
   }
@@ -275,7 +278,7 @@
 
     a {
       text-decoration: none;
-      
+
       .imgContainer {
         width: 100%;
         height: 240px;
@@ -347,7 +350,7 @@
             @include mobileTitle;
           }
         }
-    
+
         .description {
           @include description;
         }
@@ -363,7 +366,7 @@
         width: 100%;
       }
     }
-  
+
     .medium {
       width: calc(33.33vw - 2 * #{$aricleIndent} - 2 * #{$side-indent} * .3333);
 

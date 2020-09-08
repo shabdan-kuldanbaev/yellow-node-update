@@ -1,25 +1,13 @@
 @import 'styles/utils/mixins';
 
 .selectionBlock {
-  @include flex(row, center, center);
-  width: calc(100% - #{$side-indent});
-  max-width: $max-content-width - $side-indent * 2;
+  @include flex(row, space-between, center);
   position: relative;
-
-  @include full-hd {
-    max-width: $max-content-width-full-hd - $side-indent * 2;
-  }
+  max-width: 1500px;
+  width: calc(1500px - #{$side-indent});
 
   @include macbook-fifteen {
-    max-width: $max-content-width-macbook-fifteen - $side-indent * 2;
-  }
-
-  @include macbook-twelve {
-    max-width: $max-content-width-macbook-twelve - $side-indent * 2;
-  }
-
-  @include below-tablet {
-    @include flex(row, center, flex-start);
+    width: calc(100% - #{$side-indent});
   }
 
   @include phone {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { priority } from 'utils/constants';
+import { priority, tagsForBlog } from 'utils/constants';
 
 export const arrows = {
   prev:
@@ -12,27 +12,6 @@ export const arrows = {
   </svg>,
 };
 
-export const tagsForBlog = {
-  latest: {
-    name: 'latest', dynamicRouting: 'latest',
-  },
-  howWeWork: {
-    name: 'How we work', dynamicRouting: 'how-we-work',
-  },
-  softwareDevelopment: {
-    name: 'Software Development', dynamicRouting: 'software-development',
-  },
-  softwareChat: {
-    name: 'Software Chat', dynamicRouting: 'software-chat',
-  },
-  marketing: {
-    name: 'Marketing', dynamicRouting: 'marketing',
-  },
-  yellow: {
-    name: 'Yellow', dynamicRouting: 'yellow',
-  },
-};
-
 export const articlesData = [
   {
     id: 0,
@@ -42,7 +21,8 @@ export const articlesData = [
     slug: 'what-it-takes-to-create-a-wireframe',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/023/original/8.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 1,
@@ -52,7 +32,8 @@ export const articlesData = [
     slug: 'load-testing',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/024/original/4.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 2,
@@ -62,7 +43,8 @@ export const articlesData = [
     slug: '7-benefits-of-using-chatbots-for-your-business',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/025/original/12.jpg',
     priority: priority.low,
-    category: tagsForBlog.marketing.dynamicRouting,
+    categoryTag: tagsForBlog.marketing.dynamicRouting,
+    categoryName: tagsForBlog.marketing.name,
   },
   {
     id: 3,
@@ -72,7 +54,8 @@ export const articlesData = [
     slug: 'software-product-design-what-do-the-best-apps-have-in-common',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/026/original/3.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 4,
@@ -82,7 +65,8 @@ export const articlesData = [
     slug: '10-best-chatbot-examples-to-improve-customer-service-in-2019',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/027/original/10.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 5,
@@ -92,7 +76,8 @@ export const articlesData = [
     slug: 'how-to-build-a-chatbot-from-scratch',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/028/original/11.jpg',
     priority: priority.low,
-    category: tagsForBlog.marketing.dynamicRouting,
+    categoryTag: tagsForBlog.marketing.dynamicRouting,
+    categoryName: tagsForBlog.marketing.name,
   },
   {
     id: 6,
@@ -102,7 +87,8 @@ export const articlesData = [
     slug: 'yellow-recognized-as-an-industry-leader',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/029/original/5.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 7,
@@ -112,7 +98,8 @@ export const articlesData = [
     slug: 'how-to-send-a-cat-via-a-chat-or-chat-architecture-in-a-nutshell',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/034/original/9.jpg',
     priority: priority.low,
-    category: tagsForBlog.marketing.dynamicRouting,
+    categoryTag: tagsForBlog.marketing.dynamicRouting,
+    categoryName: tagsForBlog.marketing.name,
   },
   {
     id: 8,
@@ -122,7 +109,8 @@ export const articlesData = [
     slug: 'how-we-created-famlicious-a-family-chat-app-for-ios-and-android',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/035/original/13.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 9,
@@ -132,7 +120,8 @@ export const articlesData = [
     slug: 'selenium-why-we-love-it-so-much-part-1',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/038/original/1.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 10,
@@ -142,7 +131,8 @@ export const articlesData = [
     slug: 'how-do-you-make-a-social-media-app-from-scratch',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/039/original/building_header.png.jpeg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 11,
@@ -152,7 +142,8 @@ export const articlesData = [
     slug: 'guide-to-the-chat-architecture',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/041/original/chat.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 12,
@@ -162,7 +153,8 @@ export const articlesData = [
     slug: 'four-amazing-things-we-did-at-collision-in-new-orleans',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/008/original/Collision_main-%281%29.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 13,
@@ -172,7 +164,8 @@ export const articlesData = [
     slug: 'stickerbox-episode-1-why-we-failed-when-we-tried-to-segment-faces-with-algorithms',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/010/original/stickerbox_main.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 14,
@@ -182,7 +175,8 @@ export const articlesData = [
     slug: 'how-to-be-a-good-customer',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/014/original/15.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 15,
@@ -192,7 +186,8 @@ export const articlesData = [
     slug: 'why-you-should-use-kubernetes-in-your-next-project',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/015/original/main_F_%281%29.png',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 16,
@@ -202,7 +197,8 @@ export const articlesData = [
     slug: 'do-you-guys-ever-sleep-or-how-to-manage-time-difference',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/016/original/16.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 17,
@@ -212,7 +208,8 @@ export const articlesData = [
     slug: 'what-is-devops-and-does-your-team-need-it',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/017/original/14.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 18,
@@ -222,7 +219,8 @@ export const articlesData = [
     slug: 'monolithic-architecture-vs-microservices-choosing-the-right-architecture-for-the-project',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/018/original/main-2.png',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 19,
@@ -232,7 +230,8 @@ export const articlesData = [
     slug: 'qa-automation-how-it-can-help-your-product',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/019/original/1.main-2.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 20,
@@ -242,7 +241,8 @@ export const articlesData = [
     slug: 'websummit2018',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/020/original/main.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 21,
@@ -252,7 +252,8 @@ export const articlesData = [
     slug: 'rest-security-basics',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/021/original/6.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 22,
@@ -262,7 +263,8 @@ export const articlesData = [
     slug: 'six-reasons-to-fall-in-love-with-react',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/022/original/7.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 23,
@@ -272,7 +274,8 @@ export const articlesData = [
     slug: 'selenium-why-we-love-it-so-much-part-2',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/042/original/2-2.jpg',
     priority: priority.high,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 24,
@@ -282,7 +285,8 @@ export const articlesData = [
     slug: 'how-to-create-a-location-based-app',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/043/original/Location_header_1160x670.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 25,
@@ -292,7 +296,8 @@ export const articlesData = [
     slug: 'how-to-build-a-scalable-web-application',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/045/original/main.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareChat.dynamicRouting,
+    categoryTag: tagsForBlog.softwareChat.dynamicRouting,
+    categoryName: tagsForBlog.softwareChat.name,
   },
   {
     id: 26,
@@ -302,7 +307,8 @@ export const articlesData = [
     slug: 'trivia-game-development-how-we-created-a-trivia-mobile-app-for-studying-the-bible',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/046/original/Biblemania_header.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareChat.dynamicRouting,
+    categoryTag: tagsForBlog.softwareChat.dynamicRouting,
+    categoryName: tagsForBlog.softwareChat.name,
   },
   {
     id: 27,
@@ -312,7 +318,8 @@ export const articlesData = [
     slug: 'how-to-create-your-own-trivia-game-app',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/048/original/main.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareChat.dynamicRouting,
+    categoryTag: tagsForBlog.softwareChat.dynamicRouting,
+    categoryName: tagsForBlog.softwareChat.name,
   },
   {
     id: 28,
@@ -322,7 +329,8 @@ export const articlesData = [
     slug: 'payment-gateway-integration-in-ios-and-android-apps',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/049/original/main.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 29,
@@ -332,7 +340,8 @@ export const articlesData = [
     slug: 'how-to-build-a-trip-planner-app-that-helps-organize-travelling',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/050/original/travel_new.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareChat.dynamicRouting,
+    categoryTag: tagsForBlog.softwareChat.dynamicRouting,
+    categoryName: tagsForBlog.softwareChat.name,
   },
   {
     id: 30,
@@ -342,7 +351,8 @@ export const articlesData = [
     slug: 'choosing-the-right-automation-testing-strategy-dos-and-don-ts',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/051/original/main.jpg',
     priority: priority.medium,
-    category: tagsForBlog.softwareChat.dynamicRouting,
+    categoryTag: tagsForBlog.softwareChat.dynamicRouting,
+    categoryName: tagsForBlog.softwareChat.name,
   },
   {
     id: 31,
@@ -352,7 +362,8 @@ export const articlesData = [
     slug: 'how-we-developed-telemojo-a-cloud-based-contact-center-solution',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/052/original/main_new.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareChat.dynamicRouting,
+    categoryTag: tagsForBlog.softwareChat.dynamicRouting,
+    categoryName: tagsForBlog.softwareChat.name,
   },
   {
     id: 32,
@@ -362,7 +373,8 @@ export const articlesData = [
     slug: 'how-to-create-a-cloud-based-contact-center-platform',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/053/original/Contact_main.jpg',
     priority: priority.low,
-    category: tagsForBlog.yellow.dynamicRouting,
+    categoryTag: tagsForBlog.yellow.dynamicRouting,
+    categoryName: tagsForBlog.yellow.name,
   },
   {
     id: 33,
@@ -372,7 +384,8 @@ export const articlesData = [
     slug: 'how-are-mobile-apps-transforming-the-travel-industry',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/054/original/van_header.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareChat.dynamicRouting,
+    categoryTag: tagsForBlog.softwareChat.dynamicRouting,
+    categoryName: tagsForBlog.softwareChat.name,
   },
   {
     id: 34,
@@ -382,7 +395,8 @@ export const articlesData = [
     slug: 'how-to-develop-the-best-fitness-app',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/055/original/blog-01.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareChat.dynamicRouting,
+    categoryTag: tagsForBlog.softwareChat.dynamicRouting,
+    categoryName: tagsForBlog.softwareChat.name,
   },
   {
     id: 35,
@@ -392,7 +406,8 @@ export const articlesData = [
     slug: '6-steps-for-creating-your-own-personal-trainer-app',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/057/original/header.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 36,
@@ -402,7 +417,8 @@ export const articlesData = [
     slug: 'best-6-strategies-for-monetizing-mobile-apps-in-2019-and-beyond',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/058/original/main.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 37,
@@ -412,7 +428,8 @@ export const articlesData = [
     slug: 'twilio-signal-2019-or-how-we-rocked-san-francisco',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/059/original/01.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 38,
@@ -422,7 +439,8 @@ export const articlesData = [
     slug: 'how-to-create-a-custom-hotel-management-software',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/060/original/jungle_header.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 39,
@@ -432,7 +450,8 @@ export const articlesData = [
     slug: '7-key-benefits-of-continuous-delivery-for-businesses',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/061/original/ContinuousDelivery_main.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 40,
@@ -442,7 +461,8 @@ export const articlesData = [
     slug: 'good-restful-api-and-how-we-make-it',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/062/original/header.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 41,
@@ -452,7 +472,8 @@ export const articlesData = [
     slug: 'how-to-improve-in-app-user-retention-with-mobile-app-a-b-testing',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/063/original/main-2.jpg',
     priority: priority.low,
-    category: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryTag: tagsForBlog.softwareDevelopment.dynamicRouting,
+    categoryName: tagsForBlog.softwareDevelopment.name,
   },
   {
     id: 42,
@@ -462,7 +483,8 @@ export const articlesData = [
     slug: 'yellow-is-a-top-b2b-company-in-belarus',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/066/original/Clutch-header.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 43,
@@ -472,7 +494,8 @@ export const articlesData = [
     slug: 'how-we-developed-fireaway-the-simplest-chat-in-the-world',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/068/original/Fireaway_header_preview_.jpg',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 44,
@@ -482,7 +505,8 @@ export const articlesData = [
     slug: 'why-create-a-prototype-and-how-to-do-it-right',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/069/original/main.png',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 45,
@@ -492,7 +516,8 @@ export const articlesData = [
     slug: 'how-we-developed-drive-focus-the-perfect-training-tool-for-enhancing-driving-skills',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/070/original/692*388.png',
     priority: priority.low,
-    category: tagsForBlog.yellow.dynamicRouting,
+    categoryTag: tagsForBlog.yellow.dynamicRouting,
+    categoryName: tagsForBlog.yellow.name,
   },
   {
     id: 46,
@@ -502,7 +527,8 @@ export const articlesData = [
     slug: 'yellow-recognized-on-clutch-s-1000-top-developers',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/071/original/692x388.png',
     priority: priority.low,
-    category: tagsForBlog.howWeWork.dynamicRouting,
+    categoryTag: tagsForBlog.howWeWork.dynamicRouting,
+    categoryName: tagsForBlog.howWeWork.name,
   },
   {
     id: 47,
@@ -512,7 +538,8 @@ export const articlesData = [
     slug: 'how-we-developed-super-blog-for-tax-professionals',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/074/original/692-388_%281%29.png',
     priority: priority.low,
-    category: tagsForBlog.yellow.dynamicRouting,
+    categoryTag: tagsForBlog.yellow.dynamicRouting,
+    categoryName: tagsForBlog.yellow.name,
   },
   {
     id: 48,
@@ -522,7 +549,8 @@ export const articlesData = [
     slug: '7pm-thursday-a-dating-app-for-the-next-generation',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/075/original/header_preview-2.jpg',
     priority: priority.low,
-    category: tagsForBlog.marketing.dynamicRouting,
+    categoryTag: tagsForBlog.marketing.dynamicRouting,
+    categoryName: tagsForBlog.marketing.name,
   },
   {
     id: 49,
@@ -532,7 +560,8 @@ export const articlesData = [
     slug: 'how-a-voice-bot-can-take-the-pain-out-of-buying-insurance',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/077/original/VoiceBot-header_preview.jpg',
     priority: priority.low,
-    category: tagsForBlog.yellow.dynamicRouting,
+    categoryTag: tagsForBlog.yellow.dynamicRouting,
+    categoryName: tagsForBlog.yellow.name,
   },
   {
     id: 50,
@@ -542,7 +571,8 @@ export const articlesData = [
     slug: 'how-to-create-a-voice-bot-without-google',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/078/original/388_692_%281%29.png',
     priority: priority.low,
-    category: tagsForBlog.yellow.dynamicRouting,
+    categoryTag: tagsForBlog.yellow.dynamicRouting,
+    categoryName: tagsForBlog.yellow.name,
   },
   {
     id: 51,
@@ -552,7 +582,8 @@ export const articlesData = [
     slug: 'hotel-data-cloud-an-easy-way-to-manage-information-about-hotel-properties',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/079/original/hotel__preview.jpg',
     priority: priority.low,
-    category: tagsForBlog.marketing.dynamicRouting,
+    categoryTag: tagsForBlog.marketing.dynamicRouting,
+    categoryName: tagsForBlog.marketing.name,
   },
   {
     id: 52,
@@ -562,7 +593,8 @@ export const articlesData = [
     slug: 'why-your-startup-idea-is-not-as-good-as-you-think',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/080/original/Startup_preview.jpg',
     priority: priority.low,
-    category: tagsForBlog.marketing.dynamicRouting,
+    categoryTag: tagsForBlog.marketing.dynamicRouting,
+    categoryName: tagsForBlog.marketing.name,
   },
   {
     id: 53,
@@ -572,7 +604,8 @@ export const articlesData = [
     slug: 'smartcenter-a-big-platform-for-small-tax-firms',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/081/original/2small.jpg',
     priority: priority.low,
-    category: tagsForBlog.marketing.dynamicRouting,
+    categoryTag: tagsForBlog.marketing.dynamicRouting,
+    categoryName: tagsForBlog.marketing.name,
   },
   {
     id: 54,
@@ -582,7 +615,8 @@ export const articlesData = [
     slug: 'why-you-need-research-for-your-future-projects-with-examples',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/082/original/692-388.png',
     priority: priority.low,
-    category: tagsForBlog.yellow.dynamicRouting,
+    categoryTag: tagsForBlog.yellow.dynamicRouting,
+    categoryName: tagsForBlog.yellow.name,
   },
   {
     id: 55,
@@ -592,7 +626,8 @@ export const articlesData = [
     slug: 'dialog-house-a-new-way-to-build-the-chat-app-you-need',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/083/original/692-388_%281%29.png',
     priority: priority.low,
-    category: tagsForBlog.marketing.dynamicRouting,
+    categoryTag: tagsForBlog.marketing.dynamicRouting,
+    categoryName: tagsForBlog.marketing.name,
   },
   {
     id: 56,
@@ -602,7 +637,8 @@ export const articlesData = [
     slug: 'an-mvp-can-save-your-product-s-life',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/084/original/692-388_%281%29.png',
     priority: priority.low,
-    category: tagsForBlog.marketing.dynamicRouting,
+    categoryTag: tagsForBlog.marketing.dynamicRouting,
+    categoryName: tagsForBlog.marketing.name,
   },
   {
     id: 57,
@@ -612,6 +648,7 @@ export const articlesData = [
     slug: 'ui-ux-design-is-a-link-in-the-chain-between-art-and-tech',
     image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/085/original/388-692.png',
     priority: priority.low,
-    category: tagsForBlog.yellow.dynamicRouting,
+    categoryTag: tagsForBlog.yellow.dynamicRouting,
+    categoryName: tagsForBlog.yellow.name,
   },
 ];

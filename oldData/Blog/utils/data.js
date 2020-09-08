@@ -1,12 +1,18 @@
-// TODO this file
+import React from 'react';
+import { priority } from 'utils/constants';
 
-const priority = {
-  low: 'low',
-  high: 'high',
-  medium: 'medium',
+export const arrows = {
+  prev:
+  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16">
+    <path fill="none" fillRule="evenodd" stroke="#AFC0CE" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 1L1 8l8 7" />
+  </svg>,
+  next:
+  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16">
+    <path fill="none" fillRule="evenodd" stroke="#AFC0CE" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1l8 7-8 7" />
+  </svg>,
 };
 
-const tagsForBlog = {
+export const tagsForBlog = {
   latest: {
     name: 'latest', dynamicRouting: 'latest',
   },
@@ -27,7 +33,7 @@ const tagsForBlog = {
   },
 };
 
-module.exports.articlesData = [
+export const articlesData = [
   {
     id: 0,
     title: 'How to Create a Wireframe for Your Mobile App?',

@@ -27,7 +27,7 @@ export const API = {
       return inOrder.filter((article, index) => index >= leftEdge && index < rightEdge);
     }
     return articlesData
-      .filter((article) => article.category === category)
+      .filter((article) => article.categoryTag === category)
       .filter((article, index) => index >= leftEdge && index < rightEdge);
   },
 };

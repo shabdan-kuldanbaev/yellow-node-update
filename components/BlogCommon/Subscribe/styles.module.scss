@@ -22,6 +22,7 @@
 
     .content {
       @include flex(column, center, center);
+
       @include phone {
         width: 85%;
       }
@@ -31,7 +32,7 @@
         text-align: center;
         line-height: 0.75;
         font-size: 1.8438rem;
-        font-weight: 550;
+        font-weight: 600;
         margin-bottom: 43px;
 
         @include phone {
@@ -41,7 +42,7 @@
           font-weight: bold;
         }
       }
-      
+
       .subtitle {
         width: 100%;
         max-width: 460px;
@@ -51,14 +52,14 @@
         line-height: 1.5;
         font-size: 1.0938rem;
         margin-bottom: 42px;
-        
+
         @include phone {
           font-size: 1rem;
           line-height: 1.43;
           margin-bottom: 30px;
         }
       }
-  
+
       .inputBlock {
         @include flex(row, center, center);
         width: 100%;
@@ -70,7 +71,9 @@
             margin-top: 10px;
             width: 100%;
 
-            & > div { margin-bottom: 20px; }
+            &>div {
+              margin-bottom: 20px;
+            }
 
             label {
               font-size: 1.0625rem;
@@ -79,7 +82,7 @@
               color: $black;
               font-weight: 500;
             }
-            
+
             input {
               font-size: 1.125rem;
               padding: 20px 0 8px;
@@ -91,7 +94,7 @@
             }
           }
         }
-  
+
         .input {
           display: block;
           outline: none;
@@ -108,7 +111,7 @@
           border: none;
           font-size: 1.125rem;
           padding: 0px 35px;
-  
+
           &::placeholder {
             font-size: 1.125rem;
             letter-spacing: 0.5px;
@@ -130,7 +133,7 @@
             width: 100%;
           }
         }
-  
+
         .button {
           @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
           letter-spacing: 0.5px;
@@ -140,12 +143,12 @@
           width: auto;
           border: none;
           transform: scale(1);
-    
+
           &:hover {
             border: none;
             transform: scale(.96);
           }
-            
+
           @include phone {
             margin: 25px auto 0;
             transform: translateX(0px);

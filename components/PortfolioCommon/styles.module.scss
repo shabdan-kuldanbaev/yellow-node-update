@@ -13,7 +13,7 @@
   @include macbook-fifteen {
     width: 100%;
   }
- 
+
   .work {
     @include flex(row, space-between, center);
     position: relative;
@@ -107,7 +107,7 @@
       @include horizontal-mobile {
         max-height: initial;
       }
-      
+
       div {
         max-width: 80%;
         height: 100%;
@@ -148,7 +148,7 @@
           @include big-title();
           margin-top: 0;
           margin-bottom: 60px;
-          
+
           @include below-tablet {
             margin-top: 40px;
           }
@@ -156,20 +156,20 @@
           @include below-tablet-horizontal {
             font-size: 2.5rem;
           }
-    
+
           @include phone {
             max-width: calc(100% - 40px);
             font-size: 2.5rem;
             margin: 40px auto 25px 0px;
           }
         }
-    
+
         p {
           margin: 0;
           margin-top: -20px;
           margin-bottom: 35px;
           font-size: 1.25rem;
-          line-height: 1.53;
+          line-height: 1.8;
           letter-spacing: 0.5px;
           color: $black;
           word-wrap: normal;
@@ -202,7 +202,7 @@
             position: relative;
             display: inline-block;
             padding: 0;
-  
+
             &:after {
               content: '';
               cursor: pointer;

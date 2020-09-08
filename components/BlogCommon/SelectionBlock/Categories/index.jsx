@@ -27,16 +27,16 @@ const Categories = ({
         />
       </div>
       <ul>
-        {tags.map((tag) => (
-          <li key={tag.name} className={cn({ [styles.selectedBlock]: urlPath.includes(tag.dynamicRouting) })}>
+        {tags && Object.entries(tags).map(([key, value]) => (
+          <li key={value.name} className={cn({ [styles.selectedBlock]: urlPath.includes(value.dynamicRouting) })}>
             <LinkWrapper
               isLocalLink
-              dynamicRouting={`/blog?category=${tag.dynamicRouting}&page=1`}
-              path={`/blog?category=${tag.dynamicRouting}&page=1`}
+              dynamicRouting={`/blog?category=${value.dynamicRouting}&page=1`}
+              path={`/blog?category=${value.dynamicRouting}&page=1`}
               // TODO dynamicRouting={`/blog?category=${tag.dynamicRouting}&page=1&limit=11`}
               // TODO path={`/blog?category=${tag.dynamicRouting}&page=1&limit=11`}
             >
-              {tag.name}
+              {value.name}
             </LinkWrapper>
           </li>
         ))}

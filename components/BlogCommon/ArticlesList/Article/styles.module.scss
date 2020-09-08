@@ -1,0 +1,279 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/theme/_animations';
+
+.article {
+  @include flex(column);
+  width: calc(25% - (2 * 12px));
+  margin: 12px;
+  cursor: pointer;
+  transition: transform .2s ease-in-out;
+  transform: translateY(0);
+  background-color: rgba(244, 244, 244, .1);
+
+  @include macbook-fifteen {
+    width: calc(25% - 2 * #{$aricleIndent});
+    margin: $aricleIndent;
+  }
+
+  @include tablet {
+    width: calc(33.33% - 2 * #{$aricleIndent});
+  }
+
+  @include below-tablet {
+    width: calc(50% - 2 * #{$aricleIndent});
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    transition: transform .2s ease-in-out;
+  }
+
+  @include phone {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  div:first-child {
+    height: 100%;
+  }
+
+  div>a:first-child {
+    border-radius: 10px;
+    text-decoration: none;
+    overflow: hidden;
+
+    &>div {
+      @include flex(column, space-between, flex-start);
+      box-shadow: 0 25px 95px 5px rgba(0, 0, 0, .07);
+      border-radius: 4px;
+      background-color: $white;
+
+      &>div {
+        width: 100%;
+        height: max-content;
+      }
+    }
+
+    .imgContainer {
+      width: 100%;
+      overflow: hidden;
+      mask-image: radial-gradient($white, $black);
+      height: 40vh;
+      min-height: 300px;
+      max-height: 500px;
+
+      @include tablet {
+        height: 250px;
+        min-height: 250px;
+      }
+
+      @include below-tablet {
+        height: 200px;
+        min-height: 200px;
+      }
+
+      @include phone {
+        height: 250px;
+        min-height: 250px;
+      }
+
+      .image {
+        border-radius: 4px 4px 0 0;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        will-change: transform;
+        transition: transform $default-transition-time;
+      }
+    }
+
+    .articlePreview {
+      @include flex(column);
+      padding: 25px 25px 30px;
+      background-color: $white;
+
+      @include macbook-twelve {
+        padding: 15px 15px 30px;
+      }
+
+      .title {
+        margin: 0;
+        margin-bottom: 20px;
+
+        &>a {
+          font-weight: 600;
+          color: $mine-shaft;
+          font-size: 1.1875rem;
+          line-height: 1.5;
+          letter-spacing: 1px;
+          text-decoration: none;
+          background-image: linear-gradient($turbo-100, $turbo-100);
+          background-position: 0% 100%;
+          background-repeat: no-repeat;
+          background-size: 0% 8px;
+          transition: background-size .6s ease-out;
+
+          @include full-hd {
+            font-size: 1.05vw;
+            line-height: 1.8vw;
+          }
+
+          @include macbook-fifteen {
+            font-size: 1.25vw;
+          }
+
+          @include tablet {
+            font-size: 1.0625rem;
+            line-height: 0;
+          }
+
+          @include phone {
+            font-size: 1.1875rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 24px;
+            font-weight: 550;
+            color: $mine-shaft;
+            line-height: 1.5;
+            letter-spacing: 1px;
+          }
+        }
+
+        &:hover {
+          &>a {
+            transition: background-size .6s ease-out;
+            background-size: 100% 8px;
+          }
+        }
+      }
+
+      .description {
+        cursor: pointer;
+        font-size: 0.9688rem;
+        line-height: 1.75;
+        color: $black;
+        margin: 0;
+        text-align: left;
+
+        @include full-hd {
+          font-size: 0.820vw;
+          line-height: 1.55vw;
+        }
+
+        @include full-hd {
+          font-size: 0.850vw;
+        }
+
+        @include tablet {
+          font-size: 0.8125rem;
+          line-height: 1.6;
+        }
+
+        @include phone {
+          font-size: 0.875rem;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .categoryName {
+      display: inline-block;
+      margin: 0 0 25px 25px;
+      background-color: $white;
+      width: calc(100% - 25px);
+
+      @include macbook-twelve {
+        margin: 0 0 15px 15px;
+        width: calc(100% - 15px);
+      }
+
+      //TODO
+      // &>a {
+      //   margin: 0;
+      //   width: max-content;
+      //   padding: 12px 18px;
+      //   border-radius: 10rem;
+      // font-size: 0.8125rem;
+      //   font-weight: 500;
+      //   display: inline-block;
+      //   color: $woodsmoke;
+      //   background-color: $athens-gray;
+      //   translate: background-color .4s ease;
+
+      //   &:hover {
+      //     background-color: $turbo-100;
+      //     translate: background-color .4s ease;
+      //   }
+      // }
+
+      &>a {
+        margin: 0;
+        width: max-content;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        display: inline-block;
+        color: $woodsmoke;
+        text-decoration: none;
+        // TODO
+        // translate: background-color .4s ease;
+        // background-image: linear-gradient($turbo-100, $turbo-100);
+        // background-position: 0% 100%;
+        // background-repeat: no-repeat;
+        // background-size: 0% 4px;
+        // transition: background-size .6s ease-out;
+        border-radius: 0;
+      }
+
+      &:hover {
+        &>a {
+          // TODO
+          // transition: background-size .6s ease-out;
+          // background-size: 100% 4px;
+          color: $mid-gray;
+          transition: color .4s;
+        }
+      }
+    }
+  }
+}
+
+.medium {
+  width: calc(50% - (2 * 12px));
+
+  @include macbook-fifteen {
+    width: calc(50% - 2 * #{$aricleIndent});
+  }
+
+  @include tablet {
+    width: calc(66.66% - 2 * #{$aricleIndent});
+  }
+
+  @include below-tablet {
+    width: calc(50% - 2 * #{$aricleIndent});
+  }
+
+  @include phone {
+    width: calc(100vw - (2 * 15px));
+  }
+
+  .articlePreview {
+    width: 68%;
+
+    @include below-tablet {
+      width: auto;
+    }
+
+    .description {
+      width: 90%;
+
+      @include below-tablet {
+        width: auto;
+      }
+    }
+  }
+}
