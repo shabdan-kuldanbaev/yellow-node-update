@@ -3,13 +3,13 @@
 .gradient {
   background: linear-gradient(to bottom,
       $turbo-100 20%,
-      #22c1c3 30%,
+      $java 30%,
       $thunder 90%);
 
   @include phone {
     background: linear-gradient(to bottom,
         $turbo-100 20%,
-        #22c1c3 40%,
+        $java 40%,
         $thunder 93%);
   }
 }
