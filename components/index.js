@@ -18,8 +18,10 @@ export { ParallaxContainer } from 'components/Common/Animated/Parallax';
 export { PageLoading } from 'components/Common/PageLoading';
 export { default as FeedbackForm } from 'components/Common/FeedbackForm';
 export { SectionTitle } from 'components/Common/SectionTitle';
-export { PhotoGallery } from 'components/Common/PhotoGallery';
-export { Carousel } from 'components/Common/Carousel';
+export { default as PhotoGallery } from 'components/Common/PhotoGallery';
+export { TopProgressBar } from 'components/Common/TopProgressBar';
+export { Video } from 'components/Common/Video';
+export { Reviews } from 'components/Common/Reviews';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';
@@ -40,10 +42,13 @@ export { default as SearchIcon } from 'components/BlogCommon/SelectionBlock/imag
 export { default as FullscreenSearch } from 'components/BlogCommon/FullscreenSearch';
 export { default as FullscreenSubscribe } from 'components/BlogCommon/FullscreenSubscribe';
 export { default as Subscribe } from 'components/BlogCommon/Subscribe';
-export { Paginator } from 'components/BlogCommon/Paginator';
+export { default as Paginator } from 'components/BlogCommon/Paginator';
 
 // PortfolioCommon
 export { Portfolio } from 'components/PortfolioCommon/index';
+
+// ProjectCommon
+export { Project } from 'components/ProjectCommon';
 
 // ProcessCommon
 export { Process } from 'components/ProcessCommon/index';

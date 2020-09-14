@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -10,12 +10,13 @@ import {
   selectDesktopLimit,
   selectMobileLimit,
 } from 'redux/selectors/blog';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import {
   SelectionBlock,
   ArticlesList,
   Paginator,
 } from 'components';
-import { mobileResolution, toInt } from 'utils/helper';
+import { toInt } from 'utils/helper';
 import { articlesData, arrows } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -28,9 +29,9 @@ const BlogContainer = ({
   totalCount,
   desktopLimit,
   mobileLimit,
+  isMobileResolution,
 }) => {
   const { asPath, query: { category, page } } = useRouter();
-  const [isMobileResolution, setMobileResolution] = useState(false);
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
   const pagesCounter = Math.ceil(totalCount / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
   const currentPage = toInt(page);
@@ -47,11 +48,6 @@ const BlogContainer = ({
     if (isMobileResolution !== null) {
       loadNewArticles({ currentPage, currentLimit: deviceLimit, category });
     }
-
-    const onResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
   }, [isMobileResolution, asPath]);
 
   return (
@@ -60,12 +56,10 @@ const BlogContainer = ({
       <ArticlesList
         articles={articles}
         isLoading={isLoading}
-        isMobileResolution={isMobileResolution}
         asPath={asPath}
         currentPage={currentPage}
       />
       <Paginator
-        isMobileResolution={isMobileResolution}
         arrows={arrows}
         pagesCounter={pagesCounter}
         currentPage={currentPage}
@@ -83,12 +77,16 @@ BlogContainer.propTypes = {
   totalCount: PropTypes.number.isRequired,
   desktopLimit: PropTypes.number.isRequired,
   mobileLimit: PropTypes.number.isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  isLoading: selectIsLoading(state),
-  articles: selectArticles(state),
-  totalCount: selectTotalCount(state),
-  desktopLimit: selectDesktopLimit(state),
-  mobileLimit: selectMobileLimit(state),
-}), { loadArticles, setTotalCount })(BlogContainer);
+export default connect(
+  (state) => ({
+    isLoading: selectIsLoading(state),
+    articles: selectArticles(state),
+    totalCount: selectTotalCount(state),
+    desktopLimit: selectDesktopLimit(state),
+    mobileLimit: selectMobileLimit(state),
+    isMobileResolution: selectIsMobileResolutions(state),
+  }), { loadArticles, setTotalCount },
+)(BlogContainer);

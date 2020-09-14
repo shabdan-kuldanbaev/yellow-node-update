@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { articlesData } from 'containers/Blog/utils/data';
+import { works, project } from 'containers/Portfolio/utils/data';
+import { articleData } from 'containers/Article/utils/data';
 import { priority } from 'utils/constants';
 
 const apiClient = axios.create({
-  // baseURL: 'http://',
+  // TODO baseURL: 'http://',
   baseURL: 'http:',
   headers: {
     'Content-Type': 'aplication/json',
@@ -12,8 +14,8 @@ const apiClient = axios.create({
 });
 
 export const API = {
-  getArticle: (slug) => articlesData.find((article) => article.slug === slug),
-  // loadArticles: (skip, limit, category) => apiClient.get(`/blog?category=${category}&page=${skip}&limit=${limit}`),
+  getArticle: (slug) => articleData.find((article) => article.slug === slug),
+  // TODO loadArticles: (skip, limit, category) => apiClient.get(`/blog?category=${category}&page=${skip}&limit=${limit}`),
   loadArticles: (skip, limit, category) => {
     const leftEdge = (skip - 1) * limit;
     const rightEdge = skip * limit;
@@ -30,4 +32,6 @@ export const API = {
       .filter((article) => article.categoryTag === category)
       .filter((article, index) => index >= leftEdge && index < rightEdge);
   },
+  loadWorks: () => works,
+  getProject: () => project,
 };

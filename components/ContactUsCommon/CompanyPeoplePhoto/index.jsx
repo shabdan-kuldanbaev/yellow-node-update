@@ -23,6 +23,7 @@ export const CompanyPeoplePhoto = ({ photo }) => {
 
     handlerOnScroll();
     window.addEventListener('scroll', handlerOnScroll);
+
     return () => window.removeEventListener('scroll', handlerOnScroll);
   }, []);
 
@@ -37,7 +38,7 @@ export const CompanyPeoplePhoto = ({ photo }) => {
         <div className={styles.photoWrap}>
           <Animated
             type={animatedType.isCustom}
-            translateY={70}
+            translateY="70px"
             opasityDuration={0.8}
             transformDuration={0.8}
             transitionDelay={0}

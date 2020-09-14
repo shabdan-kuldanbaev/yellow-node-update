@@ -192,52 +192,50 @@
         width: calc(100% - 15px);
       }
 
-      //TODO
-      // &>a {
-      //   margin: 0;
-      //   width: max-content;
-      //   padding: 12px 18px;
-      //   border-radius: 10rem;
-      // font-size: 0.8125rem;
-      //   font-weight: 500;
-      //   display: inline-block;
-      //   color: $woodsmoke;
-      //   background-color: $athens-gray;
-      //   translate: background-color .4s ease;
-
-      //   &:hover {
-      //     background-color: $turbo-100;
-      //     translate: background-color .4s ease;
-      //   }
-      // }
-
       &>a {
         margin: 0;
         width: max-content;
+        padding: 12px 18px;
+        border-radius: 8px;
         font-size: 0.8125rem;
         font-weight: 500;
         display: inline-block;
         color: $woodsmoke;
-        text-decoration: none;
-        // TODO
-        // translate: background-color .4s ease;
-        // background-image: linear-gradient($turbo-100, $turbo-100);
-        // background-position: 0% 100%;
-        // background-repeat: no-repeat;
-        // background-size: 0% 4px;
-        // transition: background-size .6s ease-out;
-        border-radius: 0;
-      }
+        background-color: $athens-gray;
+        transition: background-color .15s ease;
 
-      &:hover {
-        &>a {
-          // TODO
-          // transition: background-size .6s ease-out;
-          // background-size: 100% 4px;
-          color: $mid-gray;
-          transition: color .4s;
+        &:hover {
+          background-color: $turbo-100;
+          transition: background-color .15s ease;
         }
       }
+
+      // TODO
+      // &>a {
+      //   margin: 0;
+      //   width: max-content;
+      //   font-size: 0.8125rem;
+      //   font-weight: 500;
+      //   display: inline-block;
+      //   color: $woodsmoke;
+      //   text-decoration: none;
+      //   // translate: background-color .4s ease;
+      //   // background-image: linear-gradient($turbo-100, $turbo-100);
+      //   // background-position: 0% 100%;
+      //   // background-repeat: no-repeat;
+      //   // background-size: 0% 4px;
+      //   // transition: background-size .6s ease-out;
+      //   border-radius: 0;
+      // }
+
+      // &:hover {
+      //   &>a {
+      //     transition: background-size .6s ease-out;
+      //     background-size: 100% 4px;
+      //     // color: $mid-gray;
+      //     // transition: color .4s;
+      //   }
+      // }
     }
   }
 }

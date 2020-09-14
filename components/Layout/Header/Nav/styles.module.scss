@@ -1,5 +1,18 @@
 @import 'styles/utils/mixins';
 
+.navAppearing {
+  @for $i from 1 through 5 {
+    li:nth-child(#{$i}) {
+      opacity: 1;
+      will-change: transform;
+      transform: translateY(0px);
+      transition: transform 1.3s cubic-bezier(0.16, 1.08, 0.38, 0.98) 0.05s,
+        opacity 1.3s;
+      transition-delay: calc(0.5s + (#{$default-transition-time * 2} * #{$i} / 8));
+    }
+  }
+}
+
 .desktopMenu {
   transition: margin $default-transition-time;
   @include flex(row, center, center);
@@ -14,7 +27,11 @@
     cursor: pointer;
     user-select: none;
     outline: none;
-    transition: background-color $default-transition-time,
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: transform 1.3s cubic-bezier(0.16, 1.08, 0.38, 0.98) 0.05s,
+      opacity $default-transition-time,
+      background-color $default-transition-time,
       color $default-transition-time;
 
     @include below-tablet {
@@ -34,6 +51,8 @@
       transition: border $default-transition-time,
         padding $default-transition-time,
         color $default-transition-time;
+      opacity: 1 !important;
+      transform: translateY(0px);
 
       @include below-tablet {
         margin-left: 35px;

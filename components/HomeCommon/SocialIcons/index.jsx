@@ -5,9 +5,9 @@ import { themes } from 'utils/helper';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
 
-export const SocialIcons = ({ theme }) => (
+export const SocialIcons = ({ theme, socialNetworks }) => (
   <div className={styles.socialContainer}>
-    {socialNetworks.map((network) => (
+    {socialNetworks && socialNetworks.map((network) => (
       <LinkWrapper
         key={`social/${network.title}`}
         path={network.href}
@@ -21,8 +21,10 @@ export const SocialIcons = ({ theme }) => (
 
 SocialIcons.defaultProps = {
   theme: 'dark',
+  socialNetworks,
 };
 
 SocialIcons.propTypes = {
   theme: PropTypes.string,
+  socialNetworks: PropTypes.instanceOf(Array),
 };

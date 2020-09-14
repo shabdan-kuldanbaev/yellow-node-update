@@ -10,7 +10,9 @@ import {
   Works,
   SectionTitle,
   ButtonMore,
+  Animated,
 } from 'components';
+import { animatedType } from 'utils/constants';
 // TODO import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -86,11 +88,9 @@ export const Portfolio = () => {
 
   useEffect(() => {
     handleOnScroll();
-
     window.addEventListener('scroll', handleOnScroll);
-    return () => {
-      window.removeEventListener('scroll', handleOnScroll);
-    };
+
+    return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 
   return (
@@ -113,11 +113,19 @@ export const Portfolio = () => {
               subtitle="We brainstorm, contribute, and grow your product together. Every step of the way."
               styleSubtitle={styles.subtitle}
             />
-            <ButtonMore
-              href="/portfolio"
-              title="EXPLORE OUR PORTFOLIO"
-              buttonStyle={styles.portfolioButton}
-            />
+            <Animated
+              type={animatedType.isCustom}
+              translateY="2.82352941em"
+              opasityDuration={1}
+              transformDuration={1}
+              transitionDelay={350}
+            >
+              <ButtonMore
+                href="/portfolio"
+                title="EXPLORE OUR PORTFOLIO"
+                buttonStyle={styles.portfolioButton}
+              />
+            </Animated>
           </div>
         </section>
       </div>

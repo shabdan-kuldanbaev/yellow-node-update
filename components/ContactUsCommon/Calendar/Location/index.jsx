@@ -4,6 +4,8 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import { Animated } from 'components';
+import { animatedType } from 'utils/constants';
 import { formatDate } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -40,17 +42,26 @@ export const Location = ({
 
     handleOnScroll();
     document.addEventListener('scroll', handleOnScroll);
+
     return () => document.removeEventListener('scroll', handleOnScroll);
   }, [dataRef]);
 
   return (
     <div className={styles.location}>
-      <div ref={dataRef} className={styles.date}>
-        <span />
-        {startDate === finishDate ? startDate : `${startDate} - ${finishDate}`}
-      </div>
-      <span className={styles.locationTitle}>{location}</span>
-      {eventTitle && <div className={styles.eventTitle} style={{ backgroundColor: `${eventColor}` }}>{eventTitle}</div>}
+      <Animated
+        type={animatedType.isCustom}
+        translateY="2.82352941em"
+        opasityDuration={1}
+        transformDuration={1}
+        transitionDelay={100 + 100 * animationDelay}
+      >
+        <div ref={dataRef} className={styles.date}>
+          <span />
+          {startDate === finishDate ? startDate : `${startDate} - ${finishDate}`}
+        </div>
+        <span className={styles.locationTitle}>{location}</span>
+        {eventTitle && <div className={styles.eventTitle} style={{ backgroundColor: `${eventColor}` }}>{eventTitle}</div>}
+      </Animated>
     </div>
   );
 };

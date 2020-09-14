@@ -14,9 +14,10 @@ import {
   ButtonMore,
   FullscreenSearch,
   FullscreenSubscribe,
+  Animated,
 } from 'components';
 import { setOverflowForBody } from 'utils/helper';
-import { tagsForBlog } from 'utils/constants';
+import { tagsForBlog, animatedType } from 'utils/constants';
 import Categories from './Categories';
 import SearchIcon from './images/search.svg';
 import styles from './styles.module.scss';
@@ -63,18 +64,34 @@ const SelectionBlock = ({
       />
       {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
-        <img
-          src={SearchIcon}
-          alt="Search"
-          onClick={openFullscreenSearch}
-          role="presentation"
-        />
-        <ButtonMore
-          buttonRef={subscribeRef}
-          handleOnClick={openFullscreenSubscribe}
-          title="Subscribe"
-          buttonStyle={styles.button}
-        />
+        <Animated
+          type={animatedType.isCustom}
+          translateY="-2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={700}
+        >
+          <img
+            src={SearchIcon}
+            alt="Search"
+            onClick={openFullscreenSearch}
+            role="presentation"
+          />
+        </Animated>
+        <Animated
+          type={animatedType.isCustom}
+          translateY="-2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={800}
+        >
+          <ButtonMore
+            buttonRef={subscribeRef}
+            handleOnClick={openFullscreenSubscribe}
+            title="Subscribe"
+            buttonStyle={styles.button}
+          />
+        </Animated>
         <span className={styles.categoryTitleInHeader} onClick={openMobileCategoties}>
           Categories
         </span>
@@ -93,10 +110,11 @@ SelectionBlock.propTypes = {
   setFirstVisit: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  isMobileCategoties: selectIsMobileCategotiesOpened(state),
-  isBlogOpen: selectIsBlogOpen(state),
-  isFirstVisitBlog: selectIsFirstVisit(state),
-});
-
-export default connect(mapStateToProps, { setMobileCategoriesState, setFirstVisit })(SelectionBlock);
+export default connect(
+  (state) => ({
+    isMobileCategoties: selectIsMobileCategotiesOpened(state),
+    isBlogOpen: selectIsBlogOpen(state),
+    isFirstVisitBlog: selectIsFirstVisit(state),
+  }),
+  { setMobileCategoriesState, setFirstVisit },
+)(SelectionBlock);

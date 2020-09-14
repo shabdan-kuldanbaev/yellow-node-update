@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import Router, { useRouter } from 'next/router';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
-export const Paginator = ({
+const Paginator = ({
   isMobileResolution,
   arrows,
   pagesCounter,
@@ -63,3 +65,7 @@ Paginator.propTypes = {
   pagesCounter: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
 };
+
+export default connect((state) => ({
+  isMobileResolution: selectIsMobileResolutions(state),
+}))(Paginator);

@@ -9,11 +9,15 @@
     margin-top: 40px;
   }
 
+  @include phone {
+    margin-top: 0;
+  }
+
   .attachmentManage {
     @include flex(row, flex-start, center);
     position: relative;
 
-    & > div {
+    &>div {
       width: 100%;
 
       div {
@@ -21,7 +25,7 @@
       }
     }
 
-    & > label {
+    &>label {
       position: absolute;
       padding: 4px 0;
       border: 0 none;
@@ -36,7 +40,7 @@
             fill: $nobel;
             filter: brightness(1);
             transition: fill $default-transition-time,
-                        filter $default-transition-time;
+              filter $default-transition-time;
           }
         }
       }
@@ -47,7 +51,7 @@
             path {
               fill: $gray;
               transition: fill $default-transition-time,
-                          filter $default-transition-time;
+                filter $default-transition-time;
             }
           }
         }

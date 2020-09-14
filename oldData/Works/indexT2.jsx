@@ -42,7 +42,7 @@ export const Works = ({ refs }) => {
               // offset={10}
 
               type={animatedType.isCustom}
-              translateY={50}
+              translateY="50px"
               opasityDuration={1}
               transformDuration={1}
               transitionDelay={270}

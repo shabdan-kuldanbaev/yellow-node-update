@@ -1,3 +1,3 @@
-import { Article } from 'components';
+import { ArticleContainer } from 'containers';
 
-export default Article;
+export default ArticleContainer;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   SectionTitle,
   ButtonMore,
@@ -18,9 +19,9 @@ export const AboutUs = ({ aboutUsText }) => (
           <Animated
             key={`paragraph${index}`}
             type={animatedType.isCustom}
-            translateY={20}
-            opasityDuration={0.8}
-            transformDuration={0.8}
+            translateY="2.82352941em"
+            opasityDuration={1}
+            transformDuration={1}
             transitionDelay={495 + 80 * index}
           >
             <p>{paragraph}</p>
@@ -30,10 +31,10 @@ export const AboutUs = ({ aboutUsText }) => (
       <div className={styles.buttons}>
         <Animated
           type={animatedType.isCustom}
-          translateY={20}
-          opasityDuration={0.8}
-          transformDuration={0.8}
-          transitionDelay={495 + 80}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={1100 + 80}
         >
           <ButtonMore
             href="/portfolio"
@@ -43,10 +44,10 @@ export const AboutUs = ({ aboutUsText }) => (
         </Animated>
         <Animated
           type={animatedType.isCustom}
-          translateY={20}
-          opasityDuration={0.8}
-          transformDuration={0.8}
-          transitionDelay={495 + 250}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
+          transitionDelay={1100 + 250}
         >
           <ButtonMore
             href="/process"
@@ -62,4 +63,8 @@ export const AboutUs = ({ aboutUsText }) => (
 
 AboutUs.defaultProps = {
   aboutUsText,
+};
+
+AboutUs.propTypes = {
+  aboutUsText: PropTypes.instanceOf(Array),
 };

@@ -18,5 +18,18 @@ html {
     &>div>section {
       background-color: $black;
     }
+
+    [data-rmiz-overlay] {
+      [data-rmiz-modal-content] {
+        &>* {
+          width: inherit;
+          height: inherit;
+        }
+      }
+    }
+
+    [data-rmiz-btn-open] {
+      outline: none;
+    }
   }
 }

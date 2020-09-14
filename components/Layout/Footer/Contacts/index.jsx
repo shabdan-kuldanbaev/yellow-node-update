@@ -3,9 +3,12 @@ import {
   SectionTitle,
   ButtonMore,
   LinkWrapper,
+  Animated,
 } from 'components';
+import { animatedType } from 'utils/constants';
 import { socialNetworks } from './utils/data';
 import { rocketIcon } from './images';
+import rocket from './json/rocket.json';
 import styles from './styles.module.scss';
 
 export const Contacts = () => (
@@ -50,10 +53,15 @@ export const Contacts = () => (
       <span> All Rights Reserved. Privacy Policy</span>
     </div>
     <div className={styles.rocket}>
+      <Animated
+        type={animatedType.isJSON}
+        jsonFile={rocket}
+        className={styles.jsonWrapper}
+      />
       <div className={styles.stars} />
       <div className={styles.stars2} />
       {/* TODO <div className={styles.stars3} /> */}
-      <img src={rocketIcon} alt="roket" />
+      {/* TODO <img src={rocketIcon} alt="roket" /> */}
     </div>
   </div>
 );

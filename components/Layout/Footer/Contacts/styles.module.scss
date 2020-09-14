@@ -193,6 +193,17 @@
     text-align: center;
     position: relative;
 
+    &>div:nth-of-type(1) {
+      display: none;
+      z-index: 5;
+
+      @include phone {
+        display: block;
+        max-width: 200px;
+        margin-top: 40px;
+      }
+    }
+
     @function box-shadow($stars) {
       $bxshadow: ();
 
@@ -220,7 +231,7 @@
         z-index: 0;
         box-shadow: $bxshadow-small;
         will-change: transform;
-        transform: translate(-200px, -80px);
+        transform: translate(-130px, -80px);
         // TODO animation: animStar 13s linear infinite;
         animation: flicker 2.2s linear infinite;
       }
@@ -233,14 +244,15 @@
         z-index: 1;
         box-shadow: $bxshadow-middle;
         will-change: transform;
-        transform: translate(-200px, -80px);
+        transform: translate(-130px, -80px);
         // TODO animation: animStar 8s linear infinite;
         animation: flicker 3s linear infinite 1s;
       }
 
       .stars3 {
         position: absolute;
-        // TODO height: 5px;
+        // TODO
+        // height: 5px;
         // width: 5px;
         // border-radius: 50%;
         // z-index: 1;
@@ -255,17 +267,18 @@
         z-index: 0;
         box-shadow: $bxshadow-small;
         will-change: transform;
-        transform: translate(-200px, -80px);
+        transform: translate(-130px, -80px);
         // TODO animation: animStar 13s linear infinite;
         animation: flicker 1.5s linear infinite 1.5s;
       }
 
-      img {
-        display: block;
-        z-index: 3;
-        margin-top: 50px;
-        animation: rocket 2s infinite linear;
-      }
+      // TODO
+      // img {
+      //   display: none;
+      //   z-index: 3;
+      //   margin-top: 50px;
+      //   animation: rocket 2s infinite linear;
+      // }
     }
   }
 }

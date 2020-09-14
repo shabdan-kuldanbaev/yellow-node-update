@@ -4,9 +4,14 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { setBlogStatus, setFirstVisit } from 'redux/actions/blog';
+import {
+  setMobileResolutions,
+  setTabletResolutions,
+  setPageLoading,
+} from 'redux/actions/layout';
 import { selectIsBlogOpen } from 'redux/selectors/blog';
 import {
   Header,
@@ -14,6 +19,7 @@ import {
   CookiesNotification,
   PageLoading,
 } from 'components';
+import { mobileResolution, tabletResolution } from 'utils/helper';
 
 export const Layout = ({
   isLoading,
@@ -25,8 +31,13 @@ export const Layout = ({
   setFirstVisit: setFirstVisitOfBlog,
 }) => {
   const { asPath } = useRouter();
+  const dispatch = useDispatch();
   const [isBlogLoaded, setBlogLoaded] = useState(false);
   const handleOnBlogLoad = () => setBlogLoaded(true);
+
+  useEffect(() => {
+    dispatch(setPageLoading(isLoading));
+  }, [isLoading]);
 
   useEffect(() => {
     const isBlogPage = asPath.includes('blog');
@@ -37,6 +48,21 @@ export const Layout = ({
     } else if (!isBlogPage) setBlogLoaded(false);
     else if (isBlogPage && !isBlogOpen) setBlogCurrentStatus(true);
   }, [asPath]);
+
+  useEffect(() => {
+    const handleOnResize = () => {
+      if (window.innerWidth <= mobileResolution) dispatch(setMobileResolutions(true));
+      else dispatch(setMobileResolutions(false));
+
+      if (window.innerWidth <= tabletResolution) dispatch(setTabletResolutions(true));
+      else dispatch(setTabletResolutions(false));
+    };
+
+    handleOnResize();
+    window.addEventListener('resize', handleOnResize);
+
+    return () => window.removeEventListener('resize', handleOnResize);
+  }, []);
 
   return (
     <Fragment>
@@ -69,6 +95,7 @@ Layout.propTypes = {
   setBlogStatus: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({ isBlogOpen: selectIsBlogOpen(state) });
-
-export default connect(mapStateToProps, { setBlogStatus, setFirstVisit })(Layout);
+export default connect(
+  (state) => ({ isBlogOpen: selectIsBlogOpen(state) }),
+  { setBlogStatus, setFirstVisit },
+)(Layout);

@@ -1,75 +1,69 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Animated, LinkWrapper } from 'components';
 import { animatedType } from 'utils/constants';
-import { works } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Portfolio = () => (
+export const Portfolio = ({ works }) => (
   <div className={styles.worksContainer}>
-    {works.map((work, index) => (
+    {works && works.map((work, index) => (
       <div
         className={styles.work}
-        key={`works/${index}`}
+        key={`works/${work.name}`}
         data-index={index}
       >
         <div className={styles.desc}>
           <Animated
-            // TODO type={animatedType.isFade}
-            // delay={10}
-            // distance="20px"
-            // bottom
-            // effect="fadeInUp"
-
-            // TODO delay={100}
-            // animateIn="fadeInUp"
-            // animateOnce
-            // offset={10}
-
             type={animatedType.isCustom}
-            translateY={70}
+            translateY="2.82352941em"
             opasityDuration={1}
-            transformDuration={0.5}
+            transformDuration={1}
             transitionDelay={300}
           >
-            {/* TODO <div> */}
             <h1>{work.name}</h1>
+          </Animated>
+          <Animated
+            type={animatedType.isCustom}
+            translateY="2.82352941em"
+            opasityDuration={1}
+            transformDuration={1}
+            transitionDelay={350}
+          >
             <p>{work.description}</p>
+          </Animated>
+          <Animated
+            type={animatedType.isCustom}
+            translateY="2.82352941em"
+            opasityDuration={1}
+            transformDuration={1}
+            transitionDelay={400}
+          >
             <LinkWrapper
               isLocalLink
-              dynamicRouting="/"
-              path="/"
+              dynamicRouting="/portfolio/[project]"
+              path={`/portfolio/${work.id}`}
               className={styles.buttonWrap}
             >
               <button type="button">See full case study</button>
             </LinkWrapper>
-            {/* TODO </div> */}
           </Animated>
         </div>
         <div className={styles.imgWrapper}>
           <Animated
-            // TODO type={animatedType.isFade}
-            // delay={10}
-            // distance="20px"
-            // bottom
-            // effect="fadeInUp"
-
-            // TODO delay={0}
-            // animateIn="fadeInUp"
-            // animateOnce
-            // offset={10}
-
             type={animatedType.isCustom}
-            translateY={70}
+            translateY="2.82352941em"
             opasityDuration={1}
-            transformDuration={0.5}
-            transitionDelay={370}
+            transformDuration={1}
+            transitionDelay={200}
           >
-            {/* TODO <div> */}
             <div style={{ backgroundImage: `url(${work.image})` }} />
-            {/* TODO </div> */}
           </Animated>
         </div>
       </div>
     ))}
   </div>
 );
+
+Portfolio.propTypes = {
+  works: PropTypes.instanceOf(Array).isRequired,
+};

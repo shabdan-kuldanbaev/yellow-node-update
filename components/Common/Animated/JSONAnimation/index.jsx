@@ -1,10 +1,17 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Lottie from 'react-lottie';
 import PropTypes from 'prop-types';
+import { useIntersection } from 'react-use';
 
-export const JSONAnimation = ({ jsonFile }) => {
-  const [state, setState] = useState({ isStopped: false, isPaused: false }); // TODO
+export const JSONAnimation = ({ jsonFile, className }) => {
+  const [state, setState] = useState({ isStopped: false, isPaused: false });
+  const animateRef = useRef(null);
+  const intersection = useIntersection(animateRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2,
+  });
 
   const defaultOptions = {
     loop: true,
@@ -15,15 +22,25 @@ export const JSONAnimation = ({ jsonFile }) => {
     },
   };
 
+  useEffect(() => {
+    if (animateRef && animateRef.current) {
+      if (intersection && intersection.intersectionRatio < 0.2) setState({ ...state, isPaused: true });
+      else setState({ ...state, isPaused: false });
+    }
+  }, [intersection]);
+
   return (
-    <Lottie
-      options={defaultOptions}
-      isStopped={state.isStopped}
-      isPaused={state.isPaused}
-    />
+    <div ref={animateRef} className={className}>
+      <Lottie
+        options={defaultOptions}
+        isStopped={state.isStopped}
+        isPaused={state.isPaused}
+      />
+    </div>
   );
 };
 
 JSONAnimation.propTypes = {
   jsonFile: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { SectionTitle, Animated } from 'components';
 import { animatedType } from 'utils/constants';
 import { managementTeam } from './utils/data';
@@ -12,9 +13,9 @@ export const ManagementTeam = ({ managementTeam }) => (
         <Animated
           key={`special/${index}/${manager.title}`}
           type={animatedType.isCustom}
-          translateY={100}
-          opasityDuration={0.8}
-          transformDuration={0.8}
+          translateY="2.82352941em"
+          opasityDuration={1}
+          transformDuration={1}
           transitionDelay={100 + 100 * index}
         >
           <div className={styles.image} />
@@ -28,4 +29,8 @@ export const ManagementTeam = ({ managementTeam }) => (
 
 ManagementTeam.defaultProps = {
   managementTeam,
+};
+
+ManagementTeam.propTypes = {
+  managementTeam: PropTypes.instanceOf(Array),
 };

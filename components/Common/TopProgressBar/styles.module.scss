@@ -1,0 +1,22 @@
+@import 'styles/utils/mixins';
+
+.topProgressBar {
+  width: 100%;
+  position: fixed;
+  // TODO top: 0;
+  bottom: -5px;
+  left: 0;
+  height: 5px;
+  z-index: 1500000;
+
+  @include phone {
+    height: 4px;
+    bottom: -4px;
+  }
+
+  .progress {
+    width: 100%;
+    height: 100%;
+    background-color: $turbo-100;
+  }
+}

@@ -1,0 +1,48 @@
+@import 'styles/utils/mixins';
+
+.reviews {
+  max-width: 1500px;
+  padding-top: 80px;
+
+  @include phone {
+    padding-top: 0;
+  }
+
+  .desctopReviews {
+    @include flex(row, initial, initial, wrap);
+
+    @include macbook-fifteen {
+      margin: 20px 0 0;
+    }
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  .mobileReviews {
+    display: none;
+
+    @include phone {
+      display: block;
+      width: 100vw;
+    }
+
+    :global(.swiper-container) {
+      overflow-x: hidden;
+      overflow-y: inherit;
+      padding: 80px 0;
+    }
+
+    :global(.swiper-slide) {
+      margin: auto;
+      transform: scale(0.9);
+      transition: transform 0.4s;
+    }
+
+    :global(.swiper-slide-active) {
+      transform: scale(1);
+      transition: transform 0.4s;
+    }
+  }
+}

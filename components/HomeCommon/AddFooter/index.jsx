@@ -34,13 +34,11 @@ export const AddFooter = ({
 
   useEffect(() => {
     oldY = window.pageYOffset;
-    handleOnScroll();
     setScroll(scrollLabel.current);
-
+    handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
-    return () => {
-      window.removeEventListener('scroll', handleOnScroll);
-    };
+
+    return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 
   return (

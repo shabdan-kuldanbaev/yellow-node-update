@@ -31,6 +31,7 @@ const App = ({
 
     Router.events.on('routeChangeStart', handleRouteChangeStart);
     Router.events.on('routeChangeComplete', handleRouteChangeComplete);
+
     return () => {
       Router.events.off('routeChangeStart', handleRouteChangeStart);
       Router.events.off('routeChangeComplete', handleRouteChangeComplete);
@@ -47,6 +48,7 @@ const App = ({
         <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
         {/* TODO */}
         {/* <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" /> */}
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
       </Head>
       <Provider store={store}>
         <ParallaxProvider>

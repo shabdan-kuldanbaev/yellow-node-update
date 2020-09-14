@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import { useIntersection } from 'react-use';
 
 export const CustomAnimation = ({
   children,
@@ -16,6 +17,11 @@ export const CustomAnimation = ({
   const [isAnimated, setAnimated] = useState('');
   const animateRef = useRef(null);
   const delayInSeconds = transitionDelay / 1000;
+  const intersection = useIntersection(animateRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2,
+  });
 
   const appearanceStyles = {
     opacity: '1',
@@ -28,21 +34,27 @@ export const CustomAnimation = ({
 
   const generalStyles = {
     opacity: '0',
-    transform: `translate(${translateX}px, ${translateY}px)`,
+    transform: `translate(${translateX}, ${translateY})`,
     ...(isAnimated ? appearanceStyles : {}),
   };
 
   useEffect(() => {
-    const handleOnScroll = () => {
-      if (animateRef.current.getBoundingClientRect().top < window.innerHeight && animateRef.current.getBoundingClientRect().bottom > 0) {
-        setAnimated(true);
-      }
-    };
+    if (animateRef && animateRef.current) {
+      if (intersection && intersection.intersectionRatio >= 0.2) setAnimated(true);
+    }
+  }, [intersection]);
 
-    handleOnScroll();
-    window.addEventListener('scroll', handleOnScroll);
-    return () => window.removeEventListener('scroll', handleOnScroll);
-  }, []);
+  // TODO useEffect(() => {
+  //   const handleOnScroll = () => {
+  //     if (animateRef.current.getBoundingClientRect().top < window.innerHeight && animateRef.current.getBoundingClientRect().bottom > 0) {
+  //       setAnimated(true);
+  //     }
+  //   };
+
+  //   handleOnScroll();
+  //   window.addEventListener('scroll', handleOnScroll);
+  //   return () => window.removeEventListener('scroll', handleOnScroll);
+  // }, []);
 
   return (
     <div ref={animateRef} style={generalStyles}>
@@ -52,8 +64,8 @@ export const CustomAnimation = ({
 };
 
 CustomAnimation.defaultProps = {
-  translateX: 0,
-  translateY: 10,
+  translateX: '0',
+  translateY: '10px',
   opasityDuration: 0.05,
   transformDuration: 0.1,
   transitionDelay: 500,
@@ -61,8 +73,8 @@ CustomAnimation.defaultProps = {
 
 CustomAnimation.propTypes = {
   children: PropTypes.instanceOf(Object).isRequired,
-  translateX: PropTypes.number,
-  translateY: PropTypes.number,
+  translateX: PropTypes.string,
+  translateY: PropTypes.string,
   opasityDuration: PropTypes.number,
   transformDuration: PropTypes.number,
   transitionDelay: PropTypes.number,

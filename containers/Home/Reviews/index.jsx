@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Carousel, SectionTitle } from 'components';
+import { SectionTitle, Reviews } from 'components';
+import { reviews } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Reviews = ({ className }) => (
+export const ReviewsContainer = ({ className }) => (
   <section className={cn(styles.reviews, { [className]: className })}>
     <SectionTitle title="What people say" />
-    <Carousel />
+    <Reviews reviews={reviews} />
   </section>
 );
 
-Reviews.defaultProps = {
+ReviewsContainer.defaultProps = {
   className: '',
 };
 
-Reviews.propTypes = {
+ReviewsContainer.propTypes = {
   className: PropTypes.string,
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { SectionTitle, Animated } from 'components';
 import { animatedType } from 'utils/constants';
 import { makingUsSpecial } from './utils/data';
@@ -12,10 +13,10 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => (
         <Animated
           key={`special/${special.subtitle}`}
           type={animatedType.isCustom}
-          translateY={100}
+          translateY="100px"
           opasityDuration={0.8}
           transformDuration={0.8}
-          transitionDelay={495 + 150 * index}
+          transitionDelay={100 + 150 * index}
         >
           <div>
             <img src={special.title} alt={special.subtitle} />
@@ -29,4 +30,8 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => (
 
 WhatMakesUsSpecial.defaultProps = {
   makingUsSpecial,
+};
+
+WhatMakesUsSpecial.propTypes = {
+  makingUsSpecial: PropTypes.instanceOf(Array),
 };

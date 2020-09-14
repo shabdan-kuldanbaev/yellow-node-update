@@ -17,8 +17,8 @@ export const ParallaxWrapper = ({ children, className }) => {
     };
 
     handleOnScroll();
-
     window.addEventListener('scroll', handleOnScroll);
+
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 

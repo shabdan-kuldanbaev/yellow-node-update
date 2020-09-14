@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -8,8 +8,9 @@ import {
   SectionTitle,
   ButtonMore,
   ArticlesList,
+  Animated,
 } from 'components';
-import { mobileResolution } from 'utils/helper';
+import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Blog = ({
@@ -18,22 +19,12 @@ const Blog = ({
   loadArticles: loadPartOfArticles,
 }) => {
   const { asPath } = useRouter();
-  const [isMobileResolution, setMobileResolution] = useState(false);
   const currentPage = 1;
-
-  useEffect(() => {
-    const onResize = () => (window.innerWidth < mobileResolution ? setMobileResolution(true) : setMobileResolution(false));
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => {
-      window.removeEventListener('resize', onResize);
-    };
-  }, [isMobileResolution]);
 
   useEffect(() => {
     loadPartOfArticles({
       currentPage,
-      currentLimit: 3,
+      currentLimit: 5,
       category: 'latest',
     });
   }, []);
@@ -44,15 +35,22 @@ const Blog = ({
       <ArticlesList
         articles={articles}
         isLoading={isLoading}
-        isMobileResolution={isMobileResolution}
         asPath={asPath}
         currentPage={currentPage}
       />
-      <ButtonMore
-        href="/blog?category=latest&page=1"
-        title="READ MORE STORIES"
-        buttonStyle={styles.blogButton}
-      />
+      <Animated
+        type={animatedType.isCustom}
+        translateY="2.82352941em"
+        opasityDuration={1}
+        transformDuration={1}
+        transitionDelay={200}
+      >
+        <ButtonMore
+          href="/blog?category=latest&page=1"
+          title="READ MORE STORIES"
+          buttonStyle={styles.blogButton}
+        />
+      </Animated>
     </section>
   );
 };
@@ -63,9 +61,9 @@ Blog.propTypes = {
   loadArticles: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  isLoading: selectIsLoading(state),
-  articles: selectArticles(state),
-});
-
-export default connect(mapStateToProps, { loadArticles })(Blog);
+export default connect(
+  (state) => ({
+    isLoading: selectIsLoading(state),
+    articles: selectArticles(state),
+  }), { loadArticles },
+)(Blog);

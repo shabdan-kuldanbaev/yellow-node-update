@@ -19,6 +19,12 @@
     width: 100%;
   }
 
+  &>div:last-child {
+    &>a {
+      @include flex(row, center, center);
+    }
+  }
+
   label {
     font-size: 1.1875rem;
     color: $black;
@@ -59,6 +65,12 @@
       }
 
       &>div:first-child {
+        padding-top: 0;
+      }
+    }
+
+    @include phone {
+      &>div {
         padding-top: 0;
       }
     }
@@ -137,6 +149,10 @@
     @include flex(row, flex-start, center);
     margin-top: 15px;
     width: 100%;
+
+    &>div:first-child label {
+      margin-left: 0;
+    }
 
     @include phone {
       @include flex(column);
