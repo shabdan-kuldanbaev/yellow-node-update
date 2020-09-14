@@ -60,6 +60,7 @@ export const Layout = ({
 
     handleOnResize();
     window.addEventListener('resize', handleOnResize);
+
     return () => window.removeEventListener('resize', handleOnResize);
   }, []);
 

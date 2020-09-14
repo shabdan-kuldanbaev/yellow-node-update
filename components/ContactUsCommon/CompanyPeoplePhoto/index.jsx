@@ -23,6 +23,7 @@ export const CompanyPeoplePhoto = ({ photo }) => {
 
     handlerOnScroll();
     window.addEventListener('scroll', handlerOnScroll);
+
     return () => window.removeEventListener('scroll', handlerOnScroll);
   }, []);
 

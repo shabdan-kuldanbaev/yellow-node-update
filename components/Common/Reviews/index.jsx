@@ -35,6 +35,7 @@ export const Reviews = ({ reviews }) => {
 
     handleOnResize();
     window.addEventListener('resize', handleOnResize);
+
     return () => window.removeEventListener('resize', handleOnResize);
   }, []);
 

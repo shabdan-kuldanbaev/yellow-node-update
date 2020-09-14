@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import cloneDeep from 'lodash/cloneDeep';
+import { cloneDeep, sortBy } from 'lodash';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { selectArticle, selectIsLoading } from 'redux/selectors/blog';
 import { getArticle } from 'redux/actions/blog';
 import { Article } from 'components';
-import { sortingArray } from 'utils/helper';
 
 const ArticleContainer = ({
   introSection,
@@ -16,7 +15,7 @@ const ArticleContainer = ({
 }) => {
   const { query: { article } } = useRouter();
   const sortArticle = cloneDeep(currentArticle);
-  const sortBody = (currentArticle && currentArticle.body && sortingArray(currentArticle.body)) || [];
+  const sortBody = (currentArticle && currentArticle.body && sortBy(currentArticle.body, 'orderNumber')) || [];
   if (sortBody) sortArticle.body = sortBody;
 
   useEffect(() => {

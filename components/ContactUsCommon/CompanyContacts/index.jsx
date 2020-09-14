@@ -30,6 +30,7 @@ export const CompanyContacts = ({ photo }) => {
 
     handleOnScroll();
     document.addEventListener('scroll', handleOnScroll);
+
     return () => document.removeEventListener('scroll', handleOnScroll);
   }, [imgContainer]);
 

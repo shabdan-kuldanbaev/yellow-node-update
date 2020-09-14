@@ -73,7 +73,6 @@ const Header = ({
         oldY = pageYOffset;
       }
     }
-    console.log(asPath);
     // TODO if (pageYOffset > 20) document.body.style.backgroundColor = footerColor;
     // else if (!isHomePage) document.body.style.backgroundColor = '#fff';
     // else document.body.style.backgroundColor = 'black';
@@ -83,6 +82,7 @@ const Header = ({
     oldY = window.pageYOffset;
     handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
+
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, [currentPage]);
 

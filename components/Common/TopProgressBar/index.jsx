@@ -17,6 +17,7 @@ export const TopProgressBar = ({ elementRef }) => {
 
     handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
+
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 

@@ -37,6 +37,7 @@ export const AddFooter = ({
     setScroll(scrollLabel.current);
     handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
+
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 

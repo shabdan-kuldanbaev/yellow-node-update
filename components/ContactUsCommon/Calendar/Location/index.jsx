@@ -42,6 +42,7 @@ export const Location = ({
 
     handleOnScroll();
     document.addEventListener('scroll', handleOnScroll);
+
     return () => document.removeEventListener('scroll', handleOnScroll);
   }, [dataRef]);
 

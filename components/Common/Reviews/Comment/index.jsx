@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 import { Animated } from 'components';
 import styles from './styles.module.scss';
 
-export const Comment = ({ comment, animatioProps }) => (
+export const Comment = ({
+  comment: {
+    logo,
+    name,
+    message,
+    avatar,
+    position,
+  }, animatioProps,
+}) => (
   <div className={styles.commentWrapper}>
     <Animated {...animatioProps}>
       <section>
@@ -11,24 +19,24 @@ export const Comment = ({ comment, animatioProps }) => (
           <div>
             <div className={styles.messageWrapper}>
               <img
-                src={comment.logo}
-                alt={comment.name}
+                src={logo}
+                alt={name}
                 className={styles.logo}
               />
-              <div className={styles.message}>{comment.message}</div>
+              <div className={styles.message}>{message}</div>
             </div>
           </div>
           <div className={styles.categoryName}>
             <div className={styles.person}>
               <div>
                 <img
-                  src={comment.avatar}
-                  alt={comment.name}
+                  src={avatar}
+                  alt={name}
                   className={styles.photo}
                 />
                 <div className={styles.info}>
-                  <span className={styles.name}>{comment.name}</span>
-                  <span className={styles.position}>{comment.position}</span>
+                  <span className={styles.name}>{name}</span>
+                  <span className={styles.position}>{position}</span>
                 </div>
               </div>
             </div>

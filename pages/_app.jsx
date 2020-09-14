@@ -31,6 +31,7 @@ const App = ({
 
     Router.events.on('routeChangeStart', handleRouteChangeStart);
     Router.events.on('routeChangeComplete', handleRouteChangeComplete);
+
     return () => {
       Router.events.off('routeChangeStart', handleRouteChangeStart);
       Router.events.off('routeChangeComplete', handleRouteChangeComplete);

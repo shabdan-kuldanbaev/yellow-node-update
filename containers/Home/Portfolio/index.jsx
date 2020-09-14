@@ -89,6 +89,7 @@ export const Portfolio = () => {
   useEffect(() => {
     handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
+
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 
