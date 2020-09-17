@@ -13,7 +13,6 @@ const Nav = ({
   currentPage,
   isAdditional,
   isHeader,
-  isPageLoading,
 }) => {
   const { asPath } = useRouter();
   const isBlog = asPath && asPath.includes('blog');
@@ -51,7 +50,6 @@ Nav.propTypes = {
   currentPage: PropTypes.string.isRequired,
   isAdditional: PropTypes.bool.isRequired,
   isHeader: PropTypes.bool,
-  isPageLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(
