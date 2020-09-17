@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
-import { selectIsPageLoading } from 'redux/selectors/layout';
 import { LinkWrapper } from 'components';
 import { menuList } from './utils/data';
 import styles from './styles.module.scss';
@@ -52,6 +50,4 @@ Nav.propTypes = {
   isHeader: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isPageLoading: selectIsPageLoading(state) }),
-)(Nav);
+export default Nav;
