@@ -22,7 +22,6 @@ const Nav = ({
     <ul className={cn(styles.desktopMenu, {
       [styles.additionalNav]: !isBlog && (isAdditional || (currentPage && currentPage !== '')),
       [styles.additionalNavForBlog]: isBlog,
-      [styles.navAppearing]: isPageLoading,
     })}
     >
       {menuList && menuList.map((item) => (

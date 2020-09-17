@@ -38,7 +38,7 @@ const BlogContainer = ({
 
   useEffect(() => {
     const newArticles = category !== 'latest'
-      ? articlesData.filter((article) => article.category === category)
+      ? articlesData.filter((article) => article.categoryTag === category)
       : articlesData;
 
     setTotalArticlesCount(newArticles.length);
