@@ -126,6 +126,10 @@
         display: inline-block;
         width: max-content;
 
+        &:last-child {
+          margin-right: 0;
+        }
+
         img {
           height: 33px;
           width: 33px;
@@ -199,7 +203,7 @@
 
       @include phone {
         display: block;
-        max-width: 125px;
+        max-width: 120px;
         margin-top: 40px;
       }
     }

@@ -51,9 +51,13 @@
 
   @include flex(column, flex-start, center);
 
-  &>img {
+  & img {
     width: auto;
-    height: 121px;
+    height: 120px;
+
+    &:last-child {
+      height: 130px;
+    }
   }
 
   .title {
