@@ -33,6 +33,7 @@
   
   .button {
     @include button-more($black, $black, $turbo-100, $turbo-100);
+    border-radius: 8px;
     background-color: $turbo-100;
     color: $woodsmoke;
     line-height: 1.55;

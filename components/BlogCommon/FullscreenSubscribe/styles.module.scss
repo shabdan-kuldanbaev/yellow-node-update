@@ -87,6 +87,7 @@
         .button {
           @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
           @include flex (row, center);
+          border-radius: 8px;
           letter-spacing: 0.5px;
           font-size: 1rem;
           padding: 16px 0;

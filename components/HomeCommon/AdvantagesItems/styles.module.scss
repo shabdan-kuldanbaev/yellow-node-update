@@ -55,8 +55,28 @@
     width: auto;
     height: 120px;
 
-    &:last-child {
-      height: 130px;
+    @include ultra-hd {
+      height: 440px;
+    }
+
+    @include quad-hd {
+      height: 380px;
+    }
+
+    @include desktop {
+      height: 310px;
+    }
+
+    @include macbook-thirteen {
+      height: 310px;
+    }
+
+    @include macbook-twelve {
+      height: 300px;
+    }
+
+    @include phone {
+      height: 300px;
     }
   }
 

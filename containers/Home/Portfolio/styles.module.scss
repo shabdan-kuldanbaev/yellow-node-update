@@ -51,6 +51,7 @@
 
     .portfolioButton {
       @include button-more($white, $black, transparent, $turbo-100, $boulder, $turbo-100);
+      border-radius: 8px;
       min-width: 330px;
       font-weight: 600;
 

@@ -26,6 +26,7 @@
 
   .instaButton {
     @include button-more($black, $black, $turbo-100, $black);
+    border-radius: 8px;
     transition: background-color $default-transition-time,
                 color $default-transition-time,
                 border-color $default-transition-time;
