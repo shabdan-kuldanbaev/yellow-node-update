@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .advantagesContainer {
   @include flex(row, center, space-between, wrap);
@@ -21,7 +21,7 @@
   }
 
   @include tablet {
-    @include flex(row, center, center, wrap);
+    @include flex(row, center, initial, wrap);
     height: auto;
   }
 
@@ -44,8 +44,16 @@
   &:last-child {
     margin-top: 10%;
 
-    @include tablet {
-      margin-top: inherit;
+    @include full-hd {
+      margin-top: 5%;
+    }
+
+    @include macbook-twelve {
+      margin-top: 60px;
+    }
+
+    @include below-tablet {
+      margin-top: 60px;
     }
   }
 
@@ -59,20 +67,20 @@
       height: 440px;
     }
 
-    @include quad-hd {
-      height: 380px;
+    @include full-hd {
+      height: 320px;
     }
 
     @include desktop {
       height: 310px;
     }
 
-    @include macbook-thirteen {
-      height: 310px;
+    @include macbook-fifteen {
+      height: 260px;
     }
 
     @include macbook-twelve {
-      height: 300px;
+      height: 260px;
     }
 
     @include phone {
@@ -84,18 +92,38 @@
     margin-top: 30px;
     font-size: 1.125rem;
     font-weight: bold;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     text-align: center;
     color: $black;
-    opacity: .9;
+    opacity: 0.9;
+
+    @include full-hd {
+      margin-top: -20px;
+    }
+
+    @include macbook-fifteen {
+      margin-top: 20px;
+    }
+
+    @include macbook-twelve {
+      margin-top: 20px;
+    }
+
+    @include below-tablet {
+      margin-top: 10px;
+    }
+
+    @include phone {
+      margin-top: 10px;
+    }
   }
 
   .desc {
     margin-top: -10px;
     width: 330px;
-    font-size: .9rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: .45px;
+    letter-spacing: 0.45px;
     line-height: 2;
     text-align: center;
     color: $black;

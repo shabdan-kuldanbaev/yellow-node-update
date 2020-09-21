@@ -164,6 +164,7 @@
     .button {
       margin-top: 50px;
       @include button-more($woodsmoke, $woodsmoke, $turbo-100, $turbo-100);
+      border-radius: 8px;
       min-width: 330px;
       font-weight: 600;
       text-transform: uppercase;
