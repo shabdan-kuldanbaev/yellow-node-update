@@ -1,12 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { cloneDeep, sortBy, get } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
+import sortBy from 'lodash/sortBy';
+import get from 'lodash/get';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
-import { selectArticle, selectIsLoading, selectRelatedArticles } from 'redux/selectors/blog';
+import {
+  selectArticle,
+  selectIsLoading,
+  selectRelatedArticles,
+} from 'redux/selectors/blog';
 import { getArticle, loadRelatedArticles } from 'redux/actions/blog';
-import { Article, RelatedSection } from 'components';
-import { SocialThumbnails } from '../../components/Common/SocialThumbnails';
+import {
+  Article,
+  RelatedSection,
+  SocialThumbnails,
+} from 'components';
 
 const ArticleContainer = ({
   introSection,
@@ -31,7 +40,7 @@ const ArticleContainer = ({
   }, [currentCategory]);
 
   return (
-    <>
+    <Fragment>
       <Article
         article={sortArticle}
         introSection={introSection}
@@ -39,7 +48,7 @@ const ArticleContainer = ({
       />
       <SocialThumbnails />
       <RelatedSection articles={relatedArticles} isLoading={isLoading} />
-    </>
+    </Fragment>
   );
 };
 

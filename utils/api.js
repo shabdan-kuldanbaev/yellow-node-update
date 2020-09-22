@@ -32,9 +32,9 @@ export const API = {
       .filter((article) => article.categoryTag === category)
       .filter((article, index) => index >= leftEdge && index < rightEdge);
   },
-  loadRelatedArticles: (category) => (articlesData
+  loadRelatedArticles: (category) => articlesData
     .filter((article) => article.categoryTag === category)
-    .filter((article, index) => index < 5)),
+    .slice(0, 5),
   loadWorks: () => works,
   getProject: () => project,
 };

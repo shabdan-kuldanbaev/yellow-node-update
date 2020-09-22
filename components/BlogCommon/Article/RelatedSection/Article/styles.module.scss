@@ -22,8 +22,20 @@
     flex-basis: calc(100% - (2 * 5px));
   }
 
+  &:first-child {
+    margin-left: 0;
+
+    @include below-tablet{
+      margin-left: auto;
+    }
+  }
+
   &:last-child {
     margin-right: 0;
+
+    @include below-tablet {
+      margin-bottom: 0;
+    }
   }
 
   & > a:first-child {

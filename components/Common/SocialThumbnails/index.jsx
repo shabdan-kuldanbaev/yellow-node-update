@@ -1,18 +1,22 @@
 import React from 'react';
-import { twitter, facebook, copyLink } from './images';
+import {
+  Twitter,
+  Facebook,
+  CopyLink,
+} from './images';
 import styles from './styles.module.scss';
 
 export const SocialThumbnails = () => (
   <div className={styles.socialThumbnails}>
-    <div>
+    <div className={styles.thumbnailsContainer}>
       <div className={styles.svgContainer}>
-        <img className={styles.svg} src={twitter} alt="twitter" />
+        <img className={styles.svg} src={Twitter} alt="twitter" />
       </div>
       <div className={styles.svgContainer}>
-        <img className={styles.svg} src={facebook} alt="facebook" />
+        <img className={styles.svg} src={Facebook} alt="facebook" />
       </div>
       <div className={styles.svgContainer}>
-        <img className={styles.svg} src={copyLink} alt="copy link" />
+        <img className={styles.svg} src={CopyLink} alt="copy link" />
       </div>
     </div>
   </div>

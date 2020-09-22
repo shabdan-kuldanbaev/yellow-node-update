@@ -9,18 +9,15 @@ const RelatedSection = ({ articles, isLoading }) => (
     <div className={styles.related}>
       <div className={styles.heading}>
         <h3>Related Posts</h3>
-        <LinkWrapper
-          isLocalLink
-          path="/blog"
-        >
+        <LinkWrapper isLocalLink path="/blog">
           See all posts
-          <span> → </span>
+          <span>→</span>
         </LinkWrapper>
       </div>
       <div className={styles.articlesList}>
-        {
-          articles && articles.map((item) => <Article article={item} key={item.title} />)
-        }
+        {articles && articles.map((item) => (
+          <Article {...item} key={item.title} />
+        ))}
       </div>
     </div>
   </Loader>

@@ -166,7 +166,7 @@
 
   .submit {
     @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
-    border-radius: 8px;
+    border-radius: $button-border-radius;
     min-width: 330px;
     font-weight: 600;
 
