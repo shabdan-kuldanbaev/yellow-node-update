@@ -10,6 +10,11 @@ export const loadArticles = (payload) => ({
   payload,
 });
 
+export const loadRelatedArticles = (payload) => ({
+  type: actionTypes.LOAD_RELATED_PENDING,
+  payload,
+});
+
 export const setTotalCount = (payload) => ({
   type: actionTypes.SET_TOTAL_ARTICLES_COUNT,
   payload,

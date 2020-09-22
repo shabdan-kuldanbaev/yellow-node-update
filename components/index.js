@@ -36,6 +36,7 @@ export { Works } from 'components/HomeCommon/Works';
 
 // BlogCommon
 export { default as Article } from 'components/BlogCommon/Article';
+export { default as RelatedSection } from 'components/BlogCommon/Article/RelatedSection';
 export { ArticlesList } from 'components/BlogCommon/ArticlesList';
 export { default as SelectionBlock } from 'components/BlogCommon/SelectionBlock';
 export { default as SearchIcon } from 'components/BlogCommon/SelectionBlock/images/search.svg';

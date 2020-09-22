@@ -1,0 +1,47 @@
+@import "styles/utils/mixins";
+
+.socialThumbnails {
+  margin: 15px auto 100px;
+  max-width: 1500px;
+
+  @include below-tablet {
+    padding: 0 25px;
+  }
+
+  & > div {
+    @include flex(row, initial, center);
+    max-width: 720px;
+    margin: 0 auto;
+
+    .svgContainer {
+      @include flex(row, center, center);
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      background-color: $athens-gray;
+      transition: background-color 0.15s ease;
+
+      @include phone {
+        width: 60px;
+        height: 60px;
+      }
+
+      &:first-child {
+        border-radius: 10px 0 0 10px;
+      }
+
+      &:last-child {
+        border-radius: 0 10px 10px 0;
+      }
+
+      &:hover {
+        background-color: $turbo-100;
+      }
+
+      .svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

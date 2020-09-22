@@ -1,4 +1,4 @@
-import { articleTags } from 'utils/constants';
+import { articleTags, tagsForBlog } from 'utils/constants';
 
 export const articleData = [
   {
@@ -9,6 +9,7 @@ export const articleData = [
               why not develop a fitness app worth millions of dollars? In fact,
               it is not that hard to create your own fitness application.`,
       image: 'https://shoji.fueko.net/content/images/2020/06/photo-1511407337274-9c172957270e.jpeg',
+      categoryTag: tagsForBlog.howWeWork.dynamicRouting,
     },
     body: [
       {
