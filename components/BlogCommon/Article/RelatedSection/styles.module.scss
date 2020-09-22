@@ -40,15 +40,26 @@
     }
 
     & > a {
+      display: flex;
       font-size: 12px;
       font-weight: 500;
       color: $black;
 
       & > span {
+        font-size: 14px;
+        position: relative;
         margin-left: 5px;
+        left: 0;
+        transition: left .15s ease;
         
         @include below-tablet {
           display: none;
+        }
+      }
+
+      &:hover {
+        &>span {
+          left: 5px;
         }
       }
     }
