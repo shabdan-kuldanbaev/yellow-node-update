@@ -4,6 +4,7 @@ const initialState = {
   isLoading: false,
   single: {},
   all: [],
+  related: [],
   totalCount: 0,
   error: {},
   limit: { desktop: 11, mobile: 4 },
@@ -30,6 +31,17 @@ const handlers = {
     all: payload,
   }),
   [actionTypes.LOAD_ARTICLES_FAILED]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    error: payload,
+  }),
+  [actionTypes.LOAD_RELATED_PENDING]: (state) => ({ ...state, isLoading: true }),
+  [actionTypes.LOAD_RELATED_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    related: payload,
+  }),
+  [actionTypes.LOAD_RELATED_FAILED]: (state, { payload }) => ({
     ...state,
     isLoading: false,
     error: payload,

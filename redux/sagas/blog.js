@@ -32,9 +32,21 @@ function* loadArticles({ payload }) {
   }
 }
 
+function* loadRelatedArticles({ payload }) {
+  try {
+    const { category } = payload;
+    const response = yield call(API.loadRelatedArticles, category);
+
+    yield put({ type: actionTypes.LOAD_RELATED_SUCCESS, payload: response });
+  } catch (err) {
+    yield put({ type: actionTypes.LOAD_RELATED_FAILED, payload: err });
+  }
+}
+
 export function* loadBlogDataWatcher() {
   yield all([
     yield takeLatest(actionTypes.GET_ARTICLE_PENDING, getArticle),
     yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
+    yield takeLatest(actionTypes.LOAD_RELATED_PENDING, loadRelatedArticles),
   ]);
 }

@@ -46,7 +46,7 @@
         }
 
         &:last-child {
-          border-radius: $buttonRadius;
+          border-radius: $button-border-radius;
           background-color: $turbo-100;
 
           a {

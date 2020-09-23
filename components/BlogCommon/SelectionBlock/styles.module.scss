@@ -71,6 +71,7 @@
 
     .button {
       @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+      border-radius: $button-border-radius;
       margin: auto 0;
       padding: 0;
       margin-right: 15px;

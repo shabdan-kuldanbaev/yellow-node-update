@@ -126,6 +126,10 @@
         display: inline-block;
         width: max-content;
 
+        &:last-child {
+          margin-right: 0;
+        }
+
         img {
           height: 33px;
           width: 33px;
@@ -160,6 +164,7 @@
     .button {
       margin-top: 50px;
       @include button-more($woodsmoke, $woodsmoke, $turbo-100, $turbo-100);
+      border-radius: $button-border-radius;
       min-width: 330px;
       font-weight: 600;
       text-transform: uppercase;
@@ -199,7 +204,7 @@
 
       @include phone {
         display: block;
-        max-width: 125px;
+        max-width: 120px;
         margin-top: 40px;
       }
     }

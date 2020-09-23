@@ -22,6 +22,7 @@ export { default as PhotoGallery } from 'components/Common/PhotoGallery';
 export { TopProgressBar } from 'components/Common/TopProgressBar';
 export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
+export { SocialThumbnails } from 'components/Common/SocialThumbnails';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';
@@ -36,6 +37,7 @@ export { Works } from 'components/HomeCommon/Works';
 
 // BlogCommon
 export { default as Article } from 'components/BlogCommon/Article';
+export { default as RelatedSection } from 'components/BlogCommon/Article/RelatedSection';
 export { ArticlesList } from 'components/BlogCommon/ArticlesList';
 export { default as SelectionBlock } from 'components/BlogCommon/SelectionBlock';
 export { default as SearchIcon } from 'components/BlogCommon/SelectionBlock/images/search.svg';
