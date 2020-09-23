@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
 import styles from './styles.module.scss';
 
-export const Article = ({ slug, image, title }) => (
+export const Article = ({
+  article: {
+    slug,
+    image,
+    title,
+  },
+}) => (
   <article className={styles.article}>
     <LinkWrapper
       isLocalLink
@@ -23,7 +29,5 @@ export const Article = ({ slug, image, title }) => (
 );
 
 Article.propTypes = {
-  slug: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  article: PropTypes.instanceOf(Object).isRequired,
 };

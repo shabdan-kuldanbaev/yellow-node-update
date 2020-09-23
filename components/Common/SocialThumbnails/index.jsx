@@ -10,13 +10,25 @@ export const SocialThumbnails = () => (
   <div className={styles.socialThumbnails}>
     <div className={styles.thumbnailsContainer}>
       <div className={styles.svgContainer}>
-        <img className={styles.svg} src={Twitter} alt="twitter" />
+        <img
+          className={styles.svg}
+          src={Twitter}
+          alt="twitter"
+        />
       </div>
       <div className={styles.svgContainer}>
-        <img className={styles.svg} src={Facebook} alt="facebook" />
+        <img
+          className={styles.svg}
+          src={Facebook}
+          alt="facebook"
+        />
       </div>
       <div className={styles.svgContainer}>
-        <img className={styles.svg} src={CopyLink} alt="copy link" />
+        <img
+          className={styles.svg}
+          src={CopyLink}
+          alt="copy link"
+        />
       </div>
     </div>
   </div>
