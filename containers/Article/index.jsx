@@ -15,7 +15,10 @@ import {
   Article,
   RelatedSection,
   SocialThumbnails,
+  NextPrev,
 } from 'components';
+import styles from './styles.module.scss';
+
 
 const ArticleContainer = ({
   introSection,
@@ -36,7 +39,9 @@ const ArticleContainer = ({
   }, []);
 
   useEffect(() => {
-    if (currentCategory) loadArticles({ category: currentCategory });
+    if (currentCategory) {
+      loadArticles({ category: currentCategory });
+    }
   }, [currentCategory]);
 
   return (
@@ -48,6 +53,10 @@ const ArticleContainer = ({
       />
       <SocialThumbnails />
       <RelatedSection articles={relatedArticles} isLoading={isLoading} />
+      <div className={styles.nextPrevSection}>
+        <NextPrev isNewer article={sortArticle} />
+        <NextPrev article={sortArticle} />
+      </div>
     </Fragment>
   );
 };

@@ -17,6 +17,10 @@
   @include full-hd {
     width: 100%;
     height: auto;
+    margin-top: 0;
+  }
+
+  @include desktop {
     margin-top: 80px;
   }
 
@@ -37,6 +41,14 @@
   margin-top: 60px;
   text-align: center;
 
+  @include full-hd {
+    margin-top: 50px;
+  }
+
+  @include desktop {
+    margin-top: 60px;
+  }
+
   &:nth-child(2) {
     margin: 60px auto 0 auto;
   }
@@ -44,12 +56,12 @@
   &:last-child {
     margin-top: 10%;
 
-    @include full-hd {
+    @include quad-hd {
       margin-top: 5%;
     }
 
-    @include macbook-twelve {
-      margin-top: 60px;
+    @include full-hd {
+      margin-top: 50px;
     }
   }
 
