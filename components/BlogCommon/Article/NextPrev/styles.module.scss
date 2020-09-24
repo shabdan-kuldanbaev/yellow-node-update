@@ -74,6 +74,10 @@
     flex-basis: 100%;
   }
 
+  @include mobile {
+    min-height: 140px;
+  }
+
   &>a {
     flex-basis: 230px;
 
@@ -87,6 +91,10 @@
 
     @include below-tablet {
       flex-basis: 180px;
+    }
+
+    @include mobile {
+      flex-basis: 95px;
     }
 
     .imgContainer {
@@ -104,15 +112,19 @@
   }
 
   .content {
-    padding: 50px 35px;
+    padding: 60px 35px 50px;
     flex-basis: 50%;
 
     @include desktop {
-      padding: 40px 25px;
+      padding: 45px 25px 40px;
     }
 
     @include tablet {
-      padding: 30px 20px;
+      padding: 35px 20px 30px;
+    }
+
+    @include mobile {
+      padding: 20px 15px 15px;
     }
 
     &>small {
@@ -137,6 +149,10 @@
 
       @include below-tablet {
         font-size: 22px;
+      }
+
+      @include mobile {
+        font-size: 16px;
       }
 
       &>a {

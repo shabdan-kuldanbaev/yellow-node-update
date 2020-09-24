@@ -4,6 +4,10 @@
   margin: 15px auto 100px;
   max-width: 1500px;
 
+  @include desktop {
+    margin: 15px auto 15vh;
+  }
+
   @include below-tablet {
     padding: 0 25px;
   }
@@ -20,11 +24,6 @@
       cursor: pointer;
       background-color: $athens-gray;
       transition: background-color 0.2s ease;
-
-      @include phone {
-        width: 60px;
-        height: 60px;
-      }
 
       &:first-child {
         border-radius: 10px 0 0 10px;

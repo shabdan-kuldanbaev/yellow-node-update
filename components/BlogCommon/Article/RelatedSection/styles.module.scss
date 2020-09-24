@@ -2,7 +2,7 @@
 
 .related {
   @include flex(column, center, center);
-  margin: 200px auto 0;
+  margin: 0 auto 0;
   padding: 0 55px;
   max-width: 1500px;
 
@@ -79,6 +79,10 @@
     border-radius: 4px;
     padding: 60px 60px calc(60px - #{$max-article-margin});
 
+    // @include tablet {
+    //   width: calc(100% - 50px);
+    // }
+
     @include macbook-fifteen {
       padding: 60px 60px calc(60px - #{$min-article-margin});
     }
@@ -95,5 +99,9 @@
       @include flex(row, initial, initial, wrap);
       padding: 15px 10px;
     }
+
+    // @include phone {
+    //   width: calc(100% - 30px);
+    // }
   }
 }
