@@ -78,7 +78,6 @@
     background-color: $athens-gray;
     border-radius: 4px;
     padding: 60px 60px calc(60px - #{$max-article-margin});
-    width: calc(100% - 110px);
 
     @include macbook-fifteen {
       padding: 60px 60px calc(60px - #{$min-article-margin});
@@ -86,18 +85,15 @@
 
     @include macbook-twelve {
       padding: 25px 25px calc(25px - #{$min-article-margin});
-      width: calc(100% - 50px);
     }
 
     @include tablet {
       padding: 15px 15px calc(15px - #{$min-article-margin});
-      width: calc(100% - 30px);
     }
 
     @include below-tablet {
       @include flex(row, initial, initial, wrap);
       padding: 15px 10px calc(15px - #{$min-article-margin});
-      width: calc(100% - 20px);
     }
   }
 }

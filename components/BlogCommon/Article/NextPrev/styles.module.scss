@@ -2,14 +2,14 @@
 
 .newer {
   @include flex (row);
-  margin-right: calc(#{$max-article-margin} / 2);
+  margin-right: #{$max-article-margin};
 
   &:last-child {
     margin-right: 0;
   }
 
   @include desktop {
-    margin-right: calc(#{$min-article-margin} / 2);
+    margin-right: #{$min-article-margin};
   }
 
   @include below-tablet {
@@ -29,14 +29,14 @@
 
 .older {
   @include flex (row-reverse);
-  margin-left: calc(#{$max-article-margin} / 2);
+  margin-left: #{$max-article-margin};
 
   &:last-child {
     margin-left: 0;
   }
 
   @include desktop {
-    margin-left: calc(#{$min-article-margin} / 2);
+    margin-left: #{$min-article-margin};
   }
 
   @include below-tablet {
