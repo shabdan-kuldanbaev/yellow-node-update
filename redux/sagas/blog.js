@@ -43,10 +43,22 @@ function* loadRelatedArticles({ payload }) {
   }
 }
 
+function* loadNearbyArticles({ payload }) {
+  try {
+    const { name } = payload;
+    const response = yield call(API.loadNearbyArticles, name);
+
+    yield put({ type: actionTypes.LOAD_NEARBY_SUCCESS, payload: response });
+  } catch (err) {
+    yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: err });
+  }
+}
+
 export function* loadBlogDataWatcher() {
   yield all([
     yield takeLatest(actionTypes.GET_ARTICLE_PENDING, getArticle),
     yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
     yield takeLatest(actionTypes.LOAD_RELATED_PENDING, loadRelatedArticles),
+    yield takeLatest(actionTypes.LOAD_NEARBY_PENDING, loadNearbyArticles),
   ]);
 }

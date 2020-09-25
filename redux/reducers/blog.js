@@ -5,6 +5,7 @@ const initialState = {
   single: {},
   all: [],
   related: [],
+  nearby: {},
   totalCount: 0,
   error: {},
   limit: { desktop: 11, mobile: 4 },
@@ -42,6 +43,17 @@ const handlers = {
     related: payload,
   }),
   [actionTypes.LOAD_RELATED_FAILED]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    error: payload,
+  }),
+  [actionTypes.LOAD_NEARBY_PENDING]: (state) => ({ ...state, isLoading: true }),
+  [actionTypes.LOAD_NEARBY_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    nearby: payload,
+  }),
+  [actionTypes.LOAD_NEARBY_FAILED]: (state, { payload }) => ({
     ...state,
     isLoading: false,
     error: payload,

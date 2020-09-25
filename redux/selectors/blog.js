@@ -6,6 +6,8 @@ export const selectArticles = (state) => state.blog.all;
 
 export const selectRelatedArticles = (state) => state.blog.related;
 
+export const selectNearbyArticles = (state) => state.blog.nearby;
+
 export const selectTotalCount = (state) => state.blog.totalCount;
 
 export const selectDesktopLimit = (state) => state.blog.limit.desktop;
