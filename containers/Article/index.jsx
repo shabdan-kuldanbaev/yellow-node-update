@@ -15,6 +15,8 @@ import {
   Article,
   RelatedSection,
   SocialThumbnails,
+  SubscribeBlock,
+  BookmarkCard,
 } from 'components';
 
 const ArticleContainer = ({
@@ -48,6 +50,8 @@ const ArticleContainer = ({
       />
       <SocialThumbnails />
       <RelatedSection articles={relatedArticles} isLoading={isLoading} />
+      <SubscribeBlock />
+      <BookmarkCard />
     </Fragment>
   );
 };

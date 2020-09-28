@@ -1,0 +1,219 @@
+@import 'styles/utils/mixins';
+
+.blogPage {
+  width: 100%;
+  margin: 105px 12px 150px;
+
+  @include phone {
+    margin: 50px 0;
+  }
+}
+
+.articlePage {
+  margin: 24px auto 8vh;
+  padding: 0 55px;
+  max-width: 1500px;
+  background-color: $white;
+
+  @include desktop {
+    margin-top: 14px;
+  }
+
+  @include tablet {
+    padding: 0 25px;
+  }
+
+  @include phone {
+    padding: 0 15px;
+  }
+}
+
+.subscribeBlock {
+
+  .subscribeWrapper {
+    width: 100%;
+    
+    .subscribeHeader {
+      @include flex(row, space-between, center);
+      padding: 60px;
+      margin: 0 auto;
+      background-color: $turbo-100;
+      border-radius: 4px 4px 0 0;
+
+      @include macbook-twelve {
+        padding: 40px 25px;
+      }
+
+      @include below-tablet {
+        padding: 30px 25px 40px;
+        @include flex(column, center, center);
+      }
+
+      @include phone {
+        padding: 30px 15px 40px;
+      }
+
+      &>h3 {
+        font-size: 37px;
+        font-weight: 500;
+        margin: 0;
+        padding: 20px 5% 20px 0;
+
+        @include macbook-twelve {
+          font-size: 30px;
+        }
+
+        @include tablet {
+          font-size: 24px;
+        }
+
+        @include below-tablet {
+          padding: 10px 0 30px;
+          font-size: 28px;
+          text-align: center;
+        }
+
+        @include phone {
+          font-size: 18px;
+          padding: 0 0 20px 0;
+        }
+      }
+
+      .subscribeForm {
+        @include flex();
+        height: 80px;
+
+        @include macbook-twelve {
+          height: 70px;
+        }
+
+        @include tablet {
+          height: 60px;
+        }
+
+        &>input {
+          width: 270px;
+          margin-right: 3px;
+          padding: 0 20px 0 35px;
+          border: 0;
+          border-radius: 8px 0 0 8px;
+          transition: width .2s ease;
+
+          @include macbook-twelve {
+            width: 250px;
+            padding-right: 20px;
+            padding-left: 20px;
+          }
+
+          @include tablet {
+            width: 150px;
+            padding-right: 15px;
+            padding-left: 15px;
+          }
+
+          @include below-tablet {
+            width: 180px;
+          }
+
+          @include phone {
+            max-width: 147px;
+            padding-right: 10px;
+            padding-left: 10px;
+          }
+
+          &::placeholder {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: $woodsmoke;
+
+            @include macbook-twelve {
+              font-size: 16px;
+            }
+
+            @include tablet {
+              font-size: 14px;
+            }
+
+            @include phone {
+              font-size: 14px;
+            }
+          }
+
+          &:focus {
+            width: 300px;
+
+            @include phone {
+              max-width: 147px;
+            }
+          }
+        }
+
+        &>button {
+          padding: 0 30px 0 20px;
+          font-size: 18px;
+          font-weight: 500;
+          letter-spacing: 1px;
+          color: $woodsmoke;
+          border: 0;
+          border-radius: 0 8px 8px 0;
+          background-color: $white;
+          cursor: pointer;
+
+          @include macbook-twelve {
+            font-size: 16px;
+            padding-right: 20px;
+            padding-left: 20px;
+          }
+
+          @include tablet {
+            font-size: 14px;
+            padding-right: 15px;
+            padding-left: 15px;
+          }
+        }
+      }
+    }
+
+    .subscribeMessage {
+      margin: 0;
+      padding: 9vh 60px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include macbook-twelve {
+        padding: 5vh 25px;
+      }
+
+      &>h3 {
+        max-width: 50%;
+        margin: 0;
+        padding: 70px 40px;
+        font-size: 27px;
+        font-weight: 500;
+        line-height: 1.5;
+        border-radius: 4px;
+        background-color: $white;
+
+        @include macbook-twelve {
+          font-size: 20px;
+          padding: 40px 30px;
+        }
+
+        @include tablet {
+          font-size: 18px;
+          padding: 30px 20px;
+        }
+
+        @include below-tablet {
+          max-width: 100%;
+        }
+
+        @include phone {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

@@ -100,6 +100,8 @@
     // TODO width: calc(100% + 180px + 180px);
     // TODO margin-left: -180px;
 
+    width: calc(100% + (2 * 180px));
+
     &>div {
       width: 100%;
       height: auto;
