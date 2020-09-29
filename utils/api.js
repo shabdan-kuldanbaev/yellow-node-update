@@ -35,6 +35,17 @@ export const API = {
   loadRelatedArticles: (category) => articlesData
     .filter((article) => article.categoryTag === category)
     .slice(0, 5),
+  loadNearbyArticles: (name) => {
+    const articleIndex = articlesData.findIndex((item) => item.title === name);
+
+    if (articleIndex) {
+      return {
+        newerArticle: articlesData.find((item, index) => index === articleIndex - 1),
+        olderArticle: articlesData.find((item, index) => index === articleIndex + 1),
+      };
+    }
+    return null;
+  },
   loadWorks: () => works,
   getProject: () => project,
 };

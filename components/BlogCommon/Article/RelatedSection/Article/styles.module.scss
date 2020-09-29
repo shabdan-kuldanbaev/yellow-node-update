@@ -2,31 +2,38 @@
 
 .article {
   min-width: 150px;
-  flex-basis: 25%;
-  margin: 0 10px;
+  flex: 1 0 calc(20% - #{$max-article-margin});
+  margin: 0 calc(#{$max-article-margin} / 2) #{$max-article-margin};
   cursor: pointer;
   background-color: $white;
   border-radius: 4px;
+  line-height: 1.5;
+  transition: transform .2s ease-in-out;
+  transform: translateY(0);
+
+  @include macbook-thirteen{
+    margin: 0 calc(#{$min-article-margin} / 2) #{$min-article-margin};
+  }
 
   @include tablet {
     min-width: 120px;
-    margin: 0 8px;
   }
 
   @include below-tablet {
-    margin: 0 5px 15px;
-    flex-basis: calc(50% - (2 * 5px));
+    margin: 0 calc(#{$min-article-margin} / 2) #{$min-article-margin};
+    flex: 1 0 calc(50% - #{$min-article-margin});
   }
 
-  @include phone {
-    flex-basis: calc(100% - (2 * 5px));
+  &:hover {
+    transform: translateY(-2px);
+    transition: transform .2s ease-in-out;
   }
 
   &:first-child {
     margin-left: 0;
 
     @include below-tablet{
-      margin-left: auto;
+      margin-left: calc(#{$min-article-margin} / 2);
     }
   }
 
@@ -34,7 +41,7 @@
     margin-right: 0;
 
     @include below-tablet {
-      margin-bottom: 0;
+      margin-right: calc(#{$min-article-margin} / 2);
     }
   }
 
@@ -45,19 +52,28 @@
 
     .imgContainer {
       width: 100%;
-      height: 250px;
+      min-height: 240px;
+      height: 240px;
       border-radius: 4px;
 
-      @include desktop {
-        height: 230px;
+      @include macbook-fifteen {
+        min-height: 200px;
+        height: 200px;
+      }
+
+      @include macbook-twelve {
+        min-height: 180px;
+        height: 180px;
       }
 
       @include tablet {
-        height: 120px;
+        min-height: 150px;
+        height: 150px;
       }
 
       @include phone {
-        height: 160px;
+        min-height: 125px;
+        height: 125px;
       }
 
       .img {
@@ -71,19 +87,35 @@
     }
 
     .articleContent {
-      padding: 20px 15px;
+      padding: 15px 20px 18px;
 
       @include macbook-twelve {
-        padding: 15px 10px;
+        padding: 10px 10px 15px;
       }
 
       .title {
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 15px;
+        font-weight: 600;
         margin: 0;
 
         @include macbook-twelve {
           font-size: 14px;
+        }
+
+        &>a {
+          color: $mine-shaft;
+          background-image: linear-gradient($turbo-100, $turbo-100);
+          background-position: 0% 100%;
+          background-repeat: no-repeat;
+          background-size: 0% 8px;
+          transition: background-size .6s ease-out;
+        }
+  
+        &:hover {
+          &>a {
+            transition: background-size .6s ease-out;
+            background-size: 100% 8px;
+          }
         }
       }
     }
