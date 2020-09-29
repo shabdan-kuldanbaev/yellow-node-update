@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SectionTitle, Animated } from 'components';
 import { animatedType } from 'utils/constants';
-import TestPhoto from './images/bitmap@3x.png';
+import TestPhoto from './images/testImg.jpg';
 import styles from './styles.module.scss';
 
 export const CompanyPeoplePhoto = ({ photo }) => {

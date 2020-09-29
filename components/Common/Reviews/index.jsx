@@ -12,6 +12,7 @@ import styles from './styles.module.scss';
 export const Reviews = ({ reviews }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
+  const infoRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const params = {
     slidesPerView: 1.2,
     spaceBetween: 0,
@@ -29,6 +30,17 @@ export const Reviews = ({ reviews }) => {
             swiperRef.current.children[0].style.height = `${newIt}px`;
             setMaxCardHeight(newIt);
           }
+        }
+      }
+
+      const isInfoRefsExsists = infoRefs.length > 0 && infoRefs.reduce((previousValue, item) => !!(item && item.current && item.current.children.length > 0 && item.current.children[0]), false);
+
+      if (isInfoRefsExsists) {
+        const newHeight = infoRefs.reduce((previousValue, item) => (previousValue >= item.current.children[0].offsetHeight ? previousValue : item.current.children[0].offsetHeight), 0);
+        if (newHeight) {
+          infoRefs.forEach((item) => {
+            item.current.style.height = `${newHeight}px`;
+          });
         }
       }
     };
@@ -57,6 +69,7 @@ export const Reviews = ({ reviews }) => {
               key={`desctopReviews/${comment.name}`}
               comment={comment}
               animatioProps={animatioProps}
+              infoRef={infoRefs[index]}
             />
           );
         })}
@@ -65,7 +78,7 @@ export const Reviews = ({ reviews }) => {
         <Swiper ref={swiperRef} {...params}>
           {reviews && reviews.map((comment) => (
             <div key={`mobileReviews/${comment.name}`}>
-              <Comment comment={comment} animatioProps={{ type: animatedType.isCustom }} />
+              <Comment comment={comment} animatioProps={{ type: animatedType.isCustom, translateY: '0px' }} />
             </div>
           ))}
         </Swiper>

@@ -21,7 +21,6 @@ import {
   RelatedSection,
   SocialThumbnails,
   SubscribeBlock,
-  BookmarkCard,
   NextPrev,
 } from 'components';
 import styles from './styles.module.scss';
@@ -64,8 +63,15 @@ const ArticleContainer = ({
       />
       <SocialThumbnails />
       <RelatedSection articles={relatedArticles} isLoading={isLoading} />
+      <div className={styles.nextPrevSection}>
+        <NextPrev
+          isNewer
+          article={newerArticle}
+          isLoading={isLoading}
+        />
+        <NextPrev article={olderArticle} isLoading={isLoading} />
+      </div>
       <SubscribeBlock />
-      <BookmarkCard />
     </Fragment>
   );
 };

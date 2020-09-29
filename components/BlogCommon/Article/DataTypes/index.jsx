@@ -1,6 +1,11 @@
 import React from 'react';
 import get from 'lodash/get';
-import { Animated } from 'components';
+import cn from 'classnames';
+import {
+  Animated,
+  BookmarkCard,
+  GalleryCard,
+} from 'components';
 import { articleTags, animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -19,17 +24,23 @@ export const DataTypes = ({ type, data }) => {
       ? <blockquote className={styles.quote}>{get(data, 'data', '')}</blockquote>
       : null;
   case `${articleTags.images}`:
-    return get(data, 'data', []) ? (
-      <div className={styles.mediasWrapper}>
-        <div className={styles.images}>
-          {get(data, 'data', []).map((image) => (
-            <Animated type={animatedType.imageZoom}>
-              <img src={image} alt={image} />
-            </Animated>
-          ))}
+    return get(data, 'image', '') ? (
+      <div className={styles.imageWrapper}>
+        <div className={get(data, 'image.type', '') === 'normal' ? styles.normalImage : styles.fullImage}>
+          <Animated type={animatedType.imageZoom}>
+            <img src={get(data, 'image.src', '')} alt={get(data, 'image.src', '')} />
+          </Animated>
+          {get(data, 'photoCaption', '') && <div className={styles.photoCaption}>{get(data, 'photoCaption', '')}</div>}
         </div>
-        {get(data, 'photoCaption', '') && <div className={styles.photoCaption}>{get(data, 'photoCaption', '')}</div>}
       </div>
+    ) : null;
+  case `${articleTags.bookmark}`:
+    return get(data, 'data', []) ? (
+      <BookmarkCard article={get(data, 'data', [])} />
+    ) : null;
+  case `${articleTags.gallery}`:
+    return get(data, 'data', []) ? (
+      <GalleryCard data={data} />
     ) : null;
   default:
     return null;

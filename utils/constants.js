@@ -42,4 +42,6 @@ export const articleTags = {
   h2: 'h2',
   h3: 'h3',
   images: 'images',
+  bookmark: 'bookmark',
+  gallery: 'gallery',
 };
