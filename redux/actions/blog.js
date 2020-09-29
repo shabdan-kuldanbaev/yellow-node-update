@@ -15,6 +15,11 @@ export const loadRelatedArticles = (payload) => ({
   payload,
 });
 
+export const loadNearbyArticles = (payload) => ({
+  type: actionTypes.LOAD_NEARBY_PENDING,
+  payload,
+});
+
 export const setTotalCount = (payload) => ({
   type: actionTypes.SET_TOTAL_ARTICLES_COUNT,
   payload,

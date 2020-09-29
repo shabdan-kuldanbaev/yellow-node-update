@@ -47,6 +47,7 @@ export { default as Subscribe } from 'components/BlogCommon/Subscribe';
 export { default as Paginator } from 'components/BlogCommon/Paginator';
 export { SubscribeBlock } from 'components/Common/SubscribeBlock';
 export { BookmarkCard } from 'components/BlogCommon/Article/BookmarkCard';
+export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';
 
 // PortfolioCommon
 export { Portfolio } from 'components/PortfolioCommon/index';
