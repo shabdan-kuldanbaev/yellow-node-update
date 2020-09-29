@@ -2,14 +2,14 @@
 
 .newer {
   @include flex (row);
-  margin-right: #{$max-article-margin};
+  margin-right: $max-article-margin;
 
   &:last-child {
     margin-right: 0;
   }
 
   @include desktop {
-    margin-right: #{$min-article-margin};
+    margin-right: $min-article-margin;
   }
 
   @include below-tablet {
@@ -29,19 +29,19 @@
 
 .older {
   @include flex (row-reverse);
-  margin-left: #{$max-article-margin};
+  margin-left: $max-article-margin;
 
   &:last-child {
     margin-left: 0;
   }
 
   @include desktop {
-    margin-left: #{$min-article-margin};
+    margin-left: $min-article-margin;
   }
 
   @include below-tablet {
     margin-left: 0;
-    margin-top: #{$min-article-margin};
+    margin-top: $min-article-margin;
   }
 
   .imgContainer {
@@ -74,7 +74,7 @@
     bottom: 10px;
     left: 0;
     content: '';
-    box-shadow: 0 5px 95px 0 rgba(0,0,0,.07);
+    box-shadow: 0 5px 95px 0 $nearby-articles-block-box-shadow-color;
   }
 
   @include tablet {
@@ -86,7 +86,7 @@
     flex-basis: calc(100% - #{$min-article-margin});
   }
 
-  @include mobile {
+  @include phone {
     min-height: 140px;
   }
 
@@ -105,7 +105,7 @@
       flex-basis: 180px;
     }
 
-    @include mobile {
+    @include phone {
       flex-basis: 95px;
     }
 
@@ -135,7 +135,7 @@
       padding: 35px 20px 30px;
     }
 
-    @include mobile {
+    @include phone {
       padding: 20px 15px 15px;
     }
 
@@ -163,7 +163,7 @@
         font-size: 22px;
       }
 
-      @include mobile {
+      @include phone {
         font-size: 16px;
       }
 

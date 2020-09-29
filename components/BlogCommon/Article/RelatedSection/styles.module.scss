@@ -2,7 +2,7 @@
 
 .related {
   @include flex(column, center, center);
-  margin: 0 auto 0;
+  margin: 0 auto;
   padding: 0 55px;
   max-width: 1500px;
 

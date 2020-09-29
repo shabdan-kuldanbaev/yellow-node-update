@@ -86,12 +86,6 @@
   }
 }
 
-@mixin mobile {
-  @media (max-width: $mobile-size) {
-    @content;
-  }
-}
-
 @mixin horizontal-mobile {
   @media (max-height: $horizontal-mobile) {
     @content;

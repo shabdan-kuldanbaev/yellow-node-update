@@ -24,11 +24,10 @@ import {
 } from 'components';
 import styles from './styles.module.scss';
 
-
 const ArticleContainer = ({
   introSection,
   articles: relatedArticles,
-  nearbyArticles,
+  nearbyArticles: { newerArticle, olderArticle },
   currentArticle,
   isLoading,
   getArticle: getCurrentArticle,
@@ -47,9 +46,7 @@ const ArticleContainer = ({
   }, []);
 
   useEffect(() => {
-    if (currentCategory) {
-      loadArticles({ category: currentCategory });
-    }
+    if (currentCategory) loadArticles({ category: currentCategory });
   }, [currentCategory]);
 
   useEffect(() => {
@@ -66,8 +63,12 @@ const ArticleContainer = ({
       <SocialThumbnails />
       <RelatedSection articles={relatedArticles} isLoading={isLoading} />
       <div className={styles.nextPrevSection}>
-        <NextPrev isNewer article={nearbyArticles.newerArticle} isLoading={isLoading} />
-        <NextPrev article={nearbyArticles.olderArticle} isLoading={isLoading} />
+        <NextPrev
+          isNewer
+          article={newerArticle}
+          isLoading={isLoading}
+        />
+        <NextPrev article={olderArticle} isLoading={isLoading} />
       </div>
     </Fragment>
   );
@@ -89,5 +90,9 @@ export default connect(
     articles: selectRelatedArticles(state),
     nearbyArticles: selectNearbyArticles(state),
     isLoading: selectIsLoading(state),
-  }), { getArticle, loadRelatedArticles, loadNearbyArticles },
+  }), {
+    getArticle,
+    loadRelatedArticles,
+    loadNearbyArticles,
+  },
 )(ArticleContainer);
