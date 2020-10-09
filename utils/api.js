@@ -48,4 +48,12 @@ export const API = {
   },
   loadWorks: () => works,
   getProject: () => project,
+  sendEmail: ({
+    fullName, email, projectDescription, selectedFiles, projectBudget,
+  }) => {
+    console.log(selectedFiles);
+    return axios.post('/send', {
+      fullName, email, projectDescription, selectedFiles, projectBudget,
+    });
+  },
 };

@@ -23,12 +23,25 @@ const FeedbackForm = ({
   handleOnBlurEmail,
   isChooseBudget,
   budget: budgetData,
+  handleOnSubmit,
 }) => {
   const [fullName, setFullName] = useState('');
   const [projectBudget, setBudget] = useState(addThousandsSeparators(budgetData.min));
+  const [selectedFiles, setFiles] = useState([]);
+  const [projectDescription, setDescription] = useState('');
+
 
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
   const handleOnSliderChange = (value) => setBudget(addThousandsSeparators(value));
+  const handleOnDescriptionChange = ({ target: { value } }) => setDescription(value);
+  const handleOnSelectedFilesChange = ({ target: { files } }) => {
+    const arrFiles = [];
+    for (let i = 0; i < files.length; i += 1) arrFiles.push(files[i]);
+    setFiles(arrFiles);
+  };
+  const handleOnUnpinFile = ({ target: { dataset } }) => {
+    setFiles(selectedFiles.filter((file) => file.name !== dataset.fileName));
+  };
 
   const sliderSettings = {
     ...budgetData,
@@ -104,7 +117,13 @@ const FeedbackForm = ({
         transformDuration={1}
         transitionDelay={650}
       >
-        <Upload />
+        <Upload
+          projectDescription={projectDescription}
+          selectedFiles={selectedFiles}
+          handleOnDescriptionChange={handleOnDescriptionChange}
+          handleOnSelectedFilesChange={handleOnSelectedFilesChange}
+          handleOnUnpinFile={handleOnUnpinFile}
+        />
       </Animated>
       <div className={styles.checkboxContainer}>
         <Animated
@@ -141,6 +160,9 @@ const FeedbackForm = ({
           href="/"
           title="SEND"
           buttonStyle={styles.submit}
+          handleOnClick={() => {
+            handleOnSubmit(fullName, email.value, projectDescription, selectedFiles, projectBudget);
+          }}
         />
       </Animated>
     </form>

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const next = require('next');
 const dotenv = require('dotenv');
+const nodemailer = require('nodemailer');
 // TODO const { articlesData } = require('./utils/utils/data');
 // const priority = {
 //   low: 'low',
@@ -46,6 +47,44 @@ app
 
     //   res.status(200).send({ response });
     // });
+
+    server.post('/send', (req, res) => {
+      const transporter = nodemailer.createTransport({
+        service: 'Yandex',
+        auth: {
+          user: 'kseniya.nestsiarovich@yellow.id',
+          pass: '11235813roseWood',
+        },
+      });
+
+      const {
+        fullName, email, projectDescription, selectedFiles, projectBudget,
+      } = req.body;
+      console.log(req.body);
+      // const attachments = files.map((item) => ({
+      //   filename: item.name,
+      //   path: item.name,
+      // }));
+      let text = '';
+      if (projectBudget) text = `Contact name: ${fullName} \nContact email: ${email}\n Project description: ${projectDescription} \nProject budget: ${projectBudget} \n`;
+      else text = `Contact name: ${fullName} \nContact email: ${email} \n Project description: ${projectDescription}`;
+
+      const mailOptions = {
+        from: 'kseniya.nestsiarovich@yellow.id',
+        to: 'kseniya.nestsiarovich@yellow.id',
+        subject: 'Kseniya.nestsiarovich.id - New Message',
+        text,
+        // attachments,
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          res.json(error);
+        } else {
+          res.json(JSON.stringify(true));
+        }
+      });
+    });
 
     server.get('*', (req, res) => handle(req, res));
 

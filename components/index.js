@@ -64,7 +64,7 @@ export { ManagementTeam } from 'components/CompanyCommon/ManagementTeam';
 export { Awards } from 'components/CompanyCommon/Awards';
 
 // ContactUsCommon
-export { FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
+export { default as FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
 export { Calendar } from 'components/ContactUsCommon/Calendar';
 export { CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
 export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';

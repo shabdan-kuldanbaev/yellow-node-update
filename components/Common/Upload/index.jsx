@@ -1,33 +1,40 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { AnimatedInput } from 'components';
 import { Attach } from './Attach';
 import unpinFile from './images/unpin.svg';
 import styles from './styles.module.scss';
 
-export const Upload = () => {
-  const [selectedFiles, setFile] = useState([]);
-  const [projectDescription, setDescription] = useState('');
+export const Upload = ({
+  projectDescription,
+  selectedFiles,
+  handleOnDescriptionChange,
+  handleOnSelectedFilesChange,
+  handleOnUnpinFile,
+}) =>
+// const [selectedFiles, setFile] = useState([]);
+// const [projectDescription, setDescription] = useState('');
 
-  const handleOnChange = ({ target: { files } }) => {
-    const arrFiles = [];
-    for (let i = 0; i < files.length; i += 1) arrFiles.push(files[i]);
-    setFile(arrFiles);
-  };
+// const handleOnChange = ({ target: { files } }) => {
+//   const arrFiles = [];
+//   for (let i = 0; i < files.length; i += 1) arrFiles.push(files[i]);
+//   setFile(arrFiles);
+// };
 
-  const handleOnUnpinFile = ({ target: { dataset } }) => {
-    setFile(selectedFiles.filter((file) => file.name !== dataset.fileName));
-  };
+// const handleOnUnpinFile = ({ target: { dataset } }) => {
+//   setFile(selectedFiles.filter((file) => file.name !== dataset.fileName));
+// };
 
-  const handleOnDescChange = ({ target: { value } }) => {
-    setDescription(value);
-  };
+// const handleOnDescChange = ({ target: { value } }) => {
+//   setDescription(value);
+// };
 
-  return (
+  (
     <div className={styles.uploadFile}>
       <div className={styles.attachmentManage}>
         <AnimatedInput
           value={projectDescription}
-          handleOnChange={handleOnDescChange}
+          handleOnChange={handleOnDescriptionChange}
           placeholder="Project details (optional)"
           isValidate
           isWithoutLabel
@@ -39,7 +46,7 @@ export const Upload = () => {
         <input
           id="files"
           type="file"
-          onChange={handleOnChange}
+          onChange={handleOnSelectedFilesChange}
           multiple
           className={styles.hide}
         />
@@ -61,4 +68,10 @@ export const Upload = () => {
       </div>
     </div>
   );
+Upload.propTypes = {
+  projectDescription: PropTypes.string.isRequired,
+  selectedFiles: PropTypes.instanceOf(Array).isRequired,
+  handleOnDescriptionChange: PropTypes.func.isRequired,
+  handleOnSelectedFilesChange: PropTypes.func.isRequired,
+  handleOnUnpinFile: PropTypes.func.isRequired,
 };

@@ -38,4 +38,8 @@ export const actionTypes = {
   GET_PROJECT_PENDING: 'portfolio/GET_PROJECT_PENDING',
   GET_PROJECT_SUCCESS: 'portfolio/GET_PROJECT_SUCCESS',
   GET_PROJECT_FAILED: 'portfolio/GET_PROJECT_FAILED',
+  /* ------------------------ */
+  SEND_EMAIL_PENDING: 'contact/SEND_EMAIL_PENDING',
+  SEND_EMAIL_SUCCESS: 'contact/SEND_EMAIL_SUCCESS',
+  SEND_EMAIL_FAILED: 'contact/SEND_EMAIL_FAILED',
 };
