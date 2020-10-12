@@ -8,25 +8,31 @@ export const BookmarkCard = ({ article }) => (
   article ? (
     <div className={styles.bookmarkContainer}>
       <div className={styles.bookmarkCard}>
-        <a>
-          <div className={styles.content}>
-            <h3><a>{article.title}</a></h3>
-            <div className={styles.description}>{article.description}</div>
-            <div className={styles.metadata}>
-              <LinkWrapper
-                isLocalLink
-                dynamicRouting="/blog/[article]"
-                path={`/blog/${article.slug}`}
-              >
-                <img src={Like} alt="like" />
-                <span>Recommended</span>
-              </LinkWrapper>
-            </div>
+        <div className={styles.content}>
+          <h3>
+            <LinkWrapper
+              isLocalLink
+              dynamicRouting="/blog/[article]"
+              path={`/blog/${article.slug}`}
+            >
+              {article.title}
+            </LinkWrapper>
+          </h3>
+          <div className={styles.description}>{article.description}</div>
+          <div className={styles.metadata}>
+            <LinkWrapper
+              isLocalLink
+              dynamicRouting="/blog/[article]"
+              path={`/blog/${article.slug}`}
+            >
+              <img src={Like} alt="like" />
+              <span>Recommended</span>
+            </LinkWrapper>
           </div>
-          <div className={styles.imgContainer}>
-            <div className={styles.img} style={{ backgroundImage: `url(${article.image})` }} />
-          </div>
-        </a>
+        </div>
+        <div className={styles.imgContainer}>
+          <div className={styles.img} style={{ backgroundImage: `url(${article.image})` }} />
+        </div>
       </div>
     </div>
   ) : null

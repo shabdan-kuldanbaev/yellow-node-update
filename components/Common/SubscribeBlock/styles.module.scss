@@ -138,10 +138,6 @@
             @include tablet {
               font-size: 14px;
             }
-
-            @include phone {
-              font-size: 14px;
-            }
           }
 
           &:focus {

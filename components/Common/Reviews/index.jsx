@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import Swiper from 'react-id-swiper';
 import { animatedType } from 'utils/constants';
 import { Comment } from './Comment';
@@ -23,7 +24,7 @@ export const Reviews = ({ reviews }) => {
   useEffect(() => {
     const handleOnResize = () => {
       if (swiperRef && swiperRef.current) {
-        const swiperWrapperChildren = swiperRef.current.children && swiperRef.current.children.length > 0 && swiperRef.current.children[0].children;
+        const swiperWrapperChildren = get(swiperRef, 'current.children[0].children', []);
         if (swiperWrapperChildren && swiperWrapperChildren.length > 0) {
           const newIt = [...swiperWrapperChildren].reduce((previousValue, item) => (previousValue >= item.offsetHeight ? previousValue : item.offsetHeight), 0);
           if (newIt) {
@@ -33,13 +34,13 @@ export const Reviews = ({ reviews }) => {
         }
       }
 
-      const isInfoRefsExsists = infoRefs.length > 0 && infoRefs.reduce((previousValue, item) => !!(item && item.current && item.current.children.length > 0 && item.current.children[0]), false);
+      const isInfoRefsExsists = infoRefs.reduce((previousValue, infoRef) => !!(get(infoRef, 'current.children[0]', [])), false);
 
       if (isInfoRefsExsists) {
-        const newHeight = infoRefs.reduce((previousValue, item) => (previousValue >= item.current.children[0].offsetHeight ? previousValue : item.current.children[0].offsetHeight), 0);
+        const newHeight = infoRefs.reduce((previousValue, infoRef) => (previousValue >= infoRef.current.children[0].offsetHeight ? previousValue : infoRef.current.children[0].offsetHeight), 0);
         if (newHeight) {
-          infoRefs.forEach((item) => {
-            item.current.style.height = `${newHeight}px`;
+          infoRefs.forEach((infoRef) => {
+            infoRef.current.style.height = `${newHeight}px`;
           });
         }
       }

@@ -10,7 +10,9 @@ export const Comment = ({
     message,
     avatar,
     position,
-  }, animatioProps, infoRef,
+  },
+  animatioProps,
+  infoRef,
 }) => (
   <div className={styles.commentWrapper}>
     <Animated {...animatioProps}>

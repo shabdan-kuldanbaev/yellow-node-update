@@ -45,3 +45,5 @@ export const articleTags = {
   bookmark: 'bookmark',
   gallery: 'gallery',
 };
+
+export const NUMBER_OF_IMAGES_PER_LINE = 3;

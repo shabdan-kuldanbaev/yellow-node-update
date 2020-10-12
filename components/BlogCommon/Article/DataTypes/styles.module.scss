@@ -102,14 +102,12 @@
 
     @include tablet {
       width: calc(100vw - 50px);
-      margin-right: calc(-50vw + 25px);
-      margin-left: calc(-50vw + 25px);
+      margin: 0 calc(-50vw + 25px);
     }
 
     @include phone {
       width: 100vw;
-      margin-right: -50vw;
-      margin-left: -50vw;
+      margin: 0 -50vw;
       border-radius: 0 !important;
     }
 
