@@ -98,3 +98,13 @@
     }
   }
 }
+
+.additionalBurgerOpened {
+  div {
+    span {
+      @include phone {
+        background-color: $white !important;
+      }
+    }
+  }
+}

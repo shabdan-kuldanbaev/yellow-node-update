@@ -78,7 +78,7 @@
         .message {
           margin-top: 20px;
           font-weight: 500;
-          line-height: 1.5;
+          line-height: 1.6;
           color: $black;
 
           @include phone {
@@ -100,7 +100,6 @@
             @include flex(row, initial, flex-start);
             margin: 0 0 0 0;
             width: 100%;
-            min-height: 92px;
 
             @include phone {
               min-height: auto;

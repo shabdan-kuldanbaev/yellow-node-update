@@ -20,6 +20,7 @@ import {
   Article,
   RelatedSection,
   SocialThumbnails,
+  SubscribeBlock,
   NextPrev,
 } from 'components';
 import styles from './styles.module.scss';
@@ -70,6 +71,7 @@ const ArticleContainer = ({
         />
         <NextPrev article={olderArticle} isLoading={isLoading} />
       </div>
+      <SubscribeBlock />
     </Fragment>
   );
 };

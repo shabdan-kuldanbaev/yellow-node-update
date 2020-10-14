@@ -45,7 +45,10 @@ export { default as FullscreenSearch } from 'components/BlogCommon/FullscreenSea
 export { default as FullscreenSubscribe } from 'components/BlogCommon/FullscreenSubscribe';
 export { default as Subscribe } from 'components/BlogCommon/Subscribe';
 export { default as Paginator } from 'components/BlogCommon/Paginator';
+export { SubscribeBlock } from 'components/Common/SubscribeBlock';
+export { BookmarkCard } from 'components/BlogCommon/Article/BookmarkCard';
 export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';
+export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
 
 // PortfolioCommon
 export { Portfolio } from 'components/PortfolioCommon/index';

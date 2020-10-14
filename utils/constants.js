@@ -42,4 +42,8 @@ export const articleTags = {
   h2: 'h2',
   h3: 'h3',
   images: 'images',
+  bookmark: 'bookmark',
+  gallery: 'gallery',
 };
+
+export const NUMBER_OF_IMAGES_PER_LINE = 3;
