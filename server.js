@@ -86,6 +86,33 @@ app
       });
     });
 
+    server.post('/subscribe', (req, res) => {
+      const transporter = nodemailer.createTransport({
+        service: 'Yandex',
+        auth: {
+          user: 'kseniya.nestsiarovich@yellow.id',
+          pass: '11235813roseWood',
+        },
+      });
+
+      const { email } = req.body;
+
+      const mailOptions = {
+        from: 'kseniya.nestsiarovich@yellow.id',
+        to: 'kseniya.nestsiarovich@yellow.id',
+        subject: 'Kseniya.nestsiarovich.id - New Message',
+        text: `\nContact email: ${email} `,
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          res.json(error);
+        } else {
+          res.json(JSON.stringify(true));
+        }
+      });
+    });
+
     server.get('*', (req, res) => handle(req, res));
 
     server.listen(port, (err) => {

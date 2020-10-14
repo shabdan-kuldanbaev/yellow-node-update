@@ -18,6 +18,7 @@ const Burger = ({
           [styles.burgerOpened]: isMobileMenuOpened,
           [styles.burgerClosed]: !isMobileMenuOpened,
           [styles.additionalBurger]: isAdditional || (!isMobileMenuOpened && asPath.length > 2),
+          [styles.additionalBurgerOpened]: isAdditional && isMobileMenuOpened,
         })
       }
       onClick={handleOnClick}

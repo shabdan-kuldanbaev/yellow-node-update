@@ -10,7 +10,9 @@ export const Comment = ({
     message,
     avatar,
     position,
-  }, animatioProps,
+  },
+  animatioProps,
+  infoRef,
 }) => (
   <div className={styles.commentWrapper}>
     <Animated {...animatioProps}>
@@ -26,7 +28,7 @@ export const Comment = ({
               <div className={styles.message}>{message}</div>
             </div>
           </div>
-          <div className={styles.categoryName}>
+          <div className={styles.categoryName} ref={infoRef}>
             <div className={styles.person}>
               <div>
                 <img
@@ -50,4 +52,5 @@ export const Comment = ({
 Comment.propTypes = {
   comment: PropTypes.instanceOf(Object).isRequired,
   animatioProps: PropTypes.instanceOf(Object).isRequired,
+  infoRef: PropTypes.instanceOf(Object).isRequired,
 };

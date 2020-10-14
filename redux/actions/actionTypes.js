@@ -42,4 +42,8 @@ export const actionTypes = {
   SEND_EMAIL_PENDING: 'contact/SEND_EMAIL_PENDING',
   SEND_EMAIL_SUCCESS: 'contact/SEND_EMAIL_SUCCESS',
   SEND_EMAIL_FAILED: 'contact/SEND_EMAIL_FAILED',
+  /* ------------------------ */
+  SUBSCRIBE_PENDING: 'subscribe/SUBSCRIBE_PENDING',
+  SUBSCRIBE_SUCCESS: 'subscribe/SUBSCRIBE_SUCCESS',
+  SUBSCRIBE_FAILED: 'subscribe/SUBSCRIBE_FAILED',
 };

@@ -13,7 +13,7 @@ export const articleData = [
     },
     body: [
       {
-        orderNumber: 16,
+        orderNumber: 17,
         tag: articleTags.paragraph,
         data: {
           data: `As top fitness apps continue making tremendous profits, developing a cool and useful fitness app sounds like a good idea.
@@ -41,8 +41,8 @@ export const articleData = [
         },
       },
       {
-        orderNumber: 15,
-        tag: articleTags.images,
+        orderNumber: 16,
+        tag: articleTags.gallery,
         data: {
           data: [
             'https://shoji.fueko.net/content/images/2019/08/toa-heftiba-x1hDZOryz0c-unsplash.jpg',
@@ -98,7 +98,7 @@ export const articleData = [
       },
       {
         orderNumber: 9,
-        tag: articleTags.images,
+        tag: articleTags.gallery,
         data: {
           data: [
             'https://shoji.fueko.net/content/images/2019/08/alberto-bobbera-URwOHJuTZas-unsplash.jpg',
@@ -126,14 +126,26 @@ export const articleData = [
         },
       },
       {
-        orderNumber: 12,
+        orderNumber: 13,
         tag: articleTags.h2,
         data: {
           data: 'Final thoughts',
         },
       },
       {
-        orderNumber: 13,
+        orderNumber: 12,
+        tag: articleTags.bookmark,
+        data: {
+          data: {
+            title: 'Payment Gateway Integration in iOS and Android Apps',
+            description: 'What is a payment gateway and how does it work? Why should you use it in your services? What payment gateway should you choose? How do you integrate it in your mobile application? Learn the answers!',
+            slug: 'payment-gateway-integration-in-ios-and-android-apps',
+            image: 'http://s3-eu-central-1.amazonaws.com/yellow.studio/posts/preview_images/000/000/049/original/main.jpg',
+          },
+        },
+      },
+      {
+        orderNumber: 14,
         tag: articleTags.paragraph,
         data: {
           data: `As top fitness apps continue making tremendous profits, developing a cool and useful fitness app sounds like a good idea.
@@ -143,7 +155,7 @@ export const articleData = [
         },
       },
       {
-        orderNumber: 14,
+        orderNumber: 15,
         tag: articleTags.paragraph,
         data: {
           data: `The development cost also matters. Adding each particular feature brings additional costs.
@@ -162,17 +174,84 @@ export const articleData = [
         },
       },
       {
-        orderNumber: 18,
+        orderNumber: 19,
         tag: articleTags.images,
         data: {
-          data: [
-            'https://images.unsplash.com/photo-1555432783-a09e893d4a68?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ',
-          ],
+          image: {
+            src: 'https://images.unsplash.com/photo-1555432783-a09e893d4a68?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ',
+            type: 'normal',
+          },
           photoCaption: 'Photos by Irene Kredenets',
         },
       },
       {
-        orderNumber: 17,
+        orderNumber: 20,
+        tag: articleTags.paragraph,
+        data: {
+          data: `How big is the fitness app market? According to a the study by Polaris Market Research,
+            the global fitness app market is projected to reach about $14.7 bn by 2026.
+            According to the 2017 data, personal trainer apps and fitness activity tracking apps have dominated the market in terms of revenue.`,
+        },
+      },
+      {
+        orderNumber: 25,
+        tag: articleTags.images,
+        data: {
+          image: {
+            src: 'https://images.unsplash.com/photo-1473861646675-0252edc45daa?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ',
+            type: 'full',
+          },
+          photoCaption: '',
+        },
+      },
+      {
+        orderNumber: 24,
+        tag: articleTags.paragraph,
+        data: {
+          data: `So far, North America has prevailed in the fitness app market as a result of the increased awareness of health.
+            However, with the rapid growth of smartphones and tablets in Asia Pacific, a major expansion of fitness apps is also expected.
+            Europe is also catching up, as being fit is becoming a major trend there.`,
+        },
+      },
+      {
+        orderNumber: 21,
+        tag: articleTags.gallery,
+        data: {
+          data: [
+            'https://shoji.fueko.net/content/images/2019/08/irene-kredenets-KStSiM1UvPw-unsplash.jpg',
+            'https://shoji.fueko.net/content/images/2019/08/irene-kredenets-dwKiHoqqxk8-unsplash.jpg',
+            'https://shoji.fueko.net/content/images/2019/08/irene-kredenets-DDqxX0-7vKE-unsplash.jpg',
+            'https://shoji.fueko.net/content/images/2019/08/irene-kredenets-WWSCNfShT5M-unsplash.jpg',
+            'https://shoji.fueko.net/content/images/2019/08/mohammad-metri-E-0ON3VGrBc-unsplash.jpg',
+          ],
+          photoCaption: '',
+        },
+      },
+      {
+        orderNumber: 22,
+        tag: articleTags.paragraph,
+        data: {
+          data: `The development cost also matters. Adding each particular feature brings additional costs.
+            Therefore, if your budget is tight, the best solution would be including only the most important features at the development stage.
+            In case your app performs well, you may start adding new features based on users’ experience and recommendations.
+            The good thing is that fitness apps can be easily monetized through selling premium features and subscriptions.`,
+        },
+      },
+      {
+        orderNumber: 23,
+        tag: articleTags.gallery,
+        data: {
+          data: [
+            'https://shoji.fueko.net/content/images/2019/08/jessica-felicio-QS9ZX5UnS14-unsplash.jpg',
+            'https://shoji.fueko.net/content/images/2019/08/oladimeji-odunsi-aU_eOcelLhQ-unsplash.jpg',
+            'https://shoji.fueko.net/content/images/2019/08/oladimeji-odunsi-Wu3yqve2gnc-unsplash.jpg',
+            'https://shoji.fueko.net/content/images/2019/08/oladimeji-odunsi-3Z3vhLYx-Ec-unsplash.jpg',
+          ],
+          photoCaption: '',
+        },
+      },
+      {
+        orderNumber: 18,
         tag: articleTags.paragraph,
         data: {
           data: `The development cost also matters. Adding each particular feature brings additional costs.

@@ -15,6 +15,7 @@ const FullscreenSubscribe = ({
   email,
   handleOnEmailChange,
   handleOnBlurEmail,
+  handleOnSubmit,
 }) => (
   <ModalWindow
     isModalWindow={isFullscreenSubscribe}
@@ -41,7 +42,7 @@ const FullscreenSubscribe = ({
               isThereLink
               linkText="Privacy Policy"
             />
-            <ButtonMore title="Subscribe" buttonStyle={styles.button} />
+            <ButtonMore title="Subscribe" buttonStyle={styles.button} handleOnClick={() => handleOnSubmit(email.value)} />
           </div>
         </div>
       </div>
@@ -59,6 +60,7 @@ FullscreenSubscribe.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnBlurEmail: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func.isRequired,
 };
 
 export default withValidateEmail(FullscreenSubscribe);

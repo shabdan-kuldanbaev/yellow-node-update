@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { loadArticles, setTotalCount } from 'redux/actions/blog';
+import { subscribe } from 'redux/actions/subscribe';
 import {
   selectIsLoading,
   selectArticles,
@@ -30,6 +31,7 @@ const BlogContainer = ({
   desktopLimit,
   mobileLimit,
   isMobileResolution,
+  subscribe,
 }) => {
   const { asPath, query: { category, page } } = useRouter();
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
@@ -50,14 +52,19 @@ const BlogContainer = ({
     }
   }, [isMobileResolution, asPath]);
 
+  const handleOnFormSubmit = (email) => {
+    subscribe({ email });
+  };
+
   return (
     <section ref={introSection} className={styles.blog}>
-      {!isMobileResolution && <SelectionBlock urlPath={asPath} />}
+      {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
       <ArticlesList
         articles={articles}
         isLoading={isLoading}
         asPath={asPath}
         currentPage={currentPage}
+        handleOnFormSubmit={handleOnFormSubmit}
       />
       <Paginator
         arrows={arrows}
@@ -78,6 +85,7 @@ BlogContainer.propTypes = {
   desktopLimit: PropTypes.number.isRequired,
   mobileLimit: PropTypes.number.isRequired,
   isMobileResolution: PropTypes.bool.isRequired,
+  subscribe: PropTypes.func.isRequired,
 };
 
 export default connect(
@@ -88,5 +96,9 @@ export default connect(
     desktopLimit: selectDesktopLimit(state),
     mobileLimit: selectMobileLimit(state),
     isMobileResolution: selectIsMobileResolutions(state),
-  }), { loadArticles, setTotalCount },
+  }), {
+    loadArticles,
+    setTotalCount,
+    subscribe,
+  },
 )(BlogContainer);

@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import Swiper from 'react-id-swiper';
 import { animatedType } from 'utils/constants';
 import { Comment } from './Comment';
@@ -12,6 +13,7 @@ import styles from './styles.module.scss';
 export const Reviews = ({ reviews }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
+  const infoRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const params = {
     slidesPerView: 1.2,
     spaceBetween: 0,
@@ -22,13 +24,24 @@ export const Reviews = ({ reviews }) => {
   useEffect(() => {
     const handleOnResize = () => {
       if (swiperRef && swiperRef.current) {
-        const swiperWrapperChildren = swiperRef.current.children && swiperRef.current.children.length > 0 && swiperRef.current.children[0].children;
+        const swiperWrapperChildren = get(swiperRef, 'current.children[0].children', []);
         if (swiperWrapperChildren && swiperWrapperChildren.length > 0) {
           const newIt = [...swiperWrapperChildren].reduce((previousValue, item) => (previousValue >= item.offsetHeight ? previousValue : item.offsetHeight), 0);
           if (newIt) {
             swiperRef.current.children[0].style.height = `${newIt}px`;
             setMaxCardHeight(newIt);
           }
+        }
+      }
+
+      const isInfoRefsExsists = infoRefs.reduce((previousValue, infoRef) => !!(get(infoRef, 'current.children[0]', [])), false);
+
+      if (isInfoRefsExsists) {
+        const newHeight = infoRefs.reduce((previousValue, infoRef) => (previousValue >= infoRef.current.children[0].offsetHeight ? previousValue : infoRef.current.children[0].offsetHeight), 0);
+        if (newHeight) {
+          infoRefs.forEach((infoRef) => {
+            infoRef.current.style.height = `${newHeight}px`;
+          });
         }
       }
     };
@@ -57,6 +70,7 @@ export const Reviews = ({ reviews }) => {
               key={`desctopReviews/${comment.name}`}
               comment={comment}
               animatioProps={animatioProps}
+              infoRef={infoRefs[index]}
             />
           );
         })}
@@ -65,7 +79,7 @@ export const Reviews = ({ reviews }) => {
         <Swiper ref={swiperRef} {...params}>
           {reviews && reviews.map((comment) => (
             <div key={`mobileReviews/${comment.name}`}>
-              <Comment comment={comment} animatioProps={{ type: animatedType.isCustom }} />
+              <Comment comment={comment} animatioProps={{ type: animatedType.isCustom, translateY: '0px' }} />
             </div>
           ))}
         </Swiper>

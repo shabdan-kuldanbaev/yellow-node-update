@@ -72,11 +72,11 @@
     height: 120px;
 
     @include ultra-hd {
-      height: 440px;
+      height: 400px;
     }
 
     @include full-hd {
-      height: 320px;
+      height: 300px;
     }
 
     @include desktop {

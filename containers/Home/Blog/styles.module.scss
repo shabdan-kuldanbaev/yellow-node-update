@@ -14,7 +14,7 @@
   }
 
   @include phone {
-    padding: $mobile-section-indent $side-indent;
+    padding: #{$mobile-section-indent} $side-indent;
 
     &>div:first-child {
       margin-bottom: -$after-mobile-title-margin + 20px;

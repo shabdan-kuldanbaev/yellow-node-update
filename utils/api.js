@@ -56,4 +56,5 @@ export const API = {
       fullName, email, projectDescription, selectedFiles, projectBudget,
     });
   },
+  subscribe: ({ email }) => axios.post('/subscribe', { email }),
 };

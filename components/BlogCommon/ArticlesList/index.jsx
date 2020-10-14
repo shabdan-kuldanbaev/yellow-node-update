@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Loader, Subscribe } from 'components';
+import { Loader, SubscribeBlock } from 'components';
 import { animatedType } from 'utils/constants';
 import { Article } from './Article';
 import styles from './styles.module.scss';
@@ -11,9 +11,10 @@ export const ArticlesList = ({
   isSearch,
   asPath,
   currentPage,
+  handleOnFormSubmit,
 }) => (
   <div className={styles.articlesList}>
-    {currentPage === 1 && asPath.includes('blog') && <Subscribe />}
+    {currentPage === 1 && asPath.includes('blog') && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
     <Loader isLoading={!isLoading}>
       {articles && articles.map((article, index) => {
         const delay = isSearch ? (30 * index) : (100 + 100 * index);
