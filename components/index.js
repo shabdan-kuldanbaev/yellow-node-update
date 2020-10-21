@@ -23,6 +23,7 @@ export { TopProgressBar } from 'components/Common/TopProgressBar';
 export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
 export { SocialThumbnails } from 'components/Common/SocialThumbnails';
+export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';

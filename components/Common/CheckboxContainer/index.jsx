@@ -7,6 +7,7 @@ export const CheckboxContainer = ({
   text,
   isThereLink,
   linkText,
+  handleOnChange,
 }) => (
   <label className={styles.checkbox}>
     <span>{text}</span>
@@ -17,7 +18,7 @@ export const CheckboxContainer = ({
         </LinkWrapper>
       </span>
     )}
-    <input type="checkbox" />
+    <input type="checkbox" onChange={(e) => handleOnChange(e)} />
     <span className={styles.checkmark} />
   </label>
 );
@@ -25,10 +26,12 @@ export const CheckboxContainer = ({
 CheckboxContainer.defaultProps = {
   isThereLink: false,
   linkText: '',
+  handleOnChange: null,
 };
 
 CheckboxContainer.propTypes = {
   text: PropTypes.string.isRequired,
   isThereLink: PropTypes.bool,
   linkText: PropTypes.string,
+  handleOnChange: PropTypes.func,
 };

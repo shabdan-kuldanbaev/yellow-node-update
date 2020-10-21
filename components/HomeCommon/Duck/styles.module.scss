@@ -13,6 +13,10 @@
     width: 100%;
   }
 
+  &>div {
+    width: 100%;
+  }
+
   h1 {
     user-select: none;
     font-family: $main-title-font;
@@ -23,9 +27,10 @@
     text-align: center;
     letter-spacing: 3px;
     will-change: transform;
+    width: 100%;
 
     @include tablet {
-      font-size: 4rem;
+      font-size: 3.8rem;
     }
 
     @include horizontal-mobile {
@@ -38,6 +43,7 @@
       color: $white !important;
       text-shadow: none !important;
       opacity: 1 !important;
+      width: calc(100% - 10px);
     }
 
     @include phone-height-500 {

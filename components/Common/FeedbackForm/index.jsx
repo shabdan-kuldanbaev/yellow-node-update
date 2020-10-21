@@ -1,4 +1,8 @@
-import React, { useState, Fragment } from 'react';
+import React, {
+  useState,
+  Fragment,
+  useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'rc-slider';
 import cn from 'classnames';
@@ -23,13 +27,15 @@ const FeedbackForm = ({
   handleOnBlurEmail,
   isChooseBudget,
   budget: budgetData,
-  handleOnSubmit,
+  handleOnClick,
+  formKey,
 }) => {
   const [fullName, setFullName] = useState('');
   const [projectBudget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
   const [projectDescription, setDescription] = useState('');
-
+  const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
   const handleOnSliderChange = (value) => setBudget(addThousandsSeparators(value));
@@ -42,6 +48,7 @@ const FeedbackForm = ({
   const handleOnUnpinFile = ({ target: { dataset } }) => {
     setFiles(selectedFiles.filter((file) => file.name !== dataset.fileName));
   };
+  const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
 
   const sliderSettings = {
     ...budgetData,
@@ -49,6 +56,12 @@ const FeedbackForm = ({
     step: 20000,
     onChange: handleOnSliderChange,
   };
+
+  useEffect(() => {
+    const isButtonDisabled = !fullName || !email.value || !projectDescription || !isPolicyAccepted;
+    if (isButtonDisabled) setIsDisabled(true);
+    else setIsDisabled(false);
+  }, [email, fullName, projectDescription, isPolicyAccepted]);
 
   return (
     <form className={styles.form}>
@@ -63,10 +76,9 @@ const FeedbackForm = ({
           <AnimatedInput
             value={fullName}
             handleOnChange={handleOnNameChange}
-            placeholder="Name"
+            placeholder="Name *"
             isValidate
             isWithoutLabel
-            isRequired
           />
         </Animated>
         <Animated
@@ -79,12 +91,11 @@ const FeedbackForm = ({
           <AnimatedInput
             value={email.value}
             handleOnChange={handleOnEmailChange}
-            placeholder="Email"
+            placeholder="Email *"
             type="email"
             isValidate={email.isValidate}
             handleOnBlurEmail={handleOnBlurEmail}
             isWithoutLabel
-            isRequired
           />
         </Animated>
       </div>
@@ -123,6 +134,7 @@ const FeedbackForm = ({
           handleOnDescriptionChange={handleOnDescriptionChange}
           handleOnSelectedFilesChange={handleOnSelectedFilesChange}
           handleOnUnpinFile={handleOnUnpinFile}
+          formKey={formKey}
         />
       </Animated>
       <div className={styles.checkboxContainer}>
@@ -137,6 +149,7 @@ const FeedbackForm = ({
             text="I accept your"
             isThereLink
             linkText="Privacy Policy"
+            handleOnChange={handleOnIsPolicyAcceptedChange}
           />
         </Animated>
         <Animated
@@ -161,8 +174,10 @@ const FeedbackForm = ({
           title="SEND"
           buttonStyle={styles.submit}
           handleOnClick={() => {
-            handleOnSubmit(fullName, email.value, projectDescription, selectedFiles, projectBudget);
+            handleOnClick(fullName, email.value, projectDescription, selectedFiles, projectBudget);
           }}
+          isDisabled={isDisabled}
+          disabledButtonStyle={styles.disabled}
         />
       </Animated>
     </form>
@@ -180,6 +195,8 @@ FeedbackForm.propTypes = {
   handleOnBlurEmail: PropTypes.func.isRequired,
   isChooseBudget: PropTypes.bool,
   budget: PropTypes.instanceOf(Object),
+  handleOnClick: PropTypes.func.isRequired,
+  formKey: PropTypes.string.isRequired,
 };
 
 export default withValidateEmail(FeedbackForm);

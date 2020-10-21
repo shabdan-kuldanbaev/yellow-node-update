@@ -6,11 +6,13 @@ import { SectionTitle, FeedbackForm } from 'components';
 import styles from './styles.module.scss';
 
 const FeedbackFormContainer = ({ sendEmail }) => {
-  const handleSubmit = (...args) => {
+  const handleOnClick = (...args) => {
     const [fullName, email, projectDescription, selectedFiles] = args;
-    console.log(JSON.stringify(selectedFiles));
     sendEmail({
-      fullName, email, projectDescription, selectedFiles,
+      fullName,
+      email,
+      projectDescription,
+      selectedFiles,
     });
   };
 
@@ -24,7 +26,7 @@ const FeedbackFormContainer = ({ sendEmail }) => {
         subtitle="Fill in this form or"
         linkText="send us an e-mail"
       />
-      <FeedbackForm handleOnSubmit={handleSubmit} />
+      <FeedbackForm handleOnClick={handleOnClick} formKey="home-page" />
     </div>
   );
 };

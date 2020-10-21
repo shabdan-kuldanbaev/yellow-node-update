@@ -24,6 +24,7 @@
     "gsap": "3.0.5",
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.15",
+    "multer": "^1.4.2",
     "next": "9.1.2",
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^0.19.0",

@@ -175,4 +175,14 @@
       min-width: 300px;
     }
   }
+
+  .disabled {
+    pointer-events: none;
+    transition: none;
+      &>div {
+        color: $nobel;
+        border-color: $nobel;
+        background-color:$athens-gray;
+      }
+  }
 }

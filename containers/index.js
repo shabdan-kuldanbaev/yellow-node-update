@@ -30,4 +30,4 @@ export { default as ProjectContainer } from 'containers/Project';
 export { CompanyContainer } from 'containers/Company';
 
 // ContactUs
-export { ContactUsContainer } from 'containers/ContactUs';
+export { default as ContactUsContainer } from 'containers/ContactUs';

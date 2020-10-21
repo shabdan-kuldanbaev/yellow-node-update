@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const next = require('next');
 const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
+const multer = require('multer');
+
 // TODO const { articlesData } = require('./utils/utils/data');
 // const priority = {
 //   low: 'low',
@@ -16,13 +18,14 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
+const upload = multer();
 
 app
   .prepare()
   .then(() => {
     const server = express();
 
-    server.use(bodyParser.urlencoded({ extended: false }));
+    server.use(bodyParser.urlencoded());
     server.use(bodyParser.json());
 
     // TODO server.get('/blog', async (req, res) => {
@@ -48,7 +51,7 @@ app
     //   res.status(200).send({ response });
     // });
 
-    server.post('/send', (req, res) => {
+    server.post('/send', upload.array('files'), (req, res) => {
       const transporter = nodemailer.createTransport({
         service: 'Yandex',
         auth: {
@@ -58,28 +61,40 @@ app
       });
 
       const {
-        fullName, email, projectDescription, selectedFiles, projectBudget,
+        fullName,
+        email,
+        projectDescription,
+        projectBudget,
       } = req.body;
-      console.log(req.body);
-      // const attachments = files.map((item) => ({
-      //   filename: item.name,
-      //   path: item.name,
-      // }));
+
+      const { files } = req;
+
+      let attachments;
+      if (files) {
+        attachments = files.map((file) => ({
+          filename: `${file.originalname}`,
+          content: file.buffer,
+        }));
+      }
+
       let text = '';
-      if (projectBudget) text = `Contact name: ${fullName} \nContact email: ${email}\n Project description: ${projectDescription} \nProject budget: ${projectBudget} \n`;
-      else text = `Contact name: ${fullName} \nContact email: ${email} \n Project description: ${projectDescription}`;
+      text += fullName ? `Contact name: ${fullName} \n` : '';
+      text += email ? `Contact email: ${email}\n` : '';
+      text += projectDescription ? `Project description: ${projectDescription} \n` : '';
+      text += projectBudget ? `Project budget: ${projectBudget} \n` : ''; // undefined
+
 
       const mailOptions = {
         from: 'kseniya.nestsiarovich@yellow.id',
         to: 'kseniya.nestsiarovich@yellow.id',
         subject: 'Kseniya.nestsiarovich.id - New Message',
         text,
-        // attachments,
+        attachments,
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-          res.json(error);
+          res.json(JSON.stringify(false));
         } else {
           res.json(JSON.stringify(true));
         }

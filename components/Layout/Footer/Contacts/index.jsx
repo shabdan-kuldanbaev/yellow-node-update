@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   SectionTitle,
   ButtonMore,
@@ -11,7 +12,7 @@ import { rocketIcon } from './images';
 import rocket from './json/rocket.json';
 import styles from './styles.module.scss';
 
-export const Contacts = () => (
+export const Contacts = ({ handleOnClick }) => (
   <div className={styles.contactsContainer}>
     <SectionTitle title="Contacts" styleTitle={styles.mobileFooterTitle} />
     <div className={styles.contacts}>
@@ -46,6 +47,7 @@ export const Contacts = () => (
         href="/"
         title="Get an estimation"
         buttonStyle={styles.button}
+        handleOnClick={handleOnClick}
       />
     </div>
     <div className={styles.text}>
@@ -65,3 +67,7 @@ export const Contacts = () => (
     </div>
   </div>
 );
+
+Contacts.propTypes = {
+  handleOnClick: PropTypes.func.isRequired,
+};

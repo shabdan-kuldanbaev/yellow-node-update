@@ -85,6 +85,7 @@
           font-size: 1.25rem;
           line-height: 1.53;
           letter-spacing: 0.5px;
+          white-space: nowrap;
 
           @include phone {
             font-size: 3.9vw;
