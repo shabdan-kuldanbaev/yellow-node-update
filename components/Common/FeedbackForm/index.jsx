@@ -50,6 +50,14 @@ const FeedbackForm = ({
   };
   const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
 
+  const handleOnSubmitClick = () => handleOnClick(
+    fullName,
+    email.value,
+    projectDescription,
+    selectedFiles,
+    projectBudget,
+  );
+
   const sliderSettings = {
     ...budgetData,
     defaultValue: budgetData.min,
@@ -173,9 +181,7 @@ const FeedbackForm = ({
           href="/"
           title="SEND"
           buttonStyle={styles.submit}
-          handleOnClick={() => {
-            handleOnClick(fullName, email.value, projectDescription, selectedFiles, projectBudget);
-          }}
+          handleOnClick={handleOnSubmitClick}
           isDisabled={isDisabled}
           disabledButtonStyle={styles.disabled}
         />

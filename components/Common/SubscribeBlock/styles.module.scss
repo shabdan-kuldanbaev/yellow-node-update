@@ -54,27 +54,27 @@
       }
 
       &>h3 {
-        font-size: 37px;
+        @include fontSize(37px);
         font-weight: 500;
         margin: 0;
         padding: 20px 5% 20px 0;
 
         @include macbook-twelve {
-          font-size: 30px;
+          @include fontSize(30px);
         }
 
         @include tablet {
-          font-size: 24px;
+          @include fontSize(24px);
         }
 
         @include below-tablet {
           padding: 10px 0 30px;
-          font-size: 28px;
+          @include fontSize(28px);
           text-align: center;
         }
 
         @include phone {
-          font-size: 18px;
+          @include fontSize(18px);
           padding: 0 0 20px 0;
         }
       }
@@ -92,13 +92,13 @@
         }
 
         &>input {
+          @include fontSize(19px);
           width: 270px;
           margin: 0 3px 0 0;
           padding: 0 20px 0 35px;
           border: 0;
           border-radius: 8px 0 0 8px;
           transition: width .2s ease;
-          font-size: 19px;
           font-weight: 500;
           letter-spacing: 1px;
           color: $woodsmoke;
@@ -126,17 +126,17 @@
           }
 
           &::placeholder {
-            font-size: 18px;
+            @include fontSize(18px);
             font-weight: 500;
             letter-spacing: 1px;
             color: $woodsmoke;
 
             @include macbook-twelve {
-              font-size: 16px;
+              @include fontSize(16px);
             }
 
             @include tablet {
-              font-size: 14px;
+              @include fontSize(16px);
             }
           }
 
@@ -152,9 +152,9 @@
 
         .button {
           @include flex(row, center, center);
+          @include fontSize(18px);
           height: 100%;
           padding: 0 30px 0 20px;
-          font-size: 18px;
           font-weight: 500;
           letter-spacing: 1px;
           color: $woodsmoke;
@@ -166,13 +166,13 @@
           transition-property: background-color, color;
 
           @include macbook-twelve {
-            font-size: 16px;
+            @include fontSize(16px);
             padding-right: 20px;
             padding-left: 20px;
           }
 
           @include tablet {
-            font-size: 14px;
+            @include fontSize(14px);
             padding-right: 15px;
             padding-left: 15px;
           }
@@ -198,11 +198,11 @@
       }
 
       &>h3 {
+        @include fontSize(28px);
         max-width: calc(50% - (#{$max-article-margin}/2));
         box-sizing: border-box;
         margin: 0;
         padding: 70px 40px;
-        font-size: 28px;
         font-weight: 500;
         line-height: 1.6;
         border-radius: 4px;
@@ -213,12 +213,12 @@
         }
 
         @include macbook-twelve {
-          font-size: 21px;
+          @include fontSize(21px);
           padding: 40px 30px;
         }
 
         @include tablet {
-          font-size: 18px;
+          @include fontSize(18px);
           padding: 30px 20px;
         }
 
@@ -227,7 +227,7 @@
         }
 
         @include phone {
-          font-size: 14px;
+          @include fontSize(14px);
         }
       }
     }

@@ -12,7 +12,13 @@ import styles from './styles.module.scss';
 
 const ContactUsContainer = ({ introSection, sendEmail }) => {
   const handleOnClick = (...args) => {
-    const [fullName, email, projectDescription, selectedFiles, projectBudget] = args;
+    const [
+      fullName,
+      email,
+      projectDescription,
+      selectedFiles,
+      projectBudget,
+    ] = args;
     sendEmail({
       fullName,
       email,
@@ -37,7 +43,4 @@ ContactUsContainer.propTypes = {
   sendEmail: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({
-  }), { sendEmail },
-)(ContactUsContainer);
+export default connect(null, { sendEmail })(ContactUsContainer);

@@ -35,7 +35,4 @@ FeedbackFormContainer.propTypes = {
   sendEmail: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({
-  }), { sendEmail },
-)(FeedbackFormContainer);
+export default connect(null, { sendEmail })(FeedbackFormContainer);

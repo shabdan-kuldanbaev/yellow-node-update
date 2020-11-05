@@ -8,20 +8,24 @@ export const CheckboxContainer = ({
   isThereLink,
   linkText,
   handleOnChange,
-}) => (
-  <label className={styles.checkbox}>
-    <span>{text}</span>
-    {isThereLink && (
-      <span className={styles.link}>
-        <LinkWrapper path="/privacy-policy" isLocalLink>
-          {linkText}
-        </LinkWrapper>
-      </span>
-    )}
-    <input type="checkbox" onChange={(e) => handleOnChange(e)} />
-    <span className={styles.checkmark} />
-  </label>
-);
+}) => {
+  const handleOnChangeCheckbox = (e) => handleOnChange(e);
+
+  return (
+    <label className={styles.checkbox}>
+      <span>{text}</span>
+      {isThereLink && (
+        <span className={styles.link}>
+          <LinkWrapper path="/privacy-policy" isLocalLink>
+            {linkText}
+          </LinkWrapper>
+        </span>
+      )}
+      <input type="checkbox" onChange={handleOnChangeCheckbox} />
+      <span className={styles.checkmark} />
+    </label>
+  );
+};
 
 CheckboxContainer.defaultProps = {
   isThereLink: false,

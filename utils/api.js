@@ -49,7 +49,11 @@ export const API = {
   loadWorks: () => works,
   getProject: () => project,
   sendEmail: ({
-    fullName, email, projectDescription, selectedFiles, projectBudget,
+    fullName,
+    email,
+    projectDescription,
+    selectedFiles,
+    projectBudget,
   }) => {
     const formData = new window.FormData();
     [...selectedFiles].map((file) => formData.append('files', file));

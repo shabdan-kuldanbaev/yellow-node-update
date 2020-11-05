@@ -15,6 +15,8 @@ const multer = require('multer');
 dotenv.config('./env');
 
 const dev = process.env.NODE_ENV !== 'production';
+const user = process.env.EMAIL_USER;
+const pass = process.env.EMAIL_PASSWORD;
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
@@ -54,20 +56,18 @@ app
     server.post('/send', upload.array('files'), (req, res) => {
       const transporter = nodemailer.createTransport({
         service: 'Yandex',
-        auth: {
-          user: 'kseniya.nestsiarovich@yellow.id',
-          pass: '11235813roseWood',
-        },
+        auth: { user, pass },
       });
 
       const {
-        fullName,
-        email,
-        projectDescription,
-        projectBudget,
-      } = req.body;
-
-      const { files } = req;
+        files,
+        body: {
+          fullName,
+          email,
+          projectDescription,
+          projectBudget,
+        },
+      } = req;
 
       let attachments;
       if (files) {
@@ -77,17 +77,15 @@ app
         }));
       }
 
-      let text = '';
-      text += fullName ? `Contact name: ${fullName} \n` : '';
-      text += email ? `Contact email: ${email}\n` : '';
-      text += projectDescription ? `Project description: ${projectDescription} \n` : '';
-      text += projectBudget ? `Project budget: ${projectBudget} \n` : ''; // undefined
-
+      const text = `${fullName ? `Contact name: ${fullName} \n` : ''}`
+        + `${email ? `Contact email: ${email}\n` : ''}`
+        + `${projectDescription ? `Project description: ${projectDescription} \n` : ''}`
+        + `${projectBudget ? `Project budget: ${projectBudget} \n` : ''}`;
 
       const mailOptions = {
-        from: 'kseniya.nestsiarovich@yellow.id',
-        to: 'kseniya.nestsiarovich@yellow.id',
-        subject: 'Kseniya.nestsiarovich.id - New Message',
+        from: user,
+        to: user,
+        subject: 'New Message',
         text,
         attachments,
       };
@@ -104,18 +102,15 @@ app
     server.post('/subscribe', (req, res) => {
       const transporter = nodemailer.createTransport({
         service: 'Yandex',
-        auth: {
-          user: 'kseniya.nestsiarovich@yellow.id',
-          pass: '11235813roseWood',
-        },
+        auth: { user, pass },
       });
 
       const { email } = req.body;
 
       const mailOptions = {
-        from: 'kseniya.nestsiarovich@yellow.id',
-        to: 'kseniya.nestsiarovich@yellow.id',
-        subject: 'Kseniya.nestsiarovich.id - New Message',
+        from: user,
+        to: user,
+        subject: 'New Message',
         text: `\nContact email: ${email} `,
       };
 

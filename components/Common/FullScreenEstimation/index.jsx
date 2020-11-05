@@ -26,7 +26,11 @@ export const FullScreenEstimation = ({
         subtitle="Fill in this form or"
         linkText="send us an e-mail"
       />
-      <FeedbackForm isChooseBudget handleOnClick={handleOnClick} formKey="estimation" />
+      <FeedbackForm
+        isChooseBudget
+        handleOnClick={handleOnClick}
+        formKey="estimation"
+      />
     </div>
   </ModalWindow>
 );
