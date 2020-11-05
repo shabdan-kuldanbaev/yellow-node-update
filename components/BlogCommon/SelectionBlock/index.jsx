@@ -64,34 +64,20 @@ const SelectionBlock = ({
       />
       {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="-2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={700}
-        >
+        <div className={styles.imgContainer}>
           <img
             src={SearchIcon}
             alt="Search"
             onClick={openFullscreenSearch}
             role="presentation"
           />
-        </Animated>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="-2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={800}
-        >
-          <ButtonMore
-            buttonRef={subscribeRef}
-            handleOnClick={openFullscreenSubscribe}
-            title="Subscribe"
-            buttonStyle={styles.button}
-          />
-        </Animated>
+        </div>
+        <ButtonMore
+          buttonRef={subscribeRef}
+          handleOnClick={openFullscreenSubscribe}
+          title="Subscribe"
+          buttonStyle={styles.button}
+        />
         <span className={styles.categoryTitleInHeader} onClick={openMobileCategoties}>
           Categories
         </span>
