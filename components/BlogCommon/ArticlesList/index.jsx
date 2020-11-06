@@ -11,9 +11,10 @@ export const ArticlesList = ({
   isSearch,
   asPath,
   currentPage,
+  handleOnFormSubmit,
 }) => (
   <div className={styles.articlesList}>
-    {currentPage === 1 && asPath.includes('blog') && <SubscribeBlock isBlog />}
+    {currentPage === 1 && asPath.includes('blog') && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
     <Loader isLoading={!isLoading}>
       {articles && articles.map((article, index) => {
         const delay = isSearch ? (30 * index) : (100 + 100 * index);

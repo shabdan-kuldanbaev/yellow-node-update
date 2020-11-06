@@ -10,6 +10,8 @@ const ButtonMore = ({
   buttonStyle,
   handleOnClick,
   buttonRef,
+  isDisabled,
+  disabledButtonStyle,
 }) => (href.length === 0
   ? (
     <div
@@ -24,7 +26,7 @@ const ButtonMore = ({
     <LinkWrapper
       path={href}
       isLocalLink
-      className={styles.link}
+      className={cn(styles.link, { [disabledButtonStyle]: isDisabled })}
     >
       <div className={cn({ [buttonStyle]: buttonStyle })} onClick={handleOnClick}>
         {title}
@@ -37,6 +39,8 @@ ButtonMore.defaultProps = {
   buttonStyle: null,
   buttonRef: null,
   handleOnClick: null,
+  isDisabled: false,
+  disabledButtonStyle: null,
 };
 
 ButtonMore.propTypes = {
@@ -45,6 +49,8 @@ ButtonMore.propTypes = {
   buttonStyle: PropTypes.string,
   handleOnClick: PropTypes.func,
   buttonRef: PropTypes.instanceOf(Object),
+  isDisabled: PropTypes.bool,
+  disabledButtonStyle: PropTypes.string,
 };
 
 export default ButtonMore;

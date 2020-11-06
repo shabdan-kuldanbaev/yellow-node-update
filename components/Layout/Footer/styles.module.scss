@@ -2,7 +2,7 @@
 
 footer {
   position: relative;
-  z-index: 1;
+  z-index: 99999;
   @include flex(row, center, center);
   width: 100%;
   background-color: $woodsmoke;

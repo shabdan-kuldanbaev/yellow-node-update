@@ -15,39 +15,44 @@ const FullscreenSubscribe = ({
   email,
   handleOnEmailChange,
   handleOnBlurEmail,
-}) => (
-  <ModalWindow
-    isModalWindow={isFullscreenSubscribe}
-    closeModalWindow={closeFullscreenSubscribe}
-    className={styles.fullscreenSubscribe}
-  >
-    <div className={styles.subscribeBlock}>
-      <div className={styles.subscribe}>
-        <div className={styles.content}>
-          <span className={styles.title}>Join for weekly insights</span>
-          <span className={styles.subtitle}>We’ll send how-to articles, case studies, and Yalantis updates to your inbox every Thursday!</span>
-          <div className={styles.inputBlock}>
-            <AnimatedInput
-              value={email.value}
-              handleOnChange={handleOnEmailChange}
-              placeholder="Enter your email address"
-              isWithoutLabel
-              type="email"
-              isValidate={email.isValidate}
-              handleOnBlurEmail={handleOnBlurEmail}
-            />
-            <CheckboxContainer
-              text="I accept your"
-              isThereLink
-              linkText="Privacy Policy"
-            />
-            <ButtonMore title="Subscribe" buttonStyle={styles.button} />
+  handleOnSubmit,
+}) => {
+  const handleOnClick = () => handleOnSubmit(email.value);
+
+  return (
+    <ModalWindow
+      isModalWindow={isFullscreenSubscribe}
+      closeModalWindow={closeFullscreenSubscribe}
+      className={styles.fullscreenSubscribe}
+    >
+      <div className={styles.subscribeBlock}>
+        <div className={styles.subscribe}>
+          <div className={styles.content}>
+            <span className={styles.title}>Join for weekly insights</span>
+            <span className={styles.subtitle}>We’ll send how-to articles, case studies, and Yalantis updates to your inbox every Thursday!</span>
+            <div className={styles.inputBlock}>
+              <AnimatedInput
+                value={email.value}
+                handleOnChange={handleOnEmailChange}
+                placeholder="Enter your email address"
+                isWithoutLabel
+                type="email"
+                isValidate={email.isValidate}
+                handleOnBlurEmail={handleOnBlurEmail}
+              />
+              <CheckboxContainer
+                text="I accept your"
+                isThereLink
+                linkText="Privacy Policy"
+              />
+              <ButtonMore title="Subscribe" buttonStyle={styles.button} handleOnClick={handleOnClick} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </ModalWindow>
-);
+    </ModalWindow>
+  );
+};
 
 FullscreenSubscribe.defaultProps = {
   isFullscreenSubscribe: false,
@@ -59,6 +64,7 @@ FullscreenSubscribe.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnBlurEmail: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func.isRequired,
 };
 
 export default withValidateEmail(FullscreenSubscribe);
