@@ -13,6 +13,7 @@ import * as THREE from 'three';
 import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
 import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
+// import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
 import { animated, useSpring } from 'react-spring';
 import { useRouter } from 'next/router';
 import { mobileResolution } from 'utils/helper';
@@ -44,7 +45,7 @@ export const Duck = ({
   const containerCanvas = useRef(null);
   const containerText = useRef(null);
   const sloganRef = useRef(null);
-  let canvas = null;
+  const [canvas, setCanvas] = useState(null);
   const initialAnimationTime = 500; // 500 = 9s
   let animationDelay = 0.0001;
   const isMobile = 0;
@@ -124,6 +125,7 @@ export const Duck = ({
     // or use this url befor main url: const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const url = `${proxyurl}https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj`;
+
     const loader = new OBJLoader();
     loader.load(
       url,
@@ -271,7 +273,7 @@ export const Duck = ({
   };
 
   const createRenderer = () => {
-    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
@@ -312,8 +314,8 @@ export const Duck = ({
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     camera.lookAt(scene.position);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    composer.setSize(window.innerWidth, window.innerHeight);
+    if (renderer) renderer.setSize(window.innerWidth, window.innerHeight);
+    if (composer) composer.setSize(window.innerWidth, window.innerHeight);
   };
 
   // ⚠️
@@ -506,10 +508,20 @@ export const Duck = ({
     }
   };
 
+  // const setSloganOpacity = () => {
+  //   if (sloganRef.current) {
+  //     const { pageYOffset, innerHeight } = window;
+  //     const newOpacity = pageYOffset / innerHeight;
+  //     sloganRef.current.style.opacity = (0.1 - 0.2 * newOpacity);
+  //   }
+  // };
+
   // ⚠️
   const handleOnScroll = () => {
     setOpacity();
     handleOffset();
+
+    // setSloganOpacity();
 
     if (!(window.innerWidth < mobileResolution)) {
       if (containerCanvas) {
@@ -517,7 +529,7 @@ export const Duck = ({
           setAnimate(false);
           r = 1;
         } else if (containerCanvas.current.getBoundingClientRect().top <= -50 && containerCanvas.current.getBoundingClientRect().top > -400) {
-          options.initial.currentAnimation = 'scatter';
+          // options.initial.currentAnimation = 'scatter';
           setAnimate(true);
           r = 0;
         } else {
@@ -552,7 +564,7 @@ export const Duck = ({
 
       containerCanvas.current.innerHTML = '';
       containerCanvas.current.appendChild(renderer.domElement);
-      canvas = renderer.domElement;
+      setCanvas(renderer.domElement);
 
       // postprocessing
       const renderModel = new RenderPass(scene, camera);
@@ -562,9 +574,10 @@ export const Duck = ({
   };
 
   useEffect(() => {
-    // TODO let timer;
+    // TODO
+    // let timer;
 
-    // if (containerCanvas.current.getBoundingClientRect().top < -400) {
+    // if (containerCanvas.current && containerCanvas.current.getBoundingClientRect().top < -400) {
     //   cancelAnimationFrame(animationId);
     //   animationId = 0;
     //   r = 1;
@@ -637,6 +650,7 @@ export const Duck = ({
     //       }, 5700);
     //     } else {
     //       options.initial.currentAnimation = animationTypes[1]; // ⚠️
+    //       console.log(options.initial.currentAnimation);
 
     //       document.addEventListener('mousedown', onDocumentMouseDown, false);
     //       document.addEventListener('mouseup', onDocumentMouseUp, false);
@@ -669,34 +683,34 @@ export const Duck = ({
     //   cancelAnimationFrame(animationId);
     //   animationId = 0;
 
-    // if (isHomepageVisit) {
-    //   r = 0;
-    //   meshes.length = 0;
-    //   meshClones.length = 0;
-    //   mat = 0;
+    //   // if (isHomepageVisit) {
+    //   //   r = 0;
+    //   //   meshes.length = 0;
+    //   //   meshClones.length = 0;
+    //   //   mat = 0;
 
-    //   console.log({
-    //     isHomepageVisit,
-    //     isAnimate,
-    //     isDuckLoad,
-    //   });
-    // }
+    //   //   console.log({
+    //   //     isHomepageVisit,
+    //   //     isAnimate,
+    //   //     isDuckLoad,
+    //   //   });
+    //   // }
     // };
   }, [duck, isAnimate]);
 
   // useEffect(() => () => {
-  //     if (isHomepageVisit) {
-  //       r = 0;
-  //       meshes.length = 0;
-  //       meshClones.length = 0;
-  //       mat = 0;
+  //   if (isHomepageVisit) {
+  //     r = 0;
+  //     meshes.length = 0;
+  //     meshClones.length = 0;
+  //     mat = 0;
 
-  //       console.log({
-  //         isHomepageVisit,
-  //         isAnimate,
-  //         isDuckLoad,
-  //       });
-  //     }
+  //     console.log({
+  //       isHomepageVisit,
+  //       isAnimate,
+  //       isDuckLoad,
+  //     });
+  //   }
   // }, []);
 
   return (

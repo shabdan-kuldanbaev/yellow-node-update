@@ -12,6 +12,7 @@ import {
   setTabletResolutions,
   setPageLoading,
 } from 'redux/actions/layout';
+import { sendEmail } from 'redux/actions/contact';
 import { selectIsBlogOpen } from 'redux/selectors/blog';
 import {
   Header,
@@ -29,11 +30,27 @@ export const Layout = ({
   isBlogOpen,
   setBlogStatus: setBlogCurrentStatus,
   setFirstVisit: setFirstVisitOfBlog,
+  sendEmail,
 }) => {
   const { asPath } = useRouter();
   const dispatch = useDispatch();
   const [isBlogLoaded, setBlogLoaded] = useState(false);
+  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
   const handleOnBlogLoad = () => setBlogLoaded(true);
+  const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
+  const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
+
+  const handleOnClick = (...args) => {
+    const [fullName, email, projectDescription, selectedFiles, projectBudget] = args;
+    sendEmail({
+      fullName,
+      email,
+      projectDescription,
+      selectedFiles,
+      projectBudget,
+    });
+    closeFullscreenEstimation();
+  };
 
   useEffect(() => {
     dispatch(setPageLoading(isLoading));
@@ -77,7 +94,13 @@ export const Layout = ({
       <CookiesNotification />
       <Header theme={theme} introSection={introSection} />
       {children}
-      <Footer theme={theme} />
+      <Footer
+        theme={theme}
+        isFullscreenEstimation={isFullscreenEstimation}
+        openFullscreenEstimation={openFullscreenEstimation}
+        closeFullscreenEstimation={closeFullscreenEstimation}
+        handleOnClick={handleOnClick}
+      />
     </Fragment>
   );
 };
@@ -93,9 +116,14 @@ Layout.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   isBlogOpen: PropTypes.bool.isRequired,
   setBlogStatus: PropTypes.func.isRequired,
+  sendEmail: PropTypes.func.isRequired,
 };
 
 export default connect(
   (state) => ({ isBlogOpen: selectIsBlogOpen(state) }),
-  { setBlogStatus, setFirstVisit },
+  {
+    setBlogStatus,
+    setFirstVisit,
+    sendEmail,
+  },
 )(Layout);

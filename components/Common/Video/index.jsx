@@ -7,6 +7,7 @@ export const Video = ({ src, className }) => (
     loop
     muted
     className={className}
+    playsInline
   >
     <source src={src} type="video/mp4" />
   </video>
