@@ -7,12 +7,19 @@ import styles from './styles.module.scss';
 
 const FeedbackFormContainer = ({ sendEmail }) => {
   const handleOnClick = (...args) => {
-    const [fullName, email, projectDescription, selectedFiles] = args;
+    const [
+      fullName,
+      email,
+      projectDescription,
+      selectedFiles,
+      isSendNDAChecked,
+    ] = args;
     sendEmail({
       fullName,
       email,
       projectDescription,
       selectedFiles,
+      isSendNDAChecked,
     });
   };
 

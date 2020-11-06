@@ -16,6 +16,7 @@ import {
   loadRelatedArticles,
   loadNearbyArticles,
 } from 'redux/actions/blog';
+import { subscribe } from 'redux/actions/subscribe';
 import {
   Article,
   RelatedSection,
@@ -34,6 +35,7 @@ const ArticleContainer = ({
   getArticle: getCurrentArticle,
   loadRelatedArticles: loadArticles,
   loadNearbyArticles: getNearby,
+  subscribe,
 }) => {
   const { query: { article } } = useRouter();
   const sortArticle = cloneDeep(currentArticle);
@@ -41,6 +43,8 @@ const ArticleContainer = ({
   if (sortBody) sortArticle.body = sortBody;
   const currentCategory = get(sortArticle, 'header.categoryTag', null);
   const currentTitle = get(sortArticle, 'header.title');
+
+  const handleOnFormSubmit = (email) => subscribe({ email });
 
   useEffect(() => {
     if (article) getCurrentArticle('choosing-the-right-automation-testing-strategy-dos-and-don-ts');
@@ -71,7 +75,7 @@ const ArticleContainer = ({
         />
         <NextPrev article={olderArticle} isLoading={isLoading} />
       </div>
-      <SubscribeBlock />
+      <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
     </Fragment>
   );
 };
@@ -84,6 +88,7 @@ ArticleContainer.propTypes = {
   getArticle: PropTypes.func.isRequired,
   loadRelatedArticles: PropTypes.func.isRequired,
   loadNearbyArticles: PropTypes.func.isRequired,
+  subscribe: PropTypes.func.isRequired,
 };
 
 export default connect(
@@ -96,5 +101,6 @@ export default connect(
     getArticle,
     loadRelatedArticles,
     loadNearbyArticles,
+    subscribe,
   },
 )(ArticleContainer);

@@ -35,6 +35,7 @@ const FeedbackForm = ({
   const [selectedFiles, setFiles] = useState([]);
   const [projectDescription, setDescription] = useState('');
   const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
+  const [isSendNDAChecked, setIsSendNDAChecked] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
 
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
@@ -50,11 +51,14 @@ const FeedbackForm = ({
   };
   const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
 
+  const handleOnIsSendNDACheckedChange = ({ target: { checked } }) => setIsSendNDAChecked(checked);
+
   const handleOnSubmitClick = () => handleOnClick(
     fullName,
     email.value,
     projectDescription,
     selectedFiles,
+    isSendNDAChecked,
     projectBudget,
   );
 
@@ -167,7 +171,11 @@ const FeedbackForm = ({
           transformDuration={1}
           transitionDelay={750}
         >
-          <CheckboxContainer text="Send me NDA" isThereLink={false} />
+          <CheckboxContainer
+            text="Send me NDA"
+            isThereLink={false}
+            handleOnChange={handleOnIsSendNDACheckedChange}
+          />
         </Animated>
       </div>
       <Animated

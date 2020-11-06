@@ -53,7 +53,7 @@
         padding: 30px 15px 40px;
       }
 
-      &>h3 {
+      & > h3 {
         @include fontSize(37px);
         font-weight: 500;
         margin: 0;
@@ -91,7 +91,7 @@
           height: 60px;
         }
 
-        &>input {
+        & > input {
           @include fontSize(19px);
           width: 270px;
           margin: 0 3px 0 0;
@@ -136,7 +136,7 @@
             }
 
             @include tablet {
-              @include fontSize(16px);
+              @include fontSize(14px);
             }
           }
 
@@ -197,7 +197,7 @@
         padding: 5vh 25px;
       }
 
-      &>h3 {
+      & > h3 {
         @include fontSize(28px);
         max-width: calc(50% - (#{$max-article-margin}/2));
         box-sizing: border-box;

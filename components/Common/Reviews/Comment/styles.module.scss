@@ -34,9 +34,9 @@
     display: inline-block;
   }
 
-  &>div:first-child {
+  & > div:first-child {
     height: 100%;
-    box-shadow: -1px 8px 20px 4px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 25px 95px 5px rgba(0, 0, 0, 0.07);;
     border-radius: 4px;
   }
 
@@ -45,7 +45,7 @@
       opacity: 1 !important;
     }
 
-    &>section:first-child {
+    & > section:first-child {
       height: 100%;
       border-radius: 10px;
       pointer-events: none;
@@ -57,12 +57,12 @@
         height: 100%;
       }
 
-      &>div {
+      & > div {
         @include flex(column, space-between, flex-start);
         background-color: $white;
         height: 100%;
 
-        &>div {
+        & > div {
           width: 100%;
         }
       }
@@ -83,7 +83,7 @@
           color: $black;
 
           @include phone {
-            font-size: 14px;
+            @include fontSize(14px);
           }
         }
       }
@@ -97,7 +97,7 @@
         .person {
           display: inline-block;
 
-          &>div:first-child {
+          & > div:first-child {
             @include flex(row, initial, flex-start);
             margin: 0 0 0 0;
             width: 100%;
@@ -145,7 +145,7 @@
                 color: $woodsmoke;
 
                 @include phone {
-                  font-size: 14px;
+                  @include fontSize(14px);
                 }
               }
 

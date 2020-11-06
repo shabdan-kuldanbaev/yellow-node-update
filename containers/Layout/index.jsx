@@ -41,12 +41,20 @@ export const Layout = ({
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
   const handleOnClick = (...args) => {
-    const [fullName, email, projectDescription, selectedFiles, projectBudget] = args;
+    const [
+      fullName,
+      email,
+      projectDescription,
+      selectedFiles,
+      isSendNDAChecked,
+      projectBudget,
+    ] = args;
     sendEmail({
       fullName,
       email,
       projectDescription,
       selectedFiles,
+      isSendNDAChecked,
       projectBudget,
     });
     closeFullscreenEstimation();
