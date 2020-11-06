@@ -23,6 +23,7 @@ export { TopProgressBar } from 'components/Common/TopProgressBar';
 export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
 export { SocialThumbnails } from 'components/Common/SocialThumbnails';
+export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';
@@ -45,7 +46,7 @@ export { default as FullscreenSearch } from 'components/BlogCommon/FullscreenSea
 export { default as FullscreenSubscribe } from 'components/BlogCommon/FullscreenSubscribe';
 export { default as Subscribe } from 'components/BlogCommon/Subscribe';
 export { default as Paginator } from 'components/BlogCommon/Paginator';
-export { SubscribeBlock } from 'components/Common/SubscribeBlock';
+export { default as SubscribeBlock } from 'components/Common/SubscribeBlock';
 export { BookmarkCard } from 'components/BlogCommon/Article/BookmarkCard';
 export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';
 export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
@@ -67,7 +68,7 @@ export { ManagementTeam } from 'components/CompanyCommon/ManagementTeam';
 export { Awards } from 'components/CompanyCommon/Awards';
 
 // ContactUsCommon
-export { FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
+export { default as FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
 export { Calendar } from 'components/ContactUsCommon/Calendar';
 export { CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
 export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';

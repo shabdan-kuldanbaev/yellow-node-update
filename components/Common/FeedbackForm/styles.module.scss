@@ -15,12 +15,12 @@
     margin-bottom: 50px;
   }
 
-  &>div {
+  & > div {
     width: 100%;
   }
 
-  &>div:last-child {
-    &>a {
+  & > div:last-child {
+    & > a {
       @include flex(row, center, center);
     }
   }
@@ -46,11 +46,11 @@
   .inputs {
     @include flex(row, space-between, center);
 
-    &>div {
+    & > div {
       width: 46%;
       padding-top: 30px;
 
-      &>div {
+      & > div {
         padding: 0;
         margin: 0;
       }
@@ -59,18 +59,18 @@
     @include below-tablet {
       @include flex(column);
 
-      &>div {
+      & > div {
         width: 100%;
         padding-top: 40px;
       }
 
-      &>div:first-child {
+      & > div:first-child {
         padding-top: 0;
       }
     }
 
     @include phone {
-      &>div {
+      & > div {
         padding-top: 0;
       }
     }
@@ -150,7 +150,7 @@
     margin-top: 15px;
     width: 100%;
 
-    &>div:first-child label {
+    & > div:first-child label {
       margin-left: 0;
     }
 
@@ -173,6 +173,17 @@
     @include phone {
       margin: 60px auto 0;
       min-width: 300px;
+    }
+  }
+
+  .disabled {
+    pointer-events: none;
+    transition: none;
+    
+    & > div {
+      color: $nobel;
+      border-color: $nobel;
+      background-color:$athens-gray;
     }
   }
 }

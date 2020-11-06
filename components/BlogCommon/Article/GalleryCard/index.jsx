@@ -20,7 +20,15 @@ export const GalleryCard = ({ data: { data: images, photoCaption } }) => {
     [images, rowsCount],
   );
 
-  const handleOnLoad = () => setIsLoading(true);
+  const handleOnLoad = () => {
+    if (imageRef && imageRef.current) {
+      const imagesChildren = imageRef.current.getElementsByTagName('img');
+      if (imagesChildren && imagesChildren.length > 0) {
+        const isImagesLoaded = Array.from(imagesChildren).reduce((previousValue, image) => (image.complete && image.height !== 0), false);
+        setIsLoading(isImagesLoaded);
+      }
+    }
+  };
 
   useEffect(() => {
     if (imageRef && imageRef.current) {

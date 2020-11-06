@@ -1,4 +1,5 @@
 @import './variables';
+@import './functions';
 
 @mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
   display: flex;
@@ -17,6 +18,10 @@
   text-overflow: $textOverflow;
   -webkit-line-clamp: $lineClamp;
   -webkit-box-orient: vertical;
+}
+
+@mixin fontSize($size) {
+  font-size: calcRem($size);
 }
 
 @mixin ultra-hd {
@@ -220,7 +225,7 @@
   border: solid 1px $borderColor;
   will-change: transition;
   transition: background-color $shadow-time-for-yellow-button,
-    border-color $shadow-time-for-yellow-button,
+    border-color $shadow-time-for-yellow-button * 2,
     color $shadow-time-for-yellow-button,
     transform $shadow-time-for-yellow-button cubic-bezier(0, 0, .2, 1);
 
@@ -230,7 +235,7 @@
     border: solid 1px $borderHoverColor;
     color: $textHoverColor;
     transition: background-color $shadow-time-for-yellow-button,
-      border-color $shadow-time-for-yellow-button,
+      border-color $shadow-time-for-border-yellow-button,
       color $shadow-time-for-yellow-button,
       transform $shadow-time-for-yellow-button cubic-bezier(0, 0, .2, 1);
   }

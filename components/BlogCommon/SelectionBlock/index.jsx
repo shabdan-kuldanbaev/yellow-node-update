@@ -29,6 +29,7 @@ const SelectionBlock = ({
   isBlogOpen,
   isFirstVisitBlog,
   setFirstVisit: setFirstVisitOfBlog, // TODO
+  handleOnSubmit,
 }) => {
   const [isFullscreenSearch, setFullscreenSearch] = useState(false);
   const [isFullscreenSubscribe, setFullscreenSubscribe] = useState(false);
@@ -83,7 +84,11 @@ const SelectionBlock = ({
         </span>
       </div>
       <FullscreenSearch isFullscreenSearch={isFullscreenSearch} closeFullscreenSearch={closeFullscreenSearch} />
-      <FullscreenSubscribe isFullscreenSubscribe={isFullscreenSubscribe} closeFullscreenSubscribe={closeFullscreenSubscribe} />
+      <FullscreenSubscribe
+        isFullscreenSubscribe={isFullscreenSubscribe}
+        closeFullscreenSubscribe={closeFullscreenSubscribe}
+        handleOnSubmit={handleOnSubmit}
+      />
     </div>
   );
 };
@@ -94,6 +99,7 @@ SelectionBlock.propTypes = {
   setMobileCategoriesState: PropTypes.func.isRequired,
   isFirstVisitBlog: PropTypes.bool.isRequired,
   setFirstVisit: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func.isRequired,
 };
 
 export default connect(
