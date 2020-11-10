@@ -13,7 +13,7 @@ import * as THREE from 'three';
 import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
 import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
-// import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
 import { animated, useSpring } from 'react-spring';
 import { useRouter } from 'next/router';
 import { mobileResolution } from 'utils/helper';
@@ -48,7 +48,7 @@ export const Duck = ({
   const [canvas, setCanvas] = useState(null);
   const initialAnimationTime = 500; // 500 = 9s
   let animationDelay = 0.0001;
-  const isMobile = 0;
+  let isMobile = 0;
 
   const options = {
     initial: {
@@ -113,23 +113,44 @@ export const Duck = ({
 
   // for Parallax
   const calc = (o) => `translateY(${o * 0.13}px)`;
+  const calcForDuck = (o) => `translateY(${o * 0.09}px)`;
   const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
+  const [{ offset: duckOffset }, setDuckProps] = useSpring(() => ({ offset: 0 }));
   const handleOffset = () => {
-    const offset = window.pageYOffset - containerText.current.getBoundingClientRect().top;
-    set({ offset });
+    if (window.pageYOffset < 0) set({ offset: 0 });
+    else {
+      const offset = window.pageYOffset - containerText.current.getBoundingClientRect().top;
+      set({ offset });
+    }
+  };
+  const handleDuckOffset = () => {
+    if (window.pageYOffset < 0) setDuckProps({ offset: 0 });
+    else {
+      const offset = window.pageYOffset - containerCanvas.current.getBoundingClientRect().top;
+      setDuckProps({ offset });
+    }
   };
 
   const loadModel = () => {
     // for disable web-security
     // this is comand befor opening the chrome: open -a Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
     // or use this url befor main url: const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-    const url = `${proxyurl}https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj`;
+    // const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    // const url = `${proxyurl}https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj`;
 
-    const loader = new OBJLoader();
+    // const loader = new OBJLoader();
+    // loader.load(
+    //   url,
+    //   (obj) => setDuckToRedux(obj),
+    //   (xhr) => ((xhr.loaded / xhr.total) * 100 === 100) && handleOnLoaded(true),
+    // );
+
+    const url = '/Duck_0.3.gltf';
+
+    const loader = new GLTFLoader();
     loader.load(
       url,
-      (obj) => setDuckToRedux(obj),
+      (gltf) => setDuckToRedux(gltf.scene),
       (xhr) => ((xhr.loaded / xhr.total) * 100 === 100) && handleOnLoaded(true),
     );
   };
@@ -202,18 +223,25 @@ export const Duck = ({
     originals.forEach((original) => {
       const mesh = new THREE.Points(geometry, mat);
 
-      mesh.scale.x = options.default.meshScale;
-      mesh.scale.y = options.default.meshScale;
-      mesh.scale.z = options.default.meshScale;
+      if (isMobile) {
+        mesh.scale.set(70, 70, 70); // вынести в переменные
 
-      mesh.position.x = options.default.meshPositionX + original.positions.x;
-      mesh.position.y = options.default.meshPositionY + original.positions.y;
-      mesh.position.z = options.default.meshPositionZ + original.positions.z;
+        mesh.position.x = 0 + original.positions.x;
+        mesh.position.y = -400 + original.positions.y;
+        mesh.position.z = 0 + original.positions.z;
+      } else {
+        mesh.scale.x = options.default.meshScale;
+        mesh.scale.y = options.default.meshScale;
+        mesh.scale.z = options.default.meshScale;
+
+        mesh.position.x = options.default.meshPositionX + original.positions.x;
+        mesh.position.y = options.default.meshPositionY + original.positions.y;
+        mesh.position.z = options.default.meshPositionZ + original.positions.z;
+      }
 
       mesh.rotation.x = options.default.meshRotationX;
       mesh.rotation.y = options.default.meshRotationY;
       mesh.rotation.z = options.default.meshRotationZ;
-
 
       scene.add(mesh);
       if (meshes.length <= 2) {
@@ -320,7 +348,7 @@ export const Duck = ({
 
   // ⚠️
   const onDocumentMouseDown = () => {
-    if (options.initial.isAppear) {
+    if (options.initial.isAppear && !isMobile) {
       options.initial.currentAnimation = animationTypes[2];
       sloganRef.current ? sloganRef.current.style.opacity = 0 : null;
       sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
@@ -329,7 +357,7 @@ export const Duck = ({
 
   // ⚠️
   const onDocumentMouseUp = () => {
-    if (options.initial.isAppear) {
+    if (options.initial.isAppear && !isMobile) {
       options.initial.currentAnimation = animationTypes[1]; // ⚠️
       sloganRef.current ? sloganRef.current.style.opacity = 0.1 : null;
       sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
@@ -504,24 +532,29 @@ export const Duck = ({
     if (canvas) {
       const { pageYOffset } = window;
       const ratio = pageYOffset / window.innerHeight;
-      canvas.style.opacity = (1 - 2 * ratio);
+      canvas.style.opacity = (1 - 1.4 * ratio);
     }
   };
 
-  // const setSloganOpacity = () => {
-  //   if (sloganRef.current) {
-  //     const { pageYOffset, innerHeight } = window;
-  //     const newOpacity = pageYOffset / innerHeight;
-  //     sloganRef.current.style.opacity = (0.1 - 0.2 * newOpacity);
-  //   }
-  // };
+  const setSloganOpacity = () => {
+    const { pageYOffset, innerHeight } = window;
+    const newOpacity = pageYOffset / innerHeight;
+
+    if (sloganRef.current) {
+      if (!isMobile) {
+        sloganRef.current.style.opacity = (0.1 - 0.25 * newOpacity);
+      } else {
+        sloganRef.current.style.opacity = (1 - newOpacity);
+      }
+    }
+  };
 
   // ⚠️
   const handleOnScroll = () => {
     setOpacity();
     handleOffset();
-
-    // setSloganOpacity();
+    handleDuckOffset();
+    setSloganOpacity();
 
     if (!(window.innerWidth < mobileResolution)) {
       if (containerCanvas) {
@@ -534,12 +567,16 @@ export const Duck = ({
           r = 0;
         } else {
           options.initial.currentAnimation = animationTypes[1]; // ⚠️
-          sloganRef.current ? sloganRef.current.style.opacity = 0.1 : null;
-          sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
+          // sloganRef.current ? sloganRef.current.style.opacity = 0.1 : null;
+          // sloganRef.current ? sloganRef.current.style.transition = 'opacity 1s' : null;
           setAnimate(true);
           r = 0;
         }
       }
+    } else if (containerCanvas.current.getBoundingClientRect().top <= -50 && containerCanvas.current.getBoundingClientRect().top > -) {
+      options.initial.currentAnimation = 'scatter';
+      setAnimate(true);
+      r = 0;
     }
   };
 
@@ -548,7 +585,7 @@ export const Duck = ({
     let newStr = '';
 
     for (let i = 0; i < str.length; i += 1) {
-      if (str[i] === ' ') newStr += ' ';
+      if (str[i] === ' ' || str[i] === '\n') newStr += ' ';
       else newStr += `<span class='letter'>${str[i]}</span>`;
     }
 
@@ -575,143 +612,174 @@ export const Duck = ({
 
   useEffect(() => {
     // TODO
-    // let timer;
+    let timer;
 
-    // if (containerCanvas.current && containerCanvas.current.getBoundingClientRect().top < -400) {
-    //   cancelAnimationFrame(animationId);
-    //   animationId = 0;
-    //   r = 1;
+    if (containerCanvas.current && containerCanvas.current.getBoundingClientRect().top < -400) {
+      cancelAnimationFrame(animationId);
+      animationId = 0;
+      r = 1;
+    }
+
+    if (!isModelLoaded) loadModel();
+
+
+    if (!isAnimate) {
+      cancelAnimationFrame(animationId);
+      animationId = 0;
+      console.log('stop');
+
+      if (duck && !isDuckLoad) {
+        console.log('init');
+        setDuckLoad(true);
+        isMobile = window.innerWidth < mobileResolution;
+        if (isMobile) options.default.meshScale = 45;
+
+        r = 0;
+        init();
+
+        setOpacity();
+        animateSlogan();
+        animate();
+
+        if (!isHomepageVisit) {
+          if (!isMobile) {
+            window.anime.timeline({ loop: false })
+              .add({
+                targets: '.letter-container .letter',
+                opacity: [0, 1],
+                easing: 'easeInOutQuad',
+                duration: 2250,
+                delay: (el, i) => 150 * (i + 1),
+              })
+              .add({
+                targets: '.letter-container',
+                opacity: 0.1,
+                duration: 1000,
+                easing: 'easeOutExpo',
+                delay: 0,
+              });
+          } else {
+            window.anime.timeline({ loop: false })
+              .add({
+                targets: '.letter-container .letter',
+                opacity: [0, 1],
+                easing: 'easeInOutQuad',
+                duration: 2250,
+                delay: (el, i) => 150 * (i + 1),
+              })
+              .add({
+                targets: '.letter-container',
+                opacity: 1,
+                duration: 1000,
+                easing: 'easeOutExpo',
+                delay: 0,
+              });
+          }
+        } else {
+          const test = () => {
+            if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+          };
+
+          if (!isMobile) {
+            window.anime.timeline({ loop: false })
+              .add({
+                targets: '.letter-container',
+                opacity: 0.1,
+                duration: 1000,
+                easing: 'easeOutExpo',
+                delay: 500,
+                complete: () => test(),
+              });
+          } else {
+            window.anime.timeline({ loop: false })
+              .add({
+                targets: '.letter-container',
+                opacity: 1,
+                duration: 1000,
+                easing: 'easeOutExpo',
+                delay: 500,
+                complete: () => test(),
+              });
+          }
+        }
+
+        window.addEventListener('resize', onWindowResize, false);
+
+        if (!isHomepageVisit) {
+          timer = setTimeout(() => {
+            options.initial.currentAnimation = animationTypes[1]; // ⚠️
+            if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+            document.addEventListener('mousedown', onDocumentMouseDown, false);
+            document.addEventListener('mouseup', onDocumentMouseUp, false);
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+            // if (window.innerWidth < mobileResolution && (animationDelay < 0.01)) r = 1;
+          }, 5700);
+        } else {
+          options.initial.currentAnimation = animationTypes[1]; // ⚠️
+          console.log(options.initial.currentAnimation);
+
+          if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+          document.addEventListener('mousedown', onDocumentMouseDown, false);
+          document.addEventListener('mouseup', onDocumentMouseUp, false);
+          document.addEventListener('mousemove', onDocumentMouseMove, false);
+        }
+      }
+    } else {
+      options.initial.isAppear = true;
+      // options.initial.currentAnimation = animationTypes[1];
+
+      if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+      document.addEventListener('mousedown', onDocumentMouseDown, false);
+      document.addEventListener('mouseup', onDocumentMouseUp, false);
+      document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+      console.log('start');
+      animate();
+    }
+    window.addEventListener('scroll', handleOnScroll, false);
     // }
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleOnScroll);
+      document.removeEventListener('mousedown', onDocumentMouseDown);
+      document.removeEventListener('mouseup', onDocumentMouseUp);
+      document.removeEventListener('mousemove', onDocumentMouseMove);
+      window.removeEventListener('resize', onWindowResize);
 
-    // if (!isModelLoaded) loadModel();
+      // if (sloganRef.current) sloganRef.current.classList.remove(styles.setBlur);
+      cancelAnimationFrame(animationId);
+      animationId = 0;
 
+      // if (isHomepageVisit) {
+      //   r = 0;
+      //   meshes.length = 0;
+      //   meshClones.length = 0;
+      //   mat = 0;
 
-    // if (!isAnimate) {
-    //   cancelAnimationFrame(animationId);
-    //   animationId = 0;
-    //   console.log('stop');
-
-    //   if (duck && !isDuckLoad) {
-    //     console.log('init');
-    //     setDuckLoad(true);
-    //     isMobile = window.innerWidth < mobileResolution;
-    //     if (isMobile) options.default.meshScale = 45;
-
-    //     r = 0;
-    //     init();
-
-    //     setOpacity();
-    //     animateSlogan();
-    //     animate();
-
-    //     if (!isHomepageVisit) {
-    //       window.anime.timeline({ loop: false })
-    //         .add({
-    //           targets: '.letter-container .letter',
-    //           opacity: [0, 1],
-    //           easing: 'easeInOutQuad',
-    //           duration: 2250,
-    //           delay: (el, i) => 150 * (i + 1),
-    //         })
-    //         .add({
-    //           targets: '.letter-container',
-    //           opacity: 0.1,
-    //           duration: 1000,
-    //           easing: 'easeOutExpo',
-    //           delay: 0,
-    //         });
-    //     } else {
-    //       const test = () => {
-    //         if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-    //       };
-
-    //       window.anime.timeline({ loop: false })
-    //         .add({
-    //           targets: '.letter-container',
-    //           opacity: 0.1,
-    //           duration: 1000,
-    //           easing: 'easeOutExpo',
-    //           delay: 500,
-    //           complete: () => test(),
-    //         });
-    //     }
-
-    //     window.addEventListener('resize', onWindowResize, false);
-
-    //     if (!isHomepageVisit) {
-    //       timer = setTimeout(() => {
-    //         options.initial.currentAnimation = animationTypes[1]; // ⚠️
-    //         if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-    //         document.addEventListener('mousedown', onDocumentMouseDown, false);
-    //         document.addEventListener('mouseup', onDocumentMouseUp, false);
-    //         document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-    //         // if (window.innerWidth < mobileResolution && (animationDelay < 0.01)) r = 1;
-    //       }, 5700);
-    //     } else {
-    //       options.initial.currentAnimation = animationTypes[1]; // ⚠️
-    //       console.log(options.initial.currentAnimation);
-
-    //       document.addEventListener('mousedown', onDocumentMouseDown, false);
-    //       document.addEventListener('mouseup', onDocumentMouseUp, false);
-    //       document.addEventListener('mousemove', onDocumentMouseMove, false);
-    //     }
-    //   }
-    // } else {
-    //   options.initial.isAppear = true;
-    //   // options.initial.currentAnimation = animationTypes[1];
-
-    //   if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-    //   document.addEventListener('mousedown', onDocumentMouseDown, false);
-    //   document.addEventListener('mouseup', onDocumentMouseUp, false);
-    //   document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-    //   console.log('start');
-    //   animate();
-    // }
-    // window.addEventListener('scroll', handleOnScroll, false);
-    // // }
-    // return () => {
-    //   clearTimeout(timer);
-    //   window.removeEventListener('scroll', handleOnScroll);
-    //   document.removeEventListener('mousedown', onDocumentMouseDown);
-    //   document.removeEventListener('mouseup', onDocumentMouseUp);
-    //   document.removeEventListener('mousemove', onDocumentMouseMove);
-    //   window.removeEventListener('resize', onWindowResize);
-
-    //   if (sloganRef.current) sloganRef.current.classList.remove(styles.setBlur);
-    //   cancelAnimationFrame(animationId);
-    //   animationId = 0;
-
-    //   // if (isHomepageVisit) {
-    //   //   r = 0;
-    //   //   meshes.length = 0;
-    //   //   meshClones.length = 0;
-    //   //   mat = 0;
-
-    //   //   console.log({
-    //   //     isHomepageVisit,
-    //   //     isAnimate,
-    //   //     isDuckLoad,
-    //   //   });
-    //   // }
-    // };
+      //   console.log({
+      //     isHomepageVisit,
+      //     isAnimate,
+      //     isDuckLoad,
+      //   });
+      // }
+    };
   }, [duck, isAnimate]);
 
-  // useEffect(() => () => {
-  //   if (isHomepageVisit) {
-  //     r = 0;
-  //     meshes.length = 0;
-  //     meshClones.length = 0;
-  //     mat = 0;
+  useEffect(() => () => {
+    if (isHomepageVisit) {
+      r = 0;
+      meshes.length = 0;
+      meshClones.length = 0;
+      mat = 0;
 
-  //     console.log({
-  //       isHomepageVisit,
-  //       isAnimate,
-  //       isDuckLoad,
-  //     });
-  //   }
-  // }, []);
+      console.log({
+        isHomepageVisit,
+        isAnimate,
+        isDuckLoad,
+      });
+    }
+  }, []);
 
   return (
     <Fragment>
@@ -719,14 +787,12 @@ export const Duck = ({
         <animated.div style={{ position: 'absolute', transform: offset.interpolate(calc) }}>
           {isModelLoaded && (
             <h1 ref={sloganRef} className="letter-container">
-              WE CREATE FANTASTIC
-              <br />
-              SOFTWARE
+              {'WE CREATE FANTASTIC\nSOFTWARE'}
             </h1>
           )}
         </animated.div>
       </div>
-      <div className={styles.canvasContainer} ref={containerCanvas} />
+      <animated.div className={styles.canvasContainer} ref={containerCanvas} style={{ position: 'relative', transform: duckOffset.interpolate(calcForDuck) }} />
     </Fragment>
   );
 };
