@@ -260,7 +260,12 @@
   }
 
   .articlePreview {
-    width: 68%;
+    max-width: 600px;
+    width: calc(100% - 50px);
+
+    @include macbook-twelve {
+      width: calc(100% - 30px);
+    }
 
     @include below-tablet {
       width: auto;

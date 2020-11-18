@@ -31,11 +31,13 @@ export const Comment = ({
           <div className={styles.categoryName} ref={infoRef}>
             <div className={styles.person}>
               <div>
-                <img
-                  src={avatar}
-                  alt={name}
-                  className={styles.photo}
-                />
+                <div className={styles.avatarContainer}>
+                  <img
+                    src={avatar}
+                    alt={name}
+                    className={styles.photo}
+                  />
+                </div>
                 <div className={styles.info}>
                   <span className={styles.name}>{name}</span>
                   <span className={styles.position}>{position}</span>

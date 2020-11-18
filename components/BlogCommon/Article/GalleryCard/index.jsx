@@ -1,8 +1,6 @@
 import React, {
   useCallback,
-  useEffect,
   useRef,
-  useState,
 } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
@@ -11,7 +9,6 @@ import { animatedType, NUMBER_OF_IMAGES_PER_LINE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const GalleryCard = ({ data: { data: images, photoCaption } }) => {
-  const [isLoading, setIsLoading] = useState(false);
   const imageRef = useRef(null);
   const rowsCount = Math.ceil(images.length / NUMBER_OF_IMAGES_PER_LINE);
 
@@ -20,29 +17,11 @@ export const GalleryCard = ({ data: { data: images, photoCaption } }) => {
     [images, rowsCount],
   );
 
-  const handleOnLoad = () => {
-    if (imageRef && imageRef.current) {
-      const imagesChildren = imageRef.current.getElementsByTagName('img');
-      if (imagesChildren && imagesChildren.length > 0) {
-        const isImagesLoaded = Array.from(imagesChildren).reduce((previousValue, image) => (image.complete && image.height !== 0), false);
-        setIsLoading(isImagesLoaded);
-      }
-    }
+  const handleOnLoad = ({ target }) => {
+    const rowChildren = get(target, 'parentElement.parentElement.children', []);
+    if (rowChildren.length === 1) target.parentElement.style.flex = '1 1 0%';
+    else target.parentElement.style.flex = `${target.offsetWidth / target.offsetHeight} 1 0%`;
   };
-
-  useEffect(() => {
-    if (imageRef && imageRef.current) {
-      const imagesChildren = get(imageRef, 'current.children', []);
-      if (imagesChildren && imagesChildren.length > 0) {
-        Array.from(imagesChildren).forEach((row) => {
-          Array.from(row.children).forEach((image, index, array) => {
-            if (array.length === 1) image.style.flex = '1 1 0%';
-            else image.style.flex = `${image.offsetWidth / image.offsetHeight} 1 0%`;
-          });
-        });
-      }
-    }
-  }, [isLoading]);
 
   return (
     <div className={styles.mediasWrapper}>
