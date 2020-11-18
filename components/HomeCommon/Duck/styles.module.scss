@@ -49,17 +49,32 @@
     @include phone-height-500 {
       transform: translateY(-130px);
     }
+
+    @include phone-height-600 {
+      @include iOSDevice {
+        transform: translateY(-190px);
+      }
+    }
   
     @include phone-height-650 {
       transform: translateY(-160px);
+      @include iOSDevice {
+        transform: translateY(-220px);
+      }
     }
   
     @include phone-height-730 {
       transform: translateY(-190px);
+      @include iOSDevice {
+        transform: translateY(-250px);
+      }
     }
   
     @include phone-height-800 {
       transform: translateY(-230px);
+      @include iOSDevice {
+        transform: translateY(-300px);
+      }
     }
   }
 }

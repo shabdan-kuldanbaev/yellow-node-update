@@ -53,6 +53,7 @@ export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
 
 // PortfolioCommon
 export { Portfolio } from 'components/PortfolioCommon/index';
+export { ImageWrapper } from 'components/PortfolioCommon/ImageWrapper';
 
 // ProjectCommon
 export { Project } from 'components/ProjectCommon';

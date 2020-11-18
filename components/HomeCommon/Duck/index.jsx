@@ -27,6 +27,7 @@ const meshes = [];
 const meshClones = [];
 let composer;
 let mat = 0;
+let oldScroll = 0;
 
 export const Duck = ({
   handleOnLoaded,
@@ -135,24 +136,22 @@ export const Duck = ({
     // for disable web-security
     // this is comand befor opening the chrome: open -a Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
     // or use this url befor main url: const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-    // const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-    // const url = `${proxyurl}https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj`;
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    const url = `${proxyurl}https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj`;
+
+    const loader = new OBJLoader();
+    loader.load(
+      url,
+      (obj) => setDuckToRedux(obj),
+      (xhr) => ((xhr.loaded / xhr.total) * 100 === 100) && handleOnLoaded(true),
+    );
 
     // const loader = new OBJLoader();
     // loader.load(
     //   url,
-    //   (obj) => setDuckToRedux(obj),
+    //   (gltf) => setDuckToRedux(gltf.scene),
     //   (xhr) => ((xhr.loaded / xhr.total) * 100 === 100) && handleOnLoaded(true),
     // );
-
-    const url = '/Duck_0.3.gltf';
-
-    const loader = new GLTFLoader();
-    loader.load(
-      url,
-      (gltf) => setDuckToRedux(gltf.scene),
-      (xhr) => ((xhr.loaded / xhr.total) * 100 === 100) && handleOnLoaded(true),
-    );
   };
 
   const getSpeed = (distance, time) => distance / time;
@@ -195,9 +194,10 @@ export const Duck = ({
     geometry.attributes.position.setDynamic(true);
 
     if (isMobile) {
-      if (window.innerHeight <= 700) { originals = [{ positions: { x: 0, y: 250, z: 0 } }]; }
-      if (window.innerHeight > 700 && window.innerHeight <= 800) { originals = [{ positions: { x: 0, y: 270, z: 0 } }]; }
-      if (window.innerHeight > 800) { originals = [{ positions: { x: 0, y: 265, z: 0 } }]; }
+      if (window.innerHeight <= 700) { originals = [{ positions: { x: 0, y: 100, z: 0 } }]; }
+      if (window.innerHeight > 700 && window.innerHeight <= 800) { originals = [{ positions: { x: 0, y: 150, z: 0 } }]; }
+      if (window.innerHeight > 800) { originals = [{ positions: { x: 0, y: 100, z: 0 } }]; }
+      options.default.meshRotationY = 1.5;
     } else {
       originals = [{ positions: { x: 0, y: 0, z: 0 } }];
     }
@@ -223,21 +223,13 @@ export const Duck = ({
     originals.forEach((original) => {
       const mesh = new THREE.Points(geometry, mat);
 
-      if (isMobile) {
-        mesh.scale.set(70, 70, 70); // вынести в переменные
+      mesh.scale.x = options.default.meshScale;
+      mesh.scale.y = options.default.meshScale;
+      mesh.scale.z = options.default.meshScale;
 
-        mesh.position.x = 0 + original.positions.x;
-        mesh.position.y = -400 + original.positions.y;
-        mesh.position.z = 0 + original.positions.z;
-      } else {
-        mesh.scale.x = options.default.meshScale;
-        mesh.scale.y = options.default.meshScale;
-        mesh.scale.z = options.default.meshScale;
-
-        mesh.position.x = options.default.meshPositionX + original.positions.x;
-        mesh.position.y = options.default.meshPositionY + original.positions.y;
-        mesh.position.z = options.default.meshPositionZ + original.positions.z;
-      }
+      mesh.position.x = options.default.meshPositionX + original.positions.x;
+      mesh.position.y = options.default.meshPositionY + original.positions.y;
+      mesh.position.z = options.default.meshPositionZ + original.positions.z;
 
       mesh.rotation.x = options.default.meshRotationX;
       mesh.rotation.y = options.default.meshRotationY;
@@ -339,11 +331,14 @@ export const Duck = ({
   };
 
   const onWindowResize = () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    camera.lookAt(scene.position);
-    if (renderer) renderer.setSize(window.innerWidth, window.innerHeight);
-    if (composer) composer.setSize(window.innerWidth, window.innerHeight);
+    console.log('resize');
+    if(!isMobile) {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      camera.lookAt(scene.position);
+      if (renderer) renderer.setSize(window.innerWidth, window.innerHeight);
+      if (composer) composer.setSize(window.innerWidth, window.innerHeight);
+    }
   };
 
   // ⚠️
@@ -379,68 +374,29 @@ export const Duck = ({
   const render = () => {
     // animation
     switch (options.initial.currentAnimation) {
-    case 'appear': meshes.forEach((mesh) => {
-      const positions = mesh.geometry.attributes.position;
-      mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
+    case 'appear':
+      meshes.forEach((mesh) => {
+        const positions = mesh.geometry.attributes.position;
+        mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
 
-      if (!options.initial.isAppear) {
-        for (let i = 0; i < positions.count; i += 1) {
-          positions.setXYZ(
-            i,
-            Math.random() * (Math.random() * (100) - 50),
-            Math.random() * (Math.random() * (900) - 450),
-            Math.random() * (Math.random() * (900) - 450),
-          );
-        }
-      }
-
-      positions.needsUpdate = true;
-      options.initial.isAppear = true;
-    });
-
-      break;
-
-    case 'scatter': meshes.forEach((mesh) => {
-      const initialPosition = mesh.geometry.attributes.initialPosition;
-
-      const positions = mesh.geometry.attributes.position;
-      mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
-
-      if (options.initial.isAppear) {
-        for (let i = 0; i < positions.count; i += 1) {
-          const ix = initialPosition.getX(i);
-          const iy = initialPosition.getY(i);
-          const iz = initialPosition.getZ(i);
-
-          const px = positions.getX(i);
-          const py = positions.getY(i);
-          const pz = positions.getZ(i);
-
-          const distanceX = px - ix;
-          const distanceY = py - iy;
-          const distanceZ = pz - iz;
-
-          if (animationDelay < 0.005) animationDelay += 0.0000005;
-
-          const animationTime = initialAnimationTime * animationDelay;
-
-          const speedX = getSpeed(distanceX, animationTime);
-          const speedY = getSpeed(distanceY, animationTime);
-          const speedZ = getSpeed(distanceZ, animationTime);
-
-          if (distanceY < 0.0003) {
-            positions.setXYZ(i, px + speedX, py + speedY, pz + speedZ);
+        if (!options.initial.isAppear) {
+          for (let i = 0; i < positions.count; i += 1) {
+            positions.setXYZ(
+              i,
+              Math.random() * (Math.random() * (100) - 50),
+              Math.random() * (Math.random() * (900) - 450),
+              Math.random() * (Math.random() * (900) - 450),
+            );
           }
         }
-      }
 
-      positions.needsUpdate = true;
-    });
+        positions.needsUpdate = true;
+        options.initial.isAppear = true;
+      });
 
       break;
 
     case 'getTogether':
-
       const initPos = meshes[0] ? meshes[0].geometry.attributes.initialPosition : null;
       const pos = meshes[0] ? meshes[0].geometry.attributes.position : null;
 
@@ -529,7 +485,7 @@ export const Duck = ({
   };
 
   const setOpacity = () => {
-    if (canvas) {
+    if (canvas && !isMobile) {
       const { pageYOffset } = window;
       const ratio = pageYOffset / window.innerHeight;
       canvas.style.opacity = (1 - 1.4 * ratio);
@@ -549,19 +505,27 @@ export const Duck = ({
     }
   };
 
+//  const rotateDuck = (rotation) => {
+//     meshes.forEach((mesh) => {
+//       mesh.rotation.y -= rotation * 0.0045;
+//     });
+//   }; 
+
   // ⚠️
   const handleOnScroll = () => {
     setOpacity();
+    setSloganOpacity();
     handleOffset();
     handleDuckOffset();
-    setSloganOpacity();
 
-    if (!(window.innerWidth < mobileResolution)) {
-      if (containerCanvas) {
-        if (containerCanvas.current.getBoundingClientRect().top < -400) {
+    const { top } = containerCanvas.current.getBoundingClientRect();
+
+    if(containerCanvas) {
+      if (!(window.innerWidth < mobileResolution)) {
+        if (top < -400) {
           setAnimate(false);
           r = 1;
-        } else if (containerCanvas.current.getBoundingClientRect().top <= -50 && containerCanvas.current.getBoundingClientRect().top > -400) {
+        } else if (top <= -50 && top > -400) {
           // options.initial.currentAnimation = 'scatter';
           setAnimate(true);
           r = 0;
@@ -573,11 +537,23 @@ export const Duck = ({
           r = 0;
         }
       }
-    } else if (containerCanvas.current.getBoundingClientRect().top <= -50 && containerCanvas.current.getBoundingClientRect().top > -) {
-      options.initial.currentAnimation = 'scatter';
-      setAnimate(true);
-      r = 0;
+      // else {
+      //   if (top < -400) {
+      //     setAnimate(false);
+      //     r = 1;
+      //   } else if(top <=-10 && top> -400){
+      //     options.initial.currentAnimation = 'scroll';
+      //     setAnimate(true);
+      //     r = 0;
+      //     // rotateDuck(top - oldScroll);
+      //   } else {
+      //     setAnimate(false);
+      //     r = 1;
+      //   }
+      // }
     }
+
+    oldScroll = top;
   };
 
   const animateSlogan = () => {
@@ -585,7 +561,8 @@ export const Duck = ({
     let newStr = '';
 
     for (let i = 0; i < str.length; i += 1) {
-      if (str[i] === ' ' || str[i] === '\n') newStr += ' ';
+      if (str[i] === ' ') newStr += ' ';
+      else if (str[i] === '\n') newStr += '</br>';
       else newStr += `<span class='letter'>${str[i]}</span>`;
     }
 
@@ -621,6 +598,7 @@ export const Duck = ({
     }
 
     if (!isModelLoaded) loadModel();
+    isMobile = window.innerWidth < mobileResolution;
 
 
     if (!isAnimate) {
@@ -631,8 +609,8 @@ export const Duck = ({
       if (duck && !isDuckLoad) {
         console.log('init');
         setDuckLoad(true);
-        isMobile = window.innerWidth < mobileResolution;
-        if (isMobile) options.default.meshScale = 45;
+
+        if (isMobile) options.default.meshScale = 70;
 
         r = 0;
         init();
@@ -738,6 +716,7 @@ export const Duck = ({
       animate();
     }
     window.addEventListener('scroll', handleOnScroll, false);
+
     // }
     return () => {
       clearTimeout(timer);
@@ -787,7 +766,7 @@ export const Duck = ({
         <animated.div style={{ position: 'absolute', transform: offset.interpolate(calc) }}>
           {isModelLoaded && (
             <h1 ref={sloganRef} className="letter-container">
-              {'WE CREATE FANTASTIC\nSOFTWARE'}
+              {'WE CREATE\nFANTASTIC SOFTWARE'}
             </h1>
           )}
         </animated.div>

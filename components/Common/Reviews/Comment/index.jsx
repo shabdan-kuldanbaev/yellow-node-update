@@ -54,5 +54,5 @@ export const Comment = ({
 Comment.propTypes = {
   comment: PropTypes.instanceOf(Object).isRequired,
   animatioProps: PropTypes.instanceOf(Object).isRequired,
-  infoRef: PropTypes.instanceOf(Object).isRequired,
+  infoRef: PropTypes.instanceOf(Object),
 };

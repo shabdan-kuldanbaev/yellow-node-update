@@ -42,5 +42,5 @@ export const JSONAnimation = ({ jsonFile, className }) => {
 
 JSONAnimation.propTypes = {
   jsonFile: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };

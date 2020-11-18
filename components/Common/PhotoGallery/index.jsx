@@ -18,7 +18,7 @@ PhotoGallery.defaultProps = {
 
 PhotoGallery.propTypes = {
   galleryData: PropTypes.instanceOf(Array),
-  isTabletResolutions: PropTypes.bool.isRequired,
+  isTabletResolutions: PropTypes.bool,
 };
 
 export default connect(

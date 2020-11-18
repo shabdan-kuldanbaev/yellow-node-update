@@ -18,7 +18,7 @@
   @include flex(row, space-between, center);
   width: calc(100% - 34px);
   max-width: 100vw;
-  padding: 17.5px 17px;
+  padding: 10px 17px;
   opacity: 1;
   will-change: transform;
   transform: translate3d(0, -100%, 0);
@@ -91,9 +91,8 @@
     will-change: transform;
     padding: 10px 17px;
     background-color: $header-additional-color;
-    border-bottom: 0.5px solid $mercury;
     transition: transform $default-transition-time,
-      border-bottom $default-transition-time,
+      background-color $default-transition-time,
       padding $default-transition-time * 1.5;
 
     @include phone {

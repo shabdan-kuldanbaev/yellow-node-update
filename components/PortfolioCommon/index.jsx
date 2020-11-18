@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated, LinkWrapper } from 'components';
+import { Animated, LinkWrapper, ImageWrapper } from 'components';
 import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -48,17 +48,7 @@ export const Portfolio = ({ works }) => (
             </LinkWrapper>
           </Animated>
         </div>
-        <div className={styles.imgWrapper}>
-          <Animated
-            type={animatedType.isCustom}
-            translateY="2.82352941em"
-            opasityDuration={1}
-            transformDuration={1}
-            transitionDelay={200}
-          >
-            <div style={{ backgroundImage: `url(${work.image})` }} />
-          </Animated>
-        </div>
+        <ImageWrapper image={work.image} />
       </div>
     ))}
   </div>
