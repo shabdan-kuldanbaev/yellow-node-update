@@ -55,10 +55,9 @@
         line-height: 1.6;
         margin-top: 12px;
         max-height: 40px;
-        overflow-y: hidden;
+        @include hidden-text(ellipsis, 2);
 
         @include phone {
-          max-height: 30px;
           font-size: 11px;
         }
       }

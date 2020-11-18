@@ -9,6 +9,17 @@
   flex-wrap: $fw;
 }
 
+@mixin hidden-text(
+  $textOverflow: ellipsis,
+  $lineClamp: 1
+) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: $textOverflow;
+  -webkit-line-clamp: $lineClamp;
+  -webkit-box-orient: vertical;
+}
+
 @mixin fontSize($size) {
   font-size: calcRem($size);
 }

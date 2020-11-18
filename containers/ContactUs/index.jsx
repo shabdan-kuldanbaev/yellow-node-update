@@ -17,6 +17,7 @@ const ContactUsContainer = ({ introSection, sendEmail }) => {
       email,
       projectDescription,
       selectedFiles,
+      isSendNDAChecked,
       projectBudget,
     ] = args;
     sendEmail({
@@ -24,6 +25,7 @@ const ContactUsContainer = ({ introSection, sendEmail }) => {
       email,
       projectDescription,
       selectedFiles,
+      isSendNDAChecked,
       projectBudget,
     });
   };
