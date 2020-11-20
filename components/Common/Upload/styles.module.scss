@@ -16,6 +16,7 @@
   .attachmentManage {
     @include flex(row, flex-start, center);
     position: relative;
+    width: 100%;
 
     &>div {
       width: 100%;
@@ -71,6 +72,7 @@
   .attachedFiles {
     will-change: transform;
     transform: translateY(-10px);
+    width: 100%;
 
     .file {
       width: auto;
@@ -102,6 +104,12 @@
       span:first-child {
         margin-right: auto;
         width: 65%;
+        @include hidden-text();
+
+        @include phone {
+          margin-right: 0;
+          width: 50%;
+        }
       }
 
       button {

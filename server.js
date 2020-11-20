@@ -65,6 +65,7 @@ app
           fullName,
           email,
           projectDescription,
+          isSendNDAChecked,
           projectBudget,
         },
       } = req;
@@ -80,6 +81,7 @@ app
       const text = `${fullName ? `Contact name: ${fullName} \n` : ''}`
         + `${email ? `Contact email: ${email}\n` : ''}`
         + `${projectDescription ? `Project description: ${projectDescription} \n` : ''}`
+        + `${isSendNDAChecked ? 'Send NDA \n' : ''}`
         + `${projectBudget ? `Project budget: ${projectBudget} \n` : ''}`;
 
       const mailOptions = {

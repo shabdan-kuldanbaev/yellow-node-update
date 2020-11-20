@@ -44,8 +44,10 @@
       position: absolute;
       z-index: 3;
       transform: scale(1.05);
+      transform-origin: bottom;
       width: calc(#{$max-content-width} * 0.273 * 1.5);
       height: calc(#{$max-content-width} * 0.4177 * 1.5);
+      will-change: transform;
 
       @include macbook-fifteen {
         width: calc((100vw - 160px) * 0.273);
@@ -66,9 +68,8 @@
 
   .removeWhiteCover {
     .whiteCover {
-      height: 0;
-      will-change: height;
-      transition: height 1.5s 0.2s ease;
+      transform: scale(1.05, 0);
+      transition: transform 1.5s 0.2s ease;
       background-color: $white;
     }
 
@@ -98,7 +99,7 @@
       max-width: 270px;
     }
 
-    &>div {
+    & > div {
       &:first-child {
         margin-top: calc(#{$max-content-width} * 0.0123 * 1.2);
 

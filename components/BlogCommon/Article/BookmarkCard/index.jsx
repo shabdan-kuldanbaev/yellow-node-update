@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
-import Like from './images/like.png';
+import Like from './images/like.svg';
 import styles from './styles.module.scss';
 
 export const BookmarkCard = ({ article }) => (

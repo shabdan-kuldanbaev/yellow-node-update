@@ -6,7 +6,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { LinkWrapper, Animated } from 'components';
 import { animatedType } from 'utils/constants';
-import TestPhoto from './images/bitmap@3x.png';
+import TestPhoto from './images/bitmap@3x.jpg';
 import styles from './styles.module.scss';
 
 export const CompanyContacts = ({ photo }) => {
@@ -32,7 +32,7 @@ export const CompanyContacts = ({ photo }) => {
     document.addEventListener('scroll', handleOnScroll);
 
     return () => document.removeEventListener('scroll', handleOnScroll);
-  }, [imgContainer]);
+  }, []);
 
   return (
     <section className={styles.companyContacts}>

@@ -32,9 +32,20 @@ export const API = {
       .filter((article) => article.categoryTag === category)
       .filter((article, index) => index >= leftEdge && index < rightEdge);
   },
-  loadRelatedArticles: (category) => articlesData
-    .filter((article) => article.categoryTag === category)
-    .slice(0, 5),
+  loadRelatedArticles: (category) => {
+    const shuffle = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    };
+
+    const relatedArticles = articlesData.filter((article) => article.categoryTag === category);
+
+    shuffle(relatedArticles);
+
+    return relatedArticles.slice(0, 5);
+  },
   loadNearbyArticles: (name) => {
     const articleIndex = articlesData.findIndex((item) => item.title === name);
 
@@ -53,6 +64,7 @@ export const API = {
     email,
     projectDescription,
     selectedFiles,
+    isSendNDAChecked,
     projectBudget,
   }) => {
     const formData = new window.FormData();
@@ -60,7 +72,8 @@ export const API = {
     formData.append('fullName', fullName);
     formData.append('email', email);
     formData.append('projectDescription', projectDescription);
-    formData.append('projectBudget', projectBudget);
+    if (isSendNDAChecked) formData.append('isSendNDAChecked', isSendNDAChecked);
+    if (projectBudget) formData.append('projectBudget', projectBudget);
 
     return axios.post('/send', formData);
   },
