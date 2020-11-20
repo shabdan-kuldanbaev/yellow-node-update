@@ -6,60 +6,37 @@ import React, {
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Swiper from 'react-id-swiper';
+import SwiperCors, { EffectCoverflow } from 'swiper';
 import { animatedType } from 'utils/constants';
 import { Comment } from './Comment';
 import styles from './styles.module.scss';
+
+SwiperCors.use([EffectCoverflow]);
 
 export const Reviews = ({ reviews }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
   const infoRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
-  const handleOnInit = (swiper) => {
-    const index = swiper.activeIndex;
-    const windowCenter = window.innerWidth / 2;
-    [...swiper.slides].forEach((slide) => {
-      const slideRect = slide.getBoundingClientRect();
-      const slideCenter = slideRect.right - slideRect.width / 2;
-      const isSlideInCenter = slideCenter <= (windowCenter + 5) && slideCenter >= (windowCenter - 5);
-      if (isSlideInCenter) slide.style.transform = 'scale(1)';
-      else slide.style.transform = 'scale(0.9)';
-    });
-  };
-
-  const calcScale = (ratio) => {
-    const newScale = 0.9 + ratio / 10;
-    if (newScale <= 0.9) return 0.9;
-
-    return newScale;
-  };
-
-
-  const handleOnTouchMove = (swiper) => {
-    const windowCenter = window.innerWidth / 2;
-    [...swiper.slides].forEach((slide) => {
-      const slideRect = slide.getBoundingClientRect();
-      const slideCenter = slideRect.right - slideRect.width / 2;
-      if (slideCenter > 0 && slideCenter < window.innerWidth) {
-        if (slideCenter > windowCenter) {
-          slide.style.transform = `scale(${calcScale(windowCenter / slideCenter)})`;
-        }
-        if (slideCenter < windowCenter) {
-          slide.style.transform = `scale(${calcScale(slideCenter / windowCenter)})`;
-        }
-      }
-    });
-  };
-
   const params = {
+    effect: 'coverflow',
     slidesPerView: 1.2,
     spaceBetween: 0,
     centeredSlides: true,
     loop: true,
-    on: {
-      init: handleOnInit,
-      touchMove: handleOnTouchMove,
-      slideChangeTransitionEnd: handleOnInit,
+    coverflowEffect: {
+      rotate: 0,
+      stretch: -30,
+      depth: 110,
+      modifier: 1,
+      slideShadows: false,
+    },
+    breakpoints: {
+      480: {
+        coverflowEffect: {
+          stretch: -45,
+        },
+      },
     },
   };
 
