@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
+import styles from './styles.module.scss';
 
-export const ImageWithPlaceholder = ({ src, imageStyle }) => {
+export const ImageWithPlaceholder = ({ src }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const image = new window.Image(src);
 
-  useEffect(() => {
-    if (image.complete) setIsLoaded(true);
-  }, []);
+  const handleOnLoad = () => setIsLoaded(true);
 
-  return <div className={imageStyle} style={isLoaded ? { backgroundImage: `url(${src})` } : { backgroundColor: '#f1f1f2' }} />;
+  return (
+    <img
+      className={cn(styles.image, { [styles.loaded]: isLoaded })}
+      src={src}
+      alt={src}
+      onLoad={handleOnLoad}
+    />
+  );
 };
 
 ImageWithPlaceholder.proprTypes = {

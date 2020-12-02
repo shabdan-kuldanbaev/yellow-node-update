@@ -31,7 +31,7 @@ export const BookmarkCard = ({ article }) => (
           </div>
         </div>
         <div className={styles.imgContainer}>
-          <ImageWithPlaceholder src={article.image} imageStyle={styles.img} />
+          <ImageWithPlaceholder src={article.image} />
         </div>
       </div>
     </div>
