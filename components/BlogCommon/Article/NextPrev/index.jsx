@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper, Loader } from 'components';
+import {
+  LinkWrapper,
+  Loader,
+  ImageWithPlaceholder,
+} from 'components';
 import styles from './styles.module.scss';
 
 const NextPrev = ({
@@ -17,7 +21,7 @@ const NextPrev = ({
           path={`/blog/${article.slug}`}
         >
           <div className={styles.imgContainer}>
-            <div className={styles.img} style={{ backgroundImage: `url(${article.image})` }} />
+            <ImageWithPlaceholder src={article.image} imageStyle={styles.img} />
           </div>
         </LinkWrapper>
         <div className={styles.content}>
