@@ -54,6 +54,7 @@ export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
 
 // PortfolioCommon
 export { Portfolio } from 'components/PortfolioCommon/index';
+export { PreviewImage } from 'components/PortfolioCommon/PreviewImage';
 
 // ProjectCommon
 export { Project } from 'components/ProjectCommon';

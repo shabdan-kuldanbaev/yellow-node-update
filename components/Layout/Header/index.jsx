@@ -11,8 +11,6 @@ import {
   Logo,
   TopProgressBar,
 } from 'components';
-import { mobileResolution } from 'utils/helper';
-import { footerColor } from 'styles/utils/_variables.scss';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
@@ -28,23 +26,17 @@ const Header = ({
   const currentPage = asPath.split('/')[1] || '';
   const isHomePage = currentPage === '';
   const [isAdditional, setAdditional] = useState(false);
-  const [direction, setDirection] = useState('up');
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
-  let oldY = 0;
 
   const headerClassName = cn({
     [styles.headerContainer]: true,
     [styles.animate]: isHomePage ? isModelLoaded : true,
     [styles.additional]: isAdditional,
-    [styles[direction]]: isHomePage ? isModelLoaded : true,
     [styles.notHome]: !isHomePage,
     [styles.deleteTextOfLogo]: isLogoTextHidden,
   });
 
   const handleOnScroll = () => {
-    const { pageYOffset } = window;
-    const isMobile = window.innerWidth < mobileResolution;
-
     if (introSection.current) {
       const intro = introSection.current.getBoundingClientRect();
 
@@ -55,22 +47,12 @@ const Header = ({
         intro.top < -200
           ? setIsLogoTextHidden(true)
           : setIsLogoTextHidden(false);
-        oldY < pageYOffset && (!isMobile ? intro.top < -700 : intro.top < -200)
-          ? setDirection('down')
-          : setDirection('up');
-
-        oldY = pageYOffset;
       }
 
       if (!isHomePage) {
         intro.top < -10
           ? setIsLogoTextHidden(true)
           : setIsLogoTextHidden(false);
-        oldY < pageYOffset && intro.top < -50
-          ? setDirection('down')
-          : setDirection('up');
-
-        oldY = pageYOffset;
       }
     }
     // TODO if (pageYOffset > 20) document.body.style.backgroundColor = footerColor;
@@ -79,7 +61,6 @@ const Header = ({
   };
 
   useEffect(() => {
-    oldY = window.pageYOffset;
     handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
 
