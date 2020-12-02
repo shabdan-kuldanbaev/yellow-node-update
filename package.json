@@ -59,7 +59,7 @@
     "reselect": "^4.0.0",
     "slick-carousel": "^1.8.1",
     "swipe-js-iso": "^2.1.5",
-    "swiper": "^6.2.0",
+    "swiper": "^6.3.5",
     "three": "^0.110.0",
     "webpack-obj-loader": "^1.0.4"
   },
