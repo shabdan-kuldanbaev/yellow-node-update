@@ -11,7 +11,6 @@ import {
   Logo,
   TopProgressBar,
 } from 'components';
-import { mobileResolution } from 'utils/helper';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
@@ -28,7 +27,6 @@ const Header = ({
   const isHomePage = currentPage === '';
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
-  let oldY = 0;
 
   const headerClassName = cn({
     [styles.headerContainer]: true,
@@ -39,9 +37,6 @@ const Header = ({
   });
 
   const handleOnScroll = () => {
-    const { pageYOffset } = window;
-    const isMobile = window.innerWidth < mobileResolution;
-
     if (introSection.current) {
       const intro = introSection.current.getBoundingClientRect();
 
@@ -66,7 +61,6 @@ const Header = ({
   };
 
   useEffect(() => {
-    oldY = window.pageYOffset;
     handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
 

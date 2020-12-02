@@ -24,6 +24,7 @@ export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
 export { SocialThumbnails } from 'components/Common/SocialThumbnails';
 export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
+export { ImageWithPlaceholder } from 'components/Common/ImageWithPlaceholder';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';
@@ -53,7 +54,7 @@ export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
 
 // PortfolioCommon
 export { Portfolio } from 'components/PortfolioCommon/index';
-export { ImageWrapper } from 'components/PortfolioCommon/ImageWrapper';
+export { PreviewImage } from 'components/PortfolioCommon/PreviewImage';
 
 // ProjectCommon
 export { Project } from 'components/ProjectCommon';
