@@ -27,6 +27,24 @@
     }
   }
 
+  &:nth-child(3) {
+    .messageWrapper {
+      .logo {
+        height: 120% !important;
+        width: 120% !important;
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    .messageWrapper {
+      .logo {
+        height: 80% !important;
+        width: 80% !important;
+      }
+    }
+  }
+
   @include phone {
     width: 100%;
     height: 100%;
@@ -72,8 +90,14 @@
         padding: 30px 30px 60px;
         background-color: $white;
 
-        .logo {
+        .imgContainer {
+          height: 27px;
           width: 128px;
+
+          .logo {
+            height: 100%;
+            width: 100%;
+          }
         }
 
         .message {

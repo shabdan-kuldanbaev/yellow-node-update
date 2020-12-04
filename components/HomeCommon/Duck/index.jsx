@@ -144,6 +144,7 @@ export const Duck = ({
       url,
       (obj) => setDuckToRedux(obj),
       (xhr) => ((xhr.loaded / xhr.total) * 100 === 100) && handleOnLoaded(true),
+      err => console.log(err)
     );
 
     // const loader = new OBJLoader();

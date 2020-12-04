@@ -1,6 +1,9 @@
 @import 'styles/utils/mixins';
 
 .gradient {
+  z-index: 1;
+  top: 0;
+  width: 100%;
   background: linear-gradient(to bottom,
       $turbo-100 20%,
       $java 30%,
@@ -70,16 +73,16 @@
 }
 
 .firstBlock {
-  background-color: $ferra;
+  background-color: #F4AD3D;
   transition: background-color $changing-portfolio-color ease;
 }
 
 .secondBlock {
-  background-color: $mortar;
+  background-color: #140A2F;
   transition: background-color $changing-portfolio-color ease;
 }
 
 .thirdBlock {
-  background-color: $thunder;
+  background-color: #161616;
   transition: background-color $changing-portfolio-color ease;
 }

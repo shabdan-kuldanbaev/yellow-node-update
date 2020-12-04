@@ -43,7 +43,6 @@ export const AddFooter = ({
 
   return (
     <section className={cn(styles.addFooterContainer, styles[direction], {
-      [styles.animate]: isModelLoaded,
       [styles.notOnTop]: !isTopOfPage,
     })}
     >

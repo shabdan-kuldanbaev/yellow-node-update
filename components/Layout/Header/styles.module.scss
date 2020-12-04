@@ -21,9 +21,7 @@
   padding: 10px 17px;
   opacity: 1;
   will-change: transform;
-  transform: translate3d(0, -100%, 0);
-  transition: transform $default-transition-time,
-    padding $default-transition-time;
+  transition: padding $default-transition-time;
 
   @include phone {
     width: calc(100% - 30px);

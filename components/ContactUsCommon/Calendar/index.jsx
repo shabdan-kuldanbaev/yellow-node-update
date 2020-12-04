@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEmpty from 'lodash/isEmpty';
 import { SectionTitle } from 'components';
 import { Location } from './Location';
 import { locationData } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Calendar = ({ locationData: locations }) => (
+export const Calendar = ({ locationData: locations }) => (!isEmpty(locations) ? (
   <section className={styles.feedbackFormWithTitle}>
     <div>
       <SectionTitle
@@ -31,7 +32,7 @@ export const Calendar = ({ locationData: locations }) => (
       </div>
     </div>
   </section>
-);
+) : null);
 
 Calendar.defaultProps = {
   locationData,

@@ -7,6 +7,7 @@ import {
   Video,
 } from 'components';
 import { animatedType } from 'utils/constants';
+import { SecondVideo, ThirdVideo, DialogHouse } from '../images';
 import styles from './styles.module.scss';
 
 export const Work = ({
@@ -65,10 +66,21 @@ export const Work = ({
             { [styles.thirdShadow]: index === 2 },
           )}
         >
-          {work.videoName && (
-            <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />
-          )}
-          <img src={work.image} alt={work.image} />
+          {
+            index === 0 && (
+              <img src={DialogHouse} style={{ width: '80%', height: 'auto' }} alt={DialogHouse} />
+              // <>
+              //   <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />
+              //   <img src={work.image} alt={work.image} />
+              // </>
+            )
+          }
+          {
+            index === 1 && <img src={SecondVideo} alt={SecondVideo} />
+          }
+          {
+            index === 2 && <img src={ThirdVideo} alt={ThirdVideo} />
+          }
         </div>
       </Animated>
     </div>

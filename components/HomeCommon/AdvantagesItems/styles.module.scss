@@ -63,6 +63,35 @@
     @include full-hd {
       margin-top: 50px;
     }
+
+    @include tablet {
+      margin-top: 60px;
+    }
+
+    .title {
+      margin-top: 0;
+
+      @include tablet {
+        margin-top: 20px;
+      }
+    }
+
+    img {
+      margin-bottom: -60px;
+
+      @include full-hd {
+        margin-bottom: -50px;
+      }
+
+      @include macbook-fifteen {
+        margin-bottom: -10px;
+      }
+
+      @include tablet {
+        margin-bottom: -20px;
+        margin-top: 20px;
+      }
+    }
   }
 
   @include flex(column, flex-start, center);
