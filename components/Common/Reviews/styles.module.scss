@@ -29,7 +29,7 @@
     }
 
     :global(.swiper-container) {
-      overflow-x: hidden;
+      overflow-x: initial;
       overflow-y: inherit;
       padding: 80px 0;
     }

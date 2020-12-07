@@ -14,7 +14,7 @@ export const works = [
     videoName: 'Fairy_Tale_Site5',
   },
   {
-    name: 'Fireaway',
+    name: 'Fairy',
     description: `Fireaway is the simplest chat in the world. It is a single-use anonymous chat,
                   where you don’t need to register – just open the browser tab, invite a friend with the link,
                   and start chatting!`,

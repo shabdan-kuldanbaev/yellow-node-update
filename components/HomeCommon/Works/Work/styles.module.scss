@@ -389,7 +389,7 @@
             max-width: 100vw;
             max-height: 100vh;
             height: 90%;
-            transform: translateX(-12vw) scale(1.2);
+            transform: translateX(-14vw) scale(1.2);
           }
 
           @include small-phone {
@@ -411,6 +411,25 @@
 
       .firstShadow {
         @extend .imgWrapper;
+
+        img {
+          max-width: 100%;
+          max-width: 100%;
+          height: 48.4375vw;
+          z-index: 10;
+
+          @include phone {
+            //TODO max-width: 95vw;
+            max-width: 100vw;
+            max-height: 100vh;
+            height: 90%;
+            transform: translateX(0);
+          }
+
+          @include small-phone {
+            transform: translateX(0) scale(1);
+          }
+        }
 
         // TODO &:before {
         //   @extend .forBefore;
@@ -491,6 +510,18 @@
 
       .thirdShadow {
         @extend .imgWrapper;
+      }
+    }
+  }
+
+  &:nth-child(1) {
+    @include phone {
+      padding: 0;
+
+      .parallax {
+        div {
+          height: 120vw;;
+        }
       }
     }
   }

@@ -1,10 +1,10 @@
 import React, {
-  // TODO useState,
+  useState,
   useRef,
   useEffect,
   Fragment,
 } from 'react';
-// TODO import cn from 'classnames';
+import cn from 'classnames';
 import { Advantages } from 'containers';
 import {
   Works,
@@ -13,15 +13,15 @@ import {
   Animated,
 } from 'components';
 import { animatedType } from 'utils/constants';
-// TODO import { blockNumbers } from './utils/data';
+import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
 export const Portfolio = () => {
-  // TODO const [backgroundColor, setBackgroundColor] = useState('firstBlock');
-  // TODO const [blockNumber, setBlockNumber] = useState(0);
+  const [backgroundColor, setBackgroundColor] = useState('firstBlock');
+  const [blockNumber, setBlockNumber] = useState(0);
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const portfolioRef = useRef(null);
-  const currentNumber = 4;
+  const [currentNumber, setCurrentNumber] = useState(4);
 
   const handleOnScroll = () => {
     const halfHeight = refs && refs[1].current.getBoundingClientRect().height / 2;
@@ -38,53 +38,53 @@ export const Portfolio = () => {
     ];
 
     if (zeroBlock < halfHeight && (firstBottom > halfHeight && secondBottom > halfHeight && thirdBottom > halfHeight)) {
-      // if (currentNumber !== 1) {
-      //   // TODO setBlockNumber(1);
-      //   refs[0].current.classList.remove(styles[blockNumbers[2]]);
-      //   portfolioRef.current.classList.remove(styles[blockNumbers[2]]);
+      if (currentNumber !== 1) {
+        setBlockNumber(0);
+        refs[0].current.classList.remove(styles[blockNumbers[2]]);
+        portfolioRef.current.classList.remove(styles[blockNumbers[2]]);
 
-      //   refs[0].current.classList.add(styles[blockNumbers[1]]);
-      //   portfolioRef.current.classList.add(styles[blockNumbers[1]]);
+        refs[0].current.classList.add(styles[blockNumbers[1]]);
+        portfolioRef.current.classList.add(styles[blockNumbers[1]]);
 
-      //   currentNumber = 1;
-      // }
+        setCurrentNumber(1);
+      }
     } else if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
-      // if (currentNumber !== 2) {
-      //   // TODO setBlockNumber(2);
-      //   refs[0].current.classList.remove(styles[blockNumbers[3]]);
-      //   portfolioRef.current.classList.remove(styles[blockNumbers[3]]);
+      if (currentNumber !== 2) {
+        setBlockNumber(1);
+        refs[0].current.classList.remove(styles[blockNumbers[3]]);
+        portfolioRef.current.classList.remove(styles[blockNumbers[3]]);
 
-      //   refs[0].current.classList.add(styles[blockNumbers[2]]);
-      //   portfolioRef.current.classList.add(styles[blockNumbers[2]]);
+        refs[0].current.classList.add(styles[blockNumbers[2]]);
+        portfolioRef.current.classList.add(styles[blockNumbers[2]]);
 
-      //   currentNumber = 2;
-      // }
+        setCurrentNumber(2);
+      }
     } else if (secondBottom < halfHeight) {
-      // if (currentNumber !== 3) {
-      //   // TODO setBlockNumber(3);
-      //   refs[0].current.classList.add(styles[blockNumbers[3]]);
-      //   portfolioRef.current.classList.add(styles[blockNumbers[3]]);
+      if (currentNumber !== 3) {
+        setBlockNumber(2);
+        refs[0].current.classList.add(styles[blockNumbers[3]]);
+        portfolioRef.current.classList.add(styles[blockNumbers[3]]);
 
-      //   currentNumber = 3;
-      // }
+        setCurrentNumber(3);
+      }
     } else if (currentNumber !== 0) {
-      // // TODO setBlockNumber(0);
-      // refs[0].current.classList.remove(styles[blockNumbers[1]]);
-      // portfolioRef.current.classList.remove(styles[blockNumbers[1]]);
+      setBlockNumber(1);
+      refs[0].current.classList.remove(styles[blockNumbers[1]]);
+      portfolioRef.current.classList.remove(styles[blockNumbers[1]]);
 
-      // refs[0].current.classList.add(styles[blockNumbers[0]]);
-      // portfolioRef.current.classList.add(styles[blockNumbers[0]]);
-      // currentNumber = 0;
+      refs[0].current.classList.add(styles[blockNumbers[0]]);
+      portfolioRef.current.classList.add(styles[blockNumbers[0]]);
+      setCurrentNumber(0);
     }
 
     // TODO if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) setBlockNumber(1);
     // else if (secondBottom < halfHeight) setBlockNumber(2);
     // else setBlockNumber(0);
   };
-  // TODO console.log('changed');
-  // useEffect(() => {
-  //   setBackgroundColor(blockNumbers[blockNumber]);
-  // }, [blockNumber]);
+
+  useEffect(() => {
+    setBackgroundColor(blockNumbers[blockNumber]);
+  }, [blockNumber]);
 
   useEffect(() => {
     handleOnScroll();

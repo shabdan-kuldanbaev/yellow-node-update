@@ -18,7 +18,6 @@ import styles from './styles.module.scss';
 const Header = ({
   theme,
   introSection,
-  isModelLoaded,
   isMobileMenuOpened,
   setMobileMenuState: setMobileMenu,
 }) => {
@@ -30,7 +29,6 @@ const Header = ({
 
   const headerClassName = cn({
     [styles.headerContainer]: true,
-    [styles.animate]: isHomePage ? isModelLoaded : true,
     [styles.additional]: isAdditional,
     [styles.notHome]: !isHomePage,
     [styles.deleteTextOfLogo]: isLogoTextHidden,

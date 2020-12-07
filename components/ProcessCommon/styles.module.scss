@@ -310,7 +310,6 @@
 
     &>div:nth-of-type(2) {
       width: 50%;
-      height: 75%;
       @include flex(column, center, center);
 
       @include tablet {
