@@ -6,3 +6,7 @@ export { default as Famlicious } from './famlicious.svg';
 export { default as Separate } from './separate.svg';
 export { default as Natp } from './natp.svg';
 export { default as User } from './user.svg';
+export { default as Ian } from './1.png';
+export { default as Jim } from './2.png';
+export { default as Sandro } from './3.png';
+export { default as Jerry } from './4.png';

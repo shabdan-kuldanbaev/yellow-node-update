@@ -15,9 +15,10 @@ export const works = [
   },
   {
     name: 'Fairy',
-    description: `Fireaway is the simplest chat in the world. It is a single-use anonymous chat,
-                  where you don’t need to register – just open the browser tab, invite a friend with the link,
-                  and start chatting!`,
+    description: `Fairy is a marvelous collection of audio bedtime stories such as: “Little Red Riding Hood”,
+                  “The Tale of Peter Rabbit”, “Three Little Pigs”, “The Bogey-Beast” and more! Toddlers will enjoy kind-hearted fairy tales while in the car or before going to sleep. 
+                  Preschoolers will have fun while learning valuable life lessons.
+                  If you have little kids at home then you can’t miss out on having this app!`,
     image: thirdPhone,
     videoName: 'Fairy_Tale_Site5',
   },

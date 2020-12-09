@@ -4,12 +4,16 @@ import {
   Separate,
   Natp,
   User,
+  Ian,
+  Jim,
+  Sandro,
+  Jerry,
 } from '../images';
 
 export const reviews = [
   {
     logo: OppSites,
-    avatar: User,
+    avatar: Ian,
     name: 'Ian Ross',
     position: 'CEO, OppSites',
     message: `The new features have been well received by users. Attentive and flexible, the team excelled at responding to stakeholders in a timely matter. 
@@ -17,7 +21,7 @@ export const reviews = [
   },
   {
     logo: Famlicious,
-    avatar: User,
+    avatar: Jim,
     name: 'Jim Barkow',
     position: 'Founder, Famlicious Inc.',
     message: `Engaged, supportive, and invested in project success, the team offered constructive criticism, creative guidance, and honest communication. 
@@ -25,7 +29,7 @@ export const reviews = [
   },
   {
     logo: Separate,
-    avatar: User,
+    avatar: Sandro,
     name: 'Sandro Tuzzo',
     position: 'CEO, Separate.us',
     message: `Because of marketing costs, the B2C application fell out of use in favor of a different B2B tool. Yellow was very focused on customer satisfaction, and they participated regularly in standups.
@@ -33,7 +37,7 @@ export const reviews = [
   },
   {
     logo: Natp,
-    avatar: User,
+    avatar: Jerry,
     name: 'Jerry Sparkman',
     position: 'IT Director, National Association of Tax Professionals',
     message: `Yellow's development process helped them beat deadlines and respond quickly to any technical concerns that arose. 

@@ -49,6 +49,7 @@ const App = ({
         {/* TODO */}
         {/* <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" /> */}
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js" />
       </Head>
       <Provider store={store}>
         <ParallaxProvider>

@@ -7,7 +7,14 @@ import styles from './styles.module.scss';
 
 export const Awards = ({ awards }) => (
   <div className={styles.awards}>
-    {awards && awards.map((award, index) => (
+    <div
+      className="clutch-widget"
+      data-url="https://widget.clutch.co"
+      data-widget-type="1"
+      data-height="50"
+      data-clutchcompany-id="381822"
+    />
+    {/* {awards && awards.map((award, index) => (
       <Animated
         key={`award/${index}`}
         type={animatedType.isCustom}
@@ -18,7 +25,7 @@ export const Awards = ({ awards }) => (
       >
         <img src={award.image} alt={`award/${index}`} />
       </Animated>
-    ))}
+    ))} */}
   </div>
 );
 
