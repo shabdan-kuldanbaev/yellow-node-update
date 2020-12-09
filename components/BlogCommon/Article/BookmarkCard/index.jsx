@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components';
+import { LinkWrapper, ImageWithPlaceholder } from 'components';
 import Like from './images/like.svg';
 import styles from './styles.module.scss';
 
@@ -31,7 +31,7 @@ export const BookmarkCard = ({ article }) => (
           </div>
         </div>
         <div className={styles.imgContainer}>
-          <div className={styles.img} style={{ backgroundImage: `url(${article.image})` }} />
+          <ImageWithPlaceholder src={article.image} />
         </div>
       </div>
     </div>

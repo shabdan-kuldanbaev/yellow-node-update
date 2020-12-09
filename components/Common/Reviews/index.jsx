@@ -6,19 +6,38 @@ import React, {
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Swiper from 'react-id-swiper';
+import SwiperCors, { EffectCoverflow } from 'swiper';
 import { animatedType } from 'utils/constants';
 import { Comment } from './Comment';
 import styles from './styles.module.scss';
+
+SwiperCors.use([EffectCoverflow]);
 
 export const Reviews = ({ reviews }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
   const infoRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+
   const params = {
+    effect: 'coverflow',
     slidesPerView: 1.2,
     spaceBetween: 0,
     centeredSlides: true,
     loop: true,
+    coverflowEffect: {
+      rotate: 0,
+      stretch: -30,
+      depth: 110,
+      modifier: 1,
+      slideShadows: false,
+    },
+    breakpoints: {
+      480: {
+        coverflowEffect: {
+          stretch: -45,
+        },
+      },
+    },
   };
 
   useEffect(() => {
