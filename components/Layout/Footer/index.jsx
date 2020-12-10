@@ -11,9 +11,6 @@ import styles from './styles.module.scss';
 export const Footer = ({
   theme,
   openFullscreenEstimation,
-  isFullscreenEstimation,
-  closeFullscreenEstimation,
-  handleOnClick,
 }) => (
   <footer className={styles.footer}>
     <div className={styles.forms}>
@@ -31,11 +28,6 @@ export const Footer = ({
         />
       </div>
     </div>
-    <FullScreenEstimation
-      isFullscreenEstimation={isFullscreenEstimation}
-      closeFullscreenEstimation={closeFullscreenEstimation}
-      handleOnClick={handleOnClick}
-    />
   </footer>
 );
 

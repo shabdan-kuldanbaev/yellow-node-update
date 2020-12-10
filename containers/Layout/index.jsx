@@ -19,6 +19,7 @@ import {
   Footer,
   CookiesNotification,
   PageLoading,
+  FullScreenEstimation,
 } from 'components';
 import { mobileResolution, tabletResolution } from 'utils/helper';
 
@@ -104,8 +105,10 @@ export const Layout = ({
       {children}
       <Footer
         theme={theme}
-        isFullscreenEstimation={isFullscreenEstimation}
         openFullscreenEstimation={openFullscreenEstimation}
+      />
+      <FullScreenEstimation
+        isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
         handleOnClick={handleOnClick}
       />

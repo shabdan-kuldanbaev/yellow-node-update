@@ -16,7 +16,14 @@
     @include flex(column, center, center);
   }
 
-  & > div {
+  &>iframe {
+    display: block;
+    width: 130px;
+    height: 50px;
+    border: none;
+  }
+
+  &>div {
     // height: calc(#{$max-content-width} * 0.0626);
     width: 130px !important;
     // TODO
