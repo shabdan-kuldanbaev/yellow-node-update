@@ -53,8 +53,12 @@ export const Comment = ({
   </div>
 );
 
+Comment.defaultProps = {
+  infoRef: {},
+};
+
 Comment.propTypes = {
   comment: PropTypes.instanceOf(Object).isRequired,
   animatioProps: PropTypes.instanceOf(Object).isRequired,
-  infoRef: PropTypes.instanceOf(Object).isRequired,
+  infoRef: PropTypes.instanceOf(Object),
 };

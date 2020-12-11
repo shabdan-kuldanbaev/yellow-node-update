@@ -100,14 +100,12 @@ Header.defaultProps = {
 Header.propTypes = {
   theme: PropTypes.string,
   introSection: PropTypes.instanceOf(Object).isRequired,
-  isModelLoaded: PropTypes.bool.isRequired,
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,
 };
 
 export default connect(
   (state) => ({
-    isModelLoaded: selectIsModelLoaded(state),
     isMobileMenuOpened: selectIsMobileMenuOpened(state),
   }), { setMobileMenuState },
 )(Header);

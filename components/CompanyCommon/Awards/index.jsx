@@ -7,30 +7,20 @@ export const Awards = ({ awards }) => {
   const [hostname, setHost] = useState('');
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (window) {
       setHost(window.location.hostname);
     }
-  }, [hostname]);
+  }, []);
 
   return (
     <div className={styles.awards}>
-      <iframe
-        id="iframe-0.824960673393011"
-        src={`https://widget.clutch.co/widgets/get/1?ref_domain=${hostname}&uid=381822&ref_path=/company`}
-        title="clutch-widget"
-      />
-      {/* {awards && awards.map((award, index) => (
-      <Animated
-        key={`award/${index}`}
-        type={animatedType.isCustom}
-        translateY="2.82352941em"
-        opasityDuration={1}
-        transformDuration={1}
-        transitionDelay={100 + 100 * index}
-      >
-        <img src={award.image} alt={`award/${index}`} />
-      </Animated>
-    ))} */}
+      { awards && awards.map(({ id, src, title }) => (
+        <iframe
+          id={id}
+          src={src(hostname)}
+          title={title}
+        />
+      ))}
     </div>
   );
 };
