@@ -14,23 +14,15 @@ export const Awards = ({ awards }) => {
 
   return (
     <div className={styles.awards}>
-      <iframe
-        id="iframe-0.824960673393011"
-        src={`https://widget.clutch.co/widgets/get/1?ref_domain=${hostname}&uid=381822&ref_path=/company`}
-        title="clutch-widget"
-      />
-      {/* {awards && awards.map((award, index) => (
-      <Animated
-        key={`award/${index}`}
-        type={animatedType.isCustom}
-        translateY="2.82352941em"
-        opasityDuration={1}
-        transformDuration={1}
-        transitionDelay={100 + 100 * index}
-      >
-        <img src={award.image} alt={`award/${index}`} />
-      </Animated>
-    ))} */}
+      {
+        awards.length && awards.map((award) => (
+          <iframe
+            id={award.id}
+            src={award.src(hostname)}
+            title={award.title}
+          />
+        ))
+      }
     </div>
   );
 };

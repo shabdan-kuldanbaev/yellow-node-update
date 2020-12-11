@@ -28,8 +28,8 @@ export const Contacts = ({ handleOnClick }) => (
       </span>
       <span>Phone BY:</span>
       <span>
-        <LinkWrapper path="tel:+375445840208" isLocalLink>
-          +375 44 584 02 08
+        <LinkWrapper path="tel:+375293115249" isLocalLink>
+          +375 29 311 52 49
         </LinkWrapper>
       </span>
     </div>

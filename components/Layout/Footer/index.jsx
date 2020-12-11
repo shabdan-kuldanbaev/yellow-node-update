@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {
   Contacts,
   ButtonMore,
-  FullScreenEstimation,
 } from 'components';
 import Nav from 'components/Layout/Header/Nav';
 import styles from './styles.module.scss';
@@ -38,7 +37,4 @@ Footer.defaultProps = {
 Footer.propTypes = {
   theme: PropTypes.string,
   openFullscreenEstimation: PropTypes.func.isRequired,
-  isFullscreenEstimation: PropTypes.bool.isRequired,
-  closeFullscreenEstimation: PropTypes.func.isRequired,
-  handleOnClick: PropTypes.func.isRequired,
 };
