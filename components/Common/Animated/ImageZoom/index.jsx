@@ -26,6 +26,7 @@ ImageZoom.defaultProps = {
   overlayBgColorEnd: 'rgba(255, 255, 255, 0.985)',
   transitionDuration: 300,
   zoomMargin: 200,
+  isTabletResolutions: false,
 };
 
 ImageZoom.propTypes = {
@@ -34,7 +35,7 @@ ImageZoom.propTypes = {
   transitionDuration: PropTypes.number,
   zoomMargin: PropTypes.number,
   isMobileResolution: PropTypes.bool.isRequired,
-  isTabletResolutions: PropTypes.bool.isRequired,
+  isTabletResolutions: PropTypes.bool,
 };
 
 export default connect(

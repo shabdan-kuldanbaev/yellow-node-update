@@ -18,7 +18,9 @@ export const ManagementTeam = ({ managementTeam }) => (
           transformDuration={1}
           transitionDelay={100 + 100 * index}
         >
-          <div className={styles.image} />
+          <div className={styles.imageContainer}>
+            <div className={styles.image} style={{ backgroundImage: `url(${manager.img})` }} />
+          </div>
           <div className={styles.title}>{manager.title}</div>
           <div className={styles.subtitle}>{manager.subtitle}</div>
         </Animated>

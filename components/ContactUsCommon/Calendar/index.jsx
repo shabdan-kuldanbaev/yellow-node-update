@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
 import { SectionTitle } from 'components';
 import { Location } from './Location';
 import { locationData } from './utils/data';
 import styles from './styles.module.scss';
 
 export const Calendar = ({ locationData: locations }) => (
-  !isEmpty(locations) ? (
+  locations.length ? (
     <section className={styles.feedbackFormWithTitle}>
       <div>
         <SectionTitle
@@ -19,14 +18,20 @@ export const Calendar = ({ locationData: locations }) => (
           linkText="Schedule a meeting"
         />
         <div>
-          {locations && locations.map((location, index) => (
+          {locations && locations.map(({
+            eventTitle,
+            beginningDate,
+            expirationDate,
+            location,
+            eventColor,
+          }, index) => (
             <Location
-              key={`location/${location.eventTitle}`}
-              beginningDate={location.beginningDate}
-              expirationDate={location.expirationDate}
-              location={location.location}
-              eventTitle={location.eventTitle}
-              eventColor={location.eventColor}
+              key={`location/${eventTitle}`}
+              beginningDate={beginningDate}
+              expirationDate={expirationDate}
+              location={location}
+              eventTitle={eventTitle}
+              eventColor={eventColor}
               animationDelay={index}
             />
           ))}
