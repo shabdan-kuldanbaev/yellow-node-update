@@ -11,12 +11,21 @@
   background-color: $white !important;
   color: $black;
   font-size: 1.2rem;
+
+  & > p {
+    opacity: 1;
+  }
 }
 
 .hide {
   will-change: opacity;
-  transition: opacity .4s ease-in;
+  transition: opacity .6s ease-in;
   opacity: 0;
+
+  & > p {
+    transition: opacity .1s ease-in;
+    opacity: 0;
+  }
 }
 
 .setZIndex {
