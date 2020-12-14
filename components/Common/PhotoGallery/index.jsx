@@ -14,6 +14,7 @@ const PhotoGallery = ({ galleryData: photos, isTabletResolutions }) => (
 
 PhotoGallery.defaultProps = {
   galleryData,
+  isTabletResolutions: false,
 };
 
 PhotoGallery.propTypes = {

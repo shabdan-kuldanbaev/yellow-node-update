@@ -40,6 +40,10 @@ export const JSONAnimation = ({ jsonFile, className }) => {
   );
 };
 
+JSONAnimation.defaultProps = {
+  className: '',
+};
+
 JSONAnimation.propTypes = {
   jsonFile: PropTypes.string.isRequired,
   className: PropTypes.string,

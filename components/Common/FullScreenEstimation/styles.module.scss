@@ -2,6 +2,7 @@
 
 .fullscreenEstimation {
   @include flex(column, center, center, nowrap);
+  z-index: 9999999;
 
   & > div {
     @include flex(column, center, center);

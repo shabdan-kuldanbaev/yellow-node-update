@@ -66,21 +66,12 @@ export const Work = ({
             { [styles.thirdShadow]: index === 2 },
           )}
         >
-          {
-            index === 0 && (
-              <img src={DialogHouse} style={{ width: '80%', height: 'auto' }} alt={DialogHouse} />
-              // <>
-              //   <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />
-              //   <img src={work.image} alt={work.image} />
-              // </>
-            )
-          }
-          {
-            index === 1 && <img src={SecondVideo} alt={SecondVideo} />
-          }
-          {
-            index === 2 && <img src={ThirdVideo} alt={ThirdVideo} />
-          }
+          <img src={work.preview} alt={work.preview} />
+          {/* //TODO
+          {work.videoName && (
+            <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />
+          )}
+          <img src={work.image} alt={work.image} /> */}
         </div>
       </Animated>
     </div>

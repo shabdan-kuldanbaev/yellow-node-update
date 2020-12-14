@@ -24,7 +24,7 @@
   &>div {
     width: 100%;
     margin: 0 auto;
-    padding: 100px 80px 150px;
+    padding: 100px 80px 130px;
 
     @include ultra-hd {
       max-width: $max-content-width;
@@ -49,7 +49,7 @@
 
 .companyBottom {
   @include flex(column, center, center);
-  padding: 100px 80px 200px;
+  padding: 0 80px 200px;
   background-color: $white;
 
   @include tablet {

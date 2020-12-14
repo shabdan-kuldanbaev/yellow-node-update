@@ -73,16 +73,16 @@
 }
 
 .firstBlock {
-  background-color: #F4AD3D;
+  background-color: $saffron-1;
   transition: background-color $changing-portfolio-color ease;
 }
 
 .secondBlock {
-  background-color: #140A2F;
+  background-color: $violet;
   transition: background-color $changing-portfolio-color ease;
 }
 
 .thirdBlock {
-  background-color: #161616;
+  background-color: $cod-gray-1;
   transition: background-color $changing-portfolio-color ease;
 }

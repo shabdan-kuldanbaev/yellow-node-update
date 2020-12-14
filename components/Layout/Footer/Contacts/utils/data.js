@@ -23,7 +23,7 @@ export const socialNetworks = [
   },
   {
     title: 'dribbble',
-    href: '',
+    href: 'https://dribbble.com/yellow_systems',
     image: dribbbleIcon,
   },
 ];

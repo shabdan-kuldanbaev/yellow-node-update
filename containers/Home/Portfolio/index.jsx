@@ -23,6 +23,14 @@ export const Portfolio = ({ gradientRef }) => {
   const portfolioRef = useRef(null);
   const [currentNumber, setCurrentNumber] = useState(4);
 
+  const changeStyle = (index) => {
+    refs[0].current.classList.remove(styles[blockNumbers[index + 1]]);
+    portfolioRef.current.classList.remove(styles[blockNumbers[index + 1]]);
+
+    refs[0].current.classList.add(styles[blockNumbers[index]]);
+    portfolioRef.current.classList.add(styles[blockNumbers[index]]);
+  };
+
   const handleOnScroll = () => {
     const halfHeight = refs && refs[1].current.getBoundingClientRect().height / 2;
     const [
@@ -40,40 +48,27 @@ export const Portfolio = ({ gradientRef }) => {
     if (zeroBlock < halfHeight && (firstBottom > halfHeight && secondBottom > halfHeight && thirdBottom > halfHeight)) {
       if (currentNumber !== 1) {
         setBlockNumber(0);
-        refs[0].current.classList.remove(styles[blockNumbers[0]]);
-        portfolioRef.current.classList.remove(styles[blockNumbers[0]]);
-
-        refs[0].current.classList.add(styles[blockNumbers[1]]);
-        portfolioRef.current.classList.add(styles[blockNumbers[1]]);
+        changeStyle(1);
 
         setCurrentNumber(1);
       }
     } else if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
       if (currentNumber !== 2) {
         setBlockNumber(1);
-        refs[0].current.classList.remove(styles[blockNumbers[3]]);
-        portfolioRef.current.classList.remove(styles[blockNumbers[3]]);
-
-        refs[0].current.classList.add(styles[blockNumbers[2]]);
-        portfolioRef.current.classList.add(styles[blockNumbers[2]]);
+        changeStyle(2);
 
         setCurrentNumber(2);
       }
     } else if (secondBottom < halfHeight) {
       if (currentNumber !== 3) {
         setBlockNumber(2);
-        refs[0].current.classList.add(styles[blockNumbers[3]]);
-        portfolioRef.current.classList.add(styles[blockNumbers[3]]);
+        changeStyle(3);
 
         setCurrentNumber(3);
       }
     } else if (currentNumber !== 0) {
       setBlockNumber(1);
-      refs[0].current.classList.remove(styles[blockNumbers[1]]);
-      portfolioRef.current.classList.remove(styles[blockNumbers[1]]);
-
-      refs[0].current.classList.add(styles[blockNumbers[0]]);
-      portfolioRef.current.classList.add(styles[blockNumbers[0]]);
+      changeStyle(0);
 
       setCurrentNumber(0);
     }

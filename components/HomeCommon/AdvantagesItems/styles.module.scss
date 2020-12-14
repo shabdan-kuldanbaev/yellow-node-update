@@ -74,6 +74,10 @@
       @include tablet {
         margin-top: 20px;
       }
+
+      @include phone {
+        margin-top: -35px;
+      }
     }
 
     img {
@@ -137,6 +141,10 @@
     @include below-tablet {
       margin-top: 10px;
     }
+
+    @include phone {
+      margin-top: -20px;
+    }
   }
 
   .desc {
@@ -171,12 +179,12 @@
     padding: 0;
     margin: 100px 0 0 0;
 
-    &:nth-child(2) {
-      margin: 100px 0 0 0;
+    &:not(:nth-of-type(1)) {
+      margin-top: 15%;
     }
 
-    &:last-child {
-      margin: 100px 0 0 0;
+    &:nth-of-type(4) {
+      margin-top: 0;
     }
 
     :global(.animated) {
