@@ -35,7 +35,7 @@ export const PreviewImage = ({ image }) => {
         transformDuration={0.8}
         transitionDelay={0}
       >
-        <div ref={photoRef} style={{ backgroundImage: `url(${image})` }} />
+        <div ref={photoRef} style={image ? { backgroundImage: `url(${image})` } : { backgroundColor: '#cbcbcb' }} />
       </Animated>
     </div>
   );

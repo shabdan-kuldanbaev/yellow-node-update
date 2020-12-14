@@ -30,7 +30,7 @@
     div {
       @include flex(row, center, center);
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       padding-top: calc(100% / 1.5);
       width: 100%;
