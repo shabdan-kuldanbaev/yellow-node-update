@@ -7,7 +7,6 @@ import {
   Video,
 } from 'components';
 import { animatedType } from 'utils/constants';
-import { SecondVideo, ThirdVideo, DialogHouse } from '../images';
 import styles from './styles.module.scss';
 
 export const Work = ({

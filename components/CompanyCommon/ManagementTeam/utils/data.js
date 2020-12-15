@@ -74,4 +74,9 @@ export const managementTeam = [
     subtitle: 'Front End Team Lead',
     img: Igor_Zayac,
   },
+  {
+    title: 'Kamilla Kapitsa',
+    subtitle: 'Talent Acquisition',
+    img: Igor_Zayac,
+  },
 ];

@@ -17,10 +17,7 @@ export const works = [
   },
   {
     name: 'Fairy',
-    description: `Fairy is a marvelous collection of audio bedtime stories such as: “Little Red Riding Hood”,
-                  “The Tale of Peter Rabbit”, “Three Little Pigs”, “The Bogey-Beast” and more! Toddlers will enjoy kind-hearted fairy tales while in the car or before going to sleep. 
-                  Preschoolers will have fun while learning valuable life lessons.
-                  If you have little kids at home then you can’t miss out on having this app!`,
+    description: 'Fairy is an app with audio fairy tales in English that helps parents to calm their children down and put them to bed',
     image: thirdPhone,
     videoName: 'Fairy_Tale_Site5',
     preview: Fairy,

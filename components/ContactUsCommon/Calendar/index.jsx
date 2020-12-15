@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
 import { SectionTitle } from 'components';
 import { Location } from './Location';
 import { locationData } from './utils/data';
