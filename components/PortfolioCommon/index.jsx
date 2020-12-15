@@ -16,43 +16,45 @@ export const Portfolio = ({ works }) => (
         key={`works/${work.name}`}
         data-index={index}
       >
-        <div className={styles.desc}>
-          <Animated
-            type={animatedType.isCustom}
-            translateY="2.82352941em"
-            opasityDuration={1}
-            transformDuration={1}
-            transitionDelay={300}
-          >
-            <h1>{work.name}</h1>
-          </Animated>
-          <Animated
-            type={animatedType.isCustom}
-            translateY="2.82352941em"
-            opasityDuration={1}
-            transformDuration={1}
-            transitionDelay={350}
-          >
-            <p>{work.description}</p>
-          </Animated>
-          <Animated
-            type={animatedType.isCustom}
-            translateY="2.82352941em"
-            opasityDuration={1}
-            transformDuration={1}
-            transitionDelay={400}
-          >
-            <LinkWrapper
-              isLocalLink
-              dynamicRouting="/portfolio/[project]"
-              path={`/portfolio/${work.id}`}
-              className={styles.buttonWrap}
+        <div className={styles.workWrapper}>
+          <div className={styles.desc}>
+            <Animated
+              type={animatedType.isCustom}
+              translateY="2.82352941em"
+              opasityDuration={1}
+              transformDuration={1}
+              transitionDelay={300}
             >
-              <button type="button">See full case study</button>
-            </LinkWrapper>
-          </Animated>
+              <h1>{work.name}</h1>
+            </Animated>
+            <Animated
+              type={animatedType.isCustom}
+              translateY="2.82352941em"
+              opasityDuration={1}
+              transformDuration={1}
+              transitionDelay={350}
+            >
+              <p>{work.description}</p>
+            </Animated>
+            <Animated
+              type={animatedType.isCustom}
+              translateY="2.82352941em"
+              opasityDuration={1}
+              transformDuration={1}
+              transitionDelay={400}
+            >
+              <LinkWrapper
+                isLocalLink
+                dynamicRouting="/portfolio/[project]"
+                path={`/portfolio/${work.id}`}
+                className={styles.buttonWrap}
+              >
+                <button type="button">See full case study</button>
+              </LinkWrapper>
+            </Animated>
+          </div>
+          <PreviewImage image={work.image} />
         </div>
-        <PreviewImage image={work.image} />
       </div>
     ))}
   </div>

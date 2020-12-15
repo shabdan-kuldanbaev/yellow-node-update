@@ -14,6 +14,47 @@
     width: 100%;
   }
 
+  .workWrapper {
+    width: calc(100% + 2 * #{$side-indent});
+    width: 100%;
+    @include flex(row, space-between);
+
+    @include ultra-hd {
+      max-width: $max-content-width;
+    }
+
+    @include macbook-fifteen {
+      width: 100%;
+    }
+
+    @include tablet {
+      flex-direction: column-reverse;
+    }
+
+    @include below-tablet-horizontal {
+      @include flex(row, center, center);
+    }
+
+    @include phone {
+      @include flex(column-reverse, center, center);
+      height: auto;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      padding-bottom: 100px;
+
+
+      &:first-child {
+        padding-top: 0px;
+        margin-top: 0px;
+      }
+    }
+
+    @include horizontal-mobile {
+      height: auto;
+      @include flex(row, center, flex-start);
+    }
+  }
+
   .work {
     @include flex(row, space-between, center);
     position: relative;
@@ -31,6 +72,7 @@
 
     @include macbook-fifteen {
       height: 100vh;
+      margin-top: 0;
 
       &:first-child {
         margin-top: 81px;
@@ -72,15 +114,12 @@
     @include horizontal-mobile {
       height: auto;
       @include flex(row, center, center);
-
-      &:first-child {
-        padding-top: 80px;
-      }
     }
 
     .desc {
       width: 40%;
       @include flex(column, flex-start, flex-start);
+      margin-top: 60px;
 
       @include tablet {
         width: 100%;
@@ -105,12 +144,12 @@
       }
 
       @include horizontal-mobile {
-        max-height: initial;
+        margin-top: 0;
       }
 
       div {
         max-width: 80%;
-        height: 100%;
+
         opacity: 1;
         will-change: transform;
         transition: transform $default-transition-time, opacity $default-transition-time;
