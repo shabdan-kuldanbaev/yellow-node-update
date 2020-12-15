@@ -4,6 +4,10 @@
   transition: margin $default-transition-time;
   @include flex(row, center, center);
 
+  @include below-tablet {
+    padding-inline-start: 0;
+  }
+
   @include phone {
     display: none;
   }
@@ -16,7 +20,7 @@
     outline: none;
 
     @include below-tablet {
-      margin-left: 21px;
+      margin-left: 15px;
     }
 
     li>svg {
@@ -36,7 +40,7 @@
       transform: translateY(0px);
 
       @include below-tablet {
-        margin-left: 35px;
+        margin-left: 20px;
       }
 
       span {

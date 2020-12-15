@@ -11,6 +11,7 @@ import {
   Aliaksei_Stadnik,
   Kirill_Budevich,
   Igor_Zayac,
+  Kamilla_Kapitsa,
 } from '../images';
 
 export const managementTeam = [
@@ -77,6 +78,6 @@ export const managementTeam = [
   {
     title: 'Kamilla Kapitsa',
     subtitle: 'Talent Acquisition',
-    img: Igor_Zayac,
+    img: Kamilla_Kapitsa,
   },
 ];

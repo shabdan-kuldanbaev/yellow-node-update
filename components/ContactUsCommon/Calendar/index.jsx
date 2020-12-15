@@ -41,7 +41,7 @@ export const Calendar = ({ locationData: locations }) => (
   ) : null);
 
 Calendar.defaultProps = {
-  locationData,
+  locationData: [],
 };
 
 Calendar.propTypes = {

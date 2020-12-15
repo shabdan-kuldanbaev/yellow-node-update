@@ -10,3 +10,4 @@ export { default as Kate_Gurinovich } from './9.jpg';
 export { default as Aliaksei_Stadnik } from './10.jpg';
 export { default as Kirill_Budevich } from './11.jpg';
 export { default as Igor_Zayac } from './12.jpg';
+export { default as Kamilla_Kapitsa } from './13.jpg';

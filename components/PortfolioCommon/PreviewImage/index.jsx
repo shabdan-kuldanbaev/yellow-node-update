@@ -13,18 +13,19 @@ export const PreviewImage = ({ image }) => {
   const photoRef = useRef(null);
   const [isShow, setIsShow] = useState(false);
 
-  useEffect(() => {
-    const handlerOnScroll = () => {
-      photoRef.current
-        && photoRef.current.getBoundingClientRect().top < window.innerHeight
-        && setIsShow(true);
-    };
+  // TODO
+  // useEffect(() => {
+  //   const handlerOnScroll = () => {
+  //     photoRef.current
+  //       && photoRef.current.getBoundingClientRect().top < window.innerHeight / 2 + 100
+  //       && setIsShow(true);
+  //   };
 
-    handlerOnScroll();
-    window.addEventListener('scroll', handlerOnScroll);
+  //   handlerOnScroll();
+  //   window.addEventListener('scroll', handlerOnScroll);
 
-    return () => window.removeEventListener('scroll', handlerOnScroll);
-  }, []);
+  //   return () => window.removeEventListener('scroll', handlerOnScroll);
+  // }, []);
 
   return (
     <div className={cn(styles.imgWrapper, { [styles.showPhoto]: isShow })}>

@@ -13,3 +13,4 @@ export { default as SmartCenter } from './smartcenter.jpg';
 export { default as TravelTrivia } from './traveltrivia.jpg';
 export { default as Bionorica } from './bionorica.jpg';
 export { default as GoodPsychics } from './Good-Psychics.jpg';
+export { default as Ubichat } from './ubi-chat.jpg';

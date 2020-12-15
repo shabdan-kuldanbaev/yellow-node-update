@@ -43,6 +43,7 @@ export const Portfolio = ({ works }) => (
               transformDuration={1}
               transitionDelay={400}
             >
+              {/* TODO
               <LinkWrapper
                 isLocalLink
                 dynamicRouting="/portfolio/[project]"
@@ -50,7 +51,7 @@ export const Portfolio = ({ works }) => (
                 className={styles.buttonWrap}
               >
                 <button type="button">See full case study</button>
-              </LinkWrapper>
+              </LinkWrapper> */}
             </Animated>
           </div>
           <PreviewImage image={work.image} />

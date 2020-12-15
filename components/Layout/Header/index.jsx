@@ -39,7 +39,7 @@ const Header = ({
       const intro = introSection.current.getBoundingClientRect();
 
       if (isHomePage) {
-        intro.bottom < 0
+        intro.bottom < 65
           ? setAdditional(true)
           : setAdditional(false);
         intro.top < -200

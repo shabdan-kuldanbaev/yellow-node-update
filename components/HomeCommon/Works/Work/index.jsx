@@ -46,14 +46,15 @@ export const Work = ({
         transformDuration={1}
         transitionDelay={150}
       >
-        <LinkWrapper
+        {/* TODO
+         <LinkWrapper
           isLocalLink
           dynamicRouting="/"
           path="/"
           className={styles.buttonWrap}
         >
           <button type="button">See full case study</button>
-        </LinkWrapper>
+        </LinkWrapper> */}
       </Animated>
     </div>
     <div className={styles.parallax}>

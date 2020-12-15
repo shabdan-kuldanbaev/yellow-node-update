@@ -16,7 +16,7 @@ export const ManagementTeam = ({ managementTeam }) => (
           translateY="2.82352941em"
           opasityDuration={1}
           transformDuration={1}
-          transitionDelay={100 + 100 * index}
+          transitionDelay={50 + 60 * index}
         >
           <div className={styles.imageContainer}>
             <div className={styles.image} style={{ backgroundImage: `url(${manager.img})` }} />
