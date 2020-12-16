@@ -4,16 +4,25 @@ import {
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import { API } from 'utils/api';
+import ApiClient from 'utils/apiBlog'; // TODO remove it
 import { actionTypes } from '../actions/actionTypes';
+import {
+  temporaryPosts,
+  temporaryArticle,
+  temporaryFavoritesArticles,
+} from './blogData';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
 function* getArticle({ payload }) {
   try {
-    const response = yield call(API.getArticle, payload);
+    // TODO const response = yield call(API.getArticle, payload);
+    const id = 'how-to-improve-your-website-with-elasticsearch';
+    const response = yield ApiClient.get(`/posts/${id}`); // TODO remove it
+    console.log('saga - getArticle', response);
 
-    yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: response });
+    yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: yield temporaryArticle });
   } catch (err) {
     yield put({ type: actionTypes.GET_ARTICLE_FAILED, payload: err });
   }
@@ -21,14 +30,29 @@ function* getArticle({ payload }) {
 
 function* loadArticles({ payload }) {
   try {
-    const { currentPage, currentLimit, category } = payload;
-    const response = yield call(API.loadArticles, currentPage, currentLimit, category);
+    // TODO const { currentPage, currentLimit, category } = payload;
+    // TODO const response = yield call(API.loadArticles, currentPage, currentLimit, category);
     // TODO const fetchedArticles = yield call(API.loadArticles, currentPage, currentLimit, category);
     // TODO const { data: { response } } = fetchedArticles;
 
-    yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: response });
+    const response = yield ApiClient.get('/posts'); // TODO remove it
+    console.log('saga - loadArticles', response);
+
+    yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: yield temporaryPosts });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: err });
+  }
+}
+
+// TODO remove it
+function* loadFavoritePosts({ payload }) {
+  try {
+    const response = yield ApiClient.get('/posts/favorites'); // TODO remove it
+    console.log('saga - loadFavoritePosts', response);
+
+    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_SUCCESS, payload: yield temporaryFavoritesArticles });
+  } catch (err) {
+    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_FAILURE, payload: err });
   }
 }
 
@@ -60,5 +84,6 @@ export function* loadBlogDataWatcher() {
     yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
     yield takeLatest(actionTypes.LOAD_RELATED_PENDING, loadRelatedArticles),
     yield takeLatest(actionTypes.LOAD_NEARBY_PENDING, loadNearbyArticles),
+    yield takeLatest(actionTypes.LOAD_FAVORITE_POSTS_START, loadFavoritePosts), // TODO remove it
   ]);
 }

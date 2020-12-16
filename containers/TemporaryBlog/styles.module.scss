@@ -1,0 +1,21 @@
+.blog {
+  width: 940px;
+  margin: 4rem auto 120px;
+  box-sizing: border-box;
+
+  @media screen and (min-width: 1200px) {
+    width: 1170px;
+  }
+
+  @media (max-width: 979px) and (min-width: 768px) {
+    width: 724px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 685px) {
+    padding: 0 20px;
+  }
+}

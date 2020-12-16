@@ -4,13 +4,9 @@ const next = require('next');
 const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 const multer = require('multer');
-
-// TODO const { articlesData } = require('./utils/utils/data');
-// const priority = {
-//   low: 'low',
-//   high: 'high',
-//   medium: 'medium',
-// };
+const compression = require('compression');
+const path = require('path');
+const cors = require('cors');
 
 dotenv.config('./env');
 
@@ -27,31 +23,11 @@ app
   .then(() => {
     const server = express();
 
+    server.use(cors());
+    server.use(express.static(path.join(__dirname, 'build')));
     server.use(bodyParser.urlencoded());
     server.use(bodyParser.json());
-
-    // TODO server.get('/blog', async (req, res) => {
-    //   let response = [];
-    //   const { category: cat, limit: lim, page } = req.query;
-    //   const [skip, limit, category] = [page, lim, cat];
-    //   const [leftEdge, rightEdge] = [(skip - 1) * limit, skip * limit];
-
-    //   if (category === 'latest') {
-    //     const high = articlesData.filter((article) => article.priority === priority.high);
-    //     const medium = articlesData.filter((article) => article.priority === priority.medium);
-    //     const withoutHighAndMediumArray = articlesData.filter((article) => article.priority !== priority.high && article.priority !== priority.medium);
-    //     const inOrder = [...high, ...medium, ...withoutHighAndMediumArray];
-
-    //     response = await inOrder.filter((article, index) => index >= leftEdge && index < rightEdge);
-    //     res.status(200).send({ response });
-    //   }
-
-    //   response = await articlesData
-    //     .filter((article) => article.category === category)
-    //     .filter((article, index) => index >= leftEdge && index < rightEdge);
-
-    //   res.status(200).send({ response });
-    // });
+    server.use(compression());
 
     server.post('/send', upload.array('files'), (req, res) => {
       const transporter = nodemailer.createTransport({
