@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'next/link';
 import classNames from 'classnames';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import { LinkWrapper } from 'components';
 import styles from './styles.module.scss';
 
 export default function Post({ post, className, mode }) {
@@ -11,11 +11,12 @@ export default function Post({ post, className, mode }) {
     const classes = classNames(styles.post_favorite_preview, {
       [className]: className,
     });
-
     return (
       <article className={classes}>
-        <Link
-          to={`/blog/${post.slug}`}
+        <LinkWrapper
+          isLocalLink
+          dynamicRouting="/blog/[article]"
+          path={`/blog/${post.slug}`}
         >
           <div className={styles.post_favorite_preview_image}>
             <img src={post.preview_url} alt={post.title} className="img-responsive" />
@@ -25,7 +26,7 @@ export default function Post({ post, className, mode }) {
               { post.title }
             </div>
           </div>
-        </Link>
+        </LinkWrapper>
       </article>
     );
   }
@@ -33,23 +34,25 @@ export default function Post({ post, className, mode }) {
     const classes = classNames(styles.post_related_preview, {
       [className]: className,
     });
-
     return (
       <article className={classes}>
-        <Link
+        <LinkWrapper
           className={styles.post_related_preview_image}
-          to={`/blog/${post.slug}`}
+          isLocalLink
+          dynamicRouting="/blog/[article]"
+          path={`/blog/${post.slug}`}
         >
           <img src={post.preview_url} alt={post.title} className="img-responsive" />
-        </Link>
-
+        </LinkWrapper>
         <div className={styles.post_related_preview_content}>
-          <Link
+          <LinkWrapper
             className={styles.post_related_preview_title}
-            to={`/blog/${post.slug}`}
+            isLocalLink
+            dynamicRouting="/blog/[article]"
+            path={`/blog/${post.slug}`}
           >
             { post.title }
-          </Link>
+          </LinkWrapper>
           <p>{post.introduction}</p>
           {
             post.published_at
@@ -64,11 +67,12 @@ export default function Post({ post, className, mode }) {
     const classes = classNames(styles.post_preview, {
       [className]: className,
     });
-
     return (
       <article className={classes}>
-        <Link
-          to={`/blog/${post.slug}`}
+        <LinkWrapper
+          isLocalLink
+          dynamicRouting="/blog/[article]"
+          path={`/blog/${post.slug}`}
         >
           <div className={styles.post_preview_image}>
             <img src={post.preview_url} alt={post.title} className="img-responsive" />
@@ -81,16 +85,15 @@ export default function Post({ post, className, mode }) {
               ? <time>{moment(post.published_at).format('MMMM D, YYYY')}</time>
               : <time>date now</time>
           }
-        </Link>
+        </LinkWrapper>
         <p>{post.introduction}</p>
       </article>
     );
   }
   }
 }
-
 Post.propTypes = {
-  post: PropTypes.shape,
+  post: PropTypes.shape.isRequire,
   className: PropTypes.stirng,
   mode: PropTypes.string,
 };

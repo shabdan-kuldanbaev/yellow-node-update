@@ -16,7 +16,7 @@ import { loadArticles } from 'redux/actions/blog';
 
 import { Loader } from 'components';
 // import Subscribe from '../../components/TemporaryBlog/Subscribe';
-import { Post } from '../../components/TemporaryBlog';
+import { Post, Subscribe } from '../../components/TemporaryBlog';
 import styles from './styles.module.scss';
 
 const Blog = ({
@@ -57,13 +57,13 @@ const Blog = ({
         <meta name="description" content={description} />
         <meta property="og:description" content={description} />
       </Head>
-      {/* <Subscribe /> */}
+      <Subscribe />
       <section className={styles.blog}>
         <Loader isLoading={!isLoading}>
           {posts && posts.map((post) => <Post key={post.id} post={post} />)}
         </Loader>
       </section>
-      {JSON.stringify(posts)}
+      {/* {JSON.stringify(posts)} */}
     </Fragment>
   );
 };

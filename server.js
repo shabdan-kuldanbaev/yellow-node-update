@@ -79,8 +79,11 @@ app
 
     server.post('/subscribe', (req, res) => {
       const transporter = nodemailer.createTransport({
-        service: 'Yandex',
+        host: 'smtp.office365.com',
+        port: '587',
         auth: { user, pass },
+        secure: false,
+        tls: { ciphers: 'SSLv3' },
       });
 
       const { email } = req.body;
@@ -94,7 +97,8 @@ app
 
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-          res.json(error);
+          res.sendStatus(error.responseCode);
+          console.log(error);
         } else {
           res.json(JSON.stringify(true));
         }

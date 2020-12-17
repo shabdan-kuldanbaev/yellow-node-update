@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-// import ReactGA from 'react-ga';
+// TODO import ReactGA from 'react-ga';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 
@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 // } from 'redux/actions/blog';
 
 // import PropTypes from 'prop-types';
+import { subscribe } from 'redux/actions/subscribe';
+import { selectSuscribeStatus, selectSubscribeError } from 'redux/selectors/subscribe';
 import styles from './styles.module.scss';
 
 class Subscribe extends PureComponent {
@@ -23,14 +25,14 @@ class Subscribe extends PureComponent {
   onSubmit(evt) {
     evt.preventDefault();
 
-    // this.props.createSubscriber(this.state.email)
-    //   .then(() => {
-    //     ReactGA.event({
-    //       category: 'Subscribe',
-    //       action: 'Send',
-    //       label: window.location.pathname,
-    //     });
+    this.props.subscribe(this.state.email);
+    // .then(() => {
+    //   ReactGA.event({
+    //     category: 'Subscribe',
+    //     action: 'Send',
+    //     label: window.location.pathname,
     //   });
+    // });
   }
 
   onChange(evt) {
@@ -40,10 +42,7 @@ class Subscribe extends PureComponent {
   }
 
   render() {
-    const {
-      status,
-      error,
-    } = this.props.subscribe;
+    const { error, status } = this.props;
 
     const subscribeClasses = classNames({
       [styles.subscriber]: true,
@@ -99,9 +98,10 @@ Subscribe.propTypes = {
 
 };
 const mapStateToProps = (state) => ({
-  subscribe: state.blog.subscribe,
+  status: selectSuscribeStatus(state),
+  error: selectSubscribeError(state),
 });
 
 export default connect(mapStateToProps, {
-  createSubscriber,
+  subscribe,
 })(Subscribe);

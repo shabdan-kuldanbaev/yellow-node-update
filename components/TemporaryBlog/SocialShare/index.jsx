@@ -5,12 +5,12 @@ import {
   LinkedinShareButton,
   TwitterShareButton,
 } from 'react-share';
-// import ReactGA from 'react-ga';
+// TODO import ReactGA from 'react-ga';
 import styles from './styles.module.scss';
 
 class SocialShare extends PureComponent {
   trackSocialShareClick = (event) => {
-    // const social = event.target.getAttribute('data-socialname');
+    const social = event.target.getAttribute('data-socialname');
     // ReactGA.event({
     //   category: 'Click social go to share',
     //   action: social,

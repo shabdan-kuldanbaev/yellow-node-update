@@ -3,8 +3,9 @@
 .preloader {
   @include flex(column, center, center);
   min-height: 100vh;
-  position: fixed;
-  width: 100vw;
+  // TODO
+  // position: fixed;
+  // width: 100vw;
   height: 100vh;
   z-index: 99999999999;
   background-color: $white;
