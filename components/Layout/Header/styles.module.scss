@@ -14,16 +14,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 999999;
   @include flex(row, space-between, center);
   width: calc(100% - 34px);
   max-width: 100vw;
   padding: 10px 17px;
   opacity: 1;
-  will-change: transform;
-  transform: translate3d(0, -100%, 0);
-  transition: transform $default-transition-time,
-    padding $default-transition-time;
+  transition: padding $default-transition-time;
 
   @include phone {
     width: calc(100% - 30px);

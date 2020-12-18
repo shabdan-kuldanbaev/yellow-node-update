@@ -1,35 +1,35 @@
 import {
-  Stairs,
-  PhotoCamera,
-  Girl,
-  ManWithBall,
-  DiningRoom,
-  Computer,
+  First,
+  Second,
+  Fourth,
+  Sixth,
+  Fifth,
+  Third,
 } from '../images';
 
 export const galleryData = [
   {
-    img: Stairs,
+    img: Sixth,
     size: 'verticalImg',
   },
   {
-    img: PhotoCamera,
-    size: 'squareImg',
-  },
-  {
-    img: Girl,
-    size: 'verticalImg',
-  },
-  {
-    img: ManWithBall,
+    img: First,
     size: 'horizontalImg',
   },
   {
-    img: DiningRoom,
+    img: Second,
     size: 'verticalImg',
   },
   {
-    img: Computer,
+    img: Third,
+    size: 'squareImg',
+  },
+  {
+    img: Fourth,
+    size: 'verticalImg',
+  },
+  {
+    img: Fifth,
     size: 'squareImg',
   },
 ];

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SectionTitle, Animated } from 'components';
 import { animatedType } from 'utils/constants';
-import TestPhoto from './images/testImg.jpg';
+import YellowTeam from './images/yellow_team.jpg';
 import styles from './styles.module.scss';
 
 export const CompanyPeoplePhoto = ({ photo }) => {
@@ -56,7 +56,7 @@ export const CompanyPeoplePhoto = ({ photo }) => {
 };
 
 CompanyPeoplePhoto.defaultProps = {
-  photo: TestPhoto,
+  photo: YellowTeam,
 };
 
 CompanyPeoplePhoto.propTypes = {

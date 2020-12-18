@@ -20,11 +20,13 @@ export const Comment = ({
         <div>
           <div>
             <div className={styles.messageWrapper}>
-              <img
-                src={logo}
-                alt={name}
-                className={styles.logo}
-              />
+              <div className={styles.imgContainer}>
+                <img
+                  src={logo}
+                  alt={name}
+                  className={styles.logo}
+                />
+              </div>
               <div className={styles.message}>{message}</div>
             </div>
           </div>
@@ -51,8 +53,12 @@ export const Comment = ({
   </div>
 );
 
+Comment.defaultProps = {
+  infoRef: {},
+};
+
 Comment.propTypes = {
   comment: PropTypes.instanceOf(Object).isRequired,
   animatioProps: PropTypes.instanceOf(Object).isRequired,
-  infoRef: PropTypes.instanceOf(Object).isRequired,
+  infoRef: PropTypes.instanceOf(Object),
 };

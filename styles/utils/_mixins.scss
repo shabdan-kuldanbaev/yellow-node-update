@@ -132,6 +132,12 @@
   }
 }
 
+@mixin phone-height-600 {
+  @media (max-width: $max-mobile-size) and (min-height: 600px) {
+    @content;
+  }
+}
+
 @mixin phone-height-650 {
   @media (max-width: $max-mobile-size) and (min-height: 650px) {
     @content;
@@ -152,6 +158,12 @@
 
 @mixin phone-height-900 {
   @media (max-width: $max-mobile-size) and (min-height: 900px) {
+    @content;
+  }
+}
+
+@mixin iOSDevice {
+  @supports (-webkit-touch-callout: none) {
     @content;
   }
 }
