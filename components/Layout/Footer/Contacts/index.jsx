@@ -8,7 +8,7 @@ import {
 } from 'components';
 import { animatedType } from 'utils/constants';
 import { socialNetworks } from './utils/data';
-import { rocketIcon } from './images';
+// TODO import { rocketIcon } from './images';
 import rocket from './json/rocket.json';
 import styles from './styles.module.scss';
 

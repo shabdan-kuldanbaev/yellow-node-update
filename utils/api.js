@@ -3,14 +3,14 @@ import { articlesData } from 'containers/Blog/utils/data';
 import { works, project } from 'containers/Portfolio/utils/data';
 import { articleData } from 'containers/Article/utils/data';
 import { priority } from 'utils/constants';
+import { rootUrl } from 'utils/helper';
 
 export const axiosTemporaryClient = axios.create({ // TODO remove it
   baseURL: process.env.API_URL,
 });
 
 const apiClient = axios.create({
-  // TODO baseURL: 'http://',
-  baseURL: 'http:',
+  baseURL: rootUrl,
   headers: {
     'Content-Type': 'aplication/json',
     Accept: 'aplication/json',
@@ -82,4 +82,5 @@ export const API = {
     return axios.post('/send', formData);
   },
   subscribe: ({ email }) => axios.post('/subscribe', { email }),
+  getJSON: () => axios.get('/json'),
 };

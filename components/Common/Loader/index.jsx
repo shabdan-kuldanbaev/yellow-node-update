@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 const Loader = ({ children, isLoading }) => (!isLoading
-  ? (
-    <div className={styles.preloader}>
-      <div>Loading...</div>
-    </div>
-  )
+  ? <div className={styles.preloader}>Yellow</div>
   : children
 );
 
