@@ -4,6 +4,10 @@ import { works, project } from 'containers/Portfolio/utils/data';
 import { articleData } from 'containers/Article/utils/data';
 import { priority } from 'utils/constants';
 
+export const axiosTemporaryClient = axios.create({ // TODO remove it
+  baseURL: process.env.API_URL,
+});
+
 const apiClient = axios.create({
   // TODO baseURL: 'http://',
   baseURL: 'http:',

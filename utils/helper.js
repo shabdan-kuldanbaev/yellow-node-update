@@ -46,3 +46,16 @@ export const formatDate = (date) => {
 
   return `${dd}/${mm}/${yyyy}`;
 };
+
+export const getMainLinksForSitemap = (updatedAt) => [
+  { path: '/', updatedAt },
+  { path: '/portfolio', updatedAt },
+  { path: '/process', updatedAt },
+  { path: '/company', updatedAt },
+  { path: '/contact-us', updatedAt },
+  { path: '/blog', updatedAt },
+];
+
+export const rootUrl = process.env.NODE_ENV === 'development'
+  ? process.env.DEV_URL
+  : process.env.PROD_URL;
