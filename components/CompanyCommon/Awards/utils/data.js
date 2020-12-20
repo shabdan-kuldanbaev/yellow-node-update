@@ -1,9 +1,9 @@
-import {
-  ClutchReview,
-  GoodFirms,
-  TopReated,
-  ITFirms,
-} from '../images';
+// TODO import {
+//   ClutchReview,
+//   GoodFirms,
+//   TopReated,
+//   ITFirms,
+// } from '../images';
 
 export const awards = [
   {

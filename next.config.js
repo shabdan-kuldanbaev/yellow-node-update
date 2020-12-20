@@ -7,6 +7,9 @@ const withFonts = require('next-fonts');
 const withVideos = require('next-videos');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const nextConfig = {
   distDir: 'build',
@@ -54,4 +57,5 @@ module.exports = withPlugins([
   withObj,
   withFonts,
   withVideos,
+  [withBundleAnalyzer],
 ], nextConfig);

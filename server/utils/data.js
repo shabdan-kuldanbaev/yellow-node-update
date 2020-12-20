@@ -1,14 +1,4 @@
-// TODO import {
-//   idea,
-//   research,
-//   prototype,
-//   design,
-//   develop,
-//   review,
-//   test,
-//   launch,
-// } from '../images';
-import {
+const {
   Idea,
   Research,
   Prototype,
@@ -17,9 +7,9 @@ import {
   Review,
   Test,
   Launch,
-} from '../json';
+} = require('./json');
 
-export const processes = [
+module.exports.processes = [
   {
     name: 'Idea',
     description: `The Idea is the first step in the creation of any product.
