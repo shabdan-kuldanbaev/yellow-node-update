@@ -10,6 +10,7 @@ import {
   ArticlesList,
   Animated,
 } from 'components';
+import { Post } from 'components/TemporaryBlog';
 import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -32,12 +33,19 @@ const Blog = ({
   return (
     <section className={styles.blog}>
       <SectionTitle title="Blog" subtitle="How we do what we do" />
+      {/*
+      TODO
       <ArticlesList
         articles={articles}
         isLoading={isLoading}
         asPath={asPath}
         currentPage={currentPage}
-      />
+      /> */}
+      <div className={styles.postsContainer}>
+        {
+          articles && articles.slice(0, 3).map((article) => <Post key={article.id} post={article} />)
+        }
+      </div>
       <Animated
         type={animatedType.isCustom}
         translateY="2.82352941em"
