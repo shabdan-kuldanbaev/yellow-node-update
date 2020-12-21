@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper, Animated } from 'components';
-import { animatedType } from 'utils/constants';
+import { LinkWrapper } from 'components';
 import { setOverflowForBody } from 'utils/helper';
 import CloseIcon from './images/close.svg';
 import styles from './styles.module.scss';

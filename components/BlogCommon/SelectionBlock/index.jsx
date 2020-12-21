@@ -14,10 +14,9 @@ import {
   ButtonMore,
   FullscreenSearch,
   FullscreenSubscribe,
-  Animated,
 } from 'components';
 import { setOverflowForBody } from 'utils/helper';
-import { tagsForBlog, animatedType } from 'utils/constants';
+import { tagsForBlog } from 'utils/constants';
 import Categories from './Categories';
 import SearchIcon from './images/search.svg';
 import styles from './styles.module.scss';

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Animated,
-  LinkWrapper,
   PreviewImage,
 } from 'components';
 import { animatedType } from 'utils/constants';

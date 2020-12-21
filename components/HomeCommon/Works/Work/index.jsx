@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {
   Animated,
-  LinkWrapper,
-  Video,
+  // TODO
+  // LinkWrapper,
+  // Video,
 } from 'components';
 import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';

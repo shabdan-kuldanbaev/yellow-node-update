@@ -35,7 +35,7 @@
     overflow: hidden;
     transition: width $default-transition-time ease;
 
-    &>a {
+    & > a {
       position: relative;
       @include flex(row, flex-start, center);
 

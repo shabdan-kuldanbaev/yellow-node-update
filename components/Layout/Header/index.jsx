@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { selectIsModelLoaded } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
 import {

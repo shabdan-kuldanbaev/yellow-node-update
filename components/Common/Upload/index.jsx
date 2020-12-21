@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { AnimatedInput } from 'components';
 import { Attach } from './Attach';

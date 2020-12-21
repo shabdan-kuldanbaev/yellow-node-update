@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect, useRef } from 'react';
+import React, { Fragment, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Controller, Scene } from 'react-scrollmagic';
+// TODO import { Controller, Scene } from 'react-scrollmagic';
 import {
   Intro,
   Blog,
@@ -14,7 +14,6 @@ import { PhotoGallery } from 'components';
 
 export const Home = ({ theme, introSection }) => {
   const gradientRef = useRef(null);
-  const revealRef = useRef(null);
 
   // TODO
   // useEffect(() => {

@@ -1,10 +1,7 @@
 import {
-  firstPhone,
-  secondPhone,
   thirdPhone,
   Fairy,
   PMIos,
-  DialogHouse,
   Ubichat,
 } from '../images';
 
