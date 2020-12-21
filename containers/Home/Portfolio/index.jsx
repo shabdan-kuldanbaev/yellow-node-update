@@ -4,7 +4,6 @@ import React, {
   useEffect,
   Fragment,
 } from 'react';
-import cn from 'classnames';
 import { Advantages } from 'containers';
 import {
   Works,
@@ -49,27 +48,23 @@ export const Portfolio = ({ gradientRef }) => {
       if (currentNumber !== 1) {
         setBlockNumber(0);
         changeStyle(1);
-
         setCurrentNumber(1);
       }
     } else if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
       if (currentNumber !== 2) {
         setBlockNumber(1);
         changeStyle(2);
-
         setCurrentNumber(2);
       }
     } else if (secondBottom < halfHeight) {
       if (currentNumber !== 3) {
         setBlockNumber(2);
         changeStyle(3);
-
         setCurrentNumber(3);
       }
     } else if (currentNumber !== 0) {
       setBlockNumber(1);
       changeStyle(0);
-
       setCurrentNumber(0);
     }
 

@@ -47,3 +47,4 @@ export const articleTags = {
 };
 
 export const NUMBER_OF_IMAGES_PER_LINE = 3;
+export const MAIN_DESCRIPTION = 'We build great web and mobile apps for startups and businesses. Reach out for a free consultation!';

@@ -7,22 +7,20 @@ export const Awards = ({ awards }) => {
   const [hostname, setHost] = useState('');
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (window) {
       setHost(window.location.hostname);
     }
-  }, [hostname]);
+  }, []);
 
   return (
     <div className={styles.awards}>
-      {
-        awards.length && awards.map((award) => (
-          <iframe
-            id={award.id}
-            src={award.src(hostname)}
-            title={award.title}
-          />
-        ))
-      }
+      { awards && awards.map(({ id, src, title }) => (
+        <iframe
+          id={id}
+          src={src(hostname)}
+          title={title}
+        />
+      ))}
     </div>
   );
 };

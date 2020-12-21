@@ -12,6 +12,7 @@ import Head from 'next/head';
 import Router from 'next/router';
 import configureStore from 'redux/store';
 import { Layout } from 'containers';
+import { MAIN_DESCRIPTION } from 'utils/constants';
 
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
@@ -42,13 +43,14 @@ const App = ({
     <Fragment>
       <Head>
         <title>Yellow</title>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet" />
-        {/* TODO <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,300,400,800&display=swap" rel="stylesheet" /> */}
         <link rel="shortcut icon" href="/yellow_logo.ico" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-        {/* TODO */}
-        {/* <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" /> */}
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+        <meta name="description" content={MAIN_DESCRIPTION} />
+        <meta property="og:title" content="Yellow" />
+        <meta property="og:description" content={MAIN_DESCRIPTION} />
+        <meta property="og:url" content="https://yellow.systems" />
       </Head>
       <Provider store={store}>
         <ParallaxProvider>

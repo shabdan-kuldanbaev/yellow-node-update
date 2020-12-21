@@ -417,9 +417,16 @@
         }
 
         img {
+<<<<<<< HEAD
           width: 110%;
           height: auto;
           max-width: 110%;
+=======
+          width: 80%;
+          height: auto;
+          max-width: 100%;
+          max-width: 100%;
+>>>>>>> 23f45a37b919c4f39c668f6c61ded2ebf4bb1906
           z-index: 10;
 
           @include phone {
@@ -463,6 +470,7 @@
 
       .secondShadow {
         @extend .imgWrapper;
+<<<<<<< HEAD
         transform: translateX(2.7vw);
 
         @include tablet {
@@ -472,6 +480,8 @@
         @include phone {
           transform: translateX(0);
         }
+=======
+>>>>>>> 23f45a37b919c4f39c668f6c61ded2ebf4bb1906
         
         img {
           @include phone {

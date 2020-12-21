@@ -5,6 +5,7 @@ import blog from './blog';
 import portfolio from './portfolio';
 import contact from './contact';
 import subscribe from './subscribe';
+import process from './process';
 
 export default combineReducers({
   home,
@@ -13,4 +14,5 @@ export default combineReducers({
   portfolio,
   contact,
   subscribe,
+  process,
 });

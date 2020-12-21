@@ -7,7 +7,7 @@ import {
   FeedbackForm,
   Carousel,
   Blog,
-} from '../oldData';
+} from '.';
 
 const CompanyContainer = () => (
   <section style={{ margin: '15vh 0', padding: '5vh' }}>

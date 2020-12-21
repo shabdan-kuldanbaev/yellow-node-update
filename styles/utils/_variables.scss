@@ -65,7 +65,7 @@ $blog-search-background-color: rgba(255, 255, 255, 0.98);
 $blog-selection-block-mobile-categories-border-color: rgba(0, 0, 0, 0.5);
 $blog-subscribe-input-box-shadow-color: rgba(0, 0, 0, 0.04);
 $blog-subscribe-input-box-shadow-focus-color: rgba(0, 0, 0, 0.1);
-$nearby-articles-block-box-shadow-color:rgba(0,0,0,.07); 
+$nearby-articles-block-box-shadow-color:rgba(0, 0, 0, .07);
 
 //time
 $default-transition-time: .5s;
@@ -114,11 +114,12 @@ $horizontal-mobile: 450px;
 
 //fonts
 $default-font: "Montserrat";
-// TODO $default-font: 'Helvetica', sans-serif;
-// TODO $default-font: 'Helvetica-Regular', sans-serif;
-// TODO $default-font: 'Open Sans', sans-serif;
 $main-title-font: 'Sonny Gothic Condensed Ultra Black',
 sans-serif;
+// TODO
+// $default-font: 'Helvetica', sans-serif;
+// $default-font: 'Helvetica-Regular', sans-serif;
+// $default-font: 'Open Sans', sans-serif;
 
 //insta
 $imgIndent: 7.5px;

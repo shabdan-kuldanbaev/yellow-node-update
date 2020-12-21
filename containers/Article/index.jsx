@@ -39,6 +39,7 @@ const ArticleContainer = ({
 }) => {
   const { query: { article } } = useRouter();
   const sortArticle = cloneDeep(currentArticle);
+  if (sortArticle) return null; // TODO
   const sortBody = (currentArticle && currentArticle.body && sortBy(currentArticle.body, 'orderNumber')) || [];
   if (sortBody) sortArticle.body = sortBody;
   const currentCategory = get(sortArticle, 'header.categoryTag', null);
