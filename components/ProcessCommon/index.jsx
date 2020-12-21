@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated, LinkWrapper } from 'components';
 import { animatedType } from 'utils/constants';
-import { processes } from './utils/data';
 import styles from './styles.module.scss';
 
 export const Process = ({ processes }) => (
@@ -63,7 +62,7 @@ export const Process = ({ processes }) => (
 );
 
 Process.defaultProps = {
-  processes,
+  processes: [],
 };
 
 Process.propTypes = {

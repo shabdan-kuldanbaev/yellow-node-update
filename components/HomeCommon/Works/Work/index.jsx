@@ -65,10 +65,12 @@ export const Work = ({
             { [styles.thirdShadow]: index === 2 },
           )}
         >
+          <img src={work.preview} alt={work.preview} />
+          {/* //TODO
           {work.videoName && (
             <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />
           )}
-          <img src={work.image} alt={work.image} />
+          <img src={work.image} alt={work.image} /> */}
         </div>
       </Animated>
     </div>

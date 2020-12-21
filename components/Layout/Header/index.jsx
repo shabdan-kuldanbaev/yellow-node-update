@@ -18,7 +18,6 @@ import styles from './styles.module.scss';
 const Header = ({
   theme,
   introSection,
-  isModelLoaded,
   isMobileMenuOpened,
   setMobileMenuState: setMobileMenu,
 }) => {
@@ -30,7 +29,6 @@ const Header = ({
 
   const headerClassName = cn({
     [styles.headerContainer]: true,
-    [styles.animate]: isHomePage ? isModelLoaded : true,
     [styles.additional]: isAdditional,
     [styles.notHome]: !isHomePage,
     [styles.deleteTextOfLogo]: isLogoTextHidden,
@@ -102,14 +100,12 @@ Header.defaultProps = {
 Header.propTypes = {
   theme: PropTypes.string,
   introSection: PropTypes.instanceOf(Object).isRequired,
-  isModelLoaded: PropTypes.bool.isRequired,
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,
 };
 
 export default connect(
   (state) => ({
-    isModelLoaded: selectIsModelLoaded(state),
     isMobileMenuOpened: selectIsMobileMenuOpened(state),
   }), { setMobileMenuState },
 )(Header);

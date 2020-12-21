@@ -1,13 +1,14 @@
-import {
-  ClutchReview,
-  GoodFirms,
-  TopReated,
-  ITFirms,
-} from '../images';
+// TODO import {
+//   ClutchReview,
+//   GoodFirms,
+//   TopReated,
+//   ITFirms,
+// } from '../images';
 
 export const awards = [
-  { image: ClutchReview },
-  { image: GoodFirms },
-  { image: TopReated },
-  { image: ITFirms },
+  {
+    id: 'iframe-0.824960673393011',
+    src: (hostname) => `https://widget.clutch.co/widgets/get/1?ref_domain=${hostname}&uid=381822&ref_path=/company`,
+    title: 'clutch-widget',
+  },
 ];

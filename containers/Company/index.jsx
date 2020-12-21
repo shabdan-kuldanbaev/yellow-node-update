@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {
   AboutUs,
   WhatMakesUsSpecial,
-  WeDevelopFor,
   ManagementTeam,
   PhotoGallery,
   Awards,
@@ -17,7 +16,6 @@ export const CompanyContainer = ({ introSection }) => (
     <section ref={introSection} className={styles.companyContainer}>
       <AboutUs />
       <WhatMakesUsSpecial />
-      <WeDevelopFor />
       <ManagementTeam />
     </section>
     <PhotoGallery />

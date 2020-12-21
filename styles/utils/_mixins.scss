@@ -9,10 +9,7 @@
   flex-wrap: $fw;
 }
 
-@mixin hidden-text(
-  $textOverflow: ellipsis,
-  $lineClamp: 1
-) {
+@mixin hidden-text($textOverflow: ellipsis, $lineClamp: 1) {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: $textOverflow;
@@ -132,6 +129,12 @@
   }
 }
 
+@mixin phone-height-600 {
+  @media (max-width: $max-mobile-size) and (min-height: 600px) {
+    @content;
+  }
+}
+
 @mixin phone-height-650 {
   @media (max-width: $max-mobile-size) and (min-height: 650px) {
     @content;
@@ -152,6 +155,12 @@
 
 @mixin phone-height-900 {
   @media (max-width: $max-mobile-size) and (min-height: 900px) {
+    @content;
+  }
+}
+
+@mixin iOSDevice {
+  @supports (-webkit-touch-callout: none) {
     @content;
   }
 }
@@ -269,26 +278,26 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Helvetica-Bold';
-  src: url('styles/fonts/Helvetica/HelveticaBold/HelveticaBold.ttf') format('truetype');
-  font-display: swap;
-}
+// TODO @font-face {
+//   font-family: 'Helvetica-Bold';
+//   src: url('styles/fonts/Helvetica/HelveticaBold/HelveticaBold.ttf') format('truetype');
+//   font-display: swap;
+// }
 
-@font-face {
-  font-family: 'Helvetica-Light';
-  src: url('styles/fonts/Helvetica/HelveticaLight/HelveticaLight.ttf') format('truetype');
-  font-display: swap;
-}
+// @font-face {
+//   font-family: 'Helvetica-Light';
+//   src: url('styles/fonts/Helvetica/HelveticaLight/HelveticaLight.ttf') format('truetype');
+//   font-display: swap;
+// }
 
-@font-face {
-  font-family: 'Helvetica-Medium';
-  src: url('styles/fonts/Helvetica/HelveticaMedium/HelveticaMedium.ttf') format('truetype');
-  font-display: swap;
-}
+// @font-face {
+//   font-family: 'Helvetica-Medium';
+//   src: url('styles/fonts/Helvetica/HelveticaMedium/HelveticaMedium.ttf') format('truetype');
+//   font-display: swap;
+// }
 
-@font-face {
-  font-family: 'Helvetica-Regular';
-  src: url('styles/fonts/Helvetica/HelveticaRegular/HelveticaRegular.ttf') format('truetype');
-  font-display: swap;
-}
+// @font-face {
+//   font-family: 'Helvetica-Regular';
+//   src: url('styles/fonts/Helvetica/HelveticaRegular/HelveticaRegular.ttf') format('truetype');
+//   font-display: swap;
+// }

@@ -11,7 +11,6 @@ import styles from './styles.module.scss';
 export const AddFooter = ({
   theme,
   setScroll,
-  isModelLoaded,
   isMobileMenuOpened,
   isFirstHomepageVisit,
 }) => {
@@ -43,7 +42,6 @@ export const AddFooter = ({
 
   return (
     <section className={cn(styles.addFooterContainer, styles[direction], {
-      [styles.animate]: isModelLoaded,
       [styles.notOnTop]: !isTopOfPage,
     })}
     >
@@ -61,7 +59,6 @@ AddFooter.defaultProps = {
 AddFooter.propTypes = {
   theme: PropTypes.string,
   setScroll: PropTypes.func.isRequired,
-  isModelLoaded: PropTypes.bool.isRequired,
   isMobileMenuOpened: PropTypes.bool.isRequired,
   isFirstHomepageVisit: PropTypes.bool.isRequired,
 };

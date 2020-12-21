@@ -6,32 +6,39 @@ import { locationData } from './utils/data';
 import styles from './styles.module.scss';
 
 export const Calendar = ({ locationData: locations }) => (
-  <section className={styles.feedbackFormWithTitle}>
-    <div>
-      <SectionTitle
-        title="Want to meet with us?"
-        styleTitle={styles.title}
-        styleSubtitle={styles.subtitle}
-        isFeedbackForm
-        subtitle="Let’s see each other!"
-        linkText="Schedule a meeting"
-      />
+  locations.length ? (
+    <section className={styles.feedbackFormWithTitle}>
       <div>
-        {locations && locations.map((location, index) => (
-          <Location
-            key={`location/${location.eventTitle}`}
-            beginningDate={location.beginningDate}
-            expirationDate={location.expirationDate}
-            location={location.location}
-            eventTitle={location.eventTitle}
-            eventColor={location.eventColor}
-            animationDelay={index}
-          />
-        ))}
+        <SectionTitle
+          title="Want to meet with us?"
+          styleTitle={styles.title}
+          styleSubtitle={styles.subtitle}
+          isFeedbackForm
+          subtitle="Let’s see each other!"
+          linkText="Schedule a meeting"
+        />
+        <div>
+          {locations && locations.map(({
+            eventTitle,
+            beginningDate,
+            expirationDate,
+            location,
+            eventColor,
+          }, index) => (
+            <Location
+              key={`location/${eventTitle}`}
+              beginningDate={beginningDate}
+              expirationDate={expirationDate}
+              location={location}
+              eventTitle={eventTitle}
+              eventColor={eventColor}
+              animationDelay={index}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  ) : null);
 
 Calendar.defaultProps = {
   locationData,
