@@ -68,10 +68,6 @@ export const Portfolio = ({ gradientRef }) => {
       changeStyle(0);
       setCurrentNumber(0);
     }
-
-    // if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) setBlockNumber(1);
-    // else if (secondBottom < halfHeight) setBlockNumber(2);
-    // else setBlockNumber(0);
   };
 
   useEffect(() => {
@@ -88,15 +84,8 @@ export const Portfolio = ({ gradientRef }) => {
   return (
     <Fragment>
       <div className={styles.gradient} ref={gradientRef}>
-        <Advantages
-          refs={refs}
-          className={styles[backgroundColor]}
-        />
-        <section
-          ref={portfolioRef}
-          // className={styles.portfolio}
-          className={cn(styles.portfolio, styles[backgroundColor])}
-        >
+        <Advantages refs={refs} className={styles[backgroundColor]} />
+        <section ref={portfolioRef} className={cn(styles.portfolio, styles[backgroundColor])}>
           <Works refs={refs} />
           <div className={styles.bottomOfPortfolio}>
             <SectionTitle

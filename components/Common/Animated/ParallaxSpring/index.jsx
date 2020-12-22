@@ -7,7 +7,7 @@ export const ParallaxWrapper = ({ children, className }) => {
   const containerRef = useRef(null);
   const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
 
-  const calc = (o) => `translateY(${o * 0.15}px)`;
+  const calc = (o) => `translateY(${o * 0.09}px)`;
 
   useEffect(() => {
     const handleOnScroll = () => {

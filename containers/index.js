@@ -31,5 +31,3 @@ export { CompanyContainer } from 'containers/Company';
 
 // ContactUs
 export { default as ContactUsContainer } from 'containers/ContactUs';
-
-// export { default as TemporaryBlog } from 'containers/TemporaryBlog'; // TODO remove it

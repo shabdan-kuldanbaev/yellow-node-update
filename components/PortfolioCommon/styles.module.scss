@@ -15,7 +15,6 @@
   }
 
   .workWrapper {
-    width: calc(100% + 2 * #{$side-indent});
     width: 100%;
     @include flex(row, space-between);
 

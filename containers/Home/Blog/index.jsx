@@ -7,7 +7,6 @@ import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
 import {
   SectionTitle,
   ButtonMore,
-  ArticlesList,
   Animated,
 } from 'components';
 import { Post } from 'components/TemporaryBlog';
@@ -42,9 +41,7 @@ const Blog = ({
         currentPage={currentPage}
       /> */}
       <div className={styles.postsContainer}>
-        {
-          articles && articles.slice(0, 3).map((article) => <Post key={article.id} post={article} />)
-        }
+        {articles && articles.slice(0, 3).map((article) => <Post key={article.id} post={article} />)}
       </div>
       <Animated
         type={animatedType.isCustom}

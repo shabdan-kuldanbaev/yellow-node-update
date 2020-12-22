@@ -26,13 +26,6 @@ const Header = ({
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
 
-  const headerClassName = cn({
-    [styles.headerContainer]: true,
-    [styles.additional]: isAdditional,
-    [styles.notHome]: !isHomePage,
-    [styles.deleteTextOfLogo]: isLogoTextHidden,
-  });
-
   const handleOnScroll = () => {
     if (introSection.current) {
       const intro = introSection.current.getBoundingClientRect();
@@ -65,7 +58,13 @@ const Header = ({
   }, [currentPage]);
 
   return (
-    <header className={headerClassName}>
+    <header className={cn({
+      [styles.headerContainer]: true,
+      [styles.additional]: isAdditional,
+      [styles.notHome]: !isHomePage,
+      [styles.deleteTextOfLogo]: isLogoTextHidden,
+    })}
+    >
       <div className={styles.logo}>
         <Logo theme={theme} />
       </div>

@@ -10,7 +10,6 @@ const handlers = {
   [actionTypes.SUBSCRIBE_PENDING]: (state) => ({
     ...state,
     isLoading: true,
-    status: false,
   }),
   [actionTypes.SUBSCRIBE_SUCCESS]: (state) => ({
     ...state,
@@ -22,9 +21,6 @@ const handlers = {
     isLoading: false,
     error: true,
   }),
-  [actionTypes.BLOG_SUBSCRIBE_START]: (state) => ({ ...state, status: false }),
-  [actionTypes.BLOG_SUBSCRIBE_SUCCESS]: (state) => ({ ...state, status: true }),
-  [actionTypes.BLOG_SUBSCRIBE_ERROR]: (state) => ({ ...state, error: true }),
   DEFAULT: (state) => state,
 };
 

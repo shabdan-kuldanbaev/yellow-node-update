@@ -1,28 +1,17 @@
 import React, { PureComponent, Fragment } from 'react';
 import { withRouter } from 'next/router';
 import { connect } from 'react-redux';
-// import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
-// import { Helmet } from 'react-safety-helmet';
 import Head from 'next/head';
-
-import store from 'redux/store';
-import {
-  loadFavoritePostsStart,
-  getArticle,
-} from 'redux/actions/blog';
+import { loadFavoritePostsStart, getArticle } from 'redux/actions/blog';
 import {
   selectIsLoading,
   selectArticles,
   selectArticle,
   selectFavoritePosts,
 } from 'redux/selectors/blog';
-// import { getFavoritePosts } from 'redux/reducers/blog/favoritePosts';
-// import { blogPostsSelector } from 'redux/reducers/blog';
-// import { getCurrentPost } from 'redux/reducers/blog/currentPost';
-
 import isEmpty from 'lodash/isEmpty';
-
+import { rootUrl } from 'utils/helper';
 import { Loader } from 'components';
 import Subscribe from '../Subscribe';
 import Navigation from '../Navigation';
@@ -35,8 +24,7 @@ import styles from './styles.module.scss';
 class Article extends PureComponent {
   static initialAction(id) {
     const postId = id.replace('/blog/', '');
-    // store.dispatch(loadPostsIfNeeded());
-    // store.dispatch(loadFavoritePostsIfNeeded());
+
     return getArticle(postId);
   }
 
@@ -56,15 +44,6 @@ class Article extends PureComponent {
     }
   }
 
-  componentWillUnmount() {
-    // ReactGA.event({
-    //   category: 'Scroll',
-    //   action: `${this.props.maxScrollPosition}%`,
-    //   label: `/blog/${this.props.post.slug}`,
-    //   nonInteraction: this.props.maxScrollPosition < 50,
-    // });
-  }
-
   createMarkup(data) {
     return { __html: data };
   }
@@ -82,6 +61,7 @@ class Article extends PureComponent {
     }
 
     const title = `${post.page_title || post.title} - Yellow`;
+
     return (
       <Fragment>
         <Head>
@@ -92,7 +72,7 @@ class Article extends PureComponent {
           <meta property="og:image" content={post.head_image_url.replace('//', 'https://')} />
           <meta property="og:image:width" content="1160" />
           <meta property="og:image:height" content="621" />
-          <meta property="og:url" content={`${process.env.WEB_URL}/blog/${post.slug}`} />
+          <meta property="og:url" content={`${rootUrl}/blog/${post.slug}`} />
           <meta property="og:type" content="article" />
           <meta property="article:published_time" content={post.published_at} />
           <meta property="article:modified_time" content={post.updated_at} />
@@ -105,36 +85,28 @@ class Article extends PureComponent {
               <img src={post.head_image_url} alt={post.title} />
             </div>
           </div>
-
           <div className={styles.articleContentContainer}>
             <div className={styles.articleAside}>
-              {
-                favoritePosts && <Favorites posts={favoritePosts.items} />
-              }
+              {favoritePosts && <Favorites posts={favoritePosts.items} />}
             </div>
-
             <div className={styles.articleContent}>
               <div dangerouslySetInnerHTML={this.createMarkup(post.body)} />
               <SocialShare
-                url={`${process.env.WEB_URL}/blog/${post.slug}`}
+                url={`${rootUrl}/blog/${post.slug}`}
                 title={post.title}
                 description={post.introduction}
               />
             </div>
-
             <div className={styles.articleAside}>
               <Navigation />
             </div>
           </div>
-
           <Subscribe
             title="Don't want to miss anything?"
             description="Get weekly updates on the newest design stories, case studies and tips right in your mailbox."
             insideArticle
           />
-
           <RelatedPosts posts={relatedPosts} />
-
         </article>
       </Fragment>
     );
@@ -145,6 +117,8 @@ Article.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object),
   favoritePosts: PropTypes.arrayOf(PropTypes.object),
   relatedPosts: PropTypes.arrayOf(PropTypes.object),
+  loadFavoritePostsStart: PropTypes.func,
+  getArticle: PropTypes.func,
 };
 
 Article.defaultProps = {

@@ -1,22 +1,12 @@
-import React, {
-  // Component,
-  Fragment,
-  useEffect,
-} from 'react';
-// import { Helmet } from 'react-safety-helmet';
+import React, { Fragment, useEffect } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
 import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
-// import { setPage } from 'redux/actions/app';
-// import { loadPostsIfNeeded } from 'redux/actions/blog';
-// import { blogPostsSelector } from 'redux/reducers/blog';
 import { loadArticles } from 'redux/actions/blog';
-
 import { Loader } from 'components';
-// import Subscribe from '../../components/TemporaryBlog/Subscribe';
-import { Post, Subscribe } from '../../components/TemporaryBlog';
+import { BLOG_DESCRIPTION } from 'utils/constants';
+import { Post, Subscribe } from 'components/TemporaryBlog';
 import styles from './styles.module.scss';
 
 const Blog = ({
@@ -24,27 +14,6 @@ const Blog = ({
   loadArticles: loadNewArticles,
   posts,
 }) => {
-  const description = 'Tech blog from the Yellow team about everything from engineering to design. Get a new post every 2 weeks!';
-  // static initialAction() {
-  //   return loadPostsIfNeeded();
-  // }
-
-  // componentDidMount() {
-  //   this.props.setPage('/blog');
-  //   this.props.loadPostsIfNeeded();
-  // }
-
-  // componentDidCatch() {
-  //   this.props.loadPostsIfNeeded();
-  // }
-
-  // render() {
-  //   const {
-  //     posts,
-  //     isLoading,
-  //   } = this.props;
-
-
   useEffect(() => {
     loadNewArticles();
   }, []);
@@ -54,8 +23,8 @@ const Blog = ({
       <Head>
         <title>Blog - Yellow</title>
         <meta property="og:title" content="Blog - Yellow" />
-        <meta name="description" content={description} />
-        <meta property="og:description" content={description} />
+        <meta name="description" content={BLOG_DESCRIPTION} />
+        <meta property="og:description" content={BLOG_DESCRIPTION} />
       </Head>
       <Subscribe />
       <section className={styles.blog}>
@@ -63,7 +32,6 @@ const Blog = ({
           {posts && posts.map((post) => <Post key={post.id} post={post} />)}
         </Loader>
       </section>
-      {/* {JSON.stringify(posts)} */}
     </Fragment>
   );
 };
@@ -71,6 +39,7 @@ const Blog = ({
 Blog.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   posts: PropTypes.arrayOf(PropTypes.object),
+  loadArticles: PropTypes.func.isRequired,
 };
 
 Blog.defaultProps = {
@@ -80,7 +49,6 @@ Blog.defaultProps = {
 const mapStateToProps = (state, router) => ({
   posts: selectArticles(state),
   isLoading: selectIsLoading(state),
-  // pathname: router.location.pathname,
 });
 
 export default connect(mapStateToProps, {

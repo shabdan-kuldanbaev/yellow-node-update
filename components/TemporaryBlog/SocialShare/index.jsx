@@ -5,60 +5,40 @@ import {
   LinkedinShareButton,
   TwitterShareButton,
 } from 'react-share';
-// TODO import ReactGA from 'react-ga';
 import styles from './styles.module.scss';
 
 class SocialShare extends PureComponent {
-  trackSocialShareClick = (event) => {
-    const social = event.target.getAttribute('data-socialname');
-    // ReactGA.event({
-    //   category: 'Click social go to share',
-    //   action: social,
-    //   label: window.location.pathname,
-    // });
+  trackSocialShareClick = ({ target: { getAttribute } }) => {
+    const social = getAttribute('data-socialname');
   }
 
   render() {
     const { url, title, description } = this.props;
     return (
       <div className={styles.iconContainer}>
-        <div
-          onClick={this.trackSocialShareClick}
-        >
+        <div onClick={this.trackSocialShareClick}>
           <FacebookShareButton
             url={url}
             quote={title}
             className={`${styles.icon} ${styles.iconFacebook}`}
-            additionalProps={{
-              'data-socialname': 'Facebook',
-            }}
+            additionalProps={{ 'data-socialname': 'Facebook' }}
           />
         </div>
-
-        <div
-          onClick={this.trackSocialShareClick}
-        >
-
+        <div onClick={this.trackSocialShareClick}>
           <LinkedinShareButton
             url={url}
             title={title}
             description={description}
             className={`${styles.icon} ${styles.iconLinkedin}`}
-            additionalProps={{
-              'data-socialname': 'LinkedIn',
-            }}
+            additionalProps={{ 'data-socialname': 'LinkedIn' }}
           />
         </div>
-        <div
-          onClick={this.trackSocialShareClick}
-        >
+        <div onClick={this.trackSocialShareClick}>
           <TwitterShareButton
             url={url}
             title={title}
             className={`${styles.icon} ${styles.iconTwitter}`}
-            additionalProps={{
-              'data-socialname': 'Twitter',
-            }}
+            additionalProps={{ 'data-socialname': 'Twitter' }}
           />
         </div>
       </div>

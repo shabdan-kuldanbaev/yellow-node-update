@@ -66,21 +66,19 @@ export default class Navigation extends React.PureComponent {
       ? (
         <div className={`${styles.Navigation} ${className}`}>
           <div className={styles.Title}>Sections</div>
-          {
-            subtitles.map((subtitle, index) => (
-              <Fragment>
-                <a
-                  data-index={index}
-                  key={subtitle.id}
-                  href={`#${subtitle.id}`}
-                  onClick={this.onClick}
-                >
-                  {subtitle.name}
-                </a>
-                <br />
-              </Fragment>
-            ))
-          }
+          {subtitles.map(({ id, name }, index) => (
+            <Fragment>
+              <a
+                data-index={index}
+                key={id}
+                href={`#${id}`}
+                onClick={this.onClick}
+              >
+                {name}
+              </a>
+              <br />
+            </Fragment>
+          ))}
         </div>
       )
       : null;

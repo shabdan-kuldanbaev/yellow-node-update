@@ -28,9 +28,7 @@ export default function withScroll(Component) {
     }
 
     setMaxScroll = () => {
-      const {
-        maxScrollPosition,
-      } = this.state;
+      const { maxScrollPosition } = this.state;
 
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > maxScrollPosition) {

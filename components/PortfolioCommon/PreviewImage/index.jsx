@@ -1,10 +1,8 @@
-import React, {
-  useRef,
-  useState,
-} from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Animated } from 'components';
+import { previewImageBackground } from 'utils/helper';
 import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -35,7 +33,7 @@ export const PreviewImage = ({ image }) => {
         transformDuration={0.8}
         transitionDelay={0}
       >
-        <div ref={photoRef} style={image ? { backgroundImage: `url(${image})` } : { backgroundColor: '#cbcbcb' }} />
+        <div ref={photoRef} style={image ? { backgroundImage: `url(${image})` } : { backgroundColor: previewImageBackground }} />
       </Animated>
     </div>
   );
