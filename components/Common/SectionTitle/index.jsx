@@ -12,39 +12,36 @@ export const SectionTitle = ({
   styleSubtitle,
   isFeedbackForm,
   linkText,
-}) => (
-  <div className={styles.titleContainer}>
-    <Animated
-      type={animatedType.isCustom}
-      translateY="2.82352941em"
-      opasityDuration={1}
-      transformDuration={1}
-      transitionDelay={250}
-    >
-      <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
-    </Animated>
-    {subtitle && (
-      <Animated
-        type={animatedType.isCustom}
-        translateY="2.82352941em"
-        opasityDuration={1}
-        transformDuration={1}
-        transitionDelay={300}
-      >
-        {!isFeedbackForm
-          ? <span className={cn({ [styleSubtitle]: styleSubtitle })}>{subtitle}</span>
-          : (
-            <p className={cn({ [styleSubtitle]: styleSubtitle })}>
-              {subtitle}
-              <span>
-                <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>{linkText}</LinkWrapper>
-              </span>
-            </p>
-          )}
+}) => {
+  const animatedProps = {
+    type: animatedType.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
+
+  return (
+    <div className={styles.titleContainer}>
+      <Animated {...animatedProps} transitionDelay={250}>
+        <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
       </Animated>
-    )}
-  </div>
-);
+      {subtitle && (
+        <Animated {...animatedProps} transitionDelay={300}>
+          {!isFeedbackForm
+            ? <span className={cn({ [styleSubtitle]: styleSubtitle })}>{subtitle}</span>
+            : (
+              <p className={cn({ [styleSubtitle]: styleSubtitle })}>
+                {subtitle}
+                <span>
+                  <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>{linkText}</LinkWrapper>
+                </span>
+              </p>
+            )}
+        </Animated>
+      )}
+    </div>
+  );
+};
 
 SectionTitle.defaultProps = {
   styleTitle: null,

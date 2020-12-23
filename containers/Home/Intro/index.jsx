@@ -20,6 +20,7 @@ import {
   Partners,
   Duck,
 } from 'components';
+import styles from './styles.module.scss';
 
 const Intro = ({
   theme,
@@ -42,7 +43,7 @@ const Intro = ({
   }, []);
 
   return (
-    <section ref={introSection}>
+    <section ref={introSection} className={styles.intro}>
       <Duck
         handleOnLoaded={setLoaded}
         isModelLoaded={isModelLoaded}

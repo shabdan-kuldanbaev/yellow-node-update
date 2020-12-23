@@ -1,19 +1,17 @@
 import {
-  firstPhone,
-  secondPhone,
   thirdPhone,
   Fairy,
   PMIos,
-  DialogHouse,
+  Ubichat,
 } from '../images';
 
 export const works = [
   {
-    name: 'DialogKit',
-    description: 'A powerful framework that enables you to build your own chat as easy as 1-2-3',
+    name: 'Ubi.Chat',
+    description: 'SMS Marketing Platform For Companies of All Sizes. Create and launch your SMS Marketing campaign in 5 minutes. Keep in touch with customers and skyrocket your ROI',
     image: thirdPhone,
     videoName: 'Fairy_Tale_Site5',
-    preview: DialogHouse,
+    preview: Ubichat,
   },
   {
     name: 'Fairy',

@@ -2,6 +2,7 @@ import {
   phoneResolution,
   horizontalMobile,
   bigTabletResolution,
+  silver,
 } from 'styles/utils/_variables.scss';
 
 export const themes = {
@@ -28,6 +29,7 @@ export const validateEmail = (email) => {
 export const mobileResolution = toInt(phoneResolution);
 export const horizontalPhone = toInt(horizontalMobile);
 export const tabletResolution = toInt(bigTabletResolution);
+export const previewImageBackground = toString(silver);
 
 export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'scroll';

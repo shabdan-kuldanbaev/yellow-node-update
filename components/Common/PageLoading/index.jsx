@@ -37,7 +37,11 @@ export const PageLoading = ({
     } else setOverflowForBody(true);
   }, [isPageLoaded, isLoading]);
 
-  return <div ref={loadRef} className={styles.pageLoading}>Yellow</div>;
+  return (
+    <div ref={loadRef} className={styles.pageLoading}>
+      <p>Yellow</p>
+    </div>
+  );
 };
 
 PageLoading.propTypes = {

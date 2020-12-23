@@ -1,6 +1,9 @@
 @import 'styles/utils/mixins';
 
 .gradient {
+  z-index: 2;
+  top: 0;
+  width: 100%;
   background: linear-gradient(to bottom,
       $turbo-100 20%,
       $java 30%,

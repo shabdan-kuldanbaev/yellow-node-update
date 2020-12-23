@@ -1,3 +1,4 @@
-import { BlogContainer } from 'containers';
+// TODO import { BlogContainer } from 'containers';
+import TemporaryBlog from 'containers/TemporaryBlog';
 
-export default BlogContainer;
+export default TemporaryBlog;

@@ -1,5 +1,5 @@
 import {
-  put, call, takeLatest, all,
+  put, call, takeLatest,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
@@ -20,7 +20,5 @@ function* subscribe({ payload }) {
 }
 
 export function* subscribeWatcher() {
-  yield all([
-    yield takeLatest(actionTypes.SUBSCRIBE_PENDING, subscribe),
-  ]);
+  yield takeLatest(actionTypes.SUBSCRIBE_PENDING, subscribe);
 }

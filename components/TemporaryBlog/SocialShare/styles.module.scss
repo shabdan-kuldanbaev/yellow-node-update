@@ -1,0 +1,65 @@
+.iconContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin: 70px 0 115px;
+
+  @media (max-width: 1250px) {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 60px 0 100px;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-size: 45px 45px;
+    margin: 0 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.2s ease-out;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.07);
+    }
+
+    &Twitter {
+      background-image: url("./images/twitter.svg");
+    }
+
+    &Facebook {
+      background-image: url("./images/facebook.svg");
+    }
+
+    &Linkedin {
+      background-image: url("./images/linkedin.svg");
+    }
+
+    &Telegram {
+      background-image: url("./images/telegram.svg");
+    }
+
+    &Instagram {
+      background-image: url("./images/instagram.svg");
+    }
+
+    &Medium {
+      background-image: url("./images/medium.svg");
+    }
+
+    @media (max-width: 768px) {
+      display: inline-block;
+      float: none;
+      margin: 0 15px;
+      width: 40px;
+      height: 40px;
+      background-size: 40px 40px;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import React, {
   useEffect,
   Fragment,
 } from 'react';
+import cn from 'classnames';
 import { Advantages } from 'containers';
 import {
   Works,
@@ -15,7 +16,7 @@ import { animatedType } from 'utils/constants';
 import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Portfolio = () => {
+export const Portfolio = ({ gradientRef }) => {
   const [backgroundColor, setBackgroundColor] = useState('firstBlock');
   const [blockNumber, setBlockNumber] = useState(0);
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
@@ -67,10 +68,6 @@ export const Portfolio = () => {
       changeStyle(0);
       setCurrentNumber(0);
     }
-
-    // TODO if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) setBlockNumber(1);
-    // else if (secondBottom < halfHeight) setBlockNumber(2);
-    // else setBlockNumber(0);
   };
 
   useEffect(() => {
@@ -86,16 +83,9 @@ export const Portfolio = () => {
 
   return (
     <Fragment>
-      <div className={styles.gradient}>
-        <Advantages
-          refs={refs}
-          // TODO className={styles[backgroundColor]}
-        />
-        <section
-          ref={portfolioRef}
-          className={styles.portfolio}
-          // TODO className={cn(styles.portfolio, styles[backgroundColor])}
-        >
+      <div className={styles.gradient} ref={gradientRef}>
+        <Advantages refs={refs} className={styles[backgroundColor]} />
+        <section ref={portfolioRef} className={cn(styles.portfolio, styles[backgroundColor])}>
           <Works refs={refs} />
           <div className={styles.bottomOfPortfolio}>
             <SectionTitle

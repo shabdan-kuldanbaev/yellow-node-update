@@ -69,6 +69,13 @@ const FeedbackForm = ({
     onChange: handleOnSliderChange,
   };
 
+  const animatedProps = {
+    type: animatedType.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
+
   useEffect(() => {
     const isButtonDisabled = !fullName || !email.value || !projectDescription || !isPolicyAccepted;
     if (isButtonDisabled) setIsDisabled(true);
@@ -78,13 +85,7 @@ const FeedbackForm = ({
   return (
     <form className={styles.form}>
       <div className={styles.inputs}>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={500}
-        >
+        <Animated {...animatedProps} transitionDelay={500}>
           <AnimatedInput
             value={fullName}
             handleOnChange={handleOnNameChange}
@@ -93,13 +94,7 @@ const FeedbackForm = ({
             isWithoutLabel
           />
         </Animated>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={550}
-        >
+        <Animated {...animatedProps} transitionDelay={550}>
           <AnimatedInput
             value={email.value}
             handleOnChange={handleOnEmailChange}
@@ -112,13 +107,7 @@ const FeedbackForm = ({
         </Animated>
       </div>
       {isChooseBudget && (
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={600}
-        >
+        <Animated {...animatedProps} transitionDelay={600}>
           <div className={cn(styles.budget, { [styles.initialBudget]: projectBudget.length === 1 })}>
             {projectBudget.length > 1
               ? (
@@ -133,13 +122,7 @@ const FeedbackForm = ({
           </div>
         </Animated>
       )}
-      <Animated
-        type={animatedType.isCustom}
-        translateY="2.82352941em"
-        opasityDuration={1}
-        transformDuration={1}
-        transitionDelay={650}
-      >
+      <Animated {...animatedProps} transitionDelay={650}>
         <Upload
           projectDescription={projectDescription}
           selectedFiles={selectedFiles}
@@ -150,13 +133,7 @@ const FeedbackForm = ({
         />
       </Animated>
       <div className={styles.checkboxContainer}>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={700}
-        >
+        <Animated {...animatedProps} transitionDelay={700}>
           <CheckboxContainer
             text="I accept your"
             isThereLink
@@ -164,13 +141,7 @@ const FeedbackForm = ({
             handleOnChange={handleOnIsPolicyAcceptedChange}
           />
         </Animated>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={750}
-        >
+        <Animated {...animatedProps} transitionDelay={750}>
           <CheckboxContainer
             text="Send me NDA"
             isThereLink={false}
@@ -178,13 +149,7 @@ const FeedbackForm = ({
           />
         </Animated>
       </div>
-      <Animated
-        type={animatedType.isCustom}
-        translateY="2.82352941em"
-        opasityDuration={1}
-        transformDuration={1}
-        transitionDelay={800}
-      >
+      <Animated {...animatedProps} transitionDelay={800}>
         <ButtonMore
           href="/"
           title="SEND"

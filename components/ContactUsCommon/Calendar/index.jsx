@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { SectionTitle } from 'components';
 import { Location } from './Location';
-import { locationData } from './utils/data';
+// TODO import { locationData } from './utils/data';
 import styles from './styles.module.scss';
 
 export const Calendar = ({ locationData: locations }) => (
@@ -41,7 +41,7 @@ export const Calendar = ({ locationData: locations }) => (
   ) : null);
 
 Calendar.defaultProps = {
-  locationData,
+  locationData: [],
 };
 
 Calendar.propTypes = {

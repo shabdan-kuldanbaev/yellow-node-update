@@ -57,6 +57,7 @@ $tundora: #454545;
 $saffron-1: #f4ad3d;
 $violet: #140A2F;
 $cod-gray-1: #161616;
+$silver-1: #CBCBCB;
 
 //transparency color
 $pagination: rgba(35, 37, 44, 0.25);
@@ -144,4 +145,5 @@ $max-article-margin: 24px;
   horizontalMobile: $horizontal-mobile;
   bigTabletResolution: $max-tablet-size;
   footerColor: $woodsmoke;
+  silver: $silver-1;
 }

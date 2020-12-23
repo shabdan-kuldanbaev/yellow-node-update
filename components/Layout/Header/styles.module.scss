@@ -35,7 +35,7 @@
     overflow: hidden;
     transition: width $default-transition-time ease;
 
-    &>a {
+    & > a {
       position: relative;
       @include flex(row, flex-start, center);
 
@@ -88,9 +88,8 @@
     will-change: transform;
     padding: 10px 17px;
     background-color: $header-additional-color;
-    border-bottom: 0.5px solid $mercury;
     transition: transform $default-transition-time,
-      border-bottom $default-transition-time,
+      background-color $default-transition-time,
       padding $default-transition-time * 1.5;
 
     @include phone {
