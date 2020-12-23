@@ -4,6 +4,7 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
+import ReactGA from 'react-ga';
 import withReduxSaga from 'next-redux-saga';
 import withRedux from 'next-redux-wrapper';
 import { Provider } from 'react-redux';
@@ -25,6 +26,10 @@ const App = ({
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
   const [isPageLoaded, setPageLoad] = useState(true);
+
+  useEffect(() => {
+    ReactGA.initialize('UA-185992498-1');
+  }, []);
 
   useEffect(() => {
     const handleRouteChangeStart = () => setPageLoad(false);

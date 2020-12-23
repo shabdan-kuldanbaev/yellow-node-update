@@ -3,6 +3,7 @@ import {
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
+import ReactGA from 'react-ga';
 import { API } from 'utils/api';
 import { actionTypes } from '../actions/actionTypes';
 
@@ -14,6 +15,10 @@ function* sendEmail({ payload }) {
     const response = yield call(API.sendEmail, payload);
 
     yield put({ type: actionTypes.SEND_EMAIL_SUCCESS, payload: response });
+    ReactGA.event({
+      category: 'Contact form',
+      action: 'Send',
+    });
   } catch (err) {
     yield put({ type: actionTypes.SEND_EMAIL_FAILED, payload: err });
   }

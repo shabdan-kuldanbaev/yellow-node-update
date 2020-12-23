@@ -13,6 +13,8 @@ export const LinkWrapper = ({
   imageText,
   className,
   children,
+  additionalProps,
+  handleOnClick,
 }) => (
   <Link prefetch={false} href={dynamicRouting.length > 0 ? dynamicRouting : path} as={path}>
     <a
@@ -20,10 +22,13 @@ export const LinkWrapper = ({
       href={path}
       target={isLocalLink ? '' : '_blank'}
       rel={isLocalLink ? '' : 'noopener noreferrer'}
+      onClick={handleOnClick}
+      {...additionalProps}
     >
       {!isImage ? children : (
         <div>
           <img
+            data-target="test"
             className={cn({ [className]: isImage })}
             src={imageUrl}
             alt={imageText}
@@ -43,6 +48,8 @@ LinkWrapper.defaultProps = {
   className: '',
   dynamicRouting: '',
   children: null,
+  additionalProps: null,
+  handleOnClick: null,
 };
 
 LinkWrapper.propTypes = {
@@ -54,4 +61,6 @@ LinkWrapper.propTypes = {
   imageUrl: PropTypes.string,
   imageText: PropTypes.string,
   dynamicRouting: PropTypes.string,
+  additionalProps: PropTypes.instanceOf(Object),
+  handleOnClick: PropTypes.func,
 };

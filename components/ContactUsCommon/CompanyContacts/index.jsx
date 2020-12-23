@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import ReactGA from 'react-ga';
 import { LinkWrapper, Animated } from 'components';
 import { animatedType } from 'utils/constants';
 import TestPhoto from './images/bitmap@3x.jpg';
@@ -33,6 +34,15 @@ export const CompanyContacts = ({ photo }) => {
 
     return () => document.removeEventListener('scroll', handleOnScroll);
   }, []);
+
+  const trackContacts = ({ target }) => {
+    const type = target.getAttribute('data-target');
+    ReactGA.event({
+      category: type,
+      action: 'Click',
+      label: type,
+    });
+  };
 
   return (
     <section className={styles.companyContacts}>
@@ -83,11 +93,21 @@ export const CompanyContacts = ({ photo }) => {
           transitionDelay={250}
         >
           <div className={styles.phoneNumber}>
-            <LinkWrapper path="tel:+1 415 670 9070" isLocalLink>
+            <LinkWrapper
+              path="tel:+1 415 670 9070"
+              isLocalLink
+              additionalProps={{ 'data-target': 'Phone' }}
+              handleOnClick={trackContacts}
+            >
               +1 415 670 9070
             </LinkWrapper>
-            <LinkWrapper path="tel:+375 44 584 02 08" isLocalLink>
-              +375 44 584 02 08
+            <LinkWrapper
+              path="tel:+375 29 311 52 49"
+              isLocalLink
+              additionalProps={{ 'data-target': 'Phone' }}
+              handleOnClick={trackContacts}
+            >
+              +375 29 311 52 49
             </LinkWrapper>
           </div>
         </Animated>
@@ -108,7 +128,12 @@ export const CompanyContacts = ({ photo }) => {
           transitionDelay={350}
         >
           <div className={styles.email}>
-            <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>
+            <LinkWrapper
+              path="mailto:hi@yellow.systems"
+              isLocalLink
+              additionalProps={{ 'data-target': 'Email' }}
+              handleOnClick={trackContacts}
+            >
               hi@yellow.systems
             </LinkWrapper>
           </div>

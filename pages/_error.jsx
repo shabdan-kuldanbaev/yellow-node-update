@@ -1,16 +1,26 @@
+import React, { Fragment } from 'react';
+import Head from 'next/head';
+
+
 const Error = ({ statusCode }) => (
   statusCode
     ? statusCode === 404 && (
-      <div
-        style={{
-          height: '65vh',
-          paddingTop: '300px',
-          textAlign: 'center',
-          backgroundColor: 'white',
-        }}
-      >
-        404
-      </div>
+      <Fragment>
+        <Head>
+          <title>404 - Yellow</title>
+          <meta name="description" content="Whoops! Looks like something is wrong. The page you were looking for doesnt exist" />
+        </Head>
+        <div
+          style={{
+            height: '65vh',
+            paddingTop: '300px',
+            textAlign: 'center',
+            backgroundColor: 'white',
+          }}
+        >
+          404
+        </div>
+      </Fragment>
     )
     : 'An error occurred on client'
 );
