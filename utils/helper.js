@@ -54,7 +54,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: '/portfolio', updatedAt },
   { path: '/process', updatedAt },
   { path: '/company', updatedAt },
-  { path: '/contact-us', updatedAt },
+  { path: '/contact', updatedAt },
   { path: '/blog', updatedAt },
 ];
 
