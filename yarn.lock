@@ -6721,6 +6721,11 @@ react-error-overlay@5.1.6:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha512-X1Y+0jR47ImDVr54Ab6V9eGk0Hnu7fVWGeHQSOXHf/C2pF9c6uy3gef8QUeuUiWlNb0i08InPSE5a/KJzNzw1Q==
 
+react-ga@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-3.3.0.tgz#c91f407198adcb3b49e2bc5c12b3fe460039b3ca"
+  integrity sha512-o8RScHj6Lb8cwy3GMrVH6NJvL+y0zpJvKtc0+wmH7Bt23rszJmnqEQxRbyrqUzk9DTJIHoP42bfO5rswC9SWBQ==
+
 react-id-swiper@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-id-swiper/-/react-id-swiper-4.0.0.tgz#eed938c5a4bf464a5cd7316a1bf6778581f47f2f"
@@ -6810,11 +6815,6 @@ react-scroll-parallax@^2.3.2:
   integrity sha512-Ol9l1vboFAtQf9dyUiSefSipqbNRuFCkS0pSo74LkEKY1QId6nlPPc4PuhbHrvejcdUqn3E6eY+06LYsKUwFgQ==
   dependencies:
     prop-types "^15.5.10"
-
-react-scrollmagic@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/react-scrollmagic/-/react-scrollmagic-2.2.0.tgz#6e5ca428411221605ce4edb667819394c6a4e6c0"
-  integrity sha512-2DlzgJVuFohka0HG71haN4fugXoNUIZ4xT0mb4k03Xx1CyGXqPMxKekFEGhVjYyqpQmibtdTOfh49ZsHzuNVtw==
 
 react-share@^4.3.1:
   version "4.3.1"

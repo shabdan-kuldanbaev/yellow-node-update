@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ReactGA from 'react-ga';
 import {
@@ -10,16 +10,18 @@ import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
 const Portfolio = ({ works, maxScrollPosition }) => {
-  useEffect(() => {
-    console.log();
+  const maxPosition = useRef(0);
 
-    return () => ReactGA.event({
-      category: 'Scroll',
-      action: `${maxScrollPosition}%`,
-      label: '/portfolio',
-      nonInteraction: maxScrollPosition < 50,
-    });
-  }, []);
+  useEffect(() => () => ReactGA.event({
+    category: 'Scroll',
+    action: `${maxPosition.current}%`,
+    label: '/portfolio',
+    nonInteraction: maxPosition.current < 50,
+  }), []);
+
+  useEffect(() => {
+    maxPosition.current = maxScrollPosition;
+  }, [maxScrollPosition]);
 
   const switchRender = ({ field }, work) => {
     switch (field) {

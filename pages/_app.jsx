@@ -28,7 +28,7 @@ const App = ({
   const [isPageLoaded, setPageLoad] = useState(true);
 
   useEffect(() => {
-    ReactGA.initialize('UA-185992498-1');
+    ReactGA.initialize(process.env.GOOGLE_TRACK_ID);
   }, []);
 
   useEffect(() => {

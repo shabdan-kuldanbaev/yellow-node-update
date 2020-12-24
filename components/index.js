@@ -55,7 +55,7 @@ export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';
 export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
 
 // PortfolioCommon
-export { default as Portfolio } from 'components/PortfolioCommon/index';
+export { default as Portfolio } from 'components/PortfolioCommon';
 export { PreviewImage } from 'components/PortfolioCommon/PreviewImage';
 
 // ProjectCommon

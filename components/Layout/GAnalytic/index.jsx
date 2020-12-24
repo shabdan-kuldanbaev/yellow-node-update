@@ -21,13 +21,14 @@ class GAnalytic extends PureComponent {
   }
 
   logPage() {
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname);
-    ym('hit', window.location.pathname);
+    const { pathname } = window.location;
+    ReactGA.set({ page: pathname });
+    ReactGA.pageview(pathname);
+    ym('hit', pathname);
   }
 
   render() {
-    return <YMInitializer accounts={[0]} />;
+    return <YMInitializer accounts={[process.env.YANDEX_TRACK_ID]} />;
   }
 }
 
