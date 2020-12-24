@@ -1,9 +1,22 @@
-import {
+// TODO
+// import {
+//   thirdPhone,
+//   Fairy,
+//   PMIos,
+//   Ubichat,
+// } from '../images';
+
+const [
   thirdPhone,
   Fairy,
   PMIos,
   Ubichat,
-} from '../images';
+] = [
+  '/images/home/works/3_with_shadow.png',
+  '/images/home/works/fairy_iphone.png',
+  '/images/home/works/7pm_iphone.png',
+  '/images/home/works/ubichat.png',
+];
 
 export const works = [
   {

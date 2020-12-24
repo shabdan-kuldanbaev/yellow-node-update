@@ -5,8 +5,9 @@ import { articleData } from 'containers/Article/utils/data';
 import { priority } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 
-export const axiosTemporaryClient = axios.create({ // TODO remove it
-  baseURL: process.env.API_URL,
+// TODO remove it
+export const axiosTemporaryClient = axios.create({
+  baseURL: `https://cors-anywhere.herokuapp.com/${process.env.API_URL}`,
 });
 
 const apiClient = axios.create({
@@ -81,6 +82,6 @@ export const API = {
 
     return axios.post('/send', formData);
   },
-  subscribe: ({ email }) => axios.post('/subscribe', { email }),
+  subscribe: (email) => axios.post('/subscribe', { email }),
   getJSON: () => axios.get('/json'),
 };

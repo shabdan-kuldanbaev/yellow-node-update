@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
+// TODO import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { loadArticles } from 'redux/actions/blog';
 import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
@@ -18,16 +18,18 @@ const Blog = ({
   articles,
   loadArticles: loadPartOfArticles,
 }) => {
-  const { asPath } = useRouter();
+  // TODO const { asPath } = useRouter();
   const currentPage = 1;
 
   useEffect(() => {
-    loadPartOfArticles({
-      currentPage,
-      currentLimit: 5,
-      category: 'latest',
-    });
-  }, []);
+    if (!articles.length) {
+      loadPartOfArticles({
+        currentPage,
+        currentLimit: 5,
+        category: 'latest',
+      });
+    }
+  }, [articles]);
 
   return (
     <section className={styles.blog}>
@@ -51,7 +53,8 @@ const Blog = ({
         transitionDelay={200}
       >
         <ButtonMore
-          href="/blog?category=latest&page=1"
+          // TODO href="/blog?category=latest&page=1"
+          href="/blog"
           title="READ MORE STORIES"
           buttonStyle={styles.blogButton}
         />
