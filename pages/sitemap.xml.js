@@ -1,7 +1,12 @@
 import * as builder from 'xmlbuilder';
 import dayjs from 'dayjs';
-import { axiosTemporaryClient } from 'utils/api'; // TODO remove it
 import { getMainLinksForSitemap, rootUrl } from 'utils/helper';
+import axios from 'axios'; // TODO remove it
+
+// TODO remove it
+const axiosTemporaryClient = axios.create({
+  baseURL: process.env.API_URL,
+});
 
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
 const buildUrlObject = (data) => data.map((item) => ({

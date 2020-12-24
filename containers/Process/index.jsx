@@ -18,8 +18,10 @@ const ProcessContainer = ({
   processes: { json, isLoading },
 }) => {
   useEffect(() => {
-    getProcessJSON();
-  }, []);
+    if (!json.length) {
+      getProcessJSON();
+    }
+  }, [json]);
 
   return (
     <Fragment>

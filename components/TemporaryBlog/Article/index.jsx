@@ -7,7 +7,6 @@ import ReactGA from 'react-ga';
 import { loadFavoritePostsStart, getArticle } from 'redux/actions/blog';
 import {
   selectIsLoading,
-  selectArticles,
   selectArticle,
   selectFavoritePosts,
 } from 'redux/selectors/blog';
@@ -60,15 +59,13 @@ class Article extends PureComponent {
   render() {
     const {
       post,
-      posts,
       favoritePosts,
       isLoading,
-      relatedPosts,
+      introSection,
     } = this.props;
     if (isLoading || isEmpty(post)) {
       return <Loader />;
     }
-
     const title = `${post.page_title || post.title} - Yellow`;
 
     return (
@@ -86,7 +83,7 @@ class Article extends PureComponent {
           <meta property="article:published_time" content={post.published_at} />
           <meta property="article:modified_time" content={post.updated_at} />
         </Head>
-        <article className={styles.article}>
+        <article ref={introSection} className={styles.article}>
           <div className={styles.articleHeader}>
             <h1>{post.title}</h1>
             <p className={styles.introduction}>{post.introduction}</p>
@@ -115,7 +112,7 @@ class Article extends PureComponent {
             description="Get weekly updates on the newest design stories, case studies and tips right in your mailbox."
             insideArticle
           />
-          <RelatedPosts posts={relatedPosts} />
+          <RelatedPosts currentPostId={post.id} />
         </article>
       </Fragment>
     );
@@ -123,38 +120,23 @@ class Article extends PureComponent {
 }
 
 Article.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.object),
   favoritePosts: PropTypes.arrayOf(PropTypes.object),
-  relatedPosts: PropTypes.arrayOf(PropTypes.object),
-  loadFavoritePostsStart: PropTypes.func,
-  getArticle: PropTypes.func,
+  loadFavoritePostsStart: PropTypes.func.isRequired,
+  getArticle: PropTypes.func.isRequired,
+  introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
 Article.defaultProps = {
-  posts: [],
   favoritePosts: [],
-  relatedPosts: [],
 };
 
-const mapStateToProps = (state) => {
-  const currentPost = selectArticle(state);
-  const posts = selectArticles(state);
-  let relatedPosts = null;
-
-  if (posts && currentPost) {
-    relatedPosts = posts.filter((art) => art.id !== currentPost.id).sort(() => 0.5 - Math.random()).slice(0, 3);
-  }
-
-  return {
-    relatedPosts,
+export default connect(
+  (state) => ({
     favoritePosts: selectFavoritePosts(state),
-    posts,
-    post: currentPost,
+    post: selectArticle(state),
     isLoading: selectIsLoading(state),
-  };
-};
-
-export default connect(mapStateToProps, {
-  loadFavoritePostsStart,
-  getArticle,
-})(withScroll(withRouter(Article)));
+  }), {
+    loadFavoritePostsStart,
+    getArticle,
+  },
+)(withScroll(withRouter(Article)));

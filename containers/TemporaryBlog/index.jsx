@@ -13,10 +13,13 @@ const Blog = ({
   isLoading,
   loadArticles: loadNewArticles,
   posts,
+  introSection,
 }) => {
   useEffect(() => {
-    loadNewArticles();
-  }, []);
+    if (!posts.length) {
+      loadNewArticles();
+    }
+  }, [posts]);
 
   return (
     <Fragment>
@@ -27,7 +30,7 @@ const Blog = ({
         <meta property="og:description" content={BLOG_DESCRIPTION} />
       </Head>
       <Subscribe />
-      <section className={styles.blog}>
+      <section ref={introSection} className={styles.blog}>
         <Loader isLoading={!isLoading}>
           {posts && posts.map((post) => <Post key={post.id} post={post} />)}
         </Loader>
@@ -40,6 +43,7 @@ Blog.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   posts: PropTypes.arrayOf(PropTypes.object),
   loadArticles: PropTypes.func.isRequired,
+  introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
 Blog.defaultProps = {
