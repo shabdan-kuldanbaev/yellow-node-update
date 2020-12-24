@@ -14,11 +14,10 @@ import rocket from './json/rocket.json';
 import styles from './styles.module.scss';
 
 export const Contacts = ({ handleOnClick }) => {
-  const trackSocialIconClick = (event) => {
-    const social = event.target.getAttribute('data-target');
+  const trackSocialIconClick = ({ target }) => {
     ReactGA.event({
       category: 'Social',
-      action: social,
+      action: target.getAttribute('data-target'),
       label: window.location.pathname,
     });
   };
@@ -49,7 +48,14 @@ export const Contacts = ({ handleOnClick }) => {
         </span>
         <span>Phone US:</span>
         <span>
-          <a href="tel:+14156709070" data-target="Phone">+1 415 670 9070</a>
+          <LinkWrapper
+            path="tel:+1 415 670 9070"
+            isLocalLink
+            additionalProps={{ 'data-target': 'Phone' }}
+            handleOnClick={trackContacts}
+          >
+            +1 415 670 9070
+          </LinkWrapper>
         </span>
         <span>Phone BY:</span>
         <span>

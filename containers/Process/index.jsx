@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect } from 'react';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
@@ -8,9 +7,11 @@ import {
   Process,
   Loader,
   // TODO SectionTitle,
+  MetaTags,
 } from 'components';
-import { PROCESS_DESCRIPTION } from 'utils/constants';
+import { pages } from 'utils/constants';
 import styles from './styles.module.scss';
+
 
 const ProcessContainer = ({
   introSection,
@@ -25,12 +26,7 @@ const ProcessContainer = ({
 
   return (
     <Fragment>
-      <Head>
-        <title>Process - Yellow</title>
-        <meta name="description" content={PROCESS_DESCRIPTION} />
-        <meta property="og:title" content="Process - Yellow" />
-        <meta property="og:description" content={PROCESS_DESCRIPTION} />
-      </Head>
+      <MetaTags page={pages.process} />
       <section ref={introSection} className={styles.process}>
         {/* TODO <div className={styles.intro}>
       <SectionTitle title="How we work" subtitle="A step by step guide" />

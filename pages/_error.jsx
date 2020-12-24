@@ -1,33 +1,27 @@
-import React, { Fragment } from 'react';
-import Head from 'next/head';
+import React from 'react';
+import { pages } from 'utils/constants';
 
-
-const Error = ({ statusCode }) => (
-  statusCode
-    ? statusCode === 404 && (
-      <Fragment>
-        <Head>
-          <title>404 - Yellow</title>
-          <meta name="description" content="Whoops! Looks like something is wrong. The page you were looking for doesnt exist" />
-        </Head>
-        <div
-          style={{
-            height: '65vh',
-            paddingTop: '300px',
-            textAlign: 'center',
-            backgroundColor: 'white',
-          }}
-        >
-          404
-        </div>
-      </Fragment>
-    )
-    : 'An error occurred on client'
+const Error = ({ statusCode, err }) => (
+  <p>
+    {statusCode
+      ? `An error ${statusCode} occurred on server`
+      : `An error occurred on client ${err}`}
+  </p>
 );
 
-Error.getInitialProps = async ({ res, err }) => {
+Error.getInitialProps = async ({ ctx: { err, res } }) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  return { statusCode };
+
+  if (statusCode === 404) {
+    res.writeHead(302, {
+      Location: pages.notFound,
+      'Content-Type': 'text/html; charset=utf-8',
+    });
+    res.end();
+    return;
+  }
+
+  return { statusCode, err };
 };
 
 export default Error;

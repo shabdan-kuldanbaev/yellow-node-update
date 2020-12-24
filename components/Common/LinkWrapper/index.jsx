@@ -28,7 +28,6 @@ export const LinkWrapper = ({
       {!isImage ? children : (
         <div>
           <img
-            data-target="test"
             className={cn({ [className]: isImage })}
             src={imageUrl}
             alt={imageText}

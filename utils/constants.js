@@ -47,11 +47,14 @@ export const articleTags = {
 };
 
 export const NUMBER_OF_IMAGES_PER_LINE = 3;
-export const MAIN_DESCRIPTION = 'We build great web and mobile apps for startups and businesses. Reach out for a free consultation!';
 export const LIMIT = 5;
-export const BLOG_DESCRIPTION = 'Tech blog from the Yellow team about everything from engineering to design. Get a new post every 2 weeks!';
-export const HOME_DESCRIPTION = 'We build great web and mobile apps for startups and businesses. Reach out for a free consultation!';
-export const PROCESS_DESCRIPTION = 'We kick ass on everything from mobile to AI. Seriously. Click to learn how!';
-export const PORTFOLIO_DESCRIPTION = 'Take a glance at the cool products we’ve created. Web and mobile applications that we love';
-export const CONTACT_DESCRIPTION = 'Reach out for a free consultation on how to build a great app!';
-export const COMPANY_DESCRIPTION = 'Meet the team behind our web and mobile apps. Skilled techies and great people. Yellow - we are the people!';
+
+export const pages = {
+  homepage: 'homepage',
+  portfolio: 'portfolio',
+  process: 'process',
+  blog: 'blog',
+  company: 'company',
+  contact: 'contact',
+  notFound: 'not-found',
+};

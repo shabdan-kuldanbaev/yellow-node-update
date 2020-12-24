@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import ReactGA from 'react-ga';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { subscribe } from 'redux/actions/subscribe';
@@ -20,11 +19,6 @@ class Subscribe extends PureComponent {
   onSubmit(evt) {
     evt.preventDefault();
     this.props.subscribe(this.state.email);
-    ReactGA.event({
-      category: 'Subscribe',
-      action: 'Send',
-      label: window.location.pathname,
-    });
   }
 
   onChange({ target: { name, value } }) {

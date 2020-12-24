@@ -1,11 +1,14 @@
 import React, { Fragment, useEffect } from 'react';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectWorks, selectIsLoading } from 'redux/selectors/portfolio';
 import { loadWorks } from 'redux/actions/portfolio';
-import { Portfolio, Loader } from 'components';
-import { PORTFOLIO_DESCRIPTION } from 'utils/constants';
+import {
+  Portfolio,
+  Loader,
+  MetaTags,
+} from 'components';
+import { pages } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const PortfolioContainer = ({
@@ -20,12 +23,7 @@ const PortfolioContainer = ({
 
   return (
     <Fragment>
-      <Head>
-        <title>Portfolio - Yellow</title>
-        <meta property="og:title" content="Portfolio - Yellow" />
-        <meta name="description" content={PORTFOLIO_DESCRIPTION} />
-        <meta property="og:description" content={PORTFOLIO_DESCRIPTION} />
-      </Head>
+      <MetaTags page={pages.portfolio} />
       <section ref={introSection} className={styles.portfolio}>
         <Loader isLoading={!isLoading}>
           <Portfolio works={works} />

@@ -10,10 +10,9 @@ import styles from './styles.module.scss';
 
 class SocialShare extends PureComponent {
   trackSocialShareClick = ({ target }) => {
-    const social = target.getAttribute('data-socialname');
     ReactGA.event({
       category: 'Click social go to share',
-      action: social,
+      action: target.getAttribute('data-socialname'),
       label: window.location.pathname,
     });
   }

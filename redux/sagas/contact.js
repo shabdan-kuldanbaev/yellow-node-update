@@ -14,11 +14,12 @@ function* sendEmail({ payload }) {
   try {
     const response = yield call(API.sendEmail, payload);
 
-    yield put({ type: actionTypes.SEND_EMAIL_SUCCESS, payload: response });
     ReactGA.event({
       category: 'Contact form',
       action: 'Send',
     });
+
+    yield put({ type: actionTypes.SEND_EMAIL_SUCCESS, payload: response });
   } catch (err) {
     yield put({ type: actionTypes.SEND_EMAIL_FAILED, payload: err });
   }
