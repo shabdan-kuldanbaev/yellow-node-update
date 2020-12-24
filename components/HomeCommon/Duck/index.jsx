@@ -128,8 +128,7 @@ export const Duck = ({
     // for disable web-security
     // this is comand befor opening the chrome: open -a Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
     // or use this url befor main url: const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-    const url = `${proxyurl}https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj`;
+    const url = 'https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj';
 
     const loader = new OBJLoader();
     loader.load(
