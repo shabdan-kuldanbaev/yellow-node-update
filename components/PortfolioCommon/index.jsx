@@ -6,7 +6,7 @@ import {
   PreviewImage,
   withScroll,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
 const Portfolio = ({ works, maxScrollPosition }) => {
@@ -21,6 +21,26 @@ const Portfolio = ({ works, maxScrollPosition }) => {
     });
   }, []);
 
+  const switchRender = ({ field }, work) => {
+    switch (field) {
+    case 'name':
+      return <h1>{work.name}</h1>;
+    case 'description':
+      return <p>{work.description}</p>;
+    // TODO case 'link':
+    //   return (
+    //     <LinkWrapper
+    //       {...animated}
+    //       className={styles.buttonWrap}
+    //     >
+    //       <button type="button">See full case study</button>
+    //     </LinkWrapper>
+    //   );
+    default:
+      return null;
+    }
+  };
+
   return (
     <div className={styles.worksContainer}>
       {works && works.map((work, index) => (
@@ -31,41 +51,11 @@ const Portfolio = ({ works, maxScrollPosition }) => {
         >
           <div className={styles.workWrapper}>
             <div className={styles.desc}>
-              <Animated
-                type={animatedType.isCustom}
-                translateY="2.82352941em"
-                opasityDuration={1}
-                transformDuration={1}
-                transitionDelay={300}
-              >
-                <h1>{work.name}</h1>
-              </Animated>
-              <Animated
-                type={animatedType.isCustom}
-                translateY="2.82352941em"
-                opasityDuration={1}
-                transformDuration={1}
-                transitionDelay={350}
-              >
-                <p>{work.description}</p>
-              </Animated>
-              <Animated
-                type={animatedType.isCustom}
-                translateY="2.82352941em"
-                opasityDuration={1}
-                transformDuration={1}
-                transitionDelay={400}
-              >
-                {/* TODO
-              <LinkWrapper
-                isLocalLink
-                dynamicRouting="/portfolio/[project]"
-                path={`/portfolio/${work.id}`}
-                className={styles.buttonWrap}
-              >
-                <button type="button">See full case study</button>
-              </LinkWrapper> */}
-              </Animated>
+              {animatedFields && animatedFields.map((animated) => (
+                <Animated {...animated}>
+                  {switchRender(animated, work)}
+                </Animated>
+              ))}
             </div>
             <PreviewImage image={work.image} />
           </div>
@@ -75,8 +65,13 @@ const Portfolio = ({ works, maxScrollPosition }) => {
   );
 };
 
+Portfolio.defaultProps = {
+  animatedFields,
+};
+
 Portfolio.propTypes = {
   works: PropTypes.instanceOf(Array).isRequired,
+  animatedFields: PropTypes.instanceOf(Array),
 };
 
 export default withScroll(Portfolio);

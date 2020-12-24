@@ -24,36 +24,25 @@ const Subscribe = ({
   const handleOnFocus = () => setCurrentPlaceholder('');
   const handleOnBlur = () => setCurrentPlaceholder(placeholderText);
 
+  const animatedProps = {
+    type: animatedType.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
+
   return (
     <section className={styles.subscribeBlock}>
       <div className={styles.subscribe}>
         <div className={styles.content}>
-          <Animated
-            type={animatedType.isCustom}
-            translateY="2.82352941em"
-            opasityDuration={1}
-            transformDuration={1}
-            transitionDelay={100}
-          >
+          <Animated {...animatedProps} transitionDelay={100}>
             <span className={styles.title}>Don't want to miss anything?</span>
           </Animated>
-          <Animated
-            type={animatedType.isCustom}
-            translateY="2.82352941em"
-            opasityDuration={1}
-            transformDuration={1}
-            transitionDelay={150}
-          >
+          <Animated {...animatedProps} transitionDelay={150}>
             <span className={styles.subtitle}>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</span>
           </Animated>
           <div className={styles.inputBlock}>
-            <Animated
-              type={animatedType.isCustom}
-              translateY="2.82352941em"
-              opasityDuration={1}
-              transformDuration={1}
-              transitionDelay={200}
-            >
+            <Animated {...animatedProps} transitionDelay={200}>
               {!isMobileResolution
                 ? (
                   <input
@@ -77,13 +66,7 @@ const Subscribe = ({
                   />
                 )}
             </Animated>
-            <Animated
-              type={animatedType.isCustom}
-              translateY="2.82352941em"
-              opasityDuration={1}
-              transformDuration={1}
-              transitionDelay={250}
-            >
+            <Animated {...animatedProps} transitionDelay={250}>
               <ButtonMore
                 href="/blog"
                 title="Submit"

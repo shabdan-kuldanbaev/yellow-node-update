@@ -6,11 +6,11 @@ import React, {
 import PropTypes from 'prop-types';
 import ReactGA from 'react-ga';
 import { LinkWrapper, Animated } from 'components';
-import { animatedType } from 'utils/constants';
 import TestPhoto from './images/bitmap@3x.jpg';
+import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
-export const CompanyContacts = ({ photo }) => {
+export const CompanyContacts = ({ photo, animatedFields }) => {
   const imgContainer = useRef(null);
   const [isShow, setShow] = useState(false);
 
@@ -44,6 +44,59 @@ export const CompanyContacts = ({ photo }) => {
     });
   };
 
+  const renderSwitch = ({ field }) => {
+    switch (field) {
+    case 'contact':
+      return <span className={styles.addressTitle}>CONTACT US</span>;
+    case 'locationAdress':
+      return (
+        <div className={styles.locationAddress}>
+          <span>Nemiga 5, Minsk, Belarus</span>
+          <span>220030</span>
+        </div>
+      );
+    case 'phones':
+      return <span className={styles.addressTitle}>PHONES</span>;
+    case 'phoneNumber':
+      return (
+        <div className={styles.phoneNumber}>
+          <LinkWrapper
+            path="tel:+1 415 670 9070"
+            isLocalLink
+            additionalProps={{ 'data-target': 'Phone' }}
+            handleOnClick={trackContacts}
+          >
+            +1 415 670 9070
+          </LinkWrapper>
+          <LinkWrapper
+            path="tel:+375 44 584 02 08"
+            isLocalLink
+            additionalProps={{ 'data-target': 'Phone' }}
+            handleOnClick={trackContacts}
+          >
+            +375 44 584 02 08
+          </LinkWrapper>
+        </div>
+      );
+    case 'emailTitle':
+      return <span className={styles.addressTitle}>EMAIL</span>;
+    case 'email':
+      return (
+        <div className={styles.email}>
+          <LinkWrapper
+            path="mailto:hi@yellow.systems"
+            isLocalLink
+            additionalProps={{ 'data-target': 'Email' }}
+            handleOnClick={trackContacts}
+          >
+            hi@yellow.systems
+          </LinkWrapper>
+        </div>
+      );
+    default: null;
+    }
+  };
+
   return (
     <section className={styles.companyContacts}>
       <div ref={imgContainer} className={styles.imgContainer}>
@@ -55,97 +108,22 @@ export const CompanyContacts = ({ photo }) => {
         />
       </div>
       <address className={styles.address}>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={100}
-        >
-          <span className={styles.addressTitle}>CONTACT US</span>
-        </Animated>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={150}
-        >
-          <div className={styles.locationAddress}>
-            <span>Nemiga 5, Minsk, Belarus</span>
-            <span>220030</span>
-          </div>
-        </Animated>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={200}
-        >
-          <span className={styles.addressTitle}>PHONES</span>
-        </Animated>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={250}
-        >
-          <div className={styles.phoneNumber}>
-            <LinkWrapper
-              path="tel:+1 415 670 9070"
-              isLocalLink
-              additionalProps={{ 'data-target': 'Phone' }}
-              handleOnClick={trackContacts}
-            >
-              +1 415 670 9070
-            </LinkWrapper>
-            <LinkWrapper
-              path="tel:+375 29 311 52 49"
-              isLocalLink
-              additionalProps={{ 'data-target': 'Phone' }}
-              handleOnClick={trackContacts}
-            >
-              +375 29 311 52 49
-            </LinkWrapper>
-          </div>
-        </Animated>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={300}
-        >
-          <span className={styles.addressTitle}>EMAIL</span>
-        </Animated>
-        <Animated
-          type={animatedType.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={350}
-        >
-          <div className={styles.email}>
-            <LinkWrapper
-              path="mailto:hi@yellow.systems"
-              isLocalLink
-              additionalProps={{ 'data-target': 'Email' }}
-              handleOnClick={trackContacts}
-            >
-              hi@yellow.systems
-            </LinkWrapper>
-          </div>
-        </Animated>
+        {animatedFields && animatedFields.map((animated) => (
+          <Animated {...animated}>
+            {renderSwitch(animated)}
+          </Animated>
+        ))}
       </address>
     </section>
   );
 };
+
 CompanyContacts.defaultProps = {
   photo: TestPhoto,
+  animatedFields,
 };
 
 CompanyContacts.propTypes = {
   photo: PropTypes.string,
+  animatedFields: PropTypes.instanceOf(Array),
 };
