@@ -6,6 +6,11 @@ const multer = require('multer');
 const compression = require('compression');
 const path = require('path');
 const cors = require('cors');
+const {
+  httpsRedirect,
+  clearUrlRedirect,
+  oldUrlRedirect,
+} = require('./middleware/redirect');
 const mailhelper = require('./mail/mailhelper');
 const { getFeedBackMessage, getSubscribeMessage } = require('./mail/messages');
 const { processes } = require('./utils/data');
@@ -22,6 +27,10 @@ app
   .prepare()
   .then(() => {
     const server = express();
+
+    server.use(httpsRedirect);
+    server.use(clearUrlRedirect);
+    server.use(oldUrlRedirect);
 
     server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));

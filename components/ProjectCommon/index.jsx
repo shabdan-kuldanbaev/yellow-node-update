@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Video, Animated } from 'components';

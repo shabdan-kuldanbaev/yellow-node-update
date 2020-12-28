@@ -10,14 +10,14 @@ import { actionTypes } from '../actions/actionTypes';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* subscribe({ payload }) {
+function* subscribe({ payload: { email, pathname } }) {
   try {
-    const response = yield call(API.subscribe, payload);
+    const response = yield call(API.subscribe, email);
 
     ReactGA.event({
       category: 'Subscribe',
       action: 'Send',
-      label: window.location.pathname,
+      label: pathname,
     });
 
     yield put({ type: actionTypes.SUBSCRIBE_SUCCESS, payload: response });

@@ -4,7 +4,6 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import ReactGA from 'react-ga';
 import { LinkWrapper, Animated } from 'components';
 import TestPhoto from './images/bitmap@3x.jpg';
 import { animatedFields } from './utils';
@@ -35,15 +34,6 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
     return () => document.removeEventListener('scroll', handleOnScroll);
   }, []);
 
-  const trackContacts = ({ target }) => {
-    const type = target.getAttribute('data-target');
-    ReactGA.event({
-      category: type,
-      action: 'Click',
-      label: type,
-    });
-  };
-
   const renderSwitch = ({ field }) => {
     switch (field) {
     case 'contact':
@@ -63,16 +53,14 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
           <LinkWrapper
             path="tel:+1 415 670 9070"
             isLocalLink
-            additionalProps={{ 'data-target': 'Phone' }}
-            handleOnClick={trackContacts}
+            googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
           >
             +1 415 670 9070
           </LinkWrapper>
           <LinkWrapper
             path="tel:+375 44 584 02 08"
             isLocalLink
-            additionalProps={{ 'data-target': 'Phone' }}
-            handleOnClick={trackContacts}
+            googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
           >
             +375 44 584 02 08
           </LinkWrapper>
@@ -86,8 +74,7 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
           <LinkWrapper
             path="mailto:hi@yellow.systems"
             isLocalLink
-            additionalProps={{ 'data-target': 'Email' }}
-            handleOnClick={trackContacts}
+            googleAnalyticProps={{ action: 'Click', data: 'Email' }}
           >
             hi@yellow.systems
           </LinkWrapper>

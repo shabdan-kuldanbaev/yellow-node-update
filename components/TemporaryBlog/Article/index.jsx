@@ -124,6 +124,7 @@ Article.propTypes = {
   loadFavoritePostsStart: PropTypes.func.isRequired,
   getArticle: PropTypes.func.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
+  router: PropTypes.instanceOf(Object).isRequired,
 };
 
 Article.defaultProps = {

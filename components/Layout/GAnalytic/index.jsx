@@ -1,35 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
-import { withRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import ym, { YMInitializer } from 'react-yandex-metrika';
 
-class GAnalytic extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.logPage = this.logPage;
-  }
+export const GAnalytic = () => {
+  const { asPath, pathname } = useRouter();
 
-  componentDidMount() {
-    this.logPage();
-    ym('hit', window.location.pathname);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.router.route !== prevProps.router.route) {
-      this.logPage();
-    }
-  }
-
-  logPage() {
-    const { pathname } = window.location;
+  useEffect(() => {
     ReactGA.set({ page: pathname });
     ReactGA.pageview(pathname);
     ym('hit', pathname);
-  }
+  }, [asPath]);
 
-  render() {
-    return <YMInitializer accounts={[process.env.YANDEX_TRACK_ID]} />;
-  }
-}
-
-export default withRouter(GAnalytic);
+  return <YMInitializer accounts={[process.env.YANDEX_TRACK_ID]} />;
+};

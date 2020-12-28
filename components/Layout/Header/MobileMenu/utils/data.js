@@ -9,7 +9,8 @@ export const menuList = [
   },
   {
     name: 'Blog',
-    href: '/blog?category=latest&page=1',
+    // TODO href: '/blog?category=latest&page=1',
+    href: '/blog',
   },
   {
     name: 'Company',

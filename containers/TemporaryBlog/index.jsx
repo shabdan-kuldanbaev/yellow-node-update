@@ -1,11 +1,10 @@
 import React, { Fragment, useEffect } from 'react';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
 import { loadArticles } from 'redux/actions/blog';
-import { Loader } from 'components';
-import { BLOG_DESCRIPTION } from 'utils/constants';
+import { Loader, MetaTags } from 'components';
+import { pages } from 'utils/constants';
 import { Post, Subscribe } from 'components/TemporaryBlog';
 import styles from './styles.module.scss';
 
@@ -23,12 +22,7 @@ const Blog = ({
 
   return (
     <Fragment>
-      <Head>
-        <title>Blog - Yellow</title>
-        <meta property="og:title" content="Blog - Yellow" />
-        <meta name="description" content={BLOG_DESCRIPTION} />
-        <meta property="og:description" content={BLOG_DESCRIPTION} />
-      </Head>
+      <MetaTags page={pages.blog} />
       <Subscribe />
       <section ref={introSection} className={styles.blog}>
         <Loader isLoading={!isLoading}>
@@ -50,11 +44,10 @@ Blog.defaultProps = {
   posts: [],
 };
 
-const mapStateToProps = (state, router) => ({
-  posts: selectArticles(state),
-  isLoading: selectIsLoading(state),
-});
-
-export default connect(mapStateToProps, {
-  loadArticles,
-})(Blog);
+export default connect(
+  (state) => ({
+    posts: selectArticles(state),
+    isLoading: selectIsLoading(state),
+  }),
+  { loadArticles },
+)(Blog);

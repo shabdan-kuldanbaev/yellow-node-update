@@ -9,7 +9,11 @@ import {
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
-const Portfolio = ({ works, maxScrollPosition }) => {
+const Portfolio = ({
+  works,
+  maxScrollPosition,
+  animatedFields,
+}) => {
   const maxPosition = useRef(0);
 
   useEffect(() => () => ReactGA.event({
@@ -74,6 +78,7 @@ Portfolio.defaultProps = {
 Portfolio.propTypes = {
   works: PropTypes.instanceOf(Array).isRequired,
   animatedFields: PropTypes.instanceOf(Array),
+  maxScrollPosition: PropTypes.number.isRequired,
 };
 
 export default withScroll(Portfolio);
