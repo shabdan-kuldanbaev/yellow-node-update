@@ -7,28 +7,42 @@ import {
   Animated,
 } from 'components';
 import { animatedType } from 'utils/constants';
+import { withRouter } from 'next/router';
 import { socialNetworks } from './utils/data';
-// TODO import { rocketIcon } from './images';
 import rocket from './json/rocket.json';
 import styles from './styles.module.scss';
 
-export const Contacts = ({ handleOnClick }) => (
+const Contacts = ({ handleOnClick, router }) => (
   <div className={styles.contactsContainer}>
     <SectionTitle title="Contacts" styleTitle={styles.mobileFooterTitle} />
     <div className={styles.contacts}>
       <span>Email:</span>
       <span>
-        <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>
+        <LinkWrapper
+          path="mailto:hi@yellow.systems"
+          isLocalLink
+          googleAnalyticProps={{ action: 'Click', data: 'Email' }}
+        >
           hi@yellow.systems
         </LinkWrapper>
       </span>
       <span>Phone US:</span>
       <span>
-        <a href="tel:+14156709070">+1 415 670 9070</a>
+        <LinkWrapper
+          path="tel:+1 415 670 9070"
+          isLocalLink
+          googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+        >
+          +1 415 670 9070
+        </LinkWrapper>
       </span>
       <span>Phone BY:</span>
       <span>
-        <LinkWrapper path="tel:+375293115249" isLocalLink>
+        <LinkWrapper
+          path="tel:+375293115249"
+          isLocalLink
+          googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+        >
           +375 29 311 52 49
         </LinkWrapper>
       </span>
@@ -36,8 +50,19 @@ export const Contacts = ({ handleOnClick }) => (
     <div className={styles.social}>
       <div className={styles.icons}>
         {socialNetworks.map((network) => (
-          <LinkWrapper key={`networks/${network.title}`} path={network.href}>
-            <img src={network.image} alt={network.title} />
+          <LinkWrapper
+            key={`networks/${network.title}`}
+            path={network.href}
+            googleAnalyticProps={{
+              category: 'Social',
+              label: router.pathname,
+              data: network.title,
+            }}
+          >
+            <img
+              src={network.image}
+              alt={network.title}
+            />
           </LinkWrapper>
         ))}
       </div>
@@ -62,12 +87,13 @@ export const Contacts = ({ handleOnClick }) => (
       />
       <div className={styles.stars} />
       <div className={styles.stars2} />
-      {/* TODO <div className={styles.stars3} /> */}
-      {/* TODO <img src={rocketIcon} alt="roket" /> */}
     </div>
   </div>
 );
 
 Contacts.propTypes = {
   handleOnClick: PropTypes.func.isRequired,
+  router: PropTypes.instanceOf(Object).isRequired,
 };
+
+export default withRouter(Contacts);

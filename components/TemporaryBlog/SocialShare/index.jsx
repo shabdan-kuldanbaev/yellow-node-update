@@ -5,11 +5,16 @@ import {
   LinkedinShareButton,
   TwitterShareButton,
 } from 'react-share';
+import ReactGA from 'react-ga';
 import styles from './styles.module.scss';
 
 class SocialShare extends PureComponent {
-  trackSocialShareClick = ({ target: { getAttribute } }) => {
-    const social = getAttribute('data-socialname');
+  trackSocialShareClick = ({ target }) => {
+    ReactGA.event({
+      category: 'Click social go to share',
+      action: target.getAttribute('data-socialname'),
+      label: window.location.pathname,
+    });
   }
 
   render() {
@@ -21,7 +26,7 @@ class SocialShare extends PureComponent {
             url={url}
             quote={title}
             className={`${styles.icon} ${styles.iconFacebook}`}
-            additionalProps={{ 'data-socialname': 'Facebook' }}
+            data-socialname="Facebook"
           />
         </div>
         <div onClick={this.trackSocialShareClick}>
@@ -30,7 +35,7 @@ class SocialShare extends PureComponent {
             title={title}
             description={description}
             className={`${styles.icon} ${styles.iconLinkedin}`}
-            additionalProps={{ 'data-socialname': 'LinkedIn' }}
+            data-socialname="LinkedIn"
           />
         </div>
         <div onClick={this.trackSocialShareClick}>
@@ -38,7 +43,7 @@ class SocialShare extends PureComponent {
             url={url}
             title={title}
             className={`${styles.icon} ${styles.iconTwitter}`}
-            additionalProps={{ 'data-socialname': 'Twitter' }}
+            data-socialname="Twitter"
           />
         </div>
       </div>

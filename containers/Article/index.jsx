@@ -37,7 +37,7 @@ const ArticleContainer = ({
   loadNearbyArticles: getNearby,
   subscribe,
 }) => {
-  const { query: { article } } = useRouter();
+  const { query: { article }, pathname } = useRouter();
   const sortArticle = cloneDeep(currentArticle);
   if (sortArticle) return null; // TODO
   const sortBody = (currentArticle && currentArticle.body && sortBy(currentArticle.body, 'orderNumber')) || [];
@@ -45,7 +45,7 @@ const ArticleContainer = ({
   const currentCategory = get(sortArticle, 'header.categoryTag', null);
   const currentTitle = get(sortArticle, 'header.title');
 
-  const handleOnFormSubmit = (email) => subscribe({ email });
+  const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   useEffect(() => {
     if (article) getCurrentArticle('choosing-the-right-automation-testing-strategy-dos-and-don-ts');
