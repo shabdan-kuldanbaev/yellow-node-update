@@ -50,10 +50,18 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
     case 'phoneNumber':
       return (
         <div className={styles.phoneNumber}>
-          <LinkWrapper path="tel:+1 415 670 9070" isLocalLink>
+          <LinkWrapper
+            path="tel:+1 415 670 9070"
+            isLocalLink
+            googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+          >
             +1 415 670 9070
           </LinkWrapper>
-          <LinkWrapper path="tel:+375 44 584 02 08" isLocalLink>
+          <LinkWrapper
+            path="tel:+375 44 584 02 08"
+            isLocalLink
+            googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+          >
             +375 44 584 02 08
           </LinkWrapper>
         </div>
@@ -63,7 +71,11 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
     case 'email':
       return (
         <div className={styles.email}>
-          <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>
+          <LinkWrapper
+            path="mailto:hi@yellow.systems"
+            isLocalLink
+            googleAnalyticProps={{ action: 'Click', data: 'Email' }}
+          >
             hi@yellow.systems
           </LinkWrapper>
         </div>

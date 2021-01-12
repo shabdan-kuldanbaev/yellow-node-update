@@ -1,6 +1,6 @@
 import React from 'react';
 import throttle from 'lodash/throttle';
-import { getScrollPercent } from '../utils/scroll';
+import { getScrollPercent } from './utils/scroll';
 
 export default function withScroll(Component) {
   return class extends React.Component {

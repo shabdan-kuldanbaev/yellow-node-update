@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import get from 'lodash/get';
+import ReactGA from 'react-ga';
 import { loadFavoritePostsStart, getArticle } from 'redux/actions/blog';
 import {
   selectIsLoading,
@@ -12,12 +13,11 @@ import {
 } from 'redux/selectors/blog';
 import isEmpty from 'lodash/isEmpty';
 import { rootUrl } from 'utils/helper';
-import { Loader } from 'components';
+import { Loader, withScroll } from 'components';
 import Subscribe from '../Subscribe';
 import Navigation from '../Navigation';
 import Favorites from '../Favorites';
 import RelatedPosts from '../RelatedPosts';
-import withScroll from '../withScroll';
 import SocialShare from '../SocialShare';
 import styles from './styles.module.scss';
 
@@ -42,6 +42,15 @@ class Article extends PureComponent {
       this.props.getArticle(nextProps.router.query.article);
       this.props.loadFavoritePostsStart();
     }
+  }
+
+  componentWillUnmount() {
+    ReactGA.event({
+      category: 'Scroll',
+      action: `${this.props.maxScrollPosition}%`,
+      label: `/blog/${this.props.post.slug}`,
+      nonInteraction: this.props.maxScrollPosition < 50,
+    });
   }
 
   createMarkup(data) {
@@ -128,6 +137,7 @@ Article.propTypes = {
   loadFavoritePostsStart: PropTypes.func.isRequired,
   getArticle: PropTypes.func.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
+  router: PropTypes.instanceOf(Object).isRequired,
 };
 
 Article.defaultProps = {

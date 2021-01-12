@@ -20,6 +20,7 @@ import {
   CookiesNotification,
   PageLoading,
   FullScreenEstimation,
+  GAnalytic,
 } from 'components';
 import { mobileResolution, tabletResolution } from 'utils/helper';
 
@@ -112,6 +113,7 @@ export const Layout = ({
         closeFullscreenEstimation={closeFullscreenEstimation}
         handleOnClick={handleOnClick}
       />
+      <GAnalytic />
     </Fragment>
   );
 };

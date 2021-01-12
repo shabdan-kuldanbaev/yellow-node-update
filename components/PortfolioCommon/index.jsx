@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import ReactGA from 'react-ga';
 import {
   Animated,
   PreviewImage,
+  withScroll,
 } from 'components';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
-export const Portfolio = ({ works, animatedFields }) => {
+const Portfolio = ({
+  works,
+  maxScrollPosition,
+  animatedFields,
+}) => {
+  const maxPosition = useRef(0);
+
+  useEffect(() => () => ReactGA.event({
+    category: 'Scroll',
+    action: `${maxPosition.current}%`,
+    label: '/portfolio',
+    nonInteraction: maxPosition.current < 50,
+  }), []);
+
+  useEffect(() => {
+    maxPosition.current = maxScrollPosition;
+  }, [maxScrollPosition]);
+
   const switchRender = ({ field }, work) => {
     switch (field) {
     case 'name':
@@ -59,4 +78,7 @@ Portfolio.defaultProps = {
 Portfolio.propTypes = {
   works: PropTypes.instanceOf(Array).isRequired,
   animatedFields: PropTypes.instanceOf(Array),
+  maxScrollPosition: PropTypes.number.isRequired,
 };
+
+export default withScroll(Portfolio);

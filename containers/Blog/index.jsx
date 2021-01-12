@@ -34,7 +34,7 @@ const BlogContainer = ({
   isMobileResolution,
   subscribe,
 }) => {
-  const { asPath, query: { category, page } } = useRouter();
+  const { asPath, query: { category, page }, pathname } = useRouter();
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
   const pagesCounter = Math.ceil(totalCount / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
   const currentPage = toInt(page);
@@ -63,7 +63,7 @@ const BlogContainer = ({
   }, [isMobileResolution, asPath]);
 
   const handleOnFormSubmit = (email) => {
-    subscribe({ email });
+    subscribe({ email, pathname });
   };
 
   return (

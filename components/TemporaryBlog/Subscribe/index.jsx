@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
+import { withRouter } from 'next/router';
 import { subscribe } from 'redux/actions/subscribe';
 import { selectSuscribeStatus, selectSubscribeError } from 'redux/selectors/subscribe';
 import styles from './styles.module.scss';
@@ -18,7 +19,7 @@ class Subscribe extends PureComponent {
 
   onSubmit(evt) {
     evt.preventDefault();
-    this.props.subscribe(this.state.email);
+    this.props.subscribe({ email: this.state.email, pathname: this.props.router.pathname });
   }
 
   onChange({ target: { name, value } }) {
@@ -80,6 +81,7 @@ Subscribe.propTypes = {
   status: PropTypes.bool,
   error: PropTypes.bool,
   subscribe: PropTypes.func,
+  router: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -89,4 +91,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   subscribe,
-})(Subscribe);
+})(withRouter(Subscribe));

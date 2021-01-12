@@ -31,3 +31,6 @@ export { CompanyContainer } from 'containers/Company';
 
 // ContactUs
 export { default as ContactUsContainer } from 'containers/ContactUs';
+
+// 404
+export { PageNotFound } from 'containers/PageNotFound';

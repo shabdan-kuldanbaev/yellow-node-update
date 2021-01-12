@@ -1,7 +1,8 @@
 // Layout
 export { default as Header } from 'components/Layout/Header';
 export { Footer } from 'components/Layout/Footer';
-export { Contacts } from 'components/Layout/Footer/Contacts';
+export { default as Contacts } from 'components/Layout/Footer/Contacts';
+export { GAnalytic } from 'components/Layout/GAnalytic';
 
 // Common
 export { Animated } from 'components/Common/Animated';
@@ -25,6 +26,8 @@ export { Reviews } from 'components/Common/Reviews';
 export { SocialThumbnails } from 'components/Common/SocialThumbnails';
 export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 export { ImageWithPlaceholder } from 'components/Common/ImageWithPlaceholder';
+export { default as withScroll } from 'components/Common/withScroll';
+export { MetaTags } from 'components/Common/MetaTags';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';
@@ -53,7 +56,7 @@ export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';
 export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
 
 // PortfolioCommon
-export { Portfolio } from 'components/PortfolioCommon/index';
+export { default as Portfolio } from 'components/PortfolioCommon';
 export { PreviewImage } from 'components/PortfolioCommon/PreviewImage';
 
 // ProjectCommon

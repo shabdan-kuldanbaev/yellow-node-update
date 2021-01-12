@@ -38,7 +38,7 @@ const ArticleContainer = ({
   loadNearbyArticles: getNearby,
   subscribe,
 }) => {
-  const { query: { article } } = useRouter();
+  const { query: { article }, pathname } = useRouter();
   const sortArticle = cloneDeep(currentArticle);
   // if (sortArticle) return null; // TODO
   const sortBody = (currentArticle && currentArticle.body && sortBy(currentArticle.body, 'orderNumber')) || [];
@@ -48,7 +48,7 @@ const ArticleContainer = ({
 
   const articleData = get(currentArticle, 'items[0].fields', {});
 
-  const handleOnFormSubmit = (email) => subscribe({ email });
+  const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   useEffect(() => {
     if (article) getCurrentArticle(article);
