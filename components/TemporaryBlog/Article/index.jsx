@@ -3,6 +3,7 @@ import { withRouter } from 'next/router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import get from 'lodash/get';
 import { loadFavoritePostsStart, getArticle } from 'redux/actions/blog';
 import {
   selectIsLoading,
@@ -54,32 +55,44 @@ class Article extends PureComponent {
       isLoading,
       introSection,
     } = this.props;
-    if (isLoading || isEmpty(post)) {
+
+    const postData = get(post, 'items[0].fields', {});
+    const description = get(post, 'items[0].fields.description', '');
+    const headImage = get(post, 'items[0].fields.headImageUrl.fields.file.url', '');
+    const slug = get(post, 'items[0].fields.slug', '');
+    const postTitle = get(post, 'items[0].fields.title');
+    const introduction = get(post, 'items[0].fields.introduction', '');
+    const publishedAt = get(post, 'items[0].fields.publishedAt', '');
+    const updatedAt = get(post, 'items[0].fields.updatedAt', '');
+    const body = get(post, 'items[0].fields.body', '');
+
+
+    if (isLoading || !post) {
       return <Loader />;
     }
-    const title = `${post.page_title || post.title} - Yellow`;
+    const title = `${post.page_title || postTitle} - Yellow`;
 
     return (
       <Fragment>
         <Head>
           <title>{title}</title>
           <meta property="og:title" content={title} />
-          <meta property="og:description" content={post.description} />
-          <meta name="description" content={post.description} />
-          <meta property="og:image" content={post.head_image_url.replace('//', 'https://')} />
+          <meta property="og:description" content={description} />
+          <meta name="description" content={description} />
+          <meta property="og:image" content={headImage.replace('//', 'https://')} />
           <meta property="og:image:width" content="1160" />
           <meta property="og:image:height" content="621" />
-          <meta property="og:url" content={`${rootUrl}/blog/${post.slug}`} />
+          <meta property="og:url" content={`${rootUrl}/blog/${slug}`} />
           <meta property="og:type" content="article" />
-          <meta property="article:published_time" content={post.published_at} />
-          <meta property="article:modified_time" content={post.updated_at} />
+          <meta property="article:published_time" content={publishedAt} />
+          <meta property="article:modified_time" content={updatedAt} />
         </Head>
         <article ref={introSection} className={styles.article}>
           <div className={styles.articleHeader}>
-            <h1>{post.title}</h1>
-            <p className={styles.introduction}>{post.introduction}</p>
+            <h1>{postTitle}</h1>
+            <p className={styles.introduction}>{introduction}</p>
             <div className={styles.imageContainer}>
-              <img src={post.head_image_url} alt={post.title} />
+              <img src={headImage} alt={postTitle} />
             </div>
           </div>
           <div className={styles.articleContentContainer}>
@@ -87,11 +100,11 @@ class Article extends PureComponent {
               {favoritePosts && <Favorites posts={favoritePosts.items} />}
             </div>
             <div className={styles.articleContent}>
-              <div dangerouslySetInnerHTML={this.createMarkup(post.body)} />
+              <div dangerouslySetInnerHTML={this.createMarkup(body)} />
               <SocialShare
-                url={`${rootUrl}/blog/${post.slug}`}
-                title={post.title}
-                description={post.introduction}
+                url={`${rootUrl}/blog/${slug}`}
+                title={postTitle}
+                description={introduction}
               />
             </div>
             <div className={styles.articleAside}>
@@ -103,7 +116,7 @@ class Article extends PureComponent {
             description="Get weekly updates on the newest design stories, case studies and tips right in your mailbox."
             insideArticle
           />
-          <RelatedPosts currentPostId={post.id} />
+          {/* <RelatedPosts currentPostId={post.id} /> */}
         </article>
       </Fragment>
     );

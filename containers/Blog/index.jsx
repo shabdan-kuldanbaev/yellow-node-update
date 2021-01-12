@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
+import get from 'lodash/get';
 import { loadArticles, setTotalCount } from 'redux/actions/blog';
 import { subscribe } from 'redux/actions/subscribe';
 import {
@@ -18,7 +19,7 @@ import {
   Paginator,
 } from 'components';
 import { toInt } from 'utils/helper';
-import { articlesData, arrows } from './utils/data';
+import { arrows } from './utils/data';
 import styles from './styles.module.scss';
 
 const BlogContainer = ({
@@ -37,18 +38,27 @@ const BlogContainer = ({
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
   const pagesCounter = Math.ceil(totalCount / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
   const currentPage = toInt(page);
+  const articlesArray = get(articles, 'items', []);
+  const totalArticles = get(articles, 'total');
 
   useEffect(() => {
-    const newArticles = category !== 'latest'
-      ? articlesData.filter((article) => article.categoryTag === category)
-      : articlesData;
+    // TODO
+    // const newArticles = category !== 'latest'
+    //   ? articlesData.filter((article) => article.categoryTag === category)
+    //   : articlesData;
 
-    setTotalArticlesCount(newArticles.length);
+    // setTotalArticlesCount(newArticles.length);
+    setTotalArticlesCount(totalArticles);
   }, [category]);
 
   useEffect(() => {
     if (isMobileResolution !== null) {
-      loadNewArticles({ currentPage, currentLimit: deviceLimit, category });
+      loadNewArticles({
+        currentPage,
+        currentLimit: deviceLimit,
+        category,
+        skip: (currentPage - 1) * deviceLimit,
+      });
     }
   }, [isMobileResolution, asPath]);
 
@@ -60,7 +70,7 @@ const BlogContainer = ({
     <section ref={introSection} className={styles.blog}>
       {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
       <ArticlesList
-        articles={articles}
+        articles={articlesArray}
         isLoading={isLoading}
         asPath={asPath}
         currentPage={currentPage}

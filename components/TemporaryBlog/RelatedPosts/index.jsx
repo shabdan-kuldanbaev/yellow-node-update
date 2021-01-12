@@ -23,8 +23,8 @@ const RelatedPosts = ({
 
     if (posts && currentPostId) {
       setRelatedPosts(
-        posts
-          .filter((art) => art.id !== currentPostId)
+        posts.items
+          .filter((art) => art.fields.id !== currentPostId)
           .sort(() => 0.5 - Math.random())
           .slice(0, 3),
       );

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { Loader, SubscribeBlock } from 'components';
 import { animatedType } from 'utils/constants';
 import { Article } from './Article';
@@ -17,6 +18,7 @@ export const ArticlesList = ({
     {currentPage === 1 && asPath.includes('blog') && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
     <Loader isLoading={!isLoading}>
       {articles && articles.map((article, index) => {
+        const articleData = get(article, 'fields', {});
         const delay = isSearch ? (30 * index) : (100 + 100 * index);
         const effect = 'fadeInUp';
         const animatioProps = isSearch
@@ -38,8 +40,8 @@ export const ArticlesList = ({
 
         return (
           <Article
-            key={article.title}
-            article={article}
+            key={articleData.title}
+            article={articleData}
             countNumber={index}
             animatioProps={animatioProps}
           />

@@ -4,6 +4,7 @@ import {
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import { API, axiosTemporaryClient } from 'utils/api';
+import { contentfulClient } from 'utils/ContentfulClient';
 import { actionTypes } from '../actions/actionTypes';
 
 ObjectAssign.polyfill();
@@ -11,10 +12,14 @@ es6promise.polyfill();
 
 function* getArticle({ payload }) {
   try {
-    // TODO const response = yield call(API.getArticle, payload);
-    const { data } = yield axiosTemporaryClient.get(`posts/${payload}`); // TODO remove it
+    const article = yield contentfulClient.getEntries({
+      contentType: 'article',
+      additionalQueryParams: {
+        'fields.slug[match]': payload,
+      },
+    });
 
-    yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: data });
+    yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: article });
   } catch (err) {
     yield put({ type: actionTypes.GET_ARTICLE_FAILED, payload: err });
   }
@@ -22,13 +27,18 @@ function* getArticle({ payload }) {
 
 function* loadArticles({ payload }) {
   try {
-    // TODO const { currentPage, currentLimit, category } = payload;
-    // TODO const response = yield call(API.loadArticles, currentPage, currentLimit, category);
-    // TODO const fetchedArticles = yield call(API.loadArticles, currentPage, currentLimit, category);
-    // TODO const { data: { response } } = fetchedArticles;
-    const { data } = yield axiosTemporaryClient.get('/posts'); // TODO remove it
+    const { currentLimit, skip } = payload;
 
-    yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: data });
+    const loadedArticles = yield contentfulClient.getEntries({
+      contentType: 'article',
+      additionalQueryParams: {
+        limit: currentLimit,
+        skip,
+      },
+      searchType: '[match]',
+    });
+
+    yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: loadedArticles });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: err });
   }
@@ -37,9 +47,14 @@ function* loadArticles({ payload }) {
 // TODO remove it
 function* loadFavoritePosts({ payload }) {
   try {
-    const { data } = yield axiosTemporaryClient.get('/posts/favorites'); // TODO remove it
+    const { items } = yield contentfulClient.getEntries({
+      contentType: 'article',
+      additionalQueryParams: {
+        'fields.isFavorite': true,
+      },
+    });
 
-    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_SUCCESS, payload: data });
+    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_SUCCESS, payload: items });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_FAILURE, payload: err });
   }
@@ -58,10 +73,34 @@ function* loadRelatedArticles({ payload }) {
 
 function* loadNearbyArticles({ payload }) {
   try {
-    const { name } = payload;
-    const response = yield call(API.loadNearbyArticles, name);
+    // const { name } = payload;
+    // const response = yield call(API.loadNearbyArticles, name);
 
-    yield put({ type: actionTypes.LOAD_NEARBY_SUCCESS, payload: response });
+    const { createdAt } = payload;
+
+    const prev = yield contentfulClient.getEntries({
+      contentType: 'article',
+      additionalQueryParams: {
+        'fields.createdAt[lt]': createdAt,
+      },
+      limit: 1,
+    });
+
+    const next = yield contentfulClient.getEntries({
+      contentType: 'article',
+      additionalQueryParams: {
+        'fields.createdAt[gt]': createdAt,
+      },
+      limit: 1,
+    });
+
+    yield put({
+      type: actionTypes.LOAD_NEARBY_SUCCESS,
+      payload: {
+        newerArticle: next.items[0],
+        olderArticle: prev.items[0],
+      },
+    });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: err });
   }

@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-// TODO import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
+import get from 'lodash/get';
 import { loadArticles } from 'redux/actions/blog';
 import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
 import {
   SectionTitle,
   ButtonMore,
   Animated,
+  ArticlesList,
 } from 'components';
-import { Post } from 'components/TemporaryBlog';
 import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -18,33 +19,27 @@ const Blog = ({
   articles,
   loadArticles: loadPartOfArticles,
 }) => {
-  // TODO const { asPath } = useRouter();
+  const { asPath } = useRouter();
   const currentPage = 1;
+  const articlesArray = get(articles, 'items', []);
 
   useEffect(() => {
-    if (!articles.length) {
-      loadPartOfArticles({
-        currentPage,
-        currentLimit: 5,
-        category: 'latest',
-      });
-    }
-  }, [articles]);
+    loadPartOfArticles({
+      // currentPage,
+      currentLimit: 5,
+      // category: 'latest',
+    });
+  }, []);
 
   return (
     <section className={styles.blog}>
       <SectionTitle title="Blog" subtitle="How we do what we do" />
-      {/*
-      TODO
       <ArticlesList
-        articles={articles}
+        articles={articlesArray}
         isLoading={isLoading}
         asPath={asPath}
         currentPage={currentPage}
-      /> */}
-      <div className={styles.postsContainer}>
-        {articles && articles.slice(0, 3).map((article) => <Post key={article.id} post={article} />)}
-      </div>
+      />
       <Animated
         type={animatedType.isCustom}
         translateY="2.82352941em"
@@ -53,8 +48,7 @@ const Blog = ({
         transitionDelay={200}
       >
         <ButtonMore
-          // TODO href="/blog?category=latest&page=1"
-          href="/blog"
+          href="/blog?category=latest&page=1"
           title="READ MORE STORIES"
           buttonStyle={styles.blogButton}
         />

@@ -1,4 +1,3 @@
-// TODO import { ArticleContainer } from 'containers';
-import ArticleContainer from 'components/TemporaryBlog/Article';
+import { ArticleContainer } from 'containers';
 
 export default ArticleContainer;

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import cn from 'classnames';
 import { LinkWrapper, Animated } from 'components';
 import styles from './styles.module.scss';
@@ -8,41 +9,49 @@ export const Article = ({
   article,
   countNumber: index,
   animatioProps,
-}) => (
-  <article
-    key={`articles/${article.title}`}
-    className={cn(styles.article, { [styles.medium]: index === 0 })}
-  >
-    <Animated {...animatioProps}>
-      <LinkWrapper
-        isLocalLink
-        dynamicRouting="/blog/[article]"
-        path={`/blog/${article.slug}`}
-      >
-        <div>
+}) => {
+  const previewImage = get(article, 'previewImageUrl.fields.file.url');
+
+  return (
+    <article
+      key={`articles/${article.title}`}
+      className={cn(styles.article, { [styles.medium]: index === 0 })}
+    >
+      <Animated {...animatioProps}>
+        <LinkWrapper
+          isLocalLink
+          dynamicRouting="/blog/[article]"
+          path={`/blog/${article.slug}`}
+        >
           <div>
-            <div className={styles.imgContainer}>
-              <div className={styles.image} style={{ backgroundImage: `url(${article.image})` }} />
+            <div>
+              <div className={styles.imgContainer}>
+                <div className={styles.image} style={{ backgroundImage: `url(${previewImage})` }} />
+              </div>
+              <div className={styles.articlePreview}>
+                <h2 className={styles.title}><a>{article.title}</a></h2>
+                <div className={styles.description}>{article.introduction}</div>
+              </div>
             </div>
-            <div className={styles.articlePreview}>
-              <h2 className={styles.title}><a>{article.title}</a></h2>
-              <div className={styles.description}>{article.description}</div>
-            </div>
+            {
+              article.categoryTag ? (
+                <div className={styles.categoryName}>
+                  <LinkWrapper
+                    isLocalLink
+                    dynamicRouting={`/blog?category=${article.categoryTag}&page=1`}
+                    path={`/blog?category=${article.categoryTag}&page=1`}
+                  >
+                    {article.categoryName}
+                  </LinkWrapper>
+                </div>
+              ) : null
+            }
           </div>
-          <div className={styles.categoryName}>
-            <LinkWrapper
-              isLocalLink
-              dynamicRouting={`/blog?category=${article.categoryTag}&page=1`}
-              path={`/blog?category=${article.categoryTag}&page=1`}
-            >
-              {article.categoryName}
-            </LinkWrapper>
-          </div>
-        </div>
-      </LinkWrapper>
-    </Animated>
-  </article>
-);
+        </LinkWrapper>
+      </Animated>
+    </article>
+  );
+};
 
 Article.propTypes = {
   article: PropTypes.instanceOf(Object).isRequired,
