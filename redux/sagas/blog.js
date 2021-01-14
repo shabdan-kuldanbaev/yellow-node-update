@@ -1,10 +1,12 @@
 import {
-  put, call, takeLatest, all,
+  put,
+  takeLatest,
+  all,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
-import { API, axiosTemporaryClient } from 'utils/api';
 import { contentfulClient } from 'utils/ContentfulClient';
+import { getNearby } from 'utils/contentfulUtils';
 import { actionTypes } from '../actions/actionTypes';
 
 ObjectAssign.polyfill();
@@ -27,11 +29,12 @@ function* getArticle({ payload }) {
 
 function* loadArticles({ payload }) {
   try {
-    const { currentLimit, skip } = payload;
+    const { currentLimit, skip } = payload; // TODO add currentCategory
 
     const loadedArticles = yield contentfulClient.getEntries({
       contentType: 'article',
       additionalQueryParams: {
+        order: '-fields.publishedAt',
         limit: currentLimit,
         skip,
       },
@@ -44,28 +47,19 @@ function* loadArticles({ payload }) {
   }
 }
 
-// TODO remove it
-function* loadFavoritePosts({ payload }) {
+function* loadRelatedArticles({ payload }) {
   try {
-    const { items } = yield contentfulClient.getEntries({
+    const { currentLimit, currentArticleSlug } = payload;
+
+    const loadedArticles = yield contentfulClient.getEntries({
       contentType: 'article',
       additionalQueryParams: {
-        'fields.isFavorite': true,
+        'fields.slug[ne]': currentArticleSlug,
+        limit: currentLimit,
       },
     });
 
-    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_SUCCESS, payload: items });
-  } catch (err) {
-    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_FAILURE, payload: err });
-  }
-}
-
-function* loadRelatedArticles({ payload }) {
-  try {
-    const { category } = payload;
-    const response = yield call(API.loadRelatedArticles, category);
-
-    yield put({ type: actionTypes.LOAD_RELATED_SUCCESS, payload: response });
+    yield put({ type: actionTypes.LOAD_RELATED_SUCCESS, payload: loadedArticles });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_RELATED_FAILED, payload: err });
   }
@@ -73,34 +67,12 @@ function* loadRelatedArticles({ payload }) {
 
 function* loadNearbyArticles({ payload }) {
   try {
-    // const { name } = payload;
-    // const response = yield call(API.loadNearbyArticles, name);
-
     const { createdAt } = payload;
 
-    const prev = yield contentfulClient.getEntries({
-      contentType: 'article',
-      additionalQueryParams: {
-        'fields.createdAt[lt]': createdAt,
-      },
-      limit: 1,
-    });
+    const prev = yield getNearby({ contentfulClient, isOlder: true, createdAt });
+    const next = yield getNearby({ contentfulClient, isOlder: false, createdAt });
 
-    const next = yield contentfulClient.getEntries({
-      contentType: 'article',
-      additionalQueryParams: {
-        'fields.createdAt[gt]': createdAt,
-      },
-      limit: 1,
-    });
-
-    yield put({
-      type: actionTypes.LOAD_NEARBY_SUCCESS,
-      payload: {
-        newerArticle: next.items[0],
-        olderArticle: prev.items[0],
-      },
-    });
+    yield put({ type: actionTypes.LOAD_NEARBY_SUCCESS, payload: { newerArticle: next.items[0], olderArticle: prev.items[0] } });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: err });
   }
@@ -112,6 +84,5 @@ export function* loadBlogDataWatcher() {
     yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
     yield takeLatest(actionTypes.LOAD_RELATED_PENDING, loadRelatedArticles),
     yield takeLatest(actionTypes.LOAD_NEARBY_PENDING, loadNearbyArticles),
-    yield takeLatest(actionTypes.LOAD_FAVORITE_POSTS_START, loadFavoritePosts), // TODO remove it
   ]);
 }

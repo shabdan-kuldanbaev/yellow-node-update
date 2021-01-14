@@ -77,3 +77,6 @@ export { default as FeedbackFormWithTitle } from 'components/ContactUsCommon/Fee
 export { Calendar } from 'components/ContactUsCommon/Calendar';
 export { CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
 export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';
+
+// ContentfulModels
+export { ContentfulParser } from 'components/ContentfulModels/ContentfulParser';

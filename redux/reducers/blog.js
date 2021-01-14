@@ -11,12 +11,6 @@ const initialState = {
   limit: { desktop: 11, mobile: 4 },
   isBlogOpen: false,
   isFirstVisit: false,
-  favoritePosts: {
-    items: null,
-    isLoading: false,
-    isLoaded: false,
-    error: null,
-  }, // TODO remove it
 };
 
 const handlers = {
@@ -67,32 +61,6 @@ const handlers = {
   [actionTypes.SET_TOTAL_ARTICLES_COUNT]: (state, { payload }) => ({ ...state, totalCount: payload }),
   [actionTypes.SET_BLOG_STATUS]: (state, { payload }) => ({ ...state, isBlogOpen: payload }),
   [actionTypes.SET_FIRST_VISIT_OF_BLOG]: (state, { payload }) => ({ ...state, isFirstVisit: payload }),
-  [actionTypes.LOAD_FAVORITE_POSTS_START]: (state) => ({
-    ...state,
-    favoritePosts: {
-      ...state.favoritePosts,
-      isLoading: true,
-      isLoaded: false,
-    },
-  }),
-  [actionTypes.LOAD_FAVORITE_POSTS_SUCCESS]: (state, { payload }) => ({
-    ...state,
-    favoritePosts: {
-      ...state.favoritePosts,
-      items: payload,
-      isLoading: false,
-      isLoaded: true,
-    },
-  }),
-  [actionTypes.LOAD_FAVORITE_POSTS_FAILURE]: (state, { payload }) => ({
-    ...state,
-    favoritePosts: {
-      ...state.favoritePosts,
-      items: payload,
-      isLoading: false,
-      isLoaded: false,
-    },
-  }),
   DEFAULT: (state) => state,
 };
 

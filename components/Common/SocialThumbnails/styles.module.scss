@@ -17,6 +17,16 @@
     max-width: 720px;
     margin: 0 auto;
 
+    .icon {  
+      &Twitter {
+        background-image: url("./images/twitter.svg");
+      }
+  
+      &Facebook {
+        background-image: url("./images/facebook.svg");
+      }
+    }
+
     .svgContainer {
       @include flex(row, center, center);
       width: 80px;
@@ -51,6 +61,28 @@
           height: 18px;
         }
       }
+    }
+  }
+
+  .messageContainer{
+    max-width: 720px;
+    margin: 15px auto;
+
+    .shareLinkInfo{
+      @include fontSize(10px);
+      font-weight: 700;
+      padding: 6px 8px 6px 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0;
+      color: $mirage;
+      border-radius: 4px;
+      background-color: $turbo-100;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .appear {
+      opacity: 1;
     }
   }
 }

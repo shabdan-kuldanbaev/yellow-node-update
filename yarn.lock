@@ -908,6 +908,18 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@contentful/rich-text-react-renderer@^14.1.2":
+  version "14.1.2"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-14.1.2.tgz#b7fff19faa0512f034f1717774a0d9b348bb07fc"
+  integrity sha512-UmZ5nNvFXuD4LA2TKDDD52FgzmeMAQUVu5p9UqKDVDG6twHAD4DiWtoXSRM5Bebftlx2UH+UeWHbxIOgF/lV5A==
+  dependencies:
+    "@contentful/rich-text-types" "^14.1.2"
+
+"@contentful/rich-text-types@^14.1.2":
+  version "14.1.2"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-14.1.2.tgz#33162fdbf427891122a96030f806ca9a9cf0e844"
+  integrity sha512-XbgZ7op5uyYYszipgQg/bYobF4b+llXyTwS8hISRniQY9xKESz544eP2OGmRc4J3MHx29M7Vmx7TVA/IK65giQ==
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -2528,7 +2540,7 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
-copy-to-clipboard@^3.2.0:
+copy-to-clipboard@^3, copy-to-clipboard@^3.2.0:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz#115aa1a9998ffab6196f93076ad6da3b913662ae"
   integrity sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
@@ -6775,6 +6787,14 @@ react-animate-on-scroll@^2.1.5:
     lodash.throttle "^4.1.1"
     prop-types "^15.5.9"
 
+react-copy-to-clipboard@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/react-copy-to-clipboard/-/react-copy-to-clipboard-5.0.3.tgz#2a0623b1115a1d8c84144e9434d3342b5af41ab4"
+  integrity sha512-9S3j+m+UxDZOM0Qb8mhnT/rMR0NGSrj9A/073yz2DSxPMYhmYFBMYIdI2X4o8AjOjyFsSNxDRnCX6s/gRxpriw==
+  dependencies:
+    copy-to-clipboard "^3"
+    prop-types "^15.5.8"
+
 react-dom@16.11.0:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.11.0.tgz#7e7c4a5a85a569d565c2462f5d345da2dd849af5"
@@ -8100,10 +8120,10 @@ text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-three@^0.110.0:
-  version "0.110.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.110.0.tgz#8719591de1336269113ee79f4268ba247b2324f8"
-  integrity sha512-wlurH8XBO9Sd5VIw8nBa+taLR20kqaI4e9FiuMh6tqK8eOS2q2R+ZoUyufbyDTVTHhs8GiTbv0r2CMLkwerFJg==
+three@^0.124.0:
+  version "0.124.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.124.0.tgz#14ab1a26ba6c56e51190e1b55695cd3c1e69ea55"
+  integrity sha512-ROXp1Ly7YyF+jC910DQyAWj++Qlw2lQv0qwYLNQwdDbjk4bsOXAfGO92wYTMPNei1GMJUmCxSxc3MjGBTS09Rg==
 
 throttle-debounce@^2.1.0:
   version "2.3.0"

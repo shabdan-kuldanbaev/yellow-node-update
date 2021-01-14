@@ -17,7 +17,7 @@ export const menuList = [
   },
   {
     name: 'Contact Us',
-    href: '/contact-us',
+    href: '/contact',
   },
 ];
 

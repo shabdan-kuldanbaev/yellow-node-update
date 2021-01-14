@@ -24,11 +24,7 @@ const Blog = ({
   const articlesArray = get(articles, 'items', []);
 
   useEffect(() => {
-    loadPartOfArticles({
-      // currentPage,
-      currentLimit: 5,
-      // category: 'latest',
-    });
+    loadPartOfArticles({ currentLimit: 5 });
   }, []);
 
   return (

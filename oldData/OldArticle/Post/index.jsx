@@ -17,14 +17,10 @@ export default function Post({
   const publishedAt = get(post, 'fields.publishedAt', '');
   const introduction = get(post, 'fields.introduction', '');
 
-
   switch (mode) {
   case 'favorite': {
     return (
-      <article className={cn(styles.post_favorite_preview, {
-        [className]: className,
-      })}
-      >
+      <article className={cn(styles.post_favorite_preview, { [className]: className })}>
         <LinkWrapper
           isLocalLink
           dynamicRouting="/blog/[article]"
@@ -38,9 +34,7 @@ export default function Post({
             />
           </div>
           <div className={styles.post_favorite_preview_content}>
-            <div className={styles.post_favorite_preview_title}>
-              {title}
-            </div>
+            <div className={styles.post_favorite_preview_title}>{title}</div>
           </div>
         </LinkWrapper>
       </article>
@@ -48,10 +42,7 @@ export default function Post({
   }
   case 'related': {
     return (
-      <article className={cn(styles.post_related_preview, {
-        [className]: className,
-      })}
-      >
+      <article className={cn(styles.post_related_preview, { [className]: className })}>
         <LinkWrapper
           className={styles.post_related_preview_image}
           isLocalLink
@@ -83,10 +74,7 @@ export default function Post({
   }
   default: {
     return (
-      <article className={cn(styles.post_preview, {
-        [className]: className,
-      })}
-      >
+      <article className={cn(styles.post_preview, { [className]: className })}>
         <LinkWrapper
           isLocalLink
           dynamicRouting="/blog/[article]"

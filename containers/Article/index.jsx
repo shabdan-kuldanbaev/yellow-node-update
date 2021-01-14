@@ -1,7 +1,5 @@
 import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import cloneDeep from 'lodash/cloneDeep';
-import sortBy from 'lodash/sortBy';
 import get from 'lodash/get';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -23,8 +21,11 @@ import {
   SocialThumbnails,
   SubscribeBlock,
   NextPrev,
+  MetaTags,
+  withScroll,
 } from 'components';
-import { Article as OldArticle } from 'components/TemporaryBlog';
+import { pages } from 'utils/constants';
+import { rootUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ArticleContainer = ({
@@ -39,24 +40,24 @@ const ArticleContainer = ({
   subscribe,
 }) => {
   const { query: { article }, pathname } = useRouter();
-  const sortArticle = cloneDeep(currentArticle);
-  // if (sortArticle) return null; // TODO
-  const sortBody = (currentArticle && currentArticle.body && sortBy(currentArticle.body, 'orderNumber')) || [];
-  if (sortBody) sortArticle.body = sortBody;
-  const currentCategory = get(sortArticle, 'header.categoryTag', null);
-  const currentTitle = get(sortArticle, 'header.title');
-
+  const currentCategory = get(currentArticle, 'items[0].fields.categoryTag', '');
+  const currentArticleSlug = get(currentArticle, 'items[0].fields.slug');
   const articleData = get(currentArticle, 'items[0].fields', {});
+  const relatedArticlesData = get(relatedArticles, 'items', []);
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   useEffect(() => {
     if (article) getCurrentArticle(article);
-  }, []);
+  }, [article]);
 
   useEffect(() => {
-    if (currentCategory) loadArticles({ category: currentCategory });
-  }, [currentCategory]);
+    loadArticles({
+      currentLimit: 5,
+      currentArticleSlug,
+      currentCategory,
+    });
+  }, [currentArticle]);
 
   useEffect(() => {
     if (articleData) getNearby({ name: articleData.title, createdAt: articleData.createdAt });
@@ -64,27 +65,22 @@ const ArticleContainer = ({
 
   return (
     <Fragment>
-      {(articleData && articleData.body) ? (
-        <OldArticle />
-      ) : (
-        <Fragment>
-          <Article
-            article={sortArticle}
-            introSection={introSection}
-            isLoading={isLoading}
-          />
-          <SocialThumbnails />
-          <RelatedSection articles={relatedArticles} isLoading={isLoading} />
-          <div className={styles.nextPrevSection}>
-            <NextPrev
-              isNewer
-              article={newerArticle}
-              isLoading={isLoading}
-            />
-            <NextPrev article={olderArticle} isLoading={isLoading} />
-          </div>
-        </Fragment>
-      )}
+      <MetaTags page={pages.blog} />
+      <Article
+        article={currentArticle}
+        introSection={introSection}
+        isLoading={isLoading}
+      />
+      <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={articleData.title} />
+      <RelatedSection articles={relatedArticlesData} isLoading={isLoading} />
+      <div className={styles.nextPrevSection}>
+        <NextPrev
+          isNewer
+          article={newerArticle}
+          isLoading={isLoading}
+        />
+        <NextPrev article={olderArticle} isLoading={isLoading} />
+      </div>
       <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
     </Fragment>
   );
@@ -113,4 +109,4 @@ export default connect(
     loadNearbyArticles,
     subscribe,
   },
-)(ArticleContainer);
+)(withScroll(ArticleContainer));
