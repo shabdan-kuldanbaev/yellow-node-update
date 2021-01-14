@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import get from 'lodash/get';
 import {
   Animated,
 } from 'components';
@@ -14,12 +15,15 @@ export const Work = ({
   index,
   animatedFields,
 }) => {
+  const project = get(work, 'fields', {});
+  const image = get(work, 'fields.image.fields.file.url', '');
+
   const switchRender = ({ field }, work) => {
     switch (field) {
-    case 'name':
-      return <h1>{work.name}</h1>;
-    case 'desc':
-      return <p>{work.description}</p>;
+    case 'title':
+      return <h1>{project.title}</h1>;
+    case 'description':
+      return <p>{project.description}</p>;
     // TODO case 'link':
     //   return (
     //     <LinkWrapper {...animated} className={styles.buttonWrap}>
@@ -34,14 +38,14 @@ export const Work = ({
   return (
     <div
       className={styles.work}
-      key={`works/${work.name}`}
+      key={`works/${project.title}`}
       data-index={index}
       ref={refs[index + 1]}
     >
       <div className={styles.desc}>
         {animatedFields && animatedFields.map((animated) => (
           <Animated {...animated}>
-            {switchRender(animated, work)}
+            {switchRender(animated, project)}
           </Animated>
         ))}
       </div>
@@ -54,7 +58,7 @@ export const Work = ({
               { [styles.thirdShadow]: index === 2 },
             )}
           >
-            <img src={work.preview} alt={work.preview} />
+            <img src={image} alt={image} />
             {/* //TODO
           {work.videoName && (
             <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />

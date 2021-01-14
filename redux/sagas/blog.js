@@ -1,9 +1,10 @@
 import {
-  put, call, takeLatest, all,
+  put,
+  takeLatest,
+  all,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
-import { API, axiosTemporaryClient } from 'utils/api';
 import { contentfulClient } from 'utils/ContentfulClient';
 import { actionTypes } from '../actions/actionTypes';
 
@@ -27,7 +28,7 @@ function* getArticle({ payload }) {
 
 function* loadArticles({ payload }) {
   try {
-    const { currentLimit, skip } = payload;
+    const { currentLimit, skip } = payload; // TODO add currentCategory
 
     const loadedArticles = yield contentfulClient.getEntries({
       contentType: 'article',
@@ -62,10 +63,17 @@ function* loadFavoritePosts({ payload }) {
 
 function* loadRelatedArticles({ payload }) {
   try {
-    const { category } = payload;
-    const response = yield call(API.loadRelatedArticles, category);
+    const { currentLimit, currentArticleSlug } = payload;
 
-    yield put({ type: actionTypes.LOAD_RELATED_SUCCESS, payload: response });
+    const loadedArticles = yield contentfulClient.getEntries({
+      contentType: 'article',
+      additionalQueryParams: {
+        'fields.slug[ne]': currentArticleSlug,
+        limit: currentLimit,
+      },
+    });
+
+    yield put({ type: actionTypes.LOAD_RELATED_SUCCESS, payload: loadedArticles });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_RELATED_FAILED, payload: err });
   }
@@ -73,9 +81,6 @@ function* loadRelatedArticles({ payload }) {
 
 function* loadNearbyArticles({ payload }) {
   try {
-    // const { name } = payload;
-    // const response = yield call(API.loadNearbyArticles, name);
-
     const { createdAt } = payload;
 
     const prev = yield contentfulClient.getEntries({
@@ -94,13 +99,7 @@ function* loadNearbyArticles({ payload }) {
       limit: 1,
     });
 
-    yield put({
-      type: actionTypes.LOAD_NEARBY_SUCCESS,
-      payload: {
-        newerArticle: next.items[0],
-        olderArticle: prev.items[0],
-      },
-    });
+    yield put({ type: actionTypes.LOAD_NEARBY_SUCCESS, payload: { newerArticle: next.items[0], olderArticle: prev.items[0] } });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: err });
   }

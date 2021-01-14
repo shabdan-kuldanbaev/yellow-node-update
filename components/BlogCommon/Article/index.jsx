@@ -1,36 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { Loader } from 'components';
-import { DataTypes } from './DataTypes';
+import { Loader, ContentfulParser } from 'components';
 import styles from './styles.module.scss';
 
 const Article = ({
   introSection,
   article,
   isLoading,
-}) => (
-  <Loader isLoading={!isLoading}>
-    <section ref={introSection} className={styles.article}>
-      <header className={styles.header}>
-        <div>
-          <div style={{ backgroundImage: `url(${get(article, 'header.image', '')})` }} />
-        </div>
-        <div className={styles.container}>
+}) => {
+  const document = get(article, 'items[0].fields', {});
+
+  return (
+    <Loader isLoading={!isLoading}>
+      <section ref={introSection} className={styles.article}>
+        <header className={styles.header}>
           <div>
-            <h1 className={styles.h1}>{get(article, 'header.title', '')}</h1>
+            <div style={{ backgroundImage: `url(${get(document, 'previewImageUrl.fields.file.url', '')})` }} />
           </div>
-          <div>
-            <p>{get(article, 'header.subtitle', '')}</p>
+          <div className={styles.container}>
+            <div>
+              <h1 className={styles.h1}>{get(document, 'title', '')}</h1>
+            </div>
+            <div>
+              <p>{get(document, 'introduction', '')}</p>
+            </div>
           </div>
+        </header>
+        <div className={styles.body}>
+          <ContentfulParser document={document} />
         </div>
-      </header>
-      <div className={styles.body}>
-        {get(article, 'body', []).map((item) => <DataTypes type={item.tag} data={item.data} />)}
-      </div>
-    </section>
-  </Loader>
-);
+      </section>
+    </Loader>
+  );
+};
 
 Article.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,

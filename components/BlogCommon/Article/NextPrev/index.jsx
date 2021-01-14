@@ -13,7 +13,7 @@ const NextPrev = ({
   isNewer,
   isLoading,
 }) => {
-  const preview = get(article, 'fields.previewImageUrl.fields.file.url', '');
+  const previewImageUrl = get(article, 'fields.previewImageUrl.fields.file.url', '');
   const slug = get(article, 'fields.slug', '');
   const title = get(article, 'fields.title', '');
 
@@ -27,13 +27,19 @@ const NextPrev = ({
             path={`/blog/${slug}`}
           >
             <div className={styles.imgContainer}>
-              <ImageWithPlaceholder src={preview} imageStyle={styles.img} />
+              <ImageWithPlaceholder src={previewImageUrl} imageStyle={styles.img} />
             </div>
           </LinkWrapper>
           <div className={styles.content}>
             <small>{isNewer ? 'NEWER POST' : 'OLDER POST'}</small>
             <h3 className={styles.title}>
-              <a>{title}</a>
+              <LinkWrapper
+                isLocalLink
+                dynamicRouting="/blog/[article]"
+                path={`/blog/${slug}`}
+              >
+                {title}
+              </LinkWrapper>
             </h3>
           </div>
         </Fragment>

@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { connect } from 'react-redux';
 import { selectWorks, selectIsLoading } from 'redux/selectors/portfolio';
 import { loadWorks } from 'redux/actions/portfolio';
@@ -17,8 +18,10 @@ const PortfolioContainer = ({
   isLoading,
   loadWorks: loadCurrentWorks,
 }) => {
+  const projects = get(works, 'items[0].fields.portfolioOrder', []);
+
   useEffect(() => {
-    loadCurrentWorks();
+    loadCurrentWorks('portfolio');
   }, []);
 
   return (
@@ -26,7 +29,7 @@ const PortfolioContainer = ({
       <MetaTags page={pages.portfolio} />
       <section ref={introSection} className={styles.portfolio}>
         <Loader isLoading={!isLoading}>
-          <Portfolio works={works} />
+          <Portfolio works={projects} />
         </Loader>
       </section>
     </Fragment>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -8,7 +8,6 @@ import { subscribe } from 'redux/actions/subscribe';
 import {
   selectIsLoading,
   selectArticles,
-  selectTotalCount,
   selectDesktopLimit,
   selectMobileLimit,
 } from 'redux/selectors/blog';
@@ -17,8 +16,10 @@ import {
   SelectionBlock,
   ArticlesList,
   Paginator,
+  MetaTags,
 } from 'components';
 import { toInt } from 'utils/helper';
+import { pages } from 'utils/constants';
 import { arrows } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -28,7 +29,6 @@ const BlogContainer = ({
   isLoading,
   loadArticles: loadNewArticles,
   setTotalCount: setTotalArticlesCount,
-  totalCount,
   desktopLimit,
   mobileLimit,
   isMobileResolution,
@@ -36,10 +36,10 @@ const BlogContainer = ({
 }) => {
   const { asPath, query: { category, page }, pathname } = useRouter();
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
-  const pagesCounter = Math.ceil(totalCount / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
   const currentPage = toInt(page);
   const articlesArray = get(articles, 'items', []);
   const totalArticles = get(articles, 'total');
+  const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
 
   useEffect(() => {
     // TODO
@@ -47,7 +47,6 @@ const BlogContainer = ({
     //   ? articlesData.filter((article) => article.categoryTag === category)
     //   : articlesData;
 
-    // setTotalArticlesCount(newArticles.length);
     setTotalArticlesCount(totalArticles);
   }, [category]);
 
@@ -67,21 +66,24 @@ const BlogContainer = ({
   };
 
   return (
-    <section ref={introSection} className={styles.blog}>
-      {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
-      <ArticlesList
-        articles={articlesArray}
-        isLoading={isLoading}
-        asPath={asPath}
-        currentPage={currentPage}
-        handleOnFormSubmit={handleOnFormSubmit}
-      />
-      <Paginator
-        arrows={arrows}
-        pagesCounter={pagesCounter}
-        currentPage={currentPage}
-      />
-    </section>
+    <Fragment>
+      <MetaTags page={pages.blog} />
+      <section ref={introSection} className={styles.blog}>
+        {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
+        <ArticlesList
+          articles={articlesArray}
+          isLoading={isLoading}
+          asPath={asPath}
+          currentPage={currentPage}
+          handleOnFormSubmit={handleOnFormSubmit}
+        />
+        <Paginator
+          arrows={arrows}
+          pagesCounter={pagesCounter}
+          currentPage={currentPage}
+        />
+      </section>
+    </Fragment>
   );
 };
 
@@ -91,7 +93,6 @@ BlogContainer.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   loadArticles: PropTypes.func.isRequired,
   setTotalCount: PropTypes.func.isRequired,
-  totalCount: PropTypes.number.isRequired,
   desktopLimit: PropTypes.number.isRequired,
   mobileLimit: PropTypes.number.isRequired,
   isMobileResolution: PropTypes.bool.isRequired,
@@ -102,7 +103,6 @@ export default connect(
   (state) => ({
     isLoading: selectIsLoading(state),
     articles: selectArticles(state),
-    totalCount: selectTotalCount(state),
     desktopLimit: selectDesktopLimit(state),
     mobileLimit: selectMobileLimit(state),
     isMobileResolution: selectIsMobileResolutions(state),

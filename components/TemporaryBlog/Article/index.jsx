@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import get from 'lodash/get';
 import ReactGA from 'react-ga';
-import { loadFavoritePostsStart, getArticle } from 'redux/actions/blog';
+import { loadFavoritePostsStart, loadRelatedArticles } from 'redux/actions/blog';
 import {
   selectIsLoading,
   selectArticle,
   selectFavoritePosts,
+  selectRelatedArticles,
 } from 'redux/selectors/blog';
-import isEmpty from 'lodash/isEmpty';
 import { rootUrl } from 'utils/helper';
 import { Loader, withScroll } from 'components';
 import Subscribe from '../Subscribe';
@@ -22,33 +22,23 @@ import SocialShare from '../SocialShare';
 import styles from './styles.module.scss';
 
 class Article extends PureComponent {
-  static initialAction(id) {
-    const postId = id.replace('/blog/', '');
-
-    return getArticle(postId);
-  }
-
   componentDidMount() {
-    if (isEmpty(this.props.post)) {
-      this.props.getArticle(this.props.router.query.article);
-    } else if (this.props.post.slug !== this.props.router.query.article) {
-      this.props.getArticle(this.props.router.query.article);
-    }
     this.props.loadFavoritePostsStart();
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.router.query.article !== nextProps.router.query.article) {
-      this.props.getArticle(nextProps.router.query.article);
       this.props.loadFavoritePostsStart();
     }
   }
 
   componentWillUnmount() {
+    const slug = get(this.props.post, 'items[0].fields.slug', '');
+
     ReactGA.event({
       category: 'Scroll',
       action: `${this.props.maxScrollPosition}%`,
-      label: `/blog/${this.props.post.slug}`,
+      label: `/blog/${slug}`,
       nonInteraction: this.props.maxScrollPosition < 50,
     });
   }
@@ -65,7 +55,6 @@ class Article extends PureComponent {
       introSection,
     } = this.props;
 
-    const postData = get(post, 'items[0].fields', {});
     const description = get(post, 'items[0].fields.description', '');
     const headImage = get(post, 'items[0].fields.headImageUrl.fields.file.url', '');
     const slug = get(post, 'items[0].fields.slug', '');
@@ -73,13 +62,12 @@ class Article extends PureComponent {
     const introduction = get(post, 'items[0].fields.introduction', '');
     const publishedAt = get(post, 'items[0].fields.publishedAt', '');
     const updatedAt = get(post, 'items[0].fields.updatedAt', '');
-    const body = get(post, 'items[0].fields.body', '');
-
+    const body = get(post, 'items[0].fields.oldBody', '');
 
     if (isLoading || !post) {
       return <Loader />;
     }
-    const title = `${post.page_title || postTitle} - Yellow`;
+    const title = `${postTitle} - Yellow`;
 
     return (
       <Fragment>
@@ -106,7 +94,7 @@ class Article extends PureComponent {
           </div>
           <div className={styles.articleContentContainer}>
             <div className={styles.articleAside}>
-              {favoritePosts && <Favorites posts={favoritePosts.items} />}
+              {favoritePosts.items && <Favorites posts={favoritePosts.items} />}
             </div>
             <div className={styles.articleContent}>
               <div dangerouslySetInnerHTML={this.createMarkup(body)} />
@@ -125,7 +113,7 @@ class Article extends PureComponent {
             description="Get weekly updates on the newest design stories, case studies and tips right in your mailbox."
             insideArticle
           />
-          {/* <RelatedPosts currentPostId={post.id} /> */}
+          <RelatedPosts data={this.props.relatedPosts} />
         </article>
       </Fragment>
     );
@@ -135,9 +123,9 @@ class Article extends PureComponent {
 Article.propTypes = {
   favoritePosts: PropTypes.arrayOf(PropTypes.object),
   loadFavoritePostsStart: PropTypes.func.isRequired,
-  getArticle: PropTypes.func.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
   router: PropTypes.instanceOf(Object).isRequired,
+  relatedPosts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 Article.defaultProps = {
@@ -149,8 +137,9 @@ export default connect(
     favoritePosts: selectFavoritePosts(state),
     post: selectArticle(state),
     isLoading: selectIsLoading(state),
+    relatedPosts: selectRelatedArticles(state),
   }), {
     loadFavoritePostsStart,
-    getArticle,
+    loadRelatedArticles,
   },
 )(withScroll(withRouter(Article)));

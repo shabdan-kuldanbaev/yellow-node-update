@@ -8,7 +8,7 @@ import { Animated } from 'components';
 import { animatedType, NUMBER_OF_IMAGES_PER_LINE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const GalleryCard = ({ data: { data: images, photoCaption } }) => {
+export const GalleryCard = ({ data: { images, photoCaption } }) => {
   const imageRef = useRef(null);
   const rowsCount = Math.ceil(images.length / NUMBER_OF_IMAGES_PER_LINE);
 
@@ -28,15 +28,19 @@ export const GalleryCard = ({ data: { data: images, photoCaption } }) => {
       <div className={styles.images} ref={imageRef}>
         {[...Array(rowsCount)].map((row, index) => (
           <div className={styles.row}>
-            {getImagesInRow(index).map((image) => (
-              <Animated type={animatedType.imageZoom}>
-                <img
-                  src={image}
-                  alt={image}
-                  onLoad={handleOnLoad}
-                />
-              </Animated>
-            ))}
+            {getImagesInRow(index).map((image) => {
+              const imageUrl = get(image, 'fields.file.url', '');
+
+              return (
+                <Animated type={animatedType.imageZoom}>
+                  <img
+                    src={imageUrl}
+                    alt={imageUrl}
+                    onLoad={handleOnLoad}
+                  />
+                </Animated>
+              );
+            })}
           </div>
         ))}
       </div>

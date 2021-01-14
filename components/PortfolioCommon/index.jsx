@@ -6,6 +6,7 @@ import {
   PreviewImage,
   withScroll,
 } from 'components';
+import { get } from 'lodash';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
@@ -29,8 +30,8 @@ const Portfolio = ({
 
   const switchRender = ({ field }, work) => {
     switch (field) {
-    case 'name':
-      return <h1>{work.name}</h1>;
+    case 'title':
+      return <h1>{work.title}</h1>;
     case 'description':
       return <p>{work.description}</p>;
     // TODO case 'link':
@@ -49,24 +50,29 @@ const Portfolio = ({
 
   return (
     <div className={styles.worksContainer}>
-      {works && works.map((work, index) => (
-        <div
-          className={styles.work}
-          key={`works/${work.name}`}
-          data-index={index}
-        >
-          <div className={styles.workWrapper}>
-            <div className={styles.desc}>
-              {animatedFields && animatedFields.map((animated) => (
-                <Animated {...animated}>
-                  {switchRender(animated, work)}
-                </Animated>
-              ))}
+      {works && works.map((work, index) => {
+        const workData = get(work, 'fields', {});
+        const image = get(work, 'fields.image.fields.file.url');
+
+        return (
+          <div
+            className={styles.work}
+            key={`works/${workData.title}`}
+            data-index={index}
+          >
+            <div className={styles.workWrapper}>
+              <div className={styles.desc}>
+                {animatedFields && animatedFields.map((animated) => (
+                  <Animated {...animated}>
+                    {switchRender(animated, workData)}
+                  </Animated>
+                ))}
+              </div>
+              <PreviewImage image={image} />
             </div>
-            <PreviewImage image={work.image} />
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

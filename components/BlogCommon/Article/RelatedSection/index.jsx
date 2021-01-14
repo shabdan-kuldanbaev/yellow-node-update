@@ -20,9 +20,7 @@ const RelatedSection = ({ articles, isLoading }) => (
         </div>
       </div>
       <div className={styles.articlesList}>
-        {articles && articles.map((item) => (
-          <Article article={item} key={item.title} />
-        ))}
+        {articles && articles.map((article) => <Article article={article} key={article.fields.title} />)}
       </div>
     </div>
   </Loader>

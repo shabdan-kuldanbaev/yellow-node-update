@@ -1,12 +1,7 @@
 import * as builder from 'xmlbuilder';
 import dayjs from 'dayjs';
 import { getMainLinksForSitemap, rootUrl } from 'utils/helper';
-import axios from 'axios'; // TODO remove it
-
-// TODO remove it
-const axiosTemporaryClient = axios.create({
-  baseURL: process.env.API_URL,
-});
+import { contentfulClient } from 'utils/ContentfulClient';
 
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
 const buildUrlObject = (data) => data.map((item) => ({
@@ -20,10 +15,13 @@ const Sitemap = () => (null);
 
 Sitemap.getInitialProps = async ({ ctx: { req, res } }) => {
   try {
-    const { data } = await axiosTemporaryClient.get('/posts');
-    const postLinks = data.map(({ slug, published_at }) => ({
+    const { items } = await contentfulClient.getEntries({
+      contentType: 'article',
+      searchType: '[match]',
+    });
+    const postLinks = items.map(({ fields: { slug, publishedAt } }) => ({
       path: `/blog/${slug}`,
-      updatedAt: getDate(Date.parse(published_at)),
+      updatedAt: getDate(Date.parse(publishedAt)),
     }));
     const feedObject = {
       urlset: {
