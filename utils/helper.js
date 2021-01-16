@@ -4,6 +4,7 @@ import {
   bigTabletResolution,
   silver,
 } from 'styles/utils/_variables.scss';
+import { pages } from './constants';
 
 export const themes = {
   dark: {
@@ -51,11 +52,12 @@ export const formatDate = (date) => {
 
 export const getMainLinksForSitemap = (updatedAt) => [
   { path: '/', updatedAt },
-  { path: '/portfolio', updatedAt },
-  { path: '/process', updatedAt },
-  { path: '/company', updatedAt },
-  { path: '/contact-us', updatedAt },
-  { path: '/blog', updatedAt },
+  { path: `/${pages.portfolio}`, updatedAt },
+  { path: `/${pages.process}`, updatedAt },
+  { path: `/${pages.company}`, updatedAt },
+  { path: `/${pages.contact}`, updatedAt },
+  { path: `/${pages.blog}`, updatedAt },
+  { path: `/${pages.notFound}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'

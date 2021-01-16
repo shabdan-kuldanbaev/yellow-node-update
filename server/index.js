@@ -5,6 +5,12 @@ const dotenv = require('dotenv');
 const multer = require('multer');
 const compression = require('compression');
 const path = require('path');
+const cors = require('cors');
+const {
+  httpsRedirect,
+  clearUrlRedirect,
+  oldUrlRedirect,
+} = require('./middleware/redirect');
 const mailhelper = require('./mail/mailhelper');
 const { getFeedBackMessage, getSubscribeMessage } = require('./mail/messages');
 const { processes } = require('./utils/data');
@@ -22,17 +28,30 @@ app
   .then(() => {
     const server = express();
 
+    server.use(httpsRedirect);
+    server.use(clearUrlRedirect);
+    server.use(oldUrlRedirect);
+
+    server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));
-    server.use(bodyParser.urlencoded());
+    server.use(bodyParser.urlencoded({ extended: false }));
     server.use(bodyParser.json());
     server.use(compression());
 
     server.post('/send', upload.array('files'), async (req, res) => {
-      await mailhelper.sendMail(getFeedBackMessage(req), res);
+      try {
+        await mailhelper.sendMail(getFeedBackMessage(req), res);
+      } catch (err) {
+        console.log(err);
+      }
     });
 
     server.post('/subscribe', async (req, res) => {
-      await mailhelper.sendMail(getSubscribeMessage(req), res);
+      try {
+        await mailhelper.sendMail(getSubscribeMessage(req), res);
+      } catch (err) {
+        console.log(err);
+      }
     });
 
     server.get('/json', (req, res) => {

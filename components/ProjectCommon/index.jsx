@@ -21,9 +21,7 @@ export const Project = ({ project, introSection }) => (
       {get(project, 'body', []).map((item) => (
         <Fragment>
           {item.title && <div><h2>{item.title}</h2></div>}
-
           {item.subtitle1 && <div><p>{item.subtitle1}</p></div>}
-
           {item.image1_1 && item.image1_2 ? (
             <div className={styles.mediasWrapper}>
               {item.image1_1 && (
@@ -48,7 +46,6 @@ export const Project = ({ project, introSection }) => (
               </Animated>
             </div>
           )}
-
           {item.video1_1 && item.video1_2 ? (
             <div className={styles.mediasWrapper}>
               {item.video1_1 && (
@@ -73,9 +70,7 @@ export const Project = ({ project, introSection }) => (
               </Animated>
             </div>
           )}
-
           {item.subtitle2 && <div><p className={styles.additionSubtitle}>{item.subtitle2}</p></div>}
-
           {item.image2_1 && item.image2_2 ? (
             <div className={styles.mediasWrapper}>
               {item.image2_1 && (
@@ -100,7 +95,6 @@ export const Project = ({ project, introSection }) => (
               </Animated>
             </div>
           )}
-
           {item.video2_1 && item.video2_2 ? (
             <div className={styles.mediasWrapper}>
               {item.video2_1 && (

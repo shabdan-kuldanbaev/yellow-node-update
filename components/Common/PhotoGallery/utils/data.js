@@ -1,11 +1,28 @@
-import {
+// TODO
+// import {
+//   First,
+//   Second,
+//   Fourth,
+//   Sixth,
+//   Fifth,
+//   Third,
+// } from '../images';
+
+const [
   First,
   Second,
-  Fourth,
-  Sixth,
-  Fifth,
   Third,
-} from '../images';
+  Fourth,
+  Fifth,
+  Sixth,
+] = [
+  '/images/common/photo_gallery/1.jpg',
+  '/images/common/photo_gallery/2.jpg',
+  '/images/common/photo_gallery/3.jpg',
+  '/images/common/photo_gallery/4.jpg',
+  '/images/common/photo_gallery/5.jpg',
+  '/images/common/photo_gallery/6.jpg',
+];
 
 export const galleryData = [
   {

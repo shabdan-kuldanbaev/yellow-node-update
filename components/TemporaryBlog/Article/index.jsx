@@ -3,21 +3,20 @@ import { withRouter } from 'next/router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import ReactGA from 'react-ga';
 import { loadFavoritePostsStart, getArticle } from 'redux/actions/blog';
 import {
   selectIsLoading,
-  selectArticles,
   selectArticle,
   selectFavoritePosts,
 } from 'redux/selectors/blog';
 import isEmpty from 'lodash/isEmpty';
 import { rootUrl } from 'utils/helper';
-import { Loader } from 'components';
+import { Loader, withScroll } from 'components';
 import Subscribe from '../Subscribe';
 import Navigation from '../Navigation';
 import Favorites from '../Favorites';
 import RelatedPosts from '../RelatedPosts';
-import withScroll from '../withScroll';
 import SocialShare from '../SocialShare';
 import styles from './styles.module.scss';
 
@@ -44,6 +43,15 @@ class Article extends PureComponent {
     }
   }
 
+  componentWillUnmount() {
+    ReactGA.event({
+      category: 'Scroll',
+      action: `${this.props.maxScrollPosition}%`,
+      label: `/blog/${this.props.post.slug}`,
+      nonInteraction: this.props.maxScrollPosition < 50,
+    });
+  }
+
   createMarkup(data) {
     return { __html: data };
   }
@@ -51,15 +59,13 @@ class Article extends PureComponent {
   render() {
     const {
       post,
-      posts,
       favoritePosts,
       isLoading,
-      relatedPosts,
+      introSection,
     } = this.props;
     if (isLoading || isEmpty(post)) {
       return <Loader />;
     }
-
     const title = `${post.page_title || post.title} - Yellow`;
 
     return (
@@ -77,7 +83,7 @@ class Article extends PureComponent {
           <meta property="article:published_time" content={post.published_at} />
           <meta property="article:modified_time" content={post.updated_at} />
         </Head>
-        <article className={styles.article}>
+        <article ref={introSection} className={styles.article}>
           <div className={styles.articleHeader}>
             <h1>{post.title}</h1>
             <p className={styles.introduction}>{post.introduction}</p>
@@ -106,7 +112,7 @@ class Article extends PureComponent {
             description="Get weekly updates on the newest design stories, case studies and tips right in your mailbox."
             insideArticle
           />
-          <RelatedPosts posts={relatedPosts} />
+          <RelatedPosts currentPostId={post.id} />
         </article>
       </Fragment>
     );
@@ -114,38 +120,24 @@ class Article extends PureComponent {
 }
 
 Article.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.object),
   favoritePosts: PropTypes.arrayOf(PropTypes.object),
-  relatedPosts: PropTypes.arrayOf(PropTypes.object),
-  loadFavoritePostsStart: PropTypes.func,
-  getArticle: PropTypes.func,
+  loadFavoritePostsStart: PropTypes.func.isRequired,
+  getArticle: PropTypes.func.isRequired,
+  introSection: PropTypes.instanceOf(Object).isRequired,
+  router: PropTypes.instanceOf(Object).isRequired,
 };
 
 Article.defaultProps = {
-  posts: [],
   favoritePosts: [],
-  relatedPosts: [],
 };
 
-const mapStateToProps = (state) => {
-  const currentPost = selectArticle(state);
-  const posts = selectArticles(state);
-  let relatedPosts = null;
-
-  if (posts && currentPost) {
-    relatedPosts = posts.filter((art) => art.id !== currentPost.id).sort(() => 0.5 - Math.random()).slice(0, 3);
-  }
-
-  return {
-    relatedPosts,
+export default connect(
+  (state) => ({
     favoritePosts: selectFavoritePosts(state),
-    posts,
-    post: currentPost,
+    post: selectArticle(state),
     isLoading: selectIsLoading(state),
-  };
-};
-
-export default connect(mapStateToProps, {
-  loadFavoritePostsStart,
-  getArticle,
-})(withScroll(withRouter(Article)));
+  }), {
+    loadFavoritePostsStart,
+    getArticle,
+  },
+)(withScroll(withRouter(Article)));

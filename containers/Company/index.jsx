@@ -7,12 +7,15 @@ import {
   PhotoGallery,
   Awards,
   Reviews,
+  MetaTags,
 } from 'components';
 import { reviews } from 'containers/Home/Reviews/utils/data';
+import { pages } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const CompanyContainer = ({ introSection }) => (
   <Fragment>
+    <MetaTags page={pages.company} />
     <section ref={introSection} className={styles.companyContainer}>
       <AboutUs />
       <WhatMakesUsSpecial />
