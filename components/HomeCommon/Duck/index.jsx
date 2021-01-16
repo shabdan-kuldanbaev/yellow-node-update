@@ -12,7 +12,8 @@ import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
-import { OBJLoader } from 'node_modules/three/examples/jsm/loaders/OBJLoader';
+import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
+import { DRACOLoader } from 'node_modules/three/examples/jsm/loaders/DRACOLoader';
 import { animated, useSpring } from 'react-spring';
 import { useRouter } from 'next/router';
 import { mobileResolution } from 'utils/helper';
@@ -128,12 +129,16 @@ export const Duck = ({
     // for disable web-security
     // this is comand befor opening the chrome: open -a Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
     // or use this url befor main url: const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-    const url = 'https://solidwood.s3.eu-central-1.amazonaws.com/Duck_0.3.obj';
+    const url = '/Duck_2.gltf';
 
-    const loader = new OBJLoader();
+    const loader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
+
+    dracoLoader.setDecoderPath('/draco/gltf/');
+    loader.setDRACOLoader(dracoLoader);
     loader.load(
       url,
-      (obj) => setDuckToRedux(obj),
+      (gltf) => setDuckToRedux(gltf.scene),
       (xhr) => ((xhr.loaded / xhr.total) * 100 === 100) && handleOnLoaded(true),
     );
   };
@@ -516,16 +521,18 @@ export const Duck = ({
   };
 
   const animateSlogan = () => {
-    const str = sloganRef.current.textContent;
-    let newStr = '';
+    if (sloganRef && sloganRef.current) {
+      const str = sloganRef.current.textContent;
+      let newStr = '';
 
-    for (let i = 0; i < str.length; i += 1) {
-      if (str[i] === ' ') newStr += ' ';
-      else if (str[i] === '\n') newStr += '</br>';
-      else newStr += `<span class='letter'>${str[i]}</span>`;
+      for (let i = 0; i < str.length; i += 1) {
+        if (str[i] === ' ') newStr += ' ';
+        else if (str[i] === '\n') newStr += '</br>';
+        else newStr += `<span class='letter'>${str[i]}</span>`;
+      }
+
+      sloganRef.current.innerHTML = newStr;
     }
-
-    sloganRef.current.innerHTML = newStr;
   };
 
   const init = () => {
