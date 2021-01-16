@@ -13,6 +13,7 @@ export const CustomAnimation = ({
   opasityDuration,
   transformDuration,
   transitionDelay,
+  threshold,
 }) => {
   const [isAnimated, setAnimated] = useState('');
   const animateRef = useRef(null);
@@ -20,7 +21,7 @@ export const CustomAnimation = ({
   const intersection = useIntersection(animateRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.2,
+    threshold,
   });
 
   const appearanceStyles = {
@@ -69,6 +70,7 @@ CustomAnimation.defaultProps = {
   opasityDuration: 0.05,
   transformDuration: 0.1,
   transitionDelay: 500,
+  threshold: 0.2,
 };
 
 CustomAnimation.propTypes = {
@@ -78,4 +80,5 @@ CustomAnimation.propTypes = {
   opasityDuration: PropTypes.number,
   transformDuration: PropTypes.number,
   transitionDelay: PropTypes.number,
+  threshold: PropTypes.number,
 };

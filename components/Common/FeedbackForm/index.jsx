@@ -10,14 +10,13 @@ import {
   Upload,
   AnimatedInput,
   ButtonMore,
-  CheckboxContainer,
   Animated,
+  InformationMessage,
 } from 'components';
 import { animatedType } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { withValidateEmail } from 'hocs';
 import { budget } from './utils/data';
-
 import 'rc-slider/assets/index.css';
 import styles from './styles.module.scss';
 
@@ -50,7 +49,6 @@ const FeedbackForm = ({
     setFiles(selectedFiles.filter((file) => file.name !== dataset.fileName));
   };
   const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
-
   const handleOnIsSendNDACheckedChange = ({ target: { checked } }) => setIsSendNDAChecked(checked);
 
   const handleOnSubmitClick = () => handleOnClick(
@@ -132,6 +130,7 @@ const FeedbackForm = ({
           formKey={formKey}
         />
       </Animated>
+      {/* TODO return this later
       <div className={styles.checkboxContainer}>
         <Animated {...animatedProps} transitionDelay={700}>
           <CheckboxContainer
@@ -150,6 +149,9 @@ const FeedbackForm = ({
         </Animated>
       </div>
       <Animated {...animatedProps} transitionDelay={800}>
+        <InformationMessage isAppear={!isPolicyAccepted} />
+      </Animated> */}
+      <Animated {...animatedProps} transitionDelay={700}>
         <ButtonMore
           href="/"
           title="SEND"
