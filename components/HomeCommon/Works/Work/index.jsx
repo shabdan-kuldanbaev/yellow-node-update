@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
-import {
-  Animated,
-} from 'components';
+import { Animated } from 'components';
 import { animatedType } from 'utils/constants';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
@@ -59,7 +57,7 @@ export const Work = ({
             )}
           >
             <img src={image} alt={image} />
-            {/* //TODO
+            {/* //TODO return later
           {work.videoName && (
             <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />
           )}

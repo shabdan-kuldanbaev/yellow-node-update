@@ -24,3 +24,8 @@ export const setFirstHomepageVisit = (payload) => ({
   type: actionTypes.SET_FIRST_HOMEPAGE_VISIT,
   payload,
 });
+
+export const loadPhotos = (payload) => ({
+  type: actionTypes.LOAD_PHOTOS_PENDING,
+  payload,
+});

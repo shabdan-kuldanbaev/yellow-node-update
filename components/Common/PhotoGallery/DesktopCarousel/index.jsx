@@ -4,9 +4,11 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import styles from './styles.module.scss';
 
-export const DesktopCarousel = ({ photos }) => {
+export const DesktopCarousel = ({ galleryData }) => {
+  const photos = get(galleryData, 'items[0].fields.photos', []);
   const gallery = photos.concat(photos, photos, photos);
   const [fullListWidth, setFullListWidth] = useState(0);
   const [carouselContainerRef, listRef] = [useRef(null), useRef(null)];
@@ -77,11 +79,16 @@ export const DesktopCarousel = ({ photos }) => {
       >
         <div className={styles.listWrapper}>
           <ul ref={listRef} className={styles.unorderedList}>
-            {gallery && gallery.map((photo, index) => (
-              <li key={`gallary/photo/${index}`} className={styles[photo.size]}>
-                <img src={photo.img} alt="" />
-              </li>
-            ))}
+            {gallery.length && gallery.map((photo, index) => {
+              const image = get(photo, 'fields.photo.fields.file.url', '');
+              const size = get(photo, 'fields.type', '');
+
+              return (
+                <li key={`gallary/photo/${index}`} className={styles[size]}>
+                  <img src={image} alt="" />
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
@@ -90,5 +97,5 @@ export const DesktopCarousel = ({ photos }) => {
 };
 
 DesktopCarousel.propTypes = {
-  photos: PropTypes.instanceOf(Array).isRequired,
+  galleryData: PropTypes.instanceOf(Object).isRequired,
 };

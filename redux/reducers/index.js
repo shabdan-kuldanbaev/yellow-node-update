@@ -6,6 +6,7 @@ import portfolio from './portfolio';
 import contact from './contact';
 import subscribe from './subscribe';
 import process from './process';
+import company from './company';
 
 export default combineReducers({
   home,
@@ -15,4 +16,5 @@ export default combineReducers({
   contact,
   subscribe,
   process,
+  company,
 });

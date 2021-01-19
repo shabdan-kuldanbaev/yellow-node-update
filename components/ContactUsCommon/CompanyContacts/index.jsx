@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { LinkWrapper, Animated } from 'components';
 import TestPhoto from './images/bitmap@3x.jpg';
 import { animatedFields } from './utils';
@@ -12,6 +13,7 @@ import styles from './styles.module.scss';
 export const CompanyContacts = ({ photo, animatedFields }) => {
   const imgContainer = useRef(null);
   const [isShow, setShow] = useState(false);
+  const photoUrl = get(photo, 'fields.file.url', '');
 
   useEffect(() => {
     if (imgContainer.current) {
@@ -91,7 +93,7 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
         <img
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           alt="CompanyPeoplePhoto"
-          style={{ backgroundImage: `url(${photo})` }}
+          style={{ backgroundImage: `url(${photoUrl})` }}
         />
       </div>
       <address className={styles.address}>

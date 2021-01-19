@@ -58,3 +58,6 @@ export const pages = {
   contact: 'contact',
   notFound: 'not-found',
 };
+
+export const CONTACT_US_PEOPLE_PHOTO_ID = 'mMnktmduSS0TRikQez0Z4';
+export const CONTACT_US_OFFICE_PHOTO_ID = '1UsoZYzh2s1oKqJM23UXZJ';

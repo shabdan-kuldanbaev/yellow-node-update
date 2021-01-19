@@ -1,7 +1,12 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { sendEmail } from 'redux/actions/contact';
+import {
+  sendEmail,
+  loadCompanyPeolpePhoto,
+  loadOfficePhoto,
+} from 'redux/actions/contact';
+import { selectPeoplePhoto, selectOfficePhoto } from 'redux/selectors/contact';
 import {
   FeedbackFormWithTitle,
   Calendar,
@@ -12,7 +17,19 @@ import {
 import { pages } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const ContactUsContainer = ({ introSection, sendEmail }) => {
+const ContactUsContainer = ({
+  introSection,
+  sendEmail,
+  loadOfficePhoto,
+  officePhoto,
+  loadCompanyPeolpePhoto,
+  peoplePhoto,
+}) => {
+  useEffect(() => {
+    loadOfficePhoto();
+    loadCompanyPeolpePhoto();
+  }, []);
+
   const handleOnClick = (...args) => {
     const [
       fullName,
@@ -38,8 +55,8 @@ const ContactUsContainer = ({ introSection, sendEmail }) => {
       <section ref={introSection} className={styles.contactContainer}>
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
-        <CompanyPeoplePhoto />
-        <CompanyContacts />
+        <CompanyPeoplePhoto photo={peoplePhoto} />
+        <CompanyContacts photo={officePhoto} />
       </section>
     </Fragment>
   );
@@ -48,6 +65,17 @@ const ContactUsContainer = ({ introSection, sendEmail }) => {
 ContactUsContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   sendEmail: PropTypes.func.isRequired,
+  loadOfficePhoto: PropTypes.func.isRequired,
+  officePhoto: PropTypes.instanceOf(Object).isRequired,
+  loadCompanyPeolpePhoto: PropTypes.func.isRequired,
+  peoplePhoto: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect(null, { sendEmail })(ContactUsContainer);
+export default connect((state) => ({
+  officePhoto: selectOfficePhoto(state),
+  peoplePhoto: selectPeoplePhoto(state),
+}), {
+  sendEmail,
+  loadCompanyPeolpePhoto,
+  loadOfficePhoto,
+})(ContactUsContainer);

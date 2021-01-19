@@ -52,6 +52,14 @@ class ContentfulClient {
     const contentTypes = await this.client.getContentTypes();
     return contentTypes;
   };
+
+  getAsset = async (id, additionalQueryParams) => {
+    const client = await this.getClient();
+    const asset = await client.getAsset(id, {
+      ...additionalQueryParams,
+    });
+    return asset;
+  }
 }
 
 export const contentfulClient = new ContentfulClient();

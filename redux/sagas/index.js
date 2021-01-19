@@ -4,6 +4,8 @@ import * as portfolio from './portfolio';
 import * as contact from './contact';
 import * as subscribe from './subscribe';
 import * as process from './process';
+import * as home from './home';
+import * as company from './company';
 
 export default function* rootSaga() {
   yield all([
@@ -12,5 +14,7 @@ export default function* rootSaga() {
     ...Object.values(contact),
     ...Object.values(subscribe),
     ...Object.values(process),
+    ...Object.values(home),
+    ...Object.values(company),
   ].map(fork));
 }

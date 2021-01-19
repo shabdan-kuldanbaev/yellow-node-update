@@ -5,6 +5,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import get from 'lodash/get';
 import { SectionTitle, Animated } from 'components';
 import { animatedType } from 'utils/constants';
 import YellowTeam from './images/yellow_team.jpg';
@@ -13,6 +14,7 @@ import styles from './styles.module.scss';
 export const CompanyPeoplePhoto = ({ photo }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
+  const photoUrl = get(photo, 'fields.file.url', '');
 
   useEffect(() => {
     const handlerOnScroll = () => {
@@ -45,7 +47,7 @@ export const CompanyPeoplePhoto = ({ photo }) => {
           >
             <img
               ref={photoRef}
-              src={photo}
+              src={photoUrl}
               alt="CompanyPeoplePhoto"
             />
           </Animated>
@@ -55,10 +57,6 @@ export const CompanyPeoplePhoto = ({ photo }) => {
   );
 };
 
-CompanyPeoplePhoto.defaultProps = {
-  photo: YellowTeam,
-};
-
 CompanyPeoplePhoto.propTypes = {
-  photo: PropTypes.string,
+  photo: PropTypes.instanceOf(Object).isRequired,
 };

@@ -20,7 +20,11 @@ import { connect } from 'react-redux';
 import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
-const Portfolio = ({ gradientRef, projects, loadWorks: loadCurrentProjects }) => {
+const Portfolio = ({
+  gradientRef,
+  projects,
+  loadWorks: loadCurrentProjects,
+}) => {
   const [backgroundColor, setBackgroundColor] = useState('firstBlock');
   const [blockNumber, setBlockNumber] = useState(0);
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];

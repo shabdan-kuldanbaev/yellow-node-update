@@ -4,21 +4,19 @@ import { connect } from 'react-redux';
 import { selectIsTabletResolutions } from 'redux/selectors/layout';
 import { DesktopCarousel } from './DesktopCarousel';
 import { MobileCarousel } from './MobileCarousel';
-import { galleryData } from './utils/data';
 
-const PhotoGallery = ({ galleryData: photos, isTabletResolutions }) => (
+const PhotoGallery = ({ photos, isTabletResolutions }) => (
   isTabletResolutions
-    ? <MobileCarousel photos={photos} />
-    : <DesktopCarousel photos={photos} />
+    ? <MobileCarousel galleryData={photos} />
+    : <DesktopCarousel galleryData={photos} />
 );
 
 PhotoGallery.defaultProps = {
-  galleryData,
   isTabletResolutions: false,
 };
 
 PhotoGallery.propTypes = {
-  galleryData: PropTypes.instanceOf(Array),
+  photos: PropTypes.instanceOf(Object).isRequired,
   isTabletResolutions: PropTypes.bool,
 };
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 // TODO import { Controller, Scene } from 'react-scrollmagic';
 import {
@@ -11,9 +11,21 @@ import {
   FeedbackFormContainer,
 } from 'containers';
 import { PhotoGallery } from 'components';
+import { loadPhotos } from 'redux/actions/home';
+import { selectPhotos, selectIsLoading } from 'redux/selectors/home';
+import { connect } from 'react-redux';
 
-export const Home = ({ theme, introSection }) => {
+export const Home = ({
+  theme,
+  introSection,
+  loadPhotos,
+  photos,
+}) => {
   const gradientRef = useRef(null);
+
+  useEffect(() => {
+    loadPhotos();
+  }, []);
 
   // TODO
   // useEffect(() => {
@@ -51,7 +63,7 @@ export const Home = ({ theme, introSection }) => {
       <ReviewsContainer />
       <Blog />
       {/* TODO <Insta /> */}
-      <PhotoGallery />
+      {photos && <PhotoGallery photos={photos} />}
       <FeedbackFormContainer />
     </Fragment>
   );
@@ -61,3 +73,8 @@ Home.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   theme: PropTypes.string.isRequired,
 };
+
+export default connect((state) => ({
+  photos: selectPhotos(state),
+  isLoading: selectIsLoading(state),
+}), { loadPhotos })(Home);
