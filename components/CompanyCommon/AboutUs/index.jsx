@@ -41,7 +41,7 @@ export const AboutUs = ({ aboutUsText }) => {
               buttonStyle={styles.submit}
             />
           </Animated>
-          <Animated {...animatedProps} transitionDelay={1100 + 250}>
+          <Animated {...animatedProps} transitionDelay={1100 + 80}>
             <ButtonMore
               href="/process"
               title="HOW WE DO IT"
