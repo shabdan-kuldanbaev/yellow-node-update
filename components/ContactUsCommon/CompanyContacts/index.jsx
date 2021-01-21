@@ -6,7 +6,6 @@ import React, {
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { LinkWrapper, Animated } from 'components';
-import TestPhoto from './images/bitmap@3x.jpg';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
@@ -108,11 +107,10 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
 };
 
 CompanyContacts.defaultProps = {
-  photo: TestPhoto,
   animatedFields,
 };
 
 CompanyContacts.propTypes = {
-  photo: PropTypes.string,
+  photo: PropTypes.string.isRequired,
   animatedFields: PropTypes.instanceOf(Array),
 };

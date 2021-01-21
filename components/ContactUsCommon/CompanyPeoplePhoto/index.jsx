@@ -8,7 +8,7 @@ import cn from 'classnames';
 import get from 'lodash/get';
 import { SectionTitle, Animated } from 'components';
 import { animatedType } from 'utils/constants';
-import YellowTeam from './images/yellow_team.jpg';
+import { getOptimizedImage } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const CompanyPeoplePhoto = ({ photo }) => {
@@ -47,7 +47,7 @@ export const CompanyPeoplePhoto = ({ photo }) => {
           >
             <img
               ref={photoRef}
-              src={photoUrl}
+              src={getOptimizedImage(photoUrl, 1040)}
               alt="CompanyPeoplePhoto"
             />
           </Animated>

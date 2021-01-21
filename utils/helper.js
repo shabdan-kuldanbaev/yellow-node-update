@@ -63,3 +63,5 @@ export const getMainLinksForSitemap = (updatedAt) => [
 export const rootUrl = process.env.NODE_ENV === 'development'
   ? process.env.DEV_URL
   : process.env.PROD_URL;
+
+export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
