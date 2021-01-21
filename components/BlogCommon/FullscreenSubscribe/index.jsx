@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   ButtonMore,
   AnimatedInput,
-  CheckboxContainer,
   ModalWindow,
+  InformationMessage,
 } from 'components';
 import { withValidateEmail } from 'hocs';
 import styles from './styles.module.scss';
@@ -17,6 +17,9 @@ const FullscreenSubscribe = ({
   handleOnBlurEmail,
   handleOnSubmit,
 }) => {
+  const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
+
+  const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
   const handleOnClick = () => handleOnSubmit(email.value);
 
   return (
@@ -40,12 +43,19 @@ const FullscreenSubscribe = ({
                 isValidate={email.isValidate}
                 handleOnBlurEmail={handleOnBlurEmail}
               />
+              {/* TODO return this later
               <CheckboxContainer
                 text="I accept your"
                 isThereLink
                 linkText="Privacy Policy"
+                handleOnChange={handleOnIsPolicyAcceptedChange}
               />
-              <ButtonMore title="Subscribe" buttonStyle={styles.button} handleOnClick={handleOnClick} />
+              <InformationMessage isAppear={!isPolicyAccepted} /> */}
+              <ButtonMore
+                title="Subscribe"
+                buttonStyle={styles.button}
+                handleOnClick={handleOnClick}
+              />
             </div>
           </div>
         </div>

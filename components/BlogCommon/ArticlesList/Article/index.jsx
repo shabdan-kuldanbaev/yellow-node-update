@@ -10,6 +10,7 @@ export const Article = ({
   countNumber: index,
   animatioProps,
 }) => {
+  const slug = get(article, 'slug');
   const previewImage = get(article, 'previewImageUrl.fields.file.url', '');
   const title = get(article, 'title', '');
   const categoryTag = get(article, 'categoryTag', '');
@@ -21,7 +22,7 @@ export const Article = ({
         <LinkWrapper
           isLocalLink
           dynamicRouting="/blog/[article]"
-          path={`/blog/${article.slug}`}
+          path={`/blog/${slug}`}
         >
           <div>
             <div>

@@ -22,8 +22,8 @@ import {
   SubscribeBlock,
   NextPrev,
   MetaTags,
+  withScroll,
 } from 'components';
-import { Article as OldArticle } from 'components/TemporaryBlog';
 import { pages } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import styles from './styles.module.scss';
@@ -66,28 +66,22 @@ const ArticleContainer = ({
   return (
     <Fragment>
       <MetaTags page={pages.blog} />
-      {(articleData && articleData.oldBody) ? (
-        <OldArticle article={currentArticle} />
-      ) : (
-        <Fragment>
-          <Article
-            article={currentArticle}
-            introSection={introSection}
-            isLoading={isLoading}
-          />
-          <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={articleData.title} />
-          <RelatedSection articles={relatedArticlesData} isLoading={isLoading} />
-          <div className={styles.nextPrevSection}>
-            <NextPrev
-              isNewer
-              article={newerArticle}
-              isLoading={isLoading}
-            />
-            <NextPrev article={olderArticle} isLoading={isLoading} />
-          </div>
-          <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
-        </Fragment>
-      )}
+      <Article
+        article={currentArticle}
+        introSection={introSection}
+        isLoading={isLoading}
+      />
+      <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={articleData.title} />
+      <RelatedSection articles={relatedArticlesData} isLoading={isLoading} />
+      <div className={styles.nextPrevSection}>
+        <NextPrev
+          isNewer
+          article={newerArticle}
+          isLoading={isLoading}
+        />
+        <NextPrev article={olderArticle} isLoading={isLoading} />
+      </div>
+      <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
     </Fragment>
   );
 };
@@ -115,4 +109,4 @@ export default connect(
     loadNearbyArticles,
     subscribe,
   },
-)(ArticleContainer);
+)(withScroll(ArticleContainer));

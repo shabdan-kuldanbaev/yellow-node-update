@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Loader, ContentfulParser } from 'components';
@@ -9,7 +9,10 @@ const Article = ({
   article,
   isLoading,
 }) => {
+  const articleBodyRef = useRef(null);
   const document = get(article, 'items[0].fields', {});
+
+  const createMarkup = (data) => ({ __html: data });
 
   return (
     <Loader isLoading={!isLoading}>
@@ -27,8 +30,14 @@ const Article = ({
             </div>
           </div>
         </header>
-        <div className={styles.body}>
-          <ContentfulParser document={document} />
+        <div className={styles.body} ref={articleBodyRef}>
+          {document.oldBody ? (
+            <div className={styles.articleContentContainer}>
+              <div className={styles.articleContent}>
+                <div dangerouslySetInnerHTML={createMarkup(document.oldBody)} />
+              </div>
+            </div>
+          ) : (<ContentfulParser document={document} />)}
         </div>
       </section>
     </Loader>

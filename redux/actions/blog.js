@@ -34,8 +34,3 @@ export const setFirstVisit = (payload) => ({
   type: actionTypes.SET_FIRST_VISIT_OF_BLOG,
   payload,
 });
-
-// TODO remove it
-export const loadFavoritePostsStart = () => ({
-  type: actionTypes.LOAD_FAVORITE_POSTS_START,
-});

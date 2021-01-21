@@ -42,6 +42,46 @@
   }
 }
 
+.a {
+  text-decoration: none;
+  color: $mirage;
+  border-bottom: 2px solid $turbo-100;
+
+  &:hover {
+    border-bottom-color: $mirage;
+  }
+}
+
+.ul {
+  font-size: 19px;
+  padding-left: 15px;
+  margin-right: 0;
+  margin-left: 15px;
+  list-style: disc outside;
+  line-height: 1.6;
+
+  @include macbook-fifteen {
+    font-size: 18px;
+  }
+
+  @include macbook-twelve {
+    font-size: 16px;
+  }
+
+  @include tablet {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  @include phone {
+    font-size: 14px;
+  }
+
+  & > li {
+    margin-bottom: 10px;
+  }
+}
+
 .quote {
   font-size: 40px;
   position: relative;

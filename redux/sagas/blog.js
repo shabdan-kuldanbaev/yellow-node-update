@@ -6,6 +6,7 @@ import {
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import { contentfulClient } from 'utils/ContentfulClient';
+import { getNearby } from 'utils/contentfulUtils';
 import { actionTypes } from '../actions/actionTypes';
 
 ObjectAssign.polyfill();
@@ -33,6 +34,7 @@ function* loadArticles({ payload }) {
     const loadedArticles = yield contentfulClient.getEntries({
       contentType: 'article',
       additionalQueryParams: {
+        order: '-fields.publishedAt',
         limit: currentLimit,
         skip,
       },
@@ -42,22 +44,6 @@ function* loadArticles({ payload }) {
     yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: loadedArticles });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: err });
-  }
-}
-
-// TODO remove it
-function* loadFavoritePosts({ payload }) {
-  try {
-    const { items } = yield contentfulClient.getEntries({
-      contentType: 'article',
-      additionalQueryParams: {
-        'fields.isFavorite': true,
-      },
-    });
-
-    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_SUCCESS, payload: items });
-  } catch (err) {
-    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_FAILURE, payload: err });
   }
 }
 
@@ -83,21 +69,8 @@ function* loadNearbyArticles({ payload }) {
   try {
     const { createdAt } = payload;
 
-    const prev = yield contentfulClient.getEntries({
-      contentType: 'article',
-      additionalQueryParams: {
-        'fields.createdAt[lt]': createdAt,
-      },
-      limit: 1,
-    });
-
-    const next = yield contentfulClient.getEntries({
-      contentType: 'article',
-      additionalQueryParams: {
-        'fields.createdAt[gt]': createdAt,
-      },
-      limit: 1,
-    });
+    const prev = yield getNearby({ contentfulClient, isOlder: true, createdAt });
+    const next = yield getNearby({ contentfulClient, isOlder: false, createdAt });
 
     yield put({ type: actionTypes.LOAD_NEARBY_SUCCESS, payload: { newerArticle: next.items[0], olderArticle: prev.items[0] } });
   } catch (err) {
@@ -111,6 +84,5 @@ export function* loadBlogDataWatcher() {
     yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
     yield takeLatest(actionTypes.LOAD_RELATED_PENDING, loadRelatedArticles),
     yield takeLatest(actionTypes.LOAD_NEARBY_PENDING, loadNearbyArticles),
-    yield takeLatest(actionTypes.LOAD_FAVORITE_POSTS_START, loadFavoritePosts), // TODO remove it
   ]);
 }

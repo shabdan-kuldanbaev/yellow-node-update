@@ -4,12 +4,12 @@ import { useRouter } from 'next/router';
 import ym, { YMInitializer } from 'react-yandex-metrika';
 
 export const GAnalytic = () => {
-  const { asPath, pathname } = useRouter();
+  const { asPath } = useRouter();
 
   useEffect(() => {
-    ReactGA.set({ page: pathname });
-    ReactGA.pageview(pathname);
-    ym('hit', pathname);
+    ReactGA.set({ page: asPath });
+    ReactGA.pageview(asPath);
+    ym('hit', asPath);
   }, [asPath]);
 
   return <YMInitializer accounts={[process.env.YANDEX_TRACK_ID]} />;
