@@ -1,0 +1,14 @@
+@import 'styles/utils/mixins';
+
+.message {
+  display: block;
+  color: $red;
+  font-size: 0.75rem;
+  margin-top: 15px;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+
+.appear {
+  opacity: 1;
+}
