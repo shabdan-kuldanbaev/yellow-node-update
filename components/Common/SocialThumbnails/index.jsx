@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-} from 'react-share';
+import PropTypes from 'prop-types';
+import { FacebookShareButton, TwitterShareButton } from 'react-share';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import ReactGA from 'react-ga';
 import cn from 'classnames';
@@ -55,4 +53,9 @@ export const SocialThumbnails = ({ url, title }) => {
       </div>
     </div>
   );
+};
+
+SocialThumbnails.propTypes = {
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };

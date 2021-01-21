@@ -95,6 +95,7 @@ ArticleContainer.propTypes = {
   loadRelatedArticles: PropTypes.func.isRequired,
   loadNearbyArticles: PropTypes.func.isRequired,
   subscribe: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(

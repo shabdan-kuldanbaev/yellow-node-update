@@ -62,4 +62,5 @@ ArticlesList.propTypes = {
   isSearch: PropTypes.bool,
   asPath: PropTypes.string,
   currentPage: PropTypes.number.isRequired,
+  handleOnFormSubmit: PropTypes.func.isRequired,
 };

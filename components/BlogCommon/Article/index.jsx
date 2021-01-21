@@ -1,18 +1,36 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import ReactGA from 'react-ga';
 import get from 'lodash/get';
-import { Loader, ContentfulParser } from 'components';
+import {
+  Loader,
+  ContentfulParser,
+  OldArticle,
+  withScroll,
+} from 'components';
 import styles from './styles.module.scss';
 
 const Article = ({
   introSection,
   article,
   isLoading,
+  maxScrollPosition,
 }) => {
   const articleBodyRef = useRef(null);
+  const maxPosition = useRef(0);
   const document = get(article, 'items[0].fields', {});
+  const slug = get(article, 'items[0].fields.slug', '');
 
-  const createMarkup = (data) => ({ __html: data });
+  useEffect(() => () => ReactGA.event({
+    category: 'Scroll',
+    action: `${maxPosition.current}%`,
+    label: `/blog/${slug}`,
+    nonInteraction: maxPosition.current < 50,
+  }), [slug]);
+
+  useEffect(() => {
+    maxPosition.current = maxScrollPosition;
+  }, [maxScrollPosition]);
 
   return (
     <Loader isLoading={!isLoading}>
@@ -31,13 +49,7 @@ const Article = ({
           </div>
         </header>
         <div className={styles.body} ref={articleBodyRef}>
-          {document.oldBody ? (
-            <div className={styles.articleContentContainer}>
-              <div className={styles.articleContent}>
-                <div dangerouslySetInnerHTML={createMarkup(document.oldBody)} />
-              </div>
-            </div>
-          ) : (<ContentfulParser document={document} />)}
+          {document.oldBody ? <OldArticle document={document} /> : <ContentfulParser document={document} />}
         </div>
       </section>
     </Loader>
@@ -48,6 +60,7 @@ Article.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   article: PropTypes.instanceOf(Object).isRequired,
   isLoading: PropTypes.bool.isRequired,
+  maxScrollPosition: PropTypes.number.isRequired,
 };
 
-export default Article;
+export default withScroll(Article);

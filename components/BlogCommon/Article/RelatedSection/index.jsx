@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper, Loader } from 'components';
+import { get } from 'lodash';
 import { Article } from './Article';
 import { Arrow } from './images';
 import styles from './styles.module.scss';
@@ -20,7 +21,12 @@ const RelatedSection = ({ articles, isLoading }) => (
         </div>
       </div>
       <div className={styles.articlesList}>
-        {articles && articles.map((article) => <Article article={article} key={article.fields.title} />)}
+        {articles && articles.map((article) => {
+          const title = get(article, 'fields.title', '');
+          return (
+            <Article article={article} key={title} />
+          );
+        })}
       </div>
     </div>
   </Loader>
