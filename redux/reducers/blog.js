@@ -26,10 +26,11 @@ const handlers = {
     error: payload,
   }),
   [actionTypes.LOAD_ARTICLES_PENDING]: (state) => ({ ...state, isLoading: true }),
-  [actionTypes.LOAD_ARTICLES_SUCCESS]: (state, { payload }) => ({
+  [actionTypes.LOAD_ARTICLES_SUCCESS]: (state, { payload: { items, total } }) => ({
     ...state,
     isLoading: false,
-    all: payload,
+    all: items,
+    totalCount: total,
   }),
   [actionTypes.LOAD_ARTICLES_FAILED]: (state, { payload }) => ({
     ...state,

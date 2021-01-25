@@ -5,6 +5,7 @@ import React, {
   Fragment,
 } from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 import { Advantages } from 'containers';
 import {
   Works,
@@ -12,7 +13,7 @@ import {
   ButtonMore,
   Animated,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { animatedType, routes } from 'utils/constants';
 import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -102,7 +103,7 @@ export const Portfolio = ({ gradientRef }) => {
               transitionDelay={350}
             >
               <ButtonMore
-                href="/portfolio"
+                href={routes.portfolio}
                 title="EXPLORE OUR PORTFOLIO"
                 buttonStyle={styles.portfolioButton}
               />
@@ -112,4 +113,8 @@ export const Portfolio = ({ gradientRef }) => {
       </div>
     </Fragment>
   );
+};
+
+Portfolio.propTypes = {
+  gradientRef: PropTypes.instanceOf(Object).isRequired,
 };

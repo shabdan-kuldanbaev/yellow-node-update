@@ -1,57 +1,81 @@
 import { createClient } from 'contentful';
+import { ACCESS_TO_CONTENTFUL } from 'utils/constants';
 
 class ContentfulClient {
-  constructor(SERVER_DATA) {
-    if (!SERVER_DATA && typeof window !== 'undefined') {
-      this.SERVER_DATA = process.env;
-    } else {
-      this.SERVER_DATA = SERVER_DATA;
-    }
+  constructor(ACCESS_KEYS) {
+    const { space, environment, accessToken } = ACCESS_KEYS;
+    this.SPACE = space;
+    this.ENVIRONMENT = environment;
+    this.ACCESS_TOKEN = accessToken;
   }
 
   getClient = async () => {
-    const client = await createClient({
-      space: process.env.CONTENTFUL_SPACE,
-      environment: process.env.CONTENTFUL_ENV,
-      accessToken: process.env.CONTENTFUL_TOKEN,
-      resolveLinks: true,
-    });
-    return client;
+    try {
+      const client = await createClient({
+        space: this.SPACE,
+        environment: this.ENVIRONMENT,
+        accessToken: this.ACCESS_TOKEN,
+        resolveLinks: true,
+      });
+
+      return client;
+    } catch (error) {
+      console.error('Client getting error: ', error);
+    }
   };
 
   getSpace = async () => {
-    const client = await this.getClient();
-    const space = await client.getSpace();
-    return space;
+    try {
+      const client = await this.getClient();
+      const space = await client.getSpace();
+
+      return space;
+    } catch (error) {
+      console.error('Space getting error: ', error);
+    }
   };
 
-  getEntries = async ({ contentType, query = {}, additionalQueryParams }) => {
-    const queryParams = Object.entries(query).reduce((resultParams, [queryKey, queryValue]) => (
-      { ...resultParams, [`fields.${queryKey}`]: queryValue }
-    ), {});
-    const client = await this.getClient();
-    const entries = await client.getEntries({
-      content_type: contentType,
-      ...queryParams,
-      ...additionalQueryParams,
-      include: 10,
-    });
-    return entries;
+  getEntries = async ({
+    contentType,
+    query = {},
+    additionalQueryParams,
+    searchType = '',
+  }) => {
+    try {
+      const queryParams = Object.entries(query).reduce(
+        (resultParams, [queryKey, queryValue]) => ({
+          ...resultParams,
+          [`fields.${queryKey}${searchType}`]: queryValue,
+        }),
+        {},
+      );
+      const client = await this.getClient();
+      const entries = await client.getEntries({
+        content_type: contentType,
+        ...queryParams,
+        ...additionalQueryParams,
+        include: 10,
+      });
+
+      return entries;
+    } catch (error) {
+      console.error('Entries getting error: ', error);
+    }
   };
 
   getEntry = async (id, additionalQueryParams) => {
-    const client = await this.getClient();
-    const entry = await client.getEntry(id, {
-      ...additionalQueryParams,
-      include: 10,
-    });
-    return entry;
-  };
+    try {
+      const client = await this.getClient();
+      const entry = await client.getEntry(id, {
+        ...additionalQueryParams,
+        include: 10,
+      });
 
-  loadContentTypes = async () => {
-    const contentTypes = await this.client.getContentTypes();
-    return contentTypes;
+      return entry;
+    } catch (error) {
+      console.error('Get entry error: ', error);
+    }
   };
 }
 
-export const contentfulClient = new ContentfulClient();
+export const contentfulClient = new ContentfulClient(ACCESS_TO_CONTENTFUL);

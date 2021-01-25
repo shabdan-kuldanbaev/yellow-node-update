@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import {
   phoneResolution,
   horizontalMobile,
@@ -63,3 +64,21 @@ export const getMainLinksForSitemap = (updatedAt) => [
 export const rootUrl = process.env.NODE_ENV === 'development'
   ? process.env.DEV_URL
   : process.env.PROD_URL;
+
+export const createMarkup = (data) => ({ __html: data });
+
+export const getFileUrl = (file) => get(file, 'fields.file.url', '');
+
+export const getDocumentFields = (document, fields = []) => {
+  if (fields.length) {
+    return fields.reduce((acc, field) => {
+      if (!field) return acc;
+
+      acc[field] = get(document, `fields.${field}`, null);
+
+      return acc;
+    }, {});
+  }
+
+  return get(document, 'fields', null);
+};

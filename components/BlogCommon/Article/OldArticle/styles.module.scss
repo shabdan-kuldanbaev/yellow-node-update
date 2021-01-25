@@ -1,15 +1,11 @@
 @import 'styles/utils/mixins';
 @import '../../styles.module.scss';
 
-.articleContentContainer {
-  display: flex;
-  justify-content: space-between;
-
-  .articleContent {
-    width: 100%;
-    @extend .paragraph;
-
-    & > div {
+.articleContent {
+  width: 100%;
+  @extend .paragraph;
+  
+  & > div {
       & > a {
         @extend .a;
       }
@@ -38,7 +34,7 @@
             font-size: 0.85rem;
             margin: 0.7rem 0;
     
-            @media (max-width: 768px) {
+            @include below-tablet {
               font-size: 1rem;
             }
           }
@@ -59,6 +55,7 @@
       
       & > blockquote {
         @extend .quote;
+
          & > a {
            @extend .a;
            text-decoration: none;
@@ -81,7 +78,6 @@
           @extend .a;
         }
       }
-    }
   }
 }
 
@@ -89,8 +85,8 @@
   .link-to-contact-screen {
     margin: 70px 0 !important;
 
-    p {
-      font-size: 40px;
+    & > p {
+      @include fontSize(40px);
       position: relative;
       box-sizing: border-box;
       width: 100%;
@@ -100,18 +96,18 @@
       text-align: center;
   
       @include macbook-fifteen {
-        font-size: 35px;
+        @include fontSize(35px);
         line-height: 1.5;
       }
   
       @include tablet {
-        font-size: 25px;
+        @include fontSize(25px);
         margin: 40px 0;
         padding-left: 45px;
       }
   
       @include phone {
-        font-size: 20px;
+        @include fontSize(20px);
         line-height: 1.4;
       }
     }
@@ -163,7 +159,7 @@
       font-weight: bold;
       text-align: center;
       text-decoration: none;
-      transition: all 0.4s ease;
+      transition: color 0.4s ease;
 
       &:hover {
         color: #777777;
@@ -193,10 +189,15 @@
     width: 1160px;
     max-width: none !important;
 
-    @media macbook-thirdteen {
+    @include macbook-thirteen {
       position: relative;
       max-width: none;
       width: 100%;
+    }
+
+    @include tablet {
+      width: 100%;
+      left: 0;
     }
   }
 

@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReactGA from 'react-ga';
-import get from 'lodash/get';
 import {
   Loader,
   ContentfulParser,
@@ -12,14 +11,17 @@ import styles from './styles.module.scss';
 
 const Article = ({
   introSection,
-  article,
+  slug,
+  title,
+  oldBody,
+  body,
+  introduction,
+  headImage,
   isLoading,
   maxScrollPosition,
 }) => {
   const articleBodyRef = useRef(null);
   const maxPosition = useRef(0);
-  const document = get(article, 'items[0].fields', {});
-  const slug = get(article, 'items[0].fields.slug', '');
 
   useEffect(() => () => ReactGA.event({
     category: 'Scroll',
@@ -37,19 +39,19 @@ const Article = ({
       <section ref={introSection} className={styles.article}>
         <header className={styles.header}>
           <div>
-            <div style={{ backgroundImage: `url(${get(document, 'previewImageUrl.fields.file.url', '')})` }} />
+            <div style={{ backgroundImage: `url(${headImage})` }} />
           </div>
           <div className={styles.container}>
             <div>
-              <h1 className={styles.h1}>{get(document, 'title', '')}</h1>
+              <h1 className={styles.h1}>{title}</h1>
             </div>
             <div>
-              <p>{get(document, 'introduction', '')}</p>
+              <p>{introduction}</p>
             </div>
           </div>
         </header>
         <div className={styles.body} ref={articleBodyRef}>
-          {document.oldBody ? <OldArticle document={document} /> : <ContentfulParser document={document} />}
+          {oldBody ? <OldArticle oldBody={oldBody} /> : <ContentfulParser document={body} />}
         </div>
       </section>
     </Loader>
@@ -58,9 +60,14 @@ const Article = ({
 
 Article.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  article: PropTypes.instanceOf(Object).isRequired,
   isLoading: PropTypes.bool.isRequired,
   maxScrollPosition: PropTypes.number.isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  oldBody: PropTypes.string.isRequired,
+  body: PropTypes.instanceOf(Object).isRequired,
+  introduction: PropTypes.string.isRequired,
+  headImage: PropTypes.string.isRequired,
 };
 
 export default withScroll(Article);

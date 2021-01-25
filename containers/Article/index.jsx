@@ -24,8 +24,8 @@ import {
   MetaTags,
   withScroll,
 } from 'components';
-import { pages } from 'utils/constants';
-import { rootUrl } from 'utils/helper';
+import { pages, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
+import { rootUrl, getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ArticleContainer = ({
@@ -40,10 +40,21 @@ const ArticleContainer = ({
   subscribe,
 }) => {
   const { query: { article }, pathname } = useRouter();
-  const currentCategory = get(currentArticle, 'items[0].fields.categoryTag', '');
-  const currentArticleSlug = get(currentArticle, 'items[0].fields.slug');
-  const articleData = get(currentArticle, 'items[0].fields', {});
-  const relatedArticlesData = get(relatedArticles, 'items', []);
+  const articleData = get(currentArticle, 'items[0]', {});
+  const {
+    slug,
+    categoryTag,
+    title,
+    createdAt,
+    oldBody,
+    body,
+    introduction,
+    headImageUrl,
+  } = getDocumentFields(
+    articleData,
+    ['slug', 'categoryTag', 'title', 'createdAt', 'oldBody', 'body', 'introduction', 'headImageUrl'],
+  );
+  const headImage = getFileUrl(headImageUrl);
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
@@ -52,27 +63,30 @@ const ArticleContainer = ({
   }, [article]);
 
   useEffect(() => {
-    loadArticles({
-      currentLimit: 5,
-      currentArticleSlug,
-      currentCategory,
-    });
-  }, [currentArticle]);
+    if (articleData) getNearby({ name: title, createdAt });
 
-  useEffect(() => {
-    if (articleData) getNearby({ name: articleData.title, createdAt: articleData.createdAt });
+    loadArticles({
+      currentLimit: DEFAULT_ARTICLES_LIMIT,
+      currentArticleSlug: slug,
+      categoryTag,
+    });
   }, [currentArticle]);
 
   return (
     <Fragment>
       <MetaTags page={pages.blog} />
       <Article
-        article={currentArticle}
+        slug={slug}
+        title={title}
+        oldBody={oldBody}
+        body={body}
+        introduction={introduction}
+        headImage={headImage}
         introSection={introSection}
         isLoading={isLoading}
       />
-      <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={articleData.title} />
-      <RelatedSection articles={relatedArticlesData} isLoading={isLoading} />
+      <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
+      <RelatedSection articles={relatedArticles} isLoading={isLoading} />
       <div className={styles.nextPrevSection}>
         <NextPrev
           isNewer
