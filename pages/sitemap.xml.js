@@ -1,6 +1,11 @@
 import * as builder from 'xmlbuilder';
 import dayjs from 'dayjs';
-import { getMainLinksForSitemap, rootUrl } from 'utils/helper';
+import {
+  getMainLinksForSitemap,
+  rootUrl,
+  getDocumentFields,
+} from 'utils/helper';
+import { routes } from 'utils/constants';
 import { contentfulClient } from 'utils/ContentfulClient';
 
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
@@ -15,14 +20,18 @@ const Sitemap = () => (null);
 
 Sitemap.getInitialProps = async ({ ctx: { req, res } }) => {
   try {
-    const { items } = await contentfulClient.getEntries({
+    const { items = [] } = await contentfulClient.getEntries({
       contentType: 'article',
       searchType: '[match]',
     });
-    const postLinks = items.map(({ fields: { slug, publishedAt } }) => ({
-      path: `/blog/${slug}`,
-      updatedAt: getDate(Date.parse(publishedAt)),
-    }));
+    const postLinks = items.map((link) => {
+      const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
+
+      return ({
+        path: routes.article(slug),
+        updatedAt: getDate(Date.parse(publishedAt)),
+      });
+    });
     const feedObject = {
       urlset: {
         '@xmlns': 'http://www.sitemaps.org/schemas/sitemap/0.9',

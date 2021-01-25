@@ -61,3 +61,21 @@ export const pages = {
 
 export const CONTACT_US_PEOPLE_PHOTO_ID = 'mMnktmduSS0TRikQez0Z4';
 export const CONTACT_US_OFFICE_PHOTO_ID = '1UsoZYzh2s1oKqJM23UXZJ';
+export const DEFAULT_ARTICLES_LIMIT = 5;
+export const CURRENT_PAGE_NUMBER = 1;
+
+export const ACCESS_TO_CONTENTFUL = {
+  space: process.env.CONTENTFUL_SPACE,
+  environment: process.env.CONTENTFUL_ENV,
+  accessToken: process.env.CONTENTFUL_TOKEN,
+};
+
+export const routes = {
+  homepage: '/',
+  portfolio: '/portfolio',
+  process: '/process',
+  blog: '/blog?category=latest&page=1',
+  article: (slug) => `/blog/${slug}`,
+  company: '/company',
+  contact: '/contact',
+};

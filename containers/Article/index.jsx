@@ -24,8 +24,8 @@ import {
   MetaTags,
   withScroll,
 } from 'components';
-import { pages } from 'utils/constants';
-import { rootUrl } from 'utils/helper';
+import { pages, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
+import { rootUrl, getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ArticleContainer = ({
@@ -40,10 +40,18 @@ const ArticleContainer = ({
   subscribe,
 }) => {
   const { query: { article }, pathname } = useRouter();
-  const currentCategory = get(currentArticle, 'items[0].fields.categoryTag', '');
-  const currentArticleSlug = get(currentArticle, 'items[0].fields.slug');
-  const articleData = get(currentArticle, 'items[0].fields', {});
-  const relatedArticlesData = get(relatedArticles, 'items', []);
+  const articleData = get(currentArticle, 'items[0]', {});
+  const {
+    slug,
+    categoryTag,
+    title,
+    createdAt,
+  } = getDocumentFields(articleData, [
+    'slug',
+    'categoryTag',
+    'title',
+    'createdAt',
+  ]);
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
@@ -53,14 +61,14 @@ const ArticleContainer = ({
 
   useEffect(() => {
     loadArticles({
-      currentLimit: 5,
-      currentArticleSlug,
-      currentCategory,
+      currentLimit: DEFAULT_ARTICLES_LIMIT,
+      currentArticleSlug: slug,
+      categoryTag,
     });
   }, [currentArticle]);
 
   useEffect(() => {
-    if (articleData) getNearby({ name: articleData.title, createdAt: articleData.createdAt });
+    if (articleData) getNearby({ name: title, createdAt });
   }, [currentArticle]);
 
   return (
@@ -71,8 +79,8 @@ const ArticleContainer = ({
         introSection={introSection}
         isLoading={isLoading}
       />
-      <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={articleData.title} />
-      <RelatedSection articles={relatedArticlesData} isLoading={isLoading} />
+      <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
+      <RelatedSection articles={relatedArticles} isLoading={isLoading} />
       <div className={styles.nextPrevSection}>
         <NextPrev
           isNewer
@@ -95,6 +103,7 @@ ArticleContainer.propTypes = {
   loadRelatedArticles: PropTypes.func.isRequired,
   loadNearbyArticles: PropTypes.func.isRequired,
   subscribe: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(

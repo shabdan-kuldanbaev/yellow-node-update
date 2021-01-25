@@ -1,28 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import cn from 'classnames';
 import { LinkWrapper, Animated } from 'components';
+import { routes } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const Article = ({
-  article,
   countNumber: index,
   animatioProps,
-}) => {
-  const slug = get(article, 'slug');
-  const previewImage = get(article, 'previewImageUrl.fields.file.url', '');
-  const title = get(article, 'title', '');
-  const categoryTag = get(article, 'categoryTag', '');
-  const introduction = get(article, 'introduction', '');
-
-  return (
+  slug,
+  title,
+  categoryTag,
+  introduction,
+  previewImage,
+}) => (slug
+  && title
+  && introduction
+  && previewImage
+  && (
     <article key={`articles/${title}`} className={cn(styles.article, { [styles.medium]: index === 0 })}>
       <Animated {...animatioProps}>
         <LinkWrapper
           isLocalLink
           dynamicRouting="/blog/[article]"
-          path={`/blog/${slug}`}
+          path={routes.article(slug)}
         >
           <div>
             <div>
@@ -34,7 +35,7 @@ export const Article = ({
                 <div className={styles.description}>{introduction}</div>
               </div>
             </div>
-            {categoryTag ? (
+            {categoryTag && (
               <div className={styles.categoryName}>
                 <LinkWrapper
                   isLocalLink
@@ -44,16 +45,20 @@ export const Article = ({
                   {categoryTag}
                 </LinkWrapper>
               </div>
-            ) : null}
+            )}
           </div>
         </LinkWrapper>
       </Animated>
     </article>
-  );
-};
+  )
+);
 
 Article.propTypes = {
-  article: PropTypes.instanceOf(Object).isRequired,
   countNumber: PropTypes.number.isRequired,
   animatioProps: PropTypes.instanceOf(Object).isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  categoryTag: PropTypes.string.isRequired,
+  introduction: PropTypes.string.isRequired,
+  previewImage: PropTypes.string.isRequired,
 };

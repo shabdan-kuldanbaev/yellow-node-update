@@ -55,6 +55,8 @@ export { default as SubscribeBlock } from 'components/Common/SubscribeBlock';
 export { BookmarkCard } from 'components/BlogCommon/Article/BookmarkCard';
 export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';
 export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
+export { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+export { OldArticle } from 'components/BlogCommon/Article/OldArticle';
 
 // PortfolioCommon
 export { default as Portfolio } from 'components/PortfolioCommon';
@@ -78,6 +80,3 @@ export { default as FeedbackFormWithTitle } from 'components/ContactUsCommon/Fee
 export { Calendar } from 'components/ContactUsCommon/Calendar';
 export { CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
 export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';
-
-// ContentfulModels
-export { ContentfulParser } from 'components/ContentfulModels/ContentfulParser';

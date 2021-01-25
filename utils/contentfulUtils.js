@@ -1,13 +1,34 @@
-export const getNearby = async ({ contentfulClient, isOlder, createdAt }) => {
-  const nearbyParam = isOlder ? 'fields.createdAt[lt]' : 'fields.createdAt[gt]';
-  const order = isOlder ? '-fields.publishedAt' : 'fields.publishedAt';
+export const getNearby = async ({
+  contentfulClient,
+  createdAt,
+  isOlder,
+}) => {
+  try {
+    return await contentfulClient.getEntries({
+      contentType: 'article',
+      additionalQueryParams: {
+        [`fields.createdAt[${isOlder ? 'lt' : 'gt'}]`]: createdAt,
+        order: `${isOlder ? '-' : ''}fields.publishedAt`,
+      },
+      limit: 1,
+    });
+  } catch (error) {
+    console.error('The error catched from fetching the Nearby article: ', error);
+  }
+};
 
-  return contentfulClient.getEntries({
-    contentType: 'article',
-    additionalQueryParams: {
-      [nearbyParam]: createdAt,
-      order,
-    },
-    limit: 1,
-  });
+export const fetchArticles = async (
+  contentfulClient,
+  additionalQuery,
+  params = {},
+) => {
+  try {
+    return await contentfulClient.getEntries({
+      contentType: 'article',
+      additionalQueryParams: { ...additionalQuery },
+      ...params,
+    });
+  } catch (error) {
+    console.error('Fetch error of articles', error);
+  }
 };

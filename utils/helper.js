@@ -1,3 +1,4 @@
+import { get } from 'lodash';
 import {
   phoneResolution,
   horizontalMobile,
@@ -65,3 +66,19 @@ export const rootUrl = process.env.NODE_ENV === 'development'
   : process.env.PROD_URL;
 
 export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
+
+export const createMarkup = (data) => ({ __html: data });
+
+export const getFileUrl = (file) => get(file, 'fields.file.url');
+
+export const getDocumentFields = (document, fields = []) => {
+  if (fields.length) {
+    return fields.reduce((acc, field) => {
+      if (!field) return acc;
+
+      acc[field] = get(document, `fields.${field}`, null);
+
+      return acc;
+    }, {});
+  } return get(document, 'fields', null);
+};

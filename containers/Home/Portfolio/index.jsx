@@ -5,6 +5,8 @@ import React, {
   Fragment,
 } from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import get from 'lodash/get';
 import { Advantages } from 'containers';
 import {
@@ -15,8 +17,8 @@ import {
 } from 'components';
 import { selectWorks, selectIsLoading } from 'redux/selectors/portfolio';
 import { loadWorks } from 'redux/actions/portfolio';
-import { animatedType } from 'utils/constants';
-import { connect } from 'react-redux';
+import { animatedType, routes } from 'utils/constants';
+import { getDocumentFields } from 'utils/helper';
 import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -30,7 +32,8 @@ const Portfolio = ({
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const portfolioRef = useRef(null);
   const [currentNumber, setCurrentNumber] = useState(4);
-  const works = get(projects, 'items[0].fields.portfolioOrder', []);
+  const works = get(projects, 'items[0]', []);
+  const worksOrder = getDocumentFields(works, ['portfolioOrder']);
 
   const changeStyle = (index) => {
     refs[0].current.classList.remove(styles[blockNumbers[index + 1]]);
@@ -102,7 +105,7 @@ const Portfolio = ({
       <div className={styles.gradient} ref={gradientRef}>
         <Advantages refs={refs} className={styles[backgroundColor]} />
         <section ref={portfolioRef} className={cn(styles.portfolio, styles[backgroundColor])}>
-          <Works refs={refs} works={works} />
+          <Works refs={refs} works={worksOrder} />
           <div className={styles.bottomOfPortfolio}>
             <SectionTitle
               title="Check out more works by Yellow"
@@ -118,7 +121,7 @@ const Portfolio = ({
               transitionDelay={350}
             >
               <ButtonMore
-                href="/portfolio"
+                href={routes.portfolio}
                 title="EXPLORE OUR PORTFOLIO"
                 buttonStyle={styles.portfolioButton}
               />
@@ -128,6 +131,10 @@ const Portfolio = ({
       </div>
     </Fragment>
   );
+};
+
+Portfolio.propTypes = {
+  gradientRef: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect(
