@@ -58,3 +58,22 @@ export const pages = {
   contact: 'contact',
   notFound: 'not-found',
 };
+
+export const DEFAULT_ARTICLES_LIMIT = 5;
+export const CURRENT_PAGE_NUMBER = 1;
+
+export const ACCESS_TO_CONTENTFUL = {
+  space: process.env.CONTENTFUL_SPACE,
+  environment: process.env.CONTENTFUL_ENV,
+  accessToken: process.env.CONTENTFUL_TOKEN,
+};
+
+export const routes = {
+  homepage: '/',
+  portfolio: '/portfolio',
+  process: '/process',
+  blog: '/blog?category=latest&page=1',
+  article: (slug) => `/blog/${slug}`,
+  company: '/company',
+  contact: '/contact',
+};

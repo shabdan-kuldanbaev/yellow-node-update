@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import {
   LinkWrapper,
   Loader,
   ImageWithPlaceholder,
 } from 'components';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { routes } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const NextPrev = ({
@@ -13,31 +14,35 @@ const NextPrev = ({
   isNewer,
   isLoading,
 }) => {
-  const previewImageUrl = get(article, 'fields.previewImageUrl.fields.file.url', '');
-  const slug = get(article, 'fields.slug', '');
-  const title = get(article, 'fields.title', '');
+  const {
+    previewImageUrl,
+    slug,
+    title,
+  } = getDocumentFields(article, [
+    'slug',
+    'title',
+    'previewImageUrl',
+  ]);
+  const previewImage = getFileUrl(previewImageUrl);
+  const linkProps = {
+    isLocalLink: true,
+    dynamicRouting: '/blog/[article]',
+    path: routes.article(slug),
+  };
 
-  return (article ? (
+  return ((slug && title) ? (
     <Loader isLoading={!isLoading}>
       <div className={isNewer ? styles.newer : styles.older}>
         <Fragment>
-          <LinkWrapper
-            isLocalLink
-            dynamicRouting="/blog/[article]"
-            path={`/blog/${slug}`}
-          >
+          <LinkWrapper {...linkProps}>
             <div className={styles.imgContainer}>
-              <ImageWithPlaceholder src={previewImageUrl} imageStyle={styles.img} />
+              <ImageWithPlaceholder src={previewImage} imageStyle={styles.img} />
             </div>
           </LinkWrapper>
           <div className={styles.content}>
             <small>{isNewer ? 'NEWER POST' : 'OLDER POST'}</small>
             <h3 className={styles.title}>
-              <LinkWrapper
-                isLocalLink
-                dynamicRouting="/blog/[article]"
-                path={`/blog/${slug}`}
-              >
+              <LinkWrapper {...linkProps}>
                 {title}
               </LinkWrapper>
             </h3>
@@ -45,8 +50,7 @@ const NextPrev = ({
         </Fragment>
       </div>
     </Loader>
-  ) : null
-  );
+  ) : null);
 };
 
 NextPrev.defaultProps = {

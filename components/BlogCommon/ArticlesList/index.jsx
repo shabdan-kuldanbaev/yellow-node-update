@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import { Loader, SubscribeBlock } from 'components';
 import { animatedType } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { Article } from './Article';
 import styles from './styles.module.scss';
 
@@ -18,7 +18,20 @@ export const ArticlesList = ({
     {currentPage === 1 && asPath.includes('blog') && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
     <Loader isLoading={!isLoading}>
       {articles && articles.map((article, index) => {
-        const articleData = get(article, 'fields', {});
+        const {
+          slug,
+          title,
+          categoruTag,
+          introduction,
+          previewImageUrl,
+        } = getDocumentFields(article, [
+          'slug',
+          'title',
+          'categoryTag',
+          'introduction',
+          'previewImageUrl',
+        ]);
+        const previewImage = getFileUrl(previewImageUrl);
         const delay = isSearch ? (30 * index) : (100 + 100 * index);
         const effect = 'fadeInUp';
         const animatioProps = isSearch
@@ -40,10 +53,14 @@ export const ArticlesList = ({
 
         return (
           <Article
-            key={articleData.title}
-            article={articleData}
+            key={title}
             countNumber={index}
             animatioProps={animatioProps}
+            slug={slug}
+            title={title}
+            categoruTag={categoruTag}
+            introduction={introduction}
+            previewImage={previewImage}
           />
         );
       })}

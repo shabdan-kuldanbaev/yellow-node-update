@@ -1,23 +1,25 @@
+import { routes } from 'utils/constants';
+
 export const menuList = [
   {
     name: 'Portfolio',
-    href: '/portfolio',
+    href: routes.portfolio,
   },
   {
     name: 'Process',
-    href: '/process',
+    href: routes.process,
   },
   {
     name: 'Blog',
-    href: '/blog?category=latest&page=1',
+    href: routes.blog,
   },
   {
     name: 'Company',
-    href: '/company',
+    href: routes.company,
   },
   {
     name: 'Contact Us',
-    href: '/contact',
+    href: routes.contact,
   },
 ];
 

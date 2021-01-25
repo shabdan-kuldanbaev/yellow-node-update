@@ -5,7 +5,7 @@ import {
   ButtonMore,
   Animated,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { animatedType, routes } from 'utils/constants';
 import { CompanyFigures } from './CompanyFigures';
 import { aboutUsText } from './utils/data';
 import styles from './styles.module.scss';
@@ -36,14 +36,14 @@ export const AboutUs = ({ aboutUsText }) => {
         <div className={styles.buttons}>
           <Animated {...animatedProps} transitionDelay={1100 + 80}>
             <ButtonMore
-              href="/portfolio"
+              href={routes.portfolio}
               title="WHAT WE DO"
               buttonStyle={styles.submit}
             />
           </Animated>
           <Animated {...animatedProps} transitionDelay={1100 + 80}>
             <ButtonMore
-              href="/process"
+              href={routes.process}
               title="HOW WE DO IT"
               buttonStyle={styles.submit}
             />

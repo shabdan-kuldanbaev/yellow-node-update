@@ -1,52 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import { LinkWrapper, ImageWithPlaceholder } from 'components';
+import { routes } from 'utils/constants';
 import Like from './images/like.svg';
 import styles from './styles.module.scss';
 
-export const BookmarkCard = ({ data }) => {
-  const article = get(data, 'fields.article.fields', {});
-  const slug = get(data, 'fields.article.fields.slug', '');
-  const description = get(data, 'fields.article.fields.description', '');
-  const title = get(data, 'fields.article.fields.title', '');
-  const imageUrl = get(data, 'fields.image.fields.file.url', '');
+export const BookmarkCard = ({
+  slug,
+  description,
+  title,
+  image,
+}) => {
+  const linkProps = {
+    isLocalLink: true,
+    dynamicRouting: '/blog/[article]',
+    path: routes.article(slug),
+  };
 
   return (
-    article ? (
-      <div className={styles.bookmarkContainer}>
-        <div className={styles.bookmarkCard}>
-          <div className={styles.content}>
-            <h3>
-              <LinkWrapper
-                isLocalLink
-                dynamicRouting="/blog/[article]"
-                path={`/blog/${slug}`}
-              >
-                {title}
-              </LinkWrapper>
-            </h3>
-            <div className={styles.description}>{description}</div>
-            <div className={styles.metadata}>
-              <LinkWrapper
-                isLocalLink
-                dynamicRouting="/blog/[article]"
-                path={`/blog/${slug}`}
-              >
-                <img src={Like} alt="like" />
-                <span>Recommended</span>
-              </LinkWrapper>
-            </div>
-          </div>
-          <div className={styles.imgContainer}>
-            <ImageWithPlaceholder src={imageUrl} />
+    <div className={styles.bookmarkContainer}>
+      <div className={styles.bookmarkCard}>
+        <div className={styles.content}>
+          <h3>
+            <LinkWrapper {...linkProps}>
+              {title}
+            </LinkWrapper>
+          </h3>
+          <div className={styles.description}>{description}</div>
+          <div className={styles.metadata}>
+            <LinkWrapper {...linkProps}>
+              <img src={Like} alt="like" />
+              <span>Recommended</span>
+            </LinkWrapper>
           </div>
         </div>
+        <div className={styles.imgContainer}>
+          <ImageWithPlaceholder src={image} />
+        </div>
       </div>
-    ) : null
+    </div>
   );
 };
 
 BookmarkCard.propTypes = {
-  data: PropTypes.instanceOf(Object).isRequired,
+  slug: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
