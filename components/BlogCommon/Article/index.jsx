@@ -8,6 +8,7 @@ import {
   OldArticle,
   withScroll,
 } from 'components';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const Article = ({
@@ -18,8 +19,21 @@ const Article = ({
 }) => {
   const articleBodyRef = useRef(null);
   const maxPosition = useRef(0);
-  const document = get(article, 'items[0].fields', {});
-  const slug = get(article, 'items[0].fields.slug', '');
+  const document = get(article, 'items[0]', {});
+  const {
+    slug,
+    oldBody,
+    title,
+    introduction,
+    headImageUrl,
+  } = getDocumentFields(document, [
+    'slug',
+    'oldBody',
+    'title',
+    'introduction',
+    'headImageUrl',
+  ]);
+  const headImage = getFileUrl(headImageUrl);
 
   useEffect(() => () => ReactGA.event({
     category: 'Scroll',
@@ -37,19 +51,19 @@ const Article = ({
       <section ref={introSection} className={styles.article}>
         <header className={styles.header}>
           <div>
-            <div style={{ backgroundImage: `url(${get(document, 'previewImageUrl.fields.file.url', '')})` }} />
+            <div style={{ backgroundImage: `url(${headImage})` }} />
           </div>
           <div className={styles.container}>
             <div>
-              <h1 className={styles.h1}>{get(document, 'title', '')}</h1>
+              <h1 className={styles.h1}>{title}</h1>
             </div>
             <div>
-              <p>{get(document, 'introduction', '')}</p>
+              <p>{introduction}</p>
             </div>
           </div>
         </header>
         <div className={styles.body} ref={articleBodyRef}>
-          {document.oldBody ? <OldArticle document={document} /> : <ContentfulParser document={document} />}
+          {oldBody ? <OldArticle oldBody={oldBody} /> : <ContentfulParser document={document} />}
         </div>
       </section>
     </Loader>

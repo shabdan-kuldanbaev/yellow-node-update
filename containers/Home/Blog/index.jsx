@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
-import get from 'lodash/get';
 import { loadArticles } from 'redux/actions/blog';
 import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
 import {
@@ -11,7 +10,12 @@ import {
   Animated,
   ArticlesList,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import {
+  animatedType,
+  CURRENT_PAGE_NUMBER,
+  DEFAULT_ARTICLES_LIMIT,
+  routes,
+} from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Blog = ({
@@ -20,21 +24,19 @@ const Blog = ({
   loadArticles: loadPartOfArticles,
 }) => {
   const { asPath } = useRouter();
-  const currentPage = 1;
-  const articlesArray = get(articles, 'items', []);
 
   useEffect(() => {
-    loadPartOfArticles({ currentLimit: 5 });
+    loadPartOfArticles({ currentLimit: DEFAULT_ARTICLES_LIMIT });
   }, []);
 
   return (
     <section className={styles.blog}>
       <SectionTitle title="Blog" subtitle="How we do what we do" />
       <ArticlesList
-        articles={articlesArray}
+        articles={articles}
         isLoading={isLoading}
         asPath={asPath}
-        currentPage={currentPage}
+        currentPage={CURRENT_PAGE_NUMBER}
       />
       <Animated
         type={animatedType.isCustom}
@@ -44,7 +46,7 @@ const Blog = ({
         transitionDelay={200}
       >
         <ButtonMore
-          href="/blog?category=latest&page=1"
+          href={routes.blog}
           title="READ MORE STORIES"
           buttonStyle={styles.blogButton}
         />

@@ -70,6 +70,7 @@
   .normalImage,
   .fullImage {
     @include flex(column, center);
+    
     & > div:first-child {
       width: 100%;
       height: 100%;
