@@ -57,18 +57,20 @@ const ArticleContainer = ({
 
   useEffect(() => {
     if (article) getCurrentArticle(article);
-  }, [article]);
+  }, [article, categoryTag]);
 
   useEffect(() => {
-    loadArticles({
-      currentLimit: DEFAULT_ARTICLES_LIMIT,
-      currentArticleSlug: slug,
-      categoryTag,
-    });
+    if (categoryTag) {
+      loadArticles({
+        currentLimit: DEFAULT_ARTICLES_LIMIT,
+        currentArticleSlug: slug,
+        categoryTag,
+      });
+    }
   }, [currentArticle]);
 
   useEffect(() => {
-    if (articleData) getNearby({ name: title, createdAt });
+    if (createdAt) getNearby({ name: title, createdAt });
   }, [currentArticle]);
 
   return (

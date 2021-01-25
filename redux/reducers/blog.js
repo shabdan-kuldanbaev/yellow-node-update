@@ -6,6 +6,7 @@ const initialState = {
   all: [],
   related: [],
   nearby: {},
+  found: [],
   totalCount: 0,
   error: {},
   limit: { desktop: 11, mobile: 4 },
@@ -59,9 +60,21 @@ const handlers = {
     isLoading: false,
     error: payload,
   }),
+  [actionTypes.FIND_ARTICLES_PENDING]: (state) => ({ ...state, isLoading: true }),
+  [actionTypes.FIND_ARTICLES_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    found: payload,
+  }),
+  [actionTypes.FIND_ARTICLES_FAILED]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    error: payload,
+  }),
   [actionTypes.SET_TOTAL_ARTICLES_COUNT]: (state, { payload }) => ({ ...state, totalCount: payload }),
   [actionTypes.SET_BLOG_STATUS]: (state, { payload }) => ({ ...state, isBlogOpen: payload }),
   [actionTypes.SET_FIRST_VISIT_OF_BLOG]: (state, { payload }) => ({ ...state, isFirstVisit: payload }),
+  [actionTypes.CLEAR_FOUND_ARTICLES]: (state) => ({ ...state, found: [] }),
   DEFAULT: (state) => state,
 };
 

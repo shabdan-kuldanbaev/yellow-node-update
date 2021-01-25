@@ -2,25 +2,41 @@ import React, {
   useState,
   useEffect,
   useRef,
+  useCallback,
 } from 'react';
 import PropTypes from 'prop-types';
+import debounce from 'lodash/debounce';
+import { connect } from 'react-redux';
 import { ArticlesList, ModalWindow } from 'components';
-import { articlesData } from 'containers/Blog/utils/data';
+import { findArticles, clearFoundArticles } from 'redux/actions/blog';
+import { selectFoundArticles } from 'redux/selectors/blog';
 import styles from './styles.module.scss';
 
 const FullscreenSearch = ({
   isFullscreenSearch,
   closeFullscreenSearch,
-  articlesData: dataOfArticle,
+  findArticles,
+  clearFoundArticles,
+  found,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
-  const articles = dataOfArticle ? dataOfArticle.filter((item, index) => index < 10) : [];
 
-  const handleOnChangeInput = ({ target: { value } }) => setInputValue(value);
+  const fetchData = (query) => {
+    findArticles({ value: query });
+  };
+
+  const delayedQuery = useCallback(debounce((query) => fetchData(query), 1000), []);
+
+  const handleOnChangeInput = ({ target: { value } }) => {
+    setInputValue(value);
+
+    if (value.length > 1) delayedQuery(value);
+  };
   const handleOnCloseModalWindow = () => {
     closeFullscreenSearch();
     setInputValue('');
+    clearFoundArticles();
   };
 
   useEffect(() => {
@@ -46,10 +62,10 @@ const FullscreenSearch = ({
         />
       </div>
       <div className={styles.foundArticles}>
-        {!inputValue ? <span className={styles.nothingFound}>Nothing Found. Please try again with some different keywords.</span>
+        {(!inputValue || !found.length) ? <span className={styles.nothingFound}>Nothing Found. Please try again with some different keywords.</span>
           : (
             <ArticlesList
-              articles={articles}
+              articles={found}
               isLoading={false}
               page={2}
               isSearch
@@ -63,13 +79,16 @@ const FullscreenSearch = ({
 
 FullscreenSearch.defaultProps = {
   isFullscreenSearch: false,
-  articlesData,
 };
 
 FullscreenSearch.propTypes = {
   isFullscreenSearch: PropTypes.bool,
   closeFullscreenSearch: PropTypes.func.isRequired,
-  articlesData: PropTypes.instanceOf(Array),
+  findArticles: PropTypes.func.isRequired,
+  clearFoundArticles: PropTypes.func.isRequired,
+  found: PropTypes.instanceOf(Array).isRequired,
 };
 
-export default FullscreenSearch;
+export default connect((state) => ({
+  found: selectFoundArticles(state),
+}), { findArticles, clearFoundArticles })(FullscreenSearch);
