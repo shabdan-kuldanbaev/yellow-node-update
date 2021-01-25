@@ -4,6 +4,7 @@ import {
   horizontalMobile,
   bigTabletResolution,
   silver,
+  fullHdResolution,
 } from 'styles/utils/_variables.scss';
 import { pages } from './constants';
 
@@ -29,6 +30,7 @@ export const validateEmail = (email) => {
 };
 
 export const mobileResolution = toInt(phoneResolution);
+export const fullResolution = toInt(fullHdResolution);
 export const horizontalPhone = toInt(horizontalMobile);
 export const tabletResolution = toInt(bigTabletResolution);
 export const previewImageBackground = toString(silver);

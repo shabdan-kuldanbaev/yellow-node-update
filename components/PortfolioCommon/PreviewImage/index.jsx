@@ -1,14 +1,18 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Animated } from 'components';
-import { previewImageBackground } from 'utils/helper';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { previewImageBackground, getOptimizedImage } from 'utils/helper';
 import { animatedType } from 'utils/constants';
+import { connect } from 'react-redux';
 import styles from './styles.module.scss';
 
-export const PreviewImage = ({ image }) => {
+const PreviewImage = ({ image, isMobileResolution }) => {
   const photoRef = useRef(null);
   const [isShow, setIsShow] = useState(false);
+  const defaultSize = isMobileResolution ? 530 : 720;
 
   // TODO
   // useEffect(() => {
@@ -33,7 +37,8 @@ export const PreviewImage = ({ image }) => {
         transformDuration={0.8}
         transitionDelay={0}
       >
-        <div ref={photoRef} style={image ? { backgroundImage: `url(${image})` } : { backgroundColor: previewImageBackground }} />
+        <LazyLoadImage src={getOptimizedImage(image, defaultSize)} effect="blur" />
+        {/* <div ref={photoRef} style={image ? { backgroundImage: `url(${getOptimizedImage(image, defaultSize)})` } : { backgroundColor: previewImageBackground }} /> */}
       </Animated>
     </div>
   );
@@ -41,4 +46,9 @@ export const PreviewImage = ({ image }) => {
 
 PreviewImage.propTypes = {
   image: PropTypes.string.isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
+
+export default connect((state) => ({
+  isMobileResolution: selectIsMobileResolutions(state),
+}))(PreviewImage);

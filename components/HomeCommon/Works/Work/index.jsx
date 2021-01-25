@@ -1,20 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import get from 'lodash/get';
 import { Animated } from 'components';
+import { selectIsMobileResolutions, selectIsFullResolutions } from 'redux/selectors/layout';
 import { animatedType } from 'utils/constants';
-import { animatedFields } from './utils';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getOptimizedImage,
+} from 'utils/helper';
+import { connect } from 'react-redux';
+import { animatedFields, imagesSizes } from './utils';
 import styles from './styles.module.scss';
 
-export const Work = ({
+const Work = ({
   refs,
   work,
   index,
   animatedFields,
+  isMobileResolution,
+  isFullResolution,
 }) => {
-  const project = get(work, 'fields', {});
-  const image = get(work, 'fields.image.fields.file.url', '');
+  const project = getDocumentFields(work);
+  let sizeOfImage; // TODO rewrite it after the release
+
+  if (isMobileResolution) sizeOfImage = index === 0 ? imagesSizes.mobileFirst : imagesSizes.mobileSecond;
+  else if (isFullResolution) sizeOfImage = index === 0 ? imagesSizes.fullFirst : imagesSizes.fullSecond;
+
+  const imageUrl = getFileUrl(project.image);
+  const image = sizeOfImage ? getOptimizedImage(imageUrl, sizeOfImage, 'png', 'png8') : imageUrl;
 
   const switchRender = ({ field }, work) => {
     switch (field) {
@@ -78,4 +92,11 @@ Work.propTypes = {
   work: PropTypes.instanceOf(Object).isRequired,
   index: PropTypes.number.isRequired,
   animatedFields: PropTypes.instanceOf(Array),
+  isMobileResolution: PropTypes.bool.isRequired,
+  isFullResolution: PropTypes.bool.isRequired,
 };
+
+export default connect((state) => ({
+  isMobileResolution: selectIsMobileResolutions(state),
+  isFullResolution: selectIsFullResolutions(state),
+}))(Work);

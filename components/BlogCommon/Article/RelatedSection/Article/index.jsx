@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper, ImageWithPlaceholder } from 'components';
 import { routes } from 'utils/constants';
+import { getOptimizedImage } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const Article = ({
@@ -20,7 +21,7 @@ export const Article = ({
       >
         <div>
           <div className={styles.imgContainer}>
-            <ImageWithPlaceholder src={image} imageStyle={styles.img} />
+            <ImageWithPlaceholder src={getOptimizedImage(image, 510)} imageStyle={styles.img} />
           </div>
           <div className={styles.articleContent}>
             <h2 className={styles.title}><a>{title}</a></h2>

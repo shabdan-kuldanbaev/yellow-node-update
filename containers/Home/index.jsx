@@ -14,14 +14,16 @@ import { PhotoGallery } from 'components';
 import { loadPhotos } from 'redux/actions/home';
 import { selectPhotos, selectIsLoading } from 'redux/selectors/home';
 import { connect } from 'react-redux';
+import { getDocumentFields } from 'utils/helper';
 
 export const Home = ({
   theme,
   introSection,
   loadPhotos,
-  photos,
+  photosData,
 }) => {
   const gradientRef = useRef(null);
+  const { photos } = getDocumentFields(photosData, ['photos']);
 
   useEffect(() => {
     loadPhotos();
@@ -75,6 +77,6 @@ Home.propTypes = {
 };
 
 export default connect((state) => ({
-  photos: selectPhotos(state),
+  photosData: selectPhotos(state),
   isLoading: selectIsLoading(state),
 }), { loadPhotos })(Home);

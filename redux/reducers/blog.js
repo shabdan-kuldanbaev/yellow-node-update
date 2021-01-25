@@ -65,7 +65,9 @@ const handlers = {
   DEFAULT: (state) => state,
 };
 
-export default (state = initialState, action) => {
+const blogReducer = (state = initialState, action) => {
   const handler = handlers[action.type] || handlers.DEFAULT;
   return handler(state, action);
 };
+
+export default blogReducer;

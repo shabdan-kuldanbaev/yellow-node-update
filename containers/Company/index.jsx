@@ -16,17 +16,20 @@ import { loadTeam, loadSpecial } from 'redux/actions/company';
 import { selectPhotos } from 'redux/selectors/home';
 import { selectTeam, selectSpecialThings } from 'redux/selectors/company';
 import { pages } from 'utils/constants';
+import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const CompanyContainer = ({
   introSection,
-  photos,
+  photosData,
   loadPhotos,
   managementTeam,
   loadTeam,
   whatMakesSpecial,
   loadSpecial,
 }) => {
+  const { photos } = getDocumentFields(photosData, ['photos']);
+
   useEffect(() => {
     loadPhotos();
     loadTeam();
@@ -39,7 +42,7 @@ const CompanyContainer = ({
       <section ref={introSection} className={styles.companyContainer}>
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={whatMakesSpecial} />
-        <ManagementTeam managementTeam={managementTeam} />
+        {managementTeam && <ManagementTeam managementTeam={managementTeam} />}
       </section>
       {photos && <PhotoGallery photos={photos} />}
       <div className={styles.companyReviews}>
@@ -54,7 +57,7 @@ const CompanyContainer = ({
 
 CompanyContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  photos: PropTypes.instanceOf(Array).isRequired,
+  photosData: PropTypes.instanceOf(Array).isRequired,
   loadPhotos: PropTypes.func.isRequired,
   managementTeam: PropTypes.instanceOf(Object).isRequired,
   loadTeam: PropTypes.func.isRequired,
@@ -63,7 +66,7 @@ CompanyContainer.propTypes = {
 };
 
 export default connect((state) => ({
-  photos: selectPhotos(state),
+  photosData: selectPhotos(state),
   managementTeam: selectTeam(state),
   whatMakesSpecial: selectSpecialThings(state),
 }), { loadPhotos, loadTeam, loadSpecial })(CompanyContainer);

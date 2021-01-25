@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import { SectionTitle, Animated } from 'components';
 import { animatedType } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const WhatMakesUsSpecial = ({ makingUsSpecial }) => {
-  const specialThings = get(makingUsSpecial, 'items[0].fields.specialThings', []);
+  const { specialThings } = getDocumentFields(makingUsSpecial, ['specialThings']);
 
   return (
     <section className={styles.makingUsSpecial}>
       <SectionTitle title="What makes us special" />
       <div className={styles.specialThings}>
-        {specialThings.length && specialThings.map((special, index) => {
-          const subtitle = get(special, 'fields.description', '');
-          const image = get(special, 'fields.file.url');
+        {specialThings && specialThings.map((special, index) => {
+          const { description } = getDocumentFields(special, ['description']);
+          const image = getFileUrl(special);
 
           return (
             <Animated
-              key={`special/${subtitle}`}
+              key={`special/${description}`}
               type={animatedType.isCustom}
               translateY="100px"
               opasityDuration={0.8}
@@ -26,9 +26,9 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => {
               transitionDelay={100 + 150 * index}
             >
               <div>
-                <img src={image} alt={subtitle} />
+                <img src={image} alt={description} />
               </div>
-              <span>{subtitle}</span>
+              <span>{description}</span>
             </Animated>
           );
         })}

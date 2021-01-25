@@ -7,6 +7,7 @@ import {
   withScroll,
 } from 'components';
 import { routes } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
@@ -51,8 +52,9 @@ const Portfolio = ({
   return (
     <div className={styles.worksContainer}>
       {works && works.map((work, index) => {
-        const workData = get(work, 'fields', {});
-        const image = get(work, 'fields.image.fields.file.url');
+        const workData = getDocumentFields(work);
+        const { image } = getDocumentFields(work, ['image']);
+        const imageUrl = getFileUrl(image);
 
         return (
           <div
@@ -68,7 +70,7 @@ const Portfolio = ({
                   </Animated>
                 ))}
               </div>
-              <PreviewImage image={image} />
+              <PreviewImage image={imageUrl} />
             </div>
           </div>
         );

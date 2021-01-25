@@ -4,11 +4,15 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getOptimizedImage,
+} from 'utils/helper';
+import { sizesOfImages } from '../utils/data';
 import styles from './styles.module.scss';
 
-export const DesktopCarousel = ({ galleryData }) => {
-  const photos = get(galleryData, 'items[0].fields.photos', []);
+export const DesktopCarousel = ({ photos }) => {
   const gallery = photos.concat(photos, photos, photos);
   const [fullListWidth, setFullListWidth] = useState(0);
   const [carouselContainerRef, listRef] = [useRef(null), useRef(null)];
@@ -79,12 +83,12 @@ export const DesktopCarousel = ({ galleryData }) => {
       >
         <div className={styles.listWrapper}>
           <ul ref={listRef} className={styles.unorderedList}>
-            {gallery.length && gallery.map((photo, index) => {
-              const image = get(photo, 'fields.photo.fields.file.url', '');
-              const size = get(photo, 'fields.type', '');
+            {gallery.length && gallery.map((photoData, index) => {
+              const { photo, type } = getDocumentFields(photoData, ['photo', 'type']);
+              const image = getOptimizedImage(getFileUrl(photo), sizesOfImages[`${type}Desctop`]);
 
               return (
-                <li key={`gallary/photo/${index}`} className={styles[size]}>
+                <li key={`gallary/photo/${index}`} className={styles[type]}>
                   <img src={image} alt="" />
                 </li>
               );
@@ -97,5 +101,5 @@ export const DesktopCarousel = ({ galleryData }) => {
 };
 
 DesktopCarousel.propTypes = {
-  galleryData: PropTypes.instanceOf(Object).isRequired,
+  photos: PropTypes.instanceOf(Object).isRequired,
 };

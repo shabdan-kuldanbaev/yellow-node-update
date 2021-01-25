@@ -4,15 +4,22 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
+import { connect } from 'react-redux';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { LinkWrapper, Animated } from 'components';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { getOptimizedImage, getFileUrl } from 'utils/helper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
-export const CompanyContacts = ({ photo, animatedFields }) => {
+const CompanyContacts = ({
+  photo,
+  animatedFields,
+  IsMobileResolution,
+}) => {
   const imgContainer = useRef(null);
   const [isShow, setShow] = useState(false);
-  const photoUrl = get(photo, 'fields.file.url', '');
+  const photoUrl = getFileUrl(photo);
 
   useEffect(() => {
     if (imgContainer.current) {
@@ -89,11 +96,11 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
     <section className={styles.companyContacts}>
       <div ref={imgContainer} className={styles.imgContainer}>
         <div className={styles.whiteCover} />
-        <img
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        <LazyLoadImage src={getOptimizedImage(photoUrl, 465)} alt="CompanyOfficePhoto" effect="blur" />
+        {/* <img
+          src={getOptimizedImage(photoUrl, 465)}
           alt="CompanyPeoplePhoto"
-          style={{ backgroundImage: `url(${photoUrl})` }}
-        />
+        /> */}
       </div>
       <address className={styles.address}>
         {animatedFields && animatedFields.map((animated) => (
@@ -113,4 +120,9 @@ CompanyContacts.defaultProps = {
 CompanyContacts.propTypes = {
   photo: PropTypes.string.isRequired,
   animatedFields: PropTypes.instanceOf(Array),
+  IsMobileResolution: PropTypes.bool.isRequired,
 };
+
+export default connect((state) => ({
+  IsMobileResolution: selectIsMobileResolutions(state),
+}))(CompanyContacts);

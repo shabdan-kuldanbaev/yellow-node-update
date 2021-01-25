@@ -15,11 +15,11 @@ es6promise.polyfill();
 
 function* loadWorks({ payload }) {
   try {
-    const portfolio = yield contentfulClient.getEntries({
+    const { items } = yield contentfulClient.getEntries({
       contentType: payload,
     });
 
-    yield put({ type: actionTypes.LOAD_WORKS_SUCCESS, payload: portfolio });
+    yield put({ type: actionTypes.LOAD_WORKS_SUCCESS, payload: items[0] });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_WORKS_FAILED, payload: err });
   }

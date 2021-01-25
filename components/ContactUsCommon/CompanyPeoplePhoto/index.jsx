@@ -5,16 +5,19 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import get from 'lodash/get';
+import { connect } from 'react-redux';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { SectionTitle, Animated } from 'components';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { animatedType } from 'utils/constants';
-import { getOptimizedImage } from 'utils/helper';
+import { getOptimizedImage, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const CompanyPeoplePhoto = ({ photo }) => {
+const CompanyPeoplePhoto = ({ photo, IsMobileResolution }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
-  const photoUrl = get(photo, 'fields.file.url', '');
+  const defaultSize = IsMobileResolution ? 530 : 1040;
+  const photoUrl = getOptimizedImage(getFileUrl(photo), defaultSize);
 
   useEffect(() => {
     const handlerOnScroll = () => {
@@ -45,11 +48,14 @@ export const CompanyPeoplePhoto = ({ photo }) => {
             transformDuration={0.8}
             transitionDelay={0}
           >
-            <img
+
+            <LazyLoadImage src={photoUrl} alt="CompanyPeoplePhoto" effect="blur" />
+
+            {/* <img
               ref={photoRef}
-              src={getOptimizedImage(photoUrl, 1040)}
+              src={photoUrl}
               alt="CompanyPeoplePhoto"
-            />
+            /> */}
           </Animated>
         </div>
       </div>
@@ -59,4 +65,9 @@ export const CompanyPeoplePhoto = ({ photo }) => {
 
 CompanyPeoplePhoto.propTypes = {
   photo: PropTypes.instanceOf(Object).isRequired,
+  IsMobileResolution: PropTypes.bool.isRequired,
 };
+
+export default connect((state) => ({
+  IsMobileResolution: selectIsMobileResolutions(state),
+}))(CompanyPeoplePhoto);

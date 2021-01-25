@@ -5,7 +5,11 @@ import {
   Loader,
   ImageWithPlaceholder,
 } from 'components';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getOptimizedImage,
+} from 'utils/helper';
 import { routes } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -23,7 +27,7 @@ const NextPrev = ({
     'title',
     'previewImageUrl',
   ]);
-  const previewImage = getFileUrl(previewImageUrl);
+  const previewImage = getOptimizedImage(getFileUrl(previewImageUrl), 230);
   const linkProps = {
     isLocalLink: true,
     dynamicRouting: '/blog/[article]',

@@ -7,3 +7,5 @@ export const selectIsMobileResolutions = (state) => state.layout.isMobileResolut
 export const selectIsTabletResolutions = (state) => state.layout.isTabletResolutions;
 
 export const selectIsPageLoading = (state) => state.layout.isPageLoading;
+
+export const selectIsFullResolutions = (state) => state.layout.isFullResolution;

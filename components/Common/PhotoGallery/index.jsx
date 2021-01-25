@@ -7,8 +7,8 @@ import { MobileCarousel } from './MobileCarousel';
 
 const PhotoGallery = ({ photos, isTabletResolutions }) => (
   isTabletResolutions
-    ? <MobileCarousel galleryData={photos} />
-    : <DesktopCarousel galleryData={photos} />
+    ? <MobileCarousel photos={photos} />
+    : <DesktopCarousel photos={photos} />
 );
 
 PhotoGallery.defaultProps = {

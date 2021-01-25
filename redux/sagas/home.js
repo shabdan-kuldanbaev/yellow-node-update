@@ -9,11 +9,11 @@ es6promise.polyfill();
 
 function* loadPhotos({ payload }) {
   try {
-    const gallery = yield contentfulClient.getEntries({
+    const { items } = yield contentfulClient.getEntries({
       contentType: 'photoCarousel',
     });
 
-    yield put({ type: actionTypes.LOAD_PHOTOS_SUCCESS, payload: gallery });
+    yield put({ type: actionTypes.LOAD_PHOTOS_SUCCESS, payload: items[0] });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_PHOTOS_FAILED, payload: err });
   }

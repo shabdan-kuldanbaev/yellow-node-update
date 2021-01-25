@@ -31,3 +31,10 @@ export const animatedFields = [
     ...linkProps,
   },
 ];
+
+export const imagesSizes = {
+  mobileFirst: 570,
+  fullFirst: 980,
+  mobileSecond: 350,
+  fullSecond: 515,
+};

@@ -5,7 +5,7 @@ const initialState = {
   duck: null,
   isHomepageVisit: false,
   isFirstHomepageVisit: false,
-  photos: [],
+  photos: null,
   isLoading: false,
   error: null,
 };
@@ -29,7 +29,9 @@ const handlers = {
   DEFAULT: (state) => state,
 };
 
-export default (state = initialState, action) => {
+const homeReducer = (state = initialState, action) => {
   const handler = handlers[action.type] || handlers.DEFAULT;
   return handler(state, action);
 };
+
+export default homeReducer;
