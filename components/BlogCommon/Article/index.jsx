@@ -42,12 +42,8 @@ const Article = ({
             <div style={{ backgroundImage: `url(${headImage})` }} />
           </div>
           <div className={styles.container}>
-            <div>
-              <h1 className={styles.h1}>{title}</h1>
-            </div>
-            <div>
-              <p>{introduction}</p>
-            </div>
+            <h1 className={styles.h1}>{title}</h1>
+            <p>{introduction}</p>
           </div>
         </header>
         <div className={styles.body} ref={articleBodyRef}>

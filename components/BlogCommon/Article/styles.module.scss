@@ -124,35 +124,33 @@
         padding: 0 10px;
       }
 
-      & > div:nth-of-type(2) {
-        & > p {
-          @include fontSize(21px);
-          color: $mirage;
-          line-height: 1.5;
-          padding: 0;
-          margin: 4vh 0 0;
-          font-weight: 500;
+      & > p {
+        @include fontSize(21px);
+        color: $mirage;
+        line-height: 1.5;
+        padding: 0;
+        margin: 4vh 0 0;
+        font-weight: 500;
 
-          @include macbook-fifteen {
-            @include fontSize(20px);
-          }
+        @include macbook-fifteen {
+          @include fontSize(20px);
+        }
 
-          @include macbook-twelve {
-            @include fontSize(17px);
-          }
+        @include macbook-twelve {
+          @include fontSize(17px);
+        }
 
-          @include tablet {
-            @include fontSize(19px);
-          }
+        @include tablet {
+          @include fontSize(19px);
+        }
 
-          @include below-tablet {
-            @include fontSize(18px);
-          }
+        @include below-tablet {
+          @include fontSize(18px);
+        }
 
-          @include phone {
-            @include fontSize(15px);
-            line-height: 1.4;
-          }
+        @include phone {
+          @include fontSize(15px);
+          line-height: 1.4;
         }
       }
     }
