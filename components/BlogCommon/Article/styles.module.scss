@@ -5,30 +5,30 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  font-size: 44px;
+  @include fontSize(44px);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -2px;
   color: $timber-green;
 
   @include macbook-fifteen {
-    font-size: 42px;
+    @include fontSize(42px);
   }
 
   @include macbook-twelve {
-    font-size: 35px;
+    @include fontSize(35px);
   }
 
   @include tablet {
-    font-size: 38px;
+    @include fontSize(38px);
   }
 
   @include below-tablet {
-    font-size: 34px;
+    @include fontSize(34px);
   }
 
   @include phone {
-    font-size: 25px;
+    @include fontSize(25px);
     line-height: 1.4;
   }
 }
@@ -126,7 +126,7 @@
 
       & > div:nth-of-type(2) {
         & > p {
-          font-size: 21px;
+          @include fontSize(21px);
           color: $mirage;
           line-height: 1.5;
           padding: 0;
@@ -134,23 +134,23 @@
           font-weight: 500;
 
           @include macbook-fifteen {
-            font-size: 20px;
+            @include fontSize(20px);
           }
 
           @include macbook-twelve {
-            font-size: 17px;
+            @include fontSize(17px);
           }
 
           @include tablet {
-            font-size: 19px;
+            @include fontSize(19px);
           }
 
           @include below-tablet {
-            font-size: 18px;
+            @include fontSize(18px);
           }
 
           @include phone {
-            font-size: 15px;
+            @include fontSize(15px);
             line-height: 1.4;
           }
         }

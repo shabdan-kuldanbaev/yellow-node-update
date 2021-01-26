@@ -25,7 +25,11 @@ import {
   withScroll,
 } from 'components';
 import { pages, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
-import { rootUrl, getDocumentFields, getFileUrl } from 'utils/helper';
+import {
+  rootUrl,
+  getDocumentFields,
+  getFileUrl,
+} from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ArticleContainer = ({
@@ -40,7 +44,6 @@ const ArticleContainer = ({
   subscribe,
 }) => {
   const { query: { article }, pathname } = useRouter();
-  const articleData = get(currentArticle, 'items[0]', {});
   const {
     slug,
     categoryTag,
@@ -51,8 +54,24 @@ const ArticleContainer = ({
     introduction,
     headImageUrl,
   } = getDocumentFields(
-    articleData,
+    get(currentArticle, 'items[0]', {}),
     ['slug', 'categoryTag', 'title', 'createdAt', 'oldBody', 'body', 'introduction', 'headImageUrl'],
+  );
+  const {
+    previewImageUrl: previewImageUrlNewer,
+    slug: slugNewer,
+    title: titleNewer,
+  } = getDocumentFields(
+    newerArticle,
+    ['slug', 'title', 'previewImageUrl'],
+  );
+  const {
+    previewImageUrl: previewImageUrlOlder,
+    slug: slugOlder,
+    title: titleOlder,
+  } = getDocumentFields(
+    olderArticle,
+    ['slug', 'title', 'previewImageUrl'],
   );
   const headImage = getFileUrl(headImageUrl);
 
@@ -63,13 +82,15 @@ const ArticleContainer = ({
   }, [article]);
 
   useEffect(() => {
-    if (articleData) getNearby({ name: title, createdAt });
+    if (title && createdAt) getNearby({ name: title, createdAt });
 
-    loadArticles({
-      currentLimit: DEFAULT_ARTICLES_LIMIT,
-      currentArticleSlug: slug,
-      categoryTag,
-    });
+    if (slug) {
+      loadArticles({
+        currentLimit: DEFAULT_ARTICLES_LIMIT,
+        currentArticleSlug: slug,
+        categoryTag,
+      });
+    }
   }, [currentArticle]);
 
   return (
@@ -90,10 +111,17 @@ const ArticleContainer = ({
       <div className={styles.nextPrevSection}>
         <NextPrev
           isNewer
-          article={newerArticle}
           isLoading={isLoading}
+          previewImageUrl={getFileUrl(previewImageUrlNewer)}
+          slug={slugNewer}
+          title={titleNewer}
         />
-        <NextPrev article={olderArticle} isLoading={isLoading} />
+        <NextPrev
+          isLoading={isLoading}
+          previewImageUrl={getFileUrl(previewImageUrlOlder)}
+          slug={slugOlder}
+          title={titleOlder}
+        />
       </div>
       <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
     </Fragment>

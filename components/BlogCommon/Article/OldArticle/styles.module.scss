@@ -185,7 +185,7 @@
 
   .wide-image {
     position: relative;
-    left: -220px;
+    transform: translateX(-220px);
     width: 1160px;
     max-width: none !important;
 
@@ -197,7 +197,7 @@
 
     @include tablet {
       width: 100%;
-      left: 0;
+      transform: translateX(0);
     }
   }
 

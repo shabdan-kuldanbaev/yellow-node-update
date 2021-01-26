@@ -114,11 +114,9 @@ export const ContentfulParser = ({ document }) => {
     },
   };
 
-  const contentfulData = document
+  return document
     ? documentToReactComponents(document, options)
     : '';
-
-  return contentfulData;
 };
 
 ContentfulParser.propTypes = {
