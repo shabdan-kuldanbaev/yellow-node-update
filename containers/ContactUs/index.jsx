@@ -9,7 +9,7 @@ import {
   CompanyContacts,
   MetaTags,
 } from 'components';
-import { pages } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const ContactUsContainer = ({ introSection, sendEmail }) => {
@@ -34,7 +34,7 @@ const ContactUsContainer = ({ introSection, sendEmail }) => {
 
   return (
     <Fragment>
-      <MetaTags page={pages.contact} />
+      <MetaTags page={PAGES.contact} />
       <section ref={introSection} className={styles.contactContainer}>
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />

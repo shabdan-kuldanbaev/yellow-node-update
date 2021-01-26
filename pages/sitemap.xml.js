@@ -5,7 +5,7 @@ import {
   rootUrl,
   getDocumentFields,
 } from 'utils/helper';
-import { routes } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 import { contentfulClient } from 'utils/ContentfulClient';
 
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
@@ -28,7 +28,7 @@ Sitemap.getInitialProps = async ({ ctx: { req, res } }) => {
       const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
 
       return ({
-        path: routes.article(slug),
+        path: ROUTES.article(slug),
         updatedAt: getDate(Date.parse(publishedAt)),
       });
     });

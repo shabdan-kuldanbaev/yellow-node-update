@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Video, Animated } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const Project = ({ project, introSection }) => (
@@ -26,14 +26,14 @@ export const Project = ({ project, introSection }) => (
             <div className={styles.mediasWrapper}>
               {item.image1_1 && (
                 <div>
-                  <Animated type={animatedType.imageZoom}>
+                  <Animated type={ANIMATED_TYPE.imageZoom}>
                     <img src={item.image1_1} alt="" />
                   </Animated>
                 </div>
               )}
               {item.image1_2 && (
                 <div>
-                  <Animated type={animatedType.imageZoom}>
+                  <Animated type={ANIMATED_TYPE.imageZoom}>
                     <img src={item.image1_2} alt="" />
                   </Animated>
                 </div>
@@ -41,7 +41,7 @@ export const Project = ({ project, introSection }) => (
             </div>
           ) : item.image1_1 && (
             <div>
-              <Animated type={animatedType.imageZoom}>
+              <Animated type={ANIMATED_TYPE.imageZoom}>
                 <img src={item.image1_1} alt="" />
               </Animated>
             </div>
@@ -50,14 +50,14 @@ export const Project = ({ project, introSection }) => (
             <div className={styles.mediasWrapper}>
               {item.video1_1 && (
                 <div>
-                  <Animated type={animatedType.imageZoom}>
+                  <Animated type={ANIMATED_TYPE.imageZoom}>
                     <Video src={item.video1_1} className={styles.video} />
                   </Animated>
                 </div>
               )}
               {item.video1_2 && (
                 <div>
-                  <Animated type={animatedType.imageZoom}>
+                  <Animated type={ANIMATED_TYPE.imageZoom}>
                     <Video src={item.video1_2} className={styles.video} />
                   </Animated>
                 </div>
@@ -65,7 +65,7 @@ export const Project = ({ project, introSection }) => (
             </div>
           ) : item.video1_1 && (
             <div>
-              <Animated type={animatedType.imageZoom}>
+              <Animated type={ANIMATED_TYPE.imageZoom}>
                 <Video src={item.video1_1} className={styles.video} />
               </Animated>
             </div>
@@ -75,14 +75,14 @@ export const Project = ({ project, introSection }) => (
             <div className={styles.mediasWrapper}>
               {item.image2_1 && (
                 <div>
-                  <Animated type={animatedType.imageZoom}>
+                  <Animated type={ANIMATED_TYPE.imageZoom}>
                     <img src={item.image2_1} alt="" />
                   </Animated>
                 </div>
               )}
               {item.image2_2 && (
                 <div>
-                  <Animated type={animatedType.imageZoom}>
+                  <Animated type={ANIMATED_TYPE.imageZoom}>
                     <img src={item.image2_2} alt="" />
                   </Animated>
                 </div>
@@ -90,7 +90,7 @@ export const Project = ({ project, introSection }) => (
             </div>
           ) : item.image2_1 && (
             <div>
-              <Animated type={animatedType.imageZoom}>
+              <Animated type={ANIMATED_TYPE.imageZoom}>
                 <img src={item.image2_1} alt="" />
               </Animated>
             </div>
@@ -99,14 +99,14 @@ export const Project = ({ project, introSection }) => (
             <div className={styles.mediasWrapper}>
               {item.video2_1 && (
                 <div>
-                  <Animated type={animatedType.imageZoom}>
+                  <Animated type={ANIMATED_TYPE.imageZoom}>
                     <Video src={item.video2_1} className={styles.video} />
                   </Animated>
                 </div>
               )}
               {item.video2_2 && (
                 <div>
-                  <Animated type={animatedType.imageZoom}>
+                  <Animated type={ANIMATED_TYPE.imageZoom}>
                     <Video src={item.video2_2} className={styles.video} />
                   </Animated>
                 </div>
@@ -114,7 +114,7 @@ export const Project = ({ project, introSection }) => (
             </div>
           ) : item.video2_1 && (
             <div>
-              <Animated type={animatedType.imageZoom}>
+              <Animated type={ANIMATED_TYPE.imageZoom}>
                 <Video src={item.video2_1} className={styles.video} />
               </Animated>
             </div>

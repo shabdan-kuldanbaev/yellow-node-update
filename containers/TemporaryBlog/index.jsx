@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
 import { loadArticles } from 'redux/actions/blog';
 import { Loader, MetaTags } from 'components';
-import { pages } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import { Post, Subscribe } from 'components/TemporaryBlog';
 import styles from './styles.module.scss';
 
@@ -22,7 +22,7 @@ const Blog = ({
 
   return (
     <Fragment>
-      <MetaTags page={pages.blog} />
+      <MetaTags page={PAGES.blog} />
       <Subscribe />
       <section ref={introSection} className={styles.blog}>
         <Loader isLoading={!isLoading}>

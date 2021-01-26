@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
 import { themes } from 'utils/helper';
-import { routes } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 import { logoSize } from 'styles/utils/_variables.scss';
 import RoundLogo from './images/yellow_logo.svg';
 
@@ -10,7 +10,7 @@ const Logo = ({ theme }) => (
   <LinkWrapper
     isLocalLink
     dynamicRouting="/"
-    path={routes.homepage}
+    path={ROUTES.homepage}
   >
     <img src={RoundLogo} alt="Yellow Logo" />
     <svg xmlns="http://www.w3.org/2000/svg" width={logoSize} height="44" viewBox="0 0 140 50">

@@ -13,7 +13,7 @@ import {
   Animated,
   LinkWrapper,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -62,7 +62,7 @@ export const ContentfulParser = ({ document }) => {
           return (type && image && (
             <div className={styles.imageWrapper}>
               <div className={type === 'normal' ? styles.normalImage : styles.fullImage}>
-                <Animated type={animatedType.imageZoom}>
+                <Animated type={ANIMATED_TYPE.imageZoom}>
                   <img src={imageUrl} alt={imageUrl} />
                 </Animated>
                 {photoCaption && <div className={styles.photoCaption}>{photoCaption}</div>}

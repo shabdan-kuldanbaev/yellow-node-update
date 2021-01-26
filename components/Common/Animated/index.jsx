@@ -3,7 +3,7 @@ import React from 'react';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Reveal from 'react-reveal/Reveal';
 import Fade from 'react-reveal/Fade';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { CustomAnimation } from './CustomAnimation';
 import { JSONAnimation } from './JSONAnimation';
 import { ParallaxWrapper } from './ParallaxSpring';
@@ -12,19 +12,19 @@ import { Gsap } from './Gsap';
 
 export const Animated = (props) => {
   switch (props.type) {
-  case animatedType.isReveal:
+  case ANIMATED_TYPE.isReveal:
     return (
       <Reveal {...props}>
         {props.children}
       </Reveal>
     );
-  case animatedType.isFade:
+  case ANIMATED_TYPE.isFade:
     return (
       <Fade {...props}>
         {props.children}
       </Fade>
     );
-  case animatedType.isCustom:
+  case ANIMATED_TYPE.isCustom:
     if (Object.keys(props).length === 1) {
       return <div>{props.children}</div>;
     }
@@ -33,25 +33,25 @@ export const Animated = (props) => {
         {props.children}
       </CustomAnimation>
     );
-  case animatedType.isJSON:
+  case ANIMATED_TYPE.isJSON:
     return (
       <JSONAnimation {...props}>
         {props.children}
       </JSONAnimation>
     );
-  case animatedType.isParallaxSpring:
+  case ANIMATED_TYPE.isParallaxSpring:
     return (
       <ParallaxWrapper {...props}>
         {props.children}
       </ParallaxWrapper>
     );
-  case animatedType.imageZoom:
+  case ANIMATED_TYPE.imageZoom:
     return (
       <ImageZoom {...props}>
         {props.children}
       </ImageZoom>
     );
-  case animatedType.gsap:
+  case ANIMATED_TYPE.gsap:
     return (
       <Gsap {...props}>
         {props.children}

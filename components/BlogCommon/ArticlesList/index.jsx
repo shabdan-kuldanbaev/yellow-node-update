@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Loader, SubscribeBlock } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { Article } from './Article';
 import styles from './styles.module.scss';
@@ -33,7 +33,7 @@ export const ArticlesList = ({
         const effect = 'fadeInUp';
         const animatioProps = isSearch
           ? {
-            type: animatedType.isFade,
+            type: ANIMATED_TYPE.isFade,
             delay,
             duration: 400,
             distance: '100px',
@@ -41,7 +41,7 @@ export const ArticlesList = ({
             effect,
           }
           : {
-            type: animatedType.isCustom,
+            type: ANIMATED_TYPE.isCustom,
             translateY: '2.82352941em',
             opasityDuration: 1,
             transformDuration: 1,

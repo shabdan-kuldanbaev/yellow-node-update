@@ -5,7 +5,7 @@ import {
   Loader,
   ImageWithPlaceholder,
 } from 'components';
-import { routes } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const NextPrev = ({
@@ -18,7 +18,7 @@ const NextPrev = ({
   const linkProps = {
     isLocalLink: true,
     dynamicRouting: '/blog/[article]',
-    path: routes.article(slug),
+    path: ROUTES.article(slug),
   };
 
   return (slug && title && previewImageUrl ? (

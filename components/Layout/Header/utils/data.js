@@ -1,24 +1,24 @@
-import { routes } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 
 export const menuList = [
   {
     name: 'Portfolio',
-    href: routes.portfolio,
+    href: ROUTES.portfolio,
   },
   {
     name: 'Process',
-    href: routes.process,
+    href: ROUTES.process,
   },
   {
     name: 'Blog',
-    href: routes.blog,
+    href: ROUTES.blog,
   },
   {
     name: 'Company',
-    href: routes.company,
+    href: ROUTES.company,
   },
   {
     name: 'Contact Us',
-    href: routes.contact,
+    href: ROUTES.contact,
   },
 ];

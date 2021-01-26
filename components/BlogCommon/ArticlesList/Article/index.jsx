@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper, Animated } from 'components';
-import { routes } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const Article = ({
@@ -19,7 +19,7 @@ export const Article = ({
       <LinkWrapper
         isLocalLink
         dynamicRouting="/blog/[article]"
-        path={routes.article(slug)}
+        path={ROUTES.article(slug)}
       >
         <div>
           <div>

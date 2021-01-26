@@ -24,7 +24,7 @@ import {
   MetaTags,
   withScroll,
 } from 'components';
-import { pages, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
+import { PAGES, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
 import {
   rootUrl,
   getDocumentFields,
@@ -95,7 +95,7 @@ const ArticleContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={pages.blog} />
+      <MetaTags page={PAGES.blog} />
       <Article
         slug={slug}
         title={title}

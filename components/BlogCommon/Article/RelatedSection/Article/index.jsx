@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper, ImageWithPlaceholder } from 'components';
-import { routes } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const Article = ({
@@ -13,7 +13,7 @@ export const Article = ({
     <LinkWrapper
       isLocalLink
       dynamicRouting="/blog/[article]"
-      path={routes.article(slug)}
+      path={ROUTES.article(slug)}
     >
       <div>
         <div className={styles.imgContainer}>
