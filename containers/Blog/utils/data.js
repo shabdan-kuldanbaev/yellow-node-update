@@ -1,5 +1,4 @@
 import React from 'react';
-import { priority, tagsForBlog } from 'utils/constants';
 
 export const arrows = {
   prev:

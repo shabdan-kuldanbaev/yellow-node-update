@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper, ImageWithPlaceholder } from 'components';
+import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const Article = ({
-  article: {
-    slug,
-    image,
-    title,
-  },
-}) => (
+  slug,
+  title,
+  image,
+}) => (slug && title && image && (
   <article className={styles.article}>
     <LinkWrapper
       isLocalLink
       dynamicRouting="/blog/[article]"
-      path={`/blog/${slug}`}
+      path={ROUTES.article(slug)}
     >
       <div>
         <div className={styles.imgContainer}>
@@ -26,8 +25,10 @@ export const Article = ({
       </div>
     </LinkWrapper>
   </article>
-);
+));
 
 Article.propTypes = {
-  article: PropTypes.instanceOf(Object).isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };

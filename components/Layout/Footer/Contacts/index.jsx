@@ -6,7 +6,7 @@ import {
   LinkWrapper,
   Animated,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { withRouter } from 'next/router';
 import { socialNetworks } from './utils/data';
 import rocket from './json/rocket.json';
@@ -81,7 +81,7 @@ const Contacts = ({ handleOnClick, router }) => (
     </div>
     <div className={styles.rocket}>
       <Animated
-        type={animatedType.isJSON}
+        type={ANIMATED_TYPE.isJSON}
         jsonFile={rocket}
         className={styles.jsonWrapper}
       />

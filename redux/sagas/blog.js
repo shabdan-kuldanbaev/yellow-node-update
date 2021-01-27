@@ -1,67 +1,68 @@
 import {
-  put, call, takeLatest, all,
+  put,
+  takeLatest,
+  all,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
-import { API, axiosTemporaryClient } from 'utils/api';
-import { actionTypes } from '../actions/actionTypes';
+import { fetchContentfulNearbyArticles, fetchContentfulArticles } from 'utils/contentfulUtils';
+import { actionTypes } from 'redux/actions/actionTypes';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
 function* getArticle({ payload }) {
   try {
-    // TODO const response = yield call(API.getArticle, payload);
-    const { data } = yield axiosTemporaryClient.get(`posts/${payload}`); // TODO remove it
+    const article = yield fetchContentfulArticles({
+      'fields.slug[match]': payload,
+    });
 
-    yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: data });
+    yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: article });
   } catch (err) {
     yield put({ type: actionTypes.GET_ARTICLE_FAILED, payload: err });
   }
 }
 
-function* loadArticles({ payload }) {
+function* loadArticles({ payload: { currentLimit, skip } }) { // TODO add currentCategory
   try {
-    // TODO const { currentPage, currentLimit, category } = payload;
-    // TODO const response = yield call(API.loadArticles, currentPage, currentLimit, category);
-    // TODO const fetchedArticles = yield call(API.loadArticles, currentPage, currentLimit, category);
-    // TODO const { data: { response } } = fetchedArticles;
-    const { data } = yield axiosTemporaryClient.get('/posts'); // TODO remove it
+    const { items, total } = yield fetchContentfulArticles({
+      order: '-fields.publishedAt',
+      limit: currentLimit,
+      skip,
+    });
 
-    yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: data });
+    yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: { items, total } });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: err });
   }
 }
 
-// TODO remove it
-function* loadFavoritePosts({ payload }) {
+function* loadRelatedArticles({ payload: { currentLimit, currentArticleSlug } }) { // TODO add currentCategory
   try {
-    const { data } = yield axiosTemporaryClient.get('/posts/favorites'); // TODO remove it
+    const { items } = yield fetchContentfulArticles({
+      'fields.slug[ne]': currentArticleSlug,
+      order: '-fields.publishedAt',
+      limit: currentLimit,
+    });
 
-    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_SUCCESS, payload: data });
-  } catch (err) {
-    yield put({ type: actionTypes.LOAD_FAVORITE_POSTS_FAILURE, payload: err });
-  }
-}
-
-function* loadRelatedArticles({ payload }) {
-  try {
-    const { category } = payload;
-    const response = yield call(API.loadRelatedArticles, category);
-
-    yield put({ type: actionTypes.LOAD_RELATED_SUCCESS, payload: response });
+    yield put({ type: actionTypes.LOAD_RELATED_SUCCESS, payload: items });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_RELATED_FAILED, payload: err });
   }
 }
 
-function* loadNearbyArticles({ payload }) {
+function* loadNearbyArticles({ payload: { createdAt } }) {
   try {
-    const { name } = payload;
-    const response = yield call(API.loadNearbyArticles, name);
+    const prev = yield fetchContentfulNearbyArticles({ isOlder: true, createdAt });
+    const next = yield fetchContentfulNearbyArticles({ isOlder: false, createdAt });
 
-    yield put({ type: actionTypes.LOAD_NEARBY_SUCCESS, payload: response });
+    yield put({
+      type: actionTypes.LOAD_NEARBY_SUCCESS,
+      payload: {
+        newerArticle: next.items[0],
+        olderArticle: prev.items[0],
+      },
+    });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: err });
   }
@@ -73,6 +74,5 @@ export function* loadBlogDataWatcher() {
     yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
     yield takeLatest(actionTypes.LOAD_RELATED_PENDING, loadRelatedArticles),
     yield takeLatest(actionTypes.LOAD_NEARBY_PENDING, loadNearbyArticles),
-    yield takeLatest(actionTypes.LOAD_FAVORITE_POSTS_START, loadFavoritePosts), // TODO remove it
   ]);
 }

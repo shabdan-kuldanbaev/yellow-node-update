@@ -1,7 +1,5 @@
 import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import cloneDeep from 'lodash/cloneDeep';
-import sortBy from 'lodash/sortBy';
 import get from 'lodash/get';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -23,7 +21,15 @@ import {
   SocialThumbnails,
   SubscribeBlock,
   NextPrev,
+  MetaTags,
+  withScroll,
 } from 'components';
+import { PAGES, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
+import {
+  rootUrl,
+  getDocumentFields,
+  getFileUrl,
+} from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ArticleContainer = ({
@@ -38,43 +44,84 @@ const ArticleContainer = ({
   subscribe,
 }) => {
   const { query: { article }, pathname } = useRouter();
-  const sortArticle = cloneDeep(currentArticle);
-  if (sortArticle) return null; // TODO
-  const sortBody = (currentArticle && currentArticle.body && sortBy(currentArticle.body, 'orderNumber')) || [];
-  if (sortBody) sortArticle.body = sortBody;
-  const currentCategory = get(sortArticle, 'header.categoryTag', null);
-  const currentTitle = get(sortArticle, 'header.title');
+  const {
+    slug,
+    categoryTag,
+    title,
+    createdAt,
+    oldBody,
+    body,
+    introduction,
+    headImageUrl,
+  } = getDocumentFields(
+    get(currentArticle, 'items[0]', {}),
+    ['slug', 'categoryTag', 'title', 'createdAt', 'oldBody', 'body', 'introduction', 'headImageUrl'],
+  );
+  const {
+    previewImageUrl: previewImageUrlNewer,
+    slug: slugNewer,
+    title: titleNewer,
+  } = getDocumentFields(
+    newerArticle,
+    ['slug', 'title', 'previewImageUrl'],
+  );
+  const {
+    previewImageUrl: previewImageUrlOlder,
+    slug: slugOlder,
+    title: titleOlder,
+  } = getDocumentFields(
+    olderArticle,
+    ['slug', 'title', 'previewImageUrl'],
+  );
+  const headImage = getFileUrl(headImageUrl);
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   useEffect(() => {
-    if (article) getCurrentArticle('choosing-the-right-automation-testing-strategy-dos-and-don-ts');
-  }, []);
+    if (article) getCurrentArticle(article);
+  }, [article]);
 
   useEffect(() => {
-    if (currentCategory) loadArticles({ category: currentCategory });
-  }, [currentCategory]);
+    if (title && createdAt) getNearby({ name: title, createdAt });
 
-  useEffect(() => {
-    if (currentTitle) getNearby({ name: currentTitle });
-  }, [currentTitle]);
+    if (slug) {
+      loadArticles({
+        currentLimit: DEFAULT_ARTICLES_LIMIT,
+        currentArticleSlug: slug,
+        categoryTag,
+      });
+    }
+  }, [currentArticle]);
 
   return (
     <Fragment>
+      <MetaTags page={PAGES.blog} />
       <Article
-        article={sortArticle}
+        slug={slug}
+        title={title}
+        oldBody={oldBody}
+        body={body}
+        introduction={introduction}
+        headImage={headImage}
         introSection={introSection}
         isLoading={isLoading}
       />
-      <SocialThumbnails />
+      <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
       <RelatedSection articles={relatedArticles} isLoading={isLoading} />
       <div className={styles.nextPrevSection}>
         <NextPrev
           isNewer
-          article={newerArticle}
           isLoading={isLoading}
+          previewImageUrl={getFileUrl(previewImageUrlNewer)}
+          slug={slugNewer}
+          title={titleNewer}
         />
-        <NextPrev article={olderArticle} isLoading={isLoading} />
+        <NextPrev
+          isLoading={isLoading}
+          previewImageUrl={getFileUrl(previewImageUrlOlder)}
+          slug={slugOlder}
+          title={titleOlder}
+        />
       </div>
       <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
     </Fragment>
@@ -90,6 +137,7 @@ ArticleContainer.propTypes = {
   loadRelatedArticles: PropTypes.func.isRequired,
   loadNearbyArticles: PropTypes.func.isRequired,
   subscribe: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(
@@ -104,4 +152,4 @@ export default connect(
     loadNearbyArticles,
     subscribe,
   },
-)(ArticleContainer);
+)(withScroll(ArticleContainer));

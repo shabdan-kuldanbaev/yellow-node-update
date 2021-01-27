@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Animated } from 'components';
 import { previewImageBackground } from 'utils/helper';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const PreviewImage = ({ image }) => {
@@ -27,7 +27,7 @@ export const PreviewImage = ({ image }) => {
   return (
     <div className={cn(styles.imgWrapper, { [styles.showPhoto]: isShow })}>
       <Animated
-        type={animatedType.isCustom}
+        type={ANIMATED_TYPE.isCustom}
         translateY="2.82352941em"
         opasityDuration={0.8}
         transformDuration={0.8}

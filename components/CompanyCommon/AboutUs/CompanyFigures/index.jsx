@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { companyFiguresData } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -10,7 +10,7 @@ export const CompanyFigures = ({ companyFiguresData }) => (
     {companyFiguresData && companyFiguresData.map((item, index) => (
       <Animated
         key={item.title}
-        type={animatedType.isCustom}
+        type={ANIMATED_TYPE.isCustom}
         translateX="2.82352941em"
         translateY="0"
         opasityDuration={1}

@@ -1,23 +1,24 @@
+import { ROUTES } from 'utils/constants';
+
 export const menuList = [
   {
     name: 'Portfolio',
-    href: '/portfolio',
+    href: ROUTES.portfolio,
   },
   {
     name: 'Process',
-    href: '/process',
+    href: ROUTES.process,
   },
   {
     name: 'Blog',
-    // TODO href: '/blog?category=latest&page=1',
-    href: '/blog',
+    href: ROUTES.blog,
   },
   {
     name: 'Company',
-    href: '/company',
+    href: ROUTES.company,
   },
   {
     name: 'Contact Us',
-    href: '/contact',
+    href: ROUTES.contact,
   },
 ];

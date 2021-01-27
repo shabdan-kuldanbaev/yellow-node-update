@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-// TODO import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { loadArticles } from 'redux/actions/blog';
 import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
@@ -8,9 +8,14 @@ import {
   SectionTitle,
   ButtonMore,
   Animated,
+  ArticlesList,
 } from 'components';
-import { Post } from 'components/TemporaryBlog';
-import { animatedType } from 'utils/constants';
+import {
+  ANIMATED_TYPE,
+  CURRENT_PAGE_NUMBER,
+  DEFAULT_ARTICLES_LIMIT,
+  ROUTES,
+} from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Blog = ({
@@ -18,43 +23,30 @@ const Blog = ({
   articles,
   loadArticles: loadPartOfArticles,
 }) => {
-  // TODO const { asPath } = useRouter();
-  const currentPage = 1;
+  const { asPath } = useRouter();
 
   useEffect(() => {
-    if (!articles.length) {
-      loadPartOfArticles({
-        currentPage,
-        currentLimit: 5,
-        category: 'latest',
-      });
-    }
-  }, [articles]);
+    loadPartOfArticles({ currentLimit: DEFAULT_ARTICLES_LIMIT });
+  }, []);
 
   return (
     <section className={styles.blog}>
       <SectionTitle title="Blog" subtitle="How we do what we do" />
-      {/*
-      TODO
       <ArticlesList
         articles={articles}
         isLoading={isLoading}
         asPath={asPath}
-        currentPage={currentPage}
-      /> */}
-      <div className={styles.postsContainer}>
-        {articles && articles.slice(0, 3).map((article) => <Post key={article.id} post={article} />)}
-      </div>
+        currentPage={CURRENT_PAGE_NUMBER}
+      />
       <Animated
-        type={animatedType.isCustom}
+        type={ANIMATED_TYPE.isCustom}
         translateY="2.82352941em"
         opasityDuration={1}
         transformDuration={1}
         transitionDelay={200}
       >
         <ButtonMore
-          // TODO href="/blog?category=latest&page=1"
-          href="/blog"
+          href={ROUTES.blog}
           title="READ MORE STORIES"
           buttonStyle={styles.blogButton}
         />

@@ -2,11 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Home } from 'containers';
 import { MetaTags } from 'components';
-import { pages } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 
 const App = ({ theme, introSection }) => (
   <Fragment>
-    <MetaTags page={pages.homepage}>
+    <MetaTags page={PAGES.homepage}>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js" />
     </MetaTags>
     <Home theme={theme} introSection={introSection} />

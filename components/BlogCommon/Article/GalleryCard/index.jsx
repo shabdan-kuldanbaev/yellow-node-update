@@ -1,14 +1,12 @@
-import React, {
-  useCallback,
-  useRef,
-} from 'react';
+import React, { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Animated } from 'components';
-import { animatedType, NUMBER_OF_IMAGES_PER_LINE } from 'utils/constants';
+import { ANIMATED_TYPE, NUMBER_OF_IMAGES_PER_LINE } from 'utils/constants';
+import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const GalleryCard = ({ data: { data: images, photoCaption } }) => {
+export const GalleryCard = ({ images, photoCaption }) => {
   const imageRef = useRef(null);
   const rowsCount = Math.ceil(images.length / NUMBER_OF_IMAGES_PER_LINE);
 
@@ -18,9 +16,12 @@ export const GalleryCard = ({ data: { data: images, photoCaption } }) => {
   );
 
   const handleOnLoad = ({ target }) => {
-    const rowChildren = get(target, 'parentElement.parentElement.children', []);
-    if (rowChildren.length === 1) target.parentElement.style.flex = '1 1 0%';
-    else target.parentElement.style.flex = `${target.offsetWidth / target.offsetHeight} 1 0%`;
+    const { offsetWidth, offsetHeight, parentElement } = target;
+    const rowChildren = get(parentElement, 'parentElement.children', []);
+    const setFlex = (flex) => parentElement.style.flex = flex;
+
+    if (rowChildren.length === 1) setFlex('1 1 0%');
+    else setFlex(`${offsetWidth / offsetHeight} 1 0%`);
   };
 
   return (
@@ -28,15 +29,19 @@ export const GalleryCard = ({ data: { data: images, photoCaption } }) => {
       <div className={styles.images} ref={imageRef}>
         {[...Array(rowsCount)].map((row, index) => (
           <div className={styles.row}>
-            {getImagesInRow(index).map((image) => (
-              <Animated type={animatedType.imageZoom}>
-                <img
-                  src={image}
-                  alt={image}
-                  onLoad={handleOnLoad}
-                />
-              </Animated>
-            ))}
+            {getImagesInRow(index).map((image) => {
+              const imageUrl = getFileUrl(image);
+
+              return (
+                <Animated type={ANIMATED_TYPE.imageZoom}>
+                  <img
+                    src={imageUrl}
+                    alt={imageUrl}
+                    onLoad={handleOnLoad}
+                  />
+                </Animated>
+              );
+            })}
           </div>
         ))}
       </div>
@@ -46,5 +51,6 @@ export const GalleryCard = ({ data: { data: images, photoCaption } }) => {
 };
 
 GalleryCard.propTypes = {
-  data: PropTypes.instanceOf(Object).isRequired,
+  images: PropTypes.string.isRequired,
+  photoCaption: PropTypes.string.isRequired,
 };

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper, Loader } from 'components';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { ROUTES } from 'utils/constants';
 import { Article } from './Article';
 import { Arrow } from './images';
 import styles from './styles.module.scss';
@@ -11,7 +13,7 @@ const RelatedSection = ({ articles, isLoading }) => (
       <div className={styles.headingContainer}>
         <div className={styles.heading}>
           <h3>Related Posts</h3>
-          <LinkWrapper isLocalLink path="/blog">
+          <LinkWrapper isLocalLink path={ROUTES.blog}>
             See all posts
             <div className={styles.svgContainer}>
               <img src={Arrow} alt="arrow" />
@@ -20,9 +22,22 @@ const RelatedSection = ({ articles, isLoading }) => (
         </div>
       </div>
       <div className={styles.articlesList}>
-        {articles && articles.map((item) => (
-          <Article article={item} key={item.title} />
-        ))}
+        {articles && articles.map((article, index) => {
+          const { slug, title, headImageUrl } = getDocumentFields(
+            article,
+            ['slug', 'title', 'headImageUrl'],
+          );
+          const image = getFileUrl(headImageUrl);
+
+          return (
+            <Article
+              key={`related/${index}`}
+              slug={slug}
+              title={title}
+              image={image}
+            />
+          );
+        })}
       </div>
     </div>
   </Loader>

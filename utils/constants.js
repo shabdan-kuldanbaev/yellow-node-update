@@ -1,10 +1,4 @@
-export const priority = {
-  low: 'low',
-  high: 'high',
-  medium: 'medium',
-};
-
-export const animatedType = {
+export const ANIMATED_TYPE = {
   isReveal: 'isReveal',
   isFade: 'isFade',
   isCustom: 'isCustom',
@@ -14,7 +8,7 @@ export const animatedType = {
   imageZoom: 'imageZoom',
 };
 
-export const tagsForBlog = {
+export const TAGS_FOR_BLOG = {
   latest: {
     name: 'Latest', dynamicRouting: 'latest',
   },
@@ -35,21 +29,10 @@ export const tagsForBlog = {
   },
 };
 
-export const articleTags = {
-  paragraph: 'paragraph',
-  quote: 'quote',
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  images: 'images',
-  bookmark: 'bookmark',
-  gallery: 'gallery',
-};
-
 export const NUMBER_OF_IMAGES_PER_LINE = 3;
 export const LIMIT = 5;
 
-export const pages = {
+export const PAGES = {
   homepage: 'homepage',
   portfolio: 'portfolio',
   process: 'process',
@@ -57,4 +40,23 @@ export const pages = {
   company: 'company',
   contact: 'contact',
   notFound: 'not-found',
+};
+
+export const DEFAULT_ARTICLES_LIMIT = 5;
+export const CURRENT_PAGE_NUMBER = 1;
+
+export const ACCESS_TO_CONTENTFUL = {
+  space: process.env.CONTENTFUL_SPACE,
+  environment: process.env.CONTENTFUL_ENV,
+  accessToken: process.env.CONTENTFUL_TOKEN,
+};
+
+export const ROUTES = {
+  homepage: '/',
+  portfolio: '/portfolio',
+  process: '/process',
+  blog: '/blog?category=latest&page=1',
+  article: (slug) => `/blog/${slug}`,
+  company: '/company',
+  contact: '/contact',
 };

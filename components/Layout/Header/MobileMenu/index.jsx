@@ -4,7 +4,8 @@ import cn from 'classnames';
 import { LinkWrapper } from 'components';
 import { setOverflowForBody } from 'utils/helper';
 import Burger from '../Burger';
-import { menuList, socialLinks } from './utils/data';
+import { socialLinks } from './utils/data';
+import { menuList } from '../utils/data';
 import styles from './styles.module.scss';
 
 const MobileMenu = ({

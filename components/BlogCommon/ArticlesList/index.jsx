@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Loader, SubscribeBlock } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { Article } from './Article';
 import styles from './styles.module.scss';
 
@@ -17,11 +18,22 @@ export const ArticlesList = ({
     {currentPage === 1 && asPath.includes('blog') && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
     <Loader isLoading={!isLoading}>
       {articles && articles.map((article, index) => {
+        const {
+          slug,
+          title,
+          categoruTag,
+          introduction,
+          previewImageUrl,
+        } = getDocumentFields(
+          article,
+          ['slug', 'title', 'categoryTag', 'introduction', 'previewImageUrl'],
+        );
+        const previewImage = getFileUrl(previewImageUrl);
         const delay = isSearch ? (30 * index) : (100 + 100 * index);
         const effect = 'fadeInUp';
         const animatioProps = isSearch
           ? {
-            type: animatedType.isFade,
+            type: ANIMATED_TYPE.isFade,
             delay,
             duration: 400,
             distance: '100px',
@@ -29,7 +41,7 @@ export const ArticlesList = ({
             effect,
           }
           : {
-            type: animatedType.isCustom,
+            type: ANIMATED_TYPE.isCustom,
             translateY: '2.82352941em',
             opasityDuration: 1,
             transformDuration: 1,
@@ -38,10 +50,14 @@ export const ArticlesList = ({
 
         return (
           <Article
-            key={article.title}
-            article={article}
+            key={title}
             countNumber={index}
             animatioProps={animatioProps}
+            slug={slug}
+            title={title}
+            categoruTag={categoruTag}
+            introduction={introduction}
+            previewImage={previewImage}
           />
         );
       })}
@@ -60,4 +76,5 @@ ArticlesList.propTypes = {
   isSearch: PropTypes.bool,
   asPath: PropTypes.string,
   currentPage: PropTypes.number.isRequired,
+  handleOnFormSubmit: PropTypes.func.isRequired,
 };

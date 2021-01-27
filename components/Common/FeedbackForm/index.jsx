@@ -13,7 +13,7 @@ import {
   Animated,
   InformationMessage,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { withValidateEmail } from 'hocs';
 import { budget } from './utils/data';
@@ -68,7 +68,7 @@ const FeedbackForm = ({
   };
 
   const animatedProps = {
-    type: animatedType.isCustom,
+    type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
     opasityDuration: 1,
     transformDuration: 1,

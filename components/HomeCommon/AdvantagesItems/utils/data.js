@@ -1,4 +1,4 @@
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import {
   AI,
   chats,
@@ -30,7 +30,7 @@ export const advantages = [
 ];
 
 const animatedProps = {
-  type: animatedType.isCustom,
+  type: ANIMATED_TYPE.isCustom,
   translateY: '2.82352941em',
   opasityDuration: 1,
   transformDuration: 1,

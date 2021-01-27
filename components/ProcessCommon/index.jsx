@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated, LinkWrapper } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const Process = ({ processes }) => {
   const animatedProps = {
-    type: animatedType.isCustom,
+    type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
     opasityDuration: 1,
     transformDuration: 1,
@@ -42,7 +42,7 @@ export const Process = ({ processes }) => {
           </div>
           <Animated {...animatedProps} transitionDelay={200}>
             <Animated
-              type={animatedType.isJSON}
+              type={ANIMATED_TYPE.isJSON}
               jsonFile={process.json}
               className={styles.jsonWrapper}
             />
