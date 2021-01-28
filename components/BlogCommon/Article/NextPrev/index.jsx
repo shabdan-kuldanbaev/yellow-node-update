@@ -1,57 +1,45 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   LinkWrapper,
   Loader,
   ImageWithPlaceholder,
 } from 'components';
-import {
-  getDocumentFields,
-  getFileUrl,
-  getOptimizedImage,
-} from 'utils/helper';
-import { routes } from 'utils/constants';
+import { getFileUrl, getOptimizedImage } from 'utils/helper';
+import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const NextPrev = ({
-  article,
   isNewer,
   isLoading,
+  previewImageUrl,
+  slug,
+  title,
 }) => {
-  const {
-    previewImageUrl,
-    slug,
-    title,
-  } = getDocumentFields(article, [
-    'slug',
-    'title',
-    'previewImageUrl',
-  ]);
-  const previewImage = getOptimizedImage(getFileUrl(previewImageUrl), 230);
+  const previewImage = getOptimizedImage(previewImageUrl, 230);
+
   const linkProps = {
     isLocalLink: true,
     dynamicRouting: '/blog/[article]',
-    path: routes.article(slug),
+    path: ROUTES.article(slug),
   };
 
-  return ((slug && title) ? (
+  return (slug && title && previewImage ? (
     <Loader isLoading={!isLoading}>
       <div className={isNewer ? styles.newer : styles.older}>
-        <Fragment>
-          <LinkWrapper {...linkProps}>
-            <div className={styles.imgContainer}>
-              <ImageWithPlaceholder src={previewImage} imageStyle={styles.img} />
-            </div>
-          </LinkWrapper>
-          <div className={styles.content}>
-            <small>{isNewer ? 'NEWER POST' : 'OLDER POST'}</small>
-            <h3 className={styles.title}>
-              <LinkWrapper {...linkProps}>
-                {title}
-              </LinkWrapper>
-            </h3>
+        <LinkWrapper {...linkProps}>
+          <div className={styles.imgContainer}>
+            <ImageWithPlaceholder src={previewImage} imageStyle={styles.img} />
           </div>
-        </Fragment>
+        </LinkWrapper>
+        <div className={styles.content}>
+          <small>{isNewer ? 'NEWER POST' : 'OLDER POST'}</small>
+          <h3 className={styles.title}>
+            <LinkWrapper {...linkProps}>
+              {title}
+            </LinkWrapper>
+          </h3>
+        </div>
       </div>
     </Loader>
   ) : null);
@@ -62,9 +50,11 @@ NextPrev.defaultProps = {
 };
 
 NextPrev.propTypes = {
-  article: PropTypes.instanceOf(Object).isRequired,
   isNewer: PropTypes.bool,
   isLoading: PropTypes.bool.isRequired,
+  previewImageUrl: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default NextPrev;

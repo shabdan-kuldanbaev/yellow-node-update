@@ -2,11 +2,11 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { connect } from 'react-redux';
 import { Animated } from 'components';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { previewImageBackground, getOptimizedImage } from 'utils/helper';
-import { animatedType } from 'utils/constants';
-import { connect } from 'react-redux';
+import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const PreviewImage = ({ image, isMobileResolution }) => {
@@ -31,7 +31,7 @@ const PreviewImage = ({ image, isMobileResolution }) => {
   return (
     <div className={cn(styles.imgWrapper, { [styles.showPhoto]: isShow })}>
       <Animated
-        type={animatedType.isCustom}
+        type={ANIMATED_TYPE.isCustom}
         translateY="2.82352941em"
         opasityDuration={0.8}
         transformDuration={0.8}

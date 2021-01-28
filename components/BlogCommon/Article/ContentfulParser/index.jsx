@@ -13,7 +13,7 @@ import {
   Animated,
   LinkWrapper,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -31,63 +31,53 @@ export const ContentfulParser = ({ document }) => {
 
         switch (id) {
         case 'bookmark': {
-          const article = get(node, 'data.target.fields.article', {});
           const {
             title,
             slug,
             description,
             headImageUrl,
-          } = getDocumentFields(article, [
-            'title',
-            'slug',
-            'description',
-            'headImageUrl',
-          ]);
+          } = getDocumentFields(
+            get(node, 'data.target.fields.article', {}),
+            ['title', 'slug', 'description', 'headImageUrl'],
+          );
           const image = getFileUrl(headImageUrl);
 
-          return (title
-            && slug
-            && description
-            && image
-            && (
-              <BookmarkCard
-                titte={title}
-                slug={slug}
-                description={description}
-                image={image}
-              />
-            )
+          return (title && slug && description && image && (
+            <BookmarkCard
+              titte={title}
+              slug={slug}
+              description={description}
+              image={image}
+            />
+          )
           );
         }
         case 'image': {
-          const data = get(node, 'data.target', '');
-          const { type, image, photoCaption } = getDocumentFields(data, [
-            'type',
-            'image',
-            'photoCaption',
-          ]);
+          const { type, image, photoCaption } = getDocumentFields(
+            get(node, 'data.target', ''),
+            ['type', 'image', 'photoCaption'],
+          );
           const imageUrl = getFileUrl(image);
 
-          return (type
-            && image
-            && photoCaption
-            && (
-              <div className={styles.imageWrapper}>
-                <div className={type === 'normal' ? styles.normalImage : styles.fullImage}>
-                  <Animated type={animatedType.imageZoom}>
-                    <img src={imageUrl} alt={imageUrl} />
-                  </Animated>
-                  {photoCaption && <div className={styles.photoCaption}>{photoCaption}</div>}
-                </div>
+          return (type && image && (
+            <div className={styles.imageWrapper}>
+              <div className={type === 'normal' ? styles.normalImage : styles.fullImage}>
+                <Animated type={ANIMATED_TYPE.imageZoom}>
+                  <img src={imageUrl} alt={imageUrl} />
+                </Animated>
+                {photoCaption && <div className={styles.photoCaption}>{photoCaption}</div>}
               </div>
-            )
+            </div>
+          )
           );
         }
         case 'gallery': {
-          const data = get(node, 'data.target', {});
-          const { images, photoCaption } = getDocumentFields(data, ['images', 'photoCaption']);
+          const { images, photoCaption } = getDocumentFields(
+            get(node, 'data.target', {}),
+            ['images', 'photoCaption'],
+          );
 
-          return images && photoCaption && <GalleryCard images={images} photoCaption={photoCaption} />;
+          return images && <GalleryCard images={images} photoCaption={photoCaption} />;
         }
         default:
           return null;
@@ -116,23 +106,17 @@ export const ContentfulParser = ({ document }) => {
           ))}
         </ol>
       ),
-      [INLINES.HYPERLINK]: (node, children) => {
-        const uri = get(node, 'data.uri', '/');
-
-        return (
-          <LinkWrapper to={uri} isLocalLink>
-            {children}
-          </LinkWrapper>
-        );
-      },
+      [INLINES.HYPERLINK]: (node, children) => (
+        <LinkWrapper to={get(node, 'data.uri', '/')} isLocalLink>
+          {children}
+        </LinkWrapper>
+      ),
     },
   };
 
-  const contentfulData = get(document, 'fields.body', null)
-    ? documentToReactComponents(document && document.fields.body, options)
+  return document
+    ? documentToReactComponents(document, options)
     : '';
-
-  return contentfulData;
 };
 
 ContentfulParser.propTypes = {

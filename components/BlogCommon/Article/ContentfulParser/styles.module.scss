@@ -1,5 +1,5 @@
 @import 'styles/utils/mixins';
-@import '../../styles.module.scss';
+@import 'components/BlogCommon/styles.module.scss';
 
 .h2 {
   @extend .h2;
@@ -95,7 +95,7 @@
 
     .photoCaption {
       margin-top: 15px;
-      font-size: 11px;
+      @include fontSize(11px);
       line-height: 1.2;
       width: 100%;
       padding: 0 15px;

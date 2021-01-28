@@ -11,10 +11,10 @@ import {
   ArticlesList,
 } from 'components';
 import {
-  animatedType,
+  ANIMATED_TYPE,
   CURRENT_PAGE_NUMBER,
   DEFAULT_ARTICLES_LIMIT,
-  routes,
+  ROUTES,
 } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -39,14 +39,14 @@ const Blog = ({
         currentPage={CURRENT_PAGE_NUMBER}
       />
       <Animated
-        type={animatedType.isCustom}
+        type={ANIMATED_TYPE.isCustom}
         translateY="2.82352941em"
         opasityDuration={1}
         transformDuration={1}
         transitionDelay={200}
       >
         <ButtonMore
-          href={routes.blog}
+          href={ROUTES.blog}
           title="READ MORE STORIES"
           buttonStyle={styles.blogButton}
         />

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SectionTitle, Animated } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -19,7 +19,7 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => {
           return (
             <Animated
               key={`special/${description}`}
-              type={animatedType.isCustom}
+              type={ANIMATED_TYPE.isCustom}
               translateY="100px"
               opasityDuration={0.8}
               transformDuration={0.8}

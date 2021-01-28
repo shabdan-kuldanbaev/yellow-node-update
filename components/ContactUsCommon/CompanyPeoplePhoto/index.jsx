@@ -6,17 +6,16 @@ import React, {
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { SectionTitle, Animated } from 'components';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { animatedType } from 'utils/constants';
 import { getOptimizedImage, getFileUrl } from 'utils/helper';
+import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const CompanyPeoplePhoto = ({ photo, IsMobileResolution }) => {
+const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
-  const defaultSize = IsMobileResolution ? 530 : 1040;
+  const defaultSize = isMobileResolution ? 530 : 1040;
   const photoUrl = getOptimizedImage(getFileUrl(photo), defaultSize);
 
   useEffect(() => {
@@ -42,20 +41,17 @@ const CompanyPeoplePhoto = ({ photo, IsMobileResolution }) => {
       <div className={styles.photoContainer}>
         <div className={styles.photoWrap}>
           <Animated
-            type={animatedType.isCustom}
+            type={ANIMATED_TYPE.isCustom}
             translateY="70px"
             opasityDuration={0.8}
             transformDuration={0.8}
             transitionDelay={0}
           >
-
-            <LazyLoadImage src={photoUrl} alt="CompanyPeoplePhoto" effect="blur" />
-
-            {/* <img
+            <img
               ref={photoRef}
               src={photoUrl}
               alt="CompanyPeoplePhoto"
-            /> */}
+            />
           </Animated>
         </div>
       </div>
@@ -65,9 +61,9 @@ const CompanyPeoplePhoto = ({ photo, IsMobileResolution }) => {
 
 CompanyPeoplePhoto.propTypes = {
   photo: PropTypes.instanceOf(Object).isRequired,
-  IsMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
 
 export default connect((state) => ({
-  IsMobileResolution: selectIsMobileResolutions(state),
+  isMobileResolution: selectIsMobileResolutions(state),
 }))(CompanyPeoplePhoto);

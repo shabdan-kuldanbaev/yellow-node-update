@@ -15,7 +15,7 @@ import { loadPhotos } from 'redux/actions/home';
 import { loadTeam, loadSpecial } from 'redux/actions/company';
 import { selectPhotos } from 'redux/selectors/home';
 import { selectTeam, selectSpecialThings } from 'redux/selectors/company';
-import { pages } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -38,7 +38,7 @@ const CompanyContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={pages.company} />
+      <MetaTags page={PAGES.company} />
       <section ref={introSection} className={styles.companyContainer}>
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={whatMakesSpecial} />

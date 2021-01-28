@@ -8,8 +8,8 @@ import {
   Loader,
   MetaTags,
 } from 'components';
-import { pages } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
+import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const PortfolioContainer = ({
@@ -26,7 +26,7 @@ const PortfolioContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={pages.portfolio} />
+      <MetaTags page={PAGES.portfolio} />
       <section ref={introSection} className={styles.portfolio}>
         <Loader isLoading={!isLoading}>
           {portfolioOrder && <Portfolio works={portfolioOrder} />}

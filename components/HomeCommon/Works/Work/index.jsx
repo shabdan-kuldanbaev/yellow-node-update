@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { connect } from 'react-redux';
 import { Animated } from 'components';
 import { selectIsMobileResolutions, selectIsFullResolutions } from 'redux/selectors/layout';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedImage,
 } from 'utils/helper';
-import { connect } from 'react-redux';
 import { animatedFields, imagesSizes } from './utils';
 import styles from './styles.module.scss';
 
@@ -62,7 +62,7 @@ const Work = ({
         ))}
       </div>
       <div className={styles.parallax}>
-        <Animated type={animatedType.isParallaxSpring}>
+        <Animated type={ANIMATED_TYPE.isParallaxSpring}>
           <div
             className={cn(
               { [styles.firstShadow]: index === 0 },

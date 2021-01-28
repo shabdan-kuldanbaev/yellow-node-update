@@ -9,7 +9,7 @@ import {
   // TODO SectionTitle,
   MetaTags,
 } from 'components';
-import { pages } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const ProcessContainer = ({
@@ -25,7 +25,7 @@ const ProcessContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={pages.process} />
+      <MetaTags page={PAGES.process} />
       <section ref={introSection} className={styles.process}>
         {/* TODO <div className={styles.intro}>
       <SectionTitle title="How we work" subtitle="A step by step guide" />

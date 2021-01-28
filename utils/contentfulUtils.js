@@ -1,8 +1,6 @@
-export const getNearby = async ({
-  contentfulClient,
-  createdAt,
-  isOlder,
-}) => {
+import { contentfulClient } from 'utils/ContentfulClient';
+
+export const fetchContentfulNearbyArticles = async ({ createdAt, isOlder }) => {
   try {
     return await contentfulClient.getEntries({
       contentType: 'article',
@@ -17,11 +15,7 @@ export const getNearby = async ({
   }
 };
 
-export const fetchArticles = async (
-  contentfulClient,
-  additionalQuery,
-  params = {},
-) => {
+export const fetchContentfulArticles = async (additionalQuery, params = {}) => {
   try {
     return await contentfulClient.getEntries({
       contentType: 'article',

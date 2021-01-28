@@ -17,8 +17,8 @@ import {
 } from 'components';
 import { selectWorks, selectIsLoading } from 'redux/selectors/portfolio';
 import { loadWorks } from 'redux/actions/portfolio';
-import { animatedType, routes } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
+import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -113,14 +113,14 @@ const Portfolio = ({
               styleSubtitle={styles.subtitle}
             />
             <Animated
-              type={animatedType.isCustom}
+              type={ANIMATED_TYPE.isCustom}
               translateY="2.82352941em"
               opasityDuration={1}
               transformDuration={1}
               transitionDelay={350}
             >
               <ButtonMore
-                href={routes.portfolio}
+                href={ROUTES.portfolio}
                 title="EXPLORE OUR PORTFOLIO"
                 buttonStyle={styles.portfolioButton}
               />

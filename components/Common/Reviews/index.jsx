@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Swiper from 'react-id-swiper';
 import SwiperCors, { EffectCoverflow } from 'swiper';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { Comment } from './Comment';
 import styles from './styles.module.scss';
 
@@ -77,7 +77,7 @@ export const Reviews = ({ reviews }) => {
         {reviews && reviews.map((comment, index) => {
           const delay = 100 + 150 * index;
           const animatioProps = {
-            type: animatedType.isCustom,
+            type: ANIMATED_TYPE.isCustom,
             translateY: '2.82352941em',
             opasityDuration: 1,
             transformDuration: 1,
@@ -98,7 +98,7 @@ export const Reviews = ({ reviews }) => {
         <Swiper ref={swiperRef} {...params}>
           {reviews && reviews.map((comment) => (
             <div key={`mobileReviews/${comment.name}`}>
-              <Comment comment={comment} animatioProps={{ type: animatedType.isCustom, translateY: '0px' }} />
+              <Comment comment={comment} animatioProps={{ type: ANIMATED_TYPE.isCustom, translateY: '0px' }} />
             </div>
           ))}
         </Swiper>

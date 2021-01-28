@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { SectionTitle, Animated } from 'components';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getOptimizedImage,
   getDocumentFields,
@@ -30,7 +30,7 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => {
           return (
             <Animated
               key={`special/${index}/${name}`}
-              type={animatedType.isCustom}
+              type={ANIMATED_TYPE.isCustom}
               translateY="2.82352941em"
               opasityDuration={1}
               transformDuration={1}

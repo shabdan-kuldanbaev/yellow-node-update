@@ -19,7 +19,7 @@ import {
   MetaTags,
 } from 'components';
 import { toInt } from 'utils/helper';
-import { pages } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import { arrows } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -56,7 +56,7 @@ const BlogContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={pages.blog} />
+      <MetaTags page={PAGES.blog} />
       <section ref={introSection} className={styles.blog}>
         {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
@@ -85,6 +85,7 @@ BlogContainer.propTypes = {
   mobileLimit: PropTypes.number.isRequired,
   isMobileResolution: PropTypes.bool.isRequired,
   subscribe: PropTypes.func.isRequired,
+  totalArticles: PropTypes.number.isRequired,
 };
 
 export default connect(

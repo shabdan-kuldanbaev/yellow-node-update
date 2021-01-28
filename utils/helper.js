@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import get from 'lodash/get';
 import {
   phoneResolution,
   horizontalMobile,
@@ -6,7 +6,7 @@ import {
   silver,
   fullHdResolution,
 } from 'styles/utils/_variables.scss';
-import { pages } from './constants';
+import { PAGES } from './constants';
 
 export const themes = {
   dark: {
@@ -55,12 +55,12 @@ export const formatDate = (date) => {
 
 export const getMainLinksForSitemap = (updatedAt) => [
   { path: '/', updatedAt },
-  { path: `/${pages.portfolio}`, updatedAt },
-  { path: `/${pages.process}`, updatedAt },
-  { path: `/${pages.company}`, updatedAt },
-  { path: `/${pages.contact}`, updatedAt },
-  { path: `/${pages.blog}`, updatedAt },
-  { path: `/${pages.notFound}`, updatedAt },
+  { path: `/${PAGES.portfolio}`, updatedAt },
+  { path: `/${PAGES.process}`, updatedAt },
+  { path: `/${PAGES.company}`, updatedAt },
+  { path: `/${PAGES.contact}`, updatedAt },
+  { path: `/${PAGES.blog}`, updatedAt },
+  { path: `/${PAGES.notFound}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
@@ -71,7 +71,7 @@ export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') =>
 
 export const createMarkup = (data) => ({ __html: data });
 
-export const getFileUrl = (file) => get(file, 'fields.file.url');
+export const getFileUrl = (file) => get(file, 'fields.file.url', '');
 
 export const getDocumentFields = (document, fields = []) => {
   if (fields.length) {
@@ -82,5 +82,7 @@ export const getDocumentFields = (document, fields = []) => {
 
       return acc;
     }, {});
-  } return get(document, 'fields', null);
+  }
+
+  return get(document, 'fields', null);
 };

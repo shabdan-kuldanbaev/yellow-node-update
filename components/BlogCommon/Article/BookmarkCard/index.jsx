@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper, ImageWithPlaceholder } from 'components';
-import { routes } from 'utils/constants';
 import { getOptimizedImage } from 'utils/helper';
+import { ROUTES } from 'utils/constants';
 import Like from './images/like.svg';
 import styles from './styles.module.scss';
 
@@ -15,7 +15,7 @@ export const BookmarkCard = ({
   const linkProps = {
     isLocalLink: true,
     dynamicRouting: '/blog/[article]',
-    path: routes.article(slug),
+    path: ROUTES.article(slug),
   };
 
   return (
