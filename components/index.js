@@ -79,4 +79,4 @@ export { Awards } from 'components/CompanyCommon/Awards';
 export { default as FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
 export { Calendar } from 'components/ContactUsCommon/Calendar';
 export { default as CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
-export { default as CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';
+export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';

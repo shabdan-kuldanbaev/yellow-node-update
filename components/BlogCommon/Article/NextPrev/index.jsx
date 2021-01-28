@@ -5,7 +5,7 @@ import {
   Loader,
   ImageWithPlaceholder,
 } from 'components';
-import { getFileUrl, getOptimizedImage } from 'utils/helper';
+import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -16,20 +16,18 @@ const NextPrev = ({
   slug,
   title,
 }) => {
-  const previewImage = getOptimizedImage(previewImageUrl, 230);
-
   const linkProps = {
     isLocalLink: true,
     dynamicRouting: '/blog/[article]',
     path: ROUTES.article(slug),
   };
 
-  return (slug && title && previewImage ? (
+  return (slug && title && previewImageUrl ? (
     <Loader isLoading={!isLoading}>
       <div className={isNewer ? styles.newer : styles.older}>
         <LinkWrapper {...linkProps}>
           <div className={styles.imgContainer}>
-            <ImageWithPlaceholder src={previewImage} imageStyle={styles.img} />
+            <ImageWithPlaceholder src={getOptimizedImage(previewImageUrl, 230)} imageStyle={styles.img} />
           </div>
         </LinkWrapper>
         <div className={styles.content}>

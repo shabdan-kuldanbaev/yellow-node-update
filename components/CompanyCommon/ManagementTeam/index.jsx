@@ -12,19 +12,17 @@ import {
 import styles from './styles.module.scss';
 
 export const ManagementTeam = ({ managementTeam, isMobileResolution }) => {
-  const { team } = getDocumentFields(managementTeam, ['team']);
   const defaultSize = isMobileResolution ? 530 : 290;
 
   return (
     <section className={styles.managementTeam}>
       <SectionTitle title="Our management team" />
       <div className={styles.managers}>
-        {team && team.map((manager, index) => {
-          const {
-            name,
-            role,
-            photo,
-          } = getDocumentFields(manager);
+        {managementTeam && managementTeam.map((manager, index) => {
+          const { name, role, photo } = getDocumentFields(
+            manager,
+            ['name', 'role', 'photo'],
+          );
           const photoUrl = getOptimizedImage(getFileUrl(photo), defaultSize);
 
           return (

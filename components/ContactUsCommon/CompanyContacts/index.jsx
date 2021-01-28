@@ -4,18 +4,15 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { LinkWrapper, Animated } from 'components';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { getOptimizedImage, getFileUrl } from 'utils/helper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
-const CompanyContacts = ({
+export const CompanyContacts = ({
   photo,
   animatedFields,
-  IsMobileResolution,
 }) => {
   const imgContainer = useRef(null);
   const [isShow, setShow] = useState(false);
@@ -120,9 +117,4 @@ CompanyContacts.defaultProps = {
 CompanyContacts.propTypes = {
   photo: PropTypes.string.isRequired,
   animatedFields: PropTypes.instanceOf(Array),
-  IsMobileResolution: PropTypes.bool.isRequired,
 };
-
-export default connect((state) => ({
-  IsMobileResolution: selectIsMobileResolutions(state),
-}))(CompanyContacts);

@@ -33,9 +33,7 @@ const handlers = {
   DEFAULT: (state) => state,
 };
 
-const companyReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   const handler = handlers[action.type] || handlers.DEFAULT;
   return handler(state, action);
 };
-
-export default companyReducer;

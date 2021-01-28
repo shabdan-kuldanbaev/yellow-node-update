@@ -29,6 +29,8 @@ const CompanyContainer = ({
   loadSpecial,
 }) => {
   const { photos } = getDocumentFields(photosData, ['photos']);
+  const { team } = getDocumentFields(managementTeam, ['team']);
+  const { specialThings } = getDocumentFields(whatMakesSpecial, ['specialThings']);
 
   useEffect(() => {
     loadPhotos();
@@ -41,8 +43,8 @@ const CompanyContainer = ({
       <MetaTags page={PAGES.company} />
       <section ref={introSection} className={styles.companyContainer}>
         <AboutUs />
-        <WhatMakesUsSpecial makingUsSpecial={whatMakesSpecial} />
-        {managementTeam && <ManagementTeam managementTeam={managementTeam} />}
+        <WhatMakesUsSpecial makingUsSpecial={specialThings} />
+        {team && <ManagementTeam managementTeam={team} />}
       </section>
       {photos && <PhotoGallery photos={photos} />}
       <div className={styles.companyReviews}>
@@ -69,4 +71,8 @@ export default connect((state) => ({
   photosData: selectPhotos(state),
   managementTeam: selectTeam(state),
   whatMakesSpecial: selectSpecialThings(state),
-}), { loadPhotos, loadTeam, loadSpecial })(CompanyContainer);
+}), {
+  loadPhotos,
+  loadTeam,
+  loadSpecial,
+})(CompanyContainer);

@@ -10,7 +10,10 @@ export const ImageWithPlaceholder = ({ src, imageStyle }) => {
 
   return (
     <img
-      className={cn(styles.image, { [styles.loaded]: isLoaded, [imageStyle]: isLoaded })}
+      className={cn(styles.image, {
+        [styles.loaded]: isLoaded,
+        [imageStyle]: isLoaded,
+      })}
       src={src}
       alt={src}
       onLoad={handleOnLoad}
