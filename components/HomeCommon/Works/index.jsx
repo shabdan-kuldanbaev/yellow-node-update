@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 export const Works = ({ refs, works }) => (
   <div className={styles.worksContainer}>
     {works && works.map((work, index) => {
-      const title = getDocumentFields(work, ['title']);
+      const { title } = getDocumentFields(work, ['title']);
 
       return (
         <Work

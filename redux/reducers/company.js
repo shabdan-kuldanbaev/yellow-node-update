@@ -1,31 +1,31 @@
 import { actionTypes } from 'actions/actionTypes';
+import { getDocumentFields } from 'utils/helper';
 
 const initialState = {
   isLoading: false,
   team: {},
   error: {},
   whatMakesSpecial: {},
+  photoGallery: {},
 };
 
 const handlers = {
-  [actionTypes.LOAD_TEAM_PENDING]: (state) => ({ ...state, isLoading: true }),
-  [actionTypes.LOAD_TEAM_SUCCESS]: (state, { payload }) => ({
-    ...state,
-    isLoading: false,
-    team: payload,
-  }),
-  [actionTypes.LOAD_TEAM_FAILED]: (state, { payload }) => ({
-    ...state,
-    isLoading: false,
-    error: payload,
-  }),
-  [actionTypes.LOAD_SPECIAL_PENDING]: (state) => ({ ...state, isLoading: true }),
-  [actionTypes.LOAD_SPECIAL_SUCCESS]: (state, { payload }) => ({
-    ...state,
-    isLoading: false,
-    whatMakesSpecial: payload,
-  }),
-  [actionTypes.LOAD_SPECIAL_FAILED]: (state, { payload }) => ({
+  [actionTypes.FETCH_COMPANY_DATA_PENDING]: (state) => ({ ...state, isLoading: true }),
+  [actionTypes.FETCH_COMPANY_DATA_SUCCESS]: (state, { payload }) => {
+    const { managementTeamBlock, photoGalleryBlock, whatMakesSpecialBlock } = getDocumentFields(
+      payload,
+      ['managementTeamBlock', 'photoGalleryBlock', 'whatMakesSpecialBlock'],
+    );
+
+    return ({
+      ...state,
+      isLoading: false,
+      whatMakesSpecial: whatMakesSpecialBlock,
+      team: managementTeamBlock,
+      photoGallery: photoGalleryBlock,
+    });
+  },
+  [actionTypes.FETCH_COMPANY_DATA_FAILED]: (state, { payload }) => ({
     ...state,
     isLoading: false,
     error: payload,

@@ -24,3 +24,8 @@ export const loadPhotos = (payload) => ({
   type: actionTypes.LOAD_PHOTOS_PENDING,
   payload,
 });
+
+export const fetchHomapage = (payload) => ({
+  type: actionTypes.FETCH_HOMEPAGE_DATA_PENDING,
+  payload,
+});

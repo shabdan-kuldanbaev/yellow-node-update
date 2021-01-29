@@ -6,8 +6,8 @@ import React, {
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
-import { SectionTitle, Animated } from 'components';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { SectionTitle, Animated } from 'components';
 import { getOptimizedImage, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -15,8 +15,10 @@ import styles from './styles.module.scss';
 const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
-  const defaultSize = isMobileResolution ? 530 : 1040;
-  const photoUrl = getOptimizedImage(getFileUrl(photo), defaultSize);
+  const photoUrl = getOptimizedImage(
+    getFileUrl(photo),
+    isMobileResolution ? 530 : 1040,
+  );
 
   useEffect(() => {
     const handlerOnScroll = () => {

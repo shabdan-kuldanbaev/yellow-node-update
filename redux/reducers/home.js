@@ -1,4 +1,5 @@
 import { actionTypes } from 'actions/actionTypes';
+import { getDocumentFields } from 'utils/helper';
 
 const initialState = {
   scrollOfAddedFooter: {},
@@ -6,6 +7,7 @@ const initialState = {
   isHomepageVisit: false,
   isFirstHomepageVisit: false,
   photos: null,
+  portfolio: null,
   isLoading: false,
   error: null,
 };
@@ -22,6 +24,25 @@ const handlers = {
     photos: payload,
   }),
   [actionTypes.LOAD_PHOTOS_FAILED]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    error: payload,
+  }),
+  [actionTypes.FETCH_HOMEPAGE_DATA_PENDING]: (state) => ({ ...state, isLoading: true }),
+  [actionTypes.FETCH_HOMEPAGE_DATA_SUCCESS]: (state, { payload }) => {
+    const { portfolioBlock, photoGalleryBlock } = getDocumentFields(
+      payload,
+      ['portfolioBlock', 'photoGalleryBlock'],
+    );
+
+    return ({
+      ...state,
+      isLoading: false,
+      photos: photoGalleryBlock,
+      portfolio: portfolioBlock,
+    });
+  },
+  [actionTypes.FETCH_HOMEPAGE_DATA_FAILED]: (state, { payload }) => ({
     ...state,
     isLoading: false,
     error: payload,

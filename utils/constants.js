@@ -42,8 +42,6 @@ export const PAGES = {
   notFound: 'not-found',
 };
 
-export const CONTACT_US_PEOPLE_PHOTO_ID = 'mMnktmduSS0TRikQez0Z4';
-export const CONTACT_US_OFFICE_PHOTO_ID = '1UsoZYzh2s1oKqJM23UXZJ';
 export const DEFAULT_ARTICLES_LIMIT = 5;
 export const CURRENT_PAGE_NUMBER = 1;
 

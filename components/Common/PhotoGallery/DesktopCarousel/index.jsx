@@ -101,5 +101,5 @@ export const DesktopCarousel = ({ photos }) => {
 };
 
 DesktopCarousel.propTypes = {
-  photos: PropTypes.instanceOf(Object).isRequired,
+  photos: PropTypes.instanceOf(Array).isRequired,
 };

@@ -1,11 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  sendEmail,
-  loadCompanyPeolpePhoto,
-  loadOfficePhoto,
-} from 'redux/actions/contact';
+import { sendEmail, fetchContactPage } from 'redux/actions/contact';
 import { selectPeoplePhoto, selectOfficePhoto } from 'redux/selectors/contact';
 import {
   FeedbackFormWithTitle,
@@ -20,16 +16,10 @@ import styles from './styles.module.scss';
 const ContactUsContainer = ({
   introSection,
   sendEmail,
-  loadOfficePhoto,
   officePhoto,
-  loadCompanyPeolpePhoto,
   peoplePhoto,
+  fetchContactPage,
 }) => {
-  useEffect(() => {
-    loadOfficePhoto();
-    loadCompanyPeolpePhoto();
-  }, []);
-
   const handleOnClick = (...args) => {
     const [
       fullName,
@@ -49,14 +39,18 @@ const ContactUsContainer = ({
     });
   };
 
+  useEffect(() => {
+    fetchContactPage();
+  }, []);
+
   return (
     <Fragment>
       <MetaTags page={PAGES.contact} />
       <section ref={introSection} className={styles.contactContainer}>
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
-        <CompanyPeoplePhoto photo={peoplePhoto} />
-        <CompanyContacts photo={officePhoto} />
+        {peoplePhoto && <CompanyPeoplePhoto photo={peoplePhoto} />}
+        {officePhoto && <CompanyContacts photo={officePhoto} />}
       </section>
     </Fragment>
   );
@@ -65,10 +59,9 @@ const ContactUsContainer = ({
 ContactUsContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   sendEmail: PropTypes.func.isRequired,
-  loadOfficePhoto: PropTypes.func.isRequired,
   officePhoto: PropTypes.instanceOf(Object).isRequired,
-  loadCompanyPeolpePhoto: PropTypes.func.isRequired,
   peoplePhoto: PropTypes.instanceOf(Object).isRequired,
+  fetchContactPage: PropTypes.func.isRequired,
 };
 
 export default connect((state) => ({
@@ -76,6 +69,5 @@ export default connect((state) => ({
   peoplePhoto: selectPeoplePhoto(state),
 }), {
   sendEmail,
-  loadCompanyPeolpePhoto,
-  loadOfficePhoto,
+  fetchContactPage,
 })(ContactUsContainer);

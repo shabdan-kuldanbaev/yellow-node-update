@@ -1,5 +1,12 @@
-import React, { Fragment, useEffect, useRef } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useRef,
+} from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { fetchHomapage } from 'redux/actions/home';
+import { selectPhotos } from 'redux/selectors/home';
 // TODO import { Controller, Scene } from 'react-scrollmagic';
 import {
   Intro,
@@ -11,22 +18,19 @@ import {
   FeedbackFormContainer,
 } from 'containers';
 import { PhotoGallery } from 'components';
-import { loadPhotos } from 'redux/actions/home';
-import { selectPhotos, selectIsLoading } from 'redux/selectors/home';
-import { connect } from 'react-redux';
 import { getDocumentFields } from 'utils/helper';
 
 export const Home = ({
   theme,
   introSection,
-  loadPhotos,
   photosData,
+  fetchHomapage,
 }) => {
   const gradientRef = useRef(null);
   const { photos } = getDocumentFields(photosData, ['photos']);
 
   useEffect(() => {
-    loadPhotos();
+    fetchHomapage();
   }, []);
 
   // TODO
@@ -74,9 +78,9 @@ export const Home = ({
 Home.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   theme: PropTypes.string.isRequired,
+  fetchHomapage: PropTypes.isRequired,
 };
 
 export default connect((state) => ({
   photosData: selectPhotos(state),
-  isLoading: selectIsLoading(state),
-}), { loadPhotos })(Home);
+}), { fetchHomapage })(Home);

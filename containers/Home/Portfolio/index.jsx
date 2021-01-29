@@ -8,6 +8,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
+import { selectPortfolio } from 'redux/selectors/home';
 import { Advantages } from 'containers';
 import {
   Works,
@@ -15,18 +16,12 @@ import {
   ButtonMore,
   Animated,
 } from 'components';
-import { selectWorks, selectIsLoading } from 'redux/selectors/portfolio';
-import { loadWorks } from 'redux/actions/portfolio';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
-const Portfolio = ({
-  gradientRef,
-  projects,
-  loadWorks: loadCurrentProjects,
-}) => {
+const Portfolio = ({ gradientRef, projects }) => {
   const [backgroundColor, setBackgroundColor] = useState('firstBlock');
   const [blockNumber, setBlockNumber] = useState(0);
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
@@ -43,8 +38,13 @@ const Portfolio = ({
   };
 
   const handleOnScroll = () => {
-    const isWorksRefsExist = refs.reduce((previousValue, ref) => !!(get(ref, 'current', '')), false);
+    const isWorksRefsExist = !refs.reduce((acc, ref) => {
+      acc.push(!!get(ref, 'current', false));
+
+      return acc;
+    }, []).includes(false);
     const halfHeight = isWorksRefsExist && refs[1].current.getBoundingClientRect().height / 2;
+
     if (isWorksRefsExist) {
       const [
         zeroBlock,
@@ -95,10 +95,6 @@ const Portfolio = ({
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 
-  useEffect(() => {
-    loadCurrentProjects('homepagePortfolio');
-  }, []);
-
   return (
     <Fragment>
       <div className={styles.gradient} ref={gradientRef}>
@@ -134,11 +130,11 @@ const Portfolio = ({
 
 Portfolio.propTypes = {
   gradientRef: PropTypes.instanceOf(Object).isRequired,
+  projects: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect(
   (state) => ({
-    projects: selectWorks(state),
-    isLoading: selectIsLoading(state),
-  }), { loadWorks },
+    projects: selectPortfolio(state),
+  }),
 )(Portfolio);

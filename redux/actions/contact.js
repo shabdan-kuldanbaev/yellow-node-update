@@ -5,12 +5,7 @@ export const sendEmail = (payload) => ({
   payload,
 });
 
-export const loadCompanyPeolpePhoto = (payload) => ({
-  type: actionTypes.LOAD_COMPANY_PEOPLE_PHOTO_PENDING,
-  payload,
-});
-
-export const loadOfficePhoto = (payload) => ({
-  type: actionTypes.LOAD_OFFICE_PHOTO_PENDING,
+export const fetchContactPage = (payload) => ({
+  type: actionTypes.FETCH_CONTACT_DATA_PENDING,
   payload,
 });

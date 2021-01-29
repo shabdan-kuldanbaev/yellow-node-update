@@ -78,11 +78,16 @@ class ContentfulClient {
   };
 
   getAsset = async (id, additionalQueryParams) => {
-    const client = await this.getClient();
-    const asset = await client.getAsset(id, {
-      ...additionalQueryParams,
-    });
-    return asset;
+    try {
+      const client = await this.getClient();
+      const asset = await client.getAsset(id, {
+        ...additionalQueryParams,
+      });
+
+      return asset;
+    } catch (error) {
+      console.error('Get asset error: ', error);
+    }
   }
 }
 

@@ -83,13 +83,14 @@ export const Layout = ({
 
   useEffect(() => {
     const handleOnResize = () => {
-      if (window.innerWidth <= mobileResolution) dispatch(setMobileResolutions(true));
+      const { innerWidth } = window;
+      if (innerWidth <= mobileResolution) dispatch(setMobileResolutions(true));
       else dispatch(setMobileResolutions(false));
 
-      if (window.innerWidth <= fullResolution) dispatch(setFullResolution(true));
+      if (innerWidth <= fullResolution) dispatch(setFullResolution(true));
       else dispatch(setFullResolution(false));
 
-      if (window.innerWidth <= tabletResolution) dispatch(setTabletResolutions(true));
+      if (innerWidth <= tabletResolution) dispatch(setTabletResolutions(true));
       else dispatch(setTabletResolutions(false));
     };
 

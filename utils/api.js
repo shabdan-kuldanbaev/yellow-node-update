@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { project } from 'containers/Portfolio/utils/data';
 import { rootUrl } from 'utils/helper';
 
 const apiClient = axios.create({
@@ -11,7 +10,6 @@ const apiClient = axios.create({
 });
 
 export const API = {
-  getProject: () => project,
   sendEmail: ({
     fullName,
     email,

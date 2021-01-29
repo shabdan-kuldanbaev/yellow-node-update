@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
-import { Animated } from 'components';
 import { selectIsMobileResolutions, selectIsFullResolutions } from 'redux/selectors/layout';
+import { Animated } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedImage,
 } from 'utils/helper';
+import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields, imagesSizes } from './utils';
 import styles from './styles.module.scss';
 
@@ -21,43 +22,33 @@ const Work = ({
   isMobileResolution,
   isFullResolution,
 }) => {
-  const project = getDocumentFields(work);
+  const { image, title, description } = getDocumentFields(
+    work,
+    ['image', 'title', 'description'],
+  );
+  const imageUrl = getFileUrl(image);
   let sizeOfImage; // TODO rewrite it after the release
+  const {
+    mobileFirst,
+    mobileSecond,
+    fullFirst,
+    fullSecond,
+  } = imagesSizes;
 
-  if (isMobileResolution) sizeOfImage = index === 0 ? imagesSizes.mobileFirst : imagesSizes.mobileSecond;
-  else if (isFullResolution) sizeOfImage = index === 0 ? imagesSizes.fullFirst : imagesSizes.fullSecond;
-
-  const imageUrl = getFileUrl(project.image);
-  const image = sizeOfImage ? getOptimizedImage(imageUrl, sizeOfImage, 'png', 'png8') : imageUrl;
-
-  const switchRender = ({ field }, work) => {
-    switch (field) {
-    case 'title':
-      return <h1>{project.title}</h1>;
-    case 'description':
-      return <p>{project.description}</p>;
-    // TODO case 'link':
-    //   return (
-    //     <LinkWrapper {...animated} className={styles.buttonWrap}>
-    //       <button type="button">See full case study</button>
-    //     </LinkWrapper>
-    //   );
-    default:
-      return null;
-    }
-  };
+  if (isMobileResolution) sizeOfImage = index === 0 ? mobileFirst : mobileSecond;
+  else if (isFullResolution) sizeOfImage = index === 0 ? fullFirst : fullSecond;
 
   return (
     <div
       className={styles.work}
-      key={`works/${project.title}`}
+      key={`works/${title}`}
       data-index={index}
       ref={refs[index + 1]}
     >
       <div className={styles.desc}>
         {animatedFields && animatedFields.map((animated) => (
           <Animated {...animated}>
-            {switchRender(animated, project)}
+            <FieldsWrapper animated={animated} title={title} description={description} />
           </Animated>
         ))}
       </div>
@@ -70,7 +61,7 @@ const Work = ({
               { [styles.thirdShadow]: index === 2 },
             )}
           >
-            <img src={image} alt={image} />
+            <img src={sizeOfImage ? getOptimizedImage(imageUrl, sizeOfImage, 'png', 'png8') : imageUrl} alt={title} />
             {/* //TODO return later
           {work.videoName && (
             <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />

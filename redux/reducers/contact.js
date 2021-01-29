@@ -1,4 +1,5 @@
 import { actionTypes } from 'actions/actionTypes';
+import { getDocumentFields } from 'utils/helper';
 
 const initialState = {
   isLoading: false,
@@ -18,24 +19,21 @@ const handlers = {
     isLoading: false,
     error: payload,
   }),
-  [actionTypes.LOAD_COMPANY_PEOPLE_PHOTO_PENDING]: (state) => ({ ...state, isLoading: true }),
-  [actionTypes.LOAD_COMPANY_PEOPLE_PHOTO_SUCCESS]: (state, { payload }) => ({
-    ...state,
-    isLoading: false,
-    companyPeoplePhoto: payload,
-  }),
-  [actionTypes.LOAD_COMPANY_PEOPLE_PHOTO_FAILED]: (state, { payload }) => ({
-    ...state,
-    isLoading: false,
-    error: payload,
-  }),
-  [actionTypes.LOAD_OFFICE_PHOTO_PENDING]: (state) => ({ ...state, isLoading: true }),
-  [actionTypes.LOAD_OFFICE_PHOTO_SUCCESS]: (state, { payload }) => ({
-    ...state,
-    isLoading: false,
-    officePhoto: payload,
-  }),
-  [actionTypes.LOAD_OFFICE_PHOTO_FAILED]: (state, { payload }) => ({
+  [actionTypes.FETCH_CONTACT_DATA_PENDING]: (state) => ({ ...state, isLoading: true }),
+  [actionTypes.FETCH_CONTACT_DATA_SUCCESS]: (state, { payload }) => {
+    const { peoplePhotoBlock, companyPhotoBlock } = getDocumentFields(
+      payload,
+      ['peoplePhotoBlock', 'companyPhotoBlock'],
+    );
+
+    return ({
+      ...state,
+      isLoading: false,
+      officePhoto: companyPhotoBlock,
+      companyPeoplePhoto: peoplePhotoBlock,
+    });
+  },
+  [actionTypes.FETCH_CONTACT_DATA_FAILED]: (state, { payload }) => ({
     ...state,
     isLoading: false,
     error: payload,

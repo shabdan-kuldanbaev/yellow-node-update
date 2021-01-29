@@ -16,7 +16,7 @@ PhotoGallery.defaultProps = {
 };
 
 PhotoGallery.propTypes = {
-  photos: PropTypes.instanceOf(Object).isRequired,
+  photos: PropTypes.instanceOf(Array).isRequired,
   isTabletResolutions: PropTypes.bool,
 };
 

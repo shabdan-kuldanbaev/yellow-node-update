@@ -8,4 +8,6 @@ export const selectIsFirstHomepageVisit = (state) => state.home.isFirstHomepageV
 
 export const selectPhotos = (state) => state.home.photos;
 
+export const selectPortfolio = (state) => state.home.portfolio;
+
 export const selectIsLoading = (state) => state.home.isLoading;

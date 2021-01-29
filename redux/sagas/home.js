@@ -7,18 +7,18 @@ import { actionTypes } from '../actions/actionTypes';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* loadPhotos({ payload }) {
+function* fetchHomepage({ payload }) {
   try {
     const { items } = yield contentfulClient.getEntries({
-      contentType: 'photoCarousel',
+      contentType: 'homePage',
     });
 
-    yield put({ type: actionTypes.LOAD_PHOTOS_SUCCESS, payload: items[0] });
+    yield put({ type: actionTypes.FETCH_HOMEPAGE_DATA_SUCCESS, payload: items[0] });
   } catch (err) {
-    yield put({ type: actionTypes.LOAD_PHOTOS_FAILED, payload: err });
+    yield put({ type: actionTypes.FETCH_HOMEPAGE_DATA_FAILED, payload: err });
   }
 }
 
 export function* loadGalleryoWatcher() {
-  yield takeLatest(actionTypes.LOAD_PHOTOS_PENDING, loadPhotos);
+  yield takeLatest(actionTypes.FETCH_HOMEPAGE_DATA_PENDING, fetchHomepage);
 }
