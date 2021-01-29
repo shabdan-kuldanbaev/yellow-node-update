@@ -36,30 +36,6 @@ const FeedbackForm = ({
   const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
   const [isSendNDAChecked, setIsSendNDAChecked] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
-
-  const handleOnNameChange = ({ target: { value } }) => setFullName(value);
-  const handleOnSliderChange = (value) => setBudget(addThousandsSeparators(value));
-  const handleOnDescriptionChange = ({ target: { value } }) => setDescription(value);
-  const handleOnSelectedFilesChange = ({ target: { files } }) => {
-    const arrFiles = [];
-    for (let i = 0; i < files.length; i += 1) arrFiles.push(files[i]);
-    setFiles(arrFiles);
-  };
-  const handleOnUnpinFile = ({ target: { dataset } }) => {
-    setFiles(selectedFiles.filter((file) => file.name !== dataset.fileName));
-  };
-  const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
-  const handleOnIsSendNDACheckedChange = ({ target: { checked } }) => setIsSendNDAChecked(checked);
-
-  const handleOnSubmitClick = () => handleOnClick(
-    fullName,
-    email.value,
-    projectDescription,
-    selectedFiles,
-    isSendNDAChecked,
-    projectBudget,
-  );
-
   const sliderSettings = {
     ...budgetData,
     defaultValue: budgetData.min,
@@ -74,11 +50,33 @@ const FeedbackForm = ({
     transformDuration: 1,
   };
 
+  const handleOnNameChange = ({ target: { value } }) => setFullName(value);
+  const handleOnSliderChange = (value) => setBudget(addThousandsSeparators(value));
+  const handleOnDescriptionChange = ({ target: { value } }) => setDescription(value);
+  const handleOnSelectedFilesChange = ({ target: { files } }) => {
+    const arrFiles = [];
+    for (let i = 0; i < files.length; i += 1) arrFiles.push(files[i]);
+    setFiles(arrFiles);
+  };
+  const handleOnUnpinFile = ({ target: { dataset } }) => {
+    setFiles(selectedFiles.filter((file) => file.name !== dataset.fileName));
+  };
+  const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
+  const handleOnIsSendNDACheckedChange = ({ target: { checked } }) => setIsSendNDAChecked(checked);
+  const handleOnSubmitClick = () => handleOnClick(
+    fullName,
+    email.value,
+    projectDescription,
+    selectedFiles,
+    isSendNDAChecked,
+    projectBudget,
+  );
+
   useEffect(() => {
-    const isButtonDisabled = !fullName || !email.value || !projectDescription || !isPolicyAccepted;
+    const isButtonDisabled = !fullName || !email.value || !projectDescription;
     if (isButtonDisabled) setIsDisabled(true);
     else setIsDisabled(false);
-  }, [email, fullName, projectDescription, isPolicyAccepted]);
+  }, [email, fullName, projectDescription]);
 
   return (
     <form className={styles.form}>
