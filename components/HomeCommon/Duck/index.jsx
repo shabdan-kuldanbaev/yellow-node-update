@@ -13,13 +13,13 @@ import * as THREE from 'three';
 import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
 import { animated, useSpring } from 'react-spring';
-import { mobileResolution } from '../../../utils/helper'; // TODO
+import { mobileResolution } from 'utils/helper';
 import { animationTypes } from './utils/data';
 import {
   three,
   slogan,
   getSpeed,
-} from './utils/helper';
+} from './utils/threeHelper';
 import * as styles from './styles.module.scss';
 
 let camera;
