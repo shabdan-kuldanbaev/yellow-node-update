@@ -6,6 +6,10 @@ export const actionTypes = {
   SET_PAGE_LOADING: 'layout/SET_PAGE_LOADING',
   SET_FULL_RESOLUTION: 'layout/SET_FULL_RESOLUTION',
   /* ------------------------ */
+  FETCH_PAGE_PENDING: 'layout/FETCH_PAGE_PENDING',
+  FETCH_PAGE_SUCCESS: 'layout/FETCH_PAGE_SUCCESS',
+  FETCH_PAGE_FAILED: 'layout/FETCH_PAGE_FAILED',
+  /* ------------------------ */
   SET_SCROLL_OF_ADDED_FOOTER: 'home/SET_SCROLL_OF_ADDED_FOOTER',
   SET_DUCK: 'home/SET_DUCK',
   SET_HOMEPAGE_VISIT: 'home/SET_HOMEPAGE_VISIT',
@@ -46,8 +50,4 @@ export const actionTypes = {
   GET_JSON_PENDING: 'process/GET_JSON_PENDING',
   GET_JSON_SUCCESS: 'process/GET_JSON_SUCCESS',
   GET_JSON_FAILED: 'process/GET_JSON_FAILED',
-  /* ------------------------ */
-  FETCH_PAGE_PENDING: 'layout/FETCH_PAGE_PENDING',
-  FETCH_PAGE_SUCCESS: 'layout/FETCH_PAGE_SUCCESS',
-  FETCH_PAGE_FAILED: 'layout/FETCH_PAGE_FAILED',
 };

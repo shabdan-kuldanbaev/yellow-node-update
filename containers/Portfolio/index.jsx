@@ -14,14 +14,14 @@ import styles from './styles.module.scss';
 
 const PortfolioContainer = ({
   introSection,
-  works,
+  portfolioProjects,
   isLoading,
   fetchPage,
 }) => {
-  const { content } = getDocumentFields(works, ['content']);
+  const { content } = getDocumentFields(portfolioProjects, ['content']);
 
   useEffect(() => {
-    fetchPage('portfolio');
+    fetchPage(PAGES.portfolio);
   }, []);
 
   return (
@@ -38,14 +38,14 @@ const PortfolioContainer = ({
 
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  works: PropTypes.instanceOf(Object).isRequired,
+  portfolioProjects: PropTypes.instanceOf(Object).isRequired,
   isLoading: PropTypes.bool.isRequired,
   fetchPage: PropTypes.func.isRequired,
 };
 
 export default connect(
   (state) => ({
-    works: selectPortfolioProjectsPreview(state),
+    portfolioProjects: selectPortfolioProjectsPreview(state),
     isLoading: selectIsLoading(state),
   }), { fetchPage },
 )(PortfolioContainer);

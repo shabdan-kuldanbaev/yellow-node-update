@@ -76,19 +76,6 @@ class ContentfulClient {
       console.error('Get entry error: ', error);
     }
   };
-
-  getAsset = async (id, additionalQueryParams) => {
-    try {
-      const client = await this.getClient();
-      const asset = await client.getAsset(id, {
-        ...additionalQueryParams,
-      });
-
-      return asset;
-    } catch (error) {
-      console.error('Get asset error: ', error);
-    }
-  }
 }
 
 export const contentfulClient = new ContentfulClient(ACCESS_TO_CONTENTFUL);
