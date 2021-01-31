@@ -36,6 +36,7 @@ const FeedbackForm = ({
   const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
   const [isSendNDAChecked, setIsSendNDAChecked] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+  const handleOnSliderChange = (value) => setBudget(addThousandsSeparators(value));
   const sliderSettings = {
     ...budgetData,
     defaultValue: budgetData.min,
@@ -51,7 +52,6 @@ const FeedbackForm = ({
   };
 
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
-  const handleOnSliderChange = (value) => setBudget(addThousandsSeparators(value));
   const handleOnDescriptionChange = ({ target: { value } }) => setDescription(value);
   const handleOnSelectedFilesChange = ({ target: { files } }) => {
     const arrFiles = [];

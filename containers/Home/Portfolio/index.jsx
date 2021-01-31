@@ -8,7 +8,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
-import { selectPortfolio } from 'redux/selectors/home';
+import { selectHomepageProjectsPreview } from 'redux/selectors/layout';
 import { Advantages } from 'containers';
 import {
   Works,
@@ -27,7 +27,7 @@ const Portfolio = ({ gradientRef, projects }) => {
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const portfolioRef = useRef(null);
   const [currentNumber, setCurrentNumber] = useState(4);
-  const { portfolioOrder } = getDocumentFields(projects, ['portfolioOrder']);
+  const { content } = getDocumentFields(projects, ['content']);
 
   const changeStyle = (index) => {
     refs[0].current.classList.remove(styles[blockNumbers[index + 1]]);
@@ -100,7 +100,7 @@ const Portfolio = ({ gradientRef, projects }) => {
       <div className={styles.gradient} ref={gradientRef}>
         <Advantages refs={refs} className={styles[backgroundColor]} />
         <section ref={portfolioRef} className={cn(styles.portfolio, styles[backgroundColor])}>
-          <Works refs={refs} works={portfolioOrder} />
+          <Works refs={refs} works={content} />
           <div className={styles.bottomOfPortfolio}>
             <SectionTitle
               title="Check out more works by Yellow"
@@ -135,6 +135,6 @@ Portfolio.propTypes = {
 
 export default connect(
   (state) => ({
-    projects: selectPortfolio(state),
+    projects: selectHomepageProjectsPreview(state),
   }),
 )(Portfolio);

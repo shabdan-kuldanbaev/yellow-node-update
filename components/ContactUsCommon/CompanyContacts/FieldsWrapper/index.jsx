@@ -54,5 +54,7 @@ export const FieldsWrapper = ({ animated: { field } }) => {
 };
 
 FieldsWrapper.propTypes = {
-  field: PropTypes.string.isRequired,
+  animated: PropTypes.shape({
+    field: PropTypes.string.isRequired,
+  }).isRequired,
 };

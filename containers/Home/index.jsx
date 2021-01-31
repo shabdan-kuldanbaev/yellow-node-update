@@ -5,8 +5,8 @@ import React, {
 } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchHomapage } from 'redux/actions/home';
-import { selectPhotos } from 'redux/selectors/home';
+import { fetchPage } from 'redux/actions/layout';
+import { selectImageCarousel } from 'redux/selectors/layout';
 // TODO import { Controller, Scene } from 'react-scrollmagic';
 import {
   Intro,
@@ -24,13 +24,13 @@ export const Home = ({
   theme,
   introSection,
   photosData,
-  fetchHomapage,
+  fetchPage,
 }) => {
   const gradientRef = useRef(null);
-  const { photos } = getDocumentFields(photosData, ['photos']);
+  const { content } = getDocumentFields(photosData, ['content']);
 
   useEffect(() => {
-    fetchHomapage();
+    fetchPage('homepage');
   }, []);
 
   // TODO
@@ -69,7 +69,7 @@ export const Home = ({
       <ReviewsContainer />
       <Blog />
       {/* TODO <Insta /> */}
-      {photos && <PhotoGallery photos={photos} />}
+      {content && <PhotoGallery photos={content} />}
       <FeedbackFormContainer />
     </Fragment>
   );
@@ -78,9 +78,10 @@ export const Home = ({
 Home.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   theme: PropTypes.string.isRequired,
-  fetchHomapage: PropTypes.isRequired,
+  fetchPage: PropTypes.isRequired,
+  photosData: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect((state) => ({
-  photosData: selectPhotos(state),
-}), { fetchHomapage })(Home);
+  photosData: selectImageCarousel(state),
+}), { fetchPage })(Home);

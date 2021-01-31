@@ -1,4 +1,5 @@
 import { actionTypes } from 'actions/actionTypes';
+import { getDocumentFields } from 'utils/helper';
 
 const initialState = {
   isMobileMenuOpened: false,
@@ -7,6 +8,9 @@ const initialState = {
   isTabletResolutions: null,
   isPageLoading: false,
   isFullResolution: false,
+  components: {
+    main: [],
+  },
 };
 
 const handlers = {
@@ -16,6 +20,23 @@ const handlers = {
   [actionTypes.SET_TABLET_RESOLUTION]: (state, { payload }) => ({ ...state, isTabletResolutions: payload }),
   [actionTypes.SET_PAGE_LOADING]: (state, { payload }) => ({ ...state, isPageLoading: payload }),
   [actionTypes.SET_FULL_RESOLUTION]: (state, { payload }) => ({ ...state, isFullResolution: payload }),
+  [actionTypes.FETCH_PAGE_PENDING]: (state) => ({ ...state, isLoading: true }),
+  [actionTypes.FETCH_PAGE_SUCCESS]: (state, { payload }) => {
+    const { contentModules } = getDocumentFields(payload, ['contentModules']);
+
+    return ({
+      ...state,
+      isLoading: false,
+      components: {
+        main: contentModules,
+      },
+    });
+  },
+  [actionTypes.FETCH_COMPANY_DATA_FAILED]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    error: payload,
+  }),
   DEFAULT: (state) => state,
 };
 

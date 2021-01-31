@@ -22,11 +22,11 @@ const Work = ({
   isMobileResolution,
   isFullResolution,
 }) => {
-  const { image, title, description } = getDocumentFields(
+  const { previewImage, title, description } = getDocumentFields(
     work,
-    ['image', 'title', 'description'],
+    ['previewImage', 'title', 'description'],
   );
-  const imageUrl = getFileUrl(image);
+  const imageUrl = getFileUrl(previewImage);
   let sizeOfImage; // TODO rewrite it after the release
   const {
     mobileFirst,
@@ -48,7 +48,11 @@ const Work = ({
       <div className={styles.desc}>
         {animatedFields && animatedFields.map((animated) => (
           <Animated {...animated}>
-            <FieldsWrapper animated={animated} title={title} description={description} />
+            <FieldsWrapper
+              animated={animated}
+              title={title}
+              description={description}
+            />
           </Animated>
         ))}
       </div>

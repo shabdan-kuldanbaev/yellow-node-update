@@ -7,18 +7,21 @@ import { actionTypes } from '../actions/actionTypes';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* fetchCompanyPage({ payload }) {
+function* fetchPage({ payload }) {
   try {
     const { items } = yield contentfulClient.getEntries({
-      contentType: 'companyPage',
+      contentType: 'page',
+      additionalQueryParams: {
+        'fields.slug[match]': payload,
+      },
     });
 
-    yield put({ type: actionTypes.FETCH_COMPANY_DATA_SUCCESS, payload: items[0] });
+    yield put({ type: actionTypes.FETCH_PAGE_SUCCESS, payload: items[0] });
   } catch (err) {
-    yield put({ type: actionTypes.FETCH_COMPANY_DATA_FAILED, payload: err });
+    yield put({ type: actionTypes.FETCH_PAGE_FAILED, payload: err });
   }
 }
 
-export function* companyWatcher() {
-  yield takeLatest(actionTypes.FETCH_COMPANY_DATA_PENDING, fetchCompanyPage);
+export function* fetchPageWatcher() {
+  yield takeLatest(actionTypes.FETCH_PAGE_PENDING, fetchPage);
 }

@@ -16,18 +16,18 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => (
     <SectionTitle title="Our management team" />
     <div className={styles.managers}>
       {managementTeam && managementTeam.map((manager, index) => {
-        const { name, role, photo } = getDocumentFields(
+        const { image, title, subtitle } = getDocumentFields(
           manager,
-          ['name', 'role', 'photo'],
+          ['image', 'title', 'subtitle'],
         );
         const photoUrl = getOptimizedImage(
-          getFileUrl(photo),
+          getFileUrl(image),
           isMobileResolution ? 530 : 290,
         );
 
         return (
           <Animated
-            key={`special/${index}/${name}`}
+            key={`special/${index}/${title}`}
             type={ANIMATED_TYPE.isCustom}
             translateY="2.82352941em"
             opasityDuration={1}
@@ -37,8 +37,8 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => (
             <div className={styles.imageContainer}>
               <div className={styles.image} style={{ backgroundImage: `url(${photoUrl})` }} />
             </div>
-            <div className={styles.title}>{name}</div>
-            <div className={styles.subtitle}>{role}</div>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.subtitle}>{subtitle}</div>
           </Animated>
         );
       })}

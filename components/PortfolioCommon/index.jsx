@@ -53,8 +53,7 @@ const Portfolio = ({
     <div className={styles.worksContainer}>
       {works && works.map((work, index) => {
         const workData = getDocumentFields(work);
-        const { image } = getDocumentFields(work, ['image']);
-        const imageUrl = getFileUrl(image);
+        const { previewImage } = getDocumentFields(work, ['previewImage']);
 
         return (
           <div
@@ -70,7 +69,7 @@ const Portfolio = ({
                   </Animated>
                 ))}
               </div>
-              <PreviewImage image={imageUrl} />
+              <PreviewImage image={getFileUrl(previewImage)} />
             </div>
           </div>
         );

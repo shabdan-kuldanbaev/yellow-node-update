@@ -23,5 +23,5 @@ export const ImageWithPlaceholder = ({ src, imageStyle }) => {
 
 ImageWithPlaceholder.proprTypes = {
   src: PropTypes.string.isRequired,
-  imageStyle: PropTypes.instanceOf(Object).isRequired,
+  imageStyle: PropTypes.string.isRequired,
 };

@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectWorks, selectIsLoading } from 'redux/selectors/portfolio';
-import { loadWorks } from 'redux/actions/portfolio';
+import { selectPortfolioProjectsPreview, selectIsLoading } from 'redux/selectors/layout';
+import { fetchPage } from 'redux/actions/layout';
 import {
   Portfolio,
   Loader,
@@ -16,12 +16,12 @@ const PortfolioContainer = ({
   introSection,
   works,
   isLoading,
-  loadWorks: loadCurrentWorks,
+  fetchPage,
 }) => {
-  const { portfolioOrder } = getDocumentFields(works, ['portfolioOrder']);
+  const { content } = getDocumentFields(works, ['content']);
 
   useEffect(() => {
-    loadCurrentWorks('portfolio');
+    fetchPage('portfolio');
   }, []);
 
   return (
@@ -29,7 +29,7 @@ const PortfolioContainer = ({
       <MetaTags page={PAGES.portfolio} />
       <section ref={introSection} className={styles.portfolio}>
         <Loader isLoading={!isLoading}>
-          {portfolioOrder && <Portfolio works={portfolioOrder} />}
+          {content && <Portfolio works={content} />}
         </Loader>
       </section>
     </Fragment>
@@ -38,14 +38,14 @@ const PortfolioContainer = ({
 
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  works: PropTypes.instanceOf(Array).isRequired,
+  works: PropTypes.instanceOf(Object).isRequired,
   isLoading: PropTypes.bool.isRequired,
-  loadWorks: PropTypes.func.isRequired,
+  fetchPage: PropTypes.func.isRequired,
 };
 
 export default connect(
   (state) => ({
-    works: selectWorks(state),
+    works: selectPortfolioProjectsPreview(state),
     isLoading: selectIsLoading(state),
-  }), { loadWorks },
+  }), { fetchPage },
 )(PortfolioContainer);

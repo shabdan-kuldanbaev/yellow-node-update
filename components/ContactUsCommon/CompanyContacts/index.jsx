@@ -6,7 +6,11 @@ import React, {
 import PropTypes from 'prop-types';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Animated } from 'components';
-import { getOptimizedImage, getFileUrl } from 'utils/helper';
+import {
+  getDocumentFields,
+  getOptimizedImage,
+  getFileUrl,
+} from 'utils/helper';
 import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
@@ -14,7 +18,8 @@ import styles from './styles.module.scss';
 export const CompanyContacts = ({ photo, animatedFields }) => {
   const imgContainer = useRef(null);
   const [isShow, setShow] = useState(false);
-  const photoUrl = getFileUrl(photo);
+  const { image } = getDocumentFields(photo[0], ['image']);
+  const photoUrl = getFileUrl(image);
 
   useEffect(() => {
     if (imgContainer.current) {
@@ -63,6 +68,6 @@ CompanyContacts.defaultProps = {
 };
 
 CompanyContacts.propTypes = {
-  photo: PropTypes.instanceOf(Object).isRequired,
+  photo: PropTypes.instanceOf(Array).isRequired,
   animatedFields: PropTypes.instanceOf(Array),
 };

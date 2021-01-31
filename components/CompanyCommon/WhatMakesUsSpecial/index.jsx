@@ -10,12 +10,15 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => (
     <SectionTitle title="What makes us special" />
     <div className={styles.specialThings}>
       {makingUsSpecial && makingUsSpecial.map((special, index) => {
-        const { description } = getDocumentFields(special, ['description']);
-        const image = getFileUrl(special);
+        const { image, title } = getDocumentFields(
+          special,
+          ['image', 'title'],
+        );
+        const imageUrl = getFileUrl(image);
 
         return (
           <Animated
-            key={`special/${description}`}
+            key={`special/${title}`}
             type={ANIMATED_TYPE.isCustom}
             translateY="100px"
             opasityDuration={0.8}
@@ -23,9 +26,9 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => (
             transitionDelay={100 + 150 * index}
           >
             <div>
-              <img src={image} alt={description} />
+              <img src={imageUrl} alt={title} />
             </div>
-            <span>{description}</span>
+            <span>{title}</span>
           </Animated>
         );
       })}

@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { sendEmail, fetchContactPage } from 'redux/actions/contact';
-import { selectPeoplePhoto, selectOfficePhoto } from 'redux/selectors/contact';
+import { sendEmail } from 'redux/actions/contact';
+import { fetchPage } from 'redux/actions/layout';
+import { selectContacts, selectCompanyPhoto } from 'redux/selectors/layout';
 import {
   FeedbackFormWithTitle,
   Calendar,
@@ -11,6 +12,7 @@ import {
   MetaTags,
 } from 'components';
 import { PAGES } from 'utils/constants';
+import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ContactUsContainer = ({
@@ -18,8 +20,11 @@ const ContactUsContainer = ({
   sendEmail,
   officePhoto,
   peoplePhoto,
-  fetchContactPage,
+  fetchPage,
 }) => {
+  const { content: officePhotoContent } = getDocumentFields(officePhoto, ['content']);
+  const { content: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['content']);
+
   const handleOnClick = (...args) => {
     const [
       fullName,
@@ -40,7 +45,7 @@ const ContactUsContainer = ({
   };
 
   useEffect(() => {
-    fetchContactPage();
+    fetchPage('contact');
   }, []);
 
   return (
@@ -49,8 +54,8 @@ const ContactUsContainer = ({
       <section ref={introSection} className={styles.contactContainer}>
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
-        {peoplePhoto && <CompanyPeoplePhoto photo={peoplePhoto} />}
-        {officePhoto && <CompanyContacts photo={officePhoto} />}
+        {peoplePhotoContent && <CompanyPeoplePhoto photo={peoplePhotoContent} />}
+        {officePhotoContent && <CompanyContacts photo={officePhotoContent} />}
       </section>
     </Fragment>
   );
@@ -61,13 +66,13 @@ ContactUsContainer.propTypes = {
   sendEmail: PropTypes.func.isRequired,
   officePhoto: PropTypes.instanceOf(Object).isRequired,
   peoplePhoto: PropTypes.instanceOf(Object).isRequired,
-  fetchContactPage: PropTypes.func.isRequired,
+  fetchPage: PropTypes.func.isRequired,
 };
 
 export default connect((state) => ({
-  officePhoto: selectOfficePhoto(state),
-  peoplePhoto: selectPeoplePhoto(state),
+  officePhoto: selectContacts(state),
+  peoplePhoto: selectCompanyPhoto(state),
 }), {
   sendEmail,
-  fetchContactPage,
+  fetchPage,
 })(ContactUsContainer);

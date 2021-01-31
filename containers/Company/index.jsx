@@ -1,8 +1,12 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCompanyPage } from 'redux/actions/company';
-import { selectTeam, selectSpecialThings, selectPhotoGallery } from 'redux/selectors/company';
+import { fetchPage } from 'redux/actions/layout';
+import {
+  selectManagementTeam,
+  selectWhatMakesSpecial,
+  selectImageCarousel,
+} from 'redux/selectors/layout';
 import { reviews } from 'containers/Home/Reviews/utils/data';
 import {
   AboutUs,
@@ -22,14 +26,14 @@ const CompanyContainer = ({
   photosData,
   managementTeam,
   whatMakesSpecial,
-  fetchCompanyPage,
+  fetchPage,
 }) => {
-  const { photos } = getDocumentFields(photosData, ['photos']);
-  const { team } = getDocumentFields(managementTeam, ['team']);
-  const { specialThings } = getDocumentFields(whatMakesSpecial, ['specialThings']);
+  const { content: carouselContent } = getDocumentFields(photosData, ['content']);
+  const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
+  const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
 
   useEffect(() => {
-    fetchCompanyPage();
+    fetchPage('company');
   }, []);
 
   return (
@@ -37,10 +41,10 @@ const CompanyContainer = ({
       <MetaTags page={PAGES.company} />
       <section ref={introSection} className={styles.companyContainer}>
         <AboutUs />
-        {specialThings && <WhatMakesUsSpecial makingUsSpecial={specialThings} />}
-        {team && <ManagementTeam managementTeam={team} />}
+        {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
+        {teamContent && <ManagementTeam managementTeam={teamContent} />}
       </section>
-      {photos && <PhotoGallery photos={photos} />}
+      {carouselContent && <PhotoGallery photos={carouselContent} />}
       <div className={styles.companyReviews}>
         <Reviews reviews={reviews} />
       </div>
@@ -56,11 +60,11 @@ CompanyContainer.propTypes = {
   photosData: PropTypes.instanceOf(Array).isRequired,
   managementTeam: PropTypes.instanceOf(Object).isRequired,
   whatMakesSpecial: PropTypes.instanceOf(Object).isRequired,
-  fetchCompanyPage: PropTypes.func.isRequired,
+  fetchPage: PropTypes.func.isRequired,
 };
 
 export default connect((state) => ({
-  photosData: selectPhotoGallery(state),
-  managementTeam: selectTeam(state),
-  whatMakesSpecial: selectSpecialThings(state),
-}), { fetchCompanyPage })(CompanyContainer);
+  photosData: selectImageCarousel(state),
+  managementTeam: selectManagementTeam(state),
+  whatMakesSpecial: selectWhatMakesSpecial(state),
+}), { fetchPage })(CompanyContainer);

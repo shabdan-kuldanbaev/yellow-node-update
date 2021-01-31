@@ -29,3 +29,8 @@ export const setFullResolution = (payload) => ({
   type: actionTypes.SET_FULL_RESOLUTION,
   payload,
 });
+
+export const fetchPage = (payload) => ({
+  type: actionTypes.FETCH_PAGE_PENDING,
+  payload,
+});

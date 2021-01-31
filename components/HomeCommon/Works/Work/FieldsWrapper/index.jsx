@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export const FieldsWrapper = ({ animated: { field }, title, description }) => {
+export const FieldsWrapper = ({
+  animated: { field },
+  title,
+  description,
+}) => {
   switch (field) {
   case 'title':
     return <h1 className={styles.h1}>{title}</h1>;
@@ -20,7 +24,9 @@ export const FieldsWrapper = ({ animated: { field }, title, description }) => {
 };
 
 FieldsWrapper.propTypes = {
-  field: PropTypes.string.isRequired,
+  animated: PropTypes.shape({
+    field: PropTypes.string.isRequired,
+  }).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };

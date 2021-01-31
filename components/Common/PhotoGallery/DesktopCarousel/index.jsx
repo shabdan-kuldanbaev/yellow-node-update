@@ -84,12 +84,18 @@ export const DesktopCarousel = ({ photos }) => {
         <div className={styles.listWrapper}>
           <ul ref={listRef} className={styles.unorderedList}>
             {gallery.length && gallery.map((photoData, index) => {
-              const { photo, type } = getDocumentFields(photoData, ['photo', 'type']);
-              const image = getOptimizedImage(getFileUrl(photo), sizesOfImages[`${type}Desctop`]);
+              const { image, carouselImageType } = getDocumentFields(
+                photoData,
+                ['image', 'carouselImageType'],
+              );
+              const imageUrl = getOptimizedImage(
+                getFileUrl(image),
+                sizesOfImages[`${carouselImageType}ImgDesctop`],
+              );
 
               return (
-                <li key={`gallary/photo/${index}`} className={styles[type]}>
-                  <img src={image} alt="" />
+                <li key={`gallary/photo/${index}`} className={styles[`${carouselImageType}Img`]}>
+                  <img src={imageUrl} alt="" />
                 </li>
               );
             })}
