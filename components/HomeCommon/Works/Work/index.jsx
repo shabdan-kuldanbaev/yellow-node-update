@@ -5,28 +5,21 @@ import { connect } from 'react-redux';
 import { selectIsMobileResolutions, selectIsFullResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
-import {
-  getDocumentFields,
-  getFileUrl,
-  getOptimizedImage,
-} from 'utils/helper';
+import { getOptimizedImage } from 'utils/helper';
 import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields, imagesSizes } from './utils';
 import styles from './styles.module.scss';
 
 const Work = ({
   refs,
-  work,
   index,
   animatedFields,
   isMobileResolution,
   isFullResolution,
+  imageUrl,
+  title,
+  description,
 }) => {
-  const { previewImage, title, description } = getDocumentFields(
-    work,
-    ['previewImage', 'title', 'description'],
-  );
-  const imageUrl = getFileUrl(previewImage);
   let sizeOfImage; // TODO rewrite it after the release
   const {
     mobileFirst,
@@ -84,11 +77,13 @@ Work.defaultProps = {
 
 Work.propTypes = {
   refs: PropTypes.instanceOf(Object).isRequired,
-  work: PropTypes.instanceOf(Object).isRequired,
   index: PropTypes.number.isRequired,
   animatedFields: PropTypes.instanceOf(Array),
   isMobileResolution: PropTypes.bool.isRequired,
   isFullResolution: PropTypes.bool.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default connect((state) => ({

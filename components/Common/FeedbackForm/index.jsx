@@ -36,12 +36,11 @@ const FeedbackForm = ({
   const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
   const [isSendNDAChecked, setIsSendNDAChecked] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
-  const handleOnSliderChange = (value) => setBudget(addThousandsSeparators(value));
   const sliderSettings = {
     ...budgetData,
     defaultValue: budgetData.min,
     step: 20000,
-    onChange: handleOnSliderChange,
+    onChange: (value) => setBudget(addThousandsSeparators(value)),
   };
 
   const animatedProps = {

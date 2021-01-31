@@ -9,7 +9,7 @@ const initialState = {
   isPageLoading: false,
   isFullResolution: false,
   components: {
-    main: [],
+    main: null,
   },
 };
 
@@ -22,7 +22,10 @@ const handlers = {
   [actionTypes.SET_FULL_RESOLUTION]: (state, { payload }) => ({ ...state, isFullResolution: payload }),
   [actionTypes.FETCH_PAGE_PENDING]: (state) => ({ ...state, isLoading: true }),
   [actionTypes.FETCH_PAGE_SUCCESS]: (state, { payload }) => {
-    const { contentModules } = getDocumentFields(payload, ['contentModules']);
+    const { contentModules } = getDocumentFields(
+      (payload && payload[0]) ? payload[0] : {},
+      ['contentModules'],
+    );
 
     return ({
       ...state,

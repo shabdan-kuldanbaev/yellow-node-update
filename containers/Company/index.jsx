@@ -33,7 +33,7 @@ const CompanyContainer = ({
   const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
 
   useEffect(() => {
-    fetchPage('company');
+    fetchPage(PAGES.company);
   }, []);
 
   return (
@@ -57,7 +57,7 @@ const CompanyContainer = ({
 
 CompanyContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  photosData: PropTypes.instanceOf(Array).isRequired,
+  photosData: PropTypes.instanceOf(Object).isRequired,
   managementTeam: PropTypes.instanceOf(Object).isRequired,
   whatMakesSpecial: PropTypes.instanceOf(Object).isRequired,
   fetchPage: PropTypes.func.isRequired,

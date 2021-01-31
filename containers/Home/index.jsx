@@ -19,6 +19,7 @@ import {
 } from 'containers';
 import { PhotoGallery } from 'components';
 import { getDocumentFields } from 'utils/helper';
+import { PAGES } from 'utils/constants';
 
 export const Home = ({
   theme,
@@ -30,7 +31,7 @@ export const Home = ({
   const { content } = getDocumentFields(photosData, ['content']);
 
   useEffect(() => {
-    fetchPage('homepage');
+    fetchPage(PAGES.homepage);
   }, []);
 
   // TODO

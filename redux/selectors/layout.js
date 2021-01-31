@@ -1,11 +1,19 @@
 import { BLOCKS_SLUGS } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 
-const getMain = (state, pageSlug) => state.layout.components.main.find((module) => {
-  const { slug } = getDocumentFields(module, ['slug']);
+const getMain = (state, pageSlug) => {
+  const { main = null } = state.layout.components;
 
-  return slug === pageSlug;
-});
+  if (!main) {
+    return null;
+  }
+
+  return main.find((module) => {
+    const { slug } = getDocumentFields(module, ['slug']);
+
+    return slug === pageSlug;
+  });
+};
 
 export const selectIsMobileMenuOpened = (state) => state.layout.isMobileMenuOpened;
 

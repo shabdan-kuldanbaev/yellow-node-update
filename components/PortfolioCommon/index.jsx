@@ -9,6 +9,7 @@ import {
 import { ROUTES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { animatedFields } from './utils';
+import { FieldsWrapper } from './FieldsWrapper';
 import styles from './styles.module.scss';
 
 const Portfolio = ({
@@ -29,43 +30,29 @@ const Portfolio = ({
     maxPosition.current = maxScrollPosition;
   }, [maxScrollPosition]);
 
-  const switchRender = ({ field }, work) => {
-    switch (field) {
-    case 'title':
-      return <h1>{work.title}</h1>;
-    case 'description':
-      return <p>{work.description}</p>;
-    // TODO case 'link':
-    //   return (
-    //     <LinkWrapper
-    //       {...animated}
-    //       className={styles.buttonWrap}
-    //     >
-    //       <button type="button">See full case study</button>
-    //     </LinkWrapper>
-    //   );
-    default:
-      return null;
-    }
-  };
-
   return (
     <div className={styles.worksContainer}>
       {works && works.map((work, index) => {
-        const workData = getDocumentFields(work);
-        const { previewImage } = getDocumentFields(work, ['previewImage']);
+        const { previewImage, title, description } = getDocumentFields(
+          work,
+          ['previewImage', 'title', 'description'],
+        );
 
         return (
           <div
             className={styles.work}
-            key={`works/${workData.title}`}
+            key={`works/${title}`}
             data-index={index}
           >
             <div className={styles.workWrapper}>
               <div className={styles.desc}>
                 {animatedFields && animatedFields.map((animated) => (
                   <Animated {...animated}>
-                    {switchRender(animated, workData)}
+                    <FieldsWrapper
+                      animated={animated}
+                      title={title}
+                      description={description}
+                    />
                   </Animated>
                 ))}
               </div>

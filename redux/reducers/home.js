@@ -5,8 +5,6 @@ const initialState = {
   duck: null,
   isHomepageVisit: false,
   isFirstHomepageVisit: false,
-  isLoading: false,
-  error: null,
 };
 
 const handlers = {

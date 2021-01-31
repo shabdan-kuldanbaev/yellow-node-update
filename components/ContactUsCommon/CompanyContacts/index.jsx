@@ -6,11 +6,7 @@ import React, {
 import PropTypes from 'prop-types';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Animated } from 'components';
-import {
-  getDocumentFields,
-  getOptimizedImage,
-  getFileUrl,
-} from 'utils/helper';
+import { getOptimizedImage } from 'utils/helper';
 import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
@@ -18,8 +14,6 @@ import styles from './styles.module.scss';
 export const CompanyContacts = ({ photo, animatedFields }) => {
   const imgContainer = useRef(null);
   const [isShow, setShow] = useState(false);
-  const { image } = getDocumentFields(photo[0], ['image']);
-  const photoUrl = getFileUrl(image);
 
   useEffect(() => {
     if (imgContainer.current) {
@@ -47,7 +41,7 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
       <div ref={imgContainer} className={styles.imgContainer}>
         <div className={styles.whiteCover} />
         <LazyLoadImage
-          src={getOptimizedImage(photoUrl, 465)}
+          src={getOptimizedImage(photo, 465)}
           alt="CompanyOfficePhoto"
           effect="blur"
         />
@@ -68,6 +62,6 @@ CompanyContacts.defaultProps = {
 };
 
 CompanyContacts.propTypes = {
-  photo: PropTypes.instanceOf(Array).isRequired,
+  photo: PropTypes.string.isRequired,
   animatedFields: PropTypes.instanceOf(Array),
 };

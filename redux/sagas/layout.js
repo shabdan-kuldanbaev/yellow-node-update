@@ -9,14 +9,14 @@ es6promise.polyfill();
 
 function* fetchPage({ payload }) {
   try {
-    const { items } = yield contentfulClient.getEntries({
+    const { items = null } = yield contentfulClient.getEntries({
       contentType: 'page',
       additionalQueryParams: {
         'fields.slug[match]': payload,
       },
     });
 
-    yield put({ type: actionTypes.FETCH_PAGE_SUCCESS, payload: items[0] });
+    yield put({ type: actionTypes.FETCH_PAGE_SUCCESS, payload: items });
   } catch (err) {
     yield put({ type: actionTypes.FETCH_PAGE_FAILED, payload: err });
   }

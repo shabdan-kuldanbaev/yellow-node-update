@@ -12,7 +12,7 @@ import {
   MetaTags,
 } from 'components';
 import { PAGES } from 'utils/constants';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ContactUsContainer = ({
@@ -23,7 +23,17 @@ const ContactUsContainer = ({
   fetchPage,
 }) => {
   const { content: officePhotoContent } = getDocumentFields(officePhoto, ['content']);
+  const { image: officeImage } = getDocumentFields(
+    (officePhotoContent && officePhotoContent[0]) ? officePhotoContent[0] : {},
+    ['image'],
+  );
+  const officeImageUrl = getFileUrl(officeImage);
   const { content: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['content']);
+  const { image: peopleImage } = getDocumentFields(
+    (peoplePhotoContent && peoplePhotoContent[0]) ? peoplePhotoContent[0] : {},
+    ['image'],
+  );
+  const peopleImageUrl = getFileUrl(peopleImage);
 
   const handleOnClick = (...args) => {
     const [
@@ -45,7 +55,7 @@ const ContactUsContainer = ({
   };
 
   useEffect(() => {
-    fetchPage('contact');
+    fetchPage(PAGES.contact);
   }, []);
 
   return (
@@ -54,8 +64,8 @@ const ContactUsContainer = ({
       <section ref={introSection} className={styles.contactContainer}>
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
-        {peoplePhotoContent && <CompanyPeoplePhoto photo={peoplePhotoContent} />}
-        {officePhotoContent && <CompanyContacts photo={officePhotoContent} />}
+        {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}
+        {officeImageUrl && <CompanyContacts photo={officeImageUrl} />}
       </section>
     </Fragment>
   );

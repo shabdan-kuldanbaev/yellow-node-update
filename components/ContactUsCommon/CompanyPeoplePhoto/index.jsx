@@ -8,22 +8,13 @@ import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { SectionTitle, Animated } from 'components';
-import {
-  getOptimizedImage,
-  getFileUrl,
-  getDocumentFields,
-} from 'utils/helper';
+import { getOptimizedImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
-  const { image } = getDocumentFields(photo[0], ['image']);
-  const photoUrl = getOptimizedImage(
-    getFileUrl(image),
-    isMobileResolution ? 530 : 1040,
-  );
 
   useEffect(() => {
     const handlerOnScroll = () => {
@@ -56,7 +47,10 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
           >
             <img
               ref={photoRef}
-              src={photoUrl}
+              src={getOptimizedImage(
+                photo,
+                isMobileResolution ? 530 : 1040,
+              )}
               alt="CompanyPeoplePhoto"
             />
           </Animated>
@@ -67,7 +61,7 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
 };
 
 CompanyPeoplePhoto.propTypes = {
-  photo: PropTypes.instanceOf(Array).isRequired,
+  photo: PropTypes.string.isRequired,
   isMobileResolution: PropTypes.bool.isRequired,
 };
 
