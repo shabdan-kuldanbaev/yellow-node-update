@@ -7,9 +7,9 @@ import React, {
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
-import { ArticlesList, ModalWindow } from 'components';
 import { findArticles, clearFoundArticles } from 'redux/actions/blog';
 import { selectFoundArticles } from 'redux/selectors/blog';
+import { ArticlesList, ModalWindow } from 'components';
 import styles from './styles.module.scss';
 
 const FullscreenSearch = ({
@@ -22,10 +22,7 @@ const FullscreenSearch = ({
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
 
-  const fetchData = (query) => {
-    findArticles({ value: query });
-  };
-
+  const fetchData = (query) => findArticles({ value: query });
   const delayedQuery = useCallback(debounce((query) => fetchData(query), 1000), []);
 
   const handleOnChangeInput = ({ target: { value } }) => {
@@ -62,7 +59,8 @@ const FullscreenSearch = ({
         />
       </div>
       <div className={styles.foundArticles}>
-        {(!inputValue || !found.length) ? <span className={styles.nothingFound}>Nothing Found. Please try again with some different keywords.</span>
+        {(!inputValue || !found.length)
+          ? <span className={styles.nothingFound}>Nothing Found. Please try again with some different keywords.</span>
           : (
             <ArticlesList
               articles={found}

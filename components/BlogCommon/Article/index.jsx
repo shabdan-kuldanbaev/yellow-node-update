@@ -7,7 +7,6 @@ import {
   OldArticle,
   withScroll,
 } from 'components';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const Article = ({

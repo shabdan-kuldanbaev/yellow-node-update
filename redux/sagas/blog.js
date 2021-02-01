@@ -23,10 +23,17 @@ function* getArticle({ payload }) {
   }
 }
 
-function* loadArticles({ payload: { currentLimit, skip } }) { // TODO add currentCategory
+function* loadArticles({
+  payload: {
+    currentLimit,
+    skip,
+    category,
+  },
+}) {
   try {
     const { items, total } = yield fetchContentfulArticles({
       order: '-fields.publishedAt',
+      'fields.categoryTag[match]': category !== 'latest' ? category : '',
       limit: currentLimit,
       skip,
     });
@@ -37,11 +44,17 @@ function* loadArticles({ payload: { currentLimit, skip } }) { // TODO add curren
   }
 }
 
-function* loadRelatedArticles({ payload: { currentLimit, currentArticleSlug } }) { // TODO add currentCategory
+function* loadRelatedArticles({
+  payload: {
+    currentLimit,
+    currentArticleSlug,
+    categoryTag,
+  },
+}) {
   try {
     const { items } = yield fetchContentfulArticles({
       'fields.slug[ne]': currentArticleSlug,
-      order: '-fields.publishedAt',
+      'fields.categoryTag[match]': categoryTag,
       limit: currentLimit,
     });
 

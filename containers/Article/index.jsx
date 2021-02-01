@@ -79,7 +79,7 @@ const ArticleContainer = ({
 
   useEffect(() => {
     if (article) getCurrentArticle(article);
-  }, [article, categoryTag]);
+  }, [article]);
 
   useEffect(() => {
     if (title && createdAt) getNearby({ name: title, createdAt });
@@ -91,7 +91,7 @@ const ArticleContainer = ({
         categoryTag,
       });
     }
-  }, [currentArticle]);
+  }, [title, createdAt, slug]);
 
   return (
     <Fragment>
@@ -107,7 +107,7 @@ const ArticleContainer = ({
         isLoading={isLoading}
       />
       <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
-      <RelatedSection articles={relatedArticles} isLoading={isLoading} />
+      {relatedArticles.length ? <RelatedSection articles={relatedArticles} isLoading={isLoading} /> : ''}
       <div className={styles.nextPrevSection}>
         <NextPrev
           isNewer

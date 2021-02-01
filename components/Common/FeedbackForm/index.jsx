@@ -40,7 +40,7 @@ const FeedbackForm = ({
     ...budgetData,
     defaultValue: budgetData.min,
     step: 20000,
-    onChange: handleOnSliderChange,
+    onChange: (value) => setBudget(addThousandsSeparators(value)),
   };
 
   const animatedProps = {
@@ -51,7 +51,6 @@ const FeedbackForm = ({
   };
 
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
-  const handleOnSliderChange = (value) => setBudget(addThousandsSeparators(value));
   const handleOnDescriptionChange = ({ target: { value } }) => setDescription(value);
   const handleOnSelectedFilesChange = ({ target: { files } }) => {
     const arrFiles = [];
