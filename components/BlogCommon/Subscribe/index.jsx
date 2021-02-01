@@ -8,7 +8,7 @@ import {
   AnimatedInput,
   Animated,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { withValidateEmail } from 'hocs';
 import styles from './styles.module.scss';
 
@@ -25,7 +25,7 @@ const Subscribe = ({
   const handleOnBlur = () => setCurrentPlaceholder(placeholderText);
 
   const animatedProps = {
-    type: animatedType.isCustom,
+    type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
     opasityDuration: 1,
     transformDuration: 1,

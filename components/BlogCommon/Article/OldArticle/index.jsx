@@ -8,6 +8,7 @@ export const OldArticle = ({ oldBody }) => (
     <div dangerouslySetInnerHTML={createMarkup(oldBody)} />
   </div>
 );
+
 OldArticle.propTypes = {
   oldBody: PropTypes.string.isRequired,
 };

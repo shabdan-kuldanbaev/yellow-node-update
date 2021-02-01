@@ -13,7 +13,7 @@ import {
   Animated,
   InformationMessage,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { withValidateEmail } from 'hocs';
 import { budget } from './utils/data';
@@ -36,6 +36,19 @@ const FeedbackForm = ({
   const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
   const [isSendNDAChecked, setIsSendNDAChecked] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+  const sliderSettings = {
+    ...budgetData,
+    defaultValue: budgetData.min,
+    step: 20000,
+    onChange: handleOnSliderChange,
+  };
+
+  const animatedProps = {
+    type: ANIMATED_TYPE.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
 
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
   const handleOnSliderChange = (value) => setBudget(addThousandsSeparators(value));
@@ -50,7 +63,6 @@ const FeedbackForm = ({
   };
   const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
   const handleOnIsSendNDACheckedChange = ({ target: { checked } }) => setIsSendNDAChecked(checked);
-
   const handleOnSubmitClick = () => handleOnClick(
     fullName,
     email.value,
@@ -60,25 +72,11 @@ const FeedbackForm = ({
     projectBudget,
   );
 
-  const sliderSettings = {
-    ...budgetData,
-    defaultValue: budgetData.min,
-    step: 20000,
-    onChange: handleOnSliderChange,
-  };
-
-  const animatedProps = {
-    type: animatedType.isCustom,
-    translateY: '2.82352941em',
-    opasityDuration: 1,
-    transformDuration: 1,
-  };
-
   useEffect(() => {
-    const isButtonDisabled = !fullName || !email.value || !projectDescription || !isPolicyAccepted;
+    const isButtonDisabled = !fullName || !email.value || !projectDescription;
     if (isButtonDisabled) setIsDisabled(true);
     else setIsDisabled(false);
-  }, [email, fullName, projectDescription, isPolicyAccepted]);
+  }, [email, fullName, projectDescription]);
 
   return (
     <form className={styles.form}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { pages } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 
 const Error = ({ statusCode, err }) => (
   <p>
@@ -14,7 +14,7 @@ Error.getInitialProps = async ({ ctx: { err, res } }) => {
 
   if (statusCode === 404) {
     res.writeHead(302, {
-      Location: pages.notFound,
+      Location: PAGES.notFound,
       'Content-Type': 'text/html; charset=utf-8',
     });
     res.end();

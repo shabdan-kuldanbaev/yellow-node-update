@@ -4,7 +4,7 @@ import cn from 'classnames';
 import {
   Animated,
 } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
@@ -46,7 +46,7 @@ export const Work = ({
         ))}
       </div>
       <div className={styles.parallax}>
-        <Animated type={animatedType.isParallaxSpring}>
+        <Animated type={ANIMATED_TYPE.isParallaxSpring}>
           <div
             className={cn(
               { [styles.firstShadow]: index === 0 },

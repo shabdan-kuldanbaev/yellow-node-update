@@ -24,8 +24,12 @@ import {
   MetaTags,
   withScroll,
 } from 'components';
-import { pages, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
-import { rootUrl, getDocumentFields } from 'utils/helper';
+import { PAGES, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
+import {
+  rootUrl,
+  getDocumentFields,
+  getFileUrl,
+} from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ArticleContainer = ({
@@ -40,18 +44,36 @@ const ArticleContainer = ({
   subscribe,
 }) => {
   const { query: { article }, pathname } = useRouter();
-  const articleData = get(currentArticle, 'items[0]', {});
   const {
     slug,
     categoryTag,
     title,
     createdAt,
-  } = getDocumentFields(articleData, [
-    'slug',
-    'categoryTag',
-    'title',
-    'createdAt',
-  ]);
+    oldBody,
+    body,
+    introduction,
+    headImageUrl,
+  } = getDocumentFields(
+    get(currentArticle, 'items[0]', {}),
+    ['slug', 'categoryTag', 'title', 'createdAt', 'oldBody', 'body', 'introduction', 'headImageUrl'],
+  );
+  const {
+    previewImageUrl: previewImageUrlNewer,
+    slug: slugNewer,
+    title: titleNewer,
+  } = getDocumentFields(
+    newerArticle,
+    ['slug', 'title', 'previewImageUrl'],
+  );
+  const {
+    previewImageUrl: previewImageUrlOlder,
+    slug: slugOlder,
+    title: titleOlder,
+  } = getDocumentFields(
+    olderArticle,
+    ['slug', 'title', 'previewImageUrl'],
+  );
+  const headImage = getFileUrl(headImageUrl);
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
@@ -60,7 +82,9 @@ const ArticleContainer = ({
   }, [article, categoryTag]);
 
   useEffect(() => {
-    if (categoryTag) {
+    if (title && createdAt) getNearby({ name: title, createdAt });
+
+    if (slug) {
       loadArticles({
         currentLimit: DEFAULT_ARTICLES_LIMIT,
         currentArticleSlug: slug,
@@ -69,15 +93,16 @@ const ArticleContainer = ({
     }
   }, [currentArticle]);
 
-  useEffect(() => {
-    if (createdAt) getNearby({ name: title, createdAt });
-  }, [currentArticle]);
-
   return (
     <Fragment>
-      <MetaTags page={pages.blog} />
+      <MetaTags page={PAGES.blog} />
       <Article
-        article={currentArticle}
+        slug={slug}
+        title={title}
+        oldBody={oldBody}
+        body={body}
+        introduction={introduction}
+        headImage={headImage}
         introSection={introSection}
         isLoading={isLoading}
       />
@@ -86,10 +111,17 @@ const ArticleContainer = ({
       <div className={styles.nextPrevSection}>
         <NextPrev
           isNewer
-          article={newerArticle}
           isLoading={isLoading}
+          previewImageUrl={getFileUrl(previewImageUrlNewer)}
+          slug={slugNewer}
+          title={titleNewer}
         />
-        <NextPrev article={olderArticle} isLoading={isLoading} />
+        <NextPrev
+          isLoading={isLoading}
+          previewImageUrl={getFileUrl(previewImageUrlOlder)}
+          slug={slugOlder}
+          title={titleOlder}
+        />
       </div>
       <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
     </Fragment>

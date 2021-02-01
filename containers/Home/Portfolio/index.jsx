@@ -13,7 +13,7 @@ import {
   ButtonMore,
   Animated,
 } from 'components';
-import { animatedType, routes } from 'utils/constants';
+import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -96,14 +96,14 @@ export const Portfolio = ({ gradientRef }) => {
               styleSubtitle={styles.subtitle}
             />
             <Animated
-              type={animatedType.isCustom}
+              type={ANIMATED_TYPE.isCustom}
               translateY="2.82352941em"
               opasityDuration={1}
               transformDuration={1}
               transitionDelay={350}
             >
               <ButtonMore
-                href={routes.portfolio}
+                href={ROUTES.portfolio}
                 title="EXPLORE OUR PORTFOLIO"
                 buttonStyle={styles.portfolioButton}
               />

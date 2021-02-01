@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Animated, LinkWrapper } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const SectionTitle = ({
@@ -14,7 +14,7 @@ export const SectionTitle = ({
   linkText,
 }) => {
   const animatedProps = {
-    type: animatedType.isCustom,
+    type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
     opasityDuration: 1,
     transformDuration: 1,

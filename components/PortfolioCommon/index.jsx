@@ -6,7 +6,7 @@ import {
   PreviewImage,
   withScroll,
 } from 'components';
-import { routes } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
@@ -20,7 +20,7 @@ const Portfolio = ({
   useEffect(() => () => ReactGA.event({
     category: 'Scroll',
     action: `${maxPosition.current}%`,
-    label: routes.portfolio,
+    label: ROUTES.portfolio,
     nonInteraction: maxPosition.current < 50,
   }), []);
 

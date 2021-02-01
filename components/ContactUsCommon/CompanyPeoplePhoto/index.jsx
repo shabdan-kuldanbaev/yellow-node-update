@@ -6,7 +6,7 @@ import React, {
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SectionTitle, Animated } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import YellowTeam from './images/yellow_team.jpg';
 import styles from './styles.module.scss';
 
@@ -37,7 +37,7 @@ export const CompanyPeoplePhoto = ({ photo }) => {
       <div className={styles.photoContainer}>
         <div className={styles.photoWrap}>
           <Animated
-            type={animatedType.isCustom}
+            type={ANIMATED_TYPE.isCustom}
             translateY="70px"
             opasityDuration={0.8}
             transformDuration={0.8}

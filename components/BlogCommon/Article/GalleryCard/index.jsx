@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Animated } from 'components';
-import { animatedType, NUMBER_OF_IMAGES_PER_LINE } from 'utils/constants';
+import { ANIMATED_TYPE, NUMBER_OF_IMAGES_PER_LINE } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -33,7 +33,7 @@ export const GalleryCard = ({ images, photoCaption }) => {
               const imageUrl = getFileUrl(image);
 
               return (
-                <Animated type={animatedType.imageZoom}>
+                <Animated type={ANIMATED_TYPE.imageZoom}>
                   <img
                     src={imageUrl}
                     alt={imageUrl}

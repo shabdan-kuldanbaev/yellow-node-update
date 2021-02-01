@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SectionTitle, Animated } from 'components';
-import { animatedType } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { managementTeam } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -12,7 +12,7 @@ export const ManagementTeam = ({ managementTeam }) => (
       {managementTeam && managementTeam.map((manager, index) => (
         <Animated
           key={`special/${index}/${manager.title}`}
-          type={animatedType.isCustom}
+          type={ANIMATED_TYPE.isCustom}
           translateY="2.82352941em"
           opasityDuration={1}
           transformDuration={1}

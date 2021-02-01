@@ -5,8 +5,7 @@ import {
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
-import { contentfulClient } from 'utils/ContentfulClient';
-import { getNearby, fetchArticles } from 'utils/contentfulUtils';
+import { fetchContentfulNearbyArticles, fetchContentfulArticles } from 'utils/contentfulUtils';
 import { actionTypes } from 'redux/actions/actionTypes';
 
 ObjectAssign.polyfill();
@@ -14,7 +13,7 @@ es6promise.polyfill();
 
 function* getArticle({ payload }) {
   try {
-    const article = yield fetchArticles(contentfulClient, {
+    const article = yield fetchContentfulArticles({
       'fields.slug[match]': payload,
     });
 
@@ -24,17 +23,9 @@ function* getArticle({ payload }) {
   }
 }
 
-function* loadArticles({
-  payload: {
-    currentLimit,
-    skip,
-    category,
-  },
-}) {
+function* loadArticles({ payload: { currentLimit, skip } }) { // TODO add currentCategory
   try {
-    console.log();
-    const { items, total } = yield fetchArticles(contentfulClient, {
-      'fields.categoryTag[match]': category !== 'latest' ? category : '',
+    const { items, total } = yield fetchContentfulArticles({
       order: '-fields.publishedAt',
       limit: currentLimit,
       skip,
@@ -46,17 +37,10 @@ function* loadArticles({
   }
 }
 
-function* loadRelatedArticles({
-  payload: {
-    currentLimit,
-    currentArticleSlug,
-    categoryTag,
-  },
-}) {
+function* loadRelatedArticles({ payload: { currentLimit, currentArticleSlug } }) { // TODO add currentCategory
   try {
-    const { items } = yield fetchArticles(contentfulClient, {
+    const { items } = yield fetchContentfulArticles({
       'fields.slug[ne]': currentArticleSlug,
-      'fields.categoryTag[match]': categoryTag,
       order: '-fields.publishedAt',
       limit: currentLimit,
     });
@@ -69,8 +53,8 @@ function* loadRelatedArticles({
 
 function* loadNearbyArticles({ payload: { createdAt } }) {
   try {
-    const prev = yield getNearby({ contentfulClient, isOlder: true, createdAt });
-    const next = yield getNearby({ contentfulClient, isOlder: false, createdAt });
+    const prev = yield fetchContentfulNearbyArticles({ isOlder: true, createdAt });
+    const next = yield fetchContentfulNearbyArticles({ isOlder: false, createdAt });
 
     yield put({
       type: actionTypes.LOAD_NEARBY_SUCCESS,
@@ -86,7 +70,7 @@ function* loadNearbyArticles({ payload: { createdAt } }) {
 
 function* findArticles({ payload: { value } }) {
   try {
-    const { items } = yield fetchArticles(contentfulClient, {
+    const { items } = yield fetchContentfulArticles({
       'fields.keyWords[match]': value,
     });
 

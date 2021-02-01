@@ -5,14 +5,14 @@ import {
   ButtonMore,
   Animated,
 } from 'components';
-import { animatedType, routes } from 'utils/constants';
+import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { CompanyFigures } from './CompanyFigures';
 import { aboutUsText } from './utils/data';
 import styles from './styles.module.scss';
 
 export const AboutUs = ({ aboutUsText }) => {
   const animatedProps = {
-    type: animatedType.isCustom,
+    type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
     opasityDuration: 1,
     transformDuration: 1,
@@ -36,14 +36,14 @@ export const AboutUs = ({ aboutUsText }) => {
         <div className={styles.buttons}>
           <Animated {...animatedProps} transitionDelay={1100 + 80}>
             <ButtonMore
-              href={routes.portfolio}
+              href={ROUTES.portfolio}
               title="WHAT WE DO"
               buttonStyle={styles.submit}
             />
           </Animated>
           <Animated {...animatedProps} transitionDelay={1100 + 80}>
             <ButtonMore
-              href={routes.process}
+              href={ROUTES.process}
               title="HOW WE DO IT"
               buttonStyle={styles.submit}
             />
