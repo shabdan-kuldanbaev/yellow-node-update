@@ -12,7 +12,8 @@ const {
   oldUrlRedirect,
 } = require('./middleware/redirect');
 const mailhelper = require('./mail/mailhelper');
-const { getFeedBackMessage, getSubscribeMessage } = require('./mail/messages');
+const subscribeHelper = require('./suscribe/subscribeHelper');
+const { getFeedBackMessage } = require('./mail/messages');
 const { processes } = require('./utils/data');
 
 dotenv.config('./env');
@@ -48,7 +49,15 @@ app
 
     server.post('/subscribe', async (req, res) => {
       try {
-        await mailhelper.sendMail(getSubscribeMessage(req), res);
+        await subscribeHelper.subscribe(req, res);
+      } catch (err) {
+        console.log(err);
+      }
+    });
+
+    server.put('/unsubscribe', async (req, res) => {
+      try {
+        await subscribeHelper.unsubscribe(req, res);
       } catch (err) {
         console.log(err);
       }

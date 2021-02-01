@@ -12,7 +12,7 @@ es6promise.polyfill();
 
 function* subscribe({ payload: { email, pathname } }) {
   try {
-    const response = yield call(API.subscribe, email);
+    const { data } = yield call(API.subscribe, email);
 
     ReactGA.event({
       category: 'Subscribe',
@@ -20,9 +20,11 @@ function* subscribe({ payload: { email, pathname } }) {
       label: pathname,
     });
 
-    yield put({ type: actionTypes.SUBSCRIBE_SUCCESS, payload: response });
+    localStorage.setItem('isSubscribed', 'true');
+
+    yield put({ type: actionTypes.SUBSCRIBE_SUCCESS, payload: data });
   } catch (err) {
-    yield put({ type: actionTypes.SUBSCRIBE_FAILED, payload: err });
+    yield put({ type: actionTypes.SUBSCRIBE_FAILED, payload: err.response });
   }
 }
 

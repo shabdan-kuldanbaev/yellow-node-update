@@ -33,6 +33,8 @@
     "es6-promise": "^4.2.8",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
+    "mailchimp-api-v3": "^1.14.0",
+    "md5": "^2.3.0",
     "multer": "^1.4.2",
     "next": "9.1.2",
     "next-compose-plugins": "^2.2.0",
@@ -77,13 +79,13 @@
     "@lwc/eslint-plugin-lwc": "^0.10.0",
     "@salesforce/eslint-config-lwc": "^0.5.0",
     "babel-eslint": "^10.1.0",
+    "contentful-management": "^7.5.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^3.0.0",
-    "redux-devtools-extension": "^2.13.8",
-    "contentful-management": "^7.5.1"
+    "redux-devtools-extension": "^2.13.8"
   }
 }

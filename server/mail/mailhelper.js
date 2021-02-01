@@ -13,17 +13,21 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports.sendMail = async (additionalMailOption, res) => {
-  const mailOptions = {
-    from: user,
-    to: process.env.EMAIL_SEND_TO,
-    ...additionalMailOption,
-  };
+  try {
+    const mailOptions = {
+      from: user,
+      to: process.env.EMAIL_SEND_TO,
+      ...additionalMailOption,
+    };
 
-  await transporter.sendMail(mailOptions, (error) => {
-    if (error) {
-      res.status(502).json(JSON.stringify(false));
-    } else {
-      res.status(201).json(JSON.stringify(true));
-    }
-  });
+    await transporter.sendMail(mailOptions, (error) => {
+      if (error) {
+        res.status(502).json(JSON.stringify(false));
+      } else {
+        res.status(201).json(JSON.stringify(true));
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
 };

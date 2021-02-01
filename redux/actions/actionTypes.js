@@ -46,6 +46,8 @@ export const actionTypes = {
   SUBSCRIBE_SUCCESS: 'subscribe/SUBSCRIBE_SUCCESS',
   SUBSCRIBE_FAILED: 'subscribe/SUBSCRIBE_FAILED',
   /* ------------------------ */
+  CLEAR_MESSAGE: 'subscribe/CLEAR_MESSAGE',
+  /* ------------------------ */
   GET_JSON_PENDING: 'process/GET_JSON_PENDING',
   GET_JSON_SUCCESS: 'process/GET_JSON_SUCCESS',
   GET_JSON_FAILED: 'process/GET_JSON_FAILED',

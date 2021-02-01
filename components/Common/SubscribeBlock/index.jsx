@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { connect } from 'react-redux';
+import { clearMessage } from 'redux/actions/subscribe';
+import { selectSuscribeMessage } from 'redux/selectors/subscribe';
 import { LinkWrapper } from 'components';
 import { withValidateEmail } from 'hocs';
 import Background from './images/background.jpg';
@@ -11,8 +14,16 @@ const SubscribeBlock = ({
   email,
   handleOnEmailChange,
   handleOnSubmit,
+  message,
+  clearMessage,
 }) => {
-  const handleOnClick = () => handleOnSubmit(email.value);
+  const handleOnClick = (event) => {
+    event.preventDefault();
+
+    handleOnSubmit(email.value);
+  };
+
+  useEffect(() => () => clearMessage(), []);
 
   return (
     <section className={cn(styles.subscribeBlock, {
@@ -34,6 +45,7 @@ const SubscribeBlock = ({
                 Subscribe
               </div>
             </LinkWrapper>
+            {message && <span className={styles.alertMessage}>{message}</span>}
           </form>
         </div>
         <div className={styles.subscribeMessage} style={{ backgroundImage: `url(${Background})` }}>
@@ -53,6 +65,10 @@ SubscribeBlock.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnSubmit: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+  clearMessage: PropTypes.func.isRequired,
 };
 
-export default withValidateEmail(SubscribeBlock);
+export default connect((state) => ({
+  message: selectSuscribeMessage(state),
+}), { clearMessage })(withValidateEmail(SubscribeBlock));

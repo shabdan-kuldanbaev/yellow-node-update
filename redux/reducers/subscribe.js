@@ -2,7 +2,7 @@ import { actionTypes } from 'actions/actionTypes';
 
 const initialState = {
   isLoading: false,
-  status: false,
+  message: '',
   error: null,
 };
 
@@ -11,15 +11,20 @@ const handlers = {
     ...state,
     isLoading: true,
   }),
-  [actionTypes.SUBSCRIBE_SUCCESS]: (state) => ({
+  [actionTypes.SUBSCRIBE_SUCCESS]: (state, { payload }) => ({
     ...state,
     isLoading: false,
-    status: true,
+    message: payload,
   }),
-  [actionTypes.SUBSCRIBE_FAILED]: (state, { payload }) => ({
+  [actionTypes.SUBSCRIBE_FAILED]: (state, { payload: { data } }) => ({
     ...state,
     isLoading: false,
+    message: data,
     error: true,
+  }),
+  [actionTypes.CLEAR_MESSAGE]: (state) => ({
+    ...state,
+    message: '',
   }),
   DEFAULT: (state) => state,
 };

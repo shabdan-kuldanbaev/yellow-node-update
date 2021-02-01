@@ -10,7 +10,7 @@ export const Process = ({ processes }) => {
     translateY: '2.82352941em',
     opasityDuration: 1,
     transformDuration: 1,
-    threshold: 0.1,
+    percentIntersection: 0.1,
   };
 
   return (
