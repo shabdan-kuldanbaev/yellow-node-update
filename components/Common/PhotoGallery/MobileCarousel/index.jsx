@@ -1,19 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getOptimizedImage,
+} from 'utils/helper';
+import { sizesOfImages } from '../utils/data';
 import styles from './styles.module.scss';
 
 export const MobileCarousel = ({ photos }) => (
   <section className={styles.gallerySection}>
     <div>
-      {photos && photos.map((photo, index) => (
-        <div key={`photo/${index}`} className={styles[photo.size]}>
-          <img
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style={{ backgroundImage: `url(${photo.img})` }}
-            alt=""
-          />
-        </div>
-      ))}
+      {photos && photos.map((photoData, index) => {
+        const { image, carouselImageType } = getDocumentFields(
+          photoData,
+          ['image', 'carouselImageType'],
+        );
+        const imageUrl = getOptimizedImage(
+          getFileUrl(image),
+          sizesOfImages[`${carouselImageType}ImgMobile`],
+        );
+
+        return (
+          <div key={`photo/${index}`} className={styles[`${carouselImageType}Img`]}>
+            <img style={{ backgroundImage: `url(${imageUrl})` }} alt="" />
+          </div>
+        );
+      })}
     </div>
   </section>
 );

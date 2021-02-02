@@ -193,6 +193,7 @@
       position: relative;
       max-width: none;
       width: 100%;
+      transform: translateX(0);
     }
 
     @include tablet {

@@ -5,12 +5,14 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { connect } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { SectionTitle, Animated } from 'components';
+import { getOptimizedImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
-import YellowTeam from './images/yellow_team.jpg';
 import styles from './styles.module.scss';
 
-export const CompanyPeoplePhoto = ({ photo }) => {
+const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
 
@@ -45,7 +47,10 @@ export const CompanyPeoplePhoto = ({ photo }) => {
           >
             <img
               ref={photoRef}
-              src={photo}
+              src={getOptimizedImage(
+                photo,
+                isMobileResolution ? 530 : 1040,
+              )}
               alt="CompanyPeoplePhoto"
             />
           </Animated>
@@ -55,10 +60,11 @@ export const CompanyPeoplePhoto = ({ photo }) => {
   );
 };
 
-CompanyPeoplePhoto.defaultProps = {
-  photo: YellowTeam,
+CompanyPeoplePhoto.propTypes = {
+  photo: PropTypes.string.isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
 
-CompanyPeoplePhoto.propTypes = {
-  photo: PropTypes.string,
-};
+export default connect((state) => ({
+  isMobileResolution: selectIsMobileResolutions(state),
+}))(CompanyPeoplePhoto);

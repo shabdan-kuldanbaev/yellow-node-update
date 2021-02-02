@@ -6,6 +6,9 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import get from 'lodash/get';
+import { selectHomepageProjectsPreview } from 'redux/selectors/layout';
 import { Advantages } from 'containers';
 import {
   Works,
@@ -13,16 +16,18 @@ import {
   ButtonMore,
   Animated,
 } from 'components';
+import { getDocumentFields } from 'utils/helper';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Portfolio = ({ gradientRef }) => {
+const Portfolio = ({ gradientRef, projects }) => {
   const [backgroundColor, setBackgroundColor] = useState('firstBlock');
   const [blockNumber, setBlockNumber] = useState(0);
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const portfolioRef = useRef(null);
   const [currentNumber, setCurrentNumber] = useState(4);
+  const { content } = getDocumentFields(projects, ['content']);
 
   const changeStyle = (index) => {
     refs[0].current.classList.remove(styles[blockNumbers[index + 1]]);
@@ -33,41 +38,49 @@ export const Portfolio = ({ gradientRef }) => {
   };
 
   const handleOnScroll = () => {
-    const halfHeight = refs && refs[1].current.getBoundingClientRect().height / 2;
-    const [
-      zeroBlock,
-      firstBottom,
-      secondBottom,
-      thirdBottom,
-    ] = [
-      refs[0].current.getBoundingClientRect().bottom,
-      refs[1].current.getBoundingClientRect().bottom,
-      refs[2].current.getBoundingClientRect().bottom,
-      refs[3].current.getBoundingClientRect().bottom,
-    ];
+    const isWorksRefsExist = !refs.reduce((acc, ref) => {
+      acc.push(!!get(ref, 'current', false));
 
-    if (zeroBlock < halfHeight && (firstBottom > halfHeight && secondBottom > halfHeight && thirdBottom > halfHeight)) {
-      if (currentNumber !== 1) {
-        setBlockNumber(0);
-        changeStyle(1);
-        setCurrentNumber(1);
-      }
-    } else if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
-      if (currentNumber !== 2) {
+      return acc;
+    }, []).includes(false);
+    const halfHeight = isWorksRefsExist && refs[1].current.getBoundingClientRect().height / 2;
+
+    if (isWorksRefsExist) {
+      const [
+        zeroBlock,
+        firstBottom,
+        secondBottom,
+        thirdBottom,
+      ] = [
+        refs[0].current.getBoundingClientRect().bottom,
+        refs[1].current.getBoundingClientRect().bottom,
+        refs[2].current.getBoundingClientRect().bottom,
+        refs[3].current.getBoundingClientRect().bottom,
+      ];
+
+      if (zeroBlock < halfHeight && (firstBottom > halfHeight && secondBottom > halfHeight && thirdBottom > halfHeight)) {
+        if (currentNumber !== 1) {
+          setBlockNumber(0);
+          changeStyle(1);
+          setCurrentNumber(1);
+        }
+      } else if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
+        if (currentNumber !== 2) {
+          setBlockNumber(1);
+          changeStyle(2);
+          setCurrentNumber(2);
+        }
+      } else if (secondBottom < halfHeight) {
+        if (currentNumber !== 3) {
+          setBlockNumber(2);
+          changeStyle(3);
+          setCurrentNumber(3);
+        }
+      } else if (currentNumber !== 0) {
         setBlockNumber(1);
-        changeStyle(2);
-        setCurrentNumber(2);
+        changeStyle(0);
+        setCurrentNumber(0);
       }
-    } else if (secondBottom < halfHeight) {
-      if (currentNumber !== 3) {
-        setBlockNumber(2);
-        changeStyle(3);
-        setCurrentNumber(3);
-      }
-    } else if (currentNumber !== 0) {
-      setBlockNumber(1);
-      changeStyle(0);
-      setCurrentNumber(0);
     }
   };
 
@@ -87,7 +100,7 @@ export const Portfolio = ({ gradientRef }) => {
       <div className={styles.gradient} ref={gradientRef}>
         <Advantages refs={refs} className={styles[backgroundColor]} />
         <section ref={portfolioRef} className={cn(styles.portfolio, styles[backgroundColor])}>
-          <Works refs={refs} />
+          <Works refs={refs} works={content} />
           <div className={styles.bottomOfPortfolio}>
             <SectionTitle
               title="Check out more works by Yellow"
@@ -117,4 +130,11 @@ export const Portfolio = ({ gradientRef }) => {
 
 Portfolio.propTypes = {
   gradientRef: PropTypes.instanceOf(Object).isRequired,
+  projects: PropTypes.instanceOf(Object).isRequired,
 };
+
+export default connect(
+  (state) => ({
+    projects: selectHomepageProjectsPreview(state),
+  }),
+)(Portfolio);

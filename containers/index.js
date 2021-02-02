@@ -6,9 +6,9 @@ export { Advantages } from 'containers/Home/Advantages';
 export { default as Blog } from 'containers/Home/Blog';
 export { Insta } from 'containers/Home/Insta';
 export { default as Intro } from 'containers/Home/Intro';
-export { Portfolio } from 'containers/Home/Portfolio';
+export { default as Portfolio } from 'containers/Home/Portfolio';
 export { ReviewsContainer } from 'containers/Home/Reviews';
-export { Home } from 'containers/Home';
+export { default as Home } from 'containers/Home';
 export { default as FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 
 // Blog
@@ -27,7 +27,7 @@ export { default as ProcessContainer } from 'containers/Process';
 export { default as ProjectContainer } from 'containers/Project';
 
 // Company
-export { CompanyContainer } from 'containers/Company';
+export { default as CompanyContainer } from 'containers/Company';
 
 // ContactUs
 export { default as ContactUsContainer } from 'containers/ContactUs';

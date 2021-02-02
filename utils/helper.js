@@ -4,6 +4,7 @@ import {
   horizontalMobile,
   bigTabletResolution,
   silver,
+  fullHdResolution,
 } from 'styles/utils/_variables.scss';
 import { PAGES } from './constants';
 
@@ -29,6 +30,7 @@ export const validateEmail = (email) => {
 };
 
 export const mobileResolution = toInt(phoneResolution);
+export const fullResolution = toInt(fullHdResolution);
 export const horizontalPhone = toInt(horizontalMobile);
 export const tabletResolution = toInt(bigTabletResolution);
 export const previewImageBackground = toString(silver);
@@ -64,6 +66,8 @@ export const getMainLinksForSitemap = (updatedAt) => [
 export const rootUrl = process.env.NODE_ENV === 'development'
   ? process.env.DEV_URL
   : process.env.PROD_URL;
+
+export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
 
 export const createMarkup = (data) => ({ __html: data });
 
