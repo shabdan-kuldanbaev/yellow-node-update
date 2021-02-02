@@ -4,6 +4,12 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getOptimizedImage,
+} from 'utils/helper';
+import { sizesOfImages } from '../utils/data';
 import styles from './styles.module.scss';
 
 export const DesktopCarousel = ({ photos }) => {
@@ -77,11 +83,22 @@ export const DesktopCarousel = ({ photos }) => {
       >
         <div className={styles.listWrapper}>
           <ul ref={listRef} className={styles.unorderedList}>
-            {gallery && gallery.map((photo, index) => (
-              <li key={`gallary/photo/${index}`} className={styles[photo.size]}>
-                <img src={photo.img} alt="" />
-              </li>
-            ))}
+            {gallery && gallery.map((photoData, index) => {
+              const { image, carouselImageType } = getDocumentFields(
+                photoData,
+                ['image', 'carouselImageType'],
+              );
+              const imageUrl = getOptimizedImage(
+                getFileUrl(image),
+                sizesOfImages[`${carouselImageType}ImgDesctop`],
+              );
+
+              return (
+                <li key={`gallary/photo/${index}`} className={styles[`${carouselImageType}Img`]}>
+                  <img src={imageUrl} alt="" />
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

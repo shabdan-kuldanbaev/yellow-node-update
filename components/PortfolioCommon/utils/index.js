@@ -15,7 +15,7 @@ const linkProps = {
 
 export const animatedFields = [
   {
-    field: 'name',
+    field: 'title',
     transitionDelay: 300,
     ...animatedProps,
   },

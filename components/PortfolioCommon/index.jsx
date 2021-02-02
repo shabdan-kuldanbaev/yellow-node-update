@@ -7,7 +7,9 @@ import {
   withScroll,
 } from 'components';
 import { ROUTES } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { animatedFields } from './utils';
+import { FieldsWrapper } from './FieldsWrapper';
 import styles from './styles.module.scss';
 
 const Portfolio = ({
@@ -28,46 +30,37 @@ const Portfolio = ({
     maxPosition.current = maxScrollPosition;
   }, [maxScrollPosition]);
 
-  const switchRender = ({ field }, work) => {
-    switch (field) {
-    case 'name':
-      return <h1>{work.name}</h1>;
-    case 'description':
-      return <p>{work.description}</p>;
-    // TODO case 'link':
-    //   return (
-    //     <LinkWrapper
-    //       {...animated}
-    //       className={styles.buttonWrap}
-    //     >
-    //       <button type="button">See full case study</button>
-    //     </LinkWrapper>
-    //   );
-    default:
-      return null;
-    }
-  };
-
   return (
     <div className={styles.worksContainer}>
-      {works && works.map((work, index) => (
-        <div
-          className={styles.work}
-          key={`works/${work.name}`}
-          data-index={index}
-        >
-          <div className={styles.workWrapper}>
-            <div className={styles.desc}>
-              {animatedFields && animatedFields.map((animated) => (
-                <Animated {...animated}>
-                  {switchRender(animated, work)}
-                </Animated>
-              ))}
+      {works && works.map((work, index) => {
+        const { previewImage, title, description } = getDocumentFields(
+          work,
+          ['previewImage', 'title', 'description'],
+        );
+
+        return (
+          <div
+            className={styles.work}
+            key={`works/${title}`}
+            data-index={index}
+          >
+            <div className={styles.workWrapper}>
+              <div className={styles.desc}>
+                {animatedFields && animatedFields.map((animated) => (
+                  <Animated {...animated}>
+                    <FieldsWrapper
+                      animated={animated}
+                      title={title}
+                      description={description}
+                    />
+                  </Animated>
+                ))}
+              </div>
+              <PreviewImage image={getFileUrl(previewImage)} />
             </div>
-            <PreviewImage image={work.image} />
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

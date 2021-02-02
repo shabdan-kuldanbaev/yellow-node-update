@@ -1,47 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {
-  Animated,
-} from 'components';
+import { connect } from 'react-redux';
+import { selectIsMobileResolutions, selectIsFullResolutions } from 'redux/selectors/layout';
+import { Animated } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { animatedFields } from './utils';
+import { getOptimizedImage } from 'utils/helper';
+import { FieldsWrapper } from './FieldsWrapper';
+import { animatedFields, imagesSizes } from './utils';
 import styles from './styles.module.scss';
 
-export const Work = ({
+const Work = ({
   refs,
-  work,
   index,
   animatedFields,
+  isMobileResolution,
+  isFullResolution,
+  imageUrl,
+  title,
+  description,
 }) => {
-  const switchRender = ({ field }, work) => {
-    switch (field) {
-    case 'name':
-      return <h1>{work.name}</h1>;
-    case 'desc':
-      return <p>{work.description}</p>;
-    // TODO case 'link':
-    //   return (
-    //     <LinkWrapper {...animated} className={styles.buttonWrap}>
-    //       <button type="button">See full case study</button>
-    //     </LinkWrapper>
-    //   );
-    default:
-      return null;
-    }
-  };
+  let sizeOfImage; // TODO rewrite it after the release
+  const {
+    mobileFirst,
+    mobileSecond,
+    fullFirst,
+    fullSecond,
+  } = imagesSizes;
+
+  if (isMobileResolution) sizeOfImage = index === 0 ? mobileFirst : mobileSecond;
+  else if (isFullResolution) sizeOfImage = index === 0 ? fullFirst : fullSecond;
 
   return (
     <div
       className={styles.work}
-      key={`works/${work.name}`}
+      key={`works/${title}`}
       data-index={index}
       ref={refs[index + 1]}
     >
       <div className={styles.desc}>
         {animatedFields && animatedFields.map((animated) => (
           <Animated {...animated}>
-            {switchRender(animated, work)}
+            <FieldsWrapper
+              animated={animated}
+              title={title}
+              description={description}
+            />
           </Animated>
         ))}
       </div>
@@ -54,8 +58,8 @@ export const Work = ({
               { [styles.thirdShadow]: index === 2 },
             )}
           >
-            <img src={work.preview} alt={work.preview} />
-            {/* //TODO
+            <img src={sizeOfImage ? getOptimizedImage(imageUrl, sizeOfImage, 'png', 'png8') : imageUrl} alt={title} />
+            {/* //TODO return later
           {work.videoName && (
             <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />
           )}
@@ -73,7 +77,16 @@ Work.defaultProps = {
 
 Work.propTypes = {
   refs: PropTypes.instanceOf(Object).isRequired,
-  work: PropTypes.instanceOf(Object).isRequired,
   index: PropTypes.number.isRequired,
   animatedFields: PropTypes.instanceOf(Array),
+  isMobileResolution: PropTypes.bool.isRequired,
+  isFullResolution: PropTypes.bool.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
+
+export default connect((state) => ({
+  isMobileResolution: selectIsMobileResolutions(state),
+  isFullResolution: selectIsFullResolutions(state),
+}))(Work);

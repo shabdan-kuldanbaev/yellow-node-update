@@ -60,7 +60,7 @@ export { OldArticle } from 'components/BlogCommon/Article/OldArticle';
 
 // PortfolioCommon
 export { default as Portfolio } from 'components/PortfolioCommon';
-export { PreviewImage } from 'components/PortfolioCommon/PreviewImage';
+export { default as PreviewImage } from 'components/PortfolioCommon/PreviewImage';
 
 // ProjectCommon
 export { Project } from 'components/ProjectCommon';
@@ -78,5 +78,5 @@ export { Awards } from 'components/CompanyCommon/Awards';
 // ContactUsCommon
 export { default as FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
 export { Calendar } from 'components/ContactUsCommon/Calendar';
-export { CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
+export { default as CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
 export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';

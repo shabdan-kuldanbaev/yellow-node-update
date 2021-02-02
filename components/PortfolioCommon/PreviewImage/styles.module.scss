@@ -29,14 +29,12 @@
     height: max-content;
     @include flex(column, center, center);
 
-    div {
-      @include flex(row, center, center);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      padding-top: calc(100% / (4 / 3));
+    & > span {
       width: 100%;
-      opacity: 1;
+
+      & > img {
+        width: 100%;
+      }
     }
   }
 }

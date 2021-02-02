@@ -1,24 +1,27 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectWorks, selectIsLoading } from 'redux/selectors/portfolio';
-import { loadWorks } from 'redux/actions/portfolio';
+import { selectPortfolioProjectsPreview, selectIsLoading } from 'redux/selectors/layout';
+import { fetchPage } from 'redux/actions/layout';
 import {
   Portfolio,
   Loader,
   MetaTags,
 } from 'components';
+import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const PortfolioContainer = ({
   introSection,
-  works,
+  portfolioProjects,
   isLoading,
-  loadWorks: loadCurrentWorks,
+  fetchPage,
 }) => {
+  const { content } = getDocumentFields(portfolioProjects, ['content']);
+
   useEffect(() => {
-    loadCurrentWorks();
+    fetchPage(PAGES.portfolio);
   }, []);
 
   return (
@@ -26,7 +29,7 @@ const PortfolioContainer = ({
       <MetaTags page={PAGES.portfolio} />
       <section ref={introSection} className={styles.portfolio}>
         <Loader isLoading={!isLoading}>
-          <Portfolio works={works} />
+          {content && <Portfolio works={content} />}
         </Loader>
       </section>
     </Fragment>
@@ -35,14 +38,14 @@ const PortfolioContainer = ({
 
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  works: PropTypes.instanceOf(Array).isRequired,
+  portfolioProjects: PropTypes.instanceOf(Object).isRequired,
   isLoading: PropTypes.bool.isRequired,
-  loadWorks: PropTypes.func.isRequired,
+  fetchPage: PropTypes.func.isRequired,
 };
 
 export default connect(
   (state) => ({
-    works: selectWorks(state),
+    portfolioProjects: selectPortfolioProjectsPreview(state),
     isLoading: selectIsLoading(state),
-  }), { loadWorks },
+  }), { fetchPage },
 )(PortfolioContainer);
