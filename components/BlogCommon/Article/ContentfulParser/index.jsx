@@ -30,48 +30,48 @@ export const ContentfulParser = ({ document }) => {
         const id = get(node, 'data.target.sys.contentType.sys.id', '');
 
         switch (id) {
-        case 'bookmark': {
+        case 'articleBookmark': {
           const {
             title,
             slug,
             description,
-            headImageUrl,
+            image,
           } = getDocumentFields(
-            get(node, 'data.target.fields.article', {}),
-            ['title', 'slug', 'description', 'headImageUrl'],
+            get(node, 'data.target', {}),
+            ['title', 'slug', 'description', 'image'],
           );
-          const image = getFileUrl(headImageUrl);
+          const imageUrl = getFileUrl(image);
 
-          return (title && slug && description && image && (
+          return (title && slug && description && imageUrl && (
             <BookmarkCard
-              titte={title}
+              title={title}
               slug={slug}
               description={description}
-              image={image}
+              image={imageUrl}
             />
           )
           );
         }
         case 'image': {
-          const { type, image, photoCaption } = getDocumentFields(
+          const { articleSingleImageType, image, title } = getDocumentFields(
             get(node, 'data.target', ''),
-            ['type', 'image', 'photoCaption'],
+            ['articleSingleImageType', 'image', 'title'],
           );
           const imageUrl = getFileUrl(image);
 
-          return (type && image && (
+          return (articleSingleImageType && imageUrl && (
             <div className={styles.imageWrapper}>
-              <div className={type === 'normal' ? styles.normalImage : styles.fullImage}>
+              <div className={articleSingleImageType === 'normal' ? styles.normalImage : styles.fullImage}>
                 <Animated type={ANIMATED_TYPE.imageZoom}>
                   <img src={imageUrl} alt={imageUrl} />
                 </Animated>
-                {photoCaption && <div className={styles.photoCaption}>{photoCaption}</div>}
+                {title && <div className={styles.photoCaption}>{title}</div>}
               </div>
             </div>
           )
           );
         }
-        case 'gallery': {
+        case 'articleGalleryCard': {
           const { images, photoCaption } = getDocumentFields(
             get(node, 'data.target', {}),
             ['images', 'photoCaption'],

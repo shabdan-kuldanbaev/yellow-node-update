@@ -5,6 +5,7 @@ import {
   Loader,
   ImageWithPlaceholder,
 } from 'components';
+import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -26,7 +27,7 @@ const NextPrev = ({
       <div className={isNewer ? styles.newer : styles.older}>
         <LinkWrapper {...linkProps}>
           <div className={styles.imgContainer}>
-            <ImageWithPlaceholder src={previewImageUrl} imageStyle={styles.img} />
+            <ImageWithPlaceholder src={getOptimizedImage(previewImageUrl, 230)} imageStyle={styles.img} />
           </div>
         </LinkWrapper>
         <div className={styles.content}>

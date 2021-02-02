@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper, ImageWithPlaceholder } from 'components';
+import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import Like from './images/like.svg';
 import styles from './styles.module.scss';
@@ -35,7 +36,7 @@ export const BookmarkCard = ({
           </div>
         </div>
         <div className={styles.imgContainer}>
-          <ImageWithPlaceholder src={image} />
+          <ImageWithPlaceholder src={getOptimizedImage(image, 510)} />
         </div>
       </div>
     </div>

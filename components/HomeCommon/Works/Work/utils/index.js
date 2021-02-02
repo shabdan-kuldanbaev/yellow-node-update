@@ -15,12 +15,12 @@ const linkProps = {
 
 export const animatedFields = [
   {
-    field: 'name',
+    field: 'title',
     transitionDelay: 50,
     ...animatedProps,
   },
   {
-    field: 'desc',
+    field: 'description',
     transitionDelay: 50,
     ...animatedProps,
   },
@@ -31,3 +31,10 @@ export const animatedFields = [
     ...linkProps,
   },
 ];
+
+export const imagesSizes = {
+  mobileFirst: 570,
+  fullFirst: 980,
+  mobileSecond: 350,
+  fullSecond: 515,
+};

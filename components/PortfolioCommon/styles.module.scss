@@ -191,57 +191,6 @@
           max-width: calc(100% - (#{$side-indent} * 3));
         }
 
-        h1 {
-          @include big-title();
-          margin-top: 0;
-          margin-bottom: 60px;
-
-          @include below-tablet {
-            margin-top: 40px;
-          }
-
-          @include below-tablet-horizontal {
-            font-size: 2.5rem;
-          }
-
-          @include phone {
-            max-width: calc(100% - 40px);
-            font-size: 2.5rem;
-            margin: 40px auto 25px 0px;
-          }
-
-          @include horizontal-mobile {
-            margin: 20px auto 15px 0px;
-          }
-        }
-
-        p {
-          margin: 0;
-          margin-top: -20px;
-          margin-bottom: 35px;
-          font-size: 1.25rem;
-          line-height: 1.8;
-          letter-spacing: 0.5px;
-          color: $black;
-          word-wrap: normal;
-
-          @include below-tablet-horizontal {
-            font-size: 1rem;
-          }
-
-          @include phone {
-            max-width: calc(100% - 40px);
-            font-size: 1rem;
-            max-width: 100%;
-            margin: auto 20px 25px 0px;
-          }
-
-          @include horizontal-mobile {
-            margin-bottom: 15px;
-            margin-top: 0px;
-          }
-        }
-
         .buttonWrap {
           padding: 5px 0 10px;
           cursor: pointer;

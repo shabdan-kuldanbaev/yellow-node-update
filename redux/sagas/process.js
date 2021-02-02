@@ -1,5 +1,7 @@
 import {
-  put, call, takeLatest,
+  put,
+  call,
+  takeLatest,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';

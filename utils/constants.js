@@ -60,3 +60,13 @@ export const ROUTES = {
   company: '/company',
   contact: '/contact',
 };
+
+export const BLOCKS_SLUGS = {
+  homepagePreviewProjects: 'homepage-preview-projects',
+  portfolioPagePreviewProjects: 'portfolio-page-preview-projects',
+  imageCarousel: 'image-carousel',
+  companyPageWhatMakesSpecial: 'company-page-what-makes-us-special',
+  compnayPageManagementTeam: 'company-page-management-team',
+  contactPageCompanyPhoto: 'contact-page-company-photo',
+  contactPageContacts: 'contact-page-contacts',
+};

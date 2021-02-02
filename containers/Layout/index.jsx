@@ -11,6 +11,7 @@ import {
   setMobileResolutions,
   setTabletResolutions,
   setPageLoading,
+  setFullResolution,
 } from 'redux/actions/layout';
 import { sendEmail } from 'redux/actions/contact';
 import { selectIsBlogOpen } from 'redux/selectors/blog';
@@ -22,7 +23,11 @@ import {
   FullScreenEstimation,
   GAnalytic,
 } from 'components';
-import { mobileResolution, tabletResolution } from 'utils/helper';
+import {
+  mobileResolution,
+  tabletResolution,
+  fullResolution,
+} from 'utils/helper';
 
 export const Layout = ({
   isLoading,
@@ -78,11 +83,16 @@ export const Layout = ({
 
   useEffect(() => {
     const handleOnResize = () => {
-      if (window.innerWidth <= mobileResolution) dispatch(setMobileResolutions(true));
+      const { innerWidth } = window;
+
+      if (innerWidth <= mobileResolution) dispatch(setMobileResolutions(true));
       else dispatch(setMobileResolutions(false));
 
-      if (window.innerWidth <= tabletResolution) dispatch(setTabletResolutions(true));
+      if (innerWidth > mobileResolution && innerWidth <= tabletResolution) dispatch(setTabletResolutions(true));
       else dispatch(setTabletResolutions(false));
+
+      if (innerWidth > tabletResolution && innerWidth <= fullResolution) dispatch(setFullResolution(true));
+      else dispatch(setFullResolution(false));
     };
 
     handleOnResize();
