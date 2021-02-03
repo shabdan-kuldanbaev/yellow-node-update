@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
-import { selectSuscribeMessage } from 'redux/selectors/subscribe';
-import { LinkWrapper } from 'components';
+import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
 import { withValidateEmail } from 'hocs';
 import Background from './images/background.jpg';
 import styles from './styles.module.scss';
@@ -16,6 +15,7 @@ const SubscribeBlock = ({
   handleOnSubmit,
   message,
   clearMessage,
+  isSubscribed,
 }) => {
   const handleOnClick = (event) => {
     event.preventDefault();
@@ -25,7 +25,7 @@ const SubscribeBlock = ({
 
   useEffect(() => () => clearMessage(), []);
 
-  return (
+  return (!isSubscribed ? (
     <section className={cn(styles.subscribeBlock, {
       [styles.blogPage]: isBlog,
       [styles.articlePage]: !isBlog,
@@ -40,11 +40,9 @@ const SubscribeBlock = ({
               onChange={handleOnEmailChange}
               placeholder="Your email address"
             />
-            <LinkWrapper path="/" isLocalLink>
-              <div className={styles.button} onClick={handleOnClick}>
-                Subscribe
-              </div>
-            </LinkWrapper>
+            <div className={styles.button} onClick={handleOnClick}>
+              Subscribe
+            </div>
             {message && <span className={styles.alertMessage}>{message}</span>}
           </form>
         </div>
@@ -53,7 +51,7 @@ const SubscribeBlock = ({
         </div>
       </div>
     </section>
-  );
+  ) : null);
 };
 
 SubscribeBlock.defaultProps = {
@@ -67,8 +65,10 @@ SubscribeBlock.propTypes = {
   handleOnSubmit: PropTypes.func.isRequired,
   message: PropTypes.string.isRequired,
   clearMessage: PropTypes.func.isRequired,
+  isSubscribed: PropTypes.bool.isRequired,
 };
 
 export default connect((state) => ({
-  message: selectSuscribeMessage(state),
+  message: selectSubscribeMessage(state),
+  isSubscribed: selectIsSubscribed(state),
 }), { clearMessage })(withValidateEmail(SubscribeBlock));

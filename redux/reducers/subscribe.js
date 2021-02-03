@@ -3,6 +3,7 @@ import { actionTypes } from 'actions/actionTypes';
 const initialState = {
   isLoading: false,
   message: '',
+  isSubscribed: false,
   error: null,
 };
 
@@ -22,10 +23,26 @@ const handlers = {
     message: data,
     error: true,
   }),
+  [actionTypes.FETCH_SUBSCRIBER_PENDING]: (state) => ({
+    ...state,
+    isLoading: true,
+  }),
+  [actionTypes.FETCH_SUBSCRIBER_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    isSubscribed: true,
+  }),
+  [actionTypes.FETCH_SUBSCRIBER_FAILED]: (state) => ({
+    ...state,
+    isLoading: false,
+    isSubscribed: false,
+    error: true,
+  }),
   [actionTypes.CLEAR_MESSAGE]: (state) => ({
     ...state,
     message: '',
   }),
+  [actionTypes.SET_IS_SUBSCRIBED]: (state) => ({ ...state, isSubscribed: true }),
   DEFAULT: (state) => state,
 };
 

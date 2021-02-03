@@ -1,13 +1,10 @@
 const Mailchimp = require('mailchimp-api-v3');
-const md5 = require('md5');
 
 const mailchimp = new Mailchimp(process.env.MAILCHIMP_API_KEY);
 const membersPath = (subscriberHash) => `/lists/${process.env.MAILCHIMP_LIST_ID}/members/${subscriberHash}`;
 
-module.exports.getSubscriber = async (email, callback) => {
+module.exports.getSubscriber = async (subscriberHash, callback) => {
   try {
-    const subscriberHash = md5(email);
-
     const getSubscriberOptions = {
       method: 'get',
       path: membersPath(subscriberHash),
@@ -19,10 +16,8 @@ module.exports.getSubscriber = async (email, callback) => {
   }
 };
 
-module.exports.addSubscriber = async (email, res) => {
+module.exports.addSubscriber = async (subscriberHash, email, res) => {
   try {
-    const subscriberHash = md5(email);
-
     const addSubscriberOptions = {
       method: 'put',
       path: membersPath(subscriberHash),
@@ -32,11 +27,11 @@ module.exports.addSubscriber = async (email, res) => {
       },
     };
 
-    await mailchimp.request(addSubscriberOptions, (error) => {
+    await mailchimp.request(addSubscriberOptions, (error, result) => {
       if (error) {
-        res.status(502).send('Sorry, there was an error sending you email. Please double check your email adress');
+        res.status(502).send({ message: 'Sorry, there was an error sending you email. Please double check your email adress' });
       } else {
-        res.status(201).send('Great! Awesome content is coming your way');
+        res.status(201).send({ message: 'Great! Awesome content is coming your way', unique_id: result.id });
       }
     });
   } catch (err) {
@@ -44,10 +39,8 @@ module.exports.addSubscriber = async (email, res) => {
   }
 };
 
-module.exports.unsubscribe = async (email, res) => {
+module.exports.unsubscribe = async (subscriberHash, res) => {
   try {
-    const subscriberHash = md5(email);
-
     const deleteSubscriberOptions = {
       method: 'put',
       path: membersPath(subscriberHash),

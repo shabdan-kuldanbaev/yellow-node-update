@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
-import { selectSuscribeMessage } from 'redux/selectors/subscribe';
+import { selectSubscribeMessage } from 'redux/selectors/subscribe';
 import {
   ButtonMore,
   AnimatedInput,
@@ -92,5 +92,5 @@ FullscreenSubscribe.propTypes = {
 };
 
 export default connect((state) => ({
-  message: selectSuscribeMessage(state),
+  message: selectSubscribeMessage(state),
 }), { clearMessage })(withValidateEmail(FullscreenSubscribe));
