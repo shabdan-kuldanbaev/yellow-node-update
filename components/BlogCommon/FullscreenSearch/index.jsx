@@ -17,14 +17,12 @@ const FullscreenSearch = ({
   closeFullscreenSearch,
   findArticles,
   clearFoundArticles,
-  found,
+  foundArticles,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
 
-  const fetchData = (query) => findArticles({ value: query });
-  const delayedQuery = useCallback(debounce((query) => fetchData(query), 1000), []);
-
+  const delayedQuery = useCallback(debounce((value) => findArticles({ value }), 1000), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
 
@@ -59,15 +57,14 @@ const FullscreenSearch = ({
         />
       </div>
       <div className={styles.foundArticles}>
-        {(!inputValue || !found.length)
+        {(!inputValue || !(foundArticles && foundArticles.length))
           ? <span className={styles.nothingFound}>Nothing Found. Please try again with some different keywords.</span>
           : (
             <ArticlesList
-              articles={found}
+              articles={foundArticles}
               isLoading={false}
               page={2}
               isSearch
-              asPath=""
             />
           )}
       </div>
@@ -84,9 +81,9 @@ FullscreenSearch.propTypes = {
   closeFullscreenSearch: PropTypes.func.isRequired,
   findArticles: PropTypes.func.isRequired,
   clearFoundArticles: PropTypes.func.isRequired,
-  found: PropTypes.instanceOf(Array).isRequired,
+  foundArticles: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default connect((state) => ({
-  found: selectFoundArticles(state),
+  foundArticles: selectFoundArticles(state),
 }), { findArticles, clearFoundArticles })(FullscreenSearch);

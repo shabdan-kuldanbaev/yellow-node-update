@@ -107,7 +107,7 @@ const ArticleContainer = ({
         isLoading={isLoading}
       />
       <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
-      {relatedArticles.length ? <RelatedSection articles={relatedArticles} isLoading={isLoading} /> : ''}
+      {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} isLoading={isLoading} />}
       <div className={styles.nextPrevSection}>
         <NextPrev
           isNewer
