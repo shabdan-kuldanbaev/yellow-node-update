@@ -103,14 +103,14 @@ export const Layout = ({
 
   return (
     <Fragment>
-      {!isBlogLoaded && (
+      {/* {!isBlogLoaded && (
         <PageLoading
           isLoading={isLoading}
           isBlogOpen={isBlogOpen}
           handleOnBlogLoad={handleOnBlogLoad}
           asPath={asPath}
         />
-      )}
+      )} */}
       <CookiesNotification />
       <Header theme={theme} introSection={introSection} />
       {children}

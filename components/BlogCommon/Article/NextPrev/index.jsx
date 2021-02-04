@@ -23,23 +23,21 @@ const NextPrev = ({
   };
 
   return (slug && title && previewImageUrl ? (
-    <Loader isLoading={!isLoading}>
-      <div className={isNewer ? styles.newer : styles.older}>
-        <LinkWrapper {...linkProps}>
-          <div className={styles.imgContainer}>
-            <ImageWithPlaceholder src={getOptimizedImage(previewImageUrl, 230)} imageStyle={styles.img} />
-          </div>
-        </LinkWrapper>
-        <div className={styles.content}>
-          <small>{isNewer ? 'NEWER POST' : 'OLDER POST'}</small>
-          <h3 className={styles.title}>
-            <LinkWrapper {...linkProps}>
-              {title}
-            </LinkWrapper>
-          </h3>
+    <div className={isNewer ? styles.newer : styles.older}>
+      <LinkWrapper {...linkProps}>
+        <div className={styles.imgContainer}>
+          <ImageWithPlaceholder src={getOptimizedImage(previewImageUrl, 230)} imageStyle={styles.img} />
         </div>
+      </LinkWrapper>
+      <div className={styles.content}>
+        <small>{isNewer ? 'NEWER POST' : 'OLDER POST'}</small>
+        <h3 className={styles.title}>
+          <LinkWrapper {...linkProps}>
+            {title}
+          </LinkWrapper>
+        </h3>
       </div>
-    </Loader>
+    </div>
   ) : null);
 };
 

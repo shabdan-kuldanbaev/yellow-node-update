@@ -35,22 +35,20 @@ const Article = ({
   }, [maxScrollPosition]);
 
   return (
-    <Loader isLoading={!isLoading}>
-      <section ref={introSection} className={styles.article}>
-        <header className={styles.header}>
-          <div>
-            <div style={{ backgroundImage: `url(${headImage})` }} />
-          </div>
-          <div className={styles.container}>
-            <h1 className={styles.h1}>{title}</h1>
-            <p>{introduction}</p>
-          </div>
-        </header>
-        <div className={styles.body} ref={articleBodyRef}>
-          {oldBody ? <OldArticle oldBody={oldBody} /> : <ContentfulParser document={body} />}
+    <section ref={introSection} className={styles.article}>
+      <header className={styles.header}>
+        <div>
+          <div style={{ backgroundImage: `url(${headImage})` }} />
         </div>
-      </section>
-    </Loader>
+        <div className={styles.container}>
+          <h1 className={styles.h1}>{title}</h1>
+          <p>{introduction}</p>
+        </div>
+      </header>
+      <div className={styles.body} ref={articleBodyRef}>
+        {oldBody ? <OldArticle oldBody={oldBody} /> : <ContentfulParser document={body} />}
+      </div>
+    </section>
   );
 };
 

@@ -48,8 +48,6 @@ const BlogContainer = ({
   useEffect(() => {
     const isSubscribed = getWithExpiry('isSubscribed');
 
-    console.log(isSubscribed);
-
     setIsSubscribed(isSubscribed);
   }, []);
 

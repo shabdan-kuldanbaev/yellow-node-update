@@ -16,52 +16,50 @@ export const ArticlesList = ({
 }) => (
   <div className={styles.articlesList}>
     {currentPage === 1 && asPath.includes('blog') && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
-    <Loader isLoading={!isLoading}>
-      {articles && articles.map((article, index) => {
-        const {
-          slug,
-          title,
-          categoruTag,
-          introduction,
-          previewImageUrl,
-        } = getDocumentFields(
-          article,
-          ['slug', 'title', 'categoryTag', 'introduction', 'previewImageUrl'],
-        );
-        const previewImage = getFileUrl(previewImageUrl);
-        const delay = isSearch ? (30 * index) : (100 + 100 * index);
-        const effect = 'fadeInUp';
-        const animatioProps = isSearch
-          ? {
-            type: ANIMATED_TYPE.isFade,
-            delay,
-            duration: 400,
-            distance: '100px',
-            bottom: true,
-            effect,
-          }
-          : {
-            type: ANIMATED_TYPE.isCustom,
-            translateY: '2.82352941em',
-            opasityDuration: 1,
-            transformDuration: 1,
-            transitionDelay: delay,
-          };
+    {articles && articles.map((article, index) => {
+      const {
+        slug,
+        title,
+        categoruTag,
+        introduction,
+        previewImageUrl,
+      } = getDocumentFields(
+        article,
+        ['slug', 'title', 'categoryTag', 'introduction', 'previewImageUrl'],
+      );
+      const previewImage = getFileUrl(previewImageUrl);
+      const delay = isSearch ? (30 * index) : (100 + 100 * index);
+      const effect = 'fadeInUp';
+      const animatioProps = isSearch
+        ? {
+          type: ANIMATED_TYPE.isFade,
+          delay,
+          duration: 400,
+          distance: '100px',
+          bottom: true,
+          effect,
+        }
+        : {
+          type: ANIMATED_TYPE.isCustom,
+          translateY: '2.82352941em',
+          opasityDuration: 1,
+          transformDuration: 1,
+          transitionDelay: delay,
+        };
 
-        return (
-          <Article
-            key={title}
-            countNumber={index}
-            animatioProps={animatioProps}
-            slug={slug}
-            title={title}
-            categoruTag={categoruTag}
-            introduction={introduction}
-            previewImage={previewImage}
-          />
-        );
-      })}
-    </Loader>
+      return (
+        <Article
+          key={title}
+          countNumber={index}
+          animatioProps={animatioProps}
+          slug={slug}
+          title={title}
+          categoruTag={categoruTag}
+          introduction={introduction}
+          previewImage={previewImage}
+        />
+      );
+    })}
   </div>
 );
 

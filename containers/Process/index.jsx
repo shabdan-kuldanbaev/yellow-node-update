@@ -30,9 +30,7 @@ const ProcessContainer = ({
         {/* TODO <div className={styles.intro}>
       <SectionTitle title="How we work" subtitle="A step by step guide" />
     </div> */}
-        <Loader isLoading={!isLoading}>
-          <Process processes={json} />
-        </Loader>
+        <Process processes={json} />
       </section>
     </Fragment>
   );

@@ -12,6 +12,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import Router from 'next/router';
 import configureStore from 'redux/store';
 import { Layout } from 'containers';
+import { LoadingPage } from 'components';
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
 
@@ -45,6 +46,7 @@ const App = ({
     <Fragment>
       <Provider store={store}>
         <ParallaxProvider>
+          <LoadingPage isLoading={!isPageLoaded} />
           <Layout
             isLoading={isPageLoaded}
             theme={theme}

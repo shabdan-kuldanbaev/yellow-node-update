@@ -8,39 +8,37 @@ import { Arrow } from './images';
 import styles from './styles.module.scss';
 
 const RelatedSection = ({ articles, isLoading }) => (
-  <Loader isLoading={!isLoading}>
-    <div className={styles.related}>
-      <div className={styles.headingContainer}>
-        <div className={styles.heading}>
-          <h3>Related Posts</h3>
-          <LinkWrapper isLocalLink path={ROUTES.blog}>
-            See all posts
-            <div className={styles.svgContainer}>
-              <img src={Arrow} alt="arrow" />
-            </div>
-          </LinkWrapper>
-        </div>
-      </div>
-      <div className={styles.articlesList}>
-        {articles && articles.map((article, index) => {
-          const { slug, title, headImageUrl } = getDocumentFields(
-            article,
-            ['slug', 'title', 'headImageUrl'],
-          );
-          const image = getFileUrl(headImageUrl);
-
-          return (
-            <Article
-              key={`related/${index}`}
-              slug={slug}
-              title={title}
-              image={image}
-            />
-          );
-        })}
+  <div className={styles.related}>
+    <div className={styles.headingContainer}>
+      <div className={styles.heading}>
+        <h3>Related Posts</h3>
+        <LinkWrapper isLocalLink path={ROUTES.blog}>
+          See all posts
+          <div className={styles.svgContainer}>
+            <img src={Arrow} alt="arrow" />
+          </div>
+        </LinkWrapper>
       </div>
     </div>
-  </Loader>
+    <div className={styles.articlesList}>
+      {articles && articles.map((article, index) => {
+        const { slug, title, headImageUrl } = getDocumentFields(
+          article,
+          ['slug', 'title', 'headImageUrl'],
+        );
+        const image = getFileUrl(headImageUrl);
+
+        return (
+          <Article
+            key={`related/${index}`}
+            slug={slug}
+            title={title}
+            image={image}
+          />
+        );
+      })}
+    </div>
+  </div>
 );
 
 RelatedSection.propTypes = {
