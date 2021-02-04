@@ -14,7 +14,6 @@ import {
   setFullResolution,
 } from 'redux/actions/layout';
 import { sendEmail } from 'redux/actions/contact';
-import { getSubscriber } from 'redux/actions/subscribe';
 import { selectIsBlogOpen } from 'redux/selectors/blog';
 import {
   Header,
@@ -39,7 +38,6 @@ export const Layout = ({
   setBlogStatus: setBlogCurrentStatus,
   setFirstVisit: setFirstVisitOfBlog,
   sendEmail,
-  getSubscriber,
 }) => {
   const { asPath } = useRouter();
   const dispatch = useDispatch();
@@ -68,12 +66,6 @@ export const Layout = ({
     });
     closeFullscreenEstimation();
   };
-
-  useEffect(() => {
-    const id = localStorage.getItem('unique_id');
-
-    getSubscriber(id);
-  }, [asPath]);
 
   useEffect(() => {
     dispatch(setPageLoading(isLoading));
@@ -148,7 +140,6 @@ Layout.propTypes = {
   isBlogOpen: PropTypes.bool.isRequired,
   setBlogStatus: PropTypes.func.isRequired,
   sendEmail: PropTypes.func.isRequired,
-  getSubscriber: PropTypes.func.isRequired,
 };
 
 export default connect(
@@ -157,6 +148,5 @@ export default connect(
     setBlogStatus,
     setFirstVisit,
     sendEmail,
-    getSubscriber,
   },
 )(Layout);

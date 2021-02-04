@@ -55,22 +55,6 @@ app
       }
     });
 
-    server.put('/unsubscribe', async (req, res) => {
-      try {
-        await subscribeHelper.unsubscribe(req, res);
-      } catch (err) {
-        console.log(err);
-      }
-    });
-
-    server.get('/subscriber/:id', async (req, res) => {
-      try {
-        await subscribeHelper.getMember(req, res);
-      } catch (err) {
-        console.log(err);
-      }
-    });
-
     server.get('/json', (req, res) => {
       res.status(200).json(processes);
     });

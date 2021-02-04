@@ -47,10 +47,6 @@ export const actionTypes = {
   SUBSCRIBE_SUCCESS: 'subscribe/SUBSCRIBE_SUCCESS',
   SUBSCRIBE_FAILED: 'subscribe/SUBSCRIBE_FAILED',
   /* ------------------------ */
-  FETCH_SUBSCRIBER_PENDING: 'subscribe/FETCH_SUBSCRIBER_PENDING',
-  FETCH_SUBSCRIBER_SUCCESS: 'subscribe/FETCH_SUBSCRIBER_SUCCESS',
-  FETCH_SUBSCRIBER_FAILED: 'subscribe/FETCH_SUBSCRIBER_FAILED',
-  /* ------------------------ */
   CLEAR_MESSAGE: 'subscribe/CLEAR_MESSAGE',
   SET_IS_SUBSCRIBED: 'subscribe/SET_IS_SUBSCRIBED',
   /* ------------------------ */

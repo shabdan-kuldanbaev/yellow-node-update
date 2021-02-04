@@ -10,11 +10,6 @@ export const clearMessage = (payload) => ({
   payload,
 });
 
-export const getSubscriber = (payload) => ({
-  type: actionTypes.FETCH_SUBSCRIBER_PENDING,
-  payload,
-});
-
 export const setIsSubscribed = (payload) => ({
   type: actionTypes.SET_IS_SUBSCRIBED,
   payload,
