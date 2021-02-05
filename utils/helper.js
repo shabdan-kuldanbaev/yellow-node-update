@@ -86,3 +86,5 @@ export const getDocumentFields = (document, fields = []) => {
 
   return get(document, 'fields', null);
 };
+
+export const hoursToMs = (duration) => (duration * 60 * 60 * 1000);

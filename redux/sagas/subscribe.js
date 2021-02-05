@@ -8,6 +8,7 @@ import ObjectAssign from 'es6-object-assign';
 import ReactGA from 'react-ga';
 import { API } from 'utils/api';
 import { setWithExpiry } from 'utils/localStorageUtils';
+import { hoursToMs } from 'utils/helper';
 import { actionTypes } from '../actions/actionTypes';
 
 ObjectAssign.polyfill();
@@ -23,7 +24,7 @@ function* subscribe({ payload: { email, pathname } }) {
       label: pathname,
     });
 
-    setWithExpiry('isSubscribed', true, 10000);
+    setWithExpiry('isSubscribed', true, hoursToMs(24));
 
     yield put({ type: actionTypes.SUBSCRIBE_SUCCESS, payload: data });
   } catch (err) {

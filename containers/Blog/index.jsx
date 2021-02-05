@@ -20,9 +20,9 @@ import {
 } from 'components';
 import { toInt } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import { getWithExpiry } from 'utils/localStorageUtils';
 import { arrows } from './utils/data';
 import styles from './styles.module.scss';
-import { getWithExpiry } from '../../utils/localStorageUtils';
 
 const BlogContainer = ({
   introSection,
@@ -47,8 +47,6 @@ const BlogContainer = ({
 
   useEffect(() => {
     const isSubscribed = getWithExpiry('isSubscribed');
-
-    console.log(isSubscribed);
 
     setIsSubscribed(isSubscribed);
   }, []);
