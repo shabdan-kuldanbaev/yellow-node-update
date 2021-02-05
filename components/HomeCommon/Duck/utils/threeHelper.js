@@ -167,7 +167,7 @@ export const three = {
       powerPreference: 'high-performance',
     });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.clientWidth, window.innerHeight);
+    renderer.setSize(document.documentElement.clientWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
     renderer.autoClear = false;
 

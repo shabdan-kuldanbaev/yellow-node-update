@@ -17,7 +17,7 @@
   }
 
   .imgContainer {
-    .img {
+    img {
       border-radius: 4px 0 0 4px;
     }
   }
@@ -45,7 +45,7 @@
   }
 
   .imgContainer {
-    .img {
+    img {
       border-radius: 0 4px 4px 0;
     }
   }
@@ -140,31 +140,31 @@
     }
 
     &>small {
-      font-size: 11px;
+      @include fontSize(11px);
       font-weight: 500;
       letter-spacing: 1px;
     }
 
     .title {
-      font-size: 26px;
+      @include fontSize(26px);
       font-weight: 600;
       line-height: 1.5;
       margin: 12px 0 0;
 
       @include desktop {
-        font-size: 22px;
+        @include fontSize(22px);
       }
 
       @include tablet {
-        font-size: 18px;
+        @include fontSize(18px);
       }
 
       @include below-tablet {
-        font-size: 22px;
+        @include fontSize(22px);
       }
 
       @include phone {
-        font-size: 16px;
+        @include fontSize(16px);
       }
 
       &>a {
