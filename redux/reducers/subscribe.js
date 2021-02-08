@@ -27,7 +27,10 @@ const handlers = {
     ...state,
     message: '',
   }),
-  [actionTypes.SET_IS_SUBSCRIBED]: (state, { payload }) => ({ ...state, isSubscribed: payload }),
+  [actionTypes.SET_IS_SUBSCRIBED]: (state, { payload }) => ({
+    ...state,
+    isSubscribed: payload,
+  }),
   DEFAULT: (state) => state,
 };
 

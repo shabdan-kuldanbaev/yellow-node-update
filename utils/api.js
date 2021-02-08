@@ -29,6 +29,5 @@ export const API = {
     return axios.post('/send', formData);
   },
   subscribe: (email) => axios.post('/subscribe', { email }),
-  getSubscriber: (id) => axios.get(`/subscriber/${id}`),
   getJSON: () => axios.get('/json'),
 };

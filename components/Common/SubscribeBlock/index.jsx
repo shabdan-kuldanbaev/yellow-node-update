@@ -25,7 +25,7 @@ const SubscribeBlock = ({
 
   useEffect(() => () => clearMessage(), []);
 
-  return (!isSubscribed ? (
+  return (isSubscribed ? null : (
     <section className={cn(styles.subscribeBlock, {
       [styles.blogPage]: isBlog,
       [styles.articlePage]: !isBlog,
@@ -51,7 +51,7 @@ const SubscribeBlock = ({
         </div>
       </div>
     </section>
-  ) : null);
+  ));
 };
 
 SubscribeBlock.defaultProps = {

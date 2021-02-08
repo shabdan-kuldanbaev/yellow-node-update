@@ -9,10 +9,9 @@ const membersPath = (subscriberHash) => `/lists/${process.env.MAILCHIMP_LIST_ID}
 
 module.exports.getSubscriber = async (email, callback) => {
   try {
-    const subscriberHash = md5(email);
     const getSubscriberOptions = {
       method: 'get',
-      path: membersPath(subscriberHash),
+      path: membersPath(md5(email)),
     };
 
     await mailchimp.request(getSubscriberOptions, callback);
@@ -23,10 +22,9 @@ module.exports.getSubscriber = async (email, callback) => {
 
 module.exports.addSubscriber = async (email, res) => {
   try {
-    const subscriberHash = md5(email);
     const addSubscriberOptions = {
       method: 'put',
-      path: membersPath(subscriberHash),
+      path: membersPath(md5(email)),
       body: {
         email_address: email,
         status: 'subscribed',
