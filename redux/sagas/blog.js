@@ -23,10 +23,17 @@ function* getArticle({ payload }) {
   }
 }
 
-function* loadArticles({ payload: { currentLimit, skip } }) { // TODO add currentCategory
+function* loadArticles({
+  payload: {
+    currentLimit,
+    skip,
+    category,
+  },
+}) {
   try {
     const { items, total } = yield fetchContentfulArticles({
       order: '-fields.publishedAt',
+      'fields.categoryTag[match]': category !== 'latest' ? category : '',
       limit: currentLimit,
       skip,
     });
@@ -37,11 +44,17 @@ function* loadArticles({ payload: { currentLimit, skip } }) { // TODO add curren
   }
 }
 
-function* loadRelatedArticles({ payload: { currentLimit, currentArticleSlug } }) { // TODO add currentCategory
+function* loadRelatedArticles({
+  payload: {
+    currentLimit,
+    currentArticleSlug,
+    categoryTag,
+  },
+}) {
   try {
     const { items } = yield fetchContentfulArticles({
       'fields.slug[ne]': currentArticleSlug,
-      order: '-fields.publishedAt',
+      'fields.categoryTag[match]': categoryTag,
       limit: currentLimit,
     });
 
@@ -68,11 +81,24 @@ function* loadNearbyArticles({ payload: { createdAt } }) {
   }
 }
 
+function* findArticles({ payload: { value } }) {
+  try {
+    const { items } = yield fetchContentfulArticles({
+      'fields.keyWords[match]': value,
+    });
+
+    yield put({ type: actionTypes.FIND_ARTICLES_SUCCESS, payload: items });
+  } catch (err) {
+    yield put({ type: actionTypes.FIND_ARTICLES_FAILED, payload: err });
+  }
+}
+
 export function* loadBlogDataWatcher() {
   yield all([
     yield takeLatest(actionTypes.GET_ARTICLE_PENDING, getArticle),
     yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
     yield takeLatest(actionTypes.LOAD_RELATED_PENDING, loadRelatedArticles),
     yield takeLatest(actionTypes.LOAD_NEARBY_PENDING, loadNearbyArticles),
+    yield takeLatest(actionTypes.FIND_ARTICLES_PENDING, findArticles),
   ]);
 }
