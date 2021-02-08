@@ -1,14 +1,9 @@
-import {
-  put,
-  call,
-  takeLatest,
-} from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import ReactGA from 'react-ga';
 import { API } from 'utils/api';
-import { setWithExpiry } from 'utils/localStorageUtils';
-import { hoursToMs } from 'utils/helper';
+import { setDataToLocalStorageWithExpire, hoursToMs } from 'utils/helper';
 import { actionTypes } from '../actions/actionTypes';
 
 ObjectAssign.polyfill();
@@ -16,7 +11,7 @@ es6promise.polyfill();
 
 function* subscribe({ payload: { email, pathname } }) {
   try {
-    const { data } = yield call(API.subscribe, email);
+    const { data } = yield API.subscribe(email);
 
     ReactGA.event({
       category: 'Subscribe',
@@ -24,11 +19,11 @@ function* subscribe({ payload: { email, pathname } }) {
       label: pathname,
     });
 
-    setWithExpiry('isSubscribed', true, hoursToMs(24));
-
+    setDataToLocalStorageWithExpire('isSubscribed', true, hoursToMs(24));
     yield put({ type: actionTypes.SUBSCRIBE_SUCCESS, payload: data });
   } catch (err) {
-    yield put({ type: actionTypes.SUBSCRIBE_FAILED, payload: err.response });
+    const { response: { data } } = err;
+    yield put({ type: actionTypes.SUBSCRIBE_FAILED, payload: data });
   }
 }
 
