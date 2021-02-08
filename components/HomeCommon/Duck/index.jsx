@@ -330,7 +330,6 @@ export const Duck = ({
       r = 1;
     }
 
-    if (!duck) three.loadModel(setDuckToRedux);
     isMobile = window.innerWidth < mobileResolution;
 
     if (!isAnimate) {

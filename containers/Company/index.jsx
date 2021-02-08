@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchPage } from 'redux/actions/layout';
+import { pageReadyToDisplay } from 'redux/actions/layout';
 import {
   selectManagementTeam,
   selectWhatMakesSpecial,
@@ -28,33 +28,44 @@ const CompanyContainer = ({
   photosData,
   managementTeam,
   whatMakesSpecial,
-  fetchPage,
+  pageReadyToDisplay: fetchPage,
   isPageLoading,
 }) => {
+  const [isAnimationEnded, setIsAnimationEnded] = useState(false);
   const { content: carouselContent } = getDocumentFields(photosData, ['content']);
   const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
   const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
 
+  const handleOnAnimationComplete = () => setIsAnimationEnded(true);
+
   useEffect(() => {
-    fetchPage(PAGES.company);
+    fetchPage({ slug: PAGES.company });
   }, []);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.company} />
-      <LoadingPage isLoading={isPageLoading} />
-      <section ref={introSection} className={styles.companyContainer}>
-        <AboutUs />
-        {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
-        {teamContent && <ManagementTeam managementTeam={teamContent} />}
-      </section>
-      {carouselContent && <PhotoGallery photos={carouselContent} />}
-      <div className={styles.companyReviews}>
-        <Reviews reviews={reviews} />
-      </div>
-      <section className={styles.companyBottom}>
-        <Awards />
-      </section>
+      { !isAnimationEnded ? (
+        <LoadingPage
+          isLoading={isPageLoading}
+          handleOnAnimationComplete={handleOnAnimationComplete}
+        />
+      ) : (
+        <Fragment>
+          <section ref={introSection} className={styles.companyContainer}>
+            <AboutUs />
+            {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
+            {teamContent && <ManagementTeam managementTeam={teamContent} />}
+          </section>
+          {carouselContent && <PhotoGallery photos={carouselContent} />}
+          <div className={styles.companyReviews}>
+            <Reviews reviews={reviews} />
+          </div>
+          <section className={styles.companyBottom}>
+            <Awards />
+          </section>
+        </Fragment>
+      ) }
     </Fragment>
   );
 };
@@ -64,7 +75,7 @@ CompanyContainer.propTypes = {
   photosData: PropTypes.instanceOf(Object).isRequired,
   managementTeam: PropTypes.instanceOf(Object).isRequired,
   whatMakesSpecial: PropTypes.instanceOf(Object).isRequired,
-  fetchPage: PropTypes.func.isRequired,
+  pageReadyToDisplay: PropTypes.func.isRequired,
   isPageLoading: PropTypes.bool.isRequired,
 };
 
@@ -73,4 +84,4 @@ export default connect((state) => ({
   managementTeam: selectManagementTeam(state),
   whatMakesSpecial: selectWhatMakesSpecial(state),
   isPageLoading: selectIsLoading(state),
-}), { fetchPage })(CompanyContainer);
+}), { pageReadyToDisplay })(CompanyContainer);

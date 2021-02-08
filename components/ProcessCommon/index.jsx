@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated, LinkWrapper } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const Process = ({ processes }) => {
@@ -16,54 +15,40 @@ export const Process = ({ processes }) => {
 
   return (
     <div className={styles.processContainer}>
-      {processes && processes.map((process, index) => {
-        const {
-          title,
-          description,
-          link,
-          jsonPreview,
-        } = getDocumentFields(
-          process,
-          ['title', 'description', 'link', 'jsonPreview'],
-        );
-
-        const json = getFileUrl(jsonPreview);
-
-        return (
-          <div
-            className={styles.process}
-            key={`processes/${title}`}
-            data-index={index}
-          >
-            <div className={styles.desc}>
-              <Animated {...animatedProps} transitionDelay={300}>
-                <h1>
-                  <span>{`${index + 1}.`}</span>
-                  {title}
-                </h1>
-              </Animated>
-              <Animated {...animatedProps} transitionDelay={300 + 50}>
-                <p>{description}</p>
-                <LinkWrapper
-                  isLocalLink
-                  dynamicRouting={link}
-                  path={link}
-                  className={styles.buttonWrap}
-                >
-                  <button type="button">Details</button>
-                </LinkWrapper>
-              </Animated>
-            </div>
-            <Animated {...animatedProps} transitionDelay={200}>
-              <Animated
-                type={ANIMATED_TYPE.isJSON}
-                jsonFile={json}
-                className={styles.jsonWrapper}
-              />
+      {processes && processes.map((process, index) => (
+        <div
+          className={styles.process}
+          key={`processes/${process.name}`}
+          data-index={index}
+        >
+          <div className={styles.desc}>
+            <Animated {...animatedProps} transitionDelay={300}>
+              <h1>
+                <span>{`${index + 1}.`}</span>
+                {process.name}
+              </h1>
+            </Animated>
+            <Animated {...animatedProps} transitionDelay={300 + 50}>
+              <p>{process.description}</p>
+              <LinkWrapper
+                isLocalLink
+                dynamicRouting={process.link}
+                path={process.link}
+                className={styles.buttonWrap}
+              >
+                <button type="button">Details</button>
+              </LinkWrapper>
             </Animated>
           </div>
-        );
-      })}
+          <Animated {...animatedProps} transitionDelay={200}>
+            <Animated
+              type={ANIMATED_TYPE.isJSON}
+              jsonFile={process.json}
+              className={styles.jsonWrapper}
+            />
+          </Animated>
+        </div>
+      ))}
     </div>
   );
 };

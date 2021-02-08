@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -36,6 +36,7 @@ const BlogContainer = ({
   subscribe,
   setIsSubscribed,
 }) => {
+  const [isAnimationEnded, setIsAnimationEnded] = useState(false);
   const { asPath, query: { category, page }, pathname } = useRouter();
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
   const currentPage = toInt(page);
@@ -44,6 +45,7 @@ const BlogContainer = ({
   const handleOnFormSubmit = (email) => {
     subscribe({ email, pathname });
   };
+  const handleOnAnimationComplete = () => setIsAnimationEnded(true);
 
   useEffect(() => {
     setIsSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
@@ -58,27 +60,34 @@ const BlogContainer = ({
         skip: (currentPage - 1) * deviceLimit,
       });
     }
+    setIsAnimationEnded(false);
   }, [deviceLimit, asPath]);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
-      <LoadingPage isLoading={isLoading} />
-      <section ref={introSection} className={styles.blog}>
-        {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
-        <ArticlesList
-          articles={articles}
+      { !isAnimationEnded ? (
+        <LoadingPage
           isLoading={isLoading}
-          asPath={asPath}
-          currentPage={currentPage}
-          handleOnFormSubmit={handleOnFormSubmit}
+          handleOnAnimationComplete={handleOnAnimationComplete}
         />
-        <Paginator
-          arrows={arrows}
-          pagesCounter={pagesCounter}
-          currentPage={currentPage}
-        />
-      </section>
+      ) : (
+        <section ref={introSection} className={styles.blog}>
+          {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
+          <ArticlesList
+            articles={articles}
+            isLoading={isLoading}
+            asPath={asPath}
+            currentPage={currentPage}
+            handleOnFormSubmit={handleOnFormSubmit}
+          />
+          <Paginator
+            arrows={arrows}
+            pagesCounter={pagesCounter}
+            currentPage={currentPage}
+          />
+        </section>
+      ) }
     </Fragment>
   );
 };

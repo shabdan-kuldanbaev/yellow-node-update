@@ -1,10 +1,10 @@
-const Mailchimp = require('mailchimp-api-v3');
 const dotenv = require('dotenv');
+const Mailchimp = require('mailchimp-api-v3');
 const md5 = require('md5');
 
 dotenv.config('./env');
 
-const mailchimp = new Mailchimp('c634074112bb3addfa187afb22399d62-us7');
+const mailchimp = new Mailchimp(process.env.MAILCHIMP_API_KEY);
 const membersPath = (subscriberHash) => `/lists/${process.env.MAILCHIMP_LIST_ID}/members/${subscriberHash}`;
 
 module.exports.getSubscriber = async (email, callback) => {

@@ -16,7 +16,7 @@ export const JSONAnimation = ({ jsonFile, className }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    path: `http:${jsonFile}`,
+    animationData: jsonFile,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },

@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { useRouter } from 'next/router';
@@ -77,8 +77,10 @@ const ArticleContainer = ({
     ['slug', 'title', 'previewImageUrl'],
   );
   const headImage = getFileUrl(headImageUrl);
+  const [isAnimationEnded, setIsAnimationEnded] = useState(false);
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
+  const handleOnAnimationComplete = () => setIsAnimationEnded(true);
 
   // useEffect(() => {
   //   if (article) getCurrentArticle(article);
@@ -98,38 +100,46 @@ const ArticleContainer = ({
 
   useEffect(() => {
     fetchArticleData(article);
-    console.log('use effect');
+    setIsAnimationEnded(false);
   }, [article]);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
-      <LoadingPage isLoading={isPageLoading} />
-      <Article
-        slug={slug}
-        title={title}
-        oldBody={oldBody}
-        body={body}
-        introduction={introduction}
-        headImage={headImage}
-        introSection={introSection}
-      />
-      <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
-      {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} />}
-      <div className={styles.nextPrevSection}>
-        <NextPrev
-          isNewer
-          previewImageUrl={getFileUrl(previewImageUrlNewer)}
-          slug={slugNewer}
-          title={titleNewer}
+      { !isAnimationEnded ? (
+        <LoadingPage
+          handleOnAnimationComplete={handleOnAnimationComplete}
         />
-        <NextPrev
-          previewImageUrl={getFileUrl(previewImageUrlOlder)}
-          slug={slugOlder}
-          title={titleOlder}
-        />
-      </div>
-      <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
+      ) : (
+        <Fragment>
+          <Article
+            slug={slug}
+            title={title}
+            oldBody={oldBody}
+            body={body}
+            introduction={introduction}
+            headImage={headImage}
+            introSection={introSection}
+          />
+          <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
+          {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} />}
+          <div className={styles.nextPrevSection}>
+            <NextPrev
+              isNewer
+              previewImageUrl={getFileUrl(previewImageUrlNewer)}
+              slug={slugNewer}
+              title={titleNewer}
+            />
+            <NextPrev
+              previewImageUrl={getFileUrl(previewImageUrlOlder)}
+              slug={slugOlder}
+              title={titleOlder}
+            />
+          </div>
+          <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
+        </Fragment>
+
+      ) }
     </Fragment>
   );
 };

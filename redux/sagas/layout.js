@@ -1,7 +1,10 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import {
+  put, takeLatest, call, all, delay,
+} from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import { contentfulClient } from 'utils/ContentfulClient';
+import { fetchContentfulArticles } from 'utils/contentfulUtils';
 import { actionTypes } from '../actions/actionTypes';
 
 ObjectAssign.polyfill();
@@ -22,19 +25,44 @@ function* fetchPage({ payload }) {
   }
 }
 
-// function* fetchHomeArticles({ payload }) {
+function* fetchHomeArticles({
+  payload: {
+    currentLimit,
+    skip,
+    category,
+  },
+}) {
+  try {
+    const { items, total } = yield fetchContentfulArticles({
+      order: '-fields.publishedAt',
+      'fields.categoryTag[match]': category !== 'latest' ? category : '',
+      limit: currentLimit,
+      skip,
+    });
 
-// };
+    yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: { items, total } });
+  } catch (err) {
+    yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: err });
+  }
+}
 
-// function* fetchPageData({ payload }) {
+function* fetchPageData({ payload: { slug, currentLimit } }) {
+  try {
+    if (slug === 'homepage') {
+      yield all([
+        yield call(fetchPage, { payload: slug }),
+        yield call(fetchHomeArticles, { payload: { currentLimit } }),
+      ]);
+    } else {
+      yield call(fetchPage, { payload: slug });
+    }
 
-//   if(slug==='homepage') {
-//     //fetchPage
-//  //fetchHomaArticles
-//   }
-//     else //fetchPage
-// };
+    yield put({ type: actionTypes.PAGE_READY_TO_DISPLAY_SUCCESS });
+  } catch (error) {
+    yield put({ type: actionTypes.PAGE_READY_TO_DISPLAY_FAILED });
+  }
+}
 
 export function* fetchPageWatcher() {
-  yield takeLatest(actionTypes.FETCH_PAGE_PENDING, fetchPage);
+  yield takeLatest(actionTypes.PAGE_READY_TO_DISPLAY_PENDING, fetchPageData);
 }

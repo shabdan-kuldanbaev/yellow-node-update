@@ -130,9 +130,9 @@ function* fetchArticleData({ payload }) {
       },
     });
 
-    yield put({ type: actionTypes.FETCH_ARTICLE_DATA_SUCCESS });
+    yield put({ type: actionTypes.PAGE_READY_TO_DISPLAY_SUCCESS });
   } catch (err) {
-    yield put({ type: actionTypes.FETCH_ARTICLE_DATA_FAILED, payload: err });
+    yield put({ type: actionTypes.PAGE_READY_TO_DISPLAY_FAILED, payload: err });
   }
 }
 

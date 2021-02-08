@@ -13,7 +13,6 @@ import {
 import {
   ANIMATED_TYPE,
   CURRENT_PAGE_NUMBER,
-  DEFAULT_ARTICLES_LIMIT,
   ROUTES,
 } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -21,20 +20,14 @@ import styles from './styles.module.scss';
 const Blog = ({
   isLoading,
   articles,
-  loadArticles: loadPartOfArticles,
 }) => {
   const { asPath } = useRouter();
-
-  useEffect(() => {
-    loadPartOfArticles({ currentLimit: DEFAULT_ARTICLES_LIMIT });
-  }, []);
 
   return (
     <section className={styles.blog}>
       <SectionTitle title="Blog" subtitle="How we do what we do" />
       <ArticlesList
         articles={articles}
-        isLoading={isLoading}
         asPath={asPath}
         currentPage={CURRENT_PAGE_NUMBER}
       />
@@ -58,12 +51,11 @@ const Blog = ({
 Blog.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   articles: PropTypes.instanceOf(Array).isRequired,
-  loadArticles: PropTypes.func.isRequired,
 };
 
 export default connect(
   (state) => ({
     isLoading: selectIsLoading(state),
     articles: selectArticles(state),
-  }), { loadArticles },
+  }), { },
 )(Blog);

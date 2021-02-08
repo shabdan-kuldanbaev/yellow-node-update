@@ -1,7 +1,4 @@
-const dotenv = require('dotenv');
 const subscribeUtils = require('./subscribeUtils');
-
-dotenv.config('./env');
 
 module.exports.subscribe = async (req, res) => {
   const { email } = req.body;

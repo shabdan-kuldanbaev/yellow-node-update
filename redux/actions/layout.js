@@ -39,3 +39,8 @@ export const fetchArticleData = (payload) => ({
   type: actionTypes.FETCH_ARTICLE_DATA_PENDING,
   payload,
 });
+
+export const pageReadyToDisplay = (payload) => ({
+  type: actionTypes.PAGE_READY_TO_DISPLAY_PENDING,
+  payload,
+});

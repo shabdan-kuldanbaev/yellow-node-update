@@ -41,7 +41,7 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
       <div ref={imgContainer} className={styles.imgContainer}>
         <div className={styles.whiteCover} />
         <LazyLoadImage
-          src={getOptimizedImage(photo, 465)}
+          src={photo}
           alt="CompanyOfficePhoto"
           effect="blur"
         />

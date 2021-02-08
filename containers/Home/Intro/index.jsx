@@ -43,7 +43,6 @@ const Intro = ({
     <section ref={introSection} className={styles.intro}>
       <Duck
         duck={duck}
-        setDuckToRedux={setDuckToRedux}
         isHomepageVisit={isHomepageVisit}
         isLoading={isLoading}
       />

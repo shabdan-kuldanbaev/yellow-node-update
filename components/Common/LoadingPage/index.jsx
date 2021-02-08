@@ -3,13 +3,13 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import Lottie from 'react-lottie';
-import logo_animation from './json/logo_animation.json';
+import logo_animation from './json/logo-animation.json';
 import styles from './styles.module.scss';
 
-export const LoadingPage = ({ isLoading, children }) => {
+export const LoadingPage = ({ isLoading, handleOnAnimationComplete }) => {
   const [state, setState] = useState({ isStopped: false, isPaused: false });
-  const animateRef = useRef(null);
   const loadRef = useRef(null);
+  const isPageLoading = useRef(false);
 
   const defaultOptions = {
     loop: true,
@@ -20,32 +20,31 @@ export const LoadingPage = ({ isLoading, children }) => {
     },
   };
 
-  useEffect(() => {
-    if (isLoading && state.isStopped) {
+  const handleOnComplete = () => {
+    if (isPageLoading.current) {
       setState({ ...state, isStopped: false });
-      loadRef.current && loadRef.current.classList.remove(styles.hide);
-      loadRef.current && loadRef.current.classList.remove(styles.setZIndex);
+    } else {
+      setState({ ...state, isStopped: true });
+      loadRef.current && loadRef.current.classList.add(styles.hide);
+      loadRef.current && loadRef.current.classList.add(styles.setZIndex);
+      handleOnAnimationComplete();
     }
-  }, [isLoading]);
+  };
 
   const eventListeners = [
     {
       eventName: 'loopComplete',
-      callback: () => {
-        if (isLoading) {
-          setState({ ...state, isStopped: false });
-        } else {
-          setState({ ...state, isStopped: true });
-          loadRef.current && loadRef.current.classList.add(styles.hide);
-          loadRef.current && loadRef.current.classList.add(styles.setZIndex);
-        }
-      },
+      callback: () => handleOnComplete(),
     },
   ];
 
+  useEffect(() => {
+    isPageLoading.current = isLoading;
+  }, [isLoading]);
+
   return (
     <div className={styles.loadingPage} ref={loadRef}>
-      <div ref={animateRef} className={styles.jsonWrapper}>
+      <div className={styles.jsonWrapper}>
         <Lottie
           options={defaultOptions}
           isStopped={state.isStopped}
