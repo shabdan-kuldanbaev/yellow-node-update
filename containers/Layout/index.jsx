@@ -19,9 +19,9 @@ import {
   Header,
   Footer,
   CookiesNotification,
-  PageLoading,
   FullScreenEstimation,
   GAnalytic,
+  LoadingPage,
 } from 'components';
 import {
   mobileResolution,
@@ -38,6 +38,7 @@ export const Layout = ({
   setBlogStatus: setBlogCurrentStatus,
   setFirstVisit: setFirstVisitOfBlog,
   sendEmail,
+  isPageLoading,
 }) => {
   const { asPath } = useRouter();
   const dispatch = useDispatch();
@@ -103,14 +104,6 @@ export const Layout = ({
 
   return (
     <Fragment>
-      {/* {!isBlogLoaded && (
-        <PageLoading
-          isLoading={isLoading}
-          isBlogOpen={isBlogOpen}
-          handleOnBlogLoad={handleOnBlogLoad}
-          asPath={asPath}
-        />
-      )} */}
       <CookiesNotification />
       <Header theme={theme} introSection={introSection} />
       {children}
@@ -143,7 +136,9 @@ Layout.propTypes = {
 };
 
 export default connect(
-  (state) => ({ isBlogOpen: selectIsBlogOpen(state) }),
+  (state) => ({
+    isBlogOpen: selectIsBlogOpen(state),
+  }),
   {
     setBlogStatus,
     setFirstVisit,

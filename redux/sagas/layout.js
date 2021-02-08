@@ -22,6 +22,19 @@ function* fetchPage({ payload }) {
   }
 }
 
+// function* fetchHomeArticles({ payload }) {
+
+// };
+
+// function* fetchPageData({ payload }) {
+
+//   if(slug==='homepage') {
+//     //fetchPage
+//  //fetchHomaArticles
+//   }
+//     else //fetchPage
+// };
+
 export function* fetchPageWatcher() {
   yield takeLatest(actionTypes.FETCH_PAGE_PENDING, fetchPage);
 }

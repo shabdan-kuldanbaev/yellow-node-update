@@ -31,6 +31,7 @@ const Intro = ({
   setHomepageVisit: setVisitOfHomepage,
   setFirstHomepageVisit: setFirstHomeVisit,
   isFirstHomepageVisit,
+  isLoading,
 }) => {
   useEffect(() => () => {
     setVisitOfHomepage(true);
@@ -44,6 +45,7 @@ const Intro = ({
         duck={duck}
         setDuckToRedux={setDuckToRedux}
         isHomepageVisit={isHomepageVisit}
+        isLoading={isLoading}
       />
       <AddFooter
         theme={theme}

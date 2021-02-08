@@ -69,4 +69,5 @@ export const BLOCKS_SLUGS = {
   compnayPageManagementTeam: 'company-page-management-team',
   contactPageCompanyPhoto: 'contact-page-company-photo',
   contactPageContacts: 'contact-page-contacts',
+  processPageProcessPreview: 'process-page-process-preview',
 };

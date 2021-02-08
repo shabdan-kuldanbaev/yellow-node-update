@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
 import { fetchPage } from 'redux/actions/layout';
-import { selectContacts, selectCompanyPhoto } from 'redux/selectors/layout';
+import { selectContacts, selectCompanyPhoto, selectIsLoading } from 'redux/selectors/layout';
 import {
   FeedbackFormWithTitle,
   Calendar,
   CompanyPeoplePhoto,
   CompanyContacts,
   MetaTags,
+  LoadingPage,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
@@ -21,6 +22,7 @@ const ContactUsContainer = ({
   officePhoto,
   peoplePhoto,
   fetchPage,
+  isPageLoading,
 }) => {
   const { content: officePhotoContent } = getDocumentFields(officePhoto, ['content']);
   const { image: officeImage } = getDocumentFields(
@@ -61,6 +63,7 @@ const ContactUsContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.contact} />
+      <LoadingPage isLoading={isPageLoading} />
       <section ref={introSection} className={styles.contactContainer}>
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
@@ -77,11 +80,13 @@ ContactUsContainer.propTypes = {
   officePhoto: PropTypes.instanceOf(Object).isRequired,
   peoplePhoto: PropTypes.instanceOf(Object).isRequired,
   fetchPage: PropTypes.func.isRequired,
+  isPageLoading: PropTypes.bool.isRequired,
 };
 
 export default connect((state) => ({
   officePhoto: selectContacts(state),
   peoplePhoto: selectCompanyPhoto(state),
+  isPageLoading: selectIsLoading(state),
 }), {
   sendEmail,
   fetchPage,

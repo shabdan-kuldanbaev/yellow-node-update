@@ -5,15 +5,16 @@ import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import {
   selectArticle,
-  selectIsLoading,
   selectRelatedArticles,
   selectNearbyArticles,
 } from 'redux/selectors/blog';
+import { selectIsLoading } from 'redux/selectors/layout';
 import {
   getArticle,
   loadRelatedArticles,
   loadNearbyArticles,
 } from 'redux/actions/blog';
+import { fetchArticleData } from 'redux/actions/layout';
 import { subscribe } from 'redux/actions/subscribe';
 import {
   Article,
@@ -23,6 +24,7 @@ import {
   NextPrev,
   MetaTags,
   withScroll,
+  LoadingPage,
 } from 'components';
 import { PAGES, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
 import {
@@ -37,11 +39,12 @@ const ArticleContainer = ({
   articles: relatedArticles,
   nearbyArticles: { newerArticle, olderArticle },
   currentArticle,
-  isLoading,
+  isPageLoading,
   getArticle: getCurrentArticle,
   loadRelatedArticles: loadArticles,
   loadNearbyArticles: getNearby,
   subscribe,
+  fetchArticleData,
 }) => {
   const { query: { article }, pathname } = useRouter();
   const {
@@ -77,25 +80,31 @@ const ArticleContainer = ({
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
+  // useEffect(() => {
+  //   if (article) getCurrentArticle(article);
+  // }, [article]);
+
+  // useEffect(() => {
+  //   if (title && createdAt) getNearby({ name: title, createdAt });
+
+  //   if (slug) {
+  //     loadArticles({
+  //       currentLimit: DEFAULT_ARTICLES_LIMIT,
+  //       currentArticleSlug: slug,
+  //       categoryTag,
+  //     });
+  //   }
+  // }, [title, createdAt, slug]);
+
   useEffect(() => {
-    if (article) getCurrentArticle(article);
+    fetchArticleData(article);
+    console.log('use effect');
   }, [article]);
-
-  useEffect(() => {
-    if (title && createdAt) getNearby({ name: title, createdAt });
-
-    if (slug) {
-      loadArticles({
-        currentLimit: DEFAULT_ARTICLES_LIMIT,
-        currentArticleSlug: slug,
-        categoryTag,
-      });
-    }
-  }, [title, createdAt, slug]);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
+      <LoadingPage isLoading={isPageLoading} />
       <Article
         slug={slug}
         title={title}
@@ -104,20 +113,17 @@ const ArticleContainer = ({
         introduction={introduction}
         headImage={headImage}
         introSection={introSection}
-        isLoading={isLoading}
       />
       <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
-      {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} isLoading={isLoading} />}
+      {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} />}
       <div className={styles.nextPrevSection}>
         <NextPrev
           isNewer
-          isLoading={isLoading}
           previewImageUrl={getFileUrl(previewImageUrlNewer)}
           slug={slugNewer}
           title={titleNewer}
         />
         <NextPrev
-          isLoading={isLoading}
           previewImageUrl={getFileUrl(previewImageUrlOlder)}
           slug={slugOlder}
           title={titleOlder}
@@ -138,6 +144,7 @@ ArticleContainer.propTypes = {
   loadNearbyArticles: PropTypes.func.isRequired,
   subscribe: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  fetchArticleData: PropTypes.bool.isRequired,
 };
 
 export default connect(
@@ -145,11 +152,12 @@ export default connect(
     currentArticle: selectArticle(state),
     articles: selectRelatedArticles(state),
     nearbyArticles: selectNearbyArticles(state),
-    isLoading: selectIsLoading(state),
+    isPageLoading: selectIsLoading(state),
   }), {
     getArticle,
     loadRelatedArticles,
     loadNearbyArticles,
     subscribe,
+    fetchArticleData,
   },
 )(withScroll(ArticleContainer));

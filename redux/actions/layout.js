@@ -34,3 +34,8 @@ export const fetchPage = (payload) => ({
   type: actionTypes.FETCH_PAGE_PENDING,
   payload,
 });
+
+export const fetchArticleData = (payload) => ({
+  type: actionTypes.FETCH_ARTICLE_DATA_PENDING,
+  payload,
+});

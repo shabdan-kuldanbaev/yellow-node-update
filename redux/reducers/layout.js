@@ -8,6 +8,7 @@ const initialState = {
   isTabletResolutions: null,
   isPageLoading: false,
   isFullResolution: false,
+  isLoading: false,
   components: {
     main: null,
   },
@@ -35,7 +36,14 @@ const handlers = {
       },
     });
   },
-  [actionTypes.FETCH_COMPANY_DATA_FAILED]: (state, { payload }) => ({
+  [actionTypes.FETCH_PAGE_FAILED]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+    error: payload,
+  }),
+  [actionTypes.FETCH_ARTICLE_DATA_PENDING]: (state) => ({ ...state, isLoading: true }),
+  [actionTypes.FETCH_ARTICLE_DATA_SUCCESS]: (state) => ({ ...state, isLoading: false }),
+  [actionTypes.FETCH_ARTICLE_DATA_FAILED]: (state, { payload }) => ({
     ...state,
     isLoading: false,
     error: payload,

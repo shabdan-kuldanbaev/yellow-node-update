@@ -6,6 +6,7 @@ import {
   selectManagementTeam,
   selectWhatMakesSpecial,
   selectImageCarousel,
+  selectIsLoading,
 } from 'redux/selectors/layout';
 import { reviews } from 'containers/Home/Reviews/utils/data';
 import {
@@ -16,6 +17,7 @@ import {
   Awards,
   Reviews,
   MetaTags,
+  LoadingPage,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
@@ -27,6 +29,7 @@ const CompanyContainer = ({
   managementTeam,
   whatMakesSpecial,
   fetchPage,
+  isPageLoading,
 }) => {
   const { content: carouselContent } = getDocumentFields(photosData, ['content']);
   const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
@@ -39,6 +42,7 @@ const CompanyContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.company} />
+      <LoadingPage isLoading={isPageLoading} />
       <section ref={introSection} className={styles.companyContainer}>
         <AboutUs />
         {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
@@ -61,10 +65,12 @@ CompanyContainer.propTypes = {
   managementTeam: PropTypes.instanceOf(Object).isRequired,
   whatMakesSpecial: PropTypes.instanceOf(Object).isRequired,
   fetchPage: PropTypes.func.isRequired,
+  isPageLoading: PropTypes.bool.isRequired,
 };
 
 export default connect((state) => ({
   photosData: selectImageCarousel(state),
   managementTeam: selectManagementTeam(state),
   whatMakesSpecial: selectWhatMakesSpecial(state),
+  isPageLoading: selectIsLoading(state),
 }), { fetchPage })(CompanyContainer);

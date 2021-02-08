@@ -42,3 +42,5 @@ export const selectManagementTeam = (state) => getMain(state, BLOCKS_SLUGS.compn
 export const selectCompanyPhoto = (state) => getMain(state, BLOCKS_SLUGS.contactPageCompanyPhoto);
 
 export const selectContacts = (state) => getMain(state, BLOCKS_SLUGS.contactPageContacts);
+
+export const selectProcessPreview = (state) => getMain(state, BLOCKS_SLUGS.processPageProcessPreview);

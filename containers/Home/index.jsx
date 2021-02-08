@@ -6,7 +6,7 @@ import React, {
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchPage } from 'redux/actions/layout';
-import { selectImageCarousel } from 'redux/selectors/layout';
+import { selectImageCarousel, selectIsLoading } from 'redux/selectors/layout';
 // TODO import { Controller, Scene } from 'react-scrollmagic';
 import {
   Intro,
@@ -17,7 +17,7 @@ import {
   // TODO Insta,
   FeedbackFormContainer,
 } from 'containers';
-import { PhotoGallery } from 'components';
+import { PhotoGallery, LoadingPage } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 
@@ -26,6 +26,7 @@ export const Home = ({
   introSection,
   photosData,
   fetchPage,
+  isPageLoading,
 }) => {
   const gradientRef = useRef(null);
   const { content } = getDocumentFields(photosData, ['content']);
@@ -64,7 +65,8 @@ export const Home = ({
           <Portfolio gradientRef={gradientRef} />
         </Scene>
       </Controller> */}
-      <Intro theme={theme} introSection={introSection} />
+      {/* <LoadingPage isLoading={isPageLoading} /> */}
+      <Intro theme={theme} introSection={introSection} isLoading={isPageLoading} />
       <Portfolio gradientRef={gradientRef} />
       {/* TODO <Advantages /> */}
       <ReviewsContainer />
@@ -81,8 +83,10 @@ Home.propTypes = {
   theme: PropTypes.string.isRequired,
   fetchPage: PropTypes.isRequired,
   photosData: PropTypes.instanceOf(Object).isRequired,
+  isPageLoading: PropTypes.bool.isRequired,
 };
 
 export default connect((state) => ({
   photosData: selectImageCarousel(state),
+  isPageLoading: selectIsLoading(state),
 }), { fetchPage })(Home);

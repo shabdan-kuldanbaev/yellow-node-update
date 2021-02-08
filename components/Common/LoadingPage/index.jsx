@@ -12,7 +12,7 @@ export const LoadingPage = ({ isLoading, children }) => {
   const loadRef = useRef(null);
 
   const defaultOptions = {
-    loop: false,
+    loop: true,
     autoplay: true,
     animationData: logo_animation,
     rendererSettings: {
@@ -30,10 +30,11 @@ export const LoadingPage = ({ isLoading, children }) => {
 
   const eventListeners = [
     {
-      eventName: 'complete',
+      eventName: 'loopComplete',
       callback: () => {
-        if (isLoading) setState({ ...state, isStopped: false });
-        else {
+        if (isLoading) {
+          setState({ ...state, isStopped: false });
+        } else {
           setState({ ...state, isStopped: true });
           loadRef.current && loadRef.current.classList.add(styles.hide);
           loadRef.current && loadRef.current.classList.add(styles.setZIndex);

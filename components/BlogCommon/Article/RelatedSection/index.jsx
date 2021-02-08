@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper, Loader } from 'components';
+import { LinkWrapper } from 'components';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import { Article } from './Article';
 import { Arrow } from './images';
 import styles from './styles.module.scss';
 
-const RelatedSection = ({ articles, isLoading }) => (
+const RelatedSection = ({ articles }) => (
   <div className={styles.related}>
     <div className={styles.headingContainer}>
       <div className={styles.heading}>
@@ -43,7 +43,6 @@ const RelatedSection = ({ articles, isLoading }) => (
 
 RelatedSection.propTypes = {
   articles: PropTypes.instanceOf(Array).isRequired,
-  isLoading: PropTypes.bool.isRequired,
 };
 
 export default RelatedSection;

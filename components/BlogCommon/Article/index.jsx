@@ -17,7 +17,6 @@ const Article = ({
   body,
   introduction,
   headImage,
-  isLoading,
   maxScrollPosition,
 }) => {
   const articleBodyRef = useRef(null);
@@ -54,7 +53,6 @@ const Article = ({
 
 Article.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  isLoading: PropTypes.bool.isRequired,
   maxScrollPosition: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,

@@ -17,6 +17,7 @@ import {
   ArticlesList,
   Paginator,
   MetaTags,
+  LoadingPage,
 } from 'components';
 import { toInt } from 'utils/helper';
 import { PAGES } from 'utils/constants';
@@ -65,6 +66,7 @@ const BlogContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
+      <LoadingPage isLoading={isLoading} />
       <section ref={introSection} className={styles.blog}>
         {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList

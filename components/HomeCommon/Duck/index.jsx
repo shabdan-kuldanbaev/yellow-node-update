@@ -34,6 +34,7 @@ export const Duck = ({
   duck,
   setDuckToRedux,
   isHomepageVisit,
+  isLoading,
 }) => {
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);

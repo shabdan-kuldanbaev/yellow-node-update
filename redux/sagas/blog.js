@@ -2,11 +2,16 @@ import {
   put,
   takeLatest,
   all,
+  call,
+  select,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
+import get from 'lodash/get';
+import { getDocumentFields } from 'utils/helper';
 import { fetchContentfulNearbyArticles, fetchContentfulArticles } from 'utils/contentfulUtils';
 import { actionTypes } from 'redux/actions/actionTypes';
+import { selectArticle } from 'redux/selectors/blog';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -76,6 +81,14 @@ function* loadNearbyArticles({ payload: { createdAt } }) {
         olderArticle: prev.items[0],
       },
     });
+
+    yield put({
+      type: actionTypes.LOAD_NEARBY_SUCCESS,
+      payload: {
+        newerArticle: next.items[0],
+        olderArticle: prev.items[0],
+      },
+    });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: err });
   }
@@ -93,12 +106,40 @@ function* findArticles({ payload: { value } }) {
   }
 }
 
+function* fetchArticleData({ payload }) {
+  try {
+    yield call(getArticle, { payload });
+
+    const article = yield select(selectArticle);
+
+    const {
+      slug,
+      categoryTag,
+      createdAt,
+    } = getDocumentFields(
+      get(article, 'items[0]', {}),
+      ['slug', 'title', 'createdAt', 'categoryTag'],
+    );
+
+    yield call(loadNearbyArticles, { payload: { createdAt } });
+    yield call(loadRelatedArticles, {
+      payload: {
+        currentLimit: 5,
+        currentArticleSlug: slug,
+        categoryTag,
+      },
+    });
+
+    yield put({ type: actionTypes.FETCH_ARTICLE_DATA_SUCCESS });
+  } catch (err) {
+    yield put({ type: actionTypes.FETCH_ARTICLE_DATA_FAILED, payload: err });
+  }
+}
+
 export function* loadBlogDataWatcher() {
   yield all([
-    yield takeLatest(actionTypes.GET_ARTICLE_PENDING, getArticle),
     yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
-    yield takeLatest(actionTypes.LOAD_RELATED_PENDING, loadRelatedArticles),
-    yield takeLatest(actionTypes.LOAD_NEARBY_PENDING, loadNearbyArticles),
     yield takeLatest(actionTypes.FIND_ARTICLES_PENDING, findArticles),
+    yield takeLatest(actionTypes.FETCH_ARTICLE_DATA_PENDING, fetchArticleData),
   ]);
 }

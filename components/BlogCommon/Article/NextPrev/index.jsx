@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   LinkWrapper,
-  Loader,
   ImageWithPlaceholder,
 } from 'components';
 import { getOptimizedImage } from 'utils/helper';
@@ -11,7 +10,6 @@ import styles from './styles.module.scss';
 
 const NextPrev = ({
   isNewer,
-  isLoading,
   previewImageUrl,
   slug,
   title,
@@ -47,7 +45,6 @@ NextPrev.defaultProps = {
 
 NextPrev.propTypes = {
   isNewer: PropTypes.bool,
-  isLoading: PropTypes.bool.isRequired,
   previewImageUrl: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
