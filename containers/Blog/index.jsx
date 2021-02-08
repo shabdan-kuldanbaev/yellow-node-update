@@ -18,9 +18,8 @@ import {
   Paginator,
   MetaTags,
 } from 'components';
-import { toInt } from 'utils/helper';
+import { toInt, getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { PAGES } from 'utils/constants';
-import { getWithExpiry } from 'utils/localStorageUtils';
 import { arrows } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -46,9 +45,7 @@ const BlogContainer = ({
   };
 
   useEffect(() => {
-    const isSubscribed = getWithExpiry('isSubscribed');
-
-    setIsSubscribed(isSubscribed);
+    setIsSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
   }, []);
 
   useEffect(() => {
