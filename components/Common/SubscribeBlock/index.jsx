@@ -17,15 +17,15 @@ const SubscribeBlock = ({
   clearMessage,
   isSubscribed,
 }) => {
-  const handleOnClick = (event) => {
-    event.preventDefault();
+  const handleOnClick = ({ preventDefault }) => {
+    preventDefault();
 
     handleOnSubmit(email.value);
   };
 
-  useEffect(() => () => clearMessage(), []);
+  useEffect(clearMessage, []);
 
-  return (isSubscribed ? null : (
+  return (!isSubscribed && (
     <section className={cn(styles.subscribeBlock, {
       [styles.blogPage]: isBlog,
       [styles.articlePage]: !isBlog,

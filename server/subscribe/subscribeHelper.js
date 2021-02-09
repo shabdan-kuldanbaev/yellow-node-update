@@ -1,10 +1,13 @@
+const dotenv = require('dotenv');
 const subscribeUtils = require('./subscribeUtils');
 
-module.exports.subscribe = async (req, res) => {
-  const { email } = req.body;
+dotenv.config('./env');
 
-  await subscribeUtils.getSubscriber(email, async (err, result) => {
-    try {
+module.exports.subscribe = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    await subscribeUtils.getSubscriber(email, async (err, result) => {
       if (err) {
         await subscribeUtils.addSubscriber(email, res);
       } else {
@@ -16,8 +19,8 @@ module.exports.subscribe = async (req, res) => {
           await subscribeUtils.addSubscriber(email, res);
         }
       }
-    } catch (error) {
-      console.log(error);
-    }
-  });
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -12,7 +12,7 @@ const {
   oldUrlRedirect,
 } = require('./middleware/redirect');
 const mailhelper = require('./mail/mailhelper');
-const subscribeHelper = require('./suscribe/subscribeHelper');
+const subscribeHelper = require('./subscribe/subscribeHelper');
 const { getFeedBackMessage } = require('./mail/messages');
 const { processes } = require('./utils/data');
 

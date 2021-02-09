@@ -5,13 +5,13 @@ const md5 = require('md5');
 dotenv.config('./env');
 
 const mailchimp = new Mailchimp(process.env.MAILCHIMP_API_KEY);
-const membersPath = (subscriberHash) => `/lists/${process.env.MAILCHIMP_LIST_ID}/members/${subscriberHash}`;
+const membersPath = (email) => `/lists/${process.env.MAILCHIMP_LIST_ID}/members/${md5(email)}`;
 
 module.exports.getSubscriber = async (email, callback) => {
   try {
     const getSubscriberOptions = {
       method: 'get',
-      path: membersPath(md5(email)),
+      path: membersPath(email),
     };
 
     await mailchimp.request(getSubscriberOptions, callback);
@@ -24,7 +24,7 @@ module.exports.addSubscriber = async (email, res) => {
   try {
     const addSubscriberOptions = {
       method: 'put',
-      path: membersPath(md5(email)),
+      path: membersPath(email),
       body: {
         email_address: email,
         status: 'subscribed',
