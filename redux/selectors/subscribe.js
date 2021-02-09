@@ -1,3 +1,5 @@
-export const selectSuscribeStatus = (state) => state.subscribe.status; // TODO remove
+export const selectSubscribeMessage = (state) => state.subscribe.message;
 
-export const selectSubscribeError = (state) => state.subscribe.error; // TODO remove
+export const selectSubscribeError = (state) => state.subscribe.error;
+
+export const selectIsSubscribed = (state) => state.subscribe.isSubscribed;

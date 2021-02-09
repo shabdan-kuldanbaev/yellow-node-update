@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components';
+import { connect } from 'react-redux';
+import { clearMessage } from 'redux/actions/subscribe';
+import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
 import { withValidateEmail } from 'hocs';
 import Background from './images/background.jpg';
 import styles from './styles.module.scss';
@@ -11,10 +13,19 @@ const SubscribeBlock = ({
   email,
   handleOnEmailChange,
   handleOnSubmit,
+  message,
+  clearMessage,
+  isSubscribed,
 }) => {
-  const handleOnClick = () => handleOnSubmit(email.value);
+  const handleOnClick = ({ preventDefault }) => {
+    preventDefault();
 
-  return (
+    handleOnSubmit(email.value);
+  };
+
+  useEffect(clearMessage, []);
+
+  return (!isSubscribed && (
     <section className={cn(styles.subscribeBlock, {
       [styles.blogPage]: isBlog,
       [styles.articlePage]: !isBlog,
@@ -29,11 +40,10 @@ const SubscribeBlock = ({
               onChange={handleOnEmailChange}
               placeholder="Your email address"
             />
-            <LinkWrapper path="/" isLocalLink>
-              <div className={styles.button} onClick={handleOnClick}>
-                Subscribe
-              </div>
-            </LinkWrapper>
+            <div className={styles.button} onClick={handleOnClick}>
+              Subscribe
+            </div>
+            {message && <span className={styles.alertMessage}>{message}</span>}
           </form>
         </div>
         <div className={styles.subscribeMessage} style={{ backgroundImage: `url(${Background})` }}>
@@ -41,7 +51,7 @@ const SubscribeBlock = ({
         </div>
       </div>
     </section>
-  );
+  ));
 };
 
 SubscribeBlock.defaultProps = {
@@ -53,6 +63,12 @@ SubscribeBlock.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnSubmit: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+  clearMessage: PropTypes.func.isRequired,
+  isSubscribed: PropTypes.bool.isRequired,
 };
 
-export default withValidateEmail(SubscribeBlock);
+export default connect((state) => ({
+  message: selectSubscribeMessage(state),
+  isSubscribed: selectIsSubscribed(state),
+}), { clearMessage })(withValidateEmail(SubscribeBlock));

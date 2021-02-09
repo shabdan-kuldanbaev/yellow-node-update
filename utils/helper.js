@@ -86,3 +86,34 @@ export const getDocumentFields = (document, fields = []) => {
 
   return get(document, 'fields', null);
 };
+
+export const hoursToMs = (duration) => (duration * 60 * 60 * 1000);
+
+export const getDateTime = () => (new Date()).getTime();
+
+export const setDataToLocalStorageWithExpire = (key, value, expiration) => {
+  const item = {
+    value,
+    expiry: getDateTime() + expiration,
+  };
+
+  localStorage.setItem(key, JSON.stringify(item));
+};
+
+export const getDataFromLocalStorageWithExpire = (key) => {
+  const itemStr = localStorage.getItem(key);
+
+  if (!itemStr) {
+    return null;
+  }
+
+  const { value, expiry } = JSON.parse(itemStr);
+
+  if (getDateTime() > expiry) {
+    localStorage.removeItem(key);
+
+    return null;
+  }
+
+  return value;
+};

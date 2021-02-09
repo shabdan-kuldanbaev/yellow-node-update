@@ -86,7 +86,7 @@ const Header = ({
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
       />
-      {(asPath.includes('portfolio') || asPath.includes('blog/')) && asPath.length > 10 && <TopProgressBar elementRef={introSection} />}
+      {(asPath.includes('portfolio') || asPath.includes('blog/')) && <TopProgressBar elementRef={introSection} />}
     </header>
   );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { loadArticles } from 'redux/actions/blog';
-import { subscribe } from 'redux/actions/subscribe';
+import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
 import {
   selectIsLoading,
   selectArticles,
@@ -18,7 +18,7 @@ import {
   Paginator,
   MetaTags,
 } from 'components';
-import { toInt } from 'utils/helper';
+import { toInt, getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { arrows } from './utils/data';
 import styles from './styles.module.scss';
@@ -33,6 +33,7 @@ const BlogContainer = ({
   isMobileResolution,
   totalArticles,
   subscribe,
+  setIsSubscribed,
 }) => {
   const { asPath, query: { category, page }, pathname } = useRouter();
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
@@ -42,6 +43,10 @@ const BlogContainer = ({
   const handleOnFormSubmit = (email) => {
     subscribe({ email, pathname });
   };
+
+  useEffect(() => {
+    setIsSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
+  }, []);
 
   useEffect(() => {
     if (!isMobileResolution) {
@@ -86,6 +91,7 @@ BlogContainer.propTypes = {
   isMobileResolution: PropTypes.bool.isRequired,
   subscribe: PropTypes.func.isRequired,
   totalArticles: PropTypes.number.isRequired,
+  setIsSubscribed: PropTypes.func.isRequired,
 };
 
 export default connect(
@@ -99,5 +105,6 @@ export default connect(
   }), {
     loadArticles,
     subscribe,
+    setIsSubscribed,
   },
 )(BlogContainer);
