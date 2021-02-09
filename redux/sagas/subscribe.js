@@ -22,8 +22,8 @@ function* subscribe({ payload: { email, pathname } }) {
     setDataToLocalStorageWithExpire('isSubscribed', true, hoursToMs(24));
     yield put({ type: actionTypes.SUBSCRIBE_SUCCESS, payload: data });
   } catch (err) {
-    const { response: { data } } = err;
-    yield put({ type: actionTypes.SUBSCRIBE_FAILED, payload: data });
+    const { response } = err;
+    yield put({ type: actionTypes.SUBSCRIBE_FAILED, payload: response });
   }
 }
 

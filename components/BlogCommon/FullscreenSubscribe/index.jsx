@@ -25,13 +25,13 @@ const FullscreenSubscribe = ({
   const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
 
   const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
-  const handleOnClick = (event) => {
-    event.preventDefault();
+  const handleOnClick = ({ preventDefault }) => {
+    preventDefault();
 
     handleOnSubmit(email.value);
   };
 
-  useEffect(() => () => clearMessage(), []);
+  useEffect(clearMessage, []);
 
   return (
     <ModalWindow
