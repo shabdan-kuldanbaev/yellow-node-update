@@ -41,7 +41,7 @@ const handlers = {
     isLoading: false,
     error: payload,
   }),
-  [actionTypes.FETCH_ARTICLE_DATA_PENDING]: (state) => ({ ...state, isLoading: true }),
+  [actionTypes.FETCH_BLOG_DATA_PENDING]: (state) => ({ ...state, isLoading: true }),
   [actionTypes.PAGE_READY_TO_DISPLAY_PENDING]: (state) => ({ ...state, isLoading: true }),
   [actionTypes.PAGE_READY_TO_DISPLAY_SUCCESS]: (state) => ({ ...state, isLoading: false }),
   [actionTypes.PAGE_READY_TO_DISPLAY_FAILED]: (state, { payload }) => ({

@@ -8,9 +8,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { pageReadyToDisplay } from 'redux/actions/layout';
 import { selectImageCarousel, selectIsLoading } from 'redux/selectors/layout';
-import {
-  setDuck,
-} from 'redux/actions/home';
+import { setDuck } from 'redux/actions/home';
 // TODO import { Controller, Scene } from 'react-scrollmagic';
 import {
   Intro,
@@ -23,14 +21,8 @@ import {
 } from 'containers';
 import { PhotoGallery, LoadingPage } from 'components';
 import { getDocumentFields } from 'utils/helper';
-import {
-  DEFAULT_ARTICLES_LIMIT,
-  PAGES,
-} from 'utils/constants';
-import {
-  three,
-} from 'components/HomeCommon/Duck/utils/threeHelper';
-
+import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
+import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
 
 export const Home = ({
   theme,
@@ -83,10 +75,7 @@ export const Home = ({
       </Controller> */}
       {
         !isAnimationEnded ? (
-          <LoadingPage
-            isLoading={isPageLoading}
-            handleOnAnimationComplete={handleOnAnimationComplete}
-          />
+          <LoadingPage isLoading={isPageLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
         ) : (
           <Fragment>
             <Intro theme={theme} introSection={introSection} isLoading={isPageLoading} />

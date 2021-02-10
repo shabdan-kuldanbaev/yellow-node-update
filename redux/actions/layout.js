@@ -35,8 +35,8 @@ export const fetchPage = (payload) => ({
   payload,
 });
 
-export const fetchArticleData = (payload) => ({
-  type: actionTypes.FETCH_ARTICLE_DATA_PENDING,
+export const fetchBlogData = (payload) => ({
+  type: actionTypes.FETCH_BLOG_DATA_PENDING,
   payload,
 });
 

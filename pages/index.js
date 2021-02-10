@@ -6,9 +6,7 @@ import { PAGES } from 'utils/constants';
 
 const App = ({ theme, introSection }) => (
   <Fragment>
-    <MetaTags page={PAGES.homepage}>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js" />
-    </MetaTags>
+    <MetaTags page={PAGES.homepage} />
     <Home theme={theme} introSection={introSection} />
   </Fragment>
 );

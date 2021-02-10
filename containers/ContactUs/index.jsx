@@ -1,9 +1,17 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
 import { pageReadyToDisplay } from 'redux/actions/layout';
-import { selectContacts, selectCompanyPhoto, selectIsLoading } from 'redux/selectors/layout';
+import {
+  selectContacts,
+  selectCompanyPhoto,
+  selectIsLoading,
+} from 'redux/selectors/layout';
 import {
   FeedbackFormWithTitle,
   Calendar,
@@ -66,10 +74,7 @@ const ContactUsContainer = ({
     <Fragment>
       <MetaTags page={PAGES.contact} />
       { !isAnimationEnded ? (
-        <LoadingPage
-          isLoading={isPageLoading}
-          handleOnAnimationComplete={handleOnAnimationComplete}
-        />
+        <LoadingPage isLoading={isPageLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
       ) : (
         <section ref={introSection} className={styles.contactContainer}>
           <FeedbackFormWithTitle handleOnClick={handleOnClick} />

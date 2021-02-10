@@ -32,9 +32,7 @@ let mat = 0;
 
 export const Duck = ({
   duck,
-  setDuckToRedux,
   isHomepageVisit,
-  isLoading,
 }) => {
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);
@@ -440,7 +438,6 @@ Duck.defaultProps = {
 
 Duck.propTypes = {
   duck: PropTypes.instanceOf(Object),
-  setDuckToRedux: PropTypes.func.isRequired,
   isHomepageVisit: PropTypes.bool.isRequired,
 };
 

@@ -37,6 +37,7 @@ export const PAGES = {
   portfolio: 'portfolio',
   process: 'process',
   blog: 'blog',
+  article: 'article',
   company: 'company',
   contact: 'contact',
   notFound: 'not-found',

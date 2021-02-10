@@ -16,10 +16,10 @@ import { selectArticle } from 'redux/selectors/blog';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* getArticle({ payload }) {
+function* getArticle({ payload: { articleSlug } }) {
   try {
     const article = yield fetchContentfulArticles({
-      'fields.slug[match]': payload,
+      'fields.slug[match]': articleSlug,
     });
 
     yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: article });
@@ -106,29 +106,51 @@ function* findArticles({ payload: { value } }) {
   }
 }
 
-function* fetchArticleData({ payload }) {
+function* fetchBlogData({
+  payload: {
+    pageSlug,
+    articleSlug,
+    currentPage,
+    currentLimit,
+    category,
+    skip,
+  },
+}) {
   try {
-    yield call(getArticle, { payload });
+    if (pageSlug === 'blog') {
+      yield call(loadArticles, {
+        payload: {
+          currentPage,
+          currentLimit,
+          category,
+          skip,
+        },
+      });
+    } else {
+      yield call(getArticle, { payload: { articleSlug } });
 
-    const article = yield select(selectArticle);
+      const article = yield select(selectArticle);
 
-    const {
-      slug,
-      categoryTag,
-      createdAt,
-    } = getDocumentFields(
-      get(article, 'items[0]', {}),
-      ['slug', 'title', 'createdAt', 'categoryTag'],
-    );
-
-    yield call(loadNearbyArticles, { payload: { createdAt } });
-    yield call(loadRelatedArticles, {
-      payload: {
-        currentLimit: 5,
-        currentArticleSlug: slug,
+      const {
+        slug,
         categoryTag,
-      },
-    });
+        createdAt,
+      } = getDocumentFields(
+        get(article, 'items[0]', {}),
+        ['slug', 'title', 'createdAt', 'categoryTag'],
+      );
+
+      yield all([
+        yield call(loadNearbyArticles, { payload: { createdAt } }),
+        yield call(loadRelatedArticles, {
+          payload: {
+            currentLimit: 5,
+            currentArticleSlug: slug,
+            categoryTag,
+          },
+        }),
+      ]);
+    }
 
     yield put({ type: actionTypes.PAGE_READY_TO_DISPLAY_SUCCESS });
   } catch (err) {
@@ -138,8 +160,7 @@ function* fetchArticleData({ payload }) {
 
 export function* loadBlogDataWatcher() {
   yield all([
-    yield takeLatest(actionTypes.LOAD_ARTICLES_PENDING, loadArticles),
     yield takeLatest(actionTypes.FIND_ARTICLES_PENDING, findArticles),
-    yield takeLatest(actionTypes.FETCH_ARTICLE_DATA_PENDING, fetchArticleData),
+    yield takeLatest(actionTypes.FETCH_BLOG_DATA_PENDING, fetchBlogData),
   ]);
 }

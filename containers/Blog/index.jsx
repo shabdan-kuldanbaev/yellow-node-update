@@ -1,17 +1,20 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
-import { loadArticles } from 'redux/actions/blog';
+import { fetchBlogData } from 'redux/actions/layout';
 import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
 import {
-  selectIsLoading,
   selectArticles,
   selectDesktopLimit,
   selectMobileLimit,
   selectTotalCount,
 } from 'redux/selectors/blog';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsMobileResolutions, selectIsLoading } from 'redux/selectors/layout';
 import {
   SelectionBlock,
   ArticlesList,
@@ -28,7 +31,7 @@ const BlogContainer = ({
   introSection,
   articles,
   isLoading,
-  loadArticles: loadNewArticles,
+  fetchBlogData,
   desktopLimit,
   mobileLimit,
   isMobileResolution,
@@ -53,7 +56,8 @@ const BlogContainer = ({
 
   useEffect(() => {
     if (!isMobileResolution) {
-      loadNewArticles({
+      fetchBlogData({
+        pageSlug: PAGES.blog,
         currentPage,
         currentLimit: deviceLimit,
         category,
@@ -67,10 +71,7 @@ const BlogContainer = ({
     <Fragment>
       <MetaTags page={PAGES.blog} />
       { !isAnimationEnded ? (
-        <LoadingPage
-          isLoading={isLoading}
-          handleOnAnimationComplete={handleOnAnimationComplete}
-        />
+        <LoadingPage isLoading={isLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
       ) : (
         <section ref={introSection} className={styles.blog}>
           {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
@@ -96,7 +97,7 @@ BlogContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   articles: PropTypes.instanceOf(Array).isRequired,
   isLoading: PropTypes.bool.isRequired,
-  loadArticles: PropTypes.func.isRequired,
+  fetchBlogData: PropTypes.func.isRequired,
   desktopLimit: PropTypes.number.isRequired,
   mobileLimit: PropTypes.number.isRequired,
   isMobileResolution: PropTypes.bool.isRequired,
@@ -114,7 +115,7 @@ export default connect(
     mobileLimit: selectMobileLimit(state),
     isMobileResolution: selectIsMobileResolutions(state),
   }), {
-    loadArticles,
+    fetchBlogData,
     subscribe,
     setIsSubscribed,
   },

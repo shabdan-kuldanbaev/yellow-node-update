@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Loader, SubscribeBlock } from 'components';
+import { SubscribeBlock } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { Article } from './Article';
@@ -8,7 +8,6 @@ import styles from './styles.module.scss';
 
 export const ArticlesList = ({
   articles,
-  isLoading,
   isSearch,
   asPath,
   currentPage,
@@ -70,7 +69,6 @@ ArticlesList.defaultProps = {
 
 ArticlesList.propTypes = {
   articles: PropTypes.instanceOf(Array).isRequired,
-  isLoading: PropTypes.bool.isRequired,
   isSearch: PropTypes.bool,
   asPath: PropTypes.string,
   currentPage: PropTypes.number.isRequired,

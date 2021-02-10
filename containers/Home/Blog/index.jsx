@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
-import { loadArticles } from 'redux/actions/blog';
-import { selectIsLoading, selectArticles } from 'redux/selectors/blog';
+import { selectArticles } from 'redux/selectors/blog';
 import {
   SectionTitle,
   ButtonMore,
@@ -17,10 +16,7 @@ import {
 } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const Blog = ({
-  isLoading,
-  articles,
-}) => {
+const Blog = ({ articles }) => {
   const { asPath } = useRouter();
 
   return (
@@ -49,13 +45,11 @@ const Blog = ({
 };
 
 Blog.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
   articles: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default connect(
   (state) => ({
-    isLoading: selectIsLoading(state),
     articles: selectArticles(state),
   }), { },
 )(Blog);

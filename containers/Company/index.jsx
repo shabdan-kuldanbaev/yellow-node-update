@@ -1,4 +1,8 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { pageReadyToDisplay } from 'redux/actions/layout';
@@ -46,10 +50,7 @@ const CompanyContainer = ({
     <Fragment>
       <MetaTags page={PAGES.company} />
       { !isAnimationEnded ? (
-        <LoadingPage
-          isLoading={isPageLoading}
-          handleOnAnimationComplete={handleOnAnimationComplete}
-        />
+        <LoadingPage isLoading={isPageLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
       ) : (
         <Fragment>
           <section ref={introSection} className={styles.companyContainer}>

@@ -1,5 +1,7 @@
 import React, {
-  useState, useRef, useEffect, Fragment,
+  useState,
+  useRef,
+  useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 import Lottie from 'react-lottie';
@@ -20,7 +22,7 @@ export const LoadingPage = ({ isLoading, handleOnAnimationComplete }) => {
     },
   };
 
-  const handleOnComplete = () => {
+  const handleOnLoopComplete = () => {
     if (isPageLoading.current) {
       setState({ ...state, isStopped: false });
     } else {
@@ -34,7 +36,7 @@ export const LoadingPage = ({ isLoading, handleOnAnimationComplete }) => {
   const eventListeners = [
     {
       eventName: 'loopComplete',
-      callback: () => handleOnComplete(),
+      callback: () => handleOnLoopComplete(),
     },
   ];
 
@@ -54,4 +56,9 @@ export const LoadingPage = ({ isLoading, handleOnAnimationComplete }) => {
       </div>
     </div>
   );
+};
+
+LoadingPage.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  handleOnAnimationComplete: PropTypes.func.isRequired,
 };

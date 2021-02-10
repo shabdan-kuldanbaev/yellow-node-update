@@ -1,11 +1,14 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
 import { getJSON } from 'redux/actions/process';
 import {
   Process,
-  Loader,
   // TODO SectionTitle,
   MetaTags,
   LoadingPage,
@@ -33,10 +36,7 @@ const ProcessContainer = ({
       <MetaTags page={PAGES.process} />
       {
         !isAnimationEnded ? (
-          <LoadingPage
-            isLoading={isLoading}
-            handleOnAnimationComplete={handleOnAnimationComplete}
-          />
+          <LoadingPage isLoading={isLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
         ) : (
           <section ref={introSection} className={styles.process}>
             {/* TODO <div className={styles.intro}>

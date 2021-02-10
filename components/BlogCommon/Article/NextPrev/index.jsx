@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  LinkWrapper,
-  ImageWithPlaceholder,
-} from 'components';
+import { LinkWrapper, ImageWithPlaceholder } from 'components';
 import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
