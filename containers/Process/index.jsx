@@ -1,17 +1,14 @@
-import React, {
-  Fragment,
-  useEffect,
-  useState,
-} from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
+import { selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
 import { getJSON } from 'redux/actions/process';
 import {
   Process,
   // TODO SectionTitle,
   MetaTags,
-  LoadingPage,
+  LoadingScreen,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -19,12 +16,9 @@ import styles from './styles.module.scss';
 const ProcessContainer = ({
   introSection,
   getJSON: getProcessJSON,
-  processes: { json, isLoading },
+  processes: { json },
+  isLoadingScreenCompleted,
 }) => {
-  const [isAnimationEnded, setIsAnimationEnded] = useState(false);
-
-  const handleOnAnimationComplete = () => setIsAnimationEnded(true);
-
   useEffect(() => {
     if (!json.length) {
       getProcessJSON();
@@ -34,18 +28,16 @@ const ProcessContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.process} />
-      {
-        !isAnimationEnded ? (
-          <LoadingPage isLoading={isLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
-        ) : (
-          <section ref={introSection} className={styles.process}>
-            {/* TODO <div className={styles.intro}>
+      {!isLoadingScreenCompleted ? (
+        <LoadingScreen />
+      ) : (
+        <section ref={introSection} className={styles.process}>
+          {/* TODO <div className={styles.intro}>
       <SectionTitle title="How we work" subtitle="A step by step guide" />
     </div> */}
-            <Process processes={json} />
-          </section>
-        )
-      }
+          <Process processes={json} />
+        </section>
+      )}
     </Fragment>
   );
 };
@@ -54,9 +46,13 @@ ProcessContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   getJSON: PropTypes.func.isRequired,
   processes: PropTypes.instanceOf(Object).isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
-  (state) => ({ processes: selectProcessPage(state) }),
+  (state) => ({
+    processes: selectProcessPage(state),
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+  }),
   { getJSON },
 )(ProcessContainer);

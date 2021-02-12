@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { LinkWrapper, ImageWithPlaceholder } from 'components';
 import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
@@ -17,8 +18,12 @@ const NextPrev = ({
     path: ROUTES.article(slug),
   };
 
-  return (slug && title && previewImageUrl ? (
-    <div className={isNewer ? styles.newer : styles.older}>
+  return ((slug && title && previewImageUrl) && (
+    <div className={cn({
+      [styles.newer]: isNewer,
+      [styles.older]: !isNewer,
+    })}
+    >
       <LinkWrapper {...linkProps}>
         <div className={styles.imgContainer}>
           <ImageWithPlaceholder src={getOptimizedImage(previewImageUrl, 230)} imageStyle={styles.img} />
@@ -33,7 +38,7 @@ const NextPrev = ({
         </h3>
       </div>
     </div>
-  ) : null);
+  ));
 };
 
 NextPrev.defaultProps = {

@@ -9,7 +9,6 @@ import { setBlogStatus, setFirstVisit } from 'redux/actions/blog';
 import {
   setMobileResolutions,
   setTabletResolutions,
-  setPageLoading,
   setFullResolution,
 } from 'redux/actions/layout';
 import { sendEmail } from 'redux/actions/contact';
@@ -27,7 +26,6 @@ import {
 } from 'utils/helper';
 
 export const Layout = ({
-  isLoading,
   children,
   theme,
   introSection,
@@ -57,10 +55,6 @@ export const Layout = ({
     });
     closeFullscreenEstimation();
   };
-
-  useEffect(() => {
-    dispatch(setPageLoading(isLoading));
-  }, [isLoading]);
 
   useEffect(() => {
     const handleOnResize = () => {
@@ -106,18 +100,14 @@ Layout.defaultProps = {
 };
 
 Layout.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
   children: PropTypes.instanceOf(Object),
   theme: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
   sendEmail: PropTypes.func.isRequired,
 };
 
-export default connect(
-  null,
-  {
-    setBlogStatus,
-    setFirstVisit,
-    sendEmail,
-  },
-)(Layout);
+export default connect(null, {
+  setBlogStatus,
+  setFirstVisit,
+  sendEmail,
+})(Layout);

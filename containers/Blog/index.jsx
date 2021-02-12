@@ -1,12 +1,8 @@
-import React, {
-  Fragment,
-  useEffect,
-  useState,
-} from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
-import { fetchBlogData } from 'redux/actions/layout';
+import { fetchLayoutData } from 'redux/actions/layout';
 import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
 import {
   selectArticles,
@@ -14,13 +10,13 @@ import {
   selectMobileLimit,
   selectTotalCount,
 } from 'redux/selectors/blog';
-import { selectIsMobileResolutions, selectIsLoading } from 'redux/selectors/layout';
+import { selectIsMobileResolutions, selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
 import {
   SelectionBlock,
   ArticlesList,
   Paginator,
   MetaTags,
-  LoadingPage,
+  LoadingScreen,
 } from 'components';
 import { toInt, getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { PAGES } from 'utils/constants';
@@ -30,16 +26,15 @@ import styles from './styles.module.scss';
 const BlogContainer = ({
   introSection,
   articles,
-  isLoading,
-  fetchBlogData,
+  fetchLayoutData,
   desktopLimit,
   mobileLimit,
   isMobileResolution,
   totalArticles,
   subscribe,
   setIsSubscribed,
+  isLoadingScreenCompleted,
 }) => {
-  const [isAnimationEnded, setIsAnimationEnded] = useState(false);
   const { asPath, query: { category, page }, pathname } = useRouter();
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
   const currentPage = toInt(page);
@@ -48,7 +43,6 @@ const BlogContainer = ({
   const handleOnFormSubmit = (email) => {
     subscribe({ email, pathname });
   };
-  const handleOnAnimationComplete = () => setIsAnimationEnded(true);
 
   useEffect(() => {
     setIsSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
@@ -56,29 +50,27 @@ const BlogContainer = ({
 
   useEffect(() => {
     if (!isMobileResolution) {
-      fetchBlogData({
-        pageSlug: PAGES.blog,
+      fetchLayoutData({
+        slug: PAGES.blog,
         currentPage,
         currentLimit: deviceLimit,
         category,
         skip: (currentPage - 1) * deviceLimit,
       });
     }
-    setIsAnimationEnded(false);
   }, [deviceLimit, asPath]);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
-      { !isAnimationEnded ? (
-        <LoadingPage isLoading={isLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
+      {!isLoadingScreenCompleted ? (
+        <LoadingScreen />
       ) : (
         <section ref={introSection} className={styles.blog}>
           {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
           <ArticlesList
             articles={articles}
-            isLoading={isLoading}
-            asPath={asPath}
+            isBlogPage
             currentPage={currentPage}
             handleOnFormSubmit={handleOnFormSubmit}
           />
@@ -96,26 +88,26 @@ const BlogContainer = ({
 BlogContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   articles: PropTypes.instanceOf(Array).isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  fetchBlogData: PropTypes.func.isRequired,
+  fetchLayoutData: PropTypes.func.isRequired,
   desktopLimit: PropTypes.number.isRequired,
   mobileLimit: PropTypes.number.isRequired,
   isMobileResolution: PropTypes.bool.isRequired,
   subscribe: PropTypes.func.isRequired,
   totalArticles: PropTypes.number.isRequired,
   setIsSubscribed: PropTypes.func.isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
   (state) => ({
-    isLoading: selectIsLoading(state),
     articles: selectArticles(state),
     totalArticles: selectTotalCount(state),
     desktopLimit: selectDesktopLimit(state),
     mobileLimit: selectMobileLimit(state),
     isMobileResolution: selectIsMobileResolutions(state),
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
   }), {
-    fetchBlogData,
+    fetchLayoutData,
     subscribe,
     setIsSubscribed,
   },

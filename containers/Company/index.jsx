@@ -1,16 +1,12 @@
-import React, {
-  Fragment,
-  useEffect,
-  useState,
-} from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { pageReadyToDisplay } from 'redux/actions/layout';
+import { fetchLayoutData } from 'redux/actions/layout';
 import {
   selectManagementTeam,
   selectWhatMakesSpecial,
   selectImageCarousel,
-  selectIsLoading,
+  selectIsLoadingScreenCompleted,
 } from 'redux/selectors/layout';
 import { reviews } from 'containers/Home/Reviews/utils/data';
 import {
@@ -21,7 +17,7 @@ import {
   Awards,
   Reviews,
   MetaTags,
-  LoadingPage,
+  LoadingScreen,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
@@ -32,15 +28,12 @@ const CompanyContainer = ({
   photosData,
   managementTeam,
   whatMakesSpecial,
-  pageReadyToDisplay: fetchPage,
-  isPageLoading,
+  fetchLayoutData: fetchPage,
+  isLoadingScreenCompleted,
 }) => {
-  const [isAnimationEnded, setIsAnimationEnded] = useState(false);
   const { content: carouselContent } = getDocumentFields(photosData, ['content']);
   const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
   const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
-
-  const handleOnAnimationComplete = () => setIsAnimationEnded(true);
 
   useEffect(() => {
     fetchPage({ slug: PAGES.company });
@@ -49,8 +42,8 @@ const CompanyContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.company} />
-      { !isAnimationEnded ? (
-        <LoadingPage isLoading={isPageLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
+      {!isLoadingScreenCompleted ? (
+        <LoadingScreen />
       ) : (
         <Fragment>
           <section ref={introSection} className={styles.companyContainer}>
@@ -76,13 +69,13 @@ CompanyContainer.propTypes = {
   photosData: PropTypes.instanceOf(Object).isRequired,
   managementTeam: PropTypes.instanceOf(Object).isRequired,
   whatMakesSpecial: PropTypes.instanceOf(Object).isRequired,
-  pageReadyToDisplay: PropTypes.func.isRequired,
-  isPageLoading: PropTypes.bool.isRequired,
+  fetchLayoutData: PropTypes.func.isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect((state) => ({
   photosData: selectImageCarousel(state),
   managementTeam: selectManagementTeam(state),
   whatMakesSpecial: selectWhatMakesSpecial(state),
-  isPageLoading: selectIsLoading(state),
-}), { pageReadyToDisplay })(CompanyContainer);
+  isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+}), { fetchLayoutData })(CompanyContainer);

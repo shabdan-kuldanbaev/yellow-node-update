@@ -1,8 +1,4 @@
-import React, {
-  useEffect,
-  Fragment,
-  useState,
-} from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { useRouter } from 'next/router';
@@ -12,8 +8,8 @@ import {
   selectRelatedArticles,
   selectNearbyArticles,
 } from 'redux/selectors/blog';
-import { selectIsLoading } from 'redux/selectors/layout';
-import { fetchBlogData } from 'redux/actions/layout';
+import { selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
+import { fetchLayoutData } from 'redux/actions/layout';
 import { subscribe } from 'redux/actions/subscribe';
 import {
   Article,
@@ -23,7 +19,7 @@ import {
   NextPrev,
   MetaTags,
   withScroll,
-  LoadingPage,
+  LoadingScreen,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import {
@@ -38,9 +34,9 @@ const ArticleContainer = ({
   articles: relatedArticles,
   nearbyArticles: { newerArticle, olderArticle },
   currentArticle,
-  isPageLoading,
   subscribe,
-  fetchBlogData,
+  fetchLayoutData,
+  isLoadingScreenCompleted,
 }) => {
   const { query: { article }, pathname } = useRouter();
   const {
@@ -71,24 +67,21 @@ const ArticleContainer = ({
     ['slug', 'title', 'previewImageUrl'],
   );
   const headImage = getFileUrl(headImageUrl);
-  const [isAnimationEnded, setIsAnimationEnded] = useState(false);
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
-  const handleOnAnimationComplete = () => setIsAnimationEnded(true);
 
   useEffect(() => {
-    fetchBlogData({
+    fetchLayoutData({
       articleSlug: article,
-      pageSlug: PAGES.article,
+      slug: PAGES.article,
     });
-    setIsAnimationEnded(false);
   }, [article]);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
-      { !isAnimationEnded ? (
-        <LoadingPage isLoading={isPageLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
+      {!isLoadingScreenCompleted ? (
+        <LoadingScreen />
       ) : (
         <Fragment>
           <Article
@@ -117,8 +110,7 @@ const ArticleContainer = ({
           </div>
           <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
         </Fragment>
-
-      ) }
+      )}
     </Fragment>
   );
 };
@@ -129,8 +121,8 @@ ArticleContainer.propTypes = {
   currentArticle: PropTypes.instanceOf(Object).isRequired,
   nearbyArticles: PropTypes.instanceOf(Object).isRequired,
   subscribe: PropTypes.func.isRequired,
-  isPageLoading: PropTypes.bool.isRequired,
-  fetchBlogData: PropTypes.bool.isRequired,
+  fetchLayoutData: PropTypes.bool.isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
@@ -138,9 +130,9 @@ export default connect(
     currentArticle: selectArticle(state),
     articles: selectRelatedArticles(state),
     nearbyArticles: selectNearbyArticles(state),
-    isPageLoading: selectIsLoading(state),
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
   }), {
     subscribe,
-    fetchBlogData,
+    fetchLayoutData,
   },
 )(withScroll(ArticleContainer));

@@ -6,9 +6,10 @@ const initialState = {
   isMobileCategotiesOpened: false,
   isMobileResolutions: null,
   isTabletResolutions: null,
-  isPageLoading: false,
   isFullResolution: false,
   isLoading: false,
+  isPageReadyToDisplay: false,
+  isLoadingScreenCompleted: false,
   components: {
     main: null,
   },
@@ -19,8 +20,8 @@ const handlers = {
   [actionTypes.SET_MOBILE_CATEGORIES_STATE]: (state, { payload }) => ({ ...state, isMobileCategotiesOpened: payload }),
   [actionTypes.SET_MOBILE_RESOLUTION]: (state, { payload }) => ({ ...state, isMobileResolutions: payload }),
   [actionTypes.SET_TABLET_RESOLUTION]: (state, { payload }) => ({ ...state, isTabletResolutions: payload }),
-  [actionTypes.SET_PAGE_LOADING]: (state, { payload }) => ({ ...state, isPageLoading: payload }),
   [actionTypes.SET_FULL_RESOLUTION]: (state, { payload }) => ({ ...state, isFullResolution: payload }),
+  [actionTypes.SET_IS_LOADING_SCREEN_COMPLETED]: (state, { payload }) => ({ ...state, isLoadingScreenCompleted: payload }),
   [actionTypes.FETCH_PAGE_PENDING]: (state) => ({ ...state, isLoading: true }),
   [actionTypes.FETCH_PAGE_SUCCESS]: (state, { payload }) => {
     const { contentModules } = getDocumentFields(
@@ -42,11 +43,11 @@ const handlers = {
     error: payload,
   }),
   [actionTypes.FETCH_BLOG_DATA_PENDING]: (state) => ({ ...state, isLoading: true }),
-  [actionTypes.PAGE_READY_TO_DISPLAY_PENDING]: (state) => ({ ...state, isLoading: true }),
-  [actionTypes.PAGE_READY_TO_DISPLAY_SUCCESS]: (state) => ({ ...state, isLoading: false }),
-  [actionTypes.PAGE_READY_TO_DISPLAY_FAILED]: (state, { payload }) => ({
+  [actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING]: (state) => ({ ...state, isPageReadyToDisplay: true }),
+  [actionTypes.SET_PAGE_READY_TO_DISPLAY_SUCCESS]: (state) => ({ ...state, isPageReadyToDisplay: false }),
+  [actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED]: (state, { payload }) => ({
     ...state,
-    isLoading: false,
+    isPageReadyToDisplay: false,
     error: payload,
   }),
   DEFAULT: (state) => state,
