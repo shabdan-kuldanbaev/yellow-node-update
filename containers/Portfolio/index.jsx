@@ -1,16 +1,12 @@
-import React, {
-  Fragment,
-  useEffect,
-  useState,
-} from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectPortfolioProjectsPreview, selectIsLoading } from 'redux/selectors/layout';
-import { pageReadyToDisplay } from 'redux/actions/layout';
+import { selectPortfolioProjectsPreview, selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
+import { fetchLayoutData } from 'redux/actions/layout';
 import {
   Portfolio,
   MetaTags,
-  LoadingPage,
+  LoadingScreen,
 } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
@@ -19,13 +15,10 @@ import styles from './styles.module.scss';
 const PortfolioContainer = ({
   introSection,
   portfolioProjects,
-  pageReadyToDisplay: fetchPage,
-  isPageLoading,
+  fetchLayoutData: fetchPage,
+  isLoadingScreenCompleted,
 }) => {
-  const [isAnimationEnded, setIsAnimationEnded] = useState(false);
   const { content } = getDocumentFields(portfolioProjects, ['content']);
-
-  const handleOnAnimationComplete = () => setIsAnimationEnded(true);
 
   useEffect(() => {
     fetchPage({ slug: PAGES.portfolio });
@@ -34,8 +27,8 @@ const PortfolioContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.portfolio} />
-      { !isAnimationEnded ? (
-        <LoadingPage isLoading={isPageLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
+      {!isLoadingScreenCompleted ? (
+        <LoadingScreen />
       ) : (
         <section ref={introSection} className={styles.portfolio}>
           {content && <Portfolio works={content} />}
@@ -48,13 +41,13 @@ const PortfolioContainer = ({
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   portfolioProjects: PropTypes.instanceOf(Object).isRequired,
-  isPageLoading: PropTypes.bool.isRequired,
-  pageReadyToDisplay: PropTypes.func.isRequired,
+  fetchLayoutData: PropTypes.func.isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
   (state) => ({
     portfolioProjects: selectPortfolioProjectsPreview(state),
-    isPageLoading: selectIsLoading(state),
-  }), { pageReadyToDisplay },
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+  }), { fetchLayoutData },
 )(PortfolioContainer);

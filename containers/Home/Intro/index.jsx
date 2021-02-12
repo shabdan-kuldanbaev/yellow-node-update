@@ -29,7 +29,6 @@ const Intro = ({
   setHomepageVisit: setVisitOfHomepage,
   setFirstHomepageVisit: setFirstHomeVisit,
   isFirstHomepageVisit,
-  isLoading,
 }) => {
   useEffect(() => () => {
     setVisitOfHomepage(true);
@@ -39,11 +38,7 @@ const Intro = ({
 
   return (
     <section ref={introSection} className={styles.intro}>
-      <Duck
-        duck={duck}
-        isHomepageVisit={isHomepageVisit}
-        isLoading={isLoading}
-      />
+      <Duck duck={duck} isHomepageVisit={isHomepageVisit} />
       <AddFooter
         theme={theme}
         isModelLoaded={!!duck}
@@ -70,7 +65,6 @@ Intro.propTypes = {
   duck: PropTypes.instanceOf(Object).isRequired,
   isHomepageVisit: PropTypes.bool.isRequired,
   setHomepageVisit: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(

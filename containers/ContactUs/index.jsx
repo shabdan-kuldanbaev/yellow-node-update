@@ -1,16 +1,12 @@
-import React, {
-  Fragment,
-  useEffect,
-  useState,
-} from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
-import { pageReadyToDisplay } from 'redux/actions/layout';
+import { fetchLayoutData } from 'redux/actions/layout';
 import {
   selectContacts,
   selectCompanyPhoto,
-  selectIsLoading,
+  selectIsLoadingScreenCompleted,
 } from 'redux/selectors/layout';
 import {
   FeedbackFormWithTitle,
@@ -18,7 +14,7 @@ import {
   CompanyPeoplePhoto,
   CompanyContacts,
   MetaTags,
-  LoadingPage,
+  LoadingScreen,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
@@ -29,10 +25,9 @@ const ContactUsContainer = ({
   sendEmail,
   officePhoto,
   peoplePhoto,
-  pageReadyToDisplay: fetchPage,
-  isPageLoading,
+  fetchLayoutData: fetchPage,
+  isLoadingScreenCompleted,
 }) => {
-  const [isAnimationEnded, setIsAnimationEnded] = useState(false);
   const { content: officePhotoContent } = getDocumentFields(officePhoto, ['content']);
   const { image: officeImage } = getDocumentFields(
     (officePhotoContent && officePhotoContent[0]) ? officePhotoContent[0] : {},
@@ -64,7 +59,6 @@ const ContactUsContainer = ({
       projectBudget,
     });
   };
-  const handleOnAnimationComplete = () => setIsAnimationEnded(true);
 
   useEffect(() => {
     fetchPage({ slug: PAGES.contact });
@@ -73,8 +67,8 @@ const ContactUsContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.contact} />
-      { !isAnimationEnded ? (
-        <LoadingPage isLoading={isPageLoading} handleOnAnimationComplete={handleOnAnimationComplete} />
+      {!isLoadingScreenCompleted ? (
+        <LoadingScreen />
       ) : (
         <section ref={introSection} className={styles.contactContainer}>
           <FeedbackFormWithTitle handleOnClick={handleOnClick} />
@@ -92,15 +86,12 @@ ContactUsContainer.propTypes = {
   sendEmail: PropTypes.func.isRequired,
   officePhoto: PropTypes.instanceOf(Object).isRequired,
   peoplePhoto: PropTypes.instanceOf(Object).isRequired,
-  pageReadyToDisplay: PropTypes.func.isRequired,
-  isPageLoading: PropTypes.bool.isRequired,
+  fetchLayoutData: PropTypes.func.isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect((state) => ({
   officePhoto: selectContacts(state),
   peoplePhoto: selectCompanyPhoto(state),
-  isPageLoading: selectIsLoading(state),
-}), {
-  sendEmail,
-  pageReadyToDisplay,
-})(ContactUsContainer);
+  isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+}), { sendEmail, fetchLayoutData })(ContactUsContainer);

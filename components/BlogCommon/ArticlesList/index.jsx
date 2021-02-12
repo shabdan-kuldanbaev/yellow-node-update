@@ -9,12 +9,12 @@ import styles from './styles.module.scss';
 export const ArticlesList = ({
   articles,
   isSearch,
-  asPath,
+  isBlogPage,
   currentPage,
   handleOnFormSubmit,
 }) => (
   <div className={styles.articlesList}>
-    {currentPage === 1 && asPath.includes('blog') && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
+    {currentPage === 1 && isBlogPage && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
     {articles && articles.map((article, index) => {
       const {
         slug,
@@ -28,7 +28,6 @@ export const ArticlesList = ({
       );
       const previewImage = getFileUrl(previewImageUrl);
       const delay = isSearch ? (30 * index) : (100 + 100 * index);
-      const effect = 'fadeInUp';
       const animatioProps = isSearch
         ? {
           type: ANIMATED_TYPE.isFade,
@@ -36,7 +35,7 @@ export const ArticlesList = ({
           duration: 400,
           distance: '100px',
           bottom: true,
-          effect,
+          effect: 'fadeInUp',
         }
         : {
           type: ANIMATED_TYPE.isCustom,
@@ -64,13 +63,13 @@ export const ArticlesList = ({
 
 ArticlesList.defaultProps = {
   isSearch: false,
-  asPath: '',
+  isBlogPage: false,
 };
 
 ArticlesList.propTypes = {
   articles: PropTypes.instanceOf(Array).isRequired,
   isSearch: PropTypes.bool,
-  asPath: PropTypes.string,
+  isBlogPage: PropTypes.bool,
   currentPage: PropTypes.number.isRequired,
   handleOnFormSubmit: PropTypes.func.isRequired,
 };

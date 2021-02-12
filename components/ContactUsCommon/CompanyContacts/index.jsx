@@ -6,7 +6,6 @@ import React, {
 import PropTypes from 'prop-types';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Animated } from 'components';
-import { getOptimizedImage } from 'utils/helper';
 import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
@@ -44,6 +43,7 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
           src={photo}
           alt="CompanyOfficePhoto"
           effect="blur"
+          className={styles.img}
         />
       </div>
       <address className={styles.address}>

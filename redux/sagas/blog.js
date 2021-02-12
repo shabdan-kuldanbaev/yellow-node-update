@@ -1,6 +1,5 @@
 import {
   put,
-  takeLatest,
   all,
   call,
   select,
@@ -10,6 +9,7 @@ import ObjectAssign from 'es6-object-assign';
 import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
 import { fetchContentfulNearbyArticles, fetchContentfulArticles } from 'utils/contentfulUtils';
+import { PAGES } from 'utils/constants';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { selectArticle } from 'redux/selectors/blog';
 
@@ -28,7 +28,7 @@ function* getArticle({ payload: { articleSlug } }) {
   }
 }
 
-function* loadArticles({
+export function* loadArticles({
   payload: {
     currentLimit,
     skip,
@@ -81,20 +81,12 @@ function* loadNearbyArticles({ payload: { createdAt } }) {
         olderArticle: prev.items[0],
       },
     });
-
-    yield put({
-      type: actionTypes.LOAD_NEARBY_SUCCESS,
-      payload: {
-        newerArticle: next.items[0],
-        olderArticle: prev.items[0],
-      },
-    });
   } catch (err) {
     yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: err });
   }
 }
 
-function* findArticles({ payload: { value } }) {
+export function* findArticles({ payload: { value } }) {
   try {
     const { items } = yield fetchContentfulArticles({
       'fields.keyWords[match]': value,
@@ -106,9 +98,9 @@ function* findArticles({ payload: { value } }) {
   }
 }
 
-function* fetchBlogData({
+export function* fetchBlogData({
   payload: {
-    pageSlug,
+    slug,
     articleSlug,
     currentPage,
     currentLimit,
@@ -117,7 +109,7 @@ function* fetchBlogData({
   },
 }) {
   try {
-    if (pageSlug === 'blog') {
+    if (slug === PAGES.blog) {
       yield call(loadArticles, {
         payload: {
           currentPage,
@@ -132,7 +124,7 @@ function* fetchBlogData({
       const article = yield select(selectArticle);
 
       const {
-        slug,
+        slug: currentArticleSlug,
         categoryTag,
         createdAt,
       } = getDocumentFields(
@@ -145,22 +137,15 @@ function* fetchBlogData({
         yield call(loadRelatedArticles, {
           payload: {
             currentLimit: 5,
-            currentArticleSlug: slug,
+            currentArticleSlug,
             categoryTag,
           },
         }),
       ]);
     }
 
-    yield put({ type: actionTypes.PAGE_READY_TO_DISPLAY_SUCCESS });
+    yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_SUCCESS });
   } catch (err) {
-    yield put({ type: actionTypes.PAGE_READY_TO_DISPLAY_FAILED, payload: err });
+    yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED, payload: err });
   }
-}
-
-export function* loadBlogDataWatcher() {
-  yield all([
-    yield takeLatest(actionTypes.FIND_ARTICLES_PENDING, findArticles),
-    yield takeLatest(actionTypes.FETCH_BLOG_DATA_PENDING, fetchBlogData),
-  ]);
 }

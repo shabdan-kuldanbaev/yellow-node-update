@@ -13,6 +13,8 @@ es6promise.polyfill();
 
 function* loadJSON({ payload }) {
   try {
+    yield put({ type: actionTypes.SET_IS_LOADING_SCREEN_COMPLETED, payload: false });
+
     const { data } = yield call(API.getJSON);
 
     yield put({ type: actionTypes.GET_JSON_SUCCESS, payload: data });

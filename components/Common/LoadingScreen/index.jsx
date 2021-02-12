@@ -5,11 +5,14 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import Lottie from 'react-lottie';
+import { connect } from 'react-redux';
+import { setIsLoadingScreenCompleted } from 'redux/actions/layout';
+import { selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import logo_animation from './json/logo-animation.json';
 import styles from './styles.module.scss';
 
-export const LoadingPage = ({ isLoading, handleOnAnimationComplete }) => {
-  const [state, setState] = useState({ isStopped: false, isPaused: false });
+const LoadingScreen = ({ isLoading, setIsLoadingScreenCompleted }) => {
+  const [{ isStopped, isPaused }, setState] = useState({ isStopped: false, isPaused: false });
   const loadRef = useRef(null);
   const isPageLoading = useRef(false);
 
@@ -24,33 +27,31 @@ export const LoadingPage = ({ isLoading, handleOnAnimationComplete }) => {
 
   const handleOnLoopComplete = () => {
     if (isPageLoading.current) {
-      setState({ ...state, isStopped: false });
+      setState({ isStopped: false });
     } else {
-      setState({ ...state, isStopped: true });
+      setState({ isStopped: true });
       loadRef.current && loadRef.current.classList.add(styles.hide);
       loadRef.current && loadRef.current.classList.add(styles.setZIndex);
-      handleOnAnimationComplete();
+      setIsLoadingScreenCompleted(true);
     }
   };
 
-  const eventListeners = [
-    {
-      eventName: 'loopComplete',
-      callback: () => handleOnLoopComplete(),
-    },
-  ];
+  const eventListeners = [{
+    eventName: 'loopComplete',
+    callback: () => handleOnLoopComplete(),
+  }];
 
   useEffect(() => {
     isPageLoading.current = isLoading;
   }, [isLoading]);
 
   return (
-    <div className={styles.loadingPage} ref={loadRef}>
+    <div ref={loadRef} className={styles.loadingPage}>
       <div className={styles.jsonWrapper}>
         <Lottie
           options={defaultOptions}
-          isStopped={state.isStopped}
-          isPaused={state.isPaused}
+          isStopped={isStopped}
+          isPaused={isPaused}
           eventListeners={eventListeners}
         />
       </div>
@@ -58,7 +59,10 @@ export const LoadingPage = ({ isLoading, handleOnAnimationComplete }) => {
   );
 };
 
-LoadingPage.propTypes = {
+LoadingScreen.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  handleOnAnimationComplete: PropTypes.func.isRequired,
+  setIsLoadingScreenCompleted: PropTypes.func.isRequired,
 };
+
+export default connect((state) => ({ isLoading: selectIsPageReadyToDisplay(state) }),
+  { setIsLoadingScreenCompleted })(LoadingScreen);
