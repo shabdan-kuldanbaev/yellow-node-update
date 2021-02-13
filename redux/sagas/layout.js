@@ -3,6 +3,7 @@ import {
   takeLatest,
   call,
   all,
+  select,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
@@ -13,6 +14,8 @@ import {
   fetchBlogData,
   loadArticles,
 } from 'redux/sagas/blog';
+import { selectIsFirstHomepageVisit } from 'redux/selectors/home';
+import { artificialDelay } from 'utils/helper';
 import { actionTypes } from '../actions/actionTypes';
 
 ObjectAssign.polyfill();
@@ -46,11 +49,14 @@ function* fetchPageData({
   try {
     yield put({ type: actionTypes.SET_IS_LOADING_SCREEN_COMPLETED, payload: false });
 
+    const isFirstHomepageVisit = yield select(selectIsFirstHomepageVisit);
+
     switch (slug) {
     case PAGES.homepage:
       yield all([
         yield call(fetchPage, { payload: slug }),
         yield call(loadArticles, { payload: { currentLimit: DEFAULT_ARTICLES_LIMIT } }),
+        ...(!isFirstHomepageVisit ? [yield call(artificialDelay, 4000)] : []),
       ]);
       break;
     case PAGES.blog:

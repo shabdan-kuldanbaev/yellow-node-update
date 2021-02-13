@@ -117,3 +117,9 @@ export const getDataFromLocalStorageWithExpire = (key) => {
 
   return value;
 };
+
+export const artificialDelay = (t) => new Promise(((resolve) => {
+  setTimeout(() => {
+    resolve();
+  }, t);
+}));
