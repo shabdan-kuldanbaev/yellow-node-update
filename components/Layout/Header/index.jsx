@@ -26,31 +26,28 @@ const Header = ({
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
 
-  const handleOnScroll = () => {
-    if (introSection.current) {
-      const intro = introSection.current.getBoundingClientRect();
-
-      if (isHomePage) {
-        intro.bottom < 65
-          ? setAdditional(true)
-          : setAdditional(false);
-        intro.top < -200
-          ? setIsLogoTextHidden(true)
-          : setIsLogoTextHidden(false);
-      }
-
-      if (!isHomePage) {
-        intro.top < -10
-          ? setIsLogoTextHidden(true)
-          : setIsLogoTextHidden(false);
-      }
-    }
-    // TODO if (pageYOffset > 20) document.body.style.backgroundColor = footerColor;
-    // else if (!isHomePage) document.body.style.backgroundColor = '#fff';
-    // else document.body.style.backgroundColor = 'black';
-  };
-
   useEffect(() => {
+    const handleOnScroll = () => {
+      if (introSection.current) {
+        const intro = introSection.current.getBoundingClientRect();
+
+        if (isHomePage) {
+          intro.bottom < 65
+            ? setAdditional(true)
+            : setAdditional(false);
+          intro.top < -200
+            ? setIsLogoTextHidden(true)
+            : setIsLogoTextHidden(false);
+        }
+
+        if (!isHomePage) {
+          intro.top < -10
+            ? setIsLogoTextHidden(true)
+            : setIsLogoTextHidden(false);
+        }
+      }
+    };
+
     handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
 
@@ -79,7 +76,6 @@ const Header = ({
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
-        isHeader
       />
       <MobileMenu
         isMobileMenuOpened={isMobileMenuOpened}

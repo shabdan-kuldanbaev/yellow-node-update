@@ -1,5 +1,4 @@
 import React, {
-  Fragment,
   useState,
   useRef,
   useEffect,
@@ -42,23 +41,21 @@ const App = ({
   }, []);
 
   return (
-    <Fragment>
-      <Provider store={store}>
-        <ParallaxProvider>
-          <Layout
-            isLoading={isPageLoaded}
+    <Provider store={store}>
+      <ParallaxProvider>
+        <Layout
+          isLoading={isPageLoaded}
+          theme={theme}
+          introSection={introSection}
+        >
+          <Component
             theme={theme}
             introSection={introSection}
-          >
-            <Component
-              {...pageProps}
-              theme={theme}
-              introSection={introSection}
-            />
-          </Layout>
-        </ParallaxProvider>
-      </Provider>
-    </Fragment>
+            {...pageProps}
+          />
+        </Layout>
+      </ParallaxProvider>
+    </Provider>
   );
 };
 

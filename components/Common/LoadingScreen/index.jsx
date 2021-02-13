@@ -28,7 +28,6 @@ const LoadingScreen = ({
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
-
   const eventListeners = [{
     eventName: 'loopComplete',
     callback: () => {

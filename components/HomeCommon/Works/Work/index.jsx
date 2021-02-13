@@ -59,11 +59,6 @@ const Work = ({
             )}
           >
             <img src={sizeOfImage ? getOptimizedImage(imageUrl, sizeOfImage, 'png', 'png8') : imageUrl} alt={title} />
-            {/* //TODO return later
-          {work.videoName && (
-            <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />
-          )}
-          <img src={work.image} alt={work.image} /> */}
           </div>
         </Animated>
       </div>

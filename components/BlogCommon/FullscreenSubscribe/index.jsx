@@ -7,7 +7,6 @@ import {
   ButtonMore,
   AnimatedInput,
   ModalWindow,
-  // TODO InformationMessage,
 } from 'components';
 import { withValidateEmail } from 'hocs';
 import styles from './styles.module.scss';
@@ -22,9 +21,6 @@ const FullscreenSubscribe = ({
   message,
   clearMessage,
 }) => {
-  // TODO const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
-  // const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
-
   const handleOnClick = (event) => {
     event.preventDefault();
 
@@ -55,14 +51,6 @@ const FullscreenSubscribe = ({
                 handleOnBlurEmail={handleOnBlurEmail}
               />
               {message && <span className={styles.alertMessage}>{message}</span>}
-              {/* TODO return this later
-              <CheckboxContainer
-                text="I accept your"
-                isThereLink
-                linkText="Privacy Policy"
-                handleOnChange={handleOnIsPolicyAcceptedChange}
-              />
-              <InformationMessage isAppear={!isPolicyAccepted} /> */}
               <ButtonMore
                 title="Subscribe"
                 buttonStyle={styles.button}

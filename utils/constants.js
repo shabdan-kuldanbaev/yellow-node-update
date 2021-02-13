@@ -1,3 +1,14 @@
+export const DEFAULT_ARTICLES_LIMIT = 5;
+export const CURRENT_PAGE_NUMBER = 1;
+export const NUMBER_OF_IMAGES_PER_LINE = 3;
+export const LIMIT = 5;
+
+export const ACCESS_TO_CONTENTFUL = {
+  space: process.env.CONTENTFUL_SPACE,
+  environment: process.env.CONTENTFUL_ENV,
+  accessToken: process.env.CONTENTFUL_TOKEN,
+};
+
 export const ANIMATED_TYPE = {
   isReveal: 'isReveal',
   isFade: 'isFade',
@@ -29,9 +40,6 @@ export const TAGS_FOR_BLOG = {
   },
 };
 
-export const NUMBER_OF_IMAGES_PER_LINE = 3;
-export const LIMIT = 5;
-
 export const PAGES = {
   homepage: 'homepage',
   portfolio: 'portfolio',
@@ -41,15 +49,6 @@ export const PAGES = {
   company: 'company',
   contact: 'contact',
   notFound: 'not-found',
-};
-
-export const DEFAULT_ARTICLES_LIMIT = 5;
-export const CURRENT_PAGE_NUMBER = 1;
-
-export const ACCESS_TO_CONTENTFUL = {
-  space: process.env.CONTENTFUL_SPACE,
-  environment: process.env.CONTENTFUL_ENV,
-  accessToken: process.env.CONTENTFUL_TOKEN,
 };
 
 export const ROUTES = {

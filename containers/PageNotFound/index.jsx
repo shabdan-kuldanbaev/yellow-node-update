@@ -8,7 +8,9 @@ export const PageNotFound = () => (
     <MetaTags page={PAGES.notFound} />
     <div className={styles.pageNotFound}>
       <p>Page not found :(</p>
-      <LinkWrapper path="/" isLocalLink>Go to Yellow!</LinkWrapper>
+      <LinkWrapper path="/" isLocalLink>
+        Go to Yellow!
+      </LinkWrapper>
     </div>
   </Fragment>
 );

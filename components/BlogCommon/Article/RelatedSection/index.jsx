@@ -30,7 +30,7 @@ const RelatedSection = ({ articles }) => (
 
         return (
           <Article
-            key={`related/${index}`}
+            key={`related/${slug}`}
             slug={slug}
             title={title}
             image={image}

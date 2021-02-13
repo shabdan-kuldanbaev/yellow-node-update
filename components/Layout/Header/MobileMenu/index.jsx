@@ -30,22 +30,22 @@ const MobileMenu = ({
       })}
       >
         <ul>
-          {menuItems && menuItems.map((item) => (
-            <li key={`menuItem/${item.name}`} onClick={closeMenu}>
-              <LinkWrapper path={item.href} isLocalLink>
-                <span>{item.name}</span>
+          {menuItems && menuItems.map(({ name, href }) => (
+            <li key={`menuItem/${name}`} onClick={closeMenu}>
+              <LinkWrapper path={href} isLocalLink>
+                <span>{name}</span>
               </LinkWrapper>
             </li>
           ))}
         </ul>
         <div className={styles.mobileMenuFooter}>
-          {socialItems && socialItems.map((link) => (
+          {socialItems && socialItems.map(({ title, href }) => (
             <LinkWrapper
-              key={`links/${link.title}`}
-              path={link.href}
+              key={`links/${title}`}
+              path={href}
               isLocalLink
             >
-              {link.title}
+              {title}
             </LinkWrapper>
           ))}
         </div>

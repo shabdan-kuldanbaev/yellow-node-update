@@ -11,14 +11,13 @@ import {
   AnimatedInput,
   ButtonMore,
   Animated,
-  InformationMessage,
 } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { withValidateEmail } from 'hocs';
 import { budget } from './utils/data';
-import 'rc-slider/assets/index.css';
 import styles from './styles.module.scss';
+import 'rc-slider/assets/index.css';
 
 const FeedbackForm = ({
   email,
@@ -33,8 +32,7 @@ const FeedbackForm = ({
   const [projectBudget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
   const [projectDescription, setDescription] = useState('');
-  const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
-  const [isSendNDAChecked, setIsSendNDAChecked] = useState(false);
+  const [isSendNDAChecked, setIsSendNDAChecked] = useState(false); // TODO check it and remove from here if unused
   const [isDisabled, setIsDisabled] = useState(false);
   const sliderSettings = {
     ...budgetData,
@@ -42,7 +40,6 @@ const FeedbackForm = ({
     step: 20000,
     onChange: (value) => setBudget(addThousandsSeparators(value)),
   };
-
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -60,8 +57,6 @@ const FeedbackForm = ({
   const handleOnUnpinFile = ({ target: { dataset } }) => {
     setFiles(selectedFiles.filter((file) => file.name !== dataset.fileName));
   };
-  const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
-  const handleOnIsSendNDACheckedChange = ({ target: { checked } }) => setIsSendNDAChecked(checked);
   const handleOnSubmitClick = () => handleOnClick(
     fullName,
     email.value,
@@ -72,8 +67,7 @@ const FeedbackForm = ({
   );
 
   useEffect(() => {
-    const isButtonDisabled = !fullName || !email.value || !projectDescription;
-    if (isButtonDisabled) setIsDisabled(true);
+    if (!fullName || !email.value || !projectDescription) setIsDisabled(true);
     else setIsDisabled(false);
   }, [email, fullName, projectDescription]);
 
@@ -127,27 +121,6 @@ const FeedbackForm = ({
           formKey={formKey}
         />
       </Animated>
-      {/* TODO return this later
-      <div className={styles.checkboxContainer}>
-        <Animated {...animatedProps} transitionDelay={700}>
-          <CheckboxContainer
-            text="I accept your"
-            isThereLink
-            linkText="Privacy Policy"
-            handleOnChange={handleOnIsPolicyAcceptedChange}
-          />
-        </Animated>
-        <Animated {...animatedProps} transitionDelay={750}>
-          <CheckboxContainer
-            text="Send me NDA"
-            isThereLink={false}
-            handleOnChange={handleOnIsSendNDACheckedChange}
-          />
-        </Animated>
-      </div>
-      <Animated {...animatedProps} transitionDelay={800}>
-        <InformationMessage isAppear={!isPolicyAccepted} />
-      </Animated> */}
       <Animated {...animatedProps} transitionDelay={700}>
         <ButtonMore
           href="/"

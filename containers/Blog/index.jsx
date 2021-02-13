@@ -78,7 +78,7 @@ const BlogContainer = ({
             currentPage={currentPage}
           />
         </section>
-      ) }
+      )}
     </Fragment>
   );
 };
@@ -104,7 +104,8 @@ export default connect(
     mobileLimit: selectMobileLimit(state),
     isMobileResolution: selectIsMobileResolutions(state),
     isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
-  }), {
+  }),
+  {
     fetchLayoutData,
     subscribe,
     setIsSubscribed,

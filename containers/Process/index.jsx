@@ -6,7 +6,6 @@ import { selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
 import { getJSON } from 'redux/actions/process';
 import {
   Process,
-  // TODO SectionTitle,
   MetaTags,
   LoadingScreen,
 } from 'components';
@@ -30,9 +29,6 @@ const ProcessContainer = ({
       <MetaTags page={PAGES.process} />
       {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <section ref={introSection} className={styles.process}>
-          {/* TODO <div className={styles.intro}>
-      <SectionTitle title="How we work" subtitle="A step by step guide" />
-    </div> */}
           <Process processes={json} />
         </section>
       )}

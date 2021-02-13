@@ -20,7 +20,6 @@
 .portfolio {
   @include flex(column, flex-start, center);
   padding: 0 $side-indent 200px $side-indent;
-  // TODO background-color: $turbo-100;
   overflow: hidden;
 
   @include phone {
@@ -63,7 +62,6 @@
         margin-top: $mobile-more-button-indent;
       }
     }
-
   }
 }
 

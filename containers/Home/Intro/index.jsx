@@ -73,7 +73,8 @@ export default connect(
     duck: selectDuck(state),
     isHomepageVisit: selectIsHomepageVisit(state),
     isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
-  }), {
+  }),
+  {
     setScrollOfAddedFooter,
     setHomepageVisit,
     setFirstHomepageVisit,

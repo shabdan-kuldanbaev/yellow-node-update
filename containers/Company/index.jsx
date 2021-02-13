@@ -57,7 +57,7 @@ const CompanyContainer = ({
             <Awards />
           </section>
         </Fragment>
-      ) }
+      )}
     </Fragment>
   );
 };

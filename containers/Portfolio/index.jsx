@@ -31,7 +31,7 @@ const PortfolioContainer = ({
         <section ref={introSection} className={styles.portfolio}>
           {content && <Portfolio works={content} />}
         </section>
-      ) }
+      )}
     </Fragment>
   );
 };

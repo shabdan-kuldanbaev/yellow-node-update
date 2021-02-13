@@ -15,25 +15,30 @@ export const Process = ({ processes }) => {
 
   return (
     <div className={styles.processContainer}>
-      {processes && processes.map((process, index) => (
+      {processes && processes.map(({
+        name,
+        description,
+        link,
+        json,
+      }, index) => (
         <div
           className={styles.process}
-          key={`processes/${process.name}`}
+          key={`processes/${name}`}
           data-index={index}
         >
           <div className={styles.desc}>
             <Animated {...animatedProps} transitionDelay={300}>
               <h1>
                 <span>{`${index + 1}.`}</span>
-                {process.name}
+                {name}
               </h1>
             </Animated>
             <Animated {...animatedProps} transitionDelay={300 + 50}>
-              <p>{process.description}</p>
+              <p>{description}</p>
               <LinkWrapper
                 isLocalLink
-                dynamicRouting={process.link}
-                path={process.link}
+                dynamicRouting={link}
+                path={link}
                 className={styles.buttonWrap}
               >
                 <button type="button">Details</button>
@@ -43,7 +48,7 @@ export const Process = ({ processes }) => {
           <Animated {...animatedProps} transitionDelay={200}>
             <Animated
               type={ANIMATED_TYPE.isJSON}
-              jsonFile={process.json}
+              jsonFile={json}
               className={styles.jsonWrapper}
             />
           </Animated>

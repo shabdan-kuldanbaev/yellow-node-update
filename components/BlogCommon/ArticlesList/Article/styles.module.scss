@@ -209,33 +209,6 @@
           transition: background-color .15s ease;
         }
       }
-
-      // TODO
-      // &>a {
-      //   margin: 0;
-      //   width: max-content;
-      //   font-size: 0.8125rem;
-      //   font-weight: 500;
-      //   display: inline-block;
-      //   color: $woodsmoke;
-      //   text-decoration: none;
-      //   // translate: background-color .4s ease;
-      //   // background-image: linear-gradient($turbo-100, $turbo-100);
-      //   // background-position: 0% 100%;
-      //   // background-repeat: no-repeat;
-      //   // background-size: 0% 4px;
-      //   // transition: background-size .6s ease-out;
-      //   border-radius: 0;
-      // }
-
-      // &:hover {
-      //   &>a {
-      //     transition: background-size .6s ease-out;
-      //     background-size: 100% 4px;
-      //     // color: $mid-gray;
-      //     // transition: color .4s;
-      //   }
-      // }
     }
   }
 }

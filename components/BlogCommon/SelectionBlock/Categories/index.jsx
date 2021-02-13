@@ -27,7 +27,7 @@ const Categories = ({
         />
       </div>
       <ul>
-        {tags && Object.entries(tags).map(([key, value], index) => {
+        {tags && Object.entries(tags).map(([key, value]) => {
           const url = `/blog?category=${value.dynamicRouting}&page=1`;
 
           return (
@@ -36,8 +36,6 @@ const Categories = ({
                 isLocalLink
                 dynamicRouting={url}
                 path={url}
-                // TODO dynamicRouting={`/blog?category=${tag.dynamicRouting}&page=1&limit=11`}
-                // TODO path={`/blog?category=${tag.dynamicRouting}&page=1&limit=11`}
               >
                 {value.name}
               </LinkWrapper>

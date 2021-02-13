@@ -16,7 +16,6 @@
   @include full-hd {
     margin-top: 32vh;
     padding-bottom: 30vh;
-    // TODO height: calc(100vh - 81px);
   }
 
   @include macbook-fifteen {
@@ -116,7 +115,6 @@
             line-height: 1.55;
             letter-spacing: 0.5px;
             transition: color $accelerated-transition-time;
-      
             border: none;
             outline: 0px;
             background-color: transparent;

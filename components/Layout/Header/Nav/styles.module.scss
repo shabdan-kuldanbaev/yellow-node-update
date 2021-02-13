@@ -85,17 +85,6 @@
         color: $mid-gray;
         transition: color $default-transition-time;
       }
-
-      &.activeNav {
-        // TODO &:before {
-        //   width: 100%;
-        //   transform-origin: center left;
-        // }
-
-        & {
-          // TODO color: #9a999c; 
-        }
-      }
     }
   }
 

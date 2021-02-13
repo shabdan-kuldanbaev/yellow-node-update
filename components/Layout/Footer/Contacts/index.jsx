@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'next/router';
 import {
   SectionTitle,
   ButtonMore,
@@ -7,12 +8,15 @@ import {
   Animated,
 } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { withRouter } from 'next/router';
 import { socialNetworks } from './utils/data';
 import rocket from './json/rocket.json';
 import styles from './styles.module.scss';
 
-const Contacts = ({ handleOnClick, router }) => (
+const Contacts = ({
+  handleOnClick,
+  router,
+  socialNetworks: socialLinks,
+}) => (
   <div className={styles.contactsContainer}>
     <SectionTitle title="Contacts" styleTitle={styles.mobileFooterTitle} />
     <div className={styles.contacts}>
@@ -49,20 +53,17 @@ const Contacts = ({ handleOnClick, router }) => (
     </div>
     <div className={styles.social}>
       <div className={styles.icons}>
-        {socialNetworks.map((network) => (
+        {socialLinks && socialLinks.map(({ title, href, image }) => (
           <LinkWrapper
-            key={`networks/${network.title}`}
-            path={network.href}
+            key={`networks/${title}`}
+            path={href}
             googleAnalyticProps={{
               category: 'Social',
               label: router.pathname,
-              data: network.title,
+              data: title,
             }}
           >
-            <img
-              src={network.image}
-              alt={network.title}
-            />
+            <img src={image} alt={title} />
           </LinkWrapper>
         ))}
       </div>
@@ -90,9 +91,14 @@ const Contacts = ({ handleOnClick, router }) => (
   </div>
 );
 
+Contacts.defaultProps = {
+  socialNetworks,
+};
+
 Contacts.propTypes = {
   handleOnClick: PropTypes.func.isRequired,
   router: PropTypes.instanceOf(Object).isRequired,
+  socialNetworks: PropTypes.instanceOf(Array),
 };
 
 export default withRouter(Contacts);

@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 
 const CookiesNotification = ({ text }) => {
   const [isShown, setIsShown] = useState(false);
+
   const handlerOnClose = () => setIsShown(false);
 
   return (

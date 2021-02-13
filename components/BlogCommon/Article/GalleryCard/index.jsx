@@ -18,7 +18,10 @@ export const GalleryCard = ({ images, photoCaption }) => {
   const handleOnLoad = ({ target }) => {
     const { offsetWidth, offsetHeight, parentElement } = target;
     const rowChildren = get(parentElement, 'parentElement.children', []);
-    const setFlex = (flex) => parentElement.style.flex = flex;
+
+    const setFlex = (flex) => {
+      parentElement.style.flex = flex;
+    };
 
     if (rowChildren.length === 1) setFlex('1 1 0%');
     else setFlex(`${offsetWidth / offsetHeight} 1 0%`);

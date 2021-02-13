@@ -13,11 +13,6 @@
     padding: 0 $side-indent;
   }
 
-  .intro {
-    @include flex(column, center, center);
-    height: 100vh;
-  }
-
   @include phone {
     padding: 0px $side-indent 0px;
 

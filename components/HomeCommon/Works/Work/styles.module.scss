@@ -321,7 +321,6 @@
           z-index: 10;
 
           @include phone {
-            //TODO max-width: 95vw;
             max-width: 100vw;
             max-height: 100vh;
             height: 90%;
@@ -332,17 +331,6 @@
             transform: translateX(0) scale(1);
           }
         }
-      }
-
-      .forBefore {
-        // TODO content: "";
-        // position: absolute;
-        // display: block;
-        // height: 210%;
-        // width: 300%;
-        // background: url('./images/shadow.png') no-repeat 0 0;
-        // background-size: 100%;
-        // z-index: -2;
       }
 
       .firstShadow {
@@ -360,7 +348,6 @@
           z-index: 10;
 
           @include phone {
-            //TODO max-width: 95vw;
             max-width: 100vw;
             max-height: 100vh;
             transform: translateX(0);
@@ -370,32 +357,6 @@
             transform: translateX(0) scale(1);
           }
         }
-
-        // TODO &:before {
-        //   @extend .forBefore;
-
-        //   bottom: -108%;
-        //   transform: rotate(-28deg) scale(-1, 1);
-        //   left: -62%;
-
-
-        //   @include phone {
-        //     bottom: -112%;
-        //   }
-        // }
-
-        // .video {
-        //   position: absolute;
-        //   z-index: 99;
-        //   width: 78%;
-        //   height: 100%;
-        //   transform: rotate3d(-4.9, 6.1, -1.3, -25.5deg) translate(-6px, -5px);
-        //   border-radius: 50px;
-
-        //   @include phone {
-        //     width: 79%;
-        //   }
-        // }
       }
 
       .secondShadow {
@@ -412,7 +373,6 @@
         
         img {
           @include phone {
-            //TODO max-width: 95vw;
             max-width: 100vw;
             max-height: 100vh;
             height: 90%;
@@ -443,32 +403,6 @@
             transform: translate(9.4vw, -1.8vw);
           }
         }
-
-        // TODO &:before {
-        //   @extend .forBefore;
-
-        //   bottom: -115%;
-        //   transform: rotate(33deg);
-        //   right: -40%;
-
-        //   @include phone {
-        //     bottom: -108%;
-        //     right: -48%;
-        //   }
-        // }
-
-        // .video {
-        //   position: absolute;
-        //   z-index: 99;
-        //   width: 76%;
-        //   height: 100%;
-        //   transform: rotate3d(-69, -94, -1.1, 42.5deg) translate(3px, -31px);
-        //   border-radius: 80px;
-
-        //   @include phone {
-        //     width: 70%;
-        //   }
-        // }
       }
 
       .thirdShadow {
@@ -476,7 +410,6 @@
 
         img {
           @include phone {
-            //TODO max-width: 95vw;
             max-width: 100vw;
             max-height: 100vh;
             height: 90%;

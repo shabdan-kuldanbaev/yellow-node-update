@@ -4,6 +4,7 @@ export function getScrollPercent() {
   const st = 'scrollTop';
   const sh = 'scrollHeight';
   const scrollPercent = ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100).toFixed(2);
+
   switch (true) {
   case scrollPercent >= 0 && scrollPercent < 25:
     return 25;

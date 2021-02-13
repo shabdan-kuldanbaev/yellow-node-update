@@ -24,40 +24,6 @@
   }
 
   &>div {
-    // height: calc(#{$max-content-width} * 0.0626);
     width: 130px !important;
-    // TODO
-    // border: 1px solid rgba(128, 128, 128, 0.315);
-
-    // @include macbook-fifteen {
-    //   height: 6.417vw;
-    // }
-
-    // @include horizontal-mobile {
-    //   height: 7.417vw;
-    // }
-
-    // @include phone {
-    //   width: 40%;
-    //   height: auto;
-    // }
-
-    // &:not(:last-child) {
-    //   margin-right: 50px;
-
-    //   @include phone {
-    //     margin-right: 0;
-    //     margin-bottom: 45px;
-    //   }
-    // }
-
-    // img {
-    //   height: 100%;
-
-    //   @include phone {
-    //     width: 100%;
-    //     height: auto;
-    //   }
-    // }
   }
 }

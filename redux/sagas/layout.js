@@ -14,10 +14,10 @@ import {
 } from 'redux/sagas/blog';
 import { selectIsFirstHomepageVisit } from 'redux/selectors/home';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
+import { actionTypes } from 'redux/actions/actionTypes';
 import { artificialDelay, loadDuck } from 'utils/helper';
 import { contentfulClient } from 'utils/ContentfulClient';
 import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
-import { actionTypes } from '../actions/actionTypes';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -42,7 +42,7 @@ function* fetchDuck() {
     const duck = yield loadDuck();
 
     yield put({ type: actionTypes.SET_DUCK, payload: duck });
-  } catch (error) {
+  } catch (err) {
     yield put({ type: actionTypes.SET_DUCK, payload: null });
   }
 }
@@ -92,8 +92,8 @@ function* fetchPageData({
     }
 
     yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_SUCCESS });
-  } catch (error) {
-    const { message } = error;
+  } catch (err) {
+    const { message } = err;
     yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED, payload: message });
   }
 }

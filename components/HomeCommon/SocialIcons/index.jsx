@@ -5,17 +5,21 @@ import { themes } from 'utils/helper';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
 
-export const SocialIcons = ({ theme, socialNetworks }) => (
+export const SocialIcons = ({ theme, socialNetworks: socialLinks }) => (
   <div className={styles.socialContainer}>
-    {socialNetworks && socialNetworks.map((network) => (
-      <LinkWrapper
-        key={`social/${network.title}`}
-        path={network.href}
-        isLocalLink
-      >
-        {network.image(themes[theme].main, themes[theme].secondary)}
-      </LinkWrapper>
-    ))}
+    {socialLinks && socialLinks.map(({ href, image }) => {
+      const svgIcon = image(themes[theme].main);
+
+      return (
+        <LinkWrapper
+          key={`social/${href}`}
+          path={href}
+          isLocalLink
+        >
+          {svgIcon}
+        </LinkWrapper>
+      );
+    })}
   </div>
 );
 

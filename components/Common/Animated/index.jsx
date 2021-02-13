@@ -28,6 +28,7 @@ export const Animated = (props) => {
     if (Object.keys(props).length === 1) {
       return <div>{props.children}</div>;
     }
+
     return (
       <CustomAnimation {...props}>
         {props.children}

@@ -1,13 +1,11 @@
 @import 'styles/utils/mixins';
 
 .categories {
-  // TODO width: 75%;
   width: 60%;
   height: 100%;
   margin: 0;
   padding: 0;
   z-index: 2;
-
 
   @include below-tablet-horizontal {
     width: 75%;

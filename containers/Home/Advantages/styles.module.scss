@@ -2,7 +2,6 @@
 
 .advantages {
   @include flex(column, center, center);
-  // TODO background-color: $turbo-100;
   min-height: calc(100vh - 100px * 2);
 
   @include ultra-hd {

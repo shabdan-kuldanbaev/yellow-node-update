@@ -19,7 +19,9 @@ export const fetchContentfulArticles = async (additionalQuery, params = {}) => {
   try {
     return await contentfulClient.getEntries({
       contentType: 'article',
-      additionalQueryParams: { ...additionalQuery },
+      additionalQueryParams: {
+        ...additionalQuery,
+      },
       ...params,
     });
   } catch (error) {

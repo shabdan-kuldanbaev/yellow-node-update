@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
+import { PAGES } from 'utils/constants';
 import {
   phoneResolution,
   horizontalMobile,
@@ -7,7 +8,6 @@ import {
   silver,
   fullHdResolution,
 } from 'styles/utils/_variables.scss';
-import { PAGES } from './constants';
 
 export const themes = {
   dark: {

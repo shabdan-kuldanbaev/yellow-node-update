@@ -25,6 +25,7 @@ export const LinkWrapper = ({
         label,
         data,
       } = googleAnalyticProps;
+
       ReactGA.event({
         category: category || data,
         action: action || data,

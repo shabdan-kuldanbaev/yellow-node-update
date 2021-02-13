@@ -12,15 +12,6 @@ export const FieldsWrapper = ({
     return title && <h1 className={styles.h1}>{title}</h1>;
   case 'description':
     return description && <p className={styles.p}>{description}</p>;
-    // TODO case 'link':
-    //   return (
-    //     <LinkWrapper
-    //       {...animated}
-    //       className={styles.buttonWrap}
-    //     >
-    //       <button type="button">See full case study</button>
-    //     </LinkWrapper>
-    //   );
   default:
     return null;
   }

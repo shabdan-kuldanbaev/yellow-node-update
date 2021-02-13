@@ -7,11 +7,11 @@ import {
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import get from 'lodash/get';
+import { actionTypes } from 'redux/actions/actionTypes';
+import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
 import { fetchContentfulNearbyArticles, fetchContentfulArticles } from 'utils/contentfulUtils';
 import { PAGES } from 'utils/constants';
-import { actionTypes } from 'redux/actions/actionTypes';
-import { selectArticle } from 'redux/selectors/blog';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -113,7 +113,6 @@ export function* fetchBlogData({
     yield call(getArticle, { articleSlug });
 
     const article = yield select(selectArticle);
-
     const {
       slug: currentArticleSlug,
       categoryTag,

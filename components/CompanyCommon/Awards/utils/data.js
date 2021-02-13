@@ -1,10 +1,3 @@
-// TODO import {
-//   ClutchReview,
-//   GoodFirms,
-//   TopReated,
-//   ITFirms,
-// } from '../images';
-
 export const awards = [
   {
     id: 'iframe-0.824960673393011',

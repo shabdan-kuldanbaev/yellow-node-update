@@ -14,8 +14,4 @@ export const selectDesktopLimit = (state) => state.blog.limit.desktop;
 
 export const selectMobileLimit = (state) => state.blog.limit.mobile;
 
-export const selectIsBlogOpen = (state) => state.blog.isBlogOpen;
-
-export const selectIsFirstVisit = (state) => state.blog.isFirstVisit;
-
 export const selectFoundArticles = (state) => state.blog.found;

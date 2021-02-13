@@ -50,6 +50,7 @@ const ContactUsContainer = ({
       isSendNDAChecked,
       projectBudget,
     ] = args;
+
     sendEmail({
       fullName,
       email,
@@ -74,7 +75,7 @@ const ContactUsContainer = ({
           {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}
           {officeImageUrl && <CompanyContacts photo={officeImageUrl} />}
         </section>
-      ) }
+      )}
     </Fragment>
   );
 };

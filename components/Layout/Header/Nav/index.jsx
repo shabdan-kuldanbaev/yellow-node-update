@@ -10,7 +10,7 @@ const Nav = ({
   theme,
   currentPage,
   isAdditional,
-  isHeader,
+  menuList: links,
 }) => {
   const { asPath } = useRouter();
   const isBlog = asPath && asPath.includes('blog');
@@ -21,15 +21,11 @@ const Nav = ({
       [styles.additionalNavForBlog]: isBlog,
     })}
     >
-      {menuList && menuList.map((item) => (
-        <li key={`menuItem/${item.name}`} className={styles[theme]}>
-          <LinkWrapper path={item.href} isLocalLink>
-            <span className={cn(
-              styles.underline,
-              // TODO { [styles.activeNav]: isHeader && asPath.includes(item.name.toLowerCase()) },
-            )}
-            >
-              {item.name}
+      {links && links.map(({ name, href }) => (
+        <li key={`menuItem/${name}`} className={styles[theme]}>
+          <LinkWrapper path={href} isLocalLink>
+            <span className={styles.underline}>
+              {name}
             </span>
           </LinkWrapper>
         </li>
@@ -40,14 +36,14 @@ const Nav = ({
 
 Nav.defaultProps = {
   theme: 'dark',
-  isHeader: false,
+  menuList,
 };
 
 Nav.propTypes = {
   theme: PropTypes.string,
   currentPage: PropTypes.string.isRequired,
   isAdditional: PropTypes.bool.isRequired,
-  isHeader: PropTypes.bool,
+  menuList: PropTypes.instanceOf(Array),
 };
 
 export default Nav;

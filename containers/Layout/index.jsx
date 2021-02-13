@@ -5,7 +5,6 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
-import { setBlogStatus, setFirstVisit } from 'redux/actions/blog';
 import {
   setMobileResolutions,
   setTabletResolutions,
@@ -33,10 +32,10 @@ export const Layout = ({
 }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
+
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
-
-  const handleOnClick = (...args) => {
+  const handleOnClick = (...args) => { // TODO after release (three repetitions in the code)
     const [
       fullName,
       email,
@@ -45,6 +44,7 @@ export const Layout = ({
       isSendNDAChecked,
       projectBudget,
     ] = args;
+
     sendEmail({
       fullName,
       email,
@@ -106,8 +106,4 @@ Layout.propTypes = {
   sendEmail: PropTypes.func.isRequired,
 };
 
-export default connect(null, {
-  setBlogStatus,
-  setFirstVisit,
-  sendEmail,
-})(Layout);
+export default connect(null, { sendEmail })(Layout);

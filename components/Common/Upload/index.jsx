@@ -36,7 +36,7 @@ export const Upload = ({
     </div>
     <hr />
     <div className={styles.attachedFiles}>
-      {selectedFiles.map((file, index) => (
+      {selectedFiles && selectedFiles.map((file, index) => (
         <div className={styles.file} key={`file/${index}`}>
           <span>{file.name}</span>
           <span>{`${(file.size / 1024).toFixed(2)} kB`}</span>

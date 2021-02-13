@@ -23,7 +23,6 @@ export const CustomAnimation = ({
     rootMargin: '0px',
     threshold: percentIntersection,
   });
-
   const appearanceStyles = {
     opacity: '1',
     transform: 'translate(0px, 0px)',
@@ -32,7 +31,6 @@ export const CustomAnimation = ({
     transitionDuration: `${opasityDuration}s, ${transformDuration}s`,
     transitionDelay: `${delayInSeconds}s`,
   };
-
   const generalStyles = {
     opacity: '0',
     transform: `translate(${translateX}, ${translateY})`,
@@ -44,18 +42,6 @@ export const CustomAnimation = ({
       if (intersection && intersection.intersectionRatio >= percentIntersection) setAnimated(true);
     }
   }, [intersection]);
-
-  // TODO useEffect(() => {
-  //   const handleOnScroll = () => {
-  //     if (animateRef.current.getBoundingClientRect().top < window.innerHeight && animateRef.current.getBoundingClientRect().bottom > 0) {
-  //       setAnimated(true);
-  //     }
-  //   };
-
-  //   handleOnScroll();
-  //   window.addEventListener('scroll', handleOnScroll);
-  //   return () => window.removeEventListener('scroll', handleOnScroll);
-  // }, []);
 
   return (
     <div ref={animateRef} style={generalStyles}>

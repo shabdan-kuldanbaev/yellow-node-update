@@ -16,7 +16,6 @@ export const DesktopCarousel = ({ photos }) => {
   const gallery = photos.concat(photos, photos, photos);
   const [fullListWidth, setFullListWidth] = useState(0);
   const [carouselContainerRef, listRef] = [useRef(null), useRef(null)];
-
   let offsetValue = 0;
   let timer;
 
