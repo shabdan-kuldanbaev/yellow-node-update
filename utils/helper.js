@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
 import {
   phoneResolution,
   horizontalMobile,
@@ -127,3 +128,11 @@ export const artificialDelay = (t) => new Promise(((resolve) => {
     resolve();
   }, t);
 }));
+
+export const loadDuck = async () => {
+  const duck = await new Promise((resolve) => {
+    three.loadModel(resolve);
+  });
+
+  return duck;
+};

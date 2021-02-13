@@ -14,7 +14,7 @@ import {
 } from 'redux/sagas/blog';
 import { selectIsFirstHomepageVisit } from 'redux/selectors/home';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
-import { artificialDelay } from 'utils/helper';
+import { artificialDelay, loadDuck } from 'utils/helper';
 import { contentfulClient } from 'utils/ContentfulClient';
 import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 import { actionTypes } from '../actions/actionTypes';
@@ -37,6 +37,16 @@ function* fetchPage({ slug }) {
   }
 }
 
+function* fetchDuck() {
+  try {
+    const duck = yield loadDuck();
+
+    yield put({ type: actionTypes.SET_DUCK, payload: duck });
+  } catch (error) {
+    yield put({ type: actionTypes.SET_DUCK, payload: null });
+  }
+}
+
 function* fetchPageData({
   payload: {
     slug,
@@ -55,6 +65,7 @@ function* fetchPageData({
       const isFirstHomeVisitAndPageLoaded = !(yield select(selectIsFirstHomepageVisit)) && !(yield select(selectIsFirstPageLoaded));
 
       yield all([
+        yield call(fetchDuck),
         yield call(fetchPage, { slug }),
         yield call(loadArticles, { currentLimit: DEFAULT_ARTICLES_LIMIT }),
         ...(isFirstHomeVisitAndPageLoaded ? [yield call(artificialDelay, 4000)] : []),

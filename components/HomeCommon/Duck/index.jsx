@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable default-case */
 /* eslint-disable no-undef */
 /* eslint-disable prefer-destructuring */
@@ -342,6 +343,7 @@ export const Duck = ({
         r = 0;
         init();
 
+        if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';
         slogan.setOpacity(canvas, containerCanvas);
         slogan.animateSlogan(sloganRef);
         animate();
@@ -413,11 +415,7 @@ export const Duck = ({
     <Fragment>
       <div className={styles.text} ref={containerText}>
         <animated.div style={{ position: 'absolute', transform: offset.interpolate(calc) }}>
-          {!!duck && (
-            <h1 ref={sloganRef} className="letter-container">
-              {'WE CREATE\nFANTASTIC SOFTWARE'}
-            </h1>
-          )}
+          <h1 ref={sloganRef} className="letter-container" />
         </animated.div>
       </div>
       <animated.div
