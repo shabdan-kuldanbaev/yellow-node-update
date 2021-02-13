@@ -17,8 +17,8 @@ const SubscribeBlock = ({
   clearMessage,
   isSubscribed,
 }) => {
-  const handleOnClick = ({ preventDefault }) => {
-    preventDefault();
+  const handleOnClick = (event) => {
+    event.preventDefault();
 
     handleOnSubmit(email.value);
   };

@@ -25,8 +25,8 @@ const FullscreenSubscribe = ({
   const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
 
   const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
-  const handleOnClick = ({ preventDefault }) => {
-    preventDefault();
+  const handleOnClick = (event) => {
+    event.preventDefault();
 
     handleOnSubmit(email.value);
   };

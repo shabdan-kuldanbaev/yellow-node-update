@@ -74,9 +74,7 @@ export const Home = ({
         </Scene>
       </Controller> */}
       <MetaTags page={PAGES.homepage} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <Fragment>
           <Intro theme={theme} introSection={introSection} />
           <Portfolio gradientRef={gradientRef} />

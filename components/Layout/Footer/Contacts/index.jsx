@@ -69,7 +69,6 @@ const Contacts = ({ handleOnClick, router }) => (
     </div>
     <div className={styles.estimationButton}>
       <ButtonMore
-        href="/"
         title="Get an estimation"
         buttonStyle={styles.button}
         handleOnClick={handleOnClick}

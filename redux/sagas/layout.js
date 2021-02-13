@@ -6,24 +6,24 @@ import {
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
-import { contentfulClient } from 'utils/ContentfulClient';
-import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 import {
   findArticles,
   fetchBlogData,
   loadArticles,
 } from 'redux/sagas/blog';
-import { actionTypes } from '../actions/actionTypes';
+import { contentfulClient } from 'utils/ContentfulClient';
+import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
+import { actionTypes } from 'redux/actions/actionTypes';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* fetchPage({ payload }) {
+function* fetchPage({ slug }) {
   try {
     const { items = null } = yield contentfulClient.getEntries({
       contentType: 'page',
       additionalQueryParams: {
-        'fields.slug[match]': payload,
+        'fields.slug[match]': slug,
       },
     });
 
@@ -49,34 +49,33 @@ function* fetchPageData({
     switch (slug) {
     case PAGES.homepage:
       yield all([
-        yield call(fetchPage, { payload: slug }),
-        yield call(loadArticles, { payload: { currentLimit: DEFAULT_ARTICLES_LIMIT } }),
+        yield call(fetchPage, { slug }),
+        yield call(loadArticles, { currentLimit: DEFAULT_ARTICLES_LIMIT }),
       ]);
       break;
     case PAGES.blog:
     case PAGES.article:
       yield call(fetchBlogData, {
-        payload: {
-          slug,
-          articleSlug,
-          currentPage,
-          currentLimit,
-          category,
-          skip,
-        },
+        slug,
+        articleSlug,
+        currentPage,
+        currentLimit,
+        category,
+        skip,
       });
       break;
     case PAGES.portfolio:
     case PAGES.contact:
     case PAGES.company:
-      yield call(fetchPage, { payload: slug });
+      yield call(fetchPage, { slug });
       break;
-    default: yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED });
+    default: throw new Error('Unexpected case');
     }
 
     yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_SUCCESS });
   } catch (error) {
-    yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED });
+    const { message } = error;
+    yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED, payload: message });
   }
 }
 

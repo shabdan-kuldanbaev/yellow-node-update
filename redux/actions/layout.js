@@ -25,16 +25,6 @@ export const setFullResolution = (payload) => ({
   payload,
 });
 
-export const fetchPage = (payload) => ({
-  type: actionTypes.FETCH_PAGE_PENDING,
-  payload,
-});
-
-export const fetchBlogData = (payload) => ({
-  type: actionTypes.FETCH_BLOG_DATA_PENDING,
-  payload,
-});
-
 export const fetchLayoutData = (payload) => ({
   type: actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING,
   payload,

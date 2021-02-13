@@ -63,9 +63,7 @@ const BlogContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <section ref={introSection} className={styles.blog}>
           {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
           <ArticlesList

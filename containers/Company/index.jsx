@@ -42,9 +42,7 @@ const CompanyContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.company} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <Fragment>
           <section ref={introSection} className={styles.companyContainer}>
             <AboutUs />
@@ -78,4 +76,5 @@ export default connect((state) => ({
   managementTeam: selectManagementTeam(state),
   whatMakesSpecial: selectWhatMakesSpecial(state),
   isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
-}), { fetchLayoutData })(CompanyContainer);
+}),
+{ fetchLayoutData })(CompanyContainer);

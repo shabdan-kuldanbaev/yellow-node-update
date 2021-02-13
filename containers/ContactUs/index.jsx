@@ -67,9 +67,7 @@ const ContactUsContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.contact} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <section ref={introSection} className={styles.contactContainer}>
           <FeedbackFormWithTitle handleOnClick={handleOnClick} />
           <Calendar />

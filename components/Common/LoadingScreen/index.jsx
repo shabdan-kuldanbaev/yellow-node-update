@@ -11,11 +11,10 @@ import { selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import logo_animation from './json/logo-animation.json';
 import styles from './styles.module.scss';
 
-const LoadingScreen = ({ isLoading, setIsLoadingScreenCompleted }) => {
+const LoadingScreen = ({ IsPageReadyToDisplay, setIsLoadingScreenCompleted }) => {
   const [{ isStopped, isPaused }, setState] = useState({ isStopped: false, isPaused: false });
   const loadRef = useRef(null);
   const isPageLoading = useRef(false);
-
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -25,25 +24,23 @@ const LoadingScreen = ({ isLoading, setIsLoadingScreenCompleted }) => {
     },
   };
 
-  const handleOnLoopComplete = () => {
-    if (isPageLoading.current) {
-      setState({ isStopped: false });
-    } else {
-      setState({ isStopped: true });
-      loadRef.current && loadRef.current.classList.add(styles.hide);
-      loadRef.current && loadRef.current.classList.add(styles.setZIndex);
-      setIsLoadingScreenCompleted(true);
-    }
-  };
-
   const eventListeners = [{
     eventName: 'loopComplete',
-    callback: () => handleOnLoopComplete(),
+    callback: () => {
+      if (isPageLoading.current) {
+        setState({ isStopped: false });
+      } else {
+        setState({ isStopped: true });
+        loadRef.current && loadRef.current.classList.add(styles.hide);
+        loadRef.current && loadRef.current.classList.add(styles.setZIndex);
+        setIsLoadingScreenCompleted(true);
+      }
+    },
   }];
 
   useEffect(() => {
-    isPageLoading.current = isLoading;
-  }, [isLoading]);
+    isPageLoading.current = IsPageReadyToDisplay;
+  }, [IsPageReadyToDisplay]);
 
   return (
     <div ref={loadRef} className={styles.loadingPage}>
@@ -60,9 +57,11 @@ const LoadingScreen = ({ isLoading, setIsLoadingScreenCompleted }) => {
 };
 
 LoadingScreen.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
+  IsPageReadyToDisplay: PropTypes.bool.isRequired,
   setIsLoadingScreenCompleted: PropTypes.func.isRequired,
 };
 
-export default connect((state) => ({ isLoading: selectIsPageReadyToDisplay(state) }),
-  { setIsLoadingScreenCompleted })(LoadingScreen);
+export default connect(
+  (state) => ({ IsPageReadyToDisplay: selectIsPageReadyToDisplay(state) }),
+  { setIsLoadingScreenCompleted },
+)(LoadingScreen);

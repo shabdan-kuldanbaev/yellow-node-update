@@ -27,9 +27,7 @@ const PortfolioContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.portfolio} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <section ref={introSection} className={styles.portfolio}>
           {content && <Portfolio works={content} />}
         </section>

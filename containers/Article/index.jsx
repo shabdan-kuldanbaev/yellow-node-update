@@ -80,9 +80,7 @@ const ArticleContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <Fragment>
           <Article
             slug={slug}
