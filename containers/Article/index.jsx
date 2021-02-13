@@ -80,9 +80,7 @@ const ArticleContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <Fragment>
           <Article
             slug={slug}
@@ -131,8 +129,6 @@ export default connect(
     articles: selectRelatedArticles(state),
     nearbyArticles: selectNearbyArticles(state),
     isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
-  }), {
-    subscribe,
-    fetchLayoutData,
-  },
+  }),
+  { subscribe, fetchLayoutData },
 )(withScroll(ArticleContainer));

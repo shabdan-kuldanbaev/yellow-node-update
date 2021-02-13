@@ -103,7 +103,6 @@ Header.propTypes = {
 };
 
 export default connect(
-  (state) => ({
-    isMobileMenuOpened: selectIsMobileMenuOpened(state),
-  }), { setMobileMenuState },
+  (state) => ({ isMobileMenuOpened: selectIsMobileMenuOpened(state) }),
+  { setMobileMenuState },
 )(Header);

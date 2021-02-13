@@ -28,9 +28,7 @@ const ProcessContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.process} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <section ref={introSection} className={styles.process}>
           {/* TODO <div className={styles.intro}>
       <SectionTitle title="How we work" subtitle="A step by step guide" />

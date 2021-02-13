@@ -11,9 +11,9 @@ import { actionTypes } from '../actions/actionTypes';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* loadJSON({ payload }) {
+function* loadJSON() {
   try {
-    yield put({ type: actionTypes.SET_IS_LOADING_SCREEN_COMPLETED, payload: false });
+    yield put({ type: actionTypes.SET_LOADING_SCREEN_COMPLETED, payload: false });
 
     const { data } = yield call(API.getJSON);
 

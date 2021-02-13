@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
@@ -7,7 +7,7 @@ import {
   ButtonMore,
   AnimatedInput,
   ModalWindow,
-  InformationMessage,
+  // TODO InformationMessage,
 } from 'components';
 import { withValidateEmail } from 'hocs';
 import styles from './styles.module.scss';
@@ -22,11 +22,11 @@ const FullscreenSubscribe = ({
   message,
   clearMessage,
 }) => {
-  const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
+  // TODO const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
+  // const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
 
-  const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
-  const handleOnClick = ({ preventDefault }) => {
-    preventDefault();
+  const handleOnClick = (event) => {
+    event.preventDefault();
 
     handleOnSubmit(email.value);
   };
@@ -91,6 +91,7 @@ FullscreenSubscribe.propTypes = {
   clearMessage: PropTypes.func.isRequired,
 };
 
-export default connect((state) => ({
-  message: selectSubscribeMessage(state),
-}), { clearMessage })(withValidateEmail(FullscreenSubscribe));
+export default connect(
+  (state) => ({ message: selectSubscribeMessage(state) }),
+  { clearMessage },
+)(withValidateEmail(FullscreenSubscribe));

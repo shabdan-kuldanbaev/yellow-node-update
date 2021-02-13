@@ -51,6 +51,6 @@ ManagementTeam.propTypes = {
   isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  isMobileResolution: selectIsMobileResolutions(state),
-}))(ManagementTeam);
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(ManagementTeam);

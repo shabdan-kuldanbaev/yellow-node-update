@@ -67,9 +67,7 @@ const ContactUsContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.contact} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <section ref={introSection} className={styles.contactContainer}>
           <FeedbackFormWithTitle handleOnClick={handleOnClick} />
           <Calendar />
@@ -90,8 +88,11 @@ ContactUsContainer.propTypes = {
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  officePhoto: selectContacts(state),
-  peoplePhoto: selectCompanyPhoto(state),
-  isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
-}), { sendEmail, fetchLayoutData })(ContactUsContainer);
+export default connect(
+  (state) => ({
+    officePhoto: selectContacts(state),
+    peoplePhoto: selectCompanyPhoto(state),
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+  }),
+  { sendEmail, fetchLayoutData },
+)(ContactUsContainer);

@@ -74,9 +74,7 @@ export const Home = ({
         </Scene>
       </Controller> */}
       <MetaTags page={PAGES.homepage} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <Fragment>
           <Intro theme={theme} introSection={introSection} />
           <Portfolio gradientRef={gradientRef} />
@@ -101,7 +99,10 @@ Home.propTypes = {
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  photosData: selectImageCarousel(state),
-  isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
-}), { fetchLayoutData, setDuck })(Home);
+export default connect(
+  (state) => ({
+    photosData: selectImageCarousel(state),
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+  }),
+  { fetchLayoutData, setDuck },
+)(Home);

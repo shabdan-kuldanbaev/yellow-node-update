@@ -17,8 +17,8 @@ const SubscribeBlock = ({
   clearMessage,
   isSubscribed,
 }) => {
-  const handleOnClick = ({ preventDefault }) => {
-    preventDefault();
+  const handleOnClick = (event) => {
+    event.preventDefault();
 
     handleOnSubmit(email.value);
   };
@@ -68,7 +68,10 @@ SubscribeBlock.propTypes = {
   isSubscribed: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  message: selectSubscribeMessage(state),
-  isSubscribed: selectIsSubscribed(state),
-}), { clearMessage })(withValidateEmail(SubscribeBlock));
+export default connect(
+  (state) => ({
+    message: selectSubscribeMessage(state),
+    isSubscribed: selectIsSubscribed(state),
+  }),
+  { clearMessage },
+)(withValidateEmail(SubscribeBlock));

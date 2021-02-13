@@ -47,6 +47,6 @@ PreviewImage.propTypes = {
   isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  isMobileResolution: selectIsMobileResolutions(state),
-}))(PreviewImage);
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(PreviewImage);

@@ -86,7 +86,9 @@ Work.propTypes = {
   description: PropTypes.string.isRequired,
 };
 
-export default connect((state) => ({
-  isMobileResolution: selectIsMobileResolutions(state),
-  isFullResolution: selectIsFullResolutions(state),
-}))(Work);
+export default connect(
+  (state) => ({
+    isMobileResolution: selectIsMobileResolutions(state),
+    isFullResolution: selectIsFullResolutions(state),
+  }),
+)(Work);

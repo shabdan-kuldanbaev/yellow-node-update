@@ -66,6 +66,6 @@ Paginator.propTypes = {
   currentPage: PropTypes.number.isRequired,
 };
 
-export default connect((state) => ({
-  isMobileResolution: selectIsMobileResolutions(state),
-}))(Paginator);
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(Paginator);

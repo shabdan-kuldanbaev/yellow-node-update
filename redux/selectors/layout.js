@@ -31,6 +31,8 @@ export const selectIsPageReadyToDisplay = (state) => state.layout.isPageReadyToD
 
 export const selectIsLoadingScreenCompleted = (state) => state.layout.isLoadingScreenCompleted;
 
+export const selectIsFirstPageLoaded = (state) => state.layout.isFirstPageLoaded;
+
 export const selectHomepageProjectsPreview = (state) => getMain(state, BLOCKS_SLUGS.homepagePreviewProjects);
 
 export const selectImageCarousel = (state) => getMain(state, BLOCKS_SLUGS.imageCarousel);

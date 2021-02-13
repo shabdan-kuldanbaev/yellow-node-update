@@ -42,9 +42,7 @@ const CompanyContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.company} />
-      {!isLoadingScreenCompleted ? (
-        <LoadingScreen />
-      ) : (
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <Fragment>
           <section ref={introSection} className={styles.companyContainer}>
             <AboutUs />
@@ -73,9 +71,12 @@ CompanyContainer.propTypes = {
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  photosData: selectImageCarousel(state),
-  managementTeam: selectManagementTeam(state),
-  whatMakesSpecial: selectWhatMakesSpecial(state),
-  isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
-}), { fetchLayoutData })(CompanyContainer);
+export default connect(
+  (state) => ({
+    photosData: selectImageCarousel(state),
+    managementTeam: selectManagementTeam(state),
+    whatMakesSpecial: selectWhatMakesSpecial(state),
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+  }),
+  { fetchLayoutData },
+)(CompanyContainer);

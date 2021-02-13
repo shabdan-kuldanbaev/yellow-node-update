@@ -16,7 +16,7 @@ import { selectArticle } from 'redux/selectors/blog';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* getArticle({ payload: { articleSlug } }) {
+function* getArticle({ articleSlug }) {
   try {
     const article = yield fetchContentfulArticles({
       'fields.slug[match]': articleSlug,
@@ -29,11 +29,9 @@ function* getArticle({ payload: { articleSlug } }) {
 }
 
 export function* loadArticles({
-  payload: {
-    currentLimit,
-    skip,
-    category,
-  },
+  currentLimit,
+  skip,
+  category,
 }) {
   try {
     const { items, total } = yield fetchContentfulArticles({
@@ -50,11 +48,9 @@ export function* loadArticles({
 }
 
 function* loadRelatedArticles({
-  payload: {
-    currentLimit,
-    currentArticleSlug,
-    categoryTag,
-  },
+  currentLimit,
+  currentArticleSlug,
+  categoryTag,
 }) {
   try {
     const { items } = yield fetchContentfulArticles({
@@ -69,7 +65,7 @@ function* loadRelatedArticles({
   }
 }
 
-function* loadNearbyArticles({ payload: { createdAt } }) {
+function* loadNearbyArticles({ createdAt }) {
   try {
     const prev = yield fetchContentfulNearbyArticles({ isOlder: true, createdAt });
     const next = yield fetchContentfulNearbyArticles({ isOlder: false, createdAt });
@@ -99,53 +95,41 @@ export function* findArticles({ payload: { value } }) {
 }
 
 export function* fetchBlogData({
-  payload: {
-    slug,
-    articleSlug,
-    currentPage,
-    currentLimit,
-    category,
-    skip,
-  },
+  slug,
+  articleSlug,
+  currentPage,
+  currentLimit,
+  category,
+  skip,
 }) {
-  try {
-    if (slug === PAGES.blog) {
-      yield call(loadArticles, {
-        payload: {
-          currentPage,
-          currentLimit,
-          category,
-          skip,
-        },
-      });
-    } else {
-      yield call(getArticle, { payload: { articleSlug } });
+  if (slug === PAGES.blog) {
+    yield call(loadArticles, {
+      currentPage,
+      currentLimit,
+      category,
+      skip,
+    });
+  } else {
+    yield call(getArticle, { articleSlug });
 
-      const article = yield select(selectArticle);
+    const article = yield select(selectArticle);
 
-      const {
-        slug: currentArticleSlug,
+    const {
+      slug: currentArticleSlug,
+      categoryTag,
+      createdAt,
+    } = getDocumentFields(
+      get(article, 'items[0]', {}),
+      ['slug', 'title', 'createdAt', 'categoryTag'],
+    );
+
+    yield all([
+      yield call(loadNearbyArticles, { createdAt }),
+      yield call(loadRelatedArticles, {
+        currentLimit: 5,
+        currentArticleSlug,
         categoryTag,
-        createdAt,
-      } = getDocumentFields(
-        get(article, 'items[0]', {}),
-        ['slug', 'title', 'createdAt', 'categoryTag'],
-      );
-
-      yield all([
-        yield call(loadNearbyArticles, { payload: { createdAt } }),
-        yield call(loadRelatedArticles, {
-          payload: {
-            currentLimit: 5,
-            currentArticleSlug,
-            categoryTag,
-          },
-        }),
-      ]);
-    }
-
-    yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_SUCCESS });
-  } catch (err) {
-    yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED, payload: err });
+      }),
+    ]);
   }
 }

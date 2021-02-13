@@ -26,8 +26,8 @@ export const API = {
     if (isSendNDAChecked) formData.append('isSendNDAChecked', isSendNDAChecked);
     if (projectBudget) formData.append('projectBudget', projectBudget);
 
-    return axios.post('/send', formData);
+    return apiClient.post('/send', formData);
   },
-  subscribe: (email) => axios.post('/subscribe', { email }),
-  getJSON: () => axios.get('/json'),
+  subscribe: (email) => apiClient.post('/subscribe', { email }),
+  getJSON: () => apiClient.get('/json'),
 };

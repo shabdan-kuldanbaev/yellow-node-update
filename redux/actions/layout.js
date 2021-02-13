@@ -25,22 +25,17 @@ export const setFullResolution = (payload) => ({
   payload,
 });
 
-export const fetchPage = (payload) => ({
-  type: actionTypes.FETCH_PAGE_PENDING,
-  payload,
-});
-
-export const fetchBlogData = (payload) => ({
-  type: actionTypes.FETCH_BLOG_DATA_PENDING,
-  payload,
-});
-
 export const fetchLayoutData = (payload) => ({
   type: actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING,
   payload,
 });
 
-export const setIsLoadingScreenCompleted = (payload) => ({
-  type: actionTypes.SET_IS_LOADING_SCREEN_COMPLETED,
+export const setLoadingScreenCompleted = (payload) => ({
+  type: actionTypes.SET_LOADING_SCREEN_COMPLETED,
+  payload,
+});
+
+export const setFirstPageLoaded = (payload) => ({
+  type: actionTypes.SET_FIRST_PAGE_LOADED,
   payload,
 });

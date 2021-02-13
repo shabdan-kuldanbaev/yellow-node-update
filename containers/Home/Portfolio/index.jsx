@@ -134,7 +134,5 @@ Portfolio.propTypes = {
 };
 
 export default connect(
-  (state) => ({
-    projects: selectHomepageProjectsPreview(state),
-  }),
+  (state) => ({ projects: selectHomepageProjectsPreview(state) }),
 )(Portfolio);

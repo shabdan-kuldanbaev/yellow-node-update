@@ -39,4 +39,6 @@ Blog.propTypes = {
   articles: PropTypes.instanceOf(Array).isRequired,
 };
 
-export default connect((state) => ({ articles: selectArticles(state) }))(Blog);
+export default connect(
+  (state) => ({ articles: selectArticles(state) }),
+)(Blog);
