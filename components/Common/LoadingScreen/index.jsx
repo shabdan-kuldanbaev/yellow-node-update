@@ -56,7 +56,7 @@ const LoadingScreen = ({
           isStopped={isStopped}
           isPaused={isPaused}
           eventListeners={eventListeners}
-          speed={1.7}
+          speed={1.6}
         />
       </div>
     </div>

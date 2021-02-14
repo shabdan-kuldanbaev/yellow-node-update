@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper } from 'components';
 import { setOverflowForBody } from 'utils/helper';
+import { NAV_LINKS } from 'utils/constants';
 import Burger from '../Burger';
 import { socialLinks } from './utils/data';
-import { menuList } from '../utils/data';
 import styles from './styles.module.scss';
 
 const MobileMenu = ({
-  menuList: menuItems,
+  navLinks: links,
   socialLinks: socialItems,
   isMobileMenuOpened,
   setMobileMenuState,
@@ -30,10 +30,14 @@ const MobileMenu = ({
       })}
       >
         <ul>
-          {menuItems && menuItems.map(({ name, href }) => (
-            <li key={`menuItem/${name}`} onClick={closeMenu}>
-              <LinkWrapper path={href} isLocalLink>
-                <span>{name}</span>
+          {links && links.map(({ title, path, dynamicPath }) => (
+            <li key={`links/${title}`} onClick={closeMenu}>
+              <LinkWrapper
+                isLocalLink
+                path={path}
+                dynamicRouting={dynamicPath}
+              >
+                <span>{title}</span>
               </LinkWrapper>
             </li>
           ))}
@@ -60,12 +64,12 @@ const MobileMenu = ({
 };
 
 MobileMenu.defaultProps = {
-  menuList,
+  navLinks: NAV_LINKS,
   socialLinks,
 };
 
 MobileMenu.propTypes = {
-  menuList: PropTypes.instanceOf(Array),
+  navLinks: PropTypes.instanceOf(Array),
   socialLinks: PropTypes.instanceOf(Array),
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,

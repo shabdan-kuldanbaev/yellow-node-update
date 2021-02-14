@@ -14,7 +14,6 @@ import {
   FullscreenSubscribe,
 } from 'components';
 import { setOverflowForBody } from 'utils/helper';
-import { TAGS_FOR_BLOG } from 'utils/constants';
 import Categories from './Categories';
 import SearchIcon from './images/search.svg';
 import styles from './styles.module.scss';
@@ -43,7 +42,6 @@ const SelectionBlock = ({
   return (
     <div className={cn(styles.selectionBlock, { [styles.showCategories]: isMobileCategoties })}>
       <Categories
-        tags={TAGS_FOR_BLOG}
         urlPath={urlPath}
         isMobileCategoties={isMobileCategoties}
         closeMobileCategoties={closeMobileCategoties}

@@ -35,7 +35,14 @@ const BlogContainer = ({
   setIsSubscribed,
   isLoadingScreenCompleted,
 }) => {
-  const { asPath, query: { category, page }, pathname } = useRouter();
+  const {
+    asPath,
+    pathname,
+    query: {
+      slug: category,
+      page,
+    },
+  } = useRouter();
   const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
   const currentPage = toInt(page);
   const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
@@ -49,15 +56,13 @@ const BlogContainer = ({
   }, []);
 
   useEffect(() => {
-    if (!isMobileResolution) {
-      fetchLayoutData({
-        slug: PAGES.blog,
-        currentPage,
-        currentLimit: deviceLimit,
-        category,
-        skip: (currentPage - 1) * deviceLimit,
-      });
-    }
+    fetchLayoutData({
+      slug: PAGES.blog,
+      currentPage,
+      currentLimit: deviceLimit,
+      category,
+      skip: (currentPage - 1) * deviceLimit,
+    });
   }, [deviceLimit, asPath]);
 
   return (

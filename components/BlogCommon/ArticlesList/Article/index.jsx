@@ -18,8 +18,8 @@ export const Article = ({
     <Animated {...animatioProps}>
       <LinkWrapper
         isLocalLink
-        dynamicRouting="/blog/[article]"
-        path={ROUTES.article(slug)}
+        path={ROUTES.article.path(slug)}
+        dynamicRouting={ROUTES.article.dynamicPath}
       >
         <div>
           <div>
@@ -35,8 +35,8 @@ export const Article = ({
             <div className={styles.categoryName}>
               <LinkWrapper
                 isLocalLink
-                dynamicRouting={`/blog?category=${categoryTag}&page=1`}
-                path={`/blog?category=${categoryTag}&page=1`}
+                path={ROUTES.blog.getPath(categoryTag)}
+                dynamicRouting={ROUTES.blog.dynamicPath}
               >
                 {categoryTag}
               </LinkWrapper>

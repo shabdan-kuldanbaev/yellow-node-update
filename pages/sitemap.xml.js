@@ -28,7 +28,7 @@ Sitemap.getInitialProps = async ({ ctx: { res } }) => {
       const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
 
       return ({
-        path: ROUTES.article(slug),
+        path: ROUTES.article.path(slug),
         updatedAt: getDate(Date.parse(publishedAt)),
       });
     });

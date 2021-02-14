@@ -22,7 +22,7 @@ const Portfolio = ({
   useEffect(() => () => ReactGA.event({
     category: 'Scroll',
     action: `${maxPosition.current}%`,
-    label: ROUTES.portfolio,
+    label: ROUTES.portfolio.path,
     nonInteraction: maxPosition.current < 50,
   }), []);
 

@@ -116,7 +116,8 @@ const Portfolio = ({ gradientRef, projects }) => {
               transitionDelay={350}
             >
               <ButtonMore
-                href={ROUTES.portfolio}
+                href={ROUTES.portfolio.path}
+                dynamicRouting={ROUTES.portfolio.dynamicPath}
                 title="EXPLORE OUR PORTFOLIO"
                 buttonStyle={styles.portfolioButton}
               />

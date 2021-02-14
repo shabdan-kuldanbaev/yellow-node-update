@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { LinkWrapper } from 'components';
-import { menuList } from '../utils/data';
+import { NAV_LINKS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Nav = ({
   theme,
   currentPage,
   isAdditional,
-  menuList: links,
+  navLinks: links,
 }) => {
   const { asPath } = useRouter();
   const isBlog = asPath && asPath.includes('blog');
@@ -21,11 +21,15 @@ const Nav = ({
       [styles.additionalNavForBlog]: isBlog,
     })}
     >
-      {links && links.map(({ name, href }) => (
-        <li key={`menuItem/${name}`} className={styles[theme]}>
-          <LinkWrapper path={href} isLocalLink>
+      {links && links.map(({ title, path, dynamicPath }) => (
+        <li key={`menuItem/${title}`} className={styles[theme]}>
+          <LinkWrapper
+            isLocalLink
+            path={path}
+            dynamicRouting={dynamicPath}
+          >
             <span className={styles.underline}>
-              {name}
+              {title}
             </span>
           </LinkWrapper>
         </li>
@@ -36,14 +40,14 @@ const Nav = ({
 
 Nav.defaultProps = {
   theme: 'dark',
-  menuList,
+  navLinks: NAV_LINKS,
 };
 
 Nav.propTypes = {
   theme: PropTypes.string,
   currentPage: PropTypes.string.isRequired,
   isAdditional: PropTypes.bool.isRequired,
-  menuList: PropTypes.instanceOf(Array),
+  navLinks: PropTypes.instanceOf(Array),
 };
 
 export default Nav;

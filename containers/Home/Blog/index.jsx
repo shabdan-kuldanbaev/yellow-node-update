@@ -27,7 +27,8 @@ const Blog = ({ articles }) => (
       transitionDelay={200}
     >
       <ButtonMore
-        href={ROUTES.blog}
+        href={ROUTES.blog.path}
+        dynamicRouting={ROUTES.blog.dynamicPath}
         title="READ MORE STORIES"
         buttonStyle={styles.blogButton}
       />

@@ -14,8 +14,8 @@ const NextPrev = ({
 }) => {
   const linkProps = {
     isLocalLink: true,
-    dynamicRouting: '/blog/[article]',
-    path: ROUTES.article(slug),
+    path: ROUTES.article.path(slug),
+    dynamicRouting: ROUTES.article.dynamicPath,
   };
 
   return ((slug && title && previewImageUrl) && (

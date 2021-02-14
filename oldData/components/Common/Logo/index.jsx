@@ -9,8 +9,8 @@ import RoundLogo from './images/yellow_logo.svg';
 const Logo = ({ theme }) => (
   <LinkWrapper
     isLocalLink
-    dynamicRouting="/"
-    path={ROUTES.homepage}
+    path={ROUTES.homepage.path}
+    dynamicRouting={ROUTES.homepage.dynamicPath}
   >
     <img src={RoundLogo} alt="Yellow Logo" />
     <svg xmlns="http://www.w3.org/2000/svg" width={logoSize} height="44" viewBox="0 0 140 50">

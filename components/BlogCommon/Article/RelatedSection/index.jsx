@@ -12,7 +12,11 @@ const RelatedSection = ({ articles }) => (
     <div className={styles.headingContainer}>
       <div className={styles.heading}>
         <h3>Related Posts</h3>
-        <LinkWrapper isLocalLink path={ROUTES.blog}>
+        <LinkWrapper
+          isLocalLink
+          path={ROUTES.blog.path}
+          dynamicRouting={ROUTES.blog.dynamicPath}
+        >
           See all posts
           <div className={styles.svgContainer}>
             <img src={Arrow} alt="arrow" />
@@ -21,7 +25,7 @@ const RelatedSection = ({ articles }) => (
       </div>
     </div>
     <div className={styles.articlesList}>
-      {articles && articles.map((article, index) => {
+      {articles && articles.map((article) => {
         const { slug, title, headImageUrl } = getDocumentFields(
           article,
           ['slug', 'title', 'headImageUrl'],

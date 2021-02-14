@@ -38,17 +38,19 @@ const ArticleContainer = ({
   fetchLayoutData,
   isLoadingScreenCompleted,
 }) => {
-  const { query: { article }, pathname } = useRouter();
+  const { query: { slug }, pathname } = useRouter();
   const {
-    slug,
+    slug: articleSlug,
     title,
     oldBody,
     body,
     introduction,
     headImageUrl,
+    publishedAt,
+    keyWords = [],
   } = getDocumentFields(
     get(currentArticle, 'items[0]', {}),
-    ['slug', 'title', 'oldBody', 'body', 'introduction', 'headImageUrl'],
+    ['slug', 'title', 'oldBody', 'body', 'introduction', 'headImageUrl', 'publishedAt', 'keyWords'],
   );
   const {
     previewImageUrl: previewImageUrlNewer,
@@ -67,23 +69,30 @@ const ArticleContainer = ({
     ['slug', 'title', 'previewImageUrl'],
   );
   const headImage = getFileUrl(headImageUrl);
+  const articleMetaData = {
+    title,
+    description: introduction,
+    date: publishedAt,
+    keyWords: (keyWords && keyWords.join(', ')) || null,
+    image: headImage,
+  };
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   useEffect(() => {
     fetchLayoutData({
-      articleSlug: article,
+      articleSlug: slug,
       slug: PAGES.article,
     });
-  }, [article]);
+  }, [slug]);
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.blog} />
+      <MetaTags page={PAGES.blog} articleMetaData={articleMetaData} />
       {!isLoadingScreenCompleted ? <LoadingScreen /> : (
         <Fragment>
           <Article
-            slug={slug}
+            slug={articleSlug}
             title={title}
             oldBody={oldBody}
             body={body}
@@ -91,7 +100,7 @@ const ArticleContainer = ({
             headImage={headImage}
             introSection={introSection}
           />
-          <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
+          <SocialThumbnails url={`${rootUrl}/blog/${slug}`} title={title} />
           {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} />}
           <div className={styles.nextPrevSection}>
             <NextPrev
