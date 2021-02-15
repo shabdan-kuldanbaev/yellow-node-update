@@ -138,6 +138,7 @@ const FeedbackForm = ({
 FeedbackForm.defaultProps = {
   isChooseBudget: false,
   budget,
+  formKey: '',
 };
 
 FeedbackForm.propTypes = {
@@ -147,7 +148,7 @@ FeedbackForm.propTypes = {
   isChooseBudget: PropTypes.bool,
   budget: PropTypes.instanceOf(Object),
   handleOnClick: PropTypes.func.isRequired,
-  formKey: PropTypes.string.isRequired,
+  formKey: PropTypes.string,
 };
 
 export default withValidateEmail(FeedbackForm);

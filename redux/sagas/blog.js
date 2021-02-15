@@ -65,10 +65,10 @@ function* loadRelatedArticles({
   }
 }
 
-function* loadNearbyArticles({ createdAt }) {
+function* loadNearbyArticles({ publishedAt }) {
   try {
-    const prev = yield fetchContentfulNearbyArticles({ isOlder: true, createdAt });
-    const next = yield fetchContentfulNearbyArticles({ isOlder: false, createdAt });
+    const prev = yield fetchContentfulNearbyArticles({ isOlder: true, publishedAt });
+    const next = yield fetchContentfulNearbyArticles({ isOlder: false, publishedAt });
 
     yield put({
       type: actionTypes.LOAD_NEARBY_SUCCESS,
@@ -116,14 +116,14 @@ export function* fetchBlogData({
     const {
       slug: currentArticleSlug,
       categoryTag,
-      createdAt,
+      publishedAt,
     } = getDocumentFields(
       get(article, 'items[0]', {}),
-      ['slug', 'title', 'createdAt', 'categoryTag'],
+      ['slug', 'title', 'publishedAt', 'categoryTag'],
     );
 
     yield all([
-      yield call(loadNearbyArticles, { createdAt }),
+      yield call(loadNearbyArticles, { publishedAt }),
       yield call(loadRelatedArticles, {
         currentLimit: 5,
         currentArticleSlug,

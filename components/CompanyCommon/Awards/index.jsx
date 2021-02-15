@@ -19,6 +19,7 @@ export const Awards = ({ awards }) => {
           id={id}
           src={src(hostname)}
           title={title}
+          key={`awards/${title}`}
         />
       ))}
     </div>

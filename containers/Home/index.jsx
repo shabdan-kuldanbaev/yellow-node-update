@@ -53,11 +53,15 @@ export const Home = ({
   );
 };
 
+Home.defaultProps = {
+  photosData: {},
+};
+
 Home.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   theme: PropTypes.string.isRequired,
   fetchLayoutData: PropTypes.func.isRequired,
-  photosData: PropTypes.instanceOf(Object).isRequired,
+  photosData: PropTypes.instanceOf(Object),
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 

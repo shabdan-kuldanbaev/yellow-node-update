@@ -80,11 +80,16 @@ const ContactUsContainer = ({
   );
 };
 
+ContactUsContainer.defaultProps = {
+  officePhoto: {},
+  peoplePhoto: {},
+};
+
 ContactUsContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   sendEmail: PropTypes.func.isRequired,
-  officePhoto: PropTypes.instanceOf(Object).isRequired,
-  peoplePhoto: PropTypes.instanceOf(Object).isRequired,
+  officePhoto: PropTypes.instanceOf(Object),
+  peoplePhoto: PropTypes.instanceOf(Object),
   fetchLayoutData: PropTypes.func.isRequired,
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };

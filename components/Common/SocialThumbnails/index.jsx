@@ -60,7 +60,11 @@ export const SocialThumbnails = ({ url, title }) => {
   );
 };
 
+SocialThumbnails.defaultProps = {
+  title: '',
+};
+
 SocialThumbnails.propTypes = {
   url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };

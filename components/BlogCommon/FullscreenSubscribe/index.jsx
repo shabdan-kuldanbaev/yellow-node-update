@@ -66,6 +66,7 @@ const FullscreenSubscribe = ({
 
 FullscreenSubscribe.defaultProps = {
   isFullscreenSubscribe: false,
+  handleOnSubmit: null,
 };
 
 FullscreenSubscribe.propTypes = {
@@ -74,7 +75,7 @@ FullscreenSubscribe.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnBlurEmail: PropTypes.func.isRequired,
-  handleOnSubmit: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func,
   message: PropTypes.string.isRequired,
   clearMessage: PropTypes.func.isRequired,
 };

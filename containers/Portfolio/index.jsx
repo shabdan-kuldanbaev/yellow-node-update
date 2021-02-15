@@ -36,9 +36,13 @@ const PortfolioContainer = ({
   );
 };
 
+PortfolioContainer.defaultProps = {
+  portfolioProjects: {},
+};
+
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  portfolioProjects: PropTypes.instanceOf(Object).isRequired,
+  portfolioProjects: PropTypes.instanceOf(Object),
   fetchLayoutData: PropTypes.func.isRequired,
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };

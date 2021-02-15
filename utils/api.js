@@ -3,10 +3,6 @@ import { rootUrl } from 'utils/helper';
 
 const apiClient = axios.create({
   baseURL: rootUrl,
-  headers: {
-    'Content-Type': 'aplication/json',
-    Accept: 'aplication/json',
-  },
 });
 
 export const API = {

@@ -47,8 +47,8 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
         />
       </div>
       <address className={styles.address}>
-        {animatedFields && animatedFields.map((animated) => (
-          <Animated {...animated}>
+        {animatedFields && animatedFields.map((animated, index) => (
+          <Animated {...animated} key={`fields/${index}`}>
             <FieldsWrapper animated={animated} />
           </Animated>
         ))}

@@ -48,6 +48,6 @@ JSONAnimation.defaultProps = {
 };
 
 JSONAnimation.propTypes = {
-  jsonFile: PropTypes.string.isRequired,
+  jsonFile: PropTypes.instanceOf(Object).isRequired,
   className: PropTypes.string,
 };

@@ -31,12 +31,12 @@ export const GalleryCard = ({ images, photoCaption }) => {
     <div className={styles.mediasWrapper}>
       <div className={styles.images} ref={imageRef}>
         {[...Array(rowsCount)].map((row, index) => (
-          <div className={styles.row}>
+          <div className={styles.row} key={`gallery/${imageRef}`}>
             {getImagesInRow(index).map((image) => {
               const imageUrl = getFileUrl(image);
 
               return (
-                <Animated type={ANIMATED_TYPE.imageZoom}>
+                <Animated type={ANIMATED_TYPE.imageZoom} key={`gallery/${imageUrl}`}>
                   <img
                     src={imageUrl}
                     alt={imageUrl}
@@ -53,7 +53,11 @@ export const GalleryCard = ({ images, photoCaption }) => {
   );
 };
 
+GalleryCard.defaultProps = {
+  photoCaption: '',
+};
+
 GalleryCard.propTypes = {
-  images: PropTypes.string.isRequired,
-  photoCaption: PropTypes.string.isRequired,
+  images: PropTypes.instanceOf(Array).isRequired,
+  photoCaption: PropTypes.string,
 };

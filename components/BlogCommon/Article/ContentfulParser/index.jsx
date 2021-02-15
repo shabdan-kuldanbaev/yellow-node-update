@@ -119,6 +119,10 @@ export const ContentfulParser = ({ document }) => {
     : '';
 };
 
+ContentfulParser.defaultProps = {
+  document: {},
+};
+
 ContentfulParser.propTypes = {
   document: PropTypes.instanceOf(Object).isRequired,
 };

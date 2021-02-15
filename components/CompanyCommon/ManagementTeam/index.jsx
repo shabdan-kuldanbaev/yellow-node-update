@@ -46,9 +46,13 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => (
   </section>
 );
 
+ManagementTeam.defaultProps = {
+  isMobileResolution: false,
+};
+
 ManagementTeam.propTypes = {
   managementTeam: PropTypes.instanceOf(Array).isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
 };
 
 export default connect(

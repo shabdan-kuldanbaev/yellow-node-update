@@ -19,7 +19,7 @@ export const ArticlesList = ({
       const {
         slug,
         title,
-        categoruTag,
+        categoryTag,
         introduction,
         previewImageUrl,
       } = getDocumentFields(
@@ -52,7 +52,7 @@ export const ArticlesList = ({
           animatioProps={animatioProps}
           slug={slug}
           title={title}
-          categoruTag={categoruTag}
+          categoryTag={categoryTag}
           introduction={introduction}
           previewImage={previewImage}
         />
@@ -64,6 +64,7 @@ export const ArticlesList = ({
 ArticlesList.defaultProps = {
   isSearch: false,
   isBlogPage: false,
+  handleOnFormSubmit: null,
 };
 
 ArticlesList.propTypes = {
@@ -71,5 +72,5 @@ ArticlesList.propTypes = {
   isSearch: PropTypes.bool,
   isBlogPage: PropTypes.bool,
   currentPage: PropTypes.number.isRequired,
-  handleOnFormSubmit: PropTypes.func.isRequired,
+  handleOnFormSubmit: PropTypes.func,
 };

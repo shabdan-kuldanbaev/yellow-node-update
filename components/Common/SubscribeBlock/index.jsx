@@ -56,6 +56,7 @@ const SubscribeBlock = ({
 
 SubscribeBlock.defaultProps = {
   isBlog: false,
+  isSubscribed: false,
 };
 
 SubscribeBlock.propTypes = {
@@ -65,7 +66,7 @@ SubscribeBlock.propTypes = {
   handleOnSubmit: PropTypes.func.isRequired,
   message: PropTypes.string.isRequired,
   clearMessage: PropTypes.func.isRequired,
-  isSubscribed: PropTypes.bool.isRequired,
+  isSubscribed: PropTypes.bool,
 };
 
 export default connect(

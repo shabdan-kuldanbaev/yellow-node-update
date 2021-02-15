@@ -54,7 +54,7 @@ export const Comment = ({
 );
 
 Comment.defaultProps = {
-  infoRef: {},
+  infoRef: null,
 };
 
 Comment.propTypes = {

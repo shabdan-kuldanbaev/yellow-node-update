@@ -28,7 +28,7 @@ const Categories = ({
       </div>
       <ul>
         {[...ROUTES.blog.categories].map(({ title, slug }) => (
-          <li className={cn({ [styles.selectedBlock]: urlPath.includes(slug) })}>
+          <li className={cn({ [styles.selectedBlock]: urlPath.includes(slug) })} key={`categoris/${title}`}>
             <LinkWrapper
               isLocalLink
               path={ROUTES.blog.getPath(slug)}

@@ -27,7 +27,11 @@ export const Works = ({ refs, works }) => (
   </div>
 );
 
+Works.defaultProps = {
+  works: [],
+};
+
 Works.propTypes = {
   refs: PropTypes.instanceOf(Object).isRequired,
-  works: PropTypes.instanceOf(Array).isRequired,
+  works: PropTypes.instanceOf(Array),
 };

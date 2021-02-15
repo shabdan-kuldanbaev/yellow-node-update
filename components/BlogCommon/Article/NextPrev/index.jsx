@@ -43,13 +43,15 @@ const NextPrev = ({
 
 NextPrev.defaultProps = {
   isNewer: false,
+  slug: '',
+  title: '',
 };
 
 NextPrev.propTypes = {
   isNewer: PropTypes.bool,
   previewImageUrl: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  slug: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default NextPrev;
