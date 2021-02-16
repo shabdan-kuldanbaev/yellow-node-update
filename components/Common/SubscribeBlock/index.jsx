@@ -17,13 +17,13 @@ const SubscribeBlock = ({
   clearMessage,
   isSubscribed,
 }) => {
-  const handleOnClick = ({ preventDefault }) => {
-    preventDefault();
+  const handleOnClick = (event) => {
+    event.preventDefault();
 
     handleOnSubmit(email.value);
   };
 
-  useEffect(clearMessage, []);
+  useEffect(() => () => clearMessage(), []);
 
   return (!isSubscribed && (
     <section className={cn(styles.subscribeBlock, {
@@ -56,6 +56,7 @@ const SubscribeBlock = ({
 
 SubscribeBlock.defaultProps = {
   isBlog: false,
+  isSubscribed: false,
 };
 
 SubscribeBlock.propTypes = {
@@ -65,10 +66,13 @@ SubscribeBlock.propTypes = {
   handleOnSubmit: PropTypes.func.isRequired,
   message: PropTypes.string.isRequired,
   clearMessage: PropTypes.func.isRequired,
-  isSubscribed: PropTypes.bool.isRequired,
+  isSubscribed: PropTypes.bool,
 };
 
-export default connect((state) => ({
-  message: selectSubscribeMessage(state),
-  isSubscribed: selectIsSubscribed(state),
-}), { clearMessage })(withValidateEmail(SubscribeBlock));
+export default connect(
+  (state) => ({
+    message: selectSubscribeMessage(state),
+    isSubscribed: selectIsSubscribed(state),
+  }),
+  { clearMessage },
+)(withValidateEmail(SubscribeBlock));

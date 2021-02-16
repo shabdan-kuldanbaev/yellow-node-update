@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
@@ -7,7 +7,6 @@ import {
   ButtonMore,
   AnimatedInput,
   ModalWindow,
-  InformationMessage,
 } from 'components';
 import { withValidateEmail } from 'hocs';
 import styles from './styles.module.scss';
@@ -22,16 +21,13 @@ const FullscreenSubscribe = ({
   message,
   clearMessage,
 }) => {
-  const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
-
-  const handleOnIsPolicyAcceptedChange = ({ target: { checked } }) => setIsPolicyAccepted(checked);
-  const handleOnClick = ({ preventDefault }) => {
-    preventDefault();
+  const handleOnClick = (event) => {
+    event.preventDefault();
 
     handleOnSubmit(email.value);
   };
 
-  useEffect(clearMessage, []);
+  useEffect(() => () => clearMessage(), []);
 
   return (
     <ModalWindow
@@ -55,14 +51,6 @@ const FullscreenSubscribe = ({
                 handleOnBlurEmail={handleOnBlurEmail}
               />
               {message && <span className={styles.alertMessage}>{message}</span>}
-              {/* TODO return this later
-              <CheckboxContainer
-                text="I accept your"
-                isThereLink
-                linkText="Privacy Policy"
-                handleOnChange={handleOnIsPolicyAcceptedChange}
-              />
-              <InformationMessage isAppear={!isPolicyAccepted} /> */}
               <ButtonMore
                 title="Subscribe"
                 buttonStyle={styles.button}
@@ -78,6 +66,7 @@ const FullscreenSubscribe = ({
 
 FullscreenSubscribe.defaultProps = {
   isFullscreenSubscribe: false,
+  handleOnSubmit: () => {},
 };
 
 FullscreenSubscribe.propTypes = {
@@ -86,11 +75,12 @@ FullscreenSubscribe.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnBlurEmail: PropTypes.func.isRequired,
-  handleOnSubmit: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func,
   message: PropTypes.string.isRequired,
   clearMessage: PropTypes.func.isRequired,
 };
 
-export default connect((state) => ({
-  message: selectSubscribeMessage(state),
-}), { clearMessage })(withValidateEmail(FullscreenSubscribe));
+export default connect(
+  (state) => ({ message: selectSubscribeMessage(state) }),
+  { clearMessage },
+)(withValidateEmail(FullscreenSubscribe));

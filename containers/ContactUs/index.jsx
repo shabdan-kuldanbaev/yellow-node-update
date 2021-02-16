@@ -2,14 +2,19 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
-import { fetchPage } from 'redux/actions/layout';
-import { selectContacts, selectCompanyPhoto } from 'redux/selectors/layout';
+import { fetchLayoutData } from 'redux/actions/layout';
+import {
+  selectContacts,
+  selectCompanyPhoto,
+  selectIsLoadingScreenCompleted,
+} from 'redux/selectors/layout';
 import {
   FeedbackFormWithTitle,
   Calendar,
   CompanyPeoplePhoto,
   CompanyContacts,
   MetaTags,
+  LoadingScreen,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
@@ -20,7 +25,8 @@ const ContactUsContainer = ({
   sendEmail,
   officePhoto,
   peoplePhoto,
-  fetchPage,
+  fetchLayoutData: fetchPage,
+  isLoadingScreenCompleted,
 }) => {
   const { content: officePhotoContent } = getDocumentFields(officePhoto, ['content']);
   const { image: officeImage } = getDocumentFields(
@@ -44,6 +50,7 @@ const ContactUsContainer = ({
       isSendNDAChecked,
       projectBudget,
     ] = args;
+
     sendEmail({
       fullName,
       email,
@@ -55,34 +62,43 @@ const ContactUsContainer = ({
   };
 
   useEffect(() => {
-    fetchPage(PAGES.contact);
+    fetchPage({ slug: PAGES.contact });
   }, []);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.contact} />
-      <section ref={introSection} className={styles.contactContainer}>
-        <FeedbackFormWithTitle handleOnClick={handleOnClick} />
-        <Calendar />
-        {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}
-        {officeImageUrl && <CompanyContacts photo={officeImageUrl} />}
-      </section>
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
+        <section ref={introSection} className={styles.contactContainer}>
+          <FeedbackFormWithTitle handleOnClick={handleOnClick} />
+          <Calendar />
+          {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}
+          {officeImageUrl && <CompanyContacts photo={officeImageUrl} />}
+        </section>
+      )}
     </Fragment>
   );
+};
+
+ContactUsContainer.defaultProps = {
+  officePhoto: {},
+  peoplePhoto: {},
 };
 
 ContactUsContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   sendEmail: PropTypes.func.isRequired,
-  officePhoto: PropTypes.instanceOf(Object).isRequired,
-  peoplePhoto: PropTypes.instanceOf(Object).isRequired,
-  fetchPage: PropTypes.func.isRequired,
+  officePhoto: PropTypes.instanceOf(Object),
+  peoplePhoto: PropTypes.instanceOf(Object),
+  fetchLayoutData: PropTypes.func.isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  officePhoto: selectContacts(state),
-  peoplePhoto: selectCompanyPhoto(state),
-}), {
-  sendEmail,
-  fetchPage,
-})(ContactUsContainer);
+export default connect(
+  (state) => ({
+    officePhoto: selectContacts(state),
+    peoplePhoto: selectCompanyPhoto(state),
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+  }),
+  { sendEmail, fetchLayoutData },
+)(ContactUsContainer);

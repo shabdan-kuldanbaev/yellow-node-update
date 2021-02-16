@@ -14,6 +14,7 @@ const FeedbackFormContainer = ({ sendEmail }) => {
       selectedFiles,
       isSendNDAChecked,
     ] = args;
+
     sendEmail({
       fullName,
       email,

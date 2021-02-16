@@ -6,7 +6,6 @@ import React, {
 import PropTypes from 'prop-types';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Animated } from 'components';
-import { getOptimizedImage } from 'utils/helper';
 import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
@@ -41,14 +40,15 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
       <div ref={imgContainer} className={styles.imgContainer}>
         <div className={styles.whiteCover} />
         <LazyLoadImage
-          src={getOptimizedImage(photo, 465)}
+          src={photo}
           alt="CompanyOfficePhoto"
           effect="blur"
+          className={styles.img}
         />
       </div>
       <address className={styles.address}>
-        {animatedFields && animatedFields.map((animated) => (
-          <Animated {...animated}>
+        {animatedFields && animatedFields.map((animated, index) => (
+          <Animated {...animated} key={`fields/${index}`}>
             <FieldsWrapper animated={animated} />
           </Animated>
         ))}

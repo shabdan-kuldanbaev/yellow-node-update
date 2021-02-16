@@ -38,18 +38,18 @@
     height: 100%;
   }
 
-  div>a:first-child {
+  div > a:first-child {
     border-radius: 10px;
     text-decoration: none;
     overflow: hidden;
 
-    &>div {
+    & > div {
       @include flex(column, space-between, flex-start);
       box-shadow: 0 25px 95px 5px rgba(0, 0, 0, .07);
       border-radius: 4px;
       background-color: $white;
 
-      &>div {
+      & > div {
         width: 100%;
         height: max-content;
       }
@@ -102,7 +102,7 @@
         margin: 0;
         margin-bottom: 20px;
 
-        &>a {
+        & > span {
           font-weight: 600;
           color: $mine-shaft;
           font-size: 1.1875rem;
@@ -142,7 +142,7 @@
         }
 
         &:hover {
-          &>a {
+          & > span {
             transition: background-size .6s ease-out;
             background-size: 100% 8px;
           }
@@ -192,7 +192,7 @@
         width: calc(100% - 15px);
       }
 
-      &>a {
+      & > a {
         margin: 0;
         width: max-content;
         padding: 12px 18px;
@@ -209,33 +209,6 @@
           transition: background-color .15s ease;
         }
       }
-
-      // TODO
-      // &>a {
-      //   margin: 0;
-      //   width: max-content;
-      //   font-size: 0.8125rem;
-      //   font-weight: 500;
-      //   display: inline-block;
-      //   color: $woodsmoke;
-      //   text-decoration: none;
-      //   // translate: background-color .4s ease;
-      //   // background-image: linear-gradient($turbo-100, $turbo-100);
-      //   // background-position: 0% 100%;
-      //   // background-repeat: no-repeat;
-      //   // background-size: 0% 4px;
-      //   // transition: background-size .6s ease-out;
-      //   border-radius: 0;
-      // }
-
-      // &:hover {
-      //   &>a {
-      //     transition: background-size .6s ease-out;
-      //     background-size: 100% 4px;
-      //     // color: $mid-gray;
-      //     // transition: color .4s;
-      //   }
-      // }
     }
   }
 }

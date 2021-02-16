@@ -6,6 +6,7 @@ import styles from './styles.module.scss';
 
 const ButtonMore = ({
   href,
+  dynamicRouting,
   title,
   buttonStyle,
   handleOnClick,
@@ -24,8 +25,9 @@ const ButtonMore = ({
   )
   : (
     <LinkWrapper
-      path={href}
       isLocalLink
+      path={href}
+      dynamicRouting={dynamicRouting}
       className={cn(styles.link, { [disabledButtonStyle]: isDisabled })}
     >
       <div className={cn({ [buttonStyle]: buttonStyle })} onClick={handleOnClick}>
@@ -36,6 +38,7 @@ const ButtonMore = ({
 
 ButtonMore.defaultProps = {
   href: '',
+  dynamicRouting: '',
   buttonStyle: null,
   buttonRef: null,
   handleOnClick: null,
@@ -45,6 +48,7 @@ ButtonMore.defaultProps = {
 
 ButtonMore.propTypes = {
   href: PropTypes.string,
+  dynamicRouting: PropTypes.string,
   title: PropTypes.string.isRequired,
   buttonStyle: PropTypes.string,
   handleOnClick: PropTypes.func,

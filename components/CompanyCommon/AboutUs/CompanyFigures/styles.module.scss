@@ -33,7 +33,8 @@
       width: 50%;
       @include flex(row, center, initial, wrap);
 
-      &:nth-of-type(3), &:nth-of-type(4) {
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
         margin-top: 30px;
       }
     }

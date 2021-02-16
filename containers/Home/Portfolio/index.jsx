@@ -116,7 +116,8 @@ const Portfolio = ({ gradientRef, projects }) => {
               transitionDelay={350}
             >
               <ButtonMore
-                href={ROUTES.portfolio}
+                href={ROUTES.portfolio.path}
+                dynamicRouting={ROUTES.portfolio.dynamicPath}
                 title="EXPLORE OUR PORTFOLIO"
                 buttonStyle={styles.portfolioButton}
               />
@@ -128,13 +129,15 @@ const Portfolio = ({ gradientRef, projects }) => {
   );
 };
 
+Portfolio.defaultProps = {
+  projects: {},
+};
+
 Portfolio.propTypes = {
   gradientRef: PropTypes.instanceOf(Object).isRequired,
-  projects: PropTypes.instanceOf(Object).isRequired,
+  projects: PropTypes.instanceOf(Object),
 };
 
 export default connect(
-  (state) => ({
-    projects: selectHomepageProjectsPreview(state),
-  }),
+  (state) => ({ projects: selectHomepageProjectsPreview(state) }),
 )(Portfolio);

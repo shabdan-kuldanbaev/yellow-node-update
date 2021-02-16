@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   setScrollOfAddedFooter,
-  setDuck,
   setHomepageVisit,
   setFirstHomepageVisit,
 } from 'redux/actions/home';
@@ -27,7 +26,6 @@ const Intro = ({
   duck,
   isHomepageVisit,
   setScrollOfAddedFooter: setScroll,
-  setDuck: setDuckToRedux,
   setHomepageVisit: setVisitOfHomepage,
   setFirstHomepageVisit: setFirstHomeVisit,
   isFirstHomepageVisit,
@@ -40,11 +38,7 @@ const Intro = ({
 
   return (
     <section ref={introSection} className={styles.intro}>
-      <Duck
-        duck={duck}
-        setDuckToRedux={setDuckToRedux}
-        isHomepageVisit={isHomepageVisit}
-      />
+      <Duck duck={duck} isHomepageVisit={isHomepageVisit} />
       <AddFooter
         theme={theme}
         isModelLoaded={!!duck}
@@ -68,6 +62,9 @@ Intro.propTypes = {
   setScrollOfAddedFooter: PropTypes.func.isRequired,
   setFirstHomepageVisit: PropTypes.func.isRequired,
   isFirstHomepageVisit: PropTypes.bool.isRequired,
+  duck: PropTypes.instanceOf(Object).isRequired,
+  isHomepageVisit: PropTypes.bool.isRequired,
+  setHomepageVisit: PropTypes.func.isRequired,
 };
 
 export default connect(
@@ -76,9 +73,9 @@ export default connect(
     duck: selectDuck(state),
     isHomepageVisit: selectIsHomepageVisit(state),
     isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
-  }), {
+  }),
+  {
     setScrollOfAddedFooter,
-    setDuck,
     setHomepageVisit,
     setFirstHomepageVisit,
   },

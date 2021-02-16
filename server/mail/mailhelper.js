@@ -9,7 +9,10 @@ const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
   port: process.env.EMAIL_PORT,
   secure: true,
-  auth: { user, pass: process.env.EMAIL_PASSWORD },
+  auth: {
+    user,
+    pass: process.env.EMAIL_PASSWORD,
+  },
 });
 
 module.exports.sendMail = async (additionalMailOption, res) => {

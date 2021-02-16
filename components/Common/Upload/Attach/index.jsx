@@ -1,7 +1,13 @@
 import React from 'react';
 
 export const Attach = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="10" height="23" viewBox="0 0 10 23">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    width="10"
+    height="23"
+    viewBox="0 0 10 23"
+  >
     <defs>
       <path id="a" d="M.018.16h9.903V22.8H.018z" />
     </defs>

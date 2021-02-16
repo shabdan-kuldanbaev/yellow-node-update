@@ -17,7 +17,6 @@ export const Reviews = ({ reviews }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
   const infoRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
-
   const params = {
     effect: 'coverflow',
     slidesPerView: 1.2,

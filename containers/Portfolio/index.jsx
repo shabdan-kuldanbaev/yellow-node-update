@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectPortfolioProjectsPreview, selectIsLoading } from 'redux/selectors/layout';
-import { fetchPage } from 'redux/actions/layout';
+import { selectPortfolioProjectsPreview, selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
+import { fetchLayoutData } from 'redux/actions/layout';
 import {
   Portfolio,
-  Loader,
   MetaTags,
+  LoadingScreen,
 } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
@@ -15,37 +15,42 @@ import styles from './styles.module.scss';
 const PortfolioContainer = ({
   introSection,
   portfolioProjects,
-  isLoading,
-  fetchPage,
+  fetchLayoutData: fetchPage,
+  isLoadingScreenCompleted,
 }) => {
   const { content } = getDocumentFields(portfolioProjects, ['content']);
 
   useEffect(() => {
-    fetchPage(PAGES.portfolio);
+    fetchPage({ slug: PAGES.portfolio });
   }, []);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.portfolio} />
-      <section ref={introSection} className={styles.portfolio}>
-        <Loader isLoading={!isLoading}>
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
+        <section ref={introSection} className={styles.portfolio}>
           {content && <Portfolio works={content} />}
-        </Loader>
-      </section>
+        </section>
+      )}
     </Fragment>
   );
 };
 
+PortfolioContainer.defaultProps = {
+  portfolioProjects: {},
+};
+
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  portfolioProjects: PropTypes.instanceOf(Object).isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  fetchPage: PropTypes.func.isRequired,
+  portfolioProjects: PropTypes.instanceOf(Object),
+  fetchLayoutData: PropTypes.func.isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
   (state) => ({
     portfolioProjects: selectPortfolioProjectsPreview(state),
-    isLoading: selectIsLoading(state),
-  }), { fetchPage },
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+  }),
+  { fetchLayoutData },
 )(PortfolioContainer);

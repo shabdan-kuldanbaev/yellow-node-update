@@ -20,16 +20,15 @@ const Subscribe = ({
 }) => {
   const placeholderText = 'Email';
   const [currentPlaceholder, setCurrentPlaceholder] = useState(placeholderText);
-
-  const handleOnFocus = () => setCurrentPlaceholder('');
-  const handleOnBlur = () => setCurrentPlaceholder(placeholderText);
-
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
     opasityDuration: 1,
     transformDuration: 1,
   };
+
+  const handleOnFocus = () => setCurrentPlaceholder('');
+  const handleOnBlur = () => setCurrentPlaceholder(placeholderText);
 
   return (
     <section className={styles.subscribeBlock}>

@@ -65,6 +65,6 @@ CompanyPeoplePhoto.propTypes = {
   isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  isMobileResolution: selectIsMobileResolutions(state),
-}))(CompanyPeoplePhoto);
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(CompanyPeoplePhoto);

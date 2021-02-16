@@ -2,9 +2,9 @@ import { put, takeLatest } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import ReactGA from 'react-ga';
+import { actionTypes } from 'redux/actions/actionTypes';
 import { API } from 'utils/api';
 import { setDataToLocalStorageWithExpire, hoursToMs } from 'utils/helper';
-import { actionTypes } from '../actions/actionTypes';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();

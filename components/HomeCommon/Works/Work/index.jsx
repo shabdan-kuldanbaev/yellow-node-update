@@ -39,8 +39,8 @@ const Work = ({
       ref={refs[index + 1]}
     >
       <div className={styles.desc}>
-        {animatedFields && animatedFields.map((animated) => (
-          <Animated {...animated}>
+        {animatedFields && animatedFields.map((animated, index) => (
+          <Animated {...animated} key={`fields/${index}/${title}`}>
             <FieldsWrapper
               animated={animated}
               title={title}
@@ -59,11 +59,6 @@ const Work = ({
             )}
           >
             <img src={sizeOfImage ? getOptimizedImage(imageUrl, sizeOfImage, 'png', 'png8') : imageUrl} alt={title} />
-            {/* //TODO return later
-          {work.videoName && (
-            <Video src={`/videos/${work.videoName}.m4v`} className={styles.video} />
-          )}
-          <img src={work.image} alt={work.image} /> */}
           </div>
         </Animated>
       </div>
@@ -86,7 +81,9 @@ Work.propTypes = {
   description: PropTypes.string.isRequired,
 };
 
-export default connect((state) => ({
-  isMobileResolution: selectIsMobileResolutions(state),
-  isFullResolution: selectIsFullResolutions(state),
-}))(Work);
+export default connect(
+  (state) => ({
+    isMobileResolution: selectIsMobileResolutions(state),
+    isFullResolution: selectIsFullResolutions(state),
+  }),
+)(Work);

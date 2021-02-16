@@ -20,17 +20,22 @@ export const setTabletResolutions = (payload) => ({
   payload,
 });
 
-export const setPageLoading = (payload) => ({
-  type: actionTypes.SET_PAGE_LOADING,
-  payload,
-});
-
 export const setFullResolution = (payload) => ({
   type: actionTypes.SET_FULL_RESOLUTION,
   payload,
 });
 
-export const fetchPage = (payload) => ({
-  type: actionTypes.FETCH_PAGE_PENDING,
+export const fetchLayoutData = (payload) => ({
+  type: actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING,
+  payload,
+});
+
+export const setLoadingScreenCompleted = (payload) => ({
+  type: actionTypes.SET_LOADING_SCREEN_COMPLETED,
+  payload,
+});
+
+export const setFirstPageLoaded = (payload) => ({
+  type: actionTypes.SET_FIRST_PAGE_LOADED,
   payload,
 });

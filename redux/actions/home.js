@@ -5,11 +5,6 @@ export const setScrollOfAddedFooter = (payload) => ({
   payload,
 });
 
-export const setDuck = (payload) => ({
-  type: actionTypes.SET_DUCK,
-  payload,
-});
-
 export const setHomepageVisit = (payload) => ({
   type: actionTypes.SET_HOMEPAGE_VISIT,
   payload,

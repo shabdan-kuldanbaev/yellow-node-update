@@ -23,11 +23,15 @@ export const selectIsMobileResolutions = (state) => state.layout.isMobileResolut
 
 export const selectIsTabletResolutions = (state) => state.layout.isTabletResolutions;
 
-export const selectIsPageLoading = (state) => state.layout.isPageLoading;
-
 export const selectIsFullResolutions = (state) => state.layout.isFullResolution;
 
 export const selectIsLoading = (state) => state.layout.isLoading;
+
+export const selectIsPageReadyToDisplay = (state) => state.layout.isPageReadyToDisplay;
+
+export const selectIsLoadingScreenCompleted = (state) => state.layout.isLoadingScreenCompleted;
+
+export const selectIsFirstPageLoaded = (state) => state.layout.isFirstPageLoaded;
 
 export const selectHomepageProjectsPreview = (state) => getMain(state, BLOCKS_SLUGS.homepagePreviewProjects);
 
@@ -42,3 +46,5 @@ export const selectManagementTeam = (state) => getMain(state, BLOCKS_SLUGS.compn
 export const selectCompanyPhoto = (state) => getMain(state, BLOCKS_SLUGS.contactPageCompanyPhoto);
 
 export const selectContacts = (state) => getMain(state, BLOCKS_SLUGS.contactPageContacts);
+
+export const selectProcessPreview = (state) => getMain(state, BLOCKS_SLUGS.processPageProcessPreview);

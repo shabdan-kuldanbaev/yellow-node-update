@@ -13,8 +13,8 @@ export const Article = ({
   <article className={styles.article}>
     <LinkWrapper
       isLocalLink
-      dynamicRouting="/blog/[article]"
-      path={ROUTES.article(slug)}
+      path={ROUTES.article.path(slug)}
+      dynamicRouting={ROUTES.article.dynamicPath}
     >
       <div>
         <div className={styles.imgContainer}>

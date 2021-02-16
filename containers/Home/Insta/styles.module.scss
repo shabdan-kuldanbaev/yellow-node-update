@@ -7,22 +7,10 @@
   padding: $section-indent $side-indent;
   background-color: $white;
   
-
   @include phone {
     padding: 235px $side-indent $after-mobile-title-margin;
     overflow: hidden;
   }
-
-  // TODO & > :global(.animated) {
-  //   position: absolute;
-  //   margin-left: -83px;
-  //   margin-top: -60px;
-
-  //   @include phone {
-  //     margin-left: 27px;
-  //     margin-top: -160px;
-  //   }
-  // }
 
   .instaButton {
     @include button-more($black, $black, $turbo-100, $black);

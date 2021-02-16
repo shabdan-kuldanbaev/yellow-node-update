@@ -5,15 +5,11 @@ import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import {
   selectArticle,
-  selectIsLoading,
   selectRelatedArticles,
   selectNearbyArticles,
 } from 'redux/selectors/blog';
-import {
-  getArticle,
-  loadRelatedArticles,
-  loadNearbyArticles,
-} from 'redux/actions/blog';
+import { selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
+import { fetchLayoutData } from 'redux/actions/layout';
 import { subscribe } from 'redux/actions/subscribe';
 import {
   Article,
@@ -23,8 +19,9 @@ import {
   NextPrev,
   MetaTags,
   withScroll,
+  LoadingScreen,
 } from 'components';
-import { PAGES, DEFAULT_ARTICLES_LIMIT } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import {
   rootUrl,
   getDocumentFields,
@@ -37,25 +34,23 @@ const ArticleContainer = ({
   articles: relatedArticles,
   nearbyArticles: { newerArticle, olderArticle },
   currentArticle,
-  isLoading,
-  getArticle: getCurrentArticle,
-  loadRelatedArticles: loadArticles,
-  loadNearbyArticles: getNearby,
   subscribe,
+  fetchLayoutData,
+  isLoadingScreenCompleted,
 }) => {
-  const { query: { article }, pathname } = useRouter();
+  const { query: { slug }, pathname } = useRouter();
   const {
-    slug,
-    categoryTag,
+    slug: articleSlug,
     title,
-    createdAt,
     oldBody,
     body,
     introduction,
     headImageUrl,
+    publishedAt,
+    keyWords = [],
   } = getDocumentFields(
     get(currentArticle, 'items[0]', {}),
-    ['slug', 'categoryTag', 'title', 'createdAt', 'oldBody', 'body', 'introduction', 'headImageUrl'],
+    ['slug', 'title', 'oldBody', 'body', 'introduction', 'headImageUrl', 'publishedAt', 'keyWords'],
   );
   const {
     previewImageUrl: previewImageUrlNewer,
@@ -74,56 +69,55 @@ const ArticleContainer = ({
     ['slug', 'title', 'previewImageUrl'],
   );
   const headImage = getFileUrl(headImageUrl);
+  const articleMetaData = {
+    title,
+    description: introduction,
+    date: publishedAt,
+    keyWords: (keyWords && keyWords.join(', ')) || null,
+    image: headImage,
+  };
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   useEffect(() => {
-    if (article) getCurrentArticle(article);
-  }, [article]);
-
-  useEffect(() => {
-    if (title && createdAt) getNearby({ name: title, createdAt });
-
-    if (slug) {
-      loadArticles({
-        currentLimit: DEFAULT_ARTICLES_LIMIT,
-        currentArticleSlug: slug,
-        categoryTag,
-      });
-    }
-  }, [title, createdAt, slug]);
+    fetchLayoutData({
+      articleSlug: slug,
+      slug: PAGES.article,
+    });
+  }, [slug]);
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.blog} />
-      <Article
-        slug={slug}
-        title={title}
-        oldBody={oldBody}
-        body={body}
-        introduction={introduction}
-        headImage={headImage}
-        introSection={introSection}
-        isLoading={isLoading}
-      />
-      <SocialThumbnails url={`${rootUrl}/blog/${article}`} title={title} />
-      {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} isLoading={isLoading} />}
-      <div className={styles.nextPrevSection}>
-        <NextPrev
-          isNewer
-          isLoading={isLoading}
-          previewImageUrl={getFileUrl(previewImageUrlNewer)}
-          slug={slugNewer}
-          title={titleNewer}
-        />
-        <NextPrev
-          isLoading={isLoading}
-          previewImageUrl={getFileUrl(previewImageUrlOlder)}
-          slug={slugOlder}
-          title={titleOlder}
-        />
-      </div>
-      <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
+      <MetaTags page={PAGES.blog} articleMetaData={articleMetaData} />
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
+        <Fragment>
+          <Article
+            slug={articleSlug}
+            title={title}
+            oldBody={oldBody}
+            body={body}
+            introduction={introduction}
+            headImage={headImage}
+            introSection={introSection}
+          />
+          <SocialThumbnails url={`${rootUrl}/blog/${slug}`} title={title} />
+          {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} />}
+          <div className={styles.nextPrevSection}>
+            <NextPrev
+              isNewer
+              previewImageUrl={getFileUrl(previewImageUrlNewer)}
+              slug={slugNewer}
+              title={titleNewer}
+            />
+            <NextPrev
+              previewImageUrl={getFileUrl(previewImageUrlOlder)}
+              slug={slugOlder}
+              title={titleOlder}
+            />
+          </div>
+          <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
+        </Fragment>
+      )}
     </Fragment>
   );
 };
@@ -133,11 +127,9 @@ ArticleContainer.propTypes = {
   articles: PropTypes.instanceOf(Array).isRequired,
   currentArticle: PropTypes.instanceOf(Object).isRequired,
   nearbyArticles: PropTypes.instanceOf(Object).isRequired,
-  getArticle: PropTypes.func.isRequired,
-  loadRelatedArticles: PropTypes.func.isRequired,
-  loadNearbyArticles: PropTypes.func.isRequired,
   subscribe: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  fetchLayoutData: PropTypes.func.isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
@@ -145,11 +137,7 @@ export default connect(
     currentArticle: selectArticle(state),
     articles: selectRelatedArticles(state),
     nearbyArticles: selectNearbyArticles(state),
-    isLoading: selectIsLoading(state),
-  }), {
-    getArticle,
-    loadRelatedArticles,
-    loadNearbyArticles,
-    subscribe,
-  },
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+  }),
+  { subscribe, fetchLayoutData },
 )(withScroll(ArticleContainer));

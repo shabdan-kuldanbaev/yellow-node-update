@@ -12,6 +12,7 @@ export const SocialThumbnails = ({ url, title }) => {
   const [isCopied, setIsCopied] = useState(false);
   const { asPath } = useRouter();
 
+  const handleOnCopy = () => setIsCopied(true);
   const trackSocialShareClick = ({ target }) => {
     ReactGA.event({
       category: 'Click social go to share',
@@ -19,8 +20,6 @@ export const SocialThumbnails = ({ url, title }) => {
       label: asPath,
     });
   };
-
-  const handleOnCopy = () => setIsCopied(true);
 
   return (
     <div className={styles.socialThumbnails}>
@@ -61,7 +60,11 @@ export const SocialThumbnails = ({ url, title }) => {
   );
 };
 
+SocialThumbnails.defaultProps = {
+  title: '',
+};
+
 SocialThumbnails.propTypes = {
   url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };

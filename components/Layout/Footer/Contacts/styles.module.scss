@@ -221,7 +221,6 @@
 
     $bxshadow-small: box-shadow(15);
     $bxshadow-middle: box-shadow(8);
-    // TODO $bxshadow-large: box-shadow(4);
 
     img {
       display: none;
@@ -237,7 +236,6 @@
         box-shadow: $bxshadow-small;
         will-change: transform;
         transform: translate(-130px, -80px);
-        // TODO animation: animStar 13s linear infinite;
         animation: flicker 2.2s linear infinite;
       }
 
@@ -250,21 +248,11 @@
         box-shadow: $bxshadow-middle;
         will-change: transform;
         transform: translate(-130px, -80px);
-        // TODO animation: animStar 8s linear infinite;
         animation: flicker 3s linear infinite 1s;
       }
 
       .stars3 {
         position: absolute;
-        // TODO
-        // height: 5px;
-        // width: 5px;
-        // border-radius: 50%;
-        // z-index: 1;
-        // box-shadow: $bxshadow-large;
-        // transform: translate(-200px, -80px);
-        // // animation: animStar 5s linear infinite;
-        // animation: flicker 2s linear infinite;
         position: absolute;
         height: 2px;
         width: 2px;
@@ -273,17 +261,8 @@
         box-shadow: $bxshadow-small;
         will-change: transform;
         transform: translate(-130px, -80px);
-        // TODO animation: animStar 13s linear infinite;
         animation: flicker 1.5s linear infinite 1.5s;
       }
-
-      // TODO
-      // img {
-      //   display: none;
-      //   z-index: 3;
-      //   margin-top: 50px;
-      //   animation: rocket 2s infinite linear;
-      // }
     }
   }
 }

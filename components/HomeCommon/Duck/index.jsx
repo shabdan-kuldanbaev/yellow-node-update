@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable default-case */
 /* eslint-disable no-undef */
 /* eslint-disable prefer-destructuring */
@@ -32,7 +33,6 @@ let mat = 0;
 
 export const Duck = ({
   duck,
-  setDuckToRedux,
   isHomepageVisit,
 }) => {
   const [isAnimate, setAnimate] = useState(false);
@@ -329,7 +329,6 @@ export const Duck = ({
       r = 1;
     }
 
-    if (!duck) three.loadModel(setDuckToRedux);
     isMobile = window.innerWidth < mobileResolution;
 
     if (!isAnimate) {
@@ -344,6 +343,7 @@ export const Duck = ({
         r = 0;
         init();
 
+        if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';
         slogan.setOpacity(canvas, containerCanvas);
         slogan.animateSlogan(sloganRef);
         animate();
@@ -415,11 +415,7 @@ export const Duck = ({
     <Fragment>
       <div className={styles.text} ref={containerText}>
         <animated.div style={{ position: 'absolute', transform: offset.interpolate(calc) }}>
-          {!!duck && (
-            <h1 ref={sloganRef} className="letter-container">
-              {'WE CREATE\nFANTASTIC SOFTWARE'}
-            </h1>
-          )}
+          <h1 ref={sloganRef} className="letter-container" />
         </animated.div>
       </div>
       <animated.div
@@ -440,7 +436,6 @@ Duck.defaultProps = {
 
 Duck.propTypes = {
   duck: PropTypes.instanceOf(Object),
-  setDuckToRedux: PropTypes.func.isRequired,
   isHomepageVisit: PropTypes.bool.isRequired,
 };
 

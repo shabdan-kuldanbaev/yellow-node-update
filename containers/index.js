@@ -20,7 +20,7 @@ export { default as ArticleContainer } from 'containers/Article';
 // Portfolio
 export { default as PortfolioContainer } from 'containers/Portfolio';
 
-// Portfolio
+// Process
 export { default as ProcessContainer } from 'containers/Process';
 
 // Project

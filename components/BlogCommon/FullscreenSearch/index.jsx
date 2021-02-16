@@ -84,6 +84,7 @@ FullscreenSearch.propTypes = {
   foundArticles: PropTypes.instanceOf(Array).isRequired,
 };
 
-export default connect((state) => ({
-  foundArticles: selectFoundArticles(state),
-}), { findArticles, clearFoundArticles })(FullscreenSearch);
+export default connect(
+  (state) => ({ foundArticles: selectFoundArticles(state) }),
+  { findArticles, clearFoundArticles },
+)(FullscreenSearch);

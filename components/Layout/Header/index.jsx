@@ -20,42 +20,43 @@ const Header = ({
   isMobileMenuOpened,
   setMobileMenuState: setMobileMenu,
 }) => {
-  const { asPath } = useRouter();
+  const { asPath, query: { page } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
   const isHomePage = currentPage === '';
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
 
-  const handleOnScroll = () => {
-    if (introSection.current) {
-      const intro = introSection.current.getBoundingClientRect();
-
-      if (isHomePage) {
-        intro.bottom < 65
-          ? setAdditional(true)
-          : setAdditional(false);
-        intro.top < -200
-          ? setIsLogoTextHidden(true)
-          : setIsLogoTextHidden(false);
-      }
-
-      if (!isHomePage) {
-        intro.top < -10
-          ? setIsLogoTextHidden(true)
-          : setIsLogoTextHidden(false);
-      }
-    }
-    // TODO if (pageYOffset > 20) document.body.style.backgroundColor = footerColor;
-    // else if (!isHomePage) document.body.style.backgroundColor = '#fff';
-    // else document.body.style.backgroundColor = 'black';
-  };
-
   useEffect(() => {
+    const handleOnScroll = () => {
+      if (introSection.current) {
+        const intro = introSection.current.getBoundingClientRect();
+
+        if (isHomePage) {
+          intro.bottom < 65
+            ? setAdditional(true)
+            : setAdditional(false);
+          intro.top < -200
+            ? setIsLogoTextHidden(true)
+            : setIsLogoTextHidden(false);
+        }
+
+        if (!isHomePage) {
+          intro.top < -10
+            ? setIsLogoTextHidden(true)
+            : setIsLogoTextHidden(false);
+        }
+      }
+    };
+
     handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
 
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, [currentPage]);
+
+  useEffect(() => {
+    setAdditional(false);
+  }, [asPath]);
 
   return (
     <header className={cn({
@@ -79,14 +80,13 @@ const Header = ({
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
-        isHeader
       />
       <MobileMenu
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
       />
-      {(asPath.includes('portfolio') || asPath.includes('blog/')) && <TopProgressBar elementRef={introSection} />}
+      {(asPath.includes('portfolio') || (asPath.includes('blog/') && !page)) && <TopProgressBar elementRef={introSection} />}
     </header>
   );
 };
@@ -103,7 +103,6 @@ Header.propTypes = {
 };
 
 export default connect(
-  (state) => ({
-    isMobileMenuOpened: selectIsMobileMenuOpened(state),
-  }), { setMobileMenuState },
+  (state) => ({ isMobileMenuOpened: selectIsMobileMenuOpened(state) }),
+  { setMobileMenuState },
 )(Header);

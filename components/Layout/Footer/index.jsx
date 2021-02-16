@@ -1,16 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Contacts,
-  ButtonMore,
-} from 'components';
+import { Contacts, ButtonMore } from 'components';
 import Nav from 'components/Layout/Header/Nav';
 import styles from './styles.module.scss';
 
-export const Footer = ({
-  theme,
-  openFullscreenEstimation,
-}) => (
+export const Footer = ({ theme, openFullscreenEstimation }) => (
   <footer className={styles.footer}>
     <div className={styles.forms}>
       <Contacts handleOnClick={openFullscreenEstimation} />

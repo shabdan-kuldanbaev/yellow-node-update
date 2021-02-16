@@ -1,4 +1,6 @@
 import get from 'lodash/get';
+import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
+import { PAGES } from 'utils/constants';
 import {
   phoneResolution,
   horizontalMobile,
@@ -6,7 +8,6 @@ import {
   silver,
   fullHdResolution,
 } from 'styles/utils/_variables.scss';
-import { PAGES } from './constants';
 
 export const themes = {
   dark: {
@@ -25,7 +26,11 @@ export const toInt = (str) => parseInt(str, 10);
 
 export const validateEmail = (email) => {
   const reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (reg.test(email) === false) return false;
+
+  if (reg.test(email) === false) {
+    return false;
+  }
+
   return reg.test(email);
 };
 
@@ -116,4 +121,22 @@ export const getDataFromLocalStorageWithExpire = (key) => {
   }
 
   return value;
+};
+
+export const artificialDelay = (t) => new Promise(((resolve) => {
+  setTimeout(() => {
+    resolve();
+  }, t);
+}));
+
+export const loadDuck = async () => {
+  try {
+    const duck = await new Promise((resolve) => {
+      three.loadModel(resolve);
+    });
+
+    return duck;
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReactGA from 'react-ga';
 import {
-  Loader,
   ContentfulParser,
   OldArticle,
   withScroll,
@@ -17,7 +16,6 @@ const Article = ({
   body,
   introduction,
   headImage,
-  isLoading,
   maxScrollPosition,
 }) => {
   const articleBodyRef = useRef(null);
@@ -35,34 +33,37 @@ const Article = ({
   }, [maxScrollPosition]);
 
   return (
-    <Loader isLoading={!isLoading}>
-      <section ref={introSection} className={styles.article}>
-        <header className={styles.header}>
-          <div>
-            <div style={{ backgroundImage: `url(${headImage})` }} />
-          </div>
-          <div className={styles.container}>
-            <h1 className={styles.h1}>{title}</h1>
-            <p>{introduction}</p>
-          </div>
-        </header>
-        <div className={styles.body} ref={articleBodyRef}>
-          {oldBody ? <OldArticle oldBody={oldBody} /> : <ContentfulParser document={body} />}
+    <section ref={introSection} className={styles.article}>
+      <header className={styles.header}>
+        <div style={{ backgroundImage: `url(${headImage})` }} />
+        <div className={styles.container}>
+          <h1 className={styles.h1}>{title}</h1>
+          <p>{introduction}</p>
         </div>
-      </section>
-    </Loader>
+      </header>
+      <div className={styles.body} ref={articleBodyRef}>
+        {oldBody ? <OldArticle oldBody={oldBody} /> : <ContentfulParser document={body} />}
+      </div>
+    </section>
   );
+};
+
+Article.defaultProps = {
+  oldBody: '',
+  body: null,
+  slug: '',
+  title: '',
+  introduction: '',
 };
 
 Article.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  isLoading: PropTypes.bool.isRequired,
   maxScrollPosition: PropTypes.number.isRequired,
-  slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  oldBody: PropTypes.string.isRequired,
-  body: PropTypes.instanceOf(Object).isRequired,
-  introduction: PropTypes.string.isRequired,
+  slug: PropTypes.string,
+  title: PropTypes.string,
+  oldBody: PropTypes.string,
+  body: PropTypes.instanceOf(Object),
+  introduction: PropTypes.string,
   headImage: PropTypes.string.isRequired,
 };
 

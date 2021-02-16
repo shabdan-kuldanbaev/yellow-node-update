@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'node_modules/three/examples/jsm/loaders/DRACOLoader';
+import anime from 'animejs';
 import { shaders } from './data';
 
 export const three = {
@@ -209,7 +210,7 @@ export const three = {
 
 export const slogan = {
   sloganOpacityAnimation: (finalOpacity) => {
-    window.anime.timeline({ loop: false })
+    anime.timeline({ loop: false })
       .add({
         targets: '.letter-container .letter',
         opacity: [0, 1],
@@ -231,7 +232,7 @@ export const slogan = {
       if (sloganRef.current) sloganRef.current.classList.add(styles);
     };
 
-    window.anime.timeline({ loop: false })
+    anime.timeline({ loop: false })
       .add({
         targets: '.letter-container',
         opacity: finalOpacity,

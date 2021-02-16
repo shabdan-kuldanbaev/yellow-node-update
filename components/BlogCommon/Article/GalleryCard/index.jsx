@@ -7,7 +7,7 @@ import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const GalleryCard = ({ images, photoCaption }) => {
-  const imageRef = useRef(null);
+  const imageRef = useRef(null); // TODO replace imageRef with something for the garrely row key
   const rowsCount = Math.ceil(images.length / NUMBER_OF_IMAGES_PER_LINE);
 
   const getImagesInRow = useCallback(
@@ -18,7 +18,10 @@ export const GalleryCard = ({ images, photoCaption }) => {
   const handleOnLoad = ({ target }) => {
     const { offsetWidth, offsetHeight, parentElement } = target;
     const rowChildren = get(parentElement, 'parentElement.children', []);
-    const setFlex = (flex) => parentElement.style.flex = flex;
+
+    const setFlex = (flex) => {
+      parentElement.style.flex = flex;
+    };
 
     if (rowChildren.length === 1) setFlex('1 1 0%');
     else setFlex(`${offsetWidth / offsetHeight} 1 0%`);
@@ -28,12 +31,12 @@ export const GalleryCard = ({ images, photoCaption }) => {
     <div className={styles.mediasWrapper}>
       <div className={styles.images} ref={imageRef}>
         {[...Array(rowsCount)].map((row, index) => (
-          <div className={styles.row}>
+          <div className={styles.row} key={`gallery/${imageRef}`}>
             {getImagesInRow(index).map((image) => {
               const imageUrl = getFileUrl(image);
 
               return (
-                <Animated type={ANIMATED_TYPE.imageZoom}>
+                <Animated type={ANIMATED_TYPE.imageZoom} key={`gallery/${imageUrl}`}>
                   <img
                     src={imageUrl}
                     alt={imageUrl}
@@ -50,7 +53,11 @@ export const GalleryCard = ({ images, photoCaption }) => {
   );
 };
 
+GalleryCard.defaultProps = {
+  photoCaption: '',
+};
+
 GalleryCard.propTypes = {
-  images: PropTypes.string.isRequired,
-  photoCaption: PropTypes.string.isRequired,
+  images: PropTypes.instanceOf(Array).isRequired,
+  photoCaption: PropTypes.string,
 };

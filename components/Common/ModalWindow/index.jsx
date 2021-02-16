@@ -13,15 +13,15 @@ export const ModalWindow = ({
 }) => {
   const modalRef = useRef(null);
 
-  useEffect(() => {
-    setOverflowForBody(isModalWindow);
-  }, [isModalWindow]);
-
   const handleOnClick = ({ target }) => {
     if (modalRef && modalRef.current) {
       if (modalRef.current.isEqualNode(target)) closeModalWindow();
     }
   };
+
+  useEffect(() => {
+    setOverflowForBody(isModalWindow);
+  }, [isModalWindow]);
 
   return (
     <section

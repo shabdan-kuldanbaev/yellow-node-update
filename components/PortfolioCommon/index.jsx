@@ -22,7 +22,7 @@ const Portfolio = ({
   useEffect(() => () => ReactGA.event({
     category: 'Scroll',
     action: `${maxPosition.current}%`,
-    label: ROUTES.portfolio,
+    label: ROUTES.portfolio.path,
     nonInteraction: maxPosition.current < 50,
   }), []);
 
@@ -46,8 +46,8 @@ const Portfolio = ({
           >
             <div className={styles.workWrapper}>
               <div className={styles.desc}>
-                {animatedFields && animatedFields.map((animated) => (
-                  <Animated {...animated}>
+                {animatedFields && animatedFields.map((animated, index) => (
+                  <Animated {...animated} key={`fields/${index}/${title}`}>
                     <FieldsWrapper
                       animated={animated}
                       title={title}

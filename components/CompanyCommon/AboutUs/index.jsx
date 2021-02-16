@@ -36,14 +36,16 @@ export const AboutUs = ({ aboutUsText }) => {
         <div className={styles.buttons}>
           <Animated {...animatedProps} transitionDelay={1100 + 80}>
             <ButtonMore
-              href={ROUTES.portfolio}
+              href={ROUTES.portfolio.path}
+              dynamicRouting={ROUTES.portfolio.dynamicPath}
               title="WHAT WE DO"
               buttonStyle={styles.submit}
             />
           </Animated>
           <Animated {...animatedProps} transitionDelay={1100 + 80}>
             <ButtonMore
-              href={ROUTES.process}
+              href={ROUTES.process.path}
+              dynamicRouting={ROUTES.process.dynamicPath}
               title="HOW WE DO IT"
               buttonStyle={styles.submit}
             />

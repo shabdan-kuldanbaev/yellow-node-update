@@ -12,6 +12,25 @@
 
       & > h2 {
         @extend .h2;
+
+        & > img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+          margin: 3rem auto;
+    
+          & + p,
+          & + p + p {
+            color: $gray-200;
+            line-height: 22px;
+            font-size: 0.85rem;
+            margin: 0.7rem 0;
+    
+            @include below-tablet {
+              font-size: 1rem;
+            }
+          }
+        }
       }
   
       & > h3 {
@@ -173,6 +192,7 @@
 
   .image-table {
     display: flex;
+    justify-content: center;
 
     & > div:first-child {
       margin-right: 10px;
@@ -199,6 +219,25 @@
     @include tablet {
       width: 100%;
       transform: translateX(0);
+    }
+  }
+
+  .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 3rem auto;
+    
+    & + p,
+    & + p + p {
+      color: $gray-200;
+      line-height: 22px;
+      font-size: 0.85rem;
+      margin: 0.7rem 0;
+    
+      @include below-tablet {
+        font-size: 1rem;
+      }
     }
   }
 

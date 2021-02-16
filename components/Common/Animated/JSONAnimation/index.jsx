@@ -1,5 +1,9 @@
 /* eslint-disable react/button-has-type */
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+} from 'react';
 import Lottie from 'react-lottie';
 import PropTypes from 'prop-types';
 import { useIntersection } from 'react-use';
@@ -12,7 +16,6 @@ export const JSONAnimation = ({ jsonFile, className }) => {
     rootMargin: '0px',
     threshold: 0.2,
   });
-
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -45,6 +48,6 @@ JSONAnimation.defaultProps = {
 };
 
 JSONAnimation.propTypes = {
-  jsonFile: PropTypes.string.isRequired,
+  jsonFile: PropTypes.instanceOf(Object).isRequired,
   className: PropTypes.string,
 };

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import Router, { useRouter } from 'next/router';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Paginator = ({
@@ -12,8 +13,9 @@ const Paginator = ({
   pagesCounter,
   currentPage,
 }) => {
-  const { pathname, query: { category } } = useRouter();
+  const { pathname, query: { slug: category } } = useRouter();
   let [mobilePrevious, desktopPrevious, mobileNext, desktopNext] = ['', '', '', ''];
+
   if (currentPage > 2) mobilePrevious = pagesCounter > 3 ? 'start' : '';
   if (currentPage > 3) desktopPrevious = pagesCounter > 4 ? 'start' : '';
   if (currentPage <= (pagesCounter - 2)) mobileNext = pagesCounter > 4 ? arrows.next : '';
@@ -21,15 +23,11 @@ const Paginator = ({
 
   const pushRouter = (currentCategory, nextPage) => {
     window.scrollTo(0, 0);
-    Router.push({
-      pathname,
-      query: {
-        category: currentCategory,
-        page: nextPage,
-      },
-    });
+    Router.push(
+      { pathname },
+      { pathname: ROUTES.blog.getPath(currentCategory, nextPage) },
+    );
   };
-
   const handleOnPreviousClick = () => pushRouter(category, 1);
   const handleOnPageClick = ({ selected }) => pushRouter(category, selected + 1);
 
@@ -66,6 +64,6 @@ Paginator.propTypes = {
   currentPage: PropTypes.number.isRequired,
 };
 
-export default connect((state) => ({
-  isMobileResolution: selectIsMobileResolutions(state),
-}))(Paginator);
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(Paginator);

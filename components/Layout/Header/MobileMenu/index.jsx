@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper } from 'components';
 import { setOverflowForBody } from 'utils/helper';
+import { NAV_LINKS } from 'utils/constants';
 import Burger from '../Burger';
 import { socialLinks } from './utils/data';
-import { menuList } from '../utils/data';
 import styles from './styles.module.scss';
 
 const MobileMenu = ({
-  menuList: menuItems,
+  navLinks: links,
   socialLinks: socialItems,
   isMobileMenuOpened,
   setMobileMenuState,
@@ -30,22 +30,26 @@ const MobileMenu = ({
       })}
       >
         <ul>
-          {menuItems && menuItems.map((item) => (
-            <li key={`menuItem/${item.name}`} onClick={closeMenu}>
-              <LinkWrapper path={item.href} isLocalLink>
-                <span>{item.name}</span>
+          {links && links.map(({ title, path, dynamicPath }) => (
+            <li key={`links/${title}`} onClick={closeMenu}>
+              <LinkWrapper
+                isLocalLink
+                path={path}
+                dynamicRouting={dynamicPath}
+              >
+                <span>{title}</span>
               </LinkWrapper>
             </li>
           ))}
         </ul>
         <div className={styles.mobileMenuFooter}>
-          {socialItems && socialItems.map((link) => (
+          {socialItems && socialItems.map(({ title, href }) => (
             <LinkWrapper
-              key={`links/${link.title}`}
-              path={link.href}
+              key={`links/${title}`}
+              path={href}
               isLocalLink
             >
-              {link.title}
+              {title}
             </LinkWrapper>
           ))}
         </div>
@@ -60,12 +64,12 @@ const MobileMenu = ({
 };
 
 MobileMenu.defaultProps = {
-  menuList,
+  navLinks: NAV_LINKS,
   socialLinks,
 };
 
 MobileMenu.propTypes = {
-  menuList: PropTypes.instanceOf(Array),
+  navLinks: PropTypes.instanceOf(Array),
   socialLinks: PropTypes.instanceOf(Array),
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,

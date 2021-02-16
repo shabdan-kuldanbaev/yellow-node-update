@@ -6,17 +6,14 @@ import React, {
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
-import { selectIsBlogOpen, selectIsFirstVisit } from 'redux/selectors/blog';
 import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
 import { setMobileCategoriesState } from 'redux/actions/layout';
-import { setFirstVisit } from 'redux/actions/blog';
 import {
   ButtonMore,
   FullscreenSearch,
   FullscreenSubscribe,
 } from 'components';
 import { setOverflowForBody } from 'utils/helper';
-import { TAGS_FOR_BLOG } from 'utils/constants';
 import Categories from './Categories';
 import SearchIcon from './images/search.svg';
 import styles from './styles.module.scss';
@@ -25,9 +22,6 @@ const SelectionBlock = ({
   urlPath,
   isMobileCategoties,
   setMobileCategoriesState: setMobileCategories,
-  isBlogOpen,
-  isFirstVisitBlog,
-  setFirstVisit: setFirstVisitOfBlog, // TODO
   handleOnSubmit,
 }) => {
   const [isFullscreenSearch, setFullscreenSearch] = useState(false);
@@ -45,19 +39,9 @@ const SelectionBlock = ({
     setOverflowForBody(isMobileCategoties);
   }, [isMobileCategoties]);
 
-  useEffect(() => {
-    if (!isFirstVisitBlog && isBlogOpen) {
-      subscribeRef.current && subscribeRef.current.classList.add(styles.buttonAppearsWithAnimation);
-      // TODO setFirstVisitOfBlog(true);
-    } else if (isFirstVisitBlog) {
-      subscribeRef.current && subscribeRef.current.classList.add(styles.buttonAddStyles);
-    }
-  }, [isBlogOpen]);
-
   return (
     <div className={cn(styles.selectionBlock, { [styles.showCategories]: isMobileCategoties })}>
       <Categories
-        tags={TAGS_FOR_BLOG}
         urlPath={urlPath}
         isMobileCategoties={isMobileCategoties}
         closeMobileCategoties={closeMobileCategoties}
@@ -92,20 +76,18 @@ const SelectionBlock = ({
   );
 };
 
+SelectionBlock.defaultProps = {
+  handleOnSubmit: () => {},
+};
+
 SelectionBlock.propTypes = {
   urlPath: PropTypes.string.isRequired,
   isMobileCategoties: PropTypes.bool.isRequired,
   setMobileCategoriesState: PropTypes.func.isRequired,
-  isFirstVisitBlog: PropTypes.bool.isRequired,
-  setFirstVisit: PropTypes.func.isRequired,
-  handleOnSubmit: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func,
 };
 
 export default connect(
-  (state) => ({
-    isMobileCategoties: selectIsMobileCategotiesOpened(state),
-    isBlogOpen: selectIsBlogOpen(state),
-    isFirstVisitBlog: selectIsFirstVisit(state),
-  }),
-  { setMobileCategoriesState, setFirstVisit },
+  (state) => ({ isMobileCategoties: selectIsMobileCategotiesOpened(state) }),
+  { setMobileCategoriesState },
 )(SelectionBlock);

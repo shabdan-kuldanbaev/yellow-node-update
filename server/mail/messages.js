@@ -12,9 +12,9 @@ const getFeedBackMessage = (req) => {
   let attachments;
 
   if (files) {
-    attachments = files.map((file) => ({
-      filename: `${file.originalname}`,
-      content: file.buffer,
+    attachments = files.map(({ originalname, buffer }) => ({
+      filename: `${originalname}`,
+      content: buffer,
     }));
   }
 

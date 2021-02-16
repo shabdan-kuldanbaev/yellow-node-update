@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper } from 'components';
 import { setOverflowForBody } from 'utils/helper';
+import { ROUTES } from 'utils/constants';
 import CloseIcon from './images/close.svg';
 import styles from './styles.module.scss';
 
 const Categories = ({
-  tags,
   urlPath,
   isMobileCategoties,
   closeMobileCategoties,
@@ -27,23 +27,17 @@ const Categories = ({
         />
       </div>
       <ul>
-        {tags && Object.entries(tags).map(([key, value], index) => {
-          const url = `/blog?category=${value.dynamicRouting}&page=1`;
-
-          return (
-            <li className={cn({ [styles.selectedBlock]: urlPath.includes(value.dynamicRouting) })}>
-              <LinkWrapper
-                isLocalLink
-                dynamicRouting={url}
-                path={url}
-                // TODO dynamicRouting={`/blog?category=${tag.dynamicRouting}&page=1&limit=11`}
-                // TODO path={`/blog?category=${tag.dynamicRouting}&page=1&limit=11`}
-              >
-                {value.name}
-              </LinkWrapper>
-            </li>
-          );
-        })}
+        {[...ROUTES.blog.categories].map(({ title, slug }) => (
+          <li className={cn({ [styles.selectedBlock]: urlPath.includes(slug) })} key={`categoris/${title}`}>
+            <LinkWrapper
+              isLocalLink
+              path={ROUTES.blog.getPath(slug)}
+              dynamicRouting={ROUTES.blog.dynamicPath}
+            >
+              {title}
+            </LinkWrapper>
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -54,7 +48,6 @@ Categories.defaultProps = {
 };
 
 Categories.propTypes = {
-  tags: PropTypes.instanceOf(Array).isRequired,
   urlPath: PropTypes.string.isRequired,
   isMobileCategoties: PropTypes.bool,
   closeMobileCategoties: PropTypes.func.isRequired,

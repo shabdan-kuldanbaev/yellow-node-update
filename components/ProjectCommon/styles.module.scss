@@ -98,7 +98,6 @@
     padding: 0 0 300px;
     background-color: $white;
 
-
     @include macbook-fifteen {
       padding-bottom: 250px;
     }
@@ -157,7 +156,6 @@
         width: 49%;
 
         div {
-
           &>* {
             max-width: 100%;
             max-height: 100%;

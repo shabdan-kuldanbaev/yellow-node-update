@@ -11,12 +11,10 @@ export { default as ButtonMore } from 'components/Common/ButtonMore';
 export { CheckboxContainer } from 'components/Common/CheckboxContainer';
 export { default as CookiesNotification } from 'components/Common/CookiesNotification';
 export { LinkWrapper } from 'components/Common/LinkWrapper';
-export { default as Loader } from 'components/Common/Loader';
 export { default as Logo } from 'components/Common/Logo';
 export { Upload } from 'components/Common/Upload';
 export { ModalWindow } from 'components/Common/ModalWindow';
 export { ParallaxContainer } from 'components/Common/Animated/Parallax';
-export { PageLoading } from 'components/Common/PageLoading';
 export { default as FeedbackForm } from 'components/Common/FeedbackForm';
 export { SectionTitle } from 'components/Common/SectionTitle';
 export { default as PhotoGallery } from 'components/Common/PhotoGallery';
@@ -29,6 +27,7 @@ export { ImageWithPlaceholder } from 'components/Common/ImageWithPlaceholder';
 export { default as withScroll } from 'components/Common/withScroll';
 export { MetaTags } from 'components/Common/MetaTags';
 export { InformationMessage } from 'components/Common/InformationMessage';
+export { default as LoadingScreen } from 'components/Common/LoadingScreen';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';

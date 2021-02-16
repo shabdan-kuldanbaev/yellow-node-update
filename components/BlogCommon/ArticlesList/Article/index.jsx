@@ -18,8 +18,8 @@ export const Article = ({
     <Animated {...animatioProps}>
       <LinkWrapper
         isLocalLink
-        dynamicRouting="/blog/[article]"
-        path={ROUTES.article(slug)}
+        path={ROUTES.article.path(slug)}
+        dynamicRouting={ROUTES.article.dynamicPath}
       >
         <div>
           <div>
@@ -27,7 +27,7 @@ export const Article = ({
               <div className={styles.image} style={{ backgroundImage: `url(${previewImage})` }} />
             </div>
             <div className={styles.articlePreview}>
-              <h2 className={styles.title}><a>{title}</a></h2>
+              <h2 className={styles.title}><span>{title}</span></h2>
               <div className={styles.description}>{introduction}</div>
             </div>
           </div>
@@ -35,8 +35,8 @@ export const Article = ({
             <div className={styles.categoryName}>
               <LinkWrapper
                 isLocalLink
-                dynamicRouting={`/blog?category=${categoryTag}&page=1`}
-                path={`/blog?category=${categoryTag}&page=1`}
+                path={ROUTES.blog.getPath(categoryTag)}
+                dynamicRouting={ROUTES.blog.dynamicPath}
               >
                 {categoryTag}
               </LinkWrapper>
@@ -48,12 +48,16 @@ export const Article = ({
   </article>
 ));
 
+Article.defaultProps = {
+  categoryTag: '',
+};
+
 Article.propTypes = {
   countNumber: PropTypes.number.isRequired,
   animatioProps: PropTypes.instanceOf(Object).isRequired,
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  categoryTag: PropTypes.string.isRequired,
+  categoryTag: PropTypes.string,
   introduction: PropTypes.string.isRequired,
   previewImage: PropTypes.string.isRequired,
 };
