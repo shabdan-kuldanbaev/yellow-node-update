@@ -64,7 +64,7 @@ export const ArticlesList = ({
 ArticlesList.defaultProps = {
   isSearch: false,
   isBlogPage: false,
-  handleOnFormSubmit: null,
+  handleOnFormSubmit: () => {},
 };
 
 ArticlesList.propTypes = {

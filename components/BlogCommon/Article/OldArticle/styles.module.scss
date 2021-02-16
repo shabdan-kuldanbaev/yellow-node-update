@@ -228,17 +228,17 @@
     height: auto;
     margin: 3rem auto;
     
-          & + p,
-          & + p + p {
-            color: $gray-200;
-            line-height: 22px;
-            font-size: 0.85rem;
-            margin: 0.7rem 0;
+    & + p,
+    & + p + p {
+      color: $gray-200;
+      line-height: 22px;
+      font-size: 0.85rem;
+      margin: 0.7rem 0;
     
-            @include below-tablet {
-              font-size: 1rem;
-            }
-          }
+      @include below-tablet {
+        font-size: 1rem;
+      }
+    }
   }
 
   .with-description {

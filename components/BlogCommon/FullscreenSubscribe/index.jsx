@@ -66,7 +66,7 @@ const FullscreenSubscribe = ({
 
 FullscreenSubscribe.defaultProps = {
   isFullscreenSubscribe: false,
-  handleOnSubmit: null,
+  handleOnSubmit: () => {},
 };
 
 FullscreenSubscribe.propTypes = {

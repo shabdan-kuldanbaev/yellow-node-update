@@ -77,7 +77,7 @@ const SelectionBlock = ({
 };
 
 SelectionBlock.defaultProps = {
-  handleOnSubmit: null,
+  handleOnSubmit: () => {},
 };
 
 SelectionBlock.propTypes = {

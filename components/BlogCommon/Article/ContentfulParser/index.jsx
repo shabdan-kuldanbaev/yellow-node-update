@@ -124,5 +124,5 @@ ContentfulParser.defaultProps = {
 };
 
 ContentfulParser.propTypes = {
-  document: PropTypes.instanceOf(Object).isRequired,
+  document: PropTypes.instanceOf(Object),
 };
