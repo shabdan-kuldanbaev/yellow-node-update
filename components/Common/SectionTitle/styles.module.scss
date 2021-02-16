@@ -1,0 +1,20 @@
+@import 'styles/utils/mixins';
+
+.titleContainer {
+  @include flex(column, flex-start, center);
+
+  h1 {
+    @include h1-title;
+  }
+
+  span {
+    line-height: 1.55;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: $scarpa-flow;
+  }
+
+  div:last-child {
+    margin: 0;
+  }
+}

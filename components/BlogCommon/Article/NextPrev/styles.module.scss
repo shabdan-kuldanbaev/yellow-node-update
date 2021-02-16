@@ -1,0 +1,187 @@
+@import 'styles/utils/mixins';
+
+.newer {
+  @include flex (row);
+  margin-right: $max-article-margin;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include desktop {
+    margin-right: $min-article-margin;
+  }
+
+  @include below-tablet {
+    margin-right: 0;
+  }
+
+  .imgContainer {
+    img {
+      border-radius: 4px 0 0 4px;
+    }
+  }
+
+  .content {
+    @include flex (column);
+  }
+}
+
+.older {
+  @include flex (row-reverse);
+  margin-left: $max-article-margin;
+
+  &:last-child {
+    margin-left: 0;
+  }
+
+  @include desktop {
+    margin-left: $min-article-margin;
+  }
+
+  @include below-tablet {
+    margin-left: 0;
+    margin-top: $min-article-margin;
+  }
+
+  .imgContainer {
+    img {
+      border-radius: 0 4px 4px 0;
+    }
+  }
+
+  .content {
+    @include flex(column, initial, flex-end);
+
+    .title {
+      text-align: end;
+    }
+  }
+}
+
+.newer,
+.older {
+  min-height: 230px;
+  flex: 1 0 calc(50% - (#{$max-article-margin} / 2));
+  background-color: $white;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    z-index: -5;
+    top: 10px;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    content: '';
+    box-shadow: 0 5px 95px 0 $nearby-articles-block-box-shadow-color;
+  }
+
+  @include tablet {
+    min-height: 180px;
+    flex-basis: calc(50% - #{$min-article-margin});
+  }
+
+  @include below-tablet {
+    flex-basis: calc(100% - #{$min-article-margin});
+  }
+
+  @include phone {
+    min-height: 140px;
+  }
+
+  &>a {
+    flex-basis: 230px;
+
+    @include desktop {
+      flex-basis: 150px;
+    }
+
+    @include tablet {
+      flex-basis: 130px;
+    }
+
+    @include below-tablet {
+      flex-basis: 180px;
+    }
+
+    @include phone {
+      flex-basis: 95px;
+    }
+
+    .imgContainer {
+      width: 100%;
+      height: 100%;
+  
+      .img {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .content {
+    padding: 60px 35px 50px;
+    flex-basis: 50%;
+
+    @include desktop {
+      padding: 45px 25px 40px;
+    }
+
+    @include tablet {
+      padding: 35px 20px 30px;
+    }
+
+    @include phone {
+      padding: 20px 15px 15px;
+    }
+
+    &>small {
+      @include fontSize(11px);
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .title {
+      @include fontSize(26px);
+      font-weight: 600;
+      line-height: 1.5;
+      margin: 12px 0 0;
+
+      @include desktop {
+        @include fontSize(22px);
+      }
+
+      @include tablet {
+        @include fontSize(18px);
+      }
+
+      @include below-tablet {
+        @include fontSize(22px);
+      }
+
+      @include phone {
+        @include fontSize(16px);
+      }
+
+      &>a {
+        color: $mine-shaft;
+        background-image: linear-gradient($turbo-100, $turbo-100);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 8px;
+        transition: background-size .6s ease-out;
+      }
+
+      &:hover {
+        &>a {
+          transition: background-size .6s ease-out;
+          background-size: 100% 8px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@import 'styles/utils/mixins';
+
+.animatedInput {
+  @include flex(column);
+  margin-bottom: 35px;
+  position: relative;
+
+  label {
+    position: absolute;
+    touch-action: none;
+    user-select: none;
+    cursor: text;
+    will-change: transform;
+    transform: translateY(15px);
+    transition: transform $accelerated-transition-time, font-size $accelerated-transition-time;
+
+    @include phone {
+      transform: translateY(10px);
+    }
+  }
+  
+  input {
+    cursor: text;
+    width: auto;
+    border: 0 none;
+    border-bottom: solid 0.5px $gray-suit;
+    background-color: transparent;
+    color: $black;
+    outline: none;
+    transition: border 1s cubic-bezier(.26,1.04,.54,1),
+                color .5s cubic-bezier(.26,1.04,.54,1);
+    
+    &::placeholder {
+      font-family: $default-font;
+    }
+  }
+
+  .required {
+    width: min-content !important;
+    font-weight: 300;
+    position: absolute;
+    pointer-events: none;
+    right: 0;
+    color: $boulder;
+    margin-top: -.4em;
+    font-size: 1.4375rem;
+    line-height: 1.94;
+    letter-spacing: 0.4px;
+
+    @include phone {
+      top: 45%;
+    }
+  }
+
+  .invalid {
+    margin-right: 20px;
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(.26,1.04,.54,1);
+    font-weight: 300;
+    position: absolute;
+    color: $red;
+    pointer-events: none;
+    right: 0;
+    margin-top: -.1em;
+
+    @include phone {
+      top: 45%;
+    }
+  }
+}
+
+.active {
+  label {
+    font-weight: bold;
+    font-size: 0.875rem !important;
+    will-change: transform;
+    transform: translateY(-5px);
+    transition: transform $accelerated-transition-time,
+                font-size $accelerated-transition-time;
+    
+    @include phone {
+      transform: translateY(-15px);
+    }
+  }
+
+  input {
+    border-color: $black;
+    transition: border 1s cubic-bezier(.26,1.04,.54,1),
+                color .5s cubic-bezier(.26,1.04,.54,1);
+  }
+}
+
+.focus {
+  input {
+    border-color: $black !important;
+  }
+}
+
+.error {
+  input {
+    color: $red;
+    border-bottom-color: $red !important;
+  }
+
+  .required {
+    color: $red;
+  }
+}
+
+.default {
+  input {
+    border-bottom-color: $iron !important;
+  }
+}
+
+.isRequired {
+  input {
+    padding-right: 15px;
+  }
+}
+
+.isValidate {
+  input {
+    padding-right: 100px;
+  }
+}

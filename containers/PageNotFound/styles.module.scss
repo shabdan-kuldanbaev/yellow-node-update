@@ -1,0 +1,34 @@
+@import 'styles/utils/mixins';
+
+.pageNotFound {
+  @include flex(column, center, center);
+  max-width: 100vw;
+  max-height: 100vh;
+  height: 80vh;
+  line-height: 1.53;
+  letter-spacing: 0.5px;
+  z-index: 99999999999;
+  background-color: $white !important;
+  color: $black;
+  font-size: 1.2rem;
+
+  @include quad-hd {
+    height: 70vh;
+  }
+
+  @include full-hd {
+    height: 65vh;
+  }
+
+  @include macbook-fifteen {
+    height: 45vh;
+  }
+
+  @include tablet {
+    height: 65vh;
+  }
+
+  @include phone {
+    height: 45vh;
+  }
+}

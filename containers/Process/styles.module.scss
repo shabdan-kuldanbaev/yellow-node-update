@@ -1,0 +1,23 @@
+@import 'styles/utils/mixins';
+
+.process {
+  @include flex(column, flex-start, center);
+  padding: 0px $side-indent;
+  background-color: $white;
+
+  @include macbook-fifteen {
+    padding: 0 80px;
+  }
+
+  @include tablet {
+    padding: 0 $side-indent;
+  }
+
+  @include phone {
+    padding: 0px $side-indent 0px;
+
+    & > div {
+      margin-bottom: 50px;
+    }
+  }
+}

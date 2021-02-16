@@ -1,15 +1,168 @@
 @import './variables';
+@import './functions';
+
+@mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $fw;
+}
+
+@mixin hidden-text($textOverflow: ellipsis, $lineClamp: 1) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: $textOverflow;
+  -webkit-line-clamp: $lineClamp;
+  -webkit-box-orient: vertical;
+}
+
+@mixin fontSize($size) {
+  font-size: calcRem($size);
+}
+
+@mixin ultra-hd {
+  @media (max-width: $ultra-hd) {
+    @content;
+  }
+}
+
+@mixin quad-hd {
+  @media (max-width: $quad-hd) {
+    @content;
+  }
+}
+
+@mixin full-hd {
+  @media (max-width: $full-hd) {
+    @content;
+  }
+}
+
+@mixin macbook-fifteen {
+  @media (max-width: $macbook-fifteen) {
+    @content;
+  }
+}
+
+@mixin macbook-thirteen {
+  @media (max-width: $macbook-thirteen) {
+    @content;
+  }
+}
+
+@mixin macbook-twelve {
+  @media (max-width: $macbook-twelve) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: $desktop) {
+    @content;
+  }
+}
 
 @mixin tablet {
-  @media (max-width: $max-tablet-size) { @content; }
+  @media (max-width: $max-tablet-size) {
+    @content;
+  }
+}
+
+@mixin svga {
+  @media (max-width: 815px) {
+    @content;
+  }
 }
 
 @mixin below-tablet {
-  @media (max-width: $default-tablet-size) { @content; }
+  @media (max-width: $default-tablet-size) {
+    @content;
+  }
+}
+
+@mixin higher-phone {
+  @media (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin below-tablet-horizontal {
+  @media (max-width: $max-tablet-size) and (max-height: 800px) {
+    @content;
+  }
 }
 
 @mixin phone {
-  @media (max-width: $max-mobile-size) { @content; }
+  @media (max-width: $max-mobile-size) {
+    @content;
+  }
+}
+
+@mixin horizontal-mobile {
+  @media (max-height: $horizontal-mobile) {
+    @content;
+  }
+}
+
+@mixin horizontal-big-mobile {
+  @media (max-width: 830px) and (min-height: $horizontal-mobile) {
+    @content;
+  }
+}
+
+@mixin small-phone {
+  @media (max-width: $max-mobile-size) and (max-height: 330px) {
+    @content;
+  }
+}
+
+@mixin horizontal-iphone-x {
+  @media (max-width: 812px) and (min-height: 380px) {
+    @content;
+  }
+}
+
+@mixin phone-height-500 {
+  @media (max-width: $max-mobile-size) and (min-height: 500px) {
+    @content;
+  }
+}
+
+@mixin phone-height-600 {
+  @media (max-width: $max-mobile-size) and (min-height: 600px) {
+    @content;
+  }
+}
+
+@mixin phone-height-650 {
+  @media (max-width: $max-mobile-size) and (min-height: 650px) {
+    @content;
+  }
+}
+
+@mixin phone-height-730 {
+  @media (max-width: $max-mobile-size) and (min-height: 730px) {
+    @content;
+  }
+}
+
+@mixin phone-height-800 {
+  @media (max-width: $max-mobile-size) and (min-height: 800px) {
+    @content;
+  }
+}
+
+@mixin phone-height-900 {
+  @media (max-width: $max-mobile-size) and (min-height: 900px) {
+    @content;
+  }
+}
+
+@mixin iOSDevice {
+  @supports (-webkit-touch-callout: none) {
+    @content;
+  }
 }
 
 @mixin h1-title {
@@ -18,65 +171,109 @@
   font-weight: bold;
   font-size: 2.7rem;
   letter-spacing: 1.37px;
-  text-transform: uppercase;
   text-align: center;
 
   @include phone {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    color: $woodsmoke;
   }
 }
 
-@mixin buttonMore {
+@mixin big-title {
+  margin-bottom: 60px;
+  font-weight: 800;
+  font-size: 4.125rem;
+  letter-spacing: 2.25px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  text-align: left;
+
+  @include tablet {
+    margin-top: 0;
+  }
+
+  @include horizontal-mobile {
+    font-size: 3.125rem;
+  }
+
+  @include below-tablet {
+    font-size: 3rem;
+  }
+
+  @include phone {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+  }
+}
+
+@mixin button-more($textColor: $white,
+  $textHoverColor: $white,
+  $backgroundColor: transparent,
+  $backHoverColor: $white,
+  $borderColor: $black,
+  $borderHoverColor: $black,
+) {
   position: relative;
   z-index: 2;
   width: 240px;
   margin-top: $more-button-indent;
-  padding: 16.5px 0 13.5px 0;
+  padding: 22px 0;
   line-height: 1.55;
   letter-spacing: 0.5px;
-  border-radius: 2.5px;
-  border: solid 1px $black;
+  border-radius: 10rem;
   text-align: center;
-  transition: border $accelerated-transition-time, background-color $accelerated-transition-time;
   cursor: pointer;
-
-  &:before {
-    position: absolute;
-    display: block;
-    content: "";
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-color: $accent-color;
-    transform: scaleY(0);
-    transform-origin: center top;
-    transition: transform $accelerated-transition-time ease-in;
-    z-index: -1;
-  }
+  overflow: hidden;
+  color: $textColor;
+  background-color: $backgroundColor;
+  border: solid 1px $borderColor;
+  will-change: transition;
+  transition: background-color $shadow-time-for-yellow-button,
+    border-color $shadow-time-for-yellow-button * 2,
+    color $shadow-time-for-yellow-button,
+    transform $shadow-time-for-yellow-button cubic-bezier(0, 0, .2, 1);
 
   &:hover {
-    will-change: border;
-    border: solid 1px $accent-color;
-    // background-color: $accent-color;
-    transition: border $accelerated-transition-time, background-color $default-transition-time;
-  }
-
-  &:hover:before {
-    transform: scaleY(1);
-    transform-origin: center bottom;
+    will-change: transition;
+    background-color: $backHoverColor;
+    border: solid 1px $borderHoverColor;
+    color: $textHoverColor;
+    transition: background-color $shadow-time-for-yellow-button,
+      border-color $shadow-time-for-border-yellow-button,
+      color $shadow-time-for-yellow-button,
+      transform $shadow-time-for-yellow-button cubic-bezier(0, 0, .2, 1);
   }
 }
 
-@mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
-  display: flex;
-  flex-direction: $fd;
-  justify-content: $jc;
-  align-items: $ai;
-  flex-wrap: $fw;
-} 
+@mixin seLocationSubscribe($subscribesPosition, $articleCount) {
+  &>section:first-child {
+    order: $subscribesPosition;
+  }
+
+  @for $i from 1 to $articleCount {
+    &>article:nth-of-type(#{$i}) {
+      @if $i < $subscribesPosition {
+        order: calc(#{$i} - 1);
+      }
+
+      @if $i==$subscribesPosition {
+        order: calc(#{$subscribesPosition} - 1);
+      }
+
+      @if $i>$subscribesPosition {
+        order: $i;
+      }
+    }
+  }
+}
 
 @font-face {
-	font-family: "Sonny Gothic Condensed Ultra Black";
-	src: url("styles/fonts/Sonny-Gothic-Condensed-Ultra-Black.otf") format("opentype");
+  font-family: 'Sonny Gothic Condensed Ultra Black';
+  src: url('styles/fonts/Sonny-Gothic-Condensed-Ultra-Black.otf') format('opentype');
+  font-display: swap;
 }

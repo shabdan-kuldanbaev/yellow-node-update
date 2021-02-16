@@ -1,0 +1,169 @@
+@import 'styles/utils/mixins';
+@import '../styles.module.scss';
+
+.h1 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  @include fontSize(44px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -2px;
+  color: $timber-green;
+
+  @include macbook-fifteen {
+    @include fontSize(42px);
+  }
+
+  @include macbook-twelve {
+    @include fontSize(35px);
+  }
+
+  @include tablet {
+    @include fontSize(38px);
+  }
+
+  @include below-tablet {
+    @include fontSize(34px);
+  }
+
+  @include phone {
+    @include fontSize(25px);
+    line-height: 1.4;
+  }
+}
+
+.article {
+  margin: 0 auto;
+  max-width: 1500px;
+  background-color: $white;
+  padding: 0 55px;
+
+  @include tablet {
+    padding: 0 25px;
+  }
+
+  @include phone {
+    padding: 0 15px;
+  }
+
+  .header {
+    width: 100%;
+    @include flex(row, center, center);
+    padding: 140px 0 0;
+    margin-bottom: 8vh;
+    color: $black;
+
+    @include desktop {
+      min-height: 50vh;
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+      margin-bottom: 0;
+    }
+
+    @include phone {
+      padding: 100px 0 0;
+    }
+
+    & > div:nth-of-type(1) {
+      width: 100%;
+      height: 100%;
+      flex: 1 0 40%;
+
+      border-radius: 4px;
+      width: 100%;
+      height: 100%;
+      min-height: 65vh;
+      max-width: 600px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include macbook-fifteen {
+        min-height: 600px;
+      }
+
+      @include macbook-twelve {
+        min-height: 500px;
+        max-width: 480px;
+      }
+
+      @include tablet {
+        height: 48vh;
+        min-height: 480px;
+        max-width: 100%;
+      }
+
+      @include phone {
+        height: 250px;
+        min-height: 250px;
+        max-width: 100%;
+      }
+    }
+
+    .container {
+      max-width: 100%;
+      padding: 0 60px;
+      align-items: center;
+
+      @include tablet {
+        padding: 0;
+        margin: 4vh auto 8vh;
+        max-width: 720px;
+      }
+
+      @include below-tablet {
+        margin: 4vh auto 5vh;
+      }
+
+      @include phone {
+        padding: 0 10px;
+      }
+
+      & > p {
+        @include fontSize(21px);
+        color: $mirage;
+        line-height: 1.5;
+        padding: 0;
+        margin: 4vh 0 0;
+        font-weight: 500;
+
+        @include macbook-fifteen {
+          @include fontSize(20px);
+        }
+
+        @include macbook-twelve {
+          @include fontSize(17px);
+        }
+
+        @include tablet {
+          @include fontSize(19px);
+        }
+
+        @include below-tablet {
+          @include fontSize(18px);
+        }
+
+        @include phone {
+          @include fontSize(15px);
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+
+  .body {
+    max-width: 720px;
+    margin: 0 auto;
+
+    @include phone {
+      padding: 0 10px;
+    }
+
+    & > p {
+      @extend .paragraph;
+    }
+  }
+}

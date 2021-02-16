@@ -1,0 +1,11 @@
+@import 'styles/utils/mixins';
+
+.reviews {
+  @include flex(column, flex-start, center);
+  padding: $section-indent $side-indent 150px $side-indent;
+  background-color: $gray-nurse;
+
+  @include phone {
+    padding: $mobile-section-indent 0px 130px;
+  }
+}

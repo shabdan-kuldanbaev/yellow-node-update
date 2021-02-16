@@ -1,19 +1,56 @@
-import React from 'react';
+import React, { Fragment, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { selectPortfolioProjectsPreview, selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
+import { fetchLayoutData } from 'redux/actions/layout';
 import {
-  Works,
-  SectionTitle,
-  ButtonMore,
+  Portfolio,
+  MetaTags,
+  LoadingScreen,
 } from 'components';
-
+import { getDocumentFields } from 'utils/helper';
+import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const Portfolio = () => (
-  <section className={styles.portfolio}>
-    <SectionTitle title="Portfolio" subtitle="We brainstorm, contribute, and grow your product together. Every step of the way." />
-    <Works />
-    <SectionTitle title="check out more works by Yellow" subtitle="We brainstorm, contribute, and grow your product together. Every step of the way." />
-    <ButtonMore href="/portfolio" title="Explore our portfolio" />
-  </section>
-);
+const PortfolioContainer = ({
+  introSection,
+  portfolioProjects,
+  fetchLayoutData: fetchPage,
+  isLoadingScreenCompleted,
+}) => {
+  const { content } = getDocumentFields(portfolioProjects, ['content']);
 
-export default Portfolio;
+  useEffect(() => {
+    fetchPage({ slug: PAGES.portfolio });
+  }, []);
+
+  return (
+    <Fragment>
+      <MetaTags page={PAGES.portfolio} />
+      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
+        <section ref={introSection} className={styles.portfolio}>
+          {content && <Portfolio works={content} />}
+        </section>
+      )}
+    </Fragment>
+  );
+};
+
+PortfolioContainer.defaultProps = {
+  portfolioProjects: {},
+};
+
+PortfolioContainer.propTypes = {
+  introSection: PropTypes.instanceOf(Object).isRequired,
+  portfolioProjects: PropTypes.instanceOf(Object),
+  fetchLayoutData: PropTypes.func.isRequired,
+  isLoadingScreenCompleted: PropTypes.bool.isRequired,
+};
+
+export default connect(
+  (state) => ({
+    portfolioProjects: selectPortfolioProjectsPreview(state),
+    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+  }),
+  { fetchLayoutData },
+)(PortfolioContainer);

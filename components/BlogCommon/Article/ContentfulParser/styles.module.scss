@@ -1,0 +1,111 @@
+@import 'styles/utils/mixins';
+@import 'components/BlogCommon/styles.module.scss';
+
+.h2 {
+  @extend .h2;
+}
+
+.h3 {
+  @extend .h3;
+}
+
+.paragraph {
+  @extend .paragraph;
+}
+
+.a {
+  @extend .a;
+}
+
+.ul {
+  @extend .ul;
+}
+
+.ol {
+  @extend .ol;
+}
+
+.quote {
+  @extend .quote;
+}
+
+.imageWrapper {
+  @include flex(column, center, center);
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 70px;
+
+  @include below-tablet {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  .fullImage {
+    position: relative;
+    width: calc(100vw - 130px);
+    margin: 0 calc(-50vw + 65px);
+
+    @include tablet {
+      width: calc(100vw - 50px);
+      margin: 0 calc(-50vw + 25px);
+    }
+
+    @include phone {
+      width: 100vw;
+      margin: 0 -50vw;
+      border-radius: 0 !important;
+    }
+
+    & > div > img {
+      width: 100%;
+    }
+  }
+
+  .normalImage {
+    & > div > img {
+      width: 100%;
+    }
+  }
+
+  .normalImage,
+  .fullImage {
+    @include flex(column, center);
+    
+    & > div:first-child {
+      width: 100%;
+      height: 100%;
+      margin: 0 0 0 15px;
+
+      @include phone {
+        margin-left: 5px;
+      }
+
+      &:first-child {
+        margin: 0;
+
+        @include phone {
+          margin-left: 0;
+        }
+      }
+  
+      img {
+        border-radius: 4px;
+      }
+    }
+
+    .photoCaption {
+      margin-top: 15px;
+      @include fontSize(11px);
+      line-height: 1.2;
+      width: 100%;
+      padding: 0 15px;
+      text-align: center;
+      letter-spacing: .5px;
+      opacity: .8;
+
+      @include below-tablet {
+        width: calc(100% - 30px);
+      }
+    }
+  }
+}

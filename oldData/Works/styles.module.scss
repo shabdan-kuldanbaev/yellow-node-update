@@ -1,0 +1,486 @@
+@import 'styles/utils/mixins';
+
+.worksContainer {
+  width: calc(100% + 2 * #{$side-indent});
+  margin: 0 0 120px;
+  
+  @include phone {
+    margin: 0 0 $mobile-section-indent;
+  }
+ 
+  .work {
+    position: relative;
+    z-index: 5;
+    @include flex(row, space-evenly, center);
+    width: calc(100% - (80 * 2));
+    margin: 0 80px;
+    will-change: background-color;
+    transition: background-color $default-transition-time ease;
+    transition-timing-function: linear;
+    min-height: 100vh;
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+
+    @include tablet {
+      margin: auto;
+      min-height: auto;
+      padding: 100px 0px;
+    }
+
+    @include below-tablet-horizontal {
+      @include flex(row, center, center);
+    }
+
+    @include below-tablet {
+      height: auto;
+      @include flex(column, space-evenly, center);
+
+      &:nth-child(1n) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    @include horizontal-big-mobile {
+      @include flex(row, center, center);
+
+      &:nth-child(1n) {
+        flex-direction: row;
+      }
+
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
+    }
+    
+    @include horizontal-iphone-x {
+      @include flex(row, center, center);
+
+      &:nth-child(1n) {
+        flex-direction: row;
+      }
+
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    @include phone {
+      @include flex(column-reverse, center, center);
+      height: auto;
+      margin-right: 20px;
+      margin-left: 20px;
+
+      &:nth-child(1n) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    @include horizontal-mobile {
+      @include flex(row, center, center);
+      padding: 50px 0px;
+
+      &:nth-child(1n) {
+        flex-direction: row;
+      }
+
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .desc {
+      z-index: 3;
+      
+      @include ultra-hd {
+        width: 50%;
+        @include flex(row, center, center);
+      }
+
+      @include full-hd {
+        width: 50%;
+        @include flex(row, center, center);
+      }
+
+      @include below-tablet {
+        width: 100%;
+      }
+
+      @include below-tablet-horizontal {
+        width: 50%;
+        justify-content: center;
+      }
+
+      @include phone {
+        width: 100%;
+      }
+
+      @include horizontal-mobile {
+        max-height: initial;
+        width: 50%;
+      }
+      
+      div {
+        max-width: 650px;
+        width: 80%;
+        height: 100%;
+        opacity: 1;
+        will-change: transform;
+        transition: transform $default-transition-time, opacity $default-transition-time;
+
+        @include tablet {
+          max-width: $max-content-width-macbook-twelve;
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
+        @include below-tablet {
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
+        @include below-tablet-horizontal {
+          padding-left: 0px;
+          margin-left: $side-indent * 2;
+          margin-right: $side-indent * 2;
+          max-width: calc(100% - (#{$side-indent} * 4));
+        }
+
+        @include phone {
+          @include flex(column, center, flex-start);
+          width: 100%;
+          max-width: 100%;
+          margin: 0;
+          padding-left: 0px;
+          text-align: left;
+        }
+
+        h1 {
+          margin-top: 0;
+          margin-bottom: 60px;
+          font-weight: 800;
+          font-size: 4.125rem;
+          letter-spacing: 2.25px;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.01;
+          color: $white;
+
+          @include below-tablet {
+            font-size: 3rem;
+            margin-top: 40px;
+          }
+
+          @include below-tablet-horizontal {
+            font-size: 2.5rem;
+          }
+    
+          @include phone {
+            max-width: calc(100% - 40px);
+            font-size: 2.5rem;
+            margin: 40px auto 25px 0px;
+          }
+
+          @include small-phone {
+            max-width: 50%;
+            font-size: 1.5rem;
+            margin: 20px auto 25px 0px;
+          }
+        }
+    
+        p {
+          margin: 0;
+          margin-top: -20px;
+          margin-bottom: 35px;
+          font-size: 1.25rem;
+          line-height: 1.53;
+          letter-spacing: 0.5px;
+          color: $white;
+          word-wrap: normal;
+
+          @include below-tablet-horizontal {
+            font-size: 1rem;
+          }
+          
+          @include horizontal-mobile {
+            margin-bottom: 35px;
+          }
+
+          @include phone {
+            max-width: calc(100% - 40px);
+            font-size: 1rem;
+            max-width: 100%;
+            margin: auto 20px 25px 0px;
+          }
+
+          @include small-phone {
+            font-size: 0.8rem;
+          }
+        }
+
+        .buttonWrap {
+          padding: 5px 0 10px;
+          cursor: pointer;
+          width: max-content;
+
+          @include phone {
+            max-width: calc(100% - 40px);
+            margin: 0px auto 0 0px;
+          }
+
+          button {
+            border: none;
+            outline: 0px;
+            background-color: transparent;
+            color: $white;
+            line-height: 1.55;
+            letter-spacing: 0.5px;
+            font-size: 1.125rem;
+            position: relative;
+            display: inline-block;
+            padding: 0;
+
+            @include small-phone {
+              font-size: 0.8rem;
+            }
+  
+            &:after {
+              content: '';
+              cursor: pointer;
+              position: absolute;
+              bottom: -5px;
+              right: 0;
+              width: 100%;
+              border-bottom: 1.5px $white solid;
+              background-color: $white;
+              will-change: transition;
+              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            }
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            button {
+              cursor: pointer;
+
+              &:after {
+                width: 0;
+                will-change: transition;
+                transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+                transform: translateZ(0);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .parallax {
+      width: 50%;
+      height: 100%;
+      max-height: 100%;
+      margin: 0;
+      // background-color: darkslategrey;
+
+      @include below-tablet-horizontal {
+        width: 50%;
+      }
+
+      @include phone {
+        width: 100%;
+      }
+
+      @include horizontal-mobile {
+        width: 50%;
+      }
+
+      @include phone {
+        max-width: 95vw;
+        max-height: 100vh;
+        width: 95vw;
+        height: max-content;
+      }
+
+      @include small-phone {
+        width: 40%;
+        @include flex(row, center, center);
+      }
+
+      div {
+        // max-width: max-content;
+        // max-height: max-content;
+        vertical-align: middle;
+        @include flex(row, center, center);
+        
+        // background-color: rgb(205, 169, 102);
+
+        // @include quad-hd {
+          
+        //   max-height: calc(100vh - 150px);
+        //   min-height: calc(100vh - 200px);
+        // }
+        
+        height: 48.4375vw;
+
+        @include small-phone {
+          width: 50%;
+        }
+
+        @include phone {
+          max-width: 95vw;
+          max-height: 100vh;
+          width: 95vw;
+          // height: auto;
+          height: 180vw;
+        }
+
+        @include small-phone {
+          width: 40%;
+        }
+
+        .imgWrapper {
+          width: 100%;
+          height: 100%;
+          // max-width: 100%;
+          // max-width: 100%;
+          position: relative;
+          // background-color: mediumblue;
+
+          height: 48.4375vw;
+
+          @include small-phone {
+            width: 50%;
+          }
+
+          @include phone {
+            max-width: 95vw;
+            max-height: 100vh;
+            width: 95vw;
+            // height: auto;
+            height: 100%;
+          }
+
+          img {
+            // width: 150px;
+            // height: 300px;
+
+            max-width: 100%;
+            max-width: 100%;
+            height: 48.4375vw;
+
+            // @include ultra-hd {
+            //   max-height: 72vh;
+            //   min-height: 70vh;
+            // }
+
+              // @include quad-hd {
+              //   vertical-align: middle;
+              //   max-height: calc(100vh - 150px);
+              //   min-height: calc(100vh - 200px);
+              // }
+
+            // @include tablet {
+            //   max-height: 780px;
+            //   min-height: 670px;
+            // }
+
+            // @include below-tablet {
+            //   max-height: 480px;
+            //   min-height: 470px;
+            // }
+
+            // @include below-tablet-horizontal {
+            //   max-height: calc(100vh - 150px);
+            //   min-height: calc(100vh - 200px);
+            // }
+
+            
+
+            @include phone {
+              max-width: 95vw;
+              max-height: 100vh;
+              // width: 95vw;
+              height: 90%;
+            }
+
+            // @include horizontal-mobile {
+            //   max-height: calc(100vh - 150px);
+            //   min-height: calc(100vh - 200px);
+            // }
+          }
+        }
+
+        .forBefore {
+          content: "";
+          position: absolute;
+          display: block;
+          height: 210%;
+          width: 300%;
+          background: url('./images/shadow.png') no-repeat 0 0;
+          background-size: 100%;
+          z-index: -2;
+        }
+
+        .firstShadow {
+          @extend .imgWrapper;
+
+          &:before {
+            @extend .forBefore;
+
+            bottom: -108%;
+            transform: rotate(-28deg) scale(-1, 1);
+            left: -62%;
+
+
+            @include phone {
+              bottom: -113%;
+            }
+          }
+        }
+
+        .secondShadow {
+          @extend .imgWrapper;
+
+          &:before {
+            @extend .forBefore;
+            
+            bottom: -115%;
+            transform: rotate(33deg);
+            right: -40%;
+
+            @include phone {
+              bottom: -120%;
+            }
+          }
+        }
+
+        .thirdShadow {
+          @extend .imgWrapper;
+
+          &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            z-index: -1;
+            top: 0;
+            right: 4%;
+            height: 98%;
+            width: 92%;
+            border-radius: 120px;
+            // box-shadow:
+            //   0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            //   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            //   0 12.5px 10px rgba(0, 0, 0, 0.06),
+            //   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            //   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            //   0 100px 80px rgba(0, 0, 0, 0.12);
+          }
+        }
+      }
+    }
+  }
+}

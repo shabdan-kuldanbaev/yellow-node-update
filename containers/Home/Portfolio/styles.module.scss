@@ -1,0 +1,86 @@
+@import 'styles/utils/mixins';
+
+.gradient {
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(to bottom,
+      $turbo-100 20%,
+      $java 30%,
+      $thunder 90%);
+
+  @include phone {
+    background: linear-gradient(to bottom,
+        $turbo-100 20%,
+        $java 40%,
+        $thunder 93%);
+  }
+}
+
+.portfolio {
+  @include flex(column, flex-start, center);
+  padding: 0 $side-indent 200px $side-indent;
+  overflow: hidden;
+
+  @include phone {
+    padding: 0 $side-indent $mobile-section-indent;
+  }
+
+  .bottomOfPortfolio {
+    @include flex(column, flex-start, center);
+
+    .title {
+      color: $white;
+
+      @include below-tablet {
+        font-size: 3rem;
+      }
+
+      @include phone {
+        font-size: 1.5rem;
+      }
+    }
+
+    .subtitle {
+      @include flex(column, center, center);
+      color: $white;
+      max-width: 550px;
+
+      @include phone {
+        font-size: 0.875rem;
+      }
+    }
+
+    .portfolioButton {
+      @include button-more($white, $black, transparent, $turbo-100, $boulder, $turbo-100);
+      border-radius: $button-border-radius;
+      min-width: 330px;
+      font-weight: 600;
+
+      @include phone {
+        min-width: 300px;
+        margin-top: $mobile-more-button-indent;
+      }
+    }
+  }
+}
+
+.zeroBlock {
+  background-color: $turbo-100;
+  transition: background-color $changing-portfolio-color ease;
+}
+
+.firstBlock {
+  background-color: $saffron-1;
+  transition: background-color $changing-portfolio-color ease;
+}
+
+.secondBlock {
+  background-color: $violet;
+  transition: background-color $changing-portfolio-color ease;
+}
+
+.thirdBlock {
+  background-color: $cod-gray-1;
+  transition: background-color $changing-portfolio-color ease;
+}

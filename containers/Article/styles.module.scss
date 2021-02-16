@@ -1,0 +1,24 @@
+@import 'styles/utils/mixins';
+
+.nextPrevSection {
+  @include flex(row, space-between);
+  margin: #{$max-article-margin} auto;
+  padding: 0 55px;
+  max-width: 1500px;
+
+  @include desktop {
+    margin-top: #{$min-article-margin};
+  }
+
+  @include tablet {
+    padding: 0 25px;
+  }
+
+  @include below-tablet {
+    @include flex(row, space-between, center, wrap);
+  }
+
+  @include phone {
+    padding: 0 15px;
+  }
+}

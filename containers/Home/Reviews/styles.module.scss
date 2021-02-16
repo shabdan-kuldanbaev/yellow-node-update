@@ -1,0 +1,19 @@
+@import 'styles/utils/mixins';
+
+.reviews {
+  @include flex(column, flex-start, center);
+  padding: $section-indent $side-indent 150px;
+  background-color: $white;
+
+  @include macbook-fifteen {
+    padding: $section-indent 55px 150px;
+  }
+
+  @include tablet {
+    padding: $section-indent 25px 150px;
+  }
+
+  @include phone {
+    padding: $mobile-section-indent 0px 0px;
+  }
+}

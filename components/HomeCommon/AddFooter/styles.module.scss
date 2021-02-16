@@ -1,0 +1,62 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/theme/animations';
+
+.addFooterContainer {
+  position: fixed;
+  left: 0;
+  top: calc(100vh - 100px);
+  z-index: 99999;
+  @include flex(row, space-between, center);
+  width: calc(100% - 70px);
+  padding: 45px 35px;
+
+  .scrollTitle {
+    display: none;
+  }
+
+  @include phone {
+    top: 81vh;
+    width: 100%;
+    padding: 0px;
+    @include flex(row, center, center);
+
+    & > div, svg {
+      display: none;
+    }
+
+    .scrollTitle {
+      display: block;
+      font-size: 0.8125rem;
+      color: $white;
+      text-transform: uppercase;
+      opacity: .5;
+      animation: blinking 1.7s infinite ease;
+      animation-delay: 2s;
+      cursor: pointer;
+    }
+  }
+}
+
+.animate {
+  will-change: transform;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.down {
+  will-change: transform;
+  transform: translate3d(0, 40px, 0);
+  opacity: 0;
+  transition: transform $default-transition-time, opacity $default-transition-time;
+}
+
+.up {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  transition: transform $default-transition-time, opacity $default-transition-time;
+}
+
+.notOnTop {
+  opacity: 0;
+}

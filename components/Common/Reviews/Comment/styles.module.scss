@@ -1,0 +1,194 @@
+@import 'styles/utils/mixins';
+
+.commentWrapper {
+  @include flex(column);
+  width: calc(25% - (2 * 12px));
+  margin: 12px;
+  transition: transform .2s ease-in-out;
+  transform: translateY(0);
+  border-radius: 4px;
+  background-color: $white;
+
+  @include macbook-fifteen {
+    width: calc(25% - 2 * #{$aricleIndent});
+    margin: $aricleIndent;
+  }
+
+  @include tablet {
+    width: calc(50% - 2 * #{$aricleIndent});
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    transition: transform .2s ease-in-out;
+
+    @include phone {
+      transform: translateY(0);
+    }
+  }
+
+  &:nth-child(3) {
+    .messageWrapper {
+      .logo {
+        height: 120% !important;
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    .messageWrapper {
+      .logo {
+        height: 80% !important;
+      }
+    }
+  }
+
+  @include phone {
+    width: 100%;
+    height: 100%;
+    margin: auto 0;
+    display: inline-block;
+  }
+
+  & > div:first-child {
+    height: 100%;
+    box-shadow: 0 15px 85px 5px rgba(0, 0, 0, 0.07);
+    border-radius: 4px;
+  }
+
+  div {
+    @include phone {
+      opacity: 1 !important;
+    }
+
+    & > section:first-child {
+      height: 100%;
+      border-radius: 10px;
+      pointer-events: none;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: default;
+
+      @include phone {
+        height: 100%;
+      }
+
+      & > div {
+        @include flex(column, space-between, flex-start);
+        background-color: $white;
+        height: 100%;
+
+        & > div {
+          width: 100%;
+        }
+      }
+
+      .messageWrapper {
+        @include flex(column);
+        padding: 30px 30px 60px;
+        background-color: $white;
+
+        .imgContainer {
+          height: 27px;
+          width: 128px;
+
+          .logo {
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+          }
+        }
+
+        .message {
+          margin-top: 20px;
+          font-weight: 500;
+          line-height: 1.6;
+          color: $black;
+
+          @include phone {
+            @include fontSize(14px);
+          }
+        }
+      }
+
+      .categoryName {
+        display: inline-block;
+        margin: 0 30px 30px;
+        background-color: $white;
+        width: calc(100% - 60px);
+
+        .person {
+          display: inline-block;
+
+          & > div:first-child {
+            @include flex(row, initial, flex-start);
+            margin: 0 0 0 0;
+            width: 100%;
+
+            @include phone {
+              min-height: auto;
+            }
+
+            .avatarContainer {
+              min-width: 58px;
+              width: 58px;
+              height: 58px;
+
+              .photo {
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                border-radius: 50%;
+  
+                @include phone {
+                  width: 50px !important;
+                  height: 50px !important;
+                }
+              }
+            }
+
+            .info {
+              @include flex(column, flex-start, flex-start);
+              height: 100%;
+              max-width: 200px;
+              margin-left: 22px;
+
+              @include phone {
+                margin-left: 3vw;
+              }
+
+              .name {
+                margin: 5px 0 3px;
+                font-weight: bold;
+                line-height: 1.55;
+                letter-spacing: 0.5px;
+                color: $woodsmoke;
+
+                @include phone {
+                  @include fontSize(14px);
+                }
+              }
+
+              .position {
+                margin: 0;
+                font-size: .675rem;
+                line-height: 1.5;
+                letter-spacing: 0.35px;
+                color: $scarpa-flow;
+                margin-bottom: 4px;
+
+                @include phone {
+                  font-size: .7rem;
+                  padding: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

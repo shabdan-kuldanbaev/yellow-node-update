@@ -1,0 +1,29 @@
+@import 'styles/utils/mixins';
+
+.awards {
+  @include flex(row, center, center);
+  width: 100%;
+
+  @include ultra-hd {
+    max-width: $max-content-width;
+  }
+
+  @include macbook-fifteen {
+    width: 100%;
+  }
+
+  @include phone {
+    @include flex(column, center, center);
+  }
+
+  &>iframe {
+    display: block;
+    width: 135px;
+    height: 50px;
+    border: none;
+  }
+
+  &>div {
+    width: 130px !important;
+  }
+}

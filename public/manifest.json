@@ -1,0 +1,21 @@
+{
+  "lang": "en",
+  "name": "Yellow.systems Official Website",
+  "short_name": "Yellow.systems",
+  "icons": [
+    {
+      "src": "/yellow_logo.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/yellow_logo.ico",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "theme_color": "#fff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

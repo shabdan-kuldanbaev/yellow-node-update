@@ -1,0 +1,126 @@
+@import 'styles/utils/mixins';
+
+.categories {
+  width: 60%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+
+  @include below-tablet-horizontal {
+    width: 75%;
+  }
+
+  @include phone {
+    width: auto;
+    background-color: $header-additional-color;
+    border: 1px solid $blog-selection-block-mobile-categories-border-color;
+    border-radius: 5px;
+    color: $mine-shaft;
+    line-height: 1.5;
+    position: fixed;
+    height: auto;
+    top: $side-indent / 2;
+    right: $side-indent / 2;
+    left: $side-indent / 2;
+    padding: 16px;
+    will-change: transform;
+    transform: translateY(-150%);
+    transition: transform 0.5s ease-in;
+  }
+
+  .categoryTitle {
+    display: none;
+    position: relative;
+
+    @include phone {
+      display: block;
+
+      h1 {
+        display: block;
+        margin: 0;
+        padding: 0;
+        font-size: 1.875rem;
+        text-align: center;
+        color: $mine-shaft;
+        line-height: 1.5;
+        margin-bottom: 30px;
+        font-weight: 500;
+        font-weight: bold;
+      }
+
+      img {
+        position: absolute;
+        top: 16px;
+        right: 0;
+        width: 20px;
+        height: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    @include flex(row, space-between, center);
+    flex-wrap: wrap;
+    line-height: 2;
+
+    @include below-tablet {
+      @include flex(row, flex-start, center);
+      flex-wrap: wrap;
+    }
+
+    @include phone {
+      line-height: 1;
+      @include flex(column, flex-start, center);
+    }
+
+    li {
+      cursor: pointer;
+      list-style-type: none;
+      font-weight: 500;
+      font-size: 0.8438rem;
+      letter-spacing: 0.9px;
+
+      @include tablet {
+        margin-right: 10px;
+      }
+
+      @include below-tablet {
+        margin-right: 20px;
+      }
+
+      @include horizontal-mobile {
+        margin-right: 5px;
+      }
+
+      @include phone {
+        margin: 0;
+        font-size: 1.125rem;
+        color: $mine-shaft;
+        font-weight: 100;
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: $mountain-mis;
+        text-decoration: none;
+        transition: color $default-transition-time;
+
+        &:hover {
+          color: $black;
+          transition: color $default-transition-time;
+        }
+      }
+
+      &.selectedBlock {
+        a {
+          color: $black;
+        }
+      }
+    }
+  }
+}

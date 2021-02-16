@@ -1,0 +1,128 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  BLOCKS,
+  MARKS,
+  INLINES,
+} from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import get from 'lodash/get';
+import {
+  BookmarkCard,
+  GalleryCard,
+  Animated,
+  LinkWrapper,
+} from 'components';
+import { ANIMATED_TYPE } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
+import styles from './styles.module.scss';
+
+export const ContentfulParser = ({ document }) => {
+  const options = {
+    renderMark: {
+      [MARKS.CODE]: (node) => <sub>{node}</sub>,
+      [MARKS.BOLD]: (node) => <b>{node}</b>,
+      [MARKS.ITALIC]: (node) => <i>{node}</i>,
+      [MARKS.UNDERLINE]: (node) => <u>{node}</u>,
+    },
+    renderNode: {
+      [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+        const id = get(node, 'data.target.sys.contentType.sys.id', '');
+
+        switch (id) {
+        case 'articleBookmark': {
+          const {
+            title,
+            slug,
+            description,
+            image,
+          } = getDocumentFields(
+            get(node, 'data.target', {}),
+            ['title', 'slug', 'description', 'image'],
+          );
+          const imageUrl = getFileUrl(image);
+
+          return (title && slug && description && imageUrl && (
+            <BookmarkCard
+              title={title}
+              slug={slug}
+              description={description}
+              image={imageUrl}
+            />
+          )
+          );
+        }
+        case 'image': {
+          const { articleSingleImageType, image, title } = getDocumentFields(
+            get(node, 'data.target', ''),
+            ['articleSingleImageType', 'image', 'title'],
+          );
+          const imageUrl = getFileUrl(image);
+
+          return (articleSingleImageType && imageUrl && (
+            <div className={styles.imageWrapper}>
+              <div className={articleSingleImageType === 'normal' ? styles.normalImage : styles.fullImage}>
+                <Animated type={ANIMATED_TYPE.imageZoom}>
+                  <img src={imageUrl} alt={imageUrl} />
+                </Animated>
+                {title && <div className={styles.photoCaption}>{title}</div>}
+              </div>
+            </div>
+          )
+          );
+        }
+        case 'articleGalleryCard': {
+          const { images, photoCaption } = getDocumentFields(
+            get(node, 'data.target', {}),
+            ['images', 'photoCaption'],
+          );
+
+          return images && <GalleryCard images={images} photoCaption={photoCaption} />;
+        }
+        default:
+          return null;
+        }
+      },
+      [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+      [BLOCKS.QUOTE]: (node, children) => <blockquote className={styles.quote}>{children}</blockquote>,
+      [BLOCKS.HEADING_1]: (node, children) => <h1>{children}</h1>,
+      [BLOCKS.HEADING_2]: (node, children) => <h2 className={styles.h2}>{children}</h2>,
+      [BLOCKS.HEADING_3]: (node, children) => <h3 className={styles.h3}>{children}</h3>,
+      [BLOCKS.UL_LIST]: (node, children) => (
+        <ul className={styles.ul}>
+          {children && children.map((child) => (
+            <li key={child.key}>
+              {child.props.children}
+            </li>
+          ))}
+        </ul>
+      ),
+      [BLOCKS.OL_LIST]: (node, children) => (
+        <ol type="1" className={styles.ol}>
+          {children && children.map((child) => (
+            <li key={child.key}>
+              {child.props.children}
+            </li>
+          ))}
+        </ol>
+      ),
+      [INLINES.HYPERLINK]: (node, children) => (
+        <LinkWrapper to={get(node, 'data.uri', '/')} isLocalLink>
+          {children}
+        </LinkWrapper>
+      ),
+    },
+  };
+
+  return document
+    ? documentToReactComponents(document, options)
+    : '';
+};
+
+ContentfulParser.defaultProps = {
+  document: {},
+};
+
+ContentfulParser.propTypes = {
+  document: PropTypes.instanceOf(Object),
+};

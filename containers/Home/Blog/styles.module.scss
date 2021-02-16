@@ -1,0 +1,57 @@
+@import 'styles/utils/mixins';
+
+.blog {
+  @include flex(column, flex-start, center);
+  padding: $section-indent 55px;
+  background-color: $white;
+
+  &>div:first-child {
+    margin-bottom: 70px;
+  }
+
+  @include tablet {
+    padding: $section-indent 25px;
+  }
+
+  @include phone {
+    padding: #{$mobile-section-indent} $side-indent;
+
+    &>div:first-child {
+      margin-bottom: -$after-mobile-title-margin + 20px;
+    }
+  }
+
+  &>div:nth-of-type(2) {
+
+    &>article:nth-of-type(4),
+    &>article:nth-of-type(5) {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    @include below-tablet {
+      &>article:nth-of-type(5) {
+        display: none;
+      }
+    }
+  }
+
+  .blogButton {
+    @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
+    border-radius: $button-border-radius;
+    min-width: 330px;
+    font-weight: 600;
+
+    @include phone {
+      min-width: 300px;
+      margin-top: $mobile-more-button-indent;
+    }
+  }
+}

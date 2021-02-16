@@ -1,0 +1,90 @@
+@import 'styles/utils/mixins';
+
+.instaTape {
+  @include flex();
+  width: 100%;
+  max-width: $max-content-width;
+  margin-top: 80px;
+
+  @include full-hd {
+    max-width: $max-content-width-full-hd;
+  }
+
+  @include macbook-fifteen {
+    max-width: $max-content-width-macbook-fifteen;
+  }
+
+  @include macbook-twelve {
+    max-width: $max-content-width-macbook-twelve;
+  }
+
+  @include phone {
+    flex-wrap: wrap;
+    margin-top: $after-mobile-title-margin;
+  }
+
+  .imgContainer {
+    width: calc(#{$max-content-width} / 4 - #{$imgIndent} * 2);
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 0px 29px 0 $insta-tape-box-shadow-color;
+    border-radius: $articleRadius;
+
+    @include full-hd {
+      width: calc(#{$max-content-width-full-hd} / 4 - #{$imgIndent} * 2);
+    }
+
+    @include macbook-fifteen {
+      width: calc(#{$max-content-width-macbook-fifteen} / 4 - #{$imgIndent} * 2);
+    }
+
+    @include macbook-twelve {
+      max-width: $max-content-width-macbook-twelve;
+      width: calc(#{$max-content-width-macbook-twelve} / 4 - #{$imgIndent} * 2);
+    }
+
+    @include phone {
+      width: 100px;
+      margin: 0 auto;
+      margin: 0 0 15px;
+
+      &:nth-child(1) {
+        width: inherit;
+      }
+
+      &:nth-child(2) {
+        width: calc(50% - #{$imgIndent});
+        margin-right: $imgIndent;
+      }
+
+      &:nth-child(3) {
+        width: calc(50% - #{$imgIndent});
+        margin-left: $imgIndent;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    .image {
+      @include flex(column, flex-end);
+      background-position: center;
+      background-size: cover;
+      will-change: transform;
+      transition: transform $default-transition-time;
+      border-radius: $articleRadius;
+
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 50%;
+      padding-bottom: 50%;
+    }
+  }
+
+  @media (max-width: calc(#{$max-content-width} + 4 * #{$aricleIndent})) {
+    .imgContainer {
+      width: calc(100% / 4 - #{$imgIndent} * 2);
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import 'styles/utils/mixins';
+
+.pageLoading {
+  @include flex(column, center, center);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  line-height: 1.53;
+  letter-spacing: 0.5px;
+  z-index: 99999999999;
+  background-color: $white !important;
+  color: $black;
+  font-size: 1.2rem;
+
+  & > p {
+    opacity: 1;
+  }
+}
+
+.hide {
+  will-change: opacity;
+  transition: opacity .6s ease-in;
+  opacity: 0;
+
+  & > p {
+    transition: opacity .1s ease-in;
+    opacity: 0;
+  }
+}
+
+.setZIndex {
+  z-index: -5;
+}

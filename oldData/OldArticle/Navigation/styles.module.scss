@@ -1,0 +1,31 @@
+.Navigation {
+    letter-spacing: 0.3px;
+    line-height: normal;
+
+    .Title {
+        font-weight: 600;
+        color: #cdcccc;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    a {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 15px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #4a4a4a;
+        text-decoration: none;
+
+        transition: all 0.4s ease;
+
+        &:hover {
+            color: #000;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+}

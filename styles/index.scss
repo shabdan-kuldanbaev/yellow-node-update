@@ -4,15 +4,32 @@ html {
   margin: 0;
   padding: 0;
   font-family: $default-font;
-  font-size: 16px;
+  font-size: 1rem;
+  -webkit-tap-highlight-color: transparent;
+
+  ::selection {
+    background-color: $turbo-100;
+  }
 
   body {
     margin: 0;
     padding: 0;
-    background-color: $black;
 
-    & > div > section {
+    &>div>section {
       background-color: $black;
+    }
+
+    [data-rmiz-overlay] {
+      [data-rmiz-modal-content] {
+        &>* {
+          width: inherit;
+          height: inherit;
+        }
+      }
+    }
+
+    [data-rmiz-btn-open] {
+      outline: none;
     }
   }
 }
