@@ -76,11 +76,15 @@ const SelectionBlock = ({
   );
 };
 
+SelectionBlock.defaultProps = {
+  handleOnSubmit: () => {},
+};
+
 SelectionBlock.propTypes = {
   urlPath: PropTypes.string.isRequired,
   isMobileCategoties: PropTypes.bool.isRequired,
   setMobileCategoriesState: PropTypes.func.isRequired,
-  handleOnSubmit: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func,
 };
 
 export default connect(

@@ -20,7 +20,7 @@ const Header = ({
   isMobileMenuOpened,
   setMobileMenuState: setMobileMenu,
 }) => {
-  const { asPath } = useRouter();
+  const { asPath, query: { page } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
   const isHomePage = currentPage === '';
   const [isAdditional, setAdditional] = useState(false);
@@ -54,6 +54,10 @@ const Header = ({
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, [currentPage]);
 
+  useEffect(() => {
+    setAdditional(false);
+  }, [asPath]);
+
   return (
     <header className={cn({
       [styles.headerContainer]: true,
@@ -82,7 +86,7 @@ const Header = ({
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
       />
-      {(asPath.includes('portfolio') || asPath.includes('blog/')) && <TopProgressBar elementRef={introSection} />}
+      {(asPath.includes('portfolio') || (asPath.includes('blog/') && !page)) && <TopProgressBar elementRef={introSection} />}
     </header>
   );
 };

@@ -32,7 +32,7 @@ export const MetaTags = ({
           keywords,
           url,
         }) => (
-          <Fragment>
+          <Fragment key={`meta/${title}`}>
             <title>{title}</title>
             <title itemProp="headline">{title}</title>
             <meta name="description" content={getDescription(description)} />
@@ -82,5 +82,5 @@ MetaTags.propTypes = {
   page: PropTypes.string,
   ogMetaData: PropTypes.instanceOf(Array),
   articleMetaData: PropTypes.instanceOf(Object),
-  children: PropTypes.instanceOf(Object).isRequired,
+  children: PropTypes.node,
 };

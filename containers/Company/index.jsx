@@ -62,11 +62,17 @@ const CompanyContainer = ({
   );
 };
 
+CompanyContainer.defaultProps = {
+  photosData: {},
+  managementTeam: {},
+  whatMakesSpecial: {},
+};
+
 CompanyContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  photosData: PropTypes.instanceOf(Object).isRequired,
-  managementTeam: PropTypes.instanceOf(Object).isRequired,
-  whatMakesSpecial: PropTypes.instanceOf(Object).isRequired,
+  photosData: PropTypes.instanceOf(Object),
+  managementTeam: PropTypes.instanceOf(Object),
+  whatMakesSpecial: PropTypes.instanceOf(Object),
   fetchLayoutData: PropTypes.func.isRequired,
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };

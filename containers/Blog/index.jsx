@@ -88,13 +88,17 @@ const BlogContainer = ({
   );
 };
 
+BlogContainer.defaultProps = {
+  isMobileResolution: false,
+};
+
 BlogContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   articles: PropTypes.instanceOf(Array).isRequired,
   fetchLayoutData: PropTypes.func.isRequired,
   desktopLimit: PropTypes.number.isRequired,
   mobileLimit: PropTypes.number.isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
   subscribe: PropTypes.func.isRequired,
   totalArticles: PropTypes.number.isRequired,
   setIsSubscribed: PropTypes.func.isRequired,

@@ -129,9 +129,13 @@ const Portfolio = ({ gradientRef, projects }) => {
   );
 };
 
+Portfolio.defaultProps = {
+  projects: {},
+};
+
 Portfolio.propTypes = {
   gradientRef: PropTypes.instanceOf(Object).isRequired,
-  projects: PropTypes.instanceOf(Object).isRequired,
+  projects: PropTypes.instanceOf(Object),
 };
 
 export default connect(

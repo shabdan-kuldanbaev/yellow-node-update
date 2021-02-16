@@ -50,14 +50,22 @@ const Article = ({
   );
 };
 
+Article.defaultProps = {
+  oldBody: '',
+  body: null,
+  slug: '',
+  title: '',
+  introduction: '',
+};
+
 Article.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   maxScrollPosition: PropTypes.number.isRequired,
-  slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  oldBody: PropTypes.string.isRequired,
-  body: PropTypes.instanceOf(Object).isRequired,
-  introduction: PropTypes.string.isRequired,
+  slug: PropTypes.string,
+  title: PropTypes.string,
+  oldBody: PropTypes.string,
+  body: PropTypes.instanceOf(Object),
+  introduction: PropTypes.string,
   headImage: PropTypes.string.isRequired,
 };
 

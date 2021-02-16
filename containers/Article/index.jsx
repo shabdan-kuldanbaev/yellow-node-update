@@ -128,7 +128,7 @@ ArticleContainer.propTypes = {
   currentArticle: PropTypes.instanceOf(Object).isRequired,
   nearbyArticles: PropTypes.instanceOf(Object).isRequired,
   subscribe: PropTypes.func.isRequired,
-  fetchLayoutData: PropTypes.bool.isRequired,
+  fetchLayoutData: PropTypes.func.isRequired,
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
