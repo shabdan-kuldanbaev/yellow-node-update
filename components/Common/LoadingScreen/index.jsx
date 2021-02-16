@@ -8,7 +8,7 @@ import Lottie from 'react-lottie';
 import { connect } from 'react-redux';
 import { setLoadingScreenCompleted, setFirstPageLoaded } from 'redux/actions/layout';
 import { selectIsPageReadyToDisplay, selectIsFirstPageLoaded } from 'redux/selectors/layout';
-import logo_animation from './json/logo-animation.json';
+import logoAnimation from './json/logo-animation.json';
 import styles from './styles.module.scss';
 
 const LoadingScreen = ({
@@ -23,23 +23,25 @@ const LoadingScreen = ({
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: logo_animation,
+    animationData: logoAnimation,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
+
+  const handleOnLoopComplete = () => {
+    if (isPageLoading.current) {
+      setState({ isStopped: false });
+    } else {
+      setState({ isStopped: true });
+      loadRef.current && loadRef.current.classList.add(styles.hide, styles.setZIndex);
+      setLoadingScreenCompleted(true);
+    }
+  };
+
   const eventListeners = [{
     eventName: 'loopComplete',
-    callback: () => {
-      if (isPageLoading.current) {
-        setState({ isStopped: false });
-      } else {
-        setState({ isStopped: true });
-        loadRef.current && loadRef.current.classList.add(styles.hide);
-        loadRef.current && loadRef.current.classList.add(styles.setZIndex);
-        setLoadingScreenCompleted(true);
-      }
-    },
+    callback: handleOnLoopComplete,
   }];
 
   useEffect(() => {

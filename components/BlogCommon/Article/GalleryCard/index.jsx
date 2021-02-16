@@ -7,7 +7,7 @@ import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const GalleryCard = ({ images, photoCaption }) => {
-  const imageRef = useRef(null);
+  const imageRef = useRef(null); // TODO replace imageRef with something for the garrely row key
   const rowsCount = Math.ceil(images.length / NUMBER_OF_IMAGES_PER_LINE);
 
   const getImagesInRow = useCallback(

@@ -130,9 +130,13 @@ export const artificialDelay = (t) => new Promise(((resolve) => {
 }));
 
 export const loadDuck = async () => {
-  const duck = await new Promise((resolve) => {
-    three.loadModel(resolve);
-  });
+  try {
+    const duck = await new Promise((resolve) => {
+      three.loadModel(resolve);
+    });
 
-  return duck;
+    return duck;
+  } catch (error) {
+    console.log(error);
+  }
 };

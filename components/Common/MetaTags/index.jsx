@@ -45,19 +45,7 @@ export const MetaTags = ({
             <meta property="og:title" content={getTitle(title)} />
             <meta property="og:url" content={getUrl(url)} />
             <meta property="og:image" content={getImage('/apple-touch-icon.png')} />
-            <meta name="twitter:card" content="/apple-touch-icon.png" />
-            <meta property="twitter:domain" content={rootUrl} />
-            <meta property="twitter:url" content={getUrl(url)} />
-            <meta name="twitter:title" content={getTitle(title)} />
-            <meta name="twitter:description" content={getDescription(description)} />
-            <meta name="twitter:image" content={getImage('/apple-touch-icon.png')} />
-            <meta charset="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-            <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-            <meta name="apple-mobile-web-app-capable" content="yes" />
-            <meta name="referrer" content="always" />
-            <meta name="theme-color" content="#ffffff" />
             <meta name="google-site-verification" content="Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k" />
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet" />
             <link rel="shortcut icon" href="/yellow_logo.ico" />
