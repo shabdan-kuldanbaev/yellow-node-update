@@ -13,6 +13,8 @@ import configureStore from 'redux/store';
 import { Layout } from 'containers';
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
+import { muiTheme } from 'styles/theme';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 
 const App = ({
   Component,
@@ -22,6 +24,7 @@ const App = ({
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
   const [isPageLoaded, setPageLoad] = useState(true);
+  const MUITheme = createMuiTheme(muiTheme);
 
   useEffect(() => {
     ReactGA.initialize(process.env.GOOGLE_TRACK_ID);
@@ -42,19 +45,21 @@ const App = ({
 
   return (
     <Provider store={store}>
-      <ParallaxProvider>
-        <Layout
-          isLoading={isPageLoaded}
-          theme={theme}
-          introSection={introSection}
-        >
-          <Component
+      <ThemeProvider theme={MUITheme}>
+        <ParallaxProvider>
+          <Layout
+            isLoading={isPageLoaded}
             theme={theme}
             introSection={introSection}
-            {...pageProps}
-          />
-        </Layout>
-      </ParallaxProvider>
+          >
+            <Component
+              theme={theme}
+              introSection={introSection}
+              {...pageProps}
+            />
+          </Layout>
+        </ParallaxProvider>
+      </ThemeProvider>
     </Provider>
   );
 };

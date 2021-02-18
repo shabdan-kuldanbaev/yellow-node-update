@@ -9,7 +9,9 @@ import {
   SelectionBlock,
   Logo,
   TopProgressBar,
+  LinearIndeterminate,
 } from 'components';
+import { ROUTES } from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
@@ -86,6 +88,7 @@ const Header = ({
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
       />
+      {asPath !== ROUTES.homepage.path && <LinearIndeterminate />}
       {(asPath.includes('portfolio') || (asPath.includes('blog/') && !page)) && <TopProgressBar elementRef={introSection} />}
     </header>
   );

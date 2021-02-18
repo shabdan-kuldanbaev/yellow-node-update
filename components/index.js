@@ -28,6 +28,7 @@ export { default as withScroll } from 'components/Common/withScroll';
 export { MetaTags } from 'components/Common/MetaTags';
 export { InformationMessage } from 'components/Common/InformationMessage';
 export { default as LoadingScreen } from 'components/Common/LoadingScreen';
+export { default as LinearIndeterminate } from 'components/Common/LinearIndeterminate';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';

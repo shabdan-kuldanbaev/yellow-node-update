@@ -12,6 +12,7 @@ import {
   fetchBlogData,
   loadArticles,
 } from 'redux/sagas/blog';
+import { loadJSON } from 'redux/sagas/process';
 import { selectIsFirstHomepageVisit } from 'redux/selectors/home';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import { actionTypes } from 'redux/actions/actionTypes';
@@ -87,6 +88,9 @@ function* fetchPageData({
     case PAGES.contact:
     case PAGES.company:
       yield call(fetchPage, { slug });
+      break;
+    case PAGES.process:
+      yield call(loadJSON);
       break;
     default: throw new Error('Unexpected case');
     }

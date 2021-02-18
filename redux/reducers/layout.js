@@ -43,8 +43,8 @@ const handlers = {
     isLoading: false,
     error: payload,
   }),
-  [actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING]: (state) => ({ ...state, isPageReadyToDisplay: true }),
-  [actionTypes.SET_PAGE_READY_TO_DISPLAY_SUCCESS]: (state) => ({ ...state, isPageReadyToDisplay: false }),
+  [actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING]: (state) => ({ ...state, isPageReadyToDisplay: false }),
+  [actionTypes.SET_PAGE_READY_TO_DISPLAY_SUCCESS]: (state) => ({ ...state, isPageReadyToDisplay: true }),
   [actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED]: (state, { payload }) => ({
     ...state,
     isPageReadyToDisplay: false,
