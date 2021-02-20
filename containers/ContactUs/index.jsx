@@ -1,8 +1,7 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
-import { fetchLayoutData } from 'redux/actions/layout';
 import {
   selectContacts,
   selectCompanyPhoto,
@@ -25,7 +24,6 @@ const ContactUsContainer = ({
   sendEmail,
   officePhoto,
   peoplePhoto,
-  fetchLayoutData: fetchPage,
   isLoadingScreenCompleted,
 }) => {
   const { content: officePhotoContent } = getDocumentFields(officePhoto, ['content']);
@@ -61,10 +59,6 @@ const ContactUsContainer = ({
     });
   };
 
-  useEffect(() => {
-    fetchPage({ slug: PAGES.contact });
-  }, []);
-
   return (
     <Fragment>
       <MetaTags page={PAGES.contact} />
@@ -90,7 +84,6 @@ ContactUsContainer.propTypes = {
   sendEmail: PropTypes.func.isRequired,
   officePhoto: PropTypes.instanceOf(Object),
   peoplePhoto: PropTypes.instanceOf(Object),
-  fetchLayoutData: PropTypes.func.isRequired,
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
@@ -100,5 +93,5 @@ export default connect(
     peoplePhoto: selectCompanyPhoto(state),
     isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
   }),
-  { sendEmail, fetchLayoutData },
+  { sendEmail },
 )(ContactUsContainer);

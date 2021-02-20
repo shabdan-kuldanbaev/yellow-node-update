@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { useRouter } from 'next/router';
@@ -9,7 +9,6 @@ import {
   selectNearbyArticles,
 } from 'redux/selectors/blog';
 import { selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
-import { fetchLayoutData } from 'redux/actions/layout';
 import { subscribe } from 'redux/actions/subscribe';
 import {
   Article,
@@ -35,7 +34,6 @@ const ArticleContainer = ({
   nearbyArticles: { newerArticle, olderArticle },
   currentArticle,
   subscribe,
-  fetchLayoutData,
   isLoadingScreenCompleted,
 }) => {
   const { query: { slug }, pathname } = useRouter();
@@ -79,13 +77,6 @@ const ArticleContainer = ({
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
-  useEffect(() => {
-    fetchLayoutData({
-      articleSlug: slug,
-      slug: PAGES.article,
-    });
-  }, [slug]);
-
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} articleMetaData={articleMetaData} />
@@ -128,7 +119,6 @@ ArticleContainer.propTypes = {
   currentArticle: PropTypes.instanceOf(Object).isRequired,
   nearbyArticles: PropTypes.instanceOf(Object).isRequired,
   subscribe: PropTypes.func.isRequired,
-  fetchLayoutData: PropTypes.func.isRequired,
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
@@ -139,5 +129,5 @@ export default connect(
     nearbyArticles: selectNearbyArticles(state),
     isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
   }),
-  { subscribe, fetchLayoutData },
+  { subscribe },
 )(withScroll(ArticleContainer));

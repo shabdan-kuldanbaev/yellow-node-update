@@ -4,12 +4,10 @@ import React, {
   useEffect,
 } from 'react';
 import ReactGA from 'react-ga';
-import withReduxSaga from 'next-redux-saga';
-import withRedux from 'next-redux-wrapper';
-import { Provider } from 'react-redux';
+import { wrapper } from 'redux/store';
+import AppContext from 'utils/appContext';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Router from 'next/router';
-import configureStore from 'redux/store';
 import { Layout } from 'containers';
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
@@ -17,7 +15,6 @@ import 'styles/index.scss';
 const App = ({
   Component,
   pageProps,
-  store,
 }) => {
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
@@ -41,7 +38,7 @@ const App = ({
   }, []);
 
   return (
-    <Provider store={store}>
+    <AppContext.Provider>
       <ParallaxProvider>
         <Layout
           isLoading={isPageLoaded}
@@ -55,14 +52,15 @@ const App = ({
           />
         </Layout>
       </ParallaxProvider>
-    </Provider>
+    </AppContext.Provider>
   );
 };
 
 App.getInitialProps = async ({ Component, ctx }) => {
   let pageProps = {};
-  Component.getInitialProps && (pageProps = await Component.getInitialProps({ ctx }));
+  Component.getInitialProps && (pageProps = await Component.getInitialProps(ctx));
+
   return { pageProps };
 };
 
-export default withRedux(configureStore)(withReduxSaga(App));
+export default wrapper.withRedux(App);

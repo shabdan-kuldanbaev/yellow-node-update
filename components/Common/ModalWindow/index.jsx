@@ -23,6 +23,18 @@ export const ModalWindow = ({
     setOverflowForBody(isModalWindow);
   }, [isModalWindow]);
 
+  useEffect(() => {
+    const handleOnKeyDown = ({ key }) => {
+      if (key === 'Escape') {
+        closeModalWindow();
+      }
+    };
+
+    document.addEventListener('keydown', handleOnKeyDown);
+
+    return () => document.removeEventListener('keydown', handleOnKeyDown);
+  }, []);
+
   return (
     <section
       className={cn(styles.modalWindow, className, { [styles.show]: isModalWindow })}

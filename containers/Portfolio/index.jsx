@@ -1,8 +1,7 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectPortfolioProjectsPreview, selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
-import { fetchLayoutData } from 'redux/actions/layout';
 import {
   Portfolio,
   MetaTags,
@@ -15,14 +14,9 @@ import styles from './styles.module.scss';
 const PortfolioContainer = ({
   introSection,
   portfolioProjects,
-  fetchLayoutData: fetchPage,
   isLoadingScreenCompleted,
 }) => {
   const { content } = getDocumentFields(portfolioProjects, ['content']);
-
-  useEffect(() => {
-    fetchPage({ slug: PAGES.portfolio });
-  }, []);
 
   return (
     <Fragment>
@@ -43,7 +37,6 @@ PortfolioContainer.defaultProps = {
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   portfolioProjects: PropTypes.instanceOf(Object),
-  fetchLayoutData: PropTypes.func.isRequired,
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
@@ -52,5 +45,4 @@ export default connect(
     portfolioProjects: selectPortfolioProjectsPreview(state),
     isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
   }),
-  { fetchLayoutData },
 )(PortfolioContainer);

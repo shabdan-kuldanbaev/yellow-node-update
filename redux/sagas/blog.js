@@ -7,6 +7,8 @@ import {
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import get from 'lodash/get';
+import uniqWith from 'lodash/uniqWith';
+import isEqual from 'lodash/isEqual';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
@@ -84,11 +86,21 @@ function* loadNearbyArticles({ publishedAt }) {
 
 export function* findArticles({ payload: { value } }) {
   try {
-    const { items } = yield fetchContentfulArticles({
+    const { items: resultByKey } = yield fetchContentfulArticles({
       'fields.keyWords[match]': value,
     });
+    const { items: resultByBody } = yield fetchContentfulArticles({
+      'fields.body[match]': value,
+    });
+    const { items: resultByOldBody } = yield fetchContentfulArticles({
+      'fields.oldBody[match]': value,
+    });
+    const result = uniqWith(
+      [...resultByKey, ...resultByBody, ...resultByOldBody],
+      isEqual,
+    );
 
-    yield put({ type: actionTypes.FIND_ARTICLES_SUCCESS, payload: items });
+    yield put({ type: actionTypes.FIND_ARTICLES_SUCCESS, payload: result });
   } catch (err) {
     yield put({ type: actionTypes.FIND_ARTICLES_FAILED, payload: err });
   }

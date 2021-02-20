@@ -1,11 +1,37 @@
-@import 'styles/utils/theme/animations';
+@import 'styles/utils/mixins';
+@import 'styles/utils/theme/_animations';
 
-.swing {
-  animation: swing 1.5s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  animation-delay: 3s;
-  cursor: pointer;
+.iconWrapper {
+  width: 35px;
+  margin: auto;
+  position: absolute;
+  bottom: 0;
+  right: 35px;
+  transform: translateY(-45vh);
+  height: 50px;
+}
 
-  &:hover {
-    animation-play-state: paused;
+.scrollDown {
+  display: block;
+  background: url("./utils/scroll-down.svg") center center no-repeat;
+  width: 35px;
+  height: 35px;
+}
+
+.arrow {
+  width: 100%;
+
+  span {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-bottom: 1px solid $white;
+    border-right: 1px solid $white;
+    transform: rotate(45deg);
+    bottom: 10px;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    animation: arrow-down 2s infinite;
   }
 }
