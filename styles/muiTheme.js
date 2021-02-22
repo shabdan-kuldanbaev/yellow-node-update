@@ -1,6 +1,6 @@
 import red from '@material-ui/core/colors/red';
 
-export const muiTheme = {
+export const customTheme = {
   palette: {
     primary: {
       main: '#ffe603',

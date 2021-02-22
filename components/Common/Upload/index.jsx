@@ -22,6 +22,7 @@ export const Upload = ({
         isValidate
         isWithoutLabel
         isAttached
+        isTextArea
       />
       <label htmlFor={`files_${formKey}`}>
         <Attach />
@@ -48,6 +49,20 @@ export const Upload = ({
           />
         </div>
       ))}
+      {selectedFiles && !!selectedFiles.length && (
+        <div className={styles.moreFilesLink}>
+          <label htmlFor={`files_${formKey}`}>
+            add more files
+          </label>
+          <input
+            id={`files_${formKey}`}
+            type="file"
+            onChange={handleOnSelectedFilesChange}
+            multiple
+            className={styles.hide}
+          />
+        </div>
+      )}
     </div>
   </div>
 );

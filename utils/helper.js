@@ -9,6 +9,7 @@ import {
   fullHdResolution,
   turbo,
   witchHaze,
+  black,
 } from 'styles/utils/_variables.scss';
 
 export const themes = {
@@ -43,6 +44,7 @@ export const tabletResolution = toInt(bigTabletResolution);
 export const previewImageBackground = toString(silver);
 export const linearBackgroundColor = toString(turbo);
 export const linearBarColor = toString(witchHaze);
+export const blackColor = toString(black);
 
 export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'scroll';

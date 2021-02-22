@@ -19,7 +19,8 @@
     }
   }
   
-  input {
+  input,
+  textarea {
     cursor: text;
     width: auto;
     border: 0 none;
@@ -33,6 +34,11 @@
     &::placeholder {
       font-family: $default-font;
     }
+  }
+
+  textarea {
+    resize: none;
+    font-family: $default-font;
   }
 
   .required {
@@ -83,7 +89,8 @@
     }
   }
 
-  input {
+  input,
+  textarea {
     border-color: $black;
     transition: border 1s cubic-bezier(.26,1.04,.54,1),
                 color .5s cubic-bezier(.26,1.04,.54,1);
@@ -91,13 +98,15 @@
 }
 
 .focus {
-  input {
+  input,
+  textarea {
     border-color: $black !important;
   }
 }
 
 .error {
-  input {
+  input,
+  textarea {
     color: $red;
     border-bottom-color: $red !important;
   }
@@ -108,19 +117,22 @@
 }
 
 .default {
-  input {
+  input,
+  textarea {
     border-bottom-color: $iron !important;
   }
 }
 
 .isRequired {
-  input {
+  input,
+  textarea {
     padding-right: 15px;
   }
 }
 
 .isValidate {
-  input {
+  input,
+  textarea {
     padding-right: 100px;
   }
 }

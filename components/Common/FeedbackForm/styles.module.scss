@@ -31,7 +31,8 @@
     font-weight: 500;
   }
 
-  input {
+  input,
+  textarea {
     font-size: 1.1875rem;
     padding-top: 0;
     padding-bottom: 8px;
@@ -86,8 +87,8 @@
 
     span {
       font-size: 1.1875rem;
-      padding-bottom: 20px;
-      color: $boulder;
+      // padding-bottom: 20px;
+      // color: $boulder;
 
       @include phone {
         font-size: 1.125rem;
