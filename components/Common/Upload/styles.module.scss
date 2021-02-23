@@ -32,8 +32,12 @@
       margin-top: -.9em;
 
       svg {
-        width: 13px;
         height: auto;
+
+        @include phone {
+          width: 13px;
+        }
+        
         g {
           path {
             fill: $nobel;

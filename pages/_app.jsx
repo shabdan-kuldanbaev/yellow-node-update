@@ -7,7 +7,6 @@ import ReactGA from 'react-ga';
 import withReduxSaga from 'next-redux-saga';
 import withRedux from 'next-redux-wrapper';
 import { Provider } from 'react-redux';
-import { ParallaxProvider } from 'react-scroll-parallax';
 import Router from 'next/router';
 import configureStore from 'redux/store';
 import { Layout } from 'containers';
@@ -46,19 +45,17 @@ const App = ({
   return (
     <Provider store={store}>
       <ThemeProvider theme={themeMui}>
-        <ParallaxProvider>
-          <Layout
-            isLoading={isPageLoaded}
+        <Layout
+          isLoading={isPageLoaded}
+          theme={theme}
+          introSection={introSection}
+        >
+          <Component
             theme={theme}
             introSection={introSection}
-          >
-            <Component
-              theme={theme}
-              introSection={introSection}
-              {...pageProps}
-            />
-          </Layout>
-        </ParallaxProvider>
+            {...pageProps}
+          />
+        </Layout>
       </ThemeProvider>
     </Provider>
   );

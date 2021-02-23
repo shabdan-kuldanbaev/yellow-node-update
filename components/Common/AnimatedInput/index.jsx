@@ -65,7 +65,7 @@ const AnimatedInput = ({
     id: value,
     value,
     onChange: handleOnChange,
-    autoFocus: (asPath === ROUTES.contact.path && placeholder === 'Name *'),
+    autoFocus: (asPath === ROUTES.contact.path && placeholder.includes('Name')),
   };
 
   useEffect(() => {

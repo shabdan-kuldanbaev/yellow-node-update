@@ -1,5 +1,6 @@
 import { withStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
+import { commonSliderStyles } from './utils/data';
 
 export const SliderWrapper = withStyles({
   root: {
@@ -16,31 +17,27 @@ export const SliderWrapper = withStyles({
       boxShadow: 'inherit',
     },
   },
-  active: {},
   valueLabel: {
     left: 'calc(-50% + 4px)',
   },
   track: {
-    height: 8,
-    borderRadius: 4,
+    ...commonSliderStyles,
   },
   rail: {
-    height: 8,
-    borderRadius: 4,
+    ...commonSliderStyles,
   },
   mark: {
     width: 0,
-    height: 8,
-    borderRadius: 4,
+    ...commonSliderStyles,
   },
   markLabel: {
     color: '#b8b8b8',
     top: 30,
     '&[data-index="0"]': {
-      left: '1%!important',
+      left: '1% !important',
     },
     '&[data-index="1"]': {
-      left: '90%!important',
+      left: '90% !important',
     },
     cursor: 'default',
   },
@@ -48,10 +45,10 @@ export const SliderWrapper = withStyles({
     markLabel: {
       top: 40,
       '&[data-index="0"]': {
-        left: '2%!important',
+        left: '2% !important',
       },
       '&[data-index="1"]': {
-        left: '85%!important',
+        left: '85% !important',
       },
     },
   },

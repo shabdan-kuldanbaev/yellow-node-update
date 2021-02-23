@@ -18,7 +18,6 @@ import { withValidateEmail } from 'hocs';
 import { SliderWrapper } from './SliderWrapper';
 import { budget, marks } from './utils/data';
 import styles from './styles.module.scss';
-import 'rc-slider/assets/index.css';
 
 const FeedbackForm = ({
   email,

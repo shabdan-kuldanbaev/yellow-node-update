@@ -5,11 +5,11 @@ export const budget = {
 
 export const marks = [
   {
-    value: 0,
+    value: budget.min,
     label: '$ 0',
   },
   {
-    value: 1000000,
+    value: budget.max,
     label: '$ 1,000,000',
   },
 ];

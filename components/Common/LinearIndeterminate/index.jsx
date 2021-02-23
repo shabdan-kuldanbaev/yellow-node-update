@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
-import { selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
 const LinearIndeterminate = ({ IsPageReadyToDisplay }) => {
@@ -22,6 +22,6 @@ const LinearIndeterminate = ({ IsPageReadyToDisplay }) => {
   );
 };
 
-export default connect((state) => ({
-  IsPageReadyToDisplay: selectIsPageReadyToDisplay(state),
-}))(LinearIndeterminate);
+export default connect(
+  (state) => ({ IsPageReadyToDisplay: selectIsPageReadyToDisplay(state) }),
+)(LinearIndeterminate);
