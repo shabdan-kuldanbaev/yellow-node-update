@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
 import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
-import { selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
+import { selectIsLoadingScreenCompleted, selectIsMobileResolutions } from 'redux/selectors/layout';
 import {
   SelectionBlock,
   ArticlesList,
@@ -83,6 +83,7 @@ export default connect(
     articles: selectArticles(state),
     totalArticles: selectTotalCount(state),
     isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+    isMobileResolution: selectIsMobileResolutions(state),
   }),
   {
     subscribe,
