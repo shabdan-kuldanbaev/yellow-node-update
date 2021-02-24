@@ -4,9 +4,7 @@ import { fetchLayoutData } from 'redux/actions/layout';
 import { ProcessContainer } from 'containers';
 import { PAGES } from 'utils/constants';
 
-const Process = () => (
-  <ProcessContainer />
-);
+const Process = () => <ProcessContainer />;
 
 Process.getInitialProps = async ({ store, req }) => {
   store.dispatch(fetchLayoutData({ slug: PAGES.process }));

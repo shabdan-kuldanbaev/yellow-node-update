@@ -28,11 +28,7 @@ const BlogContainer = ({
   currentPage,
   isLoadingScreenCompleted,
 }) => {
-  const {
-    asPath,
-    pathname,
-  } = useRouter();
-
+  const { asPath, pathname } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
 
   const handleOnFormSubmit = (email) => {
@@ -79,6 +75,7 @@ BlogContainer.propTypes = {
   setIsSubscribed: PropTypes.func.isRequired,
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
   deviceLimit: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
 };
 
 export default connect(

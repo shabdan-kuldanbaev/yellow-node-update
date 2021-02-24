@@ -1,7 +1,4 @@
-import {
-  put,
-  call,
-} from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import { actionTypes } from 'redux/actions/actionTypes';

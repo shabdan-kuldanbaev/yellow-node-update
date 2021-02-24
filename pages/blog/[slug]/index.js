@@ -4,9 +4,7 @@ import { fetchLayoutData } from 'redux/actions/layout';
 import { ArticleContainer } from 'containers';
 import { PAGES } from 'utils/constants';
 
-const Article = () => (
-  <ArticleContainer />
-);
+const Article = () => <ArticleContainer />;
 
 Article.getInitialProps = async ({
   store,

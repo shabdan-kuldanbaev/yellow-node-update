@@ -12,7 +12,11 @@ import isEqual from 'lodash/isEqual';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
-import { fetchContentfulNearbyArticles, fetchContentfulArticles } from 'utils/contentfulUtils';
+import {
+  fetchContentfulNearbyArticles,
+  fetchContentfulArticles,
+  findArticlesByValue,
+} from 'utils/contentfulUtils';
 import { PAGES } from 'utils/constants';
 
 ObjectAssign.polyfill();
@@ -86,15 +90,9 @@ function* loadNearbyArticles({ publishedAt }) {
 
 export function* findArticles({ payload: { value } }) {
   try {
-    const { items: resultByKey } = yield fetchContentfulArticles({
-      'fields.keyWords[match]': value,
-    });
-    const { items: resultByBody } = yield fetchContentfulArticles({
-      'fields.body[match]': value,
-    });
-    const { items: resultByOldBody } = yield fetchContentfulArticles({
-      'fields.oldBody[match]': value,
-    });
+    const resultByKey = yield findArticlesByValue(value);
+    const resultByBody = yield findArticlesByValue(value, 'body');
+    const resultByOldBody = yield findArticlesByValue(value, 'oldBody');
     const result = uniqWith(
       [...resultByKey, ...resultByBody, ...resultByOldBody],
       isEqual,

@@ -5,17 +5,13 @@ import React, {
 } from 'react';
 import ReactGA from 'react-ga';
 import { wrapper } from 'redux/store';
-import AppContext from 'utils/appContext';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Router from 'next/router';
 import { Layout } from 'containers';
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
 
-const App = ({
-  Component,
-  pageProps,
-}) => {
+const App = ({ Component, pageProps }) => {
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
   const [isPageLoaded, setPageLoad] = useState(true);
@@ -38,27 +34,26 @@ const App = ({
   }, []);
 
   return (
-    <AppContext.Provider>
-      <ParallaxProvider>
-        <Layout
-          isLoading={isPageLoaded}
+    <ParallaxProvider>
+      <Layout
+        isLoading={isPageLoaded}
+        theme={theme}
+        introSection={introSection}
+      >
+        <Component
           theme={theme}
           introSection={introSection}
-        >
-          <Component
-            theme={theme}
-            introSection={introSection}
-            {...pageProps}
-          />
-        </Layout>
-      </ParallaxProvider>
-    </AppContext.Provider>
+          {...pageProps}
+        />
+      </Layout>
+    </ParallaxProvider>
   );
 };
 
 App.getInitialProps = async ({ Component, ctx }) => {
-  let pageProps = {};
-  Component.getInitialProps && (pageProps = await Component.getInitialProps(ctx));
+  const pageProps = Component.getInitialProps
+    ? await Component.getInitialProps(ctx)
+    : {};
 
   return { pageProps };
 };

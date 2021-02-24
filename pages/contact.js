@@ -4,9 +4,7 @@ import { fetchLayoutData } from 'redux/actions/layout';
 import { ContactUsContainer } from 'containers';
 import { PAGES } from 'utils/constants';
 
-const ContactUs = () => (
-  <ContactUsContainer />
-);
+const ContactUs = () => <ContactUsContainer />;
 
 ContactUs.getInitialProps = async ({ store, req }) => {
   store.dispatch(fetchLayoutData({ slug: PAGES.contact }));

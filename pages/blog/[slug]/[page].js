@@ -19,9 +19,10 @@ Blog.getInitialProps = async ({
   const currentState = store.getState();
   const desktopLimit = selectDesktopLimit(currentState);
   const mobileLimit = selectMobileLimit(currentState);
-  const isMobileResolution = selectIsMobileResolutions(currentState);
   const currentPage = toInt(page);
-  const deviceLimit = isMobileResolution ? mobileLimit : desktopLimit;
+  const deviceLimit = selectIsMobileResolutions(currentState)
+    ? mobileLimit
+    : desktopLimit;
 
   store.dispatch(fetchLayoutData({
     slug: PAGES.blog,

@@ -28,3 +28,11 @@ export const fetchContentfulArticles = async (additionalQuery, params = {}) => {
     console.error('Fetch error of articles', error);
   }
 };
+
+export const findArticlesByValue = async (value, field = 'keyWords') => {
+  const { items } = await fetchContentfulArticles({
+    [`fields.${field}[match]`]: value,
+  });
+
+  return items;
+};
