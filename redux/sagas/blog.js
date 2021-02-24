@@ -90,9 +90,15 @@ function* loadNearbyArticles({ publishedAt }) {
 
 export function* findArticles({ payload: { value } }) {
   try {
-    const resultByKey = yield findArticlesByValue(value);
-    const resultByBody = yield findArticlesByValue(value, 'body');
-    const resultByOldBody = yield findArticlesByValue(value, 'oldBody');
+    const [
+      resultByKey,
+      resultByBody,
+      resultByOldBody,
+    ] = yield all([
+      call(findArticlesByValue, value),
+      call(findArticlesByValue, value, 'body'),
+      call(findArticlesByValue, value, 'oldBody'),
+    ]);
     const result = uniqWith(
       [...resultByKey, ...resultByBody, ...resultByOldBody],
       isEqual,

@@ -18,10 +18,10 @@ const reducers = combineReducers({
   process,
 });
 
-export const mainReducer = (state = {}, action) => {
+export default ((state = {}, action) => {
   switch (action.type) {
   case HYDRATE: return { ...action.payload };
 
   default: return reducers(state, action);
   }
-};
+});
