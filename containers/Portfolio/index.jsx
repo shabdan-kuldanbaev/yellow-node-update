@@ -40,8 +40,6 @@ PortfolioContainer.propTypes = {
 };
 
 export default connect(
-  (state) => ({
-    portfolioProjects: selectPortfolioProjectsPreview(state),
-  }),
+  (state) => ({ portfolioProjects: selectPortfolioProjectsPreview(state) }),
   { fetchLayoutData },
 )(PortfolioContainer);

@@ -24,7 +24,7 @@ const Header = ({
 }) => {
   const { asPath, query: { page } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
-  const isHomePage = currentPage === '';
+  const isHomePage = asPath === ROUTES.homepage.path;
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
 
@@ -88,7 +88,7 @@ const Header = ({
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
       />
-      {asPath !== ROUTES.homepage.path && <LinearIndeterminate />}
+      {!isHomePage && <LinearIndeterminate />}
       {(asPath.includes('portfolio') || (asPath.includes('blog/') && !page)) && <TopProgressBar elementRef={introSection} />}
     </header>
   );

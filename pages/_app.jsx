@@ -8,12 +8,12 @@ import withReduxSaga from 'next-redux-saga';
 import withRedux from 'next-redux-wrapper';
 import { Provider } from 'react-redux';
 import Router from 'next/router';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import configureStore from 'redux/store';
 import { Layout } from 'containers';
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
 import { customTheme } from 'styles/muiTheme';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 
 const App = ({
   Component,
@@ -23,7 +23,7 @@ const App = ({
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
   const [isPageLoaded, setPageLoad] = useState(true);
-  const themeMui = createMuiTheme(customTheme);
+  const muiTheme = createMuiTheme(customTheme);
 
   useEffect(() => {
     ReactGA.initialize(process.env.GOOGLE_TRACK_ID);
@@ -44,7 +44,7 @@ const App = ({
 
   return (
     <Provider store={store}>
-      <ThemeProvider theme={themeMui}>
+      <ThemeProvider theme={muiTheme}>
         <Layout
           isLoading={isPageLoaded}
           theme={theme}

@@ -29,7 +29,7 @@ export const Home = ({
   photosData,
   fetchLayoutData: fetchPage,
   isLoadingScreenCompleted,
-  IsFirstHomepageVisit,
+  isFirstHomepageVisit,
 }) => {
   const gradientRef = useRef(null);
   const { content } = getDocumentFields(photosData, ['content']);
@@ -41,7 +41,7 @@ export const Home = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.homepage} />
-      {(!isLoadingScreenCompleted && !IsFirstHomepageVisit) ? <LoadingScreen /> : (
+      {(!isLoadingScreenCompleted && !isFirstHomepageVisit) ? <LoadingScreen /> : (
         <Fragment>
           <Intro theme={theme} introSection={introSection} />
           <Portfolio gradientRef={gradientRef} />
@@ -65,14 +65,14 @@ Home.propTypes = {
   fetchLayoutData: PropTypes.func.isRequired,
   photosData: PropTypes.instanceOf(Object),
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
-  IsFirstHomepageVisit: PropTypes.bool.isRequired,
+  isFirstHomepageVisit: PropTypes.bool.isRequired,
 };
 
 export default connect(
   (state) => ({
     photosData: selectImageCarousel(state),
     isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
-    IsFirstHomepageVisit: selectIsFirstHomepageVisit(state),
+    isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
   }),
   { fetchLayoutData },
 )(Home);
