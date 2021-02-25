@@ -1,7 +1,6 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchLayoutData } from 'redux/actions/layout';
 import {
   selectManagementTeam,
   selectWhatMakesSpecial,
@@ -26,15 +25,10 @@ const CompanyContainer = ({
   photosData,
   managementTeam,
   whatMakesSpecial,
-  fetchLayoutData: fetchPage,
 }) => {
   const { content: carouselContent } = getDocumentFields(photosData, ['content']);
   const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
   const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
-
-  useEffect(() => {
-    fetchPage({ slug: PAGES.company });
-  }, []);
 
   return (
     <Fragment>
@@ -66,7 +60,6 @@ CompanyContainer.propTypes = {
   photosData: PropTypes.instanceOf(Object),
   managementTeam: PropTypes.instanceOf(Object),
   whatMakesSpecial: PropTypes.instanceOf(Object),
-  fetchLayoutData: PropTypes.func.isRequired,
 };
 
 export default connect(
@@ -75,5 +68,4 @@ export default connect(
     managementTeam: selectManagementTeam(state),
     whatMakesSpecial: selectWhatMakesSpecial(state),
   }),
-  { fetchLayoutData },
 )(CompanyContainer);

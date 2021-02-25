@@ -1,3 +1,4 @@
+import { HYDRATE } from 'next-redux-wrapper';
 import { combineReducers } from 'redux';
 import home from './home';
 import layout from './layout';
@@ -7,7 +8,7 @@ import contact from './contact';
 import subscribe from './subscribe';
 import process from './process';
 
-export default combineReducers({
+const reducers = combineReducers({
   home,
   layout,
   blog,
@@ -15,4 +16,12 @@ export default combineReducers({
   contact,
   subscribe,
   process,
+});
+
+export default ((state = {}, action) => {
+  switch (action.type) {
+  case HYDRATE: return { ...action.payload };
+
+  default: return reducers(state, action);
+  }
 });

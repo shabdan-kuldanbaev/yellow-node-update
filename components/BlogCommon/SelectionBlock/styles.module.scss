@@ -5,6 +5,7 @@
   position: relative;
   max-width: 1500px;
   width: calc(1500px - #{$side-indent});
+  margin: 0 12px;
 
   @include macbook-fifteen {
     width: calc(100% - #{$side-indent});

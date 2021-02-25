@@ -4,22 +4,15 @@ import React, {
   useEffect,
 } from 'react';
 import ReactGA from 'react-ga';
-import withReduxSaga from 'next-redux-saga';
-import withRedux from 'next-redux-wrapper';
-import { Provider } from 'react-redux';
+import { wrapper } from 'redux/store';
 import Router from 'next/router';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import configureStore from 'redux/store';
 import { Layout } from 'containers';
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
 import { customTheme } from 'styles/muiTheme';
 
-const App = ({
-  Component,
-  pageProps,
-  store,
-}) => {
+const App = ({ Component, pageProps }) => {
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
   const [isPageLoaded, setPageLoad] = useState(true);
@@ -43,28 +36,28 @@ const App = ({
   }, []);
 
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={muiTheme}>
-        <Layout
-          isLoading={isPageLoaded}
+    <ThemeProvider theme={muiTheme}>
+      <Layout
+        isLoading={isPageLoaded}
+        theme={theme}
+        introSection={introSection}
+      >
+        <Component
           theme={theme}
           introSection={introSection}
-        >
-          <Component
-            theme={theme}
-            introSection={introSection}
-            {...pageProps}
-          />
-        </Layout>
-      </ThemeProvider>
-    </Provider>
+          {...pageProps}
+        />
+      </Layout>
+    </ThemeProvider>
   );
 };
 
 App.getInitialProps = async ({ Component, ctx }) => {
-  let pageProps = {};
-  Component.getInitialProps && (pageProps = await Component.getInitialProps({ ctx }));
+  const pageProps = Component.getInitialProps
+    ? await Component.getInitialProps(ctx)
+    : {};
+
   return { pageProps };
 };
 
-export default withRedux(configureStore)(withReduxSaga(App));
+export default wrapper.withRedux(App);

@@ -366,3 +366,19 @@
     top: $burger-item-3;
   }
 }
+
+@keyframes arrow-down {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-7px, -7px);
+  }
+
+  50% {
+    opacity: .4;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+}

@@ -28,3 +28,15 @@ export const fetchContentfulArticles = async (additionalQuery, params = {}) => {
     console.error('Fetch error of articles', error);
   }
 };
+
+export const findArticlesByValue = async (value, field = 'keyWords') => {
+  try {
+    const { items } = await fetchContentfulArticles({
+      [`fields.${field}[match]`]: value,
+    });
+
+    return items;
+  } catch (err) {
+    console.error('The error catched from finding articles: ');
+  }
+};
