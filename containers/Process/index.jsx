@@ -2,51 +2,39 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
-import { selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
-import { getJSON } from 'redux/actions/process';
-import {
-  Process,
-  MetaTags,
-  LoadingScreen,
-} from 'components';
+import { fetchLayoutData } from 'redux/actions/layout';
+import { Process, MetaTags } from 'components';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const ProcessContainer = ({
   introSection,
-  getJSON: getProcessJSON,
+  fetchLayoutData: getProcessJSON,
   processes: { json },
-  isLoadingScreenCompleted,
 }) => {
   useEffect(() => {
     if (!json.length) {
-      getProcessJSON();
+      getProcessJSON({ slug: PAGES.process });
     }
   }, [json]);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.process} />
-      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
-        <section ref={introSection} className={styles.process}>
-          <Process processes={json} />
-        </section>
-      )}
+      <section ref={introSection} className={styles.process}>
+        <Process processes={json} />
+      </section>
     </Fragment>
   );
 };
 
 ProcessContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  getJSON: PropTypes.func.isRequired,
+  fetchLayoutData: PropTypes.func.isRequired,
   processes: PropTypes.instanceOf(Object).isRequired,
-  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
-  (state) => ({
-    processes: selectProcessPage(state),
-    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
-  }),
-  { getJSON },
+  (state) => ({ processes: selectProcessPage(state) }),
+  { fetchLayoutData },
 )(ProcessContainer);

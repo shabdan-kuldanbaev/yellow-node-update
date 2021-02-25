@@ -8,7 +8,6 @@ import {
   selectRelatedArticles,
   selectNearbyArticles,
 } from 'redux/selectors/blog';
-import { selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
 import { fetchLayoutData } from 'redux/actions/layout';
 import { subscribe } from 'redux/actions/subscribe';
 import {
@@ -19,7 +18,6 @@ import {
   NextPrev,
   MetaTags,
   withScroll,
-  LoadingScreen,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import {
@@ -36,7 +34,6 @@ const ArticleContainer = ({
   currentArticle,
   subscribe,
   fetchLayoutData,
-  isLoadingScreenCompleted,
 }) => {
   const { query: { slug }, pathname } = useRouter();
   const {
@@ -89,35 +86,31 @@ const ArticleContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} articleMetaData={articleMetaData} />
-      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
-        <Fragment>
-          <Article
-            slug={articleSlug}
-            title={title}
-            oldBody={oldBody}
-            body={body}
-            introduction={introduction}
-            headImage={headImage}
-            introSection={introSection}
-          />
-          <SocialThumbnails url={`${rootUrl}/blog/${slug}`} title={title} />
-          {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} />}
-          <div className={styles.nextPrevSection}>
-            <NextPrev
-              isNewer
-              previewImageUrl={getFileUrl(previewImageUrlNewer)}
-              slug={slugNewer}
-              title={titleNewer}
-            />
-            <NextPrev
-              previewImageUrl={getFileUrl(previewImageUrlOlder)}
-              slug={slugOlder}
-              title={titleOlder}
-            />
-          </div>
-          <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
-        </Fragment>
-      )}
+      <Article
+        slug={articleSlug}
+        title={title}
+        oldBody={oldBody}
+        body={body}
+        introduction={introduction}
+        headImage={headImage}
+        introSection={introSection}
+      />
+      <SocialThumbnails url={`${rootUrl}/blog/${slug}`} title={title} />
+      {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} />}
+      <div className={styles.nextPrevSection}>
+        <NextPrev
+          isNewer
+          previewImageUrl={getFileUrl(previewImageUrlNewer)}
+          slug={slugNewer}
+          title={titleNewer}
+        />
+        <NextPrev
+          previewImageUrl={getFileUrl(previewImageUrlOlder)}
+          slug={slugOlder}
+          title={titleOlder}
+        />
+      </div>
+      <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
     </Fragment>
   );
 };
@@ -129,7 +122,6 @@ ArticleContainer.propTypes = {
   nearbyArticles: PropTypes.instanceOf(Object).isRequired,
   subscribe: PropTypes.func.isRequired,
   fetchLayoutData: PropTypes.func.isRequired,
-  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
@@ -137,7 +129,6 @@ export default connect(
     currentArticle: selectArticle(state),
     articles: selectRelatedArticles(state),
     nearbyArticles: selectNearbyArticles(state),
-    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
   }),
   { subscribe, fetchLayoutData },
 )(withScroll(ArticleContainer));

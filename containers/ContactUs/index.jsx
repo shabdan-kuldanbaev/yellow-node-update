@@ -3,18 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
 import { fetchLayoutData } from 'redux/actions/layout';
-import {
-  selectContacts,
-  selectCompanyPhoto,
-  selectIsLoadingScreenCompleted,
-} from 'redux/selectors/layout';
+import { selectContacts, selectCompanyPhoto } from 'redux/selectors/layout';
 import {
   FeedbackFormWithTitle,
   Calendar,
   CompanyPeoplePhoto,
   CompanyContacts,
   MetaTags,
-  LoadingScreen,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
@@ -26,7 +21,6 @@ const ContactUsContainer = ({
   officePhoto,
   peoplePhoto,
   fetchLayoutData: fetchPage,
-  isLoadingScreenCompleted,
 }) => {
   const { content: officePhotoContent } = getDocumentFields(officePhoto, ['content']);
   const { image: officeImage } = getDocumentFields(
@@ -68,14 +62,12 @@ const ContactUsContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.contact} />
-      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
-        <section ref={introSection} className={styles.contactContainer}>
-          <FeedbackFormWithTitle handleOnClick={handleOnClick} />
-          <Calendar />
-          {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}
-          {officeImageUrl && <CompanyContacts photo={officeImageUrl} />}
-        </section>
-      )}
+      <section ref={introSection} className={styles.contactContainer}>
+        <FeedbackFormWithTitle handleOnClick={handleOnClick} />
+        <Calendar />
+        {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}
+        {officeImageUrl && <CompanyContacts photo={officeImageUrl} />}
+      </section>
     </Fragment>
   );
 };
@@ -91,14 +83,12 @@ ContactUsContainer.propTypes = {
   officePhoto: PropTypes.instanceOf(Object),
   peoplePhoto: PropTypes.instanceOf(Object),
   fetchLayoutData: PropTypes.func.isRequired,
-  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
   (state) => ({
     officePhoto: selectContacts(state),
     peoplePhoto: selectCompanyPhoto(state),
-    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
   }),
   { sendEmail, fetchLayoutData },
 )(ContactUsContainer);

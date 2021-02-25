@@ -10,13 +10,12 @@ import {
   selectMobileLimit,
   selectTotalCount,
 } from 'redux/selectors/blog';
-import { selectIsMobileResolutions, selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import {
   SelectionBlock,
   ArticlesList,
   Paginator,
   MetaTags,
-  LoadingScreen,
 } from 'components';
 import { toInt, getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { PAGES } from 'utils/constants';
@@ -33,7 +32,6 @@ const BlogContainer = ({
   totalArticles,
   subscribe,
   setIsSubscribed,
-  isLoadingScreenCompleted,
 }) => {
   const {
     asPath,
@@ -68,22 +66,20 @@ const BlogContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
-      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
-        <section ref={introSection} className={styles.blog}>
-          {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
-          <ArticlesList
-            articles={articles}
-            isBlogPage
-            currentPage={currentPage}
-            handleOnFormSubmit={handleOnFormSubmit}
-          />
-          <Paginator
-            arrows={arrows}
-            pagesCounter={pagesCounter}
-            currentPage={currentPage}
-          />
-        </section>
-      )}
+      <section ref={introSection} className={styles.blog}>
+        {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
+        <ArticlesList
+          articles={articles}
+          isBlogPage
+          currentPage={currentPage}
+          handleOnFormSubmit={handleOnFormSubmit}
+        />
+        <Paginator
+          arrows={arrows}
+          pagesCounter={pagesCounter}
+          currentPage={currentPage}
+        />
+      </section>
     </Fragment>
   );
 };
@@ -102,7 +98,6 @@ BlogContainer.propTypes = {
   subscribe: PropTypes.func.isRequired,
   totalArticles: PropTypes.number.isRequired,
   setIsSubscribed: PropTypes.func.isRequired,
-  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
@@ -112,7 +107,6 @@ export default connect(
     desktopLimit: selectDesktopLimit(state),
     mobileLimit: selectMobileLimit(state),
     isMobileResolution: selectIsMobileResolutions(state),
-    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
   }),
   {
     fetchLayoutData,

@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchLayoutData } from 'redux/actions/layout';
 import { selectImageCarousel, selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
+import { selectIsFirstHomepageVisit } from 'redux/selectors/home';
 import {
   Intro,
   Blog,
@@ -28,6 +29,7 @@ export const Home = ({
   photosData,
   fetchLayoutData: fetchPage,
   isLoadingScreenCompleted,
+  isFirstHomepageVisit,
 }) => {
   const gradientRef = useRef(null);
   const { content } = getDocumentFields(photosData, ['content']);
@@ -39,7 +41,7 @@ export const Home = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.homepage} />
-      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
+      {(!isLoadingScreenCompleted && !isFirstHomepageVisit) ? <LoadingScreen /> : (
         <Fragment>
           <Intro theme={theme} introSection={introSection} />
           <Portfolio gradientRef={gradientRef} />
@@ -63,12 +65,14 @@ Home.propTypes = {
   fetchLayoutData: PropTypes.func.isRequired,
   photosData: PropTypes.instanceOf(Object),
   isLoadingScreenCompleted: PropTypes.bool.isRequired,
+  isFirstHomepageVisit: PropTypes.bool.isRequired,
 };
 
 export default connect(
   (state) => ({
     photosData: selectImageCarousel(state),
     isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
+    isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
   }),
   { fetchLayoutData },
 )(Home);

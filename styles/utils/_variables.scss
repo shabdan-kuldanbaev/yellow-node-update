@@ -58,6 +58,7 @@ $saffron-1: #f4ad3d;
 $violet: #140A2F;
 $cod-gray-1: #161616;
 $silver-1: #CBCBCB;
+$witch-haze: #fff492;
 
 //transparency color
 $pagination: rgba(35, 37, 44, 0.25);
@@ -142,5 +143,8 @@ $max-article-margin: 24px;
   bigTabletResolution: $max-tablet-size;
   footerColor: $woodsmoke;
   silver: $silver-1;
+  turbo: $turbo-100;
+  witchHaze: $witch-haze;
+  black: $black;
   fullHdResolution: $full-hd;
 }

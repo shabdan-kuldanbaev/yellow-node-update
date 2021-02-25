@@ -45,7 +45,7 @@ const LoadingScreen = ({
   }];
 
   useEffect(() => {
-    isPageLoading.current = isPageReadyToDisplay;
+    isPageLoading.current = !isPageReadyToDisplay;
 
     return () => !isFirstPageLoaded && setFirstPageLoaded(true);
   }, [isPageReadyToDisplay]);

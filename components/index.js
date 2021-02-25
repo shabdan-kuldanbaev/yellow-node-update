@@ -14,7 +14,6 @@ export { LinkWrapper } from 'components/Common/LinkWrapper';
 export { default as Logo } from 'components/Common/Logo';
 export { Upload } from 'components/Common/Upload';
 export { ModalWindow } from 'components/Common/ModalWindow';
-export { ParallaxContainer } from 'components/Common/Animated/Parallax';
 export { default as FeedbackForm } from 'components/Common/FeedbackForm';
 export { SectionTitle } from 'components/Common/SectionTitle';
 export { default as PhotoGallery } from 'components/Common/PhotoGallery';
@@ -28,6 +27,7 @@ export { default as withScroll } from 'components/Common/withScroll';
 export { MetaTags } from 'components/Common/MetaTags';
 export { InformationMessage } from 'components/Common/InformationMessage';
 export { default as LoadingScreen } from 'components/Common/LoadingScreen';
+export { default as LinearIndeterminate } from 'components/Common/LinearIndeterminate';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';

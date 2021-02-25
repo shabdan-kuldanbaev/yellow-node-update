@@ -5,7 +5,7 @@ export const withValidateEmail = (Component) => (props) => {
   const [email, setEmail] = useState({ value: '', isValidate: true });
 
   const handleOnEmailChange = ({ target: { value } }) => {
-    setEmail({ value, isValidate: validateEmail(value) });
+    setEmail({ value, isValidate: true });
   };
 
   const handleOnBlurEmail = (value) => {

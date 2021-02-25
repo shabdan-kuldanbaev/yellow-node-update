@@ -52,7 +52,6 @@ export const actionTypes = {
   CLEAR_MESSAGE: 'subscribe/CLEAR_MESSAGE',
   SET_IS_SUBSCRIBED: 'subscribe/SET_IS_SUBSCRIBED',
   /* ------------------------ */
-  GET_JSON_PENDING: 'process/GET_JSON_PENDING',
   GET_JSON_SUCCESS: 'process/GET_JSON_SUCCESS',
   GET_JSON_FAILED: 'process/GET_JSON_FAILED',
 };
