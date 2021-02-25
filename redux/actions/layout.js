@@ -30,11 +30,6 @@ export const fetchLayoutData = (payload) => ({
   payload,
 });
 
-export const setLoadingScreenCompleted = (payload) => ({
-  type: actionTypes.SET_LOADING_SCREEN_COMPLETED,
-  payload,
-});
-
 export const setFirstPageLoaded = (payload) => ({
   type: actionTypes.SET_FIRST_PAGE_LOADED,
   payload,

@@ -9,7 +9,6 @@ const initialState = {
   isFullResolution: false,
   isLoading: false,
   isPageReadyToDisplay: false,
-  isLoadingScreenCompleted: false,
   isFirstPageLoaded: false,
   components: {
     main: null,
@@ -22,7 +21,6 @@ const handlers = {
   [actionTypes.SET_MOBILE_RESOLUTION]: (state, { payload }) => ({ ...state, isMobileResolutions: payload }),
   [actionTypes.SET_TABLET_RESOLUTION]: (state, { payload }) => ({ ...state, isTabletResolutions: payload }),
   [actionTypes.SET_FULL_RESOLUTION]: (state, { payload }) => ({ ...state, isFullResolution: payload }),
-  [actionTypes.SET_LOADING_SCREEN_COMPLETED]: (state, { payload }) => ({ ...state, isLoadingScreenCompleted: payload }),
   [actionTypes.SET_FIRST_PAGE_LOADED]: (state, { payload }) => ({ ...state, isFirstPageLoaded: payload }),
   [actionTypes.FETCH_PAGE_SUCCESS]: (state, { payload }) => {
     const { contentModules } = getDocumentFields(
