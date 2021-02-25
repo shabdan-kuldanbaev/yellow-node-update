@@ -5,7 +5,6 @@ import {
   selectManagementTeam,
   selectWhatMakesSpecial,
   selectImageCarousel,
-  selectIsLoadingScreenCompleted,
 } from 'redux/selectors/layout';
 import { reviews } from 'containers/Home/Reviews/utils/data';
 import {
@@ -16,7 +15,6 @@ import {
   Awards,
   Reviews,
   MetaTags,
-  LoadingScreen,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
@@ -27,7 +25,6 @@ const CompanyContainer = ({
   photosData,
   managementTeam,
   whatMakesSpecial,
-  isLoadingScreenCompleted,
 }) => {
   const { content: carouselContent } = getDocumentFields(photosData, ['content']);
   const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
@@ -36,22 +33,18 @@ const CompanyContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.company} />
-      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
-        <Fragment>
-          <section ref={introSection} className={styles.companyContainer}>
-            <AboutUs />
-            {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
-            {teamContent && <ManagementTeam managementTeam={teamContent} />}
-          </section>
-          {carouselContent && <PhotoGallery photos={carouselContent} />}
-          <div className={styles.companyReviews}>
-            <Reviews reviews={reviews} />
-          </div>
-          <section className={styles.companyBottom}>
-            <Awards />
-          </section>
-        </Fragment>
-      )}
+      <section ref={introSection} className={styles.companyContainer}>
+        <AboutUs />
+        {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
+        {teamContent && <ManagementTeam managementTeam={teamContent} />}
+      </section>
+      {carouselContent && <PhotoGallery photos={carouselContent} />}
+      <div className={styles.companyReviews}>
+        <Reviews reviews={reviews} />
+      </div>
+      <section className={styles.companyBottom}>
+        <Awards />
+      </section>
     </Fragment>
   );
 };
@@ -67,7 +60,6 @@ CompanyContainer.propTypes = {
   photosData: PropTypes.instanceOf(Object),
   managementTeam: PropTypes.instanceOf(Object),
   whatMakesSpecial: PropTypes.instanceOf(Object),
-  isLoadingScreenCompleted: PropTypes.bool.isRequired,
 };
 
 export default connect(
@@ -75,6 +67,5 @@ export default connect(
     photosData: selectImageCarousel(state),
     managementTeam: selectManagementTeam(state),
     whatMakesSpecial: selectWhatMakesSpecial(state),
-    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
   }),
 )(CompanyContainer);

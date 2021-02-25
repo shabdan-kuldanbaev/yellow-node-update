@@ -1,7 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, {
+  useRef,
+  useState,
+  useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 import OutsideClickHandler from 'react-outside-click-handler';
 import cn from 'classnames';
+import autosize from 'autosize';
+import { useRouter } from 'next/router';
+import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const AnimatedInput = ({
@@ -14,7 +21,9 @@ const AnimatedInput = ({
   isRequired,
   isValidate,
   isAttached,
+  isTextArea,
 }) => {
+  const { asPath } = useRouter();
   const inputRef = useRef();
   const [isInputActived, setActive] = useState(false);
   const [isInputFocus, setFocus] = useState(false);
@@ -39,27 +48,37 @@ const AnimatedInput = ({
 
   const handleOnBlur = () => {
     setFocus(false);
-    if (type === 'email' && value !== '') handleOnBlurEmail && handleOnBlurEmail(value);
+    setActive(false);
+    if (type === 'email' && value !== '' && handleOnBlurEmail) handleOnBlurEmail(value);
   };
 
   const handleOnOutsideClick = () => {
     value === '' && setActive(false);
   };
 
+  const inputOptions = {
+    onFocus: handleOnFocus,
+    onBlur: handleOnBlur,
+    ref: inputRef,
+    placeholder: isWithoutLabel && placeholder,
+    type: 'text',
+    id: value,
+    value,
+    onChange: handleOnChange,
+    autoFocus: (asPath === ROUTES.contact.path && placeholder.includes('Name')),
+  };
+
+  useEffect(() => {
+    if (isTextArea && inputRef && inputRef.current) {
+      autosize(inputRef.current);
+    }
+  }, []);
+
   return (
     <OutsideClickHandler onOutsideClick={handleOnOutsideClick}>
       <div className={animatedInput} onClick={handleOnClick}>
         {!isWithoutLabel && <label htmlFor={value}>{placeholder}</label>}
-        <input
-          onFocus={handleOnFocus}
-          onBlur={handleOnBlur}
-          ref={inputRef}
-          placeholder={isWithoutLabel && placeholder}
-          type="text"
-          id={value}
-          value={value}
-          onChange={handleOnChange}
-        />
+        {isTextArea ? <textarea {...inputOptions} rows={1} /> : <input {...inputOptions} />}
         {isRequired && <span className={styles.required}>*</span>}
         {!isValidate && value !== '' && <span className={styles.invalid}>INVALID</span>}
       </div>
@@ -73,6 +92,7 @@ AnimatedInput.defaultProps = {
   type: '',
   isRequired: false,
   isAttached: false,
+  isTextArea: false,
 };
 
 AnimatedInput.propTypes = {
@@ -85,6 +105,7 @@ AnimatedInput.propTypes = {
   isWithoutLabel: PropTypes.bool,
   isRequired: PropTypes.bool,
   isAttached: PropTypes.bool,
+  isTextArea: PropTypes.bool,
 };
 
 export default AnimatedInput;

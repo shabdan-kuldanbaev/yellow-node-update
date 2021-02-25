@@ -9,16 +9,12 @@
     margin-top: 40px;
   }
 
-  @include phone {
-    margin-top: 0;
-  }
-
   .attachmentManage {
     @include flex(row, flex-start, center);
     position: relative;
     width: 100%;
 
-    &>div {
+    & > div {
       width: 100%;
 
       div {
@@ -26,16 +22,22 @@
       }
     }
 
-    &>label {
+    & > label {
       position: absolute;
       padding: 4px 0;
       border: 0 none;
       cursor: pointer;
       right: 0;
-      top: 50%;
+      bottom: 0;
       margin-top: -.9em;
 
       svg {
+        height: auto;
+
+        @include phone {
+          width: 13px;
+        }
+        
         g {
           path {
             fill: $nobel;
@@ -73,8 +75,6 @@
     will-change: transform;
     transform: translateY(-10px);
     width: 100%;
-    max-height: 150px;
-    overflow-y: scroll;
 
     .file {
       width: auto;
@@ -123,6 +123,17 @@
         outline: none;
         background-color: transparent;
         color: $silver;
+        cursor: pointer;
+      }
+    }
+
+    .moreFilesLink {
+      @include flex(column, center, center);
+      padding: 5px 0;
+
+      label {
+        color: $silver;
+        text-decoration: underline;
         cursor: pointer;
       }
     }

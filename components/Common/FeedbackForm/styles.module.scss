@@ -31,7 +31,8 @@
     font-weight: 500;
   }
 
-  input {
+  input,
+  textarea {
     font-size: 1.1875rem;
     padding-top: 0;
     padding-bottom: 8px;
@@ -86,8 +87,6 @@
 
     span {
       font-size: 1.1875rem;
-      padding-bottom: 20px;
-      color: $boulder;
 
       @include phone {
         font-size: 1.125rem;
@@ -101,47 +100,6 @@
       @include phone {
         font-size: 1.125rem;
       }
-    }
-
-    :global(.rc-slider) {
-      margin-top: 20px;
-    }
-
-    :global(.rc-slider-rail) {
-      background-color: $black-haze;
-    }
-
-    :global(.rc-slider-track) {
-      background-color: $black;
-    }
-
-    :global(.rc-slider-dot) {
-      border: 2px solid $scorpion;
-      background-color: $scorpion;
-    }
-
-    :global(.rc-slider-handle) {
-      width: 14px !important;
-      height: 14px !important;
-      border: solid 3px $black;
-      background-color: $white;
-
-      &:active,
-      &:focus {
-        box-shadow: none;
-      }
-    }
-
-    :global(.rc-slider-dot-active) {
-      border: 2px solid $turbo-100;
-      background-color: $turbo-100;
-    }
-  }
-
-  .initialBudget {
-    :global(.rc-slider-handle) {
-      border: solid 3px $black;
-      background-color: $white;
     }
   }
 

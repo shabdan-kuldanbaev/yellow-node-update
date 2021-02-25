@@ -5,16 +5,18 @@ import React, {
 } from 'react';
 import ReactGA from 'react-ga';
 import { wrapper } from 'redux/store';
-import { ParallaxProvider } from 'react-scroll-parallax';
 import Router from 'next/router';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { Layout } from 'containers';
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
+import { customTheme } from 'styles/muiTheme';
 
 const App = ({ Component, pageProps }) => {
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
   const [isPageLoaded, setPageLoad] = useState(true);
+  const muiTheme = createMuiTheme(customTheme);
 
   useEffect(() => {
     ReactGA.initialize(process.env.GOOGLE_TRACK_ID);
@@ -34,7 +36,7 @@ const App = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <ParallaxProvider>
+    <ThemeProvider theme={muiTheme}>
       <Layout
         isLoading={isPageLoaded}
         theme={theme}
@@ -46,7 +48,7 @@ const App = ({ Component, pageProps }) => {
           {...pageProps}
         />
       </Layout>
-    </ParallaxProvider>
+    </ThemeProvider>
   );
 };
 

@@ -9,8 +9,6 @@ es6promise.polyfill();
 
 export function* loadJSON() {
   try {
-    yield put({ type: actionTypes.SET_LOADING_SCREEN_COMPLETED, payload: false });
-
     const { data } = yield call(API.getJSON);
 
     yield put({ type: actionTypes.GET_JSON_SUCCESS, payload: data });

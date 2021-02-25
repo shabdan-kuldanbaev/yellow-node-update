@@ -4,13 +4,12 @@ import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
 import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
-import { selectIsLoadingScreenCompleted, selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import {
   SelectionBlock,
   ArticlesList,
   Paginator,
   MetaTags,
-  LoadingScreen,
 } from 'components';
 import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { PAGES } from 'utils/constants';
@@ -26,7 +25,6 @@ const BlogContainer = ({
   subscribe,
   setIsSubscribed,
   currentPage,
-  isLoadingScreenCompleted,
 }) => {
   const { asPath, pathname } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
@@ -42,22 +40,20 @@ const BlogContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
-      {!isLoadingScreenCompleted ? <LoadingScreen /> : (
-        <section ref={introSection} className={styles.blog}>
-          {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
-          <ArticlesList
-            articles={articles}
-            isBlogPage
-            currentPage={currentPage}
-            handleOnFormSubmit={handleOnFormSubmit}
-          />
-          <Paginator
-            arrows={arrows}
-            pagesCounter={pagesCounter}
-            currentPage={currentPage}
-          />
-        </section>
-      )}
+      <section ref={introSection} className={styles.blog}>
+        {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
+        <ArticlesList
+          articles={articles}
+          isBlogPage
+          currentPage={currentPage}
+          handleOnFormSubmit={handleOnFormSubmit}
+        />
+        <Paginator
+          arrows={arrows}
+          pagesCounter={pagesCounter}
+          currentPage={currentPage}
+        />
+      </section>
     </Fragment>
   );
 };
@@ -73,7 +69,6 @@ BlogContainer.propTypes = {
   subscribe: PropTypes.func.isRequired,
   totalArticles: PropTypes.number.isRequired,
   setIsSubscribed: PropTypes.func.isRequired,
-  isLoadingScreenCompleted: PropTypes.bool.isRequired,
   deviceLimit: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
 };
@@ -82,7 +77,6 @@ export default connect(
   (state) => ({
     articles: selectArticles(state),
     totalArticles: selectTotalCount(state),
-    isLoadingScreenCompleted: selectIsLoadingScreenCompleted(state),
     isMobileResolution: selectIsMobileResolutions(state),
   }),
   {

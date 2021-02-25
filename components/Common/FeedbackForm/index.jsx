@@ -4,7 +4,7 @@ import React, {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
-import Slider from 'rc-slider';
+import { useRouter } from 'next/router';
 import cn from 'classnames';
 import {
   Upload,
@@ -12,12 +12,12 @@ import {
   ButtonMore,
   Animated,
 } from 'components';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { withValidateEmail } from 'hocs';
-import { budget } from './utils/data';
+import { SliderWrapper } from './SliderWrapper';
+import { budget, marks } from './utils/data';
 import styles from './styles.module.scss';
-import 'rc-slider/assets/index.css';
 
 const FeedbackForm = ({
   email,
@@ -28,6 +28,7 @@ const FeedbackForm = ({
   handleOnClick,
   formKey,
 }) => {
+  const { asPath } = useRouter();
   const [fullName, setFullName] = useState('');
   const [projectBudget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
@@ -38,7 +39,8 @@ const FeedbackForm = ({
     ...budgetData,
     defaultValue: budgetData.min,
     step: 20000,
-    onChange: (value) => setBudget(addThousandsSeparators(value)),
+    onChange: (event, value) => setBudget(addThousandsSeparators(value)),
+    marks,
   };
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
@@ -46,13 +48,14 @@ const FeedbackForm = ({
     opasityDuration: 1,
     transformDuration: 1,
   };
+  const isContactPage = asPath === ROUTES.contact.path;
 
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
   const handleOnDescriptionChange = ({ target: { value } }) => setDescription(value);
   const handleOnSelectedFilesChange = ({ target: { files } }) => {
     const arrFiles = [];
     for (let i = 0; i < files.length; i += 1) arrFiles.push(files[i]);
-    setFiles(arrFiles);
+    setFiles([...selectedFiles, ...arrFiles]);
   };
   const handleOnUnpinFile = ({ target: { dataset } }) => {
     setFiles(selectedFiles.filter((file) => file.name !== dataset.fileName));
@@ -81,6 +84,7 @@ const FeedbackForm = ({
             placeholder="Name *"
             isValidate
             isWithoutLabel
+            isContactPage={isContactPage}
           />
         </Animated>
         <Animated {...animatedProps} transitionDelay={550}>
@@ -107,7 +111,7 @@ const FeedbackForm = ({
                 </Fragment>
               )
               : <span>Your budget</span>}
-            <Slider {...sliderSettings} />
+            <SliderWrapper {...sliderSettings} />
           </div>
         </Animated>
       )}

@@ -3,11 +3,16 @@
 .fullscreenEstimation {
   @include flex(column, center, center, nowrap);
   z-index: 9999999;
+  min-height: 100vh;
+  height: max-content;
 
   & > div {
     @include flex(column, center, center);
     width: calc(100% - 40px);
     margin-bottom: 70px;
+    position: absolute;
+    top: 0;
+    transform: translateY(30%);
 
     @include phone {
       padding: 0 20px;
@@ -75,6 +80,10 @@
       margin-bottom: 0;
       max-width: 1000px;
       width: 100%;
+
+      & > div:last-child > a > div {
+        margin: 60px auto;
+      }
     }
   }
 }
