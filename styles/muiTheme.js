@@ -14,5 +14,8 @@ export const customTheme = {
     background: {
       default: '#fff',
     },
+    text: {
+      secondary: '#b8b8b8',
+    },
   },
 };

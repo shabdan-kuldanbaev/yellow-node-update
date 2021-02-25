@@ -49,7 +49,7 @@ const AnimatedInput = ({
   const handleOnBlur = () => {
     setFocus(false);
     setActive(false);
-    if (type === 'email' && value !== '') handleOnBlurEmail && handleOnBlurEmail(value);
+    if (type === 'email' && value !== '' && handleOnBlurEmail) handleOnBlurEmail(value);
   };
 
   const handleOnOutsideClick = () => {

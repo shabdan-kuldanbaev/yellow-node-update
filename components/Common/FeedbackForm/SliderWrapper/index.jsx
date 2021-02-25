@@ -2,14 +2,14 @@ import { withStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import { commonSliderStyles } from './utils/data';
 
-export const SliderWrapper = withStyles({
+export const SliderWrapper = withStyles((theme) => ({
   root: {
     height: 8,
   },
   thumb: {
     height: 24,
     width: 24,
-    backgroundColor: '#fff',
+    backgroundColor: theme.palette.background.default,
     border: '2px solid currentColor',
     marginTop: -8,
     marginLeft: -12,
@@ -31,7 +31,7 @@ export const SliderWrapper = withStyles({
     ...commonSliderStyles,
   },
   markLabel: {
-    color: '#b8b8b8',
+    color: theme.palette.text.secondary,
     top: 30,
     '&[data-index="0"]': {
       left: '1% !important',
@@ -52,4 +52,4 @@ export const SliderWrapper = withStyles({
       },
     },
   },
-})(Slider);
+}))(Slider);

@@ -1,19 +1,20 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
-const LinearIndeterminate = ({ IsPageReadyToDisplay }) => {
+const LinearIndeterminate = ({ isPageReadyToDisplay }) => {
   const linearRef = useRef();
 
   useEffect(() => {
-    if (IsPageReadyToDisplay) {
-      linearRef.current && linearRef.current.classList.add(styles.hide, styles.setDisplay);
+    if (isPageReadyToDisplay && linearRef.current) {
+      linearRef.current.classList.add(styles.hide, styles.setDisplay);
     } else {
-      linearRef.current && linearRef.current.classList.remove(styles.hide, styles.setDisplay);
+      linearRef.current.classList.remove(styles.hide, styles.setDisplay);
     }
-  }, [IsPageReadyToDisplay]);
+  }, [isPageReadyToDisplay]);
 
   return (
     <div className={styles.linear} ref={linearRef}>
@@ -23,5 +24,9 @@ const LinearIndeterminate = ({ IsPageReadyToDisplay }) => {
 };
 
 export default connect(
-  (state) => ({ IsPageReadyToDisplay: selectIsPageReadyToDisplay(state) }),
+  (state) => ({ isPageReadyToDisplay: selectIsPageReadyToDisplay(state) }),
 )(LinearIndeterminate);
+
+LinearIndeterminate.propTypes = {
+  isPageReadyToDisplay: PropTypes.bool.isRequired,
+};
