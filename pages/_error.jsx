@@ -9,7 +9,7 @@ const Error = ({ statusCode, err }) => (
   </p>
 );
 
-Error.getInitialProps = async ({ ctx: { err, res } }) => {
+Error.getInitialProps = async ({ err, res }) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
 
   if (statusCode === 404) {
