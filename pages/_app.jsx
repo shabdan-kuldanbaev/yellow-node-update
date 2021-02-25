@@ -6,17 +6,16 @@ import React, {
 import ReactGA from 'react-ga';
 import { wrapper } from 'redux/store';
 import Router from 'next/router';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core';
 import { Layout } from 'containers';
+import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
-import { customTheme } from 'styles/muiTheme';
 
 const App = ({ Component, pageProps }) => {
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
   const [isPageLoaded, setPageLoad] = useState(true);
-  const muiTheme = createMuiTheme(customTheme);
 
   useEffect(() => {
     ReactGA.initialize(process.env.GOOGLE_TRACK_ID);
@@ -36,7 +35,7 @@ const App = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <ThemeProvider theme={muiTheme}>
+    <ThemeProvider theme={customTheme}>
       <Layout
         isLoading={isPageLoaded}
         theme={theme}
@@ -52,12 +51,13 @@ const App = ({ Component, pageProps }) => {
   );
 };
 
-App.getInitialProps = async ({ Component, ctx }) => {
-  const pageProps = Component.getInitialProps
-    ? await Component.getInitialProps(ctx)
-    : {};
-
-  return { pageProps };
-};
+App.getInitialProps = async ({ Component, ctx }) => ({
+  pageProps: {
+    ...(Component.getInitialProps
+      ? await Component.getInitialProps(ctx)
+      : {}
+    ),
+  },
+});
 
 export default wrapper.withRedux(App);

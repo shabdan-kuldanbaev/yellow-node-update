@@ -18,7 +18,7 @@ const buildUrlObject = (data) => data.map((item) => ({
 
 const Sitemap = () => (null);
 
-Sitemap.getInitialProps = async ({ ctx: { res } }) => {
+Sitemap.getInitialProps = async ({ res }) => {
   try {
     const { items = [] } = await contentfulClient.getEntries({
       contentType: 'article',
