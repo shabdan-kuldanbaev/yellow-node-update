@@ -9,10 +9,12 @@ const LinearIndeterminate = ({ isPageReadyToDisplay }) => {
   const linearRef = useRef();
 
   useEffect(() => {
-    if (isPageReadyToDisplay && linearRef.current) {
-      linearRef.current.classList.add(styles.hide, styles.setDisplay);
-    } else {
-      linearRef.current.classList.remove(styles.hide, styles.setDisplay);
+    if (linearRef.current) {
+      if (isPageReadyToDisplay) {
+        linearRef.current.classList.add(styles.hide, styles.setDisplay);
+      } else {
+        linearRef.current.classList.remove(styles.hide, styles.setDisplay);
+      }
     }
   }, [isPageReadyToDisplay]);
 
