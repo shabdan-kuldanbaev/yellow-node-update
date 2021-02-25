@@ -25,10 +25,10 @@ const LinearIndeterminate = ({ isPageReadyToDisplay }) => {
   );
 };
 
-export default connect(
-  (state) => ({ isPageReadyToDisplay: selectIsPageReadyToDisplay(state) }),
-)(LinearIndeterminate);
-
 LinearIndeterminate.propTypes = {
   isPageReadyToDisplay: PropTypes.bool.isRequired,
 };
+
+export default connect(
+  (state) => ({ isPageReadyToDisplay: selectIsPageReadyToDisplay(state) }),
+)(LinearIndeterminate);
