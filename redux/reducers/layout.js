@@ -48,6 +48,7 @@ const handlers = {
     isPageReadyToDisplay: false,
     error: payload,
   }),
+  [actionTypes.SET_PAGE_READY_TO_DISPLAY]: (state, { payload }) => ({ ...state, isPageReadyToDisplay: payload }),
   DEFAULT: (state) => state,
 };
 

@@ -182,6 +182,11 @@
     letter-spacing: 0.3px;
     color: $white;
     margin-top: 80px;
+    display: flex;
+
+    & > span {
+      display: block;
+    }
 
     @include higher-phone {
       @include flex(column, flex-start, center);

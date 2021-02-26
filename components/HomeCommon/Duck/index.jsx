@@ -99,8 +99,8 @@ export const Duck = ({
   // let camera;
 
   // TODO remove this and add the parallax component
-  const calc = (o) => `translateY(${o * 0.13}px)`;
-  const calcForDuck = (o) => `translateY(${o * 0.09}px)`;
+  const calc = (o) => `translateY(${o * 0.2}px)`;
+  const calcForDuck = (o) => `translateY(${o * (isMobile ? -0.04 : -0.10)}px)`;
   const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
   const [{ offset: duckOffset }, setDuckProps] = useSpring(() => ({ offset: 0 }));
   const handleOffset = () => {
@@ -242,8 +242,9 @@ export const Duck = ({
           mesh.geometry.attributes.position.needsUpdate = true;
           scatterStep = 0;
         });
-      } else if (window.innerWidth < mobileResolution) r = 1;
-      else {
+      } else if (window.innerWidth < mobileResolution) {
+        r = 1;
+      } else {
         meshes.forEach((mesh) => { three.setRotateAnimation(mesh, options); });
         meshClones.forEach((mesh) => { three.setRotateAnimation(mesh, options); });
       }

@@ -22,6 +22,7 @@ import {
 } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import styles from './styles.module.scss';
 
 export const Home = ({
   theme,
@@ -33,6 +34,9 @@ export const Home = ({
 }) => {
   const gradientRef = useRef(null);
   const { content } = getDocumentFields(photosData, ['content']);
+  const loadingPlaceholder = !isFirstHomepageVisit
+    ? <LoadingScreen />
+    : <div className={styles.placeholder} />;
 
   useEffect(() => {
     fetchPage({ slug: PAGES.homepage });
@@ -41,7 +45,7 @@ export const Home = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.homepage} />
-      {(!isPageReadyToDisplay && !isFirstHomepageVisit) ? <LoadingScreen /> : (
+      {!isPageReadyToDisplay ? loadingPlaceholder : (
         <Fragment>
           <Intro theme={theme} introSection={introSection} />
           <Portfolio gradientRef={gradientRef} />

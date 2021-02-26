@@ -7,6 +7,7 @@ import React, {
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
+import cn from 'classnames';
 import { findArticles, clearFoundArticles } from 'redux/actions/blog';
 import { selectFoundArticles } from 'redux/selectors/blog';
 import { ArticlesList, ModalWindow } from 'components';
@@ -21,12 +22,20 @@ const FullscreenSearch = ({
 }) => {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
+  const [isMessageHidden, setIsMessageHidden] = useState(true);
 
   const delayedQuery = useCallback(debounce((value) => findArticles({ value }), 1000), []);
+  const delayedMessage = useCallback(debounce(() => setIsMessageHidden(false), 1500), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
 
     if (value.length > 1) delayedQuery(value);
+
+    if (value.length > 1 && !(foundArticles && foundArticles.length)) {
+      delayedMessage();
+    } else {
+      setIsMessageHidden(true);
+    }
   };
   const handleOnCloseModalWindow = () => {
     closeFullscreenSearch();
@@ -39,6 +48,24 @@ const FullscreenSearch = ({
       inputRef.current.focus();
     }
   }, [isFullscreenSearch]);
+
+  const resultOfSearch = (foundArticles && foundArticles.length)
+    ? (
+      <ArticlesList
+        articles={foundArticles}
+        isLoading={false}
+        page={2}
+        isSearch
+      />
+    )
+    : (
+      <span className={cn(styles.nothingFound, {
+        [styles.hidden]: isMessageHidden,
+      })}
+      >
+        Nothing Found. Please try again with some different keywords.
+      </span>
+    );
 
   return (
     <ModalWindow
@@ -57,15 +84,10 @@ const FullscreenSearch = ({
         />
       </div>
       <div className={styles.foundArticles}>
-        {(!inputValue || !(foundArticles && foundArticles.length))
-          ? <span className={styles.nothingFound}>Nothing Found. Please try again with some different keywords.</span>
+        {inputValue
+          ? resultOfSearch
           : (
-            <ArticlesList
-              articles={foundArticles}
-              isLoading={false}
-              page={2}
-              isSearch
-            />
+            <span className={styles.nothingFound}>Type some words to search.</span>
           )}
       </div>
     </ModalWindow>
