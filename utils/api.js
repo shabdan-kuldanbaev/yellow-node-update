@@ -3,11 +3,10 @@ import { rootUrl } from 'utils/helper';
 
 const apiClient = axios.create({
   baseURL: rootUrl,
-  // TODO add the needed header to each request
-  //  headers: {
-  //   'Content-Type': 'aplication/json',
-  //   Accept: 'aplication/json',
-  // },
+  headers: {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+  },
 });
 
 export const API = {

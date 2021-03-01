@@ -48,3 +48,11 @@ export const ANIMATED_TYPE = {
   gsap: 'gsap',
   imageZoom: 'imageZoom',
 };
+
+export const CATEGORY_TAGS = {
+  'how-we-work': 'How we work',
+  marketing: 'Marketing',
+  yellow: 'Yellow',
+  'software-chat': 'Software Chat',
+  'software-development': 'Software Development',
+};
