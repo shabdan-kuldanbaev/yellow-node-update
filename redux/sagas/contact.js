@@ -12,9 +12,28 @@ import { API } from 'utils/api';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* sendEmail({ payload }) {
+function* sendEmail({
+  payload: {
+    fullName,
+    email,
+    projectDescription,
+    selectedFiles,
+    isSendNDAChecked,
+    projectBudget,
+  },
+}) {
   try {
-    const response = yield call(API.sendEmail, payload);
+    const formData = new window.FormData();
+
+    [...selectedFiles].map((file) => formData.append('files', file));
+    formData.append('fullName', fullName);
+    formData.append('email', email);
+    formData.append('projectDescription', projectDescription);
+
+    if (isSendNDAChecked) formData.append('isSendNDAChecked', isSendNDAChecked);
+    if (projectBudget) formData.append('projectBudget', projectBudget);
+
+    const response = yield call(API.sendEmail, formData);
 
     ReactGA.event({
       category: 'Contact form',

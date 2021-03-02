@@ -50,9 +50,9 @@ export const ANIMATED_TYPE = {
 };
 
 export const CATEGORY_TAGS = {
-  'how-we-work': 'How we work',
-  marketing: 'Marketing',
-  yellow: 'Yellow',
-  'software-chat': 'Software Chat',
-  'software-development': 'Software Development',
+  ...Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
+    acc[slug] = title;
+
+    return acc;
+  }, {}),
 };
