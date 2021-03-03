@@ -47,6 +47,7 @@ export const ANIMATED_TYPE = {
   isParallaxSpring: 'isParallaxSpring',
   gsap: 'gsap',
   imageZoom: 'imageZoom',
+  homepageParallax: 'homepageParallax',
 };
 
 export const CATEGORY_TAGS = {
@@ -55,4 +56,13 @@ export const CATEGORY_TAGS = {
 
     return acc;
   }, {}),
+};
+
+export const FEEDBACK_FORM_FIELDS = {
+  fullName: 'fullName',
+  email: 'email',
+  projectDescription: 'projectDescription',
+  isSendNDAChecked: 'isSendNDAChecked',
+  projectBudget: 'projectBudget',
+  files: 'files',
 };

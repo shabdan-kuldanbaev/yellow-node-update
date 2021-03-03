@@ -19,7 +19,7 @@ const FeedbackFormContainer = ({ sendEmail }) => {
       fullName,
       email,
       projectDescription,
-      selectedFiles,
+      files: selectedFiles,
       isSendNDAChecked,
     });
   };
