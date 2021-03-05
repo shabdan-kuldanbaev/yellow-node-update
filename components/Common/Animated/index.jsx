@@ -7,7 +7,6 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { CustomAnimation } from './CustomAnimation';
 import { JSONAnimation } from './JSONAnimation';
 import { ParallaxWrapper } from './ParallaxSpring';
-import { HomepageParallax } from './HomepageParallax';
 import ImageZoom from './ImageZoom';
 import { Gsap } from './Gsap';
 
@@ -58,12 +57,6 @@ export const Animated = (props) => {
       <Gsap {...props}>
         {props.children}
       </Gsap>
-    );
-  case ANIMATED_TYPE.homepageParallax:
-    return (
-      <HomepageParallax {...props}>
-        {props.children}
-      </HomepageParallax>
     );
   default:
     return (

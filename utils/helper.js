@@ -153,7 +153,7 @@ export const getFormDataFromFeedback = (data) => {
   Object.entries(FEEDBACK_FORM_FIELDS).forEach(([key]) => {
     if (data[key]) {
       if (key === FEEDBACK_FORM_FIELDS.files) {
-        [...data[key]].map((file) => formData.append('files', file));
+        [...data[key]].forEach((file) => formData.append(key, file));
       } else {
         formData.append(key, data[key]);
       }

@@ -15,8 +15,7 @@ es6promise.polyfill();
 
 function* sendEmail({ payload }) {
   try {
-    const formData = getFormDataFromFeedback(payload);
-    const response = yield call(API.sendEmail, formData);
+    const response = yield call(API.sendEmail, getFormDataFromFeedback(payload));
 
     ReactGA.event({
       category: 'Contact form',

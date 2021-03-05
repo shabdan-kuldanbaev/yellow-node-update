@@ -400,20 +400,22 @@ export const Duck = ({
     <Fragment>
       <div className={styles.text} ref={containerText}>
         <Animated
-          type={ANIMATED_TYPE.homepageParallax}
+          type={ANIMATED_TYPE.isParallaxSpring}
           position="absolute"
           speed={0.2}
-          containerRef={containerText}
+          elementRef={containerText}
+          isHomepageIntro
         >
           <h1 ref={sloganRef} className="letter-container" />
         </Animated>
       </div>
       <Animated
-        type={ANIMATED_TYPE.homepageParallax}
+        type={ANIMATED_TYPE.isParallaxSpring}
         className={styles.canvasContainer}
-        containerRef={containerCanvas}
+        elementRef={containerCanvas}
         position="relative"
         speed={isMobile ? -0.04 : -0.10}
+        isHomepageIntro
       />
     </Fragment>
   );

@@ -47,7 +47,6 @@ export const ANIMATED_TYPE = {
   isParallaxSpring: 'isParallaxSpring',
   gsap: 'gsap',
   imageZoom: 'imageZoom',
-  homepageParallax: 'homepageParallax',
 };
 
 export const CATEGORY_TAGS = {
