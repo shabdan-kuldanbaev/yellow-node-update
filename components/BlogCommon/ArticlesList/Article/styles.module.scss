@@ -99,8 +99,7 @@
       }
 
       .title {
-        margin: 0;
-        margin-bottom: 20px;
+        margin: 0 0 20px 0;
 
         & > span {
           font-weight: 600;
@@ -133,7 +132,6 @@
             font-size: 1.1875rem;
             font-weight: bold;
             margin-bottom: 20px;
-            line-height: 24px;
             font-weight: 550;
             color: $mine-shaft;
             line-height: 1.5;

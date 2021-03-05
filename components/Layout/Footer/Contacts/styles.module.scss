@@ -11,7 +11,7 @@
     font-size: 1.8rem;
   }
 
-  &>div {
+  & > div {
     display: block;
     text-align: left;
 
@@ -203,7 +203,7 @@
     text-align: center;
     position: relative;
 
-    &>div:nth-of-type(1) {
+    & > div:nth-of-type(1) {
       display: none;
       z-index: 5;
 
@@ -218,7 +218,7 @@
       $bxshadow: ();
 
       @for $i from 1 to $stars {
-        $bxshadow: append($bxshadow, (random(400) + 0px) (random(200) + 0px) gray, comma);
+        $bxshadow: append($bxshadow, (random(400) + 0) (random(200) + 0) gray, comma);
       }
 
       @return unquote($bxshadow);
@@ -257,7 +257,6 @@
       }
 
       .stars3 {
-        position: absolute;
         position: absolute;
         height: 2px;
         width: 2px;
