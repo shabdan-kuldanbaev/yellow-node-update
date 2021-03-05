@@ -22,6 +22,7 @@ export const MetaTags = ({
   const getKeywords = (keywords) => (isArticle && articleMetaData.keywords) || keywords;
   const getImage = (img) => (isArticle && articleMetaData.image) || img;
   const getUrl = (url) => ((isArticle || isBlogCategory) && `${rootUrl}${asPath}`) || url;
+  const getDate = (date) => (isArticle && articleMetaData.date) || date;
 
   return (
     <Head>
@@ -37,7 +38,7 @@ export const MetaTags = ({
             <title itemProp="headline">{title}</title>
             <meta name="description" content={getDescription(description)} />
             <meta name="keywords" content={getKeywords(keywords)} />
-            <meta name="date" content="dfdfdfsdfsdfsdfsfgsgfsgsgssg" />
+            <meta name="date" content={getDate(new Date())} />
             <link rel="canonical" href={getUrl(url)} />
             <meta property="og:locale" content="en_US" />
             <meta property="og:type" content="website" />

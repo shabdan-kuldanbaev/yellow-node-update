@@ -1,0 +1,12 @@
+@import 'styles/utils/mixins';
+
+.article {
+  width: calc(25% - 2 * 12px);
+  margin: 12px;
+
+  .imagePlaceholder {
+    max-height: 500px;
+    min-height: 300px;
+    height: 40vh;
+  }
+}

@@ -25,7 +25,7 @@ const App = ({ Component, pageProps }) => {
   }, []);
 
   useEffect(() => {
-    const handleRouteChangeStart = () => setPageLoad(false);
+    const handleRouteChangeStart = () => setPageLoad(true);
     const handleRouteChangeComplete = () => dispatch(setPageReadyToDisplay(false));
 
     Router.events.on('routeChangeStart', handleRouteChangeStart);

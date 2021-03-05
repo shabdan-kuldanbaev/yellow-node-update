@@ -14,7 +14,7 @@ export const SliderWrapper = withStyles((theme) => ({
     marginTop: -8,
     marginLeft: -12,
     '&:focus,&:hover,&$active': {
-      boxShadow: '0px 0px 0px 8px rgba(255, 230, 3, 0.16)',
+      boxShadow: '0 0 0 8px rgba(255, 230, 3, 0.16)',
     },
   },
   valueLabel: {

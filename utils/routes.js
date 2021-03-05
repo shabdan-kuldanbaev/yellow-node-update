@@ -1,3 +1,5 @@
+import { isNumeric } from 'utils/helper';
+
 export const routes = {
   homepage: {
     title: 'Home',
@@ -19,9 +21,13 @@ export const routes = {
   },
   blog: {
     title: 'Blog',
-    path: '/blog/latest/1',
-    getPath: (category = 'latest', page = '1') => `/blog/${category}/${page}`,
-    dynamicPath: '/blog/[slug]/[page]',
+    path: '/blog',
+    getPath: (category, page = '1') => (!category || isNumeric(category)
+      ? `/blog/${page}`
+      : `/blog/${category}/${page}`),
+    dynamicPath: '/blog',
+    dynamicPathWithPage: '/blog/[slug]',
+    dynamicPathWithCategory: '/blog/[slug]/[page]',
     slug: 'blog',
     categories: [
       {

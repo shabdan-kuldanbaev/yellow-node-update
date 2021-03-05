@@ -88,30 +88,4 @@
       margin-top: 0;
     }
   }
-
-  .nothingFound {
-    font-size: 1.0938rem;
-    font-weight: 500;
-    font-family: $default-font;
-    color: $tundora;
-    margin: 0;
-    padding: 0;
-    right: 0;
-
-    max-width: 1500px;
-    width: 100%;
-
-    @include macbook-fifteen {
-      width: calc(100% - (2 * 55px));
-    }
-
-    @include phone {
-      line-height: 24px;
-      width: 100%;
-    }
-  }
-
-  .hidden {
-    display: none;
-  }
 }

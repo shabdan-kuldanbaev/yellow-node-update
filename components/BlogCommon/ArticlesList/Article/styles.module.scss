@@ -156,12 +156,8 @@
         text-align: left;
 
         @include full-hd {
-          font-size: 0.820vw;
-          line-height: 1.55vw;
-        }
-
-        @include full-hd {
           font-size: 0.850vw;
+          line-height: 1.55vw;
         }
 
         @include tablet {

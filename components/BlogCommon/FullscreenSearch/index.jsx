@@ -7,10 +7,10 @@ import React, {
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
-import cn from 'classnames';
 import { findArticles, clearFoundArticles } from 'redux/actions/blog';
 import { selectFoundArticles } from 'redux/selectors/blog';
-import { ArticlesList, ModalWindow } from 'components';
+import { ModalWindow } from 'components';
+import { ResultOfSearch } from './ResultOfSearch';
 import styles from './styles.module.scss';
 
 const FullscreenSearch = ({
@@ -25,7 +25,7 @@ const FullscreenSearch = ({
   const [isMessageHidden, setIsMessageHidden] = useState(true);
 
   const delayedQuery = useCallback(debounce((value) => findArticles({ value }), 1000), []);
-  const delayedMessage = useCallback(debounce(() => setIsMessageHidden(false), 1500), []);
+  const delayedMessage = useCallback(debounce(() => setIsMessageHidden(false), 2000), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
 
@@ -49,24 +49,6 @@ const FullscreenSearch = ({
     }
   }, [isFullscreenSearch]);
 
-  const resultOfSearch = (foundArticles && foundArticles.length)
-    ? (
-      <ArticlesList
-        articles={foundArticles}
-        isLoading={false}
-        page={2}
-        isSearch
-      />
-    )
-    : (
-      <span className={cn(styles.nothingFound, {
-        [styles.hidden]: isMessageHidden,
-      })}
-      >
-        Nothing Found. Please try again with some different keywords.
-      </span>
-    );
-
   return (
     <ModalWindow
       isModalWindow={isFullscreenSearch}
@@ -85,10 +67,8 @@ const FullscreenSearch = ({
       </div>
       <div className={styles.foundArticles}>
         {inputValue
-          ? resultOfSearch
-          : (
-            <span className={styles.nothingFound}>Type some words to search.</span>
-          )}
+          ? <ResultOfSearch foundArticles={foundArticles} isMessageHidden={isMessageHidden} />
+          : <span className={styles.nothingFound}>Type some words to search.</span>}
       </div>
     </ModalWindow>
   );
