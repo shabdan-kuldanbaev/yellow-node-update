@@ -147,7 +147,7 @@ export const loadDuck = async () => {
   }
 };
 
-export const getFormDataFromFeedback = (data) => {
+export const getFeedbackFormData = (data) => {
   const formData = new window.FormData();
 
   Object.entries(FEEDBACK_FORM_FIELDS).forEach(([key]) => {

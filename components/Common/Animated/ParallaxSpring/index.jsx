@@ -1,8 +1,4 @@
-import React, {
-  useRef,
-  useEffect,
-  Fragment,
-} from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { animated, useSpring } from 'react-spring/web.cjs';
 import cn from 'classnames';
@@ -18,21 +14,27 @@ export const ParallaxWrapper = ({
   const containerRef = useRef(null);
   const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
   const calc = (o) => `translateY(${o * (isHomepageIntro ? speed : 0.09)}px)`;
+  const classNames = cn({ [className]: className });
+  const style = {
+    position: position || 'absolute',
+    transform: offset.interpolate(calc),
+  };
 
   useEffect(() => {
     const handleOnScroll = () => {
       const { current: container } = isHomepageIntro ? elementRef : containerRef;
-      const { top: elemYOffset } = container.getBoundingClientRect();
       const { pageYOffset } = window;
 
-      if (isHomepageIntro) {
-        if (pageYOffset <= 0) {
-          set({ offset: 0 });
+      if (container) {
+        const { top: elemYOffset } = container.getBoundingClientRect();
+
+        if (isHomepageIntro) {
+          const offset = pageYOffset <= 0 ? 0 : pageYOffset - elemYOffset;
+
+          set({ offset });
         } else {
-          set({ offset: pageYOffset - elemYOffset });
+          set({ offset: elemYOffset });
         }
-      } else {
-        set({ offset: elemYOffset });
       }
     };
 
@@ -42,37 +44,36 @@ export const ParallaxWrapper = ({
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 
-  return (
-    <Fragment>
-      {isHomepageIntro ? (
+  const switchRenderer = (type) => {
+    switch (type) {
+    case true:
+      return (
         <animated.div
           ref={children ? null : elementRef}
-          className={cn({ [className]: className })}
-          style={{
-            position,
-            transform: offset.interpolate(calc),
-          }}
+          className={classNames}
+          style={style}
         >
           {children}
         </animated.div>
-      ) : (
+      );
+    default:
+      return (
         <div
           ref={containerRef}
-          className={cn({ [className]: className })}
+          className={classNames}
           style={{ position: 'relative' }}
         >
           <animated.div
-            style={{
-              position: 'absolute',
-              transform: offset.interpolate(calc),
-            }}
+            style={style}
           >
             {children}
           </animated.div>
         </div>
-      )}
-    </Fragment>
-  );
+      );
+    }
+  };
+
+  return switchRenderer(isHomepageIntro);
 };
 
 ParallaxWrapper.defaultProps = {
