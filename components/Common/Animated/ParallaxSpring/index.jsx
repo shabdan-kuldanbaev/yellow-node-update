@@ -44,36 +44,30 @@ export const ParallaxWrapper = ({
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, []);
 
-  const switchRenderer = (type) => {
-    switch (type) {
-    case true:
-      return (
-        <animated.div
-          ref={children ? null : elementRef}
-          className={classNames}
-          style={style}
-        >
+  switch (isHomepageIntro) {
+  case true:
+    return (
+      <animated.div
+        ref={children ? null : elementRef}
+        className={classNames}
+        style={style}
+      >
+        {children}
+      </animated.div>
+    );
+  default:
+    return (
+      <div
+        ref={containerRef}
+        className={classNames}
+        style={{ position: 'relative' }}
+      >
+        <animated.div style={style}>
           {children}
         </animated.div>
-      );
-    default:
-      return (
-        <div
-          ref={containerRef}
-          className={classNames}
-          style={{ position: 'relative' }}
-        >
-          <animated.div
-            style={style}
-          >
-            {children}
-          </animated.div>
-        </div>
-      );
-    }
-  };
-
-  return switchRenderer(isHomepageIntro);
+      </div>
+    );
+  }
 };
 
 ParallaxWrapper.defaultProps = {
