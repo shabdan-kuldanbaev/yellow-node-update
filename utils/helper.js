@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
-import { PAGES } from 'utils/constants';
+import { PAGES, FEEDBACK_FORM_FIELDS } from 'utils/constants';
 import {
   phoneResolution,
   horizontalMobile,
@@ -145,4 +145,20 @@ export const loadDuck = async () => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const getFeedbackFormData = (data) => {
+  const formData = new window.FormData();
+
+  Object.entries(FEEDBACK_FORM_FIELDS).forEach(([key]) => {
+    if (data[key]) {
+      if (key === FEEDBACK_FORM_FIELDS.files) {
+        [...data[key]].forEach((file) => formData.append(key, file));
+      } else {
+        formData.append(key, data[key]);
+      }
+    }
+  });
+
+  return formData;
 };

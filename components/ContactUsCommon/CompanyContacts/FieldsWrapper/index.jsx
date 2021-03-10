@@ -10,8 +10,8 @@ export const FieldsWrapper = ({ animated: { field } }) => {
   case 'locationAdress':
     return (
       <div className={styles.locationAddress}>
-        <span>Nemiga 5, Minsk, Belarus</span>
-        <span>220030</span>
+        <span>5-303 Nemiga street Minsk</span>
+        <span>220030 Belarus</span>
       </div>
     );
   case 'phones':
@@ -27,11 +27,11 @@ export const FieldsWrapper = ({ animated: { field } }) => {
           +1 415 670 9070
         </LinkWrapper>
         <LinkWrapper
-          path="tel:+375 44 584 02 08"
+          path="tel:+375 29 311 52 49"
           isLocalLink
           googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
         >
-          +375 44 584 02 08
+          +375 29 311 52 49
         </LinkWrapper>
       </div>
     );

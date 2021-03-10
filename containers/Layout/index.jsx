@@ -49,7 +49,7 @@ export const Layout = ({
       fullName,
       email,
       projectDescription,
-      selectedFiles,
+      files: selectedFiles,
       isSendNDAChecked,
       projectBudget,
     });

@@ -48,3 +48,20 @@ export const ANIMATED_TYPE = {
   gsap: 'gsap',
   imageZoom: 'imageZoom',
 };
+
+export const CATEGORY_TAGS = {
+  ...Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
+    acc[slug] = title;
+
+    return acc;
+  }, {}),
+};
+
+export const FEEDBACK_FORM_FIELDS = {
+  fullName: 'fullName',
+  email: 'email',
+  projectDescription: 'projectDescription',
+  isSendNDAChecked: 'isSendNDAChecked',
+  projectBudget: 'projectBudget',
+  files: 'files',
+};
