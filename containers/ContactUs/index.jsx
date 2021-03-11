@@ -47,7 +47,7 @@ const ContactUsContainer = ({
       fullName,
       email,
       projectDescription,
-      selectedFiles,
+      files: selectedFiles,
       isSendNDAChecked,
       projectBudget,
     });

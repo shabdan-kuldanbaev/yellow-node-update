@@ -13,8 +13,9 @@ import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
-import { animated, useSpring } from 'react-spring';
+import { Animated } from 'components';
 import { mobileResolution } from 'utils/helper';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { animationTypes } from './utils/data';
 import {
   three,
@@ -97,20 +98,6 @@ export const Duck = ({
   // let movement = 0;
   // let composer;
   // let camera;
-
-  // TODO remove this and add the parallax component
-  const calc = (o) => `translateY(${o * 0.2}px)`;
-  const calcForDuck = (o) => `translateY(${o * (isMobile ? -0.04 : -0.10)}px)`;
-  const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
-  const [{ offset: duckOffset }, setDuckProps] = useSpring(() => ({ offset: 0 }));
-  const handleOffset = () => {
-    if (window.pageYOffset < 0) set({ offset: 0 });
-    else set({ offset: window.pageYOffset - containerText.current.getBoundingClientRect().top });
-  };
-  const handleDuckOffset = () => {
-    if (window.pageYOffset < 0) setDuckProps({ offset: 0 });
-    else setDuckProps({ offset: window.pageYOffset - containerCanvas.current.getBoundingClientRect().top });
-  };
 
   const creatShaderMaterialAfterLoadModel = (obj) => {
     mat = three.creatMat();
@@ -279,8 +266,6 @@ export const Duck = ({
   const handleOnScroll = () => {
     slogan.setOpacity(canvas, containerCanvas);
     slogan.setSloganOpacity(sloganRef, isMobile);
-    handleOffset();
-    handleDuckOffset();
 
     const { top } = containerCanvas.current.getBoundingClientRect();
 
@@ -415,17 +400,23 @@ export const Duck = ({
   return (
     <Fragment>
       <div className={styles.text} ref={containerText}>
-        <animated.div style={{ position: 'absolute', transform: offset.interpolate(calc) }}>
+        <Animated
+          type={ANIMATED_TYPE.isParallaxSpring}
+          position="absolute"
+          speed={0.2}
+          elementRef={containerText}
+          isHomepageIntro
+        >
           <h1 ref={sloganRef} className="letter-container" />
-        </animated.div>
+        </Animated>
       </div>
-      <animated.div
+      <Animated
+        type={ANIMATED_TYPE.isParallaxSpring}
         className={styles.canvasContainer}
-        ref={containerCanvas}
-        style={{
-          position: 'relative',
-          transform: duckOffset.interpolate(calcForDuck),
-        }}
+        elementRef={containerCanvas}
+        position="relative"
+        speed={isMobile ? -0.04 : -0.10}
+        isHomepageIntro
       />
     </Fragment>
   );

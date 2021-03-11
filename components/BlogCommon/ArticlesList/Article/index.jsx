@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper, Animated } from 'components';
-import { ROUTES } from 'utils/constants';
+import { ROUTES, CATEGORY_TAGS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const Article = ({
@@ -38,7 +38,7 @@ export const Article = ({
                 path={ROUTES.blog.getPath(categoryTag)}
                 dynamicRouting={ROUTES.blog.dynamicPathWithCategory}
               >
-                {categoryTag}
+                {CATEGORY_TAGS[categoryTag]}
               </LinkWrapper>
             </div>
           )}
