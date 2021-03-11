@@ -11,9 +11,9 @@ import { contentfulClient } from 'utils/ContentfulClient';
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
 const buildUrlObject = (data) => data.map((item) => ({
   loc: { '#text': `${rootUrl}${item.path}` },
-  lastmod: { '#text': item.updatedAt },
-  changefreq: { '#text': item.path === ROUTES.homepage.path ? 'always' : 'weekly' },
-  priority: { '#text': item.path === ROUTES.homepage.path ? '1.0' : '0.5' },
+  lastmod: { '#text': item.updatedAt.split('T')[0] },
+  changefreq: { '#text': 'daily' },
+  priority: { '#text': '1.0' },
 }));
 
 const Sitemap = () => (null);

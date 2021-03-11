@@ -17,7 +17,6 @@ import 'styles/index.scss';
 const App = ({ Component, pageProps }) => {
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
-  const [isPageLoaded, setPageLoad] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,14 +24,11 @@ const App = ({ Component, pageProps }) => {
   }, []);
 
   useEffect(() => {
-    const handleRouteChangeStart = () => setPageLoad(true);
     const handleRouteChangeComplete = () => dispatch(setPageReadyToDisplay(false));
 
-    Router.events.on('routeChangeStart', handleRouteChangeStart);
     Router.events.on('routeChangeComplete', handleRouteChangeComplete);
 
     return () => {
-      Router.events.off('routeChangeStart', handleRouteChangeStart);
       Router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
   }, []);

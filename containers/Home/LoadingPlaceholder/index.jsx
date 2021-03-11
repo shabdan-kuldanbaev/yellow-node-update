@@ -13,6 +13,6 @@ LoadingPlaceholder.propTypes = {
   isFirstHomepageVisit: PropTypes.bool.isRequired,
 };
 
-export default connect((state) => ({
-  isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
-}))(LoadingPlaceholder);
+export default connect(
+  (state) => ({ isFirstHomepageVisit: selectIsFirstHomepageVisit(state) }),
+)(LoadingPlaceholder);

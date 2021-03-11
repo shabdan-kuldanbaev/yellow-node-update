@@ -21,14 +21,10 @@ const Paginator = ({
   if (currentPage <= (pagesCounter - 2)) mobileNext = pagesCounter > 4 ? arrows.next : '';
   if (currentPage <= (pagesCounter - 3)) desktopNext = pagesCounter > 5 ? 'next' : '';
 
-  const currentPathname = (pathname === ROUTES.blog.dynamicPath || pathname === ROUTES.blog.dynamicPathWithPage)
-    ? ROUTES.blog.dynamicPathWithPage
-    : ROUTES.blog.dynamicPathWithCategory;
-
   const pushRouter = (currentCategory, nextPage) => {
     window.scrollTo(0, 0);
     Router.push(
-      { pathname: currentPathname },
+      { pathname },
       { pathname: ROUTES.blog.getPath(currentCategory, nextPage) },
     );
   };

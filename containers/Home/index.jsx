@@ -14,10 +14,7 @@ import {
   ReviewsContainer,
   FeedbackFormContainer,
 } from 'containers';
-import {
-  PhotoGallery,
-  MetaTags,
-} from 'components';
+import { PhotoGallery, MetaTags } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import LoadingPlaceholder from './LoadingPlaceholder';

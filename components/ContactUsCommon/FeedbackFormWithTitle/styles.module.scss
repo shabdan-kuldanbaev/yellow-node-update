@@ -65,7 +65,9 @@
       }
   
       & > div:nth-of-type(2) > p {
-        margin: -20px 0 35px 0;
+        margin: 0;
+        margin-top: -20px;
+        margin-bottom: 35px;
         font-size: 1.25rem;
         line-height: 1.53;
         letter-spacing: 0.5px;
@@ -114,7 +116,7 @@
             letter-spacing: 0.5px;
             transition: color $accelerated-transition-time;
             border: none;
-            outline: 0;
+            outline: 0px;
             background-color: transparent;
             color: $black;
             position: relative;
@@ -152,7 +154,7 @@
   
     & > form {
       width: 50%;
-      margin-bottom: 0;
+      margin-bottom: 0px;
 
       @include ultra-hd {
         width: 545px;

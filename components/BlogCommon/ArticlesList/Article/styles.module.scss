@@ -99,7 +99,8 @@
       }
 
       .title {
-        margin: 0 0 20px 0;
+        margin: 0;
+        margin-bottom: 20px;
 
         & > span {
           font-weight: 600;
@@ -132,6 +133,7 @@
             font-size: 1.1875rem;
             font-weight: bold;
             margin-bottom: 20px;
+            line-height: 24px;
             font-weight: 550;
             color: $mine-shaft;
             line-height: 1.5;
@@ -156,8 +158,12 @@
         text-align: left;
 
         @include full-hd {
-          font-size: 0.850vw;
+          font-size: 0.820vw;
           line-height: 1.55vw;
+        }
+
+        @include full-hd {
+          font-size: 0.850vw;
         }
 
         @include tablet {

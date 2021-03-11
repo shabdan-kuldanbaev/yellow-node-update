@@ -10,7 +10,6 @@ import {
   turbo,
   witchHaze,
   black,
-  macbookFifteen,
 } from 'styles/utils/_variables.scss';
 
 export const themes = {
@@ -46,7 +45,6 @@ export const previewImageBackground = toString(silver);
 export const linearBackgroundColor = toString(turbo);
 export const linearBarColor = toString(witchHaze);
 export const blackColor = toString(black);
-export const macbookFifteenResolution = toInt(macbookFifteen);
 
 export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'scroll';
@@ -148,10 +146,6 @@ export const loadDuck = async () => {
     console.log(error);
   }
 };
-
-export const isNumeric = (num) => !isNaN(num);
-
-export const getSrc = (src) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}/${src}` : src);
 
 export const getFeedbackFormData = (data) => {
   const formData = new window.FormData();

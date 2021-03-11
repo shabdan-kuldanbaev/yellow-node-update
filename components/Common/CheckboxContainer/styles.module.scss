@@ -22,10 +22,12 @@
       margin-left: 5px;
       position: relative;
       transition: color $accelerated-transition-time;
+
       border: none;
-      outline: 0;
+      outline: 0px;
       background-color: transparent;
       color: $emperor;
+      position: relative;
       display: inline-block;
       padding: 0;
 

@@ -82,6 +82,10 @@ footer {
           border: none;
           padding: 0;
 
+          a {
+            padding: 0;
+          }
+
           &:hover {
             span {
               color: $mountain-mis;

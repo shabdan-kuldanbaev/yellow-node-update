@@ -27,7 +27,7 @@
     width: calc(#{$max-content-width} / 4 - #{$imgIndent} * 2);
     margin: 0 auto;
     overflow: hidden;
-    box-shadow: 0 0 29px 0 $insta-tape-box-shadow-color;
+    box-shadow: 0 0px 29px 0 $insta-tape-box-shadow-color;
     border-radius: $articleRadius;
 
     @include full-hd {
@@ -45,6 +45,7 @@
 
     @include phone {
       width: 100px;
+      margin: 0 auto;
       margin: 0 0 15px;
 
       &:nth-child(1) {

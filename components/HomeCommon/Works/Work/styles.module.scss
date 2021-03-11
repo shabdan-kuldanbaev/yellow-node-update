@@ -36,7 +36,11 @@
   @include tablet {
     margin: auto;
     min-height: auto;
-    padding: 100px 0;
+    padding: 100px 0px;
+  }
+
+  @include phone {
+    padding: 100px 0px 0px;
   }
 
   @include below-tablet-horizontal {
@@ -78,7 +82,6 @@
 
   @include phone {
     @include flex(column-reverse, center, center);
-    padding: 100px 0 0;
     height: auto;
     margin-right: 20px;
     margin-left: 20px;
@@ -90,7 +93,7 @@
 
   @include horizontal-mobile {
     @include flex(row, center, center);
-    padding: 50px 0;
+    padding: 50px 0px;
 
     &:nth-child(1n) {
       flex-direction: row;
@@ -141,6 +144,7 @@
       transition: transform $default-transition-time, opacity $default-transition-time;
 
       @include tablet {
+        max-width: $max-content-width-macbook-twelve;
         margin-left: $side-indent * 2;
         margin-right: $side-indent * 2;
         max-width: calc(100% - (#{$side-indent} * 4));
@@ -153,7 +157,7 @@
       }
 
       @include below-tablet-horizontal {
-        padding-left: 0;
+        padding-left: 0px;
         margin-left: $side-indent * 2;
         margin-right: $side-indent * 2;
         max-width: calc(100% - (#{$side-indent} * 4));
@@ -164,7 +168,7 @@
         width: 100%;
         max-width: 100%;
         margin: 0;
-        padding-left: 0;
+        padding-left: 0px;
         text-align: left;
       }
 
@@ -175,12 +179,12 @@
 
         @include phone {
           max-width: calc(100% - 40px);
-          margin: 0 auto 0 0;
+          margin: 0px auto 0 0px;
         }
 
         button {
           border: none;
-          outline: 0;
+          outline: 0px;
           background-color: transparent;
           color: $white;
           line-height: 1.55;
@@ -278,6 +282,7 @@
 
       .imgWrapper {
         width: 100%;
+        height: 100%;
         position: relative;
         height: 48.4375vw;
 

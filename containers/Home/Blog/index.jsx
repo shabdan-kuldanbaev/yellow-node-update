@@ -28,6 +28,7 @@ const Blog = ({ articles }) => (
     >
       <ButtonMore
         href={ROUTES.blog.path}
+        dynamicRouting={ROUTES.blog.dynamicPath}
         title="READ MORE STORIES"
         buttonStyle={styles.blogButton}
       />

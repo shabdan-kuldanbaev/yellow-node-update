@@ -2,11 +2,12 @@
 
 .location {
   @include flex(column);
+  width: max-content;
   width: 50%;
   margin-bottom: 55px;
 
   &:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0px;
   }
 
   @include phone {
@@ -29,7 +30,7 @@
       height: 100%;
       transform: scaleX(0);
       z-index: -1;
-      transform-origin: 0;
+      transform-origin: 0%;
       transition-delay: 0s;
       
       &:before {

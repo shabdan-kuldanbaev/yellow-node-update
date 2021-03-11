@@ -15,6 +15,7 @@ const RelatedSection = ({ articles }) => (
         <LinkWrapper
           isLocalLink
           path={ROUTES.blog.path}
+          dynamicRouting={ROUTES.blog.dynamicPath}
         >
           See all posts
           <div className={styles.svgContainer}>
