@@ -16,11 +16,11 @@
   @include phone {
     max-width: calc(100% - 40px);
     font-size: 2.5rem;
-    margin: 40px auto 25px 0px;
+    margin: 40px auto 25px 0;
   }
 
   @include horizontal-mobile {
-    margin: 20px auto 15px 0px;
+    margin: 20px auto 15px 0;
   }
 }
 
@@ -39,14 +39,13 @@
   }
 
   @include phone {
-    max-width: calc(100% - 40px);
     font-size: 1rem;
     max-width: 100%;
-    margin: auto 20px 25px 0px;
+    margin: auto 20px 25px 0;
   }
 
   @include horizontal-mobile {
     margin-bottom: 15px;
-    margin-top: 0px;
+    margin-top: 0;
   }
 }

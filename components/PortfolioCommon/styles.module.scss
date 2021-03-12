@@ -1,7 +1,6 @@
 @import 'styles/utils/mixins';
 
 .worksContainer {
-  width: calc(100% + 2 * #{$side-indent});
   margin: 0 0 350px;
   width: 100%;
   background-color: $white;
@@ -37,14 +36,14 @@
     @include phone {
       @include flex(column-reverse, center, center);
       height: auto;
-      margin-bottom: 0px;
-      margin-top: 0px;
+      margin-bottom: 0;
+      margin-top: 0;
       padding-bottom: 100px;
 
 
       &:first-child {
-        padding-top: 0px;
-        margin-top: 0px;
+        padding-top: 0;
+        margin-top: 0;
       }
     }
 
@@ -99,13 +98,13 @@
     @include phone {
       @include flex(column-reverse, center, center);
       height: auto;
-      margin-bottom: 0px;
-      margin-top: 0px;
+      margin-bottom: 0;
+      margin-top: 0;
       padding-bottom: 0;
 
       &:first-child {
-        padding-top: 0px;
-        margin-top: 0px;
+        padding-top: 0;
+        margin-top: 0;
       }
     }
 
@@ -157,7 +156,6 @@
         transition: transform $default-transition-time, opacity $default-transition-time;
 
         @include tablet {
-          max-width: $max-content-width-macbook-twelve;
           margin-left: $side-indent * 2;
           margin-right: $side-indent * 2;
           max-width: calc(100% - (#{$side-indent} * 4));
@@ -170,7 +168,7 @@
         }
 
         @include below-tablet-horizontal {
-          padding-left: 0px;
+          padding-left: 0;
           margin-left: $side-indent * 2;
           margin-right: $side-indent * 2;
           max-width: calc(100% - (#{$side-indent} * 4));
@@ -181,7 +179,7 @@
           width: 100%;
           max-width: 100%;
           margin: 0;
-          padding-left: 0px;
+          padding-left: 0;
           text-align: left;
         }
 
@@ -198,7 +196,7 @@
 
           button {
             border: none;
-            outline: 0px;
+            outline: 0;
             background-color: transparent;
             color: $black;
             line-height: 1.55;
@@ -229,7 +227,7 @@
               cursor: pointer;
 
               &:after {
-                width: 0px;
+                width: 0;
                 will-change: transition;
                 transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
                 transform: translateZ(0);

@@ -12,6 +12,7 @@ export const SectionTitle = ({
   styleSubtitle,
   isFeedbackForm,
   linkText,
+  isMainTitle,
 }) => {
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
@@ -23,7 +24,9 @@ export const SectionTitle = ({
   return (
     <div className={styles.titleContainer}>
       <Animated {...animatedProps} transitionDelay={250}>
-        <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
+        {isMainTitle
+          ? <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
+          : <h2 className={cn({ [styleTitle]: styleTitle })}>{title}</h2>}
       </Animated>
       {subtitle && (
         <Animated {...animatedProps} transitionDelay={300}>
@@ -49,6 +52,7 @@ SectionTitle.defaultProps = {
   isFeedbackForm: false,
   subtitle: '',
   linkText: null,
+  isMainTitle: false,
 };
 
 SectionTitle.propTypes = {
@@ -58,4 +62,5 @@ SectionTitle.propTypes = {
   styleSubtitle: PropTypes.string,
   isFeedbackForm: PropTypes.bool,
   linkText: PropTypes.string,
+  isMainTitle: PropTypes.bool,
 };
