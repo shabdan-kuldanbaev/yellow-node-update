@@ -57,6 +57,14 @@ export const CATEGORY_TAGS = {
   }, {}),
 };
 
+export const CATEGORY_SLUGS = [
+  ...Object.entries(routes.blog.categories).reduce((acc, [key, { slug }]) => {
+    acc[key] = slug;
+
+    return acc;
+  }, []),
+];
+
 export const FEEDBACK_FORM_FIELDS = {
   fullName: 'fullName',
   email: 'email',

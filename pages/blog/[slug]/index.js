@@ -1,27 +1,18 @@
 import React from 'react';
-import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
-import { ArticleContainer } from 'containers';
-import { PAGES } from 'utils/constants';
+import { useRouter } from 'next/router';
+import { ArticleContainer, BlogContainer } from 'containers';
+import { CATEGORY_SLUGS } from 'utils/constants';
+import { isNumeric } from 'utils/helper';
+import { getInitialBlogProps } from 'utils/blogUtils';
 
-const Article = () => <ArticleContainer />;
+const Article = ({ deviceLimit, currentPage }) => {
+  const { query: { slug } } = useRouter();
 
-Article.getInitialProps = async ({
-  store,
-  query: { slug },
-  req,
-}) => {
-  store.dispatch(fetchLayoutData({
-    articleSlug: slug,
-    slug: PAGES.article,
-  }));
-
-  if (req) {
-    store.dispatch(END);
-    await store.sagaTask.toPromise();
-  }
-
-  return {};
+  return (CATEGORY_SLUGS.includes(slug) || isNumeric(slug))
+    ? <BlogContainer deviceLimit={deviceLimit} currentPage={currentPage} />
+    : <ArticleContainer />;
 };
+
+Article.getInitialProps = async (ctx) => getInitialBlogProps(ctx);
 
 export default Article;

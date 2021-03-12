@@ -162,3 +162,5 @@ export const getFeedbackFormData = (data) => {
 
   return formData;
 };
+
+export const isNumeric = (num) => !isNaN(num);

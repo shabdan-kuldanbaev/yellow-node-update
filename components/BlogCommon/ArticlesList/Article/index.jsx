@@ -36,7 +36,7 @@ export const Article = ({
               <LinkWrapper
                 isLocalLink
                 path={ROUTES.blog.getPath(categoryTag)}
-                dynamicRouting={ROUTES.blog.dynamicPath}
+                dynamicRouting={ROUTES.blog.dynamicPathWithPage}
               >
                 {CATEGORY_TAGS[categoryTag]}
               </LinkWrapper>

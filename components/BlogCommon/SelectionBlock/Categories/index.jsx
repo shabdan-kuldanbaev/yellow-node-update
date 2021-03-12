@@ -32,7 +32,7 @@ const Categories = ({
             <LinkWrapper
               isLocalLink
               path={ROUTES.blog.getPath(slug)}
-              dynamicRouting={ROUTES.blog.dynamicPath}
+              dynamicRouting={slug === 'latest' ? ROUTES.blog.dynamicPath : ROUTES.blog.dynamicPathWithPage}
             >
               {title}
             </LinkWrapper>
