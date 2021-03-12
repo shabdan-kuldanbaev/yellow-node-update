@@ -43,9 +43,24 @@ const ArticleContainer = ({
     headImageUrl,
     publishedAt,
     keyWords = [],
+    categoryTag = '',
+    metaTitle,
+    metaDescription,
   } = getDocumentFields(
     get(currentArticle, 'items[0]', {}),
-    ['slug', 'title', 'oldBody', 'body', 'introduction', 'headImageUrl', 'publishedAt', 'keyWords'],
+    [
+      'slug',
+      'title',
+      'oldBody',
+      'body',
+      'introduction',
+      'headImageUrl',
+      'publishedAt',
+      'keyWords',
+      'categoryTag',
+      'metaTitle',
+      'metaDescription',
+    ],
   );
   const {
     previewImageUrl: previewImageUrlNewer,
@@ -65,10 +80,9 @@ const ArticleContainer = ({
   );
   const headImage = getFileUrl(headImageUrl);
   const articleMetaData = {
-    title,
-    description: introduction,
+    title: metaTitle,
+    description: metaDescription,
     date: publishedAt,
-    keyWords: (keyWords && keyWords.join(', ')) || null,
     image: headImage,
   };
 
@@ -76,7 +90,13 @@ const ArticleContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.blog} articleMetaData={articleMetaData} />
+      <MetaTags page={PAGES.blog} articleMetaData={articleMetaData}>
+        <meta property="article:published_time" content={publishedAt} />
+        <meta property="article:section" content={categoryTag} />
+        {keyWords && keyWords.map((word) => (
+          <meta property="article:tag" content={word} />
+        ))}
+      </MetaTags>
       <Article
         slug={articleSlug}
         title={title}

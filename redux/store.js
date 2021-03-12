@@ -10,7 +10,7 @@ const bindMiddleware = (middleware) => {
     // eslint-disable-next-line
     const { composeWithDevTools } = require('redux-devtools-extension');
 
-    return composeWithDevTools(applyMiddleware(...middleware, logger));
+    return composeWithDevTools(applyMiddleware(...middleware /* logger */));
   }
 
   return applyMiddleware(...middleware);

@@ -61,8 +61,7 @@
 .foundArticles {
   @include flex(column, flex-start, flex-start);
   background: transparent;
-  padding: 50px 55px $section-indent;
-  padding-bottom: 150px;
+  padding: 50px 55px 150px;
   max-width: 1500px;
   width: 100%;
   min-height: calc(100vh - 230px - 487px);
@@ -87,28 +86,6 @@
 
     div:nth-of-type(1) {
       margin-top: 0;
-    }
-  }
-
-  .nothingFound {
-    font-size: 1.0938rem;
-    font-weight: 500;
-    font-family: $default-font;
-    color: $tundora;
-    margin: 0;
-    padding: 0;
-    right: 0;
-
-    max-width: 1500px;
-    width: 100%;
-
-    @include macbook-fifteen {
-      width: calc(100% - (2 * 55px));
-    }
-
-    @include phone {
-      line-height: 24px;
-      width: 100%;
     }
   }
 }
