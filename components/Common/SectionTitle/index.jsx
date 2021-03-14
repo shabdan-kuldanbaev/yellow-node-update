@@ -14,6 +14,7 @@ export const SectionTitle = ({
   linkText,
   isMainTitle,
 }) => {
+  const TitleTag = `h${isMainTitle ? 1 : 2}`;
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -24,9 +25,7 @@ export const SectionTitle = ({
   return (
     <div className={styles.titleContainer}>
       <Animated {...animatedProps} transitionDelay={250}>
-        {isMainTitle
-          ? <h1 className={cn({ [styleTitle]: styleTitle })}>{title}</h1>
-          : <h2 className={cn({ [styleTitle]: styleTitle })}>{title}</h2>}
+        <TitleTag className={cn({ [styleTitle]: styleTitle })}>{title}</TitleTag>
       </Animated>
       {subtitle && (
         <Animated {...animatedProps} transitionDelay={300}>
