@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components';
+import { getPathWithCdn } from 'utils/helper';
 import { advantages, animatedFields } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -8,7 +9,7 @@ export const AdvantagesItems = ({ advantages, animatedFields }) => {
   const switchRender = ({ field }, adv) => { // TODO create separate component
     switch (field) {
     case 'img':
-      return <img src={adv.image} alt={adv.title} />;
+      return <img src={getPathWithCdn(adv.image)} alt={adv.title} />;
     case 'title':
       return <p className={styles.title}>{adv.title}</p>;
     case 'desc':

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
+import { getPathWithCdn } from 'utils/helper';
 import { partners } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -28,7 +29,7 @@ export const Partners = ({ partners }) => {
             transitionDelay={100 + 100 * index}
           >
             <div className={styles.partnersItem}>
-              <img src={partner.image} alt={partner.title} />
+              <img src={getPathWithCdn(partner.image)} alt={partner.title} />
             </div>
           </Animated>
         ))}

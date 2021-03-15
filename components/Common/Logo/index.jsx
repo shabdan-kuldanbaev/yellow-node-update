@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
-import { themes } from 'utils/helper';
+import { themes, getPathWithCdn } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import { logoSize } from 'styles/utils/_variables.scss';
-import RoundLogo from './images/yellow_logo.svg';
+import { RoundLogo } from './utils/data';
 
 const Logo = ({ theme }) => (
   <LinkWrapper
@@ -12,7 +12,7 @@ const Logo = ({ theme }) => (
     path={ROUTES.homepage.path}
     dynamicRouting={ROUTES.homepage.dynamicPath}
   >
-    <img src={RoundLogo} alt="Yellow Logo" />
+    <img src={getPathWithCdn(RoundLogo)} alt="Yellow Logo" />
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={logoSize}

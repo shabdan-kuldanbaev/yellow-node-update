@@ -1,4 +1,4 @@
-import {
+const [
   OppSites,
   Famlicious,
   Separate,
@@ -7,7 +7,16 @@ import {
   Jim,
   Sandro,
   Jerry,
-} from '../images';
+] = [
+  '/images/home/reviews/oppsites.svg',
+  '/images/home/reviews/famlicious.svg',
+  '/images/home/reviews/separate.svg',
+  '/images/home/reviews/natp.svg',
+  '/images/home/reviews/1.png',
+  '/images/home/reviews/2.png',
+  '/images/home/reviews/3.png',
+  '/images/home/reviews/4.png',
+];
 
 export const reviews = [
   {

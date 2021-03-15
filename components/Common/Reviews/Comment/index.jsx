@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components';
+import { getPathWithCdn } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const Comment = ({
@@ -22,7 +23,7 @@ export const Comment = ({
             <div className={styles.messageWrapper}>
               <div className={styles.imgContainer}>
                 <img
-                  src={logo}
+                  src={getPathWithCdn(logo)}
                   alt={name}
                   className={styles.logo}
                 />
@@ -35,7 +36,7 @@ export const Comment = ({
               <div>
                 <div className={styles.avatarContainer}>
                   <img
-                    src={avatar}
+                    src={getPathWithCdn(avatar)}
                     alt={name}
                     className={styles.photo}
                   />

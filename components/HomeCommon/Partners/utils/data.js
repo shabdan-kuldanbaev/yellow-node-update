@@ -1,10 +1,16 @@
-import {
+const [
   techCrunch,
   time,
   productHunt,
   esquire,
   theWeek,
-} from '../images';
+] = [
+  '/images/home/partners/tech-crunch.svg',
+  '/images/home/partners/time.svg',
+  '/images/home/partners/product-hunt.svg',
+  '/images/home/partners/esquire.svg',
+  '/images/home/partners/the-week.svg',
+];
 
 export const partners = [
   {

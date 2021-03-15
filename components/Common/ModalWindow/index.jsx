@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { setOverflowForBody } from 'utils/helper';
-import CloseIcon from './images/close.svg';
+import { setOverflowForBody, getPathWithCdn } from 'utils/helper';
+import { CloseIcon } from './utils/data';
 import styles from './styles.module.scss';
 
 export const ModalWindow = ({
@@ -43,7 +43,7 @@ export const ModalWindow = ({
     >
       <img
         onClick={closeModalWindow}
-        src={CloseIcon}
+        src={getPathWithCdn(CloseIcon)}
         alt="Cloce"
       />
       {children}

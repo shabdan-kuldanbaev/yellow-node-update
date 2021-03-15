@@ -162,3 +162,5 @@ export const getFeedbackFormData = (data) => {
 
   return formData;
 };
+
+export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);

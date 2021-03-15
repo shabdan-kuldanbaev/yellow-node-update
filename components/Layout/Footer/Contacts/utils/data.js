@@ -1,9 +1,14 @@
-import {
+const [
   instaIcon,
   linkedinIcon,
   mediumIcon,
   dribbbleIcon,
-} from '../images';
+] = [
+  '/images/layout/footer/insta.svg',
+  '/images/layout/footer/linkedin.svg',
+  '/images/layout/footer/medium.svg',
+  '/images/layout/footer/dribbble.svg',
+];
 
 export const socialNetworks = [
   {
