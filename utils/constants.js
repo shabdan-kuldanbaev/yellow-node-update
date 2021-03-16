@@ -1,4 +1,5 @@
 import { routes } from 'utils/routes';
+import { addCdnToImages } from 'utils/helper';
 
 export const DEFAULT_ARTICLES_LIMIT = 5;
 export const CURRENT_PAGE_NUMBER = 1;
@@ -66,7 +67,7 @@ export const FEEDBACK_FORM_FIELDS = {
   files: 'files',
 };
 
-export const STATIC_IMAGES = {
+export const IMAGES = {
   searchIcon: '/images/blog/search.svg',
   roundLogo: '/images/common/logo/yellow_logo.svg',
   closeIcon: '/images/common/close.svg',
@@ -102,3 +103,5 @@ export const STATIC_IMAGES = {
     Jerry: '/images/home/reviews/4.png',
   },
 };
+
+export const STATIC_IMAGES = addCdnToImages(IMAGES);
