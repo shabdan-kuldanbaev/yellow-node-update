@@ -1,4 +1,6 @@
-import {
+import { STATIC_IMAGES } from 'utils/constants';
+
+const {
   OppSites,
   Famlicious,
   Separate,
@@ -7,7 +9,7 @@ import {
   Jim,
   Sandro,
   Jerry,
-} from '../images';
+} = STATIC_IMAGES.reviewsImages;
 
 export const reviews = [
   {
