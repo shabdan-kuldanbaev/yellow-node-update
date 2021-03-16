@@ -1,7 +1,8 @@
-import { ANIMATED_TYPE, STATIC_IMAGES } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
+import { STATIC_IMAGES } from 'utils/helper';
 
 const {
-  AI,
+  ai,
   chats,
   cloud,
   mobile,
@@ -21,7 +22,7 @@ export const advantages = [
   {
     title: 'AI',
     desc: '<span>Making machines smart again</span>',
-    image: AI,
+    image: ai,
   },
   {
     title: 'Chats',

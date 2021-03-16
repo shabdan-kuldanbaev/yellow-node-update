@@ -1,6 +1,10 @@
 import get from 'lodash/get';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
-import { PAGES, FEEDBACK_FORM_FIELDS } from 'utils/constants';
+import {
+  PAGES,
+  FEEDBACK_FORM_FIELDS,
+  IMAGES,
+} from 'utils/constants';
 import {
   phoneResolution,
   horizontalMobile,
@@ -168,10 +172,16 @@ export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.E
 // TODO rewrite later
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
   if (typeof value === 'object') {
-    addCdnToImages(value);
-  }
+    acc[key] = Object.entries(value).reduce((acc, [key, value]) => {
+      acc[key] = getPathWithCdn(value);
 
-  acc[key] = getPathWithCdn(value);
+      return acc;
+    }, {});
+  } else {
+    acc[key] = value;
+  }
 
   return acc;
 }, {});
+
+export const STATIC_IMAGES = addCdnToImages(IMAGES);

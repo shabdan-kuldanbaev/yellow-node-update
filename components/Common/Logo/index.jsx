@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
-import { themes } from 'utils/helper';
-import { ROUTES, STATIC_IMAGES } from 'utils/constants';
+import { themes, STATIC_IMAGES } from 'utils/helper';
+import { ROUTES } from 'utils/constants';
 import { logoSize } from 'styles/utils/_variables.scss';
 
 const Logo = ({ theme }) => (

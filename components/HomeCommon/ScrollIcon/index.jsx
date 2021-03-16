@@ -1,5 +1,5 @@
 import React from 'react';
-import { STATIC_IMAGES } from 'utils/constants';
+import { STATIC_IMAGES } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const ScrollIcon = () => (

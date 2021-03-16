@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
 import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
 import { withValidateEmail } from 'hocs';
-import { STATIC_IMAGES } from 'utils/constants';
+import { STATIC_IMAGES } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const SubscribeBlock = ({

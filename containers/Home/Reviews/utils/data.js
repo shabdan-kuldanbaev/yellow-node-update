@@ -1,4 +1,4 @@
-import { STATIC_IMAGES } from 'utils/constants';
+import { STATIC_IMAGES } from 'utils/helper';
 
 const {
   OppSites,

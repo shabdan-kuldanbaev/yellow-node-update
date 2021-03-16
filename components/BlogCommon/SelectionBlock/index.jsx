@@ -13,8 +13,7 @@ import {
   FullscreenSearch,
   FullscreenSubscribe,
 } from 'components';
-import { setOverflowForBody } from 'utils/helper';
-import { STATIC_IMAGES } from 'utils/constants';
+import { setOverflowForBody, STATIC_IMAGES } from 'utils/helper';
 import Categories from './Categories';
 import styles from './styles.module.scss';
 
