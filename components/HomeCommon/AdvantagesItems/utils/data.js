@@ -1,16 +1,11 @@
-import { ANIMATED_TYPE } from 'utils/constants';
+import { ANIMATED_TYPE, STATIC_IMAGES } from 'utils/constants';
 
-const [
+const {
   AI,
   chats,
   cloud,
   mobile,
-] = [
-  '/images/home/advantages/ai.svg',
-  '/images/home/advantages/chats.svg',
-  '/images/home/advantages/cloud.svg',
-  '/images/home/advantages/mobile.svg',
-];
+} = STATIC_IMAGES.advantagesIcons;
 
 export const advantages = [
   {

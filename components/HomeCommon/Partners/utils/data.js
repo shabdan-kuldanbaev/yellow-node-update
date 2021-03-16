@@ -1,16 +1,12 @@
-const [
+import { STATIC_IMAGES } from 'utils/constants';
+
+const {
   techCrunch,
   time,
   productHunt,
   esquire,
   theWeek,
-] = [
-  '/images/home/partners/tech-crunch.svg',
-  '/images/home/partners/time.svg',
-  '/images/home/partners/product-hunt.svg',
-  '/images/home/partners/esquire.svg',
-  '/images/home/partners/the-week.svg',
-];
+} = STATIC_IMAGES.partnersIcons;
 
 export const partners = [
   {
