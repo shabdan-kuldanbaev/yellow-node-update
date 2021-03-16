@@ -8,7 +8,6 @@ import {
   Animated,
 } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { getPathWithCdn } from 'utils/helper';
 import { socialNetworks } from './utils/data';
 import rocket from './json/rocket.json';
 import styles from './styles.module.scss';
@@ -64,7 +63,7 @@ const Contacts = ({
               data: title,
             }}
           >
-            <img src={getPathWithCdn(image)} alt={title} />
+            <img src={image} alt={title} />
           </LinkWrapper>
         ))}
       </div>
