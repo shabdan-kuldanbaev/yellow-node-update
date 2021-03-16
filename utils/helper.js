@@ -12,6 +12,13 @@ import {
   black,
 } from 'styles/utils/_variables.scss';
 
+const {
+  EDGE_URL,
+  NODE_ENV,
+  DEV_URL,
+  PROD_URL,
+} = process.env;
+
 export const themes = {
   dark: {
     main: '#FFF',
@@ -74,9 +81,9 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.notFound}`, updatedAt },
 ];
 
-export const rootUrl = process.env.NODE_ENV === 'development'
-  ? process.env.DEV_URL
-  : process.env.PROD_URL;
+export const rootUrl = NODE_ENV === 'development'
+  ? DEV_URL
+  : PROD_URL;
 
 export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
 
@@ -163,4 +170,4 @@ export const getFeedbackFormData = (data) => {
   return formData;
 };
 
-export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
+export const getPathWithCdn = (path) => (EDGE_URL ? `${EDGE_URL}${path}` : path);

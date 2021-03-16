@@ -6,7 +6,6 @@ import { clearMessage } from 'redux/actions/subscribe';
 import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
 import { withValidateEmail } from 'hocs';
 import { getPathWithCdn } from 'utils/helper';
-import { Background } from './utils/data';
 import styles from './styles.module.scss';
 
 const SubscribeBlock = ({
@@ -47,7 +46,7 @@ const SubscribeBlock = ({
             {message && <span className={styles.alertMessage}>{message}</span>}
           </form>
         </div>
-        <div className={styles.subscribeMessage} style={{ backgroundImage: `url(${getPathWithCdn(Background)})` }}>
+        <div className={styles.subscribeMessage} style={{ backgroundImage: `url(${getPathWithCdn('/images/common/subscribeBlock/background.jpg')})` }}>
           <h3>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</h3>
         </div>
       </div>
