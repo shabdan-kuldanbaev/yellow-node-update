@@ -1,3 +1,7 @@
 @function calcRem($size) {
   @return $size / 16px * 1rem;
 }
+
+@function getPathWithCdn($path) {
+  @return $cdnURL + $path;
+}
