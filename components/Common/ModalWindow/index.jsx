@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { setOverflowForBody } from 'utils/helper';
-import { STATIC_IMAGES } from 'utils/constants';
+import { setOverflowForBody, getStaticImages } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const ModalWindow = ({
@@ -43,7 +42,7 @@ export const ModalWindow = ({
     >
       <img
         onClick={closeModalWindow}
-        src={STATIC_IMAGES.closeIcon}
+        src={getStaticImages().closeIcon}
         alt="Cloce"
       />
       {children}
