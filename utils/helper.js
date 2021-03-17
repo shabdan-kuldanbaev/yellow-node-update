@@ -173,16 +173,11 @@ export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.E
 // TODO rewrite later
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
   if (typeof value === 'object') {
-    acc[key] = Object.entries(value).reduce((acc, [key, value]) => {
-      acc[key] = getPathWithCdn(value);
-
-      return acc;
-    }, {});
+    acc[key] = addCdnToImages(value);
   } else {
-    acc[key] = value;
+    acc[key] = getPathWithCdn(value);
   }
-
   return acc;
 }, {});
 
-export const getStaticImages = () => Object.assign(IMAGES_WITHOUT_CDN, addCdnToImages(IMAGES));
+export const getStaticImages = () => ({ ...IMAGES_WITHOUT_CDN, ...addCdnToImages(IMAGES) });
