@@ -1,4 +1,5 @@
 import { routes } from 'utils/routes';
+import { addCdnToImages } from 'utils/helper';
 
 export const DEFAULT_ARTICLES_LIMIT = 5;
 export const CURRENT_PAGE_NUMBER = 1;
@@ -65,3 +66,42 @@ export const FEEDBACK_FORM_FIELDS = {
   projectBudget: 'projectBudget',
   files: 'files',
 };
+
+export const IMAGES = {
+  searchIcon: '/images/blog/search.svg',
+  roundLogo: '/images/common/logo/yellow_logo.svg',
+  closeIcon: '/images/common/close.svg',
+  subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
+  scrollDownIcon: '/images/home/scrollIcon/scroll-down.svg',
+  socialNetworksIcons: {
+    instaIcon: '/images/layout/footer/insta.svg',
+    linkedinIcon: '/images/layout/footer/linkedin.svg',
+    mediumIcon: '/images/layout/footer/medium.svg',
+    dribbbleIcon: '/images/layout/footer/dribbble.svg',
+  },
+  partnersIcons: {
+    techCrunch: '/images/home/partners/tech-crunch.svg',
+    time: '/images/home/partners/time.svg',
+    productHunt: '/images/home/partners/product-hunt.svg',
+    esquire: '/images/home/partners/esquire.svg',
+    theWeek: '/images/home/partners/the-week.svg',
+  },
+  advantagesIcons: {
+    ai: '/images/home/advantages/ai.svg',
+    chats: '/images/home/advantages/chats.svg',
+    cloud: '/images/home/advantages/cloud.svg',
+    mobile: '/images/home/advantages/mobile.svg',
+  },
+  reviewsImages: {
+    OppSites: '/images/home/reviews/oppsites.svg',
+    Famlicious: '/images/home/reviews/famlicious.svg',
+    Separate: '/images/home/reviews/separate.svg',
+    Natp: '/images/home/reviews/natp.svg',
+    Ian: '/images/home/reviews/1.png',
+    Jim: '/images/home/reviews/2.png',
+    Sandro: '/images/home/reviews/3.png',
+    Jerry: '/images/home/reviews/4.png',
+  },
+};
+
+export const STATIC_IMAGES = addCdnToImages(IMAGES);
