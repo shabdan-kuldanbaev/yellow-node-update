@@ -3,7 +3,7 @@ import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
 import {
   PAGES,
   FEEDBACK_FORM_FIELDS,
-  IMAGES,
+  IMAGES_WITHOUT_CDN,
 } from 'utils/constants';
 import {
   phoneResolution,
@@ -170,7 +170,7 @@ export const getFeedbackFormData = (data) => {
 export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
 // TODO rewrite later
-export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
+export const getStaticImages = () => Object.entries(IMAGES_WITHOUT_CDN).reduce((acc, [key, value]) => {
   if (typeof value === 'object') {
     acc[key] = Object.entries(value).reduce((acc, [key, value]) => {
       acc[key] = getPathWithCdn(value);
@@ -183,5 +183,3 @@ export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [k
 
   return acc;
 }, {});
-
-export const STATIC_IMAGES = addCdnToImages(IMAGES);

@@ -1,12 +1,12 @@
 import { ANIMATED_TYPE } from 'utils/constants';
-import { STATIC_IMAGES } from 'utils/helper';
+import { getStaticImages } from 'utils/helper';
 
 const {
   ai,
   chats,
   cloud,
   mobile,
-} = STATIC_IMAGES.advantagesIcons;
+} = getStaticImages().advantagesIcons;
 
 export const advantages = [
   {

@@ -1,4 +1,4 @@
-import { STATIC_IMAGES } from 'utils/helper';
+import { getStaticImages } from 'utils/helper';
 
 const {
   techCrunch,
@@ -6,7 +6,7 @@ const {
   productHunt,
   esquire,
   theWeek,
-} = STATIC_IMAGES.partnersIcons;
+} = getStaticImages().partnersIcons;
 
 export const partners = [
   {

@@ -66,7 +66,7 @@ export const FEEDBACK_FORM_FIELDS = {
   files: 'files',
 };
 
-export const IMAGES = {
+export const IMAGES_WITHOUT_CDN = {
   searchIcon: '/images/blog/search.svg',
   roundLogo: '/images/common/logo/yellow_logo.svg',
   closeIcon: '/images/common/close.svg',
