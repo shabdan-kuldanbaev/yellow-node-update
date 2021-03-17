@@ -16,8 +16,8 @@ export const MetaTags = ({
   const isBlogCategory = (page === ROUTES.blog.slug && pathname.includes('[page]'));
   const isArticle = (page === ROUTES.blog.slug && !pathname.includes('[page]'));
 
-  const getTitle = (title) => (isArticle && articleMetaData.title) || title;
-  const getDescription = (description) => (isArticle && articleMetaData.description) || description;
+  const getTitle = (title) => (isArticle && articleMetaData.metaTitle) || title;
+  const getDescription = (description) => (isArticle && articleMetaData.metaDescription) || description;
   const getImage = (img) => (isArticle && articleMetaData.image) || img;
   const getUrl = (url) => ((isArticle || isBlogCategory) && `${rootUrl}${asPath}`) || url;
   const getDate = (date) => (isArticle && articleMetaData.date) || date;
@@ -32,8 +32,8 @@ export const MetaTags = ({
           url,
         }) => (
           <Fragment key={`meta/${title}`}>
-            <title>{title}</title>
-            <title itemProp="headline">{title}</title>
+            <title>{getTitle(title)}</title>
+            <title itemProp="headline">{getTitle(title)}</title>
             <meta name="description" content={getDescription(description)} />
             <meta name="date" content={getDate(new Date())} />
             <link rel="canonical" href={getUrl(url)} />

@@ -80,8 +80,8 @@ const ArticleContainer = ({
   );
   const headImage = getFileUrl(headImageUrl);
   const articleMetaData = {
-    title: metaTitle,
-    description: metaDescription,
+    metaTitle,
+    metaDescription,
     date: publishedAt,
     image: headImage,
   };
@@ -105,6 +105,7 @@ const ArticleContainer = ({
         introduction={introduction}
         headImage={headImage}
         introSection={introSection}
+        publishedAt={publishedAt}
       />
       <SocialThumbnails url={`${rootUrl}/blog/${slug}`} title={title} />
       {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} />}

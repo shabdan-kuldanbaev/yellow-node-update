@@ -17,6 +17,7 @@ const Article = ({
   introduction,
   headImage,
   maxScrollPosition,
+  publishedAt,
 }) => {
   const articleBodyRef = useRef(null);
   const maxPosition = useRef(0);
@@ -37,15 +38,17 @@ const Article = ({
   }, [maxScrollPosition]);
 
   return (
-    <section ref={introSection} className={styles.article}>
+    <section ref={introSection} className={styles.article} itemScope itemType="http://schema.org/BlogPosting">
+      <meta itemProp="datePublished" content={publishedAt} />
       <header className={styles.header}>
+        <meta itemProp="image" content={headImage} />
         <div style={{ backgroundImage: `url(${headImage})` }} />
         <div className={styles.container}>
-          <h1 className={styles.h1}>{title}</h1>
+          <h1 className={styles.h1} itemProp="name">{title}</h1>
           <p>{introduction}</p>
         </div>
       </header>
-      <div className={styles.body} ref={articleBodyRef}>
+      <div className={styles.body} ref={articleBodyRef} itemProp="articleBody">
         {oldBody ? <OldArticle oldBody={oldBody} /> : <ContentfulParser document={body} />}
       </div>
     </section>
@@ -58,6 +61,7 @@ Article.defaultProps = {
   slug: '',
   title: '',
   introduction: '',
+  publishedAt: '',
 };
 
 Article.propTypes = {
@@ -69,6 +73,7 @@ Article.propTypes = {
   body: PropTypes.instanceOf(Object),
   introduction: PropTypes.string,
   headImage: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string,
 };
 
 export default withScroll(Article);
