@@ -23,6 +23,7 @@ import {
   rootUrl,
   getDocumentFields,
   getFileUrl,
+  getStaticImages,
 } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -42,6 +43,7 @@ const ArticleContainer = ({
     introduction,
     headImageUrl,
     publishedAt,
+    updatedAt,
     keyWords = [],
     categoryTag = '',
     metaTitle,
@@ -56,6 +58,7 @@ const ArticleContainer = ({
       'introduction',
       'headImageUrl',
       'publishedAt',
+      'updatedAt',
       'keyWords',
       'categoryTag',
       'metaTitle',
@@ -85,12 +88,44 @@ const ArticleContainer = ({
     date: publishedAt,
     image: headImage,
   };
+  const microdata = {
+    '@type': 'BlogPosting',
+    headline: metaTitle,
+    name: title,
+    mainEntityOfPage: '',
+    datePublished: publishedAt,
+    dateModified: updatedAt,
+    image: headImage,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Yellow Systems',
+      logo: {
+        '@type': 'ImageObject',
+        url: getStaticImages().roundLogo,
+      },
+    },
+    about: {
+      '@type': 'Article',
+      datePublished: publishedAt,
+      dateModified: updatedAt,
+      headline: metaTitle,
+      image: headImage,
+      publisher: {
+        '@type': 'Organization',
+        name: 'Yellow Systems',
+        logo: {
+          '@type': 'ImageObject',
+          url: getStaticImages().roundLogo,
+        },
+      },
+    },
+  };
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.blog} articleMetaData={articleMetaData}>
+      <MetaTags page={PAGES.blog} articleMetaData={articleMetaData} microdata={microdata}>
         <meta property="article:published_time" content={publishedAt} />
         <meta property="article:section" content={categoryTag} />
         {keyWords && keyWords.map((word) => (

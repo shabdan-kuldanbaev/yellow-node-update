@@ -11,6 +11,7 @@ export const MetaTags = ({
   ogMetaData: ogData,
   articleMetaData,
   children,
+  microdata,
 }) => {
   const { asPath, pathname } = useRouter();
   const isBlogCategory = (page === ROUTES.blog.slug && pathname.includes('[page]'));
@@ -51,6 +52,12 @@ export const MetaTags = ({
             <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffbf02" />
             <link rel="manifest" href="/manifest.json" />
             <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+            {microdata && (
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata) }}
+              />
+            )}
           </Fragment>
         ))}
       {children}
@@ -62,6 +69,7 @@ MetaTags.defaultProps = {
   page: '',
   ogMetaData,
   articleMetaData: {},
+  microdata: null,
 };
 
 MetaTags.propTypes = {
@@ -69,4 +77,5 @@ MetaTags.propTypes = {
   ogMetaData: PropTypes.instanceOf(Array),
   articleMetaData: PropTypes.instanceOf(Object),
   children: PropTypes.node,
+  microdata: PropTypes.instanceOf(Object),
 };
