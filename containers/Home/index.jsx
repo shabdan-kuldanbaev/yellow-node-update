@@ -20,12 +20,9 @@ import {
   LoadingScreen,
   MetaTags,
 } from 'components';
-import {
-  getDocumentFields,
-  getStaticImages,
-  rootUrl,
-} from 'utils/helper';
+import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import { microdata } from 'utils/microdata';
 
 export const Home = ({
   theme,
@@ -37,18 +34,6 @@ export const Home = ({
 }) => {
   const gradientRef = useRef(null);
   const { content } = getDocumentFields(photosData, ['content']);
-  const microdata = {
-    '@type': 'WebSite',
-    '@id': rootUrl,
-    name: 'Software Development for Startups | Yellow',
-    description: '✔ We provide software development services for startups and businesses. ✔ Reach out for a free consultation!',
-    url: rootUrl,
-    author: {
-      '@type': 'Organization',
-      name: 'Yellow Systems',
-      logo: getStaticImages().roundLogo,
-    },
-  };
 
   useEffect(() => {
     fetchPage({ slug: PAGES.homepage });
@@ -56,7 +41,7 @@ export const Home = ({
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.homepage} microdata={microdata} />
+      <MetaTags page={PAGES.homepage} microdata={microdata.homepage()} />
       {(!isPageReadyToDisplay && !isFirstHomepageVisit) ? <LoadingScreen /> : (
         <Fragment>
           <Intro theme={theme} introSection={introSection} />

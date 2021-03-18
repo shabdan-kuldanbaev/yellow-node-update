@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { ROUTES } from 'utils/constants';
-import { rootUrl } from 'utils/helper';
+import { rootUrl, isCustomDomain } from 'utils/helper';
 import { ogMetaData } from './utils/data';
 
 export const MetaTags = ({
@@ -58,6 +58,7 @@ export const MetaTags = ({
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata) }}
               />
             )}
+            {!isCustomDomain && <meta name="robots" content="none" />}
           </Fragment>
         ))}
       {children}

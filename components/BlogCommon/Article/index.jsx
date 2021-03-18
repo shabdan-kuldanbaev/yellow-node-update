@@ -37,7 +37,7 @@ const Article = ({
   }, [maxScrollPosition]);
 
   return (
-    <section ref={introSection} className={styles.article} itemScope itemType="http://schema.org/BlogPosting">
+    <section ref={introSection} className={styles.article}>
       <header className={styles.header}>
         <div style={{ backgroundImage: `url(${headImage})` }} />
         <div className={styles.container}>
@@ -45,7 +45,7 @@ const Article = ({
           <p>{introduction}</p>
         </div>
       </header>
-      <div className={styles.body} ref={articleBodyRef} itemProp="articleBody">
+      <div className={styles.body} ref={articleBodyRef}>
         {oldBody ? <OldArticle oldBody={oldBody} /> : <ContentfulParser document={body} />}
       </div>
     </section>

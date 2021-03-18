@@ -9,8 +9,7 @@ import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
 import { findArticles, clearFoundArticles } from 'redux/actions/blog';
 import { selectFoundArticles } from 'redux/selectors/blog';
-import { ModalWindow } from 'components';
-import SearchResult from './SearchResult';
+import { ArticlesList, ModalWindow } from 'components';
 import styles from './styles.module.scss';
 
 const FullscreenSearch = ({
@@ -22,10 +21,8 @@ const FullscreenSearch = ({
 }) => {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
-  const [isMessageHidden, setIsMessageHidden] = useState(true);
 
   const delayedQuery = useCallback(debounce((value) => findArticles({ value }), 1000), []);
-  const delayedMessage = useCallback(debounce(() => setIsMessageHidden(false), 1100), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
 
@@ -42,14 +39,6 @@ const FullscreenSearch = ({
       inputRef.current.focus();
     }
   }, [isFullscreenSearch]);
-
-  useEffect(() => {
-    if (inputValue.length > 1 && !(foundArticles && foundArticles.length)) {
-      delayedMessage();
-    } else {
-      setIsMessageHidden(true);
-    }
-  }, [foundArticles, inputValue]);
 
   return (
     <ModalWindow
@@ -68,9 +57,16 @@ const FullscreenSearch = ({
         />
       </div>
       <div className={styles.foundArticles}>
-        {inputValue
-          ? <SearchResult isMessageHidden={isMessageHidden} />
-          : <span className={styles.nothingFound}>Type some words to search.</span>}
+        {(!inputValue || !(foundArticles && foundArticles.length))
+          ? <span className={styles.nothingFound}>Nothing Found. Please try again with some different keywords.</span>
+          : (
+            <ArticlesList
+              articles={foundArticles}
+              isLoading={false}
+              page={2}
+              isSearch
+            />
+          )}
       </div>
     </ModalWindow>
   );

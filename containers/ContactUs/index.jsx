@@ -10,10 +10,9 @@ import {
   CompanyContacts,
   MetaTags,
 } from 'components';
-import { PAGES, ROUTES } from 'utils/constants';
-import {
-  getDocumentFields, getFileUrl, rootUrl, getStaticImages,
-} from 'utils/helper';
+import { PAGES } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
 
 const ContactUsContainer = ({
@@ -34,22 +33,6 @@ const ContactUsContainer = ({
     ['image'],
   );
   const peopleImageUrl = getFileUrl(peopleImage);
-  const microdata = {
-    '@type': 'Organization',
-    '@id': 'url',
-    name: 'Contacts | Yellow',
-    description: 'Do you have an awesome idea? Reach us for a free consultation on how to build a great software product for your business!',
-    url: `${rootUrl}${ROUTES.contact.path}`,
-    logo: getStaticImages().roundLogo,
-    email: 'hi@yellow.systems',
-    telephone: '',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Belarus, Minsk',
-      postalCode: '220030',
-      streetAddress: '5-303 Nemiga street',
-    },
-  };
 
   const handleOnClick = (...args) => {
     const [
@@ -73,7 +56,7 @@ const ContactUsContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.contact} microdata={microdata} />
+      <MetaTags page={PAGES.contact} microdata={microdata.contact()} />
       <section ref={introSection} className={styles.contactContainer}>
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
