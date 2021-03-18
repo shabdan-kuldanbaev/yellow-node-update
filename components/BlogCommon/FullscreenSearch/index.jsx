@@ -7,9 +7,14 @@ import React, {
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
-import { findArticles, clearFoundArticles } from 'redux/actions/blog';
+import {
+  findArticles,
+  clearFoundArticles,
+  clearSearchMessage,
+} from 'redux/actions/blog';
 import { selectFoundArticles } from 'redux/selectors/blog';
-import { ArticlesList, ModalWindow } from 'components';
+import { ModalWindow } from 'components';
+import SearchResult from './SearchResult';
 import styles from './styles.module.scss';
 
 const FullscreenSearch = ({
@@ -17,14 +22,15 @@ const FullscreenSearch = ({
   closeFullscreenSearch,
   findArticles,
   clearFoundArticles,
-  foundArticles,
+  clearSearchMessage,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
-
   const delayedQuery = useCallback(debounce((value) => findArticles({ value }), 1000), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
+    clearSearchMessage();
+    clearFoundArticles();
 
     if (value.length > 1) delayedQuery(value);
   };
@@ -57,16 +63,9 @@ const FullscreenSearch = ({
         />
       </div>
       <div className={styles.foundArticles}>
-        {(!inputValue || !(foundArticles && foundArticles.length))
-          ? <span className={styles.nothingFound}>Nothing Found. Please try again with some different keywords.</span>
-          : (
-            <ArticlesList
-              articles={foundArticles}
-              isLoading={false}
-              page={2}
-              isSearch
-            />
-          )}
+        {inputValue
+          ? <SearchResult />
+          : <span className={styles.nothingFound}>Type some words to search.</span>}
       </div>
     </ModalWindow>
   );
@@ -81,10 +80,14 @@ FullscreenSearch.propTypes = {
   closeFullscreenSearch: PropTypes.func.isRequired,
   findArticles: PropTypes.func.isRequired,
   clearFoundArticles: PropTypes.func.isRequired,
-  foundArticles: PropTypes.instanceOf(Array).isRequired,
+  clearSearchMessage: PropTypes.func.isRequired,
 };
 
 export default connect(
-  (state) => ({ foundArticles: selectFoundArticles(state) }),
-  { findArticles, clearFoundArticles },
+  null,
+  {
+    findArticles,
+    clearFoundArticles,
+    clearSearchMessage,
+  },
 )(FullscreenSearch);

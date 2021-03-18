@@ -7,6 +7,7 @@ const initialState = {
   related: [],
   nearby: {},
   found: [],
+  searchMessage: '',
   totalCount: 0,
   error: {},
   limit: {
@@ -62,6 +63,7 @@ const handlers = {
     ...state,
     isLoading: false,
     found: payload,
+    searchMessage: payload.length ? '' : 'Nothing Found. Please try again with some different keywords.',
   }),
   [actionTypes.FIND_ARTICLES_FAILED]: (state, { payload }) => ({
     ...state,
@@ -69,6 +71,7 @@ const handlers = {
     error: payload,
   }),
   [actionTypes.CLEAR_FOUND_ARTICLES]: (state) => ({ ...state, found: [] }),
+  [actionTypes.CLEAR_SEARCH_MESSAGE]: (state) => ({ ...state, searchMessage: '' }),
   DEFAULT: (state) => state,
 };
 
