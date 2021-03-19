@@ -57,13 +57,17 @@ export const setOverflowForBody = (isHidden) => {
 
 export const formatDate = (date) => {
   let dd = date.getDate();
+
   if (dd < 10) dd = `0${dd}`;
 
   let mm = date.getMonth();
+
   if (mm < 10) mm = `0${mm}`;
 
   let yyyy = date.getFullYear();
+
   if (yyyy < 10) yyyy = `0${yyyy}`;
+
   if (yyyy > 1000) yyyy = Math.trunc(yyyy / 100).toString();
 
   return `${dd}/${mm}/${yyyy}`;
@@ -170,14 +174,17 @@ export const getFeedbackFormData = (data) => {
 
 export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
-// TODO rewrite later
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
-  if (typeof value === 'object') {
-    acc[key] = addCdnToImages(value);
-  } else {
-    acc[key] = getPathWithCdn(value);
-  }
+  typeof value === 'object'
+    ? acc[key] = addCdnToImages(value)
+    : acc[key] = getPathWithCdn(value);
+
   return acc;
 }, {});
 
-export const getStaticImages = () => ({ ...IMAGES_WITHOUT_CDN, ...addCdnToImages(IMAGES) });
+export const staticImagesUrls = ({
+  ...addCdnToImages(IMAGES),
+  ...IMAGES_WITHOUT_CDN,
+});
+
+console.log('sdf sdf');
