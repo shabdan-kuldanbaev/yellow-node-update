@@ -23,23 +23,49 @@ export const routes = {
     title: 'Blog',
     path: '/blog',
     getPath: (category, page = '1') => {
+      const rootBlogPath = '/blog';
+      const dynamicBlogPath = {
+        root: rootBlogPath,
+        slug: `${rootBlogPath}/[slug]`,
+        page: `${rootBlogPath}/[slug]/[page]`,
+      };
+      const route = {
+        path: rootBlogPath,
+        dynamicPath: dynamicBlogPath.root,
+      };
+
       if (category === 'latest') {
-        return '/blog';
+        return route;
       }
 
       if (!category || isNumeric(category)) {
-        return page === 1 ? '/blog' : `/blog/${page}`;
+        if (+page === 1) {
+          return route;
+        }
+
+        return {
+          path: `${rootBlogPath}/${page}`,
+          dynamicPath: dynamicBlogPath.slug,
+        };
       }
 
-      if (category && (page === '1' || page === 1)) {
-        return `/blog/${category}`;
+      if (category && +page === 1) {
+        return {
+          path: `${rootBlogPath}/${category}`,
+          dynamicPath: dynamicBlogPath.slug,
+        };
       }
 
-      return `/blog/${category}/${page}`;
+      return {
+        path: `${rootBlogPath}/${category}/${page}`,
+        dynamicPath: dynamicBlogPath.page,
+      };
     },
-    dynamicPath: '/blog',
-    dynamicPathWithPage: '/blog/[slug]',
-    dynamicPathWithCategory: '/blog/[slug]/[page]',
+    dynamicPath: {
+      root: '/blog',
+      slug: '/blog/[slug]',
+      page: '/blog/[slug]/[page]',
+    },
     slug: 'blog',
     categories: [
       {

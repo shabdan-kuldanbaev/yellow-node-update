@@ -35,8 +35,8 @@ export const Article = ({
             <div className={styles.categoryName}>
               <LinkWrapper
                 isLocalLink
-                path={ROUTES.blog.getPath(categoryTag)}
-                dynamicRouting={ROUTES.blog.dynamicPathWithPage}
+                path={ROUTES.blog.getPath(categoryTag).path}
+                dynamicRouting={ROUTES.blog.dynamicPath.slug}
               >
                 {CATEGORY_TAGS[categoryTag]}
               </LinkWrapper>

@@ -4,7 +4,7 @@ import { fetchLayoutData } from 'redux/actions/layout';
 import { PortfolioContainer } from 'containers';
 import { PAGES } from 'utils/constants';
 
-const Portfolio = () => <PortfolioContainer />;
+const Portfolio = ({ introSection }) => <PortfolioContainer introSection={introSection} />;
 
 Portfolio.getInitialProps = async ({ store, req }) => {
   store.dispatch(fetchLayoutData({ slug: PAGES.portfolio }));
