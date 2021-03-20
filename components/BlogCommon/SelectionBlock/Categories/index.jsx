@@ -4,10 +4,9 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { LinkWrapper } from 'components';
 import { setOverflowForBody, isNumeric } from 'utils/helper';
-import { ROUTES, CATEGORY_SLUGS } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 import CloseIcon from './images/close.svg';
 import styles from './styles.module.scss';
-
 
 const Categories = ({ isMobileCategoties, closeMobileCategoties }) => {
   const { asPath, query: { slug: currentCategory } } = useRouter();
@@ -28,9 +27,7 @@ const Categories = ({ isMobileCategoties, closeMobileCategoties }) => {
       </div>
       <ul>
         {ROUTES.blog.categories.map(({ title, slug }, index) => {
-          const { root, slug: category } = ROUTES.blog.getPath(slug).dynamicPath;
-          const { path } = ROUTES.blog.getPath(slug);
-          const dynamicRouting = slug === CATEGORY_SLUGS[0] ? root : category;
+          const { path, dynamicPath } = ROUTES.blog.getPath(slug);
           const isSelected = index !== 0
             ? asPath.includes(path)
             : asPath === path || isNumeric(currentCategory);
@@ -43,7 +40,7 @@ const Categories = ({ isMobileCategoties, closeMobileCategoties }) => {
               <LinkWrapper
                 isLocalLink
                 path={path}
-                dynamicRouting={dynamicRouting}
+                dynamicRouting={dynamicPath}
               >
                 {title}
               </LinkWrapper>

@@ -30,7 +30,12 @@ const fetchBlogData = async ({
     };
   }
 
-  if (CATEGORY_SLUGS.includes(category)) queryParams = { category, page };
+  if (CATEGORY_SLUGS.includes(category)) {
+    queryParams = {
+      category,
+      page,
+    };
+  }
 
   const currentPage = toInt(queryParams.page);
 
@@ -41,6 +46,7 @@ const fetchBlogData = async ({
     category: queryParams.category,
     skip: (currentPage - 1) * deviceLimit,
   }));
+
   return {
     deviceLimit,
     currentPage,
@@ -56,6 +62,7 @@ export const getInitialBlogProps = async (ctx) => {
     },
   } = ctx;
   let props = {};
+
   if (isArticle(slug)) {
     store.dispatch(fetchLayoutData({
       articleSlug: slug,
@@ -63,14 +70,17 @@ export const getInitialBlogProps = async (ctx) => {
     }));
   } else {
     const { deviceLimit, currentPage } = await fetchBlogData(ctx);
+
     props = {
       deviceLimit,
       currentPage,
     };
   }
+
   if (req) {
     store.dispatch(END);
     await store.sagaTask.toPromise();
   }
+
   return props;
 };

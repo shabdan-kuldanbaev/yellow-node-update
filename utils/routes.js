@@ -1,5 +1,32 @@
 import { isNumeric } from 'utils/helper';
 
+const rootBlogPath = '/blog';
+
+const dynamicBlogPaths = {
+  root: rootBlogPath,
+  slug: `${rootBlogPath}/[slug]`,
+  page: `${rootBlogPath}/[slug]/[page]`,
+};
+
+const blogRoutes = {
+  root: () => ({
+    path: rootBlogPath,
+    dynamicPath: rootBlogPath,
+  }),
+  pageSlug: (page) => ({
+    path: `${rootBlogPath}/${page}`,
+    dynamicPath: dynamicBlogPaths.slug,
+  }),
+  categorySlug: (category) => ({
+    path: `${rootBlogPath}/${category}`,
+    dynamicPath: dynamicBlogPaths.slug,
+  }),
+  categoryPageSlug: (category, page) => ({
+    path: `${rootBlogPath}/${category}/${page}`,
+    dynamicPath: dynamicBlogPaths.page,
+  }),
+};
+
 export const routes = {
   homepage: {
     title: 'Home',
@@ -21,50 +48,33 @@ export const routes = {
   },
   blog: {
     title: 'Blog',
-    path: '/blog',
+    path: rootBlogPath,
     getPath: (category, page = '1') => {
-      const rootBlogPath = '/blog';
-      const dynamicBlogPath = {
-        root: rootBlogPath,
-        slug: `${rootBlogPath}/[slug]`,
-        page: `${rootBlogPath}/[slug]/[page]`,
-      };
-      const route = {
-        path: rootBlogPath,
-        dynamicPath: dynamicBlogPath.root,
-      };
+      const {
+        root,
+        pageSlug,
+        categorySlug,
+        categoryPageSlug,
+      } = blogRoutes;
 
       if (category === 'latest') {
-        return route;
+        return root();
       }
 
       if (!category || isNumeric(category)) {
-        if (+page === 1) {
-          return route;
-        }
+        if (+page === 1) return root();
 
-        return {
-          path: `${rootBlogPath}/${page}`,
-          dynamicPath: dynamicBlogPath.slug,
-        };
+        return pageSlug(page);
       }
 
       if (category && +page === 1) {
-        return {
-          path: `${rootBlogPath}/${category}`,
-          dynamicPath: dynamicBlogPath.slug,
-        };
+        return categorySlug(category);
       }
 
-      return {
-        path: `${rootBlogPath}/${category}/${page}`,
-        dynamicPath: dynamicBlogPath.page,
-      };
+      return categoryPageSlug(category, page);
     },
     dynamicPath: {
-      root: '/blog',
-      slug: '/blog/[slug]',
-      page: '/blog/[slug]/[page]',
+      ...dynamicBlogPaths,
     },
     slug: 'blog',
     categories: [
