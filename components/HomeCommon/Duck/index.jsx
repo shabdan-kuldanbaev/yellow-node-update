@@ -403,7 +403,7 @@ export const Duck = ({
         <Animated
           type={ANIMATED_TYPE.isParallaxSpring}
           position="absolute"
-          speed={0.13}
+          speed={0.3}
           elementRef={containerText}
           isHomepageIntro
         >
