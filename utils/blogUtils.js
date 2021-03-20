@@ -7,6 +7,7 @@ import { PAGES, CATEGORY_SLUGS } from 'utils/constants';
 
 export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
 
+// TODO think a better solution
 const fetchBlogData = async ({
   store,
   query: {

@@ -13,15 +13,11 @@ const blogRoutes = {
     path: rootBlogPath,
     dynamicPath: rootBlogPath,
   }),
-  pageSlug: (page) => ({
-    path: `${rootBlogPath}/${page}`,
+  slug: (slug) => ({
+    path: `${rootBlogPath}/${slug}`,
     dynamicPath: dynamicBlogPaths.slug,
   }),
-  categorySlug: (category) => ({
-    path: `${rootBlogPath}/${category}`,
-    dynamicPath: dynamicBlogPaths.slug,
-  }),
-  categoryPageSlug: (category, page) => ({
+  page: (category, page) => ({
     path: `${rootBlogPath}/${category}/${page}`,
     dynamicPath: dynamicBlogPaths.page,
   }),
@@ -49,29 +45,23 @@ export const routes = {
   blog: {
     title: 'Blog',
     path: rootBlogPath,
+    // TODO think a better solution
     getRoute: (category, page = '1') => {
-      const {
-        root,
-        pageSlug,
-        categorySlug,
-        categoryPageSlug,
-      } = blogRoutes;
-
       if (category === 'latest') {
-        return root();
+        return blogRoutes.root();
       }
 
       if (!category || isNumeric(category)) {
-        if (+page === 1) return root();
+        if (+page === 1) return blogRoutes.root();
 
-        return pageSlug(page);
+        return blogRoutes.slug(page);
       }
 
       if (category && +page === 1) {
-        return categorySlug(category);
+        return blogRoutes.slug(category);
       }
 
-      return categoryPageSlug(category, page);
+      return blogRoutes.page(category, page);
     },
     dynamicPath: {
       ...dynamicBlogPaths,
