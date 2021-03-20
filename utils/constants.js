@@ -1,5 +1,4 @@
 import { routes } from 'utils/routes';
-import { addCdnToImages } from 'utils/helper';
 
 export const DEFAULT_ARTICLES_LIMIT = 5;
 export const CURRENT_PAGE_NUMBER = 1;

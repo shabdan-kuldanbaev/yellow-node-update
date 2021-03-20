@@ -49,7 +49,7 @@ export const routes = {
   blog: {
     title: 'Blog',
     path: rootBlogPath,
-    getPath: (category, page = '1') => {
+    getRoute: (category, page = '1') => {
       const {
         root,
         pageSlug,
@@ -106,8 +106,10 @@ export const routes = {
   },
   article: {
     title: 'Article',
-    path: (slug) => `/blog/${slug}`,
-    dynamicPath: '/blog/[slug]',
+    getRoute: (slug) => ({
+      path: !!slug && `/blog/${slug}`,
+      dynamicPath: !!slug && '/blog/[slug]',
+    }),
     slug: 'article',
   },
   company: {

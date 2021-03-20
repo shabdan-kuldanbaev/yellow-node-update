@@ -167,7 +167,6 @@ export const isNumeric = (value) => !isNaN(value);
 
 export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
-// TODO rewrite later
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
   if (typeof value === 'object') {
     addCdnToImages(value);

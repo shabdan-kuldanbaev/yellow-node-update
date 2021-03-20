@@ -13,40 +13,45 @@ export const Article = ({
   categoryTag,
   introduction,
   previewImage,
-}) => (slug && title && introduction && previewImage && (
-  <article key={`articles/${title}`} className={cn(styles.article, { [styles.medium]: index === 0 })}>
-    <Animated {...animatioProps}>
-      <LinkWrapper
-        isLocalLink
-        path={ROUTES.article.path(slug)}
-        dynamicRouting={ROUTES.article.dynamicPath}
-      >
-        <div>
+}) => {
+  const blogCategoryRoute = ROUTES.blog.getRoute(categoryTag);
+  const articleRoute = ROUTES.article.getRoute(slug);
+
+  return slug && title && introduction && previewImage && (
+    <article key={`articles/${title}`} className={cn(styles.article, { [styles.medium]: index === 0 })}>
+      <Animated {...animatioProps}>
+        <LinkWrapper
+          isLocalLink
+          path={articleRoute.path}
+          dynamicRouting={articleRoute.dynamicPath}
+        >
           <div>
-            <div className={styles.imgContainer}>
-              <div className={styles.image} style={{ backgroundImage: `url(${previewImage})` }} />
+            <div>
+              <div className={styles.imgContainer}>
+                <div className={styles.image} style={{ backgroundImage: `url(${previewImage})` }} />
+              </div>
+              <div className={styles.articlePreview}>
+                <h2 className={styles.title}><span>{title}</span></h2>
+                <div className={styles.description}>{introduction}</div>
+              </div>
             </div>
-            <div className={styles.articlePreview}>
-              <h2 className={styles.title}><span>{title}</span></h2>
-              <div className={styles.description}>{introduction}</div>
-            </div>
+            {blogCategoryRoute && (
+              <div className={styles.categoryName}>
+                <LinkWrapper
+                  isLocalLink
+                  path={blogCategoryRoute.path}
+                  dynamicRouting={blogCategoryRoute.dynamicPath}
+                >
+                  {CATEGORY_TAGS[categoryTag]}
+                </LinkWrapper>
+              </div>
+            )}
           </div>
-          {categoryTag && (
-            <div className={styles.categoryName}>
-              <LinkWrapper
-                isLocalLink
-                path={ROUTES.blog.getPath(categoryTag).path}
-                dynamicRouting={ROUTES.blog.dynamicPath.slug}
-              >
-                {CATEGORY_TAGS[categoryTag]}
-              </LinkWrapper>
-            </div>
-          )}
-        </div>
-      </LinkWrapper>
-    </Animated>
-  </article>
-));
+        </LinkWrapper>
+      </Animated>
+    </article>
+  );
+};
 
 Article.defaultProps = {
   categoryTag: '',

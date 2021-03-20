@@ -27,7 +27,7 @@ const Categories = ({ isMobileCategoties, closeMobileCategoties }) => {
       </div>
       <ul>
         {ROUTES.blog.categories.map(({ title, slug }, index) => {
-          const { path, dynamicPath } = ROUTES.blog.getPath(slug);
+          const { path, dynamicPath } = ROUTES.blog.getRoute(slug);
           const isSelected = index !== 0
             ? asPath.includes(path)
             : asPath === path || isNumeric(currentCategory);
