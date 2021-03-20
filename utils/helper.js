@@ -186,5 +186,3 @@ export const staticImagesUrls = ({
   ...addCdnToImages(IMAGES),
   ...IMAGES_WITHOUT_CDN,
 });
-
-console.log('sdf sdf');
