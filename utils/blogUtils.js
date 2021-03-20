@@ -5,7 +5,7 @@ import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { toInt, isNumeric } from 'utils/helper';
 import { PAGES, CATEGORY_SLUGS } from 'utils/constants';
 
-const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
+export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
 
 const fetchBlogData = async ({
   store,

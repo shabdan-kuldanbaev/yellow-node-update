@@ -15,7 +15,6 @@ const Paginator = ({
 }) => {
   const { query: { slug: category } } = useRouter();
   let [mobilePrevious, desktopPrevious, mobileNext, desktopNext] = ['', '', '', ''];
-  let nextPathname = ROUTES.blog.getRoute(category).dynamicPath;
 
   if (currentPage > 2) mobilePrevious = pagesCounter > 3 ? 'start' : '';
   if (currentPage > 3) desktopPrevious = pagesCounter > 4 ? 'start' : '';
@@ -23,19 +22,13 @@ const Paginator = ({
   if (currentPage <= (pagesCounter - 3)) desktopNext = pagesCounter > 5 ? 'next' : '';
 
   const pushRouter = (currentCategory, nextPage) => {
-    const { page, slug, root } = ROUTES.blog.dynamicPath;
-    const pathname = ROUTES.blog.getRoute(currentCategory, nextPage).path;
-    const slashCount = pathname.split('/').length - 1;
-    nextPathname = root;
-
-    if (slashCount === 2) {
-      nextPathname = slug;
-    } else if (slashCount === 3) {
-      nextPathname = page;
-    }
+    const { path, dynamicPath } = ROUTES.blog.getRoute(currentCategory, nextPage);
 
     window.scrollTo(0, 0);
-    Router.push({ pathname: nextPathname }, { pathname });
+    Router.push(
+      { pathname: dynamicPath },
+      { pathname: path },
+    );
   };
   const handleOnPreviousClick = () => pushRouter(category, 1);
   const handleOnPageClick = ({ selected }) => pushRouter(category, selected + 1);

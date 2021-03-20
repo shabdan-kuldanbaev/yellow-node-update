@@ -1,9 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { ArticleContainer, BlogContainer } from 'containers';
-import { CATEGORY_SLUGS } from 'utils/constants';
-import { isNumeric } from 'utils/helper';
-import { getInitialBlogProps } from 'utils/blogUtils';
+import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
 
 const Article = ({
   deviceLimit,
@@ -12,15 +10,15 @@ const Article = ({
 }) => {
   const { query: { slug } } = useRouter();
 
-  return (CATEGORY_SLUGS.includes(slug) || isNumeric(slug))
-    ? (
+  return isArticle(slug)
+    ? <ArticleContainer introSection={introSection} />
+    : (
       <BlogContainer
         deviceLimit={deviceLimit}
         currentPage={currentPage}
         introSection={introSection}
       />
-    )
-    : <ArticleContainer introSection={introSection} />;
+    );
 };
 
 Article.getInitialProps = async (ctx) => getInitialBlogProps(ctx);

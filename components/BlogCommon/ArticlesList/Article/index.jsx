@@ -35,7 +35,7 @@ export const Article = ({
                 <div className={styles.description}>{introduction}</div>
               </div>
             </div>
-            {blogCategoryRoute && (
+            {categoryTag && (
               <div className={styles.categoryName}>
                 <LinkWrapper
                   isLocalLink
