@@ -397,7 +397,6 @@ export const Duck = ({
     }
   }, []);
 
-
   return (
     <Fragment>
       <div className={styles.text} ref={containerText}>
