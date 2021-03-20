@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createWrapper } from 'next-redux-wrapper';
-import logger from 'redux-logger';
+// TODO import logger from 'redux-logger';
 import rootReducers from 'redux/reducers';
 import rootSaga from 'redux/sagas';
 
@@ -10,7 +10,7 @@ const bindMiddleware = (middleware) => {
     // eslint-disable-next-line
     const { composeWithDevTools } = require('redux-devtools-extension');
 
-    return composeWithDevTools(applyMiddleware(...middleware, logger));
+    return composeWithDevTools(applyMiddleware(...middleware /* , logger */));
   }
 
   return applyMiddleware(...middleware);
