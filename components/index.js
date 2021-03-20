@@ -45,7 +45,6 @@ export { default as Article } from 'components/BlogCommon/Article';
 export { default as RelatedSection } from 'components/BlogCommon/Article/RelatedSection';
 export { ArticlesList } from 'components/BlogCommon/ArticlesList';
 export { default as SelectionBlock } from 'components/BlogCommon/SelectionBlock';
-export { default as SearchIcon } from 'components/BlogCommon/SelectionBlock/images/search.svg';
 export { default as FullscreenSearch } from 'components/BlogCommon/FullscreenSearch';
 export { default as FullscreenSubscribe } from 'components/BlogCommon/FullscreenSubscribe';
 export { default as Subscribe } from 'components/BlogCommon/Subscribe';

@@ -92,7 +92,7 @@ $mobile-more-button-indent: calc(#{$mobile-section-indent} / 2);
 $aricleIndent: 10px;
 $after-mobile-title-margin: 60px;
 $logo-size: 120px;
-$max-content-width: 1500px;
+$max-content-width: 1300px;
 $max-content-width-full-hd: 1170px;
 $max-content-width-macbook-fifteen: 1050px;
 $max-content-width-macbook-twelve: 1000px;
@@ -133,6 +133,9 @@ $insta-tape-box-shadow-color: rgba(0, 0, 0, 0.07);
 $min-article-margin: 14px;
 $max-article-margin: 24px;
 
+// TODO rewrite with enviroment variable after release
+$cdnURL: 'https://dn75rr69j9vc.cloudfront.net';  
+
 :export {
   firstColor: $science-blue;
   secondColor: $english-walnut;
@@ -141,10 +144,5 @@ $max-article-margin: 24px;
   logoSize: $logo-size;
   horizontalMobile: $horizontal-mobile;
   bigTabletResolution: $max-tablet-size;
-  footerColor: $woodsmoke;
-  silver: $silver-1;
-  turbo: $turbo-100;
-  witchHaze: $witch-haze;
-  black: $black;
   fullHdResolution: $full-hd;
 }

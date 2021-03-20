@@ -5,11 +5,7 @@ import {
   phoneResolution,
   horizontalMobile,
   bigTabletResolution,
-  silver,
   fullHdResolution,
-  turbo,
-  witchHaze,
-  black,
 } from 'styles/utils/_variables.scss';
 
 export const themes = {
@@ -41,10 +37,6 @@ export const mobileResolution = toInt(phoneResolution);
 export const fullResolution = toInt(fullHdResolution);
 export const horizontalPhone = toInt(horizontalMobile);
 export const tabletResolution = toInt(bigTabletResolution);
-export const previewImageBackground = toString(silver);
-export const linearBackgroundColor = toString(turbo);
-export const linearBarColor = toString(witchHaze);
-export const blackColor = toString(black);
 
 export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'scroll';
@@ -162,3 +154,16 @@ export const getFeedbackFormData = (data) => {
 
   return formData;
 };
+
+export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
+
+// TODO rewrite later
+export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
+  if (typeof value === 'object') {
+    addCdnToImages(value);
+  }
+
+  acc[key] = getPathWithCdn(value);
+
+  return acc;
+}, {});

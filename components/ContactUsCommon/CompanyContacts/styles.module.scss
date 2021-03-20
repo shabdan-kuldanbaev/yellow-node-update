@@ -2,7 +2,6 @@
 
 .companyContacts {
   @include flex(row, space-between, flex-start);
-  width: 100%;
   width: calc(#{$max-content-width} * 0.8);
   padding: 100px 0;
 
@@ -12,7 +11,7 @@
   }
 
   @include tablet {
-    padding-top: 0px;
+    padding-top: 0;
   }
 
   @include below-tablet {

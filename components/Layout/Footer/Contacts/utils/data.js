@@ -1,9 +1,11 @@
-import {
+import { STATIC_IMAGES } from 'utils/constants';
+
+const {
   instaIcon,
   linkedinIcon,
   mediumIcon,
   dribbbleIcon,
-} from '../images';
+} = STATIC_IMAGES.socialNetworksIcons;
 
 export const socialNetworks = [
   {

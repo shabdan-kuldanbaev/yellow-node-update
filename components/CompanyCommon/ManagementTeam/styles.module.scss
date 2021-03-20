@@ -42,7 +42,7 @@
     @include flex(column, space-around, flex-start);
     text-align: left;
 
-    & > div:nth-of-type(1) > h1 {
+    & > div:nth-of-type(1) > h2 {
       @include big-title();
       margin-bottom: 70px;
 

@@ -1,10 +1,12 @@
-import {
+import { STATIC_IMAGES } from 'utils/constants';
+
+const {
   techCrunch,
   time,
   productHunt,
   esquire,
   theWeek,
-} from '../images';
+} = STATIC_IMAGES.partnersIcons;
 
 export const partners = [
   {
