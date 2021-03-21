@@ -1,15 +1,16 @@
 import get from 'lodash/get';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
-import { PAGES } from 'utils/constants';
+import {
+  PAGES,
+  FEEDBACK_FORM_FIELDS,
+  IMAGES,
+  IMAGES_WITHOUT_CDN,
+} from 'utils/constants';
 import {
   phoneResolution,
   horizontalMobile,
   bigTabletResolution,
-  silver,
   fullHdResolution,
-  turbo,
-  witchHaze,
-  black,
 } from 'styles/utils/_variables.scss';
 
 export const themes = {
@@ -41,10 +42,6 @@ export const mobileResolution = toInt(phoneResolution);
 export const fullResolution = toInt(fullHdResolution);
 export const horizontalPhone = toInt(horizontalMobile);
 export const tabletResolution = toInt(bigTabletResolution);
-export const previewImageBackground = toString(silver);
-export const linearBackgroundColor = toString(turbo);
-export const linearBarColor = toString(witchHaze);
-export const blackColor = toString(black);
 
 export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'scroll';
@@ -52,13 +49,17 @@ export const setOverflowForBody = (isHidden) => {
 
 export const formatDate = (date) => {
   let dd = date.getDate();
+
   if (dd < 10) dd = `0${dd}`;
 
   let mm = date.getMonth();
+
   if (mm < 10) mm = `0${mm}`;
 
   let yyyy = date.getFullYear();
+
   if (yyyy < 10) yyyy = `0${yyyy}`;
+
   if (yyyy > 1000) yyyy = Math.trunc(yyyy / 100).toString();
 
   return `${dd}/${mm}/${yyyy}`;
@@ -146,3 +147,34 @@ export const loadDuck = async () => {
     console.log(error);
   }
 };
+
+export const getFeedbackFormData = (data) => {
+  const formData = new window.FormData();
+
+  Object.entries(FEEDBACK_FORM_FIELDS).forEach(([key]) => {
+    if (data[key]) {
+      if (key === FEEDBACK_FORM_FIELDS.files) {
+        [...data[key]].forEach((file) => formData.append(key, file));
+      } else {
+        formData.append(key, data[key]);
+      }
+    }
+  });
+
+  return formData;
+};
+
+export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
+
+export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
+  typeof value === 'object'
+    ? acc[key] = addCdnToImages(value)
+    : acc[key] = getPathWithCdn(value);
+
+  return acc;
+}, {});
+
+export const staticImagesUrls = ({
+  ...addCdnToImages(IMAGES),
+  ...IMAGES_WITHOUT_CDN,
+});

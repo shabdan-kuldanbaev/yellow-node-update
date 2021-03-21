@@ -17,7 +17,7 @@
     @include phone {
       padding: 0 20px;
       position: absolute;
-      top: 70px;
+      transform: translateY(15%);
     }
 
     & > div {
@@ -38,9 +38,8 @@
             line-height: 1.55;
             letter-spacing: 0.5px;
             transition: color $accelerated-transition-time;
-      
             border: none;
-            outline: 0px;
+            outline: none;
             background-color: transparent;
             color: $black;
             position: relative;

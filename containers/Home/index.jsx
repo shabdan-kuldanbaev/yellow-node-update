@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchLayoutData } from 'redux/actions/layout';
 import { selectImageCarousel, selectIsPageReadyToDisplay } from 'redux/selectors/layout';
-import { selectIsFirstHomepageVisit } from 'redux/selectors/home';
 import {
   Intro,
   Blog,
@@ -15,13 +14,10 @@ import {
   ReviewsContainer,
   FeedbackFormContainer,
 } from 'containers';
-import {
-  PhotoGallery,
-  LoadingScreen,
-  MetaTags,
-} from 'components';
+import { PhotoGallery, MetaTags } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import LoadingPlaceholder from './LoadingPlaceholder';
 
 export const Home = ({
   theme,
@@ -29,7 +25,6 @@ export const Home = ({
   photosData,
   fetchLayoutData: fetchPage,
   isPageReadyToDisplay,
-  isFirstHomepageVisit,
 }) => {
   const gradientRef = useRef(null);
   const { content } = getDocumentFields(photosData, ['content']);
@@ -41,7 +36,7 @@ export const Home = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.homepage} />
-      {(!isPageReadyToDisplay && !isFirstHomepageVisit) ? <LoadingScreen /> : (
+      {!isPageReadyToDisplay ? <LoadingPlaceholder /> : (
         <Fragment>
           <Intro theme={theme} introSection={introSection} />
           <Portfolio gradientRef={gradientRef} />
@@ -65,14 +60,12 @@ Home.propTypes = {
   fetchLayoutData: PropTypes.func.isRequired,
   photosData: PropTypes.instanceOf(Object),
   isPageReadyToDisplay: PropTypes.bool.isRequired,
-  isFirstHomepageVisit: PropTypes.bool.isRequired,
 };
 
 export default connect(
   (state) => ({
     photosData: selectImageCarousel(state),
     isPageReadyToDisplay: selectIsPageReadyToDisplay(state),
-    isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
   }),
   { fetchLayoutData },
 )(Home);

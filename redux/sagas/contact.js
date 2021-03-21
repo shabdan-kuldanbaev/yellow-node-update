@@ -8,13 +8,14 @@ import ObjectAssign from 'es6-object-assign';
 import ReactGA from 'react-ga';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { API } from 'utils/api';
+import { getFeedbackFormData } from 'utils/helper';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
 function* sendEmail({ payload }) {
   try {
-    const response = yield call(API.sendEmail, payload);
+    const response = yield call(API.sendEmail, getFeedbackFormData(payload));
 
     ReactGA.event({
       category: 'Contact form',

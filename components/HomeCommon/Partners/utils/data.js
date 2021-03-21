@@ -1,10 +1,12 @@
-import {
+import { staticImagesUrls } from 'utils/helper';
+
+const {
   techCrunch,
   time,
   productHunt,
   esquire,
   theWeek,
-} from '../images';
+} = staticImagesUrls.partnersIcons;
 
 export const partners = [
   {

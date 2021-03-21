@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
 import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
 import { withValidateEmail } from 'hocs';
-import Background from './images/background.jpg';
+import { staticImagesUrls } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const SubscribeBlock = ({
@@ -46,7 +46,7 @@ const SubscribeBlock = ({
             {message && <span className={styles.alertMessage}>{message}</span>}
           </form>
         </div>
-        <div className={styles.subscribeMessage} style={{ backgroundImage: `url(${Background})` }}>
+        <div className={styles.subscribeMessage} style={{ backgroundImage: `url(${staticImagesUrls.subscribeBlockBackground})` }}>
           <h3>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</h3>
         </div>
       </div>

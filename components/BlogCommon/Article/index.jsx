@@ -21,12 +21,16 @@ const Article = ({
   const articleBodyRef = useRef(null);
   const maxPosition = useRef(0);
 
-  useEffect(() => () => ReactGA.event({
-    category: 'Scroll',
-    action: `${maxPosition.current}%`,
-    label: `/blog/${slug}`,
-    nonInteraction: maxPosition.current < 50,
-  }), [slug]);
+  useEffect(() => () => {
+    if (slug) {
+      ReactGA.event({
+        category: 'Scroll',
+        action: `${maxPosition.current}%`,
+        label: `/blog/${slug}`,
+        nonInteraction: maxPosition.current < 50,
+      });
+    }
+  }, [slug]);
 
   useEffect(() => {
     maxPosition.current = maxScrollPosition;

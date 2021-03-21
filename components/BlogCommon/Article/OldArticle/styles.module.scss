@@ -122,7 +122,6 @@
       @include tablet {
         @include fontSize(25px);
         margin: 40px 0;
-        padding-left: 45px;
       }
   
       @include phone {

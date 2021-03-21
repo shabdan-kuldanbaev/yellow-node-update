@@ -105,6 +105,7 @@
           color: $woodsmoke;
 
           @include macbook-twelve {
+            @include fontSize(16px);
             width: 250px;
             padding-right: 20px;
             padding-left: 20px;
@@ -134,10 +135,6 @@
 
             @include macbook-twelve {
               @include fontSize(16px);
-            }
-
-            @include tablet {
-              @include fontSize(14px);
             }
           }
 

@@ -34,7 +34,7 @@
     }
   }
 
-  & > div:first-child h1 {
+  & > div:first-child h2 {
     @include phone {
       text-align: left;
       font-size: 1.4375rem;

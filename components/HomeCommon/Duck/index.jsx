@@ -13,8 +13,9 @@ import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
-import { animated, useSpring } from 'react-spring';
+import { Animated } from 'components';
 import { mobileResolution } from 'utils/helper';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { animationTypes } from './utils/data';
 import {
   three,
@@ -25,7 +26,7 @@ import * as styles from './styles.module.scss';
 
 let camera;
 let animationId = 0;
-let r = 0;
+let isRender = true;
 const meshes = [];
 const meshClones = [];
 let composer;
@@ -97,20 +98,6 @@ export const Duck = ({
   // let movement = 0;
   // let composer;
   // let camera;
-
-  // TODO remove this and add the parallax component
-  const calc = (o) => `translateY(${o * 0.13}px)`;
-  const calcForDuck = (o) => `translateY(${o * 0.09}px)`;
-  const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
-  const [{ offset: duckOffset }, setDuckProps] = useSpring(() => ({ offset: 0 }));
-  const handleOffset = () => {
-    if (window.pageYOffset < 0) set({ offset: 0 });
-    else set({ offset: window.pageYOffset - containerText.current.getBoundingClientRect().top });
-  };
-  const handleDuckOffset = () => {
-    if (window.pageYOffset < 0) setDuckProps({ offset: 0 });
-    else setDuckProps({ offset: window.pageYOffset - containerCanvas.current.getBoundingClientRect().top });
-  };
 
   const creatShaderMaterialAfterLoadModel = (obj) => {
     mat = three.creatMat();
@@ -242,8 +229,9 @@ export const Duck = ({
           mesh.geometry.attributes.position.needsUpdate = true;
           scatterStep = 0;
         });
-      } else if (window.innerWidth < mobileResolution) r = 1;
-      else {
+      } else if (window.innerWidth < mobileResolution) {
+        isRender = false;
+      } else {
         meshes.forEach((mesh) => { three.setRotateAnimation(mesh, options); });
         meshClones.forEach((mesh) => { three.setRotateAnimation(mesh, options); });
       }
@@ -269,7 +257,7 @@ export const Duck = ({
   };
 
   const animate = () => {
-    if (r === 0) {
+    if (isRender) {
       animationId = requestAnimationFrame(animate);
       render();
     }
@@ -278,8 +266,6 @@ export const Duck = ({
   const handleOnScroll = () => {
     slogan.setOpacity(canvas, containerCanvas);
     slogan.setSloganOpacity(sloganRef, isMobile);
-    handleOffset();
-    handleDuckOffset();
 
     const { top } = containerCanvas.current.getBoundingClientRect();
 
@@ -287,14 +273,14 @@ export const Duck = ({
       if (!(window.innerWidth < mobileResolution)) {
         if (top < -400) {
           setAnimate(false);
-          r = 1;
+          isRender = false;
         } else if (top <= -50 && top > -400) {
           setAnimate(true);
-          r = 0;
+          isRender = true;
         } else {
           options.initial.currentAnimation = animationTypes[1];
           setAnimate(true);
-          r = 0;
+          isRender = true;
         }
       }
     }
@@ -326,7 +312,7 @@ export const Duck = ({
     if (containerCanvas.current && containerCanvas.current.getBoundingClientRect().top < -400) {
       cancelAnimationFrame(animationId);
       animationId = 0;
-      r = 1;
+      isRender = false;
     }
 
     isMobile = window.innerWidth < mobileResolution;
@@ -340,7 +326,7 @@ export const Duck = ({
 
         if (isMobile) options.default.meshScale = 70;
 
-        r = 0;
+        isRender = true;
         init();
 
         if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -404,7 +390,7 @@ export const Duck = ({
 
   useEffect(() => () => {
     if (isHomepageVisit) {
-      r = 0;
+      isRender = true;
       meshes.length = 0;
       meshClones.length = 0;
       mat = 0;
@@ -414,17 +400,23 @@ export const Duck = ({
   return (
     <Fragment>
       <div className={styles.text} ref={containerText}>
-        <animated.div style={{ position: 'absolute', transform: offset.interpolate(calc) }}>
+        <Animated
+          type={ANIMATED_TYPE.isParallaxSpring}
+          position="absolute"
+          speed={0.3}
+          elementRef={containerText}
+          isHomepageIntro
+        >
           <h1 ref={sloganRef} className="letter-container" />
-        </animated.div>
+        </Animated>
       </div>
-      <animated.div
+      <Animated
+        type={ANIMATED_TYPE.isParallaxSpring}
         className={styles.canvasContainer}
-        ref={containerCanvas}
-        style={{
-          position: 'relative',
-          transform: duckOffset.interpolate(calcForDuck),
-        }}
+        elementRef={containerCanvas}
+        position="relative"
+        speed={0.09}
+        isHomepageIntro
       />
     </Fragment>
   );

@@ -1,10 +1,12 @@
 import { ANIMATED_TYPE } from 'utils/constants';
-import {
-  AI,
+import { staticImagesUrls } from 'utils/helper';
+
+const {
+  ai,
   chats,
   cloud,
   mobile,
-} from '../images';
+} = staticImagesUrls.advantagesIcons;
 
 export const advantages = [
   {
@@ -20,7 +22,7 @@ export const advantages = [
   {
     title: 'AI',
     desc: '<span>Making machines smart again</span>',
-    image: AI,
+    image: ai,
   },
   {
     title: 'Chats',

@@ -13,9 +13,8 @@ import {
   FullscreenSearch,
   FullscreenSubscribe,
 } from 'components';
-import { setOverflowForBody } from 'utils/helper';
+import { setOverflowForBody, staticImagesUrls } from 'utils/helper';
 import Categories from './Categories';
-import SearchIcon from './images/search.svg';
 import styles from './styles.module.scss';
 
 const SelectionBlock = ({
@@ -50,7 +49,7 @@ const SelectionBlock = ({
       <div className={styles.buttons}>
         <div className={styles.imgContainer}>
           <img
-            src={SearchIcon}
+            src={staticImagesUrls.searchIcon}
             alt="Search"
             onClick={openFullscreenSearch}
             role="presentation"
