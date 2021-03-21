@@ -22,11 +22,11 @@ footer {
       opacity: 1 !important;
     }
 
-    h1 {
+    h2 {
       color: $white;
     }
 
-    &>div {
+    & > div {
       height: max-content;
       padding: 80px 0 $side-indent;
 
@@ -84,6 +84,7 @@ footer {
 
           a {
             padding: 0;
+            margin-right: 30px;
           }
 
           &:hover {

@@ -28,10 +28,10 @@ export const Process = ({ processes }) => {
         >
           <div className={styles.desc}>
             <Animated {...animatedProps} transitionDelay={300}>
-              <h1>
+              <h2>
                 <span>{`${index + 1}.`}</span>
                 {name}
-              </h1>
+              </h2>
             </Animated>
             <Animated {...animatedProps} transitionDelay={300 + 50}>
               <p>{description}</p>

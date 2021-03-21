@@ -23,6 +23,7 @@ export const Reviews = ({ reviews }) => {
     spaceBetween: 0,
     centeredSlides: true,
     loop: true,
+    passiveListeners: true,
     coverflowEffect: {
       rotate: 0,
       stretch: -30,

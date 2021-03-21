@@ -9,7 +9,7 @@ export const FieldsWrapper = ({
 }) => {
   switch (field) {
   case 'title':
-    return title && <h1 className={styles.h1}>{title}</h1>;
+    return title && <h2 className={styles.h1}>{title}</h2>;
   case 'description':
     return description && <p className={styles.p}>{description}</p>;
   default:

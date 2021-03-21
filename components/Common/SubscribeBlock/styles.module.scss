@@ -112,7 +112,6 @@
           }
 
           @include tablet {
-            @include fontSize(14px);
             width: 150px;
             padding-right: 15px;
             padding-left: 15px;
@@ -136,10 +135,6 @@
 
             @include macbook-twelve {
               @include fontSize(16px);
-            }
-
-            @include tablet {
-              @include fontSize(14px);
             }
           }
 
