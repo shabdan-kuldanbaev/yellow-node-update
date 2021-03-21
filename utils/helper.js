@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import isObject from 'lodash/isObject';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
 import {
   PAGES,
@@ -169,7 +170,7 @@ export const isNumeric = (value) => !isNaN(value);
 export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
-  typeof value === 'object'
+  isObject(value)
     ? acc[key] = addCdnToImages(value)
     : acc[key] = getPathWithCdn(value);
 
