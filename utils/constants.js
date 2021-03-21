@@ -66,12 +66,15 @@ export const FEEDBACK_FORM_FIELDS = {
   files: 'files',
 };
 
-export const IMAGES = {
+export const IMAGES_WITHOUT_CDN = {
   searchIcon: '/images/blog/search.svg',
   roundLogo: '/images/common/logo/yellow_logo.svg',
   closeIcon: '/images/common/close.svg',
   subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
   scrollDownIcon: '/images/home/scrollIcon/scroll-down.svg',
+};
+
+export const IMAGES = {
   socialNetworksIcons: {
     instaIcon: '/images/layout/footer/insta.svg',
     linkedinIcon: '/images/layout/footer/linkedin.svg',
@@ -102,5 +105,3 @@ export const IMAGES = {
     Jerry: '/images/home/reviews/4.png',
   },
 };
-
-export const STATIC_IMAGES = IMAGES;

@@ -47,6 +47,7 @@ export const MetaTags = ({
             <meta property="og:image" content={getImage('/apple-touch-icon.png')} />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
             <meta name="google-site-verification" content="Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k" />
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet" />
             <link rel="shortcut icon" href="/yellow_logo.ico" />
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
             <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffbf02" />
