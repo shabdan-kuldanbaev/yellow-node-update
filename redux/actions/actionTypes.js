@@ -31,7 +31,6 @@ export const actionTypes = {
   LOAD_NEARBY_FAILED: 'blog/LOAD_NEARBY_ARTICLES_FAILED',
   /* ------------------------ */
   CLEAR_FOUND_ARTICLES: 'blog/CLEAR_FOUND_ARTICLES',
-  CLEAR_SEARCH_MESSAGE: 'blog/CLEAR_SEARCH_MESSAGE',
   /* ------------------------ */
   FIND_ARTICLES_PENDING: 'blog/FIND_ARTICLES_PENDING',
   FIND_ARTICLES_SUCCESS: 'blog/FIND_ARTICLES_SUCCESS',

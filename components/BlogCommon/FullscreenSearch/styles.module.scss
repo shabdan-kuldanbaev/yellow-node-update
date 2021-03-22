@@ -34,7 +34,7 @@
     border: 0;
     background: transparent;
     font-weight: 500;
-    font-size: 4rem;
+    @include fontSize(64px);
     outline: none;
     color: $black;
     overflow-x: scroll;
@@ -50,7 +50,7 @@
     }
 
     @include phone {
-      font-size: 2rem;
+      @include fontSize(32px);
       padding: 0;
       margin-bottom: 60px;
       width: 100%;

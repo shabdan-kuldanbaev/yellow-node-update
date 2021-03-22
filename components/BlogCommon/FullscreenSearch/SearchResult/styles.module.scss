@@ -1,14 +1,14 @@
 @import 'styles/utils/mixins';
 
 .nothingFound {
-  font-size: 1.0938rem;
+  @include fontSize(17.5px);
   font-weight: 500;
   font-family: $default-font;
   color: $tundora;
   margin: 0;
   padding: 0;
   right: 0;
-  max-width: 1500px;
+  max-width: 1300px;
   width: 100%;
 
   @include macbook-fifteen {
@@ -19,8 +19,4 @@
     line-height: 24px;
     width: 100%;
   }
-}
-
-.hidden {
-  display: none;
 }

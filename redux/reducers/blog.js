@@ -70,8 +70,11 @@ const handlers = {
     isLoading: false,
     error: payload,
   }),
-  [actionTypes.CLEAR_FOUND_ARTICLES]: (state) => ({ ...state, found: [] }),
-  [actionTypes.CLEAR_SEARCH_MESSAGE]: (state) => ({ ...state, searchMessage: '' }),
+  [actionTypes.CLEAR_FOUND_ARTICLES]: (state) => ({
+    ...state,
+    found: [],
+    searchMessage: '',
+  }),
   DEFAULT: (state) => state,
 };
 
