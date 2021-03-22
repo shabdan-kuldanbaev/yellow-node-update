@@ -1,6 +1,6 @@
 import React from 'react';
 import { BlogContainer } from 'containers';
-import { getInitialBlogProps } from 'utils/blogUtils';
+import { getInitialBlogProps } from './utils/blogUtils';
 
 const Blog = ({
   deviceLimit,
