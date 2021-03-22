@@ -18,7 +18,7 @@ export const Article = ({
     >
       <div>
         <div className={styles.imgContainer}>
-          <ImageWithPlaceholder src={getOptimizedImage(image, 510)} imageStyle={styles.img} />
+          <ImageWithPlaceholder src={getOptimizedImage(image, 720)} imageStyle={styles.img} />
         </div>
         <div className={styles.articleContent}>
           <h2 className={styles.title}><a>{title}</a></h2>

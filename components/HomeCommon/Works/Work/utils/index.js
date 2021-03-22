@@ -34,7 +34,7 @@ export const animatedFields = [
 
 export const imagesSizes = {
   mobileFirst: 570,
-  fullFirst: 980,
+  fullFirst: 1100,
   mobileSecond: 350,
   fullSecond: 515,
 };

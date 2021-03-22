@@ -17,7 +17,7 @@ const PreviewImage = ({ image, isMobileResolution }) => (
       transformDuration={0.8}
       transitionDelay={0}
     >
-      <LazyLoadImage src={getOptimizedImage(image, isMobileResolution ? 530 : 720)} effect="blur" />
+      <LazyLoadImage src={getOptimizedImage(image, isMobileResolution ? 530 : 1000)} effect="blur" />
     </Animated>
   </div>
 );
