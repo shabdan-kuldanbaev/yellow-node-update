@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { ArticleContainer, BlogContainer } from 'containers';
-import { getInitialBlogProps, isArticle } from '../utils/blogUtils';
+import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
 
 const Article = ({
   deviceLimit,
