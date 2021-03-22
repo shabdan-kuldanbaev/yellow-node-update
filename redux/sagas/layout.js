@@ -99,7 +99,7 @@ function* fetchPageData({
   } catch (err) {
     yield put({
       type: actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED,
-      payload: err.message || 'Error in the fetchPageData function',
+      payload: err.message,
     });
   }
 }

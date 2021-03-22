@@ -12,21 +12,17 @@ export const ACCESS_TO_CONTENTFUL = {
   accessToken: process.env.CONTENTFUL_TOKEN,
 };
 
-export const PAGES = {
-  ...Object.entries(routes).reduce((acc, [key, { slug }]) => {
-    acc[key] = slug;
+export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
+  acc[key] = slug;
 
-    return acc;
-  }, {}),
-};
+  return acc;
+}, {});
 
-export const NAV_LINKS = [
-  ...Object.values(routes).filter(({ slug }) => ![
-    routes.homepage.slug,
-    routes.article.slug,
-    routes.notFound.slug,
-  ].includes(slug)),
-];
+export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
+  routes.homepage.slug,
+  routes.article.slug,
+  routes.notFound.slug,
+].includes(slug));
 
 export const BLOCKS_SLUGS = {
   homepagePreviewProjects: 'homepage-preview-projects',
@@ -49,13 +45,17 @@ export const ANIMATED_TYPE = {
   imageZoom: 'imageZoom',
 };
 
-export const CATEGORY_TAGS = {
-  ...Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
-    acc[slug] = title;
+export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
+  acc[slug] = title;
 
-    return acc;
-  }, {}),
-};
+  return acc;
+}, {});
+
+export const CATEGORY_SLUGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug }]) => {
+  acc[key] = slug;
+
+  return acc;
+}, []);
 
 export const FEEDBACK_FORM_FIELDS = {
   fullName: 'fullName',
