@@ -34,7 +34,6 @@ export const MetaTags = ({
         }) => (
           <Fragment key={`meta/${title}`}>
             <title>{getTitle(title)}</title>
-            <title itemProp="headline">{getTitle(title)}</title>
             <meta name="description" content={getDescription(description)} />
             <meta name="date" content={getDate(new Date())} />
             <link rel="canonical" href={getUrl(url)} />
