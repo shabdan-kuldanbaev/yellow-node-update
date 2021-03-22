@@ -12,21 +12,17 @@ export const ACCESS_TO_CONTENTFUL = {
   accessToken: process.env.CONTENTFUL_TOKEN,
 };
 
-export const PAGES = {
-  ...Object.entries(routes).reduce((acc, [key, { slug }]) => {
-    acc[key] = slug;
+export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
+  acc[key] = slug;
 
-    return acc;
-  }, {}),
-};
+  return acc;
+}, {});
 
-export const NAV_LINKS = [
-  ...Object.values(routes).filter(({ slug }) => ![
-    routes.homepage.slug,
-    routes.article.slug,
-    routes.notFound.slug,
-  ].includes(slug)),
-];
+export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
+  routes.homepage.slug,
+  routes.article.slug,
+  routes.notFound.slug,
+].includes(slug));
 
 export const BLOCKS_SLUGS = {
   homepagePreviewProjects: 'homepage-preview-projects',
@@ -49,13 +45,17 @@ export const ANIMATED_TYPE = {
   imageZoom: 'imageZoom',
 };
 
-export const CATEGORY_TAGS = {
-  ...Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
-    acc[slug] = title;
+export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
+  acc[slug] = title;
 
-    return acc;
-  }, {}),
-};
+  return acc;
+}, {});
+
+export const CATEGORY_SLUGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug }]) => {
+  acc[key] = slug;
+
+  return acc;
+}, []);
 
 export const FEEDBACK_FORM_FIELDS = {
   fullName: 'fullName',
@@ -64,6 +64,14 @@ export const FEEDBACK_FORM_FIELDS = {
   isSendNDAChecked: 'isSendNDAChecked',
   projectBudget: 'projectBudget',
   files: 'files',
+};
+
+export const IMAGES_WITHOUT_CDN = {
+  searchIcon: '/images/blog/search.svg',
+  roundLogo: '/images/common/logo/yellow_logo.svg',
+  closeIcon: '/images/common/close.svg',
+  subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
+  scrollDownIcon: '/images/home/scrollIcon/scroll-down.svg',
 };
 
 export const IMAGES = {
@@ -96,12 +104,4 @@ export const IMAGES = {
     Sandro: '/images/home/reviews/3.png',
     Jerry: '/images/home/reviews/4.png',
   },
-};
-
-export const IMAGES_WITHOUT_CDN = {
-  searchIcon: '/images/blog/search.svg',
-  roundLogo: '/images/common/logo/yellow_logo.svg',
-  closeIcon: '/images/common/close.svg',
-  subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
-  scrollDownIcon: '/images/home/scrollIcon/scroll-down.svg',
 };

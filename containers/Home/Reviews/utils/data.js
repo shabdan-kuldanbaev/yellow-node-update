@@ -1,4 +1,4 @@
-import { getStaticImages } from 'utils/helper';
+import { staticImagesUrls } from 'utils/helper';
 
 const {
   OppSites,
@@ -9,7 +9,7 @@ const {
   Jim,
   Sandro,
   Jerry,
-} = getStaticImages().reviewsImages;
+} = staticImagesUrls.reviewsImages;
 
 export const reviews = [
   {

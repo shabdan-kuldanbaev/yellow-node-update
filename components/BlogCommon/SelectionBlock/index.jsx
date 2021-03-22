@@ -13,12 +13,11 @@ import {
   FullscreenSearch,
   FullscreenSubscribe,
 } from 'components';
-import { setOverflowForBody, getStaticImages } from 'utils/helper';
+import { setOverflowForBody, staticImagesUrls } from 'utils/helper';
 import Categories from './Categories';
 import styles from './styles.module.scss';
 
 const SelectionBlock = ({
-  urlPath,
   isMobileCategoties,
   setMobileCategoriesState: setMobileCategories,
   handleOnSubmit,
@@ -40,16 +39,12 @@ const SelectionBlock = ({
 
   return (
     <div className={cn(styles.selectionBlock, { [styles.showCategories]: isMobileCategoties })}>
-      <Categories
-        urlPath={urlPath}
-        isMobileCategoties={isMobileCategoties}
-        closeMobileCategoties={closeMobileCategoties}
-      />
+      <Categories isMobileCategoties={isMobileCategoties} closeMobileCategoties={closeMobileCategoties} />
       {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
         <div className={styles.imgContainer}>
           <img
-            src={getStaticImages().searchIcon}
+            src={staticImagesUrls.searchIcon}
             alt="Search"
             onClick={openFullscreenSearch}
             role="presentation"
@@ -80,7 +75,6 @@ SelectionBlock.defaultProps = {
 };
 
 SelectionBlock.propTypes = {
-  urlPath: PropTypes.string.isRequired,
   isMobileCategoties: PropTypes.bool.isRequired,
   setMobileCategoriesState: PropTypes.func.isRequired,
   handleOnSubmit: PropTypes.func,
