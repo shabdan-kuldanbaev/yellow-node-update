@@ -14,3 +14,8 @@ export const setFirstHomepageVisit = (payload) => ({
   type: actionTypes.SET_FIRST_HOMEPAGE_VISIT,
   payload,
 });
+
+export const fetchDuck = (payload) => ({
+  type: actionTypes.SET_DUCK_PENDING,
+  payload,
+});

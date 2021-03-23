@@ -40,7 +40,11 @@ function* fetchPage({ slug }) {
 
 function* fetchDuck() {
   try {
+    const isFirstHomeVisitAndPageLoaded = !(yield select(selectIsFirstHomepageVisit)) && !(yield select(selectIsFirstPageLoaded));
+
     const duck = yield loadDuck();
+
+    if (isFirstHomeVisitAndPageLoaded) yield call(artificialDelay, 4000);
 
     yield put({ type: actionTypes.SET_DUCK, payload: duck });
   } catch (err) {
@@ -61,14 +65,15 @@ function* fetchPageData({
   try {
     switch (slug) {
     case PAGES.homepage: {
-      const isFirstHomeVisitAndPageLoaded = !(yield select(selectIsFirstHomepageVisit)) && !(yield select(selectIsFirstPageLoaded));
+      // const isFirstHomeVisitAndPageLoaded = !(yield select(selectIsFirstHomepageVisit)) && !(yield select(selectIsFirstPageLoaded));
 
       yield all([
-        yield call(fetchDuck),
+        // yield call(fetchDuck),
         yield call(fetchPage, { slug }),
         yield call(loadArticles, { currentLimit: DEFAULT_ARTICLES_LIMIT }),
-        ...(isFirstHomeVisitAndPageLoaded ? [yield call(artificialDelay, 4000)] : []),
+        // ...(isFirstHomeVisitAndPageLoaded ? [yield call(artificialDelay, 4000)] : []),
       ]);
+
       break;
     }
     case PAGES.blog:
@@ -81,14 +86,17 @@ function* fetchPageData({
         category,
         skip,
       });
+
       break;
     case PAGES.portfolio:
     case PAGES.contact:
     case PAGES.company:
       yield call(fetchPage, { slug });
+
       break;
     case PAGES.process:
       yield call(loadJSON);
+
       break;
     case PAGES.notFound:
       break;
@@ -108,5 +116,6 @@ export function* fetchPageWatcher() {
   yield all([
     yield takeLatest(actionTypes.FIND_ARTICLES_PENDING, findArticles),
     yield takeLatest(actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING, fetchPageData),
+    yield takeLatest(actionTypes.SET_DUCK_PENDING, fetchDuck),
   ]);
 }

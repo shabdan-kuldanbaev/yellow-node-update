@@ -10,11 +10,16 @@ import Router from 'next/router';
 import { ThemeProvider } from '@material-ui/core';
 import { setPageReadyToDisplay } from 'redux/actions/layout';
 import { Layout } from 'containers';
+import { AppContext } from 'utils/appContext';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
 import 'styles/index.scss';
 
 const App = ({ Component, pageProps }) => {
+  const [contextData, setContextData] = useState({
+    isHomepageVisit: false,
+    isFirstHomepageVisit: false,
+  });
   const [theme, setTheme] = useState('dark');
   const introSection = useRef(null);
   const dispatch = useDispatch();
@@ -34,15 +39,17 @@ const App = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <ThemeProvider theme={customTheme}>
-      <Layout theme={theme} introSection={introSection}>
-        <Component
-          theme={theme}
-          introSection={introSection}
-          {...pageProps}
-        />
-      </Layout>
-    </ThemeProvider>
+    <AppContext.Provider value={{ contextData, setContextData }}>
+      <ThemeProvider theme={customTheme}>
+        <Layout theme={theme} introSection={introSection}>
+          <Component
+            theme={theme}
+            introSection={introSection}
+            {...pageProps}
+          />
+        </Layout>
+      </ThemeProvider>
+    </AppContext.Provider>
   );
 };
 

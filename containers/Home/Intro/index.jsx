@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -17,6 +17,7 @@ import {
   Partners,
   Duck,
 } from 'components';
+import { AppContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
 const Intro = ({
@@ -30,15 +31,24 @@ const Intro = ({
   setFirstHomepageVisit: setFirstHomeVisit,
   isFirstHomepageVisit,
 }) => {
+  const { contextData, setContextData } = useContext(AppContext);
+
   useEffect(() => () => {
     setVisitOfHomepage(true);
+    setContextData({
+      ...contextData,
+      isFirstHomepageVisit: true,
+      isHomepageVisit: true,
+    });
 
-    if (!isFirstHomepageVisit) setFirstHomeVisit(true);
+    if (!isFirstHomepageVisit) {
+      setFirstHomeVisit(true);
+    }
   }, []);
 
   return (
     <section ref={introSection} className={styles.intro}>
-      <Duck duck={duck} isHomepageVisit={isHomepageVisit} />
+      <Duck duck={duck} />
       <AddFooter
         theme={theme}
         isModelLoaded={!!duck}
