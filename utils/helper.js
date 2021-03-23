@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
 import {
   PAGES,
@@ -183,3 +184,5 @@ export const staticImagesUrls = ({
   ...addCdnToImages(IMAGES),
   ...IMAGES_WITHOUT_CDN,
 });
+
+export const getTextFromContentfulDocument = (document) => documentToPlainTextString(document);

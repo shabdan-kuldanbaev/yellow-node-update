@@ -23,6 +23,7 @@ import {
   rootUrl,
   getDocumentFields,
   getFileUrl,
+  getTextFromContentfulDocument,
 } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
@@ -89,6 +90,14 @@ const ArticleContainer = ({
     image: headImage,
   };
 
+  const getArticleMicrodata = () => microdata.article({
+    metaTitle,
+    title,
+    publishedAt,
+    updatedAt,
+    headImage,
+    articleBody: oldBody || getTextFromContentfulDocument(body),
+  });
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   return (
@@ -96,19 +105,12 @@ const ArticleContainer = ({
       <MetaTags
         page={PAGES.blog}
         articleMetaData={articleMetaData}
-        microdata={microdata.article({
-          metaTitle,
-          title,
-          publishedAt,
-          updatedAt,
-          headImage,
-          articleBody: oldBody || body,
-        })}
+        microdata={getArticleMicrodata()}
       >
         <meta property="article:published_time" content={publishedAt} />
         <meta property="article:section" content={categoryTag} />
-        {keyWords && keyWords.map((word) => (
-          <meta property="article:tag" content={word} />
+        {keyWords && keyWords.map((keyWord) => (
+          <meta property="article:tag" content={keyWord} />
         ))}
       </MetaTags>
       <Article

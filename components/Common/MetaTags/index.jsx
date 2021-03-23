@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import isEmpty from 'lodash/isEmpty';
 import { ROUTES } from 'utils/constants';
 import { rootUrl, isCustomDomain } from 'utils/helper';
 import { ogMetaData } from './utils/data';
@@ -21,8 +22,8 @@ export const MetaTags = ({
   const getDescription = (description) => (isArticle && articleMetaData.metaDescription) || description;
   const getImage = (img) => (isArticle && articleMetaData.image) || img;
   const getUrl = (url) => ((isArticle || isBlogCategory) && `${rootUrl}${asPath}`) || url;
-  const getDate = (date) => (isArticle && articleMetaData.date) || date;
-  const getType = () => (isArticle ? 'article' : 'website');
+  const date = (isArticle && articleMetaData.date) || new Date();
+  const type = isArticle ? 'article' : 'website';
 
   return (
     <Head>
@@ -35,10 +36,10 @@ export const MetaTags = ({
           <Fragment key={`meta/${title}`}>
             <title>{getTitle(title)}</title>
             <meta name="description" content={getDescription(description)} />
-            <meta name="date" content={getDate(new Date())} />
+            <meta name="date" content={date} />
             <link rel="canonical" href={getUrl(url)} />
             <meta property="og:locale" content="en_US" />
-            <meta property="og:type" content={getType()} />
+            <meta property="og:type" content={type} />
             <meta property="og:description" content={getDescription(description)} />
             <meta property="og:title" content={getTitle(title)} />
             <meta property="og:url" content={getUrl(url)} />
@@ -51,8 +52,9 @@ export const MetaTags = ({
             <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffbf02" />
             <link rel="manifest" href="/manifest.json" />
             <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-            {microdata && (
+            {!isEmpty(microdata) && (
               <script
+                key={`JSON-LD-${microdata.name}`}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata) }}
               />
@@ -69,7 +71,7 @@ MetaTags.defaultProps = {
   page: '',
   ogMetaData,
   articleMetaData: {},
-  microdata: null,
+  microdata: {},
 };
 
 MetaTags.propTypes = {

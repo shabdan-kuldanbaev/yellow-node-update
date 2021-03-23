@@ -1,6 +1,18 @@
 import { ROUTES, IMAGES_WITHOUT_CDN } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 
+const logoUrl = `${rootUrl}${IMAGES_WITHOUT_CDN.roundLogo}`;
+const pageUrl = (pagePath = '') => `${rootUrl}${pagePath}`;
+const publisherMicrodata = {
+  '@type': 'Organization',
+  name: 'Yellow Systems',
+  logo: {
+    '@type': 'ImageObject',
+    url: logoUrl,
+  },
+};
+const context = 'https://schema.org';
+
 export const microdata = {
   article: ({
     metaTitle,
@@ -10,7 +22,7 @@ export const microdata = {
     headImage,
     articleBody,
   }) => ({
-    '@context': 'https://schema.org',
+    '@context': context,
     '@type': 'BlogPosting',
     headline: metaTitle,
     name: title,
@@ -19,51 +31,37 @@ export const microdata = {
     dateModified: updatedAt,
     image: headImage,
     articleBody,
-    publisher: {
-      '@type': 'Organization',
-      name: 'Yellow Systems',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${rootUrl}${IMAGES_WITHOUT_CDN.roundLogo}`,
-      },
-    },
+    publisher: publisherMicrodata,
     about: {
       '@type': 'Article',
       datePublished: publishedAt,
       dateModified: updatedAt,
       headline: metaTitle,
       image: headImage,
-      publisher: {
-        '@type': 'Organization',
-        name: 'Yellow Systems',
-        logo: {
-          '@type': 'ImageObject',
-          url: `${rootUrl}${IMAGES_WITHOUT_CDN.roundLogo}`,
-        },
-      },
+      publisher: publisherMicrodata,
     },
   }),
   homepage: () => ({
-    '@context': 'https://schema.org',
+    '@context': context,
     '@type': 'WebSite',
-    '@id': rootUrl,
+    '@id': pageUrl(),
     name: 'Software Development for Startups | Yellow',
     description: '✔ We provide software development services for startups and businesses. ✔ Reach out for a free consultation!',
     url: rootUrl,
     author: {
       '@type': 'Organization',
       name: 'Yellow Systems',
-      logo: `${rootUrl}${IMAGES_WITHOUT_CDN.roundLogo}`,
+      logo: logoUrl,
     },
   }),
   contact: () => ({
-    '@context': 'https://schema.org',
+    '@context': context,
     '@type': 'Organization',
-    '@id': `${rootUrl}${ROUTES.contact.path}`,
+    '@id': pageUrl(ROUTES.contact.path),
     name: 'Contacts | Yellow',
     description: 'Do you have an awesome idea? Reach us for a free consultation on how to build a great software product for your business!',
-    url: `${rootUrl}${ROUTES.contact.path}`,
-    logo: `${rootUrl}${IMAGES_WITHOUT_CDN.roundLogo}`,
+    url: pageUrl(ROUTES.contact.path),
+    logo: logoUrl,
     email: 'hi@yellow.systems',
     telephone: [
       '+1 415 670 9070',
