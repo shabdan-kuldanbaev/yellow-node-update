@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'node_modules/three/examples/jsm/loaders/DRACOLoader';
 import anime from 'animejs';
+import { getPathWithCdn } from 'utils/helper';
 import { shaders } from './data';
 
 export const three = {
@@ -12,7 +13,7 @@ export const three = {
     dracoLoader.setDecoderPath('/draco/gltf/');
     loader.setDRACOLoader(dracoLoader);
     loader.load(
-      '/models/Duck_2.gltf',
+      getPathWithCdn('/models/Duck_2.gltf'),
       (gltf) => { callback(gltf.scene); },
     );
   },
@@ -93,8 +94,11 @@ export const three = {
 
     if (isMobile) {
       if (window.innerHeight <= 700) { originals = [{ positions: { x: 0, y: 100, z: 0 } }]; }
+
       if (window.innerHeight > 700 && window.innerHeight <= 800) { originals = [{ positions: { x: 0, y: 150, z: 0 } }]; }
+
       if (window.innerHeight > 800) { originals = [{ positions: { x: 0, y: 100, z: 0 } }]; }
+
       options.default.meshRotationY = 1.5;
     } else {
       originals = [{ positions: { x: 0, y: 0, z: 0 } }];
@@ -134,6 +138,7 @@ export const three = {
       mesh.rotation.z = options.default.meshRotationZ;
 
       scene.add(mesh);
+
       if (meshes.length <= 2) {
         meshes.push(mesh);
       }
@@ -155,6 +160,7 @@ export const three = {
       mesh.material.opacity = clone.opacity;
 
       scene.add(mesh);
+
       if (meshes.length <= 2) {
         meshClones.push(mesh);
       }

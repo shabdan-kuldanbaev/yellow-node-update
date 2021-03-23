@@ -1,18 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { selectIsFirstHomepageVisit } from 'redux/selectors/home';
+import React, { useContext } from 'react';
 import { LoadingScreen } from 'components';
+import { AppContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
-const LoadingPlaceholder = ({ isFirstHomepageVisit }) => (!isFirstHomepageVisit
-  ? <LoadingScreen />
-  : <div className={styles.placeholder} />);
+const LoadingPlaceholder = () => {
+  const { contextData: { isFirstHomepageVisit } } = useContext(AppContext);
 
-LoadingPlaceholder.propTypes = {
-  isFirstHomepageVisit: PropTypes.bool.isRequired,
+  return (!isFirstHomepageVisit
+    ? <LoadingScreen />
+    : <div className={styles.placeholder} />);
 };
 
-export default connect(
-  (state) => ({ isFirstHomepageVisit: selectIsFirstHomepageVisit(state) }),
-)(LoadingPlaceholder);
+export default LoadingPlaceholder;

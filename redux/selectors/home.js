@@ -2,8 +2,6 @@ export const selectScrollOfAddedFooter = (state) => state.home.scrollOfAddedFoot
 
 export const selectDuck = (state) => state.home.duck;
 
-export const selectIsHomepageVisit = (state) => state.home.isHomepageVisit;
-
-export const selectIsFirstHomepageVisit = (state) => state.home.isFirstHomepageVisit;
-
 export const selectIsLoading = (state) => state.home.isLoading;
+
+export const selectIsDuckLoaded = (state) => state.home.isDuckLoaded;

@@ -3,7 +3,6 @@ import {
   takeLatest,
   call,
   all,
-  select,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
@@ -13,10 +12,8 @@ import {
   loadArticles,
 } from 'redux/sagas/blog';
 import { loadJSON } from 'redux/sagas/process';
-import { selectIsFirstHomepageVisit } from 'redux/selectors/home';
-import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import { actionTypes } from 'redux/actions/actionTypes';
-import { artificialDelay, loadDuck } from 'utils/helper';
+import { loadDuck } from 'utils/helper';
 import { contentfulClient } from 'utils/ContentfulClient';
 import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 
@@ -61,14 +58,11 @@ function* fetchPageData({
   try {
     switch (slug) {
     case PAGES.homepage: {
-      const isFirstHomeVisitAndPageLoaded = !(yield select(selectIsFirstHomepageVisit)) && !(yield select(selectIsFirstPageLoaded));
-
       yield all([
-        yield call(fetchDuck),
         yield call(fetchPage, { slug }),
         yield call(loadArticles, { currentLimit: DEFAULT_ARTICLES_LIMIT }),
-        ...(isFirstHomeVisitAndPageLoaded ? [yield call(artificialDelay, 4000)] : []),
       ]);
+
       break;
     }
     case PAGES.blog:
@@ -81,14 +75,17 @@ function* fetchPageData({
         category,
         skip,
       });
+
       break;
     case PAGES.portfolio:
     case PAGES.contact:
     case PAGES.company:
       yield call(fetchPage, { slug });
+
       break;
     case PAGES.process:
       yield call(loadJSON);
+
       break;
     case PAGES.notFound:
       break;
@@ -108,5 +105,6 @@ export function* fetchPageWatcher() {
   yield all([
     yield takeLatest(actionTypes.FIND_ARTICLES_PENDING, findArticles),
     yield takeLatest(actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING, fetchPageData),
+    yield takeLatest(actionTypes.SET_DUCK_PENDING, fetchDuck),
   ]);
 }
