@@ -13,7 +13,7 @@ const Paginator = ({
   pagesCounter,
   currentPage,
 }) => {
-  const { pathname, query: { slug: category } } = useRouter();
+  const { query: { slug: category } } = useRouter();
   let [mobilePrevious, desktopPrevious, mobileNext, desktopNext] = ['', '', '', ''];
 
   if (currentPage > 2) mobilePrevious = pagesCounter > 3 ? 'start' : '';
@@ -22,10 +22,12 @@ const Paginator = ({
   if (currentPage <= (pagesCounter - 3)) desktopNext = pagesCounter > 5 ? 'next' : '';
 
   const pushRouter = (currentCategory, nextPage) => {
+    const { path, dynamicPath } = ROUTES.blog.getRoute(currentCategory, nextPage);
+
     window.scrollTo(0, 0);
     Router.push(
-      { pathname },
-      { pathname: ROUTES.blog.getPath(currentCategory, nextPage) },
+      { pathname: dynamicPath },
+      { pathname: path },
     );
   };
   const handleOnPreviousClick = () => pushRouter(category, 1);
