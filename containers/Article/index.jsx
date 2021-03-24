@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import {
   selectArticle,
   selectRelatedArticles,
@@ -23,7 +24,6 @@ import {
   rootUrl,
   getDocumentFields,
   getFileUrl,
-  getTextFromContentfulDocument,
 } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
@@ -86,8 +86,11 @@ const ArticleContainer = ({
   const articleMetaData = {
     metaTitle,
     metaDescription,
-    date: publishedAt,
+    publishedAt,
     image: headImage,
+    keyWords,
+    categoryTag,
+    slug: articleSlug,
   };
 
   const getArticleMicrodata = () => microdata.article({
@@ -96,7 +99,7 @@ const ArticleContainer = ({
     publishedAt,
     updatedAt,
     headImage,
-    articleBody: oldBody || getTextFromContentfulDocument(body),
+    articleBody: oldBody || documentToPlainTextString(body),
   });
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
@@ -106,13 +109,7 @@ const ArticleContainer = ({
         page={PAGES.blog}
         articleMetaData={articleMetaData}
         microdata={getArticleMicrodata()}
-      >
-        <meta property="article:published_time" content={publishedAt} />
-        <meta property="article:section" content={categoryTag} />
-        {keyWords && keyWords.map((keyWord) => (
-          <meta property="article:tag" content={keyWord} />
-        ))}
-      </MetaTags>
+      />
       <Article
         slug={articleSlug}
         title={title}
@@ -121,7 +118,6 @@ const ArticleContainer = ({
         introduction={introduction}
         headImage={headImage}
         introSection={introSection}
-        publishedAt={publishedAt}
       />
       <SocialThumbnails url={`${rootUrl}/blog/${slug}`} title={title} />
       {relatedArticles && !!relatedArticles.length && <RelatedSection articles={relatedArticles} />}

@@ -1,6 +1,11 @@
-import { ROUTES, IMAGES_WITHOUT_CDN } from 'utils/constants';
+import {
+  ROUTES,
+  IMAGES_WITHOUT_CDN,
+  CONTACTS_DATA,
+} from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 
+const context = 'https://schema.org';
 const logoUrl = `${rootUrl}${IMAGES_WITHOUT_CDN.roundLogo}`;
 const pageUrl = (pagePath = '') => `${rootUrl}${pagePath}`;
 const publisherMicrodata = {
@@ -11,7 +16,14 @@ const publisherMicrodata = {
     url: logoUrl,
   },
 };
-const context = 'https://schema.org';
+const {
+  email,
+  telephones,
+  country,
+  city,
+  postalCode,
+  streetAddress,
+} = CONTACTS_DATA;
 
 export const microdata = {
   article: ({
@@ -62,16 +74,13 @@ export const microdata = {
     description: 'Do you have an awesome idea? Reach us for a free consultation on how to build a great software product for your business!',
     url: pageUrl(ROUTES.contact.path),
     logo: logoUrl,
-    email: 'hi@yellow.systems',
-    telephone: [
-      '+1 415 670 9070',
-      '+375 29 311 52 49',
-    ],
+    email,
+    telephone: telephones,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Belarus, Minsk',
-      postalCode: '220030',
-      streetAddress: '5-303 Nemiga street',
+      addressLocality: `${country}, ${city}`,
+      postalCode,
+      streetAddress,
     },
   }),
 };

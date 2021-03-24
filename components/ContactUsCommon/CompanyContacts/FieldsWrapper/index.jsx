@@ -1,17 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
+import { CONTACTS_DATA } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const FieldsWrapper = ({ animated: { field } }) => {
+  const {
+    country,
+    city,
+    streetAddress,
+    postalCode,
+    telephones,
+    email,
+  } = CONTACTS_DATA;
+
   switch (field) {
   case 'contact':
     return <span className={styles.addressTitle}>CONTACT US</span>;
   case 'locationAdress':
     return (
       <div className={styles.locationAddress}>
-        <span>5-303 Nemiga street Minsk</span>
-        <span>220030 Belarus</span>
+        <span>{`${streetAddress} ${city}`}</span>
+        <span>{`${postalCode} ${country}`}</span>
       </div>
     );
   case 'phones':
@@ -19,20 +29,15 @@ export const FieldsWrapper = ({ animated: { field } }) => {
   case 'phoneNumber':
     return (
       <div className={styles.phoneNumber}>
-        <LinkWrapper
-          path="tel:+1 415 670 9070"
-          isLocalLink
-          googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
-        >
-          +1 415 670 9070
-        </LinkWrapper>
-        <LinkWrapper
-          path="tel:+375 29 311 52 49"
-          isLocalLink
-          googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
-        >
-          +375 29 311 52 49
-        </LinkWrapper>
+        {telephones && telephones.map((telephone) => (
+          <LinkWrapper
+            path={`tel:${telephone}`}
+            isLocalLink
+            googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+          >
+            {telephone}
+          </LinkWrapper>
+        ))}
       </div>
     );
   case 'emailTitle':
@@ -41,11 +46,11 @@ export const FieldsWrapper = ({ animated: { field } }) => {
     return (
       <div className={styles.email}>
         <LinkWrapper
-          path="mailto:hi@yellow.systems"
+          path={`mailto:${email}`}
           isLocalLink
           googleAnalyticProps={{ action: 'Click', data: 'Email' }}
         >
-          hi@yellow.systems
+          {email}
         </LinkWrapper>
       </div>
     );

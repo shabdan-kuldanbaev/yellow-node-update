@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import isEmpty from 'lodash/isEmpty';
 import { ROUTES } from 'utils/constants';
 import { rootUrl, isCustomDomain } from 'utils/helper';
+import { isArticle } from 'utils/blogUtils';
 import { ogMetaData } from './utils/data';
 
 export const MetaTags = ({
@@ -14,16 +15,25 @@ export const MetaTags = ({
   children,
   microdata,
 }) => {
-  const { asPath, pathname } = useRouter();
-  const isBlogCategory = (page === ROUTES.blog.slug && pathname.includes('[page]'));
-  const isArticle = (page === ROUTES.blog.slug && !pathname.includes('[page]'));
+  const { asPath } = useRouter();
+  const {
+    metaTitle,
+    metaDescription,
+    image,
+    publishedAt,
+    categoryTag,
+    keyWords,
+    slug,
+  } = articleMetaData;
+  const isArticlePage = isArticle(slug);
+  const isBlogCategory = (page === ROUTES.blog.slug && !isArticlePage);
 
-  const getTitle = (title) => (isArticle && articleMetaData.metaTitle) || title;
-  const getDescription = (description) => (isArticle && articleMetaData.metaDescription) || description;
-  const getImage = (img) => (isArticle && articleMetaData.image) || img;
-  const getUrl = (url) => ((isArticle || isBlogCategory) && `${rootUrl}${asPath}`) || url;
-  const date = (isArticle && articleMetaData.date) || new Date();
-  const type = isArticle ? 'article' : 'website';
+  const getTitle = (title) => (isArticlePage && metaTitle) || title;
+  const getDescription = (description) => (isArticlePage && metaDescription) || description;
+  const getImage = (img) => (isArticlePage && image) || img;
+  const getUrl = (url) => ((isArticlePage || isBlogCategory) && `${rootUrl}${asPath}`) || url;
+  const date = (isArticlePage && publishedAt) || new Date();
+  const type = isArticlePage ? 'article' : 'website';
 
   return (
     <Head>
@@ -44,6 +54,11 @@ export const MetaTags = ({
             <meta property="og:title" content={getTitle(title)} />
             <meta property="og:url" content={getUrl(url)} />
             <meta property="og:image" content={getImage('/apple-touch-icon.png')} />
+            {categoryTag && <meta property="article:section" content={categoryTag} />}
+            {publishedAt && <meta property="article:published_time" content={publishedAt} />}
+            {keyWords && keyWords.map((keyWord) => (
+              <meta property="article:tag" content={keyWord} />
+            ))}
             <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
             <meta name="google-site-verification" content="Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k" />
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet" />

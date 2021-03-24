@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
 import {
   PAGES,
@@ -81,7 +80,7 @@ export const rootUrl = process.env.NODE_ENV === 'development'
   ? process.env.DEV_URL
   : process.env.PROD_URL;
 
-export const isCustomDomain = rootUrl === process.env.CUSTOM_DOMAIN;
+export const isCustomDomain = rootUrl.includes(process.env.CUSTOM_DOMAIN);
 
 export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
 
@@ -184,5 +183,3 @@ export const staticImagesUrls = ({
   ...addCdnToImages(IMAGES),
   ...IMAGES_WITHOUT_CDN,
 });
-
-export const getTextFromContentfulDocument = (document) => documentToPlainTextString(document);
