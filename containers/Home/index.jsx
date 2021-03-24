@@ -30,10 +30,10 @@ export const Home = ({
 }) => {
   const gradientRef = useRef(null);
   const { content } = getDocumentFields(photosData, ['content']);
-  const { contextData, setContextData } = useContext(AppContext);
+  const { contextData: { isHomepageVisit } } = useContext(AppContext);
 
   useEffect(() => {
-    if (!contextData.isHomepageVisit) fetchDuck();
+    if (!isHomepageVisit) fetchDuck();
   }, []);
 
   return (
