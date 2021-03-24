@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchDuck } from 'redux/actions/home';
 import { selectImageCarousel, selectIsPageReadyToDisplay } from 'redux/selectors/layout';
+import { selectDuck } from 'redux/selectors/home';
 import {
   Intro,
   Blog,
@@ -27,19 +28,20 @@ export const Home = ({
   photosData,
   isPageReadyToDisplay,
   fetchDuck,
+  duck,
 }) => {
   const gradientRef = useRef(null);
   const { content } = getDocumentFields(photosData, ['content']);
   const { contextData: { isHomepageVisit } } = useContext(AppContext);
 
   useEffect(() => {
-    if (!isHomepageVisit) fetchDuck();
+    if (!isHomepageVisit || !duck) fetchDuck();
   }, []);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.homepage} />
-      {!isPageReadyToDisplay ? <LoadingPlaceholder /> : (
+      {(!isPageReadyToDisplay || !duck) ? <LoadingPlaceholder /> : (
         <Fragment>
           <Intro theme={theme} introSection={introSection} />
           <Portfolio gradientRef={gradientRef} />
@@ -63,12 +65,14 @@ Home.propTypes = {
   photosData: PropTypes.instanceOf(Object),
   isPageReadyToDisplay: PropTypes.bool.isRequired,
   fetchDuck: PropTypes.func.isRequired,
+  duck: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect(
   (state) => ({
     photosData: selectImageCarousel(state),
     isPageReadyToDisplay: selectIsPageReadyToDisplay(state),
+    duck: selectDuck(state),
   }),
   { fetchDuck },
 )(Home);

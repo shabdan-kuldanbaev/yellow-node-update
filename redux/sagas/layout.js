@@ -13,7 +13,7 @@ import {
 } from 'redux/sagas/blog';
 import { loadJSON } from 'redux/sagas/process';
 import { actionTypes } from 'redux/actions/actionTypes';
-import { loadDuck } from 'utils/helper';
+import { artificialDelay, loadDuck } from 'utils/helper';
 import { contentfulClient } from 'utils/ContentfulClient';
 import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 
@@ -38,6 +38,8 @@ function* fetchPage({ slug }) {
 function* fetchDuck() {
   try {
     const duck = yield loadDuck();
+
+    yield call(artificialDelay, 4000);
 
     yield put({ type: actionTypes.SET_DUCK, payload: duck });
   } catch (err) {
