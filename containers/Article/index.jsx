@@ -92,8 +92,7 @@ const ArticleContainer = ({
     categoryTag,
     slug: articleSlug,
   };
-
-  const getArticleMicrodata = () => microdata.article({
+  const articleMicrodata = microdata.article({
     metaTitle,
     title,
     publishedAt,
@@ -101,6 +100,7 @@ const ArticleContainer = ({
     headImage,
     articleBody: oldBody || documentToPlainTextString(body),
   });
+
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   return (
@@ -108,7 +108,7 @@ const ArticleContainer = ({
       <MetaTags
         page={PAGES.blog}
         articleMetaData={articleMetaData}
-        microdata={getArticleMicrodata()}
+        microdata={articleMicrodata}
       />
       <Article
         slug={articleSlug}

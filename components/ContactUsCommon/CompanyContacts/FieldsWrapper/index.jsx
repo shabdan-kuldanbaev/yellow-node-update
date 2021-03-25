@@ -10,7 +10,7 @@ export const FieldsWrapper = ({ animated: { field } }) => {
     city,
     streetAddress,
     postalCode,
-    telephones,
+    telephoneNumbers,
     email,
   } = CONTACTS_DATA;
 
@@ -29,13 +29,13 @@ export const FieldsWrapper = ({ animated: { field } }) => {
   case 'phoneNumber':
     return (
       <div className={styles.phoneNumber}>
-        {telephones && telephones.map((telephone) => (
+        {telephoneNumbers && telephoneNumbers.map((telephoneNumber) => (
           <LinkWrapper
-            path={`tel:${telephone}`}
+            path={`tel:${telephoneNumber}`}
             isLocalLink
             googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
           >
-            {telephone}
+            {telephoneNumber}
           </LinkWrapper>
         ))}
       </div>

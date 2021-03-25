@@ -28,11 +28,11 @@ export const MetaTags = ({
   const isArticlePage = isArticle(slug);
   const isBlogCategory = (page === ROUTES.blog.slug && !isArticlePage);
 
-  const getTitle = (title) => (isArticlePage && metaTitle) || title;
-  const getDescription = (description) => (isArticlePage && metaDescription) || description;
-  const getImage = (img) => (isArticlePage && image) || img;
-  const getUrl = (url) => ((isArticlePage || isBlogCategory) && `${rootUrl}${asPath}`) || url;
-  const date = (isArticlePage && publishedAt) || new Date();
+  const getTitle = (title) => (isArticlePage ? metaTitle : title);
+  const getDescription = (description) => (isArticlePage ? metaDescription : description);
+  const getImage = (img) => (isArticlePage ? image : img);
+  const getUrl = (url) => ((isArticlePage || isBlogCategory) ? `${rootUrl}${asPath}` : url);
+  const date = isArticlePage ? publishedAt : new Date();
   const type = isArticlePage ? 'article' : 'website';
 
   return (

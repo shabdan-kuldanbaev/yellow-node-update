@@ -18,7 +18,7 @@ const publisherMicrodata = {
 };
 const {
   email,
-  telephones,
+  telephoneNumbers,
   country,
   city,
   postalCode,
@@ -38,7 +38,6 @@ export const microdata = {
     '@type': 'BlogPosting',
     headline: metaTitle,
     name: title,
-    mainEntityOfPage: '',
     datePublished: publishedAt,
     dateModified: updatedAt,
     image: headImage,
@@ -75,7 +74,7 @@ export const microdata = {
     url: pageUrl(ROUTES.contact.path),
     logo: logoUrl,
     email,
-    telephone: telephones,
+    telephone: telephoneNumbers,
     address: {
       '@type': 'PostalAddress',
       addressLocality: `${country}, ${city}`,
