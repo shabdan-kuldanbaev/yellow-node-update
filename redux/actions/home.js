@@ -5,7 +5,6 @@ export const setScrollOfAddedFooter = (payload) => ({
   payload,
 });
 
-export const fetchDuck = (payload) => ({
+export const fetchDuck = () => ({
   type: actionTypes.SET_DUCK_PENDING,
-  payload,
 });

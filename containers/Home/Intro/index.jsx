@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setScrollOfAddedFooter } from 'redux/actions/home';
-import { selectDuck } from 'redux/selectors/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import {
   AddFooter,
@@ -18,7 +17,6 @@ const Intro = ({
   isMobileMenuOpened,
   duck,
   setScrollOfAddedFooter: setScroll,
-  isFirstHomepageVisit,
 }) => {
   const { contextData, setContextData } = useContext(AppContext);
 
@@ -38,7 +36,7 @@ const Intro = ({
         isModelLoaded={!!duck}
         setScroll={setScroll}
         isMobileMenuOpened={isMobileMenuOpened}
-        isFirstHomepageVisit={isFirstHomepageVisit}
+        isFirstHomepageVisit={contextData.isFirstHomepageVisit}
       />
       <Partners />
     </section>
@@ -60,7 +58,6 @@ Intro.propTypes = {
 export default connect(
   (state) => ({
     isMobileMenuOpened: selectIsMobileMenuOpened(state),
-    duck: selectDuck(state),
   }),
   { setScrollOfAddedFooter },
 )(Intro);
