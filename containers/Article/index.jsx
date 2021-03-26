@@ -83,7 +83,7 @@ const ArticleContainer = ({
     ['slug', 'title', 'previewImageUrl'],
   );
   const headImage = getFileUrl(headImageUrl);
-  const articleMetaData = {
+  const articleMetadata = {
     metaTitle,
     metaDescription,
     publishedAt,
@@ -107,7 +107,7 @@ const ArticleContainer = ({
     <Fragment>
       <MetaTags
         page={PAGES.blog}
-        articleMetaData={articleMetaData}
+        articleMetadata={articleMetadata}
         microdata={articleMicrodata}
       />
       <Article

@@ -11,7 +11,7 @@ import { ogMetaData } from './utils/data';
 export const MetaTags = ({
   page,
   ogMetaData: ogData,
-  articleMetaData,
+  articleMetadata,
   children,
   microdata,
 }) => {
@@ -24,7 +24,7 @@ export const MetaTags = ({
     categoryTag,
     keyWords,
     slug,
-  } = articleMetaData;
+  } = articleMetadata;
   const isArticlePage = isArticle(slug);
   const isBlogCategory = (page === ROUTES.blog.slug && !isArticlePage);
 
@@ -85,14 +85,14 @@ export const MetaTags = ({
 MetaTags.defaultProps = {
   page: '',
   ogMetaData,
-  articleMetaData: {},
+  articleMetadata: {},
   microdata: {},
 };
 
 MetaTags.propTypes = {
   page: PropTypes.string,
   ogMetaData: PropTypes.instanceOf(Array),
-  articleMetaData: PropTypes.instanceOf(Object),
+  articleMetadata: PropTypes.instanceOf(Object),
   children: PropTypes.node,
   microdata: PropTypes.instanceOf(Object),
 };
