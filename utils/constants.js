@@ -105,3 +105,15 @@ export const IMAGES = {
     Jerry: '/images/home/reviews/4.png',
   },
 };
+
+export const CONTACTS_DATA = {
+  email: 'hi@yellow.systems',
+  telephoneNumbers: [
+    '+1 415 670 9070',
+    '+375 29 311 52 49',
+  ],
+  city: 'Minsk',
+  country: 'Belarus',
+  postalCode: '220030',
+  streetAddress: '5-303 Nemiga street',
+};
