@@ -7,7 +7,11 @@ import React, {
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
-import { findArticles, clearFoundArticles } from 'redux/actions/blog';
+import {
+  findArticles,
+  clearFoundArticles,
+  clearSearchMessage,
+} from 'redux/actions/blog';
 import { ModalWindow } from 'components';
 import SearchResult from './SearchResult';
 import styles from './styles.module.scss';
@@ -17,13 +21,14 @@ const FullscreenSearch = ({
   closeFullscreenSearch,
   findArticles,
   clearFoundArticles,
+  clearSearchMessage,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
   const delayedQuery = useCallback(debounce((value) => findArticles({ value }), 1000), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
-    clearFoundArticles();
+    clearSearchMessage();
 
     if (value.length > 1) delayedQuery(value);
   };
@@ -80,5 +85,6 @@ export default connect(
   {
     findArticles,
     clearFoundArticles,
+    clearSearchMessage,
   },
 )(FullscreenSearch);
