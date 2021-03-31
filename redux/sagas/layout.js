@@ -41,9 +41,9 @@ function* fetchDuck() {
 
     yield call(artificialDelay, 4000);
 
-    yield put({ type: actionTypes.SET_DUCK_SUCCESS, payload: duck });
+    yield put({ type: actionTypes.SET_DUCK, payload: duck });
   } catch (err) {
-    yield put({ type: actionTypes.SET_DUCK_FAILED, payload: err });
+    yield put({ type: actionTypes.SET_DUCK, payload: null });
   }
 }
 

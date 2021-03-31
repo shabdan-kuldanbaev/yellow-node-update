@@ -21,11 +21,13 @@ const Intro = ({
   const { contextData, setContextData } = useContext(AppContext);
 
   useEffect(() => () => {
-    setContextData({
-      ...contextData,
-      isFirstHomepageVisit: true,
-      isHomepageVisit: true,
-    });
+    if (!contextData.isHomepageVisit) {
+      setContextData({
+        ...contextData,
+        isFirstHomepageVisit: true,
+        isHomepageVisit: true,
+      });
+    }
   }, []);
 
   return (

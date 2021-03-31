@@ -8,9 +8,7 @@ const initialState = {
 
 const handlers = {
   [actionTypes.SET_SCROLL_OF_ADDED_FOOTER]: (state, { payload }) => ({ ...state, scrollOfAddedFooter: payload }),
-  [actionTypes.SET_DUCK_PENDING]: (state) => ({ ...state }),
-  [actionTypes.SET_DUCK_SUCCESS]: (state, { payload }) => ({ ...state, duck: payload }),
-  [actionTypes.SET_DUCK_FAILED]: (state, { payload }) => ({ ...state, err: payload }),
+  [actionTypes.SET_DUCK]: (state, { payload }) => ({ ...state, duck: payload }),
   DEFAULT: (state) => state,
 };
 

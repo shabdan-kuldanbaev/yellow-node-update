@@ -41,7 +41,7 @@ export const Home = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.homepage} microdata={microdata.homepage()} />
-      {!isPageReadyToDisplay ? <LoadingPlaceholder /> : (
+      {(!isPageReadyToDisplay || !duck) ? <LoadingPlaceholder /> : (
         <Fragment>
           <Intro
             theme={theme}

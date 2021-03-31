@@ -15,8 +15,7 @@ export const actionTypes = {
   SET_PAGE_READY_TO_DISPLAY_FAILED: 'layout/SET_PAGE_READY_TO_DISPLAY_FAILED',
   /* ------------------------ */
   SET_DUCK_PENDING: 'home/SET_DUCK_PENDING',
-  SET_DUCK_SUCCESS: 'home/SET_DUCK_SUCCESS',
-  SET_DUCK_FAILED: 'home/SET_DUCK_FAILED',
+  SET_DUCK: 'home/SET_DUCK',
   /* ------------------------ */
   SET_SCROLL_OF_ADDED_FOOTER: 'home/SET_SCROLL_OF_ADDED_FOOTER',
   /* ------------------------ */
