@@ -17,6 +17,9 @@ export const LinkWrapper = ({
   children,
   googleAnalyticProps,
 }) => {
+  const linkTarget = isLocalLink ? '' : '_blank';
+  const linkRel = isLocalLink ? '' : 'noopener noreferrer';
+
   const handleOnClick = () => {
     if (!isEmpty(googleAnalyticProps)) {
       const {
@@ -43,8 +46,8 @@ export const LinkWrapper = ({
       <a
         className={cn(styles.link, { [className]: !isImage })}
         href={path}
-        target={isLocalLink ? '' : '_blank'}
-        rel={isLocalLink ? '' : 'noopener noreferrer'}
+        target={linkTarget}
+        rel={linkRel}
         onClick={handleOnClick}
       >
         {!isImage ? children : (

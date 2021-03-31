@@ -24,7 +24,12 @@ export const SocialThumbnails = ({ url, title }) => {
   return (
     <div className={styles.socialThumbnails}>
       <div className={styles.thumbnailsContainer}>
-        <div className={styles.svgContainer} onClick={trackSocialShareClick}>
+        <div
+          className={styles.svgContainer}
+          onClick={trackSocialShareClick}
+          role="button"
+          tabIndex="0"
+        >
           <FacebookShareButton
             url={url}
             quote={title}
@@ -32,7 +37,12 @@ export const SocialThumbnails = ({ url, title }) => {
             data-socialname="Facebook"
           />
         </div>
-        <div className={styles.svgContainer} onClick={trackSocialShareClick}>
+        <div
+          className={styles.svgContainer}
+          onClick={trackSocialShareClick}
+          role="button"
+          tabIndex="0"
+        >
           <TwitterShareButton
             url={url}
             title={title}
@@ -41,7 +51,12 @@ export const SocialThumbnails = ({ url, title }) => {
           />
         </div>
         <CopyToClipboard text={url} onCopy={handleOnCopy}>
-          <div className={styles.svgContainer} onClick={trackSocialShareClick}>
+          <div
+            className={styles.svgContainer}
+            onClick={trackSocialShareClick}
+            role="button"
+            tabIndex="0"
+          >
             <img
               className={styles.svg}
               src={CopyLink}

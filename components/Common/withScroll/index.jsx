@@ -31,12 +31,15 @@ export default function withScroll(Component) {
       const { maxScrollPosition } = this.state;
 
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
       if (scrollTop > maxScrollPosition) {
         const scrollPercent = getScrollPercent();
+
         if (scrollPercent > maxScrollPosition) {
           this.saveScrollPosition(scrollPercent);
         }
       }
+
       this.saveLastScrollPosition(scrollTop <= 0 ? 0 : scrollTop);
     }
 

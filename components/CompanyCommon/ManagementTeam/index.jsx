@@ -27,7 +27,7 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => (
 
         return (
           <Animated
-            key={`special/${index}/${title}`}
+            key={`special/${title}`}
             type={ANIMATED_TYPE.isCustom}
             translateY="2.82352941em"
             opasityDuration={1}

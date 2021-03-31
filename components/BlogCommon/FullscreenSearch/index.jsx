@@ -15,14 +15,14 @@ import styles from './styles.module.scss';
 const FullscreenSearch = ({
   isFullscreenSearch,
   closeFullscreenSearch,
-  findArticles,
-  clearFoundArticles,
+  findArticles: loadArticles,
+  clearFoundArticles: removeFoundArticles,
   foundArticles,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
 
-  const delayedQuery = useCallback(debounce((value) => findArticles({ value }), 1000), []);
+  const delayedQuery = useCallback(debounce((value) => loadArticles({ value }), 1000), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
 
@@ -31,7 +31,7 @@ const FullscreenSearch = ({
   const handleOnCloseModalWindow = () => {
     closeFullscreenSearch();
     setInputValue('');
-    clearFoundArticles();
+    removeFoundArticles();
   };
 
   useEffect(() => {

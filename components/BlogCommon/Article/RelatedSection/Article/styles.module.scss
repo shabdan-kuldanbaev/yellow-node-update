@@ -102,7 +102,7 @@
           font-size: 14px;
         }
 
-        &>a {
+        & > span {
           color: $mine-shaft;
           background-image: linear-gradient($turbo-100, $turbo-100);
           background-position: 0% 100%;
@@ -112,7 +112,7 @@
         }
   
         &:hover {
-          &>a {
+          & > span {
             transition: background-size .6s ease-out;
             background-size: 100% 8px;
           }

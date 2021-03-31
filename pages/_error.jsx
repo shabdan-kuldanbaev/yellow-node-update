@@ -10,7 +10,13 @@ const Error = ({ statusCode, err }) => (
 );
 
 Error.getInitialProps = async ({ err, res }) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+  let statusCode = 404;
+
+  if (res) {
+    statusCode = res.statusCode;
+  } else if (err) {
+    statusCode = err.statusCode;
+  }
 
   if (statusCode === 404) {
     res.writeHead(302, {
@@ -18,7 +24,8 @@ Error.getInitialProps = async ({ err, res }) => {
       'Content-Type': 'text/html; charset=utf-8',
     });
     res.end();
-    return;
+
+    return {};
   }
 
   return { statusCode, err };

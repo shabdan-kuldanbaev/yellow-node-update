@@ -87,6 +87,7 @@ MetaTags.defaultProps = {
   ogMetaData,
   articleMetadata: {},
   microdata: {},
+  children: '',
 };
 
 MetaTags.propTypes = {

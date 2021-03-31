@@ -30,7 +30,7 @@ export const addThousandsSeparators = (value) => value.toString().replace(/\B(?=
 export const toInt = (str) => parseInt(str, 10);
 
 export const validateEmail = (email) => {
-  const reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (reg.test(email) === false) {
     return false;
@@ -167,7 +167,7 @@ export const getFeedbackFormData = (data) => {
   return formData;
 };
 
-export const isNumeric = (value) => !isNaN(value);
+export const isNumeric = (value) => !Number.isNaN(value);
 
 export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 

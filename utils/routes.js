@@ -49,7 +49,7 @@ export const routes = {
         return blogRoutes.root();
       }
 
-      if (!category || !isNaN(category)) {
+      if (!category || !Number.isNaN(category)) {
         if (+page === 1) return blogRoutes.root();
 
         return blogRoutes.slug(page);

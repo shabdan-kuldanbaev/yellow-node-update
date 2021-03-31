@@ -17,7 +17,7 @@ import styles from './styles.module.scss';
 
 const ContactUsContainer = ({
   introSection,
-  sendEmail,
+  sendEmail: sendFeedback,
   officePhoto,
   peoplePhoto,
 }) => {
@@ -40,16 +40,14 @@ const ContactUsContainer = ({
       email,
       projectDescription,
       selectedFiles,
-      isSendNDAChecked,
       projectBudget,
     ] = args;
 
-    sendEmail({
+    sendFeedback({
       fullName,
       email,
       projectDescription,
       files: selectedFiles,
-      isSendNDAChecked,
       projectBudget,
     });
   };

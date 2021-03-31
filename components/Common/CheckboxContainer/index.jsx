@@ -12,7 +12,7 @@ export const CheckboxContainer = ({
   const handleOnChangeCheckbox = (e) => handleOnChange(e);
 
   return (
-    <label className={styles.checkbox}>
+    <label className={styles.checkbox} htmlFor="checkbox">
       <span>{text}</span>
       {isThereLink && (
         <span className={styles.link}>
@@ -21,7 +21,11 @@ export const CheckboxContainer = ({
           </LinkWrapper>
         </span>
       )}
-      <input type="checkbox" onChange={handleOnChangeCheckbox} />
+      <input
+        id="checkbox"
+        type="checkbox"
+        onChange={handleOnChangeCheckbox}
+      />
       <span className={styles.checkmark} />
     </label>
   );
