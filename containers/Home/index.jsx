@@ -18,6 +18,7 @@ import {
 import { PhotoGallery, MetaTags } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import { microdata } from 'utils/microdata';
 import LoadingPlaceholder from './LoadingPlaceholder';
 
 export const Home = ({
@@ -39,8 +40,8 @@ export const Home = ({
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.homepage} />
-      {(!isPageReadyToDisplay || !duck) ? <LoadingPlaceholder /> : (
+      <MetaTags page={PAGES.homepage} microdata={microdata.homepage()} />
+      {!isPageReadyToDisplay ? <LoadingPlaceholder /> : (
         <Fragment>
           <Intro
             theme={theme}

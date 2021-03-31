@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import {
   selectArticle,
   selectRelatedArticles,
@@ -24,6 +25,7 @@ import {
   getDocumentFields,
   getFileUrl,
 } from 'utils/helper';
+import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
 
 const ArticleContainer = ({
@@ -42,10 +44,27 @@ const ArticleContainer = ({
     introduction,
     headImageUrl,
     publishedAt,
+    updatedAt,
     keyWords = [],
+    categoryTag = '',
+    metaTitle,
+    metaDescription,
   } = getDocumentFields(
     get(currentArticle, 'items[0]', {}),
-    ['slug', 'title', 'oldBody', 'body', 'introduction', 'headImageUrl', 'publishedAt', 'keyWords'],
+    [
+      'slug',
+      'title',
+      'oldBody',
+      'body',
+      'introduction',
+      'headImageUrl',
+      'publishedAt',
+      'updatedAt',
+      'keyWords',
+      'categoryTag',
+      'metaTitle',
+      'metaDescription',
+    ],
   );
   const {
     previewImageUrl: previewImageUrlNewer,
@@ -64,19 +83,33 @@ const ArticleContainer = ({
     ['slug', 'title', 'previewImageUrl'],
   );
   const headImage = getFileUrl(headImageUrl);
-  const articleMetaData = {
-    title,
-    description: introduction,
-    date: publishedAt,
-    keyWords: (keyWords && keyWords.join(', ')) || null,
+  const articleMetadata = {
+    metaTitle,
+    metaDescription,
+    publishedAt,
     image: headImage,
+    keyWords,
+    categoryTag,
+    slug: articleSlug,
   };
+  const articleMicrodata = microdata.article({
+    metaTitle,
+    title,
+    publishedAt,
+    updatedAt,
+    headImage,
+    articleBody: oldBody || documentToPlainTextString(body),
+  });
 
   const handleOnFormSubmit = (email) => subscribe({ email, pathname });
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.blog} articleMetaData={articleMetaData} />
+      <MetaTags
+        page={PAGES.blog}
+        articleMetadata={articleMetadata}
+        microdata={articleMicrodata}
+      />
       <Article
         slug={articleSlug}
         title={title}
