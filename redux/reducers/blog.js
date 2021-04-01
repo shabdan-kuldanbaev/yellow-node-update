@@ -75,7 +75,6 @@ const handlers = {
     found: [],
     searchMessage: '',
   }),
-  [actionTypes.CLEAR_SEARCH_MESSAGE]: (state) => ({ ...state, searchMessage: '' }),
   DEFAULT: (state) => state,
 };
 

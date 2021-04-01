@@ -24,9 +24,13 @@ const FullscreenSearch = ({
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
 
-    if (value.length > 1) delayedQuery(value);
-    if (value.length <= 1) {
+    if (value.length === 0) {
       clearFoundArticles();
+      delayedQuery.cancel();
+    }
+
+    if (value.length > 1) {
+      delayedQuery(value);
     }
   };
   const handleOnCloseModalWindow = () => {
@@ -58,7 +62,7 @@ const FullscreenSearch = ({
         />
       </div>
       <div className={styles.foundArticles}>
-        {inputValue
+        {inputValue.length > 1
           ? <SearchResult />
           : <span className={styles.nothingFound}>Type some words to search.</span>}
       </div>
