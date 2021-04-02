@@ -56,6 +56,8 @@ export const FieldsWrapper = ({ animated: { field } }) => {
     );
   default: null;
   }
+
+  return null;
 };
 
 FieldsWrapper.propTypes = {

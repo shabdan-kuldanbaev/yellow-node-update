@@ -5,11 +5,11 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { developFor } from './utils/data';
 import styles from './styles.module.scss';
 
-export const WeDevelopFor = ({ developFor }) => (
+export const WeDevelopFor = ({ developFor: developForList }) => (
   <section className={styles.blockOfWeDevelopFor}>
     <SectionTitle title="We develop for" />
     <div className={styles.developFor}>
-      {developFor && developFor.map((item, index) => (
+      {developForList && developForList.map((item, index) => (
         <Animated
           key={`special/${item.title}`}
           type={ANIMATED_TYPE.isCustom}

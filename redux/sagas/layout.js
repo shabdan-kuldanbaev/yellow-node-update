@@ -69,6 +69,7 @@ function* fetchPageData({
         yield call(loadArticles, { currentLimit: DEFAULT_ARTICLES_LIMIT }),
         ...(isFirstHomeVisitAndPageLoaded ? [yield call(artificialDelay, 4000)] : []),
       ]);
+
       break;
     }
     case PAGES.blog:
@@ -81,14 +82,17 @@ function* fetchPageData({
         category,
         skip,
       });
+
       break;
     case PAGES.portfolio:
     case PAGES.contact:
     case PAGES.company:
       yield call(fetchPage, { slug });
+
       break;
     case PAGES.process:
       yield call(loadJSON);
+
       break;
     case PAGES.notFound:
       break;

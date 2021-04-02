@@ -14,7 +14,7 @@ const SubscribeBlock = ({
   handleOnEmailChange,
   handleOnSubmit,
   message,
-  clearMessage,
+  clearMessage: clearAlertMessage,
   isSubscribed,
 }) => {
   const handleOnClick = (event) => {
@@ -23,7 +23,7 @@ const SubscribeBlock = ({
     handleOnSubmit(email.value);
   };
 
-  useEffect(() => () => clearMessage(), []);
+  useEffect(() => () => clearAlertMessage(), []);
 
   return (!isSubscribed && (
     <section className={cn(styles.subscribeBlock, {
@@ -40,7 +40,12 @@ const SubscribeBlock = ({
               onChange={handleOnEmailChange}
               placeholder="Your email address"
             />
-            <div className={styles.button} onClick={handleOnClick}>
+            <div
+              className={styles.button}
+              onClick={handleOnClick}
+              role="button"
+              tabIndex="0"
+            >
               Subscribe
             </div>
             {message && <span className={styles.alertMessage}>{message}</span>}

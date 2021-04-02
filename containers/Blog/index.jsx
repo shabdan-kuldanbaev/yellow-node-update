@@ -22,19 +22,19 @@ const BlogContainer = ({
   deviceLimit,
   isMobileResolution,
   totalArticles,
-  subscribe,
-  setIsSubscribed,
+  subscribe: addNewSubscriber,
+  setIsSubscribed: setSubscribed,
   currentPage,
 }) => {
   const { pathname } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
 
   const handleOnFormSubmit = (email) => {
-    subscribe({ email, pathname });
+    addNewSubscriber({ email, pathname });
   };
 
   useEffect(() => {
-    setIsSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
+    setSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
   }, []);
 
   return (

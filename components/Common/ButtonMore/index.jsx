@@ -19,6 +19,8 @@ const ButtonMore = ({
       ref={buttonRef}
       className={cn({ [buttonStyle]: buttonStyle })}
       onClick={handleOnClick}
+      role="button"
+      tabIndex="0"
     >
       {title}
     </div>
@@ -30,7 +32,12 @@ const ButtonMore = ({
       dynamicRouting={dynamicRouting}
       className={cn(styles.link, { [disabledButtonStyle]: isDisabled })}
     >
-      <div className={cn({ [buttonStyle]: buttonStyle })} onClick={handleOnClick}>
+      <div
+        className={cn({ [buttonStyle]: buttonStyle })}
+        onClick={handleOnClick}
+        role="button"
+        tabIndex="0"
+      >
         {title}
       </div>
     </LinkWrapper>

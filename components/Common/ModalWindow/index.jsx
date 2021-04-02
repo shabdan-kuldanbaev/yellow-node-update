@@ -39,11 +39,12 @@ export const ModalWindow = ({
       className={cn(styles.modalWindow, className, { [styles.show]: isModalWindow })}
       onClick={handleOnClick}
       ref={modalRef}
+      role="dialog"
     >
       <img
         onClick={closeModalWindow}
         src={staticImagesUrls.closeIcon}
-        alt="Cloce"
+        alt="Close"
       />
       {children}
     </section>

@@ -33,7 +33,7 @@ const ArticleContainer = ({
   articles: relatedArticles,
   nearbyArticles: { newerArticle, olderArticle },
   currentArticle,
-  subscribe,
+  subscribe: addNewSubscriber,
 }) => {
   const { query: { slug }, pathname } = useRouter();
   const {
@@ -101,7 +101,7 @@ const ArticleContainer = ({
     articleBody: oldBody || documentToPlainTextString(body),
   });
 
-  const handleOnFormSubmit = (email) => subscribe({ email, pathname });
+  const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
 
   return (
     <Fragment>

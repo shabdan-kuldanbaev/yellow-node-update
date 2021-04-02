@@ -31,7 +31,6 @@ export const TopProgressBar = ({ elementRef }) => {
   );
 };
 
-
 TopProgressBar.propTypes = {
   elementRef: PropTypes.instanceOf(Object).isRequired,
 };
