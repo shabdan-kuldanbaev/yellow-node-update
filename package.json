@@ -1,17 +1,34 @@
 {
-  "name": "yellow-site",
+  "name": "yellow-site-v2",
   "version": "2.0.0",
   "description": "Yellow website",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development node server/index.js",
     "build": "cross-env NODE_ENV=production NODE_PATH=./ next build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env  BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "lint:js": "eslint . --ext .js,.jsx --ignore-path .gitignore",
+    "lint:js:fix": "yarn lint:js -- --fix",
+    "lint:style": "npx stylelint {components,containers,styles}/**/**/**/**/**/*.scss --syntax scss --ignore-path .gitignore",
+    "lint:style:fix": "yarn lint:style -- --fix",
+    "lint": "yarn lint:js && yarn lint:style"
+  },
+  "lint-staged": {
+    "*": "yarn lint:js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
+    "@contentful/rich-text-plain-text-renderer": "^14.1.2",
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
     "@material-ui/core": "^4.11.3",
@@ -84,13 +101,18 @@
     "@salesforce/eslint-config-lwc": "^0.5.0",
     "babel-eslint": "^10.1.0",
     "contentful-management": "^7.5.1",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "18.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^3.0.0",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "4.2.3",
+    "lint-staged": "^10.5.4",
     "redux-devtools-extension": "^2.13.8",
-    "string-replace-loader": "^3.0.1"
+    "string-replace-loader": "^3.0.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard": "^21.0.0"
   }
 }

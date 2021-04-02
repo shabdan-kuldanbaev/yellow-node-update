@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
 import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
 import { withValidateEmail } from 'hocs';
-import { STATIC_IMAGES } from 'utils/constants';
+import { staticImagesUrls } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const SubscribeBlock = ({
@@ -14,7 +14,7 @@ const SubscribeBlock = ({
   handleOnEmailChange,
   handleOnSubmit,
   message,
-  clearMessage,
+  clearMessage: clearAlertMessage,
   isSubscribed,
 }) => {
   const handleOnClick = (event) => {
@@ -23,7 +23,7 @@ const SubscribeBlock = ({
     handleOnSubmit(email.value);
   };
 
-  useEffect(() => () => clearMessage(), []);
+  useEffect(() => () => clearAlertMessage(), []);
 
   return (!isSubscribed && (
     <section className={cn(styles.subscribeBlock, {
@@ -40,13 +40,18 @@ const SubscribeBlock = ({
               onChange={handleOnEmailChange}
               placeholder="Your email address"
             />
-            <div className={styles.button} onClick={handleOnClick}>
+            <div
+              className={styles.button}
+              onClick={handleOnClick}
+              role="button"
+              tabIndex="0"
+            >
               Subscribe
             </div>
             {message && <span className={styles.alertMessage}>{message}</span>}
           </form>
         </div>
-        <div className={styles.subscribeMessage} style={{ backgroundImage: `url(${STATIC_IMAGES.subscribeBlockBackground})` }}>
+        <div className={styles.subscribeMessage} style={{ backgroundImage: `url(${staticImagesUrls.subscribeBlockBackground})` }}>
           <h3>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</h3>
         </div>
       </div>

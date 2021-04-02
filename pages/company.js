@@ -4,7 +4,7 @@ import { fetchLayoutData } from 'redux/actions/layout';
 import { CompanyContainer } from 'containers';
 import { PAGES } from 'utils/constants';
 
-const Company = () => <CompanyContainer />;
+const Company = ({ introSection }) => <CompanyContainer introSection={introSection} />;
 
 Company.getInitialProps = async ({ store, req }) => {
   store.dispatch(fetchLayoutData({ slug: PAGES.company }));

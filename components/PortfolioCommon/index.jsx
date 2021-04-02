@@ -15,7 +15,7 @@ import styles from './styles.module.scss';
 const Portfolio = ({
   works,
   maxScrollPosition,
-  animatedFields,
+  animatedFields: animatedFieldsList,
 }) => {
   const maxPosition = useRef(0);
 
@@ -46,8 +46,8 @@ const Portfolio = ({
           >
             <div className={styles.workWrapper}>
               <div className={styles.desc}>
-                {animatedFields && animatedFields.map((animated, index) => (
-                  <Animated {...animated} key={`fields/${index}/${title}`}>
+                {animatedFieldsList && animatedFieldsList.map((animated) => (
+                  <Animated {...animated} key={`fields/${title}/${animated.field}`}>
                     <FieldsWrapper
                       animated={animated}
                       title={title}

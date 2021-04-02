@@ -23,6 +23,7 @@ export const Reviews = ({ reviews }) => {
     spaceBetween: 0,
     centeredSlides: true,
     loop: true,
+    passiveListeners: true,
     coverflowEffect: {
       rotate: 0,
       stretch: -30,
@@ -43,8 +44,10 @@ export const Reviews = ({ reviews }) => {
     const handleOnResize = () => {
       if (swiperRef && swiperRef.current) {
         const swiperWrapperChildren = get(swiperRef, 'current.children[0].children', []);
+
         if (swiperWrapperChildren && swiperWrapperChildren.length > 0) {
           const newIt = [...swiperWrapperChildren].reduce((previousValue, item) => (previousValue >= item.offsetHeight ? previousValue : item.offsetHeight), 0);
+
           if (newIt) {
             swiperRef.current.children[0].style.height = `${newIt}px`;
             setMaxCardHeight(newIt);
@@ -56,6 +59,7 @@ export const Reviews = ({ reviews }) => {
 
       if (isInfoRefsExsists) {
         const newHeight = infoRefs.reduce((previousValue, infoRef) => (previousValue >= infoRef.current.children[0].offsetHeight ? previousValue : infoRef.current.children[0].offsetHeight), 0);
+
         if (newHeight) {
           infoRefs.forEach((infoRef) => {
             infoRef.current.style.height = `${newHeight}px`;

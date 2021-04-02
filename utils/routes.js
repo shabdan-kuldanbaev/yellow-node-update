@@ -1,3 +1,26 @@
+const rootBlogPath = '/blog';
+
+const dynamicBlogPaths = {
+  root: rootBlogPath,
+  slug: `${rootBlogPath}/[slug]`,
+  page: `${rootBlogPath}/[slug]/[page]`,
+};
+
+const blogRoutes = {
+  root: () => ({
+    path: rootBlogPath,
+    dynamicPath: rootBlogPath,
+  }),
+  slug: (slug) => ({
+    path: `${rootBlogPath}/${slug}`,
+    dynamicPath: dynamicBlogPaths.slug,
+  }),
+  page: (category, page) => ({
+    path: `${rootBlogPath}/${category}/${page}`,
+    dynamicPath: dynamicBlogPaths.page,
+  }),
+};
+
 export const routes = {
   homepage: {
     title: 'Home',
@@ -19,9 +42,28 @@ export const routes = {
   },
   blog: {
     title: 'Blog',
-    path: '/blog/latest/1',
-    getPath: (category = 'latest', page = '1') => `/blog/${category}/${page}`,
-    dynamicPath: '/blog/[slug]/[page]',
+    path: rootBlogPath,
+    // TODO think a better solution
+    getRoute: (category, page = '1') => {
+      if (category === 'latest') {
+        return blogRoutes.root();
+      }
+
+      if (!category || !Number.isNaN(category)) {
+        if (+page === 1) return blogRoutes.root();
+
+        return blogRoutes.slug(page);
+      }
+
+      if (category && +page === 1) {
+        return blogRoutes.slug(category);
+      }
+
+      return blogRoutes.page(category, page);
+    },
+    dynamicPath: {
+      ...dynamicBlogPaths,
+    },
     slug: 'blog',
     categories: [
       {
@@ -52,8 +94,10 @@ export const routes = {
   },
   article: {
     title: 'Article',
-    path: (slug) => `/blog/${slug}`,
-    dynamicPath: '/blog/[slug]',
+    getRoute: (slug) => ({
+      path: !!slug && `/blog/${slug}`,
+      dynamicPath: !!slug && '/blog/[slug]',
+    }),
     slug: 'article',
   },
   company: {

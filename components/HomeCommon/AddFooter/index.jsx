@@ -24,7 +24,9 @@ export const AddFooter = ({
 
     if (pageYOffset < 250) {
       setTopOfPage(true);
+
       if (pageYOffset < 200 && oldY > pageYOffset) setDirection('up');
+
       if (pageYOffset > 100 && oldY < pageYOffset) setDirection('down');
     } else setTopOfPage(false);
 

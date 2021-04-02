@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
-import { themes } from 'utils/helper';
-import { ROUTES, STATIC_IMAGES } from 'utils/constants';
+import { themes, staticImagesUrls } from 'utils/helper';
+import { ROUTES } from 'utils/constants';
 import { logoSize } from 'styles/utils/_variables.scss';
 
 const Logo = ({ theme }) => (
@@ -11,7 +11,7 @@ const Logo = ({ theme }) => (
     path={ROUTES.homepage.path}
     dynamicRouting={ROUTES.homepage.dynamicPath}
   >
-    <img src={STATIC_IMAGES.roundLogo} alt="Yellow Logo" />
+    <img src={staticImagesUrls.roundLogo} alt="Yellow Logo" />
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={logoSize}

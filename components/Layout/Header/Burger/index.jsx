@@ -22,6 +22,8 @@ const Burger = ({
         })
       }
       onClick={handleOnClick}
+      role="button"
+      tabIndex="0"
     >
       <div>
         <span />

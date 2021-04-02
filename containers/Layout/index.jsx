@@ -28,7 +28,7 @@ export const Layout = ({
   children,
   theme,
   introSection,
-  sendEmail,
+  sendEmail: sendFeedback,
 }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
@@ -41,16 +41,14 @@ export const Layout = ({
       email,
       projectDescription,
       selectedFiles,
-      isSendNDAChecked,
       projectBudget,
     ] = args;
 
-    sendEmail({
+    sendFeedback({
       fullName,
       email,
       projectDescription,
       files: selectedFiles,
-      isSendNDAChecked,
       projectBudget,
     });
     closeFullscreenEstimation();

@@ -1,15 +1,17 @@
 import get from 'lodash/get';
+import isObject from 'lodash/isObject';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
-import { PAGES, FEEDBACK_FORM_FIELDS } from 'utils/constants';
+import {
+  PAGES,
+  FEEDBACK_FORM_FIELDS,
+  IMAGES,
+  IMAGES_WITHOUT_CDN,
+} from 'utils/constants';
 import {
   phoneResolution,
   horizontalMobile,
   bigTabletResolution,
-  silver,
   fullHdResolution,
-  turbo,
-  witchHaze,
-  black,
 } from 'styles/utils/_variables.scss';
 
 export const themes = {
@@ -28,7 +30,7 @@ export const addThousandsSeparators = (value) => value.toString().replace(/\B(?=
 export const toInt = (str) => parseInt(str, 10);
 
 export const validateEmail = (email) => {
-  const reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (reg.test(email) === false) {
     return false;
@@ -41,10 +43,6 @@ export const mobileResolution = toInt(phoneResolution);
 export const fullResolution = toInt(fullHdResolution);
 export const horizontalPhone = toInt(horizontalMobile);
 export const tabletResolution = toInt(bigTabletResolution);
-export const previewImageBackground = toString(silver);
-export const linearBackgroundColor = toString(turbo);
-export const linearBarColor = toString(witchHaze);
-export const blackColor = toString(black);
 
 export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'scroll';
@@ -52,13 +50,17 @@ export const setOverflowForBody = (isHidden) => {
 
 export const formatDate = (date) => {
   let dd = date.getDate();
+
   if (dd < 10) dd = `0${dd}`;
 
   let mm = date.getMonth();
+
   if (mm < 10) mm = `0${mm}`;
 
   let yyyy = date.getFullYear();
+
   if (yyyy < 10) yyyy = `0${yyyy}`;
+
   if (yyyy > 1000) yyyy = Math.trunc(yyyy / 100).toString();
 
   return `${dd}/${mm}/${yyyy}`;
@@ -77,6 +79,8 @@ export const getMainLinksForSitemap = (updatedAt) => [
 export const rootUrl = process.env.NODE_ENV === 'development'
   ? process.env.DEV_URL
   : process.env.PROD_URL;
+
+export const isCustomDomain = rootUrl.includes(process.env.CUSTOM_DOMAIN);
 
 export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
 
@@ -163,15 +167,19 @@ export const getFeedbackFormData = (data) => {
   return formData;
 };
 
+export const isNumeric = (value) => !Number.isNaN(value);
+
 export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
-// TODO rewrite later
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
-  if (typeof value === 'object') {
-    addCdnToImages(value);
-  }
-
-  acc[key] = getPathWithCdn(value);
+  isObject(value)
+    ? acc[key] = addCdnToImages(value)
+    : acc[key] = getPathWithCdn(value);
 
   return acc;
 }, {});
+
+export const staticImagesUrls = ({
+  ...addCdnToImages(IMAGES),
+  ...IMAGES_WITHOUT_CDN,
+});

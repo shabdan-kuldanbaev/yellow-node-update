@@ -5,22 +5,20 @@ import { sendEmail } from 'redux/actions/contact';
 import { SectionTitle, FeedbackForm } from 'components';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = ({ sendEmail }) => {
+const FeedbackFormContainer = ({ sendEmail: sendFeedback }) => {
   const handleOnClick = (...args) => {
     const [
       fullName,
       email,
       projectDescription,
       selectedFiles,
-      isSendNDAChecked,
     ] = args;
 
-    sendEmail({
+    sendFeedback({
       fullName,
       email,
       projectDescription,
       files: selectedFiles,
-      isSendNDAChecked,
     });
   };
 

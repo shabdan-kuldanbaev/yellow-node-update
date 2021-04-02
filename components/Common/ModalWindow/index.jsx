@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { setOverflowForBody } from 'utils/helper';
-import { STATIC_IMAGES } from 'utils/constants';
+import { setOverflowForBody, staticImagesUrls } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const ModalWindow = ({
@@ -40,11 +39,12 @@ export const ModalWindow = ({
       className={cn(styles.modalWindow, className, { [styles.show]: isModalWindow })}
       onClick={handleOnClick}
       ref={modalRef}
+      role="dialog"
     >
       <img
         onClick={closeModalWindow}
-        src={STATIC_IMAGES.closeIcon}
-        alt="Cloce"
+        src={staticImagesUrls.closeIcon}
+        alt="Close"
       />
       {children}
     </section>

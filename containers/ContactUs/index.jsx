@@ -12,11 +12,12 @@ import {
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
 
 const ContactUsContainer = ({
   introSection,
-  sendEmail,
+  sendEmail: sendFeedback,
   officePhoto,
   peoplePhoto,
 }) => {
@@ -39,23 +40,21 @@ const ContactUsContainer = ({
       email,
       projectDescription,
       selectedFiles,
-      isSendNDAChecked,
       projectBudget,
     ] = args;
 
-    sendEmail({
+    sendFeedback({
       fullName,
       email,
       projectDescription,
       files: selectedFiles,
-      isSendNDAChecked,
       projectBudget,
     });
   };
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.contact} />
+      <MetaTags page={PAGES.contact} microdata={microdata.contact()} />
       <section ref={introSection} className={styles.contactContainer}>
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />

@@ -26,7 +26,7 @@ import * as styles from './styles.module.scss';
 
 let camera;
 let animationId = 0;
-let r = 0;
+let isRender = true;
 const meshes = [];
 const meshClones = [];
 let composer;
@@ -122,7 +122,9 @@ export const Duck = ({
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       camera.lookAt(scene.position);
+
       if (renderer) renderer.setSize(window.innerWidth, window.innerHeight);
+
       if (composer) composer.setSize(window.innerWidth, window.innerHeight);
     }
   };
@@ -229,8 +231,9 @@ export const Duck = ({
           mesh.geometry.attributes.position.needsUpdate = true;
           scatterStep = 0;
         });
-      } else if (window.innerWidth < mobileResolution) r = 1;
-      else {
+      } else if (window.innerWidth < mobileResolution) {
+        isRender = false;
+      } else {
         meshes.forEach((mesh) => { three.setRotateAnimation(mesh, options); });
         meshClones.forEach((mesh) => { three.setRotateAnimation(mesh, options); });
       }
@@ -256,7 +259,7 @@ export const Duck = ({
   };
 
   const animate = () => {
-    if (r === 0) {
+    if (isRender) {
       animationId = requestAnimationFrame(animate);
       render();
     }
@@ -272,14 +275,14 @@ export const Duck = ({
       if (!(window.innerWidth < mobileResolution)) {
         if (top < -400) {
           setAnimate(false);
-          r = 1;
+          isRender = false;
         } else if (top <= -50 && top > -400) {
           setAnimate(true);
-          r = 0;
+          isRender = true;
         } else {
           options.initial.currentAnimation = animationTypes[1];
           setAnimate(true);
-          r = 0;
+          isRender = true;
         }
       }
     }
@@ -311,7 +314,7 @@ export const Duck = ({
     if (containerCanvas.current && containerCanvas.current.getBoundingClientRect().top < -400) {
       cancelAnimationFrame(animationId);
       animationId = 0;
-      r = 1;
+      isRender = false;
     }
 
     isMobile = window.innerWidth < mobileResolution;
@@ -325,10 +328,11 @@ export const Duck = ({
 
         if (isMobile) options.default.meshScale = 70;
 
-        r = 0;
+        isRender = true;
         init();
 
         if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';
+
         slogan.setOpacity(canvas, containerCanvas);
         slogan.animateSlogan(sloganRef);
         animate();
@@ -348,7 +352,9 @@ export const Duck = ({
         if (!isHomepageVisit) {
           timer = setTimeout(() => {
             options.initial.currentAnimation = animationTypes[1];
+
             if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+
             document.addEventListener('mousedown', onDocumentMouseDown, false);
             document.addEventListener('mouseup', onDocumentMouseUp, false);
             document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -357,6 +363,7 @@ export const Duck = ({
           options.initial.currentAnimation = animationTypes[1];
 
           if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+
           document.addEventListener('mousedown', onDocumentMouseDown, false);
           document.addEventListener('mouseup', onDocumentMouseUp, false);
           document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -366,12 +373,14 @@ export const Duck = ({
       options.initial.isAppear = true;
 
       if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+
       document.addEventListener('mousedown', onDocumentMouseDown, false);
       document.addEventListener('mouseup', onDocumentMouseUp, false);
       document.addEventListener('mousemove', onDocumentMouseMove, false);
 
       animate();
     }
+
     window.addEventListener('scroll', handleOnScroll, false);
 
     return () => {
@@ -389,7 +398,7 @@ export const Duck = ({
 
   useEffect(() => () => {
     if (isHomepageVisit) {
-      r = 0;
+      isRender = true;
       meshes.length = 0;
       meshClones.length = 0;
       mat = 0;
@@ -402,7 +411,7 @@ export const Duck = ({
         <Animated
           type={ANIMATED_TYPE.isParallaxSpring}
           position="absolute"
-          speed={0.2}
+          speed={0.3}
           elementRef={containerText}
           isHomepageIntro
         >
@@ -414,7 +423,7 @@ export const Duck = ({
         className={styles.canvasContainer}
         elementRef={containerCanvas}
         position="relative"
-        speed={isMobile ? -0.04 : -0.10}
+        speed={0.09}
         isHomepageIntro
       />
     </Fragment>
