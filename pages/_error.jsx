@@ -28,7 +28,10 @@ Error.getInitialProps = async ({ err, res }) => {
     return {};
   }
 
-  return { statusCode, err };
+  return {
+    statusCode,
+    err,
+  };
 };
 
 export default Error;

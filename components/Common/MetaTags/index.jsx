@@ -87,13 +87,17 @@ MetaTags.defaultProps = {
   ogMetaData,
   articleMetadata: {},
   microdata: {},
-  children: '',
+  children: null,
 };
 
 MetaTags.propTypes = {
   page: PropTypes.string,
   ogMetaData: PropTypes.instanceOf(Array),
   articleMetadata: PropTypes.instanceOf(Object),
-  children: PropTypes.node,
   microdata: PropTypes.instanceOf(Object),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.element,
+  ]),
 };
