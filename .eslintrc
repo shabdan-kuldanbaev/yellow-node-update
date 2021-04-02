@@ -8,7 +8,8 @@
   },
   "parser": "babel-eslint",
   "extends": [
-    "airbnb"
+    "airbnb",
+    "plugin:json/recommended"
   ],
   "plugins": [
     "react-hooks"
@@ -18,6 +19,7 @@
     "/node_modules",
     "/oldData",
     "/public",
+    "yarn.lock"
   ],
   "rules": {
     "indent": [
