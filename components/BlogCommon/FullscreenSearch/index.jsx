@@ -26,7 +26,7 @@ const FullscreenSearch = ({
     setInputValue(value);
 
     if (value.length === 0) {
-      clearFoundArticles();
+      removeFoundArticles();
       delayedQuery.cancel();
     }
 
