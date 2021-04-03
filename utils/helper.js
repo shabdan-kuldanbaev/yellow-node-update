@@ -167,7 +167,7 @@ export const getFeedbackFormData = (data) => {
   return formData;
 };
 
-export const isNumeric = (value) => !Number.isNaN(value);
+export const isNumeric = (value) => !isNaN(value);
 
 export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
