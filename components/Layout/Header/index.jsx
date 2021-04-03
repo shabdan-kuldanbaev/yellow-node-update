@@ -30,7 +30,7 @@ const Header = ({
 
   useEffect(() => {
     const handleOnScroll = () => {
-      if (introSection.current) {
+      if (introSection && introSection.current) {
         const intro = introSection.current.getBoundingClientRect();
 
         if (isHomePage) {
@@ -54,7 +54,11 @@ const Header = ({
     window.addEventListener('scroll', handleOnScroll);
 
     return () => window.removeEventListener('scroll', handleOnScroll);
-  }, [currentPage]);
+  }, [
+    currentPage,
+    introSection,
+    isHomePage,
+  ]);
 
   useEffect(() => {
     setAdditional(false);

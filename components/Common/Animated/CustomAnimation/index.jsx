@@ -39,8 +39,11 @@ export const CustomAnimation = ({
 
   useEffect(() => {
     if (animateRef && animateRef.current) {
-      if (intersection && intersection.intersectionRatio >= percentIntersection) setAnimated(true);
+      if (intersection && intersection.intersectionRatio >= percentIntersection) {
+        setAnimated(true);
+      }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [intersection]);
 
   return (

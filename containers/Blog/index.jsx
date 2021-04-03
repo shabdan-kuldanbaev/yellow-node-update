@@ -35,6 +35,7 @@ const BlogContainer = ({
 
   useEffect(() => {
     setSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -61,7 +61,7 @@ export const DesktopCarousel = ({ photos }) => {
 
       setFullListWidth(newSum);
     }
-  }, []);
+  }, [listRef, photos]);
 
   return (
     <section className={styles.gallerySection}>

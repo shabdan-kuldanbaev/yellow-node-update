@@ -15,7 +15,7 @@ const ProjectContainer = ({
 
   useEffect(() => {
     if (project) getCurrentProject();
-  }, []);
+  }, [getCurrentProject, project]);
 
   return <Project project={currentProject} introSection={introSection} />;
 };

@@ -317,6 +317,7 @@ export const Duck = ({
       isRender = false;
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     isMobile = window.innerWidth < mobileResolution;
 
     if (!isAnimate) {
@@ -403,7 +404,7 @@ export const Duck = ({
       meshClones.length = 0;
       mat = 0;
     }
-  }, []);
+  }, [isHomepageVisit]);
 
   return (
     <Fragment>

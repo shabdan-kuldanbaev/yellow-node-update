@@ -27,7 +27,10 @@ const FullscreenSubscribe = ({
     handleOnSubmit(email.value);
   };
 
-  useEffect(() => () => clearAlertMessage(), []);
+  useEffect(
+    () => () => clearAlertMessage(),
+    [clearAlertMessage],
+  );
 
   return (
     <ModalWindow

@@ -12,6 +12,7 @@ export const GalleryCard = ({ images, photoCaption }) => {
 
   const getImagesInRow = useCallback(
     (row) => images.filter((image, index) => index >= row * NUMBER_OF_IMAGES_PER_LINE && index <= (row + 1) * NUMBER_OF_IMAGES_PER_LINE - 1),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [images, rowsCount],
   );
 

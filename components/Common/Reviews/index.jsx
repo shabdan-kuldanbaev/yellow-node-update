@@ -2,6 +2,7 @@ import React, {
   useRef,
   useEffect,
   useState,
+  useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
@@ -16,7 +17,22 @@ SwiperCors.use([EffectCoverflow]);
 export const Reviews = ({ reviews }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
-  const infoRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const [
+    firstRef,
+    secondRef,
+    thirdRef,
+    fourthRef,
+  ] = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
+  const infoRefs = useMemo(
+    () => [firstRef, secondRef, thirdRef, fourthRef],
+    [firstRef, fourthRef, secondRef, thirdRef],
+  );
+
   const params = {
     effect: 'coverflow',
     slidesPerView: 1.2,
@@ -46,7 +62,11 @@ export const Reviews = ({ reviews }) => {
         const swiperWrapperChildren = get(swiperRef, 'current.children[0].children', []);
 
         if (swiperWrapperChildren && swiperWrapperChildren.length > 0) {
-          const newIt = [...swiperWrapperChildren].reduce((previousValue, item) => (previousValue >= item.offsetHeight ? previousValue : item.offsetHeight), 0);
+          const newIt = [...swiperWrapperChildren].reduce((previousValue, item) => (
+            previousValue >= item.offsetHeight
+              ? previousValue
+              : item.offsetHeight
+          ), 0);
 
           if (newIt) {
             swiperRef.current.children[0].style.height = `${newIt}px`;
@@ -58,7 +78,11 @@ export const Reviews = ({ reviews }) => {
       const isInfoRefsExsists = infoRefs.reduce((previousValue, infoRef) => !!(get(infoRef, 'current.children[0]', [])), false);
 
       if (isInfoRefsExsists) {
-        const newHeight = infoRefs.reduce((previousValue, infoRef) => (previousValue >= infoRef.current.children[0].offsetHeight ? previousValue : infoRef.current.children[0].offsetHeight), 0);
+        const newHeight = infoRefs.reduce((previousValue, infoRef) => (
+          previousValue >= infoRef.current.children[0].offsetHeight
+            ? previousValue
+            : infoRef.current.children[0].offsetHeight
+        ), 0);
 
         if (newHeight) {
           infoRefs.forEach((infoRef) => {
@@ -72,7 +96,7 @@ export const Reviews = ({ reviews }) => {
     window.addEventListener('resize', handleOnResize);
 
     return () => window.removeEventListener('resize', handleOnResize);
-  }, []);
+  }, [infoRefs]);
 
   return (
     <div className={styles.reviews}>

@@ -27,7 +27,11 @@ const LoadingScreen = ({
     isPageLoading.current = !isPageReadyToDisplay;
 
     return () => !isFirstPageLoaded && setPageLoaded(true);
-  }, [isPageReadyToDisplay]);
+  }, [
+    isFirstPageLoaded,
+    isPageReadyToDisplay,
+    setPageLoaded,
+  ]);
 
   return (
     <div ref={loadRef} className={styles.loadingPage}>

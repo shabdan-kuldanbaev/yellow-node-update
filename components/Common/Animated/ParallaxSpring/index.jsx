@@ -42,7 +42,11 @@ export const ParallaxWrapper = ({
     window.addEventListener('scroll', handleOnScroll);
 
     return () => window.removeEventListener('scroll', handleOnScroll);
-  }, []);
+  }, [
+    elementRef,
+    isHomepageIntro,
+    set,
+  ]);
 
   switch (isHomepageIntro) {
   case true:
