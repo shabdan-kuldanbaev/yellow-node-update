@@ -21,6 +21,7 @@ const FullscreenSearch = ({
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const delayedQuery = useCallback(debounce((value) => loadArticles({ value }), 1000), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);

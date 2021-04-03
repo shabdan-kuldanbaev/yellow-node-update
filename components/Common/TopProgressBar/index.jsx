@@ -19,7 +19,7 @@ export const TopProgressBar = ({ elementRef }) => {
     window.addEventListener('scroll', handleOnScroll);
 
     return () => window.removeEventListener('scroll', handleOnScroll);
-  }, []);
+  }, [elementRef]);
 
   return (
     <div className={styles.topProgressBar}>

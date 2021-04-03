@@ -73,7 +73,7 @@ const AnimatedInput = ({
     if (isTextArea && inputRef && inputRef.current) {
       autosize(inputRef.current);
     }
-  }, []);
+  }, [isTextArea]);
 
   return (
     <OutsideClickHandler onOutsideClick={handleOnOutsideClick}>

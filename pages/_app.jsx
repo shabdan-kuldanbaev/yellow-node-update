@@ -31,7 +31,7 @@ const App = ({ Component, pageProps }) => {
     return () => {
       Router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={customTheme}>

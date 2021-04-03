@@ -34,9 +34,12 @@ export const AddFooter = ({
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     oldY = window.pageYOffset;
+
     setScroll(scrollLabel.current);
     handleOnScroll();
+
     window.addEventListener('scroll', handleOnScroll);
 
     return () => window.removeEventListener('scroll', handleOnScroll);

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export const instaPhotos = [
   'https://instagram.fmsq1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/65268880_999049766960224_3483200276137989660_n.jpg?_nc_ht=instagram.fmsq1-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=H6zAgwtIt30AX8E1GQp&oh=18784e87c7aa3618193f66dffe0523fe&oe=5EE45833',
   'https://instagram.fmsq1-1.fna.fbcdn.net/v/t51.2885-15/e35/89338363_710910269442712_3118180154058149740_n.jpg?_nc_ht=instagram.fmsq1-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=d1YOBLDlbJEAX-X_l5M&oh=31f9ebb9e99db2f6e774785693495624&oe=5EC74C32',

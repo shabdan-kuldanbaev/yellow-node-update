@@ -26,15 +26,24 @@ const Intro = ({
   duck,
   isHomepageVisit,
   setScrollOfAddedFooter: setScroll,
-  setHomepageVisit: setVisitOfHomepage,
+  setHomepageVisit: setHomeVisit,
   setFirstHomepageVisit: setFirstHomeVisit,
   isFirstHomepageVisit,
 }) => {
   useEffect(() => () => {
-    setVisitOfHomepage(true);
+    if (!isHomepageVisit) {
+      setHomeVisit(true);
+    }
 
-    if (!isFirstHomepageVisit) setFirstHomeVisit(true);
-  }, []);
+    if (!isFirstHomepageVisit) {
+      setFirstHomeVisit(true);
+    }
+  }, [
+    isFirstHomepageVisit,
+    isHomepageVisit,
+    setFirstHomeVisit,
+    setHomeVisit,
+  ]);
 
   return (
     <section ref={introSection} className={styles.intro}>

@@ -23,7 +23,10 @@ const SubscribeBlock = ({
     handleOnSubmit(email.value);
   };
 
-  useEffect(() => () => clearAlertMessage(), []);
+  useEffect(
+    () => () => clearAlertMessage(),
+    [clearAlertMessage],
+  );
 
   return (!isSubscribed && (
     <section className={cn(styles.subscribeBlock, {

@@ -32,7 +32,7 @@ export const ModalWindow = ({
     document.addEventListener('keydown', handleOnKeyDown);
 
     return () => document.removeEventListener('keydown', handleOnKeyDown);
-  }, []);
+  }, [closeModalWindow]);
 
   return (
     <section

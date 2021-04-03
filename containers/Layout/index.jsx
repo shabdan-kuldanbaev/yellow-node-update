@@ -35,7 +35,8 @@ export const Layout = ({
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
-  const handleOnClick = (...args) => { // TODO after release (three repetitions in the code)
+  // TODO after release (three repetitions in the code - handleOnClick)
+  const handleOnClick = (...args) => {
     const [
       fullName,
       email,
@@ -72,7 +73,7 @@ export const Layout = ({
     window.addEventListener('resize', handleOnResize);
 
     return () => window.removeEventListener('resize', handleOnResize);
-  }, []);
+  }, [dispatch]);
 
   return (
     <Fragment>
