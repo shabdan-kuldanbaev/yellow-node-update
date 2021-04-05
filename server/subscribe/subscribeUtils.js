@@ -16,7 +16,7 @@ module.exports.getSubscriber = async (email, callback) => {
 
     await mailchimp.request(getSubscriberOptions, callback);
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -39,6 +39,6 @@ module.exports.addSubscriber = async (email, res) => {
       }
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };

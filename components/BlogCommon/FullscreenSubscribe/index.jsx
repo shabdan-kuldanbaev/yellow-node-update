@@ -19,7 +19,7 @@ const FullscreenSubscribe = ({
   handleOnBlurEmail,
   handleOnSubmit,
   message,
-  clearMessage,
+  clearMessage: clearAlertMessage,
 }) => {
   const handleOnClick = (event) => {
     event.preventDefault();
@@ -27,7 +27,10 @@ const FullscreenSubscribe = ({
     handleOnSubmit(email.value);
   };
 
-  useEffect(() => () => clearMessage(), []);
+  useEffect(
+    () => () => clearAlertMessage(),
+    [clearAlertMessage],
+  );
 
   return (
     <ModalWindow

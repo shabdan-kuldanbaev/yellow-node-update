@@ -4,7 +4,7 @@ import { Animated } from 'components';
 import { advantages, animatedFields } from './utils/data';
 import styles from './styles.module.scss';
 
-export const AdvantagesItems = ({ advantages, animatedFields }) => {
+export const AdvantagesItems = ({ advantages: advantagesList, animatedFields: animatedFieldsList }) => {
   const switchRender = ({ field }, adv) => { // TODO create separate component
     switch (field) {
     case 'img':
@@ -20,13 +20,13 @@ export const AdvantagesItems = ({ advantages, animatedFields }) => {
 
   return (
     <div className={styles.advantagesContainer}>
-      {advantages && advantages.map((adv, index) => (
+      {advantagesList && advantagesList.map((adv) => (
         <div className={styles.advItem} key={`advantages/${adv.title}`}>
-          {animatedFields && animatedFields.map((animated, index) => (
+          {animatedFieldsList && animatedFieldsList.map((animated, index) => (
             <Animated
               {...animated}
               transitionDelay={animated.transitionDelay(index)}
-              key={`fields/${index}/${adv.title}`}
+              key={`fields/${animated.field}/${adv.title}`}
             >
               {switchRender(animated, adv)}
             </Animated>

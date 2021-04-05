@@ -27,12 +27,12 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => (
 
         return (
           <Animated
-            key={`special/${index}/${title}`}
+            key={`special/${title}`}
             type={ANIMATED_TYPE.isCustom}
             translateY="2.82352941em"
             opasityDuration={1}
             transformDuration={1}
-            transitionDelay={50 + 60 * index}
+            transitionDelay={50 + 50 * index}
           >
             <div className={styles.imageContainer}>
               <div className={styles.image} style={{ backgroundImage: `url(${photoUrl})` }} />

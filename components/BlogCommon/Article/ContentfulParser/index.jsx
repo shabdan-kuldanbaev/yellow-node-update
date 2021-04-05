@@ -26,7 +26,7 @@ export const ContentfulParser = ({ document }) => {
       [MARKS.UNDERLINE]: (node) => <u>{node}</u>,
     },
     renderNode: {
-      [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => {
         const id = get(node, 'data.target.sys.contentType.sys.id', '');
 
         switch (id) {

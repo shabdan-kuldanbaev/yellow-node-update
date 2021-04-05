@@ -32,6 +32,7 @@ export const Home = ({
 
   useEffect(() => {
     fetchPage({ slug: PAGES.homepage });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -13,7 +13,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = {
   distDir: 'build',
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     /* eslint-disable */
     require('dotenv').config();
 

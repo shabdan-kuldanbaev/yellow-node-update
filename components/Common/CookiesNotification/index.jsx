@@ -19,7 +19,12 @@ const CookiesNotification = ({ text }) => {
         title="ACCEPT COOKIES"
         buttonStyle={styles.button}
       />
-      <div className={styles.cross} onClick={handlerOnClose}>
+      <div
+        className={styles.cross}
+        onClick={handlerOnClose}
+        role="button"
+        tabIndex="0"
+      >
         <hr />
         <hr />
       </div>

@@ -93,8 +93,11 @@ export const three = {
 
     if (isMobile) {
       if (window.innerHeight <= 700) { originals = [{ positions: { x: 0, y: 100, z: 0 } }]; }
+
       if (window.innerHeight > 700 && window.innerHeight <= 800) { originals = [{ positions: { x: 0, y: 150, z: 0 } }]; }
+
       if (window.innerHeight > 800) { originals = [{ positions: { x: 0, y: 100, z: 0 } }]; }
+
       options.default.meshRotationY = 1.5;
     } else {
       originals = [{ positions: { x: 0, y: 0, z: 0 } }];
@@ -134,6 +137,7 @@ export const three = {
       mesh.rotation.z = options.default.meshRotationZ;
 
       scene.add(mesh);
+
       if (meshes.length <= 2) {
         meshes.push(mesh);
       }
@@ -155,6 +159,7 @@ export const three = {
       mesh.material.opacity = clone.opacity;
 
       scene.add(mesh);
+
       if (meshes.length <= 2) {
         meshClones.push(mesh);
       }

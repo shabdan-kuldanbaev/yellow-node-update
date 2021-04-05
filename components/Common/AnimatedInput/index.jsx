@@ -49,6 +49,7 @@ const AnimatedInput = ({
   const handleOnBlur = () => {
     setFocus(false);
     setActive(false);
+
     if (type === 'email' && value !== '' && handleOnBlurEmail) handleOnBlurEmail(value);
   };
 
@@ -72,11 +73,16 @@ const AnimatedInput = ({
     if (isTextArea && inputRef && inputRef.current) {
       autosize(inputRef.current);
     }
-  }, []);
+  }, [isTextArea]);
 
   return (
     <OutsideClickHandler onOutsideClick={handleOnOutsideClick}>
-      <div className={animatedInput} onClick={handleOnClick}>
+      <div
+        className={animatedInput}
+        onClick={handleOnClick}
+        role="textbox"
+        tabIndex="0"
+      >
         {!isWithoutLabel && <label htmlFor={value}>{placeholder}</label>}
         {isTextArea ? <textarea {...inputOptions} rows={1} /> : <input {...inputOptions} />}
         {isRequired && <span className={styles.required}>*</span>}

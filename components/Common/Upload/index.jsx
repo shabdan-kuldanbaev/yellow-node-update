@@ -12,60 +12,65 @@ export const Upload = ({
   handleOnSelectedFilesChange,
   handleOnUnpinFile,
   formKey,
-}) => (
-  <div className={styles.uploadFile}>
-    <div className={styles.attachmentManage}>
-      <AnimatedInput
-        value={projectDescription}
-        handleOnChange={handleOnDescriptionChange}
-        placeholder="Project details *"
-        isValidate
-        isWithoutLabel
-        isAttached
-        isTextArea
-      />
-      <label htmlFor={`files_${formKey}`}>
-        <Attach />
-      </label>
-      <input
-        id={`files_${formKey}`}
-        type="file"
-        onChange={handleOnSelectedFilesChange}
-        multiple
-        className={styles.hide}
-      />
-    </div>
-    <hr />
-    <div className={styles.attachedFiles}>
-      {selectedFiles && selectedFiles.map((file, index) => (
-        <div className={styles.file} key={`file/${index}`}>
-          <span>{file.name}</span>
-          <span>{`${(file.size / 1024).toFixed(2)} kB`}</span>
-          <button
-            data-file-name={file.name}
-            type="button"
-            onClick={handleOnUnpinFile}
-            style={{ backgroundImage: `url(${unpinFile})` }}
-          />
-        </div>
-      ))}
-      {selectedFiles && !!selectedFiles.length && (
-        <div className={styles.moreFilesLink}>
-          <label htmlFor={`files_${formKey}`}>
-            add more files
-          </label>
+}) => {
+  const attachInputId = `files_${formKey}`;
+
+  return (
+    <div className={styles.uploadFile}>
+      <div className={styles.attachmentManage}>
+        <AnimatedInput
+          value={projectDescription}
+          handleOnChange={handleOnDescriptionChange}
+          placeholder="Project details *"
+          isValidate
+          isWithoutLabel
+          isAttached
+          isTextArea
+        />
+        <label htmlFor={attachInputId}>
+          <Attach />
           <input
-            id={`files_${formKey}`}
+            id={attachInputId}
             type="file"
             onChange={handleOnSelectedFilesChange}
             multiple
             className={styles.hide}
           />
-        </div>
-      )}
+        </label>
+      </div>
+      <hr />
+      <div className={styles.attachedFiles}>
+        {selectedFiles && selectedFiles.map((file) => (
+          <div className={styles.file} key={`file/${file.name}`}>
+            <span>{file.name}</span>
+            <span>{`${(file.size / 1024).toFixed(2)} kB`}</span>
+            <button
+              data-file-name={file.name}
+              type="button"
+              onClick={handleOnUnpinFile}
+              style={{ backgroundImage: `url(${unpinFile})` }}
+              aria-label="Unpin"
+            />
+          </div>
+        ))}
+        {selectedFiles && !!selectedFiles.length && (
+          <div className={styles.moreFilesLink}>
+            <label htmlFor={`${attachInputId}/add-more`}>
+              add more files
+              <input
+                id={`${attachInputId}/add-more`}
+                type="file"
+                onChange={handleOnSelectedFilesChange}
+                multiple
+                className={styles.hide}
+              />
+            </label>
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 Upload.propTypes = {
   projectDescription: PropTypes.string.isRequired,

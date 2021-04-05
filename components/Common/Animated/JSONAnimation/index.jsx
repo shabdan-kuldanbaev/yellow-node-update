@@ -27,9 +27,13 @@ export const JSONAnimation = ({ jsonFile, className }) => {
 
   useEffect(() => {
     if (animateRef && animateRef.current) {
-      if (intersection && intersection.intersectionRatio < 0.2) setState({ ...state, isPaused: true });
-      else setState({ ...state, isPaused: false });
+      if (intersection && intersection.intersectionRatio < 0.2) {
+        setState({ ...state, isPaused: true });
+      } else {
+        setState({ ...state, isPaused: false });
+      }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [intersection]);
 
   return (

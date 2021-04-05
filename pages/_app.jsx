@@ -15,7 +15,7 @@ import 'animate.css/animate.min.css';
 import 'styles/index.scss';
 
 const App = ({ Component, pageProps }) => {
-  const [theme, setTheme] = useState('dark');
+  const [theme] = useState('dark');
   const introSection = useRef(null);
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const App = ({ Component, pageProps }) => {
     return () => {
       Router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={customTheme}>

@@ -122,7 +122,9 @@ export const Duck = ({
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       camera.lookAt(scene.position);
+
       if (renderer) renderer.setSize(window.innerWidth, window.innerHeight);
+
       if (composer) composer.setSize(window.innerWidth, window.innerHeight);
     }
   };
@@ -315,6 +317,7 @@ export const Duck = ({
       isRender = false;
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     isMobile = window.innerWidth < mobileResolution;
 
     if (!isAnimate) {
@@ -330,6 +333,7 @@ export const Duck = ({
         init();
 
         if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';
+
         slogan.setOpacity(canvas, containerCanvas);
         slogan.animateSlogan(sloganRef);
         animate();
@@ -349,7 +353,9 @@ export const Duck = ({
         if (!isHomepageVisit) {
           timer = setTimeout(() => {
             options.initial.currentAnimation = animationTypes[1];
+
             if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+
             document.addEventListener('mousedown', onDocumentMouseDown, false);
             document.addEventListener('mouseup', onDocumentMouseUp, false);
             document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -358,6 +364,7 @@ export const Duck = ({
           options.initial.currentAnimation = animationTypes[1];
 
           if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+
           document.addEventListener('mousedown', onDocumentMouseDown, false);
           document.addEventListener('mouseup', onDocumentMouseUp, false);
           document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -367,12 +374,14 @@ export const Duck = ({
       options.initial.isAppear = true;
 
       if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+
       document.addEventListener('mousedown', onDocumentMouseDown, false);
       document.addEventListener('mouseup', onDocumentMouseUp, false);
       document.addEventListener('mousemove', onDocumentMouseMove, false);
 
       animate();
     }
+
     window.addEventListener('scroll', handleOnScroll, false);
 
     return () => {
@@ -395,7 +404,7 @@ export const Duck = ({
       meshClones.length = 0;
       mat = 0;
     }
-  }, []);
+  }, [isHomepageVisit]);
 
   return (
     <Fragment>
