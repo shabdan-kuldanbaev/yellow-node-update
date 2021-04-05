@@ -2,6 +2,7 @@
 
 .advantages {
   @include flex(column, center, center);
+
   min-height: calc(100vh - 100px * 2);
 
   @include ultra-hd {
@@ -19,13 +20,14 @@
   @include tablet {
     min-height: auto;
   }
-  
+
   @include phone {
     padding: $mobile-section-indent $side-indent;
   }
 
   .subtitle {
     @include flex(column, center, center);
+
     line-height: 1.55;
     letter-spacing: 0.5px;
     text-align: center;

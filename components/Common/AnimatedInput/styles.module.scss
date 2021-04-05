@@ -2,6 +2,7 @@
 
 .animatedInput {
   @include flex(column);
+
   margin-bottom: 35px;
   position: relative;
 
@@ -18,7 +19,7 @@
       transform: translateY(10px);
     }
   }
-  
+
   input,
   textarea {
     cursor: text;
@@ -28,9 +29,10 @@
     background-color: transparent;
     color: $black;
     outline: none;
-    transition: border 1s cubic-bezier(.26,1.04,.54,1),
-                color .5s cubic-bezier(.26,1.04,.54,1);
-    
+    transition:
+      border 1s cubic-bezier(0.26, 1.04, 0.54, 1),
+      color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
+
     &::placeholder {
       font-family: $default-font;
     }
@@ -48,7 +50,7 @@
     pointer-events: none;
     right: 0;
     color: $boulder;
-    margin-top: -.4em;
+    margin-top: -0.4em;
     font-size: 1.4375rem;
     line-height: 1.94;
     letter-spacing: 0.4px;
@@ -61,13 +63,13 @@
   .invalid {
     margin-right: 20px;
     opacity: 1;
-    transition: opacity 1s cubic-bezier(.26,1.04,.54,1);
+    transition: opacity 1s cubic-bezier(0.26, 1.04, 0.54, 1);
     font-weight: 300;
     position: absolute;
     color: $red;
     pointer-events: none;
     right: 0;
-    margin-top: -.1em;
+    margin-top: -0.1em;
 
     @include phone {
       top: 45%;
@@ -81,9 +83,10 @@
     font-size: 0.875rem !important;
     will-change: transform;
     transform: translateY(-5px);
-    transition: transform $accelerated-transition-time,
-                font-size $accelerated-transition-time;
-    
+    transition:
+      transform $accelerated-transition-time,
+      font-size $accelerated-transition-time;
+
     @include phone {
       transform: translateY(-15px);
     }
@@ -92,8 +95,9 @@
   input,
   textarea {
     border-color: $black;
-    transition: border 1s cubic-bezier(.26,1.04,.54,1),
-                color .5s cubic-bezier(.26,1.04,.54,1);
+    transition:
+      border 1s cubic-bezier(0.26, 1.04, 0.54, 1),
+      color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
   }
 }
 

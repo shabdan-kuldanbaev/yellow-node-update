@@ -1,11 +1,12 @@
 @import 'styles/utils/mixins';
 
 .managementTeam {
+  @include flex(column, space-around, flex-start);
+
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 100px 0px;
-  @include flex(column, space-around, flex-start);
+  padding: 100px 0;
 
   @include ultra-hd {
     max-width: $max-content-width;
@@ -37,13 +38,15 @@
   }
 
   & > div:first-child {
+    @include flex(column, space-around, flex-start);
+
     max-width: 660px;
     width: 100%;
-    @include flex(column, space-around, flex-start);
     text-align: left;
 
     & > div:nth-of-type(1) > h2 {
       @include big-title();
+
       margin-bottom: 70px;
 
       @include phone {
@@ -53,8 +56,9 @@
   }
 
   .managers {
-    width: 100%;
     @include flex(row, space-between, flex-start, wrap);
+
+    width: 100%;
 
     & > div {
       margin-top: 55px;
@@ -71,7 +75,6 @@
         &:not(:first-child) {
           margin-top: 35px;
         }
-
       }
 
       .imageContainer {

@@ -1,8 +1,9 @@
 @import 'styles/utils/mixins';
 
 .gallerySection {
-  position: relative;
   @include flex(column, center, center, wrap);
+
+  position: relative;
   background-color: $white;
   max-height: 100vh;
   padding: 200px 0;
@@ -21,8 +22,9 @@
   }
 
   div {
-    overflow: scroll;
     @include flex(column, center, center, wrap);
+
+    overflow: scroll;
     height: 500px;
     max-height: auto;
     width: 100%;
@@ -49,7 +51,7 @@
       @include below-tablet {
         padding: 0 25px;
       }
-  
+
       img {
         width: 100%;
         height: 100%;
@@ -66,7 +68,7 @@
       display: none;
       box-shadow: inset 0 0 1px $white;
     }
-    
+
     &::-webkit-scrollbar-track {
       width: 0;
       box-shadow: inset 0 0 1px $white;
@@ -95,7 +97,7 @@
     .horizontalImg {
       width: 596px;
       height: 350px;
-    
+
       @include below-tablet {
         width: 360px;
         height: 211px;

@@ -2,6 +2,7 @@
 
 .nextPrevSection {
   @include flex(row, space-between);
+
   margin: #{$max-article-margin} auto;
   padding: 0 55px;
   max-width: 1500px;

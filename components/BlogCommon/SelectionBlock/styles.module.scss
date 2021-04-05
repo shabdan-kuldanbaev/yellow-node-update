@@ -2,6 +2,7 @@
 
 .selectionBlock {
   @include flex(row, space-between, center);
+
   position: relative;
   max-width: 1500px;
   width: calc(1500px - #{$side-indent});
@@ -34,12 +35,13 @@
   }
 
   .buttons {
+    @include flex(row, flex-end, center);
+
     min-height: 43px;
     width: 25%;
-    @include flex(row, flex-end, center);
     position: relative;
     z-index: 1;
-    transition: z-index .5s cubic-bezier(0.575, 0.410, 0.300, 1.000);
+    transition: z-index 0.5s cubic-bezier(0.575, 0.41, 0.3, 1);
 
     @include phone {
       width: auto;
@@ -71,6 +73,7 @@
 
     .button {
       @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+
       border-radius: $button-border-radius;
       margin: auto 0;
       padding: 10px 15px;
@@ -80,8 +83,9 @@
       letter-spacing: 0.5px;
       border: none;
       transform: scale(1);
-      transition: width $shadow-time-for-yellow-button,
-        transform 0.4s cubic-bezier(0, 0, .2, 1);
+      transition:
+        width $shadow-time-for-yellow-button,
+        transform 0.4s cubic-bezier(0, 0, 0.2, 1);
 
       @include phone {
         display: none;
@@ -90,8 +94,8 @@
       &:hover {
         padding: 10px 15px;
         border: none;
-        transform: scale(.96);
-        transition: transform 0.4s cubic-bezier(0, 0, .2, 1);
+        transform: scale(0.96);
+        transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
       }
     }
 
@@ -99,7 +103,7 @@
       padding: 10px 15px;
       margin-right: 0;
 
-      &:after {
+      &::after {
         background-color: $turbo-100;
       }
     }

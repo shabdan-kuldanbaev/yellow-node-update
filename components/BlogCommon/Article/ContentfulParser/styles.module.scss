@@ -31,6 +31,7 @@
 
 .imageWrapper {
   @include flex(column, center, center);
+
   width: 100%;
   margin-top: 50px;
   margin-bottom: 70px;
@@ -70,7 +71,7 @@
   .normalImage,
   .fullImage {
     @include flex(column, center);
-    
+
     & > div:first-child {
       width: 100%;
       height: 100%;
@@ -87,21 +88,22 @@
           margin-left: 0;
         }
       }
-  
+
       img {
         border-radius: 4px;
       }
     }
 
     .photoCaption {
-      margin-top: 15px;
       @include fontSize(11px);
+
+      margin-top: 15px;
       line-height: 1.2;
       width: 100%;
       padding: 0 15px;
       text-align: center;
-      letter-spacing: .5px;
-      opacity: .8;
+      letter-spacing: 0.5px;
+      opacity: 0.8;
 
       @include below-tablet {
         width: calc(100% - 30px);

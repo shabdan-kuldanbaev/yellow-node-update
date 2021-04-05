@@ -14,14 +14,15 @@
 
   .thumbnailsContainer {
     @include flex(row, initial, center);
+
     max-width: 720px;
     margin: 0 auto;
 
-    .icon {  
+    .icon {
       &Twitter {
         background-image: url("./images/twitter.svg");
       }
-  
+
       &Facebook {
         background-image: url("./images/facebook.svg");
       }
@@ -29,6 +30,7 @@
 
     .svgContainer {
       @include flex(row, center, center);
+
       width: 80px;
       height: 80px;
       cursor: pointer;
@@ -64,12 +66,13 @@
     }
   }
 
-  .messageContainer{
+  .messageContainer {
     max-width: 720px;
     margin: 15px auto;
 
-    .shareLinkInfo{
+    .shareLinkInfo {
       @include fontSize(10px);
+
       font-weight: 700;
       padding: 6px 8px 6px 10px;
       letter-spacing: 2px;

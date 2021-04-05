@@ -2,11 +2,12 @@
 @import 'styles/utils/theme/animations';
 
 .addFooterContainer {
+  @include flex(row, space-between, center);
+
   position: fixed;
   left: 0;
   top: calc(100vh - 100px);
   z-index: 99999;
-  @include flex(row, space-between, center);
   width: calc(100% - 70px);
   padding: 45px 35px;
 
@@ -15,12 +16,14 @@
   }
 
   @include phone {
-    top: 81vh;
-    width: 100%;
-    padding: 0px;
     @include flex(row, center, center);
 
-    & > div, svg {
+    top: 81vh;
+    width: 100%;
+    padding: 0;
+
+    & > div,
+    svg {
       display: none;
     }
 
@@ -29,7 +32,7 @@
       font-size: 0.8125rem;
       color: $white;
       text-transform: uppercase;
-      opacity: .5;
+      opacity: 0.5;
       animation: blinking 1.7s infinite ease;
       animation-delay: 2s;
       cursor: pointer;

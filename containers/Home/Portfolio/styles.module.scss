@@ -4,21 +4,28 @@
   z-index: 2;
   top: 0;
   width: 100%;
-  background: linear-gradient(to bottom,
+  background:
+    linear-gradient(
+      to bottom,
       $turbo-100 20%,
       $java 30%,
-      $thunder 90%);
+      $thunder 90%
+    );
 
   @include phone {
-    background: linear-gradient(to bottom,
+    background:
+      linear-gradient(
+        to bottom,
         $turbo-100 20%,
         $java 40%,
-        $thunder 93%);
+        $thunder 93%
+      );
   }
 }
 
 .portfolio {
   @include flex(column, flex-start, center);
+
   padding: 0 $side-indent 200px $side-indent;
   overflow: hidden;
 
@@ -43,6 +50,7 @@
 
     .subtitle {
       @include flex(column, center, center);
+
       color: $white;
       max-width: 550px;
 
@@ -53,6 +61,7 @@
 
     .portfolioButton {
       @include button-more($white, $black, transparent, $turbo-100, $boulder, $turbo-100);
+
       border-radius: $button-border-radius;
       min-width: 330px;
       font-weight: 600;

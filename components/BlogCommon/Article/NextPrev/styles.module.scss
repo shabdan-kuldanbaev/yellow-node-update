@@ -2,11 +2,8 @@
 
 .newer {
   @include flex (row);
-  margin-right: $max-article-margin;
 
-  &:last-child {
-    margin-right: 0;
-  }
+  margin-right: $max-article-margin;
 
   @include desktop {
     margin-right: $min-article-margin;
@@ -29,11 +26,8 @@
 
 .older {
   @include flex (row-reverse);
-  margin-left: $max-article-margin;
 
-  &:last-child {
-    margin-left: 0;
-  }
+  margin-left: $max-article-margin;
 
   @include desktop {
     margin-left: $min-article-margin;
@@ -90,7 +84,7 @@
     min-height: 140px;
   }
 
-  &>a {
+  & > a {
     flex-basis: 230px;
 
     @include desktop {
@@ -112,7 +106,7 @@
     .imgContainer {
       width: 100%;
       height: 100%;
-  
+
       .img {
         width: 100%;
         height: 100%;
@@ -139,14 +133,16 @@
       padding: 20px 15px 15px;
     }
 
-    &>small {
+    & > small {
       @include fontSize(11px);
+
       font-weight: 500;
       letter-spacing: 1px;
     }
 
     .title {
       @include fontSize(26px);
+
       font-weight: 600;
       line-height: 1.5;
       margin: 12px 0 0;
@@ -167,21 +163,29 @@
         @include fontSize(16px);
       }
 
-      &>a {
+      & > a {
         color: $mine-shaft;
         background-image: linear-gradient($turbo-100, $turbo-100);
         background-position: 0% 100%;
         background-repeat: no-repeat;
         background-size: 0% 8px;
-        transition: background-size .6s ease-out;
+        transition: background-size 0.6s ease-out;
       }
 
       &:hover {
-        &>a {
-          transition: background-size .6s ease-out;
+        & > a {
+          transition: background-size 0.6s ease-out;
           background-size: 100% 8px;
         }
       }
     }
   }
+}
+
+.newer:last-child {
+  margin-right: 0;
+}
+
+.older:last-child {
+  margin-left: 0;
 }

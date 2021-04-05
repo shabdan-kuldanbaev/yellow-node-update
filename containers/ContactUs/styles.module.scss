@@ -1,9 +1,10 @@
 @import 'styles/utils/mixins';
 
 .contactContainer {
+  @include flex(column, center, center);
+
   position: relative;
   z-index: 2;
-  @include flex(column, center, center);
   padding: 0 80px 100px;
   background-color: $white;
 

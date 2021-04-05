@@ -2,10 +2,11 @@
 @import '../styles.module.scss';
 
 .h1 {
+  @include fontSize(44px);
+
   width: 100%;
   margin: 0;
   padding: 0;
-  @include fontSize(44px);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -2px;
@@ -29,6 +30,7 @@
 
   @include phone {
     @include fontSize(25px);
+
     line-height: 1.4;
   }
 }
@@ -47,9 +49,23 @@
     padding: 0 15px;
   }
 
+  .body {
+    max-width: 720px;
+    margin: 0 auto;
+
+    @include phone {
+      padding: 0 10px;
+    }
+
+    & > p {
+      @extend .paragraph;
+    }
+  }
+
   .header {
-    width: 100%;
     @include flex(row, center, center);
+
+    width: 100%;
     padding: 140px 0 0;
     margin-bottom: 8vh;
     color: $black;
@@ -60,6 +76,7 @@
 
     @include tablet {
       @include flex(column, center, center);
+
       margin-bottom: 0;
     }
 
@@ -121,6 +138,7 @@
 
       & > p {
         @include fontSize(21px);
+
         color: $mirage;
         line-height: 1.5;
         padding: 0;
@@ -145,22 +163,10 @@
 
         @include phone {
           @include fontSize(15px);
+
           line-height: 1.4;
         }
       }
-    }
-  }
-
-  .body {
-    max-width: 720px;
-    margin: 0 auto;
-
-    @include phone {
-      padding: 0 10px;
-    }
-
-    & > p {
-      @extend .paragraph;
     }
   }
 }

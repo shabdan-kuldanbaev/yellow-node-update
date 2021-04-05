@@ -1,9 +1,10 @@
 @import 'styles/utils/mixins';
 
 .feedbackFormWithTitle {
+  @include flex(row, center, center);
+
   position: relative;
   z-index: 2;
-  @include flex(row, center, center);
   width: 100%;
   height: auto;
   margin-top: 160px;
@@ -42,11 +43,12 @@
     padding: 40px $side-indent $mobile-section-indent - 20px;
     margin-top: 0;
   }
-  
+
   & > div:first-child {
+    @include flex(row, space-between, flex-start);
+
     position: relative;
     z-index: 2;
-    @include flex(row, space-between, flex-start);
     width: 100%;
 
     @include tablet {
@@ -54,16 +56,46 @@
     }
 
     & > div:first-child {
+      @include flex(column, space-around, flex-start);
+
       max-width: 550px;
       width: 100%;
-      @include flex(column, space-around, flex-start);
       text-align: left;
-  
+
       & > div:nth-of-type(1) > h1 {
         @include big-title();
+
         margin-top: 50px;
       }
-  
+
+      .subtitle > span > a {
+        margin-left: 5px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        letter-spacing: 0.5px;
+        transition: color $accelerated-transition-time;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: $black;
+        position: relative;
+        display: inline-block;
+        padding: 0;
+
+        &::before {
+          content: '';
+          cursor: pointer;
+          position: absolute;
+          bottom: -2px;
+          right: 0;
+          width: 100%;
+          border-bottom: 1px $black solid;
+          background-color: $black;
+          transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+      }
+
       & > div:nth-of-type(2) > p {
         margin: -20px 0 35px;
         font-size: 1.25rem;
@@ -89,56 +121,28 @@
           }
         }
       }
-      
+
       .title {
         @include phone {
           width: 100%;
         }
       }
-  
+
       .subtitle {
         margin: 0;
-        font-size: .9rem;
+        font-size: 0.9rem;
         line-height: 1.55;
         letter-spacing: 0.5px;
-    
+
         span {
           cursor: pointer;
           padding: 0 0 5px;
-          
-          a {
-            margin-left: 5px;
-            text-decoration: none;
-            font-size: .9rem;
-            line-height: 1.55;
-            letter-spacing: 0.5px;
-            transition: color $accelerated-transition-time;
-            border: none;
-            outline: none;
-            background-color: transparent;
-            color: $black;
-            position: relative;
-            display: inline-block;
-            padding: 0;
-    
-            &:before {
-              content: '';
-              cursor: pointer;
-              position: absolute;
-              bottom: -2px;
-              right: 0;
-              width: 100%;
-              border-bottom: 1px $black solid;
-              background-color: $black;
-              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-            }
-          }
-    
+
           &:hover {
             cursor: pointer;
-    
+
             a {
-              &:before {
+              &::before {
                 width: 0;
                 will-change: transition;
                 transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -149,7 +153,7 @@
         }
       }
     }
-  
+
     & > form {
       width: 50%;
       margin-bottom: 0;
@@ -157,7 +161,7 @@
       @include ultra-hd {
         width: 545px;
       }
-    
+
       @include desktop {
         margin-left: 0;
       }

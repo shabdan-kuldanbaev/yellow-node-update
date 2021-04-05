@@ -1,9 +1,10 @@
 @import 'styles/utils/mixins';
 
 .work {
+  @include flex(row, space-evenly, center);
+
   position: relative;
   z-index: 5;
-  @include flex(row, space-evenly, center);
   width: calc(100% - (80 * 2));
   margin: 0 80px;
   will-change: background-color;
@@ -11,107 +12,19 @@
   transition-timing-function: linear;
   min-height: 100vh;
 
-  &:nth-child(2n) {
-    flex-direction: row-reverse;
-
-    .parallax {
-      div {
-        @include quad-hd {
-          justify-content: flex-start;
-          margin-left: 0.6vw;
-        }
-
-        @include below-tablet {
-          justify-content: center;
-        }
-
-        @include small-phone {
-          justify-content: flex-start;
-          margin-left: -6.5vw;
-        }
-      }
-    }
-  }
-
-  @include tablet {
-    margin: auto;
-    min-height: auto;
-    padding: 100px 0;
-  }
-
-  @include below-tablet-horizontal {
-    @include flex(row, center, center);
-  }
-
-  @include below-tablet {
-    height: auto;
-    @include flex(column, space-evenly, center);
-
-    &:nth-child(1n) {
-      flex-direction: column-reverse;
-    }
-  }
-
-  @include horizontal-big-mobile {
-    @include flex(row, center, center);
-
-    &:nth-child(1n) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
-    }
-  }
-
-  @include horizontal-iphone-x {
-    @include flex(row, center, center);
-
-    &:nth-child(1n) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
-    }
-  }
-
-  @include phone {
-    @include flex(column-reverse, center, center);
-    padding: 100px 0 0;
-    height: auto;
-    margin-right: 20px;
-    margin-left: 20px;
-
-    &:nth-child(1n) {
-      flex-direction: column-reverse;
-    }
-  }
-
-  @include horizontal-mobile {
-    @include flex(row, center, center);
-    padding: 50px 0;
-
-    &:nth-child(1n) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
-    }
-  }
-
   .desc {
     z-index: 3;
 
     @include ultra-hd {
-      width: 50%;
       @include flex(column, center, center);
+
+      width: 50%;
     }
 
     @include full-hd {
-      width: 50%;
       @include flex(column, center, center);
+
+      width: 50%;
     }
 
     @include below-tablet {
@@ -161,6 +74,7 @@
 
       @include phone {
         @include flex(column, center, flex-start);
+
         width: 100%;
         max-width: 100%;
         margin: 0;
@@ -194,7 +108,7 @@
             font-size: 0.8rem;
           }
 
-          &:after {
+          &::after {
             content: '';
             cursor: pointer;
             position: absolute;
@@ -214,7 +128,7 @@
           button {
             cursor: pointer;
 
-            &:after {
+            &::after {
               width: 0;
               will-change: transition;
               transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -253,12 +167,15 @@
 
     @include small-phone {
       width: 40%;
+
       @include flex(row, center, center);
     }
 
     div {
       vertical-align: middle;
+
       @include flex(row, center, center);
+
       height: 48.4375vw;
 
       @include small-phone {
@@ -301,7 +218,7 @@
 
           @include phone {
             height: 159vw;
-            transform: translate(0vw, -6.8vw);
+            transform: translate(0, -6.8vw);
           }
 
           @include small-phone {
@@ -330,6 +247,7 @@
 
       .firstShadow {
         @extend .imgWrapper;
+
         transform: translateX(-3vw);
 
         @include phone {
@@ -356,6 +274,7 @@
 
       .secondShadow {
         @extend .imgWrapper;
+
         transform: translateX(2.7vw);
 
         @include tablet {
@@ -365,7 +284,7 @@
         @include phone {
           transform: translateX(0);
         }
-        
+
         img {
           @include phone {
             max-width: 100vw;
@@ -416,6 +335,99 @@
           }
         }
       }
+    }
+  }
+
+  &:nth-child(2n) {
+    flex-direction: row-reverse;
+
+    .parallax {
+      div {
+        @include quad-hd {
+          justify-content: flex-start;
+          margin-left: 0.6vw;
+        }
+
+        @include below-tablet {
+          justify-content: center;
+        }
+
+        @include small-phone {
+          justify-content: flex-start;
+          margin-left: -6.5vw;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    margin: auto;
+    min-height: auto;
+    padding: 100px 0;
+  }
+
+  @include below-tablet-horizontal {
+    @include flex(row, center, center);
+  }
+
+  @include below-tablet {
+    @include flex(column, space-evenly, center);
+
+    height: auto;
+
+    &:nth-child(1n) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  @include horizontal-big-mobile {
+    @include flex(row, center, center);
+
+    &:nth-child(1n) {
+      flex-direction: row;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  @include horizontal-iphone-x {
+    @include flex(row, center, center);
+
+    &:nth-child(1n) {
+      flex-direction: row;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  @include phone {
+    @include flex(column-reverse, center, center);
+
+    padding: 100px 0 0;
+    height: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+
+    &:nth-child(1n) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  @include horizontal-mobile {
+    @include flex(row, center, center);
+
+    padding: 50px 0;
+
+    &:nth-child(1n) {
+      flex-direction: row;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
     }
   }
 

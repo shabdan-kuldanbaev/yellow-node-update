@@ -60,6 +60,7 @@
 
 .foundArticles {
   @include flex(column, flex-start, flex-start);
+
   background: transparent;
   padding: 50px 55px $section-indent;
   padding-bottom: 150px;
@@ -79,7 +80,6 @@
     padding: 0 15px $mobile-section-indent;
   }
 
-
   @include phone {
     padding: 0 $side-indent 150px;
     width: calc(100% - #{$side-indent * 2});
@@ -98,7 +98,6 @@
     margin: 0;
     padding: 0;
     right: 0;
-
     max-width: 1500px;
     width: 100%;
 

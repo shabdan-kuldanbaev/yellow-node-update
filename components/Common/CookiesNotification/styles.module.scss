@@ -1,19 +1,21 @@
 @import 'styles/utils/mixins';
 
 .cookiesNotification {
-  margin: auto 0;
   @include flex(row, space-between, center);
-  padding: 10px 0px 10px 20px;
+
+  margin: auto 0;
+  padding: 10px 0 10px 20px;
   width: 100%;
   background-color: $black;
   position: fixed;
-  bottom: 0px;
-  left: 0px;
+  bottom: 0;
+  left: 0;
   z-index: 9999;
 
   @include phone {
-    padding: 35px 0;
     @include flex(column, center, center);
+
+    padding: 35px 0;
   }
 
   p {
@@ -30,9 +32,10 @@
       width: 90%;
     }
   }
-  
+
   .button {
     @include button-more($black, $black, $turbo-100, $turbo-100);
+
     border-radius: $button-border-radius;
     background-color: $turbo-100;
     color: $woodsmoke;
@@ -49,13 +52,13 @@
     @include below-tablet {
       transform: translateX(-80px);
     }
-    
+
     @include phone {
       margin: 25px auto 0;
-      transform: translateX(0px);
+      transform: translateX(0);
     }
   }
-    
+
   .cross {
     width: 20px;
     height: 20px;
@@ -78,7 +81,7 @@
       will-change: transform;
 
       &:nth-of-type(1) {
-        transform: rotate(45deg) translate(0px, 2px);
+        transform: rotate(45deg) translate(0, 2px);
       }
 
       &:nth-of-type(2) {

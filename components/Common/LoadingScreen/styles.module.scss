@@ -1,20 +1,21 @@
 @import 'styles/utils/mixins';
 
 .loadingPage {
+  @include flex(column, center, center);
+
   width: 100vw;
   height: 100vh;
-  @include flex(column, center, center);
   text-align: center;
   position: fixed;
   z-index: 99999999999;
   opacity: 1;
   will-change: opacity;
-  transition: opacity .6s ease-in;
+  transition: opacity 0.6s ease-in;
   background-color: $white;
 }
 
 .hide {
-  transition: opacity .6s ease-in;
+  transition: opacity 0.6s ease-in;
   opacity: 0;
 }
 

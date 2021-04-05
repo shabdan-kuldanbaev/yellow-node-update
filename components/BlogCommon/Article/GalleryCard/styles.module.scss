@@ -2,6 +2,7 @@
 
 .mediasWrapper {
   @include flex(column, center, center);
+
   width: 100%;
   height: 100%;
   margin-top: 50px;
@@ -14,6 +15,7 @@
 
   .images {
     @include flex(column, center);
+
     position: relative;
     width: calc(100% + (180px * 2));
     height: 100%;
@@ -29,6 +31,7 @@
 
     .row {
       @include flex(row);
+
       height: 100%;
 
       &:not(:first-of-type) {
@@ -38,7 +41,7 @@
           margin-top: 5px;
         }
       }
-      
+
       & > div {
         flex: 1 1 0%;
         width: 100%;
@@ -51,7 +54,7 @@
             margin-left: 5px;
           }
         }
-  
+
         img {
           border-radius: 4px;
           width: 100%;
@@ -62,13 +65,14 @@
   }
 
   .photoCaption {
-    margin-top: 15px;
     @include fontSize(11px);
+
+    margin-top: 15px;
     line-height: 1.2;
     width: 100%;
     padding: 0 15px;
     text-align: center;
-    letter-spacing: .5px;
-    opacity: .8;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
   }
 }

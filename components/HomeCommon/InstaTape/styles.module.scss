@@ -2,6 +2,7 @@
 
 .instaTape {
   @include flex();
+
   width: 100%;
   max-width: $max-content-width;
   margin-top: 80px;
@@ -68,12 +69,12 @@
 
     .image {
       @include flex(column, flex-end);
+
       background-position: center;
       background-size: cover;
       will-change: transform;
       transition: transform $default-transition-time;
       border-radius: $articleRadius;
-
       margin-left: auto;
       margin-right: auto;
       padding-top: 50%;

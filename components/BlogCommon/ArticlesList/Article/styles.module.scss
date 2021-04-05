@@ -1,14 +1,36 @@
 @import 'styles/utils/mixins';
 @import 'styles/utils/theme/_animations';
 
+.medium > .articlePreview {
+  max-width: 600px;
+  width: calc(100% - 50px);
+
+  @include macbook-twelve {
+    width: calc(100% - 30px);
+  }
+
+  @include below-tablet {
+    width: auto;
+  }
+
+  .description {
+    width: 90%;
+
+    @include below-tablet {
+      width: auto;
+    }
+  }
+}
+
 .article {
   @include flex(column);
+
   width: calc(25% - (2 * 12px));
   margin: 12px;
   cursor: pointer;
-  transition: transform .2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   transform: translateY(0);
-  background-color: rgba(244, 244, 244, .1);
+  background-color: rgba(244, 244, 244, 0.1);
 
   @include macbook-fifteen {
     width: calc(25% - 2 * #{$aricleIndent});
@@ -25,7 +47,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    transition: transform .2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
   }
 
   @include phone {
@@ -45,7 +67,8 @@
 
     & > div {
       @include flex(column, space-between, flex-start);
-      box-shadow: 0 25px 95px 5px rgba(0, 0, 0, .07);
+
+      box-shadow: 0 25px 95px 5px rgba(0, 0, 0, 0.07);
       border-radius: 4px;
       background-color: $white;
 
@@ -91,6 +114,7 @@
 
     .articlePreview {
       @include flex(column);
+
       padding: 25px 25px 30px;
       background-color: $white;
 
@@ -112,7 +136,7 @@
           background-position: 0% 100%;
           background-repeat: no-repeat;
           background-size: 0% 8px;
-          transition: background-size .6s ease-out;
+          transition: background-size 0.6s ease-out;
 
           @include full-hd {
             font-size: 1.05vw;
@@ -130,7 +154,6 @@
 
           @include phone {
             font-size: 1.1875rem;
-            font-weight: bold;
             margin-bottom: 20px;
             font-weight: 550;
             color: $mine-shaft;
@@ -141,7 +164,7 @@
 
         &:hover {
           & > span {
-            transition: background-size .6s ease-out;
+            transition: background-size 0.6s ease-out;
             background-size: 100% 8px;
           }
         }
@@ -156,7 +179,7 @@
         text-align: left;
 
         @include full-hd {
-          font-size: 0.850vw;
+          font-size: 0.85vw;
           line-height: 1.55vw;
         }
 
@@ -196,11 +219,11 @@
         display: inline-block;
         color: $woodsmoke;
         background-color: $athens-gray;
-        transition: background-color .15s ease;
+        transition: background-color 0.15s ease;
 
         &:hover {
           background-color: $turbo-100;
-          transition: background-color .15s ease;
+          transition: background-color 0.15s ease;
         }
       }
     }
@@ -224,26 +247,5 @@
 
   @include phone {
     width: 100%;
-  }
-
-  .articlePreview {
-    max-width: 600px;
-    width: calc(100% - 50px);
-
-    @include macbook-twelve {
-      width: calc(100% - 30px);
-    }
-
-    @include below-tablet {
-      width: auto;
-    }
-
-    .description {
-      width: 90%;
-
-      @include below-tablet {
-        width: auto;
-      }
-    }
   }
 }

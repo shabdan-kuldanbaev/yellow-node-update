@@ -2,12 +2,14 @@
 
 .fullscreenEstimation {
   @include flex(column, center, center, nowrap);
+
   z-index: 9999999;
   min-height: 100vh;
   height: max-content;
 
   & > div {
     @include flex(column, center, center);
+
     width: calc(100% - 40px);
     margin-bottom: 70px;
     position: absolute;
@@ -23,18 +25,18 @@
     & > div {
       .subtitle {
         margin: 0;
-        font-size: .9rem;
+        font-size: 0.9rem;
         line-height: 1.55;
         letter-spacing: 0.5px;
-    
+
         span {
           cursor: pointer;
           padding: 0 0 5px;
-          
+
           a {
             margin-left: 5px;
             text-decoration: none;
-            font-size: .9rem;
+            font-size: 0.9rem;
             line-height: 1.55;
             letter-spacing: 0.5px;
             transition: color $accelerated-transition-time;
@@ -45,8 +47,8 @@
             position: relative;
             display: inline-block;
             padding: 0;
-    
-            &:before {
+
+            &::before {
               content: '';
               cursor: pointer;
               position: absolute;
@@ -58,12 +60,12 @@
               transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
             }
           }
-    
+
           &:hover {
             cursor: pointer;
-    
+
             a {
-              &:before {
+              &::before {
                 width: 0;
                 will-change: transition;
                 transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);

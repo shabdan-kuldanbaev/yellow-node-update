@@ -2,6 +2,7 @@
 
 .paginationWrapper {
   @include flex(row, center, center);
+
   will-change: transform;
   transform: scale(0.9);
   margin-top: $section-indent;
@@ -36,11 +37,40 @@
 
   .paginationContainer {
     @include flex(row, flex-start, center);
+
     padding-left: 0;
     list-style: none;
 
+    li > a {
+      font-family: $default-font;
+      color: $black;
+      text-decoration: none;
+      outline: none;
+      background-color: transparent;
+      border-radius: 50%;
+      display: inline-block;
+      min-width: 40px;
+      font-size: 1.125rem;
+      line-height: 40px;
+      text-align: center;
+      transition: background-color 0.7s;
+
+      @include phone {
+        font-size: 1rem;
+      }
+    }
+
+    .paginationItem > a {
+      font-weight: normal;
+    }
+
     li {
       padding: 15px;
+
+      & > a:hover {
+        background-color: $gallery-100;
+        transition: background-color 0.2s;
+      }
 
       svg {
         path {
@@ -60,30 +90,6 @@
         }
       }
 
-      &>a {
-        font-family: $default-font;
-        color: $black;
-        text-decoration: none;
-        outline: none;
-        background-color: transparent;
-        border-radius: 50%;
-        display: inline-block;
-        min-width: 40px;
-        font-size: 1.125rem;
-        line-height: 40px;
-        text-align: center;
-        transition: background-color 0.7s;
-
-        &:hover {
-          background-color: $gallery-100;
-          transition: background-color 0.2s;
-        }
-
-        @include phone {
-          font-size: 1rem;
-        }
-      }
-
       &:not(:first-child),
       &:not(:last-child) {
         background-color: transparent;
@@ -99,12 +105,9 @@
 
     .paginationItem {
       @include flex(row, center, center);
+
       cursor: pointer;
       padding: 5px;
-
-      a {
-        font-weight: normal;
-      }
 
       @include phone {
         padding: 10px 5px;
