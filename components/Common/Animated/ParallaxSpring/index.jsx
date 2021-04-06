@@ -29,9 +29,9 @@ export const ParallaxWrapper = ({
         const { top: elemYOffset } = container.getBoundingClientRect();
 
         if (isHomepageIntro) {
-          const offset = pageYOffset <= 0 ? 0 : pageYOffset - elemYOffset;
+          const resultOffset = pageYOffset <= 0 ? 0 : pageYOffset - elemYOffset;
 
-          set({ offset });
+          set({ offset: resultOffset });
         } else {
           set({ offset: elemYOffset });
         }
@@ -42,7 +42,11 @@ export const ParallaxWrapper = ({
     window.addEventListener('scroll', handleOnScroll);
 
     return () => window.removeEventListener('scroll', handleOnScroll);
-  }, []);
+  }, [
+    elementRef,
+    isHomepageIntro,
+    set,
+  ]);
 
   switch (isHomepageIntro) {
   case true:

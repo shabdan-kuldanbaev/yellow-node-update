@@ -26,7 +26,7 @@ export const Home = ({
   introSection,
   photosData,
   isPageReadyToDisplay,
-  fetchDuck,
+  fetchDuck: loadDuck,
   duck,
 }) => {
   const gradientRef = useRef(null);
@@ -34,8 +34,9 @@ export const Home = ({
 
   useEffect(() => {
     if (!duck) {
-      fetchDuck();
+      loadDuck();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duck]);
 
   return (

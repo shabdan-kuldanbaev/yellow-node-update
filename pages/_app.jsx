@@ -20,7 +20,7 @@ const App = ({ Component, pageProps }) => {
     isHomepageVisit: false,
     isFirstHomepageVisit: false,
   });
-  const [theme, setTheme] = useState('dark');
+  const [theme] = useState('dark');
   const introSection = useRef(null);
   const dispatch = useDispatch();
 
@@ -36,7 +36,7 @@ const App = ({ Component, pageProps }) => {
     return () => {
       Router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <AppContext.Provider value={{ contextData, setContextData }}>

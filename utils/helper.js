@@ -30,7 +30,8 @@ export const addThousandsSeparators = (value) => value.toString().replace(/\B(?=
 export const toInt = (str) => parseInt(str, 10);
 
 export const validateEmail = (email) => {
-  const reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  // eslint-disable-next-line max-len
+  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (reg.test(email) === false) {
     return false;
@@ -147,7 +148,7 @@ export const loadDuck = async () => {
 
     return duck;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

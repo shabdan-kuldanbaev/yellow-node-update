@@ -17,7 +17,9 @@ export const ogMetaData = [
   {
     pageName: ROUTES.process.slug,
     title: 'How we work, our process | Yellow',
-    description: 'Read about our software development process from the idea to launch. We kick ass on everything from mobile to AI. Click to learn how!',
+    description: `
+      Read about our software development process from the idea to launch. We kick ass on everything from mobile to AI. Click to learn how!
+    `,
     url: `${rootUrl}${ROUTES.process.path}`,
   },
   {

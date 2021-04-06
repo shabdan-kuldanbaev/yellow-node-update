@@ -32,18 +32,19 @@ export const ModalWindow = ({
     document.addEventListener('keydown', handleOnKeyDown);
 
     return () => document.removeEventListener('keydown', handleOnKeyDown);
-  }, []);
+  }, [closeModalWindow]);
 
   return (
     <section
       className={cn(styles.modalWindow, className, { [styles.show]: isModalWindow })}
       onClick={handleOnClick}
       ref={modalRef}
+      role="dialog"
     >
       <img
         onClick={closeModalWindow}
         src={staticImagesUrls.closeIcon}
-        alt="Cloce"
+        alt="Close"
       />
       {children}
     </section>

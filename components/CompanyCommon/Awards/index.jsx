@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { awards } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Awards = ({ awards }) => {
+export const Awards = ({ awards: awardsList }) => {
   const [hostname, setHost] = useState('');
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export const Awards = ({ awards }) => {
 
   return (
     <div className={styles.awards}>
-      { awards && awards.map(({ id, src, title }) => (
+      { awardsList && awardsList.map(({ id, src, title }) => (
         <iframe
           id={id}
           src={src(hostname)}
