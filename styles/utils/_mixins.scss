@@ -18,7 +18,7 @@
 }
 
 @mixin fontSize($size) {
-  font-size: calcrem($size);
+  font-size: calcRem($size);
 }
 
 @mixin ultra-hd {

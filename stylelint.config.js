@@ -46,6 +46,12 @@ module.exports = {
         ignoreSelectors: [':export', /^:import/],
       },
     ],
+    'function-name-case': [
+      'lower',
+      {
+        ignoreFunctions: ['calcRem'],
+      },
+    ],
     'function-calc-no-invalid': null,
     'property-case': null,
     'color-hex-case': null,

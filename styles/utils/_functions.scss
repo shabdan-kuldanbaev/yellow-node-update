@@ -1,4 +1,4 @@
-@function calcrem($size) {
+@function calcRem($size) {
   @return $size / 16px * 1rem;
 }
 
