@@ -3,15 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import Router, { useRouter } from 'next/router';
+import cn from 'classnames';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { ROUTES } from 'utils/constants';
+import { arrows } from './utils/data';
 import styles from './styles.module.scss';
 
 const Paginator = ({
   isMobileResolution,
-  arrows,
+  arrows: navigation,
   pagesCounter,
   currentPage,
+  pageSlug,
+  className,
 }) => {
   const { query: { slug: category } } = useRouter();
   let [mobilePrevious, desktopPrevious, mobileNext, desktopNext] = ['', '', '', ''];
@@ -20,12 +24,12 @@ const Paginator = ({
 
   if (currentPage > 3) desktopPrevious = pagesCounter > 4 ? 'start' : '';
 
-  if (currentPage <= (pagesCounter - 2)) mobileNext = pagesCounter > 4 ? arrows.next : '';
+  if (currentPage <= (pagesCounter - 2)) mobileNext = pagesCounter > 4 ? navigation.next : '';
 
   if (currentPage <= (pagesCounter - 3)) desktopNext = pagesCounter > 5 ? 'next' : '';
 
   const pushRouter = (currentCategory, nextPage) => {
-    const { path, dynamicPath } = ROUTES.blog.getRoute(currentCategory, nextPage);
+    const { path, dynamicPath } = ROUTES[`${pageSlug}`].getRoute(currentCategory, nextPage);
 
     window.scrollTo(0, 0);
     Router.push(
@@ -37,7 +41,7 @@ const Paginator = ({
   const handleOnPageClick = ({ selected }) => pushRouter(category, selected + 1);
 
   return (
-    <div className={styles.paginationWrapper}>
+    <div className={cn(styles.paginationWrapper, className)}>
       <span
         className={styles.paginationPrev}
         onClick={handleOnPreviousClick}
@@ -67,11 +71,18 @@ const Paginator = ({
   );
 };
 
+Paginator.defaultProps = {
+  className: '',
+  arrows,
+};
+
 Paginator.propTypes = {
   isMobileResolution: PropTypes.bool.isRequired,
-  arrows: PropTypes.instanceOf(Object).isRequired,
+  arrows: PropTypes.instanceOf(Object),
   pagesCounter: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
+  pageSlug: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export default connect(

@@ -2,6 +2,7 @@
 
 .portfolio {
   @include flex(column, flex-start, center);
+  
   padding: 0 $side-indent;
   background-color: $white;
 
@@ -15,5 +16,11 @@
 
   @include phone {
     padding: 100px $side-indent 0px;
+  }
+}
+
+.paginator {
+  @include macbook-fifteen {
+    margin-top: 0;
   }
 }

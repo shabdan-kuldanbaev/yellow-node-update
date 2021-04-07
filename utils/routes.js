@@ -1,9 +1,16 @@
 const rootBlogPath = '/blog';
+const rootPortfolioPath = '/portfolio';
 
 const dynamicBlogPaths = {
   root: rootBlogPath,
   slug: `${rootBlogPath}/[slug]`,
   page: `${rootBlogPath}/[slug]/[page]`,
+};
+
+const dynamicPortfolioPaths = {
+  root: rootPortfolioPath,
+  slug: `${rootPortfolioPath}/[slug]`,
+  page: `${rootPortfolioPath}/[slug]/[page]`,
 };
 
 const blogRoutes = {
@@ -21,6 +28,21 @@ const blogRoutes = {
   }),
 };
 
+const portfolioRoutes = {
+  root: () => ({
+    path: rootPortfolioPath,
+    dynamicPath: rootPortfolioPath,
+  }),
+  slug: (slug) => ({
+    path: `${rootPortfolioPath}/${slug}`,
+    dynamicPath: dynamicPortfolioPaths.slug,
+  }),
+  page: (category, page) => ({
+    path: `${rootPortfolioPath}/${category}/${page}`,
+    dynamicPath: dynamicPortfolioPaths.page,
+  }),
+};
+
 export const routes = {
   homepage: {
     title: 'Home',
@@ -30,8 +52,27 @@ export const routes = {
   },
   portfolio: {
     title: 'Portfolio',
-    path: '/portfolio',
-    dynamicPath: '/portfolio',
+    path: rootPortfolioPath,
+    getRoute: (category, page = '1') => {
+      if (category === '') {
+        return portfolioRoutes.root();
+      }
+
+      if (!category || !isNaN(category)) {
+        if (+page === 1) return portfolioRoutes.root();
+
+        return portfolioRoutes.slug(page);
+      }
+
+      if (category && +page === 1) {
+        return portfolioRoutes.slug(category);
+      }
+
+      return portfolioRoutes.page(category, page);
+    },
+    dynamicPath: {
+      ...dynamicPortfolioPaths,
+    },
     slug: 'portfolio',
   },
   process: {

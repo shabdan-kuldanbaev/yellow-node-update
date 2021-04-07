@@ -12,8 +12,7 @@ import {
   MetaTags,
 } from 'components';
 import { getDataFromLocalStorageWithExpire } from 'utils/helper';
-import { PAGES } from 'utils/constants';
-import { arrows } from './utils/data';
+import { PAGES, ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const BlogContainer = ({
@@ -50,9 +49,9 @@ const BlogContainer = ({
           handleOnFormSubmit={handleOnFormSubmit}
         />
         <Paginator
-          arrows={arrows}
           pagesCounter={pagesCounter}
           currentPage={currentPage}
+          pageSlug={ROUTES.blog.slug}
         />
       </section>
     </Fragment>
