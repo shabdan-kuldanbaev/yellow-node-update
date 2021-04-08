@@ -8,6 +8,7 @@ import React, {
   useRef,
   Fragment,
   useState,
+  useContext,
 } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
@@ -16,6 +17,7 @@ import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/Rende
 import { Animated } from 'components';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
+import { AppContext } from 'utils/appContext';
 import { animationTypes } from './utils/data';
 import {
   three,
@@ -32,13 +34,11 @@ const meshClones = [];
 let composer;
 let mat = 0;
 
-export const Duck = ({
-  duck,
-  isHomepageVisit,
-}) => {
+export const Duck = ({ duck }) => {
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);
   const [canvas, setCanvas] = useState(null);
+  const { contextData: { isHomepageVisit } } = useContext(AppContext);
 
   const containerCanvas = useRef(null);
   const containerText = useRef(null);
@@ -122,7 +122,9 @@ export const Duck = ({
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       camera.lookAt(scene.position);
+
       if (renderer) renderer.setSize(window.innerWidth, window.innerHeight);
+
       if (composer) composer.setSize(window.innerWidth, window.innerHeight);
     }
   };
@@ -315,6 +317,7 @@ export const Duck = ({
       isRender = false;
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     isMobile = window.innerWidth < mobileResolution;
 
     if (!isAnimate) {
@@ -330,6 +333,7 @@ export const Duck = ({
         init();
 
         if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';
+
         slogan.setOpacity(canvas, containerCanvas);
         slogan.animateSlogan(sloganRef);
         animate();
@@ -349,7 +353,9 @@ export const Duck = ({
         if (!isHomepageVisit) {
           timer = setTimeout(() => {
             options.initial.currentAnimation = animationTypes[1];
+
             if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+
             document.addEventListener('mousedown', onDocumentMouseDown, false);
             document.addEventListener('mouseup', onDocumentMouseUp, false);
             document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -358,6 +364,7 @@ export const Duck = ({
           options.initial.currentAnimation = animationTypes[1];
 
           if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+
           document.addEventListener('mousedown', onDocumentMouseDown, false);
           document.addEventListener('mouseup', onDocumentMouseUp, false);
           document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -367,12 +374,14 @@ export const Duck = ({
       options.initial.isAppear = true;
 
       if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
+
       document.addEventListener('mousedown', onDocumentMouseDown, false);
       document.addEventListener('mouseup', onDocumentMouseUp, false);
       document.addEventListener('mousemove', onDocumentMouseMove, false);
 
       animate();
     }
+
     window.addEventListener('scroll', handleOnScroll, false);
 
     return () => {
@@ -395,7 +404,7 @@ export const Duck = ({
       meshClones.length = 0;
       mat = 0;
     }
-  }, []);
+  }, [isHomepageVisit]);
 
   return (
     <Fragment>
@@ -428,7 +437,6 @@ Duck.defaultProps = {
 
 Duck.propTypes = {
   duck: PropTypes.instanceOf(Object),
-  isHomepageVisit: PropTypes.bool.isRequired,
 };
 
 // TODO

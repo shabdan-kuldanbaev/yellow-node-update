@@ -43,8 +43,8 @@ export const LinkWrapper = ({
       <a
         className={cn(styles.link, { [className]: !isImage })}
         href={path}
-        target={isLocalLink ? '' : '_blank'}
-        rel={isLocalLink ? '' : 'noopener noreferrer'}
+        target={`${isLocalLink ? '' : '_blank'}`}
+        rel={`${isLocalLink ? '' : 'noopener noreferrer'}`}
         onClick={handleOnClick}
       >
         {!isImage ? children : (
@@ -76,11 +76,15 @@ LinkWrapper.defaultProps = {
 LinkWrapper.propTypes = {
   path: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.element]),
   isLocalLink: PropTypes.bool,
   isImage: PropTypes.bool,
   imageUrl: PropTypes.string,
   imageText: PropTypes.string,
   dynamicRouting: PropTypes.string,
   googleAnalyticProps: PropTypes.instanceOf(Object),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.element,
+  ]),
 };

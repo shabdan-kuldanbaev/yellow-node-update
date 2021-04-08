@@ -1,16 +1,17 @@
 @import 'styles/utils/mixins';
 
 .location {
-  @include flex(column);
   width: 50%;
   margin-bottom: 55px;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+  @include flex(column);
 
   @include phone {
     width: 100%;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 
   .date {
@@ -31,8 +32,8 @@
       z-index: -1;
       transform-origin: 0;
       transition-delay: 0s;
-      
-      &:before {
+
+      &::before {
         content: "";
         position: absolute;
         left: 0;

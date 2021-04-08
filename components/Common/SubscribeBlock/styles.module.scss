@@ -29,16 +29,16 @@
 }
 
 .subscribeBlock {
-
   .subscribeWrapper {
     width: 100%;
-    
+
     .subscribeHeader {
-      @include flex(row, space-between, center);
       padding: 60px;
       margin: 0 auto;
       background-color: $turbo-100;
       border-radius: 4px 4px 0 0;
+
+      @include flex(row, space-between, center);
 
       @include macbook-twelve {
         padding: 40px 25px;
@@ -46,6 +46,7 @@
 
       @include below-tablet {
         padding: 30px 25px 40px;
+
         @include flex(column, center, center);
       }
 
@@ -54,10 +55,11 @@
       }
 
       & > h3 {
-        @include fontSize(37px);
         font-weight: 500;
         margin: 0;
         padding: 20px 5% 20px 0;
+
+        @include fontSize(37px);
 
         @include macbook-twelve {
           @include fontSize(30px);
@@ -69,20 +71,23 @@
 
         @include below-tablet {
           padding: 10px 0 30px;
-          @include fontSize(28px);
           text-align: center;
+
+          @include fontSize(28px);
         }
 
         @include phone {
-          @include fontSize(18px);
           padding: 0 0 20px 0;
+
+          @include fontSize(18px);
         }
       }
 
       .subscribeForm {
-        @include flex();
         height: 80px;
         position: relative;
+
+        @include flex();
 
         @include macbook-twelve {
           height: 70px;
@@ -93,22 +98,24 @@
         }
 
         & > input {
-          @include fontSize(19px);
           width: 270px;
           margin: 0 3px 0 0;
           padding: 0 20px 0 35px;
           border: 0;
           border-radius: 8px 0 0 8px;
-          transition: width .2s ease;
+          transition: width 0.2s ease;
           font-weight: 500;
           letter-spacing: 1px;
           color: $woodsmoke;
 
+          @include fontSize(19px);
+
           @include macbook-twelve {
-            @include fontSize(16px);
             width: 250px;
             padding-right: 20px;
             padding-left: 20px;
+
+            @include fontSize(16px);
           }
 
           @include tablet {
@@ -128,10 +135,11 @@
           }
 
           &::placeholder {
-            @include fontSize(18px);
             font-weight: 500;
             letter-spacing: 1px;
             color: $woodsmoke;
+
+            @include fontSize(18px);
 
             @include macbook-twelve {
               @include fontSize(16px);
@@ -149,8 +157,6 @@
         }
 
         .button {
-          @include flex(row, center, center);
-          @include fontSize(18px);
           height: 100%;
           padding: 0 30px 0 20px;
           font-weight: 500;
@@ -160,19 +166,24 @@
           border-radius: 0 8px 8px 0;
           background-color: $white;
           cursor: pointer;
-          transition: .2s ease;
+          transition: 0.2s ease;
           transition-property: background-color, color;
 
+          @include flex(row, center, center);
+          @include fontSize(18px);
+
           @include macbook-twelve {
-            @include fontSize(16px);
             padding-right: 20px;
             padding-left: 20px;
+
+            @include fontSize(16px);
           }
 
           @include tablet {
-            @include fontSize(14px);
             padding-right: 15px;
             padding-left: 15px;
+
+            @include fontSize(14px);
           }
 
           &:hover {
@@ -182,7 +193,6 @@
         }
 
         .alertMessage {
-          @include fontSize(10px);
           font-weight: 600;
           position: absolute;
           right: 0;
@@ -195,7 +205,9 @@
           letter-spacing: 1.2px;
           text-transform: uppercase;
           color: $woodsmoke;
-          transition: opacity .2s ease;
+          transition: opacity 0.2s ease;
+
+          @include fontSize(10px);
         }
       }
     }
@@ -213,8 +225,7 @@
       }
 
       & > h3 {
-        @include fontSize(28px);
-        max-width: calc(50% - (#{$max-article-margin}/2));
+        max-width: calc(50% - (#{$max-article-margin} / 2));
         box-sizing: border-box;
         margin: 0;
         padding: 70px 40px;
@@ -223,18 +234,22 @@
         border-radius: 4px;
         background-color: $white;
 
+        @include fontSize(28px);
+
         @include desktop {
-          max-width: calc(50% - (#{$min-article-margin}/2));
+          max-width: calc(50% - (#{$min-article-margin} / 2));
         }
 
         @include macbook-twelve {
-          @include fontSize(21px);
           padding: 40px 30px;
+
+          @include fontSize(21px);
         }
 
         @include tablet {
-          @include fontSize(18px);
           padding: 30px 20px;
+
+          @include fontSize(18px);
         }
 
         @include below-tablet {

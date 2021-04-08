@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const next = require('next');
 const dotenv = require('dotenv');
 const multer = require('multer');
@@ -35,15 +34,15 @@ app
 
     server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));
-    server.use(bodyParser.urlencoded({ extended: false }));
-    server.use(bodyParser.json());
+    server.use(express.json());
+    server.use(express.urlencoded({ extended: false }));
     server.use(compression());
 
     server.post('/send', upload.array('files'), async (req, res) => {
       try {
         await mailhelper.sendMail(getFeedBackMessage(req), res);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     });
 
@@ -51,7 +50,7 @@ app
       try {
         await subscribeHelper.subscribe(req, res);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     });
 
@@ -63,6 +62,8 @@ app
 
     server.listen(port, (err) => {
       if (err) throw err;
+
+      // eslint-disable-next-line no-console
       console.log(`> Ready on http://localhost:${port}`);
     });
   })

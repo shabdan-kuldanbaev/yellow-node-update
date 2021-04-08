@@ -16,17 +16,17 @@ const linkProps = {
 export const animatedFields = [
   {
     field: 'title',
-    transitionDelay: 300,
+    transitionDelay: 200,
     ...animatedProps,
   },
   {
     field: 'description',
-    transitionDelay: 350,
+    transitionDelay: 250,
     ...animatedProps,
   },
   {
     field: 'link',
-    transitionDelay: 400,
+    transitionDelay: 300,
     ...animatedProps,
     ...linkProps,
   },

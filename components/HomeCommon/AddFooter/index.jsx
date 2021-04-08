@@ -24,7 +24,9 @@ export const AddFooter = ({
 
     if (pageYOffset < 250) {
       setTopOfPage(true);
+
       if (pageYOffset < 200 && oldY > pageYOffset) setDirection('up');
+
       if (pageYOffset > 100 && oldY < pageYOffset) setDirection('down');
     } else setTopOfPage(false);
 
@@ -32,9 +34,12 @@ export const AddFooter = ({
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     oldY = window.pageYOffset;
+
     setScroll(scrollLabel.current);
     handleOnScroll();
+
     window.addEventListener('scroll', handleOnScroll);
 
     return () => window.removeEventListener('scroll', handleOnScroll);

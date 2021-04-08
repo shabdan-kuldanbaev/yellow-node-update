@@ -1,8 +1,9 @@
 @import 'styles/utils/mixins';
 
 .partnersContainer {
-  @include flex(column, center, center);
   padding: $section-indent $side-indent 200px;
+
+  @include flex(column, center, center);
 
   @include below-tablet {
     padding: $section-indent $side-indent 100px;
@@ -14,15 +15,17 @@
 
   h1 {
     @include h1-title;
+
     color: $white !important;
   }
 }
 
 .partners {
-  @include flex(row, space-between, center, wrap);
   width: 100%;
   max-width: $max-content-width;
   margin-top: 42.5px;
+
+  @include flex(row, space-between, center, wrap);
 
   @include full-hd {
     max-width: $max-content-width-full-hd;
@@ -40,17 +43,17 @@
     flex-direction: column;
     justify-content: flex-start;
 
+    & > div:last-of-type {
+      div {
+        margin-bottom: 0;
+      }
+    }
+
     :global(.animated) {
       &:last-child {
         div {
           margin-bottom: 0;
         }
-      }
-    }
-
-    &>div:last-of-type {
-      div {
-        margin-bottom: 0;
       }
     }
   }

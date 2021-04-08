@@ -3,40 +3,41 @@
 .formContainer {
   position: relative;
   z-index: 2;
-  @include flex(column, flex-start, center);
   padding: $section-indent $side-indent;
   background-color: $white;
+
+  @include flex(column, flex-start, center);
 
   @include phone {
     padding: $mobile-section-indent $side-indent $mobile-section-indent - 20px;
   }
-  
+
   & > div:first-child {
     width: 100%;
     text-align: center;
     margin-bottom: $after-mobile-title-margin;
-    
+
     .title {
       @include phone {
         width: 100%;
       }
-    }  
+    }
   }
 
   .subtitle {
     margin: 0;
-    font-size: .9rem;
+    font-size: 0.9rem;
     line-height: 1.55;
     letter-spacing: 0.5px;
 
     span {
       cursor: pointer;
       padding: 0 0 5px;
-      
+
       a {
         margin-left: 5px;
         text-decoration: none;
-        font-size: .9rem;
+        font-size: 0.9rem;
         line-height: 1.55;
         letter-spacing: 0.5px;
         transition: color $accelerated-transition-time;
@@ -48,7 +49,7 @@
         display: inline-block;
         padding: 0;
 
-        &:before {
+        &::before {
           content: '';
           cursor: pointer;
           position: absolute;
@@ -65,7 +66,7 @@
         cursor: pointer;
 
         a {
-          &:before {
+          &::before {
             width: 0;
             will-change: transition;
             transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);

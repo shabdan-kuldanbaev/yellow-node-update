@@ -25,7 +25,7 @@ export const Article = ({
           </div>
           <div className={styles.articleContent}>
             <h2 className={styles.title}>
-              <a>{title}</a>
+              <span>{title}</span>
             </h2>
           </div>
         </div>

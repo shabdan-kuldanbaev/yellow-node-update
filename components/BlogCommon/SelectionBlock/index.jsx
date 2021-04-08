@@ -56,7 +56,12 @@ const SelectionBlock = ({
           title="Subscribe"
           buttonStyle={styles.button}
         />
-        <span className={styles.categoryTitleInHeader} onClick={openMobileCategoties}>
+        <span
+          className={styles.categoryTitleInHeader}
+          onClick={openMobileCategoties}
+          role="button"
+          tabIndex="0"
+        >
           Categories
         </span>
       </div>

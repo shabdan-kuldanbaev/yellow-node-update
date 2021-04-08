@@ -3,9 +3,10 @@
 .imgWrapper {
   width: 55%;
   height: 100%;
-  @include flex(column, center, center);
   transform: scale(1);
   will-change: transform, opacity;
+
+  @include flex(column, center, center);
 
   @include tablet {
     width: calc(100% - (40px + 40px));
@@ -27,6 +28,7 @@
   div {
     width: 100%;
     height: max-content;
+
     @include flex(column, center, center);
 
     & > span {

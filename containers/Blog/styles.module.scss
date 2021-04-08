@@ -1,10 +1,11 @@
 @import 'styles/utils/mixins';
 
 .blog {
-  @include flex(column, flex-start, center);
   padding: $section-indent + 30px 50px $section-indent;
   background-color: $white;
   min-height: calc(100vh - 230px - 487px);
+
+  @include flex(column, flex-start, center);
 
   @include tablet {
     padding: $section-indent + 30px 25px $section-indent;

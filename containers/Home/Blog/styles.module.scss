@@ -1,11 +1,12 @@
 @import 'styles/utils/mixins';
 
 .blog {
-  @include flex(column, flex-start, center);
   padding: $section-indent 55px;
   background-color: $white;
 
-  &>div:first-child {
+  @include flex(column, flex-start, center);
+
+  & > div:first-child {
     margin-bottom: 70px;
   }
 
@@ -16,15 +17,14 @@
   @include phone {
     padding: #{$mobile-section-indent} $side-indent;
 
-    &>div:first-child {
+    & > div:first-child {
       margin-bottom: -$after-mobile-title-margin + 20px;
     }
   }
 
-  &>div:nth-of-type(2) {
-
-    &>article:nth-of-type(4),
-    &>article:nth-of-type(5) {
+  & > div:nth-of-type(2) {
+    & > article:nth-of-type(4),
+    & > article:nth-of-type(5) {
       display: none;
 
       @include tablet {
@@ -37,7 +37,7 @@
     }
 
     @include below-tablet {
-      &>article:nth-of-type(5) {
+      & > article:nth-of-type(5) {
         display: none;
       }
     }
@@ -45,6 +45,7 @@
 
   .blogButton {
     @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
+
     border-radius: $button-border-radius;
     min-width: 330px;
     font-weight: 600;

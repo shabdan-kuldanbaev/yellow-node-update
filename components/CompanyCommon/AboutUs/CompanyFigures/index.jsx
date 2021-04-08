@@ -5,9 +5,9 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { companyFiguresData } from './utils/data';
 import styles from './styles.module.scss';
 
-export const CompanyFigures = ({ companyFiguresData }) => (
+export const CompanyFigures = ({ companyFiguresData: companyFigures }) => (
   <div className={styles.companyFigures}>
-    {companyFiguresData && companyFiguresData.map((item, index) => (
+    {companyFigures && companyFigures.map((item, index) => (
       <Animated
         key={item.title}
         type={ANIMATED_TYPE.isCustom}
