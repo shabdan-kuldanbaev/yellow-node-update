@@ -244,10 +244,9 @@
 
     div {
       vertical-align: middle;
+      height: 48.4375vw;
 
       @include flex(row, center, center);
-
-      height: 48.4375vw;
 
       @include small-phone {
         width: 50%;

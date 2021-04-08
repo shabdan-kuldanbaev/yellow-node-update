@@ -41,13 +41,18 @@ module.exports = {
     'property-no-unknown': [
       true,
       {
-        ignoreSelectors: [':export', /^:import/],
+        ignoreSelectors: [
+          ':export',
+          /^:import/,
+        ],
       },
     ],
     'function-name-case': [
       'lower',
       {
-        ignoreFunctions: ['calcRem'],
+        ignoreFunctions: [
+          'calcRem',
+        ],
       },
     ],
     'function-calc-no-invalid': null,

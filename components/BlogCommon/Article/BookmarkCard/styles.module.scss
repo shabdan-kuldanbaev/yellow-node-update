@@ -59,9 +59,9 @@
       }
 
       .metadata {
-        @include flex(row, initial, center);
-
         margin-top: 18px;
+
+        @include flex(row, initial, center);
 
         & > a {
           border-radius: $button-border-radius;

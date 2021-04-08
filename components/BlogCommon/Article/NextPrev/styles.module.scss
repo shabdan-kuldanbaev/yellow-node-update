@@ -3,7 +3,7 @@
 .newer {
   margin-right: $max-article-margin;
 
-  @include flex (row);
+  @include flex(row);
 
   @include desktop {
     margin-right: $min-article-margin;
@@ -20,14 +20,14 @@
   }
 
   .content {
-    @include flex (column);
+    @include flex(column);
   }
 }
 
 .older {
   margin-left: $max-article-margin;
 
-  @include flex (row-reverse);
+  @include flex(row-reverse);
 
   @include desktop {
     margin-left: $min-article-margin;

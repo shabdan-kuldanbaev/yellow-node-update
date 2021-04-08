@@ -97,7 +97,7 @@
           border: none;
           transform: scale(1);
 
-          @include flex (row, center);
+          @include flex(row, center);
 
           &:hover {
             border: none;
