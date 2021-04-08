@@ -24,6 +24,7 @@ module.exports = {
           'return',
           'calcRem',
           'export',
+          'import',
           'if',
         ],
       },
