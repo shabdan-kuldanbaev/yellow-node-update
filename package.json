@@ -15,12 +15,13 @@
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
     "lint:js": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:js:fix": "yarn lint:js -- --fix",
-    "lint:style": "npx stylelint {components,containers,styles}/**/**/**/**/**/*.scss --syntax scss --ignore-path .gitignore",
+    "lint:style": "npx stylelint {components,containers,styles}/**/**/**/**/**/*.scss --syntax=scss --ignore-path .gitignore",
     "lint:style:fix": "yarn lint:style -- --fix",
     "lint": "yarn lint:js && yarn lint:style"
   },
   "lint-staged": {
-    "*.{js,jsx}": "yarn lint"
+    "*.scss": ["yarn lint:style"],
+    "*.{js,jsx}": ["yarn lint:js"]
   },
   "husky": {
     "hooks": {
