@@ -7,7 +7,6 @@
   z-index: 1600000;
 
   @include phone {
-    @include flex(row, center, center);
     position: fixed;
     top: 0;
     left: 0;
@@ -16,6 +15,31 @@
     width: 100vw;
     height: 100vh;
     background-color: $black;
+
+    @include flex(row, center, center);
+
+    ul > li > a {
+      color: $white;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .mobileMenuFooter {
+      padding: 0;
+      position: fixed;
+      top: 75vh;
+      width: 100%;
+
+      @include flex(row, space-around);
+
+      a {
+        color: $white;
+        opacity: 0.3;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+    }
 
     ul {
       height: 114vw;
@@ -39,12 +63,6 @@
           }
         }
 
-        a {
-          color: $white;
-          cursor: pointer;
-          text-decoration: none;
-        }
-
         &:last-child {
           border-radius: $button-border-radius;
           background-color: $turbo-100;
@@ -57,22 +75,6 @@
         }
       }
     }
-
-    .mobileMenuFooter {
-      padding: 0px;
-      position: fixed;
-      top: 75vh;
-      @include flex(row, space-around);
-      width: 100%;
-
-      a {
-        color: $white;
-        opacity: .3;
-        font-size: 0.8125rem;
-        font-weight: 600;
-        text-decoration: none;
-      }
-    }
   }
 }
 
@@ -82,20 +84,21 @@
   user-select: initial;
   position: fixed;
   will-change: transform;
-  transform: translateX(0vw);
+  transform: translateX(0);
   transition: transform $default-transition-time ease;
 
   @for $i from 1 through 5 {
     li:nth-child(#{$i}) {
       opacity: 1;
       will-change: transform;
-      transform: translateX(0vw);
-      transition: transform $default-transition-time,
+      transform: translateX(0);
+      transition:
+        transform $default-transition-time,
         opacity $default-transition-time;
       transition-delay: calc(#{$default-transition-time * 2} * #{$i} / 8);
 
       @include small-phone {
-        transform: translateY(0px);
+        transform: translateY(0);
       }
     }
   }
@@ -113,7 +116,8 @@
       will-change: transform;
       opacity: 0;
       transform: translateX(-30px);
-      transition: transform $default-transition-time,
+      transition:
+        transform $default-transition-time,
         opacity $default-transition-time;
 
       @include small-phone {

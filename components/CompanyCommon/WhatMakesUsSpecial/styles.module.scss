@@ -6,6 +6,7 @@
   padding-top: 100px;
   padding-bottom: 100px;
   width: 100%;
+
   @include flex(column, space-around, flex-start);
 
   @include ultra-hd {
@@ -40,11 +41,13 @@
   & > div:first-child {
     max-width: 550px;
     width: 100%;
-    @include flex(column, space-around, flex-start);
     text-align: left;
+
+    @include flex(column, space-around, flex-start);
 
     & > div:nth-of-type(1) > h2 {
       @include big-title();
+
       margin-bottom: 70px;
 
       @include phone {
@@ -55,12 +58,14 @@
 
   .specialThings {
     width: 100%;
+
     @include flex(row, space-between, center, wrap);
-    
+
     & > div {
-      @include flex(column, center, center);
       width: calc(#{$max-content-width} * 0.287);
       height: calc(#{$max-content-width} * 0.1565);
+
+      @include flex(column, center, center);
 
       @include macbook-fifteen {
         width: 22.917vw;
@@ -73,9 +78,10 @@
       }
 
       .title {
-        @include flex(column, center, center);
         width: calc(#{$max-content-width} * 0.163);
         height: calc(#{$max-content-width} * 0.0522);
+
+        @include flex(column, center, center);
 
         @include macbook-fifteen {
           width: 13vw;
@@ -95,17 +101,20 @@
 
       &:nth-of-type(1) {
         background-color: $flush-mahogany;
-        div { @extend .title; }
       }
 
       &:nth-of-type(2) {
         background-color: $alizarin-crimson;
-        div { @extend .title; }
       }
 
       &:nth-of-type(3) {
         background-color: $web-orange;
-        div { @extend .title; }
+      }
+
+      &:nth-of-type(1) > div,
+      &:nth-of-type(2) > div,
+      &:nth-of-type(3) > div {
+        @extend .title;
       }
 
       span {

@@ -4,9 +4,10 @@
   position: absolute;
   top: 0;
   z-index: 0;
-  @include flex(row, center, center, wrap);
   width: 100%;
   height: 100vh;
+
+  @include flex(row, center, center, wrap);
 
   @include phone {
     align-items: flex-end;
@@ -55,23 +56,26 @@
         transform: translateY(-190px);
       }
     }
-  
+
     @include phone-height-650 {
       transform: translateY(-160px);
+
       @include iOSDevice {
         transform: translateY(-220px);
       }
     }
-  
+
     @include phone-height-730 {
       transform: translateY(-190px);
+
       @include iOSDevice {
         transform: translateY(-250px);
       }
     }
-  
+
     @include phone-height-800 {
       transform: translateY(-230px);
+
       @include iOSDevice {
         transform: translateY(-300px);
       }

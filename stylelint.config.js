@@ -24,9 +24,38 @@ module.exports = {
           'return',
           'calcRem',
           'export',
+          'if',
         ],
       },
     ],
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: [
+          'global',
+          'export',
+          'import',
+        ],
+      },
+    ],
+    'property-no-unknown': [
+      true,
+      {
+        ignoreSelectors: [
+          ':export',
+          /^:import/,
+        ],
+      },
+    ],
+    'function-name-case': [
+      'lower',
+      {
+        ignoreFunctions: [
+          'calcRem',
+        ],
+      },
+    ],
+    'function-calc-no-invalid': null,
     'property-case': null,
     'color-hex-case': null,
   },

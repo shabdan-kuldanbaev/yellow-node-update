@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .paragraph {
-  div>p {
+  div > p {
     max-width: 850px;
     margin-top: 30px;
     margin-bottom: 120px;
@@ -10,7 +10,6 @@
     box-sizing: border-box;
     outline: none;
     padding: 0;
-    color: $cod-gray;
     font-size: 1.5rem;
     line-height: 36px;
     letter-spacing: 0.5px;
@@ -30,11 +29,12 @@
 }
 
 .project {
-  @include flex(column, center, center);
   position: relative;
   z-index: 2;
   width: 100%;
   background-color: $white;
+
+  @include flex(column, center, center);
 
   .header {
     width: 100%;
@@ -43,6 +43,8 @@
     background-position: center;
 
     .container {
+      @extend .paragraph;
+
       width: 100%;
       max-width: $max-content-width - 170px;
       margin-left: auto;
@@ -59,23 +61,23 @@
         padding: 0 15px 0;
       }
 
-      div>h1 {
+      div > h1 {
         width: 100%;
         margin: 0;
         margin-top: 240px;
-        font-size: 82px;
         font-weight: 700;
         line-height: 86px;
         letter-spacing: -2px;
         color: $white;
 
+        @include fontSize(82px);
+
         @include phone {
-          font-size: 38px;
           line-height: 46px;
+
+          @include fontSize(38px);
         }
       }
-
-      @extend .paragraph;
 
       div {
         @include flex(row, center, center);
@@ -86,7 +88,8 @@
 
           @include phone {
             margin-top: 30px;
-            font-size: 18px;
+
+            @include fontSize(18px);
           }
         }
       }
@@ -94,6 +97,8 @@
   }
 
   .body {
+    @extend .paragraph;
+
     max-width: $max-content-width - 170px;
     padding: 0 0 300px;
     background-color: $white;
@@ -116,31 +121,31 @@
       padding: 0 15px 200px;
     }
 
-    div>h2 {
+    div > h2 {
       margin: 120px 0 0 0;
-      font-size: 48px;
       font-weight: 700;
       line-height: 54px;
-      letter-spacing: -.85px;
+      letter-spacing: -0.85px;
+
+      @include fontSize(48px);
 
       @include phone {
         margin: 60px 0 30px 0;
         line-height: 38px;
-        font-size: 28px;
+
+        @include fontSize(28px);
       }
     }
 
-    @extend .paragraph;
-
-    div>img {
+    div > img {
       width: 100%;
     }
 
-    div>video {
+    div > video {
       width: 100%;
     }
 
-    div>.additionSubtitle {
+    div > .additionSubtitle {
       margin-top: 120px;
 
       @include phone {
@@ -149,14 +154,15 @@
     }
 
     .mediasWrapper {
-      @include flex(row, space-between, flex-start);
       width: 100%;
 
-      &>div {
+      @include flex(row, space-between, flex-start);
+
+      & > div {
         width: 49%;
 
         div {
-          &>* {
+          & > * {
             max-width: 100%;
             max-height: 100%;
           }
