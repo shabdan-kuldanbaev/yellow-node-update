@@ -20,7 +20,7 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "lint-staged": {
-    "*.{js,jsx}": "yarn lint:js"
+    "*.{js,jsx}": "yarn lint"
   },
   "husky": {
     "hooks": {
