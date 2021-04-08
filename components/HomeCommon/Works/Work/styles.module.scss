@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 @import 'styles/utils/mixins';
 
 .work {
@@ -11,6 +13,28 @@
   min-height: 100vh;
 
   @include flex(row, space-evenly, center);
+
+  &:nth-child(2n) {
+    flex-direction: row-reverse;
+
+    .parallax {
+      div {
+        @include quad-hd {
+          justify-content: flex-start;
+          margin-left: 0.6vw;
+        }
+
+        @include below-tablet {
+          justify-content: center;
+        }
+
+        @include small-phone {
+          justify-content: flex-start;
+          margin-left: -6.5vw;
+        }
+      }
+    }
+  }
 
   @include tablet {
     margin: auto;
@@ -244,9 +268,10 @@
 
     div {
       vertical-align: middle;
-      height: 48.4375vw;
 
       @include flex(row, center, center);
+
+      height: 48.4375vw;
 
       @include small-phone {
         width: 50%;
@@ -403,28 +428,6 @@
           @include small-phone {
             transform: translateX(0) scale(1);
           }
-        }
-      }
-    }
-  }
-
-  &:nth-child(2n) {
-    flex-direction: row-reverse;
-
-    .parallax {
-      div {
-        @include quad-hd {
-          justify-content: flex-start;
-          margin-left: 0.6vw;
-        }
-
-        @include below-tablet {
-          justify-content: center;
-        }
-
-        @include small-phone {
-          justify-content: flex-start;
-          margin-left: -6.5vw;
         }
       }
     }

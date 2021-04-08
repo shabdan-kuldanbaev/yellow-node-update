@@ -9,8 +9,13 @@
   }
 
   .mobileFooterTitle {
+    display: none;
     margin-bottom: 60px;
     font-size: 1.8rem;
+
+    @include below-tablet {
+      display: block;
+    }
   }
 
   & > div {
@@ -218,7 +223,8 @@
       $bxshadow: ();
 
       @for $i from 1 to $stars {
-        $bxshadow: append($bxshadow, (random(400) + 0) (random(200) + 0) gray, comma);
+        /* stylelint-disable length-zero-no-unit */
+        $bxshadow: append($bxshadow, (random(400) + 0px) (random(200) + 0px) gray, comma);
       }
 
       @return unquote($bxshadow);
