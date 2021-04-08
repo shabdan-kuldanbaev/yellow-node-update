@@ -1,10 +1,11 @@
 @import 'styles/utils/mixins';
 
 .related {
-  @include flex(column, center, center);
   margin: 0 auto;
   padding: 0 55px;
   max-width: 1500px;
+
+  @include flex(column, center, center);
 
   @include tablet {
     padding: 0 25px;
@@ -18,38 +19,41 @@
     width: 100%;
 
     .heading {
-      @include flex(row, initial, flex-end);
       padding: 30px 60px 15px;
-  
+
+      @include flex(row, initial, flex-end);
+
       @include macbook-twelve {
         width: calc(100% - (2 * 25px));
         padding: 15px 23px;
       }
-  
+
       @include tablet {
         width: calc(100% - (2 * 15px));
         padding: 10px 15px;
       }
-  
+
       & > h3 {
         margin: 0;
         padding-right: 20px;
-        font-size: 15px;
         font-weight: 500;
         flex: 1 0 60%;
+
+        @include fontSize(15px);
       }
-  
+
       & > a {
-        @include flex();
-        font-size: 12px;
         font-weight: 500;
         color: $black;
         margin-right: -20px;
 
+        @include flex();
+        @include fontSize(12px);
+
         @include macbook-twelve {
           margin-right: 0;
         }
-  
+
         .svgContainer {
           position: relative;
           right: 0;
@@ -57,13 +61,13 @@
           width: 15px;
           height: 15px;
           margin-left: 7px;
-          transition: right .2s ease;
-  
+          transition: right 0.2s ease;
+
           @include below-tablet {
             display: none;
           }
         }
-  
+
         &:hover {
           .svgContainer {
             right: -4px;
@@ -74,10 +78,11 @@
   }
 
   .articlesList {
-    @include flex(row, center);
     background-color: $athens-gray;
     border-radius: 4px;
     padding: 60px 60px calc(60px - #{$max-article-margin});
+
+    @include flex(row, center);
 
     @include macbook-fifteen {
       padding: 60px 60px calc(60px - #{$min-article-margin});
@@ -92,8 +97,9 @@
     }
 
     @include below-tablet {
-      @include flex(row, initial, initial, wrap);
       padding: 15px 10px calc(15px - #{$min-article-margin});
+
+      @include flex(row, initial, initial, wrap);
     }
   }
 }

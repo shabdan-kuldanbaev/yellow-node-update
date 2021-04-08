@@ -3,10 +3,11 @@
 .companyContainer {
   position: relative;
   z-index: 2;
-  @include flex(column, center, center);
   padding: 0 80px;
   background-color: $white;
   overflow-x: hidden;
+
+  @include flex(column, center, center);
 
   @include tablet {
     padding: calc(81px + 40px) 40px 0;
@@ -21,7 +22,7 @@
   width: 100%;
   overflow-x: hidden;
 
-  &>div {
+  & > div {
     width: 100%;
     margin: 0 auto;
     padding: 100px 80px 130px;
@@ -48,9 +49,10 @@
 }
 
 .companyBottom {
-  @include flex(column, center, center);
   padding: 0 80px 200px;
   background-color: $white;
+
+  @include flex(column, center, center);
 
   @include tablet {
     padding: 100px 40px 200px;

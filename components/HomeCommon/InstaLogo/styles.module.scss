@@ -7,16 +7,23 @@
   border-radius: $initial-radius;
 }
 
+.overlay {
+  width: calc(100% - 25px);
+  height: calc(100% - 25px);
+  background-color: $white;
+  border-radius: calc(#{$initial-radius} - 5px);
+}
+
 .logo {
   &-wrapper {
     will-change: transform;
-    transform: rotate(-30deg) scale(.4);
+    transform: rotate(-30deg) scale(0.4);
     position: absolute;
     margin-left: -83px;
     margin-top: -60px;
 
     @include phone {
-      transform: rotate(-30deg) scale(.35);
+      transform: rotate(-30deg) scale(0.35);
       margin-left: 27px;
       margin-top: -160px;
     }
@@ -26,8 +33,9 @@
     position: absolute;
     left: 50%;
     z-index: 2;
-    @include flex(row, center, center);
     background-image: $gradient-border;
+
+    @include flex(row, center, center);
 
     &.logo-dot {
       right: 28%;
@@ -46,6 +54,11 @@
     margin-top: -42%;
     margin-left: -42%;
     border-radius: 60px;
+    animation: animateborder 5s infinite alternate;
+
+    .overlay {
+      animation: animateborder-overlay 5s infinite alternate;
+    }
   }
 
   &-circle {
@@ -54,29 +67,11 @@
     margin-top: -28%;
     margin-left: -28%;
     border-radius: 70px;
-  }
-}
+    animation: animatecircle 5s infinite alternate;
 
-.overlay {
-  width: calc(100% - 25px);
-  height: calc(100% - 25px);
-  background-color: $white;
-  border-radius: calc(#{$initial-radius} - 5px);
-}
-
-.logo-border {
-  animation: animateborder 5s infinite alternate;
-
-  .overlay {
-    animation: animateborder-overlay 5s infinite alternate;
-  }
-}
-
-.logo-circle {
-  animation: animatecircle 5s infinite alternate;
-
-  .overlay {
-    animation: animateborder 5s infinite alternate;
+    .overlay {
+      animation: animateborder 5s infinite alternate;
+    }
   }
 }
 

@@ -1,9 +1,10 @@
 @import 'styles/utils/mixins';
 
 .subscribeBlock {
-  @include flex(column, center, center);
   width: 100%;
   margin: 105px 0 150px;
+
+  @include flex(column, center, center);
 
   @include phone {
     height: 460px;
@@ -13,6 +14,7 @@
   .subscribe {
     position: relative;
     width: 100%;
+
     @include flex(column, center, center);
 
     @include phone {
@@ -63,19 +65,20 @@
       }
 
       .inputBlock {
-        @include flex(row, center, center);
         width: 100%;
+
+        @include flex(row, center, center);
 
         @include phone {
           flex-direction: column;
 
-          &>div:nth-of-type(1) {
+          & > div:nth-of-type(2) {
+            width: 80%;
+          }
+
+          & > div:nth-of-type(1) {
             margin-top: 10px;
             width: 100%;
-
-            &>div {
-              margin-bottom: 20px;
-            }
 
             label {
               font-size: 1.0625rem;
@@ -94,10 +97,10 @@
               color: $emperor;
               outline: none;
             }
-          }
 
-          &>div:nth-of-type(2) {
-            width: 80%;
+            & > div {
+              margin-bottom: 20px;
+            }
           }
         }
 
@@ -105,18 +108,15 @@
           display: block;
           outline: none;
           margin-right: 20px;
-          padding: 12px 20px;
-          height: auto;
-
           transition: 0.4s;
           width: 223px;
           height: 56px;
           border-radius: 82px;
           background-color: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 0px 29px 0 rgba(0, 0, 0, 0.08);
+          box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
           border: none;
           font-size: 1.125rem;
-          padding: 0px 35px;
+          padding: 0 35px;
 
           &::placeholder {
             font-size: 1.125rem;
@@ -142,6 +142,7 @@
 
         .button {
           @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+
           letter-spacing: 0.5px;
           font-size: 1.125rem !important;
           margin: auto 0;
@@ -152,12 +153,12 @@
 
           &:hover {
             border: none;
-            transform: scale(.96);
+            transform: scale(0.96);
           }
 
           @include phone {
             margin: 25px auto 0;
-            transform: translateX(0px);
+            transform: translateX(0);
           }
         }
       }
