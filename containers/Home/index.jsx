@@ -2,6 +2,7 @@ import React, {
   Fragment,
   useEffect,
   useRef,
+  useContext,
 } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -19,6 +20,7 @@ import { PhotoGallery, MetaTags } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
+import { AppContext } from 'utils/appContext';
 import LoadingPlaceholder from './LoadingPlaceholder';
 
 export const Home = ({
@@ -31,13 +33,27 @@ export const Home = ({
 }) => {
   const gradientRef = useRef(null);
   const { content } = getDocumentFields(photosData, ['content']);
+  const { contextData, setContextData } = useContext(AppContext);
 
   useEffect(() => {
     if (!duck) {
-      loadDuck();
+      const { isFirstHomepageVisit } = contextData;
+
+      loadDuck({ isFirstHomepageVisit });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duck]);
+
+  useEffect(() => () => {
+    if (!contextData.isHomepageVisit) {
+      setContextData({
+        ...contextData,
+        isFirstHomepageVisit: true,
+        isHomepageVisit: true,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Fragment>
@@ -48,6 +64,7 @@ export const Home = ({
             theme={theme}
             introSection={introSection}
             duck={duck}
+            isFirstHomepageVisit={contextData.isFirstHomepageVisit}
           />
           <Portfolio gradientRef={gradientRef} />
           <ReviewsContainer />

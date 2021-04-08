@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setScrollOfAddedFooter } from 'redux/actions/home';
@@ -8,7 +8,6 @@ import {
   Partners,
   Duck,
 } from 'components';
-import { AppContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
 const Intro = ({
@@ -16,35 +15,21 @@ const Intro = ({
   introSection,
   isMobileMenuOpened,
   duck,
+  isFirstHomepageVisit,
   setScrollOfAddedFooter: setScroll,
-}) => {
-  const { contextData, setContextData } = useContext(AppContext);
-
-  useEffect(() => () => {
-    if (!contextData.isHomepageVisit) {
-      setContextData({
-        ...contextData,
-        isFirstHomepageVisit: true,
-        isHomepageVisit: true,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return (
-    <section ref={introSection} className={styles.intro}>
-      <Duck duck={duck} />
-      <AddFooter
-        theme={theme}
-        isModelLoaded={!!duck}
-        setScroll={setScroll}
-        isMobileMenuOpened={isMobileMenuOpened}
-        isFirstHomepageVisit={contextData.isFirstHomepageVisit}
-      />
-      <Partners />
-    </section>
-  );
-};
+}) => (
+  <section ref={introSection} className={styles.intro}>
+    <Duck duck={duck} />
+    <AddFooter
+      theme={theme}
+      isModelLoaded={!!duck}
+      setScroll={setScroll}
+      isMobileMenuOpened={isMobileMenuOpened}
+      isFirstHomepageVisit={isFirstHomepageVisit}
+    />
+    <Partners />
+  </section>
+);
 
 Intro.defaultProps = {
   theme: 'dark',
@@ -56,6 +41,7 @@ Intro.propTypes = {
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setScrollOfAddedFooter: PropTypes.func.isRequired,
   duck: PropTypes.instanceOf(Object).isRequired,
+  isFirstHomepageVisit: PropTypes.bool.isRequired,
 };
 
 export default connect(

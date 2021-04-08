@@ -3,6 +3,7 @@ import {
   takeLatest,
   call,
   all,
+  select,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
@@ -11,8 +12,9 @@ import {
   fetchBlogData,
   loadArticles,
 } from 'redux/sagas/blog';
-import { loadJSON } from 'redux/sagas/process';
 import { actionTypes } from 'redux/actions/actionTypes';
+import { loadJSON } from 'redux/sagas/process';
+import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import { artificialDelay, loadDuck } from 'utils/helper';
 import { contentfulClient } from 'utils/ContentfulClient';
 import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
@@ -35,11 +37,12 @@ function* fetchPage({ slug }) {
   }
 }
 
-function* fetchDuck() {
+function* fetchDuck({ payload: { isFirstHomepageVisit } }) {
   try {
-    const duck = yield loadDuck();
-
-    yield call(artificialDelay, 4000);
+    const [duck] = yield all([
+      yield loadDuck(),
+      !isFirstHomepageVisit && !(yield select(selectIsFirstPageLoaded)) && (yield call(artificialDelay, 4000)),
+    ]);
 
     yield put({ type: actionTypes.SET_DUCK, payload: duck });
   } catch (err) {
