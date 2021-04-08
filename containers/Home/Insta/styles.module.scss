@@ -1,12 +1,12 @@
 @import 'styles/utils/mixins';
 
 .insta {
-  @include flex(column, flex-start, center);
-
   position: relative;
   z-index: 2;
   padding: $section-indent $side-indent;
   background-color: $white;
+
+  @include flex(column, flex-start, center);
 
   @include phone {
     padding: 235px $side-indent $after-mobile-title-margin;

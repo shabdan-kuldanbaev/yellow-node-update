@@ -1,12 +1,12 @@
 @import 'styles/utils/mixins';
 
 .form {
-  @include flex(column, initial, center);
-
   width: 100%;
   max-height: auto;
   color: $silver;
   margin-bottom: 200px;
+
+  @include flex(column, initial, center);
 
   @include tablet {
     margin-bottom: 100px;

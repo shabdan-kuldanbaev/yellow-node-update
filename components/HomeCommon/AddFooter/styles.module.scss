@@ -2,8 +2,6 @@
 @import 'styles/utils/theme/animations';
 
 .addFooterContainer {
-  @include flex(row, space-between, center);
-
   position: fixed;
   left: 0;
   top: calc(100vh - 100px);
@@ -11,16 +9,18 @@
   width: calc(100% - 70px);
   padding: 45px 35px;
 
+  @include flex(row, space-between, center);
+
   .scrollTitle {
     display: none;
   }
 
   @include phone {
-    @include flex(row, center, center);
-
     top: 81vh;
     width: 100%;
     padding: 0;
+
+    @include flex(row, center, center);
 
     & > div,
     svg {

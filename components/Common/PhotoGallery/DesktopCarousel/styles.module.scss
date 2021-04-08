@@ -1,8 +1,6 @@
 @import 'styles/utils/mixins';
 
 .gallerySection {
-  @include flex(column, center, center);
-
   position: relative;
   background-color: $white;
   flex-wrap: wrap;
@@ -10,6 +8,8 @@
   padding: 200px 0;
   z-index: 1;
   overflow: hidden;
+
+  @include flex(column, center, center);
 
   @include below-tablet {
     padding: 25px 0;
@@ -62,11 +62,10 @@
       z-index: 10;
 
       .unorderedList {
-        @include flex(row, center, center);
-
         list-style: none;
         height: 100%;
-        display: flex;
+
+        @include flex(row, center, center);
 
         & li {
           display: flex;

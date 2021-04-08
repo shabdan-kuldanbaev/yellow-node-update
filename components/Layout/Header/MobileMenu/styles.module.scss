@@ -7,8 +7,6 @@
   z-index: 1600000;
 
   @include phone {
-    @include flex(row, center, center);
-
     position: fixed;
     top: 0;
     left: 0;
@@ -18,6 +16,8 @@
     height: 100vh;
     background-color: $black;
 
+    @include flex(row, center, center);
+
     ul > li > a {
       color: $white;
       cursor: pointer;
@@ -25,12 +25,12 @@
     }
 
     .mobileMenuFooter {
-      @include flex(row, space-around);
-
       padding: 0;
       position: fixed;
       top: 75vh;
       width: 100%;
+
+      @include flex(row, space-around);
 
       a {
         color: $white;

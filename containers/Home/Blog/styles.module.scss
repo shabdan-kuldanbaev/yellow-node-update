@@ -1,10 +1,10 @@
 @import 'styles/utils/mixins';
 
 .blog {
-  @include flex(column, flex-start, center);
-
   padding: $section-indent 55px;
   background-color: $white;
+
+  @include flex(column, flex-start, center);
 
   & > div:first-child {
     margin-bottom: 70px;

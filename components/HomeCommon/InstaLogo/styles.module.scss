@@ -30,12 +30,12 @@
   }
 
   & > div {
-    @include flex(row, center, center);
-
     position: absolute;
     left: 50%;
     z-index: 2;
     background-image: $gradient-border;
+
+    @include flex(row, center, center);
 
     &.logo-dot {
       right: 28%;

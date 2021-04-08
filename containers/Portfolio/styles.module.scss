@@ -1,10 +1,10 @@
 @import 'styles/utils/mixins';
 
 .portfolio {
-  @include flex(column, flex-start, center);
-
   padding: 0 $side-indent;
   background-color: $white;
+
+  @include flex(column, flex-start, center);
 
   @include macbook-fifteen {
     padding: 0 80px;

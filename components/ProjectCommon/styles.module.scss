@@ -29,12 +29,12 @@
 }
 
 .project {
-  @include flex(column, center, center);
-
   position: relative;
   z-index: 2;
   width: 100%;
   background-color: $white;
+
+  @include flex(column, center, center);
 
   .header {
     width: 100%;
@@ -65,15 +65,17 @@
         width: 100%;
         margin: 0;
         margin-top: 240px;
-        font-size: 82px;
         font-weight: 700;
         line-height: 86px;
         letter-spacing: -2px;
         color: $white;
 
+        @include fontSize(82px);
+
         @include phone {
-          font-size: 38px;
           line-height: 46px;
+
+          @include fontSize(38px);
         }
       }
 
@@ -86,7 +88,8 @@
 
           @include phone {
             margin-top: 30px;
-            font-size: 18px;
+
+            @include fontSize(18px);
           }
         }
       }
@@ -120,15 +123,17 @@
 
     div > h2 {
       margin: 120px 0 0 0;
-      font-size: 48px;
       font-weight: 700;
       line-height: 54px;
       letter-spacing: -0.85px;
 
+      @include fontSize(48px);
+
       @include phone {
         margin: 60px 0 30px 0;
         line-height: 38px;
-        font-size: 28px;
+
+        @include fontSize(28px);
       }
     }
 
@@ -149,9 +154,9 @@
     }
 
     .mediasWrapper {
-      @include flex(row, space-between, flex-start);
-
       width: 100%;
+
+      @include flex(row, space-between, flex-start);
 
       & > div {
         width: 49%;

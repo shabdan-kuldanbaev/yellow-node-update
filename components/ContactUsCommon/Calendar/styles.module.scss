@@ -1,13 +1,15 @@
+/* stylelint-disable no-descending-specificity */
+
 @import 'styles/utils/mixins';
 
 .feedbackFormWithTitle {
-  @include flex(row, center, center);
-
   position: relative;
   z-index: 2;
   background-color: $white;
   width: 100%;
   padding-bottom: 150px;
+
+  @include flex(row, center, center);
 
   @include below-tablet {
     padding-top: 100px;
@@ -20,11 +22,11 @@
   }
 
   & > div:first-child {
-    @include flex(row, space-between, flex-start);
-
     position: relative;
     z-index: 2;
     width: 100%;
+
+    @include flex(row, space-between, flex-start);
 
     @include ultra-hd {
       width: $max-content-width;
@@ -39,44 +41,16 @@
     }
 
     & > div:first-child {
-      @include flex(column, space-around, flex-start);
-
       max-width: 550px;
       width: 100%;
       text-align: left;
+
+      @include flex(column, space-around, flex-start);
 
       & > div:nth-of-type(1) > h1 {
         @include big-title();
 
         margin-top: 10px;
-      }
-
-      .subtitle > span > a {
-        margin-left: 5px;
-        text-decoration: none;
-        font-size: 0.9rem;
-        line-height: 1.55;
-        letter-spacing: 0.5px;
-        transition: color $accelerated-transition-time;
-        border: none;
-        outline: none;
-        background-color: transparent;
-        color: $black;
-        position: relative;
-        display: inline-block;
-        padding: 0;
-
-        &::before {
-          content: '';
-          cursor: pointer;
-          position: absolute;
-          bottom: -2px;
-          right: 0;
-          width: 100%;
-          border-bottom: 1px $black solid;
-          background-color: $black;
-          transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        }
       }
 
       & > div:nth-of-type(2) > p {
@@ -104,6 +78,12 @@
         }
       }
 
+      .title {
+        @include phone {
+          width: 100%;
+        }
+      }
+
       .subtitle {
         margin: 0;
         font-size: 0.9rem;
@@ -113,6 +93,34 @@
         span {
           cursor: pointer;
           padding: 0 0 5px;
+
+          a {
+            margin-left: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            letter-spacing: 0.5px;
+            transition: color $accelerated-transition-time;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: $black;
+            position: relative;
+            display: inline-block;
+            padding: 0;
+
+            &::before {
+              content: '';
+              cursor: pointer;
+              position: absolute;
+              bottom: -2px;
+              right: 0;
+              width: 100%;
+              border-bottom: 1px $black solid;
+              background-color: $black;
+              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            }
+          }
 
           &:hover {
             cursor: pointer;
@@ -128,20 +136,14 @@
           }
         }
       }
-
-      .title {
-        @include phone {
-          width: 100%;
-        }
-      }
     }
 
     & > div:nth-of-type(2) {
-      @include flex(row, flex-start, flex-start, wrap);
-
       max-width: $max-content-width;
       margin-left: 100px;
       margin-bottom: 0;
+
+      @include flex(row, flex-start, flex-start, wrap);
 
       @include ultra-hd {
         width: 545px;

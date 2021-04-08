@@ -1,16 +1,14 @@
 @import 'styles/utils/mixins';
 
 footer {
-  @include flex(row, center, center);
-
   position: relative;
   z-index: 99999;
   width: 100%;
   background-color: $woodsmoke;
 
-  .forms {
-    @include flex(row, space-between);
+  @include flex(row, center, center);
 
+  .forms {
     position: relative;
     z-index: 0;
     top: 0;
@@ -18,6 +16,8 @@ footer {
     height: 100%;
     overflow: auto;
     padding: 0 17px;
+
+    @include flex(row, space-between);
 
     :global(.animated) {
       animation-name: unset;
@@ -38,16 +38,16 @@ footer {
     }
 
     @include higher-phone {
-      @include flex(column, flex-start);
-
       padding: 0;
       text-align: center;
+
+      @include flex(column, flex-start);
     }
 
     .footerNav {
-      @include flex(column, inherit, flex-end);
-
       position: relative;
+
+      @include flex(column, inherit, flex-end);
 
       @include higher-phone {
         display: none;
@@ -74,9 +74,9 @@ footer {
         }
 
         @include below-tablet {
-          @include flex(row, inherit, flex-end);
-
           width: 120%;
+
+          @include flex(row, inherit, flex-end);
 
           li {
             margin-left: 6px;

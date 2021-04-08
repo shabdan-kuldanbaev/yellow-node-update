@@ -1,20 +1,20 @@
 @import 'styles/utils/mixins';
 
 .uploadFile {
-  @include flex(column, initial, initial, wrap);
-
   width: 100%;
   margin-top: 60px;
+
+  @include flex(column, initial, initial, wrap);
 
   @include below-tablet {
     margin-top: 40px;
   }
 
   .attachmentManage {
-    @include flex(row, flex-start, center);
-
     position: relative;
     width: 100%;
+
+    @include flex(row, flex-start, center);
 
     & > div {
       width: 100%;
@@ -81,13 +81,13 @@
     width: 100%;
 
     .file {
-      @include flex(row, space-between, center, wrap);
-
       width: auto;
       padding: 5px 10px;
       border-radius: 2.5px;
       background-color: $athens-gray;
       color: $black;
+
+      @include flex(row, space-between, center, wrap);
 
       @include phone {
         font-size: 0.75rem;
@@ -109,10 +109,10 @@
       }
 
       span:first-child {
-        @include hidden-text();
-
         margin-right: auto;
         width: 65%;
+
+        @include hidden-text();
 
         @include phone {
           margin-right: 0;
@@ -134,9 +134,9 @@
     }
 
     .moreFilesLink {
-      @include flex(column, center, center);
-
       padding: 5px 0;
+
+      @include flex(column, center, center);
 
       label {
         color: $silver;

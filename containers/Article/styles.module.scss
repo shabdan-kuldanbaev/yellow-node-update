@@ -1,11 +1,11 @@
 @import 'styles/utils/mixins';
 
 .nextPrevSection {
-  @include flex(row, space-between);
-
   margin: #{$max-article-margin} auto;
   padding: 0 55px;
   max-width: 1500px;
+
+  @include flex(row, space-between);
 
   @include desktop {
     margin-top: #{$min-article-margin};

@@ -94,12 +94,13 @@
       }
 
       .title {
-        font-size: 15px;
         font-weight: 600;
         margin: 0;
 
+        @include fontSize(15px);
+
         @include macbook-twelve {
-          font-size: 14px;
+          @include fontSize(14px);
         }
 
         & > span {

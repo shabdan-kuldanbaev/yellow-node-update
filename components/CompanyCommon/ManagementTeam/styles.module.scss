@@ -1,12 +1,12 @@
 @import 'styles/utils/mixins';
 
 .managementTeam {
-  @include flex(column, space-around, flex-start);
-
   position: relative;
   z-index: 2;
   width: 100%;
   padding: 100px 0;
+
+  @include flex(column, space-around, flex-start);
 
   @include ultra-hd {
     max-width: $max-content-width;
@@ -38,11 +38,11 @@
   }
 
   & > div:first-child {
-    @include flex(column, space-around, flex-start);
-
     max-width: 660px;
     width: 100%;
     text-align: left;
+
+    @include flex(column, space-around, flex-start);
 
     & > div:nth-of-type(1) > h2 {
       @include big-title();
@@ -56,9 +56,9 @@
   }
 
   .managers {
-    @include flex(row, space-between, flex-start, wrap);
-
     width: 100%;
+
+    @include flex(row, space-between, flex-start, wrap);
 
     & > div {
       margin-top: 55px;

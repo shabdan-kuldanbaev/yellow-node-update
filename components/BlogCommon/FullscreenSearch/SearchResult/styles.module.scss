@@ -1,8 +1,6 @@
 @import 'styles/utils/mixins';
 
 .nothingFound {
-  @include fontSize(17.5px);
-
   font-weight: 500;
   font-family: $default-font;
   color: $tundora;
@@ -11,6 +9,8 @@
   right: 0;
   max-width: 1300px;
   width: 100%;
+
+  @include fontSize(17.5px);
 
   @include macbook-fifteen {
     width: calc(100% - (2 * 55px));

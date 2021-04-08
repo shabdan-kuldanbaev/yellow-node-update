@@ -1,11 +1,11 @@
 @import 'styles/utils/mixins';
 
 .instaTape {
-  @include flex();
-
   width: 100%;
   max-width: $max-content-width;
   margin-top: 80px;
+
+  @include flex();
 
   @include full-hd {
     max-width: $max-content-width-full-hd;
@@ -68,8 +68,6 @@
     }
 
     .image {
-      @include flex(column, flex-end);
-
       background-position: center;
       background-size: cover;
       will-change: transform;
@@ -79,6 +77,8 @@
       margin-right: auto;
       padding-top: 50%;
       padding-bottom: 50%;
+
+      @include flex(column, flex-end);
     }
   }
 

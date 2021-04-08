@@ -1,12 +1,12 @@
 @import 'styles/utils/mixins';
 
 .mediasWrapper {
-  @include flex(column, center, center);
-
   width: 100%;
   height: 100%;
   margin-top: 50px;
   margin-bottom: 70px;
+
+  @include flex(column, center, center);
 
   @include below-tablet {
     margin-top: 30px;
@@ -14,11 +14,11 @@
   }
 
   .images {
-    @include flex(column, center);
-
     position: relative;
     width: calc(100% + (180px * 2));
     height: 100%;
+
+    @include flex(column, center);
 
     @include macbook-twelve {
       position: relative;
@@ -30,9 +30,9 @@
     }
 
     .row {
-      @include flex(row);
-
       height: 100%;
+
+      @include flex(row);
 
       &:not(:first-of-type) {
         margin: 15px 0 0 0;
@@ -65,8 +65,6 @@
   }
 
   .photoCaption {
-    @include fontSize(11px);
-
     margin-top: 15px;
     line-height: 1.2;
     width: 100%;
@@ -74,5 +72,7 @@
     text-align: center;
     letter-spacing: 0.5px;
     opacity: 0.8;
+
+    @include fontSize(11px);
   }
 }

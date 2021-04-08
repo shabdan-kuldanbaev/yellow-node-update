@@ -60,24 +60,24 @@
   }
 
   ul {
-    @include flex(row, space-between, center);
-
     width: 100%;
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
     line-height: 2;
 
-    @include below-tablet {
-      @include flex(row, flex-start, center);
+    @include flex(row, space-between, center);
 
+    @include below-tablet {
       flex-wrap: wrap;
+
+      @include flex(row, flex-start, center);
     }
 
     @include phone {
-      @include flex(column, flex-start, center);
-
       line-height: 1;
+
+      @include flex(column, flex-start, center);
     }
 
     li {

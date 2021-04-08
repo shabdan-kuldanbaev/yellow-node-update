@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 @import 'styles/utils/mixins';
 
 .addressTitle {
@@ -23,10 +25,10 @@
 }
 
 .locationAddress {
-  @include flex(column, center, flex-start);
-
   color: $gray;
   font-size: calc(#{$max-content-width} * 0.0195 * 1.2);
+
+  @include flex(column, center, flex-start);
 
   @include macbook-fifteen {
     font-size: calc((100vw - 160px) * 0.0195);
@@ -48,57 +50,53 @@
   }
 }
 
-.email > a {
-  position: relative;
-  text-decoration: none;
-  transition: color $accelerated-transition-time;
-  color: $black;
-
-  &::before {
-    width: 98%;
-    content: '';
-    cursor: pointer;
-    position: absolute;
-    bottom: -5px;
-    right: 1%;
-    border-bottom: 1.5px $black solid;
-    transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-}
-
-.phoneNumber > a {
-  text-decoration: none;
-  color: $black;
-  position: relative;
-  width: 99%;
-  left: 0.5%;
-  transition: color $accelerated-transition-time;
-  font-size: calc(#{$max-content-width} * 0.0195 * 1.2);
-
-  @include macbook-fifteen {
-    font-size: calc((100vw - 160px) * 0.0195);
-  }
-
-  &:hover {
-    cursor: pointer;
-    color: $turbo-100;
-
-    &::before {
-      border-bottom: 1px $turbo-100 solid;
-    }
-  }
+.phoneNumber {
+  @include flex(column, center, flex-start);
 
   @include below-tablet {
-    line-height: 1.5;
-    font-size: 1.875rem;
+    align-items: center;
+    text-align: center;
+    width: 280px;
   }
 
   @include phone {
-    font-size: 1.25rem;
+    width: 182px;
   }
 
-  &:last-child {
-    margin-top: 0.6vw;
+  a {
+    text-decoration: none;
+    color: $black;
+    position: relative;
+    width: 99%;
+    left: 0.5%;
+    transition: color $accelerated-transition-time;
+    font-size: calc(#{$max-content-width} * 0.0195 * 1.2);
+
+    @include macbook-fifteen {
+      font-size: calc((100vw - 160px) * 0.0195);
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $turbo-100;
+
+      &::before {
+        border-bottom: 1px $turbo-100 solid;
+      }
+    }
+
+    @include below-tablet {
+      line-height: 1.5;
+      font-size: 1.875rem;
+    }
+
+    @include phone {
+      font-size: 1.25rem;
+    }
+
+    &:last-child {
+      margin-top: 0.6vw;
+    }
   }
 }
 
@@ -119,6 +117,24 @@
     font-size: 1.25rem;
   }
 
+  a {
+    position: relative;
+    text-decoration: none;
+    transition: color $accelerated-transition-time;
+    color: $black;
+
+    &::before {
+      width: 98%;
+      content: '';
+      cursor: pointer;
+      position: absolute;
+      bottom: -5px;
+      right: 1%;
+      border-bottom: 1.5px $black solid;
+      transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+
   &:hover {
     cursor: pointer;
 
@@ -130,19 +146,5 @@
         transform: translateZ(0);
       }
     }
-  }
-}
-
-.phoneNumber {
-  @include flex(column, center, flex-start);
-
-  @include below-tablet {
-    align-items: center;
-    text-align: center;
-    width: 280px;
-  }
-
-  @include phone {
-    width: 182px;
   }
 }

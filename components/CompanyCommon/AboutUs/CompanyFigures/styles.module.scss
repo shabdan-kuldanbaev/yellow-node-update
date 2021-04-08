@@ -14,11 +14,11 @@
   }
 
   @include svga {
-    @include flex(row, space-around, end, wrap);
-
     width: 100%;
     margin-top: 60px;
     margin-bottom: 0;
+
+    @include flex(row, space-around, end, wrap);
   }
 
   & > div {
@@ -31,9 +31,9 @@
     }
 
     @include phone {
-      @include flex(row, center, initial, wrap);
-
       width: 50%;
+
+      @include flex(row, center, initial, wrap);
 
       &:nth-of-type(3),
       &:nth-of-type(4) {

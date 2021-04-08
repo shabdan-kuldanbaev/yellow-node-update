@@ -24,10 +24,10 @@
 }
 
 .portfolio {
-  @include flex(column, flex-start, center);
-
   padding: 0 $side-indent 200px $side-indent;
   overflow: hidden;
+
+  @include flex(column, flex-start, center);
 
   @include phone {
     padding: 0 $side-indent $mobile-section-indent;
@@ -49,10 +49,10 @@
     }
 
     .subtitle {
-      @include flex(column, center, center);
-
       color: $white;
       max-width: 550px;
+
+      @include flex(column, center, center);
 
       @include phone {
         font-size: 0.875rem;

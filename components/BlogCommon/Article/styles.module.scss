@@ -2,8 +2,6 @@
 @import '../styles.module.scss';
 
 .h1 {
-  @include fontSize(44px);
-
   width: 100%;
   margin: 0;
   padding: 0;
@@ -11,6 +9,8 @@
   line-height: 1.2;
   letter-spacing: -2px;
   color: $timber-green;
+
+  @include fontSize(44px);
 
   @include macbook-fifteen {
     @include fontSize(42px);
@@ -29,9 +29,9 @@
   }
 
   @include phone {
-    @include fontSize(25px);
-
     line-height: 1.4;
+
+    @include fontSize(25px);
   }
 }
 
@@ -63,21 +63,21 @@
   }
 
   .header {
-    @include flex(row, center, center);
-
     width: 100%;
     padding: 140px 0 0;
     margin-bottom: 8vh;
     color: $black;
+
+    @include flex(row, center, center);
 
     @include desktop {
       min-height: 50vh;
     }
 
     @include tablet {
-      @include flex(column, center, center);
-
       margin-bottom: 0;
+
+      @include flex(column, center, center);
     }
 
     @include phone {
@@ -137,13 +137,13 @@
       }
 
       & > p {
-        @include fontSize(21px);
-
         color: $mirage;
         line-height: 1.5;
         padding: 0;
         margin: 4vh 0 0;
         font-weight: 500;
+
+        @include fontSize(21px);
 
         @include macbook-fifteen {
           @include fontSize(20px);
@@ -162,9 +162,9 @@
         }
 
         @include phone {
-          @include fontSize(15px);
-
           line-height: 1.4;
+
+          @include fontSize(15px);
         }
       }
     }

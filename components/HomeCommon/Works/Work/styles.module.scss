@@ -1,8 +1,6 @@
 @import 'styles/utils/mixins';
 
 .work {
-  @include flex(row, space-evenly, center);
-
   position: relative;
   z-index: 5;
   width: calc(100% - (80 * 2));
@@ -12,19 +10,92 @@
   transition-timing-function: linear;
   min-height: 100vh;
 
+  @include flex(row, space-evenly, center);
+
+  @include tablet {
+    margin: auto;
+    min-height: auto;
+    padding: 100px 0;
+  }
+
+  @include below-tablet-horizontal {
+    @include flex(row, center, center);
+  }
+
+  @include below-tablet {
+    height: auto;
+
+    @include flex(column, space-evenly, center);
+
+    &:nth-child(1n) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  @include horizontal-big-mobile {
+    @include flex(row, center, center);
+
+    &:nth-child(1n) {
+      flex-direction: row;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  @include horizontal-iphone-x {
+    @include flex(row, center, center);
+
+    &:nth-child(1n) {
+      flex-direction: row;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  @include phone {
+    padding: 100px 0 0;
+    height: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+
+    @include flex(column-reverse, center, center);
+
+    &:nth-child(1n) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  @include horizontal-mobile {
+    padding: 50px 0;
+
+    @include flex(row, center, center);
+
+    &:nth-child(1n) {
+      flex-direction: row;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
+  }
+
   .desc {
     z-index: 3;
 
     @include ultra-hd {
-      @include flex(column, center, center);
-
       width: 50%;
+
+      @include flex(column, center, center);
     }
 
     @include full-hd {
-      @include flex(column, center, center);
-
       width: 50%;
+
+      @include flex(column, center, center);
     }
 
     @include below-tablet {
@@ -73,13 +144,13 @@
       }
 
       @include phone {
-        @include flex(column, center, flex-start);
-
         width: 100%;
         max-width: 100%;
         margin: 0;
         padding-left: 0;
         text-align: left;
+
+        @include flex(column, center, flex-start);
       }
 
       .buttonWrap {
@@ -357,77 +428,6 @@
           margin-left: -6.5vw;
         }
       }
-    }
-  }
-
-  @include tablet {
-    margin: auto;
-    min-height: auto;
-    padding: 100px 0;
-  }
-
-  @include below-tablet-horizontal {
-    @include flex(row, center, center);
-  }
-
-  @include below-tablet {
-    @include flex(column, space-evenly, center);
-
-    height: auto;
-
-    &:nth-child(1n) {
-      flex-direction: column-reverse;
-    }
-  }
-
-  @include horizontal-big-mobile {
-    @include flex(row, center, center);
-
-    &:nth-child(1n) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
-    }
-  }
-
-  @include horizontal-iphone-x {
-    @include flex(row, center, center);
-
-    &:nth-child(1n) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
-    }
-  }
-
-  @include phone {
-    @include flex(column-reverse, center, center);
-
-    padding: 100px 0 0;
-    height: auto;
-    margin-right: 20px;
-    margin-left: 20px;
-
-    &:nth-child(1n) {
-      flex-direction: column-reverse;
-    }
-  }
-
-  @include horizontal-mobile {
-    @include flex(row, center, center);
-
-    padding: 50px 0;
-
-    &:nth-child(1n) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
     }
   }
 

@@ -34,13 +34,12 @@
     border: 0;
     background: transparent;
     font-weight: 500;
-
-    @include fontSize(64px);
-
     outline: none;
     color: $black;
     overflow-x: scroll;
     font-family: $default-font;
+
+    @include fontSize(64px);
 
     &::placeholder {
       color: $mountain-mis;
@@ -52,23 +51,23 @@
     }
 
     @include phone {
-      @include fontSize(32px);
-
       padding: 0;
       margin-bottom: 60px;
       width: 100%;
+
+      @include fontSize(32px);
     }
   }
 }
 
 .foundArticles {
-  @include flex(column, flex-start, flex-start);
-
   background: transparent;
   padding: 50px 55px 150px;
   max-width: 1500px;
   width: 100%;
   min-height: calc(100vh - 230px - 487px);
+
+  @include flex(column, flex-start, flex-start);
 
   @include macbook-fifteen {
     width: calc(100% - (2 * 55px));

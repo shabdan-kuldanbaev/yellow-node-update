@@ -1,8 +1,6 @@
 @import 'styles/utils/mixins';
 
 .cookiesNotification {
-  @include flex(row, space-between, center);
-
   margin: auto 0;
   padding: 10px 0 10px 20px;
   width: 100%;
@@ -12,10 +10,12 @@
   left: 0;
   z-index: 9999;
 
-  @include phone {
-    @include flex(column, center, center);
+  @include flex(row, space-between, center);
 
+  @include phone {
     padding: 35px 0;
+
+    @include flex(column, center, center);
   }
 
   p {

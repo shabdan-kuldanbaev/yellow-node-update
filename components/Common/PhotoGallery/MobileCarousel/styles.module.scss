@@ -1,13 +1,13 @@
 @import 'styles/utils/mixins';
 
 .gallerySection {
-  @include flex(column, center, center, wrap);
-
   position: relative;
   background-color: $white;
   max-height: 100vh;
   padding: 200px 0;
   z-index: 0;
+
+  @include flex(column, center, center, wrap);
 
   @include horizontal-mobile {
     padding: 25px 0;
@@ -22,8 +22,6 @@
   }
 
   div {
-    @include flex(column, center, center, wrap);
-
     overflow: scroll;
     height: 500px;
     max-height: auto;
@@ -36,6 +34,8 @@
     z-index: 0;
     will-change: transform;
     scroll-behavior: smooth;
+
+    @include flex(column, center, center, wrap);
 
     @include below-tablet {
       height: 300px;

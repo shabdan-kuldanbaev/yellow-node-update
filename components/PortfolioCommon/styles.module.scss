@@ -14,9 +14,9 @@
   }
 
   .workWrapper {
-    @include flex(row, space-between);
-
     width: 100%;
+
+    @include flex(row, space-between);
 
     @include ultra-hd {
       max-width: $max-content-width;
@@ -35,12 +35,12 @@
     }
 
     @include phone {
-      @include flex(column-reverse, center, center);
-
       height: auto;
       margin-bottom: 0;
       margin-top: 0;
       padding-bottom: 100px;
+
+      @include flex(column-reverse, center, center);
 
       &:first-child {
         padding-top: 0;
@@ -49,15 +49,13 @@
     }
 
     @include horizontal-mobile {
-      @include flex(row, center, flex-start);
-
       height: auto;
+
+      @include flex(row, center, flex-start);
     }
   }
 
   .work {
-    @include flex(row, space-between, center);
-
     position: relative;
     z-index: 5;
     width: 100%;
@@ -66,6 +64,8 @@
     transition: background-color $default-transition-time ease;
     transition-timing-function: linear;
     margin-top: 200px;
+
+    @include flex(row, space-between, center);
 
     &:first-child {
       margin-top: 250px;
@@ -82,12 +82,12 @@
     }
 
     @include tablet {
-      @include flex(column-reverse, flex-end, center);
-
       width: 100%;
       height: auto;
       margin: auto;
       padding-bottom: 120px;
+
+      @include flex(column-reverse, flex-end, center);
 
       &:first-child {
         height: auto;
@@ -100,12 +100,12 @@
     }
 
     @include phone {
-      @include flex(column-reverse, center, center);
-
       height: auto;
       margin-bottom: 0;
       margin-top: 0;
       padding-bottom: 0;
+
+      @include flex(column-reverse, center, center);
 
       &:first-child {
         padding-top: 0;
@@ -114,9 +114,9 @@
     }
 
     @include horizontal-mobile {
-      @include flex(row, center, center);
-
       height: auto;
+
+      @include flex(row, center, center);
 
       &:first-child {
         margin-top: 120px;
@@ -124,10 +124,10 @@
     }
 
     .desc {
-      @include flex(column, flex-start, flex-start);
-
       width: 40%;
       margin-top: 60px;
+
+      @include flex(column, flex-start, flex-start);
 
       @include tablet {
         width: 100%;
@@ -181,13 +181,13 @@
         }
 
         @include phone {
-          @include flex(column, center, flex-start);
-
           width: 100%;
           max-width: 100%;
           margin: 0;
           padding-left: 0;
           text-align: left;
+
+          @include flex(column, center, flex-start);
         }
 
         @include horizontal-mobile {

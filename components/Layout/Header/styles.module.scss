@@ -11,8 +11,6 @@
 }
 
 .headerContainer {
-  @include flex(row, space-between, center);
-
   position: fixed;
   top: 0;
   left: 0;
@@ -22,6 +20,8 @@
   padding: 10px 17px;
   opacity: 1;
   transition: padding $default-transition-time;
+
+  @include flex(row, space-between, center);
 
   @include phone {
     width: calc(100% - 30px);
@@ -75,9 +75,9 @@
     transition: width $default-transition-time ease;
 
     & > a {
-      @include flex(row, flex-start, center);
-
       position: relative;
+
+      @include flex(row, flex-start, center);
 
       img {
         width: 44px;

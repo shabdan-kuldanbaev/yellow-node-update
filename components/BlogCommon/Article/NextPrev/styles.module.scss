@@ -1,9 +1,9 @@
 @import 'styles/utils/mixins';
 
 .newer {
-  @include flex (row);
-
   margin-right: $max-article-margin;
+
+  @include flex (row);
 
   @include desktop {
     margin-right: $min-article-margin;
@@ -25,9 +25,9 @@
 }
 
 .older {
-  @include flex (row-reverse);
-
   margin-left: $max-article-margin;
+
+  @include flex (row-reverse);
 
   @include desktop {
     margin-left: $min-article-margin;
@@ -141,11 +141,11 @@
     }
 
     .title {
-      @include fontSize(26px);
-
       font-weight: 600;
       line-height: 1.5;
       margin: 12px 0 0;
+
+      @include fontSize(26px);
 
       @include desktop {
         @include fontSize(22px);

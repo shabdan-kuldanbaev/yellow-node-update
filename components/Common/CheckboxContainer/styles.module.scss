@@ -1,12 +1,12 @@
 @import 'styles/utils/mixins';
 
 .checkbox {
-  @include flex(row, flex-start, center);
-
   position: relative;
   padding-left: 25px;
   cursor: pointer;
   user-select: none;
+
+  @include flex(row, flex-start, center);
 
   span {
     font-size: 0.75rem !important;

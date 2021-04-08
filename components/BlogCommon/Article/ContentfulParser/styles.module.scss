@@ -30,11 +30,11 @@
 }
 
 .imageWrapper {
-  @include flex(column, center, center);
-
   width: 100%;
   margin-top: 50px;
   margin-bottom: 70px;
+
+  @include flex(column, center, center);
 
   @include below-tablet {
     margin-top: 30px;
@@ -95,8 +95,6 @@
     }
 
     .photoCaption {
-      @include fontSize(11px);
-
       margin-top: 15px;
       line-height: 1.2;
       width: 100%;
@@ -104,6 +102,8 @@
       text-align: center;
       letter-spacing: 0.5px;
       opacity: 0.8;
+
+      @include fontSize(11px);
 
       @include below-tablet {
         width: calc(100% - 30px);

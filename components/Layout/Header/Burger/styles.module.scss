@@ -34,9 +34,9 @@
   cursor: pointer;
 
   @include phone {
-    @include flex(column, center, flex-end);
-
     z-index: -1;
+
+    @include flex(column, center, flex-end);
   }
 
   div {

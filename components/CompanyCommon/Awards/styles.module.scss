@@ -1,9 +1,9 @@
 @import 'styles/utils/mixins';
 
 .awards {
-  @include flex(row, center, center);
-
   width: 100%;
+
+  @include flex(row, center, center);
 
   @include ultra-hd {
     max-width: $max-content-width;

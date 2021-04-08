@@ -35,14 +35,12 @@ module.exports = {
           'global',
           'export',
           'import',
-          'local',
         ],
       },
     ],
     'property-no-unknown': [
       true,
       {
-        ignoreProperties: ['composes', 'compose-with'],
         ignoreSelectors: [':export', /^:import/],
       },
     ],

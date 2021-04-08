@@ -1,12 +1,12 @@
 @import 'styles/utils/mixins';
 
 .selectionBlock {
-  @include flex(row, space-between, center);
-
   position: relative;
   max-width: 1500px;
   width: calc(1500px - #{$side-indent});
   margin: 0 12px;
+
+  @include flex(row, space-between, center);
 
   @include macbook-fifteen {
     width: calc(100% - #{$side-indent});
@@ -35,13 +35,13 @@
   }
 
   .buttons {
-    @include flex(row, flex-end, center);
-
     min-height: 43px;
     width: 25%;
     position: relative;
     z-index: 1;
     transition: z-index 0.5s cubic-bezier(0.575, 0.41, 0.3, 1);
+
+    @include flex(row, flex-end, center);
 
     @include phone {
       width: auto;

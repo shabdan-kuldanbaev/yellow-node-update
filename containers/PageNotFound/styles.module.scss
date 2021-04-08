@@ -1,8 +1,6 @@
 @import 'styles/utils/mixins';
 
 .pageNotFound {
-  @include flex(column, center, center);
-
   max-width: 100vw;
   max-height: 100vh;
   height: 80vh;
@@ -12,6 +10,8 @@
   background-color: $white !important;
   color: $black;
   font-size: 1.2rem;
+
+  @include flex(column, center, center);
 
   @include quad-hd {
     height: 70vh;
