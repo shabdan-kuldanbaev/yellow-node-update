@@ -6,9 +6,9 @@ import styles from './styles.module.scss';
 const LoadingPlaceholder = () => {
   const { contextData: { isFirstHomepageVisit } } = useContext(AppContext);
 
-  return (!isFirstHomepageVisit
+  return !isFirstHomepageVisit
     ? <LoadingScreen />
-    : <div className={styles.placeholder} />);
+    : <div className={styles.placeholder} />;
 };
 
 export default LoadingPlaceholder;

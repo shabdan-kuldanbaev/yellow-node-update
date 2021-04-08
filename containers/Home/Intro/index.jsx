@@ -59,8 +59,6 @@ Intro.propTypes = {
 };
 
 export default connect(
-  (state) => ({
-    isMobileMenuOpened: selectIsMobileMenuOpened(state),
-  }),
+  (state) => ({ isMobileMenuOpened: selectIsMobileMenuOpened(state) }),
   { setScrollOfAddedFooter },
 )(Intro);

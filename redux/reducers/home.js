@@ -3,7 +3,6 @@ import { actionTypes } from 'actions/actionTypes';
 const initialState = {
   scrollOfAddedFooter: {},
   duck: null,
-  err: null,
 };
 
 const handlers = {
