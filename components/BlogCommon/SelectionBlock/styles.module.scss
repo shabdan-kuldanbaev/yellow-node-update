@@ -115,6 +115,7 @@
 
     .categoryTitleInHeader {
       display: none;
+      outline: none;
 
       @include phone {
         display: block;

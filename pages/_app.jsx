@@ -38,6 +38,14 @@ const App = ({ Component, pageProps }) => {
     };
   }, [dispatch]);
 
+  useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side');
+
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
   return (
     <AppContext.Provider value={{ contextData, setContextData }}>
       <ThemeProvider theme={customTheme}>

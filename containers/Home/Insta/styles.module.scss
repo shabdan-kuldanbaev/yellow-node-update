@@ -21,6 +21,7 @@
       background-color $default-transition-time,
       color $default-transition-time,
       border-color $default-transition-time;
+    outline: none;
 
     &:hover {
       transition:
