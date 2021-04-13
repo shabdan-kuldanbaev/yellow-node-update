@@ -7,24 +7,22 @@ export const CallToAction = ({
   title,
   subtitle,
   buttonTitle,
-}) => {
-  const handleOnClick = () => {};
-
-  return (
-    <div className={styles.callToAction}>
-      <h2>{title}</h2>
-      {subtitle && <p>{subtitle}</p>}
-      <ButtonMore
-        title={buttonTitle}
-        buttonStyle={styles.button}
-        handleOnClick={handleOnClick}
-      />
-    </div>
-  );
-};
+  href,
+}) => (
+  <div className={styles.callToAction}>
+    <h2>{title}</h2>
+    {subtitle && <p>{subtitle}</p>}
+    <ButtonMore
+      href={href}
+      title={buttonTitle}
+      buttonStyle={styles.button}
+    />
+  </div>
+);
 
 CallToAction.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   buttonTitle: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
 };
