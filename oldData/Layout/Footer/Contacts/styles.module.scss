@@ -1,0 +1,275 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/theme/animations';
+
+.contactsContainer {
+  @include higher-phone {
+    overflow: hidden;
+  }
+
+  .mobileFooterTitle {
+    margin-bottom: 60px;
+    font-size: 1.8rem;
+  }
+
+  & > div {
+    display: block;
+    text-align: left;
+
+    h2 {
+      text-align: left;
+      display: none;
+    }
+
+    @include higher-phone {
+      text-align: center;
+
+      h2 {
+        text-align: center;
+        display: block;
+      }
+    }
+  }
+
+  .text {
+    opacity: 0.32;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+    color: $white;
+    margin-top: 80px;
+    display: flex;
+
+    & > span {
+      display: block;
+    }
+
+    @include higher-phone {
+      @include flex(column, flex-start, center);
+
+      margin-top: 70px;
+
+      span:first-child {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .rocket {
+    @include flex(column, center, center);
+
+    text-align: center;
+    position: relative;
+
+    & > div:nth-of-type(1) {
+      display: none;
+      z-index: 5;
+
+      @include phone {
+        display: block;
+        max-width: 120px;
+        margin-top: 40px;
+      }
+    }
+
+    @function box-shadow($stars) {
+      $bxshadow: ();
+
+      @for $i from 1 to $stars {
+        $bxshadow: append($bxshadow, (random(400) + 0) (random(200) + 0) gray, comma);
+      }
+
+      @return unquote($bxshadow);
+    }
+
+    $bxshadow-small: box-shadow(15);
+    $bxshadow-middle: box-shadow(8);
+
+    img {
+      display: none;
+    }
+
+    @include higher-phone {
+      .stars {
+        position: absolute;
+        height: 2px;
+        width: 2px;
+        border-radius: 50%;
+        z-index: 0;
+        box-shadow: $bxshadow-small;
+        will-change: transform;
+        transform: translate(-130px, -80px);
+        animation: flicker 2.2s linear infinite;
+      }
+
+      .stars2 {
+        position: absolute;
+        height: 3px;
+        width: 3px;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: $bxshadow-middle;
+        will-change: transform;
+        transform: translate(-130px, -80px);
+        animation: flicker 3s linear infinite 1s;
+      }
+
+      .stars3 {
+        position: absolute;
+        height: 2px;
+        width: 2px;
+        border-radius: 50%;
+        z-index: 0;
+        box-shadow: $bxshadow-small;
+        will-change: transform;
+        transform: translate(-130px, -80px);
+        animation: flicker 1.5s linear infinite 1.5s;
+      }
+    }
+  }
+
+  .contacts > span > a {
+    font-size: 1rem;
+    text-decoration: none;
+    color: $silver;
+    font-weight: 500;
+    position: relative;
+    width: 99%;
+    left: 0.5%;
+    border-bottom: 1px $woodsmoke solid;
+    transition: color $accelerated-transition-time;
+  }
+
+  .social > .icons > a {
+    cursor: pointer;
+    margin-right: 20px;
+    display: inline-block;
+    width: max-content;
+
+    img {
+      height: 33px;
+      width: 33px;
+      will-change: transform;
+      transform: translateY(0);
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+
+  .contacts {
+    @include flex(column);
+
+    span {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: $white;
+      margin-bottom: 10px;
+
+      a:hover {
+        cursor: pointer;
+        color: $turbo-100;
+
+        &::before {
+          border-bottom: 1px $turbo-100 solid;
+        }
+      }
+
+      &:not(:nth-child(2n)) {
+        margin-top: 25px;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    span:nth-of-type(2) {
+      padding-bottom: 4px;
+
+      a {
+        position: relative;
+        text-decoration: none;
+        transition: color $accelerated-transition-time;
+
+        &::before {
+          width: 98%;
+          content: '';
+          cursor: pointer;
+          position: absolute;
+          bottom: -5px;
+          right: 1%;
+          border-bottom: 1.5px $silver solid;
+          transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    @include higher-phone {
+      @include flex(column, flex-start, center);
+    }
+  }
+
+  .social {
+    margin-top: 30px;
+
+    @include higher-phone {
+      margin-top: 80px;
+    }
+
+    .icons {
+      margin-top: 15px;
+
+      a:last-child {
+        margin-right: 0;
+      }
+
+      @include higher-phone {
+        a:last-child {
+          img {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .contscts > span:nth-of-type(2):hover > a {
+    color: $turbo-100;
+
+    &::before {
+      width: 0;
+      will-change: transition;
+      transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      transform: translateZ(0);
+    }
+  }
+
+  .estimationButton {
+    display: none;
+    margin-top: $mobile-more-button-indent;
+
+    @include higher-phone {
+      display: block;
+    }
+
+    .button {
+      @include button-more($woodsmoke, $woodsmoke, $turbo-100, $turbo-100);
+
+      margin-top: 50px;
+      border-radius: $button-border-radius;
+      min-width: 330px;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      @include higher-phone {
+        min-width: 300px;
+        margin: 60px auto 0 auto;
+      }
+    }
+  }
+}

@@ -12,10 +12,9 @@ import {
   fetchBlogData,
   loadArticles,
 } from 'redux/sagas/blog';
-import { loadJSON } from 'redux/sagas/process';
-import { selectIsFirstHomepageVisit } from 'redux/selectors/home';
-import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import { actionTypes } from 'redux/actions/actionTypes';
+import { loadJSON } from 'redux/sagas/process';
+import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import { artificialDelay, loadDuck } from 'utils/helper';
 import { contentfulClient } from 'utils/ContentfulClient';
 import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
@@ -38,9 +37,12 @@ function* fetchPage({ slug }) {
   }
 }
 
-function* fetchDuck() {
+function* fetchDuck({ payload: { isFirstHomepageVisit } }) {
   try {
-    const duck = yield loadDuck();
+    const [duck] = yield all([
+      yield loadDuck(),
+      !isFirstHomepageVisit && !(yield select(selectIsFirstPageLoaded)) && (yield call(artificialDelay, 4000)),
+    ]);
 
     yield put({ type: actionTypes.SET_DUCK, payload: duck });
   } catch (err) {
@@ -61,13 +63,9 @@ function* fetchPageData({
   try {
     switch (slug) {
     case PAGES.homepage: {
-      const isFirstHomeVisitAndPageLoaded = !(yield select(selectIsFirstHomepageVisit)) && !(yield select(selectIsFirstPageLoaded));
-
       yield all([
-        yield call(fetchDuck),
         yield call(fetchPage, { slug }),
         yield call(loadArticles, { currentLimit: DEFAULT_ARTICLES_LIMIT }),
-        ...(isFirstHomeVisitAndPageLoaded ? [yield call(artificialDelay, 4000)] : []),
       ]);
 
       break;
@@ -112,5 +110,6 @@ export function* fetchPageWatcher() {
   yield all([
     yield takeLatest(actionTypes.FIND_ARTICLES_PENDING, findArticles),
     yield takeLatest(actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING, fetchPageData),
+    yield takeLatest(actionTypes.SET_DUCK_PENDING, fetchDuck),
   ]);
 }

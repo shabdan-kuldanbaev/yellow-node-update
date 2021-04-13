@@ -4,7 +4,8 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 100px 0px;
+  padding: 100px 0;
+
   @include flex(column, space-around, flex-start);
 
   @include ultra-hd {
@@ -39,11 +40,13 @@
   & > div:first-child {
     max-width: 660px;
     width: 100%;
-    @include flex(column, space-around, flex-start);
     text-align: left;
+
+    @include flex(column, space-around, flex-start);
 
     & > div:nth-of-type(1) > h2 {
       @include big-title();
+
       margin-bottom: 70px;
 
       @include phone {
@@ -54,6 +57,7 @@
 
   .managers {
     width: 100%;
+
     @include flex(row, space-between, flex-start, wrap);
 
     & > div {
@@ -71,7 +75,6 @@
         &:not(:first-child) {
           margin-top: 35px;
         }
-
       }
 
       .imageContainer {

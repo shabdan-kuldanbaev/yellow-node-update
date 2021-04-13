@@ -13,27 +13,29 @@
   }
 
   .thumbnailsContainer {
-    @include flex(row, initial, center);
     max-width: 720px;
     margin: 0 auto;
 
-    .icon {  
+    @include flex(row, initial, center);
+
+    .icon {
       &Twitter {
         background-image: url("./images/twitter.svg");
       }
-  
+
       &Facebook {
         background-image: url("./images/facebook.svg");
       }
     }
 
     .svgContainer {
-      @include flex(row, center, center);
       width: 80px;
       height: 80px;
       cursor: pointer;
       background-color: $athens-gray;
       transition: background-color 0.2s ease;
+
+      @include flex(row, center, center);
 
       @include phone {
         width: 60px;
@@ -64,12 +66,11 @@
     }
   }
 
-  .messageContainer{
+  .messageContainer {
     max-width: 720px;
     margin: 15px auto;
 
-    .shareLinkInfo{
-      @include fontSize(10px);
+    .shareLinkInfo {
       font-weight: 700;
       padding: 6px 8px 6px 10px;
       letter-spacing: 2px;
@@ -79,6 +80,8 @@
       border-radius: 4px;
       background-color: $turbo-100;
       transition: opacity 0.2s ease-out;
+
+      @include fontSize(10px);
     }
 
     .appear {

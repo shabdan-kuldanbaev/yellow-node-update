@@ -1,8 +1,9 @@
 @import 'styles/utils/mixins';
 
 .advantages {
-  @include flex(column, center, center);
   min-height: calc(100vh - 100px * 2);
+
+  @include flex(column, center, center);
 
   @include ultra-hd {
     padding: 300px $side-indent $section-indent;
@@ -19,16 +20,17 @@
   @include tablet {
     min-height: auto;
   }
-  
+
   @include phone {
     padding: $mobile-section-indent $side-indent;
   }
 
   .subtitle {
-    @include flex(column, center, center);
     line-height: 1.55;
     letter-spacing: 0.5px;
     text-align: center;
     color: $black;
+
+    @include flex(column, center, center);
   }
 }

@@ -3,12 +3,13 @@
 .gallerySection {
   position: relative;
   background-color: $white;
-  @include flex(column, center, center);
   flex-wrap: wrap;
   max-height: 100vh;
   padding: 200px 0;
   z-index: 1;
   overflow: hidden;
+
+  @include flex(column, center, center);
 
   @include below-tablet {
     padding: 25px 0;
@@ -63,8 +64,8 @@
       .unorderedList {
         list-style: none;
         height: 100%;
+
         @include flex(row, center, center);
-        display: flex;
 
         & li {
           display: flex;

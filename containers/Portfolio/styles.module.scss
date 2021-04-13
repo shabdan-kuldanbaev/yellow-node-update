@@ -1,9 +1,10 @@
 @import 'styles/utils/mixins';
 
 .portfolio {
-  @include flex(column, flex-start, center);
   padding: 0 $side-indent;
   background-color: $white;
+
+  @include flex(column, flex-start, center);
 
   @include macbook-fifteen {
     padding: 0 80px;
@@ -14,6 +15,6 @@
   }
 
   @include phone {
-    padding: 100px $side-indent 0px;
+    padding: 100px $side-indent 0;
   }
 }
