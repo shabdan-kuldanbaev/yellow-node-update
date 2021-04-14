@@ -1,0 +1,65 @@
+@import 'styles/utils/mixins';
+
+.callToAction {
+  margin-bottom: 250px;
+  padding: 0 20px;
+
+  @include flex(column, center, center);
+
+  @include macbook-fifteen {
+    padding: 0 80px;
+  }
+
+  @include tablet {
+    padding: 0 20px;
+  }
+
+  h2 {
+    text-align: center;
+
+    @include fontSize(45px);
+
+    @include below-tablet {
+      @include fontSize(35px);
+    }
+
+    @include phone {
+      @include fontSize(28px);
+    }
+  }
+
+  p {
+    text-align: center;
+    line-height: 1.8;
+
+    @include fontSize(20px);
+
+    @include phone {
+      @include fontSize(16px);
+    }
+  }
+
+  .button {
+    @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+
+    border-radius: $button-border-radius;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 16px 0;
+    margin-top: 80px;
+    border: none;
+    transform: scale(1);
+
+    @include flex (row, center);
+
+    &:hover {
+      border: none;
+      transform: scale(0.96);
+    }
+
+    @include phone {
+      font-weight: 500;
+    }
+  }
+}
