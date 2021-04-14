@@ -9,6 +9,7 @@
   bottom: 0;
   left: 0;
   z-index: 9999;
+  outline: none;
 
   @include flex(row, space-between, center);
 
@@ -48,6 +49,7 @@
     will-change: transform;
     transform: translateX(-90px);
     z-index: 9999;
+    outline: none;
 
     @include below-tablet {
       transform: translateX(-80px);
@@ -66,6 +68,7 @@
     position: absolute;
     right: 40px;
     bottom: 25%;
+    outline: none;
 
     &:hover {
       cursor: pointer;
