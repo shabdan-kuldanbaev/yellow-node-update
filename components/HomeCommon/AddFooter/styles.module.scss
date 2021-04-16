@@ -6,9 +6,10 @@
   left: 0;
   top: calc(100vh - 100px);
   z-index: 99999;
-  @include flex(row, space-between, center);
   width: calc(100% - 70px);
   padding: 45px 35px;
+
+  @include flex(row, space-between, center);
 
   .scrollTitle {
     display: none;
@@ -17,10 +18,12 @@
   @include phone {
     top: 81vh;
     width: 100%;
-    padding: 0px;
+    padding: 0;
+
     @include flex(row, center, center);
 
-    & > div, svg {
+    & > div,
+    svg {
       display: none;
     }
 
@@ -29,7 +32,7 @@
       font-size: 0.8125rem;
       color: $white;
       text-transform: uppercase;
-      opacity: .5;
+      opacity: 0.5;
       animation: blinking 1.7s infinite ease;
       animation-delay: 2s;
       cursor: pointer;

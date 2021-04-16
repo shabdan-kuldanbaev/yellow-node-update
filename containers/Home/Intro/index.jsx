@@ -1,16 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  setScrollOfAddedFooter,
-  setHomepageVisit,
-  setFirstHomepageVisit,
-} from 'redux/actions/home';
-import {
-  selectDuck,
-  selectIsHomepageVisit,
-  selectIsFirstHomepageVisit,
-} from 'redux/selectors/home';
+import { setScrollOfAddedFooter } from 'redux/actions/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import {
   AddFooter,
@@ -24,41 +15,21 @@ const Intro = ({
   introSection,
   isMobileMenuOpened,
   duck,
-  isHomepageVisit,
-  setScrollOfAddedFooter: setScroll,
-  setHomepageVisit: setHomeVisit,
-  setFirstHomepageVisit: setFirstHomeVisit,
   isFirstHomepageVisit,
-}) => {
-  useEffect(() => () => {
-    if (!isHomepageVisit) {
-      setHomeVisit(true);
-    }
-
-    if (!isFirstHomepageVisit) {
-      setFirstHomeVisit(true);
-    }
-  }, [
-    isFirstHomepageVisit,
-    isHomepageVisit,
-    setFirstHomeVisit,
-    setHomeVisit,
-  ]);
-
-  return (
-    <section ref={introSection} className={styles.intro}>
-      <Duck duck={duck} isHomepageVisit={isHomepageVisit} />
-      <AddFooter
-        theme={theme}
-        isModelLoaded={!!duck}
-        setScroll={setScroll}
-        isMobileMenuOpened={isMobileMenuOpened}
-        isFirstHomepageVisit={isFirstHomepageVisit}
-      />
-      <Partners />
-    </section>
-  );
-};
+  setScrollOfAddedFooter: setScroll,
+}) => (
+  <section ref={introSection} className={styles.intro}>
+    <Duck duck={duck} />
+    <AddFooter
+      theme={theme}
+      isModelLoaded={!!duck}
+      setScroll={setScroll}
+      isMobileMenuOpened={isMobileMenuOpened}
+      isFirstHomepageVisit={isFirstHomepageVisit}
+    />
+    <Partners />
+  </section>
+);
 
 Intro.defaultProps = {
   theme: 'dark',
@@ -69,23 +40,11 @@ Intro.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setScrollOfAddedFooter: PropTypes.func.isRequired,
-  setFirstHomepageVisit: PropTypes.func.isRequired,
-  isFirstHomepageVisit: PropTypes.bool.isRequired,
   duck: PropTypes.instanceOf(Object).isRequired,
-  isHomepageVisit: PropTypes.bool.isRequired,
-  setHomepageVisit: PropTypes.func.isRequired,
+  isFirstHomepageVisit: PropTypes.bool.isRequired,
 };
 
 export default connect(
-  (state) => ({
-    isMobileMenuOpened: selectIsMobileMenuOpened(state),
-    duck: selectDuck(state),
-    isHomepageVisit: selectIsHomepageVisit(state),
-    isFirstHomepageVisit: selectIsFirstHomepageVisit(state),
-  }),
-  {
-    setScrollOfAddedFooter,
-    setHomepageVisit,
-    setFirstHomepageVisit,
-  },
+  (state) => ({ isMobileMenuOpened: selectIsMobileMenuOpened(state) }),
+  { setScrollOfAddedFooter },
 )(Intro);

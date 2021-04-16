@@ -63,17 +63,17 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    @include flex(row, space-between, center);
-    flex-wrap: wrap;
     line-height: 2;
 
+    @include flex(row, space-between, center, wrap);
+
     @include below-tablet {
-      @include flex(row, flex-start, center);
-      flex-wrap: wrap;
+      @include flex(row, flex-start, center, wrap);
     }
 
     @include phone {
       line-height: 1;
+
       @include flex(column, flex-start, center);
     }
 

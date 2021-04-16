@@ -8,6 +8,7 @@ import React, {
   useRef,
   Fragment,
   useState,
+  useContext,
 } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
@@ -16,6 +17,7 @@ import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/Rende
 import { Animated } from 'components';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
+import { AppContext } from 'utils/appContext';
 import { animationTypes } from './utils/data';
 import {
   three,
@@ -32,13 +34,11 @@ const meshClones = [];
 let composer;
 let mat = 0;
 
-export const Duck = ({
-  duck,
-  isHomepageVisit,
-}) => {
+export const Duck = ({ duck }) => {
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);
   const [canvas, setCanvas] = useState(null);
+  const { contextData: { isHomepageVisit } } = useContext(AppContext);
 
   const containerCanvas = useRef(null);
   const containerText = useRef(null);
@@ -437,7 +437,6 @@ Duck.defaultProps = {
 
 Duck.propTypes = {
   duck: PropTypes.instanceOf(Object),
-  isHomepageVisit: PropTypes.bool.isRequired,
 };
 
 // TODO

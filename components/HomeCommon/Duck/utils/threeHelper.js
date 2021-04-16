@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'node_modules/three/examples/jsm/loaders/DRACOLoader';
 import anime from 'animejs';
+import { getPathWithCdn } from 'utils/helper';
 import { shaders } from './data';
 
 export const three = {
@@ -12,7 +13,7 @@ export const three = {
     dracoLoader.setDecoderPath('/draco/gltf/');
     loader.setDRACOLoader(dracoLoader);
     loader.load(
-      '/models/Duck_2.gltf',
+      getPathWithCdn('/models/Duck_2.gltf'),
       (gltf) => { callback(gltf.scene); },
     );
   },
