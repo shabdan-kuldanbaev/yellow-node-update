@@ -30,7 +30,7 @@ export const Location = ({
       dataRef.current.classList.remove(styles.showUnderline);
       dataRef.current.children[0].style.transition = 'transform 0s 0s';
     }
-  }, [isShow]);
+  }, [animationDelay, isShow]);
 
   useEffect(() => {
     const handleOnScroll = () => {

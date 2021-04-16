@@ -1,10 +1,13 @@
+/* stylelint-disable no-descending-specificity */
+
 @import 'styles/utils/mixins';
 
 .paginationWrapper {
-  @include flex(row, center, center);
   will-change: transform;
   transform: scale(0.9);
   margin-top: $section-indent;
+
+  @include flex(row, center, center);
 
   @include tablet {
     margin-top: 60px;
@@ -27,6 +30,7 @@
     line-height: 40px;
     background-color: transparent;
     transition: color $default-transition-time;
+    outline: none;
 
     &:hover {
       color: $mid-gray;
@@ -35,9 +39,10 @@
   }
 
   .paginationContainer {
-    @include flex(row, flex-start, center);
     padding-left: 0;
     list-style: none;
+
+    @include flex(row, flex-start, center);
 
     li {
       padding: 15px;
@@ -60,7 +65,7 @@
         }
       }
 
-      &>a {
+      & > a {
         font-family: $default-font;
         color: $black;
         text-decoration: none;
@@ -98,9 +103,10 @@
     }
 
     .paginationItem {
-      @include flex(row, center, center);
       cursor: pointer;
       padding: 5px;
+
+      @include flex(row, center, center);
 
       a {
         font-weight: normal;

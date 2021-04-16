@@ -1,9 +1,10 @@
 @import 'styles/utils/mixins';
 
 .process {
-  @include flex(column, flex-start, center);
-  padding: 0px $side-indent;
+  padding: 0 $side-indent;
   background-color: $white;
+
+  @include flex(column, flex-start, center);
 
   @include macbook-fifteen {
     padding: 0 80px;
@@ -14,7 +15,7 @@
   }
 
   @include phone {
-    padding: 0px $side-indent 0px;
+    padding: 0 $side-indent 0;
 
     & > div {
       margin-bottom: 50px;

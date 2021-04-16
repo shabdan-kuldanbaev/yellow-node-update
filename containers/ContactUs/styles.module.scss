@@ -3,9 +3,10 @@
 .contactContainer {
   position: relative;
   z-index: 2;
-  @include flex(column, center, center);
   padding: 0 80px 100px;
   background-color: $white;
+
+  @include flex(column, center, center);
 
   @include tablet {
     padding: calc(81px + 40px) 40px 0;

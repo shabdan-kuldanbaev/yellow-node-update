@@ -1,18 +1,20 @@
 @import 'styles/utils/mixins';
 
 .uploadFile {
-  @include flex(column, initial, initial, wrap);
   width: 100%;
   margin-top: 60px;
+
+  @include flex(column, initial, initial, wrap);
 
   @include below-tablet {
     margin-top: 40px;
   }
 
   .attachmentManage {
-    @include flex(row, flex-start, center);
     position: relative;
     width: 100%;
+
+    @include flex(row, flex-start, center);
 
     & > div {
       width: 100%;
@@ -29,7 +31,7 @@
       cursor: pointer;
       right: 0;
       bottom: 0;
-      margin-top: -.9em;
+      margin-top: -0.9em;
 
       svg {
         height: auto;
@@ -37,12 +39,13 @@
         @include phone {
           width: 13px;
         }
-        
+
         g {
           path {
             fill: $nobel;
             filter: brightness(1);
-            transition: fill $default-transition-time,
+            transition:
+              fill $default-transition-time,
               filter $default-transition-time;
           }
         }
@@ -53,7 +56,8 @@
           g {
             path {
               fill: $gray;
-              transition: fill $default-transition-time,
+              transition:
+                fill $default-transition-time,
                 filter $default-transition-time;
             }
           }
@@ -64,11 +68,11 @@
 
   hr {
     width: 100%;
-    height: 0px;
+    height: 0;
     border: 0 none;
     background-color: $iron;
     will-change: transform;
-    transform: translateY(0px);
+    transform: translateY(0);
   }
 
   .attachedFiles {
@@ -78,11 +82,12 @@
 
     .file {
       width: auto;
-      @include flex(row, space-between, center, wrap);
       padding: 5px 10px;
       border-radius: 2.5px;
       background-color: $athens-gray;
       color: $black;
+
+      @include flex(row, space-between, center, wrap);
 
       @include phone {
         font-size: 0.75rem;
@@ -106,6 +111,7 @@
       span:first-child {
         margin-right: auto;
         width: 65%;
+
         @include hidden-text();
 
         @include phone {
@@ -128,8 +134,9 @@
     }
 
     .moreFilesLink {
-      @include flex(column, center, center);
       padding: 5px 0;
+
+      @include flex(column, center, center);
 
       label {
         color: $silver;

@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import isObject from 'lodash/isObject';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
 import {
   PAGES,
@@ -29,7 +30,8 @@ export const addThousandsSeparators = (value) => value.toString().replace(/\B(?=
 export const toInt = (str) => parseInt(str, 10);
 
 export const validateEmail = (email) => {
-  const reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  // eslint-disable-next-line max-len
+  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (reg.test(email) === false) {
     return false;
@@ -78,6 +80,8 @@ export const getMainLinksForSitemap = (updatedAt) => [
 export const rootUrl = process.env.NODE_ENV === 'development'
   ? process.env.DEV_URL
   : process.env.PROD_URL;
+
+export const isCustomDomain = rootUrl.includes(process.env.CUSTOM_DOMAIN);
 
 export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
 
@@ -144,7 +148,7 @@ export const loadDuck = async () => {
 
     return duck;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -164,10 +168,12 @@ export const getFeedbackFormData = (data) => {
   return formData;
 };
 
+export const isNumeric = (value) => !isNaN(value);
+
 export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
-  typeof value === 'object'
+  isObject(value)
     ? acc[key] = addCdnToImages(value)
     : acc[key] = getPathWithCdn(value);
 

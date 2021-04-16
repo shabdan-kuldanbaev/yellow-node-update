@@ -12,13 +12,14 @@ export const BookmarkCard = ({
   title,
   image,
 }) => {
+  const { path, dynamicPath } = ROUTES.article.getRoute(slug);
   const linkProps = {
     isLocalLink: true,
-    path: ROUTES.article.path(slug),
-    dynamicRouting: ROUTES.article.dynamicPath,
+    path,
+    dynamicRouting: dynamicPath,
   };
 
-  return (
+  return slug && (
     <div className={styles.bookmarkContainer}>
       <div className={styles.bookmarkCard}>
         <div className={styles.content}>

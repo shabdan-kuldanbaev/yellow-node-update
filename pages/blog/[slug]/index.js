@@ -1,27 +1,26 @@
 import React from 'react';
-import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
-import { ArticleContainer } from 'containers';
-import { PAGES } from 'utils/constants';
+import { useRouter } from 'next/router';
+import { ArticleContainer, BlogContainer } from 'containers';
+import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
 
-const Article = () => <ArticleContainer />;
-
-Article.getInitialProps = async ({
-  store,
-  query: { slug },
-  req,
+const Article = ({
+  deviceLimit,
+  currentPage,
+  introSection,
 }) => {
-  store.dispatch(fetchLayoutData({
-    articleSlug: slug,
-    slug: PAGES.article,
-  }));
+  const { query: { slug } } = useRouter();
 
-  if (req) {
-    store.dispatch(END);
-    await store.sagaTask.toPromise();
-  }
-
-  return {};
+  return isArticle(slug)
+    ? <ArticleContainer introSection={introSection} />
+    : (
+      <BlogContainer
+        deviceLimit={deviceLimit}
+        currentPage={currentPage}
+        introSection={introSection}
+      />
+    );
 };
+
+Article.getInitialProps = async (ctx) => getInitialBlogProps(ctx);
 
 export default Article;

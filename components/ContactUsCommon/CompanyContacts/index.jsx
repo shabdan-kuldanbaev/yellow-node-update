@@ -10,7 +10,7 @@ import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
-export const CompanyContacts = ({ photo, animatedFields }) => {
+export const CompanyContacts = ({ photo, animatedFields: animatedFieldsList }) => {
   const imgContainer = useRef(null);
   const [isShow, setShow] = useState(false);
 
@@ -47,8 +47,8 @@ export const CompanyContacts = ({ photo, animatedFields }) => {
         />
       </div>
       <address className={styles.address}>
-        {animatedFields && animatedFields.map((animated, index) => (
-          <Animated {...animated} key={`fields/${index}`}>
+        {animatedFieldsList && animatedFieldsList.map((animated) => (
+          <Animated {...animated} key={`fields/${animated.field}`}>
             <FieldsWrapper animated={animated} />
           </Animated>
         ))}

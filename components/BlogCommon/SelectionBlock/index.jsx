@@ -18,7 +18,6 @@ import Categories from './Categories';
 import styles from './styles.module.scss';
 
 const SelectionBlock = ({
-  urlPath,
   isMobileCategoties,
   setMobileCategoriesState: setMobileCategories,
   handleOnSubmit,
@@ -40,11 +39,7 @@ const SelectionBlock = ({
 
   return (
     <div className={cn(styles.selectionBlock, { [styles.showCategories]: isMobileCategoties })}>
-      <Categories
-        urlPath={urlPath}
-        isMobileCategoties={isMobileCategoties}
-        closeMobileCategoties={closeMobileCategoties}
-      />
+      <Categories isMobileCategoties={isMobileCategoties} closeMobileCategoties={closeMobileCategoties} />
       {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
         <div className={styles.imgContainer}>
@@ -61,7 +56,12 @@ const SelectionBlock = ({
           title="Subscribe"
           buttonStyle={styles.button}
         />
-        <span className={styles.categoryTitleInHeader} onClick={openMobileCategoties}>
+        <span
+          className={styles.categoryTitleInHeader}
+          onClick={openMobileCategoties}
+          role="button"
+          tabIndex="0"
+        >
           Categories
         </span>
       </div>
@@ -80,7 +80,6 @@ SelectionBlock.defaultProps = {
 };
 
 SelectionBlock.propTypes = {
-  urlPath: PropTypes.string.isRequired,
   isMobileCategoties: PropTypes.bool.isRequired,
   setMobileCategoriesState: PropTypes.func.isRequired,
   handleOnSubmit: PropTypes.func,

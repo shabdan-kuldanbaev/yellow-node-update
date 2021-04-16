@@ -13,19 +13,24 @@ const Paginator = ({
   pagesCounter,
   currentPage,
 }) => {
-  const { pathname, query: { slug: category } } = useRouter();
+  const { query: { slug: category } } = useRouter();
   let [mobilePrevious, desktopPrevious, mobileNext, desktopNext] = ['', '', '', ''];
 
   if (currentPage > 2) mobilePrevious = pagesCounter > 3 ? 'start' : '';
+
   if (currentPage > 3) desktopPrevious = pagesCounter > 4 ? 'start' : '';
+
   if (currentPage <= (pagesCounter - 2)) mobileNext = pagesCounter > 4 ? arrows.next : '';
+
   if (currentPage <= (pagesCounter - 3)) desktopNext = pagesCounter > 5 ? 'next' : '';
 
   const pushRouter = (currentCategory, nextPage) => {
+    const { path, dynamicPath } = ROUTES.blog.getRoute(currentCategory, nextPage);
+
     window.scrollTo(0, 0);
     Router.push(
-      { pathname },
-      { pathname: ROUTES.blog.getPath(currentCategory, nextPage) },
+      { pathname: dynamicPath },
+      { pathname: path },
     );
   };
   const handleOnPreviousClick = () => pushRouter(category, 1);
@@ -33,7 +38,12 @@ const Paginator = ({
 
   return (
     <div className={styles.paginationWrapper}>
-      <span className={styles.paginationPrev} onClick={handleOnPreviousClick}>
+      <span
+        className={styles.paginationPrev}
+        onClick={handleOnPreviousClick}
+        role="button"
+        tabIndex="0"
+      >
         {isMobileResolution ? mobilePrevious : desktopPrevious}
       </span>
       <ReactPaginate

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { default as Work } from './Work';
+import Work from './Work';
 import styles from './styles.module.scss';
 
 export const Works = ({ refs, works }) => (

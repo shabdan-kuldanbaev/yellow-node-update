@@ -33,7 +33,6 @@ const FeedbackForm = ({
   const [projectBudget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
   const [projectDescription, setDescription] = useState('');
-  const [isSendNDAChecked, setIsSendNDAChecked] = useState(false); // TODO check it and remove from here if unused
   const [isDisabled, setIsDisabled] = useState(false);
   const sliderSettings = {
     ...budgetData,
@@ -65,7 +64,6 @@ const FeedbackForm = ({
     email.value,
     projectDescription,
     selectedFiles,
-    isSendNDAChecked,
     projectBudget,
   );
 

@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 @import 'styles/utils/mixins';
 
 .addressTitle {
@@ -23,9 +25,10 @@
 }
 
 .locationAddress {
-  @include flex(column, center, flex-start);
   color: $gray;
   font-size: calc(#{$max-content-width} * 0.0195 * 1.2);
+
+  @include flex(column, center, flex-start);
 
   @include macbook-fifteen {
     font-size: calc((100vw - 160px) * 0.0195);
@@ -77,7 +80,7 @@
       cursor: pointer;
       color: $turbo-100;
 
-      &:before {
+      &::before {
         border-bottom: 1px $turbo-100 solid;
       }
     }
@@ -120,7 +123,7 @@
     transition: color $accelerated-transition-time;
     color: $black;
 
-    &:before {
+    &::before {
       width: 98%;
       content: '';
       cursor: pointer;
@@ -136,7 +139,7 @@
     cursor: pointer;
 
     a {
-      &:before {
+      &::before {
         width: 0;
         will-change: transition;
         transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);

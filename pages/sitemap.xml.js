@@ -9,12 +9,16 @@ import { ROUTES } from 'utils/constants';
 import { contentfulClient } from 'utils/ContentfulClient';
 
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
-const buildUrlObject = (data) => data.map((item) => ({
-  loc: { '#text': `${rootUrl}${item.path}` },
-  lastmod: { '#text': item.updatedAt.split('T')[0] },
-  changefreq: { '#text': 'daily' },
-  priority: { '#text': '1.0' },
-}));
+const buildUrlObject = (data) => data.map((item) => {
+  const isHomepage = item.path === ROUTES.homepage.path;
+
+  return ({
+    loc: { '#text': `${rootUrl}${item.path}` },
+    lastmod: { '#text': item.updatedAt },
+    changefreq: { '#text': isHomepage ? 'always' : 'weekly' },
+    priority: { '#text': isHomepage ? '1.0' : '0.5' },
+  });
+});
 
 const Sitemap = () => (null);
 
@@ -28,7 +32,7 @@ Sitemap.getInitialProps = async ({ res }) => {
       const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
 
       return ({
-        path: ROUTES.article.path(slug),
+        path: ROUTES.article.getRoute(slug).path,
         updatedAt: getDate(Date.parse(publishedAt)),
       });
     });
@@ -65,7 +69,7 @@ Sitemap.getInitialProps = async ({ res }) => {
 
     return;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

@@ -22,26 +22,27 @@ const BlogContainer = ({
   deviceLimit,
   isMobileResolution,
   totalArticles,
-  subscribe,
-  setIsSubscribed,
+  subscribe: addNewSubscriber,
+  setIsSubscribed: setSubscribed,
   currentPage,
 }) => {
-  const { asPath, pathname } = useRouter();
+  const { pathname } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
 
   const handleOnFormSubmit = (email) => {
-    subscribe({ email, pathname });
+    addNewSubscriber({ email, pathname });
   };
 
   useEffect(() => {
-    setIsSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
+    setSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <Fragment>
       <MetaTags page={PAGES.blog} />
       <section ref={introSection} className={styles.blog}>
-        {!isMobileResolution && <SelectionBlock urlPath={asPath} handleOnSubmit={handleOnFormSubmit} />}
+        {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
           articles={articles}
           isBlogPage

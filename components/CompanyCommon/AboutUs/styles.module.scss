@@ -3,11 +3,12 @@
 .aboutUs {
   position: relative;
   z-index: 2;
-  @include flex(row, space-between, center, wrap);
   padding-bottom: 100px;
   width: 100%;
   height: auto;
   margin-top: 81px;
+
+  @include flex(row, space-between, center, wrap);
 
   @include ultra-hd {
     margin-top: 160px;
@@ -50,8 +51,9 @@
   & > div:first-child {
     position: relative;
     z-index: 2;
+
     @include flex(column, space-around, flex-start);
-    
+
     @include tablet {
       @include flex(column, center, flex-start);
     }
@@ -63,11 +65,13 @@
     & > div:first-child {
       max-width: 550px;
       width: 100%;
-      @include flex(column, space-around, flex-start);
       text-align: left;
-  
+
+      @include flex(column, space-around, flex-start);
+
       & > div:nth-of-type(1) > h1 {
         @include big-title();
+
         margin-bottom: 50px;
       }
     }
@@ -80,7 +84,7 @@
           width: 550px;
           font-weight: 500;
           line-height: 1.88;
-    
+
           @include svga {
             width: 100%;
             font-size: 1rem;
@@ -88,7 +92,7 @@
             letter-spacing: 0.5px;
             margin-bottom: 20px;
           }
-    
+
           @include below-tablet-horizontal {
             font-size: 1rem;
           }
@@ -104,8 +108,9 @@
 
     .buttons {
       width: 100%;
-      @include flex(row, flex-start, center, wrap);
       margin-top: 80px;
+
+      @include flex(row, flex-start, center, wrap);
 
       @include macbook-twelve {
         margin-top: 50px;
@@ -125,15 +130,17 @@
 
       .submit {
         @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
+
         border-radius: $button-border-radius;
         min-width: 290px;
         margin: 0;
         font-weight: 600;
+        outline: none;
 
         @include higher-phone {
           min-width: 38vw;
         }
-        
+
         @include phone {
           min-width: 300px;
           margin: 60px auto 0;
@@ -141,14 +148,15 @@
       }
 
       & > div:first-child {
-        a {
-          width: 100%;
-          height: 100%;
-        }
         margin-right: 55px;
 
         @include below-tablet {
           margin-right: 0;
+        }
+
+        a {
+          width: 100%;
+          height: 100%;
         }
       }
     }

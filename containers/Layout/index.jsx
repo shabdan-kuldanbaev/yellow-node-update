@@ -28,29 +28,28 @@ export const Layout = ({
   children,
   theme,
   introSection,
-  sendEmail,
+  sendEmail: sendFeedback,
 }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
-  const handleOnClick = (...args) => { // TODO after release (three repetitions in the code)
+  // TODO after release (three repetitions in the code - handleOnClick)
+  const handleOnClick = (...args) => {
     const [
       fullName,
       email,
       projectDescription,
       selectedFiles,
-      isSendNDAChecked,
       projectBudget,
     ] = args;
 
-    sendEmail({
+    sendFeedback({
       fullName,
       email,
       projectDescription,
       files: selectedFiles,
-      isSendNDAChecked,
       projectBudget,
     });
     closeFullscreenEstimation();
@@ -74,7 +73,7 @@ export const Layout = ({
     window.addEventListener('resize', handleOnResize);
 
     return () => window.removeEventListener('resize', handleOnResize);
-  }, []);
+  }, [dispatch]);
 
   return (
     <Fragment>

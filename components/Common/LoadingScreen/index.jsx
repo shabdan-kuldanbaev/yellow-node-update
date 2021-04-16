@@ -10,7 +10,7 @@ import styles from './styles.module.scss';
 const LoadingScreen = ({
   isPageReadyToDisplay,
   isFirstPageLoaded,
-  setFirstPageLoaded,
+  setFirstPageLoaded: setPageLoaded,
 }) => {
   const loadRef = useRef(null);
   const isPageLoading = useRef(false);
@@ -26,8 +26,12 @@ const LoadingScreen = ({
   useEffect(() => {
     isPageLoading.current = !isPageReadyToDisplay;
 
-    return () => !isFirstPageLoaded && setFirstPageLoaded(true);
-  }, [isPageReadyToDisplay]);
+    return () => !isFirstPageLoaded && setPageLoaded(true);
+  }, [
+    isFirstPageLoaded,
+    isPageReadyToDisplay,
+    setPageLoaded,
+  ]);
 
   return (
     <div ref={loadRef} className={styles.loadingPage}>

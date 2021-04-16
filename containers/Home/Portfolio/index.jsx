@@ -90,9 +90,11 @@ const Portfolio = ({ gradientRef, projects }) => {
 
   useEffect(() => {
     handleOnScroll();
+
     window.addEventListener('scroll', handleOnScroll);
 
     return () => window.removeEventListener('scroll', handleOnScroll);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

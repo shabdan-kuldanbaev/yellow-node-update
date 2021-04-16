@@ -12,11 +12,7 @@ const RelatedSection = ({ articles }) => (
     <div className={styles.headingContainer}>
       <div className={styles.heading}>
         <h3>Related Posts</h3>
-        <LinkWrapper
-          isLocalLink
-          path={ROUTES.blog.path}
-          dynamicRouting={ROUTES.blog.dynamicPath}
-        >
+        <LinkWrapper isLocalLink path={ROUTES.blog.path}>
           See all posts
           <div className={styles.svgContainer}>
             <img src={Arrow} alt="arrow" />

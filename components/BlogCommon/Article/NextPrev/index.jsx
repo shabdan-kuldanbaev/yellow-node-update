@@ -12,13 +12,14 @@ const NextPrev = ({
   slug,
   title,
 }) => {
+  const { path, dynamicPath } = ROUTES.article.getRoute(slug);
   const linkProps = {
     isLocalLink: true,
-    path: ROUTES.article.path(slug),
-    dynamicRouting: ROUTES.article.dynamicPath,
+    path,
+    dynamicRouting: dynamicPath,
   };
 
-  return ((slug && title && previewImageUrl) && (
+  return slug && title && previewImageUrl && (
     <div className={cn({
       [styles.newer]: isNewer,
       [styles.older]: !isNewer,
@@ -38,7 +39,7 @@ const NextPrev = ({
         </h3>
       </div>
     </div>
-  ));
+  );
 };
 
 NextPrev.defaultProps = {

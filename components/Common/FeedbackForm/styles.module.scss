@@ -1,11 +1,12 @@
 @import 'styles/utils/mixins';
 
 .form {
-  @include flex(column, initial, center);
   width: 100%;
   max-height: auto;
   color: $silver;
   margin-bottom: 200px;
+
+  @include flex(column, initial, center);
 
   @include tablet {
     margin-bottom: 100px;
@@ -41,6 +42,16 @@
       font-size: 1.125rem;
       padding-top: 20px;
       padding-bottom: 8px;
+    }
+  }
+
+  .disabled {
+    pointer-events: none;
+    transition: none;
+
+    & > div {
+      color: $nobel;
+      border-color: $nobel;
     }
   }
 
@@ -105,23 +116,15 @@
 
   .submit {
     @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
+
     border-radius: $button-border-radius;
     min-width: 330px;
     font-weight: 600;
+    outline: none;
 
     @include phone {
       margin: 60px auto 0;
       min-width: 300px;
-    }
-  }
-
-  .disabled {
-    pointer-events: none;
-    transition: none;
-    
-    & > div {
-      color: $nobel;
-      border-color: $nobel;
     }
   }
 }

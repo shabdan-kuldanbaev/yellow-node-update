@@ -10,7 +10,7 @@ import { CompanyFigures } from './CompanyFigures';
 import { aboutUsText } from './utils/data';
 import styles from './styles.module.scss';
 
-export const AboutUs = ({ aboutUsText }) => {
+export const AboutUs = ({ aboutUsText: aboutUs }) => {
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -23,7 +23,7 @@ export const AboutUs = ({ aboutUsText }) => {
       <div>
         <SectionTitle title="About us" isMainTitle />
         <div className={styles.aboutUsText}>
-          {aboutUsText && aboutUsText.map((paragraph, index) => (
+          {aboutUs && aboutUs.map((paragraph, index) => (
             <Animated
               key={`paragraph${index}`}
               {...animatedProps}
