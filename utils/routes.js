@@ -74,6 +74,60 @@ export const routes = {
       ...dynamicPortfolioPaths,
     },
     slug: 'portfolio',
+    categories: [
+      {
+        title: 'Online Video',
+        slug: 'online-video',
+      },
+      {
+        title: 'Real-Time Communication',
+        slug: 'real-time-communication',
+      },
+      {
+        title: 'DAM/MAM',
+        slug: 'dam-mam',
+      },
+      {
+        title: 'Computer Vision',
+        slug: 'computer-vision',
+      },
+      {
+        title: 'Content Management',
+        slug: 'content-management',
+      },
+      {
+        title: 'Business Intelligence',
+        slug: 'business-intelligence',
+      },
+      {
+        title: 'BPM/BPA',
+        slug: 'bpm-bpa',
+      },
+      {
+        title: 'CRM',
+        slug: 'crm',
+      },
+      {
+        title: 'eCommerce',
+        slug: 'ecommerce',
+      },
+      {
+        title: 'eLearning',
+        slug: 'elearning',
+      },
+      {
+        title: 'Adtech/Martech',
+        slug: 'adtech-martech',
+      },
+      {
+        title: 'FinTech',
+        slug: 'fintech',
+      },
+      {
+        title: 'IoT',
+        slug: 'iot',
+      },
+    ],
   },
   process: {
     title: 'Process',

@@ -23,4 +23,8 @@
   @include macbook-fifteen {
     margin-top: 0;
   }
+
+  @include phone {
+    transform: scale(1);
+  }
 }
