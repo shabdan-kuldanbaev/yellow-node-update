@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
+import ReactGA from 'react-ga';
 import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
 import {
   PAGES,
@@ -26,6 +27,8 @@ export const themes = {
 };
 
 export const addThousandsSeparators = (value) => value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+export const removeThousandsSeparators = (value) => parseInt(value.replace(',', ''), 10);
 
 export const toInt = (str) => parseInt(str, 10);
 
@@ -157,11 +160,21 @@ export const getFeedbackFormData = (data) => {
 
   Object.entries(FEEDBACK_FORM_FIELDS).forEach(([key]) => {
     if (data[key]) {
-      if (key === FEEDBACK_FORM_FIELDS.files) {
-        [...data[key]].forEach((file) => formData.append(key, file));
+      if (key === FEEDBACK_FORM_FIELDS.attachments) {
+        [...data[key]].forEach((file) => formData.append('attachments[]', file));
+      } else if (key === FEEDBACK_FORM_FIELDS.projectBudget) {
+        formData.append(key, removeThousandsSeparators(data[key]));
       } else {
         formData.append(key, data[key]);
       }
+    }
+
+    if (key === FEEDBACK_FORM_FIELDS.clientId) {
+      let clientId;
+      ReactGA.ga((tracker) => {
+        clientId = tracker.get('clientId');
+      });
+      formData.append(key, clientId);
     }
   });
 
@@ -184,3 +197,13 @@ export const staticImagesUrls = ({
   ...addCdnToImages(IMAGES),
   ...IMAGES_WITHOUT_CDN,
 });
+
+export const getConvertedFileSize = (size) => {
+  const kilobytes = (size / 1024).toFixed(2);
+
+  if (kilobytes > 1024) {
+    return `${(kilobytes / 1000).toFixed(2)} MB`;
+  }
+
+  return `${kilobytes} kB`;
+};

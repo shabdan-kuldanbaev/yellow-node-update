@@ -20,8 +20,12 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "lint-staged": {
-    "*.scss": ["yarn lint:style"],
-    "*.{js,jsx}": ["yarn lint:js"]
+    "*.scss": [
+      "yarn lint:style"
+    ],
+    "*.{js,jsx}": [
+      "yarn lint:js"
+    ]
   },
   "husky": {
     "hooks": {
@@ -33,8 +37,10 @@
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
     "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.3",
     "@next/bundle-analyzer": "^10.0.3",
+    "@react-spring/web": "^9.1.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "animate.css": "^3.7.2",
@@ -53,6 +59,8 @@
     "es6-object-assign": "^1.1.0",
     "es6-promise": "^4.2.8",
     "express": "^4.17.1",
+    "file-to-array-buffer": "^1.0.0",
+    "form-data": "^4.0.0",
     "lodash": "^4.17.15",
     "mailchimp-api-v3": "^1.14.0",
     "md5": "^2.3.0",

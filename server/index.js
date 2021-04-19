@@ -5,6 +5,7 @@ const multer = require('multer');
 const compression = require('compression');
 const path = require('path');
 const cors = require('cors');
+const axios = require('axios');
 const {
   httpsRedirect,
   clearUrlRedirect,
@@ -12,7 +13,6 @@ const {
 } = require('./middleware/redirect');
 const mailhelper = require('./mail/mailhelper');
 const subscribeHelper = require('./subscribe/subscribeHelper');
-const { getFeedBackMessage } = require('./mail/messages');
 const { processes } = require('./utils/data');
 
 dotenv.config('./env');
@@ -38,9 +38,9 @@ app
     server.use(express.urlencoded({ extended: false }));
     server.use(compression());
 
-    server.post('/send', upload.array('files'), async (req, res) => {
+    server.post('/send', upload.array('attachments'), async (req, res) => {
       try {
-        await mailhelper.sendMail(getFeedBackMessage(req), res);
+        await mailhelper.sendContact(req, res);
       } catch (err) {
         console.error(err);
       }
@@ -56,6 +56,30 @@ app
 
     server.get('/json', (req, res) => {
       res.status(200).json(processes);
+    });
+
+    server.post('/get-signed-url', async (req, res) => {
+      try {
+        const { fileName } = req.body;
+
+        const { data: { signed_url } } = await axios.post(
+          'https://yellow-erp-backend-dev.herokuapp.com/api/v1/integrations/contact-form/upload-url',
+          {
+            file_name: fileName,
+          },
+          {
+            headers: {
+              Authorization: 'Bearer yellow-test',
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+          },
+        );
+
+        res.status(200).send(JSON.stringify(signed_url));
+      } catch (err) {
+        console.error(err);
+      }
     });
 
     server.get('*', (req, res) => handle(req, res));

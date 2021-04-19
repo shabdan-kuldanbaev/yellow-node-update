@@ -40,16 +40,16 @@ export const Layout = ({
     const [
       fullName,
       email,
-      projectDescription,
-      selectedFiles,
+      description,
+      selectedFilesInfo,
       projectBudget,
     ] = args;
 
     sendFeedback({
-      fullName,
+      name: fullName,
       email,
-      projectDescription,
-      files: selectedFiles,
+      description,
+      attachments: selectedFilesInfo,
       projectBudget,
     });
     closeFullscreenEstimation();

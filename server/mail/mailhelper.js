@@ -1,36 +1,46 @@
 const dotenv = require('dotenv');
-const nodemailer = require('nodemailer');
+const axios = require('axios');
+const FormData = require('form-data');
 
 dotenv.config('./env');
 
-const user = process.env.EMAIL_USER;
-const transporter = nodemailer.createTransport({
-  service: process.env.EMAIL_SERVICE,
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
-  secure: true,
-  auth: {
-    user,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
-
-module.exports.sendMail = async (additionalMailOption, res) => {
+module.exports.sendContact = async (req, res) => {
   try {
-    const mailOptions = {
-      from: user,
-      to: process.env.EMAIL_SEND_TO,
-      ...additionalMailOption,
-    };
+    const {
+      name,
+      email,
+      description,
+      isSendNDAChecked,
+      projectBudget,
+      attachments,
+      clientId,
+    } = req.body;
 
-    await transporter.sendMail(mailOptions, (error) => {
-      if (error) {
-        res.status(502).json(JSON.stringify(false));
-      } else {
-        res.status(201).json(JSON.stringify(true));
-      }
-    });
+    const data = new FormData();
+    data.append('name', name);
+    data.append('email', email);
+    data.append('description', description);
+    data.append('client_id', clientId);
+
+    if (projectBudget) data.append('budget', +projectBudget);
+
+    if (attachments && attachments.lenght) {
+      attachments.forEach((file) => data.append('attachments[]', file));
+    }
+
+    const result = await axios.post(
+      'https://yellow-erp-backend-dev.herokuapp.com/api/v1/integrations/contact-form',
+      data,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.ERR_AUTH_TOKEN}`,
+          ...data.getHeaders(),
+        },
+      },
+    );
+
+    res.status(201).send(JSON.stringify(result.data));
   } catch (err) {
-    console.error(err);
+    res.status(502).send(JSON.stringify(err));
   }
 };

@@ -10,15 +10,15 @@ const FeedbackFormContainer = ({ sendEmail: sendFeedback }) => {
     const [
       fullName,
       email,
-      projectDescription,
-      selectedFiles,
+      description,
+      selectedFilesInfo,
     ] = args;
 
     sendFeedback({
-      fullName,
+      name: fullName,
       email,
-      projectDescription,
-      files: selectedFiles,
+      description,
+      attachments: selectedFilesInfo,
     });
   };
 

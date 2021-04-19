@@ -13,4 +13,5 @@ export const API = {
   sendEmail: (formData) => apiClient.post('/send', formData),
   subscribe: (email) => apiClient.post('/subscribe', { email }),
   getJSON: () => apiClient.get('/json'),
+  getSignedURL: (fileName) => apiClient.post('/get-signed-url', { fileName }),
 };

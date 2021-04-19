@@ -58,12 +58,13 @@ export const CATEGORY_SLUGS = Object.entries(routes.blog.categories).reduce((acc
 }, []);
 
 export const FEEDBACK_FORM_FIELDS = {
-  fullName: 'fullName',
+  name: 'name',
   email: 'email',
-  projectDescription: 'projectDescription',
+  description: 'description',
   isSendNDAChecked: 'isSendNDAChecked',
   projectBudget: 'projectBudget',
-  files: 'files',
+  attachments: 'attachments',
+  clientId: 'clientId',
 };
 
 export const IMAGES_WITHOUT_CDN = {
