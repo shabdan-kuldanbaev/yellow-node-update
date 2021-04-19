@@ -176,6 +176,7 @@
       min-width: 330px;
       font-weight: 600;
       text-transform: uppercase;
+      outline: none;
 
       @include higher-phone {
         min-width: 300px;

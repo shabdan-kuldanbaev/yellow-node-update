@@ -30,6 +30,7 @@
     line-height: 40px;
     background-color: transparent;
     transition: color $default-transition-time;
+    outline: none;
 
     &:hover {
       color: $mid-gray;

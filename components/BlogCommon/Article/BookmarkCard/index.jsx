@@ -37,7 +37,7 @@ export const BookmarkCard = ({
           </div>
         </div>
         <div className={styles.imgContainer}>
-          <ImageWithPlaceholder src={getOptimizedImage(image, 510)} />
+          <ImageWithPlaceholder src={getOptimizedImage(image, 720)} />
         </div>
       </div>
     </div>

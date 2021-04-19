@@ -96,6 +96,7 @@
           margin-top: 100px;
           border: none;
           transform: scale(1);
+          outline: none;
 
           @include flex(row, center);
 

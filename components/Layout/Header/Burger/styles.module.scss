@@ -32,6 +32,7 @@
   right: 0;
   padding: 27px 20px 27px 5.334vw;
   cursor: pointer;
+  outline: none;
 
   @include phone {
     z-index: -1;
