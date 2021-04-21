@@ -28,6 +28,7 @@ const BlogContainer = ({
 }) => {
   const { pathname } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
+  const blogMetadata = { pageNumber: currentPage };
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });
@@ -40,7 +41,7 @@ const BlogContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.blog} />
+      <MetaTags page={PAGES.blog} pageMetadata={blogMetadata} />
       <section ref={introSection} className={styles.blog}>
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList

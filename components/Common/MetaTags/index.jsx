@@ -12,6 +12,7 @@ export const MetaTags = ({
   page,
   ogMetaData: ogData,
   articleMetadata,
+  pageMetadata,
   children,
   microdata,
 }) => {
@@ -25,10 +26,12 @@ export const MetaTags = ({
     keyWords,
     slug,
   } = articleMetadata;
+  const { pageNumber } = pageMetadata;
   const isArticlePage = isArticle(slug);
   const isBlogCategory = (page === ROUTES.blog.slug && !isArticlePage);
 
-  const getTitle = (title) => (isArticlePage ? metaTitle : title);
+  const getTitleWithPage = (title) => (pageNumber && pageNumber !== 1 ? `Page ${pageNumber}. ${title}` : title);
+  const getTitle = (title) => (isArticlePage ? metaTitle : getTitleWithPage(title));
   const getDescription = (description) => (isArticlePage ? metaDescription : description);
   const getImage = (img) => (isArticlePage ? image : img);
   const getUrl = (url) => ((isArticlePage || isBlogCategory) ? `${rootUrl}${asPath}` : url);
@@ -86,6 +89,7 @@ MetaTags.defaultProps = {
   page: '',
   ogMetaData,
   articleMetadata: {},
+  pageMetadata: {},
   microdata: {},
   children: null,
 };
@@ -94,6 +98,7 @@ MetaTags.propTypes = {
   page: PropTypes.string,
   ogMetaData: PropTypes.instanceOf(Array),
   articleMetadata: PropTypes.instanceOf(Object),
+  pageMetadata: PropTypes.instanceOf(Object),
   microdata: PropTypes.instanceOf(Object),
   children: PropTypes.oneOfType([
     PropTypes.string,
