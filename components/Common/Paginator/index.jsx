@@ -11,7 +11,7 @@ import styles from './styles.module.scss';
 
 const Paginator = ({
   isMobileResolution,
-  arrows: navigation,
+  arrows: navigationArrows,
   pagesCounter,
   currentPage,
   pageSlug,
@@ -24,12 +24,12 @@ const Paginator = ({
 
   if (currentPage > 3) desktopPrevious = pagesCounter > 4 ? 'start' : '';
 
-  if (currentPage <= (pagesCounter - 2)) mobileNext = pagesCounter > 4 ? navigation.next : '';
+  if (currentPage <= (pagesCounter - 2)) mobileNext = pagesCounter > 4 ? navigationArrows.next : '';
 
   if (currentPage <= (pagesCounter - 3)) desktopNext = pagesCounter > 5 ? 'next' : '';
 
   const pushRouter = (currentCategory, nextPage) => {
-    const { path, dynamicPath } = ROUTES[`${pageSlug}`].getRoute(currentCategory, nextPage);
+    const { path, dynamicPath } = ROUTES[pageSlug].getRoute(currentCategory, nextPage);
 
     window.scrollTo(0, 0);
     Router.push(

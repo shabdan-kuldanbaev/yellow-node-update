@@ -2,7 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectPortfolioProjectsPreview } from 'redux/selectors/layout';
-import { Portfolio, MetaTags, Paginator } from 'components';
+import {
+  Portfolio,
+  MetaTags,
+  Paginator,
+} from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';

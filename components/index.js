@@ -34,7 +34,6 @@ export { CallToAction } from 'components/Common/CallToAction';
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';
 export { AdvantagesItems } from 'components/HomeCommon/AdvantagesItems';
-export { Duck } from 'components/HomeCommon/Duck';
 export { InstaLogo } from 'components/HomeCommon/InstaLogo';
 export { InstaTape } from 'components/HomeCommon/InstaTape';
 export { Partners } from 'components/HomeCommon/Partners';
