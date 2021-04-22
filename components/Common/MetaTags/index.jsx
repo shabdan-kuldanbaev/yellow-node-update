@@ -11,13 +11,7 @@ import { ogMetaData } from './utils/data';
 export const MetaTags = ({
   page,
   ogMetaData: ogData,
-  articleMetadata,
-  pageMetadata,
-  children,
-  microdata,
-}) => {
-  const { asPath } = useRouter();
-  const {
+  pageMetadata: {
     metaTitle,
     metaDescription,
     image,
@@ -25,13 +19,24 @@ export const MetaTags = ({
     categoryTag,
     keyWords,
     slug,
-  } = articleMetadata;
-  const { pageNumber } = pageMetadata;
+    pageNumber,
+  },
+  children,
+  microdata,
+}) => {
+  const { asPath } = useRouter();
   const isArticlePage = isArticle(slug);
   const isBlogCategory = (page === ROUTES.blog.slug && !isArticlePage);
 
-  const getTitleWithPage = (title) => (pageNumber && pageNumber !== 1 ? `Page ${pageNumber}. ${title}` : title);
-  const getTitle = (title) => (isArticlePage ? metaTitle : getTitleWithPage(title));
+  const getTitle = (title) => {
+    if (isArticlePage) {
+      return metaTitle;
+    }
+
+    return (pageNumber && pageNumber !== 1)
+      ? `Page ${pageNumber}. ${title}`
+      : title;
+  };
   const getDescription = (description) => (isArticlePage ? metaDescription : description);
   const getImage = (img) => (isArticlePage ? image : img);
   const getUrl = (url) => ((isArticlePage || isBlogCategory) ? `${rootUrl}${asPath}` : url);
@@ -88,18 +93,25 @@ export const MetaTags = ({
 MetaTags.defaultProps = {
   page: '',
   ogMetaData,
-  articleMetadata: {},
-  pageMetadata: {},
   microdata: {},
   children: null,
+  pageMetadata: {},
 };
 
 MetaTags.propTypes = {
   page: PropTypes.string,
   ogMetaData: PropTypes.instanceOf(Array),
-  articleMetadata: PropTypes.instanceOf(Object),
-  pageMetadata: PropTypes.instanceOf(Object),
   microdata: PropTypes.instanceOf(Object),
+  pageMetadata: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+    image: PropTypes.string,
+    publishedAt: PropTypes.string,
+    categoryTag: PropTypes.string,
+    keyWords: PropTypes.string,
+    slug: PropTypes.string,
+    pageNumber: PropTypes.string,
+  }),
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,

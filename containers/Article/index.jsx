@@ -107,7 +107,7 @@ const ArticleContainer = ({
     <Fragment>
       <MetaTags
         page={PAGES.blog}
-        articleMetadata={articleMetadata}
+        pageMetadata={articleMetadata}
         microdata={articleMicrodata}
       />
       <Article
