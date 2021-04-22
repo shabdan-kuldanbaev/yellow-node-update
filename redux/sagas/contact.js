@@ -17,9 +17,9 @@ function* sendEmail({ payload }) {
   try {
     const response = yield call(API.sendEmail, getFeedbackFormData(payload));
 
-    ReactGA.event({
-      category: 'Contact form',
-      action: 'Send',
+    ReactGA.ga('send', 'event', {
+      eventCategory: 'Contact Form',
+      eventAction: 'Send',
     });
 
     yield put({ type: actionTypes.SEND_EMAIL_SUCCESS, payload: response });
