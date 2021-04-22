@@ -40,7 +40,7 @@ const BlogContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.blog} />
+      <MetaTags page={PAGES.blog} pageMetadata={{ pageNumber: currentPage }} />
       <section ref={introSection} className={styles.blog}>
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
