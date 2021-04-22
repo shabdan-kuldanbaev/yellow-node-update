@@ -39,6 +39,7 @@ const ArticleContainer = ({
   const {
     slug: articleSlug,
     title,
+    description,
     oldBody,
     body,
     introduction,
@@ -54,6 +55,7 @@ const ArticleContainer = ({
     [
       'slug',
       'title',
+      'description',
       'oldBody',
       'body',
       'introduction',
@@ -84,8 +86,8 @@ const ArticleContainer = ({
   );
   const headImage = getFileUrl(headImageUrl);
   const articleMetadata = {
-    metaTitle,
-    metaDescription,
+    metaTitle: metaTitle || title,
+    metaDescription: metaDescription || description,
     publishedAt,
     image: headImage,
     keyWords,

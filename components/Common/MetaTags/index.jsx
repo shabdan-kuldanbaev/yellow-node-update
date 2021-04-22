@@ -110,7 +110,7 @@ MetaTags.propTypes = {
     categoryTag: PropTypes.string,
     keyWords: PropTypes.string,
     slug: PropTypes.string,
-    pageNumber: PropTypes.string,
+    pageNumber: PropTypes.number,
   }),
   children: PropTypes.oneOfType([
     PropTypes.string,
