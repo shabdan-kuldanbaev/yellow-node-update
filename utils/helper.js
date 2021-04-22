@@ -171,9 +171,11 @@ export const getFeedbackFormData = (data) => {
 
     if (key === FEEDBACK_FORM_FIELDS.clientId) {
       let clientId;
+
       ReactGA.ga((tracker) => {
         clientId = tracker.get('clientId');
       });
+
       formData.append(key, clientId);
     }
   });

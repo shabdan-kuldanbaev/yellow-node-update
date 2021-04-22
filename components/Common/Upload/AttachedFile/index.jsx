@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { uploadFile } from 'utils/fileUploadingUtils';
-import { getConvertedFileSize } from 'utils/helper';
+import { getConvertedFileSize, staticImagesUrls } from 'utils/helper';
 import { LinearWrapper } from './LinearWrapper';
-import unpinFile from '../images/unpin.svg';
 import styles from './styles.module.scss';
 
 export const AttachedFile = ({
@@ -13,13 +12,13 @@ export const AttachedFile = ({
   updateSelectedFilesInfo,
 }) => {
   const [progressInfo, setProgressInfo] = useState(0);
-  const { file, signedUrl } = currentFile;
   const [isFileUploaded, setIsFileUploaded] = useState(false);
+  const { file, signedUrl } = currentFile;
 
   useEffect(() => {
-    let progress;
-
     if (!isFileUploaded) {
+      let progress;
+
       uploadFile(
         signedUrl,
         file,
@@ -45,7 +44,7 @@ export const AttachedFile = ({
         data-file-name={file.name}
         type="button"
         onClick={handleOnUnpinFile}
-        style={{ backgroundImage: `url(${unpinFile})` }}
+        style={{ backgroundImage: `url(${staticImagesUrls.unpinFile})` }}
         className={cn(styles.uploading, { [styles.successUploading]: isFileUploaded })}
         disabled={!isFileUploaded}
         aria-label="Unpin"

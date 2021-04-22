@@ -73,6 +73,7 @@ export const IMAGES_WITHOUT_CDN = {
   closeIcon: '/images/common/close.svg',
   subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
   scrollDownIcon: '/images/home/scrollIcon/scroll-down.svg',
+  unpinFile: 'images/common/upload/unpin.svg',
 };
 
 export const IMAGES = {

@@ -4,6 +4,7 @@
   position: relative;
   width: 100%;
   max-width: 1000px;
+  transition: height 0.4s ease;
 
   @include flex(row, center, center);
 
@@ -178,7 +179,7 @@
   }
 }
 
-.c {
+.animation {
   position: absolute;
   top: 0;
   will-change: transform, opacity;

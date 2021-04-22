@@ -41,8 +41,8 @@ const FeedbackForm = ({
 }) => {
   const { asPath } = useRouter();
   const formRef = useRef(null);
-  const sliderRef = useRef(null);
   const feedbackFormBlockRef = useRef(null);
+  const sliderRef = useRef(null);
   const [fullName, setFullName] = useState('');
   const [projectBudget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
@@ -87,16 +87,15 @@ const FeedbackForm = ({
   const clearForm = () => {
     setFullName('');
     setBudget(addThousandsSeparators(budgetData.min));
+    setFiles([]);
+    setDescription('');
+    setIsDisabled(false);
+    setEmail({ value: '', isValidate: true });
 
     if (sliderRef && sliderRef.current) {
       sliderRef.current.getElementsByClassName('MuiSlider-thumb')[0].style.left = '0%';
       sliderRef.current.getElementsByClassName('MuiSlider-track')[0].style.width = '0%';
     }
-
-    setFiles([]);
-    setDescription('');
-    setIsDisabled(false);
-    setEmail({ value: '', isValidate: true });
   };
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
   const handleOnDescriptionChange = ({ target: { value } }) => setDescription(value);
@@ -156,8 +155,12 @@ const FeedbackForm = ({
   return (
     <div className={styles.feedbackForm} ref={feedbackFormBlockRef}>
       <a.form
-        className={cn(styles.form, styles.c)}
-        style={{ opacity: opacity.to((o) => 1 - o), transform, zIndex: isFrontShown ? 1 : -1 }}
+        className={cn(styles.form, styles.animation)}
+        style={{
+          opacity: opacity.to((o) => 1 - o),
+          transform,
+          zIndex: isFrontShown ? 1 : -1,
+        }}
         ref={formRef}
       >
         <div className={styles.inputs}>
@@ -222,7 +225,7 @@ const FeedbackForm = ({
         </Animated>
       </a.form>
       <a.section
-        className={cn(styles.alertBlock, styles.c)}
+        className={cn(styles.alertBlock, styles.animation)}
         style={{
           opacity,
           transform,
@@ -238,10 +241,13 @@ const FeedbackForm = ({
         <div className={styles.content}>
           <p>
             We have received your request
-            {' '}
             <br />
             We will be back in a flash
-            <FlashOnRoundedIcon color="primary" fontSize="large" className={styles.flashIcon} />
+            <FlashOnRoundedIcon
+              color="primary"
+              fontSize="large"
+              className={styles.flashIcon}
+            />
           </p>
         </div>
       </a.section>

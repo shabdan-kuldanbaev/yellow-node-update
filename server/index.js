@@ -11,7 +11,7 @@ const {
   clearUrlRedirect,
   oldUrlRedirect,
 } = require('./middleware/redirect');
-const mailhelper = require('./mail/mailhelper');
+const contacthelper = require('./contact/contacthelper');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/data');
 
@@ -21,6 +21,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
+const authToken = process.env.ERR_AUTH_TOKEN || '';
 const upload = multer();
 
 app
@@ -40,7 +41,7 @@ app
 
     server.post('/send', upload.array('attachments'), async (req, res) => {
       try {
-        await mailhelper.sendContact(req, res);
+        await contacthelper.sendContact(req, res);
       } catch (err) {
         console.error(err);
       }
@@ -61,19 +62,18 @@ app
     server.post('/get-signed-url', async (req, res) => {
       try {
         const { fileName } = req.body;
+        const config = {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+        };
 
         const { data: { signed_url } } = await axios.post(
           'https://yellow-erp-backend-dev.herokuapp.com/api/v1/integrations/contact-form/upload-url',
-          {
-            file_name: fileName,
-          },
-          {
-            headers: {
-              Authorization: 'Bearer yellow-test',
-              'Content-Type': 'application/json',
-              Accept: 'application/json',
-            },
-          },
+          { file_name: fileName },
+          config,
         );
 
         res.status(200).send(JSON.stringify(signed_url));

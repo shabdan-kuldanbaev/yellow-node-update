@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { AnimatedInput } from 'components';
 import { Attach } from './Attach';
@@ -41,7 +41,7 @@ export const Upload = ({
       </div>
       <hr />
       <div className={styles.attachedFiles}>
-        {selectedFiles && selectedFiles.map((file, index) => (
+        {selectedFiles && selectedFiles.map((file) => (
           <AttachedFile
             key={file.signedUrl}
             handleOnUnpinFile={handleOnUnpinFile}
