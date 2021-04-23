@@ -18,3 +18,13 @@
     padding: 100px $side-indent 0;
   }
 }
+
+.paginator {
+  @include macbook-fifteen {
+    margin-top: 0;
+  }
+
+  @include phone {
+    transform: scale(1);
+  }
+}

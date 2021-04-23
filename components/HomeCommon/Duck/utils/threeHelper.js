@@ -293,3 +293,15 @@ export const slogan = {
 };
 
 export const getSpeed = (distance, time) => distance / time;
+
+export const loadDuck = async () => {
+  try {
+    const duck = await new Promise((resolve) => {
+      three.loadModel(resolve);
+    });
+
+    return duck;
+  } catch (error) {
+    console.error(error);
+  }
+};
