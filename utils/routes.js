@@ -120,6 +120,14 @@ export const routes = {
       },
     ],
   },
+  project: {
+    title: 'Project',
+    getRoute: (slug) => ({
+      path: !!slug && `/portfolio/${slug}`,
+      dynamicPath: !!slug && '/portfolio/[project]',
+    }),
+    slug: 'project',
+  },
   process: {
     title: 'Process',
     path: '/process',
@@ -173,14 +181,6 @@ export const routes = {
       dynamicPath: !!slug && '/blog/[slug]',
     }),
     slug: 'article',
-  },
-  project: {
-    title: 'Project',
-    getRoute: (slug) => ({
-      path: !!slug && `/portfolio/${slug}`,
-      dynamicPath: !!slug && '/portfolio/[project]',
-    }),
-    slug: 'project',
   },
   company: {
     title: 'Company',

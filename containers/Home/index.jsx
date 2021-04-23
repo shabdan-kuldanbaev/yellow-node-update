@@ -10,12 +10,12 @@ import { fetchDuck } from 'redux/actions/home';
 import { selectImageCarousel, selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import { selectDuck } from 'redux/selectors/home';
 import {
-  Intro,
   Blog,
   Portfolio,
   ReviewsContainer,
   FeedbackFormContainer,
 } from 'containers';
+import Intro from 'containers/Home/Intro';
 import { PhotoGallery, MetaTags } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';

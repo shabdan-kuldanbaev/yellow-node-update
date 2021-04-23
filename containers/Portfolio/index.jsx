@@ -20,12 +20,12 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
       <section ref={introSection} className={styles.portfolio}>
         {content && <Portfolio works={content} />}
       </section>
-      <Paginator
+      {/* <Paginator
         pagesCounter={8}
         currentPage={1}
         pageSlug={ROUTES.portfolio.slug}
         className={styles.paginator}
-      />
+      /> */}
     </Fragment>
   );
 };
