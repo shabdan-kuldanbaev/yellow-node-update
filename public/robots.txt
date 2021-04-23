@@ -1,8 +1,2 @@
 User-agent: *
-
-Allow: /*.js
-Allow: /*.css
-
-Disallow:
-
-Sitemap: https://yellow.systems/sitemap.xml
+Disallow: /

@@ -21,6 +21,7 @@ export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
 export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
   routes.homepage.slug,
   routes.article.slug,
+  routes.project.slug,
   routes.notFound.slug,
 ].includes(slug));
 

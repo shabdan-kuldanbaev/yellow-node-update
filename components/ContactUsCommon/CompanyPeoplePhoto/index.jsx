@@ -49,7 +49,7 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
               ref={photoRef}
               src={getOptimizedImage(
                 photo,
-                isMobileResolution ? 530 : 1040,
+                isMobileResolution ? 530 : 1500,
               )}
               alt="CompanyPeoplePhoto"
             />

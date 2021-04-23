@@ -27,7 +27,7 @@ const NextPrev = ({
     >
       <LinkWrapper {...linkProps}>
         <div className={styles.imgContainer}>
-          <ImageWithPlaceholder src={getOptimizedImage(previewImageUrl, 230)} imageStyle={styles.img} />
+          <ImageWithPlaceholder src={getOptimizedImage(previewImageUrl, 720)} imageStyle={styles.img} />
         </div>
       </LinkWrapper>
       <div className={styles.content}>

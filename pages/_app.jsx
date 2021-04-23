@@ -3,7 +3,6 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import ReactGA from 'react-ga';
 import { wrapper } from 'redux/store';
 import { useDispatch } from 'react-redux';
 import Router from 'next/router';
@@ -23,10 +22,6 @@ const App = ({ Component, pageProps }) => {
   const [theme] = useState('dark');
   const introSection = useRef(null);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    ReactGA.initialize(process.env.GOOGLE_TRACK_ID);
-  }, []);
 
   useEffect(() => {
     const handleRouteChangeComplete = () => dispatch(setPageReadyToDisplay(false));

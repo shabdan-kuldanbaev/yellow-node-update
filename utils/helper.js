@@ -1,7 +1,6 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
 import ReactGA from 'react-ga';
-import { three } from 'components/HomeCommon/Duck/utils/threeHelper';
 import {
   PAGES,
   FEEDBACK_FORM_FIELDS,
@@ -142,18 +141,6 @@ export const artificialDelay = (t) => new Promise(((resolve) => {
     resolve();
   }, t);
 }));
-
-export const loadDuck = async () => {
-  try {
-    const duck = await new Promise((resolve) => {
-      three.loadModel(resolve);
-    });
-
-    return duck;
-  } catch (error) {
-    console.error(error);
-  }
-};
 
 export const getFeedbackFormData = (data) => {
   const formData = new window.FormData();
