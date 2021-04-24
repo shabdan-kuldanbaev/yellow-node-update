@@ -17,7 +17,6 @@ export const withValidateEmail = (Component) => (props) => {
       email={email}
       handleOnEmailChange={handleOnEmailChange}
       handleOnBlurEmail={handleOnBlurEmail}
-      setEmail={setEmail}
       {...props}
     />
   );

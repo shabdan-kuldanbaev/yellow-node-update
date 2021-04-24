@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import { uploadFile } from 'utils/fileUploadingUtils';
+import { uploadFile } from 'utils/uploadUtils';
 import { getConvertedFileSize, staticImagesUrls } from 'utils/helper';
 import { LinearWrapper } from './LinearWrapper';
 import styles from './styles.module.scss';
 
 export const AttachedFile = ({
-  currentFile,
+  currentFile: {
+    file,
+    signedUrl,
+  },
   handleOnUnpinFile,
-  updateSelectedFilesInfo,
+  updateSelectedFileInfo,
 }) => {
   const [progressInfo, setProgressInfo] = useState(0);
   const [isFileUploaded, setIsFileUploaded] = useState(false);
-  const { file, signedUrl } = currentFile;
 
   useEffect(() => {
     if (!isFileUploaded) {
@@ -27,7 +29,7 @@ export const AttachedFile = ({
           setProgressInfo(progress);
 
           if (progress === 100) {
-            updateSelectedFilesInfo(signedUrl);
+            updateSelectedFileInfo(signedUrl);
             setIsFileUploaded(true);
           }
         },
@@ -38,8 +40,12 @@ export const AttachedFile = ({
 
   return (
     <div className={styles.file} key={`file/${file.name}`}>
-      <span className={cn(styles.uploading, { [styles.successUploading]: isFileUploaded })}>{file.name}</span>
-      <span className={cn(styles.uploading, { [styles.successUploading]: isFileUploaded })}>{getConvertedFileSize(file.size)}</span>
+      <span className={cn(styles.uploading, { [styles.successUploading]: isFileUploaded })}>
+        {file.name}
+      </span>
+      <span className={cn(styles.uploading, { [styles.successUploading]: isFileUploaded })}>
+        {getConvertedFileSize(file.size)}
+      </span>
       <button
         data-file-name={file.name}
         type="button"
@@ -61,7 +67,10 @@ export const AttachedFile = ({
 };
 
 AttachedFile.propTypes = {
-  currentFile: PropTypes.instanceOf(Object).isRequired,
+  currentFile: PropTypes.shape({
+    file: PropTypes.instanceOf(Object).isRequired,
+    signedUrl: PropTypes.string.isRequired,
+  }).isRequired,
   handleOnUnpinFile: PropTypes.func.isRequired,
-  updateSelectedFilesInfo: PropTypes.func.isRequired,
+  updateSelectedFileInfo: PropTypes.func.isRequired,
 };

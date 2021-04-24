@@ -1,1 +1,1 @@
-export const selectIsContactsSent = (state) => state.contact.isContactsSent;
+export const selectIsFormDataSent = (state) => state.contact.isFormDataSent;

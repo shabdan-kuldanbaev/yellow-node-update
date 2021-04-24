@@ -1,5 +1,4 @@
 import fileToArrayBuffer from 'file-to-array-buffer';
-import axios from 'axios';
 import { API } from 'utils/api';
 
 export const uploadFile = async (
@@ -9,15 +8,9 @@ export const uploadFile = async (
 ) => {
   const buffer = await fileToArrayBuffer(file);
 
-  await axios.put(
+  await API.uploadFile(
     signed_url,
     buffer,
-    { onUploadProgress },
+    onUploadProgress,
   );
-};
-
-export const getFileSignedUrl = async (fileName) => {
-  const { data } = await API.getSignedURL(fileName);
-
-  return data;
 };

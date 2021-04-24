@@ -11,8 +11,8 @@ import { connect } from 'react-redux';
 import delay from 'lodash/delay';
 import { useSpring, a } from '@react-spring/web';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
-import { setIsCcontactsSent } from 'redux/actions/contact';
-import { selectIsContactsSent } from 'redux/selectors/contact';
+import { setIsFormDataSent } from 'redux/actions/contact';
+import { selectIsFormDataSent } from 'redux/selectors/contact';
 import {
   Upload,
   AnimatedInput,
@@ -21,7 +21,7 @@ import {
 } from 'components';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators, staticImagesUrls } from 'utils/helper';
-import { getFileSignedUrl } from 'utils/fileUploadingUtils';
+import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs';
 import { SliderWrapper } from './SliderWrapper';
 import { budget, marks } from './utils/data';
@@ -31,13 +31,12 @@ const FeedbackForm = ({
   email,
   handleOnEmailChange,
   handleOnBlurEmail,
-  setEmail,
   isChooseBudget,
   budget: budgetData,
   handleOnClick,
   formKey,
-  isContactsSent,
-  setIsCcontactsSent: setContactSent,
+  isFormDataSent,
+  setIsFormDataSent: setFormDataSent,
 }) => {
   const { asPath } = useRouter();
   const formRef = useRef(null);
@@ -72,17 +71,16 @@ const FeedbackForm = ({
   const isAllFilesUploaded = selectedFiles.reduce((previousValue, file) => file.isUploaded, false);
 
   const getFilesUrls = () => selectedFiles.map((file) => file.signedUrl);
-  const updateSelectedFilesInfo = (signedUrl) => {
-    const filesArray = [...selectedFiles];
-    const filesUploading = [...selectedFiles];
+  const updateSelectedFileInfo = (signedUrl) => {
+    const filesArray = selectedFiles;
 
-    filesArray.forEach((file, index) => {
+    filesArray.forEach((file) => {
       if (file.signedUrl === signedUrl) {
         file.isUploaded = true;
       }
     });
 
-    setFiles([...filesUploading]);
+    setFiles([...filesArray]);
   };
   const clearForm = () => {
     setFullName('');
@@ -90,7 +88,7 @@ const FeedbackForm = ({
     setFiles([]);
     setDescription('');
     setIsDisabled(false);
-    setEmail({ value: '', isValidate: true });
+    handleOnEmailChange({ target: { value: '' } });
 
     if (sliderRef && sliderRef.current) {
       sliderRef.current.getElementsByClassName('MuiSlider-thumb')[0].style.left = '0%';
@@ -104,15 +102,19 @@ const FeedbackForm = ({
 
     for (let i = 0; i < files.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      const signedUrl = await getFileSignedUrl(files[i].name);
+      const { data: signedUrl } = await API.getFileSignedURL(files[i].name);
 
-      arrFiles.push({ file: files[i], signedUrl, isUploaded: false });
+      arrFiles.push({
+        file: files[i],
+        signedUrl,
+        isUploaded: false,
+      });
     }
 
     setFiles([...selectedFiles, ...arrFiles]);
   };
   const handleOnUnpinFile = ({ target: { dataset } }) => {
-    setFiles(selectedFiles.filter((file) => file.file.name !== dataset.fileName));
+    setFiles(selectedFiles.filter((selectedFile) => selectedFile.file.name !== dataset.fileName));
   };
   const handleOnSubmitClick = (e) => {
     e.preventDefault();
@@ -128,29 +130,38 @@ const FeedbackForm = ({
   const handleOnCloseClick = () => {
     setIsFlipped(false);
     setIsFrontShown(true);
-    setContactSent(false);
+    setFormDataSent(false);
   };
 
   useEffect(() => {
-    if (isContactsSent) {
+    if (isFormDataSent) {
       setIsFlipped(true);
       setIsFrontShown(false);
       delay(() => clearForm(), 500);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isContactsSent]);
+  }, [isFormDataSent]);
 
   useEffect(() => {
     if (feedbackFormBlockRef && feedbackFormBlockRef.current && formRef && formRef.current) {
-      const newHeight = formRef.current.offsetHeight;
-      feedbackFormBlockRef.current.style.height = `${newHeight}px`;
+      const { offsetHeight } = formRef.current;
+      feedbackFormBlockRef.current.style.height = `${offsetHeight}px`;
     }
-  });
+  }, [feedbackFormBlockRef, formRef]);
 
   useEffect(() => {
-    if (!fullName || !email.value || !projectDescription || (selectedFiles.length && !isAllFilesUploaded)) setIsDisabled(true);
-    else setIsDisabled(false);
-  }, [email, fullName, projectDescription, isAllFilesUploaded, selectedFiles.length]);
+    if (!fullName || !email.value || !projectDescription || (selectedFiles.length && !isAllFilesUploaded)) {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+  }, [
+    email,
+    fullName,
+    projectDescription,
+    isAllFilesUploaded,
+    selectedFiles.length,
+  ]);
 
   return (
     <div className={styles.feedbackForm} ref={feedbackFormBlockRef}>
@@ -210,7 +221,7 @@ const FeedbackForm = ({
             handleOnSelectedFilesChange={handleOnSelectedFilesChange}
             handleOnUnpinFile={handleOnUnpinFile}
             formKey={formKey}
-            updateSelectedFilesInfo={updateSelectedFilesInfo}
+            updateSelectedFileInfo={updateSelectedFileInfo}
           />
         </Animated>
         <Animated {...animatedProps} transitionDelay={700}>
@@ -270,11 +281,11 @@ FeedbackForm.propTypes = {
   budget: PropTypes.instanceOf(Object),
   handleOnClick: PropTypes.func.isRequired,
   formKey: PropTypes.string,
-  isContactsSent: PropTypes.bool.isRequired,
-  setIsCcontactsSent: PropTypes.func.isRequired,
+  isFormDataSent: PropTypes.bool.isRequired,
+  setIsFormDataSent: PropTypes.func.isRequired,
 };
 
 export default connect(
-  (state) => ({ isContactsSent: selectIsContactsSent(state) }),
-  { setIsCcontactsSent },
+  (state) => ({ isFormDataSent: selectIsFormDataSent(state) }),
+  { setIsFormDataSent },
 )(withValidateEmail(FeedbackForm));

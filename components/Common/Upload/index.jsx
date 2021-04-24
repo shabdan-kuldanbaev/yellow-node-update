@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AnimatedInput } from 'components';
 import { Attach } from './Attach';
-import styles from './styles.module.scss';
 import { AttachedFile } from './AttachedFile';
+import styles from './styles.module.scss';
 
 export const Upload = ({
   projectDescription,
@@ -12,7 +12,7 @@ export const Upload = ({
   handleOnSelectedFilesChange,
   handleOnUnpinFile,
   formKey,
-  updateSelectedFilesInfo,
+  updateSelectedFileInfo,
 }) => {
   const attachInputId = `files_${formKey}`;
 
@@ -46,7 +46,7 @@ export const Upload = ({
             key={file.signedUrl}
             handleOnUnpinFile={handleOnUnpinFile}
             currentFile={file}
-            updateSelectedFilesInfo={updateSelectedFilesInfo}
+            updateSelectedFileInfo={updateSelectedFileInfo}
           />
         ))}
         {selectedFiles && !!selectedFiles.length && (
@@ -75,5 +75,5 @@ Upload.propTypes = {
   handleOnSelectedFilesChange: PropTypes.func.isRequired,
   handleOnUnpinFile: PropTypes.func.isRequired,
   formKey: PropTypes.string.isRequired,
-  updateSelectedFilesInfo: PropTypes.func.isRequired,
+  updateSelectedFileInfo: PropTypes.func.isRequired,
 };

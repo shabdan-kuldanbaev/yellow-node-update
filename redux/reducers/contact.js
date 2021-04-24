@@ -1,18 +1,17 @@
 import { actionTypes } from 'actions/actionTypes';
 
 const initialState = {
-  message: '',
-  isContactsSent: false,
+  isFormDataSent: false,
 };
 
 const handlers = {
-  [actionTypes.SEND_EMAIL_PENDING]: (state) => ({ ...state }),
-  [actionTypes.SEND_EMAIL_SUCCESS]: (state) => ({
+  [actionTypes.SEND_FORM_DATA_PENDING]: (state) => ({ state }),
+  [actionTypes.SEND_FORM_DATA_SUCCESS]: (state) => ({
     ...state,
-    isContactsSent: true,
+    isFormDataSent: true,
   }),
-  [actionTypes.SEND_EMAIL_FAILED]: (state) => ({ ...state, isContactsSent: false }),
-  [actionTypes.SET_IS_CONTACTS_SENT]: (state, { payload }) => ({ ...state, isContactsSent: payload }),
+  [actionTypes.SEND_FORM_DATA_FAILED]: (state) => ({ ...state, isFormDataSent: false }),
+  [actionTypes.SET_IS_FORM_DATA_SENT]: (state, { payload }) => ({ ...state, isFormDataSent: payload }),
   DEFAULT: (state) => state,
 };
 

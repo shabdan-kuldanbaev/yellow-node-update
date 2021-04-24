@@ -10,8 +10,17 @@ const apiClient = axios.create({
 });
 
 export const API = {
-  sendEmail: (formData) => apiClient.post('/send', formData),
+  sendEmail: (formData) => apiClient.post('/contact-us', formData),
   subscribe: (email) => apiClient.post('/subscribe', { email }),
   getJSON: () => apiClient.get('/json'),
-  getSignedURL: (fileName) => apiClient.post('/get-signed-url', { fileName }),
+  getFileSignedURL: (fileName) => apiClient.post('/signed-file-url', { fileName }),
+  uploadFile: (
+    signed_url,
+    buffer,
+    onUploadProgress,
+  ) => apiClient.put(
+    signed_url,
+    buffer,
+    { onUploadProgress },
+  ),
 };

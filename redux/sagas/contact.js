@@ -22,12 +22,12 @@ function* sendEmail({ payload }) {
       eventAction: 'Send',
     });
 
-    yield put({ type: actionTypes.SEND_EMAIL_SUCCESS, payload: response });
+    yield put({ type: actionTypes.SEND_FORM_DATA_SUCCESS, payload: response });
   } catch (err) {
-    yield put({ type: actionTypes.SEND_EMAIL_FAILED, payload: err });
+    yield put({ type: actionTypes.SEND_FORM_DATA_FAILED, payload: err });
   }
 }
 
 export function* sendEmailWatcher() {
-  yield takeLatest(actionTypes.SEND_EMAIL_PENDING, sendEmail);
+  yield takeLatest(actionTypes.SEND_FORM_DATA_PENDING, sendEmail);
 }
