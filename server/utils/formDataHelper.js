@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 const axios = require('axios');
 const FormData = require('form-data');
-const { CONTACT_FORM_API_URL } = require('../utils/constants');
+const { CONTACT_FORM_API_URL } = require('./constants');
 
 dotenv.config('./env');
 

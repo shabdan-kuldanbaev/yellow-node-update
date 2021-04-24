@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const handlers = {
-  [actionTypes.SEND_FORM_DATA_PENDING]: (state) => ({ state }),
   [actionTypes.SEND_FORM_DATA_SUCCESS]: (state) => ({
     ...state,
     isFormDataSent: true,

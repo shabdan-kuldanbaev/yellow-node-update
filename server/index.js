@@ -11,10 +11,10 @@ const {
   clearUrlRedirect,
   oldUrlRedirect,
 } = require('./middleware/redirect');
-const formDataHelper = require('./contact/formDataHelper');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/data');
 const { CONTACT_FORM_API_URL } = require('./utils/constants');
+const formDataHelper = require('./utils/formDataHelper');
 
 dotenv.config('./env');
 
@@ -78,7 +78,7 @@ app
 
         res.status(200).send(JSON.stringify(signed_url));
       } catch (err) {
-        res.status(502);
+        res.status(502).send(JSON.stringify(err));
       }
     });
 

@@ -6,11 +6,15 @@ export const uploadFile = async (
   file,
   onUploadProgress,
 ) => {
-  const buffer = await fileToArrayBuffer(file);
+  try {
+    const buffer = await fileToArrayBuffer(file);
 
-  await API.uploadFile(
-    signed_url,
-    buffer,
-    onUploadProgress,
-  );
+    await API.uploadFile(
+      signed_url,
+      buffer,
+      onUploadProgress,
+    );
+  } catch (error) {
+    console.error('Error in the uploadFile function', { error });
+  }
 };
