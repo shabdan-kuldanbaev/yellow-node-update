@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
+import ReactGA from 'react-ga';
 import {
   PAGES,
   FEEDBACK_FORM_FIELDS,
@@ -27,6 +28,8 @@ export const themes = {
 export const addThousandsSeparators = (value) => value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 export const toInt = (str) => parseInt(str, 10);
+
+export const removeThousandsSeparators = (value) => toInt(value.replace(',', ''));
 
 export const validateEmail = (email) => {
   // eslint-disable-next-line max-len
@@ -141,14 +144,38 @@ export const artificialDelay = (t) => new Promise(((resolve) => {
 
 export const getFeedbackFormData = (data) => {
   const formData = new window.FormData();
+  const formDataArray = Object.entries(FEEDBACK_FORM_FIELDS);
 
-  Object.entries(FEEDBACK_FORM_FIELDS).forEach(([key]) => {
-    if (data[key]) {
-      if (key === FEEDBACK_FORM_FIELDS.files) {
-        [...data[key]].forEach((file) => formData.append(key, file));
-      } else {
+  formDataArray.forEach(([key]) => {
+    switch (key) {
+    case FEEDBACK_FORM_FIELDS.attachments: {
+      [...data[key]].forEach((file) => formData.append('attachments', file));
+
+      break;
+    }
+    case FEEDBACK_FORM_FIELDS.projectBudget: {
+      formData.append(key, removeThousandsSeparators(data[key]));
+
+      break;
+    }
+    case FEEDBACK_FORM_FIELDS.clientId: {
+      let clientId;
+
+      ReactGA.ga((tracker) => {
+        clientId = tracker.get('clientId');
+      });
+
+      formData.append(key, clientId);
+
+      break;
+    }
+    default: {
+      if (data[key]) {
         formData.append(key, data[key]);
       }
+
+      break;
+    }
     }
   });
 
@@ -171,3 +198,11 @@ export const staticImagesUrls = ({
   ...addCdnToImages(IMAGES),
   ...IMAGES_WITHOUT_CDN,
 });
+
+export const getConvertedFileSize = (size) => {
+  const kilobytes = (size / 1024).toFixed(2);
+
+  return kilobytes > 1024
+    ? `${(kilobytes / 1000).toFixed(2)} MB`
+    : `${kilobytes} kB`;
+};

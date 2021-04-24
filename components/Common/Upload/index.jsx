@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AnimatedInput } from 'components';
 import { Attach } from './Attach';
-import unpinFile from './images/unpin.svg';
+import { AttachedFile } from './AttachedFile';
 import styles from './styles.module.scss';
 
 export const Upload = ({
@@ -12,6 +12,7 @@ export const Upload = ({
   handleOnSelectedFilesChange,
   handleOnUnpinFile,
   formKey,
+  updateSelectedFileInfo,
 }) => {
   const attachInputId = `files_${formKey}`;
 
@@ -41,17 +42,12 @@ export const Upload = ({
       <hr />
       <div className={styles.attachedFiles}>
         {selectedFiles && selectedFiles.map((file) => (
-          <div className={styles.file} key={`file/${file.name}`}>
-            <span>{file.name}</span>
-            <span>{`${(file.size / 1024).toFixed(2)} kB`}</span>
-            <button
-              data-file-name={file.name}
-              type="button"
-              onClick={handleOnUnpinFile}
-              style={{ backgroundImage: `url(${unpinFile})` }}
-              aria-label="Unpin"
-            />
-          </div>
+          <AttachedFile
+            key={file.signedUrl}
+            handleOnUnpinFile={handleOnUnpinFile}
+            currentFile={file}
+            updateSelectedFileInfo={updateSelectedFileInfo}
+          />
         ))}
         {selectedFiles && !!selectedFiles.length && (
           <div className={styles.moreFilesLink}>
@@ -79,4 +75,5 @@ Upload.propTypes = {
   handleOnSelectedFilesChange: PropTypes.func.isRequired,
   handleOnUnpinFile: PropTypes.func.isRequired,
   formKey: PropTypes.string.isRequired,
+  updateSelectedFileInfo: PropTypes.func.isRequired,
 };

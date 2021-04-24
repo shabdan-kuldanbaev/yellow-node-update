@@ -1,130 +1,186 @@
 @import 'styles/utils/mixins';
 
-.form {
+.feedbackForm {
+  position: relative;
   width: 100%;
-  max-height: auto;
-  color: $silver;
-  margin-bottom: 200px;
+  max-width: 1000px;
+  transition: height 0.4s ease;
 
-  @include flex(column, initial, center);
+  @include flex(row, center, center);
 
-  @include tablet {
-    margin-bottom: 100px;
-  }
-
-  @include phone {
-    margin-bottom: 50px;
-  }
-
-  & > div {
+  .form {
     width: 100%;
-  }
+    max-height: auto;
+    color: $silver;
+    margin-bottom: 200px;
 
-  & > div:last-child {
-    & > a {
-      @include flex(row, center, center);
+    @include flex(column, initial, center);
+
+    @include tablet {
+      margin-bottom: 100px;
     }
-  }
-
-  label {
-    font-size: 1.1875rem;
-    color: $black;
-    font-weight: 500;
-  }
-
-  input,
-  textarea {
-    font-size: 1.1875rem;
-    padding-top: 0;
-    padding-bottom: 8px;
 
     @include phone {
-      font-size: 1.125rem;
-      padding-top: 20px;
-      padding-bottom: 8px;
+      margin-bottom: 50px;
     }
-  }
-
-  .disabled {
-    pointer-events: none;
-    transition: none;
 
     & > div {
-      color: $nobel;
-      border-color: $nobel;
+      width: 100%;
     }
-  }
 
-  .inputs {
-    @include flex(row, space-between, center);
-
-    & > div {
-      width: 46%;
-      padding-top: 30px;
-
-      & > div {
-        padding: 0;
-        margin: 0;
+    & > div:last-child {
+      & > a {
+        @include flex(row, center, center);
       }
     }
 
-    @include below-tablet {
-      @include flex(column);
-
-      & > div {
-        width: 100%;
-        padding-top: 40px;
-      }
-
-      & > div:first-child {
-        padding-top: 0;
-      }
-    }
-
-    @include phone {
-      & > div {
-        padding-top: 0;
-      }
-    }
-  }
-
-  .budget {
-    margin-top: 50px;
-    text-align: left;
-
-    @include phone {
-      margin-top: 50px;
-    }
-
-    span {
+    label {
       font-size: 1.1875rem;
-
-      @include phone {
-        font-size: 1.125rem;
-      }
-    }
-
-    .price {
       color: $black;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
       font-size: 1.1875rem;
+      padding-top: 0;
+      padding-bottom: 8px;
 
       @include phone {
         font-size: 1.125rem;
+        padding-top: 20px;
+        padding-bottom: 8px;
+      }
+    }
+
+    .disabled {
+      pointer-events: none;
+      transition: none;
+
+      & > div {
+        color: $nobel;
+        border-color: $nobel;
+      }
+    }
+
+    .inputs {
+      @include flex(row, space-between, center);
+
+      & > div {
+        width: 46%;
+        padding-top: 30px;
+
+        & > div {
+          padding: 0;
+          margin: 0;
+        }
+      }
+
+      @include below-tablet {
+        @include flex(column);
+
+        & > div {
+          width: 100%;
+          padding-top: 40px;
+        }
+
+        & > div:first-child {
+          padding-top: 0;
+        }
+      }
+
+      @include phone {
+        & > div {
+          padding-top: 0;
+        }
+      }
+    }
+
+    .budget {
+      margin-top: 50px;
+      text-align: left;
+
+      @include phone {
+        margin-top: 50px;
+      }
+
+      span {
+        font-size: 1.1875rem;
+
+        @include phone {
+          font-size: 1.125rem;
+        }
+      }
+
+      .price {
+        color: $black;
+        font-size: 1.1875rem;
+
+        @include phone {
+          font-size: 1.125rem;
+        }
+      }
+    }
+
+    .submit {
+      @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
+
+      border-radius: $button-border-radius;
+      min-width: 330px;
+      font-weight: 600;
+      outline: none;
+
+      @include phone {
+        margin: 60px auto 0;
+        min-width: 300px;
       }
     }
   }
 
-  .submit {
-    @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
+  .alertBlock {
+    width: 100%;
+    min-height: 500px;
+    padding-top: 15%;
 
-    border-radius: $button-border-radius;
-    min-width: 330px;
-    font-weight: 600;
-    outline: none;
+    @include flex(row, center);
 
-    @include phone {
-      margin: 60px auto 0;
-      min-width: 300px;
+    & > img {
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 15px;
+
+      &:hover {
+        transform: scale(1.2);
+        transition: transform 0.4s cubic-bezier(0.575, 0.41, 0.3, 1);
+      }
+
+      @include phone {
+        top: 0;
+        right: 0;
+        padding: 27px 20px;
+        width: 20px;
+        height: 16px;
+      }
+    }
+
+    .content {
+      & > p {
+        text-align: center;
+
+        @include fontSize(25px);
+      }
+
+      .flashIcon {
+        transform: translateY(8px);
+      }
     }
   }
+}
+
+.animation {
+  position: absolute;
+  top: 0;
+  will-change: transform, opacity;
 }
