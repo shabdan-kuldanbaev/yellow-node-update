@@ -7,12 +7,6 @@ import React, {
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
-import delay from 'lodash/delay';
-import { useSpring, a } from '@react-spring/web';
-import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
-import { setIsFormDataSent } from 'redux/actions/contact';
-import { selectIsFormDataSent } from 'redux/selectors/contact';
 import {
   Upload,
   AnimatedInput,
@@ -20,10 +14,11 @@ import {
   Animated,
 } from 'components';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
-import { addThousandsSeparators, staticImagesUrls } from 'utils/helper';
+import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs';
 import { SliderWrapper } from './SliderWrapper';
+import FormContainer from './FormContainer';
 import { budget, marks } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -35,8 +30,6 @@ const FeedbackForm = ({
   budget: budgetData,
   handleOnClick,
   formKey,
-  isFormDataSent,
-  setIsFormDataSent: setFormDataSent,
 }) => {
   const { asPath } = useRouter();
   const formRef = useRef(null);
@@ -47,13 +40,6 @@ const FeedbackForm = ({
   const [selectedFiles, setFiles] = useState([]);
   const [projectDescription, setDescription] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [isFrontShown, setIsFrontShown] = useState(true);
-  const { transform, opacity } = useSpring({
-    opacity: isFlipped ? 1 : 0,
-    transform: `perspective(600px) rotateY(${isFlipped ? 180 : 0}deg)`,
-    config: { mass: 5, tension: 300, friction: 80 },
-  });
   const sliderSettings = {
     ...budgetData,
     defaultValue: budgetData.min,
@@ -127,20 +113,6 @@ const FeedbackForm = ({
       projectBudget,
     );
   };
-  const handleOnCloseClick = () => {
-    setIsFlipped(false);
-    setIsFrontShown(true);
-    setFormDataSent(false);
-  };
-
-  useEffect(() => {
-    if (isFormDataSent) {
-      setIsFlipped(true);
-      setIsFrontShown(false);
-      delay(() => clearForm(), 500);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFormDataSent]);
 
   useEffect(() => {
     if (feedbackFormBlockRef && feedbackFormBlockRef.current && formRef && formRef.current) {
@@ -165,15 +137,7 @@ const FeedbackForm = ({
 
   return (
     <div className={styles.feedbackForm} ref={feedbackFormBlockRef}>
-      <a.form
-        className={cn(styles.form, styles.animation)}
-        style={{
-          opacity: opacity.to((o) => 1 - o),
-          transform,
-          zIndex: isFrontShown ? 1 : -1,
-        }}
-        ref={formRef}
-      >
+      <FormContainer formRef={formRef} clearForm={clearForm}>
         <div className={styles.inputs}>
           <Animated {...animatedProps} transitionDelay={500}>
             <AnimatedInput
@@ -234,34 +198,7 @@ const FeedbackForm = ({
             disabledButtonStyle={styles.disabled}
           />
         </Animated>
-      </a.form>
-      <a.section
-        className={cn(styles.alertBlock, styles.animation)}
-        style={{
-          opacity,
-          transform,
-          rotateY: '180deg',
-          zIndex: isFrontShown ? -1 : 1,
-        }}
-      >
-        <img
-          onClick={handleOnCloseClick}
-          src={staticImagesUrls.closeIcon}
-          alt="Close"
-        />
-        <div className={styles.content}>
-          <p>
-            We have received your request
-            <br />
-            We will be back in a flash
-            <FlashOnRoundedIcon
-              color="primary"
-              fontSize="large"
-              className={styles.flashIcon}
-            />
-          </p>
-        </div>
-      </a.section>
+      </FormContainer>
     </div>
   );
 };
@@ -281,11 +218,6 @@ FeedbackForm.propTypes = {
   budget: PropTypes.instanceOf(Object),
   handleOnClick: PropTypes.func.isRequired,
   formKey: PropTypes.string,
-  isFormDataSent: PropTypes.bool.isRequired,
-  setIsFormDataSent: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({ isFormDataSent: selectIsFormDataSent(state) }),
-  { setIsFormDataSent },
-)(withValidateEmail(FeedbackForm));
+export default withValidateEmail(FeedbackForm);

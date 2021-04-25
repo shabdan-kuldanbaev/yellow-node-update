@@ -28,7 +28,13 @@ module.exports.sendFormData = async (req, res) => {
     }
 
     if (attachments) {
-      attachments.forEach((file) => formData.append('attachments[]', file));
+      if (typeof attachments === 'string') {
+        formData.append('attachments[]', attachments);
+      } else {
+        attachments.forEach((file) => {
+          formData.append('attachments[]', file);
+        });
+      }
     }
 
     const { data } = await axios.post(

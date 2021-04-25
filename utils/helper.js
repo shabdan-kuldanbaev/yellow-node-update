@@ -149,12 +149,16 @@ export const getFeedbackFormData = (data) => {
   formDataArray.forEach(([key]) => {
     switch (key) {
     case FEEDBACK_FORM_FIELDS.attachments: {
-      [...data[key]].forEach((file) => formData.append('attachments', file));
+      if (data[key]) {
+        [...data[key]].forEach((file) => formData.append('attachments', file));
+      }
 
       break;
     }
     case FEEDBACK_FORM_FIELDS.projectBudget: {
-      formData.append(key, removeThousandsSeparators(data[key]));
+      if (data[key]) {
+        formData.append(key, removeThousandsSeparators(data[key]));
+      }
 
       break;
     }
