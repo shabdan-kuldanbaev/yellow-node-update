@@ -1,0 +1,94 @@
+@import 'styles/utils/mixins';
+
+.form {
+  width: 100%;
+  max-height: auto;
+  color: $silver;
+  margin-bottom: 200px;
+
+  @include flex(column, initial, center);
+
+  @include tablet {
+    margin-bottom: 100px;
+  }
+
+  @include phone {
+    margin-bottom: 50px;
+  }
+
+  & > div {
+    width: 100%;
+  }
+
+  & > div:last-child {
+    & > a {
+      @include flex(row, center, center);
+    }
+  }
+
+  label {
+    font-size: 1.1875rem;
+    color: $black;
+    font-weight: 500;
+  }
+
+  input,
+  textarea {
+    font-size: 1.1875rem;
+    padding-top: 0;
+    padding-bottom: 8px;
+
+    @include phone {
+      font-size: 1.125rem;
+      padding-top: 20px;
+      padding-bottom: 8px;
+    }
+  }
+}
+
+.alertBlock {
+  width: 100%;
+  min-height: 500px;
+  padding-top: 15%;
+
+  @include flex(row, center);
+
+  & > img {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 15px;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: transform 0.4s cubic-bezier(0.575, 0.41, 0.3, 1);
+    }
+
+    @include phone {
+      top: 0;
+      right: 0;
+      padding: 27px 20px;
+      width: 20px;
+      height: 16px;
+    }
+  }
+
+  .content {
+    & > p {
+      text-align: center;
+
+      @include fontSize(25px);
+    }
+
+    .flashIcon {
+      transform: translateY(8px);
+    }
+  }
+}
+
+.animation {
+  position: absolute;
+  top: 0;
+  will-change: transform, opacity;
+}

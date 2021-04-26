@@ -7,12 +7,6 @@ import React, {
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
-import delay from 'lodash/delay';
-import { useSpring, a } from '@react-spring/web';
-import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
-import { setIsFormDataSent } from 'redux/actions/contact';
-import { selectIsFormDataSent } from 'redux/selectors/contact';
 import {
   Upload,
   AnimatedInput,
@@ -20,10 +14,11 @@ import {
   Animated,
 } from 'components';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
-import { addThousandsSeparators, staticImagesUrls } from 'utils/helper';
+import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs';
 import { SliderWrapper } from './SliderWrapper';
+import FormContainer from './FormContainer';
 import { budget, marks } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -35,8 +30,6 @@ const FeedbackForm = ({
   budget: budgetData,
   handleOnClick,
   formKey,
-  isFormDataSent,
-  setIsFormDataSent: setFormDataSent,
 }) => {
   const { asPath } = useRouter();
   const formRef = useRef(null);
@@ -47,13 +40,6 @@ const FeedbackForm = ({
   const [selectedFiles, setFiles] = useState([]);
   const [projectDescription, setDescription] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [isFrontShown, setIsFrontShown] = useState(true);
-  const { transform, opacity } = useSpring({
-    opacity: isFlipped ? 1 : 0,
-    transform: `perspective(600px) rotateY(${isFlipped ? 180 : 0}deg)`,
-    config: { mass: 5, tension: 300, friction: 80 },
-  });
   const sliderSettings = {
     ...budgetData,
     defaultValue: budgetData.min,
@@ -68,16 +54,15 @@ const FeedbackForm = ({
     transformDuration: 1,
   };
   const isContactPage = asPath === ROUTES.contact.path;
-  const isAllFilesUploaded = selectedFiles.reduce((previousValue, file) => file.isUploaded, false);
+  const isAllFilesUploaded = !selectedFiles.some((file) => !file.isUploaded);
 
-  const getFilesUrls = () => selectedFiles.map((file) => file.signedUrl);
   const updateSelectedFileInfo = (signedUrl) => {
-    const filesArray = selectedFiles;
-
-    filesArray.forEach((file) => {
+    const filesArray = selectedFiles.map((file) => {
       if (file.signedUrl === signedUrl) {
         file.isUploaded = true;
       }
+
+      return file;
     });
 
     setFiles([...filesArray]);
@@ -98,20 +83,24 @@ const FeedbackForm = ({
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
   const handleOnDescriptionChange = ({ target: { value } }) => setDescription(value);
   const handleOnSelectedFilesChange = async ({ target: { files } }) => {
-    const arrFiles = [];
+    try {
+      const arrFiles = [];
 
-    for (let i = 0; i < files.length; i += 1) {
-      // eslint-disable-next-line no-await-in-loop
-      const { data: signedUrl } = await API.getFileSignedURL(files[i].name);
+      for (let i = 0; i < files.length; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        const { data: signedUrl } = await API.getFileSignedURL(files[i].name);
 
-      arrFiles.push({
-        file: files[i],
-        signedUrl,
-        isUploaded: false,
-      });
+        arrFiles.push({
+          file: files[i],
+          signedUrl,
+          isUploaded: false,
+        });
+      }
+
+      setFiles([...selectedFiles, ...arrFiles]);
+    } catch (error) {
+      console.error('Error in the handleOnSelectedFilesChange function', { error });
     }
-
-    setFiles([...selectedFiles, ...arrFiles]);
   };
   const handleOnUnpinFile = ({ target: { dataset } }) => {
     setFiles(selectedFiles.filter((selectedFile) => selectedFile.file.name !== dataset.fileName));
@@ -119,35 +108,23 @@ const FeedbackForm = ({
   const handleOnSubmitClick = (e) => {
     e.preventDefault();
 
+    const filesUrls = selectedFiles.map((file) => file.signedUrl);
+
     handleOnClick(
       fullName,
       email.value,
       projectDescription,
-      getFilesUrls(),
+      filesUrls,
       projectBudget,
     );
   };
-  const handleOnCloseClick = () => {
-    setIsFlipped(false);
-    setIsFrontShown(true);
-    setFormDataSent(false);
-  };
-
-  useEffect(() => {
-    if (isFormDataSent) {
-      setIsFlipped(true);
-      setIsFrontShown(false);
-      delay(() => clearForm(), 500);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFormDataSent]);
 
   useEffect(() => {
     if (feedbackFormBlockRef && feedbackFormBlockRef.current && formRef && formRef.current) {
       const { offsetHeight } = formRef.current;
       feedbackFormBlockRef.current.style.height = `${offsetHeight}px`;
     }
-  }, [feedbackFormBlockRef, formRef]);
+  }, [selectedFiles, projectDescription]);
 
   useEffect(() => {
     if (!fullName || !email.value || !projectDescription || (selectedFiles.length && !isAllFilesUploaded)) {
@@ -163,17 +140,10 @@ const FeedbackForm = ({
     selectedFiles.length,
   ]);
 
+  // TODO move <div className={styles.feedbackForm} ref={feedbackFormBlockRef}> to the FormContainer
   return (
     <div className={styles.feedbackForm} ref={feedbackFormBlockRef}>
-      <a.form
-        className={cn(styles.form, styles.animation)}
-        style={{
-          opacity: opacity.to((o) => 1 - o),
-          transform,
-          zIndex: isFrontShown ? 1 : -1,
-        }}
-        ref={formRef}
-      >
+      <FormContainer formRef={formRef} clearForm={clearForm}>
         <div className={styles.inputs}>
           <Animated {...animatedProps} transitionDelay={500}>
             <AnimatedInput
@@ -234,34 +204,7 @@ const FeedbackForm = ({
             disabledButtonStyle={styles.disabled}
           />
         </Animated>
-      </a.form>
-      <a.section
-        className={cn(styles.alertBlock, styles.animation)}
-        style={{
-          opacity,
-          transform,
-          rotateY: '180deg',
-          zIndex: isFrontShown ? -1 : 1,
-        }}
-      >
-        <img
-          onClick={handleOnCloseClick}
-          src={staticImagesUrls.closeIcon}
-          alt="Close"
-        />
-        <div className={styles.content}>
-          <p>
-            We have received your request
-            <br />
-            We will be back in a flash
-            <FlashOnRoundedIcon
-              color="primary"
-              fontSize="large"
-              className={styles.flashIcon}
-            />
-          </p>
-        </div>
-      </a.section>
+      </FormContainer>
     </div>
   );
 };
@@ -276,16 +219,10 @@ FeedbackForm.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnBlurEmail: PropTypes.func.isRequired,
-  setEmail: PropTypes.func.isRequired,
   isChooseBudget: PropTypes.bool,
   budget: PropTypes.instanceOf(Object),
   handleOnClick: PropTypes.func.isRequired,
   formKey: PropTypes.string,
-  isFormDataSent: PropTypes.bool.isRequired,
-  setIsFormDataSent: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({ isFormDataSent: selectIsFormDataSent(state) }),
-  { setIsFormDataSent },
-)(withValidateEmail(FeedbackForm));
+export default withValidateEmail(FeedbackForm);
