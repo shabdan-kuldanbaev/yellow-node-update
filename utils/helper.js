@@ -149,14 +149,14 @@ export const getFeedbackFormData = (data) => {
   formDataArray.forEach(([key]) => {
     switch (key) {
     case FEEDBACK_FORM_FIELDS.attachments: {
-      if (data[key]) {
+      if (data[key]) { // TODO remove it
         [...data[key]].forEach((file) => formData.append('attachments', file));
       }
 
       break;
     }
     case FEEDBACK_FORM_FIELDS.projectBudget: {
-      if (data[key]) {
+      if (data[key]) { // TODO remove it
         formData.append(key, removeThousandsSeparators(data[key]));
       }
 
@@ -174,7 +174,7 @@ export const getFeedbackFormData = (data) => {
       break;
     }
     default: {
-      if (data[key]) {
+      if (data[key]) { // TODO remove it
         formData.append(key, data[key]);
       }
 

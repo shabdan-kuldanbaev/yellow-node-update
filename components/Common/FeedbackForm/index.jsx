@@ -119,7 +119,7 @@ const FeedbackForm = ({
       const { offsetHeight } = formRef.current;
       feedbackFormBlockRef.current.style.height = `${offsetHeight}px`;
     }
-  }, [feedbackFormBlockRef, formRef]);
+  }, [selectedFiles, projectDescription]);
 
   useEffect(() => {
     if (!fullName || !email.value || !projectDescription || (selectedFiles.length && !isAllFilesUploaded)) {
