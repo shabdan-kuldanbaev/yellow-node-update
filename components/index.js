@@ -28,12 +28,12 @@ export { MetaTags } from 'components/Common/MetaTags';
 export { InformationMessage } from 'components/Common/InformationMessage';
 export { default as LoadingScreen } from 'components/Common/LoadingScreen';
 export { default as LinearIndeterminate } from 'components/Common/LinearIndeterminate';
+export { default as Paginator } from 'components/Common/Paginator';
 export { CallToAction } from 'components/Common/CallToAction';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';
 export { AdvantagesItems } from 'components/HomeCommon/AdvantagesItems';
-export { Duck } from 'components/HomeCommon/Duck';
 export { InstaLogo } from 'components/HomeCommon/InstaLogo';
 export { InstaTape } from 'components/HomeCommon/InstaTape';
 export { Partners } from 'components/HomeCommon/Partners';
@@ -49,7 +49,6 @@ export { default as SelectionBlock } from 'components/BlogCommon/SelectionBlock'
 export { default as FullscreenSearch } from 'components/BlogCommon/FullscreenSearch';
 export { default as FullscreenSubscribe } from 'components/BlogCommon/FullscreenSubscribe';
 export { default as Subscribe } from 'components/BlogCommon/Subscribe';
-export { default as Paginator } from 'components/BlogCommon/Paginator';
 export { default as SubscribeBlock } from 'components/Common/SubscribeBlock';
 export { BookmarkCard } from 'components/BlogCommon/Article/BookmarkCard';
 export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';

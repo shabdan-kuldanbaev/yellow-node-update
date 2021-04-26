@@ -18,5 +18,12 @@ export const customTheme = createMuiTheme({
     text: {
       secondary: '#b8b8b8',
     },
+    yellow: {
+      dark: '#ffe603',
+      light: '#fff492',
+    },
+    grey: {
+      light: '#f1f1f2',
+    },
   },
 });

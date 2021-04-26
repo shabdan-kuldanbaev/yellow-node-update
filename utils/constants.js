@@ -21,6 +21,7 @@ export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
 export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
   routes.homepage.slug,
   routes.article.slug,
+  routes.project.slug,
   routes.notFound.slug,
 ].includes(slug));
 
@@ -58,12 +59,13 @@ export const CATEGORY_SLUGS = Object.entries(routes.blog.categories).reduce((acc
 }, []);
 
 export const FEEDBACK_FORM_FIELDS = {
-  fullName: 'fullName',
+  name: 'name',
   email: 'email',
-  projectDescription: 'projectDescription',
+  description: 'description',
   isSendNDAChecked: 'isSendNDAChecked',
   projectBudget: 'projectBudget',
-  files: 'files',
+  attachments: 'attachments',
+  clientId: 'clientId',
 };
 
 export const IMAGES_WITHOUT_CDN = {
@@ -72,6 +74,7 @@ export const IMAGES_WITHOUT_CDN = {
   closeIcon: '/images/common/close.svg',
   subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
   scrollDownIcon: '/images/home/scrollIcon/scroll-down.svg',
+  unpinFile: 'images/common/upload/unpin.svg',
 };
 
 export const IMAGES = {

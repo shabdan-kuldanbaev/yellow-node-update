@@ -41,9 +41,11 @@ export const actionTypes = {
   GET_PROJECT_SUCCESS: 'portfolio/GET_PROJECT_SUCCESS',
   GET_PROJECT_FAILED: 'portfolio/GET_PROJECT_FAILED',
   /* ------------------------ */
-  SEND_EMAIL_PENDING: 'contact/SEND_EMAIL_PENDING',
-  SEND_EMAIL_SUCCESS: 'contact/SEND_EMAIL_SUCCESS',
-  SEND_EMAIL_FAILED: 'contact/SEND_EMAIL_FAILED',
+  SEND_FORM_DATA_PENDING: 'contact/SEND_FORM_DATA_PENDING',
+  SEND_FORM_DATA_SUCCESS: 'contact/SEND_FORM_DATA_SUCCESS',
+  SEND_FORM_DATA_FAILED: 'contact/SEND_FORM_DATA_FAILED',
+  /* ------------------------ */
+  SET_IS_FORM_DATA_SENT: 'contact/SET_IS_FORM_DATA_SENT',
   /* ------------------------ */
   SUBSCRIBE_PENDING: 'subscribe/SUBSCRIBE_PENDING',
   SUBSCRIBE_SUCCESS: 'subscribe/SUBSCRIBE_SUCCESS',

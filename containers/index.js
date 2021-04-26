@@ -5,10 +5,8 @@ export { default as Layout } from 'containers/Layout';
 export { Advantages } from 'containers/Home/Advantages';
 export { default as Blog } from 'containers/Home/Blog';
 export { Insta } from 'containers/Home/Insta';
-export { default as Intro } from 'containers/Home/Intro';
 export { default as Portfolio } from 'containers/Home/Portfolio';
 export { ReviewsContainer } from 'containers/Home/Reviews';
-export { default as Home } from 'containers/Home';
 export { default as FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 
 // Blog

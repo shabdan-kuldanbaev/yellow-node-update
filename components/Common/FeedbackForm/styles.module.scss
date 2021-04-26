@@ -1,49 +1,12 @@
 @import 'styles/utils/mixins';
 
-.form {
+.feedbackForm {
+  position: relative;
   width: 100%;
-  max-height: auto;
-  color: $silver;
-  margin-bottom: 200px;
+  max-width: 1000px;
+  transition: height 0.4s ease;
 
-  @include flex(column, initial, center);
-
-  @include tablet {
-    margin-bottom: 100px;
-  }
-
-  @include phone {
-    margin-bottom: 50px;
-  }
-
-  & > div {
-    width: 100%;
-  }
-
-  & > div:last-child {
-    & > a {
-      @include flex(row, center, center);
-    }
-  }
-
-  label {
-    font-size: 1.1875rem;
-    color: $black;
-    font-weight: 500;
-  }
-
-  input,
-  textarea {
-    font-size: 1.1875rem;
-    padding-top: 0;
-    padding-bottom: 8px;
-
-    @include phone {
-      font-size: 1.125rem;
-      padding-top: 20px;
-      padding-bottom: 8px;
-    }
-  }
+  @include flex(row, center, center);
 
   .disabled {
     pointer-events: none;

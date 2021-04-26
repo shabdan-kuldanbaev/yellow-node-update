@@ -1,25 +1,50 @@
-const rootBlogPath = '/blog';
-
-const dynamicBlogPaths = {
-  root: rootBlogPath,
-  slug: `${rootBlogPath}/[slug]`,
-  page: `${rootBlogPath}/[slug]/[page]`,
-};
-
-const blogRoutes = {
+const getDynamicPaths = (rootPath) => ({
+  root: rootPath,
+  slug: `${rootPath}/[slug]`,
+  page: `${rootPath}/[slug]/[page]`,
+});
+const createPageRoutes = (rootPath, dynamicPaths) => ({
   root: () => ({
-    path: rootBlogPath,
-    dynamicPath: rootBlogPath,
+    path: rootPath,
+    dynamicPath: rootPath,
   }),
   slug: (slug) => ({
-    path: `${rootBlogPath}/${slug}`,
-    dynamicPath: dynamicBlogPaths.slug,
+    path: `${rootPath}/${slug}`,
+    dynamicPath: dynamicPaths.slug,
   }),
   page: (category, page) => ({
-    path: `${rootBlogPath}/${category}/${page}`,
-    dynamicPath: dynamicBlogPaths.page,
+    path: `${rootPath}/${category}/${page}`,
+    dynamicPath: dynamicPaths.page,
   }),
+});
+const getPageRoute = (
+  category,
+  page = '1',
+  route,
+) => {
+  if (category === '') {
+    return route.root();
+  }
+
+  if (!category || !isNaN(category)) {
+    if (+page === 1) return route.root();
+
+    return route.slug(page);
+  }
+
+  if (category && +page === 1) {
+    return route.slug(category);
+  }
+
+  return route.page(category, page);
 };
+
+const rootBlogPath = '/blog';
+const rootPortfolioPath = '/portfolio';
+const dynamicBlogPaths = getDynamicPaths(rootBlogPath);
+const dynamicPortfolioPaths = getDynamicPaths(rootPortfolioPath);
+const blogRoutes = createPageRoutes(rootBlogPath, dynamicBlogPaths);
+const portfolioRoutes = createPageRoutes(rootPortfolioPath, dynamicPortfolioPaths);
 
 export const routes = {
   homepage: {
@@ -30,9 +55,78 @@ export const routes = {
   },
   portfolio: {
     title: 'Portfolio',
-    path: '/portfolio',
-    dynamicPath: '/portfolio',
+    path: rootPortfolioPath,
+    getRoute: (category, page = '1') => getPageRoute(
+      category,
+      page,
+      portfolioRoutes,
+    ),
+    dynamicPath: {
+      ...dynamicPortfolioPaths,
+    },
     slug: 'portfolio',
+    categories: [
+      {
+        title: 'Online Video',
+        slug: 'online-video',
+      },
+      {
+        title: 'Real-Time Communication',
+        slug: 'real-time-communication',
+      },
+      {
+        title: 'DAM/MAM',
+        slug: 'dam-mam',
+      },
+      {
+        title: 'Computer Vision',
+        slug: 'computer-vision',
+      },
+      {
+        title: 'Content Management',
+        slug: 'content-management',
+      },
+      {
+        title: 'Business Intelligence',
+        slug: 'business-intelligence',
+      },
+      {
+        title: 'BPM/BPA',
+        slug: 'bpm-bpa',
+      },
+      {
+        title: 'CRM',
+        slug: 'crm',
+      },
+      {
+        title: 'eCommerce',
+        slug: 'ecommerce',
+      },
+      {
+        title: 'eLearning',
+        slug: 'elearning',
+      },
+      {
+        title: 'Adtech/Martech',
+        slug: 'adtech-martech',
+      },
+      {
+        title: 'FinTech',
+        slug: 'fintech',
+      },
+      {
+        title: 'IoT',
+        slug: 'iot',
+      },
+    ],
+  },
+  project: {
+    title: 'Project',
+    getRoute: (slug) => ({
+      path: !!slug && `/portfolio/${slug}`,
+      dynamicPath: !!slug && '/portfolio/[project]',
+    }),
+    slug: 'project',
   },
   process: {
     title: 'Process',
@@ -44,23 +138,11 @@ export const routes = {
     title: 'Blog',
     path: rootBlogPath,
     // TODO think a better solution
-    getRoute: (category, page = '1') => {
-      if (category === 'latest') {
-        return blogRoutes.root();
-      }
-
-      if (!category || !isNaN(category)) {
-        if (+page === 1) return blogRoutes.root();
-
-        return blogRoutes.slug(page);
-      }
-
-      if (category && +page === 1) {
-        return blogRoutes.slug(category);
-      }
-
-      return blogRoutes.page(category, page);
-    },
+    getRoute: (category, page = '1') => getPageRoute(
+      category,
+      page,
+      blogRoutes,
+    ),
     dynamicPath: {
       ...dynamicBlogPaths,
     },

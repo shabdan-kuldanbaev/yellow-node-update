@@ -1,7 +1,7 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
-import { Home } from 'containers';
+import Home from 'containers/Home';
 import { PAGES } from 'utils/constants';
 
 const Homepage = ({ theme, introSection }) => <Home theme={theme} introSection={introSection} />;
