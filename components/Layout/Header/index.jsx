@@ -93,7 +93,7 @@ const Header = ({
         isAdditional={isAdditional}
       />
       {!isHomePage && <LinearIndeterminate />}
-      {(asPath.includes('portfolio') || (asPath.includes('blog/') && !page)) && <TopProgressBar elementRef={introSection} />}
+      {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}
     </header>
   );
 };
