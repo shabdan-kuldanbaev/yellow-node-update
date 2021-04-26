@@ -54,16 +54,15 @@ const FeedbackForm = ({
     transformDuration: 1,
   };
   const isContactPage = asPath === ROUTES.contact.path;
-  const isAllFilesUploaded = selectedFiles.reduce((previousValue, file) => file.isUploaded, false);
+  const isAllFilesUploaded = !selectedFiles.some((file) => !file.isUploaded);
 
-  const getFilesUrls = () => selectedFiles.map((file) => file.signedUrl);
   const updateSelectedFileInfo = (signedUrl) => {
-    const filesArray = selectedFiles;
-
-    filesArray.forEach((file) => {
+    const filesArray = selectedFiles.map((file) => {
       if (file.signedUrl === signedUrl) {
         file.isUploaded = true;
       }
+
+      return file;
     });
 
     setFiles([...filesArray]);
@@ -84,20 +83,24 @@ const FeedbackForm = ({
   const handleOnNameChange = ({ target: { value } }) => setFullName(value);
   const handleOnDescriptionChange = ({ target: { value } }) => setDescription(value);
   const handleOnSelectedFilesChange = async ({ target: { files } }) => {
-    const arrFiles = [];
+    try {
+      const arrFiles = [];
 
-    for (let i = 0; i < files.length; i += 1) {
-      // eslint-disable-next-line no-await-in-loop
-      const { data: signedUrl } = await API.getFileSignedURL(files[i].name);
+      for (let i = 0; i < files.length; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        const { data: signedUrl } = await API.getFileSignedURL(files[i].name);
 
-      arrFiles.push({
-        file: files[i],
-        signedUrl,
-        isUploaded: false,
-      });
+        arrFiles.push({
+          file: files[i],
+          signedUrl,
+          isUploaded: false,
+        });
+      }
+
+      setFiles([...selectedFiles, ...arrFiles]);
+    } catch (error) {
+      console.error('Error in the handleOnSelectedFilesChange function', { error });
     }
-
-    setFiles([...selectedFiles, ...arrFiles]);
   };
   const handleOnUnpinFile = ({ target: { dataset } }) => {
     setFiles(selectedFiles.filter((selectedFile) => selectedFile.file.name !== dataset.fileName));
@@ -105,11 +108,13 @@ const FeedbackForm = ({
   const handleOnSubmitClick = (e) => {
     e.preventDefault();
 
+    const filesUrls = selectedFiles.map((file) => file.signedUrl);
+
     handleOnClick(
       fullName,
       email.value,
       projectDescription,
-      getFilesUrls(),
+      filesUrls,
       projectBudget,
     );
   };
@@ -135,6 +140,7 @@ const FeedbackForm = ({
     selectedFiles.length,
   ]);
 
+  // TODO move <div className={styles.feedbackForm} ref={feedbackFormBlockRef}> to the FormContainer
   return (
     <div className={styles.feedbackForm} ref={feedbackFormBlockRef}>
       <FormContainer formRef={formRef} clearForm={clearForm}>
@@ -213,7 +219,6 @@ FeedbackForm.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnBlurEmail: PropTypes.func.isRequired,
-  setEmail: PropTypes.func.isRequired,
   isChooseBudget: PropTypes.bool,
   budget: PropTypes.instanceOf(Object),
   handleOnClick: PropTypes.func.isRequired,

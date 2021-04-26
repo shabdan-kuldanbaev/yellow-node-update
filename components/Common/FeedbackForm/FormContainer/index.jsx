@@ -3,6 +3,7 @@ import React, {
   useState,
   useEffect,
 } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSpring, a } from '@react-spring/web';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
@@ -25,7 +26,11 @@ const FormContainer = ({
   const { transform, opacity } = useSpring({
     opacity: isFlipped ? 1 : 0,
     transform: `perspective(600px) rotateY(${isFlipped ? 180 : 0}deg)`,
-    config: { mass: 5, tension: 300, friction: 80 },
+    config: {
+      mass: 5,
+      tension: 300,
+      friction: 80,
+    },
   });
 
   const handleOnCloseClick = () => {
@@ -85,6 +90,14 @@ const FormContainer = ({
       </a.section>
     </Fragment>
   );
+};
+
+FormContainer.propTypes = {
+  children: PropTypes.instanceOf(Object).isRequired,
+  formRef: PropTypes.instanceOf(Object).isRequired,
+  isFormDataSent: PropTypes.bool.isRequired,
+  clearForm: PropTypes.func.isRequired,
+  setIsFormDataSent: PropTypes.func.isRequired,
 };
 
 export default connect(

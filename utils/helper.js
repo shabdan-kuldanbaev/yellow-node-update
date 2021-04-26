@@ -147,16 +147,17 @@ export const getFeedbackFormData = (data) => {
   const formDataArray = Object.entries(FEEDBACK_FORM_FIELDS);
 
   formDataArray.forEach(([key]) => {
+    // TODO rewrite it
     switch (key) {
     case FEEDBACK_FORM_FIELDS.attachments: {
-      if (data[key]) { // TODO remove it
+      if (data[key]) {
         [...data[key]].forEach((file) => formData.append('attachments', file));
       }
 
       break;
     }
     case FEEDBACK_FORM_FIELDS.projectBudget: {
-      if (data[key]) { // TODO remove it
+      if (data[key]) {
         formData.append(key, removeThousandsSeparators(data[key]));
       }
 
@@ -174,7 +175,7 @@ export const getFeedbackFormData = (data) => {
       break;
     }
     default: {
-      if (data[key]) { // TODO remove it
+      if (data[key]) {
         formData.append(key, data[key]);
       }
 
