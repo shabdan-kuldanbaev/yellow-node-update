@@ -6,7 +6,11 @@ import {
   withScroll,
 } from 'components';
 import { ROUTES } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  gaSend,
+} from 'utils/helper';
 import { animatedFields } from './utils';
 import { FieldsWrapper } from './FieldsWrapper';
 import styles from './styles.module.scss';
@@ -19,18 +23,15 @@ const Portfolio = ({
   const maxPosition = useRef(0);
 
   useEffect(() => () => {
-    if (typeof window !== 'undefined' && window.ga) {
-      const trackers = window.ga.getAll();
-      trackers[0].send(
-        'event',
-        'Scroll',
-        `${maxPosition.current}%`,
-        ROUTES.portfolio.path,
-        {
-          nonInteraction: maxPosition.current < 50,
-        },
-      );
-    }
+    gaSend(
+      'event',
+      'Scroll',
+      `${maxPosition.current}%`,
+      ROUTES.portfolio.path,
+      {
+        nonInteraction: maxPosition.current < 50,
+      },
+    );
   }, []);
 
   useEffect(() => {

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import isEmpty from 'lodash/isEmpty';
+import { gaSend } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const LinkWrapper = ({
@@ -25,15 +26,12 @@ export const LinkWrapper = ({
         data,
       } = googleAnalyticProps;
 
-      if (typeof window !== 'undefined' && window.ga) {
-        const tracker = window.ga.getAll()[0];
-        tracker.send(
-          'event',
-          category || data,
-          action || data,
-          label || data,
-        );
-      }
+      gaSend(
+        'event',
+        category || data,
+        action || data,
+        label || data,
+      );
     }
   };
 

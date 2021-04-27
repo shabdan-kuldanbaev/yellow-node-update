@@ -5,6 +5,7 @@ import {
   OldArticle,
   withScroll,
 } from 'components';
+import { gaSend } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const Article = ({
@@ -22,18 +23,15 @@ const Article = ({
 
   useEffect(() => () => {
     if (slug) {
-      if (typeof window !== 'undefined' && window.ga) {
-        const tracker = window.ga.getAll()[0];
-        tracker.send(
-          'event',
-          'Scroll',
-          `${maxPosition.current}%`,
-          `/blog/${slug}`,
-          {
-            nonInteraction: maxPosition.current < 50,
-          },
-        );
-      }
+      gaSend(
+        'event',
+        'Scroll',
+        `${maxPosition.current}%`,
+        `/blog/${slug}`,
+        {
+          nonInteraction: maxPosition.current < 50,
+        },
+      );
     }
   }, [slug]);
 

@@ -211,3 +211,12 @@ export const getConvertedFileSize = (size) => {
     ? `${(kilobytes / 1000).toFixed(2)} MB`
     : `${kilobytes} kB`;
 };
+
+export const isServer = typeof window === 'undefined';
+
+export const gaSend = (...analyticsProps) => {
+  if (typeof window !== 'undefined' && window.ga) {
+    const tracker = window.ga.getAll()[0];
+    tracker.send(analyticsProps);
+  }
+};
