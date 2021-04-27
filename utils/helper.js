@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
-import ReactGA from 'react-ga';
 import {
   PAGES,
   FEEDBACK_FORM_FIELDS,
@@ -166,9 +165,10 @@ export const getFeedbackFormData = (data) => {
     case FEEDBACK_FORM_FIELDS.clientId: {
       let clientId;
 
-      ReactGA.ga((tracker) => {
+      if (typeof window !== 'undefined' && window.ga) {
+        const tracker = window.ga.getAll()[0];
         clientId = tracker.get('clientId');
-      });
+      }
 
       formData.append(key, clientId);
 

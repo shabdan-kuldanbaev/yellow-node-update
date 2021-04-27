@@ -1,13 +1,16 @@
 import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { useRouter } from 'next/router';
 
 export const GAnalytic = () => {
   const { asPath } = useRouter();
 
   useEffect(() => {
-    ReactGA.set({ page: asPath });
-    ReactGA.pageview(asPath);
+    if (typeof window !== 'undefined' && window.ga) {
+      window.ga(() => {
+        const tracker = window.ga.getAll()[0];
+        tracker.send('pageview', asPath);
+      });
+    }
   }, [asPath]);
 
   return null;

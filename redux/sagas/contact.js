@@ -5,7 +5,6 @@ import {
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
-import ReactGA from 'react-ga';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { API } from 'utils/api';
 import { getFeedbackFormData } from 'utils/helper';
@@ -17,12 +16,14 @@ function* sendEmail({ payload }) {
   try {
     const response = yield call(API.sendEmail, getFeedbackFormData(payload));
 
-    ReactGA.ga('send', 'event', {
-      eventCategory: 'Contact Form',
-      eventAction: 'Send',
-    });
+    if (typeof window !== 'undefined') {
+      window.ga(() => {
+        const tracker = window.ga.getAll()[0];
+        tracker.send('event', 'Contact Form', 'Send');
+      });
+    }
 
-    yield put({ type: actionTypes.SEND_FORM_DATA_SUCCESS, payload: response });
+    yield put({ type: actionTypes.SEND_FORM_DATA_SUCCESS, payload: 'response' });
   } catch (err) {
     yield put({ type: actionTypes.SEND_FORM_DATA_FAILED, payload: err });
   }

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import ReactGA from 'react-ga';
 import {
   Animated,
   PreviewImage,
@@ -19,12 +18,20 @@ const Portfolio = ({
 }) => {
   const maxPosition = useRef(0);
 
-  useEffect(() => () => ReactGA.event({
-    category: 'Scroll',
-    action: `${maxPosition.current}%`,
-    label: ROUTES.portfolio.path,
-    nonInteraction: maxPosition.current < 50,
-  }), []);
+  useEffect(() => () => {
+    if (typeof window !== 'undefined' && window.ga) {
+      const trackers = window.ga.getAll();
+      trackers[0].send(
+        'event',
+        'Scroll',
+        `${maxPosition.current}%`,
+        ROUTES.portfolio.path,
+        {
+          nonInteraction: maxPosition.current < 50,
+        },
+      );
+    }
+  }, []);
 
   useEffect(() => {
     maxPosition.current = maxScrollPosition;

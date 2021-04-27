@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ReactGA from 'react-ga';
 import {
   ContentfulParser,
   OldArticle,
@@ -23,12 +22,18 @@ const Article = ({
 
   useEffect(() => () => {
     if (slug) {
-      ReactGA.event({
-        category: 'Scroll',
-        action: `${maxPosition.current}%`,
-        label: `/blog/${slug}`,
-        nonInteraction: maxPosition.current < 50,
-      });
+      if (typeof window !== 'undefined' && window.ga) {
+        const tracker = window.ga.getAll()[0];
+        tracker.send(
+          'event',
+          'Scroll',
+          `${maxPosition.current}%`,
+          `/blog/${slug}`,
+          {
+            nonInteraction: maxPosition.current < 50,
+          },
+        );
+      }
     }
   }, [slug]);
 

@@ -62,6 +62,8 @@ function* fetchPageData({
   },
 }) {
   try {
+    yield put({ type: actionTypes.CLEAR_CURRENT_ARTICLE });
+
     switch (slug) {
     case PAGES.homepage: {
       yield all([
