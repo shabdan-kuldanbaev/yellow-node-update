@@ -31,12 +31,13 @@
 
     @include flex(column, center, center);
 
-    & > span {
+    div {
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      padding-top: calc(100% / (4 / 3));
       width: 100%;
-
-      & > img {
-        width: 100%;
-      }
+      opacity: 1;
     }
   }
 }

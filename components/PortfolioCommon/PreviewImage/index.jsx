@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components';
@@ -17,7 +16,7 @@ const PreviewImage = ({ image, isMobileResolution }) => (
       transformDuration={0.8}
       transitionDelay={0}
     >
-      <LazyLoadImage src={getOptimizedImage(image, isMobileResolution ? 530 : 1000)} effect="blur" />
+      <div style={{ backgroundImage: `url(${getOptimizedImage(image, isMobileResolution ? 530 : 1500)})` }} />
     </Animated>
   </div>
 );
