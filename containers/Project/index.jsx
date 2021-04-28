@@ -4,32 +4,14 @@ import { connect } from 'react-redux';
 import get from 'lodash/get';
 import { selectProject } from 'redux/selectors/portfolio';
 import { Project, MetaTags } from 'components';
-import {
-  rootUrl,
-  getDocumentFields,
-  getFileUrl,
-} from 'utils/helper';
+import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 
 const ProjectContainer = ({ introSection, currentProject }) => {
-  const {
-    slug: projectSlug,
-    title,
-    subtitle,
-    body,
-    headerImage,
-  } = getDocumentFields(
+  const { body } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
-    [
-      'slug',
-      'title',
-      'subtitle',
-      'body',
-      'headerImage',
-    ],
+    ['body'],
   );
-
-  const headImage = getFileUrl(headerImage);
 
   return (
     <Fragment>
