@@ -41,4 +41,5 @@ FieldsWrapper.propTypes = {
   }).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };
