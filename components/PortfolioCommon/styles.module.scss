@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .worksContainer {
-  margin: 0;
+  margin: 0 0 250px;
   width: 100%;
   background-color: $white;
 
@@ -194,53 +194,6 @@
           margin-left: $side-indent * 2;
           margin-right: $side-indent;
           max-width: calc(100% - (#{$side-indent} * 3));
-        }
-
-        .buttonWrap {
-          padding: 5px 0 10px;
-          cursor: pointer;
-          width: max-content;
-
-          button {
-            border: none;
-            outline: none;
-            background-color: transparent;
-            color: $black;
-            line-height: 1.55;
-            letter-spacing: 0.5px;
-            font-size: 1.125rem;
-            position: relative;
-            display: inline-block;
-            padding: 0;
-
-            &::after {
-              content: '';
-              cursor: pointer;
-              position: absolute;
-              bottom: -5px;
-              right: 0;
-              width: 100%;
-              border-bottom: 1.5px $black solid;
-              background-color: $black;
-              will-change: transition;
-              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-            }
-          }
-
-          &:hover {
-            cursor: pointer;
-
-            button {
-              cursor: pointer;
-
-              &::after {
-                width: 0;
-                will-change: transition;
-                transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-                transform: translateZ(0);
-              }
-            }
-          }
         }
       }
     }

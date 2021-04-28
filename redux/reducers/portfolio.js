@@ -7,7 +7,6 @@ const initialState = {
 };
 
 const handlers = {
-  [actionTypes.GET_PROJECT_PENDING]: (state) => ({ ...state, isLoading: true }),
   [actionTypes.GET_PROJECT_SUCCESS]: (state, { payload }) => ({
     ...state,
     isLoading: false,
