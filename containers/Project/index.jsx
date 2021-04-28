@@ -1,32 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
+import get from 'lodash/get';
 import { selectProject } from 'redux/selectors/portfolio';
-import { getProject } from 'redux/actions/portfolio';
-import { Project } from 'components';
+import { Project, MetaTags } from 'components';
+import { getDocumentFields } from 'utils/helper';
+import { PAGES } from 'utils/constants';
 
-const ProjectContainer = ({
-  introSection,
-  currentProject,
-  getProject: getCurrentProject,
-}) => {
-  const { query: { project } } = useRouter();
+const ProjectContainer = ({ introSection, currentProject }) => {
+  const { body } = getDocumentFields(
+    get(currentProject, 'items[0]', {}),
+    ['body'],
+  );
 
-  useEffect(() => {
-    if (project) getCurrentProject();
-  }, [getCurrentProject, project]);
-
-  return <Project project={currentProject} introSection={introSection} />;
+  return (
+    <Fragment>
+      <MetaTags page={PAGES.portfolio} />
+      <Project body={body} introSection={introSection} />
+    </Fragment>
+  );
 };
 
 ProjectContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   currentProject: PropTypes.instanceOf(Object).isRequired,
-  getProject: PropTypes.func.isRequired,
 };
 
 export default connect(
   (state) => ({ currentProject: selectProject(state) }),
-  { getProject },
 )(ProjectContainer);

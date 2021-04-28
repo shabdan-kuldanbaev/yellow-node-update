@@ -12,6 +12,7 @@ import {
   fetchBlogData,
   loadArticles,
 } from 'redux/sagas/blog';
+import { fetchProject } from 'redux/sagas/portfolio';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { loadJSON } from 'redux/sagas/process';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
@@ -55,6 +56,7 @@ function* fetchPageData({
   payload: {
     slug,
     articleSlug,
+    projectSlug,
     currentPage,
     currentLimit,
     category,
@@ -81,6 +83,10 @@ function* fetchPageData({
         category,
         skip,
       });
+
+      break;
+    case PAGES.project:
+      yield call(fetchProject, { projectSlug });
 
       break;
     case PAGES.portfolio:

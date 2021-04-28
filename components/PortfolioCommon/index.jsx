@@ -33,9 +33,14 @@ const Portfolio = ({
   return (
     <div className={styles.worksContainer}>
       {works && works.map((work, index) => {
-        const { previewImage, title, description } = getDocumentFields(
+        const {
+          previewImage,
+          title,
+          description,
+          slug,
+        } = getDocumentFields(
           work,
-          ['previewImage', 'title', 'description'],
+          ['previewImage', 'title', 'description', 'slug'],
         );
 
         return (
@@ -52,6 +57,7 @@ const Portfolio = ({
                       animated={animated}
                       title={title}
                       description={description}
+                      slug={slug}
                     />
                   </Animated>
                 ))}
