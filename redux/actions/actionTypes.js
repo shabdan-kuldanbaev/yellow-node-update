@@ -37,7 +37,6 @@ export const actionTypes = {
   FIND_ARTICLES_SUCCESS: 'blog/FIND_ARTICLES_SUCCESS',
   FIND_ARTICLES_FAILED: 'blog/FIND_ARTICLES_FAILED',
   /* ------------------------ */
-  GET_PROJECT_PENDING: 'portfolio/GET_PROJECT_PENDING',
   GET_PROJECT_SUCCESS: 'portfolio/GET_PROJECT_SUCCESS',
   GET_PROJECT_FAILED: 'portfolio/GET_PROJECT_FAILED',
   /* ------------------------ */

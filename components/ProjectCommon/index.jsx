@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 
 export const Project = ({ body, introSection }) => (
   <section ref={introSection} className={styles.projectContainer}>
-    { body && <div dangerouslySetInnerHTML={createMarkup(body)} />}
+    {body && <div dangerouslySetInnerHTML={createMarkup(body)} />}
   </section>
 );
 

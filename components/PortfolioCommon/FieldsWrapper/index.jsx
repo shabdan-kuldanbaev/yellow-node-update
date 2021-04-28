@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components';
+import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const FieldsWrapper = ({
@@ -9,6 +10,8 @@ export const FieldsWrapper = ({
   description,
   slug,
 }) => {
+  const { path, dynamicPath } = ROUTES.article.getRoute(slug);
+
   switch (field) {
   case 'title':
     return title && <h2 className={styles.h1}>{title}</h2>;
@@ -18,11 +21,13 @@ export const FieldsWrapper = ({
     return slug && (
       <LinkWrapper
         isLocalLink
-        dynamicRouting="/portfolio/[project]"
-        path={`/portfolio/${slug}`}
+        dynamicRouting={dynamicPath}
+        path={path}
         className={styles.buttonWrap}
       >
-        <button type="button">See full case study</button>
+        <button type="button">
+          See full case study
+        </button>
       </LinkWrapper>
     );
   default:

@@ -4,362 +4,362 @@
   & > div {
     background-color: $white;
   }
-}
 
-:global {
-  .project-img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .project {
-    &_header {
-      color: #fff;
-      min-height: 650px;
-      margin: 40px 0 0;
-      background-position: 64% 100%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-
-      @include flex(column, center, center);
-
-      h1 {
-        width: 100%;
-        font-weight: 900;
-        text-align: center;
-        text-transform: uppercase;
-        margin: 100px 0 70px;
-        letter-spacing: 1.5px;
-
-        @include fontSize(82px);
-
-        @include macbook-fifteen {
-          @include fontSize(66px);
-        }
-
-        @include macbook-twelve {
-          @include fontSize(55px);
-        }
-
-        @include tablet {
-          @include fontSize(45px);
-        }
-
-        @include below-tablet {
-          @include fontSize(40px);
-        }
-      }
-
-      p {
-        font-weight: 500;
-        text-align: center;
-        max-width: 50%;
-        opacity: 0.9;
-
-        @include fontSize(21px);
-
-        @include macbook-fifteen {
-          @include fontSize(20px);
-        }
-
-        @include macbook-twelve {
-          @include fontSize(17px);
-        }
-
-        @include tablet {
-          @include fontSize(19px);
-        }
-
-        @include below-tablet {
-          @include fontSize(18px);
-        }
-
-        @include phone {
-          line-height: 1.4;
-
-          @include fontSize(15px);
-        }
-      }
+  :global {
+    .project-img-responsive {
+      display: block;
+      max-width: 100%;
+      height: auto;
     }
 
-    &_content {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 30px 20px 0;
-      font-weight: 400;
-
-      @include flex(column, initial, center);
-
-      h1 {
-        margin: 1rem 0 0;
-        text-transform: none;
-        font-weight: bold;
-        letter-spacing: normal;
-        width: initial;
-        font-size: 1.7rem;
-      }
-
-      h2 {
-        @include fontSize(35px);
-
-        @include tablet {
-          @include fontSize(30px);
-        }
-
-        @include phone {
-          margin: 60px 0 30px 0;
-          line-height: 1.5;
-
-          @include fontSize(18px);
-        }
-      }
-
-      h4 {
-        text-transform: uppercase;
-      }
-
-      p {
-        line-height: 1.75;
-        margin: 10px 0;
-
-        @include fontSize(19px);
-
-        @include macbook-fifteen {
-          @include fontSize(18px);
-        }
-
-        @include macbook-twelve {
-          @include fontSize(16px);
-        }
-
-        @include tablet {
-          margin-bottom: 20px;
-
-          @include fontSize(17px);
-        }
-
-        @include phone {
-          @include fontSize(14px);
-        }
-      }
-
-      &--grid {
-        overflow: hidden;
-
-        &_row {
-          @include flex();
-
-          @include below-tablet {
-            flex-direction: column;
-          }
-        }
-
-        &_column {
-          flex-basis: 50%;
-        }
-      }
-
-      &-article {
-        color: #fff;
-        padding: 40px 20px 80px;
-        text-align: center;
-        margin-bottom: 15px;
-        background: #f5f2f2;
-
-        &-grid {
-          font-weight: 500;
-          max-width: 910px;
-          margin: 0 auto;
-
-          p {
-            @include fontSize(19px);
-
-            @include macbook-fifteen {
-              @include fontSize(18px);
-            }
-
-            @include macbook-twelve {
-              @include fontSize(16px);
-            }
-
-            @include tablet {
-              margin-bottom: 20px;
-
-              @include fontSize(17px);
-            }
-
-            @include phone {
-              @include fontSize(14px);
-            }
-          }
-
-          &_row {
-            @include flex();
-          }
-
-          &__column {
-            margin-top: 30px;
-            margin-left: 30px;
-
-            &:first-child {
-              margin-left: 0;
-            }
-          }
-        }
-      }
-
-      &-image {
-        margin: 45px auto;
-        border-radius: 5px;
-        box-shadow: 0 0 16px #b6b5b6;
-
-        &_noshadow {
-          margin: 45px auto;
-          box-shadow: none;
-        }
-      }
-
-      &-link {
-        display: block;
-        padding-left: 35px;
-        text-decoration: none;
-        position: relative;
-        font-weight: 400;
-        margin-bottom: 10px;
-
-        &::before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 0;
-          bottom: 2px;
-          margin: auto;
-          width: 20px;
-          height: 20px;
-          background: url(getPathWithCdn("/images/portfolio/globe.svg"));
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-      }
-
-      &-storelink {
-        width: 100%;
-        margin-bottom: 15px;
-
-        & > a {
-          & > img {
-            width: 30px;
-            height: 30px;
-          }
-        }
-
-        a:first-child {
-          margin-right: 15px;
-        }
-      }
-
-      .overflowed {
-        margin-top: 150px;
-
-        img {
-          margin-bottom: -85px;
-        }
-      }
-    }
-  }
-
-  .project.racefully {
-    .project_header {
-      background-image: url(getPathWithCdn("/images/portfolio/racefully/racefully_header.jpg"));
-    }
-  }
-
-  .project.separate {
-    .project_header {
-      background-image: url(getPathWithCdn("/images/portfolio/separate/separate_bg.jpg"));
-    }
-  }
-
-  .project.travgenius {
-    .project_header {
-      background-image: url(getPathWithCdn("/images/portfolio/travgenius/travgenius_header.jpg"));
-    }
-  }
-
-  .project.speakfree {
-    .project_header {
-      background-image: url(getPathWithCdn("/images/portfolio/speakfree/speakfree_header.jpg"));
-    }
-  }
-
-  .project.stickerbox {
-    .project_header {
-      background-image: url(getPathWithCdn("/images/portfolio/stickerbox/stickerbox_header.jpg"));
-    }
-  }
-
-  .project.famlicious {
-    .project_header {
-      background-image: url(getPathWithCdn("/images/portfolio/famlicious/fam_header.jpg"));
-    }
-  }
-
-  .project.omnimarkettide {
-    .project_header {
-      background-image: url(getPathWithCdn("/images/portfolio/omnimarkettide/omnimarkettide_header.jpg"));
-      background-size: auto 500px;
-      background-position: 50% 0;
-      min-height: 450px;
-    }
-
-    .overflowed {
-      margin-top: 210px;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
     .project {
       &_header {
-        background-attachment: initial;
-        min-height: 450px;
+        color: $white;
+        min-height: 650px;
+        margin: 40px 0 0;
+        background-position: 64% 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        @include flex(column, center, center);
+
+        h1 {
+          width: 100%;
+          font-weight: 900;
+          text-align: center;
+          text-transform: uppercase;
+          margin: 100px 0 70px;
+          letter-spacing: 1.5px;
+
+          @include fontSize(82px);
+
+          @include macbook-fifteen {
+            @include fontSize(66px);
+          }
+
+          @include macbook-twelve {
+            @include fontSize(55px);
+          }
+
+          @include tablet {
+            @include fontSize(45px);
+          }
+
+          @include below-tablet {
+            @include fontSize(40px);
+          }
+        }
 
         p {
-          max-width: 80%;
+          font-weight: 500;
+          text-align: center;
+          max-width: 50%;
+          opacity: 0.9;
+
+          @include fontSize(21px);
+
+          @include macbook-fifteen {
+            @include fontSize(20px);
+          }
+
+          @include macbook-twelve {
+            @include fontSize(17px);
+          }
+
+          @include tablet {
+            @include fontSize(19px);
+          }
+
+          @include below-tablet {
+            @include fontSize(18px);
+          }
+
+          @include phone {
+            line-height: 1.4;
+
+            @include fontSize(15px);
+          }
         }
       }
 
       &_content {
-        &-image {
-          max-width: 80%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 30px 20px 0;
+        font-weight: 400;
 
-          &_noshadow {
-            max-width: 80%;
+        @include flex(column, initial, center);
+
+        h1 {
+          margin: 1rem 0 0;
+          text-transform: none;
+          font-weight: bold;
+          letter-spacing: normal;
+          width: initial;
+          font-size: 1.7rem;
+        }
+
+        h2 {
+          @include fontSize(35px);
+
+          @include tablet {
+            @include fontSize(30px);
+          }
+
+          @include phone {
+            margin: 60px 0 30px 0;
+            line-height: 1.5;
+
+            @include fontSize(18px);
+          }
+        }
+
+        h4 {
+          text-transform: uppercase;
+        }
+
+        p {
+          line-height: 1.75;
+          margin: 10px 0;
+
+          @include fontSize(19px);
+
+          @include macbook-fifteen {
+            @include fontSize(18px);
+          }
+
+          @include macbook-twelve {
+            @include fontSize(16px);
+          }
+
+          @include tablet {
+            margin-bottom: 20px;
+
+            @include fontSize(17px);
+          }
+
+          @include phone {
+            @include fontSize(14px);
           }
         }
 
         &--grid {
+          overflow: hidden;
+
+          &_row {
+            @include flex();
+
+            @include below-tablet {
+              flex-direction: column;
+            }
+          }
+
           &_column {
-            height: initial;
+            flex-basis: 50%;
+          }
+        }
+
+        &-article {
+          color: $white;
+          padding: 40px 20px 80px;
+          text-align: center;
+          margin-bottom: 15px;
+          background: #f5f2f2;
+
+          &-grid {
+            font-weight: 500;
+            max-width: 910px;
+            margin: 0 auto;
+
+            p {
+              @include fontSize(19px);
+
+              @include macbook-fifteen {
+                @include fontSize(18px);
+              }
+
+              @include macbook-twelve {
+                @include fontSize(16px);
+              }
+
+              @include tablet {
+                margin-bottom: 20px;
+
+                @include fontSize(17px);
+              }
+
+              @include phone {
+                @include fontSize(14px);
+              }
+            }
+
+            &_row {
+              @include flex();
+            }
+
+            &__column {
+              margin-top: 30px;
+              margin-left: 30px;
+
+              &:first-child {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+
+        &-image {
+          margin: 45px auto;
+          border-radius: 5px;
+          box-shadow: 0 0 16px #b6b5b6;
+
+          &_noshadow {
+            margin: 45px auto;
+            box-shadow: none;
+          }
+        }
+
+        &-link {
+          display: block;
+          padding-left: 35px;
+          text-decoration: none;
+          position: relative;
+          font-weight: 400;
+          margin-bottom: 10px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 2px;
+            margin: auto;
+            width: 20px;
+            height: 20px;
+            background: url(getPathWithCdn("/images/portfolio/globe.svg"));
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+
+        &-storelink {
+          width: 100%;
+          margin-bottom: 15px;
+
+          & > a {
+            & > img {
+              width: 30px;
+              height: 30px;
+            }
+          }
+
+          a:first-child {
+            margin-right: 15px;
           }
         }
 
         .overflowed {
-          margin-top: 0 !important;
+          margin-top: 150px;
 
           img {
-            margin-bottom: -72px;
+            margin-bottom: -85px;
           }
         }
       }
     }
-  }
 
-  @media only screen and (max-width: 768px) and (orientation: landscape) {
-    .project {
-      &_header {
-        min-height: 225px;
+    .project.racefully {
+      .project_header {
+        background-image: url(getPathWithCdn("/images/portfolio/racefully/racefully_header.jpg"));
+      }
+    }
+
+    .project.separate {
+      .project_header {
+        background-image: url(getPathWithCdn("/images/portfolio/separate/separate_bg.jpg"));
+      }
+    }
+
+    .project.travgenius {
+      .project_header {
+        background-image: url(getPathWithCdn("/images/portfolio/travgenius/travgenius_header.jpg"));
+      }
+    }
+
+    .project.speakfree {
+      .project_header {
+        background-image: url(getPathWithCdn("/images/portfolio/speakfree/speakfree_header.jpg"));
+      }
+    }
+
+    .project.stickerbox {
+      .project_header {
+        background-image: url(getPathWithCdn("/images/portfolio/stickerbox/stickerbox_header.jpg"));
+      }
+    }
+
+    .project.famlicious {
+      .project_header {
+        background-image: url(getPathWithCdn("/images/portfolio/famlicious/fam_header.jpg"));
+      }
+    }
+
+    .project.omnimarkettide {
+      .project_header {
+        background-image: url(getPathWithCdn("/images/portfolio/omnimarkettide/omnimarkettide_header.jpg"));
+        background-size: auto 500px;
+        background-position: 50% 0;
+        min-height: 450px;
+      }
+
+      .overflowed {
+        margin-top: 210px;
+      }
+    }
+
+    @include below-tablet {
+      .project {
+        &_header {
+          background-attachment: initial;
+          min-height: 450px;
+
+          p {
+            max-width: 80%;
+          }
+        }
+
+        &_content {
+          &-image {
+            max-width: 80%;
+
+            &_noshadow {
+              max-width: 80%;
+            }
+          }
+
+          &--grid {
+            &_column {
+              height: initial;
+            }
+          }
+
+          .overflowed {
+            margin-top: 0 !important;
+
+            img {
+              margin-bottom: -72px;
+            }
+          }
+        }
+      }
+    }
+
+    @include below-tablet-horizontal {
+      .project {
+        &_header {
+          min-height: 225px;
+        }
       }
     }
   }

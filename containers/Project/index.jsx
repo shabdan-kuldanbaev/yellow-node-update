@@ -11,10 +11,7 @@ import {
 } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 
-const ProjectContainer = ({
-  introSection,
-  currentProject,
-}) => {
+const ProjectContainer = ({ introSection, currentProject }) => {
   const {
     slug: projectSlug,
     title,
@@ -37,14 +34,7 @@ const ProjectContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.portfolio} />
-      <Project
-        slug={projectSlug}
-        title={title}
-        subtitle={subtitle}
-        body={body}
-        headerImage={headImage}
-        introSection={introSection}
-      />
+      <Project body={body} introSection={introSection} />
     </Fragment>
   );
 };

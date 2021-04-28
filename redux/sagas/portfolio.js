@@ -7,7 +7,7 @@ import { contentfulClient } from 'utils/ContentfulClient';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-export function* getProject({ projectSlug }) {
+export function* fetchProject({ projectSlug }) {
   try {
     const project = yield contentfulClient.getEntries({
       contentType: 'project',
