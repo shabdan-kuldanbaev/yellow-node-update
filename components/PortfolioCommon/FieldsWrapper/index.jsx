@@ -10,7 +10,7 @@ export const FieldsWrapper = ({
   description,
   slug,
 }) => {
-  const { path, dynamicPath } = ROUTES.article.getRoute(slug);
+  const { path, dynamicPath } = ROUTES.project.getRoute(slug);
 
   switch (field) {
   case 'title':
