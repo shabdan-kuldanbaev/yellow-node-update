@@ -89,7 +89,7 @@
         padding: 30px 20px 0;
         font-weight: 400;
 
-        @include flex(column, initial, center);
+        @include flex(column, initial);
 
         h1 {
           margin: 1rem 0 0;
@@ -237,7 +237,8 @@
             margin: auto;
             width: 20px;
             height: 20px;
-            background: url(getPathWithCdn("/images/portfolio/globe.svg"));
+            // TODO CDN doesn't display it
+            background: url("/images/portfolio/globe.svg");
             background-repeat: no-repeat;
             background-size: cover;
           }
@@ -283,7 +284,8 @@
 
     .project.travgenius {
       .project_header {
-        background-image: url(getPathWithCdn("/images/portfolio/travgenius/travgenius_header.jpg"));
+        // TODO CDN doesn't display it
+        background-image: url("/images/portfolio/travgenius/travgenius_header.jpg");
       }
     }
 
@@ -301,13 +303,15 @@
 
     .project.famlicious {
       .project_header {
-        background-image: url(getPathWithCdn("/images/portfolio/famlicious/fam_header.jpg"));
+        // TODO CDN doesn't display it
+        background-image: url("/images/portfolio/famlicious/fam_header.jpg");
       }
     }
 
     .project.omnimarkettide {
       .project_header {
-        background-image: url(getPathWithCdn("/images/portfolio/omnimarkettide/omnimarkettide_header.jpg"));
+        // TODO CDN doesn't display it
+        background-image: url("/images/portfolio/omnimarkettide/omnimarkettide_header.jpg");
         background-size: auto 500px;
         background-position: 50% 0;
         min-height: 450px;
