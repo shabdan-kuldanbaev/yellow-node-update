@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FacebookShareButton, TwitterShareButton } from 'react-share';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import ReactGA from 'react-ga';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
+import gaHelper from 'utils/ga';
 import { CopyLink } from './images';
 import styles from './styles.module.scss';
 
@@ -14,11 +14,11 @@ export const SocialThumbnails = ({ url, title }) => {
 
   const handleOnCopy = () => setIsCopied(true);
   const trackSocialShareClick = ({ target }) => {
-    ReactGA.event({
-      category: 'Click social go to share',
-      action: target.getAttribute('data-socialname'),
-      label: asPath,
-    });
+    gaHelper.trackEvent(
+      'Click social go to share',
+      target.getAttribute('data-socialname'),
+      asPath,
+    );
   };
 
   return (

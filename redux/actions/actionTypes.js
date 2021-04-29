@@ -19,6 +19,8 @@ export const actionTypes = {
   /* ------------------------ */
   SET_SCROLL_OF_ADDED_FOOTER: 'home/SET_SCROLL_OF_ADDED_FOOTER',
   /* ------------------------ */
+  CLEAR_CURRENT_ARTICLE: 'blog/CLEAR_CURRENT_ARTICLE',
+  /* ------------------------ */
   GET_ARTICLE_SUCCESS: 'blog/GET_ARTICLE_SUCCESS',
   GET_ARTICLE_FAILED: 'blog/GET_ARTICLE_FAILED',
   /* ------------------------ */

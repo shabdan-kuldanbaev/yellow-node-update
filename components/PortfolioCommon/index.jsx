@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import ReactGA from 'react-ga';
 import {
   Animated,
   PreviewImage,
@@ -8,6 +7,7 @@ import {
 } from 'components';
 import { ROUTES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
+import gaHelper from 'utils/ga';
 import { animatedFields } from './utils';
 import { FieldsWrapper } from './FieldsWrapper';
 import styles from './styles.module.scss';
@@ -19,12 +19,14 @@ const Portfolio = ({
 }) => {
   const maxPosition = useRef(0);
 
-  useEffect(() => () => ReactGA.event({
-    category: 'Scroll',
-    action: `${maxPosition.current}%`,
-    label: ROUTES.portfolio.path,
-    nonInteraction: maxPosition.current < 50,
-  }), []);
+  useEffect(() => () => {
+    gaHelper.trackEvent(
+      'Scroll',
+      `${maxPosition.current}%`,
+      ROUTES.portfolio.path,
+      maxPosition.current < 50,
+    );
+  }, []);
 
   useEffect(() => {
     maxPosition.current = maxScrollPosition;
