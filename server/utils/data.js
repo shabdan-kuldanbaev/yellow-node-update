@@ -105,15 +105,8 @@ module.exports.processes = [
 ];
 
 module.exports.olsPortfolioPages = [
-  '/portfolio/separate-us',
-  '/portfolio/stickerbox',
-  '/portfolio/famlicious',
-  '/portfolio/racefully',
-  '/portfolio/travgenius',
   '/portfolio/smart-center',
-  '/portfolio/speakfree',
   '/portfolio/whiledriving',
   '/portfolio/whatsyours',
-  '/portfolio/omni-market-tide',
   '/portfolio/start-sport',
 ];
