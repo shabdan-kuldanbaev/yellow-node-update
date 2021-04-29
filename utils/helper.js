@@ -6,6 +6,7 @@ import {
   IMAGES,
   IMAGES_WITHOUT_CDN,
 } from 'utils/constants';
+import gaHelper from 'utils/ga';
 import {
   phoneResolution,
   horizontalMobile,
@@ -165,12 +166,7 @@ export const getFeedbackFormData = (data) => {
       break;
     }
     case FEEDBACK_FORM_FIELDS.clientId: {
-      let clientId;
-
-      if (typeof window !== 'undefined' && window.ga) {
-        const tracker = window.ga.getAll()[0];
-        clientId = tracker.get('clientId') || null;
-      }
+      const clientId = gaHelper.getClientId();
 
       formData.append(key, clientId);
 

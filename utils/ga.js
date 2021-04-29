@@ -1,34 +1,33 @@
-const ga = typeof window !== 'undefined' && window.ga;
-
 function trackEvent(
   category,
   action,
   label,
   nonInteraction,
 ) {
-  if (ga) {
-    window.ga('send',
+  // TODO remove duplicate code
+  if (typeof window !== 'undefined' && window.ga) {
+    window.ga(
+      'send',
       'event',
       category,
       action,
       label,
-      {
-        nonInteraction,
-      });
+      { nonInteraction },
+    );
   }
 }
 
 function pageview(path) {
-  if (ga) {
+  if (typeof window !== 'undefined' && window.ga) {
     window.ga('send', 'pageview', path);
   }
 }
 
 function getClientId() {
-  if (ga) {
-    let clientId;
+  if (typeof window !== 'undefined' && window.ga) {
+    let clientId = null;
 
-    ga((tracker) => {
+    window.ga((tracker) => {
       clientId = tracker.get('clientId');
     });
 
