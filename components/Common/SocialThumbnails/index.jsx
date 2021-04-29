@@ -4,7 +4,7 @@ import { FacebookShareButton, TwitterShareButton } from 'react-share';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { gaSend } from 'utils/helper';
+import gaHelper from 'utils/ga';
 import { CopyLink } from './images';
 import styles from './styles.module.scss';
 
@@ -14,8 +14,7 @@ export const SocialThumbnails = ({ url, title }) => {
 
   const handleOnCopy = () => setIsCopied(true);
   const trackSocialShareClick = ({ target }) => {
-    gaSend(
-      'event',
+    gaHelper.trackEvent(
       'Click social go to share',
       target.getAttribute('data-socialname'),
       asPath,

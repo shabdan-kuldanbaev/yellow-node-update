@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import isEmpty from 'lodash/isEmpty';
-import { gaSend } from 'utils/helper';
+import gaHelper from 'utils/ga';
 import styles from './styles.module.scss';
 
 export const LinkWrapper = ({
@@ -26,8 +26,7 @@ export const LinkWrapper = ({
         data,
       } = googleAnalyticProps;
 
-      gaSend(
-        'event',
+      gaHelper.trackEvent(
         category || data,
         action || data,
         label || data,

@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { gaSend } from 'utils/helper';
+import gaHelper from 'utils/ga';
 
 export const GAnalytic = () => {
   const { asPath } = useRouter();
 
   useEffect(() => {
-    gaSend('pageview', asPath);
+    gaHelper.pageview(asPath);
   }, [asPath]);
 
   return null;

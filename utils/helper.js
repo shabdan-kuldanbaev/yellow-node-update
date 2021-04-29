@@ -84,6 +84,8 @@ export const rootUrl = process.env.NODE_ENV === 'development'
 
 export const isCustomDomain = rootUrl.includes(process.env.CUSTOM_DOMAIN);
 
+export const isServer = typeof window === 'undefined';
+
 export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
 
 export const createMarkup = (data) => ({ __html: data });
@@ -167,7 +169,7 @@ export const getFeedbackFormData = (data) => {
 
       if (typeof window !== 'undefined' && window.ga) {
         const tracker = window.ga.getAll()[0];
-        clientId = tracker.get('clientId');
+        clientId = tracker.get('clientId') || null;
       }
 
       formData.append(key, clientId);
@@ -210,13 +212,4 @@ export const getConvertedFileSize = (size) => {
   return kilobytes > 1024
     ? `${(kilobytes / 1000).toFixed(2)} MB`
     : `${kilobytes} kB`;
-};
-
-export const isServer = typeof window === 'undefined';
-
-export const gaSend = (...analyticsProps) => {
-  if (typeof window !== 'undefined' && window.ga) {
-    const tracker = window.ga.getAll()[0];
-    tracker.send(analyticsProps);
-  }
 };

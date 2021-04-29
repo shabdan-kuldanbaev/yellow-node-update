@@ -5,7 +5,7 @@ import {
   OldArticle,
   withScroll,
 } from 'components';
-import { gaSend } from 'utils/helper';
+import gaHelper from 'utils/ga';
 import styles from './styles.module.scss';
 
 const Article = ({
@@ -23,14 +23,11 @@ const Article = ({
 
   useEffect(() => () => {
     if (slug) {
-      gaSend(
-        'event',
+      gaHelper.trackEvent(
         'Scroll',
         `${maxPosition.current}%`,
         `/blog/${slug}`,
-        {
-          nonInteraction: maxPosition.current < 50,
-        },
+        maxPosition.current < 50,
       );
     }
   }, [slug]);

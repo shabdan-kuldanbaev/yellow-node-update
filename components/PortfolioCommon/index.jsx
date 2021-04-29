@@ -6,11 +6,8 @@ import {
   withScroll,
 } from 'components';
 import { ROUTES } from 'utils/constants';
-import {
-  getDocumentFields,
-  getFileUrl,
-  gaSend,
-} from 'utils/helper';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
+import gaHelper from 'utils/ga';
 import { animatedFields } from './utils';
 import { FieldsWrapper } from './FieldsWrapper';
 import styles from './styles.module.scss';
@@ -23,14 +20,11 @@ const Portfolio = ({
   const maxPosition = useRef(0);
 
   useEffect(() => () => {
-    gaSend(
-      'event',
+    gaHelper.trackEvent(
       'Scroll',
       `${maxPosition.current}%`,
       ROUTES.portfolio.path,
-      {
-        nonInteraction: maxPosition.current < 50,
-      },
+      maxPosition.current < 50,
     );
   }, []);
 
