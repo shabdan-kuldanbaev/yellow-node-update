@@ -1,12 +1,12 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
-import ReactGA from 'react-ga';
 import {
   PAGES,
   FEEDBACK_FORM_FIELDS,
   IMAGES,
   IMAGES_WITHOUT_CDN,
 } from 'utils/constants';
+import gaHelper from 'utils/ga';
 import {
   phoneResolution,
   horizontalMobile,
@@ -84,6 +84,8 @@ export const rootUrl = process.env.NODE_ENV === 'development'
   : process.env.PROD_URL;
 
 export const isCustomDomain = rootUrl.includes(process.env.CUSTOM_DOMAIN);
+
+export const isServer = typeof window === 'undefined';
 
 export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
 
@@ -164,11 +166,7 @@ export const getFeedbackFormData = (data) => {
       break;
     }
     case FEEDBACK_FORM_FIELDS.clientId: {
-      let clientId;
-
-      ReactGA.ga((tracker) => {
-        clientId = tracker.get('clientId');
-      });
+      const clientId = gaHelper.getClientId();
 
       formData.append(key, clientId);
 

@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ReactGA from 'react-ga';
 import {
   ContentfulParser,
   OldArticle,
   withScroll,
 } from 'components';
+import gaHelper from 'utils/ga';
 import styles from './styles.module.scss';
 
 const Article = ({
@@ -23,12 +23,12 @@ const Article = ({
 
   useEffect(() => () => {
     if (slug) {
-      ReactGA.event({
-        category: 'Scroll',
-        action: `${maxPosition.current}%`,
-        label: `/blog/${slug}`,
-        nonInteraction: maxPosition.current < 50,
-      });
+      gaHelper.trackEvent(
+        'Scroll',
+        `${maxPosition.current}%`,
+        `/blog/${slug}`,
+        maxPosition.current < 50,
+      );
     }
   }, [slug]);
 

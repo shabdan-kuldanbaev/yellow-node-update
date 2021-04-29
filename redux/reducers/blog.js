@@ -75,6 +75,10 @@ const handlers = {
     found: [],
     searchMessage: '',
   }),
+  [actionTypes.CLEAR_CURRENT_ARTICLE]: (state) => ({
+    ...state,
+    single: {},
+  }),
   DEFAULT: (state) => state,
 };
 
