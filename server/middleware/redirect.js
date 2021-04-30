@@ -18,24 +18,25 @@ const clearUrlRedirect = (req, res, next) => {
   const host = req.get('Host');
   const testWWW = /^www\./g.test(host);
 
-  const fullUrl = `${req.protocol}://${host}${req.originalUrl}`;
+  const partialUrl = `${req.protocol}://${host}`;
+  const fullUrl = `${partialUrl}${req.originalUrl}`;
 
   const testDoubleSlashes = (url) => /([^:]\/)\/+/g.test(url);
 
   if (testDoubleSlashes(fullUrl)) {
-    return res.redirect(301, `${ROOT_URL}${req.originalUrl}`);
+    return res.redirect(301, fullUrl);
   }
 
   if (host === 'yellow.id' || testWWW) {
-    return res.redirect(301, `${ROOT_URL}${req.originalUrl}`);
+    return res.redirect(301, fullUrl);
   }
 
   if (host === 'blog.yellow.id' || testWWW) {
     if (req.originalUrl === '/') {
-      return res.redirect(301, `${ROOT_URL}/blog`);
+      return res.redirect(301, `${partialUrl}/blog`);
     }
 
-    return res.redirect(301, `${ROOT_URL}${req.originalUrl.replace('posts/', 'blog/')}`);
+    return res.redirect(301, `${partialUrl}${req.originalUrl.replace('posts/', 'blog/')}`);
   }
 
   next();
@@ -45,7 +46,8 @@ const urlRedirect = (req, res, next) => {
   const redirectPage = redirects.find((page) => req.originalUrl.includes(page.from));
 
   if (redirectPage) {
-    return res.redirect(301, `${ROOT_URL}${redirectPage.to}`);
+    res.writeHead(301, { location: redirectPage.to });
+    res.end();
   }
 
   next();
