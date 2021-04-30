@@ -9,10 +9,10 @@ const axios = require('axios');
 const {
   httpsRedirect,
   clearUrlRedirect,
-  oldUrlRedirect,
+  urlRedirect,
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
-const { processes } = require('./utils/data');
+const { processes } = require('./utils/processes');
 const { CONTACT_FORM_API_URL } = require('./utils/constants');
 const formDataHelper = require('./utils/formDataHelper');
 
@@ -32,7 +32,7 @@ app
 
     server.use(httpsRedirect);
     server.use(clearUrlRedirect);
-    server.use(oldUrlRedirect);
+    server.use(urlRedirect);
 
     server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));
