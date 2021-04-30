@@ -52,7 +52,6 @@ export const Layout = ({
       attachments: selectedFilesInfo,
       projectBudget,
     });
-    closeFullscreenEstimation();
   };
 
   useEffect(() => {
