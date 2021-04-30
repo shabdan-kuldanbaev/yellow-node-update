@@ -127,7 +127,7 @@ const FeedbackForm = ({
   }, [selectedFiles, projectDescription]);
 
   useEffect(() => {
-    if (!fullName || !email.value || !projectDescription || (selectedFiles.length && !isAllFilesUploaded)) {
+    if (!fullName || !email.value || !email.isValidate || !projectDescription || (selectedFiles.length && !isAllFilesUploaded)) {
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
