@@ -51,7 +51,7 @@
       }
 
       @include phone {
-        padding: 30px 15px 40px;
+        padding: 30px 15px 50px;
       }
 
       & > h3 {
@@ -95,6 +95,8 @@
 
         @include tablet {
           height: 60px;
+
+          @include flex(row, center, initial, wrap);
         }
 
         & > input {
@@ -129,7 +131,7 @@
           }
 
           @include phone {
-            max-width: 147px;
+            max-width: 155px;
             padding-right: 10px;
             padding-left: 10px;
           }
@@ -151,7 +153,7 @@
             outline: none;
 
             @include phone {
-              max-width: 147px;
+              max-width: 155px;
             }
           }
         }
@@ -209,6 +211,12 @@
           transition: opacity 0.2s ease;
 
           @include fontSize(10px);
+
+          @include phone {
+            padding: 7px 0 5px;
+            position: unset;
+            text-align: center;
+          }
         }
       }
     }
