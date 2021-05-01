@@ -40,7 +40,7 @@ const getPageRoute = (
 };
 
 const rootBlogPath = '/blog';
-const rootPortfolioPath = '/portfolio';
+const rootPortfolioPath = '/works';
 const dynamicBlogPaths = getDynamicPaths(rootBlogPath);
 const dynamicPortfolioPaths = getDynamicPaths(rootPortfolioPath);
 const blogRoutes = createPageRoutes(rootBlogPath, dynamicBlogPaths);
@@ -54,7 +54,7 @@ export const routes = {
     slug: 'homepage',
   },
   portfolio: {
-    title: 'Portfolio',
+    title: 'Works',
     path: rootPortfolioPath,
     getRoute: (category, page = '1') => getPageRoute(
       category,
@@ -64,7 +64,7 @@ export const routes = {
     dynamicPath: {
       ...dynamicPortfolioPaths,
     },
-    slug: 'portfolio',
+    slug: 'works',
     categories: [
       {
         title: 'Online Video',
@@ -123,8 +123,8 @@ export const routes = {
   project: {
     title: 'Project',
     getRoute: (slug) => ({
-      path: !!slug && `/portfolio/${slug}`,
-      dynamicPath: !!slug && '/portfolio/[project]',
+      path: !!slug && `/works/${slug}`,
+      dynamicPath: !!slug && '/works/[project]',
     }),
     slug: 'project',
   },

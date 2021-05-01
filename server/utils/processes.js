@@ -103,10 +103,3 @@ module.exports.processes = [
     image: '',
   },
 ];
-
-module.exports.olsPortfolioPages = [
-  '/portfolio/smart-center',
-  '/portfolio/whiledriving',
-  '/portfolio/whatsyours',
-  '/portfolio/start-sport',
-];

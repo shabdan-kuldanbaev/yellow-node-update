@@ -15,7 +15,7 @@ footer {
     width: 100%;
     height: 100%;
     overflow: auto;
-    padding: 0 17px;
+    padding: 0 34px;
 
     @include flex(row, space-between);
 
@@ -35,6 +35,10 @@ footer {
       @include higher-phone {
         padding-bottom: 50px;
       }
+    }
+
+    @include full-hd {
+      padding: 0 17px;
     }
 
     @include higher-phone {

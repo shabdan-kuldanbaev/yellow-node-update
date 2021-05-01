@@ -24,16 +24,28 @@ const Sitemap = () => (null);
 
 Sitemap.getInitialProps = async ({ res }) => {
   try {
-    const { items = [] } = await contentfulClient.getEntries({
+    const articles = await contentfulClient.getEntries({
       contentType: 'article',
       searchType: '[match]',
     });
-    const postLinks = items.map((link) => {
+    const projects = await contentfulClient.getEntries({
+      contentType: 'project',
+      searchType: '[match]',
+    });
+    const postLinks = articles.items.map((link) => {
       const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
 
       return ({
         path: ROUTES.article.getRoute(slug).path,
         updatedAt: getDate(Date.parse(publishedAt)),
+      });
+    });
+    const projectLinks = projects.items.map((project) => {
+      const { slug } = getDocumentFields(project, ['slug']);
+
+      return ({
+        path: ROUTES.portfolio.getRoute(slug).path,
+        updatedAt: getDate(new Date()),
       });
     });
     const feedObject = {
@@ -54,6 +66,7 @@ Sitemap.getInitialProps = async ({ res }) => {
     feedObject.urlset.url.push(
       ...buildUrlObject([
         ...getMainLinksForSitemap(getDate(new Date())),
+        ...projectLinks,
         ...postLinks,
       ]),
     );

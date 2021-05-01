@@ -9,8 +9,8 @@ const animatedProps = {
 
 const linkProps = {
   isLocalLink: true,
-  dynamicRouting: '/portfolio/[project]',
-  path: (id) => `/portfolio/${id}`,
+  dynamicRouting: '/works/[project]',
+  path: (id) => `/works/${id}`,
 };
 
 export const animatedFields = [
