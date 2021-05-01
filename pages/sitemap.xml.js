@@ -24,15 +24,15 @@ const Sitemap = () => (null);
 
 Sitemap.getInitialProps = async ({ res }) => {
   try {
-    const { items = [] } = await contentfulClient.getEntries({
+    const articles = await contentfulClient.getEntries({
       contentType: 'article',
       searchType: '[match]',
     });
-    const { projects = [] } = await contentfulClient.getEntries({
+    const projects = await contentfulClient.getEntries({
       contentType: 'project',
       searchType: '[match]',
     });
-    const postLinks = items.map((link) => {
+    const postLinks = articles.items.map((link) => {
       const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
 
       return ({
@@ -40,7 +40,7 @@ Sitemap.getInitialProps = async ({ res }) => {
         updatedAt: getDate(Date.parse(publishedAt)),
       });
     });
-    const projectLinks = projects.map((project) => {
+    const projectLinks = projects.items.map((project) => {
       const { slug } = getDocumentFields(project, ['slug']);
 
       return ({
