@@ -27,7 +27,7 @@ export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
 
 export const BLOCKS_SLUGS = {
   homepagePreviewProjects: 'homepage-preview-projects',
-  portfolioPagePreviewProjects: 'portfolio-page-preview-projects',
+  worksPagePreviewProjects: 'works-page-preview-projects',
   imageCarousel: 'image-carousel',
   companyPageWhatMakesSpecial: 'company-page-what-makes-us-special',
   compnayPageManagementTeam: 'company-page-management-team',

@@ -37,7 +37,7 @@ export const selectHomepageProjectsPreview = (state) => getMain(state, BLOCKS_SL
 
 export const selectImageCarousel = (state) => getMain(state, BLOCKS_SLUGS.imageCarousel);
 
-export const selectPortfolioProjectsPreview = (state) => getMain(state, BLOCKS_SLUGS.portfolioPagePreviewProjects);
+export const selectPortfolioProjectsPreview = (state) => getMain(state, BLOCKS_SLUGS.worksPagePreviewProjects);
 
 export const selectWhatMakesSpecial = (state) => getMain(state, BLOCKS_SLUGS.companyPageWhatMakesSpecial);
 
