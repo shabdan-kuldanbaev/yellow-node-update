@@ -4,7 +4,6 @@ const { redirects } = require('../utils/redirects');
 dotenv.config('./env');
 
 const isProd = process.env.NODE_ENV === 'production';
-const ROOT_URL = isProd ? process.env.PROD_URL : process.env.DEV_URL;
 
 const httpsRedirect = (req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https' && isProd) {
