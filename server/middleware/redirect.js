@@ -18,8 +18,8 @@ const clearUrlRedirect = (req, res, next) => {
   const host = req.get('Host');
   const testWWW = /^www\./g.test(host);
 
-  const partialUrl = `${req.protocol}://${host}`;
-  const fullUrl = `${partialUrl}${req.originalUrl}`;
+  const firstUrlPart = `${req.protocol}://${host}`;
+  const fullUrl = `${firstUrlPart}${req.originalUrl}`;
 
   const testDoubleSlashes = (url) => /([^:]\/)\/+/g.test(url);
 
@@ -33,10 +33,10 @@ const clearUrlRedirect = (req, res, next) => {
 
   if (host === 'blog.yellow.id' || testWWW) {
     if (req.originalUrl === '/') {
-      return res.redirect(301, `${partialUrl}/blog`);
+      return res.redirect(301, `${firstUrlPart}/blog`);
     }
 
-    return res.redirect(301, `${partialUrl}${req.originalUrl.replace('posts/', 'blog/')}`);
+    return res.redirect(301, `${firstUrlPart}${req.originalUrl.replace('posts/', 'blog/')}`);
   }
 
   next();
