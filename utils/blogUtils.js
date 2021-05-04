@@ -11,7 +11,7 @@ export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !
 const fetchBlogData = async ({
   store,
   query: {
-    slug: category = 'latest',
+    slug: category = '',
     page = 1,
   },
 }) => {
@@ -26,7 +26,6 @@ const fetchBlogData = async ({
 
   if (isNumeric(category)) {
     queryParams = {
-      category: 'latest',
       page: category,
     };
   }

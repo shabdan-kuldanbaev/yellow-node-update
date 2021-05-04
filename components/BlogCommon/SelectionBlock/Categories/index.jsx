@@ -30,7 +30,7 @@ const Categories = ({ isMobileCategoties, closeMobileCategoties }) => {
           const { path, dynamicPath } = ROUTES.blog.getRoute(slug);
           const isSelected = index !== 0
             ? asPath.includes(path)
-            : asPath === path || isNumeric(currentCategory);
+            : asPath === ROUTES.blog.path || isNumeric(currentCategory);
 
           return (
             <li key={`categoris/${title}`} className={cn({ [styles.selectedBlock]: isSelected })}>

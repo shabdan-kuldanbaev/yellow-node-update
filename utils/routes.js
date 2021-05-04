@@ -150,7 +150,7 @@ export const routes = {
     categories: [
       {
         title: 'Latest',
-        slug: 'latest',
+        slug: '',
       },
       {
         title: 'How we work',
