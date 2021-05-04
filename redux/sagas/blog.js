@@ -42,7 +42,7 @@ export function* loadArticles({
   try {
     const { items, total } = yield fetchContentfulArticles({
       order: '-fields.publishedAt',
-      'fields.categoryTag[match]': category !== 'latest' ? category : '',
+      'fields.categoryTag[match]': category,
       limit: currentLimit,
       skip,
     });
@@ -138,13 +138,15 @@ export function* fetchBlogData({
       ['slug', 'title', 'publishedAt', 'categoryTag'],
     );
 
-    yield all([
-      yield call(loadNearbyArticles, { publishedAt }),
-      yield call(loadRelatedArticles, {
-        currentLimit: 5,
-        currentArticleSlug,
-        categoryTag,
-      }),
-    ]);
+    if (currentArticleSlug && categoryTag && publishedAt) {
+      yield all([
+        yield call(loadNearbyArticles, { publishedAt }),
+        yield call(loadRelatedArticles, {
+          currentLimit: 5,
+          currentArticleSlug,
+          categoryTag,
+        }),
+      ]);
+    }
   }
 }

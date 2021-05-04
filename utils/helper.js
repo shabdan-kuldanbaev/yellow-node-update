@@ -209,3 +209,13 @@ export const getConvertedFileSize = (size) => {
     ? `${(kilobytes / 1000).toFixed(2)} MB`
     : `${kilobytes} kB`;
 };
+
+export const serverSideRedirect = ({ res }, {
+  status = 302,
+  path = '/',
+}) => {
+  if (res) {
+    res.writeHead(status, { Location: path });
+    res.end();
+  }
+};
