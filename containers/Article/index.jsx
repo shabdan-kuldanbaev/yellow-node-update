@@ -107,6 +107,7 @@ const ArticleContainer = ({
 
   const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
 
+  // TODO rework it with SSR
   useEffect(() => {
     if (isPageReadyToDisplay && !articleSlug) {
       Router.push({ pathname: ROUTES.notFound.path });
