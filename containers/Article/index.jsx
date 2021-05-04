@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import {
@@ -9,6 +9,7 @@ import {
   selectRelatedArticles,
   selectNearbyArticles,
 } from 'redux/selectors/blog';
+import { selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import { subscribe } from 'redux/actions/subscribe';
 import {
   Article,
@@ -19,7 +20,7 @@ import {
   MetaTags,
   withScroll,
 } from 'components';
-import { PAGES } from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import {
   rootUrl,
   getDocumentFields,
@@ -34,6 +35,7 @@ const ArticleContainer = ({
   nearbyArticles: { newerArticle, olderArticle },
   currentArticle,
   subscribe: addNewSubscriber,
+  isPageReadyToDisplay,
 }) => {
   const { query: { slug }, pathname } = useRouter();
   const {
@@ -105,6 +107,12 @@ const ArticleContainer = ({
 
   const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
 
+  useEffect(() => {
+    if (isPageReadyToDisplay && !articleSlug) {
+      Router.push({ pathname: ROUTES.notFound.path });
+    }
+  }, [articleSlug, isPageReadyToDisplay]);
+
   return (
     <Fragment>
       <MetaTags
@@ -147,6 +155,7 @@ ArticleContainer.propTypes = {
   currentArticle: PropTypes.instanceOf(Object).isRequired,
   nearbyArticles: PropTypes.instanceOf(Object).isRequired,
   subscribe: PropTypes.func.isRequired,
+  isPageReadyToDisplay: PropTypes.bool.isRequired,
 };
 
 export default connect(
@@ -154,6 +163,7 @@ export default connect(
     currentArticle: selectArticle(state),
     articles: selectRelatedArticles(state),
     nearbyArticles: selectNearbyArticles(state),
+    isPageReadyToDisplay: selectIsPageReadyToDisplay(state),
   }),
   { subscribe },
 )(withScroll(ArticleContainer));
