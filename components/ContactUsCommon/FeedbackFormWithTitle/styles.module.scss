@@ -64,6 +64,14 @@
 
       @include flex(column, space-around, flex-start);
 
+      @include macbook-twelve {
+        max-width: 480px;
+      }
+
+      @include tablet {
+        max-width: 100%;
+      }
+
       & > div:nth-of-type(1) > h1 {
         @include big-title();
 

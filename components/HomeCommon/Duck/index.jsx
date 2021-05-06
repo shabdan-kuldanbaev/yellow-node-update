@@ -29,6 +29,7 @@ import * as styles from './styles.module.scss';
 let camera;
 let animationId = 0;
 let isRender = true;
+let isDuckBuilt = false;
 const meshes = [];
 const meshClones = [];
 let composer;
@@ -231,6 +232,7 @@ export const Duck = ({ duck }) => {
           mesh.geometry.attributes.position.needsUpdate = true;
           scatterStep = 0;
         });
+        isDuckBuilt = true;
       } else if (window.innerWidth < mobileResolution) {
         isRender = false;
       } else {
@@ -269,14 +271,17 @@ export const Duck = ({ duck }) => {
     slogan.setOpacity(canvas, containerCanvas);
     slogan.setSloganOpacity(sloganRef, isMobile);
 
-    const { top } = containerCanvas.current.getBoundingClientRect();
+    const { scrollY } = window;
 
     if (containerCanvas) {
       if (!(window.innerWidth < mobileResolution)) {
-        if (top < -400) {
-          setAnimate(false);
-          isRender = false;
-        } else if (top <= -50 && top > -400) {
+        if (scrollY > 400) {
+          if (isDuckBuilt) {
+            options.initial.currentAnimation = animationTypes[1];
+            setAnimate(false);
+            isRender = false;
+          }
+        } else if (scrollY >= 50 && scrollY < 400) {
           setAnimate(true);
           isRender = true;
         } else {
@@ -311,7 +316,7 @@ export const Duck = ({ duck }) => {
   useEffect(() => {
     let timer;
 
-    if (containerCanvas.current && containerCanvas.current.getBoundingClientRect().top < -400) {
+    if (window && window.srollY > 400 && isDuckBuilt) {
       cancelAnimationFrame(animationId);
       animationId = 0;
       isRender = false;
@@ -372,6 +377,8 @@ export const Duck = ({ duck }) => {
       }
     } else {
       options.initial.isAppear = true;
+
+      if (isDuckBuilt) options.initial.currentAnimation = animationTypes[1];
 
       if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
 
