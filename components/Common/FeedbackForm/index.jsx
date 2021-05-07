@@ -33,13 +33,13 @@ const FeedbackForm = ({
 }) => {
   const { asPath } = useRouter();
   const formRef = useRef(null);
-  const feedbackFormBlockRef = useRef(null);
   const sliderRef = useRef(null);
   const [fullName, setFullName] = useState('');
   const [projectBudget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
   const [projectDescription, setDescription] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
+  const [formHeight, setFormHeight] = useState('500px'); // TODO rework it later
   const sliderSettings = {
     ...budgetData,
     defaultValue: budgetData.min,
@@ -120,11 +120,14 @@ const FeedbackForm = ({
   };
 
   useEffect(() => {
-    if (feedbackFormBlockRef && feedbackFormBlockRef.current && formRef && formRef.current) {
-      const { offsetHeight } = formRef.current;
-      feedbackFormBlockRef.current.style.height = `${offsetHeight}px`;
+    if (formRef && formRef.current) {
+      setFormHeight(formRef.current.offsetHeight);
     }
-  }, [selectedFiles, projectDescription]);
+  }, [
+    selectedFiles,
+    projectDescription,
+    formRef,
+  ]);
 
   useEffect(() => {
     // TODO rework this check
@@ -143,7 +146,7 @@ const FeedbackForm = ({
 
   // TODO move <div className={styles.feedbackForm} ref={feedbackFormBlockRef}> to the FormContainer
   return (
-    <div className={styles.feedbackForm} ref={feedbackFormBlockRef}>
+    <div className={styles.feedbackForm} style={{ height: `${formHeight}` }}>
       <FormContainer formRef={formRef} clearForm={clearForm}>
         <div className={styles.inputs}>
           <Animated {...animatedProps} transitionDelay={500}>

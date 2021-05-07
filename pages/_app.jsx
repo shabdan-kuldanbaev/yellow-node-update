@@ -2,13 +2,16 @@ import React, {
   useState,
   useRef,
   useEffect,
+  Fragment,
 } from 'react';
 import { wrapper } from 'redux/store';
 import { useDispatch } from 'react-redux';
 import Router from 'next/router';
+import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core';
 import { setPageReadyToDisplay } from 'redux/actions/layout';
 import { Layout } from 'containers';
+import { isServer } from 'utils/helper';
 import { AppContext } from 'utils/appContext';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
@@ -22,6 +25,7 @@ const App = ({ Component, pageProps }) => {
   const [theme] = useState('dark');
   const introSection = useRef(null);
   const dispatch = useDispatch();
+  const isCustomDomain = pageProps.hostname.includes(process.env.CUSTOM_DOMAIN);
 
   useEffect(() => {
     const handleRouteChangeComplete = () => dispatch(setPageReadyToDisplay(false));
@@ -42,27 +46,39 @@ const App = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ contextData, setContextData }}>
-      <ThemeProvider theme={customTheme}>
-        <Layout theme={theme} introSection={introSection}>
-          <Component
-            theme={theme}
-            introSection={introSection}
-            {...pageProps}
-          />
-        </Layout>
-      </ThemeProvider>
-    </AppContext.Provider>
+    <Fragment>
+      <Head>
+        {!isCustomDomain && <meta name="robots" content="none" />}
+      </Head>
+      <AppContext.Provider value={{ contextData, setContextData }}>
+        <ThemeProvider theme={customTheme}>
+          <Layout theme={theme} introSection={introSection}>
+            <Component
+              theme={theme}
+              introSection={introSection}
+              {...pageProps}
+            />
+          </Layout>
+        </ThemeProvider>
+      </AppContext.Provider>
+    </Fragment>
   );
 };
 
-App.getInitialProps = async ({ Component, ctx }) => ({
-  pageProps: {
-    ...(Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {}
-    ),
-  },
-});
+App.getInitialProps = async ({ Component, ctx }) => {
+  const hostname = isServer
+    ? ctx.req.hostname
+    : window.location.hostname;
+
+  return {
+    pageProps: {
+      hostname,
+      ...(Component.getInitialProps
+        ? await Component.getInitialProps(ctx)
+        : {}
+      ),
+    },
+  };
+};
 
 export default wrapper.withRedux(App);
