@@ -65,7 +65,7 @@ Sitemap.getInitialProps = async ({ res }) => {
 
     feedObject.urlset.url.push(
       ...buildUrlObject([
-        ...getMainLinksForSitemap(getDate(new Date())),
+        ...getMainLinksForSitemap(getDate(new Date('2021-05-12'))),
         ...projectLinks,
         ...postLinks,
       ]),
