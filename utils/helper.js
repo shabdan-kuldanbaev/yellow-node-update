@@ -4,7 +4,6 @@ import {
   PAGES,
   FEEDBACK_FORM_FIELDS,
   IMAGES,
-  IMAGES_WITHOUT_CDN,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
 import {
@@ -76,14 +75,11 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.company}`, updatedAt },
   { path: `/${PAGES.contact}`, updatedAt },
   { path: `/${PAGES.blog}`, updatedAt },
-  { path: `/${PAGES.notFound}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
   ? process.env.DEV_URL
   : process.env.PROD_URL;
-
-export const isCustomDomain = rootUrl.includes(process.env.CUSTOM_DOMAIN);
 
 export const isServer = typeof window === 'undefined';
 
@@ -197,10 +193,7 @@ export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [k
   return acc;
 }, {});
 
-export const staticImagesUrls = ({
-  ...addCdnToImages(IMAGES),
-  ...IMAGES_WITHOUT_CDN,
-});
+export const staticImagesUrls = ({ ...addCdnToImages(IMAGES) });
 
 export const getConvertedFileSize = (size) => {
   const kilobytes = (size / 1024).toFixed(2);

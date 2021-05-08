@@ -242,8 +242,7 @@
             margin: auto;
             width: 20px;
             height: 20px;
-            // TODO CDN doesn't display it
-            background: url("/images/works/globe.svg");
+            background: url(getPathWithCdn("/images/works/globe.svg"));
             background-repeat: no-repeat;
             background-size: cover;
           }
@@ -289,8 +288,7 @@
 
     .project.travgenius {
       .project_header {
-        // TODO CDN doesn't display it
-        background-image: url("/images/works/travgenius/travgenius_header.jpg");
+        background-image: url(getPathWithCdn("/images/works/travgenius/travgenius_header.jpg"));
       }
     }
 
@@ -308,15 +306,13 @@
 
     .project.famlicious {
       .project_header {
-        // TODO CDN doesn't display it
-        background-image: url("/images/works/famlicious/fam_header.jpg");
+        background-image: url(getPathWithCdn("/images/works/famlicious/fam_header.jpg"));
       }
     }
 
     .project.omnimarkettide {
       .project_header {
-        // TODO CDN doesn't display it
-        background-image: url("/images/works/omnimarkettide/omnimarkettide_header.jpg");
+        background-image: url(getPathWithCdn("/images/works/omnimarkettide/omnimarkettide_header.jpg"));
         background-size: auto 500px;
         background-position: 50% 0;
         min-height: 450px;

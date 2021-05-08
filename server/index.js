@@ -7,13 +7,13 @@ const path = require('path');
 const cors = require('cors');
 const axios = require('axios');
 const {
+  redirectToCustomDomain,
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
-const { CONTACT_FORM_API_URL } = require('./utils/constants');
 const formDataHelper = require('./utils/formDataHelper');
 
 dotenv.config('./env');
@@ -30,6 +30,7 @@ app
   .then(() => {
     const server = express();
 
+    // server.use(redirectToCustomDomain); // TODO turn on before release
     server.use(httpsRedirect);
     server.use(clearUrlRedirect);
     server.use(urlRedirect);
@@ -65,7 +66,7 @@ app
         const { fileName } = req.body;
 
         const { data: { signed_url } } = await axios.post(
-          `${CONTACT_FORM_API_URL}/upload-url`,
+          `${process.env.ERP_CONTACT_FORM_API_URL}/upload-url`,
           { file_name: fileName },
           {
             headers: {
