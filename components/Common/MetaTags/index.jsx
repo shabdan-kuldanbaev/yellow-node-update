@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import isEmpty from 'lodash/isEmpty';
 import { ROUTES } from 'utils/constants';
-import { rootUrl, isCustomDomain } from 'utils/helper';
+import { rootUrl } from 'utils/helper';
 import { isArticle } from 'utils/blogUtils';
 import { ogMetaData } from './utils/data';
 
@@ -69,7 +69,6 @@ export const MetaTags = ({
             ))}
             <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
             <meta name="google-site-verification" content="Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k" />
-            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet" />
             <link rel="shortcut icon" href="/yellow_logo.ico" />
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
             <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffbf02" />
@@ -82,7 +81,6 @@ export const MetaTags = ({
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata) }}
               />
             )}
-            {!isCustomDomain && <meta name="robots" content="none" />}
           </Fragment>
         ))}
       {children}
