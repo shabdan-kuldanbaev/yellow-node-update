@@ -14,7 +14,6 @@ const {
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
-const { CONTACT_FORM_API_URL } = require('./utils/constants');
 const formDataHelper = require('./utils/formDataHelper');
 
 dotenv.config('./env');
@@ -67,7 +66,7 @@ app
         const { fileName } = req.body;
 
         const { data: { signed_url } } = await axios.post(
-          `${CONTACT_FORM_API_URL}/upload-url`,
+          `${process.env.ERP_CONTACT_FORM_API_URL}/upload-url`,
           { file_name: fileName },
           {
             headers: {

@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
 const axios = require('axios');
 const FormData = require('form-data');
-const { CONTACT_FORM_API_URL } = require('./constants');
 
 dotenv.config('./env');
 
@@ -38,7 +37,7 @@ module.exports.sendFormData = async (req, res) => {
     }
 
     const { data } = await axios.post(
-      CONTACT_FORM_API_URL,
+      process.env.ERP_CONTACT_FORM_API_URL,
       formData,
       {
         headers: {
