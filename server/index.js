@@ -7,6 +7,7 @@ const path = require('path');
 const cors = require('cors');
 const axios = require('axios');
 const {
+  redirectToCustomDomain,
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,
@@ -29,6 +30,7 @@ app
   .then(() => {
     const server = express();
 
+    // server.use(redirectToCustomDomain); // TODO turn on before release
     server.use(httpsRedirect);
     server.use(clearUrlRedirect);
     server.use(urlRedirect);

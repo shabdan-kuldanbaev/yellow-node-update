@@ -5,6 +5,14 @@ dotenv.config('./env');
 
 const isProd = process.env.NODE_ENV === 'production';
 
+const redirectToCustomDomain = (req, res, next) => {
+  if (req.hostname.includes('yellow-systems-nextjs-prod')) {
+    res.redirect(301, `https://${process.env.CUSTOM_DOMAIN}${req.url}`);
+  } else {
+    next();
+  }
+};
+
 const httpsRedirect = (req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https' && isProd) {
     res.redirect(301, `https://${req.hostname}${req.url}`);
@@ -53,6 +61,7 @@ const urlRedirect = (req, res, next) => {
 };
 
 module.exports = {
+  redirectToCustomDomain,
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,

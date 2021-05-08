@@ -68,16 +68,13 @@ export const FEEDBACK_FORM_FIELDS = {
   clientId: 'clientId',
 };
 
-export const IMAGES_WITHOUT_CDN = {
+export const IMAGES = {
   searchIcon: '/images/blog/search.svg',
   roundLogo: '/images/common/logo/yellow_logo.svg',
   closeIcon: '/images/common/close.svg',
   subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
   scrollDownIcon: '/images/home/scrollIcon/scroll-down.svg',
-  unpinFile: 'images/common/upload/unpin.svg',
-};
-
-export const IMAGES = {
+  unpinFile: '/images/common/upload/unpin.svg',
   socialNetworksIcons: {
     instaIcon: '/images/layout/footer/insta.svg',
     linkedinIcon: '/images/layout/footer/linkedin.svg',

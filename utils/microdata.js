@@ -1,13 +1,12 @@
 import {
   ROUTES,
-  IMAGES_WITHOUT_CDN,
+  IMAGES,
   CONTACTS_DATA,
 } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 
 const context = 'https://schema.org';
-const logoUrl = `${rootUrl}${IMAGES_WITHOUT_CDN.roundLogo}`;
-const pageUrl = (pagePath = '') => `${rootUrl}${pagePath}`;
+const logoUrl = `${rootUrl}${IMAGES.roundLogo}`;
 const publisherMicrodata = {
   '@type': 'Organization',
   name: 'Yellow Systems',
@@ -24,6 +23,10 @@ const {
   postalCode,
   streetAddress,
 } = CONTACTS_DATA;
+
+function pageUrl(pagePath = '') {
+  return `${rootUrl}${pagePath}`;
+}
 
 export const microdata = {
   article: ({
