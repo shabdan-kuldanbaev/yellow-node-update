@@ -1,15 +1,23 @@
 import React from 'react';
+import { END } from 'redux-saga';
+import { fetchLayoutData } from 'redux/actions/layout';
+import { PageNotFound } from 'containers';
 import { PAGES } from 'utils/constants';
 
 const Error = ({ statusCode, err }) => (
   <p>
     {statusCode
-      ? `An error ${statusCode} occurred on server`
+      ? statusCode === 404 && <PageNotFound />
       : `An error occurred on client ${err}`}
   </p>
 );
 
-Error.getInitialProps = async ({ err, res }) => {
+Error.getInitialProps = async ({
+  err,
+  res,
+  store,
+  req,
+}) => {
   let statusCode = 404;
 
   if (res) {
@@ -19,13 +27,12 @@ Error.getInitialProps = async ({ err, res }) => {
   }
 
   if (statusCode === 404) {
-    res.writeHead(302, {
-      Location: PAGES.notFound,
-      'Content-Type': 'text/html; charset=utf-8',
-    });
-    res.end();
+    store.dispatch(fetchLayoutData({ slug: PAGES.notFound }));
 
-    return {};
+    if (req) {
+      store.dispatch(END);
+      await store.sagaTask.toPromise();
+    }
   }
 
   return {
