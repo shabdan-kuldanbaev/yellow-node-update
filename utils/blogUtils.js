@@ -53,6 +53,16 @@ const fetchBlogData = async ({
   };
 };
 
+const isArticleLoaded = (store) => {
+  const { single } = store.getState().blog;
+
+  if (single.total === 0) {
+    return false;
+  }
+
+  return true;
+};
+
 export const getInitialBlogProps = async (ctx) => {
   const {
     store,
@@ -60,6 +70,7 @@ export const getInitialBlogProps = async (ctx) => {
     query: {
       slug,
     },
+    res,
   } = ctx;
   let props = {};
 
@@ -77,9 +88,20 @@ export const getInitialBlogProps = async (ctx) => {
     };
   }
 
+  // TODO rewrite it
   if (req) {
     store.dispatch(END);
     await store.sagaTask.toPromise();
+
+    if (isArticle(slug)) {
+      if (!isArticleLoaded(store)) {
+        props.statusCode = 404;
+
+        if (res) {
+          res.statusCode = 404;
+        }
+      }
+    }
   }
 
   return props;
