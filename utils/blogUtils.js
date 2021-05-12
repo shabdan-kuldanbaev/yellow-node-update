@@ -53,15 +53,7 @@ const fetchBlogData = async ({
   };
 };
 
-const isArticleLoaded = (store) => {
-  const { single } = store.getState().blog;
-
-  if (single.total === 0) {
-    return false;
-  }
-
-  return true;
-};
+const isArticleLoaded = (store) => store.getState().blog.single.total !== 0;
 
 export const getInitialBlogProps = async (ctx) => {
   const {
