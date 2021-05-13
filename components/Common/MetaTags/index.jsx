@@ -73,7 +73,6 @@ export const MetaTags = ({
             <link rel="apple-touch-icon" sizes="180x180" href={getPathWithCdn('/apple-touch-icon.png')} />
             <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
             <link rel="manifest" href="/manifest.json" />
-            <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
             {!isEmpty(microdata) && (
               <script
                 key={`JSON-LD-${microdata.name}`}

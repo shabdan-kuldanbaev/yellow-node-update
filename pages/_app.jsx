@@ -15,6 +15,7 @@ import { isServer } from 'utils/helper';
 import { AppContext } from 'utils/appContext';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
+import 'swiper/swiper-bundle.min.css';
 import 'styles/index.scss';
 
 const App = ({ Component, pageProps }) => {
