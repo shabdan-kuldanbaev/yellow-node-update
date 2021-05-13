@@ -120,7 +120,7 @@ const Portfolio = ({ gradientRef, projects }) => {
               <ButtonMore
                 href={ROUTES.portfolio.path}
                 dynamicRouting={ROUTES.portfolio.dynamicPath}
-                title="EXPLORE OUR PORTFOLIO"
+                title="EXPLORE OUR WORKS"
                 buttonStyle={styles.portfolioButton}
               />
             </Animated>
