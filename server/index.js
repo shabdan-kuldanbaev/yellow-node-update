@@ -66,7 +66,7 @@ app
         const { fileName } = req.body;
 
         const { data: { signed_url } } = await axios.post(
-          `${process.env.ERP_CONTACT_FORM_API_URL}/upload-url`,
+          `${process.env.ERP_API_URL}/contact-form/upload-url`,
           { file_name: fileName },
           {
             headers: {
