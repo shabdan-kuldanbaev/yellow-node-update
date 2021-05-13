@@ -13,7 +13,7 @@ export const three = {
     dracoLoader.setDecoderPath('/draco/gltf/');
     loader.setDRACOLoader(dracoLoader);
     loader.load(
-      getPathWithCdn('/models/Duck_2.gltf'),
+      '/models/Duck_2.gltf',
       (gltf) => { callback(gltf.scene); },
     );
   },
