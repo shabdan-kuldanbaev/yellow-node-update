@@ -193,7 +193,7 @@ export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [k
   return acc;
 }, {});
 
-export const staticImagesUrls = IMAGES;
+export const staticImagesUrls = ({ ...addCdnToImages(IMAGES) });
 
 export const getConvertedFileSize = (size) => {
   const kilobytes = (size / 1024).toFixed(2);
