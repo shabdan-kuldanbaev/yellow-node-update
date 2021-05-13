@@ -30,7 +30,7 @@ app
   .then(() => {
     const server = express();
 
-    // server.use(redirectToCustomDomain); // TODO turn on before release
+    server.use(redirectToCustomDomain);
     server.use(httpsRedirect);
     server.use(clearUrlRedirect);
     server.use(urlRedirect);
