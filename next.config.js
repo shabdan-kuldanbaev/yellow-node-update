@@ -11,13 +11,13 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-// const withCDN = +process.env.NEXTJS_STATIC_FILES_WITH_CDN
-//   ? { assetPrefix: process.env.EDGE_URL }
-//   : {};
+const withCDN = +process.env.NEXTJS_STATIC_FILES_WITH_CDN
+  ? { assetPrefix: process.env.EDGE_URL }
+  : {};
 
 const nextConfig = {
   distDir: 'build',
-  // ...withCDN,
+  ...withCDN,
   webpack: (config) => {
     /* eslint-disable */
     require('dotenv').config();
