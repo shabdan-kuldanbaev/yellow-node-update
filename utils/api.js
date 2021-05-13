@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { rootUrl } from 'utils/helper';
 
+// TODO rework it
 const apiClient = axios.create({
   baseURL: rootUrl,
   headers: {
