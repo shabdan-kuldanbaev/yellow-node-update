@@ -7,7 +7,7 @@ const path = require('path');
 const cors = require('cors');
 const axios = require('axios');
 const {
-  redirectToCustomDomain,
+  // redirectToCustomDomain,
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,
