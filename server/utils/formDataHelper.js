@@ -37,7 +37,7 @@ module.exports.sendFormData = async (req, res) => {
     }
 
     const { data } = await axios.post(
-      process.env.ERP_CONTACT_FORM_API_URL,
+      `${process.env.ERP_API_URL}/contact-form`,
       formData,
       {
         headers: {
