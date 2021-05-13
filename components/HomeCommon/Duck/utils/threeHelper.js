@@ -10,10 +10,10 @@ export const three = {
     const loader = new GLTFLoader();
     const dracoLoader = new DRACOLoader();
 
-    dracoLoader.setDecoderPath('/draco/gltf/');
+    dracoLoader.setDecoderPath(getPathWithCdn('/draco/gltf/'));
     loader.setDRACOLoader(dracoLoader);
     loader.load(
-      '/models/Duck_2.gltf',
+      getPathWithCdn('/models/Duck_2.gltf'),
       (gltf) => { callback(gltf.scene); },
     );
   },

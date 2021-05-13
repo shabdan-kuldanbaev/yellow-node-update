@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import isEmpty from 'lodash/isEmpty';
 import { ROUTES } from 'utils/constants';
-import { rootUrl } from 'utils/helper';
+import { rootUrl, getPathWithCdn } from 'utils/helper';
 import { isArticle } from 'utils/blogUtils';
 import { ogMetaData } from './utils/data';
 
@@ -61,7 +61,7 @@ export const MetaTags = ({
             <meta property="og:description" content={getDescription(description)} />
             <meta property="og:title" content={getTitle(title)} />
             <meta property="og:url" content={getUrl(url)} />
-            <meta property="og:image" content={getImage('/apple-touch-icon.png')} />
+            <meta property="og:image" content={getImage(getPathWithCdn('/apple-touch-icon.png'))} />
             {categoryTag && <meta property="article:section" content={categoryTag} />}
             {publishedAt && <meta property="article:published_time" content={publishedAt} />}
             {keyWords && keyWords.map((keyWord) => (
@@ -69,9 +69,9 @@ export const MetaTags = ({
             ))}
             <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
             <meta name="google-site-verification" content="Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k" />
-            <link rel="shortcut icon" href="/yellow_logo.ico" />
-            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-            <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffbf02" />
+            <link rel="shortcut icon" href={getPathWithCdn('/yellow_logo.ico')} />
+            <link rel="apple-touch-icon" sizes="180x180" href={getPathWithCdn('/apple-touch-icon.png')} />
+            <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
             <link rel="manifest" href="/manifest.json" />
             <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
             {!isEmpty(microdata) && (
