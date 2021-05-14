@@ -87,7 +87,9 @@ export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') =>
 
 export const createMarkup = (data) => ({ __html: data });
 
-export const getFileUrl = (file) => get(file, 'fields.file.url', '');
+export const addHttpsToUrl = (url) => (/^\/\//.test(url) ? `https:${url}` : url);
+
+export const getFileUrl = (file) => addHttpsToUrl(get(file, 'fields.file.url', ''));
 
 export const getDocumentFields = (document, fields = []) => {
   if (fields.length) {
