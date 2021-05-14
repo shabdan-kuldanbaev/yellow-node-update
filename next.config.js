@@ -12,10 +12,13 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const isProd = process.env.NODE_ENV === 'production';
+const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
+  ? { assetPrefix: process.env.EDGE_URL }
+  : {};
 
 const nextConfig = {
   distDir: 'build',
-  assetPrefix: isProd ? process.env.EDGE_URL : '',
+  ...withCDN,
   webpack: (config) => {
     /* eslint-disable */
     require('dotenv').config();
