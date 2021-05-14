@@ -2,15 +2,25 @@ import { actionTypes } from 'actions/actionTypes';
 
 const initialState = {
   isFormDataSent: false,
+  err: '',
 };
 
 const handlers = {
   [actionTypes.SEND_FORM_DATA_SUCCESS]: (state) => ({
     ...state,
     isFormDataSent: true,
+    err: '',
   }),
-  [actionTypes.SEND_FORM_DATA_FAILED]: (state) => ({ ...state, isFormDataSent: false }),
-  [actionTypes.SET_IS_FORM_DATA_SENT]: (state, { payload }) => ({ ...state, isFormDataSent: payload }),
+  [actionTypes.SEND_FORM_DATA_FAILED]: (state, { payload }) => ({
+    ...state,
+    isFormDataSent: true,
+    err: payload,
+  }),
+  [actionTypes.SET_IS_FORM_DATA_SENT]: (state, { payload }) => ({
+    ...state,
+    isFormDataSent: payload,
+    err: '',
+  }),
   DEFAULT: (state) => state,
 };
 
