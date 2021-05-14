@@ -66,6 +66,7 @@ function* fetchPageData({
   try {
     // TODO without clearing current article google analytics sends event two times
     yield put({ type: actionTypes.CLEAR_CURRENT_ARTICLE });
+    yield put({ type: actionTypes.CLEAR_CONTACT_FORM_ERROR });
 
     switch (slug) {
     case PAGES.homepage: {

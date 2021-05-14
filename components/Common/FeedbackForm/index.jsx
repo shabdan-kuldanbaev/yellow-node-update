@@ -7,6 +7,8 @@ import React, {
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
+import { connect } from 'react-redux';
+import { selectError } from 'redux/selectors/contact';
 import {
   Upload,
   AnimatedInput,
@@ -30,6 +32,7 @@ const FeedbackForm = ({
   budget: budgetData,
   handleOnClick,
   formKey,
+  contactError,
 }) => {
   const { asPath } = useRouter();
   const formRef = useRef(null);
@@ -198,6 +201,7 @@ const FeedbackForm = ({
             updateSelectedFileInfo={updateSelectedFileInfo}
           />
         </Animated>
+        {contactError && <span className={styles.errorMessage}>There was an error trying to send your request. Please try again later</span>}
         <Animated {...animatedProps} transitionDelay={700}>
           <ButtonMore
             href="/"
@@ -227,6 +231,11 @@ FeedbackForm.propTypes = {
   budget: PropTypes.instanceOf(Object),
   handleOnClick: PropTypes.func.isRequired,
   formKey: PropTypes.string,
+  error: PropTypes.string.isRequired,
 };
 
-export default withValidateEmail(FeedbackForm);
+export default connect(
+  (state) => ({
+    contactError: selectError(state),
+  }),
+)(withValidateEmail(FeedbackForm));

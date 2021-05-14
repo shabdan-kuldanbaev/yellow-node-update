@@ -10,7 +10,7 @@ import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
 import { connect } from 'react-redux';
 import delay from 'lodash/delay';
 import { setIsFormDataSent } from 'redux/actions/contact';
-import { selectIsFormDataSent, selectError } from 'redux/selectors/contact';
+import { selectIsFormDataSent } from 'redux/selectors/contact';
 import { staticImagesUrls } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -20,7 +20,6 @@ const FormContainer = ({
   isFormDataSent,
   clearForm,
   setIsFormDataSent: setFormDataSent,
-  error,
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isFrontShown, setIsFrontShown] = useState(true);
@@ -77,25 +76,16 @@ const FormContainer = ({
           alt="Close"
         />
         <div className={styles.content}>
-          {!error ? (
-            <p>
-              We have received your request
-              <br />
-              We will be back in a flash
-              <FlashOnRoundedIcon
-                color="primary"
-                fontSize="large"
-                className={styles.flashIcon}
-              />
-            </p>
-          )
-            : (
-              <p>
-                There was an error trying to send your request.
-                <br />
-                Please try again later
-              </p>
-            )}
+          <p>
+            We have received your request
+            <br />
+            We will be back in a flash
+            <FlashOnRoundedIcon
+              color="primary"
+              fontSize="large"
+              className={styles.flashIcon}
+            />
+          </p>
         </div>
       </a.section>
     </Fragment>
@@ -108,13 +98,9 @@ FormContainer.propTypes = {
   isFormDataSent: PropTypes.bool.isRequired,
   clearForm: PropTypes.func.isRequired,
   setIsFormDataSent: PropTypes.func.isRequired,
-  error: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect(
-  (state) => ({
-    isFormDataSent: selectIsFormDataSent(state),
-    error: selectError(state),
-  }),
+  (state) => ({ isFormDataSent: selectIsFormDataSent(state) }),
   { setIsFormDataSent },
 )(FormContainer);
