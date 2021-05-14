@@ -83,7 +83,14 @@ app
       }
     });
 
-    server.get('*', (req, res) => handle(req, res));
+    server.get('*', (req, res) => {
+      res.setHeader(
+        'Cache-Control',
+        'public, max-age=864000, immutable',
+      );
+
+      handle(req, res);
+    });
 
     server.listen(port, (err) => {
       if (err) throw err;
