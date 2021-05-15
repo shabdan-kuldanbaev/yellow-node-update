@@ -239,7 +239,5 @@ FeedbackForm.propTypes = {
 };
 
 export default connect(
-  (state) => ({
-    contactFormError: selectError(state),
-  }),
+  (state) => ({ contactFormError: selectError(state) }),
 )(withValidateEmail(FeedbackForm));
