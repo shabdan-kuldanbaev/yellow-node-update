@@ -107,7 +107,7 @@ export const ContentfulParser = ({ document }) => {
         </ol>
       ),
       [INLINES.HYPERLINK]: (node, children) => (
-        <LinkWrapper to={get(node, 'data.uri', '/')} isLocalLink>
+        <LinkWrapper path={get(node, 'data.uri', '/')} className={styles.a}>
           {children}
         </LinkWrapper>
       ),
