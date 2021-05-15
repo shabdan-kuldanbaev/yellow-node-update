@@ -2,7 +2,7 @@ import { actionTypes } from 'actions/actionTypes';
 
 const initialState = {
   isFormDataSent: false,
-  err: null,
+  error: null,
 };
 
 const handlers = {
@@ -14,10 +14,10 @@ const handlers = {
   [actionTypes.SEND_FORM_DATA_FAILED]: (state, { payload }) => ({
     ...state,
     isFormDataSent: false,
-    err: payload,
+    error: payload,
   }),
   [actionTypes.SET_IS_FORM_DATA_SENT]: (state, { payload }) => ({ ...state, isFormDataSent: payload }),
-  [actionTypes.CLEAR_CONTACT_FORM_ERROR]: (state) => ({ ...state, err: null }),
+  [actionTypes.CLEAR_CONTACT_FORM_ERROR]: (state) => ({ ...state, error: null }),
   DEFAULT: (state) => state,
 };
 

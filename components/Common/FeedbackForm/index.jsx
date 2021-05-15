@@ -32,7 +32,7 @@ const FeedbackForm = ({
   budget: budgetData,
   handleOnClick,
   formKey,
-  contactError,
+  contactFormError,
 }) => {
   const { asPath } = useRouter();
   const formRef = useRef(null);
@@ -201,7 +201,11 @@ const FeedbackForm = ({
             updateSelectedFileInfo={updateSelectedFileInfo}
           />
         </Animated>
-        {contactError && <span className={styles.errorMessage}>There was an error trying to send your request. Please try again later</span>}
+        {contactFormError && (
+          <span className={styles.errorMessage}>
+            There was an error trying to send your request. Please try again later
+          </span>
+        )}
         <Animated {...animatedProps} transitionDelay={700}>
           <ButtonMore
             href="/"
@@ -231,11 +235,11 @@ FeedbackForm.propTypes = {
   budget: PropTypes.instanceOf(Object),
   handleOnClick: PropTypes.func.isRequired,
   formKey: PropTypes.string,
-  error: PropTypes.string.isRequired,
+  contactFormError: PropTypes.string.isRequired,
 };
 
 export default connect(
   (state) => ({
-    contactError: selectError(state),
+    contactFormError: selectError(state),
   }),
 )(withValidateEmail(FeedbackForm));
