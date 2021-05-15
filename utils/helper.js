@@ -28,7 +28,7 @@ export const addThousandsSeparators = (value) => value.toString().replace(/\B(?=
 
 export const toInt = (str) => parseInt(str, 10);
 
-export const removeThousandsSeparators = (value) => toInt(value.replace(',', ''));
+export const removeThousandsSeparators = (value) => toInt(value.replaceAll(',', ''));
 
 export const validateEmail = (email) => {
   // eslint-disable-next-line max-len

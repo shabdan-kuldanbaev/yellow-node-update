@@ -47,6 +47,7 @@ export const actionTypes = {
   SEND_FORM_DATA_FAILED: 'contact/SEND_FORM_DATA_FAILED',
   /* ------------------------ */
   SET_IS_FORM_DATA_SENT: 'contact/SET_IS_FORM_DATA_SENT',
+  CLEAR_CONTACT_FORM_ERROR: 'contact/CLEAR_CONTACT_FORM_ERROR',
   /* ------------------------ */
   SUBSCRIBE_PENDING: 'subscribe/SUBSCRIBE_PENDING',
   SUBSCRIBE_SUCCESS: 'subscribe/SUBSCRIBE_SUCCESS',

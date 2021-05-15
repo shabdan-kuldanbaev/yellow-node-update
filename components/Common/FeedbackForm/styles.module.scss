@@ -77,6 +77,11 @@
     }
   }
 
+  .errorMessage {
+    color: $red;
+    margin-top: 15px;
+  }
+
   .submit {
     @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
 

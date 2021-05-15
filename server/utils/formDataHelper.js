@@ -49,6 +49,6 @@ module.exports.sendFormData = async (req, res) => {
 
     res.status(201).send(JSON.stringify(data));
   } catch (err) {
-    res.status(502).send(JSON.stringify(err));
+    res.status(500).json({ error: err.message });
   }
 };
