@@ -8,7 +8,6 @@ import cn from 'classnames';
 import { useSpring, a } from '@react-spring/web';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
 import { connect } from 'react-redux';
-import delay from 'lodash/delay';
 import { setIsFormDataSent } from 'redux/actions/contact';
 import { selectIsFormDataSent } from 'redux/selectors/contact';
 import { staticImagesUrls } from 'utils/helper';
@@ -43,7 +42,7 @@ const FormContainer = ({
     if (isFormDataSent) {
       setIsFlipped(true);
       setIsFrontShown(false);
-      delay(() => clearForm(), 500);
+      clearForm();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFormDataSent]);

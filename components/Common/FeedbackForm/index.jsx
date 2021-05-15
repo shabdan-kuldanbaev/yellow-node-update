@@ -39,7 +39,7 @@ const FeedbackForm = ({
   const [selectedFiles, setFiles] = useState([]);
   const [projectDescription, setDescription] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
-  const [formHeight, setFormHeight] = useState('500px'); // TODO rework it later
+  const [formHeight, setFormHeight] = useState(500);
   const sliderSettings = {
     ...budgetData,
     defaultValue: budgetData.min,
@@ -146,7 +146,7 @@ const FeedbackForm = ({
 
   // TODO move <div className={styles.feedbackForm} ref={feedbackFormBlockRef}> to the FormContainer
   return (
-    <div className={styles.feedbackForm} style={{ height: `${formHeight}` }}>
+    <div className={styles.feedbackForm} style={{ height: `${formHeight}px` }}>
       <FormContainer formRef={formRef} clearForm={clearForm}>
         <div className={styles.inputs}>
           <Animated {...animatedProps} transitionDelay={500}>

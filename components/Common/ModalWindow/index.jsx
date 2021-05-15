@@ -36,17 +36,19 @@ export const ModalWindow = ({
 
   return (
     <section
-      className={cn(styles.modalWindow, className, { [styles.show]: isModalWindow })}
+      className={cn(styles.modalWindowContainer, { [styles.show]: isModalWindow })}
       onClick={handleOnClick}
       ref={modalRef}
       role="dialog"
     >
-      <img
-        onClick={closeModalWindow}
-        src={staticImagesUrls.closeIcon}
-        alt="Close"
-      />
-      {children}
+      <div className={cn(styles.modalWindow, className)}>
+        <img
+          onClick={closeModalWindow}
+          src={staticImagesUrls.closeIcon}
+          alt="Close"
+        />
+        {children}
+      </div>
     </section>
   );
 };
