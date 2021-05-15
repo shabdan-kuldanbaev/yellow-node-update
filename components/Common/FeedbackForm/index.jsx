@@ -149,7 +149,7 @@ const FeedbackForm = ({
 
   // TODO move <div className={styles.feedbackForm} ref={feedbackFormBlockRef}> to the FormContainer
   return (
-    <div className={styles.feedbackForm} style={{ height: `${formHeight}` }}>
+    <div className={styles.feedbackForm} style={{ height: `${formHeight}px` }}>
       <FormContainer formRef={formRef} clearForm={clearForm}>
         <div className={styles.inputs}>
           <Animated {...animatedProps} transitionDelay={500}>
