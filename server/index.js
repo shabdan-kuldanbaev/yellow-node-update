@@ -79,7 +79,7 @@ app
 
         res.status(200).send(JSON.stringify(signed_url));
       } catch (err) {
-        res.status(502).send(JSON.stringify(err));
+        res.status(500).json({ error: err.message });
       }
     });
 
