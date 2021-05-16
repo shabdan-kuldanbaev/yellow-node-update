@@ -11,6 +11,7 @@ const SearchResult = ({
   foundArticles,
   searchMessage,
   searchValue,
+  handleOnCloseModalWindow,
 }) => {
   const [articlesChunks, setArticlesChunks] = useState([]);
   const [currectPage, setCurrentPage] = useState(0);
@@ -54,6 +55,7 @@ const SearchResult = ({
         articles={articles}
         currentPage={2}
         isSearch
+        handleOnCloseModalWindow={handleOnCloseModalWindow}
       />
       <ButtonMore
         title="Load more"
@@ -74,6 +76,7 @@ SearchResult.propTypes = {
   foundArticles: PropTypes.instanceOf(Array),
   searchMessage: PropTypes.string.isRequired,
   searchValue: PropTypes.string.isRequired,
+  handleOnCloseModalWindow: PropTypes.func.isRequired,
 };
 
 export default connect(
