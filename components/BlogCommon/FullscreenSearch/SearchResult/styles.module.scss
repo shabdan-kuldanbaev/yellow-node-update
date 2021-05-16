@@ -21,3 +21,31 @@
     width: 100%;
   }
 }
+
+.container {
+  @include flex(column, flex-start, center);
+
+  .button {
+    @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+
+    margin: 50px 0 0;
+    padding: 16px 0;
+    transform: scale(1);
+    border-radius: $button-border-radius;
+    letter-spacing: 0.5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+
+    @include flex(row, center);
+
+    &:hover {
+      border: none;
+      transform: scale(0.96);
+    }
+  }
+
+  .hideButton {
+    display: none;
+  }
+}

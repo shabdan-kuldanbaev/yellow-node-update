@@ -2,24 +2,20 @@
 
 .fullscreenEstimation {
   z-index: 9999999;
-  min-height: 100vh;
-  height: max-content;
 
-  @include flex(column, center, center, nowrap);
-
-  & > div {
+  .estimationContainer {
     width: calc(100% - 40px);
-    margin-bottom: 70px;
-    position: absolute;
     top: 0;
-    transform: translateY(30%);
+    transform: translateY(10vw);
 
     @include flex(column, center, center);
 
+    @include macbook-fifteen {
+      transform: translateY(6vw);
+    }
+
     @include phone {
-      padding: 0 20px;
-      position: absolute;
-      transform: translateY(15%);
+      transform: translateY(20vw);
     }
 
     & > div {
@@ -77,14 +73,11 @@
       }
     }
 
-    & > form {
+    & > div > form {
+      padding: 0 0 50px;
       margin-bottom: 0;
       max-width: 1000px;
       width: 100%;
-
-      & > div:last-child > a > div {
-        margin: 60px auto;
-      }
     }
   }
 }

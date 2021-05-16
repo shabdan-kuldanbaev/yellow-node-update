@@ -75,6 +75,15 @@ const AnimatedInput = ({
     }
   }, [isTextArea]);
 
+  // the removing the textarea height when clearing form
+  useEffect(() => {
+    if (isTextArea && inputRef && inputRef.current && value === '') {
+      if (inputRef.current.style.height !== 'auto') {
+        inputRef.current.style.height = 'auto';
+      }
+    }
+  }, [value, isTextArea]);
+
   return (
     <OutsideClickHandler onOutsideClick={handleOnOutsideClick}>
       <div
