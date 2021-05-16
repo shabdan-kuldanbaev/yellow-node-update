@@ -4,9 +4,8 @@ import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { SubscribeBlock } from 'components';
-import { ANIMATED_TYPE } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { Article } from './Article';
+import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
 export const ArticlesList = ({
@@ -18,58 +17,35 @@ export const ArticlesList = ({
   isMobileResolution,
   handleOnCloseModalWindow,
 }) => (
-  <div className={cn(styles.articlesList, { [styles.locationSubscribe]: !isSearch })}>
-    {currentPage === 1 && isBlogPage && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
+  <div
+    className={cn(styles.articlesList, {
+      [styles.locationSubscribe]: !isSearch,
+    })}
+  >
+    {currentPage === 1 && isBlogPage && (
+      <SubscribeBlock
+        isBlog
+        handleOnSubmit={handleOnFormSubmit}
+      />
+    )}
     {articles && articles.map((article, index) => {
-      const {
-        slug,
-        title,
-        categoryTag,
-        introduction,
-        previewImageUrl,
-      } = getDocumentFields(
+      const articleProps = getArticleProps({
         article,
-        ['slug', 'title', 'categoryTag', 'introduction', 'previewImageUrl'],
-      );
-      const previewImage = getFileUrl(previewImageUrl);
-      const delay = isSearch ? (30 * index) : (100 + 50 * index);
-      let animatioProps = isSearch
-        ? {
-          type: ANIMATED_TYPE.isFade,
-          delay,
-          duration: 200,
-          distance: '1rem',
-          bottom: true,
-          effect: 'fadeInUp',
-        }
-        : {
-          type: ANIMATED_TYPE.isCustom,
-          translateY: '1.5em',
-          opasityDuration: 1,
-          transformDuration: 1,
-          transitionDelay: delay,
-        };
-
-      if (isMobileResolution) {
-        animatioProps = {
-          type: ANIMATED_TYPE.isCustom,
-          translateY: '0.05em',
-          opasityDuration: 0.05,
-          transformDuration: 0.05,
-          transitionDelay: 100,
-        };
-      }
+        index,
+        isSearch,
+        isMobileResolution,
+      });
 
       return (
         <Article
-          key={title}
+          key={articleProps.title}
           countNumber={index}
-          animatioProps={animatioProps}
-          slug={slug}
-          title={title}
-          categoryTag={categoryTag}
-          introduction={introduction}
-          previewImage={previewImage}
+          animatioProps={articleProps.animatioProps}
+          slug={articleProps.slug}
+          title={articleProps.title}
+          categoryTag={articleProps.categoryTag}
+          introduction={articleProps.introduction}
+          previewImage={articleProps.previewImage}
           isSearch={isSearch}
           handleOnCloseModalWindow={handleOnCloseModalWindow}
         />
