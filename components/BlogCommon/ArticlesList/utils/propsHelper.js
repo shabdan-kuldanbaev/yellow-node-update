@@ -1,6 +1,7 @@
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 
-export const getAnimationProps = ({
+const getAnimationProps = ({
   isSearch = false,
   isMobileResolution = false,
   index = 1,
@@ -34,4 +35,28 @@ export const getAnimationProps = ({
   }
 
   return animatioProps;
+};
+
+export const getArticleProps = ({
+  article,
+  isSearch = false,
+  isMobileResolution = false,
+  index = 1,
+} = {}) => {
+  const articleFields = getDocumentFields(
+    article,
+    ['slug', 'title', 'categoryTag', 'introduction', 'previewImageUrl'],
+  );
+  const previewImage = getFileUrl(articleFields.previewImageUrl);
+  const animatioProps = getAnimationProps({
+    isSearch,
+    isMobileResolution,
+    index,
+  });
+
+  return {
+    ...articleFields,
+    previewImage,
+    animatioProps,
+  };
 };

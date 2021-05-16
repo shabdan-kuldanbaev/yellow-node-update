@@ -4,9 +4,8 @@ import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { SubscribeBlock } from 'components';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { Article } from './Article';
-import { getAnimationProps } from './utils/helper';
+import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
 export const ArticlesList = ({
@@ -30,33 +29,23 @@ export const ArticlesList = ({
       />
     )}
     {articles && articles.map((article, index) => {
-      const {
-        slug,
-        title,
-        categoryTag,
-        introduction,
-        previewImageUrl,
-      } = getDocumentFields(
+      const articleProps = getArticleProps({
         article,
-        ['slug', 'title', 'categoryTag', 'introduction', 'previewImageUrl'],
-      );
-      const previewImage = getFileUrl(previewImageUrl);
-      const animatioProps = getAnimationProps({
+        index,
         isSearch,
         isMobileResolution,
-        index,
       });
 
       return (
         <Article
-          key={title}
+          key={articleProps.title}
           countNumber={index}
-          animatioProps={animatioProps}
-          slug={slug}
-          title={title}
-          categoryTag={categoryTag}
-          introduction={introduction}
-          previewImage={previewImage}
+          animatioProps={articleProps.animatioProps}
+          slug={articleProps.slug}
+          title={articleProps.title}
+          categoryTag={articleProps.categoryTag}
+          introduction={articleProps.introduction}
+          previewImage={articleProps.previewImage}
           isSearch={isSearch}
           handleOnCloseModalWindow={handleOnCloseModalWindow}
         />
