@@ -62,7 +62,12 @@ const FullscreenSearch = ({
           value={inputValue}
         />
         {inputValue.length > 1
-          ? <SearchResult searchValue={inputValue} />
+          ? (
+            <SearchResult
+              searchValue={inputValue}
+              handleOnCloseModalWindow={handleOnCloseModalWindow}
+            />
+          )
           : (
             <span className={styles.nothingFound}>
               Type some words to search.
