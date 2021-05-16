@@ -35,7 +35,11 @@ export const Layout = ({
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
-  // TODO after release (three repetitions in the code - handleOnClick)
+  // TODO
+  // three repetitions in the code - handleOnClick
+  // Remove this method from here. (rework it)
+  // What does it throw as props for?
+  // Why does not it do in the feedback form?
   const handleOnClick = (...args) => {
     const [
       fullName,

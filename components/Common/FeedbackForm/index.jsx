@@ -42,7 +42,7 @@ const FeedbackForm = ({
   const [selectedFiles, setFiles] = useState([]);
   const [projectDescription, setDescription] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
-  const [formHeight, setFormHeight] = useState('500px'); // TODO rework it later
+  const [formHeight, setFormHeight] = useState(500);
   const sliderSettings = {
     ...budgetData,
     defaultValue: budgetData.min,
@@ -203,7 +203,7 @@ const FeedbackForm = ({
         </Animated>
         {contactFormError && (
           <span className={styles.errorMessage}>
-            There was an error trying to send your request. Please try again later
+            There was an error trying to send your message. Please try again later
           </span>
         )}
         <Animated {...animatedProps} transitionDelay={700}>
