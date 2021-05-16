@@ -22,6 +22,11 @@ export const API = {
   ) => apiClient.put(
     signed_url,
     buffer,
-    { onUploadProgress },
+    {
+      onUploadProgress,
+      headers: {
+        'Content-Type': 'application/octet-stream',
+      },
+    },
   ),
 };

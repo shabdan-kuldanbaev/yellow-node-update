@@ -15,11 +15,11 @@ es6promise.polyfill();
 
 function* sendEmail({ payload }) {
   try {
-    // const response = yield call(API.sendEmail, getFeedbackFormData(payload));
+    const response = yield call(API.sendEmail, getFeedbackFormData(payload));
 
-    // gaHelper.trackEvent('Contact Form', 'Send');
+    gaHelper.trackEvent('Contact Form', 'Send');
 
-    yield put({ type: actionTypes.SEND_FORM_DATA_SUCCESS, payload: {} });
+    yield put({ type: actionTypes.SEND_FORM_DATA_SUCCESS, payload: response });
   } catch (err) {
     yield put({ type: actionTypes.SEND_FORM_DATA_FAILED, payload: err });
   }
