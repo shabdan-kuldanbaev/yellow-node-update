@@ -16,6 +16,7 @@ export const ArticlesList = ({
   currentPage,
   handleOnFormSubmit,
   isMobileResolution,
+  handleOnCloseModalWindow,
 }) => (
   <div className={cn(styles.articlesList, { [styles.locationSubscribe]: !isSearch })}>
     {currentPage === 1 && isBlogPage && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
@@ -69,6 +70,8 @@ export const ArticlesList = ({
           categoryTag={categoryTag}
           introduction={introduction}
           previewImage={previewImage}
+          isSearch={isSearch}
+          handleOnCloseModalWindow={handleOnCloseModalWindow}
         />
       );
     })}
@@ -79,6 +82,7 @@ ArticlesList.defaultProps = {
   isSearch: false,
   isBlogPage: false,
   handleOnFormSubmit: () => {},
+  handleOnCloseModalWindow: () => {},
 };
 
 ArticlesList.propTypes = {
@@ -88,6 +92,7 @@ ArticlesList.propTypes = {
   currentPage: PropTypes.number.isRequired,
   handleOnFormSubmit: PropTypes.func,
   isMobileResolution: PropTypes.bool.isRequired,
+  handleOnCloseModalWindow: PropTypes.func,
 };
 
 export default connect(

@@ -13,12 +13,18 @@ export const Article = ({
   categoryTag,
   introduction,
   previewImage,
+  isSearch,
+  handleOnCloseModalWindow,
 }) => {
   const blogCategoryRoute = ROUTES.blog.getRoute(categoryTag);
   const articleRoute = ROUTES.article.getRoute(slug);
 
   return slug && title && introduction && previewImage && (
-    <article key={`articles/${title}`} className={cn(styles.article, { [styles.medium]: index === 0 })}>
+    <article
+      key={`articles/${title}`}
+      className={cn(styles.article, { [styles.medium]: index === 0 })}
+      onClick={isSearch && handleOnCloseModalWindow}
+    >
       <Animated {...animatioProps}>
         <LinkWrapper
           isLocalLink
@@ -65,4 +71,6 @@ Article.propTypes = {
   categoryTag: PropTypes.string,
   introduction: PropTypes.string.isRequired,
   previewImage: PropTypes.string.isRequired,
+  isSearch: PropTypes.bool.isRequired,
+  handleOnCloseModalWindow: PropTypes.func.isRequired,
 };
