@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components';
+import { Animated, Svg } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { partners } from './utils/data';
 import styles from './styles.module.scss';
@@ -28,7 +28,7 @@ export const Partners = ({ partners: partnersList }) => {
             transitionDelay={100 + 100 * index}
           >
             <div className={styles.partnersItem}>
-              <img src={partner.image} alt={partner.title} />
+              <Svg type={partner.image} />
             </div>
           </Animated>
         ))}

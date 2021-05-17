@@ -6,6 +6,7 @@ import {
   ButtonMore,
   LinkWrapper,
   Animated,
+  Svg,
 } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { socialNetworks } from './utils/data';
@@ -63,7 +64,7 @@ const Contacts = ({
               data: title,
             }}
           >
-            <img src={image} alt={title} />
+            <Svg type={image} />
           </LinkWrapper>
         ))}
       </div>

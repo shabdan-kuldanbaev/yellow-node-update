@@ -53,7 +53,7 @@
 
   @include flex(row, center);
 
-  & > img {
+  & > svg {
     cursor: pointer;
     position: absolute;
     top: 20px;

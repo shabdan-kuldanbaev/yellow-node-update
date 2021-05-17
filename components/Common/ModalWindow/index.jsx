@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { setOverflowForBody, staticImagesUrls } from 'utils/helper';
+import { Svg } from 'components';
+import { setOverflowForBody } from 'utils/helper';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const ModalWindow = ({
@@ -41,11 +43,7 @@ export const ModalWindow = ({
       ref={modalRef}
       role="dialog"
     >
-      <img
-        onClick={closeModalWindow}
-        src={staticImagesUrls.closeIcon}
-        alt="Close"
-      />
+      <Svg type={SVG_IMAGES_TYPES.closeSvg} hanleOnClick={closeModalWindow} />
       {children}
     </section>
   );

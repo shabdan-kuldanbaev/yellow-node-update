@@ -12,8 +12,10 @@ import {
   ButtonMore,
   FullscreenSearch,
   FullscreenSubscribe,
+  Svg,
 } from 'components';
-import { setOverflowForBody, staticImagesUrls } from 'utils/helper';
+import { setOverflowForBody } from 'utils/helper';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import Categories from './Categories';
 import styles from './styles.module.scss';
 
@@ -42,13 +44,12 @@ const SelectionBlock = ({
       <Categories isMobileCategoties={isMobileCategoties} closeMobileCategoties={closeMobileCategoties} />
       {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
-        <div className={styles.imgContainer}>
-          <img
-            src={staticImagesUrls.searchIcon}
-            alt="Search"
-            onClick={openFullscreenSearch}
-            role="presentation"
-          />
+        <div
+          className={styles.imgContainer}
+          onClick={openFullscreenSearch}
+          role="presentation"
+        >
+          <Svg type={SVG_IMAGES_TYPES.searchIcon} />
         </div>
         <ButtonMore
           buttonRef={subscribeRef}

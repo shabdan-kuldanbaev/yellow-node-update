@@ -1,11 +1,12 @@
 import { staticImagesUrls } from 'utils/helper';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 
 const {
   instaIcon,
   linkedinIcon,
   mediumIcon,
-  dribbbleIcon,
-} = staticImagesUrls.socialNetworksIcons;
+  dribbleIcon,
+} = SVG_IMAGES_TYPES;
 
 export const socialNetworks = [
   {
@@ -26,6 +27,6 @@ export const socialNetworks = [
   {
     title: 'dribbble',
     href: 'https://dribbble.com/yellow_systems',
-    image: dribbbleIcon,
+    image: dribbleIcon,
   },
 ];

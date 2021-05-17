@@ -11,7 +11,8 @@ import { connect } from 'react-redux';
 import delay from 'lodash/delay';
 import { setIsFormDataSent } from 'redux/actions/contact';
 import { selectIsFormDataSent } from 'redux/selectors/contact';
-import { staticImagesUrls } from 'utils/helper';
+import { Svg } from 'components';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const FormContainer = ({
@@ -70,11 +71,7 @@ const FormContainer = ({
           zIndex: isFrontShown ? -1 : 1,
         }}
       >
-        <img
-          onClick={handleOnCloseClick}
-          src={staticImagesUrls.closeIcon}
-          alt="Close"
-        />
+        <Svg type={SVG_IMAGES_TYPES.closeSvg} handleOnClick={handleOnCloseClick} />
         <div className={styles.content}>
           <p>
             We have received your request
