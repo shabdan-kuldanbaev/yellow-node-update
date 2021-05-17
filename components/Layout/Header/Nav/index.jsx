@@ -22,7 +22,10 @@ const Nav = ({
     })}
     >
       {links && links.map(({ title, path, dynamicPath }) => (
-        <li key={`menuItem/${title}`} className={styles[theme]}>
+        <li
+          key={`menuItem/${title}`}
+          className={styles[theme]}
+        >
           <LinkWrapper
             isLocalLink
             path={path}

@@ -61,11 +61,21 @@ export const ContentfulParser = ({ document }) => {
 
           return (articleSingleImageType && imageUrl && (
             <div className={styles.imageWrapper}>
-              <div className={articleSingleImageType === 'normal' ? styles.normalImage : styles.fullImage}>
+              <div className={articleSingleImageType === 'normal'
+                ? styles.normalImage
+                : styles.fullImage}
+              >
                 <Animated type={ANIMATED_TYPE.imageZoom}>
-                  <img src={imageUrl} alt={imageUrl} />
+                  <img
+                    src={imageUrl}
+                    alt={imageUrl}
+                  />
                 </Animated>
-                {title && <div className={styles.photoCaption}>{title}</div>}
+                {title && (
+                  <div className={styles.photoCaption}>
+                    {title}
+                  </div>
+                )}
               </div>
             </div>
           )
@@ -77,17 +87,34 @@ export const ContentfulParser = ({ document }) => {
             ['images', 'photoCaption'],
           );
 
-          return images && <GalleryCard images={images} photoCaption={photoCaption} />;
+          return images && (
+            <GalleryCard
+              images={images}
+              photoCaption={photoCaption}
+            />
+          );
         }
         default:
           return null;
         }
       },
       [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
-      [BLOCKS.QUOTE]: (node, children) => <blockquote className={styles.quote}>{children}</blockquote>,
+      [BLOCKS.QUOTE]: (node, children) => (
+        <blockquote className={styles.quote}>
+          {children}
+        </blockquote>
+      ),
       [BLOCKS.HEADING_1]: (node, children) => <h1>{children}</h1>,
-      [BLOCKS.HEADING_2]: (node, children) => <h2 className={styles.h2}>{children}</h2>,
-      [BLOCKS.HEADING_3]: (node, children) => <h3 className={styles.h3}>{children}</h3>,
+      [BLOCKS.HEADING_2]: (node, children) => (
+        <h2 className={styles.h2}>
+          {children}
+        </h2>
+      ),
+      [BLOCKS.HEADING_3]: (node, children) => (
+        <h3 className={styles.h3}>
+          {children}
+        </h3>
+      ),
       [BLOCKS.UL_LIST]: (node, children) => (
         <ul className={styles.ul}>
           {children && children.map((child) => (
@@ -98,7 +125,10 @@ export const ContentfulParser = ({ document }) => {
         </ul>
       ),
       [BLOCKS.OL_LIST]: (node, children) => (
-        <ol type="1" className={styles.ol}>
+        <ol
+          type="1"
+          className={styles.ol}
+        >
           {children && children.map((child) => (
             <li key={child.key}>
               {child.props.children}
@@ -107,7 +137,10 @@ export const ContentfulParser = ({ document }) => {
         </ol>
       ),
       [INLINES.HYPERLINK]: (node, children) => (
-        <LinkWrapper path={get(node, 'data.uri', '/')} className={styles.a}>
+        <LinkWrapper
+          path={get(node, 'data.uri', '/')}
+          className={styles.a}
+        >
           {children}
         </LinkWrapper>
       ),

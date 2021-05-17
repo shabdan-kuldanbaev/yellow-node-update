@@ -37,7 +37,10 @@ export const JSONAnimation = ({ jsonFile, className }) => {
   }, [intersection]);
 
   return (
-    <div ref={animateRef} className={className}>
+    <div
+      ref={animateRef}
+      className={className}
+    >
       <Lottie
         options={defaultOptions}
         isStopped={state.isStopped}

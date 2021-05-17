@@ -28,8 +28,15 @@ const Work = ({
     fullSecond,
   } = imagesSizes;
 
-  if (isMobileResolution) sizeOfImage = index === 0 ? mobileFirst : mobileSecond;
-  else if (isFullResolution) sizeOfImage = index === 0 ? fullFirst : fullSecond;
+  if (isMobileResolution) {
+    sizeOfImage = index === 0
+      ? mobileFirst
+      : mobileSecond;
+  } else if (isFullResolution) {
+    sizeOfImage = index === 0
+      ? fullFirst
+      : fullSecond;
+  }
 
   return (
     <div
@@ -40,7 +47,10 @@ const Work = ({
     >
       <div className={styles.desc}>
         {animatedFieldsList && animatedFieldsList.map((animated) => (
-          <Animated {...animated} key={`fields/${animated.field}/${title}`}>
+          <Animated
+            {...animated}
+            key={`fields/${animated.field}/${title}`}
+          >
             <FieldsWrapper
               animated={animated}
               title={title}
@@ -58,7 +68,12 @@ const Work = ({
               { [styles.thirdShadow]: index === 2 },
             )}
           >
-            <img src={sizeOfImage ? getOptimizedImage(imageUrl, sizeOfImage, 'png', 'png8') : imageUrl} alt={title} />
+            <img
+              src={sizeOfImage
+                ? getOptimizedImage(imageUrl, sizeOfImage, 'png', 'png8')
+                : imageUrl}
+              alt={title}
+            />
           </div>
         </Animated>
       </div>

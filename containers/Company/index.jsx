@@ -33,7 +33,10 @@ const CompanyContainer = ({
   return (
     <Fragment>
       <MetaTags page={PAGES.company} />
-      <section ref={introSection} className={styles.companyContainer}>
+      <section
+        ref={introSection}
+        className={styles.companyContainer}
+      >
         <AboutUs />
         {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
         {teamContent && <ManagementTeam managementTeam={teamContent} />}

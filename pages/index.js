@@ -4,7 +4,12 @@ import { fetchLayoutData } from 'redux/actions/layout';
 import Home from 'containers/Home';
 import { PAGES } from 'utils/constants';
 
-const Homepage = ({ theme, introSection }) => <Home theme={theme} introSection={introSection} />;
+const Homepage = ({ theme, introSection }) => (
+  <Home
+    theme={theme}
+    introSection={introSection}
+  />
+);
 
 Homepage.getInitialProps = async ({ store, req }) => {
   store.dispatch(fetchLayoutData({ slug: PAGES.homepage }));

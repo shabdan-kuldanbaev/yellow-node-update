@@ -10,7 +10,10 @@ import styles from './styles.module.scss';
 export const Insta = () => (
   <section className={styles.insta}>
     <InstaLogo />
-    <SectionTitle title="Live" subtitle="How we live and work" />
+    <SectionTitle
+      title="Live"
+      subtitle="How we live and work"
+    />
     <InstaTape />
     <ButtonMore
       href="/insta"

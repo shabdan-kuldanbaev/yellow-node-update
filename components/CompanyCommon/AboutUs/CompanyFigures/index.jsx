@@ -17,7 +17,10 @@ export const CompanyFigures = ({ companyFiguresData: companyFigures }) => (
         transformDuration={1}
         transitionDelay={1100 + 90 * index * 2}
       >
-        <div key={item.title} className={styles.item}>
+        <div
+          key={item.title}
+          className={styles.item}
+        >
           <div>{`${item.number}${item.isPlus ? '+' : ''}`}</div>
           <div>{item.title}</div>
         </div>

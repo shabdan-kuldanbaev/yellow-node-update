@@ -17,8 +17,14 @@ import styles from './styles.module.scss';
 
 const Blog = ({ articles }) => (
   <section className={styles.blog}>
-    <SectionTitle title="Blog" subtitle="How we do what we do" />
-    <ArticlesList articles={articles} currentPage={CURRENT_PAGE_NUMBER} />
+    <SectionTitle
+      title="Blog"
+      subtitle="How we do what we do"
+    />
+    <ArticlesList
+      articles={articles}
+      currentPage={CURRENT_PAGE_NUMBER}
+    />
     <Animated
       type={ANIMATED_TYPE.isCustom}
       translateY="2.82352941em"

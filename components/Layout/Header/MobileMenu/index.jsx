@@ -31,7 +31,10 @@ const MobileMenu = ({
       >
         <ul>
           {links && links.map(({ title, path, dynamicPath }) => (
-            <li key={`links/${title}`} onClick={closeMenu}>
+            <li
+              key={`links/${title}`}
+              onClick={closeMenu}
+            >
               <LinkWrapper
                 isLocalLink
                 path={path}

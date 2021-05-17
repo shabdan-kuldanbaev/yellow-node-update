@@ -33,7 +33,10 @@ const Categories = ({ isMobileCategoties, closeMobileCategoties }) => {
             : asPath === ROUTES.blog.path || isNumeric(currentCategory);
 
           return (
-            <li key={`categoris/${title}`} className={cn({ [styles.selectedBlock]: isSelected })}>
+            <li
+              key={`categoris/${title}`}
+              className={cn({ [styles.selectedBlock]: isSelected })}
+            >
               <LinkWrapper
                 isLocalLink
                 path={path}

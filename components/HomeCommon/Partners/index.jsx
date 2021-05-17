@@ -15,7 +15,10 @@ export const Partners = ({ partners: partnersList }) => {
 
   return (
     <div className={styles.partnersContainer}>
-      <Animated {...animatedProps} transitionDelay={100}>
+      <Animated
+        {...animatedProps}
+        transitionDelay={100}
+      >
         <div>
           <h1>And get featured on</h1>
         </div>
@@ -28,7 +31,10 @@ export const Partners = ({ partners: partnersList }) => {
             transitionDelay={100 + 100 * index}
           >
             <div className={styles.partnersItem}>
-              <img src={partner.image} alt={partner.title} />
+              <img
+                src={partner.image}
+                alt={partner.title}
+              />
             </div>
           </Animated>
         ))}

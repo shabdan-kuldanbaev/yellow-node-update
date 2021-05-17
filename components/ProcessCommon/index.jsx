@@ -27,13 +27,19 @@ export const Process = ({ processes }) => {
           data-index={index}
         >
           <div className={styles.desc}>
-            <Animated {...animatedProps} transitionDelay={300}>
+            <Animated
+              {...animatedProps}
+              transitionDelay={300}
+            >
               <h2>
                 <span>{`${index + 1}.`}</span>
                 {name}
               </h2>
             </Animated>
-            <Animated {...animatedProps} transitionDelay={300 + 50}>
+            <Animated
+              {...animatedProps}
+              transitionDelay={300 + 50}
+            >
               <p>{description}</p>
               <LinkWrapper
                 isLocalLink
@@ -41,11 +47,16 @@ export const Process = ({ processes }) => {
                 path={link}
                 className={styles.buttonWrap}
               >
-                <button type="button">Details</button>
+                <button type="button">
+                  Details
+                </button>
               </LinkWrapper>
             </Animated>
           </div>
-          <Animated {...animatedProps} transitionDelay={200}>
+          <Animated
+            {...animatedProps}
+            transitionDelay={200}
+          >
             <Animated
               type={ANIMATED_TYPE.isJSON}
               jsonFile={json}

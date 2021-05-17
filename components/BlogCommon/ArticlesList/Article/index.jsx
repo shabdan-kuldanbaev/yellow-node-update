@@ -34,11 +34,18 @@ export const Article = ({
           <div>
             <div>
               <div className={styles.imgContainer}>
-                <div className={styles.image} style={{ backgroundImage: `url(${previewImage})` }} />
+                <div
+                  className={styles.image}
+                  style={{ backgroundImage: `url(${previewImage})` }}
+                />
               </div>
               <div className={styles.articlePreview}>
-                <h2 className={styles.title}><span>{title}</span></h2>
-                <div className={styles.description}>{introduction}</div>
+                <h2 className={styles.title}>
+                  <span>{title}</span>
+                </h2>
+                <div className={styles.description}>
+                  {introduction}
+                </div>
               </div>
             </div>
             {categoryTag && (
