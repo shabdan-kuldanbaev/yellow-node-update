@@ -18,14 +18,20 @@ const Contacts = ({
   socialNetworks: socialLinks,
 }) => (
   <div className={styles.contactsContainer}>
-    <SectionTitle title="Contacts" styleTitle={styles.mobileFooterTitle} />
+    <SectionTitle
+      title="Contacts"
+      styleTitle={styles.mobileFooterTitle}
+    />
     <div className={styles.contacts}>
       <span>Email:</span>
       <span>
         <LinkWrapper
           path="mailto:hi@yellow.systems"
           isLocalLink
-          googleAnalyticProps={{ action: 'Click', data: 'Email' }}
+          googleAnalyticProps={{
+            action: 'Click',
+            data: 'Email',
+          }}
         >
           hi@yellow.systems
         </LinkWrapper>
@@ -35,7 +41,10 @@ const Contacts = ({
         <LinkWrapper
           path="tel:+1 415 670 9070"
           isLocalLink
-          googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+          googleAnalyticProps={{
+            action: 'Click',
+            data: 'Phone',
+          }}
         >
           +1 415 670 9070
         </LinkWrapper>
@@ -45,7 +54,10 @@ const Contacts = ({
         <LinkWrapper
           path="tel:+375293115249"
           isLocalLink
-          googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+          googleAnalyticProps={{
+            action: 'Click',
+            data: 'Phone',
+          }}
         >
           +375 29 311 52 49
         </LinkWrapper>
@@ -63,7 +75,10 @@ const Contacts = ({
               data: title,
             }}
           >
-            <img src={image} alt={title} />
+            <img
+              src={image}
+              alt={title}
+            />
           </LinkWrapper>
         ))}
       </div>

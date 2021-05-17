@@ -12,11 +12,17 @@ export const CheckboxContainer = ({
   const handleOnChangeCheckbox = (e) => handleOnChange(e);
 
   return (
-    <label className={styles.checkbox} htmlFor="checkbox">
+    <label
+      className={styles.checkbox}
+      htmlFor="checkbox"
+    >
       <span>{text}</span>
       {isThereLink && (
         <span className={styles.link}>
-          <LinkWrapper path="/privacy-policy" isLocalLink>
+          <LinkWrapper
+            path="/privacy-policy"
+            isLocalLink
+          >
             {linkText}
           </LinkWrapper>
         </span>

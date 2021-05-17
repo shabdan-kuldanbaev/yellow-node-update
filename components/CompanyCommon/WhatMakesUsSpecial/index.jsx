@@ -26,7 +26,10 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => (
             transitionDelay={100 + 150 * index}
           >
             <div>
-              <img src={imageUrl} alt={title} />
+              <img
+                src={imageUrl}
+                alt={title}
+              />
             </div>
             <span>{title}</span>
           </Animated>

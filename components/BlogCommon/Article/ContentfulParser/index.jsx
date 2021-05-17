@@ -63,9 +63,16 @@ export const ContentfulParser = ({ document }) => {
             <div className={styles.imageWrapper}>
               <div className={articleSingleImageType === 'normal' ? styles.normalImage : styles.fullImage}>
                 <Animated type={ANIMATED_TYPE.imageZoom}>
-                  <img src={imageUrl} alt={imageUrl} />
+                  <img
+                    src={imageUrl}
+                    alt={imageUrl}
+                  />
                 </Animated>
-                {title && <div className={styles.photoCaption}>{title}</div>}
+                {title && (
+                  <div className={styles.photoCaption}>
+                    {title}
+                  </div>
+                )}
               </div>
             </div>
           )
@@ -77,7 +84,12 @@ export const ContentfulParser = ({ document }) => {
             ['images', 'photoCaption'],
           );
 
-          return images && <GalleryCard images={images} photoCaption={photoCaption} />;
+          return images && (
+            <GalleryCard
+              images={images}
+              photoCaption={photoCaption}
+            />
+          );
         }
         default:
           return null;
@@ -98,7 +110,10 @@ export const ContentfulParser = ({ document }) => {
         </ul>
       ),
       [BLOCKS.OL_LIST]: (node, children) => (
-        <ol type="1" className={styles.ol}>
+        <ol
+          type="1"
+          className={styles.ol}
+        >
           {children && children.map((child) => (
             <li key={child.key}>
               {child.props.children}
@@ -107,7 +122,10 @@ export const ContentfulParser = ({ document }) => {
         </ol>
       ),
       [INLINES.HYPERLINK]: (node, children) => (
-        <LinkWrapper path={get(node, 'data.uri', '/')} className={styles.a}>
+        <LinkWrapper
+          path={get(node, 'data.uri', '/')}
+          className={styles.a}
+        >
           {children}
         </LinkWrapper>
       ),

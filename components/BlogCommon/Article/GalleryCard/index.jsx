@@ -24,20 +24,30 @@ export const GalleryCard = ({ images, photoCaption }) => {
       parentElement.style.flex = flex;
     };
 
-    if (rowChildren.length === 1) setFlex('1 1 0%');
-    else setFlex(`${offsetWidth / offsetHeight} 1 0%`);
+    rowChildren.length === 1
+      ? setFlex('1 1 0%')
+      : setFlex(`${offsetWidth / offsetHeight} 1 0%`);
   };
 
   return (
     <div className={styles.mediasWrapper}>
-      <div className={styles.images} ref={imageRef}>
+      <div
+        className={styles.images}
+        ref={imageRef}
+      >
         {[...Array(rowsCount)].map((row, index) => (
-          <div className={styles.row} key={`gallery/${imageRef}`}>
+          <div
+            className={styles.row}
+            key={`gallery/${imageRef}`}
+          >
             {getImagesInRow(index).map((image) => {
               const imageUrl = getFileUrl(image);
 
               return (
-                <Animated type={ANIMATED_TYPE.imageZoom} key={`gallery/${imageUrl}`}>
+                <Animated
+                  type={ANIMATED_TYPE.imageZoom}
+                  key={`gallery/${imageUrl}`}
+                >
                   <img
                     src={imageUrl}
                     alt={imageUrl}
@@ -49,7 +59,11 @@ export const GalleryCard = ({ images, photoCaption }) => {
           </div>
         ))}
       </div>
-      {photoCaption && <div className={styles.photoCaption}>{photoCaption}</div>}
+      {photoCaption && (
+        <div className={styles.photoCaption}>
+          {photoCaption}
+        </div>
+      )}
     </div>
   );
 };

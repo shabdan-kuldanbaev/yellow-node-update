@@ -126,13 +126,12 @@
       }
     ],
     "consistent-return": "off", // TODO re-review
-    "no-unused-vars": "off" // TODO re-review
-    // TODO apply this later
-    // "react/jsx-max-props-per-line": [
-    //   1,
-    //   {
-    //       "maximum": 1
-    //   }
-    // ],
+    "no-unused-vars": "off", // TODO re-review
+    "react/jsx-max-props-per-line": [
+      1,
+      {
+          "maximum": 1
+      }
+    ],
   }
 }

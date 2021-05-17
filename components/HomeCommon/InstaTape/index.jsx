@@ -5,8 +5,14 @@ import styles from './styles.module.scss';
 export const InstaTape = ({ instaPhotos: photos }) => (
   <div className={styles.instaTape}>
     {photos && photos.map((photo) => (
-      <div key={`insta/${photo}`} className={styles.imgContainer}>
-        <div className={styles.image} style={{ backgroundImage: `url(${photo})` }} />
+      <div
+        key={`insta/${photo}`}
+        className={styles.imgContainer}
+      >
+        <div
+          className={styles.image}
+          style={{ backgroundImage: `url(${photo})` }}
+        />
       </div>
     ))}
   </div>

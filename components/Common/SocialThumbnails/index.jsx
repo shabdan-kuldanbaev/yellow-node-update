@@ -50,7 +50,10 @@ export const SocialThumbnails = ({ url, title }) => {
             data-socialname="Twitter"
           />
         </div>
-        <CopyToClipboard text={url} onCopy={handleOnCopy}>
+        <CopyToClipboard
+          text={url}
+          onCopy={handleOnCopy}
+        >
           <div
             className={styles.svgContainer}
             onClick={trackSocialShareClick}

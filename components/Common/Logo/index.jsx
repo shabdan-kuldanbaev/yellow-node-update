@@ -12,14 +12,20 @@ const Logo = ({ theme }) => (
     path={ROUTES.homepage.path}
     dynamicRouting={ROUTES.homepage.dynamicPath}
   >
-    <img src={staticImagesUrls.roundLogo} alt="Yellow Logo" />
+    <img
+      src={staticImagesUrls.roundLogo}
+      alt="Yellow Logo"
+    />
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={logoSize}
       height="44"
       viewBox="0 0 140 50"
     >
-      <g fill="none" fillRule="evenodd">
+      <g
+        fill="none"
+        fillRule="evenodd"
+      >
         <path
           fill={themes[theme].main}
           fillRule="nonzero"

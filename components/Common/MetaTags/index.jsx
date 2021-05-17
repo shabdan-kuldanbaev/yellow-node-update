@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-props-per-line */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';

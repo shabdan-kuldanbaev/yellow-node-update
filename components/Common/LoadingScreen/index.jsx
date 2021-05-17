@@ -34,9 +34,15 @@ const LoadingScreen = ({
   ]);
 
   return (
-    <div ref={loadRef} className={styles.loadingPage}>
+    <div
+      ref={loadRef}
+      className={styles.loadingPage}
+    >
       <div className={styles.jsonWrapper}>
-        <Lottie options={defaultOptions} speed={1} />
+        <Lottie
+          options={defaultOptions}
+          speed={1}
+        />
       </div>
     </div>
   );

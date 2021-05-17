@@ -149,10 +149,19 @@ const FeedbackForm = ({
 
   // TODO move <div className={styles.feedbackForm} ref={feedbackFormBlockRef}> to the FormContainer
   return (
-    <div className={styles.feedbackForm} style={{ height: `${formHeight}px` }}>
-      <FormContainer formRef={formRef} clearForm={clearForm}>
+    <div
+      className={styles.feedbackForm}
+      style={{ height: `${formHeight}px` }}
+    >
+      <FormContainer
+        formRef={formRef}
+        clearForm={clearForm}
+      >
         <div className={styles.inputs}>
-          <Animated {...animatedProps} transitionDelay={500}>
+          <Animated
+            {...animatedProps}
+            transitionDelay={500}
+          >
             <AnimatedInput
               value={fullName}
               handleOnChange={handleOnNameChange}
@@ -162,7 +171,10 @@ const FeedbackForm = ({
               isContactPage={isContactPage}
             />
           </Animated>
-          <Animated {...animatedProps} transitionDelay={550}>
+          <Animated
+            {...animatedProps}
+            transitionDelay={550}
+          >
             <AnimatedInput
               value={email.value}
               handleOnChange={handleOnEmailChange}
@@ -175,22 +187,36 @@ const FeedbackForm = ({
           </Animated>
         </div>
         {isChooseBudget && (
-          <Animated {...animatedProps} transitionDelay={600}>
-            <div className={cn(styles.budget, { [styles.initialBudget]: projectBudget.length === 1 })}>
+          <Animated
+            {...animatedProps}
+            transitionDelay={600}
+          >
+            <div className={cn(styles.budget, {
+              [styles.initialBudget]: projectBudget.length === 1,
+            })}
+            >
               {projectBudget.length > 1
                 ? (
                   <Fragment>
                     <span>Your budget is up to </span>
-                    <span className={styles.price}>{`$ ${projectBudget}`}</span>
+                    <span className={styles.price}>
+                      {`$ ${projectBudget}`}
+                    </span>
                     {projectBudget === addThousandsSeparators(budgetData.max) && <span> or more</span>}
                   </Fragment>
                 )
                 : <span>Your budget</span>}
-              <SliderWrapper {...sliderSettings} ref={sliderRef} />
+              <SliderWrapper
+                {...sliderSettings}
+                ref={sliderRef}
+              />
             </div>
           </Animated>
         )}
-        <Animated {...animatedProps} transitionDelay={650}>
+        <Animated
+          {...animatedProps}
+          transitionDelay={650}
+        >
           <Upload
             projectDescription={projectDescription}
             selectedFiles={selectedFiles}
@@ -206,7 +232,10 @@ const FeedbackForm = ({
             There was an error trying to send your message. Please try again later
           </span>
         )}
-        <Animated {...animatedProps} transitionDelay={700}>
+        <Animated
+          {...animatedProps}
+          transitionDelay={700}
+        >
           <ButtonMore
             href="/"
             title="SEND"

@@ -84,7 +84,10 @@ export const DesktopCarousel = ({ photos }) => {
         }}
       >
         <div className={styles.listWrapper}>
-          <ul ref={listRef} className={styles.unorderedList}>
+          <ul
+            ref={listRef}
+            className={styles.unorderedList}
+          >
             {gallery && gallery.map((photoData, index) => {
               const { image, carouselImageType } = getDocumentFields(
                 photoData,
@@ -96,8 +99,14 @@ export const DesktopCarousel = ({ photos }) => {
               );
 
               return (
-                <li key={`gallary/photo/${index}`} className={styles[`${carouselImageType}Img`]}>
-                  <img src={imageUrl} alt="" />
+                <li
+                  key={`gallary/photo/${index}`}
+                  className={styles[`${carouselImageType}Img`]}
+                >
+                  <img
+                    src={imageUrl}
+                    alt=""
+                  />
                 </li>
               );
             })}

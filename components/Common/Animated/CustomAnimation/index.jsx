@@ -47,7 +47,10 @@ export const CustomAnimation = ({
   }, [intersection]);
 
   return (
-    <div ref={animateRef} style={generalStyles}>
+    <div
+      ref={animateRef}
+      style={generalStyles}
+    >
       {children}
     </div>
   );

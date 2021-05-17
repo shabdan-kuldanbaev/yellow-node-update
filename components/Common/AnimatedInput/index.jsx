@@ -50,7 +50,9 @@ const AnimatedInput = ({
     setFocus(false);
     setActive(false);
 
-    if (type === 'email' && value !== '' && handleOnBlurEmail) handleOnBlurEmail(value);
+    if (type === 'email' && value !== '' && handleOnBlurEmail) {
+      handleOnBlurEmail(value);
+    }
   };
 
   const handleOnOutsideClick = () => {
@@ -92,10 +94,29 @@ const AnimatedInput = ({
         role="textbox"
         tabIndex="0"
       >
-        {!isWithoutLabel && <label htmlFor={value}>{placeholder}</label>}
-        {isTextArea ? <textarea {...inputOptions} rows={1} /> : <input {...inputOptions} />}
-        {isRequired && <span className={styles.required}>*</span>}
-        {!isValidate && value !== '' && <span className={styles.invalid}>INVALID</span>}
+        {!isWithoutLabel && (
+          <label htmlFor={value}>
+            {placeholder}
+          </label>
+        )}
+        {isTextArea
+          ? (
+            <textarea
+              {...inputOptions}
+              rows={1}
+            />
+          )
+          : <input {...inputOptions} />}
+        {isRequired && (
+          <span className={styles.required}>
+            *
+          </span>
+        )}
+        {!isValidate && value !== '' && (
+          <span className={styles.invalid}>
+            INVALID
+          </span>
+        )}
       </div>
     </OutsideClickHandler>
   );

@@ -49,11 +49,19 @@ const App = ({ Component, pageProps }) => {
   return (
     <Fragment>
       <Head>
-        {!isCustomDomain && <meta name="robots" content="none" />}
+        {!isCustomDomain && (
+          <meta
+            name="robots"
+            content="none"
+          />
+        )}
       </Head>
       <AppContext.Provider value={{ contextData, setContextData }}>
         <ThemeProvider theme={customTheme}>
-          <Layout theme={theme} introSection={introSection}>
+          <Layout
+            theme={theme}
+            introSection={introSection}
+          >
             <Component
               theme={theme}
               introSection={introSection}
