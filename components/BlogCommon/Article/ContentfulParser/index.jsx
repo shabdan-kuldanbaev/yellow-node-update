@@ -61,7 +61,10 @@ export const ContentfulParser = ({ document }) => {
 
           return (articleSingleImageType && imageUrl && (
             <div className={styles.imageWrapper}>
-              <div className={articleSingleImageType === 'normal' ? styles.normalImage : styles.fullImage}>
+              <div className={articleSingleImageType === 'normal'
+                ? styles.normalImage
+                : styles.fullImage}
+              >
                 <Animated type={ANIMATED_TYPE.imageZoom}>
                   <img
                     src={imageUrl}
@@ -96,10 +99,22 @@ export const ContentfulParser = ({ document }) => {
         }
       },
       [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
-      [BLOCKS.QUOTE]: (node, children) => <blockquote className={styles.quote}>{children}</blockquote>,
+      [BLOCKS.QUOTE]: (node, children) => (
+        <blockquote className={styles.quote}>
+          {children}
+        </blockquote>
+      ),
       [BLOCKS.HEADING_1]: (node, children) => <h1>{children}</h1>,
-      [BLOCKS.HEADING_2]: (node, children) => <h2 className={styles.h2}>{children}</h2>,
-      [BLOCKS.HEADING_3]: (node, children) => <h3 className={styles.h3}>{children}</h3>,
+      [BLOCKS.HEADING_2]: (node, children) => (
+        <h2 className={styles.h2}>
+          {children}
+        </h2>
+      ),
+      [BLOCKS.HEADING_3]: (node, children) => (
+        <h3 className={styles.h3}>
+          {children}
+        </h3>
+      ),
       [BLOCKS.UL_LIST]: (node, children) => (
         <ul className={styles.ul}>
           {children && children.map((child) => (
