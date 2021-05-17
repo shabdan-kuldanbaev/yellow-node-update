@@ -51,9 +51,8 @@ const FullscreenSearch = ({
     <ModalWindow
       isModalWindow={isFullscreenSearch}
       closeModalWindow={handleOnCloseModalWindow}
-      className={styles.search}
     >
-      <div className={styles.searchBlock}>
+      <div className={styles.foundArticles}>
         <input
           ref={inputRef}
           className={styles.input}
@@ -62,11 +61,18 @@ const FullscreenSearch = ({
           onChange={handleOnChangeInput}
           value={inputValue}
         />
-      </div>
-      <div className={styles.foundArticles}>
         {inputValue.length > 1
-          ? <SearchResult />
-          : <span className={styles.nothingFound}>Type some words to search.</span>}
+          ? (
+            <SearchResult
+              searchValue={inputValue}
+              handleOnCloseModalWindow={handleOnCloseModalWindow}
+            />
+          )
+          : (
+            <span className={styles.nothingFound}>
+              Type some words to search.
+            </span>
+          )}
       </div>
     </ModalWindow>
   );

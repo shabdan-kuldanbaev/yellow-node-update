@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
+import { connect } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { SubscribeBlock } from 'components';
-import { ANIMATED_TYPE } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { Article } from './Article';
+import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
 export const ArticlesList = ({
@@ -12,49 +14,40 @@ export const ArticlesList = ({
   isBlogPage,
   currentPage,
   handleOnFormSubmit,
+  isMobileResolution,
+  handleOnCloseModalWindow,
 }) => (
-  <div className={styles.articlesList}>
-    {currentPage === 1 && isBlogPage && <SubscribeBlock isBlog handleOnSubmit={handleOnFormSubmit} />}
+  <div
+    className={cn(styles.articlesList, {
+      [styles.locationSubscribe]: !isSearch,
+    })}
+  >
+    {currentPage === 1 && isBlogPage && (
+      <SubscribeBlock
+        isBlog
+        handleOnSubmit={handleOnFormSubmit}
+      />
+    )}
     {articles && articles.map((article, index) => {
-      const {
-        slug,
-        title,
-        categoryTag,
-        introduction,
-        previewImageUrl,
-      } = getDocumentFields(
+      const articleProps = getArticleProps({
         article,
-        ['slug', 'title', 'categoryTag', 'introduction', 'previewImageUrl'],
-      );
-      const previewImage = getFileUrl(previewImageUrl);
-      const delay = isSearch ? (30 * index) : (100 + 100 * index);
-      const animatioProps = isSearch
-        ? {
-          type: ANIMATED_TYPE.isFade,
-          delay,
-          duration: 400,
-          distance: '100px',
-          bottom: true,
-          effect: 'fadeInUp',
-        }
-        : {
-          type: ANIMATED_TYPE.isCustom,
-          translateY: '2.82352941em',
-          opasityDuration: 1,
-          transformDuration: 1,
-          transitionDelay: delay,
-        };
+        index,
+        isSearch,
+        isMobileResolution,
+      });
 
       return (
         <Article
-          key={title}
+          key={articleProps.title}
           countNumber={index}
-          animatioProps={animatioProps}
-          slug={slug}
-          title={title}
-          categoryTag={categoryTag}
-          introduction={introduction}
-          previewImage={previewImage}
+          animatioProps={articleProps.animatioProps}
+          slug={articleProps.slug}
+          title={articleProps.title}
+          categoryTag={articleProps.categoryTag}
+          introduction={articleProps.introduction}
+          previewImage={articleProps.previewImage}
+          isSearch={isSearch}
+          handleOnCloseModalWindow={handleOnCloseModalWindow}
         />
       );
     })}
@@ -65,6 +58,7 @@ ArticlesList.defaultProps = {
   isSearch: false,
   isBlogPage: false,
   handleOnFormSubmit: () => {},
+  handleOnCloseModalWindow: () => {},
 };
 
 ArticlesList.propTypes = {
@@ -73,4 +67,10 @@ ArticlesList.propTypes = {
   isBlogPage: PropTypes.bool,
   currentPage: PropTypes.number.isRequired,
   handleOnFormSubmit: PropTypes.func,
+  isMobileResolution: PropTypes.bool.isRequired,
+  handleOnCloseModalWindow: PropTypes.func,
 };
+
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(ArticlesList);

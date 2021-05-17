@@ -38,13 +38,15 @@ export const ModalWindow = ({
 
   return (
     <section
-      className={cn(styles.modalWindow, className, { [styles.show]: isModalWindow })}
+      className={cn(styles.modalWindowContainer, { [styles.show]: isModalWindow })}
       onClick={handleOnClick}
       ref={modalRef}
       role="dialog"
     >
-      <Svg type={SVG_IMAGES_TYPES.closeSvg} hanleOnClick={closeModalWindow} />
-      {children}
+      <div className={cn(styles.modalWindow, className)}>
+        <Svg type={SVG_IMAGES_TYPES.closeSvg} hanleOnClick={closeModalWindow} />
+        {children}
+      </div>
     </section>
   );
 };

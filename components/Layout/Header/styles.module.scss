@@ -109,6 +109,7 @@
 
   .categories {
     display: none;
+    z-index: 200;
 
     @include phone {
       display: block;
