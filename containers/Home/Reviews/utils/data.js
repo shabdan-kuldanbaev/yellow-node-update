@@ -7,7 +7,6 @@ const {
   Sandro,
   Jerry,
 } = staticImagesUrls.reviewsImages;
-
 const {
   famliciousReview,
   natmReview,
