@@ -19,11 +19,17 @@ export const Article = ({
   const blogCategoryRoute = ROUTES.blog.getRoute(categoryTag);
   const articleRoute = ROUTES.article.getRoute(slug);
 
+  const handleOnArticleClick = () => {
+    if (isSearch) {
+      handleOnCloseModalWindow();
+    }
+  };
+
   return slug && title && introduction && previewImage && (
     <article
       key={`articles/${title}`}
       className={cn(styles.article, { [styles.medium]: index === 0 })}
-      onClick={isSearch && handleOnCloseModalWindow}
+      onClick={handleOnArticleClick}
     >
       <Animated {...animatioProps}>
         <LinkWrapper

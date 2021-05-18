@@ -21,9 +21,13 @@ const PreviewImage = ({ image, isMobileResolution }) => (
   </div>
 );
 
+PreviewImage.defaultProps = {
+  isMobileResolution: false,
+};
+
 PreviewImage.propTypes = {
   image: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
 };
 
 export default connect(

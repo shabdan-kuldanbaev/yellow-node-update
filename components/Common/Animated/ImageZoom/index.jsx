@@ -27,6 +27,7 @@ ImageZoom.defaultProps = {
   transitionDuration: 300,
   zoomMargin: 200,
   isTabletResolutions: false,
+  isMobileResolution: false,
 };
 
 ImageZoom.propTypes = {
@@ -34,7 +35,7 @@ ImageZoom.propTypes = {
   overlayBgColorEnd: PropTypes.string,
   transitionDuration: PropTypes.number,
   zoomMargin: PropTypes.number,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
   isTabletResolutions: PropTypes.bool,
 };
 

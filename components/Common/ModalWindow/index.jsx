@@ -53,9 +53,13 @@ export const ModalWindow = ({
   );
 };
 
+ModalWindow.defaultProps = {
+  className: '',
+};
+
 ModalWindow.propTypes = {
   isModalWindow: PropTypes.bool.isRequired,
   closeModalWindow: PropTypes.func.isRequired,
   children: PropTypes.instanceOf(Object).isRequired,
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };

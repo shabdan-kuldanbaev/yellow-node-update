@@ -80,7 +80,10 @@ LinkWrapper.propTypes = {
   isImage: PropTypes.bool,
   imageUrl: PropTypes.string,
   imageText: PropTypes.string,
-  dynamicRouting: PropTypes.string,
+  dynamicRouting: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Object),
+  ]),
   googleAnalyticProps: PropTypes.instanceOf(Object),
   children: PropTypes.oneOfType([
     PropTypes.string,
