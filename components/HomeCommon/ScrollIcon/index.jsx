@@ -5,9 +5,10 @@ import styles from './styles.module.scss';
 
 export const ScrollIcon = () => (
   <div className={styles.iconWrapper}>
-    <div className={styles.scrollDown}>
-      <Svg type={SVG_IMAGES_TYPES.scrollIconSvg} />
-    </div>
+    <Svg
+      type={SVG_IMAGES_TYPES.scrollIconSvg}
+      className={styles.scrollDown}
+    />
     <div className={styles.arrow}>
       <span />
       <span />

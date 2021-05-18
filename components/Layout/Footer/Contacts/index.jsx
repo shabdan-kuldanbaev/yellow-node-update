@@ -66,7 +66,7 @@ const Contacts = ({
     </div>
     <div className={styles.social}>
       <div className={styles.icons}>
-        {socialLinks && socialLinks.map(({ title, href, image }) => (
+        {socialLinks && socialLinks.map(({ title, href, type }) => (
           <LinkWrapper
             key={`networks/${title}`}
             path={href}
@@ -76,7 +76,7 @@ const Contacts = ({
               data: title,
             }}
           >
-            <Svg type={image} />
+            <Svg type={type} />
           </LinkWrapper>
         ))}
       </div>

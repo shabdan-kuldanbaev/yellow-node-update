@@ -26,13 +26,14 @@ export const Partners = ({ partners: partnersList }) => {
       <div className={styles.partners}>
         {partnersList && partnersList.map((partner, index) => (
           <Animated
-            key={`partner/${partner.title}`}
+            key={`partner/${partner}`}
             {...animatedProps}
             transitionDelay={100 + 100 * index}
           >
-            <div className={styles.partnersItem}>
-              <Svg type={partner.image} />
-            </div>
+            <Svg
+              type={partner}
+              className={styles.partnersItem}
+            />
           </Animated>
         ))}
       </div>

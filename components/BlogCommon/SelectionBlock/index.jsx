@@ -50,13 +50,11 @@ const SelectionBlock = ({
       />
       {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
-        <div
+        <Svg
+          type={SVG_IMAGES_TYPES.searchIcon}
+          hanleOnClick={openFullscreenSearch}
           className={styles.imgContainer}
-          onClick={openFullscreenSearch}
-          role="presentation"
-        >
-          <Svg type={SVG_IMAGES_TYPES.searchIcon} />
-        </div>
+        />
         <ButtonMore
           buttonRef={subscribeRef}
           handleOnClick={openFullscreenSubscribe}

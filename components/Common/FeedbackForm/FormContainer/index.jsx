@@ -70,7 +70,10 @@ const FormContainer = ({
           zIndex: isFrontShown ? -1 : 1,
         }}
       >
-        <Svg type={SVG_IMAGES_TYPES.closeSvg} handleOnClick={handleOnCloseClick} />
+        <Svg
+          type={SVG_IMAGES_TYPES.closeSvg}
+          handleOnClick={handleOnCloseClick}
+        />
         <div className={styles.content}>
           <p>
             We have received your request

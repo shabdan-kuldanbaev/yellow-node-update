@@ -48,26 +48,22 @@
     }
 
     .imgContainer {
-      @include flex(row, center, center);
-
       @include phone {
         opacity: 1 !important;
         transform: translate(0, 0) !important;
       }
 
-      svg {
-        position: relative;
-        width: 16.5px;
-        cursor: pointer;
-        right: 40px;
+      position: relative;
+      width: 16.5px;
+      cursor: pointer;
+      right: 40px;
 
-        @include horizontal-mobile {
-          right: 35px;
-        }
+      @include horizontal-mobile {
+        right: 35px;
+      }
 
-        @include phone {
-          right: 7vw;
-        }
+      @include phone {
+        right: 7vw;
       }
     }
 

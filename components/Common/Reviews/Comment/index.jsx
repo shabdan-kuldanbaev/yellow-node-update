@@ -21,7 +21,10 @@ export const Comment = ({
           <div>
             <div className={styles.messageWrapper}>
               <div className={styles.imgContainer}>
-                <Svg type={logo} className={styles.logo} />
+                <Svg
+                  type={logo}
+                  className={styles.logo}
+                />
               </div>
               <div className={styles.message}>
                 {message}
