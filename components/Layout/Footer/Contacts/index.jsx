@@ -6,6 +6,7 @@ import {
   ButtonMore,
   LinkWrapper,
   Animated,
+  Svg,
 } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { socialNetworks } from './utils/data';
@@ -65,7 +66,7 @@ const Contacts = ({
     </div>
     <div className={styles.social}>
       <div className={styles.icons}>
-        {socialLinks && socialLinks.map(({ title, href, image }) => (
+        {socialLinks && socialLinks.map(({ title, href, type }) => (
           <LinkWrapper
             key={`networks/${title}`}
             path={href}
@@ -75,10 +76,7 @@ const Contacts = ({
               data: title,
             }}
           >
-            <img
-              src={image}
-              alt={title}
-            />
+            <Svg type={type} />
           </LinkWrapper>
         ))}
       </div>

@@ -1,15 +1,14 @@
 import React from 'react';
-import { staticImagesUrls } from 'utils/helper';
+import { Svg } from 'components';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const ScrollIcon = () => (
   <div className={styles.iconWrapper}>
-    <div className={styles.scrollDown}>
-      <img
-        src={staticImagesUrls.scrollDownIcon}
-        alt="scroll-down"
-      />
-    </div>
+    <Svg
+      type={SVG_IMAGES_TYPES.scrollIconSvg}
+      className={styles.scrollDown}
+    />
     <div className={styles.arrow}>
       <span />
       <span />

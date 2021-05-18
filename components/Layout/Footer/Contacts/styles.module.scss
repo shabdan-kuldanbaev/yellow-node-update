@@ -137,7 +137,7 @@
           margin-right: 0;
         }
 
-        img {
+        svg {
           height: 33px;
           width: 33px;
           will-change: transform;
@@ -152,7 +152,7 @@
 
       @include higher-phone {
         a:last-child {
-          img {
+          svg {
             margin-right: 0;
           }
         }

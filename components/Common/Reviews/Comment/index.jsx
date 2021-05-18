@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components';
+import { Animated, Svg } from 'components';
 import styles from './styles.module.scss';
 
 export const Comment = ({
@@ -21,9 +21,8 @@ export const Comment = ({
           <div>
             <div className={styles.messageWrapper}>
               <div className={styles.imgContainer}>
-                <img
-                  src={logo}
-                  alt={name}
+                <Svg
+                  type={logo}
                   className={styles.logo}
                 />
               </div>
