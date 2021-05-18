@@ -31,10 +31,10 @@ export const FieldsWrapper = ({ animated: { field } }) => {
       <div className={styles.phoneNumber}>
         {telephoneNumbers && telephoneNumbers.map((telephoneNumber) => (
           <LinkWrapper
+            key={`contacts/phone/${telephoneNumber}`}
             path={`tel:${telephoneNumber}`}
             isLocalLink
             googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
-            key={`contacts/phone/${telephoneNumber}`}
           >
             {telephoneNumber}
           </LinkWrapper>
@@ -47,10 +47,10 @@ export const FieldsWrapper = ({ animated: { field } }) => {
     return (
       <div className={styles.email}>
         <LinkWrapper
+          key={`contacts/email/${email}`}
           path={`mailto:${email}`}
           isLocalLink
           googleAnalyticProps={{ action: 'Click', data: 'Email' }}
-          key={`contacts/email/${email}`}
         >
           {email}
         </LinkWrapper>
