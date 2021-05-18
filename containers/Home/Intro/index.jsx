@@ -15,7 +15,10 @@ const Intro = ({
   isFirstHomepageVisit,
   setScrollOfAddedFooter: setScroll,
 }) => (
-  <section ref={introSection} className={styles.intro}>
+  <section
+    ref={introSection}
+    className={styles.intro}
+  >
     <Duck duck={duck} />
     <AddFooter
       theme={theme}

@@ -21,7 +21,10 @@ export const AboutUs = ({ aboutUsText: aboutUs }) => {
   return (
     <section className={styles.aboutUs}>
       <div>
-        <SectionTitle title="About us" isMainTitle />
+        <SectionTitle
+          title="About us"
+          isMainTitle
+        />
         <div className={styles.aboutUsText}>
           {aboutUs && aboutUs.map((paragraph, index) => (
             <Animated
@@ -34,7 +37,10 @@ export const AboutUs = ({ aboutUsText: aboutUs }) => {
           ))}
         </div>
         <div className={styles.buttons}>
-          <Animated {...animatedProps} transitionDelay={1100 + 80}>
+          <Animated
+            {...animatedProps}
+            transitionDelay={1100 + 80}
+          >
             <ButtonMore
               href={ROUTES.portfolio.path}
               dynamicRouting={ROUTES.portfolio.dynamicPath}
@@ -42,7 +48,10 @@ export const AboutUs = ({ aboutUsText: aboutUs }) => {
               buttonStyle={styles.submit}
             />
           </Animated>
-          <Animated {...animatedProps} transitionDelay={1100 + 80}>
+          <Animated
+            {...animatedProps}
+            transitionDelay={1100 + 80}
+          >
             <ButtonMore
               href={ROUTES.process.path}
               dynamicRouting={ROUTES.process.dynamicPath}

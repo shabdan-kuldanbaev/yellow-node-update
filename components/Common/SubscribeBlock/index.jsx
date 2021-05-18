@@ -51,10 +51,17 @@ const SubscribeBlock = ({
             >
               Subscribe
             </div>
-            {message && <span className={styles.alertMessage}>{message}</span>}
+            {message && (
+              <span className={styles.alertMessage}>
+                {message}
+              </span>
+            )}
           </form>
         </div>
-        <div className={styles.subscribeMessage} style={{ backgroundImage: `url(${staticImagesUrls.subscribeBlockBackground})` }}>
+        <div
+          className={styles.subscribeMessage}
+          style={{ backgroundImage: `url(${staticImagesUrls.subscribeBlockBackground})` }}
+        >
           <h3>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</h3>
         </div>
       </div>

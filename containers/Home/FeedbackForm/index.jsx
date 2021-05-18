@@ -32,7 +32,10 @@ const FeedbackFormContainer = ({ sendEmail: sendFeedback }) => {
         subtitle="Fill in this form or"
         linkText="send us an e-mail"
       />
-      <FeedbackForm handleOnClick={handleOnClick} formKey="home-page" />
+      <FeedbackForm
+        handleOnClick={handleOnClick}
+        formKey="home-page"
+      />
     </div>
   );
 };

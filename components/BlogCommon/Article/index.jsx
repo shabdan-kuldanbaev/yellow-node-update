@@ -37,16 +37,26 @@ const Article = ({
   }, [maxScrollPosition]);
 
   return (
-    <section ref={introSection} className={styles.article}>
+    <section
+      ref={introSection}
+      className={styles.article}
+    >
       <header className={styles.header}>
         <div style={{ backgroundImage: `url(${headImage})` }} />
         <div className={styles.container}>
-          <h1 className={styles.h1}>{title}</h1>
+          <h1 className={styles.h1}>
+            {title}
+          </h1>
           <p>{introduction}</p>
         </div>
       </header>
-      <div className={styles.body} ref={articleBodyRef}>
-        {oldBody ? <OldArticle oldBody={oldBody} /> : <ContentfulParser document={body} />}
+      <div
+        className={styles.body}
+        ref={articleBodyRef}
+      >
+        {oldBody
+          ? <OldArticle oldBody={oldBody} />
+          : <ContentfulParser document={body} />}
       </div>
     </section>
   );

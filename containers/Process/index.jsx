@@ -6,10 +6,16 @@ import { Process, MetaTags } from 'components';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const ProcessContainer = ({ introSection, processes: { json } }) => (
+const ProcessContainer = ({
+  introSection,
+  processes: { json },
+}) => (
   <Fragment>
     <MetaTags page={PAGES.process} />
-    <section ref={introSection} className={styles.process}>
+    <section
+      ref={introSection}
+      className={styles.process}
+    >
       <Process processes={json} />
     </section>
   </Fragment>

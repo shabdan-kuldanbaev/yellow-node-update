@@ -54,7 +54,10 @@ const Portfolio = ({
             <div className={styles.workWrapper}>
               <div className={styles.desc}>
                 {animatedFieldsList && animatedFieldsList.map((animated) => (
-                  <Animated {...animated} key={`fields/${title}/${animated.field}`}>
+                  <Animated
+                    {...animated}
+                    key={`fields/${title}/${animated.field}`}
+                  >
                     <FieldsWrapper
                       animated={animated}
                       title={title}

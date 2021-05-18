@@ -28,10 +28,15 @@ export const BookmarkCard = ({
               {title}
             </LinkWrapper>
           </h3>
-          <div className={styles.description}>{description}</div>
+          <div className={styles.description}>
+            {description}
+          </div>
           <div className={styles.metadata}>
             <LinkWrapper {...linkProps}>
-              <img src={Like} alt="like" />
+              <img
+                src={Like}
+                alt="like"
+              />
               <span>Recommended</span>
             </LinkWrapper>
           </div>

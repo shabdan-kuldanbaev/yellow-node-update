@@ -34,14 +34,27 @@ const Subscribe = ({
     <section className={styles.subscribeBlock}>
       <div className={styles.subscribe}>
         <div className={styles.content}>
-          <Animated {...animatedProps} transitionDelay={100}>
-            <span className={styles.title}>Don&apos;t want to miss anything?</span>
+          <Animated
+            {...animatedProps}
+            transitionDelay={100}
+          >
+            <span className={styles.title}>
+              Don&apos;t want to miss anything?
+            </span>
           </Animated>
-          <Animated {...animatedProps} transitionDelay={150}>
-            <span className={styles.subtitle}>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</span>
+          <Animated
+            {...animatedProps}
+            transitionDelay={150}
+          >
+            <span className={styles.subtitle}>
+              Get weekly updates on the newest design stories, case studies and tips right in your mailbox.
+            </span>
           </Animated>
           <div className={styles.inputBlock}>
-            <Animated {...animatedProps} transitionDelay={200}>
+            <Animated
+              {...animatedProps}
+              transitionDelay={200}
+            >
               {!isMobileResolution
                 ? (
                   <input
@@ -65,7 +78,10 @@ const Subscribe = ({
                   />
                 )}
             </Animated>
-            <Animated {...animatedProps} transitionDelay={250}>
+            <Animated
+              {...animatedProps}
+              transitionDelay={250}
+            >
               <ButtonMore
                 href="/blog"
                 title="Submit"

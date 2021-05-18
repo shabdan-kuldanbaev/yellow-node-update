@@ -9,7 +9,10 @@ export const Video = ({ src, className }) => (
     className={className}
     playsInline
   >
-    <source src={src} type="video/mp4" />
+    <source
+      src={src}
+      type="video/mp4"
+    />
   </video>
 );
 

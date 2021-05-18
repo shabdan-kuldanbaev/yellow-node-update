@@ -55,12 +55,24 @@ export const Location = ({
         transformDuration={1}
         transitionDelay={100 + 100 * animationDelay}
       >
-        <div ref={dataRef} className={styles.date}>
+        <div
+          ref={dataRef}
+          className={styles.date}
+        >
           <span />
           {startDate === finishDate ? startDate : `${startDate} - ${finishDate}`}
         </div>
-        <span className={styles.locationTitle}>{location}</span>
-        {eventTitle && <div className={styles.eventTitle} style={{ backgroundColor: `${eventColor}` }}>{eventTitle}</div>}
+        <span className={styles.locationTitle}>
+          {location}
+        </span>
+        {eventTitle && (
+          <div
+            className={styles.eventTitle}
+            style={{ backgroundColor: `${eventColor}` }}
+          >
+            {eventTitle}
+          </div>
+        )}
       </Animated>
     </div>
   );

@@ -54,8 +54,14 @@ const ContactUsContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.contact} microdata={microdata.contact()} />
-      <section ref={introSection} className={styles.contactContainer}>
+      <MetaTags
+        page={PAGES.contact}
+        microdata={microdata.contact()}
+      />
+      <section
+        ref={introSection}
+        className={styles.contactContainer}
+      >
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
         {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}

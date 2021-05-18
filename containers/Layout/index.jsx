@@ -81,7 +81,10 @@ export const Layout = ({
   return (
     <Fragment>
       <CookiesNotification />
-      <Header theme={theme} introSection={introSection} />
+      <Header
+        theme={theme}
+        introSection={introSection}
+      />
       {children}
       <Footer
         theme={theme}

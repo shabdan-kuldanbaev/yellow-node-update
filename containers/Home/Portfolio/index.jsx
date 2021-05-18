@@ -99,10 +99,22 @@ const Portfolio = ({ gradientRef, projects }) => {
 
   return (
     <Fragment>
-      <div className={styles.gradient} ref={gradientRef}>
-        <Advantages refs={refs} className={styles[backgroundColor]} />
-        <section ref={portfolioRef} className={cn(styles.portfolio, styles[backgroundColor])}>
-          <Works refs={refs} works={content} />
+      <div
+        className={styles.gradient}
+        ref={gradientRef}
+      >
+        <Advantages
+          refs={refs}
+          className={styles[backgroundColor]}
+        />
+        <section
+          ref={portfolioRef}
+          className={cn(styles.portfolio, styles[backgroundColor])}
+        >
+          <Works
+            refs={refs}
+            works={content}
+          />
           <div className={styles.bottomOfPortfolio}>
             <SectionTitle
               title="Check out more works by Yellow"

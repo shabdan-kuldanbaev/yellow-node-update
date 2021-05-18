@@ -40,8 +40,14 @@ const SelectionBlock = ({
   }, [isMobileCategoties]);
 
   return (
-    <div className={cn(styles.selectionBlock, { [styles.showCategories]: isMobileCategoties })}>
-      <Categories isMobileCategoties={isMobileCategoties} closeMobileCategoties={closeMobileCategoties} />
+    <div className={cn(styles.selectionBlock, {
+      [styles.showCategories]: isMobileCategoties,
+    })}
+    >
+      <Categories
+        isMobileCategoties={isMobileCategoties}
+        closeMobileCategoties={closeMobileCategoties}
+      />
       {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
         <div
@@ -66,7 +72,10 @@ const SelectionBlock = ({
           Categories
         </span>
       </div>
-      <FullscreenSearch isFullscreenSearch={isFullscreenSearch} closeFullscreenSearch={closeFullscreenSearch} />
+      <FullscreenSearch
+        isFullscreenSearch={isFullscreenSearch}
+        closeFullscreenSearch={closeFullscreenSearch}
+      />
       <FullscreenSubscribe
         isFullscreenSubscribe={isFullscreenSubscribe}
         closeFullscreenSubscribe={closeFullscreenSubscribe}

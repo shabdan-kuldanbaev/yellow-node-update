@@ -46,13 +46,23 @@ export const AddFooter = ({
   }, []);
 
   return (
-    <section className={cn(styles.addFooterContainer, styles[direction], {
-      [styles.notOnTop]: !isTopOfPage,
-    })}
+    <section className={cn(
+      styles.addFooterContainer,
+      styles[direction], {
+        [styles.notOnTop]: !isTopOfPage,
+      },
+    )}
     >
       <SocialIcons theme={theme} />
       <ScrollIcon theme={theme} />
-      {!isMobileMenuOpened && !isFirstHomepageVisit && <span ref={scrollLabel} className={styles.scrollTitle}>scroll down</span>}
+      {!isMobileMenuOpened && !isFirstHomepageVisit && (
+        <span
+          ref={scrollLabel}
+          className={styles.scrollTitle}
+        >
+          scroll down
+        </span>
+      )}
     </section>
   );
 };

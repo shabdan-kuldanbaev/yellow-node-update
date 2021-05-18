@@ -121,11 +121,23 @@ export const Reviews = ({ reviews }) => {
           );
         })}
       </div>
-      <div className={styles.mobileReviews} style={{ height: `${maxCardHeight}` }}>
-        <Swiper ref={swiperRef} {...params}>
+      <div
+        className={styles.mobileReviews}
+        style={{ height: `${maxCardHeight}` }}
+      >
+        <Swiper
+          ref={swiperRef}
+          {...params}
+        >
           {reviews && reviews.map((comment) => (
             <div key={`mobileReviews/${comment.name}`}>
-              <Comment comment={comment} animatioProps={{ type: ANIMATED_TYPE.isCustom, translateY: '0px' }} />
+              <Comment
+                comment={comment}
+                animatioProps={{
+                  type: ANIMATED_TYPE.isCustom,
+                  translateY: '0px',
+                }}
+              />
             </div>
           ))}
         </Swiper>

@@ -202,6 +202,14 @@
         background-color: $athens-gray;
         transition: background-color 0.15s ease;
 
+        @include tablet {
+          @include fontSize(11.5px);
+        }
+
+        @include below-tablet {
+          @include fontSize(13px);
+        }
+
         &:hover {
           background-color: $turbo-100;
           transition: background-color 0.15s ease;

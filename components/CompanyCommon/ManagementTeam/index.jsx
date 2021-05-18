@@ -35,10 +35,17 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => (
             transitionDelay={50 + 50 * index}
           >
             <div className={styles.imageContainer}>
-              <div className={styles.image} style={{ backgroundImage: `url(${photoUrl})` }} />
+              <div
+                className={styles.image}
+                style={{ backgroundImage: `url(${photoUrl})` }}
+              />
             </div>
-            <div className={styles.title}>{title}</div>
-            <div className={styles.subtitle}>{subtitle}</div>
+            <div className={styles.title}>
+              {title}
+            </div>
+            <div className={styles.subtitle}>
+              {subtitle}
+            </div>
           </Animated>
         );
       })}
