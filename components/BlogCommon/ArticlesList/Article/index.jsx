@@ -23,7 +23,7 @@ export const Article = ({
     <article
       key={`articles/${title}`}
       className={cn(styles.article, { [styles.medium]: index === 0 })}
-      onClick={isSearch && handleOnCloseModalWindow}
+      onClick={isSearch ? handleOnCloseModalWindow : undefined}
     >
       <Animated {...animatioProps}>
         <LinkWrapper

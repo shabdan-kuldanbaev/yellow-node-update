@@ -60,9 +60,13 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
   );
 };
 
+CompanyPeoplePhoto.defaultProps = {
+  isMobileResolution: false,
+};
+
 CompanyPeoplePhoto.propTypes = {
   photo: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
 };
 
 export default connect(

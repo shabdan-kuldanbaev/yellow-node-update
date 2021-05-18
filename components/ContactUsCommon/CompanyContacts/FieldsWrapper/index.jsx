@@ -34,6 +34,7 @@ export const FieldsWrapper = ({ animated: { field } }) => {
             path={`tel:${telephoneNumber}`}
             isLocalLink
             googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+            key={`contacts/phone/${telephoneNumber}`}
           >
             {telephoneNumber}
           </LinkWrapper>
@@ -49,6 +50,7 @@ export const FieldsWrapper = ({ animated: { field } }) => {
           path={`mailto:${email}`}
           isLocalLink
           googleAnalyticProps={{ action: 'Click', data: 'Email' }}
+          key={`contacts/email/${email}`}
         >
           {email}
         </LinkWrapper>

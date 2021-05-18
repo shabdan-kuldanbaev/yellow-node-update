@@ -225,6 +225,7 @@ FeedbackForm.defaultProps = {
   isChooseBudget: false,
   budget,
   formKey: '',
+  contactFormError: '',
 };
 
 FeedbackForm.propTypes = {
@@ -235,7 +236,7 @@ FeedbackForm.propTypes = {
   budget: PropTypes.instanceOf(Object),
   handleOnClick: PropTypes.func.isRequired,
   formKey: PropTypes.string,
-  contactFormError: PropTypes.string.isRequired,
+  contactFormError: PropTypes.string,
 };
 
 export default connect(

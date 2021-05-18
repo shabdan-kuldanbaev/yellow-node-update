@@ -31,9 +31,13 @@ const LinearIndeterminate = ({ isPageReadyToDisplay, isMobileResolutuins }) => {
   );
 };
 
+LinearIndeterminate.defaultProps = {
+  isMobileResolutuins: false,
+};
+
 LinearIndeterminate.propTypes = {
   isPageReadyToDisplay: PropTypes.bool.isRequired,
-  isMobileResolutuins: PropTypes.bool.isRequired,
+  isMobileResolutuins: PropTypes.bool,
 };
 
 export default connect(

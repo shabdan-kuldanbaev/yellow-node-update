@@ -35,11 +35,15 @@ export const FieldsWrapper = ({
   }
 };
 
+FieldsWrapper.defaultProps = {
+  slug: '',
+};
+
 FieldsWrapper.propTypes = {
   animated: PropTypes.shape({
     field: PropTypes.string.isRequired,
   }).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  slug: PropTypes.string,
 };

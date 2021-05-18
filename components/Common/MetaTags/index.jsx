@@ -65,7 +65,7 @@ export const MetaTags = ({
             {categoryTag && <meta property="article:section" content={categoryTag} />}
             {publishedAt && <meta property="article:published_time" content={publishedAt} />}
             {keyWords && keyWords.map((keyWord) => (
-              <meta property="article:tag" content={keyWord} />
+              <meta property="article:tag" content={keyWord} key={`meta/tag/${keyWord}`} />
             ))}
             <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
             <meta name="google-site-verification" content="Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k" />
@@ -105,7 +105,7 @@ MetaTags.propTypes = {
     image: PropTypes.string,
     publishedAt: PropTypes.string,
     categoryTag: PropTypes.string,
-    keyWords: PropTypes.string,
+    keyWords: PropTypes.instanceOf(Array),
     slug: PropTypes.string,
     pageNumber: PropTypes.number,
   }),
