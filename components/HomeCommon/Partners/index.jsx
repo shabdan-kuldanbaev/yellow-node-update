@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components';
+import { Animated, Svg } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { partners } from './utils/data';
 import styles from './styles.module.scss';
@@ -15,7 +15,10 @@ export const Partners = ({ partners: partnersList }) => {
 
   return (
     <div className={styles.partnersContainer}>
-      <Animated {...animatedProps} transitionDelay={100}>
+      <Animated
+        {...animatedProps}
+        transitionDelay={100}
+      >
         <div>
           <h1>And get featured on</h1>
         </div>
@@ -23,13 +26,14 @@ export const Partners = ({ partners: partnersList }) => {
       <div className={styles.partners}>
         {partnersList && partnersList.map((partner, index) => (
           <Animated
-            key={`partner/${partner.title}`}
+            key={`partner/${partner}`}
             {...animatedProps}
             transitionDelay={100 + 100 * index}
           >
-            <div className={styles.partnersItem}>
-              <img src={partner.image} alt={partner.title} />
-            </div>
+            <Svg
+              type={partner}
+              className={styles.partnersItem}
+            />
           </Animated>
         ))}
       </div>

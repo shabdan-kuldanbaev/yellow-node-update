@@ -202,6 +202,10 @@
         background-color: $athens-gray;
         transition: background-color 0.15s ease;
 
+        @include macbook-twelve {
+          max-width: calc(100% - 54px);
+        }
+
         &:hover {
           background-color: $turbo-100;
           transition: background-color 0.15s ease;

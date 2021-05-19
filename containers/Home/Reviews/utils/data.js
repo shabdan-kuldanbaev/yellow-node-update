@@ -1,19 +1,22 @@
 import { staticImagesUrls } from 'utils/helper';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 
 const {
-  OppSites,
-  Famlicious,
-  Separate,
-  Natp,
   Ian,
   Jim,
   Sandro,
   Jerry,
 } = staticImagesUrls.reviewsImages;
+const {
+  famliciousReview,
+  natmReview,
+  oppsitesReview,
+  separateReview,
+} = SVG_IMAGES_TYPES;
 
 export const reviews = [
   {
-    logo: OppSites,
+    logo: oppsitesReview,
     avatar: Ian,
     name: 'Ian Ross',
     position: 'CEO, OppSites',
@@ -23,7 +26,7 @@ export const reviews = [
     `,
   },
   {
-    logo: Famlicious,
+    logo: famliciousReview,
     avatar: Jim,
     name: 'Jim Barkow',
     position: 'Founder, Famlicious Inc.',
@@ -33,7 +36,7 @@ export const reviews = [
     `,
   },
   {
-    logo: Separate,
+    logo: separateReview,
     avatar: Sandro,
     name: 'Sandro Tuzzo',
     position: 'CEO, Separate.us',
@@ -44,7 +47,7 @@ export const reviews = [
     `,
   },
   {
-    logo: Natp,
+    logo: natmReview,
     avatar: Jerry,
     name: 'Jerry Sparkman',
     position: 'IT Director, National Association of Tax Professionals',

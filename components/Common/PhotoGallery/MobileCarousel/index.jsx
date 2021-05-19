@@ -22,8 +22,14 @@ export const MobileCarousel = ({ photos }) => (
         );
 
         return (
-          <div key={`photo/${index}`} className={styles[`${carouselImageType}Img`]}>
-            <img style={{ backgroundImage: `url(${imageUrl})` }} alt="" />
+          <div
+            key={`photo/${index}`}
+            className={styles[`${carouselImageType}Img`]}
+          >
+            <img
+              style={{ backgroundImage: `url(${imageUrl})` }}
+              alt=""
+            />
           </div>
         );
       })}

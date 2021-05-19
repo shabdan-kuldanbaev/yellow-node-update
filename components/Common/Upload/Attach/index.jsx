@@ -9,10 +9,19 @@ export const Attach = () => (
     viewBox="0 0 10 23"
   >
     <defs>
-      <path id="a" d="M.018.16h9.903V22.8H.018z" />
+      <path
+        id="a"
+        d="M.018.16h9.903V22.8H.018z"
+      />
     </defs>
-    <g fill="none" fillRule="evenodd">
-      <mask id="b" fill="#fff">
+    <g
+      fill="none"
+      fillRule="evenodd"
+    >
+      <mask
+        id="b"
+        fill="#fff"
+      >
         <use xlinkHref="#a" />
       </mask>
       <path

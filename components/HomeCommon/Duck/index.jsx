@@ -415,7 +415,10 @@ export const Duck = ({ duck }) => {
 
   return (
     <Fragment>
-      <div className={styles.text} ref={containerText}>
+      <div
+        className={styles.text}
+        ref={containerText}
+      >
         <Animated
           type={ANIMATED_TYPE.isParallaxSpring}
           position="absolute"
@@ -423,7 +426,10 @@ export const Duck = ({ duck }) => {
           elementRef={containerText}
           isHomepageIntro
         >
-          <h1 ref={sloganRef} className="letter-container" />
+          <h1
+            ref={sloganRef}
+            className="letter-container"
+          />
         </Animated>
       </div>
       <Animated

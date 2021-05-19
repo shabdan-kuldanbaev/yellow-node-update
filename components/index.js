@@ -30,6 +30,7 @@ export { default as LoadingScreen } from 'components/Common/LoadingScreen';
 export { default as LinearIndeterminate } from 'components/Common/LinearIndeterminate';
 export { default as Paginator } from 'components/Common/Paginator';
 export { CallToAction } from 'components/Common/CallToAction';
+export { Svg } from 'components/Common/Svg';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';

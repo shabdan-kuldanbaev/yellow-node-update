@@ -18,15 +18,15 @@ import styles from './styles.module.scss';
 const BlogContainer = ({
   introSection,
   articles,
-  deviceLimit,
   isMobileResolution,
   totalArticles,
   subscribe: addNewSubscriber,
   setIsSubscribed: setSubscribed,
   currentPage,
+  articlesNumberPerPage,
 }) => {
   const { pathname } = useRouter();
-  const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
+  const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });
@@ -39,8 +39,14 @@ const BlogContainer = ({
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.blog} pageMetadata={{ pageNumber: currentPage }} />
-      <section ref={introSection} className={styles.blog}>
+      <MetaTags
+        page={PAGES.blog}
+        pageMetadata={{ pageNumber: currentPage }}
+      />
+      <section
+        ref={introSection}
+        className={styles.blog}
+      >
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
           articles={articles}
@@ -69,8 +75,8 @@ BlogContainer.propTypes = {
   subscribe: PropTypes.func.isRequired,
   totalArticles: PropTypes.number.isRequired,
   setIsSubscribed: PropTypes.func.isRequired,
-  deviceLimit: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
+  articlesNumberPerPage: PropTypes.number.isRequired,
 };
 
 export default connect(

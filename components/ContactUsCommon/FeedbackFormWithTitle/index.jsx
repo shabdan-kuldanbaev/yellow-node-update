@@ -15,7 +15,10 @@ const FeedbackFormWithTitle = ({ handleOnClick }) => (
         linkText="send us an e-mail"
         isMainTitle
       />
-      <FeedbackForm isChooseBudget handleOnClick={handleOnClick} />
+      <FeedbackForm
+        isChooseBudget
+        handleOnClick={handleOnClick}
+      />
     </div>
   </section>
 );

@@ -24,18 +24,35 @@ export const SectionTitle = ({
 
   return (
     <div className={styles.titleContainer}>
-      <Animated {...animatedProps} transitionDelay={250}>
-        <TitleTag className={cn({ [styleTitle]: styleTitle })}>{title}</TitleTag>
+      <Animated
+        {...animatedProps}
+        transitionDelay={250}
+      >
+        <TitleTag className={cn({ [styleTitle]: styleTitle })}>
+          {title}
+        </TitleTag>
       </Animated>
       {subtitle && (
-        <Animated {...animatedProps} transitionDelay={300}>
+        <Animated
+          {...animatedProps}
+          transitionDelay={300}
+        >
           {!isFeedbackForm
-            ? <span className={cn({ [styleSubtitle]: styleSubtitle })}>{subtitle}</span>
+            ? (
+              <span className={cn({ [styleSubtitle]: styleSubtitle })}>
+                {subtitle}
+              </span>
+            )
             : (
               <p className={cn({ [styleSubtitle]: styleSubtitle })}>
                 {subtitle}
                 <span>
-                  <LinkWrapper path="mailto:hi@yellow.systems" isLocalLink>{linkText}</LinkWrapper>
+                  <LinkWrapper
+                    path="mailto:hi@yellow.systems"
+                    isLocalLink
+                  >
+                    {linkText}
+                  </LinkWrapper>
                 </span>
               </p>
             )}

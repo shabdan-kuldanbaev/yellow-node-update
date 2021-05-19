@@ -6,6 +6,7 @@ import {
   ButtonMore,
   LinkWrapper,
   Animated,
+  Svg,
 } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { socialNetworks } from './utils/data';
@@ -18,14 +19,20 @@ const Contacts = ({
   socialNetworks: socialLinks,
 }) => (
   <div className={styles.contactsContainer}>
-    <SectionTitle title="Contacts" styleTitle={styles.mobileFooterTitle} />
+    <SectionTitle
+      title="Contacts"
+      styleTitle={styles.mobileFooterTitle}
+    />
     <div className={styles.contacts}>
       <span>Email:</span>
       <span>
         <LinkWrapper
           path="mailto:hi@yellow.systems"
           isLocalLink
-          googleAnalyticProps={{ action: 'Click', data: 'Email' }}
+          googleAnalyticProps={{
+            action: 'Click',
+            data: 'Email',
+          }}
         >
           hi@yellow.systems
         </LinkWrapper>
@@ -35,7 +42,10 @@ const Contacts = ({
         <LinkWrapper
           path="tel:+1 415 670 9070"
           isLocalLink
-          googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+          googleAnalyticProps={{
+            action: 'Click',
+            data: 'Phone',
+          }}
         >
           +1 415 670 9070
         </LinkWrapper>
@@ -45,7 +55,10 @@ const Contacts = ({
         <LinkWrapper
           path="tel:+375293115249"
           isLocalLink
-          googleAnalyticProps={{ action: 'Click', data: 'Phone' }}
+          googleAnalyticProps={{
+            action: 'Click',
+            data: 'Phone',
+          }}
         >
           +375 29 311 52 49
         </LinkWrapper>
@@ -53,7 +66,7 @@ const Contacts = ({
     </div>
     <div className={styles.social}>
       <div className={styles.icons}>
-        {socialLinks && socialLinks.map(({ title, href, image }) => (
+        {socialLinks && socialLinks.map(({ title, href, type }) => (
           <LinkWrapper
             key={`networks/${title}`}
             path={href}
@@ -63,7 +76,7 @@ const Contacts = ({
               data: title,
             }}
           >
-            <img src={image} alt={title} />
+            <Svg type={type} />
           </LinkWrapper>
         ))}
       </div>

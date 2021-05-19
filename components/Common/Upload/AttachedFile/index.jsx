@@ -39,19 +39,30 @@ export const AttachedFile = ({
   }, []);
 
   return (
-    <div className={styles.file} key={`file/${file.name}`}>
-      <span className={cn(styles.uploading, { [styles.successUploading]: isFileUploaded })}>
+    <div
+      className={styles.file}
+      key={`file/${file.name}`}
+    >
+      <span className={cn(styles.uploading, {
+        [styles.successUploading]: isFileUploaded,
+      })}
+      >
         {file.name}
       </span>
-      <span className={cn(styles.uploading, { [styles.successUploading]: isFileUploaded })}>
+      <span className={cn(styles.uploading, {
+        [styles.successUploading]: isFileUploaded,
+      })}
+      >
         {getConvertedFileSize(file.size)}
       </span>
       <button
+        className={cn(styles.uploading, {
+          [styles.successUploading]: isFileUploaded,
+        })}
+        style={{ backgroundImage: `url(${staticImagesUrls.unpinFile})` }}
         data-file-name={file.name}
         type="button"
         onClick={handleOnUnpinFile}
-        style={{ backgroundImage: `url(${staticImagesUrls.unpinFile})` }}
-        className={cn(styles.uploading, { [styles.successUploading]: isFileUploaded })}
         disabled={!isFileUploaded}
         aria-label="Unpin"
       />

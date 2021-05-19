@@ -17,7 +17,10 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
   return (
     <Fragment>
       <MetaTags page={PAGES.portfolio} />
-      <section ref={introSection} className={styles.portfolio}>
+      <section
+        ref={introSection}
+        className={styles.portfolio}
+      >
         {content && <Portfolio works={content} />}
       </section>
       {/* <Paginator

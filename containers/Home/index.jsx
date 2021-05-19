@@ -57,7 +57,10 @@ export const Home = ({
 
   return (
     <Fragment>
-      <MetaTags page={PAGES.homepage} microdata={microdata.homepage()} />
+      <MetaTags
+        page={PAGES.homepage}
+        microdata={microdata.homepage()}
+      />
       {(!isPageReadyToDisplay || !duck) ? <LoadingPlaceholder /> : (
         <Fragment>
           <Intro
@@ -79,6 +82,7 @@ export const Home = ({
 
 Home.defaultProps = {
   photosData: {},
+  duck: null,
 };
 
 Home.propTypes = {
@@ -87,7 +91,7 @@ Home.propTypes = {
   photosData: PropTypes.instanceOf(Object),
   isPageReadyToDisplay: PropTypes.bool.isRequired,
   fetchDuck: PropTypes.func.isRequired,
-  duck: PropTypes.instanceOf(Object).isRequired,
+  duck: PropTypes.instanceOf(Object),
 };
 
 export default connect(

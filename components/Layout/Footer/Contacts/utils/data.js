@@ -1,31 +1,30 @@
-import { staticImagesUrls } from 'utils/helper';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 
 const {
   instaIcon,
   linkedinIcon,
   mediumIcon,
-  dribbbleIcon,
-} = staticImagesUrls.socialNetworksIcons;
-
+  dribbleIcon,
+} = SVG_IMAGES_TYPES;
 export const socialNetworks = [
   {
     title: 'instagram',
     href: '//www.instagram.com/yellow.systems',
-    image: instaIcon,
+    type: instaIcon,
   },
   {
     title: 'medium',
     href: '//medium.com/@yellow',
-    image: mediumIcon,
+    type: mediumIcon,
   },
   {
     title: 'linkedin',
     href: '//www.linkedin.com/company/yellow-systems',
-    image: linkedinIcon,
+    type: linkedinIcon,
   },
   {
     title: 'dribbble',
     href: 'https://dribbble.com/yellow_systems',
-    image: dribbbleIcon,
+    type: dribbleIcon,
   },
 ];

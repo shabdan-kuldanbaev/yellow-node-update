@@ -37,7 +37,10 @@ export const CompanyContacts = ({ photo, animatedFields: animatedFieldsList }) =
 
   return (
     <section className={styles.companyContacts}>
-      <div ref={imgContainer} className={styles.imgContainer}>
+      <div
+        ref={imgContainer}
+        className={styles.imgContainer}
+      >
         <div className={styles.whiteCover} />
         <LazyLoadImage
           src={photo}
@@ -48,7 +51,10 @@ export const CompanyContacts = ({ photo, animatedFields: animatedFieldsList }) =
       </div>
       <address className={styles.address}>
         {animatedFieldsList && animatedFieldsList.map((animated) => (
-          <Animated {...animated} key={`fields/${animated.field}`}>
+          <Animated
+            {...animated}
+            key={`fields/${animated.field}`}
+          >
             <FieldsWrapper animated={animated} />
           </Animated>
         ))}

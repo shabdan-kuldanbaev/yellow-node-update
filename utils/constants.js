@@ -1,9 +1,9 @@
 import { routes } from 'utils/routes';
 
-export const DEFAULT_ARTICLES_LIMIT = 5;
-export const CURRENT_PAGE_NUMBER = 1;
-export const NUMBER_OF_IMAGES_PER_LINE = 3;
-export const LIMIT = 5;
+export const HOMEPAGE_ARTICLES_LIMIT = 5;
+export const ARTICLES_NUMBER_PER_PAGE = 11;
+export const HOMEPAGE_BLOG_CURRENT_PAGE = 1;
+export const ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE = 3;
 export const ROUTES = { ...routes };
 
 export const ACCESS_TO_CONTENTFUL = {
@@ -69,25 +69,9 @@ export const FEEDBACK_FORM_FIELDS = {
 };
 
 export const IMAGES = {
-  searchIcon: '/images/blog/search.svg',
   roundLogo: '/images/common/logo/yellow_logo.svg',
-  closeIcon: '/images/common/close.svg',
   subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
-  scrollDownIcon: '/images/home/scrollIcon/scroll-down.svg',
   unpinFile: '/images/common/upload/unpin.svg',
-  socialNetworksIcons: {
-    instaIcon: '/images/layout/footer/insta.svg',
-    linkedinIcon: '/images/layout/footer/linkedin.svg',
-    mediumIcon: '/images/layout/footer/medium.svg',
-    dribbbleIcon: '/images/layout/footer/dribbble.svg',
-  },
-  partnersIcons: {
-    techCrunch: '/images/home/partners/tech-crunch.svg',
-    time: '/images/home/partners/time.svg',
-    productHunt: '/images/home/partners/product-hunt.svg',
-    esquire: '/images/home/partners/esquire.svg',
-    theWeek: '/images/home/partners/the-week.svg',
-  },
   advantagesIcons: {
     ai: '/images/home/advantages/ai.svg',
     chats: '/images/home/advantages/chats.svg',
@@ -95,10 +79,6 @@ export const IMAGES = {
     mobile: '/images/home/advantages/mobile.svg',
   },
   reviewsImages: {
-    OppSites: '/images/home/reviews/oppsites.svg',
-    Famlicious: '/images/home/reviews/famlicious.svg',
-    Separate: '/images/home/reviews/separate.svg',
-    Natp: '/images/home/reviews/natp.svg',
     Ian: '/images/home/reviews/1.png',
     Jim: '/images/home/reviews/2.png',
     Sandro: '/images/home/reviews/3.png',
@@ -116,4 +96,25 @@ export const CONTACTS_DATA = {
   country: 'Belarus',
   postalCode: '220030',
   streetAddress: '5-303 Nemiga street',
+};
+
+export const SVG_IMAGES_TYPES = {
+  searchSvg: 'searchSvg',
+  yellowLogoSvg: 'yellowLogoSvg',
+  unpinSvg: 'unpinSvg',
+  closeSvg: 'closeSvg',
+  scrollIconSvg: 'scrollIconSvg',
+  esquirePartner: 'esquirePartner',
+  productHuntPartner: 'productHuntPartner',
+  techCrunchPartner: 'techCrunchPartner',
+  theWeekPartner: 'theWeekPartner',
+  timePartner: 'timePartner',
+  famliciousReview: 'famliciousReview',
+  natmReview: 'natmReview',
+  oppsitesReview: 'oppsitesReview',
+  separateReview: 'separateReview',
+  dribbleIcon: 'dribbleIcon',
+  instaIcon: 'instaIcon',
+  linkedinIcon: 'linkedinIcon',
+  mediumIcon: 'mediumIcon',
 };

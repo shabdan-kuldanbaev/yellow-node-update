@@ -19,11 +19,17 @@ export const Article = ({
   const blogCategoryRoute = ROUTES.blog.getRoute(categoryTag);
   const articleRoute = ROUTES.article.getRoute(slug);
 
+  const handleOnArticleClick = () => {
+    if (isSearch) {
+      handleOnCloseModalWindow();
+    }
+  };
+
   return slug && title && introduction && previewImage && (
     <article
       key={`articles/${title}`}
       className={cn(styles.article, { [styles.medium]: index === 0 })}
-      onClick={isSearch && handleOnCloseModalWindow}
+      onClick={handleOnArticleClick}
     >
       <Animated {...animatioProps}>
         <LinkWrapper
@@ -34,11 +40,18 @@ export const Article = ({
           <div>
             <div>
               <div className={styles.imgContainer}>
-                <div className={styles.image} style={{ backgroundImage: `url(${previewImage})` }} />
+                <div
+                  className={styles.image}
+                  style={{ backgroundImage: `url(${previewImage})` }}
+                />
               </div>
               <div className={styles.articlePreview}>
-                <h2 className={styles.title}><span>{title}</span></h2>
-                <div className={styles.description}>{introduction}</div>
+                <h2 className={styles.title}>
+                  <span>{title}</span>
+                </h2>
+                <div className={styles.description}>
+                  {introduction}
+                </div>
               </div>
             </div>
             {categoryTag && (
@@ -48,7 +61,7 @@ export const Article = ({
                   path={blogCategoryRoute.path}
                   dynamicRouting={blogCategoryRoute.dynamicPath}
                 >
-                  {`# ${CATEGORY_TAGS[categoryTag]}`}
+                  {`#\u00A0${CATEGORY_TAGS[categoryTag]}`}
                 </LinkWrapper>
               </div>
             )}

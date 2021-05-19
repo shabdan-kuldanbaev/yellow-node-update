@@ -59,6 +59,7 @@ ArticlesList.defaultProps = {
   isBlogPage: false,
   handleOnFormSubmit: () => {},
   handleOnCloseModalWindow: () => {},
+  isMobileResolution: false,
 };
 
 ArticlesList.propTypes = {
@@ -67,7 +68,7 @@ ArticlesList.propTypes = {
   isBlogPage: PropTypes.bool,
   currentPage: PropTypes.number.isRequired,
   handleOnFormSubmit: PropTypes.func,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
   handleOnCloseModalWindow: PropTypes.func,
 };
 

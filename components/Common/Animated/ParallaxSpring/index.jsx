@@ -80,10 +80,11 @@ ParallaxWrapper.defaultProps = {
   position: '',
   speed: 0,
   isHomepageIntro: false,
+  children: null,
 };
 
 ParallaxWrapper.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
   elementRef: PropTypes.instanceOf(Object),
   position: PropTypes.string,

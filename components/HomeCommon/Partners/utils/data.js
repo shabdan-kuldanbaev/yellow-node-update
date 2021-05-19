@@ -1,32 +1,17 @@
-import { staticImagesUrls } from 'utils/helper';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 
 const {
-  techCrunch,
-  time,
-  productHunt,
-  esquire,
-  theWeek,
-} = staticImagesUrls.partnersIcons;
+  esquirePartner,
+  productHuntPartner,
+  techCrunchPartner,
+  theWeekPartner,
+  timePartner,
+} = SVG_IMAGES_TYPES;
 
 export const partners = [
-  {
-    title: 'tech-crunch',
-    image: techCrunch,
-  },
-  {
-    title: 'time',
-    image: time,
-  },
-  {
-    title: 'product-hunt',
-    image: productHunt,
-  },
-  {
-    title: 'esquire',
-    image: esquire,
-  },
-  {
-    title: 'the-week',
-    image: theWeek,
-  },
+  techCrunchPartner,
+  timePartner,
+  productHuntPartner,
+  esquirePartner,
+  theWeekPartner,
 ];

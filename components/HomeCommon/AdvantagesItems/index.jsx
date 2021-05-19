@@ -8,11 +8,25 @@ export const AdvantagesItems = ({ advantages: advantagesList, animatedFields: an
   const switchRender = ({ field }, adv) => { // TODO create separate component
     switch (field) {
     case 'img':
-      return <img src={adv.image} alt={adv.title} />;
+      return (
+        <img
+          src={adv.image}
+          alt={adv.title}
+        />
+      );
     case 'title':
-      return <p className={styles.title}>{adv.title}</p>;
+      return (
+        <p className={styles.title}>
+          {adv.title}
+        </p>
+      );
     case 'desc':
-      return <p className={styles.desc} dangerouslySetInnerHTML={{ __html: adv.desc }} />;
+      return (
+        <p
+          className={styles.desc}
+          dangerouslySetInnerHTML={{ __html: adv.desc }}
+        />
+      );
     default:
       return null;
     }
@@ -21,7 +35,10 @@ export const AdvantagesItems = ({ advantages: advantagesList, animatedFields: an
   return (
     <div className={styles.advantagesContainer}>
       {advantagesList && advantagesList.map((adv) => (
-        <div className={styles.advItem} key={`advantages/${adv.title}`}>
+        <div
+          className={styles.advItem}
+          key={`advantages/${adv.title}`}
+        >
           {animatedFieldsList && animatedFieldsList.map((animated, index) => (
             <Animated
               {...animated}

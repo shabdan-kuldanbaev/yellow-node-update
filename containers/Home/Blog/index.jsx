@@ -10,15 +10,21 @@ import {
 } from 'components';
 import {
   ANIMATED_TYPE,
-  CURRENT_PAGE_NUMBER,
+  HOMEPAGE_BLOG_CURRENT_PAGE,
   ROUTES,
 } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Blog = ({ articles }) => (
   <section className={styles.blog}>
-    <SectionTitle title="Blog" subtitle="How we do what we do" />
-    <ArticlesList articles={articles} currentPage={CURRENT_PAGE_NUMBER} />
+    <SectionTitle
+      title="Blog"
+      subtitle="How we do what we do"
+    />
+    <ArticlesList
+      articles={articles}
+      currentPage={HOMEPAGE_BLOG_CURRENT_PAGE}
+    />
     <Animated
       type={ANIMATED_TYPE.isCustom}
       translateY="2.82352941em"

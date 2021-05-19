@@ -12,7 +12,10 @@ export const socialNetworks = [
         height="20"
         viewBox="0 0 19 20"
       >
-        <g fill="#FFF" fillRule="evenodd">
+        <g
+          fill="#FFF"
+          fillRule="evenodd"
+        >
           <ellipse
             cx="14.307"
             cy="4.666"
@@ -59,7 +62,10 @@ export const socialNetworks = [
         height="20"
         viewBox="0 0 17 20"
       >
-        <g fill={main} fillRule="nonzero">
+        <g
+          fill={main}
+          fillRule="nonzero"
+        >
           <path
             d="M13.165 13.741a5.37 5.37 0 0 1-3.628 1.346c-3.075 0-5.333-2.259-5.333-5.358 0-3.099 2.186-5.26 5.333-5.26a5.501 5.501 0 0 1 3.652 1.32l.672.577 2.98-2.979-.746-.696A9.64 9.64 0 0 0 9.537.24C4.012.24 0 4.227 0 9.704c0 5.478 4.108 9.586 9.537 9.586 2.439.032 4.8-.86 6.607-2.499l.72-.672-3.027-2.98-.672.601z"
           />

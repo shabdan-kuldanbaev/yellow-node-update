@@ -55,7 +55,10 @@ ButtonMore.defaultProps = {
 
 ButtonMore.propTypes = {
   href: PropTypes.string,
-  dynamicRouting: PropTypes.string,
+  dynamicRouting: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Object),
+  ]),
   title: PropTypes.string.isRequired,
   buttonStyle: PropTypes.string,
   handleOnClick: PropTypes.func,

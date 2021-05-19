@@ -74,10 +74,11 @@ const Paginator = ({
 Paginator.defaultProps = {
   className: '',
   arrows,
+  isMobileResolution: false,
 };
 
 Paginator.propTypes = {
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
   arrows: PropTypes.instanceOf(Object),
   pagesCounter: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
