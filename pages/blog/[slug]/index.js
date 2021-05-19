@@ -8,10 +8,10 @@ import {
 import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
 
 const Article = ({
-  deviceLimit,
   currentPage,
   introSection,
   statusCode,
+  articlesNumberPerPage,
 }) => {
   const { query: { slug } } = useRouter();
 
@@ -23,7 +23,7 @@ const Article = ({
     ? <ArticleContainer introSection={introSection} />
     : (
       <BlogContainer
-        deviceLimit={deviceLimit}
+        articlesNumberPerPage={articlesNumberPerPage}
         currentPage={currentPage}
         introSection={introSection}
       />

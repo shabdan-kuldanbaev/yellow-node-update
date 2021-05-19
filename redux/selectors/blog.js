@@ -10,10 +10,6 @@ export const selectNearbyArticles = (state) => state.blog.nearby;
 
 export const selectTotalCount = (state) => state.blog.totalCount;
 
-export const selectDesktopLimit = (state) => state.blog.limit.desktop;
-
-export const selectMobileLimit = (state) => state.blog.limit.mobile;
-
 export const selectFoundArticles = (state) => state.blog.found;
 
 export const selectSearchMessage = (state) => state.blog.searchMessage;

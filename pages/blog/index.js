@@ -3,12 +3,12 @@ import { BlogContainer } from 'containers';
 import { getInitialBlogProps } from 'utils/blogUtils';
 
 const Blog = ({
-  deviceLimit,
   currentPage,
   introSection,
+  articlesNumberPerPage,
 }) => (
   <BlogContainer
-    deviceLimit={deviceLimit}
+    articlesNumberPerPage={articlesNumberPerPage}
     currentPage={currentPage}
     introSection={introSection}
   />
