@@ -12,10 +12,7 @@ import {
   MetaTags,
 } from 'components';
 import { getDataFromLocalStorageWithExpire } from 'utils/helper';
-import {
-  PAGES,
-  ROUTES,
-} from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const BlogContainer = ({

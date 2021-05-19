@@ -2,16 +2,17 @@ import React, { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Animated } from 'components';
-import { ANIMATED_TYPE, NUMBER_OF_IMAGES_PER_LINE } from 'utils/constants';
+import { ANIMATED_TYPE, ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const GalleryCard = ({ images, photoCaption }) => {
   const imageRef = useRef(null); // TODO replace imageRef with something for the garrely row key
-  const rowsCount = Math.ceil(images.length / NUMBER_OF_IMAGES_PER_LINE);
+  const rowsCount = Math.ceil(images.length / ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE);
 
   const getImagesInRow = useCallback(
-    (row) => images.filter((image, index) => index >= row * NUMBER_OF_IMAGES_PER_LINE && index <= (row + 1) * NUMBER_OF_IMAGES_PER_LINE - 1),
+    // eslint-disable-next-line max-len
+    (row) => images.filter((image, index) => index >= row * ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE && index <= (row + 1) * ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE - 1),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [images, rowsCount],
   );

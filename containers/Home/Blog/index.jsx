@@ -10,7 +10,7 @@ import {
 } from 'components';
 import {
   ANIMATED_TYPE,
-  CURRENT_PAGE_NUMBER,
+  HOMEPAGE_BLOG_CURRENT_PAGE,
   ROUTES,
 } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -23,7 +23,7 @@ const Blog = ({ articles }) => (
     />
     <ArticlesList
       articles={articles}
-      currentPage={CURRENT_PAGE_NUMBER}
+      currentPage={HOMEPAGE_BLOG_CURRENT_PAGE}
     />
     <Animated
       type={ANIMATED_TYPE.isCustom}
