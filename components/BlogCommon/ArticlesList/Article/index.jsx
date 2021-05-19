@@ -61,7 +61,7 @@ export const Article = ({
                   path={blogCategoryRoute.path}
                   dynamicRouting={blogCategoryRoute.dynamicPath}
                 >
-                  {`# ${CATEGORY_TAGS[categoryTag]}`}
+                  {`#\u00A0${CATEGORY_TAGS[categoryTag]}`}
                 </LinkWrapper>
               </div>
             )}

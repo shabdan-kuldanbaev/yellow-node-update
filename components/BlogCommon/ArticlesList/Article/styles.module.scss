@@ -202,12 +202,8 @@
         background-color: $athens-gray;
         transition: background-color 0.15s ease;
 
-        @include tablet {
-          @include fontSize(11.5px);
-        }
-
-        @include below-tablet {
-          @include fontSize(13px);
+        @include macbook-twelve {
+          max-width: calc(100% - 54px);
         }
 
         &:hover {
