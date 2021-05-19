@@ -14,6 +14,7 @@ const {
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
+const { Idea } = require('./utils/json');
 const formDataHelper = require('./utils/formDataHelper');
 
 dotenv.config('./env');
@@ -59,6 +60,10 @@ app
 
     server.get('/json', (req, res) => {
       res.status(200).json(processes);
+    });
+
+    server.get('/json-not-found', (req, res) => {
+      res.status(200).json(Idea);
     });
 
     server.post('/signed-file-url', async (req, res) => {

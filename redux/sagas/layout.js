@@ -15,6 +15,7 @@ import {
 import { fetchProject } from 'redux/sagas/portfolio';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { loadJSON } from 'redux/sagas/process';
+import { loadJSONNotFound } from 'redux/sagas/notFound';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import { artificialDelay } from 'utils/helper';
@@ -104,6 +105,8 @@ function* fetchPageData({
 
       break;
     case PAGES.notFound:
+      yield call(loadJSONNotFound);
+
       break;
     default: throw new Error('Unexpected case');
     }

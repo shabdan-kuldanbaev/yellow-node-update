@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import { PageNotFound } from 'containers';
 import { PAGES } from 'utils/constants';
 
 const Error = ({ statusCode, err }) => (
-  <p>
+  <Fragment>
     {statusCode
       ? statusCode === 404 && <PageNotFound />
       : `An error occurred on client ${err}`}
-  </p>
+  </Fragment>
 );
 
 Error.getInitialProps = async ({
