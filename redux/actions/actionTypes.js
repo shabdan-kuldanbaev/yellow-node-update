@@ -58,7 +58,4 @@ export const actionTypes = {
   /* ------------------------ */
   GET_JSON_SUCCESS: 'process/GET_JSON_SUCCESS',
   GET_JSON_FAILED: 'process/GET_JSON_FAILED',
-  /* ------------------------ */
-  GET_JSON_NOT_FOUND_SUCCESS: 'process/GET_JSON_NOT_FOUND_SUCCESS',
-  GET_JSON_NOT_FOUND_FAILED: 'process/GET_JSON_NOT_FOUND_FAILED',
 };

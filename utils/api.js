@@ -14,7 +14,6 @@ export const API = {
   sendEmail: (formData) => apiClient.post('/contact-us', formData),
   subscribe: (email) => apiClient.post('/subscribe', { email }),
   getJSON: () => apiClient.get('/json'),
-  getJSONNotFound: () => apiClient.get('/json-not-found'),
   getFileSignedURL: (fileName) => apiClient.post('/signed-file-url', { fileName }),
   uploadFile: (
     signed_url,

@@ -7,7 +7,6 @@ import portfolio from './portfolio';
 import contact from './contact';
 import subscribe from './subscribe';
 import process from './process';
-import notFound from './notFound';
 
 const reducers = combineReducers({
   home,
@@ -17,7 +16,6 @@ const reducers = combineReducers({
   contact,
   subscribe,
   process,
-  notFound,
 });
 
 export default ((state = {}, action) => {

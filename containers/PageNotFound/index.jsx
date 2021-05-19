@@ -1,16 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { selectAnimation } from 'redux/selectors/notFound';
 import {
   MetaTags,
   Animated,
   ButtonMore,
 } from 'components';
 import { ANIMATED_TYPE, PAGES } from 'utils/constants';
+import json from './json/Idea.json';
 import styles from './styles.module.scss';
 
-const PageNotFound = ({ animation }) => {
+export const PageNotFound = ({ animation }) => {
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -22,8 +21,7 @@ const PageNotFound = ({ animation }) => {
   return (
     <Fragment>
       <MetaTags page={PAGES.notFound} />
-      {animation
-      && (
+      {animation && (
         <div className={styles.pageNotFound}>
           <Animated
             {...animatedProps}
@@ -57,10 +55,10 @@ const PageNotFound = ({ animation }) => {
   );
 };
 
-PageNotFound.propTypes = {
-  animation: PropTypes.instanceOf(Object).isRequired,
+PageNotFound.defaultProps = {
+  animation: json,
 };
 
-export default connect(
-  (state) => ({ animation: selectAnimation(state) }),
-)(PageNotFound);
+PageNotFound.propTypes = {
+  animation: PropTypes.instanceOf(Object),
+};
