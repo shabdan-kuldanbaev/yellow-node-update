@@ -4,7 +4,7 @@ import { toInt, isNumeric } from 'utils/helper';
 import {
   PAGES,
   CATEGORY_SLUGS,
-  BLOG_LIMIT_OF_ARTICLES,
+  ARTICLES_NUMBER_PER_PAGE,
 } from 'utils/constants';
 
 export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
@@ -40,12 +40,15 @@ const fetchBlogData = async ({
   store.dispatch(fetchLayoutData({
     slug: PAGES.blog,
     currentPage,
-    currentLimit: BLOG_LIMIT_OF_ARTICLES,
+    currentLimit: ARTICLES_NUMBER_PER_PAGE,
     category: queryParams.category,
-    skip: (currentPage - 1) * BLOG_LIMIT_OF_ARTICLES,
+    skip: (currentPage - 1) * ARTICLES_NUMBER_PER_PAGE,
   }));
 
-  return { currentPage };
+  return {
+    articlesNumberPerPage: ARTICLES_NUMBER_PER_PAGE,
+    currentPage,
+  };
 };
 
 const isArticleLoaded = (store) => store.getState().blog.single.total !== 0;
@@ -67,9 +70,12 @@ export const getInitialBlogProps = async (ctx) => {
       slug: PAGES.article,
     }));
   } else {
-    const { currentPage } = await fetchBlogData(ctx);
+    const { articlesNumberPerPage, currentPage } = await fetchBlogData(ctx);
 
-    props = { currentPage };
+    props = {
+      articlesNumberPerPage,
+      currentPage,
+    };
   }
 
   // TODO rewrite it

@@ -11,6 +11,7 @@ const Article = ({
   currentPage,
   introSection,
   statusCode,
+  articlesNumberPerPage,
 }) => {
   const { query: { slug } } = useRouter();
 
@@ -22,6 +23,7 @@ const Article = ({
     ? <ArticleContainer introSection={introSection} />
     : (
       <BlogContainer
+        articlesNumberPerPage={articlesNumberPerPage}
         currentPage={currentPage}
         introSection={introSection}
       />

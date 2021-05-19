@@ -19,7 +19,7 @@ import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import { artificialDelay } from 'utils/helper';
 import { contentfulClient } from 'utils/ContentfulClient';
-import { DEFAULT_ARTICLES_LIMIT, PAGES } from 'utils/constants';
+import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -72,7 +72,7 @@ function* fetchPageData({
     case PAGES.homepage: {
       yield all([
         yield call(fetchPage, { slug }),
-        yield call(loadArticles, { currentLimit: DEFAULT_ARTICLES_LIMIT }),
+        yield call(loadArticles, { currentLimit: HOMEPAGE_ARTICLES_LIMIT }),
       ]);
 
       break;

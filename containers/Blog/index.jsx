@@ -15,7 +15,6 @@ import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 import {
   PAGES,
   ROUTES,
-  BLOG_LIMIT_OF_ARTICLES,
 } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -27,9 +26,10 @@ const BlogContainer = ({
   subscribe: addNewSubscriber,
   setIsSubscribed: setSubscribed,
   currentPage,
+  articlesNumberPerPage,
 }) => {
   const { pathname } = useRouter();
-  const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? BLOG_LIMIT_OF_ARTICLES : (BLOG_LIMIT_OF_ARTICLES + 1)));
+  const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });
@@ -79,6 +79,7 @@ BlogContainer.propTypes = {
   totalArticles: PropTypes.number.isRequired,
   setIsSubscribed: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
+  articlesNumberPerPage: PropTypes.number.isRequired,
 };
 
 export default connect(

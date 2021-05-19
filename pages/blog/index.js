@@ -5,8 +5,10 @@ import { getInitialBlogProps } from 'utils/blogUtils';
 const Blog = ({
   currentPage,
   introSection,
+  articlesNumberPerPage,
 }) => (
   <BlogContainer
+    articlesNumberPerPage={articlesNumberPerPage}
     currentPage={currentPage}
     introSection={introSection}
   />

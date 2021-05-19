@@ -1,10 +1,9 @@
 import { routes } from 'utils/routes';
 
-export const DEFAULT_ARTICLES_LIMIT = 5;
-export const BLOG_LIMIT_OF_ARTICLES = 11;
+export const HOMEPAGE_ARTICLES_LIMIT = 5;
+export const ARTICLES_NUMBER_PER_PAGE = 11;
 export const CURRENT_PAGE_NUMBER = 1;
 export const NUMBER_OF_IMAGES_PER_LINE = 3;
-export const LIMIT = 5;
 export const ROUTES = { ...routes };
 
 export const ACCESS_TO_CONTENTFUL = {
