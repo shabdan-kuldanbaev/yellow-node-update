@@ -12,13 +12,16 @@ import {
   MetaTags,
 } from 'components';
 import { getDataFromLocalStorageWithExpire } from 'utils/helper';
-import { PAGES, ROUTES } from 'utils/constants';
+import {
+  PAGES,
+  ROUTES,
+  BLOG_LIMIT_OF_ARTICLES,
+} from 'utils/constants';
 import styles from './styles.module.scss';
 
 const BlogContainer = ({
   introSection,
   articles,
-  deviceLimit,
   isMobileResolution,
   totalArticles,
   subscribe: addNewSubscriber,
@@ -26,7 +29,7 @@ const BlogContainer = ({
   currentPage,
 }) => {
   const { pathname } = useRouter();
-  const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? deviceLimit : (deviceLimit + 1)));
+  const pagesCounter = Math.ceil(totalArticles / (isMobileResolution ? BLOG_LIMIT_OF_ARTICLES : (BLOG_LIMIT_OF_ARTICLES + 1)));
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });
@@ -75,7 +78,6 @@ BlogContainer.propTypes = {
   subscribe: PropTypes.func.isRequired,
   totalArticles: PropTypes.number.isRequired,
   setIsSubscribed: PropTypes.func.isRequired,
-  deviceLimit: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
 };
 

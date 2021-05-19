@@ -10,10 +10,6 @@ const initialState = {
   searchMessage: '',
   totalCount: 0,
   error: {},
-  limit: {
-    desktop: 11,
-    mobile: 4,
-  },
 };
 
 const handlers = {

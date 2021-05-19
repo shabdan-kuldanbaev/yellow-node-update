@@ -8,7 +8,6 @@ import {
 import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
 
 const Article = ({
-  deviceLimit,
   currentPage,
   introSection,
   statusCode,
@@ -23,7 +22,6 @@ const Article = ({
     ? <ArticleContainer introSection={introSection} />
     : (
       <BlogContainer
-        deviceLimit={deviceLimit}
         currentPage={currentPage}
         introSection={introSection}
       />

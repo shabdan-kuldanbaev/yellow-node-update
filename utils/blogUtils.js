@@ -1,9 +1,11 @@
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
-import { selectDesktopLimit, selectMobileLimit } from 'redux/selectors/blog';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { toInt, isNumeric } from 'utils/helper';
-import { PAGES, CATEGORY_SLUGS } from 'utils/constants';
+import {
+  PAGES,
+  CATEGORY_SLUGS,
+  BLOG_LIMIT_OF_ARTICLES,
+} from 'utils/constants';
 
 export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
 
@@ -15,10 +17,6 @@ const fetchBlogData = async ({
     page = 1,
   },
 }) => {
-  const currentState = store.getState();
-  const deviceLimit = selectIsMobileResolutions(currentState)
-    ? selectMobileLimit(currentState)
-    : selectDesktopLimit(currentState);
   let queryParams = {
     category,
     page,
@@ -42,15 +40,12 @@ const fetchBlogData = async ({
   store.dispatch(fetchLayoutData({
     slug: PAGES.blog,
     currentPage,
-    currentLimit: deviceLimit,
+    currentLimit: BLOG_LIMIT_OF_ARTICLES,
     category: queryParams.category,
-    skip: (currentPage - 1) * deviceLimit,
+    skip: (currentPage - 1) * BLOG_LIMIT_OF_ARTICLES,
   }));
 
-  return {
-    deviceLimit,
-    currentPage,
-  };
+  return { currentPage };
 };
 
 const isArticleLoaded = (store) => store.getState().blog.single.total !== 0;
@@ -72,12 +67,9 @@ export const getInitialBlogProps = async (ctx) => {
       slug: PAGES.article,
     }));
   } else {
-    const { deviceLimit, currentPage } = await fetchBlogData(ctx);
+    const { currentPage } = await fetchBlogData(ctx);
 
-    props = {
-      deviceLimit,
-      currentPage,
-    };
+    props = { currentPage };
   }
 
   // TODO rewrite it
