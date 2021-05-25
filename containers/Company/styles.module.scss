@@ -66,3 +66,15 @@
     padding: 60px $side-indent 100px;
   }
 }
+
+.breadcrumbs {
+  @include tablet {
+    width: 100%;
+    top: 0;
+    padding: 0 0 20px;
+  }
+
+  @include phone {
+    padding-top: 54px;
+  }
+}

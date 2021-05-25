@@ -15,6 +15,7 @@ import {
   Awards,
   Reviews,
   MetaTags,
+  Breadcrumbs,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
@@ -37,6 +38,7 @@ const CompanyContainer = ({
         ref={introSection}
         className={styles.companyContainer}
       >
+        <Breadcrumbs className={styles.breadcrumbs} />
         <AboutUs />
         {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
         {teamContent && <ManagementTeam managementTeam={teamContent} />}

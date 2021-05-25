@@ -1,0 +1,56 @@
+@import 'styles/utils/mixins';
+
+.breadcrumbs {
+  position: relative;
+  top: 66px;
+  padding: 60px 60px 0;
+  z-index: 3;
+  width: 100%;
+  max-width: 1300px;
+
+  // @include hidden-text();
+
+  @include tablet {
+    padding: 60px 0 0;
+    width: calc(100% - 80px);
+  }
+
+  @include phone {
+    top: 0;
+    padding: 20px 0 60px;
+    width: 100%;
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #9a999c;
+
+    @include flex();
+
+    @include phone {
+      @include fontSize(14px);
+    }
+
+    a {
+      color: #9a999c;
+    }
+
+    span {
+      color: #000;
+    }
+
+    .separator {
+      display: flex;
+      margin-left: 8px;
+      user-select: none;
+      margin-right: 8px;
+      color: #9a999c;
+    }
+
+    li:last-child {
+      @include hidden-text();
+    }
+  }
+}

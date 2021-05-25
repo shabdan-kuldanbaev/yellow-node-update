@@ -10,6 +10,7 @@ import {
   ArticlesList,
   Paginator,
   MetaTags,
+  Breadcrumbs,
 } from 'components';
 import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
@@ -47,6 +48,7 @@ const BlogContainer = ({
         ref={introSection}
         className={styles.blog}
       >
+        <Breadcrumbs className={styles.breadcrumbs} />
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
           articles={articles}

@@ -6,6 +6,7 @@ import {
   Portfolio,
   MetaTags,
   Paginator,
+  Breadcrumbs,
 } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
@@ -21,6 +22,7 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
         ref={introSection}
         className={styles.portfolio}
       >
+        <Breadcrumbs />
         {content && <Portfolio works={content} />}
       </section>
       {/* <Paginator

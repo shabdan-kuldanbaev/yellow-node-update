@@ -2,7 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
-import { Process, MetaTags } from 'components';
+import {
+  Process,
+  MetaTags,
+  Breadcrumbs,
+} from 'components';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -16,6 +20,7 @@ const ProcessContainer = ({
       ref={introSection}
       className={styles.process}
     >
+      <Breadcrumbs className={styles.breadcrumbs} />
       <Process processes={json} />
     </section>
   </Fragment>

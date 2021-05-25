@@ -16,3 +16,15 @@
     padding: 66px $side-indent $mobile-section-indent - 20px;
   }
 }
+
+.breadcrumbs {
+  @include tablet {
+    width: 100%;
+    top: 0;
+    padding: 0;
+  }
+
+  @include phone {
+    padding-top: 54px;
+  }
+}
