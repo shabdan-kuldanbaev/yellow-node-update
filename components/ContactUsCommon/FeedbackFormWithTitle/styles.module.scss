@@ -17,24 +17,24 @@
   }
 
   @include full-hd {
-    margin-top: 32vh;
+    // margin-top: 32vh;
     padding-bottom: 30vh;
   }
 
   @include macbook-fifteen {
-    margin-top: 15vw;
+    // margin-top: 15vw;
     padding-bottom: 16vw;
   }
 
   @include macbook-twelve {
-    margin-top: 12vw;
+    // margin-top: 12vw;
     width: 100%;
   }
 
   @include tablet {
     height: auto;
     padding-bottom: 150px;
-    margin-top: 81px;
+    // margin-top: 81px;
   }
 
   @include below-tablet {

@@ -15,4 +15,8 @@
   @include phone {
     padding: 66px $side-indent $mobile-section-indent - 20px;
   }
+
+  & > div:first-child {
+    max-width: 1300px;
+  }
 }

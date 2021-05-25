@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .companyContainer {
@@ -15,6 +16,10 @@
 
   @include phone {
     padding: 66px $side-indent 0;
+  }
+
+  & > div:first-child {
+    max-width: 1300px;
   }
 }
 

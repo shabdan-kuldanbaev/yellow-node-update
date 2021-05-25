@@ -10,6 +10,7 @@ import {
   ArticlesList,
   Paginator,
   MetaTags,
+  PageTitle,
 } from 'components';
 import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
@@ -47,6 +48,7 @@ const BlogContainer = ({
         ref={introSection}
         className={styles.blog}
       >
+        <PageTitle title={PAGES.blog.title} />
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
           articles={articles}

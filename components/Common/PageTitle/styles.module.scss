@@ -1,0 +1,31 @@
+@import 'styles/utils/mixins';
+
+.titleContainer {
+  max-width: 1500px;
+  width: 100%;
+  align-items: flex-start;
+
+  @include phone {
+    margin-top: 90px;
+  }
+
+  h1 {
+    margin-bottom: 25px;
+
+    @include fontSize(60px);
+
+    @include macbook-twelve {
+      @include fontSize(55px);
+    }
+
+    @include tablet {
+      @include fontSize(50px);
+    }
+
+    @include phone {
+      margin-bottom: 0;
+
+      @include fontSize(45px);
+    }
+  }
+}
