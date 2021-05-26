@@ -12,7 +12,7 @@ import {
   PageTitle,
   Breadcrumbs,
 } from 'components';
-import { PAGES } from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
@@ -65,7 +65,7 @@ const ContactUsContainer = ({
         className={styles.contactContainer}
       >
         <Breadcrumbs className={styles.breadcrumbs} />
-        <PageTitle title={PAGES.contact.title} />
+        <PageTitle title={ROUTES.contact.title} />
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
         {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}

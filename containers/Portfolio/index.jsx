@@ -24,7 +24,7 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
         className={styles.portfolio}
       >
         <Breadcrumbs />
-        <PageTitle title={PAGES.portfolio.title} />
+        <PageTitle title={ROUTES.portfolio.title} />
         {content && <Portfolio works={content} />}
       </section>
       {/* <Paginator

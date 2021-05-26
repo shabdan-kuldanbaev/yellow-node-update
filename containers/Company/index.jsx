@@ -18,7 +18,7 @@ import {
   PageTitle,
   Breadcrumbs,
 } from 'components';
-import { PAGES } from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -40,7 +40,7 @@ const CompanyContainer = ({
         className={styles.companyContainer}
       >
         <Breadcrumbs className={styles.breadcrumbs} />
-        <PageTitle title={PAGES.company.title} />
+        <PageTitle title={ROUTES.company.title} />
         <AboutUs />
         {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
         {teamContent && <ManagementTeam managementTeam={teamContent} />}

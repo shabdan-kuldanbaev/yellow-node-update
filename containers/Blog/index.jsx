@@ -50,7 +50,7 @@ const BlogContainer = ({
         className={styles.blog}
       >
         <Breadcrumbs className={styles.breadcrumbs} />
-        <PageTitle title={PAGES.blog.title} />
+        <PageTitle title={ROUTES.blog.title} />
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
           articles={articles}
