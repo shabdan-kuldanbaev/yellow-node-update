@@ -6,6 +6,7 @@ import {
   Process,
   MetaTags,
   PageTitle,
+  Breadcrumbs,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -20,6 +21,7 @@ const ProcessContainer = ({
       ref={introSection}
       className={styles.process}
     >
+      <Breadcrumbs className={styles.breadcrumbs} />
       <PageTitle title={PAGES.process.title} />
       <Process processes={json} />
     </section>

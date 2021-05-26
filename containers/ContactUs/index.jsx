@@ -10,6 +10,7 @@ import {
   CompanyContacts,
   MetaTags,
   PageTitle,
+  Breadcrumbs,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
@@ -63,6 +64,7 @@ const ContactUsContainer = ({
         ref={introSection}
         className={styles.contactContainer}
       >
+        <Breadcrumbs className={styles.breadcrumbs} />
         <PageTitle title={PAGES.contact.title} />
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />

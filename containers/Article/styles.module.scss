@@ -23,3 +23,16 @@
     padding: 0 15px;
   }
 }
+
+.breadcrumbs {
+  margin: 0 auto;
+  max-width: 1500px;
+
+  @include tablet {
+    width: calc(100% - 50px);
+  }
+
+  @include phone {
+    padding: 120px 0 0;
+  }
+}

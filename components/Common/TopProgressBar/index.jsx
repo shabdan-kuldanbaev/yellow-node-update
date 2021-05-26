@@ -11,7 +11,7 @@ export const TopProgressBar = ({ elementRef }) => {
         const { innerHeight } = window;
         const { top, height } = elementRef.current.getBoundingClientRect();
         const position = (top * -1) / ((height - innerHeight) / 100);
-        position < 100 ? setProgress(position) : setProgress(0);
+        (position < 100 && position > 0) ? setProgress(position) : setProgress(0);
       }
     };
 

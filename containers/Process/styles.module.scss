@@ -22,3 +22,9 @@
     }
   }
 }
+
+.breadcrumbs {
+  @include phone {
+    top: 120px;
+  }
+}

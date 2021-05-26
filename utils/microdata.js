@@ -85,4 +85,31 @@ export const microdata = {
       streetAddress,
     },
   }),
+  breadcrumbs: ({ breadcrumbsList }) => {
+    const items = breadcrumbsList.map((breadcrumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 2,
+      item: {
+        '@id': `${rootUrl}${breadcrumb.href}`,
+        name: breadcrumb.breadcrumbTitle,
+      },
+    }));
+
+    return ({
+      '@context': context,
+      '@type': 'BreadcrumbList',
+      itemListElement:
+      [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          item: {
+            '@id': rootUrl,
+            name: 'Home',
+          },
+        },
+        ...items,
+      ],
+    });
+  },
 };
