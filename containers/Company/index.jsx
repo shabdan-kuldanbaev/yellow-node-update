@@ -15,6 +15,7 @@ import {
   Awards,
   Reviews,
   MetaTags,
+  FullLayout,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
@@ -31,7 +32,7 @@ const CompanyContainer = ({
   const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
 
   return (
-    <Fragment>
+    <FullLayout>
       <MetaTags page={PAGES.company} />
       <section
         ref={introSection}
@@ -41,14 +42,42 @@ const CompanyContainer = ({
         {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
         {teamContent && <ManagementTeam managementTeam={teamContent} />}
       </section>
-      {carouselContent && <PhotoGallery photos={carouselContent} />}
-      <div className={styles.companyReviews}>
-        <Reviews reviews={reviews} />
-      </div>
+      {carouselContent && (
+        <FullLayout
+          isMaxWidthDisabled
+          isSidePaddingDisabledDesktop
+          isSidePaddingDisabledTablet
+          isSidePaddingDisabledPhone
+          isTopPaddingDisabledDesktop
+          isTopPaddingDisabledTablet
+          isTopPaddingDisabledPhone
+          isBottomPaddingDisabledDesktop
+          isBottomPaddingDisabledTablet
+          isBottomPaddingDisabledPhone
+        >
+          <PhotoGallery photos={carouselContent} />
+        </FullLayout>
+      )}
+      <FullLayout
+        isMaxWidthDisabled
+        isSidePaddingDisabledDesktop
+        isSidePaddingDisabledTablet
+        isSidePaddingDisabledPhone
+        isTopPaddingDisabledDesktop
+        isTopPaddingDisabledTablet
+        isTopPaddingDisabledPhone
+        isBottomPaddingDisabledDesktop
+        isBottomPaddingDisabledTablet
+        isBottomPaddingDisabledPhone
+      >
+        <div className={styles.companyReviews}>
+          <Reviews reviews={reviews} />
+        </div>
+      </FullLayout>
       <section className={styles.companyBottom}>
         <Awards />
       </section>
-    </Fragment>
+    </FullLayout>
   );
 };
 
