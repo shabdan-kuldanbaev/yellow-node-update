@@ -14,7 +14,11 @@ import {
   LinkWrapper,
 } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  rootUrl,
+} from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const ContentfulParser = ({ document }) => {
@@ -136,14 +140,20 @@ export const ContentfulParser = ({ document }) => {
           ))}
         </ol>
       ),
-      [INLINES.HYPERLINK]: (node, children) => (
-        <LinkWrapper
-          path={get(node, 'data.uri', '/')}
-          className={styles.a}
-        >
-          {children}
-        </LinkWrapper>
-      ),
+      [INLINES.HYPERLINK]: (node, children) => {
+        const uri = get(node, 'data.uri', '/');
+        const isInternalLink = uri.includes(rootUrl);
+
+        return (
+          <LinkWrapper
+            path={uri}
+            className={styles.a}
+            isLocalLink={isInternalLink}
+          >
+            {children}
+          </LinkWrapper>
+        );
+      },
     },
   };
 
