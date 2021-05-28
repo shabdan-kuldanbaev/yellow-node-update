@@ -1,11 +1,11 @@
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import get from 'lodash/get';
 import { ANIMATED_TYPE } from 'utils/constants';
 
-const getAnimationProps = ({
+export function getAnimationProps({
+  index = 1,
   isSearch = false,
   isMobileResolution = false,
-  index = 1,
-} = {}) => {
+} = {}) {
   const delay = isSearch ? (30 * index) : (100 + 50 * index);
   let animatioProps = isSearch
     ? {
@@ -35,19 +35,15 @@ const getAnimationProps = ({
   }
 
   return animatioProps;
-};
+}
 
-export const getArticleProps = ({
+export function getArticleProps({
   article,
   isSearch = false,
   isMobileResolution = false,
   index = 1,
-} = {}) => {
-  const articleFields = getDocumentFields(
-    article,
-    ['slug', 'title', 'categoryTag', 'introduction', 'previewImageUrl'],
-  );
-  const previewImage = getFileUrl(articleFields.previewImageUrl);
+} = {}) {
+  const previewImage = get(article, 'previewImageUrl.url');
   const animatioProps = getAnimationProps({
     isSearch,
     isMobileResolution,
@@ -55,8 +51,8 @@ export const getArticleProps = ({
   });
 
   return {
-    ...articleFields,
+    ...article,
     previewImage,
     animatioProps,
   };
-};
+}

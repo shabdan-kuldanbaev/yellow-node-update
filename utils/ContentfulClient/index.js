@@ -1,12 +1,18 @@
+import axios from 'axios';
 import { createClient } from 'contentful';
 import { ACCESS_TO_CONTENTFUL } from 'utils/constants';
 
 class ContentfulClient {
   constructor(ACCESS_KEYS) {
-    const { space, environment, accessToken } = ACCESS_KEYS;
+    const {
+      space,
+      environment,
+      accessToken,
+    } = ACCESS_KEYS;
     this.SPACE = space;
     this.ENVIRONMENT = environment;
     this.ACCESS_TOKEN = accessToken;
+    this.GRAPHQL_URL = `https://graphql.contentful.com/content/v1/spaces/${space}/environments/${environment}`;
   }
 
   getClient = async () => {
@@ -76,6 +82,25 @@ class ContentfulClient {
       console.error('Get entry error: ', error);
     }
   };
+
+  graphql = async (query) => {
+    try {
+      const response = await axios.post(
+        this.GRAPHQL_URL,
+        { query },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${this.ACCESS_TOKEN}`,
+          },
+        },
+      );
+
+      return response.data.data;
+    } catch (error) {
+      console.error('Get graphql data error: ', error);
+    }
+  }
 }
 
 export const contentfulClient = new ContentfulClient(ACCESS_TO_CONTENTFUL);

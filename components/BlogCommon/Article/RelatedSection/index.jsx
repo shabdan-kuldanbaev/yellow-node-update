@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { LinkWrapper } from 'components';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import { Article } from './Article';
 import { Arrow } from './images';
@@ -27,22 +27,18 @@ const RelatedSection = ({ articles }) => (
       </div>
     </div>
     <div className={styles.articlesList}>
-      {articles && articles.map((article) => {
-        const { slug, title, headImageUrl } = getDocumentFields(
-          article,
-          ['slug', 'title', 'headImageUrl'],
-        );
-        const image = getFileUrl(headImageUrl);
-
-        return (
-          <Article
-            key={`related/${slug}`}
-            slug={slug}
-            title={title}
-            image={image}
-          />
-        );
-      })}
+      {articles && articles.map(({
+        slug,
+        title,
+        previewImageUrl,
+      }) => (
+        <Article
+          key={`related/${slug}`}
+          slug={slug}
+          title={title}
+          image={get(previewImageUrl, 'url', '')}
+        />
+      ))}
     </div>
   </div>
 );
