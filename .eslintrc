@@ -133,5 +133,6 @@
           "maximum": 1
       }
     ],
+    "no-return-await": "off"
   }
 }

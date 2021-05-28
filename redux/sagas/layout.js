@@ -57,7 +57,6 @@ function* fetchPageData({
     slug,
     articleSlug,
     projectSlug,
-    currentPage,
     currentLimit,
     category,
     skip,
@@ -82,7 +81,6 @@ function* fetchPageData({
       yield call(fetchBlogData, {
         slug,
         articleSlug,
-        currentPage,
         currentLimit,
         category,
         skip,
