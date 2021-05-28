@@ -22,7 +22,6 @@ export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
 export { SocialThumbnails } from 'components/Common/SocialThumbnails';
 export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
-export { ImageWithPlaceholder } from 'components/Common/ImageWithPlaceholder';
 export { default as withScroll } from 'components/Common/withScroll';
 export { MetaTags } from 'components/Common/MetaTags';
 export { InformationMessage } from 'components/Common/InformationMessage';
