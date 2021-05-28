@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const axios = require('axios');
 const FormData = require('form-data');
+const { handleError } = require('./error');
 
 dotenv.config('./env');
 
@@ -10,7 +11,6 @@ module.exports.sendFormData = async (req, res) => {
       name,
       email,
       description,
-      isSendNDAChecked,
       projectBudget,
       attachments,
       clientId,
@@ -48,7 +48,8 @@ module.exports.sendFormData = async (req, res) => {
     );
 
     res.status(201).send(JSON.stringify(data));
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    handleError({ error, message: 'sendFormData function is failed' });
+    res.status(500).json({ error: error.message });
   }
 };

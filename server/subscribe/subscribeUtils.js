@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const Mailchimp = require('mailchimp-api-v3');
 const md5 = require('md5');
+const { handleError } = require('../utils/error');
 
 dotenv.config('./env');
 
@@ -15,8 +16,8 @@ module.exports.getSubscriber = async (email, callback) => {
     };
 
     await mailchimp.request(getSubscriberOptions, callback);
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    handleError({ error, message: 'getSubscriber function is failed' });
   }
 };
 
@@ -38,7 +39,7 @@ module.exports.addSubscriber = async (email, res) => {
         res.status(201).send('Great! Awesome content is coming your way');
       }
     });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    handleError({ error, message: 'addSubscriber function is failed' });
   }
 };
