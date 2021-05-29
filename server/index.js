@@ -3,11 +3,11 @@ const next = require('next');
 const dotenv = require('dotenv');
 const multer = require('multer');
 const compression = require('compression');
+const Sentry = require('@sentry/node');
 const path = require('path');
 const cors = require('cors');
 const axios = require('axios');
 const {
-  // redirectToCustomDomain,
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,
@@ -15,22 +15,38 @@ const {
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
 const formDataHelper = require('./utils/formDataHelper');
+const errorHelper = require('./utils/error');
 
 dotenv.config('./env');
 
-const dev = process.env.NODE_ENV !== 'production';
+const {
+  NODE_ENV,
+  PORT,
+  ERP_AUTH_TOKEN,
+  SENTRY_DNS,
+} = process.env;
+
+const dev = NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
-const port = process.env.PORT || 3000;
-const authToken = process.env.ERP_AUTH_TOKEN || '';
+const port = PORT || 3000;
+const authToken = ERP_AUTH_TOKEN || '';
 const upload = multer();
+
+Sentry.init({
+  debug: dev,
+  dsn: SENTRY_DNS,
+  environment: NODE_ENV,
+});
 
 app
   .prepare()
   .then(() => {
     const server = express();
 
-    // server.use(redirectToCustomDomain); TODO
+    // The request handler must be the first middleware on the app
+    server.use(Sentry.Handlers.requestHandler());
+
     server.use(httpsRedirect);
     server.use(clearUrlRedirect);
     server.use(urlRedirect);
@@ -44,16 +60,22 @@ app
     server.post('/contact-us', upload.array('attachments'), async (req, res) => {
       try {
         await formDataHelper.sendFormData(req, res);
-      } catch (err) {
-        console.error(err);
+      } catch (error) {
+        errorHelper.handleError({
+          error,
+          message: 'Error in the server.post of /contact-us',
+        });
       }
     });
 
     server.post('/subscribe', async (req, res) => {
       try {
         await subscribeHelper.subscribe(req, res);
-      } catch (err) {
-        console.error(err);
+      } catch (error) {
+        errorHelper.handleError({
+          error,
+          message: 'Error in the server.post of /subscribe',
+        });
       }
     });
 
@@ -78,8 +100,12 @@ app
         );
 
         res.status(200).send(JSON.stringify(signed_url));
-      } catch (err) {
-        res.status(500).json({ error: err.message });
+      } catch (error) {
+        errorHelper.handleError({
+          error,
+          message: 'Error in the server.post of /signed-file-url',
+        });
+        res.status(500).json({ error: error.message });
       }
     });
 
@@ -91,6 +117,9 @@ app
 
       handle(req, res);
     });
+
+    // The error handler must be before any other error middleware and after all controllers
+    server.use(Sentry.Handlers.errorHandler());
 
     server.listen(port, (err) => {
       if (err) throw err;

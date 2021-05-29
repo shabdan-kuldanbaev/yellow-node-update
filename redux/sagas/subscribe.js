@@ -5,6 +5,7 @@ import { actionTypes } from 'redux/actions/actionTypes';
 import { API } from 'utils/api';
 import { setDataToLocalStorageWithExpire, hoursToMs } from 'utils/helper';
 import gaHelper from 'utils/ga';
+import errorHelper from 'utils/error';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -21,8 +22,12 @@ function* subscribe({ payload: { email, pathname } }) {
 
     setDataToLocalStorageWithExpire('isSubscribed', true, hoursToMs(24));
     yield put({ type: actionTypes.SUBSCRIBE_SUCCESS, payload: data });
-  } catch (err) {
-    const { response } = err;
+  } catch (error) {
+    errorHelper.handleError({
+      error,
+      message: 'Error in the subscribe function',
+    });
+    const { response } = error;
     yield put({ type: actionTypes.SUBSCRIBE_FAILED, payload: response });
   }
 }

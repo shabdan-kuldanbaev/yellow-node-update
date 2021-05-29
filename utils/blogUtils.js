@@ -1,6 +1,7 @@
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import { toInt, isNumeric } from 'utils/helper';
+import errorHelper from 'utils/error';
 import {
   PAGES,
   CATEGORY_SLUGS,
@@ -53,45 +54,52 @@ const fetchBlogData = async ({
 const isArticleLoaded = (store) => store.getState().blog.single.total !== 0;
 
 export const getInitialBlogProps = async (ctx) => {
-  const {
-    store,
-    req,
-    query: {
-      slug,
-    },
-    res,
-  } = ctx;
-  let props = {};
-
-  if (isArticle(slug)) {
-    store.dispatch(fetchLayoutData({
-      articleSlug: slug,
-      slug: PAGES.article,
-    }));
-  } else {
-    const { articlesNumberPerPage, currentPage } = await fetchBlogData(ctx);
-
-    props = {
-      articlesNumberPerPage,
-      currentPage,
-    };
-  }
-
-  // TODO rewrite it
-  if (req) {
-    store.dispatch(END);
-    await store.sagaTask.toPromise();
+  try {
+    const {
+      store,
+      req,
+      query: {
+        slug,
+      },
+      res,
+    } = ctx;
+    let props = {};
 
     if (isArticle(slug)) {
-      if (!isArticleLoaded(store)) {
-        props.statusCode = 404;
+      store.dispatch(fetchLayoutData({
+        articleSlug: slug,
+        slug: PAGES.article,
+      }));
+    } else {
+      const { articlesNumberPerPage, currentPage } = await fetchBlogData(ctx);
 
-        if (res) {
-          res.statusCode = 404;
+      props = {
+        articlesNumberPerPage,
+        currentPage,
+      };
+    }
+
+    // TODO rewrite it
+    if (req) {
+      store.dispatch(END);
+      await store.sagaTask.toPromise();
+
+      if (isArticle(slug)) {
+        if (!isArticleLoaded(store)) {
+          props.statusCode = 404;
+
+          if (res) {
+            res.statusCode = 404;
+          }
         }
       }
     }
-  }
 
-  return props;
+    return props;
+  } catch (error) {
+    errorHelper.handleError({
+      error,
+      message: 'Error in the getInitialBlogProps function',
+    });
+  }
 };
