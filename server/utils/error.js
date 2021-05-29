@@ -1,12 +1,22 @@
 const Sentry = require('@sentry/node');
 
-module.exports.handleError = ({ error = {}, ...extra } = {}) => {
-  Sentry.captureException(error, { extra });
+function handleError({ error = {}, ...extra } = {}) {
+  Sentry.captureException(error, {
+    extra: {
+      ...extra,
+      message: `Server: ${extra.message || error.message}`,
+    },
+  });
   console.error(error.message, extra.message || extra);
   console.error(error);
-};
+}
 
-module.exports.handleMessage = ({ message } = {}) => {
-  Sentry.captureMessage(message);
+function handleMessage({ message } = {}) {
+  Sentry.captureMessage(`Server: ${message}`);
   console.warn(message);
+}
+
+module.exports = {
+  handleError,
+  handleMessage,
 };

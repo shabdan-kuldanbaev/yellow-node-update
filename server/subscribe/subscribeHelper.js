@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const subscribeUtils = require('./subscribeUtils');
-const { handleError } = require('../utils/error');
+const errorHelper = require('../utils/error');
 
 dotenv.config('./env');
 
@@ -22,6 +22,9 @@ module.exports.subscribe = async (req, res) => {
       }
     });
   } catch (error) {
-    handleError({ error, message: 'Subscribe function is failed' });
+    errorHelper.handleError({
+      error,
+      message: 'Error in the subscribe function',
+    });
   }
 };

@@ -3,18 +3,26 @@ import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import { ProcessContainer } from 'containers';
 import { PAGES } from 'utils/constants';
+import errorHelper from 'utils/error';
 
 const Process = ({ introSection }) => <ProcessContainer introSection={introSection} />;
 
 Process.getInitialProps = async ({ store, req }) => {
-  store.dispatch(fetchLayoutData({ slug: PAGES.process }));
+  try {
+    store.dispatch(fetchLayoutData({ slug: PAGES.process }));
 
-  if (req) {
-    store.dispatch(END);
-    await store.sagaTask.toPromise();
+    if (req) {
+      store.dispatch(END);
+      await store.sagaTask.toPromise();
+    }
+
+    return {};
+  } catch (error) {
+    errorHelper.handleError({
+      error,
+      message: 'Error in the Process.getInitialProps function',
+    });
   }
-
-  return {};
 };
 
 export default Process;

@@ -35,8 +35,8 @@ function* getArticle({ articleSlug }) {
     });
 
     yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: article });
-  } catch (err) {
-    yield put({ type: actionTypes.GET_ARTICLE_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.GET_ARTICLE_FAILED, payload: error });
   }
 }
 
@@ -65,8 +65,8 @@ export function* loadArticles({
         total: getGraphqlResultTotalArticlesCount(response),
       },
     });
-  } catch (err) {
-    yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: error });
   }
 }
 
@@ -88,8 +88,8 @@ function* loadRelatedArticles({
       type: actionTypes.LOAD_RELATED_SUCCESS,
       payload: getGraphqlResultArticles(response),
     });
-  } catch (err) {
-    yield put({ type: actionTypes.LOAD_RELATED_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.LOAD_RELATED_FAILED, payload: error });
   }
 }
 
@@ -113,8 +113,8 @@ function* loadNearbyArticles({ publishedAt }) {
         newerArticle: getGraphqlResultArticles(next)[0],
       },
     });
-  } catch (err) {
-    yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: error });
   }
 }
 
@@ -153,8 +153,8 @@ export function* findArticles({ payload: { value } }) {
     );
 
     yield put({ type: actionTypes.FIND_ARTICLES_SUCCESS, payload: result });
-  } catch (err) {
-    yield put({ type: actionTypes.FIND_ARTICLES_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.FIND_ARTICLES_FAILED, payload: error });
   }
 }
 

@@ -15,7 +15,7 @@ const {
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
 const formDataHelper = require('./utils/formDataHelper');
-const { handleError } = require('./utils/error');
+const errorHelper = require('./utils/error');
 
 dotenv.config('./env');
 
@@ -61,7 +61,10 @@ app
       try {
         await formDataHelper.sendFormData(req, res);
       } catch (error) {
-        handleError({ error, message: 'Submit form data is failed' });
+        errorHelper.handleError({
+          error,
+          message: 'Error in the server.post of /contact-us',
+        });
       }
     });
 
@@ -69,7 +72,10 @@ app
       try {
         await subscribeHelper.subscribe(req, res);
       } catch (error) {
-        handleError({ error, message: 'Subscribe failed' });
+        errorHelper.handleError({
+          error,
+          message: 'Error in the server.post of /subscribe',
+        });
       }
     });
 
@@ -95,7 +101,10 @@ app
 
         res.status(200).send(JSON.stringify(signed_url));
       } catch (error) {
-        handleError({ error, message: 'Getting of signed URL is failed' });
+        errorHelper.handleError({
+          error,
+          message: 'Error in the server.post of /signed-file-url',
+        });
         res.status(500).json({ error: error.message });
       }
     });
