@@ -169,13 +169,8 @@
           max-width: calc(100% - (#{$side-indent} * 2));
         }
 
-        @include below-tablet {
-          max-width: calc(100% - (#{$side-indent} * 2));
-        }
-
         @include below-tablet-horizontal {
           padding-left: 0;
-          max-width: calc(100% - (#{$side-indent} * 2));
         }
 
         @include phone {
