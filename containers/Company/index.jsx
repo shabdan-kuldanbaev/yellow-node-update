@@ -15,6 +15,7 @@ import {
   Awards,
   Reviews,
   MetaTags,
+  FullLayout,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
@@ -31,24 +32,40 @@ const CompanyContainer = ({
   const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
 
   return (
-    <Fragment>
+    <FullLayout>
       <MetaTags page={PAGES.company} />
       <section
         ref={introSection}
         className={styles.companyContainer}
       >
         <AboutUs />
-        {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
-        {teamContent && <ManagementTeam managementTeam={teamContent} />}
+        <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />
+        <ManagementTeam managementTeam={teamContent} />
       </section>
-      {carouselContent && <PhotoGallery photos={carouselContent} />}
-      <div className={styles.companyReviews}>
-        <Reviews reviews={reviews} />
-      </div>
-      <section className={styles.companyBottom}>
-        <Awards />
-      </section>
-    </Fragment>
+      {carouselContent && (
+        <FullLayout
+          disableMaxWidth
+          disableTopPadding
+          disableSidePadding
+          disableBottomPadding
+        >
+          <PhotoGallery photos={carouselContent} />
+        </FullLayout>
+      )}
+      <FullLayout
+        disableMaxWidth
+        disableTopPadding
+        disableSidePadding
+        disableBottomPadding
+      >
+        {/* TODO check if this div is needed */}
+        <div className={styles.companyReviews}>
+          <Reviews reviews={reviews} />
+        </div>
+      </FullLayout>
+      {/* TODO check if this div is needed */}
+      <Awards />
+    </FullLayout>
   );
 };
 
