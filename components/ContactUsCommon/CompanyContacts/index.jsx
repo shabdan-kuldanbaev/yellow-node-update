@@ -35,7 +35,7 @@ export const CompanyContacts = ({ photo, animatedFields: animatedFieldsList }) =
     return () => document.removeEventListener('scroll', handleOnScroll);
   }, []);
 
-  return (
+  return photo && (
     <section className={styles.companyContacts}>
       <div
         ref={imgContainer}
