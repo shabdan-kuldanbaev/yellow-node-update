@@ -2,7 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
-import { Process, MetaTags } from 'components';
+import {
+  Process,
+  MetaTags,
+  FullLayout,
+} from 'components';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -10,15 +14,10 @@ const ProcessContainer = ({
   introSection,
   processes: { json },
 }) => (
-  <Fragment>
+  <FullLayout>
     <MetaTags page={PAGES.process} />
-    <section
-      ref={introSection}
-      className={styles.process}
-    >
-      <Process processes={json} />
-    </section>
-  </Fragment>
+    <Process processes={json} />
+  </FullLayout>
 );
 
 ProcessContainer.propTypes = {
