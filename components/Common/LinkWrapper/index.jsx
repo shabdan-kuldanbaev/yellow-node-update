@@ -16,6 +16,7 @@ export const LinkWrapper = ({
   className,
   children,
   googleAnalyticProps,
+  isSocialLink,
 }) => {
   const handleOnClick = () => {
     if (!isEmpty(googleAnalyticProps)) {
@@ -44,7 +45,7 @@ export const LinkWrapper = ({
         className={cn(styles.link, { [className]: !isImage })}
         href={path}
         target={`${isLocalLink ? '' : '_blank'}`}
-        rel={`${isLocalLink ? '' : 'noopener noreferrer'}`}
+        rel={`${isLocalLink ? '' : `noopener noreferrer ${isSocialLink ? '' : 'nofollow'}`}`}
         onClick={handleOnClick}
       >
         {!isImage ? children : (
@@ -71,6 +72,7 @@ LinkWrapper.defaultProps = {
   dynamicRouting: '',
   children: null,
   googleAnalyticProps: {},
+  isSocialLink: false,
 };
 
 LinkWrapper.propTypes = {
@@ -90,4 +92,5 @@ LinkWrapper.propTypes = {
     PropTypes.array,
     PropTypes.element,
   ]),
+  isSocialLink: PropTypes.bool,
 };

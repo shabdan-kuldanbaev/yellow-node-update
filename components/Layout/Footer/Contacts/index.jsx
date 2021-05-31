@@ -75,6 +75,7 @@ const Contacts = ({
               label: router.pathname,
               data: title,
             }}
+            isSocialLink
           >
             <Svg type={type} />
           </LinkWrapper>

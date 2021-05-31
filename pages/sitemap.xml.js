@@ -7,6 +7,7 @@ import {
 } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import { contentfulClient } from 'utils/ContentfulClient';
+import errorHelper from 'utils/error';
 
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
 const buildUrlObject = (data) => data.map((item) => {
@@ -82,7 +83,10 @@ Sitemap.getInitialProps = async ({ res }) => {
 
     return;
   } catch (error) {
-    console.error(error);
+    errorHelper.handleError({
+      error,
+      message: 'Error in the Sitemap.getInitialProps function',
+    });
   }
 };
 

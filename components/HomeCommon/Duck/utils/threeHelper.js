@@ -3,6 +3,7 @@ import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'node_modules/three/examples/jsm/loaders/DRACOLoader';
 import anime from 'animejs';
 import { getPathWithCdn } from 'utils/helper';
+import errorHelper from 'utils/error';
 import { shaders } from './data';
 
 export const three = {
@@ -302,6 +303,9 @@ export const loadDuck = async () => {
 
     return duck;
   } catch (error) {
-    console.error(error);
+    errorHelper.handleError({
+      error,
+      message: 'Error in the loadDuck function',
+    });
   }
 };

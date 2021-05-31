@@ -3,18 +3,26 @@ import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import { PortfolioContainer } from 'containers';
 import { PAGES } from 'utils/constants';
+import errorHelper from 'utils/error';
 
 const Portfolio = ({ introSection }) => <PortfolioContainer introSection={introSection} />;
 
 Portfolio.getInitialProps = async ({ store, req }) => {
-  store.dispatch(fetchLayoutData({ slug: PAGES.portfolio }));
+  try {
+    store.dispatch(fetchLayoutData({ slug: PAGES.portfolio }));
 
-  if (req) {
-    store.dispatch(END);
-    await store.sagaTask.toPromise();
+    if (req) {
+      store.dispatch(END);
+      await store.sagaTask.toPromise();
+    }
+
+    return {};
+  } catch (error) {
+    errorHelper.handleError({
+      error,
+      message: 'Error in the Portfolio.getInitialProps function',
+    });
   }
-
-  return {};
 };
 
 export default Portfolio;
