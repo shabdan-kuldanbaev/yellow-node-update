@@ -8,11 +8,13 @@ export const FullLayout = ({
   disableMaxWidth,
   disableTopPadding,
   disableSidePadding,
+  disableBottomPadding,
 }) => {
   const layoutStyles = cn(styles.fullLayout, {
     [styles.disableMaxWidth]: disableMaxWidth,
     [styles.disableTopPadding]: disableTopPadding,
     [styles.disableSidePadding]: disableSidePadding,
+    [styles.disableBottomPadding]: disableBottomPadding,
   });
 
   return (
@@ -27,6 +29,7 @@ FullLayout.defaultProps = {
   disableMaxWidth: false,
   disableTopPadding: false,
   disableSidePadding: false,
+  disableBottomPadding: false,
 };
 
 FullLayout.propTypes = {
@@ -34,4 +37,5 @@ FullLayout.propTypes = {
   disableMaxWidth: PropTypes.bool,
   disableTopPadding: PropTypes.bool,
   disableSidePadding: PropTypes.bool,
+  disableBottomPadding: PropTypes.bool,
 };

@@ -47,6 +47,7 @@ const CompanyContainer = ({
           disableMaxWidth
           disableTopPadding
           disableSidePadding
+          disableBottomPadding
         >
           <PhotoGallery photos={carouselContent} />
         </FullLayout>
@@ -55,6 +56,7 @@ const CompanyContainer = ({
         disableMaxWidth
         disableTopPadding
         disableSidePadding
+        disableBottomPadding
       >
         {/* TODO check if this div is needed */}
         <div className={styles.companyReviews}>
@@ -62,9 +64,7 @@ const CompanyContainer = ({
         </div>
       </FullLayout>
       {/* TODO check if this div is needed */}
-      <section className={styles.companyBottom}>
-        <Awards />
-      </section>
+      <Awards />
     </FullLayout>
   );
 };

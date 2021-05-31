@@ -29,26 +29,12 @@
 .disableSidePadding {
   padding-right: 0;
   padding-left: 0;
-
-  @include tablet {
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  @include phone {
-    padding-right: 0;
-    padding-left: 0;
-  }
 }
 
 .disableTopPadding {
   padding-top: 0;
+}
 
-  @include tablet {
-    padding-top: 0;
-  }
-
-  @include phone {
-    padding-top: 0;
-  }
+.disableBottomPadding {
+  padding-bottom: 0;
 }
