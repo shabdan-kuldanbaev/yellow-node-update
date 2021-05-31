@@ -10,10 +10,6 @@
     margin-bottom: 70px;
   }
 
-  @include tablet {
-    padding: $section-indent 0;
-  }
-
   @include phone {
     padding: #{$mobile-section-indent} 0;
 
