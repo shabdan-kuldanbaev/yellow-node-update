@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .worksContainer {
-  margin: 0 0 250px;
+  padding: 0 0 100px;
   width: 100%;
   background-color: $white;
 
@@ -11,6 +11,10 @@
 
   @include macbook-fifteen {
     width: 100%;
+  }
+
+  @include tablet {
+    padding: 0;
   }
 
   .workWrapper {
@@ -68,7 +72,7 @@
     @include flex(row, space-between, center);
 
     &:first-child {
-      margin-top: 250px;
+      margin-top: 130px;
     }
 
     @include macbook-fifteen {
@@ -162,22 +166,16 @@
         transition: transform $default-transition-time, opacity $default-transition-time;
 
         @include tablet {
-          margin-left: $side-indent * 2;
-          margin-right: $side-indent * 2;
-          max-width: calc(100% - (#{$side-indent} * 4));
+          max-width: calc(100% - (#{$side-indent} * 2));
         }
 
         @include below-tablet {
-          margin-left: $side-indent * 2;
-          margin-right: $side-indent * 2;
-          max-width: calc(100% - (#{$side-indent} * 4));
+          max-width: calc(100% - (#{$side-indent} * 2));
         }
 
         @include below-tablet-horizontal {
           padding-left: 0;
-          margin-left: $side-indent * 2;
-          margin-right: $side-indent * 2;
-          max-width: calc(100% - (#{$side-indent} * 4));
+          max-width: calc(100% - (#{$side-indent} * 2));
         }
 
         @include phone {
