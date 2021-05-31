@@ -1,12 +1,19 @@
+import axios from 'axios';
 import { createClient } from 'contentful';
 import { ACCESS_TO_CONTENTFUL } from 'utils/constants';
+import errorHelper from 'utils/error';
 
 class ContentfulClient {
   constructor(ACCESS_KEYS) {
-    const { space, environment, accessToken } = ACCESS_KEYS;
+    const {
+      space,
+      environment,
+      accessToken,
+    } = ACCESS_KEYS;
     this.SPACE = space;
     this.ENVIRONMENT = environment;
     this.ACCESS_TOKEN = accessToken;
+    this.GRAPHQL_URL = `https://graphql.contentful.com/content/v1/spaces/${space}/environments/${environment}`;
   }
 
   getClient = async () => {
@@ -20,7 +27,10 @@ class ContentfulClient {
 
       return client;
     } catch (error) {
-      console.error('Client getting error: ', error);
+      errorHelper.handleError({
+        error,
+        message: 'Error in the getClient function',
+      });
     }
   };
 
@@ -31,7 +41,10 @@ class ContentfulClient {
 
       return space;
     } catch (error) {
-      console.error('Space getting error: ', error);
+      errorHelper.handleError({
+        error,
+        message: 'Error in the getSpace function',
+      });
     }
   };
 
@@ -59,7 +72,10 @@ class ContentfulClient {
 
       return entries;
     } catch (error) {
-      console.error('Entries getting error: ', error);
+      errorHelper.handleError({
+        error,
+        message: 'Error in the getEntries function',
+      });
     }
   };
 
@@ -73,9 +89,34 @@ class ContentfulClient {
 
       return entry;
     } catch (error) {
-      console.error('Get entry error: ', error);
+      errorHelper.handleError({
+        error,
+        message: 'Error in the getEntry function',
+      });
     }
   };
+
+  graphql = async (query) => {
+    try {
+      const response = await axios.post(
+        this.GRAPHQL_URL,
+        { query },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${this.ACCESS_TOKEN}`,
+          },
+        },
+      );
+
+      return response.data.data;
+    } catch (error) {
+      errorHelper.handleError({
+        error,
+        message: 'Error in the graphql function',
+      });
+    }
+  }
 }
 
 export const contentfulClient = new ContentfulClient(ACCESS_TO_CONTENTFUL);

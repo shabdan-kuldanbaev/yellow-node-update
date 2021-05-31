@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
@@ -21,22 +20,20 @@ import {
   Breadcrumbs,
 } from 'components';
 import { PAGES } from 'utils/constants';
-import {
-  rootUrl,
-  getDocumentFields,
-  getFileUrl,
-} from 'utils/helper';
+import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
+import { getArticleProps, getNearbyArticlesProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
 const ArticleContainer = ({
   introSection,
   articles: relatedArticles,
-  nearbyArticles: { newerArticle, olderArticle },
+  nearbyArticles,
   currentArticle,
   subscribe: addNewSubscriber,
 }) => {
   const { query: { slug }, pathname } = useRouter();
+  const { nextArticle, prevArticle } = getNearbyArticlesProps({ nearbyArticles });
   const {
     slug: articleSlug,
     title,
@@ -44,48 +41,14 @@ const ArticleContainer = ({
     oldBody,
     body,
     introduction,
-    headImageUrl,
     publishedAt,
     updatedAt,
     keyWords = [],
     categoryTag = '',
     metaTitle,
     metaDescription,
-  } = getDocumentFields(
-    get(currentArticle, 'items[0]', {}),
-    [
-      'slug',
-      'title',
-      'description',
-      'oldBody',
-      'body',
-      'introduction',
-      'headImageUrl',
-      'publishedAt',
-      'updatedAt',
-      'keyWords',
-      'categoryTag',
-      'metaTitle',
-      'metaDescription',
-    ],
-  );
-  const {
-    previewImageUrl: previewImageUrlNewer,
-    slug: slugNewer,
-    title: titleNewer,
-  } = getDocumentFields(
-    newerArticle,
-    ['slug', 'title', 'previewImageUrl'],
-  );
-  const {
-    previewImageUrl: previewImageUrlOlder,
-    slug: slugOlder,
-    title: titleOlder,
-  } = getDocumentFields(
-    olderArticle,
-    ['slug', 'title', 'previewImageUrl'],
-  );
-  const headImage = getFileUrl(headImageUrl);
+    headImage,
+  } = getArticleProps({ article: currentArticle });
   const articleMetadata = {
     metaTitle: metaTitle || title,
     metaDescription: metaDescription || description,
@@ -138,14 +101,14 @@ const ArticleContainer = ({
       <div className={styles.nextPrevSection}>
         <NextPrev
           isNewer
-          previewImageUrl={getFileUrl(previewImageUrlNewer)}
-          slug={slugNewer}
-          title={titleNewer}
+          slug={nextArticle.slug}
+          title={nextArticle.title}
+          previewImageUrl={nextArticle.previewImageUrl}
         />
         <NextPrev
-          previewImageUrl={getFileUrl(previewImageUrlOlder)}
-          slug={slugOlder}
-          title={titleOlder}
+          slug={prevArticle.slug}
+          title={prevArticle.title}
+          previewImageUrl={prevArticle.previewImageUrl}
         />
       </div>
       <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
