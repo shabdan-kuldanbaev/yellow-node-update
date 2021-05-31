@@ -11,10 +11,6 @@
     max-width: $max-content-width;
   }
 
-  @include macbook-fifteen {
-    width: 100%;
-  }
-
   @include below-tablet {
     padding-top: 0;
   }

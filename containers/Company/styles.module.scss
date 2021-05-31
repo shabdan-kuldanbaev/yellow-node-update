@@ -38,22 +38,3 @@
     }
   }
 }
-
-.companyBottom {
-  padding: 30px 0 100px;
-  background-color: $white;
-
-  @include flex(column, center, center);
-
-  @include tablet {
-    padding: 100px 40px;
-  }
-
-  @include below-tablet {
-    padding-top: 0;
-  }
-
-  @include phone {
-    padding: 60px $side-indent;
-  }
-}

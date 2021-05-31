@@ -12,10 +12,6 @@
     max-width: $max-content-width;
   }
 
-  @include macbook-fifteen {
-    width: 100%;
-  }
-
   @include tablet {
     @include flex(column, center, flex-start);
   }
@@ -33,8 +29,7 @@
   }
 
   @include phone {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding: 60px 0;
   }
 
   & > div:first-child {

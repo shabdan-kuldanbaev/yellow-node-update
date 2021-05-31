@@ -15,7 +15,6 @@
 
   @include tablet {
     height: auto;
-    margin-top: 0;
   }
 
   @include horizontal-mobile {
@@ -23,8 +22,7 @@
   }
 
   @include phone {
-    padding: 40px $side-indent $mobile-section-indent - 20px;
-    margin-top: 0;
+    padding: 40px 0 $mobile-section-indent - 20px;
   }
 
   & > div:first-child {
