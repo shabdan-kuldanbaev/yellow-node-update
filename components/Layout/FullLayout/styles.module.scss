@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .fullLayout {
-  max-width: 1300px;
+  max-width: $max-content-width;
   margin: 0 auto;
   padding: calc(#{$header-height} + 60px) 80px 100px;
   position: relative;
@@ -27,58 +27,28 @@
 }
 
 .disableSidePadding {
-  &Desktop {
+  padding-right: 0;
+  padding-left: 0;
+
+  @include tablet {
     padding-right: 0;
     padding-left: 0;
   }
 
-  &Tablet {
-    @include tablet {
-      padding-right: 0;
-      padding-left: 0;
-    }
-  }
-
-  &Phone {
-    @include phone {
-      padding-right: 0;
-      padding-left: 0;
-    }
+  @include phone {
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
 .disableTopPadding {
-  &Desktop {
+  padding-top: 0;
+
+  @include tablet {
     padding-top: 0;
   }
 
-  &Tablet {
-    @include tablet {
-      padding-top: 0;
-    }
-  }
-
-  &Phone {
-    @include phone {
-      padding-top: 0;
-    }
-  }
-}
-
-.disableBottomPadding {
-  &Desktop {
-    padding-bottom: 0;
-  }
-
-  &Tablet {
-    @include tablet {
-      padding-bottom: 0;
-    }
-  }
-
-  &Phone {
-    @include phone {
-      padding-bottom: 0;
-    }
+  @include phone {
+    padding-top: 0;
   }
 }

@@ -39,41 +39,29 @@ const CompanyContainer = ({
         className={styles.companyContainer}
       >
         <AboutUs />
-        {specialThingsContent && <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />}
-        {teamContent && <ManagementTeam managementTeam={teamContent} />}
+        <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />
+        <ManagementTeam managementTeam={teamContent} />
       </section>
       {carouselContent && (
         <FullLayout
-          isMaxWidthDisabled
-          isSidePaddingDisabledDesktop
-          isSidePaddingDisabledTablet
-          isSidePaddingDisabledPhone
-          isTopPaddingDisabledDesktop
-          isTopPaddingDisabledTablet
-          isTopPaddingDisabledPhone
-          isBottomPaddingDisabledDesktop
-          isBottomPaddingDisabledTablet
-          isBottomPaddingDisabledPhone
+          disableMaxWidth
+          disableTopPadding
+          disableSidePadding
         >
           <PhotoGallery photos={carouselContent} />
         </FullLayout>
       )}
       <FullLayout
-        isMaxWidthDisabled
-        isSidePaddingDisabledDesktop
-        isSidePaddingDisabledTablet
-        isSidePaddingDisabledPhone
-        isTopPaddingDisabledDesktop
-        isTopPaddingDisabledTablet
-        isTopPaddingDisabledPhone
-        isBottomPaddingDisabledDesktop
-        isBottomPaddingDisabledTablet
-        isBottomPaddingDisabledPhone
+        disableMaxWidth
+        disableTopPadding
+        disableSidePadding
       >
+        {/* TODO check if this div is needed */}
         <div className={styles.companyReviews}>
           <Reviews reviews={reviews} />
         </div>
       </FullLayout>
+      {/* TODO check if this div is needed */}
       <section className={styles.companyBottom}>
         <Awards />
       </section>
