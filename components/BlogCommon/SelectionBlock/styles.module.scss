@@ -2,18 +2,17 @@
 
 .selectionBlock {
   position: relative;
-  max-width: 1500px;
-  width: calc(1500px - #{$side-indent});
-  margin: 0 12px;
+  width: 100%;
+  padding: 0 12px;
 
   @include flex(row, space-between, center);
 
   @include macbook-fifteen {
-    width: calc(100% - #{$side-indent});
+    padding: 100px 12px 0;
   }
 
   @include phone {
-    width: auto;
+    padding: 0;
   }
 
   .darkBackground {
