@@ -3,16 +3,7 @@
 .contactContainer {
   position: relative;
   z-index: 2;
-  padding: 0 80px 100px;
   background-color: $white;
 
   @include flex(column, center, center);
-
-  @include tablet {
-    padding: calc(81px + 40px) 40px 0;
-  }
-
-  @include phone {
-    padding: 66px $side-indent $mobile-section-indent - 20px;
-  }
 }

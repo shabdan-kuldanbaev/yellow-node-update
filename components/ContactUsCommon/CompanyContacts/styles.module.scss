@@ -12,17 +12,8 @@
     @include flex(row, center, flex-start);
   }
 
-  @include tablet {
-    padding-top: 0;
-  }
-
-  @include below-tablet {
-    width: 100%;
-    padding: 150px 0 200px;
-  }
-
   @include phone {
-    padding: 60px $side-indent $mobile-section-indent - 20px;
+    padding: 60px 0 $mobile-section-indent - 20px;
   }
 
   .imgContainer {
