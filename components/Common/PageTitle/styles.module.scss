@@ -5,12 +5,8 @@
   width: 100%;
   align-items: flex-start;
 
-  @include phone {
-    margin-top: 90px;
-  }
-
   h1 {
-    margin-bottom: 25px;
+    margin: 0;
 
     @include fontSize(60px);
 
@@ -23,8 +19,6 @@
     }
 
     @include phone {
-      margin-bottom: 0;
-
       @include fontSize(45px);
     }
   }

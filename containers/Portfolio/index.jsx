@@ -16,6 +16,10 @@ import styles from './styles.module.scss';
 
 const PortfolioContainer = ({ introSection, portfolioProjects }) => {
   const { content } = getDocumentFields(portfolioProjects, ['content']);
+  const breadcrumbs = [{
+    title: ROUTES.portfolio.title,
+    to: ROUTES.portfolio.path,
+  }];
 
   return (
     <FullLayout>
@@ -24,7 +28,7 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
         ref={introSection}
         className={styles.portfolio}
       >
-        <Breadcrumbs />
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <PageTitle title={ROUTES.portfolio.title} />
         <Portfolio works={content} />
       </section>

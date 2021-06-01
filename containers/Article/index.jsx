@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -20,7 +20,7 @@ import {
   Breadcrumbs,
   FullLayout,
 } from 'components';
-import { PAGES } from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { getArticleProps, getNearbyArticlesProps } from './utils/propsHelper';
@@ -67,6 +67,15 @@ const ArticleContainer = ({
     headImage,
     articleBody: oldBody || documentToPlainTextString(body),
   });
+  const breadcrumbs = [
+    {
+      title: ROUTES.blog.title,
+      to: ROUTES.blog.path,
+    },
+    {
+      title,
+      to: `${ROUTES.blog.path}/${articleSlug}`,
+    }];
 
   const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
 
@@ -79,8 +88,8 @@ const ArticleContainer = ({
       />
       {title && (
         <Breadcrumbs
-          articleTitle={title}
           className={styles.breadcrumbs}
+          breadcrumbs={breadcrumbs}
         />
       )}
       <Article

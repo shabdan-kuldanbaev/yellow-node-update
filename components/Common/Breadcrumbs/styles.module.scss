@@ -1,24 +1,17 @@
 @import 'styles/utils/mixins';
 
 .breadcrumbs {
-  position: relative;
-  top: 66px;
-  padding: 60px 60px 0;
+  padding-bottom: calc(#{$section-indent} / 2);
   z-index: 3;
   width: 100%;
   max-width: 1300px;
 
-  // @include hidden-text();
-
-  @include tablet {
-    padding: 60px 0 0;
-    width: calc(100% - 80px);
+  @include macbook-fifteen {
+    padding-top: calc(#{$section-indent} / 2);
   }
 
   @include phone {
-    top: 0;
-    padding: 20px 0 60px;
-    width: 100%;
+    padding: 40px 0;
   }
 
   ol {

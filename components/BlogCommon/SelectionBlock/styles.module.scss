@@ -3,12 +3,12 @@
 .selectionBlock {
   position: relative;
   width: 100%;
-  padding: 0 12px;
+  padding: $section-indent 12px 0;
 
   @include flex(row, space-between, center);
 
   @include macbook-fifteen {
-    padding: 100px 12px 0;
+    padding: calc(#{$section-indent} - 20px) 12px 0;
   }
 
   @include phone {

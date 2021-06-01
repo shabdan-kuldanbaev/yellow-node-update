@@ -22,7 +22,7 @@
   }
 
   @include phone {
-    padding: 40px 0 $mobile-section-indent - 20px;
+    padding: calc(#{$mobile-section-indent} - 20px) 0 $mobile-section-indent - 20px;
   }
 
   & > div:first-child {

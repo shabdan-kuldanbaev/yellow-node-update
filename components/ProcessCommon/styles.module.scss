@@ -13,8 +13,12 @@
     padding-top: 40px;
   }
 
+  @include below-tablet {
+    padding-top: calc(#{$mobile-section-indent} - 20px);
+  }
+
   @include phone {
-    padding-top: 0;
+    padding-top: calc(#{$mobile-section-indent} - 20px);
   }
 
   .process {
@@ -74,7 +78,7 @@
       padding-bottom: 60px;
 
       &:first-child {
-        padding-top: 81px;
+        padding-top: 0;
       }
     }
 
@@ -92,13 +96,13 @@
 
     @include horizontal-iphone-x {
       &:first-child {
-        padding-top: 81px;
+        padding-top: 0;
       }
     }
 
     @include horizontal-big-mobile {
       &:first-child {
-        padding-top: 81px;
+        padding-top: 0;
       }
     }
 
@@ -109,7 +113,7 @@
       @include flex(row, center, center);
 
       &:first-child {
-        padding-top: 81px;
+        padding-top: 0;
         margin-top: 0;
       }
     }
@@ -122,7 +126,6 @@
       height: auto;
 
       &:first-child {
-        padding-top: 0;
         margin-top: 0;
       }
     }

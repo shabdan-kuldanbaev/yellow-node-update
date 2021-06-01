@@ -32,6 +32,10 @@ const CompanyContainer = ({
   const { content: carouselContent } = getDocumentFields(photosData, ['content']);
   const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
   const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
+  const breadcrumbs = [{
+    title: ROUTES.company.title,
+    to: ROUTES.company.path,
+  }];
 
   return (
     <FullLayout>
@@ -40,7 +44,10 @@ const CompanyContainer = ({
         ref={introSection}
         className={styles.companyContainer}
       >
-        <Breadcrumbs className={styles.breadcrumbs} />
+        <Breadcrumbs
+          className={styles.breadcrumbs}
+          breadcrumbs={breadcrumbs}
+        />
         <PageTitle title={ROUTES.company.title} />
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />

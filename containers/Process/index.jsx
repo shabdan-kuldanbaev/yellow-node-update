@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
 import {
@@ -15,19 +16,26 @@ import styles from './styles.module.scss';
 const ProcessContainer = ({
   introSection,
   processes: { json },
-}) => (
-  <FullLayout>
-    <MetaTags page={PAGES.process} />
-    <section
-      ref={introSection}
-      className={styles.process}
-    >
-      <Breadcrumbs className={styles.breadcrumbs} />
-      <PageTitle title={ROUTES.process.title} />
-      <Process processes={json} />
-    </section>
-  </FullLayout>
-);
+}) => {
+  const breadcrumbs = [{
+    title: ROUTES.process.title,
+    to: ROUTES.process.path,
+  }];
+
+  return (
+    <FullLayout>
+      <MetaTags page={PAGES.process} />
+      <section
+        ref={introSection}
+        className={styles.process}
+      >
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <PageTitle title={ROUTES.process.title} />
+        <Process processes={json} />
+      </section>
+    </FullLayout>
+  );
+};
 
 ProcessContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,

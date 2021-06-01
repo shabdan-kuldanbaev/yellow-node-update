@@ -17,14 +17,8 @@
   @include phone {
     padding: 0 $side-indent 0;
 
-    & > div {
+    & > div:not(:nth-of-type(1)) {
       margin-bottom: 50px;
     }
-  }
-}
-
-.breadcrumbs {
-  @include phone {
-    top: 120px;
   }
 }

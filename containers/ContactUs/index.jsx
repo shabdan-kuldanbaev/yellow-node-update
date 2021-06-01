@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
@@ -36,6 +36,10 @@ const ContactUsContainer = ({
     ['image'],
   );
   const peopleImageUrl = getFileUrl(peopleImage);
+  const breadcrumbs = [{
+    title: ROUTES.contact.title,
+    to: ROUTES.contact.path,
+  }];
 
   const handleOnClick = (...args) => {
     const [
@@ -65,7 +69,7 @@ const ContactUsContainer = ({
         ref={introSection}
         className={styles.contactContainer}
       >
-        <Breadcrumbs className={styles.breadcrumbs} />
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <PageTitle title={ROUTES.contact.title} />
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />

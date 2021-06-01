@@ -14,8 +14,13 @@ import {
   Breadcrumbs,
   FullLayout,
 } from 'components';
-import { getDataFromLocalStorageWithExpire } from 'utils/helper';
-import { PAGES, ROUTES } from 'utils/constants';
+import { getDataFromLocalStorageWithExpire, isNumeric } from 'utils/helper';
+import {
+  CATEGORY_TAGS,
+  PAGES,
+  ROUTES,
+} from 'utils/constants';
+
 import styles from './styles.module.scss';
 
 const BlogContainer = ({
@@ -28,8 +33,21 @@ const BlogContainer = ({
   currentPage,
   articlesNumberPerPage,
 }) => {
-  const { pathname } = useRouter();
+  const { pathname, query: { slug } } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
+  const breadcrumbs = slug && !isNumeric(slug) ? [
+    {
+      title: ROUTES.blog.title,
+      to: ROUTES.blog.path,
+    },
+    {
+      title: CATEGORY_TAGS[slug],
+      to: `${ROUTES.blog.path}/${slug}`,
+    },
+  ] : [{
+    title: ROUTES.blog.title,
+    to: ROUTES.blog.path,
+  }];
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });
@@ -50,7 +68,7 @@ const BlogContainer = ({
         ref={introSection}
         className={styles.blog}
       >
-        <Breadcrumbs className={styles.breadcrumbs} />
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <PageTitle title={ROUTES.blog.title} />
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList

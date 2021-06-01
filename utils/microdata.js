@@ -90,8 +90,8 @@ export const microdata = {
       '@type': 'ListItem',
       position: index + 2,
       item: {
-        '@id': `${rootUrl}${breadcrumb.href}`,
-        name: breadcrumb.breadcrumbTitle,
+        '@id': `${rootUrl}${breadcrumb.to}`,
+        name: breadcrumb.title,
       },
     }));
 

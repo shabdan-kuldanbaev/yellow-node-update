@@ -25,19 +25,6 @@ export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
   routes.notFound.slug,
 ].includes(slug));
 
-export const BREADCRUBS_SLUGS = Object.entries(NAV_LINKS).reduce((acc, [key, {
-  slug,
-  title,
-  path,
-}]) => {
-  acc[slug] = {
-    title,
-    path,
-  };
-
-  return acc;
-}, {});
-
 export const BLOCKS_SLUGS = {
   homepagePreviewProjects: 'homepage-preview-projects',
   worksPagePreviewProjects: 'works-page-preview-projects',
