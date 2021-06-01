@@ -17,6 +17,7 @@ import {
   NextPrev,
   MetaTags,
   withScroll,
+  FullLayout,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
@@ -69,7 +70,7 @@ const ArticleContainer = ({
   const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
 
   return (
-    <Fragment>
+    <FullLayout>
       <MetaTags
         page={PAGES.blog}
         pageMetadata={articleMetadata}
@@ -105,7 +106,7 @@ const ArticleContainer = ({
         />
       </div>
       <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
-    </Fragment>
+    </FullLayout>
   );
 };
 
