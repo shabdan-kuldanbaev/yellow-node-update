@@ -11,6 +11,7 @@ import {
   MetaTags,
   PageTitle,
   Breadcrumbs,
+  FullLayout,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
@@ -55,7 +56,7 @@ const ContactUsContainer = ({
   };
 
   return (
-    <Fragment>
+    <FullLayout>
       <MetaTags
         page={PAGES.contact}
         microdata={microdata.contact()}
@@ -68,10 +69,10 @@ const ContactUsContainer = ({
         <PageTitle title={ROUTES.contact.title} />
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
-        {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}
-        {officeImageUrl && <CompanyContacts photo={officeImageUrl} />}
+        <CompanyPeoplePhoto photo={peopleImageUrl} />
+        <CompanyContacts photo={officeImageUrl} />
       </section>
-    </Fragment>
+    </FullLayout>
   );
 };
 

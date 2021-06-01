@@ -3,6 +3,7 @@ import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import { PageNotFound } from 'containers';
 import { PAGES } from 'utils/constants';
+import errorHelper from 'utils/error';
 
 const Error = ({ statusCode, err }) => (
   <Fragment>
@@ -17,6 +18,7 @@ Error.getInitialProps = async ({
   res,
   store,
   req,
+  asPath,
 }) => {
   let statusCode = 404;
 
@@ -28,11 +30,21 @@ Error.getInitialProps = async ({
 
   if (statusCode === 404) {
     store.dispatch(fetchLayoutData({ slug: PAGES.notFound }));
+    errorHelper.handleMessage({
+      message: `404 - This page could not be found (${asPath})`,
+    });
 
     if (req) {
       store.dispatch(END);
       await store.sagaTask.toPromise();
     }
+  }
+
+  if (err) {
+    errorHelper.handleError({
+      error: err,
+      message: 'Error in common (_error.jsx)',
+    });
   }
 
   return {

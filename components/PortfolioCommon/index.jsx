@@ -32,7 +32,7 @@ const Portfolio = ({
     maxPosition.current = maxScrollPosition;
   }, [maxScrollPosition]);
 
-  return (
+  return works && (
     <div className={styles.worksContainer}>
       {works && works.map((work, index) => {
         const {

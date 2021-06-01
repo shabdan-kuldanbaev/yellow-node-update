@@ -20,6 +20,7 @@ import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import { artificialDelay } from 'utils/helper';
 import { contentfulClient } from 'utils/ContentfulClient';
 import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
+import errorHelper from 'utils/error';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -34,8 +35,8 @@ function* fetchPage({ slug }) {
     });
 
     yield put({ type: actionTypes.FETCH_PAGE_SUCCESS, payload: items });
-  } catch (err) {
-    yield put({ type: actionTypes.FETCH_PAGE_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.FETCH_PAGE_FAILED, payload: error });
   }
 }
 
@@ -47,7 +48,11 @@ function* fetchDuck({ payload: { isFirstHomepageVisit } }) {
     ]);
 
     yield put({ type: actionTypes.SET_DUCK, payload: duck });
-  } catch (err) {
+  } catch (error) {
+    errorHelper.handleError({
+      error,
+      message: 'Error in the fetchDuck function',
+    });
     yield put({ type: actionTypes.SET_DUCK, payload: null });
   }
 }
@@ -57,7 +62,6 @@ function* fetchPageData({
     slug,
     articleSlug,
     projectSlug,
-    currentPage,
     currentLimit,
     category,
     skip,
@@ -82,7 +86,6 @@ function* fetchPageData({
       yield call(fetchBlogData, {
         slug,
         articleSlug,
-        currentPage,
         currentLimit,
         category,
         skip,
@@ -105,14 +108,18 @@ function* fetchPageData({
       break;
     case PAGES.notFound:
       break;
-    default: throw new Error('Unexpected case');
+    default: throw new Error('Unexpected case in the fetchPageData function');
     }
 
     yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_SUCCESS });
-  } catch (err) {
+  } catch (error) {
+    errorHelper.handleError({
+      error,
+      message: 'Error in the fetchPageData function',
+    });
     yield put({
       type: actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED,
-      payload: err.message,
+      payload: error.message,
     });
   }
 }

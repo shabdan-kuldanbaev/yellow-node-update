@@ -7,6 +7,7 @@ import {
   MetaTags,
   PageTitle,
   Breadcrumbs,
+  FullLayout,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -15,7 +16,7 @@ const ProcessContainer = ({
   introSection,
   processes: { json },
 }) => (
-  <Fragment>
+  <FullLayout>
     <MetaTags page={PAGES.process} />
     <section
       ref={introSection}
@@ -25,7 +26,7 @@ const ProcessContainer = ({
       <PageTitle title={ROUTES.process.title} />
       <Process processes={json} />
     </section>
-  </Fragment>
+  </FullLayout>
 );
 
 ProcessContainer.propTypes = {

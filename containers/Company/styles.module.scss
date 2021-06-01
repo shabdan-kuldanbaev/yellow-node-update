@@ -4,23 +4,10 @@
 .companyContainer {
   position: relative;
   z-index: 2;
-  padding: 0 80px;
   background-color: $white;
   overflow-x: hidden;
 
   @include flex(column, center, center);
-
-  @include tablet {
-    padding: calc(81px + 40px) 40px 0;
-  }
-
-  @include phone {
-    padding: 66px $side-indent 0;
-  }
-
-  & > div:first-child {
-    max-width: 1300px;
-  }
 }
 
 .companyReviews {
@@ -30,7 +17,7 @@
   & > div {
     width: 100%;
     margin: 0 auto;
-    padding: 100px 80px 130px;
+    padding: 100px 80px;
 
     @include ultra-hd {
       max-width: $max-content-width;
@@ -50,36 +37,5 @@
       padding: 0;
       margin: 0 auto;
     }
-  }
-}
-
-.companyBottom {
-  padding: 0 80px 200px;
-  background-color: $white;
-
-  @include flex(column, center, center);
-
-  @include tablet {
-    padding: 100px 40px 200px;
-  }
-
-  @include below-tablet {
-    padding-top: 0;
-  }
-
-  @include phone {
-    padding: 60px $side-indent 100px;
-  }
-}
-
-.breadcrumbs {
-  @include tablet {
-    width: 100%;
-    top: 0;
-    padding: 0 0 20px;
-  }
-
-  @include phone {
-    padding-top: 54px;
   }
 }

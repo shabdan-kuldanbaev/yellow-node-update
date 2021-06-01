@@ -5,7 +5,7 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const WhatMakesUsSpecial = ({ makingUsSpecial }) => (
+export const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
   <section className={styles.makingUsSpecial}>
     <SectionTitle title="What makes us special" />
     <div className={styles.specialThings}>

@@ -11,7 +11,7 @@ import {
 } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const ManagementTeam = ({ managementTeam, isMobileResolution }) => (
+export const ManagementTeam = ({ managementTeam, isMobileResolution }) => managementTeam && (
   <section className={styles.managementTeam}>
     <SectionTitle title="Our management team" />
     <div className={styles.managers}>
