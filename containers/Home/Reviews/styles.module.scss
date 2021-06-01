@@ -1,17 +1,13 @@
 @import 'styles/utils/mixins';
 
 .reviews {
-  padding: $section-indent $side-indent 150px;
+  padding: $section-indent 0 100px;
   background-color: $white;
 
   @include flex(column, flex-start, center);
 
   @include macbook-fifteen {
-    padding: $section-indent 55px 150px;
-  }
-
-  @include tablet {
-    padding: $section-indent 25px 150px;
+    padding-top: $section-indent;
   }
 
   @include phone {
