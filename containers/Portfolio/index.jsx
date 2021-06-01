@@ -7,6 +7,7 @@ import {
   MetaTags,
   Paginator,
   Breadcrumbs,
+  FullLayout,
 } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
@@ -16,14 +17,14 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
   const { content } = getDocumentFields(portfolioProjects, ['content']);
 
   return (
-    <Fragment>
+    <FullLayout>
       <MetaTags page={PAGES.portfolio} />
       <section
         ref={introSection}
         className={styles.portfolio}
       >
         <Breadcrumbs />
-        {content && <Portfolio works={content} />}
+        <Portfolio works={content} />
       </section>
       {/* <Paginator
         pagesCounter={8}
@@ -31,7 +32,7 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
         pageSlug={ROUTES.portfolio.slug}
         className={styles.paginator}
       /> */}
-    </Fragment>
+    </FullLayout>
   );
 };
 
