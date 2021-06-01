@@ -2,18 +2,8 @@
 
 .related {
   margin: 0 auto;
-  padding: 0 55px;
-  max-width: 1500px;
 
   @include flex(column, center, center);
-
-  @include tablet {
-    padding: 0 25px;
-  }
-
-  @include phone {
-    padding: 0 15px;
-  }
 
   .headingContainer {
     width: 100%;
