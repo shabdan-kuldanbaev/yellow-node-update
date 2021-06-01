@@ -2,7 +2,7 @@
 
 .blogPage {
   width: 100%;
-  margin: 105px 12px 105px;
+  margin: 100px 12px;
 
   @include phone {
     margin: 50px 0;
@@ -10,21 +10,11 @@
 }
 
 .articlePage {
-  margin: 24px auto 24vh;
-  padding: 0 55px;
-  max-width: 1500px;
+  margin: 24px auto 20vh;
   background-color: $white;
 
   @include desktop {
     margin-top: 14px;
-  }
-
-  @include tablet {
-    padding: 0 25px;
-  }
-
-  @include phone {
-    padding: 0 15px;
   }
 }
 

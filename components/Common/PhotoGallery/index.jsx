@@ -9,7 +9,7 @@ const PhotoGallery = ({
   photos,
   isTabletResolutions,
   isMobileResolution,
-}) => (
+}) => photos && (
   (isTabletResolutions || isMobileResolution)
     ? <MobileCarousel photos={photos} />
     : <DesktopCarousel photos={photos} />

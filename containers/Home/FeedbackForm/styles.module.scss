@@ -3,13 +3,13 @@
 .formContainer {
   position: relative;
   z-index: 2;
-  padding: $section-indent $side-indent;
+  padding: $section-indent 0;
   background-color: $white;
 
   @include flex(column, flex-start, center);
 
   @include phone {
-    padding: $mobile-section-indent $side-indent $mobile-section-indent - 20px;
+    padding: $mobile-section-indent 0 $mobile-section-indent - 20px;
   }
 
   & > div:first-child {

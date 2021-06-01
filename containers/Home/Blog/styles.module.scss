@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .blog {
-  padding: $section-indent 55px;
+  padding: $section-indent 0;
   background-color: $white;
 
   @include flex(column, flex-start, center);
@@ -10,12 +10,8 @@
     margin-bottom: 70px;
   }
 
-  @include tablet {
-    padding: $section-indent 25px;
-  }
-
   @include phone {
-    padding: #{$mobile-section-indent} $side-indent;
+    padding: #{$mobile-section-indent} 0;
 
     & > div:first-child {
       margin-bottom: -$after-mobile-title-margin + 20px;

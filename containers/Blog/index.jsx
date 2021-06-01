@@ -11,6 +11,7 @@ import {
   Paginator,
   MetaTags,
   Breadcrumbs,
+  FullLayout,
 } from 'components';
 import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
@@ -39,7 +40,7 @@ const BlogContainer = ({
   }, []);
 
   return (
-    <Fragment>
+    <FullLayout>
       <MetaTags
         page={PAGES.blog}
         pageMetadata={{ pageNumber: currentPage }}
@@ -62,7 +63,7 @@ const BlogContainer = ({
           pageSlug={ROUTES.blog.slug}
         />
       </section>
-    </Fragment>
+    </FullLayout>
   );
 };
 

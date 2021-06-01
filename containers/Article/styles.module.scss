@@ -2,8 +2,6 @@
 
 .nextPrevSection {
   margin: #{$max-article-margin} auto;
-  padding: 0 55px;
-  max-width: 1500px;
 
   @include flex(row, space-between);
 
@@ -11,16 +9,8 @@
     margin-top: #{$min-article-margin};
   }
 
-  @include tablet {
-    padding: 0 25px;
-  }
-
   @include below-tablet {
     @include flex(row, space-between, center, wrap);
-  }
-
-  @include phone {
-    padding: 0 15px;
   }
 }
 

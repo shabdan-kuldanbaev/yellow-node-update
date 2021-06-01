@@ -16,7 +16,11 @@ import {
   FeedbackFormContainer,
 } from 'containers';
 import Intro from 'containers/Home/Intro';
-import { PhotoGallery, MetaTags } from 'components';
+import {
+  PhotoGallery,
+  MetaTags,
+  FullLayout,
+} from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
@@ -70,10 +74,23 @@ export const Home = ({
             isFirstHomepageVisit={contextData.isFirstHomepageVisit}
           />
           <Portfolio gradientRef={gradientRef} />
-          <ReviewsContainer />
-          <Blog />
-          {content && <PhotoGallery photos={content} />}
-          <FeedbackFormContainer />
+          {/* // TODO wrap all page in full layout */}
+          <FullLayout
+            disableTopPadding
+            disableBottomPadding
+          >
+            <ReviewsContainer />
+            <Blog />
+            <FullLayout
+              disableMaxWidth
+              disableTopPadding
+              disableSidePadding
+              disableBottomPadding
+            >
+              <PhotoGallery photos={content} />
+            </FullLayout>
+            <FeedbackFormContainer />
+          </FullLayout>
         </Fragment>
       )}
     </Fragment>
