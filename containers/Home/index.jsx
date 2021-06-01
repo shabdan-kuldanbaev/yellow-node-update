@@ -74,6 +74,7 @@ export const Home = ({
             isFirstHomepageVisit={contextData.isFirstHomepageVisit}
           />
           <Portfolio gradientRef={gradientRef} />
+          {/* // TODO wrap all page in full layout */}
           <FullLayout
             disableTopPadding
             disableBottomPadding
