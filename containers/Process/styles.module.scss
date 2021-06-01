@@ -1,24 +1,7 @@
 @import 'styles/utils/mixins';
 
 .process {
-  padding: 0 $side-indent;
   background-color: $white;
 
   @include flex(column, flex-start, center);
-
-  @include macbook-fifteen {
-    padding: 0 80px;
-  }
-
-  @include tablet {
-    padding: 0 $side-indent;
-  }
-
-  @include phone {
-    padding: 0 $side-indent 0;
-
-    & > div:not(:nth-of-type(1)) {
-      margin-bottom: 50px;
-    }
-  }
 }

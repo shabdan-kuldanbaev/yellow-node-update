@@ -30,12 +30,8 @@
       color: #9a999c;
     }
 
-    span {
-      color: #000;
-    }
-
-    .separator {
-      display: flex;
+    li::after {
+      content: '/';
       margin-left: 8px;
       user-select: none;
       margin-right: 8px;
@@ -44,6 +40,15 @@
 
     li:last-child {
       @include hidden-text();
+
+      &::after {
+        content: none;
+      }
+
+      & > a {
+        pointer-events: none;
+        color: #000;
+      }
     }
   }
 }

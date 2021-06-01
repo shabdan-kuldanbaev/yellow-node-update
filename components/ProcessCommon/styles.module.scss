@@ -19,6 +19,7 @@
 
   @include phone {
     padding-top: calc(#{$mobile-section-indent} - 20px);
+    margin-bottom: 50px;
   }
 
   .process {

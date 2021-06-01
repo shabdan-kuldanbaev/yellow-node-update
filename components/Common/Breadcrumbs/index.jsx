@@ -6,9 +6,7 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
 
-const Breadcrumbs = ({
-  breadcrumbs,
-}) => (breadcrumbs
+const Breadcrumbs = ({ breadcrumbs }) => (breadcrumbs
   ? (
     <Fragment>
       <Head>
@@ -41,24 +39,14 @@ const Breadcrumbs = ({
               </LinkWrapper>
             </li>
             {breadcrumbs.map((breadcrumb, index, breadcrumbsArray) => (
-              <Fragment key={`breadcrump/${breadcrumb.title}/${index}`}>
-                <span className={styles.separator}>/</span>
-                <li key={breadcrumb.to}>
-                  {index === breadcrumbsArray.length - 1 ? (
-                    <span>
-                      {breadcrumb.title}
-                    </span>
-                  ) : (
-                    <LinkWrapper
-                      path={breadcrumb.to}
-                      isLocalLink
-                    >
-                      {breadcrumb.title}
-                    </LinkWrapper>
-
-                  )}
-                </li>
-              </Fragment>
+              <li key={breadcrumb.url}>
+                <LinkWrapper
+                  path={breadcrumb.url}
+                  isLocalLink
+                >
+                  {breadcrumb.title}
+                </LinkWrapper>
+              </li>
             ))}
           </ol>
         </Animated>

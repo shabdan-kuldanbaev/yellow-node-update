@@ -21,10 +21,7 @@ export const AboutUs = ({ aboutUsText: aboutUs }) => {
   return (
     <section className={styles.aboutUs}>
       <div>
-        <SectionTitle
-          title="About us"
-          isMainTitle
-        />
+        <SectionTitle title="About us" />
         <div className={styles.aboutUsText}>
           {aboutUs && aboutUs.map((paragraph, index) => (
             <Animated
