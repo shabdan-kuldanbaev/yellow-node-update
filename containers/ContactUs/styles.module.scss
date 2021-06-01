@@ -7,15 +7,3 @@
 
   @include flex(column, center, center);
 }
-
-.breadcrumbs {
-  @include tablet {
-    width: 100%;
-    top: 0;
-    padding: 0;
-  }
-
-  @include phone {
-    padding-top: 54px;
-  }
-}

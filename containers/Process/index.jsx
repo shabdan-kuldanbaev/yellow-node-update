@@ -5,10 +5,11 @@ import { selectProcessPage } from 'redux/selectors/process';
 import {
   Process,
   MetaTags,
+  PageTitle,
   Breadcrumbs,
   FullLayout,
 } from 'components';
-import { PAGES } from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const ProcessContainer = ({
@@ -22,6 +23,7 @@ const ProcessContainer = ({
       className={styles.process}
     >
       <Breadcrumbs className={styles.breadcrumbs} />
+      <PageTitle title={ROUTES.process.title} />
       <Process processes={json} />
     </section>
   </FullLayout>

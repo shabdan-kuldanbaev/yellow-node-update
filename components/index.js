@@ -31,6 +31,7 @@ export { default as LinearIndeterminate } from 'components/Common/LinearIndeterm
 export { default as Paginator } from 'components/Common/Paginator';
 export { CallToAction } from 'components/Common/CallToAction';
 export { Svg } from 'components/Common/Svg';
+export { PageTitle } from 'components/Common/PageTitle';
 export { default as Breadcrumbs } from 'components/Common/Breadcrumbs';
 
 // HomeCommon

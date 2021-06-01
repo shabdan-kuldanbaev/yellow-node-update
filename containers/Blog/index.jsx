@@ -10,6 +10,7 @@ import {
   ArticlesList,
   Paginator,
   MetaTags,
+  PageTitle,
   Breadcrumbs,
   FullLayout,
 } from 'components';
@@ -50,6 +51,7 @@ const BlogContainer = ({
         className={styles.blog}
       >
         <Breadcrumbs className={styles.breadcrumbs} />
+        <PageTitle title={ROUTES.blog.title} />
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
           articles={articles}

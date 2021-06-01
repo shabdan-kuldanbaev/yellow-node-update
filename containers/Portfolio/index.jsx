@@ -6,6 +6,7 @@ import {
   Portfolio,
   MetaTags,
   Paginator,
+  PageTitle,
   Breadcrumbs,
   FullLayout,
 } from 'components';
@@ -24,6 +25,7 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
         className={styles.portfolio}
       >
         <Breadcrumbs />
+        <PageTitle title={ROUTES.portfolio.title} />
         <Portfolio works={content} />
       </section>
       {/* <Paginator

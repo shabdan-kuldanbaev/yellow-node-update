@@ -15,10 +15,11 @@ import {
   Awards,
   Reviews,
   MetaTags,
+  PageTitle,
   Breadcrumbs,
   FullLayout,
 } from 'components';
-import { PAGES } from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -40,6 +41,7 @@ const CompanyContainer = ({
         className={styles.companyContainer}
       >
         <Breadcrumbs className={styles.breadcrumbs} />
+        <PageTitle title={ROUTES.company.title} />
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />
         <ManagementTeam managementTeam={teamContent} />
