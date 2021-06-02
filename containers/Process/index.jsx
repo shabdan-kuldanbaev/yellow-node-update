@@ -10,26 +10,29 @@ import {
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import styles from './styles.module.scss';
 
 const ProcessContainer = ({
   introSection,
   processes: { json },
-}) => (
-  <Fragment>
-    <MetaTags
-      page={PAGES.process}
-      breadcrumbs={pagesBreadcrumbs.process()}
-    />
-    <FullLayout introSection={introSection}>
-      <PageHeader
-        title={ROUTES.process.title}
-        breadcrumbs={pagesBreadcrumbs.process()}
+}) => {
+  const breadcrumbs = pagesBreadcrumbs.process();
+
+  return (
+    <Fragment>
+      <MetaTags
+        page={PAGES.process}
+        breadcrumbs={breadcrumbs}
       />
-      <Process processes={json} />
-    </FullLayout>
-  </Fragment>
-);
+      <FullLayout introSection={introSection}>
+        <PageHeader
+          title={ROUTES.process.title}
+          breadcrumbs={breadcrumbs}
+        />
+        <Process processes={json} />
+      </FullLayout>
+    </Fragment>
+  );
+};
 
 ProcessContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,

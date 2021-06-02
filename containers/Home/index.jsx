@@ -63,7 +63,7 @@ export const Home = ({
     <Fragment>
       <MetaTags
         page={PAGES.homepage}
-        microdata={microdata.homepage()}
+        pageMicrodata={microdata.homepage()}
       />
       {(!isPageReadyToDisplay || !duck) ? <LoadingPlaceholder /> : (
         <Fragment>

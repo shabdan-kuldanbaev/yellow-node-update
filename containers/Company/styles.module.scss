@@ -1,14 +1,5 @@
 @import 'styles/utils/mixins';
 
-.companyContainer {
-  position: relative;
-  z-index: 2;
-  background-color: $white;
-  overflow-x: hidden;
-
-  @include flex(column, center, center);
-}
-
 .companyReviews {
   width: 100%;
   overflow-x: hidden;

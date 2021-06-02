@@ -16,7 +16,6 @@ import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import styles from './styles.module.scss';
 
 const ContactUsContainer = ({
   introSection,
@@ -36,6 +35,7 @@ const ContactUsContainer = ({
     ['image'],
   );
   const peopleImageUrl = getFileUrl(peopleImage);
+  const breadcrumbs = pagesBreadcrumbs.contact();
 
   const handleOnClick = (...args) => {
     const [
@@ -59,13 +59,13 @@ const ContactUsContainer = ({
     <Fragment>
       <MetaTags
         page={PAGES.contact}
-        microdata={microdata.contact()}
-        breadcrumbs={pagesBreadcrumbs.contact()}
+        pageMicrodata={microdata.contact()}
+        breadcrumbs={breadcrumbs}
       />
       <FullLayout introSection={introSection}>
         <PageHeader
           title={ROUTES.contact.title}
-          breadcrumbs={pagesBreadcrumbs.contact()}
+          breadcrumbs={breadcrumbs}
         />
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />

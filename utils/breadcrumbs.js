@@ -1,9 +1,5 @@
-import { getDataFromLocalStorageWithExpire, isNumeric } from 'utils/helper';
-import {
-  CATEGORY_TAGS,
-  PAGES,
-  ROUTES,
-} from 'utils/constants';
+import { isNumeric } from 'utils/helper';
+import { CATEGORY_TAGS, ROUTES } from 'utils/constants';
 
 export const pagesBreadcrumbs = {
   blog: (category) => {

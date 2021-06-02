@@ -16,7 +16,6 @@ import {
 import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import styles from './styles.module.scss';
 
 const BlogContainer = ({
   introSection,
@@ -30,6 +29,7 @@ const BlogContainer = ({
 }) => {
   const { pathname, query: { slug } } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
+  const breadcrumbs = pagesBreadcrumbs.blog(slug);
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });
@@ -45,12 +45,12 @@ const BlogContainer = ({
       <MetaTags
         page={PAGES.blog}
         pageMetadata={{ pageNumber: currentPage }}
-        breadcrumbs={pagesBreadcrumbs.blog(slug)}
+        breadcrumbs={breadcrumbs}
       />
       <FullLayout introSection={introSection}>
         <PageHeader
           title={ROUTES.blog.title}
-          breadcrumbs={pagesBreadcrumbs.blog(slug)}
+          breadcrumbs={breadcrumbs}
         />
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList

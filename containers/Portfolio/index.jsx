@@ -16,17 +16,18 @@ import styles from './styles.module.scss';
 
 const PortfolioContainer = ({ introSection, portfolioProjects }) => {
   const { content } = getDocumentFields(portfolioProjects, ['content']);
+  const breadcrumbs = pagesBreadcrumbs.portfolio();
 
   return (
     <Fragment>
       <MetaTags
         page={PAGES.portfolio}
-        breadcrumbs={pagesBreadcrumbs.portfolio()}
+        breadcrumbs={breadcrumbs}
       />
       <FullLayout introSection={introSection}>
         <PageHeader
           title={ROUTES.portfolio.title}
-          breadcrumbs={pagesBreadcrumbs.portfolio()}
+          breadcrumbs={breadcrumbs}
         />
         <Portfolio works={content} />
         {/* <Paginator

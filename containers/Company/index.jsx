@@ -32,17 +32,18 @@ const CompanyContainer = ({
   const { content: carouselContent } = getDocumentFields(photosData, ['content']);
   const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
   const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
+  const breadcrumbs = pagesBreadcrumbs.company();
 
   return (
     <Fragment>
       <MetaTags
         page={PAGES.company}
-        breadcrumbs={pagesBreadcrumbs.company()}
+        breadcrumbs={breadcrumbs}
       />
       <FullLayout introSection={introSection}>
         <PageHeader
           title={ROUTES.company.title}
-          breadcrumbs={pagesBreadcrumbs.company()}
+          breadcrumbs={breadcrumbs}
         />
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />
@@ -68,7 +69,6 @@ const CompanyContainer = ({
             <Reviews reviews={reviews} />
           </div>
         </FullLayout>
-        {/* TODO check if this div is needed */}
         <Awards />
       </FullLayout>
     </Fragment>

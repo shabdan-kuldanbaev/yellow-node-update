@@ -1,11 +1,5 @@
 @import 'styles/utils/mixins';
 
-.portfolio {
-  background-color: $white;
-
-  @include flex(column, flex-start, center);
-}
-
 .paginator {
   @include macbook-fifteen {
     margin-top: 0;

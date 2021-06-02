@@ -68,6 +68,7 @@ const ArticleContainer = ({
     headImage,
     articleBody: oldBody || documentToPlainTextString(body),
   });
+  const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
 
   const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
 
@@ -76,11 +77,11 @@ const ArticleContainer = ({
       <MetaTags
         page={PAGES.blog}
         pageMetadata={articleMetadata}
-        microdata={articleMicrodata}
-        breadcrumbs={pagesBreadcrumbs.article(title, articleSlug)}
+        pageMicrodata={articleMicrodata}
+        breadcrumbs={breadcrumbs}
       />
       <FullLayout>
-        <PageHeader breadcrumbs={pagesBreadcrumbs.article(title, articleSlug)} />
+        <PageHeader breadcrumbs={breadcrumbs} />
         <Article
           slug={articleSlug}
           title={title}
@@ -95,8 +96,8 @@ const ArticleContainer = ({
           title={title}
         />
         {relatedArticles
-        && !!relatedArticles.length
-        && <RelatedSection articles={relatedArticles} />}
+          && !!relatedArticles.length
+          && <RelatedSection articles={relatedArticles} />}
         <div className={styles.nextPrevSection}>
           <NextPrev
             isNewer
