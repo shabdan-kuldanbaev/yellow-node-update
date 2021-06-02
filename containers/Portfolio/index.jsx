@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectPortfolioProjectsPreview } from 'redux/selectors/layout';
@@ -6,8 +6,7 @@ import {
   Portfolio,
   MetaTags,
   Paginator,
-  PageTitle,
-  Breadcrumbs,
+  PageHeader,
   FullLayout,
 } from 'components';
 import { getDocumentFields } from 'utils/helper';
@@ -28,8 +27,11 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
         ref={introSection}
         className={styles.portfolio}
       >
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <PageTitle title={ROUTES.portfolio.title} />
+        s
+        <PageHeader
+          title={ROUTES.portfolio.title}
+          breadcrumbs={breadcrumbs}
+        />
         <Portfolio works={content} />
       </section>
       {/* <Paginator

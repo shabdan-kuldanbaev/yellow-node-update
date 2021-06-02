@@ -17,7 +17,7 @@ import {
   NextPrev,
   MetaTags,
   withScroll,
-  Breadcrumbs,
+  PageHeader,
   FullLayout,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
@@ -86,12 +86,7 @@ const ArticleContainer = ({
         pageMetadata={articleMetadata}
         microdata={articleMicrodata}
       />
-      {title && (
-        <Breadcrumbs
-          className={styles.breadcrumbs}
-          breadcrumbs={breadcrumbs}
-        />
-      )}
+      <PageHeader breadcrumbs={breadcrumbs} />
       <Article
         slug={articleSlug}
         title={title}

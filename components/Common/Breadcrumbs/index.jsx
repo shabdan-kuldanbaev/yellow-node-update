@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
-import cn from 'classnames';
 import { Animated, LinkWrapper } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { microdata } from 'utils/microdata';
@@ -38,10 +37,10 @@ const Breadcrumbs = ({ breadcrumbs }) => (breadcrumbs
                 Home
               </LinkWrapper>
             </li>
-            {breadcrumbs.map((breadcrumb, index, breadcrumbsArray) => (
-              <li key={breadcrumb.url}>
+            {breadcrumbs.map((breadcrumb) => (
+              <li key={breadcrumb.to}>
                 <LinkWrapper
-                  path={breadcrumb.url}
+                  path={breadcrumb.to}
                   isLocalLink
                 >
                   {breadcrumb.title}

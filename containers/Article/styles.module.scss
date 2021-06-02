@@ -13,16 +13,3 @@
     @include flex(row, space-between, center, wrap);
   }
 }
-
-.breadcrumbs {
-  margin: 0 auto;
-  max-width: 1500px;
-
-  @include tablet {
-    width: calc(100% - 50px);
-  }
-
-  @include phone {
-    padding: 120px 0 0;
-  }
-}

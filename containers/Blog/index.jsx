@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -10,8 +10,7 @@ import {
   ArticlesList,
   Paginator,
   MetaTags,
-  PageTitle,
-  Breadcrumbs,
+  PageHeader,
   FullLayout,
 } from 'components';
 import { getDataFromLocalStorageWithExpire, isNumeric } from 'utils/helper';
@@ -68,8 +67,10 @@ const BlogContainer = ({
         ref={introSection}
         className={styles.blog}
       >
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <PageTitle title={ROUTES.blog.title} />
+        <PageHeader
+          title={ROUTES.blog.title}
+          breadcrumbs={breadcrumbs}
+        />
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
           articles={articles}

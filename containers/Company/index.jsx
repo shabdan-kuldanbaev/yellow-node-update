@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -15,8 +15,7 @@ import {
   Awards,
   Reviews,
   MetaTags,
-  PageTitle,
-  Breadcrumbs,
+  PageHeader,
   FullLayout,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
@@ -44,11 +43,10 @@ const CompanyContainer = ({
         ref={introSection}
         className={styles.companyContainer}
       >
-        <Breadcrumbs
-          className={styles.breadcrumbs}
+        <PageHeader
+          title={ROUTES.company.title}
           breadcrumbs={breadcrumbs}
         />
-        <PageTitle title={ROUTES.company.title} />
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />
         <ManagementTeam managementTeam={teamContent} />

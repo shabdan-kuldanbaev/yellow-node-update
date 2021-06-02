@@ -9,8 +9,7 @@ import {
   CompanyPeoplePhoto,
   CompanyContacts,
   MetaTags,
-  PageTitle,
-  Breadcrumbs,
+  PageHeader,
   FullLayout,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
@@ -69,8 +68,10 @@ const ContactUsContainer = ({
         ref={introSection}
         className={styles.contactContainer}
       >
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <PageTitle title={ROUTES.contact.title} />
+        <PageHeader
+          title={ROUTES.contact.title}
+          breadcrumbs={breadcrumbs}
+        />
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
         <CompanyPeoplePhoto photo={peopleImageUrl} />

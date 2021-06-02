@@ -1,13 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
 import {
   Process,
   MetaTags,
-  PageTitle,
-  Breadcrumbs,
+  PageHeader,
   FullLayout,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
@@ -29,8 +27,10 @@ const ProcessContainer = ({
         ref={introSection}
         className={styles.process}
       >
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <PageTitle title={ROUTES.process.title} />
+        <PageHeader
+          title={ROUTES.process.title}
+          breadcrumbs={breadcrumbs}
+        />
         <Process processes={json} />
       </section>
     </FullLayout>

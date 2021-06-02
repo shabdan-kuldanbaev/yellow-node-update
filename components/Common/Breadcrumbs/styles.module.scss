@@ -6,19 +6,15 @@
   width: 100%;
   max-width: 1300px;
 
-  @include macbook-fifteen {
-    padding-top: calc(#{$section-indent} / 2);
-  }
-
   @include phone {
-    padding: 40px 0;
+    padding-bottom: calc(#{$mobile-section-indent} / 2);
   }
 
   ol {
     margin: 0;
     padding: 0;
     list-style: none;
-    color: #9a999c;
+    color: $mountain-mis;
 
     @include flex();
 
@@ -27,15 +23,14 @@
     }
 
     a {
-      color: #9a999c;
+      color: $mountain-mis;
     }
 
     li::after {
       content: '/';
-      margin-left: 8px;
+      margin: 0 8px;
       user-select: none;
-      margin-right: 8px;
-      color: #9a999c;
+      color: $mountain-mis;
     }
 
     li:last-child {
@@ -47,7 +42,7 @@
 
       & > a {
         pointer-events: none;
-        color: #000;
+        color: $black;
       }
     }
   }
