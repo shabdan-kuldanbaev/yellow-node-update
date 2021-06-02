@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -13,13 +13,9 @@ import {
   PageHeader,
   FullLayout,
 } from 'components';
-import { getDataFromLocalStorageWithExpire, isNumeric } from 'utils/helper';
-import {
-  CATEGORY_TAGS,
-  PAGES,
-  ROUTES,
-} from 'utils/constants';
-
+import { getDataFromLocalStorageWithExpire } from 'utils/helper';
+import { PAGES, ROUTES } from 'utils/constants';
+import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
 const BlogContainer = ({
@@ -34,19 +30,6 @@ const BlogContainer = ({
 }) => {
   const { pathname, query: { slug } } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
-  const breadcrumbs = slug && !isNumeric(slug) ? [
-    {
-      title: ROUTES.blog.title,
-      to: ROUTES.blog.path,
-    },
-    {
-      title: CATEGORY_TAGS[slug],
-      to: `${ROUTES.blog.path}/${slug}`,
-    },
-  ] : [{
-    title: ROUTES.blog.title,
-    to: ROUTES.blog.path,
-  }];
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });
@@ -58,18 +41,16 @@ const BlogContainer = ({
   }, []);
 
   return (
-    <FullLayout>
+    <Fragment>
       <MetaTags
         page={PAGES.blog}
         pageMetadata={{ pageNumber: currentPage }}
+        breadcrumbs={pagesBreadcrumbs.blog(slug)}
       />
-      <section
-        ref={introSection}
-        className={styles.blog}
-      >
+      <FullLayout introSection={introSection}>
         <PageHeader
           title={ROUTES.blog.title}
-          breadcrumbs={breadcrumbs}
+          breadcrumbs={pagesBreadcrumbs.blog(slug)}
         />
         {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
         <ArticlesList
@@ -83,8 +64,8 @@ const BlogContainer = ({
           currentPage={currentPage}
           pageSlug={ROUTES.blog.slug}
         />
-      </section>
-    </FullLayout>
+      </FullLayout>
+    </Fragment>
   );
 };
 

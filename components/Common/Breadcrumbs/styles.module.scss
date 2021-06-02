@@ -3,7 +3,6 @@
 .breadcrumbs {
   padding-bottom: calc(#{$section-indent} / 2);
   z-index: 3;
-  width: 100%;
   max-width: 1300px;
 
   @include phone {

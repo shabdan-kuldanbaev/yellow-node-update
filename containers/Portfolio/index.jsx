@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectPortfolioProjectsPreview } from 'redux/selectors/layout';
@@ -11,36 +11,32 @@ import {
 } from 'components';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
+import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
 const PortfolioContainer = ({ introSection, portfolioProjects }) => {
   const { content } = getDocumentFields(portfolioProjects, ['content']);
-  const breadcrumbs = [{
-    title: ROUTES.portfolio.title,
-    to: ROUTES.portfolio.path,
-  }];
 
   return (
-    <FullLayout>
-      <MetaTags page={PAGES.portfolio} />
-      <section
-        ref={introSection}
-        className={styles.portfolio}
-      >
-        s
+    <Fragment>
+      <MetaTags
+        page={PAGES.portfolio}
+        breadcrumbs={pagesBreadcrumbs.portfolio()}
+      />
+      <FullLayout introSection={introSection}>
         <PageHeader
           title={ROUTES.portfolio.title}
-          breadcrumbs={breadcrumbs}
+          breadcrumbs={pagesBreadcrumbs.portfolio()}
         />
         <Portfolio works={content} />
-      </section>
-      {/* <Paginator
+        {/* <Paginator
         pagesCounter={8}
         currentPage={1}
         pageSlug={ROUTES.portfolio.slug}
         className={styles.paginator}
       /> */}
-    </FullLayout>
+      </FullLayout>
+    </Fragment>
   );
 };
 

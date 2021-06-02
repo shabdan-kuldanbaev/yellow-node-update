@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
@@ -15,6 +15,7 @@ import {
 import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
+import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
 const ContactUsContainer = ({
@@ -35,10 +36,6 @@ const ContactUsContainer = ({
     ['image'],
   );
   const peopleImageUrl = getFileUrl(peopleImage);
-  const breadcrumbs = [{
-    title: ROUTES.contact.title,
-    to: ROUTES.contact.path,
-  }];
 
   const handleOnClick = (...args) => {
     const [
@@ -59,25 +56,23 @@ const ContactUsContainer = ({
   };
 
   return (
-    <FullLayout>
+    <Fragment>
       <MetaTags
         page={PAGES.contact}
         microdata={microdata.contact()}
+        breadcrumbs={pagesBreadcrumbs.contact()}
       />
-      <section
-        ref={introSection}
-        className={styles.contactContainer}
-      >
+      <FullLayout introSection={introSection}>
         <PageHeader
           title={ROUTES.contact.title}
-          breadcrumbs={breadcrumbs}
+          breadcrumbs={pagesBreadcrumbs.contact()}
         />
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
         <CompanyPeoplePhoto photo={peopleImageUrl} />
         <CompanyContacts photo={officeImageUrl} />
-      </section>
-    </FullLayout>
+      </FullLayout>
+    </Fragment>
   );
 };
 

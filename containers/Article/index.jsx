@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
@@ -20,9 +20,10 @@ import {
   PageHeader,
   FullLayout,
 } from 'components';
-import { PAGES, ROUTES } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
+import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { getArticleProps, getNearbyArticlesProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
@@ -67,57 +68,51 @@ const ArticleContainer = ({
     headImage,
     articleBody: oldBody || documentToPlainTextString(body),
   });
-  const breadcrumbs = [
-    {
-      title: ROUTES.blog.title,
-      to: ROUTES.blog.path,
-    },
-    {
-      title,
-      to: `${ROUTES.blog.path}/${articleSlug}`,
-    }];
 
   const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
 
   return (
-    <FullLayout>
+    <Fragment>
       <MetaTags
         page={PAGES.blog}
         pageMetadata={articleMetadata}
         microdata={articleMicrodata}
+        breadcrumbs={pagesBreadcrumbs.article(title, articleSlug)}
       />
-      <PageHeader breadcrumbs={breadcrumbs} />
-      <Article
-        slug={articleSlug}
-        title={title}
-        oldBody={oldBody}
-        body={body}
-        introduction={introduction}
-        headImage={headImage}
-        introSection={introSection}
-      />
-      <SocialThumbnails
-        url={`${rootUrl}/blog/${slug}`}
-        title={title}
-      />
-      {relatedArticles
+      <FullLayout>
+        <PageHeader breadcrumbs={pagesBreadcrumbs.article(title, articleSlug)} />
+        <Article
+          slug={articleSlug}
+          title={title}
+          oldBody={oldBody}
+          body={body}
+          introduction={introduction}
+          headImage={headImage}
+          introSection={introSection}
+        />
+        <SocialThumbnails
+          url={`${rootUrl}/blog/${slug}`}
+          title={title}
+        />
+        {relatedArticles
         && !!relatedArticles.length
         && <RelatedSection articles={relatedArticles} />}
-      <div className={styles.nextPrevSection}>
-        <NextPrev
-          isNewer
-          slug={nextArticle.slug}
-          title={nextArticle.title}
-          previewImageUrl={nextArticle.previewImageUrl}
-        />
-        <NextPrev
-          slug={prevArticle.slug}
-          title={prevArticle.title}
-          previewImageUrl={prevArticle.previewImageUrl}
-        />
-      </div>
-      <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
-    </FullLayout>
+        <div className={styles.nextPrevSection}>
+          <NextPrev
+            isNewer
+            slug={nextArticle.slug}
+            title={nextArticle.title}
+            previewImageUrl={nextArticle.previewImageUrl}
+          />
+          <NextPrev
+            slug={prevArticle.slug}
+            title={prevArticle.title}
+            previewImageUrl={prevArticle.previewImageUrl}
+          />
+        </div>
+        <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
+      </FullLayout>
+    </Fragment>
   );
 };
 

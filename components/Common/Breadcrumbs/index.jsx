@@ -1,56 +1,48 @@
-import React, { Fragment } from 'react';
-import Head from 'next/head';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Animated, LinkWrapper } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
 
 const Breadcrumbs = ({ breadcrumbs }) => (breadcrumbs
   ? (
-    <Fragment>
-      <Head>
-        <script
-          key="JSON-LD-breadcrumbs"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(microdata.breadcrumbs({ breadcrumbsList: breadcrumbs })),
-          }}
-        />
-      </Head>
-      <div
-        aria-label="breadcrumbs"
-        className={styles.breadcrumbs}
+    <div
+      aria-label="breadcrumbs"
+      className={styles.breadcrumbs}
+    >
+      <Animated
+        type={ANIMATED_TYPE.isCustom}
+        translateY="2.82352941em"
+        opasityDuration={1}
+        transformDuration={1}
+        transitionDelay={150}
       >
-        <Animated
-          type={ANIMATED_TYPE.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={150}
-        >
-          <ol>
-            <li>
+        <ol>
+          <li>
+            <LinkWrapper
+              path="/"
+              isLocalLink
+            >
+              Home
+            </LinkWrapper>
+          </li>
+          {breadcrumbs.map((breadcrumb) => (
+            <li key={breadcrumb.to}>
               <LinkWrapper
-                path="/"
+                path={breadcrumb.to}
                 isLocalLink
               >
-                Home
+                {breadcrumb.title}
               </LinkWrapper>
             </li>
-            {breadcrumbs.map((breadcrumb) => (
-              <li key={breadcrumb.to}>
-                <LinkWrapper
-                  path={breadcrumb.to}
-                  isLocalLink
-                >
-                  {breadcrumb.title}
-                </LinkWrapper>
-              </li>
-            ))}
-          </ol>
-        </Animated>
-      </div>
-    </Fragment>
+          ))}
+        </ol>
+      </Animated>
+    </div>
   ) : null);
+
+Breadcrumbs.propTypes = {
+  breadcrumbs: PropTypes.instanceOf(Array).isRequired,
+};
 
 export default Breadcrumbs;
