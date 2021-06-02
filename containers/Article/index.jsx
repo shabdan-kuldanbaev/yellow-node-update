@@ -17,11 +17,13 @@ import {
   NextPrev,
   MetaTags,
   withScroll,
+  PageHeader,
   FullLayout,
 } from 'components';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
+import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { getArticleProps, getNearbyArticlesProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
@@ -66,47 +68,52 @@ const ArticleContainer = ({
     headImage,
     articleBody: oldBody || documentToPlainTextString(body),
   });
+  const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
 
   const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
 
   return (
-    <FullLayout>
+    <Fragment>
       <MetaTags
         page={PAGES.blog}
         pageMetadata={articleMetadata}
-        microdata={articleMicrodata}
+        pageMicrodata={articleMicrodata}
+        breadcrumbs={breadcrumbs}
       />
-      <Article
-        slug={articleSlug}
-        title={title}
-        oldBody={oldBody}
-        body={body}
-        introduction={introduction}
-        headImage={headImage}
-        introSection={introSection}
-      />
-      <SocialThumbnails
-        url={`${rootUrl}/blog/${slug}`}
-        title={title}
-      />
-      {relatedArticles
-        && !!relatedArticles.length
-        && <RelatedSection articles={relatedArticles} />}
-      <div className={styles.nextPrevSection}>
-        <NextPrev
-          isNewer
-          slug={nextArticle.slug}
-          title={nextArticle.title}
-          previewImageUrl={nextArticle.previewImageUrl}
+      <FullLayout>
+        <PageHeader breadcrumbs={breadcrumbs} />
+        <Article
+          slug={articleSlug}
+          title={title}
+          oldBody={oldBody}
+          body={body}
+          introduction={introduction}
+          headImage={headImage}
+          introSection={introSection}
         />
-        <NextPrev
-          slug={prevArticle.slug}
-          title={prevArticle.title}
-          previewImageUrl={prevArticle.previewImageUrl}
+        <SocialThumbnails
+          url={`${rootUrl}/blog/${slug}`}
+          title={title}
         />
-      </div>
-      <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
-    </FullLayout>
+        {relatedArticles
+          && !!relatedArticles.length
+          && <RelatedSection articles={relatedArticles} />}
+        <div className={styles.nextPrevSection}>
+          <NextPrev
+            isNewer
+            slug={nextArticle.slug}
+            title={nextArticle.title}
+            previewImageUrl={nextArticle.previewImageUrl}
+          />
+          <NextPrev
+            slug={prevArticle.slug}
+            title={prevArticle.title}
+            previewImageUrl={prevArticle.previewImageUrl}
+          />
+        </div>
+        <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
+      </FullLayout>
+    </Fragment>
   );
 };
 

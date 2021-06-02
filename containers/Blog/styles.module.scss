@@ -1,8 +1,0 @@
-@import 'styles/utils/mixins';
-
-.blog {
-  background-color: $white;
-  min-height: calc(100vh - 230px - 487px);
-
-  @include flex(column, flex-start, center);
-}

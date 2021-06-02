@@ -9,6 +9,7 @@ export const FullLayout = ({
   disableTopPadding,
   disableSidePadding,
   disableBottomPadding,
+  introSection,
 }) => {
   const layoutStyles = cn(styles.fullLayout, {
     [styles.disableMaxWidth]: disableMaxWidth,
@@ -18,7 +19,10 @@ export const FullLayout = ({
   });
 
   return (
-    <div className={layoutStyles}>
+    <div
+      className={layoutStyles}
+      ref={introSection}
+    >
       {children}
     </div>
   );
@@ -30,6 +34,7 @@ FullLayout.defaultProps = {
   disableTopPadding: false,
   disableSidePadding: false,
   disableBottomPadding: false,
+  introSection: null,
 };
 
 FullLayout.propTypes = {
@@ -38,4 +43,5 @@ FullLayout.propTypes = {
   disableTopPadding: PropTypes.bool,
   disableSidePadding: PropTypes.bool,
   disableBottomPadding: PropTypes.bool,
+  introSection: PropTypes.instanceOf(Object),
 };

@@ -22,7 +22,7 @@
   }
 
   @include phone {
-    padding: 40px 0 $mobile-section-indent - 20px;
+    padding: calc(#{$mobile-section-indent} - 20px) 0 $mobile-section-indent - 20px;
   }
 
   & > div:first-child {
@@ -46,7 +46,7 @@
 
       @include flex(column, space-around, flex-start);
 
-      & > div:nth-of-type(1) > h1 {
+      & > div:nth-of-type(1) > h2 {
         @include big-title();
 
         margin-bottom: 50px;

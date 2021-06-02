@@ -15,10 +15,12 @@ import {
   Awards,
   Reviews,
   MetaTags,
+  PageHeader,
   FullLayout,
 } from 'components';
-import { PAGES } from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
+import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
 const CompanyContainer = ({
@@ -30,42 +32,46 @@ const CompanyContainer = ({
   const { content: carouselContent } = getDocumentFields(photosData, ['content']);
   const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
   const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
+  const breadcrumbs = pagesBreadcrumbs.company();
 
   return (
-    <FullLayout>
-      <MetaTags page={PAGES.company} />
-      <section
-        ref={introSection}
-        className={styles.companyContainer}
-      >
+    <Fragment>
+      <MetaTags
+        page={PAGES.company}
+        breadcrumbs={breadcrumbs}
+      />
+      <FullLayout introSection={introSection}>
+        <PageHeader
+          title={ROUTES.company.title}
+          breadcrumbs={breadcrumbs}
+        />
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />
         <ManagementTeam managementTeam={teamContent} />
-      </section>
-      {carouselContent && (
+        {carouselContent && (
+          <FullLayout
+            disableMaxWidth
+            disableTopPadding
+            disableSidePadding
+            disableBottomPadding
+          >
+            <PhotoGallery photos={carouselContent} />
+          </FullLayout>
+        )}
         <FullLayout
           disableMaxWidth
           disableTopPadding
           disableSidePadding
           disableBottomPadding
         >
-          <PhotoGallery photos={carouselContent} />
+          {/* TODO check if this div is needed */}
+          <div className={styles.companyReviews}>
+            <Reviews reviews={reviews} />
+          </div>
         </FullLayout>
-      )}
-      <FullLayout
-        disableMaxWidth
-        disableTopPadding
-        disableSidePadding
-        disableBottomPadding
-      >
-        {/* TODO check if this div is needed */}
-        <div className={styles.companyReviews}>
-          <Reviews reviews={reviews} />
-        </div>
+        <Awards />
       </FullLayout>
-      {/* TODO check if this div is needed */}
-      <Awards />
-    </FullLayout>
+    </Fragment>
   );
 };
 

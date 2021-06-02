@@ -13,7 +13,6 @@ const FeedbackFormWithTitle = ({ handleOnClick }) => (
         isFeedbackForm
         subtitle="Fill in this form or"
         linkText="send us an e-mail"
-        isMainTitle
       />
       <FeedbackForm
         isChooseBudget

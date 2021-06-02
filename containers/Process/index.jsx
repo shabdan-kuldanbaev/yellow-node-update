@@ -5,20 +5,34 @@ import { selectProcessPage } from 'redux/selectors/process';
 import {
   Process,
   MetaTags,
+  PageHeader,
   FullLayout,
 } from 'components';
-import { PAGES } from 'utils/constants';
-import styles from './styles.module.scss';
+import { PAGES, ROUTES } from 'utils/constants';
+import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 
 const ProcessContainer = ({
   introSection,
   processes: { json },
-}) => (
-  <FullLayout>
-    <MetaTags page={PAGES.process} />
-    <Process processes={json} />
-  </FullLayout>
-);
+}) => {
+  const breadcrumbs = pagesBreadcrumbs.process();
+
+  return (
+    <Fragment>
+      <MetaTags
+        page={PAGES.process}
+        breadcrumbs={breadcrumbs}
+      />
+      <FullLayout introSection={introSection}>
+        <PageHeader
+          title={ROUTES.process.title}
+          breadcrumbs={breadcrumbs}
+        />
+        <Process processes={json} />
+      </FullLayout>
+    </Fragment>
+  );
+};
 
 ProcessContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,

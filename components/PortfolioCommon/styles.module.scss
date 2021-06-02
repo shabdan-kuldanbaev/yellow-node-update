@@ -76,26 +76,22 @@
     }
 
     @include macbook-fifteen {
-      height: 100vh;
-      margin-top: 0;
+      margin-top: 200px;
 
       &:first-child {
-        margin-top: 81px;
-        height: calc(100vh - 81px);
+        margin-top: calc(#{$section-indent} - 20px);
       }
     }
 
     @include tablet {
       width: 100%;
-      height: auto;
       margin: auto;
       padding-bottom: 120px;
 
       @include flex(column-reverse, flex-end, center);
 
       &:first-child {
-        height: auto;
-        margin-top: 160px;
+        margin-top: calc(#{$section-indent} - 20px);
       }
     }
 
@@ -112,7 +108,7 @@
       @include flex(column-reverse, center, center);
 
       &:first-child {
-        padding-top: 0;
+        padding-top: calc(#{$mobile-section-indent} - 20px);
         margin-top: 0;
       }
     }

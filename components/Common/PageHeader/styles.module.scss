@@ -1,0 +1,21 @@
+@import 'styles/utils/mixins';
+
+.titleContainer {
+  h1 {
+    margin: 0;
+
+    @include fontSize(60px);
+
+    @include macbook-twelve {
+      @include fontSize(55px);
+    }
+
+    @include tablet {
+      @include fontSize(50px);
+    }
+
+    @include phone {
+      @include fontSize(45px);
+    }
+  }
+}
