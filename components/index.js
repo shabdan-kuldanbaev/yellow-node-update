@@ -58,6 +58,7 @@ export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';
 export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
 export { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 export { OldArticle } from 'components/BlogCommon/Article/OldArticle';
+export { Author } from 'components/BlogCommon/Article/Author';
 
 // PortfolioCommon
 export { default as Portfolio } from 'components/PortfolioCommon';

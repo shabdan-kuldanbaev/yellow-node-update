@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
+import dayjs from 'dayjs';
 import {
   PAGES,
   FEEDBACK_FORM_FIELDS,
@@ -214,3 +215,5 @@ export const serverSideRedirect = ({ res }, {
     res.end();
   }
 };
+
+export const getFormattedDate = (date, format) => dayjs(date).format(format);
