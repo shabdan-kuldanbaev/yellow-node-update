@@ -17,7 +17,7 @@ export function* fetchProject({ projectSlug }) {
     });
 
     yield put({ type: actionTypes.GET_PROJECT_SUCCESS, payload: project });
-  } catch (err) {
-    yield put({ type: actionTypes.GET_PROJECT_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.GET_PROJECT_FAILED, payload: error });
   }
 }

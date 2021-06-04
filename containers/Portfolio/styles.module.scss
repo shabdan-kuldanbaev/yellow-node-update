@@ -1,24 +1,5 @@
 @import 'styles/utils/mixins';
 
-.portfolio {
-  padding: 0 $side-indent;
-  background-color: $white;
-
-  @include flex(column, flex-start, center);
-
-  @include macbook-fifteen {
-    padding: 0 80px;
-  }
-
-  @include tablet {
-    padding: 0 $side-indent;
-  }
-
-  @include phone {
-    padding: 100px $side-indent 0;
-  }
-}
-
 .paginator {
   @include macbook-fifteen {
     margin-top: 0;

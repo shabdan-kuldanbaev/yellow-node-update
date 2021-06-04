@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .worksContainer {
-  margin: 0 0 250px;
+  padding: 0 0 100px;
   width: 100%;
   background-color: $white;
 
@@ -11,6 +11,10 @@
 
   @include macbook-fifteen {
     width: 100%;
+  }
+
+  @include tablet {
+    padding: 0;
   }
 
   .workWrapper {
@@ -68,30 +72,26 @@
     @include flex(row, space-between, center);
 
     &:first-child {
-      margin-top: 250px;
+      margin-top: 130px;
     }
 
     @include macbook-fifteen {
-      height: 100vh;
-      margin-top: 0;
+      margin-top: 200px;
 
       &:first-child {
-        margin-top: 81px;
-        height: calc(100vh - 81px);
+        margin-top: calc(#{$section-indent} - 20px);
       }
     }
 
     @include tablet {
       width: 100%;
-      height: auto;
       margin: auto;
       padding-bottom: 120px;
 
       @include flex(column-reverse, flex-end, center);
 
       &:first-child {
-        height: auto;
-        margin-top: 160px;
+        margin-top: calc(#{$section-indent} - 20px);
       }
     }
 
@@ -108,7 +108,7 @@
       @include flex(column-reverse, center, center);
 
       &:first-child {
-        padding-top: 0;
+        padding-top: calc(#{$mobile-section-indent} - 20px);
         margin-top: 0;
       }
     }
@@ -162,22 +162,11 @@
         transition: transform $default-transition-time, opacity $default-transition-time;
 
         @include tablet {
-          margin-left: $side-indent * 2;
-          margin-right: $side-indent * 2;
-          max-width: calc(100% - (#{$side-indent} * 4));
-        }
-
-        @include below-tablet {
-          margin-left: $side-indent * 2;
-          margin-right: $side-indent * 2;
-          max-width: calc(100% - (#{$side-indent} * 4));
+          max-width: calc(100% - (#{$side-indent} * 2));
         }
 
         @include below-tablet-horizontal {
           padding-left: 0;
-          margin-left: $side-indent * 2;
-          margin-right: $side-indent * 2;
-          max-width: calc(100% - (#{$side-indent} * 4));
         }
 
         @include phone {

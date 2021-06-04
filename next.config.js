@@ -19,7 +19,7 @@ const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
 const nextConfig = {
   distDir: 'build',
   ...withCDN,
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     /* eslint-disable */
     require('dotenv').config();
 
@@ -55,6 +55,10 @@ const nextConfig = {
         },
       },
     });
+
+    if (!isServer) {
+      config.resolve.alias['@sentry/node'] = '@sentry/browser';
+    }
 
     return config;
   },

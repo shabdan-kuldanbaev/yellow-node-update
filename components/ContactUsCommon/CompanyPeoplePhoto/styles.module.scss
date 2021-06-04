@@ -2,30 +2,12 @@
 
 .companyPeoplePhoto {
   width: 100%;
-  margin-bottom: 100px;
+  padding: 100px 0;
 
   @include flex(column, center, center);
 
-  @include ultra-hd {
-    width: $max-content-width;
-  }
-
-  @include macbook-twelve {
-    width: 100%;
-  }
-
-  @include tablet {
-    margin-bottom: 150px;
-  }
-
-  @include below-tablet {
-    margin-top: 100px;
-    margin-bottom: 0;
-  }
-
   @include phone {
-    padding: 60px $side-indent $mobile-section-indent - 20px;
-    margin-top: 0;
+    padding: 60px 0 $mobile-section-indent - 20px;
   }
 
   & > div:first-child div {

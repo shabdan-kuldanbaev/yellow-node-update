@@ -15,6 +15,7 @@ export const SocialIcons = ({ theme, socialNetworks: socialLinks }) => (
           key={`social/${href}`}
           path={href}
           isLocalLink
+          isSocialLink
         >
           {svgIcon}
         </LinkWrapper>

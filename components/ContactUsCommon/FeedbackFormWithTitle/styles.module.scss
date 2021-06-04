@@ -7,8 +7,7 @@
   z-index: 2;
   width: 100%;
   height: auto;
-  margin-top: 160px;
-  padding-bottom: 150px;
+  padding: 50px 0 100px;
 
   @include flex(row, center, center);
 
@@ -17,33 +16,25 @@
   }
 
   @include full-hd {
-    margin-top: 32vh;
-    padding-bottom: 30vh;
+    padding: 100px 0 20vh;
   }
 
   @include macbook-fifteen {
-    margin-top: 15vw;
-    padding-bottom: 16vw;
+    padding-bottom: 10vw;
   }
 
   @include macbook-twelve {
-    margin-top: 12vw;
     width: 100%;
+    padding-top: 100px;
   }
 
   @include tablet {
     height: auto;
-    padding-bottom: 150px;
-    margin-top: 81px;
-  }
-
-  @include below-tablet {
-    padding-bottom: 100px;
+    padding: 100px 0;
   }
 
   @include phone {
-    padding: 40px $side-indent $mobile-section-indent - 20px;
-    margin-top: 0;
+    padding: calc(#{$mobile-section-indent} - 20px) 0 $mobile-section-indent - 20px;
   }
 
   & > div:first-child {
@@ -72,7 +63,7 @@
         max-width: 100%;
       }
 
-      & > div:nth-of-type(1) > h1 {
+      & > div:nth-of-type(1) > h2 {
         @include big-title();
 
         margin-top: 50px;

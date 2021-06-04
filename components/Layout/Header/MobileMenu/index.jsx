@@ -51,6 +51,7 @@ const MobileMenu = ({
               key={`links/${title}`}
               path={href}
               isLocalLink
+              isSocialLink
             >
               {title}
             </LinkWrapper>

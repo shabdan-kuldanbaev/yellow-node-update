@@ -1,0 +1,36 @@
+@import 'styles/utils/mixins';
+
+.fullLayout {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  padding: calc(#{$header-height} + 60px) 80px 100px;
+  position: relative;
+
+  @include tablet {
+    padding: calc(#{$header-height} + 60px) 40px 100px;
+  }
+
+  @include phone {
+    padding: calc(#{$header-height} + 40px) 15px 100px;
+  }
+}
+
+.disableMaxWidth {
+  max-width: none;
+  width: 100vw;
+  position: relative;
+  left: calc(-50vw + 50%);
+}
+
+.disableSidePadding {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.disableTopPadding {
+  padding-top: 0;
+}
+
+.disableBottomPadding {
+  padding-bottom: 0;
+}

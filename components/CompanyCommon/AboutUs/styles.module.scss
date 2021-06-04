@@ -3,40 +3,18 @@
 .aboutUs {
   position: relative;
   z-index: 2;
-  padding-bottom: 100px;
+  padding: 100px 0;
   width: 100%;
   height: auto;
-  margin-top: 81px;
 
   @include flex(row, space-between, center, wrap);
 
   @include ultra-hd {
-    margin-top: 160px;
     max-width: $max-content-width;
-  }
-
-  @include full-hd {
-    margin-top: 81px;
-    height: calc(100vh - 81px);
-  }
-
-  @include macbook-fifteen {
-    margin-top: 9.47vw;
-    height: auto;
-  }
-
-  @include desktop {
-    padding-top: 30px;
-    height: auto;
-  }
-
-  @include macbook-twelve {
-    margin-top: 8vw;
   }
 
   @include tablet {
     height: auto;
-    margin-top: 0;
   }
 
   @include horizontal-mobile {
@@ -44,8 +22,7 @@
   }
 
   @include phone {
-    padding: 40px $side-indent $mobile-section-indent - 20px;
-    margin-top: 0;
+    padding: calc(#{$mobile-section-indent} - 20px) 0 $mobile-section-indent - 20px;
   }
 
   & > div:first-child {
@@ -69,7 +46,7 @@
 
       @include flex(column, space-around, flex-start);
 
-      & > div:nth-of-type(1) > h1 {
+      & > div:nth-of-type(1) > h2 {
         @include big-title();
 
         margin-bottom: 50px;

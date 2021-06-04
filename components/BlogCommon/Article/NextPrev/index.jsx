@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper, ImageWithPlaceholder } from 'components';
+import { LinkWrapper } from 'components';
 import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -27,9 +27,10 @@ const NextPrev = ({
     >
       <LinkWrapper {...linkProps}>
         <div className={styles.imgContainer}>
-          <ImageWithPlaceholder
+          <img
+            className={styles.img}
             src={getOptimizedImage(previewImageUrl, 720)}
-            imageStyle={styles.img}
+            alt={title}
           />
         </div>
       </LinkWrapper>

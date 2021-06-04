@@ -12,15 +12,21 @@ import isEqual from 'lodash/isEqual';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
-import {
-  fetchContentfulNearbyArticles,
-  fetchContentfulArticles,
-  findArticlesByValue,
-} from 'utils/contentfulUtils';
+import { contentfulClient } from 'utils/ContentfulClient';
+import { fetchContentfulArticles } from 'utils/contentfulUtils';
 import { PAGES } from 'utils/constants';
+import { GRAPHQL_QUERY } from 'utils/graphqlQuery';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
+
+function getGraphqlResultArticles(graphqlResult) {
+  return get(graphqlResult, 'articleCollection.items', []);
+}
+
+function getGraphqlResultTotalArticlesCount(graphqlResult) {
+  return get(graphqlResult, 'articleCollection.total', []);
+}
 
 function* getArticle({ articleSlug }) {
   try {
@@ -29,8 +35,8 @@ function* getArticle({ articleSlug }) {
     });
 
     yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: article });
-  } catch (err) {
-    yield put({ type: actionTypes.GET_ARTICLE_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.GET_ARTICLE_FAILED, payload: error });
   }
 }
 
@@ -40,16 +46,27 @@ export function* loadArticles({
   category,
 }) {
   try {
-    const { items, total } = yield fetchContentfulArticles({
-      order: '-fields.publishedAt',
-      'fields.categoryTag[match]': category,
-      limit: currentLimit,
+    const response = yield contentfulClient.graphql(GRAPHQL_QUERY.loadPreviewArticles({
       skip,
-    });
+      limit: currentLimit,
+      order: '[publishedAt_DESC]',
+      where: {
+        ...(category
+          ? { categoryTag: category }
+          : { categoryTag_exists: true }
+        ),
+      },
+    }));
 
-    yield put({ type: actionTypes.LOAD_ARTICLES_SUCCESS, payload: { items, total } });
-  } catch (err) {
-    yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: err });
+    yield put({
+      type: actionTypes.LOAD_ARTICLES_SUCCESS,
+      payload: {
+        items: getGraphqlResultArticles(response),
+        total: getGraphqlResultTotalArticlesCount(response),
+      },
+    });
+  } catch (error) {
+    yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: error });
   }
 }
 
@@ -59,68 +76,97 @@ function* loadRelatedArticles({
   categoryTag,
 }) {
   try {
-    const { items } = yield fetchContentfulArticles({
-      'fields.slug[ne]': currentArticleSlug,
-      'fields.categoryTag[match]': categoryTag,
+    const response = yield contentfulClient.graphql(GRAPHQL_QUERY.getNearbyAndRelatedArticle({
       limit: currentLimit,
-    });
+      where: {
+        categoryTag,
+        slug_not: currentArticleSlug,
+      },
+    }));
 
-    yield put({ type: actionTypes.LOAD_RELATED_SUCCESS, payload: items });
-  } catch (err) {
-    yield put({ type: actionTypes.LOAD_RELATED_FAILED, payload: err });
+    yield put({
+      type: actionTypes.LOAD_RELATED_SUCCESS,
+      payload: getGraphqlResultArticles(response),
+    });
+  } catch (error) {
+    yield put({ type: actionTypes.LOAD_RELATED_FAILED, payload: error });
   }
 }
 
 function* loadNearbyArticles({ publishedAt }) {
   try {
-    const prev = yield fetchContentfulNearbyArticles({ isOlder: true, publishedAt });
-    const next = yield fetchContentfulNearbyArticles({ isOlder: false, publishedAt });
+    const prev = yield contentfulClient.graphql(GRAPHQL_QUERY.getNearbyAndRelatedArticle({
+      limit: 1,
+      order: '[publishedAt_DESC]',
+      where: { publishedAt_lt: publishedAt },
+    }));
+    const next = yield contentfulClient.graphql(GRAPHQL_QUERY.getNearbyAndRelatedArticle({
+      limit: 1,
+      order: '[publishedAt_ASC]',
+      where: { publishedAt_gt: publishedAt },
+    }));
 
     yield put({
       type: actionTypes.LOAD_NEARBY_SUCCESS,
       payload: {
-        newerArticle: next.items[0],
-        olderArticle: prev.items[0],
+        olderArticle: getGraphqlResultArticles(prev)[0],
+        newerArticle: getGraphqlResultArticles(next)[0],
       },
     });
-  } catch (err) {
-    yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: error });
   }
 }
 
 export function* findArticles({ payload: { value } }) {
   try {
+    const findArticlesByValue = async (params) => await contentfulClient.graphql(
+      GRAPHQL_QUERY.loadPreviewArticles({
+        order: '[publishedAt_DESC]',
+        ...params,
+      }),
+    );
+
     const [
       resultByKey,
       resultByBody,
       resultByOldBody,
     ] = yield all([
-      call(findArticlesByValue, value),
-      call(findArticlesByValue, value, 'body'),
-      call(findArticlesByValue, value, 'oldBody'),
+      call(findArticlesByValue, {
+        where: { keyWords_contains_some: [value] },
+      }),
+      call(findArticlesByValue, {
+        where: { body_contains: value },
+      }),
+      call(findArticlesByValue, {
+        where: { oldBody_contains: value },
+      }),
     ]);
+
     const result = uniqWith(
-      [...resultByKey, ...resultByBody, ...resultByOldBody],
+      [
+        ...getGraphqlResultArticles(resultByKey),
+        ...getGraphqlResultArticles(resultByBody),
+        ...getGraphqlResultArticles(resultByOldBody),
+      ],
       isEqual,
     );
 
     yield put({ type: actionTypes.FIND_ARTICLES_SUCCESS, payload: result });
-  } catch (err) {
-    yield put({ type: actionTypes.FIND_ARTICLES_FAILED, payload: err });
+  } catch (error) {
+    yield put({ type: actionTypes.FIND_ARTICLES_FAILED, payload: error });
   }
 }
 
 export function* fetchBlogData({
   slug,
   articleSlug,
-  currentPage,
   currentLimit,
   category,
   skip,
 }) {
   if (slug === PAGES.blog) {
     yield call(loadArticles, {
-      currentPage,
       currentLimit,
       category,
       skip,

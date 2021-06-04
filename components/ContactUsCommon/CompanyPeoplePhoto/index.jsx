@@ -29,7 +29,7 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
     return () => window.removeEventListener('scroll', handlerOnScroll);
   }, []);
 
-  return (
+  return photo && (
     <section className={cn(styles.companyPeoplePhoto, { [styles.showPhoto]: isShow })}>
       <SectionTitle
         title="And come to work with us side by side"

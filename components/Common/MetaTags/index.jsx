@@ -7,6 +7,7 @@ import isEmpty from 'lodash/isEmpty';
 import { ROUTES } from 'utils/constants';
 import { rootUrl, getPathWithCdn } from 'utils/helper';
 import { isArticle } from 'utils/blogUtils';
+import { microdata } from 'utils/microdata';
 import { ogMetaData } from './utils/data';
 
 export const MetaTags = ({
@@ -23,7 +24,8 @@ export const MetaTags = ({
     pageNumber,
   },
   children,
-  microdata,
+  pageMicrodata,
+  breadcrumbs,
 }) => {
   const { asPath } = useRouter();
   const isArticlePage = isArticle(slug);
@@ -78,11 +80,20 @@ export const MetaTags = ({
             <link rel="apple-touch-icon" sizes="180x180" href={getPathWithCdn('/apple-touch-icon.png')} />
             <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
             <link rel="manifest" href="/manifest.json" />
-            {!isEmpty(microdata) && (
+            {!isEmpty(pageMicrodata) && (
               <script
-                key={`JSON-LD-${microdata.name}`}
+                key={`JSON-LD-${pageMicrodata.name}`}
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(pageMicrodata) }}
+              />
+            )}
+            {!isEmpty(breadcrumbs) && (
+              <script
+                key="JSON-LD-breadcrumbs"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify(microdata.breadcrumbs({ breadcrumbsList: breadcrumbs })),
+                }}
               />
             )}
           </Fragment>
@@ -95,15 +106,17 @@ export const MetaTags = ({
 MetaTags.defaultProps = {
   page: '',
   ogMetaData,
-  microdata: {},
+  pageMicrodata: {},
   children: null,
   pageMetadata: {},
+  breadcrumbs: [],
 };
 
 MetaTags.propTypes = {
   page: PropTypes.string,
   ogMetaData: PropTypes.instanceOf(Array),
-  microdata: PropTypes.instanceOf(Object),
+  pageMicrodata: PropTypes.instanceOf(Object),
+  breadcrumbs: PropTypes.instanceOf(Array),
   pageMetadata: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,

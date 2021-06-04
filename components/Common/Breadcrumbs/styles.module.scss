@@ -1,0 +1,47 @@
+@import 'styles/utils/mixins';
+
+.breadcrumbs {
+  padding-bottom: calc(#{$section-indent} / 2);
+  z-index: 3;
+
+  @include phone {
+    padding-bottom: calc(#{$mobile-section-indent} / 2);
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: $mountain-mis;
+
+    @include flex();
+
+    @include phone {
+      @include fontSize(14px);
+    }
+
+    a {
+      color: $mountain-mis;
+    }
+
+    li::after {
+      content: '/';
+      margin: 0 8px;
+      user-select: none;
+      color: $mountain-mis;
+    }
+
+    li:last-child {
+      @include hidden-text();
+
+      &::after {
+        content: none;
+      }
+
+      & > a {
+        pointer-events: none;
+        color: $black;
+      }
+    }
+  }
+}

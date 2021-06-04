@@ -3,6 +3,7 @@ export { default as Header } from 'components/Layout/Header';
 export { Footer } from 'components/Layout/Footer';
 export { default as Contacts } from 'components/Layout/Footer/Contacts';
 export { GAnalytic } from 'components/Layout/GAnalytic';
+export { FullLayout } from 'components/Layout/FullLayout';
 
 // Common
 export { Animated } from 'components/Common/Animated';
@@ -22,7 +23,6 @@ export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
 export { SocialThumbnails } from 'components/Common/SocialThumbnails';
 export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
-export { ImageWithPlaceholder } from 'components/Common/ImageWithPlaceholder';
 export { default as withScroll } from 'components/Common/withScroll';
 export { MetaTags } from 'components/Common/MetaTags';
 export { InformationMessage } from 'components/Common/InformationMessage';
@@ -31,6 +31,8 @@ export { default as LinearIndeterminate } from 'components/Common/LinearIndeterm
 export { default as Paginator } from 'components/Common/Paginator';
 export { CallToAction } from 'components/Common/CallToAction';
 export { Svg } from 'components/Common/Svg';
+export { PageHeader } from 'components/Common/PageHeader';
+export { default as Breadcrumbs } from 'components/Common/Breadcrumbs';
 
 // HomeCommon
 export { AddFooter } from 'components/HomeCommon/AddFooter';

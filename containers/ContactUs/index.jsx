@@ -9,11 +9,13 @@ import {
   CompanyPeoplePhoto,
   CompanyContacts,
   MetaTags,
+  PageHeader,
+  FullLayout,
 } from 'components';
-import { PAGES } from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
-import styles from './styles.module.scss';
+import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 
 const ContactUsContainer = ({
   introSection,
@@ -33,6 +35,7 @@ const ContactUsContainer = ({
     ['image'],
   );
   const peopleImageUrl = getFileUrl(peopleImage);
+  const breadcrumbs = pagesBreadcrumbs.contact();
 
   const handleOnClick = (...args) => {
     const [
@@ -56,17 +59,19 @@ const ContactUsContainer = ({
     <Fragment>
       <MetaTags
         page={PAGES.contact}
-        microdata={microdata.contact()}
+        pageMicrodata={microdata.contact()}
+        breadcrumbs={breadcrumbs}
       />
-      <section
-        ref={introSection}
-        className={styles.contactContainer}
-      >
+      <FullLayout introSection={introSection}>
+        <PageHeader
+          title={ROUTES.contact.title}
+          breadcrumbs={breadcrumbs}
+        />
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
         <Calendar />
-        {peopleImageUrl && <CompanyPeoplePhoto photo={peopleImageUrl} />}
-        {officeImageUrl && <CompanyContacts photo={officeImageUrl} />}
-      </section>
+        <CompanyPeoplePhoto photo={peopleImageUrl} />
+        <CompanyContacts photo={officeImageUrl} />
+      </FullLayout>
     </Fragment>
   );
 };
