@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Contacts, ButtonMore } from 'components';
+import ButtonMore from 'components/Common/ButtonMore';
+import Contacts from 'components/Layout/Footer/Contacts';
 import Nav from 'components/Layout/Header/Nav';
 import styles from './styles.module.scss';
 

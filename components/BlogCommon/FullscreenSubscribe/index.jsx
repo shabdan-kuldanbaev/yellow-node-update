@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
 import { selectSubscribeMessage } from 'redux/selectors/subscribe';
-import {
-  ButtonMore,
-  AnimatedInput,
-  ModalWindow,
-} from 'components';
+import AnimatedInput from 'components/Common/AnimatedInput';
+import ButtonMore from 'components/Common/ButtonMore';
+import { ModalWindow } from 'components/Common/ModalWindow';
 import { withValidateEmail } from 'hocs';
 import styles from './styles.module.scss';
 

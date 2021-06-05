@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { setOverflowForBody } from 'utils/helper';
 import { NAV_LINKS } from 'utils/constants';
 import Burger from '../Burger';

@@ -16,7 +16,6 @@ import { fetchProject } from 'redux/sagas/portfolio';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { loadJSON } from 'redux/sagas/process';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
-import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import { artificialDelay } from 'utils/helper';
 import { contentfulClient } from 'utils/ContentfulClient';
 import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
@@ -40,7 +39,7 @@ function* fetchPage({ slug }) {
   }
 }
 
-function* fetchDuck({ payload: { isFirstHomepageVisit } }) {
+function* fetchDuck({ payload: { isFirstHomepageVisit, loadDuck } }) {
   try {
     const [duck] = yield all([
       yield loadDuck(),

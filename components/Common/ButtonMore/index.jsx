@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
 import styles from './styles.module.scss';
 
 const ButtonMore = ({

@@ -21,6 +21,7 @@ import {
   MetaTags,
   FullLayout,
 } from 'components';
+import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
@@ -32,7 +33,7 @@ export const Home = ({
   introSection,
   photosData,
   isPageReadyToDisplay,
-  fetchDuck: loadDuck,
+  fetchDuck: fetchDuckData,
   duck,
 }) => {
   const gradientRef = useRef(null);
@@ -41,9 +42,10 @@ export const Home = ({
 
   useEffect(() => {
     if (!duck) {
-      const { isFirstHomepageVisit } = contextData;
-
-      loadDuck({ isFirstHomepageVisit });
+      fetchDuckData({
+        isFirstHomepageVisit: contextData.isFirstHomepageVisit,
+        loadDuck,
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duck]);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { SubscribeBlock } from 'components';
+import SubscribeBlock from 'components/Common/SubscribeBlock';
 import { Article } from './Article';
 import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';

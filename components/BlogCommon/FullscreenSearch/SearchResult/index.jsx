@@ -4,7 +4,8 @@ import chunk from 'lodash/chunk';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectFoundArticles, selectSearchMessage } from 'redux/selectors/blog';
-import { ArticlesList, ButtonMore } from 'components';
+import { ArticlesList } from 'components/BlogCommon/ArticlesList';
+import ButtonMore from 'components/Common/ButtonMore';
 import styles from './styles.module.scss';
 
 const SearchResult = ({
