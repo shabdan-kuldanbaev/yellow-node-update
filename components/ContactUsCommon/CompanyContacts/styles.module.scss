@@ -3,6 +3,7 @@
 .companyContacts {
   width: calc(#{$max-content-width} * 0.8);
   padding: 100px 0;
+  margin: 0 auto;
 
   @include flex(row, space-between, flex-start);
 
