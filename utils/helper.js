@@ -5,6 +5,7 @@ import {
   PAGES,
   FEEDBACK_FORM_FIELDS,
   IMAGES,
+  DEFAULT_DATE_FORMAT,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
 import {
@@ -216,4 +217,6 @@ export const serverSideRedirect = ({ res }, {
   }
 };
 
-export const getFormattedDate = (date, format) => dayjs(date).format(format);
+export function formatDateInSpecifiFormat(date, { format = DEFAULT_DATE_FORMAT } = {}) {
+  return dayjs(date).format(format);
+}

@@ -39,12 +39,12 @@ export function getArticleProps({ article } = {}) {
     ],
   );
   const headImage = getFileUrl(articleFields.headImageUrl);
-  const articleAuthor = getAuthorProps({ author: articleFields.author });
+  const author = getAuthorProps({ author: articleFields.author });
 
   return {
     ...articleFields,
     headImage,
-    articleAuthor,
+    author,
   };
 }
 

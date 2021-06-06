@@ -7,7 +7,7 @@ import {
   Author,
 } from 'components';
 import gaHelper from 'utils/ga';
-import { getFormattedDate } from 'utils/helper';
+import { formatDateInSpecifiFormat } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const Article = ({
@@ -50,7 +50,9 @@ const Article = ({
           <div style={{ backgroundImage: `url(${headImage})` }} />
         </div>
         <div className={styles.container}>
-          <p className={styles.date}>{getFormattedDate(publishedAt, 'DD MMMM, YYYY')}</p>
+          <p className={styles.date}>
+            {formatDateInSpecifiFormat(publishedAt)}
+          </p>
           <h1 className={styles.h1}>
             {title}
           </h1>

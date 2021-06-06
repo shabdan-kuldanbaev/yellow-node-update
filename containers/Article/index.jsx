@@ -50,7 +50,7 @@ const ArticleContainer = ({
     metaTitle,
     metaDescription,
     headImage,
-    articleAuthor,
+    author,
   } = getArticleProps({ article: currentArticle });
   const articleMetadata = {
     metaTitle: metaTitle || title,
@@ -68,7 +68,7 @@ const ArticleContainer = ({
     updatedAt,
     headImage,
     articleBody: oldBody || documentToPlainTextString(body),
-    author: articleAuthor,
+    author,
   });
   const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
 
@@ -92,7 +92,7 @@ const ArticleContainer = ({
           introduction={introduction}
           headImage={headImage}
           introSection={introSection}
-          author={articleAuthor}
+          author={author}
           publishedAt={publishedAt}
         />
         <SocialThumbnails
