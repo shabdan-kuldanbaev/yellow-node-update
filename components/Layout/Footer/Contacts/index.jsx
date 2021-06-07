@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
-import {
-  SectionTitle,
-  ButtonMore,
-  LinkWrapper,
-  Animated,
-  Svg,
-} from 'components';
+import { Animated } from 'components/Common/Animated';
+import ButtonMore from 'components/Common/ButtonMore';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
+import { SectionTitle } from 'components/Common/SectionTitle';
+import { Svg } from 'components/Common/Svg';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { socialNetworks } from './utils/data';
 import rocket from './json/rocket.json';

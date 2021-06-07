@@ -5,12 +5,10 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
-import {
-  SelectionBlock,
-  Logo,
-  TopProgressBar,
-  LinearIndeterminate,
-} from 'components';
+import LinearIndeterminate from 'components/Common/LinearIndeterminate';
+import Logo from 'components/Common/Logo';
+import SelectionBlock from 'components/BlogCommon/SelectionBlock';
+import { TopProgressBar } from 'components/Common/TopProgressBar';
 import { ROUTES } from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';

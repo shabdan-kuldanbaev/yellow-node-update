@@ -8,12 +8,10 @@ import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
 import { setMobileCategoriesState } from 'redux/actions/layout';
-import {
-  ButtonMore,
-  FullscreenSearch,
-  FullscreenSubscribe,
-  Svg,
-} from 'components';
+import ButtonMore from 'components/Common/ButtonMore';
+import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
+import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
+import { Svg } from 'components/Common/Svg';
 import { setOverflowForBody } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import Categories from './Categories';
