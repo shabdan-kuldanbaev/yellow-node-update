@@ -9,12 +9,10 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { selectError } from 'redux/selectors/contact';
-import {
-  Upload,
-  AnimatedInput,
-  ButtonMore,
-  Animated,
-} from 'components';
+import { Animated } from 'components/Common/Animated';
+import AnimatedInput from 'components/Common/AnimatedInput';
+import ButtonMore from 'components/Common/ButtonMore';
+import { Upload } from 'components/Common/Upload';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';

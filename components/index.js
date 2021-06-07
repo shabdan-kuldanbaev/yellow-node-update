@@ -1,3 +1,5 @@
+// TODO rewrite imports and remove this file
+
 // Layout
 export { default as Header } from 'components/Layout/Header';
 export { Footer } from 'components/Layout/Footer';

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions, selectIsFullResolutions } from 'redux/selectors/layout';
-import { Animated } from 'components';
+import { Animated } from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getOptimizedImage } from 'utils/helper';
 import { FieldsWrapper } from './FieldsWrapper';

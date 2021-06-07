@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AnimatedInput } from 'components';
+import AnimatedInput from 'components/Common/AnimatedInput';
 import { Attach } from './Attach';
 import { AttachedFile } from './AttachedFile';
 import styles from './styles.module.scss';
