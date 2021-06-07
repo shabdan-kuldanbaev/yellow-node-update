@@ -52,24 +52,6 @@ export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'scroll';
 };
 
-export const formatDate = (date) => {
-  let dd = date.getDate();
-
-  if (dd < 10) dd = `0${dd}`;
-
-  let mm = date.getMonth();
-
-  if (mm < 10) mm = `0${mm}`;
-
-  let yyyy = date.getFullYear();
-
-  if (yyyy < 10) yyyy = `0${yyyy}`;
-
-  if (yyyy > 1000) yyyy = Math.trunc(yyyy / 100).toString();
-
-  return `${dd}/${mm}/${yyyy}`;
-};
-
 export const getMainLinksForSitemap = (updatedAt) => [
   { path: '/', updatedAt },
   { path: `/${PAGES.portfolio}`, updatedAt },
@@ -217,6 +199,4 @@ export const serverSideRedirect = ({ res }, {
   }
 };
 
-export function formatDateInSpecifiFormat(date, { format = DEFAULT_DATE_FORMAT } = {}) {
-  return dayjs(date).format(format);
-}
+export const formatDate = (date, { format = DEFAULT_DATE_FORMAT } = {}) => dayjs(date).format(format);

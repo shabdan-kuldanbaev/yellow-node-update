@@ -58,7 +58,6 @@ export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';
 export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
 export { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 export { OldArticle } from 'components/BlogCommon/Article/OldArticle';
-export { Author } from 'components/BlogCommon/Article/Author';
 
 // PortfolioCommon
 export { default as Portfolio } from 'components/PortfolioCommon';
@@ -79,6 +78,5 @@ export { Awards } from 'components/CompanyCommon/Awards';
 
 // ContactUsCommon
 export { default as FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
-export { Calendar } from 'components/ContactUsCommon/Calendar';
 export { default as CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
 export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';

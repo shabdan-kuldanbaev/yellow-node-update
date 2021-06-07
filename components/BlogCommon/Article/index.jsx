@@ -4,10 +4,10 @@ import {
   ContentfulParser,
   OldArticle,
   withScroll,
-  Author,
 } from 'components';
 import gaHelper from 'utils/ga';
-import { formatDateInSpecifiFormat } from 'utils/helper';
+import { formatDate } from 'utils/helper';
+import { Author } from './Author';
 import styles from './styles.module.scss';
 
 const Article = ({
@@ -51,7 +51,7 @@ const Article = ({
         </div>
         <div className={styles.container}>
           <p className={styles.date}>
-            {formatDateInSpecifiFormat(publishedAt)}
+            {formatDate(publishedAt)}
           </p>
           <h1 className={styles.h1}>
             {title}
