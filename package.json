@@ -81,6 +81,7 @@
     "react-animate-on-scroll": "^2.1.5",
     "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "16.11.0",
+    "react-expand-animated": "^1.0.2",
     "react-id-swiper": "^4.0.0",
     "react-lazy-load-image-component": "^1.5.1",
     "react-lottie": "^1.2.3",

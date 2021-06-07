@@ -8,6 +8,7 @@ import {
 import gaHelper from 'utils/ga';
 import { formatDate } from 'utils/helper';
 import { Author } from './Author';
+import { Navigation } from './Navigation';
 import styles from './styles.module.scss';
 
 const Article = ({
@@ -60,6 +61,10 @@ const Article = ({
           <Author author={author} />
         </div>
       </header>
+      <Navigation
+        articleBodyRef={articleBodyRef}
+        slug={slug}
+      />
       <div
         className={styles.body}
         ref={articleBodyRef}

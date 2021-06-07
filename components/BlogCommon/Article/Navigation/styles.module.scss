@@ -1,0 +1,120 @@
+/* stylelint-disable no-descending-specificity */
+@import 'styles/utils/mixins';
+
+.navigation {
+  max-width: 720px;
+  margin: 0 auto 30px;
+  background-color: $alabaster;
+
+  .navigationHeader {
+    padding: 40px;
+
+    @include flex(row, space-between, center);
+
+    @include phone {
+      padding: 20px;
+    }
+
+    & > p:first-child {
+      margin: 0;
+      font-weight: 600;
+
+      @include fontSize(24px);
+
+      @include phone {
+        @include fontSize(18px);
+      }
+    }
+
+    .expandButton {
+      @include flex(row, initial, center);
+
+      & > span:first-child {
+        outline: none;
+
+        @include fontSize(18px);
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .arrow {
+        margin: 0 10px;
+        width: 20px;
+        height: 12px;
+        position: relative;
+        display: inline-block;
+
+        & > span {
+          position: absolute;
+          top: 6px;
+          display: inline-block;
+          width: 12px;
+          height: 1.5px;
+          background-color: $tundora;
+          transition: transform 0.2s ease;
+
+          &:first-of-type {
+            left: 0;
+            transform: rotate(-45deg);
+          }
+
+          &:last-of-type {
+            right: 0;
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      .reverseArrow {
+        & > span {
+          &:first-of-type {
+            transform: rotate(45deg);
+          }
+
+          &:last-of-type {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .navigationItems {
+    padding: 0 40px 40px;
+
+    @include phone {
+      padding: 0 20px 20px;
+    }
+
+    & > a {
+      display: block;
+      text-decoration: underline;
+      color: $tundora;
+      margin: 20px 0;
+
+      @include fontSize(18px);
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      @include phone {
+        @include fontSize(14px);
+      }
+    }
+  }
+}
