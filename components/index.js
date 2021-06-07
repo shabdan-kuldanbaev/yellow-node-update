@@ -78,6 +78,5 @@ export { Awards } from 'components/CompanyCommon/Awards';
 
 // ContactUsCommon
 export { default as FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
-export { Calendar } from 'components/ContactUsCommon/Calendar';
 export { default as CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
 export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';
