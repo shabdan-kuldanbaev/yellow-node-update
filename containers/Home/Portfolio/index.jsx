@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
 import { selectHomepageProjectsPreview } from 'redux/selectors/layout';
-import { Advantages } from 'containers';
+import { Advantages } from 'containers/Home/Advantages';
 import { Animated } from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
 import { SectionTitle } from 'components/Common/SectionTitle';
