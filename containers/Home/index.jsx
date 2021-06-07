@@ -9,19 +9,15 @@ import PropTypes from 'prop-types';
 import { fetchDuck } from 'redux/actions/home';
 import { selectImageCarousel, selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import { selectDuck } from 'redux/selectors/home';
-import {
-  Blog,
-  Portfolio,
-  ReviewsContainer,
-  FeedbackFormContainer,
-} from 'containers';
+import Blog from 'containers/Home/Blog';
+import FeedbackFormContainer from 'containers/Home/FeedbackForm';
 import Intro from 'containers/Home/Intro';
-import {
-  PhotoGallery,
-  MetaTags,
-  FullLayout,
-} from 'components';
+import Portfolio from 'containers/Home/Portfolio';
+import { ReviewsContainer } from 'containers/Home/Reviews';
+import { FullLayout } from 'components/Layout/FullLayout';
 import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
+import { MetaTags } from 'components/Common/MetaTags';
+import PhotoGallery from 'components/Common/PhotoGallery';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';

@@ -1,10 +1,11 @@
+// TODO rewrite imports and remove this file
+
 // Layout
 export { default as Layout } from 'containers/Layout';
 
 // Home
 export { Advantages } from 'containers/Home/Advantages';
 export { default as Blog } from 'containers/Home/Blog';
-export { Insta } from 'containers/Home/Insta';
 export { default as Portfolio } from 'containers/Home/Portfolio';
 export { ReviewsContainer } from 'containers/Home/Reviews';
 export { default as FeedbackFormContainer } from 'containers/Home/FeedbackForm';

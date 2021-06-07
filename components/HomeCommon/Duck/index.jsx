@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
-import { Animated } from 'components';
+import { Animated } from 'components/Common/Animated';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { AppContext } from 'utils/appContext';

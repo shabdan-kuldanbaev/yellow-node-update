@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components';
+import { Animated } from 'components/Common/Animated';
 import { advantages, animatedFields } from './utils/data';
 import styles from './styles.module.scss';
 
