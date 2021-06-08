@@ -52,13 +52,15 @@ export const NavigationByTitles = ({ articleBodyRef, articleSlug }) => {
   return (
     <div className={styles.navigation}>
       <div className={styles.navigationHeader}>
-        <span className={styles.title}>Contents</span>
+        <span className={styles.title}>
+          Contents
+        </span>
         <button
           className={styles.expandButton}
           onClick={handleOnExpandClick}
           type="button"
         >
-          <span>
+          <span className={styles.buttonText}>
             {isNavigationOpened ? 'hide' : 'expand'}
           </span>
           <div className={cn(styles.arrow, {
@@ -71,7 +73,7 @@ export const NavigationByTitles = ({ articleBodyRef, articleSlug }) => {
         </button>
       </div>
       <Animated
-        type={ANIMATED_TYPE.expand}
+        type={ANIMATED_TYPE.expandByHeight}
         open={isNavigationOpened}
       >
         <div className={styles.navigationItems}>

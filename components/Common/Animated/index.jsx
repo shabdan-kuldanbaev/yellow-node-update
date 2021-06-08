@@ -59,7 +59,7 @@ export const Animated = (props) => {
         {props.children}
       </Gsap>
     );
-  case ANIMATED_TYPE.expand:
+  case ANIMATED_TYPE.expandByHeight:
     return (
       <ExpandWrapper {...props}>
         {props.children}

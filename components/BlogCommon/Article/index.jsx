@@ -8,7 +8,7 @@ import {
 import gaHelper from 'utils/ga';
 import { formatDate } from 'utils/helper';
 import { Author } from './Author';
-import { NavigationByTitles } from './Navigation';
+import { NavigationByTitles } from './NavigationByTitles';
 import styles from './styles.module.scss';
 
 const Article = ({

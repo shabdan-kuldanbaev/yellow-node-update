@@ -32,7 +32,11 @@
 
       @include flex(row, initial, center);
 
-      & > span:first-child {
+      &:hover {
+        cursor: pointer;
+      }
+
+      .buttonText {
         outline: none;
 
         @include fontSize(18px);
@@ -40,10 +44,6 @@
         @include phone {
           @include fontSize(14px);
         }
-      }
-
-      &:hover {
-        cursor: pointer;
       }
 
       .arrow {
