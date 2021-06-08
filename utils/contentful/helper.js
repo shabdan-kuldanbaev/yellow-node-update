@@ -1,4 +1,4 @@
-import { contentfulClient } from 'utils/ContentfulClient';
+import { contentfulClient } from 'utils/contentful/client';
 
 export const fetchContentfulNearbyArticles = async ({ publishedAt, isOlder }) => {
   try {

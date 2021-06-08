@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createWrapper } from 'next-redux-wrapper';
-// TODO import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import rootReducers from 'redux/reducers';
 import rootSaga from 'redux/sagas';
 

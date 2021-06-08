@@ -12,10 +12,10 @@ import isEqual from 'lodash/isEqual';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
-import { contentfulClient } from 'utils/ContentfulClient';
-import { fetchContentfulArticles } from 'utils/contentfulUtils';
+import { contentfulClient } from 'utils/contentful/client';
+import { fetchContentfulArticles } from 'utils/contentful/helper';
 import { PAGES } from 'utils/constants';
-import { GRAPHQL_QUERY } from 'utils/graphqlQuery';
+import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
