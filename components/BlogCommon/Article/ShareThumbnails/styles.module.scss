@@ -3,7 +3,8 @@
 .socialThumbnails {
   position: fixed;
   right: 0;
-  top: 50%;
+  top: 0;
+  transform: translateY(40vh);
   background-color: $black;
   padding: 15px 10px;
 
@@ -20,6 +21,7 @@
     background-repeat: no-repeat;
     background-position: center;
     margin-bottom: 15px;
+    background-color: inherit;
 
     &:last-child {
       margin-bottom: 0;
@@ -31,17 +33,18 @@
     }
   }
 
+  // TODO rewrite icons with svg component
   .icon {
     &Twitter {
-      background-image: url("./images/twitter.svg");
+      background-image: url(getPathWithCdn('/images/article/twitter.svg'));
     }
 
     &Facebook {
-      background-image: url("./images/facebook.svg");
+      background-image: url(getPathWithCdn('/images/article/facebook.svg'));
     }
 
     &Linkedin {
-      background-image: url('./images/linkedin.svg');
+      background-image: url(getPathWithCdn('/images/article/linkedin.svg'));
     }
   }
 }
