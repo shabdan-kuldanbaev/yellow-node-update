@@ -1,6 +1,22 @@
+// TODO try to replace with this and reduce the final build
+// import { Vector2 } from 'node_modules/three/src/math/Vector2';
+// import { Vector3 } from 'node_modules/three/src/math/Vector3';
+// import { PerspectiveCamera } from 'node_modules/three/src/cameras/PerspectiveCamera';
+// import { Scene } from 'node_modules/three/src/scenes/Scene';
+// import { ShaderMaterial } from 'node_modules/three/src/materials/ShaderMaterial';
+// import { WebGLRenderer } from 'node_modules/three/src/renderers/WebGLRenderer';
+// import { Points } from 'node_modules/three/src/objects/Points';
+// import { Color } from 'node_modules/three/src/math/Color';
+// import { PointsMaterial } from 'node_modules/three/src/materials/PointsMaterial';
+// import { BufferGeometry } from 'node_modules/three/src/core/BufferGeometry';
+// import { BufferAttribute } from 'node_modules/three/src/core/BufferAttribute';
 import * as THREE from 'three';
 import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'node_modules/three/examples/jsm/loaders/DRACOLoader';
+//---
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+//---
 import anime from 'animejs';
 import { getPathWithCdn } from 'utils/helper';
 import errorHelper from 'utils/error';
@@ -92,6 +108,9 @@ export const three = {
     geometry.addAttribute('position', positions.clone());
     geometry.addAttribute('initialPosition', positions.clone());
     geometry.attributes.position.setDynamic(true);
+    // geometry.setAttribute('position', positions.clone());
+    // geometry.setAttribute('initialPosition', positions.clone());
+    // TODO geometry.attributes.position.setDynamic(true);
 
     if (isMobile) {
       if (window.innerHeight <= 700) { originals = [{ positions: { x: 0, y: 100, z: 0 } }]; }

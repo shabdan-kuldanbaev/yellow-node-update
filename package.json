@@ -76,6 +76,7 @@
     "next-videos": "^1.2.0",
     "node-sass": "^4.13.0",
     "nodemailer": "^6.4.13",
+    "postprocessing": "^6.22.0",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-animate-on-scroll": "^2.1.5",
@@ -101,7 +102,7 @@
     "slick-carousel": "^1.8.1",
     "slugify": "^1.4.6",
     "swiper": "^6.3.5",
-    "three": "^0.124.0",
+    "three": "^0.129.0",
     "webpack-obj-loader": "^1.0.4",
     "xmlbuilder": "^15.1.1"
   },
