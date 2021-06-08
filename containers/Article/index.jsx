@@ -12,7 +12,6 @@ import { subscribe } from 'redux/actions/subscribe';
 import {
   Article,
   RelatedSection,
-  SocialThumbnails,
   SubscribeBlock,
   NextPrev,
   MetaTags,
@@ -20,6 +19,7 @@ import {
   PageHeader,
   FullLayout,
 } from 'components';
+import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
@@ -95,7 +95,7 @@ const ArticleContainer = ({
           author={author}
           publishedAt={publishedAt}
         />
-        <SocialThumbnails
+        <ShareThumbnails
           url={`${rootUrl}/blog/${slug}`}
           title={title}
         />

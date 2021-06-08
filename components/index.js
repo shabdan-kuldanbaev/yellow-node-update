@@ -23,7 +23,6 @@ export { default as PhotoGallery } from 'components/Common/PhotoGallery';
 export { TopProgressBar } from 'components/Common/TopProgressBar';
 export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
-export { SocialThumbnails } from 'components/Common/SocialThumbnails';
 export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 export { default as withScroll } from 'components/Common/withScroll';
 export { MetaTags } from 'components/Common/MetaTags';
