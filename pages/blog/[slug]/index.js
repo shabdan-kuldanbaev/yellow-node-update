@@ -1,10 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import {
-  ArticleContainer,
-  BlogContainer,
-  PageNotFound,
-} from 'containers';
+import ArticleContainer from 'containers/Article';
+import BlogContainer from 'containers/Blog';
+import { PageNotFound } from 'containers/PageNotFound';
 import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
 
 const Article = ({

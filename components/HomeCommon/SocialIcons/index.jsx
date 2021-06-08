@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { themes } from 'utils/helper';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';

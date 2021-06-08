@@ -1,7 +1,7 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
-import { ProcessContainer } from 'containers';
+import ProcessContainer from 'containers/Process';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 

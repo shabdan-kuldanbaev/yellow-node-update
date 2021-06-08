@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
-import { PageNotFound } from 'containers';
+import { PageNotFound } from 'containers/PageNotFound';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 

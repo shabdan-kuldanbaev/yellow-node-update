@@ -11,20 +11,18 @@ import {
   setFullResolution,
 } from 'redux/actions/layout';
 import { sendEmail } from 'redux/actions/contact';
-import {
-  Header,
-  Footer,
-  CookiesNotification,
-  FullScreenEstimation,
-  GAnalytic,
-} from 'components';
+import CookiesNotification from 'components/Common/CookiesNotification';
+import { GAnalytic } from 'components/Layout/GAnalytic';
+import Header from 'components/Layout/Header';
+import { Footer } from 'components/Layout/Footer';
+import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import {
   mobileResolution,
   tabletResolution,
   fullResolution,
 } from 'utils/helper';
 
-export const Layout = ({
+const Layout = ({
   children,
   theme,
   introSection,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Svg } from 'components';
+import { Svg } from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 

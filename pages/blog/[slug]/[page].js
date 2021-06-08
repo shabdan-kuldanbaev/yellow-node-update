@@ -1,5 +1,5 @@
 import React from 'react';
-import { BlogContainer } from 'containers';
+import BlogContainer from 'containers/Blog';
 import { getInitialBlogProps } from 'utils/blogUtils';
 
 const Blog = ({

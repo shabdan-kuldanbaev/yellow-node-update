@@ -11,7 +11,7 @@ import Head from 'next/head';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from '@material-ui/core';
 import { setPageReadyToDisplay } from 'redux/actions/layout';
-import { Layout } from 'containers';
+import Layout from 'containers/Layout';
 import { isServer } from 'utils/helper';
 import { AppContext } from 'utils/appContext';
 import errorHelper from 'utils/error';

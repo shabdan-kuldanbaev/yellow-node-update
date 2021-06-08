@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { themes, staticImagesUrls } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import { logoSize } from 'styles/utils/_variables.scss';
