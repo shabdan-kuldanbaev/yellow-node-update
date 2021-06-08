@@ -12,7 +12,6 @@ import { subscribe } from 'redux/actions/subscribe';
 import {
   Article,
   RelatedSection,
-  ShareThumbnails,
   SubscribeBlock,
   NextPrev,
   MetaTags,
@@ -20,6 +19,7 @@ import {
   PageHeader,
   FullLayout,
 } from 'components';
+import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
