@@ -8,6 +8,7 @@ import {
 import gaHelper from 'utils/ga';
 import { formatDate } from 'utils/helper';
 import { Author } from './Author';
+import { NavigationByTitles } from './NavigationByTitles';
 import styles from './styles.module.scss';
 
 const Article = ({
@@ -64,6 +65,10 @@ const Article = ({
         className={styles.body}
         ref={articleBodyRef}
       >
+        <NavigationByTitles
+          articleBodyRef={articleBodyRef}
+          articleSlug={slug}
+        />
         {oldBody
           ? <OldArticle oldBody={oldBody} />
           : <ContentfulParser document={body} />}

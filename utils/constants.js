@@ -44,6 +44,7 @@ export const ANIMATED_TYPE = {
   isParallaxSpring: 'isParallaxSpring',
   gsap: 'gsap',
   imageZoom: 'imageZoom',
+  expandByHeight: 'expandByHeight',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
@@ -120,3 +121,5 @@ export const SVG_IMAGES_TYPES = {
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
+
+export const HEADER_HEIGHT = 66;

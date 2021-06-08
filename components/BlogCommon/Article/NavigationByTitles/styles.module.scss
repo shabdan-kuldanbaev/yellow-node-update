@@ -1,0 +1,121 @@
+/* stylelint-disable no-descending-specificity */
+@import 'styles/utils/mixins';
+
+.navigation {
+  margin-bottom: 30px;
+  background-color: $alabaster;
+
+  .navigationHeader {
+    padding: 40px;
+
+    @include flex(row, space-between, center);
+
+    @include phone {
+      padding: 20px;
+    }
+
+    .title {
+      margin: 0;
+      font-weight: 600;
+
+      @include fontSize(24px);
+
+      @include phone {
+        @include fontSize(18px);
+      }
+    }
+
+    .expandButton {
+      background-color: inherit;
+      padding: 0;
+      border: none;
+
+      @include flex(row, initial, center);
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .buttonText {
+        outline: none;
+
+        @include fontSize(18px);
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+
+      .arrow {
+        margin: 0 10px;
+        width: 24px;
+        height: 12px;
+        position: relative;
+        display: inline-block;
+
+        & > span {
+          position: absolute;
+          top: 6px;
+          display: inline-block;
+          width: 12px;
+          height: 1.5px;
+          border-radius: 1px;
+          background-color: $tundora;
+          transition: transform 0.4s ease;
+
+          &:first-of-type {
+            left: 4.4px;
+            transform: rotate(-45deg);
+          }
+
+          &:last-of-type {
+            right: 0;
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      .reverseArrow {
+        & > span {
+          &:first-of-type {
+            left: 5px;
+            transform: rotate(45deg);
+          }
+
+          &:last-of-type {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .navigationItems {
+    padding: 20px 40px 40px;
+
+    @include phone {
+      padding: 20px;
+    }
+
+    .navigationLink {
+      display: block;
+      text-decoration: underline;
+      color: $tundora;
+      margin-bottom: 20px;
+
+      @include fontSize(18px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      @include phone {
+        @include fontSize(14px);
+      }
+    }
+  }
+}
