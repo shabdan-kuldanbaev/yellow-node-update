@@ -2,8 +2,7 @@
 @import 'styles/utils/mixins';
 
 .navigation {
-  max-width: 720px;
-  margin: 0 auto 30px;
+  margin-bottom: 30px;
   background-color: $alabaster;
 
   .navigationHeader {
@@ -15,7 +14,7 @@
       padding: 20px;
     }
 
-    & > p:first-child {
+    .title {
       margin: 0;
       font-weight: 600;
 
@@ -27,6 +26,10 @@
     }
 
     .expandButton {
+      background-color: inherit;
+      padding: 0;
+      border: none;
+
       @include flex(row, initial, center);
 
       & > span:first-child {
@@ -45,7 +48,7 @@
 
       .arrow {
         margin: 0 10px;
-        width: 20px;
+        width: 24px;
         height: 12px;
         position: relative;
         display: inline-block;
@@ -56,11 +59,12 @@
           display: inline-block;
           width: 12px;
           height: 1.5px;
+          border-radius: 1px;
           background-color: $tundora;
-          transition: transform 0.2s ease;
+          transition: transform 0.4s ease;
 
           &:first-of-type {
-            left: 0;
+            left: 4.4px;
             transform: rotate(-45deg);
           }
 
@@ -74,6 +78,7 @@
       .reverseArrow {
         & > span {
           &:first-of-type {
+            left: 5px;
             transform: rotate(45deg);
           }
 
@@ -86,23 +91,19 @@
   }
 
   .navigationItems {
-    padding: 0 40px 40px;
+    padding: 20px 40px 40px;
 
     @include phone {
-      padding: 0 20px 20px;
+      padding: 20px;
     }
 
-    & > a {
+    .navigationLink {
       display: block;
       text-decoration: underline;
       color: $tundora;
-      margin: 20px 0;
+      margin-bottom: 20px;
 
       @include fontSize(18px);
-
-      &:first-child {
-        margin-top: 0;
-      }
 
       &:last-child {
         margin-bottom: 0;

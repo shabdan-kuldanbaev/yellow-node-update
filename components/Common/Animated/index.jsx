@@ -9,6 +9,7 @@ import { JSONAnimation } from './JSONAnimation';
 import { ParallaxWrapper } from './ParallaxSpring';
 import ImageZoom from './ImageZoom';
 import { Gsap } from './Gsap';
+import { ExpandWrapper } from './Expand';
 
 export const Animated = (props) => {
   switch (props.type) {
@@ -57,6 +58,12 @@ export const Animated = (props) => {
       <Gsap {...props}>
         {props.children}
       </Gsap>
+    );
+  case ANIMATED_TYPE.expand:
+    return (
+      <ExpandWrapper {...props}>
+        {props.children}
+      </ExpandWrapper>
     );
   default:
     return (

@@ -1,13 +1,13 @@
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Expand from 'react-expand-animated';
 import cn from 'classnames';
 import slugify from 'slugify';
-import { HEADER_HEIGHT } from 'utils/constants';
+import { Animated } from 'components';
+import { ANIMATED_TYPE, HEADER_HEIGHT } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const Navigation = ({ articleBodyRef, slug }) => {
+export const NavigationByTitles = ({ articleBodyRef, articleSlug }) => {
   const [subtitles, setSubtitles] = useState([]);
   const [isNavigationOpened, setIsNavigationOpened] = useState(false);
 
@@ -25,72 +25,78 @@ export const Navigation = ({ articleBodyRef, slug }) => {
 
   useEffect(() => {
     if (articleBodyRef && articleBodyRef.current) {
-      const subtitleRefs = articleBodyRef.current.getElementsByTagName('h2');
-      const subtitles = [];
-
-      // eslint-disable-next-line no-restricted-syntax
-      for (const subtitleRef of subtitleRefs) {
+      const subtitleRefs = articleBodyRef.current.getElementsByTagName('h2') || [];
+      const subtitles = [...subtitleRefs].reduce((acc, subtitleRef) => {
         const subtitle = subtitleRef.textContent;
-        const slug = slugify(subtitleRef.textContent);
+        const slug = slugify(subtitle);
         subtitleRef.setAttribute('id', slug);
-        subtitles.push({
+        acc.push({
           id: slug,
           name: subtitle,
           element: subtitleRef,
         });
-      }
+
+        return acc;
+      }, []);
 
       setSubtitles(subtitles);
     }
 
     return () => setIsNavigationOpened(false);
-  }, [articleBodyRef, slug]);
+  }, [articleBodyRef, articleSlug]);
 
-  return (subtitles.length
-    ? (
-      <div className={styles.navigation}>
-        <div className={styles.navigationHeader}>
-          <p>Contents</p>
-          <div className={styles.expandButton}>
-            <span
-              onClick={handleOnExpandClick}
-              role="button"
-              tabIndex="0"
-            >
-              {isNavigationOpened ? 'hide' : 'expand'}
-            </span>
-            <div className={cn(styles.arrow, {
-              [styles.reverseArrow]: !isNavigationOpened,
-            })}
-            >
-              <span />
-              <span />
-            </div>
+  if (!subtitles.length) {
+    return null;
+  }
+
+  return (
+    <div className={styles.navigation}>
+      <div className={styles.navigationHeader}>
+        <span className={styles.title}>Contents</span>
+        <button
+          className={styles.expandButton}
+          onClick={handleOnExpandClick}
+          type="button"
+        >
+          <span>
+            {isNavigationOpened ? 'hide' : 'expand'}
+          </span>
+          <div className={cn(styles.arrow, {
+            [styles.reverseArrow]: !isNavigationOpened,
+          })}
+          >
+            <span />
+            <span />
           </div>
-        </div>
-        <Expand open={isNavigationOpened}>
-          <div className={styles.navigationItems}>
-            {subtitles.map((subtitle, index) => (
-              <a
-                data-index={index}
-                key={subtitle.id}
-                href={`#${subtitle.id}`}
-                onClick={handleOnItemClick}
-              >
-                {`${index + 1}. ${subtitle.name}`}
-              </a>
-            ))}
-          </div>
-        </Expand>
+        </button>
       </div>
-    ) : null);
+      <Animated
+        type={ANIMATED_TYPE.expand}
+        open={isNavigationOpened}
+      >
+        <div className={styles.navigationItems}>
+          {subtitles.map((subtitle, index) => (
+            <a
+              data-index={index}
+              key={subtitle.id}
+              href={`#${subtitle.id}`}
+              onClick={handleOnItemClick}
+              className={styles.navigationLink}
+            >
+              {`${index + 1}. ${subtitle.name}`}
+            </a>
+          ))}
+        </div>
+      </Animated>
+    </div>
+  );
 };
 
-Navigation.defaultProps = {
+NavigationByTitles.defaultProps = {
   articleBodyRef: null,
 };
 
-Navigation.propTypes = {
+NavigationByTitles.propTypes = {
   articleBodyRef: PropTypes.instanceOf(Object),
-  slug: PropTypes.string.isRequired,
+  articleSlug: PropTypes.string.isRequired,
 };

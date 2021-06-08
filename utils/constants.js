@@ -44,6 +44,7 @@ export const ANIMATED_TYPE = {
   isParallaxSpring: 'isParallaxSpring',
   gsap: 'gsap',
   imageZoom: 'imageZoom',
+  expand: 'expand',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
