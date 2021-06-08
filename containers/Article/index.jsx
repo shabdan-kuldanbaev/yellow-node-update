@@ -12,7 +12,7 @@ import { subscribe } from 'redux/actions/subscribe';
 import {
   Article,
   RelatedSection,
-  SocialThumbnails,
+  ShareThumbnails,
   SubscribeBlock,
   NextPrev,
   MetaTags,
@@ -95,7 +95,7 @@ const ArticleContainer = ({
           author={author}
           publishedAt={publishedAt}
         />
-        <SocialThumbnails
+        <ShareThumbnails
           url={`${rootUrl}/blog/${slug}`}
           title={title}
         />

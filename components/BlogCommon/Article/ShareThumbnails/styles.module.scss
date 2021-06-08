@@ -1,0 +1,47 @@
+@import 'styles/utils/mixins';
+
+.socialThumbnails {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  background-color: $black;
+  padding: 15px 10px;
+
+  @include flex(column, center, center);
+
+  @include phone {
+    display: none;
+  }
+
+  .svg {
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include macbook-fifteen {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .icon {
+    &Twitter {
+      background-image: url("./images/twitter.svg");
+    }
+
+    &Facebook {
+      background-image: url("./images/facebook.svg");
+    }
+
+    &Linkedin {
+      background-image: url('./images/linkedin.svg');
+    }
+  }
+}

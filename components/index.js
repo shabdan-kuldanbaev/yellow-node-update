@@ -23,7 +23,6 @@ export { default as PhotoGallery } from 'components/Common/PhotoGallery';
 export { TopProgressBar } from 'components/Common/TopProgressBar';
 export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
-export { SocialThumbnails } from 'components/Common/SocialThumbnails';
 export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 export { default as withScroll } from 'components/Common/withScroll';
 export { MetaTags } from 'components/Common/MetaTags';
@@ -60,6 +59,7 @@ export { default as NextPrev } from 'components/BlogCommon/Article/NextPrev';
 export { GalleryCard } from 'components/BlogCommon/Article/GalleryCard';
 export { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 export { OldArticle } from 'components/BlogCommon/Article/OldArticle';
+export { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 
 // PortfolioCommon
 export { default as Portfolio } from 'components/PortfolioCommon';
