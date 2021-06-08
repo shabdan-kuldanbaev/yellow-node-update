@@ -17,7 +17,7 @@ import { actionTypes } from 'redux/actions/actionTypes';
 import { loadJSON } from 'redux/sagas/process';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import { artificialDelay } from 'utils/helper';
-import { contentfulClient } from 'utils/ContentfulClient';
+import { contentfulClient } from 'utils/contentful/client';
 import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 

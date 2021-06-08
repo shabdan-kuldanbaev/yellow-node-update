@@ -6,7 +6,7 @@ import {
   getDocumentFields,
 } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
-import { contentfulClient } from 'utils/ContentfulClient';
+import { contentfulClient } from 'utils/contentful/client';
 import errorHelper from 'utils/error';
 
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
