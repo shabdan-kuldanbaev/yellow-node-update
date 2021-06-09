@@ -79,6 +79,7 @@ export const GRAPHQL_QUERY = {
             previewImageUrl {
               url
             }
+            categoryTag
           }
         }
       }

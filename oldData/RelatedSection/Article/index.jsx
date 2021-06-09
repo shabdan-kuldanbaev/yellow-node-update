@@ -9,7 +9,6 @@ export const Article = ({
   slug,
   title,
   image,
-  category,
 }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
 
@@ -20,22 +19,19 @@ export const Article = ({
         path={path}
         dynamicRouting={dynamicPath}
       >
-        <div className={styles.imgContainer}>
-          <img
-            className={styles.img}
-            src={getOptimizedImage(image, 510)}
-            alt={title}
-          />
-        </div>
-        <div className={styles.articleContent}>
-          <span className={styles.category}>
-            {category}
-          </span>
-          <p className={styles.title}>
-            <span>
-              {title}
-            </span>
-          </p>
+        <div>
+          <div className={styles.imgContainer}>
+            <img
+              className={styles.img}
+              src={getOptimizedImage(image, 510)}
+              alt={title}
+            />
+          </div>
+          <div className={styles.articleContent}>
+            <h2 className={styles.title}>
+              <span>{title}</span>
+            </h2>
+          </div>
         </div>
       </LinkWrapper>
     </article>
@@ -46,5 +42,4 @@ Article.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
 };

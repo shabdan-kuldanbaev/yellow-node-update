@@ -31,14 +31,12 @@ const RelatedSection = ({ articles }) => (
         slug,
         title,
         previewImageUrl,
-        categoryTag,
       }) => (
         <Article
           key={`related/${slug}`}
           slug={slug}
           title={title}
           image={get(previewImageUrl, 'url', '')}
-          category={categoryTag}
         />
       ))}
     </div>
