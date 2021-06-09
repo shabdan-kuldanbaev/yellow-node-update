@@ -104,15 +104,15 @@ const ArticleContainer = ({
           && <RelatedSection articles={relatedArticles} />}
         <div className={styles.nextPrevSection}>
           <NextPrev
+            slug={prevArticle.slug}
+            title={prevArticle.title}
+            previewImageUrl={prevArticle.previewImageUrl}
+          />
+          <NextPrev
             isNewer
             slug={nextArticle.slug}
             title={nextArticle.title}
             previewImageUrl={nextArticle.previewImageUrl}
-          />
-          <NextPrev
-            slug={prevArticle.slug}
-            title={prevArticle.title}
-            previewImageUrl={prevArticle.previewImageUrl}
           />
         </div>
         <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />

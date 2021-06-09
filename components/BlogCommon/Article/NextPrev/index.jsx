@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components';
-import { getOptimizedImage } from 'utils/helper';
-import { ROUTES } from 'utils/constants';
+import { LinkWrapper, Svg } from 'components';
+import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
+
 import styles from './styles.module.scss';
 
-const NextPrev = ({
-  isNewer,
-  previewImageUrl,
-  slug,
-  title,
-}) => {
+const NextPrev = ({ isNewer, slug }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
   const linkProps = {
     isLocalLink: true,
@@ -19,29 +14,19 @@ const NextPrev = ({
     dynamicRouting: dynamicPath,
   };
 
-  return slug && title && previewImageUrl && (
+  return slug && (
     <div className={cn({
       [styles.newer]: isNewer,
       [styles.older]: !isNewer,
     })}
     >
       <LinkWrapper {...linkProps}>
-        <div className={styles.imgContainer}>
-          <img
-            className={styles.img}
-            src={getOptimizedImage(previewImageUrl, 720)}
-            alt={title}
-          />
-        </div>
+        <span>{isNewer ? 'next post' : 'previous post'}</span>
+        <Svg
+          type={SVG_IMAGES_TYPES.nearbyArrow}
+          className={styles.arrow}
+        />
       </LinkWrapper>
-      <div className={styles.content}>
-        <small>{isNewer ? 'NEWER POST' : 'OLDER POST'}</small>
-        <h3 className={styles.title}>
-          <LinkWrapper {...linkProps}>
-            {title}
-          </LinkWrapper>
-        </h3>
-      </div>
     </div>
   );
 };
@@ -49,14 +34,11 @@ const NextPrev = ({
 NextPrev.defaultProps = {
   isNewer: false,
   slug: '',
-  title: '',
 };
 
 NextPrev.propTypes = {
   isNewer: PropTypes.bool,
-  previewImageUrl: PropTypes.string.isRequired,
   slug: PropTypes.string,
-  title: PropTypes.string,
 };
 
 export default NextPrev;

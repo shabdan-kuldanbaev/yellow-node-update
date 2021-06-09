@@ -118,6 +118,7 @@ export const SVG_IMAGES_TYPES = {
   instaIcon: 'instaIcon',
   linkedinIcon: 'linkedinIcon',
   mediumIcon: 'mediumIcon',
+  nearbyArrow: 'nearbyArrow',
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
