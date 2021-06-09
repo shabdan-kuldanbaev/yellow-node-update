@@ -1,50 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components';
-import { getOptimizedImage } from 'utils/helper';
-import { ROUTES } from 'utils/constants';
-import Like from './images/like.svg';
+import { LinkWrapper, Svg } from 'components';
+import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const BookmarkCard = ({
-  slug,
-  description,
-  title,
-  image,
-}) => {
+export const BookmarkCard = ({ slug, title }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
-  const linkProps = {
-    isLocalLink: true,
-    path,
-    dynamicRouting: dynamicPath,
-  };
 
   return slug && (
     <div className={styles.bookmarkContainer}>
-      <div className={styles.bookmarkCard}>
-        <div className={styles.content}>
-          <h3>
-            <LinkWrapper {...linkProps}>
-              {title}
-            </LinkWrapper>
-          </h3>
-          <div className={styles.description}>
-            {description}
-          </div>
-          <div className={styles.metadata}>
-            <LinkWrapper {...linkProps}>
-              <img
-                src={Like}
-                alt="like"
-              />
-              <span>Recommended</span>
-            </LinkWrapper>
-          </div>
-        </div>
-        <div className={styles.imgContainer}>
-          <img
-            src={getOptimizedImage(image, 720)}
-            alt="bookmark"
+      <div>
+        <Svg
+          type={SVG_IMAGES_TYPES.bookmarkIcon}
+          className={styles.bookmarkIconContainer}
+        />
+      </div>
+      <div className={styles.content}>
+        <span className={styles.text}>You may also like</span>
+        <div className={styles.title}>
+          <LinkWrapper
+            path={path}
+            dynamicRouting={dynamicPath}
+            isLocalLink
+          >
+            {title}
+          </LinkWrapper>
+          <Svg
+            type={SVG_IMAGES_TYPES.bookmarkArrow}
+            className={styles.arrowContainer}
           />
         </div>
       </div>
@@ -54,7 +37,5 @@ export const BookmarkCard = ({
 
 BookmarkCard.propTypes = {
   slug: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
 };

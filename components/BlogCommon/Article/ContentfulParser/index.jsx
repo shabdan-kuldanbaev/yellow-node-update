@@ -38,20 +38,15 @@ export const ContentfulParser = ({ document }) => {
           const {
             title,
             slug,
-            description,
-            image,
           } = getDocumentFields(
             get(node, 'data.target', {}),
-            ['title', 'slug', 'description', 'image'],
+            ['title', 'slug'],
           );
-          const imageUrl = getFileUrl(image);
 
-          return (title && slug && description && imageUrl && (
+          return (title && slug && (
             <BookmarkCard
               title={title}
               slug={slug}
-              description={description}
-              image={imageUrl}
             />
           )
           );
