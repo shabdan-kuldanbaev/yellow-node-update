@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
-export function getAuthorProps({ author } = {}) {
+function getAuthorProps({ author } = {}) {
   const authorFields = getDocumentFields(
     author,
     [

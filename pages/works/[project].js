@@ -2,28 +2,48 @@ import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import ProjectContainer from 'containers/Project';
+import { PageNotFound } from 'containers/PageNotFound';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 
-const Project = ({ introSection }) => <ProjectContainer introSection={introSection} />;
+const Project = ({ introSection, statusCode }) => {
+  if (statusCode === 404) {
+    return <PageNotFound />;
+  }
+
+  return (<ProjectContainer introSection={introSection} />);
+};
+
+const isProjectLoaded = (store) => store.getState().portfolio.project.total !== 0;
 
 Project.getInitialProps = async ({
   store,
   req,
+  res,
   query: { project },
 }) => {
   try {
+    let statusCode = '';
     store.dispatch(fetchLayoutData({
       slug: PAGES.project,
       projectSlug: project,
     }));
 
+    // TODO rewrite it
     if (req) {
       store.dispatch(END);
       await store.sagaTask.toPromise();
+
+      if (!isProjectLoaded(store)) {
+        statusCode = 404;
+
+        if (res) {
+          res.statusCode = 404;
+        }
+      }
     }
 
-    return {};
+    return { statusCode };
   } catch (error) {
     errorHelper.handleError({
       error,
