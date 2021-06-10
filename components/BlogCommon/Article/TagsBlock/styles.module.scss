@@ -1,0 +1,54 @@
+@import 'styles/utils/mixins';
+
+.tagsBlock {
+  margin-bottom: 150px;
+
+  @include flex(column);
+
+  @include phone {
+    margin-bottom: 80px;
+  }
+
+  .text {
+    font-weight: 700;
+    color: $tundora;
+    margin-bottom: 30px;
+
+    @include fontSize(24px);
+
+    @include tablet {
+      @include fontSize(20px);
+    }
+
+    @include phone {
+      @include fontSize(18px);
+    }
+  }
+
+  .tagsList {
+    @include flex();
+
+    .tag {
+      padding: 12px 20px;
+      margin-right: 20px;
+      color: $silver-chalice;
+      line-height: 1.5;
+      border: 1px solid $mercury;
+      border-radius: 50px;
+      transition: border-color 0.4s ease, color 0.4s ease;
+
+      @include phone {
+        padding: 8px 14px;
+        margin-right: 10px;
+
+        @include fontSize(14px);
+      }
+
+      &:hover {
+        border-color: $silver-1;
+        color: $jumbo;
+        transition: border-color 0.4s ease, color 0.4s ease;
+      }
+    }
+  }
+}
