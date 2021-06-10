@@ -22,7 +22,7 @@ const Header = ({
 }) => {
   const { asPath, query: { page } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
-  const isHomePage = asPath === ROUTES.homepage.path;
+  const isHomePage = asPath === ROUTES.homepage.path || currentPage === ROUTES.caseStudy.path;
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
 

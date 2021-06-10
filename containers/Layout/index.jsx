@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import { connect, useDispatch } from 'react-redux';
 import {
   setMobileResolutions,
@@ -15,6 +16,7 @@ import CookiesNotification from 'components/Common/CookiesNotification';
 import { GAnalytic } from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
 import { Footer } from 'components/Layout/Footer';
+import FooterV2 from 'components/Layout/Footer/Footer-v2';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import {
   mobileResolution,
@@ -30,6 +32,7 @@ const Layout = ({
 }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
+  const { pathname } = useRouter();
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
@@ -84,10 +87,15 @@ const Layout = ({
         introSection={introSection}
       />
       {children}
-      <Footer
-        theme={theme}
-        openFullscreenEstimation={openFullscreenEstimation}
-      />
+      { pathname === '/case-study/[project]' && (
+        <FooterV2 />
+      )}
+      { pathname !== '/case-study/[project]' && (
+        <Footer
+          theme={theme}
+          openFullscreenEstimation={openFullscreenEstimation}
+        />
+      )}
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}

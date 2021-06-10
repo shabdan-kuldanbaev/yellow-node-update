@@ -85,6 +85,25 @@ export const IMAGES = {
     Sandro: '/images/home/reviews/3.png',
     Jerry: '/images/home/reviews/4.png',
   },
+  wireframes: {
+    first: '/images/row-2.png',
+    second: '/images/row.png',
+  },
+  iphone: '/images/iPhone.png',
+  map: '/images/map.png',
+  pictures: '/images/pictures.png',
+  screens: '/images/screens.png',
+  editStory: '/images/editStory.png',
+  experienceCard: '/images/ExperienceCard.png',
+  chart: '/images/chart.png',
+  chat: '/images/chat.png',
+  experience: '/images/Experiences.png',
+  experienceCalendar: '/images/ExperiencesCalendar.png',
+  result: '/images/result.png',
+  fernwayerBg: '/images/fernwayerBg.png',
+  advantages: '/images/advantages.png',
+  fernwayerLogo: '/images/fernwayerLogo.png',
+  fernwayerImage: '/images/fernwayerImage.png',
 };
 
 export const CONTACTS_DATA = {
@@ -100,6 +119,12 @@ export const CONTACTS_DATA = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  appstore: 'appstore',
+  arrow: 'arrowSvg',
+  behance: 'behanceSvg',
+  dribble: 'dribbleSvg',
+  instagram: 'instagramSvg',
+  logoWhite: 'logoWhite',
   searchSvg: 'searchSvg',
   yellowLogoSvg: 'yellowLogoSvg',
   unpinSvg: 'unpinSvg',

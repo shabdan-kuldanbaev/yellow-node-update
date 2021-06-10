@@ -1,0 +1,41 @@
+@import 'styles/utils/mixins';
+
+.imagesContainer {
+  position: relative;
+  overflow: hidden;
+
+  &:not(&:last-of-type) {
+    margin-bottom: 80px;
+  }
+
+  .leftGradient {
+    position: absolute;
+    width: 25%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, $white 0%, rgba($white, 0) 100%);
+    z-index: 10;
+  }
+
+  .rightGradient {
+    position: absolute;
+    width: 25%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(270deg, $white 0%, rgba($white, 0) 100%);
+    z-index: 10;
+  }
+
+  .image {
+    height: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    @include phone {
+      height: 400px;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@import 'styles/utils/mixins';
+
+.imageContainer {
+  .image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+
+    @include tablet {
+      max-width: 390px;
+    }
+  }
+
+  @include phone {
+    order: 2;
+  }
+}
+
+.descriptionContainer {
+  @include flex(column, center);
+
+  @include tablet {
+    max-width: 270px;
+  }
+
+  @include phone {
+    max-width: initial;
+    text-align: center;
+    order: 1;
+  }
+
+  .sectionName {
+    margin: 0 0 20px;
+    font-weight: bold;
+    line-height: 180%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $light-gray;
+
+    @include fontSize(16px);
+
+    @include tablet {
+      margin: 0 0 10px;
+
+      @include fontSize(14px);
+    }
+  }
+
+  .title {
+    margin: 0 0 30px;
+    font-weight: bold;
+    line-height: 120%;
+    color: $dark-grey;
+
+    @include fontSize(56px);
+
+    @include tablet {
+      margin: 0 0 15px;
+
+      @include fontSize(40px);
+    }
+
+    @include phone {
+      @include fontSize(32px);
+    }
+  }
+
+  .description {
+    max-width: 445px;
+    margin: 0 0 80px;
+    line-height: 180%;
+    color: $light-gray;
+
+    @include fontSize(18px);
+
+    @include tablet {
+      max-width: 270px;
+
+      @include fontSize(16px);
+    }
+
+    @include phone {
+      max-width: initial;
+
+      @include fontSize(14px);
+    }
+  }
+
+  .additionalInfoContainer {
+    @include flex;
+
+    @include phone {
+      @include flex(column);
+    }
+  }
+}

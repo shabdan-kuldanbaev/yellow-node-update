@@ -1,0 +1,157 @@
+@import 'styles/utils/mixins';
+
+.container {
+  height: 758px;
+  box-sizing: border-box;
+  padding-bottom: 84px;
+  background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+
+  @include flex(column);
+
+  @include tablet {
+    padding: 0 40px 30px;
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+
+  .nextProjectContainer {
+    width: fit-content;
+    margin: 0 auto;
+    flex-grow: 1;
+
+    @include flex(column, center, center);
+
+    .subtitle {
+      margin: 0 0 20px;
+      font-weight: bold;
+      line-height: 120%;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba($white, 0.7);
+
+      @include fontSize(16px);
+
+      @include tablet {
+        @include fontSize(14px);
+      }
+
+      @include phone {
+        @include fontSize(12px);
+      }
+    }
+
+    .projectName {
+      margin: 0 0 45px;
+      font-weight: bold;
+      line-height: 120%;
+      text-align: center;
+      color: $white;
+
+      @include fontSize(60px);
+
+      @include phone {
+        @include fontSize(50px);
+      }
+    }
+
+    .more {
+      padding: 20px 45px;
+      border: 1px solid $white;
+      box-sizing: border-box;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      line-height: 150%;
+      color: $white;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        padding: 16px 34px;
+
+        @include fontSize(16px);
+      }
+
+      @include phone {
+        padding: 12px 20px;
+
+        @include fontSize(14px);
+      }
+
+      .textIndent {
+        margin-right: 15px;
+
+        @include phone {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .question {
+    margin: 0 0 20px;
+    font-weight: bold;
+    line-height: 120%;
+    text-align: center;
+    color: $white;
+
+    @include fontSize(32px);
+
+    @include tablet {
+      @include fontSize(24px);
+    }
+
+    @include phone {
+      margin-bottom: 15px;
+
+      @include fontSize(20px);
+    }
+  }
+
+  .link {
+    margin: 0;
+    font-weight: bold;
+    line-height: 120%;
+    color: rgba($white, 0.5);
+
+    @include fontSize(24px);
+
+    @include tablet {
+      @include fontSize(20px);
+    }
+
+    @include phone {
+      margin-bottom: 30px;
+
+      @include fontSize(18px);
+    }
+  }
+
+  .iconLink {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .footerLinks {
+    padding: 0 15% 0;
+
+    @include flex(row, space-between);
+
+    @include tablet {
+      padding: 0;
+    }
+
+    @include phone {
+      text-align: center;
+      gap: 30px;
+
+      @include flex(column, center, center);
+    }
+  }
+}

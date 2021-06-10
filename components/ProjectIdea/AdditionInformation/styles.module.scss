@@ -1,0 +1,40 @@
+@import 'styles/utils/mixins';
+
+.container {
+  width: 280px;
+
+  .title {
+    margin: 0 0 15px;
+    font-weight: bold;
+    line-height: 180%;
+    color: $dark-grey;
+
+    @include fontSize(18px);
+
+    @include tablet {
+      margin-bottom: 5px;
+
+      @include fontSize(16px);
+    }
+  }
+
+  .listContainer {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .listItemContainer {
+    line-height: 180%;
+    color: $light-gray;
+
+    @include fontSize(18px);
+
+    &::marker {
+      color: #F96A77;
+    }
+
+    @include phone {
+      @include fontSize(16px);
+    }
+  }
+}

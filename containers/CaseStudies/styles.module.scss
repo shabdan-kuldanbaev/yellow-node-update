@@ -1,0 +1,99 @@
+@import 'styles/utils/mixins';
+
+.container {
+  padding: 140px 40px;
+  background-color: $white;
+  overflow: hidden;
+
+  @include tablet {
+    padding: 100px 40px;
+  }
+
+  @include phone {
+    padding: 40px 15px;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 812px;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+}
+
+.idea {
+  gap: 112px;
+
+  @include flex(row, center);
+
+  @include tablet {
+    padding: 100px 15px;
+    gap: 30px;
+  }
+
+  @include phone {
+    padding: 40px 15px;
+
+    @include flex(column, center, center);
+  }
+}
+
+.backgroundGrey {
+  background-color: #FAFAFA;
+}
+
+.chat {
+  .description {
+    text-align: left;
+  }
+}
+
+.fernwayer {
+  background: url("/images/fernwayerBg.png"), linear-gradient(180deg, $pink 0%, $light-pink 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.technology {
+  .imagContainer {
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      max-width: 210px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $blog-subscribe-input-box-shadow-focus-color;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $dark-grey;
+      border-radius: 10px;
+    }
+
+    .image {
+      @include phone {
+        width: auto;
+        height: 485px;
+      }
+    }
+  }
+}
+
+.team {
+  background-color: $white;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr 440px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  @include phone {
+    @include flex(column);
+  }
+}

@@ -200,4 +200,13 @@ export const routes = {
     dynamicPath: '/not-found',
     slug: 'not-found',
   },
+  caseStudy: {
+    title: 'Project',
+    path: 'case-study',
+    getRoute: (slug) => ({
+      path: !!slug && `/case-study/${slug}`,
+      dynamicPath: !!slug && '/case-study/[project]',
+    }),
+    slug: 'project',
+  },
 };
