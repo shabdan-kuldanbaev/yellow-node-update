@@ -5,18 +5,17 @@
   @include flex(row-reverse);
 
   & > a {
-    @include flex();
+    @include flex(row, center, center);
 
     &:hover {
       .arrow {
-        transform: translateY(75%) translateX(5px);
+        transform: translateX(5px);
         transition: transform 0.4s ease-out;
       }
     }
 
     .arrow {
       margin-left: 10px;
-      transform: translateY(75%);
       transition: transform 0.4s ease-out;
     }
   }
@@ -26,18 +25,18 @@
   @include flex();
 
   & > a {
-    @include flex(row-reverse);
+    @include flex(row-reverse, center, center);
 
     &:hover {
       .arrow {
-        transform: translateY(75%) translateX(-5px) rotate(180deg);
+        transform: translateX(-5px) rotate(180deg);
         transition: transform 0.4s ease-out;
       }
     }
 
     .arrow {
       margin-right: 10px;
-      transform: translateY(75%) rotate(180deg);
+      transform: rotate(180deg);
       transition: transform 0.4s ease-out;
     }
   }

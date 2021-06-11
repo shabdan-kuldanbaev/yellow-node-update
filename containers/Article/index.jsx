@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+import get from 'lodash/get';
 import {
   selectArticle,
   selectRelatedArticles,
@@ -24,7 +25,7 @@ import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import { getArticleProps, getNearbyArticlesProps } from './utils/propsHelper';
+import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
 const ArticleContainer = ({
@@ -35,7 +36,8 @@ const ArticleContainer = ({
   subscribe: addNewSubscriber,
 }) => {
   const { query: { slug }, pathname } = useRouter();
-  const { nextArticle, prevArticle } = getNearbyArticlesProps({ nearbyArticles });
+  const prevArticleSlug = get(nearbyArticles, 'olderArticle.slug');
+  const nextArticleSlug = get(nearbyArticles, 'newerArticle.slug');
   const {
     slug: articleSlug,
     title,
@@ -103,16 +105,10 @@ const ArticleContainer = ({
           && !!relatedArticles.length
           && <RelatedSection articles={relatedArticles} />}
         <div className={styles.nextPrevSection}>
-          <NextPrev
-            slug={prevArticle.slug}
-            title={prevArticle.title}
-            previewImageUrl={prevArticle.previewImageUrl}
-          />
+          <NextPrev slug={prevArticleSlug} />
           <NextPrev
             isNewer
-            slug={nextArticle.slug}
-            title={nextArticle.title}
-            previewImageUrl={nextArticle.previewImageUrl}
+            slug={nextArticleSlug}
           />
         </div>
         <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />

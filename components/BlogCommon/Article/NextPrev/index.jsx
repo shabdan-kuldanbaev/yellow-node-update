@@ -3,16 +3,10 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper, Svg } from 'components';
 import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
-
 import styles from './styles.module.scss';
 
 const NextPrev = ({ isNewer, slug }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
-  const linkProps = {
-    isLocalLink: true,
-    path,
-    dynamicRouting: dynamicPath,
-  };
 
   return slug && (
     <div className={cn({
@@ -20,7 +14,11 @@ const NextPrev = ({ isNewer, slug }) => {
       [styles.older]: !isNewer,
     })}
     >
-      <LinkWrapper {...linkProps}>
+      <LinkWrapper
+        isLocalLink
+        path={path}
+        dynamicRouting={dynamicPath}
+      >
         <span>{isNewer ? 'next post' : 'previous post'}</span>
         <Svg
           type={SVG_IMAGES_TYPES.nearbyArrow}
