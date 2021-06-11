@@ -9,7 +9,9 @@ export const TagsBlock = ({ tags }) => {
 
   return (
     <div className={styles.tagsBlock}>
-      <span className={styles.text}>Tags</span>
+      <span className={styles.title}>
+        Tags
+      </span>
       <div className={styles.tagsList}>
         {tags.map((tag) => <div className={styles.tag}>{tag}</div>)}
       </div>
