@@ -7,15 +7,33 @@
   color: $dark-grey;
 
   @include fontSize(40px);
+
+  @include tablet {
+    @include fontSize(32px);
+  }
+
+  @include phone {
+    @include fontSize(24px);
+  }
 }
 
-.accentItem {
+.name {
   margin: 0 0 15px;
   font-weight: bold;
   line-height: 180%;
   color: $dark-grey;
 
   @include fontSize(18px);
+
+  @include tablet {
+    @include fontSize(16px);
+  }
+
+  @include phone {
+    margin-bottom: 5px;
+
+    @include fontSize(14px);
+  }
 }
 
 .description {
@@ -24,4 +42,12 @@
   color: $light-gray;
 
   @include fontSize(18px);
+
+  @include tablet {
+    @include fontSize(16px);
+  }
+
+  @include phone {
+    @include fontSize(14px);
+  }
 }

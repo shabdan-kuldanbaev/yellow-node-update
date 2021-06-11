@@ -4,6 +4,7 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 
 const SectionTitle = ({
+  alignLeft,
   title,
   description,
 }) => (
@@ -12,7 +13,7 @@ const SectionTitle = ({
       {title}
     </h2>
     {description && (
-      <p className={styles.description}>
+      <p className={cn(styles.description, { [styles.alignLeft]: alignLeft })}>
         {description}
       </p>
     )}
@@ -20,10 +21,12 @@ const SectionTitle = ({
 );
 
 SectionTitle.defaultProps = {
+  alignLeft: false,
   description: '',
 };
 
 SectionTitle.propTypes = {
+  alignLeft: PropTypes.bool,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
 };

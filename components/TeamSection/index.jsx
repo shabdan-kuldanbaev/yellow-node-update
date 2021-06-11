@@ -1,33 +1,36 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-const TeamSection = () => (
+const TeamSection = ({
+  members,
+  description,
+}) => (
   <Fragment>
     <h2 className={styles.title}>
       Team
     </h2>
     <div>
-      <p className={styles.accentItem}>
-        Art Director
-      </p>
-      <p className={styles.accentItem}>
-        Project manager
-      </p>
-      <p className={styles.accentItem}>
-        UX/UI designer
-      </p>
+      {members.map((member) => (
+        <p className={styles.name}>
+          {member}
+        </p>
+      ))}
     </div>
     <div>
-      <p className={styles.accentItem}>
+      <p className={styles.name}>
         Development
       </p>
       <p className={styles.description}>
-        Two iOS developers (One full-time, one part-time)
-        Two frontend developers (full-time)
-        Backend developer
+        {description}
       </p>
     </div>
   </Fragment>
 );
+
+TeamSection.propTypes = {
+  members: PropTypes.instanceOf(Array).isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default TeamSection;

@@ -31,7 +31,24 @@ const CaseStudiesContainer = ({ introSection, type }) => {
       tag: ProjectIdea,
       style: styles.idea,
       props: {
-        imageUrl: IMAGES.advantages,
+        features: [
+          {
+            title: 'Profile',
+            description: 'There are two types of users in Fernwayer: Travelers and Experience Makers.',
+          },
+          {
+            title: 'Experiences',
+            description: 'Experience is a unique service provided by independent guides and local travel agencies.',
+          },
+          {
+            title: 'Stories',
+            description: 'Stories in Fernwayer are posts that allow travelers to share their adventures with others.',
+          },
+          {
+            title: 'Bookings',
+            description: 'Fernwayer provides Experience Makers with an easy-to-use bookings system.',
+          },
+        ],
         description: ideaDescription,
         additionInformation,
       },
@@ -39,6 +56,16 @@ const CaseStudiesContainer = ({ introSection, type }) => {
     {
       tag: TeamSection,
       style: styles.team,
+      props: {
+        members: [
+          'Art Director',
+          'Project manager',
+          'UX/UI designer',
+        ],
+        description: 'Two iOS developers (One full-time, one part-time)\n'
+          + '\nTwo frontend developers (full-time)\n'
+          + '\nBackend developer',
+      },
     },
     {
       title: 'Wireframes',
@@ -109,6 +136,7 @@ const CaseStudiesContainer = ({ introSection, type }) => {
     },
     {
       title: 'Chatting system',
+      alignLeft: true,
       style: styles.chat,
       description: 'Fernwayer has a system of chats that facilitates communication between different app roles.'
         + 'A Traveler can start a chat with an Experience Maker and talk about the experience or event, and vice versa, the chat can be initiated by the Experience Maker. Also, both of them can talk'
@@ -206,10 +234,14 @@ const CaseStudiesContainer = ({ introSection, type }) => {
         description="A social media app for those who want to experience something truly unique and for those who are ready to provide it."
         imageUrl={IMAGES.fernwayerImage}
       />
-      {components.map((component) => (
-        <section className={cn(styles.container, component.style)}>
+      {components.map((component, index) => (
+        <section
+          key={index}
+          className={cn(styles.container, component.style)}
+        >
           {component.title && (
             <SectionTitle
+              alignLeft={component.alignLeft}
               title={component.title}
               description={component.description}
             />

@@ -1,0 +1,101 @@
+@import 'styles/utils/mixins';
+
+.container {
+  position: relative;
+  width: 630px;
+  padding: 140px 92px;
+  border-radius: 60px;
+  perspective: 1000px;
+
+  @include tablet {
+    max-width: 390px;
+    padding: 100px 20px;
+  }
+
+  @include phone {
+    max-width: 345px;
+    padding: 80px 15px;
+  }
+
+  .containerBackground {
+    border-radius: 60px;
+    background-color: #F8F8F8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: rotateY(-16deg) translateX(-5%);
+
+    @include phone {
+      border-radius: 30px;
+    }
+  }
+
+  .featureContainer {
+    margin-bottom: 20px;
+    gap: 30px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include flex;
+
+    @include tablet {
+      gap: 20px;
+    }
+
+    .checkMark {
+      position: relative;
+      min-width: 50px;
+      height: 50px;
+      background: linear-gradient(180deg, #D45D94 0%, #FA717D 100%);
+      border-radius: 50%;
+
+      @include tablet {
+        min-width: 40px;
+        height: 40px;
+      }
+
+      .icon {
+        @include centre;
+      }
+    }
+
+    .contentContainer {
+      z-index: 10;
+
+      .title {
+        margin: 0 0 15px;
+        font-weight: bold;
+        line-height: 120%;
+        color: $dark-grey;
+
+        @include fontSize(24px);
+
+        @include phone {
+          margin-bottom: 18px;
+
+          @include fontSize(18px);
+        }
+      }
+
+      .description {
+        margin: 0;
+        line-height: 150%;
+        color: $silver-chalice;
+
+        @include fontSize(18px);
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+}

@@ -71,7 +71,10 @@ const Header = ({
     })}
     >
       <div className={styles.logo}>
-        <Logo theme={theme} />
+        <Logo
+          theme={theme}
+          whiteLogo={!isAdditional && isHomePage}
+        />
       </div>
       {currentPage.includes('blog') && (
         <div className={styles.categories}>

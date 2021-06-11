@@ -1,10 +1,29 @@
 @import 'styles/utils/mixins';
 
+.infoContainer {
+  gap: 15px;
+
+  @include flex;
+
+  @include phone {
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
 .container {
-  width: 280px;
+  max-width: 280px;
+
+  @include phone {
+    min-width: 240px;
+  }
 
   .title {
     margin: 0 0 15px;
+    text-align: start;
     font-weight: bold;
     line-height: 180%;
     color: $dark-grey;
@@ -15,6 +34,10 @@
       margin-bottom: 5px;
 
       @include fontSize(16px);
+    }
+
+    @include phone {
+      @include fontSize(14px);
     }
   }
 
@@ -33,8 +56,14 @@
       color: #F96A77;
     }
 
-    @include phone {
+    @include tablet {
       @include fontSize(16px);
+    }
+
+    @include phone {
+      text-align: start;
+
+      @include fontSize(14px);
     }
   }
 }

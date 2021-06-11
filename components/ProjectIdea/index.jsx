@@ -1,21 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import KeyFeatures from 'components/ProjectIdea/KeyFeatures';
 import AdditionInformation from 'components/ProjectIdea/AdditionInformation';
 import styles from './styles.module.scss';
 
 const Index = ({
   description,
-  imageUrl,
+  features,
   additionInformation,
 }) => (
   <Fragment>
-    <div className={styles.imageContainer}>
-      <img
-        src={imageUrl}
-        className={styles.image}
-        alt=""
-      />
-    </div>
+    <KeyFeatures features={features} />
     <div className={styles.descriptionContainer}>
       <p className={styles.sectionName}>
         About
@@ -26,25 +21,19 @@ const Index = ({
       <p className={styles.description}>
         {description}
       </p>
-      {additionInformation && (
-        <div className={styles.additionalInfoContainer}>
-          {additionInformation.map((information) => (
-            <AdditionInformation
-              key={information.title}
-              title={information.title}
-              information={information.list}
-            />
-          ))}
-        </div>
-      )}
+      {additionInformation && <AdditionInformation additionInformation={additionInformation} />}
     </div>
   </Fragment>
 );
 
+Index.defaultProps = {
+  additionInformation: null,
+};
+
 Index.propTypes = {
   description: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-  additionInformation: PropTypes.instanceOf(Array).isRequired,
+  features: PropTypes.instanceOf(Array).isRequired,
+  additionInformation: PropTypes.instanceOf(Array),
 };
 
 export default Index;
