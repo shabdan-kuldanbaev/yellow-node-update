@@ -1,6 +1,6 @@
 @import "styles/utils/mixins";
 
-.article {
+.related {
   min-width: 150px;
   flex: 1 0 calc(25% - 40px);
   margin: 0 20px;
@@ -75,58 +75,66 @@
         object-fit: cover;
       }
     }
+  }
 
-    .articleContent {
-      padding: 30px;
+  .articleContent {
+    padding: 30px;
 
-      @include flex(column);
+    @include flex(column);
 
-      @include tablet {
-        padding: 20px;
+    @include tablet {
+      padding: 20px;
+    }
+
+    & > a {
+      color: $mine-shaft;
+      margin-bottom: 15px;
+    }
+
+    & > a:last-child {
+      margin-bottom: 0;
+    }
+
+    .title {
+      display: inline-block;
+      font-weight: 700;
+      margin: 0;
+
+      @include fontSize(24px);
+
+      @include macbook-twelve {
+        @include fontSize(22px);
       }
 
-      .title {
-        display: inline-block;
-        font-weight: 700;
-        margin: 0;
+      @include phone {
+        @include fontSize(18px);
+      }
 
-        @include fontSize(24px);
+      & > span {
+        color: $mine-shaft;
+        background-image: linear-gradient($turbo-100, $turbo-100);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 8px;
+        transition: background-size 0.6s ease-out;
+      }
 
-        @include macbook-twelve {
-          @include fontSize(22px);
-        }
-
-        @include phone {
-          @include fontSize(18px);
-        }
-
+      &:hover {
         & > span {
-          color: $mine-shaft;
-          background-image: linear-gradient($turbo-100, $turbo-100);
-          background-position: 0% 100%;
-          background-repeat: no-repeat;
-          background-size: 0% 8px;
           transition: background-size 0.6s ease-out;
-        }
-
-        &:hover {
-          & > span {
-            transition: background-size 0.6s ease-out;
-            background-size: 100% 8px;
-          }
+          background-size: 100% 8px;
         }
       }
+    }
 
-      .category {
-        font-weight: 600;
-        margin-bottom: 15px;
-        text-transform: uppercase;
+    .category {
+      font-weight: 600;
+      text-transform: uppercase;
 
-        @include fontSize(14px);
+      @include fontSize(14px);
 
-        @include macbook-twelve {
-          @include fontSize(12px);
-        }
+      @include macbook-twelve {
+        @include fontSize(12px);
       }
     }
   }

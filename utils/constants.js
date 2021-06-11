@@ -123,3 +123,7 @@ export const SVG_IMAGES_TYPES = {
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
 
 export const HEADER_HEIGHT = 66;
+
+export const ARTICLE_PREVIEW_TYPES = {
+  related: 'related',
+};

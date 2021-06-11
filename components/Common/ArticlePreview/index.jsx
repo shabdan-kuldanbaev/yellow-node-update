@@ -5,21 +5,24 @@ import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const Article = ({
+export const ArticlePreview = ({
   slug,
   title,
   image,
   category,
+  type,
 }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
+  const { path: categoryPath, dynamicPath: categoryDynamicPath } = ROUTES.blog.getRoute(category);
+  const articleLinkProps = {
+    isLocalLink: true,
+    path,
+    dynamicRouting: dynamicPath,
+  };
 
   return slug && title && image && (
-    <article className={styles.article}>
-      <LinkWrapper
-        isLocalLink
-        path={path}
-        dynamicRouting={dynamicPath}
-      >
+    <article className={styles[type]}>
+      <LinkWrapper {...articleLinkProps}>
         <div className={styles.imgContainer}>
           <img
             className={styles.img}
@@ -27,24 +30,33 @@ export const Article = ({
             alt={title}
           />
         </div>
-        <div className={styles.articleContent}>
+      </LinkWrapper>
+      <div className={styles.articleContent}>
+        <LinkWrapper
+          isLocalLink
+          path={categoryPath}
+          dynamicRouting={categoryDynamicPath}
+        >
           <span className={styles.category}>
             {category}
           </span>
+        </LinkWrapper>
+        <LinkWrapper {...articleLinkProps}>
           <h3 className={styles.title}>
             <span>
               {title}
             </span>
           </h3>
-        </div>
-      </LinkWrapper>
+        </LinkWrapper>
+      </div>
     </article>
   );
 };
 
-Article.propTypes = {
+ArticlePreview.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };

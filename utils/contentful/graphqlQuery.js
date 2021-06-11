@@ -76,10 +76,10 @@ export const GRAPHQL_QUERY = {
           items {
             title
             slug
+            categoryTag
             previewImageUrl {
               url
             }
-            categoryTag
           }
         }
       }
