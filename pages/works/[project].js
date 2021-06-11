@@ -11,10 +11,8 @@ const Project = ({ introSection, statusCode }) => {
     return <PageNotFound />;
   }
 
-  return (<ProjectContainer introSection={introSection} />);
+  return <ProjectContainer introSection={introSection} />;
 };
-
-const isProjectLoaded = (store) => store.getState().portfolio.project.total !== 0;
 
 Project.getInitialProps = async ({
   store,
@@ -34,7 +32,7 @@ Project.getInitialProps = async ({
       store.dispatch(END);
       await store.sagaTask.toPromise();
 
-      if (!isProjectLoaded(store)) {
+      if (!store.getState().portfolio.project.total !== 0) {
         statusCode = 404;
 
         if (res) {
