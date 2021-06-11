@@ -5,7 +5,10 @@ import styles from './styles.module.scss';
 const AdditionInformation = ({ additionInformation }) => (
   <div className={styles.infoContainer}>
     {additionInformation.map(({ title, list }) => (
-      <div className={styles.container}>
+      <div
+        key={title}
+        className={styles.container}
+      >
         <p className={styles.title}>
           {title}
         </p>

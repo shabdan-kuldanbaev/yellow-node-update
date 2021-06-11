@@ -3,32 +3,31 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
-const AppFeatures = ({
-  links,
-  imageUrl,
-}) => {
+const AppFeatures = ({ links, imageUrl }) => {
   const [activeName, setActiveName] = useState(links[0].name);
 
-  const onClick = (name) => {
+  const handleOnClick = (name) => {
     setActiveName(name);
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.sectionContainer}>
-        {links.map((sectionInfo) => (
+        {links.map(({ name, description }) => (
           <div
-            key={sectionInfo.name}
-            className={cn(styles.sectionItem, { [styles.sectionActiveItem]: sectionInfo.name === activeName })}
+            key={name}
+            className={cn(styles.sectionItem, {
+              [styles.sectionActiveItem]: name === activeName,
+            })}
           >
             <p
               className={styles.title}
-              onClick={() => onClick(sectionInfo.name)}
+              onClick={() => handleOnClick(name)}
             >
-              {sectionInfo.name}
+              {name}
             </p>
             <p className={styles.description}>
-              {sectionInfo.description}
+              {description}
             </p>
           </div>
         ))}

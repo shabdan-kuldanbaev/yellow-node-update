@@ -37,18 +37,26 @@
         @include tablet {
           @include fontSize(32px);
         }
+
+        @include phone {
+          @include fontSize(24px);
+        }
       }
 
       .description {
         margin: 0;
         display: none;
         line-height: 180%;
-        color: $light-gray;
+        color: $silver-chalice;
 
         @include fontSize(18px);
 
         @include tablet {
           @include fontSize(16px);
+        }
+
+        @include phone {
+          @include fontSize(14px);
         }
       }
     }

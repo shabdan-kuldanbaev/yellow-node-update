@@ -12,7 +12,7 @@ const Project = ({ introSection }) => {
   return (
     <CaseStudiesContainer
       introSection={introSection}
-      type={project}
+      currentProject={project}
     />
   );
 };

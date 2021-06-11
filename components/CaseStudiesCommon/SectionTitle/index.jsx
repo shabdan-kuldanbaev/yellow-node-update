@@ -4,29 +4,31 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 
 const SectionTitle = ({
-  alignLeft,
+  type,
   title,
   description,
 }) => (
   <Fragment>
-    <h2 className={cn(styles.title, { [styles.titleIndent]: description })}>
-      {title}
-    </h2>
-    {description && (
-      <p className={cn(styles.description, { [styles.alignLeft]: alignLeft })}>
-        {description}
-      </p>
-    )}
+    <div className={styles[type]}>
+      <h2 className={cn(styles.title, { [styles.titleIndent]: description })}>
+        {title}
+      </h2>
+      {description && (
+        <p className={styles.description}>
+          {description}
+        </p>
+      )}
+    </div>
   </Fragment>
 );
 
 SectionTitle.defaultProps = {
-  alignLeft: false,
+  type: '',
   description: '',
 };
 
 SectionTitle.propTypes = {
-  alignLeft: PropTypes.bool,
+  type: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
 };

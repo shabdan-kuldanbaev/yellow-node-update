@@ -15,11 +15,12 @@
   @include phone {
     max-width: 345px;
     padding: 80px 15px;
+    order: 2;
   }
 
   .containerBackground {
     border-radius: 60px;
-    background-color: #F8F8F8;
+    background-color: $white-darker;
     position: absolute;
     top: 0;
     left: 0;

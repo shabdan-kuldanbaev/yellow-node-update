@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Svg } from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
@@ -29,5 +29,9 @@ const KeyFeatures = ({ features }) => (
     ))}
   </div>
 );
+
+KeyFeatures.propTypes = {
+  features: PropTypes.instanceOf(Array).isRequired,
+};
 
 export default KeyFeatures;

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './styles.module.scss';
@@ -8,23 +8,28 @@ const ChallengesAndSolutions = ({
   isChallenges,
   type,
 }) => (
-  <Fragment>
-    {challenges.map((challenge) => (
+  <div>
+    {challenges.map(({
+      problem,
+      problemTitle,
+      solution,
+      image,
+    }) => (
       <div
-        key={challenge.problem}
+        key={problem}
         className={cn(styles.contentContainer, styles[type])}
       >
-        {!challenge.image && (
+        {!image && (
           <div className={styles.infoContainer}>
             <h3 className={styles.title}>
-              {challenge.problemTitle}
+              {problemTitle}
             </h3>
           </div>
         )}
-        <div className={cn(styles.infoContainer, { [styles.cenrefy]: challenge.image })}>
-          {challenge.image && (
+        <div className={cn(styles.infoContainer, { [styles.centrefy]: image })}>
+          {image && (
             <h3 className={styles.title}>
-              {challenge.problemTitle}
+              {problemTitle}
             </h3>
           )}
           {isChallenges && (
@@ -33,7 +38,7 @@ const ChallengesAndSolutions = ({
             </p>
           )}
           <p className={styles.description}>
-            {challenge.problem}
+            {problem}
           </p>
           {isChallenges && (
             <p className={styles.subtitle}>
@@ -41,21 +46,21 @@ const ChallengesAndSolutions = ({
             </p>
           )}
           <p className={styles.description}>
-            {challenge.solution}
+            {solution}
           </p>
         </div>
-        {challenge.image && (
+        {image && (
           <div>
             <img
               className={styles.image}
-              src={challenge.image}
+              src={image}
               alt=""
             />
           </div>
         )}
       </div>
     ))}
-  </Fragment>
+  </div>
 );
 
 ChallengesAndSolutions.defaultProps = {

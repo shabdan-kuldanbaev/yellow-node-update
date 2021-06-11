@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import KeyFeatures from 'components/ProjectIdea/KeyFeatures';
-import AdditionInformation from 'components/ProjectIdea/AdditionInformation';
+import KeyFeatures from 'components/CaseStudiesCommon/ProjectIdea/KeyFeatures';
+import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
 import styles from './styles.module.scss';
 
 const Index = ({

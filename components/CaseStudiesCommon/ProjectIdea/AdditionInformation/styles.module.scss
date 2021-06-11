@@ -48,12 +48,12 @@
 
   .listItemContainer {
     line-height: 180%;
-    color: $light-gray;
+    color: $silver-chalice;
 
     @include fontSize(18px);
 
     &::marker {
-      color: #F96A77;
+      color: $pink-lighter;
     }
 
     @include tablet {

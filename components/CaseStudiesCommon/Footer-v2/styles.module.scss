@@ -141,7 +141,7 @@
   .footerLinks {
     padding: 0 15% 0;
 
-    @include flex(row, space-between);
+    @include flex(row, space-between, flex-end);
 
     @include tablet {
       padding: 0;

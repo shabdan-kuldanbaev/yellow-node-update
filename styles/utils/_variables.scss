@@ -64,7 +64,9 @@ $alabaster: #FAFAFA;
 $dark-grey: #171717;
 $light-gray: #A0A0A0;
 $pink: #D45D94;
+$pink-lighter: #F96A77;
 $light-pink: #FA717D;
+$white-darker: #F8F8F8;
 
 //transparency color
 $pagination: rgba(35, 37, 44, 0.25);
@@ -122,7 +124,7 @@ $max-mobile-size: 568px;
 $horizontal-mobile: 450px;
 
 //fonts
-$default-font: "Poppins";
+$default-font: "Poppins", sans-serif;
 $main-title-font: 'Sonny Gothic Condensed Ultra Black',
   sans-serif;
 

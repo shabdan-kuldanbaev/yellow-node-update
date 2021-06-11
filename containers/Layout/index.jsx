@@ -16,7 +16,7 @@ import CookiesNotification from 'components/Common/CookiesNotification';
 import { GAnalytic } from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
 import { Footer } from 'components/Layout/Footer';
-import FooterV2 from 'components/Layout/Footer/Footer-v2';
+import FooterV2 from 'components/CaseStudiesCommon/Footer-v2';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import {
   mobileResolution,

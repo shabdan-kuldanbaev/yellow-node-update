@@ -7,7 +7,11 @@
 
   @include flex(row, space-between);
 
-  .cenrefy {
+  @include tablet {
+    margin-bottom: 60px;
+  }
+
+  .centrefy {
     @include flex(column, center);
   }
 
@@ -43,7 +47,7 @@
       margin: 0 0 30px;
       white-space: pre-line;
       line-height: 180%;
-      color: $light-gray;
+      color: $silver-chalice;
 
       @include tablet {
         @include fontSize(16px);
@@ -67,10 +71,6 @@
 
   &:last-of-type {
     margin-bottom: 0;
-  }
-
-  @include tablet {
-    margin-bottom: 60px;
   }
 
   .title {

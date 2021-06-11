@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
 import { Svg } from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
@@ -43,7 +44,11 @@ const FooterV2 = ({ router }) => (
         </LinkWrapper>
       </div>
       <div>
-        {socialNetworks.map(({ title, href, type }) => (
+        {socialNetworks.map(({
+          title,
+          href,
+          type,
+        }) => (
           <LinkWrapper
             key={`networks/${title}`}
             path={href}
@@ -62,5 +67,9 @@ const FooterV2 = ({ router }) => (
     </div>
   </footer>
 );
+
+FooterV2.propTypes = {
+  router: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default withRouter(FooterV2);

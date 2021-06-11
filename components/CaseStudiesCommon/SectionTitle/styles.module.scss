@@ -34,7 +34,7 @@
   white-space: pre-line;
   text-align: center;
   line-height: 180%;
-  color: $light-gray;
+  color: $silver-chalice;
 
   @include fontSize(18px);
 
@@ -51,6 +51,8 @@
   }
 }
 
-.alignLeft {
-  text-align: start;
+.chat {
+  .description {
+    text-align: start;
+  }
 }
