@@ -152,7 +152,8 @@
       font-weight: 600;
       position: absolute;
       right: 0;
-      bottom: -35px;
+      bottom: 0;
+      transform: translateY(25px);
       display: block;
       width: 100%;
       margin: 0;
