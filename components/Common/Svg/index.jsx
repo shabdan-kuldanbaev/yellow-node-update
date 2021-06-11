@@ -218,7 +218,6 @@ export const Svg = ({
         <path d="M1 8L31 8" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M25 15L32 8L25 1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-
     );
   case SVG_IMAGES_TYPES.bookmarkIcon:
     return (

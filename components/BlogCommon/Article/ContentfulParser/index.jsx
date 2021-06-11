@@ -35,10 +35,7 @@ export const ContentfulParser = ({ document }) => {
 
         switch (id) {
         case 'articleBookmark': {
-          const {
-            title,
-            slug,
-          } = getDocumentFields(
+          const { title, slug } = getDocumentFields(
             get(node, 'data.target', {}),
             ['title', 'slug'],
           );

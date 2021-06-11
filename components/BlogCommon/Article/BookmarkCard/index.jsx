@@ -16,7 +16,9 @@ export const BookmarkCard = ({ slug, title }) => {
         />
       </div>
       <div className={styles.content}>
-        <span className={styles.text}>You may also like</span>
+        <span className={styles.text}>
+          You may also like
+        </span>
         <div className={styles.title}>
           <LinkWrapper
             path={path}
@@ -27,7 +29,7 @@ export const BookmarkCard = ({ slug, title }) => {
           </LinkWrapper>
           <Svg
             type={SVG_IMAGES_TYPES.bookmarkArrow}
-            className={styles.arrowContainer}
+            className={styles.arrow}
           />
         </div>
       </div>
