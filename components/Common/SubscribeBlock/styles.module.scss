@@ -5,6 +5,7 @@
   margin: 80px 12px;
 
   @include phone {
+    width: initial;
     margin: 40px 0;
   }
 }
