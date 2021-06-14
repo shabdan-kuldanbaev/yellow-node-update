@@ -8,10 +8,11 @@ export const CallToAction = ({
   subtitle,
   buttonTitle,
   href,
+  type,
 }) => (
-  <div className={styles.callToAction}>
-    <h2>{title}</h2>
-    {subtitle && <p>{subtitle}</p>}
+  <div className={styles[type]}>
+    <h2 className={styles.h2}>{title}</h2>
+    {subtitle && <p className={styles.p}>{subtitle}</p>}
     <ButtonMore
       href={href}
       title={buttonTitle}
@@ -25,4 +26,5 @@ CallToAction.propTypes = {
   subtitle: PropTypes.string.isRequired,
   buttonTitle: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };

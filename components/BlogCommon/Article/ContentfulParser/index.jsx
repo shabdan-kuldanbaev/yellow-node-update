@@ -13,6 +13,7 @@ import {
   Animated,
   LinkWrapper,
 } from 'components';
+import { CallToAction } from 'components/Common/CallToAction';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
@@ -95,6 +96,25 @@ export const ContentfulParser = ({ document }) => {
             <GalleryCard
               images={images}
               photoCaption={photoCaption}
+            />
+          );
+        }
+        case 'callToAction': {
+          const {
+            title,
+            buttonTitle,
+            slug,
+          } = getDocumentFields(
+            get(node, 'data.target', {}),
+            ['title', 'buttonTitle', 'slug'],
+          );
+
+          return title && buttonTitle && slug && (
+            <CallToAction
+              title={title}
+              buttonTitle={buttonTitle}
+              href={slug}
+              type="blog"
             />
           );
         }
