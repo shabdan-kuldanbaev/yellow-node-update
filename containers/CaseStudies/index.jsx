@@ -9,6 +9,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => (
   <Fragment>
     {COMPONENTS[currentProject] && COMPONENTS[currentProject].map(({ type, header, data }) => (
       <CaseStudiesCommon
+        key={type}
         introSection={introSection}
         component={type}
         type={currentProject}

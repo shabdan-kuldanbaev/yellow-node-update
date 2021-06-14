@@ -45,7 +45,7 @@
   }
 }
 
-.technology {
+.imageSection {
   .imagContainer {
     overflow-x: auto;
 
@@ -104,7 +104,7 @@
 
   &.idea,
   &.team,
-  &.technology,
+  &.imageSection,
   &.wireframes,
   &.challengesWithoutImage {
     background-color: $white;
@@ -123,7 +123,7 @@
 
   &.idea,
   &.team,
-  &.technology,
+  &.imageSection,
   &.challengesWithoutImage {
     background-color: $white;
   }
@@ -137,7 +137,7 @@
   }
 
   &.challenges,
-  &.technology {
+  &.imageSection {
     [data-case-study-title] {
       color: $dark-grey;
     }

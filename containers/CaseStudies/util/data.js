@@ -346,7 +346,7 @@ export const COMPONENTS = {
       type: CASE_STUDIES_TYPES.results,
       header: {
         title: 'Results',
-        description: 'An iOS sticker maker that works with any messenger\n\nAvailable worldwide',
+        description: 'An iOS sticker maker that works with any messenger\nAvailable worldwide',
       },
       data: IMAGES.stickerBox.result,
     },

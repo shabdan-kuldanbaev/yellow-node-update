@@ -26,7 +26,7 @@ const SectionTitle = ({
     {description && (
       <Animated
         type={ANIMATED_TYPE.isFade}
-        delay={500}
+        delay={400}
         duration={1000}
       >
         <p

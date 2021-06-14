@@ -72,7 +72,6 @@ export const FEEDBACK_FORM_FIELDS = {
 export const IMAGES = {
   roundLogo: '/images/common/logo/yellow_logo.svg',
   logoWhite: '/images/common/logo/logoWhite.svg',
-  subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
   unpinFile: '/images/common/upload/unpin.svg',
   advantagesIcons: {
     ai: '/images/home/advantages/ai.svg',

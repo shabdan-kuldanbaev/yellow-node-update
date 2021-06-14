@@ -46,6 +46,11 @@
       font-weight: 600;
       text-transform: uppercase;
       text-decoration: none;
+
+      @include phone {
+        width: initial;
+        min-width: initial;
+      }
     }
   }
 

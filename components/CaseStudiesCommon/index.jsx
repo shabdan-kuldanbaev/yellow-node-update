@@ -1,12 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
+import { Animated } from 'components/Common/Animated';
 import AppFeatures from 'components/CaseStudiesCommon/AppFeatures';
 import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
 import ProjectIdea from 'components/CaseStudiesCommon/ProjectIdea';
 import TeamSection from 'components/CaseStudiesCommon/TeamSection';
 import Wireframe from 'components/CaseStudiesCommon/Wireframe';
 import Intro from 'components/CaseStudiesCommon/Intro';
-import { CASE_STUDIES_TYPES } from 'utils/constants';
+import { ANIMATED_TYPE, CASE_STUDIES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const CaseStudiesCommon = ({
@@ -89,15 +90,21 @@ const CaseStudiesCommon = ({
     );
   case CASE_STUDIES_TYPES.image:
     return (
-      <section className={cn(styles.container, styles[type], styles.technology)}>
+      <section className={cn(styles.container, styles[type], styles.imageSection)}>
         {children}
-        <div className={styles.imagContainer}>
-          <img
-            src={data}
-            className={styles.image}
-            alt=""
-          />
-        </div>
+        <Animated
+          type={ANIMATED_TYPE.isFade}
+          delay={800}
+          duration={1000}
+        >
+          <div className={styles.imagContainer}>
+            <img
+              src={data}
+              className={styles.image}
+              alt=""
+            />
+          </div>
+        </Animated>
       </section>
     );
   case CASE_STUDIES_TYPES.results:
