@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -23,13 +23,10 @@ export const ArticlePreview = ({
   return slug && title && image && (
     <article className={styles[type]}>
       <LinkWrapper {...articleLinkProps}>
-        <div className={styles.imgContainer}>
-          <img
-            className={styles.img}
-            src={getOptimizedImage(image, 510)}
-            alt={title}
-          />
-        </div>
+        <div
+          className={styles.imgContainer}
+          style={{ backgroundImage: `url(${image})` }}
+        />
       </LinkWrapper>
       <div className={styles.articleContent}>
         <LinkWrapper
@@ -43,9 +40,7 @@ export const ArticlePreview = ({
         </LinkWrapper>
         <LinkWrapper {...articleLinkProps}>
           <h3 className={styles.title}>
-            <span>
-              {title}
-            </span>
+            {title}
           </h3>
         </LinkWrapper>
       </div>
