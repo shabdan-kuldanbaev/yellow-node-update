@@ -188,7 +188,7 @@ export function* fetchBlogData({
       yield all([
         yield call(loadNearbyArticles, { publishedAt }),
         yield call(loadRelatedArticles, {
-          currentLimit: 5,
+          currentLimit: 4,
           currentArticleSlug,
           categoryTag,
         }),
