@@ -32,7 +32,7 @@ Project.getInitialProps = async ({
       store.dispatch(END);
       await store.sagaTask.toPromise();
 
-      if (!store.getState().portfolio.project.total !== 0) {
+      if (store.getState().portfolio.project.total === 0) {
         statusCode = 404;
 
         if (res) {

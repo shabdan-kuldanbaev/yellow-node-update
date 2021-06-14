@@ -52,7 +52,7 @@ const clearUrlRedirect = (req, res, next) => {
 const urlRedirect = (req, res, next) => {
   const redirectPage = redirects.find((page) => req.originalUrl.includes(page.from));
 
-  if (req.originalUrl.match(/\/blog\/(?!\S)/) !== null) {
+  if (req.originalUrl.match(/^\/blog\/$/) !== null) {
     res.writeHead(301, { location: '/blog' });
     res.end();
   }
