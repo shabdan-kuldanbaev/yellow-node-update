@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .related {
-  margin: 0 auto;
+  margin: 0 auto 40px;
 
   @include flex(column, center, center);
 
@@ -9,36 +9,33 @@
     width: 100%;
 
     .heading {
-      padding: 30px 60px 15px;
+      padding: 30px 0;
 
       @include flex(row, initial, flex-end);
 
-      @include macbook-twelve {
-        width: calc(100% - (2 * 25px));
-        padding: 15px 23px;
-      }
-
       @include tablet {
-        width: calc(100% - (2 * 15px));
-        padding: 10px 15px;
+        padding: 20px 0;
       }
 
       & > h3 {
         margin: 0;
         padding-right: 20px;
-        font-weight: 500;
+        font-weight: 700;
         flex: 1 0 60%;
 
-        @include fontSize(15px);
+        @include fontSize(24px);
+
+        @include macbook-twelve {
+          @include fontSize(22px);
+        }
       }
 
       & > a {
         font-weight: 500;
         color: $black;
-        margin-right: -20px;
 
         @include flex();
-        @include fontSize(12px);
+        @include fontSize(18px);
 
         @include macbook-twelve {
           margin-right: 0;
@@ -68,27 +65,11 @@
   }
 
   .articlesList {
-    background-color: $athens-gray;
     border-radius: 4px;
-    padding: 60px 60px calc(60px - #{$max-article-margin});
 
     @include flex(row, center);
 
-    @include macbook-fifteen {
-      padding: 60px 60px calc(60px - #{$min-article-margin});
-    }
-
-    @include macbook-twelve {
-      padding: 25px 25px calc(25px - #{$min-article-margin});
-    }
-
     @include tablet {
-      padding: 15px 15px calc(15px - #{$min-article-margin});
-    }
-
-    @include below-tablet {
-      padding: 15px 10px calc(15px - #{$min-article-margin});
-
       @include flex(row, initial, initial, wrap);
     }
   }

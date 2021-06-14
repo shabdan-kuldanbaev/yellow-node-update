@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
-import { SectionTitle, FeedbackForm } from 'components';
+import FeedbackForm from 'components/Common/FeedbackForm';
+import { SectionTitle } from 'components/Common/SectionTitle';
 import styles from './styles.module.scss';
 
 const FeedbackFormContainer = ({ sendEmail: sendFeedback }) => {

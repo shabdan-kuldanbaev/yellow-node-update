@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { AdvantagesItems, SectionTitle } from 'components';
+import { AdvantagesItems } from 'components/HomeCommon/AdvantagesItems';
+import { SectionTitle } from 'components/Common/SectionTitle';
 import styles from './styles.module.scss';
 
 export const Advantages = ({ refs, className }) => (

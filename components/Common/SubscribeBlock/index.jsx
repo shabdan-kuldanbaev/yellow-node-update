@@ -34,37 +34,30 @@ const SubscribeBlock = ({
       [styles.articlePage]: !isBlog,
     })}
     >
-      <div className={styles.subscribeWrapper}>
-        <div className={styles.subscribeHeader}>
-          <h3>Subscribe to new posts.</h3>
-          <form className={styles.subscribeForm}>
-            <input
-              value={email.value}
-              onChange={handleOnEmailChange}
-              placeholder="Your email address"
-            />
-            <div
-              className={styles.button}
-              onClick={handleOnClick}
-              role="button"
-              tabIndex="0"
-            >
-              Subscribe
-            </div>
-            {message && (
-              <span className={styles.alertMessage}>
-                {message}
-              </span>
-            )}
-          </form>
-        </div>
-        <div
-          className={styles.subscribeMessage}
-          style={{ backgroundImage: `url(${staticImagesUrls.subscribeBlockBackground})` }}
-        >
-          <h3>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</h3>
-        </div>
+      <div className={styles.subscribeText}>
+        <h3>Subscribe to new posts.</h3>
+        <p>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</p>
       </div>
+      <form className={styles.subscribeForm}>
+        <input
+          value={email.value}
+          onChange={handleOnEmailChange}
+          placeholder="Your email address"
+        />
+        {message && (
+          <span className={styles.alertMessage}>
+            {message}
+          </span>
+        )}
+        <div
+          className={styles.button}
+          onClick={handleOnClick}
+          role="button"
+          tabIndex="0"
+        >
+          Subscribe
+        </div>
+      </form>
     </section>
   ));
 };

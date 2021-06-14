@@ -44,6 +44,7 @@ export const ANIMATED_TYPE = {
   isParallaxSpring: 'isParallaxSpring',
   gsap: 'gsap',
   imageZoom: 'imageZoom',
+  expandByHeight: 'expandByHeight',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
@@ -70,7 +71,6 @@ export const FEEDBACK_FORM_FIELDS = {
 
 export const IMAGES = {
   roundLogo: '/images/common/logo/yellow_logo.svg',
-  subscribeBlockBackground: '/images/common/subscribeBlock/background.jpg',
   unpinFile: '/images/common/upload/unpin.svg',
   advantagesIcons: {
     ai: '/images/home/advantages/ai.svg',
@@ -117,4 +117,15 @@ export const SVG_IMAGES_TYPES = {
   instaIcon: 'instaIcon',
   linkedinIcon: 'linkedinIcon',
   mediumIcon: 'mediumIcon',
+  bookmarkArrow: 'bookmarkArrow',
+  bookmarkIcon: 'bookmarkIcon',
+  nearbyArrow: 'nearbyArrow',
+};
+
+export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
+
+export const HEADER_HEIGHT = 66;
+
+export const ARTICLE_PREVIEW_TYPES = {
+  related: 'related',
 };

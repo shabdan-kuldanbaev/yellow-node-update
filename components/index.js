@@ -1,3 +1,5 @@
+// TODO rewrite imports and remove this file
+
 // Layout
 export { default as Header } from 'components/Layout/Header';
 export { Footer } from 'components/Layout/Footer';
@@ -21,7 +23,6 @@ export { default as PhotoGallery } from 'components/Common/PhotoGallery';
 export { TopProgressBar } from 'components/Common/TopProgressBar';
 export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
-export { SocialThumbnails } from 'components/Common/SocialThumbnails';
 export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 export { default as withScroll } from 'components/Common/withScroll';
 export { MetaTags } from 'components/Common/MetaTags';
@@ -78,6 +79,5 @@ export { Awards } from 'components/CompanyCommon/Awards';
 
 // ContactUsCommon
 export { default as FeedbackFormWithTitle } from 'components/ContactUsCommon/FeedbackFormWithTitle';
-export { Calendar } from 'components/ContactUsCommon/Calendar';
 export { default as CompanyPeoplePhoto } from 'components/ContactUsCommon/CompanyPeoplePhoto';
 export { CompanyContacts } from 'components/ContactUsCommon/CompanyContacts';

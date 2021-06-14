@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setScrollOfAddedFooter } from 'redux/actions/home';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
-import { AddFooter, Partners } from 'components';
+import { AddFooter } from 'components/HomeCommon/AddFooter';
 import { Duck } from 'components/HomeCommon/Duck';
+import { Partners } from 'components/HomeCommon/Partners';
 import styles from './styles.module.scss';
 
 const Intro = ({

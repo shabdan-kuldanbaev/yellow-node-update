@@ -5,7 +5,6 @@ import { sendEmail } from 'redux/actions/contact';
 import { selectContacts, selectCompanyPhoto } from 'redux/selectors/layout';
 import {
   FeedbackFormWithTitle,
-  Calendar,
   CompanyPeoplePhoto,
   CompanyContacts,
   MetaTags,
@@ -68,7 +67,6 @@ const ContactUsContainer = ({
           breadcrumbs={breadcrumbs}
         />
         <FeedbackFormWithTitle handleOnClick={handleOnClick} />
-        <Calendar />
         <CompanyPeoplePhoto photo={peopleImageUrl} />
         <CompanyContacts photo={officeImageUrl} />
       </FullLayout>

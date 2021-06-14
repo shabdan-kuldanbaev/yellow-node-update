@@ -15,6 +15,11 @@ const publisherMicrodata = {
     url: logoUrl,
   },
 };
+const authorMicrodata = ({ author: { fullName, position } }) => ({
+  '@type': 'Person',
+  name: fullName,
+  jobTitle: position,
+});
 const {
   email,
   telephoneNumbers,
@@ -36,6 +41,7 @@ export const microdata = {
     updatedAt,
     headImage,
     articleBody,
+    author,
   }) => ({
     '@context': context,
     '@type': 'BlogPosting',
@@ -46,6 +52,7 @@ export const microdata = {
     image: headImage,
     articleBody,
     publisher: publisherMicrodata,
+    author: authorMicrodata({ author }),
     about: {
       '@type': 'Article',
       datePublished: publishedAt,
@@ -53,6 +60,7 @@ export const microdata = {
       headline: metaTitle,
       image: headImage,
       publisher: publisherMicrodata,
+      author: authorMicrodata({ author }),
     },
   }),
   homepage: () => ({

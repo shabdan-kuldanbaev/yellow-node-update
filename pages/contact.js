@@ -1,7 +1,7 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
-import { ContactUsContainer } from 'containers';
+import ContactUsContainer from 'containers/ContactUs';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 

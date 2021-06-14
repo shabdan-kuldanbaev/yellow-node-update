@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Svg } from 'components';
+import { Animated } from 'components/Common/Animated';
+import { Svg } from 'components/Common/Svg';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { partners } from './utils/data';
 import styles from './styles.module.scss';

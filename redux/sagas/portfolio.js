@@ -2,7 +2,7 @@ import { put } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import { actionTypes } from 'redux/actions/actionTypes';
-import { contentfulClient } from 'utils/ContentfulClient';
+import { contentfulClient } from 'utils/contentful/client';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();

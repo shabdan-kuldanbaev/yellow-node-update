@@ -6,6 +6,9 @@ import {
   withScroll,
 } from 'components';
 import gaHelper from 'utils/ga';
+import { formatDate } from 'utils/helper';
+import { Author } from './Author';
+import { NavigationByTitles } from './NavigationByTitles';
 import styles from './styles.module.scss';
 
 const Article = ({
@@ -17,6 +20,8 @@ const Article = ({
   introduction,
   headImage,
   maxScrollPosition,
+  author,
+  publishedAt,
 }) => {
   const articleBodyRef = useRef(null);
   const maxPosition = useRef(0);
@@ -42,18 +47,28 @@ const Article = ({
       className={styles.article}
     >
       <header className={styles.header}>
-        <div style={{ backgroundImage: `url(${headImage})` }} />
+        <div className={styles.imageWrapper}>
+          <div style={{ backgroundImage: `url(${headImage})` }} />
+        </div>
         <div className={styles.container}>
+          <p className={styles.date}>
+            {formatDate(publishedAt)}
+          </p>
           <h1 className={styles.h1}>
             {title}
           </h1>
           <p>{introduction}</p>
+          <Author author={author} />
         </div>
       </header>
       <div
         className={styles.body}
         ref={articleBodyRef}
       >
+        <NavigationByTitles
+          articleBodyRef={articleBodyRef}
+          articleSlug={slug}
+        />
         {oldBody
           ? <OldArticle oldBody={oldBody} />
           : <ContentfulParser document={body} />}
@@ -79,6 +94,8 @@ Article.propTypes = {
   body: PropTypes.instanceOf(Object),
   introduction: PropTypes.string,
   headImage: PropTypes.string.isRequired,
+  author: PropTypes.instanceOf(Object).isRequired,
+  publishedAt: PropTypes.string.isRequired,
 };
 
 export default withScroll(Article);

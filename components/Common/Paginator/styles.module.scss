@@ -5,7 +5,8 @@
 .paginationWrapper {
   will-change: transform;
   transform: scale(0.9);
-  margin-top: $section-indent;
+  margin: $section-indent auto 0;
+  width: fit-content;
 
   @include flex(row, center, center);
 

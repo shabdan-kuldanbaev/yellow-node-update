@@ -1,9 +1,11 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
+import dayjs from 'dayjs';
 import {
   PAGES,
   FEEDBACK_FORM_FIELDS,
   IMAGES,
+  DEFAULT_DATE_FORMAT,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
 import {
@@ -48,24 +50,6 @@ export const tabletResolution = toInt(bigTabletResolution);
 
 export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'scroll';
-};
-
-export const formatDate = (date) => {
-  let dd = date.getDate();
-
-  if (dd < 10) dd = `0${dd}`;
-
-  let mm = date.getMonth();
-
-  if (mm < 10) mm = `0${mm}`;
-
-  let yyyy = date.getFullYear();
-
-  if (yyyy < 10) yyyy = `0${yyyy}`;
-
-  if (yyyy > 1000) yyyy = Math.trunc(yyyy / 100).toString();
-
-  return `${dd}/${mm}/${yyyy}`;
 };
 
 export const getMainLinksForSitemap = (updatedAt) => [
@@ -214,3 +198,5 @@ export const serverSideRedirect = ({ res }, {
     res.end();
   }
 };
+
+export const formatDate = (date, { format = DEFAULT_DATE_FORMAT } = {}) => dayjs(date).format(format);

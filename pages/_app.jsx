@@ -10,8 +10,9 @@ import Router from 'next/router';
 import Head from 'next/head';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from '@material-ui/core';
+import smoothscroll from 'smoothscroll-polyfill';
 import { setPageReadyToDisplay } from 'redux/actions/layout';
-import { Layout } from 'containers';
+import Layout from 'containers/Layout';
 import { isServer } from 'utils/helper';
 import { AppContext } from 'utils/appContext';
 import errorHelper from 'utils/error';
@@ -48,6 +49,8 @@ const App = ({ Component, pageProps }) => {
     }
 
     Sentry.init({ dsn: process.env.SENTRY_DNS });
+
+    smoothscroll.polyfill();
   }, []);
 
   return (

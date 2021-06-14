@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
-import { LoadingScreen } from 'components';
+import LoadingScreen from 'components/Common/LoadingScreen';
 import { AppContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
