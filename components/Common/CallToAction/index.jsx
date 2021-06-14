@@ -11,8 +11,14 @@ export const CallToAction = ({
   type,
 }) => (
   <div className={styles[type]}>
-    <h2 className={styles.h2}>{title}</h2>
-    {subtitle && <p className={styles.p}>{subtitle}</p>}
+    <h2 className={styles.h2}>
+      {title}
+    </h2>
+    {subtitle && (
+      <p className={styles.p}>
+        {subtitle}
+      </p>
+    )}
     <ButtonMore
       href={href}
       title={buttonTitle}
