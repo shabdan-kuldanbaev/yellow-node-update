@@ -1,13 +1,18 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Animated } from 'components/Common/Animated';
+import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const TeamSection = ({ members }) => (
-  <Fragment>
+  <Animated
+    type={ANIMATED_TYPE.isFade}
+    duration={1000}
+  >
     <h2 className={styles.title}>
       Team
     </h2>
-    {members.map((member) => (
+    {members && members.map((member) => (
       <p
         key={member}
         className={styles.teamItem}
@@ -15,7 +20,7 @@ const TeamSection = ({ members }) => (
         {member}
       </p>
     ))}
-  </Fragment>
+  </Animated>
 );
 
 TeamSection.propTypes = {

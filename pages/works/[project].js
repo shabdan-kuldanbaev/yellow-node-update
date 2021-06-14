@@ -1,11 +1,21 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
-import ProjectContainer from 'containers/Project';
+import CaseStudiesContainer from 'containers/CaseStudies';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 
-const Project = ({ introSection }) => <ProjectContainer introSection={introSection} />;
+const Project = ({ introSection }) => {
+  const { query: { project } } = useRouter();
+
+  return (
+    <CaseStudiesContainer
+      introSection={introSection}
+      currentProject={project}
+    />
+  );
+};
 
 Project.getInitialProps = async ({
   store,

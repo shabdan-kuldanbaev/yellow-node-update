@@ -3,6 +3,7 @@
 .title {
   margin: 0;
   grid-row: 1/4;
+  font-family: $case-studies-font;
   font-weight: bold;
   line-height: 120%;
   color: $dark-grey;
@@ -20,6 +21,7 @@
 
 .teamItem {
   margin: 0;
+  font-family: $case-studies-font;
   font-weight: bold;
   line-height: 180%;
   color: $dark-grey;

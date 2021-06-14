@@ -21,6 +21,14 @@
     margin: 0 auto;
     object-fit: contain;
   }
+
+  [data-case-study-title] {
+    color: $dark-grey;
+  }
+
+  [data-case-study-description] {
+    color: $silver-chalice;
+  }
 }
 
 .idea {
@@ -29,32 +37,12 @@
   @include flex(row, center);
 
   @include tablet {
-    padding: 100px 15px;
     gap: 30px;
   }
 
   @include phone {
-    padding: 40px 15px;
-
     @include flex(column, center, center);
   }
-}
-
-.chat {
-  .description {
-    text-align: left;
-  }
-}
-
-.fernwayerBackground {
-  background-color: $alabaster;
-}
-
-.fernwayerSpecial {
-  background: url("/images/fernwayerBg.png"), linear-gradient(180deg, $pink 0%, $light-pink 100%);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .technology {
@@ -96,10 +84,66 @@
   margin: 0 auto;
 
   @include tablet {
-    grid-template-columns: repeat(3, auto);
+    display: none;
+  }
+}
+
+.wireframes {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: $white;
+}
+
+.challenges,
+.challengesWithoutImage {
+  background-color: $alabaster;
+}
+
+.fernwayer {
+  background-color: $alabaster;
+
+  &.idea,
+  &.team,
+  &.technology,
+  &.wireframes,
+  &.challengesWithoutImage {
+    background-color: $white;
   }
 
-  @include phone {
-    @include flex(column);
+  &.special {
+    background: url("/images/fernwayerBg.png"), linear-gradient(180deg, $pink 0%, $light-pink 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.stickerbox {
+  background-color: #1A1C1F;
+
+  &.idea,
+  &.team,
+  &.technology,
+  &.challengesWithoutImage {
+    background-color: $white;
+  }
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: rgba($white, 0.4);
+  }
+
+  &.challenges,
+  &.technology {
+    [data-case-study-title] {
+      color: $dark-grey;
+    }
+
+    [data-case-study-description] {
+      color: $silver-chalice;
+    }
   }
 }

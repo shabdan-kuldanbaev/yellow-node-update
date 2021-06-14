@@ -3,9 +3,9 @@
 .title {
   margin: 0 0 80px;
   text-align: center;
+  font-family: $case-studies-font;
   font-weight: bold;
   line-height: 120%;
-  color: $dark-grey;
 
   @include fontSize(56px);
 
@@ -31,10 +31,10 @@
 .description {
   max-width: 630px;
   margin: 0 auto 80px;
+  font-family: $case-studies-font;
   white-space: pre-line;
   text-align: center;
   line-height: 180%;
-  color: $silver-chalice;
 
   @include fontSize(18px);
 
@@ -51,8 +51,6 @@
   }
 }
 
-.chat {
-  .description {
-    text-align: start;
-  }
+.alignLeft {
+  text-align: start;
 }

@@ -16,7 +16,7 @@ import CookiesNotification from 'components/Common/CookiesNotification';
 import { GAnalytic } from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
 import { Footer } from 'components/Layout/Footer';
-import FooterV2 from 'components/CaseStudiesCommon/Footer-v2';
+import CaseStudiesFooter from 'components/CaseStudiesCommon/CaseStudiesFooter';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import {
   mobileResolution,
@@ -87,10 +87,10 @@ const Layout = ({
         introSection={introSection}
       />
       {children}
-      { pathname === '/case-study/[project]' && (
-        <FooterV2 />
+      { pathname === '/works/[project]' && (
+        <CaseStudiesFooter />
       )}
-      { pathname !== '/case-study/[project]' && (
+      { pathname !== '/works/[project]' && (
         <Footer
           theme={theme}
           openFullscreenEstimation={openFullscreenEstimation}

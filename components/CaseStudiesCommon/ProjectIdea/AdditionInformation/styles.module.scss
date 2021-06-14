@@ -24,6 +24,7 @@
   .title {
     margin: 0 0 15px;
     text-align: start;
+    font-family: $case-studies-font;
     font-weight: bold;
     line-height: 180%;
     color: $dark-grey;
@@ -48,6 +49,7 @@
 
   .listItemContainer {
     line-height: 180%;
+    font-family: $case-studies-font;
     color: $silver-chalice;
 
     @include fontSize(18px);

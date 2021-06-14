@@ -10,6 +10,7 @@ const Intro = ({
   introSection,
   appLogo,
   title,
+  subtitle,
   description,
   imageUrl,
   infoList,
@@ -27,10 +28,18 @@ const Intro = ({
       <h1 className={styles.projectTitle}>
         {title}
       </h1>
+      {subtitle && (
+        <p className={styles.projectSubtitle}>
+          {subtitle}
+        </p>
+      )}
       <p className={styles.projectDescription}>
         {description}
       </p>
-      <Svg type={SVG_IMAGES_TYPES.appstore} />
+      <Svg
+        className={styles.appStore}
+        type={SVG_IMAGES_TYPES.appstore}
+      />
     </div>
     <div className={styles.imageContainer}>
       <img
@@ -54,11 +63,16 @@ const Intro = ({
   </section>
 );
 
+Intro.defaultProps = {
+  subtitle: '',
+};
+
 Intro.propTypes = {
   type: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
   appLogo: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
   description: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   infoList: PropTypes.instanceOf(Array).isRequired,

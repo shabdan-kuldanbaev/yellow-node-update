@@ -20,9 +20,9 @@ const Header = ({
   isMobileMenuOpened,
   setMobileMenuState: setMobileMenu,
 }) => {
-  const { asPath, query: { page } } = useRouter();
+  const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
-  const isHomePage = asPath === ROUTES.homepage.path || currentPage === ROUTES.caseStudy.path;
+  const isHomePage = asPath === ROUTES.homepage.path || project;
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
 

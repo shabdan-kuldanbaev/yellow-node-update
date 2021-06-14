@@ -4,7 +4,6 @@
   height: 758px;
   box-sizing: border-box;
   padding-bottom: 84px;
-  background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
 
   @include flex(column);
 
@@ -25,12 +24,12 @@
 
     .subtitle {
       margin: 0 0 20px;
+      font-family: $case-studies-font;
       font-weight: bold;
       line-height: 120%;
       text-align: center;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba($white, 0.7);
 
       @include fontSize(16px);
 
@@ -45,10 +44,10 @@
 
     .projectName {
       margin: 0 0 45px;
+      font-family: $case-studies-font;
       font-weight: bold;
       line-height: 120%;
       text-align: center;
-      color: $white;
 
       @include fontSize(60px);
 
@@ -59,13 +58,12 @@
 
     .more {
       padding: 20px 45px;
-      border: 1px solid $white;
       box-sizing: border-box;
       text-decoration: none;
       border-radius: 8px;
       font-weight: 500;
       line-height: 150%;
-      color: $white;
+      font-family: $case-studies-font;
 
       @include fontSize(18px);
 
@@ -93,10 +91,10 @@
 
   .question {
     margin: 0 0 20px;
+    font-family: $case-studies-font;
     font-weight: bold;
     line-height: 120%;
     text-align: center;
-    color: $white;
 
     @include fontSize(32px);
 
@@ -113,9 +111,9 @@
 
   .link {
     margin: 0;
+    font-family: $case-studies-font;
     font-weight: bold;
     line-height: 120%;
-    color: rgba($white, 0.5);
 
     @include fontSize(24px);
 
@@ -153,5 +151,71 @@
 
       @include flex(column, center, center);
     }
+  }
+}
+
+.fernwayer {
+  background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  /* stylelint-disable-next-line */
+  .link{
+    color: rgba($white, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $white;
+  }
+}
+
+.stickerbox {
+  background: #FFE603;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($dark-grey, 0.7);
+    }
+
+    .projectName {
+      color: $dark-grey;
+    }
+
+    .more {
+      border: 1px solid $dark-grey;
+      color: $dark-grey;
+    }
+  }
+
+  .question {
+    color: $dark-grey;
+  }
+
+  /* stylelint-disable-next-line */
+  .link{
+    color: rgba($dark-grey, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $dark-grey;
   }
 }

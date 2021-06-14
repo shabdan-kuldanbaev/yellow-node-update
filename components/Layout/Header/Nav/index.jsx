@@ -17,7 +17,7 @@ const Nav = ({
 
   return (
     <ul className={cn(styles.desktopMenu, {
-      [styles.additionalNav]: !isBlog && (isAdditional || (currentPage && (currentPage !== '' && currentPage !== 'case-study'))),
+      [styles.additionalNav]: !isBlog && (isAdditional || (currentPage && (currentPage !== '' && currentPage !== 'works'))),
       [styles.additionalNavForBlog]: isBlog,
     })}
     >

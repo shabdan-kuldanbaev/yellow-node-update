@@ -32,6 +32,7 @@
 
   .sectionName {
     margin: 0 0 20px;
+    font-family: $case-studies-font;
     font-weight: bold;
     line-height: 180%;
     letter-spacing: 0.1em;
@@ -49,6 +50,7 @@
 
   .title {
     margin: 0 0 30px;
+    font-family: $case-studies-font;
     font-weight: bold;
     line-height: 120%;
     color: $dark-grey;
@@ -69,6 +71,7 @@
   .description {
     max-width: 445px;
     margin: 0 0 80px;
+    font-family: $case-studies-font;
     line-height: 180%;
     color: $silver-chalice;
 

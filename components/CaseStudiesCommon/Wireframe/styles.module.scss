@@ -8,7 +8,8 @@
     margin-bottom: 80px;
   }
 
-  .leftGradient {
+  &::before {
+    content: '';
     position: absolute;
     width: 25%;
     top: 0;
@@ -17,7 +18,8 @@
     z-index: 10;
   }
 
-  .rightGradient {
+  &::after {
+    content: '';
     position: absolute;
     width: 25%;
     top: 0;
@@ -39,12 +41,21 @@
 }
 
 .fernwayer {
-  /* stylelint-disable-next-line */
-  .leftGradient {
+  &::before {
     background: linear-gradient(90deg, $white 0%, rgba($white, 0) 100%);
   }
 
-  .rightGradient {
+  &::after {
     background: linear-gradient(270deg, $white 0%, rgba($white, 0) 100%);
+  }
+}
+
+.stickerbox {
+  &::before {
+    background: linear-gradient(90deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
   }
 }

@@ -1,36 +1,56 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { Animated } from 'components/Common/Animated';
+import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const SectionTitle = ({
   type,
   title,
   description,
+  descriptionLeft,
 }) => (
-  <Fragment>
-    <div className={styles[type]}>
-      <h2 className={cn(styles.title, { [styles.titleIndent]: description })}>
+  <div className={styles[type]}>
+    <Animated
+      type={ANIMATED_TYPE.isFade}
+      duration={1000}
+    >
+      <h2
+        data-case-study-title
+        className={cn(styles.title, { [styles.titleIndent]: description })}
+      >
         {title}
       </h2>
-      {description && (
-        <p className={styles.description}>
+    </Animated>
+    {description && (
+      <Animated
+        type={ANIMATED_TYPE.isFade}
+        delay={500}
+        duration={1000}
+      >
+        <p
+          data-case-study-description
+          className={cn(styles.description, { [styles.alignLeft]: descriptionLeft })}
+        >
           {description}
         </p>
-      )}
-    </div>
-  </Fragment>
+      </Animated>
+    )}
+  </div>
 );
 
 SectionTitle.defaultProps = {
   type: '',
   description: '',
+  descriptionLeft: false,
 };
 
 SectionTitle.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
+  descriptionLeft: PropTypes.bool,
 };
 
 export default SectionTitle;

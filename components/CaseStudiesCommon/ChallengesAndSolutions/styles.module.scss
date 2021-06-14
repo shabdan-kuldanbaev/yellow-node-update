@@ -11,14 +11,14 @@
     margin-bottom: 60px;
   }
 
-  .centrefy {
-    @include flex(column, center);
-  }
-
   @include phone {
     gap: 0;
 
     @include flex(column, center, center);
+  }
+
+  .centrefy {
+    @include flex(column, center);
   }
 
   .infoContainer {
@@ -30,6 +30,7 @@
 
     .subtitle {
       margin: 0 0 10px;
+      font-family: $case-studies-font;
       font-weight: bold;
       line-height: 180%;
       color: $dark-grey;
@@ -47,6 +48,7 @@
       margin: 0 0 30px;
       white-space: pre-line;
       line-height: 180%;
+      font-family: $case-studies-font;
       color: $silver-chalice;
 
       @include tablet {
@@ -75,6 +77,7 @@
 
   .title {
     margin: 0 0 30px;
+    font-family: $case-studies-font;
     font-weight: bold;
     line-height: 120%;
     color: $dark-grey;
@@ -109,7 +112,7 @@
   }
 }
 
-.light {
+.fernwayer {
   .title {
     color: $white;
   }

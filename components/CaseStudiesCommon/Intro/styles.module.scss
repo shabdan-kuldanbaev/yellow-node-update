@@ -49,6 +49,7 @@
 
     .projectTitle {
       margin: 0 0 30px;
+      font-family: $case-studies-font;
       font-weight: bold;
       line-height: 120%;
 
@@ -63,6 +64,7 @@
       max-width: 400px;
       margin: 0 0 40px;
       line-height: 180%;
+      font-family: $case-studies-font;
 
       @include fontSize(18px);
 
@@ -72,12 +74,28 @@
         @include fontSize(16px);
       }
     }
+
+    .appStore {
+      width: 201px;
+      height: 67px;
+
+      @include tablet {
+        width: 168px;
+        height: 56px;
+      }
+
+      @include phone {
+        width: 135px;
+        height: 45px;
+      }
+    }
   }
 
   .infoContainer {
     z-index: 10;
     gap: 45px;
     grid-column: 1/4;
+    font-family: $case-studies-font;
 
     @include fontSize(18px);
     @include flex(row, space-between);
@@ -130,7 +148,7 @@
     .image {
       object-fit: cover;
 
-      @include centre;
+      @include centered;
 
       @include tablet {
         height: 100%;
@@ -159,6 +177,37 @@
 
     .infoDescription {
       color: rgba($white, 0.7);
+    }
+  }
+}
+
+.stickerbox {
+  background: linear-gradient(180deg, #26282D 0%, #181A1D 100%);
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectSubtitle {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 150%;
+      color: #A0A0A0;
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.4);
+    }
+  }
+
+  .infoContainer {
+    .infoTitle {
+      color: $white;
+    }
+
+    .infoDescription {
+      color: rgba($white, 0.4);
     }
   }
 }

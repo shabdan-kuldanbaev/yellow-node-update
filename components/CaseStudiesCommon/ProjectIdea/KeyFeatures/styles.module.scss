@@ -51,7 +51,6 @@
       position: relative;
       min-width: 50px;
       height: 50px;
-      background: linear-gradient(180deg, #D45D94 0%, #FA717D 100%);
       border-radius: 50%;
 
       @include tablet {
@@ -60,7 +59,7 @@
       }
 
       .icon {
-        @include centre;
+        @include centered;
       }
     }
 
@@ -69,6 +68,7 @@
 
       .title {
         margin: 0 0 15px;
+        font-family: $case-studies-font;
         font-weight: bold;
         line-height: 120%;
         color: $dark-grey;
@@ -85,6 +85,7 @@
       .description {
         margin: 0;
         line-height: 150%;
+        font-family: $case-studies-font;
         color: $silver-chalice;
 
         @include fontSize(18px);
@@ -97,6 +98,25 @@
           @include fontSize(14px);
         }
       }
+    }
+  }
+}
+
+.fernwayer {
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: linear-gradient(180deg, #D45D94 0%, #FA717D 100%);
+    }
+  }
+}
+
+.stickerbox {
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      background: #FFE603;
     }
   }
 }
