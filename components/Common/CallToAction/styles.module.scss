@@ -1,6 +1,68 @@
 @import 'styles/utils/mixins';
 
-.callToAction {
+.button {
+  @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+
+  border-radius: $button-border-radius;
+  letter-spacing: 0.5px;
+  border: none;
+  transform: scale(1);
+
+  @include flex (row, center);
+
+  &:hover {
+    border: none;
+    transform: scale(0.96);
+  }
+}
+
+.blog {
+  padding: 40px;
+  background-color: $alabaster;
+  border-radius: 5px;
+  margin: 80px 0;
+
+  @include flex(row, space-between, center);
+
+  .h2 {
+    color: $tundora;
+    font-weight: 700;
+    line-height: 1.5;
+    border-left: 2px solid $tundora;
+    padding-left: 20px;
+    margin: 0 40px 0 0;
+
+    @include fontSize(24px);
+
+    @include macbook-twelve {
+      @include fontSize(22px);
+    }
+
+    @include phone {
+      @include fontSize(18px);
+    }
+  }
+
+  .button {
+    font-weight: 500;
+    padding: 20px 0;
+    margin-top: 0;
+
+    @include fontSize(18px);
+
+    @include phone {
+      margin-top: 20px;
+
+      @include fontSize(16px);
+    }
+  }
+
+  @include phone {
+    @include flex(column, center, center);
+  }
+}
+
+.page {
   margin-bottom: 250px;
   padding: 0 20px;
 
@@ -14,7 +76,7 @@
     padding: 0 20px;
   }
 
-  h2 {
+  .h2 {
     text-align: center;
 
     @include fontSize(45px);
@@ -28,7 +90,7 @@
     }
   }
 
-  p {
+  .p {
     text-align: center;
     line-height: 1.8;
 
@@ -40,23 +102,10 @@
   }
 
   .button {
-    @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
-
-    border-radius: $button-border-radius;
-    letter-spacing: 0.5px;
     font-size: 1rem;
     font-weight: 600;
     padding: 16px 0;
     margin-top: 80px;
-    border: none;
-    transform: scale(1);
-
-    @include flex (row, center);
-
-    &:hover {
-      border: none;
-      transform: scale(0.96);
-    }
 
     @include phone {
       font-weight: 500;
