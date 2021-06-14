@@ -1,15 +1,7 @@
 @import 'styles/utils/mixins';
 
 .nextPrevSection {
-  margin: #{$max-article-margin} auto;
+  margin: 20px auto 80px;
 
   @include flex(row, space-between);
-
-  @include desktop {
-    margin-top: #{$min-article-margin};
-  }
-
-  @include below-tablet {
-    @include flex(row, space-between, center, wrap);
-  }
 }

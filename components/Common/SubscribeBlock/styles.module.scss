@@ -2,15 +2,15 @@
 
 .blogPage {
   width: 100%;
-  margin: 100px 12px;
+  margin: 80px 12px;
 
   @include phone {
-    margin: 50px 0;
+    margin: 40px 0;
   }
 }
 
 .articlePage {
-  margin: 24px auto 20vh;
+  margin: 24px auto 100px;
   background-color: $white;
 
   @include desktop {
@@ -19,245 +19,156 @@
 }
 
 .subscribeBlock {
-  .subscribeWrapper {
-    width: 100%;
+  padding: 70px;
+  background-color: $alabaster;
+  border-radius: 5px;
 
-    .subscribeHeader {
-      padding: 60px;
-      margin: 0 auto;
-      background-color: $turbo-100;
-      border-radius: 4px 4px 0 0;
+  @include flex(row, space-between, center);
 
-      @include flex(row, space-between, center);
+  @include tablet {
+    @include flex(column);
+  }
 
-      @include macbook-twelve {
-        padding: 40px 25px;
-      }
+  @include below-tablet {
+    padding: 40px;
+  }
 
-      @include below-tablet {
-        padding: 30px 25px 40px;
+  .subscribeText {
+    width: 45%;
+    margin-right: 100px;
 
-        @include flex(column, center, center);
-      }
+    @include tablet {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
+
+    & > h3 {
+      margin: 0 0 15px;
+      font-weight: 700;
+
+      @include fontSize(32px);
 
       @include phone {
-        padding: 30px 15px 50px;
+        @include fontSize(24px);
+      }
+    }
+
+    & > p {
+      margin: 0;
+      line-height: 2;
+      color: $silver-chalice;
+
+      @include fontSize(18px);
+
+      @include phone {
+        @include fontSize(14px);
+      }
+    }
+  }
+
+  .subscribeForm {
+    height: 80px;
+    width: 60%;
+    position: relative;
+
+    @include flex(row, center);
+
+    @include macbook-twelve {
+      height: 70px;
+    }
+
+    @include tablet {
+      height: 60px;
+      width: 100%;
+    }
+
+    @include phone {
+      height: auto;
+
+      @include flex(column, center, center);
+    }
+
+    & > input {
+      min-width: 300px;
+      flex-grow: 1;
+      padding: 18px;
+      border: 1px solid rgba(23, 23, 23, 0.3);
+      border-radius: 8px;
+      color: $tundora;
+      outline: none;
+
+      @include fontSize(18px);
+
+      @include phone {
+        margin-bottom: 20px;
+        min-width: initial;
+        width: calc(100% - 40px);
+
+        @include fontSize(16px);
       }
 
-      & > h3 {
-        font-weight: 500;
-        margin: 0;
-        padding: 20px 5% 20px 0;
+      &::placeholder {
+        color: $silver-chalice;
 
-        @include fontSize(37px);
-
-        @include macbook-twelve {
-          @include fontSize(30px);
-        }
-
-        @include tablet {
-          @include fontSize(24px);
-        }
-
-        @include below-tablet {
-          padding: 10px 0 30px;
-          text-align: center;
-
-          @include fontSize(28px);
-        }
+        @include fontSize(18px);
 
         @include phone {
-          padding: 0 0 20px 0;
-
-          @include fontSize(18px);
-        }
-      }
-
-      .subscribeForm {
-        height: 80px;
-        position: relative;
-
-        @include flex();
-
-        @include macbook-twelve {
-          height: 70px;
-        }
-
-        @include tablet {
-          height: 60px;
-
-          @include flex(row, center, initial, wrap);
-        }
-
-        & > input {
-          width: 270px;
-          margin: 0 3px 0 0;
-          padding: 0 20px 0 35px;
-          border: 0;
-          border-radius: 8px 0 0 8px;
-          transition: width 0.2s ease;
-          font-weight: 500;
-          letter-spacing: 1px;
-          color: $woodsmoke;
-
-          @include fontSize(19px);
-
-          @include macbook-twelve {
-            width: 250px;
-            padding-right: 20px;
-            padding-left: 20px;
-
-            @include fontSize(16px);
-          }
-
-          @include tablet {
-            width: 150px;
-            padding-right: 15px;
-            padding-left: 15px;
-          }
-
-          @include below-tablet {
-            width: 180px;
-          }
-
-          @include phone {
-            max-width: 155px;
-            padding-right: 10px;
-            padding-left: 10px;
-          }
-
-          &::placeholder {
-            font-weight: 500;
-            letter-spacing: 1px;
-            color: $woodsmoke;
-
-            @include fontSize(18px);
-
-            @include macbook-twelve {
-              @include fontSize(16px);
-            }
-          }
-
-          &:focus {
-            width: 300px;
-            outline: none;
-
-            @include phone {
-              max-width: 155px;
-            }
-          }
-        }
-
-        .button {
-          height: 100%;
-          padding: 0 30px 0 20px;
-          font-weight: 500;
-          letter-spacing: 1px;
-          color: $woodsmoke;
-          border: 0;
-          border-radius: 0 8px 8px 0;
-          background-color: $white;
-          cursor: pointer;
-          transition: 0.2s ease;
-          transition-property: background-color, color;
-          outline: none;
-
-          @include flex(row, center, center);
-          @include fontSize(18px);
-
-          @include macbook-twelve {
-            padding-right: 20px;
-            padding-left: 20px;
-
-            @include fontSize(16px);
-          }
-
-          @include tablet {
-            padding-right: 15px;
-            padding-left: 15px;
-
-            @include fontSize(14px);
-          }
-
-          &:hover {
-            color: $white;
-            background-color: $black;
-          }
-        }
-
-        .alertMessage {
-          font-weight: 600;
-          position: absolute;
-          right: 0;
-          bottom: -35px;
-          display: block;
-          width: 100%;
-          margin: 0;
-          padding: 0;
-          text-align: right;
-          letter-spacing: 1.2px;
-          text-transform: uppercase;
-          color: $woodsmoke;
-          transition: opacity 0.2s ease;
-
-          @include fontSize(10px);
-
-          @include phone {
-            padding: 7px 0 5px;
-            position: unset;
-            text-align: center;
-          }
+          @include fontSize(16px);
         }
       }
     }
 
-    .subscribeMessage {
-      margin: 0;
-      padding: 9vh 60px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      border-radius: 0 0 4px 4px;
+    .button {
+      width: 220px;
+      padding: 20px 0;
+      margin-left: 10px;
+      font-weight: 600;
+      color: $tundora;
+      border: 0;
+      border-radius: 8px;
+      background-color: $turbo-100;
+      cursor: pointer;
+      transition: 0.2s ease;
+      transition-property: background-color, color;
+      outline: none;
 
-      @include macbook-twelve {
-        padding: 5vh 25px;
+      @include flex(row, center, center);
+      @include fontSize(18px);
+
+      @include phone {
+        @include fontSize(14px);
+
+        margin: 0 10px;
       }
 
-      & > h3 {
-        max-width: calc(50% - (#{$max-article-margin} / 2));
-        box-sizing: border-box;
-        margin: 0;
-        padding: 70px 40px;
-        font-weight: 500;
-        line-height: 1.6;
-        border-radius: 4px;
-        background-color: $white;
+      &:hover {
+        color: $white;
+        background-color: $black;
+      }
+    }
 
-        @include fontSize(28px);
+    .alertMessage {
+      font-weight: 600;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translateY(25px);
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+      text-transform: uppercase;
+      color: $woodsmoke;
+      transition: opacity 0.2s ease;
 
-        @include desktop {
-          max-width: calc(50% - (#{$min-article-margin} / 2));
-        }
+      @include fontSize(10px);
 
-        @include macbook-twelve {
-          padding: 40px 30px;
-
-          @include fontSize(21px);
-        }
-
-        @include tablet {
-          padding: 30px 20px;
-
-          @include fontSize(18px);
-        }
-
-        @include below-tablet {
-          max-width: 100%;
-        }
-
-        @include phone {
-          @include fontSize(14px);
-        }
+      @include phone {
+        padding: 0 0 20px;
+        position: unset;
+        text-align: center;
       }
     }
   }
