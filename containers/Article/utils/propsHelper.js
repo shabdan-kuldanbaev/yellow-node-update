@@ -47,22 +47,3 @@ export function getArticleProps({ article } = {}) {
     author,
   };
 }
-
-export function getNearbyArticlesProps({ nearbyArticles } = {}) {
-  const getNearbyArticlesSlug = (object) => get(nearbyArticles, `${object}.slug`);
-  const getNearbyArticlesTitle = (object) => get(nearbyArticles, `${object}.title`);
-  const getNearbyArticlesImage = (object) => get(nearbyArticles, `${object}.previewImageUrl.url`);
-
-  return {
-    prevArticle: {
-      slug: getNearbyArticlesSlug('olderArticle'),
-      title: getNearbyArticlesTitle('olderArticle'),
-      previewImageUrl: getNearbyArticlesImage('olderArticle'),
-    },
-    nextArticle: {
-      slug: getNearbyArticlesSlug('newerArticle'),
-      title: getNearbyArticlesTitle('newerArticle'),
-      previewImageUrl: getNearbyArticlesImage('newerArticle'),
-    },
-  };
-}
