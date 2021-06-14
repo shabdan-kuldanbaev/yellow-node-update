@@ -15,14 +15,12 @@ import PropTypes from 'prop-types';
 // import { Raycaster } from 'node_modules/three/src/core/Raycaster';
 // import { Plane } from 'node_modules/three/src/math/Plane';
 // import { Vector3 } from 'node_modules/three/src/math/Vector3';
-import * as THREE from 'three';
 // import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
 // import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
-//---
-import { EffectComposer, RenderPass } from 'postprocessing';
 // import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 // import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-//---
+import * as THREE from 'three';
+import { EffectComposer, RenderPass } from 'postprocessing';
 import { Animated } from 'components/Common/Animated';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';

@@ -117,6 +117,8 @@ export const SVG_IMAGES_TYPES = {
   instaIcon: 'instaIcon',
   linkedinIcon: 'linkedinIcon',
   mediumIcon: 'mediumIcon',
+  bookmarkArrow: 'bookmarkArrow',
+  bookmarkIcon: 'bookmarkIcon',
   nearbyArrow: 'nearbyArrow',
 };
 

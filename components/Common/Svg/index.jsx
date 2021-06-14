@@ -212,6 +212,22 @@ export const Svg = ({
         </g>
       </svg>
     );
+  case SVG_IMAGES_TYPES.bookmarkArrow:
+    return (
+      <svg className={className} width="33" height="16" viewBox="0 0 33 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 8L31 8" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M25 15L32 8L25 1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  case SVG_IMAGES_TYPES.bookmarkIcon:
+    return (
+      <svg className={className} width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="35" cy="35" r="35" fill="#FFE603" />
+        <path d="M32.9704 41.3942L25 46.77V25.75C25 24.3693 26.1193 23.25 27.5 23.25H39C40.3807 23.25 41.5 24.3693 41.5 25.75V46.77L33.5296 41.3942L33.25 41.2056L32.9704 41.3942Z" fill="#171717" stroke="#171717" />
+        <path d="M39.375 22.75H42.5C44.1569 22.75 45.5 24.0931 45.5 25.75V34.125H39.375V22.75Z" fill="#171717" />
+        <path d="M42 25.8125C42 25.5709 42.1959 25.375 42.4375 25.375C42.6791 25.375 42.875 25.5709 42.875 25.8125V34.125H42V25.8125Z" fill="#FFE603" />
+      </svg>
+    );
   case SVG_IMAGES_TYPES.nearbyArrow:
     return (
       <svg className={className} width="31" height="8" viewBox="0 0 31 8" fill="none" xmlns="http://www.w3.org/2000/svg">

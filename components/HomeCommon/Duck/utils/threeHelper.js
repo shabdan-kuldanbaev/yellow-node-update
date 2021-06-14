@@ -10,13 +10,11 @@
 // import { PointsMaterial } from 'node_modules/three/src/materials/PointsMaterial';
 // import { BufferGeometry } from 'node_modules/three/src/core/BufferGeometry';
 // import { BufferAttribute } from 'node_modules/three/src/core/BufferAttribute';
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import * as THREE from 'three';
 import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'node_modules/three/examples/jsm/loaders/DRACOLoader';
-//---
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-//---
 import anime from 'animejs';
 import { getPathWithCdn } from 'utils/helper';
 import errorHelper from 'utils/error';
