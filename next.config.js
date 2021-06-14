@@ -7,6 +7,7 @@ const withFonts = require('next-fonts');
 const withVideos = require('next-videos');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -55,6 +56,14 @@ const nextConfig = {
         },
       },
     });
+
+    // TODO remove it after migrate to the next.js 10
+    // filtering "chunk styles [mini-css-extract-plugin]" worning
+    config.plugins.push(
+      new FilterWarningsPlugin({
+        exclude: /mini-css-extract-plugin[^]*Conflicting order between:/,
+      }),
+    );
 
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
