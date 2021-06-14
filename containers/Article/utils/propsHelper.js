@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
-export function getAuthorProps({ author } = {}) {
+function getAuthorProps({ author } = {}) {
   const authorFields = getDocumentFields(
     author,
     [
@@ -17,6 +17,10 @@ export function getAuthorProps({ author } = {}) {
     avatarImage,
   };
 }
+
+// export function getFrequentlyAskedQuestionsProps({  } = []) {
+
+// }
 
 export function getArticleProps({ article } = {}) {
   const articleFields = getDocumentFields(
@@ -36,6 +40,7 @@ export function getArticleProps({ article } = {}) {
       'metaTitle',
       'metaDescription',
       'author',
+      'frequentlyAskedQuestions',
     ],
   );
   const headImage = getFileUrl(articleFields.headImageUrl);

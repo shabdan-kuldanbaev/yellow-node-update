@@ -21,6 +21,7 @@ import {
 } from 'components';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
+import { FrequentlyAskedQuestions } from 'components/BlogCommon/Article/FrequentlyAskedQuestions';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
@@ -52,6 +53,7 @@ const ArticleContainer = ({
     metaDescription,
     headImage,
     author,
+    frequentlyAskedQuestions,
   } = getArticleProps({ article: currentArticle });
   const articleMetadata = {
     metaTitle: metaTitle || title,
@@ -100,6 +102,7 @@ const ArticleContainer = ({
           url={`${rootUrl}/blog/${slug}`}
           title={title}
         />
+        <FrequentlyAskedQuestions questions={frequentlyAskedQuestions} />
         <TagsBlock tags={keyWords} />
         {relatedArticles
           && !!relatedArticles.length
