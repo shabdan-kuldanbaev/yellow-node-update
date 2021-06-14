@@ -103,11 +103,11 @@ export const three = {
   ) => {
     const geometry = new THREE.BufferGeometry();
 
-    geometry.addAttribute('position', positions.clone());
-    geometry.addAttribute('initialPosition', positions.clone());
+    geometry.setAttribute('position', positions.clone());
+    geometry.setAttribute('initialPosition', positions.clone());
     geometry.attributes.position.setDynamic(true);
-    // geometry.setAttribute('position', positions.clone());
-    // geometry.setAttribute('initialPosition', positions.clone());
+    // geometry.addAttribute('position', positions.clone());
+    // geometry.addAttribute('initialPosition', positions.clone());
     // TODO geometry.attributes.position.setDynamic(true);
 
     if (isMobile) {
