@@ -40,12 +40,11 @@ export const ContentfulParser = ({ document }) => {
             ['title', 'slug'],
           );
 
-          return (title && slug && (
+          return title && slug && (
             <BookmarkCard
               title={title}
               slug={slug}
             />
-          )
           );
         }
         case 'image': {
@@ -55,7 +54,7 @@ export const ContentfulParser = ({ document }) => {
           );
           const imageUrl = getFileUrl(image);
 
-          return (articleSingleImageType && imageUrl && (
+          return articleSingleImageType && imageUrl && (
             <div className={styles.imageWrapper}>
               <div className={articleSingleImageType === 'normal'
                 ? styles.normalImage
@@ -74,7 +73,6 @@ export const ContentfulParser = ({ document }) => {
                 )}
               </div>
             </div>
-          )
           );
         }
         case 'articleGalleryCard': {
