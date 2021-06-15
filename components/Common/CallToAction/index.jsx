@@ -11,9 +11,9 @@ export const CallToAction = ({
   type,
 }) => (
   <div className={styles[type]}>
-    <h2 className={styles.h2}>
+    <h3 className={styles.h3}>
       {title}
-    </h2>
+    </h3>
     {subtitle && (
       <p className={styles.p}>
         {subtitle}
