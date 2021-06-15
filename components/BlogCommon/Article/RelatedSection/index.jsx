@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
 import { LinkWrapper, Svg } from 'components';
-import { ROUTES, ARTICLE_PREVIEW_TYPES, SVG_IMAGES_TYPES } from 'utils/constants';
+import {
+  ROUTES,
+  ARTICLE_PREVIEW_TYPES,
+  SVG_IMAGES_TYPES,
+} from 'utils/constants';
 import styles from './styles.module.scss';
 
 const RelatedSection = ({ articles }) => (
