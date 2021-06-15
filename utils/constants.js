@@ -158,6 +158,9 @@ export const SVG_IMAGES_TYPES = {
   instaIcon: 'instaIcon',
   linkedinIcon: 'linkedinIcon',
   mediumIcon: 'mediumIcon',
+  bookmarkArrow: 'bookmarkArrow',
+  bookmarkIcon: 'bookmarkIcon',
+  nearbyArrow: 'nearbyArrow',
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
@@ -175,4 +178,8 @@ export const CASE_STUDIES_TYPES = {
   appFeatures: 'appFeatures',
   image: 'image',
   results: 'results',
+};
+
+export const ARTICLE_PREVIEW_TYPES = {
+  related: 'related',
 };
