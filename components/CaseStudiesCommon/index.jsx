@@ -72,11 +72,12 @@ const CaseStudiesCommon = ({
     return (
       <section className={cn(styles.container, styles[type], styles.wireframes)}>
         {children}
-        {data && data.map((imageUrl) => (
+        {data && data.map((imageUrl, index) => (
           <Wireframe
             key={imageUrl}
             type={type}
             imageUrl={imageUrl}
+            direction={index % 2}
           />
         ))}
       </section>

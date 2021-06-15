@@ -3,20 +3,11 @@
 .container {
   position: relative;
   overflow: hidden;
-  //height: 812px;
-
-  &:not(&:last-of-type) {
-    margin-bottom: 80px;
-
-    @include phone {
-      margin-bottom: 40px;
-    }
-  }
 
   &::before {
     content: '';
     position: absolute;
-    width: 25%;
+    width: 25vw;
     top: 0;
     left: 0;
     bottom: 0;
@@ -26,74 +17,46 @@
   &::after {
     content: '';
     position: absolute;
-    width: 25%;
+    width: 25vw;
     top: 0;
     right: 0;
     bottom: 0;
     z-index: 10;
   }
 
-  :global {
-    //.swiper-container {
-    //  height: 812px;
-    //}
-
-    .swiper-wrapper {
-      //height: 812px;
-      transition-timing-function: linear !important;
-    }
-
-    //.swiper-slide {
-    //  height: 812px;
-    //}
-  }
-
-  .image {
-    height: 100%;
-    z-index: 1;
-    object-fit: contain;
+  .swiper {
+    position: relative;
+    width: 2180px;
+    height: 812px;
 
     @include phone {
+      width: 1090px;
       height: 400px;
     }
-  }
-}
 
-.imagesContainer {
-  position: relative;
-  overflow: hidden;
+    &:not(&:last-of-type) {
+      margin-bottom: 80px;
 
-  &:not(&:last-of-type) {
-    margin-bottom: 80px;
-  }
+      @include phone {
+        margin-bottom: 40px;
+      }
+    }
 
-  &::before {
-    content: '';
-    position: absolute;
-    width: 25%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 10;
-  }
+    :global {
+      .swiper-container {
+        width: 100%;
+        height: 100%;
+      }
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 25%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-  }
+      .swiper-wrapper {
+        transition-timing-function: linear !important;
+      }
+    }
 
-  .image {
-    margin-right: 30px;
-    height: 100%;
-    z-index: 1;
-
-    @include phone {
-      height: 400px;
+    .image {
+      height: 100%;
+      z-index: 1;
+      object-fit: contain;
     }
   }
 }

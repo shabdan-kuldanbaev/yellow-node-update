@@ -9,15 +9,24 @@ import styles from './styles.module.scss';
 
 SwiperCors.use([Autoplay]);
 
-const Wireframe = ({ imageUrl, type }) => {
+const Wireframe = ({ imageUrl, type, direction }) => {
   const params = {
     loop: true,
     autoplay: {
       delay: 1,
     },
+    rtl: direction,
     freeMode: true,
-    spaceBetween: 80,
-    speed: 10000,
+    breakpoints: {
+      300: {
+        speed: 20000,
+        spaceBetween: 20,
+      },
+      569: {
+        speed: 10000,
+        spaceBetween: 80,
+      },
+    },
   };
 
   return (
@@ -27,37 +36,30 @@ const Wireframe = ({ imageUrl, type }) => {
       duration={1000}
     >
       <div className={cn(styles.container, styles[type])}>
-        <Swiper {...params}>
-          <img
-            src={imageUrl}
-            className={styles.image}
-            alt=""
-          />
-        </Swiper>
+        <div className={styles.swiper}>
+          <Swiper
+            {...params}
+          >
+            <img
+              src={imageUrl}
+              className={cn(styles.image, 'swiper-no-swiping')}
+              alt=""
+            />
+          </Swiper>
+        </div>
       </div>
     </Animated>
   );
 };
 
+Wireframe.defaultProps = {
+  direction: false,
+};
+
 Wireframe.prototype = {
   imageUrl: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  direction: PropTypes.bool,
 };
 
 export default Wireframe;
-
-// <Animated
-//   type={ANIMATED_TYPE.isFade}
-//   delay={500}
-//   duration={1000}
-// >
-//   <div className={cn(styles.imagesContainer, styles[type])}>
-//     <Swiper {...params}>
-//       <div>Slide #1</div>
-//       <div>Slide #2</div>
-//       <div>Slide #3</div>
-//       <div>Slide #4</div>
-//       <div>Slide #5</div>
-//     </Swiper>
-//   </div>
-// </Animated>
