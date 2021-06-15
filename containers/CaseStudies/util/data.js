@@ -311,6 +311,23 @@ export const COMPONENTS = {
       data: IMAGES.stickerBox.chart,
     },
     {
+      type: CASE_STUDIES_TYPES.specialChallenges,
+      data: {
+        challenges: [
+          {
+            image: IMAGES.stickerBox.stickerSpecial1,
+            problemTitle: 'Background removal',
+            problem: 'After the app recognizes the face with all its features, StickerBox’s artificial intelligence will cut out the background flawlessly to insert the face into a template.',
+          },
+          {
+            image: IMAGES.stickerBox.stickerSpecial2,
+            problemTitle: 'Templates',
+            problem: 'The app contains an enormous amount of premade templates for you to create stickers and all of them drawn by our own team from scratch.',
+          },
+        ],
+      },
+    },
+    {
       type: CASE_STUDIES_TYPES.image,
       header: {
         title: 'Sync with messengers',

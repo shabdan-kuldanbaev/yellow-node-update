@@ -38,3 +38,9 @@
     @include fontSize(14px);
   }
 }
+
+.stickerbox {
+  &.title {
+    grid-row: 1/5;
+  }
+}

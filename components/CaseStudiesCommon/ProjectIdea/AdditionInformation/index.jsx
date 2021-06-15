@@ -33,8 +33,12 @@ const AdditionInformation = ({ additionInformation }) => {
   );
 };
 
+AdditionInformation.defaultProps = {
+  additionInformation: null,
+};
+
 AdditionInformation.propTypes = {
-  additionInformation: PropTypes.instanceOf(Array).isRequired,
+  additionInformation: PropTypes.instanceOf(Array),
 };
 
 export default AdditionInformation;

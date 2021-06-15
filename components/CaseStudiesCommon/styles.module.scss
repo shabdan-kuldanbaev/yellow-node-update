@@ -3,7 +3,6 @@
 .container {
   padding: 140px 40px;
   background-color: $white;
-  overflow: hidden;
 
   @include tablet {
     padding: 100px 40px;
@@ -119,7 +118,7 @@
 }
 
 .stickerbox {
-  background-color: #1A1C1F;
+  background-color: $dark-grey-1;
 
   &.idea,
   &.team,
@@ -148,6 +147,14 @@
 
     [data-case-study-description] {
       color: $silver-chalice;
+    }
+  }
+
+  &.special {
+    padding-top: 0;
+
+    @include phone {
+      padding-top: 40px;
     }
   }
 }

@@ -117,6 +117,8 @@ export const IMAGES = {
     additionalFeatures: '/images/additionalFeatures.png',
     sync: '/images/sync.png',
     result: '/images/resultSt.png',
+    stickerSpecial1: '/images/stickerSpecial1.png',
+    stickerSpecial2: '/images/stickerSpecial2.png',
   },
 };
 

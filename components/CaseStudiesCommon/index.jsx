@@ -38,7 +38,10 @@ const CaseStudiesCommon = ({
   case CASE_STUDIES_TYPES.team:
     return (
       <section className={cn(styles.container, styles[type], styles.team)}>
-        <TeamSection {...data} />
+        <TeamSection
+          type={type}
+          {...data}
+        />
       </section>
     );
   case CASE_STUDIES_TYPES.challenges:

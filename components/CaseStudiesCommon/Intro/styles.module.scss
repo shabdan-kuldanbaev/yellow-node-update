@@ -184,7 +184,7 @@
 }
 
 .stickerbox {
-  background: linear-gradient(180deg, #26282D 0%, #181A1D 100%);
+  background: linear-gradient(180deg, $grey-darker 0%, $dark-grey-2 100%);
 
   .projectInfoContainer {
     .projectTitle {
@@ -192,10 +192,12 @@
     }
 
     .projectSubtitle {
+      font-family: $case-studies-font;
       font-weight: 500;
-      font-size: 24px;
       line-height: 150%;
-      color: #A0A0A0;
+      color: $silver-chalice;
+
+      @include fontSize(24px);
     }
 
     .projectDescription {

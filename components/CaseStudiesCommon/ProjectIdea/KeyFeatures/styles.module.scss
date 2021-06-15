@@ -107,7 +107,7 @@
   .featureContainer {
     .checkMark {
       color: $white;
-      background: linear-gradient(180deg, #D45D94 0%, #FA717D 100%);
+      background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
     }
   }
 }
@@ -116,7 +116,7 @@
   /* stylelint-disable-next-line */
   .featureContainer {
     .checkMark {
-      background: #FFE603;
+      background: $turbo-100;
     }
   }
 }

@@ -124,3 +124,26 @@
     }
   }
 }
+
+.stickerbox {
+  &:nth-of-type(1) {
+    .image {
+      transform: translateY(-80px);
+
+      @include phone {
+        transform: none;
+      }
+    }
+  }
+
+  .title {
+    color: $white;
+  }
+
+  /* stylelint-disable-next-line */
+  .infoContainer {
+    .description {
+      color: rgba($white, 0.4);
+    }
+  }
+}
