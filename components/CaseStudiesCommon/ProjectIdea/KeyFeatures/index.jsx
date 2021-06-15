@@ -28,9 +28,9 @@ const KeyFeatures = ({ features, type }) => (
               />
             </div>
             <div className={styles.contentContainer}>
-              <p className={styles.title}>
+              <h3 className={styles.title}>
                 {title}
-              </p>
+              </h3>
               <p className={styles.description}>
                 {description}
               </p>

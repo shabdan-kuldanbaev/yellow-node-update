@@ -28,9 +28,9 @@ const ChallengesAndSolutions = ({
             duration={1000}
           >
             <div className={styles.infoContainer}>
-              <h3 className={styles.title}>
+              <h2 className={styles.title}>
                 {problemTitle}
-              </h3>
+              </h2>
             </div>
           </Animated>
         )}
@@ -41,9 +41,9 @@ const ChallengesAndSolutions = ({
               delay={1000}
               duration={1000}
             >
-              <h3 className={styles.title}>
+              <h2 className={styles.title}>
                 {problemTitle}
-              </h3>
+              </h2>
             </Animated>
           )}
           <Animated
@@ -53,9 +53,9 @@ const ChallengesAndSolutions = ({
           >
             <Fragment>
               {isChallenges && (
-                <p className={styles.subtitle}>
+                <h3 className={styles.subtitle}>
                   Problem:
-                </p>
+                </h3>
               )}
               <p className={styles.description}>
                 {problem}
@@ -69,9 +69,9 @@ const ChallengesAndSolutions = ({
           >
             <Fragment>
               {isChallenges && (
-                <p className={styles.subtitle}>
+                <h3 className={styles.subtitle}>
                   Solution:
-                </p>
+                </h3>
               )}
               <p className={styles.description}>
                 {solution}
