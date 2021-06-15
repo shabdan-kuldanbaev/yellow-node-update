@@ -215,14 +215,14 @@ export const COMPONENTS = {
         ],
       },
     },
-    {
-      type: CASE_STUDIES_TYPES.results,
-      header: {
-        title: 'Results',
-        description: 'The final mobile solution fulfilled the client’s requirements and met the initial goal. Now, the app receives first positive feedbacks from users.',
-      },
-      data: IMAGES.fernwayer.result,
-    },
+    // {
+    //   type: CASE_STUDIES_TYPES.results,
+    //   header: {
+    //     title: 'Results',
+    //     description: 'The final mobile solution fulfilled the client’s requirements and met the initial goal. Now, the app receives first positive feedbacks from users.',
+    //   },
+    //   data: IMAGES.fernwayer.result,
+    // },
   ],
 
   stickerbox: [

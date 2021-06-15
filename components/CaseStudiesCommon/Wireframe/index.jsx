@@ -17,13 +17,12 @@ const Wireframe = ({ imageUrl, type, direction }) => {
     },
     rtl: direction,
     freeMode: true,
+    speed: 30000,
     breakpoints: {
       300: {
-        speed: 20000,
-        spaceBetween: 20,
+        spaceBetween: 50,
       },
       569: {
-        speed: 10000,
         spaceBetween: 80,
       },
     },
@@ -53,13 +52,13 @@ const Wireframe = ({ imageUrl, type, direction }) => {
 };
 
 Wireframe.defaultProps = {
-  direction: false,
+  direction: '',
 };
 
 Wireframe.prototype = {
   imageUrl: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  direction: PropTypes.bool,
+  direction: PropTypes.string,
 };
 
 export default Wireframe;

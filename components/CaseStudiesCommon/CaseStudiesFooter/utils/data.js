@@ -4,16 +4,16 @@ export const socialNetworks = [
   {
     title: 'behance',
     href: 'https://dribbble.com/yellow_systems',
-    type: SVG_IMAGES_TYPES.behance,
+    iconType: SVG_IMAGES_TYPES.behance,
   },
   {
     title: 'dribbble',
     href: 'https://dribbble.com/yellow_systems',
-    type: SVG_IMAGES_TYPES.dribble,
+    iconType: SVG_IMAGES_TYPES.dribble,
   },
   {
     title: 'instagram',
     href: '//www.instagram.com/yellow.systems',
-    type: SVG_IMAGES_TYPES.instagram,
+    iconType: SVG_IMAGES_TYPES.instagram,
   },
 ];

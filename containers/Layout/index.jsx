@@ -16,7 +16,6 @@ import CookiesNotification from 'components/Common/CookiesNotification';
 import { GAnalytic } from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
 import { Footer } from 'components/Layout/Footer';
-import CaseStudiesFooter from 'components/CaseStudiesCommon/CaseStudiesFooter';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import {
   mobileResolution,
@@ -32,7 +31,7 @@ const Layout = ({
 }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const { pathname } = useRouter();
+  const { query: { project } } = useRouter();
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
@@ -87,15 +86,11 @@ const Layout = ({
         introSection={introSection}
       />
       {children}
-      { pathname === '/works/[project]' && (
-        <CaseStudiesFooter />
-      )}
-      { pathname !== '/works/[project]' && (
-        <Footer
-          theme={theme}
-          openFullscreenEstimation={openFullscreenEstimation}
-        />
-      )}
+      <Footer
+        type={project}
+        theme={theme}
+        openFullscreenEstimation={openFullscreenEstimation}
+      />
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}

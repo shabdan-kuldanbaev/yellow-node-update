@@ -4,6 +4,7 @@ import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import FeedbackForm from 'containers/Home/FeedbackForm';
 import { COMPONENTS } from './util/data';
+import styles from './styles.module.scss';
 
 const CaseStudiesContainer = ({ introSection, currentProject }) => (
   <Fragment>
@@ -24,7 +25,9 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => (
         )}
       </CaseStudiesCommon>
     ))}
-    <FeedbackForm />
+    <div className={styles.feedBackContainer}>
+      <FeedbackForm />
+    </div>
   </Fragment>
 );
 
