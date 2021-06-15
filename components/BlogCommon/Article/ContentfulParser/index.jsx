@@ -13,6 +13,7 @@ import {
   Animated,
   LinkWrapper,
 } from 'components';
+import { CallToAction } from 'components/Common/CallToAction';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
@@ -35,25 +36,16 @@ export const ContentfulParser = ({ document }) => {
 
         switch (id) {
         case 'articleBookmark': {
-          const {
-            title,
-            slug,
-            description,
-            image,
-          } = getDocumentFields(
+          const { title, slug } = getDocumentFields(
             get(node, 'data.target', {}),
-            ['title', 'slug', 'description', 'image'],
+            ['title', 'slug'],
           );
-          const imageUrl = getFileUrl(image);
 
-          return (title && slug && description && imageUrl && (
+          return title && slug && (
             <BookmarkCard
               title={title}
               slug={slug}
-              description={description}
-              image={imageUrl}
             />
-          )
           );
         }
         case 'image': {
@@ -63,7 +55,7 @@ export const ContentfulParser = ({ document }) => {
           );
           const imageUrl = getFileUrl(image);
 
-          return (articleSingleImageType && imageUrl && (
+          return articleSingleImageType && imageUrl && (
             <div className={styles.imageWrapper}>
               <div className={articleSingleImageType === 'normal'
                 ? styles.normalImage
@@ -82,7 +74,6 @@ export const ContentfulParser = ({ document }) => {
                 )}
               </div>
             </div>
-          )
           );
         }
         case 'articleGalleryCard': {
@@ -95,6 +86,25 @@ export const ContentfulParser = ({ document }) => {
             <GalleryCard
               images={images}
               photoCaption={photoCaption}
+            />
+          );
+        }
+        case 'callToAction': {
+          const {
+            title,
+            buttonTitle,
+            slug,
+          } = getDocumentFields(
+            get(node, 'data.target', {}),
+            ['title', 'buttonTitle', 'slug'],
+          );
+
+          return title && buttonTitle && slug && (
+            <CallToAction
+              title={title}
+              buttonTitle={buttonTitle}
+              href={slug}
+              type="blog"
             />
           );
         }

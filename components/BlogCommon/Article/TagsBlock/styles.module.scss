@@ -1,12 +1,12 @@
 @import 'styles/utils/mixins';
 
 .tagsBlock {
-  margin-bottom: 150px;
+  margin: 150px 0;
 
   @include flex(column);
 
-  @include phone {
-    margin-bottom: 80px;
+  @include tablet {
+    margin: 100px 0;
   }
 
   .title {

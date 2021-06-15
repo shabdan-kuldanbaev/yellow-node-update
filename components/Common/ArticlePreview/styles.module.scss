@@ -1,0 +1,114 @@
+@import "styles/utils/mixins";
+
+.related {
+  min-width: 150px;
+  flex: 1 0 calc(25% - 40px);
+  margin: 0 20px;
+  cursor: pointer;
+  background-color: $white;
+  border-radius: 5px;
+  line-height: 1.5;
+  transition: transform 0.2s ease-in-out;
+  transform: translateY(0);
+  box-shadow: 0 10px 60px -10px rgba(0, 0, 0, 0.15);
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include tablet {
+    flex: 1 0 40%;
+    margin-bottom: 40px;
+    min-width: 120px;
+
+    &:nth-of-type(odd) {
+      margin-left: 0;
+    }
+
+    &:nth-of-type(even) {
+      margin-right: 0;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  & > a:first-child {
+    text-decoration: none;
+    overflow: hidden;
+    color: $black;
+
+    & > div {
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding-top: 75%;
+    }
+  }
+
+  .articleContent {
+    padding: 30px;
+
+    @include flex(column);
+
+    @include tablet {
+      padding: 20px;
+    }
+
+    & > a {
+      color: $mine-shaft;
+      margin-bottom: 15px;
+    }
+
+    & > a:last-child {
+      display: inline-block;
+      font-weight: 700;
+      margin: 0;
+
+      @include fontSize(24px);
+
+      @include macbook-twelve {
+        @include fontSize(22px);
+      }
+
+      @include phone {
+        @include fontSize(18px);
+      }
+
+      .title {
+        display: inline;
+        color: $mine-shaft;
+        background-image: linear-gradient($turbo-100, $turbo-100);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 8px;
+        transition: background-size 0.6s ease-out;
+      }
+
+      &:hover {
+        .title {
+          transition: background-size 0.6s ease-out;
+          background-size: 100% 8px;
+        }
+      }
+    }
+
+    .category {
+      font-weight: 600;
+      text-transform: uppercase;
+
+      @include fontSize(14px);
+
+      @include macbook-twelve {
+        @include fontSize(12px);
+      }
+    }
+  }
+}
