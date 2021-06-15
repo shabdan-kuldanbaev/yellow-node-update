@@ -28,11 +28,14 @@ function getGraphqlResultTotalArticlesCount(graphqlResult) {
   return get(graphqlResult, 'articleCollection.total', []);
 }
 
-function* getArticle({ articleSlug }) {
+function* getArticle({ articleSlug, isPreviewMode }) {
   try {
-    const article = yield fetchContentfulArticles({
-      'fields.slug[match]': articleSlug,
-    });
+    const article = yield fetchContentfulArticles(
+      isPreviewMode,
+      {
+        'fields.slug[match]': articleSlug,
+      },
+    );
 
     yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: article });
   } catch (error) {
@@ -164,6 +167,7 @@ export function* fetchBlogData({
   currentLimit,
   category,
   skip,
+  isPreviewMode,
 }) {
   if (slug === PAGES.blog) {
     yield call(loadArticles, {
@@ -172,7 +176,7 @@ export function* fetchBlogData({
       skip,
     });
   } else {
-    yield call(getArticle, { articleSlug });
+    yield call(getArticle, { articleSlug, isPreviewMode });
 
     const article = yield select(selectArticle);
     const {

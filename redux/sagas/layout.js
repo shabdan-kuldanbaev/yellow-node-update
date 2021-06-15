@@ -64,6 +64,7 @@ function* fetchPageData({
     currentLimit,
     category,
     skip,
+    isPreviewMode = false,
   },
 }) {
   try {
@@ -88,6 +89,7 @@ function* fetchPageData({
         currentLimit,
         category,
         skip,
+        isPreviewMode,
       });
 
       break;
