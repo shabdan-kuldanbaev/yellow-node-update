@@ -1,44 +1,59 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
+import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const AppFeatures = ({ links, imageUrl }) => {
-  const [activeName, setActiveName] = useState(links[0].name);
+const AppFeatures = ({ data }) => {
+  const firstSection = getDocumentFields(get(data, 'contentModules[0]', {}));
+  const firstTitle = get(firstSection, 'title', {});
+  const [activeName, setActiveName] = useState(firstTitle);
+
+  if (!firstTitle) {
+    return null;
+  }
 
   const handleOnClick = (name) => {
     setActiveName(name);
   };
 
+  const imageUrl = getFileUrl(get(data, 'images[0]', {}));
+
   return (
     <div className={styles.container}>
       <div className={styles.sectionContainer}>
-        {links && links.map(({ name, description }, index) => (
-          <Animated
-            key={name}
-            type={ANIMATED_TYPE.isFade}
-            delay={500 * index}
-            duration={1000}
-          >
-            <div
-              className={cn(styles.sectionItem, {
-                [styles.sectionActiveItem]: name === activeName,
-              })}
+        {data.contentModules.map((document, index) => {
+          const { title, text } = getDocumentFields(document);
+
+          return (
+            <Animated
+              key={title}
+              type={ANIMATED_TYPE.isFade}
+              delay={500 * index}
+              duration={1000}
             >
-              <p
-                className={styles.title}
-                onClick={() => handleOnClick(name)}
+              <div
+                className={cn(styles.sectionItem, {
+                  [styles.sectionActiveItem]: title === activeName,
+                })}
               >
-                {name}
-              </p>
-              <p className={styles.description}>
-                {description}
-              </p>
-            </div>
-          </Animated>
-        ))}
+                <p
+                  className={styles.title}
+                  onClick={() => handleOnClick(title)}
+                >
+                  {title}
+                </p>
+                <div className={styles.description}>
+                  <ContentfulParser document={text} />
+                </div>
+              </div>
+            </Animated>
+          );
+        })}
       </div>
       <Animated
         type={ANIMATED_TYPE.isFade}
@@ -48,7 +63,7 @@ const AppFeatures = ({ links, imageUrl }) => {
           <img
             src={imageUrl}
             className={styles.image}
-            alt=""
+            alt={imageUrl}
           />
         </div>
       </Animated>
@@ -57,8 +72,7 @@ const AppFeatures = ({ links, imageUrl }) => {
 };
 
 AppFeatures.propTypes = {
-  links: PropTypes.instanceOf(Array).isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  data: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default AppFeatures;

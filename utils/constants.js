@@ -85,41 +85,6 @@ export const IMAGES = {
     Sandro: '/images/home/reviews/3.png',
     Jerry: '/images/home/reviews/4.png',
   },
-  fernwayer: {
-    wireframes: {
-      first: '/images/row-2.png',
-      second: '/images/row.png',
-    },
-    iphone: '/images/iPhone.png',
-    map: '/images/map.png',
-    pictures: '/images/pictures.png',
-    screens: '/images/screens.png',
-    editStory: '/images/editStory.png',
-    experienceCard: '/images/ExperienceCard.png',
-    chart: '/images/chart.png',
-    chat: '/images/chat.png',
-    experience: '/images/Experiences.png',
-    experienceCalendar: '/images/ExperiencesCalendar.png',
-    result: '/images/result.png',
-    background: '/images/fernwayerBg.png',
-    logo: '/images/fernwayerLogo.png',
-    image: '/images/fernwayerImage.png',
-  },
-  stickerBox: {
-    image: '/images/stickerBox.png',
-    logo: '/images/stickerBoxLogo.png',
-    chart: '/images/stickerboxTechnologies.png',
-    wireframes: {
-      first: '/images/stickerBoxWireframe1.png',
-      second: '/images/stickerBoxWireframe2.png',
-    },
-    facesegment: '/images/facesegment.png',
-    additionalFeatures: '/images/additionalFeatures.png',
-    sync: '/images/sync.png',
-    result: '/images/resultSt.png',
-    stickerSpecial1: '/images/stickerSpecial1.png',
-    stickerSpecial2: '/images/stickerSpecial2.png',
-  },
 };
 
 export const CONTACTS_DATA = {
@@ -170,18 +135,21 @@ export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
 export const HEADER_HEIGHT = 66;
 
 export const CASE_STUDIES_TYPES = {
-  projectIdea: 'projectIdea',
-  intro: 'intro',
-  team: 'team',
-  challenges: 'challengesAndSolutions',
-  challengesWithWireframe: 'challengesWithWireframe',
-  specialChallenges: 'specialChallengesAndSolutions',
-  wireframe: 'wireframe',
-  appFeatures: 'appFeatures',
-  image: 'image',
-  results: 'results',
+  intro: 'case-study-intro',
+  projectIdea: 'case-study-project-idea',
+  challenges: 'case-study-challenges',
+  specialChallenges: 'case-study-special',
+  wireframe: 'case-study-wireframe',
+  appFeatures: 'case-study-app-features',
+  image: 'case-study-image',
+  results: 'case-study-results',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
   related: 'related',
+};
+
+export const LOGO_TYPES = {
+  whiteLogo: 'whiteLogo',
+  default: 'default',
 };

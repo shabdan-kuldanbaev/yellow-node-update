@@ -9,7 +9,7 @@ import LinearIndeterminate from 'components/Common/LinearIndeterminate';
 import Logo from 'components/Common/Logo';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import { TopProgressBar } from 'components/Common/TopProgressBar';
-import { ROUTES } from 'utils/constants';
+import { ROUTES, LOGO_TYPES } from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
@@ -62,6 +62,10 @@ const Header = ({
     setAdditional(false);
   }, [asPath]);
 
+  const logo = !isAdditional && isHomePage
+    ? LOGO_TYPES.whiteLogo
+    : LOGO_TYPES.default;
+
   return (
     <header className={cn({
       [styles.headerContainer]: true,
@@ -73,7 +77,7 @@ const Header = ({
       <div className={styles.logo}>
         <Logo
           theme={theme}
-          whiteLogo={!isAdditional && isHomePage}
+          type={logo}
         />
       </div>
       {currentPage.includes('blog') && (

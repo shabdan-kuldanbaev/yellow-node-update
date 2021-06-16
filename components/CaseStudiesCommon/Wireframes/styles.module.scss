@@ -1,0 +1,62 @@
+@import 'styles/utils/mixins';
+
+.imagesContainer {
+  position: relative;
+  overflow: hidden;
+  margin-top: 80px;
+
+  &:not(&:last-of-type) {
+    margin-bottom: 80px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 25%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 25%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  .image {
+    height: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    @include phone {
+      height: 400px;
+    }
+  }
+}
+
+.fernwayer {
+  &::before {
+    background: linear-gradient(90deg, $white 0%, rgba($white, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $white 0%, rgba($white, 0) 100%);
+  }
+}
+
+.stickerbox {
+  &::before {
+    background: linear-gradient(90deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
+  }
+}

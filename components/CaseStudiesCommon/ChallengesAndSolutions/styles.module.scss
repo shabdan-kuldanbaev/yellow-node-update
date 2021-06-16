@@ -28,7 +28,7 @@
       text-align: center;
     }
 
-    .subtitle {
+    h3 {
       margin: 0 0 10px;
       font-family: $case-studies-font;
       font-weight: bold;
@@ -44,7 +44,7 @@
       }
     }
 
-    .description {
+    p {
       margin: 0 0 30px;
       white-space: pre-line;
       line-height: 180%;
@@ -119,7 +119,7 @@
 
   /* stylelint-disable-next-line */
   .infoContainer {
-    .description {
+    p {
       color: $white;
     }
   }
@@ -142,7 +142,7 @@
 
   /* stylelint-disable-next-line */
   .infoContainer {
-    .description {
+    p {
       color: rgba($white, 0.4);
     }
   }

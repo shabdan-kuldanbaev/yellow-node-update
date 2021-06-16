@@ -1,132 +1,108 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Animated } from 'components/Common/Animated';
+import get from 'lodash/get';
 import AppFeatures from 'components/CaseStudiesCommon/AppFeatures';
 import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
 import ProjectIdea from 'components/CaseStudiesCommon/ProjectIdea';
-import TeamSection from 'components/CaseStudiesCommon/TeamSection';
-import Wireframe from 'components/CaseStudiesCommon/Wireframe';
+import Wireframes from 'components/CaseStudiesCommon/Wireframes';
 import Intro from 'components/CaseStudiesCommon/Intro';
-import { ANIMATED_TYPE, CASE_STUDIES_TYPES } from 'utils/constants';
+import Images from 'components/CaseStudiesCommon/Images';
+import { getFileUrl } from 'utils/helper';
+import { CASE_STUDIES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const CaseStudiesCommon = ({
   introSection,
-  component,
+  children,
   type,
   data,
-  children,
 }) => {
-  switch (component) {
-  case CASE_STUDIES_TYPES.projectIdea:
-    return (
-      <section className={cn(styles.container, styles[type], styles.idea)}>
-        <ProjectIdea
-          type={type}
-          {...data}
-        />
-      </section>
-    );
+  switch (data.type) {
   case CASE_STUDIES_TYPES.intro:
     return (
       <Intro
         introSection={introSection}
         type={type}
-        {...data}
+        data={data}
       />
     );
-  case CASE_STUDIES_TYPES.team:
+  case CASE_STUDIES_TYPES.projectIdea:
     return (
-      <section className={cn(styles.container, styles[type], styles.team)}>
-        <TeamSection
+      <section className={cn(styles.container, styles[type], styles.idea)}>
+        <ProjectIdea
           type={type}
-          {...data}
+          data={data}
         />
       </section>
     );
   case CASE_STUDIES_TYPES.challenges:
     return (
-      <section className={cn(styles.container, styles.challenges)}>
+      <section className={cn(styles.container, styles.challenges,
+        { [styles[type]]: data.images },
+        { [styles.challengesWithoutImage]: data.images })}
+      >
         {children}
-        <ChallengesAndSolutions {...data} />
-      </section>
-    );
-  case CASE_STUDIES_TYPES.challengesWithWireframe:
-    return (
-      <section className={cn(styles.container, styles[type], styles.challengesWithoutImage)}>
-        {children}
-        <ChallengesAndSolutions {...data} />
-        <Wireframe
+        <ChallengesAndSolutions data={data} />
+        <Wireframes
           type={type}
-          imageUrl={data.wireframe}
+          data={data}
         />
       </section>
     );
-  case CASE_STUDIES_TYPES.specialChallenges:
+  case CASE_STUDIES_TYPES.specialChallenges: {
+    const backgroundImageUrl = getFileUrl(get(data, 'images[0]', {}));
+    const backgroundImage = { backgroundImage: `url(${backgroundImageUrl}), linear-gradient(180deg, #D45D94 0%, #FA717D 100%)` };
+
     return (
-      <section className={cn(styles.container, styles[type], styles.special)}>
-        <ChallengesAndSolutions
-          type={type}
-          {...data}
-        />
+      <section
+        className={cn(styles.container, styles[type], styles.special)}
+        style={backgroundImage}
+      >
+        <ChallengesAndSolutions data={data} />
       </section>
     );
+  }
   case CASE_STUDIES_TYPES.wireframe:
     return (
       <section className={cn(styles.container, styles[type], styles.wireframes)}>
         {children}
-        {data && data.map((imageUrl, index) => (
-          <Wireframe
-            key={imageUrl}
-            type={type}
-            imageUrl={imageUrl}
-            direction={index % 2}
-          />
-        ))}
+        <Wireframes
+          type={type}
+          data={data}
+        />
       </section>
     );
   case CASE_STUDIES_TYPES.appFeatures:
     return (
       <section className={cn(styles.container, styles[type])}>
         {children}
-        <AppFeatures {...data} />
+        <AppFeatures data={data} />
       </section>
     );
   case CASE_STUDIES_TYPES.image:
     return (
       <section className={cn(styles.container, styles[type], styles.imageSection)}>
         {children}
-        <Animated
-          type={ANIMATED_TYPE.isFade}
-          delay={800}
-          duration={1000}
-        >
-          <div className={styles.imagContainer}>
-            <img
-              src={data}
-              className={styles.image}
-              alt=""
-            />
-          </div>
-        </Animated>
+        <Images data={data} />
       </section>
     );
   case CASE_STUDIES_TYPES.results:
     return (
       <section className={cn(styles.container, styles[type])}>
         {children}
-        <div className={styles.imagContainer}>
-          <img
-            src={data}
-            className={styles.image}
-            alt=""
-          />
-        </div>
+        <Images data={data} />
       </section>
     );
   default:
     return null;
   }
+};
+
+CaseStudiesCommon.propTypes = {
+  introSection: PropTypes.instanceOf(Object).isRequired,
+  data: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default CaseStudiesCommon;

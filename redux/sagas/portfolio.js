@@ -10,7 +10,7 @@ es6promise.polyfill();
 export function* fetchProject({ projectSlug }) {
   try {
     const project = yield contentfulClient.getEntries({
-      contentType: 'project',
+      contentType: 'page',
       additionalQueryParams: {
         'fields.slug[match]': projectSlug,
       },

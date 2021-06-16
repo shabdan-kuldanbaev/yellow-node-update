@@ -31,59 +31,21 @@
 }
 
 .idea {
-  gap: 112px;
-
-  @include flex(row, center);
+  display: grid;
+  column-gap: 112px;
+  row-gap: 140px;
+  grid-template-columns: minmax(auto, 630px) auto;
+  justify-content: center;
 
   @include tablet {
-    gap: 30px;
+    grid-template-columns: minmax(auto, 390px) auto;
+    column-gap: 30px;
+    row-gap: 100px;
   }
 
   @include phone {
-    @include flex(column, center, center);
-  }
-}
-
-.imageSection {
-  .imagContainer {
-    overflow-x: auto;
-
-    &::-webkit-scrollbar {
-      max-width: 210px;
-      height: 6px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: $blog-subscribe-input-box-shadow-focus-color;
-      border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: $dark-grey;
-      border-radius: 10px;
-    }
-
-    .image {
-      @include phone {
-        width: auto;
-        height: 470px;
-      }
-    }
-  }
-}
-
-.team {
-  background-color: $white;
-  display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(3, minmax(315px, 410px));
-  grid-template-rows: repeat(3, auto);
-  grid-auto-flow: column;
-  max-width: 1100px;
-  margin: 0 auto;
-
-  @include tablet {
-    display: none;
+    row-gap: 40px;
+    grid-template-columns: minmax(auto, 345px);
   }
 }
 
@@ -102,7 +64,6 @@
   background-color: $alabaster;
 
   &.idea,
-  &.team,
   &.imageSection,
   &.wireframes,
   &.challengesWithoutImage {
@@ -110,10 +71,14 @@
   }
 
   &.special {
-    background: url("/images/fernwayerBg.png"), linear-gradient(180deg, $pink 0%, $light-pink 100%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    h2,
+    p {
+      color: $white;
+    }
   }
 }
 
@@ -121,14 +86,9 @@
   background-color: $dark-grey-1;
 
   &.idea,
-  &.team,
   &.imageSection,
   &.challengesWithoutImage {
     background-color: $white;
-  }
-
-  &.team {
-    grid-template-rows: repeat(4, auto);
   }
 
   [data-case-study-title] {

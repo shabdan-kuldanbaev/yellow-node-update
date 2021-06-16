@@ -1,111 +1,93 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
+import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const ChallengesAndSolutions = ({
-  challenges,
-  isChallenges,
-  type,
-}) => (
-  <div>
-    {challenges.map(({
-      problem,
-      problemTitle,
-      solution,
-      image,
-    }) => (
-      <div
-        key={problem}
-        className={cn(styles.contentContainer, styles[type])}
-      >
-        {!image && (
-          <Animated
-            type={ANIMATED_TYPE.isFade}
-            delay={500}
-            duration={1000}
+const ChallengesAndSolutions = ({ data, type }) => {
+  if (!data || !data.contentModules) {
+    return null;
+  }
+
+  return (
+    <div>
+      {data.contentModules.map((document) => {
+        const {
+          title,
+          images,
+          text,
+        } = getDocumentFields(document);
+        const imageUrl = getFileUrl(get(images, '[0]', {}));
+
+        return (
+          <div
+            key={title}
+            className={cn(styles.contentContainer, styles[type])}
           >
-            <div className={styles.infoContainer}>
-              <h2 className={styles.title}>
-                {problemTitle}
-              </h2>
-            </div>
-          </Animated>
-        )}
-        <div className={cn(styles.infoContainer, { [styles.centrefy]: image })}>
-          {image && (
-            <Animated
-              type={ANIMATED_TYPE.isFade}
-              delay={1000}
-              duration={1000}
-            >
-              <h2 className={styles.title}>
-                {problemTitle}
-              </h2>
-            </Animated>
-          )}
-          <Animated
-            type={ANIMATED_TYPE.isFade}
-            delay={1000}
-            duration={1000}
-          >
-            <Fragment>
-              {isChallenges && (
-                <h3 className={styles.subtitle}>
-                  Problem:
-                </h3>
+            {!imageUrl && (
+              <Animated
+                type={ANIMATED_TYPE.isFade}
+                delay={500}
+                duration={1000}
+              >
+                <div className={styles.infoContainer}>
+                  <h2 className={styles.title}>
+                    {title}
+                  </h2>
+                </div>
+              </Animated>
+            )}
+            <div className={cn(styles.infoContainer, { [styles.centrefy]: imageUrl })}>
+              {imageUrl && (
+                <Animated
+                  type={ANIMATED_TYPE.isFade}
+                  delay={1000}
+                  duration={1000}
+                >
+                  <h2 className={styles.title}>
+                    {title}
+                  </h2>
+                </Animated>
               )}
-              <p className={styles.description}>
-                {problem}
-              </p>
-            </Fragment>
-          </Animated>
-          <Animated
-            type={ANIMATED_TYPE.isFade}
-            delay={1000}
-            duration={1000}
-          >
-            <Fragment>
-              {isChallenges && (
-                <h3 className={styles.subtitle}>
-                  Solution:
-                </h3>
-              )}
-              <p className={styles.description}>
-                {solution}
-              </p>
-            </Fragment>
-          </Animated>
-        </div>
-        {image && (
-          <Animated
-            type={ANIMATED_TYPE.isFade}
-            duration={1000}
-          >
-            <div>
-              <img
-                className={styles.image}
-                src={image}
-                alt=""
-              />
+              <Animated
+                type={ANIMATED_TYPE.isFade}
+                delay={1000}
+                duration={1000}
+              >
+                <ContentfulParser document={text} />
+              </Animated>
             </div>
-          </Animated>
-        )}
-      </div>
-    ))}
-  </div>
-);
+            {imageUrl && (
+              <Animated
+                type={ANIMATED_TYPE.isFade}
+                duration={1000}
+              >
+                <div>
+                  <img
+                    className={styles.image}
+                    src={imageUrl}
+                    alt=""
+                  />
+                </div>
+              </Animated>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 ChallengesAndSolutions.defaultProps = {
-  isChallenges: false,
   type: '',
 };
 
 ChallengesAndSolutions.propTypes = {
-  challenges: PropTypes.instanceOf(Array).isRequired,
-  isChallenges: PropTypes.bool,
+  data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,
 };
 

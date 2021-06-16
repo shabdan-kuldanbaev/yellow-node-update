@@ -10,10 +10,9 @@ import errorHelper from 'utils/error';
 const Project = ({ introSection, statusCode }) => {
   const { query: { project } } = useRouter();
 
-  // TODO: turn it on when Fernway appears on Contentful
-  // if (statusCode === 404) {
-  //   return <PageNotFound />;
-  // }
+  if (statusCode === 404) {
+    return <PageNotFound />;
+  }
 
   return (
     <CaseStudiesContainer
@@ -40,6 +39,8 @@ Project.getInitialProps = async ({
     if (req) {
       store.dispatch(END);
       await store.sagaTask.toPromise();
+
+      console.log('store', store.getState());
 
       if (store.getState().portfolio.project.total === 0) {
         statusCode = 404;

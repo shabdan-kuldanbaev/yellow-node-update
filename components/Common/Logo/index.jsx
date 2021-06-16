@@ -6,10 +6,11 @@ import { themes, staticImagesUrls } from 'utils/helper';
 import { ROUTES, IMAGES } from 'utils/constants';
 import { logoSize } from 'styles/utils/_variables.scss';
 
-const Logo = ({ theme, whiteLogo }) => {
-  const logo = whiteLogo
-    ? IMAGES.logoWhite
-    : staticImagesUrls.roundLogo;
+const Logo = ({ theme, type }) => {
+  const logo = {
+    whiteLogo: IMAGES.logoWhite,
+    default: staticImagesUrls.roundLogo,
+  };
 
   return (
     <LinkWrapper
@@ -18,7 +19,7 @@ const Logo = ({ theme, whiteLogo }) => {
       dynamicRouting={ROUTES.homepage.dynamicPath}
     >
       <img
-        src={logo}
+        src={logo[type]}
         alt="Yellow Logo"
       />
       <svg
@@ -44,10 +45,12 @@ const Logo = ({ theme, whiteLogo }) => {
 
 Logo.defaultProps = {
   theme: 'dark',
+  type: 'default',
 };
 
 Logo.propTypes = {
   theme: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default Logo;
