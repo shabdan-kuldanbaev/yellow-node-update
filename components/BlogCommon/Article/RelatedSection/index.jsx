@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { LinkWrapper } from 'components';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
-import { ROUTES, ARTICLE_PREVIEW_TYPES } from 'utils/constants';
-import { Arrow } from './images';
+import { LinkWrapper, Svg } from 'components';
+import {
+  ROUTES,
+  ARTICLE_PREVIEW_TYPES,
+  SVG_IMAGES_TYPES,
+} from 'utils/constants';
 import styles from './styles.module.scss';
 
 const RelatedSection = ({ articles }) => (
@@ -17,12 +20,10 @@ const RelatedSection = ({ articles }) => (
           path={ROUTES.blog.path}
         >
           See all posts
-          <div className={styles.svgContainer}>
-            <img
-              src={Arrow}
-              alt="arrow"
-            />
-          </div>
+          <Svg
+            type={SVG_IMAGES_TYPES.nearbyArrow}
+            className={styles.svgContainer}
+          />
         </LinkWrapper>
       </div>
     </div>
