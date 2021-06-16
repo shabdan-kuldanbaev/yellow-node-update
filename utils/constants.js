@@ -129,3 +129,8 @@ export const HEADER_HEIGHT = 66;
 export const ARTICLE_PREVIEW_TYPES = {
   related: 'related',
 };
+
+export const LINK_TYPES = {
+  bookmark: 'bookmark',
+  callToAction: 'call-to-action',
+};
