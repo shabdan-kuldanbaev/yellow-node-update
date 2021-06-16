@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /*.js
 Allow: /*.css
-Disallow: /preview-contentful-draft/
+Disallow: /development/
 
 Host: https://yellow.systems/
 Sitemap: https://yellow.systems/sitemap.xml
