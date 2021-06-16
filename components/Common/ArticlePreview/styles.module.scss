@@ -3,7 +3,7 @@
 .related {
   min-width: 150px;
   flex: 1 0 calc(25% - 40px);
-  margin: 0 20px;
+  margin: 0 10px;
   cursor: pointer;
   background-color: $white;
   border-radius: 5px;
@@ -34,6 +34,15 @@
     }
   }
 
+  @include phone {
+    flex: 1 0 100%;
+    margin: 0 0 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   &:hover {
     transform: translateY(-2px);
     transition: transform 0.2s ease-in-out;
@@ -54,7 +63,7 @@
   }
 
   .articleContent {
-    padding: 30px;
+    padding: 20px;
 
     @include flex(column);
 
@@ -72,14 +81,10 @@
       font-weight: 700;
       margin: 0;
 
-      @include fontSize(24px);
-
-      @include macbook-twelve {
-        @include fontSize(22px);
-      }
+      @include fontSize(20px);
 
       @include phone {
-        @include fontSize(18px);
+        @include fontSize(16px);
       }
 
       .title {
