@@ -55,7 +55,7 @@ const ArticleContainer = ({
     metaDescription,
     headImage,
     author,
-    frequentlyAskedQuestions,
+    faqList,
   } = getArticleProps({ article: currentArticle });
   const articleMetadata = {
     metaTitle: metaTitle || title,
@@ -86,6 +86,7 @@ const ArticleContainer = ({
         pageMetadata={articleMetadata}
         pageMicrodata={articleMicrodata}
         breadcrumbs={breadcrumbs}
+        faqList={faqList}
       />
       <FullLayout>
         <PageHeader breadcrumbs={breadcrumbs} />
@@ -104,7 +105,7 @@ const ArticleContainer = ({
           url={`${rootUrl}/blog/${slug}`}
           title={title}
         />
-        <FrequentlyAskedQuestions questions={frequentlyAskedQuestions} />
+        <FrequentlyAskedQuestions faqList={faqList} />
         <TagsBlock tags={keyWords} />
         {relatedArticles
           && !!relatedArticles.length

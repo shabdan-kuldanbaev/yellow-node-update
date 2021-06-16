@@ -1,24 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FullLayout } from 'components/Layout/FullLayout';
 import { Question } from './Question';
 import styles from './styles.module.scss';
 
-export const FrequentlyAskedQuestions = ({ questions }) => {
-  if (!questions.length) {
+export const FrequentlyAskedQuestions = ({ faqList }) => {
+  if (!faqList || !faqList.length) {
     return null;
   }
 
   return (
-    <div className={styles.frequentlyAskedQuestions}>
-      {questions.map((question) => <Question question={question} />)}
-    </div>
+    <FullLayout
+      disableMaxWidth
+      disableTopPadding
+      disableSidePadding
+      disableBottomPadding
+    >
+      <div className={styles.frequentlyAskedQuestions}>
+        {faqList.map((faq) => (
+          <Question
+            key={`faq-item/${faq.question}`}
+            faq={faq}
+          />
+        ))}
+      </div>
+    </FullLayout>
   );
 };
 
 FrequentlyAskedQuestions.defaultProps = {
-  questions: [],
+  faqList: [],
 };
 
 FrequentlyAskedQuestions.propTypes = {
-  questions: PropTypes.instanceOf(Array),
+  faqList: PropTypes.instanceOf(Array),
 };

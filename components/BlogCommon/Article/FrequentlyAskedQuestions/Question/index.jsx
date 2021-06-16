@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
-import { Animated } from 'components';
+import cn from 'classnames';
+import { Animated } from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const Question = ({ question }) => {
+export const Question = ({ faq }) => {
   const [isAnswerOpened, setIsAnswerOpened] = useState(false);
 
-  const handleOnQuestionClick = () => setIsAnswerOpened(!isAnswerOpened);
+  const handleOnQuestionClick = () => {
+    setIsAnswerOpened(!isAnswerOpened);
+  };
 
-  if (isEmpty(question)) {
+  if (isEmpty(faq)) {
     return null;
   }
 
@@ -22,8 +25,11 @@ export const Question = ({ question }) => {
         role="button"
         tabIndex="0"
       >
-        <p>{question.question}</p>
-        <div className={styles.cross}>
+        <p>{faq.question}</p>
+        <div className={cn(styles.plus, {
+          [styles.minus]: isAnswerOpened,
+        })}
+        >
           <span />
           <span />
         </div>
@@ -32,16 +38,16 @@ export const Question = ({ question }) => {
         type={ANIMATED_TYPE.expandByHeight}
         open={isAnswerOpened}
       >
-        <p>{question.answer}</p>
+        <p className={styles.answer}>{faq.answer}</p>
       </Animated>
     </div>
   );
 };
 
 Question.defaultProps = {
-  question: {},
+  faq: {},
 };
 
 Question.propTypes = {
-  question: PropTypes.instanceOf(Object),
+  faq: PropTypes.instanceOf(Object),
 };

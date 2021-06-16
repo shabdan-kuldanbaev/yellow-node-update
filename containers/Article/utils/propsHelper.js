@@ -18,9 +18,19 @@ function getAuthorProps({ author } = {}) {
   };
 }
 
-// export function getFrequentlyAskedQuestionsProps({  } = []) {
+function getFrequentlyAskedQuestionProps({ question } = []) {
+  const questionFields = getDocumentFields(
+    question,
+    [
+      'question',
+      'answer',
+    ],
+  );
 
-// }
+  return {
+    ...questionFields,
+  };
+}
 
 export function getArticleProps({ article } = {}) {
   const articleFields = getDocumentFields(
@@ -45,10 +55,13 @@ export function getArticleProps({ article } = {}) {
   );
   const headImage = getFileUrl(articleFields.headImageUrl);
   const author = getAuthorProps({ author: articleFields.author });
+  const faqList = articleFields.frequentlyAskedQuestions
+  && articleFields.frequentlyAskedQuestions.map((question) => getFrequentlyAskedQuestionProps({ question }));
 
   return {
     ...articleFields,
     headImage,
     author,
+    faqList,
   };
 }
