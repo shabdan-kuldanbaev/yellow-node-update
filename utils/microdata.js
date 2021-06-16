@@ -121,12 +121,12 @@ export const microdata = {
     });
   },
   faq: ({ faqList }) => {
-    const mainEntity = faqList.map((faq) => ({
+    const mainEntity = faqList.map(({ question, answer }) => ({
       '@type': 'Question',
-      name: faq.question,
+      name: question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer,
+        text: answer,
       },
     }));
 

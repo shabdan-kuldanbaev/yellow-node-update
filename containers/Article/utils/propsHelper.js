@@ -18,14 +18,12 @@ function getAuthorProps({ author } = {}) {
   };
 }
 
-function getFAQList(articleFields) {
-  const faqList = get(articleFields, 'frequentlyAskedQuestions', []);
-
-  if (!faqList) {
+function getFAQList({ frequentlyAskedQuestions }) {
+  if (!frequentlyAskedQuestions) {
     return [];
   }
 
-  return faqList.map((question) => getDocumentFields(
+  return frequentlyAskedQuestions.map((question) => getDocumentFields(
     question,
     ['question', 'answer'],
   ));
