@@ -26,6 +26,7 @@ export const MetaTags = ({
   children,
   pageMicrodata,
   breadcrumbs,
+  faqList,
 }) => {
   const { asPath } = useRouter();
   const isArticlePage = isArticle(slug);
@@ -96,6 +97,15 @@ export const MetaTags = ({
                 }}
               />
             )}
+            {!isEmpty(faqList) && (
+              <script
+                key="JSON-LD-faq"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify(microdata.faq({ faqList })),
+                }}
+              />
+            )}
           </Fragment>
         ))}
       {children}
@@ -110,6 +120,7 @@ MetaTags.defaultProps = {
   children: null,
   pageMetadata: {},
   breadcrumbs: [],
+  faqList: [],
 };
 
 MetaTags.propTypes = {
@@ -117,6 +128,7 @@ MetaTags.propTypes = {
   ogMetaData: PropTypes.instanceOf(Array),
   pageMicrodata: PropTypes.instanceOf(Object),
   breadcrumbs: PropTypes.instanceOf(Array),
+  faqList: PropTypes.instanceOf(Array),
   pageMetadata: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
