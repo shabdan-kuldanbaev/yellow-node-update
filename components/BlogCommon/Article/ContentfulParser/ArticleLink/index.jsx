@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CallToAction } from 'components/Common/CallToAction';
 import { BookmarkCard } from 'components/BlogCommon/Article/BookmarkCard';
-import { LINK_TYPES } from 'utils/constants';
 
 export const ArticleLink = ({
   type,
@@ -10,14 +10,14 @@ export const ArticleLink = ({
   slug,
 }) => {
   switch (type) {
-  case LINK_TYPES.bookmark:
+  case 'bookmark':
     return title && slug && (
       <BookmarkCard
         title={title}
         slug={slug}
       />
     );
-  case LINK_TYPES.callToAction:
+  case 'call-to-action':
     return title && buttonTitle && slug && (
       <CallToAction
         title={title}
@@ -29,4 +29,18 @@ export const ArticleLink = ({
   default:
     return null;
   }
+};
+
+ArticleLink.defaultProps = {
+  type: '',
+  title: '',
+  buttonTitle: '',
+  slug: '',
+};
+
+ArticleLink.propType = {
+  type: PropTypes.string,
+  title: PropTypes.string,
+  buttonTitle: PropTypes.string,
+  slug: PropTypes.string,
 };
