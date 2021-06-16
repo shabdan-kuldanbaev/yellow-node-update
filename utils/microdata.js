@@ -120,4 +120,20 @@ export const microdata = {
       ],
     });
   },
+  faq: ({ faqList }) => {
+    const mainEntity = faqList.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: answer,
+      },
+    }));
+
+    return ({
+      '@context': context,
+      '@type': 'FAQPage',
+      mainEntity,
+    });
+  },
 };

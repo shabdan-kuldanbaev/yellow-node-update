@@ -80,12 +80,8 @@
     }
 
     @include tablet {
-      height: 60px;
-      width: 100%;
-    }
-
-    @include phone {
       height: auto;
+      width: 100%;
 
       @include flex(column, center, center);
     }
@@ -101,8 +97,11 @@
 
       @include fontSize(18px);
 
+      @include tablet {
+        margin-bottom: 40px;
+      }
+
       @include phone {
-        margin-bottom: 20px;
         min-width: initial;
         width: calc(100% - 40px);
 
