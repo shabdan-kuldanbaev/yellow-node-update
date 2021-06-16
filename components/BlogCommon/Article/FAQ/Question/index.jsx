@@ -38,7 +38,9 @@ export const Question = ({ faq }) => {
         type={ANIMATED_TYPE.expandByHeight}
         open={isAnswerOpened}
       >
-        <p className={styles.answer}>{faq.answer}</p>
+        <p className={styles.answer}>
+          {faq.answer}
+        </p>
       </Animated>
     </div>
   );

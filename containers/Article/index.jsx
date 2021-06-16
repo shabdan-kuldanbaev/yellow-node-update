@@ -22,7 +22,7 @@ import {
 } from 'components';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
-import { FrequentlyAskedQuestions } from 'components/BlogCommon/Article/FrequentlyAskedQuestions';
+import { FAQ } from 'components/BlogCommon/Article/FAQ';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
@@ -105,7 +105,7 @@ const ArticleContainer = ({
           url={`${rootUrl}/blog/${slug}`}
           title={title}
         />
-        <FrequentlyAskedQuestions faqList={faqList} />
+        <FAQ faqList={faqList} />
         <TagsBlock tags={keyWords} />
         {relatedArticles
           && !!relatedArticles.length

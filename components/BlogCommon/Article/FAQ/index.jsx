@@ -5,7 +5,7 @@ import { FullLayout } from 'components/Layout/FullLayout';
 import { Question } from './Question';
 import styles from './styles.module.scss';
 
-export const FrequentlyAskedQuestions = ({ faqList }) => {
+export const FAQ = ({ faqList }) => {
   if (isEmpty(faqList)) {
     return null;
   }
@@ -29,10 +29,10 @@ export const FrequentlyAskedQuestions = ({ faqList }) => {
   );
 };
 
-FrequentlyAskedQuestions.defaultProps = {
+FAQ.defaultProps = {
   faqList: [],
 };
 
-FrequentlyAskedQuestions.propTypes = {
+FAQ.propTypes = {
   faqList: PropTypes.instanceOf(Array),
 };

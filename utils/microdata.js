@@ -121,7 +121,7 @@ export const microdata = {
     });
   },
   faq: ({ faqList }) => {
-    const items = faqList.map((faq) => ({
+    const mainEntity = faqList.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -133,7 +133,7 @@ export const microdata = {
     return ({
       '@context': context,
       '@type': 'FAQPage',
-      mainEntity: [...items],
+      mainEntity,
     });
   },
 };
