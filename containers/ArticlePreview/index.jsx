@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import { selectArticle } from 'redux/selectors/blog';
+import { getArticleProps } from 'containers/Article/utils/propsHelper';
 import {
   Article,
   MetaTags,
@@ -11,10 +12,10 @@ import {
   FullLayout,
 } from 'components';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
+import { FAQ } from 'components/BlogCommon/Article/FAQ';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import { getArticleProps } from './utils/propsHelper';
 
 const ArticlePreviewContainer = ({
   introSection,
@@ -35,6 +36,7 @@ const ArticlePreviewContainer = ({
     metaDescription,
     headImage,
     author,
+    faqList,
   } = getArticleProps({ article: currentArticle });
   const articleMetadata = {
     metaTitle: metaTitle || title,
@@ -78,6 +80,7 @@ const ArticlePreviewContainer = ({
           publishedAt={publishedAt}
         />
         <TagsBlock tags={keyWords} />
+        <FAQ faqList={faqList} />
       </FullLayout>
     </Fragment>
   );
@@ -89,7 +92,5 @@ ArticlePreviewContainer.propTypes = {
 };
 
 export default connect(
-  (state) => ({
-    currentArticle: selectArticle(state),
-  }),
+  (state) => ({ currentArticle: selectArticle(state) }),
 )(withScroll(ArticlePreviewContainer));
