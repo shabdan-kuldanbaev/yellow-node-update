@@ -18,7 +18,7 @@ function getAuthorProps({ author } = {}) {
   };
 }
 
-function getFrequentlyAskedQuestionProps({ question } = []) {
+function getFrequentlyAskedQuestionProps({ question } = {}) {
   const questionFields = getDocumentFields(
     question,
     [
