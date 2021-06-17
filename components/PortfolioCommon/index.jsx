@@ -39,7 +39,6 @@ const Portfolio = ({
           work,
           ['previewImage', 'title', 'description', 'slug'],
         );
-
         const {
           previewImage,
           title,

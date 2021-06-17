@@ -4,31 +4,42 @@ import { connect } from 'react-redux';
 import get from 'lodash/get';
 import { selectProject } from 'redux/selectors/portfolio';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
-import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
+import { MetaTags } from 'components/Common/MetaTags';
 import FeedbackForm from 'containers/Home/FeedbackForm';
 import { getDocumentFields } from 'utils/helper';
+import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const CaseStudiesContainer = ({ introSection, currentProject }) => {
-  const { slug, contentModules } = getDocumentFields(
+  const {
+    slug,
+    contentModules,
+    metaTitle,
+    metaDescription,
+  } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
     ['slug', 'contentModules'],
   );
 
+  const projectMetadata = {
+    metaTitle,
+    metaDescription,
+    slug,
+  };
+
   return (
     <Fragment>
+      <MetaTags
+        page={PAGES.project}
+        pageMetadata={projectMetadata}
+      />
       {contentModules && contentModules.map(({ fields, sys }) => (
         <CaseStudiesCommon
           key={sys.id}
           type={slug}
           introSection={introSection}
           data={fields}
-        >
-          <SectionTitle
-            type={slug}
-            data={fields}
-          />
-        </CaseStudiesCommon>
+        />
       ))}
       <div className={styles.feedBackContainer}>
         <FeedbackForm />

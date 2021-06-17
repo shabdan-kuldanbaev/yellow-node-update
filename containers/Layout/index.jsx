@@ -4,7 +4,6 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
 import { connect, useDispatch } from 'react-redux';
 import {
   setMobileResolutions,
@@ -31,7 +30,6 @@ const Layout = ({
 }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const { query: { project } } = useRouter();
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
@@ -87,7 +85,6 @@ const Layout = ({
       />
       {children}
       <Footer
-        type={project}
         theme={theme}
         openFullscreenEstimation={openFullscreenEstimation}
       />

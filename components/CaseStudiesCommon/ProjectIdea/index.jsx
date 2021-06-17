@@ -17,7 +17,6 @@ const ProjectIdea = ({ type, data }) => {
     text,
     contentModules,
   } = getDocumentFields(get(data, 'contentModules[1]', {}));
-
   const delayedAnimation = {
     ...ANIMATION_CASE_STUDY_PROPS,
     delay: 500,

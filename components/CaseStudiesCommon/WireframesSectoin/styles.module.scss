@@ -1,0 +1,13 @@
+@import 'styles/utils/mixins';
+
+.wireframes {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: $white;
+}
+
+.fernwayer {
+  @extend .wireframes;
+
+  @include caseStudyContainer;
+}

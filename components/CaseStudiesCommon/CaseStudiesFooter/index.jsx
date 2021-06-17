@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
 import last from 'lodash/last';
-import { useRouter } from 'next/router';
 import { selectProject } from 'redux/selectors/portfolio';
 import { Svg } from 'components/Common/Svg';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
@@ -13,8 +11,11 @@ import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
 
-const CaseStudiesFooter = ({ type, currentProject }) => {
-  const { pathname } = useRouter();
+const CaseStudiesFooter = ({
+  type,
+  pathname,
+  currentProject,
+}) => {
   const { contentModules } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
     ['contentModules'],
@@ -98,6 +99,7 @@ const CaseStudiesFooter = ({ type, currentProject }) => {
 
 CaseStudiesFooter.propTypes = {
   type: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired,
   currentProject: PropTypes.instanceOf(Object).isRequired,
 };
 

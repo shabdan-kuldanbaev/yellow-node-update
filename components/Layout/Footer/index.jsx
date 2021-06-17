@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import ButtonMore from 'components/Common/ButtonMore';
 import Contacts from 'components/Layout/Footer/Contacts';
 import CaseStudiesFooter from 'components/CaseStudiesCommon/CaseStudiesFooter';
@@ -7,13 +8,16 @@ import Nav from 'components/Layout/Header/Nav';
 import { CASE_STUDIES_SLUGS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const Footer = ({
-  type,
-  theme,
-  openFullscreenEstimation,
-}) => {
-  if (CASE_STUDIES_SLUGS.includes(type)) {
-    return <CaseStudiesFooter type={type} />;
+export const Footer = ({ theme, openFullscreenEstimation }) => {
+  const { query: { project }, pathname } = useRouter();
+
+  if (CASE_STUDIES_SLUGS.includes(project)) {
+    return (
+      <CaseStudiesFooter
+        pathname={pathname}
+        type={project}
+      />
+    );
   }
 
   return (
@@ -39,11 +43,9 @@ export const Footer = ({
 
 Footer.defaultProps = {
   theme: 'dark',
-  type: '',
 };
 
 Footer.propTypes = {
-  type: PropTypes.string,
   theme: PropTypes.string,
   openFullscreenEstimation: PropTypes.func.isRequired,
 };
