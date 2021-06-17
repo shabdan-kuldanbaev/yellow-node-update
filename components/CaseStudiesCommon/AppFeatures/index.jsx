@@ -9,18 +9,14 @@ import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const AppFeatures = ({ data }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
   const imageUrl = getFileUrl(get(data, 'images[0]', {}));
-  const { title: firstTitle } = getDocumentFields(
-    get(data, 'contentModules[0]', {}),
-    ['title'],
-  );
-  const [activeName, setActiveName] = useState(firstTitle);
 
-  const handleOnClick = (name) => () => {
-    setActiveName(name);
+  const handleOnClick = (index) => () => {
+    setActiveIndex(index);
   };
 
-  if (!firstTitle) {
+  if (!get(data, 'contentModules')) {
     return null;
   }
 
@@ -38,12 +34,12 @@ const AppFeatures = ({ data }) => {
             >
               <div
                 className={cn(styles.sectionItem, {
-                  [styles.sectionActiveItem]: title === activeName,
+                  [styles.sectionActiveItem]: index === activeIndex,
                 })}
               >
                 <p
                   className={styles.title}
-                  onClick={handleOnClick(title)}
+                  onClick={handleOnClick(index)}
                 >
                   {title}
                 </p>

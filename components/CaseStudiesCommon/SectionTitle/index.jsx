@@ -5,9 +5,13 @@ import { Animated } from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const SectionTitle = ({ type, data }) => {
-  const { title, description } = data;
-
+const SectionTitle = ({
+  type,
+  data: {
+    title,
+    description,
+  },
+}) => {
   if (!title) {
     return null;
   }

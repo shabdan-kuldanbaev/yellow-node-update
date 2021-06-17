@@ -129,10 +129,10 @@
   }
 
   .iconLink {
-    margin-right: 20px;
+    margin: 0;
 
-    &:last-child {
-      margin-right: 0;
+    &:not(:first-child) {
+      margin-left: 20px;
     }
   }
 
@@ -155,6 +155,8 @@
 }
 
 .fernwayer {
+  @extend .container;
+
   background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
 
   .nextProjectContainer {
@@ -187,35 +189,36 @@
   }
 }
 
-.stickerbox {
-  background: $turbo-100;
-
-  .nextProjectContainer {
-    .subtitle {
-      color: rgba($dark-grey, 0.7);
-    }
-
-    .projectName {
-      color: $dark-grey;
-    }
-
-    .more {
-      border: 1px solid $dark-grey;
-      color: $dark-grey;
-    }
-  }
-
-  .question {
-    color: $dark-grey;
-  }
-
-  /* stylelint-disable-next-line */
-  .link{
-    color: rgba($dark-grey, 0.5);
-  }
-
-  /* stylelint-disable-next-line */
-  .iconLink {
-    color: $dark-grey;
-  }
-}
+// TODO: use when stickerBox page will be added
+//.stickerbox {
+//  background: $turbo-100;
+//
+//  .nextProjectContainer {
+//    .subtitle {
+//      color: rgba($dark-grey, 0.7);
+//    }
+//
+//    .projectName {
+//      color: $dark-grey;
+//    }
+//
+//    .more {
+//      border: 1px solid $dark-grey;
+//      color: $dark-grey;
+//    }
+//  }
+//
+//  .question {
+//    color: $dark-grey;
+//  }
+//
+//  /* stylelint-disable-next-line */
+//  .link{
+//    color: rgba($dark-grey, 0.5);
+//  }
+//
+//  /* stylelint-disable-next-line */
+//  .iconLink {
+//    color: $dark-grey;
+//  }
+//}

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -8,13 +7,13 @@ import styles from './styles.module.scss';
 const TeamSection = ({ data, type }) => {
   const { title, contentList } = data;
 
-  if (!contentList || !contentList.length) {
+  if (!contentList) {
     return null;
   }
 
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-      <div className={cn(styles.container, styles[type])}>
+      <div className={styles[type]}>
         <h2 className={styles.title}>
           {title}
         </h2>

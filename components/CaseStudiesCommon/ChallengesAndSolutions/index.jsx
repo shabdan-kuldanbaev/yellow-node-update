@@ -8,30 +8,34 @@ import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const ChallengesAndSolutions = ({ data, type }) => {
+const ChallengesAndSolutions = ({
+  data,
+  type,
+  isSpecial,
+}) => {
   const delayedAnimation = {
     ...ANIMATION_CASE_STUDY_PROPS,
     delay: 500,
   };
 
-  if (!data || !data.contentModules) {
+  if (!get(data, 'contentModules')) {
     return null;
   }
 
   return (
-    <div>
+    <div className={styles[type]}>
       {data.contentModules.map((document) => {
         const {
           title,
           images,
           text,
         } = getDocumentFields(document);
-        const imageUrl = getFileUrl(get(images, '[0]', {}));
+        const imageUrl = getFileUrl(get(images, '[0]'));
 
         return (
           <div
             key={title}
-            className={cn(styles.contentContainer, styles[type])}
+            className={cn(styles.contentContainer, { [styles.special]: isSpecial })}
           >
             {!imageUrl && (
               <Animated {...delayedAnimation}>
@@ -63,7 +67,7 @@ const ChallengesAndSolutions = ({ data, type }) => {
                   <img
                     className={styles.image}
                     src={imageUrl}
-                    alt=""
+                    alt={title}
                   />
                 </div>
               </Animated>
@@ -77,11 +81,13 @@ const ChallengesAndSolutions = ({ data, type }) => {
 
 ChallengesAndSolutions.defaultProps = {
   type: '',
+  isSpecial: false,
 };
 
 ChallengesAndSolutions.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,
+  isSpecial: PropTypes.bool,
 };
 
 export default ChallengesAndSolutions;

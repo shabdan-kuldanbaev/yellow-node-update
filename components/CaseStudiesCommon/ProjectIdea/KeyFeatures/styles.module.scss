@@ -106,6 +106,8 @@
 }
 
 .fernwayer {
+  @extend .container;
+
   /* stylelint-disable-next-line */
   .featureContainer {
     .checkMark {
@@ -115,11 +117,12 @@
   }
 }
 
-.stickerbox {
-  /* stylelint-disable-next-line */
-  .featureContainer {
-    .checkMark {
-      background: $turbo-100;
-    }
-  }
-}
+// TODO: use when stickerBox page will be added
+//.stickerbox {
+//  /* stylelint-disable-next-line */
+//  .featureContainer {
+//    .checkMark {
+//      background: $turbo-100;
+//    }
+//  }
+//}

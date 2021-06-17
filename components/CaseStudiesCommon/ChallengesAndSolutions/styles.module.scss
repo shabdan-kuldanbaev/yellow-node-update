@@ -112,38 +112,36 @@
   }
 }
 
-.fernwayer {
-  .title {
-    color: $white;
-  }
-
+.special {
   /* stylelint-disable-next-line */
   .infoContainer {
+    .title,
     p {
       color: $white;
     }
   }
 }
 
-.stickerbox {
-  &:nth-of-type(1) {
-    .image {
-      transform: translateY(-80px);
-
-      @include phone {
-        transform: none;
-      }
-    }
-  }
-
-  .title {
-    color: $white;
-  }
-
-  /* stylelint-disable-next-line */
-  .infoContainer {
-    p {
-      color: rgba($white, 0.4);
-    }
-  }
-}
+// TODO: use when stickerBox page will be added
+//.stickerbox {
+//  &:nth-of-type(1) {
+//    .image {
+//      transform: translateY(-80px);
+//
+//      @include phone {
+//        transform: none;
+//      }
+//    }
+//  }
+//
+//  .title {
+//    color: $white;
+//  }
+//
+//  /* stylelint-disable-next-line */
+//  .infoContainer {
+//    p {
+//      color: rgba($white, 0.4);
+//    }
+//  }
+//}

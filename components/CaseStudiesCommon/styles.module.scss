@@ -1,54 +1,5 @@
 @import 'styles/utils/mixins';
 
-.container {
-  padding: 140px 40px;
-  background-color: $white;
-
-  @include tablet {
-    padding: 100px 40px;
-  }
-
-  @include phone {
-    padding: 40px 15px;
-  }
-
-  .image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    max-height: 812px;
-    margin: 0 auto;
-    object-fit: contain;
-  }
-
-  [data-case-study-title] {
-    color: $dark-grey;
-  }
-
-  [data-case-study-description] {
-    color: $silver-chalice;
-  }
-}
-
-.idea {
-  display: grid;
-  column-gap: 112px;
-  row-gap: 140px;
-  grid-template-columns: minmax(auto, 630px) auto;
-  justify-content: center;
-
-  @include tablet {
-    grid-template-columns: minmax(auto, 390px) auto;
-    column-gap: 30px;
-    row-gap: 100px;
-  }
-
-  @include phone {
-    row-gap: 40px;
-    grid-template-columns: minmax(auto, 345px);
-  }
-}
-
 .wireframes {
   padding-left: 0;
   padding-right: 0;
@@ -57,64 +8,56 @@
 
 .challenges,
 .challengesWithoutImage {
+  @include caseStudyContainer;
+
   background-color: $alabaster;
 }
 
 .fernwayer {
   background-color: $alabaster;
 
-  &.idea,
+  @include caseStudyContainer;
+
   &.imageSection,
   &.wireframes,
   &.challengesWithoutImage {
     background-color: $white;
   }
-
-  &.special {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    h2,
-    p {
-      color: $white;
-    }
-  }
 }
 
-.stickerbox {
-  background-color: $dark-grey-1;
-
-  &.idea,
-  &.imageSection,
-  &.challengesWithoutImage {
-    background-color: $white;
-  }
-
-  [data-case-study-title] {
-    color: $white;
-  }
-
-  [data-case-study-description] {
-    color: rgba($white, 0.4);
-  }
-
-  &.challenges,
-  &.imageSection {
-    [data-case-study-title] {
-      color: $dark-grey;
-    }
-
-    [data-case-study-description] {
-      color: $silver-chalice;
-    }
-  }
-
-  &.special {
-    padding-top: 0;
-
-    @include phone {
-      padding-top: 40px;
-    }
-  }
-}
+// TODO: use when stickerBox page will be added
+//.stickerbox {
+//  background-color: $dark-grey-1;
+//
+//  &.imageSection,
+//  &.challengesWithoutImage {
+//    background-color: $white;
+//  }
+//
+//  [data-case-study-title] {
+//    color: $white;
+//  }
+//
+//  [data-case-study-description] {
+//    color: rgba($white, 0.4);
+//  }
+//
+//  &.challenges,
+//  &.imageSection {
+//    [data-case-study-title] {
+//      color: $dark-grey;
+//    }
+//
+//    [data-case-study-description] {
+//      color: $silver-chalice;
+//    }
+//  }
+//
+//  &.special {
+//    padding-top: 0;
+//
+//    @include phone {
+//      padding-top: 40px;
+//    }
+//  }
+//}

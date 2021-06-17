@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
+import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
@@ -14,13 +14,13 @@ const KeyFeatures = ({ features, type }) => {
     duration: 2000,
   };
 
-  if (!features || !features.contentModules) {
+  if (!get(features, 'contentModules')) {
     return null;
   }
 
   return (
     <Animated {...animationProps}>
-      <div className={cn(styles.container, styles[type])}>
+      <div className={styles[type]}>
         <div className={styles.containerBackground} />
         {features.contentModules.map((data, index) => {
           const { title, text } = getDocumentFields(data);

@@ -3,12 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { themes, staticImagesUrls } from 'utils/helper';
-import { ROUTES, IMAGES } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 import { logoSize } from 'styles/utils/_variables.scss';
 
 const Logo = ({ theme, type }) => {
   const logo = {
-    whiteLogo: IMAGES.logoWhite,
+    whiteLogo: staticImagesUrls.logoWhite,
     default: staticImagesUrls.roundLogo,
   };
 

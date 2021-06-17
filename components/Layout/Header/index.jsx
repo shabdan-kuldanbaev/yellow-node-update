@@ -9,7 +9,11 @@ import LinearIndeterminate from 'components/Common/LinearIndeterminate';
 import Logo from 'components/Common/Logo';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import { TopProgressBar } from 'components/Common/TopProgressBar';
-import { ROUTES, LOGO_TYPES } from 'utils/constants';
+import {
+  ROUTES,
+  LOGO_TYPES,
+  CASE_STUDIES_SLUGS,
+} from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
@@ -22,16 +26,20 @@ const Header = ({
 }) => {
   const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
-  const isHomePage = asPath === ROUTES.homepage.path || project;
+  const isCaseStudyPage = CASE_STUDIES_SLUGS.includes(project);
+  const isPageWithTransparentHeader = asPath === ROUTES.homepage.path || isCaseStudyPage;
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
+  const logo = !isAdditional && isCaseStudyPage
+    ? LOGO_TYPES.whiteLogo
+    : LOGO_TYPES.default;
 
   useEffect(() => {
     const handleOnScroll = () => {
       if (introSection && introSection.current) {
         const intro = introSection.current.getBoundingClientRect();
 
-        if (isHomePage) {
+        if (isPageWithTransparentHeader) {
           intro.bottom < 65
             ? setAdditional(true)
             : setAdditional(false);
@@ -40,7 +48,7 @@ const Header = ({
             : setIsLogoTextHidden(false);
         }
 
-        if (!isHomePage) {
+        if (!isPageWithTransparentHeader) {
           intro.top < -10
             ? setIsLogoTextHidden(true)
             : setIsLogoTextHidden(false);
@@ -55,22 +63,18 @@ const Header = ({
   }, [
     currentPage,
     introSection,
-    isHomePage,
+    isPageWithTransparentHeader,
   ]);
 
   useEffect(() => {
     setAdditional(false);
   }, [asPath]);
 
-  const logo = !isAdditional && isHomePage && project
-    ? LOGO_TYPES.whiteLogo
-    : LOGO_TYPES.default;
-
   return (
     <header className={cn({
       [styles.headerContainer]: true,
       [styles.additional]: isAdditional,
-      [styles.notHome]: !isHomePage,
+      [styles.notHome]: !isPageWithTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
     })}
     >
@@ -88,6 +92,7 @@ const Header = ({
       <Nav
         theme={theme}
         isAdditional={isAdditional}
+        isTransparentHeader={isPageWithTransparentHeader}
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
@@ -97,7 +102,7 @@ const Header = ({
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
       />
-      {!isHomePage && <LinearIndeterminate />}
+      {!isPageWithTransparentHeader && <LinearIndeterminate />}
       {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}
     </header>
   );

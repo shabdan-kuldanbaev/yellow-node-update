@@ -9,7 +9,7 @@
     margin-top: 40px;
   }
 
-  &:not(&:last-of-type) {
+  &:not(:last-of-type) {
     margin-bottom: 80px;
 
     @include phone {
@@ -50,6 +50,8 @@
 }
 
 .fernwayer {
+  @extend .imagesContainer;
+
   &::before {
     background: linear-gradient(90deg, $white 0%, rgba($white, 0) 100%);
   }
@@ -59,12 +61,13 @@
   }
 }
 
-.stickerbox {
-  &::before {
-    background: linear-gradient(90deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
-  }
-
-  &::after {
-    background: linear-gradient(270deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
-  }
-}
+// TODO: use when stickerBox page will be added
+//.stickerbox {
+//  &::before {
+//    background: linear-gradient(90deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
+//  }
+//
+//  &::after {
+//    background: linear-gradient(270deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
+//  }
+//}

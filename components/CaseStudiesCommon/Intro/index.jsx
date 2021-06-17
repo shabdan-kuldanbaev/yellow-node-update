@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import get from 'lodash/get';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
@@ -22,14 +21,14 @@ const Intro = ({
     contentModules,
   } = getDocumentFields(get(data, 'contentModules[0]', {}));
   const { contentModules: experiences } = getDocumentFields(get(data, 'contentModules[1]', {}));
-  const appLogoUrl = getFileUrl(get(images, '[0]', {}));
-  const appBackgroundImageUrl = getFileUrl(get(images, '[1]', {}));
-  const downloadLink = getDocumentFields(get(contentModules, '[0]', {}));
+  const appLogoUrl = getFileUrl(get(images, '[0]', ''));
+  const appBackgroundImageUrl = getFileUrl(get(images, '[1]', ''));
+  const downloadLink = getDocumentFields(get(contentModules, '[0]'));
 
   return (
     <section
       ref={introSection}
-      className={cn(styles.container, styles[type])}
+      className={styles[type]}
     >
       <div className={styles.projectInfoContainer}>
         <img
@@ -49,9 +48,7 @@ const Intro = ({
           {description}
         </p>
         {downloadLink && (
-          <LinkWrapper
-            path={downloadLink.url}
-          >
+          <LinkWrapper path={downloadLink.url}>
             <Svg
               className={styles.appStore}
               type={SVG_IMAGES_TYPES.appstore}

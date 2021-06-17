@@ -101,7 +101,6 @@
     @include flex(row, space-between);
 
     @include tablet {
-      gap: 45px;
       grid-column: 1/5;
 
       @include fontSize(16px);
@@ -158,6 +157,8 @@
 }
 
 .fernwayer {
+  @extend .container;
+
   background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
 
   .projectInfoContainer {
@@ -183,35 +184,36 @@
   }
 }
 
-.stickerbox {
-  background: linear-gradient(180deg, $grey-darker 0%, $dark-grey-2 100%);
-
-  .projectInfoContainer {
-    .projectTitle {
-      color: $white;
-    }
-
-    .projectSubtitle {
-      font-family: $case-studies-font;
-      font-weight: 500;
-      line-height: 150%;
-      color: $silver-chalice;
-
-      @include fontSize(24px);
-    }
-
-    .projectDescription {
-      color: rgba($white, 0.4);
-    }
-  }
-
-  .infoContainer {
-    .infoTitle {
-      color: $white;
-    }
-
-    p {
-      color: rgba($white, 0.4);
-    }
-  }
-}
+// TODO: use when stickerBox page will be added
+//.stickerbox {
+//  background: linear-gradient(180deg, $grey-darker 0%, $dark-grey-2 100%);
+//
+//  .projectInfoContainer {
+//    .projectTitle {
+//      color: $white;
+//    }
+//
+//    .projectSubtitle {
+//      font-family: $case-studies-font;
+//      font-weight: 500;
+//      line-height: 150%;
+//      color: $silver-chalice;
+//
+//      @include fontSize(24px);
+//    }
+//
+//    .projectDescription {
+//      color: rgba($white, 0.4);
+//    }
+//  }
+//
+//  .infoContainer {
+//    .infoTitle {
+//      color: $white;
+//    }
+//
+//    p {
+//      color: rgba($white, 0.4);
+//    }
+//  }
+//}

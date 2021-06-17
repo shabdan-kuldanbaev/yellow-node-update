@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
 import AppFeatures from 'components/CaseStudiesCommon/AppFeatures';
+import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
+import ChallengesAndSolutionsWithWireframes from 'components/CaseStudiesCommon/ChallengesAndSolutionsWithWireframes';
+import SpecialChallengesAndSolutions from 'components/CaseStudiesCommon/SpecialChallengesAndSolutions';
 import ProjectIdea from 'components/CaseStudiesCommon/ProjectIdea';
 import Wireframes from 'components/CaseStudiesCommon/Wireframes';
 import Intro from 'components/CaseStudiesCommon/Intro';
@@ -14,104 +17,83 @@ import styles from './styles.module.scss';
 
 const CaseStudiesCommon = ({
   introSection,
-  children,
   type,
   data,
 }) => {
+  const sectionTitle = (
+    <SectionTitle
+      data={data}
+      type={type}
+    />
+  );
+
   switch (data.type) {
   case CASE_STUDIES_TYPES.intro:
     return (
       <Intro
         introSection={introSection}
-        type={type}
         data={data}
+        type={type}
       />
     );
   case CASE_STUDIES_TYPES.projectIdea:
     return (
-      <section className={cn(
-        styles.container,
-        styles[type],
-        styles.idea,
-      )}
-      >
-        <ProjectIdea
-          type={type}
-          data={data}
-        />
-      </section>
+      <ProjectIdea
+        data={data}
+        type={type}
+      />
     );
   case CASE_STUDIES_TYPES.challenges:
     return (
-      <section className={cn(styles.container, styles.challenges,
-        {
+      <section className={cn(
+        styles.challenges, {
           [styles[type]]: data.images,
           [styles.challengesWithoutImage]: data.images,
-        })}
+        },
+      )}
       >
-        {children}
-        <ChallengesAndSolutions data={data} />
-        <Wireframes
-          type={type}
+        {sectionTitle}
+        <ChallengesAndSolutionsWithWireframes
           data={data}
+          type={type}
         />
       </section>
     );
-  case CASE_STUDIES_TYPES.specialChallenges: {
-    const backgroundImageUrl = getFileUrl(get(data, 'images[0]', {}));
-    const backgroundImage = { backgroundImage: `url(${backgroundImageUrl}), linear-gradient(180deg, #D45D94 0%, #FA717D 100%)` };
-
+  case CASE_STUDIES_TYPES.specialChallenges:
     return (
-      <section
-        className={cn(
-          styles.container,
-          styles[type],
-          styles.special,
-        )}
-        style={backgroundImage}
-      >
-        <ChallengesAndSolutions data={data} />
-      </section>
+      <SpecialChallengesAndSolutions
+        data={data}
+        type={type}
+      />
     );
-  }
   case CASE_STUDIES_TYPES.wireframe:
     return (
-      <section className={cn(
-        styles.container,
-        styles[type],
-        styles.wireframes,
-      )}
-      >
-        {children}
+      <section className={cn(styles[type], styles.wireframes)}>
+        {sectionTitle}
         <Wireframes
-          type={type}
           data={data}
+          type={type}
         />
       </section>
     );
   case CASE_STUDIES_TYPES.appFeatures:
     return (
-      <section className={cn(styles.container, styles[type])}>
-        {children}
+      <section className={styles[type]}>
+        {sectionTitle}
         <AppFeatures data={data} />
       </section>
     );
   case CASE_STUDIES_TYPES.image:
     return (
-      <section className={cn(
-        styles.container,
-        styles[type],
-        styles.imageSection,
-      )}
-      >
-        {children}
+      <section className={cn(styles[type], styles.imageSection)}>
+        {sectionTitle}
         <Images data={data} />
       </section>
     );
   case CASE_STUDIES_TYPES.results:
     return (
-      <section className={cn(styles.container, styles[type])}>
-        {children}
+      <section className={styles[type]}>
+        {sectionTitle}
         <Images data={data} />
       </section>
     );
@@ -120,12 +102,7 @@ const CaseStudiesCommon = ({
   }
 };
 
-CaseStudiesCommon.defaultProps = {
-  children: {},
-};
-
 CaseStudiesCommon.propTypes = {
-  children: PropTypes.instanceOf(Object),
   introSection: PropTypes.instanceOf(Object).isRequired,
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,

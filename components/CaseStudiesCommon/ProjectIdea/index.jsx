@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
@@ -11,11 +11,6 @@ import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ProjectIdea = ({ type, data }) => {
-  const delayedAnimation = {
-    ...ANIMATION_CASE_STUDY_PROPS,
-    delay: 500,
-  };
-
   const {
     title,
     subtitle,
@@ -23,10 +18,15 @@ const ProjectIdea = ({ type, data }) => {
     contentModules,
   } = getDocumentFields(get(data, 'contentModules[1]', {}));
 
+  const delayedAnimation = {
+    ...ANIMATION_CASE_STUDY_PROPS,
+    delay: 500,
+  };
+
   return (
-    <Fragment>
+    <section className={styles[type]}>
       <KeyFeatures
-        features={getDocumentFields(get(data, 'contentModules[0]', {}))}
+        features={getDocumentFields(get(data, 'contentModules[0]'))}
         type={type}
       />
       <div className={styles.descriptionContainer}>
@@ -48,10 +48,10 @@ const ProjectIdea = ({ type, data }) => {
         </Animated>
       </div>
       <TeamSection
+        data={getDocumentFields(get(data, 'contentModules[2]'))}
         type={type}
-        data={getDocumentFields(get(data, 'contentModules[2]', {}))}
       />
-    </Fragment>
+    </section>
   );
 };
 

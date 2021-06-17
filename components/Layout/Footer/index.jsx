@@ -4,6 +4,7 @@ import ButtonMore from 'components/Common/ButtonMore';
 import Contacts from 'components/Layout/Footer/Contacts';
 import CaseStudiesFooter from 'components/CaseStudiesCommon/CaseStudiesFooter';
 import Nav from 'components/Layout/Header/Nav';
+import { CASE_STUDIES_SLUGS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const Footer = ({
@@ -11,7 +12,7 @@ export const Footer = ({
   theme,
   openFullscreenEstimation,
 }) => {
-  if (type) {
+  if (CASE_STUDIES_SLUGS.includes(type)) {
     return <CaseStudiesFooter type={type} />;
   }
 

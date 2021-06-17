@@ -14,7 +14,7 @@ import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
 
 const CaseStudiesFooter = ({ type, currentProject }) => {
-  const router = useRouter();
+  const { pathname } = useRouter();
   const { contentModules } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
     ['contentModules'],
@@ -32,7 +32,7 @@ const CaseStudiesFooter = ({ type, currentProject }) => {
   const isLink = contentModules && get(lastContentModule, 'sys.contentType.sys.type', {}) === 'Link';
 
   return (
-    <footer className={cn(styles.container, styles[type])}>
+    <footer className={styles[type]}>
       {isLink && (
         <div className={styles.nextProjectContainer}>
           <p className={styles.subtitle}>
@@ -82,7 +82,7 @@ const CaseStudiesFooter = ({ type, currentProject }) => {
               className={styles.iconLink}
               googleAnalyticProps={{
                 category: 'Social',
-                label: router.pathname,
+                label: pathname,
                 data: name,
               }}
               isSocialLink
