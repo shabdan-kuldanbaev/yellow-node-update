@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const SectionTitle = ({ type, data }) => {
@@ -14,10 +14,7 @@ const SectionTitle = ({ type, data }) => {
 
   return (
     <div className={styles[type]}>
-      <Animated
-        type={ANIMATED_TYPE.isFade}
-        duration={1000}
-      >
+      <Animated {...ANIMATION_CASE_STUDY_PROPS}>
         <h2
           data-case-study-title
           className={cn(styles.title, { [styles.titleIndent]: description })}
@@ -27,9 +24,8 @@ const SectionTitle = ({ type, data }) => {
       </Animated>
       {description && (
         <Animated
-          type={ANIMATED_TYPE.isFade}
           delay={400}
-          duration={1000}
+          {...ANIMATION_CASE_STUDY_PROPS}
         >
           <p
             data-case-study-description

@@ -23,6 +23,10 @@
       &:last-of-type {
         padding-bottom: 0;
         border-bottom: none;
+
+        &::after {
+          content: none;
+        }
       }
 
       .title {
@@ -44,7 +48,6 @@
       }
 
       .description {
-        margin: 0;
         display: none;
         line-height: 180%;
         color: $silver-chalice;
@@ -57,6 +60,10 @@
 
         @include phone {
           @include fontSize(14px);
+        }
+
+        & > p {
+          margin: 0;
         }
       }
     }
@@ -90,5 +97,9 @@
     max-height: 812px;
     display: block;
     object-fit: contain;
+
+    @include phone {
+      display: none;
+    }
   }
 }

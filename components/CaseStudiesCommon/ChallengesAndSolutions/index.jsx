@@ -5,10 +5,15 @@ import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const ChallengesAndSolutions = ({ data, type }) => {
+  const delayedAnimation = {
+    ...ANIMATION_CASE_STUDY_PROPS,
+    delay: 500,
+  };
+
   if (!data || !data.contentModules) {
     return null;
   }
@@ -29,11 +34,7 @@ const ChallengesAndSolutions = ({ data, type }) => {
             className={cn(styles.contentContainer, styles[type])}
           >
             {!imageUrl && (
-              <Animated
-                type={ANIMATED_TYPE.isFade}
-                delay={500}
-                duration={1000}
-              >
+              <Animated {...delayedAnimation}>
                 <div className={styles.infoContainer}>
                   <h2 className={styles.title}>
                     {title}
@@ -43,29 +44,21 @@ const ChallengesAndSolutions = ({ data, type }) => {
             )}
             <div className={cn(styles.infoContainer, { [styles.centrefy]: imageUrl })}>
               {imageUrl && (
-                <Animated
-                  type={ANIMATED_TYPE.isFade}
-                  delay={1000}
-                  duration={1000}
-                >
+                <Animated {...delayedAnimation}>
                   <h2 className={styles.title}>
                     {title}
                   </h2>
                 </Animated>
               )}
               <Animated
-                type={ANIMATED_TYPE.isFade}
                 delay={1000}
-                duration={1000}
+                {...ANIMATION_CASE_STUDY_PROPS}
               >
                 <ContentfulParser document={text} />
               </Animated>
             </div>
             {imageUrl && (
-              <Animated
-                type={ANIMATED_TYPE.isFade}
-                duration={1000}
-              >
+              <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div>
                   <img
                     className={styles.image}

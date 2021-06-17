@@ -7,7 +7,6 @@ import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { DOWNLOAD_LINKS } from './util/data';
 import styles from './styles.module.scss';
 
 const Intro = ({
@@ -20,10 +19,12 @@ const Intro = ({
     subtitle,
     description,
     images,
+    contentModules,
   } = getDocumentFields(get(data, 'contentModules[0]', {}));
-  const { contentModules } = getDocumentFields(get(data, 'contentModules[1]', {}));
+  const { contentModules: experiences } = getDocumentFields(get(data, 'contentModules[1]', {}));
   const appLogoUrl = getFileUrl(get(images, '[0]', {}));
   const appBackgroundImageUrl = getFileUrl(get(images, '[1]', {}));
+  const downloadLink = getDocumentFields(get(contentModules, '[0]', {}));
 
   return (
     <section
@@ -47,14 +48,16 @@ const Intro = ({
         <p className={styles.projectDescription}>
           {description}
         </p>
-        <LinkWrapper
-          path={DOWNLOAD_LINKS[type]}
-        >
-          <Svg
-            className={styles.appStore}
-            type={SVG_IMAGES_TYPES.appstore}
-          />
-        </LinkWrapper>
+        {downloadLink && (
+          <LinkWrapper
+            path={downloadLink.url}
+          >
+            <Svg
+              className={styles.appStore}
+              type={SVG_IMAGES_TYPES.appstore}
+            />
+          </LinkWrapper>
+        )}
       </div>
       <div className={styles.imageContainer}>
         <img
@@ -64,7 +67,7 @@ const Intro = ({
         />
       </div>
       <div className={styles.infoContainer}>
-        {contentModules && contentModules.map(({ fields }) => (
+        {experiences && experiences.map(({ fields }) => (
           <div key={fields.title}>
             <p className={styles.infoTitle}>
               {fields.title}

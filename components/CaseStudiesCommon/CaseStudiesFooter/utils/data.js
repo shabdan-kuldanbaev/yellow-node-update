@@ -2,17 +2,17 @@ import { SVG_IMAGES_TYPES } from 'utils/constants';
 
 export const socialNetworks = [
   {
-    title: 'behance',
-    href: 'https://dribbble.com/yellow_systems',
+    name: 'behance',
+    href: 'https://www.behance.net/yellowstudio',
     iconType: SVG_IMAGES_TYPES.behance,
   },
   {
-    title: 'dribbble',
+    name: 'dribbble',
     href: 'https://dribbble.com/yellow_systems',
     iconType: SVG_IMAGES_TYPES.dribble,
   },
   {
-    title: 'instagram',
+    name: 'instagram',
     href: '//www.instagram.com/yellow.systems',
     iconType: SVG_IMAGES_TYPES.instagram,
   },

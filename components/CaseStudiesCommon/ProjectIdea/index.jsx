@@ -4,16 +4,22 @@ import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
 import KeyFeatures from 'components/CaseStudiesCommon/ProjectIdea/KeyFeatures';
 import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
+import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import TeamSection from 'components/CaseStudiesCommon/ProjectIdea/TeamSection';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ProjectIdea = ({ type, data }) => {
+  const delayedAnimation = {
+    ...ANIMATION_CASE_STUDY_PROPS,
+    delay: 500,
+  };
+
   const {
     title,
     subtitle,
-    description,
+    text,
     contentModules,
   } = getDocumentFields(get(data, 'contentModules[1]', {}));
 
@@ -24,10 +30,7 @@ const ProjectIdea = ({ type, data }) => {
         type={type}
       />
       <div className={styles.descriptionContainer}>
-        <Animated
-          type={ANIMATED_TYPE.isFade}
-          duration={1000}
-        >
+        <Animated {...ANIMATION_CASE_STUDY_PROPS}>
           <h3 className={styles.sectionName}>
             {subtitle}
           </h3>
@@ -35,20 +38,12 @@ const ProjectIdea = ({ type, data }) => {
             {title}
           </h2>
         </Animated>
-        <Animated
-          type={ANIMATED_TYPE.isFade}
-          delay={500}
-          duration={1000}
-        >
-          <p className={styles.description}>
-            {description}
-          </p>
+        <Animated {...delayedAnimation}>
+          <div className={styles.description}>
+            <ContentfulParser document={text} />
+          </div>
         </Animated>
-        <Animated
-          type={ANIMATED_TYPE.isFade}
-          delay={500}
-          duration={1000}
-        >
+        <Animated {...delayedAnimation}>
           <AdditionInformation additionInformation={contentModules} />
         </Animated>
       </div>

@@ -5,23 +5,24 @@ import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const AppFeatures = ({ data }) => {
-  const firstSection = getDocumentFields(get(data, 'contentModules[0]', {}));
-  const firstTitle = get(firstSection, 'title', {});
+  const imageUrl = getFileUrl(get(data, 'images[0]', {}));
+  const { title: firstTitle } = getDocumentFields(
+    get(data, 'contentModules[0]', {}),
+    ['title'],
+  );
   const [activeName, setActiveName] = useState(firstTitle);
-
-  if (!firstTitle) {
-    return null;
-  }
 
   const handleOnClick = (name) => {
     setActiveName(name);
   };
 
-  const imageUrl = getFileUrl(get(data, 'images[0]', {}));
+  if (!firstTitle) {
+    return null;
+  }
 
   return (
     <div className={styles.container}>
@@ -32,9 +33,8 @@ const AppFeatures = ({ data }) => {
           return (
             <Animated
               key={title}
-              type={ANIMATED_TYPE.isFade}
               delay={500 * index}
-              duration={1000}
+              {...ANIMATION_CASE_STUDY_PROPS}
             >
               <div
                 className={cn(styles.sectionItem, {
@@ -55,10 +55,7 @@ const AppFeatures = ({ data }) => {
           );
         })}
       </div>
-      <Animated
-        type={ANIMATED_TYPE.isFade}
-        duration={1000}
-      >
+      <Animated {...ANIMATION_CASE_STUDY_PROPS}>
         <div>
           <img
             src={imageUrl}

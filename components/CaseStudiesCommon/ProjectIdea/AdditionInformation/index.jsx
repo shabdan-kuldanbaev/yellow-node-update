@@ -22,7 +22,7 @@ const AdditionInformation = ({ additionInformation }) => {
               {title}
             </p>
             <ul className={styles.listContainer}>
-              {contentList.map((info) => (
+              {contentList && contentList.map((info) => (
                 <li
                   key={info}
                   className={styles.listItemContainer}

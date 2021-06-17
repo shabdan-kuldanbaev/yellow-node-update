@@ -9,15 +9,17 @@ import { SVG_IMAGES_TYPES, ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const KeyFeatures = ({ features, type }) => {
-  if (!features.contentModules) {
+  const animationProps = {
+    type: ANIMATED_TYPE.isFade,
+    duration: 2000,
+  };
+
+  if (!features || !features.contentModules) {
     return null;
   }
 
   return (
-    <Animated
-      type={ANIMATED_TYPE.isFade}
-      duration={2000}
-    >
+    <Animated {...animationProps}>
       <div className={cn(styles.container, styles[type])}>
         <div className={styles.containerBackground} />
         {features.contentModules.map((data, index) => {
@@ -26,9 +28,8 @@ const KeyFeatures = ({ features, type }) => {
           return (
             <Animated
               key={title}
-              type={ANIMATED_TYPE.isFade}
               delay={250 * index}
-              duration={2000}
+              {...animationProps}
             >
               <div className={styles.featureContainer}>
                 <div className={styles.checkMark}>

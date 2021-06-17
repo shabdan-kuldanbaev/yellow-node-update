@@ -40,8 +40,6 @@ Project.getInitialProps = async ({
       store.dispatch(END);
       await store.sagaTask.toPromise();
 
-      console.log('store', store.getState());
-
       if (store.getState().portfolio.project.total === 0) {
         statusCode = 404;
 

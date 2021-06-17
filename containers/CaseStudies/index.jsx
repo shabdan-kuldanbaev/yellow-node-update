@@ -42,22 +42,3 @@ CaseStudiesContainer.propTypes = {
 export default connect(
   (state) => ({ currentProject: selectProject(state) }),
 )(CaseStudiesContainer);
-
-//
-// {COMPONENTS[slug] && COMPONENTS[slug].map(({ type, header, data }) => (
-//   <CaseStudiesCommon
-//     key={type}
-//     introSection={introSection}
-//     component={type}
-//     type={slug}
-//     data={data}
-//     header={header}
-//   >
-//     {header && (
-//       <SectionTitle
-//         type={slug}
-//         {...header}
-//       />
-//     )}
-//   </CaseStudiesCommon>
-// ))}

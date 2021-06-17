@@ -62,7 +62,7 @@ const Header = ({
     setAdditional(false);
   }, [asPath]);
 
-  const logo = !isAdditional && isHomePage
+  const logo = !isAdditional && isHomePage && project
     ? LOGO_TYPES.whiteLogo
     : LOGO_TYPES.default;
 

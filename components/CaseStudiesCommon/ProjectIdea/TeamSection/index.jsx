@@ -2,23 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const TeamSection = ({ data, type }) => {
   const { title, contentList } = data;
 
-  if (!contentList) {
+  if (!contentList || !contentList.length) {
     return null;
   }
 
   return (
-    <div className={styles.container}>
-      <Animated
-        type={ANIMATED_TYPE.isFade}
-        duration={1000}
-      >
-        <h2 className={cn(styles.title, styles[type])}>
+    <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+      <div className={cn(styles.container, styles[type])}>
+        <h2 className={styles.title}>
           {title}
         </h2>
         {contentList.map((member) => (
@@ -29,8 +26,8 @@ const TeamSection = ({ data, type }) => {
             {member}
           </p>
         ))}
-      </Animated>
-    </div>
+      </div>
+    </Animated>
   );
 };
 

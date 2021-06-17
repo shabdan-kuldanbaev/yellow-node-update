@@ -5,8 +5,16 @@
   overflow: hidden;
   margin-top: 80px;
 
+  @include phone {
+    margin-top: 40px;
+  }
+
   &:not(&:last-of-type) {
     margin-bottom: 80px;
+
+    @include phone {
+      margin-bottom: 40px;
+    }
   }
 
   &::before {

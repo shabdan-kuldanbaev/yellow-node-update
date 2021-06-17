@@ -29,7 +29,12 @@ const CaseStudiesCommon = ({
     );
   case CASE_STUDIES_TYPES.projectIdea:
     return (
-      <section className={cn(styles.container, styles[type], styles.idea)}>
+      <section className={cn(
+        styles.container,
+        styles[type],
+        styles.idea,
+      )}
+      >
         <ProjectIdea
           type={type}
           data={data}
@@ -39,8 +44,10 @@ const CaseStudiesCommon = ({
   case CASE_STUDIES_TYPES.challenges:
     return (
       <section className={cn(styles.container, styles.challenges,
-        { [styles[type]]: data.images },
-        { [styles.challengesWithoutImage]: data.images })}
+        {
+          [styles[type]]: data.images,
+          [styles.challengesWithoutImage]: data.images,
+        })}
       >
         {children}
         <ChallengesAndSolutions data={data} />
@@ -56,7 +63,11 @@ const CaseStudiesCommon = ({
 
     return (
       <section
-        className={cn(styles.container, styles[type], styles.special)}
+        className={cn(
+          styles.container,
+          styles[type],
+          styles.special,
+        )}
         style={backgroundImage}
       >
         <ChallengesAndSolutions data={data} />
@@ -65,7 +76,12 @@ const CaseStudiesCommon = ({
   }
   case CASE_STUDIES_TYPES.wireframe:
     return (
-      <section className={cn(styles.container, styles[type], styles.wireframes)}>
+      <section className={cn(
+        styles.container,
+        styles[type],
+        styles.wireframes,
+      )}
+      >
         {children}
         <Wireframes
           type={type}
@@ -82,7 +98,12 @@ const CaseStudiesCommon = ({
     );
   case CASE_STUDIES_TYPES.image:
     return (
-      <section className={cn(styles.container, styles[type], styles.imageSection)}>
+      <section className={cn(
+        styles.container,
+        styles[type],
+        styles.imageSection,
+      )}
+      >
         {children}
         <Images data={data} />
       </section>
@@ -99,7 +120,12 @@ const CaseStudiesCommon = ({
   }
 };
 
+CaseStudiesCommon.defaultProps = {
+  children: {},
+};
+
 CaseStudiesCommon.propTypes = {
+  children: PropTypes.instanceOf(Object),
   introSection: PropTypes.instanceOf(Object).isRequired,
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
