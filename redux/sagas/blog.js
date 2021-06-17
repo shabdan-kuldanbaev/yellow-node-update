@@ -32,9 +32,7 @@ function* getArticle({ articleSlug, isPreviewMode }) {
   try {
     const article = yield fetchContentfulArticles(
       isPreviewMode,
-      {
-        'fields.slug[match]': articleSlug,
-      },
+      { 'fields.slug[match]': articleSlug },
     );
 
     yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: article });

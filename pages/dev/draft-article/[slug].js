@@ -1,23 +1,20 @@
 import React from 'react';
-import ArticlePreviewContainer from 'containers/ArticlePreview';
-import { PageNotFound } from 'containers/PageNotFound';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
+import DraftArticle from 'containers/DraftArticle';
+import { PageNotFound } from 'containers/PageNotFound';
 import errorHelper from 'utils/error';
 import { PAGES } from 'utils/constants';
 
-const Article = ({
-  introSection,
-  statusCode,
-}) => {
+const DraftArticleContainer = ({ introSection, statusCode }) => {
   if (statusCode === 404) {
     return <PageNotFound />;
   }
 
-  return <ArticlePreviewContainer introSection={introSection} />;
+  return <DraftArticle introSection={introSection} />;
 };
 
-Article.getInitialProps = async (ctx) => {
+DraftArticleContainer.getInitialProps = async (ctx) => {
   try {
     const {
       store,
@@ -52,9 +49,9 @@ Article.getInitialProps = async (ctx) => {
   } catch (error) {
     errorHelper.handleError({
       error,
-      message: 'Error in the getInitialBlogProps function',
+      message: 'Error in the getInitialBlogProps function in DraftArticle',
     });
   }
 };
 
-export default Article;
+export default DraftArticleContainer;

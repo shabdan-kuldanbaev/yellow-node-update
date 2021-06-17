@@ -17,19 +17,17 @@ export const fetchContentfulNearbyArticles = async ({ publishedAt, isOlder }) =>
 
 export const fetchContentfulArticles = async (isPreviewMode, additionalQuery, params = {}) => {
   try {
-    return isPreviewMode ? await contentfulPreviewClient.getEntries({
+    const options = {
       contentType: 'article',
       additionalQueryParams: {
         ...additionalQuery,
       },
       ...params,
-    }) : await contentfulClient.getEntries({
-      contentType: 'article',
-      additionalQueryParams: {
-        ...additionalQuery,
-      },
-      ...params,
-    });
+    };
+
+    return isPreviewMode
+      ? await contentfulPreviewClient.getEntries(options)
+      : await contentfulClient.getEntries(options);
   } catch (error) {
     console.error('Fetch error of articles', error);
   }

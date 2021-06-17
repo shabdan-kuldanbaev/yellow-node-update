@@ -15,7 +15,9 @@ class ContentfulClient {
     this.ENVIRONMENT = environment;
     this.ACCESS_TOKEN = accessToken;
     this.GRAPHQL_URL = `https://graphql.contentful.com/content/v1/spaces/${space}/environments/${environment}`;
-    this.IS_PREVIEW = isPreview;
+    this.HOST = isPreview
+      ? 'preview.contentful.com'
+      : 'cdn.contentful.com';
   }
 
   getClient = async () => {
@@ -25,7 +27,7 @@ class ContentfulClient {
         environment: this.ENVIRONMENT,
         accessToken: this.ACCESS_TOKEN,
         resolveLinks: true,
-        host: this.IS_PREVIEW ? 'preview.contentful.com' : 'cdn.contentful.com',
+        host: this.HOST,
       });
 
       return client;

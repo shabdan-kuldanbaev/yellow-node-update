@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /*.js
 Allow: /*.css
-Disallow: /development/
+Disallow: /dev/
 
 Host: https://yellow.systems/
 Sitemap: https://yellow.systems/sitemap.xml
