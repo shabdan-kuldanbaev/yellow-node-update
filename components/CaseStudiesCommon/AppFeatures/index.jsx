@@ -16,7 +16,7 @@ const AppFeatures = ({ data }) => {
   );
   const [activeName, setActiveName] = useState(firstTitle);
 
-  const handleOnClick = (name) => {
+  const handleOnClick = (name) => () => {
     setActiveName(name);
   };
 
@@ -43,7 +43,7 @@ const AppFeatures = ({ data }) => {
               >
                 <p
                   className={styles.title}
-                  onClick={() => handleOnClick(title)}
+                  onClick={handleOnClick(title)}
                 >
                   {title}
                 </p>
