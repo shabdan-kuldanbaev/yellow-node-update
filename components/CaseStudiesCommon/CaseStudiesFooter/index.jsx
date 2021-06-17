@@ -15,13 +15,20 @@ import styles from './styles.module.scss';
 
 const CaseStudiesFooter = ({ type, currentProject }) => {
   const router = useRouter();
-  const { contentModules } = getDocumentFields(get(currentProject, 'items[0]', {}));
+  const { contentModules } = getDocumentFields(
+    get(currentProject, 'items[0]', {}),
+    ['contentModules'],
+  );
   const lastContentModule = last(contentModules);
   const {
     title,
     buttonTitle,
     slug,
-  } = getDocumentFields(lastContentModule);
+  } = getDocumentFields(lastContentModule, [
+    'title',
+    'buttonTitle',
+    'slug',
+  ]);
   const isLink = contentModules && get(lastContentModule, 'sys.contentType.sys.type', {}) === 'Link';
 
   return (

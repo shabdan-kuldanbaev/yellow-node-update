@@ -10,7 +10,10 @@ import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const CaseStudiesContainer = ({ introSection, currentProject }) => {
-  const { slug, contentModules } = getDocumentFields(get(currentProject, 'items[0]', {}));
+  const { slug, contentModules } = getDocumentFields(
+    get(currentProject, 'items[0]', {}),
+    ['slug', 'contentModules'],
+  );
 
   return (
     <Fragment>
