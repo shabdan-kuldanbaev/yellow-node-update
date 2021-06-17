@@ -10,78 +10,27 @@ import ResultsSection from 'components/CaseStudiesCommon/ResultsSection';
 import ImagesSection from 'components/CaseStudiesCommon/ImagesSection';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
-const CaseStudiesCommon = ({
-  introSection,
-  type,
-  data,
-}) => {
-  switch (data.type) {
+const CaseStudiesCommon = (props) => {
+  switch (props.data.type) {
   case CASE_STUDIES_TYPES.intro:
-    return (
-      <Intro
-        introSection={introSection}
-        data={data}
-        type={type}
-      />
-    );
+    return <Intro {...props} />;
   case CASE_STUDIES_TYPES.projectIdea:
-    return (
-      <ProjectIdea
-        data={data}
-        type={type}
-      />
-    );
+    return <ProjectIdea {...props} />;
   case CASE_STUDIES_TYPES.challenges:
-    return (
-      <ChallengesAndSolutionsWithWireframes
-        data={data}
-        type={type}
-      />
-    );
+    return <ChallengesAndSolutionsWithWireframes {...props} />;
   case CASE_STUDIES_TYPES.specialChallenges:
-    return (
-      <SpecialChallengesAndSolutions
-        data={data}
-        type={type}
-      />
-    );
+    return <SpecialChallengesAndSolutions {...props} />;
   case CASE_STUDIES_TYPES.wireframe:
-    return (
-      <WireframesSection
-        data={data}
-        type={type}
-      />
-    );
+    return <WireframesSection {...props} />;
   case CASE_STUDIES_TYPES.appFeatures:
-    return (
-      <AppFeatures
-        data={data}
-        type={type}
-      />
-    );
+    return <AppFeatures {...props} />;
   case CASE_STUDIES_TYPES.image:
-    return (
-      <ImagesSection
-        data={data}
-        type={type}
-      />
-    );
+    return <ImagesSection {...props} />;
   case CASE_STUDIES_TYPES.results:
-    return (
-      <ResultsSection
-        data={data}
-        type={type}
-      />
-    );
+    return <ResultsSection {...props} />;
   default:
     return null;
   }
-};
-
-CaseStudiesCommon.propTypes = {
-  introSection: PropTypes.instanceOf(Object).isRequired,
-  data: PropTypes.instanceOf(Object).isRequired,
-  type: PropTypes.string.isRequired,
 };
 
 export default CaseStudiesCommon;

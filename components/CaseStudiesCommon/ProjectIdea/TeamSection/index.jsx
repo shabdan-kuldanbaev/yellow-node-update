@@ -4,9 +4,13 @@ import { Animated } from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const TeamSection = ({ data, type }) => {
-  const { title, contentList } = data;
-
+const TeamSection = ({
+  type,
+  data: {
+    title,
+    contentList,
+  },
+}) => {
   if (!contentList) {
     return null;
   }

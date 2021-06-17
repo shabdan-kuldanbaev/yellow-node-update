@@ -15,11 +15,14 @@ const Nav = ({
 }) => {
   const { asPath } = useRouter();
   const isBlog = asPath && asPath.includes('blog');
+  // TODO rework this checks
+  const isAdditionalNav = !isBlog && (isAdditional || (currentPage && (currentPage !== '' && !isTransparentHeader)));
+  const isAdditionalNavForBlog = isBlog && !isTransparentHeader;
 
   return (
     <ul className={cn(styles.desktopMenu, {
-      [styles.additionalNav]: !isBlog && (isAdditional || (currentPage && (currentPage !== '' && !isTransparentHeader))),
-      [styles.additionalNavForBlog]: isBlog && !isTransparentHeader,
+      [styles.additionalNav]: isAdditionalNav,
+      [styles.additionalNavForBlog]: isAdditionalNavForBlog,
     })}
     >
       {links && links.map(({ title, path, dynamicPath }) => (

@@ -18,9 +18,14 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
     metaDescription,
   } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
-    ['slug', 'contentModules'],
+    [
+      'slug',
+      'contentModules',
+      'metaDescription',
+      'metaTitle',
+    ],
   );
-
+  // TODO: rework metatags for CaseStudies pages
   const projectMetadata = {
     metaTitle,
     metaDescription,
@@ -30,7 +35,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
   return (
     <Fragment>
       <MetaTags
-        page={PAGES.project}
+        page={PAGES.blog}
         pageMetadata={projectMetadata}
       />
       {contentModules && contentModules.map(({ fields, sys }) => (
