@@ -5,11 +5,9 @@ import { connect } from 'react-redux';
 import { selectArticle } from 'redux/selectors/blog';
 import { getArticleProps } from 'containers/Article/utils/propsHelper';
 import Article from 'components/BlogCommon/Article';
-import { PageHeader } from 'components/Common/PageHeader';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import { FAQ } from 'components/BlogCommon/Article/FAQ';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 
 const DraftArticle = ({ introSection, currentArticle }) => {
   const {
@@ -24,7 +22,6 @@ const DraftArticle = ({ introSection, currentArticle }) => {
     author,
     faqList,
   } = getArticleProps({ article: currentArticle });
-  const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
 
   return (
     <Fragment>
@@ -35,7 +32,6 @@ const DraftArticle = ({ introSection, currentArticle }) => {
         />
       </Head>
       <FullLayout>
-        <PageHeader breadcrumbs={breadcrumbs} />
         <Article
           slug={articleSlug}
           title={title}
