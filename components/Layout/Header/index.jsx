@@ -9,7 +9,11 @@ import LinearIndeterminate from 'components/Common/LinearIndeterminate';
 import Logo from 'components/Common/Logo';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import { TopProgressBar } from 'components/Common/TopProgressBar';
-import { ROUTES } from 'utils/constants';
+import {
+  ROUTES,
+  LOGO_TYPES,
+  CASE_STUDIES_SLUGS,
+} from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
@@ -20,18 +24,23 @@ const Header = ({
   isMobileMenuOpened,
   setMobileMenuState: setMobileMenu,
 }) => {
-  const { asPath, query: { page } } = useRouter();
+  const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
-  const isHomePage = asPath === ROUTES.homepage.path;
+  const isCaseStudyPage = CASE_STUDIES_SLUGS.includes(project);
+  const isPageWithTransparentHeader = asPath === ROUTES.homepage.path || isCaseStudyPage;
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
+  // TODO rework this check
+  const logo = !isAdditional && isCaseStudyPage
+    ? LOGO_TYPES.whiteLogo
+    : LOGO_TYPES.default;
 
   useEffect(() => {
     const handleOnScroll = () => {
       if (introSection && introSection.current) {
         const intro = introSection.current.getBoundingClientRect();
 
-        if (isHomePage) {
+        if (isPageWithTransparentHeader) {
           intro.bottom < 65
             ? setAdditional(true)
             : setAdditional(false);
@@ -40,7 +49,7 @@ const Header = ({
             : setIsLogoTextHidden(false);
         }
 
-        if (!isHomePage) {
+        if (!isPageWithTransparentHeader) {
           intro.top < -10
             ? setIsLogoTextHidden(true)
             : setIsLogoTextHidden(false);
@@ -55,7 +64,7 @@ const Header = ({
   }, [
     currentPage,
     introSection,
-    isHomePage,
+    isPageWithTransparentHeader,
   ]);
 
   useEffect(() => {
@@ -66,12 +75,15 @@ const Header = ({
     <header className={cn({
       [styles.headerContainer]: true,
       [styles.additional]: isAdditional,
-      [styles.notHome]: !isHomePage,
+      [styles.notHome]: !isPageWithTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
     })}
     >
       <div className={styles.logo}>
-        <Logo theme={theme} />
+        <Logo
+          theme={theme}
+          type={logo}
+        />
       </div>
       {currentPage.includes('blog') && (
         <div className={styles.categories}>
@@ -81,6 +93,7 @@ const Header = ({
       <Nav
         theme={theme}
         isAdditional={isAdditional}
+        isTransparentHeader={isPageWithTransparentHeader}
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
@@ -90,7 +103,7 @@ const Header = ({
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
       />
-      {!isHomePage && <LinearIndeterminate />}
+      {!isPageWithTransparentHeader && <LinearIndeterminate />}
       {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}
     </header>
   );

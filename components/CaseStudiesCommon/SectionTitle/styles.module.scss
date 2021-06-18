@@ -1,0 +1,56 @@
+@import 'styles/utils/mixins';
+
+.title {
+  margin: 0 0 80px;
+  text-align: center;
+  font-family: $case-studies-font;
+  font-weight: bold;
+  line-height: 120%;
+
+  @include fontSize(56px);
+
+  @include tablet {
+    @include fontSize(40px);
+  }
+
+  @include phone {
+    margin-bottom: 40px;
+
+    @include fontSize(32px);
+  }
+}
+
+.titleIndent {
+  margin-bottom: 30px;
+
+  @include tablet {
+    margin-bottom: 15px;
+  }
+}
+
+.description {
+  max-width: 630px;
+  margin: 0 auto 80px;
+  font-family: $case-studies-font;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 180%;
+
+  @include fontSize(18px);
+
+  @include tablet {
+    margin-bottom: 60px;
+
+    @include fontSize(16px);
+  }
+
+  @include phone {
+    margin-bottom: 40px;
+
+    @include fontSize(14px);
+  }
+}
+
+.alignLeft {
+  text-align: start;
+}

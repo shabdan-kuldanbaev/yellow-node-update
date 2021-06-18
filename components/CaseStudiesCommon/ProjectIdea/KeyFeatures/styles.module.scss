@@ -1,0 +1,138 @@
+@import 'styles/utils/mixins';
+
+// TODO it is preferable to use flex on site so rewrite all
+
+// TODO rework mobile resolution for all blocks
+
+.container {
+  position: relative;
+  box-sizing: border-box;
+  padding: 140px 92px;
+  border-radius: 60px;
+  perspective: 1000px;
+
+  @include tablet {
+    padding: 100px 20px;
+  }
+
+  @include phone {
+    max-width: 345px;
+    padding: 80px 15px;
+    order: 2;
+  }
+
+  .containerBackground {
+    border-radius: 60px;
+    background-color: $white-darker;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // TODO transform: rotateY(-16deg) translateX(-5%); // check - doesn't work on Safari
+
+    @include tablet {
+      // TODO transform: rotateY(-16deg) translateX(-3%); // check - doesn't work on Safari
+    }
+
+    @include phone {
+      border-radius: 30px;
+    }
+  }
+
+  .featureContainer {
+    margin-bottom: 20px;
+    column-gap: 30px;
+    // TODO gap: 30px; // check - doesn't work on Safari
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include flex;
+
+    @include tablet {
+      // TODO gap: 20px; // check - doesn't work on Safari
+    }
+
+    .checkMark {
+      position: relative;
+      min-width: 50px;
+      height: 50px;
+      border-radius: 50%;
+
+      @include tablet {
+        min-width: 40px;
+        height: 40px;
+      }
+
+      .icon {
+        @include centered;
+      }
+    }
+
+    .contentContainer {
+      z-index: 10;
+      margin-left: 30px;
+
+      @include tablet {
+        margin-left: 20px;
+      }
+
+      .title {
+        margin: 0 0 15px;
+        font-family: $case-studies-font;
+        font-weight: bold;
+        line-height: 120%;
+        color: $dark-grey;
+
+        @include fontSize(24px);
+
+        @include phone {
+          margin-bottom: 18px;
+
+          @include fontSize(18px);
+        }
+      }
+
+      & > p {
+        margin: 0;
+        line-height: 150%;
+        font-family: $case-studies-font;
+        color: $silver-chalice;
+
+        @include fontSize(18px);
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+}
+
+.fernwayer {
+  @extend .container;
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+    }
+  }
+}
+
+// TODO: use when stickerBox page will be added
+//.stickerbox {
+//  /* stylelint-disable-next-line */
+//  .featureContainer {
+//    .checkMark {
+//      background: $turbo-100;
+//    }
+//  }
+//}

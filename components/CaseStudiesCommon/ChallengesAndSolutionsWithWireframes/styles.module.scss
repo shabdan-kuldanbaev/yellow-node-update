@@ -1,0 +1,14 @@
+@import 'styles/utils/mixins';
+
+.challenges,
+.challengesWithoutImage {
+  @include caseStudyContainer;
+
+  background-color: $alabaster;
+}
+
+.fernwayer {
+  &.challengesWithoutImage {
+    background-color: $white;
+  }
+}

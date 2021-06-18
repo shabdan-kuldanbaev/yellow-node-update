@@ -8,20 +8,20 @@ import {
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import get from 'lodash/get';
 import {
-  BookmarkCard,
   GalleryCard,
   Animated,
   LinkWrapper,
 } from 'components';
-import { CallToAction } from 'components/Common/CallToAction';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
   rootUrl,
 } from 'utils/helper';
+import { ArticleLink } from './ArticleLink';
 import styles from './styles.module.scss';
 
+// TODO move it to the common folder
 export const ContentfulParser = ({ document }) => {
   const options = {
     renderMark: {
@@ -35,19 +35,6 @@ export const ContentfulParser = ({ document }) => {
         const id = get(node, 'data.target.sys.contentType.sys.id', '');
 
         switch (id) {
-        case 'articleBookmark': {
-          const { title, slug } = getDocumentFields(
-            get(node, 'data.target', {}),
-            ['title', 'slug'],
-          );
-
-          return title && slug && (
-            <BookmarkCard
-              title={title}
-              slug={slug}
-            />
-          );
-        }
         case 'image': {
           const { articleSingleImageType, image, title } = getDocumentFields(
             get(node, 'data.target', ''),
@@ -89,22 +76,23 @@ export const ContentfulParser = ({ document }) => {
             />
           );
         }
-        case 'callToAction': {
+        case 'link': {
           const {
             title,
             buttonTitle,
             slug,
+            type,
           } = getDocumentFields(
             get(node, 'data.target', {}),
-            ['title', 'buttonTitle', 'slug'],
+            ['title', 'buttonTitle', 'slug', 'type'],
           );
 
-          return title && buttonTitle && slug && (
-            <CallToAction
+          return (
+            <ArticleLink
               title={title}
               buttonTitle={buttonTitle}
-              href={slug}
-              type="blog"
+              slug={slug}
+              type={type}
             />
           );
         }

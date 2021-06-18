@@ -509,7 +509,7 @@ export const articlesData = [
   },
   {
     id: 43,
-    title: 'How to Create a Wireframe for Your Mobile App?',
+    title: 'How to Create a Wireframes for Your Mobile App?',
     published_at: '2019-01-16T11:37:46.000Z',
     description: 'Figuring out what underlies a plain black-and-white wireframe—understanding the industry, users, budgeting and beyond.',
     slug: 'what-it-takes-to-create-a-wireframe',

@@ -1,0 +1,9 @@
+@import 'styles/utils/mixins';
+
+.feedBackContainer {
+  padding: 0 40px;
+
+  @include phone {
+    padding: 80px 15px;
+  }
+}

@@ -1,0 +1,224 @@
+@import 'styles/utils/mixins';
+
+.container {
+  height: 758px;
+  box-sizing: border-box;
+  padding-bottom: 84px;
+
+  @include flex(column);
+
+  @include tablet {
+    padding: 0 40px 30px;
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+
+  .nextProjectContainer {
+    width: fit-content;
+    margin: 0 auto;
+    flex-grow: 1;
+
+    @include flex(column, center, center);
+
+    .subtitle {
+      margin: 0 0 20px;
+      font-family: $case-studies-font;
+      font-weight: bold;
+      line-height: 120%;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+
+      @include fontSize(16px);
+
+      @include tablet {
+        @include fontSize(14px);
+      }
+
+      @include phone {
+        @include fontSize(12px);
+      }
+    }
+
+    .projectName {
+      margin: 0 0 45px;
+      font-family: $case-studies-font;
+      font-weight: bold;
+      line-height: 120%;
+      text-align: center;
+
+      @include fontSize(60px);
+
+      @include phone {
+        @include fontSize(50px);
+      }
+    }
+
+    .more {
+      padding: 20px 45px;
+      box-sizing: border-box;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      line-height: 150%;
+      font-family: $case-studies-font;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        padding: 16px 34px;
+
+        @include fontSize(16px);
+      }
+
+      @include phone {
+        padding: 12px 20px;
+
+        @include fontSize(14px);
+      }
+
+      .textIndent {
+        margin-right: 15px;
+
+        @include phone {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .question {
+    margin: 0 0 20px;
+    font-family: $case-studies-font;
+    font-weight: bold;
+    line-height: 120%;
+    text-align: center;
+
+    @include fontSize(32px);
+
+    @include tablet {
+      @include fontSize(24px);
+    }
+
+    @include phone {
+      margin-bottom: 15px;
+
+      @include fontSize(20px);
+    }
+  }
+
+  .link {
+    margin: 0;
+    font-family: $case-studies-font;
+    font-weight: bold;
+    line-height: 120%;
+
+    @include fontSize(24px);
+
+    @include tablet {
+      @include fontSize(20px);
+    }
+
+    @include phone {
+      margin-bottom: 30px;
+
+      @include fontSize(18px);
+    }
+  }
+
+  .iconLink {
+    margin: 0;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
+  .footerLinks {
+    padding: 0 15%;
+
+    @include flex(row, space-between, flex-end);
+
+    @include tablet {
+      padding: 0;
+    }
+
+    @include phone {
+      text-align: center;
+      gap: 30px;
+
+      @include flex(column, center, center);
+    }
+  }
+}
+
+.fernwayer {
+  @extend .container;
+
+  background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  /* stylelint-disable-next-line */
+  .link{
+    color: rgba($white, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $white;
+  }
+}
+
+// TODO: use when stickerBox page will be added
+//.stickerbox {
+//  background: $turbo-100;
+//
+//  .nextProjectContainer {
+//    .subtitle {
+//      color: rgba($dark-grey, 0.7);
+//    }
+//
+//    .projectName {
+//      color: $dark-grey;
+//    }
+//
+//    .more {
+//      border: 1px solid $dark-grey;
+//      color: $dark-grey;
+//    }
+//  }
+//
+//  .question {
+//    color: $dark-grey;
+//  }
+//
+//  /* stylelint-disable-next-line */
+//  .link{
+//    color: rgba($dark-grey, 0.5);
+//  }
+//
+//  /* stylelint-disable-next-line */
+//  .iconLink {
+//    color: $dark-grey;
+//  }
+//}

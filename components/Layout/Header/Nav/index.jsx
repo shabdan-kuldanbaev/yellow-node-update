@@ -10,15 +10,19 @@ const Nav = ({
   theme,
   currentPage,
   isAdditional,
+  isTransparentHeader,
   navLinks: links,
 }) => {
   const { asPath } = useRouter();
   const isBlog = asPath && asPath.includes('blog');
+  // TODO rework this checks
+  const isAdditionalNav = !isBlog && (isAdditional || (currentPage && (currentPage !== '' && !isTransparentHeader)));
+  const isAdditionalNavForBlog = isBlog && !isTransparentHeader;
 
   return (
     <ul className={cn(styles.desktopMenu, {
-      [styles.additionalNav]: !isBlog && (isAdditional || (currentPage && currentPage !== '')),
-      [styles.additionalNavForBlog]: isBlog,
+      [styles.additionalNav]: isAdditionalNav,
+      [styles.additionalNavForBlog]: isAdditionalNavForBlog,
     })}
     >
       {links && links.map(({ title, path, dynamicPath }) => (
@@ -44,12 +48,14 @@ const Nav = ({
 Nav.defaultProps = {
   theme: 'dark',
   navLinks: NAV_LINKS,
+  isTransparentHeader: false,
 };
 
 Nav.propTypes = {
   theme: PropTypes.string,
   currentPage: PropTypes.string.isRequired,
   isAdditional: PropTypes.bool.isRequired,
+  isTransparentHeader: PropTypes.bool,
   navLinks: PropTypes.instanceOf(Array),
 };
 
