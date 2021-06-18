@@ -25,18 +25,24 @@ const Sitemap = () => (null);
 
 Sitemap.getInitialProps = async ({ res }) => {
   try {
-    const articles = await contentfulClient.getEntries({
-      contentType: 'article',
-      searchType: '[match]',
-    });
-    const projects = await contentfulClient.getEntries({
-      contentType: 'project',
-      searchType: '[match]',
-    });
-    const caseStudies = await contentfulClient.getEntries({
-      contentType: 'page',
-      searchType: '[match]',
-    });
+    const [
+      articles,
+      projects,
+      caseStudies,
+    ] = await Promise.all([
+      contentfulClient.getEntries({
+        contentType: 'article',
+        searchType: '[match]',
+      }),
+      contentfulClient.getEntries({
+        contentType: 'project',
+        searchType: '[match]',
+      }),
+      contentfulClient.getEntries({
+        contentType: 'page',
+        searchType: '[match]',
+      }),
+    ]);
     const postLinks = articles.items.map((link) => {
       const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
 
