@@ -1,0 +1,28 @@
+@import 'styles/utils/mixins';
+
+.imagContainer {
+  overflow-x: auto;
+  text-align: center;
+
+  &::-webkit-scrollbar {
+    max-width: 210px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $blog-subscribe-input-box-shadow-focus-color;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $dark-grey;
+    border-radius: 10px;
+  }
+
+  .image {
+    @include phone {
+      width: auto;
+      height: 470px;
+    }
+  }
+}

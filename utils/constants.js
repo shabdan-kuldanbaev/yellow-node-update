@@ -71,6 +71,7 @@ export const FEEDBACK_FORM_FIELDS = {
 
 export const IMAGES = {
   roundLogo: '/images/common/logo/yellow_logo.svg',
+  logoWhite: '/images/common/logo/logoWhite.svg',
   unpinFile: '/images/common/upload/unpin.svg',
   advantagesIcons: {
     ai: '/images/home/advantages/ai.svg',
@@ -99,6 +100,13 @@ export const CONTACTS_DATA = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  appstore: 'appstore',
+  arrow: 'arrowSvg',
+  behance: 'behanceSvg',
+  checkMark: 'checkMarkSvg',
+  dribble: 'dribbleSvg',
+  instagram: 'instagramSvg',
+  logoWhite: 'logoWhite',
   searchSvg: 'searchSvg',
   yellowLogoSvg: 'yellowLogoSvg',
   unpinSvg: 'unpinSvg',
@@ -126,6 +134,31 @@ export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
 
 export const HEADER_HEIGHT = 66;
 
+export const CASE_STUDIES_TYPES = {
+  intro: 'case-study-intro',
+  projectIdea: 'case-study-project-idea',
+  challenges: 'case-study-challenges',
+  specialChallenges: 'case-study-special',
+  wireframe: 'case-study-wireframe',
+  appFeatures: 'case-study-app-features',
+  image: 'case-study-image',
+  results: 'case-study-results',
+};
+
 export const ARTICLE_PREVIEW_TYPES = {
   related: 'related',
 };
+
+export const LOGO_TYPES = {
+  whiteLogo: 'whiteLogo',
+  default: 'default',
+};
+
+export const ANIMATION_CASE_STUDY_PROPS = {
+  type: ANIMATED_TYPE.isFade,
+  duration: 1000,
+};
+
+export const CASE_STUDIES_SLUGS = [
+  'fernwayer',
+];

@@ -35,15 +35,21 @@ const Portfolio = ({
   return works && (
     <div className={styles.worksContainer}>
       {works && works.map((work, index) => {
+        const documentFields = getDocumentFields(
+          work,
+          ['previewImage', 'title', 'description', 'slug'],
+        );
         const {
           previewImage,
           title,
           description,
-          slug,
-        } = getDocumentFields(
-          work,
-          ['previewImage', 'title', 'description', 'slug'],
-        );
+        } = documentFields;
+        let { slug } = documentFields;
+
+        // TODO: remove this after rebuild works page
+        if (title === 'Fernwayer') {
+          slug = 'fernwayer';
+        }
 
         return (
           <div

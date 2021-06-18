@@ -21,6 +21,7 @@ import {
 import { ArticleLink } from './ArticleLink';
 import styles from './styles.module.scss';
 
+// TODO move it to the common folder
 export const ContentfulParser = ({ document }) => {
   const options = {
     renderMark: {
