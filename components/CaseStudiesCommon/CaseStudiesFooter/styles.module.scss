@@ -11,10 +11,6 @@
     padding: 0 40px 30px;
   }
 
-  @include phone {
-    padding-bottom: 30px;
-  }
-
   .nextProjectContainer {
     width: fit-content;
     margin: 0 auto;
@@ -155,8 +151,6 @@
 }
 
 .fernwayer {
-  @extend .container;
-
   background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
 
   .nextProjectContainer {
@@ -187,6 +181,8 @@
   .iconLink {
     color: $white;
   }
+
+  @extend .container;
 }
 
 // TODO: use when stickerBox page will be added

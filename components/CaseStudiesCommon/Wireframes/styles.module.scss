@@ -1,40 +1,37 @@
 @import 'styles/utils/mixins';
 
+@mixin insetGradient {
+  content: '';
+  position: absolute;
+  width: 25%;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
 .imagesContainer {
   position: relative;
   overflow: hidden;
-  margin-top: 80px;
+  margin: 80px 0;
 
   @include phone {
-    margin-top: 40px;
+    margin: 40px 0;
   }
 
-  &:not(:last-of-type) {
-    margin-bottom: 80px;
-
-    @include phone {
-      margin-bottom: 40px;
-    }
+  &:last-of-type {
+    margin-bottom: 0;
   }
 
   &::before {
-    content: '';
-    position: absolute;
-    width: 25%;
-    top: 0;
     left: 0;
-    bottom: 0;
-    z-index: 10;
+
+    @include insetGradient;
   }
 
   &::after {
-    content: '';
-    position: absolute;
-    width: 25%;
-    top: 0;
     right: 0;
-    bottom: 0;
-    z-index: 10;
+
+    @include insetGradient;
   }
 
   .image {
@@ -50,8 +47,6 @@
 }
 
 .fernwayer {
-  @extend .imagesContainer;
-
   &::before {
     background: linear-gradient(90deg, $white 0%, rgba($white, 0) 100%);
   }
@@ -59,6 +54,8 @@
   &::after {
     background: linear-gradient(270deg, $white 0%, rgba($white, 0) 100%);
   }
+
+  @extend .imagesContainer;
 }
 
 // TODO: use when stickerBox page will be added

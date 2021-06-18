@@ -30,42 +30,47 @@ const Intro = ({
       ref={introSection}
       className={styles[type]}
     >
-      <div className={styles.projectInfoContainer}>
-        <img
-          className={styles.logo}
-          src={appLogoUrl}
-          alt={appLogoUrl}
-        />
-        <h1 className={styles.projectTitle}>
-          {title}
-        </h1>
-        {subtitle && (
-          <p className={styles.projectSubtitle}>
-            {subtitle}
+      <div className={styles.introSection}>
+        <div className={styles.projectInfoContainer}>
+          <img
+            className={styles.logo}
+            src={appLogoUrl}
+            alt={appLogoUrl}
+          />
+          <h1 className={styles.projectTitle}>
+            {title}
+          </h1>
+          {subtitle && (
+            <p className={styles.projectSubtitle}>
+              {subtitle}
+            </p>
+          )}
+          <p className={styles.projectDescription}>
+            {description}
           </p>
-        )}
-        <p className={styles.projectDescription}>
-          {description}
-        </p>
-        {downloadLink && (
-          <LinkWrapper path={downloadLink.url}>
-            <Svg
-              className={styles.appStore}
-              type={SVG_IMAGES_TYPES.appstore}
-            />
-          </LinkWrapper>
-        )}
+          {downloadLink && (
+            <LinkWrapper path={downloadLink.url}>
+              <Svg
+                className={styles.appStore}
+                type={SVG_IMAGES_TYPES.appstore}
+              />
+            </LinkWrapper>
+          )}
+        </div>
+        <div className={styles.imageContainer}>
+          <img
+            className={styles.image}
+            src={appBackgroundImageUrl}
+            alt={appBackgroundImageUrl}
+          />
+        </div>
       </div>
-      <div className={styles.imageContainer}>
-        <img
-          className={styles.image}
-          src={appBackgroundImageUrl}
-          alt={appBackgroundImageUrl}
-        />
-      </div>
-      <div className={styles.infoContainer}>
+      <div className={styles.experiencesContainer}>
         {experiences && experiences.map(({ fields }) => (
-          <div key={fields.title}>
+          <div
+            key={fields.title}
+            className={styles.experience}
+          >
             <p className={styles.infoTitle}>
               {fields.title}
             </p>

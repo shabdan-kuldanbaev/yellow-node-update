@@ -7,11 +7,14 @@
 .container {
   position: relative;
   box-sizing: border-box;
+  max-width: 630px;
   padding: 140px 92px;
   border-radius: 60px;
   perspective: 1000px;
+  flex: 1 0 50%;
 
   @include tablet {
+    max-width: 390px;
     padding: 100px 20px;
   }
 
@@ -42,8 +45,6 @@
 
   .featureContainer {
     margin-bottom: 20px;
-    column-gap: 30px;
-    // TODO gap: 30px; // check - doesn't work on Safari
 
     &:last-of-type {
       margin-bottom: 0;
@@ -51,19 +52,17 @@
 
     @include flex;
 
-    @include tablet {
-      // TODO gap: 20px; // check - doesn't work on Safari
-    }
-
     .checkMark {
       position: relative;
       min-width: 50px;
       height: 50px;
+      margin-right: 30px;
       border-radius: 50%;
 
       @include tablet {
         min-width: 40px;
         height: 40px;
+        margin-right: 20px;
       }
 
       .icon {
@@ -73,11 +72,6 @@
 
     .contentContainer {
       z-index: 10;
-      margin-left: 30px;
-
-      @include tablet {
-        margin-left: 20px;
-      }
 
       .title {
         margin: 0 0 15px;
@@ -116,8 +110,6 @@
 }
 
 .fernwayer {
-  @extend .container;
-
   /* stylelint-disable-next-line */
   .featureContainer {
     .checkMark {
@@ -125,6 +117,8 @@
       background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
     }
   }
+
+  @extend .container;
 }
 
 // TODO: use when stickerBox page will be added
