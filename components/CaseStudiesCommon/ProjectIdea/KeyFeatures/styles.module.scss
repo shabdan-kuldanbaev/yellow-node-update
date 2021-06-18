@@ -1,5 +1,9 @@
 @import 'styles/utils/mixins';
 
+// TODO it is preferable to use flex on site so rewrite all
+
+// TODO rework mobile resolution for all blocks
+
 .container {
   position: relative;
   box-sizing: border-box;
@@ -25,10 +29,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    transform: rotateY(-16deg) translateX(-5%);
+    // TODO transform: rotateY(-16deg) translateX(-5%); // check - doesn't work on Safari
 
     @include tablet {
-      transform: rotateY(-16deg) translateX(-3%);
+      // TODO transform: rotateY(-16deg) translateX(-3%); // check - doesn't work on Safari
     }
 
     @include phone {
@@ -38,7 +42,8 @@
 
   .featureContainer {
     margin-bottom: 20px;
-    gap: 30px;
+    column-gap: 30px;
+    // TODO gap: 30px; // check - doesn't work on Safari
 
     &:last-of-type {
       margin-bottom: 0;
@@ -47,7 +52,7 @@
     @include flex;
 
     @include tablet {
-      gap: 20px;
+      // TODO gap: 20px; // check - doesn't work on Safari
     }
 
     .checkMark {
@@ -68,6 +73,11 @@
 
     .contentContainer {
       z-index: 10;
+      margin-left: 30px;
+
+      @include tablet {
+        margin-left: 20px;
+      }
 
       .title {
         margin: 0 0 15px;
