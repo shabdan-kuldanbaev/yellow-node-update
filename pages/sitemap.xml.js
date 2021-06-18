@@ -5,7 +5,7 @@ import {
   rootUrl,
   getDocumentFields,
 } from 'utils/helper';
-import { ROUTES } from 'utils/constants';
+import { ROUTES, CASE_STUDIES_SLUGS } from 'utils/constants';
 import { contentfulClient } from 'utils/contentful/client';
 import errorHelper from 'utils/error';
 
@@ -25,14 +25,24 @@ const Sitemap = () => (null);
 
 Sitemap.getInitialProps = async ({ res }) => {
   try {
-    const articles = await contentfulClient.getEntries({
-      contentType: 'article',
-      searchType: '[match]',
-    });
-    const projects = await contentfulClient.getEntries({
-      contentType: 'project',
-      searchType: '[match]',
-    });
+    const [
+      articles,
+      projects,
+      caseStudies,
+    ] = await Promise.all([
+      contentfulClient.getEntries({
+        contentType: 'article',
+        searchType: '[match]',
+      }),
+      contentfulClient.getEntries({
+        contentType: 'project',
+        searchType: '[match]',
+      }),
+      contentfulClient.getEntries({
+        contentType: 'page',
+        searchType: '[match]',
+      }),
+    ]);
     const postLinks = articles.items.map((link) => {
       const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
 
@@ -49,6 +59,18 @@ Sitemap.getInitialProps = async ({ res }) => {
         updatedAt: getDate(new Date()),
       });
     });
+    const caseStudiesLinks = caseStudies.items.reduce((acc, caseStudy) => {
+      const { slug } = getDocumentFields(caseStudy, ['slug']);
+
+      if (CASE_STUDIES_SLUGS.includes(slug)) {
+        acc.push({
+          path: ROUTES.portfolio.getRoute(slug).path,
+          updatedAt: getDate(new Date()),
+        });
+      }
+
+      return acc;
+    }, []);
     const feedObject = {
       urlset: {
         '@xmlns': 'http://www.sitemaps.org/schemas/sitemap/0.9',
@@ -68,6 +90,7 @@ Sitemap.getInitialProps = async ({ res }) => {
       ...buildUrlObject([
         ...getMainLinksForSitemap(getDate(new Date('2021-05-12'))),
         ...projectLinks,
+        ...caseStudiesLinks,
         ...postLinks,
       ]),
     );
