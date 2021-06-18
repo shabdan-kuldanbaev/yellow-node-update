@@ -1,0 +1,7 @@
+@import 'styles/utils/mixins';
+
+.nextPrevSection {
+  margin: 20px auto 80px;
+
+  @include flex(row, space-between);
+}

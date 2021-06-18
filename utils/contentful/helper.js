@@ -1,4 +1,4 @@
-import { contentfulClient } from 'utils/contentful/client';
+import { contentfulClient, contentfulPreviewClient } from 'utils/contentful/client';
 
 export const fetchContentfulNearbyArticles = async ({ publishedAt, isOlder }) => {
   try {
@@ -15,15 +15,19 @@ export const fetchContentfulNearbyArticles = async ({ publishedAt, isOlder }) =>
   }
 };
 
-export const fetchContentfulArticles = async (additionalQuery, params = {}) => {
+export const fetchContentfulArticles = async (isPreviewMode, additionalQuery, params = {}) => {
   try {
-    return await contentfulClient.getEntries({
+    const options = {
       contentType: 'article',
       additionalQueryParams: {
         ...additionalQuery,
       },
       ...params,
-    });
+    };
+
+    return isPreviewMode
+      ? await contentfulPreviewClient.getEntries(options)
+      : await contentfulClient.getEntries(options);
   } catch (error) {
     console.error('Fetch error of articles', error);
   }
