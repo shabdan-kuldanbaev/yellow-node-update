@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const axios = require('axios');
 const FormData = require('form-data');
 const errorHelper = require('./error');
-const ipHelper = require('./ip');
+// const ipHelper = require('./ip');
 
 dotenv.config('./env');
 
@@ -22,7 +22,7 @@ module.exports.sendFormData = async (req, res) => {
     formData.append('email', email);
     formData.append('description', description);
     formData.append('client_id', clientId);
-    formData.append('client_ip', ipHelper.getClientIp(req));
+    // TODO formData.append('client_ip', ipHelper.getClientIp(req));
 
     if (projectBudget) {
       formData.append('budget', +projectBudget);
@@ -38,7 +38,7 @@ module.exports.sendFormData = async (req, res) => {
       }
     }
 
-    await axios.post(
+    const { status, data } = await axios.post(
       `${process.env.ERP_API_URL}/contact-form`,
       formData,
       {
@@ -49,7 +49,7 @@ module.exports.sendFormData = async (req, res) => {
       },
     );
 
-    res.status(201).send(JSON.stringify('ok'));
+    res.status(status).send(JSON.stringify(data));
   } catch (error) {
     errorHelper.handleError({
       error,
