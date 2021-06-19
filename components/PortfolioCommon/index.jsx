@@ -1,10 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Animated,
-  PreviewImage,
-  withScroll,
-} from 'components';
+import { Animated, PreviewImage } from 'components';
+import { withScroll } from 'hocs/withScroll';
 import { ROUTES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import gaHelper from 'utils/ga';
@@ -17,20 +14,14 @@ const Portfolio = ({
   maxScrollPosition,
   animatedFields: animatedFieldsList,
 }) => {
-  const maxPosition = useRef(0);
-
   useEffect(() => () => {
     gaHelper.trackEvent(
       'Scroll',
-      `${maxPosition.current}%`,
+      `${maxScrollPosition.current}%`,
       ROUTES.portfolio.path,
-      maxPosition.current < 50,
+      maxScrollPosition.current < 50,
     );
   }, []);
-
-  useEffect(() => {
-    maxPosition.current = maxScrollPosition;
-  }, [maxScrollPosition]);
 
   return works && (
     <div className={styles.worksContainer}>

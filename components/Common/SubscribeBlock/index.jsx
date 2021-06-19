@@ -4,8 +4,7 @@ import cn from 'classnames';
 import { connect } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
 import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
-import { withValidateEmail } from 'hocs';
-import { staticImagesUrls } from 'utils/helper';
+import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 
 const SubscribeBlock = ({

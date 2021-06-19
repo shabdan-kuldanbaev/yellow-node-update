@@ -1,10 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {
-  ContentfulParser,
-  OldArticle,
-  withScroll,
-} from 'components';
+import { ContentfulParser, OldArticle } from 'components';
+import { withScroll } from 'hocs/withScroll';
 import gaHelper from 'utils/ga';
 import { formatDate } from 'utils/helper';
 import { Author } from './Author';
@@ -24,22 +21,17 @@ const Article = ({
   publishedAt,
 }) => {
   const articleBodyRef = useRef(null);
-  const maxPosition = useRef(0);
 
   useEffect(() => () => {
     if (slug) {
       gaHelper.trackEvent(
         'Scroll',
-        `${maxPosition.current}%`,
+        `${maxScrollPosition.current}%`,
         `/blog/${slug}`,
-        maxPosition.current < 50,
+        maxScrollPosition.current < 50,
       );
     }
   }, [slug]);
-
-  useEffect(() => {
-    maxPosition.current = maxScrollPosition;
-  }, [maxScrollPosition]);
 
   return (
     <section

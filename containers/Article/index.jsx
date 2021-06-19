@@ -16,7 +16,6 @@ import {
   SubscribeBlock,
   NextPrev,
   MetaTags,
-  withScroll,
   PageHeader,
   FullLayout,
 } from 'components';
@@ -138,4 +137,4 @@ export default connect(
     nearbyArticles: selectNearbyArticles(state),
   }),
   { subscribe },
-)(withScroll(ArticleContainer));
+)(ArticleContainer);
