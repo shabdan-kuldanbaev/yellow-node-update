@@ -6,7 +6,7 @@ import { selectSubscribeMessage } from 'redux/selectors/subscribe';
 import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
 import { ModalWindow } from 'components/Common/ModalWindow';
-import { withValidateEmail } from 'hocs';
+import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 
 const FullscreenSubscribe = ({

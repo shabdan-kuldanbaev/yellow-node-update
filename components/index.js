@@ -24,7 +24,6 @@ export { TopProgressBar } from 'components/Common/TopProgressBar';
 export { Video } from 'components/Common/Video';
 export { Reviews } from 'components/Common/Reviews';
 export { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
-export { default as withScroll } from 'components/Common/withScroll';
 export { MetaTags } from 'components/Common/MetaTags';
 export { InformationMessage } from 'components/Common/InformationMessage';
 export { default as LoadingScreen } from 'components/Common/LoadingScreen';

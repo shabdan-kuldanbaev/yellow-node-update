@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createClient } from 'contentful';
-import { ACCESS_TO_CONTENTFUL } from 'utils/constants';
+import { ACCESS_TO_CONTENTFUL, ACCESS_TO_CONTENTFUL_PREVIEW } from 'utils/constants';
 import errorHelper from 'utils/error';
 
 class ContentfulClient {
@@ -9,11 +9,15 @@ class ContentfulClient {
       space,
       environment,
       accessToken,
+      isPreview = false,
     } = ACCESS_KEYS;
     this.SPACE = space;
     this.ENVIRONMENT = environment;
     this.ACCESS_TOKEN = accessToken;
     this.GRAPHQL_URL = `https://graphql.contentful.com/content/v1/spaces/${space}/environments/${environment}`;
+    this.HOST = isPreview
+      ? 'preview.contentful.com'
+      : 'cdn.contentful.com';
   }
 
   getClient = async () => {
@@ -23,6 +27,7 @@ class ContentfulClient {
         environment: this.ENVIRONMENT,
         accessToken: this.ACCESS_TOKEN,
         resolveLinks: true,
+        host: this.HOST,
       });
 
       return client;
@@ -120,3 +125,4 @@ class ContentfulClient {
 }
 
 export const contentfulClient = new ContentfulClient(ACCESS_TO_CONTENTFUL);
+export const contentfulPreviewClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_PREVIEW);

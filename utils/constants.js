@@ -12,6 +12,13 @@ export const ACCESS_TO_CONTENTFUL = {
   accessToken: process.env.CONTENTFUL_TOKEN,
 };
 
+export const ACCESS_TO_CONTENTFUL_PREVIEW = {
+  space: process.env.CONTENTFUL_SPACE,
+  environment: process.env.CONTENTFUL_ENV,
+  accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
+  isPreview: true,
+};
+
 export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
   acc[key] = slug;
 

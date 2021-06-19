@@ -16,7 +16,7 @@ import { Upload } from 'components/Common/Upload';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
-import { withValidateEmail } from 'hocs';
+import { withValidateEmail } from 'hocs/withValidateEmail';
 import { SliderWrapper } from './SliderWrapper';
 import FormContainer from './FormContainer';
 import { budget, marks } from './utils/data';
