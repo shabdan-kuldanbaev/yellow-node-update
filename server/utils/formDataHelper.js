@@ -38,7 +38,7 @@ module.exports.sendFormData = async (req, res) => {
       }
     }
 
-    const response = await axios.post(
+    await axios.post(
       `${process.env.ERP_API_URL}/contact-form`,
       formData,
       {
