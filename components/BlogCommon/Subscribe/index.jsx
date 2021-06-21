@@ -9,7 +9,7 @@ import {
   Animated,
 } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { withValidateEmail } from 'hocs';
+import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 
 const Subscribe = ({

@@ -85,11 +85,9 @@ app
 
     server.post('/signed-file-url', async (req, res) => {
       try {
-        const { fileName } = req.body;
-
         const { data: { signed_url } } = await axios.post(
           `${process.env.ERP_API_URL}/contact-form/upload-url`,
-          { file_name: fileName },
+          { file_name: req.body.fileName },
           {
             headers: {
               Authorization: `Bearer ${authToken}`,
