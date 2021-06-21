@@ -1,9 +1,5 @@
 @import 'styles/utils/mixins';
 
-// TODO it is preferable to use flex on site so rewrite all
-
-// TODO rework mobile resolution for all blocks
-
 .container {
   position: relative;
   box-sizing: border-box;
@@ -11,7 +7,6 @@
   padding: 140px 92px;
   border-radius: 60px;
   perspective: 1000px;
-  flex: 1 0 50%;
 
   @include tablet {
     max-width: 390px;
@@ -32,10 +27,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    // TODO transform: rotateY(-16deg) translateX(-5%); // check - doesn't work on Safari
+    -webkit-transform: rotateY(-16deg) translateX(-5%);
+    transform: rotateY(-16deg) translateX(-5%);
 
     @include tablet {
-      // TODO transform: rotateY(-16deg) translateX(-3%); // check - doesn't work on Safari
+      -webkit-transform: rotateY(-16deg) translateX(-3%);
+      transform: rotateY(-16deg) translateX(-3%);
     }
 
     @include phone {
@@ -110,6 +107,8 @@
 }
 
 .fernwayer {
+  @extend .container;
+
   /* stylelint-disable-next-line */
   .featureContainer {
     .checkMark {
@@ -117,8 +116,6 @@
       background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
     }
   }
-
-  @extend .container;
 }
 
 // TODO: use when stickerBox page will be added

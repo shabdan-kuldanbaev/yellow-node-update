@@ -58,7 +58,7 @@ const AppFeatures = ({ data, type }) => {
           })}
         </div>
         <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-          <div>
+          <div className={styles.imageContainer}>
             <img
               src={imageUrl}
               className={styles.image}

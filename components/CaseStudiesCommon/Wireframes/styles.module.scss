@@ -47,6 +47,8 @@
 }
 
 .fernwayer {
+  @extend .imagesContainer;
+
   &::before {
     background: linear-gradient(90deg, $white 0%, rgba($white, 0) 100%);
   }
@@ -54,8 +56,6 @@
   &::after {
     background: linear-gradient(270deg, $white 0%, rgba($white, 0) 100%);
   }
-
-  @extend .imagesContainer;
 }
 
 // TODO: use when stickerBox page will be added

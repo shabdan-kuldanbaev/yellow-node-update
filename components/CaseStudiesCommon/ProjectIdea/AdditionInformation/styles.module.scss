@@ -1,8 +1,6 @@
 @import 'styles/utils/mixins';
 
 .infoContainer {
-  gap: 15px;
-
   @include flex;
 
   @include phone {
@@ -16,6 +14,10 @@
 
 .container {
   max-width: 280px;
+
+  &:not(:last-of-type) {
+    margin-right: 15px;
+  }
 
   @include phone {
     min-width: 240px;

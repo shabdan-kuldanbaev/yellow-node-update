@@ -10,8 +10,6 @@
     height: auto;
     padding-top: 145px;
     padding-bottom: 70px;
-    row-gap: 60px;
-    grid-template-columns: repeat(4, minmax(auto, 170px));
   }
 
   @include phone {
@@ -166,6 +164,8 @@
 }
 
 .fernwayer {
+  @extend .container;
+
   background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
 
   .experiencesContainer {
@@ -196,8 +196,6 @@
       color: rgba($white, 0.7);
     }
   }
-
-  @extend .container;
 }
 
 // TODO: use when stickerBox page will be added

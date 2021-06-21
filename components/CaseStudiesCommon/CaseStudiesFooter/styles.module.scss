@@ -143,14 +143,21 @@
 
     @include phone {
       text-align: center;
-      gap: 30px;
 
       @include flex(column, center, center);
+    }
+
+    .emailContainer {
+      @include phone {
+        margin-bottom: 30px;
+      }
     }
   }
 }
 
 .fernwayer {
+  @extend .container;
+
   background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
 
   .nextProjectContainer {
@@ -181,8 +188,6 @@
   .iconLink {
     color: $white;
   }
-
-  @extend .container;
 }
 
 // TODO: use when stickerBox page will be added

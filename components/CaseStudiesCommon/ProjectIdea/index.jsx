@@ -24,27 +24,29 @@ const ProjectIdea = ({ type, data }) => {
 
   return (
     <section className={styles[type]}>
-      <KeyFeatures
-        features={getDocumentFields(get(data, 'contentModules[0]'))}
-        type={type}
-      />
-      <div className={styles.descriptionContainer}>
-        <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-          <h3 className={styles.sectionName}>
-            {subtitle}
-          </h3>
-          <h2 className={styles.title}>
-            {title}
-          </h2>
-        </Animated>
-        <Animated {...delayedAnimation}>
-          <div className={styles.description}>
-            <ContentfulParser document={text} />
-          </div>
-        </Animated>
-        <Animated {...delayedAnimation}>
-          <AdditionInformation additionInformation={contentModules} />
-        </Animated>
+      <div className={styles.contentContainer}>
+        <KeyFeatures
+          features={getDocumentFields(get(data, 'contentModules[0]'))}
+          type={type}
+        />
+        <div className={styles.descriptionContainer}>
+          <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+            <h3 className={styles.sectionName}>
+              {subtitle}
+            </h3>
+            <h2 className={styles.title}>
+              {title}
+            </h2>
+          </Animated>
+          <Animated {...delayedAnimation}>
+            <div className={styles.description}>
+              <ContentfulParser document={text} />
+            </div>
+          </Animated>
+          <Animated {...delayedAnimation}>
+            <AdditionInformation additionInformation={contentModules} />
+          </Animated>
+        </div>
       </div>
       <TeamSection
         data={getDocumentFields(get(data, 'contentModules[2]'))}

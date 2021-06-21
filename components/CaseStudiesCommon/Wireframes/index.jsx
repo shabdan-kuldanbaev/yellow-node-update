@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { getFileUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
