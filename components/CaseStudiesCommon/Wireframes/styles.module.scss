@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import 'styles/utils/mixins', 'styles/utils/theme/animations';
 
 .imagesContainer {
   position: relative;
@@ -40,7 +40,7 @@
 
   .animatedContainer {
     position: relative;
-    animation: image-scroll 20s linear infinite;
+    animation: image-scroll 30s linear infinite;
 
     .image {
       display: block;
@@ -58,18 +58,6 @@
     .animatedContainer {
       animation-direction: reverse;
     }
-  }
-}
-
-@keyframes image-scroll {
-  0% {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-  }
-
-  100% {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
   }
 }
 

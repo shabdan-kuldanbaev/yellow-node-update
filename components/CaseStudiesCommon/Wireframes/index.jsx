@@ -41,7 +41,9 @@ const Wireframe = ({ data: { images }, type }) => {
 };
 
 Wireframe.prototype = {
-  data: PropTypes.instanceOf(Object).isRequired,
+  data: PropTypes.shape({
+    images: PropTypes.instanceOf(Array).isRequired,
+  }).isRequired,
   type: PropTypes.string.isRequired,
 };
 
