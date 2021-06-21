@@ -61,6 +61,7 @@ const AppFeatures = ({ data, type }) => {
           <div className={styles.imageContainer}>
             <img
               src={imageUrl}
+              // this class is defined in the caseStudyContainer mixin
               className={styles.image}
               alt={imageUrl}
             />
