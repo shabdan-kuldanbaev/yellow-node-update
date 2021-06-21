@@ -27,12 +27,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    -webkit-transform: rotateY(-16deg) translateX(-5%);
-    transform: rotateY(-16deg) translateX(-5%);
+    // TODO: this doesn't work on safari
+    //  transform: rotateY(-16deg) translateX(-5%);
 
     @include tablet {
-      -webkit-transform: rotateY(-16deg) translateX(-3%);
-      transform: rotateY(-16deg) translateX(-3%);
+      // TODO: this doesn't work on safari
+      //  transform: rotateY(-16deg) translateX(-3%);
     }
 
     @include phone {
