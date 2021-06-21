@@ -66,15 +66,20 @@ const Intro = ({
         </div>
       </div>
       <div className={styles.experiencesContainer}>
-        {experiences && experiences.map(({ fields }) => (
+        {experiences && experiences.map(({
+          fields: {
+            title: experienceTitle,
+            text,
+          },
+        }) => (
           <div
-            key={fields.title}
+            key={experienceTitle}
             className={styles.experience}
           >
             <p className={styles.infoTitle}>
-              {fields.title}
+              {experienceTitle}
             </p>
-            <ContentfulParser document={fields.text} />
+            <ContentfulParser document={text} />
           </div>
         ))}
       </div>
