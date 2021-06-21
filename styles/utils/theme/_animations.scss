@@ -374,3 +374,15 @@
     transform: rotate(45deg) translate(7px, 7px);
   }
 }
+
+@keyframes image-scroll {
+  0% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}

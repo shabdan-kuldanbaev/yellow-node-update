@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import 'styles/utils/mixins', 'styles/utils/theme/animations';
 
 @mixin insetGradient {
   content: '';
@@ -12,7 +12,9 @@
 .imagesContainer {
   position: relative;
   overflow: hidden;
-  margin: 80px 0;
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
 
   @include phone {
     margin: 40px 0;
@@ -34,14 +36,25 @@
     @include insetGradient;
   }
 
-  .image {
-    height: 100%;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+  .animatedContainer {
+    position: relative;
+    animation: image-scroll 30s linear infinite;
 
-    @include phone {
-      height: 400px;
+    .image {
+      display: block;
+      height: 100%;
+      margin-left: 70px;
+
+      @include phone {
+        height: 400px;
+        margin-left: 40px;
+      }
+    }
+  }
+
+  &:nth-of-type(2n + 1) {
+    .animatedContainer {
+      animation-direction: reverse;
     }
   }
 }

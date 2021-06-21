@@ -20,11 +20,20 @@ const Wireframe = ({ data: { images }, type }) => {
         {...ANIMATION_CASE_STUDY_PROPS}
       >
         <div className={styles[type]}>
-          <img
-            className={styles.image}
-            src={imageUrl}
-            alt={imageUrl}
-          />
+          <div className={styles.animatedContainer}>
+            <img
+              className={styles.image}
+              src={imageUrl}
+              alt={imageUrl}
+            />
+          </div>
+          <div className={styles.animatedContainer}>
+            <img
+              className={styles.image}
+              src={imageUrl}
+              alt={imageUrl}
+            />
+          </div>
         </div>
       </Animated>
     );
@@ -32,7 +41,9 @@ const Wireframe = ({ data: { images }, type }) => {
 };
 
 Wireframe.prototype = {
-  data: PropTypes.instanceOf(Object).isRequired,
+  data: PropTypes.shape({
+    images: PropTypes.instanceOf(Array).isRequired,
+  }).isRequired,
   type: PropTypes.string.isRequired,
 };
 
