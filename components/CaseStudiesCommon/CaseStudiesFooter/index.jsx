@@ -55,7 +55,7 @@ const CaseStudiesFooter = ({
         </div>
       )}
       <div className={styles.footerLinks}>
-        <div>
+        <div className={styles.emailContainer}>
           <p className={styles.question}>
             Not sure where to start?
           </p>

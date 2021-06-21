@@ -1,5 +1,14 @@
 @import 'styles/utils/mixins', 'styles/utils/theme/animations';
 
+@mixin insetGradient {
+  content: '';
+  position: absolute;
+  width: 25%;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
 .imagesContainer {
   position: relative;
   overflow: hidden;
@@ -8,34 +17,23 @@
   display: flex;
 
   @include phone {
-    margin-top: 40px;
+    margin: 40px 0;
   }
 
-  &:not(:last-of-type) {
-    margin-bottom: 80px;
-
-    @include phone {
-      margin-bottom: 40px;
-    }
+  &:last-of-type {
+    margin-bottom: 0;
   }
 
   &::before {
-    content: '';
-    position: absolute;
-    width: 25%;
-    top: 0;
     left: 0;
-    bottom: 0;
-    z-index: 10;
+
+    @include insetGradient;
   }
 
   &::after {
-    content: '';
-    position: absolute;
-    width: 25%;
-    top: 0;
     right: 0;
-    bottom: 0;
+
+    @include insetGradient;
   }
 
   .animatedContainer {

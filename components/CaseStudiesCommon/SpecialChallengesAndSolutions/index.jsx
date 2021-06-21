@@ -16,6 +16,7 @@ const SpecialChallengesAndSolutions = ({ data, type }) => {
     >
       <ChallengesAndSolutions
         data={data}
+        type={type}
         isSpecial
       />
     </section>

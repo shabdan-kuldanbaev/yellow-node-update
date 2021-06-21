@@ -3,7 +3,6 @@
 .contentContainer {
   max-width: 1085px;
   margin: 0 auto 130px;
-  gap: 66px;
 
   @include flex(row, space-between);
 
@@ -12,8 +11,6 @@
   }
 
   @include phone {
-    gap: 0;
-
     @include flex(column, center, center);
   }
 
@@ -21,11 +18,22 @@
     @include flex(column, center);
   }
 
+  .separatedTitle {
+    margin-left: 0;
+    margin-right: 66px;
+  }
+
   .infoContainer {
     max-width: 410px;
+    margin-right: 66px;
 
     @include phone {
+      margin: 0;
       text-align: center;
+    }
+
+    &:nth-child(2n) {
+      margin: 0;
     }
 
     h3 {
@@ -62,11 +70,18 @@
   }
 
   &:nth-of-type(2n) {
-    .infoContainer {
+    .infoContainer:not(.separatedTitle) {
       order: 2;
+      margin-right: 0;
+      margin-left: 66px;
 
       @include phone {
         order: initial;
+        margin: 0;
+      }
+
+      &:nth-child(2n) {
+        margin: 0;
       }
     }
   }
@@ -112,12 +127,14 @@
   }
 }
 
-.special {
-  /* stylelint-disable-next-line */
-  .infoContainer {
-    .title,
-    p {
-      color: $white;
+.fernwayer {
+  .special {
+    /* stylelint-disable-next-line */
+    .infoContainer {
+      .title,
+      p {
+        color: $white;
+      }
     }
   }
 }
