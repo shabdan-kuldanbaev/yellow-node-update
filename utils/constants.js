@@ -30,6 +30,7 @@ export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
   routes.article.slug,
   routes.project.slug,
   routes.notFound.slug,
+  routes.customChatApp.slug,
 ].includes(slug));
 
 export const BLOCKS_SLUGS = {
@@ -41,6 +42,14 @@ export const BLOCKS_SLUGS = {
   contactPageCompanyPhoto: 'contact-page-company-photo',
   contactPageContacts: 'contact-page-contacts',
   processPageProcessPreview: 'process-page-process-preview',
+  chatAppPageIntro: 'chat-app-page-intro',
+  chatAppPageExperiance: 'chat-app-page-experience',
+  chatAppPageTypesOfChat: 'chat-app-page-types-of-chat',
+  chatAppPageAdvantages: 'chat-app-page-advantages',
+  chatAppPageFeatures: 'chat-app-page-chat-features',
+  chatAppPageTechnologies: 'chat-app-page-technologies',
+  chatAppPageDevelopersAdvantages: 'chat-app-page-developers-advantages',
+  chatAppPageOurWork: 'chat-app-page-our-work',
 };
 
 export const ANIMATED_TYPE = {
@@ -127,6 +136,24 @@ export const SVG_IMAGES_TYPES = {
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
   nearbyArrow: 'nearbyArrow',
+  communication: 'communication',
+  sales: 'sales',
+  customerService: 'customerService',
+  checkMark: 'checkMark',
+  twilio: 'twilio',
+  pubnub: 'pubnub',
+  react: 'react',
+  java: 'java',
+  firebase: 'firebase',
+  webRtc: 'webRtc',
+  swift: 'swift',
+  kotlin: 'kotlin',
+  postgreSql: 'postgreSql',
+  objC: 'objC',
+  provenExperience: 'provenExperience',
+  highQualityCode: 'highQualityCode',
+  recommended: 'recommended',
+  greatDesign: 'greatDesign',
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
