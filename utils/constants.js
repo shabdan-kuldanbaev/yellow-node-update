@@ -158,11 +158,6 @@ export const ARTICLE_PREVIEW_TYPES = {
   related: 'related',
 };
 
-export const LOGO_TYPES = {
-  whiteLogo: 'whiteLogo',
-  default: 'default',
-};
-
 export const ANIMATION_CASE_STUDY_PROPS = {
   type: ANIMATED_TYPE.isFade,
   duration: 1000,
