@@ -7,3 +7,18 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.stickerbox {
+  @include caseStudyContainer;
+
+  background-color: $dark-grey-2;
+  padding-top: 0;
+
+  @include tablet {
+    padding-top: 0;
+  }
+
+  @include phone {
+    padding-top: 40px;
+  }
+}

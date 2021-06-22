@@ -168,4 +168,5 @@ export const ANIMATION_CASE_STUDY_PROPS = {
 
 export const CASE_STUDIES_SLUGS = [
   'fernwayer',
+  'stickerbox',
 ];

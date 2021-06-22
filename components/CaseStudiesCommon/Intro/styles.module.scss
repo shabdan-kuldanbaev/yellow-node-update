@@ -198,36 +198,46 @@
   }
 }
 
-// TODO: use when stickerBox page will be added
-//.stickerbox {
-//  background: linear-gradient(180deg, $grey-darker 0%, $dark-grey-2 100%);
-//
-//  .projectInfoContainer {
-//    .projectTitle {
-//      color: $white;
-//    }
-//
-//    .projectSubtitle {
-//      font-family: $case-studies-font;
-//      font-weight: 500;
-//      line-height: 150%;
-//      color: $silver-chalice;
-//
-//      @include fontSize(24px);
-//    }
-//
-//    .projectDescription {
-//      color: rgba($white, 0.4);
-//    }
-//  }
-//
-//  .infoContainer {
-//    .infoTitle {
-//      color: $white;
-//    }
-//
-//    p {
-//      color: rgba($white, 0.4);
-//    }
-//  }
-//}
+.stickerbox {
+  @extend .container;
+
+  background: linear-gradient(180deg, $grey-darker 0%, $dark-grey-2 100%);
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectSubtitle {
+      font-family: $case-studies-font;
+      font-weight: 500;
+      line-height: 150%;
+      color: $silver-chalice;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.4);
+    }
+  }
+}
