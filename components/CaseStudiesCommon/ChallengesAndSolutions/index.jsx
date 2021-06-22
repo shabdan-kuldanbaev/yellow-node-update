@@ -31,7 +31,7 @@ const ChallengesAndSolutions = ({
           text,
         } = getDocumentFields(document);
         const imageUrl = getFileUrl(get(images, '[0]'));
-        const subImageUrl = getFileUrl(get(images, '[1]'));
+        const subImageUrl = getFileUrl(get(images, '[1]', ''));
 
         return (
           <div

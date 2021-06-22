@@ -135,6 +135,8 @@ export const SVG_IMAGES_TYPES = {
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
   nearbyArrow: 'nearbyArrow',
+  yellowLogo: 'yellowLogo',
+  yellowLogoText: 'yellowLogoText',
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';

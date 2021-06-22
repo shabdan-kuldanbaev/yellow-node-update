@@ -1,0 +1,44 @@
+@import 'styles/utils/mixins';
+
+.default {
+  .logo {
+    color: $logo-stroke;
+
+    & > path:first-child {
+      color: $turbo-100;
+    }
+  }
+
+  .text {
+    color: $logo-stroke;
+  }
+}
+
+.home,
+.stickerbox {
+  .logo {
+    color: $logo-stroke;
+
+    & > path:first-child {
+      color: $turbo-100;
+    }
+  }
+
+  .text {
+    color: $white;
+  }
+}
+
+.fernwayer {
+  .logo {
+    color: $white;
+
+    & > path:first-child {
+      color: transparent;
+    }
+  }
+
+  .text {
+    color: $white;
+  }
+}
