@@ -22,13 +22,11 @@ const ContactUsContainer = ({
   officePhoto,
   peoplePhoto,
 }) => {
-  const { content: officePhotoContent } = getDocumentFields(officePhoto, ['content']);
-  const { image: officeImage } = getDocumentFields(
-    (officePhotoContent && officePhotoContent[0]) ? officePhotoContent[0] : {},
-    ['image'],
-  );
+  const { images: officePhotoContent } = getDocumentFields(officePhoto, ['images']);
+  const officeImage = (officePhotoContent && officePhotoContent[0]) ? officePhotoContent[0] : {};
   const officeImageUrl = getFileUrl(officeImage);
-  const { content: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['content']);
+
+  const { contentModules: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['contentModules']);
   const { image: peopleImage } = getDocumentFields(
     (peoplePhotoContent && peoplePhotoContent[0]) ? peoplePhotoContent[0] : {},
     ['image'],
