@@ -39,7 +39,7 @@ const ChallengesAndSolutions = ({
           >
             {!imageUrl && (
               <Animated {...delayedAnimation}>
-                <div className={styles.infoContainer}>
+                <div className={cn(styles.infoContainer, styles.separatedTitle)}>
                   <h2 className={styles.title}>
                     {title}
                   </h2>

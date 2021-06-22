@@ -7,7 +7,7 @@
 }
 
 .fernwayer {
-  @extend .wireframes;
-
   @include caseStudyContainer;
+
+  @extend .wireframes;
 }
