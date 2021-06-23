@@ -196,7 +196,7 @@
   @extend .container;
 
   padding-top: 245px;
-  background: #191B1E;
+  background: $dark-blue-1;
 
   @include tablet {
     padding-top: 145px;

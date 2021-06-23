@@ -9,7 +9,7 @@
 .seven-pm-thursday {
   @include caseStudyContainer;
 
-  background-color: #1C1E20;
+  background-color: $dark-blue;
 
   [data-case-study-title] {
     color: $white;

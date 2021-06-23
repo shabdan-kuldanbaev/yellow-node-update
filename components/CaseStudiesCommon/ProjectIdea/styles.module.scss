@@ -130,7 +130,7 @@
 .seven-pm-thursday {
   @extend .container;
 
-  background-color: #191B1E;
+  background-color: $dark-blue-1;
 
   @include tablet {
     padding-bottom: 100px;
