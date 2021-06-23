@@ -198,6 +198,14 @@
   padding-top: 245px;
   background: #191B1E;
 
+  @include tablet {
+    padding-top: 145px;
+  }
+
+  @include phone {
+    padding-top: 135px;
+  }
+
   .experiencesContainer {
     /* stylelint-disable-next-line */
     .experience {
@@ -216,10 +224,13 @@
       color: $white;
 
       @include fontSize(90px);
+
+      @include tablet {
+        @include fontSize(60px);
+      }
     }
 
     .projectSubtitle {
-      margin: 42px 0 20px;
       font-family: $case-studies-font;
       font-weight: 500;
       line-height: 150%;
