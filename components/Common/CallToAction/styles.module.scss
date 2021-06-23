@@ -113,3 +113,22 @@
     }
   }
 }
+
+.card {
+  padding: 70px;
+  background-color: $alabaster;
+  border-radius: 5px;
+
+  @include flex(row, space-between, center);
+
+  .h3 {
+    white-space: pre-line;
+    line-height: 1.6;
+
+    @include fontSize(32px);
+  }
+
+  .button {
+    margin-top: 0;
+  }
+}

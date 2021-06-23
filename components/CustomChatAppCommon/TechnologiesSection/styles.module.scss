@@ -1,0 +1,15 @@
+@import 'styles/utils/mixins';
+
+.technologiesSection {
+  margin: 150px 0;
+
+  .technologiesList {
+    @include flex(row, space-between, center, wrap);
+
+    .item {
+      flex: 1 0 20%;
+      text-align: center;
+      margin-top: 80px;
+    }
+  }
+}

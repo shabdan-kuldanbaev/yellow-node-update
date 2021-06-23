@@ -21,6 +21,7 @@ const Portfolio = ({
       ROUTES.portfolio.path,
       maxScrollPosition.current < 50,
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return works && (
