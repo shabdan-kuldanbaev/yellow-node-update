@@ -26,11 +26,8 @@ const ContactUsContainer = ({
   const officeImage = (officePhotoContent && officePhotoContent[0]) ? officePhotoContent[0] : {};
   const officeImageUrl = getFileUrl(officeImage);
 
-  const { contentModules: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['contentModules']);
-  const { image: peopleImage } = getDocumentFields(
-    (peoplePhotoContent && peoplePhotoContent[0]) ? peoplePhotoContent[0] : {},
-    ['image'],
-  );
+  const { images: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['images']);
+  const peopleImage = (peoplePhotoContent && peoplePhotoContent[0]) ? peoplePhotoContent[0] : {};
   const peopleImageUrl = getFileUrl(peopleImage);
   const breadcrumbs = pagesBreadcrumbs.contact();
 
