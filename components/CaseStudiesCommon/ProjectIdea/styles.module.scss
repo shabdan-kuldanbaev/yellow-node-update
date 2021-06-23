@@ -126,3 +126,29 @@
     padding-bottom: 40px;
   }
 }
+
+.seven-pm-thursday {
+  @extend .container;
+
+  background-color: #191B1E;
+
+  @include tablet {
+    padding-bottom: 100px;
+  }
+
+  @include phone {
+    padding-bottom: 40px;
+  }
+
+  .contentContainer {
+    .descriptionContainer {
+      .title {
+        color: $white;
+      }
+
+      .description {
+        max-width: 406px;
+      }
+    }
+  }
+}

@@ -1,14 +1,25 @@
 @import 'styles/utils/mixins';
 
-.challenges,
-.challengesWithoutImage {
+.fernwayer {
   @include caseStudyContainer;
 
   background-color: $alabaster;
-}
 
-.fernwayer {
   &.challengesWithoutImage {
     background-color: $white;
+  }
+}
+
+.seven-pm-thursday {
+  @include caseStudyContainer;
+
+  background-color: #191B1E;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: $silver-chalice;
   }
 }

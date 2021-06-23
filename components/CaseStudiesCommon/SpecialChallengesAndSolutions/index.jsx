@@ -7,7 +7,9 @@ import styles from './styles.module.scss';
 
 const SpecialChallengesAndSolutions = ({ data, type }) => {
   const backgroundImageUrl = getFileUrl(get(data, 'images[0]', ''));
-  const backgroundImage = { backgroundImage: `url(${backgroundImageUrl}), linear-gradient(180deg, #D45D94 0%, #FA717D 100%)` };
+  const backgroundImage = type === 'fernwayer'
+    ? { backgroundImage: `url(${backgroundImageUrl}), linear-gradient(180deg, #D45D94 0%, #FA717D 100%)` }
+    : {};
 
   return (
     <section

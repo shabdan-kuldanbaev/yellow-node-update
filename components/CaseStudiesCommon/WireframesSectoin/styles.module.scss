@@ -3,11 +3,28 @@
 .wireframes {
   padding-left: 0;
   padding-right: 0;
-  background-color: $white;
 }
 
 .fernwayer {
   @include caseStudyContainer;
 
   @extend .wireframes;
+
+  background-color: $white;
+}
+
+.seven-pm-thursday {
+  @include caseStudyContainer;
+
+  @extend .wireframes;
+
+  background-color: #1C1E20;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: $silver-chalice;
+  }
 }

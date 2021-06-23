@@ -40,6 +40,8 @@ const Portfolio = ({
         // TODO: remove this after rebuild works page
         if (title === 'Fernwayer') {
           slug = 'fernwayer';
+        } else if (title === '7pm Thursday') {
+          slug = 'seven-pm-thursday';
         }
 
         return (

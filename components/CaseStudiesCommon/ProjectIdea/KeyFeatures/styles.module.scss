@@ -88,6 +88,7 @@
 
       & > p {
         margin: 0;
+        white-space: pre-line;
         line-height: 150%;
         font-family: $case-studies-font;
         color: $silver-chalice;
@@ -114,6 +115,27 @@
     .checkMark {
       color: $white;
       background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+    }
+  }
+}
+
+.seven-pm-thursday {
+  @extend .container;
+
+  .containerBackground {
+    background-color: rgba($white, 0.03);
+  }
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: linear-gradient(159.7deg, #FF2A89 10.47%, #FF4934 98.88%);
+    }
+
+    .contentContainer {
+      .title {
+        color: $white;
+      }
     }
   }
 }

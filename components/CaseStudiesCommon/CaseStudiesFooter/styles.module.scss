@@ -190,6 +190,41 @@
   }
 }
 
+.seven-pm-thursday {
+  @extend .container;
+
+  background: #191B1E;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  /* stylelint-disable-next-line */
+  .link{
+    color: rgba($white, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $white;
+  }
+}
+
 // TODO: use when stickerBox page will be added
 //.stickerbox {
 //  background: $turbo-100;

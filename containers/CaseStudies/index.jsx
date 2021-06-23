@@ -16,6 +16,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
     contentModules,
     metaTitle,
     metaDescription,
+    hasFeedbackForm,
   } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
     [
@@ -23,6 +24,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
       'contentModules',
       'metaDescription',
       'metaTitle',
+      'hasFeedbackForm',
     ],
   );
   // TODO: rework metatags for CaseStudies pages
@@ -46,9 +48,11 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
           data={fields}
         />
       ))}
-      <div className={styles.feedBackContainer}>
-        <FeedbackForm />
-      </div>
+      {hasFeedbackForm && (
+        <div className={styles.feedBackContainer}>
+          <FeedbackForm />
+        </div>
+      )}
     </Fragment>
   );
 };

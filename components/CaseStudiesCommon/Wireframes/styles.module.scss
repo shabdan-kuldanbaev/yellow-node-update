@@ -71,6 +71,25 @@
   }
 }
 
+.seven-pm-thursday {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(90deg, #1C1E20 0%, rgba(#1c1e20, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, #1C1E20 0%, rgba(#1c1e20, 0) 100%);
+  }
+
+  /* stylelint-disable-next-line */
+  .animatedContainer {
+    .image {
+      margin-left: 40px;
+    }
+  }
+}
+
 // TODO: use when stickerBox page will be added
 //.stickerbox {
 //  &::before {

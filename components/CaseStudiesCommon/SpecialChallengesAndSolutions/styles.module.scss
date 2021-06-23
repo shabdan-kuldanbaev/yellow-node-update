@@ -7,3 +7,19 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.seven-pm-thursday {
+  @include caseStudyContainer;
+
+  background-color: #1C1E20;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  @include tablet {
+    padding-top: 0;
+  }
+
+  @include phone {
+    padding-top: 40px;
+  }
+}

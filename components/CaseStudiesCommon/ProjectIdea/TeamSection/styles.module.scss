@@ -1,7 +1,6 @@
 @import 'styles/utils/mixins';
 
 .container {
-  background-color: $white;
   display: grid;
   grid-row-gap: 15px;
   grid-column-gap: 15px;
@@ -56,6 +55,22 @@
 
 .fernwayer {
   @extend .container;
+}
+
+.seven-pm-thursday {
+  @extend .container;
+
+  grid-template-rows: repeat(4, auto);
+
+  .title {
+    color: $white;
+    grid-row: 1/5;
+  }
+
+  .teamItem {
+    font-weight: 500;
+    color: $white;
+  }
 }
 
 // TODO: use when stickerBox page will be added
