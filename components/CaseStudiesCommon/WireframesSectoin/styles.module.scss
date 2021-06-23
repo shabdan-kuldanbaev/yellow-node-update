@@ -11,3 +11,19 @@
 
   @extend .wireframes;
 }
+
+.stickerbox {
+  @include caseStudyContainer;
+
+  @extend .wireframes;
+
+  background-color: $dark-grey-1;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: rgba($white, 0.4);
+  }
+}

@@ -58,11 +58,12 @@
   @extend .container;
 }
 
-// TODO: use when stickerBox page will be added
-//.stickerbox {
-//  grid-template-rows: repeat(4, auto);
-//
-//  .title {
-//    grid-row: 1/5;
-//  }
-//}
+.stickerbox {
+  @extend .container;
+
+  grid-template-rows: repeat(4, auto);
+
+  .title {
+    grid-row: 1/5;
+  }
+}

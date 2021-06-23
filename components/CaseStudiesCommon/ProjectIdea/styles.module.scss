@@ -126,3 +126,9 @@
     padding-bottom: 40px;
   }
 }
+
+.stickerbox {
+  @extend .container;
+
+  background-color: $white;
+}
