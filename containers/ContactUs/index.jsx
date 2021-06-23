@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { connect } from 'react-redux';
 import { sendEmail } from 'redux/actions/contact';
 import { selectContacts, selectCompanyPhoto } from 'redux/selectors/layout';
@@ -23,12 +24,10 @@ const ContactUsContainer = ({
   peoplePhoto,
 }) => {
   const { images: officePhotoContent } = getDocumentFields(officePhoto, ['images']);
-  const officeImage = (officePhotoContent && officePhotoContent[0]) ? officePhotoContent[0] : {};
-  const officeImageUrl = getFileUrl(officeImage);
+  const officeImageUrl = getFileUrl(get(officePhotoContent, '[0]', {}));
 
   const { images: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['images']);
-  const peopleImage = (peoplePhotoContent && peoplePhotoContent[0]) ? peoplePhotoContent[0] : {};
-  const peopleImageUrl = getFileUrl(peopleImage);
+  const peopleImageUrl = getFileUrl(get(peoplePhotoContent, '[0]', {}));
   const breadcrumbs = pagesBreadcrumbs.contact();
 
   const handleOnClick = (...args) => {
