@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const axios = require('axios');
 const FormData = require('form-data');
 const errorHelper = require('./error');
-// const ipHelper = require('./ip');
+const ipHelper = require('./ip');
 
 dotenv.config('./env');
 
@@ -22,7 +22,7 @@ module.exports.sendFormData = async (req, res) => {
     formData.append('email', email);
     formData.append('description', description);
     formData.append('client_id', clientId);
-    // TODO formData.append('client_ip', ipHelper.getClientIp(req));
+    formData.append('client_ip', ipHelper.getClientIp(req));
 
     if (projectBudget) {
       formData.append('budget', +projectBudget);
