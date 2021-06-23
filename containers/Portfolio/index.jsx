@@ -15,7 +15,7 @@ import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
 const PortfolioContainer = ({ introSection, portfolioProjects }) => {
-  const { content } = getDocumentFields(portfolioProjects, ['content']);
+  const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.portfolio();
 
   return (
@@ -29,7 +29,7 @@ const PortfolioContainer = ({ introSection, portfolioProjects }) => {
           title={ROUTES.portfolio.title}
           breadcrumbs={breadcrumbs}
         />
-        <Portfolio works={content} />
+        <Portfolio works={contentModules} />
         {/* <Paginator
         pagesCounter={8}
         currentPage={1}
