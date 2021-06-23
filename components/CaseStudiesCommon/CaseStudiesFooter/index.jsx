@@ -30,11 +30,10 @@ const CaseStudiesFooter = ({
     'buttonTitle',
     'slug',
   ]);
-  const isLink = contentModules && get(lastContentModule, 'sys.contentType.sys.type', {}) === 'Link';
 
   return (
     <footer className={styles[type]}>
-      {isLink && (
+      {slug && (
         <div className={styles.nextProjectContainer}>
           <p className={styles.subtitle}>
             Next project

@@ -127,6 +127,12 @@
   }
 }
 
+.stickerbox {
+  @extend .container;
+
+  background-color: $white;
+}
+
 .seven-pm-thursday {
   @extend .container;
 

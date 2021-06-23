@@ -57,6 +57,16 @@
   @extend .container;
 }
 
+.stickerbox {
+  @extend .container;
+
+  grid-template-rows: repeat(4, auto);
+
+  .title {
+    grid-row: 1/5;
+  }
+}
+
 .seven-pm-thursday {
   @extend .container;
 
@@ -72,12 +82,3 @@
     color: $white;
   }
 }
-
-// TODO: use when stickerBox page will be added
-//.stickerbox {
-//  grid-template-rows: repeat(4, auto);
-//
-//  .title {
-//    grid-row: 1/5;
-//  }
-//}

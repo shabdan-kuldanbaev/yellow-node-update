@@ -31,6 +31,7 @@ const ChallengesAndSolutions = ({
           text,
         } = getDocumentFields(document);
         const imageUrl = getFileUrl(get(images, '[0]'));
+        const subImageUrl = getFileUrl(get(images, '[1]', ''));
 
         return (
           <div
@@ -47,6 +48,13 @@ const ChallengesAndSolutions = ({
               </Animated>
             )}
             <div className={cn(styles.infoContainer, { [styles.centrefy]: imageUrl })}>
+              {subImageUrl && (
+                <img
+                  className={styles.subImage}
+                  src={subImageUrl}
+                  alt={title}
+                />
+              )}
               {imageUrl && (
                 <Animated {...delayedAnimation}>
                   <h2 className={styles.title}>

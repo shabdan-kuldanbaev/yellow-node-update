@@ -33,7 +33,7 @@ export const Home = ({
   duck,
 }) => {
   const gradientRef = useRef(null);
-  const { content } = getDocumentFields(photosData, ['content']);
+  const { contentModules } = getDocumentFields(photosData, ['contentModules']);
   const { contextData, setContextData } = useContext(AppContext);
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export const Home = ({
               disableSidePadding
               disableBottomPadding
             >
-              <PhotoGallery photos={content} />
+              <PhotoGallery photos={contentModules} />
             </FullLayout>
             <FeedbackFormContainer />
           </FullLayout>

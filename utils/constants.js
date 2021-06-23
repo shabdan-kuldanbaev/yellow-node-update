@@ -135,6 +135,8 @@ export const SVG_IMAGES_TYPES = {
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
   nearbyArrow: 'nearbyArrow',
+  yellowLogo: 'yellowLogo',
+  yellowLogoText: 'yellowLogoText',
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
@@ -157,11 +159,6 @@ export const ARTICLE_PREVIEW_TYPES = {
   related: 'related',
 };
 
-export const LOGO_TYPES = {
-  whiteLogo: 'whiteLogo',
-  default: 'default',
-};
-
 export const ANIMATION_CASE_STUDY_PROPS = {
   type: ANIMATED_TYPE.isFade,
   duration: 1000,
@@ -169,5 +166,6 @@ export const ANIMATION_CASE_STUDY_PROPS = {
 
 export const CASE_STUDIES_SLUGS = [
   'fernwayer',
+  'stickerbox',
   'seven-pm-thursday',
 ];

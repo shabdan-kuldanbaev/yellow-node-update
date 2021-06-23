@@ -291,7 +291,7 @@
   }
 
   @include phone {
-    padding: 40px 15px;
+    padding: 80px 15px;
   }
 
   .image {
@@ -309,6 +309,13 @@
 
   [data-case-study-description] {
     color: $silver-chalice;
+  }
+}
+
+@mixin infoContainerPhone {
+  @include phone {
+    order: initial;
+    margin: 0;
   }
 }
 

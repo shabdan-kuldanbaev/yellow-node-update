@@ -6,6 +6,12 @@
   background-color: $white;
 }
 
+.stickerbox {
+  @include caseStudyContainer;
+
+  background-color: $white;
+}
+
 .seven-pm-thursday {
   @include caseStudyContainer;
 

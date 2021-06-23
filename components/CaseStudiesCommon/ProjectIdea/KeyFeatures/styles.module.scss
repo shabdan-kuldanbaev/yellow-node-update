@@ -88,7 +88,6 @@
 
       & > p {
         margin: 0;
-        white-space: pre-line;
         line-height: 150%;
         font-family: $case-studies-font;
         color: $silver-chalice;
@@ -119,6 +118,18 @@
   }
 }
 
+.stickerbox {
+  @extend .container;
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $dark-grey;
+      background: $turbo-100;
+    }
+  }
+}
+
 .seven-pm-thursday {
   @extend .container;
 
@@ -139,13 +150,3 @@
     }
   }
 }
-
-// TODO: use when stickerBox page will be added
-//.stickerbox {
-//  /* stylelint-disable-next-line */
-//  .featureContainer {
-//    .checkMark {
-//      background: $turbo-100;
-//    }
-//  }
-//}
