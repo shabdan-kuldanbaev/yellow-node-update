@@ -28,7 +28,7 @@ const Header = ({
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   // TODO rework this check
-  const logo = !isAdditional && (isCaseStudyPage || isHomePage)
+  const logo = !isAdditional && isPageWithTransparentHeader
     ? project || 'home'
     : 'default';
 
