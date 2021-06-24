@@ -20,6 +20,8 @@
   }
 
   .image {
+    max-height: 812px;
+
     @include phone {
       width: auto;
       height: 470px;

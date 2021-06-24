@@ -118,12 +118,14 @@
   }
 }
 
-// TODO: use when stickerBox page will be added
-//.stickerbox {
-//  /* stylelint-disable-next-line */
-//  .featureContainer {
-//    .checkMark {
-//      background: $turbo-100;
-//    }
-//  }
-//}
+.stickerbox {
+  @extend .container;
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $dark-grey;
+      background: $turbo-100;
+    }
+  }
+}

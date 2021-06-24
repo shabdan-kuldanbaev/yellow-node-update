@@ -36,6 +36,7 @@
     @include insetGradient;
   }
 
+  // TODO: the first image does not animated on desktop safari
   .animatedContainer {
     position: relative;
     animation: image-scroll 30s linear infinite;
@@ -71,13 +72,14 @@
   }
 }
 
-// TODO: use when stickerBox page will be added
-//.stickerbox {
-//  &::before {
-//    background: linear-gradient(90deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
-//  }
-//
-//  &::after {
-//    background: linear-gradient(270deg, #1A1C1F 0%, rgba(26, 28, 31, 0) 100%);
-//  }
-//}
+.stickerbox {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(90deg, $dark-grey-1 0%, rgba($dark-grey-1, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $dark-grey-1 0%, rgba($dark-grey-1, 0) 100%);
+  }
+}

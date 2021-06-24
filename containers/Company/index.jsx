@@ -29,9 +29,9 @@ const CompanyContainer = ({
   managementTeam,
   whatMakesSpecial,
 }) => {
-  const { content: carouselContent } = getDocumentFields(photosData, ['content']);
-  const { content: teamContent } = getDocumentFields(managementTeam, ['content']);
-  const { content: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['content']);
+  const { contentModules: carouselContent } = getDocumentFields(photosData, ['contentModules']);
+  const { contentModules: teamContent } = getDocumentFields(managementTeam, ['contentModules']);
+  const { contentModules: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.company();
 
   return (
