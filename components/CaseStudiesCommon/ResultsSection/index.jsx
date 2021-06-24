@@ -12,7 +12,7 @@ const ResultsSection = ({ data, type }) => {
     return null;
   }
 
-  const images = get(data, 'images');
+  const { images } = data;
   const smartphoneUrl = getFileUrl(images[0]);
   const appScreenUrl = getFileUrl(images[1]);
   const appScreens = images.slice(2);
@@ -46,11 +46,13 @@ const ResultsSection = ({ data, type }) => {
               delay={delay}
               duration={1}
             >
-              <img
-                className={styles.screenImage}
-                src={imageUrl}
-                alt={imageUrl}
-              />
+              <div>
+                <img
+                  className={styles.screenImage}
+                  src={imageUrl}
+                  alt={imageUrl}
+                />
+              </div>
             </Animated>
           );
         })}

@@ -389,15 +389,15 @@
 
 @keyframes stickerbox-pointer-move {
   85% {
-    transform: translate(151px, 241px);
+    transform: translate(325px, 592px);
   }
 
   90% {
-    transform: translate(151px, 241px) scale(0.85);
+    transform: translate(325px, 592px) scale(0.85);
   }
 
   100% {
-    transform: translate(151px, 241px) scale(1);
+    transform: translate(325px, 592px) scale(1);
   }
 }
 
@@ -409,28 +409,28 @@
 
 @keyframes stickerbox-pointer-second {
   85% {
-    transform: translate(120px, 260px);
+    transform: translate(295px, 600px);
   }
 
   90% {
-    transform: translate(120px, 260px) scale(0.85);
+    transform: translate(295px, 600px) scale(0.85);
   }
 
   100% {
-    transform: translate(120px, 260px) scale(1);
+    transform: translate(295px, 600px) scale(1);
   }
 }
 
 @keyframes stickerbox-pointer-third {
   85% {
-    transform: translate(215px, 260px);
+    transform: translate(390px, 600px);
   }
 
   90% {
-    transform: translate(215px, 260px) scale(0.85);
+    transform: translate(390px, 600px) scale(0.85);
   }
 
   100% {
-    transform: translate(215px, 260px) scale(1);
+    transform: translate(390px, 600px) scale(1);
   }
 }

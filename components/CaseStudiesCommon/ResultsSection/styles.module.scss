@@ -33,8 +33,9 @@
 
     .pointer {
       position: absolute;
-      top: 50%;
-      left: 25%;
+      top: 0;
+      left: 0;
+      transform: translate(180px, 310px);
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -55,11 +56,12 @@
 
     .screenImage {
       position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(47%, -5%);
       width: 360px;
       max-height: 771px;
       z-index: 10;
-      top: -5%;
-      left: 24%;
     }
 
     .startedImage {
