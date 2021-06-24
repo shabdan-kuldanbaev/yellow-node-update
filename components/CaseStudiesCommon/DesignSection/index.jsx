@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { getDocumentFields } from 'utils/helper';
-import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import Images from 'components/CaseStudiesCommon/Images';
+import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
+import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const DesignSection = ({ data, type }) => {
@@ -22,9 +22,11 @@ const DesignSection = ({ data, type }) => {
 
         return (
           <div className={styles.container}>
-            <h2 className={styles.title}>
-              {contentItem.title}
-            </h2>
+            {contentItem.title && (
+              <h2 className={styles.title}>
+                {contentItem.title}
+              </h2>
+            )}
             <Images
               data={contentItem}
               type="scaled"
