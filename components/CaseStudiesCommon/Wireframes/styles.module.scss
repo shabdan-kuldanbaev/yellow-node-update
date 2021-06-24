@@ -36,6 +36,7 @@
     @include insetGradient;
   }
 
+  // TODO: the first image does not animated on desktop safari
   .animatedContainer {
     position: relative;
     animation: image-scroll 30s linear infinite;
