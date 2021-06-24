@@ -386,3 +386,51 @@
     transform: translateX(-100%);
   }
 }
+
+@keyframes stickerbox-pointer-move {
+  85% {
+    transform: translate(151px, 241px);
+  }
+
+  90% {
+    transform: translate(151px, 241px) scale(0.85);
+  }
+
+  100% {
+    transform: translate(151px, 241px) scale(1);
+  }
+}
+
+@keyframes hide-image {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes stickerbox-pointer-second {
+  85% {
+    transform: translate(120px, 260px);
+  }
+
+  90% {
+    transform: translate(120px, 260px) scale(0.85);
+  }
+
+  100% {
+    transform: translate(120px, 260px) scale(1);
+  }
+}
+
+@keyframes stickerbox-pointer-third {
+  85% {
+    transform: translate(215px, 260px);
+  }
+
+  90% {
+    transform: translate(215px, 260px) scale(0.85);
+  }
+
+  100% {
+    transform: translate(215px, 260px) scale(1);
+  }
+}
