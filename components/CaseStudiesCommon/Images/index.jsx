@@ -6,34 +6,38 @@ import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-const Images = ({ data }) => {
+const Images = ({ data, type }) => {
   if (!get(data, 'images')) {
     return null;
   }
 
-  return data.images.map((image) => {
-    const imageUrl = getFileUrl(image);
+  const classes = styles[`${type}${data.images.length}`];
 
-    return (
-      <Animated
-        key={imageUrl}
-        delay={500}
-        {...ANIMATION_CASE_STUDY_PROPS}
-      >
-        <div className={styles.imagContainer}>
-          <img
-            className={styles.image}
-            src={imageUrl}
-            alt={imageUrl}
-          />
-        </div>
-      </Animated>
-    );
-  });
+  return (
+    <Animated
+      delay={500}
+      {...ANIMATION_CASE_STUDY_PROPS}
+    >
+      <div className={styles.imagContainer}>
+        {data.images.map((image, index) => {
+          const imageUrl = getFileUrl(image);
+
+          return (
+            <img
+              className={index ? classes : styles.image}
+              src={imageUrl}
+              alt={imageUrl}
+            />
+          );
+        })}
+      </div>
+    </Animated>
+  );
 };
 
 Images.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default Images;
