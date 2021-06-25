@@ -1,0 +1,15 @@
+@import 'styles/utils/mixins';
+
+.paralax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fairy {
+  @extend .paralax;
+
+  background-color: #140A2F;
+}

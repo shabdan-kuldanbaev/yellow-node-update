@@ -152,6 +152,7 @@ export const CASE_STUDIES_TYPES = {
   appFeatures: 'case-study-app-features',
   image: 'case-study-image',
   results: 'case-study-results',
+  parallax: 'case-study-parallax',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
