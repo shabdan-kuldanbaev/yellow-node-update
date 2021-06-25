@@ -1,56 +1,47 @@
-import React from 'react';
-import { FullLayout } from 'components/Layout/FullLayout';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { selectComponents } from 'redux/selectors/layout';
 import { PageHeader } from 'components/Common/PageHeader';
-import { PageIntro } from 'components/CustomChatAppCommon/PageIntro';
-import { ExperienceSection } from 'components/CustomChatAppCommon/ExperienceSection';
-import { TypesOfChatSection } from 'components/CustomChatAppCommon/TypesOfChatSection';
-import { AdvantagesSection } from 'components/CustomChatAppCommon/AdvantagesSection';
-import { ChatFeaturesSection } from 'components/CustomChatAppCommon/ChatFeaturesSection';
-import { TechnologiesSection } from 'components/CustomChatAppCommon/TechnologiesSection';
-import { OurWorkSection } from 'components/CustomChatAppCommon/OurWorkSection';
-import { CallToAction } from 'components/Common/CallToAction';
+import { MetaTags } from 'components/Common/MetaTags';
+import { ChatAppCommon } from 'components/CustomChatAppCommon/ChatAppCommon';
+import { FullLayout } from 'components/Layout/FullLayout';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { microdata } from 'utils/microdata';
+import { PAGES } from 'utils/constants';
 
-export const CustomChatAppContainer = ({ introSection }) => {
+const CustomChatAppContainer = ({ pageData }) => {
   const breadcrumbs = pagesBreadcrumbs.customChatApp();
+  const {
+    main: contentModules,
+    // TODO remove meta data from const and use from contentful
+    // metaTitle,
+    // metaDescription,
+  } = pageData;
+
+  if (!pageData || !contentModules) {
+    return null;
+  }
 
   return (
-    <FullLayout>
-      <PageHeader breadcrumbs={breadcrumbs} />
-      <PageIntro />
-      <ExperienceSection />
-      <FullLayout
-        disableMaxWidth
-        disableTopPadding
-        disableSidePadding
-        disableBottomPadding
-      >
-        <TypesOfChatSection />
-      </FullLayout>
-      <AdvantagesSection />
-      <FullLayout
-        disableMaxWidth
-        disableTopPadding
-        disableSidePadding
-        disableBottomPadding
-      >
-        <ChatFeaturesSection />
-      </FullLayout>
-      <TechnologiesSection />
-      <CallToAction
-        type="card"
-        title={`Want to start chat app development?
-                Ask Yelow’s consultants now.`}
-        buttonTitle="Contact us"
+    <Fragment>
+      <MetaTags
+        page={PAGES.customChatApp}
+        pageMicrodata={microdata.customChatApp()}
+        breadcrumbs={breadcrumbs}
       />
-      <FullLayout
-        disableMaxWidth
-        disableTopPadding
-        disableSidePadding
-        disableBottomPadding
-      >
-        <OurWorkSection />
+      <FullLayout>
+        <PageHeader breadcrumbs={breadcrumbs} />
+        {contentModules.map((module) => <ChatAppCommon section={module} />)}
       </FullLayout>
-    </FullLayout>
+    </Fragment>
   );
 };
+
+CustomChatAppContainer.propTypes = {
+  pageData: PropTypes.instanceOf(Object).isRequired,
+};
+
+export default connect(
+  (state) => ({ pageData: selectComponents(state) }),
+)(CustomChatAppContainer);

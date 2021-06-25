@@ -196,9 +196,9 @@ export const routes = {
   },
   customChatApp: {
     title: 'Custom chat app development company',
-    path: '/custom-chat-app-development-company',
-    dynamicPath: '/custom-chat-app-development-company',
-    slug: 'custom-chat-app-development-company',
+    path: '/chat-app-development-company',
+    dynamicPath: '/chat-app-development-company',
+    slug: 'chat-app-development-company',
   },
   notFound: {
     title: '404 | Yellow',

@@ -1,31 +1,72 @@
 import React from 'react';
-import Img from './img/img2.png';
+import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import { Animated } from 'components/Common/Animated';
+import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const ExperienceSection = () => (
-  <div className={styles.experienceSection}>
-    <div>
-      <div
-        className={styles.image}
-        style={{ backgroundImage: `url(${Img})` }}
-        alt=""
-      />
+export const ExperienceSection = ({ sectionData }) => {
+  const {
+    title,
+    description,
+    images,
+    contentModules,
+  } = getDocumentFields(
+    sectionData,
+    [
+      'title',
+      'description',
+      'images',
+      'contentModules',
+    ],
+  );
+  const textData = get(contentModules, '[0]', {});
+  const { text } = getDocumentFields(textData);
+  const image = get(images, '[0]', {});
+  const imageUrl = getFileUrl(image);
+  const animatedProps = {
+    type: ANIMATED_TYPE.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
+
+  if (!imageUrl || !text) {
+    return null;
+  }
+
+  return (
+    <div className={styles.experienceSection}>
+      <Animated
+        {...animatedProps}
+        transitionDelay={600}
+      >
+        <div
+          className={styles.image}
+          style={{ backgroundImage: `url(${imageUrl})` }}
+          alt=""
+        />
+      </Animated>
+      <div className={styles.experienceContent}>
+        <SectionTitle
+          title={title}
+          subtitle={description}
+          type="side"
+        />
+        <Animated
+          {...animatedProps}
+          transitionDelay={700}
+        >
+          <ContentfulParser document={text} />
+        </Animated>
+      </div>
     </div>
-    <div className={styles.experienceContent}>
-      <h2 className={styles.title}>
-        Experience
-      </h2>
-      <p className={styles.subtitle}>
-        Yellow has more than five years of dedication to the development of chat apps.
-      </p>
-      <p className={styles.text}>
-        In the process, we&apos;ve accrued vast experience in the development of secure
-        and high-tech online communication systems for various industries,
-        including corporate chat apps for optimized workflow, family-oriented solutions, and avenues for meeting new people.
-      </p>
-      <p className={styles.text}>
-        If you have a great idea and want to turn it into a reality, we&apos;re the team for you! 🔥
-      </p>
-    </div>
-  </div>
-);
+  );
+};
+
+ExperienceSection.propTypes = {
+  sectionData: PropTypes.instanceOf(Object).isRequired,
+};

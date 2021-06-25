@@ -24,7 +24,7 @@ const LinearIndeterminate = ({ isPageReadyToDisplay, isMobileResolutuins }) => {
       className={cn(styles.linear, {
         [styles.mobile]: isMobileResolutuins,
       })}
-      // ref={linearRef}
+      ref={linearRef}
     >
       <LinearProgress variant="indeterminate" />
     </div>

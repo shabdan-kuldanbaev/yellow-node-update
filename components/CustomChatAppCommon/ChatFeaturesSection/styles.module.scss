@@ -18,7 +18,7 @@
 
   .chatFeaturesList {
     padding: 150px;
-    box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
+    box-shadow: $card-bow-shadow;
     border-radius: 5px;
     width: calc(100% - 300px);
     background-color: $white;

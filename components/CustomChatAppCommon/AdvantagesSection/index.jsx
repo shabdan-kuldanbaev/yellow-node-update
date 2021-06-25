@@ -1,36 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import { Animated } from 'components/Common/Animated';
 import { Svg } from 'components/Common/Svg';
 import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
-import { advantagesData } from './utils/data';
+import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
+import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const AdvantagesSection = ({ advantagesData: advantages }) => (
-  <div className={styles.advantagesSection}>
-    <SectionTitle
-      title="Advantages of a chat app development"
-      text="If you&apos;re still wondering if your business needs a chat app, here are the main benefits of instant messages both for you and users:"
-    />
-    <div className={styles.advantagesList}>
-      {advantages.map((advantage) => (
-        <div className={styles.item}>
-          <div>
-            <Svg type={SVG_IMAGES_TYPES.yellowCheckMark} />
-          </div>
-          <p className={styles.advantageTitle}>
-            {advantage}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-);
+export const AdvantagesSection = ({ sectionData }) => {
+  const {
+    title,
+    description,
+    contentModules,
+  } = getDocumentFields(
+    sectionData,
+    [
+      'title',
+      'description',
+      'contentModules',
+    ],
+  );
+  const advantagesData = get(contentModules, '[0]', {});
+  const { contentList: advantages } = getDocumentFields(
+    advantagesData,
+    ['contentList'],
+  );
 
-AdvantagesSection.defaultProps = {
-  advantagesData,
+  if (!advantages || !advantages.length) {
+    return null;
+  }
+
+  return (
+    <div className={styles.advantagesSection}>
+      <SectionTitle
+        title={title}
+        description={description}
+      />
+      <div className={styles.advantagesList}>
+        {advantages.map((advantage, index) => (
+          <Animated
+            type={ANIMATED_TYPE.isCustom}
+            translateY="2.82352941em"
+            opasityDuration={1}
+            transformDuration={1}
+            transitionDelay={600 + 50 * index}
+          >
+            <div>
+              <Svg type={SVG_IMAGES_TYPES.yellowCheckMark} />
+            </div>
+            <p className={styles.advantageTitle}>
+              {advantage}
+            </p>
+          </Animated>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 AdvantagesSection.propTypes = {
-  advantagesData: PropTypes.instanceOf(Array),
+  sectionData: PropTypes.instanceOf(Array).isRequired,
 };

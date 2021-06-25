@@ -16,10 +16,10 @@
       @include flex(column, initial, center);
     }
 
-    .item {
+    & > div {
       padding: 30px 50px;
       margin-bottom: 30px;
-      box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
+      box-shadow: $card-bow-shadow;
       border-radius: 5px;
       width: calc(50% - 115px);
 

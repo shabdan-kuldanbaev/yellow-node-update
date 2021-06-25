@@ -1,12 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { Figures } from './Figures';
-import IntroImage from './img/img1.png';
 import styles from './styles.module.scss';
 
-export const PageIntro = () => {
+export const PageIntro = ({ sectionData }) => {
+  const {
+    title,
+    description,
+    images,
+    contentModules,
+  } = getDocumentFields(
+    sectionData,
+    [
+      'title',
+      'description',
+      'images',
+      'contentModules',
+    ],
+  );
+  const image = get(images, '[0]', {});
+  const imageUrl = getFileUrl(image);
+  const figuresData = get(contentModules, '[0]', {});
+
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -14,29 +33,47 @@ export const PageIntro = () => {
     transformDuration: 1,
   };
 
+  if (!title || !description || !imageUrl) {
+    return null;
+  }
+
   return (
     <div className={styles.pageIntroContainer}>
       <div className={styles.pageIntroWrapper}>
         <div className={styles.pageTitleContainer}>
-          <Animated {...animatedProps}>
-            <h1 className={styles.pageTitle}>Custom chat app development company</h1>
+          <Animated
+            {...animatedProps}
+            transitionDelay={600}
+          >
+            <h1 className={styles.pageTitle}>
+              {title}
+            </h1>
           </Animated>
-          <Animated {...animatedProps}>
+          <Animated
+            {...animatedProps}
+            transitionDelay={750}
+          >
             <p className={styles.subtitle}>
-              Instant communication is highly in demand today. It’s fast, it’s easy, and it’s real-time.
-              Today it is hard to imagine your life without messengers since they help you stay in touch with friends, family, or colleagues.
+              {description}
             </p>
           </Animated>
         </div>
-        <div>
+        <Animated
+          {...animatedProps}
+          transitionDelay={600}
+        >
           <div
             className={styles.image}
-            style={{ backgroundImage: `url(${IntroImage})` }}
+            style={{ backgroundImage: `url(${imageUrl})` }}
             alt=""
           />
-        </div>
+        </Animated>
       </div>
-      <Figures />
+      <Figures figuresData={figuresData} />
     </div>
   );
+};
+
+PageIntro.propTypes = {
+  sectionData: PropTypes.instanceOf(Object).isRequired,
 };

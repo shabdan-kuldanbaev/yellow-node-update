@@ -2,14 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
 import SwiperCore, { Pagination, EffectCoverflow } from 'swiper/core';
-import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
-import { worksData } from './utils/data';
 import 'swiper/components/pagination/pagination.scss';
+import { Animated } from 'components/Common/Animated';
+import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
+import { ANIMATED_TYPE } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
-export const OurWorkSection = ({ worksData: works }) => {
+export const OurWorkSection = ({ sectionData }) => {
+  const {
+    title,
+    description,
+    images,
+  } = getDocumentFields(
+    sectionData,
+    [
+      'title',
+      'description',
+      'images',
+    ],
+  );
   const params = {
     effect: 'coverflow',
     slidesPerView: 1.8,
@@ -32,30 +46,29 @@ export const OurWorkSection = ({ worksData: works }) => {
   return (
     <div className={styles.ourWorkSection}>
       <SectionTitle
-        title="Our work"
-        text="Our team combines the vast experience and proactive approach to software development"
+        title={title}
+        description={description}
       />
       <Swiper
         {...params}
       >
-        {works.map((work) => (
-          <div className={styles.item}>
-            <img
-              src={work}
-              alt=""
-              style={{ width: '100%', borderRadius: '5px' }}
-            />
-          </div>
-        ))}
+        {images.map((image) => {
+          const imageUrl = getFileUrl(image);
+
+          return (
+            <div className={styles.item}>
+              <img
+                src={imageUrl}
+                alt=""
+              />
+            </div>
+          );
+        })}
       </Swiper>
     </div>
   );
 };
 
-OurWorkSection.defaultProps = {
-  worksData,
-};
-
 OurWorkSection.propTypes = {
-  worksData: PropTypes.instanceOf(Array),
+  sectionData: PropTypes.instanceOf(Object).isRequired,
 };

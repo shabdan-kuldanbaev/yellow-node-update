@@ -6,7 +6,7 @@
   .technologiesList {
     @include flex(row, space-between, center, wrap);
 
-    .item {
+    & > div {
       flex: 1 0 20%;
       text-align: center;
       margin-top: 80px;

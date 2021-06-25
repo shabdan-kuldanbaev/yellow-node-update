@@ -24,6 +24,7 @@
 
   .experienceContent {
     padding-left: 150px;
+    width: 100%;
 
     @include tablet {
       padding-left: 80px;
@@ -33,65 +34,26 @@
       padding-left: 0;
     }
 
-    .title {
-      margin: 0 0 30px;
-
-      @include fontSize(46px);
-
-      @include macbook-twelve {
-        @include fontSize(40px);
-      }
-
-      @include tablet {
-        @include fontSize(35px);
-      }
-
-      @include below-tablet {
-        text-align: center;
-      }
-
-      @include phone {
-        @include fontSize(30px);
-      }
-    }
-
-    .subtitle {
-      margin: 0 0 30px;
-      padding-right: 50px;
-      line-height: 1.5;
-      font-weight: 700;
-
-      @include fontSize(20px);
-
-      @include below-tablet {
-        padding-right: 0;
+    & > div:last-child {
+      & > p {
+        margin: 0 0 30px;
+        padding-right: 50px;
+        color: $silver-chalice;
+        line-height: 2;
 
         @include fontSize(18px);
-      }
 
-      @include phone {
-        @include fontSize(16px);
-      }
-    }
+        @include macbook-fifteen {
+          @include fontSize(16px);
+        }
 
-    .text {
-      margin: 0 0 30px;
-      padding-right: 50px;
-      color: $silver-chalice;
-      line-height: 2;
+        @include below-tablet {
+          padding-right: 0;
+        }
 
-      @include fontSize(18px);
-
-      @include macbook-fifteen {
-        @include fontSize(16px);
-      }
-
-      @include below-tablet {
-        padding-right: 0;
-      }
-
-      @include phone {
-        @include fontSize(14px);
+        @include phone {
+          @include fontSize(14px);
+        }
       }
     }
   }

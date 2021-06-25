@@ -1,30 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import { Animated } from 'components/Common/Animated';
 import { Svg } from 'components/Common/Svg';
+import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
-import { technologiesData } from './utils/data';
+import { ANIMATED_TYPE } from 'utils/constants';
+import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const TechnologiesSection = ({ technologiesData: technologies }) => (
-  <div className={styles.technologiesSection}>
-    <SectionTitle
-      title="What technologies do we use for chat app development?"
-      text="Our team always gives preference to the most cutting-edge and reliable technologies and integrations."
-    />
-    <div className={styles.technologiesList}>
-      {technologies.map((technology) => (
-        <div className={styles.item}>
-          <Svg type={technology} />
-        </div>
-      ))}
-    </div>
-  </div>
-);
+export const TechnologiesSection = ({ sectionData }) => {
+  const {
+    title,
+    description,
+    contentModules,
+  } = getDocumentFields(
+    sectionData,
+    [
+      'title',
+      'description',
+      'contentModules',
+    ],
+  );
+  const technologiesData = get(contentModules, '[0]', []);
+  const { contentList: technologies } = getDocumentFields(
+    technologiesData,
+    ['contentList'],
+  );
 
-TechnologiesSection.defaultProps = {
-  technologiesData,
+  return (
+    <div className={styles.technologiesSection}>
+      <SectionTitle
+        title={title}
+        description={description}
+      />
+      <div className={styles.technologiesList}>
+        {technologies.map((technology, index) => (
+          <Animated
+            type={ANIMATED_TYPE.isCustom}
+            translateY="2.82352941em"
+            opasityDuration={1}
+            transformDuration={1}
+            transitionDelay={750 + 50 * index}
+          >
+            <Svg type={technology} />
+          </Animated>
+        ))}
+      </div>
+      <CallToAction
+        type="card"
+        title={`Want to start chat app development?
+                Ask Yelow’s consultants now.`}
+        buttonTitle="Contact us"
+      />
+    </div>
+  );
 };
 
 TechnologiesSection.propTypes = {
-  technologiesData: PropTypes.instanceOf(Array),
+  sectionData: PropTypes.instanceOf(Object).isRequired,
 };

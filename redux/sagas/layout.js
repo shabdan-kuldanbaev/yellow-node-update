@@ -100,6 +100,7 @@ function* fetchPageData({
     case PAGES.portfolio:
     case PAGES.contact:
     case PAGES.company:
+    case PAGES.customChatApp:
       yield call(fetchPage, { slug });
 
       break;

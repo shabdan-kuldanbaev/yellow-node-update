@@ -1,8 +1,20 @@
 @import 'styles/utils/mixins';
 
 .ourWorkSection {
-  margin-top: 150px;
-  margin-bottom: 50px;
+  margin: 150px 0 50px;
+
+  .item {
+    img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+
+  .swiperPaginationBullet {
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+  }
 
   :global(.swiper-container) {
     &::before,
@@ -16,12 +28,12 @@
     }
 
     &::before {
-      background: linear-gradient(90deg, rgba(255, 255, 255, 1) -20%, rgba(255, 255, 255, 0) 40%);
+      background: linear-gradient(90deg, rgba($white, 1) -20%, rgba($white, 0) 40%);
       left: -15px;
     }
 
     &::after {
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 1) 120%);
+      background: linear-gradient(90deg, rgba($white, 0) 60%, rgba($white, 1) 120%);
       right: -15px;
     }
   }
@@ -32,16 +44,14 @@
   }
 
   :global(.swiper-pagination-bullet) {
-    width: 12px;
-    height: 12px;
+    @extend .swiperPaginationBullet;
+
     background: $wild-sand;
-    opacity: 1;
   }
 
   :global(.swiper-pagination-bullet-active) {
-    width: 12px;
-    height: 12px;
+    @extend .swiperPaginationBullet;
+
     background: $silver-chalice;
-    opacity: 1;
   }
 }
