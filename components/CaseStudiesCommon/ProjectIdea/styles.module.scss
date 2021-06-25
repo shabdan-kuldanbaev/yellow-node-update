@@ -132,3 +132,9 @@
 
   background-color: $white;
 }
+
+.fairy {
+  @extend .container;
+
+  background-color: $white;
+}

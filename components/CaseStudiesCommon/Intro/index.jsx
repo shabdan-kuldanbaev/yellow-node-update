@@ -19,8 +19,20 @@ const Intro = ({
     description,
     images,
     contentModules,
-  } = getDocumentFields(get(data, 'contentModules[0]', {}));
-  const { contentModules: experiences } = getDocumentFields(get(data, 'contentModules[1]', {}));
+  } = getDocumentFields(
+    get(data, 'contentModules[0]', {}),
+    [
+      'title',
+      'subtitle',
+      'description',
+      'images',
+      'contentModules',
+    ],
+  );
+  const { contentModules: experiences } = getDocumentFields(
+    get(data, 'contentModules[1]', {}),
+    ['contentModules'],
+  );
   const appLogoUrl = getFileUrl(get(images, '[0]', ''));
   const appBackgroundImageUrl = getFileUrl(get(images, '[1]', ''));
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));

@@ -83,3 +83,15 @@
     background: linear-gradient(270deg, $dark-grey-1 0%, rgba($dark-grey-1, 0) 100%);
   }
 }
+
+.fairy {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(90deg, #140A2F 0%, rgba(#140A2F, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, #140A2F 0%, rgba(#140A2F, 0) 100%);
+  }
+}

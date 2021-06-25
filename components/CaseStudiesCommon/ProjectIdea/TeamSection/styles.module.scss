@@ -67,3 +67,23 @@
     grid-row: 1/5;
   }
 }
+
+.fairy {
+  @extend .container;
+
+  grid-template-columns: repeat(4, minmax(170px, 270px));
+  grid-template-rows: repeat(3, auto);
+
+  .title {
+    margin-bottom: 80px;
+    grid-column: 1/6;
+    grid-row: 1/2;
+    text-align: center;
+
+    @include fontSize(56px);
+  }
+
+  .teamItem {
+    font-weight: 500;
+  }
+}
