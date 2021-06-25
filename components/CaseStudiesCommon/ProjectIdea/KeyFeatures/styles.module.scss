@@ -129,3 +129,24 @@
     }
   }
 }
+
+.seven-pm-thursday {
+  @extend .container;
+
+  .containerBackground {
+    background-color: rgba($white, 0.03);
+  }
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: linear-gradient(159.7deg, $pink-1 10.47%, $light-red 98.88%);
+    }
+
+    .contentContainer {
+      .title {
+        color: $white;
+      }
+    }
+  }
+}

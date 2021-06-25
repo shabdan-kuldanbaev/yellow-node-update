@@ -152,6 +152,7 @@ export const CASE_STUDIES_TYPES = {
   appFeatures: 'case-study-app-features',
   image: 'case-study-image',
   results: 'case-study-results',
+  design: 'case-study-design',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -166,4 +167,5 @@ export const ANIMATION_CASE_STUDY_PROPS = {
 export const CASE_STUDIES_SLUGS = [
   'fernwayer',
   'stickerbox',
+  'seven-pm-thursday',
 ];

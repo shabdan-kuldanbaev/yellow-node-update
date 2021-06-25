@@ -132,3 +132,29 @@
 
   background-color: $white;
 }
+
+.seven-pm-thursday {
+  @extend .container;
+
+  background-color: $dark-blue-1;
+
+  @include tablet {
+    padding-bottom: 100px;
+  }
+
+  @include phone {
+    padding-bottom: 40px;
+  }
+
+  .contentContainer {
+    .descriptionContainer {
+      .title {
+        color: $white;
+      }
+
+      .description {
+        max-width: 406px;
+      }
+    }
+  }
+}

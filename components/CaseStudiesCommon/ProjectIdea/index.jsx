@@ -44,7 +44,10 @@ const ProjectIdea = ({ type, data }) => {
             </div>
           </Animated>
           <Animated {...delayedAnimation}>
-            <AdditionInformation additionInformation={contentModules} />
+            <AdditionInformation
+              additionInformation={contentModules}
+              type={type}
+            />
           </Animated>
         </div>
       </div>

@@ -1,7 +1,6 @@
 @import 'styles/utils/mixins';
 
 .container {
-  background-color: $white;
   display: grid;
   grid-row-gap: 15px;
   grid-column-gap: 15px;
@@ -65,5 +64,21 @@
 
   .title {
     grid-row: 1/5;
+  }
+}
+
+.seven-pm-thursday {
+  @extend .container;
+
+  grid-template-rows: repeat(4, auto);
+
+  .title {
+    color: $white;
+    grid-row: 1/5;
+  }
+
+  .teamItem {
+    font-weight: 500;
+    color: $white;
   }
 }
