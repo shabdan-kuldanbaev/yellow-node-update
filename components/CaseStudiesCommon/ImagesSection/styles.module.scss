@@ -5,3 +5,23 @@
 
   background-color: $white;
 }
+
+.stickerbox {
+  @include caseStudyContainer;
+
+  background-color: $white;
+}
+
+.seven-pm-thursday {
+  @include caseStudyContainer;
+
+  background-color: $dark-blue;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: $silver-chalice;
+  }
+}

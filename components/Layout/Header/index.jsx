@@ -9,11 +9,7 @@ import LinearIndeterminate from 'components/Common/LinearIndeterminate';
 import Logo from 'components/Common/Logo';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import { TopProgressBar } from 'components/Common/TopProgressBar';
-import {
-  ROUTES,
-  LOGO_TYPES,
-  CASE_STUDIES_SLUGS,
-} from 'utils/constants';
+import { ROUTES, CASE_STUDIES_SLUGS } from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
@@ -27,13 +23,14 @@ const Header = ({
   const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
   const isCaseStudyPage = CASE_STUDIES_SLUGS.includes(project);
-  const isPageWithTransparentHeader = asPath === ROUTES.homepage.path || isCaseStudyPage;
+  const isHomePage = asPath === ROUTES.homepage.path;
+  const isPageWithTransparentHeader = isHomePage || isCaseStudyPage;
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   // TODO rework this check
-  const logo = !isAdditional && isCaseStudyPage
-    ? LOGO_TYPES.whiteLogo
-    : LOGO_TYPES.default;
+  const logo = !isAdditional && isPageWithTransparentHeader
+    ? project || 'home'
+    : 'default';
 
   useEffect(() => {
     const handleOnScroll = () => {
@@ -80,10 +77,7 @@ const Header = ({
     })}
     >
       <div className={styles.logo}>
-        <Logo
-          theme={theme}
-          type={logo}
-        />
+        <Logo type={logo} />
       </div>
       {currentPage.includes('blog') && (
         <div className={styles.categories}>

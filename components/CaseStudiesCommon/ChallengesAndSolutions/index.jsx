@@ -31,10 +31,11 @@ const ChallengesAndSolutions = ({
           text,
         } = getDocumentFields(document);
         const imageUrl = getFileUrl(get(images, '[0]'));
+        const subImageUrl = getFileUrl(get(images, '[1]', ''));
 
         return (
           <div
-            key={title}
+            key={title || imageUrl}
             className={cn(styles.contentContainer, { [styles.special]: isSpecial })}
           >
             {!imageUrl && (
@@ -47,6 +48,13 @@ const ChallengesAndSolutions = ({
               </Animated>
             )}
             <div className={cn(styles.infoContainer, { [styles.centrefy]: imageUrl })}>
+              {subImageUrl && (
+                <img
+                  className={styles.subImage}
+                  src={subImageUrl}
+                  alt={title}
+                />
+              )}
               {imageUrl && (
                 <Animated {...delayedAnimation}>
                   <h2 className={styles.title}>
@@ -54,12 +62,14 @@ const ChallengesAndSolutions = ({
                   </h2>
                 </Animated>
               )}
-              <Animated
-                delay={1000}
-                {...ANIMATION_CASE_STUDY_PROPS}
-              >
-                <ContentfulParser document={text} />
-              </Animated>
+              {text && (
+                <Animated
+                  delay={1000}
+                  {...ANIMATION_CASE_STUDY_PROPS}
+                >
+                  <ContentfulParser document={text} />
+                </Animated>
+              )}
             </div>
             {imageUrl && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>

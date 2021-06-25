@@ -162,6 +162,8 @@ export const SVG_IMAGES_TYPES = {
   highQualityCode: 'highQualityCode',
   recommended: 'recommended',
   greatDesign: 'greatDesign',
+  yellowLogo: 'yellowLogo',
+  yellowLogoText: 'yellowLogoText',
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
@@ -177,15 +179,11 @@ export const CASE_STUDIES_TYPES = {
   appFeatures: 'case-study-app-features',
   image: 'case-study-image',
   results: 'case-study-results',
+  design: 'case-study-design',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
   related: 'related',
-};
-
-export const LOGO_TYPES = {
-  whiteLogo: 'whiteLogo',
-  default: 'default',
 };
 
 export const ANIMATION_CASE_STUDY_PROPS = {
@@ -195,4 +193,6 @@ export const ANIMATION_CASE_STUDY_PROPS = {
 
 export const CASE_STUDIES_SLUGS = [
   'fernwayer',
+  'stickerbox',
+  'seven-pm-thursday',
 ];

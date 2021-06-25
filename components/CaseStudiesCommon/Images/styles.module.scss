@@ -1,6 +1,6 @@
 @import 'styles/utils/mixins';
 
-.imagContainer {
+.default {
   overflow-x: auto;
   text-align: center;
 
@@ -20,9 +20,23 @@
   }
 
   .image {
+    max-height: 812px;
+
     @include phone {
       width: auto;
       height: 470px;
     }
+  }
+}
+
+.scaled {
+  .image {
+    display: block;
+    max-width: 1200px;
+    max-height: 100vw;
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+    object-fit: contain;
   }
 }

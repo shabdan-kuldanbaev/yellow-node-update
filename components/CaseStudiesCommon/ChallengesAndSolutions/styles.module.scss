@@ -16,6 +16,10 @@
 
   .centrefy {
     @include flex(column, center);
+
+    @include phone {
+      @include flex(column, center, center);
+    }
   }
 
   .separatedTitle {
@@ -75,10 +79,7 @@
       margin-right: 0;
       margin-left: 66px;
 
-      @include phone {
-        order: initial;
-        margin: 0;
-      }
+      @include infoContainerPhone;
 
       &:nth-child(2n) {
         margin: 0;
@@ -118,12 +119,19 @@
     object-fit: contain;
 
     @include tablet {
+      min-width: 317px;
       max-height: 650px;
     }
 
     @include phone {
       max-height: 500px;
     }
+  }
+
+  .subImage {
+    max-width: 67px;
+    max-height: 100px;
+    margin-bottom: 20px;
   }
 }
 
@@ -139,26 +147,85 @@
   }
 }
 
-// TODO: use when stickerBox page will be added
-//.stickerbox {
-//  &:nth-of-type(1) {
-//    .image {
-//      transform: translateY(-80px);
-//
-//      @include phone {
-//        transform: none;
-//      }
-//    }
-//  }
-//
-//  .title {
-//    color: $white;
-//  }
-//
-//  /* stylelint-disable-next-line */
-//  .infoContainer {
-//    p {
-//      color: rgba($white, 0.4);
-//    }
-//  }
-//}
+.stickerbox {
+  .image {
+    filter: drop-shadow(-30px 20px 80px rgba($dark-grey, 0.15)), drop-shadow(-15px 10px 40px rgba($dark-grey, 0.25));
+  }
+
+  .special {
+    &:first-child {
+      .image {
+        transform: translateY(-70px);
+
+        @include phone {
+          transform: none;
+        }
+      }
+    }
+
+    /* stylelint-disable-next-line */
+    .infoContainer {
+      .title {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+}
+
+.seven-pm-thursday {
+  .contentContainer {
+    /* stylelint-disable-next-line */
+    .infoContainer {
+      .title,
+      h3 {
+        color: $white;
+      }
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  .special {
+    &:first-child {
+      .image {
+        transform: translateY(-70px);
+
+        @include phone {
+          transform: none;
+        }
+      }
+    }
+
+    &:nth-of-type(2n + 1) {
+      .infoContainer:not(.separatedTitle) {
+        order: 2;
+        margin: 0 0 0 66px;
+
+        @include infoContainerPhone;
+      }
+    }
+
+    &:nth-of-type(2n) {
+      .infoContainer:not(.separatedTitle) {
+        order: inherit;
+        margin: 0 66px 0 0;
+
+        @include infoContainerPhone;
+      }
+    }
+
+    /* stylelint-disable-next-line */
+    .infoContainer {
+      .title {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+}

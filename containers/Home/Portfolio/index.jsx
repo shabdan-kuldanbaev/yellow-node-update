@@ -25,7 +25,7 @@ const Portfolio = ({ gradientRef, projects }) => {
   const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const portfolioRef = useRef(null);
   const [currentNumber, setCurrentNumber] = useState(4);
-  const { content } = getDocumentFields(projects, ['content']);
+  const { contentModules } = getDocumentFields(projects, ['contentModules']);
 
   const changeStyle = (index) => {
     refs[0].current.classList.remove(styles[blockNumbers[index + 1]]);
@@ -111,7 +111,7 @@ const Portfolio = ({ gradientRef, projects }) => {
         >
           <Works
             refs={refs}
-            works={content}
+            works={contentModules}
           />
           <div className={styles.bottomOfPortfolio}>
             <SectionTitle

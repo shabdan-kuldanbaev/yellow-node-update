@@ -7,6 +7,7 @@ import WireframesSection from 'components/CaseStudiesCommon/WireframesSectoin';
 import Intro from 'components/CaseStudiesCommon/Intro';
 import ResultsSection from 'components/CaseStudiesCommon/ResultsSection';
 import ImagesSection from 'components/CaseStudiesCommon/ImagesSection';
+import DesignSection from 'components/CaseStudiesCommon/DesignSection';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
 const CaseStudiesCommon = (props) => {
@@ -27,6 +28,8 @@ const CaseStudiesCommon = (props) => {
     return <ImagesSection {...props} />;
   case CASE_STUDIES_TYPES.results:
     return <ResultsSection {...props} />;
+  case CASE_STUDIES_TYPES.design:
+    return <DesignSection {...props} />;
   default:
     return null;
   }
