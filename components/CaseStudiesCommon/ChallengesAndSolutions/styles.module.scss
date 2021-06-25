@@ -120,7 +120,6 @@
     max-height: 812px;
     display: block;
     object-fit: contain;
-    filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
 
     @include tablet {
       min-width: 317px;
@@ -152,6 +151,12 @@
 }
 
 .stickerbox {
+  .contentContainer {
+    .image {
+      filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
+    }
+  }
+
   .special {
     &:first-child {
       .image {
@@ -177,6 +182,13 @@
 }
 
 .fairy {
+  .contentContainer {
+    /* stylelint-disable-next-line */
+    .image {
+      filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
+    }
+  }
+
   /* stylelint-disable-next-line */
   .special {
     &:first-child {

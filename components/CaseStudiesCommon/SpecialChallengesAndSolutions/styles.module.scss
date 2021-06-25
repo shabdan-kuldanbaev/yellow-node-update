@@ -27,7 +27,7 @@
 .fairy {
   @include caseStudyContainer;
 
-  background-color: #140A2F;
+  background-color: $violet;
   padding-top: 0;
 
   //in the caseStudyContainer mixin is given padding for tablet resolution, so here we need to override it

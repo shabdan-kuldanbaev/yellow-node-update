@@ -36,10 +36,8 @@ const Intro = ({
   const appLogoUrl = getFileUrl(get(images, '[0]', ''));
   const appBackgroundImageUrl = getFileUrl(get(images, '[1]', ''));
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));
-  console.log(getFileUrl(get(data, 'images[0]', '')));
   const backgroundImageUrl = getFileUrl(get(data, 'images[0]', ''));
-
-  const style = { backgroundImage: `url(${backgroundImageUrl})` };
+  const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
 
   return (
     <section

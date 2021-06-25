@@ -88,10 +88,10 @@
   @extend .imagesContainer;
 
   &::before {
-    background: linear-gradient(90deg, #140A2F 0%, rgba(#140A2F, 0) 100%);
+    background: linear-gradient(90deg, $violet 0%, rgba($violet, 0) 100%);
   }
 
   &::after {
-    background: linear-gradient(270deg, #140A2F 0%, rgba(#140A2F, 0) 100%);
+    background: linear-gradient(270deg, $violet 0%, rgba($violet, 0) 100%);
   }
 }
