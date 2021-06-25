@@ -120,6 +120,7 @@
     max-height: 812px;
     display: block;
     object-fit: contain;
+    filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
 
     @include tablet {
       min-width: 317px;
@@ -151,10 +152,32 @@
 }
 
 .stickerbox {
-  .image {
-    filter: drop-shadow(-30px 20px 80px rgba($dark-grey, 0.15)), drop-shadow(-15px 10px 40px rgba($dark-grey, 0.25));
-  }
+  .special {
+    &:first-child {
+      .image {
+        transform: translateY(-70px);
 
+        @include phone {
+          transform: none;
+        }
+      }
+    }
+
+    /* stylelint-disable-next-line */
+    .infoContainer {
+      .title {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+}
+
+.fairy {
+  /* stylelint-disable-next-line */
   .special {
     &:first-child {
       .image {
