@@ -84,6 +84,25 @@
   }
 }
 
+.seven-pm-thursday {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(90deg, $dark-blue 0%, rgba($dark-blue, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $dark-blue 0%, rgba($dark-blue, 0) 100%);
+  }
+
+  /* stylelint-disable-next-line */
+  .animatedContainer {
+    .image {
+      margin-left: 40px;
+    }
+  }
+}
+
 .fairy {
   @extend .imagesContainer;
 

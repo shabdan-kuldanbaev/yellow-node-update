@@ -31,6 +31,7 @@ const FeedbackForm = ({
   handleOnClick,
   formKey,
   contactFormError,
+  type,
 }) => {
   const { asPath } = useRouter();
   const formRef = useRef(null);
@@ -167,6 +168,7 @@ const FeedbackForm = ({
               isValidate
               isWithoutLabel
               isContactPage={isContactPage}
+              style={type}
             />
           </Animated>
           <Animated
@@ -181,6 +183,7 @@ const FeedbackForm = ({
               isValidate={email.isValidate}
               handleOnBlurEmail={handleOnBlurEmail}
               isWithoutLabel
+              style={type}
             />
           </Animated>
         </div>
@@ -223,6 +226,7 @@ const FeedbackForm = ({
             handleOnUnpinFile={handleOnUnpinFile}
             formKey={formKey}
             updateSelectedFileInfo={updateSelectedFileInfo}
+            style={type}
           />
         </Animated>
         {contactFormError && (
@@ -253,6 +257,7 @@ FeedbackForm.defaultProps = {
   budget,
   formKey: '',
   contactFormError: '',
+  type: '',
 };
 
 FeedbackForm.propTypes = {
@@ -264,6 +269,7 @@ FeedbackForm.propTypes = {
   handleOnClick: PropTypes.func.isRequired,
   formKey: PropTypes.string,
   contactFormError: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default connect(

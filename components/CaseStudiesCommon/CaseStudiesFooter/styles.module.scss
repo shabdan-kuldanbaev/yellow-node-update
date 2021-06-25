@@ -229,6 +229,41 @@
   }
 }
 
+.seven-pm-thursday {
+  @extend .container;
+
+  background: $dark-blue-1;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  /* stylelint-disable-next-line */
+  .link{
+    color: rgba($white, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $white;
+  }
+}
+
 .fairy {
   @extend .container;
 

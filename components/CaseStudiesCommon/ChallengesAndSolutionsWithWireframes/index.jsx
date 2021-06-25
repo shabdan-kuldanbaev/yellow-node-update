@@ -7,18 +7,15 @@ import Wireframes from 'components/CaseStudiesCommon/Wireframes';
 import styles from './styles.module.scss';
 
 const ChallengesAndSolutionsWithWireframes = ({ data, type }) => (
-  <section className={cn(
-    styles.challenges, {
-      [styles[type]]: data.images,
-      [styles.challengesWithoutImage]: data.images,
-    },
-  )}
-  >
+  <section className={cn([styles[type]], { [styles.challengesWithoutImage]: data.images })}>
     <SectionTitle
       data={data}
       type={type}
     />
-    <ChallengesAndSolutions data={data} />
+    <ChallengesAndSolutions
+      data={data}
+      type={type}
+    />
     <Wireframes
       data={data}
       type={type}

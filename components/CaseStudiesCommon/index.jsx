@@ -8,6 +8,7 @@ import Intro from 'components/CaseStudiesCommon/Intro';
 import ResultsSection from 'components/CaseStudiesCommon/ResultsSection';
 import ImagesSection from 'components/CaseStudiesCommon/ImagesSection';
 import Parallax from 'components/CaseStudiesCommon/Parallax';
+import DesignSection from 'components/CaseStudiesCommon/DesignSection';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
 const CaseStudiesCommon = (props) => {
@@ -30,6 +31,8 @@ const CaseStudiesCommon = (props) => {
     return <ResultsSection {...props} />;
   case CASE_STUDIES_TYPES.parallax:
     return <Parallax {...props} />;
+  case CASE_STUDIES_TYPES.design:
+    return <DesignSection {...props} />;
   default:
     return null;
   }

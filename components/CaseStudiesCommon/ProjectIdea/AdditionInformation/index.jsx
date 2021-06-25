@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
-const AdditionInformation = ({ additionInformation }) => {
+const AdditionInformation = ({ additionInformation, type }) => {
   if (!additionInformation) {
     return null;
   }
 
   return (
-    <div className={styles.infoContainer}>
+    <div className={styles[type]}>
       {additionInformation.map((data) => {
         const { title, contentList } = getDocumentFields(data);
 
@@ -44,6 +44,7 @@ AdditionInformation.defaultProps = {
 
 AdditionInformation.propTypes = {
   additionInformation: PropTypes.instanceOf(Object),
+  type: PropTypes.string.isRequired,
 };
 
 export default AdditionInformation;
