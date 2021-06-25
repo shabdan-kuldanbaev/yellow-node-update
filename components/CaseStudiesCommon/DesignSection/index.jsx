@@ -17,11 +17,14 @@ const DesignSection = ({ data, type }) => {
         data={data}
         type={type}
       />
-      {data.contentModules.map((content) => {
+      {data.contentModules.map((content, index) => {
         const contentItem = getDocumentFields(content);
 
         return (
-          <div className={styles.container}>
+          <div
+            key={index}
+            className={styles.container}
+          >
             {contentItem.title && (
               <h2 className={styles.title}>
                 {contentItem.title}

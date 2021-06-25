@@ -23,6 +23,11 @@ const Portfolio = ({
     );
   }, []);
 
+  const slugs = {
+    Fernwayer: 'fernwayer',
+    '7pm Thursday': 'seven-pm-thursday',
+  };
+
   return works && (
     <div className={styles.worksContainer}>
       {works && works.map((work, index) => {
@@ -35,14 +40,8 @@ const Portfolio = ({
           title,
           description,
         } = documentFields;
-        let { slug } = documentFields;
-
         // TODO: remove this after rebuild works page
-        if (title === 'Fernwayer') {
-          slug = 'fernwayer';
-        } else if (title === '7pm Thursday') {
-          slug = 'seven-pm-thursday';
-        }
+        const slug = documentFields.slug || slugs[title];
 
         return (
           <div
