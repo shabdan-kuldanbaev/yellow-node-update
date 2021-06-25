@@ -141,3 +141,20 @@
     padding-right: 100px;
   }
 }
+
+.seven-pm-thursday {
+  &.animatedInput {
+    input,
+    textarea {
+      color: $silver-chalice;
+      border-bottom-color: $silver-chalice;
+    }
+  }
+
+  &.focus {
+    input,
+    textarea {
+      border-color: $silver-chalice !important;
+    }
+  }
+}

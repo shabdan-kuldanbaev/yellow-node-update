@@ -49,8 +49,8 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
         />
       ))}
       {hasFeedbackForm && (
-        <div className={styles.feedBackContainer}>
-          <FeedbackForm />
+        <div className={styles[slug] || styles.feedBackContainer}>
+          <FeedbackForm type={slug} />
         </div>
       )}
     </Fragment>

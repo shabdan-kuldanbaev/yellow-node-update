@@ -13,11 +13,12 @@ export const Upload = ({
   handleOnUnpinFile,
   formKey,
   updateSelectedFileInfo,
+  style,
 }) => {
   const attachInputId = `files_${formKey}`;
 
   return (
-    <div className={styles.uploadFile}>
+    <div className={styles[style] || styles.uploadFile}>
       <div className={styles.attachmentManage}>
         <AnimatedInput
           value={projectDescription}
@@ -27,6 +28,7 @@ export const Upload = ({
           isWithoutLabel
           isAttached
           isTextArea
+          style={style}
         />
         <label htmlFor={attachInputId}>
           <Attach />
@@ -68,6 +70,10 @@ export const Upload = ({
   );
 };
 
+Upload.defaultProps = {
+  style: '',
+};
+
 Upload.propTypes = {
   projectDescription: PropTypes.string.isRequired,
   selectedFiles: PropTypes.instanceOf(Array).isRequired,
@@ -76,4 +82,5 @@ Upload.propTypes = {
   handleOnUnpinFile: PropTypes.func.isRequired,
   formKey: PropTypes.string.isRequired,
   updateSelectedFileInfo: PropTypes.func.isRequired,
+  style: PropTypes.string,
 };

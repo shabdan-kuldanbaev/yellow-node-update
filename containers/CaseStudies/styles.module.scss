@@ -7,3 +7,9 @@
     padding: 80px 15px;
   }
 }
+
+.seven-pm-thursday {
+  @extend .feedBackContainer;
+
+  background-color: $dark-blue-1;
+}

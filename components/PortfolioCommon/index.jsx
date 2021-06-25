@@ -14,11 +14,6 @@ const Portfolio = ({
   maxScrollPosition,
   animatedFields: animatedFieldsList,
 }) => {
-  const slugs = {
-    Fernwayer: 'fernwayer',
-    '7pm Thursday': 'seven-pm-thursday',
-  };
-
   useEffect(() => () => {
     gaHelper.trackEvent(
       'Scroll',
@@ -27,6 +22,11 @@ const Portfolio = ({
       maxScrollPosition.current < 50,
     );
   }, []);
+
+  const slugs = {
+    Fernwayer: 'fernwayer',
+    '7pm Thursday': 'seven-pm-thursday',
+  };
 
   return works && (
     <div className={styles.worksContainer}>
