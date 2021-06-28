@@ -150,7 +150,7 @@
 .stickerbox {
   .contentContainer {
     .image {
-      filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
+      filter: $shadow-filter;
     }
   }
 
@@ -182,7 +182,7 @@
   .contentContainer {
     /* stylelint-disable-next-line */
     .image {
-      filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
+      filter: $shadow-filter;
     }
   }
 
