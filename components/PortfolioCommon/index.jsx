@@ -17,6 +17,7 @@ const Portfolio = ({
   const slugs = {
     Fernwayer: 'fernwayer',
     '7pm Thursday': 'seven-pm-thursday',
+    Fairy: 'fairy',
   };
 
   useEffect(() => () => {
