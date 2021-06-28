@@ -64,7 +64,7 @@ const ChallengesAndSolutions = ({
               )}
               {text && (
                 <Animated
-                  delay={1000}
+                  delay={800}
                   {...ANIMATION_CASE_STUDY_PROPS}
                 >
                   <ContentfulParser document={text} />
@@ -72,7 +72,10 @@ const ChallengesAndSolutions = ({
               )}
             </div>
             {imageUrl && (
-              <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+              <Animated
+                delay={1200}
+                {...ANIMATION_CASE_STUDY_PROPS}
+              >
                 <div>
                   <img
                     className={styles.image}
