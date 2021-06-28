@@ -25,7 +25,6 @@ export const PageIntro = ({ sectionData }) => {
   const image = get(images, '[0]', {});
   const imageUrl = getFileUrl(image);
   const figuresData = get(contentModules, '[0]', {});
-
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',

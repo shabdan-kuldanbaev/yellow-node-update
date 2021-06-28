@@ -10,6 +10,12 @@ export const Figures = ({ figuresData }) => {
     figuresData,
     ['contentModules'],
   );
+  const animatedProps = {
+    type: ANIMATED_TYPE.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
 
   if (!figures || !figures.length) {
     return null;
@@ -29,10 +35,7 @@ export const Figures = ({ figuresData }) => {
         return (
           <Animated
             key={item.title}
-            type={ANIMATED_TYPE.isCustom}
-            translateY="2.82352941em"
-            opasityDuration={1}
-            transformDuration={1}
+            {...animatedProps}
             transitionDelay={800 + 90 * index * 2}
           >
             <div>

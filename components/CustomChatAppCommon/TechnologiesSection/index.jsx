@@ -27,6 +27,12 @@ export const TechnologiesSection = ({ sectionData }) => {
     technologiesData,
     ['contentList'],
   );
+  const animatedProps = {
+    type: ANIMATED_TYPE.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
 
   return (
     <div className={styles.technologiesSection}>
@@ -37,10 +43,7 @@ export const TechnologiesSection = ({ sectionData }) => {
       <div className={styles.technologiesList}>
         {technologies.map((technology, index) => (
           <Animated
-            type={ANIMATED_TYPE.isCustom}
-            translateY="2.82352941em"
-            opasityDuration={1}
-            transformDuration={1}
+            {...animatedProps}
             transitionDelay={750 + 50 * index}
           >
             <Svg type={technology} />

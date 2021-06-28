@@ -48,7 +48,7 @@
         }
 
         @include phone {
-          @include fontSize(30px);
+          @include fontSize(25px);
         }
       }
 
