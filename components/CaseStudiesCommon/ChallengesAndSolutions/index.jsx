@@ -35,7 +35,7 @@ const ChallengesAndSolutions = ({
 
         return (
           <div
-            key={title}
+            key={title || imageUrl}
             className={cn(styles.contentContainer, { [styles.special]: isSpecial })}
           >
             {!imageUrl && (
@@ -62,12 +62,14 @@ const ChallengesAndSolutions = ({
                   </h2>
                 </Animated>
               )}
-              <Animated
-                delay={1000}
-                {...ANIMATION_CASE_STUDY_PROPS}
-              >
-                <ContentfulParser document={text} />
-              </Animated>
+              {text && (
+                <Animated
+                  delay={1000}
+                  {...ANIMATION_CASE_STUDY_PROPS}
+                >
+                  <ContentfulParser document={text} />
+                </Animated>
+              )}
             </div>
             {imageUrl && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>

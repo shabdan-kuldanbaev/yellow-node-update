@@ -23,3 +23,20 @@
     padding-top: 40px;
   }
 }
+
+.seven-pm-thursday {
+  @include caseStudyContainer;
+
+  background-color: $dark-blue;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  @include tablet {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @include phone {
+    padding-top: 40px;
+  }
+}

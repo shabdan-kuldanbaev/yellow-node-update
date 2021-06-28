@@ -10,64 +10,99 @@
       display: none;
     }
   }
+
+  .container {
+    max-width: 280px;
+
+    &:not(:last-of-type) {
+      margin-right: 15px;
+    }
+
+    @include phone {
+      min-width: 240px;
+    }
+
+    .title {
+      margin: 0 0 15px;
+      text-align: start;
+      font-family: $case-studies-font;
+      font-weight: bold;
+      line-height: 180%;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        margin-bottom: 5px;
+
+        @include fontSize(16px);
+      }
+
+      @include phone {
+        @include fontSize(14px);
+      }
+    }
+
+    .listContainer {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .listItemContainer {
+      line-height: 180%;
+      font-family: $case-studies-font;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        @include fontSize(16px);
+      }
+
+      @include phone {
+        text-align: start;
+
+        @include fontSize(14px);
+      }
+    }
+  }
 }
 
-.container {
-  max-width: 280px;
+.fernwayer {
+  @extend .infoContainer;
 
-  &:not(:last-of-type) {
-    margin-right: 15px;
-  }
-
-  @include phone {
-    min-width: 240px;
-  }
-
-  .title {
-    margin: 0 0 15px;
-    text-align: start;
-    font-family: $case-studies-font;
-    font-weight: bold;
-    line-height: 180%;
-    color: $dark-grey;
-
-    @include fontSize(18px);
-
-    @include tablet {
-      margin-bottom: 5px;
-
-      @include fontSize(16px);
+  /* stylelint-disable-next-line */
+  .container {
+    .title {
+      color: $dark-grey;
     }
 
-    @include phone {
-      @include fontSize(14px);
+    .listItemContainer {
+      color: $silver-chalice;
+
+      &::marker {
+        color: $pink-lighter;
+      }
     }
   }
+}
 
-  .listContainer {
-    padding-left: 20px;
-    margin: 0;
-  }
+.seven-pm-thursday {
+  @extend .infoContainer;
 
-  .listItemContainer {
-    line-height: 180%;
-    font-family: $case-studies-font;
-    color: $silver-chalice;
+  /* stylelint-disable-next-line */
+  .container {
+    max-width: 406px;
 
-    @include fontSize(18px);
-
-    &::marker {
-      color: $pink-lighter;
+    .title {
+      color: $white;
     }
 
-    @include tablet {
-      @include fontSize(16px);
-    }
+    .listItemContainer {
+      margin-bottom: 15px;
+      color: $silver-chalice;
 
-    @include phone {
-      text-align: start;
-
-      @include fontSize(14px);
+      &::marker {
+        color: $light-red;
+      }
     }
   }
 }

@@ -6,7 +6,7 @@ import FeedbackForm from 'components/Common/FeedbackForm';
 import { SectionTitle } from 'components/Common/SectionTitle';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = ({ sendEmail: sendFeedback }) => {
+const FeedbackFormContainer = ({ sendEmail: sendFeedback, type }) => {
   const handleOnClick = (...args) => {
     const [
       fullName,
@@ -24,7 +24,7 @@ const FeedbackFormContainer = ({ sendEmail: sendFeedback }) => {
   };
 
   return (
-    <div className={styles.formContainer}>
+    <div className={styles[type] || styles.formContainer}>
       <SectionTitle
         title="Let’s move forward"
         styleTitle={styles.title}
@@ -36,13 +36,19 @@ const FeedbackFormContainer = ({ sendEmail: sendFeedback }) => {
       <FeedbackForm
         handleOnClick={handleOnClick}
         formKey="home-page"
+        type={type}
       />
     </div>
   );
 };
 
+FeedbackFormContainer.defaultProps = {
+  type: '',
+};
+
 FeedbackFormContainer.propTypes = {
   sendEmail: PropTypes.func.isRequired,
+  type: PropTypes.string,
 };
 
 export default connect(null, { sendEmail })(FeedbackFormContainer);

@@ -6,7 +6,7 @@ import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-const Images = ({ data }) => {
+const Images = ({ data, type }) => {
   if (!get(data, 'images')) {
     return null;
   }
@@ -20,7 +20,7 @@ const Images = ({ data }) => {
         delay={500}
         {...ANIMATION_CASE_STUDY_PROPS}
       >
-        <div className={styles.imagContainer}>
+        <div className={styles[type]}>
           <img
             className={styles.image}
             src={imageUrl}
@@ -32,8 +32,13 @@ const Images = ({ data }) => {
   });
 };
 
+Images.defaultProps = {
+  type: 'default',
+};
+
 Images.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string,
 };
 
 export default Images;

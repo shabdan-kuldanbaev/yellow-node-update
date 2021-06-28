@@ -312,6 +312,13 @@
   }
 }
 
+@mixin infoContainerPhone {
+  @include phone {
+    order: initial;
+    margin: 0;
+  }
+}
+
 @font-face {
   font-family: 'Sonny Gothic Condensed Ultra Black';
   font-display: swap;
