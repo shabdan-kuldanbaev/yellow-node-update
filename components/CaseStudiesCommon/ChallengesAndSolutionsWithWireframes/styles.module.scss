@@ -1,7 +1,8 @@
 @import 'styles/utils/mixins';
 
 .fernwayer,
-.stickerbox {
+.stickerbox,
+.fairy {
   @include caseStudyContainer;
 
   background-color: $alabaster;
