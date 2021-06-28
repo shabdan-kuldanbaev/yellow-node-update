@@ -39,6 +39,8 @@
     }
 
     @include phone {
+      width: 90vw;
+
       @include fontSize(14px);
     }
   }

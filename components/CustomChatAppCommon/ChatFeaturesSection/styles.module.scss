@@ -31,6 +31,10 @@
       padding: 50px;
     }
 
+    @include phone {
+      width: calc(100% - 130px);
+    }
+
     .item {
       .featureTitle {
         margin: 0 0 20px;
