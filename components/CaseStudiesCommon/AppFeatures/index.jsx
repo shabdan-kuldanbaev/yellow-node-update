@@ -57,7 +57,10 @@ const AppFeatures = ({ data, type }) => {
             );
           })}
         </div>
-        <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+        <Animated
+          delay={500}
+          {...ANIMATION_CASE_STUDY_PROPS}
+        >
           <div className={styles.imageContainer}>
             <img
               src={imageUrl}
