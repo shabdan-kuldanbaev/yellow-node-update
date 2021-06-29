@@ -68,8 +68,8 @@ const ChallengesAndSolutions = ({
             </div>
             {imageUrl && (
               <Animated
-                {...ANIMATION_CASE_STUDY_PROPS}
                 delay={500}
+                {...ANIMATION_CASE_STUDY_PROPS}
               >
                 <div>
                   <img
