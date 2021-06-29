@@ -6,8 +6,8 @@ import KeyFeatures from 'components/CaseStudiesCommon/ProjectIdea/KeyFeatures';
 import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import TeamSection from 'components/CaseStudiesCommon/ProjectIdea/TeamSection';
-import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
+import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
 const ProjectIdea = ({ type, data }) => {
@@ -19,7 +19,7 @@ const ProjectIdea = ({ type, data }) => {
   } = getDocumentFields(get(data, 'contentModules[1]', {}));
   const delayedAnimation = {
     ...ANIMATION_CASE_STUDY_PROPS,
-    delay: 500,
+    delay: 150,
   };
 
   return (
