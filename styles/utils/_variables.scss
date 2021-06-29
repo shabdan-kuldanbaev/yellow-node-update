@@ -75,6 +75,11 @@ $dark-blue-1: #191B1E;
 $pink-1: #FF2A89;
 $light-red: #FF4934;
 $logo-stroke: #25272C;
+$light-violet: #5B5BBD;
+$light-violet-1: #5C5ABD;
+$dark-violet: #362761;
+$dark-violet-1: #252159;
+$dark-violet-2: #16102B;
 
 //transparency color
 $pagination: rgba(35, 37, 44, 0.25);
@@ -150,6 +155,9 @@ $insta-tape-box-shadow-color: rgba(0, 0, 0, 0.07);
 //margins
 $min-article-margin: 14px;
 $max-article-margin: 24px;
+
+//filters
+$shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
 
 // TODO rework it with enviroment variable
 $cdnURL: 'https://dn75rr69j9vc.cloudfront.net';

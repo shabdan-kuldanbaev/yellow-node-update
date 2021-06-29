@@ -4,16 +4,12 @@ import { Animated } from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import styles from './styles.module.scss';
 
-const TeamSection = ({
-  type,
-  data: {
-    title,
-    contentList,
-  },
-}) => {
-  if (!contentList) {
+const TeamSection = ({ type, data }) => {
+  if (!data) {
     return null;
   }
+
+  const { title, contentList } = data;
 
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
@@ -21,7 +17,7 @@ const TeamSection = ({
         <h2 className={styles.title}>
           {title}
         </h2>
-        {contentList.map((member) => (
+        {contentList && contentList.map((member) => (
           <p
             key={member}
             className={styles.teamItem}
