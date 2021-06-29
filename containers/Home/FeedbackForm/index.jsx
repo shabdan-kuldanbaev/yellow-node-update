@@ -6,48 +6,28 @@ import FeedbackForm from 'components/Common/FeedbackForm';
 import { SectionTitle } from 'components/Common/SectionTitle';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = ({ sendEmail: sendFeedback, type }) => {
-  const handleOnClick = (...args) => {
-    const [
-      fullName,
-      email,
-      description,
-      selectedFilesInfo,
-    ] = args;
-
-    sendFeedback({
-      name: fullName,
-      email,
-      description,
-      attachments: selectedFilesInfo,
-    });
-  };
-
-  return (
-    <div className={styles[type] || styles.formContainer}>
-      <SectionTitle
-        title="Let’s move forward"
-        styleTitle={styles.title}
-        styleSubtitle={styles.subtitle}
-        isFeedbackForm
-        subtitle="Fill in this form or"
-        linkText="send us an e-mail"
-      />
-      <FeedbackForm
-        handleOnClick={handleOnClick}
-        formKey="home-page"
-        type={type}
-      />
-    </div>
-  );
-};
+const FeedbackFormContainer = ({ type }) => (
+  <div className={styles[type] || styles.formContainer}>
+    <SectionTitle
+      title="Let’s move forward"
+      styleTitle={styles.title}
+      styleSubtitle={styles.subtitle}
+      isFeedbackForm
+      subtitle="Fill in this form or"
+      linkText="send us an e-mail"
+    />
+    <FeedbackForm
+      formKey="home-page"
+      type={type}
+    />
+  </div>
+);
 
 FeedbackFormContainer.defaultProps = {
   type: '',
 };
 
 FeedbackFormContainer.propTypes = {
-  sendEmail: PropTypes.func.isRequired,
   type: PropTypes.string,
 };
 
