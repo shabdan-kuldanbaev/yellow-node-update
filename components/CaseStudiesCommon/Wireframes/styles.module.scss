@@ -13,7 +13,6 @@
   position: relative;
   overflow: hidden;
   margin-top: 80px;
-  width: 100%;
   display: flex;
 
   @include phone {
@@ -98,13 +97,33 @@
   /* stylelint-disable-next-line */
   .animatedContainer {
     .image {
-      margin-left: 40px;
+      margin-left: 26px;
+    }
+  }
+
+  &:last-child {
+    .animatedContainer {
+      .image {
+        margin-left: 80px;
+
+        @include phone {
+          margin-left: 40px;
+        }
+      }
     }
   }
 }
 
 .fairy {
   @extend .imagesContainer;
+
+  /* stylelint-disable-next-line */
+  .animatedContainer {
+    /* stylelint-disable-next-line */
+    .image {
+      margin-left: 42px;
+    }
+  }
 
   &::before {
     background: linear-gradient(90deg, $violet 0%, rgba($violet, 0) 100%);

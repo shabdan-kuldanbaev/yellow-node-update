@@ -14,26 +14,30 @@
     height: 440px;
   }
 
-  .rootImage {
-    max-width: 398px;
+  .mockup {
+    width: 398px;
+    filter: $shadow-filter;
     z-index: 100;
 
     @include centered;
 
     @include phone {
-      max-width: 240px;
+      width: 240px;
+      filter: $shadow-filter-phone;
     }
   }
 
-  .startedImage {
+  .appImage {
     width: 370px;
     border-radius: 20px;
+    filter: $shadow-filter;
     z-index: 10;
 
     @include centered;
 
     @include phone {
-      max-width: 225px;
+      width: 225px;
+      filter: $shadow-filter-phone;
     }
   }
 }
@@ -59,13 +63,8 @@
   }
 
   .circle {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     width: 700px;
     height: 700px;
-    margin-top: 100px;
-    border-radius: 50%;
     background: linear-gradient(0deg, $grey-darker 0%, #17191C 100%);
 
     @include phone {
@@ -75,16 +74,12 @@
     }
 
     .mockup {
-      z-index: 100;
-
-      @include centered;
-
       @include phone {
         width: 250px;
       }
     }
 
-    .startedImage {
+    .appImage {
       width: 358px;
       z-index: 10;
 
@@ -114,9 +109,5 @@
 
   .circle {
     background: linear-gradient(0deg, $dark-violet-1 0%, $dark-violet-2 100%);
-
-    .rootImage {
-      filter: drop-shadow(-16.2834px 16.2834px 48.8503px rgba(0, 0, 0, 0.6));
-    }
   }
 }
