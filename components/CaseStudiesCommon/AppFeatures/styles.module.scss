@@ -42,6 +42,7 @@
 
         &:hover {
           color: $silver-chalice;
+          transition: color 400ms;
         }
 
         @include fontSize(40px);
