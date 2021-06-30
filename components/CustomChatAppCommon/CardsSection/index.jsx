@@ -70,6 +70,7 @@ export const CardsSection = ({
 
               return (
                 <Animated
+                  key={`cards/${typeTitle}`}
                   {...animatedProps}
                   transitionDelay={750 + 50 * index}
                 >

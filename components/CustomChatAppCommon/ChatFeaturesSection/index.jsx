@@ -79,7 +79,10 @@ export const ChatFeaturesSection = ({ sectionData }) => {
                   );
 
                   return (
-                    <div className={styles.item}>
+                    <div
+                      className={styles.item}
+                      key={`features/${featureTitle}`}
+                    >
                       <p className={styles.featureTitle}>
                         {featureTitle}
                       </p>

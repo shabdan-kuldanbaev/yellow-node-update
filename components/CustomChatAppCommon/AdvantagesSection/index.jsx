@@ -45,6 +45,7 @@ export const AdvantagesSection = ({ sectionData }) => {
       <div className={styles.advantagesList}>
         {advantages.map((advantage, index) => (
           <Animated
+            key={`advantages/${advantage}`}
             {...animationProps}
             transitionDelay={600 + 50 * index}
           >

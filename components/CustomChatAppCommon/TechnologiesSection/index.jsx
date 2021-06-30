@@ -42,6 +42,7 @@ export const TechnologiesSection = ({ sectionData }) => {
       <div className={styles.technologiesList}>
         {technologies.map((technology, index) => (
           <Animated
+            key={`technologies/${technology}`}
             {...animatedProps}
             transitionDelay={750 + 50 * index}
           >

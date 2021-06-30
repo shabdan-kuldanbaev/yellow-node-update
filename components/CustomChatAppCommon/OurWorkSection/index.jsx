@@ -59,7 +59,10 @@ export const OurWorkSection = ({ sectionData }) => {
             const imageUrl = getFileUrl(image);
 
             return (
-              <div className={styles.item}>
+              <div
+                className={styles.item}
+                key={`works/${imageUrl}`}
+              >
                 <img
                   src={imageUrl}
                   alt=""
