@@ -81,6 +81,17 @@
   &::after {
     background: linear-gradient(270deg, $dark-grey-1 0%, rgba($dark-grey-1, 0) 100%);
   }
+
+  /* stylelint-disable-next-line */
+  .animatedContainer {
+    .image {
+      margin-left: 95px;
+
+      @include phone {
+        margin-left: 50px;
+      }
+    }
+  }
 }
 
 .seven-pm-thursday {
