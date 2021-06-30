@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectComponents } from 'redux/selectors/layout';
 import { PageHeader } from 'components/Common/PageHeader';
 import { MetaTags } from 'components/Common/MetaTags';
+import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import { ChatAppCommon } from 'components/CustomChatAppCommon';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
@@ -11,6 +12,10 @@ import { microdata } from 'utils/microdata';
 import { PAGES } from 'utils/constants';
 
 const CustomChatAppContainer = ({ pageData }) => {
+  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
+
+  const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
+  const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
   const breadcrumbs = pagesBreadcrumbs.customChatApp();
   const {
     main: contentModules,
@@ -32,8 +37,17 @@ const CustomChatAppContainer = ({ pageData }) => {
       />
       <FullLayout>
         <PageHeader breadcrumbs={breadcrumbs} />
-        {contentModules.map((module) => <ChatAppCommon section={module} />)}
+        {contentModules.map((module) => (
+          <ChatAppCommon
+            section={module}
+            handleOnCTAClick={openFullscreenEstimation}
+          />
+        ))}
       </FullLayout>
+      <FullScreenEstimation
+        isFullscreenEstimation={isFullscreenEstimation}
+        closeFullscreenEstimation={closeFullscreenEstimation}
+      />
     </Fragment>
   );
 };

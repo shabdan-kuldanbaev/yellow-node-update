@@ -15,6 +15,7 @@ export const CardsSection = ({
   sectionData,
   hasCTAButton,
   type,
+  handleOnCTAClick,
 }) => {
   const {
     title,
@@ -91,9 +92,9 @@ export const CardsSection = ({
               transitionDelay={900}
             >
               <ButtonMore
-                href="/contact"
                 title="Request proposal"
                 buttonStyle={styles.button}
+                handleOnClick={handleOnCTAClick}
               />
             </Animated>
           )}
