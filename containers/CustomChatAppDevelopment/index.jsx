@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { selectComponents } from 'redux/selectors/layout';
 import { PageHeader } from 'components/Common/PageHeader';
 import { MetaTags } from 'components/Common/MetaTags';
-import { ChatAppCommon } from 'components/CustomChatAppCommon/ChatAppCommon';
+import { ChatAppCommon } from 'components/CustomChatAppCommon';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { microdata } from 'utils/microdata';

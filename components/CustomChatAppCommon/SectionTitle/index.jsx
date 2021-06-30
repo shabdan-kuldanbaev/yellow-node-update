@@ -10,47 +10,47 @@ export const SectionTitle = ({
   title,
   subtitle,
   description,
-}) => (
-  <div className={cn(styles.sectionTitle, styles[type])}>
-    <Animated
-      type={ANIMATED_TYPE.isCustom}
-      translateY="2.82352941em"
-      opasityDuration={1}
-      transformDuration={1}
-      transitionDelay={600}
-    >
-      <h2 className={styles.title}>
-        {title}
-      </h2>
-    </Animated>
-    {subtitle && (
+}) => {
+  const animationProps = {
+    type: ANIMATED_TYPE.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
+
+  return (
+    <div className={cn(styles.sectionTitle, styles[type])}>
       <Animated
-        type={ANIMATED_TYPE.isCustom}
-        translateY="2.82352941em"
-        opasityDuration={1}
-        transformDuration={1}
-        transitionDelay={650}
+        {...animationProps}
+        transitionDelay={600}
       >
-        <p className={styles.subtitle}>
-          {subtitle}
-        </p>
+        <h2 className={styles.title}>
+          {title}
+        </h2>
       </Animated>
-    )}
-    {description && (
-      <Animated
-        type={ANIMATED_TYPE.isCustom}
-        translateY="2.82352941em"
-        opasityDuration={1}
-        transformDuration={1}
-        transitionDelay={700}
-      >
-        <p className={styles.description}>
-          {description}
-        </p>
-      </Animated>
-    )}
-  </div>
-);
+      {subtitle && (
+        <Animated
+          {...animationProps}
+          transitionDelay={650}
+        >
+          <p className={styles.subtitle}>
+            {subtitle}
+          </p>
+        </Animated>
+      )}
+      {description && (
+        <Animated
+          {...animationProps}
+          transitionDelay={700}
+        >
+          <p className={styles.description}>
+            {description}
+          </p>
+        </Animated>
+      )}
+    </div>
+  );
+};
 
 SectionTitle.defaultProps = {
   type: 'default',

@@ -148,10 +148,45 @@
 }
 
 .stickerbox {
-  .image {
-    filter: drop-shadow(-30px 20px 80px rgba($dark-grey, 0.15)), drop-shadow(-15px 10px 40px rgba($dark-grey, 0.25));
+  .contentContainer {
+    .image {
+      filter: $shadow-filter;
+    }
   }
 
+  .special {
+    &:first-child {
+      .image {
+        transform: translateY(-70px);
+
+        @include phone {
+          transform: none;
+        }
+      }
+    }
+
+    /* stylelint-disable-next-line */
+    .infoContainer {
+      .title {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+}
+
+.fairy {
+  .contentContainer {
+    /* stylelint-disable-next-line */
+    .image {
+      filter: $shadow-filter;
+    }
+  }
+
+  /* stylelint-disable-next-line */
   .special {
     &:first-child {
       .image {

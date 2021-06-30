@@ -22,10 +22,8 @@ export const PageIntro = ({ sectionData }) => {
       'contentModules',
     ],
   );
-  const image = get(images, '[0]', {});
-  const imageUrl = getFileUrl(image);
+  const imageUrl = getFileUrl(get(images, '[0]', {}));
   const figuresData = get(contentModules, '[0]', {});
-
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -65,7 +63,6 @@ export const PageIntro = ({ sectionData }) => {
           <div
             className={styles.image}
             style={{ backgroundImage: `url(${imageUrl})` }}
-            alt=""
           />
         </Animated>
       </div>

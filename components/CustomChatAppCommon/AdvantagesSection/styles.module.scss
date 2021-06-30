@@ -6,6 +6,10 @@
 
   @include flex(column, center, center);
 
+  @include below-tablet {
+    margin: 100px 0;
+  }
+
   .advantagesList {
     width: 100%;
     margin-bottom: 80px;
@@ -13,6 +17,8 @@
     @include flex(row, initial, center, wrap);
 
     @include below-tablet {
+      margin-bottom: 40px;
+
       @include flex(column, initial, center);
     }
 

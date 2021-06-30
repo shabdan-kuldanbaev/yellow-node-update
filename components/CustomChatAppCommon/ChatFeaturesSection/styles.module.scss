@@ -48,7 +48,7 @@
         }
 
         @include phone {
-          @include fontSize(30px);
+          @include fontSize(25px);
         }
       }
 
@@ -86,4 +86,8 @@
   background-color: $alabaster;
   position: relative;
   width: 100%;
+
+  @include below-tablet {
+    padding: 100px 0 80px;
+  }
 }

@@ -23,10 +23,8 @@ export const ExperienceSection = ({ sectionData }) => {
       'contentModules',
     ],
   );
-  const textData = get(contentModules, '[0]', {});
-  const { text } = getDocumentFields(textData);
-  const image = get(images, '[0]', {});
-  const imageUrl = getFileUrl(image);
+  const { text } = getDocumentFields(get(contentModules, '[0]', {}));
+  const imageUrl = getFileUrl(get(images, '[0]', {}));
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -47,7 +45,6 @@ export const ExperienceSection = ({ sectionData }) => {
         <div
           className={styles.image}
           style={{ backgroundImage: `url(${imageUrl})` }}
-          alt=""
         />
       </Animated>
       <div className={styles.experienceContent}>

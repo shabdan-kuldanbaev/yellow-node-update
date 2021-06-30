@@ -9,6 +9,12 @@ import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const AdvantagesSection = ({ sectionData }) => {
+  const animationProps = {
+    type: ANIMATED_TYPE.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
   const {
     title,
     description,
@@ -21,9 +27,8 @@ export const AdvantagesSection = ({ sectionData }) => {
       'contentModules',
     ],
   );
-  const advantagesData = get(contentModules, '[0]', {});
   const { contentList: advantages } = getDocumentFields(
-    advantagesData,
+    get(contentModules, '[0]', {}),
     ['contentList'],
   );
 
@@ -40,10 +45,8 @@ export const AdvantagesSection = ({ sectionData }) => {
       <div className={styles.advantagesList}>
         {advantages.map((advantage, index) => (
           <Animated
-            type={ANIMATED_TYPE.isCustom}
-            translateY="2.82352941em"
-            opasityDuration={1}
-            transformDuration={1}
+            key={`advantages/${advantage}`}
+            {...animationProps}
             transitionDelay={600 + 50 * index}
           >
             <div>

@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
 import SwiperCore, { Pagination, EffectCoverflow } from 'swiper/core';
-import 'swiper/components/pagination/pagination.scss';
-import { Animated } from 'components/Common/Animated';
+import { FullLayout } from 'components/Layout/FullLayout';
 import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
-import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
+import 'swiper/components/pagination/pagination.scss';
 import styles from './styles.module.scss';
 
 SwiperCore.use([EffectCoverflow, Pagination]);
@@ -44,28 +43,36 @@ export const OurWorkSection = ({ sectionData }) => {
   };
 
   return (
-    <div className={styles.ourWorkSection}>
-      <SectionTitle
-        title={title}
-        description={description}
-      />
-      <Swiper
-        {...params}
-      >
-        {images.map((image) => {
-          const imageUrl = getFileUrl(image);
+    <FullLayout
+      disableMaxWidth
+      disableTopPadding
+      disableSidePadding
+      disableBottomPadding
+    >
+      <div className={styles.ourWorkSection}>
+        <SectionTitle
+          title={title}
+          description={description}
+        />
+        <Swiper {...params}>
+          {images.map((image) => {
+            const imageUrl = getFileUrl(image);
 
-          return (
-            <div className={styles.item}>
-              <img
-                src={imageUrl}
-                alt=""
-              />
-            </div>
-          );
-        })}
-      </Swiper>
-    </div>
+            return (
+              <div
+                className={styles.item}
+                key={`works/${imageUrl}`}
+              >
+                <img
+                  src={imageUrl}
+                  alt=""
+                />
+              </div>
+            );
+          })}
+        </Swiper>
+      </div>
+    </FullLayout>
   );
 };
 

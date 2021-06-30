@@ -23,6 +23,8 @@
     @include flex();
 
     @include below-tablet {
+      margin-bottom: 100px;
+
       @include flex(column, space-between, center);
     }
 
@@ -92,6 +94,10 @@
 .typesOfChatSectionContainer {
   padding: 150px 0;
   background-color: $alabaster;
+
+  @include below-tablet {
+    padding: 100px 0;
+  }
 }
 
 .advantages {
@@ -101,6 +107,12 @@
     & > div {
       width: calc(50% - 75px);
       margin: 0 0 30px;
+
+      &:last-child {
+        @include below-tablet {
+          margin-bottom: 30px;
+        }
+      }
     }
   }
 }

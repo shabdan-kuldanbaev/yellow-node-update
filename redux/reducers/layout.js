@@ -11,8 +11,6 @@ const initialState = {
   isPageReadyToDisplay: false,
   isFirstPageLoaded: false,
   components: {
-    metaTitle: '',
-    metaDescription: '',
     main: null,
   },
 };
@@ -25,21 +23,15 @@ const handlers = {
   [actionTypes.SET_FULL_RESOLUTION]: (state, { payload }) => ({ ...state, isFullResolution: payload }),
   [actionTypes.SET_FIRST_PAGE_LOADED]: (state, { payload }) => ({ ...state, isFirstPageLoaded: payload }),
   [actionTypes.FETCH_PAGE_SUCCESS]: (state, { payload }) => {
-    const {
-      contentModules,
-      metaTitle,
-      metaDescription,
-    } = getDocumentFields(
+    const { contentModules } = getDocumentFields(
       (payload && payload[0]) ? payload[0] : {},
-      ['contentModules', 'metaTitle', 'metaDescription'],
+      ['contentModules'],
     );
 
     return ({
       ...state,
       isLoading: false,
       components: {
-        metaTitle,
-        metaDescription,
         main: contentModules,
       },
     });

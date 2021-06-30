@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
-import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
+import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
 const Images = ({ data, type }) => {
@@ -17,7 +17,7 @@ const Images = ({ data, type }) => {
     return (
       <Animated
         key={imageUrl}
-        delay={500}
+        delay={100}
         {...ANIMATION_CASE_STUDY_PROPS}
       >
         <div className={styles[type]}>
