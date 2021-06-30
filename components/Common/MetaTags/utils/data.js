@@ -46,4 +46,11 @@ export const ogMetaData = [
     description: "Whoops! Looks like something is wrong. The page you were looking for doesn't exist.",
     url: rootUrl,
   },
+  {
+    pageName: ROUTES.customChatApp.slug,
+    title: 'Сhat app development company | Chat app developers | Yellow',
+    description: `Yellow has more than 5+ years of dedication to the development of chat apps. 
+                  ✔ 10+ successfully delivered chat apps. ✔ Let's get in touch!`,
+    url: `${rootUrl}${ROUTES.customChatApp.path}`,
+  },
 ];
