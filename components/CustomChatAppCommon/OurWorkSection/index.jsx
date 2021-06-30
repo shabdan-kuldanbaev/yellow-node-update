@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
 import SwiperCore, { Pagination, EffectCoverflow } from 'swiper/core';
-import 'swiper/components/pagination/pagination.scss';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
+import 'swiper/components/pagination/pagination.scss';
 import styles from './styles.module.scss';
 
 SwiperCore.use([EffectCoverflow, Pagination]);

@@ -6,6 +6,8 @@
   @include flex(row, space-between, center);
 
   @include below-tablet {
+    margin: 100px 0;
+
     @include flex(column-reverse, space-between, center);
   }
 

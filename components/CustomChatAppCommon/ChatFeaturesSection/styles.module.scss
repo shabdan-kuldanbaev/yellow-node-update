@@ -86,4 +86,8 @@
   background-color: $alabaster;
   position: relative;
   width: 100%;
+
+  @include below-tablet {
+    padding: 100px 0 80px;
+  }
 }

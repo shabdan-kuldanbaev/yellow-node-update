@@ -38,12 +38,8 @@ export const Figures = ({ figuresData }) => {
             {...animatedProps}
             transitionDelay={800 + 90 * index * 2}
           >
-            <div>
-              {title}
-            </div>
-            <div>
-              {description}
-            </div>
+            <div>{title}</div>
+            <div>{description}</div>
           </Animated>
         );
       })}

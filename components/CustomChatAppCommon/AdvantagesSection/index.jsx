@@ -27,9 +27,8 @@ export const AdvantagesSection = ({ sectionData }) => {
       'contentModules',
     ],
   );
-  const advantagesData = get(contentModules, '[0]', {});
   const { contentList: advantages } = getDocumentFields(
-    advantagesData,
+    get(contentModules, '[0]', {}),
     ['contentList'],
   );
 

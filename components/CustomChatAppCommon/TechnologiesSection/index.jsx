@@ -22,9 +22,8 @@ export const TechnologiesSection = ({ sectionData }) => {
       'contentModules',
     ],
   );
-  const technologiesData = get(contentModules, '[0]', []);
   const { contentList: technologies } = getDocumentFields(
-    technologiesData,
+    get(contentModules, '[0]', []),
     ['contentList'],
   );
   const animatedProps = {

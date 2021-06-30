@@ -13,10 +13,6 @@ import { BLOCKS_SLUGS } from 'utils/constants';
 export const ChatAppCommon = ({ section }) => {
   const { slug } = getDocumentFields(section);
 
-  if (!slug) {
-    return null;
-  }
-
   switch (slug) {
   case BLOCKS_SLUGS.chatAppPageIntro:
     return <PageIntro sectionData={section} />;

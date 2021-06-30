@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
 import SwiperCore, { Scrollbar } from 'swiper/core';
-import 'swiper/components/scrollbar/scrollbar.scss';
 import { Animated } from 'components/Common/Animated';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
+import 'swiper/components/scrollbar/scrollbar.scss';
 import styles from './styles.module.scss';
 
 SwiperCore.use([Scrollbar]);
@@ -75,10 +75,7 @@ export const ChatFeaturesSection = ({ sectionData }) => {
                     description: featureDescription,
                   } = getDocumentFields(
                     feature,
-                    [
-                      'title',
-                      'description',
-                    ],
+                    ['title', 'description'],
                   );
 
                   return (

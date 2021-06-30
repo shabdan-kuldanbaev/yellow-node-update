@@ -11,8 +11,9 @@ const initialState = {
   isPageReadyToDisplay: false,
   isFirstPageLoaded: false,
   components: {
-    metaTitle: '',
-    metaDescription: '',
+    // TODO add getting meta data from contentful
+    // metaTitle: '',
+    // metaDescription: '',
     main: null,
   },
 };

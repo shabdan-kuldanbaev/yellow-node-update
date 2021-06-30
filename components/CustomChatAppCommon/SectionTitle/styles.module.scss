@@ -38,9 +38,11 @@
       @include fontSize(16px);
     }
 
-    @include phone {
+    @include below-tablet {
       width: 90vw;
+    }
 
+    @include phone {
       @include fontSize(14px);
     }
   }
