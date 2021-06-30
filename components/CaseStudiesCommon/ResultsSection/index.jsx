@@ -27,7 +27,7 @@ const ResultsSection = ({ data, type }) => {
           alt={smartphoneUrl}
         />
         <img
-          className={styles.startedImage}
+          className={styles.appImage}
           src={appScreenUrl}
           alt={appScreenUrl}
         />
