@@ -158,3 +158,9 @@
     }
   }
 }
+
+.fairy {
+  @extend .container;
+
+  background-color: $white;
+}

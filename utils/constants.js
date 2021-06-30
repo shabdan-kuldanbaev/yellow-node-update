@@ -179,6 +179,7 @@ export const CASE_STUDIES_TYPES = {
   appFeatures: 'case-study-app-features',
   image: 'case-study-image',
   results: 'case-study-results',
+  parallax: 'case-study-parallax',
   design: 'case-study-design',
 };
 
@@ -186,13 +187,9 @@ export const ARTICLE_PREVIEW_TYPES = {
   related: 'related',
 };
 
-export const ANIMATION_CASE_STUDY_PROPS = {
-  type: ANIMATED_TYPE.isFade,
-  duration: 1000,
-};
-
 export const CASE_STUDIES_SLUGS = [
   'fernwayer',
   'stickerbox',
   'seven-pm-thursday',
+  'fairy',
 ];

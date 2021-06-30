@@ -24,15 +24,14 @@
     background-color: $white-darker;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -5%;
     right: 0;
     bottom: 0;
-    // TODO: this doesn't work on safari
-    //  transform: rotateY(-16deg) translateX(-5%);
+    transform: rotateY(-16deg) translateZ(-100px);
 
     @include tablet {
-      // TODO: this doesn't work on safari
-      //  transform: rotateY(-16deg) translateX(-3%);
+      left: -20%;
+      transform: rotateY(-16deg) translateZ(-100px);
     }
 
     @include phone {
@@ -146,6 +145,30 @@
     .contentContainer {
       .title {
         color: $white;
+      }
+    }
+  }
+}
+
+.fairy {
+  @extend .container;
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    margin-bottom: 35px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .checkMark {
+      color: $white;
+      background: linear-gradient(142.23deg, $light-violet -12.4%, $dark-violet 151.71%);
+    }
+
+    .contentContainer {
+      .title {
+        font-weight: 700;
       }
     }
   }

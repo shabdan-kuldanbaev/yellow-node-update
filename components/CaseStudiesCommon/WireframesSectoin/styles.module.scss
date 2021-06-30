@@ -44,3 +44,19 @@
     color: rgba($white, 0.4);
   }
 }
+
+.fairy {
+  @include caseStudyContainer;
+
+  @extend .wireframes;
+
+  background-color: $violet;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: rgba($white, 0.4);
+  }
+}

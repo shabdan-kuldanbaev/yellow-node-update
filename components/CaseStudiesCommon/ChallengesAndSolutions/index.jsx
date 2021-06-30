@@ -5,7 +5,7 @@ import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
 const ChallengesAndSolutions = ({
@@ -13,11 +13,6 @@ const ChallengesAndSolutions = ({
   type,
   isSpecial,
 }) => {
-  const delayedAnimation = {
-    ...ANIMATION_CASE_STUDY_PROPS,
-    delay: 500,
-  };
-
   if (!get(data, 'contentModules')) {
     return null;
   }
@@ -39,7 +34,7 @@ const ChallengesAndSolutions = ({
             className={cn(styles.contentContainer, { [styles.special]: isSpecial })}
           >
             {!imageUrl && (
-              <Animated {...delayedAnimation}>
+              <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.infoContainer, styles.separatedTitle)}>
                   <h2 className={styles.title}>
                     {title}
@@ -56,7 +51,7 @@ const ChallengesAndSolutions = ({
                 />
               )}
               {imageUrl && (
-                <Animated {...delayedAnimation}>
+                <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <h2 className={styles.title}>
                     {title}
                   </h2>
@@ -64,7 +59,7 @@ const ChallengesAndSolutions = ({
               )}
               {text && (
                 <Animated
-                  delay={1000}
+                  delay={100}
                   {...ANIMATION_CASE_STUDY_PROPS}
                 >
                   <ContentfulParser document={text} />
@@ -72,7 +67,10 @@ const ChallengesAndSolutions = ({
               )}
             </div>
             {imageUrl && (
-              <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+              <Animated
+                delay={500}
+                {...ANIMATION_CASE_STUDY_PROPS}
+              >
                 <div>
                   <img
                     className={styles.image}

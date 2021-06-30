@@ -102,3 +102,15 @@
     }
   }
 }
+
+.fairy {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(90deg, $violet 0%, rgba($violet, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $violet 0%, rgba($violet, 0) 100%);
+  }
+}
