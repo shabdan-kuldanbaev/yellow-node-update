@@ -2,7 +2,7 @@
 
 .blogPage {
   width: 100%;
-  margin: 80px 12px;
+  margin: 80px 15px;
 
   @include phone {
     width: initial;
@@ -32,6 +32,10 @@
 
   @include below-tablet {
     padding: 40px;
+  }
+
+  @include phone {
+    padding: 20px;
   }
 
   .subscribeText {

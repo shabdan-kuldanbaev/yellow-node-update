@@ -17,14 +17,6 @@ const Categories = ({ isMobileCategoties, closeMobileCategoties }) => {
 
   return (
     <div className={styles.categories}>
-      <div className={styles.categoryTitle}>
-        <h1>Category</h1>
-        <img
-          src={CloseIcon}
-          alt="Close"
-          onClick={closeMobileCategoties}
-        />
-      </div>
       <ul>
         {ROUTES.blog.categories.map(({ title, slug }, index) => {
           const { path, dynamicPath } = ROUTES.blog.getRoute(slug);

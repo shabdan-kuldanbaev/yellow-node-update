@@ -6,56 +6,24 @@
   margin: 0;
   padding: 0;
   z-index: 2;
+  position: relative;
 
   @include below-tablet-horizontal {
     width: 75%;
   }
 
   @include phone {
-    width: auto;
-    background-color: $header-additional-color;
-    border: 1px solid $blog-selection-block-mobile-categories-border-color;
-    border-radius: 5px;
-    color: $mine-shaft;
-    line-height: 1.5;
-    position: fixed;
-    height: auto;
-    top: $side-indent / 2;
-    right: $side-indent / 2;
-    left: $side-indent / 2;
-    padding: 16px;
-    will-change: transform;
-    transform: translateY(-150%);
-    transition: transform 0.5s ease-in;
-  }
+    width: 100%;
 
-  .categoryTitle {
-    display: none;
-    position: relative;
-
-    @include phone {
-      display: block;
-
-      h1 {
-        display: block;
-        margin: 0 0 30px;
-        padding: 0;
-        font-size: 1.875rem;
-        text-align: center;
-        color: $mine-shaft;
-        line-height: 1.5;
-        font-weight: 500;
-        font-weight: bold;
-      }
-
-      img {
-        position: absolute;
-        top: 16px;
-        right: 0;
-        width: 20px;
-        height: 16px;
-        cursor: pointer;
-      }
+    &::after {
+      content: " ";
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 10%;
+      z-index: 2;
+      background: linear-gradient(90deg, rgba($white, 0) 0, rgba($white, 1) 100%);
     }
   }
 
@@ -64,17 +32,14 @@
     margin: 0;
     padding: 0;
     line-height: 2;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
-    @include flex(row, space-between, center, wrap);
+    @include flex(row, space-between, center);
 
-    @include below-tablet {
-      @include flex(row, flex-start, center, wrap);
-    }
-
-    @include phone {
-      line-height: 1;
-
-      @include flex(column, flex-start, center);
+    &::-webkit-scrollbar {
+      display: none;
     }
 
     li {
@@ -97,7 +62,7 @@
       }
 
       @include phone {
-        margin: 0 0 20px;
+        margin: 0 20px 0 0;
         font-size: 1.125rem;
         color: $mine-shaft;
         font-weight: normal;
@@ -111,6 +76,10 @@
         &:hover {
           color: $black;
           transition: color $default-transition-time;
+        }
+
+        @include phone {
+          white-space: nowrap;
         }
       }
 

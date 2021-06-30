@@ -4,7 +4,8 @@ import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import SubscribeBlock from 'components/Common/SubscribeBlock';
-import { Article } from './Article';
+import { ArticlePreview } from 'components/Common/ArticlePreview';
+import { ARTICLE_PREVIEW_TYPES } from 'utils/constants';
 import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
@@ -37,15 +38,17 @@ export const ArticlesList = ({
       });
 
       return (
-        <Article
+        <ArticlePreview
+          type={isSearch ? ARTICLE_PREVIEW_TYPES.search : ARTICLE_PREVIEW_TYPES.blog}
           key={articleProps.title}
-          countNumber={index}
+          index={index}
           animatioProps={articleProps.animatioProps}
           slug={articleProps.slug}
           title={articleProps.title}
-          categoryTag={articleProps.categoryTag}
+          category={articleProps.categoryTag}
           introduction={articleProps.introduction}
-          previewImage={articleProps.previewImage}
+          image={articleProps.previewImage}
+          date={articleProps.publishedAt}
           isSearch={isSearch}
           handleOnCloseModalWindow={handleOnCloseModalWindow}
         />

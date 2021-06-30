@@ -91,17 +91,6 @@
     }
   }
 
-  .categories {
-    display: none;
-    z-index: 200;
-
-    @include phone {
-      display: block;
-      position: fixed;
-      right: 17vw;
-    }
-  }
-
   ul {
     margin: 0;
   }

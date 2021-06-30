@@ -157,6 +157,8 @@ export const CASE_STUDIES_TYPES = {
 
 export const ARTICLE_PREVIEW_TYPES = {
   related: 'related',
+  blog: 'blog',
+  search: 'search',
 };
 
 export const ANIMATION_CASE_STUDY_PROPS = {
