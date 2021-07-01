@@ -1,23 +1,47 @@
 @import 'styles/utils/mixins';
 
-.wireframes {
-  padding-left: 0;
-  padding-right: 0;
+.fernwayer {
+  @include caseStudyContainer;
+  @include wireframes;
+
   background-color: $white;
 }
 
-.fernwayer {
+.seven-pm-thursday {
   @include caseStudyContainer;
+  @include wireframes;
 
-  @extend .wireframes;
+  background-color: $dark-blue;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: $silver-chalice;
+  }
 }
 
 .stickerbox {
   @include caseStudyContainer;
-
-  @extend .wireframes;
+  @include wireframes;
 
   background-color: $dark-grey-1;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: rgba($white, 0.4);
+  }
+}
+
+.fairy {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  background-color: $violet;
 
   [data-case-study-title] {
     color: $white;

@@ -1,13 +1,23 @@
 @import 'styles/utils/mixins';
 
-.fernwayer {
+.fernwayer,
+.stickerbox,
+.fairy {
   @include caseStudyContainer;
 
   background-color: $white;
 }
 
-.stickerbox {
+.seven-pm-thursday {
   @include caseStudyContainer;
 
-  background-color: $white;
+  background-color: $dark-blue;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: $silver-chalice;
+  }
 }

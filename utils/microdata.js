@@ -93,6 +93,14 @@ export const microdata = {
       streetAddress,
     },
   }),
+  customChatApp: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Сhat app development company | Chat app developers | Yellow',
+    description: `Yellow has more than 5+ years of dedication to the development of chat apps.
+                  ✔ 10+ successfully delivered chat apps. ✔ Let's get in touch!`,
+    breadcrumb: 'Homepage > Custom chat app development company',
+  }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',

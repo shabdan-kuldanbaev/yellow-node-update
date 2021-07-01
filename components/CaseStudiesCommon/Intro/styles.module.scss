@@ -52,6 +52,13 @@
       }
     }
 
+    .projectSubtitle {
+      margin: 0 0 20px;
+      font-family: $case-studies-font;
+      font-weight: 500;
+      line-height: 150%;
+    }
+
     .projectDescription {
       max-width: 400px;
       margin: 0 0 40px;
@@ -228,6 +235,56 @@
     }
 
     .projectSubtitle {
+      color: $silver-chalice;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.4);
+    }
+  }
+}
+
+.seven-pm-thursday {
+  @extend .container;
+
+  padding-top: 245px;
+  background: $dark-blue-1;
+
+  @include tablet {
+    padding-top: 145px;
+  }
+
+  @include phone {
+    padding-top: 135px;
+  }
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(90px);
+
+      @include tablet {
+        @include fontSize(60px);
+      }
+    }
+
+    .projectSubtitle {
       font-family: $case-studies-font;
       font-weight: 500;
       line-height: 150%;
@@ -237,7 +294,50 @@
     }
 
     .projectDescription {
+      max-width: 518px;
       color: rgba($white, 0.4);
+    }
+  }
+}
+
+.fairy {
+  @extend .container;
+
+  background: $violet no-repeat center;
+  background-size: cover;
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectSubtitle {
+      color: rgba($white, 0.8);
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.6);
     }
   }
 }

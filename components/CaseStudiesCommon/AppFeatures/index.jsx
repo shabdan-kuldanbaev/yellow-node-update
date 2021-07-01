@@ -6,7 +6,8 @@ import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
 const AppFeatures = ({ data, type }) => {
@@ -35,7 +36,7 @@ const AppFeatures = ({ data, type }) => {
             return (
               <Animated
                 key={title}
-                delay={500 * index}
+                delay={75 * index}
                 {...ANIMATION_CASE_STUDY_PROPS}
               >
                 <div
@@ -49,15 +50,23 @@ const AppFeatures = ({ data, type }) => {
                   >
                     {title}
                   </p>
-                  <div className={styles.description}>
-                    <ContentfulParser document={text} />
-                  </div>
+                  <Animated
+                    open={index === activeIndex}
+                    type={ANIMATED_TYPE.expandByHeight}
+                  >
+                    <div className={styles.description}>
+                      <ContentfulParser document={text} />
+                    </div>
+                  </Animated>
                 </div>
               </Animated>
             );
           })}
         </div>
-        <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+        <Animated
+          delay={500}
+          {...ANIMATION_CASE_STUDY_PROPS}
+        >
           <div className={styles.imageContainer}>
             <img
               src={imageUrl}

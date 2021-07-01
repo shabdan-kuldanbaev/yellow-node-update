@@ -14,6 +14,12 @@ const Portfolio = ({
   maxScrollPosition,
   animatedFields: animatedFieldsList,
 }) => {
+  const slugs = {
+    Fernwayer: 'fernwayer',
+    '7pm Thursday': 'seven-pm-thursday',
+    Fairy: 'fairy',
+  };
+
   useEffect(() => () => {
     gaHelper.trackEvent(
       'Scroll',
@@ -21,6 +27,7 @@ const Portfolio = ({
       ROUTES.portfolio.path,
       maxScrollPosition.current < 50,
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return works && (
@@ -35,12 +42,8 @@ const Portfolio = ({
           title,
           description,
         } = documentFields;
-        let { slug } = documentFields;
-
         // TODO: remove this after rebuild works page
-        if (title === 'Fernwayer') {
-          slug = 'fernwayer';
-        }
+        const slug = documentFields.slug || slugs[title];
 
         return (
           <div

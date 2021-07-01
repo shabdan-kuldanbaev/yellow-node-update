@@ -22,12 +22,14 @@ const AnimatedInput = ({
   isValidate,
   isAttached,
   isTextArea,
+  style,
 }) => {
   const { asPath } = useRouter();
   const inputRef = useRef();
   const [isInputActived, setActive] = useState(false);
   const [isInputFocus, setFocus] = useState(false);
   const animatedInput = cn({
+    [styles[style]]: style,
     [styles.animatedInput]: true,
     [styles.isRequired]: isRequired || isAttached,
     [styles.isValidate]: !isValidate,
@@ -129,6 +131,7 @@ AnimatedInput.defaultProps = {
   isRequired: false,
   isAttached: false,
   isTextArea: false,
+  style: '',
 };
 
 AnimatedInput.propTypes = {
@@ -142,6 +145,7 @@ AnimatedInput.propTypes = {
   isRequired: PropTypes.bool,
   isAttached: PropTypes.bool,
   isTextArea: PropTypes.bool,
+  style: PropTypes.string,
 };
 
 export default AnimatedInput;

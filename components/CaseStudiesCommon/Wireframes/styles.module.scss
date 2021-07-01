@@ -13,7 +13,6 @@
   position: relative;
   overflow: hidden;
   margin-top: 80px;
-  width: 100%;
   display: flex;
 
   @include phone {
@@ -36,6 +35,7 @@
     @include insetGradient;
   }
 
+  // TODO: the first image does not animated on desktop safari
   .animatedContainer {
     position: relative;
     animation: image-scroll 30s linear infinite;
@@ -80,5 +80,71 @@
 
   &::after {
     background: linear-gradient(270deg, $dark-grey-1 0%, rgba($dark-grey-1, 0) 100%);
+  }
+
+  /* stylelint-disable-next-line */
+  .animatedContainer {
+    .image {
+      margin-left: 95px;
+
+      @include phone {
+        margin-left: 50px;
+      }
+    }
+  }
+}
+
+.seven-pm-thursday {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(90deg, $dark-blue 0%, rgba($dark-blue, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $dark-blue 0%, rgba($dark-blue, 0) 100%);
+  }
+
+  /* stylelint-disable-next-line */
+  .animatedContainer {
+    .image {
+      margin-left: 26px;
+
+      @include phone {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &:nth-of-type(1) {
+    .animatedContainer {
+      .image {
+        margin-left: 80px;
+
+        @include phone {
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+}
+
+.fairy {
+  @extend .imagesContainer;
+
+  /* stylelint-disable-next-line */
+  .animatedContainer {
+    /* stylelint-disable-next-line */
+    .image {
+      margin-left: 42px;
+    }
+  }
+
+  &::before {
+    background: linear-gradient(90deg, $violet 0%, rgba($violet, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $violet 0%, rgba($violet, 0) 100%);
   }
 }

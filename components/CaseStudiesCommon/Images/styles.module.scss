@@ -33,7 +33,22 @@
   }
 }
 
-.fernwayer {
+.scaled {
+  .image {
+    display: block;
+    max-width: 1200px;
+    max-height: 100vw;
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+}
+
+.fernwayer,
+.stickerbox,
+.seven-pm-thursday,
+.fairy {
   @extend .imagContainer;
 }
 
@@ -90,7 +105,7 @@
       left: 0;
       top: 0;
       transform: translate(21%, 30%);
-      transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1) 500ms;
+      transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
     }
 
     &:nth-child(3) {
@@ -100,7 +115,7 @@
       right: 0;
       top: 0;
       transform: translate(-21%, 30%);
-      transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1) 500ms;
+      transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
     }
   }
 

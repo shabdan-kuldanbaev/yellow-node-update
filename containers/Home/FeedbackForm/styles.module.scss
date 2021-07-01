@@ -81,3 +81,32 @@
     max-width: $max-content-width-macbook-twelve;
   }
 }
+
+.seven-pm-thursday {
+  @extend .formContainer;
+
+  background-color: $dark-blue-1;
+
+  /* stylelint-disable-next-line */
+  .title {
+    color: $white;
+  }
+
+  .subtitle {
+    color: rgba($white, 0.4);
+
+    /* stylelint-disable-next-line */
+    span {
+      /* stylelint-disable-next-line */
+      a {
+        color: rgba($white, 0.4);
+
+        /* stylelint-disable-next-line */
+        &::before {
+          border-bottom: 1px rgba($white, 0.4) solid;
+          background-color: rgba($white, 0.4);
+        }
+      }
+    }
+  }
+}

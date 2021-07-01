@@ -79,10 +79,7 @@
       margin-right: 0;
       margin-left: 66px;
 
-      @include phone {
-        order: initial;
-        margin: 0;
-      }
+      @include infoContainerPhone;
 
       &:nth-child(2n) {
         margin: 0;
@@ -120,6 +117,11 @@
     max-height: 812px;
     display: block;
     object-fit: contain;
+    filter: $shadow-filter;
+
+    @include phone {
+      filter: $shadow-filter-phone;
+    }
 
     @include tablet {
       min-width: 317px;
@@ -139,6 +141,12 @@
 }
 
 .fernwayer {
+  .contentContainer {
+    .image {
+      filter: none;
+    }
+  }
+
   .special {
     /* stylelint-disable-next-line */
     .infoContainer {
@@ -151,10 +159,6 @@
 }
 
 .stickerbox {
-  .image {
-    filter: drop-shadow(-30px 20px 80px rgba($dark-grey, 0.15)), drop-shadow(-15px 10px 40px rgba($dark-grey, 0.25));
-  }
-
   .special {
     &:first-child {
       .image {
@@ -163,6 +167,86 @@
         @include phone {
           transform: none;
         }
+      }
+    }
+
+    /* stylelint-disable-next-line */
+    .infoContainer {
+      .title {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+}
+
+.fairy {
+  /* stylelint-disable-next-line */
+  .special {
+    &:first-child {
+      .image {
+        transform: translateY(-70px);
+
+        @include phone {
+          transform: none;
+        }
+      }
+    }
+
+    /* stylelint-disable-next-line */
+    .infoContainer {
+      .title {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+}
+
+.seven-pm-thursday {
+  .contentContainer {
+    /* stylelint-disable-next-line */
+    .infoContainer {
+      .title,
+      h3 {
+        color: $white;
+      }
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  .special {
+    &:first-child {
+      .image {
+        transform: translateY(-70px);
+
+        @include phone {
+          transform: none;
+        }
+      }
+    }
+
+    &:nth-of-type(2n + 1) {
+      .infoContainer:not(.separatedTitle) {
+        order: 2;
+        margin: 0 0 0 66px;
+
+        @include infoContainerPhone;
+      }
+    }
+
+    &:nth-of-type(2n) {
+      .infoContainer:not(.separatedTitle) {
+        order: inherit;
+        margin: 0 66px 0 0;
+
+        @include infoContainerPhone;
       }
     }
 

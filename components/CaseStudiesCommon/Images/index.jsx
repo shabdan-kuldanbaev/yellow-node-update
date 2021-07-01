@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
-import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
 import { useIntersectionItem } from 'utils/hooks';
+import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
 const Images = ({ data, type }) => {
@@ -19,7 +19,7 @@ const Images = ({ data, type }) => {
 
   return (
     <Animated
-      delay={500}
+      delay={100}
       {...ANIMATION_CASE_STUDY_PROPS}
     >
       <div className={cn(styles[type], styles[classes])}>
@@ -41,9 +41,13 @@ const Images = ({ data, type }) => {
   );
 };
 
+Images.defaultProps = {
+  type: 'imagContainer',
+};
+
 Images.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
 };
 
 export default Images;
