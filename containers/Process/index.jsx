@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
+import { selectMetaData } from 'redux/selectors/layout';
 import {
   Process,
   MetaTags,
@@ -9,18 +10,27 @@ import {
   FullLayout,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
+import { rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 
 const ProcessContainer = ({
   introSection,
   processes: { json },
+  metaData,
 }) => {
   const breadcrumbs = pagesBreadcrumbs.process();
+  const { metaTitle, metaDescription } = metaData;
+  const pageMetadata = {
+    metaTitle,
+    metaDescription,
+    url: `${rootUrl}/process`,
+  };
 
   return (
     <Fragment>
       <MetaTags
         page={PAGES.process}
+        pageMetadata={pageMetadata}
         breadcrumbs={breadcrumbs}
       />
       <FullLayout introSection={introSection}>
@@ -40,5 +50,8 @@ ProcessContainer.propTypes = {
 };
 
 export default connect(
-  (state) => ({ processes: selectProcessPage(state) }),
+  (state) => ({
+    processes: selectProcessPage(state),
+    metaData: selectMetaData(state),
+  }),
 )(ProcessContainer);
