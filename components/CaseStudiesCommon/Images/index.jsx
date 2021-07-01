@@ -33,7 +33,7 @@ const Images = ({ data, type }) => {
             >
               <img
                 className={styles.image}
-                src={image}
+                src={imageUrl}
                 alt={imageUrl}
               />
             </Animated>
