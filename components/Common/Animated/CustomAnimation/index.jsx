@@ -1,10 +1,6 @@
-import React, {
-  useRef,
-  useEffect,
-  useState,
-} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useIntersection } from 'react-use';
+import { useIntersectionItem } from 'utils/hooks';
 
 export const CustomAnimation = ({
   children,
@@ -15,14 +11,8 @@ export const CustomAnimation = ({
   transitionDelay,
   percentIntersection,
 }) => {
-  const [isAnimated, setAnimated] = useState('');
-  const animateRef = useRef(null);
+  const [intersectRef, isIntersected] = useIntersectionItem(percentIntersection);
   const delayInSeconds = transitionDelay / 1000;
-  const intersection = useIntersection(animateRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: percentIntersection,
-  });
   const appearanceStyles = {
     opacity: '1',
     transform: 'translate(0px, 0px)',
@@ -34,21 +24,12 @@ export const CustomAnimation = ({
   const generalStyles = {
     opacity: '0',
     transform: `translate(${translateX}, ${translateY})`,
-    ...(isAnimated ? appearanceStyles : {}),
+    ...(isIntersected ? appearanceStyles : {}),
   };
-
-  useEffect(() => {
-    if (animateRef && animateRef.current) {
-      if (intersection && intersection.intersectionRatio >= percentIntersection) {
-        setAnimated(true);
-      }
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [intersection]);
 
   return (
     <div
-      ref={animateRef}
+      ref={intersectRef}
       style={generalStyles}
     >
       {children}

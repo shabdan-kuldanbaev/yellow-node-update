@@ -61,6 +61,7 @@ export const ANIMATED_TYPE = {
   gsap: 'gsap',
   imageZoom: 'imageZoom',
   expandByHeight: 'expandByHeight',
+  isCSS: 'isCSS',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {

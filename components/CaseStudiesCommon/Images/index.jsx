@@ -4,13 +4,11 @@ import cn from 'classnames';
 import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
 import { getFileUrl } from 'utils/helper';
-import { useIntersectionItem } from 'utils/hooks';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
 const Images = ({ data, type }) => {
-  const [intersectRef, isIntersected] = useIntersectionItem(null);
-
   if (!get(data, 'images')) {
     return null;
   }
@@ -25,15 +23,20 @@ const Images = ({ data, type }) => {
       <div className={cn(styles[type], styles[classes])}>
         {data.images.map((image, index) => {
           const imageUrl = getFileUrl(image);
+          const imageStyle = index ? styles.active : '';
 
           return (
-            <img
+            <Animated
               key={imageUrl}
-              ref={intersectRef}
-              className={cn(styles.image, { [styles.active]: index && isIntersected })}
-              src={imageUrl}
-              alt={imageUrl}
-            />
+              type={ANIMATED_TYPE.isCSS}
+              intersectedClasses={imageStyle}
+            >
+              <img
+                className={styles.image}
+                src={image}
+                alt={imageUrl}
+              />
+            </Animated>
           );
         })}
       </div>
