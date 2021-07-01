@@ -5,7 +5,11 @@ import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getOptimizedImage,
+} from 'utils/helper';
 import styles from './styles.module.scss';
 
 const Intro = ({
@@ -33,10 +37,10 @@ const Intro = ({
     get(data, 'contentModules[1]', {}),
     ['contentModules'],
   );
-  const appLogoUrl = getFileUrl(get(images, '[0]', ''));
-  const appBackgroundImageUrl = getFileUrl(get(images, '[1]', ''));
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));
-  const backgroundImageUrl = getFileUrl(get(data, 'images[0]', ''));
+  const appLogoUrl = getOptimizedImage(getFileUrl(get(images, '[0]', '')), 0, 0, 'png', 'png8');
+  const appBackgroundImageUrl = getOptimizedImage(getFileUrl(get(images, '[1]', '')), 0, 0, 'png', '');
+  const backgroundImageUrl = getOptimizedImage(getFileUrl(get(data, 'images[0]', '')), 0, 0, 'png', '');
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
 
   return (

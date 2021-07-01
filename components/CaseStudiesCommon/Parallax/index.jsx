@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { getFileUrl } from 'utils/helper';
+import { getFileUrl, getOptimizedImage } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const Parallax = ({ data, type }) => {
@@ -9,7 +9,7 @@ const Parallax = ({ data, type }) => {
     return null;
   }
 
-  const imageUrl = getFileUrl(data.images[0]);
+  const imageUrl = getOptimizedImage(getFileUrl(data.images[0]), 0, 0, 'png', 'png8');
   const backgroundImage = { backgroundImage: `url(${imageUrl})` };
 
   return (

@@ -67,21 +67,29 @@ export const rootUrl = process.env.NODE_ENV === 'development'
 
 export const isServer = typeof window === 'undefined';
 
-export const getOptimizedImage = (src, width, fm = 'jpg', fl = 'progressive') => `${src}?fm=${fm}&fl=${fl}&w=${width}&fit=fill`;
+export const getOptimizedImage = (src, width, height, fm = 'jpg', fl = 'progressive') => {
+  if (!src) {
+    return '';
+  }
+
+  let imageUrl = `${src}?fm=${fm}&fl=${fl}`;
+
+  if (width) {
+    imageUrl += `&w=${width}`;
+  }
+
+  if (height) {
+    imageUrl += `&h=${height}`;
+  }
+
+  return imageUrl;
+};
 
 export const createMarkup = (data) => ({ __html: data });
 
 export const addHttpsToUrl = (url) => (/^\/\//.test(url) ? `https:${url}` : url);
 
 export const getFileUrl = (file) => addHttpsToUrl(get(file, 'fields.file.url', ''));
-
-export const getOptimizedImageUrl = (file, height, width) => {
-  if (!file) {
-    return '';
-  }
-
-  return `${getFileUrl(file)}?h=${height}&fit=fill`;
-};
 
 export const getDocumentFields = (document, fields = []) => {
   if (fields.length) {

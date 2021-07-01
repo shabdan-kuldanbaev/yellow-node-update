@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
-import { getOptimizedImageUrl } from 'utils/helper';
+import { getFileUrl, getOptimizedImage } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
@@ -20,8 +20,8 @@ const Wireframe = ({
 
   return images.map((image) => {
     const imageUrl = isMobileResolution
-      ? getOptimizedImageUrl(image, 400)
-      : getOptimizedImageUrl(image, 812);
+      ? getOptimizedImage(getFileUrl(image), 0, 400, 'png', 'png8')
+      : getOptimizedImage(getFileUrl(image), 0, 812, 'png', 'png8');
 
     return (
       <Animated
@@ -56,8 +56,6 @@ Wireframe.prototype = {
   }).isRequired,
   type: PropTypes.string.isRequired,
 };
-
-// export default Wireframe;
 
 export default connect(
   (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),

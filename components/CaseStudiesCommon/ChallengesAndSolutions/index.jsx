@@ -6,7 +6,11 @@ import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { getDocumentFields, getOptimizedImageUrl } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getOptimizedImage,
+} from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
@@ -29,9 +33,9 @@ const ChallengesAndSolutions = ({
           text,
         } = getDocumentFields(document);
         const imageUrl = isMobileResolution
-          ? getOptimizedImageUrl(get(images, '[0]'), 500)
-          : getOptimizedImageUrl(get(images, '[0]'), 812);
-        const subImageUrl = getOptimizedImageUrl(get(images, '[1]', ''), 100);
+          ? getOptimizedImage(getFileUrl(get(images, '[0]')), 0, 500, 'png', 'png8')
+          : getOptimizedImage(getFileUrl(get(images, '[0]')), 0, 812, 'png', 'png8');
+        const subImageUrl = getOptimizedImage(getFileUrl(get(images, '[1]', '')), 0, 100, 'png', 'png8');
 
         return (
           <div

@@ -70,7 +70,7 @@ const Work = ({
           >
             <img
               src={sizeOfImage
-                ? getOptimizedImage(imageUrl, sizeOfImage, 'png', 'png8')
+                ? getOptimizedImage(imageUrl, sizeOfImage, null, 'png', 'png8')
                 : imageUrl}
               alt={title}
             />

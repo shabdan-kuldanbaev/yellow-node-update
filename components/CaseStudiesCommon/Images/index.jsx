@@ -1,18 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import { connect } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
-import { getFileUrl } from 'utils/helper';
+import { getFileUrl, getOptimizedImage } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
-const Images = ({ data, type }) => {
+const Images = ({
+  data,
+  type,
+  isMobileResolution,
+}) => {
   if (!get(data, 'images')) {
     return null;
   }
 
   return data.images.map((image) => {
-    const imageUrl = getFileUrl(image);
+    const imageUrl = isMobileResolution
+      ? getOptimizedImage(getFileUrl(image), 0, 500, 'png', 'png8')
+      : getOptimizedImage(getFileUrl(image), 0, 812, 'png', 'png8');
 
     return (
       <Animated
@@ -38,7 +46,10 @@ Images.defaultProps = {
 
 Images.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
   type: PropTypes.string,
 };
 
-export default Images;
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(Images);
