@@ -25,20 +25,101 @@
 
     @include phone {
       width: auto;
-      height: 470px;
+
+      &:first-child {
+        max-height: 470px;
+      }
     }
   }
+}
 
-  .fernwayer2 {
+.fernwayer {
+  @extend .imagContainer;
+}
+
+.fernwayer2 {
+  width: fit-content;
+  margin: 0 auto;
+
+  img:last-child {
     position: absolute;
     top: 26%;
     left: 50%;
     width: 320px;
     transform: translate(-14%, 0) scale(0.8);
-    animation: zoomChat 2s linear 1s both;
+    transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1) 500ms;
+    filter: drop-shadow(-10px 10px 25px rgba(57, 57, 57, 0.2));
 
     @include phone {
       width: 190px;
+    }
+  }
+
+  .active {
+    &:last-of-type {
+      transform: translateX(-16%) scale(1);
+    }
+  }
+}
+
+.fernwayer3 {
+  width: fit-content;
+  margin: 0 auto;
+  overflow: unset;
+
+  @include phone {
+    max-height: 470px;
+  }
+
+  /* stylelint-disable-next-line */
+  img {
+    &:nth-child(1) {
+      max-width: 90%;
+      height: auto;
+      object-fit: contain;
+
+      @include phone {
+        max-height: 470px;
+      }
+    }
+
+    &:nth-child(2) {
+      width: 37%;
+      height: auto;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(21%, 30%);
+      transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1) 500ms;
+    }
+
+    &:nth-child(3) {
+      width: 37%;
+      height: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(-21%, 30%);
+      transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1) 500ms;
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  .active {
+    &:nth-of-type(2) {
+      transform: rotate(-8deg) translate(-50px, 128px);
+
+      @include phone {
+        transform: rotate(-8deg) translate(-5px, 60px);
+      }
+    }
+
+    &:nth-of-type(3) {
+      transform: rotate(8deg) translate(50px, 128px);
+
+      @include phone {
+        transform: rotate(8deg) translate(5px, 60px);
+      }
     }
   }
 }
