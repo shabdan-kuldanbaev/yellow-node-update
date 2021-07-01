@@ -75,6 +75,14 @@ export const addHttpsToUrl = (url) => (/^\/\//.test(url) ? `https:${url}` : url)
 
 export const getFileUrl = (file) => addHttpsToUrl(get(file, 'fields.file.url', ''));
 
+export const getOptimizedImageUrl = (file, height, width) => {
+  if (!file) {
+    return '';
+  }
+
+  return `${getFileUrl(file)}?h=${height}&fit=fill`;
+};
+
 export const getDocumentFields = (document, fields = []) => {
   if (fields.length) {
     return fields.reduce((acc, field) => {

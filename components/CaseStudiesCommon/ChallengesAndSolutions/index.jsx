@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
+import { connect } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { getDocumentFields, getOptimizedImageUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
@@ -12,6 +14,7 @@ const ChallengesAndSolutions = ({
   data,
   type,
   isSpecial,
+  isMobileResolution,
 }) => {
   if (!get(data, 'contentModules')) {
     return null;
@@ -25,8 +28,10 @@ const ChallengesAndSolutions = ({
           images,
           text,
         } = getDocumentFields(document);
-        const imageUrl = getFileUrl(get(images, '[0]'));
-        const subImageUrl = getFileUrl(get(images, '[1]', ''));
+        const imageUrl = isMobileResolution
+          ? getOptimizedImageUrl(get(images, '[0]'), 500)
+          : getOptimizedImageUrl(get(images, '[0]'), 812);
+        const subImageUrl = getOptimizedImageUrl(get(images, '[1]', ''), 100);
 
         return (
           <div
@@ -96,6 +101,9 @@ ChallengesAndSolutions.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,
   isSpecial: PropTypes.bool,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default ChallengesAndSolutions;
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(ChallengesAndSolutions);
