@@ -12,7 +12,7 @@ import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
 import { setPageReadyToDisplay } from 'redux/actions/layout';
-import Layout from 'containers/Layout';
+import { Layout } from 'containers/Layout';
 import { isServer } from 'utils/helper';
 import { AppContext } from 'utils/appContext';
 import errorHelper from 'utils/error';

@@ -50,7 +50,7 @@ const SelectionBlock = ({
       <div className={styles.buttons}>
         <Svg
           type={SVG_IMAGES_TYPES.searchIcon}
-          hanleOnClick={openFullscreenSearch}
+          handleOnClick={openFullscreenSearch}
           className={styles.imgContainer}
         />
         <ButtonMore

@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { connect } from 'react-redux';
-import { sendEmail } from 'redux/actions/contact';
 import { selectContacts, selectCompanyPhoto } from 'redux/selectors/layout';
 import {
   FeedbackFormWithTitle,
@@ -19,7 +18,6 @@ import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 
 const ContactUsContainer = ({
   introSection,
-  sendEmail: sendFeedback,
   officePhoto,
   peoplePhoto,
 }) => {
@@ -29,24 +27,6 @@ const ContactUsContainer = ({
   const { images: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['images']);
   const peopleImageUrl = getFileUrl(get(peoplePhotoContent, '[0]', {}));
   const breadcrumbs = pagesBreadcrumbs.contact();
-
-  const handleOnClick = (...args) => {
-    const [
-      fullName,
-      email,
-      description,
-      selectedFilesInfo,
-      projectBudget,
-    ] = args;
-
-    sendFeedback({
-      name: fullName,
-      email,
-      description,
-      attachments: selectedFilesInfo,
-      projectBudget,
-    });
-  };
 
   return (
     <Fragment>
@@ -60,7 +40,7 @@ const ContactUsContainer = ({
           title={ROUTES.contact.title}
           breadcrumbs={breadcrumbs}
         />
-        <FeedbackFormWithTitle handleOnClick={handleOnClick} />
+        <FeedbackFormWithTitle />
         <CompanyPeoplePhoto photo={peopleImageUrl} />
         <CompanyContacts photo={officeImageUrl} />
       </FullLayout>
@@ -75,7 +55,6 @@ ContactUsContainer.defaultProps = {
 
 ContactUsContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  sendEmail: PropTypes.func.isRequired,
   officePhoto: PropTypes.instanceOf(Object),
   peoplePhoto: PropTypes.instanceOf(Object),
 };
@@ -85,5 +64,4 @@ export default connect(
     officePhoto: selectContacts(state),
     peoplePhoto: selectCompanyPhoto(state),
   }),
-  { sendEmail },
 )(ContactUsContainer);

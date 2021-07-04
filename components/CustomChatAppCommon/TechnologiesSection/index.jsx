@@ -9,7 +9,10 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const TechnologiesSection = ({ sectionData }) => {
+export const TechnologiesSection = ({
+  sectionData,
+  handleOnCTAClick,
+}) => {
   const {
     title,
     description,
@@ -55,6 +58,7 @@ export const TechnologiesSection = ({ sectionData }) => {
         title={`Want to start chat app development?
                 Ask Yelow’s consultants now.`}
         buttonTitle="Contact us"
+        handleOnClick={handleOnCTAClick}
       />
     </div>
   );
