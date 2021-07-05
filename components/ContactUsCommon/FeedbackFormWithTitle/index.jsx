@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { SectionTitle, FeedbackForm } from 'components';
 import styles from './styles.module.scss';
 
-const FeedbackFormWithTitle = ({ handleOnClick }) => (
+const FeedbackFormWithTitle = () => (
   <section className={styles.feedbackFormWithTitle}>
     <div>
       <SectionTitle
@@ -14,16 +13,9 @@ const FeedbackFormWithTitle = ({ handleOnClick }) => (
         subtitle="Fill in this form or"
         linkText="send us an e-mail"
       />
-      <FeedbackForm
-        isChooseBudget
-        handleOnClick={handleOnClick}
-      />
+      <FeedbackForm isChooseBudget />
     </div>
   </section>
 );
-
-FeedbackFormWithTitle.propTypes = {
-  handleOnClick: PropTypes.func.isRequired,
-};
 
 export default FeedbackFormWithTitle;

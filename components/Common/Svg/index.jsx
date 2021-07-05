@@ -8,12 +8,12 @@ import { logoSize } from 'styles/utils/_variables.scss';
 export const Svg = ({
   type,
   className,
-  hanleOnClick,
+  handleOnClick,
 }) => {
   switch (type) {
   case SVG_IMAGES_TYPES.searchIcon:
     return (
-      <svg className={className} onClick={hanleOnClick} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 22 22">
+      <svg className={className} onClick={handleOnClick} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 22 22">
         <defs>
           <path id="j33fb2y5fa" d="M0.005 0.059L21.953 0.059 21.953 22.012 0.005 22.012z" />
         </defs>
@@ -27,7 +27,7 @@ export const Svg = ({
     );
   case SVG_IMAGES_TYPES.closeSvg:
     return (
-      <svg className={className} onClick={hanleOnClick} xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+      <svg className={className} onClick={handleOnClick} xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
         <g fill="none" fillRule="evenodd" stroke="#000" strokeWidth="3">
           <path d="M0 0l23.8 23.8M23.8 0L0 23.8" transform="translate(1 1)" />
         </g>
@@ -565,11 +565,11 @@ export const Svg = ({
 
 Svg.defaultProps = {
   className: '',
-  hanleOnClick: () => {},
+  handleOnClick: () => {},
 };
 
 Svg.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
-  hanleOnClick: PropTypes.func,
+  handleOnClick: PropTypes.func,
 };

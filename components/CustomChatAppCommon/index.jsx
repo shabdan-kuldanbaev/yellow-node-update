@@ -10,7 +10,7 @@ import { OurWorkSection } from 'components/CustomChatAppCommon/OurWorkSection';
 import { getDocumentFields } from 'utils/helper';
 import { BLOCKS_SLUGS } from 'utils/constants';
 
-export const ChatAppCommon = ({ section }) => {
+export const ChatAppCommon = ({ section, handleOnCTAClick }) => {
   const { slug } = getDocumentFields(section);
 
   switch (slug) {
@@ -24,6 +24,7 @@ export const ChatAppCommon = ({ section }) => {
         sectionData={section}
         type="chatTypes"
         hasCTAButton
+        handleOnCTAClick={handleOnCTAClick}
       />
     );
   case BLOCKS_SLUGS.chatAppPageDevelopersAdvantages:
@@ -38,7 +39,12 @@ export const ChatAppCommon = ({ section }) => {
   case BLOCKS_SLUGS.chatAppPageFeatures:
     return <ChatFeaturesSection sectionData={section} />;
   case BLOCKS_SLUGS.chatAppPageTechnologies:
-    return <TechnologiesSection sectionData={section} />;
+    return (
+      <TechnologiesSection
+        sectionData={section}
+        handleOnCTAClick={handleOnCTAClick}
+      />
+    );
   case BLOCKS_SLUGS.chatAppPageOurWork:
     return <OurWorkSection sectionData={section} />;
   default:

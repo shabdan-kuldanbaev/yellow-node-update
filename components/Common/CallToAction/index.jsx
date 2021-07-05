@@ -9,6 +9,7 @@ export const CallToAction = ({
   buttonTitle,
   href,
   type,
+  handleOnClick,
 }) => (
   <div className={styles[type]}>
     <h3 className={styles.h3}>
@@ -23,14 +24,21 @@ export const CallToAction = ({
       href={href}
       title={buttonTitle}
       buttonStyle={styles.button}
+      handleOnClick={handleOnClick}
     />
   </div>
 );
+
+CallToAction.defaultProps = {
+  href: '',
+  handleOnClick: () => {},
+};
 
 CallToAction.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   buttonTitle: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   type: PropTypes.string.isRequired,
+  handleOnClick: PropTypes.func,
 };

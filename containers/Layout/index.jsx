@@ -4,13 +4,12 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   setMobileResolutions,
   setTabletResolutions,
   setFullResolution,
 } from 'redux/actions/layout';
-import { sendEmail } from 'redux/actions/contact';
 import CookiesNotification from 'components/Common/CookiesNotification';
 import { GAnalytic } from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
@@ -22,39 +21,16 @@ import {
   fullResolution,
 } from 'utils/helper';
 
-const Layout = ({
+export const Layout = ({
   children,
   theme,
   introSection,
-  sendEmail: sendFeedback,
 }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
-  // TODO
-  // three repetitions in the code - handleOnClick
-  // Remove this method from here. (rework it)
-  // What does it throw as props for?
-  // Why does not it do in the feedback form?
-  const handleOnClick = (...args) => {
-    const [
-      fullName,
-      email,
-      description,
-      selectedFilesInfo,
-      projectBudget,
-    ] = args;
-
-    sendFeedback({
-      name: fullName,
-      email,
-      description,
-      attachments: selectedFilesInfo,
-      projectBudget,
-    });
-  };
 
   useEffect(() => {
     const handleOnResize = () => {
@@ -91,7 +67,6 @@ const Layout = ({
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
-        handleOnClick={handleOnClick}
       />
       <GAnalytic />
     </Fragment>
@@ -106,7 +81,4 @@ Layout.propTypes = {
   children: PropTypes.instanceOf(Object),
   theme: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
-  sendEmail: PropTypes.func.isRequired,
 };
-
-export default connect(null, { sendEmail })(Layout);

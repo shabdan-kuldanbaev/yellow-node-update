@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { connect } from 'react-redux';
-import { sendEmail } from 'redux/actions/contact';
 import {
   selectContacts,
   selectCompanyPhoto,
@@ -27,7 +26,6 @@ import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 
 const ContactUsContainer = ({
   introSection,
-  sendEmail: sendFeedback,
   officePhoto,
   peoplePhoto,
   metaData: {
@@ -46,24 +44,6 @@ const ContactUsContainer = ({
     url: `${rootUrl}/contact`,
   };
 
-  const handleOnClick = (...args) => {
-    const [
-      fullName,
-      email,
-      description,
-      selectedFilesInfo,
-      projectBudget,
-    ] = args;
-
-    sendFeedback({
-      name: fullName,
-      email,
-      description,
-      attachments: selectedFilesInfo,
-      projectBudget,
-    });
-  };
-
   return (
     <Fragment>
       <MetaTags
@@ -77,7 +57,7 @@ const ContactUsContainer = ({
           title={ROUTES.contact.title}
           breadcrumbs={breadcrumbs}
         />
-        <FeedbackFormWithTitle handleOnClick={handleOnClick} />
+        <FeedbackFormWithTitle />
         <CompanyPeoplePhoto photo={peopleImageUrl} />
         <CompanyContacts photo={officeImageUrl} />
       </FullLayout>
@@ -92,7 +72,6 @@ ContactUsContainer.defaultProps = {
 
 ContactUsContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  sendEmail: PropTypes.func.isRequired,
   officePhoto: PropTypes.instanceOf(Object),
   peoplePhoto: PropTypes.instanceOf(Object),
   metaData: PropTypes.shape({
@@ -107,5 +86,4 @@ export default connect(
     peoplePhoto: selectCompanyPhoto(state),
     metaData: selectMetaData(state),
   }),
-  { sendEmail },
 )(ContactUsContainer);
