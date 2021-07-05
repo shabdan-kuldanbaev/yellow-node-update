@@ -1,5 +1,47 @@
 @import 'styles/utils/mixins', 'styles/utils/theme/animations';
 
+.circle {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 760px;
+  height: 760px;
+  margin-top: 100px;
+  border-radius: 50%;
+
+  @include phone {
+    width: 440px;
+    height: 440px;
+  }
+
+  .mockup {
+    width: 398px;
+    filter: $shadow-filter;
+    z-index: 100;
+
+    @include centered;
+
+    @include phone {
+      width: 240px;
+      filter: $shadow-filter-phone;
+    }
+  }
+
+  .appImage {
+    width: 370px;
+    border-radius: 20px;
+    filter: $shadow-filter;
+    z-index: 10;
+
+    @include centered;
+
+    @include phone {
+      width: 225px;
+      filter: $shadow-filter-phone;
+    }
+  }
+}
+
 .fernwayer {
   @include caseStudyContainer;
 
@@ -9,11 +51,8 @@
 .stickerbox {
   @include caseStudyContainer;
 
+  overflow: hidden;
   background-color: $dark-grey-1;
-
-  @include tablet {
-    display: none;
-  }
 
   [data-case-study-title] {
     color: $white;
@@ -24,52 +63,51 @@
   }
 
   .circle {
-    position: relative;
     width: 700px;
     height: 700px;
-    margin: 100px auto 0;
-    border-radius: 50%;
     background: linear-gradient(0deg, $grey-darker 0%, #17191C 100%);
 
-    .pointer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate(180px, 310px);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 5px solid rgba($alabaster, 0.8);
-      background-color: rgba($silver-chalice, 0.8);
-      z-index: 1000;
-      animation:
-        stickerbox-pointer-move 3.9s ease-in-out forwards,
-        stickerbox-pointer-second 1s ease-in-out 4s forwards,
-        stickerbox-pointer-third 1s ease-in-out 6s forwards;
+    @include phone {
+      width: 430px;
+      height: 430px;
+      margin-top: 80px;
     }
 
-    .rootImage {
-      z-index: 100;
-
-      @include centered;
+    .mockup {
+      @include phone {
+        width: 250px;
+      }
     }
 
-    .screenImage {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate(47%, -5%);
-      width: 360px;
-      max-height: 771px;
-      z-index: 10;
-    }
-
-    .startedImage {
+    .appImage {
       width: 358px;
       z-index: 10;
-      animation: hide-image 0s ease-in 3.9s forwards;
 
       @include centered;
+
+      @include phone {
+        width: 220px;
+      }
     }
+  }
+}
+
+.fairy {
+  @include caseStudyContainer;
+
+  overflow: hidden;
+  background-color: $violet;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    max-width: 850px;
+    color: rgba($white, 0.4);
+  }
+
+  .circle {
+    background: linear-gradient(0deg, $dark-violet-1 0%, $dark-violet-2 100%);
   }
 }

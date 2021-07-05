@@ -6,6 +6,10 @@
 
   @include flex(row, space-between);
 
+  @include phone {
+    margin: 0;
+  }
+
   .sectionContainer {
     max-width: 510px;
     width: 100%;
@@ -31,9 +35,15 @@
       .title {
         margin: 0;
         cursor: pointer;
+        transition: color 400ms, margin 400ms;
         font-weight: bold;
         line-height: 120%;
         color: rgba($silver-chalice, 0.5);
+
+        &:hover {
+          color: $silver-chalice;
+          transition: color 400ms;
+        }
 
         @include fontSize(40px);
 
@@ -47,7 +57,6 @@
       }
 
       .description {
-        display: none;
         line-height: 180%;
         color: $silver-chalice;
 
@@ -68,13 +77,14 @@
     }
 
     .sectionActiveItem {
+      /* stylelint-disable-next-line */
       .title {
         margin-bottom: 20px;
         color: $dark-grey;
-      }
 
-      .description {
-        display: block;
+        &:hover {
+          color: $dark-grey;
+        }
       }
 
       &::after {

@@ -17,6 +17,7 @@ const Portfolio = ({
   const slugs = {
     Fernwayer: 'fernwayer',
     '7pm Thursday': 'seven-pm-thursday',
+    Fairy: 'fairy',
   };
 
   useEffect(() => () => {
@@ -26,6 +27,7 @@ const Portfolio = ({
       ROUTES.portfolio.path,
       maxScrollPosition.current < 50,
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return works && (

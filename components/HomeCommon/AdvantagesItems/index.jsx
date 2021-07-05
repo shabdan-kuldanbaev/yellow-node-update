@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { advantages, animatedFields } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -34,22 +35,34 @@ export const AdvantagesItems = ({ advantages: advantagesList, animatedFields: an
 
   return (
     <div className={styles.advantagesContainer}>
-      {advantagesList && advantagesList.map((adv) => (
-        <div
-          className={styles.advItem}
-          key={`advantages/${adv.title}`}
-        >
-          {animatedFieldsList && animatedFieldsList.map((animated, index) => (
-            <Animated
-              {...animated}
-              transitionDelay={animated.transitionDelay(index)}
-              key={`fields/${animated.field}/${adv.title}`}
-            >
-              {switchRender(animated, adv)}
-            </Animated>
-          ))}
-        </div>
-      ))}
+      {advantagesList && advantagesList.map((adv) => {
+        const items = animatedFieldsList && animatedFieldsList.map((animated, index) => (
+          <Animated
+            {...animated}
+            transitionDelay={animated.transitionDelay(index)}
+            key={`fields/${animated.field}/${adv.title}`}
+          >
+            {switchRender(animated, adv)}
+          </Animated>
+        ));
+
+        return (
+          <div
+            className={styles.advItem}
+            key={`advantages/${adv.title}`}
+          >
+            {adv.to ? (
+              <LinkWrapper
+                isLocalLink
+                dynamicRouting={adv.to}
+                path={adv.to}
+              >
+                {items}
+              </LinkWrapper>
+            ) : items}
+          </div>
+        );
+      })}
     </div>
   );
 };

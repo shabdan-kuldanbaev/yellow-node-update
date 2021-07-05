@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import "styles/utils/mixins";
 
 .advantagesContainer {
@@ -83,6 +84,7 @@
   }
 
   .title {
+    display: inline-block;
     margin-top: -20px;
     font-size: 1.125rem;
     font-weight: bold;
@@ -165,6 +167,40 @@
 
     span {
       font-weight: normal;
+    }
+  }
+
+  & > a {
+    img {
+      transition: transform 0.4s ease;
+    }
+
+    .title {
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 0;
+        position: absolute;
+        left: 0;
+        background: $black;
+        transition: width 0.4s ease;
+      }
+    }
+
+    &:hover {
+      img {
+        transform: translateY(-10px);
+        transition: transform 0.4s ease;
+      }
+
+      .title {
+        &::after {
+          width: 100%;
+        }
+      }
     }
   }
 

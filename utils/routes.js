@@ -194,6 +194,12 @@ export const routes = {
     dynamicPath: '/contact',
     slug: 'contact',
   },
+  customChatApp: {
+    title: 'Custom chat app development company',
+    path: '/chat-app-development-company',
+    dynamicPath: '/chat-app-development-company',
+    slug: 'chat-app-development-company',
+  },
   notFound: {
     title: '404 | Yellow',
     path: '/not-found',

@@ -19,7 +19,16 @@ const Intro = ({
     description,
     images,
     contentModules,
-  } = getDocumentFields(get(data, 'contentModules[0]', {}));
+  } = getDocumentFields(
+    get(data, 'contentModules[0]', {}),
+    [
+      'title',
+      'subtitle',
+      'description',
+      'images',
+      'contentModules',
+    ],
+  );
   const { contentModules: experiences } = getDocumentFields(
     get(data, 'contentModules[1]', {}),
     ['contentModules'],
@@ -27,11 +36,14 @@ const Intro = ({
   const appLogoUrl = getFileUrl(get(images, '[0]', ''));
   const appBackgroundImageUrl = getFileUrl(get(images, '[1]', ''));
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));
+  const backgroundImageUrl = getFileUrl(get(data, 'images[0]', ''));
+  const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
 
   return (
     <section
       ref={introSection}
       className={styles[type]}
+      style={style}
     >
       <div className={styles.introSection}>
         <div className={styles.projectInfoContainer}>
