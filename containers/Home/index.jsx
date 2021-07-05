@@ -35,12 +35,14 @@ export const Home = ({
   isPageReadyToDisplay,
   fetchDuck: fetchDuckData,
   duck,
-  metaData,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
 }) => {
   const gradientRef = useRef(null);
   const { contentModules } = getDocumentFields(photosData, ['contentModules']);
   const { contextData, setContextData } = useContext(AppContext);
-  const { metaTitle, metaDescription } = metaData;
   const pageMetadata = {
     metaTitle,
     metaDescription,
@@ -119,7 +121,10 @@ Home.propTypes = {
   isPageReadyToDisplay: PropTypes.bool.isRequired,
   fetchDuck: PropTypes.func.isRequired,
   duck: PropTypes.instanceOf(Object),
-  metaData: PropTypes.instanceOf(Object).isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(

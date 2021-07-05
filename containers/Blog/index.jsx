@@ -26,7 +26,10 @@ const BlogContainer = ({
   setIsSubscribed: setSubscribed,
   currentPage,
   articlesNumberPerPage,
-  metaData,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
 }) => {
   const {
     pathname,
@@ -35,7 +38,6 @@ const BlogContainer = ({
   } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
   const breadcrumbs = pagesBreadcrumbs.blog(slug);
-  const { metaTitle, metaDescription } = metaData;
   const pageMetadata = {
     metaTitle,
     metaDescription,
@@ -94,6 +96,10 @@ BlogContainer.propTypes = {
   setIsSubscribed: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
   articlesNumberPerPage: PropTypes.number.isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(

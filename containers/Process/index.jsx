@@ -16,10 +16,12 @@ import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 const ProcessContainer = ({
   introSection,
   processes: { json },
-  metaData,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
 }) => {
   const breadcrumbs = pagesBreadcrumbs.process();
-  const { metaTitle, metaDescription } = metaData;
   const pageMetadata = {
     metaTitle,
     metaDescription,
@@ -47,6 +49,10 @@ const ProcessContainer = ({
 ProcessContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   processes: PropTypes.instanceOf(Object).isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(

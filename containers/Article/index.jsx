@@ -46,7 +46,6 @@ const ArticleContainer = ({
   const {
     slug: articleSlug,
     title,
-    description,
     oldBody,
     body,
     introduction,
@@ -61,8 +60,8 @@ const ArticleContainer = ({
     faqList,
   } = getArticleProps({ article: currentArticle });
   const articleMetadata = {
-    metaTitle: metaTitle || title,
-    metaDescription: metaDescription || description,
+    metaTitle: metaTitle || (title && `${title} | Yellow`),
+    metaDescription: metaDescription || (title && `Read our new article about ${title}.`),
     publishedAt,
     image: headImage,
     keyWords,

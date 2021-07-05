@@ -5,19 +5,18 @@ import Head from 'next/head';
 import isEmpty from 'lodash/isEmpty';
 import { getPathWithCdn } from 'utils/helper';
 import { microdata } from 'utils/microdata';
+import { ogMetaData } from './utils/data';
 
 export const MetaTags = ({
+  page,
   pageMetadata,
   children,
   pageMicrodata,
   breadcrumbs,
   faqList,
   isArticle,
+  defaultMetaData,
 }) => {
-  if (isEmpty(pageMetadata)) {
-    return null;
-  }
-
   const {
     metaTitle,
     metaDescription,
@@ -29,6 +28,11 @@ export const MetaTags = ({
     url,
   } = pageMetadata;
 
+  const {
+    metaTitle: defaultMetaTitle,
+    metaDescription: defaultMetaDescription,
+  } = defaultMetaData.find((metaData) => metaData.pageName === page);
+
   const getTitle = (title) => ((pageNumber && pageNumber !== 1)
     ? `Page ${pageNumber}. ${title}`
     : title);
@@ -36,17 +40,20 @@ export const MetaTags = ({
   const date = isArticle ? publishedAt : new Date();
   const type = isArticle ? 'article' : 'website';
 
+  const title = metaTitle || defaultMetaTitle;
+  const description = metaDescription || defaultMetaDescription;
+
   return (
     <Head>
-      <Fragment key={`meta/${metaTitle}`}>
-        <title>{getTitle(metaTitle)}</title>
-        <meta name="description" content={metaDescription} />
+      <Fragment key={`meta/${title}`}>
+        <title>{getTitle(title)}</title>
+        <meta name="description" content={description} />
         <meta name="date" content={date} />
         <link rel="canonical" href={url} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content={type} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:title" content={getTitle(metaTitle)} />
+        <meta property="og:description" content={description} />
+        <meta property="og:title" content={getTitle(title)} />
         <meta property="og:url" content={url} />
         <meta property="og:image" content={getImage(getPathWithCdn('/apple-touch-icon.png'))} />
         {categoryTag && <meta property="article:section" content={categoryTag} />}
@@ -102,9 +109,11 @@ MetaTags.defaultProps = {
   breadcrumbs: [],
   faqList: [],
   isArticle: false,
+  defaultMetaData: ogMetaData,
 };
 
 MetaTags.propTypes = {
+  page: PropTypes.string.isRequired,
   pageMicrodata: PropTypes.instanceOf(Object),
   breadcrumbs: PropTypes.instanceOf(Array),
   faqList: PropTypes.instanceOf(Array),
@@ -115,7 +124,6 @@ MetaTags.propTypes = {
     publishedAt: PropTypes.string,
     categoryTag: PropTypes.string,
     keyWords: PropTypes.instanceOf(Array),
-    slug: PropTypes.string,
     pageNumber: PropTypes.number,
   }),
   children: PropTypes.oneOfType([
@@ -124,4 +132,5 @@ MetaTags.propTypes = {
     PropTypes.element,
   ]),
   isArticle: PropTypes.bool,
+  defaultMetaData: PropTypes.instanceOf(Object),
 };

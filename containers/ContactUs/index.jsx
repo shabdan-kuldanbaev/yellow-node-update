@@ -30,14 +30,16 @@ const ContactUsContainer = ({
   sendEmail: sendFeedback,
   officePhoto,
   peoplePhoto,
-  metaData,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
 }) => {
   const { images: officePhotoContent } = getDocumentFields(officePhoto, ['images']);
   const officeImageUrl = getFileUrl(get(officePhotoContent, '[0]', {}));
   const { images: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['images']);
   const peopleImageUrl = getFileUrl(get(peoplePhotoContent, '[0]', {}));
   const breadcrumbs = pagesBreadcrumbs.contact();
-  const { metaTitle, metaDescription } = metaData;
   const pageMetadata = {
     metaTitle,
     metaDescription,
@@ -93,7 +95,10 @@ ContactUsContainer.propTypes = {
   sendEmail: PropTypes.func.isRequired,
   officePhoto: PropTypes.instanceOf(Object),
   peoplePhoto: PropTypes.instanceOf(Object),
-  metaData: PropTypes.instanceOf(Object).isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(

@@ -114,6 +114,7 @@ function* fetchPageData({
     case PAGES.contact:
     case PAGES.company:
     case PAGES.customChatApp:
+    case PAGES.notFound:
       yield call(fetchPage, { slug });
 
       break;
@@ -123,8 +124,6 @@ function* fetchPageData({
         yield call(fetchPage, { slug }),
       ]);
 
-      break;
-    case PAGES.notFound:
       break;
     default: throw new Error('Unexpected case in the fetchPageData function');
     }

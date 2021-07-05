@@ -17,11 +17,13 @@ import styles from './styles.module.scss';
 const PortfolioContainer = ({
   introSection,
   portfolioProjects,
-  metaData,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
 }) => {
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.portfolio();
-  const { metaTitle, metaDescription } = metaData;
   const pageMetadata = {
     metaTitle,
     metaDescription,
@@ -59,7 +61,10 @@ PortfolioContainer.defaultProps = {
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   portfolioProjects: PropTypes.instanceOf(Object),
-  metaData: PropTypes.instanceOf(Object).isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(

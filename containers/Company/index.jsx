@@ -30,13 +30,15 @@ const CompanyContainer = ({
   photosData,
   managementTeam,
   whatMakesSpecial,
-  metaData,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
 }) => {
   const { contentModules: carouselContent } = getDocumentFields(photosData, ['contentModules']);
   const { contentModules: teamContent } = getDocumentFields(managementTeam, ['contentModules']);
   const { contentModules: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.company();
-  const { metaTitle, metaDescription } = metaData;
   const pageMetadata = {
     metaTitle,
     metaDescription,
@@ -96,7 +98,10 @@ CompanyContainer.propTypes = {
   photosData: PropTypes.instanceOf(Object),
   managementTeam: PropTypes.instanceOf(Object),
   whatMakesSpecial: PropTypes.instanceOf(Object),
-  metaData: PropTypes.instanceOf(Object).isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(

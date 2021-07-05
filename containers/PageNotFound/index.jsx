@@ -12,8 +12,13 @@ import { rootUrl } from 'utils/helper';
 import json from './json/Idea.json';
 import styles from './styles.module.scss';
 
-export const PageNotFound = ({ animation, metaData }) => {
-  const { metaTitle, metaDescription } = metaData;
+export const PageNotFound = ({
+  animation,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
+}) => {
   const pageMetadata = {
     metaTitle,
     metaDescription,
@@ -73,7 +78,10 @@ PageNotFound.defaultProps = {
 
 PageNotFound.propTypes = {
   animation: PropTypes.instanceOf(Object),
-  metaData: PropTypes.instanceOf(Object).isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(
