@@ -52,7 +52,7 @@ const BlogContainer = ({
           title={ROUTES.blog.title}
           breadcrumbs={breadcrumbs}
         />
-        {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
+        <SelectionBlock handleOnSubmit={handleOnFormSubmit} />
         <ArticlesList
           articles={articles}
           isBlogPage

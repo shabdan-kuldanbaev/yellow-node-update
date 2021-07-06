@@ -1,4 +1,50 @@
+/* stylelint-disable no-descending-specificity */
 @import "styles/utils/mixins";
+
+.articlePreview {
+  line-height: 1.5;
+  transition: transform 0.2s ease-in-out;
+  transform: translateY(0);
+
+  &:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+.articleImage {
+  text-decoration: none;
+  overflow: hidden;
+  color: $black;
+
+  & > div {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 75%;
+    border-radius: 5px 5px 0 0;
+  }
+}
+
+.articleTitle {
+  .title {
+    display: inline;
+    color: $mine-shaft;
+    background-image: linear-gradient($turbo-100, $turbo-100);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 8px;
+    transition: background-size 0.6s ease-out;
+  }
+
+  &:hover {
+    .title {
+      transition: background-size 0.6s ease-out;
+      background-size: 100% 8px;
+    }
+  }
+}
 
 .related {
   min-width: 150px;
@@ -6,11 +52,8 @@
   margin: 0 10px;
   cursor: pointer;
   background-color: $white;
-  border-radius: 5px;
-  line-height: 1.5;
-  transition: transform 0.2s ease-in-out;
-  transform: translateY(0);
-  box-shadow: 0 10px 60px -10px rgba(0, 0, 0, 0.15);
+
+  @extend .articlePreview;
 
   &:first-child {
     margin-left: 0;
@@ -43,76 +86,213 @@
     }
   }
 
-  &:hover {
-    transform: translateY(-2px);
-    transition: transform 0.2s ease-in-out;
+  & > div {
+    border-radius: 5px;
+    height: 100%;
+    box-shadow: $article-preview-box-shadow;
+
+    & > a:first-child {
+      @extend .articleImage;
+    }
+
+    .articleContent {
+      padding: 20px;
+
+      @include flex(column);
+
+      @include tablet {
+        padding: 20px;
+      }
+
+      & > a {
+        color: $mine-shaft;
+        margin-bottom: 15px;
+      }
+
+      & > a:last-child {
+        display: inline-block;
+        font-weight: 700;
+        margin: 0;
+
+        @include fontSize(20px);
+
+        @extend .articleTitle;
+
+        @include phone {
+          @include fontSize(16px);
+        }
+      }
+
+      .category {
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: color 0.4s ease;
+
+        @include fontSize(14px);
+
+        @include macbook-twelve {
+          @include fontSize(12px);
+        }
+
+        &:hover {
+          color: $jumbo;
+          transition: color 0.4s ease;
+        }
+      }
+    }
+  }
+}
+
+.blogCard {
+  width: calc(25% - (15px * 2));
+  margin: 15px;
+
+  @include flex(column);
+
+  @extend .articlePreview;
+
+  @include macbook-fifteen {
+    width: calc(25% - 2 * 15px);
   }
 
-  & > a:first-child {
-    text-decoration: none;
-    overflow: hidden;
-    color: $black;
+  @include tablet {
+    width: calc(33.33% - 2 * 15px);
+  }
 
-    & > div {
-      width: 100%;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      padding-top: 75%;
+  @include below-tablet {
+    width: calc(50% - 2 * 15px);
+  }
+
+  @include phone {
+    margin: 15px 0;
+    width: 100%;
+  }
+}
+
+.blogArticleContent {
+  padding: 30px;
+  flex-grow: 1;
+  position: relative;
+
+  @include flex(column);
+
+  .date {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    order: 1;
+
+    @include fontSize(14px);
+
+    @include phone {
+      @include fontSize(12px);
+    }
+  }
+
+  .articlePreviewTitle {
+    @extend .articleTitle;
+
+    order: 2;
+  }
+
+  .articlePreviewIntroduction {
+    order: 3;
+
+    .introduction {
+      color: $light-gray;
+      margin: 10px 0;
+
+      @include hidden-text(ellipsis, 5);
+
+      @include phone {
+        display: none;
+      }
+    }
+  }
+
+  .articlePreviewCategory {
+    margin-top: 20px;
+    order: 4;
+
+    .category {
+      color: $light-gray;
+      transition: color 0.4s ease;
+      text-transform: lowercase;
+
+      @include fontSize(14px);
+
+      &:hover {
+        color: $jumbo;
+        transition: color 0.4s ease;
+      }
+    }
+  }
+}
+
+.blog {
+  @extend .blogCard;
+
+  & > div {
+    border-radius: 5px;
+    height: 100%;
+    box-shadow: $article-preview-box-shadow;
+
+    & > a:first-child {
+      @extend .articleImage;
+    }
+
+    .articleContent {
+      @extend .blogArticleContent;
+    }
+  }
+}
+
+.search {
+  box-shadow: $article-preview-box-shadow;
+
+  @extend .blogCard;
+
+  div {
+    border-radius: 5px;
+
+    & > a:first-child {
+      @extend .articleImage;
     }
   }
 
   .articleContent {
-    padding: 20px;
+    @extend .blogArticleContent;
+  }
+}
 
-    @include flex(column);
+.medium {
+  width: calc(50% - 2 * 15px);
 
-    @include tablet {
-      padding: 20px;
-    }
+  @include tablet {
+    width: calc(66.66% - 2 * 15px);
+  }
 
-    & > a {
-      color: $mine-shaft;
-      margin-bottom: 15px;
-    }
+  @include below-tablet {
+    width: calc(50% - 2 * 15px);
+  }
 
-    & > a:last-child {
-      display: inline-block;
-      font-weight: 700;
-      margin: 0;
+  @include phone {
+    width: 100%;
+  }
 
-      @include fontSize(20px);
+  & > div > .articleContent,
+  .articleContent {
+    .articlePreviewIntroduction {
+      .introduction {
+        display: none;
 
-      @include phone {
-        @include fontSize(16px);
-      }
-
-      .title {
-        display: inline;
-        color: $mine-shaft;
-        background-image: linear-gradient($turbo-100, $turbo-100);
-        background-position: 0% 100%;
-        background-repeat: no-repeat;
-        background-size: 0% 8px;
-        transition: background-size 0.6s ease-out;
-      }
-
-      &:hover {
-        .title {
-          transition: background-size 0.6s ease-out;
-          background-size: 100% 8px;
+        @include below-tablet {
+          @include hidden-text(ellipsis, 5);
         }
-      }
-    }
 
-    .category {
-      font-weight: 600;
-      text-transform: uppercase;
-
-      @include fontSize(14px);
-
-      @include macbook-twelve {
-        @include fontSize(12px);
+        @include phone {
+          display: none;
+        }
       }
     }
   }

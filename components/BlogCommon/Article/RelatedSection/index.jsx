@@ -7,6 +7,7 @@ import {
   ROUTES,
   ARTICLE_PREVIEW_TYPES,
   SVG_IMAGES_TYPES,
+  ANIMATED_TYPE,
 } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -33,16 +34,27 @@ const RelatedSection = ({ articles }) => (
         title,
         previewImageUrl,
         categoryTag,
-      }) => (
-        <ArticlePreview
-          key={`related/${slug}`}
-          slug={slug}
-          title={title}
-          image={get(previewImageUrl, 'url', '')}
-          category={categoryTag}
-          type={ARTICLE_PREVIEW_TYPES.related}
-        />
-      ))}
+      }, index) => {
+        const animationProps = {
+          type: ANIMATED_TYPE.isCustom,
+          translateY: '1.5em',
+          opasityDuration: 1,
+          transformDuration: 1,
+          transitionDelay: 50 + 50 * index,
+        };
+
+        return (
+          <ArticlePreview
+            key={`related/${slug}`}
+            slug={slug}
+            title={title}
+            image={get(previewImageUrl, 'url', '')}
+            category={categoryTag}
+            type={ARTICLE_PREVIEW_TYPES.related}
+            animatioProps={animationProps}
+          />
+        );
+      })}
     </div>
   </div>
 );

@@ -16,39 +16,29 @@ const Categories = ({ isMobileCategoties, closeMobileCategoties }) => {
   }, [isMobileCategoties]);
 
   return (
-    <div className={styles.categories}>
-      <div className={styles.categoryTitle}>
-        <h1>Category</h1>
-        <img
-          src={CloseIcon}
-          alt="Close"
-          onClick={closeMobileCategoties}
-        />
-      </div>
-      <ul>
-        {ROUTES.blog.categories.map(({ title, slug }, index) => {
-          const { path, dynamicPath } = ROUTES.blog.getRoute(slug);
-          const isSelected = index !== 0
-            ? asPath.includes(path)
-            : asPath === ROUTES.blog.path || isNumeric(currentCategory);
+    <ul className={styles.categories}>
+      {ROUTES.blog.categories.map(({ title, slug }, index) => {
+        const { path, dynamicPath } = ROUTES.blog.getRoute(slug);
+        const isSelected = index !== 0
+          ? asPath.includes(path)
+          : asPath === ROUTES.blog.path || isNumeric(currentCategory);
 
-          return (
-            <li
-              key={`categoris/${title}`}
-              className={cn({ [styles.selectedBlock]: isSelected })}
+        return (
+          <li
+            key={`categoris/${title}`}
+            className={cn({ [styles.selectedBlock]: isSelected })}
+          >
+            <LinkWrapper
+              isLocalLink
+              path={path}
+              dynamicRouting={dynamicPath}
             >
-              <LinkWrapper
-                isLocalLink
-                path={path}
-                dynamicRouting={dynamicPath}
-              >
-                {title}
-              </LinkWrapper>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+              {title}
+            </LinkWrapper>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
