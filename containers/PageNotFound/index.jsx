@@ -12,7 +12,7 @@ import { rootUrl } from 'utils/helper';
 import json from './json/Idea.json';
 import styles from './styles.module.scss';
 
-export const PageNotFound = ({
+const PageNotFound = ({
   animation,
   metaData: {
     metaTitle,

@@ -14,7 +14,7 @@ import {
 } from 'redux/selectors/layout';
 import { selectDuck } from 'redux/selectors/home';
 import Blog from 'containers/Home/Blog';
-import FeedbackFormContainer from 'containers/Home/FeedbackForm';
+import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 import Intro from 'containers/Home/Intro';
 import Portfolio from 'containers/Home/Portfolio';
 import { ReviewsContainer } from 'containers/Home/Reviews';

@@ -27,7 +27,6 @@ export const MetaTags = ({
     pageNumber,
     url,
   } = pageMetadata;
-
   const {
     metaTitle: defaultMetaTitle,
     metaDescription: defaultMetaDescription,
@@ -132,5 +131,5 @@ MetaTags.propTypes = {
     PropTypes.element,
   ]),
   isArticle: PropTypes.bool,
-  defaultMetaData: PropTypes.instanceOf(Object),
+  defaultMetaData: PropTypes.instanceOf(Array),
 };
