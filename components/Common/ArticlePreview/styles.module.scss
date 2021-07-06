@@ -53,6 +53,8 @@
   cursor: pointer;
   background-color: $white;
 
+  @extend .articlePreview;
+
   &:first-child {
     margin-left: 0;
   }
@@ -147,6 +149,8 @@
 
   @include flex(column);
 
+  @extend .articlePreview;
+
   @include macbook-fifteen {
     width: calc(25% - 2 * 15px);
   }
@@ -172,12 +176,11 @@
 
   @include flex(column);
 
-  @extend .articleTitle;
-
   .date {
     margin: 0 0 10px 0;
     font-weight: 600;
     text-transform: uppercase;
+    order: 1;
 
     @include fontSize(14px);
 
@@ -186,19 +189,30 @@
     }
   }
 
-  .introduction {
-    color: $light-gray;
-    margin: 10px 0;
+  .articlePreviewTitle {
+    @extend .articleTitle;
 
-    @include hidden-text(ellipsis, 5);
+    order: 2;
+  }
 
-    @include phone {
-      display: none;
+  .articlePreviewIntroduction {
+    order: 3;
+
+    .introduction {
+      color: $light-gray;
+      margin: 10px 0;
+
+      @include hidden-text(ellipsis, 5);
+
+      @include phone {
+        display: none;
+      }
     }
   }
 
-  & > a:last-child {
+  .articlePreviewCategory {
     margin-top: 20px;
+    order: 4;
 
     .category {
       color: $light-gray;
@@ -268,15 +282,17 @@
 
   & > div > .articleContent,
   .articleContent {
-    .introduction {
-      display: none;
-
-      @include below-tablet {
-        @include hidden-text(ellipsis, 5);
-      }
-
-      @include phone {
+    .articlePreviewIntroduction {
+      .introduction {
         display: none;
+
+        @include below-tablet {
+          @include hidden-text(ellipsis, 5);
+        }
+
+        @include phone {
+          display: none;
+        }
       }
     }
   }

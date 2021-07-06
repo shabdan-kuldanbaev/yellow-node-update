@@ -27,7 +27,7 @@ export const ArticlePreview = ({
     path,
     dynamicRouting: dynamicPath,
   };
-  const isCategoryAtBottom = ['blog', 'search'].includes(type);
+  const isCategoryWithHashtag = ['blog', 'search'].includes(type);
 
   if (!slug || !title || !image) {
     return null;
@@ -57,36 +57,34 @@ export const ArticlePreview = ({
               {formatDate(date)}
             </span>
           )}
-          {!isCategoryAtBottom && (
-            <LinkWrapper
-              isLocalLink
-              path={categoryPath}
-              dynamicRouting={categoryDynamicPath}
-            >
-              <span className={styles.category}>
-                {category}
-              </span>
-            </LinkWrapper>
-          )}
-          <LinkWrapper {...articleLinkProps}>
+          <LinkWrapper
+            isLocalLink
+            path={categoryPath}
+            dynamicRouting={categoryDynamicPath}
+            className={styles.articlePreviewCategory}
+          >
+            <span className={styles.category}>
+              {isCategoryWithHashtag
+                ? `#${CATEGORY_TAGS[category].replace(/\s/g, '')}`
+                : category}
+            </span>
+          </LinkWrapper>
+          <LinkWrapper
+            {...articleLinkProps}
+            className={styles.articlePreviewTitle}
+          >
             <h3 className={styles.title}>
               {title}
             </h3>
           </LinkWrapper>
           {introduction && (
-            <p className={styles.introduction}>
-              {introduction}
-            </p>
-          )}
-          {isCategoryAtBottom && (
             <LinkWrapper
-              isLocalLink
-              path={categoryPath}
-              dynamicRouting={categoryDynamicPath}
+              {...articleLinkProps}
+              className={styles.articlePreviewIntroduction}
             >
-              <span className={styles.category}>
-                {`#${CATEGORY_TAGS[category].replace(/\s/g, '')}`}
-              </span>
+              <p className={styles.introduction}>
+                {introduction}
+              </p>
             </LinkWrapper>
           )}
         </div>

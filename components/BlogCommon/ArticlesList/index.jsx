@@ -17,45 +17,51 @@ export const ArticlesList = ({
   handleOnFormSubmit,
   isMobileResolution,
   handleOnCloseModalWindow,
-}) => (
-  <div
-    className={cn(styles.articlesList, {
-      [styles.locationSubscribe]: !isSearch,
-    })}
-  >
-    {currentPage === 1 && isBlogPage && (
-      <SubscribeBlock
-        isBlog
-        handleOnSubmit={handleOnFormSubmit}
-      />
-    )}
-    {articles && articles.map((article, index) => {
-      const articleProps = getArticleProps({
-        article,
-        index,
-        isSearch,
-        isMobileResolution,
-      });
+}) => {
+  const articleType = isSearch
+    ? ARTICLE_PREVIEW_TYPES.search
+    : ARTICLE_PREVIEW_TYPES.blog;
 
-      return (
-        <ArticlePreview
-          type={isSearch ? ARTICLE_PREVIEW_TYPES.search : ARTICLE_PREVIEW_TYPES.blog}
-          key={articleProps.title}
-          index={index}
-          animatioProps={articleProps.animatioProps}
-          slug={articleProps.slug}
-          title={articleProps.title}
-          category={articleProps.categoryTag}
-          introduction={articleProps.introduction}
-          image={articleProps.previewImage}
-          date={articleProps.publishedAt}
-          isSearch={isSearch}
-          handleOnCloseModalWindow={handleOnCloseModalWindow}
+  return (
+    <div
+      className={cn(styles.articlesList, {
+        [styles.locationSubscribe]: !isSearch,
+      })}
+    >
+      {currentPage === 1 && isBlogPage && (
+        <SubscribeBlock
+          isBlog
+          handleOnSubmit={handleOnFormSubmit}
         />
-      );
-    })}
-  </div>
-);
+      )}
+      {articles && articles.map((article, index) => {
+        const articleProps = getArticleProps({
+          article,
+          index,
+          isSearch,
+          isMobileResolution,
+        });
+
+        return (
+          <ArticlePreview
+            type={articleType}
+            key={articleProps.title}
+            index={index}
+            animatioProps={articleProps.animatioProps}
+            slug={articleProps.slug}
+            title={articleProps.title}
+            category={articleProps.categoryTag}
+            introduction={articleProps.introduction}
+            image={articleProps.previewImage}
+            date={articleProps.publishedAt}
+            isSearch={isSearch}
+            handleOnCloseModalWindow={handleOnCloseModalWindow}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 ArticlesList.defaultProps = {
   isSearch: false,

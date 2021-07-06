@@ -1,12 +1,21 @@
 @import 'styles/utils/mixins';
 
 .categories {
+  line-height: 2;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   width: 60%;
   height: 100%;
   margin: 0;
   padding: 0;
   z-index: 2;
-  position: relative;
+
+  @include flex(row, space-between, center, wrap);
+
+  @include below-tablet {
+    @include flex(row, flex-start, center, wrap);
+  }
 
   @include below-tablet-horizontal {
     width: 75%;
@@ -16,7 +25,7 @@
     width: 100%;
 
     &::after {
-      content: " ";
+      content: "";
       height: 100%;
       position: absolute;
       top: 0;
@@ -27,66 +36,54 @@
     }
   }
 
-  ul {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    line-height: 2;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
-    @include flex(row, space-between, center);
+  li {
+    cursor: pointer;
+    list-style-type: none;
+    font-weight: 500;
+    font-size: 0.8438rem;
+    letter-spacing: 0.9px;
 
-    &::-webkit-scrollbar {
-      display: none;
+    @include tablet {
+      margin-right: 10px;
     }
 
-    li {
-      cursor: pointer;
-      list-style-type: none;
-      font-weight: 500;
-      font-size: 0.8438rem;
-      letter-spacing: 0.9px;
+    @include below-tablet {
+      margin-right: 20px;
+    }
 
-      @include tablet {
-        margin-right: 10px;
-      }
+    @include horizontal-mobile {
+      margin-right: 5px;
+    }
 
-      @include below-tablet {
-        margin-right: 20px;
-      }
+    @include phone {
+      margin: 0 20px 0 0;
+      font-size: 1.125rem;
+      color: $mine-shaft;
+      font-weight: normal;
+    }
 
-      @include horizontal-mobile {
-        margin-right: 5px;
+    a {
+      color: $mountain-mis;
+      text-decoration: none;
+      transition: color $default-transition-time;
+
+      &:hover {
+        color: $black;
+        transition: color $default-transition-time;
       }
 
       @include phone {
-        margin: 0 20px 0 0;
-        font-size: 1.125rem;
-        color: $mine-shaft;
-        font-weight: normal;
+        white-space: nowrap;
       }
+    }
 
+    &.selectedBlock {
       a {
-        color: $mountain-mis;
-        text-decoration: none;
-        transition: color $default-transition-time;
-
-        &:hover {
-          color: $black;
-          transition: color $default-transition-time;
-        }
-
-        @include phone {
-          white-space: nowrap;
-        }
-      }
-
-      &.selectedBlock {
-        a {
-          color: $black;
-        }
+        color: $black;
       }
     }
   }
