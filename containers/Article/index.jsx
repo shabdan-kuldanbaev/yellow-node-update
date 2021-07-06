@@ -36,13 +36,16 @@ const ArticleContainer = ({
   currentArticle,
   subscribe: addNewSubscriber,
 }) => {
-  const { query: { slug }, pathname } = useRouter();
+  const {
+    query: { slug },
+    pathname,
+    asPath,
+  } = useRouter();
   const prevArticleSlug = get(nearbyArticles, 'olderArticle.slug');
   const nextArticleSlug = get(nearbyArticles, 'newerArticle.slug');
   const {
     slug: articleSlug,
     title,
-    description,
     oldBody,
     body,
     introduction,
@@ -57,13 +60,14 @@ const ArticleContainer = ({
     faqList,
   } = getArticleProps({ article: currentArticle });
   const articleMetadata = {
-    metaTitle: metaTitle || title,
-    metaDescription: metaDescription || description,
+    metaTitle: metaTitle || (title && `${title} | Yellow`),
+    metaDescription: metaDescription || (title && `Read our new article about ${title}.`),
     publishedAt,
     image: headImage,
     keyWords,
     categoryTag,
     slug: articleSlug,
+    url: `${rootUrl}${asPath}`,
   };
   const articleMicrodata = microdata.article({
     metaTitle,
@@ -82,6 +86,7 @@ const ArticleContainer = ({
     <Fragment>
       <MetaTags
         page={PAGES.blog}
+        isArticle
         pageMetadata={articleMetadata}
         pageMicrodata={articleMicrodata}
         breadcrumbs={breadcrumbs}

@@ -7,7 +7,11 @@ import React, {
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchDuck } from 'redux/actions/home';
-import { selectImageCarousel, selectIsPageReadyToDisplay } from 'redux/selectors/layout';
+import {
+  selectImageCarousel,
+  selectIsPageReadyToDisplay,
+  selectMetaData,
+} from 'redux/selectors/layout';
 import { selectDuck } from 'redux/selectors/home';
 import Blog from 'containers/Home/Blog';
 import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
@@ -18,7 +22,7 @@ import { FullLayout } from 'components/Layout/FullLayout';
 import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import { MetaTags } from 'components/Common/MetaTags';
 import PhotoGallery from 'components/Common/PhotoGallery';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
 import { AppContext } from 'utils/appContext';
@@ -31,10 +35,19 @@ export const Home = ({
   isPageReadyToDisplay,
   fetchDuck: fetchDuckData,
   duck,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
 }) => {
   const gradientRef = useRef(null);
   const { contentModules } = getDocumentFields(photosData, ['contentModules']);
   const { contextData, setContextData } = useContext(AppContext);
+  const pageMetadata = {
+    metaTitle,
+    metaDescription,
+    url: `${rootUrl}`,
+  };
 
   useEffect(() => {
     if (!duck) {
@@ -61,6 +74,7 @@ export const Home = ({
     <Fragment>
       <MetaTags
         page={PAGES.homepage}
+        pageMetadata={pageMetadata}
         pageMicrodata={microdata.homepage()}
       />
       {(!isPageReadyToDisplay || !duck) ? <LoadingPlaceholder /> : (
@@ -107,6 +121,10 @@ Home.propTypes = {
   isPageReadyToDisplay: PropTypes.bool.isRequired,
   fetchDuck: PropTypes.func.isRequired,
   duck: PropTypes.instanceOf(Object),
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(
@@ -114,6 +132,7 @@ export default connect(
     photosData: selectImageCarousel(state),
     isPageReadyToDisplay: selectIsPageReadyToDisplay(state),
     duck: selectDuck(state),
+    metaData: selectMetaData(state),
   }),
   { fetchDuck },
 )(Home);

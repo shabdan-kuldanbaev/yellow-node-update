@@ -17,6 +17,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
     metaTitle,
     metaDescription,
     hasFeedbackForm,
+    pageTitle,
   } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
     [
@@ -25,19 +26,19 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
       'metaDescription',
       'metaTitle',
       'hasFeedbackForm',
+      'pageTitle',
     ],
   );
   // TODO: rework metatags for CaseStudies pages
   const projectMetadata = {
-    metaTitle,
-    metaDescription,
-    slug,
+    metaTitle: metaTitle || (pageTitle && `${pageTitle} | Yellow`),
+    metaDescription: metaDescription || (pageTitle && `Yellow professionals have created ${pageTitle}. Read our case study to find more!`),
   };
 
   return (
     <Fragment>
       <MetaTags
-        page={PAGES.blog}
+        page={PAGES.portfolio}
         pageMetadata={projectMetadata}
       />
       {contentModules && contentModules.map(({ fields, sys }) => (

@@ -82,6 +82,19 @@ function* fetchPageData({
       break;
     }
     case PAGES.blog:
+      yield all([
+        yield call(fetchPage, { slug }),
+        yield call(fetchBlogData, {
+          slug,
+          articleSlug,
+          currentLimit,
+          category,
+          skip,
+          isPreviewMode,
+        }),
+      ]);
+
+      break;
     case PAGES.article:
       yield call(fetchBlogData, {
         slug,
@@ -101,14 +114,16 @@ function* fetchPageData({
     case PAGES.contact:
     case PAGES.company:
     case PAGES.customChatApp:
+    case PAGES.notFound:
       yield call(fetchPage, { slug });
 
       break;
     case PAGES.process:
-      yield call(loadJSON);
+      yield all([
+        yield call(loadJSON),
+        yield call(fetchPage, { slug }),
+      ]);
 
-      break;
-    case PAGES.notFound:
       break;
     default: throw new Error('Unexpected case in the fetchPageData function');
     }

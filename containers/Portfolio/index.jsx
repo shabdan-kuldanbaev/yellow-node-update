@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectPortfolioProjectsPreview } from 'redux/selectors/layout';
+import { selectPortfolioProjectsPreview, selectMetaData } from 'redux/selectors/layout';
 import {
   Portfolio,
   MetaTags,
@@ -9,20 +9,33 @@ import {
   PageHeader,
   FullLayout,
 } from 'components';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
-const PortfolioContainer = ({ introSection, portfolioProjects }) => {
+const PortfolioContainer = ({
+  introSection,
+  portfolioProjects,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
+}) => {
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.portfolio();
+  const pageMetadata = {
+    metaTitle,
+    metaDescription,
+    url: `${rootUrl}/works`,
+  };
 
   return (
     <Fragment>
       <MetaTags
         page={PAGES.portfolio}
         breadcrumbs={breadcrumbs}
+        pageMetadata={pageMetadata}
       />
       <FullLayout introSection={introSection}>
         <PageHeader
@@ -48,8 +61,15 @@ PortfolioContainer.defaultProps = {
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   portfolioProjects: PropTypes.instanceOf(Object),
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(
-  (state) => ({ portfolioProjects: selectPortfolioProjectsPreview(state) }),
+  (state) => ({
+    portfolioProjects: selectPortfolioProjectsPreview(state),
+    metaData: selectMetaData(state),
+  }),
 )(PortfolioContainer);
