@@ -5,7 +5,7 @@ import get from 'lodash/get';
 import { selectProject } from 'redux/selectors/portfolio';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import { MetaTags } from 'components/Common/MetaTags';
-import FeedbackForm from 'containers/Home/FeedbackForm';
+import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -50,7 +50,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
       ))}
       {hasFeedbackForm && (
         <div className={styles[slug] || styles.feedBackContainer}>
-          <FeedbackForm type={slug} />
+          <FeedbackFormContainer type={slug} />
         </div>
       )}
     </Fragment>
