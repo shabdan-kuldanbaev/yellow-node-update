@@ -10,12 +10,11 @@ const Parallax = ({ data, type }) => {
   }
 
   const imageUrl = getFileUrl(data.images[0]);
-  const backgroundImage = { backgroundImage: `url(${imageUrl})` };
 
   return (
     <section
       className={styles[type]}
-      style={backgroundImage}
+      style={{ backgroundImage: `url(${imageUrl})` }}
     />
   );
 };
