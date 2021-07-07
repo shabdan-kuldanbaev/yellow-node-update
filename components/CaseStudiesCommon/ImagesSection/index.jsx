@@ -10,7 +10,10 @@ const ImagesSection = ({ data, type }) => (
       data={data}
       type={type}
     />
-    <Images data={data} />
+    <Images
+      data={data}
+      type={type}
+    />
   </section>
 );
 

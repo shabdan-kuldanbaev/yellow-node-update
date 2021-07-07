@@ -112,13 +112,13 @@
       opacity: 1;
       will-change: width, height, opacity;
       transition:
-        width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
-        height 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
-        opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        width 0.8s $primary-bezier,
+        height 0.8s $primary-bezier,
+        opacity 0.8s $primary-bezier;
 
       & > div > img {
         opacity: 1;
-        transition: opacity 0.05s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: opacity 0.05s $primary-bezier;
       }
     }
   }

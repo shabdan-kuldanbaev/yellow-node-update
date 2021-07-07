@@ -5,6 +5,7 @@ import Reveal from 'react-reveal/Reveal';
 import Fade from 'react-reveal/Fade';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { CustomAnimation } from './CustomAnimation';
+import { CSSAnimation } from './CSSAnimation';
 import { JSONAnimation } from './JSONAnimation';
 import { ParallaxWrapper } from './ParallaxSpring';
 import ImageZoom from './ImageZoom';
@@ -64,6 +65,12 @@ export const Animated = (props) => {
       <ExpandWrapper {...props}>
         {props.children}
       </ExpandWrapper>
+    );
+  case ANIMATED_TYPE.isCSS:
+    return (
+      <CSSAnimation {...props}>
+        {props.children}
+      </CSSAnimation>
     );
   default:
     return (
