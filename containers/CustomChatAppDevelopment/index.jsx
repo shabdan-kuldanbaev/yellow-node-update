@@ -12,19 +12,24 @@ import { microdata } from 'utils/microdata';
 import { rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 
-const CustomChatAppContainer = ({ pageData, metaData }) => {
+const CustomChatAppContainer = ({
+  pageData,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
+}) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-
-  const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
-  const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
   const breadcrumbs = pagesBreadcrumbs.customChatApp();
   const { main: contentModules } = pageData;
-  const { metaTitle, metaDescription } = metaData;
   const pageMetadata = {
     metaTitle,
     metaDescription,
     url: `${rootUrl}/chat-app-development-company`,
   };
+
+  const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
+  const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
   if (!pageData || !contentModules) {
     return null;
@@ -57,7 +62,10 @@ const CustomChatAppContainer = ({ pageData, metaData }) => {
 
 CustomChatAppContainer.propTypes = {
   pageData: PropTypes.instanceOf(Object).isRequired,
-  metaData: PropTypes.instanceOf(Object).isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(

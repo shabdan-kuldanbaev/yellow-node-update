@@ -106,10 +106,12 @@ export const CardsSection = ({
 
 CardsSection.defaultProps = {
   hasCTAButton: false,
+  handleOnCTAClick: () => {},
 };
 
 CardsSection.propTypes = {
   sectionData: PropTypes.instanceOf(Array).isRequired,
   hasCTAButton: PropTypes.bool,
   type: PropTypes.string.isRequired,
+  handleOnCTAClick: PropTypes.func,
 };
