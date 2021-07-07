@@ -22,6 +22,10 @@
   }
 
   @include phone {
+    @include flex(row, space-between, center);
+  }
+
+  @include phone {
     width: 100%;
 
     &::after {

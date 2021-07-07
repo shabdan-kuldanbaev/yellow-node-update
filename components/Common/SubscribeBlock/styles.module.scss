@@ -55,6 +55,8 @@
       @include fontSize(32px);
 
       @include phone {
+        text-align: center;
+
         @include fontSize(24px);
       }
     }
@@ -67,6 +69,8 @@
       @include fontSize(18px);
 
       @include phone {
+        text-align: center;
+
         @include fontSize(14px);
       }
     }
@@ -118,6 +122,8 @@
         @include fontSize(18px);
 
         @include phone {
+          text-align: center;
+
           @include fontSize(16px);
         }
       }
