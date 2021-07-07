@@ -70,11 +70,18 @@ $white-darker: #F8F8F8;
 $dark-grey-1: #1A1C1F;
 $dark-grey-2: #181A1D;
 $grey-darker: #26282D;
+$wild-sand: #F4F4F4;
+$pale-sky: #6e7882;
 $dark-blue: #1C1E20;
 $dark-blue-1: #191B1E;
 $pink-1: #FF2A89;
 $light-red: #FF4934;
 $logo-stroke: #25272C;
+$light-violet: #5B5BBD;
+$light-violet-1: #5C5ABD;
+$dark-violet: #362761;
+$dark-violet-1: #252159;
+$dark-violet-2: #16102B;
 
 //transparency color
 $pagination: rgba(35, 37, 44, 0.25);
@@ -84,6 +91,8 @@ $blog-selection-block-mobile-categories-border-color: rgba(0, 0, 0, 0.5);
 $blog-subscribe-input-box-shadow-color: rgba(0, 0, 0, 0.04);
 $blog-subscribe-input-box-shadow-focus-color: rgba(0, 0, 0, 0.1);
 $nearby-articles-block-box-shadow-color:rgba(0, 0, 0, 0.07);
+$article-preview-box-shadow: 0 10px 60px -10px rgba(0, 0, 0, 0.15);
+$card-bow-shadow: 0 8px 35px rgba($pale-sky, 0.1);
 
 //time
 $default-transition-time: 0.5s;
@@ -150,6 +159,13 @@ $insta-tape-box-shadow-color: rgba(0, 0, 0, 0.07);
 //margins
 $min-article-margin: 14px;
 $max-article-margin: 24px;
+
+//filters
+$shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
+$shadow-filter-phone: drop-shadow(-12.8201px 12.8201px 30.4602px rgba(0, 0, 0, 0.4));
+
+//timing functions
+$primary-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 // TODO rework it with enviroment variable
 $cdnURL: 'https://dn75rr69j9vc.cloudfront.net';

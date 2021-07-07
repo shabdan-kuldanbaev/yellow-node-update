@@ -88,7 +88,7 @@ const Contacts = ({
       />
     </div>
     <div className={styles.text}>
-      <span>© Copyright 2020 Yellow.</span>
+      <span>© Copyright 2021 Yellow.</span>
       <span> All Rights Reserved. Privacy Policy</span>
     </div>
     <div className={styles.rocket}>

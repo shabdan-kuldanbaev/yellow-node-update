@@ -2,7 +2,7 @@
 
 .blogPage {
   width: 100%;
-  margin: 80px 12px;
+  margin: 80px 15px;
 
   @include phone {
     width: initial;
@@ -34,6 +34,10 @@
     padding: 40px;
   }
 
+  @include phone {
+    padding: 20px;
+  }
+
   .subscribeText {
     width: 45%;
     margin-right: 100px;
@@ -51,6 +55,8 @@
       @include fontSize(32px);
 
       @include phone {
+        text-align: center;
+
         @include fontSize(24px);
       }
     }
@@ -63,6 +69,8 @@
       @include fontSize(18px);
 
       @include phone {
+        text-align: center;
+
         @include fontSize(14px);
       }
     }
@@ -114,6 +122,8 @@
         @include fontSize(18px);
 
         @include phone {
+          text-align: center;
+
           @include fontSize(16px);
         }
       }

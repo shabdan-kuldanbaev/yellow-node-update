@@ -149,3 +149,27 @@
     }
   }
 }
+
+.fairy {
+  @extend .container;
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    margin-bottom: 35px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .checkMark {
+      color: $white;
+      background: linear-gradient(142.23deg, $light-violet -12.4%, $dark-violet 151.71%);
+    }
+
+    .contentContainer {
+      .title {
+        font-weight: 700;
+      }
+    }
+  }
+}

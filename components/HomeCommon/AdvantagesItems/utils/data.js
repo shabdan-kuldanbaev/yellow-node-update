@@ -28,6 +28,7 @@ export const advantages = [
     title: 'Chats',
     desc: 'Our speciality is everything real-time:</br><span>chats, bots, voice, video and what have you</span>',
     image: chats,
+    to: '/chat-app-development-company',
   },
 ];
 

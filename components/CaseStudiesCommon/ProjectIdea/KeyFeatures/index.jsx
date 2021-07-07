@@ -5,21 +5,17 @@ import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
 import { getDocumentFields } from 'utils/helper';
-import { SVG_IMAGES_TYPES, ANIMATED_TYPE } from 'utils/constants';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import styles from './styles.module.scss';
 
 const KeyFeatures = ({ features, type }) => {
-  const animationProps = {
-    type: ANIMATED_TYPE.isFade,
-    duration: 2000,
-  };
-
   if (!get(features, 'contentModules')) {
     return null;
   }
 
   return (
-    <Animated {...animationProps}>
+    <Animated {...ANIMATION_CASE_STUDY_PROPS}>
       <div className={styles[type]}>
         <div className={styles.containerBackground} />
         {features.contentModules.map((data, index) => {
@@ -28,8 +24,8 @@ const KeyFeatures = ({ features, type }) => {
           return (
             <Animated
               key={title}
-              delay={250 * index}
-              {...animationProps}
+              delay={50 * index}
+              {...ANIMATION_CASE_STUDY_PROPS}
             >
               <div className={styles.featureContainer}>
                 <div className={styles.checkMark}>

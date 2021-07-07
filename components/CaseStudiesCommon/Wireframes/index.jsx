@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
 import { getFileUrl } from 'utils/helper';
-import { ANIMATION_CASE_STUDY_PROPS } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
 const Wireframe = ({ data: { images }, type }) => {
@@ -16,7 +16,7 @@ const Wireframe = ({ data: { images }, type }) => {
     return (
       <Animated
         key={imageUrl}
-        delay={500}
+        delay={100}
         {...ANIMATION_CASE_STUDY_PROPS}
       >
         <div className={styles[type]}>

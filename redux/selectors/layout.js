@@ -48,3 +48,7 @@ export const selectCompanyPhoto = (state) => getMain(state, BLOCKS_SLUGS.contact
 export const selectContacts = (state) => getMain(state, BLOCKS_SLUGS.contactPageContacts);
 
 export const selectProcessPreview = (state) => getMain(state, BLOCKS_SLUGS.processPageProcessPreview);
+
+export const selectComponents = (state) => state.layout.components;
+
+export const selectMetaData = (state) => state.layout.metaData;

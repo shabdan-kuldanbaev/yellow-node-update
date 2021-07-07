@@ -319,6 +319,25 @@
   }
 }
 
+@mixin wireframes {
+  overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
+
+  & > div:first-of-type {
+    padding: 0 40px;
+  }
+
+  @include phone {
+    padding-left: 0;
+    padding-right: 0;
+
+    & > div:first-of-type {
+      padding: 0 15px;
+    }
+  }
+}
+
 @font-face {
   font-family: 'Sonny Gothic Condensed Ultra Black';
   font-display: swap;

@@ -5,7 +5,7 @@ import get from 'lodash/get';
 import { selectProject } from 'redux/selectors/portfolio';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import { MetaTags } from 'components/Common/MetaTags';
-import FeedbackForm from 'containers/Home/FeedbackForm';
+import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -17,6 +17,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
     metaTitle,
     metaDescription,
     hasFeedbackForm,
+    pageTitle,
   } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
     [
@@ -25,19 +26,19 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
       'metaDescription',
       'metaTitle',
       'hasFeedbackForm',
+      'pageTitle',
     ],
   );
   // TODO: rework metatags for CaseStudies pages
   const projectMetadata = {
-    metaTitle,
-    metaDescription,
-    slug,
+    metaTitle: metaTitle || (pageTitle && `${pageTitle} | Yellow`),
+    metaDescription: metaDescription || (pageTitle && `Yellow professionals have created ${pageTitle}. Read our case study to find more!`),
   };
 
   return (
     <Fragment>
       <MetaTags
-        page={PAGES.blog}
+        page={PAGES.portfolio}
         pageMetadata={projectMetadata}
       />
       {contentModules && contentModules.map(({ fields, sys }) => (
@@ -50,7 +51,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
       ))}
       {hasFeedbackForm && (
         <div className={styles[slug] || styles.feedBackContainer}>
-          <FeedbackForm type={slug} />
+          <FeedbackFormContainer type={slug} />
         </div>
       )}
     </Fragment>

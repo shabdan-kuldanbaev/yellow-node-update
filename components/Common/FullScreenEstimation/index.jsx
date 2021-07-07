@@ -8,7 +8,6 @@ import {
 import styles from './styles.module.scss';
 
 export const FullScreenEstimation = ({
-  handleOnClick,
   isFullscreenEstimation,
   closeFullscreenEstimation,
 }) => (
@@ -29,7 +28,6 @@ export const FullScreenEstimation = ({
       {isFullscreenEstimation && (
         <FeedbackForm
           isChooseBudget
-          handleOnClick={handleOnClick}
           formKey="estimation"
         />
       )}
@@ -38,7 +36,6 @@ export const FullScreenEstimation = ({
 );
 
 FullScreenEstimation.propTypes = {
-  handleOnClick: PropTypes.func.isRequired,
   isFullscreenEstimation: PropTypes.bool.isRequired,
   closeFullscreenEstimation: PropTypes.func.isRequired,
 };
