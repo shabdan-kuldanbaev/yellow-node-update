@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useIntersectionItem } from 'utils/hooks';
+import { useIntersectionItem } from 'hooks/useIntersectionItem';
 
 export const CSSAnimation = ({ children, intersectedClasses }) => {
   const [intersectRef, isIntersected] = useIntersectionItem(0.2);

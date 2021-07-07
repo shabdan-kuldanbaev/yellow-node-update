@@ -16,7 +16,7 @@ export const useIntersectionItem = (percentIntersection = 0.2) => {
 
   useEffect(() => {
     if (intersectRef && intersectRef.current) {
-      if (intersection && intersection.intersectionRatio >= 0.2) {
+      if (intersection && intersection.intersectionRatio >= percentIntersection) {
         setIntersected(true);
       }
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useIntersectionItem } from 'utils/hooks';
+import { useIntersectionItem } from 'hooks/useIntersectionItem';
 
 export const CustomAnimation = ({
   children,
