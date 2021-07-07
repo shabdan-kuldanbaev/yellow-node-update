@@ -66,4 +66,5 @@ export const TechnologiesSection = ({
 
 TechnologiesSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
+  handleOnCTAClick: PropTypes.func.isRequired,
 };
