@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
-import SwiperCore, { Scrollbar } from 'swiper/core';
+import SwiperCore, { Scrollbar, Mousewheel } from 'swiper/core';
 import { Animated } from 'components/Common/Animated';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
@@ -10,7 +10,7 @@ import { getDocumentFields } from 'utils/helper';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import styles from './styles.module.scss';
 
-SwiperCore.use([Scrollbar]);
+SwiperCore.use([Scrollbar, Mousewheel]);
 
 export const ChatFeaturesSection = ({ sectionData }) => {
   const {
@@ -35,6 +35,9 @@ export const ChatFeaturesSection = ({ sectionData }) => {
     slidesPerView: 1,
     spaceBetween: 150,
     slidesPerGroup: 1,
+    mousewheel: {
+      forceToAxis: true,
+    },
     scrollbar: {
       el: '.swiper-scrollbar',
     },

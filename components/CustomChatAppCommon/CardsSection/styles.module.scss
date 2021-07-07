@@ -88,6 +88,17 @@
     color: $tundora;
     font-weight: 500;
     margin: 0 auto;
+    cursor: pointer;
+    transform: scale(1);
+    transition:
+      transform 0.4s cubic-bezier(0, 0, 0.2, 1),
+      padding 0.4s cubic-bezier(0, 0, 0.2, 1);
+    outline: none;
+
+    &:hover {
+      transform: scale(0.98);
+      transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+    }
   }
 }
 
@@ -104,9 +115,18 @@
   .typesList {
     @include flex(row, space-between, initial, wrap);
 
+    @include below-tablet {
+      @include flex(column, space-between, center);
+    }
+
     & > div {
       width: calc(50% - 75px);
       margin: 0 0 30px;
+
+      @include below-tablet {
+        width: 100%;
+        box-sizing: border-box;
+      }
 
       &:last-child {
         @include below-tablet {

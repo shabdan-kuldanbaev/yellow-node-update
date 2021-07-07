@@ -32,7 +32,9 @@
     }
 
     @include phone {
-      width: calc(100% - 130px);
+      padding: 30px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .item {
