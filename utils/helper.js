@@ -59,6 +59,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.company}`, updatedAt },
   { path: `/${PAGES.contact}`, updatedAt },
   { path: `/${PAGES.blog}`, updatedAt },
+  { path: `/${PAGES.customChatApp}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
