@@ -1,0 +1,7 @@
+@import 'styles/utils/mixins';
+
+.pageIntro {
+  padding: 100px 0 20vh;
+
+  @include flex();
+}

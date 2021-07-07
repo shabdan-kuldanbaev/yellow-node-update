@@ -103,18 +103,6 @@ export const IMAGES = {
   },
 };
 
-export const CONTACTS_DATA = {
-  email: 'hi@yellow.systems',
-  telephoneNumbers: [
-    '+1 415 670 9070',
-    '+375 29 311 52 49',
-  ],
-  city: 'Minsk',
-  country: 'Belarus',
-  postalCode: '220030',
-  streetAddress: '5-303 Nemiga street',
-};
-
 export const SVG_IMAGES_TYPES = {
   appstore: 'appstore',
   arrow: 'arrowSvg',
@@ -164,6 +152,50 @@ export const SVG_IMAGES_TYPES = {
   greatDesign: 'greatDesign',
   yellowLogo: 'yellowLogo',
   yellowLogoText: 'yellowLogoText',
+  linkedinRoundWhite: 'linkedinRoundWhite',
+  twitterRoundWhite: 'twitterRoundWhite',
+  behanceRoundWhite: 'behanceRoundWhite',
+  mediumRoundWhite: 'mediumRoundWhite',
+  instaRoundWhite: 'instaRoundWhite',
+};
+
+export const CONTACTS_DATA = {
+  email: 'hi@yellow.systems',
+  telephoneNumbers: [
+    '+1 (415) 670-90-70',
+    '+375 (29) 311-52-49',
+  ],
+  city: 'Minsk',
+  country: 'Belarus',
+  postalCode: '220030',
+  streetAddress: '5-303 Nemiga street',
+  socialMedia: [
+    {
+      title: 'LinkedIn',
+      type: SVG_IMAGES_TYPES.linkedinRoundWhite,
+      link: '//www.linkedin.com/company/yellow-systems',
+    },
+    {
+      title: 'Twitter',
+      type: SVG_IMAGES_TYPES.twitterRoundWhite,
+      link: '',
+    },
+    {
+      title: 'Behance',
+      type: SVG_IMAGES_TYPES.behanceRoundWhite,
+      link: '',
+    },
+    {
+      title: 'Medium',
+      type: SVG_IMAGES_TYPES.mediumRoundWhite,
+      link: '//medium.com/@yellow',
+    },
+    {
+      title: 'Instagram',
+      type: SVG_IMAGES_TYPES.instaRoundWhite,
+      link: '//www.instagram.com/yellow.systems',
+    },
+  ],
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
