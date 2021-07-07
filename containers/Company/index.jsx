@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useRouter } from 'next/router';
 import {
   selectManagementTeam,
   selectWhatMakesSpecial,
   selectImageCarousel,
+  selectMetaData,
 } from 'redux/selectors/layout';
 import { reviews } from 'containers/Home/Reviews/utils/data';
 import {
@@ -19,7 +21,7 @@ import {
   FullLayout,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
@@ -28,16 +30,26 @@ const CompanyContainer = ({
   photosData,
   managementTeam,
   whatMakesSpecial,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
 }) => {
   const { contentModules: carouselContent } = getDocumentFields(photosData, ['contentModules']);
   const { contentModules: teamContent } = getDocumentFields(managementTeam, ['contentModules']);
   const { contentModules: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.company();
+  const pageMetadata = {
+    metaTitle,
+    metaDescription,
+    url: `${rootUrl}/company`,
+  };
 
   return (
     <Fragment>
       <MetaTags
         page={PAGES.company}
+        pageMetadata={pageMetadata}
         breadcrumbs={breadcrumbs}
       />
       <FullLayout introSection={introSection}>
@@ -86,6 +98,10 @@ CompanyContainer.propTypes = {
   photosData: PropTypes.instanceOf(Object),
   managementTeam: PropTypes.instanceOf(Object),
   whatMakesSpecial: PropTypes.instanceOf(Object),
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(
@@ -93,5 +109,6 @@ export default connect(
     photosData: selectImageCarousel(state),
     managementTeam: selectManagementTeam(state),
     whatMakesSpecial: selectWhatMakesSpecial(state),
+    metaData: selectMetaData(state),
   }),
 )(CompanyContainer);

@@ -79,11 +79,6 @@ const Header = ({
       <div className={styles.logo}>
         <Logo type={logo} />
       </div>
-      {currentPage.includes('blog') && (
-        <div className={styles.categories}>
-          <SelectionBlock urlPath={asPath} />
-        </div>
-      )}
       <Nav
         theme={theme}
         isAdditional={isAdditional}

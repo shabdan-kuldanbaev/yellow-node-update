@@ -47,7 +47,7 @@ export const ModalWindow = ({
         <Svg
           className={styles.svg}
           type={SVG_IMAGES_TYPES.closeSvg}
-          hanleOnClick={closeModalWindow}
+          handleOnClick={closeModalWindow}
         />
         {children}
       </div>

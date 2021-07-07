@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
 import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsMobileResolutions, selectMetaData } from 'redux/selectors/layout';
 import {
   SelectionBlock,
   ArticlesList,
@@ -13,7 +13,7 @@ import {
   PageHeader,
   FullLayout,
 } from 'components';
-import { getDataFromLocalStorageWithExpire } from 'utils/helper';
+import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 
@@ -26,10 +26,24 @@ const BlogContainer = ({
   setIsSubscribed: setSubscribed,
   currentPage,
   articlesNumberPerPage,
+  metaData: {
+    metaTitle,
+    metaDescription,
+  },
 }) => {
-  const { pathname, query: { slug } } = useRouter();
+  const {
+    pathname,
+    query: { slug },
+    asPath,
+  } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
   const breadcrumbs = pagesBreadcrumbs.blog(slug);
+  const pageMetadata = {
+    metaTitle,
+    metaDescription,
+    url: `${rootUrl}${asPath}`,
+    pageNumber: currentPage,
+  };
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });
@@ -44,7 +58,7 @@ const BlogContainer = ({
     <Fragment>
       <MetaTags
         page={PAGES.blog}
-        pageMetadata={{ pageNumber: currentPage }}
+        pageMetadata={pageMetadata}
         breadcrumbs={breadcrumbs}
       />
       <FullLayout introSection={introSection}>
@@ -52,7 +66,7 @@ const BlogContainer = ({
           title={ROUTES.blog.title}
           breadcrumbs={breadcrumbs}
         />
-        {!isMobileResolution && <SelectionBlock handleOnSubmit={handleOnFormSubmit} />}
+        <SelectionBlock handleOnSubmit={handleOnFormSubmit} />
         <ArticlesList
           articles={articles}
           isBlogPage
@@ -82,6 +96,10 @@ BlogContainer.propTypes = {
   setIsSubscribed: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
   articlesNumberPerPage: PropTypes.number.isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default connect(
@@ -89,6 +107,7 @@ export default connect(
     articles: selectArticles(state),
     totalArticles: selectTotalCount(state),
     isMobileResolution: selectIsMobileResolutions(state),
+    metaData: selectMetaData(state),
   }),
   {
     subscribe,

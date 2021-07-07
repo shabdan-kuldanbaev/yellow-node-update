@@ -4,7 +4,8 @@ import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import SubscribeBlock from 'components/Common/SubscribeBlock';
-import { Article } from './Article';
+import { ArticlePreview } from 'components/Common/ArticlePreview';
+import { ARTICLE_PREVIEW_TYPES } from 'utils/constants';
 import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
@@ -16,43 +17,51 @@ export const ArticlesList = ({
   handleOnFormSubmit,
   isMobileResolution,
   handleOnCloseModalWindow,
-}) => (
-  <div
-    className={cn(styles.articlesList, {
-      [styles.locationSubscribe]: !isSearch,
-    })}
-  >
-    {currentPage === 1 && isBlogPage && (
-      <SubscribeBlock
-        isBlog
-        handleOnSubmit={handleOnFormSubmit}
-      />
-    )}
-    {articles && articles.map((article, index) => {
-      const articleProps = getArticleProps({
-        article,
-        index,
-        isSearch,
-        isMobileResolution,
-      });
+}) => {
+  const articleType = isSearch
+    ? ARTICLE_PREVIEW_TYPES.search
+    : ARTICLE_PREVIEW_TYPES.blog;
 
-      return (
-        <Article
-          key={articleProps.title}
-          countNumber={index}
-          animatioProps={articleProps.animatioProps}
-          slug={articleProps.slug}
-          title={articleProps.title}
-          categoryTag={articleProps.categoryTag}
-          introduction={articleProps.introduction}
-          previewImage={articleProps.previewImage}
-          isSearch={isSearch}
-          handleOnCloseModalWindow={handleOnCloseModalWindow}
+  return (
+    <div
+      className={cn(styles.articlesList, {
+        [styles.locationSubscribe]: !isSearch,
+      })}
+    >
+      {currentPage === 1 && isBlogPage && (
+        <SubscribeBlock
+          isBlog
+          handleOnSubmit={handleOnFormSubmit}
         />
-      );
-    })}
-  </div>
-);
+      )}
+      {articles && articles.map((article, index) => {
+        const articleProps = getArticleProps({
+          article,
+          index,
+          isSearch,
+          isMobileResolution,
+        });
+
+        return (
+          <ArticlePreview
+            type={articleType}
+            key={articleProps.title}
+            index={index}
+            animatioProps={articleProps.animatioProps}
+            slug={articleProps.slug}
+            title={articleProps.title}
+            category={articleProps.categoryTag}
+            introduction={articleProps.introduction}
+            image={articleProps.previewImage}
+            date={articleProps.publishedAt}
+            isSearch={isSearch}
+            handleOnCloseModalWindow={handleOnCloseModalWindow}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 ArticlesList.defaultProps = {
   isSearch: false,

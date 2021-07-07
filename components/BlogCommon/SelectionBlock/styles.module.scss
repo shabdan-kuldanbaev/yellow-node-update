@@ -3,34 +3,16 @@
 .selectionBlock {
   position: relative;
   width: 100%;
-  padding: $section-indent 12px 0;
+  padding: $section-indent 0 0;
 
   @include flex(row, space-between, center);
 
   @include macbook-fifteen {
-    padding: calc(#{$section-indent} - 20px) 12px 0;
+    padding: calc(#{$section-indent} - 20px) 0 0;
   }
 
   @include phone {
-    padding: 0;
-  }
-
-  .darkBackground {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    background-color: $black;
-    opacity: 0.5;
-    display: none;
-
-    @include phone {
-      display: block;
-    }
+    padding: 60px 0 0;
   }
 
   .buttons {
@@ -44,6 +26,10 @@
 
     @include phone {
       width: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateY(-50px);
     }
 
     .imgContainer {
@@ -54,15 +40,16 @@
 
       position: relative;
       width: 16.5px;
-      cursor: pointer;
       right: 40px;
+      cursor: pointer;
 
       @include horizontal-mobile {
         right: 35px;
       }
 
       @include phone {
-        right: 7vw;
+        right: 0;
+        width: 21px;
       }
     }
 
@@ -111,15 +98,6 @@
     .categoryTitleInHeader {
       display: none;
       outline: none;
-
-      @include phone {
-        display: block;
-        cursor: pointer;
-        font-weight: 500;
-        color: $mine-shaft;
-        font-size: 0.9375rem;
-        line-height: 1;
-      }
     }
   }
 }

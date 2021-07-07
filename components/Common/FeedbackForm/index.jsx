@@ -9,6 +9,7 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { selectError } from 'redux/selectors/contact';
+import { sendEmail } from 'redux/actions/contact';
 import { Animated } from 'components/Common/Animated';
 import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
@@ -28,10 +29,10 @@ const FeedbackForm = ({
   handleOnBlurEmail,
   isChooseBudget,
   budget: budgetData,
-  handleOnClick,
   formKey,
   contactFormError,
   type,
+  sendEmail: sendFeedback,
 }) => {
   const { asPath } = useRouter();
   const formRef = useRef(null);
@@ -112,13 +113,13 @@ const FeedbackForm = ({
 
     const filesUrls = selectedFiles.map((file) => file.signedUrl);
 
-    handleOnClick(
-      fullName,
-      email.value,
-      projectDescription,
-      filesUrls,
-      projectBudget,
-    );
+    sendFeedback({
+      name: fullName,
+      email: email.value,
+      description: projectDescription,
+      attachments: filesUrls,
+      projectBudget: projectBudget || '',
+    });
   };
 
   useEffect(() => {
@@ -266,12 +267,13 @@ FeedbackForm.propTypes = {
   handleOnBlurEmail: PropTypes.func.isRequired,
   isChooseBudget: PropTypes.bool,
   budget: PropTypes.instanceOf(Object),
-  handleOnClick: PropTypes.func.isRequired,
   formKey: PropTypes.string,
   contactFormError: PropTypes.string,
   type: PropTypes.string,
+  sendEmail: PropTypes.func.isRequired,
 };
 
 export default connect(
   (state) => ({ contactFormError: selectError(state) }),
+  { sendEmail },
 )(withValidateEmail(FeedbackForm));

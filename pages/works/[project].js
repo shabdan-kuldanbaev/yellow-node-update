@@ -4,7 +4,7 @@ import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import CaseStudiesContainer from 'containers/CaseStudies';
 import ProjectContainer from 'containers/Project';
-import { PageNotFound } from 'containers/PageNotFound';
+import PageNotFound from 'containers/PageNotFound';
 import { PAGES, CASE_STUDIES_SLUGS } from 'utils/constants';
 import errorHelper from 'utils/error';
 

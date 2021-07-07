@@ -2,7 +2,7 @@ import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import DraftArticle from 'containers/DraftArticle';
-import { PageNotFound } from 'containers/PageNotFound';
+import PageNotFound from 'containers/PageNotFound';
 import errorHelper from 'utils/error';
 import { PAGES } from 'utils/constants';
 
