@@ -9,7 +9,7 @@ import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser
 import {
   getDocumentFields,
   getFileUrl,
-  getOptimizedImage,
+  getOptimizedContentfulImage,
 } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
@@ -32,10 +32,24 @@ const ChallengesAndSolutions = ({
           images,
           text,
         } = getDocumentFields(document);
-        const imageUrl = isMobileResolution
-          ? getOptimizedImage(getFileUrl(get(images, '[0]')), 0, 500, 'png', 'png8')
-          : getOptimizedImage(getFileUrl(get(images, '[0]')), 0, 812, 'png', 'png8');
-        const subImageUrl = getOptimizedImage(getFileUrl(get(images, '[1]', '')), 0, 100, 'png', 'png8');
+        const imageUrl = getOptimizedContentfulImage(
+          getFileUrl(get(images, '[0]')),
+          {
+            width: 0,
+            height: isMobileResolution ? 500 : 812,
+            fm: 'png',
+            fl: 'png8',
+          },
+        );
+        const subImageUrl = getOptimizedContentfulImage(
+          getFileUrl(get(images, '[1]', '')),
+          {
+            width: 0,
+            height: 100,
+            fm: 'png',
+            fl: 'png8',
+          },
+        );
 
         return (
           <div

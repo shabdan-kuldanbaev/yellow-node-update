@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components';
-import { getOptimizedImage } from 'utils/helper';
+import { getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -16,7 +16,15 @@ const PreviewImage = ({ image, isMobileResolution }) => (
       transformDuration={0.8}
       transitionDelay={0}
     >
-      <div style={{ backgroundImage: `url(${getOptimizedImage(image, isMobileResolution ? 530 : 1500)})` }} />
+      <div style={{
+        backgroundImage: `url(${getOptimizedContentfulImage(
+          image,
+          {
+            width: isMobileResolution ? 530 : 1500,
+          },
+        )})`,
+      }}
+      />
     </Animated>
   </div>
 );

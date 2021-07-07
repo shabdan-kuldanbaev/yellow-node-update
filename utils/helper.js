@@ -67,22 +67,31 @@ export const rootUrl = process.env.NODE_ENV === 'development'
 
 export const isServer = typeof window === 'undefined';
 
-export const getOptimizedImage = (src, width, height, fm = 'jpg', fl = 'progressive') => {
-  if (!src) {
+const getQueryString = (params) => params && Object
+  .keys(params)
+  .filter((key) => `${key}=${params[key]}`)
+  .join('&');
+
+export const getOptimizedContentfulImage = (imageUrl, {
+  width,
+  height,
+  fm = 'jpg',
+  fl = 'progressive',
+}) => {
+  if (!imageUrl) {
     return '';
   }
 
-  let imageUrl = `${src}?fm=${fm}&fl=${fl}`;
+  const queryString = getQueryString({
+    w: width,
+    h: height,
+    fm,
+    fl,
+  });
 
-  if (width) {
-    imageUrl += `&w=${width}`;
-  }
-
-  if (height) {
-    imageUrl += `&h=${height}`;
-  }
-
-  return imageUrl;
+  return queryString
+    ? `${imageUrl}?${queryString}`
+    : imageUrl;
 };
 
 export const createMarkup = (data) => ({ __html: data });

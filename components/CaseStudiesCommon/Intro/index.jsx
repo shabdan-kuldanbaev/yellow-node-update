@@ -8,7 +8,7 @@ import { SVG_IMAGES_TYPES } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
-  getOptimizedImage,
+  getOptimizedContentfulImage,
 } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -38,9 +38,32 @@ const Intro = ({
     ['contentModules'],
   );
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));
-  const appLogoUrl = getOptimizedImage(getFileUrl(get(images, '[0]', '')), 0, 0, 'png', 'png8');
-  const appBackgroundImageUrl = getOptimizedImage(getFileUrl(get(images, '[1]', '')), 0, 0, 'png', '');
-  const backgroundImageUrl = getOptimizedImage(getFileUrl(get(data, 'images[0]', '')), 0, 0, 'png', '');
+  const appLogoUrl = getOptimizedContentfulImage(
+    getFileUrl(get(images, '[0]', '')),
+    {
+      width: 0,
+      height: 0,
+      fm: 'png',
+      fl: 'png8',
+    },
+  );
+  const appBackgroundImageUrl = getOptimizedContentfulImage(
+    getFileUrl(get(images, '[1]', '')),
+    {
+      width: 0,
+      height: 0,
+      fm: 'png',
+      fl: 'png8',
+    },
+  );
+  const backgroundImageUrl = getOptimizedContentfulImage(
+    getFileUrl(get(data, 'images[0]', '')),
+    {
+      width: 0,
+      height: 0,
+      fm: 'png',
+    },
+  );
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
 
   return (

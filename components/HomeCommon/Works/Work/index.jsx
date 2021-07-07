@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { selectIsMobileResolutions, selectIsFullResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { getOptimizedImage } from 'utils/helper';
+import { getOptimizedContentfulImage } from 'utils/helper';
 import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields, imagesSizes } from './utils';
 import styles from './styles.module.scss';
@@ -70,7 +70,14 @@ const Work = ({
           >
             <img
               src={sizeOfImage
-                ? getOptimizedImage(imageUrl, sizeOfImage, null, 'png', 'png8')
+                ? getOptimizedContentfulImage(
+                  imageUrl,
+                  {
+                    width: sizeOfImage,
+                    fm: 'png',
+                    fl: 'png8',
+                  },
+                )
                 : imageUrl}
               alt={title}
             />

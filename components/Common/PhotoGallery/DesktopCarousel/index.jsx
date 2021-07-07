@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import {
   getDocumentFields,
   getFileUrl,
-  getOptimizedImage,
+  getOptimizedContentfulImage,
 } from 'utils/helper';
 import { sizesOfImages } from '../utils/data';
 import styles from './styles.module.scss';
@@ -93,9 +93,11 @@ export const DesktopCarousel = ({ photos }) => {
                 photoData,
                 ['image', 'carouselImageType'],
               );
-              const imageUrl = getOptimizedImage(
+              const imageUrl = getOptimizedContentfulImage(
                 getFileUrl(image),
-                sizesOfImages[`${carouselImageType}ImgDesctop`],
+                {
+                  width: sizesOfImages[`${carouselImageType}ImgDesctop`],
+                },
               );
 
               return (

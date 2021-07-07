@@ -8,7 +8,7 @@ import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { SectionTitle, Animated } from 'components';
-import { getOptimizedImage } from 'utils/helper';
+import { getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -47,9 +47,11 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
           >
             <img
               ref={photoRef}
-              src={getOptimizedImage(
+              src={getOptimizedContentfulImage(
                 photo,
-                isMobileResolution ? 530 : 1500,
+                {
+                  width: isMobileResolution ? 530 : 1500,
+                },
               )}
               alt="CompanyPeoplePhoto"
             />

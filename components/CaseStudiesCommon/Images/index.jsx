@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
-import { getFileUrl, getOptimizedImage } from 'utils/helper';
+import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
@@ -18,9 +18,15 @@ const Images = ({
   }
 
   return data.images.map((image) => {
-    const imageUrl = isMobileResolution
-      ? getOptimizedImage(getFileUrl(image), 0, 500, 'png', 'png8')
-      : getOptimizedImage(getFileUrl(image), 0, 812, 'png', 'png8');
+    const imageUrl = getOptimizedContentfulImage(
+      getFileUrl(get(image)),
+      {
+        width: 0,
+        height: isMobileResolution ? 500 : 812,
+        fm: 'png',
+        fl: 'png8',
+      },
+    );
 
     return (
       <Animated
