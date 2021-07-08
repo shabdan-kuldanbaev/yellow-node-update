@@ -7,40 +7,21 @@
   z-index: 2;
   width: 100%;
   height: auto;
-  // padding: 50px 0 100px;
 
   @include flex(row, center, center);
 
-  @include ultra-hd {
-    max-width: $max-content-width;
-  }
-
-  @include full-hd {
-    // padding: 100px 0 20vh;
-  }
-
-  @include macbook-fifteen {
-    padding-bottom: 10vw;
-  }
-
   @include macbook-twelve {
     width: 100%;
-    padding-top: 100px;
   }
 
   @include tablet {
     height: auto;
-    padding: 100px 0;
-  }
-
-  @include phone {
-    padding: calc(#{$mobile-section-indent} - 20px) 0 $mobile-section-indent - 20px;
   }
 
   & > div:first-child {
     position: relative;
     z-index: 2;
-    width: 70%;
+    width: 100%;
 
     @include flex(column, center, flex-start);
 
@@ -52,10 +33,10 @@
 
       & > div:nth-of-type(1) > h2 {
         // margin-top: 50px;
+        @include h1-title;
+
         line-height: 1.2;
         text-align: left;
-
-        @include fontSize(56px);
       }
 
       & > div:nth-of-type(2) > p {
@@ -63,12 +44,6 @@
         font-size: 1.25rem;
         line-height: 1.53;
         letter-spacing: 0.5px;
-
-        @include phone {
-          margin: 0;
-          padding: 0;
-          font-size: 3.9vw;
-        }
 
         a {
           margin-top: -20px;
@@ -147,6 +122,15 @@
 
     & > div {
       margin-bottom: 0;
+    }
+  }
+
+  & > div:last-child > div > form > div > a {
+    @include flex(row, initial, center);
+
+    & > div {
+      min-width: auto;
+      width: 260px;
     }
   }
 }

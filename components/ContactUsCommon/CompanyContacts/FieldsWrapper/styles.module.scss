@@ -7,6 +7,18 @@
 
   @include fontSize(24px);
 
+  @include macbook-fifteen {
+    @include fontSize(22px);
+  }
+
+  @include below-tablet {
+    @include fontSize(20px);
+  }
+
+  @include phone {
+    @include fontSize(18px);
+  }
+
   a {
     color: $dark-grey;
   }
@@ -87,4 +99,9 @@
       }
     }
   }
+}
+
+.svg {
+  width: 40px;
+  height: 40px;
 }

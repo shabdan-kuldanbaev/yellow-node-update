@@ -178,7 +178,7 @@ export const CONTACTS_DATA = {
     {
       title: 'Twitter',
       type: SVG_IMAGES_TYPES.twitterRoundWhite,
-      link: '',
+      link: '//mobile.twitter.com/yellow_systems',
     },
     {
       title: 'Behance',

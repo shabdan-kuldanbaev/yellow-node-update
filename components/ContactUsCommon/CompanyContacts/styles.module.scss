@@ -1,3 +1,16 @@
-.smth {
-  width: 100%;
+@import 'styles/utils/mixins';
+
+.address {
+  margin-right: 150px;
+
+  @include tablet {
+    margin-right: 0;
+    margin-top: 100px;
+  }
+
+  & > div:first-child {
+    & > span {
+      margin-top: 0;
+    }
+  }
 }

@@ -52,7 +52,11 @@ export const FieldsWrapper = ({ animated: { field } }) => {
   case 'follow':
     return (
       <div className={styles.socialMediaList}>
-        {socialMedia && socialMedia.map(({ type, title, link }) => (
+        {socialMedia && socialMedia.map(({
+          type,
+          title,
+          link,
+        }) => link && (
           <LinkWrapper
             key={`networks/${type}`}
             path={link}
@@ -64,7 +68,10 @@ export const FieldsWrapper = ({ animated: { field } }) => {
             }}
             isSocialLink
           >
-            <Svg type={type} />
+            <Svg
+              type={type}
+              className={styles.svg}
+            />
           </LinkWrapper>
         ))}
       </div>

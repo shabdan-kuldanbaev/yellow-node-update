@@ -1,7 +1,15 @@
 @import 'styles/utils/mixins';
 
 .pageIntro {
-  padding: 100px 0 20vh;
+  padding: 100px 0;
 
   @include flex();
+
+  @include tablet {
+    @include flex(column-reverse);
+  }
+
+  @include phone {
+    padding: 60px 0;
+  }
 }
