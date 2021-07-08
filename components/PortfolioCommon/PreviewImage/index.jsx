@@ -19,9 +19,7 @@ const PreviewImage = ({ image, isMobileResolution }) => (
       <div style={{
         backgroundImage: `url(${getOptimizedContentfulImage(
           image,
-          {
-            width: isMobileResolution ? 530 : 1500,
-          },
+          { width: isMobileResolution ? 530 : 1500 },
         )})`,
       }}
       />

@@ -29,7 +29,7 @@ const Images = ({
       <div className={cn(styles[type], styles[classes])}>
         {data.images.map((image, index) => {
           const imageUrl = getOptimizedContentfulImage(
-            getFileUrl(get(image)),
+            getFileUrl(image),
             {
               width: 0,
               height: isMobileResolution ? 500 : 812,

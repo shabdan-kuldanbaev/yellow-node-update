@@ -41,8 +41,6 @@ const Intro = ({
   const appLogoUrl = getOptimizedContentfulImage(
     getFileUrl(get(images, '[0]', '')),
     {
-      width: 0,
-      height: 0,
       fm: 'png',
       fl: 'png8',
     },
@@ -50,19 +48,13 @@ const Intro = ({
   const appBackgroundImageUrl = getOptimizedContentfulImage(
     getFileUrl(get(images, '[1]', '')),
     {
-      width: 0,
-      height: 0,
       fm: 'png',
       fl: 'png8',
     },
   );
   const backgroundImageUrl = getOptimizedContentfulImage(
     getFileUrl(get(data, 'images[0]', '')),
-    {
-      width: 0,
-      height: 0,
-      fm: 'png',
-    },
+    { fm: 'png' },
   );
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
 

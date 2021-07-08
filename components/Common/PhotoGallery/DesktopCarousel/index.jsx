@@ -95,9 +95,7 @@ export const DesktopCarousel = ({ photos }) => {
               );
               const imageUrl = getOptimizedContentfulImage(
                 getFileUrl(image),
-                {
-                  width: sizesOfImages[`${carouselImageType}ImgDesctop`],
-                },
+                { width: sizesOfImages[`${carouselImageType}ImgDesctop`] },
               );
 
               return (

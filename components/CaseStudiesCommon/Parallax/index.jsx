@@ -12,8 +12,6 @@ const Parallax = ({ data, type }) => {
   const imageUrl = getOptimizedContentfulImage(
     getFileUrl(data.images[0]),
     {
-      width: 0,
-      height: 0,
       fm: 'png',
       fl: 'png8',
     },

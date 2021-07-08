@@ -22,7 +22,6 @@ const Wireframe = ({
     const imageUrl = getOptimizedContentfulImage(
       getFileUrl(image),
       {
-        width: 0,
         height: isMobileResolution ? 400 : 812,
         fm: 'png',
         fl: 'png8',

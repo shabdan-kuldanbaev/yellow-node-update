@@ -18,9 +18,7 @@ export const MobileCarousel = ({ photos }) => (
         );
         const imageUrl = getOptimizedContentfulImage(
           getFileUrl(image),
-          {
-            width: sizesOfImages[`${carouselImageType}ImgMobile`],
-          },
+          { width: sizesOfImages[`${carouselImageType}ImgMobile`] },
         );
 
         return (

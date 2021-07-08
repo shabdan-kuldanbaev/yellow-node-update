@@ -22,9 +22,7 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => manage
         );
         const photoUrl = getOptimizedContentfulImage(
           getFileUrl(image),
-          {
-            width: isMobileResolution ? 530 : 290,
-          },
+          { width: isMobileResolution ? 530 : 290 },
         );
 
         return (

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { ROUTES, CATEGORY_TAGS } from 'utils/constants';
 import { Animated } from 'components/Common/Animated';
+import { ROUTES, CATEGORY_TAGS } from 'utils/constants';
 import { formatDate } from 'utils/helper';
 import styles from './styles.module.scss';
 

@@ -49,9 +49,7 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
               ref={photoRef}
               src={getOptimizedContentfulImage(
                 photo,
-                {
-                  width: isMobileResolution ? 530 : 1500,
-                },
+                { width: isMobileResolution ? 530 : 1500 },
               )}
               alt="CompanyPeoplePhoto"
             />

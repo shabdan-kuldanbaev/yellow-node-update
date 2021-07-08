@@ -35,7 +35,6 @@ const ChallengesAndSolutions = ({
         const imageUrl = getOptimizedContentfulImage(
           getFileUrl(get(images, '[0]')),
           {
-            width: 0,
             height: isMobileResolution ? 500 : 812,
             fm: 'png',
             fl: 'png8',
@@ -44,7 +43,6 @@ const ChallengesAndSolutions = ({
         const subImageUrl = getOptimizedContentfulImage(
           getFileUrl(get(images, '[1]', '')),
           {
-            width: 0,
             height: 100,
             fm: 'png',
             fl: 'png8',
