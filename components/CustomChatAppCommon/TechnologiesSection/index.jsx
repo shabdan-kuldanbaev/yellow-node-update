@@ -56,7 +56,7 @@ export const TechnologiesSection = ({
       <CallToAction
         type="card"
         title={`Want to start chat app development?
-                Ask Yelow’s consultants now.`}
+                Ask Yellow’s consultants now.`}
         buttonTitle="Contact us"
         handleOnClick={handleOnCTAClick}
       />
