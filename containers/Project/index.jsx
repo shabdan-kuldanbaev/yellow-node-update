@@ -10,7 +10,11 @@ import { PAGES } from 'utils/constants';
 
 const ProjectContainer = ({ introSection, currentProject }) => {
   const { asPath } = useRouter();
-  const { body, metaTitle, metaDescription } = getDocumentFields(
+  const {
+    body,
+    metaTitle,
+    metaDescription,
+  } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
     ['body'],
   );

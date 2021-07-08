@@ -18,12 +18,11 @@ const Parallax = ({ data, type }) => {
       fl: 'png8',
     },
   );
-  const backgroundImage = { backgroundImage: `url(${imageUrl})` };
 
   return (
     <section
       className={styles[type]}
-      style={backgroundImage}
+      style={{ backgroundImage: `url(${imageUrl})` }}
     />
   );
 };
