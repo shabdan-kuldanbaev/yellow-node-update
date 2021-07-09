@@ -55,11 +55,12 @@ const Wireframe = ({
   });
 };
 
-Wireframe.prototype = {
+Wireframe.propTypes = {
   data: PropTypes.shape({
     images: PropTypes.instanceOf(Array).isRequired,
   }).isRequired,
   type: PropTypes.string.isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
 
 export default connect(
