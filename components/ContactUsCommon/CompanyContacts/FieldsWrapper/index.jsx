@@ -16,7 +16,11 @@ export const FieldsWrapper = ({ animated: { field } }) => {
 
   switch (field) {
   case 'phones':
-    return <span className={styles.addressTitle}>Phones:</span>;
+    return (
+      <span className={styles.addressTitle}>
+        Phones:
+      </span>
+    );
   case 'phoneNumber':
     return (
       <div className={styles.phoneNumber}>
@@ -33,7 +37,11 @@ export const FieldsWrapper = ({ animated: { field } }) => {
       </div>
     );
   case 'emailTitle':
-    return <span className={styles.addressTitle}>Email:</span>;
+    return (
+      <span className={styles.addressTitle}>
+        Email:
+      </span>
+    );
   case 'email':
     return (
       <div className={styles.email}>
@@ -48,7 +56,11 @@ export const FieldsWrapper = ({ animated: { field } }) => {
       </div>
     );
   case 'followTitle':
-    return <span className={styles.addressTitle}>Follow:</span>;
+    return (
+      <span className={styles.addressTitle}>
+        Follow:
+      </span>
+    );
   case 'follow':
     return (
       <div className={styles.socialMediaList}>

@@ -32,7 +32,6 @@
       @include flex(column, space-around, flex-start);
 
       & > div:nth-of-type(1) > h2 {
-        // margin-top: 50px;
         @include h1-title;
 
         line-height: 1.2;
