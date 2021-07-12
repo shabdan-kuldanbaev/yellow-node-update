@@ -51,7 +51,7 @@ export const CardsSection = ({
         <div className={styles.typesOfChatSection}>
           <SectionTitle
             title={title}
-            text={description}
+            description={description}
           />
           <div className={styles.typesList}>
             {chatTypes.map((chatType, index) => {

@@ -2,12 +2,14 @@
 
 .advantagesSection {
   margin: 150px auto 100px;
+  padding: 0 100px;
   position: relative;
 
   @include flex(column, center, center);
 
   @include below-tablet {
     margin: 100px 0;
+    padding: 0;
   }
 
   .advantagesList {

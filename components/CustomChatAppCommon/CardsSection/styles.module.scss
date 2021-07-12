@@ -29,7 +29,7 @@
     }
 
     & > div {
-      padding: 30px;
+      padding: 40px;
       margin-right: 30px;
       box-shadow: $card-bow-shadow;
       border-radius: 5px;
@@ -120,8 +120,10 @@
     }
 
     & > div {
-      width: calc(50% - 75px);
-      margin: 0 0 30px;
+      padding: 50px;
+      box-sizing: border-box;
+      width: calc(50% - 20px);
+      margin: 0 0 40px;
 
       @include below-tablet {
         width: 100%;
@@ -132,6 +134,14 @@
         @include below-tablet {
           margin-bottom: 30px;
         }
+      }
+
+      .typeTitle {
+        width: 60%;
+      }
+
+      .typeSubtitle {
+        width: 70%;
       }
     }
   }

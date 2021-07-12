@@ -3,8 +3,12 @@
 .fullLayout {
   max-width: $max-content-width;
   margin: 0 auto;
-  padding: calc(#{$header-height} + 60px) 80px 100px;
+  padding: calc(#{$header-height} + 60px) 0 100px;
   position: relative;
+
+  @include macbook-thirteen {
+    padding: calc(#{$header-height} + 60px) 80px 100px;
+  }
 
   @include tablet {
     padding: calc(#{$header-height} + 60px) 40px 100px;
