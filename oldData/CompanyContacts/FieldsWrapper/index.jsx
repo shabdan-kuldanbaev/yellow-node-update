@@ -1,26 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
 import { LinkWrapper } from 'components';
-import { Svg } from 'components/Common/Svg';
 import { CONTACTS_DATA } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const FieldsWrapper = ({ animated: { field } }) => {
-  const { pathname } = useRouter();
   const {
+    country,
+    city,
+    streetAddress,
+    postalCode,
     telephoneNumbers,
     email,
-    socialMedia,
   } = CONTACTS_DATA;
 
   switch (field) {
-  case 'phones':
+  case 'contact':
+    return <span className={styles.addressTitle}>CONTACT US</span>;
+  case 'locationAdress':
     return (
-      <span className={styles.addressTitle}>
-        Phones:
-      </span>
+      <div className={styles.locationAddress}>
+        <span>{`${streetAddress} ${city}`}</span>
+        <span>{`${postalCode} ${country}`}</span>
+      </div>
     );
+  case 'phones':
+    return <span className={styles.addressTitle}>PHONES</span>;
   case 'phoneNumber':
     return (
       <div className={styles.phoneNumber}>
@@ -37,11 +42,7 @@ export const FieldsWrapper = ({ animated: { field } }) => {
       </div>
     );
   case 'emailTitle':
-    return (
-      <span className={styles.addressTitle}>
-        Email:
-      </span>
-    );
+    return <span className={styles.addressTitle}>EMAIL</span>;
   case 'email':
     return (
       <div className={styles.email}>
@@ -53,39 +54,6 @@ export const FieldsWrapper = ({ animated: { field } }) => {
         >
           {email}
         </LinkWrapper>
-      </div>
-    );
-  case 'followTitle':
-    return (
-      <span className={styles.addressTitle}>
-        Follow:
-      </span>
-    );
-  case 'follow':
-    return (
-      <div className={styles.socialMediaList}>
-        {socialMedia && socialMedia.map(({
-          type,
-          title,
-          link,
-        }) => link && (
-          <LinkWrapper
-            key={`networks/${type}`}
-            path={link}
-            googleAnalyticProps={{
-              action: 'Click',
-              category: 'Social',
-              label: pathname,
-              data: title,
-            }}
-            isSocialLink
-          >
-            <Svg
-              type={type}
-              className={styles.svg}
-            />
-          </LinkWrapper>
-        ))}
       </div>
     );
   default: null;

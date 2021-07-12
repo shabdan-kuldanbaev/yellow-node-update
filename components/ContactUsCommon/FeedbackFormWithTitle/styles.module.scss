@@ -7,34 +7,15 @@
   z-index: 2;
   width: 100%;
   height: auto;
-  padding: 50px 0 100px;
 
   @include flex(row, center, center);
 
-  @include ultra-hd {
-    max-width: $max-content-width;
-  }
-
-  @include full-hd {
-    padding: 100px 0 20vh;
-  }
-
-  @include macbook-fifteen {
-    padding-bottom: 10vw;
-  }
-
   @include macbook-twelve {
     width: 100%;
-    padding-top: 100px;
   }
 
   @include tablet {
     height: auto;
-    padding: 100px 0;
-  }
-
-  @include phone {
-    padding: calc(#{$mobile-section-indent} - 20px) 0 $mobile-section-indent - 20px;
   }
 
   & > div:first-child {
@@ -42,44 +23,26 @@
     z-index: 2;
     width: 100%;
 
-    @include flex(row, space-between, flex-start);
-
-    @include tablet {
-      @include flex(column, center, flex-start);
-    }
+    @include flex(column, center, flex-start);
 
     & > div:first-child {
-      max-width: 550px;
       width: 100%;
       text-align: left;
 
       @include flex(column, space-around, flex-start);
 
-      @include macbook-twelve {
-        max-width: 480px;
-      }
-
-      @include tablet {
-        max-width: 100%;
-      }
-
       & > div:nth-of-type(1) > h2 {
-        @include big-title();
+        @include h1-title;
 
-        margin-top: 50px;
+        line-height: 1.2;
+        text-align: left;
       }
 
       & > div:nth-of-type(2) > p {
-        margin: -20px 0 35px;
+        margin: 0 0 35px;
         font-size: 1.25rem;
         line-height: 1.53;
         letter-spacing: 0.5px;
-
-        @include phone {
-          margin: 0;
-          padding: 0;
-          font-size: 3.9vw;
-        }
 
         a {
           margin-top: -20px;
@@ -106,6 +69,7 @@
         font-size: 0.9rem;
         line-height: 1.55;
         letter-spacing: 0.5px;
+        color: rgba($dark-grey, 0.3);
 
         span {
           cursor: pointer;
@@ -121,7 +85,7 @@
             border: none;
             outline: none;
             background-color: transparent;
-            color: $black;
+            color: rgba($dark-grey, 0.3);
             position: relative;
             display: inline-block;
             padding: 0;
@@ -133,8 +97,8 @@
               bottom: -2px;
               right: 0;
               width: 100%;
-              border-bottom: 1px $black solid;
-              background-color: $black;
+              border-bottom: 1px rgba($dark-grey, 0.3) solid;
+              background-color: rgba($dark-grey, 0.3);
               transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
             }
           }
@@ -156,24 +120,16 @@
     }
 
     & > div {
-      width: 50%;
       margin-bottom: 0;
+    }
+  }
 
-      @include ultra-hd {
-        width: 545px;
-      }
+  & > div:last-child > div > form > div > a {
+    @include flex(row, initial, center);
 
-      @include desktop {
-        margin-left: 0;
-      }
-
-      @include macbook-twelve {
-        width: 100%;
-      }
-
-      @include tablet {
-        width: 100%;
-      }
+    & > div {
+      min-width: auto;
+      width: 260px;
     }
   }
 }
