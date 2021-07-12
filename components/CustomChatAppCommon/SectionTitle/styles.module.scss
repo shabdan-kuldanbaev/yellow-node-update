@@ -3,18 +3,20 @@
 .sectionTitle {
   margin: 0 0 30px;
 
-  @include fontSize(46px);
+  .title {
+    @include fontSize(56px);
 
-  @include macbook-twelve {
-    @include fontSize(40px);
-  }
+    @include macbook-twelve {
+      @include fontSize(50px);
+    }
 
-  @include tablet {
-    @include fontSize(35px);
-  }
+    @include tablet {
+      @include fontSize(45px);
+    }
 
-  @include phone {
-    @include fontSize(30px);
+    @include phone {
+      @include fontSize(40px);
+    }
   }
 }
 
@@ -30,7 +32,7 @@
     color: $silver-chalice;
     line-height: 2;
     text-align: center;
-    width: 55vw;
+    width: 70%;
 
     @include fontSize(18px);
 

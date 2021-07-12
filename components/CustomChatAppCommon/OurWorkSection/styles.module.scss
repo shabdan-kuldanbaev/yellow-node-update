@@ -9,6 +9,7 @@
 
   .item {
     img {
+      display: block;
       width: 100%;
       border-radius: 5px;
     }
@@ -57,5 +58,9 @@
     @extend .swiperPaginationBullet;
 
     background: $silver-chalice;
+  }
+
+  :global(.swiper-slide-active) {
+    box-shadow: 0 10px 60px -10px rgba(0, 0, 0, 0.15);
   }
 }
