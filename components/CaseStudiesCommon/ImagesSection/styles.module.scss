@@ -2,7 +2,8 @@
 
 .fernwayer,
 .stickerbox,
-.fairy {
+.fairy,
+.tell {
   @include caseStudyContainer;
 
   background-color: $white;

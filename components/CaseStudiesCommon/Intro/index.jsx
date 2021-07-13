@@ -57,6 +57,14 @@ const Intro = ({
     { fm: 'png' },
   );
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
+  // TODO rewrite this check
+  const downloadLinkType = (['tell'].includes(type) && SVG_IMAGES_TYPES.blackFillAppstore)
+  || ([
+    'fernwayer',
+    'stickerbox',
+    'seven-pm-thursday',
+    'fairy',
+  ].includes(type) && SVG_IMAGES_TYPES.appstore);
 
   return (
     <section
@@ -86,7 +94,7 @@ const Intro = ({
             <LinkWrapper path={downloadLink.url}>
               <Svg
                 className={styles.appStore}
-                type={SVG_IMAGES_TYPES.appstore}
+                type={downloadLinkType}
               />
             </LinkWrapper>
           )}

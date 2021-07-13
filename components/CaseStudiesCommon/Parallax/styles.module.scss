@@ -17,3 +17,16 @@
 
   background-color: $violet;
 }
+
+.parallax {
+  &-tell {
+    [data-case-study-description] {
+      max-width: 730px;
+      white-space: unset;
+    }
+  }
+}
+
+.tell {
+  @extend .paralax;
+}

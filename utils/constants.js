@@ -117,7 +117,6 @@ export const CONTACTS_DATA = {
 };
 
 export const SVG_IMAGES_TYPES = {
-  appstore: 'appstore',
   arrow: 'arrowSvg',
   behance: 'behanceSvg',
   checkMark: 'checkMarkSvg',
@@ -165,6 +164,8 @@ export const SVG_IMAGES_TYPES = {
   greatDesign: 'greatDesign',
   yellowLogo: 'yellowLogo',
   yellowLogoText: 'yellowLogoText',
+  appstore: 'appstore',
+  blackFillAppstore: 'blackFillAppstore',
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
@@ -195,4 +196,5 @@ export const CASE_STUDIES_SLUGS = [
   'stickerbox',
   'seven-pm-thursday',
   'fairy',
+  'tell',
 ];

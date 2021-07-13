@@ -25,6 +25,7 @@ const Header = ({
   const isCaseStudyPage = CASE_STUDIES_SLUGS.includes(project);
   const isHomePage = asPath === ROUTES.homepage.path;
   const isPageWithTransparentHeader = isHomePage || isCaseStudyPage;
+  const headerTheme = ['tell'].includes(project) ? 'light' : 'dark';
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   // TODO rework this check
@@ -80,7 +81,7 @@ const Header = ({
         <Logo type={logo} />
       </div>
       <Nav
-        theme={theme}
+        theme={headerTheme}
         isAdditional={isAdditional}
         isTransparentHeader={isPageWithTransparentHeader}
         currentPage={currentPage}

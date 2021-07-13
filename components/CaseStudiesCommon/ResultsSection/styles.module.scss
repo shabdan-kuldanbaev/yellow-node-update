@@ -111,3 +111,11 @@
     background: linear-gradient(0deg, $dark-violet-1 0%, $dark-violet-2 100%);
   }
 }
+
+.tell {
+  @include caseStudyContainer;
+
+  .circle {
+    background: $alabaster;
+  }
+}

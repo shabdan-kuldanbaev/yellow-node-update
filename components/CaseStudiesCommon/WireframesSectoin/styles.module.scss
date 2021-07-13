@@ -51,3 +51,16 @@
     color: rgba($white, 0.4);
   }
 }
+
+.tell {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include tablet {
+    padding: 100px 0;
+  }
+}

@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .container {
@@ -296,5 +297,39 @@
   /* stylelint-disable-next-line */
   .iconLink {
     color: $white;
+  }
+}
+
+.tell {
+  @extend .container;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $white;
+
+  .nextProjectContainer {
+    .subtitle,
+    .projectName,
+    .more {
+      color: $dark-grey;
+    }
+
+    .more {
+      border: 1px solid $dark-grey;
+    }
+  }
+
+  .question,
+  .link {
+    color: $dark-grey;
+  }
+
+  .link {
+    opacity: 0.5;
+  }
+
+  .iconLink {
+    color: $black;
   }
 }
