@@ -24,9 +24,18 @@
       color: $turbo-100;
     }
   }
+}
 
+.home,
+.stickerbox {
   .text {
     color: $white;
+  }
+}
+
+.tell {
+  .text {
+    color: $black;
   }
 }
 

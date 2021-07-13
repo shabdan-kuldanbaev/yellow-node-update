@@ -12,21 +12,28 @@
   }
 }
 
-.fairy {
-  @extend .paralax;
-
-  background-color: $violet;
-}
-
 .parallax {
   &-tell {
+    background-color: $white;
+
     [data-case-study-description] {
       max-width: 730px;
       white-space: unset;
+
+      @include phone {
+        max-width: 345px;
+        padding: 0 14px;
+      }
     }
   }
 }
 
 .tell {
   @extend .paralax;
+}
+
+.fairy {
+  @extend .paralax;
+
+  background-color: $violet;
 }
