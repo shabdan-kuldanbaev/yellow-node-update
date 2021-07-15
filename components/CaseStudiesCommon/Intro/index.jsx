@@ -9,7 +9,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { getAppstoreType } from './utils/introHelper';
+import { getAppstoreSvgType } from './utils/introHelper';
 import styles from './styles.module.scss';
 
 const Intro = ({
@@ -51,7 +51,6 @@ const Intro = ({
     { fm: 'png' },
   );
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
-  const appstoreSvgType = getAppstoreType(type);
 
   return (
     <section
@@ -81,7 +80,7 @@ const Intro = ({
             <LinkWrapper path={downloadLink.url}>
               <Svg
                 className={styles.appStore}
-                type={appstoreSvgType}
+                type={getAppstoreSvgType(type)}
               />
             </LinkWrapper>
           )}

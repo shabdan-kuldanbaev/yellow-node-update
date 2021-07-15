@@ -55,7 +55,7 @@
 .tell {
   @include caseStudyContainer;
   @include wireframes;
-  @include withBackgroundImage;
+  @include centeredBackgroundImage;
 
   @include tablet {
     padding: 100px 0;

@@ -305,7 +305,7 @@
 
   background-color: $white;
 
-  @include withBackgroundImage;
+  @include centeredBackgroundImage;
 
   .nextProjectContainer {
     .subtitle,

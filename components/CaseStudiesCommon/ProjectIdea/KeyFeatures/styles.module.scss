@@ -186,6 +186,6 @@
   }
 
   .containerBackground {
-    @include withBackgroundImage;
+    @include centeredBackgroundImage;
   }
 }
