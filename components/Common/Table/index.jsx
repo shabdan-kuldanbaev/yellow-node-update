@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
+import head from 'lodash/head';
+import tail from 'lodash/tail';
 import styles from './styles.module.scss';
 
 export const Table = ({ tableData }) => {
-  if (!tableData) {
+  const tableHeader = head(tableData);
+  const tableCells = tail(tableData);
+
+  if (!tableHeader || !tableCells) {
     return null;
   }
-
-  const tableHeader = get(tableData, '[0]', []);
-  const tableCells = tableData.filter((data, index) => index !== 0);
 
   return (
     <table className={styles.table}>
