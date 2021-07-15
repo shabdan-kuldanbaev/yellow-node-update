@@ -9,16 +9,16 @@ import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ChallengesAndSolutionsWithWireframes = ({ data, type }) => {
-  const backgroundImageUrl = getOptimizedContentfulImage(
+  const sectionBackgroundImage = getOptimizedContentfulImage(
     getFileUrl(get(data, 'background', {})),
     { fm: 'png' },
   );
-  const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
+  const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
 
   return (
     <section
       className={cn([styles[type]], { [styles.challengesWithoutImage]: data.images })}
-      style={style}
+      style={sectionStyle}
     >
       <SectionTitle
         data={data}

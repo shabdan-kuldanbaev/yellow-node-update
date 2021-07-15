@@ -18,18 +18,18 @@ const KeyFeatures = ({ features, type }) => {
     return null;
   }
 
-  const backgroundImageUrl = getOptimizedContentfulImage(
+  const containerBackgroundImage = getOptimizedContentfulImage(
     getFileUrl(get(features, 'images[0]', {})),
     { fm: 'png' },
   );
-  const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
+  const containerStyle = containerBackgroundImage ? { backgroundImage: `url(${containerBackgroundImage})` } : {};
 
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
       <div className={styles[type]}>
         <div
           className={styles.containerBackground}
-          style={style}
+          style={containerStyle}
         />
         {features.contentModules.map((data, index) => {
           const { title, text } = getDocumentFields(data);

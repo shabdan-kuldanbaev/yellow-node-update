@@ -222,10 +222,16 @@ export const ARTICLE_PREVIEW_TYPES = {
   search: 'search',
 };
 
-export const CASE_STUDIES_SLUGS = [
-  'fernwayer',
-  'stickerbox',
-  'seven-pm-thursday',
-  'fairy',
-  'tell',
-];
+export const CASE_STUDIES = {
+  fernwayer: 'fernwayer',
+  stickerbox: 'stickerbox',
+  sevenPmThursday: 'seven-pm-thursday',
+  fairy: 'fairy',
+  tell: 'tell',
+};
+
+export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
+  acc[index] = value;
+
+  return acc;
+}, []);

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
@@ -12,14 +12,11 @@ const Parallax = ({ data, type }) => {
 
   const imageUrl = getOptimizedContentfulImage(
     getFileUrl(data.images[0]),
-    {
-      fm: 'png',
-      fl: 'png8',
-    },
+    { fm: 'png', fl: 'png8' },
   );
 
   return (
-    <section className={styles[`parallax-${type}`]}>
+    <section className={styles[`parallaxContainer${type}`]}>
       <SectionTitle
         data={data}
         type={type}

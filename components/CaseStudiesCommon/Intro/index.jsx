@@ -4,12 +4,12 @@ import get from 'lodash/get';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
+import { getAppstoreType } from './utils/introHelper';
 import styles from './styles.module.scss';
 
 const Intro = ({
@@ -40,31 +40,18 @@ const Intro = ({
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));
   const appLogoUrl = getOptimizedContentfulImage(
     getFileUrl(get(images, '[0]', '')),
-    {
-      fm: 'png',
-      fl: 'png8',
-    },
+    { fm: 'png', fl: 'png8' },
   );
   const appBackgroundImageUrl = getOptimizedContentfulImage(
     getFileUrl(get(images, '[1]', '')),
-    {
-      fm: 'png',
-      fl: 'png8',
-    },
+    { fm: 'png', fl: 'png8' },
   );
   const backgroundImageUrl = getOptimizedContentfulImage(
     getFileUrl(get(data, 'images[0]', '')),
     { fm: 'png' },
   );
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
-  // TODO rewrite this check
-  const downloadLinkType = (['tell'].includes(type) && SVG_IMAGES_TYPES.blackFillAppstore)
-  || ([
-    'fernwayer',
-    'stickerbox',
-    'seven-pm-thursday',
-    'fairy',
-  ].includes(type) && SVG_IMAGES_TYPES.appstore);
+  const appstoreSvgType = getAppstoreType(type);
 
   return (
     <section
@@ -94,7 +81,7 @@ const Intro = ({
             <LinkWrapper path={downloadLink.url}>
               <Svg
                 className={styles.appStore}
-                type={downloadLinkType}
+                type={appstoreSvgType}
               />
             </LinkWrapper>
           )}

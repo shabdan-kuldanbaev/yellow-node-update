@@ -1,19 +1,18 @@
 @import 'styles/utils/mixins';
 
-.paralax {
+.parallax {
   height: 100vh;
   background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+  @include withBackgroundImage;
 
   @include phone {
     background-attachment: scroll;
   }
 }
 
-.parallax {
-  &-tell {
+.parallaxContainer {
+  &tell {
     background-color: $white;
 
     [data-case-study-description] {
@@ -29,11 +28,11 @@
 }
 
 .tell {
-  @extend .paralax;
+  @extend .parallax;
 }
 
 .fairy {
-  @extend .paralax;
+  @extend .parallax;
 
   background-color: $violet;
 }

@@ -7,16 +7,16 @@ import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const WireframesSection = ({ data, type }) => {
-  const backgroundImageUrl = getOptimizedContentfulImage(
+  const sectionBackgroundImage = getOptimizedContentfulImage(
     getFileUrl(get(data, 'background', {})),
     { fm: 'png' },
   );
-  const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
+  const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
 
   return (
     <section
       className={styles[type]}
-      style={style}
+      style={sectionStyle}
     >
       <SectionTitle
         data={data}

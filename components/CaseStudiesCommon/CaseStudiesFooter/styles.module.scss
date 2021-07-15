@@ -303,10 +303,9 @@
 .tell {
   @extend .container;
 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   background-color: $white;
+
+  @include withBackgroundImage;
 
   .nextProjectContainer {
     .subtitle,
