@@ -12,6 +12,7 @@ import {
   Animated,
   LinkWrapper,
 } from 'components';
+import { Table } from 'components/Common/Table';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
@@ -95,6 +96,16 @@ export const ContentfulParser = ({ document }) => {
               type={type}
             />
           );
+        }
+        case 'table': {
+          const { tableContent } = getDocumentFields(
+            get(node, 'data.target', {}),
+            ['tableContent'],
+          );
+
+          return tableContent
+            ? <Table tableData={tableContent.tableData} />
+            : null;
         }
         default:
           return null;
