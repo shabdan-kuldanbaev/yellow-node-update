@@ -107,9 +107,7 @@ export const ContentfulParser = ({ document }) => {
             return null;
           }
 
-          const { tableData } = tableContent;
-
-          return <Table tableData={tableData} />;
+          return <Table tableData={tableContent.tableData} />;
         }
         default:
           return null;

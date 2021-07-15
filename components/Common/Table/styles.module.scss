@@ -1,44 +1,39 @@
 @import 'styles/utils/mixins';
 
-.tableContainer {
+.table {
   margin: 60px 0 80px;
+  border-collapse: separate;
+  border: solid $dark-grey 1px;
+  border-radius: 8px;
+  border-spacing: 0;
+  overflow: hidden;
+  width: 100%;
+}
 
-  @include flex(row, center, center);
+td,
+th {
+  border-left: solid $dark-grey 1px;
+  border-top: solid $dark-grey 1px;
+  padding: 20px;
+  color: $dark-grey;
+  line-height: 1.5;
 
-  .table {
-    border-collapse: separate;
-    border: solid $dark-grey 1px;
-    border-radius: 8px;
-    border-spacing: 0;
-    overflow: hidden;
-    width: 100%;
+  @include fontSize(14px);
+
+  @include phone {
+    padding: 10px;
+
+    @include fontSize(13px);
   }
+}
 
-  td,
-  th {
-    border-left: solid $dark-grey 1px;
-    border-top: solid $dark-grey 1px;
-    padding: 20px;
-    color: $dark-grey;
-    line-height: 1.5;
+th {
+  background-color: $turbo-100;
+  border-top: none;
+  font-weight: 700;
+}
 
-    @include fontSize(14px);
-
-    @include phone {
-      padding: 10px;
-
-      @include fontSize(13px);
-    }
-  }
-
-  th {
-    background-color: $turbo-100;
-    border-top: none;
-    font-weight: 700;
-  }
-
-  td:first-child,
-  th:first-child {
-    border-left: none;
-  }
+td:first-child,
+th:first-child {
+  border-left: none;
 }

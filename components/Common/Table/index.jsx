@@ -12,8 +12,8 @@ export const Table = ({ tableData }) => {
   const tableCells = tableData.filter((data, index) => index !== 0);
 
   return (
-    <div className={styles.tableContainer}>
-      <table className={styles.table}>
+    <table className={styles.table}>
+      <thead>
         <tr className={styles.tableRow}>
           {tableHeader && tableHeader.map((cell) => (
             <th className={styles.tableHeader}>
@@ -21,6 +21,8 @@ export const Table = ({ tableData }) => {
             </th>
           ))}
         </tr>
+      </thead>
+      <tbody>
         {tableCells && tableCells.map((row) => (
           <tr className={styles.tableRow}>
             {row.map((cell) => (
@@ -30,8 +32,8 @@ export const Table = ({ tableData }) => {
             ))}
           </tr>
         ))}
-      </table>
-    </div>
+      </tbody>
+    </table>
   );
 };
 
