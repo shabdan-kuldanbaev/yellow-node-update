@@ -148,3 +148,7 @@
     background: linear-gradient(270deg, $violet 0%, rgba($violet, 0) 100%);
   }
 }
+
+.tell {
+  @extend .imagesContainer;
+}

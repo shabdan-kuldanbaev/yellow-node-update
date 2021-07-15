@@ -48,7 +48,8 @@
 .fernwayer,
 .stickerbox,
 .seven-pm-thursday,
-.fairy {
+.fairy,
+.tell {
   @extend .imagContainer;
 }
 
@@ -137,4 +138,8 @@
       }
     }
   }
+}
+
+.tell1 {
+  background-color: $white;
 }

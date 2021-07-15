@@ -5,9 +5,9 @@ import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { SectionTitle, Animated } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
-  getOptimizedImage,
   getDocumentFields,
   getFileUrl,
+  getOptimizedContentfulImage,
 } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -20,9 +20,9 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => manage
           manager,
           ['image', 'title', 'subtitle'],
         );
-        const photoUrl = getOptimizedImage(
+        const photoUrl = getOptimizedContentfulImage(
           getFileUrl(image),
-          isMobileResolution ? 530 : 290,
+          { width: isMobileResolution ? 530 : 290 },
         );
 
         return (

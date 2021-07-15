@@ -1,19 +1,38 @@
 @import 'styles/utils/mixins';
 
-.paralax {
+.parallax {
   height: 100vh;
   background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+  @include centeredBackgroundImage;
 
   @include phone {
     background-attachment: scroll;
   }
 }
 
+.parallaxContainer {
+  &tell {
+    background-color: $white;
+
+    [data-case-study-description] {
+      max-width: 730px;
+      white-space: unset;
+
+      @include phone {
+        max-width: 345px;
+        padding: 0 14px;
+      }
+    }
+  }
+}
+
+.tell {
+  @extend .parallax;
+}
+
 .fairy {
-  @extend .paralax;
+  @extend .parallax;
 
   background-color: $violet;
 }

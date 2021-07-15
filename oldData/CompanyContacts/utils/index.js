@@ -9,32 +9,32 @@ const animatedProps = {
 
 export const animatedFields = [
   {
-    field: 'phones',
+    field: 'contact',
     ...animatedProps,
     transitionDelay: 100,
   },
   {
-    field: 'phoneNumber',
+    field: 'locationAdress',
     ...animatedProps,
     transitionDelay: 150,
   },
   {
-    field: 'emailTitle',
+    field: 'phones',
     ...animatedProps,
     transitionDelay: 200,
   },
   {
-    field: 'email',
+    field: 'phoneNumber',
     ...animatedProps,
     transitionDelay: 250,
   },
   {
-    field: 'followTitle',
+    field: 'emailTitle',
     ...animatedProps,
     transitionDelay: 300,
   },
   {
-    field: 'follow',
+    field: 'email',
     ...animatedProps,
     transitionDelay: 350,
   },

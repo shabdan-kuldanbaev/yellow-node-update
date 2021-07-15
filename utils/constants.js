@@ -40,7 +40,6 @@ export const BLOCKS_SLUGS = {
   companyPageWhatMakesSpecial: 'company-page-what-makes-us-special',
   compnayPageManagementTeam: 'company-page-management-team',
   contactPageCompanyPhoto: 'contact-page-company-photo',
-  contactPageContacts: 'contact-page-contacts',
   processPageProcessPreview: 'process-page-process-preview',
   chatAppPageIntro: 'chat-app-page-intro',
   chatAppPageExperiance: 'chat-app-page-experience',
@@ -104,20 +103,7 @@ export const IMAGES = {
   },
 };
 
-export const CONTACTS_DATA = {
-  email: 'hi@yellow.systems',
-  telephoneNumbers: [
-    '+1 415 670 9070',
-    '+375 29 311 52 49',
-  ],
-  city: 'Minsk',
-  country: 'Belarus',
-  postalCode: '220030',
-  streetAddress: '5-303 Nemiga street',
-};
-
 export const SVG_IMAGES_TYPES = {
-  appstore: 'appstore',
   arrow: 'arrowSvg',
   behance: 'behanceSvg',
   checkMark: 'checkMarkSvg',
@@ -165,6 +151,52 @@ export const SVG_IMAGES_TYPES = {
   greatDesign: 'greatDesign',
   yellowLogo: 'yellowLogo',
   yellowLogoText: 'yellowLogoText',
+  appstore: 'appstore',
+  blackFillAppstore: 'blackFillAppstore',
+  linkedinRoundWhite: 'linkedinRoundWhite',
+  twitterRoundWhite: 'twitterRoundWhite',
+  behanceRoundWhite: 'behanceRoundWhite',
+  mediumRoundWhite: 'mediumRoundWhite',
+  instaRoundWhite: 'instaRoundWhite',
+};
+
+export const CONTACTS_DATA = {
+  email: 'hi@yellow.systems',
+  telephoneNumbers: [
+    '+1 (415) 670-90-70',
+    '+375 (29) 311-52-49',
+  ],
+  city: 'Minsk',
+  country: 'Belarus',
+  postalCode: '220030',
+  streetAddress: '5-303 Nemiga street',
+  socialMedia: [
+    {
+      title: 'LinkedIn',
+      type: SVG_IMAGES_TYPES.linkedinRoundWhite,
+      link: '//www.linkedin.com/company/yellow-systems',
+    },
+    {
+      title: 'Twitter',
+      type: SVG_IMAGES_TYPES.twitterRoundWhite,
+      link: '//mobile.twitter.com/yellow_systems',
+    },
+    {
+      title: 'Behance',
+      type: SVG_IMAGES_TYPES.behanceRoundWhite,
+      link: '',
+    },
+    {
+      title: 'Medium',
+      type: SVG_IMAGES_TYPES.mediumRoundWhite,
+      link: '//medium.com/@yellow',
+    },
+    {
+      title: 'Instagram',
+      type: SVG_IMAGES_TYPES.instaRoundWhite,
+      link: '//www.instagram.com/yellow.systems',
+    },
+  ],
 };
 
 export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
@@ -190,9 +222,16 @@ export const ARTICLE_PREVIEW_TYPES = {
   search: 'search',
 };
 
-export const CASE_STUDIES_SLUGS = [
-  'fernwayer',
-  'stickerbox',
-  'seven-pm-thursday',
-  'fairy',
-];
+export const CASE_STUDIES = {
+  fernwayer: 'fernwayer',
+  stickerbox: 'stickerbox',
+  sevenPmThursday: 'seven-pm-thursday',
+  fairy: 'fairy',
+  tell: 'tell',
+};
+
+export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
+  acc[index] = value;
+
+  return acc;
+}, []);

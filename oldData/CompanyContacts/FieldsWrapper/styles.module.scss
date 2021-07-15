@@ -1,0 +1,150 @@
+/* stylelint-disable no-descending-specificity */
+
+@import 'styles/utils/mixins';
+
+.addressTitle {
+  display: block;
+  color: $black;
+  font-size: calc(#{$max-content-width} * 0.0078 * 1.2);
+  margin-bottom: calc(#{$max-content-width} * 0.0192 * 1.2);
+
+  @include macbook-fifteen {
+    font-size: calc((100vw - 160px) * 0.0078);
+    margin-bottom: calc((100vw - 160px) * 0.0192);
+  }
+
+  @include below-tablet {
+    font-size: 1.25rem;
+    margin-bottom: 60px;
+  }
+
+  @include phone {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+}
+
+.locationAddress {
+  color: $gray;
+  font-size: calc(#{$max-content-width} * 0.0195 * 1.2);
+
+  @include flex(column, center, flex-start);
+
+  @include macbook-fifteen {
+    font-size: calc((100vw - 160px) * 0.0195);
+  }
+
+  @include below-tablet {
+    text-align: center;
+    font-size: 1.875rem;
+    line-height: 2;
+    align-items: center;
+  }
+
+  @include phone {
+    font-size: 1.25rem;
+  }
+
+  span:last-child {
+    margin-top: 0.6vw;
+  }
+}
+
+.phoneNumber {
+  @include flex(column, center, flex-start);
+
+  @include below-tablet {
+    align-items: center;
+    text-align: center;
+    width: 280px;
+  }
+
+  @include phone {
+    width: 182px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $black;
+    position: relative;
+    width: 99%;
+    left: 0.5%;
+    transition: color $accelerated-transition-time;
+    font-size: calc(#{$max-content-width} * 0.0195 * 1.2);
+
+    @include macbook-fifteen {
+      font-size: calc((100vw - 160px) * 0.0195);
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $turbo-100;
+
+      &::before {
+        border-bottom: 1px $turbo-100 solid;
+      }
+    }
+
+    @include below-tablet {
+      line-height: 1.5;
+      font-size: 1.875rem;
+    }
+
+    @include phone {
+      font-size: 1.25rem;
+    }
+
+    &:last-child {
+      margin-top: 0.6vw;
+    }
+  }
+}
+
+.email {
+  padding-bottom: 4px;
+  width: max-content;
+  font-size: calc(#{$max-content-width} * 0.0195 * 1.2);
+
+  @include macbook-fifteen {
+    font-size: calc((100vw - 160px) * 0.0195);
+  }
+
+  @include below-tablet {
+    font-size: 1.875rem;
+  }
+
+  @include phone {
+    font-size: 1.25rem;
+  }
+
+  a {
+    position: relative;
+    text-decoration: none;
+    transition: color $accelerated-transition-time;
+    color: $black;
+
+    &::before {
+      width: 98%;
+      content: '';
+      cursor: pointer;
+      position: absolute;
+      bottom: -5px;
+      right: 1%;
+      border-bottom: 1.5px $black solid;
+      transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    a {
+      &::before {
+        width: 0;
+        will-change: transition;
+        transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        transform: translateZ(0);
+      }
+    }
+  }
+}

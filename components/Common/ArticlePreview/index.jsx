@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Animated } from 'components/Common/Animated';
-import { formatDate } from 'utils/helper';
 import { ROUTES, CATEGORY_TAGS } from 'utils/constants';
+import { formatDate } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const ArticlePreview = ({

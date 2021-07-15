@@ -56,3 +56,13 @@
     padding-top: 40px;
   }
 }
+
+.tell {
+  @include caseStudyContainer;
+
+  p {
+    line-height: 1.7;
+
+    @include fontSize(18px);
+  }
+}

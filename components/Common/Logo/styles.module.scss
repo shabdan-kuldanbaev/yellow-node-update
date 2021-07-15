@@ -15,7 +15,8 @@
 }
 
 .home,
-.stickerbox {
+.stickerbox,
+.tell {
   .logo {
     color: $logo-stroke;
 
@@ -23,9 +24,18 @@
       color: $turbo-100;
     }
   }
+}
 
+.home,
+.stickerbox {
   .text {
     color: $white;
+  }
+}
+
+.tell {
+  .text {
+    color: $black;
   }
 }
 
