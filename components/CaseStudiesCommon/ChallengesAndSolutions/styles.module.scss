@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .contentContainer {
@@ -259,6 +260,23 @@
       p {
         color: rgba($white, 0.4);
       }
+    }
+  }
+}
+
+.tell {
+  .contentContainer {
+    .infoContainer {
+      .h3,
+      p {
+        line-height: 1.7;
+
+        @include fontSize(18px);
+      }
+    }
+
+    .image {
+      filter: unset;
     }
   }
 }

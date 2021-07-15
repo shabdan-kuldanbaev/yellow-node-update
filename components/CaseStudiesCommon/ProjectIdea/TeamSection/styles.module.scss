@@ -102,3 +102,7 @@
     font-weight: 500;
   }
 }
+
+.tell {
+  @extend .container;
+}

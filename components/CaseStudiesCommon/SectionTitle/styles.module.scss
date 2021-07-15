@@ -54,3 +54,13 @@
 .alignLeft {
   text-align: start;
 }
+
+.tell {
+  [data-case-study-title] {
+    color: $dark-grey;
+  }
+
+  [data-case-study-description] {
+    color: $silver-chalice;
+  }
+}

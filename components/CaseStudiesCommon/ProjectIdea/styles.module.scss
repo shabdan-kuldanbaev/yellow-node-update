@@ -164,3 +164,17 @@
 
   background-color: $white;
 }
+
+.tell {
+  @extend .container;
+
+  .contentContainer {
+    @include tablet {
+      @include flex(row, space-around, center);
+    }
+
+    @include phone {
+      @include flex(column, center, center);
+    }
+  }
+}

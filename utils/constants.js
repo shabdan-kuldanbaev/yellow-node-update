@@ -104,7 +104,6 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
-  appstore: 'appstore',
   arrow: 'arrowSvg',
   behance: 'behanceSvg',
   checkMark: 'checkMarkSvg',
@@ -152,6 +151,8 @@ export const SVG_IMAGES_TYPES = {
   greatDesign: 'greatDesign',
   yellowLogo: 'yellowLogo',
   yellowLogoText: 'yellowLogoText',
+  appstore: 'appstore',
+  blackFillAppstore: 'blackFillAppstore',
   linkedinRoundWhite: 'linkedinRoundWhite',
   twitterRoundWhite: 'twitterRoundWhite',
   behanceRoundWhite: 'behanceRoundWhite',
@@ -221,9 +222,16 @@ export const ARTICLE_PREVIEW_TYPES = {
   search: 'search',
 };
 
-export const CASE_STUDIES_SLUGS = [
-  'fernwayer',
-  'stickerbox',
-  'seven-pm-thursday',
-  'fairy',
-];
+export const CASE_STUDIES = {
+  fernwayer: 'fernwayer',
+  stickerbox: 'stickerbox',
+  sevenPmThursday: 'seven-pm-thursday',
+  fairy: 'fairy',
+  tell: 'tell',
+};
+
+export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
+  acc[index] = value;
+
+  return acc;
+}, []);

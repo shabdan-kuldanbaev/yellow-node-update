@@ -4,12 +4,12 @@ import get from 'lodash/get';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
+import { getAppstoreSvgType } from './utils/introHelper';
 import styles from './styles.module.scss';
 
 const Intro = ({
@@ -40,17 +40,11 @@ const Intro = ({
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));
   const appLogoUrl = getOptimizedContentfulImage(
     getFileUrl(get(images, '[0]', '')),
-    {
-      fm: 'png',
-      fl: 'png8',
-    },
+    { fm: 'png', fl: 'png8' },
   );
   const appBackgroundImageUrl = getOptimizedContentfulImage(
     getFileUrl(get(images, '[1]', '')),
-    {
-      fm: 'png',
-      fl: 'png8',
-    },
+    { fm: 'png', fl: 'png8' },
   );
   const backgroundImageUrl = getOptimizedContentfulImage(
     getFileUrl(get(data, 'images[0]', '')),
@@ -86,7 +80,7 @@ const Intro = ({
             <LinkWrapper path={downloadLink.url}>
               <Svg
                 className={styles.appStore}
-                type={SVG_IMAGES_TYPES.appstore}
+                type={getAppstoreSvgType(type)}
               />
             </LinkWrapper>
           )}

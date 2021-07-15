@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import get from 'lodash/get';
-import last from 'lodash/last';
 import { selectProject } from 'redux/selectors/portfolio';
 import { Svg } from 'components/Common/Svg';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { getDocumentFields } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
+import { getFooterProps } from './utils/propsHelper';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -16,23 +14,20 @@ const CaseStudiesFooter = ({
   pathname,
   currentProject,
 }) => {
-  const { contentModules } = getDocumentFields(
-    get(currentProject, 'items[0]', {}),
-    ['contentModules'],
-  );
-  const lastContentModule = last(contentModules);
   const {
     title,
     buttonTitle,
     slug,
-  } = getDocumentFields(lastContentModule, [
-    'title',
-    'buttonTitle',
-    'slug',
-  ]);
+    footerBackgroundImage,
+  } = getFooterProps(currentProject);
+
+  const footerStyle = footerBackgroundImage ? { backgroundImage: `url(${footerBackgroundImage})` } : {};
 
   return (
-    <footer className={styles[type]}>
+    <footer
+      className={styles[type]}
+      style={footerStyle}
+    >
       {slug && (
         <div className={styles.nextProjectContainer}>
           <p className={styles.subtitle}>

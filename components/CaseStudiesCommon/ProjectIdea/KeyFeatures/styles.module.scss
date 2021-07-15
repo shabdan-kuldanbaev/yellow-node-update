@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .container {
@@ -171,5 +172,20 @@
         font-weight: 700;
       }
     }
+  }
+}
+
+.tell {
+  @extend .container;
+
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: $dark-grey;
+    }
+  }
+
+  .containerBackground {
+    @include centeredBackgroundImage;
   }
 }

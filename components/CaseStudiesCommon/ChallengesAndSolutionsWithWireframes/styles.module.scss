@@ -25,3 +25,8 @@
     color: $silver-chalice;
   }
 }
+
+.tell {
+  @include caseStudyContainer;
+  @include centeredBackgroundImage;
+}

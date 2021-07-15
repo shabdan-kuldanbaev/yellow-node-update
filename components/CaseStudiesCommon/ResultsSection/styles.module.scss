@@ -111,3 +111,33 @@
     background: linear-gradient(0deg, $dark-violet-1 0%, $dark-violet-2 100%);
   }
 }
+
+.tell {
+  @include caseStudyContainer;
+
+  overflow: hidden;
+
+  .circle {
+    background: $alabaster;
+
+    .mockup {
+      width: 330px;
+      filter:
+        drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6))
+        drop-shadow(-14.7997px 14.7997px 29.5993px rgba(0, 0, 0, 0.5));
+
+      @include phone {
+        width: 209px;
+      }
+    }
+
+    .appImage {
+      width: 308px;
+      filter: inset;
+
+      @include phone {
+        width: 196px;
+      }
+    }
+  }
+}

@@ -65,7 +65,7 @@
 
       &:hover {
         will-change: border;
-        border: 1.5px solid $turbo-100;
+        border: 1px solid $turbo-100;
         transition:
           border $default-transition-time,
           padding $default-transition-time,
@@ -101,7 +101,7 @@
 
   .light {
     &:last-child {
-      border: 1.6px solid $black;
+      border-color: $black;
     }
 
     span {

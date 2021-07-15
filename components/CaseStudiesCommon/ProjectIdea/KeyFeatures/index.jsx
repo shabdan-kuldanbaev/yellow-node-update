@@ -4,7 +4,11 @@ import get from 'lodash/get';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
-import { getDocumentFields } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getOptimizedContentfulImage,
+} from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import styles from './styles.module.scss';
@@ -14,10 +18,19 @@ const KeyFeatures = ({ features, type }) => {
     return null;
   }
 
+  const containerBackgroundImage = getOptimizedContentfulImage(
+    getFileUrl(get(features, 'images[0]', {})),
+    { fm: 'png' },
+  );
+  const containerStyle = containerBackgroundImage ? { backgroundImage: `url(${containerBackgroundImage})` } : {};
+
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
       <div className={styles[type]}>
-        <div className={styles.containerBackground} />
+        <div
+          className={styles.containerBackground}
+          style={containerStyle}
+        />
         {features.contentModules.map((data, index) => {
           const { title, text } = getDocumentFields(data);
 
