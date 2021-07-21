@@ -4,17 +4,18 @@ import ChallengesAndSolutionsWithWireframes from 'components/CaseStudiesCommon/C
 import SpecialChallengesAndSolutions from 'components/CaseStudiesCommon/SpecialChallengesAndSolutions';
 import ProjectIdea from 'components/CaseStudiesCommon/ProjectIdea';
 import WireframesSection from 'components/CaseStudiesCommon/WireframesSectoin';
-import Intro from 'components/CaseStudiesCommon/Intro';
+import { PageIntro } from 'components/CaseStudiesCommon/PageIntro';
 import ResultsSection from 'components/CaseStudiesCommon/ResultsSection';
 import ImagesSection from 'components/CaseStudiesCommon/ImagesSection';
 import Parallax from 'components/CaseStudiesCommon/Parallax';
 import DesignSection from 'components/CaseStudiesCommon/DesignSection';
+import { FeaturesSection } from 'components/CaseStudiesCommon/FeaturesSection';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
 const CaseStudiesCommon = (props) => {
   switch (props.data.type) {
   case CASE_STUDIES_TYPES.intro:
-    return <Intro {...props} />;
+    return <PageIntro {...props} />;
   case CASE_STUDIES_TYPES.projectIdea:
     return <ProjectIdea {...props} />;
   case CASE_STUDIES_TYPES.challenges:
@@ -33,6 +34,8 @@ const CaseStudiesCommon = (props) => {
     return <Parallax {...props} />;
   case CASE_STUDIES_TYPES.design:
     return <DesignSection {...props} />;
+  case CASE_STUDIES_TYPES.features:
+    return <FeaturesSection {...props} />;
   default:
     return null;
   }

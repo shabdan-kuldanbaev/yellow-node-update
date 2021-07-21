@@ -1,38 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
+import { getDocumentFields } from 'utils/helper';
 import { Animated } from 'components/Common/Animated';
+import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
-import {
-  getDocumentFields,
-  getFileUrl,
-  getOptimizedContentfulImage,
-} from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
+import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
-const KeyFeatures = ({ features, type }) => {
-  if (!get(features, 'contentModules')) {
+export const FeaturesSection = ({ type, data }) => {
+  const { contentModules, title } = data;
+
+  if (!contentModules || !contentModules.length) {
     return null;
   }
 
-  const containerBackgroundImage = getOptimizedContentfulImage(
-    getFileUrl(get(features, 'images[0]', {})),
-    { fm: 'png' },
-  );
-  const containerStyle = containerBackgroundImage ? { backgroundImage: `url(${containerBackgroundImage})` } : {};
-
   return (
-    <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-      <div className={styles[type]}>
-        <div
-          className={styles.containerBackground}
-          style={containerStyle}
-        />
-        {features.contentModules.map((data, index) => {
-          const { title, text } = getDocumentFields(data);
+    <section className={styles[type]}>
+      <SectionTitle
+        data={data}
+        type={type}
+      />
+      <div className={styles.featuresList}>
+        {contentModules.map((feature, index) => {
+          const { title: featureTitle, text } = getDocumentFields(feature);
 
           return (
             <Animated
@@ -49,7 +41,7 @@ const KeyFeatures = ({ features, type }) => {
                 </div>
                 <div className={styles.contentContainer}>
                   <h3 className={styles.title}>
-                    {title}
+                    {featureTitle}
                   </h3>
                   {text && <ContentfulParser document={text} />}
                 </div>
@@ -58,17 +50,15 @@ const KeyFeatures = ({ features, type }) => {
           );
         })}
       </div>
-    </Animated>
+    </section>
   );
 };
 
-KeyFeatures.defaultProps = {
+FeaturesSection.defaultProps = {
   type: '',
 };
 
-KeyFeatures.propTypes = {
+FeaturesSection.propTypes = {
   type: PropTypes.string,
-  features: PropTypes.instanceOf(Object).isRequired,
+  data: PropTypes.instanceOf(Object).isRequired,
 };
-
-export default KeyFeatures;

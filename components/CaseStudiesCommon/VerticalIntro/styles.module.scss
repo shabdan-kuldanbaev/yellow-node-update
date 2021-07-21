@@ -1,0 +1,229 @@
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable no-eol-whitespace */
+@import 'styles/utils/mixins';
+
+.container {
+  box-sizing: border-box;
+  padding: 330px 40px 150px;
+  overflow: hidden;
+
+  @include tablet {
+    height: auto;
+    padding-top: 145px;
+    padding-bottom: 70px;
+  }
+
+  @include phone {
+    padding: 135px 15px 105px;
+  }
+
+  .projectInfoContainer {
+    z-index: 100;
+
+    @include tablet {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 83px;
+      height: 83px;
+      margin-bottom: 20px;
+
+      @include tablet {
+        margin-bottom: 15px;
+      }
+
+      @include phone {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .title {
+      .projectTitle {
+        margin: 0 0 30px;
+        font-family: $case-studies-font;
+        font-weight: bold;
+        line-height: 120%;
+  
+        @include fontSize(100px);
+  
+        @include tablet {
+          @include fontSize(60px);
+        }
+      }
+    }
+
+    .projectSubtitle {
+      margin: 0 0 20px;
+      font-family: $case-studies-font;
+      font-weight: 500;
+      line-height: 150%;
+    }
+
+    .projectDescription {
+      max-width: 400px;
+      margin: 0 0 40px;
+      line-height: 180%;
+      font-family: $case-studies-font;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        margin: 0 auto 40px;
+
+        @include fontSize(16px);
+      }
+    }
+  }
+
+  .experiencesContainer {
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: $case-studies-font;
+
+    @include fontSize(18px);
+    @include flex(row, space-between);
+
+    @include tablet {
+      @include fontSize(16px);
+    }
+
+    @include phone {
+      overflow-x: auto;
+      white-space: pre;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .experience {
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin: 0;
+      }
+
+      .infoTitle {
+        margin: 0 0 10px;
+        font-weight: bold;
+        line-height: 180%;
+      }
+
+      p {
+        margin: 0;
+        line-height: 180%;
+      }
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    z-index: 1;
+
+    .image {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.introSection {
+  max-width: 1400px;
+  margin: 0 auto 240px;
+
+  @include tablet {
+    margin: 0 auto 60px;
+
+    @include flex(column, initial, center);
+  }
+}
+
+.backgroundImage {
+  width: calc(100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.open-sense {
+  @extend .container;
+
+  @include centeredBackgroundImage;
+
+  padding: 230px 40px 150px;
+  background-color: $white;
+
+  .projectInfoContainer {
+    @include flex(column, center, center);
+
+    .title {
+      position: relative;
+
+      .projectTitle {
+        margin-bottom: 65px;
+      }
+
+      .titleBackground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-27px, -17px);
+
+        @include tablet {
+          width: 490px;
+          transform: translate(-27px, -60px);
+        }
+
+        @include phone {
+          display: none;
+        }
+      }
+    }
+
+    .projectSubtitle {
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      max-width: 650px;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    & > div:last-child {
+      padding: 18px 64px;
+      background-color: $dodger-blue;
+      border-radius: 8px;
+      z-index: 1;
+      transform: scale(1);
+      transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+
+      a {
+        color: $white;
+        font-weight: 500;
+
+        @include fontSize(20px);
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(0.98);
+        transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      max-width: 220px;
+
+      p:not(.infoTitle) {
+        color: $silver-chalice;
+      }
+    }
+  }
+}

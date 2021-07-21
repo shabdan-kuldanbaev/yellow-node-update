@@ -152,3 +152,15 @@
 .tell {
   @extend .imagesContainer;
 }
+
+.open-sense {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(90deg, $zircon 0%, rgba(248, 250, 255, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $zircon 0%, rgba(248, 250, 255, 0) 100%);
+  }
+}

@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .formContainer {
@@ -105,6 +106,29 @@
         &::before {
           border-bottom: 1px rgba($white, 0.4) solid;
           background-color: rgba($white, 0.4);
+        }
+      }
+    }
+  }
+}
+
+.open-sense {
+  @extend .formContainer;
+
+  .title {
+    color: $dark-grey;
+  }
+
+  .subtitle {
+    color: rgba($dark-grey, 0.3);
+
+    span {
+      a {
+        color: rgba($dark-grey, 0.3);
+
+        &::before {
+          border-bottom: 1px rgba($dark-grey, 0.1) solid;
+          background-color: rgba($dark-grey, 0.1);
         }
       }
     }

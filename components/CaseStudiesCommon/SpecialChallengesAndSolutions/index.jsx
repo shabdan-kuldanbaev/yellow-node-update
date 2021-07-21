@@ -1,16 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
-import { getFileUrl } from 'utils/helper';
+import { getBackgroundStyle } from './utils/challengesHelper';
 import styles from './styles.module.scss';
 
 const SpecialChallengesAndSolutions = ({ data, type }) => {
-  const isBackgroundNeeded = ['fernwayer'].includes(type);
-  const backgroundImageUrl = getFileUrl(get(data, 'images[0]', ''));
-  const backgroundImage = isBackgroundNeeded && backgroundImageUrl
-    ? { backgroundImage: `url(${backgroundImageUrl}), linear-gradient(180deg, #D45D94 0%, #FA717D 100%)` }
-    : {};
+  const backgroundImage = getBackgroundStyle(type, data);
 
   return (
     <section

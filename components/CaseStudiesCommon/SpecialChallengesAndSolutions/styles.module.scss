@@ -66,3 +66,23 @@
     @include fontSize(18px);
   }
 }
+
+.open-sense {
+  @include caseStudyContainer;
+  @include centeredBackgroundImage;
+
+  padding-left: 0;
+  padding-right: 0;
+
+  @include tablet {
+    padding: 100px 40px;
+  }
+
+  @include phone {
+    padding: 80px 15px;
+  }
+
+  & > div {
+    max-width: 1920px;
+  }
+}
