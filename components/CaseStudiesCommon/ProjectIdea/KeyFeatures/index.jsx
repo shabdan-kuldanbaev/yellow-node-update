@@ -51,7 +51,7 @@ const KeyFeatures = ({ features, type }) => {
                   <h3 className={styles.title}>
                     {title}
                   </h3>
-                  {text && <ContentfulParser document={text} />}
+                  <ContentfulParser document={text} />
                 </div>
               </div>
             </Animated>

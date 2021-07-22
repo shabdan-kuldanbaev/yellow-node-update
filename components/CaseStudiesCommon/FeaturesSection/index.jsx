@@ -43,7 +43,7 @@ export const FeaturesSection = ({ type, data }) => {
                   <h3 className={styles.title}>
                     {featureTitle}
                   </h3>
-                  {text && <ContentfulParser document={text} />}
+                  <ContentfulParser document={text} />
                 </div>
               </div>
             </Animated>

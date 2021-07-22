@@ -2,21 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
-import {
-  isIntroHasBackground,
-  isTitleHasBackground,
-  caseStudyLink,
-} from './utils/introHelper';
+import { getAppstoreSvgType } from './utils/introHelper';
 import styles from './styles.module.scss';
 
-const VerticalIntro = ({
+const DefaultIntro = ({
   type,
   introSection,
   data,
@@ -54,7 +50,7 @@ const VerticalIntro = ({
     getFileUrl(get(data, 'images[0]', '')),
     { fm: 'png' },
   );
-  const style = (backgroundImageUrl && !isIntroHasBackground) ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
+  const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
 
   return (
     <section
@@ -62,13 +58,6 @@ const VerticalIntro = ({
       className={styles[type]}
       style={style}
     >
-      {isIntroHasBackground && (
-        <img
-          src={backgroundImageUrl}
-          className={styles.backgroundImage}
-          alt={type}
-        />
-      )}
       <div className={styles.introSection}>
         <div className={styles.projectInfoContainer}>
           <img
@@ -76,17 +65,9 @@ const VerticalIntro = ({
             src={appLogoUrl}
             alt={appLogoUrl}
           />
-          <div className={styles.title}>
-            <h1 className={styles.projectTitle}>
-              {title}
-            </h1>
-            {isTitleHasBackground(type) && (
-              <Svg
-                type={SVG_IMAGES_TYPES.opensenseTitleBorder}
-                className={styles.titleBackground}
-              />
-            )}
-          </div>
+          <h1 className={styles.projectTitle}>
+            {title}
+          </h1>
           {subtitle && (
             <p className={styles.projectSubtitle}>
               {subtitle}
@@ -95,7 +76,14 @@ const VerticalIntro = ({
           <p className={styles.projectDescription}>
             {description}
           </p>
-          {downloadLink && caseStudyLink(type, downloadLink)}
+          {downloadLink && (
+            <LinkWrapper path={downloadLink.url}>
+              <Svg
+                className={styles.appStore}
+                type={getAppstoreSvgType(type)}
+              />
+            </LinkWrapper>
+          )}
         </div>
         <div className={styles.imageContainer}>
           <img
@@ -127,10 +115,10 @@ const VerticalIntro = ({
   );
 };
 
-VerticalIntro.propTypes = {
+DefaultIntro.propTypes = {
   type: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
   data: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default VerticalIntro;
+export default DefaultIntro;

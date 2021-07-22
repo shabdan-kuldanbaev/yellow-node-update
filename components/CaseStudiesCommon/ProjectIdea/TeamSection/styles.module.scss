@@ -109,4 +109,11 @@
 
 .open-sense {
   @extend .container;
+
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 150px;
+
+  .title {
+    padding-right: 60px;
+  }
 }

@@ -193,7 +193,17 @@
 .open-sense {
   @extend .container;
 
+  .containerBackground {
+    left: -17%;
+  }
+
   .featureContainer {
+    margin-bottom: 45px;
+
+    .contentContainer {
+      max-width: 350px;
+    }
+
     .checkMark {
       color: $white;
       background: $dodger-blue;
