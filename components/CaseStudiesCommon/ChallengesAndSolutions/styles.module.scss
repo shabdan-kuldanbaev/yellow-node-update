@@ -314,7 +314,12 @@
 
         &::after {
           right: 0;
+          transform: translate(10px, -1px);
           background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
+
+          @include phone {
+            display: none;
+          }
         }
       }
     }
@@ -335,7 +340,9 @@
 
         &::after {
           left: 0;
+          transform: translate(-10px, -1px);
           background: linear-gradient(269.82deg, rgba($white, 0) 0.15%, $white 60.38%);
+          display: none;
         }
       }
     }
