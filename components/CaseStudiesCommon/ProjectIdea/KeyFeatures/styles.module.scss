@@ -189,3 +189,28 @@
     @include centeredBackgroundImage;
   }
 }
+
+.open-sense {
+  @extend .container;
+
+  .containerBackground {
+    left: -17%;
+
+    @include phone {
+      left: -22%;
+    }
+  }
+
+  .featureContainer {
+    margin-bottom: 45px;
+
+    .contentContainer {
+      max-width: 350px;
+    }
+
+    .checkMark {
+      color: $white;
+      background: $dodger-blue;
+    }
+  }
+}

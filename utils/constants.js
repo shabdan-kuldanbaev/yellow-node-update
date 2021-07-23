@@ -158,6 +158,7 @@ export const SVG_IMAGES_TYPES = {
   behanceRoundWhite: 'behanceRoundWhite',
   mediumRoundWhite: 'mediumRoundWhite',
   instaRoundWhite: 'instaRoundWhite',
+  opensenseTitleBorder: 'opensenseTitleBorder',
 };
 
 export const CONTACTS_DATA = {
@@ -214,6 +215,7 @@ export const CASE_STUDIES_TYPES = {
   results: 'case-study-results',
   parallax: 'case-study-parallax',
   design: 'case-study-design',
+  features: 'case-study-features',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -228,6 +230,7 @@ export const CASE_STUDIES = {
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',
   tell: 'tell',
+  openSense: 'open-sense',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

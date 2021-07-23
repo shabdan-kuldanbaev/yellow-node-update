@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins', 'styles/utils/theme/animations';
 
 @mixin insetGradient {
@@ -151,4 +152,22 @@
 
 .tell {
   @extend .imagesContainer;
+}
+
+.open-sense {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      margin-left: 35px;
+    }
+  }
+
+  &::before {
+    background: linear-gradient(90deg, $zircon 0%, rgba(248, 250, 255, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $zircon 0%, rgba(248, 250, 255, 0) 100%);
+  }
 }

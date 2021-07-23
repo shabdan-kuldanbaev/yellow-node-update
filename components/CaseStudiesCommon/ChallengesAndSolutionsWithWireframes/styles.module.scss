@@ -30,3 +30,9 @@
   @include caseStudyContainer;
   @include centeredBackgroundImage;
 }
+
+.open-sense {
+  @include caseStudyContainer;
+
+  background-color: $zircon;
+}

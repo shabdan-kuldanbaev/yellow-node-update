@@ -16,7 +16,8 @@
 
 .home,
 .stickerbox,
-.tell {
+.tell,
+.open-sense {
   .logo {
     color: $logo-stroke;
 
@@ -33,7 +34,8 @@
   }
 }
 
-.tell {
+.tell,
+.open-sense {
   .text {
     color: $black;
   }

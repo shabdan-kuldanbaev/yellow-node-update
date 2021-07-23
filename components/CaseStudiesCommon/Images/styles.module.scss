@@ -143,3 +143,9 @@
 .tell1 {
   background-color: $white;
 }
+
+.open-sense {
+  @extend .imagContainer;
+
+  background-color: $white;
+}

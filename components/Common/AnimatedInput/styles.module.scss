@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .animatedInput {
@@ -156,5 +157,13 @@
     textarea {
       border-color: $silver-chalice !important;
     }
+  }
+}
+
+.open-sense {
+  input,
+  textarea {
+    color: rgba($dark-grey, 0.3);
+    border-bottom-color: rgba($dark-grey, 0.3);
   }
 }
