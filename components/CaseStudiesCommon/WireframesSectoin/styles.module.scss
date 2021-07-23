@@ -61,3 +61,10 @@
     padding: 100px 0;
   }
 }
+
+.open-sense {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  background-color: $zircon;
+}

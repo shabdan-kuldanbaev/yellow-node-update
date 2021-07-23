@@ -172,7 +172,7 @@ export const ContentfulParser = ({ document }) => {
 };
 
 ContentfulParser.defaultProps = {
-  document: {},
+  document: null,
 };
 
 ContentfulParser.propTypes = {

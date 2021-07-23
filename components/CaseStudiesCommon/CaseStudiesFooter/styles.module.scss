@@ -332,3 +332,34 @@
     color: $black;
   }
 }
+
+.open-sense {
+  @extend .container;
+
+  background-color: $zircon;
+
+  .nextProjectContainer {
+    .subtitle,
+    .projectName,
+    .more {
+      color: $dark-grey;
+    }
+
+    .more {
+      border: 1px solid $dark-grey;
+    }
+  }
+
+  .question,
+  .link {
+    color: $dark-grey;
+  }
+
+  .link {
+    opacity: 0.5;
+  }
+
+  .iconLink {
+    color: $black;
+  }
+}
