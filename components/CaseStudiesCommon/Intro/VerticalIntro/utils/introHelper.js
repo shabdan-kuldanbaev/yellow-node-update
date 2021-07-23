@@ -21,11 +21,9 @@ export const caseStudyLink = (type, downloadLink) => {
   switch (type) {
   case CASE_STUDIES.openSense:
     return (
-
       <LinkWrapper path={downloadLink.url}>
         {downloadLink.buttonTitle}
       </LinkWrapper>
-
     );
   default:
     return null;

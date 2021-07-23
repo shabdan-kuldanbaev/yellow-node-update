@@ -77,27 +77,26 @@ const VerticalIntro = ({
           />
         </div>
       </div>
-      {experiences
-        && (
-          <div className={styles.experiencesContainer}>
-            {experiences.map(({
-              fields: {
-                title: experienceTitle,
-                text,
-              },
-            }) => (
-              <div
-                key={experienceTitle}
-                className={styles.experience}
-              >
-                <p className={styles.infoTitle}>
-                  {experienceTitle}
-                </p>
-                <ContentfulParser document={text} />
-              </div>
-            ))}
-          </div>
-        )}
+      {experiences && (
+        <div className={styles.experiencesContainer}>
+          {experiences.map(({
+            fields: {
+              title: experienceTitle,
+              text,
+            },
+          }) => (
+            <div
+              key={experienceTitle}
+              className={styles.experience}
+            >
+              <p className={styles.infoTitle}>
+                {experienceTitle}
+              </p>
+              <ContentfulParser document={text} />
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };
