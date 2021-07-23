@@ -195,6 +195,10 @@
 
   .containerBackground {
     left: -17%;
+
+    @include phone {
+      left: -22%;
+    }
   }
 
   .featureContainer {

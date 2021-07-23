@@ -221,6 +221,10 @@
       p:not(.infoTitle) {
         color: $silver-chalice;
       }
+
+      @include phone {
+        max-width: unset;
+      }
     }
   }
 }
