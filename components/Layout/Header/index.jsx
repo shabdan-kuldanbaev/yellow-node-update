@@ -25,7 +25,7 @@ const Header = ({
   const isCaseStudyPage = CASE_STUDIES_SLUGS.includes(project);
   const isHomePage = asPath === ROUTES.homepage.path;
   const isPageWithTransparentHeader = isHomePage || isCaseStudyPage;
-  const headerTheme = ['tell', 'open-sense'].includes(project)
+  const headerTheme = ['tell', 'open-sense', 'separate-us'].includes(project)
     ? 'light'
     : 'dark';
   const [isAdditional, setAdditional] = useState(false);

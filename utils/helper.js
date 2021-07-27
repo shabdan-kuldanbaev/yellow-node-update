@@ -43,6 +43,9 @@ export const validateEmail = (email) => {
   return reg.test(email);
 };
 
+// eslint-disable-next-line max-len
+export const getYoutubeVideoIdFromUrl = (url) => url.match(/(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/ ]{11})/i)[1];
+
 export const mobileResolution = toInt(phoneResolution);
 export const fullResolution = toInt(fullHdResolution);
 export const horizontalPhone = toInt(horizontalMobile);

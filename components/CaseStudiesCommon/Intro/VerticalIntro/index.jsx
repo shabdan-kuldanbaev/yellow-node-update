@@ -8,6 +8,7 @@ import {
   isTitleHasBackground,
   caseStudyLink,
   getIntroProps,
+  titleText,
 } from './utils/introHelper';
 import styles from './styles.module.scss';
 
@@ -26,7 +27,7 @@ const VerticalIntro = ({
     downloadLink,
     appBackgroundImageUrl,
     experiences,
-  } = getIntroProps(data, type);
+  } = getIntroProps(type, data);
 
   return (
     <section
@@ -49,9 +50,7 @@ const VerticalIntro = ({
             alt={appLogoUrl}
           />
           <div className={styles.title}>
-            <h1 className={styles.projectTitle}>
-              {title}
-            </h1>
+            {titleText(type, title)}
             {isTitleHasBackground(type) && (
               <Svg
                 type={SVG_IMAGES_TYPES.opensenseTitleBorder}
@@ -67,8 +66,8 @@ const VerticalIntro = ({
           <p className={styles.projectDescription}>
             {description}
           </p>
-          {caseStudyLink(type, downloadLink)}
         </div>
+        {caseStudyLink(type, downloadLink)}
         <div className={styles.imageContainer}>
           <img
             className={styles.image}

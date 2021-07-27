@@ -7,6 +7,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
+import styles from '../styles.module.scss';
 
 const sectionsWithBackgrounds = [CASE_STUDIES.openSense];
 
@@ -20,6 +21,7 @@ export const caseStudyLink = (type, downloadLink) => {
 
   switch (type) {
   case CASE_STUDIES.openSense:
+  case CASE_STUDIES.separateUs:
     return (
       <LinkWrapper path={downloadLink.url}>
         {downloadLink.buttonTitle}
@@ -30,7 +32,30 @@ export const caseStudyLink = (type, downloadLink) => {
   }
 };
 
-export const getIntroProps = (data, type) => {
+export const titleText = (type, data) => {
+  switch (type) {
+  case CASE_STUDIES.separateUs:
+    const titleWords = data.split('.');
+
+    return (
+      <h1 className={styles.projectTitle}>
+        <span className={styles.pinkText}>
+          {titleWords[0]}
+          .
+        </span>
+        {titleWords[1]}
+      </h1>
+    );
+  default:
+    return (
+      <h1 className={styles.projectTitle}>
+        {data}
+      </h1>
+    );
+  }
+};
+
+export const getIntroProps = (type, data) => {
   const {
     title,
     subtitle,

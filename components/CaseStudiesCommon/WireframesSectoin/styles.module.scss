@@ -68,3 +68,10 @@
 
   background-color: $zircon;
 }
+
+.separate-us {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  background-color: $white;
+}
