@@ -7,7 +7,6 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import styles from '../styles.module.scss';
 
 const sectionsWithBackgrounds = [CASE_STUDIES.openSense];
 
@@ -29,29 +28,6 @@ export const caseStudyLink = (type, downloadLink) => {
     );
   default:
     return null;
-  }
-};
-
-export const titleText = (type, data) => {
-  switch (type) {
-  case CASE_STUDIES.separateUs:
-    const titleWords = data.split('.');
-
-    return (
-      <h1 className={styles.projectTitle}>
-        <span className={styles.pinkText}>
-          {titleWords[0]}
-          .
-        </span>
-        {titleWords[1]}
-      </h1>
-    );
-  default:
-    return (
-      <h1 className={styles.projectTitle}>
-        {data}
-      </h1>
-    );
   }
 };
 

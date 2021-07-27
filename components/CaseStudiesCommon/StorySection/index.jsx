@@ -35,8 +35,16 @@ export const StorySection = ({ type, data }) => {
                 />
               </div>
             )}
-            {photoCaption && <p className={styles.photoCaption}>{photoCaption}</p>}
-            {description && <p className={styles.photoSecription}>{description}</p>}
+            {photoCaption && (
+              <p className={styles.photoCaption}>
+                {photoCaption}
+              </p>
+            )}
+            {description && (
+              <p className={styles.photoSecription}>
+                {description}
+              </p>
+            )}
           </div>
           <div className={styles.sectionInfo}>
             {title && (

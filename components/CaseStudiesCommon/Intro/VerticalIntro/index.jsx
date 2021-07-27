@@ -8,8 +8,8 @@ import {
   isTitleHasBackground,
   caseStudyLink,
   getIntroProps,
-  titleText,
 } from './utils/introHelper';
+import { TitleText } from './TitleText';
 import styles from './styles.module.scss';
 
 const VerticalIntro = ({
@@ -50,7 +50,10 @@ const VerticalIntro = ({
             alt={appLogoUrl}
           />
           <div className={styles.title}>
-            {titleText(type, title)}
+            <TitleText
+              type={type}
+              data={title}
+            />
             {isTitleHasBackground(type) && (
               <Svg
                 type={SVG_IMAGES_TYPES.opensenseTitleBorder}

@@ -54,7 +54,7 @@ export const EventSection = ({ type, data }) => {
           <h3 className={styles.contentTitle}>
             {listTitle}
           </h3>
-          {links.map((module) => {
+          {links && links.map((module) => {
             const {
               title: linkTitle,
               url,
