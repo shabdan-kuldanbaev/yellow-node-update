@@ -20,6 +20,7 @@ export const caseStudyLink = (type, downloadLink) => {
 
   switch (type) {
   case CASE_STUDIES.openSense:
+  case CASE_STUDIES.separateUs:
     return (
       <LinkWrapper path={downloadLink.url}>
         {downloadLink.buttonTitle}
@@ -30,7 +31,7 @@ export const caseStudyLink = (type, downloadLink) => {
   }
 };
 
-export const getIntroProps = (data, type) => {
+export const getIntroProps = (type, data) => {
   const {
     title,
     subtitle,

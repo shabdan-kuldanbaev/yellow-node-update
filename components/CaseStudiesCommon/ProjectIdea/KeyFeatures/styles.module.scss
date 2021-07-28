@@ -214,3 +214,30 @@
     }
   }
 }
+
+.separate-us {
+  @extend .container;
+
+  .containerBackground {
+    left: -15%;
+
+    @include phone {
+      left: -20%;
+    }
+  }
+
+  .featureContainer {
+    margin-bottom: 45px;
+
+    @include flex(row, initial, center);
+
+    .contentContainer {
+      max-width: 350px;
+    }
+
+    .checkMark {
+      color: $white;
+      background: $brink-pink;
+    }
+  }
+}

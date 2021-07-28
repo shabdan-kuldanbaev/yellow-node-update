@@ -9,7 +9,11 @@ import LinearIndeterminate from 'components/Common/LinearIndeterminate';
 import Logo from 'components/Common/Logo';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import { TopProgressBar } from 'components/Common/TopProgressBar';
-import { ROUTES, CASE_STUDIES_SLUGS } from 'utils/constants';
+import {
+  ROUTES,
+  CASE_STUDIES_SLUGS,
+  CASE_STUDIES,
+} from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';
@@ -25,7 +29,11 @@ const Header = ({
   const isCaseStudyPage = CASE_STUDIES_SLUGS.includes(project);
   const isHomePage = asPath === ROUTES.homepage.path;
   const isPageWithTransparentHeader = isHomePage || isCaseStudyPage;
-  const headerTheme = ['tell', 'open-sense'].includes(project)
+  const headerTheme = [
+    CASE_STUDIES.tell,
+    CASE_STUDIES.openSense,
+    CASE_STUDIES.separateUs,
+  ].includes(project)
     ? 'light'
     : 'dark';
   const [isAdditional, setAdditional] = useState(false);

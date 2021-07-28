@@ -43,6 +43,18 @@ export const validateEmail = (email) => {
   return reg.test(email);
 };
 
+export const getYoutubeVideoIdFromUrl = (url) => {
+  if (url.includes('=')) {
+    const result = url.match(/(?<=(?:[v]|[vi])=).*/i);
+
+    if (result) {
+      return result[0];
+    }
+  }
+
+  return url.match(/[^/]+$/i)[0];
+};
+
 export const mobileResolution = toInt(phoneResolution);
 export const fullResolution = toInt(fullHdResolution);
 export const horizontalPhone = toInt(horizontalMobile);
