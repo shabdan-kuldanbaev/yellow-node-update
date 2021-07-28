@@ -64,6 +64,12 @@
 
         @include below-tablet {
           text-align: center;
+
+          @include fontSize(40px);
+        }
+
+        @include phone {
+          @include fontSize(32px);
         }
       }
 

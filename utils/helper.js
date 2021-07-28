@@ -45,7 +45,7 @@ export const validateEmail = (email) => {
 
 export const getYoutubeVideoIdFromUrl = (url) => {
   if (url.includes('=')) {
-    const result = url.match(/(?<=(?:[v]|[vi])=).*/i);
+    const result = url.match(/[^[v=]*$|[vi=]]*$/i);
 
     if (result) {
       return result[0];
