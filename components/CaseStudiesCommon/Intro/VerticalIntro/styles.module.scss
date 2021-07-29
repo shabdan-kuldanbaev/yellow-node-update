@@ -52,6 +52,10 @@
         @include tablet {
           @include fontSize(60px);
         }
+
+        @include phone {
+          @include fontSize(46px);
+        }
       }
     }
 
@@ -149,6 +153,29 @@
   left: 0;
 }
 
+.webSiteLink {
+  display: inline-block;
+  color: $white;
+  font-weight: 500;
+  padding: 18px 64px;
+  border-radius: 8px;
+  z-index: 1;
+  transform: scale(1);
+  transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+
+  @include fontSize(20px);
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.98);
+    transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  @include phone {
+    @include fontSize(18px);
+  }
+}
+
 .open-sense {
   @extend .container;
 
@@ -193,25 +220,12 @@
       opacity: 0.7;
       text-align: center;
     }
+  }
 
-    a {
-      color: $white;
-      font-weight: 500;
-      padding: 18px 64px;
-      background-color: $dodger-blue;
-      border-radius: 8px;
-      z-index: 1;
-      transform: scale(1);
-      transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+  a {
+    @extend .webSiteLink;
 
-      @include fontSize(20px);
-
-      &:hover {
-        cursor: pointer;
-        transform: scale(0.98);
-        transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
-      }
-    }
+    background-color: $dodger-blue;
   }
 
   .experiencesContainer {
@@ -224,6 +238,84 @@
 
       @include phone {
         max-width: unset;
+      }
+    }
+  }
+}
+
+.separate-us {
+  @extend .container;
+
+  background-color: $white;
+  padding-top: 190px;
+
+  @include tablet {
+    padding-top: 145px;
+  }
+
+  @include phone {
+    padding-top: 135px;
+  }
+
+  .introSection {
+    margin-bottom: 100px;
+
+    @include flex(column, center, center);
+  }
+
+  .projectInfoContainer {
+    order: 1;
+
+    @include flex(column, center, center);
+
+    .title {
+      .projectTitle {
+        color: $mercury-1;
+
+        .pinkText {
+          color: $brink-pink;
+        }
+      }
+    }
+
+    .projectSubtitle {
+      color: rgba($dark-grey, 0.7);
+      margin-bottom: 100px;
+
+      @include fontSize(24px);
+
+      @include tablet {
+        margin-bottom: 0;
+
+        @include fontSize(18px);
+      }
+    }
+  }
+
+  .imageContainer {
+    order: 2;
+
+    .image {
+      max-width: 1250px;
+    }
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    order: 3;
+    margin: 80px auto 0;
+    background-color: $mine-shaft-1;
+  }
+
+  .experiencesContainer {
+    .experience {
+      .infoTitle {
+        color: $dark-grey;
+      }
+
+      p {
+        color: $silver-chalice;
       }
     }
   }

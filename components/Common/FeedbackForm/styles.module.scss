@@ -13,8 +13,8 @@
     transition: none;
 
     & > div {
-      color: $nobel;
-      border-color: $nobel;
+      color: rgba($dark-grey, 0.3);
+      border-color: rgba($dark-grey, 0.3);
     }
   }
 

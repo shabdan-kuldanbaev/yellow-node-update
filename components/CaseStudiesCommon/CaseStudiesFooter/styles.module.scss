@@ -363,3 +363,40 @@
     color: $black;
   }
 }
+
+.separate-us {
+  @extend .container;
+
+  background-color: $brink-pink;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+
+      @include phone {
+        @include fontSize(40px);
+      }
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  .link {
+    color: rgba($white, 0.5);
+  }
+
+  .iconLink {
+    color: $white;
+  }
+}

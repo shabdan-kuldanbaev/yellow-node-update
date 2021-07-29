@@ -12,6 +12,7 @@ export const Intro = (props) => {
   case CASE_STUDIES.sevenPmThursday:
     return <DefaultIntro {...props} />;
   case CASE_STUDIES.openSense:
+  case CASE_STUDIES.separateUs:
     return <VerticalIntro {...props} />;
   default:
     return null;

@@ -216,6 +216,8 @@ export const CASE_STUDIES_TYPES = {
   parallax: 'case-study-parallax',
   design: 'case-study-design',
   features: 'case-study-features',
+  story: 'case-study-story',
+  caseStudyEvent: 'case-study-event',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -231,6 +233,7 @@ export const CASE_STUDIES = {
   fairy: 'fairy',
   tell: 'tell',
   openSense: 'open-sense',
+  separateUs: 'separate-us',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
