@@ -181,6 +181,94 @@
         color: rgba($white, 0.4);
       }
     }
+
+    &:nth-child(1) {
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle {
+          max-width: 530px;
+          position: absolute;
+          top: 30%;
+          transform: translate(-110%, -75%);
+
+          &:nth-child(2) {
+            @include macbook-twelve {
+              max-width: 450px;
+              transform: translate(-110%, -75%);
+            }
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-child(3) {
+            display: none;
+
+            @include tablet {
+              display: block;
+            }
+
+            @include below-tablet {
+              max-width: 260px;
+              transform: translate(-110%, -110%);
+            }
+
+            @include phone {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(110%, -30%);
+
+          &:nth-child(2) {
+            @include macbook-twelve {
+              max-width: 450px;
+              transform: translate(-110%, -75%);
+            }
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-child(3) {
+            display: none;
+
+            @include tablet {
+              display: block;
+            }
+
+            @include below-tablet {
+              max-width: 260px;
+              transform: translate(-110%, -110%);
+            }
+
+            @include phone {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contentContainer {
+    .image {
+      filter: drop-shadow(-33.7256px 22.4837px 89.935px rgba(23, 23, 23, 0.15)) drop-shadow(-16.8628px 11.2419px 44.9675px rgba(23, 23, 23, 0.25));
+    }
   }
 }
 
@@ -265,6 +353,31 @@
 }
 
 .tell {
+  .special {
+    &:first-of-type {
+      .infoContainer {
+        .subImage {
+          max-width: 67px;
+          max-height: 67px;
+        }
+      }
+    }
+
+    &:last-of-type {
+      .infoContainer {
+        .subImage {
+          max-width: 120px;
+          max-height: unset;
+          transform: translateX(-61px);
+        }
+      }
+
+      .image {
+        max-width: 595px;
+      }
+    }
+  }
+
   .contentContainer {
     .infoContainer {
       .h3,
@@ -276,6 +389,7 @@
     }
 
     .image {
+      max-width: 370px;
       filter: unset;
     }
   }
@@ -384,12 +498,35 @@
     }
 
     & > div:last-child {
+      position: relative;
+
       .image {
         filter: unset;
         width: 100%;
         height: unset;
         max-height: unset;
         max-width: 1110px;
+      }
+
+      .imageBundle {
+        position: absolute;
+        max-width: 157px;
+        top: 50%;
+        transform: translate(-40%, -110%);
+
+        @include macbook-twelve {
+          max-width: 130px;
+          transform: translate(-30%, -125%);
+        }
+
+        @include below-tablet {
+          max-width: 100px;
+          transform: translate(-50%, -125%);
+        }
+
+        @include phone {
+          display: none;
+        }
       }
     }
   }

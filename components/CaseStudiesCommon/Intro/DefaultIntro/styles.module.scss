@@ -210,6 +210,7 @@
   @extend .container;
 
   background: linear-gradient(180deg, $grey-darker 0%, $dark-grey-2 100%);
+  height: unset;
 
   .experiencesContainer {
     /* stylelint-disable-next-line */
@@ -226,6 +227,10 @@
 
       p {
         color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 295px;
       }
     }
   }
@@ -299,6 +304,13 @@
       color: rgba($white, 0.4);
     }
   }
+
+  .imageContainer {
+    .image {
+      max-width: 1150px;
+      transform: translate(-50%, -46%);
+    }
+  }
 }
 
 .fairy {
@@ -312,15 +324,25 @@
     .experience {
       margin-right: 15px;
 
+      &:nth-last-child(2) {
+        p:not(.infoTitle) {
+          max-width: 295px;
+        }
+      }
+
       &:last-of-type {
         margin-right: 0;
+
+        p:not(.infoTitle) {
+          max-width: 200px;
+        }
       }
 
       .infoTitle {
         color: $white;
       }
 
-      p {
+      p:not(.infoTitle) {
         color: rgba($white, 0.4);
       }
     }
@@ -339,6 +361,13 @@
 
     .projectDescription {
       color: rgba($white, 0.6);
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 630px;
+      transform: translate(-50%, -50%);
     }
   }
 }
@@ -392,6 +421,12 @@
       p:not(.infoTitle) {
         color: $silver-chalice;
       }
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 785px;
     }
   }
 }

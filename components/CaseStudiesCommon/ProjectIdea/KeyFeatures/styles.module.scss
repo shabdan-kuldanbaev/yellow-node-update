@@ -109,6 +109,12 @@
 .fernwayer {
   @extend .container;
 
+  .containerBackground {
+    left: -20%;
+    right: 0%;
+    opacity: 0.5;
+  }
+
   /* stylelint-disable-next-line */
   .featureContainer {
     .checkMark {
@@ -120,6 +126,12 @@
 
 .stickerbox {
   @extend .container;
+
+  .containerBackground {
+    left: -20%;
+    right: 0%;
+    opacity: 0.5;
+  }
 
   /* stylelint-disable-next-line */
   .featureContainer {
@@ -134,10 +146,14 @@
   @extend .container;
 
   .containerBackground {
+    left: -22%;
+    right: 0%;
     background-color: rgba($white, 0.03);
   }
   /* stylelint-disable-next-line */
   .featureContainer {
+    margin-bottom: 70px;
+
     .checkMark {
       color: $white;
       background: linear-gradient(159.7deg, $pink-1 10.47%, $light-red 98.88%);
@@ -147,12 +163,22 @@
       .title {
         color: $white;
       }
+
+      & > p {
+        max-width: 325px;
+      }
     }
   }
 }
 
 .fairy {
   @extend .container;
+
+  .containerBackground {
+    left: -20%;
+    right: 0%;
+    opacity: 0.5;
+  }
 
   /* stylelint-disable-next-line */
   .featureContainer {
@@ -186,6 +212,9 @@
   }
 
   .containerBackground {
+    left: -20%;
+    right: 0%;
+
     @include centeredBackgroundImage;
   }
 }
