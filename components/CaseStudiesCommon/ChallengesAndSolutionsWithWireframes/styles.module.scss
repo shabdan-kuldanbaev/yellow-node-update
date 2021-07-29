@@ -36,3 +36,13 @@
 
   background-color: $zircon;
 }
+
+.separate-us {
+  @include caseStudyContainer;
+
+  background-color: $white-darker;
+
+  [data-case-study-description] {
+    max-width: 855px;
+  }
+}

@@ -199,7 +199,7 @@
     order: 3;
 
     .introduction {
-      color: $light-gray;
+      color: $silver-chalice;
       margin: 10px 0;
 
       @include hidden-text(ellipsis, 5);
@@ -215,7 +215,7 @@
     order: 4;
 
     .category {
-      color: $light-gray;
+      color: $silver-chalice;
       transition: color 0.4s ease;
       text-transform: lowercase;
 

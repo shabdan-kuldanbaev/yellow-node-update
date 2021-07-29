@@ -10,6 +10,8 @@ import ImagesSection from 'components/CaseStudiesCommon/ImagesSection';
 import Parallax from 'components/CaseStudiesCommon/Parallax';
 import DesignSection from 'components/CaseStudiesCommon/DesignSection';
 import { FeaturesSection } from 'components/CaseStudiesCommon/FeaturesSection';
+import { StorySection } from 'components/CaseStudiesCommon/StorySection';
+import { EventSection } from 'components/CaseStudiesCommon/EventSection';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
 const CaseStudiesCommon = (props) => {
@@ -36,6 +38,10 @@ const CaseStudiesCommon = (props) => {
     return <DesignSection {...props} />;
   case CASE_STUDIES_TYPES.features:
     return <FeaturesSection {...props} />;
+  case CASE_STUDIES_TYPES.story:
+    return <StorySection {...props} />;
+  case CASE_STUDIES_TYPES.caseStudyEvent:
+    return <EventSection {...props} />;
   default:
     return null;
   }

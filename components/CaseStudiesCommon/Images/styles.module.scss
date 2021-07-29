@@ -149,3 +149,9 @@
 
   background-color: $white;
 }
+
+.separate-us {
+  @extend .imagContainer;
+
+  background-color: $white;
+}
