@@ -311,6 +311,24 @@
       transform: translate(-50%, -46%);
     }
   }
+
+  .bundleImage {
+    position: absolute;
+
+    &:nth-child(3) {
+      max-width: 95px;
+      top: 50%;
+      right: 0;
+      transform: translate(-85%, -185%);
+    }
+
+    &:nth-child(4) {
+      max-width: 100px;
+      top: 50%;
+      left: 0;
+      transform: translate(85%, 165%);
+    }
+  }
 }
 
 .fairy {

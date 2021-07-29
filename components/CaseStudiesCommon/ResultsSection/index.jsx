@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
+import { Video } from 'components/Common/Video';
 import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -26,11 +27,19 @@ const ResultsSection = ({ data, type }) => {
           src={smartphoneUrl}
           alt={smartphoneUrl}
         />
-        <img
-          className={styles.appImage}
-          src={appScreenUrl}
-          alt={appScreenUrl}
-        />
+        {!['fairy'].includes(type) && (
+          <img
+            className={styles.appImage}
+            src={appScreenUrl}
+            alt={appScreenUrl}
+          />
+        )}
+        {['fairy'].includes(type) && (
+          <Video
+            src={appScreenUrl}
+            className={styles.video}
+          />
+        )}
       </div>
     </section>
   );

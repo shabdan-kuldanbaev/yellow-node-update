@@ -223,7 +223,7 @@
   @extend .container;
 
   .containerBackground {
-    left: -17%;
+    left: -20%;
 
     @include phone {
       left: -22%;
@@ -231,7 +231,7 @@
   }
 
   .featureContainer {
-    margin-bottom: 45px;
+    margin-bottom: 60px;
 
     .contentContainer {
       max-width: 350px;

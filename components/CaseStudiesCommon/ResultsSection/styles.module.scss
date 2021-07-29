@@ -110,6 +110,12 @@
   .circle {
     background: linear-gradient(0deg, $dark-violet-1 0%, $dark-violet-2 100%);
   }
+
+  .video {
+    max-width: 398px;
+    transform: translateY(-22px);
+    border-radius: 50px;
+  }
 }
 
 .tell {

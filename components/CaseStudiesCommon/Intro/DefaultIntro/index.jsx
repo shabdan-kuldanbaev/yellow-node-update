@@ -23,6 +23,7 @@ const DefaultIntro = ({
     description,
     images,
     contentModules,
+    imagesBundles,
   } = getDocumentFields(
     get(data, 'contentModules[0]', {}),
     [
@@ -31,6 +32,7 @@ const DefaultIntro = ({
       'description',
       'images',
       'contentModules',
+      'imagesBundles',
     ],
   );
   const { contentModules: experiences } = getDocumentFields(
@@ -92,6 +94,17 @@ const DefaultIntro = ({
             alt={appBackgroundImageUrl}
           />
         </div>
+        {imagesBundles && imagesBundles.map((bundle) => {
+          const bundleUrl = getFileUrl(bundle);
+
+          return (
+            <img
+              className={styles.bundleImage}
+              src={bundleUrl}
+              alt={title}
+            />
+          );
+        })}
       </div>
       <div className={styles.experiencesContainer}>
         {experiences && experiences.map(({
