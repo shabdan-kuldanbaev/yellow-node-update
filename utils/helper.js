@@ -45,14 +45,14 @@ export const validateEmail = (email) => {
 
 export const getYoutubeVideoIdFromUrl = (url) => {
   if (url.includes('=')) {
-    const result = url.match(/[^[v=]*$|[vi=]]*$/i);
+    const result = url.match(/(?:[v]|[vi])=.*/i);
 
     if (result) {
-      return result[0];
+      return result[0].slice(result[0].indexOf('=') + 1);
     }
-  }
 
-  return url.match(/[^/]+$/i)[0];
+    return url.match(/[^/]+$/i)[0];
+  }
 };
 
 export const mobileResolution = toInt(phoneResolution);
