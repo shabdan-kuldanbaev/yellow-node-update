@@ -38,6 +38,10 @@
     @include phone {
       border-radius: 30px;
     }
+
+    @include phone-height-500 {
+      max-width: 340px;
+    }
   }
 
   .featureContainer {
