@@ -38,10 +38,6 @@
     @include phone {
       border-radius: 30px;
     }
-
-    @include phone-height-500 {
-      max-width: 340px;
-    }
   }
 
   .featureContainer {
@@ -117,6 +113,10 @@
     left: -20%;
     right: 0%;
     opacity: 0.5;
+
+    @include phone-height-500 {
+      max-width: 410px;
+    }
   }
 
   /* stylelint-disable-next-line */
@@ -266,6 +266,12 @@
 
     .contentContainer {
       max-width: 350px;
+
+      .title {
+        @include phone {
+          margin-bottom: 0;
+        }
+      }
     }
 
     .checkMark {

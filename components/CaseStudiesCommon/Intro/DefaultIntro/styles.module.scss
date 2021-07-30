@@ -116,6 +116,10 @@
     .experience {
       margin-right: 15px;
 
+      @include phone {
+        margin-right: 40px;
+      }
+
       &:last-of-type {
         margin: 0;
       }
@@ -204,6 +208,12 @@
       color: rgba($white, 0.7);
     }
   }
+
+  .imageContainer {
+    .image {
+      max-width: 1380px;
+    }
+  }
 }
 
 .stickerbox {
@@ -215,12 +225,6 @@
   .experiencesContainer {
     /* stylelint-disable-next-line */
     .experience {
-      margin-right: 15px;
-
-      &:last-of-type {
-        margin-right: 0;
-      }
-
       .infoTitle {
         color: $white;
       }
@@ -248,6 +252,14 @@
 
     .projectDescription {
       color: rgba($white, 0.4);
+    }
+  }
+
+  .introSection {
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
     }
   }
 }
@@ -307,8 +319,8 @@
 
   .imageContainer {
     .image {
-      max-width: 1150px;
-      transform: translate(-50%, -46%);
+      max-width: 1000px;
+      transform: translate(-50%, -44%);
     }
   }
 
@@ -316,17 +328,39 @@
     position: absolute;
 
     &:nth-child(3) {
-      max-width: 95px;
-      top: 50%;
+      top: 0;
       right: 0;
-      transform: translate(-85%, -185%);
+      transform: translate(5%, -9%);
     }
 
     &:nth-child(4) {
+      max-width: 85px;
+      top: 50%;
+      right: 0;
+      transform: translate(-120%, -200%);
+
+      @include macbook-fifteen {
+        display: none;
+      }
+    }
+
+    &:nth-child(5) {
       max-width: 100px;
       top: 50%;
       left: 0;
       transform: translate(85%, 165%);
+
+      @include macbook-fifteen {
+        display: none;
+      }
+    }
+  }
+
+  .introSection {
+    margin-bottom: 350px;
+
+    @include tablet {
+      margin-bottom: 60px;
     }
   }
 }

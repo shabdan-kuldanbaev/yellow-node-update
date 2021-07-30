@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { Video } from 'components/Common/Video';
-import { getFileUrl } from 'utils/helper';
+import { getFileUrl, getDocumentFields } from 'utils/helper';
+import { isResultHasVideo } from './utils/resultsHelper';
 import styles from './styles.module.scss';
 
 const ResultsSection = ({ data, type }) => {
@@ -11,9 +12,10 @@ const ResultsSection = ({ data, type }) => {
     return null;
   }
 
-  const { images } = data;
+  const { images, contentModules } = data;
   const smartphoneUrl = getFileUrl(images[0]);
   const appScreenUrl = getFileUrl(images[1]);
+  const imagesBundlesData = contentModules && getDocumentFields(get(contentModules, '[0]', {}));
 
   return (
     <section className={styles[type]}>
@@ -27,19 +29,31 @@ const ResultsSection = ({ data, type }) => {
           src={smartphoneUrl}
           alt={smartphoneUrl}
         />
-        {!['fairy'].includes(type) && (
-          <img
-            className={styles.appImage}
-            src={appScreenUrl}
-            alt={appScreenUrl}
-          />
-        )}
-        {['fairy'].includes(type) && (
-          <Video
-            src={appScreenUrl}
-            className={styles.video}
-          />
-        )}
+        {isResultHasVideo
+          ? (
+            <Video
+              src={appScreenUrl}
+              className={styles.video}
+            />
+          )
+          : (
+            <img
+              className={styles.appImage}
+              src={appScreenUrl}
+              alt={appScreenUrl}
+            />
+          )}
+        {imagesBundlesData && imagesBundlesData.imagesBundles.map((bundle) => {
+          const bundleUrl = getFileUrl(bundle);
+
+          return (
+            <img
+              className={styles.imageBundle}
+              src={bundleUrl}
+              alt={type}
+            />
+          );
+        })}
       </div>
     </section>
   );

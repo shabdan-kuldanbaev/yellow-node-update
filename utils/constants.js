@@ -159,6 +159,7 @@ export const SVG_IMAGES_TYPES = {
   mediumRoundWhite: 'mediumRoundWhite',
   instaRoundWhite: 'instaRoundWhite',
   opensenseTitleBorder: 'opensenseTitleBorder',
+  tellTeamUnderline: 'tellTeamUnderline',
 };
 
 export const CONTACTS_DATA = {
@@ -241,3 +242,11 @@ export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key
 
   return acc;
 }, []);
+
+export const PAGES_WITH_DARK_HEADER = [
+  ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
+  ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
+  ROUTES.project.getRoute(CASE_STUDIES.sevenPmThursday).path,
+  ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
+  ROUTES.homepage.path,
+];

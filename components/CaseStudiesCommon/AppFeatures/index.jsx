@@ -12,7 +12,6 @@ import styles from './styles.module.scss';
 
 const AppFeatures = ({ data, type }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const imageUrl = getFileUrl(get(data, 'images[0]', ''));
 
   const handleOnClick = (index) => () => {
     setActiveIndex(index);
@@ -21,6 +20,13 @@ const AppFeatures = ({ data, type }) => {
   if (!get(data, 'contentModules')) {
     return null;
   }
+
+  const images = get(data, 'contentModules').map((module) => {
+    const { images: moduleImages } = getDocumentFields(module);
+    const imageUrl = getFileUrl(get(moduleImages, '[0]', {}));
+
+    return imageUrl;
+  });
 
   return (
     <section className={styles[type]}>
@@ -69,10 +75,10 @@ const AppFeatures = ({ data, type }) => {
         >
           <div className={styles.imageContainer}>
             <img
-              src={imageUrl}
+              src={images[activeIndex]}
               // this class is defined in the caseStudyContainer mixin
               className={styles.image}
-              alt={imageUrl}
+              alt={type}
             />
           </div>
         </Animated>

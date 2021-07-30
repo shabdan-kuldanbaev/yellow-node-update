@@ -4,8 +4,15 @@ import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import Images from 'components/CaseStudiesCommon/Images';
 import styles from './styles.module.scss';
 
-const ImagesSection = ({ data, type }) => (
-  <section className={styles[type]}>
+const ImagesSection = ({
+  data,
+  type,
+  index,
+}) => (
+  <section
+    className={styles[type]}
+    data-index={index}
+  >
     <SectionTitle
       data={data}
       type={type}
@@ -20,6 +27,7 @@ const ImagesSection = ({ data, type }) => (
 ImagesSection.prototype = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default ImagesSection;

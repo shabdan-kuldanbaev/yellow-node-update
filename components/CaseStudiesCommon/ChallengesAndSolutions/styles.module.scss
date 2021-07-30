@@ -156,6 +156,42 @@
         color: $white;
       }
     }
+
+    &:nth-child(1) {
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle {
+          max-width: 355px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translate(-265%, -20%);
+
+          @include macbook-fifteen {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle {
+          max-width: 355px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(300%, 200%);
+
+          @include macbook-fifteen {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -267,7 +303,37 @@
 
   .contentContainer {
     .image {
+      height: unset;
+      width: unset;
+      overflow: visible;
       filter: drop-shadow(-33.7256px 22.4837px 89.935px rgba(23, 23, 23, 0.15)) drop-shadow(-16.8628px 11.2419px 44.9675px rgba(23, 23, 23, 0.25));
+    }
+
+    &:not(.special) > div:last-child {
+      position: relative;
+
+      .imageBundle {
+        position: absolute;
+        z-index: 1;
+
+        &:nth-child(2) {
+          max-width: 132px;
+          top: 0;
+          right: 0;
+          transform: translate(50%, 140%);
+
+          @include macbook-twelve {
+            transform: translate(20%, 70%);
+          }
+        }
+
+        &:nth-child(3) {
+          max-width: 201px;
+          left: 0;
+          bottom: 0;
+          transform: translate(-45%, -57%);
+        }
+      }
     }
   }
 }
@@ -548,6 +614,8 @@
       @include flex(row, space-between);
 
       @include phone {
+        margin-bottom: 0;
+
         @include flex(column, center, center);
       }
 

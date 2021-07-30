@@ -112,9 +112,14 @@
   }
 
   .video {
-    max-width: 398px;
+    max-width: 370px;
     transform: translateY(-22px);
     border-radius: 50px;
+
+    @include phone {
+      max-width: 223px;
+      border-radius: 30px;
+    }
   }
 }
 
@@ -143,6 +148,18 @@
 
       @include phone {
         width: 196px;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(30%, 25%);
+      max-width: 250px;
+
+      @include tablet {
+        display: none;
       }
     }
   }

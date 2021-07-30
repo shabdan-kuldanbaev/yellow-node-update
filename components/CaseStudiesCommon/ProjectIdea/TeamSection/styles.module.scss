@@ -116,6 +116,10 @@
 
   grid-template-columns: repeat(3, auto);
   grid-column-gap: 220px;
+
+  .title {
+    position: relative;
+  }
 }
 
 .open-sense {
