@@ -159,6 +159,36 @@ export const SVG_IMAGES_TYPES = {
   instaRoundWhite: 'instaRoundWhite',
 };
 
+export const APP_DEVELOPMENT_ICONS = {
+  iOSAppDevelopment: 'iOSAppDevelopment',
+  androidAppDevelopment: 'androidAppDevelopment',
+  enterpriseMobileAppDevelopment: 'enterpriseMobileAppDevelopment',
+  mobileUXDesign: 'mobileUXDesign',
+  profitsRaise: 'profitsRaise',
+  standOutFrom: 'standOutFrom',
+  increasedRecognition: 'increasedRecognition',
+  costReduction: 'costReduction',
+  processAutomation: 'processAutomation',
+  customerEngagement: 'customerEngagement',
+  mobileChats: 'mobileChats',
+  socialMedia: 'socialMedia',
+  fitness: 'fitness',
+  travel: 'travel',
+  dating: 'dating',
+  artificialIntelligence: 'artificialIntelligence',
+};
+
+export const APP_DEVELOPMENT_TYPES = {
+  chatAppPageIntro: 'chat-app-page-intro',
+  chatAppPageExperiance: 'chat-app-page-experience',
+  chatAppPageTypesOfChat: 'chat-app-page-types-of-chat',
+  chatAppPageAdvantages: 'chat-app-page-advantages',
+  chatAppPageFeatures: 'chat-app-page-chat-features',
+  chatAppPageTechnologies: 'chat-app-page-technologies',
+  chatAppPageDevelopersAdvantages: 'chat-app-page-developers-advantages',
+  chatAppPageOurWork: 'chat-app-page-our-work',
+};
+
 export const CONTACTS_DATA = {
   email: 'hi@yellow.systems',
   telephoneNumbers: [
