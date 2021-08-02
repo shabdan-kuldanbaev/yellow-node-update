@@ -9,6 +9,7 @@ const Breadcrumbs = ({ breadcrumbs }) => (breadcrumbs
     <div
       aria-label="breadcrumbs"
       className={styles.breadcrumbs}
+      data-page-breadcrumbs
     >
       <Animated
         type={ANIMATED_TYPE.isCustom}

@@ -20,7 +20,7 @@ export const CardsSection = ({
   const {
     title,
     description,
-    contentModules: chatTypes,
+    contentModules,
   } = getDocumentFields(
     sectionData,
     [
@@ -29,6 +29,7 @@ export const CardsSection = ({
       'contentModules',
     ],
   );
+  const { contentModules: cardsList } = getDocumentFields(get(contentModules, '[0]', []));
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -36,7 +37,7 @@ export const CardsSection = ({
     transformDuration: 1,
   };
 
-  if (!chatTypes || !chatTypes.length) {
+  if (!cardsList || !cardsList.length) {
     return null;
   }
 
@@ -54,7 +55,7 @@ export const CardsSection = ({
             text={description}
           />
           <div className={styles.typesList}>
-            {chatTypes.map((chatType, index) => {
+            {cardsList.map((chatType, index) => {
               const {
                 title: typeTitle,
                 description: typeDescription,

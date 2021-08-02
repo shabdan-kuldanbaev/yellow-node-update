@@ -8,7 +8,10 @@ export const PageHeader = ({ title, breadcrumbs }) => (
   <Fragment>
     <Breadcrumbs breadcrumbs={breadcrumbs} />
     {title && (
-      <div className={styles.titleContainer}>
+      <div
+        className={styles.titleContainer}
+        data-page-title
+      >
         <Animated
           type={ANIMATED_TYPE.isCustom}
           translateY="2.82352941em"

@@ -5,14 +5,15 @@ import { selectComponents, selectMetaData } from 'redux/selectors/layout';
 import { PageHeader } from 'components/Common/PageHeader';
 import { MetaTags } from 'components/Common/MetaTags';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
-import { ChatAppCommon } from 'components/CustomChatAppCommon';
+import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { microdata } from 'utils/microdata';
 import { rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import styles from './styles.module.scss';
 
-const CustomChatAppContainer = ({
+const CustomMobileAppContainer = ({
   pageData,
   metaData: {
     metaTitle,
@@ -20,12 +21,12 @@ const CustomChatAppContainer = ({
   },
 }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const breadcrumbs = pagesBreadcrumbs.customChatApp();
+  const breadcrumbs = pagesBreadcrumbs.customMobileApp();
   const { main: contentModules } = pageData;
   const pageMetadata = {
     metaTitle,
     metaDescription,
-    url: `${rootUrl}/chat-app-development-company`,
+    url: `${rootUrl}/mobile-app-development-company`,
   };
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
@@ -38,21 +39,22 @@ const CustomChatAppContainer = ({
   return (
     <Fragment>
       <MetaTags
-        page={PAGES.customChatApp}
+        page={PAGES.customMobileApp}
         pageMetadata={pageMetadata}
-        pageMicrodata={microdata.customChatApp()}
+        pageMicrodata={microdata.customMobileApp()}
         breadcrumbs={breadcrumbs}
       />
-      <FullLayout>
+      <div className={styles.mobileAppContainer}>
         <PageHeader breadcrumbs={breadcrumbs} />
-        {contentModules.map((module) => (
-          <ChatAppCommon
+        {contentModules.map((module, index) => (
+          <AppDevelopmentCommon
             section={module}
             handleOnCTAClick={openFullscreenEstimation}
-            type="chat-app-development-company"
+            type="mobile-app-development-company"
+            index={index}
           />
         ))}
-      </FullLayout>
+      </div>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
@@ -61,7 +63,7 @@ const CustomChatAppContainer = ({
   );
 };
 
-CustomChatAppContainer.propTypes = {
+CustomMobileAppContainer.propTypes = {
   pageData: PropTypes.instanceOf(Object).isRequired,
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
@@ -74,4 +76,4 @@ export default connect(
     pageData: selectComponents(state),
     metaData: selectMetaData(state),
   }),
-)(CustomChatAppContainer);
+)(CustomMobileAppContainer);

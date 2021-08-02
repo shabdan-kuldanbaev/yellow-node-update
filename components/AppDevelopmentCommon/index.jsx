@@ -1,52 +1,81 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PageIntro } from 'components/CustomChatAppCommon/PageIntro';
-import { ExperienceSection } from 'components/CustomChatAppCommon/ExperienceSection';
-import { CardsSection } from 'components/CustomChatAppCommon/CardsSection';
-import { AdvantagesSection } from 'components/CustomChatAppCommon/AdvantagesSection';
-import { ChatFeaturesSection } from 'components/CustomChatAppCommon/ChatFeaturesSection';
-import { TechnologiesSection } from 'components/CustomChatAppCommon/TechnologiesSection';
-import { OurWorkSection } from 'components/CustomChatAppCommon/OurWorkSection';
+import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
+import { ImageSection } from 'components/AppDevelopmentCommon/ImageSection';
+import { CardsSection } from 'components/AppDevelopmentCommon/CardsSection';
+import { CardsListSection } from 'components/AppDevelopmentCommon/CardsListSection';
+import { SliderSection } from 'components/AppDevelopmentCommon/SliderSection';
+import { SvgListSection } from 'components/AppDevelopmentCommon/SvgListSection';
+import { GallerySection } from 'components/AppDevelopmentCommon/GallerySection';
 import { getDocumentFields } from 'utils/helper';
-import { BLOCKS_SLUGS } from 'utils/constants';
+import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
-export const AppDevelopmentCommon = ({ section, handleOnCTAClick }) => {
-  const { slug } = getDocumentFields(section);
+export const AppDevelopmentCommon = ({
+  type,
+  section,
+  handleOnCTAClick,
+  index,
+}) => {
+  if (!section.fields) {
+    return null;
+  }
 
-  switch (slug) {
-  case BLOCKS_SLUGS.chatAppPageIntro:
-    return <PageIntro sectionData={section} />;
-  case BLOCKS_SLUGS.chatAppPageExperiance:
-    return <ExperienceSection sectionData={section} />;
-  case BLOCKS_SLUGS.chatAppPageTypesOfChat:
+  const { type: sectionType } = getDocumentFields(section);
+
+  switch (sectionType) {
+  case APP_DEVELOPMENT_TYPES.appDevelopmentPageIntro:
+    return (
+      <PageIntro
+        sectionData={section}
+        type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentImageSection:
+    return (
+      <ImageSection
+        sectionData={section}
+        type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentCards:
     return (
       <CardsSection
         sectionData={section}
-        type="chatTypes"
+        pageType={type}
+        sectionType="cards"
         hasCTAButton
         handleOnCTAClick={handleOnCTAClick}
+        index={index}
       />
     );
-  case BLOCKS_SLUGS.chatAppPageDevelopersAdvantages:
+  case APP_DEVELOPMENT_TYPES.appDevelopmentSmallCards:
     return (
       <CardsSection
         sectionData={section}
-        type="advantages"
+        pageType={type}
+        sectionType="smallCards"
       />
     );
-  case BLOCKS_SLUGS.chatAppPageAdvantages:
-    return <AdvantagesSection sectionData={section} />;
-  case BLOCKS_SLUGS.chatAppPageFeatures:
-    return <ChatFeaturesSection sectionData={section} />;
-  case BLOCKS_SLUGS.chatAppPageTechnologies:
+  case APP_DEVELOPMENT_TYPES.appDevelopmentCheckList:
     return (
-      <TechnologiesSection
+      <CardsListSection
+        sectionData={section}
+        type={type}
+      />
+    ); // rename
+  case APP_DEVELOPMENT_TYPES.appDevelopmentSvgList:
+    return (
+      <SvgListSection
         sectionData={section}
         handleOnCTAClick={handleOnCTAClick}
+        type={type}
+        index={index}
       />
     );
-  case BLOCKS_SLUGS.chatAppPageOurWork:
-    return <OurWorkSection sectionData={section} />;
+  case APP_DEVELOPMENT_TYPES.chatAppPageFeatures:
+    return <SliderSection sectionData={section} />;
+  case APP_DEVELOPMENT_TYPES.chatAppPageOurWork:
+    return <GallerySection sectionData={section} />;
   default:
     return null;
   }

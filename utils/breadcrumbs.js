@@ -59,4 +59,10 @@ export const pagesBreadcrumbs = {
       to: ROUTES.customChatApp.path,
     },
   ]),
+  customMobileApp: () => ([
+    {
+      title: ROUTES.customMobileApp.title,
+      to: ROUTES.customMobileApp.path,
+    },
+  ]),
 };

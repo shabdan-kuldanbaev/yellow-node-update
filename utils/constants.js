@@ -31,6 +31,7 @@ export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
   routes.project.slug,
   routes.notFound.slug,
   routes.customChatApp.slug,
+  routes.customMobileApp.slug,
 ].includes(slug));
 
 export const BLOCKS_SLUGS = {
@@ -176,17 +177,42 @@ export const APP_DEVELOPMENT_ICONS = {
   travel: 'travel',
   dating: 'dating',
   artificialIntelligence: 'artificialIntelligence',
+
+  titledReactNative: 'titledReactNative',
+  titledSwift: 'titledSwift',
+  titledJava: 'titledJava',
+  titledFirebase: 'titledFirebase',
+  titledKotlin: 'titledKotlin',
+  titledObjectiveC: 'titledObjectiveC',
+  titledPostgre: 'titledPostgre',
+  twilio: 'twilio',
+  pubnub: 'pubnub',
+  react: 'react',
+  java: 'java',
+  firebase: 'firebase',
+  webRtc: 'webRtc',
+  swift: 'swift',
+  kotlin: 'kotlin',
+  postgreSql: 'postgreSql',
+  objC: 'objC',
+
+  techCrunch: 'techCrunch',
+  time: 'time',
+  productHunt: 'productHunt',
+  esquire: 'esquire',
+  theWeek: 'theWeek',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
-  chatAppPageIntro: 'chat-app-page-intro',
-  chatAppPageExperiance: 'chat-app-page-experience',
-  chatAppPageTypesOfChat: 'chat-app-page-types-of-chat',
-  chatAppPageAdvantages: 'chat-app-page-advantages',
-  chatAppPageFeatures: 'chat-app-page-chat-features',
-  chatAppPageTechnologies: 'chat-app-page-technologies',
-  chatAppPageDevelopersAdvantages: 'chat-app-page-developers-advantages',
-  chatAppPageOurWork: 'chat-app-page-our-work',
+  appDevelopmentPageIntro: 'app-development-page-intro',
+  appDevelopmentCards: 'app-development-cards',
+  appDevelopmentSmallCards: 'app-development-small-cards',
+  appDevelopmentCheckList: 'app-development-check-list',
+  appDevelopmentSvgList: 'app-development-svg-list',
+  appDevelopmentGallery: 'app-development-gallery',
+  appDevelopmentFAQ: 'app-development-faq',
+  appDevelopmentSlider: 'app-development-slider',
+  appDevelopmentImageSection: 'app-development-image',
 };
 
 export const CONTACTS_DATA = {

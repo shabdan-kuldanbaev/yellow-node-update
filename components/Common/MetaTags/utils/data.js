@@ -53,4 +53,10 @@ export const ogMetaData = [
                   ✔ 10+ successfully delivered chat apps. ✔ Let's get in touch!`,
     url: `${rootUrl}${ROUTES.customChatApp.path}`,
   },
+  {
+    pageName: ROUTES.customMobileApp.slug,
+    metaTitle: '',
+    metaDescription: '',
+    url: `${rootUrl}${ROUTES.customMobileApp.path}`,
+  },
 ];

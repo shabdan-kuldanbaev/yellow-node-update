@@ -1,0 +1,62 @@
+@import 'styles/utils/mixins';
+
+.svgSection {
+  margin: 150px auto;
+  max-width: 1076px;
+
+  @include below-tablet {
+    margin: 100px 0;
+  }
+
+  .svgList {
+    margin-bottom: 150px;
+
+    @include flex(row, space-between, center, wrap);
+
+    & > div {
+      flex: 1 0 20%;
+      text-align: center;
+      margin-top: 80px;
+
+      @include tablet {
+        flex: 1 0 50%;
+
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.mobile-app-development-company {
+  @extend .svgSection;
+
+  .svgList {
+    max-width: 855px;
+    margin: 0 auto 150px;
+
+    @include flex(row, center, center, wrap);
+
+    & > div {
+      flex: 0 0 25%;
+    }
+  }
+}
+
+.mobile-app-development-company[data-index='8'] {
+  .svgList {
+    max-width: 1300px;
+
+    @include flex(row, space-between, center, wrap);
+
+    & > div {
+      flex: unset;
+
+      & > svg {
+        opacity: 0.5;
+      }
+    }
+  }
+}

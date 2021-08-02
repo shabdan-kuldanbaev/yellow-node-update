@@ -101,6 +101,13 @@ export const microdata = {
                   ✔ 10+ successfully delivered chat apps. ✔ Let's get in touch!`,
     breadcrumb: 'Homepage > Custom chat app development company',
   }),
+  customMobileApp: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: '',
+    description: '!',
+    breadcrumb: 'Homepage > Custom mobile app development company',
+  }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',
