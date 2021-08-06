@@ -12,20 +12,20 @@ import styles from './styles.module.scss';
 
 const AppFeatures = ({ data, type }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const imagesData = get(data, 'contentModules');
 
   const handleOnClick = (index) => () => {
     setActiveIndex(index);
   };
 
-  if (!get(data, 'contentModules')) {
+  if (!imagesData) {
     return null;
   }
 
-  const images = get(data, 'contentModules').map((module) => {
+  const images = imagesData.map((module) => {
     const { images: moduleImages } = getDocumentFields(module);
-    const imageUrl = getFileUrl(get(moduleImages, '[0]', {}));
 
-    return imageUrl;
+    return getFileUrl(get(moduleImages, '[0]', {}));
   });
 
   return (

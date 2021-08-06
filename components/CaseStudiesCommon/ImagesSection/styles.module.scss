@@ -25,6 +25,8 @@
   }
 }
 
-.fernwayer[data-index="7"] {
-  padding: 140px 40px 0;
+.fernwayer {
+  &.second {
+    padding: 140px 40px 0;
+  }
 }

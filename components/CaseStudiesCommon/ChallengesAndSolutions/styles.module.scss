@@ -306,7 +306,9 @@
       height: unset;
       width: unset;
       overflow: visible;
-      filter: drop-shadow(-33.7256px 22.4837px 89.935px rgba(23, 23, 23, 0.15)) drop-shadow(-16.8628px 11.2419px 44.9675px rgba(23, 23, 23, 0.25));
+      filter:
+        drop-shadow(-33.7256px 22.4837px 89.935px rgba(23, 23, 23, 0.15))
+        drop-shadow(-16.8628px 11.2419px 44.9675px rgba(23, 23, 23, 0.25));
     }
 
     &:not(.special) > div:last-child {

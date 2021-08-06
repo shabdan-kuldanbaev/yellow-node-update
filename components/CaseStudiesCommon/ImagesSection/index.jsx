@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import Images from 'components/CaseStudiesCommon/Images';
 import styles from './styles.module.scss';
@@ -7,11 +8,9 @@ import styles from './styles.module.scss';
 const ImagesSection = ({
   data,
   type,
-  index,
 }) => (
   <section
-    className={styles[type]}
-    data-index={index}
+    className={cn(styles[type], styles[data.view])}
   >
     <SectionTitle
       data={data}

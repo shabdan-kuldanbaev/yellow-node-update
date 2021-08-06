@@ -5,10 +5,6 @@ import { SVG_IMAGES_TYPES, CASE_STUDIES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const TitleUnderline = ({ type }) => {
-  if (!type) {
-    return null;
-  }
-
   switch (type) {
   case CASE_STUDIES.tell:
     return (
