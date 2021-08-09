@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
+import { TitleUnderline } from './TitleUnderline';
 import styles from './styles.module.scss';
 
 const TeamSection = ({ type, data }) => {
@@ -16,6 +17,7 @@ const TeamSection = ({ type, data }) => {
       <div className={styles[type]}>
         <h2 className={styles.title}>
           {title}
+          <TitleUnderline type={type} />
         </h2>
         {contentList && contentList.map((member) => (
           <p

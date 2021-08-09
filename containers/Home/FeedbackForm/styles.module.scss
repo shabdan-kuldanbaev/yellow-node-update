@@ -59,8 +59,8 @@
           bottom: -2px;
           right: 0;
           width: 100%;
-          border-bottom: 1px rgba($dark-grey, 0.3) solid;
-          background-color: rgba($dark-grey, 0.3);
+          border-bottom: 1px rgba($dark-grey, 0) solid;
+          background-color: rgba($dark-grey, 0.2);
           transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
         }
       }
@@ -108,6 +108,19 @@
         &::before {
           border-bottom: 1px rgba($white, 0.4) solid;
           background-color: rgba($white, 0.4);
+        }
+      }
+    }
+  }
+
+  & > div:last-child {
+    & > form {
+      & > div:last-child {
+        a {
+          div {
+            color: $white;
+            border-color: $white;
+          }
         }
       }
     }
