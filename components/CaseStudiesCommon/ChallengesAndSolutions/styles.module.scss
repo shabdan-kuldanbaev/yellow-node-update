@@ -421,6 +421,22 @@
 }
 
 .tell {
+  .contentContainer {
+    .infoContainer {
+      .h3,
+      p {
+        line-height: 1.7;
+
+        @include fontSize(18px);
+      }
+    }
+
+    .image {
+      max-width: 370px;
+      filter: unset;
+    }
+  }
+
   .special {
     &:first-of-type {
       .infoContainer {
@@ -428,6 +444,10 @@
           max-width: 67px;
           max-height: 67px;
         }
+      }
+
+      .image {
+        max-width: unset;
       }
     }
 
@@ -443,22 +463,6 @@
       .image {
         max-width: 595px;
       }
-    }
-  }
-
-  .contentContainer {
-    .infoContainer {
-      .h3,
-      p {
-        line-height: 1.7;
-
-        @include fontSize(18px);
-      }
-    }
-
-    .image {
-      max-width: 370px;
-      filter: unset;
     }
   }
 }

@@ -4,11 +4,10 @@ import { getFileUrl, getDocumentFields } from 'utils/helper';
 
 export const isResultHasVideo = (type) => [CASE_STUDIES.fairy].includes(type);
 
-export const getResultProps = (data) => {
-  const { images, contentModules } = data;
+export const getResultProps = ({ images, contentModules }) => {
   const smartphoneUrl = getFileUrl(images[0]);
   const appScreenUrl = getFileUrl(images[1]);
-  const imagesBundlesData = contentModules && getDocumentFields(get(contentModules, '[0]', {}));
+  const imagesBundlesData = getDocumentFields(get(contentModules, '[0]', {}));
 
   return {
     smartphoneUrl,

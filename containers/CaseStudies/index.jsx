@@ -41,13 +41,12 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
         page={PAGES.portfolio}
         pageMetadata={projectMetadata}
       />
-      {contentModules && contentModules.map(({ fields, sys }, index) => (
+      {contentModules && contentModules.map(({ fields, sys }) => (
         <CaseStudiesCommon
           key={sys.id}
           type={slug}
           introSection={introSection}
           data={fields}
-          index={index}
         />
       ))}
       {hasFeedbackForm && (
