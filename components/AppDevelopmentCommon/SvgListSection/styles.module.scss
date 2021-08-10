@@ -1,29 +1,29 @@
 @import 'styles/utils/mixins';
 
 .svgSection {
-  margin: 150px auto;
-  max-width: 1076px;
+  @include appDevelopmentContainer;
 
-  @include below-tablet {
-    margin: 100px 0;
-  }
+  .svgListWrapper {
+    margin: 0 auto;
+    max-width: 1076px;
 
-  .svgList {
-    margin-bottom: 150px;
+    .svgList {
+      margin-bottom: 150px;
 
-    @include flex(row, space-between, center, wrap);
+      @include flex(row, space-between, center, wrap);
 
-    & > div {
-      flex: 1 0 20%;
-      text-align: center;
-      margin-top: 80px;
+      & > div {
+        flex: 1 0 20%;
+        text-align: center;
+        margin-top: 80px;
 
-      @include tablet {
-        flex: 1 0 50%;
+        @include tablet {
+          flex: 1 0 50%;
 
-        &:nth-of-type(1),
-        &:nth-of-type(2) {
-          margin-top: 0;
+          &:nth-of-type(1),
+          &:nth-of-type(2) {
+            margin-top: 0;
+          }
         }
       }
     }
@@ -31,32 +31,67 @@
 }
 
 .mobile-app-development-company {
-  @extend .svgSection;
+  @include appDevelopmentContainer;
 
-  .svgList {
-    max-width: 855px;
-    margin: 0 auto 150px;
+  &.first {
+    .svgListWrapper {
+      margin: 0 auto;
+      max-width: 855px;
 
-    @include flex(row, center, center, wrap);
+      .svgList {
+        @include flex(row, center, center, wrap);
 
-    & > div {
-      flex: 0 0 25%;
+        & > div {
+          flex: 0 0 25%;
+          text-align: center;
+          margin: 40px 0;
+
+          @include tablet {
+            flex: 1 0 50%;
+
+            &:nth-of-type(1),
+            &:nth-of-type(2) {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.second {
+    .svgListWrapper {
+      margin: 0 auto;
+      max-width: 1300px;
+
+      .svgList {
+        overflow-x: scroll;
+
+        @include flex(row, space-between, center, nowrap);
+
+        & > div {
+          flex: unset;
+          margin-right: 100px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          & > svg {
+            opacity: 0.5;
+          }
+        }
+      }
     }
   }
 }
 
-.mobile-app-development-company[data-index='8'] {
-  .svgList {
-    max-width: 1300px;
+.chat-app-development-company {
+  @extend .svgSection;
 
-    @include flex(row, space-between, center, wrap);
-
-    & > div {
-      flex: unset;
-
-      & > svg {
-        opacity: 0.5;
-      }
+  .cta {
+    & > h3 {
+      margin: 0;
     }
   }
 }

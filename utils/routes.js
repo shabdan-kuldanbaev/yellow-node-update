@@ -202,9 +202,9 @@ export const routes = {
   },
   customMobileApp: {
     title: 'Custom mobile app development company',
-    path: '/mobile-app-development',
-    dynamicPath: '/mobile-app-development',
-    slug: 'mobile-app-development',
+    path: '/mobile-app-development-company',
+    dynamicPath: '/mobile-app-development-company',
+    slug: 'mobile-app-development-company',
   },
   notFound: {
     title: '404 | Yellow',

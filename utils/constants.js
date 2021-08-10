@@ -132,24 +132,7 @@ export const SVG_IMAGES_TYPES = {
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
   nearbyArrow: 'nearbyArrow',
-  communication: 'communication',
-  sales: 'sales',
-  customerService: 'customerService',
   yellowCheckMark: 'yellowCheckMark',
-  twilio: 'twilio',
-  pubnub: 'pubnub',
-  react: 'react',
-  java: 'java',
-  firebase: 'firebase',
-  webRtc: 'webRtc',
-  swift: 'swift',
-  kotlin: 'kotlin',
-  postgreSql: 'postgreSql',
-  objC: 'objC',
-  provenExperience: 'provenExperience',
-  highQualityCode: 'highQualityCode',
-  recommended: 'recommended',
-  greatDesign: 'greatDesign',
   yellowLogo: 'yellowLogo',
   yellowLogoText: 'yellowLogoText',
   appstore: 'appstore',
@@ -161,6 +144,7 @@ export const SVG_IMAGES_TYPES = {
   instaRoundWhite: 'instaRoundWhite',
   opensenseTitleBorder: 'opensenseTitleBorder',
   tellTeamUnderline: 'tellTeamUnderline',
+  visitSite: 'visitSite',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -204,6 +188,15 @@ export const APP_DEVELOPMENT_ICONS = {
   productHunt: 'productHunt',
   esquire: 'esquire',
   theWeek: 'theWeek',
+
+  communication: 'communication',
+  sales: 'sales',
+  customerService: 'customerService',
+
+  provenExperience: 'provenExperience',
+  highQualityCode: 'highQualityCode',
+  recommended: 'recommended',
+  greatDesign: 'greatDesign',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -216,6 +209,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentFAQ: 'app-development-faq',
   appDevelopmentSlider: 'app-development-slider',
   appDevelopmentImageSection: 'app-development-image',
+  appDevelopmentReviews: 'app-development-reviews',
 };
 
 export const CONTACTS_DATA = {

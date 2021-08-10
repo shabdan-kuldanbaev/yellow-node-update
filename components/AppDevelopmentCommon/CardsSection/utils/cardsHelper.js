@@ -8,6 +8,7 @@ export const getCardsProps = (data) => {
     description,
     subtitle,
     contentModules,
+    view,
   } = getDocumentFields(
     data,
     [
@@ -15,6 +16,7 @@ export const getCardsProps = (data) => {
       'description',
       'contentModules',
       'subtitle',
+      'view',
     ],
   );
   const { contentModules: cardsList } = getDocumentFields(get(contentModules, '[0]', []));
@@ -42,5 +44,6 @@ export const getCardsProps = (data) => {
     subtitle,
     cardsList,
     link,
+    view,
   };
 };

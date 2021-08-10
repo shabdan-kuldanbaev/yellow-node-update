@@ -1,0 +1,9 @@
+@import 'styles/utils/mixins';
+
+.mobile-app-development-company {
+  @include appDevelopmentContainer;
+
+  @include phone {
+    padding: 64px 0;
+  }
+}

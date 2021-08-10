@@ -104,8 +104,8 @@ export const microdata = {
   customMobileApp: () => ({
     '@context': context,
     '@type': 'WebPage',
-    name: '',
-    description: '!',
+    name: 'Custom mobile app development company | Yellow',
+    description: 'The best talents for Mobile App Development are here. Hire an experienced team to work on your idea.',
     breadcrumb: 'Homepage > Custom mobile app development company',
   }),
   breadcrumbs: ({ breadcrumbsList }) => {

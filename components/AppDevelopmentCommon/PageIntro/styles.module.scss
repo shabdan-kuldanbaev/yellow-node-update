@@ -80,7 +80,13 @@
 .mobile-app-development-company {
   @extend .pageIntroContainer;
 
-  padding-top: 0;
+  @include tablet {
+    padding-top: 100px;
+  }
+
+  @include phone {
+    padding-top: 64px;
+  }
 
   .pageIntroSection {
     .pageIntroWrapper {
@@ -95,6 +101,10 @@
 
       .pageTitle {
         max-width: 615px;
+
+        @include phone {
+          @include fontSize(35px);
+        }
       }
 
       .subtitle {
@@ -106,5 +116,19 @@
         padding-top: 100%;
       }
     }
+  }
+}
+
+.chat-app-development-company {
+  @extend .pageIntroContainer;
+
+  padding-top: 0;
+
+  @include tablet {
+    padding-top: 100px;
+  }
+
+  @include phone {
+    padding-top: 64px;
   }
 }

@@ -1,22 +1,13 @@
 @import 'styles/utils/mixins';
 
-.chatFeaturesSection {
+.sliderSection {
   max-width: $max-content-width;
   margin: 0 auto;
-  padding: 0 80px;
   position: relative;
 
   @include flex(column, center, center);
 
-  @include tablet {
-    padding: 0 40px;
-  }
-
-  @include phone {
-    padding: 0 15px;
-  }
-
-  .chatFeaturesList {
+  .sliderList {
     padding: 150px;
     box-shadow: $card-bow-shadow;
     border-radius: 5px;
@@ -38,7 +29,7 @@
     }
 
     .item {
-      .featureTitle {
+      .slideTitle {
         margin: 0 0 20px;
         color: $tundora;
         font-weight: 700;
@@ -54,7 +45,7 @@
         }
       }
 
-      .featureSubtitle {
+      .slideSubtitle {
         color: $silver-chalice;
         line-height: 2;
 
@@ -83,13 +74,8 @@
   }
 }
 
-.chatFeaturesSectionConteiner {
-  padding: 150px 0;
-  background-color: $alabaster;
-  position: relative;
-  width: 100%;
+.chat-app-development-company {
+  @include appDevelopmentContainer;
 
-  @include below-tablet {
-    padding: 100px 0 80px;
-  }
+  background-color: $alabaster;
 }

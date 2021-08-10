@@ -15,13 +15,9 @@
 
 .chat-app-development-company {
   .figures {
-    margin-bottom: 100px;
-
     @include flex(row, space-between);
 
     @include below-tablet {
-      margin-bottom: 50px;
-
       @include flex(row, space-between, initial, wrap);
     }
 
@@ -59,10 +55,6 @@
   grid-column-gap: 150px;
 
   @include tablet {
-    grid-column-gap: 80px;
-  }
-
-  @include phone {
     grid-template-columns: repeat(1, auto);
   }
 
@@ -76,6 +68,14 @@
         line-height: 1.8;
 
         @include fontSize(18px);
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+
+        @include phone {
+          @include fontSize(14px);
+        }
       }
     }
   }
@@ -97,6 +97,14 @@
         @extend .figureTitle;
 
         color: $cod-gray-1;
+
+        @include tablet {
+          @include fontSize(35px);
+        }
+
+        @include phone {
+          @include fontSize(24px);
+        }
       }
 
       div:nth-of-type(2) {
@@ -105,6 +113,10 @@
         max-width: 180px;
 
         @include fontSize(16px);
+
+        @include phone {
+          @include fontSize(14px);
+        }
       }
     }
   }

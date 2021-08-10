@@ -7,7 +7,10 @@ import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const Figures = ({ type, figuresData }) => {
-  const { contentModules: figures, text } = getDocumentFields(
+  const {
+    contentModules: figures,
+    text,
+  } = getDocumentFields(
     figuresData,
     ['contentModules', 'text'],
   );
@@ -24,14 +27,16 @@ export const Figures = ({ type, figuresData }) => {
 
   return (
     <div className={styles[type]}>
-      <div className={styles.text}>
-        <Animated
-          {...animatedProps}
-          transitionDelay={800}
-        >
-          <ContentfulParser document={text} />
-        </Animated>
-      </div>
+      {text && (
+        <div className={styles.text}>
+          <Animated
+            {...animatedProps}
+            transitionDelay={800}
+          >
+            <ContentfulParser document={text} />
+          </Animated>
+        </div>
+      )}
       <div className={styles.figures}>
         {figures.map((item, index) => {
           const {
@@ -60,4 +65,5 @@ export const Figures = ({ type, figuresData }) => {
 
 Figures.propTypes = {
   figuresData: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
 };

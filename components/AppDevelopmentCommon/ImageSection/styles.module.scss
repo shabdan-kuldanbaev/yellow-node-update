@@ -1,7 +1,8 @@
 @import 'styles/utils/mixins';
 
-.experienceSection {
-  margin: 50px 0 100px;
+.imageSection {
+  max-width: 1300px;
+  margin: 0 auto;
 
   @include flex(row, space-between, center);
 
@@ -59,4 +60,10 @@
       }
     }
   }
+}
+
+.chat-app-development-company {
+  @include appDevelopmentContainer;
+
+  padding-top: 0;
 }

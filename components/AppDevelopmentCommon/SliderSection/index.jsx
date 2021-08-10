@@ -3,107 +3,72 @@ import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
 import SwiperCore, { Scrollbar, Mousewheel } from 'swiper/core';
 import { Animated } from 'components/Common/Animated';
-import { FullLayout } from 'components/Layout/FullLayout';
-import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
 import 'swiper/components/scrollbar/scrollbar.scss';
+import { getSliderProps } from './utils/sliderHelper';
 import styles from './styles.module.scss';
 
 SwiperCore.use([Scrollbar, Mousewheel]);
 
-export const SliderSection = ({ sectionData }) => {
+export const SliderSection = ({ sectionData, type }) => {
   const {
     title,
     description,
-    contentModules: chatFeatures,
-  } = getDocumentFields(
-    sectionData,
-    [
-      'title',
-      'description',
-      'contentModules',
-    ],
-  );
-  const animationProps = {
-    type: ANIMATED_TYPE.isCustom,
-    translateY: '2.82352941em',
-    opasityDuration: 1,
-    transformDuration: 1,
-  };
-  const params = {
-    slidesPerView: 1,
-    spaceBetween: 150,
-    slidesPerGroup: 1,
-    mousewheel: {
-      forceToAxis: true,
-    },
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-    breakpoints: {
-      1025: {
-        slidesPerGroup: 2,
-        slidesPerView: 2,
-      },
-    },
-  };
+    slides,
+    animationProps,
+    params,
+  } = getSliderProps(sectionData);
 
-  if (!chatFeatures || !chatFeatures.length) {
+  if (!slides || !slides.length) {
     return null;
   }
 
   return (
-    <FullLayout
-      disableMaxWidth
-      disableTopPadding
-      disableSidePadding
-      disableBottomPadding
-    >
-      <div className={styles.chatFeaturesSectionConteiner}>
-        <div className={styles.chatFeaturesSection}>
-          <SectionTitle
-            title={title}
-            description={description}
-          />
-          <div className={styles.chatFeaturesList}>
-            <Animated
-              {...animationProps}
-              transitionDelay={750}
-            >
-              <Swiper {...params}>
-                {chatFeatures.map((feature) => {
-                  const {
-                    title: featureTitle,
-                    description: featureDescription,
-                  } = getDocumentFields(
-                    feature,
-                    ['title', 'description'],
-                  );
+    <section className={styles[type]}>
+      <div className={styles.sliderSection}>
+        <SectionTitle
+          title={title}
+          description={description}
+        />
+        <div className={styles.sliderList}>
+          <Animated
+            {...animationProps}
+            transitionDelay={750}
+          >
+            <Swiper {...params}>
+              {slides.map((slide) => {
+                const {
+                  title: slideTitle,
+                  description: slideDescription,
+                } = getDocumentFields(
+                  slide,
+                  ['title', 'description'],
+                );
 
-                  return (
-                    <div
-                      className={styles.item}
-                      key={`features/${featureTitle}`}
-                    >
-                      <p className={styles.featureTitle}>
-                        {featureTitle}
-                      </p>
-                      <p className={styles.featureSubtitle}>
-                        {featureDescription}
-                      </p>
-                    </div>
-                  );
-                })}
-              </Swiper>
-            </Animated>
-          </div>
+                return (
+                  <div
+                    className={styles.item}
+                    key={`slides/${slideTitle}`}
+                  >
+                    <p className={styles.slideTitle}>
+                      {slideTitle}
+                    </p>
+                    <p className={styles.slideSubtitle}>
+                      {slideDescription}
+                    </p>
+                  </div>
+                );
+              })}
+            </Swiper>
+          </Animated>
         </div>
       </div>
-    </FullLayout>
+    </section>
   );
 };
 
 SliderSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
 };

@@ -6,7 +6,6 @@ import { PageHeader } from 'components/Common/PageHeader';
 import { MetaTags } from 'components/Common/MetaTags';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
-import { FullLayout } from 'components/Layout/FullLayout';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { microdata } from 'utils/microdata';
 import { rootUrl } from 'utils/helper';
@@ -46,12 +45,11 @@ const CustomMobileAppContainer = ({
       />
       <div className={styles.mobileAppContainer}>
         <PageHeader breadcrumbs={breadcrumbs} />
-        {contentModules.map((module, index) => (
+        {contentModules.map((module) => (
           <AppDevelopmentCommon
             section={module}
             handleOnCTAClick={openFullscreenEstimation}
             type="mobile-app-development-company"
-            index={index}
           />
         ))}
       </div>

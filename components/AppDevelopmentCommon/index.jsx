@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
 import { ImageSection } from 'components/AppDevelopmentCommon/ImageSection';
 import { CardsSection } from 'components/AppDevelopmentCommon/CardsSection';
-import { CardsListSection } from 'components/AppDevelopmentCommon/CardsListSection';
+import { CheckListSection } from 'components/AppDevelopmentCommon/CheckListSection';
 import { SliderSection } from 'components/AppDevelopmentCommon/SliderSection';
 import { SvgListSection } from 'components/AppDevelopmentCommon/SvgListSection';
 import { GallerySection } from 'components/AppDevelopmentCommon/GallerySection';
+import { FaqSection } from 'components/AppDevelopmentCommon/FaqSection';
+import { ReviewsSection } from 'components/AppDevelopmentCommon/ReviewsSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -14,7 +16,6 @@ export const AppDevelopmentCommon = ({
   type,
   section,
   handleOnCTAClick,
-  index,
 }) => {
   if (!section.fields) {
     return null;
@@ -43,9 +44,7 @@ export const AppDevelopmentCommon = ({
         sectionData={section}
         pageType={type}
         sectionType="cards"
-        hasCTAButton
         handleOnCTAClick={handleOnCTAClick}
-        index={index}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentSmallCards:
@@ -54,33 +53,64 @@ export const AppDevelopmentCommon = ({
         sectionData={section}
         pageType={type}
         sectionType="smallCards"
+        handleOnCTAClick={handleOnCTAClick}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentCheckList:
     return (
-      <CardsListSection
+      <CheckListSection
         sectionData={section}
         type={type}
       />
-    ); // rename
+    );
   case APP_DEVELOPMENT_TYPES.appDevelopmentSvgList:
     return (
       <SvgListSection
         sectionData={section}
         handleOnCTAClick={handleOnCTAClick}
         type={type}
-        index={index}
       />
     );
-  case APP_DEVELOPMENT_TYPES.chatAppPageFeatures:
-    return <SliderSection sectionData={section} />;
-  case APP_DEVELOPMENT_TYPES.chatAppPageOurWork:
-    return <GallerySection sectionData={section} />;
+  case APP_DEVELOPMENT_TYPES.appDevelopmentSlider:
+    return (
+      <SliderSection
+        sectionData={section}
+        type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentGallery:
+    return (
+      <GallerySection
+        sectionData={section}
+        type={type}
+        handleOnCTAClick={handleOnCTAClick}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentFAQ:
+    return (
+      <FaqSection
+        data={section}
+        type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentReviews:
+    return (
+      <ReviewsSection
+        data={section}
+        type={type}
+      />
+    );
   default:
     return null;
   }
 };
 
+AppDevelopmentCommon.defaultProps = {
+  handleOnCTAClick: () => {},
+};
+
 AppDevelopmentCommon.propTypes = {
   section: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
+  handleOnCTAClick: PropTypes.func,
 };

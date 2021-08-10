@@ -2,19 +2,27 @@
 
 .mobileAppContainer {
   margin: 0 auto;
-  padding: calc(#{$header-height} + 60px) 0 100px;
+  padding: calc(#{$header-height} + 60px) 0 0;
 
   @include tablet {
-    padding: calc(#{$header-height} + 60px) 0 100px;
+    padding: calc(#{$header-height} + 60px) 0 0;
   }
 
   @include phone {
-    padding: calc(#{$header-height} + 40px) 0 100px;
+    padding: calc(#{$header-height} + 40px) 0 0;
   }
 
   [data-page-title],
   [data-page-breadcrumbs] {
     max-width: 1300px;
     margin: 0 auto;
+  }
+
+  & > div:first-child {
+    padding: 0 40px;
+
+    @include phone {
+      padding: 0 15px;
+    }
   }
 }

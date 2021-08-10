@@ -6,31 +6,31 @@ import SwiperCore, {
   EffectCoverflow,
   Mousewheel,
 } from 'swiper/core';
-import { FullLayout } from 'components/Layout/FullLayout';
-import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { CallToAction } from 'components/Common/CallToAction';
+import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import 'swiper/components/pagination/pagination.scss';
+import { ItemPreview } from './ItemPreview';
+import { getGalleryProps } from './utils/galleryHelper';
 import styles from './styles.module.scss';
 
 SwiperCore.use([EffectCoverflow, Pagination, Mousewheel]);
 
-export const GallerySection = ({ sectionData }) => {
+export const GallerySection = ({
+  sectionData,
+  type,
+  handleOnCTAClick,
+}) => {
   const {
     title,
-    description,
-    images,
-  } = getDocumentFields(
-    sectionData,
-    [
-      'title',
-      'description',
-      'images',
-    ],
-  );
+    slides,
+    link: {
+      linkTitle,
+      buttonTitle,
+    },
+  } = getGalleryProps(sectionData);
   const params = {
     effect: 'coverflow',
-    slidesPerView: 1.4,
-    spaceBetween: 10,
+    slidesPerView: 1.3,
     centeredSlides: true,
     loop: true,
     passiveListeners: true,
@@ -44,16 +44,15 @@ export const GallerySection = ({ sectionData }) => {
       rotate: 0,
       stretch: -40,
       depth: 150,
-      modifier: 1,
       slideShadows: false,
     },
     breakpoints: {
       1025: {
         slidesPerView: 1.8,
-        spaceBetween: 80,
+        spaceBetween: 0,
         coverflowEffect: {
           rotate: 0,
-          stretch: -40,
+          stretch: -100,
           depth: 150,
         },
       },
@@ -61,39 +60,41 @@ export const GallerySection = ({ sectionData }) => {
   };
 
   return (
-    <FullLayout
-      disableMaxWidth
-      disableTopPadding
-      disableSidePadding
-      disableBottomPadding
-    >
-      <div className={styles.ourWorkSection}>
+    <section className={styles[type]}>
+      <div className={styles.gallerySection}>
         <SectionTitle
           title={title}
-          description={description}
         />
         <Swiper {...params}>
-          {images.map((image) => {
-            const imageUrl = getFileUrl(image);
-
-            return (
-              <div
-                className={styles.item}
-                key={`works/${imageUrl}`}
-              >
-                <img
-                  src={imageUrl}
-                  alt=""
-                />
-              </div>
-            );
-          })}
+          {slides && slides.map((slide) => (
+            <div>
+              <ItemPreview
+                data={slide}
+                type={type}
+              />
+            </div>
+          ))}
         </Swiper>
       </div>
-    </FullLayout>
+      {linkTitle && buttonTitle && (
+        <CallToAction
+          type="card"
+          title={linkTitle}
+          buttonTitle={buttonTitle}
+          className={styles.cta}
+          handleOnClick={handleOnCTAClick}
+        />
+      )}
+    </section>
   );
+};
+
+GallerySection.defaultProps = {
+  handleOnCTAClick: () => {},
 };
 
 GallerySection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
+  handleOnCTAClick: PropTypes.func,
 };

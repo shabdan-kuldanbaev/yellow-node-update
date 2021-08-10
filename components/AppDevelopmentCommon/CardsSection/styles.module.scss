@@ -9,37 +9,18 @@
   @include flex(column, center, center);
 }
 
-.advantages {
-  .typesList {
-    @include flex(row, space-between, initial, wrap);
-
-    @include below-tablet {
-      @include flex(column, space-between, center);
-    }
-
-    & > div {
-      width: calc(50% - 75px);
-      margin: 0 0 30px;
-
-      @include below-tablet {
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      &:last-child {
-        @include below-tablet {
-          margin-bottom: 30px;
-        }
-      }
-    }
-  }
-}
-
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 40px;
   grid-row-gap: 40px;
+
+  @include below-tablet {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    width: 100%;
+    grid-template-columns: auto;
+  }
 
   & > div {
     padding: 50px;
@@ -75,6 +56,11 @@
         @include fontSize(16px);
       }
     }
+
+    @include below-tablet {
+      width: 100%;
+      max-width: unset;
+    }
   }
 }
 
@@ -84,12 +70,24 @@
   grid-column-gap: 40px;
   grid-row-gap: 40px;
 
+  @include below-tablet {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    width: 100%;
+    grid-template-columns: auto;
+  }
+
   & > div {
     padding: 0;
     border-radius: 5px;
     box-sizing: border-box;
 
     @include flex();
+
+    @include below-tablet {
+      width: 100%;
+      max-width: unset;
+    }
 
     & > div:first-child {
       margin-right: 40px;
@@ -120,6 +118,10 @@
 
         @include fontSize(18px);
 
+        @include below-tablet {
+          max-width: unset;
+        }
+
         @include phone {
           @include fontSize(16px);
         }
@@ -131,8 +133,6 @@
 .mobile-app-development-company {
   @include appDevelopmentContainer;
 
-  background-color: $alabaster;
-
   .contentWrapper {
     @extend .wrapper;
 
@@ -143,6 +143,7 @@
         line-height: 2;
         text-align: center;
         max-width: 950px;
+        width: unset;
 
         @include fontSize(18px);
 
@@ -167,7 +168,92 @@
     }
   }
 
-  .button {
-    display: none;
+  .cta {
+    margin: 150px 0 0;
+
+    h3 {
+      margin: 0;
+
+      @include phone {
+        margin-bottom: 32px;
+      }
+    }
+
+    & > div {
+      padding: 20px 50px;
+    }
+  }
+
+  &.first {
+    background-color: $alabaster;
+  }
+}
+
+.chat-app-development-company {
+  @include appDevelopmentContainer;
+
+  &.first {
+    background-color: $alabaster;
+
+    .contentWrapper {
+      @extend .wrapper;
+
+      max-width: 1300px;
+
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+
+        @include below-tablet {
+          width: 100%;
+          grid-template-columns: auto;
+          grid-template-rows: repeat(3, 1fr);
+          grid-row-gap: 20px;
+        }
+
+        & > div {
+          padding: 40px;
+
+          p:not(.typeTitle) {
+            color: $silver-chalice;
+            line-height: 1.8;
+            margin: 0;
+
+            @include fontSize(16px);
+
+            @include phone {
+              @include fontSize(14px);
+            }
+          }
+
+          @include below-tablet {
+            width: 100%;
+            max-width: unset;
+          }
+        }
+      }
+    }
+
+    .cta {
+      padding: 0;
+      margin-top: 80px;
+    }
+  }
+
+  &.second {
+    background-color: $alabaster;
+
+    .contentWrapper {
+      @extend .wrapper;
+
+      .cards {
+        .typeTitle {
+          max-width: 235px;
+        }
+
+        p:not(.typeTitle) {
+          max-width: 365px;
+        }
+      }
+    }
   }
 }

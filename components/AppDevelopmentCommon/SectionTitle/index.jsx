@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -19,7 +18,7 @@ export const SectionTitle = ({
   };
 
   return (
-    <div className={cn(styles.sectionTitle, styles[type])}>
+    <div className={styles[type]}>
       <Animated
         {...animationProps}
         transitionDelay={600}

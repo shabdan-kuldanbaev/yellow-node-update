@@ -1,36 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
-import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
-import { ANIMATED_TYPE } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { Figures } from './Figures';
+import { getPageIntroProps } from './utils/pageIntroHelper';
 import styles from './styles.module.scss';
 
 export const PageIntro = ({ sectionData, type }) => {
   const {
     title,
     description,
-    images,
-    contentModules,
-  } = getDocumentFields(
-    sectionData,
-    [
-      'title',
-      'description',
-      'images',
-      'contentModules',
-    ],
-  );
-  const imageUrl = getFileUrl(get(images, '[0]', {}));
-  const figuresData = get(contentModules, '[0]', {});
-  const animatedProps = {
-    type: ANIMATED_TYPE.isCustom,
-    translateY: '2.82352941em',
-    opasityDuration: 1,
-    transformDuration: 1,
-  };
+    imageUrl,
+    figuresData,
+    animatedProps,
+  } = getPageIntroProps(sectionData);
 
   if (!title || !description || !imageUrl) {
     return null;
@@ -79,4 +61,5 @@ export const PageIntro = ({ sectionData, type }) => {
 
 PageIntro.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
 };

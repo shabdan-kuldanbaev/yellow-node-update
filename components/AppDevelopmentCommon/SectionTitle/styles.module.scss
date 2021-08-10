@@ -1,9 +1,9 @@
 @import 'styles/utils/mixins';
 
-.sectionTitle {
-  margin: 0 0 30px;
+.defaultTitle {
+  margin: 0 0 50px;
 
-  @include fontSize(46px);
+  @include fontSize(56px);
 
   @include macbook-twelve {
     @include fontSize(40px);
@@ -14,23 +14,29 @@
   }
 
   @include phone {
-    @include fontSize(30px);
+    @include fontSize(32px);
   }
 }
 
 .default {
+  margin-bottom: 20px;
+
   @include flex(column, center, center);
 
   .title {
     text-align: center;
+
+    @extend .defaultTitle;
   }
 
-  .description {
-    margin: 0 auto 80px;
+  .description,
+  .subtitle {
+    margin: 0 auto 60px;
     color: $silver-chalice;
     line-height: 2;
     text-align: center;
     width: 55vw;
+    max-width: 950px;
 
     @include fontSize(18px);
 
@@ -40,6 +46,7 @@
 
     @include below-tablet {
       width: 90vw;
+      margin-bottom: 20px;
     }
 
     @include phone {

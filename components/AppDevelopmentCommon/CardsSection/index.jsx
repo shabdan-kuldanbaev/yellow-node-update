@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { CallToAction } from 'components/Common/CallToAction';
 import { Svg } from 'components/AppDevelopmentCommon/Svg';
-import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
+import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
@@ -14,7 +14,6 @@ import styles from './styles.module.scss';
 
 export const CardsSection = ({
   sectionData,
-  hasCTAButton,
   handleOnCTAClick,
   pageType,
   sectionType,
@@ -25,6 +24,7 @@ export const CardsSection = ({
     subtitle,
     cardsList,
     link,
+    view,
   } = getCardsProps(sectionData);
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
@@ -38,7 +38,7 @@ export const CardsSection = ({
   }
 
   return (
-    <div className={cn(styles[pageType])}>
+    <div className={cn(styles[pageType], styles[view])}>
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
@@ -92,6 +92,7 @@ export const CardsSection = ({
               title={link.linkTitle}
               buttonTitle={link.buttonTitle}
               handleOnClick={handleOnCTAClick}
+              className={styles.cta}
             />
           </Animated>
         )}
@@ -101,13 +102,12 @@ export const CardsSection = ({
 };
 
 CardsSection.defaultProps = {
-  hasCTAButton: false,
   handleOnCTAClick: () => {},
 };
 
 CardsSection.propTypes = {
-  sectionData: PropTypes.instanceOf(Array).isRequired,
-  hasCTAButton: PropTypes.bool,
-  type: PropTypes.string.isRequired,
+  sectionData: PropTypes.instanceOf(Object).isRequired,
+  pageType: PropTypes.string.isRequired,
+  sectionType: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
 };

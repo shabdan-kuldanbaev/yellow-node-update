@@ -1,75 +1,70 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
+import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { Svg } from 'components/AppDevelopmentCommon/Svg';
 import { CallToAction } from 'components/Common/CallToAction';
-import { SectionTitle } from 'components/CustomChatAppCommon/SectionTitle';
-import { ANIMATED_TYPE } from 'utils/constants';
-import { getDocumentFields } from 'utils/helper';
+import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import { getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
 
 export const SvgListSection = ({
   sectionData,
   handleOnCTAClick,
   type,
-  index,
 }) => {
   const {
     title,
     description,
-    contentModules,
-  } = getDocumentFields(
-    sectionData,
-    [
-      'title',
-      'description',
-      'contentModules',
-    ],
-  );
-  const { contentList: technologies } = getDocumentFields(
-    get(contentModules, '[0]', []),
-    ['contentList'],
-  );
-  const animatedProps = {
-    type: ANIMATED_TYPE.isCustom,
-    translateY: '2.82352941em',
-    opasityDuration: 1,
-    transformDuration: 1,
-  };
+    technologies,
+    link,
+    view,
+    animatedProps,
+  } = getSvgSectionProps(sectionData);
 
   return (
-    <div
-      className={styles[type]}
-      data-index={index}
-    >
-      <SectionTitle
-        title={title}
-        description={description}
-      />
-      <div className={styles.svgList}>
-        {technologies.map((technology, technologyIndex) => (
+    <section className={cn(styles[type], styles[view])}>
+      <div className={styles.svgListWrapper}>
+        <SectionTitle
+          title={title}
+          description={description}
+        />
+        <div className={styles.svgList}>
+          {technologies.map((technology, technologyIndex) => (
+            <Animated
+              key={`technologies/${technology}`}
+              {...animatedProps}
+              transitionDelay={750 + 50 * technologyIndex}
+            >
+              <Svg type={technology} />
+            </Animated>
+          ))}
+        </div>
+        {link && (
           <Animated
-            key={`technologies/${technology}`}
             {...animatedProps}
-            transitionDelay={750 + 50 * technologyIndex}
+            transitionDelay={900}
           >
-            <Svg type={technology} />
+            <CallToAction
+              type="card"
+              title={link.linkTitle}
+              buttonTitle={link.buttonTitle}
+              handleOnClick={handleOnCTAClick}
+              className={styles.cta}
+            />
           </Animated>
-        ))}
+        )}
       </div>
-      {/* <CallToAction
-        type="card"
-        title={`Want to start chat app development?
-                Ask Yellow’s consultants now.`}
-        buttonTitle="Contact us"
-        handleOnClick={handleOnCTAClick}
-      /> */}
-    </div>
+    </section>
   );
+};
+
+SvgListSection.defaultProps = {
+  handleOnCTAClick: () => {},
 };
 
 SvgListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
-  handleOnCTAClick: PropTypes.func.isRequired,
+  handleOnCTAClick: PropTypes.func,
+  type: PropTypes.string.isRequired,
 };
