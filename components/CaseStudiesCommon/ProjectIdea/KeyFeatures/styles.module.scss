@@ -38,10 +38,6 @@
     @include phone {
       border-radius: 30px;
     }
-
-    @include phone-height-500 {
-      max-width: 340px;
-    }
   }
 
   .featureContainer {
@@ -113,6 +109,16 @@
 .fernwayer {
   @extend .container;
 
+  .containerBackground {
+    left: -20%;
+    right: 0;
+    opacity: 0.5;
+
+    @include phone-height-500 {
+      max-width: 410px;
+    }
+  }
+
   /* stylelint-disable-next-line */
   .featureContainer {
     .checkMark {
@@ -124,6 +130,12 @@
 
 .stickerbox {
   @extend .container;
+
+  .containerBackground {
+    left: -20%;
+    right: 0;
+    opacity: 0.5;
+  }
 
   /* stylelint-disable-next-line */
   .featureContainer {
@@ -138,10 +150,14 @@
   @extend .container;
 
   .containerBackground {
+    left: -22%;
+    right: 0;
     background-color: rgba($white, 0.03);
   }
   /* stylelint-disable-next-line */
   .featureContainer {
+    margin-bottom: 70px;
+
     .checkMark {
       color: $white;
       background: linear-gradient(159.7deg, $pink-1 10.47%, $light-red 98.88%);
@@ -151,12 +167,22 @@
       .title {
         color: $white;
       }
+
+      & > p {
+        max-width: 325px;
+      }
     }
   }
 }
 
 .fairy {
   @extend .container;
+
+  .containerBackground {
+    left: -20%;
+    right: 0;
+    opacity: 0.5;
+  }
 
   /* stylelint-disable-next-line */
   .featureContainer {
@@ -190,6 +216,9 @@
   }
 
   .containerBackground {
+    left: -20%;
+    right: 0;
+
     @include centeredBackgroundImage;
   }
 }
@@ -198,7 +227,7 @@
   @extend .container;
 
   .containerBackground {
-    left: -17%;
+    left: -20%;
 
     @include phone {
       left: -22%;
@@ -206,7 +235,7 @@
   }
 
   .featureContainer {
-    margin-bottom: 45px;
+    margin-bottom: 60px;
 
     .contentContainer {
       max-width: 350px;
@@ -237,6 +266,12 @@
 
     .contentContainer {
       max-width: 350px;
+
+      .title {
+        @include phone {
+          margin-bottom: 0;
+        }
+      }
     }
 
     .checkMark {

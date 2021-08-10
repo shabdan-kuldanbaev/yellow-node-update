@@ -54,6 +54,12 @@
       max-width: 825px;
       color: $silver-chalice;
     }
+
+    & > section {
+      @include phone {
+        height: 45vh;
+      }
+    }
   }
 }
 

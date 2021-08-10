@@ -86,6 +86,7 @@
   /* stylelint-disable-next-line */
   .animatedContainer {
     .image {
+      max-height: 740px;
       margin-left: 95px;
 
       @include phone {
@@ -137,6 +138,7 @@
   .animatedContainer {
     /* stylelint-disable-next-line */
     .image {
+      max-height: 645px;
       margin-left: 42px;
     }
   }
@@ -152,6 +154,13 @@
 
 .tell {
   @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      max-height: 660px;
+      margin-left: 30px;
+    }
+  }
 }
 
 .open-sense {
@@ -176,6 +185,8 @@
   @extend .imagesContainer;
 
   .animatedContainer {
+    animation-duration: 10s;
+
     .image {
       max-height: 600px;
       margin-left: 35px;

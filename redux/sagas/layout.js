@@ -29,7 +29,7 @@ function* fetchPage({ slug }) {
     const { items = null } = yield contentfulClient.getEntries({
       contentType: 'page',
       additionalQueryParams: {
-        'fields.slug[match]': slug,
+        'fields.slug': slug,
       },
     });
 

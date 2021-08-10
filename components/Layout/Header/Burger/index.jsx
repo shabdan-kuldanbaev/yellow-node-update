@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
+import { PAGES_WITH_DARK_HEADER } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Burger = ({
@@ -17,7 +18,7 @@ const Burger = ({
         cn(styles.burger, {
           [styles.burgerOpened]: isMobileMenuOpened,
           [styles.burgerClosed]: !isMobileMenuOpened,
-          [styles.additionalBurger]: isAdditional || (!isMobileMenuOpened && asPath.length > 2),
+          [styles.additionalBurger]: isAdditional || (!isMobileMenuOpened && !PAGES_WITH_DARK_HEADER.includes(asPath)),
           [styles.additionalBurgerOpened]: isAdditional && isMobileMenuOpened,
         })
       }
