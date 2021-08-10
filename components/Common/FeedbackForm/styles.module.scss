@@ -13,8 +13,8 @@
     transition: none;
 
     & > div {
-      color: $nobel;
-      border-color: $nobel;
+      color: rgba($dark-grey, 0.3);
+      border-color: rgba($dark-grey, 0.3);
     }
   }
 
@@ -86,7 +86,7 @@
     @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
 
     border-radius: $button-border-radius;
-    min-width: 330px;
+    max-width: 264px;
     font-weight: 600;
     outline: none;
 

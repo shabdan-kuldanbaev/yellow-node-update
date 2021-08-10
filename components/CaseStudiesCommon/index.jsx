@@ -4,11 +4,14 @@ import ChallengesAndSolutionsWithWireframes from 'components/CaseStudiesCommon/C
 import SpecialChallengesAndSolutions from 'components/CaseStudiesCommon/SpecialChallengesAndSolutions';
 import ProjectIdea from 'components/CaseStudiesCommon/ProjectIdea';
 import WireframesSection from 'components/CaseStudiesCommon/WireframesSectoin';
-import Intro from 'components/CaseStudiesCommon/Intro';
+import { Intro } from 'components/CaseStudiesCommon/Intro';
 import ResultsSection from 'components/CaseStudiesCommon/ResultsSection';
 import ImagesSection from 'components/CaseStudiesCommon/ImagesSection';
 import Parallax from 'components/CaseStudiesCommon/Parallax';
 import DesignSection from 'components/CaseStudiesCommon/DesignSection';
+import { FeaturesSection } from 'components/CaseStudiesCommon/FeaturesSection';
+import { StorySection } from 'components/CaseStudiesCommon/StorySection';
+import { EventSection } from 'components/CaseStudiesCommon/EventSection';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
 const CaseStudiesCommon = (props) => {
@@ -33,6 +36,12 @@ const CaseStudiesCommon = (props) => {
     return <Parallax {...props} />;
   case CASE_STUDIES_TYPES.design:
     return <DesignSection {...props} />;
+  case CASE_STUDIES_TYPES.features:
+    return <FeaturesSection {...props} />;
+  case CASE_STUDIES_TYPES.story:
+    return <StorySection {...props} />;
+  case CASE_STUDIES_TYPES.caseStudyEvent:
+    return <EventSection {...props} />;
   default:
     return null;
   }

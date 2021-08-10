@@ -31,6 +31,7 @@ const ChallengesAndSolutions = ({
           title,
           images,
           text,
+          imagesBundles,
         } = getDocumentFields(document);
         const imageUrl = getOptimizedContentfulImage(
           getFileUrl(get(images, '[0]')),
@@ -98,6 +99,17 @@ const ChallengesAndSolutions = ({
                     src={imageUrl}
                     alt={title}
                   />
+                  {imagesBundles && imagesBundles.map((bundle) => {
+                    const bundleUrl = getFileUrl(bundle);
+
+                    return (
+                      <img
+                        className={styles.imageBundle}
+                        src={bundleUrl}
+                        alt={title}
+                      />
+                    );
+                  })}
                 </div>
               </Animated>
             )}

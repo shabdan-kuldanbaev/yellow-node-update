@@ -2,7 +2,10 @@
 
 .fernwayer,
 .stickerbox,
-.fairy {
+.fairy,
+.tell,
+.open-sense,
+.separate-us {
   @include caseStudyContainer;
 
   background-color: $white;
@@ -19,5 +22,11 @@
 
   [data-case-study-description] {
     color: $silver-chalice;
+  }
+}
+
+.fernwayer {
+  &.second {
+    padding: 140px 40px 0;
   }
 }

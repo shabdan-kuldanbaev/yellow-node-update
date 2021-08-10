@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .container {
@@ -115,6 +116,10 @@
     .experience {
       margin-right: 15px;
 
+      @include phone {
+        margin-right: 40px;
+      }
+
       &:last-of-type {
         margin: 0;
       }
@@ -203,28 +208,33 @@
       color: rgba($white, 0.7);
     }
   }
+
+  .imageContainer {
+    .image {
+      max-width: 1380px;
+    }
+  }
 }
 
 .stickerbox {
   @extend .container;
 
   background: linear-gradient(180deg, $grey-darker 0%, $dark-grey-2 100%);
+  height: unset;
 
   .experiencesContainer {
     /* stylelint-disable-next-line */
     .experience {
-      margin-right: 15px;
-
-      &:last-of-type {
-        margin-right: 0;
-      }
-
       .infoTitle {
         color: $white;
       }
 
       p {
         color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 295px;
       }
     }
   }
@@ -242,6 +252,14 @@
 
     .projectDescription {
       color: rgba($white, 0.4);
+    }
+  }
+
+  .introSection {
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
     }
   }
 }
@@ -298,6 +316,53 @@
       color: rgba($white, 0.4);
     }
   }
+
+  .imageContainer {
+    .image {
+      max-width: 1000px;
+      transform: translate(-50%, -44%);
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+
+    &:nth-child(3) {
+      top: 0;
+      right: 0;
+      transform: translate(5%, -9%);
+    }
+
+    &:nth-child(4) {
+      max-width: 85px;
+      top: 50%;
+      right: 0;
+      transform: translate(-120%, -200%);
+
+      @include macbook-fifteen {
+        display: none;
+      }
+    }
+
+    &:nth-child(5) {
+      max-width: 100px;
+      top: 50%;
+      left: 0;
+      transform: translate(85%, 165%);
+
+      @include macbook-fifteen {
+        display: none;
+      }
+    }
+  }
+
+  .introSection {
+    margin-bottom: 350px;
+
+    @include tablet {
+      margin-bottom: 60px;
+    }
+  }
 }
 
 .fairy {
@@ -311,15 +376,25 @@
     .experience {
       margin-right: 15px;
 
+      &:nth-last-child(2) {
+        p:not(.infoTitle) {
+          max-width: 295px;
+        }
+      }
+
       &:last-of-type {
         margin-right: 0;
+
+        p:not(.infoTitle) {
+          max-width: 200px;
+        }
       }
 
       .infoTitle {
         color: $white;
       }
 
-      p {
+      p:not(.infoTitle) {
         color: rgba($white, 0.4);
       }
     }
@@ -338,6 +413,72 @@
 
     .projectDescription {
       color: rgba($white, 0.6);
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 630px;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.tell {
+  @extend .container;
+
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFF 100%) no-repeat center;
+  background-size: cover;
+
+  .projectInfoContainer {
+    max-width: 50%;
+
+    @include tablet {
+      max-width: unset;
+    }
+
+    .projectTitle {
+      color: $dark-grey;
+
+      @include fontSize(65px);
+
+      @include tablet {
+        @include fontSize(44px);
+      }
+    }
+
+    .projectSubtitle {
+      color: $dark-grey;
+      max-width: 60%;
+
+      @include fontSize(24px);
+
+      @include tablet {
+        margin: 0 auto;
+        max-width: unset;
+
+        @include fontSize(22px);
+      }
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      p {
+        line-height: 1.5;
+
+        @include fontSize(18px);
+      }
+
+      p:not(.infoTitle) {
+        color: $silver-chalice;
+      }
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 785px;
     }
   }
 }

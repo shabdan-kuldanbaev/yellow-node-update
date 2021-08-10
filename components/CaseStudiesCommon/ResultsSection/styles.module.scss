@@ -110,4 +110,76 @@
   .circle {
     background: linear-gradient(0deg, $dark-violet-1 0%, $dark-violet-2 100%);
   }
+
+  .video {
+    max-width: 370px;
+    transform: translateY(-22px);
+    border-radius: 50px;
+
+    @include phone {
+      max-width: 223px;
+      border-radius: 30px;
+    }
+  }
+}
+
+.tell {
+  @include caseStudyContainer;
+
+  overflow: hidden;
+
+  .circle {
+    background: $alabaster;
+
+    .mockup {
+      width: 330px;
+      filter:
+        drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6))
+        drop-shadow(-14.7997px 14.7997px 29.5993px rgba(0, 0, 0, 0.5));
+
+      @include phone {
+        width: 209px;
+      }
+    }
+
+    .appImage {
+      width: 308px;
+      filter: inset;
+
+      @include phone {
+        width: 196px;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(30%, 25%);
+      max-width: 250px;
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+}
+
+.open-sense {
+  @include caseStudyContainer;
+
+  .circle {
+    position: static;
+    transform: translateX(0);
+    width: 100%;
+    max-width: 1076px;
+    margin: 100px auto 0;
+
+    .mockup {
+      width: 100%;
+      filter: unset;
+      position: static;
+      transform: translate(0, 0);
+    }
+  }
 }

@@ -105,7 +105,6 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
-  appstore: 'appstore',
   arrow: 'arrowSvg',
   behance: 'behanceSvg',
   checkMark: 'checkMarkSvg',
@@ -153,11 +152,15 @@ export const SVG_IMAGES_TYPES = {
   greatDesign: 'greatDesign',
   yellowLogo: 'yellowLogo',
   yellowLogoText: 'yellowLogoText',
+  appstore: 'appstore',
+  blackFillAppstore: 'blackFillAppstore',
   linkedinRoundWhite: 'linkedinRoundWhite',
   twitterRoundWhite: 'twitterRoundWhite',
   behanceRoundWhite: 'behanceRoundWhite',
   mediumRoundWhite: 'mediumRoundWhite',
   instaRoundWhite: 'instaRoundWhite',
+  opensenseTitleBorder: 'opensenseTitleBorder',
+  tellTeamUnderline: 'tellTeamUnderline',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -269,6 +272,9 @@ export const CASE_STUDIES_TYPES = {
   results: 'case-study-results',
   parallax: 'case-study-parallax',
   design: 'case-study-design',
+  features: 'case-study-features',
+  story: 'case-study-story',
+  caseStudyEvent: 'case-study-event',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -277,9 +283,26 @@ export const ARTICLE_PREVIEW_TYPES = {
   search: 'search',
 };
 
-export const CASE_STUDIES_SLUGS = [
-  'fernwayer',
-  'stickerbox',
-  'seven-pm-thursday',
-  'fairy',
+export const CASE_STUDIES = {
+  fernwayer: 'fernwayer',
+  stickerbox: 'stickerbox',
+  sevenPmThursday: 'seven-pm-thursday',
+  fairy: 'fairy',
+  tell: 'tell',
+  openSense: 'open-sense',
+  separateUs: 'separate-us',
+};
+
+export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
+  acc[index] = value;
+
+  return acc;
+}, []);
+
+export const PAGES_WITH_DARK_HEADER = [
+  ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
+  ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
+  ROUTES.project.getRoute(CASE_STUDIES.sevenPmThursday).path,
+  ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
+  ROUTES.homepage.path,
 ];

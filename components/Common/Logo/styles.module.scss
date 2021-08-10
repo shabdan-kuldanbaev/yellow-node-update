@@ -15,7 +15,10 @@
 }
 
 .home,
-.stickerbox {
+.stickerbox,
+.tell,
+.open-sense,
+.separate-us {
   .logo {
     color: $logo-stroke;
 
@@ -23,9 +26,20 @@
       color: $turbo-100;
     }
   }
+}
 
+.home,
+.stickerbox {
   .text {
     color: $white;
+  }
+}
+
+.tell,
+.open-sense,
+.separate-us {
+  .text {
+    color: $black;
   }
 }
 

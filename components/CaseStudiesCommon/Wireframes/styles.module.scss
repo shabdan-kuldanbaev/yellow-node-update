@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins', 'styles/utils/theme/animations';
 
 @mixin insetGradient {
@@ -85,6 +86,7 @@
   /* stylelint-disable-next-line */
   .animatedContainer {
     .image {
+      max-height: 740px;
       margin-left: 95px;
 
       @include phone {
@@ -136,6 +138,7 @@
   .animatedContainer {
     /* stylelint-disable-next-line */
     .image {
+      max-height: 645px;
       margin-left: 42px;
     }
   }
@@ -146,5 +149,55 @@
 
   &::after {
     background: linear-gradient(270deg, $violet 0%, rgba($violet, 0) 100%);
+  }
+}
+
+.tell {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      max-height: 660px;
+      margin-left: 30px;
+    }
+  }
+}
+
+.open-sense {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      margin-left: 35px;
+    }
+  }
+
+  &::before {
+    background: linear-gradient(90deg, $zircon 0%, rgba(248, 250, 255, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $zircon 0%, rgba(248, 250, 255, 0) 100%);
+  }
+}
+
+.separate-us {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    animation-duration: 10s;
+
+    .image {
+      max-height: 600px;
+      margin-left: 35px;
+    }
+  }
+
+  &::before {
+    background: linear-gradient(90deg, $white 0%, rgba($white, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $white 0%, rgba($white, 0) 100%);
   }
 }

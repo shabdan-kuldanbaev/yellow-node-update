@@ -1,0 +1,174 @@
+@import 'styles/utils/mixins';
+
+.container {
+  background-color: $white;
+  font-family: $case-studies-font;
+
+  .sectionIntro {
+    max-width: 1115px;
+    margin: 0 auto;
+
+    @include flex();
+
+    .sectionTitle {
+      width: 50%;
+      margin: 0 40px 0 0;
+      color: $dark-grey;
+
+      @include fontSize(56px);
+
+      @include tablet {
+        @include fontSize(40px);
+      }
+
+      @include phone {
+        @include fontSize(32px);
+      }
+    }
+
+    .sectionDescription {
+      width: 50%;
+      margin: 20px 0 0;
+      font-weight: 400;
+      line-height: 1.8;
+      color: $silver-chalice;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        @include fontSize(16px);
+      }
+
+      @include phone {
+        margin-bottom: 5px;
+
+        @include fontSize(14px);
+      }
+    }
+  }
+
+  .imageContainer {
+    max-width: 1115px;
+    margin: 120px auto 0;
+
+    & > img {
+      width: 100%;
+    }
+  }
+
+  .sectionContent {
+    margin: 150px auto 0;
+    display: grid;
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+    grid-template-columns: repeat(3, minmax(315px, 410px));
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    max-width: 1115px;
+
+    .contentTitle {
+      margin: 0;
+      grid-row: 1/4;
+      font-family: $case-studies-font;
+      font-weight: bold;
+      line-height: 120%;
+      color: $dark-grey;
+
+      @include fontSize(32px);
+
+      @include tablet {
+        @include fontSize(24px);
+      }
+
+      @include phone {
+        @include fontSize(18px);
+      }
+    }
+
+    & > a {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.5;
+      color: $brink-pink;
+      transition: color 0.4s ease;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        @include fontSize(16px);
+      }
+
+      @include phone {
+        margin-bottom: 5px;
+
+        @include fontSize(14px);
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $fuzzy-wuzzy-brown;
+        transition: color 0.4s ease;
+      }
+    }
+  }
+}
+
+.separate-us {
+  @include caseStudyContainer;
+
+  @extend .container;
+
+  .sectionIntro {
+    @include phone {
+      flex-direction: column;
+    }
+
+    .sectionTitle {
+      @include phone {
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    .sectionDescription {
+      @include phone {
+        width: 100%;
+      }
+    }
+  }
+
+  .imageContainer {
+    @include phone {
+      margin-top: 60px;
+    }
+  }
+
+  .sectionContent {
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 130px;
+
+    @include below-tablet {
+      grid-column-gap: 90px;
+    }
+
+    @include phone {
+      grid-template-columns: repeat(2, auto);
+      grid-auto-flow: unset;
+      margin-top: 90px;
+    }
+
+    .contentTitle {
+      margin-right: 200px;
+
+      @include tablet {
+        margin-right: 100px;
+      }
+
+      @include below-tablet {
+        margin-right: 0;
+        margin-bottom: 30px;
+        grid-column: 1/3;
+      }
+    }
+  }
+}

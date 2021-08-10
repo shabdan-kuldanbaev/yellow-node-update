@@ -25,3 +25,24 @@
     color: $silver-chalice;
   }
 }
+
+.tell {
+  @include caseStudyContainer;
+  @include centeredBackgroundImage;
+}
+
+.open-sense {
+  @include caseStudyContainer;
+
+  background-color: $zircon;
+}
+
+.separate-us {
+  @include caseStudyContainer;
+
+  background-color: $white-darker;
+
+  [data-case-study-description] {
+    max-width: 855px;
+  }
+}

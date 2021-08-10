@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .container {
@@ -108,6 +109,16 @@
 .fernwayer {
   @extend .container;
 
+  .containerBackground {
+    left: -20%;
+    right: 0;
+    opacity: 0.5;
+
+    @include phone-height-500 {
+      max-width: 410px;
+    }
+  }
+
   /* stylelint-disable-next-line */
   .featureContainer {
     .checkMark {
@@ -119,6 +130,12 @@
 
 .stickerbox {
   @extend .container;
+
+  .containerBackground {
+    left: -20%;
+    right: 0;
+    opacity: 0.5;
+  }
 
   /* stylelint-disable-next-line */
   .featureContainer {
@@ -133,10 +150,14 @@
   @extend .container;
 
   .containerBackground {
+    left: -22%;
+    right: 0;
     background-color: rgba($white, 0.03);
   }
   /* stylelint-disable-next-line */
   .featureContainer {
+    margin-bottom: 70px;
+
     .checkMark {
       color: $white;
       background: linear-gradient(159.7deg, $pink-1 10.47%, $light-red 98.88%);
@@ -146,12 +167,22 @@
       .title {
         color: $white;
       }
+
+      & > p {
+        max-width: 325px;
+      }
     }
   }
 }
 
 .fairy {
   @extend .container;
+
+  .containerBackground {
+    left: -20%;
+    right: 0;
+    opacity: 0.5;
+  }
 
   /* stylelint-disable-next-line */
   .featureContainer {
@@ -170,6 +201,82 @@
       .title {
         font-weight: 700;
       }
+    }
+  }
+}
+
+.tell {
+  @extend .container;
+
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: $dark-grey;
+    }
+  }
+
+  .containerBackground {
+    left: -20%;
+    right: 0;
+
+    @include centeredBackgroundImage;
+  }
+}
+
+.open-sense {
+  @extend .container;
+
+  .containerBackground {
+    left: -20%;
+
+    @include phone {
+      left: -22%;
+    }
+  }
+
+  .featureContainer {
+    margin-bottom: 60px;
+
+    .contentContainer {
+      max-width: 350px;
+    }
+
+    .checkMark {
+      color: $white;
+      background: $dodger-blue;
+    }
+  }
+}
+
+.separate-us {
+  @extend .container;
+
+  .containerBackground {
+    left: -15%;
+
+    @include phone {
+      left: -20%;
+    }
+  }
+
+  .featureContainer {
+    margin-bottom: 45px;
+
+    @include flex(row, initial, center);
+
+    .contentContainer {
+      max-width: 350px;
+
+      .title {
+        @include phone {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .checkMark {
+      color: $white;
+      background: $brink-pink;
     }
   }
 }

@@ -1,19 +1,74 @@
 @import 'styles/utils/mixins';
 
-.paralax {
+.parallax {
   height: 100vh;
   background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+  @include centeredBackgroundImage;
 
   @include phone {
     background-attachment: scroll;
   }
 }
 
-.fairy {
-  @extend .paralax;
+.parallaxContainer {
+  &tell {
+    background-color: $white;
 
+    [data-case-study-description] {
+      max-width: 730px;
+      white-space: unset;
+
+      @include phone {
+        max-width: 345px;
+        padding: 0 14px;
+      }
+    }
+  }
+
+  &separate-us {
+    background-color: $white;
+    padding-top: 140px;
+
+    @include tablet {
+      padding-top: 100px;
+    }
+
+    @include phone {
+      padding-top: 80px;
+    }
+
+    & > div {
+      padding: 0 40px;
+
+      @include tablet {
+        padding: 0 40px;
+      }
+
+      @include phone {
+        padding: 0 15px;
+      }
+    }
+
+    [data-case-study-description] {
+      max-width: 825px;
+      color: $silver-chalice;
+    }
+
+    & > section {
+      @include phone {
+        height: 45vh;
+      }
+    }
+  }
+}
+
+.tell,
+.separate-us,
+.fairy {
+  @extend .parallax;
+}
+
+.fairy {
   background-color: $violet;
 }
