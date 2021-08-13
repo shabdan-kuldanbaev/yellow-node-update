@@ -39,9 +39,7 @@ export const CheckListSection = ({ sectionData, type }) => {
                 {...animationProps}
                 transitionDelay={600 + 50 * index}
               >
-                <div>
-                  <Svg type={SVG_IMAGES_TYPES.yellowCheckMark} />
-                </div>
+                <Svg type={SVG_IMAGES_TYPES.yellowCheckMark} />
                 <p className={styles.itemTitle}>
                   {itemTitle}
                 </p>

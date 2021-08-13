@@ -19,44 +19,38 @@ export const Comment = ({
 }) => (
   <div className={styles.commentWrapper}>
     <Animated {...animatioProps}>
-      <section>
-        <div>
-          <div>
-            <div className={styles.messageWrapper}>
-              <div className={styles.imgContainer}>
-                <Svg
-                  type={logo}
-                  className={styles.logo}
-                />
-              </div>
-              <div className={styles.message}>
-                {message}
-                <ContentfulParser document={text} />
-              </div>
-            </div>
+      <section className={styles.commentContainer}>
+        <div className={styles.messageWrapper}>
+          <div className={styles.imgContainer}>
+            <Svg
+              type={logo}
+              className={styles.logo}
+            />
           </div>
-          <div
-            className={styles.categoryName}
-            ref={infoRef}
-          >
-            <div className={styles.person}>
-              <div>
-                <div className={styles.avatarContainer}>
-                  <img
-                    src={avatar}
-                    alt={name}
-                    className={styles.photo}
-                  />
-                </div>
-                <div className={styles.info}>
-                  <span className={styles.name}>
-                    {name}
-                  </span>
-                  <span className={styles.position}>
-                    {position}
-                  </span>
-                </div>
-              </div>
+          <div className={styles.message}>
+            {message}
+            <ContentfulParser document={text} />
+          </div>
+        </div>
+        <div
+          className={styles.categoryName}
+          ref={infoRef}
+        >
+          <div className={styles.person}>
+            <div className={styles.avatarContainer}>
+              <img
+                src={avatar}
+                alt={name}
+                className={styles.photo}
+              />
+            </div>
+            <div className={styles.info}>
+              <span className={styles.name}>
+                {name}
+              </span>
+              <span className={styles.position}>
+                {position}
+              </span>
             </div>
           </div>
         </div>

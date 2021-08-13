@@ -10,7 +10,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { getAppstoreSvgType } from '../utils/galleryHelper';
+import { getAppstoreSvgType } from './utils/itemPreviewHelper';
 import styles from './styles.module.scss';
 
 export const ItemPreview = ({ data, type }) => {
@@ -52,7 +52,9 @@ export const ItemPreview = ({ data, type }) => {
     getFileUrl(get(images, '[0]', '')),
     { fm: 'png' },
   );
-  const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
+  const style = backgroundImageUrl
+    ? { backgroundImage: `url(${backgroundImageUrl})` }
+    : {};
 
   return (
     <div

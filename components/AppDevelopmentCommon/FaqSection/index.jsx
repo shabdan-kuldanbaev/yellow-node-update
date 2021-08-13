@@ -20,9 +20,7 @@ export const FaqSection = ({ data, type }) => {
 
   return (
     <section className={styles[type]}>
-      <SectionTitle
-        title={title}
-      />
+      <SectionTitle title={title} />
       <FAQ faqList={faqList} />
     </section>
   );

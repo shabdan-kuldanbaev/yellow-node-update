@@ -5,7 +5,7 @@ import { ImageSection } from 'components/AppDevelopmentCommon/ImageSection';
 import { CardsSection } from 'components/AppDevelopmentCommon/CardsSection';
 import { CheckListSection } from 'components/AppDevelopmentCommon/CheckListSection';
 import { SliderSection } from 'components/AppDevelopmentCommon/SliderSection';
-import { SvgListSection } from 'components/AppDevelopmentCommon/SvgListSection';
+import SvgListSection from 'components/AppDevelopmentCommon/SvgListSection';
 import { GallerySection } from 'components/AppDevelopmentCommon/GallerySection';
 import { FaqSection } from 'components/AppDevelopmentCommon/FaqSection';
 import { ReviewsSection } from 'components/AppDevelopmentCommon/ReviewsSection';

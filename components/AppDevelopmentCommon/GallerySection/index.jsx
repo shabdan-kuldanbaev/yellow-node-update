@@ -8,12 +8,16 @@ import SwiperCore, {
 } from 'swiper/core';
 import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import 'swiper/components/pagination/pagination.scss';
 import { ItemPreview } from './ItemPreview';
 import { getGalleryProps } from './utils/galleryHelper';
+import 'swiper/components/pagination/pagination.scss';
 import styles from './styles.module.scss';
 
-SwiperCore.use([EffectCoverflow, Pagination, Mousewheel]);
+SwiperCore.use([
+  EffectCoverflow,
+  Pagination,
+  Mousewheel,
+]);
 
 export const GallerySection = ({
   sectionData,
@@ -27,44 +31,13 @@ export const GallerySection = ({
       linkTitle,
       buttonTitle,
     },
+    params,
   } = getGalleryProps(sectionData);
-  const params = {
-    effect: 'coverflow',
-    slidesPerView: 1.3,
-    centeredSlides: true,
-    loop: true,
-    passiveListeners: true,
-    mousewheel: {
-      forceToAxis: true,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    coverflowEffect: {
-      rotate: 0,
-      stretch: -40,
-      depth: 150,
-      slideShadows: false,
-    },
-    breakpoints: {
-      1025: {
-        slidesPerView: 1.8,
-        spaceBetween: 0,
-        coverflowEffect: {
-          rotate: 0,
-          stretch: -100,
-          depth: 150,
-        },
-      },
-    },
-  };
 
   return (
     <section className={styles[type]}>
       <div className={styles.gallerySection}>
-        <SectionTitle
-          title={title}
-        />
+        <SectionTitle title={title} />
         <Swiper {...params}>
           {slides && slides.map((slide) => (
             <div>

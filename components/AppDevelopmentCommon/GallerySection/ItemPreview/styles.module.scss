@@ -3,7 +3,7 @@
 .container {
   box-sizing: border-box;
   overflow: hidden;
-  height: 63vh;
+  height: 35vw;
   max-width: 1076px;
   width: 100%;
   margin: 0 auto;
@@ -62,12 +62,8 @@
 
   .imageContainer {
     position: relative;
-    width: 360px;
+    width: 310px;
     z-index: 1;
-
-    @include tablet {
-      height: calc(100vw - 100px);
-    }
 
     @include phone {
       max-width: 450px;
@@ -100,7 +96,7 @@
 .mobile-app-development-company {
   @extend .container;
 
-  @include macbook-twelve {
+  @include macbook-fifteen {
     height: 75vh;
   }
 
@@ -109,7 +105,7 @@
   }
 
   @include phone {
-    height: 90vh;
+    height: 100vh;
   }
 
   &.first {
@@ -183,7 +179,7 @@
   }
 
   &.second {
-    padding: 0 160px;
+    padding: 0 100px 0 160px;
     background-color: $violet;
 
     @include centeredBackgroundImage;
@@ -192,12 +188,17 @@
       padding: 0 110px;
     }
 
+    @include macbook-twelve {
+      padding: 0 45px 0 110px;
+    }
+
     @include tablet {
       padding: 0 24px;
     }
 
     .projectInfoContainer {
       max-width: 385px;
+      width: 85%;
       height: max-content;
       color: $white;
 
@@ -241,6 +242,11 @@
       z-index: 1;
       max-width: 360px;
       width: 100%;
+      height: initial;
+
+      @include macbook-fifteen {
+        max-width: 310px;
+      }
 
       @include tablet {
         height: max-content;
@@ -263,6 +269,7 @@
 
     .projectPreview {
       width: 100%;
+      height: 100%;
 
       @include flex(row, space-between, center);
 

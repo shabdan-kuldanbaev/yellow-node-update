@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { connect } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
 import { Svg } from 'components/AppDevelopmentCommon/Svg';
 import { CallToAction } from 'components/Common/CallToAction';
@@ -8,10 +10,11 @@ import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
 
-export const SvgListSection = ({
+const SvgListSection = ({
   sectionData,
   handleOnCTAClick,
   type,
+  isMobileResolution,
 }) => {
   const {
     title,
@@ -20,7 +23,7 @@ export const SvgListSection = ({
     link,
     view,
     animatedProps,
-  } = getSvgSectionProps(sectionData);
+  } = getSvgSectionProps(sectionData, isMobileResolution);
 
   return (
     <section className={cn(styles[type], styles[view])}>
@@ -68,3 +71,7 @@ SvgListSection.propTypes = {
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
 };
+
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(SvgListSection);

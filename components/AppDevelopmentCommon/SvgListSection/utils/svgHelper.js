@@ -2,7 +2,7 @@ import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 
-export const getSvgSectionProps = (data) => {
+export const getSvgSectionProps = (data, isMobileResolution) => {
   let link = null;
   const {
     title,
@@ -25,7 +25,7 @@ export const getSvgSectionProps = (data) => {
   const linkData = get(contentModules, '[1]', null);
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
-    translateY: '2.82352941em',
+    translateY: isMobileResolution ? '0' : '2.82352941em',
     opasityDuration: 1,
     transformDuration: 1,
   };

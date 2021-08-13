@@ -21,6 +21,8 @@
   }
 
   .question {
+    outline: none;
+
     @include flex(row, space-between, center);
 
     & > p {

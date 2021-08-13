@@ -5,11 +5,14 @@ import SwiperCore, { Scrollbar, Mousewheel } from 'swiper/core';
 import { Animated } from 'components/Common/Animated';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
-import 'swiper/components/scrollbar/scrollbar.scss';
 import { getSliderProps } from './utils/sliderHelper';
+import 'swiper/components/scrollbar/scrollbar.scss';
 import styles from './styles.module.scss';
 
-SwiperCore.use([Scrollbar, Mousewheel]);
+SwiperCore.use([
+  Scrollbar,
+  Mousewheel,
+]);
 
 export const SliderSection = ({ sectionData, type }) => {
   const {

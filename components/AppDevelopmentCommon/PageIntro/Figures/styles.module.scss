@@ -84,8 +84,7 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, max-content);
-    grid-column-gap: 50px;
-    grid-row-gap: 70px;
+    grid-gap: 70px 50px;
 
     & > div {
       padding-left: 16px;

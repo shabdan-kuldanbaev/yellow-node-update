@@ -4,11 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { APP_DEVELOPMENT_ICONS } from 'utils/constants';
 
-export const Svg = ({
-  type,
-  className,
-  handleOnClick,
-}) => {
+// TODO rewrite it
+export const Svg = ({ type }) => {
   switch (type) {
   case APP_DEVELOPMENT_ICONS.iOSAppDevelopment:
     return (
@@ -30,7 +27,7 @@ export const Svg = ({
     return (
       <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle opacity="0.5" cx="45" cy="45" r="45" fill="#FFE603" />
-        <rect x="33.332" y="25" width="22.5" height="40" rx="2" fill="#868686" fillOpacity="0.15" stroke="#252525" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="33.332" y="25" width="22.5" height="40" rx="2" stroke="#252525" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M49 59H41" stroke="#252525" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     );
@@ -565,13 +562,6 @@ export const Svg = ({
   }
 };
 
-Svg.defaultProps = {
-  className: '',
-  handleOnClick: () => {},
-};
-
 Svg.propTypes = {
   type: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  handleOnClick: PropTypes.func,
 };

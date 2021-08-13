@@ -1,15 +1,11 @@
 @import 'styles/utils/mixins';
 
-.chatAppContainer {
+.сontainer {
   margin: 0 auto;
-  padding: calc(#{$header-height} + 60px) 0 100px;
-
-  @include tablet {
-    padding: calc(#{$header-height} + 60px) 0 100px;
-  }
+  padding: calc(#{$header-height} + 60px) 0 0;
 
   @include phone {
-    padding: calc(#{$header-height} + 40px) 0 100px;
+    padding: calc(#{$header-height} + 40px) 0 0;
   }
 
   [data-page-title],

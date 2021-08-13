@@ -7,7 +7,7 @@ import { getArticleProps } from 'containers/Article/utils/propsHelper';
 import Article from 'components/BlogCommon/Article';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
-import { FAQBlock } from 'components/BlogCommon/Article/FAQBlock';
+import { FAQ } from 'components/Common/FAQ';
 
 const DraftArticle = ({ introSection, currentArticle }) => {
   const {
@@ -44,7 +44,10 @@ const DraftArticle = ({ introSection, currentArticle }) => {
           publishedAt={publishedAt}
         />
         <TagsBlock tags={keyWords} />
-        <FAQBlock faqList={faqList} />
+        <FAQ
+          faqList={faqList}
+          type="withFullLayout"
+        />
       </FullLayout>
     </Fragment>
   );

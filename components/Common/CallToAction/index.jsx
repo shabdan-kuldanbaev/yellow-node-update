@@ -13,7 +13,7 @@ export const CallToAction = ({
   handleOnClick,
   className,
 }) => (
-  <div className={cn(styles[type], className)}>
+  <div className={cn(styles[type], { [className]: className })}>
     <h3 className={styles.h3}>
       {title}
     </h3>
@@ -34,6 +34,7 @@ export const CallToAction = ({
 CallToAction.defaultProps = {
   href: '',
   handleOnClick: () => {},
+  className: '',
 };
 
 CallToAction.propTypes = {
@@ -43,4 +44,5 @@ CallToAction.propTypes = {
   href: PropTypes.string,
   type: PropTypes.string.isRequired,
   handleOnClick: PropTypes.func,
+  className: PropTypes.string,
 };

@@ -148,23 +148,26 @@ export const SVG_IMAGES_TYPES = {
 };
 
 export const APP_DEVELOPMENT_ICONS = {
+  // mobile app page, development services section
   iOSAppDevelopment: 'iOSAppDevelopment',
   androidAppDevelopment: 'androidAppDevelopment',
   enterpriseMobileAppDevelopment: 'enterpriseMobileAppDevelopment',
   mobileUXDesign: 'mobileUXDesign',
+  // mobile app page, benefits section
   profitsRaise: 'profitsRaise',
   standOutFrom: 'standOutFrom',
   increasedRecognition: 'increasedRecognition',
   costReduction: 'costReduction',
   processAutomation: 'processAutomation',
   customerEngagement: 'customerEngagement',
+  // mobile app page, mobile app types section
   mobileChats: 'mobileChats',
   socialMedia: 'socialMedia',
   fitness: 'fitness',
   travel: 'travel',
   dating: 'dating',
   artificialIntelligence: 'artificialIntelligence',
-
+  // icons for svg list sections
   titledReactNative: 'titledReactNative',
   titledSwift: 'titledSwift',
   titledJava: 'titledJava',
@@ -182,17 +185,16 @@ export const APP_DEVELOPMENT_ICONS = {
   kotlin: 'kotlin',
   postgreSql: 'postgreSql',
   objC: 'objC',
-
   techCrunch: 'techCrunch',
   time: 'time',
   productHunt: 'productHunt',
   esquire: 'esquire',
   theWeek: 'theWeek',
-
+  // chat app page, types of chat section
   communication: 'communication',
   sales: 'sales',
   customerService: 'customerService',
-
+  // chat app page, developers advantages section
   provenExperience: 'provenExperience',
   highQualityCode: 'highQualityCode',
   recommended: 'recommended',

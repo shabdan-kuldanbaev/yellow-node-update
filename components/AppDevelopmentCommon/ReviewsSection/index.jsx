@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { getDocumentFields } from 'utils/helper';
 import { getReviewsProps } from './utils/reviewsHelper';
 import { Reviews } from './Reviews';
 import styles from './styles.module.scss';
@@ -9,9 +8,8 @@ import styles from './styles.module.scss';
 export const ReviewsSection = ({ data, type }) => {
   const {
     title,
-    contentModules,
-  } = getDocumentFields(data);
-  const reviews = getReviewsProps(contentModules);
+    reviews,
+  } = getReviewsProps(data);
 
   if (!reviews.length) {
     return null;
@@ -19,9 +17,7 @@ export const ReviewsSection = ({ data, type }) => {
 
   return (
     <section className={styles[type]}>
-      <SectionTitle
-        title={title}
-      />
+      <SectionTitle title={title} />
       <Reviews reviews={reviews} />
     </section>
   );

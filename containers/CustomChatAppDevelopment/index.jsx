@@ -43,7 +43,7 @@ const CustomChatAppContainer = ({
         pageMicrodata={microdata.customChatApp()}
         breadcrumbs={breadcrumbs}
       />
-      <div className={styles.chatAppContainer}>
+      <div className={styles.сontainer}>
         <PageHeader breadcrumbs={breadcrumbs} />
         {contentModules.map((module) => (
           <AppDevelopmentCommon

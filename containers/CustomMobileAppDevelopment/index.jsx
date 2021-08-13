@@ -43,7 +43,7 @@ const CustomMobileAppContainer = ({
         pageMicrodata={microdata.customMobileApp()}
         breadcrumbs={breadcrumbs}
       />
-      <div className={styles.mobileAppContainer}>
+      <div className={styles.сontainer}>
         <PageHeader breadcrumbs={breadcrumbs} />
         {contentModules.map((module) => (
           <AppDevelopmentCommon
