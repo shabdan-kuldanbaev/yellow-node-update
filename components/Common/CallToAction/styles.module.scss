@@ -145,9 +145,5 @@
 
   .button {
     margin-top: 0;
-
-    @include phone {
-      width: calc(100% - 100px);
-    }
   }
 }
