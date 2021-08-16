@@ -1,0 +1,122 @@
+/* stylelint-disable no-descending-specificity */
+@import 'styles/utils/mixins';
+
+.figureTitle {
+  font-size: 2.625rem;
+  font-weight: 800;
+  color: $black;
+}
+
+.figureSubtitle {
+  margin: 0;
+  font-size: 0.75rem;
+  color: $silver-chalice;
+}
+
+.chat-app-development-company {
+  .figures {
+    @include flex(row, space-between);
+
+    @include below-tablet {
+      @include flex(row, space-between, initial, wrap);
+    }
+
+    & > div {
+      width: 100%;
+
+      @include below-tablet {
+        margin-bottom: 50px;
+        flex: 1 0 50%;
+      }
+
+      .title {
+        @extend .figureTitle;
+
+        text-align: left;
+      }
+
+      .description {
+        @extend .figureSubtitle;
+
+        text-align: left;
+        padding-right: 100px;
+      }
+    }
+
+    div:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.mobile-app-development-company {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-column-gap: 150px;
+
+  @include tablet {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .text {
+    & > div {
+      max-width: 590px;
+
+      p {
+        margin: 0 0 30px;
+        color: $dark-grey;
+        line-height: 1.8;
+
+        @include fontSize(18px);
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, max-content);
+    grid-gap: 70px 50px;
+
+    & > div {
+      padding-left: 16px;
+      border-left: 2px solid $turbo-100;
+      height: fit-content;
+      width: fit-content;
+
+      .title {
+        @extend .figureTitle;
+
+        color: $cod-gray-1;
+
+        @include tablet {
+          @include fontSize(35px);
+        }
+
+        @include phone {
+          @include fontSize(24px);
+        }
+      }
+
+      .description {
+        color: $cod-gray-1;
+        line-height: 1.8;
+        max-width: 180px;
+
+        @include fontSize(16px);
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+}

@@ -31,6 +31,7 @@ export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
   routes.project.slug,
   routes.notFound.slug,
   routes.customChatApp.slug,
+  routes.customMobileApp.slug,
 ].includes(slug));
 
 export const BLOCKS_SLUGS = {
@@ -131,24 +132,7 @@ export const SVG_IMAGES_TYPES = {
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
   nearbyArrow: 'nearbyArrow',
-  communication: 'communication',
-  sales: 'sales',
-  customerService: 'customerService',
   yellowCheckMark: 'yellowCheckMark',
-  twilio: 'twilio',
-  pubnub: 'pubnub',
-  react: 'react',
-  java: 'java',
-  firebase: 'firebase',
-  webRtc: 'webRtc',
-  swift: 'swift',
-  kotlin: 'kotlin',
-  postgreSql: 'postgreSql',
-  objC: 'objC',
-  provenExperience: 'provenExperience',
-  highQualityCode: 'highQualityCode',
-  recommended: 'recommended',
-  greatDesign: 'greatDesign',
   yellowLogo: 'yellowLogo',
   yellowLogoText: 'yellowLogoText',
   appstore: 'appstore',
@@ -160,6 +144,74 @@ export const SVG_IMAGES_TYPES = {
   instaRoundWhite: 'instaRoundWhite',
   opensenseTitleBorder: 'opensenseTitleBorder',
   tellTeamUnderline: 'tellTeamUnderline',
+  visitSite: 'visitSite',
+};
+
+export const APP_DEVELOPMENT_ICONS = {
+  // mobile app page, development services section
+  iOSAppDevelopment: 'iOSAppDevelopment',
+  androidAppDevelopment: 'androidAppDevelopment',
+  enterpriseMobileAppDevelopment: 'enterpriseMobileAppDevelopment',
+  mobileUXDesign: 'mobileUXDesign',
+  // mobile app page, benefits section
+  profitsRaise: 'profitsRaise',
+  standOutFrom: 'standOutFrom',
+  increasedRecognition: 'increasedRecognition',
+  costReduction: 'costReduction',
+  processAutomation: 'processAutomation',
+  customerEngagement: 'customerEngagement',
+  // mobile app page, mobile app types section
+  mobileChats: 'mobileChats',
+  socialMedia: 'socialMedia',
+  fitness: 'fitness',
+  travel: 'travel',
+  dating: 'dating',
+  artificialIntelligence: 'artificialIntelligence',
+  // icons for svg list sections
+  titledReactNative: 'titledReactNative',
+  titledSwift: 'titledSwift',
+  titledJava: 'titledJava',
+  titledFirebase: 'titledFirebase',
+  titledKotlin: 'titledKotlin',
+  titledObjectiveC: 'titledObjectiveC',
+  titledPostgre: 'titledPostgre',
+  twilio: 'twilio',
+  pubnub: 'pubnub',
+  react: 'react',
+  java: 'java',
+  firebase: 'firebase',
+  webRtc: 'webRtc',
+  swift: 'swift',
+  kotlin: 'kotlin',
+  postgreSql: 'postgreSql',
+  objC: 'objC',
+  techCrunch: 'techCrunch',
+  time: 'time',
+  productHunt: 'productHunt',
+  esquire: 'esquire',
+  theWeek: 'theWeek',
+  // chat app page, types of chat section
+  communication: 'communication',
+  sales: 'sales',
+  customerService: 'customerService',
+  // chat app page, developers advantages section
+  provenExperience: 'provenExperience',
+  highQualityCode: 'highQualityCode',
+  recommended: 'recommended',
+  greatDesign: 'greatDesign',
+};
+
+export const APP_DEVELOPMENT_TYPES = {
+  appDevelopmentPageIntro: 'app-development-page-intro',
+  appDevelopmentCards: 'app-development-cards',
+  appDevelopmentSmallCards: 'app-development-small-cards',
+  appDevelopmentCheckList: 'app-development-check-list',
+  appDevelopmentSvgList: 'app-development-svg-list',
+  appDevelopmentGallery: 'app-development-gallery',
+  appDevelopmentFAQ: 'app-development-faq',
+  appDevelopmentSlider: 'app-development-slider',
+  appDevelopmentImageSection: 'app-development-image',
+  appDevelopmentReviews: 'app-development-reviews',
 };
 
 export const CONTACTS_DATA = {

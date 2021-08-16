@@ -5,12 +5,12 @@ import { selectComponents, selectMetaData } from 'redux/selectors/layout';
 import { PageHeader } from 'components/Common/PageHeader';
 import { MetaTags } from 'components/Common/MetaTags';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
-import { ChatAppCommon } from 'components/CustomChatAppCommon';
-import { FullLayout } from 'components/Layout/FullLayout';
+import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { microdata } from 'utils/microdata';
 import { rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import styles from './styles.module.scss';
 
 const CustomChatAppContainer = ({
   pageData,
@@ -43,15 +43,20 @@ const CustomChatAppContainer = ({
         pageMicrodata={microdata.customChatApp()}
         breadcrumbs={breadcrumbs}
       />
-      <FullLayout>
-        <PageHeader breadcrumbs={breadcrumbs} />
+      <div className={styles.сontainer}>
+        <PageHeader
+          breadcrumbs={breadcrumbs}
+          titleStyles={styles.pageTitle}
+          breadcrumbsStyles={styles.breadcrumbs}
+        />
         {contentModules.map((module) => (
-          <ChatAppCommon
+          <AppDevelopmentCommon
             section={module}
             handleOnCTAClick={openFullscreenEstimation}
+            type="chat-app-development-company"
           />
         ))}
-      </FullLayout>
+      </div>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}

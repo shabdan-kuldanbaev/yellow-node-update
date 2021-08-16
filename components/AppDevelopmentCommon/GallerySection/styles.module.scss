@@ -1,0 +1,104 @@
+@import 'styles/utils/mixins';
+
+.gallerySection {
+  @include below-tablet {
+    margin: 100px 0;
+  }
+
+  .swiperPaginationBullet {
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+  }
+
+  :global(.swiper-pagination) {
+    position: relative;
+    margin-top: 60px;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    @extend .swiperPaginationBullet;
+
+    background: $wild-sand;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    @extend .swiperPaginationBullet;
+
+    background: $silver-chalice;
+  }
+}
+
+.mobile-app-development-company {
+  padding-bottom: 150px;
+
+  @include tablet {
+    padding-bottom: 100px;
+  }
+
+  @include phone {
+    padding-bottom: 64px;
+  }
+
+  .gallerySection {
+    margin-bottom: 70px;
+  }
+
+  .callToAction {
+    max-width: 720px;
+    margin: auto;
+    padding: 0;
+    background-color: unset;
+
+    @include flex(column, center, center);
+
+    & > h3 {
+      font-weight: 400;
+      color: $silver-chalice;
+      text-align: center;
+      margin-bottom: 40px;
+
+      @include fontSize(18px);
+    }
+
+    & > div {
+      padding: 20px 60px;
+      width: unset;
+    }
+  }
+
+  :global(.swiper-pagination) {
+    display: none;
+  }
+}
+
+.chat-app-development-company {
+  @extend .gallerySection;
+
+  :global(.swiper-container) {
+    &::before,
+    &::after {
+      content: " ";
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 20%;
+      z-index: 2;
+    }
+
+    &::before {
+      background: linear-gradient(90deg, rgba($white, 1) -20%, rgba($white, 0) 80%);
+      transform: translateX(-15px);
+    }
+
+    &::after {
+      background: linear-gradient(90deg, rgba($white, 0) 10%, rgba($white, 1) 120%);
+      transform: translateX(0);
+      right: 0;
+    }
+  }
+
+  :global(.swiper-slide-active) {
+    box-shadow: 0 10px 60px -10px rgba($black, 0.15);
+  }
+}

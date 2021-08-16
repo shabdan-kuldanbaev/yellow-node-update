@@ -1,0 +1,69 @@
+@import 'styles/utils/mixins';
+
+.imageSection {
+  max-width: 1300px;
+  margin: 0 auto;
+
+  @include flex(row, space-between, center);
+
+  @include below-tablet {
+    margin: 100px 0;
+
+    @include flex(column-reverse, space-between, center);
+  }
+
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 120%;
+    width: 100%;
+  }
+
+  .experienceContent {
+    padding-left: 150px;
+    width: 100%;
+
+    @include tablet {
+      padding-left: 80px;
+    }
+
+    @include below-tablet {
+      padding-left: 0;
+    }
+
+    & > div:last-child {
+      & > p {
+        margin: 0 0 30px;
+        padding-right: 50px;
+        color: $silver-chalice;
+        line-height: 2;
+
+        @include fontSize(18px);
+
+        @include macbook-fifteen {
+          @include fontSize(16px);
+        }
+
+        @include below-tablet {
+          padding-right: 0;
+        }
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+}
+
+.chat-app-development-company {
+  @include appDevelopmentContainer;
+
+  padding-top: 0;
+}
