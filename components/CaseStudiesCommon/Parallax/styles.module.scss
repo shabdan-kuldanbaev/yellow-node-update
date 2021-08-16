@@ -61,14 +61,30 @@
       }
     }
   }
+
+  &natp {
+    background-color: $white;
+    padding-top: 150px;
+
+    & > section {
+      @include phone {
+        height: 45vh;
+      }
+    }
+  }
 }
 
 .tell,
 .separate-us,
-.fairy {
+.fairy,
+.natp {
   @extend .parallax;
 }
 
 .fairy {
   background-color: $violet;
+}
+
+.natp {
+  background-color: $white;
 }

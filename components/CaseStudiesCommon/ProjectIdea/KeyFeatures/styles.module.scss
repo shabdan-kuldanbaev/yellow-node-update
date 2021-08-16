@@ -280,3 +280,55 @@
     }
   }
 }
+
+.natp {
+  @extend .container;
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 155px;
+  row-gap: 60px;
+  max-width: unset;
+
+  @include tablet {
+    grid-template-columns: unset;
+  }
+
+  .containerBackground {
+    opacity: 0.5;
+    left: -21%;
+    right: 5%;
+
+    @include phone {
+      left: -16%;
+      right: 1%;
+    }
+  }
+
+  .featureContainer {
+    margin-bottom: 0;
+
+    &:nth-of-type(odd) {
+      .contentContainer {
+        max-width: 325px;
+      }
+    }
+
+    &:nth-of-type(even) {
+      .contentContainer {
+        max-width: 435px;
+      }
+    }
+
+    .contentContainer {
+      h3 {
+        margin-bottom: 0;
+      }
+    }
+
+    .checkMark {
+      color: $white;
+      background-color: $sushi;
+    }
+  }
+}

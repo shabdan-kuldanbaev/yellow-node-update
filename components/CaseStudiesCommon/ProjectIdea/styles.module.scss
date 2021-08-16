@@ -183,3 +183,49 @@
 .separate-us {
   @extend .container;
 }
+
+.natp {
+  @extend .container;
+
+  background-color: $white;
+
+  .contentContainer {
+    padding-bottom: 0;
+
+    @include flex(column-reverse, center, center);
+
+    .descriptionContainer {
+      padding-bottom: 150px;
+      max-width: unset;
+      margin-left: 0;
+
+      @include flex(row, center);
+
+      @include tablet {
+        flex-direction: column;
+        padding-bottom: 100px;
+      }
+
+      @include phone {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .descriptionIntro {
+        margin-right: 150px;
+
+        @include tablet {
+          margin-right: 0;
+        }
+
+        .sectionName {
+          margin: 0;
+        }
+
+        .description {
+          max-width: 407px;
+        }
+      }
+    }
+  }
+}
