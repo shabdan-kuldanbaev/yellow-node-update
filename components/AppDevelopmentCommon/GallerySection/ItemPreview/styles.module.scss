@@ -622,6 +622,7 @@
       @include tablet {
         width: 100%;
         height: max-content;
+        text-align: center;
       }
 
       .image {
@@ -638,6 +639,7 @@
         }
 
         @include phone {
+          width: 100%;
           max-width: 185px;
         }
       }
@@ -688,6 +690,10 @@
           @include tablet {
             max-width: 51px;
             transform: translate(35%, 150%);
+          }
+
+          @include phone {
+            transform: translate(100%, 150%);
           }
         }
 

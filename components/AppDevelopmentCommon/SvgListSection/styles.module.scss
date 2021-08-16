@@ -96,6 +96,10 @@
   .callToAction {
     & > h3 {
       margin: 0;
+
+      @include phone {
+        margin-bottom: 32px;
+      }
     }
   }
 }
