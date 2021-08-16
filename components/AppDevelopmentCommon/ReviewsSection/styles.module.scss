@@ -1,0 +1,19 @@
+@import 'styles/utils/mixins';
+
+.mobile-app-development-company {
+  @include appDevelopmentContainer;
+
+  @include phone {
+    padding: 64px 0;
+  }
+
+  & > div:first-child {
+    margin-bottom: 0;
+
+    h2 {
+      @include phone {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
