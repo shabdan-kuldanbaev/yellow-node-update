@@ -6,11 +6,11 @@
   @include fontSize(56px);
 
   @include macbook-twelve {
-    @include fontSize(40px);
+    @include fontSize(50px);
   }
 
   @include tablet {
-    @include fontSize(35px);
+    @include fontSize(45px);
   }
 
   @include phone {
@@ -58,6 +58,8 @@
 
 .side {
   .title {
+    @extend .defaultTitle;
+
     @include below-tablet {
       text-align: center;
     }
