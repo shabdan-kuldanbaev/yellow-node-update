@@ -37,7 +37,7 @@
 .mobile-app-development-company {
   @include appDevelopmentContainer;
 
-  &.first {
+  &.firstSectionView {
     .svgListWrapper {
       margin: 0 auto;
       max-width: 855px;
@@ -63,7 +63,7 @@
     }
   }
 
-  &.second {
+  &.secondSectionView {
     .svgListWrapper {
       margin: 0 auto;
       max-width: 1300px;
@@ -93,7 +93,7 @@
 .chat-app-development-company {
   @extend .svgSection;
 
-  .cta {
+  .callToAction {
     & > h3 {
       margin: 0;
     }

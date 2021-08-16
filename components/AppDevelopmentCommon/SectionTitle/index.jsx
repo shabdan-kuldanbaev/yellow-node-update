@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const SectionTitle = ({
   type,
+  titleStyle,
   title,
   subtitle,
   description,
@@ -18,7 +20,7 @@ export const SectionTitle = ({
   };
 
   return (
-    <div className={styles[type]}>
+    <div className={cn(styles[type], { [titleStyle]: titleStyle })}>
       <Animated
         {...animationProps}
         transitionDelay={600}
@@ -53,10 +55,12 @@ export const SectionTitle = ({
 
 SectionTitle.defaultProps = {
   type: 'default',
+  titleStyle: '',
 };
 
 SectionTitle.propTypes = {
   type: PropTypes.string,
+  titleStyle: PropTypes.string,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

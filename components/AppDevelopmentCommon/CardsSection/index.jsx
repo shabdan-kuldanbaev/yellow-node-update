@@ -7,7 +7,6 @@ import { CallToAction } from 'components/Common/CallToAction';
 import { Svg } from 'components/AppDevelopmentCommon/Svg';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import { getCardsProps } from './utils/cardsHelper';
 import styles from './styles.module.scss';
@@ -25,13 +24,8 @@ export const CardsSection = ({
     cardsList,
     link,
     view,
+    animatedProps,
   } = getCardsProps(sectionData);
-  const animatedProps = {
-    type: ANIMATED_TYPE.isCustom,
-    translateY: '2.82352941em',
-    opasityDuration: 1,
-    transformDuration: 1,
-  };
 
   if (!cardsList || !cardsList.length) {
     return null;
@@ -44,16 +38,17 @@ export const CardsSection = ({
           title={title}
           subtitle={subtitle}
           description={description}
+          titleStyle={styles.titleStyle}
         />
-        <div className={cn(styles.typesList, styles[sectionType])}>
-          {cardsList.map((chatType, index) => {
+        <div className={cn(styles.cardsList, styles[sectionType])}>
+          {cardsList.map((card, index) => {
             const {
               title: typeTitle,
               description: typeDescription,
               contentList,
               text,
             } = getDocumentFields(
-              chatType,
+              card,
               [
                 'title',
                 'description',
@@ -69,13 +64,13 @@ export const CardsSection = ({
                 {...animatedProps}
                 transitionDelay={750 + 50 * index}
               >
-                <div>
+                <div className={styles.svgWrapper}>
                   <Svg type={svgType} />
                 </div>
-                <div>
-                  <p className={styles.typeTitle}>
+                <div className={styles.cardContent}>
+                  <div className={styles.typeTitle}>
                     {typeTitle}
-                  </p>
+                  </div>
                   <ContentfulParser document={text} />
                 </div>
               </Animated>
@@ -92,7 +87,7 @@ export const CardsSection = ({
               title={link.linkTitle}
               buttonTitle={link.buttonTitle}
               handleOnClick={handleOnCTAClick}
-              className={styles.cta}
+              className={styles.callToAction}
             />
           </Animated>
         )}

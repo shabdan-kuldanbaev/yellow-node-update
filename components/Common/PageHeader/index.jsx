@@ -1,17 +1,23 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { Animated, Breadcrumbs } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const PageHeader = ({ title, breadcrumbs }) => (
+export const PageHeader = ({
+  title,
+  breadcrumbs,
+  titleStyles,
+  breadcrumbsStyles,
+}) => (
   <Fragment>
-    <Breadcrumbs breadcrumbs={breadcrumbs} />
+    <Breadcrumbs
+      breadcrumbs={breadcrumbs}
+      breadcrumbsStyles={breadcrumbsStyles}
+    />
     {title && (
-      <div
-        className={styles.titleContainer}
-        data-page-title
-      >
+      <div className={cn(styles.titleContainer, { [titleStyles]: titleStyles })}>
         <Animated
           type={ANIMATED_TYPE.isCustom}
           translateY="2.82352941em"
@@ -29,9 +35,13 @@ export const PageHeader = ({ title, breadcrumbs }) => (
 PageHeader.defaultProps = {
   title: '',
   breadcrumbs: null,
+  titleStyles: '',
+  breadcrumbsStyles: '',
 };
 
 PageHeader.propTypes = {
   title: PropTypes.string,
   breadcrumbs: PropTypes.instanceOf(Array),
+  titleStyles: PropTypes.string,
+  breadcrumbsStyles: PropTypes.string,
 };

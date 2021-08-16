@@ -29,13 +29,13 @@
         flex: 1 0 50%;
       }
 
-      div:nth-of-type(1) {
+      .title {
         @extend .figureTitle;
 
         text-align: left;
       }
 
-      div:nth-of-type(2) {
+      .description {
         @extend .figureSubtitle;
 
         text-align: left;
@@ -92,7 +92,7 @@
       height: fit-content;
       width: fit-content;
 
-      div:nth-of-type(1) {
+      .title {
         @extend .figureTitle;
 
         color: $cod-gray-1;
@@ -106,7 +106,7 @@
         }
       }
 
-      div:nth-of-type(2) {
+      .description {
         color: $cod-gray-1;
         line-height: 1.8;
         max-width: 180px;

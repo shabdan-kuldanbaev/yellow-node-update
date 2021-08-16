@@ -27,6 +27,11 @@
     max-width: 518px;
     box-sizing: border-box;
 
+    @include below-tablet {
+      width: 100%;
+      max-width: unset;
+    }
+
     .typeTitle {
       line-height: 1.8;
       font-weight: 700;
@@ -43,7 +48,7 @@
       }
     }
 
-    p:not(.typeTitle) {
+    p {
       color: $silver-chalice;
       line-height: 1.8;
       margin: 0;
@@ -53,11 +58,6 @@
       @include phone {
         @include fontSize(16px);
       }
-    }
-
-    @include below-tablet {
-      width: 100%;
-      max-width: unset;
     }
   }
 }
@@ -85,11 +85,11 @@
       max-width: unset;
     }
 
-    & > div:first-child {
+    .svgWrapper {
       margin-right: 40px;
     }
 
-    & > div:last-child {
+    .cardContent {
       .typeTitle {
         line-height: 1.8;
         font-weight: 700;
@@ -106,7 +106,7 @@
         }
       }
 
-      p:not(.typeTitle) {
+      p {
         color: $silver-chalice;
         line-height: 1.8;
         margin: 0;
@@ -132,7 +132,9 @@
   .contentWrapper {
     @extend .wrapper;
 
-    & > div:first-child {
+    .titleStyle {
+      margin-bottom: 80px;
+
       p {
         margin: 0 auto 30px;
         color: $silver-chalice;
@@ -155,16 +157,10 @@
           @include fontSize(14px);
         }
       }
-
-      & > :last-child {
-        p {
-          margin-bottom: 80px;
-        }
-      }
     }
   }
 
-  .cta {
+  .callToAction {
     margin: 150px 0 0;
 
     h3 {
@@ -180,7 +176,7 @@
     }
   }
 
-  &.first {
+  &.firstSectionView {
     background-color: $alabaster;
   }
 }
@@ -188,7 +184,7 @@
 .chat-app-development-company {
   @include appDevelopmentContainer;
 
-  &.first {
+  &.firstSectionView {
     background-color: $alabaster;
 
     .contentWrapper {
@@ -209,7 +205,12 @@
         & > div {
           padding: 40px;
 
-          p:not(.typeTitle) {
+          @include below-tablet {
+            width: 100%;
+            max-width: unset;
+          }
+
+          p {
             color: $silver-chalice;
             line-height: 1.8;
             margin: 0;
@@ -220,22 +221,17 @@
               @include fontSize(14px);
             }
           }
-
-          @include below-tablet {
-            width: 100%;
-            max-width: unset;
-          }
         }
       }
     }
 
-    .cta {
+    .callToAction {
       padding: 0;
       margin-top: 80px;
     }
   }
 
-  &.second {
+  &.secondSectionView {
     background-color: $alabaster;
 
     .contentWrapper {
@@ -246,7 +242,7 @@
           max-width: 235px;
         }
 
-        p:not(.typeTitle) {
+        p {
           max-width: 365px;
         }
       }

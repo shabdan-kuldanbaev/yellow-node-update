@@ -53,7 +53,7 @@ const SvgListSection = ({
               title={link.linkTitle}
               buttonTitle={link.buttonTitle}
               handleOnClick={handleOnCTAClick}
-              className={styles.cta}
+              className={styles.callToAction}
             />
           </Animated>
         )}
@@ -70,6 +70,7 @@ SvgListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
 
 export default connect(

@@ -1,64 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import cn from 'classnames';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
-import {
-  getDocumentFields,
-  getFileUrl,
-  getOptimizedContentfulImage,
-} from 'utils/helper';
-import { getAppstoreSvgType } from './utils/itemPreviewHelper';
+import { getFileUrl } from 'utils/helper';
+import { getAppstoreSvgType, getItemPreviewProps } from './utils/itemPreviewHelper';
 import styles from './styles.module.scss';
 
 export const ItemPreview = ({ data, type }) => {
   const {
-    images,
-    contentModules,
     view,
-    title: slug,
-  } = getDocumentFields(
-    data,
-    [
-      'images',
-      'contentModules',
-      'view',
-      'title',
-    ],
-  );
-
-  const {
+    slug,
     title,
     subtitle,
     description,
     text,
-    images: contentImages,
-    contentModules: contentData,
     imagesBundles,
-  } = getDocumentFields(get(contentModules, '[0]', {}));
-
-  const downloadLink = getDocumentFields(get(contentData, '[0]'));
-  const appBackgroundImageUrl = getOptimizedContentfulImage(
-    getFileUrl(get(contentImages, '[0]', '')),
-    { fm: 'png', fl: 'png8' },
-  );
-  const appLogoUrl = getOptimizedContentfulImage(
-    getFileUrl(get(contentImages, '[1]', '')),
-    { fm: 'png', fl: 'png8' },
-  );
-  const backgroundImageUrl = getOptimizedContentfulImage(
-    getFileUrl(get(images, '[0]', '')),
-    { fm: 'png' },
-  );
-  const style = backgroundImageUrl
-    ? { backgroundImage: `url(${backgroundImageUrl})` }
-    : {};
+    downloadLink,
+    appBackgroundImageUrl,
+    appLogoUrl,
+    sectionStyle,
+  } = getItemPreviewProps(data);
 
   return (
-    <div
-      style={style}
+    <section
+      style={sectionStyle}
       className={cn(styles[type], styles[view])}
     >
       <div className={styles.projectPreview}>
@@ -108,7 +75,7 @@ export const ItemPreview = ({ data, type }) => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

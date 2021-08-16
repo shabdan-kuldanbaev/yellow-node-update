@@ -2,19 +2,19 @@
 
 .сontainer {
   margin: 0 auto;
-  padding: calc(#{$header-height} + 60px) 0 0;
+  padding: calc(#{$header-height} + 60px) 0 200px;
 
   @include phone {
-    padding: calc(#{$header-height} + 40px) 0 0;
+    padding: calc(#{$header-height} + 40px) 0 100px;
   }
 
-  [data-page-title],
-  [data-page-breadcrumbs] {
+  .pageTitle,
+  .breadcrumbs {
     max-width: 1300px;
     margin: 0 auto;
   }
 
-  & > div:first-child {
+  .breadcrumbs {
     padding: 0 40px;
 
     @include phone {

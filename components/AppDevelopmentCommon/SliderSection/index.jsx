@@ -6,8 +6,8 @@ import { Animated } from 'components/Common/Animated';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
 import { getSliderProps } from './utils/sliderHelper';
-import 'swiper/components/scrollbar/scrollbar.scss';
 import styles from './styles.module.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
 
 SwiperCore.use([
   Scrollbar,

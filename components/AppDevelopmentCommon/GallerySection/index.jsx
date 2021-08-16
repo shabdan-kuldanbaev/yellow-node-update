@@ -10,8 +10,8 @@ import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { ItemPreview } from './ItemPreview';
 import { getGalleryProps } from './utils/galleryHelper';
-import 'swiper/components/pagination/pagination.scss';
 import styles from './styles.module.scss';
+import 'swiper/components/pagination/pagination.scss';
 
 SwiperCore.use([
   EffectCoverflow,
@@ -54,7 +54,7 @@ export const GallerySection = ({
           type="card"
           title={linkTitle}
           buttonTitle={buttonTitle}
-          className={styles.cta}
+          className={styles.callToAction}
           handleOnClick={handleOnCTAClick}
         />
       )}

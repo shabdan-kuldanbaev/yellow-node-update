@@ -44,7 +44,11 @@ const CustomMobileAppContainer = ({
         breadcrumbs={breadcrumbs}
       />
       <div className={styles.сontainer}>
-        <PageHeader breadcrumbs={breadcrumbs} />
+        <PageHeader
+          breadcrumbs={breadcrumbs}
+          titleStyles={styles.pageTitle}
+          breadcrumbsStyles={styles.breadcrumbs}
+        />
         {contentModules.map((module) => (
           <AppDevelopmentCommon
             section={module}

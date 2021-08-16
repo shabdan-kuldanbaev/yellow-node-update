@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { Question } from './Question';
 import styles from './styles.module.scss';
 
 export const FAQ = ({ faqList, type }) => {
-  if (isEmpty(faqList)) {
+  if (!faqList.length) {
     return null;
   }
 

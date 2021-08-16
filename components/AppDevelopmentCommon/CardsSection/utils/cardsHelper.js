@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 
 export const getCardsProps = (data) => {
@@ -21,6 +22,12 @@ export const getCardsProps = (data) => {
   );
   const { contentModules: cardsList } = getDocumentFields(get(contentModules, '[0]', []));
   const linkData = get(contentModules, '[1]', null);
+  const animatedProps = {
+    type: ANIMATED_TYPE.isCustom,
+    translateY: '2.82352941em',
+    opasityDuration: 1,
+    transformDuration: 1,
+  };
 
   if (linkData) {
     const {
@@ -45,5 +52,6 @@ export const getCardsProps = (data) => {
     cardsList,
     link,
     view,
+    animatedProps,
   };
 };
