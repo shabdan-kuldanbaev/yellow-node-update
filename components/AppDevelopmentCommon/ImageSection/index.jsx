@@ -1,0 +1,55 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import { Animated } from 'components/Common/Animated';
+import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import { getImageSectionProps } from './utils/imageHelper';
+import styles from './styles.module.scss';
+
+export const ImageSection = ({ sectionData, type }) => {
+  const {
+    title,
+    description,
+    text,
+    imageUrl,
+    animatedProps,
+  } = getImageSectionProps(sectionData);
+
+  if (!imageUrl || !text) {
+    return null;
+  }
+
+  return (
+    <section className={styles[type]}>
+      <div className={styles.imageSection}>
+        <Animated
+          {...animatedProps}
+          transitionDelay={600}
+        >
+          <div
+            className={styles.image}
+            style={{ backgroundImage: `url(${imageUrl})` }}
+          />
+        </Animated>
+        <div className={styles.experienceContent}>
+          <SectionTitle
+            title={title}
+            subtitle={description}
+            type="side"
+          />
+          <Animated
+            {...animatedProps}
+            transitionDelay={700}
+          >
+            <ContentfulParser document={text} />
+          </Animated>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+ImageSection.propTypes = {
+  sectionData: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
+};

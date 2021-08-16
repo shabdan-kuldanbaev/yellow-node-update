@@ -1,0 +1,21 @@
+@import 'styles/utils/mixins';
+
+.mobile-app-development-company {
+  @include appDevelopmentContainer;
+
+  background-color: $alabaster;
+
+  & > div:last-child {
+    padding: 50px 0 0;
+    margin-top: 0;
+
+    & > div {
+      max-width: 855px;
+      padding: 40px 0;
+
+      @include phone {
+        padding: 16px 0;
+      }
+    }
+  }
+}

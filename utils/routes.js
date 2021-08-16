@@ -200,6 +200,12 @@ export const routes = {
     dynamicPath: '/chat-app-development-company',
     slug: 'chat-app-development-company',
   },
+  customMobileApp: {
+    title: 'Custom mobile app development company',
+    path: '/mobile-app-development-company',
+    dynamicPath: '/mobile-app-development-company',
+    slug: 'mobile-app-development-company',
+  },
   notFound: {
     title: '404 | Yellow',
     path: '/not-found',

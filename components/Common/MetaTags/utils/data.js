@@ -53,4 +53,10 @@ export const ogMetaData = [
                   ✔ 10+ successfully delivered chat apps. ✔ Let's get in touch!`,
     url: `${rootUrl}${ROUTES.customChatApp.path}`,
   },
+  {
+    pageName: ROUTES.customMobileApp.slug,
+    metaTitle: 'Custom mobile app development company | Yellow',
+    metaDescription: 'The best talents for Mobile App Development are here. Hire an experienced team to work on your idea.',
+    url: `${rootUrl}${ROUTES.customMobileApp.path}`,
+  },
 ];

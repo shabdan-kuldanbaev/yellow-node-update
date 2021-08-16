@@ -13,6 +13,7 @@ export const advantages = [
     title: 'Mobile',
     desc: '<span>Killer features all over the place</span>',
     image: mobile,
+    to: '/mobile-app-development-company',
   },
   {
     title: 'Cloud',
