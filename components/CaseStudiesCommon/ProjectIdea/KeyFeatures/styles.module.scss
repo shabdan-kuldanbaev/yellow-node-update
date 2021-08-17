@@ -28,11 +28,11 @@
     left: -5%;
     right: 0;
     bottom: 0;
-    transform: rotateY(-16deg) translateZ(-100px);
+    transform: rotateY(-16deg) translateZ(-200px);
 
     @include tablet {
       left: -20%;
-      transform: rotateY(-16deg) translateZ(-100px);
+      transform: rotateY(-16deg) translateZ(-200px);
     }
 
     @include phone {
@@ -110,9 +110,13 @@
   @extend .container;
 
   .containerBackground {
-    left: -20%;
+    left: -29%;
     right: 0;
     opacity: 0.5;
+
+    @include phone {
+      left: -28%;
+    }
 
     @include phone-height-500 {
       max-width: 410px;
@@ -132,7 +136,7 @@
   @extend .container;
 
   .containerBackground {
-    left: -20%;
+    left: -23%;
     right: 0;
     opacity: 0.5;
   }
@@ -150,7 +154,7 @@
   @extend .container;
 
   .containerBackground {
-    left: -22%;
+    left: -24%;
     right: 0;
     background-color: rgba($white, 0.03);
   }
@@ -179,7 +183,7 @@
   @extend .container;
 
   .containerBackground {
-    left: -20%;
+    left: -24%;
     right: 0;
     opacity: 0.5;
   }
@@ -216,7 +220,7 @@
   }
 
   .containerBackground {
-    left: -20%;
+    left: -25%;
     right: 0;
 
     @include centeredBackgroundImage;
@@ -227,7 +231,7 @@
   @extend .container;
 
   .containerBackground {
-    left: -20%;
+    left: -25%;
 
     @include phone {
       left: -22%;
@@ -252,7 +256,7 @@
   @extend .container;
 
   .containerBackground {
-    left: -15%;
+    left: -26%;
 
     @include phone {
       left: -20%;
@@ -296,12 +300,13 @@
 
   .containerBackground {
     opacity: 0.5;
-    left: -21%;
-    right: 5%;
+    left: -28%;
+    right: 4%;
 
     @include phone {
-      left: -16%;
-      right: 1%;
+      left: -27%;
+      right: 5%;
+      top: -7%;
     }
   }
 

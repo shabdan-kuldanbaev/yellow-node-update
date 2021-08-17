@@ -66,6 +66,14 @@
     background-color: $white;
     padding-top: 150px;
 
+    @include tablet {
+      padding-top: 100px;
+    }
+
+    @include phone {
+      padding-top: 80px;
+    }
+
     & > section {
       @include phone {
         height: 45vh;

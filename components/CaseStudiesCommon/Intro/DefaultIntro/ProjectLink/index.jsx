@@ -5,7 +5,11 @@ import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { CASE_STUDIES } from 'utils/constants';
 import { getAppstoreSvgType } from './utils/introHelper';
 
-export const ProjectLink = ({ linkStyles, type, downloadLink }) => {
+export const ProjectLink = ({
+  linkStyles,
+  type,
+  downloadLink,
+}) => {
   switch (type) {
   case CASE_STUDIES.tell:
   case CASE_STUDIES.fernwayer:

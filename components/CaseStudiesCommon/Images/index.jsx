@@ -27,7 +27,12 @@ const Images = ({
       delay={100}
       {...ANIMATION_CASE_STUDY_PROPS}
     >
-      <div className={cn(styles[type], styles[classes], { [styles[view]]: view })}>
+      <div className={cn(
+        styles[type],
+        styles[classes],
+        { [styles[view]]: view },
+      )}
+      >
         {data.images.map((image, index) => {
           const imageUrl = getOptimizedContentfulImage(
             getFileUrl(image),

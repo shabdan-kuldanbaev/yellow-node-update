@@ -192,7 +192,7 @@
   .contentContainer {
     padding-bottom: 0;
 
-    @include flex(column-reverse, center, center);
+    @include flex(column, center, center);
 
     .descriptionContainer {
       padding-bottom: 150px;
