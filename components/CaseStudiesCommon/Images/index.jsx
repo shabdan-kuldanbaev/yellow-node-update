@@ -13,6 +13,7 @@ import styles from './styles.module.scss';
 const Images = ({
   data,
   type,
+  view,
   isMobileResolution,
 }) => {
   if (!get(data, 'images')) {
@@ -26,7 +27,12 @@ const Images = ({
       delay={100}
       {...ANIMATION_CASE_STUDY_PROPS}
     >
-      <div className={cn(styles[type], styles[classes])}>
+      <div className={cn(
+        styles[type],
+        styles[classes],
+        { [styles[view]]: view },
+      )}
+      >
         {data.images.map((image, index) => {
           const imageUrl = getOptimizedContentfulImage(
             getFileUrl(image),
@@ -59,12 +65,14 @@ const Images = ({
 
 Images.defaultProps = {
   type: 'imagContainer',
+  view: '',
 };
 
 Images.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   isMobileResolution: PropTypes.bool.isRequired,
   type: PropTypes.string,
+  view: PropTypes.string,
 };
 
 export default connect(

@@ -19,19 +19,21 @@ const ChallengesAndSolutions = ({
   type,
   isSpecial,
   isMobileResolution,
+  view,
 }) => {
   if (!get(data, 'contentModules')) {
     return null;
   }
 
   return (
-    <div className={styles[type]}>
+    <div className={cn(styles[type], styles[view])}>
       {data.contentModules.map((document) => {
         const {
           title,
           images,
           text,
           imagesBundles,
+          contentList = [],
         } = getDocumentFields(document);
         const imageUrl = getOptimizedContentfulImage(
           getFileUrl(get(images, '[0]')),
@@ -87,6 +89,20 @@ const ChallengesAndSolutions = ({
                   <ContentfulParser document={text} />
                 </Animated>
               )}
+              {!!contentList.length && (
+                <ul className={styles.listContainer}>
+                  {contentList.map((item, index) => (
+                    <Animated
+                      delay={100 + 10 * index}
+                      {...ANIMATION_CASE_STUDY_PROPS}
+                    >
+                      <li className={styles.listItem}>
+                        {item}
+                      </li>
+                    </Animated>
+                  ))}
+                </ul>
+              )}
             </div>
             {imageUrl && (
               <Animated
@@ -123,6 +139,7 @@ const ChallengesAndSolutions = ({
 ChallengesAndSolutions.defaultProps = {
   type: '',
   isSpecial: false,
+  view: '',
 };
 
 ChallengesAndSolutions.propTypes = {
@@ -130,6 +147,7 @@ ChallengesAndSolutions.propTypes = {
   type: PropTypes.string,
   isSpecial: PropTypes.bool,
   isMobileResolution: PropTypes.bool.isRequired,
+  view: PropTypes.string,
 };
 
 export default connect(

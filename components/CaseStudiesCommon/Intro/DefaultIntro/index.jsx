@@ -9,7 +9,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { getAppstoreSvgType } from './utils/introHelper';
+import { ProjectLink } from './ProjectLink';
 import styles from './styles.module.scss';
 
 const DefaultIntro = ({
@@ -41,11 +41,11 @@ const DefaultIntro = ({
   );
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));
   const appLogoUrl = getOptimizedContentfulImage(
-    getFileUrl(get(images, '[0]', '')),
+    getFileUrl(get(images, '[1]', '')),
     { fm: 'png', fl: 'png8' },
   );
   const appBackgroundImageUrl = getOptimizedContentfulImage(
-    getFileUrl(get(images, '[1]', '')),
+    getFileUrl(get(images, '[0]', '')),
     { fm: 'png', fl: 'png8' },
   );
   const backgroundImageUrl = getOptimizedContentfulImage(
@@ -62,11 +62,13 @@ const DefaultIntro = ({
     >
       <div className={styles.introSection}>
         <div className={styles.projectInfoContainer}>
-          <img
-            className={styles.logo}
-            src={appLogoUrl}
-            alt={appLogoUrl}
-          />
+          {appLogoUrl && (
+            <img
+              className={styles.logo}
+              src={appLogoUrl}
+              alt={appLogoUrl}
+            />
+          )}
           <h1 className={styles.projectTitle}>
             {title}
           </h1>
@@ -79,12 +81,11 @@ const DefaultIntro = ({
             {description}
           </p>
           {downloadLink && (
-            <LinkWrapper path={downloadLink.url}>
-              <Svg
-                className={styles.appStore}
-                type={getAppstoreSvgType(type)}
-              />
-            </LinkWrapper>
+            <ProjectLink
+              type={type}
+              downloadLink={downloadLink}
+              linkStyles={styles.appLink}
+            />
           )}
         </div>
         <div className={styles.imageContainer}>
@@ -117,9 +118,9 @@ const DefaultIntro = ({
             key={experienceTitle}
             className={styles.experience}
           >
-            <p className={styles.infoTitle}>
+            <div className={styles.infoTitle}>
               {experienceTitle}
-            </p>
+            </div>
             <ContentfulParser document={text} />
           </div>
         ))}

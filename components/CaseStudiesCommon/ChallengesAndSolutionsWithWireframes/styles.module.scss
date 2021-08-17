@@ -46,3 +46,38 @@
     max-width: 855px;
   }
 }
+
+.natp {
+  @include caseStudyContainer;
+
+  background: linear-gradient(180deg, $mako 0%, $nevada 144.48%) no-repeat;
+  color: $white;
+
+  &.firstSectionView {
+    padding-bottom: 0;
+    background-size: 100% 60%;
+
+    @include below-tablet {
+      background-size: 100% 55%;
+    }
+
+    @include phone {
+      background-size: 100% 45%;
+    }
+
+    [data-case-study-title] {
+      color: $white;
+    }
+  }
+
+  &.secondSectionView {
+    [data-case-study-title] {
+      color: $white;
+      margin-bottom: 150px;
+
+      @include phone {
+        margin-bottom: 100px;
+      }
+    }
+  }
+}

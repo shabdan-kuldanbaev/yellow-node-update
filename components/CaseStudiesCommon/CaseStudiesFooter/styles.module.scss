@@ -400,3 +400,40 @@
     color: $white;
   }
 }
+
+.natp {
+  @extend .container;
+
+  background: linear-gradient(360deg, $shark -10.75%, $nevada 243.07%);
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+
+      @include phone {
+        @include fontSize(40px);
+      }
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  .link {
+    color: rgba($white, 0.5);
+  }
+
+  .iconLink {
+    color: $white;
+  }
+}

@@ -55,6 +55,28 @@
   text-align: start;
 }
 
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px 200px;
+
+  .listItem {
+    line-height: 1.4;
+
+    @include fontSize(18px);
+
+    @include tablet {
+      @include fontSize(16px);
+    }
+
+    @include phone {
+      text-align: start;
+
+      @include fontSize(14px);
+    }
+  }
+}
+
 .tell {
   [data-case-study-title] {
     color: $dark-grey;
@@ -62,5 +84,29 @@
 
   [data-case-study-description] {
     color: $silver-chalice;
+  }
+}
+
+.natp {
+  .listContainer {
+    max-width: 871px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+
+    @include below-tablet {
+      column-gap: 50px;
+    }
+
+    @include phone {
+      grid-template-columns: unset;
+    }
+
+    .listItem {
+      color: $silver-chalice;
+
+      &::marker {
+        color: $sushi;
+      }
+    }
   }
 }

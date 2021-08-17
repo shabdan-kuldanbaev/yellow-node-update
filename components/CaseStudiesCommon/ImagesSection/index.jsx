@@ -19,6 +19,7 @@ const ImagesSection = ({
     <Images
       data={data}
       type={type}
+      view={data.view}
     />
   </section>
 );

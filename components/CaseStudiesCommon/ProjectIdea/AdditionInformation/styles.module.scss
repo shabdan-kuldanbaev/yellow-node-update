@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .infoContainer {
@@ -113,4 +114,38 @@
 
 .open-sense {
   @extend .infoContainer;
+}
+
+.natp {
+  @extend .infoContainer;
+
+  padding-top: 0;
+
+  @include phone {
+    @include flex(column, center, flex-start);
+  }
+
+  .container {
+    margin-right: 100px !important;
+
+    @include phone {
+      margin-right: 0 !important;
+      margin-bottom: 30px;
+    }
+
+    &:last-child {
+      @include phone {
+        margin-bottom: 0;
+      }
+    }
+
+    .listItemContainer {
+      margin-bottom: 15px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $sushi;
+      }
+    }
+  }
 }

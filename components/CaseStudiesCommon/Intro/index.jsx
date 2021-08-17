@@ -10,6 +10,7 @@ export const Intro = (props) => {
   case CASE_STUDIES.stickerbox:
   case CASE_STUDIES.fairy:
   case CASE_STUDIES.sevenPmThursday:
+  case CASE_STUDIES.natp:
     return <DefaultIntro {...props} />;
   case CASE_STUDIES.openSense:
   case CASE_STUDIES.separateUs:
