@@ -134,10 +134,7 @@
     }
 
     &:last-child {
-      margin-right: 0 !important;
-
       @include phone {
-        margin-right: 0 !important;
         margin-bottom: 0;
       }
     }

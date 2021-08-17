@@ -192,7 +192,11 @@
   .contentContainer {
     padding-bottom: 0;
 
-    @include flex(column, center, center);
+    @include flex(column-reverse, center, center);
+
+    @include phone {
+      flex-direction: column;
+    }
 
     .descriptionContainer {
       padding-bottom: 150px;
