@@ -14,10 +14,11 @@ const ChallengesAndSolutionsWithWireframes = ({ data, type }) => {
     { fm: 'png' },
   );
   const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
+  const { view } = data;
 
   return (
     <section
-      className={cn([styles[type]], { [styles.challengesWithoutImage]: data.images })}
+      className={cn([styles[type]], [styles[view]], { [styles.challengesWithoutImage]: data.images })}
       style={sectionStyle}
     >
       <SectionTitle
@@ -27,6 +28,7 @@ const ChallengesAndSolutionsWithWireframes = ({ data, type }) => {
       <ChallengesAndSolutions
         data={data}
         type={type}
+        view={view}
       />
       <Wireframes
         data={data}

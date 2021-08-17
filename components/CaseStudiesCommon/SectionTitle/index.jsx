@@ -11,6 +11,7 @@ const SectionTitle = ({
     title,
     description,
   },
+  contentList,
 }) => {
   if (!title) {
     return null;
@@ -39,17 +40,33 @@ const SectionTitle = ({
           </p>
         </Animated>
       )}
+      {!!contentList.length && (
+        <Animated
+          delay={50}
+          {...ANIMATION_CASE_STUDY_PROPS}
+        >
+          <ul className={styles.listContainer}>
+            {contentList.map((item) => (
+              <li className={styles.listItem}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Animated>
+      )}
     </div>
   );
 };
 
 SectionTitle.defaultProps = {
   type: '',
+  contentList: [],
 };
 
 SectionTitle.propTypes = {
   type: PropTypes.string,
   data: PropTypes.instanceOf(Object).isRequired,
+  contentList: PropTypes.instanceOf(Array),
 };
 
 export default SectionTitle;

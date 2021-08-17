@@ -30,19 +30,21 @@ const ProjectIdea = ({ type, data }) => {
           type={type}
         />
         <div className={styles.descriptionContainer}>
-          <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-            <h3 className={styles.sectionName}>
-              {subtitle}
-            </h3>
-            <h2 className={styles.title}>
-              {title}
-            </h2>
-          </Animated>
-          <Animated {...delayedAnimation}>
-            <div className={styles.description}>
-              <ContentfulParser document={text} />
-            </div>
-          </Animated>
+          <div className={styles.descriptionIntro}>
+            <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+              <h3 className={styles.sectionName}>
+                {subtitle}
+              </h3>
+              <h2 className={styles.title}>
+                {title}
+              </h2>
+            </Animated>
+            <Animated {...delayedAnimation}>
+              <div className={styles.description}>
+                <ContentfulParser document={text} />
+              </div>
+            </Animated>
+          </div>
           <Animated {...delayedAnimation}>
             <AdditionInformation
               additionInformation={contentModules}
