@@ -271,6 +271,7 @@ export const CASE_STUDIES_TYPES = {
   features: 'case-study-features',
   story: 'case-study-story',
   caseStudyEvent: 'case-study-event',
+  fullscreenImage: 'case-study-fullscreen-image',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -288,6 +289,7 @@ export const CASE_STUDIES = {
   openSense: 'open-sense',
   separateUs: 'separate-us',
   natp: 'natp',
+  driveFocus: 'drive-focus',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -302,5 +304,6 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.sevenPmThursday).path,
   ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
   ROUTES.project.getRoute(CASE_STUDIES.natp).path,
+  ROUTES.project.getRoute(CASE_STUDIES.driveFocus).path,
   ROUTES.homepage.path,
 ];

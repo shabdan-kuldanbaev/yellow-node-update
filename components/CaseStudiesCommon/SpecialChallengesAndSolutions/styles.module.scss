@@ -87,3 +87,17 @@
     max-width: 1920px;
   }
 }
+
+.drive-focus {
+  @include caseStudyContainer;
+  @include centeredBackgroundImage;
+
+  &.thirdSectionView {
+    background-color: $alabaster;
+
+    @include tablet {
+      background-size: 120%;
+      background-position: 15% 100%;
+    }
+  }
+}

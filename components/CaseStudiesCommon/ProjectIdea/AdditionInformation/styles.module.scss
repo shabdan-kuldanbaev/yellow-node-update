@@ -149,3 +149,20 @@
     }
   }
 }
+
+.drive-focus {
+  @extend .infoContainer;
+
+  .container {
+    margin-right: 35px !important;
+
+    .listItemContainer {
+      margin-bottom: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $flamenco;
+      }
+    }
+  }
+}
