@@ -7,7 +7,7 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { CustomAnimation } from './CustomAnimation';
 import { CSSAnimation } from './CSSAnimation';
 import { JSONAnimation } from './JSONAnimation';
-import { ParallaxWrapper } from './ParallaxSpring';
+import ParallaxWrapper from './ParallaxSpring';
 import ImageZoom from './ImageZoom';
 import { Gsap } from './Gsap';
 import { ExpandWrapper } from './Expand';

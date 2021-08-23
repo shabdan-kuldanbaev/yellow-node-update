@@ -1,0 +1,13 @@
+@import 'styles/utils/mixins';
+
+.introTextContainer {
+  .text {
+    color: $white;
+    margin: 0;
+  }
+
+  a {
+    color: $turbo-100;
+    text-decoration: underline;
+  }
+}
