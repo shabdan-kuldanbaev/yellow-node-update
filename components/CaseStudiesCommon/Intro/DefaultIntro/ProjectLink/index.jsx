@@ -25,6 +25,7 @@ export const ProjectLink = ({
       </LinkWrapper>
     );
   case CASE_STUDIES.natp:
+  case CASE_STUDIES.driveFocus:
     return (
       <LinkWrapper path={downloadLink.url}>
         {downloadLink.buttonTitle}

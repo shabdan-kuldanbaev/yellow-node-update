@@ -337,3 +337,33 @@
     }
   }
 }
+
+.drive-focus {
+  @extend .container;
+
+  padding: 140px 85px;
+
+  @include phone {
+    max-width: unset;
+  }
+
+  .containerBackground {
+    left: -27%;
+
+    @include phone {
+      left: -27%;
+      right: 15px;
+    }
+  }
+
+  .featureContainer {
+    p {
+      max-width: 326px;
+    }
+
+    .checkMark {
+      color: $white;
+      background-color: $flamenco;
+    }
+  }
+}

@@ -80,12 +80,49 @@
       }
     }
   }
+
+  &drive-focus {
+    background-color: $white;
+    padding-top: 150px;
+
+    @include tablet {
+      padding-top: 100px;
+    }
+
+    @include phone {
+      padding-top: 80px;
+    }
+
+    & > section {
+      @include phone {
+        height: 45vh;
+      }
+    }
+
+    & > div {
+      padding: 0 40px;
+
+      @include tablet {
+        padding: 0 40px;
+      }
+
+      @include phone {
+        padding: 0 15px;
+      }
+    }
+
+    [data-case-study-description] {
+      max-width: 820px;
+      color: $silver-chalice;
+    }
+  }
 }
 
 .tell,
 .separate-us,
 .fairy,
-.natp {
+.natp,
+.drive-focus {
   @extend .parallax;
 }
 

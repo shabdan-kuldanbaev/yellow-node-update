@@ -233,3 +233,17 @@
     }
   }
 }
+
+.drive-focus {
+  @extend .container;
+
+  .contentContainer {
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          max-width: 518px;
+        }
+      }
+    }
+  }
+}

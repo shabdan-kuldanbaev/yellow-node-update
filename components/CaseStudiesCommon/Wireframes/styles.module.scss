@@ -201,3 +201,14 @@
     background: linear-gradient(270deg, $white 0%, rgba($white, 0) 100%);
   }
 }
+
+.drive-focus {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      max-height: 527px;
+      margin-left: 35px;
+    }
+  }
+}

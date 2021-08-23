@@ -132,3 +132,14 @@
     padding-right: 60px;
   }
 }
+
+.drive-focus {
+  @extend .container;
+
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 180px;
+
+  .teamItem:nth-of-type(2) {
+    grid-row: 2/4;
+  }
+}

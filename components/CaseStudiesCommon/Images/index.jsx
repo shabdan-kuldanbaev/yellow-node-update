@@ -30,7 +30,7 @@ const Images = ({
       <div className={cn(
         styles[type],
         styles[classes],
-        { [styles[view]]: view },
+        styles[view],
       )}
       >
         {data.images.map((image, index) => {
