@@ -10,16 +10,14 @@ const FullScreenImages = ({
   data,
   type,
 }) => {
-  if (!get(data, 'images')) {
+  const imageUrl = getFileUrl(get(data, 'images[0]'));
+
+  if (!imageUrl) {
     return null;
   }
 
-  const imageUrl = getFileUrl(get(data, 'images[0]', {}));
-
   return (
-    <section
-      className={cn(styles[type], styles[data.view])}
-    >
+    <section className={cn(styles[type], styles[data.view])}>
       <SectionTitle
         data={data}
         type={type}
