@@ -401,10 +401,9 @@
   }
 }
 
-.natp {
+.natp,
+.drive-focus {
   @extend .container;
-
-  background: linear-gradient(360deg, $shark -10.75%, $nevada 243.07%);
 
   .nextProjectContainer {
     .subtitle {
@@ -436,4 +435,12 @@
   .iconLink {
     color: $white;
   }
+}
+
+.natp {
+  background: linear-gradient(360deg, $shark -10.75%, $nevada 243.07%);
+}
+
+.drive-focus {
+  background-color: $flamenco;
 }

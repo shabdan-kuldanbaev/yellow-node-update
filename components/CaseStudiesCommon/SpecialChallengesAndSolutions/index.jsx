@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
 import { getBackgroundStyle } from './utils/challengesHelper';
@@ -7,10 +8,11 @@ import styles from './styles.module.scss';
 
 const SpecialChallengesAndSolutions = ({ data, type }) => {
   const sectionBackgroundImage = getBackgroundStyle(type, data);
+  const { view } = data;
 
   return (
     <section
-      className={styles[type]}
+      className={cn(styles[type], styles[view])}
       style={sectionBackgroundImage}
     >
       <SectionTitle
@@ -20,6 +22,7 @@ const SpecialChallengesAndSolutions = ({ data, type }) => {
       <ChallengesAndSolutions
         data={data}
         type={type}
+        view={view}
         isSpecial
       />
     </section>

@@ -75,3 +75,14 @@
 
   background-color: $white;
 }
+
+.drive-focus {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  background-color: $white;
+
+  [data-case-study-description] {
+    max-width: 782px;
+  }
+}

@@ -27,7 +27,6 @@ const ImagesSection = ({
 ImagesSection.prototype = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
 };
 
 export default ImagesSection;

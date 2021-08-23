@@ -740,3 +740,248 @@
     }
   }
 }
+
+.driveFocusSpecial {
+  max-width: unset;
+
+  &:nth-child(2n + 1) {
+    @include flex(row-reverse, flex-end);
+
+    & > div:last-child {
+      @extend .openSenseGradient;
+
+      &::after {
+        left: 0;
+        transform: translate(-10px, -1px);
+        background: linear-gradient(269.82deg, rgba($white, 0) 0%, $white 78.3%);
+
+        @include below-tablet {
+          display: none;
+        }
+      }
+    }
+
+    .infoContainer {
+      margin: 0 0 0 150px;
+
+      @include tablet {
+        margin-left: 30px;
+      }
+    }
+
+    @include below-tablet {
+      flex-direction: column;
+    }
+  }
+
+  &:nth-child(2n) {
+    @include flex(row-reverse, flex-start);
+
+    & > div:last-child {
+      @extend .openSenseGradient;
+
+      &::after {
+        right: 0;
+        transform: translate(10px, -1px);
+        background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
+
+        @include below-tablet {
+          display: none;
+        }
+      }
+    }
+
+    .infoContainer {
+      margin: 0 150px 0 0;
+
+      @include tablet {
+        margin-right: 30px;
+      }
+    }
+
+    @include below-tablet {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &:nth-child(2n + 1),
+  &:nth-child(2n) {
+    @include phone {
+      @include flex(column, center, center);
+
+      .infoContainer {
+        margin: 0;
+      }
+    }
+  }
+
+  .infoContainer {
+    max-width: unset;
+
+    .h2,
+    p {
+      line-height: 1.7;
+    }
+
+    h2 {
+      @include fontSize(40px);
+
+      @include tablet {
+        @include fontSize(36px);
+      }
+
+      @include phone {
+        @include fontSize(24px);
+      }
+    }
+
+    p {
+      max-width: 408px;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        @include fontSize(16px);
+      }
+    }
+  }
+
+  & > div:last-child {
+    position: relative;
+
+    .image {
+      filter: unset;
+      width: 100%;
+      height: unset;
+      max-height: unset;
+      max-width: 1076px;
+    }
+  }
+}
+
+.drive-focus {
+  &.firstSectionView {
+    .contentContainer:not(.special) {
+      .infoContainer {
+        max-width: 518px;
+
+        .title {
+          max-width: 406px;
+
+          @include fontSize(56px);
+
+          @include tablet {
+            @include fontSize(40px);
+          }
+
+          @include phone {
+            @include fontSize(32px);
+          }
+        }
+
+        ul {
+          margin: 0;
+
+          & > li {
+            @include fontSize(18px);
+
+            @include tablet {
+              @include fontSize(16px);
+            }
+
+            @include phone {
+              @include fontSize(14px);
+            }
+
+            &::marker {
+              color: $flamenco;
+            }
+          }
+        }
+
+        p {
+          @include fontSize(18px);
+
+          @include tablet {
+            @include fontSize(16px);
+          }
+
+          @include phone {
+            @include fontSize(14px);
+          }
+        }
+      }
+    }
+
+    .special {
+      @extend .driveFocusSpecial;
+    }
+  }
+
+  &.secondSectionView {
+    .special {
+      @extend .driveFocusSpecial;
+
+      &:nth-child(2n + 1) {
+        @include flex(row, flex-end);
+
+        @include below-tablet {
+          flex-direction: column;
+        }
+
+        & > div:last-child {
+          &::after {
+            right: 0;
+            left: unset;
+            transform: translate(10px, -1px);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFF 78.3%);
+          }
+        }
+
+        .infoContainer {
+          margin: 0 150px 0 0;
+
+          @include tablet {
+            margin-right: 30px;
+          }
+
+          @include phone {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    height: 620px;
+
+    @include macbook-fifteen {
+      height: 500px;
+    }
+
+    @include tablet {
+      height: 390px;
+    }
+
+    @include below-tablet {
+      height: 325px;
+    }
+
+    .special {
+      @include flex(column, space-between);
+
+      @include phone {
+        align-items: center;
+      }
+
+      .infoContainer {
+        max-width: 380px;
+
+        @include below-tablet {
+          max-width: 406px;
+        }
+      }
+    }
+  }
+}

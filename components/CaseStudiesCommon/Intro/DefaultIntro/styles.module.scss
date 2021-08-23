@@ -588,3 +588,112 @@
     background-color: $sushi;
   }
 }
+
+.drive-focus {
+  @extend .container;
+
+  background: linear-gradient(180deg, $flamenco 0%, $yellow-orange 100%);
+  background-size: cover;
+  height: unset;
+  padding-top: 420px;
+
+  @include macbook-twelve {
+    padding-top: 300px;
+  }
+
+  @include tablet {
+    padding-top: 200px;
+  }
+
+  @include phone {
+    padding-top: 100px;
+  }
+
+  .introSection {
+    margin-bottom: 330px;
+
+    @include tablet {
+      margin-bottom: 100px;
+    }
+  }
+
+  .projectInfoContainer {
+    color: $white;
+
+    .projectTitle {
+      @include macbook-fifteen {
+        @include fontSize(85px);
+      }
+
+      @include phone {
+        @include fontSize(60px);
+      }
+    }
+
+    .projectSubtitle {
+      opacity: 0.8;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      opacity: 0.8;
+      max-width: 407px;
+    }
+  }
+
+  .imageContainer {
+    @include tablet {
+      width: 100%;
+      height: unset;
+    }
+
+    .image {
+      max-width: 1484px;
+      transform: translate(-25%, -45%);
+
+      @include macbook-twelve {
+        max-width: 1076px;
+      }
+
+      @include tablet {
+        position: relative;
+        width: 100%;
+        height: unset;
+        transform: unset;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      color: $white;
+
+      p {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    width: 90%;
+    height: 100%;
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    background-color: $white;
+    color: $flamenco;
+  }
+}
