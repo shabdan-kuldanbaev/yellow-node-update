@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import { connect } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
@@ -16,6 +18,7 @@ const DefaultIntro = ({
   type,
   introSection,
   data,
+  isMobileResolution,
 }) => {
   const {
     title,
@@ -80,7 +83,7 @@ const DefaultIntro = ({
           <p className={styles.projectDescription}>
             {description}
           </p>
-          {downloadLink && (
+          {(!isMobileResolution && downloadLink) && (
             <ProjectLink
               type={type}
               downloadLink={downloadLink}
@@ -106,6 +109,13 @@ const DefaultIntro = ({
             />
           );
         })}
+        {(isMobileResolution && downloadLink) && (
+          <ProjectLink
+            type={type}
+            downloadLink={downloadLink}
+            linkStyles={styles.appLink}
+          />
+        )}
       </div>
       <div className={styles.experiencesContainer}>
         {experiences && experiences.map(({
@@ -133,6 +143,9 @@ DefaultIntro.propTypes = {
   type: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
   data: PropTypes.instanceOf(Object).isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default DefaultIntro;
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(DefaultIntro);

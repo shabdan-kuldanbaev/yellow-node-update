@@ -99,5 +99,10 @@
       background-size: 120%;
       background-position: 15% 100%;
     }
+
+    @include phone {
+      background-size: 170%;
+      background-position: 65% 100%;
+    }
   }
 }
