@@ -15,7 +15,6 @@ export const IntroText = ({ className }) => (
       path={ROUTES.contact.path}
       dynamicRouting={ROUTES.contact.dynamicPath}
     >
-      {' '}
       Get in touch
     </LinkWrapper>
   </div>
