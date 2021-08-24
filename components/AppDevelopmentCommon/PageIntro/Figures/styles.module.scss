@@ -120,3 +120,77 @@
     }
   }
 }
+
+.web-app-development-company {
+  color: $white;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-column-gap: 150px;
+
+  @include tablet {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .text {
+    order: 1;
+
+    & > div {
+      max-width: 518px;
+
+      p {
+        margin: 0 0 30px;
+        color: $silver-chalice;
+        line-height: 1.8;
+
+        @include fontSize(18px);
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+
+        @include phone {
+          text-align: center;
+
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+
+  .figures {
+    & > div {
+      margin-bottom: 40px;
+
+      @include flex(row, initial, center);
+
+      .title {
+        font-weight: 700;
+
+        @include fontSize(24px);
+      }
+    }
+  }
+
+  .checkMark {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+    border-radius: 50%;
+    background-color: $dolly;
+
+    @include tablet {
+      min-width: 40px;
+      height: 40px;
+      margin-right: 20px;
+    }
+
+    .icon {
+      @include centered;
+
+      path {
+        fill: $black;
+      }
+    }
+  }
+}

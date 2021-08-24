@@ -13,6 +13,7 @@ import {
   ROUTES,
   CASE_STUDIES_SLUGS,
   CASE_STUDIES,
+  PAGES_WITH_TRANSPARENT_HEADER,
 } from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
@@ -26,9 +27,7 @@ const Header = ({
 }) => {
   const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
-  const isCaseStudyPage = CASE_STUDIES_SLUGS.includes(project);
-  const isHomePage = asPath === ROUTES.homepage.path;
-  const isPageWithTransparentHeader = isHomePage || isCaseStudyPage;
+  const isPageWithTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
   const headerTheme = [
     CASE_STUDIES.tell,
     CASE_STUDIES.openSense,

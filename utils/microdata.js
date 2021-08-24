@@ -108,6 +108,14 @@ export const microdata = {
     description: 'The best talents for Mobile App Development are here. Hire an experienced team to work on your idea.',
     breadcrumb: 'Homepage > Custom mobile app development company',
   }),
+  customWebApp: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Custom web application development company',
+    description: `Our team is ready to provide you with web development services. 
+                  We are working with websites, PWAs, chatting applications, and landing pages.`,
+    breadcrumb: 'Homepage > Custom web application development company',
+  }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',

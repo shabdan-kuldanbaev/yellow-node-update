@@ -59,6 +59,15 @@
         @include fontSize(16px);
       }
     }
+
+    .svgWrapper {
+      svg {
+        @include phone {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
   }
 }
 
@@ -87,6 +96,17 @@
 
     .svgWrapper {
       margin-right: 40px;
+
+      @include phone {
+        margin-right: 16px;
+      }
+
+      svg {
+        @include phone {
+          width: 48px;
+          height: 48px;
+        }
+      }
     }
 
     .cardContent {
@@ -126,6 +146,44 @@
   }
 }
 
+.threeColumnCards {
+  @extend .wrapper;
+
+  max-width: 1300px;
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include below-tablet {
+      width: 100%;
+      grid-template-columns: auto;
+      grid-template-rows: repeat(3, 1fr);
+      grid-row-gap: 20px;
+    }
+
+    & > div {
+      padding: 40px;
+
+      @include below-tablet {
+        width: 100%;
+        max-width: unset;
+      }
+
+      p {
+        color: $silver-chalice;
+        line-height: 1.8;
+        margin: 0;
+
+        @include fontSize(16px);
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+}
+
 .mobile-app-development-company {
   @include appDevelopmentContainer;
 
@@ -133,10 +191,7 @@
     @extend .wrapper;
 
     .titleStyle {
-      margin-bottom: 80px;
-
       p {
-        margin: 0 auto 30px;
         color: $silver-chalice;
         line-height: 2;
         text-align: center;
@@ -189,41 +244,9 @@
     background-color: $alabaster;
 
     .contentWrapper {
-      @extend .wrapper;
+      @extend .threeColumnCards;
 
       max-width: 1300px;
-
-      .cards {
-        grid-template-columns: repeat(3, 1fr);
-
-        @include below-tablet {
-          width: 100%;
-          grid-template-columns: auto;
-          grid-template-rows: repeat(3, 1fr);
-          grid-row-gap: 20px;
-        }
-
-        & > div {
-          padding: 40px;
-
-          @include below-tablet {
-            width: 100%;
-            max-width: unset;
-          }
-
-          p {
-            color: $silver-chalice;
-            line-height: 1.8;
-            margin: 0;
-
-            @include fontSize(16px);
-
-            @include phone {
-              @include fontSize(14px);
-            }
-          }
-        }
-      }
     }
 
     .callToAction {
@@ -246,6 +269,85 @@
         p {
           max-width: 365px;
         }
+      }
+    }
+  }
+}
+
+.web-app-development-company {
+  @include appDevelopmentContainer;
+
+  .contentWrapper {
+    @extend .wrapper;
+
+    .titleStyle {
+      h2 {
+        margin: 0;
+      }
+
+      p {
+        max-width: 745px;
+        width: unset;
+      }
+    }
+
+    .smallCards {
+      padding-bottom: 150px;
+
+      @include tablet {
+        padding-bottom: 100px;
+      }
+
+      @include phone {
+        padding-bottom: 80px;
+      }
+    }
+  }
+
+  .callToAction {
+    padding: 84px 80px;
+
+    h3 {
+      margin: 0;
+
+      @include fontSize(24px);
+    }
+  }
+
+  &.firstSectionView {
+    background-color: $alabaster;
+  }
+
+  &.secondSectionView {
+    background-color: $cod-gray-1;
+
+    .contentWrapper {
+      .titleStyle {
+        h2 {
+          color: $white;
+        }
+      }
+
+      .cards {
+        & > div {
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    padding-bottom: 0;
+
+    .contentWrapper {
+      @extend .threeColumnCards;
+    }
+  }
+
+  &.fourthSectionView {
+    .contentWrapper {
+      & > div:last-child {
+        width: 100%;
       }
     }
   }
