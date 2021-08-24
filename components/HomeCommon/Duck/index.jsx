@@ -22,6 +22,7 @@ import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { EffectComposer, RenderPass } from 'postprocessing';
 import { Animated } from 'components/Common/Animated';
+import { IntroText } from 'components/HomeCommon/IntroText';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { AppContext } from 'utils/appContext';
@@ -438,6 +439,7 @@ export const Duck = ({ duck }) => {
             className="letter-container"
           />
         </Animated>
+        <IntroText className={styles.subText} />
       </div>
       <Animated
         type={ANIMATED_TYPE.isParallaxSpring}
