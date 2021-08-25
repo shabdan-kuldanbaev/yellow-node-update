@@ -10,7 +10,10 @@
   max-width: 1100px;
 
   @include tablet {
-    display: none;
+    grid-row-gap: 10px;
+    padding-top: 80px;
+
+    @include flex(column, center, center);
   }
 
   .title {
@@ -24,6 +27,8 @@
     @include fontSize(40px);
 
     @include tablet {
+      margin-bottom: 40px;
+
       @include fontSize(32px);
     }
 

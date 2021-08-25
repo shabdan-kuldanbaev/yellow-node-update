@@ -110,6 +110,15 @@
       }
     }
   }
+
+  .mobileAdditionalInformation {
+    flex-direction: column;
+
+    & > div {
+      margin-top: 40px;
+      margin-right: 0 !important;
+    }
+  }
 }
 
 .fernwayer {
@@ -236,6 +245,8 @@
 
 .drive-focus {
   @extend .container;
+
+  padding-bottom: 0;
 
   .contentContainer {
     .descriptionContainer {
