@@ -12,7 +12,11 @@ import { getDocumentFields } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
-const ProjectIdea = ({ type, data, isMobileResolution }) => {
+const ProjectIdea = ({
+  type,
+  data,
+  isMobileResolution,
+}) => {
   const {
     title,
     subtitle,
@@ -52,12 +56,12 @@ const ProjectIdea = ({ type, data, isMobileResolution }) => {
               <AdditionInformation
                 additionInformation={contentModules}
                 type={type}
-                className={styles.desktopAdditionalInformation}
               />
             </Animated>
           )}
         </div>
       </div>
+      {/* TODO rewrite via the grid */}
       {isMobileResolution && (
         <Animated {...delayedAnimation}>
           <AdditionInformation

@@ -83,6 +83,7 @@ const DefaultIntro = ({
           <p className={styles.projectDescription}>
             {description}
           </p>
+          {/* TODO rewrite via the grid */}
           {(!isMobileResolution && downloadLink) && (
             <ProjectLink
               type={type}
