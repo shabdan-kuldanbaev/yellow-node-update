@@ -209,6 +209,10 @@
     .image {
       max-height: 527px;
       margin-left: 35px;
+
+      @include phone {
+        max-height: 313px;
+      }
     }
   }
 }

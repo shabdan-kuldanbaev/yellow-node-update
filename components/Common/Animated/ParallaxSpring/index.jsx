@@ -1,15 +1,18 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { animated, useSpring } from 'react-spring/web.cjs';
+import { connect } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import cn from 'classnames';
 
-export const ParallaxWrapper = ({
+const ParallaxWrapper = ({
   children,
   className,
   elementRef,
   position,
   speed,
   isHomepageIntro,
+  isMobileResolution,
 }) => {
   const containerRef = useRef(null);
   const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
@@ -29,9 +32,11 @@ export const ParallaxWrapper = ({
         const { top: elemYOffset } = container.getBoundingClientRect();
 
         if (isHomepageIntro) {
-          const resultOffset = pageYOffset <= 0 ? 0 : pageYOffset - elemYOffset;
+          if (!isMobileResolution) {
+            const resultOffset = pageYOffset <= 0 ? 0 : pageYOffset - elemYOffset;
 
-          set({ offset: resultOffset });
+            set({ offset: resultOffset });
+          }
         } else {
           set({ offset: elemYOffset });
         }
@@ -46,6 +51,7 @@ export const ParallaxWrapper = ({
     elementRef,
     isHomepageIntro,
     set,
+    isMobileResolution,
   ]);
 
   switch (isHomepageIntro) {
@@ -90,4 +96,9 @@ ParallaxWrapper.propTypes = {
   position: PropTypes.string,
   speed: PropTypes.number,
   isHomepageIntro: PropTypes.bool,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
+
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(ParallaxWrapper);

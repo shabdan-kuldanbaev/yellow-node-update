@@ -10,7 +10,7 @@
   }
 
   @include phone {
-    padding: $section-indent $side-indent;
+    padding: calc($section-indent - 40px) $side-indent $section-indent;
   }
 
   h1 {

@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
-const AdditionInformation = ({ additionInformation, type }) => {
+const AdditionInformation = ({
+  additionInformation,
+  type,
+  className,
+}) => {
   if (!additionInformation) {
     return null;
   }
 
   return (
-    <div className={styles[type]}>
+    <div className={cn(styles[type], className)}>
       {additionInformation.map((data) => {
         const { title, contentList } = getDocumentFields(data);
 
@@ -40,11 +45,13 @@ const AdditionInformation = ({ additionInformation, type }) => {
 
 AdditionInformation.defaultProps = {
   additionInformation: null,
+  className: '',
 };
 
 AdditionInformation.propTypes = {
   additionInformation: PropTypes.instanceOf(Object),
   type: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export default AdditionInformation;
