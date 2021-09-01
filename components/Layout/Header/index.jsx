@@ -13,6 +13,7 @@ import {
   ROUTES,
   CASE_STUDIES_SLUGS,
   CASE_STUDIES,
+  WITH_SUB_ITEMS,
 } from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
@@ -38,10 +39,18 @@ const Header = ({
     : 'dark';
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
+  const [isDropMenuOpened, setIsDropMenuOpened] = useState(false);
   // TODO rework this check
   const logo = !isAdditional && isPageWithTransparentHeader
     ? project || 'home'
     : 'default';
+
+  const openDropDown = (slug) => {
+    if (WITH_SUB_ITEMS.includes(slug)) {
+      setIsDropMenuOpened(true);
+    }
+  };
+  const closeDropDown = () => setIsDropMenuOpened(false);
 
   useEffect(() => {
     const handleOnScroll = () => {
@@ -85,23 +94,30 @@ const Header = ({
       [styles.additional]: isAdditional,
       [styles.notHome]: !isPageWithTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
+      [styles.openedDropDown]: isPageWithTransparentHeader && isDropMenuOpened,
     })}
     >
       <div className={styles.logo}>
         <Logo type={logo} />
       </div>
       <Nav
-        theme={headerTheme}
+        theme={isPageWithTransparentHeader && isDropMenuOpened ? 'dark' : headerTheme}
         isAdditional={isAdditional}
         isTransparentHeader={isPageWithTransparentHeader}
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
+        openDropDown={openDropDown}
+        closeDropDown={closeDropDown}
+        isDropMenuOpened={isDropMenuOpened}
       />
       <MobileMenu
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
+        openDropDown={openDropDown}
+        closeDropDown={closeDropDown}
+        isDropMenuOpened={isDropMenuOpened}
       />
       {!isPageWithTransparentHeader && <LinearIndeterminate />}
       {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}

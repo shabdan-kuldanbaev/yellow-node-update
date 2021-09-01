@@ -145,6 +145,7 @@ export const SVG_IMAGES_TYPES = {
   opensenseTitleBorder: 'opensenseTitleBorder',
   tellTeamUnderline: 'tellTeamUnderline',
   visitSite: 'visitSite',
+  arrowDown: 'arrowDown',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -307,3 +308,38 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.driveFocus).path,
   ROUTES.homepage.path,
 ];
+
+export const SUB_ITEMS_NAV = {
+  [ROUTES.portfolio.slug]: [
+    // TODO return when web app development page will be added
+    // {
+    //   title: 'Web app development',
+    //   items: [
+    //     {
+    //       itemTitle: 'Custom web app development company',
+    //       slug: '/',
+    //     },
+    //   ],
+    // },
+    {
+      title: 'Mobile app development',
+      items: [
+        {
+          itemTitle: ROUTES.customMobileApp.title,
+          slug: ROUTES.customMobileApp.path,
+        },
+      ],
+    },
+    {
+      title: 'Chat app development',
+      items: [
+        {
+          itemTitle: ROUTES.customChatApp.title,
+          slug: ROUTES.customChatApp.path,
+        },
+      ],
+    },
+  ],
+};
+
+export const WITH_SUB_ITEMS = [ROUTES.portfolio.slug];

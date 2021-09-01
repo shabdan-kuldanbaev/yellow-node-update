@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .mobileMenu {
@@ -18,7 +19,7 @@
 
     @include flex(row, center, center);
 
-    ul > li > a {
+    ul > li > .mainLink > a {
       color: $white;
       cursor: pointer;
       text-decoration: none;
@@ -44,33 +45,69 @@
     ul {
       height: 114vw;
       margin-bottom: 20vh;
-      padding: 0;
-      text-align: center;
+      padding: 60px 0 0;
+      width: 100%;
 
       @include small-phone {
         @include flex(row, center, center);
       }
 
       li {
-        margin: 30px 0;
+        padding: 20px 0;
+        margin: 0 16px;
         list-style: none;
-        font-weight: 500;
-        letter-spacing: 0.5px;
+        border-bottom: 0.5px solid rgba($white, 0.2);
+
+        @include flex(column, center);
 
         @include small-phone {
-          &:not(:last-child) {
+          &:not(:last-of-type) {
             margin-right: 20px;
           }
         }
 
-        &:last-child {
-          border-radius: $button-border-radius;
-          background-color: $turbo-100;
+        &:nth-last-of-type(2) {
+          border-bottom: none;
+        }
+
+        &:last-of-type {
+          border-radius: 5px;
+          background-color: $black;
+          border: 1px solid $white;
+          max-width: 130px;
+          margin: 130px auto 0;
+          padding: 0;
 
           a {
             display: block;
-            color: $black;
-            padding: 16px 34px;
+            color: $white;
+            padding: 14px 23px;
+
+            @include fontSize(14px);
+          }
+        }
+
+        & > span {
+          outline: none;
+        }
+
+        .mainLink {
+          font-weight: 500;
+          letter-spacing: 0.5px;
+
+          @include flex(row, space-between, center);
+
+          .svgContainer {
+            outline: none;
+            transform: rotate(-90deg);
+            transition: transform $default-transition-time ease-in-out;
+          }
+        }
+
+        .openedDropDown {
+          .svgContainer {
+            transform: rotate(0);
+            transition: transform $default-transition-time ease-in-out;
           }
         }
       }
