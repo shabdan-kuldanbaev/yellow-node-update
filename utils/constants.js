@@ -309,7 +309,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.homepage.path,
 ];
 
-export const SUB_ITEMS_NAV = {
+export const SUB_NAVIGATION_LINKS = {
   [ROUTES.portfolio.slug]: [
     // TODO return when web app development page will be added
     // {
@@ -342,4 +342,4 @@ export const SUB_ITEMS_NAV = {
   ],
 };
 
-export const WITH_SUB_ITEMS = [ROUTES.portfolio.slug];
+export const LINKS_WITH_SUB_NAVIGATION = [ROUTES.portfolio.slug];

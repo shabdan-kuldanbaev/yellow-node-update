@@ -1,0 +1,67 @@
+@import 'styles/utils/mixins';
+
+.navItem {
+  padding: 20px 0;
+  margin: 0 16px;
+  list-style: none;
+  border-bottom: 0.5px solid rgba($white, 0.2);
+
+  @include flex(column, center);
+
+  @include small-phone {
+    &:not(:last-of-type) {
+      margin-right: 20px;
+    }
+  }
+
+  &:nth-last-of-type(2) {
+    border-bottom: none;
+  }
+
+  &:last-of-type {
+    border-radius: 5px;
+    background-color: $black;
+    border: 1px solid $white;
+    max-width: 130px;
+    margin: 130px auto 0;
+    padding: 0;
+
+    a {
+      display: block;
+      color: $white;
+      padding: 14px 23px;
+
+      @include fontSize(14px);
+    }
+  }
+
+  & > span {
+    outline: none;
+  }
+
+  .mainLink {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+
+    @include flex(row, space-between, center);
+
+    a {
+      color: $white;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .svgContainer {
+      outline: none;
+      transform: rotate(-90deg);
+      transition: transform $default-transition-time ease-in-out;
+    }
+  }
+
+  .openedDropDown {
+    .svgContainer {
+      transform: rotate(0);
+      transition: transform $default-transition-time ease-in-out;
+    }
+  }
+}

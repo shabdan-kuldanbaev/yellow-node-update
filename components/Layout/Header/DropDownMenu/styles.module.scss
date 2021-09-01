@@ -12,6 +12,7 @@
   z-index: -1;
   opacity: 1;
   visibility: visible;
+  // TODO make animation slower
   transition: visibility 0.5s, opacity 0.6s ease;
 
   @include phone {
@@ -46,14 +47,14 @@
       }
 
       &:nth-child(2) {
-        grid-row: 1 / 3;
-        grid-column: 2 / 3;
+        grid-row: 1/3;
+        grid-column: 2/3;
       }
 
       .title {
         font-weight: 500;
         line-height: 1.5;
-        margin: 0 0 7px 0;
+        margin: 0 0 7px;
 
         @include fontSize(20px);
 

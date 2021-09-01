@@ -2,8 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
+import { connect } from 'react-redux';
+import { selectIsDropMenuOpened } from 'redux/selectors/layout';
+import { setIsDropMenuOpened } from 'redux/actions/layout';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { NAV_LINKS, WITH_SUB_ITEMS } from 'utils/constants';
+import { NAV_LINKS } from 'utils/constants';
+import { isHasSubNavigation } from 'helpers/navigation';
 import { DropDownMenu } from '../DropDownMenu';
 import styles from './styles.module.scss';
 
@@ -13,15 +17,22 @@ const Nav = ({
   isAdditional,
   isTransparentHeader,
   navLinks: links,
-  openDropDown,
-  closeDropDown,
+  setIsDropMenuOpened: setIsDropMenuOpenedAction,
   isDropMenuOpened,
+  isHeader,
 }) => {
   const { asPath } = useRouter();
   const isBlog = asPath && asPath.includes('blog');
   // TODO rework this checks
   const isAdditionalNav = !isBlog && (isAdditional || (currentPage && (currentPage !== '' && !isTransparentHeader)));
   const isAdditionalNavForBlog = isBlog && !isTransparentHeader;
+
+  const onLinkMouseHover = (slug) => () => {
+    if (isHeader && isHasSubNavigation(slug)) {
+      setIsDropMenuOpenedAction(true);
+    }
+  };
+  const onLinkMouseLeave = () => setIsDropMenuOpenedAction(false);
 
   return (
     <ul className={cn(styles.desktopMenu, {
@@ -38,8 +49,8 @@ const Nav = ({
         <li
           key={`menuItem/${title}`}
           className={styles[theme]}
-          onMouseEnter={() => { openDropDown(slug); }}
-          onMouseLeave={closeDropDown}
+          onMouseEnter={onLinkMouseHover(slug)}
+          onMouseLeave={onLinkMouseLeave}
         >
           <LinkWrapper
             isLocalLink
@@ -50,10 +61,10 @@ const Nav = ({
               {title}
             </span>
           </LinkWrapper>
-          {WITH_SUB_ITEMS.includes(slug) && (
+          {isHasSubNavigation(slug) && (
             <DropDownMenu
               isDropMenuOpened={isDropMenuOpened}
-              isAdditional={isAdditionalNav}
+              isPageScrolling={isAdditionalNav}
               slug={slug}
             />
           )}
@@ -67,9 +78,8 @@ Nav.defaultProps = {
   theme: 'dark',
   navLinks: NAV_LINKS,
   isTransparentHeader: false,
-  openDropDown: () => {},
-  closeDropDown: () => {},
   isDropMenuOpened: false,
+  isHeader: false,
 };
 
 Nav.propTypes = {
@@ -78,9 +88,14 @@ Nav.propTypes = {
   isAdditional: PropTypes.bool.isRequired,
   isTransparentHeader: PropTypes.bool,
   navLinks: PropTypes.instanceOf(Array),
-  openDropDown: PropTypes.func,
-  closeDropDown: PropTypes.func,
+  setIsDropMenuOpened: PropTypes.func.isRequired,
   isDropMenuOpened: PropTypes.bool,
+  isHeader: PropTypes.bool,
 };
 
-export default Nav;
+export default connect(
+  (state) => ({
+    isDropMenuOpened: selectIsDropMenuOpened(state),
+  }),
+  { setIsDropMenuOpened },
+)(Nav);

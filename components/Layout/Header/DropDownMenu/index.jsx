@@ -2,28 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { SUB_ITEMS_NAV } from 'utils/constants';
+import { SUB_NAVIGATION_LINKS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 // TODO rewrite this component(use state here or in the nav instead of using it the header)
 export const DropDownMenu = ({
   isDropMenuOpened,
-  isAdditional,
+  isPageScrolling,
   slug,
   closeMobileMenu,
 }) => {
-  if (!SUB_ITEMS_NAV[slug]) {
+  if (!SUB_NAVIGATION_LINKS[slug]) {
     return null;
   }
 
   return (
     <div className={cn(styles.dropDownMenu, {
-      [styles.additional]: isAdditional,
+      [styles.additional]: isPageScrolling,
       [styles.closed]: !isDropMenuOpened,
     })}
     >
       <div className={styles.dropDownNavContainer}>
-        {SUB_ITEMS_NAV[slug].map(({ title, items }) => (
+        {SUB_NAVIGATION_LINKS[slug].map(({ title, items }) => (
           <div className={styles.itemContainer}>
             <h3 className={styles.title}>
               {title}
@@ -55,7 +55,7 @@ DropDownMenu.defaultProps = {
 
 DropDownMenu.propTypes = {
   isDropMenuOpened: PropTypes.bool.isRequired,
-  isAdditional: PropTypes.bool.isRequired,
+  isPageScrolling: PropTypes.bool.isRequired,
   slug: PropTypes.string.isRequired,
   closeMobileMenu: PropTypes.func,
 };

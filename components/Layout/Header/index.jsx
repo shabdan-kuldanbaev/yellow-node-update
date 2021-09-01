@@ -3,17 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
+import { selectIsMobileMenuOpened, selectIsDropMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
 import LinearIndeterminate from 'components/Common/LinearIndeterminate';
 import Logo from 'components/Common/Logo';
-import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import { TopProgressBar } from 'components/Common/TopProgressBar';
 import {
   ROUTES,
   CASE_STUDIES_SLUGS,
   CASE_STUDIES,
-  WITH_SUB_ITEMS,
 } from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
@@ -24,6 +22,7 @@ const Header = ({
   introSection,
   isMobileMenuOpened,
   setMobileMenuState: setMobileMenu,
+  isDropMenuOpened,
 }) => {
   const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
@@ -37,20 +36,16 @@ const Header = ({
   ].includes(project)
     ? 'light'
     : 'dark';
+  // TODO rename this variable
   const [isAdditional, setAdditional] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
-  const [isDropMenuOpened, setIsDropMenuOpened] = useState(false);
   // TODO rework this check
   const logo = !isAdditional && isPageWithTransparentHeader
     ? project || 'home'
     : 'default';
-
-  const openDropDown = (slug) => {
-    if (WITH_SUB_ITEMS.includes(slug)) {
-      setIsDropMenuOpened(true);
-    }
-  };
-  const closeDropDown = () => setIsDropMenuOpened(false);
+  const isHeaderColorNeedChange = isPageWithTransparentHeader
+  && isDropMenuOpened
+  && !isAdditional;
 
   useEffect(() => {
     const handleOnScroll = () => {
@@ -94,29 +89,26 @@ const Header = ({
       [styles.additional]: isAdditional,
       [styles.notHome]: !isPageWithTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
-      [styles.openedDropDown]: isPageWithTransparentHeader && isDropMenuOpened,
+      [styles.openedDropDown]: isHeaderColorNeedChange,
     })}
     >
       <div className={styles.logo}>
         <Logo type={logo} />
       </div>
       <Nav
-        theme={isPageWithTransparentHeader && isDropMenuOpened ? 'dark' : headerTheme}
+        theme={isHeaderColorNeedChange ? 'dark' : headerTheme}
         isAdditional={isAdditional}
         isTransparentHeader={isPageWithTransparentHeader}
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
-        openDropDown={openDropDown}
-        closeDropDown={closeDropDown}
         isDropMenuOpened={isDropMenuOpened}
+        isHeader
       />
       <MobileMenu
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
-        openDropDown={openDropDown}
-        closeDropDown={closeDropDown}
         isDropMenuOpened={isDropMenuOpened}
       />
       {!isPageWithTransparentHeader && <LinearIndeterminate />}
@@ -134,9 +126,13 @@ Header.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,
+  isDropMenuOpened: PropTypes.bool.isRequired,
 };
 
 export default connect(
-  (state) => ({ isMobileMenuOpened: selectIsMobileMenuOpened(state) }),
+  (state) => ({
+    isMobileMenuOpened: selectIsMobileMenuOpened(state),
+    isDropMenuOpened: selectIsDropMenuOpened(state),
+  }),
   { setMobileMenuState },
 )(Header);
