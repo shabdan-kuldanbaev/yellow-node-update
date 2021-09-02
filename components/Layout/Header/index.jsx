@@ -44,8 +44,11 @@ const Header = ({
     ? project || 'home'
     : 'default';
   const isHeaderColorNeedChange = isPageWithTransparentHeader
-  && isDropMenuOpened
-  && !isAdditional;
+    && isDropMenuOpened
+    && !isAdditional;
+  const navTheme = isHeaderColorNeedChange
+    ? 'dark'
+    : headerTheme;
 
   useEffect(() => {
     const handleOnScroll = () => {
@@ -96,20 +99,18 @@ const Header = ({
         <Logo type={logo} />
       </div>
       <Nav
-        theme={isHeaderColorNeedChange ? 'dark' : headerTheme}
+        theme={navTheme}
         isAdditional={isAdditional}
         isTransparentHeader={isPageWithTransparentHeader}
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
-        isDropMenuOpened={isDropMenuOpened}
         isHeader
       />
       <MobileMenu
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
         isAdditional={isAdditional}
-        isDropMenuOpened={isDropMenuOpened}
       />
       {!isPageWithTransparentHeader && <LinearIndeterminate />}
       {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}

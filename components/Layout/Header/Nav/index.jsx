@@ -78,7 +78,6 @@ Nav.defaultProps = {
   theme: 'dark',
   navLinks: NAV_LINKS,
   isTransparentHeader: false,
-  isDropMenuOpened: false,
   isHeader: false,
 };
 
@@ -89,13 +88,11 @@ Nav.propTypes = {
   isTransparentHeader: PropTypes.bool,
   navLinks: PropTypes.instanceOf(Array),
   setIsDropMenuOpened: PropTypes.func.isRequired,
-  isDropMenuOpened: PropTypes.bool,
+  isDropMenuOpened: PropTypes.bool.isRequired,
   isHeader: PropTypes.bool,
 };
 
 export default connect(
-  (state) => ({
-    isDropMenuOpened: selectIsDropMenuOpened(state),
-  }),
+  (state) => ({ isDropMenuOpened: selectIsDropMenuOpened(state) }),
   { setIsDropMenuOpened },
 )(Nav);

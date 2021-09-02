@@ -40,7 +40,7 @@ const MobileMenu = ({
               title={title}
               path={path}
               dynamicPath={dynamicPath}
-              isAdditional={isAdditional}
+              isAdditional={false}
               closeMenu={closeMenu}
             />
           ))}

@@ -325,7 +325,7 @@ export const SUB_NAVIGATION_LINKS = {
       title: 'Mobile app development',
       items: [
         {
-          itemTitle: ROUTES.customMobileApp.title,
+          title: ROUTES.customMobileApp.title,
           slug: ROUTES.customMobileApp.path,
         },
       ],
@@ -334,7 +334,7 @@ export const SUB_NAVIGATION_LINKS = {
       title: 'Chat app development',
       items: [
         {
-          itemTitle: ROUTES.customChatApp.title,
+          title: ROUTES.customChatApp.title,
           slug: ROUTES.customChatApp.path,
         },
       ],

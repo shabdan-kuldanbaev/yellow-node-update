@@ -12,8 +12,9 @@
   z-index: -1;
   opacity: 1;
   visibility: visible;
-  // TODO make animation slower
-  transition: visibility 0.5s, opacity 0.6s ease;
+  transition:
+    visibility 0.4s,
+    opacity 0.5s ease;
 
   @include phone {
     position: relative;
@@ -22,6 +23,7 @@
     margin-top: 20px;
     width: unset;
     z-index: unset;
+    background-color: $black;
   }
 
   .dropDownNavContainer {
@@ -34,8 +36,8 @@
 
     @include phone {
       margin: 0;
-
-      @include flex(column, center, flex-start);
+      grid-template-columns: unset;
+      grid-column-gap: unset;
     }
 
     .itemContainer {
@@ -49,6 +51,11 @@
       &:nth-child(2) {
         grid-row: 1/3;
         grid-column: 2/3;
+
+        @include phone {
+          grid-row: unset;
+          grid-column: unset;
+        }
       }
 
       .title {
@@ -82,7 +89,7 @@
   }
 }
 
-.additional {
+.pageScrolling {
   background-color: $white;
 
   .dropDownNavContainer {

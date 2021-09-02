@@ -24,7 +24,7 @@
   opacity: 1;
   transition:
     padding $default-transition-time,
-    background-color 0.6s;
+    background-color 0.5s;
 
   @include flex(row, space-between, center);
 

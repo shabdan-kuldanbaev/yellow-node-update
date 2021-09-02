@@ -4,9 +4,9 @@ import cn from 'classnames';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
 import { Animated } from 'components/Common/Animated';
+import { DropDownMenu } from 'components/Layout/Header/DropDownMenu';
 import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
 import { isHasSubNavigation } from 'helpers/navigation';
-import { DropDownMenu } from '../../DropDownMenu';
 import styles from './styles.module.scss';
 
 export const NavItem = ({
