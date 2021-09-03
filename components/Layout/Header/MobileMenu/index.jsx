@@ -11,7 +11,7 @@ const MobileMenu = ({
   navLinks: links,
   isMobileMenuOpened,
   setMobileMenuState,
-  isAdditional,
+  isPageScrolledDown,
 }) => {
   const closeMenu = () => setMobileMenuState(!isMobileMenuOpened);
 
@@ -24,7 +24,7 @@ const MobileMenu = ({
       <div className={cn(styles.mobileMenu, {
         [styles.mobileMenuOpened]: isMobileMenuOpened,
         [styles.mobileMenuClosed]: !isMobileMenuOpened,
-        [styles.additionalMobileMenu]: isAdditional,
+        [styles.pageScrollingMobileMenu]: isPageScrolledDown,
       })}
       >
         <ul>
@@ -40,7 +40,7 @@ const MobileMenu = ({
               title={title}
               path={path}
               dynamicPath={dynamicPath}
-              isAdditional={false}
+              isPageScrolledDown={false}
               closeMenu={closeMenu}
             />
           ))}
@@ -49,7 +49,7 @@ const MobileMenu = ({
       <Burger
         isMobileMenuOpened={isMobileMenuOpened}
         handleOnClick={closeMenu}
-        isAdditional={isAdditional}
+        isPageScrolledDown={isPageScrolledDown}
       />
     </Fragment>
   );
@@ -63,7 +63,7 @@ MobileMenu.propTypes = {
   navLinks: PropTypes.instanceOf(Array),
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,
-  isAdditional: PropTypes.bool.isRequired,
+  isPageScrolledDown: PropTypes.bool.isRequired,
 };
 
 export default MobileMenu;

@@ -14,7 +14,7 @@ export const NavItem = ({
   title,
   path,
   dynamicPath,
-  isAdditional,
+  isPageScrolledDown,
   closeMenu,
 }) => {
   const [isSubMenuExpanded, setIsMSubMenuExpanded] = useState(false);
@@ -31,7 +31,7 @@ export const NavItem = ({
           dynamicRouting={dynamicPath}
         >
           <span
-            onClick={handleOnArrowClick}
+            onClick={closeMenu}
             role="button"
             tabIndex="0"
           >
@@ -56,7 +56,7 @@ export const NavItem = ({
         >
           <DropDownMenu
             isDropMenuOpened={isSubMenuExpanded}
-            isPageScrolling={isAdditional}
+            isPageScrolling={isPageScrolledDown}
             slug={slug}
             closeMobileMenu={closeMenu}
           />
@@ -71,6 +71,6 @@ NavItem.propTypes = {
   title: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   dynamicPath: PropTypes.string.isRequired,
-  isAdditional: PropTypes.bool.isRequired,
+  isPageScrolledDown: PropTypes.bool.isRequired,
   closeMenu: PropTypes.func.isRequired,
 };

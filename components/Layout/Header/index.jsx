@@ -36,16 +36,15 @@ const Header = ({
   ].includes(project)
     ? 'light'
     : 'dark';
-  // TODO rename this variable
-  const [isAdditional, setAdditional] = useState(false);
+  const [isPageScrolledDown, setIsPageScrolledDown] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   // TODO rework this check
-  const logo = !isAdditional && isPageWithTransparentHeader
+  const logo = !isPageScrolledDown && isPageWithTransparentHeader
     ? project || 'home'
     : 'default';
   const isHeaderColorNeedChange = isPageWithTransparentHeader
     && isDropMenuOpened
-    && !isAdditional;
+    && !isPageScrolledDown;
   const navTheme = isHeaderColorNeedChange
     ? 'dark'
     : headerTheme;
@@ -57,8 +56,8 @@ const Header = ({
 
         if (isPageWithTransparentHeader) {
           intro.bottom < 65
-            ? setAdditional(true)
-            : setAdditional(false);
+            ? setIsPageScrolledDown(true)
+            : setIsPageScrolledDown(false);
           intro.top < -200
             ? setIsLogoTextHidden(true)
             : setIsLogoTextHidden(false);
@@ -83,13 +82,13 @@ const Header = ({
   ]);
 
   useEffect(() => {
-    setAdditional(false);
+    setIsPageScrolledDown(false);
   }, [asPath]);
 
   return (
     <header className={cn({
       [styles.headerContainer]: true,
-      [styles.additional]: isAdditional,
+      [styles.additional]: isPageScrolledDown,
       [styles.notHome]: !isPageWithTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
       [styles.openedDropDown]: isHeaderColorNeedChange,
@@ -100,7 +99,7 @@ const Header = ({
       </div>
       <Nav
         theme={navTheme}
-        isAdditional={isAdditional}
+        isPageScrolledDown={isPageScrolledDown}
         isTransparentHeader={isPageWithTransparentHeader}
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
@@ -110,7 +109,7 @@ const Header = ({
       <MobileMenu
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
-        isAdditional={isAdditional}
+        isPageScrolledDown={isPageScrolledDown}
       />
       {!isPageWithTransparentHeader && <LinearIndeterminate />}
       {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}

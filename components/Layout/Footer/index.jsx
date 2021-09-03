@@ -28,7 +28,7 @@ export const Footer = ({ theme, openFullscreenEstimation }) => {
           <Nav
             theme={theme}
             currentPage=""
-            isAdditional={false}
+            isPageScrolledDown={false}
           />
           <ButtonMore
             title="Get an estimation"

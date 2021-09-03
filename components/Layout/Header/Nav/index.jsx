@@ -14,7 +14,7 @@ import styles from './styles.module.scss';
 const Nav = ({
   theme,
   currentPage,
-  isAdditional,
+  isPageScrolledDown,
   isTransparentHeader,
   navLinks: links,
   setIsDropMenuOpened: setIsDropMenuOpenedAction,
@@ -22,10 +22,8 @@ const Nav = ({
   isHeader,
 }) => {
   const { asPath } = useRouter();
-  const isBlog = asPath && asPath.includes('blog');
   // TODO rework this checks
-  const isAdditionalNav = !isBlog && (isAdditional || (currentPage && (currentPage !== '' && !isTransparentHeader)));
-  const isAdditionalNavForBlog = isBlog && !isTransparentHeader;
+  const isPageScrolling = (isPageScrolledDown || (currentPage && (currentPage !== '' && !isTransparentHeader)));
 
   const onLinkMouseHover = (slug) => () => {
     if (isHeader && isHasSubNavigation(slug)) {
@@ -35,11 +33,7 @@ const Nav = ({
   const onLinkMouseLeave = () => setIsDropMenuOpenedAction(false);
 
   return (
-    <ul className={cn(styles.desktopMenu, {
-      [styles.additionalNav]: isAdditionalNav,
-      [styles.additionalNavForBlog]: isAdditionalNavForBlog,
-    })}
-    >
+    <ul className={cn(styles.desktopMenu, { [styles.pageScrolled]: isPageScrolling })}>
       {links && links.map(({
         title,
         path,
@@ -61,10 +55,10 @@ const Nav = ({
               {title}
             </span>
           </LinkWrapper>
-          {isHasSubNavigation(slug) && (
+          {isHasSubNavigation(slug) && isHeader && (
             <DropDownMenu
               isDropMenuOpened={isDropMenuOpened}
-              isPageScrolling={isAdditionalNav}
+              isPageScrolling={isPageScrolling}
               slug={slug}
             />
           )}
@@ -84,7 +78,7 @@ Nav.defaultProps = {
 Nav.propTypes = {
   theme: PropTypes.string,
   currentPage: PropTypes.string.isRequired,
-  isAdditional: PropTypes.bool.isRequired,
+  isPageScrolledDown: PropTypes.bool.isRequired,
   isTransparentHeader: PropTypes.bool,
   navLinks: PropTypes.instanceOf(Array),
   setIsDropMenuOpened: PropTypes.func.isRequired,
