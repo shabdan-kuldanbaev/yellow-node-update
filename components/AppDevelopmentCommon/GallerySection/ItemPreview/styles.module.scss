@@ -365,6 +365,10 @@
 .chat-app-development-company {
   @extend .container;
 
+  @include tablet {
+    height: 60vw;
+  }
+
   &.firstSectionView {
     padding: 0 120px;
     background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
@@ -776,6 +780,8 @@
 
     .projectInfoContainer {
       .projectTitle {
+        color: $white;
+
         .pinkText {
           color: $brink-pink;
         }
@@ -937,6 +943,10 @@
     .imageContainer {
       .image {
         max-width: 727px;
+
+        @include macbook-twelve {
+          max-width: 595px;
+        }
 
         @include tablet {
           max-width: 600px;
