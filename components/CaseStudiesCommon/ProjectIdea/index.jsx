@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import { connect } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
 import KeyFeatures from 'components/CaseStudiesCommon/ProjectIdea/KeyFeatures';
 import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
@@ -10,7 +12,11 @@ import { getDocumentFields } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
-const ProjectIdea = ({ type, data }) => {
+const ProjectIdea = ({
+  type,
+  data,
+  isMobileResolution,
+}) => {
   const {
     title,
     subtitle,
@@ -45,14 +51,26 @@ const ProjectIdea = ({ type, data }) => {
               </div>
             </Animated>
           </div>
-          <Animated {...delayedAnimation}>
-            <AdditionInformation
-              additionInformation={contentModules}
-              type={type}
-            />
-          </Animated>
+          {!isMobileResolution && (
+            <Animated {...delayedAnimation}>
+              <AdditionInformation
+                additionInformation={contentModules}
+                type={type}
+              />
+            </Animated>
+          )}
         </div>
       </div>
+      {/* TODO rewrite via the grid */}
+      {isMobileResolution && (
+        <Animated {...delayedAnimation}>
+          <AdditionInformation
+            additionInformation={contentModules}
+            type={type}
+            className={styles.mobileAdditionalInformation}
+          />
+        </Animated>
+      )}
       <TeamSection
         data={getDocumentFields(get(data, 'contentModules[2]'))}
         type={type}
@@ -68,6 +86,9 @@ ProjectIdea.defaultProps = {
 ProjectIdea.propTypes = {
   type: PropTypes.string,
   data: PropTypes.instanceOf(Object).isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default ProjectIdea;
+export default connect(
+  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+)(ProjectIdea);

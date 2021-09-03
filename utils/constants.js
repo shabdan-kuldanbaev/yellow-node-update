@@ -146,6 +146,7 @@ export const SVG_IMAGES_TYPES = {
   opensenseTitleBorder: 'opensenseTitleBorder',
   tellTeamUnderline: 'tellTeamUnderline',
   visitSite: 'visitSite',
+  arrowDown: 'arrowDown',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -341,3 +342,37 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.homepage.path,
   ROUTES.customWebApp.path,
 ];
+
+export const SUB_NAVIGATION_LINKS = {
+  [ROUTES.portfolio.slug]: [
+    {
+      title: 'Web app development',
+      items: [
+        {
+          title: ROUTES.customWebApp.title,
+          slug: ROUTES.customWebApp.path,
+        },
+      ],
+    },
+    {
+      title: 'Mobile app development',
+      items: [
+        {
+          title: ROUTES.customMobileApp.title,
+          slug: ROUTES.customMobileApp.path,
+        },
+      ],
+    },
+    {
+      title: 'Chat app development',
+      items: [
+        {
+          title: ROUTES.customChatApp.title,
+          slug: ROUTES.customChatApp.path,
+        },
+      ],
+    },
+  ],
+};
+
+export const LINKS_WITH_SUB_NAVIGATION = [ROUTES.portfolio.slug];

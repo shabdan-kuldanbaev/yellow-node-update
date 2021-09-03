@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ScrollIcon } from 'components/HomeCommon/ScrollIcon';
 import { SocialIcons } from 'components/HomeCommon/SocialIcons';
+import { IntroText } from 'components/HomeCommon/IntroText';
 import styles from './styles.module.scss';
 
 export const AddFooter = ({
@@ -56,14 +57,7 @@ export const AddFooter = ({
     >
       <SocialIcons theme={theme} />
       <ScrollIcon theme={theme} />
-      {!isMobileMenuOpened && !isFirstHomepageVisit && (
-        <span
-          ref={scrollLabel}
-          className={styles.scrollTitle}
-        >
-          scroll down
-        </span>
-      )}
+      <IntroText className={styles.text} />
     </section>
   );
 };

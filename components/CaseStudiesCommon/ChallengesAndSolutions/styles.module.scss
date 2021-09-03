@@ -807,10 +807,10 @@
   &:nth-child(2n + 1),
   &:nth-child(2n) {
     @include phone {
-      @include flex(column, center, center);
+      @include flex(column-reverse, center, center);
 
       .infoContainer {
-        margin: 0;
+        margin: 40px 0 0;
       }
     }
   }
@@ -854,7 +854,7 @@
       width: 100%;
       height: unset;
       max-height: unset;
-      max-width: 1076px;
+      max-width: 978px;
     }
   }
 }
@@ -883,6 +883,8 @@
           margin: 0;
 
           & > li {
+            text-align: left;
+
             @include fontSize(18px);
 
             @include tablet {
@@ -965,7 +967,7 @@
     }
 
     @include below-tablet {
-      height: 325px;
+      height: 65vh;
     }
 
     .special {

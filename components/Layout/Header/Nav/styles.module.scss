@@ -4,6 +4,7 @@
 
 .desktopMenu {
   transition: margin $default-transition-time;
+  height: 100%;
 
   @include flex(row, center, center);
 

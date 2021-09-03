@@ -1,0 +1,107 @@
+/* stylelint-disable no-descending-specificity */
+@import 'styles/utils/mixins';
+
+.dropDownMenu {
+  position: absolute;
+  top: $header-height - 0.5px;
+  left: 0;
+  width: 100%;
+  padding: 80px 0 150px;
+  background-color: $black;
+  color: $white;
+  z-index: -1;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    visibility 0.4s,
+    opacity 0.5s ease;
+
+  @include phone {
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin-top: 20px;
+    width: unset;
+    z-index: unset;
+    background-color: $black;
+  }
+
+  .dropDownNavContainer {
+    max-width: 1076px;
+    width: max-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-column-gap: 150px;
+
+    @include phone {
+      margin: 0;
+      grid-template-columns: unset;
+      grid-column-gap: unset;
+    }
+
+    .itemContainer {
+      margin-bottom: 40px;
+      width: max-content;
+
+      @include phone {
+        margin-bottom: 20px;
+      }
+
+      &:nth-child(2) {
+        grid-row: 1/3;
+        grid-column: 2/3;
+
+        @include phone {
+          grid-row: unset;
+          grid-column: unset;
+        }
+      }
+
+      .title {
+        font-weight: 500;
+        line-height: 1.5;
+        margin: 0 0 7px;
+
+        @include fontSize(20px);
+
+        @include phone {
+          @include fontSize(16px);
+        }
+      }
+
+      a {
+        margin: 0;
+
+        & > span {
+          line-height: 2;
+          color: $silver-chalice;
+          outline: none;
+        }
+
+        @include fontSize(18px);
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+}
+
+.pageScrolling {
+  background-color: $white;
+
+  .dropDownNavContainer {
+    .itemContainer {
+      .title {
+        color: $dark-grey;
+      }
+    }
+  }
+}
+
+.closed {
+  opacity: 0;
+  visibility: hidden;
+}

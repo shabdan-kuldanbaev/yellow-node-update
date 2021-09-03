@@ -40,45 +40,106 @@
 
     @include phone {
       padding: 5px;
-      font-size: 1.25rem;
       color: $white !important;
       text-shadow: none !important;
       opacity: 1;
       width: calc(100% - 10px);
+
+      @include fontSize(26px);
     }
 
     @include phone-height-500 {
-      transform: translateY(-130px);
+      transform: translateY(-120px);
     }
 
     @include phone-height-600 {
       @include iOSDevice {
-        transform: translateY(-190px);
+        transform: translateY(-180px);
       }
     }
 
     @include phone-height-650 {
-      transform: translateY(-160px);
+      transform: translateY(-150px);
 
       @include iOSDevice {
-        transform: translateY(-220px);
+        transform: translateY(-210px);
       }
     }
 
     @include phone-height-730 {
-      transform: translateY(-190px);
+      transform: translateY(-180px);
 
       @include iOSDevice {
-        transform: translateY(-250px);
+        transform: translateY(-240px);
       }
     }
 
     @include phone-height-800 {
-      transform: translateY(-230px);
+      transform: translateY(-220px);
 
       @include iOSDevice {
-        transform: translateY(-300px);
+        transform: translateY(-290px);
       }
+    }
+  }
+
+  .subText {
+    display: none;
+    color: $white;
+    opacity: 0.7;
+    max-width: 300px;
+
+    @include fontSize(16px);
+
+    @include phone {
+      transform: translateY(-92px);
+
+      @include flex(column, center, center);
+    }
+
+    @include phone-height-500 {
+      transform: translateY(-38px);
+    }
+
+    @include phone-height-600 {
+      @include iOSDevice {
+        transform: translateY(-98px);
+      }
+    }
+
+    @include phone-height-650 {
+      transform: translateY(-68px);
+
+      @include iOSDevice {
+        transform: translateY(-128px);
+      }
+    }
+
+    @include phone-height-730 {
+      transform: translateY(-98px);
+
+      @include iOSDevice {
+        transform: translateY(-158px);
+      }
+    }
+
+    @include phone-height-800 {
+      transform: translateY(-138px);
+
+      @include iOSDevice {
+        transform: translateY(-208px);
+      }
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    a {
+      font-weight: 600;
+      color: $turbo-100;
+      text-decoration: none;
     }
   }
 }

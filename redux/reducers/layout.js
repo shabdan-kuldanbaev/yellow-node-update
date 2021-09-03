@@ -10,6 +10,7 @@ const initialState = {
   isLoading: false,
   isPageReadyToDisplay: false,
   isFirstPageLoaded: false,
+  isDropMenuOpened: false,
   components: {
     main: null,
     hasFeedbackForm: false,
@@ -69,6 +70,7 @@ const handlers = {
     error: payload,
   }),
   [actionTypes.SET_PAGE_READY_TO_DISPLAY]: (state, { payload }) => ({ ...state, isPageReadyToDisplay: payload }),
+  [actionTypes.SET_IS_DROP_MENU_STATE]: (state, { payload }) => ({ ...state, isDropMenuOpened: payload }),
   DEFAULT: (state) => state,
 };
 

@@ -174,6 +174,12 @@
 
     @include flex(column, initial, center);
   }
+
+  a {
+    @include phone {
+      margin-top: 60px;
+    }
+  }
 }
 
 .webSiteLink {
@@ -620,6 +626,10 @@
   .projectInfoContainer {
     color: $white;
 
+    @include phone {
+      margin-bottom: 20px;
+    }
+
     .projectTitle {
       @include macbook-fifteen {
         @include fontSize(85px);
@@ -681,12 +691,19 @@
     position: absolute;
     top: 50%;
     right: 0;
-    transform: translate(0, -50%);
-    width: 90%;
-    height: 100%;
+    transform: translate(33%, -50%);
+    max-width: 2667px;
+
+    @include macbook-fifteen {
+      max-width: 2050px;
+    }
+
+    @include tablet {
+      transform: translate(60%, -50%);
+    }
 
     @include phone {
-      display: none;
+      transform: translate(78%, -50%);
     }
   }
 
@@ -695,5 +712,9 @@
 
     background-color: $white;
     color: $flamenco;
+
+    @include phone {
+      margin-top: 60px;
+    }
   }
 }

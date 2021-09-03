@@ -50,3 +50,5 @@ export const selectProcessPreview = (state) => getMain(state, BLOCKS_SLUGS.proce
 export const selectComponents = (state) => state.layout.components;
 
 export const selectMetaData = (state) => state.layout.metaData;
+
+export const selectIsDropMenuOpened = (state) => state.layout.isDropMenuOpened;

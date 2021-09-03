@@ -4,16 +4,12 @@
 .addFooterContainer {
   position: fixed;
   left: 0;
-  top: calc(100vh - 100px);
+  top: calc(100vh - 105px);
   z-index: 99999;
   width: calc(100% - 70px);
   padding: 45px 35px;
 
-  @include flex(row, space-between, center);
-
-  .scrollTitle {
-    display: none;
-  }
+  @include flex(row, space-between, flex-start);
 
   @include phone {
     top: 81vh;
@@ -26,16 +22,30 @@
     svg {
       display: none;
     }
+  }
 
-    .scrollTitle {
-      display: block;
-      font-size: 0.8125rem;
-      color: $white;
-      text-transform: uppercase;
-      opacity: 0.5;
-      animation: blinking 1.7s infinite ease;
-      animation-delay: 2s;
-      cursor: pointer;
+  .text {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    @include fontSize(20px);
+    @include flex();
+
+    @include macbook-fifteen {
+      max-width: 625px;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    @include macbook-twelve {
+      max-width: 510px;
+
+      @include fontSize(16px);
+    }
+
+    @include phone {
+      display: none;
     }
   }
 }
