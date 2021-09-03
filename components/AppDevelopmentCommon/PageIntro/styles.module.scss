@@ -132,3 +132,85 @@
     padding-top: 64px;
   }
 }
+
+.web-app-development-company {
+  @extend .pageIntroContainer;
+
+  background-color: inherit;
+
+  .pageIntroSection {
+    .pageIntroWrapper {
+      border-bottom: 1px solid rgba($alto, 0.2);
+      margin-bottom: 120px;
+
+      @include below-tablet {
+        margin-bottom: 100px;
+
+        @include flex(column-reverse, space-between, center);
+      }
+
+      @include phone {
+        margin-bottom: 80px;
+      }
+
+      .pageTitle {
+        color: $white;
+
+        @include fontSize(70px);
+
+        @include macbook-twelve {
+          @include fontSize(65px);
+        }
+
+        @include tablet {
+          @include fontSize(45px);
+        }
+
+        @include below-tablet {
+          text-align: center;
+        }
+
+        @include phone {
+          @include fontSize(32px);
+        }
+      }
+
+      .subtitle {
+        margin: 0;
+        max-width: 518px;
+
+        @include below-tablet {
+          text-align: center;
+          padding: 0;
+          margin: 0 auto;
+        }
+      }
+
+      & > div:last-child {
+        @include flex(row, flex-end);
+
+        @include below-tablet {
+          justify-content: center;
+        }
+
+        .image {
+          padding-top: 130%;
+          max-width: 555px;
+
+          @include macbook-twelve {
+            padding-top: 140%;
+          }
+
+          @include below-tablet {
+            max-width: 425px;
+          }
+
+          @include phone {
+            padding-top: 458px;
+            max-width: 302px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -102,3 +102,36 @@
     box-shadow: 0 10px 60px -10px rgba($black, 0.15);
   }
 }
+
+.web-app-development-company {
+  padding: 150px 0;
+  background-color: $white;
+
+  @include tablet {
+    padding-bottom: 100px;
+  }
+
+  @include phone {
+    padding-bottom: 64px;
+  }
+
+  .gallerySection {
+    margin-bottom: 70px;
+  }
+
+  .callToAction {
+    padding: 84px 80px;
+    margin: 0 auto;
+    max-width: 1075px;
+
+    h3 {
+      margin: 0;
+
+      @include fontSize(24px);
+    }
+  }
+
+  :global(.swiper-slide) {
+    filter: drop-shadow(0 8px 35px rgba(110, 120, 130, 0.1));
+  }
+}

@@ -65,4 +65,10 @@ export const pagesBreadcrumbs = {
       to: ROUTES.customMobileApp.path,
     },
   ]),
+  customWebApp: () => ([
+    {
+      title: ROUTES.customWebApp.title,
+      to: ROUTES.customWebApp.path,
+    },
+  ]),
 };

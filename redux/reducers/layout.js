@@ -13,6 +13,7 @@ const initialState = {
   isDropMenuOpened: false,
   components: {
     main: null,
+    hasFeedbackForm: false,
   },
   metaData: {
     metaTitle: '',
@@ -32,12 +33,14 @@ const handlers = {
       contentModules,
       metaTitle,
       metaDescription,
+      hasFeedbackForm,
     } = getDocumentFields(
       (payload && payload[0]) ? payload[0] : {},
       [
         'contentModules',
         'metaTitle',
         'metaDescription',
+        'hasFeedbackForm',
       ],
     );
 
@@ -46,6 +49,7 @@ const handlers = {
       isLoading: false,
       components: {
         main: contentModules,
+        hasFeedbackForm,
       },
       metaData: {
         metaTitle,
