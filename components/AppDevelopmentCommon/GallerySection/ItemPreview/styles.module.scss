@@ -748,6 +748,10 @@
 
   .imageContainer {
     width: auto;
+
+    .image {
+      height: unset;
+    }
   }
 }
 
@@ -800,6 +804,10 @@
         @include macbook-fifteen {
           max-width: 450px;
         }
+
+        @include phone {
+          max-width: 80vw;
+        }
       }
     }
   }
@@ -826,6 +834,10 @@
         @include macbook-fifteen {
           max-width: 450px;
         }
+
+        @include phone {
+          max-width: 80vw;
+        }
       }
     }
   }
@@ -843,6 +855,10 @@
 
         @include tablet {
           max-width: 450px;
+        }
+
+        @include phone {
+          max-width: 80vw;
         }
       }
     }
@@ -927,7 +943,7 @@
         }
 
         @include phone {
-          max-width: 320px;
+          max-width: 80vw;
         }
       }
     }

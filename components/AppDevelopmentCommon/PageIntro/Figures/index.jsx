@@ -69,11 +69,13 @@ export const Figures = ({ type, figuresData }) => {
               {isFiguresWithCheck
                 ? (
                   <Fragment>
-                    <div className={styles.checkMark}>
-                      <Svg
-                        className={styles.icon}
-                        type={SVG_IMAGES_TYPES.checkMark}
-                      />
+                    <div className={styles.ckeckMarkWrapper}>
+                      <div className={styles.checkMark}>
+                        <Svg
+                          className={styles.icon}
+                          type={SVG_IMAGES_TYPES.checkMark}
+                        />
+                      </div>
                     </div>
                     {figureContent}
                   </Fragment>

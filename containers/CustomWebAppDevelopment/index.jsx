@@ -27,7 +27,7 @@ const CustomWebAppContainer = ({
   const pageMetadata = {
     metaTitle,
     metaDescription,
-    url: `${rootUrl}/web-app-development-company`,
+    url: `${rootUrl}/${PAGES.customWebApp}`,
   };
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
@@ -40,7 +40,7 @@ const CustomWebAppContainer = ({
   return (
     <Fragment>
       <MetaTags
-        page={PAGES.customChatApp}
+        page={PAGES.customWebApp}
         pageMetadata={pageMetadata}
         pageMicrodata={microdata.customWebApp()}
         breadcrumbs={breadcrumbs}
@@ -56,14 +56,14 @@ const CustomWebAppContainer = ({
           <AppDevelopmentCommon
             section={module}
             handleOnCTAClick={openFullscreenEstimation}
-            type="web-app-development-company"
+            type={PAGES.customWebApp}
             introSection={introSection}
           />
         ))}
         {hasFeedbackForm && (
-          <div className={styles['web-app-development-company'] || styles.feedBackContainer}>
+          <div className={styles[PAGES.customWebApp] || styles.feedBackContainer}>
             <FeedbackFormContainer
-              type="web-app-development-company"
+              type={PAGES.customWebApp}
               title="Contact Yellow for a free estimation"
             />
           </div>

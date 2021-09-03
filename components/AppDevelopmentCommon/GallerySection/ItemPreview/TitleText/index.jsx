@@ -61,10 +61,6 @@ export const TitleText = ({ type, data }) => {
   }
 };
 
-TitleText.defaulrProps = {
-  type: '',
-};
-
 TitleText.propTypes = {
   type: PropTypes.string.isRequired,
   data: PropTypes.instanceOf(Object).isRequired,

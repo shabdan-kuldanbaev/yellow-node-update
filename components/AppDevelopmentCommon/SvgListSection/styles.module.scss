@@ -138,6 +138,12 @@
 
     .svgListWrapper {
       @extend .svgListWrapperOneRow;
+
+      .svgList > div {
+        @include phone {
+          margin-top: 0;
+        }
+      }
     }
   }
 }
