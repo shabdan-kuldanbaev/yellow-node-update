@@ -16,6 +16,10 @@
     visibility 0.4s,
     opacity 0.5s ease;
 
+  @include macbook-twelve {
+    padding-bottom: 80px;
+  }
+
   @include phone {
     position: relative;
     top: 0;
