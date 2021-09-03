@@ -14,8 +14,13 @@ import {
   FullLayout,
 } from 'components';
 import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
-import { PAGES, ROUTES } from 'utils/constants';
+import {
+  PAGES,
+  ROUTES,
+  CATEGORY_SLUGS,
+} from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { categoriesMetaData } from './utils/data';
 
 const BlogContainer = ({
   introSection,
@@ -38,9 +43,10 @@ const BlogContainer = ({
   } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
   const breadcrumbs = pagesBreadcrumbs.blog(slug);
+  const isCategory = CATEGORY_SLUGS.includes(slug);
   const pageMetadata = {
-    metaTitle,
-    metaDescription,
+    metaTitle: !isCategory ? metaTitle : categoriesMetaData[slug].metaTitle,
+    metaDescription: !isCategory ? metaDescription : categoriesMetaData[slug].metaDescription,
     url: `${rootUrl}${asPath}`,
     pageNumber: currentPage,
   };
