@@ -59,4 +59,11 @@ export const ogMetaData = [
     metaDescription: 'The best talents for Mobile App Development are here. Hire an experienced team to work on your idea.',
     url: `${rootUrl}${ROUTES.customMobileApp.path}`,
   },
+  {
+    pageName: ROUTES.customWebApp.slug,
+    metaTitle: 'Custom web application development company | Yellow',
+    metaDescription: `Our team is ready to provide you with web development services. 
+    We are working with websites, PWAs, chatting applications, and landing pages.`,
+    url: `${rootUrl}${ROUTES.customWebApp.path}`,
+  },
 ];

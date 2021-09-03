@@ -16,13 +16,7 @@
     height: 100vh;
     background-color: $black;
 
-    @include flex(row, center, center);
-
-    ul > li > a {
-      color: $white;
-      cursor: pointer;
-      text-decoration: none;
-    }
+    @include flex(row, center);
 
     .mobileMenuFooter {
       padding: 0;
@@ -44,35 +38,11 @@
     ul {
       height: 114vw;
       margin-bottom: 20vh;
-      padding: 0;
-      text-align: center;
+      padding: 60px 0 0;
+      width: 100%;
 
       @include small-phone {
         @include flex(row, center, center);
-      }
-
-      li {
-        margin: 30px 0;
-        list-style: none;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-
-        @include small-phone {
-          &:not(:last-child) {
-            margin-right: 20px;
-          }
-        }
-
-        &:last-child {
-          border-radius: $button-border-radius;
-          background-color: $turbo-100;
-
-          a {
-            display: block;
-            color: $black;
-            padding: 16px 34px;
-          }
-        }
       }
     }
   }
@@ -127,7 +97,7 @@
   }
 }
 
-.additionalMobileMenu {
+.pageScrollingMobileMenu {
   @include phone {
     ul {
       li {

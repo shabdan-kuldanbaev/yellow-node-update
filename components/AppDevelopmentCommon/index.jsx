@@ -16,6 +16,7 @@ export const AppDevelopmentCommon = ({
   type,
   section,
   handleOnCTAClick,
+  introSection,
 }) => {
   if (!section.fields) {
     return null;
@@ -29,6 +30,7 @@ export const AppDevelopmentCommon = ({
       <PageIntro
         sectionData={section}
         type={type}
+        introSection={introSection}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentImageSection:
@@ -113,4 +115,5 @@ AppDevelopmentCommon.propTypes = {
   section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
+  introSection: PropTypes.instanceOf(Object).isRequired,
 };

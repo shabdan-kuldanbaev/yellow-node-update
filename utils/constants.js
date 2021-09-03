@@ -32,6 +32,7 @@ export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
   routes.notFound.slug,
   routes.customChatApp.slug,
   routes.customMobileApp.slug,
+  routes.customWebApp.slug,
 ].includes(slug));
 
 export const BLOCKS_SLUGS = {
@@ -145,6 +146,7 @@ export const SVG_IMAGES_TYPES = {
   opensenseTitleBorder: 'opensenseTitleBorder',
   tellTeamUnderline: 'tellTeamUnderline',
   visitSite: 'visitSite',
+  arrowDown: 'arrowDown',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -199,6 +201,32 @@ export const APP_DEVELOPMENT_ICONS = {
   highQualityCode: 'highQualityCode',
   recommended: 'recommended',
   greatDesign: 'greatDesign',
+  // web app page, web development services
+  customWebDevelopment: 'customWebDevelopment',
+  headlessCMSDevelopment: 'headlessCMSDevelopment',
+  mvpDevelopment: 'mvpDevelopment',
+  pwaDevelopment: 'pwaDevelopment',
+  webDesign: 'webDesign',
+  supportMaintenance: 'supportMaintenance',
+  // web app page, benefits of custom web development services
+  adaptability: 'adaptability',
+  security: 'security',
+  scalability: 'scalability',
+  easeOfMaintenance: 'easeOfMaintenance',
+  // web app page, industries we serve
+  eLearning: 'eLearning',
+  retail: 'retail',
+  // web app page, technologies we use
+  titledReact: 'titledReact',
+  titledVue: 'titledVue',
+  titledNest: 'titledNest',
+  titledAws: 'titledAws',
+  titledExpress: 'titledExpress',
+  titledNuxt: 'titledNuxt',
+  // web app page, why choose yellow
+  businessFirstApproach: 'businessFirstApproach',
+  productLab: 'productLab',
+  contentfulPartner: 'contentfulPartner',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -305,5 +333,46 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
   ROUTES.project.getRoute(CASE_STUDIES.natp).path,
   ROUTES.project.getRoute(CASE_STUDIES.driveFocus).path,
+  ROUTES.customWebApp.path,
   ROUTES.homepage.path,
 ];
+
+export const PAGES_WITH_TRANSPARENT_HEADER = [
+  ...CASE_STUDIES_SLUGS,
+  ROUTES.homepage.path,
+  ROUTES.customWebApp.path,
+];
+
+export const SUB_NAVIGATION_LINKS = {
+  [ROUTES.portfolio.slug]: [
+    {
+      title: 'Web app development',
+      items: [
+        {
+          title: ROUTES.customWebApp.title,
+          slug: ROUTES.customWebApp.path,
+        },
+      ],
+    },
+    {
+      title: 'Mobile app development',
+      items: [
+        {
+          title: ROUTES.customMobileApp.title,
+          slug: ROUTES.customMobileApp.path,
+        },
+      ],
+    },
+    {
+      title: 'Chat app development',
+      items: [
+        {
+          title: ROUTES.customChatApp.title,
+          slug: ROUTES.customChatApp.path,
+        },
+      ],
+    },
+  ],
+};
+
+export const LINKS_WITH_SUB_NAVIGATION = [ROUTES.portfolio.slug];

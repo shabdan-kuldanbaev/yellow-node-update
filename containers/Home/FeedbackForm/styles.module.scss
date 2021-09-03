@@ -149,3 +149,17 @@
     }
   }
 }
+
+.web-app-development-company {
+  @extend .formContainer;
+
+  padding: 150px 16px;
+
+  @include tablet {
+    padding: 80 16px;
+  }
+
+  .title {
+    max-width: 786px;
+  }
+}

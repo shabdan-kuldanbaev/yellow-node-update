@@ -5,7 +5,7 @@
   background-color: $white;
 }
 
-.additionalBurger {
+.pageScrollingBurger {
   div {
     span {
       @include phone {
@@ -15,7 +15,7 @@
   }
 }
 
-.additionalBurgerOpened {
+.pageScrollingBurgerOpened {
   div {
     span {
       @include phone {

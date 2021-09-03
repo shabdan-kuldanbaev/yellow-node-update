@@ -5,7 +5,11 @@ import { Figures } from './Figures';
 import { getPageIntroProps } from './utils/pageIntroHelper';
 import styles from './styles.module.scss';
 
-export const PageIntro = ({ sectionData, type }) => {
+export const PageIntro = ({
+  introSection,
+  sectionData,
+  type,
+}) => {
   const {
     title,
     description,
@@ -19,7 +23,10 @@ export const PageIntro = ({ sectionData, type }) => {
   }
 
   return (
-    <section className={styles[type]}>
+    <section
+      className={styles[type]}
+      ref={introSection}
+    >
       <div className={styles.pageIntroSection}>
         <div className={styles.pageIntroWrapper}>
           <div className={styles.pageTitleContainer}>
@@ -62,4 +69,5 @@ export const PageIntro = ({ sectionData, type }) => {
 PageIntro.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
+  introSection: PropTypes.instanceOf(Object).isRequired,
 };

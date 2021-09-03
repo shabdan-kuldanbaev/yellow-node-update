@@ -5,10 +5,10 @@ import FeedbackForm from 'components/Common/FeedbackForm';
 import { SectionTitle } from 'components/Common/SectionTitle';
 import styles from './styles.module.scss';
 
-export const FeedbackFormContainer = ({ type }) => (
+export const FeedbackFormContainer = ({ type, title }) => (
   <div className={styles[type] || styles.formContainer}>
     <SectionTitle
-      title="Let’s move forward"
+      title={title}
       styleTitle={styles.title}
       styleSubtitle={styles.subtitle}
       isFeedbackForm
@@ -24,8 +24,10 @@ export const FeedbackFormContainer = ({ type }) => (
 
 FeedbackFormContainer.defaultProps = {
   type: '',
+  title: 'Let’s move forward',
 };
 
 FeedbackFormContainer.propTypes = {
   type: PropTypes.string,
+  title: PropTypes.string,
 };

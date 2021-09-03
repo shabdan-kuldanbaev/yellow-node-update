@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .defaultTitle {
-  margin: 0 0 50px;
+  margin: 0;
 
   @include fontSize(56px);
 
@@ -19,9 +19,17 @@
 }
 
 .default {
-  margin-bottom: 20px;
+  margin-bottom: 80px;
 
   @include flex(column, center, center);
+
+  @include tablet {
+    margin-bottom: 60px;
+  }
+
+  @include phone {
+    margin-bottom: 40px;
+  }
 
   .title {
     text-align: center;
@@ -32,7 +40,7 @@
 
   .description,
   .subtitle {
-    margin: 0 auto 60px;
+    margin: 30px auto 0;
     color: $silver-chalice;
     line-height: 2;
     text-align: center;
@@ -47,7 +55,7 @@
 
     @include below-tablet {
       width: 90vw;
-      margin-bottom: 20px;
+      margin-top: 20px;
     }
 
     @include phone {
@@ -66,7 +74,7 @@
   }
 
   .subtitle {
-    margin: 0 0 30px;
+    margin: 50px 0 30px;
     padding-right: 50px;
     line-height: 1.5;
     font-weight: 700;
@@ -80,6 +88,8 @@
     }
 
     @include phone {
+      margin-top: 20px;
+
       @include fontSize(16px);
     }
   }

@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
+import { selectIsMobileMenuOpened, selectIsDropMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
 import LinearIndeterminate from 'components/Common/LinearIndeterminate';
 import Logo from 'components/Common/Logo';
-import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import { TopProgressBar } from 'components/Common/TopProgressBar';
 import {
   ROUTES,
   CASE_STUDIES_SLUGS,
   CASE_STUDIES,
+  PAGES_WITH_TRANSPARENT_HEADER,
 } from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
@@ -23,12 +23,11 @@ const Header = ({
   introSection,
   isMobileMenuOpened,
   setMobileMenuState: setMobileMenu,
+  isDropMenuOpened,
 }) => {
   const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
-  const isCaseStudyPage = CASE_STUDIES_SLUGS.includes(project);
-  const isHomePage = asPath === ROUTES.homepage.path;
-  const isPageWithTransparentHeader = isHomePage || isCaseStudyPage;
+  const isPageWithTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
   const headerTheme = [
     CASE_STUDIES.tell,
     CASE_STUDIES.openSense,
@@ -36,12 +35,18 @@ const Header = ({
   ].includes(project)
     ? 'light'
     : 'dark';
-  const [isAdditional, setAdditional] = useState(false);
+  const [isPageScrolledDown, setIsPageScrolledDown] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   // TODO rework this check
-  const logo = !isAdditional && isPageWithTransparentHeader
+  const logo = !isPageScrolledDown && isPageWithTransparentHeader
     ? project || 'home'
     : 'default';
+  const isHeaderColorNeedChange = isPageWithTransparentHeader
+    && isDropMenuOpened
+    && !isPageScrolledDown;
+  const navTheme = isHeaderColorNeedChange
+    ? 'dark'
+    : headerTheme;
 
   useEffect(() => {
     const handleOnScroll = () => {
@@ -50,8 +55,8 @@ const Header = ({
 
         if (isPageWithTransparentHeader) {
           intro.bottom < 65
-            ? setAdditional(true)
-            : setAdditional(false);
+            ? setIsPageScrolledDown(true)
+            : setIsPageScrolledDown(false);
           intro.top < -200
             ? setIsLogoTextHidden(true)
             : setIsLogoTextHidden(false);
@@ -76,32 +81,34 @@ const Header = ({
   ]);
 
   useEffect(() => {
-    setAdditional(false);
+    setIsPageScrolledDown(false);
   }, [asPath]);
 
   return (
     <header className={cn({
       [styles.headerContainer]: true,
-      [styles.additional]: isAdditional,
+      [styles.pageScrolling]: isPageScrolledDown,
       [styles.notHome]: !isPageWithTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
+      [styles.openedDropDown]: isHeaderColorNeedChange,
     })}
     >
       <div className={styles.logo}>
         <Logo type={logo} />
       </div>
       <Nav
-        theme={headerTheme}
-        isAdditional={isAdditional}
+        theme={navTheme}
+        isPageScrolledDown={isPageScrolledDown}
         isTransparentHeader={isPageWithTransparentHeader}
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
+        isHeader
       />
       <MobileMenu
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
-        isAdditional={isAdditional}
+        isPageScrolledDown={isPageScrolledDown}
       />
       {!isPageWithTransparentHeader && <LinearIndeterminate />}
       {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}
@@ -118,9 +125,13 @@ Header.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,
+  isDropMenuOpened: PropTypes.bool.isRequired,
 };
 
 export default connect(
-  (state) => ({ isMobileMenuOpened: selectIsMobileMenuOpened(state) }),
+  (state) => ({
+    isMobileMenuOpened: selectIsMobileMenuOpened(state),
+    isDropMenuOpened: selectIsDropMenuOpened(state),
+  }),
   { setMobileMenuState },
 )(Header);
