@@ -43,13 +43,21 @@ const BlogContainer = ({
   } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
   const breadcrumbs = pagesBreadcrumbs.blog(slug);
-  const isCategory = CATEGORY_SLUGS.includes(slug);
   const pageMetadata = {
-    metaTitle: !isCategory ? metaTitle : categoriesMetaData[slug].metaTitle,
-    metaDescription: !isCategory ? metaDescription : categoriesMetaData[slug].metaDescription,
+    metaTitle,
+    metaDescription,
     url: `${rootUrl}${asPath}`,
     pageNumber: currentPage,
   };
+
+  if (CATEGORY_SLUGS.includes(slug) && categoriesMetaData[slug]) {
+    const {
+      metaTitle: categoryMetaTitle,
+      metaDescription: categoryMetaDescription,
+    } = categoriesMetaData[slug];
+    pageMetadata.metaTitle = categoryMetaTitle;
+    pageMetadata.metaDescription = categoryMetaDescription;
+  }
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });
