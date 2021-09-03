@@ -26,6 +26,21 @@
     }
   }
 
+  &travel-trivia {
+    background-color: $white;
+
+    [data-case-study-description] {
+      max-width: 730px;
+      white-space: unset;
+      color: $silver-chalice;
+
+      @include phone {
+        max-width: 345px;
+        padding: 0 14px;
+      }
+    }
+  }
+
   &separate-us {
     background-color: $white;
     padding-top: 140px;
@@ -122,8 +137,14 @@
 .separate-us,
 .fairy,
 .natp,
-.drive-focus {
+.drive-focus,
+.travel-trivia {
   @extend .parallax;
+}
+
+.travel-trivia {
+  background-size: 120%;
+  background-color: $dark-pink-1;
 }
 
 .fairy {

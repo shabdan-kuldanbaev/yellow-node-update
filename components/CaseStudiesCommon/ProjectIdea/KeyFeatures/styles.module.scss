@@ -150,6 +150,34 @@
   }
 }
 
+.travel-trivia {
+  @extend .container;
+
+  .containerBackground {
+    left: -23%;
+    right: 0;
+    opacity: 0.5;
+
+    @include phone {
+      left: -28%;
+    }
+  }
+
+  .contentContainer {
+    & > p {
+      max-width: 330px;
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: $dark-pink;
+    }
+  }
+}
+
 .seven-pm-thursday {
   @extend .container;
 

@@ -142,6 +142,12 @@
   background-color: $white;
 }
 
+.travel-trivia {
+  @extend .container;
+
+  background-color: $white;
+}
+
 .seven-pm-thursday {
   @extend .container;
 
