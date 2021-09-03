@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 
 export const DropDownMenu = ({
   isDropMenuOpened,
-  isPageScrolling,
+  isPageScrolledDown,
   slug,
   closeMobileMenu,
 }) => {
@@ -19,7 +19,7 @@ export const DropDownMenu = ({
 
   return (
     <div className={cn(styles.dropDownMenu, {
-      [styles.pageScrolling]: isPageScrolling,
+      [styles.pageScrolling]: isPageScrolledDown,
       [styles.closed]: !isDropMenuOpened,
     })}
     >
@@ -56,7 +56,7 @@ DropDownMenu.defaultProps = {
 
 DropDownMenu.propTypes = {
   isDropMenuOpened: PropTypes.bool.isRequired,
-  isPageScrolling: PropTypes.bool.isRequired,
+  isPageScrolledDown: PropTypes.bool.isRequired,
   slug: PropTypes.string.isRequired,
   closeMobileMenu: PropTypes.func,
 };

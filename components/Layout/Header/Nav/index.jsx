@@ -58,7 +58,7 @@ const Nav = ({
           {isHasSubNavigation(slug) && isHeader && (
             <DropDownMenu
               isDropMenuOpened={isDropMenuOpened}
-              isPageScrolling={isPageScrolling}
+              isPageScrolledDown={isPageScrolling}
               slug={slug}
             />
           )}
@@ -73,12 +73,13 @@ Nav.defaultProps = {
   navLinks: NAV_LINKS,
   isTransparentHeader: false,
   isHeader: false,
+  isPageScrolledDown: false,
 };
 
 Nav.propTypes = {
   theme: PropTypes.string,
   currentPage: PropTypes.string.isRequired,
-  isPageScrolledDown: PropTypes.bool.isRequired,
+  isPageScrolledDown: PropTypes.bool,
   isTransparentHeader: PropTypes.bool,
   navLinks: PropTypes.instanceOf(Array),
   setIsDropMenuOpened: PropTypes.func.isRequired,

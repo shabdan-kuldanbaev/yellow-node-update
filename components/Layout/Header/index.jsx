@@ -88,7 +88,7 @@ const Header = ({
   return (
     <header className={cn({
       [styles.headerContainer]: true,
-      [styles.additional]: isPageScrolledDown,
+      [styles.pageScrolling]: isPageScrolledDown,
       [styles.notHome]: !isPageWithTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
       [styles.openedDropDown]: isHeaderColorNeedChange,
