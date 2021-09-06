@@ -347,30 +347,18 @@ export const SUB_NAVIGATION_LINKS = {
   [ROUTES.portfolio.slug]: [
     {
       title: 'Web app development',
-      items: [
-        {
-          title: ROUTES.customWebApp.title,
-          slug: ROUTES.customWebApp.path,
-        },
-      ],
+      subtitle: 'Your website will rock the stage',
+      slug: ROUTES.customWebApp.path,
     },
     {
       title: 'Mobile app development',
-      items: [
-        {
-          title: ROUTES.customMobileApp.title,
-          slug: ROUTES.customMobileApp.path,
-        },
-      ],
+      subtitle: 'Building mobile apps for all platforms',
+      slug: ROUTES.customMobileApp.path,
     },
     {
-      title: 'Chat app development',
-      items: [
-        {
-          title: ROUTES.customChatApp.title,
-          slug: ROUTES.customChatApp.path,
-        },
-      ],
+      title: 'Custom chat app development',
+      subtitle: 'Instant communication rules',
+      slug: ROUTES.customChatApp.path,
     },
   ],
 };

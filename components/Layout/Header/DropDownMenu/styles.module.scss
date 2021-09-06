@@ -66,11 +66,23 @@
         font-weight: 500;
         line-height: 1.5;
         margin: 0 0 7px;
+        color: $white;
 
         @include fontSize(20px);
 
         @include phone {
           @include fontSize(16px);
+        }
+      }
+
+      .subtitle {
+        line-height: 2;
+        color: $silver-chalice;
+
+        @include fontSize(18px);
+
+        @include phone {
+          @include fontSize(14px);
         }
       }
 
