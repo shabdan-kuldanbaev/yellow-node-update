@@ -24,27 +24,50 @@ export const DropDownMenu = ({
     })}
     >
       <div className={styles.dropDownNavContainer}>
-        {subNavigationLinks.map(({ title, items }) => (
-          <div className={styles.itemContainer}>
-            <h3 className={styles.title}>
-              {title}
-            </h3>
-            {items.map(({ slug: itemSlug, title: itemTitle }) => (
+        {subNavigationLinks.map(({
+          title,
+          subtitle,
+          slug: subMenuSlug,
+          items,
+        }) => {
+          const subMenuItem = (
+            <div className={styles.itemContainer}>
+              <h3 className={styles.title}>
+                {title}
+              </h3>
+              {subtitle && (
+                <span className={styles.subtitle}>
+                  {subtitle}
+                </span>
+              )}
+              {items && items.map(({ slug: itemSlug, title: itemTitle }) => (
+                <LinkWrapper
+                  isLocalLink
+                  path={itemSlug}
+                >
+                  <span
+                    onClick={closeMobileMenu}
+                    role="button"
+                    tabIndex="0"
+                  >
+                    {itemTitle}
+                  </span>
+                </LinkWrapper>
+              ))}
+            </div>
+          );
+
+          return subMenuSlug
+            ? (
               <LinkWrapper
                 isLocalLink
-                path={itemSlug}
+                path={subMenuSlug}
               >
-                <span
-                  onClick={closeMobileMenu}
-                  role="button"
-                  tabIndex="0"
-                >
-                  {itemTitle}
-                </span>
+                {subMenuItem}
               </LinkWrapper>
-            ))}
-          </div>
-        ))}
+            )
+            : subMenuItem;
+        })}
       </div>
     </div>
   );
