@@ -60,10 +60,7 @@ export const Layout = ({
         introSection={introSection}
       />
       {children}
-      <Footer
-        theme={theme}
-        openFullscreenEstimation={openFullscreenEstimation}
-      />
+      <Footer theme={theme} />
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
