@@ -16,7 +16,7 @@ export const AddFooter = ({
   isMobileMenuOpened,
   isFirstHomepageVisit,
 }) => {
-  let oldY = 0;
+  const oldYRef = useRef(0);
   const scrollLabel = useRef(null);
   const [direction, setDirection] = useState('');
   const [isTopOfPage, setTopOfPage] = useState(false);
@@ -27,17 +27,23 @@ export const AddFooter = ({
     if (pageYOffset < 250) {
       setTopOfPage(true);
 
-      if (pageYOffset < 200 && oldY > pageYOffset) setDirection('up');
+      if (pageYOffset < 200 && oldYRef.current > pageYOffset) {
+        setDirection('up');
+      }
 
-      if (pageYOffset > 100 && oldY < pageYOffset) setDirection('down');
-    } else setTopOfPage(false);
+      if (pageYOffset > 100 && oldYRef.current < pageYOffset) {
+        setDirection('down');
+      }
+    } else {
+      setTopOfPage(false);
+    }
 
-    oldY = pageYOffset;
+    oldYRef.current = pageYOffset;
   };
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    oldY = window.pageYOffset;
+    oldYRef.current = window.pageYOffset;
 
     setScroll(scrollLabel.current);
     handleOnScroll();

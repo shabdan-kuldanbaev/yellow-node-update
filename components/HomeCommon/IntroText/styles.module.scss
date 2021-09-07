@@ -93,14 +93,18 @@
   will-change: transform;
   transform: translate3d(-50%, 60px, 0);
   opacity: 0;
-  transition: transform $default-transition-time, opacity $default-transition-time;
+  transition:
+    transform $default-transition-time,
+    opacity $default-transition-time;
 }
 
 .up {
   will-change: transform;
   transform: translate3d(-50%, 0, 0);
   opacity: 1;
-  transition: transform $default-transition-time, opacity $default-transition-time;
+  transition:
+    transform $default-transition-time,
+    opacity $default-transition-time;
 }
 
 .notOnTop {

@@ -12,29 +12,37 @@ import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const IntroText = ({ className, isMobileResolution }) => {
-  let oldY = 0;
+  const oldYRef = useRef(0);
   const [direction, setDirection] = useState('');
   const [isTopOfPage, setTopOfPage] = useState(false);
 
-  const handleOnScroll = () => {
-    const { pageYOffset } = window;
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (isMobileResolution) {
+      return null;
+    }
 
-    if (!isMobileResolution) {
+    oldYRef.current = window.pageYOffset;
+
+    const handleOnScroll = () => {
+      const { pageYOffset } = window;
+
       if (pageYOffset < 250) {
         setTopOfPage(true);
 
-        if (pageYOffset < 200 && oldY > pageYOffset) setDirection('up');
+        if (pageYOffset < 200 && oldYRef.current > pageYOffset) {
+          setDirection('up');
+        }
 
-        if (pageYOffset > 100 && oldY < pageYOffset) setDirection('down');
-      } else setTopOfPage(false);
-    }
+        if (pageYOffset > 100 && oldYRef.current < pageYOffset) {
+          setDirection('down');
+        }
+      } else {
+        setTopOfPage(false);
+      }
 
-    oldY = pageYOffset;
-  };
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    oldY = window.pageYOffset;
+      oldYRef.current = pageYOffset;
+    };
 
     handleOnScroll();
 
