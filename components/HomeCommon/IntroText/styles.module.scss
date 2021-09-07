@@ -1,13 +1,108 @@
 @import 'styles/utils/mixins';
 
 .introTextContainer {
+  position: fixed;
+  left: 50%;
+  top: calc(100vh - 60px);
+  max-width: 740px;
+  transform: translateX(-50%);
+
+  @include fontSize(20px);
+  @include flex();
+
+  @include macbook-fifteen {
+    max-width: 625px;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  @include macbook-twelve {
+    max-width: 510px;
+
+    @include fontSize(16px);
+  }
+
+  @include phone {
+    left: unset;
+    position: unset;
+    color: $white;
+    opacity: 0.7;
+    max-width: 300px;
+    transform: translateY(-92px);
+
+    @include flex(column, center, center);
+  }
+
+  @include phone-height-500 {
+    transform: translateY(-38px);
+  }
+
+  @include phone-height-600 {
+    @include iOSDevice {
+      transform: translateY(-98px);
+    }
+  }
+
+  @include phone-height-650 {
+    transform: translateY(-68px);
+
+    @include iOSDevice {
+      transform: translateY(-128px);
+    }
+  }
+
+  @include phone-height-730 {
+    transform: translateY(-98px);
+
+    @include iOSDevice {
+      transform: translateY(-158px);
+    }
+  }
+
+  @include phone-height-800 {
+    transform: translateY(-138px);
+
+    @include iOSDevice {
+      transform: translateY(-208px);
+    }
+  }
+
   .text {
     color: $white;
     margin: 0;
+
+    @include phone {
+      text-align: center;
+      margin-bottom: 20px;
+    }
   }
 
   a {
     color: $turbo-100;
     text-decoration: underline;
+
+    @include phone {
+      font-weight: 600;
+      color: $turbo-100;
+      text-decoration: none;
+    }
   }
+}
+
+.down {
+  will-change: transform;
+  transform: translate3d(-50%, 60px, 0);
+  opacity: 0;
+  transition: transform $default-transition-time, opacity $default-transition-time;
+}
+
+.up {
+  will-change: transform;
+  transform: translate3d(-50%, 0, 0);
+  opacity: 1;
+  transition: transform $default-transition-time, opacity $default-transition-time;
+}
+
+.notOnTop {
+  opacity: 0;
 }

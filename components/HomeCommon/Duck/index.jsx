@@ -22,7 +22,7 @@ import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { EffectComposer, RenderPass } from 'postprocessing';
 import { Animated } from 'components/Common/Animated';
-import { IntroText } from 'components/HomeCommon/IntroText';
+import IntroText from 'components/HomeCommon/IntroText';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { AppContext } from 'utils/appContext';

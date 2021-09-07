@@ -57,7 +57,6 @@ export const AddFooter = ({
     >
       <SocialIcons theme={theme} />
       <ScrollIcon theme={theme} />
-      <IntroText className={styles.text} />
     </section>
   );
 };
