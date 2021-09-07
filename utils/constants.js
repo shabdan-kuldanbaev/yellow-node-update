@@ -65,23 +65,17 @@ export const ANIMATED_TYPE = {
   isCSS: 'isCSS',
 };
 
-export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce(
-  (acc, [key, { slug, title }]) => {
-    acc[slug] = title;
+export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
+  acc[slug] = title;
 
-    return acc;
-  },
-  {},
-);
+  return acc;
+}, {});
 
-export const CATEGORY_SLUGS = Object.entries(routes.blog.categories).reduce(
-  (acc, [key, { slug }]) => {
-    acc[key] = slug;
+export const CATEGORY_SLUGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug }]) => {
+  acc[key] = slug;
 
-    return acc;
-  },
-  [],
-);
+  return acc;
+}, []);
 
 export const FEEDBACK_FORM_FIELDS = {
   name: 'name',
@@ -250,7 +244,10 @@ export const APP_DEVELOPMENT_TYPES = {
 
 export const CONTACTS_DATA = {
   email: 'hi@yellow.systems',
-  telephoneNumbers: ['+1 (415) 670-90-70', '+375 (29) 311-52-49'],
+  telephoneNumbers: [
+    '+1 (415) 670-90-70',
+    '+375 (29) 311-52-49',
+  ],
   city: 'Minsk',
   country: 'Belarus',
   postalCode: '220030',
@@ -324,14 +321,11 @@ export const CASE_STUDIES = {
   travelTrivia: 'travel-trivia',
 };
 
-export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce(
-  (acc, [key, value], index) => {
-    acc[index] = value;
+export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
+  acc[index] = value;
 
-    return acc;
-  },
-  [],
-);
+  return acc;
+}, []);
 
 export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,

@@ -145,6 +145,14 @@
 .travel-trivia {
   background-size: 120%;
   background-color: $dark-pink-1;
+
+  @include tablet {
+    background-size: 200%;
+  }
+
+  @include phone {
+    background-size: 350%;
+  }
 }
 
 .fairy {

@@ -165,9 +165,10 @@ $max-mobile-size: 568px;
 $horizontal-mobile: 450px;
 
 //fonts
-$default-font: 'Montserrat';
-$case-studies-font: 'Poppins', sans-serif;
-$main-title-font: 'Sonny Gothic Condensed Ultra Black', sans-serif;
+$default-font: "Montserrat";
+$case-studies-font: "Poppins", sans-serif;
+$main-title-font: 'Sonny Gothic Condensed Ultra Black',
+  sans-serif;
 
 //insta
 $imgIndent: 7.5px;
@@ -185,9 +186,7 @@ $max-article-margin: 24px;
 
 //filters
 $shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
-$shadow-filter-phone: drop-shadow(
-  -12.8201px 12.8201px 30.4602px rgba(0, 0, 0, 0.4)
-);
+$shadow-filter-phone: drop-shadow(-12.8201px 12.8201px 30.4602px rgba(0, 0, 0, 0.4));
 
 //timing functions
 $primary-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);

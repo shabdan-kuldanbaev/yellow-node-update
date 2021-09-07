@@ -597,6 +597,7 @@
 
 .travel-trivia {
   @extend .container;
+
   background: linear-gradient(51.28deg, #e66bce 11.39%, #eb6b96 81.95%);
   height: unset;
 
@@ -624,22 +625,34 @@
     }
 
     .projectTitle {
-      color: $white;
       @include fontSize(65px);
+
+      color: $white;
+
+      @include phone {
+        @include fontSize(56px);
+      }
     }
 
     .projectSubtitle {
-      color: $white;
       @include fontSize(24px);
+
+      color: $white;
+
+      @include phone {
+        opacity: 0.8;
+
+        @include fontSize(18px);
+      }
     }
 
     .projectDescription {
-      color: $silver-chalice;
       color: $white;
-      @include fontSize(18px);
       line-height: 180%;
       opacity: 0.8;
       max-width: 407px;
+
+      @include fontSize(18px);
     }
   }
 
