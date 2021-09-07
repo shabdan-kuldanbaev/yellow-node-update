@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .container {
@@ -364,6 +365,10 @@
 .chat-app-development-company {
   @extend .container;
 
+  @include tablet {
+    height: 60vw;
+  }
+
   &.firstSectionView {
     padding: 0 120px;
     background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
@@ -715,6 +720,240 @@
           @include tablet {
             max-width: 500px;
           }
+        }
+      }
+    }
+  }
+}
+
+.webAppDevelopmentProjectPreview {
+  .projectPreview {
+    width: 100%;
+    height: 100%;
+
+    @include flex(column, center, center);
+  }
+
+  .projectInfoContainer {
+    @include flex(column, center, center);
+
+    .projectTitle {
+      @include fontSize(50px);
+
+      @include macbook-twelve {
+        @include fontSize(40px);
+      }
+
+      @include phone {
+        @include fontSize(35px);
+      }
+    }
+  }
+
+  .imageContainer {
+    width: auto;
+
+    .image {
+      height: unset;
+    }
+  }
+}
+
+.web-app-development-company {
+  @extend .container;
+  @extend .webAppDevelopmentProjectPreview;
+
+  @include macbook-twelve {
+    height: 40vw;
+  }
+
+  @include tablet {
+    height: 70vh;
+  }
+
+  @include phone {
+    height: 90vh;
+  }
+
+  &.firstSectionView {
+    background-color: $alabaster;
+
+    .projectInfoContainer {
+      .projectTitle {
+        color: $white;
+
+        .pinkText {
+          color: $brink-pink;
+        }
+      }
+
+      .projectSubtitle {
+        color: $dark-grey;
+        opacity: 0.7;
+
+        @include fontSize(14px);
+      }
+
+      .logo {
+        @include macbook-twelve {
+          width: 36px;
+          height: 36px;
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    .imageContainer {
+      .image {
+        max-width: 586px;
+
+        @include macbook-fifteen {
+          max-width: 450px;
+        }
+
+        @include phone {
+          max-width: 80vw;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $shark-2;
+
+    .projectInfoContainer {
+      .projectTitle {
+        color: $white;
+        margin: 0 0 45px;
+        text-transform: uppercase;
+
+        .orangeText {
+          color: $flamenco;
+        }
+      }
+    }
+
+    .imageContainer {
+      .image {
+        max-width: 678px;
+
+        @include macbook-fifteen {
+          max-width: 450px;
+        }
+
+        @include phone {
+          max-width: 80vw;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .imageContainer {
+      width: auto;
+
+      .image {
+        max-width: 800px;
+
+        @include macbook-fifteen {
+          max-width: 650px;
+        }
+
+        @include tablet {
+          max-width: 450px;
+        }
+
+        @include phone {
+          max-width: 80vw;
+        }
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @include centeredBackgroundImage;
+
+    .projectPreview {
+      transform: translateY(90px);
+
+      @include tablet {
+        transform: unset;
+      }
+    }
+
+    .projectInfoContainer {
+      .titleText {
+        position: relative;
+
+        .projectTitle {
+          margin-bottom: 20px;
+
+          @include fontSize(56px);
+
+          @include macbook-twelve {
+            @include fontSize(45px);
+          }
+
+          @include tablet {
+            @include fontSize(55px);
+          }
+
+          @include phone {
+            @include fontSize(25px);
+          }
+        }
+
+        .titleBackground {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translate(-30px, -63px);
+          width: 467px;
+
+          @include macbook-twelve {
+            width: 390px;
+            transform: translate(-30px, -75px);
+          }
+
+          @include tablet {
+            width: 455px;
+            transform: translate(-25px, -65px);
+          }
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      .projectSubtitle {
+        @include fontSize(14px);
+      }
+
+      .projectDescription {
+        max-width: 360px;
+        opacity: 0.7;
+        text-align: center;
+        margin-bottom: 0;
+
+        @include fontSize(12px);
+      }
+    }
+
+    .imageContainer {
+      .image {
+        max-width: 727px;
+
+        @include macbook-twelve {
+          max-width: 595px;
+        }
+
+        @include tablet {
+          max-width: 600px;
+        }
+
+        @include phone {
+          max-width: 80vw;
         }
       }
     }

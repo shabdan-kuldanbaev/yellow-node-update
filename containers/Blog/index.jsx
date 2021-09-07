@@ -14,8 +14,13 @@ import {
   FullLayout,
 } from 'components';
 import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
-import { PAGES, ROUTES } from 'utils/constants';
+import {
+  PAGES,
+  ROUTES,
+  CATEGORY_SLUGS,
+} from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { categoriesMetaData } from './utils/data';
 
 const BlogContainer = ({
   introSection,
@@ -44,6 +49,15 @@ const BlogContainer = ({
     url: `${rootUrl}${asPath}`,
     pageNumber: currentPage,
   };
+
+  if (CATEGORY_SLUGS.includes(slug) && categoriesMetaData[slug]) {
+    const {
+      metaTitle: categoryMetaTitle,
+      metaDescription: categoryMetaDescription,
+    } = categoriesMetaData[slug];
+    pageMetadata.metaTitle = categoryMetaTitle;
+    pageMetadata.metaDescription = categoryMetaDescription;
+  }
 
   const handleOnFormSubmit = (email) => {
     addNewSubscriber({ email, pathname });

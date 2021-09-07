@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
+import { Svg } from 'components/Common/Svg';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -20,6 +21,7 @@ export const Figures = ({ type, figuresData }) => {
     opasityDuration: 1,
     transformDuration: 1,
   };
+  const isFiguresWithCheck = ['web-app-development-company'].includes(type);
 
   if (!figures || !figures.length) {
     return null;
@@ -47,18 +49,38 @@ export const Figures = ({ type, figuresData }) => {
             ['title', 'description'],
           );
 
-          return (
-            <Animated
-              key={item.title}
-              {...animatedProps}
-              transitionDelay={800 + 90 * index * 2}
-            >
+          const figureContent = (
+            <Fragment>
               <div className={styles.title}>
                 {title}
               </div>
               <div className={styles.description}>
                 {description}
               </div>
+            </Fragment>
+          );
+
+          return (
+            <Animated
+              key={item.title}
+              {...animatedProps}
+              transitionDelay={800 + 90 * index * 2}
+            >
+              {isFiguresWithCheck
+                ? (
+                  <Fragment>
+                    <div className={styles.ckeckMarkWrapper}>
+                      <div className={styles.checkMark}>
+                        <Svg
+                          className={styles.icon}
+                          type={SVG_IMAGES_TYPES.checkMark}
+                        />
+                      </div>
+                    </div>
+                    {figureContent}
+                  </Fragment>
+                )
+                : figureContent}
             </Animated>
           );
         })}

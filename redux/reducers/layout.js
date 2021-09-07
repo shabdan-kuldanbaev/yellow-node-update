@@ -10,8 +10,10 @@ const initialState = {
   isLoading: false,
   isPageReadyToDisplay: false,
   isFirstPageLoaded: false,
+  isDropMenuOpened: false,
   components: {
     main: null,
+    hasFeedbackForm: false,
   },
   metaData: {
     metaTitle: '',
@@ -31,12 +33,14 @@ const handlers = {
       contentModules,
       metaTitle,
       metaDescription,
+      hasFeedbackForm,
     } = getDocumentFields(
       (payload && payload[0]) ? payload[0] : {},
       [
         'contentModules',
         'metaTitle',
         'metaDescription',
+        'hasFeedbackForm',
       ],
     );
 
@@ -45,6 +49,7 @@ const handlers = {
       isLoading: false,
       components: {
         main: contentModules,
+        hasFeedbackForm,
       },
       metaData: {
         metaTitle,
@@ -65,6 +70,7 @@ const handlers = {
     error: payload,
   }),
   [actionTypes.SET_PAGE_READY_TO_DISPLAY]: (state, { payload }) => ({ ...state, isPageReadyToDisplay: payload }),
+  [actionTypes.SET_IS_DROP_MENU_STATE]: (state, { payload }) => ({ ...state, isDropMenuOpened: payload }),
   DEFAULT: (state) => state,
 };
 

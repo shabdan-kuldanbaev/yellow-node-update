@@ -5,6 +5,7 @@ import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
 import { getFileUrl } from 'utils/helper';
+import { TitleText } from './TitleText';
 import { getAppstoreSvgType, getItemPreviewProps } from './utils/itemPreviewHelper';
 import styles from './styles.module.scss';
 
@@ -30,22 +31,27 @@ export const ItemPreview = ({ data, type }) => {
     >
       <div className={styles.projectPreview}>
         <div className={styles.projectInfoContainer}>
-          <img
-            className={styles.logo}
-            src={appLogoUrl}
-            alt={appLogoUrl}
+          {appLogoUrl && (
+            <img
+              className={styles.logo}
+              src={appLogoUrl}
+              alt={appLogoUrl}
+            />
+          )}
+          <TitleText
+            type={slug}
+            data={title}
           />
-          <h1 className={styles.projectTitle}>
-            {title}
-          </h1>
           {subtitle && (
             <p className={styles.projectSubtitle}>
               {subtitle}
             </p>
           )}
-          <p className={styles.projectDescription}>
-            {description}
-          </p>
+          {description && (
+            <p className={styles.projectDescription}>
+              {description}
+            </p>
+          )}
           <ContentfulParser document={text} />
           {downloadLink && (
             <LinkWrapper path={downloadLink.url}>

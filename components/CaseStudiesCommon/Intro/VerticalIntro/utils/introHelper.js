@@ -54,11 +54,11 @@ export const getIntroProps = (type, data) => {
   );
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));
   const appLogoUrl = getOptimizedContentfulImage(
-    getFileUrl(get(images, '[0]', '')),
+    getFileUrl(get(images, '[1]', '')),
     { fm: 'png', fl: 'png8' },
   );
   const appBackgroundImageUrl = getOptimizedContentfulImage(
-    getFileUrl(get(images, '[1]', '')),
+    getFileUrl(get(images, '[0]', '')),
     { fm: 'png', fl: 'png8' },
   );
   const backgroundImageUrl = getOptimizedContentfulImage(

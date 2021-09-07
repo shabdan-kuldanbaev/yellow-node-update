@@ -115,6 +115,7 @@ function* fetchPageData({
     case PAGES.company:
     case PAGES.customChatApp:
     case PAGES.customMobileApp:
+    case PAGES.customWebApp:
     case PAGES.notFound:
       yield call(fetchPage, { slug });
 
