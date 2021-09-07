@@ -51,4 +51,8 @@ module.exports.redirects = [
     from: '/team',
     to: '/company',
   },
+  {
+    from: '/10-best-chatbot-examples-to-improve-customer-service-in-2019',
+    to: '/blog/chatbot-examples-to-improve-customer-service',
+  },
 ];
