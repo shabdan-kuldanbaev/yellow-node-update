@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .svgSection {
@@ -8,8 +9,6 @@
     max-width: 1076px;
 
     .svgList {
-      margin-bottom: 150px;
-
       @include flex(row, space-between, center, wrap);
 
       & > div {
@@ -34,58 +33,66 @@
   }
 }
 
+.svgListWrapperSeveralRows {
+  margin: 0 auto;
+  max-width: 855px;
+
+  .svgList {
+    @include flex(row, center, center, wrap);
+
+    & > div {
+      flex: 0 0 25%;
+      text-align: center;
+      margin: 40px 0;
+
+      @include tablet {
+        flex: 1 0 50%;
+
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.svgListWrapperOneRow {
+  margin: 0 auto;
+  max-width: 1300px;
+
+  .svgList {
+    overflow-x: scroll;
+
+    @include flex(row, space-between, center, nowrap);
+
+    & > div {
+      flex: unset;
+      margin-right: 100px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      & > svg {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
 .mobile-app-development-company {
   @include appDevelopmentContainer;
 
   &.firstSectionView {
     .svgListWrapper {
-      margin: 0 auto;
-      max-width: 855px;
-
-      .svgList {
-        @include flex(row, center, center, wrap);
-
-        & > div {
-          flex: 0 0 25%;
-          text-align: center;
-          margin: 40px 0;
-
-          @include tablet {
-            flex: 1 0 50%;
-
-            &:nth-of-type(1),
-            &:nth-of-type(2) {
-              margin-top: 0;
-            }
-          }
-        }
-      }
+      @extend .svgListWrapperSeveralRows;
     }
   }
 
   &.secondSectionView {
     .svgListWrapper {
-      margin: 0 auto;
-      max-width: 1300px;
-
-      .svgList {
-        overflow-x: scroll;
-
-        @include flex(row, space-between, center, nowrap);
-
-        & > div {
-          flex: unset;
-          margin-right: 100px;
-
-          &:last-child {
-            margin-right: 0;
-          }
-
-          & > svg {
-            opacity: 0.5;
-          }
-        }
-      }
+      @extend .svgListWrapperOneRow;
     }
   }
 }
@@ -93,12 +100,49 @@
 .chat-app-development-company {
   @extend .svgSection;
 
+  .svgListWrapper {
+    .svgList {
+      margin-bottom: 150px;
+    }
+  }
+
   .callToAction {
     & > h3 {
       margin: 0;
 
       @include phone {
         margin-bottom: 32px;
+      }
+    }
+  }
+}
+
+.web-app-development-company {
+  @extend .svgSection;
+
+  &.firstSectionView {
+    background-color: $white;
+    padding-bottom: 0;
+
+    .svgListWrapper {
+      @extend .svgListWrapperSeveralRows;
+
+      .svgList {
+        justify-content: space-evenly;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $alabaster;
+
+    .svgListWrapper {
+      @extend .svgListWrapperOneRow;
+
+      .svgList > div {
+        @include phone {
+          margin-top: 0;
+        }
       }
     }
   }

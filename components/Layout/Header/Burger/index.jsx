@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 const Burger = ({
   isMobileMenuOpened,
   handleOnClick,
-  isAdditional,
+  isPageScrolledDown,
 }) => {
   const { asPath } = useRouter();
 
@@ -18,8 +18,8 @@ const Burger = ({
         cn(styles.burger, {
           [styles.burgerOpened]: isMobileMenuOpened,
           [styles.burgerClosed]: !isMobileMenuOpened,
-          [styles.additionalBurger]: isAdditional || (!isMobileMenuOpened && !PAGES_WITH_DARK_HEADER.includes(asPath)),
-          [styles.additionalBurgerOpened]: isAdditional && isMobileMenuOpened,
+          [styles.pageScrollingBurger]: isPageScrolledDown || (!isMobileMenuOpened && !PAGES_WITH_DARK_HEADER.includes(asPath)),
+          [styles.pageScrollingBurgerOpened]: isPageScrolledDown && isMobileMenuOpened,
         })
       }
       onClick={handleOnClick}
@@ -38,7 +38,7 @@ const Burger = ({
 Burger.propTypes = {
   isMobileMenuOpened: PropTypes.bool.isRequired,
   handleOnClick: PropTypes.func.isRequired,
-  isAdditional: PropTypes.bool.isRequired,
+  isPageScrolledDown: PropTypes.bool.isRequired,
 };
 
 export default Burger;

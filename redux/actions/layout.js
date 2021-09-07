@@ -39,3 +39,8 @@ export const setFirstPageLoaded = (payload) => ({
   type: actionTypes.SET_FIRST_PAGE_LOADED,
   payload,
 });
+
+export const setIsDropMenuOpened = (payload) => ({
+  type: actionTypes.SET_IS_DROP_MENU_STATE,
+  payload,
+});

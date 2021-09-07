@@ -54,7 +54,7 @@ export const routes = {
     slug: 'homepage',
   },
   portfolio: {
-    title: 'Works',
+    title: 'What we do',
     path: rootPortfolioPath,
     getRoute: (category, page = '1') => getPageRoute(
       category,
@@ -205,6 +205,12 @@ export const routes = {
     path: '/mobile-app-development-company',
     dynamicPath: '/mobile-app-development-company',
     slug: 'mobile-app-development-company',
+  },
+  customWebApp: {
+    title: 'Custom web application development company',
+    path: '/web-app-development-company',
+    dynamicPath: '/web-app-development-company',
+    slug: 'web-app-development-company',
   },
   notFound: {
     title: '404 | Yellow',
