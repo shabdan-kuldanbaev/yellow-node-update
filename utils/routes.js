@@ -54,7 +54,7 @@ export const routes = {
     slug: 'homepage',
   },
   portfolio: {
-    title: 'What we do',
+    title: 'Works',
     path: rootPortfolioPath,
     getRoute: (category, page = '1') => getPageRoute(
       category,

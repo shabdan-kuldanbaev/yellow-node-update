@@ -39,31 +39,41 @@ const Nav = ({
         path,
         dynamicPath,
         slug,
-      }) => (
-        <li
-          key={`menuItem/${title}`}
-          className={styles[theme]}
-          onMouseEnter={onLinkMouseHover(slug)}
-          onMouseLeave={onLinkMouseLeave}
-        >
-          <LinkWrapper
-            isLocalLink
-            path={path}
-            dynamicRouting={dynamicPath}
+      }) => {
+        const itemContent = (
+          <span className={styles.underline}>
+            {title}
+          </span>
+        );
+
+        return (path || isHeader) && (
+          <li
+            key={`menuItem/${title}`}
+            className={styles[theme]}
+            onMouseEnter={onLinkMouseHover(slug)}
+            onMouseLeave={onLinkMouseLeave}
           >
-            <span className={styles.underline}>
-              {title}
-            </span>
-          </LinkWrapper>
-          {isHasSubNavigation(slug) && isHeader && (
-            <DropDownMenu
-              isDropMenuOpened={isDropMenuOpened}
-              isPageScrolledDown={isPageScrolling}
-              slug={slug}
-            />
-          )}
-        </li>
-      ))}
+            {path
+              ? (
+                <LinkWrapper
+                  isLocalLink
+                  path={path}
+                  dynamicRouting={dynamicPath}
+                >
+                  {itemContent}
+                </LinkWrapper>
+              )
+              : itemContent}
+            {isHasSubNavigation(slug) && isHeader && (
+              <DropDownMenu
+                isDropMenuOpened={isDropMenuOpened}
+                isPageScrolledDown={isPageScrolling}
+                slug={slug}
+              />
+            )}
+          </li>
+        );
+      })}
     </ul>
   );
 };
