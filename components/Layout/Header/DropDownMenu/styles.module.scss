@@ -47,6 +47,7 @@
     .itemContainer {
       margin-bottom: 40px;
       width: max-content;
+      outline: none;
 
       @include phone {
         margin-bottom: 20px;

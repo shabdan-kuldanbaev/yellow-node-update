@@ -13,6 +13,12 @@ export const DropDownMenu = ({
 }) => {
   const subNavigationLinks = SUB_NAVIGATION_LINKS[slug];
 
+  const handleOnClick = (subMenuSlug) => () => {
+    if (subMenuSlug) {
+      closeMobileMenu();
+    }
+  };
+
   if (!subNavigationLinks) {
     return null;
   }
@@ -31,7 +37,12 @@ export const DropDownMenu = ({
           items,
         }) => {
           const subMenuItem = (
-            <div className={styles.itemContainer}>
+            <div
+              className={styles.itemContainer}
+              onClick={handleOnClick(subMenuSlug)}
+              role="button"
+              tabIndex="0"
+            >
               <h3 className={styles.title}>
                 {title}
               </h3>
