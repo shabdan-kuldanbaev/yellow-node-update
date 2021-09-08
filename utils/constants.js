@@ -25,15 +25,25 @@ export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
   return acc;
 }, {});
 
-export const NAV_LINKS = Object.values(routes).filter(({ slug }) => ![
-  routes.homepage.slug,
-  routes.article.slug,
-  routes.project.slug,
-  routes.notFound.slug,
-  routes.customChatApp.slug,
-  routes.customMobileApp.slug,
-  routes.customWebApp.slug,
-].includes(slug));
+export const NON_INTERACTIVE_LINKS = {
+  whatWeDo: {
+    title: 'What we do',
+    slug: 'what-we-do',
+  },
+};
+
+export const NAV_LINKS = [
+  ...Object.values(NON_INTERACTIVE_LINKS),
+  ...Object.values(routes).filter(({ slug }) => ![
+    routes.homepage.slug,
+    routes.article.slug,
+    routes.project.slug,
+    routes.notFound.slug,
+    routes.customChatApp.slug,
+    routes.customMobileApp.slug,
+    routes.customWebApp.slug,
+  ].includes(slug)),
+];
 
 export const BLOCKS_SLUGS = {
   homepagePreviewProjects: 'homepage-preview-projects',
@@ -344,7 +354,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
 ];
 
 export const SUB_NAVIGATION_LINKS = {
-  [ROUTES.portfolio.slug]: [
+  [NON_INTERACTIVE_LINKS.whatWeDo.slug]: [
     {
       title: 'Web app development',
       subtitle: 'Your website will rock the stage',
@@ -363,4 +373,4 @@ export const SUB_NAVIGATION_LINKS = {
   ],
 };
 
-export const LINKS_WITH_SUB_NAVIGATION = [ROUTES.portfolio.slug];
+export const LINKS_WITH_SUB_NAVIGATION = [NON_INTERACTIVE_LINKS.whatWeDo.slug];
