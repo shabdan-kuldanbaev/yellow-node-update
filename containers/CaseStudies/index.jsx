@@ -2,15 +2,17 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
+import { useRouter } from 'next/router';
 import { selectProject } from 'redux/selectors/portfolio';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import { MetaTags } from 'components/Common/MetaTags';
 import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const CaseStudiesContainer = ({ introSection, currentProject }) => {
+  const { asPath } = useRouter();
   const {
     slug,
     contentModules,
@@ -33,6 +35,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
   const projectMetadata = {
     metaTitle: metaTitle || (pageTitle && `${pageTitle} | Yellow`),
     metaDescription: metaDescription || (pageTitle && `Yellow professionals have created ${pageTitle}. Read our case study to find more!`),
+    url: `${rootUrl}${asPath}`,
   };
 
   return (
