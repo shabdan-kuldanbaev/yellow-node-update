@@ -109,4 +109,8 @@
 
 .notOnTop {
   opacity: 0 !important;
+
+  @include phone {
+    opacity: 1 !important;
+  }
 }
