@@ -9,7 +9,7 @@ import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const IntroText = ({ className, isMobileResolution }) => {
-  const [direction, isTopOfPage] = useAppearingAnimation(true, isMobileResolution);
+  const [direction, isTopOfPage] = useAppearingAnimation(isMobileResolution);
 
   return (
     <div

@@ -4,7 +4,7 @@ import {
   useRef,
 } from 'react';
 
-function useAppearingAnimation(isDesktopOnly = false, isMobileResolution = false) {
+function useAppearingAnimation(isMobileResolution = false) {
   const oldYRef = useRef(0);
   const [direction, setDirection] = useState('');
   const [isTopOfPage, setTopOfPage] = useState(false);
@@ -19,7 +19,7 @@ function useAppearingAnimation(isDesktopOnly = false, isMobileResolution = false
       if (pageYOffset < 250) {
         setTopOfPage(true);
 
-        if (!isDesktopOnly || !isMobileResolution) {
+        if (!isMobileResolution) {
           if (pageYOffset < 200 && oldYRef.current > pageYOffset) {
             setDirection('up');
           }
