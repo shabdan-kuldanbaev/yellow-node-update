@@ -1,55 +1,15 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
+import useAppearingAnimation from 'hooks/useAppearingAnimation';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const IntroText = ({ className, isMobileResolution }) => {
-  const oldYRef = useRef(0);
-  const [direction, setDirection] = useState('');
-  const [isTopOfPage, setTopOfPage] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (isMobileResolution) {
-      return null;
-    }
-
-    oldYRef.current = window.pageYOffset;
-
-    const handleOnScroll = () => {
-      const { pageYOffset } = window;
-
-      if (pageYOffset < 250) {
-        setTopOfPage(true);
-
-        if (pageYOffset < 200 && oldYRef.current > pageYOffset) {
-          setDirection('up');
-        }
-
-        if (pageYOffset > 100 && oldYRef.current < pageYOffset) {
-          setDirection('down');
-        }
-      } else {
-        setTopOfPage(false);
-      }
-
-      oldYRef.current = pageYOffset;
-    };
-
-    handleOnScroll();
-
-    window.addEventListener('scroll', handleOnScroll);
-
-    return () => window.removeEventListener('scroll', handleOnScroll);
-  }, []);
+  const [direction, isTopOfPage] = useAppearingAnimation(true, isMobileResolution);
 
   return (
     <div

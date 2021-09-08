@@ -92,7 +92,7 @@
 .down {
   will-change: transform;
   transform: translate3d(-50%, 60px, 0);
-  opacity: 0;
+  opacity: 0 !important;
   transition:
     transform $default-transition-time,
     opacity $default-transition-time;
@@ -108,5 +108,5 @@
 }
 
 .notOnTop {
-  opacity: 0;
+  opacity: 0 !important;
 }
