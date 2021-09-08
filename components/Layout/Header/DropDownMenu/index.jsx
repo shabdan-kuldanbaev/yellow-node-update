@@ -31,7 +31,12 @@ export const DropDownMenu = ({
           items,
         }) => {
           const subMenuItem = (
-            <div className={styles.itemContainer}>
+            <div
+              className={styles.itemContainer}
+              onClick={subMenuSlug ? closeMobileMenu : {}}
+              role="button"
+              tabIndex="0"
+            >
               <h3 className={styles.title}>
                 {title}
               </h3>
