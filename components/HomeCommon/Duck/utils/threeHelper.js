@@ -243,6 +243,12 @@ export const slogan = {
         delay: (el, i) => 150 * (i + 1),
       })
       .add({
+        targets: '.intro-text',
+        opacity: [0, 1],
+        easing: 'easeInOutQuad',
+        duration: 1000,
+      })
+      .add({
         targets: '.letter-container',
         opacity: finalOpacity,
         duration: 1000,
@@ -264,6 +270,12 @@ export const slogan = {
         easing: 'easeOutExpo',
         delay: 500,
         complete: () => test(),
+      })
+      .add({
+        targets: '.intro-text',
+        opacity: [0, 1],
+        easing: 'easeInOutQuad',
+        duration: 500,
       });
   },
   /* ------------------------ */

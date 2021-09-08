@@ -21,13 +21,7 @@ const Intro = ({
     className={styles.intro}
   >
     <Duck duck={duck} />
-    <AddFooter
-      theme={theme}
-      isModelLoaded={!!duck}
-      setScroll={setScroll}
-      isMobileMenuOpened={isMobileMenuOpened}
-      isFirstHomepageVisit={isFirstHomepageVisit}
-    />
+    <AddFooter theme={theme} />
     <Partners />
   </section>
 );
