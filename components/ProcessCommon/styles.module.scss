@@ -6,19 +6,19 @@
   background-color: $white;
   width: 100%;
   min-height: 75vh;
-  padding: 100px 0;
+  padding: 60px 0 100px;
 
   @include macbook-fifteen {
     width: 100%;
-    padding-top: 40px;
+    padding-top: 0;
+  }
+
+  @include macbook-twelve {
+    padding-top: 20px;
   }
 
   @include tablet {
-    padding-top: calc(#{$section-indent} - 20px);
-  }
-
-  @include below-tablet {
-    padding-top: calc(#{$mobile-section-indent} - 20px);
+    padding-top: 0;
   }
 
   @include phone {
@@ -42,7 +42,7 @@
     }
 
     @include macbook-fifteen {
-      height: 100vh;
+      height: 100%;
     }
 
     &:first-child {
@@ -154,7 +154,7 @@
 
       & > div:nth-of-type(1) {
         h2 {
-          @include big-title();
+          @include defaultSecondHeader;
 
           margin-top: 0;
           margin-bottom: 60px;

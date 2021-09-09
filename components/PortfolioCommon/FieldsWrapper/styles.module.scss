@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .h1 {
-  @include big-title();
+  @include defaultSecondHeader;
 
   margin-top: 0;
   margin-bottom: 60px;
@@ -10,13 +10,8 @@
     margin-top: 40px;
   }
 
-  @include below-tablet-horizontal {
-    font-size: 2.5rem;
-  }
-
   @include phone {
     max-width: calc(100% - 40px);
-    font-size: 2.2rem;
     margin: 40px auto 25px 0;
   }
 

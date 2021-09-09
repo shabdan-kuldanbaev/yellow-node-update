@@ -218,6 +218,26 @@
   }
 }
 
+@mixin defaultFirstHeader {
+  @include fontSize(70px);
+
+  @include phone {
+    @include fontSize(45px);
+  }
+}
+
+@mixin defaultSecondHeader {
+  @include fontSize(56px);
+
+  @include tablet {
+    @include fontSize(50px);
+  }
+
+  @include phone {
+    @include fontSize(40px);
+  }
+}
+
 @mixin button-more(
   $textColor: $white,
   $textHoverColor: $white,
