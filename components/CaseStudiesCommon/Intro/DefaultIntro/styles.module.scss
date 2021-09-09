@@ -718,3 +718,73 @@
     }
   }
 }
+
+.cash-chat {
+  @extend .container;
+
+  background: #01AE5E;
+  background-size: cover;
+
+  .projectInfoContainer {
+    max-width: 50%;
+
+    @include tablet {
+      max-width: unset;
+    }
+
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(65px);
+
+      @include tablet {
+        @include fontSize(44px);
+      }
+    }
+
+    .projectSubtitle {
+      color: $white;
+      max-width: 70%;
+
+      @include fontSize(24px);
+
+      @include tablet {
+        margin: 0 auto;
+        max-width: unset;
+
+        @include fontSize(22px);
+      }
+    }
+
+    .projectDescription {
+      color: $white;
+      opacity: 0.8;
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      p {
+        line-height: 1.5;
+
+        @include fontSize(18px);
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p:not(.infoTitle) {
+        color: $white;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 785px;
+    }
+  }
+}
+

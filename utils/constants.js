@@ -328,6 +328,7 @@ export const CASE_STUDIES = {
   separateUs: 'separate-us',
   natp: 'natp',
   driveFocus: 'drive-focus',
+  cashChat: 'cash-chat',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -343,6 +344,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
   ROUTES.project.getRoute(CASE_STUDIES.natp).path,
   ROUTES.project.getRoute(CASE_STUDIES.driveFocus).path,
+  ROUTES.project.getRoute(CASE_STUDIES.cashChat).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
 ];
