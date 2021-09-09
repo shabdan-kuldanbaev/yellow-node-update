@@ -160,7 +160,8 @@
   }
 }
 
-.fernwayer {
+.fernwayer,
+.travel-trivia {
   @extend .container;
 
   background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
@@ -192,6 +193,41 @@
   /* stylelint-disable-next-line */
   .iconLink {
     color: $white;
+  }
+}
+
+.cash-chat {
+  @extend .container;
+
+  background: $alabaster;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($black, 0.7);
+    }
+
+    .projectName {
+      color: $black;
+    }
+
+    .more {
+      border: 1px solid $black;
+      color: $black;
+    }
+  }
+
+  .question {
+    color: $black;
+  }
+
+  /* stylelint-disable-next-line */
+  .link{
+    color: rgba($black, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $black;
   }
 }
 

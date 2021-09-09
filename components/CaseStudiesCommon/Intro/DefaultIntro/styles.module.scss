@@ -595,6 +595,76 @@
   }
 }
 
+.travel-trivia {
+  @extend .container;
+
+  background: linear-gradient(51.28deg, #e66bce 11.39%, #eb6b96 81.95%);
+  height: unset;
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 295px;
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .logo {
+      width: 67px;
+      height: 67px;
+    }
+
+    .projectTitle {
+      @include fontSize(65px);
+
+      color: $white;
+
+      @include phone {
+        @include fontSize(56px);
+      }
+    }
+
+    .projectSubtitle {
+      @include fontSize(24px);
+
+      color: $white;
+
+      @include phone {
+        opacity: 0.8;
+
+        @include fontSize(18px);
+      }
+    }
+
+    .projectDescription {
+      color: $white;
+      line-height: 180%;
+      opacity: 0.8;
+      max-width: 407px;
+
+      @include fontSize(18px);
+    }
+  }
+
+  .introSection {
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
+    }
+  }
+}
+
 .drive-focus {
   @extend .container;
 
@@ -722,7 +792,7 @@
 .cash-chat {
   @extend .container;
 
-  background: #01AE5E;
+  background: $green;
   background-size: cover;
 
   .projectInfoContainer {
@@ -767,6 +837,10 @@
       p {
         line-height: 1.5;
 
+        @include phone {
+          margin-right: 60px;
+        }
+
         @include fontSize(18px);
       }
 
@@ -784,7 +858,15 @@
   .imageContainer {
     .image {
       max-width: 785px;
+      left: 38%;
+
+      @include tablet {
+        left: 50%;
+      }
+
+      @include phone {
+        height: 320px;
+      }
     }
   }
 }
-
