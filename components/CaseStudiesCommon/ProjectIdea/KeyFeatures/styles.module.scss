@@ -179,6 +179,37 @@
   }
 }
 
+.cash-chat {
+  @extend .container;
+
+  max-width: 100%;
+  padding: 192px 12px;
+
+  @include flex(row,space-between,center, wrap);
+
+  @include phone {
+    padding: 50px 12px;
+  }
+
+  .containerBackground {
+    background: unset;
+  }
+
+  .contentContainer {
+    & > p {
+      max-width: 330px;
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: $green;
+    }
+  }
+}
+
 .seven-pm-thursday {
   @extend .container;
 

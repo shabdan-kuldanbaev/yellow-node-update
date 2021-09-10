@@ -62,7 +62,8 @@
   }
 }
 
-.travel-trivia {
+.travel-trivia,
+.cash-chat {
   @include caseStudyContainer;
   @include wireframes;
   @include centeredBackgroundImage;

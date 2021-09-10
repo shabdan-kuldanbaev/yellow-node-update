@@ -138,7 +138,8 @@
 .fairy,
 .natp,
 .drive-focus,
-.travel-trivia {
+.travel-trivia,
+.cash-chat {
   @extend .parallax;
 }
 
@@ -148,6 +149,19 @@
 
   @include tablet {
     background-size: 200%;
+  }
+
+  @include phone {
+    background-size: 350%;
+  }
+}
+
+.cash-chat {
+  background-size: 170%;
+  background-color: $green;
+
+  @include tablet {
+    background-size: 250%;
   }
 
   @include phone {
