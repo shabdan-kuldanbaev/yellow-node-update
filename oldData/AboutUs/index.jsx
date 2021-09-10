@@ -20,8 +20,8 @@ export const AboutUs = ({ aboutUsText: aboutUs }) => {
 
   return (
     <section className={styles.aboutUs}>
-      <SectionTitle title="About us" />
-      <div className={styles.aboutUsContent}>
+      <div>
+        <SectionTitle title="About us" />
         <div className={styles.aboutUsText}>
           {aboutUs && aboutUs.map((paragraph, index) => (
             <Animated
@@ -33,8 +33,32 @@ export const AboutUs = ({ aboutUsText: aboutUs }) => {
             </Animated>
           ))}
         </div>
-        <CompanyFigures />
+        <div className={styles.buttons}>
+          <Animated
+            {...animatedProps}
+            transitionDelay={1100 + 80}
+          >
+            <ButtonMore
+              href={ROUTES.portfolio.path}
+              dynamicRouting={ROUTES.portfolio.dynamicPath}
+              title="WHAT WE DO"
+              buttonStyle={styles.submit}
+            />
+          </Animated>
+          <Animated
+            {...animatedProps}
+            transitionDelay={1100 + 80}
+          >
+            <ButtonMore
+              href={ROUTES.process.path}
+              dynamicRouting={ROUTES.process.dynamicPath}
+              title="HOW WE DO IT"
+              buttonStyle={styles.submit}
+            />
+          </Animated>
+        </div>
       </div>
+      <CompanyFigures />
     </section>
   );
 };
