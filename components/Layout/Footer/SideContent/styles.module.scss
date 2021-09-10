@@ -1,0 +1,56 @@
+@import 'styles/utils/mixins';
+
+.sideContent {
+  width: 100%;
+  max-width: 405px;
+  margin-right: 90px;
+
+  @include macbook-twelve {
+    margin-right: 50px;
+  }
+
+  @include below-tablet {
+    margin-bottom: 75px;
+  }
+
+  & > a:first-child {
+    position: relative;
+
+    & > svg:last-child {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  .text {
+    max-width: 400px;
+    color: $white;
+    opacity: 0.7;
+    margin: 20px 0 55px;
+    line-height: 1.8;
+    cursor: default;
+
+    @include macbook-twelve {
+      margin-bottom: 40px;
+
+      @include fontSize(14px);
+    }
+  }
+
+  .socialMediaList {
+    .svg {
+      margin-right: 16px;
+      transform: translateY(0);
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      @include phone {
+        width: 39px;
+        height: 39px;
+      }
+    }
+  }
+}
