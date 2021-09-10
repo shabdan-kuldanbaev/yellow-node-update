@@ -442,6 +442,14 @@ export const Svg = ({
         <path d="M19.5 9.75L13 16.25L6.5 9.75" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     );
+  case SVG_IMAGES_TYPES.arrowUp:
+    return (
+      <svg className={className} width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 6.6665V25.3332" stroke="#171717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M21.3333 11.9998L16 6.6665" stroke="#171717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10.6665 11.9998L15.9998 6.6665" stroke="#171717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
   default: return null;
   }
 };

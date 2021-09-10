@@ -15,6 +15,7 @@ import { GAnalytic } from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
 import { Footer } from 'components/Layout/Footer';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
+import { ToTopButton } from 'components/Common/ToTopButton';
 import {
   mobileResolution,
   tabletResolution,
@@ -69,6 +70,7 @@ export const Layout = ({
         closeFullscreenEstimation={closeFullscreenEstimation}
       />
       <GAnalytic />
+      <ToTopButton />
     </Fragment>
   );
 };
