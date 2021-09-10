@@ -32,7 +32,7 @@
       @include flex(column, space-around, flex-start);
 
       & > div:nth-of-type(1) > h2 {
-        @include h1-title;
+        @include defaultSecondHeader;
 
         line-height: 1.2;
         text-align: left;

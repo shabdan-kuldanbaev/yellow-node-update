@@ -163,6 +163,17 @@
   }
 }
 
+.travel-trivia {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      max-height: 660px;
+      margin-left: 30px;
+    }
+  }
+}
+
 .open-sense {
   @extend .imagesContainer;
 
