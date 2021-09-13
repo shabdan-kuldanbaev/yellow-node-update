@@ -6,18 +6,12 @@ import styles from './styles.module.scss';
 
 export const ToTopButton = () => {
   const [isHidden, setIsHidden] = useState(true);
-  const handleOnClick = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  const handleOnClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
-    const handleOnScroll = () => {
-      const { pageYOffset } = window;
-
-      if (pageYOffset < 300) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
-    };
+    const handleOnScroll = () => setIsHidden(window.pageYOffset < 300);
 
     handleOnScroll();
 

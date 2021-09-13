@@ -70,7 +70,8 @@ export const Layout = ({
         closeFullscreenEstimation={closeFullscreenEstimation}
       />
       <GAnalytic />
-      <ToTopButton />
+      {/* TODO return it when issue with design will be resolved */}
+      {/* <ToTopButton /> */}
     </Fragment>
   );
 };
