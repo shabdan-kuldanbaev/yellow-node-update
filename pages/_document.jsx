@@ -25,7 +25,7 @@ class MyDocument extends Document {
   }
 
   render() {
-    const { GTM_ID } = process.env;
+    const { GTM_ID, CRISP_WEBSITE_ID } = process.env;
 
     return (
       <Html lang="en">
@@ -37,6 +37,14 @@ class MyDocument extends Document {
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','${GTM_ID}');`,
           }}
+          />
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="${CRISP_WEBSITE_ID}";
+              (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;
+              d.getElementsByTagName("head")[0].appendChild(s);})();`,
+            }}
           />
         </Head>
         <body>

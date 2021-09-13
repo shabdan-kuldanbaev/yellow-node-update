@@ -18,7 +18,8 @@ export const AddFooter = ({ theme }) => {
     )}
     >
       <SocialIcons theme={theme} />
-      <ScrollIcon theme={theme} />
+      {/* TODO Сommented because the chat button overlaps the icon. Uncomment when the issue with the design is resolved */}
+      {/* <ScrollIcon theme={theme} /> */}
     </section>
   );
 };
