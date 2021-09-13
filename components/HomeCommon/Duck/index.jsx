@@ -439,8 +439,8 @@ export const Duck = ({ duck }) => {
             className="letter-container"
           />
         </Animated>
-        <IntroText className={styles.subText} />
       </div>
+      <IntroText className={styles.subText} />
       <Animated
         type={ANIMATED_TYPE.isParallaxSpring}
         className={styles.canvasContainer}
