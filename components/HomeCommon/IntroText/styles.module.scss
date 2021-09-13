@@ -6,6 +6,7 @@
   top: calc(100vh - 60px);
   max-width: 740px;
   transform: translateX(-50%);
+  z-index: 100000;
 
   @include fontSize(20px);
   @include flex();
@@ -23,47 +24,46 @@
   }
 
   @include phone {
-    left: unset;
-    position: unset;
+    position: absolute;
     color: $white;
     opacity: 0.7;
     max-width: 300px;
-    transform: translateY(-92px);
+    transform: translateY(-92px) translateX(-50%);
 
     @include flex(column, center, center);
   }
 
   @include phone-height-500 {
-    transform: translateY(-38px);
+    transform: translateY(-38px) translateX(-50%);
   }
 
   @include phone-height-600 {
     @include iOSDevice {
-      transform: translateY(-98px);
+      transform: translateY(-98px) translateX(-50%);
     }
   }
 
   @include phone-height-650 {
-    transform: translateY(-68px);
+    transform: translateY(-68px) translateX(-50%);
 
     @include iOSDevice {
-      transform: translateY(-128px);
+      transform: translateY(-128px) translateX(-50%);
     }
   }
 
   @include phone-height-730 {
-    transform: translateY(-98px);
+    transform: translateY(-98px) translateX(-50%);
 
     @include iOSDevice {
-      transform: translateY(-158px);
+      transform: translateY(-158px) translateX(-50%);
     }
   }
 
   @include phone-height-800 {
-    transform: translateY(-138px);
+    transform: translateY(-138px) translateX(-50%);
 
     @include iOSDevice {
-      transform: translateY(-208px);
+      transform: translateY(-208px) translateX(-50%);
     }
   }
 
