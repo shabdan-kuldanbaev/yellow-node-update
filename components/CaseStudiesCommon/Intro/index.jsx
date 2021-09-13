@@ -12,6 +12,8 @@ export const Intro = (props) => {
   case CASE_STUDIES.sevenPmThursday:
   case CASE_STUDIES.natp:
   case CASE_STUDIES.driveFocus:
+  case CASE_STUDIES.cashChat:
+  case CASE_STUDIES.travelTrivia:
     return <DefaultIntro {...props} />;
   case CASE_STUDIES.openSense:
   case CASE_STUDIES.separateUs:

@@ -10,20 +10,6 @@
     padding: 60px 0 $mobile-section-indent - 20px;
   }
 
-  & > div:first-child div {
-    @include phone {
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  & > div:first-child h2 {
-    @include phone {
-      text-align: left;
-      font-size: 1.4375rem;
-    }
-  }
-
   .subtitle {
     @include phone {
       font-size: 3.9vw;

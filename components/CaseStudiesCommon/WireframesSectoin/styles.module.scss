@@ -62,6 +62,19 @@
   }
 }
 
+.travel-trivia,
+.cash-chat {
+  @include caseStudyContainer;
+  @include wireframes;
+  @include centeredBackgroundImage;
+
+  background-color: $alabaster;
+
+  @include tablet {
+    padding: 100px 0;
+  }
+}
+
 .open-sense {
   @include caseStudyContainer;
   @include wireframes;

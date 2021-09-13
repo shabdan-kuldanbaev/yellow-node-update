@@ -2,7 +2,9 @@
 
 .fernwayer,
 .stickerbox,
-.fairy {
+.fairy,
+.travel-trivia,
+.cash-chat {
   @include caseStudyContainer;
 
   background-color: $alabaster;
@@ -35,6 +37,12 @@
   @include caseStudyContainer;
 
   background-color: $zircon;
+}
+
+.travel-trivia {
+  @include caseStudyContainer;
+
+  background-color: $white;
 }
 
 .separate-us {

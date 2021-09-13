@@ -25,6 +25,17 @@
   }
 }
 
+.travel-trivia {
+  @include caseStudyContainer;
+
+  background-color: $light-grey;
+  padding-top: 150px;
+
+  @include phone {
+    padding-top: 80px;
+  }
+}
+
 .seven-pm-thursday {
   @include caseStudyContainer;
 

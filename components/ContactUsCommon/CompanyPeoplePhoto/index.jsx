@@ -31,11 +31,6 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
 
   return photo && (
     <section className={cn(styles.companyPeoplePhoto, { [styles.showPhoto]: isShow })}>
-      <SectionTitle
-        title="And come to work with us side by side"
-        subtitle="We’re always happy to see you here"
-        styleSubtitle={styles.subtitle}
-      />
       <div className={styles.photoContainer}>
         <div className={styles.photoWrap}>
           <Animated
