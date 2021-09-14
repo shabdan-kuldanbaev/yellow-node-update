@@ -3,8 +3,8 @@
 .introTextContainer {
   position: fixed;
   left: 50%;
+  width: max-content;
   top: calc(100vh - 60px);
-  max-width: 740px;
   transform: translateX(-50%);
   z-index: 100000;
 
@@ -12,14 +12,10 @@
   @include flex();
 
   @include macbook-fifteen {
-    max-width: 625px;
     text-align: center;
-    flex-direction: column;
   }
 
   @include macbook-twelve {
-    max-width: 510px;
-
     @include fontSize(16px);
   }
 
@@ -27,6 +23,7 @@
     position: absolute;
     color: $white;
     opacity: 0.7;
+    width: 100%;
     max-width: 300px;
     transform: translateY(-92px) translateX(-50%);
 

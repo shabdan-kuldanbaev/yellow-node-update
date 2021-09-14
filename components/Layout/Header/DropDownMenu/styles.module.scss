@@ -42,6 +42,7 @@
       margin: 0;
       grid-template-columns: unset;
       grid-column-gap: unset;
+      width: unset;
     }
 
     .itemContainer {
@@ -51,6 +52,7 @@
 
       @include phone {
         margin-bottom: 20px;
+        width: 100%;
       }
 
       &:nth-child(2) {
@@ -72,7 +74,7 @@
         @include fontSize(20px);
 
         @include phone {
-          @include fontSize(16px);
+          @include fontSize(14px);
         }
       }
 
