@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .pageIntroContainer {
@@ -210,6 +211,26 @@
             max-width: 302px;
           }
         }
+      }
+    }
+  }
+}
+
+.ui-ux-services {
+  @extend .pageIntroContainer;
+
+  .pageIntroSection {
+    .pageIntroWrapper {
+      .pageTitle {
+        @include defaultFirstHeader;
+      }
+
+      .subtitle {
+        max-width: 520px;
+      }
+
+      .image {
+        padding-top: 100%;
       }
     }
   }

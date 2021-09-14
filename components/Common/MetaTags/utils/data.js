@@ -66,4 +66,10 @@ export const ogMetaData = [
     We are working with websites, PWAs, chatting applications, and landing pages.`,
     url: `${rootUrl}${ROUTES.customWebApp.path}`,
   },
+  {
+    pageName: ROUTES.designServices.slug,
+    metaTitle: 'UI/UX design services | Yellow',
+    metaDescription: 'Description',
+    url: `${rootUrl}${ROUTES.designServices.path}`,
+  },
 ];

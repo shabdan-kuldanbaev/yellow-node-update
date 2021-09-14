@@ -116,6 +116,13 @@ export const microdata = {
                   We are working with websites, PWAs, chatting applications, and landing pages.`,
     breadcrumb: 'Homepage > Custom web application development company',
   }),
+  designServices: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: '',
+    description: '',
+    breadcrumb: 'Homepage > UI/UX design services',
+  }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',

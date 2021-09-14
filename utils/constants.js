@@ -42,6 +42,7 @@ export const NAV_LINKS = [
     routes.customChatApp.slug,
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
+    routes.designServices.slug,
   ].includes(slug)),
 ];
 
