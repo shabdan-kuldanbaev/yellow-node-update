@@ -497,6 +497,22 @@
   }
 }
 
+.cash-chat {
+  .contentContainer {
+    .image {
+      filter: unset;
+
+      @include tablet {
+        max-height: 100%;
+      }
+
+      @include phone {
+        max-height: 100%;
+      }
+    }
+  }
+}
+
 .openSenseGradient {
   position: relative;
 
