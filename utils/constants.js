@@ -102,6 +102,7 @@ export const IMAGES = {
   roundLogo: '/images/common/logo/yellow_logo.svg',
   logoWhite: '/images/common/logo/logoWhite.svg',
   unpinFile: '/images/common/upload/unpin.svg',
+  dashedLine: '/images/common/dashedLine.png',
   advantagesIcons: {
     ai: '/images/home/advantages/ai.svg',
     chats: '/images/home/advantages/chats.svg',
@@ -238,6 +239,39 @@ export const APP_DEVELOPMENT_ICONS = {
   businessFirstApproach: 'businessFirstApproach',
   productLab: 'productLab',
   contentfulPartner: 'contentfulPartner',
+  //
+  goodFirms: 'goodFirms',
+  designRush: 'designRush',
+  clutch: 'clutch',
+  //
+  webAppDesign: 'webAppDesign',
+  mobileAppDesign: 'mobileAppDesign',
+  //
+  figma: 'figma',
+  sketch: 'sketch',
+  miro: 'miro',
+  zeplin: 'zeplin',
+  photoshop: 'photoshop',
+  illustrator: 'illustrator',
+  effects: 'effects',
+  principle: 'principle',
+  //
+  bestUserExperience: 'bestUserExperience',
+  innovativeSolutions: 'innovativeSolutions',
+  focusOnTheTargetAudience: 'focusOnTheTargetAudience',
+  detailOrientedDesign: 'detailOrientedDesign',
+  //
+  research: 'research',
+  userPortrait: 'userPortrait',
+  cjm: 'cjm',
+  userStories: 'userStories',
+  sitemap: 'sitemap',
+  userFlow: 'userFlow',
+  wireframes: 'wireframes',
+  visualResearch: 'visualResearch',
+  uiDesign: 'uiDesign',
+  //
+  arrow: 'arrow',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -251,6 +285,8 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentSlider: 'app-development-slider',
   appDevelopmentImageSection: 'app-development-image',
   appDevelopmentReviews: 'app-development-reviews',
+  appDevelopmentImagesList: 'app-development-images-list',
+  appDevelopmentNumberedList: 'app-development-numbered-list',
 };
 
 export const CONTACTS_DATA = {

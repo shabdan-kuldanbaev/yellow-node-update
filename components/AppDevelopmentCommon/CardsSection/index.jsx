@@ -10,6 +10,7 @@ import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser
 import { getDocumentFields } from 'utils/helper';
 import { getCardsProps } from './utils/cardsHelper';
 import styles from './styles.module.scss';
+import { APP_DEVELOPMENT_ICONS, IMAGES } from '../../../utils/constants';
 
 export const CardsSection = ({
   sectionData,
@@ -73,6 +74,17 @@ export const CardsSection = ({
                   </div>
                   <ContentfulParser document={text} />
                 </div>
+                <div className={styles.arrow}>
+                  <Svg type={APP_DEVELOPMENT_ICONS.arrow} />
+                </div>
+                <div
+                  className={styles.connectingLine}
+                  style={{ backgroundImage: `url(${IMAGES.dashedLine})` }}
+                />
+                {/* <div
+                  className={styles.longConnectingLine}
+                  style={{ backgroundImage: `url(${IMAGES.dashedLine})` }}
+                /> */}
               </Animated>
             );
           })}

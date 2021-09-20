@@ -9,6 +9,7 @@ import SvgListSection from 'components/AppDevelopmentCommon/SvgListSection';
 import { GallerySection } from 'components/AppDevelopmentCommon/GallerySection';
 import { FaqSection } from 'components/AppDevelopmentCommon/FaqSection';
 import { ReviewsSection } from 'components/AppDevelopmentCommon/ReviewsSection';
+import { ImagesListSection } from 'components/AppDevelopmentCommon/ImagesListSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -65,6 +66,14 @@ export const AppDevelopmentCommon = ({
         type={type}
       />
     );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentNumberedList:
+    return (
+      <CheckListSection
+        sectionData={section}
+        type={type}
+        isNumberedList
+      />
+    );
   case APP_DEVELOPMENT_TYPES.appDevelopmentSvgList:
     return (
       <SvgListSection
@@ -99,6 +108,13 @@ export const AppDevelopmentCommon = ({
     return (
       <ReviewsSection
         data={section}
+        type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentImagesList:
+    return (
+      <ImagesListSection
+        sectionData={section}
         type={type}
       />
     );

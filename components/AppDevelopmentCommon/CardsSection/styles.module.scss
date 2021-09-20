@@ -68,6 +68,12 @@
         }
       }
     }
+
+    .arrow,
+    .connectingLine,
+    .longConnectingLine {
+      display: none;
+    }
   }
 }
 
@@ -348,6 +354,245 @@
     .contentWrapper {
       & > div:last-child {
         width: 100%;
+      }
+    }
+  }
+}
+
+.ui-ux-services {
+  @include appDevelopmentContainer;
+
+  .callToAction {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 80px 80px;
+    margin-top: 80px;
+
+    @include phone {
+      padding: 40px 24px;
+      margin-top: 60px;
+    }
+
+    h3 {
+      margin: 0 80px 0 0;
+      max-width: 610px;
+
+      @include fontSize(24px);
+
+      @include phone {
+        margin: 0 0 30px 0;
+        text-align: center;
+
+        @include fontSize(20px);
+      }
+    }
+  }
+
+  &.firstSectionView {
+    .contentWrapper {
+      @extend .wrapper;
+
+      .titleStyle {
+        h2 {
+          max-width: 710px;
+        }
+
+        p {
+          max-width: 855px;
+          width: unset;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $alabaster;
+
+    .contentWrapper {
+      @extend .threeColumnCards;
+
+      .cards {
+        grid-gap: 150px 140px;
+
+        @include tablet {
+          grid-gap: 110px 100px;
+        }
+
+        @include phone {
+          grid-gap: 60px;
+        }
+
+        & > div {
+          position: relative;
+
+          .arrow {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            display: block;
+            transform: translate(-100%, -50%);
+
+            @include flex();
+
+            @include below-tablet {
+              top: 0;
+              left: unset;
+              right: 50%;
+              transform: translate(-56%, -50%) rotate(90deg);
+            }
+          }
+
+          .connectingLine {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            display: block;
+            width: 134px;
+            height: 2px;
+            background-repeat-x: repeat;
+            background-size: unset;
+            background-position: center;
+            transform: translate(100%, 0);
+
+            @include tablet {
+              top: unset;
+              bottom: -8%;
+              right: 50%;
+              width: 110px;
+              transform: translate(28%, 0) rotate(90deg);
+            }
+
+            @include below-tablet {
+              bottom: -18%;
+              transform: translate(37%, 0) rotate(90deg);
+            }
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            display: block;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: $white;
+            border: 2px solid $silver-chalice;
+            transform: translate(50%, -50%);
+
+            @include below-tablet {
+              right: 50%;
+              top: unset;
+              bottom: 0;
+              transform: translate(-50%, 50%);
+            }
+          }
+
+          &:first-child {
+            .arrow {
+              display: none;
+            }
+          }
+
+          &:last-child {
+            &::after {
+              display: none;
+            }
+
+            .connectingLine {
+              display: none;
+            }
+          }
+
+          &:nth-child(3n+2) {
+            // .longConnectingLine {
+            //   position: absolute;
+            //   right: 0;
+            //   bottom: -60px;
+            //   display: block;
+            //   width: calc(100% * 2.8);
+            //   height: 2px;
+            //   background-repeat-x: repeat;
+            //   background-size: unset;
+            //   background-position: center;
+            //   transform: translate(31%, 0);
+            // }
+          }
+
+          &:nth-last-child(2) {
+            // .longConnectingLine {
+            //   display: none;
+            // }
+          }
+
+          &:nth-child(3n+3) {
+            &::after {
+              right: 50%;
+              top: unset;
+              bottom: 0;
+              transform: translate(-50%, 50%);
+            }
+
+            .connectingLine {
+              top: unset;
+              bottom: -8%;
+              right: 50%;
+              width: 75px;
+              transform: translate(28%, 0) rotate(90deg);
+
+              @include below-tablet {
+                bottom: -18%;
+                width: 110px;
+                transform: translate(37%, 0) rotate(90deg);
+              }
+            }
+          }
+
+          &:nth-child(3n+4) {
+            .arrow {
+              top: 0;
+              left: 50%;
+              width: max-content;
+              transform: translate(-50%, -70%) rotate(90deg);
+
+              @include below-tablet {
+                top: 0;
+                left: unset;
+                right: 50%;
+                transform: translate(-56%, -50%) rotate(90deg);
+              }
+            }
+
+            // .longConnectingLine {
+            //   display: block;
+            //   top: -8%;
+            //   left: 50%;
+            //   width: 75px;
+            //   height: 2px;
+            //   transform: translate(-50%, 0) rotate(90deg);
+            // }
+          }
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $alabaster;
+
+    .contentWrapper {
+      @extend .wrapper;
+
+      .titleStyle {
+        h2 {
+          max-width: 855px;
+        }
+
+        p {
+          max-width: 800px;
+          width: unset;
+        }
       }
     }
   }

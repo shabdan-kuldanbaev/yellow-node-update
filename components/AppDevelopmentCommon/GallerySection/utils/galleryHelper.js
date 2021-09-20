@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
+import { ROUTES } from 'utils/constants';
 
 export const getGalleryProps = (data) => {
   let link = {};
@@ -60,3 +61,5 @@ export const getGalleryProps = (data) => {
     params,
   };
 };
+
+export const isHasSeveralLinks = [ROUTES.designServices.slug];

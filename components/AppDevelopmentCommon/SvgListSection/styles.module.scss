@@ -147,3 +147,21 @@
     }
   }
 }
+
+.ui-ux-services {
+  @extend .svgSection;
+
+  .svgListWrapper {
+    @extend .svgListWrapperOneRow;
+
+    .svgList > div {
+      @include phone {
+        margin-top: 0;
+      }
+
+      & > svg {
+        opacity: 1;
+      }
+    }
+  }
+}

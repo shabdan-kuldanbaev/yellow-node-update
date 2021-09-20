@@ -2,7 +2,8 @@
 @import 'styles/utils/mixins';
 
 .mobile-app-development-company,
-.web-app-development-company {
+.web-app-development-company,
+.ui-ux-services {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
@@ -22,11 +23,15 @@
   }
 }
 
-.web-app-development-company {
+.web-app-development-company,
+.ui-ux-services {
   background-color: $white;
-  padding-bottom: 0;
 
   & > div {
     background-color: $white;
   }
+}
+
+.web-app-development-company {
+  padding-bottom: 0;
 }

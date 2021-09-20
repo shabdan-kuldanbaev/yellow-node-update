@@ -150,10 +150,11 @@
   }
 }
 
-.web-app-development-company {
+.web-app-development-company,
+.ui-ux-services {
   @extend .formContainer;
 
-  padding: 150px 16px;
+  padding: 100px 16px;
 
   @include tablet {
     padding: 80 16px;
@@ -161,5 +162,21 @@
 
   .title {
     max-width: 786px;
+  }
+}
+
+.ui-ux-services {
+  .title {
+    letter-spacing: unset;
+
+    @include fontSize(56px);
+
+    @include tablet {
+      @include fontSize(44px);
+    }
+
+    @include phone {
+      @include fontSize(32px);
+    }
   }
 }

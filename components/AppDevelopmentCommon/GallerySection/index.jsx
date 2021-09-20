@@ -9,6 +9,7 @@ import SwiperCore, {
 import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { ItemPreview } from './ItemPreview';
+import { GalleryCallToAction } from './GalleryCallToAction';
 import { getGalleryProps } from './utils/galleryHelper';
 import styles from './styles.module.scss';
 import 'swiper/components/pagination/pagination.scss';
@@ -49,15 +50,7 @@ export const GallerySection = ({
           ))}
         </Swiper>
       </div>
-      {linkTitle && buttonTitle && (
-        <CallToAction
-          type="card"
-          title={linkTitle}
-          buttonTitle={buttonTitle}
-          className={styles.callToAction}
-          handleOnClick={handleOnCTAClick}
-        />
-      )}
+      {/* <GalleryCallToAction slug={type} /> */}
     </section>
   );
 };
