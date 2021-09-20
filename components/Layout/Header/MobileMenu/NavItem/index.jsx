@@ -21,30 +21,44 @@ export const NavItem = ({
   const isLinkHasSubNavigation = isHasSubNavigation(slug);
 
   const handleOnArrowClick = () => setIsMSubMenuExpanded(!isSubMenuExpanded);
+  const handleOnTitleClick = () => {
+    if (path) {
+      closeMenu();
+    }
+  };
+
+  const itemContent = (
+    <span
+      className={styles.title}
+      onClick={handleOnTitleClick}
+      role="button"
+      tabIndex="0"
+    >
+      {title}
+    </span>
+  );
 
   return (
     <li className={styles.navItem}>
-      <div className={cn(styles.mainLink, { [styles.openedDropDown]: isSubMenuExpanded })}>
-        <LinkWrapper
-          isLocalLink
-          path={path}
-          dynamicRouting={dynamicPath}
-        >
-          <span
-            onClick={closeMenu}
-            role="button"
-            tabIndex="0"
-          >
-            {title}
-          </span>
-        </LinkWrapper>
+      <div
+        className={cn(styles.mainLink, { [styles.openedDropDown]: isSubMenuExpanded })}
+        onClick={handleOnArrowClick}
+        role="button"
+        tabIndex="0"
+      >
+        {path
+          ? (
+            <LinkWrapper
+              isLocalLink
+              path={path}
+              dynamicRouting={dynamicPath}
+            >
+              {itemContent}
+            </LinkWrapper>
+          )
+          : itemContent}
         {isLinkHasSubNavigation && (
-          <div
-            className={styles.svgContainer}
-            onClick={handleOnArrowClick}
-            role="button"
-            tabIndex="0"
-          >
+          <div className={styles.svgContainer}>
             <Svg type={SVG_IMAGES_TYPES.arrowDown} />
           </div>
         )}
