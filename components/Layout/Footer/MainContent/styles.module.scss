@@ -24,31 +24,31 @@
   .dataContainer {
     @include flex(column);
 
-    &:nth-of-type(1) {
+    &.usaAddress {
       @include phone {
         grid-area: usa-address;
       }
     }
 
-    &:nth-of-type(2) {
+    &.company {
       @include phone {
         grid-area: company;
       }
     }
 
-    &:nth-of-type(3) {
+    &.sevices {
       @include phone {
         grid-area: sevices;
       }
     }
 
-    &:nth-of-type(4) {
+    &.belarusAddress {
       @include phone {
         grid-area: belarus-address;
       }
     }
 
-    &:nth-of-type(5) {
+    &.polandAddress {
       @include phone {
         grid-area: poland-address;
 
@@ -58,7 +58,7 @@
       }
     }
 
-    &:nth-of-type(6) {
+    &.ukraineAddress {
       @include phone {
         grid-area: ukraine-address;
 

@@ -8,7 +8,7 @@ import { MainContent } from './MainContent';
 import { BottomContent } from './BottomContent';
 import styles from './styles.module.scss';
 
-export const Footer = ({ theme }) => {
+export const Footer = () => {
   const { query: { project }, pathname } = useRouter();
 
   if (CASE_STUDIES_SLUGS.includes(project)) {
@@ -21,20 +21,12 @@ export const Footer = ({ theme }) => {
   }
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footerContainer}>
+    <footer className={styles.footerContainer}>
+      <div className={styles.footer}>
         <SideContent />
         <MainContent />
       </div>
       <BottomContent />
     </footer>
   );
-};
-
-Footer.defaultProps = {
-  theme: 'dark',
-};
-
-Footer.propTypes = {
-  theme: PropTypes.string,
 };

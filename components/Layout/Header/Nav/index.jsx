@@ -21,7 +21,6 @@ const Nav = ({
   isDropMenuOpened,
   isHeader,
 }) => {
-  const { asPath } = useRouter();
   // TODO rework this checks
   const isPageScrolling = (isPageScrolledDown || (currentPage && (currentPage !== '' && !isTransparentHeader)));
 

@@ -1,7 +1,7 @@
 /* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
-footer {
+.footerContainer {
   position: relative;
   z-index: 99999;
   width: 100%;
@@ -16,9 +16,9 @@ footer {
     padding: 70px 20px 35px;
   }
 
-  .footerContainer {
+  .footer {
     width: 100%;
-    max-width: 1300px;
+    max-width: $max-content-width;
 
     @include flex(row, space-between);
 

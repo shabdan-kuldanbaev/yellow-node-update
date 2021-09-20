@@ -7,14 +7,20 @@ import styles from './styles.module.scss';
 
 export const MainContent = ({ footerData: footerLinksData }) => (
   <div className={styles.mainContent}>
-    {footerLinksData.map(({ title, links }) => (
-      <div className={cn(styles.dataContainer)}>
-        <h3 className={styles.title}>{title}</h3>
+    {footerLinksData.map(({
+      title,
+      links,
+      type,
+    }) => (
+      <div className={cn(styles.dataContainer, styles[type])}>
+        <h3 className={styles.title}>
+          {title}
+        </h3>
         {links && links.map(({
           title: linkTitle,
           path,
           subtitle,
-          type,
+          type: linkType,
         }) => (
           <Fragment>
             {linkTitle && (
@@ -25,12 +31,16 @@ export const MainContent = ({ footerData: footerLinksData }) => (
             {path
               ? (
                 <FieldsWrapper
-                  type={type}
+                  type={linkType}
                   path={path}
                   subtitle={subtitle}
                 />
               )
-              : <p className={styles.text}>{subtitle}</p>}
+              : (
+                <p className={styles.text}>
+                  {subtitle}
+                </p>
+              )}
           </Fragment>
         ))}
       </div>

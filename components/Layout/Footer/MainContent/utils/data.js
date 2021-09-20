@@ -1,4 +1,4 @@
-import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 
 export const footerData = [
   {
@@ -13,6 +13,7 @@ export const footerData = [
         type: 'phone',
       },
     ],
+    type: 'usaAddress',
   },
   {
     title: 'Company',
@@ -33,6 +34,7 @@ export const footerData = [
         type: 'navigation',
       },
     ],
+    type: 'company',
   },
   {
     title: 'Services',
@@ -53,6 +55,7 @@ export const footerData = [
         type: 'navigation',
       },
     ],
+    type: 'sevices',
   },
   {
     title: 'Find us in Europe',
@@ -72,6 +75,7 @@ export const footerData = [
         type: 'email',
       },
     ],
+    type: 'belarusAddress',
   },
   {
     title: '\xa0',
@@ -81,6 +85,7 @@ export const footerData = [
         subtitle: 'Warszawa 00-8P55 \nGrzybowska 62',
       },
     ],
+    type: 'polandAddress',
   },
   {
     title: '\xa0',
@@ -90,5 +95,6 @@ export const footerData = [
         subtitle: 'Kyiv 01024 \nKruglouniversytetska St. 7',
       },
     ],
+    type: 'ukraineAddress',
   },
 ];
