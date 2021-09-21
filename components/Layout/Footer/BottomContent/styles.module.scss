@@ -4,7 +4,7 @@
 
 .bottomContent {
   width: 100%;
-  max-width: 1300px;
+  max-width: $max-content-width;
   margin-top: 60px;
   padding-top: 30px;
   border-top: 1px solid rgba($white, 0.2);

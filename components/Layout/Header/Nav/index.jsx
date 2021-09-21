@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { selectIsDropMenuOpened } from 'redux/selectors/layout';
 import { setIsDropMenuOpened } from 'redux/actions/layout';
