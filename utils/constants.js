@@ -157,6 +157,7 @@ export const SVG_IMAGES_TYPES = {
   tellTeamUnderline: 'tellTeamUnderline',
   visitSite: 'visitSite',
   arrowDown: 'arrowDown',
+  arrowUp: 'arrowUp',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
