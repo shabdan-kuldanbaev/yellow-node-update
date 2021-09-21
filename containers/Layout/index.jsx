@@ -22,11 +22,7 @@ import {
   fullResolution,
 } from 'utils/helper';
 
-export const Layout = ({
-  children,
-  theme,
-  introSection,
-}) => {
+export const Layout = ({ children, introSection }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
@@ -56,15 +52,9 @@ export const Layout = ({
   return (
     <Fragment>
       <CookiesNotification />
-      <Header
-        theme={theme}
-        introSection={introSection}
-      />
+      <Header introSection={introSection} />
       {children}
-      <Footer
-        theme={theme}
-        openFullscreenEstimation={openFullscreenEstimation}
-      />
+      <Footer />
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
@@ -82,6 +72,5 @@ Layout.defaultProps = {
 
 Layout.propTypes = {
   children: PropTypes.instanceOf(Object),
-  theme: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
 };

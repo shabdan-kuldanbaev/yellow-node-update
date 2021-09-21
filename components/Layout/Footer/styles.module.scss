@@ -1,132 +1,29 @@
+/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
-footer {
+.footerContainer {
   position: relative;
   z-index: 99999;
   width: 100%;
   background-color: $woodsmoke;
+  padding: 70px 0 35px;
+  color: $white;
+  box-sizing: border-box;
 
-  @include flex(row, center, center);
+  @include flex(column, center, center);
 
-  .forms {
-    position: relative;
-    z-index: 0;
-    top: 0;
+  @include macbook-twelve {
+    padding: 70px 20px 35px;
+  }
+
+  .footer {
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    padding: 0 34px;
+    max-width: $max-content-width;
 
     @include flex(row, space-between);
 
-    :global(.animated) {
-      animation-name: unset;
-      opacity: 1 !important;
-    }
-
-    h2 {
-      color: $white;
-    }
-
-    & > div {
-      height: max-content;
-      padding: 80px 0 $side-indent;
-
-      @include higher-phone {
-        padding-bottom: 50px;
-      }
-    }
-
-    @include full-hd {
-      padding: 0 17px;
-    }
-
-    @include higher-phone {
-      padding: 0;
-      text-align: center;
-
-      @include flex(column, flex-start);
-    }
-
-    .footerNav {
-      position: relative;
-
-      @include flex(column, inherit, flex-end);
-
-      @include higher-phone {
-        display: none;
-      }
-
-      ul {
-        margin: 0;
-        padding: 0;
-
-        li {
-          svg {
-            display: none;
-          }
-
-          span {
-            color: $white;
-          }
-        }
-
-        @include tablet {
-          li {
-            margin-left: 28px;
-          }
-        }
-
-        @include below-tablet {
-          width: 120%;
-
-          @include flex(row, inherit, flex-end);
-
-          li {
-            margin-left: 6px;
-          }
-        }
-
-        li:last-child {
-          border: none;
-          padding: 0;
-
-          a {
-            padding: 0;
-          }
-
-          &:hover {
-            span {
-              color: $mountain-mis;
-            }
-          }
-        }
-      }
-
-      .button {
-        @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
-
-        border-radius: $button-border-radius;
-        font-size: 1rem;
-        min-width: 330px;
-        font-weight: 600;
-        text-transform: uppercase;
-        transform: scale(1);
-        transition:
-          transform 0.4s cubic-bezier(0, 0, 0.2, 1),
-          padding 0.4s cubic-bezier(0, 0, 0.2, 1);
-        outline: none;
-
-        &:hover {
-          transform: scale(0.98);
-          transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
-        }
-
-        @include higher-phone {
-          min-width: 300px;
-          margin: 50px auto 0 auto;
-        }
-      }
+    @include below-tablet {
+      flex-direction: column;
     }
   }
 }
