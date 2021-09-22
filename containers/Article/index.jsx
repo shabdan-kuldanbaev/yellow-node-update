@@ -90,7 +90,6 @@ const ArticleContainer = ({
         pageMetadata={articleMetadata}
         pageMicrodata={articleMicrodata}
         breadcrumbs={breadcrumbs}
-        faqList={faqList}
       />
       <FullLayout>
         <PageHeader breadcrumbs={breadcrumbs} />

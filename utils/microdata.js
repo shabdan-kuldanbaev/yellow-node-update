@@ -1,3 +1,4 @@
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import {
   ROUTES,
   IMAGES,
@@ -119,8 +120,9 @@ export const microdata = {
   designServices: () => ({
     '@context': context,
     '@type': 'WebPage',
-    name: '',
-    description: '',
+    name: 'UI/UX design services',
+    description: `Visual content matters, that is where UI/UX design comes into play. 
+                  Users love good-looking software. Make mobile your app or website captivating with Yellow.`,
     breadcrumb: 'Homepage > UI/UX design services',
   }),
   breadcrumbs: ({ breadcrumbsList }) => {
@@ -151,12 +153,16 @@ export const microdata = {
     });
   },
   faq: ({ faqList }) => {
-    const mainEntity = faqList.map(({ question, answer }) => ({
+    const mainEntity = faqList.map(({
+      question,
+      answer,
+      longAnswer,
+    }) => ({
       '@type': 'Question',
       name: question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: answer,
+        text: answer || documentToPlainTextString(longAnswer),
       },
     }));
 

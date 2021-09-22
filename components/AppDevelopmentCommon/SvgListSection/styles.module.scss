@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/mixins';
 
 .svgSection {
   @include appDevelopmentContainer;

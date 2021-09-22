@@ -54,6 +54,11 @@ export const footerData = [
         path: ROUTES.customChatApp.path,
         type: 'navigation',
       },
+      {
+        subtitle: 'UI/UX design services',
+        path: ROUTES.designServices.path,
+        type: 'navigation',
+      },
     ],
     type: 'sevices',
   },

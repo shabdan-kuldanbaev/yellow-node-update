@@ -3,7 +3,6 @@ import { getDocumentFields } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 
 export const getGalleryProps = (data) => {
-  let link = {};
   const {
     title,
     contentModules,
@@ -42,24 +41,10 @@ export const getGalleryProps = (data) => {
     },
   };
 
-  if (linkData) {
-    const {
-      title: linkTitle,
-      buttonTitle,
-    } = getDocumentFields(linkData);
-
-    link = {
-      linkTitle,
-      buttonTitle,
-    };
-  }
-
   return {
     title,
     slides,
-    link,
+    linkData,
     params,
   };
 };
-
-export const isHasSeveralLinks = [ROUTES.designServices.slug];

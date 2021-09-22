@@ -54,14 +54,6 @@ export const BLOCKS_SLUGS = {
   compnayPageManagementTeam: 'company-page-management-team',
   contactPageCompanyPhoto: 'contact-page-company-photo',
   processPageProcessPreview: 'process-page-process-preview',
-  chatAppPageIntro: 'chat-app-page-intro',
-  chatAppPageExperiance: 'chat-app-page-experience',
-  chatAppPageTypesOfChat: 'chat-app-page-types-of-chat',
-  chatAppPageAdvantages: 'chat-app-page-advantages',
-  chatAppPageFeatures: 'chat-app-page-chat-features',
-  chatAppPageTechnologies: 'chat-app-page-technologies',
-  chatAppPageDevelopersAdvantages: 'chat-app-page-developers-advantages',
-  chatAppPageOurWork: 'chat-app-page-our-work',
 };
 
 export const ANIMATED_TYPE = {
@@ -165,6 +157,8 @@ export const SVG_IMAGES_TYPES = {
   visitSite: 'visitSite',
   arrowDown: 'arrowDown',
   arrowUp: 'arrowUp',
+  behanceBlackIcon: 'behanceBlackIcon',
+  dribbleBlackIcon: 'dribbleBlackIcon',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -245,28 +239,15 @@ export const APP_DEVELOPMENT_ICONS = {
   businessFirstApproach: 'businessFirstApproach',
   productLab: 'productLab',
   contentfulPartner: 'contentfulPartner',
-  //
-  goodFirms: 'goodFirms',
-  designRush: 'designRush',
-  clutch: 'clutch',
-  //
+  // design services page, design services
   webAppDesign: 'webAppDesign',
   mobileAppDesign: 'mobileAppDesign',
-  //
-  figma: 'figma',
-  sketch: 'sketch',
-  miro: 'miro',
-  zeplin: 'zeplin',
-  photoshop: 'photoshop',
-  illustrator: 'illustrator',
-  effects: 'effects',
-  principle: 'principle',
-  //
+  // design services page, benefits
   bestUserExperience: 'bestUserExperience',
   innovativeSolutions: 'innovativeSolutions',
   focusOnTheTargetAudience: 'focusOnTheTargetAudience',
   detailOrientedDesign: 'detailOrientedDesign',
-  //
+  // design services page, our process
   research: 'research',
   userPortrait: 'userPortrait',
   cjm: 'cjm',
@@ -276,7 +257,7 @@ export const APP_DEVELOPMENT_ICONS = {
   wireframes: 'wireframes',
   visualResearch: 'visualResearch',
   uiDesign: 'uiDesign',
-  //
+  // common
   arrow: 'arrow',
 };
 
@@ -293,6 +274,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentReviews: 'app-development-reviews',
   appDevelopmentImagesList: 'app-development-images-list',
   appDevelopmentNumberedList: 'app-development-numbered-list',
+  appDevelopmentProcess: 'app-development-process',
 };
 
 export const CONTACTS_DATA = {
@@ -416,6 +398,11 @@ export const SUB_NAVIGATION_LINKS = {
       title: 'Custom chat app development',
       subtitle: 'Instant communication rules',
       slug: ROUTES.customChatApp.path,
+    },
+    {
+      title: 'UI/UX design services',
+      subtitle: 'Beautiful, smart, efficient, logical',
+      slug: ROUTES.designServices.path,
     },
   ],
 };

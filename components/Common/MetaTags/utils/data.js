@@ -69,7 +69,8 @@ export const ogMetaData = [
   {
     pageName: ROUTES.designServices.slug,
     metaTitle: 'UI/UX design services | Yellow',
-    metaDescription: 'Description',
+    metaDescription: `Visual content matters, that is where UI/UX design comes into play. 
+                      Users love good-looking software. Make mobile your app or website captivating with Yellow.`,
     url: `${rootUrl}${ROUTES.designServices.path}`,
   },
 ];

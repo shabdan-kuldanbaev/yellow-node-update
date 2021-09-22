@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
 import { ImageSection } from 'components/AppDevelopmentCommon/ImageSection';
 import { CardsSection } from 'components/AppDevelopmentCommon/CardsSection';
+import ProcessSection from 'components/AppDevelopmentCommon/ProcessSection';
 import { CheckListSection } from 'components/AppDevelopmentCommon/CheckListSection';
 import { SliderSection } from 'components/AppDevelopmentCommon/SliderSection';
 import SvgListSection from 'components/AppDevelopmentCommon/SvgListSection';
@@ -116,6 +117,13 @@ export const AppDevelopmentCommon = ({
       <ImagesListSection
         sectionData={section}
         type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentProcess:
+    return (
+      <ProcessSection
+        sectionData={section}
+        pageType={type}
       />
     );
   default:

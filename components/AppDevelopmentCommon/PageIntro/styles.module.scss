@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/mixins';
 
 .pageIntroContainer {
   @include appDevelopmentContainer;
@@ -248,6 +249,11 @@
           bottom: 0;
           transform: translate(-25%, 0);
           z-index: -1;
+
+          @include macbook-fifteen {
+            width: 238px;
+            transform: translate(-10%, 0);
+          }
 
           @include phone {
             width: 170px;

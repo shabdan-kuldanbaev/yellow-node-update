@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { APP_DEVELOPMENT_ICONS, IMAGES } from 'utils/constants';
+import { APP_DEVELOPMENT_ICONS } from 'utils/constants';
 
 // TODO rewrite it
 export const Svg = ({ type }) => {

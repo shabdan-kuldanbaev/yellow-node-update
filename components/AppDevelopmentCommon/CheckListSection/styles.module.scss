@@ -1,11 +1,8 @@
 @import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/mixins';
 
 .chekListSection {
-  position: relative;
-  max-width: 1076px;
-  margin: 0 auto;
-
-  @include flex(column, center, center);
+  @include smallSectionWrapper;
 
   @include below-tablet {
     margin: 100px 0;
@@ -51,18 +48,26 @@
         width: calc(100% - 80px);
       }
 
-      .itemTitle {
-        font-weight: 700;
-        margin: 0 0 0 25px;
+      .itemContainer {
+        @include flex(row, center, center);
 
-        @include fontSize(24px);
+        .itemText {
+          font-weight: 700;
+          margin: 0 0 0 25px;
 
-        @include macbook-twelve {
-          @include fontSize(22px);
-        }
+          @include fontSize(24px);
 
-        @include phone {
-          @include fontSize(18px);
+          @include macbook-twelve {
+            @include fontSize(22px);
+          }
+
+          @include phone {
+            @include fontSize(18px);
+          }
+
+          p {
+            margin: 0;
+          }
         }
       }
     }
@@ -90,9 +95,7 @@
   padding-bottom: 0;
 
   .sectionContainer {
-    position: relative;
-    max-width: 1076px;
-    margin: 0 auto;
+    @include smallSectionWrapper;
 
     .checkList {
       display: grid;
@@ -144,28 +147,6 @@
   }
 
   .callToAction {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 80px 80px;
-    margin-top: 80px;
-
-    @include phone {
-      padding: 40px 24px;
-      margin-top: 60px;
-    }
-
-    h3 {
-      margin: 0 80px 0 0;
-      max-width: 610px;
-
-      @include fontSize(24px);
-
-      @include phone {
-        margin: 0 0 30px 0;
-        text-align: center;
-
-        @include fontSize(20px);
-      }
-    }
+    @include defaultCallToAction;
   }
 }

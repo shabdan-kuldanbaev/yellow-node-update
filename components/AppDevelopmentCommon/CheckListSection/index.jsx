@@ -39,7 +39,10 @@ export const CheckListSection = ({
         />
         <div className={styles.checkList}>
           {listData.map((item, index) => {
-            const { title: itemTitle, text } = getDocumentFields(item);
+            const {
+              title: itemTitle,
+              text,
+            } = getDocumentFields(item);
 
             return (
               <Animated
@@ -50,7 +53,9 @@ export const CheckListSection = ({
                 <div className={styles.itemContainer}>
                   {isNumberedList
                     ? (
-                      <h3 className={styles.number}>{itemTitle}</h3>
+                      <h3 className={styles.number}>
+                        {itemTitle}
+                      </h3>
                     )
                     : (
                       <div>
@@ -86,10 +91,12 @@ export const CheckListSection = ({
 
 CheckListSection.defaultProps = {
   isNumberedList: false,
+  handleOnCTAClick: () => {},
 };
 
 CheckListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
   isNumberedList: PropTypes.bool,
+  handleOnCTAClick: PropTypes.func,
 };

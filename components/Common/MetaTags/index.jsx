@@ -13,7 +13,6 @@ export const MetaTags = ({
   children,
   pageMicrodata,
   breadcrumbs,
-  faqList,
   isArticle,
   defaultMetaData,
 }) => {
@@ -86,15 +85,6 @@ export const MetaTags = ({
             }}
           />
         )}
-        {!isEmpty(faqList) && (
-          <script
-            key="JSON-LD-faq"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(microdata.faq({ faqList })),
-            }}
-          />
-        )}
       </Fragment>
       {children}
     </Head>
@@ -106,7 +96,6 @@ MetaTags.defaultProps = {
   children: null,
   pageMetadata: {},
   breadcrumbs: [],
-  faqList: [],
   isArticle: false,
   defaultMetaData: ogMetaData,
 };
@@ -115,7 +104,6 @@ MetaTags.propTypes = {
   page: PropTypes.string.isRequired,
   pageMicrodata: PropTypes.instanceOf(Object),
   breadcrumbs: PropTypes.instanceOf(Array),
-  faqList: PropTypes.instanceOf(Array),
   pageMetadata: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,

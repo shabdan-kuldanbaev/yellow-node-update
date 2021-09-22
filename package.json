@@ -80,6 +80,7 @@
     "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-animate-on-scroll": "^2.1.5",
+    "react-archer": "^3.2.2",
     "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "16.11.0",
     "react-expand-animated": "^1.0.2",
