@@ -15,17 +15,14 @@ import { GAnalytic } from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
 import { Footer } from 'components/Layout/Footer';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
+import { ToTopButton } from 'components/Common/ToTopButton';
 import {
   mobileResolution,
   tabletResolution,
   fullResolution,
 } from 'utils/helper';
 
-export const Layout = ({
-  children,
-  theme,
-  introSection,
-}) => {
+export const Layout = ({ children, introSection }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
@@ -55,20 +52,16 @@ export const Layout = ({
   return (
     <Fragment>
       <CookiesNotification />
-      <Header
-        theme={theme}
-        introSection={introSection}
-      />
+      <Header introSection={introSection} />
       {children}
-      <Footer
-        theme={theme}
-        openFullscreenEstimation={openFullscreenEstimation}
-      />
+      <Footer />
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
       />
       <GAnalytic />
+      {/* TODO return it when issue with design will be resolved */}
+      {/* <ToTopButton /> */}
     </Fragment>
   );
 };
@@ -79,6 +72,5 @@ Layout.defaultProps = {
 
 Layout.propTypes = {
   children: PropTypes.instanceOf(Object),
-  theme: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
 };

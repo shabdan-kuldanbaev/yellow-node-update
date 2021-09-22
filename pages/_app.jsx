@@ -65,10 +65,7 @@ const App = ({ Component, pageProps }) => {
       </Head>
       <AppContext.Provider value={{ contextData, setContextData }}>
         <ThemeProvider theme={customTheme}>
-          <Layout
-            theme={theme}
-            introSection={introSection}
-          >
+          <Layout introSection={introSection}>
             <Component
               theme={theme}
               introSection={introSection}

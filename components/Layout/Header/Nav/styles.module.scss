@@ -18,12 +18,13 @@
 
   li {
     display: inline-block;
-    margin-left: 55px;
     user-select: none;
     outline: none;
+    margin: 0;
+    padding: 0 27px;
 
     @include below-tablet {
-      margin-left: 15px;
+      padding: 0 7px;
     }
 
     li > svg {
@@ -33,7 +34,7 @@
     &:last-child {
       position: relative;
       border-radius: $button-border-radius;
-      margin-left: 40px;
+      margin-left: 15px;
       border: 1px solid $white;
       color: $white;
       transition:
@@ -42,6 +43,7 @@
         color $default-transition-time;
       opacity: 1 !important;
       transform: translateY(0);
+      padding: 0;
 
       @include below-tablet {
         margin-left: 20px;
@@ -91,6 +93,12 @@
         transition: color $default-transition-time;
       }
     }
+  }
+
+  .nonClickableItem {
+    height: 100%;
+
+    @include flex(row, center, center);
   }
 
   .dark {

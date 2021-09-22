@@ -15,10 +15,12 @@ export const withScroll = (Component) => (props) => {
   const setLastScrollTop = (value) => {
     lastScrollTop.current = value;
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const saveScrollPosition = useCallback(throttle(
     (scroll) => setMaxScrollPosition(scroll),
     500,
   ), []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const saveLastScrollPosition = useCallback(throttle(
     (scroll) => setLastScrollTop(scroll),
     500,
@@ -67,6 +69,7 @@ export const withScroll = (Component) => (props) => {
     return () => {
       window.removeEventListener('scroll', setMaxScroll);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -155,10 +155,16 @@ export const SVG_IMAGES_TYPES = {
   behanceRoundWhite: 'behanceRoundWhite',
   mediumRoundWhite: 'mediumRoundWhite',
   instaRoundWhite: 'instaRoundWhite',
+  linkedinRoundBlack: 'linkedinRoundBlack',
+  twitterRoundBlack: 'twitterRoundBlack',
+  dribbleRoundBlack: 'dribbleRoundBlack',
+  mediumRoundBlack: 'mediumRoundBlack',
+  instaRoundBlack: 'instaRoundBlack',
   opensenseTitleBorder: 'opensenseTitleBorder',
   tellTeamUnderline: 'tellTeamUnderline',
   visitSite: 'visitSite',
   arrowDown: 'arrowDown',
+  arrowUp: 'arrowUp',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
