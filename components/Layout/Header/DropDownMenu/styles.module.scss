@@ -45,7 +45,6 @@
 
     @include phone {
       margin: 0;
-      grid-template-columns: unset;
       grid-column-gap: unset;
       width: unset;
     }
