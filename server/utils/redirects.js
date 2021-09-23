@@ -55,4 +55,8 @@ module.exports.redirects = [
     from: '/10-best-chatbot-examples-to-improve-customer-service-in-2019',
     to: '/blog/chatbot-examples-to-improve-customer-service',
   },
+  {
+    from: '/7-benefits-of-using-chatbots-for-your-business',
+    to: '/blog/10-benefits-of-using-chatbots-for-your-business',
+  },
 ];
