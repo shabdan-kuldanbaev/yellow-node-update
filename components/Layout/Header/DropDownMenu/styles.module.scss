@@ -38,6 +38,11 @@
     grid-template-columns: repeat(2, max-content);
     grid-column-gap: 150px;
 
+    @include below-tablet {
+      grid-template-columns: unset;
+      margin-left: 40px;
+    }
+
     @include phone {
       margin: 0;
       grid-template-columns: unset;

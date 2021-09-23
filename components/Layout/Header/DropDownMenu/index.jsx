@@ -10,12 +10,14 @@ export const DropDownMenu = ({
   isPageScrolledDown,
   slug,
   closeMobileMenu,
+  closeDropDownMenu,
 }) => {
   const subNavigationLinks = SUB_NAVIGATION_LINKS[slug];
 
   const handleOnClick = (subMenuSlug) => () => {
     if (subMenuSlug) {
       closeMobileMenu();
+      closeDropDownMenu();
     }
   };
 
@@ -86,6 +88,7 @@ export const DropDownMenu = ({
 
 DropDownMenu.defaultProps = {
   closeMobileMenu: () => {},
+  closeDropDownMenu: () => {},
 };
 
 DropDownMenu.propTypes = {
@@ -93,4 +96,5 @@ DropDownMenu.propTypes = {
   isPageScrolledDown: PropTypes.bool.isRequired,
   slug: PropTypes.string.isRequired,
   closeMobileMenu: PropTypes.func,
+  closeDropDownMenu: PropTypes.func,
 };

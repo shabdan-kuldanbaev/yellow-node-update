@@ -25,5 +25,9 @@
     @include below-tablet {
       flex-direction: column;
     }
+
+    @include horizontal-mobile {
+      flex-direction: column;
+    }
   }
 }

@@ -23,12 +23,20 @@ const Nav = ({
   // TODO rework this checks
   const isPageScrolling = (isPageScrolledDown || (currentPage && (currentPage !== '' && !isTransparentHeader)));
 
-  const openDropDownMenu = (slug) => () => {
+  const openDropDownMenuWithCheck = (slug) => {
     if (isHeader && isHasSubNavigation(slug)) {
       setIsDropMenuOpenedAction(true);
     }
   };
+  const openDropDownMenu = (slug) => () => openDropDownMenuWithCheck(slug);
   const closeDropDownMenu = () => setIsDropMenuOpenedAction(false);
+  const handleOnClick = (slug) => () => {
+    if (isDropMenuOpened) {
+      closeDropDownMenu();
+    } else {
+      openDropDownMenuWithCheck(slug);
+    }
+  };
 
   return (
     <ul className={cn(styles.desktopMenu, { [styles.pageScrolled]: isPageScrolling })}>
@@ -50,7 +58,7 @@ const Nav = ({
             className={cn(styles[theme], { [styles.nonClickableItem]: !path })}
             onMouseEnter={openDropDownMenu(slug)}
             onMouseLeave={closeDropDownMenu}
-            onClick={closeDropDownMenu}
+            onClick={handleOnClick(slug)}
           >
             {path
               ? (
@@ -68,6 +76,7 @@ const Nav = ({
                 isDropMenuOpened={isDropMenuOpened}
                 isPageScrolledDown={isPageScrolling}
                 slug={slug}
+                closeDropDownMenu={closeDropDownMenu}
               />
             )}
           </li>
