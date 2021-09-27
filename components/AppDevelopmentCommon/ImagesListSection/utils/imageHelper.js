@@ -13,12 +13,11 @@ export const getImageSectionProps = (data) => {
     [
       'title',
       'description',
-      'images',
       'contentModules',
       'view',
     ],
   );
-  const { images } = getDocumentFields(get(contentModules, '[0]', {}));
+  const { images } = getDocumentFields(get(contentModules, '[0]', {})) || {};
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',

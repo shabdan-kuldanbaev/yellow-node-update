@@ -1,9 +1,7 @@
 import get from 'lodash/get';
-import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 
 export const getCardsProps = (data) => {
-  let link = null;
   const {
     title,
     description,
@@ -21,43 +19,22 @@ export const getCardsProps = (data) => {
     ],
   );
   const { contentModules: cardsList } = getDocumentFields(get(contentModules, '[0]', []));
-  const linkData = get(contentModules, '[1]', null);
-  const animatedProps = {
-    type: ANIMATED_TYPE.isCustom,
-    translateY: '2.82352941em',
-    opasityDuration: 1,
-    transformDuration: 1,
-  };
-
-  if (linkData) {
-    const {
-      title: linkTitle,
-      buttonTitle,
-      type,
-      isOpenFeedbackForm,
-    } = getDocumentFields(linkData);
-
-    link = {
-      linkTitle,
-      buttonTitle,
-      type,
-      isOpenFeedbackForm,
-    };
-  }
 
   return {
     title,
     description,
     subtitle,
     cardsList,
-    link,
     view,
-    animatedProps,
   };
 };
 
 export const getCardRelations = (index, array, isMobileResolution) => {
-  let relations = [
+  if (index === array.length - 1) {
+    return [];
+  }
+
+  const rightArrow = [
     {
       targetId: `element${index + 2}`,
       targetAnchor: 'left',
@@ -65,29 +42,19 @@ export const getCardRelations = (index, array, isMobileResolution) => {
     },
   ];
 
-  if (!isMobileResolution) {
-    if ((index + 1) % 3 === 0) {
-      relations = [
-        {
-          targetId: `element${index + 2}`,
-          targetAnchor: 'top',
-          sourceAnchor: 'bottom',
-        },
-      ];
-    }
-  } else {
-    relations = [
-      {
-        targetId: `element${index + 2}`,
-        targetAnchor: 'top',
-        sourceAnchor: 'bottom',
-      },
-    ];
+  const bottomArrow = [
+    {
+      targetId: `element${index + 2}`,
+      targetAnchor: 'top',
+      sourceAnchor: 'bottom',
+    },
+  ];
+
+  if (isMobileResolution) {
+    return bottomArrow;
   }
 
-  if (index === array.length - 1) {
-    relations = [];
-  }
-
-  return relations;
+  return (index + 1) % 3 === 0
+    ? bottomArrow
+    : rightArrow;
 };

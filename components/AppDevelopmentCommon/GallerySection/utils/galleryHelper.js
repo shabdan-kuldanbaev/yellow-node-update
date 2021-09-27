@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
-import { ROUTES } from 'utils/constants';
 
 export const getGalleryProps = (data) => {
   const {

@@ -69,6 +69,7 @@ const nextConfig = {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }
 
+    // needed for react-archer package, to solve error in production
     config.optimization.minimizer[0].options.terserOptions.compress.inline = false;
 
     return config;

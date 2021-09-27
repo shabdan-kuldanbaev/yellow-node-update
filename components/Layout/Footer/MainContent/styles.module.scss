@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .mainContent {
   width: 100%;
@@ -9,6 +9,10 @@
   @include macbook-twelve {
     grid-template-columns: repeat(3, max-content);
     grid-gap: 20px 50px;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(3, auto);
   }
 
   @include phone {

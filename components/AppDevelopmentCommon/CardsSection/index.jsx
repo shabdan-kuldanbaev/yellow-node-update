@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import isEmpty from 'lodash/isEmpty';
 import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { CallToAction } from 'components/Common/CallToAction';
@@ -77,14 +78,14 @@ export const CardsSection = ({
             );
           })}
         </div>
-        {link && (
+        {!isEmpty(link) && (
           <Animated
             {...animatedProps}
             transitionDelay={900}
           >
             <CallToAction
               type="card"
-              title={link.linkTitle}
+              title={link.title}
               buttonTitle={link.buttonTitle}
               handleOnClick={handleOnCTAClick}
               className={styles.callToAction}

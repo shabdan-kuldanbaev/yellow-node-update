@@ -77,7 +77,7 @@ export const CheckListSection = ({
           >
             <CallToAction
               type="card"
-              title={link.linkTitle}
+              title={link.title}
               buttonTitle={link.buttonTitle}
               handleOnClick={handleOnCTAClick}
               className={styles.callToAction}

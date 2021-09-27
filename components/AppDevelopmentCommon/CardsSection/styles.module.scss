@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
-@import 'styles/utils/mixins';
-@import 'components/AppDevelopmentCommon/utils/mixins';
+@import "styles/utils/mixins";
+@import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .cards {
   display: grid;
@@ -171,20 +171,9 @@
   }
 
   .callToAction {
+    @include defaultCallToAction;
+
     margin: 150px 0 0;
-
-    h3 {
-      margin: 0;
-
-      @include phone {
-        margin-bottom: 32px;
-      }
-    }
-
-    & > div {
-      padding: 20px 50px;
-      width: 240px;
-    }
   }
 
   &.firstSectionView {
@@ -260,13 +249,7 @@
   }
 
   .callToAction {
-    padding: 84px 80px;
-
-    h3 {
-      margin: 0;
-
-      @include fontSize(24px);
-    }
+    @include defaultCallToAction;
   }
 
   &.firstSectionView {

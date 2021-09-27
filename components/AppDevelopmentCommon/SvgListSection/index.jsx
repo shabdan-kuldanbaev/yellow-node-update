@@ -33,15 +33,19 @@ const SvgListSection = ({
           description={description}
         />
         <div className={styles.svgList}>
-          {technologies.map((technology, technologyIndex) => (
-            <Animated
-              key={`technologies/${technology}`}
-              {...animatedProps}
-              transitionDelay={750 + 50 * technologyIndex}
-            >
+          {technologies.map((technology, technologyIndex) => (isMobileResolution
+            ? (
               <Svg type={technology} />
-            </Animated>
-          ))}
+            )
+            : (
+              <Animated
+                key={`technologies/${technology}`}
+                {...animatedProps}
+                transitionDelay={750 + 50 * technologyIndex}
+              >
+                <Svg type={technology} />
+              </Animated>
+            )))}
         </div>
         {link && (
           <Animated

@@ -31,11 +31,16 @@ export const GalleryCallToAction = ({
       />
     );
   case ROUTES.designServices.slug:
-    const { contentModules: links, title } = getDocumentFields(linkData);
+    const {
+      contentModules: links,
+      title,
+    } = getDocumentFields(linkData);
 
     return (
       <div className={styles.linksBlock}>
-        <h3 className={styles.linksBlockTitle}>{title}</h3>
+        <h3 className={styles.linksBlockTitle}>
+          {title}
+        </h3>
         <div className={styles.linksList}>
           {links && links.map((link) => {
             const {
@@ -48,7 +53,9 @@ export const GalleryCallToAction = ({
               <div className={styles.linkContainer}>
                 <LinkWrapper path={url}>
                   <Svg type={linkSvgType} />
-                  <p className={styles.linkText}>{linkText}</p>
+                  <p className={styles.linkText}>
+                    {linkText}
+                  </p>
                   <Svg
                     type={SVG_IMAGES_TYPES.nearbyArrow}
                     className={styles.arrow}

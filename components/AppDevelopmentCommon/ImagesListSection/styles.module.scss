@@ -1,11 +1,11 @@
-@import 'styles/utils/mixins';
-@import 'components/AppDevelopmentCommon/utils/mixins';
+@import "styles/utils/mixins";
+@import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .imageSection {
   @include appDevelopmentContainer;
 
   .imagesList {
-    max-width: 1300px;
+    max-width: $max-content-width;
     margin: 0 auto;
 
     @include flex(row, space-between, center);

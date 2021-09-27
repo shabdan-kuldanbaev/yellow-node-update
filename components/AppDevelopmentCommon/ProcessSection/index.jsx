@@ -1,22 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
 import { ArcherContainer, ArcherElement } from 'react-archer';
-import { connect } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Svg } from 'components/AppDevelopmentCommon/Svg';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, smallTabletResolution } from 'utils/helper';
 import { getCardsProps, getCardRelations } from './utils/cardsHelper';
 import styles from './styles.module.scss';
 
-const ProcessSection = ({
-  sectionData,
-  pageType,
-  isMobileResolution,
-}) => {
+const ProcessSection = ({ sectionData, pageType }) => {
+  const [isSmallTabletResolution, setIsSmallTabletResolution] = useState(false);
   const {
     title,
     description,
@@ -24,6 +19,21 @@ const ProcessSection = ({
     cardsList,
     view,
   } = getCardsProps(sectionData);
+
+  useEffect(() => {
+    const handleOnResize = () => {
+      if (window.innerWidth <= smallTabletResolution) {
+        setIsSmallTabletResolution(true);
+      } else {
+        setIsSmallTabletResolution(false);
+      }
+    };
+
+    handleOnResize();
+    window.addEventListener('resize', handleOnResize);
+
+    return () => window.removeEventListener('resize', handleOnResize);
+  }, []);
 
   if (!cardsList || !cardsList.length) {
     return null;
@@ -52,7 +62,7 @@ const ProcessSection = ({
                 text,
               } = getDocumentFields(card);
               const svgType = get(contentList, '[0]');
-              const relations = getCardRelations(index, array, isMobileResolution);
+              const relations = getCardRelations(index, array, isSmallTabletResolution);
 
               return (
                 <ArcherElement
@@ -83,9 +93,6 @@ const ProcessSection = ({
 ProcessSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   pageType: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(ProcessSection);
+export default ProcessSection;

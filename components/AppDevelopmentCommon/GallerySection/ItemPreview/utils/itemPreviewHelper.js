@@ -90,14 +90,8 @@ export const getItemPreviewProps = (data) => {
 };
 
 export const getItemLink = (data) => {
-  let link = null;
   const { contentModules } = getDocumentFields(data);
-  const linkData = get(contentModules, '[1]', null);
+  const { slug } = getDocumentFields(get(contentModules, '[1]', {})) || {};
 
-  if (linkData) {
-    const { slug } = getDocumentFields(linkData);
-    link = slug;
-  }
-
-  return link;
+  return slug;
 };

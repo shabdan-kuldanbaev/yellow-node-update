@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
-@import 'styles/utils/mixins';
-@import 'components/AppDevelopmentCommon/utils/mixins';
+@import "styles/utils/mixins";
+@import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .pageIntroContainer {
   @include appDevelopmentContainer;
@@ -238,7 +238,7 @@
         }
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           display: inline-block;
           width: 282px;

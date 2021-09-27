@@ -65,6 +65,7 @@ export const AppDevelopmentCommon = ({
       <CheckListSection
         sectionData={section}
         type={type}
+        handleOnCTAClick={handleOnCTAClick}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentNumberedList:
@@ -73,6 +74,7 @@ export const AppDevelopmentCommon = ({
         sectionData={section}
         type={type}
         isNumberedList
+        handleOnCTAClick={handleOnCTAClick}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentSvgList:
