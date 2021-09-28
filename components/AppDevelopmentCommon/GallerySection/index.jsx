@@ -43,15 +43,17 @@ export const GallerySection = ({
 
             if (link) {
               return (
-                <dib>
-                  <LinkWrapper path={link}>
+                <div>
+                  <LinkWrapper
+                    path={link}
+                    isLocalLink
+                  >
                     <ItemPreview
                       data={slide}
                       type={type}
-                      isLocalLink
                     />
                   </LinkWrapper>
-                </dib>
+                </div>
               );
             }
 
