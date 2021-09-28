@@ -19,7 +19,6 @@ const DesignServicesContainer = ({
     metaTitle,
     metaDescription,
   },
-  introSection,
 }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
   const breadcrumbs = pagesBreadcrumbs.designServices();
@@ -57,7 +56,6 @@ const DesignServicesContainer = ({
             section={module}
             handleOnCTAClick={openFullscreenEstimation}
             type={PAGES.designServices}
-            introSection={introSection}
           />
         ))}
         {hasFeedbackForm && (
@@ -83,7 +81,6 @@ DesignServicesContainer.propTypes = {
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
   }).isRequired,
-  introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect(

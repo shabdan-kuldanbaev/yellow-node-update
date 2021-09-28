@@ -66,8 +66,12 @@ export const PageIntro = ({
   );
 };
 
+PageIntro.defaultProps = {
+  introSection: null,
+};
+
 PageIntro.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
-  introSection: PropTypes.instanceOf(Object).isRequired,
+  introSection: PropTypes.instanceOf(Object),
 };
