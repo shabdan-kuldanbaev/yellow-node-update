@@ -212,6 +212,12 @@ export const routes = {
     dynamicPath: '/web-app-development-company',
     slug: 'web-app-development-company',
   },
+  designServices: {
+    title: 'UI/UX design services',
+    path: '/ui-ux-services',
+    dynamicPath: '/ui-ux-services',
+    slug: 'ui-ux-services',
+  },
   notFound: {
     title: '404 | Yellow',
     path: '/not-found',

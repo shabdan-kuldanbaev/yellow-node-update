@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
 import { ImageSection } from 'components/AppDevelopmentCommon/ImageSection';
 import { CardsSection } from 'components/AppDevelopmentCommon/CardsSection';
+import ProcessSection from 'components/AppDevelopmentCommon/ProcessSection';
 import { CheckListSection } from 'components/AppDevelopmentCommon/CheckListSection';
 import { SliderSection } from 'components/AppDevelopmentCommon/SliderSection';
 import SvgListSection from 'components/AppDevelopmentCommon/SvgListSection';
 import { GallerySection } from 'components/AppDevelopmentCommon/GallerySection';
 import { FaqSection } from 'components/AppDevelopmentCommon/FaqSection';
 import { ReviewsSection } from 'components/AppDevelopmentCommon/ReviewsSection';
+import { ImagesListSection } from 'components/AppDevelopmentCommon/ImagesListSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -63,6 +65,16 @@ export const AppDevelopmentCommon = ({
       <CheckListSection
         sectionData={section}
         type={type}
+        handleOnCTAClick={handleOnCTAClick}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentNumberedList:
+    return (
+      <CheckListSection
+        sectionData={section}
+        type={type}
+        isNumberedList
+        handleOnCTAClick={handleOnCTAClick}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentSvgList:
@@ -100,6 +112,20 @@ export const AppDevelopmentCommon = ({
       <ReviewsSection
         data={section}
         type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentImagesList:
+    return (
+      <ImagesListSection
+        sectionData={section}
+        type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentProcess:
+    return (
+      <ProcessSection
+        sectionData={section}
+        pageType={type}
       />
     );
   default:

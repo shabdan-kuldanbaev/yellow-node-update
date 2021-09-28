@@ -3,7 +3,6 @@
 // Layout
 export { default as Header } from 'components/Layout/Header';
 export { Footer } from 'components/Layout/Footer';
-export { default as Contacts } from 'components/Layout/Footer/Contacts';
 export { GAnalytic } from 'components/Layout/GAnalytic';
 export { FullLayout } from 'components/Layout/FullLayout';
 

@@ -106,7 +106,8 @@ $light-grey: #fbfbfb;
 $dark-pink-1: #e66bce;
 $dolly: #fff281;
 $regal-blue: #003b6a;
-$green: #01AE5E;
+$green: #01ae5e;
+$midnight: #00152a;
 
 //transparency color
 $pagination: rgba(35, 37, 44, 0.25);
@@ -168,8 +169,7 @@ $horizontal-mobile: 450px;
 //fonts
 $default-font: "Montserrat";
 $case-studies-font: "Poppins", sans-serif;
-$main-title-font: 'Sonny Gothic Condensed Ultra Black',
-  sans-serif;
+$main-title-font: "Sonny Gothic Condensed Ultra Black", sans-serif;
 
 //insta
 $imgIndent: 7.5px;
@@ -187,13 +187,15 @@ $max-article-margin: 24px;
 
 //filters
 $shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
-$shadow-filter-phone: drop-shadow(-12.8201px 12.8201px 30.4602px rgba(0, 0, 0, 0.4));
+$shadow-filter-phone: drop-shadow(
+  -12.8201px 12.8201px 30.4602px rgba(0, 0, 0, 0.4)
+);
 
 //timing functions
 $primary-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 // TODO rework it with enviroment variable
-$cdnURL: 'https://dn75rr69j9vc.cloudfront.net';
+$cdnURL: "https://dn75rr69j9vc.cloudfront.net";
 
 :export {
   firstColor: $science-blue;
@@ -203,5 +205,6 @@ $cdnURL: 'https://dn75rr69j9vc.cloudfront.net';
   logoSize: $logo-size;
   horizontalMobile: $horizontal-mobile;
   bigTabletResolution: $max-tablet-size;
+  defaultTabletResolution: $default-tablet-size;
   fullHdResolution: $full-hd;
 }

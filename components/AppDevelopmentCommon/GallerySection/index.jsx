@@ -6,9 +6,11 @@ import SwiperCore, {
   EffectCoverflow,
   Mousewheel,
 } from 'swiper/core';
-import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
+import { getItemLink } from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
 import { ItemPreview } from './ItemPreview';
+import { GalleryCallToAction } from './GalleryCallToAction';
 import { getGalleryProps } from './utils/galleryHelper';
 import styles from './styles.module.scss';
 import 'swiper/components/pagination/pagination.scss';
@@ -27,10 +29,7 @@ export const GallerySection = ({
   const {
     title,
     slides,
-    link: {
-      linkTitle,
-      buttonTitle,
-    },
+    linkData,
     params,
   } = getGalleryProps(sectionData);
 
@@ -39,23 +38,41 @@ export const GallerySection = ({
       <div className={styles.gallerySection}>
         <SectionTitle title={title} />
         <Swiper {...params}>
-          {slides && slides.map((slide) => (
-            <div>
-              <ItemPreview
-                data={slide}
-                type={type}
-              />
-            </div>
-          ))}
+          {slides && slides.map((slide) => {
+            const link = getItemLink(slide);
+
+            if (link) {
+              return (
+                <div>
+                  <LinkWrapper
+                    path={link}
+                    isLocalLink
+                  >
+                    <ItemPreview
+                      data={slide}
+                      type={type}
+                    />
+                  </LinkWrapper>
+                </div>
+              );
+            }
+
+            return (
+              <div>
+                <ItemPreview
+                  data={slide}
+                  type={type}
+                />
+              </div>
+            );
+          })}
         </Swiper>
       </div>
-      {linkTitle && buttonTitle && (
-        <CallToAction
-          type="card"
-          title={linkTitle}
-          buttonTitle={buttonTitle}
-          className={styles.callToAction}
-          handleOnClick={handleOnCTAClick}
+      {linkData && (
+        <GalleryCallToAction
+          slug={type}
+          linkData={linkData}
+          handleOnCTAClick={handleOnCTAClick}
         />
       )}
     </section>

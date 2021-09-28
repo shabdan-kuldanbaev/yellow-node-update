@@ -8530,6 +8530,14 @@ react-animate-on-scroll@^2.1.5:
     lodash.throttle "^4.1.1"
     prop-types "^15.5.9"
 
+react-archer@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/react-archer/-/react-archer-3.2.2.tgz#d1b0d334b4ae4294f6f67766328450c23464fc9b"
+  integrity sha512-DrxUjKg6C7cl4i/L6qJd/T9YYkv3e5fYT6s6RsLdQ06TVJm38PM8DOEwrcXMq1Pu0p14PcfRjwUiKvoY/m4lOw==
+  dependencies:
+    react-fast-compare "^2.0.4"
+    resize-observer-polyfill "1.5.0"
+
 react-copy-to-clipboard@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/react-copy-to-clipboard/-/react-copy-to-clipboard-5.0.3.tgz#2a0623b1115a1d8c84144e9434d3342b5af41ab4"
@@ -8557,6 +8565,11 @@ react-expand-animated@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-expand-animated/-/react-expand-animated-1.0.2.tgz#17bc31a9defd153df99364e1aa0d3b1ba96d64f3"
   integrity sha512-WV3TGl4XX7GyS6Pm6awPg4cMc1PLZIsMLirIDluKRhDjGWX31lY9RIPDOkq6pBiqRoK8VDMk8hbnX01uDBpYAw==
+
+react-fast-compare@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
+  integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
 react-id-swiper@^4.0.0:
   version "4.0.0"
@@ -9069,6 +9082,11 @@ require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
   integrity sha1-l/cXtp1IeE9fUmpsWqj/3aBVpNE=
+
+resize-observer-polyfill@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.0.tgz#660ff1d9712a2382baa2cad450a4716209f9ca69"
+  integrity sha512-M2AelyJDVR/oLnToJLtuDJRBBWUGUvvGigj1411hXhAdyFWqMaqHp7TixW3FpiLuVaikIcR1QL+zqoJoZlOgpg==
 
 resize-observer-polyfill@^1.5.0, resize-observer-polyfill@^1.5.1:
   version "1.5.1"

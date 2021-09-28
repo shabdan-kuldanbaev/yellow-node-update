@@ -1,4 +1,6 @@
-@import 'styles/utils/mixins';
+/* stylelint-disable no-descending-specificity */
+@import "styles/utils/mixins";
+@import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .gallerySection {
   @include below-tablet {
@@ -29,7 +31,8 @@
   }
 }
 
-.mobile-app-development-company {
+.mobile-app-development-company,
+.ui-ux-services {
   padding-bottom: 150px;
 
   @include tablet {
@@ -72,6 +75,107 @@
   }
 }
 
+.ui-ux-services {
+  .gallerySection {
+    margin: 0;
+    padding-top: 150px;
+
+    @include tablet {
+      padding-top: 100px;
+    }
+
+    @include phone {
+      padding-top: 64px;
+    }
+  }
+
+  .linksBlock {
+    max-width: 675px;
+    margin: 140px auto 0;
+
+    @include tablet {
+      margin-top: 100px;
+    }
+
+    @include phone {
+      margin-top: 60px;
+    }
+
+    .linksBlockTitle {
+      text-align: center;
+      margin: 0 auto 85px;
+
+      @include fontSize(40px);
+
+      @include tablet {
+        @include fontSize(35px);
+      }
+
+      @include phone {
+        margin: 0 auto 65px;
+        max-width: 300px;
+
+        @include fontSize(24px);
+      }
+    }
+
+    .linksList {
+      @include flex(row, space-between, center);
+
+      @include tablet {
+        justify-content: space-around;
+      }
+
+      @include phone {
+        flex-direction: column;
+      }
+
+      .linkContainer {
+        @include phone {
+          &:first-of-type {
+            margin-bottom: 40px;
+          }
+        }
+
+        a {
+          @include flex(row, center, center);
+
+          .linkText {
+            color: $dark-grey;
+            font-weight: 700;
+            margin: 0 18px 0 15px;
+
+            @include fontSize(24px);
+
+            @include phone {
+              @include fontSize(20px);
+            }
+          }
+
+          &:hover {
+            .arrow {
+              transform: translateX(5px);
+              transition: transform 0.4s ease-out;
+            }
+          }
+
+          .arrow {
+            transition: transform 0.4s ease-out;
+          }
+        }
+      }
+    }
+  }
+
+  :global(.swiper-wrapper) {
+    padding: 75px 0;
+  }
+
+  :global(.swiper-slide-active) {
+    box-shadow: 0 10px 60px -10px rgba($black, 0.15);
+  }
+}
+
 .chat-app-development-company {
   @extend .gallerySection;
 
@@ -97,12 +201,22 @@
     }
 
     &::before {
-      background: linear-gradient(90deg, rgba($white, 1) -20%, rgba($white, 0) 80%);
+      background:
+        linear-gradient(
+          90deg,
+          rgba($white, 1) -20%,
+          rgba($white, 0) 80%
+        );
       transform: translateX(-15px);
     }
 
     &::after {
-      background: linear-gradient(90deg, rgba($white, 0) 10%, rgba($white, 1) 120%);
+      background:
+        linear-gradient(
+          90deg,
+          rgba($white, 0) 10%,
+          rgba($white, 1) 120%
+        );
       transform: translateX(0);
       right: 0;
     }
@@ -130,15 +244,7 @@
   }
 
   .callToAction {
-    padding: 84px 80px;
-    margin: 0 auto;
-    max-width: 1075px;
-
-    h3 {
-      margin: 0;
-
-      @include fontSize(24px);
-    }
+    @include defaultCallToAction;
   }
 
   :global(.swiper-slide) {

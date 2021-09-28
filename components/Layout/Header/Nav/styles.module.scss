@@ -23,7 +23,11 @@
     margin: 0;
     padding: 0 27px;
 
-    @include below-tablet {
+    @include tablet {
+      padding: 0 7px;
+    }
+
+    @include horizontal-mobile {
       padding: 0 7px;
     }
 

@@ -1,8 +1,10 @@
 /* stylelint-disable no-descending-specificity */
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
+@import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .mobile-app-development-company,
-.web-app-development-company {
+.web-app-development-company,
+.ui-ux-services {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
@@ -22,11 +24,15 @@
   }
 }
 
-.web-app-development-company {
+.web-app-development-company,
+.ui-ux-services {
   background-color: $white;
-  padding-bottom: 0;
 
   & > div {
     background-color: $white;
   }
+}
+
+.web-app-development-company {
+  padding-bottom: 0;
 }

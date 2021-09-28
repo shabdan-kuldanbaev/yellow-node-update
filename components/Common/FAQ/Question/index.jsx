@@ -19,13 +19,13 @@ export const Question = ({ faq }) => {
   }
 
   return (
-    <div className={styles.questionContainer}>
-      <div
-        className={styles.question}
-        onClick={handleOnQuestionClick}
-        role="button"
-        tabIndex="0"
-      >
+    <div
+      className={styles.questionContainer}
+      onClick={handleOnQuestionClick}
+      role="button"
+      tabIndex="0"
+    >
+      <div className={styles.question}>
         <p>{faq.question}</p>
         <div className={cn(styles.plus, {
           [styles.minus]: isAnswerOpened,

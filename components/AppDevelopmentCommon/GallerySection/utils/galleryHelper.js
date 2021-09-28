@@ -2,7 +2,6 @@ import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
 
 export const getGalleryProps = (data) => {
-  let link = {};
   const {
     title,
     contentModules,
@@ -41,22 +40,10 @@ export const getGalleryProps = (data) => {
     },
   };
 
-  if (linkData) {
-    const {
-      title: linkTitle,
-      buttonTitle,
-    } = getDocumentFields(linkData);
-
-    link = {
-      linkTitle,
-      buttonTitle,
-    };
-  }
-
   return {
     title,
     slides,
-    link,
+    linkData,
     params,
   };
 };

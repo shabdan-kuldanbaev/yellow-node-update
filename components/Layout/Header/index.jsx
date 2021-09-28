@@ -19,7 +19,6 @@ import Nav from './Nav';
 import styles from './styles.module.scss';
 
 const Header = ({
-  theme,
   introSection,
   isMobileMenuOpened,
   setMobileMenuState: setMobileMenu,
@@ -116,12 +115,7 @@ const Header = ({
   );
 };
 
-Header.defaultProps = {
-  theme: 'dark',
-};
-
 Header.propTypes = {
-  theme: PropTypes.string,
   introSection: PropTypes.instanceOf(Object).isRequired,
   isMobileMenuOpened: PropTypes.bool.isRequired,
   setMobileMenuState: PropTypes.func.isRequired,

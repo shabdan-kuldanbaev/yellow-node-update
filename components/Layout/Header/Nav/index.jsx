@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { selectIsDropMenuOpened } from 'redux/selectors/layout';
 import { setIsDropMenuOpened } from 'redux/actions/layout';
@@ -21,16 +20,23 @@ const Nav = ({
   isDropMenuOpened,
   isHeader,
 }) => {
-  const { asPath } = useRouter();
   // TODO rework this checks
   const isPageScrolling = (isPageScrolledDown || (currentPage && (currentPage !== '' && !isTransparentHeader)));
 
-  const openDropDownMenu = (slug) => () => {
+  const openDropDownMenuWithCheck = (slug) => {
     if (isHeader && isHasSubNavigation(slug)) {
       setIsDropMenuOpenedAction(true);
     }
   };
+  const openDropDownMenu = (slug) => () => openDropDownMenuWithCheck(slug);
   const closeDropDownMenu = () => setIsDropMenuOpenedAction(false);
+  const handleOnClick = (slug) => () => {
+    if (isDropMenuOpened) {
+      closeDropDownMenu();
+    } else {
+      openDropDownMenuWithCheck(slug);
+    }
+  };
 
   return (
     <ul className={cn(styles.desktopMenu, { [styles.pageScrolled]: isPageScrolling })}>
@@ -52,7 +58,7 @@ const Nav = ({
             className={cn(styles[theme], { [styles.nonClickableItem]: !path })}
             onMouseEnter={openDropDownMenu(slug)}
             onMouseLeave={closeDropDownMenu}
-            onClick={closeDropDownMenu}
+            onClick={handleOnClick(slug)}
           >
             {path
               ? (
@@ -70,6 +76,7 @@ const Nav = ({
                 isDropMenuOpened={isDropMenuOpened}
                 isPageScrolledDown={isPageScrolling}
                 slug={slug}
+                closeDropDownMenu={closeDropDownMenu}
               />
             )}
           </li>
