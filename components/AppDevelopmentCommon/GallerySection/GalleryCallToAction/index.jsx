@@ -21,7 +21,11 @@ export const GalleryCallToAction = ({
       buttonTitle,
     } = getDocumentFields(linkData);
 
-    return linkTitle && buttonTitle && (
+    if (!linkTitle || !buttonTitle) {
+      return null;
+    }
+
+    return (
       <CallToAction
         type="card"
         title={linkTitle}
