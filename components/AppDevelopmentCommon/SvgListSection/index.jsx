@@ -33,11 +33,16 @@ const SvgListSection = ({
           description={description}
         />
         <div className={styles.svgList}>
-          {technologies.map((technology, technologyIndex) => (isMobileResolution
-            ? (
-              <Svg type={technology} />
-            )
-            : (
+          {technologies.map((technology, technologyIndex) => {
+            if (isMobileResolution) {
+              return (
+                <div>
+                  <Svg type={technology} />
+                </div>
+              );
+            }
+
+            return (
               <Animated
                 key={`technologies/${technology}`}
                 {...animatedProps}
@@ -45,7 +50,8 @@ const SvgListSection = ({
               >
                 <Svg type={technology} />
               </Animated>
-            )))}
+            );
+          })}
         </div>
         {link && (
           <Animated

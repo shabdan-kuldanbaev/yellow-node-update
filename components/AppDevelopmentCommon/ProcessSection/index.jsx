@@ -22,11 +22,7 @@ const ProcessSection = ({ sectionData, pageType }) => {
 
   useEffect(() => {
     const handleOnResize = () => {
-      if (window.innerWidth <= smallTabletResolution) {
-        setIsSmallTabletResolution(true);
-      } else {
-        setIsSmallTabletResolution(false);
-      }
+      setIsSmallTabletResolution(window.innerWidth <= smallTabletResolution);
     };
 
     handleOnResize();

@@ -26,7 +26,7 @@ export const getCardsProps = (data) => {
     opasityDuration: 1,
     transformDuration: 1,
   };
-  const link = getDocumentFields(get(contentModules, '[1]', {})) || {};
+  const link = getDocumentFields(get(contentModules, '[1]'));
 
   return {
     title,

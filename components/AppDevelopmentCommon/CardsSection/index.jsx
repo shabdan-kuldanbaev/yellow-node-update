@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
 import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { CallToAction } from 'components/Common/CallToAction';
@@ -78,7 +77,7 @@ export const CardsSection = ({
             );
           })}
         </div>
-        {!isEmpty(link) && (
+        {link && (
           <Animated
             {...animatedProps}
             transitionDelay={900}

@@ -24,7 +24,7 @@ export const getCheckListProps = (data) => {
     ],
   );
   const { contentModules: listData } = getDocumentFields(get(contentModules, '[0]', []));
-  const link = getDocumentFields(get(contentModules, '[1]', null));
+  const link = getDocumentFields(get(contentModules, '[1]'));
 
   return {
     animationProps,

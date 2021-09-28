@@ -41,24 +41,26 @@ export const GallerySection = ({
           {slides && slides.map((slide) => {
             const link = getItemLink(slide);
 
-            return (
-              <div>
-                {link
-                  ? (
-                    <LinkWrapper path={link}>
-                      <ItemPreview
-                        data={slide}
-                        type={type}
-                        isLocalLink
-                      />
-                    </LinkWrapper>
-                  )
-                  : (
+            if (link) {
+              return (
+                <dib>
+                  <LinkWrapper path={link}>
                     <ItemPreview
                       data={slide}
                       type={type}
+                      isLocalLink
                     />
-                  )}
+                  </LinkWrapper>
+                </dib>
+              );
+            }
+
+            return (
+              <div>
+                <ItemPreview
+                  data={slide}
+                  type={type}
+                />
               </div>
             );
           })}
