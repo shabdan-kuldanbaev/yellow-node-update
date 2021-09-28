@@ -88,3 +88,10 @@ export const getItemPreviewProps = (data) => {
     sectionStyle,
   };
 };
+
+export const getItemLink = (data) => {
+  const { contentModules } = getDocumentFields(data);
+  const { slug } = getDocumentFields(get(contentModules, '[1]')) || {};
+
+  return slug;
+};

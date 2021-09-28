@@ -358,19 +358,6 @@
   }
 }
 
-@mixin appDevelopmentContainer {
-  padding: 150px 40px;
-  background-color: $white;
-
-  @include tablet {
-    padding: 100px 40px;
-  }
-
-  @include phone {
-    padding: 64px 15px;
-  }
-}
-
 @mixin centeredBackgroundImage {
   background-size: cover;
   background-repeat: no-repeat;

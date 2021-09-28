@@ -1,13 +1,6 @@
 /* stylelint-disable no-descending-specificity */
-@import 'styles/utils/mixins';
-
-.wrapper {
-  max-width: 1076px;
-  margin: 0 auto;
-  position: relative;
-
-  @include flex(column, center, center);
-}
+@import "styles/utils/mixins";
+@import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .cards {
   display: grid;
@@ -146,49 +139,11 @@
   }
 }
 
-.threeColumnCards {
-  @extend .wrapper;
-
-  max-width: 1300px;
-
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-
-    @include below-tablet {
-      width: 100%;
-      grid-template-columns: auto;
-      grid-template-rows: repeat(3, 1fr);
-      grid-row-gap: 20px;
-    }
-
-    & > div {
-      padding: 40px;
-
-      @include below-tablet {
-        width: 100%;
-        max-width: unset;
-      }
-
-      p {
-        color: $silver-chalice;
-        line-height: 1.8;
-        margin: 0;
-
-        @include fontSize(16px);
-
-        @include phone {
-          @include fontSize(14px);
-        }
-      }
-    }
-  }
-}
-
 .mobile-app-development-company {
   @include appDevelopmentContainer;
 
   .contentWrapper {
-    @extend .wrapper;
+    @include smallSectionWrapper;
 
     .titleStyle {
       p {
@@ -216,20 +171,9 @@
   }
 
   .callToAction {
+    @include defaultCallToAction;
+
     margin: 150px 0 0;
-
-    h3 {
-      margin: 0;
-
-      @include phone {
-        margin-bottom: 32px;
-      }
-    }
-
-    & > div {
-      padding: 20px 50px;
-      width: 240px;
-    }
   }
 
   &.firstSectionView {
@@ -259,7 +203,7 @@
     background-color: $alabaster;
 
     .contentWrapper {
-      @extend .wrapper;
+      @include smallSectionWrapper;
 
       .cards {
         .typeTitle {
@@ -278,7 +222,7 @@
   @include appDevelopmentContainer;
 
   .contentWrapper {
-    @extend .wrapper;
+    @include smallSectionWrapper;
 
     .titleStyle {
       h2 {
@@ -305,13 +249,7 @@
   }
 
   .callToAction {
-    padding: 84px 80px;
-
-    h3 {
-      margin: 0;
-
-      @include fontSize(24px);
-    }
+    @include defaultCallToAction;
   }
 
   &.firstSectionView {
@@ -348,6 +286,50 @@
     .contentWrapper {
       & > div:last-child {
         width: 100%;
+      }
+    }
+  }
+}
+
+.ui-ux-services {
+  @include appDevelopmentContainer;
+
+  .callToAction {
+    @include defaultCallToAction;
+  }
+
+  &.firstSectionView {
+    .contentWrapper {
+      @include smallSectionWrapper;
+
+      .titleStyle {
+        h2 {
+          max-width: 710px;
+        }
+
+        p {
+          max-width: 855px;
+          width: unset;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $alabaster;
+
+    .contentWrapper {
+      @include smallSectionWrapper;
+
+      .titleStyle {
+        h2 {
+          max-width: 855px;
+        }
+
+        p {
+          max-width: 800px;
+          width: unset;
+        }
       }
     }
   }

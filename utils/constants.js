@@ -42,6 +42,7 @@ export const NAV_LINKS = [
     routes.customChatApp.slug,
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
+    routes.designServices.slug,
   ].includes(slug)),
 ];
 
@@ -53,14 +54,6 @@ export const BLOCKS_SLUGS = {
   compnayPageManagementTeam: 'company-page-management-team',
   contactPageCompanyPhoto: 'contact-page-company-photo',
   processPageProcessPreview: 'process-page-process-preview',
-  chatAppPageIntro: 'chat-app-page-intro',
-  chatAppPageExperiance: 'chat-app-page-experience',
-  chatAppPageTypesOfChat: 'chat-app-page-types-of-chat',
-  chatAppPageAdvantages: 'chat-app-page-advantages',
-  chatAppPageFeatures: 'chat-app-page-chat-features',
-  chatAppPageTechnologies: 'chat-app-page-technologies',
-  chatAppPageDevelopersAdvantages: 'chat-app-page-developers-advantages',
-  chatAppPageOurWork: 'chat-app-page-our-work',
 };
 
 export const ANIMATED_TYPE = {
@@ -101,6 +94,7 @@ export const IMAGES = {
   roundLogo: '/images/common/logo/yellow_logo.svg',
   logoWhite: '/images/common/logo/logoWhite.svg',
   unpinFile: '/images/common/upload/unpin.svg',
+  dashedLine: '/images/common/dashedLine.png',
   advantagesIcons: {
     ai: '/images/home/advantages/ai.svg',
     chats: '/images/home/advantages/chats.svg',
@@ -163,6 +157,8 @@ export const SVG_IMAGES_TYPES = {
   visitSite: 'visitSite',
   arrowDown: 'arrowDown',
   arrowUp: 'arrowUp',
+  behanceBlackIcon: 'behanceBlackIcon',
+  dribbleBlackIcon: 'dribbleBlackIcon',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -243,6 +239,26 @@ export const APP_DEVELOPMENT_ICONS = {
   businessFirstApproach: 'businessFirstApproach',
   productLab: 'productLab',
   contentfulPartner: 'contentfulPartner',
+  // design services page, design services
+  webAppDesign: 'webAppDesign',
+  mobileAppDesign: 'mobileAppDesign',
+  // design services page, benefits
+  bestUserExperience: 'bestUserExperience',
+  innovativeSolutions: 'innovativeSolutions',
+  focusOnTheTargetAudience: 'focusOnTheTargetAudience',
+  detailOrientedDesign: 'detailOrientedDesign',
+  // design services page, our process
+  research: 'research',
+  userPortrait: 'userPortrait',
+  cjm: 'cjm',
+  userStories: 'userStories',
+  sitemap: 'sitemap',
+  userFlow: 'userFlow',
+  wireframes: 'wireframes',
+  visualResearch: 'visualResearch',
+  uiDesign: 'uiDesign',
+  // common
+  arrow: 'arrow',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -256,6 +272,9 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentSlider: 'app-development-slider',
   appDevelopmentImageSection: 'app-development-image',
   appDevelopmentReviews: 'app-development-reviews',
+  appDevelopmentImagesList: 'app-development-images-list',
+  appDevelopmentNumberedList: 'app-development-numbered-list',
+  appDevelopmentProcess: 'app-development-process',
 };
 
 export const CONTACTS_DATA = {
@@ -379,6 +398,11 @@ export const SUB_NAVIGATION_LINKS = {
       title: 'Custom chat app development',
       subtitle: 'Instant communication rules',
       slug: ROUTES.customChatApp.path,
+    },
+    {
+      title: 'UI/UX design services',
+      subtitle: 'Beautiful, smart, efficient, logical',
+      slug: ROUTES.designServices.path,
     },
   ],
 };

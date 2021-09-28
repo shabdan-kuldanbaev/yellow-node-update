@@ -94,7 +94,8 @@
   }
 }
 
-.mobile-app-development-company {
+.mobile-app-development-company,
+.ui-ux-services {
   @extend .container;
 
   @include macbook-fifteen {
@@ -121,6 +122,7 @@
     .projectInfoContainer {
       max-width: 385px;
       height: max-content;
+      color: $dark-grey;
 
       @include tablet {
         max-width: unset;
@@ -780,7 +782,7 @@
 
     .projectInfoContainer {
       .projectTitle {
-        color: $white;
+        color: $mercury-1;
 
         .pinkText {
           color: $brink-pink;
@@ -887,6 +889,7 @@
 
         .projectTitle {
           margin-bottom: 20px;
+          color: $midnight;
 
           @include fontSize(56px);
 
@@ -927,10 +930,13 @@
       }
 
       .projectSubtitle {
+        color: $dark-grey;
+
         @include fontSize(14px);
       }
 
       .projectDescription {
+        color: $dark-grey;
         max-width: 360px;
         opacity: 0.7;
         text-align: center;

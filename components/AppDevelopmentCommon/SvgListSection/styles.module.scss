@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
+@import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .svgSection {
   @include appDevelopmentContainer;
@@ -143,6 +144,24 @@
         @include phone {
           margin-top: 0;
         }
+      }
+    }
+  }
+}
+
+.ui-ux-services {
+  @extend .svgSection;
+
+  .svgListWrapper {
+    @extend .svgListWrapperOneRow;
+
+    .svgList > div {
+      @include phone {
+        margin-top: 0;
+      }
+
+      & > svg {
+        opacity: 1;
       }
     }
   }

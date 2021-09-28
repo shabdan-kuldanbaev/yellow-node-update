@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Head from 'next/head';
+import isEmpty from 'lodash/isEmpty';
 import { FullLayout } from 'components/Layout/FullLayout';
+import { microdata } from 'utils/microdata';
 import { Question } from './Question';
 import styles from './styles.module.scss';
 
@@ -10,14 +13,27 @@ export const FAQ = ({ faqList, type }) => {
   }
 
   const faqBlock = (
-    <div className={styles.frequentlyAskedQuestions}>
-      {faqList.map((faq) => (
-        <Question
-          key={`faq-item/${faq.question}`}
-          faq={faq}
-        />
-      ))}
-    </div>
+    <Fragment>
+      <Head>
+        {!isEmpty(faqList) && (
+          <script
+            key="JSON-LD-faq"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(microdata.faq({ faqList })),
+            }}
+          />
+        )}
+      </Head>
+      <div className={styles.frequentlyAskedQuestions}>
+        {faqList.map((faq) => (
+          <Question
+            key={`faq-item/${faq.question}`}
+            faq={faq}
+          />
+        ))}
+      </div>
+    </Fragment>
   );
 
   switch (type) {

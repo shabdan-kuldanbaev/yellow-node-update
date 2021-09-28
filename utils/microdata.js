@@ -1,3 +1,4 @@
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import {
   ROUTES,
   IMAGES,
@@ -116,6 +117,14 @@ export const microdata = {
                   We are working with websites, PWAs, chatting applications, and landing pages.`,
     breadcrumb: 'Homepage > Custom web application development company',
   }),
+  designServices: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'UI/UX design services',
+    description: `Visual content matters, that is where UI/UX design comes into play. 
+                  Users love good-looking software. Make mobile your app or website captivating with Yellow.`,
+    breadcrumb: 'Homepage > UI/UX design services',
+  }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',
@@ -144,12 +153,16 @@ export const microdata = {
     });
   },
   faq: ({ faqList }) => {
-    const mainEntity = faqList.map(({ question, answer }) => ({
+    const mainEntity = faqList.map(({
+      question,
+      answer,
+      longAnswer,
+    }) => ({
       '@type': 'Question',
       name: question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: answer,
+        text: answer || documentToPlainTextString(longAnswer),
       },
     }));
 

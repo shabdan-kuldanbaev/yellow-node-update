@@ -24,12 +24,14 @@ export const getCheckListProps = (data) => {
     ],
   );
   const { contentModules: listData } = getDocumentFields(get(contentModules, '[0]', []));
+  const link = getDocumentFields(get(contentModules, '[1]'));
 
   return {
     animationProps,
     title,
     description,
     view,
+    link,
     listData,
   };
 };

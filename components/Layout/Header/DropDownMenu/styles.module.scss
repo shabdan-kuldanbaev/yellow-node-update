@@ -13,8 +13,8 @@
   opacity: 1;
   visibility: visible;
   transition:
-    visibility 0.4s,
-    opacity 0.5s ease;
+    visibility 0.2s,
+    opacity 0.3s ease;
 
   @include macbook-twelve {
     padding-bottom: 80px;
@@ -127,4 +127,7 @@
 .closed {
   opacity: 0;
   visibility: hidden;
+  transition:
+    visibility 0.4s,
+    opacity 0.5s ease;
 }

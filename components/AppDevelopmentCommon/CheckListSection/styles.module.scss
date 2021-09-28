@@ -1,11 +1,8 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
+@import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .chekListSection {
-  position: relative;
-  max-width: 1076px;
-  margin: 0 auto;
-
-  @include flex(column, center, center);
+  @include smallSectionWrapper;
 
   @include below-tablet {
     margin: 100px 0;
@@ -51,18 +48,26 @@
         width: calc(100% - 80px);
       }
 
-      .itemTitle {
-        font-weight: 700;
-        margin: 0 0 0 25px;
+      .itemContainer {
+        @include flex(row, center, center);
 
-        @include fontSize(24px);
+        .itemText {
+          font-weight: 700;
+          margin: 0 0 0 25px;
 
-        @include macbook-twelve {
-          @include fontSize(22px);
-        }
+          @include fontSize(24px);
 
-        @include phone {
-          @include fontSize(18px);
+          @include macbook-twelve {
+            @include fontSize(22px);
+          }
+
+          @include phone {
+            @include fontSize(18px);
+          }
+
+          p {
+            margin: 0;
+          }
         }
       }
     }
@@ -81,5 +86,67 @@
 .mobile-app-development-company {
   &.firstSectionView {
     background-color: $alabaster;
+  }
+}
+
+.ui-ux-services {
+  @include appDevelopmentContainer;
+
+  padding-bottom: 0;
+
+  .sectionContainer {
+    @include smallSectionWrapper;
+
+    .checkList {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-gap: 20px 35px;
+
+      @include below-tablet {
+        width: 100%;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, 1fr);
+        grid-row-gap: 20px;
+      }
+
+      & > div {
+        padding: 35px;
+        box-shadow: $card-bow-shadow;
+        border-radius: 5px;
+
+        @include flex(row, center);
+
+        @include phone {
+          padding: 30px;
+        }
+
+        .itemContainer {
+          width: 100%;
+          height: max-content;
+          padding-left: 16px;
+          border-left: 2px solid $turbo-100;
+
+          .number {
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+            color: $cod-gray-1;
+
+            @include fontSize(40px);
+          }
+
+          p {
+            line-height: 1.8;
+            color: $cod-gray-1;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .callToAction {
+    @include defaultCallToAction;
   }
 }

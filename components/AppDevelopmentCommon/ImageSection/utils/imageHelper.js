@@ -18,7 +18,7 @@ export const getImageSectionProps = (data) => {
     ],
   );
   const { text } = getDocumentFields(get(contentModules, '[0]', {}));
-  const imageUrl = getFileUrl(get(images, '[0]', {}));
+  const imageUrl = getFileUrl(get(images, '[0]'));
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',

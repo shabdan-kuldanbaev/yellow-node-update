@@ -1,12 +1,11 @@
 import get from 'lodash/get';
-import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
+import { ANIMATED_TYPE } from 'utils/constants';
 
-export const getCardsProps = (data) => {
+export const getImageSectionProps = (data) => {
   const {
     title,
     description,
-    subtitle,
     contentModules,
     view,
   } = getDocumentFields(
@@ -15,25 +14,21 @@ export const getCardsProps = (data) => {
       'title',
       'description',
       'contentModules',
-      'subtitle',
       'view',
     ],
   );
-  const { contentModules: cardsList } = getDocumentFields(get(contentModules, '[0]', []));
+  const { images } = getDocumentFields(get(contentModules, '[0]', {})) || {};
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
     opasityDuration: 1,
     transformDuration: 1,
   };
-  const link = getDocumentFields(get(contentModules, '[1]'));
 
   return {
     title,
     description,
-    subtitle,
-    cardsList,
-    link,
+    images,
     view,
     animatedProps,
   };
