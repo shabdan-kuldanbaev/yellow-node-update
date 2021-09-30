@@ -1,14 +1,13 @@
-import { FullScreenEstimation, MetaTags, PageHeader } from 'components';
-import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
-import styles from 'containers/CustomWebAppDevelopment/styles.module.scss';
-import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
+import { FullScreenEstimation, MetaTags, PageHeader } from 'components';
+import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
+import styles from './styles.module.scss';
 
 const IOSDevelopmentContainer = ({
   pageData,
@@ -52,7 +51,7 @@ const IOSDevelopmentContainer = ({
           <AppDevelopmentCommon
             section={module}
             handleOnCTAClick={openFullscreenEstimation}
-            type={PAGES.customWebApp}
+            type={PAGES.developmentServices}
           />
         ))}
       </div>

@@ -160,6 +160,8 @@ export const SVG_IMAGES_TYPES = {
   arrowUp: 'arrowUp',
   behanceBlackIcon: 'behanceBlackIcon',
   dribbleBlackIcon: 'dribbleBlackIcon',
+  iPhone: 'iPhone',
+  iPad: 'iPad',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -375,12 +377,14 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.travelTrivia).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
+  ROUTES.developmentServices.path,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
   ...CASE_STUDIES_SLUGS,
   ROUTES.homepage.path,
   ROUTES.customWebApp.path,
+  ROUTES.developmentServices.path,
 ];
 
 export const SUB_NAVIGATION_LINKS = {
