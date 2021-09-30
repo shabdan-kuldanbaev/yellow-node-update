@@ -43,6 +43,7 @@ export const NAV_LINKS = [
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
     routes.designServices.slug,
+    routes.developmentServices.slug,
   ].includes(slug)),
 ];
 
