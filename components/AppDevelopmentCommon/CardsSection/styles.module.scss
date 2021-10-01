@@ -516,4 +516,88 @@
       }
     }
   }
+
+  &.thirdSectionView {
+    .contentWrapper {
+      @include smallSectionWrapper;
+
+      .cards {
+        @include flex(row,space-between,initial,wrap);
+
+        grid-gap: 30px;
+
+        & > div {
+          @include flex(row,initial,center,wrap);
+
+          width: 50%;
+
+          .imageWrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: $turbo-100;
+
+            svg {
+              @include phone {
+                width: 12px;
+                height: 9px;
+              }
+            }
+          }
+
+          .cardContent {
+            .typeTitle {
+              margin: 0 0 0 15px;
+
+              @include fontSize(24px);
+
+              @include phone {
+                @include fontSize(16px);
+              }
+            }
+
+            p {
+              max-width: 405px;
+
+              @include tablet {
+                max-width: 325px;
+              }
+
+              @include below-tablet {
+                max-width: 100%;
+              }
+            }
+          }
+
+          @include macbook-twelve {
+            width: 460px;
+          }
+
+          @include tablet {
+            width: 100%;
+            max-width: unset;
+          }
+        }
+
+        @include phone {
+          grid-gap: 16px;
+        }
+      }
+
+      .titleStyle {
+        margin-bottom: 120px;
+
+        p {
+          max-width: 855px;
+        }
+
+        @include below-tablet {
+          margin-bottom: 60px;
+        }
+      }
+    }
+  }
 }

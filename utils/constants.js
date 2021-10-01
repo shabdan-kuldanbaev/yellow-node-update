@@ -268,6 +268,7 @@ export const APP_DEVELOPMENT_ICONS = {
   ipadDevelopment: 'ipadDevelopment',
   testing: 'testing',
   support: 'support',
+  iosCheck: 'iosCheck',
   // common
   arrow: 'arrow',
 };
