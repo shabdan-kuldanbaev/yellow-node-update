@@ -54,7 +54,7 @@
       }
     }
 
-    .svgWrapper {
+    .imageWrapper {
       svg {
         @include phone {
           width: 48px;
@@ -88,7 +88,7 @@
       max-width: unset;
     }
 
-    .svgWrapper {
+    .imageWrapper {
       margin-right: 40px;
 
       @include phone {
@@ -362,7 +362,7 @@
         & > div {
           flex-direction: column;
 
-          .svgWrapper {
+          .imageWrapper {
             width: 90px;
             height: 90px;
             border-radius: 50%;
@@ -398,7 +398,7 @@
             justify-content: center;
             text-align: center;
 
-            .svgWrapper {
+            .imageWrapper {
               margin: auto;
             }
           }
@@ -410,6 +410,96 @@
       }
 
       .titleStyle {
+        margin-bottom: 120px;
+
+        h2 {
+          max-width: 935px;
+        }
+
+        p {
+          max-width: 855px;
+        }
+
+        @include below-tablet {
+          margin-bottom: 60px;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background: inherit;
+
+    .contentWrapper {
+      @include smallSectionWrapper;
+
+      .smallCards {
+        @include flex(row,space-between,initial,wrap);
+
+        grid-gap: unset;
+        row-gap: 160px;
+
+        & > div {
+          flex-direction: column;
+
+          .imageWrapper {
+            width: 100%;
+            background: white;
+
+            & > div {
+              width: 100%;
+              padding-top: 85%;
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center;
+              background-color: $white;
+
+              @include tablet {
+                padding-top: 72%;
+              }
+            }
+          }
+
+          .cardContent {
+            .typeTitle {
+              margin: 24px 0 10px;
+              color: white;
+
+              @include phone {
+                margin: 20px 0 10px;
+              }
+            }
+
+            p {
+              max-width: 405px;
+
+              @include tablet {
+                max-width: 325px;
+              }
+
+              @include below-tablet {
+                max-width: 100%;
+              }
+            }
+          }
+
+          @include below-tablet {
+            justify-content: center;
+            text-align: center;
+
+            .imageWrapper {
+              margin: auto;
+            }
+          }
+        }
+
+        @include below-tablet {
+          row-gap: 60px;
+        }
+      }
+
+      .titleStyle {
+        color: $white;
         margin-bottom: 120px;
 
         h2 {
