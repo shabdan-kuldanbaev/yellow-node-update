@@ -1,5 +1,29 @@
 @import "styles/utils/mixins";
 
+.figuresIos {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-row-gap: 20px;
+  width: 420px;
+
+  @include tablet {
+    grid-template-columns: 1fr 40px 100px 1fr;
+    width: 100%;
+  }
+
+  .icon {
+    @include tablet {
+      grid-column: 2/3;
+    }
+
+    @include phone {
+      width: 16px;
+      height: 16px;
+      margin: auto;
+    }
+  }
+}
+
 .checkMarkWrapper {
   .checkMark {
     position: relative;
@@ -26,30 +50,6 @@
       path {
         fill: $black;
       }
-    }
-  }
-}
-
-.figuresIos {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  grid-row-gap: 20px;
-  width: 420px;
-
-  @include tablet {
-    grid-template-columns: 1fr 40px 100px 1fr;
-    width: 100%;
-  }
-
-  .icon {
-    @include tablet {
-      grid-column: 2/3;
-    }
-
-    @include phone {
-      width: 16px;
-      height: 16px;
-      margin: auto;
     }
   }
 }

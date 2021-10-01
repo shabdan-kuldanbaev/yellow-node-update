@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 @import "styles/utils/mixins";
+@import "styles/utils/variables";
 @import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .cards {
@@ -329,6 +330,98 @@
         p {
           max-width: 800px;
           width: unset;
+        }
+      }
+    }
+  }
+}
+
+.ios-mobile-app-development-services {
+  @include appDevelopmentContainer;
+
+  .callToAction {
+    @include defaultCallToAction;
+
+    margin-top: 150px;
+
+    @include phone {
+      margin-top: 30px;
+    }
+  }
+
+  &.firstSectionView {
+    .contentWrapper {
+      @include smallSectionWrapper;
+
+      .smallCards {
+        @include flex(row,space-between,center,wrap);
+
+        grid-gap: unset;
+        row-gap: 120px;
+
+        & > div {
+          flex-direction: column;
+
+          .svgWrapper {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: $yellow;
+
+            @include flex(row,center,center);
+
+            @include below-tablet {
+              width: 70px;
+              height: 70px;
+
+              svg {
+                width: 40%;
+              }
+            }
+          }
+
+          .cardContent {
+            p {
+              max-width: 405px;
+
+              @include tablet {
+                max-width: 325px;
+              }
+
+              @include below-tablet {
+                max-width: 100%;
+              }
+            }
+          }
+
+          @include below-tablet {
+            justify-content: center;
+            text-align: center;
+
+            .svgWrapper {
+              margin: auto;
+            }
+          }
+        }
+
+        @include below-tablet {
+          row-gap: 60px;
+        }
+      }
+
+      .titleStyle {
+        margin-bottom: 120px;
+
+        h2 {
+          max-width: 935px;
+        }
+
+        p {
+          max-width: 855px;
+        }
+
+        @include below-tablet {
+          margin-bottom: 60px;
         }
       }
     }

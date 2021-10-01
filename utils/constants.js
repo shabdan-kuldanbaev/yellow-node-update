@@ -260,6 +260,14 @@ export const APP_DEVELOPMENT_ICONS = {
   wireframes: 'wireframes',
   visualResearch: 'visualResearch',
   uiDesign: 'uiDesign',
+  // web app page, ios app development services
+  prototyping: 'prototyping',
+  uiUxDesign: 'uiUxDesign',
+  iosDevelopment: 'iosDevelopment',
+  redesign: 'redesign',
+  ipadDevelopment: 'ipadDevelopment',
+  testing: 'testing',
+  support: 'support',
   // common
   arrow: 'arrow',
 };
