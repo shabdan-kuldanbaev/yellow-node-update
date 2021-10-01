@@ -107,7 +107,7 @@ export const ContentfulParser = ({ document }) => {
             ? (
               <Table
                 tableData={tableContent.tableData}
-                tableType={tableType}
+                type={tableType}
               />
             )
             : null;

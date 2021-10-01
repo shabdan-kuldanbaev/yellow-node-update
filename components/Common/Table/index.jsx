@@ -7,17 +7,13 @@ import SimpleTableBody from './SimpleTableBody';
 import SimpleTableHead from './SimpleTableHead';
 import styles from './styles.module.scss';
 
-export const Table = ({ tableData, tableType }) => {
+export const Table = ({ tableData, type }) => {
   if (!tableData) {
     return null;
   }
 
-  switch (tableType) {
+  switch (type) {
   case ARTICLE_TABLE_TYPES.simpleTable:
-    if (!tableData) {
-      return null;
-    }
-
     return (
       <table className={styles.table}>
         <SimpleTableBody tableData={tableData} />
@@ -72,10 +68,10 @@ export const Table = ({ tableData, tableType }) => {
 };
 
 Table.defaultProps = {
-  tableType: ARTICLE_TABLE_TYPES.simpleTable,
+  type: ARTICLE_TABLE_TYPES.simpleTable,
 };
 
 Table.propTypes = {
   tableData: PropTypes.instanceOf(Object).isRequired,
-  tableType: PropTypes.string,
+  type: PropTypes.string,
 };
