@@ -46,7 +46,7 @@ const SvgListSection = ({
               <Animated
                 key={`technologies/${technology}`}
                 {...animatedProps}
-                transitionDelay={750 + 50 * technologyIndex}
+                transitionDelay={300 + 50 * technologyIndex}
               >
                 <Svg type={technology} />
               </Animated>
@@ -56,7 +56,7 @@ const SvgListSection = ({
         {link && (
           <Animated
             {...animatedProps}
-            transitionDelay={900}
+            transitionDelay={550}
           >
             <CallToAction
               type="card"

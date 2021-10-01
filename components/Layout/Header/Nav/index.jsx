@@ -74,7 +74,7 @@ const Nav = ({
             {isHasSubNavigation(slug) && isHeader && (
               <DropDownMenu
                 isDropMenuOpened={isDropMenuOpened}
-                isPageScrolledDown={isPageScrolling}
+                isPageScrolledDown={!!isPageScrolling}
                 slug={slug}
                 closeDropDownMenu={closeDropDownMenu}
               />

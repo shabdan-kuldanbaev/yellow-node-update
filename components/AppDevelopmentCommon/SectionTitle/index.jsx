@@ -23,7 +23,7 @@ export const SectionTitle = ({
     <div className={cn(styles[type], { [titleStyle]: titleStyle })}>
       <Animated
         {...animationProps}
-        transitionDelay={600}
+        transitionDelay={250}
       >
         <h2 className={styles.title}>
           {title}
@@ -32,7 +32,7 @@ export const SectionTitle = ({
       {subtitle && (
         <Animated
           {...animationProps}
-          transitionDelay={650}
+          transitionDelay={300}
         >
           <p className={styles.subtitle}>
             {subtitle}
@@ -42,7 +42,7 @@ export const SectionTitle = ({
       {description && (
         <Animated
           {...animationProps}
-          transitionDelay={700}
+          transitionDelay={350}
         >
           <p className={styles.description}>
             {description}

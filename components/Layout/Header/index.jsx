@@ -27,6 +27,7 @@ const Header = ({
   const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
   const isPageWithTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
+  const isHomepage = currentPage === '';
   const headerTheme = [
     CASE_STUDIES.tell,
     CASE_STUDIES.openSense,
@@ -109,7 +110,7 @@ const Header = ({
         setMobileMenuState={setMobileMenu}
         isPageScrolledDown={isPageScrolledDown}
       />
-      {!isPageWithTransparentHeader && <LinearIndeterminate />}
+      {!isHomepage && <LinearIndeterminate />}
       {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}
     </header>
   );

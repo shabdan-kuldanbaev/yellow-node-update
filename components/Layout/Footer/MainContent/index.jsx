@@ -22,7 +22,7 @@ export const MainContent = ({ footerData: footerLinksData }) => (
           subtitle,
           type: linkType,
         }) => (
-          <Fragment>
+          <Fragment key={`footer-links/${linkTitle || subtitle}`}>
             {linkTitle && (
               <p className={cn(styles.text, styles.main)}>
                 {linkTitle}

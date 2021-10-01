@@ -115,7 +115,7 @@ const ChallengesAndSolutions = ({
                     src={imageUrl}
                     alt={title}
                   />
-                  {imagesBundles && imagesBundles.map((bundle) => {
+                  {imagesBundles && imagesBundles.map((bundle, index) => {
                     const bundleUrl = getFileUrl(bundle);
 
                     return (
@@ -123,6 +123,7 @@ const ChallengesAndSolutions = ({
                         className={styles.imageBundle}
                         src={bundleUrl}
                         alt={title}
+                        key={`bundles-images/${index}`}
                       />
                     );
                   })}
@@ -140,13 +141,14 @@ ChallengesAndSolutions.defaultProps = {
   type: '',
   isSpecial: false,
   view: '',
+  isMobileResolution: false,
 };
 
 ChallengesAndSolutions.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,
   isSpecial: PropTypes.bool,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
   view: PropTypes.string,
 };
 

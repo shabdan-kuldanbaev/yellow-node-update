@@ -33,7 +33,7 @@ export const Figures = ({ type, figuresData }) => {
         <div className={styles.text}>
           <Animated
             {...animatedProps}
-            transitionDelay={800}
+            transitionDelay={600}
           >
             <ContentfulParser document={text} />
           </Animated>
@@ -64,7 +64,7 @@ export const Figures = ({ type, figuresData }) => {
             <Animated
               key={item.title}
               {...animatedProps}
-              transitionDelay={800 + 90 * index * 2}
+              transitionDelay={400 + 90 * index * 2}
             >
               {isFiguresWithCheck
                 ? (

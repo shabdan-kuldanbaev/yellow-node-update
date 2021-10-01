@@ -81,12 +81,13 @@ const ProjectIdea = ({
 
 ProjectIdea.defaultProps = {
   type: '',
+  isMobileResolution: false,
 };
 
 ProjectIdea.propTypes = {
   type: PropTypes.string,
   data: PropTypes.instanceOf(Object).isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
 };
 
 export default connect(

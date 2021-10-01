@@ -32,7 +32,7 @@ export const PageIntro = ({
           <div className={styles.pageTitleContainer}>
             <Animated
               {...animatedProps}
-              transitionDelay={600}
+              transitionDelay={250}
             >
               <h1 className={styles.pageTitle}>
                 {title}
@@ -40,7 +40,7 @@ export const PageIntro = ({
             </Animated>
             <Animated
               {...animatedProps}
-              transitionDelay={750}
+              transitionDelay={250}
             >
               <p className={styles.subtitle}>
                 {description}
@@ -49,7 +49,7 @@ export const PageIntro = ({
           </div>
           <Animated
             {...animatedProps}
-            transitionDelay={600}
+            transitionDelay={350}
           >
             <div
               className={styles.image}

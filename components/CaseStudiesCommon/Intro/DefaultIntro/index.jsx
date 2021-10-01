@@ -99,7 +99,7 @@ const DefaultIntro = ({
             alt={appBackgroundImageUrl}
           />
         </div>
-        {imagesBundles && imagesBundles.map((bundle) => {
+        {imagesBundles && imagesBundles.map((bundle, index) => {
           const bundleUrl = getFileUrl(bundle);
 
           return (
@@ -107,6 +107,7 @@ const DefaultIntro = ({
               className={styles.bundleImage}
               src={bundleUrl}
               alt={title}
+              key={`intro-images-bundles/${index}`}
             />
           );
         })}
@@ -140,11 +141,15 @@ const DefaultIntro = ({
   );
 };
 
+DefaultIntro.defaultProps = {
+  isMobileResolution: '',
+};
+
 DefaultIntro.propTypes = {
   type: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
   data: PropTypes.instanceOf(Object).isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
 };
 
 export default connect(

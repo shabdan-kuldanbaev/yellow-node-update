@@ -82,13 +82,18 @@ export const NavItem = ({
 
 NavItem.defaultProps = {
   isPageScrolledDown: false,
+  path: '',
+  dynamicPath: '',
 };
 
 NavItem.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  dynamicPath: PropTypes.string.isRequired,
+  path: PropTypes.string,
+  dynamicPath: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Object),
+  ]),
   isPageScrolledDown: PropTypes.bool,
   closeMenu: PropTypes.func.isRequired,
 };
