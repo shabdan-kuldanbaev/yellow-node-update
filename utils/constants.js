@@ -408,3 +408,9 @@ export const SUB_NAVIGATION_LINKS = {
 };
 
 export const LINKS_WITH_SUB_NAVIGATION = [NON_INTERACTIVE_LINKS.whatWeDo.slug];
+
+export const ARTICLE_TABLE_TYPES = {
+  simpleTable: 'Simple table',
+  tableWithHeader: 'Table with header',
+  tableWithTwoHeader: 'Table with two headers',
+};
