@@ -269,6 +269,7 @@ export const APP_DEVELOPMENT_ICONS = {
   testing: 'testing',
   support: 'support',
   iosCheck: 'iosCheck',
+  titledCoreData: 'titledCoreData',
   // common
   arrow: 'arrow',
 };

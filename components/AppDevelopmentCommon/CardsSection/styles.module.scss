@@ -518,6 +518,9 @@
   }
 
   &.thirdSectionView {
+    padding-bottom: 0;
+    margin-bottom: -1px;
+
     .contentWrapper {
       @include smallSectionWrapper;
 
