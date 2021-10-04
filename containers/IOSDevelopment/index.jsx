@@ -10,6 +10,7 @@ import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
 
 const IOSDevelopmentContainer = ({
+  introSection,
   pageData,
   metaData: {
     metaTitle,
@@ -49,6 +50,7 @@ const IOSDevelopmentContainer = ({
         />
         {contentModules.map((module) => (
           <AppDevelopmentCommon
+            introSection={introSection}
             section={module}
             handleOnCTAClick={openFullscreenEstimation}
             type={PAGES.developmentServices}

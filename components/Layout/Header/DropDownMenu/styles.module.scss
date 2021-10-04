@@ -6,7 +6,7 @@
   top: $header-height - 0.5px;
   left: 0;
   width: 100%;
-  padding: 80px 0;
+  padding: 80px 0 40px;
   background-color: $black;
   color: $white;
   z-index: -1;
@@ -39,6 +39,7 @@
     grid-column-gap: 150px;
 
     @include below-tablet {
+      display: block;
       grid-template-columns: unset;
       margin-left: 40px;
     }
@@ -91,6 +92,10 @@
         @include phone {
           @include fontSize(14px);
         }
+      }
+
+      .menuLink {
+        display: block;
       }
 
       a {

@@ -46,9 +46,10 @@ const Header = ({
   const navTheme = isHeaderColorNeedChange
     ? 'dark'
     : headerTheme;
-
   useEffect(() => {
     const handleOnScroll = () => {
+      console.log(introSection);
+
       if (introSection && introSection.current) {
         const intro = introSection.current.getBoundingClientRect();
 
@@ -72,7 +73,9 @@ const Header = ({
     handleOnScroll();
     window.addEventListener('scroll', handleOnScroll);
 
-    return () => window.removeEventListener('scroll', handleOnScroll);
+    return () => window.removeEventListener('scroll', () => {
+      console.log('remove');
+    });
   }, [
     currentPage,
     introSection,

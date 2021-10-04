@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { useRouter } from 'next/router';
 import CaseStudiesFooter from 'components/CaseStudiesCommon/CaseStudiesFooter';
 import { CASE_STUDIES_SLUGS } from 'utils/constants';

@@ -5,7 +5,7 @@ import IOSDevelopmentContainer from 'containers/IOSDevelopment';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 
-const IOSDevelopment = () => <IOSDevelopmentContainer />;
+const IOSDevelopment = ({ introSection }) => <IOSDevelopmentContainer introSection={introSection} />;
 
 IOSDevelopment.getInitialProps = async ({ store, req }) => {
   try {
