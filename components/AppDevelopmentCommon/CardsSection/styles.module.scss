@@ -535,9 +535,8 @@
           width: 50%;
 
           .imageWrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex(row,center,center);
+
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -593,6 +592,76 @@
       .titleStyle {
         margin-bottom: 120px;
 
+        p {
+          max-width: 855px;
+        }
+
+        @include below-tablet {
+          margin-bottom: 60px;
+        }
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    background-color: $alabaster;
+
+    .contentWrapper {
+      @include smallSectionWrapper;
+
+      max-width: 1300px;
+
+      .cards {
+        @include flex(row,space-between,initial,wrap);
+
+        grid-gap: 40px;
+
+        & > div {
+          max-width: 405px;
+          padding-right: 30px;
+
+          .imageWrapper {
+            @include flex(row,center,center);
+
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: $yellow;
+
+            svg {
+              @include phone {
+                width: 12px;
+                height: 9px;
+              }
+            }
+          }
+
+          .cardContent {
+            .typeTitle {
+              @include fontSize(24px);
+
+              @include phone {
+                @include fontSize(16px);
+              }
+            }
+          }
+
+          @include macbook-twelve {
+            width: 460px;
+          }
+
+          @include tablet {
+            width: 100%;
+            max-width: unset;
+          }
+        }
+
+        @include phone {
+          grid-gap: 16px;
+        }
+      }
+
+      .titleStyle {
         p {
           max-width: 855px;
         }

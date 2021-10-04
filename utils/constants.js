@@ -270,6 +270,9 @@ export const APP_DEVELOPMENT_ICONS = {
   support: 'support',
   iosCheck: 'iosCheck',
   titledCoreData: 'titledCoreData',
+  businessBeforeTechnology: 'businessBeforeTechnology',
+  creatingOwnApps: 'creatingOwnApps',
+  dataProtection: 'dataProtection',
   // common
   arrow: 'arrow',
 };
