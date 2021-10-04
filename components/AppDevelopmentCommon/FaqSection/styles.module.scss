@@ -4,6 +4,7 @@
 
 .mobile-app-development-company,
 .web-app-development-company,
+.ios-mobile-app-development-services,
 .ui-ux-services {
   @include appDevelopmentContainer;
 
@@ -25,6 +26,7 @@
 }
 
 .web-app-development-company,
+.ios-mobile-app-development-services,
 .ui-ux-services {
   background-color: $white;
 
@@ -35,4 +37,12 @@
 
 .web-app-development-company {
   padding-bottom: 0;
+}
+
+.ios-mobile-app-development-services {
+  margin: -1px 0;
+
+  & > div:last-child {
+    padding: 0;
+  }
 }

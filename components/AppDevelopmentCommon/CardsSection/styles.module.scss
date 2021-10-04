@@ -519,7 +519,6 @@
 
   &.thirdSectionView {
     padding-bottom: 0;
-    margin-bottom: -1px;
 
     .contentWrapper {
       @include smallSectionWrapper;
@@ -612,7 +611,7 @@
       max-width: 1300px;
 
       .cards {
-        @include flex(row,space-between,initial,wrap);
+        @include flex(row,center,initial,wrap);
 
         grid-gap: 40px;
 
@@ -630,19 +629,14 @@
 
             svg {
               @include phone {
-                width: 12px;
-                height: 9px;
+                width: 30px;
+                height: 30px;
               }
             }
-          }
 
-          .cardContent {
-            .typeTitle {
-              @include fontSize(24px);
-
-              @include phone {
-                @include fontSize(16px);
-              }
+            @include phone {
+              width: 60px;
+              height: 60px;
             }
           }
 
@@ -669,6 +663,14 @@
         @include below-tablet {
           margin-bottom: 60px;
         }
+      }
+
+      .callToAction {
+        @include defaultCallToAction;
+        @include fontSize(18px);
+
+        font-weight: 600;
+        background-color: $white;
       }
     }
   }
