@@ -36,4 +36,8 @@
   th:first-child {
     border-left: none;
   }
+
+  .tableVerticalHeader {
+    border-top: solid $dark-grey 1px;
+  }
 }
