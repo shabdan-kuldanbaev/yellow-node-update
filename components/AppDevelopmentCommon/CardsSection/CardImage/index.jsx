@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Svg } from 'components/AppDevelopmentCommon/Svg';
 
-const CardImage = ({ imageUrl, svgType, className }) => {
+const CardImage = ({
+  imageUrl,
+  svgType,
+  className,
+}) => {
   switch (true) {
   case !!imageUrl: {
     return (
@@ -21,10 +25,15 @@ const CardImage = ({ imageUrl, svgType, className }) => {
   }
 };
 
+CardImage.defaultProps = {
+  imageUrl: '',
+  svgType: '',
+};
+
 CardImage.propTypes = {
-  imageType: PropTypes.string,
+  imageUrl: PropTypes.string,
   svgType: PropTypes.string,
-  className: PropTypes.string,
+  className: PropTypes.string.isRequired,
 };
 
 export default CardImage;

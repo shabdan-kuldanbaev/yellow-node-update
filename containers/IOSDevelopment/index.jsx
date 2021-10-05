@@ -1,7 +1,12 @@
+import PropTypes from 'prop-types';
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
-import { FullScreenEstimation, MetaTags, PageHeader } from 'components';
+import {
+  FullScreenEstimation,
+  MetaTags,
+  PageHeader,
+} from 'components';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES } from 'utils/constants';
@@ -71,3 +76,12 @@ export default connect(
     metaData: selectMetaData(state),
   }),
 )(IOSDevelopmentContainer);
+
+IOSDevelopmentContainer.propTypes = {
+  pageData: PropTypes.instanceOf(Object).isRequired,
+  metaData: PropTypes.shape({
+    metaTitle: PropTypes.string,
+    metaDescription: PropTypes.string,
+  }).isRequired,
+  introSection: PropTypes.instanceOf(Object).isRequired,
+};

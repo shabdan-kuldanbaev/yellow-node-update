@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import FiguresItem from 'components/AppDevelopmentCommon/PageIntro/Figures/FiguresItem';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
+import FiguresItem from './FiguresItem';
 import styles from './styles.module.scss';
 
 export const Figures = ({ type, figuresData }) => {

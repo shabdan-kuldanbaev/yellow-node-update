@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Svg } from 'components/Common/Svg';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
-import { routes as ROUTING } from 'utils/routes';
+import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const FiguresItem = ({ type, figureContent, title }) => {
+const FiguresItem = ({
+  type,
+  figureContent,
+  title,
+}) => {
   switch (type) {
-  case ROUTING.customWebApp.slug: {
+  case ROUTES.customWebApp.slug: {
     return (
       <Fragment>
         <div className={styles.checkMarkWrapper}>
@@ -22,7 +25,7 @@ const FiguresItem = ({ type, figureContent, title }) => {
       </Fragment>
     );
   }
-  case ROUTING.developmentServices.slug: {
+  case ROUTES.developmentServices.slug: {
     return (
       <div className={styles.figuresIos}>
         <Svg
@@ -40,9 +43,9 @@ const FiguresItem = ({ type, figureContent, title }) => {
 };
 
 FiguresItem.propTypes = {
-  type: PropTypes.string,
-  figureContent: PropTypes.node,
-  title: PropTypes.string,
+  type: PropTypes.string.isRequired,
+  figureContent: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default FiguresItem;
