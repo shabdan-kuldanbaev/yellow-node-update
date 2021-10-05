@@ -354,10 +354,10 @@
       @include smallSectionWrapper;
 
       .smallCards {
-        @include flex(row,space-between,center,wrap);
-
         grid-gap: unset;
         row-gap: 120px;
+
+        @include flex(row,space-between,center,wrap);
 
         & > div {
           flex-direction: column;
@@ -640,8 +640,8 @@
             }
           }
 
-          @include macbook-twelve {
-            width: 460px;
+          @include macbook-thirteen {
+            max-width: 390px;
           }
 
           @include tablet {
@@ -666,8 +666,6 @@
       }
 
       .callToAction {
-        @include defaultCallToAction;
-
         background-color: $white;
       }
     }

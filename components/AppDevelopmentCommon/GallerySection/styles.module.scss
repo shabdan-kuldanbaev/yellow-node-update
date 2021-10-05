@@ -227,7 +227,8 @@
   }
 }
 
-.web-app-development-company {
+.web-app-development-company,
+.ios-mobile-app-development-services {
   padding: 150px 0;
   background-color: $white;
 
@@ -253,23 +254,9 @@
 }
 
 .ios-mobile-app-development-services {
-  padding: 150px 0;
   margin: -1px 0;
-  background-color: $white;
-
-  @include tablet {
-    padding-bottom: 100px;
-  }
-
-  @include phone {
-    padding-bottom: 64px;
-  }
 
   .gallerySection {
     margin: 0;
-  }
-
-  :global(.swiper-slide) {
-    filter: drop-shadow(0 8px 35px rgba(110, 120, 130, 0.1));
   }
 }
