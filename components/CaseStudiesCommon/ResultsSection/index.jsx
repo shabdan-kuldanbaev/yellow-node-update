@@ -44,7 +44,7 @@ const ResultsSection = ({ data, type }) => {
               alt={appScreenUrl}
             />
           )}
-        {imagesBundlesData && imagesBundlesData.imagesBundles.map((bundle, index) => {
+        {imagesBundlesData && imagesBundlesData.imagesBundles.map((bundle) => {
           const bundleUrl = getFileUrl(bundle);
 
           return (
@@ -52,7 +52,7 @@ const ResultsSection = ({ data, type }) => {
               className={styles.imageBundle}
               src={bundleUrl}
               alt={type}
-              key={`result-images-bundles/${index}`}
+              key={`result-images-bundles/${bundleUrl}`}
             />
           );
         })}

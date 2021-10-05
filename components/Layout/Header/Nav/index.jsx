@@ -21,7 +21,7 @@ const Nav = ({
   isHeader,
 }) => {
   // TODO rework this checks
-  const isPageScrolling = (isPageScrolledDown || (currentPage && (currentPage !== '' && !isTransparentHeader)));
+  const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
 
   const openDropDownMenuWithCheck = (slug) => {
     if (isHeader && isHasSubNavigation(slug)) {
@@ -74,7 +74,7 @@ const Nav = ({
             {isHasSubNavigation(slug) && isHeader && (
               <DropDownMenu
                 isDropMenuOpened={isDropMenuOpened}
-                isPageScrolledDown={!!isPageScrolling}
+                isPageScrolledDown={isPageScrolling}
                 slug={slug}
                 closeDropDownMenu={closeDropDownMenu}
               />

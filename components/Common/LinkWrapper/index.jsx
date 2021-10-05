@@ -76,7 +76,10 @@ LinkWrapper.defaultProps = {
 };
 
 LinkWrapper.propTypes = {
-  path: PropTypes.string,
+  path: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Object),
+  ]),
   className: PropTypes.string,
   isLocalLink: PropTypes.bool,
   isImage: PropTypes.bool,

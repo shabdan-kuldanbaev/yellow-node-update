@@ -46,7 +46,7 @@ export const CheckListSection = ({
 
             return (
               <Animated
-                key={`check-list/${item}`}
+                key={`check-list/${itemTitle}`}
                 {...animationProps}
                 transitionDelay={250 + 50 * index}
               >

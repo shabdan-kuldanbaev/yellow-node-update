@@ -62,7 +62,7 @@ export const Figures = ({ type, figuresData }) => {
 
           return (
             <Animated
-              key={item.title}
+              key={`page-intro-figures/${title}`}
               {...animatedProps}
               transitionDelay={400 + 90 * index * 2}
             >

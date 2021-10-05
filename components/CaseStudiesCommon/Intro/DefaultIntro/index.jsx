@@ -99,7 +99,7 @@ const DefaultIntro = ({
             alt={appBackgroundImageUrl}
           />
         </div>
-        {imagesBundles && imagesBundles.map((bundle, index) => {
+        {imagesBundles && imagesBundles.map((bundle) => {
           const bundleUrl = getFileUrl(bundle);
 
           return (
@@ -107,7 +107,7 @@ const DefaultIntro = ({
               className={styles.bundleImage}
               src={bundleUrl}
               alt={title}
-              key={`intro-images-bundles/${index}`}
+              key={`intro-images-bundles/${bundleUrl}`}
             />
           );
         })}

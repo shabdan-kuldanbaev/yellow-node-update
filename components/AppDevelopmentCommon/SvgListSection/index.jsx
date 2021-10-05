@@ -36,7 +36,7 @@ const SvgListSection = ({
           {technologies.map((technology, technologyIndex) => {
             if (isMobileResolution) {
               return (
-                <div>
+                <div key={`technologies/${technology}`}>
                   <Svg type={technology} />
                 </div>
               );
@@ -74,13 +74,14 @@ const SvgListSection = ({
 
 SvgListSection.defaultProps = {
   handleOnCTAClick: () => {},
+  isMobileResolution: false,
 };
 
 SvgListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
 };
 
 export default connect(

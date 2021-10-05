@@ -8,7 +8,7 @@ import SwiperCore, {
 } from 'swiper/core';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { getItemLink } from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
+import { getItemLink, getItemPreviewProps } from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
 import { ItemPreview } from './ItemPreview';
 import { GalleryCallToAction } from './GalleryCallToAction';
 import { getGalleryProps } from './utils/galleryHelper';
@@ -40,10 +40,11 @@ export const GallerySection = ({
         <Swiper {...params}>
           {slides && slides.map((slide) => {
             const link = getItemLink(slide);
+            const { title: slideTitle } = getItemPreviewProps(slide);
 
             if (link) {
               return (
-                <div>
+                <div key={`gallery-section/${slideTitle}`}>
                   <LinkWrapper
                     path={link}
                     isLocalLink
@@ -58,7 +59,7 @@ export const GallerySection = ({
             }
 
             return (
-              <div>
+              <div key={`gallery-section/${slideTitle}`}>
                 <ItemPreview
                   data={slide}
                   type={type}

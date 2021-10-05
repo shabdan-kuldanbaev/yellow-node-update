@@ -12,7 +12,10 @@ export const MainContent = ({ footerData: footerLinksData }) => (
       links,
       type,
     }) => (
-      <div className={cn(styles.dataContainer, styles[type])}>
+      <div
+        className={cn(styles.dataContainer, styles[type])}
+        key={`footer/${type}`}
+      >
         <h3 className={styles.title}>
           {title}
         </h3>

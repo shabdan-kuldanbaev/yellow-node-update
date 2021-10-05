@@ -115,7 +115,7 @@ const ChallengesAndSolutions = ({
                     src={imageUrl}
                     alt={title}
                   />
-                  {imagesBundles && imagesBundles.map((bundle, index) => {
+                  {imagesBundles && imagesBundles.map((bundle) => {
                     const bundleUrl = getFileUrl(bundle);
 
                     return (
@@ -123,7 +123,7 @@ const ChallengesAndSolutions = ({
                         className={styles.imageBundle}
                         src={bundleUrl}
                         alt={title}
-                        key={`bundles-images/${index}`}
+                        key={`bundles-images/${bundleUrl}`}
                       />
                     );
                   })}

@@ -9,7 +9,7 @@ import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { microdata } from 'utils/microdata';
-import { rootUrl } from 'utils/helper';
+import { rootUrl, getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -51,13 +51,18 @@ const DesignServicesContainer = ({
           breadcrumbsStyles={styles.breadcrumbs}
           breadcrumbsTheme="dark"
         />
-        {contentModules.map((module) => (
-          <AppDevelopmentCommon
-            section={module}
-            handleOnCTAClick={openFullscreenEstimation}
-            type={PAGES.designServices}
-          />
-        ))}
+        {contentModules.map((module) => {
+          const { type: sectionType, view } = getDocumentFields(module);
+
+          return (
+            <AppDevelopmentCommon
+              key={`design-services/${sectionType}-${view || ''}`}
+              section={module}
+              handleOnCTAClick={openFullscreenEstimation}
+              type={PAGES.designServices}
+            />
+          );
+        })}
         {hasFeedbackForm && (
           <div className={styles[PAGES.designServices] || styles.feedBackContainer}>
             <FeedbackFormContainer

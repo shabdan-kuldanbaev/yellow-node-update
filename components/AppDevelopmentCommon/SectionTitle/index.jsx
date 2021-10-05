@@ -56,12 +56,14 @@ export const SectionTitle = ({
 SectionTitle.defaultProps = {
   type: 'default',
   titleStyle: '',
+  subtitle: '',
+  description: '',
 };
 
 SectionTitle.propTypes = {
   type: PropTypes.string,
   titleStyle: PropTypes.string,
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  description: PropTypes.string,
 };
