@@ -1,16 +1,14 @@
-import PropTypes from 'prop-types';
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
-import {
-  FullScreenEstimation,
-  MetaTags,
-  PageHeader,
-} from 'components';
+import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
+import { MetaTags } from 'components/Common/MetaTags';
+import { PageHeader } from 'components/Common/PageHeader';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES } from 'utils/constants';
-import { rootUrl } from 'utils/helper';
+import { getDocumentFields, rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
 
@@ -53,14 +51,19 @@ const IOSDevelopmentContainer = ({
           breadcrumbsStyles={styles.breadcrumbs}
           breadcrumbsTheme="dark"
         />
-        {contentModules.map((module) => (
-          <AppDevelopmentCommon
-            introSection={introSection}
-            section={module}
-            handleOnCTAClick={openFullscreenEstimation}
-            type={PAGES.developmentServices}
-          />
-        ))}
+        {contentModules.map((module) => {
+          const { type: sectionType, view } = getDocumentFields(module);
+
+          return (
+            <AppDevelopmentCommon
+              key={`${sectionType}${view || ''}`}
+              introSection={introSection}
+              section={module}
+              handleOnCTAClick={openFullscreenEstimation}
+              type={PAGES.developmentServices}
+            />
+          );
+        })}
       </div>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}

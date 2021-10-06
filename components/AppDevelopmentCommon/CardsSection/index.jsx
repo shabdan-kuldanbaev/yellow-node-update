@@ -58,7 +58,7 @@ export const CardsSection = ({
                 'images',
               ],
             );
-            const imageUrl = getFileUrl(get(images, '[0]', null));
+            const imageUrl = getFileUrl(get(images, '[0]'));
             const svgType = get(contentList, '[0]');
 
             return (

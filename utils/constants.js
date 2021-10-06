@@ -409,7 +409,10 @@ export const SUB_NAVIGATION_LINKS = {
     },
     {
       title: 'Mobile app development',
-      items: [{ slug: ROUTES.customMobileApp.path, title: 'Building mobile apps for all platforms' }, { slug: ROUTES.developmentServices.path, title: 'iOS app development services' }],
+      items: [
+        { slug: ROUTES.customMobileApp.path, title: 'Building mobile apps for all platforms' },
+        { slug: ROUTES.developmentServices.path, title: 'iOS app development services' },
+      ],
     },
     {
       title: 'Custom chat app development',

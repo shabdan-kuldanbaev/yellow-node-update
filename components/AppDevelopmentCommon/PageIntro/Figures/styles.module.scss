@@ -174,15 +174,15 @@
 
 .ios-mobile-app-development-services {
   .figures {
-    @include flex(row, space-between, center);
-
     max-width: 1080px;
     margin: 0 auto;
 
-    @include tablet {
-      @include flex(row, center, center, wrap);
+    @include flex(row, space-between, center);
 
+    @include tablet {
       gap: 40px;
+
+      @include flex(row, center, center, wrap);
     }
 
     .title {

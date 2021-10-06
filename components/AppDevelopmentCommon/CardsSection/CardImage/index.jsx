@@ -7,22 +7,19 @@ const CardImage = ({
   svgType,
   className,
 }) => {
-  switch (true) {
-  case !!imageUrl: {
+  if (imageUrl) {
     return (
       <div className={className}>
         <div style={{ backgroundImage: `url(${imageUrl})` }} />
       </div>
     );
   }
-  default: {
-    return (
-      <div className={className}>
-        <Svg type={svgType} />
-      </div>
-    );
-  }
-  }
+
+  return (
+    <div className={className}>
+      <Svg type={svgType} />
+    </div>
+  );
 };
 
 CardImage.defaultProps = {

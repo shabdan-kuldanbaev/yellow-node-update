@@ -353,10 +353,8 @@
       @include smallSectionWrapper;
 
       .smallCards {
-        grid-gap: unset;
         row-gap: 120px;
-
-        @include flex(row,space-between,center,wrap);
+        column-gap: 260px;
 
         & > div {
           flex-direction: column;
@@ -367,7 +365,7 @@
             border-radius: 50%;
             background-color: $yellow;
 
-            @include flex(row,center,center);
+            @include flex(row, center, center);
 
             @include below-tablet {
               width: 70px;
@@ -403,6 +401,10 @@
           }
         }
 
+        @include tablet {
+          column-gap: 130px;
+        }
+
         @include below-tablet {
           row-gap: 60px;
         }
@@ -433,9 +435,7 @@
       @include smallSectionWrapper;
 
       .smallCards {
-        @include flex(row,space-between,initial,wrap);
-
-        grid-gap: unset;
+        column-gap: 264px;
         row-gap: 160px;
 
         & > div {
@@ -492,6 +492,10 @@
           }
         }
 
+        @include tablet {
+          column-gap: 130px;
+        }
+
         @include below-tablet {
           row-gap: 60px;
         }
@@ -523,22 +527,21 @@
       @include smallSectionWrapper;
 
       .cards {
-        @include flex(row,space-between,initial,wrap);
-
-        grid-gap: 30px;
+        column-gap: 40px;
+        row-gap: 30px;
 
         & > div {
-          @include flex(row,initial,center,wrap);
+          padding: 30px 30px 30px 50px;
 
-          width: 50%;
+          @include flex(row, initial, center, wrap);
 
           .imageWrapper {
-            @include flex(row,center,center);
-
             width: 40px;
             height: 40px;
             border-radius: 50%;
             background: $turbo-100;
+
+            @include flex(row, center, center);
 
             svg {
               @include phone {
@@ -554,7 +557,7 @@
 
               @include fontSize(24px);
 
-              @include phone {
+              @include tablet {
                 @include fontSize(16px);
               }
             }
@@ -607,24 +610,22 @@
     .contentWrapper {
       @include smallSectionWrapper;
 
-      max-width: 1300px;
+      max-width: $max-content-width;
 
       .cards {
-        @include flex(row,center,initial,wrap);
-
-        grid-gap: 40px;
+        grid-template-columns: repeat(3, 1fr);
 
         & > div {
           max-width: 405px;
           padding-right: 30px;
 
           .imageWrapper {
-            @include flex(row,center,center);
-
             width: 90px;
             height: 90px;
             border-radius: 50%;
             background: $yellow;
+
+            @include flex(row, center, center);
 
             svg {
               @include phone {
@@ -647,6 +648,14 @@
             width: 100%;
             max-width: unset;
           }
+        }
+
+        @include macbook-twelve {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include tablet {
+          grid-template-columns: 1fr;
         }
 
         @include phone {

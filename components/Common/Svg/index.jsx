@@ -297,15 +297,13 @@ export const Svg = ({
   case SVG_IMAGES_TYPES.iPhone:
     return (
       <svg className={className} width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M24 5V27C24 28.1046 23.1046 29 22 29H10C8.89543 29 8 28.1046 8 27L8 5C8 3.89543 8.89543 3 10 3H22C23.1046 3 24 3.89543 24 5Z" stroke="white" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M16 23C16.8284 23 17.5 23.6716 17.5 24.5C17.5 25.3284 16.8284 26 16 26C15.1716 26 14.5 25.3284 14.5 24.5C14.5 23.6716 15.1716 23 16 23Z" fill="white" fillOpacity="0.7" />
+        <path d="M24 5V27C24 28.1046 23.1046 29 22 29H10C8.89543 29 8 28.1046 8 27L8 5C8 3.89543 8.89543 3 10 3H22C23.1046 3 24 3.89543 24 5Z" stroke="white" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /> <path d="M16 23C16.8284 23 17.5 23.6716 17.5 24.5C17.5 25.3284 16.8284 26 16 26C15.1716 26 14.5 25.3284 14.5 24.5C14.5 23.6716 15.1716 23 16 23Z" fill="white" fillOpacity="0.7" />
       </svg>
     );
   case SVG_IMAGES_TYPES.iPad:
     return (
       <svg className={className} width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M26 6V26C26 27.1046 25.1046 28 24 28H8C6.89543 28 6 27.1046 6 26V6C6 4.89543 6.89543 4 8 4H24C25.1046 4 26 4.89543 26 6Z" stroke="white" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M16 22C16.8284 22 17.5 22.6716 17.5 23.5C17.5 24.3284 16.8284 25 16 25C15.1716 25 14.5 24.3284 14.5 23.5C14.5 22.6716 15.1716 22 16 22Z" fill="white" fillOpacity="0.7" />
+        <path d="M26 6V26C26 27.1046 25.1046 28 24 28H8C6.89543 28 6 27.1046 6 26V6C6 4.89543 6.89543 4 8 4H24C25.1046 4 26 4.89543 26 6Z" stroke="white" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />  <path d="M16 22C16.8284 22 17.5 22.6716 17.5 23.5C17.5 24.3284 16.8284 25 16 25C15.1716 25 14.5 24.3284 14.5 23.5C14.5 22.6716 15.1716 22 16 22Z" fill="white" fillOpacity="0.7" />
       </svg>
     );
   default: return null;
