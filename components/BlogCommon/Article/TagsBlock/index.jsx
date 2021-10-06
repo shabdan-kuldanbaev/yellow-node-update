@@ -13,12 +13,23 @@ export const TagsBlock = ({ tags }) => {
         Tags
       </span>
       <div className={styles.tagsList}>
-        {tags.map((tag) => <div className={styles.tag}>{tag}</div>)}
+        {tags.map((tag) => (
+          <div
+            key={tag}
+            className={styles.tag}
+          >
+            {tag}
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
+TagsBlock.defaultProps = {
+  tags: [],
+};
+
 TagsBlock.propTypes = {
-  tags: PropTypes.instanceOf(Array).isRequired,
+  tags: PropTypes.instanceOf(Array),
 };

@@ -31,7 +31,7 @@ export const ImagesListSection = ({ sectionData, type }) => {
             <Animated
               key={`images/${imageUrl}`}
               {...animatedProps}
-              transitionDelay={750 + 50 * imageIndex}
+              transitionDelay={300 + 50 * imageIndex}
             >
               <img
                 className={styles.image}

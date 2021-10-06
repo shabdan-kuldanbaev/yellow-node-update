@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from 'components/common/Table/styles.module.scss';
+import styles from 'components/Common/Table/styles.module.scss';
 
 const SimpleTableHead = ({ tableHeader }) => {
   if (!tableHeader) {

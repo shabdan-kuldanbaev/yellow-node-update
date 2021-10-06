@@ -62,7 +62,7 @@ export const CardsSection = ({
               <Animated
                 key={`cards/${typeTitle}`}
                 {...animatedProps}
-                transitionDelay={750 + 50 * index}
+                transitionDelay={400 + 50 * index}
               >
                 <div className={styles.svgWrapper}>
                   <Svg type={svgType} />
@@ -80,7 +80,7 @@ export const CardsSection = ({
         {link && (
           <Animated
             {...animatedProps}
-            transitionDelay={900}
+            transitionDelay={550}
           >
             <CallToAction
               type="card"

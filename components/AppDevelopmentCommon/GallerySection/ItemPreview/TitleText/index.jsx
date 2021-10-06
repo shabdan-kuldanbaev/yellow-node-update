@@ -63,5 +63,8 @@ export const TitleText = ({ type, data }) => {
 
 TitleText.propTypes = {
   type: PropTypes.string.isRequired,
-  data: PropTypes.instanceOf(Object).isRequired,
+  data: PropTypes.oneOfType([
+    PropTypes.instanceOf(Object).isRequired,
+    PropTypes.string.isRequired,
+  ]).isRequired,
 };

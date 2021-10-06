@@ -31,8 +31,8 @@ Author.defaultProps = {
 
 Author.propTypes = {
   author: PropTypes.shape({
-    avatarImage: PropTypes.string.isRequired,
-    fullName: PropTypes.string.isRequired,
-    position: PropTypes.string.isRequired,
+    avatarImage: PropTypes.string,
+    fullName: PropTypes.string,
+    position: PropTypes.string,
   }),
 };

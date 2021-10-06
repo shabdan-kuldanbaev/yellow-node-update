@@ -135,11 +135,12 @@ export const AppDevelopmentCommon = ({
 
 AppDevelopmentCommon.defaultProps = {
   handleOnCTAClick: () => {},
+  introSection: null,
 };
 
 AppDevelopmentCommon.propTypes = {
   section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
-  introSection: PropTypes.instanceOf(Object).isRequired,
+  introSection: PropTypes.instanceOf(Object),
 };

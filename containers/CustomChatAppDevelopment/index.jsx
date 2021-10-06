@@ -8,7 +8,7 @@ import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { microdata } from 'utils/microdata';
-import { rootUrl } from 'utils/helper';
+import { rootUrl, getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -49,13 +49,18 @@ const CustomChatAppContainer = ({
           titleStyles={styles.pageTitle}
           breadcrumbsStyles={styles.breadcrumbs}
         />
-        {contentModules.map((module) => (
-          <AppDevelopmentCommon
-            section={module}
-            handleOnCTAClick={openFullscreenEstimation}
-            type="chat-app-development-company"
-          />
-        ))}
+        {contentModules.map((module) => {
+          const { type: sectionType, view } = getDocumentFields(module);
+
+          return (
+            <AppDevelopmentCommon
+              key={`chat-app/${sectionType}-${view || ''}`}
+              section={module}
+              handleOnCTAClick={openFullscreenEstimation}
+              type="chat-app-development-company"
+            />
+          );
+        })}
       </div>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}

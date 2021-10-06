@@ -36,7 +36,7 @@ const SvgListSection = ({
           {technologies.map((technology, technologyIndex) => {
             if (isMobileResolution) {
               return (
-                <div>
+                <div key={`technologies/${technology}`}>
                   <Svg type={technology} />
                 </div>
               );
@@ -46,7 +46,7 @@ const SvgListSection = ({
               <Animated
                 key={`technologies/${technology}`}
                 {...animatedProps}
-                transitionDelay={750 + 50 * technologyIndex}
+                transitionDelay={300 + 50 * technologyIndex}
               >
                 <Svg type={technology} />
               </Animated>
@@ -56,7 +56,7 @@ const SvgListSection = ({
         {link && (
           <Animated
             {...animatedProps}
-            transitionDelay={900}
+            transitionDelay={550}
           >
             <CallToAction
               type="card"
@@ -74,13 +74,14 @@ const SvgListSection = ({
 
 SvgListSection.defaultProps = {
   handleOnCTAClick: () => {},
+  isMobileResolution: false,
 };
 
 SvgListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
 };
 
 export default connect(
