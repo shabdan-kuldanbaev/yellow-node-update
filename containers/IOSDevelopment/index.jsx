@@ -56,7 +56,7 @@ const IOSDevelopmentContainer = ({
 
           return (
             <AppDevelopmentCommon
-              key={`${sectionType}${view || ''}`}
+              key={`${PAGES.developmentServices}/${sectionType}/${view || ''}`}
               introSection={introSection}
               section={module}
               handleOnCTAClick={openFullscreenEstimation}
@@ -73,13 +73,6 @@ const IOSDevelopmentContainer = ({
   );
 };
 
-export default connect(
-  (state) => ({
-    pageData: selectComponents(state),
-    metaData: selectMetaData(state),
-  }),
-)(IOSDevelopmentContainer);
-
 IOSDevelopmentContainer.propTypes = {
   pageData: PropTypes.instanceOf(Object).isRequired,
   metaData: PropTypes.shape({
@@ -88,3 +81,10 @@ IOSDevelopmentContainer.propTypes = {
   }).isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
+
+export default connect(
+  (state) => ({
+    pageData: selectComponents(state),
+    metaData: selectMetaData(state),
+  }),
+)(IOSDevelopmentContainer);

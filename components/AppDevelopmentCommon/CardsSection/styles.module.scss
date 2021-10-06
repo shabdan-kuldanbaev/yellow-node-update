@@ -527,6 +527,7 @@
       @include smallSectionWrapper;
 
       .cards {
+        width: 100%;
         column-gap: 40px;
         row-gap: 30px;
 
@@ -585,7 +586,16 @@
           }
         }
 
+        @include macbook-twelve {
+          width: unset;
+        }
+
+        @include below-tablet {
+          width: 460px;
+        }
+
         @include phone {
+          width: unset;
           grid-gap: 16px;
         }
       }
