@@ -1,0 +1,38 @@
+@import 'styles/utils/mixins';
+
+.сontainer {
+  margin: 0 auto;
+  padding: calc(#{$header-height} + 60px) 0 0;
+  background-color: $cod-gray-1;
+
+  @include phone {
+    padding: calc(#{$header-height} + 40px) 0 0;
+  }
+
+  .pageTitle,
+  .breadcrumbs {
+    max-width: $max-content-width;
+    margin: 0 auto;
+  }
+
+  .breadcrumbs {
+    padding: 0 40px;
+
+    ol {
+      a,
+      li::after {
+        color: $white;
+        opacity: 0.3;
+      }
+
+      li:last-child > a {
+        color: $white;
+        opacity: 0.7;
+      }
+    }
+
+    @include phone {
+      padding: 0 15px;
+    }
+  }
+}

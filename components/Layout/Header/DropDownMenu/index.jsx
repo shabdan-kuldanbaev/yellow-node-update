@@ -56,6 +56,7 @@ export const DropDownMenu = ({
               )}
               {items && items.map(({ slug: itemSlug, title: itemTitle }) => (
                 <LinkWrapper
+                  className={styles.menuLink}
                   isLocalLink
                   path={itemSlug}
                   key={`links/${itemTitle}`}

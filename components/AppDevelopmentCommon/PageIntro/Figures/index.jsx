@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
-import { Svg } from 'components/Common/Svg';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
+import FiguresItem from './FiguresItem';
 import styles from './styles.module.scss';
 
 export const Figures = ({ type, figuresData }) => {
@@ -21,7 +21,6 @@ export const Figures = ({ type, figuresData }) => {
     opasityDuration: 1,
     transformDuration: 1,
   };
-  const isFiguresWithCheck = ['web-app-development-company'].includes(type);
 
   if (!figures || !figures.length) {
     return null;
@@ -66,21 +65,11 @@ export const Figures = ({ type, figuresData }) => {
               {...animatedProps}
               transitionDelay={400 + 90 * index * 2}
             >
-              {isFiguresWithCheck
-                ? (
-                  <Fragment>
-                    <div className={styles.ckeckMarkWrapper}>
-                      <div className={styles.checkMark}>
-                        <Svg
-                          className={styles.icon}
-                          type={SVG_IMAGES_TYPES.checkMark}
-                        />
-                      </div>
-                    </div>
-                    {figureContent}
-                  </Fragment>
-                )
-                : figureContent}
+              <FiguresItem
+                title={title}
+                type={type}
+                figureContent={figureContent}
+              />
             </Animated>
           );
         })}

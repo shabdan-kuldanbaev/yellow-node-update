@@ -281,3 +281,90 @@
     }
   }
 }
+
+.ios-mobile-app-development-services {
+  @extend .pageIntroContainer;
+
+  background-color: inherit;
+
+  @include below-tablet {
+    padding: 60px 40px;
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+
+  .pageIntroSection {
+    .pageIntroWrapper {
+      margin-bottom: 80px;
+      padding-bottom: 180px;
+      border-bottom: 1px solid rgba($alto, 0.2);
+
+      @include macbook-twelve {
+        padding-bottom: 120px;
+      }
+
+      @include below-tablet {
+        @include flex(column-reverse, space-between, center);
+
+        padding-bottom: 80px;
+      }
+
+      @include phone {
+        margin-bottom: 60px;
+        padding-bottom: 60px;
+      }
+
+      .pageTitle {
+        color: $white;
+
+        @include fontSize(70px);
+
+        @include macbook-twelve {
+          @include fontSize(65px);
+        }
+
+        @include tablet {
+          @include fontSize(45px);
+        }
+
+        @include below-tablet {
+          text-align: center;
+        }
+
+        @include phone {
+          @include fontSize(32px);
+        }
+      }
+
+      .subtitle {
+        max-width: 518px;
+        margin: 0;
+
+        @include below-tablet {
+          text-align: center;
+          padding: 0;
+          margin: 0 auto;
+        }
+      }
+
+      .image {
+        max-width: 555px;
+        min-width: 400px;
+        padding-top: 105%;
+        background-size: contain;
+
+        @include below-tablet {
+          max-width: 380px;
+          min-width: unset;
+          margin: auto;
+        }
+
+        @include phone {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
