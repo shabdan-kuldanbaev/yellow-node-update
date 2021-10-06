@@ -9,7 +9,7 @@ import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { microdata } from 'utils/microdata';
-import { rootUrl } from 'utils/helper';
+import { rootUrl, getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -52,14 +52,19 @@ const CustomWebAppContainer = ({
           breadcrumbsStyles={styles.breadcrumbs}
           breadcrumbsTheme="dark"
         />
-        {contentModules.map((module) => (
-          <AppDevelopmentCommon
-            section={module}
-            handleOnCTAClick={openFullscreenEstimation}
-            type={PAGES.customWebApp}
-            introSection={introSection}
-          />
-        ))}
+        {contentModules.map((module) => {
+          const { type: sectionType, view } = getDocumentFields(module);
+
+          return (
+            <AppDevelopmentCommon
+              key={`web-app/${sectionType}-${view || ''}`}
+              section={module}
+              handleOnCTAClick={openFullscreenEstimation}
+              type={PAGES.customWebApp}
+              introSection={introSection}
+            />
+          );
+        })}
         {hasFeedbackForm && (
           <div className={styles[PAGES.customWebApp] || styles.feedBackContainer}>
             <FeedbackFormContainer

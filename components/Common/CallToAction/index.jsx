@@ -35,11 +35,13 @@ CallToAction.defaultProps = {
   href: '',
   handleOnClick: () => {},
   className: '',
+  title: '',
+  subtitle: '',
 };
 
 CallToAction.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   buttonTitle: PropTypes.string.isRequired,
   href: PropTypes.string,
   type: PropTypes.string.isRequired,

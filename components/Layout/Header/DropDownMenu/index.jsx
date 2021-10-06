@@ -44,6 +44,7 @@ export const DropDownMenu = ({
               onClick={handleOnClick(subMenuSlug)}
               role="button"
               tabIndex="0"
+              key={`links/${subMenuSlug}`}
             >
               <h3 className={styles.title}>
                 {title}
@@ -58,6 +59,7 @@ export const DropDownMenu = ({
                   className={styles.menuLink}
                   isLocalLink
                   path={itemSlug}
+                  key={`links/${itemTitle}`}
                 >
                   <span
                     onClick={closeMobileMenu}
@@ -76,6 +78,7 @@ export const DropDownMenu = ({
               <LinkWrapper
                 isLocalLink
                 path={subMenuSlug}
+                key={`links/${subMenuSlug}`}
               >
                 {subMenuItem}
               </LinkWrapper>

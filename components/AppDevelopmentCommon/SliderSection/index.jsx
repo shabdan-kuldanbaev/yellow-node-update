@@ -37,7 +37,7 @@ export const SliderSection = ({ sectionData, type }) => {
         <div className={styles.sliderList}>
           <Animated
             {...animationProps}
-            transitionDelay={750}
+            transitionDelay={300}
           >
             <Swiper {...params}>
               {slides.map((slide) => {

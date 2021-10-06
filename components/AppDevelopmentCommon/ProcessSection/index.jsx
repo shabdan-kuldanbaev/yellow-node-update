@@ -62,6 +62,7 @@ const ProcessSection = ({ sectionData, pageType }) => {
 
               return (
                 <ArcherElement
+                  key={`process-section/${svgType}`}
                   id={`element${index + 1}`}
                   relations={relations}
                 >

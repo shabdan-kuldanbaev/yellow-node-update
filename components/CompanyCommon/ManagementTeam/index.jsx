@@ -55,10 +55,11 @@ export const ManagementTeam = ({ managementTeam, isMobileResolution }) => manage
 
 ManagementTeam.defaultProps = {
   isMobileResolution: false,
+  managementTeam: [],
 };
 
 ManagementTeam.propTypes = {
-  managementTeam: PropTypes.instanceOf(Array).isRequired,
+  managementTeam: PropTypes.instanceOf(Array),
   isMobileResolution: PropTypes.bool,
 };
 

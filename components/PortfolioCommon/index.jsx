@@ -78,12 +78,13 @@ const Portfolio = ({
 
 Portfolio.defaultProps = {
   animatedFields,
+  works: [],
 };
 
 Portfolio.propTypes = {
-  works: PropTypes.instanceOf(Array).isRequired,
+  works: PropTypes.instanceOf(Array),
   animatedFields: PropTypes.instanceOf(Array),
-  maxScrollPosition: PropTypes.number.isRequired,
+  maxScrollPosition: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default withScroll(Portfolio);

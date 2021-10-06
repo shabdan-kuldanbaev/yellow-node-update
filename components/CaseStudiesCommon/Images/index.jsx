@@ -66,11 +66,12 @@ const Images = ({
 Images.defaultProps = {
   type: 'imagContainer',
   view: '',
+  isMobileResolution: false,
 };
 
 Images.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
-  isMobileResolution: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool,
   type: PropTypes.string,
   view: PropTypes.string,
 };

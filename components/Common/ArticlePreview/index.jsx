@@ -97,6 +97,7 @@ ArticlePreview.defaultProps = {
   introduction: '',
   date: '',
   isSearch: false,
+  index: 1,
   handleOnCloseModalWindow: () => {},
 };
 
@@ -108,7 +109,7 @@ ArticlePreview.propTypes = {
   type: PropTypes.string.isRequired,
   introduction: PropTypes.string,
   date: PropTypes.string,
-  index: PropTypes.number.isRequired,
+  index: PropTypes.number,
   isSearch: PropTypes.bool,
   handleOnCloseModalWindow: PropTypes.func,
   animatioProps: PropTypes.instanceOf(Object).isRequired,

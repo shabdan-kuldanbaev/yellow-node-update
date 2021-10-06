@@ -24,7 +24,7 @@ export const ImageSection = ({ sectionData, type }) => {
       <div className={styles.imageSection}>
         <Animated
           {...animatedProps}
-          transitionDelay={600}
+          transitionDelay={250}
         >
           <div
             className={styles.image}
@@ -39,7 +39,7 @@ export const ImageSection = ({ sectionData, type }) => {
           />
           <Animated
             {...animatedProps}
-            transitionDelay={700}
+            transitionDelay={350}
           >
             <ContentfulParser document={text} />
           </Animated>

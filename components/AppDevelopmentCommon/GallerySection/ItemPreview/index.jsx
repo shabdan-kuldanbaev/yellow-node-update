@@ -74,6 +74,7 @@ export const ItemPreview = ({ data, type }) => {
 
           return (
             <img
+              key={`images-bundles/${bundleUrl}`}
               className={styles.imageBundle}
               src={bundleUrl}
               alt={title}

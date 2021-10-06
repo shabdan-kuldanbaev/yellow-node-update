@@ -54,7 +54,10 @@ export const GalleryCallToAction = ({
             } = getDocumentFields(link);
 
             return (
-              <div className={styles.linkContainer}>
+              <div
+                className={styles.linkContainer}
+                key={`gallery-cta/${linkText}`}
+              >
                 <LinkWrapper path={url}>
                   <Svg type={linkSvgType} />
                   <p className={styles.linkText}>

@@ -52,6 +52,7 @@ const ResultsSection = ({ data, type }) => {
               className={styles.imageBundle}
               src={bundleUrl}
               alt={type}
+              key={`result-images-bundles/${bundleUrl}`}
             />
           );
         })}
