@@ -77,6 +77,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.customMobileApp}`, updatedAt },
   { path: `/${PAGES.customWebApp}`, updatedAt },
   { path: `/${PAGES.designServices}`, updatedAt },
+  { path: `/${PAGES.developmentServices}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
