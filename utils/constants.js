@@ -43,6 +43,7 @@ export const NAV_LINKS = [
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
     routes.designServices.slug,
+    routes.developmentServices.slug,
   ].includes(slug)),
 ];
 
@@ -159,6 +160,8 @@ export const SVG_IMAGES_TYPES = {
   arrowUp: 'arrowUp',
   behanceBlackIcon: 'behanceBlackIcon',
   dribbleBlackIcon: 'dribbleBlackIcon',
+  iPhone: 'iPhone',
+  iPad: 'iPad',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -257,6 +260,19 @@ export const APP_DEVELOPMENT_ICONS = {
   wireframes: 'wireframes',
   visualResearch: 'visualResearch',
   uiDesign: 'uiDesign',
+  // web app page, ios app development services
+  prototyping: 'prototyping',
+  uiUxDesign: 'uiUxDesign',
+  iosDevelopment: 'iosDevelopment',
+  redesign: 'redesign',
+  ipadDevelopment: 'ipadDevelopment',
+  testing: 'testing',
+  support: 'support',
+  iosCheck: 'iosCheck',
+  titledCoreData: 'titledCoreData',
+  businessBeforeTechnology: 'businessBeforeTechnology',
+  creatingOwnApps: 'creatingOwnApps',
+  dataProtection: 'dataProtection',
   // common
   arrow: 'arrow',
 };
@@ -374,12 +390,14 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.travelTrivia).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
+  ROUTES.developmentServices.path,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
   ...CASE_STUDIES_SLUGS,
   ROUTES.homepage.path,
   ROUTES.customWebApp.path,
+  ROUTES.developmentServices.path,
 ];
 
 export const SUB_NAVIGATION_LINKS = {
@@ -391,8 +409,10 @@ export const SUB_NAVIGATION_LINKS = {
     },
     {
       title: 'Mobile app development',
-      subtitle: 'Building mobile apps for all platforms',
-      slug: ROUTES.customMobileApp.path,
+      items: [
+        { slug: ROUTES.customMobileApp.path, title: 'Building mobile apps for all platforms' },
+        { slug: ROUTES.developmentServices.path, title: 'iOS app development services' },
+      ],
     },
     {
       title: 'Custom chat app development',
@@ -408,3 +428,9 @@ export const SUB_NAVIGATION_LINKS = {
 };
 
 export const LINKS_WITH_SUB_NAVIGATION = [NON_INTERACTIVE_LINKS.whatWeDo.slug];
+
+export const ARTICLE_TABLE_TYPES = {
+  simpleTable: 'Simple table',
+  tableWithHeader: 'Table with header',
+  tableWithTwoHeader: 'Table with two headers',
+};

@@ -49,7 +49,7 @@ export const ogMetaData = [
   {
     pageName: ROUTES.customChatApp.slug,
     metaTitle: 'Сhat app development company | Chat app developers | Yellow',
-    metaDescription: `Yellow has more than 5+ years of dedication to the development of chat apps. 
+    metaDescription: `Yellow has more than 5+ years of dedication to the development of chat apps.
                   ✔ 10+ successfully delivered chat apps. ✔ Let's get in touch!`,
     url: `${rootUrl}${ROUTES.customChatApp.path}`,
   },
@@ -62,15 +62,21 @@ export const ogMetaData = [
   {
     pageName: ROUTES.customWebApp.slug,
     metaTitle: 'Custom web application development company | Yellow',
-    metaDescription: `Our team is ready to provide you with web development services. 
+    metaDescription: `Our team is ready to provide you with web development services.
     We are working with websites, PWAs, chatting applications, and landing pages.`,
     url: `${rootUrl}${ROUTES.customWebApp.path}`,
   },
   {
     pageName: ROUTES.designServices.slug,
     metaTitle: 'UI/UX design services | Yellow',
-    metaDescription: `Visual content matters, that is where UI/UX design comes into play. 
+    metaDescription: `Visual content matters, that is where UI/UX design comes into play.
                       Users love good-looking software. Make mobile your app or website captivating with Yellow.`,
     url: `${rootUrl}${ROUTES.designServices.path}`,
+  },
+  {
+    pageName: ROUTES.developmentServices.slug,
+    metaTitle: 'iOS Mobile App Development Company | Yellow',
+    metaDescription: 'Yellow can provide you with iOS development services. If you want to create an iPhone or iPad app, we are here to help.',
+    url: `${rootUrl}${ROUTES.developmentServices.path}`,
   },
 ];

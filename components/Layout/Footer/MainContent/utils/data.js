@@ -59,6 +59,11 @@ export const footerData = [
         path: ROUTES.designServices.path,
         type: 'navigation',
       },
+      {
+        subtitle: 'iOS app development services',
+        path: ROUTES.developmentServices.path,
+        type: 'navigation',
+      },
     ],
     type: 'sevices',
   },

@@ -76,11 +76,12 @@ Article.defaultProps = {
   slug: '',
   title: '',
   introduction: '',
+  publishedAt: '',
 };
 
 Article.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  maxScrollPosition: PropTypes.number.isRequired,
+  maxScrollPosition: PropTypes.instanceOf(Object).isRequired,
   slug: PropTypes.string,
   title: PropTypes.string,
   oldBody: PropTypes.string,
@@ -88,7 +89,7 @@ Article.propTypes = {
   introduction: PropTypes.string,
   headImage: PropTypes.string.isRequired,
   author: PropTypes.instanceOf(Object).isRequired,
-  publishedAt: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string,
 };
 
 export default withScroll(Article);

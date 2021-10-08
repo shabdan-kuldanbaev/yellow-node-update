@@ -39,6 +39,10 @@ export const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
   </section>
 );
 
+WhatMakesUsSpecial.defaultProps = {
+  makingUsSpecial: [],
+};
+
 WhatMakesUsSpecial.propTypes = {
-  makingUsSpecial: PropTypes.instanceOf(Array).isRequired,
+  makingUsSpecial: PropTypes.instanceOf(Array),
 };

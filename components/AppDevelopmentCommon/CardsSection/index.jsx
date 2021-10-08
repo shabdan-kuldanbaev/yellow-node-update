@@ -4,10 +4,10 @@ import get from 'lodash/get';
 import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { CallToAction } from 'components/Common/CallToAction';
-import { Svg } from 'components/AppDevelopmentCommon/Svg';
+import CardImage from 'components/AppDevelopmentCommon/CardsSection/CardImage';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { getCardsProps } from './utils/cardsHelper';
 import styles from './styles.module.scss';
 
@@ -47,6 +47,7 @@ export const CardsSection = ({
               description: typeDescription,
               contentList,
               text,
+              images,
             } = getDocumentFields(
               card,
               [
@@ -54,19 +55,23 @@ export const CardsSection = ({
                 'description',
                 'contentList',
                 'text',
+                'images',
               ],
             );
+            const imageUrl = getFileUrl(get(images, '[0]'));
             const svgType = get(contentList, '[0]');
 
             return (
               <Animated
                 key={`cards/${typeTitle}`}
                 {...animatedProps}
-                transitionDelay={750 + 50 * index}
+                transitionDelay={400 + 50 * index}
               >
-                <div className={styles.svgWrapper}>
-                  <Svg type={svgType} />
-                </div>
+                <CardImage
+                  imageUrl={imageUrl}
+                  svgType={svgType}
+                  className={styles.imageWrapper}
+                />
                 <div className={styles.cardContent}>
                   <div className={styles.typeTitle}>
                     {typeTitle}
@@ -80,7 +85,7 @@ export const CardsSection = ({
         {link && (
           <Animated
             {...animatedProps}
-            transitionDelay={900}
+            transitionDelay={550}
           >
             <CallToAction
               type="card"

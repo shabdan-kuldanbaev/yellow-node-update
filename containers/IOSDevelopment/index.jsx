@@ -2,17 +2,18 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
-import { PageHeader } from 'components/Common/PageHeader';
-import { MetaTags } from 'components/Common/MetaTags';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
+import { MetaTags } from 'components/Common/MetaTags';
+import { PageHeader } from 'components/Common/PageHeader';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import { microdata } from 'utils/microdata';
-import { rootUrl, getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import { getDocumentFields, rootUrl } from 'utils/helper';
+import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
 
-const CustomChatAppContainer = ({
+const IOSDevelopmentContainer = ({
+  introSection,
   pageData,
   metaData: {
     metaTitle,
@@ -20,12 +21,12 @@ const CustomChatAppContainer = ({
   },
 }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const breadcrumbs = pagesBreadcrumbs.customChatApp();
+  const breadcrumbs = pagesBreadcrumbs.developmentServices();
   const { main: contentModules } = pageData;
   const pageMetadata = {
     metaTitle,
     metaDescription,
-    url: `${rootUrl}/chat-app-development-company`,
+    url: `${rootUrl}/${PAGES.developmentServices}`,
   };
 
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
@@ -38,9 +39,9 @@ const CustomChatAppContainer = ({
   return (
     <Fragment>
       <MetaTags
-        page={PAGES.customChatApp}
+        page={PAGES.developmentServices}
         pageMetadata={pageMetadata}
-        pageMicrodata={microdata.customChatApp()}
+        pageMicrodata={microdata.customIOSApp()}
         breadcrumbs={breadcrumbs}
       />
       <div className={styles.сontainer}>
@@ -48,16 +49,18 @@ const CustomChatAppContainer = ({
           breadcrumbs={breadcrumbs}
           titleStyles={styles.pageTitle}
           breadcrumbsStyles={styles.breadcrumbs}
+          breadcrumbsTheme="dark"
         />
         {contentModules.map((module) => {
           const { type: sectionType, view } = getDocumentFields(module);
 
           return (
             <AppDevelopmentCommon
-              key={`chat-app/${sectionType}-${view || ''}`}
+              key={`${PAGES.developmentServices}/${sectionType}/${view || ''}`}
+              introSection={introSection}
               section={module}
               handleOnCTAClick={openFullscreenEstimation}
-              type="chat-app-development-company"
+              type={PAGES.developmentServices}
             />
           );
         })}
@@ -70,12 +73,13 @@ const CustomChatAppContainer = ({
   );
 };
 
-CustomChatAppContainer.propTypes = {
+IOSDevelopmentContainer.propTypes = {
   pageData: PropTypes.instanceOf(Object).isRequired,
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
   }).isRequired,
+  introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect(
@@ -83,4 +87,4 @@ export default connect(
     pageData: selectComponents(state),
     metaData: selectMetaData(state),
   }),
-)(CustomChatAppContainer);
+)(IOSDevelopmentContainer);

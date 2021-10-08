@@ -166,3 +166,42 @@
     }
   }
 }
+
+.ios-mobile-app-development-services {
+  @extend .svgSection;
+
+  .svgListWrapper {
+    @extend .svgListWrapperOneRow;
+
+    p {
+      max-width: 855px;
+    }
+
+    .svgList {
+      max-width: 855px;
+      margin: 0 auto;
+
+      & > div {
+        margin-top: 20px;
+
+        & > svg {
+          opacity: 1;
+        }
+
+        @include tablet {
+          width: 50%;
+          margin: 85px 0 0;
+
+          &:nth-of-type(1),
+          &:nth-of-type(2) {
+            margin-top: 5px;
+          }
+        }
+      }
+
+      @include tablet {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

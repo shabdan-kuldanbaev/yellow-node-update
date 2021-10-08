@@ -109,11 +109,18 @@ export const microdata = {
     description: 'The best talents for Mobile App Development are here. Hire an experienced team to work on your idea.',
     breadcrumb: 'Homepage > Custom mobile app development company',
   }),
+  customIOSApp: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'iOS Mobile App Development Company | Yellow',
+    description: 'Yellow can provide you with iOS development services. If you want to create an iPhone or iPad app, we are here to help.',
+    breadcrumb: 'Homepage > iOS App Development Services',
+  }),
   customWebApp: () => ({
     '@context': context,
     '@type': 'WebPage',
     name: 'Custom web application development company',
-    description: `Our team is ready to provide you with web development services. 
+    description: `Our team is ready to provide you with web development services.
                   We are working with websites, PWAs, chatting applications, and landing pages.`,
     breadcrumb: 'Homepage > Custom web application development company',
   }),
@@ -121,7 +128,7 @@ export const microdata = {
     '@context': context,
     '@type': 'WebPage',
     name: 'UI/UX design services',
-    description: `Visual content matters, that is where UI/UX design comes into play. 
+    description: `Visual content matters, that is where UI/UX design comes into play.
                   Users love good-looking software. Make mobile your app or website captivating with Yellow.`,
     breadcrumb: 'Homepage > UI/UX design services',
   }),

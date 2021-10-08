@@ -46,9 +46,9 @@ export const CheckListSection = ({
 
             return (
               <Animated
-                key={`check-list/${item}`}
+                key={`check-list/${itemTitle}`}
                 {...animationProps}
-                transitionDelay={600 + 50 * index}
+                transitionDelay={250 + 50 * index}
               >
                 <div className={styles.itemContainer}>
                   {isNumberedList
@@ -73,7 +73,7 @@ export const CheckListSection = ({
         {link && (
           <Animated
             {...animationProps}
-            transitionDelay={900}
+            transitionDelay={550}
           >
             <CallToAction
               type="card"

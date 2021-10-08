@@ -98,13 +98,18 @@ export const ContentfulParser = ({ document }) => {
           );
         }
         case 'table': {
-          const { tableContent } = getDocumentFields(
+          const { tableContent, tableType } = getDocumentFields(
             get(node, 'data.target', {}),
-            ['tableContent'],
+            ['tableContent', 'tableType'],
           );
 
           return tableContent
-            ? <Table tableData={tableContent.tableData} />
+            ? (
+              <Table
+                tableData={tableContent.tableData}
+                type={tableType}
+              />
+            )
             : null;
         }
         default:

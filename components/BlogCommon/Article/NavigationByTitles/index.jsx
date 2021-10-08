@@ -96,9 +96,10 @@ export const NavigationByTitles = ({ articleBodyRef, articleSlug }) => {
 
 NavigationByTitles.defaultProps = {
   articleBodyRef: null,
+  articleSlug: '',
 };
 
 NavigationByTitles.propTypes = {
   articleBodyRef: PropTypes.instanceOf(Object),
-  articleSlug: PropTypes.string.isRequired,
+  articleSlug: PropTypes.string,
 };

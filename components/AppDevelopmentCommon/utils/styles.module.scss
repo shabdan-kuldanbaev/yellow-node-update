@@ -24,8 +24,9 @@
 @mixin defaultCallToAction {
   box-sizing: border-box;
   width: 100%;
+  max-width: 1076px;
   padding: 80px;
-  margin-top: 80px;
+  margin: 80px auto 0;
 
   @include phone {
     padding: 40px 24px;

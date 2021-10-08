@@ -77,4 +77,10 @@ export const pagesBreadcrumbs = {
       to: ROUTES.designServices.path,
     },
   ]),
+  developmentServices: () => ([
+    {
+      title: ROUTES.developmentServices.title,
+      to: ROUTES.developmentServices.path,
+    },
+  ]),
 };

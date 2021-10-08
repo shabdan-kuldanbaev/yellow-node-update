@@ -49,7 +49,7 @@ const SelectionBlock = ({
       {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
         <Svg
-          type={SVG_IMAGES_TYPES.searchIcon}
+          type={SVG_IMAGES_TYPES.searchSvg}
           handleOnClick={openFullscreenSearch}
           className={styles.imgContainer}
         />
