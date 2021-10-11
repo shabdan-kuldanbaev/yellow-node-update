@@ -7,9 +7,14 @@ import styles from './styles.module.scss';
 export const Works = ({ refs, works }) => (
   <div className={styles.worksContainer}>
     {works && works.map((work, index) => {
-      const { previewImage, title, description } = getDocumentFields(
+      const {
+        previewImage,
+        title,
+        description,
+        slug,
+      } = getDocumentFields(
         work,
-        ['previewImage', 'title', 'description'],
+        ['previewImage', 'title', 'description', 'slug'],
       );
       const imageUrl = getFileUrl(previewImage);
 
@@ -21,6 +26,7 @@ export const Works = ({ refs, works }) => (
           title={title}
           description={description}
           imageUrl={imageUrl}
+          slug={slug}
         />
       );
     })}

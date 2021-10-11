@@ -19,6 +19,7 @@ const Work = ({
   imageUrl,
   title,
   description,
+  slug,
 }) => {
   let sizeOfImage; // TODO rewrite it after the release
   const {
@@ -55,6 +56,7 @@ const Work = ({
               animated={animated}
               title={title}
               description={description}
+              slug={slug}
             />
           </Animated>
         ))}
@@ -90,6 +92,7 @@ const Work = ({
 
 Work.defaultProps = {
   animatedFields,
+  slug: '',
 };
 
 Work.propTypes = {
@@ -101,6 +104,7 @@ Work.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  slug: PropTypes.string,
 };
 
 export default connect(

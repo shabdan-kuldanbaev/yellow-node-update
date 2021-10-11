@@ -59,3 +59,28 @@
     font-size: 0.8rem;
   }
 }
+
+.viewButton {
+  @include button-more($white, $black, transparent, $turbo-100, $boulder, $turbo-100);
+
+  max-width: 170px !important;
+  margin: 10px 0;
+  border-radius: $button-border-radius;
+  font-weight: 600;
+  outline: none;
+
+  @include tablet {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  @include higher-phone {
+    padding: 12px 0 !important;
+  }
+
+  @include phone {
+    display: block !important;
+    width: 270px !important;
+    text-align: center !important;
+  }
+}
