@@ -24,7 +24,7 @@ const IntroText = ({ className, isMobileResolution }) => {
       )}
     >
       <p className={styles.text}>
-        For Y Combinator startups, Fortune 500 companies and you.&nbsp;
+        For Y Combinator startups, Fortune 500 companies, and you.&nbsp;
       </p>
       <LinkWrapper
         isLocalLink
