@@ -150,6 +150,7 @@ export const SVG_IMAGES_TYPES = {
   instaRoundWhite: 'instaRoundWhite',
   linkedinRoundBlack: 'linkedinRoundBlack',
   twitterRoundBlack: 'twitterRoundBlack',
+  behanceRoundBlack: 'behanceRoundBlack',
   dribbleRoundBlack: 'dribbleRoundBlack',
   mediumRoundBlack: 'mediumRoundBlack',
   instaRoundBlack: 'instaRoundBlack',
