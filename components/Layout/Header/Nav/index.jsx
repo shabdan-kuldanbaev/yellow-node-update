@@ -23,18 +23,17 @@ const Nav = ({
   // TODO rework this checks
   const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
 
-  const openDropDownMenuWithCheck = (slug) => {
+  const openDropDownMenu = (slug) => {
     if (isHeader && isHasSubNavigation(slug)) {
       setIsDropMenuOpenedAction(true);
     }
   };
-  const openDropDownMenu = (slug) => () => openDropDownMenuWithCheck(slug);
   const closeDropDownMenu = () => setIsDropMenuOpenedAction(false);
   const handleOnClick = (slug) => () => {
     if (isDropMenuOpened) {
       closeDropDownMenu();
     } else {
-      openDropDownMenuWithCheck(slug);
+      openDropDownMenu(slug);
     }
   };
 
@@ -56,7 +55,6 @@ const Nav = ({
           <li
             key={`menuItem/${title}`}
             className={cn(styles[theme], { [styles.nonClickableItem]: !path })}
-            onMouseEnter={openDropDownMenu(slug)}
             onMouseLeave={closeDropDownMenu}
             onClick={handleOnClick(slug)}
           >
