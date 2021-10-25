@@ -185,7 +185,7 @@
   max-width: 100%;
   padding: 192px 12px;
 
-  @include flex(row,space-between,center, wrap);
+  @include flex(row, space-between, center, wrap);
 
   @include phone {
     padding: 50px 12px;
@@ -218,6 +218,7 @@
     right: 0;
     background-color: rgba($white, 0.03);
   }
+
   /* stylelint-disable-next-line */
   .featureContainer {
     margin-bottom: 70px;
@@ -424,6 +425,62 @@
     .checkMark {
       color: $white;
       background-color: $flamenco;
+    }
+  }
+}
+
+.beautonomy {
+  @extend .container;
+
+  padding: 150px 105px;
+
+  @include macbook-twelve {
+    padding: 100px 30px;
+  }
+
+  @include tablet {
+    max-width: unset;
+    order: 2;
+    padding: 150px 100px;
+  }
+
+  @include phone {
+    max-width: unset;
+    padding: 150px 30px;
+  }
+
+  .containerBackground {
+    left: -27%;
+
+    @include phone {
+      right: 30px;
+    }
+  }
+
+  .featureContainer {
+    width: 420px;
+    margin-bottom: 60px;
+
+    .contentContainer {
+      display: flex;
+      align-items: center;
+
+      .title {
+        margin: 0;
+
+        @include macbook-twelve {
+          @include fontSize(18px);
+        }
+      }
+    }
+
+    .checkMark {
+      color: $white;
+      background-color: $dark-grey;
+    }
+
+    @include tablet {
+      width: unset;
     }
   }
 }

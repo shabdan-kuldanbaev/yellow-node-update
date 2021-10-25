@@ -371,6 +371,7 @@ export const CASE_STUDIES = {
   driveFocus: 'drive-focus',
   cashChat: 'cash-chat',
   travelTrivia: 'travel-trivia',
+  beautonomy: 'beautonomy',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

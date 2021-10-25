@@ -166,3 +166,36 @@
     }
   }
 }
+
+.beautonomy {
+  @extend .infoContainer;
+
+  .container {
+    margin-right: 30px !important;
+
+    .listItemContainer {
+      margin-bottom: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $dark-grey;
+      }
+
+      .title {
+        @include phone {
+          @include fontSize(18px);
+        }
+      }
+    }
+
+    &:first-child {
+      width: 250px;
+    }
+
+    @include tablet {
+      &:first-child {
+        width: unset;
+      }
+    }
+  }
+}
