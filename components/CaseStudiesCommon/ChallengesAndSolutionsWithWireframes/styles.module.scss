@@ -93,3 +93,21 @@
 .drive-focus {
   @include caseStudyContainer;
 }
+
+.beautonomy {
+  @include caseStudyContainer;
+
+  background-size: 100%;
+
+  [data-case-study-description] {
+    margin-bottom: 100px;
+
+    @include phone {
+      margin-bottom: 40px;
+    }
+  }
+
+  @include macbook-twelve {
+    background-size: cover;
+  }
+}

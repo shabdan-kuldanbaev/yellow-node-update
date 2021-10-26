@@ -117,3 +117,12 @@
     }
   }
 }
+
+.beautonomy {
+  padding: 0 40px 150px;
+  background: $white;
+
+  @include phone {
+    padding: 0 15px 80px;
+  }
+}

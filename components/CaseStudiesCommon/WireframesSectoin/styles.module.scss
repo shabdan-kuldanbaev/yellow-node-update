@@ -99,3 +99,19 @@
     max-width: 782px;
   }
 }
+
+.beautonomy {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  padding: 0;
+  background-color: $white;
+
+  [data-case-study-description] {
+    max-width: 830px;
+  }
+
+  @include tablet {
+    padding: 0;
+  }
+}

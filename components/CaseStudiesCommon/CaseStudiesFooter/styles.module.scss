@@ -480,3 +480,55 @@
 .drive-focus {
   background-color: $flamenco;
 }
+
+.beautonomy {
+  @extend .container;
+
+  background-color: $coffee;
+
+  .nextProjectContainer {
+    .subtitle {
+      opacity: 0.7;
+      color: $dark-grey;
+
+      @include fontSize(16px);
+
+      @include phone {
+        @include fontSize(12px);
+      }
+    }
+
+    .projectName {
+      color: $dark-grey;
+
+      @include phone {
+        @include fontSize(50px);
+      }
+    }
+
+    .more {
+      border: 1px solid $dark-grey;
+      color: $dark-grey;
+
+      @include fontSize(14px);
+
+      @include phone {
+        @include fontSize(12px);
+      }
+    }
+  }
+
+  .link {
+    color: rgba($dark-grey, 0.5);
+
+    @include fontSize(24px);
+
+    @include phone {
+      @include fontSize(18px);
+    }
+  }
+
+  .iconLink {
+    color: $dark-grey;
+  }
+}

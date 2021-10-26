@@ -1011,3 +1011,172 @@
     }
   }
 }
+
+.beautonomy {
+  &.firstSectionView {
+    .special {
+      max-width: unset;
+
+      &:nth-child(2n) {
+        & > div:last-child {
+          &::after {
+            left: 0;
+            transform: translate(-15px, -1px);
+            background: linear-gradient(269.82deg, rgba($white, 0) 0%, $white 78.3%);
+          }
+        }
+
+        .infoContainer {
+          margin: 0 0 0 150px;
+
+          @include tablet {
+            margin-left: 30px;
+          }
+        }
+
+        @include below-tablet {
+          flex-direction: column-reverse;
+        }
+
+        @include phone {
+          flex-direction: column;
+        }
+
+        @include flex(row, flex-start);
+      }
+
+      &:nth-child(2n +1) {
+        & > div:last-child {
+          &::after {
+            right: 0;
+            transform: translate(15px, -1px);
+            background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
+          }
+        }
+
+        .infoContainer {
+          margin: 0 150px 0 0;
+
+          @include tablet {
+            margin-right: 30px;
+          }
+        }
+
+        @include below-tablet {
+          flex-direction: column;
+        }
+
+        @include flex(row, flex-end);
+      }
+
+      &:nth-child(2n + 1),
+      &:nth-child(2n) {
+        & > div:last-child {
+          @extend .openSenseGradient;
+
+          &::after {
+            top: -20px;
+            width: 60%;
+            padding: 20px 0;
+
+            @include below-tablet {
+              display: none;
+            }
+          }
+        }
+
+        @include below-tablet {
+          .infoContainer {
+            margin: 40px 0 0;
+          }
+        }
+
+        @include phone {
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .infoContainer {
+        max-width: unset;
+
+        .h2,
+        p {
+          line-height: 1.7;
+        }
+
+        h2 {
+          @include fontSize(40px);
+
+          @include tablet {
+            @include fontSize(36px);
+          }
+
+          @include phone {
+            @include fontSize(24px);
+          }
+        }
+
+        p {
+          max-width: 405px;
+
+          @include fontSize(18px);
+
+          @include tablet {
+            @include fontSize(14px);
+
+            max-width: unset;
+          }
+        }
+      }
+
+      & > div:last-child {
+        position: relative;
+
+        .image {
+          width: 100%;
+          height: unset;
+          max-height: unset;
+          max-width: 950px;
+          filter: unset;
+          box-shadow: 0 6px 30px rgba(112, 112, 128, 0.2);
+
+          @include tablet {
+            margin: 40px 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      margin: 0 auto 150px;
+
+      .title {
+        @include tablet {
+          @include fontSize(24px);
+        }
+      }
+
+      @include macbook-twelve {
+        margin: 0 auto 80px;
+      }
+
+      @include below-tablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        .infoContainer {
+          width: 100%;
+          max-width: unset;
+          margin-right: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

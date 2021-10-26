@@ -891,10 +891,6 @@
         }
       }
 
-      @include tablet {
-        max-width: unset;
-      }
-
       .projectTitle {
         filter: drop-shadow(0 4px 4px $work-beautonomy-title-shadow);
 
@@ -911,11 +907,15 @@
         @include fontSize(24px);
 
         @include tablet {
-          margin: 0 auto 16px;
           max-width: unset;
+          margin: 0 auto 16px;
 
           @include fontSize(18px);
         }
+      }
+
+      @include tablet {
+        max-width: unset;
       }
     }
   }
@@ -965,10 +965,10 @@
       }
 
       @include phone {
-        height: fit-content;
-        width: inherit;
         top: 40%;
         left: 45%;
+        height: fit-content;
+        width: inherit;
       }
     }
 
