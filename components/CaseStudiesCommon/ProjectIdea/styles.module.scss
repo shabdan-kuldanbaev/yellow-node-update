@@ -315,3 +315,15 @@
     }
   }
 }
+
+.writer-chrome-extension {
+  padding-bottom: 70px;
+
+  @include tablet {
+    padding-bottom: 55px;
+  }
+
+  @include phone {
+    padding-bottom: 40px;
+  }
+}
