@@ -112,6 +112,9 @@
 }
 
 .beautonomy {
+  position: relative;
+  z-index: 10;
+
   .listContainer {
     grid-gap: 15px 270px;
     max-width: 900px;

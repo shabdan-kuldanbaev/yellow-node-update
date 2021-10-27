@@ -899,6 +899,10 @@
         @include tablet {
           @include fontSize(48px);
         }
+
+        @include phone {
+          @include fontSize(44px);
+        }
       }
 
       .projectSubtitle {
@@ -942,12 +946,6 @@
         }
       }
     }
-
-    @include phone {
-      & div:nth-of-type(1n +3) {
-        display: none;
-      }
-    }
   }
 
   .imageContainer {
@@ -967,8 +965,8 @@
       @include phone {
         top: 40%;
         left: 45%;
-        height: fit-content;
-        width: inherit;
+        width: 420px;
+        height: auto;
       }
     }
 

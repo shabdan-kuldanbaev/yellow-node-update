@@ -397,6 +397,7 @@ export const PAGES_WITH_DARK_HEADER = [
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
   CASE_STUDIES.openSense,
+  CASE_STUDIES.beautonomy,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [

@@ -125,4 +125,25 @@
   @include phone {
     padding: 0 15px 80px;
   }
+
+  &.secondSectionView {
+    @include caseStudyContainer;
+
+    position: relative;
+    background: $coffee;
+    background-size: 100%;
+
+    [data-case-study-description] {
+      margin-bottom: 100px;
+
+      @include phone {
+        max-width: 230px;
+        margin-bottom: 40px;
+      }
+    }
+
+    @include macbook-twelve {
+      background-size: cover;
+    }
+  }
 }

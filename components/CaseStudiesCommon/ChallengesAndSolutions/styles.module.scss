@@ -1150,6 +1150,9 @@
   }
 
   &.secondSectionView {
+    position: relative;
+    z-index: 10;
+
     .contentContainer {
       margin: 0 auto 150px;
 
