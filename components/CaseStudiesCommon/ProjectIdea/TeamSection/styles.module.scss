@@ -153,6 +153,7 @@
   }
 }
 
+.writer-chrome-extension,
 .open-sense {
   @extend .container;
 
@@ -161,6 +162,16 @@
 
   .title {
     padding-right: 60px;
+  }
+}
+
+.writer-chrome-extension {
+  grid-template-columns: repeat(2, auto);
+
+  .title {
+    @include tablet {
+      padding-right: 0;
+    }
   }
 }
 
