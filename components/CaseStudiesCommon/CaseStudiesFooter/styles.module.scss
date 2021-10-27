@@ -437,6 +437,7 @@
   }
 }
 
+.writer-chrome-extension,
 .natp,
 .drive-focus {
   @extend .container;
@@ -471,6 +472,10 @@
   .iconLink {
     color: $white;
   }
+}
+
+.writer-chrome-extension {
+  background: $sea-blue;
 }
 
 .natp {
