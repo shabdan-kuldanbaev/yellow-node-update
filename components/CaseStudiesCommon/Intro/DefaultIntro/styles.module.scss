@@ -870,3 +870,72 @@
     }
   }
 }
+
+.writer-chrome-extension {
+  @extend .container;
+
+  z-index: 0;
+  background: $sea-blue;
+  background-size: cover;
+
+  .projectInfoContainer {
+    color: $white;
+
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(65px);
+
+      @include tablet {
+        @include fontSize(44px);
+      }
+    }
+
+    .projectDescription {
+      opacity: 0.7;
+      max-width: 407px;
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+    @include below-tablet {
+      right: -450px;
+    }
+
+    @include tablet {
+      right: -350px;
+    }
+
+    @include phone {
+      right: -550px;
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      p {
+        line-height: 1.5;
+
+        @include phone {
+          margin-right: 60px;
+        }
+
+        @include fontSize(18px);
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p:not(.infoTitle) {
+        color: $white;
+        opacity: 0.8;
+      }
+    }
+  }
+}
