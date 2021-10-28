@@ -1011,3 +1011,28 @@
     }
   }
 }
+
+.writer-chrome-extension {
+  & .contentContainer {
+    .title {
+      color: $white;
+      position: relative;
+
+      span {
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -34px;
+          right: 0;
+          width: 100%;
+          border-bottom: 16px $bright-blue solid;
+          background-color: $bright-blue;
+        }
+      }
+    }
+  }
+
+  & .infoContainer p {
+    color: $white;
+  }
+}

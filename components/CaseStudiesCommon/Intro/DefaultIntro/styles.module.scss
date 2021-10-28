@@ -938,4 +938,11 @@
       }
     }
   }
+
+  a {
+    @extend .webSiteLink;
+
+    color: $black;
+    background-color: $white;
+  }
 }

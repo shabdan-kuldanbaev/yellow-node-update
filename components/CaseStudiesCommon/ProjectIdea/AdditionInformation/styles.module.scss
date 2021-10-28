@@ -150,6 +150,20 @@
   }
 }
 
+.writer-chrome-extension {
+  @extend .natp;
+
+  padding-top: 30px;
+
+  .container {
+    .listItemContainer {
+      &::marker {
+        color: $sea-blue;
+      }
+    }
+  }
+}
+
 .drive-focus {
   @extend .infoContainer;
 
