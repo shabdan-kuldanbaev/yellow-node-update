@@ -1,11 +1,16 @@
 @import 'styles/utils/mixins';
 
+.absolute-positioning {
+  position: absolute;
+  z-index: 1;
+}
+
 .beautonomy {
   img:nth-child(1) {
-    position: absolute;
+    @extend .absolute-positioning;
+
     top: 5%;
     right: 0;
-    z-index: 1;
     width: 15%;
 
     @include below-tablet {
@@ -15,10 +20,10 @@
   }
 
   img:nth-child(2) {
-    position: absolute;
+    @extend .absolute-positioning;
+
     top: 40%;
     left: 0;
-    z-index: 1;
     width: 16%;
 
     @include below-tablet {
@@ -28,10 +33,10 @@
   }
 
   img:nth-child(3) {
-    position: absolute;
+    @extend .absolute-positioning;
+
     bottom: 3%;
     right: 0;
-    z-index: 1;
     width: 20%;
 
     @include below-tablet {

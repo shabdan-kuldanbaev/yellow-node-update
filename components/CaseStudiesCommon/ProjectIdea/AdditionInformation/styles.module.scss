@@ -173,6 +173,16 @@
   .container {
     margin-right: 30px !important;
 
+    &:first-child {
+      width: 250px;
+    }
+
+    @include tablet {
+      &:first-child {
+        width: unset;
+      }
+    }
+
     .listItemContainer {
       margin-bottom: 5px;
       color: $silver-chalice;
@@ -185,16 +195,6 @@
         @include phone {
           @include fontSize(18px);
         }
-      }
-    }
-
-    &:first-child {
-      width: 250px;
-    }
-
-    @include tablet {
-      &:first-child {
-        width: unset;
       }
     }
   }

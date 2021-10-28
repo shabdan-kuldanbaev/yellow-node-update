@@ -322,13 +322,28 @@
 
   .contentContainer {
     justify-content: space-between;
-    max-width: 1300px;
+    max-width: $max-content-width;
     padding-bottom: 0;
     margin-bottom: 150px;
+
+    @include tablet {
+      margin-bottom: 0;
+
+      @include flex(column, center, center);
+    }
 
     .descriptionContainer {
       max-width: 520px;
       margin-left: 0;
+
+      @include macbook-twelve {
+        max-width: max-content;
+        margin-left: 30px;
+      }
+
+      @include phone {
+        margin: 0;
+      }
 
       .descriptionIntro {
         .sectionName {
@@ -344,21 +359,6 @@
           }
         }
       }
-
-      @include macbook-twelve {
-        max-width: max-content;
-        margin-left: 30px;
-      }
-
-      @include phone {
-        margin: 0;
-      }
-    }
-
-    @include tablet {
-      margin-bottom: 0;
-
-      @include flex(column, center, center);
     }
   }
 }

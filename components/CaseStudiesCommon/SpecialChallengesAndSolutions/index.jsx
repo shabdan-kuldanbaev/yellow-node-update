@@ -34,11 +34,11 @@ const SpecialChallengesAndSolutions = ({ data, type }) => {
   );
 };
 
-ChallengesAndSolutions.defaultProps = {
+SpecialChallengesAndSolutions.defaultProps = {
   type: '',
 };
 
-ChallengesAndSolutions.propTypes = {
+SpecialChallengesAndSolutions.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,
 };

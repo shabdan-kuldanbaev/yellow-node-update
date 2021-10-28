@@ -1018,6 +1018,16 @@
       max-width: unset;
 
       &:nth-child(2n) {
+        @include flex(row, flex-start);
+
+        @include below-tablet {
+          flex-direction: column-reverse;
+        }
+
+        @include phone {
+          flex-direction: column;
+        }
+
         & > div:last-child {
           &::after {
             left: 0;
@@ -1033,19 +1043,15 @@
             margin-left: 30px;
           }
         }
-
-        @include below-tablet {
-          flex-direction: column-reverse;
-        }
-
-        @include phone {
-          flex-direction: column;
-        }
-
-        @include flex(row, flex-start);
       }
 
       &:nth-child(2n +1) {
+        @include below-tablet {
+          flex-direction: column;
+        }
+
+        @include flex(row, flex-end);
+
         & > div:last-child {
           &::after {
             right: 0;
@@ -1061,16 +1067,21 @@
             margin-right: 30px;
           }
         }
-
-        @include below-tablet {
-          flex-direction: column;
-        }
-
-        @include flex(row, flex-end);
       }
 
       &:nth-child(2n + 1),
       &:nth-child(2n) {
+        @include below-tablet {
+          .infoContainer {
+            margin: 40px 0 0;
+          }
+        }
+
+        @include phone {
+          align-items: center;
+          justify-content: center;
+        }
+
         & > div:last-child {
           @extend .openSenseGradient;
 
@@ -1083,17 +1094,6 @@
               display: none;
             }
           }
-        }
-
-        @include below-tablet {
-          .infoContainer {
-            margin: 40px 0 0;
-          }
-        }
-
-        @include phone {
-          align-items: center;
-          justify-content: center;
         }
       }
 
@@ -1123,9 +1123,9 @@
           @include fontSize(18px);
 
           @include tablet {
-            @include fontSize(14px);
-
             max-width: unset;
+
+            @include fontSize(14px);
           }
         }
       }
@@ -1156,12 +1156,6 @@
     .contentContainer {
       margin: 0 auto 150px;
 
-      .title {
-        @include tablet {
-          @include fontSize(24px);
-        }
-      }
-
       @include macbook-twelve {
         margin: 0 auto 80px;
       }
@@ -1178,6 +1172,12 @@
           max-width: unset;
           margin-right: 0;
           text-align: center;
+        }
+      }
+
+      .title {
+        @include tablet {
+          @include fontSize(24px);
         }
       }
     }

@@ -120,19 +120,6 @@
     max-width: 900px;
     margin: 0 auto;
 
-    .listItem {
-      color: $dark-grey;
-      font-weight: 700;
-
-      &::marker {
-        color: $dark-grey;
-
-        @include fontSize(24px);
-      }
-
-      @include fontSize(18px);
-    }
-
     @include tablet {
       grid-gap: 15px 150px;
       max-width: 700px;
@@ -144,6 +131,19 @@
 
     @include phone {
       grid-template-columns: unset;
+    }
+
+    .listItem {
+      color: $dark-grey;
+      font-weight: 700;
+
+      @include fontSize(18px);
+
+      &::marker {
+        color: $dark-grey;
+
+        @include fontSize(24px);
+      }
     }
   }
 }

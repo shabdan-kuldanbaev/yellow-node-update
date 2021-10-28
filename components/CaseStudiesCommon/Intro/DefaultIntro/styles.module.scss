@@ -933,10 +933,6 @@
         @include fontSize(18px);
       }
 
-      .infoTitle {
-        color: $dark-grey;
-      }
-
       @include phone {
         margin-right: 80px;
 
@@ -945,10 +941,23 @@
           @include fontSize(14px);
         }
       }
+
+      .infoTitle {
+        color: $dark-grey;
+      }
     }
   }
 
   .imageContainer {
+    @include tablet {
+      height: 600px;
+    }
+
+    @include phone {
+      height: 240px;
+      width: 430px;
+    }
+
     .image {
       top: 40%;
       left: 25vw;
@@ -968,15 +977,6 @@
         width: 420px;
         height: auto;
       }
-    }
-
-    @include tablet {
-      height: 600px;
-    }
-
-    @include phone {
-      height: 240px;
-      width: 430px;
     }
   }
 

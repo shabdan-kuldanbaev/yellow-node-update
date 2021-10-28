@@ -1,5 +1,4 @@
 import React from 'react';
-import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -33,8 +32,13 @@ const BackgroundImages = ({ data, type }) => {
   );
 };
 
-ChallengesAndSolutions.propTypes = {
+BackgroundImages.defaultProps = {
+  type: '',
+};
+
+BackgroundImages.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string,
 };
 
 export default BackgroundImages;

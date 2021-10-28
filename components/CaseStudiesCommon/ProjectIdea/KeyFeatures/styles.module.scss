@@ -434,6 +434,21 @@
 
   padding: 150px 105px;
 
+  @include macbook-twelve {
+    padding: 100px 30px;
+  }
+
+  @include tablet {
+    order: 2;
+    max-width: unset;
+    padding: 150px 100px;
+  }
+
+  @include phone {
+    max-width: unset;
+    padding: 150px 30px;
+  }
+
   .containerBackground {
     left: -27%;
 
@@ -445,6 +460,10 @@
   .featureContainer {
     width: 420px;
     margin-bottom: 60px;
+
+    @include tablet {
+      width: unset;
+    }
 
     .contentContainer {
       display: flex;
@@ -463,24 +482,5 @@
       color: $white;
       background-color: $dark-grey;
     }
-
-    @include tablet {
-      width: unset;
-    }
-  }
-
-  @include macbook-twelve {
-    padding: 100px 30px;
-  }
-
-  @include tablet {
-    order: 2;
-    max-width: unset;
-    padding: 150px 100px;
-  }
-
-  @include phone {
-    max-width: unset;
-    padding: 150px 30px;
   }
 }
