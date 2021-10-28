@@ -61,7 +61,7 @@ const ChallengesAndSolutions = ({
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.infoContainer, styles.separatedTitle)}>
                   <h2 className={styles.title}>
-                    {title}
+                    <span>{title}</span>
                   </h2>
                 </div>
               </Animated>
