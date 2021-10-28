@@ -224,6 +224,12 @@ export const routes = {
     dynamicPath: '/ios-mobile-app-development-services',
     slug: 'ios-mobile-app-development-services',
   },
+  signatureGenerator: {
+    title: 'Signature Generator',
+    path: '/signature-generator',
+    dynamicPath: '/signature-generator',
+    slug: 'signature-generator',
+  },
   notFound: {
     title: '404 | Yellow',
     path: '/not-found',

@@ -1,0 +1,58 @@
+@import 'styles/utils/mixins';
+
+.signature {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: calc(#{$header-height} + 60px) 0 60px;
+  font-family: $case-studies-font;
+  background-color: $white;
+  color: $dark-grey;
+
+  &-title {
+    font-size: 32px;
+    text-align: center;
+    margin: 0;
+  }
+
+  &-input {
+    width: 540px;
+    height: 46px;
+    margin-top: 24px;
+    font-family: $case-studies-font;
+    border: 0;
+    border-bottom: 0.5px solid $silver-1;
+
+    &::placeholder {
+      color: $silver-chalice;
+
+      @include fontSize(16px);
+    }
+  }
+
+  &-requered-fields {
+    margin: 24px 0 32px;
+    color: $requiredFieldColor;
+  }
+
+  &-button {
+    width: 120px;
+    height: 46px;
+    margin: 0 auto;
+    border: 0;
+    border-radius: 8px;
+    background-color: $turbo-100;
+    color: $dark-grey;
+    font-family: $case-studies-font;
+
+    &-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    @include fontSize(16px);
+  }
+
+  @include phone {
+    padding: calc(#{$header-height} + 40px) 0 0;
+  }
+}

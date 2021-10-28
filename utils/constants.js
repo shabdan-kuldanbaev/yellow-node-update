@@ -44,6 +44,7 @@ export const NAV_LINKS = [
     routes.customWebApp.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
+    routes.signatureGenerator.slug,
   ].includes(slug)),
 ];
 
