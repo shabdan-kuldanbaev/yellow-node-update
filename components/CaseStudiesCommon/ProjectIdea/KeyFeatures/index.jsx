@@ -10,6 +10,7 @@ import {
   getOptimizedContentfulImage,
 } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
+import cn from 'classnames';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import styles from './styles.module.scss';
 
@@ -40,7 +41,7 @@ const KeyFeatures = ({ features, type }) => {
               delay={50 * index}
               {...ANIMATION_CASE_STUDY_PROPS}
             >
-              <div className={styles.featureContainer}>
+              <div className={cn(styles.featureContainer, styles[`featureContainer-${index + 1}`])}>
                 <div className={styles.checkMark}>
                   <Svg
                     className={styles.icon}
