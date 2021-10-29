@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
@@ -10,7 +11,6 @@ import {
   getOptimizedContentfulImage,
 } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-import cn from 'classnames';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import styles from './styles.module.scss';
 

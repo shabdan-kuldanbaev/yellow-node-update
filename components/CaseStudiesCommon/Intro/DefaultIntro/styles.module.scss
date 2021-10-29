@@ -921,11 +921,11 @@
       p {
         line-height: 1.5;
 
+        @include fontSize(18px);
+
         @include phone {
           margin-right: 60px;
         }
-
-        @include fontSize(18px);
       }
 
       .infoTitle {

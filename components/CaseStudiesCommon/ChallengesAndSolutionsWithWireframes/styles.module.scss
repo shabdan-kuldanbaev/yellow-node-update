@@ -63,10 +63,7 @@
   position: relative;
   z-index: 1;
 
-  [data-case-study-title] {
-    color: $white;
-  }
-
+  [data-case-study-title],
   [data-case-study-description] {
     color: $white;
   }
