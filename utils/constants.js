@@ -150,6 +150,7 @@ export const SVG_IMAGES_TYPES = {
   instaRoundWhite: 'instaRoundWhite',
   linkedinRoundBlack: 'linkedinRoundBlack',
   twitterRoundBlack: 'twitterRoundBlack',
+  behanceRoundBlack: 'behanceRoundBlack',
   dribbleRoundBlack: 'dribbleRoundBlack',
   mediumRoundBlack: 'mediumRoundBlack',
   instaRoundBlack: 'instaRoundBlack',
@@ -366,11 +367,13 @@ export const CASE_STUDIES = {
   fairy: 'fairy',
   tell: 'tell',
   openSense: 'open-sense',
+  writerChromeExtension: 'writer-chrome-extension',
   separateUs: 'separate-us',
   natp: 'natp',
   driveFocus: 'drive-focus',
   cashChat: 'cash-chat',
   travelTrivia: 'travel-trivia',
+  beautonomy: 'beautonomy',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -395,6 +398,7 @@ export const PAGES_WITH_DARK_HEADER = [
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
   CASE_STUDIES.openSense,
+  CASE_STUDIES.beautonomy,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [

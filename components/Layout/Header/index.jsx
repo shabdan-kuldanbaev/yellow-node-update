@@ -32,6 +32,7 @@ const Header = ({
     CASE_STUDIES.tell,
     CASE_STUDIES.openSense,
     CASE_STUDIES.separateUs,
+    CASE_STUDIES.beautonomy,
   ].includes(project)
     ? 'light'
     : 'dark';

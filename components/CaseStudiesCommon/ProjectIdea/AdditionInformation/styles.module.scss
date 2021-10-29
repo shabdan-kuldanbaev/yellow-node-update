@@ -150,6 +150,20 @@
   }
 }
 
+.writer-chrome-extension {
+  @extend .natp;
+
+  padding-top: 30px;
+
+  .container {
+    .listItemContainer {
+      &::marker {
+        color: $sea-blue;
+      }
+    }
+  }
+}
+
 .drive-focus {
   @extend .infoContainer;
 
@@ -162,6 +176,41 @@
 
       &::marker {
         color: $flamenco;
+      }
+    }
+  }
+}
+
+.beautonomy {
+  @extend .infoContainer;
+
+  .container {
+    &:first-child {
+      width: 250px;
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 30px;
+    }
+
+    @include tablet {
+      &:first-child {
+        width: unset;
+      }
+    }
+
+    .listItemContainer {
+      margin-bottom: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $dark-grey;
+      }
+
+      .title {
+        @include phone {
+          @include fontSize(18px);
+        }
       }
     }
   }

@@ -199,6 +199,7 @@
   @extend .container;
 }
 
+.writer-chrome-extension,
 .natp {
   @extend .container;
 
@@ -309,6 +310,66 @@
 
         @include tablet {
           margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.writer-chrome-extension {
+  padding-bottom: 70px;
+
+  @include tablet {
+    padding-bottom: 55px;
+  }
+
+  @include phone {
+    padding-bottom: 40px;
+  }
+}
+
+.beautonomy {
+  @extend .container;
+
+  background-color: $white;
+
+  .contentContainer {
+    justify-content: space-between;
+    max-width: $max-content-width;
+    padding-bottom: 0;
+    margin-bottom: 150px;
+
+    @include tablet {
+      margin-bottom: 0;
+
+      @include flex(column, center, center);
+    }
+
+    .descriptionContainer {
+      max-width: 520px;
+      margin-left: 0;
+
+      @include macbook-twelve {
+        max-width: max-content;
+        margin-left: 30px;
+      }
+
+      @include phone {
+        margin: 0;
+      }
+
+      .descriptionIntro {
+        .sectionName {
+          margin: 10px 0 20px;
+        }
+
+        .description {
+          max-width: 520px;
+          margin-bottom: 60px;
+
+          @include phone {
+            margin-bottom: 40px;
+          }
         }
       }
     }
