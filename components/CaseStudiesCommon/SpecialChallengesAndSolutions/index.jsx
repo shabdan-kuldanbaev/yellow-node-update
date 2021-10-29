@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
+import BackgroundImages from 'components/CaseStudiesCommon/BackgroundImages';
 import { getBackgroundStyle } from './utils/challengesHelper';
 import styles from './styles.module.scss';
 
@@ -25,15 +26,19 @@ const SpecialChallengesAndSolutions = ({ data, type }) => {
         view={view}
         isSpecial
       />
+      <BackgroundImages
+        data={data}
+        type={type}
+      />
     </section>
   );
 };
 
-ChallengesAndSolutions.defaultProps = {
+SpecialChallengesAndSolutions.defaultProps = {
   type: '',
 };
 
-ChallengesAndSolutions.propTypes = {
+SpecialChallengesAndSolutions.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,
 };

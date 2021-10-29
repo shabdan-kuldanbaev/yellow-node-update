@@ -1,0 +1,47 @@
+@import 'styles/utils/mixins';
+
+.absolute-positioning {
+  position: absolute;
+  z-index: 1;
+}
+
+.beautonomy {
+  img:nth-child(1) {
+    @extend .absolute-positioning;
+
+    top: 5%;
+    right: 0;
+    width: 15%;
+
+    @include below-tablet {
+      top: 8%;
+      width: 100px;
+    }
+  }
+
+  img:nth-child(2) {
+    @extend .absolute-positioning;
+
+    top: 40%;
+    left: 0;
+    width: 16%;
+
+    @include below-tablet {
+      top: 26%;
+      width: 120px;
+    }
+  }
+
+  img:nth-child(3) {
+    @extend .absolute-positioning;
+
+    bottom: 3%;
+    right: 0;
+    width: 20%;
+
+    @include below-tablet {
+      bottom: 20%;
+      width: 150px;
+    }
+  }
+}

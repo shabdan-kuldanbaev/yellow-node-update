@@ -110,3 +110,40 @@
     }
   }
 }
+
+.beautonomy {
+  position: relative;
+  z-index: 10;
+
+  .listContainer {
+    grid-gap: 15px 270px;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @include tablet {
+      grid-gap: 15px 150px;
+      max-width: 700px;
+    }
+
+    @include below-tablet {
+      column-gap: 50px;
+    }
+
+    @include phone {
+      grid-template-columns: unset;
+    }
+
+    .listItem {
+      color: $dark-grey;
+      font-weight: 700;
+
+      @include fontSize(18px);
+
+      &::marker {
+        color: $dark-grey;
+
+        @include fontSize(24px);
+      }
+    }
+  }
+}
