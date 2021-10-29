@@ -346,6 +346,7 @@
   }
 }
 
+.writer-chrome-extension,
 .natp {
   @extend .container;
 
@@ -395,6 +396,54 @@
     .checkMark {
       color: $white;
       background-color: $sushi;
+    }
+  }
+}
+
+.writer-chrome-extension {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(6, 1fr);
+
+  @include tablet {
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+  }
+
+  .featureContainer-1 {
+    grid-row: 2/4;
+    grid-column: 1;
+  }
+
+  .featureContainer-2 {
+    grid-row: 4/6;
+    grid-column: 1;
+  }
+
+  .featureContainer-3 {
+    grid-row: 1/3;
+    grid-column: 2;
+  }
+
+  .featureContainer-4 {
+    grid-row: 3/5;
+    grid-column: 2;
+  }
+
+  .featureContainer-5 {
+    grid-row: 5/7;
+    grid-column: 2;
+  }
+
+  .featureContainer {
+    @include tablet {
+      grid-row: unset;
+      grid-column: unset;
+    }
+
+    .checkMark {
+      color: $white;
+      background-color: $sea-blue;
     }
   }
 }

@@ -1,5 +1,6 @@
 @import 'styles/utils/mixins';
 
+.writer-chrome-extension,
 .fernwayer,
 .beautonomy,
 .stickerbox,
@@ -14,6 +15,18 @@
   @include caseStudyContainer;
 
   background-color: $white;
+}
+
+.writer-chrome-extension {
+  padding-top: 70px;
+
+  @include tablet {
+    padding-top: 55px;
+  }
+
+  @include phone {
+    padding-top: 40px;
+  }
 }
 
 .seven-pm-thursday {

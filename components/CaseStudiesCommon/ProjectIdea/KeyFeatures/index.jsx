@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
@@ -40,7 +41,7 @@ const KeyFeatures = ({ features, type }) => {
               delay={50 * index}
               {...ANIMATION_CASE_STUDY_PROPS}
             >
-              <div className={styles.featureContainer}>
+              <div className={cn(styles.featureContainer, styles[`featureContainer-${index + 1}`])}>
                 <div className={styles.checkMark}>
                   <Svg
                     className={styles.icon}

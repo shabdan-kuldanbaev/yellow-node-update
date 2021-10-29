@@ -5,7 +5,11 @@ import get from 'lodash/get';
 import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import Wireframes from 'components/CaseStudiesCommon/Wireframes';
-import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import {
+  getFileUrl,
+  getOptimizedContentfulImage,
+  getDocumentFields,
+} from 'utils/helper';
 import styles from './styles.module.scss';
 
 const ChallengesAndSolutionsWithWireframes = ({ data, type }) => {
@@ -15,6 +19,11 @@ const ChallengesAndSolutionsWithWireframes = ({ data, type }) => {
   );
   const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
   const { view } = data;
+
+  const { imagesBundles } = getDocumentFields(
+    get(data, 'contentModules[0]', {}),
+    ['imagesBundles'],
+  );
 
   return (
     <section
@@ -34,6 +43,18 @@ const ChallengesAndSolutionsWithWireframes = ({ data, type }) => {
         data={data}
         type={type}
       />
+      {imagesBundles && imagesBundles.map((bundle, index) => {
+        const bundleUrl = getFileUrl(bundle);
+
+        return (
+          <img
+            className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
+            src={bundleUrl}
+            alt="Circle"
+            key={`intro-images-bundles/${bundleUrl}`}
+          />
+        );
+      })}
     </section>
   );
 };

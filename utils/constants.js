@@ -367,6 +367,7 @@ export const CASE_STUDIES = {
   fairy: 'fairy',
   tell: 'tell',
   openSense: 'open-sense',
+  writerChromeExtension: 'writer-chrome-extension',
   separateUs: 'separate-us',
   natp: 'natp',
   driveFocus: 'drive-focus',
