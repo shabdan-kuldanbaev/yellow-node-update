@@ -171,10 +171,12 @@
   @extend .infoContainer;
 
   .container {
-    margin-right: 30px !important;
-
     &:first-child {
       width: 250px;
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 30px;
     }
 
     @include tablet {

@@ -1161,11 +1161,7 @@
       }
 
       @include below-tablet {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: nowrap;
+        @include flex(column, center, center);
 
         .infoContainer {
           width: 100%;

@@ -926,13 +926,6 @@
 
   .experiencesContainer {
     .experience {
-      p {
-        line-height: 1.5;
-        color: $silver-chalice;
-
-        @include fontSize(18px);
-      }
-
       @include phone {
         margin-right: 80px;
 
@@ -940,6 +933,13 @@
         p {
           @include fontSize(14px);
         }
+      }
+
+      p {
+        line-height: 1.5;
+        color: $silver-chalice;
+
+        @include fontSize(18px);
       }
 
       .infoTitle {
