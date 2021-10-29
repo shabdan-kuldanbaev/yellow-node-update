@@ -180,3 +180,38 @@
     }
   }
 }
+
+.beautonomy {
+  @extend .infoContainer;
+
+  .container {
+    &:first-child {
+      width: 250px;
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 30px;
+    }
+
+    @include tablet {
+      &:first-child {
+        width: unset;
+      }
+    }
+
+    .listItemContainer {
+      margin-bottom: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $dark-grey;
+      }
+
+      .title {
+        @include phone {
+          @include fontSize(18px);
+        }
+      }
+    }
+  }
+}

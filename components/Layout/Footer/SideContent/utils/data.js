@@ -17,6 +17,11 @@ export const socialMedia = [
     link: '//dribbble.com/yellow_systems',
   },
   {
+    title: 'Behance',
+    type: SVG_IMAGES_TYPES.behanceRoundBlack,
+    link: '//www.behance.net/yellow_systems',
+  },
+  {
     title: 'Medium',
     type: SVG_IMAGES_TYPES.mediumRoundBlack,
     link: '//medium.com/@yellow',

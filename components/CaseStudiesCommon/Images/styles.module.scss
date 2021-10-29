@@ -150,6 +150,7 @@
 .writer-chrome-extension,
 .separate-us,
 .open-sense,
+.beautonomy,
 .drive-focus {
   @extend .imagContainer;
 
@@ -186,6 +187,21 @@
 
     &:last-of-type {
       margin-bottom: 0;
+    }
+  }
+}
+
+.beautonomy {
+  .image {
+    max-width: 1150px;
+    margin: 0 auto;
+
+    @include tablet {
+      max-width: 800px;
+    }
+
+    @include phone {
+      max-width: 600px;
     }
   }
 }

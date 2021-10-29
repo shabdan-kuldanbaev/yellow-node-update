@@ -131,6 +131,33 @@
       color: $silver-chalice;
     }
   }
+
+  &beautonomy {
+    background-color: $white;
+
+    & > section {
+      @include phone {
+        height: 45vh;
+      }
+    }
+
+    & > div {
+      padding: 150px 40px;
+
+      @include tablet {
+        padding: 100px 40px;
+      }
+
+      @include phone {
+        padding: 80px 15px;
+      }
+    }
+
+    [data-case-study-description] {
+      max-width: 820px;
+      color: $silver-chalice;
+    }
+  }
 }
 
 .tell,
@@ -139,6 +166,7 @@
 .natp,
 .drive-focus,
 .travel-trivia,
+.beautonomy,
 .cash-chat {
   @extend .parallax;
 }

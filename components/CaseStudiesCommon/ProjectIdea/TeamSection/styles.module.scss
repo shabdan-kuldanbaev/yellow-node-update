@@ -116,6 +116,7 @@
   }
 }
 
+.beautonomy,
 .travel-trivia {
   @extend .container;
 
@@ -139,6 +140,20 @@
 
   .teamItem:nth-of-type(3) {
     grid-row: 3/5;
+  }
+}
+
+.beautonomy {
+  @include tablet {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 110px;
+    align-items: unset;
+    padding-top: 80px;
+  }
+
+  @include below-tablet {
+    @include flex(column, center, center);
   }
 }
 
