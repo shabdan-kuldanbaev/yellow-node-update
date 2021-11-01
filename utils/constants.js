@@ -164,6 +164,7 @@ export const SVG_IMAGES_TYPES = {
   dribbleBlackIcon: 'dribbleBlackIcon',
   iPhone: 'iPhone',
   iPad: 'iPad',
+  browser: 'browser',
 };
 
 export const APP_DEVELOPMENT_ICONS = {

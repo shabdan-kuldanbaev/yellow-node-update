@@ -14,18 +14,52 @@
     margin: 0;
   }
 
+  &-svg {
+    cursor: pointer;
+    visibility: hidden;
+
+    &-hidden {
+      visibility: visible;
+    }
+  }
+
   &-input {
-    width: 540px;
+    width: 580px;
     height: 46px;
-    margin-top: 24px;
-    font-family: $case-studies-font;
     border: 0;
-    border-bottom: 0.5px solid $silver-1;
+    font-family: $case-studies-font;
+    @include fontSize(16px);
+
+    &-container {
+      width: max-content;
+      margin: 24px auto 0;
+      border-bottom: 0.5px solid $silver-1;
+
+      @include flex(row, center, center);
+    }
 
     &::placeholder {
       color: $silver-chalice;
 
       @include fontSize(16px);
+    }
+
+    outline-color: transparent;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      @include fontSize(16px);
+
+      font-family: $case-studies-font;
+      color: transparent;
+      background: transparent;
+      caret-color: transparent;
+      transition: background-color 5000s ease-in-out 0s;
     }
   }
 
@@ -35,14 +69,21 @@
   }
 
   &-button {
-    width: 120px;
+    width: max-content;
     height: 46px;
     margin: 0 auto;
+    padding: 11px 32px;
     border: 0;
     border-radius: 8px;
     background-color: $turbo-100;
     color: $dark-grey;
     font-family: $case-studies-font;
+    transition: background 0.1s linear;
+    cursor: pointer;
+
+    &:active {
+      background-color: $turbo-200;
+    }
 
     &-container {
       display: flex;
@@ -50,6 +91,31 @@
     }
 
     @include fontSize(16px);
+  }
+
+  &-header {
+    &-buttons {
+      width: 100%;
+      height: 24px;
+      background: $mine-shaft-1;
+      border-radius: 8px 8px 0 0;
+
+      & svg {
+        margin-left: 8px;
+      }
+
+      &-red{
+        color: $requiredFieldColor;
+      }
+
+      &-yellow{
+        color: $turbo-300;
+      }
+
+      &-green{
+        color: $green-100;
+      }
+    }
   }
 
   @include phone {
