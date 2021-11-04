@@ -1,6 +1,8 @@
 @import 'styles/utils/mixins';
 
 .signature {
+  display: flex;
+  flex-direction: column;
   max-width: 600px;
   margin: 0 auto;
   padding: calc(#{$header-height} + 60px) 0 60px;
@@ -8,15 +10,19 @@
   background-color: $white;
   color: $dark-grey;
 
+  &-with-generated {
+    max-width: 800px;
+  }
+
   &-title {
+    margin: 0;
     font-size: 32px;
     text-align: center;
-    margin: 0;
   }
 
   &-svg {
-    cursor: pointer;
     visibility: hidden;
+    cursor: pointer;
 
     &-hidden {
       visibility: visible;
@@ -26,9 +32,16 @@
   &-input {
     width: 580px;
     height: 46px;
+    padding-left: 5px;
     border: 0;
     font-family: $case-studies-font;
+    outline: none;
+
     @include fontSize(16px);
+
+    @include higher-phone {
+      width: inherit;
+    }
 
     &-container {
       width: max-content;
@@ -36,6 +49,10 @@
       border-bottom: 0.5px solid $silver-1;
 
       @include flex(row, center, center);
+
+      @include higher-phone {
+        width: 300px;
+      }
     }
 
     &::placeholder {
@@ -44,8 +61,6 @@
       @include fontSize(16px);
     }
 
-    outline-color: transparent;
-
     &:focus-visible {
       outline: none;
     }
@@ -53,19 +68,30 @@
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
-      @include fontSize(16px);
-
       font-family: $case-studies-font;
       color: transparent;
       background: transparent;
       caret-color: transparent;
       transition: background-color 5000s ease-in-out 0s;
+
+      @include fontSize(16px);
     }
   }
 
   &-requered-fields {
     margin: 24px 0 32px;
     color: $requiredFieldColor;
+
+    @include higher-phone {
+      width: 300px;
+    }
+
+    &-container {
+      @include higher-phone {
+        width: 300px;
+        margin: auto;
+      }
+    }
   }
 
   &-button {
@@ -81,44 +107,130 @@
     transition: background 0.1s linear;
     cursor: pointer;
 
-    &:active {
-      background-color: $turbo-200;
-    }
-
     &-container {
       display: flex;
-      justify-content: center;
+    }
+
+    &:active {
+      background-color: $turbo-200;
     }
 
     @include fontSize(16px);
   }
 
+  &-sub-header {
+    color: $white;
+    padding: 10px 0;
+
+    & span {
+      @include fontSize(14px);
+
+      @include higher-phone {
+        @include fontSize(12px);
+      }
+    }
+
+    & *:nth-of-type(2n+1) {
+      margin-left: 10px;
+    }
+
+    & *:nth-of-type(2n) {
+      margin-left: 5px;
+      font-weight: 600;
+    }
+  }
+
   &-header {
-    &-buttons {
+    background: $tuna;
+
+    &-browser {
       width: 100%;
-      height: 24px;
-      background: $mine-shaft-1;
-      border-radius: 8px 8px 0 0;
+      height: 100%;
+    }
 
-      & svg {
-        margin-left: 8px;
+    &-new-line {
+      display: block;
+    }
+  }
+
+  &-bottom {
+    @include fontSize(10px);
+
+    font-size: 0.625rem;
+    background-color: #ededed;
+    color: #a0a0a0;
+
+    &-container {
+      margin: 0 16px;
+      padding: 16px;
+      background-color: #ededed;
+    }
+  }
+
+  &-container {
+    margin: 16px;
+
+    table {
+      font-family: $case-studies-font;
+    }
+
+    hr {
+      border: 0;
+      border-bottom: 1px solid lightgrey;
+      color: lightgrey;
+      height: 1px;
+    }
+  }
+
+  &-logo {
+    &-container {
+      width: 64px;
+      padding-top: 24px;
+      vertical-align: top;
+    }
+  }
+
+  &-data {
+    padding: 24px 0 24px 15px;
+
+    @include fontSize(12px);
+
+    &-employee {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    &-job {
+      margin: 0 0 8px;
+      color: $silver-chalice;
+    }
+
+    &-email {
+      margin: 0 0 8px;
+
+      a {
+        color: black;
+        text-decoration: none white;
       }
+    }
 
-      &-red{
-        color: $requiredFieldColor;
-      }
+    &-yellow {
+      margin: 0 0 8px;
 
-      &-yellow{
-        color: $turbo-300;
-      }
-
-      &-green{
-        color: $green-100;
+      a {
+        color: black;
+        text-decoration: none white;
       }
     }
   }
 
+  &-generated {
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+    padding-bottom: 24px;
+    margin: 24px 10px 32px;
+  }
+
   @include phone {
-    padding: calc(#{$header-height} + 40px) 0 0;
+    padding: calc(#{$header-height} + 40px) 0 40px;
   }
 }

@@ -165,6 +165,8 @@ export const SVG_IMAGES_TYPES = {
   iPhone: 'iPhone',
   iPad: 'iPad',
   browser: 'browser',
+  cross: 'cross',
+  telegram: 'telegram',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
