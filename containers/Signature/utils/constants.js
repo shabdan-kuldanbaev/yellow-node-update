@@ -1,1 +1,1 @@
-export const SignatureButtonNames = ['Create', 'Copy signature source code'];
+export const SIGNATURE_BUTTON_NAMES = ['Create', 'Copy signature source code'];

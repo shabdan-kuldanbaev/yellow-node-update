@@ -1,0 +1,21 @@
+@import 'styles/utils/mixins';
+
+.signature {
+  &RequeredFields {
+    margin: 24px 0 32px;
+    color: $required-field-color;
+
+    @include higher-phone {
+      width: 300px;
+    }
+
+    &Container {
+      @include higher-phone {
+        width: 300px;
+        margin: auto;
+      }
+    }
+  }
+
+  @include signature-button;
+}
