@@ -1,10 +1,14 @@
-import cn from 'classnames';
 import React, { useRef, useState } from 'react';
-import { SignatureButtonNames, SignatureDataClassNames } from 'containers/Signature/utils/constants';
-import { Svg } from 'components/Common/Svg';
 import { connect } from 'react-redux';
+import cn from 'classnames';
+import { getCurrentValue } from 'containers/Signature/utils/helpers';
+import { SignatureButtonNames } from 'containers/Signature/utils/constants';
+import { Svg } from 'components/Common/Svg';
+import {
+  getDocumentFields,
+  getFileUrl,
+} from 'utils/helper';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
-import { getFileUrl, getDocumentFields } from 'utils/helper';
 
 import styles from './styles.module.scss';
 
@@ -13,7 +17,8 @@ const get = require('lodash/get');
 const SignatureGenerator = ({ pageData: { main } }) => {
   const formRef = useRef(null);
   const signatureContainer = useRef(null);
-  const [updateTrigger, setUpdateTrigger] = useState({});
+  const [, setUpdateTrigger] = useState({});
+
   const {
     title: signatureGeneratorTitle = '',
     contentModules: inputsList = [],
@@ -51,7 +56,7 @@ const SignatureGenerator = ({ pageData: { main } }) => {
   const yellowUrl = getFileUrl(images[0]);
   const telegram = getFileUrl(images[1]);
 
-  function selectElementContents(el) {
+  const selectElementContents = (el) => {
     let range;
     let sel;
 
@@ -64,7 +69,7 @@ const SignatureGenerator = ({ pageData: { main } }) => {
 
     document.execCommand('Copy');
     sel.removeAllRanges();
-  }
+  };
 
   return (
     <div className={cn(styles.signature, { [styles['signature-with-generated']]: currentSignatureTitle === signatureGeneratedTitle })}>
@@ -111,7 +116,7 @@ const SignatureGenerator = ({ pageData: { main } }) => {
                 />
                 <Svg
                   type="cross"
-                  className={cn(styles['signature-svg'], { [styles['signature-svg-hidden']]: !!(formRef.current && formRef.current[index].value) })}
+                  className={cn(styles['signature-svg'], { [styles['signature-svg-hidden']]: !!(getCurrentValue(formRef, index)) })}
                   handleOnClick={() => {
                     formRef.current[index].value = '';
                     setUpdateTrigger({});
@@ -137,6 +142,7 @@ const SignatureGenerator = ({ pageData: { main } }) => {
           </div>
         </form>
       )
+
         : (
           <>
             <div
@@ -149,7 +155,7 @@ const SignatureGenerator = ({ pageData: { main } }) => {
                 />
                 <div className={styles['signature-sub-header']}>
                   {titledList.map((title, index) => (
-                    <span>
+                    <span key={index}>
                       {title}
                       {index === 1 && <br />}
                     </span>
@@ -167,6 +173,7 @@ const SignatureGenerator = ({ pageData: { main } }) => {
                       <a
                         target="_blank"
                         href="https://yellow.systems"
+                        rel="noreferrer"
                       >
                         <img
                           width="64"
@@ -176,48 +183,46 @@ const SignatureGenerator = ({ pageData: { main } }) => {
                       </a>
                     </td>
                     <td className={styles['signature-data']}>
-                      {
-                        SignatureDataClassNames.map(((className, index) => (index === 3
-                          ? (
-                            <p
-                              key={index}
-                              className={styles[className]}
-                            >
-                              <a href={`mailto:${formRef.current && formRef.current[index].value}`}>
-                                {formRef.current && formRef.current[index].value}
-                              </a>
-                            </p>
-                          )
-                          : (
-                            <p
-                              key={index}
-                              className={styles[className]}
-                            >
-                              {formRef.current && formRef.current[index].value}
-                            </p>
-                          ))))
-                      }
+                      <p
+                        className={styles['signature-data-employee']}
+                      >
+                        {getCurrentValue(formRef, 0)}
+                      </p>
+                      <p
+                        className={styles['signature-data-job']}
+                      >
+                        {getCurrentValue(formRef, 1)}
+                      </p>
+                      <p
+                        className={styles['signature-data-email']}
+                      >
+                        <a href={`mailto:${getCurrentValue(formRef, 2)}`}>
+                          {getCurrentValue(formRef, 2)}
+                        </a>
+                      </p>
                       <p className={styles['signature-data-yellow']}>
                         <a
                           target="_blank"
                           href="https://yellow.systems"
+                          rel="noreferrer"
                         >
                           https://yellow.systems
                         </a>
                       </p>
-                      {formRef.current && formRef.current[3].value
-                      && (
-                        <a
-                          href={`https://t.me/${formRef.current && formRef.current[3].value.substring(1)}`}
-                          target="_blank"
-                        >
-                          <img
-                            width="24"
-                            src={telegram}
-                            alt=""
-                          />
-                        </a>
-                      )}
+                      { getCurrentValue(formRef, 3)
+                        && (
+                          <a
+                            href={`https://t.me/${getCurrentValue(formRef, 3).substring(1)}`}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <img
+                              width="24"
+                              src={telegram}
+                              alt=""
+                            />
+                          </a>
+                        )}
                     </td>
                   </tr>
                 </table>
@@ -231,8 +236,9 @@ const SignatureGenerator = ({ pageData: { main } }) => {
               </div>
             </div>
             <button
+              type="button"
               className={styles['signature-button']}
-              onClick={(e) => selectElementContents(signatureContainer.current)}
+              onClick={() => selectElementContents(signatureContainer.current)}
             >
               {
                 SignatureButtonNames[1]
