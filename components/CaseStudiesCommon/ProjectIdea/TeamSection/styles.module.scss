@@ -116,6 +116,7 @@
   }
 }
 
+.beautonomy,
 .travel-trivia {
   @extend .container;
 
@@ -142,6 +143,20 @@
   }
 }
 
+.beautonomy {
+  @include tablet {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 110px;
+    align-items: unset;
+    padding-top: 80px;
+  }
+
+  @include below-tablet {
+    @include flex(column, center, center);
+  }
+}
+
 .tell {
   @extend .container;
 
@@ -153,6 +168,7 @@
   }
 }
 
+.writer-chrome-extension,
 .open-sense {
   @extend .container;
 
@@ -161,6 +177,17 @@
 
   .title {
     padding-right: 60px;
+  }
+}
+
+.writer-chrome-extension {
+  grid-template-columns: repeat(2, auto);
+  padding-top: 145px;
+
+  .title {
+    @include tablet {
+      padding-right: 0;
+    }
   }
 }
 

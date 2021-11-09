@@ -5,7 +5,7 @@ import Signature from 'containers/Signature';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 
-const SignatureGenerator = ({ introSection }) => <Signature introSection={introSection} />;
+const SignatureGenerator = () => <Signature />;
 
 SignatureGenerator.getInitialProps = async ({ store, req }) => {
   try {
@@ -20,7 +20,7 @@ SignatureGenerator.getInitialProps = async ({ store, req }) => {
   } catch (error) {
     errorHelper.handleError({
       error,
-      message: 'Error in the IOSDevelopment.getInitialProps function',
+      message: 'Error in the SignatureGenerator.getInitialProps function',
     });
   }
 };
