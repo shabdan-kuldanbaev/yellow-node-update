@@ -1,11 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { getInputsData } from 'containers/Signature/utils/helpers';
 import { SIGNATURE_BUTTON_NAMES } from 'containers/Signature/utils/constants';
 import SignatureInput from 'containers/Signature/SignatureInput';
 import styles from './styles.module.scss';
 
 const SignatureGenerate = ({
-  formRef, setCurrentSignatureTitle, signatureGeneratedTitle, inputsList,
+  formRef,
+  setCurrentSignatureTitle,
+  signatureGeneratedTitle,
+  inputsList,
 }) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -22,6 +26,7 @@ const SignatureGenerate = ({
 
         return (
           <SignatureInput
+            key={index}
             type={type}
             placeholder={placeholder}
             formRef={formRef}
@@ -47,3 +52,14 @@ const SignatureGenerate = ({
 };
 
 export default SignatureGenerate;
+
+SignatureGenerate.defaultProps = {
+  formRef: null,
+};
+
+SignatureGenerate.propTypes = {
+  formRef: PropTypes.instanceOf(Object),
+  setCurrentSignatureTitle: PropTypes.func.isRequired,
+  signatureGeneratedTitle: PropTypes.string.isRequired,
+  inputsList: PropTypes.instanceOf(Object).isRequired,
+};

@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import cn from 'classnames';
 import { getSignatureProps } from 'containers/Signature/utils/helpers';
 import SignatureGenerate from 'containers/Signature/SignatureGenerate';
 import SignatureGenerated from 'containers/Signature/SignatureGenerated';
-import { selectComponents, selectMetaData } from 'redux/selectors/layout';
+import { selectComponents } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
 const SignatureGenerator = ({ pageData: { main } }) => {
@@ -55,9 +56,10 @@ const SignatureGenerator = ({ pageData: { main } }) => {
   );
 };
 
+SignatureGenerator.propTypes = {
+  pageData: PropTypes.instanceOf(Object).isRequired,
+};
+
 export default connect(
-  (state) => ({
-    pageData: selectComponents(state),
-    metaData: selectMetaData(state),
-  }),
+  (state) => ({ pageData: selectComponents(state) }),
 )(SignatureGenerator);
