@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Svg } from 'components';
 import styles from './styles.module.scss';
 
 const SignatureInput = ({
-  type, placeholder, formRef, index,
+  type,
+  placeholder,
+  formRef,
+  index,
 }) => {
   const [isSvgVisible, setSvgVisible] = useState(false);
 
   const onResetSvgClick = () => {
-    formRef.current[index].value = '';
-    setSvgVisible(false);
+    if (formRef.current) {
+      formRef.current[index].value = '';
+      setSvgVisible(false);
+    }
   };
 
   const onInputChange = (event) => {
@@ -38,3 +44,14 @@ const SignatureInput = ({
 };
 
 export default SignatureInput;
+
+SignatureInput.defaultProps = {
+  formRef: null,
+};
+
+SignatureInput.propTypes = {
+  formRef: PropTypes.instanceOf(Object),
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+};

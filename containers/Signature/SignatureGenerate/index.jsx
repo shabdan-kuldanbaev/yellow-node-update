@@ -53,12 +53,8 @@ const SignatureGenerate = ({
 
 export default SignatureGenerate;
 
-SignatureGenerate.defaultProps = {
-  formRef: null,
-};
-
 SignatureGenerate.propTypes = {
-  formRef: PropTypes.instanceOf(Object),
+  formRef: PropTypes.instanceOf(Object).isRequired,
   setCurrentSignatureTitle: PropTypes.func.isRequired,
   signatureGeneratedTitle: PropTypes.string.isRequired,
   inputsList: PropTypes.instanceOf(Object).isRequired,

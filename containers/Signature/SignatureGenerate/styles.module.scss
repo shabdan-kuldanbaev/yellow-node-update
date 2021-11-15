@@ -1,6 +1,8 @@
 @import 'styles/utils/mixins';
 
 .signature {
+  @include signature-button;
+
   &RequeredFields {
     margin: 24px 0 32px;
     color: $required-field-color;
@@ -16,6 +18,4 @@
       }
     }
   }
-
-  @include signature-button;
 }

@@ -29,7 +29,9 @@ const SignatureGenerated = ({
       range = document.createRange();
       sel = window.getSelection();
       sel.removeAllRanges();
-      range.selectNode(signatureContainer.current);
+
+      if (signatureContainer.current) range.selectNode(signatureContainer.current);
+
       sel.addRange(range);
     }
 
@@ -147,15 +149,10 @@ const SignatureGenerated = ({
 
 export default SignatureGenerated;
 
-SignatureGenerated.defaultProps = {
-  signatureContainer: null,
-  formRef: null,
-};
-
 SignatureGenerated.propTypes = {
   titledList: PropTypes.instanceOf(Object).isRequired,
-  signatureContainer: PropTypes.instanceOf(Object),
-  formRef: PropTypes.instanceOf(Object),
+  signatureContainer: PropTypes.instanceOf(Object).isRequired,
+  formRef: PropTypes.instanceOf(Object).isRequired,
   yellowUrl: PropTypes.string.isRequired,
   telegramUrl: PropTypes.string.isRequired,
   bottomText: PropTypes.string.isRequired,
