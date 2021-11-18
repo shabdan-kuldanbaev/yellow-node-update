@@ -44,14 +44,12 @@ const SignatureGenerate = ({
           type="submit"
           className={styles.signatureButton}
         >
-          {SIGNATURE_BUTTON_NAMES[0]}
+          {SIGNATURE_BUTTON_NAMES.create}
         </button>
       </div>
     </form>
   );
 };
-
-export default SignatureGenerate;
 
 SignatureGenerate.propTypes = {
   formRef: PropTypes.instanceOf(Object).isRequired,
@@ -59,3 +57,5 @@ SignatureGenerate.propTypes = {
   signatureGeneratedTitle: PropTypes.string.isRequired,
   inputsList: PropTypes.instanceOf(Object).isRequired,
 };
+
+export default SignatureGenerate;

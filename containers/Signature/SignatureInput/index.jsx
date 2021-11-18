@@ -13,7 +13,7 @@ const SignatureInput = ({
   const [isSvgVisible, setSvgVisible] = useState(false);
 
   const onResetSvgClick = () => {
-    if (formRef.current) {
+    if (formRef.current && formRef.current[index]) {
       formRef.current[index].value = '';
       setSvgVisible(false);
     }
@@ -43,15 +43,11 @@ const SignatureInput = ({
   );
 };
 
-export default SignatureInput;
-
-SignatureInput.defaultProps = {
-  formRef: null,
-};
-
 SignatureInput.propTypes = {
-  formRef: PropTypes.instanceOf(Object),
+  formRef: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
+
+export default SignatureInput;

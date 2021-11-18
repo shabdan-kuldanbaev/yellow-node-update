@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { getEmployeeInfo } from 'containers/Signature/utils/helpers';
-import { SIGNATURE_BUTTON_NAMES } from 'containers/Signature/utils/constants';
+import { SIGNATURE_BUTTON_NAMES, YELLOW_LINK } from 'containers/Signature/utils/constants';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
 import styles from './styles.module.scss';
@@ -30,7 +30,9 @@ const SignatureGenerated = ({
       sel = window.getSelection();
       sel.removeAllRanges();
 
-      if (signatureContainer.current) range.selectNode(signatureContainer.current);
+      if (signatureContainer.current) {
+        range.selectNode(signatureContainer.current);
+      }
 
       sel.addRange(range);
     }
@@ -41,9 +43,7 @@ const SignatureGenerated = ({
 
   return (
     <Fragment>
-      <div
-        className={styles.signatureGenerated}
-      >
+      <div className={styles.signatureGenerated}>
         <div className={styles.signatureHeader}>
           <Svg
             className={styles.signatureHeaderBrowser}
@@ -69,7 +69,7 @@ const SignatureGenerated = ({
                 <td className={styles.signatureLogoContainer}>
                   <LinkWrapper
                     isLocalLink={false}
-                    path="https://yellow.systems"
+                    path={YELLOW_LINK}
                   >
                     <img
                       width="64"
@@ -79,19 +79,13 @@ const SignatureGenerated = ({
                   </LinkWrapper>
                 </td>
                 <td className={styles.signatureData}>
-                  <p
-                    className={styles.signatureDataEmployee}
-                  >
+                  <p className={styles.signatureDataEmployee}>
                     {employee}
                   </p>
-                  <p
-                    className={styles.signatureDataJob}
-                  >
+                  <p className={styles.signatureDataJob}>
                     {employeeJob}
                   </p>
-                  <p
-                    className={styles.signatureDataEmail}
-                  >
+                  <p className={styles.signatureDataEmail}>
                     <LinkWrapper
                       isLocalLink={false}
                       path={`mailto:${employeeMail}`}
@@ -102,9 +96,9 @@ const SignatureGenerated = ({
                   <p className={styles.signatureDataYellow}>
                     <LinkWrapper
                       isLocalLink={false}
-                      path="https://yellow.systems"
+                      path={YELLOW_LINK}
                     >
-                      https://yellow.systems
+                      {YELLOW_LINK}
                     </LinkWrapper>
                   </p>
                   {employeeTelegram && (
@@ -141,13 +135,11 @@ const SignatureGenerated = ({
         className={styles.signatureButton}
         onClick={selectElementContents}
       >
-        {SIGNATURE_BUTTON_NAMES[1]}
+        {SIGNATURE_BUTTON_NAMES.copySignature}
       </button>
     </Fragment>
   );
 };
-
-export default SignatureGenerated;
 
 SignatureGenerated.propTypes = {
   titledList: PropTypes.instanceOf(Object).isRequired,
@@ -157,3 +149,5 @@ SignatureGenerated.propTypes = {
   telegramUrl: PropTypes.string.isRequired,
   bottomText: PropTypes.string.isRequired,
 };
+
+export default SignatureGenerated;

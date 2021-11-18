@@ -48,32 +48,13 @@ export const getSignatureProps = (props) => {
 };
 
 export const getEmployeeInfo = (formRef) => {
-  const employee = (get(formRef, [
-    'current',
-    '0',
-    'value',
-  ], ''));
-  const employeeJob = (get(formRef, [
-    'current',
-    '1',
-    'value',
-  ], ''));
-  const employeeMail = (get(formRef, [
-    'current',
-    '2',
-    'value',
-  ], ''));
-  const employeeTelegram = ((get(formRef, [
-    'current',
-    '3',
-    'value',
-  ], '')));
+  const getEmployee = (index) => get(formRef, `current.${index}.value`, '');
 
   return {
-    employee,
-    employeeJob,
-    employeeMail,
-    employeeTelegram,
+    employee: getEmployee(0),
+    employeeJob: getEmployee(1),
+    employeeMail: getEmployee(2),
+    employeeTelegram: getEmployee(3),
   };
 };
 

@@ -1,5 +1,12 @@
 @import 'styles/utils/mixins';
 
+@mixin signatureLinkMixin {
+  a {
+    color: black;
+    text-decoration: none white;
+  }
+}
+
 .signature {
   @include signature-button;
 
@@ -88,25 +95,19 @@
     &Email {
       margin: 0 0 8px;
 
-      a {
-        color: black;
-        text-decoration: none white;
-      }
+      @include signatureLinkMixin;
     }
 
     &Yellow {
       margin: 0 0 8px;
 
-      a {
-        color: black;
-        text-decoration: none white;
-      }
+      @include signatureLinkMixin;
     }
   }
 
   &Generated {
     padding-bottom: 24px;
     margin: 24px 10px 32px;
-    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px 0 rgba($black, 0.08);
   }
 }

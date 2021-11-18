@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { selectComponents } from 'redux/selectors/layout';
-import { connect } from 'react-redux';
 import { getSignatureProps } from 'containers/Signature/utils/helpers';
 import SignatureGenerate from 'containers/Signature/SignatureGenerate';
 import SignatureGenerated from 'containers/Signature/SignatureGenerated';
@@ -42,16 +42,14 @@ const SignatureGenerator = ({ pageData: { main } }) => {
           telegramUrl={telegramUrl}
           bottomText={bottomText}
         />
-
-      )
-        : (
-          <SignatureGenerate
-            formRef={formRef}
-            setCurrentSignatureTitle={setCurrentSignatureTitle}
-            signatureGeneratedTitle={signatureGeneratedTitle}
-            inputsList={inputsList}
-          />
-        )}
+      ) : (
+        <SignatureGenerate
+          formRef={formRef}
+          setCurrentSignatureTitle={setCurrentSignatureTitle}
+          signatureGeneratedTitle={signatureGeneratedTitle}
+          inputsList={inputsList}
+        />
+      )}
     </div>
   );
 };
