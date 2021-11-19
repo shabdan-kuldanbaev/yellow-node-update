@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 /* stylelint-disable no-eol-whitespace */
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .container {
   box-sizing: border-box;
@@ -46,9 +46,9 @@
         font-family: $case-studies-font;
         font-weight: bold;
         line-height: 120%;
-  
+
         @include fontSize(100px);
-  
+
         @include tablet {
           @include fontSize(60px);
         }
@@ -320,6 +320,79 @@
 
       p {
         color: $silver-chalice;
+      }
+    }
+  }
+}
+
+.smartcenter {
+  @extend .container;
+
+  background: linear-gradient(to bottom, #5e686d 0%, #5e686d 70%, #292c2f 100%);
+  // background-color: #5E686D;
+  position: relative;
+  padding-top: 207px;
+  @include tablet {
+    padding-top: 145px;
+  }
+
+  @include phone {
+    padding-top: 135px;
+  }
+
+  .introSection {
+    @include flex(column, center, center);
+
+    margin-bottom: 80px;
+  }
+
+  .projectInfoContainer {
+    text-align: center;
+    z-index: initial;
+    .logo {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 90%;
+    }
+    .title {
+      .projectTitle {
+        color: $white;
+
+        @include phone {
+          font-size: 2.4rem;
+        }
+      }
+    }
+
+    .projectDescription{
+      margin: 0;
+    }
+
+    .projectSubtitle {
+      color: $white;
+      font-weight: 400;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    max-width: 1084px;
+  }
+
+  .experiencesContainer {
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: $white;
+        font-weight: 400;
+        max-width: 242px;
+        @include fontSize(18px);
       }
     }
   }

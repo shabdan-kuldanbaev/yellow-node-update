@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .container {
   position: relative;
@@ -259,7 +259,11 @@
 
     .checkMark {
       color: $white;
-      background: linear-gradient(142.23deg, $light-violet -12.4%, $dark-violet 151.71%);
+      background: linear-gradient(
+        142.23deg,
+        $light-violet -12.4%,
+        $dark-violet 151.71%
+      );
     }
 
     .contentContainer {
@@ -530,6 +534,31 @@
     .checkMark {
       color: $white;
       background-color: $dark-grey;
+    }
+  }
+}
+
+.smartcenter {
+  @extend .container;
+
+  .containerBackground {
+    left: -29%;
+    right: 0;
+    opacity: 0.5;
+
+    @include phone {
+      left: -28%;
+    }
+
+    @include phone-height-500 {
+      max-width: 410px;
+    }
+  }
+
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: #788898;
     }
   }
 }

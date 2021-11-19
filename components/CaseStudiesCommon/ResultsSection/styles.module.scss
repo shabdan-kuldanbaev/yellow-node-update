@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins', 'styles/utils/theme/animations';
+@import "styles/utils/mixins", "styles/utils/theme/animations";
 
 .circle {
   position: relative;
@@ -65,7 +65,7 @@
   .circle {
     width: 700px;
     height: 700px;
-    background: linear-gradient(0deg, $grey-darker 0%, #17191C 100%);
+    background: linear-gradient(0deg, $grey-darker 0%, #17191c 100%);
 
     @include phone {
       width: 430px;
@@ -133,8 +133,7 @@
 
     .mockup {
       width: 330px;
-      filter:
-        drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6))
+      filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6))
         drop-shadow(-14.7997px 14.7997px 29.5993px rgba(0, 0, 0, 0.5));
 
       @include phone {
@@ -174,6 +173,35 @@
     width: 100%;
     max-width: 1076px;
     margin: 100px auto 0;
+
+    .mockup {
+      width: 100%;
+      filter: unset;
+      position: static;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.smartcenter {
+  @include caseStudyContainer;
+
+  padding-bottom: 0px;
+
+  @include phone{
+    padding-bottom: 0;
+  }
+
+  .circle {
+    position: static;
+    transform: translateX(0);
+    width: 100%;
+    max-width: 1076px;
+    margin: 100px auto 0;
+
+    @include phone{
+      height: initial;
+    }
 
     .mockup {
       width: 100%;

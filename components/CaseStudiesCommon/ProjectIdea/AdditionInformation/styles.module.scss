@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .infoContainer {
   @include flex;
@@ -211,6 +211,28 @@
         @include phone {
           @include fontSize(18px);
         }
+      }
+    }
+  }
+}
+
+.smartcenter {
+  @extend .infoContainer;
+
+  @include phone{
+    margin-bottom: 400px;
+  }
+
+  .container {
+    .title {
+      color: $dark-grey;
+    }
+
+    .listItemContainer {
+      color: $silver-chalice;
+
+      &::marker {
+        color: #788898;
       }
     }
   }

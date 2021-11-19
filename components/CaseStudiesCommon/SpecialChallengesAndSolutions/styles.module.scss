@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .fernwayer {
   @include caseStudyContainer;
@@ -145,5 +145,24 @@
     @include macbook-twelve {
       background-size: cover;
     }
+  }
+}
+
+.smartcenter {
+  @include caseStudyContainer;
+
+  background-color: #fcfcfc;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-areas:
+    "h h"
+    "l r";
+
+  @include phone {
+    grid-template-areas:
+      "h h"
+      "l l"
+      "r r";
   }
 }

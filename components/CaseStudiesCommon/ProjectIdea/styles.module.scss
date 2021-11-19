@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .container {
   @include caseStudyContainer;
@@ -372,6 +372,23 @@
           }
         }
       }
+    }
+  }
+}
+
+.smartcenter {
+  @extend .container;
+
+  background-color: $white;
+  position: relative;
+
+  .contentContainer {
+    margin-bottom: 250px;
+    @include tablet {
+      margin-bottom: 500px;
+    }
+    @include phone{
+      margin-bottom: 0;
     }
   }
 }
