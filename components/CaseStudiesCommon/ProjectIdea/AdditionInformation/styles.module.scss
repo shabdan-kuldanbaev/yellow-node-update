@@ -219,7 +219,7 @@
 .smartcenter {
   @extend .infoContainer;
 
-  @include phone{
+  @include phone {
     margin-bottom: 400px;
   }
 

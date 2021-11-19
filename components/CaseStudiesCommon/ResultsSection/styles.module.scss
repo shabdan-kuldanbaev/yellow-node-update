@@ -133,7 +133,8 @@
 
     .mockup {
       width: 330px;
-      filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6))
+      filter:
+        drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6))
         drop-shadow(-14.7997px 14.7997px 29.5993px rgba(0, 0, 0, 0.5));
 
       @include phone {
@@ -186,9 +187,9 @@
 .smartcenter {
   @include caseStudyContainer;
 
-  padding-bottom: 0px;
+  padding-bottom: 0;
 
-  @include phone{
+  @include phone {
     padding-bottom: 0;
   }
 
@@ -199,7 +200,7 @@
     max-width: 1076px;
     margin: 100px auto 0;
 
-    @include phone{
+    @include phone {
       height: initial;
     }
 

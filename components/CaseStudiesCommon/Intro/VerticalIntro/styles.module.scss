@@ -332,6 +332,7 @@
   // background-color: #5E686D;
   position: relative;
   padding-top: 207px;
+
   @include tablet {
     padding-top: 145px;
   }
@@ -349,6 +350,7 @@
   .projectInfoContainer {
     text-align: center;
     z-index: initial;
+
     .logo {
       position: absolute;
       top: 0;
@@ -357,6 +359,7 @@
       height: 100%;
       width: 90%;
     }
+
     .title {
       .projectTitle {
         color: $white;
@@ -367,7 +370,7 @@
       }
     }
 
-    .projectDescription{
+    .projectDescription {
       margin: 0;
     }
 
@@ -392,6 +395,7 @@
         color: $white;
         font-weight: 400;
         max-width: 242px;
+
         @include fontSize(18px);
       }
     }

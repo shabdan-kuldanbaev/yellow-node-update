@@ -217,9 +217,10 @@
   margin-top: 150px;
   justify-content: center;
 
-  @include tablet{
+  @include tablet {
     margin-top: 220px;
   }
+
   @include phone {
     // padding-top: 0;
     padding: 80px 0;

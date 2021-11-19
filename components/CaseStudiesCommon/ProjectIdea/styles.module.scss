@@ -384,10 +384,12 @@
 
   .contentContainer {
     margin-bottom: 250px;
+
     @include tablet {
       margin-bottom: 500px;
     }
-    @include phone{
+
+    @include phone {
       margin-bottom: 0;
     }
   }

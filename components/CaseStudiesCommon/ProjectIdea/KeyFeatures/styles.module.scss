@@ -256,7 +256,7 @@
     &:last-child {
       margin-bottom: 0;
     }
-
+    /* stylelint-disable declaration-colon-newline-after */
     .checkMark {
       color: $white;
       background: linear-gradient(
