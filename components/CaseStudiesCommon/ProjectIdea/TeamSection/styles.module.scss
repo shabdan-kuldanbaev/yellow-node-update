@@ -207,7 +207,7 @@
   @extend .container;
 
   position: absolute;
-  background-color: #fcfcfc;
+  background-color: $alabaster;
   grid-template-columns: repeat(3, auto);
   grid-column-gap: 180px;
   width: 100%;
@@ -222,7 +222,6 @@
   }
 
   @include phone {
-    // padding-top: 0;
     padding: 80px 0;
   }
 }

@@ -139,6 +139,7 @@
 
 .smartcenter {
   padding: 140px 40px;
+  background-color: $slate-gray;
 
   @include tablet {
     padding: 100px 40px;
@@ -156,8 +157,6 @@
     margin: 0 auto;
     object-fit: contain;
   }
-
-  background-color: #788898;
 
   .title {
     color: $white;

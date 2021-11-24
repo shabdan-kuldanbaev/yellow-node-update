@@ -328,8 +328,7 @@
 .smartcenter {
   @extend .container;
 
-  background: linear-gradient(to bottom, #5e686d 0%, #5e686d 70%, #292c2f 100%);
-  // background-color: #5E686D;
+  background: linear-gradient(to bottom, $nevada-1 0%, $nevada-1 70%, $shark-1 100%);
   position: relative;
   padding-top: 207px;
 

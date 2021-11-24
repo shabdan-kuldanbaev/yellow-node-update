@@ -151,7 +151,7 @@
 .smartcenter {
   @include caseStudyContainer;
 
-  background-color: #fcfcfc;
+  background-color: $alabaster;
   overflow: hidden;
   display: grid;
   grid-template-columns: repeat(2, 50%);
