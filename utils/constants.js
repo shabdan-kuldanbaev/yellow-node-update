@@ -44,6 +44,7 @@ export const NAV_LINKS = [
     routes.customWebApp.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
+    routes.signatureGenerator.slug,
   ].includes(slug)),
 ];
 
@@ -163,6 +164,9 @@ export const SVG_IMAGES_TYPES = {
   dribbleBlackIcon: 'dribbleBlackIcon',
   iPhone: 'iPhone',
   iPad: 'iPad',
+  browser: 'browser',
+  cross: 'cross',
+  telegram: 'telegram',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
