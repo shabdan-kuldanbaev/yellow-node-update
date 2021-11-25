@@ -44,6 +44,7 @@ export const NAV_LINKS = [
     routes.customWebApp.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
+    routes.signatureGenerator.slug,
   ].includes(slug)),
 ];
 
@@ -163,6 +164,9 @@ export const SVG_IMAGES_TYPES = {
   dribbleBlackIcon: 'dribbleBlackIcon',
   iPhone: 'iPhone',
   iPad: 'iPad',
+  browser: 'browser',
+  cross: 'cross',
+  telegram: 'telegram',
 };
 
 export const APP_DEVELOPMENT_ICONS = {
@@ -374,6 +378,7 @@ export const CASE_STUDIES = {
   cashChat: 'cash-chat',
   travelTrivia: 'travel-trivia',
   beautonomy: 'beautonomy',
+  smartcenter: 'smartcenter',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -417,6 +422,7 @@ export const SUB_NAVIGATION_LINKS = {
     },
     {
       title: 'Mobile app development',
+      slug: ROUTES.customMobileApp.path,
       items: [
         { slug: ROUTES.customMobileApp.path, title: 'Building mobile apps for all platforms' },
         { slug: ROUTES.developmentServices.path, title: 'iOS app development services' },

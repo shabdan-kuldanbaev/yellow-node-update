@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
-@import 'styles/utils/mixins';
+/* stylelint-disable declaration-colon-newline-after */
+@import "styles/utils/mixins";
 
 .contentContainer {
   max-width: 1085px;
@@ -328,8 +329,7 @@
       height: unset;
       width: unset;
       overflow: visible;
-      filter:
-        drop-shadow(-33.7256px 22.4837px 89.935px rgba(23, 23, 23, 0.15))
+      filter: drop-shadow(-33.7256px 22.4837px 89.935px rgba(23, 23, 23, 0.15))
         drop-shadow(-16.8628px 11.2419px 44.9675px rgba(23, 23, 23, 0.25));
     }
 
@@ -517,7 +517,7 @@
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 25%;
     height: 100%;
@@ -573,7 +573,11 @@
         &::after {
           left: 0;
           transform: translate(-10px, -1px);
-          background: linear-gradient(269.82deg, rgba($white, 0) 0.15%, $white 60.38%);
+          background: linear-gradient(
+            269.82deg,
+            rgba($white, 0) 0.15%,
+            $white 60.38%
+          );
 
           @include phone {
             display: none;
@@ -777,7 +781,11 @@
       &::after {
         left: 0;
         transform: translate(-10px, -1px);
-        background: linear-gradient(269.82deg, rgba($white, 0) 0%, $white 78.3%);
+        background: linear-gradient(
+          269.82deg,
+          rgba($white, 0) 0%,
+          $white 78.3%
+        );
 
         @include below-tablet {
           display: none;
@@ -960,7 +968,11 @@
             right: 0;
             left: unset;
             transform: translate(10px, -1px);
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFF 78.3%);
+            background: linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 0) 0%,
+              $white 78.3%
+            );
           }
         }
 
@@ -1032,7 +1044,11 @@
           &::after {
             left: 0;
             transform: translate(-15px, -1px);
-            background: linear-gradient(269.82deg, rgba($white, 0) 0%, $white 78.3%);
+            background: linear-gradient(
+              269.82deg,
+              rgba($white, 0) 0%,
+              $white 78.3%
+            );
           }
         }
 
@@ -1045,7 +1061,7 @@
         }
       }
 
-      &:nth-child(2n +1) {
+      &:nth-child(2n + 1) {
         @include below-tablet {
           flex-direction: column;
         }
@@ -1056,7 +1072,11 @@
           &::after {
             right: 0;
             transform: translate(15px, -1px);
-            background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
+            background: linear-gradient(
+              90deg,
+              rgba($white, 0) 0%,
+              $white 78.3%
+            );
           }
         }
 
@@ -1192,7 +1212,7 @@
 
       span {
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           bottom: -18px;
           right: 0;
@@ -1210,5 +1230,71 @@
 
   & .infoContainer p {
     color: $white;
+  }
+}
+
+.smartcenter {
+  &.firstSectionView {
+    grid-area: l;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 15%;
+
+    @include phone {
+      padding-left: 0;
+    }
+
+    .contentContainer {
+      flex-direction: column;
+
+      .infoContainer {
+        max-width: 477px;
+      }
+
+      .title {
+        font-size: 24px;
+        margin: 80px 0 40px;
+      }
+
+      h4 {
+        margin: 0 0 5px;
+      }
+
+      p {
+        display: inline-block;
+        line-height: 30px;
+        margin-bottom: 40px;
+        max-width: 407px;
+        white-space: initial;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .title {
+      color: $white;
+    }
+
+    .contentContainer {
+      .infoContainer {
+        p,
+        h3 {
+          color: $white;
+        }
+
+        ul {
+          margin-left: 0;
+          padding-left: 0;
+
+          @include phone {
+            padding-left: 20px;
+          }
+
+          li::marker {
+            color: $white;
+          }
+        }
+      }
+    }
   }
 }

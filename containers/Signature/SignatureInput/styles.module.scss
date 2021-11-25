@@ -1,0 +1,61 @@
+@import 'styles/utils/mixins';
+
+.signature {
+  &Input {
+    width: 580px;
+    height: 46px;
+    padding-left: 5px;
+    border: 0;
+    font-family: $case-studies-font;
+    outline: none;
+
+    @include fontSize(16px);
+
+    @include higher-phone {
+      width: inherit;
+    }
+
+    &::placeholder {
+      color: $silver-chalice;
+
+      @include fontSize(16px);
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      font-family: $case-studies-font;
+      color: transparent;
+      background: transparent;
+      caret-color: transparent;
+      transition: background-color 5000s ease-in-out 0s;
+
+      @include fontSize(16px);
+    }
+
+    &Container {
+      width: max-content;
+      margin: 24px auto 0;
+      border-bottom: 0.5px solid $silver-1;
+
+      @include flex(row, center, center);
+
+      @include higher-phone {
+        width: 300px;
+      }
+    }
+  }
+
+  &Svg {
+    visibility: hidden;
+    cursor: pointer;
+
+    &Visible {
+      visibility: visible;
+    }
+  }
+}
