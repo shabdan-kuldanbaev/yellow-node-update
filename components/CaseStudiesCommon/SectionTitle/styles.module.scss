@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .title {
   margin: 0 0 80px;
@@ -145,5 +145,13 @@
         @include fontSize(24px);
       }
     }
+  }
+}
+
+.smartcenter {
+  grid-area: h;
+
+  .title {
+    color: $white;
   }
 }
