@@ -75,7 +75,7 @@
     }
 
     @include phone-height-800 {
-      transform: translateY(-220px);
+      transform: translateY(-240px);
 
       @include iOSDevice {
         transform: translateY(-290px);
