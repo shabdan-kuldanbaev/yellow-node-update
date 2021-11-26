@@ -63,7 +63,7 @@ export const tabletResolution = toInt(bigTabletResolution);
 export const smallTabletResolution = toInt(defaultTabletResolution);
 
 export const setOverflowForBody = (isHidden) => {
-  document.body.style.overflow = isHidden ? 'hidden' : 'scroll';
+  document.body.style.overflow = isHidden ? 'hidden' : 'initial';
 };
 
 export const getMainLinksForSitemap = (updatedAt) => [
