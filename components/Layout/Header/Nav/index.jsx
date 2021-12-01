@@ -22,28 +22,15 @@ const Nav = ({
 }) => {
   // TODO rework this checks
   const isPageScrolling = isPageScrolledDown || (!!currentPage && currentPage !== '' && !isTransparentHeader);
-
   const navRef = useRef(null);
-
-  const closeDropDownMenu = () => setIsDropMenuOpenedAction(false);
-
-  const handleClickOutside = (e) => {
-    if (navRef && !navRef.current.contains(e.target)) {
-      closeDropDownMenu();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
 
   const openDropDownMenu = (slug) => {
     if (isHeader && isHasSubNavigation(slug)) {
       setIsDropMenuOpenedAction(true);
     }
   };
+
+  const closeDropDownMenu = () => setIsDropMenuOpenedAction(false);
 
   const handleOnClick = (slug) => () => {
     if (isDropMenuOpened) {
@@ -53,51 +40,62 @@ const Nav = ({
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = ({ target }) => {
+      const { current } = navRef || {};
+
+      if (current && !current.contains(target)) {
+        closeDropDownMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
     <ul
-      className={cn(styles.desktopMenu, {
-        [styles.pageScrolled]: isPageScrolling,
-      })}
+      className={cn(styles.desktopMenu, { [styles.pageScrolled]: isPageScrolling })}
       ref={navRef}
     >
-      {links &&
-        links.map(({ title, path, dynamicPath, slug }) => {
-          const itemContent = <span className={styles.underline}>{title}</span>;
+      {links && links.map(({
+        title,
+        path,
+        dynamicPath,
+        slug,
+      }) => {
+        const itemContent = <span className={styles.underline}>{title}</span>;
 
-          return (
-            (path || isHeader) 
-            && (
-              <li
-                key={`menuItem/${title}`}
-                className={cn(styles[theme], {
-                  [styles.nonClickableItem]: !path,
-                })}
-                // onMouseLeave={closeDropDownMenu}
-                onClick={handleOnClick(slug)}
+        return ((path || isHeader) && (
+          <li
+            key={`menuItem/${title}`}
+            className={cn(styles[theme], { [styles.nonClickableItem]: !path })}
+            onClick={handleOnClick(slug)}
+          >
+            {path ? (
+              <LinkWrapper
+                isLocalLink
+                path={path}
+                dynamicRouting={dynamicPath}
               >
-                {path ? (
-                  <LinkWrapper
-                    isLocalLink
-                    path={path}
-                    dynamicRouting={dynamicPath}
-                  >
-                    {itemContent}
-                  </LinkWrapper>
-                ) : (
-                  itemContent
-                )}
-                {isHasSubNavigation(slug) && isHeader && (
-                  <DropDownMenu
-                    isDropMenuOpened={isDropMenuOpened}
-                    isPageScrolledDown={isPageScrolling}
-                    slug={slug}
-                    closeDropDownMenu={closeDropDownMenu}
-                  />
-                )}
-              </li>
-            )
-          );
-        })}
+                {itemContent}
+              </LinkWrapper>
+            ) : (
+              itemContent
+            )}
+            {isHasSubNavigation(slug) && isHeader && (
+              <DropDownMenu
+                isDropMenuOpened={isDropMenuOpened}
+                isPageScrolledDown={isPageScrolling}
+                slug={slug}
+                closeDropDownMenu={closeDropDownMenu}
+              />
+            )}
+          </li>
+        )
+        );
+      })}
     </ul>
   );
 };
@@ -123,5 +121,5 @@ Nav.propTypes = {
 
 export default connect(
   (state) => ({ isDropMenuOpened: selectIsDropMenuOpened(state) }),
-  { setIsDropMenuOpened }
+  { setIsDropMenuOpened },
 )(Nav);
