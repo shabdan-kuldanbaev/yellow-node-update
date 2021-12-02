@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
@@ -22,13 +22,16 @@ const Nav = ({
 }) => {
   // TODO rework this checks
   const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
+  const navRef = useRef(null);
 
   const openDropDownMenu = (slug) => {
     if (isHeader && isHasSubNavigation(slug)) {
       setIsDropMenuOpenedAction(true);
     }
   };
+
   const closeDropDownMenu = () => setIsDropMenuOpenedAction(false);
+
   const handleOnClick = (slug) => () => {
     if (isDropMenuOpened) {
       closeDropDownMenu();
@@ -37,46 +40,58 @@ const Nav = ({
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = ({ target }) => {
+      const { current } = navRef || {};
+
+      if (current && !current.contains(target)) {
+        closeDropDownMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
-    <ul className={cn(styles.desktopMenu, { [styles.pageScrolled]: isPageScrolling })}>
+    <ul
+      className={cn(styles.desktopMenu, { [styles.pageScrolled]: isPageScrolling })}
+      ref={navRef}
+    >
       {links && links.map(({
         title,
         path,
         dynamicPath,
         slug,
       }) => {
-        const itemContent = (
-          <span className={styles.underline}>
-            {title}
-          </span>
-        );
+        const itemContent = <span className={styles.underline}>{title}</span>;
 
         return (path || isHeader) && (
           <li
             key={`menuItem/${title}`}
             className={cn(styles[theme], { [styles.nonClickableItem]: !path })}
-            onMouseLeave={closeDropDownMenu}
             onClick={handleOnClick(slug)}
           >
-            {path
-              ? (
-                <LinkWrapper
-                  isLocalLink
-                  path={path}
-                  dynamicRouting={dynamicPath}
-                >
-                  {itemContent}
-                </LinkWrapper>
-              )
+            {path ? (
+              <LinkWrapper
+                isLocalLink
+                path={path}
+                dynamicRouting={dynamicPath}
+              >
+                {itemContent}
+              </LinkWrapper>
+            )
               : itemContent}
-            {isHasSubNavigation(slug) && isHeader && (
-              <DropDownMenu
-                isDropMenuOpened={isDropMenuOpened}
-                isPageScrolledDown={isPageScrolling}
-                slug={slug}
-                closeDropDownMenu={closeDropDownMenu}
-              />
-            )}
+            {isHasSubNavigation(slug) && isHeader
+              && (
+                <DropDownMenu
+                  isDropMenuOpened={isDropMenuOpened}
+                  isPageScrolledDown={isPageScrolling}
+                  slug={slug}
+                  closeDropDownMenu={closeDropDownMenu}
+                />
+              )}
           </li>
         );
       })}
