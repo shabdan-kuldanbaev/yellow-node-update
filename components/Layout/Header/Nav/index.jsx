@@ -21,7 +21,7 @@ const Nav = ({
   isHeader,
 }) => {
   // TODO rework this checks
-  const isPageScrolling = isPageScrolledDown || (!!currentPage && currentPage !== '' && !isTransparentHeader);
+  const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
   const navRef = useRef(null);
 
   const openDropDownMenu = (slug) => {
@@ -67,7 +67,7 @@ const Nav = ({
       }) => {
         const itemContent = <span className={styles.underline}>{title}</span>;
 
-        return ((path || isHeader) && (
+        return (path || isHeader) && (
           <li
             key={`menuItem/${title}`}
             className={cn(styles[theme], { [styles.nonClickableItem]: !path })}
@@ -81,19 +81,18 @@ const Nav = ({
               >
                 {itemContent}
               </LinkWrapper>
-            ) : (
-              itemContent
-            )}
-            {isHasSubNavigation(slug) && isHeader && (
-              <DropDownMenu
-                isDropMenuOpened={isDropMenuOpened}
-                isPageScrolledDown={isPageScrolling}
-                slug={slug}
-                closeDropDownMenu={closeDropDownMenu}
-              />
-            )}
+            )
+              : itemContent}
+            {isHasSubNavigation(slug) && isHeader
+              && (
+                <DropDownMenu
+                  isDropMenuOpened={isDropMenuOpened}
+                  isPageScrolledDown={isPageScrolling}
+                  slug={slug}
+                  closeDropDownMenu={closeDropDownMenu}
+                />
+              )}
           </li>
-        )
         );
       })}
     </ul>
