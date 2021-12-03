@@ -4,11 +4,13 @@ import cn from 'classnames';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
 import BackgroundImages from 'components/CaseStudiesCommon/BackgroundImages';
+import { CASE_STUDIES } from 'utils/constants';
 import { getBackgroundStyle } from './utils/challengesHelper';
 import styles from './styles.module.scss';
 
 const SpecialChallengesAndSolutions = ({ data, type }) => {
   const sectionBackgroundImage = getBackgroundStyle(type, data);
+  const displayBackgroundImage = [CASE_STUDIES.fernwayer].includes(type);
   const { view } = data;
 
   return (
@@ -26,10 +28,12 @@ const SpecialChallengesAndSolutions = ({ data, type }) => {
         view={view}
         isSpecial
       />
-      <BackgroundImages
-        data={data}
-        type={type}
-      />
+      {!displayBackgroundImage && (
+        <BackgroundImages
+          data={data}
+          type={type}
+        />
+      )}
     </section>
   );
 };
