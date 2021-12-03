@@ -379,6 +379,7 @@ export const CASE_STUDIES = {
   travelTrivia: 'travel-trivia',
   beautonomy: 'beautonomy',
   smartcenter: 'smartcenter',
+  telemojo: 'telemojo',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

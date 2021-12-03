@@ -538,7 +538,8 @@
   }
 }
 
-.smartcenter {
+.smartcenter,
+.telemojo {
   @extend .container;
 
   background-color: $slate-gray;

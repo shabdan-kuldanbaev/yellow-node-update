@@ -19,6 +19,7 @@ export const Intro = (props) => {
     return <DefaultIntro {...props} />;
   case CASE_STUDIES.openSense:
   case CASE_STUDIES.separateUs:
+  case CASE_STUDIES.telemojo:
   case CASE_STUDIES.smartcenter:
     return <VerticalIntro {...props} />;
   default:

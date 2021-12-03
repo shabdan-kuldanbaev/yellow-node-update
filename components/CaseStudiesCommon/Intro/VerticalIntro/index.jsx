@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
+import app from 'next/app';
 import {
   isIntroHasBackground,
   isTitleHasBackground,
@@ -44,11 +45,13 @@ const VerticalIntro = ({
       )}
       <div className={styles.introSection}>
         <div className={styles.projectInfoContainer}>
-          <img
-            className={styles.logo}
-            src={appLogoUrl}
-            alt={appLogoUrl}
-          />
+          {appLogoUrl && (
+            <img
+              className={styles.logo}
+              src={appLogoUrl}
+              alt={appLogoUrl}
+            />
+          )}
           <div className={styles.title}>
             <TitleText
               type={type}
