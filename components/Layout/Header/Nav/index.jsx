@@ -65,7 +65,11 @@ const Nav = ({
         dynamicPath,
         slug,
       }) => {
-        const itemContent = <span className={styles.underline}>{title}</span>;
+        const itemContent = (
+          <span className={styles.underline}>
+            {title}
+          </span>
+        );
 
         return (path || isHeader) && (
           <li
@@ -73,25 +77,25 @@ const Nav = ({
             className={cn(styles[theme], { [styles.nonClickableItem]: !path })}
             onClick={handleOnClick(slug)}
           >
-            {path ? (
-              <LinkWrapper
-                isLocalLink
-                path={path}
-                dynamicRouting={dynamicPath}
-              >
-                {itemContent}
-              </LinkWrapper>
-            )
+            {path
+              ? (
+                <LinkWrapper
+                  isLocalLink
+                  path={path}
+                  dynamicRouting={dynamicPath}
+                >
+                  {itemContent}
+                </LinkWrapper>
+              )
               : itemContent}
-            {isHasSubNavigation(slug) && isHeader
-              && (
-                <DropDownMenu
-                  isDropMenuOpened={isDropMenuOpened}
-                  isPageScrolledDown={isPageScrolling}
-                  slug={slug}
-                  closeDropDownMenu={closeDropDownMenu}
-                />
-              )}
+            {isHasSubNavigation(slug) && isHeader && (
+              <DropDownMenu
+                isDropMenuOpened={isDropMenuOpened}
+                isPageScrolledDown={isPageScrolling}
+                slug={slug}
+                closeDropDownMenu={closeDropDownMenu}
+              />
+            )}
           </li>
         );
       })}
