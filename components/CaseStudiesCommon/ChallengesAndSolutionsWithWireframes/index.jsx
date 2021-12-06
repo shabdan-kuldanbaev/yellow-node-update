@@ -43,18 +43,6 @@ const ChallengesAndSolutionsWithWireframes = ({ data, type }) => {
         data={data}
         type={type}
       />
-      {imagesBundles && imagesBundles.map((bundle, index) => {
-        const bundleUrl = getFileUrl(bundle);
-
-        return (
-          <img
-            className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
-            src={bundleUrl}
-            alt="Circle"
-            key={`intro-images-bundles/${bundleUrl}`}
-          />
-        );
-      })}
     </section>
   );
 };

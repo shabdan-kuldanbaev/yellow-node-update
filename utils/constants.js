@@ -356,6 +356,7 @@ export const CASE_STUDIES_TYPES = {
   story: 'case-study-story',
   caseStudyEvent: 'case-study-event',
   fullscreenImage: 'case-study-fullscreen-image',
+  works: 'case-study-how-it-works',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
