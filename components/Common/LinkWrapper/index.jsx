@@ -35,31 +35,37 @@ export const LinkWrapper = ({
     }
   };
 
-  return (
-    <Link
-      prefetch={false}
-      href={dynamicRouting.length > 0 ? dynamicRouting : path}
-      as={path}
+  const linkBlock = (
+    <a
+      className={cn(styles.link, { [className]: !isImage })}
+      href={path}
+      target={`${isLocalLink ? '' : '_blank'}`}
+      rel={`${isLocalLink ? '' : `noopener noreferrer ${isSocialLink ? '' : 'nofollow'}`}`}
+      onClick={handleOnClick}
     >
-      <a
-        className={cn(styles.link, { [className]: !isImage })}
-        href={path}
-        target={`${isLocalLink ? '' : '_blank'}`}
-        rel={`${isLocalLink ? '' : `noopener noreferrer ${isSocialLink ? '' : 'nofollow'}`}`}
-        onClick={handleOnClick}
-      >
-        {!isImage ? children : (
-          <div>
-            <img
-              className={cn({ [className]: isImage })}
-              src={imageUrl}
-              alt={imageText}
-            />
-          </div>
-        )}
-      </a>
-    </Link>
+      {!isImage ? children : (
+        <div>
+          <img
+            className={cn({ [className]: isImage })}
+            src={imageUrl}
+            alt={imageText}
+          />
+        </div>
+      )}
+    </a>
   );
+
+  return isLocalLink
+    ? linkBlock
+    : (
+      <Link
+        prefetch={false}
+        href={dynamicRouting.length > 0 ? dynamicRouting : path}
+        as={path}
+      >
+        {linkBlock}
+      </Link>
+    );
 };
 
 LinkWrapper.defaultProps = {
