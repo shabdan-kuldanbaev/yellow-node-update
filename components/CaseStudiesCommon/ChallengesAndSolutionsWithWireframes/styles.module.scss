@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import "styles/utils/mixins";
 
 .fernwayer,
@@ -161,5 +162,19 @@
   .title {
     color: $white;
     font-size: 56px;
+  }
+}
+
+.ubichat {
+  @include caseStudyContainer;
+
+  background-color: $mariner;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: rgba($color: $white, $alpha: 0.7);
   }
 }

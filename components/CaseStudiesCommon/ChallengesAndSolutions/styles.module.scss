@@ -1298,3 +1298,54 @@
     }
   }
 }
+
+.ubichat {
+  .contentContainer {
+    flex-direction: column;
+
+    &:nth-of-type(2n) .infoContainer {
+      order: initial;
+    }
+  }
+
+  .image {
+    filter: initial;
+    order: 2;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    .title {
+      width: 50%;
+      color: $white;
+
+      @include phone {
+        width: 100%;
+      }
+    }
+
+    & > div {
+      width: 50%;
+
+      @include phone {
+        width: 100%;
+      }
+    }
+
+    h3 {
+      color: $white;
+    }
+
+    p {
+      color: rgba($color: $white, $alpha: 0.7);
+    }
+  }
+}

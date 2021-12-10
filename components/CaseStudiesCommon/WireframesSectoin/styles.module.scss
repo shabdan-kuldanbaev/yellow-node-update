@@ -1,6 +1,7 @@
 @import 'styles/utils/mixins';
 
-.fernwayer {
+.fernwayer,
+.ubichat {
   @include caseStudyContainer;
   @include wireframes;
 

@@ -229,3 +229,11 @@
     }
   }
 }
+
+.ubichat {
+  @extend .imagesContainer;
+
+  .image {
+    max-height: 527px;
+  }
+}

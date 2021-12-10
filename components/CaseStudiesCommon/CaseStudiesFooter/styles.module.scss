@@ -554,3 +554,20 @@
     border: 1px solid $white;
   }
 }
+
+.ubichat {
+  @extend .container;
+
+  background-color: $mariner;
+  color: $white;
+
+  .more,
+  .link,
+  .iconLink {
+    color: $white;
+  }
+
+  .more {
+    border: 1px solid $white;
+  }
+}
