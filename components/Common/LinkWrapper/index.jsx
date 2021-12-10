@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import gaHelper from 'utils/ga';
+import { rootUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const LinkWrapper = ({
@@ -35,37 +36,33 @@ export const LinkWrapper = ({
     }
   };
 
-  const linkBlock = (
-    <a
-      className={cn(styles.link, { [className]: !isImage })}
-      href={path}
-      target={`${isLocalLink ? '' : '_blank'}`}
-      rel={`${isLocalLink ? '' : `noopener noreferrer ${isSocialLink ? '' : 'nofollow'}`}`}
-      onClick={handleOnClick}
-    >
-      {!isImage ? children : (
-        <div>
-          <img
-            className={cn({ [className]: isImage })}
-            src={imageUrl}
-            alt={imageText}
-          />
-        </div>
-      )}
-    </a>
-  );
+  const finalPath = isLocalLink && typeof path === 'string' ? path.replace(rootUrl, '') : path;
 
-  return isLocalLink
-    ? linkBlock
-    : (
-      <Link
-        prefetch={false}
-        href={dynamicRouting.length > 0 ? dynamicRouting : path}
-        as={path}
+  return (
+    <Link
+      prefetch={false}
+      href={dynamicRouting.length > 0 ? dynamicRouting : finalPath}
+      as={finalPath}
+    >
+      <a
+        className={cn(styles.link, { [className]: !isImage })}
+        href={finalPath}
+        target={`${isLocalLink ? '' : '_blank'}`}
+        rel={`${isLocalLink ? '' : `noopener noreferrer ${isSocialLink ? '' : 'nofollow'}`}`}
+        onClick={handleOnClick}
       >
-        {linkBlock}
-      </Link>
-    );
+        {!isImage ? children : (
+          <div>
+            <img
+              className={cn({ [className]: isImage })}
+              src={imageUrl}
+              alt={imageText}
+            />
+          </div>
+        )}
+      </a>
+    </Link>
+  );
 };
 
 LinkWrapper.defaultProps = {
