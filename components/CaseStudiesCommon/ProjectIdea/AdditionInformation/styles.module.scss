@@ -237,3 +237,36 @@
     }
   }
 }
+
+.ubichat {
+  @extend .infoContainer;
+
+  @include phone {
+    align-items: center;
+  }
+
+  .container {
+    .title {
+      @include fontSize(40px);
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      list-style: none;
+      padding: 0;
+    }
+
+    .listItemContainer {
+      font-weight: 700;
+      line-height: 180%;
+      margin-bottom: 10px;
+
+      @include phone {
+        text-align: center;
+      }
+    }
+  }
+}

@@ -160,3 +160,14 @@
   position: relative;
   z-index: 1;
 }
+
+.ubichat {
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: $white;
+    opacity: 0.7;
+  }
+}

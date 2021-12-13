@@ -328,7 +328,7 @@
 .smartcenter {
   @extend .container;
 
-  background: linear-gradient(to bottom, $nevada-1 0%, $nevada-1 70%, $shark-1 100%);
+  background: linear-gradient(to bottom, $regent-gray 0%, $slate-gray2 100%);
   position: relative;
   padding-top: 207px;
 
@@ -362,6 +362,8 @@
     .title {
       .projectTitle {
         color: $white;
+
+        @include fontSize(56px);
 
         @include phone {
           font-size: 2.4rem;

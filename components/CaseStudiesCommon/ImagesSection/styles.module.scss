@@ -12,7 +12,8 @@
 .drive-focus,
 .travel-trivia,
 .cash-chat,
-.smartcenter {
+.smartcenter,
+.ubichat {
   @include caseStudyContainer;
 
   background-color: $white;
