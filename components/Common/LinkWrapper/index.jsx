@@ -19,6 +19,10 @@ export const LinkWrapper = ({
   googleAnalyticProps,
   isSocialLink,
 }) => {
+  const finalPath = isLocalLink && typeof path === 'string'
+    ? path.replace(rootUrl, '')
+    : path;
+
   const handleOnClick = () => {
     if (!isEmpty(googleAnalyticProps)) {
       const {
@@ -35,10 +39,6 @@ export const LinkWrapper = ({
       );
     }
   };
-
-  const finalPath = isLocalLink && typeof path === 'string'
-    ? path.replace(rootUrl, '')
-    : path;
 
   return (
     <Link
