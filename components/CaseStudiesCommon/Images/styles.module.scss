@@ -228,3 +228,15 @@
     }
   }
 }
+
+.ubichat {
+  .image {
+    display: block;
+    max-width: 1076px;
+    margin: 0 auto;
+
+    @include tablet {
+      max-width: 100%;
+    }
+  }
+}

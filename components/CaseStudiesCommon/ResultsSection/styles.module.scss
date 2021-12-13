@@ -212,3 +212,27 @@
     }
   }
 }
+
+.ubichat {
+  @include caseStudyContainer;
+
+  .circle {
+    position: static;
+    transform: translateX(0);
+    width: 100%;
+    max-width: 1076px;
+    margin: 100px auto 0;
+    height: initial;
+
+    @include phone {
+      height: initial;
+    }
+
+    .mockup {
+      width: 100%;
+      filter: unset;
+      position: static;
+      transform: translate(0, 0);
+    }
+  }
+}
