@@ -36,7 +36,9 @@ export const LinkWrapper = ({
     }
   };
 
-  const finalPath = isLocalLink && typeof path === 'string' ? path.replace(rootUrl, '') : path;
+  const finalPath = isLocalLink && typeof path === 'string'
+    ? path.replace(rootUrl, '')
+    : path;
 
   return (
     <Link
