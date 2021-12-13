@@ -13,7 +13,7 @@ export const JSONAnimation = ({ jsonFile, className }) => {
   const animateRef = useRef(null);
   const intersection = useIntersection(animateRef, {
     root: null,
-    rootMargin: '-100px',
+    rootMargin: '0px',
     threshold: 0.2,
   });
   const defaultOptions = {
@@ -24,8 +24,6 @@ export const JSONAnimation = ({ jsonFile, className }) => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
-
-  console.log(state.isPaused);
 
   useEffect(() => {
     if (animateRef && animateRef.current) {
