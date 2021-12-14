@@ -25,7 +25,7 @@ const WorksSection = ({ data, type }) => {
       />
       <div className={styles.sequenceOfSteps}>
         {data.contentModules
-          && data.contentModules.map(({ fields }, index) => {
+          ? data.contentModules.map(({ fields }, index) => {
             if (!fields.title) {
               return null;
             }
@@ -42,7 +42,8 @@ const WorksSection = ({ data, type }) => {
                 </h3>
               </div>
             );
-          })}
+          })
+          : null}
       </div>
       <div className={styles.imagesConatiner}>
         {data.images && data.images.map(({ fields }) => (
