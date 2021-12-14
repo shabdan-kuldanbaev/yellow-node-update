@@ -1,5 +1,6 @@
 import React from 'react';
 import get from 'lodash/get';
+import PropTypes from 'prop-types';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import styles from './styles.module.scss';
@@ -54,6 +55,15 @@ const WorksSection = ({ data, type }) => {
       </div>
     </section>
   );
+};
+
+WorksSection.defaultProps = {
+  type: '',
+};
+
+WorksSection.propTypes = {
+  data: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string,
 };
 
 export default WorksSection;
