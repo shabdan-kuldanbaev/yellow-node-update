@@ -27,8 +27,7 @@
   & .sequenceOfSteps {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    margin: 0 auto;
-    margin-bottom: 150px;
+    margin: 0 auto 150px;
     max-width: 1080px;
 
     & .step {
@@ -39,10 +38,11 @@
       & .stepTitle {
         margin-top: 100px;
         font-weight: bold;
-        font-size: 18px;
         line-height: 180%;
         color: $dark-grey;
         text-align: center;
+
+        @include fontSize(18px);
 
         @include tablet {
           margin: 0;
@@ -51,8 +51,8 @@
       }
 
       & .markNumber {
-        color: #fff;
-        background-color: #2550F5;
+        color: $white;
+        background-color: $sea-blue;
         position: absolute;
         min-width: 70px;
         height: 70px;
@@ -64,11 +64,13 @@
           left: 50%;
           transform: translate(-50%, -50%);
           font-weight: bold;
-          font-size: 28px;
           line-height: 180%;
+          margin: 0;
+
+          @include fontSize(28px);
 
           @include tablet {
-            font-size: 22px;
+            @include fontSize(22px);
           }
         }
 
