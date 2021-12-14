@@ -57,6 +57,16 @@ const nextConfig = {
       },
     });
 
+    config.module.rules.push({
+      test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 100000,
+        },
+      },
+    });
+
     // TODO remove it after migrate to the next.js 10
     // filtering "chunk styles [mini-css-extract-plugin]" worning
     config.plugins.push(

@@ -19,7 +19,7 @@ export const LinkWrapper = ({
   googleAnalyticProps,
   isSocialLink,
 }) => {
-  const finalPath = isLocalLink && typeof path === 'string'
+  const finalPath = isLocalLink
     ? path.replace(rootUrl, '')
     : path;
 
