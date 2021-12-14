@@ -29,15 +29,18 @@ const Breadcrumbs = ({ breadcrumbs, breadcrumbsStyles }) => (breadcrumbs
             </LinkWrapper>
           </li>
           {breadcrumbs.map((breadcrumb) => {
-            const linkProps = isObject(breadcrumb.to) ? {
-              path: breadcrumb.to.path,
-              dynamicRouting: breadcrumb.to.dynamicPath,
-            } : {
+            const linkProps = {
               path: breadcrumb.to,
             };
 
+            if (isObject(breadcrumb.to)) {
+              const { path, dynamicPath } = breadcrumb.to;
+              linkProps.path = path;
+              linkProps.dynamicPath = dynamicPath;
+            }
+
             return (
-              <li key={breadcrumb.to}>
+              <li key={linkProps.path}>
                 <LinkWrapper
                   {...linkProps}
                   isLocalLink
