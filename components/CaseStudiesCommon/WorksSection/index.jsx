@@ -6,6 +6,10 @@ import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const WorksSection = ({ data, type }) => {
+  if (!data.contentModules) {
+    return null;
+  }
+
   const sectionBackgroundImage = getOptimizedContentfulImage(
     getFileUrl(get(data, 'background', {})),
     { fm: 'png' },
@@ -24,26 +28,24 @@ const WorksSection = ({ data, type }) => {
         type={type}
       />
       <div className={styles.sequenceOfSteps}>
-        {data.contentModules
-          ? data.contentModules.map(({ fields }, index) => {
-            if (!fields.title) {
-              return null;
-            }
+        {data.contentModules.map(({ fields }, index) => {
+          if (!fields.title) {
+            return null;
+          }
 
-            return (
-              <div className={styles.step}>
-                <div className={styles.markNumber}>
-                  <h3 className={styles.contentMarkNumber}>
-                    {index + 1}
-                  </h3>
-                </div>
-                <h3 className={styles.stepTitle}>
-                  {fields.title}
+          return (
+            <div className={styles.step}>
+              <div className={styles.markNumber}>
+                <h3 className={styles.contentMarkNumber}>
+                  {index + 1}
                 </h3>
               </div>
-            );
-          })
-          : null}
+              <h3 className={styles.stepTitle}>
+                {fields.title}
+              </h3>
+            </div>
+          );
+        })}
       </div>
       <div className={styles.imagesConatiner}>
         {data.images && data.images.map(({ fields }) => (
