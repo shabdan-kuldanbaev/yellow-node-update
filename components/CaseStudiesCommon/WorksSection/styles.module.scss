@@ -59,10 +59,8 @@
         border-radius: 50%;
 
         & .contentMarkNumber {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+          @include centered;
+
           font-weight: bold;
           line-height: 180%;
           margin: 0;
