@@ -68,35 +68,6 @@
   [data-case-study-description] {
     color: $white;
   }
-
-  .bundleImage {
-    position: absolute;
-    z-index: -1;
-
-    @include tablet {
-      width: 500px;
-      height: 500px;
-    }
-
-    @include phone {
-      width: 270px;
-      height: 270px;
-    }
-  }
-
-  .bundleImage-2 {
-    bottom: 0;
-    right: 0;
-
-    @include tablet {
-      right: -100px;
-    }
-  }
-
-  .bundleImage-1 {
-    top: 0;
-    left: 0;
-  }
 }
 
 .natp {

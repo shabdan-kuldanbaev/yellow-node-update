@@ -1199,39 +1199,6 @@
   }
 }
 
-.writer-chrome-extension {
-  & .contentContainer {
-    .title {
-      color: $white;
-      position: relative;
-
-      @include phone {
-        margin-bottom: 40px;
-      }
-
-      span {
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -18px;
-          right: 0;
-          width: 100%;
-          border-bottom: 16px $bright-blue solid;
-          background-color: $bright-blue;
-
-          @include phone {
-            border-bottom: 8px $bright-blue solid;
-          }
-        }
-      }
-    }
-  }
-
-  & .infoContainer p {
-    color: $white;
-  }
-}
-
 .smartcenter {
   &.firstSectionView {
     grid-area: l;
