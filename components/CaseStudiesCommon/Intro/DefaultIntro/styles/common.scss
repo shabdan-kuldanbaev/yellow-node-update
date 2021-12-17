@@ -791,6 +791,7 @@
 .cash-chat {
   @extend .container;
 
+  height: initial;
   background: $green;
   background-size: cover;
 
