@@ -59,27 +59,17 @@ const Header = ({
         const intro = introSection.current.getBoundingClientRect();
 
         if (isPageWithTransparentHeader) {
-          intro.bottom < 65
-            ? setIsPageScrolledDown(true)
-            : setIsPageScrolledDown(false);
-          intro.top < -200
-            ? setIsLogoTextHidden(true)
-            : setIsLogoTextHidden(false);
+          setIsPageScrolledDown(intro.bottom < 65);
+          setIsLogoTextHidden(intro.top < -200);
         }
 
         if (isCaseStudyWithTransparentHeader) {
-          intro.top < -170
-            ? setIsPageScrolledDown(true)
-            : setIsPageScrolledDown(false);
-          intro.top < -220
-            ? setIsLogoTextHidden(true)
-            : setIsLogoTextHidden(false);
+          setIsPageScrolledDown(intro.top < -170);
+          setIsLogoTextHidden(intro.top < -220);
         }
 
         if (!isTransparentHeader) {
-          intro.top < -10
-            ? setIsLogoTextHidden(true)
-            : setIsLogoTextHidden(false);
+          setIsLogoTextHidden(intro.top < -10);
         }
       }
     };
