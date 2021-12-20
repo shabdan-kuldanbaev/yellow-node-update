@@ -573,6 +573,8 @@
 
     @include phone {
       left: -28%;
+      top: -80px;
+      bottom: -80px;
     }
 
     @include phone-height-500 {
@@ -581,6 +583,10 @@
   }
 
   .featureContainer {
+    @include phone {
+      padding: 0 10px;
+    }
+
     .checkMark {
       color: $white;
       background: $mariner;
