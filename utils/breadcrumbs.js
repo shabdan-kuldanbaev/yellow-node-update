@@ -19,16 +19,23 @@ export const pagesBreadcrumbs = {
 
     return breadcrumbs;
   },
-  article: (title, slug) => ([
-    {
-      title: ROUTES.blog.title,
-      to: ROUTES.blog.path,
-    },
-    {
-      title,
-      to: ROUTES.article.getRoute(slug),
-    },
-  ]),
+  article: (title, slug) => {
+    const breadcrumbs = [
+      {
+        title: ROUTES.blog.title,
+        to: ROUTES.blog.path,
+      },
+    ];
+
+    if (title && slug) {
+      breadcrumbs.push({
+        title,
+        to: ROUTES.article.getRoute(slug),
+      });
+    }
+
+    return breadcrumbs;
+  },
   company: () => ([
     {
       title: ROUTES.company.title,

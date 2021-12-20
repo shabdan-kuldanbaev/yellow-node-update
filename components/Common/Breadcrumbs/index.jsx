@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import isObject from 'lodash/isObject';
 import { Animated, LinkWrapper } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -27,16 +28,28 @@ const Breadcrumbs = ({ breadcrumbs, breadcrumbsStyles }) => (breadcrumbs
               Home
             </LinkWrapper>
           </li>
-          {breadcrumbs.map((breadcrumb) => (
-            <li key={breadcrumb.to}>
-              <LinkWrapper
-                path={breadcrumb.to}
-                isLocalLink
-              >
-                {breadcrumb.title}
-              </LinkWrapper>
-            </li>
-          ))}
+          {breadcrumbs.map((breadcrumb) => {
+            const linkProps = {
+              path: breadcrumb.to,
+            };
+
+            if (isObject(breadcrumb.to)) {
+              const { path, dynamicPath } = breadcrumb.to;
+              linkProps.path = path;
+              linkProps.dynamicPath = dynamicPath;
+            }
+
+            return (
+              <li key={linkProps.path}>
+                <LinkWrapper
+                  {...linkProps}
+                  isLocalLink
+                >
+                  {breadcrumb.title}
+                </LinkWrapper>
+              </li>
+            );
+          })}
         </ol>
       </Animated>
     </div>

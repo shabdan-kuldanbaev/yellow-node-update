@@ -15,6 +15,7 @@ export const Intro = (props) => {
   case CASE_STUDIES.cashChat:
   case CASE_STUDIES.travelTrivia:
   case CASE_STUDIES.writerChromeExtension:
+  case CASE_STUDIES.ubiChat:
   case CASE_STUDIES.beautonomy:
     return <DefaultIntro {...props} />;
   case CASE_STUDIES.openSense:

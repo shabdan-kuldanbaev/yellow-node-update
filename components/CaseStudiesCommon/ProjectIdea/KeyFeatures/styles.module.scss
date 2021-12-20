@@ -562,3 +562,38 @@
     }
   }
 }
+
+.ubichat {
+  @extend .container;
+
+  .containerBackground {
+    left: -29%;
+    right: 0;
+    opacity: 0.5;
+
+    @include phone {
+      left: -28%;
+      top: -80px;
+      bottom: -80px;
+    }
+
+    @include phone-height-500 {
+      max-width: 410px;
+    }
+  }
+
+  .featureContainer {
+    @include phone {
+      padding: 0 10px;
+    }
+
+    .checkMark {
+      color: $white;
+      background: $mariner;
+    }
+
+    .contentContainer {
+      padding-top: 8px;
+    }
+  }
+}

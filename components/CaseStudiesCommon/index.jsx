@@ -10,6 +10,7 @@ import ImagesSection from 'components/CaseStudiesCommon/ImagesSection';
 import FullScreenImages from 'components/CaseStudiesCommon/FullScreenImages';
 import Parallax from 'components/CaseStudiesCommon/Parallax';
 import DesignSection from 'components/CaseStudiesCommon/DesignSection';
+import WorksSection from 'components/CaseStudiesCommon/WorksSection';
 import { FeaturesSection } from 'components/CaseStudiesCommon/FeaturesSection';
 import { StorySection } from 'components/CaseStudiesCommon/StorySection';
 import { EventSection } from 'components/CaseStudiesCommon/EventSection';
@@ -45,6 +46,8 @@ const CaseStudiesCommon = (props) => {
     return <EventSection {...props} />;
   case CASE_STUDIES_TYPES.fullscreenImage:
     return <FullScreenImages {...props} />;
+  case CASE_STUDIES_TYPES.works:
+    return <WorksSection {...props} />;
   default:
     return null;
   }

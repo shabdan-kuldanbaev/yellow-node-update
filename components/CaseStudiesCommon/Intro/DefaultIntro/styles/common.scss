@@ -1,0 +1,1064 @@
+/* stylelint-disable no-descending-specificity */
+
+.container {
+  height: 1269px;
+  box-sizing: border-box;
+  padding: 330px 40px 150px;
+  overflow: hidden;
+  position: relative;
+
+  @include tablet {
+    height: auto;
+    padding-top: 145px;
+    padding-bottom: 70px;
+  }
+
+  @include phone {
+    padding: 135px 15px 105px;
+  }
+
+  .projectInfoContainer {
+    z-index: 100;
+
+    @include tablet {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 83px;
+      height: 83px;
+      margin-bottom: 20px;
+
+      @include tablet {
+        margin-bottom: 15px;
+      }
+
+      @include phone {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .projectTitle {
+      margin: 0 0 30px;
+      font-family: $case-studies-font;
+      font-weight: bold;
+      line-height: 120%;
+
+      @include fontSize(100px);
+
+      @include tablet {
+        @include fontSize(60px);
+      }
+    }
+
+    .projectSubtitle {
+      margin: 0 0 20px;
+      font-family: $case-studies-font;
+      font-weight: 500;
+      line-height: 150%;
+    }
+
+    .projectDescription {
+      max-width: 400px;
+      margin: 0 0 40px;
+      line-height: 180%;
+      font-family: $case-studies-font;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        margin: 0 auto 40px;
+
+        @include fontSize(16px);
+      }
+    }
+
+    .appLink {
+      width: 201px;
+      height: 67px;
+
+      @include tablet {
+        width: 168px;
+        height: 56px;
+      }
+
+      @include phone {
+        width: 135px;
+        height: 45px;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: $case-studies-font;
+
+    @include fontSize(18px);
+    @include flex(row, space-between);
+
+    @include tablet {
+      @include fontSize(16px);
+    }
+
+    @include phone {
+      overflow-x: auto;
+      white-space: pre;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .experience {
+      margin-right: 15px;
+
+      @include phone {
+        margin-right: 40px;
+      }
+
+      &:last-of-type {
+        margin: 0;
+      }
+
+      .infoTitle {
+        margin: 0 0 10px;
+        font-weight: bold;
+        line-height: 180%;
+      }
+
+      p {
+        margin: 0;
+        line-height: 180%;
+      }
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 650px;
+    z-index: 1;
+
+    @include tablet {
+      height: calc(100vw - 100px);
+    }
+
+    @include phone {
+      max-width: 450px;
+    }
+
+    .image {
+      object-fit: cover;
+
+      @include centered;
+
+      @include tablet {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.introSection {
+  max-width: 1400px;
+  margin: 0 auto 240px;
+
+  @include flex(row, space-between);
+
+  @include tablet {
+    margin: 0 auto 60px;
+
+    @include flex(column, initial, center);
+  }
+
+  a {
+    @include phone {
+      margin-top: 60px;
+    }
+  }
+}
+
+.webSiteLink {
+  display: inline-block;
+  color: $white;
+  font-weight: 500;
+  padding: 18px 64px;
+  border-radius: 8px;
+  z-index: 1;
+  transform: scale(1);
+  transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+
+  @include fontSize(20px);
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.98);
+    transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  @include phone {
+    @include fontSize(18px);
+  }
+}
+
+.fernwayer {
+  @extend .container;
+
+  background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.7);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.7);
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 1380px;
+    }
+  }
+}
+
+.stickerbox {
+  @extend .container;
+
+  background: linear-gradient(180deg, $grey-darker 0%, $dark-grey-2 100%);
+  height: unset;
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 295px;
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectSubtitle {
+      color: $silver-chalice;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.4);
+    }
+  }
+
+  .introSection {
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
+    }
+  }
+}
+
+.seven-pm-thursday {
+  @extend .container;
+
+  padding-top: 245px;
+  background: $dark-blue-1;
+
+  @include tablet {
+    padding-top: 145px;
+  }
+
+  @include phone {
+    padding-top: 135px;
+  }
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(90px);
+
+      @include tablet {
+        @include fontSize(60px);
+      }
+    }
+
+    .projectSubtitle {
+      font-family: $case-studies-font;
+      font-weight: 500;
+      line-height: 150%;
+      color: $silver-chalice;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      max-width: 518px;
+      color: rgba($white, 0.4);
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 1000px;
+      transform: translate(-50%, -44%);
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+
+    &:nth-child(3) {
+      top: 0;
+      right: 0;
+      transform: translate(5%, -9%);
+    }
+
+    &:nth-child(4) {
+      max-width: 85px;
+      top: 50%;
+      right: 0;
+      transform: translate(-120%, -200%);
+
+      @include macbook-fifteen {
+        display: none;
+      }
+    }
+
+    &:nth-child(5) {
+      max-width: 100px;
+      top: 50%;
+      left: 0;
+      transform: translate(85%, 165%);
+
+      @include macbook-fifteen {
+        display: none;
+      }
+    }
+  }
+
+  .introSection {
+    margin-bottom: 350px;
+
+    @include tablet {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.fairy {
+  @extend .container;
+
+  background: $violet no-repeat center;
+  background-size: cover;
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      margin-right: 15px;
+
+      &:nth-last-child(2) {
+        p:not(.infoTitle) {
+          max-width: 295px;
+        }
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+
+        p:not(.infoTitle) {
+          max-width: 200px;
+        }
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p:not(.infoTitle) {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectSubtitle {
+      color: rgba($white, 0.8);
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.6);
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 630px;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.tell {
+  @extend .container;
+
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFF 100%) no-repeat center;
+  background-size: cover;
+
+  .projectInfoContainer {
+    max-width: 50%;
+
+    @include tablet {
+      max-width: unset;
+    }
+
+    .projectTitle {
+      color: $dark-grey;
+
+      @include fontSize(65px);
+
+      @include tablet {
+        @include fontSize(44px);
+      }
+    }
+
+    .projectSubtitle {
+      color: $dark-grey;
+      max-width: 60%;
+
+      @include fontSize(24px);
+
+      @include tablet {
+        margin: 0 auto;
+        max-width: unset;
+
+        @include fontSize(22px);
+      }
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      p {
+        line-height: 1.5;
+
+        @include fontSize(18px);
+      }
+
+      p:not(.infoTitle) {
+        color: $silver-chalice;
+      }
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 785px;
+    }
+  }
+}
+
+.natp {
+  @extend .container;
+
+  height: unset;
+  background: linear-gradient(180deg, $nevada-1 0%, $shark-1 100%) no-repeat center;
+  background-size: cover;
+
+  .introSection {
+    margin-bottom: 300px;
+
+    @include tablet {
+      margin-bottom: 100px;
+    }
+  }
+
+  .projectInfoContainer {
+    color: $white;
+
+    .projectTitle {
+      @include macbook-fifteen {
+        @include fontSize(85px);
+      }
+
+      @include phone {
+        @include fontSize(60px);
+      }
+    }
+
+    .projectDescription {
+      opacity: 0.7;
+      max-width: 407px;
+    }
+  }
+
+  .imageContainer {
+    @include tablet {
+      width: 100%;
+      height: unset;
+    }
+
+    .image {
+      max-width: 1084px;
+      transform: translate(-38%, -45%);
+
+      @include tablet {
+        position: relative;
+        width: 100%;
+        height: unset;
+        transform: unset;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      color: $white;
+
+      p {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    background-color: $sushi;
+  }
+}
+
+.travel-trivia {
+  @extend .container;
+
+  background: linear-gradient(51.28deg, #e66bce 11.39%, #eb6b96 81.95%);
+  height: unset;
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 295px;
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .logo {
+      width: 67px;
+      height: 67px;
+    }
+
+    .projectTitle {
+      @include fontSize(65px);
+
+      color: $white;
+
+      @include phone {
+        @include fontSize(56px);
+      }
+    }
+
+    .projectSubtitle {
+      @include fontSize(24px);
+
+      color: $white;
+
+      @include phone {
+        opacity: 0.8;
+
+        @include fontSize(18px);
+      }
+    }
+
+    .projectDescription {
+      color: $white;
+      line-height: 180%;
+      opacity: 0.8;
+      max-width: 407px;
+
+      @include fontSize(18px);
+    }
+  }
+
+  .introSection {
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
+    }
+  }
+}
+
+.drive-focus {
+  @extend .container;
+
+  background: linear-gradient(180deg, $flamenco 0%, $yellow-orange 100%);
+  background-size: cover;
+  height: unset;
+  padding-top: 420px;
+
+  @include macbook-twelve {
+    padding-top: 300px;
+  }
+
+  @include tablet {
+    padding-top: 200px;
+  }
+
+  @include phone {
+    padding-top: 100px;
+  }
+
+  .introSection {
+    margin-bottom: 330px;
+
+    @include tablet {
+      margin-bottom: 100px;
+    }
+  }
+
+  .projectInfoContainer {
+    color: $white;
+
+    @include phone {
+      margin-bottom: 20px;
+    }
+
+    .projectTitle {
+      @include macbook-fifteen {
+        @include fontSize(85px);
+      }
+
+      @include phone {
+        @include fontSize(60px);
+      }
+    }
+
+    .projectSubtitle {
+      opacity: 0.8;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      opacity: 0.8;
+      max-width: 407px;
+    }
+  }
+
+  .imageContainer {
+    @include tablet {
+      width: 100%;
+      height: unset;
+    }
+
+    .image {
+      max-width: 1484px;
+      transform: translate(-25%, -45%);
+
+      @include macbook-twelve {
+        max-width: 1076px;
+      }
+
+      @include tablet {
+        position: relative;
+        width: 100%;
+        height: unset;
+        transform: unset;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      color: $white;
+
+      p {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(33%, -50%);
+    max-width: 2667px;
+
+    @include macbook-fifteen {
+      max-width: 2050px;
+    }
+
+    @include tablet {
+      transform: translate(60%, -50%);
+    }
+
+    @include phone {
+      transform: translate(78%, -50%);
+    }
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    background-color: $white;
+    color: $flamenco;
+
+    @include phone {
+      margin-top: 60px;
+    }
+  }
+}
+
+.cash-chat {
+  @extend .container;
+
+  height: initial;
+  background: $green;
+  background-size: cover;
+
+  .projectInfoContainer {
+    max-width: 50%;
+
+    @include tablet {
+      max-width: unset;
+    }
+
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(65px);
+
+      @include tablet {
+        @include fontSize(44px);
+      }
+    }
+
+    .projectSubtitle {
+      color: $white;
+      max-width: 70%;
+
+      @include fontSize(24px);
+
+      @include tablet {
+        margin: 0 auto;
+        max-width: unset;
+
+        @include fontSize(22px);
+      }
+    }
+
+    .projectDescription {
+      color: $white;
+      opacity: 0.8;
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      p {
+        line-height: 1.5;
+
+        @include phone {
+          margin-right: 60px;
+        }
+
+        @include fontSize(18px);
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p:not(.infoTitle) {
+        color: $white;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 785px;
+      left: 38%;
+
+      @include tablet {
+        left: 50%;
+      }
+
+      @include phone {
+        height: 320px;
+      }
+    }
+  }
+}
+
+.beautonomy {
+  @extend .container;
+
+  background: $coffee;
+
+  .introSection {
+    .projectInfoContainer {
+      max-width: 435px;
+      color: $dark-grey;
+
+      .logo {
+        width: 67px;
+        height: 67px;
+
+        @include phone {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      .projectTitle {
+        filter: drop-shadow(0 4px 4px $work-beautonomy-title-shadow);
+
+        @include fontSize(65px);
+
+        @include tablet {
+          @include fontSize(48px);
+        }
+
+        @include phone {
+          @include fontSize(44px);
+        }
+      }
+
+      .projectSubtitle {
+        max-width: 410px;
+
+        @include fontSize(24px);
+
+        @include tablet {
+          max-width: unset;
+          margin: 0 auto 16px;
+
+          @include fontSize(18px);
+        }
+      }
+
+      @include tablet {
+        max-width: unset;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      @include phone {
+        margin-right: 80px;
+
+        .infoTitle,
+        p {
+          @include fontSize(14px);
+        }
+      }
+
+      p {
+        line-height: 1.5;
+        color: $silver-chalice;
+
+        @include fontSize(18px);
+      }
+
+      .infoTitle {
+        color: $dark-grey;
+      }
+    }
+  }
+
+  .imageContainer {
+    @include tablet {
+      height: 600px;
+    }
+
+    @include phone {
+      height: 240px;
+      width: 430px;
+    }
+
+    .image {
+      top: 40%;
+      left: 25vw;
+
+      @include macbook-twelve {
+        left: 60%;
+      }
+
+      @include tablet {
+        top: 45%;
+        left: 50%;
+      }
+
+      @include phone {
+        top: 40%;
+        left: 45%;
+        width: 420px;
+        height: auto;
+      }
+    }
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    background-color: $mine-shaft-1;
+  }
+}
+
+.writer-chrome-extension {
+  @extend .container;
+
+  z-index: 0;
+  background: $sea-blue;
+  background-size: cover;
+
+  .projectInfoContainer {
+    color: $white;
+
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(65px);
+
+      @include tablet {
+        @include fontSize(44px);
+      }
+    }
+
+    .projectDescription {
+      opacity: 0.7;
+      max-width: 407px;
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+    @include tablet {
+      right: -350px;
+    }
+
+    @include below-tablet {
+      right: -450px;
+    }
+
+    @include phone {
+      right: -550px;
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      p {
+        line-height: 1.5;
+
+        @include fontSize(18px);
+
+        @include phone {
+          margin-right: 60px;
+        }
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p:not(.infoTitle) {
+        color: $white;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    color: $black;
+    background-color: $white;
+  }
+}

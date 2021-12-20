@@ -115,12 +115,12 @@ const ChallengesAndSolutions = ({
                     src={imageUrl}
                     alt={title}
                   />
-                  {imagesBundles && imagesBundles.map((bundle) => {
+                  {imagesBundles && imagesBundles.map((bundle, index) => {
                     const bundleUrl = getFileUrl(bundle);
 
                     return (
                       <img
-                        className={styles.imageBundle}
+                        className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
                         src={bundleUrl}
                         alt={title}
                         key={`bundles-images/${bundleUrl}`}

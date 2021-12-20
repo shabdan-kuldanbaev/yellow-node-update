@@ -13,6 +13,7 @@ import {
   CASE_STUDIES_SLUGS,
   CASE_STUDIES,
   PAGES_WITH_TRANSPARENT_HEADER,
+  CASE_STUDIES_WITH_TRANSPARENT_HEADER,
 } from 'utils/constants';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
@@ -27,6 +28,8 @@ const Header = ({
   const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
   const isPageWithTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
+  const isCaseStudyWithTransparentHeader = CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(project)
+  || CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(asPath);
   const isHomepage = currentPage === '';
   const headerTheme = [
     CASE_STUDIES.tell,
@@ -39,7 +42,8 @@ const Header = ({
   const [isPageScrolledDown, setIsPageScrolledDown] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   // TODO rework this check
-  const logo = !isPageScrolledDown && isPageWithTransparentHeader
+  const isTransparentHeader = isPageWithTransparentHeader || isCaseStudyWithTransparentHeader;
+  const logo = !isPageScrolledDown && isTransparentHeader
     ? project || 'home'
     : 'default';
   const isHeaderColorNeedChange = isPageWithTransparentHeader
@@ -55,18 +59,17 @@ const Header = ({
         const intro = introSection.current.getBoundingClientRect();
 
         if (isPageWithTransparentHeader) {
-          intro.bottom < 65
-            ? setIsPageScrolledDown(true)
-            : setIsPageScrolledDown(false);
-          intro.top < -200
-            ? setIsLogoTextHidden(true)
-            : setIsLogoTextHidden(false);
+          setIsPageScrolledDown(intro.bottom < 65);
+          setIsLogoTextHidden(intro.top < -200);
         }
 
-        if (!isPageWithTransparentHeader) {
-          intro.top < -10
-            ? setIsLogoTextHidden(true)
-            : setIsLogoTextHidden(false);
+        if (isCaseStudyWithTransparentHeader) {
+          setIsPageScrolledDown(intro.top < -170);
+          setIsLogoTextHidden(intro.top < -220);
+        }
+
+        if (!isTransparentHeader) {
+          setIsLogoTextHidden(intro.top < -10);
         }
       }
     };
@@ -79,6 +82,8 @@ const Header = ({
     currentPage,
     introSection,
     isPageWithTransparentHeader,
+    isCaseStudyWithTransparentHeader,
+    isTransparentHeader,
   ]);
 
   useEffect(() => {
@@ -89,7 +94,7 @@ const Header = ({
     <header className={cn({
       [styles.headerContainer]: true,
       [styles.pageScrolling]: isPageScrolledDown,
-      [styles.notHome]: !isPageWithTransparentHeader,
+      [styles.notHome]: !isPageWithTransparentHeader && !isCaseStudyWithTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
       [styles.openedDropDown]: isHeaderColorNeedChange,
     })}
@@ -100,7 +105,7 @@ const Header = ({
       <Nav
         theme={navTheme}
         isPageScrolledDown={isPageScrolledDown}
-        isTransparentHeader={isPageWithTransparentHeader}
+        isTransparentHeader={isTransparentHeader}
         currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
         setMobileMenuState={setMobileMenu}
