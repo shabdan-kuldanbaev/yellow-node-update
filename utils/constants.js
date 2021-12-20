@@ -409,11 +409,12 @@ export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
-  ...CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path)),
   ROUTES.homepage.path,
   ROUTES.customWebApp.path,
   ROUTES.developmentServices.path,
 ];
+
+export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
 
 export const SUB_NAVIGATION_LINKS = {
   [NON_INTERACTIVE_LINKS.whatWeDo.slug]: [
