@@ -216,6 +216,11 @@
 .ubichat {
   @include caseStudyContainer;
 
+  @include phone {
+    padding-bottom: 0;
+    margin-bottom: -80px;
+  }
+
   .circle {
     position: static;
     transform: translateX(0);
@@ -226,6 +231,7 @@
 
     @include phone {
       height: initial;
+      margin-top: 0;
     }
 
     .mockup {
