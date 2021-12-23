@@ -1264,3 +1264,24 @@
     }
   }
 }
+
+.meat-eater {
+  .contentContainer {
+    .image {
+      filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.05));
+      border-radius: 20px;
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      .infoContainer {
+        p,
+        h2,
+        h3 {
+          color: $white;
+        }
+      }
+    }
+  }
+}

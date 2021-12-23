@@ -1,6 +1,7 @@
 @import 'styles/utils/mixins';
 
-.seven-pm-thursday {
+.seven-pm-thursday,
+.meat-eater {
   @include caseStudyContainer;
 
   background-color: $dark-blue-1;
@@ -38,6 +39,38 @@
       color: $white;
 
       @include fontSize(25px);
+    }
+  }
+}
+
+.meat-eater {
+  background-color: $white;
+
+  [data-case-study-title] {
+    color: $dark-grey;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  [data-case-study-description] {
+    margin-bottom: 40px;
+    font-weight: 400;
+    color: $silver-chalice;
+    font-size: 14px;
+  }
+
+  .container {
+    margin: 0 0 80px;
+    filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.05));
+
+    .image {
+      width: 100%;
+      max-width: 1076px;
+    }
+
+    .title {
+      color: $dark-grey;
+      font-size: 24px;
     }
   }
 }

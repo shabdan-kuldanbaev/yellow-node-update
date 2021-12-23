@@ -270,3 +270,43 @@
     }
   }
 }
+
+.meat-eater {
+  @extend .infoContainer;
+
+  @include phone {
+    @include flex(column, center, flex-start);
+
+    padding: 0 80px;
+  }
+
+  /* stylelint-disable-next-line */
+  .container {
+    .title {
+      color: $dark-grey;
+    }
+
+    .listContainer {
+      list-style: none;
+    }
+
+    ul li::before {
+      content: "\2022";
+      color: $sea-blue;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+      font-size: 21px;
+    }
+
+    .listItemContainer {
+      margin-bottom: 15px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $dark-grey;
+      }
+    }
+  }
+}

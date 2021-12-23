@@ -149,3 +149,24 @@
     color: rgba($white, 0.7);
   }
 }
+
+.meat-eater {
+  padding: 140px 40px;
+  background: linear-gradient(116.68deg, #221F20 0%, #3F3D3E 100%);
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: rgba($white, 0.7);
+  }
+
+  @include tablet {
+    padding: 100px 40px;
+  }
+
+  @include phone {
+    padding: 80px 15px;
+  }
+}
