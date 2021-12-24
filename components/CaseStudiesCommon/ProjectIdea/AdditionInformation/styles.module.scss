@@ -277,7 +277,7 @@
   @include phone {
     @include flex(column, center, flex-start);
 
-    padding: 0 80px;
+    padding: 0 65px;
   }
 
   /* stylelint-disable-next-line */
@@ -291,13 +291,14 @@
     }
 
     ul li::before {
+      @include fontSize(21px);
+
       content: "\2022";
       color: $sea-blue;
       font-weight: bold;
       display: inline-block;
       width: 1em;
       margin-left: -1em;
-      font-size: 21px;
     }
 
     .listItemContainer {
