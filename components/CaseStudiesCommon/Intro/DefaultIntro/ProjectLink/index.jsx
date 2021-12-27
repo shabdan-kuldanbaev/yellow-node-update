@@ -25,6 +25,7 @@ export const ProjectLink = ({
       </LinkWrapper>
     );
   case CASE_STUDIES.natp:
+  case CASE_STUDIES.meatEater:
   case CASE_STUDIES.driveFocus:
   case CASE_STUDIES.writerChromeExtension:
   case CASE_STUDIES.beautonomy:

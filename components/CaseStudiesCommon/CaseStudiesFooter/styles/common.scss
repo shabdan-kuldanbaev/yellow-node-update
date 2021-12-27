@@ -438,7 +438,8 @@
 
 .writer-chrome-extension,
 .natp,
-.drive-focus {
+.drive-focus,
+.meat-eater {
   @extend .container;
 
   .nextProjectContainer {
@@ -479,6 +480,10 @@
 
 .natp {
   background: linear-gradient(360deg, $shark -10.75%, $nevada 243.07%);
+}
+
+.meat-eater {
+  background: linear-gradient(116.68deg, $raisin-black 0%, $black-olive 100%);
 }
 
 .drive-focus {
