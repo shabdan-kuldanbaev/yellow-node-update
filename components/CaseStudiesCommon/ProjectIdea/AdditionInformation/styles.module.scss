@@ -271,7 +271,7 @@
   }
 }
 
-.meat-eater {
+.meateater {
   @extend .infoContainer;
 
   @include phone {
@@ -286,19 +286,21 @@
       color: $dark-grey;
     }
 
-    .listContainer {
-      list-style: none;
-    }
+    @include phone {
+      .listContainer {
+        list-style: none;
+      }
 
-    ul li::before {
-      @include fontSize(21px);
+      ul li::before {
+        @include fontSize(21px);
 
-      content: "\2022";
-      color: $sea-blue;
-      font-weight: bold;
-      display: inline-block;
-      width: 1em;
-      margin-left: -1em;
+        content: "\2022";
+        color: $sea-blue;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
     }
 
     .listItemContainer {
