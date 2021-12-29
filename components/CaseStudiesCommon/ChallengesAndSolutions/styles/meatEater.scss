@@ -17,4 +17,26 @@
       }
     }
   }
+
+  &.thirdSectionView {
+    .contentContainer {
+      justify-content: center;
+      align-items: center;
+
+      .infoContainer {
+        margin-right: 0;
+        max-width: 460px;
+
+        .title {
+          @include fontSize(32px);
+        }
+
+        @include phone {
+          .title {
+            @include fontSize(24px);
+          }
+        }
+      }
+    }
+  }
 }
