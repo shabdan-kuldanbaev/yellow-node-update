@@ -15,6 +15,7 @@ export const ProjectLink = ({
   case CASE_STUDIES.fernwayer:
   case CASE_STUDIES.stickerbox:
   case CASE_STUDIES.fairy:
+  case CASE_STUDIES.fireaway:
   case CASE_STUDIES.sevenPmThursday:
     return (
       <LinkWrapper path={downloadLink.url}>

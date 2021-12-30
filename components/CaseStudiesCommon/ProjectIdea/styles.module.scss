@@ -436,3 +436,14 @@
     }
   }
 }
+
+.fireaway {
+  @extend .container;
+
+  background-color: $white;
+  position: relative;
+
+  .contentContainer {
+    padding-bottom: 0;
+  }
+}

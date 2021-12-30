@@ -563,7 +563,8 @@
   }
 }
 
-.ubichat {
+.ubichat,
+.fireaway {
   @extend .container;
 
   .containerBackground {
@@ -594,6 +595,14 @@
 
     .contentContainer {
       padding-top: 8px;
+    }
+  }
+}
+
+.fireaway {
+  .featureContainer {
+    .checkMark {
+      background: $cornflower-blue;
     }
   }
 }

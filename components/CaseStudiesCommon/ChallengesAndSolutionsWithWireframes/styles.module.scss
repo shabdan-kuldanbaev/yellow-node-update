@@ -5,7 +5,8 @@
 .stickerbox,
 .fairy,
 .travel-trivia,
-.cash-chat {
+.cash-chat,
+.fireaway {
   @include caseStudyContainer;
 
   background-color: $alabaster;

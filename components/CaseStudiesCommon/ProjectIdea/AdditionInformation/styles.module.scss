@@ -238,7 +238,8 @@
   }
 }
 
-.ubichat {
+.ubichat,
+.fireaway {
   @extend .infoContainer;
 
   @include phone {
