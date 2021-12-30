@@ -1,5 +1,7 @@
 .meateater {
   .contentContainer {
+    margin: 0 auto 70px;
+
     .image {
       filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.05));
       border-radius: 20px;
@@ -9,10 +11,13 @@
   &.secondSectionView {
     .contentContainer {
       .infoContainer {
-        p,
         h2,
         h3 {
           color: $white;
+        }
+
+        p {
+          color: rgba($white, 0.7);
         }
       }
     }
@@ -22,6 +27,7 @@
     .contentContainer {
       justify-content: center;
       align-items: center;
+      margin: 0 auto;
 
       .infoContainer {
         margin-right: 0;

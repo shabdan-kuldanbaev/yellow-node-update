@@ -152,7 +152,7 @@
 }
 
 .meateater {
-  padding: 140px 40px;
+  padding: 140px 40px 70px;
   background: linear-gradient(116.68deg, $raisin-black 0%, $black-olive 100%);
 
   [data-case-study-title] {
@@ -173,6 +173,7 @@
 
   &.thirdSectionView {
     background: $white;
+    padding: 140px 40px 0;
 
     [data-case-study-title] {
       color: $dark-grey;
