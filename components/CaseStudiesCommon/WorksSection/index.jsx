@@ -1,8 +1,9 @@
 import React from 'react';
+import cn from 'classnames';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
-import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import { getFileUrl, getOptimizedContentfulImage, getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const WorksSection = ({ data, type }) => {
@@ -17,6 +18,15 @@ const WorksSection = ({ data, type }) => {
   const sectionStyle = sectionBackgroundImage
     ? { backgroundImage: `url(${sectionBackgroundImage})` }
     : {};
+
+  const {
+    imagesBundles,
+  } = getDocumentFields(
+    get(data, 'contentModules[5]', {}),
+    [
+      'imagesBundles',
+    ],
+  );
 
   return (
     <section
@@ -34,10 +44,13 @@ const WorksSection = ({ data, type }) => {
           }
 
           return (
-            <div className={styles.step}>
+            <div
+              className={styles.step}
+              key={index}
+            >
               <div className={styles.markNumber}>
                 <h3 className={styles.contentMarkNumber}>
-                  {index + 1}
+                  {fields.subtitle}
                 </h3>
               </div>
               <h3 className={styles.stepTitle}>
@@ -56,6 +69,18 @@ const WorksSection = ({ data, type }) => {
           />
         ))}
       </div>
+      {imagesBundles && imagesBundles.map((bundle, index) => {
+        const bundleUrl = getFileUrl(bundle);
+
+        return (
+          <img
+            className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
+            src={bundleUrl}
+            alt={bundle.fields.title}
+            key={`images-bundles/${bundleUrl}`}
+          />
+        );
+      })}
     </section>
   );
 };

@@ -15,11 +15,20 @@
   }
 
   .imageBundle-2 {
+    width: 926px;
+    height: 926px;
     bottom: 0;
     right: 0;
 
     @include tablet {
+      width: 500px;
+      height: 500px;
       transform: translate(100px, 0);
+    }
+
+    @include phone {
+      width: 270px;
+      height: 270px;
     }
   }
 
@@ -56,24 +65,46 @@
         color: $white;
         position: relative;
 
-        @include phone {
+        @include tablet {
           margin-bottom: 40px;
         }
 
-        span {
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: -18px;
-            right: 0;
-            width: 100%;
-            border-bottom: 16px $bright-blue solid;
-            background-color: $bright-blue;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -18px;
+          left: 0;
+          width: 100%;
+          border-bottom: 16px $bright-blue solid;
+          background-color: $bright-blue;
 
-            @include phone {
-              border-bottom: 8px $bright-blue solid;
-            }
+          @include phone {
+            border-bottom: 8px $bright-blue solid;
           }
+        }
+      }
+
+      .title-1 {
+        width: 400px;
+
+        @include tablet {
+          width: 345px;
+        }
+
+        @include phone {
+          width: 257px;
+        }
+      }
+
+      .title-2 {
+        width: 263px;
+
+        @include tablet {
+          width: 365px;
+        }
+
+        @include phone {
+          width: 275px;
         }
       }
 
@@ -85,11 +116,12 @@
         }
       }
 
-      @include below-tablet {
+      @include tablet {
         margin-bottom: 0;
 
         @include flex(column, center, center);
 
+        & h2,
         & h3,
         & p {
           text-align: center;
