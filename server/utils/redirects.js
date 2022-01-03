@@ -63,4 +63,8 @@ module.exports.redirects = [
     from: '/blog/six-reasons-to-fall-in-love-with-react',
     to: '/blog/benefits-of-react',
   },
+  {
+    from: '/tag/marketing',
+    to: '/blog/marketing',
+  },
 ];

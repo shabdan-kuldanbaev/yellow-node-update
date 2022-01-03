@@ -57,6 +57,21 @@ const urlRedirect = (req, res, next) => {
     res.end();
   }
 
+  if (req.originalUrl.match(/^\/works\/$/) !== null) {
+    res.writeHead(301, { location: '/works' });
+    res.end();
+  }
+
+  if (req.originalUrl.match(/^\/process\/$/) !== null) {
+    res.writeHead(301, { location: '/process' });
+    res.end();
+  }
+
+  if (req.originalUrl.match(/^\/company\/$/) !== null) {
+    res.writeHead(301, { location: '/company' });
+    res.end();
+  }
+
   if (redirectPage) {
     res.writeHead(301, { location: redirectPage.to });
     res.end();
