@@ -3,7 +3,7 @@ import cn from 'classnames';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
-import { getFileUrl, getOptimizedContentfulImage, getDocumentFields } from 'utils/helper';
+import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const WorksSection = ({ data, type }) => {
@@ -18,15 +18,6 @@ const WorksSection = ({ data, type }) => {
   const sectionStyle = sectionBackgroundImage
     ? { backgroundImage: `url(${sectionBackgroundImage})` }
     : {};
-
-  const {
-    imagesBundles,
-  } = getDocumentFields(
-    get(data, 'contentModules[5]', {}),
-    [
-      'imagesBundles',
-    ],
-  );
 
   return (
     <section
@@ -56,6 +47,18 @@ const WorksSection = ({ data, type }) => {
               <h3 className={styles.stepTitle}>
                 {fields.title}
               </h3>
+              {fields.imagesBundles && fields.imagesBundles.map((bundle, indexBundleImage) => {
+                const bundleUrl = getFileUrl(bundle);
+
+                return (
+                  <img
+                    className={cn(styles.bundleImage, styles[`bundleImage-${indexBundleImage + 1}`])}
+                    src={bundleUrl}
+                    alt={bundle.fields.title}
+                    key={`images-bundles/${bundleUrl}`}
+                  />
+                );
+              })}
             </div>
           );
         })}
@@ -66,21 +69,10 @@ const WorksSection = ({ data, type }) => {
             className={styles.image}
             src={fields.file.url}
             alt={fields.title}
+            key={fields.file.fileName}
           />
         ))}
       </div>
-      {imagesBundles && imagesBundles.map((bundle, index) => {
-        const bundleUrl = getFileUrl(bundle);
-
-        return (
-          <img
-            className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
-            src={bundleUrl}
-            alt={bundle.fields.title}
-            key={`images-bundles/${bundleUrl}`}
-          />
-        );
-      })}
     </section>
   );
 };
