@@ -381,7 +381,7 @@ export const CASE_STUDIES = {
   beautonomy: 'beautonomy',
   smartcenter: 'smartcenter',
   ubiChat: 'ubichat',
-  meatEater: 'meat-eater',
+  meatEater: 'meateater',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

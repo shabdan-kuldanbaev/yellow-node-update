@@ -1,8 +1,13 @@
-.meat-eater {
+.meateater {
   @extend .container;
 
   height: 1200px;
   background-size: cover;
+  background-color: $raisin-black;
+
+  @include phone {
+    height: 978px;
+  }
 
   .introSection {
     margin-bottom: 300px;
