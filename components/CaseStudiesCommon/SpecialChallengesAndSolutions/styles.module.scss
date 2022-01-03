@@ -166,3 +166,14 @@
       "r r";
   }
 }
+
+.meateater {
+  @include caseStudyContainer;
+
+  padding: 150px 40px;
+  background: $light-grey;
+
+  @include phone {
+    padding-top: 40px;
+  }
+}

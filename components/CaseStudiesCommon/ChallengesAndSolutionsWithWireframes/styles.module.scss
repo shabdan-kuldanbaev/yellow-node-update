@@ -131,8 +131,9 @@
   }
 
   .title {
+    @include fontSize(56px);
+
     color: $white;
-    font-size: 56px;
   }
 }
 
@@ -147,5 +148,39 @@
 
   [data-case-study-description] {
     color: rgba($white, 0.7);
+  }
+}
+
+.meateater {
+  padding: 140px 40px 70px;
+  background: linear-gradient(116.68deg, $raisin-black 0%, $black-olive 100%);
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    color: rgba($white, 0.7);
+  }
+
+  @include tablet {
+    padding: 100px 40px;
+  }
+
+  @include phone {
+    padding: 80px 15px;
+  }
+
+  &.thirdSectionView {
+    background: $white;
+    padding: 140px 40px 0;
+
+    [data-case-study-title] {
+      color: $dark-grey;
+    }
+
+    [data-case-study-description] {
+      color: rgba($silver-chalice, 0.7);
+    }
   }
 }
