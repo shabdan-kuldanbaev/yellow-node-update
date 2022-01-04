@@ -183,3 +183,13 @@
     }
   }
 }
+
+.writer-chrome-extension {
+  @extend .formContainer;
+
+  background-color: unset;
+
+  @include phone {
+    padding: 0;
+  }
+}

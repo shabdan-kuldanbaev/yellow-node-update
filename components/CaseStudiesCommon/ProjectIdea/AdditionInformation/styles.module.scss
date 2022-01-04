@@ -161,6 +161,10 @@
         color: $sea-blue;
       }
     }
+
+    @include tablet {
+      margin-bottom: 0;
+    }
   }
 }
 
