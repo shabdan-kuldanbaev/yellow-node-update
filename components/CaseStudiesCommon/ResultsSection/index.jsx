@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { Video } from 'components/Common/Video';
 import { getFileUrl } from 'utils/helper';
+import cn from 'classnames';
 import { isResultHasVideo, getResultProps } from './utils/resultsHelper';
 import styles from './styles.module.scss';
 
@@ -18,8 +19,10 @@ const ResultsSection = ({ data, type }) => {
     imagesBundlesData,
   } = getResultProps(data);
 
+  const { view } = data;
+
   return (
-    <section className={styles[type]}>
+    <section className={cn([styles[type]], [styles[view]])}>
       <SectionTitle
         data={data}
         type={type}

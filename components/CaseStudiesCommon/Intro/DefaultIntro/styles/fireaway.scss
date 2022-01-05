@@ -13,6 +13,11 @@
   }
 
   .experiencesContainer {
+    @include full-hd {
+      max-width: 1210px;
+      padding-top: 60px;
+    }
+
     /* stylelint-disable-next-line */
     .experience {
       .infoTitle {
@@ -26,6 +31,10 @@
   }
 
   .projectInfoContainer {
+    @include full-hd {
+      margin-left: 6%;
+    }
+
     .projectTitle {
       color: $white;
 
@@ -55,7 +64,12 @@
     .image {
       max-width: 785px;
       left: 38%;
-      transform: translate(-50%, -44%);
+      transform: translate(-76%, -31%);
+
+      @include full-hd {
+        left: 62%;
+        transform: translate(-91%, -33%);
+      }
     }
   }
 
@@ -66,27 +80,59 @@
       top: 0;
       right: 0;
       transform: translate(5%, -9%);
+
+      @include full-hd {
+        transform: translate(-11%, -8%);
+      }
     }
 
     &:nth-child(4) {
-      max-width: 85px;
+      max-width: 60px;
       top: 50%;
       right: 0;
       transform: translate(-120%, -200%);
 
-      @include macbook-fifteen {
-        display: none;
+      @include full-hd {
+        top: 21%;
+        right: 14%;
+        transform: translate(-200%, -200%);
+      }
+
+      @include phone {
+        max-width: 47px;
       }
     }
 
     &:nth-child(5) {
-      max-width: 100px;
+      max-width: 115px;
       top: 50%;
       left: 0;
       transform: translate(85%, 165%);
 
-      @include macbook-fifteen {
-        display: none;
+      @include full-hd {
+        top: 18%;
+        left: 80%;
+        transform: translate(120%, 165%);
+      }
+
+      @include phone {
+        max-width: 75px;
+      }
+    }
+
+    &:nth-child(6) {
+      max-width: 140px;
+      top: 50%;
+      left: 0;
+      transform: translate(85%, 165%);
+
+      @include full-hd {
+        top: 36%;
+        left: 0;
+      }
+
+      @include phone {
+        max-width: 95px;
       }
     }
   }

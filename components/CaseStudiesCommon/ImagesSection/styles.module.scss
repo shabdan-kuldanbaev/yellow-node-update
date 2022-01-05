@@ -14,7 +14,8 @@
 .cash-chat,
 .smartcenter,
 .meat-eater,
-.ubichat {
+.ubichat,
+.fireaway {
   @include caseStudyContainer;
 
   background-color: $white;
@@ -50,4 +51,8 @@
   &.secondSectionView {
     padding: 140px 40px 0;
   }
+}
+
+.fireaway {
+  padding: 0 40px 150px;
 }

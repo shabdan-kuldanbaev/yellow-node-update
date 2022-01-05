@@ -5,8 +5,7 @@
 .stickerbox,
 .fairy,
 .travel-trivia,
-.cash-chat,
-.fireaway {
+.cash-chat {
   @include caseStudyContainer;
 
   background-color: $alabaster;
@@ -171,4 +170,10 @@
   @include phone {
     padding: 80px 15px;
   }
+}
+
+.fireaway {
+  @include caseStudyContainer;
+
+  background-color: $alabaster;
 }

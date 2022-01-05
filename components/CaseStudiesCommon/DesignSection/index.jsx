@@ -5,6 +5,7 @@ import { Animated } from 'components/Common/Animated';
 import Images from 'components/CaseStudiesCommon/Images';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
+import cn from 'classnames';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
@@ -13,8 +14,10 @@ const DesignSection = ({ data, type }) => {
     return null;
   }
 
+  const { view } = data;
+
   return (
-    <section className={styles[type]}>
+    <section className={cn([styles[type]], [styles[view]])}>
       <SectionTitle
         data={data}
         type={type}

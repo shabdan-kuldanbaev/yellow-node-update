@@ -118,3 +118,12 @@
     padding: 0;
   }
 }
+
+.fireaway {
+  padding: 50px 40px 140px;
+
+  [data-case-study-description] {
+    color: rgba($dark-grey, 0.5);
+    max-width: 825px;
+  }
+}

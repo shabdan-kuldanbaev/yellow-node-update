@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import "styles/utils/mixins", "styles/utils/theme/animations";
 
 .circle {
@@ -133,9 +134,7 @@
 
     .mockup {
       width: 330px;
-      filter:
-        drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6))
-        drop-shadow(-14.7997px 14.7997px 29.5993px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6)) drop-shadow(-14.7997px 14.7997px 29.5993px rgba(0, 0, 0, 0.5));
 
       @include phone {
         width: 209px;
@@ -239,6 +238,91 @@
       filter: unset;
       position: static;
       transform: translate(0, 0);
+    }
+  }
+}
+
+.fireaway {
+  @include caseStudyContainer;
+
+  &.firstSectionView {
+    background-color: $alabaster;
+
+    .circle {
+      .mockup {
+        filter: none;
+        width: 770px;
+        height: 720px;
+        margin-top: 80px;
+      }
+
+      .imageBundle {
+        margin-left: -26%;
+        margin-top: 2%;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $cornflower-blue;
+    padding: 140px 40px 40px;
+
+    [data-case-study-title] {
+      color: $white;
+    }
+
+    .circle {
+      .mockup {
+        filter: none;
+        width: 1096px;
+        height: 697px;
+        top: 43%;
+      }
+
+      .imageBundle {
+        position: absolute;
+
+        &:nth-child(3) {
+          max-width: 140px;
+          right: -45%;
+          top: 80%;
+        }
+
+        &:nth-child(4) {
+          max-width: 60px;
+          left: -38%;
+          top: 14%;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $alabaster;
+    padding: 140px 40px 55px;
+
+    .circle {
+      .mockup {
+        filter: none;
+        width: 1096px;
+        height: 689px;
+      }
+
+      .imageBundle {
+        position: absolute;
+
+        &:nth-child(3) {
+          max-width: 82px;
+          left: -42%;
+          top: 70%;
+        }
+
+        &:nth-child(4) {
+          max-width: 115px;
+          right: -45%;
+          top: 18%;
+        }
+      }
     }
   }
 }
