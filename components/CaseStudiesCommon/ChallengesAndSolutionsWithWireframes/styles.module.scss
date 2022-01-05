@@ -182,5 +182,11 @@
     [data-case-study-description] {
       color: rgba($silver-chalice, 0.7);
     }
+
+    & > div:last-child {
+      & > div:nth-of-type(1n+1) {
+        animation-direction: inherit;
+      }
+    }
   }
 }
