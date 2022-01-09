@@ -16,6 +16,11 @@ export const ProjectLink = ({
   case CASE_STUDIES.stickerbox:
   case CASE_STUDIES.fairy:
   case CASE_STUDIES.fireaway:
+    return (
+      <LinkWrapper path={downloadLink.url}>
+        {downloadLink.buttonTitle}
+      </LinkWrapper>
+    );
   case CASE_STUDIES.sevenPmThursday:
     return (
       <LinkWrapper path={downloadLink.url}>

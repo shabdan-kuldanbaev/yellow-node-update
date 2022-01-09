@@ -443,7 +443,29 @@
   background-color: $white;
   position: relative;
 
+  @include phone {
+    padding: 80px 15px 35px;
+  }
+
   .contentContainer {
     padding-bottom: 0;
+
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          & > p {
+            padding: 0 6px;
+          }
+        }
+      }
+    }
+  }
+
+  .mobileAdditionalInformation {
+    flex-direction: column;
+
+    & > div {
+      margin-top: 80px;
+    }
   }
 }

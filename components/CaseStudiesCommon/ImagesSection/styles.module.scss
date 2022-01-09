@@ -55,4 +55,8 @@
 
 .fireaway {
   padding: 0 40px 150px;
+
+  @include phone {
+    padding-bottom: 110px;
+  }
 }

@@ -248,17 +248,49 @@
   &.firstSectionView {
     background-color: $alabaster;
 
+    @include phone {
+      padding: 80px 15px 20px;
+
+      [data-case-study-description] {
+        margin-left: 18px;
+        margin-right: 18px;
+      }
+    }
+
     .circle {
+      @include phone {
+        width: 320px;
+        margin-top: 10%;
+      }
+
       .mockup {
         filter: none;
         width: 770px;
         height: 720px;
         margin-top: 80px;
+
+        @include phone {
+          width: 300px;
+          height: 295px;
+          margin-top: 0;
+        }
       }
 
       .imageBundle {
         margin-left: -26%;
         margin-top: 2%;
+
+        @include tablet {
+          margin-left: 0;
+          margin-top: 0;
+          transform: translate(19%, -20%);
+        }
+
+        @include phone {
+          margin-left: 35px;
+          margin-top: 8%;
+          width: 110px;
+        }
       }
     }
   }
@@ -267,16 +299,46 @@
     background-color: $cornflower-blue;
     padding: 140px 40px 40px;
 
+    @include phone {
+      padding: 70px 15px 50px;
+      margin-bottom: -75%;
+    }
+
     [data-case-study-title] {
       color: $white;
+
+      @include phone {
+        font-size: 27px;
+      }
     }
 
     .circle {
+      @include phone {
+        width: 375px;
+      }
+
       .mockup {
         filter: none;
         width: 1096px;
         height: 697px;
         top: 43%;
+
+        @include tablet {
+          width: 896px;
+          height: 672px;
+        }
+
+        @include below-tablet {
+          width: 768px;
+          height: 576px;
+        }
+
+        @include phone {
+          width: 345px;
+          height: 219px;
+          margin-top: 0;
+          top: 10%;
+        }
       }
 
       .imageBundle {
@@ -284,14 +346,46 @@
 
         &:nth-child(3) {
           max-width: 140px;
-          right: -45%;
-          top: 80%;
+          right: 0;
+          top: 0;
+          transform: translate(237%, 390%);
+
+          @include desktop {
+            transform: translate(215%, 390%);
+          }
+
+          @include tablet {
+            transform: translate(85%, 425%);
+          }
+
+          @include below-tablet {
+            transform: translate(-10%, 425%);
+          }
+
+          @include phone {
+            max-width: 63px;
+            transform: translate(-1%, 207%);
+          }
         }
 
         &:nth-child(4) {
           max-width: 60px;
-          left: -38%;
-          top: 14%;
+          left: 0;
+          top: 0;
+          transform: translate(-460%, 224%);
+
+          @include tablet {
+            transform: translate(-166%, 0);
+          }
+
+          @include below-tablet {
+            transform: translate(0, 0);
+          }
+
+          @include phone {
+            max-width: 34px;
+            transform: translate(22%, -205%);
+          }
         }
       }
     }
@@ -301,11 +395,59 @@
     background-color: $alabaster;
     padding: 140px 40px 55px;
 
+    [data-case-study-description] {
+      max-width: 850px;
+    }
+
+    @include below-tablet {
+      padding: 95px 40px 0;
+
+      [data-case-study-description] {
+        margin-bottom: 0;
+      }
+    }
+
+    @include phone {
+      padding: 50px 26px 0;
+      height: 465px;
+    }
+
     .circle {
+      @include below-tablet {
+        margin-top: 0;
+      }
+
+      @include phone {
+        width: 320px;
+        margin-top: 10%;
+      }
+
       .mockup {
         filter: none;
         width: 1096px;
         height: 689px;
+
+        @include full-hd {
+          transform: translate(-50%, -55%);
+        }
+
+        @include tablet {
+          width: 896px;
+          height: 672px;
+        }
+
+        @include below-tablet {
+          width: 640px;
+          height: 480px;
+        }
+
+        @include phone {
+          width: 300px;
+          height: 200px;
+          margin-top: 0;
+          top: 22%;
+          transform: translate(-50%, -48%);
+        }
       }
 
       .imageBundle {
@@ -313,14 +455,46 @@
 
         &:nth-child(3) {
           max-width: 82px;
-          left: -42%;
-          top: 70%;
+          left: 0;
+          top: 165px;
+          transform: translate(-390%, 450%);
+
+          @include tablet {
+            transform: translate(-12vw, 40vh);
+          }
+
+          @include below-tablet {
+            transform: translate(0%, 530%);
+          }
+
+          @include phone {
+            max-width: 41px;
+            transform: translate(-10%, 100%);
+          }
         }
 
         &:nth-child(4) {
           max-width: 115px;
-          right: -45%;
-          top: 18%;
+          right: 0;
+          top: 0;
+          transform: translate(286%, 120%);
+
+          @include desktop {
+            transform: translate(261%, 120%);
+          }
+
+          @include tablet {
+            transform: translate(100%, -30%);
+          }
+
+          @include below-tablet {
+            transform: translate(0, 66%);
+          }
+
+          @include phone {
+            max-width: 49px;
+            transform: translate(44%, -60%);
+          }
         }
       }
     }
