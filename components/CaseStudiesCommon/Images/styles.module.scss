@@ -209,7 +209,7 @@
 }
 
 .smartcenter,
-.meat-eater {
+.meateater {
   .image:first-child {
     display: block;
     max-width: 1076px;
@@ -244,7 +244,7 @@
   }
 }
 
-.meat-eater {
+.meateater {
   .image:first-child {
     display: block;
     max-width: 1076px;
@@ -263,7 +263,7 @@
 
     @include phone {
       display: block;
-      margin: 16px 0 80px 3px;
+      margin: 16px 0 0 3px;
     }
   }
 }

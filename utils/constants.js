@@ -381,7 +381,7 @@ export const CASE_STUDIES = {
   beautonomy: 'beautonomy',
   smartcenter: 'smartcenter',
   ubiChat: 'ubichat',
-  meatEater: 'meat-eater',
+  meatEater: 'meateater',
   fireaway: 'fireaway',
 };
 

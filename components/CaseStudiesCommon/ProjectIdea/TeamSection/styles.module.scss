@@ -189,6 +189,10 @@
       padding-right: 0;
     }
   }
+
+  @include tablet {
+    padding-top: 80px;
+  }
 }
 
 .drive-focus,
@@ -226,7 +230,7 @@
   }
 }
 
-.meat-eater {
+.meateater {
   @extend .container;
 
   position: absolute;
