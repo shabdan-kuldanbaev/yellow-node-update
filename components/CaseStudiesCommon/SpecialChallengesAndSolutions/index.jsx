@@ -4,16 +4,16 @@ import cn from 'classnames';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
 import BackgroundImages from 'components/CaseStudiesCommon/BackgroundImages';
-import { getBackgroundStyle } from './utils/challengesHelper';
+import { getBackgroundStyle, checkBackgroundImageDisplaying } from './utils/challengesHelper';
 import styles from './styles.module.scss';
 
 const SpecialChallengesAndSolutions = ({ data, type }) => {
   const sectionBackgroundImage = getBackgroundStyle(type, data);
-  const { view } = data;
+  const displayBackgroundImage = checkBackgroundImageDisplaying(type);
 
   return (
     <section
-      className={cn(styles[type], styles[view])}
+      className={cn(styles[type], styles[data.view])}
       style={sectionBackgroundImage}
     >
       <SectionTitle
@@ -23,13 +23,15 @@ const SpecialChallengesAndSolutions = ({ data, type }) => {
       <ChallengesAndSolutions
         data={data}
         type={type}
-        view={view}
+        view={data.view}
         isSpecial
       />
-      <BackgroundImages
-        data={data}
-        type={type}
-      />
+      {displayBackgroundImage && (
+        <BackgroundImages
+          data={data}
+          type={type}
+        />
+      )}
     </section>
   );
 };

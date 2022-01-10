@@ -80,11 +80,17 @@
         line-height: 1.5;
         margin: 0 0 7px;
         color: $white;
+        transition: color 0.3s ease-in-out;
 
         @include fontSize(20px);
 
         @include phone {
           @include fontSize(14px);
+        }
+
+        &:hover {
+          color: $turbo-100;
+          transition: color 0.3s ease-in-out;
         }
       }
 
@@ -110,12 +116,19 @@
           line-height: 2;
           color: $silver-chalice;
           outline: none;
+          transition: color 0.3s ease-in-out;
         }
 
         @include fontSize(18px);
 
         @include phone {
           @include fontSize(14px);
+        }
+
+        &:hover > span {
+          color: $turbo-100;
+          opacity: 0.7;
+          transition: color 0.3s ease-in-out;
         }
       }
     }

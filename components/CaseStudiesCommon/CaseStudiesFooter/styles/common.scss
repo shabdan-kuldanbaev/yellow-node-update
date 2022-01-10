@@ -1,0 +1,555 @@
+/* stylelint-disable no-descending-specificity */
+
+.container {
+  height: 758px;
+  box-sizing: border-box;
+  padding-bottom: 84px;
+
+  @include flex(column);
+
+  @include tablet {
+    padding: 0 40px 30px;
+  }
+
+  .nextProjectContainer {
+    width: fit-content;
+    margin: 0 auto;
+    flex-grow: 1;
+
+    @include flex(column, center, center);
+
+    .subtitle {
+      margin: 0 0 20px;
+      font-family: $case-studies-font;
+      font-weight: bold;
+      line-height: 120%;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+
+      @include fontSize(16px);
+
+      @include tablet {
+        @include fontSize(14px);
+      }
+
+      @include phone {
+        @include fontSize(12px);
+      }
+    }
+
+    .projectName {
+      margin: 0 0 45px;
+      font-family: $case-studies-font;
+      font-weight: bold;
+      line-height: 120%;
+      text-align: center;
+
+      @include fontSize(60px);
+
+      @include phone {
+        @include fontSize(50px);
+      }
+    }
+
+    .more {
+      padding: 20px 45px;
+      box-sizing: border-box;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      line-height: 150%;
+      font-family: $case-studies-font;
+
+      @include fontSize(18px);
+
+      @include tablet {
+        padding: 16px 34px;
+
+        @include fontSize(16px);
+      }
+
+      @include phone {
+        padding: 12px 20px;
+
+        @include fontSize(14px);
+      }
+
+      .textIndent {
+        margin-right: 15px;
+
+        @include phone {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .question {
+    margin: 0 0 20px;
+    font-family: $case-studies-font;
+    font-weight: bold;
+    line-height: 120%;
+    text-align: center;
+
+    @include fontSize(32px);
+
+    @include tablet {
+      @include fontSize(24px);
+    }
+
+    @include phone {
+      margin-bottom: 15px;
+
+      @include fontSize(20px);
+    }
+  }
+
+  .link {
+    margin: 0;
+    font-family: $case-studies-font;
+    font-weight: bold;
+    line-height: 120%;
+
+    @include fontSize(24px);
+
+    @include tablet {
+      @include fontSize(20px);
+    }
+
+    @include phone {
+      margin-bottom: 30px;
+
+      @include fontSize(18px);
+    }
+  }
+
+  .iconLink {
+    margin: 0;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
+  .footerLinks {
+    padding: 0 15%;
+
+    @include flex(row, space-between, flex-end);
+
+    &:first-child {
+      padding-top: 84px;
+    }
+
+    @include tablet {
+      padding: 0;
+    }
+
+    @include phone {
+      text-align: center;
+
+      @include flex(column, center, center);
+    }
+
+    .emailContainer {
+      @include phone {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.fernwayer,
+.travel-trivia {
+  @extend .container;
+
+  background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  /* stylelint-disable-next-line */
+  .link {
+    color: rgba($white, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $white;
+  }
+}
+
+.cash-chat {
+  @extend .container;
+
+  background: $alabaster;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($black, 0.7);
+    }
+
+    .projectName {
+      color: $black;
+    }
+
+    .more {
+      border: 1px solid $black;
+      color: $black;
+    }
+  }
+
+  .question {
+    color: $black;
+  }
+
+  /* stylelint-disable-next-line */
+  .link {
+    color: rgba($black, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $black;
+  }
+}
+
+.stickerbox {
+  @extend .container;
+
+  background: $turbo-100;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($dark-grey, 0.7);
+    }
+
+    .projectName {
+      color: $dark-grey;
+    }
+
+    .more {
+      border: 1px solid $dark-grey;
+      color: $dark-grey;
+    }
+  }
+
+  .question {
+    color: $dark-grey;
+  }
+
+  /* stylelint-disable-next-line */
+  .link {
+    color: rgba($dark-grey, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $dark-grey;
+  }
+}
+
+.seven-pm-thursday {
+  @extend .container;
+
+  background: $dark-blue-1;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  /* stylelint-disable-next-line */
+  .link {
+    color: rgba($white, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $white;
+  }
+}
+
+.fairy {
+  @extend .container;
+
+  background: $light-violet-1;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  /* stylelint-disable-next-line */
+  .link {
+    color: rgba($white, 0.5);
+  }
+
+  /* stylelint-disable-next-line */
+  .iconLink {
+    color: $white;
+  }
+}
+
+.tell {
+  @extend .container;
+
+  background-color: $white;
+
+  @include centeredBackgroundImage;
+
+  .nextProjectContainer {
+    .subtitle,
+    .projectName,
+    .more {
+      color: $dark-grey;
+    }
+
+    .more {
+      border: 1px solid $dark-grey;
+    }
+  }
+
+  .question,
+  .link {
+    color: $dark-grey;
+  }
+
+  .link {
+    opacity: 0.5;
+  }
+
+  .iconLink {
+    color: $black;
+  }
+}
+
+.open-sense {
+  @extend .container;
+
+  background-color: $zircon;
+
+  .nextProjectContainer {
+    .subtitle,
+    .projectName,
+    .more {
+      color: $dark-grey;
+    }
+
+    .more {
+      border: 1px solid $dark-grey;
+    }
+  }
+
+  .question,
+  .link {
+    color: $dark-grey;
+  }
+
+  .link {
+    opacity: 0.5;
+  }
+
+  .iconLink {
+    color: $black;
+  }
+}
+
+.separate-us {
+  @extend .container;
+
+  background-color: $brink-pink;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+
+      @include phone {
+        @include fontSize(40px);
+      }
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  .link {
+    color: rgba($white, 0.5);
+  }
+
+  .iconLink {
+    color: $white;
+  }
+}
+
+.writer-chrome-extension,
+.natp,
+.drive-focus {
+  @extend .container;
+
+  .nextProjectContainer {
+    .subtitle {
+      color: rgba($white, 0.7);
+    }
+
+    .projectName {
+      color: $white;
+
+      @include phone {
+        @include fontSize(40px);
+      }
+    }
+
+    .more {
+      border: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  .question {
+    color: $white;
+  }
+
+  .link {
+    color: rgba($white, 0.5);
+  }
+
+  .iconLink {
+    color: $white;
+  }
+}
+
+.writer-chrome-extension {
+  background: $sea-blue;
+}
+
+.natp {
+  background: linear-gradient(360deg, $shark -10.75%, $nevada 243.07%);
+}
+
+.drive-focus {
+  background-color: $flamenco;
+}
+
+.beautonomy {
+  @extend .container;
+
+  background-color: $coffee;
+
+  .nextProjectContainer {
+    .subtitle {
+      opacity: 0.7;
+      color: $dark-grey;
+
+      @include fontSize(16px);
+
+      @include phone {
+        @include fontSize(12px);
+      }
+    }
+
+    .projectName {
+      color: $dark-grey;
+
+      @include phone {
+        @include fontSize(50px);
+      }
+    }
+
+    .more {
+      border: 1px solid $dark-grey;
+      color: $dark-grey;
+
+      @include fontSize(14px);
+
+      @include phone {
+        @include fontSize(12px);
+      }
+    }
+  }
+
+  .link {
+    color: rgba($dark-grey, 0.5);
+
+    @include fontSize(24px);
+
+    @include phone {
+      @include fontSize(18px);
+    }
+  }
+
+  .iconLink {
+    color: $dark-grey;
+  }
+}
+
+.smartcenter {
+  @extend .container;
+
+  background-color: $slate-gray;
+  color: $white;
+
+  .more,
+  .link,
+  .iconLink {
+    color: $white;
+  }
+
+  .more {
+    border: 1px solid $white;
+  }
+}

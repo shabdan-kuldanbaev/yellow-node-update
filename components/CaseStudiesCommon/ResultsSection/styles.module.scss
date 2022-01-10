@@ -212,3 +212,52 @@
     }
   }
 }
+
+.ubichat {
+  @include caseStudyContainer;
+
+  @include phone {
+    padding-bottom: 0;
+    margin-bottom: -80px;
+  }
+
+  .circle {
+    position: static;
+    transform: translateX(0);
+    width: 100%;
+    max-width: 1076px;
+    margin: 100px auto 0;
+    height: initial;
+
+    @include phone {
+      height: initial;
+      margin-top: 0;
+    }
+
+    .mockup {
+      width: 100%;
+      filter: unset;
+      position: static;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.telemojo {
+  @include caseStudyContainer;
+
+  .circle {
+    position: static;
+    transform: translateX(0);
+    width: 100%;
+    max-width: 1076px;
+    margin: 100px auto 0;
+
+    .mockup {
+      width: 100%;
+      filter: unset;
+      position: static;
+      transform: translate(0, 0);
+    }
+  }
+}

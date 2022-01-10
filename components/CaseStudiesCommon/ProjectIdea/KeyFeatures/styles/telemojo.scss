@@ -1,0 +1,29 @@
+.telemojo {
+  @extend .container;
+
+  .containerBackground {
+    left: -24%;
+    right: 0;
+    opacity: 0.5;
+  }
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    margin-bottom: 35px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .checkMark {
+      color: $white;
+      background: $blue-ribbon;
+    }
+
+    .contentContainer {
+      .title {
+        font-weight: 700;
+      }
+    }
+  }
+}

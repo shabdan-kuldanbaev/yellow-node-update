@@ -1,0 +1,86 @@
+.telemojo {
+  @extend .container;
+
+  background-repeat: no-repeat;
+
+  @include centeredBackgroundImage;
+
+  position: relative;
+  padding-top: 197px;
+
+  @include tablet {
+    padding-top: 145px;
+  }
+
+  @include phone {
+    padding-top: 220px;
+  }
+
+  .introSection {
+    @include flex(column, center, center);
+
+    margin-bottom: 80px;
+  }
+
+  .projectInfoContainer {
+    text-align: center;
+    z-index: initial;
+
+    .logo {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 90%;
+    }
+
+    .title {
+      .projectTitle {
+        color: $white;
+        font-weight: 700;
+        font-size: 56px;
+
+        @include phone {
+          font-size: 2.4rem;
+        }
+      }
+    }
+
+    .projectDescription {
+      margin: 0;
+    }
+
+    .projectSubtitle {
+      margin-top: 20px;
+      color: $white;
+      font-weight: 400;
+      font-size: 18;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    max-width: 1076px;
+  }
+
+  .experiencesContainer {
+    max-width: 1113;
+
+    .experience {
+      .infoTitle {
+        color: $white;
+        opacity: 100%;
+      }
+
+      p {
+        color: $white;
+        font-weight: 400;
+        max-width: 179px;
+        opacity: 80%;
+
+        @include fontSize(18px);
+      }
+    }
+  }
+}

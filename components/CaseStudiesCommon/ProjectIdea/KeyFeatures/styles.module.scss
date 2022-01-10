@@ -563,15 +563,22 @@
   }
 }
 
-//TELEMOJO)))))))))))))))))))))))))))))))))))))))))(temporary)
-.telemojo {
+.ubichat {
   @extend .container;
 
   .containerBackground {
-    left: -25%;
+    left: -29%;
+    right: 0;
+    opacity: 0.5;
 
     @include phone {
-      left: -22%;
+      left: -28%;
+      top: -80px;
+      bottom: -80px;
+    }
+
+    @include phone-height-500 {
+      max-width: 410px;
     }
   }
 
@@ -580,11 +587,19 @@
 
     .contentContainer {
       max-width: 350px;
+      padding-top: 8px;
+
+      @include phone {
+        padding: 0 10px;
+      }
     }
 
     .checkMark {
       color: $white;
       background: $dodger-blue;
+      background: $mariner;
     }
   }
 }
+
+@import './styles/telemojo.scss';

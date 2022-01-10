@@ -229,3 +229,13 @@
     }
   }
 }
+
+.ubichat {
+  @extend .imagesContainer;
+
+  .image {
+    max-height: 527px;
+  }
+}
+
+@import './styles/telemojo.scss';

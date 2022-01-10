@@ -1,0 +1,49 @@
+.telemojo {
+  .contentContainer {
+    .infoContainer {
+      h2 {
+        @include fontSize(40px);
+
+        @include tablet {
+          @include fontSize(40px);
+        }
+
+        @include phone {
+          @include fontSize(32px);
+        }
+      }
+
+      h3 {
+        @include fontSize(18px);
+
+        font-weight: 700;
+        color: $white;
+      }
+
+      p {
+        max-width: 518px;
+        line-height: 32px;
+        font-weight: 400;
+        color: $gallery-400;
+
+        @include fontSize(18px);
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+      }
+    }
+
+    .title {
+      line-height: 56px;
+      max-width: 403px;
+      color: $white;
+
+      @include fontSize(40px);
+
+      @include tablet {
+        @include fontSize(16px);
+      }
+    }
+  }
+}

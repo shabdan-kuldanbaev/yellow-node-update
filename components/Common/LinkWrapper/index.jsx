@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import gaHelper from 'utils/ga';
+import { rootUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 export const LinkWrapper = ({
@@ -18,6 +19,10 @@ export const LinkWrapper = ({
   googleAnalyticProps,
   isSocialLink,
 }) => {
+  const finalPath = isLocalLink
+    ? path.replace(rootUrl, '')
+    : path;
+
   const handleOnClick = () => {
     if (!isEmpty(googleAnalyticProps)) {
       const {
@@ -38,12 +43,12 @@ export const LinkWrapper = ({
   return (
     <Link
       prefetch={false}
-      href={dynamicRouting.length > 0 ? dynamicRouting : path}
-      as={path}
+      href={dynamicRouting.length > 0 ? dynamicRouting : finalPath}
+      as={finalPath}
     >
       <a
         className={cn(styles.link, { [className]: !isImage })}
-        href={path}
+        href={finalPath}
         target={`${isLocalLink ? '' : '_blank'}`}
         rel={`${isLocalLink ? '' : `noopener noreferrer ${isSocialLink ? '' : 'nofollow'}`}`}
         onClick={handleOnClick}

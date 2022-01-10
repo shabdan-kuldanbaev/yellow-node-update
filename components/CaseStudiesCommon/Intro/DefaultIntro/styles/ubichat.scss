@@ -1,0 +1,101 @@
+.ubichat {
+  @extend .container;
+
+  position: relative;
+  height: initial;
+  background-color: $mariner;
+  overflow-x: hidden;
+  z-index: 0;
+
+  .projectInfoContainer {
+    color: $white;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
+
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(65px);
+
+      @include tablet {
+        @include fontSize(44px);
+      }
+    }
+
+    .projectDescription {
+      opacity: 0.7;
+      max-width: 407px;
+    }
+  }
+
+  .imageContainer {
+    width: 100%;
+    transform: translateX(12%);
+
+    @include tablet {
+      transform: initial;
+
+      .image {
+        height: initial;
+      }
+    }
+
+    .image {
+      width: 100%;
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    width: 95%;
+    height: 100%;
+    z-index: -1;
+
+    @include tablet {
+      transform: translateX(350px);
+    }
+
+    @include below-tablet {
+      transform: translateX(450px);
+    }
+
+    @include phone {
+      transform: translateX(550px);
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      p {
+        line-height: 1.5;
+
+        @include fontSize(18px);
+
+        @include phone {
+          margin-right: 60px;
+        }
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p:not(.infoTitle) {
+        color: $white;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    color: $black;
+    background-color: $white;
+  }
+}

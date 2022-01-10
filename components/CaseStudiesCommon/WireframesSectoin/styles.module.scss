@@ -1,6 +1,7 @@
 @import 'styles/utils/mixins';
 
-.fernwayer {
+.fernwayer,
+.ubichat {
   @include caseStudyContainer;
   @include wireframes;
 
@@ -115,3 +116,5 @@
     padding: 0;
   }
 }
+
+@import './styles/telemojo.scss';

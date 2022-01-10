@@ -2,10 +2,8 @@
 
 .fernwayer {
   @include caseStudyContainer;
+  @include centeredBackgroundImage;
 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   overflow: hidden;
 }
 
@@ -166,5 +164,16 @@
       "h h"
       "l l"
       "r r";
+  }
+}
+
+.telemojo {
+  @include caseStudyContainer;
+
+  padding: 0 40px 150px;
+  background: $selago;
+
+  @include phone {
+    padding: 0 15px 80px;
   }
 }

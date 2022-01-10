@@ -1,0 +1,6 @@
+.telemojo {
+  @include caseStudyContainer;
+  @include centeredBackgroundImage;
+
+  overflow: hidden;
+}
