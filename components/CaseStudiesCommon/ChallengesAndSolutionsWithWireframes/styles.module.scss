@@ -190,3 +190,10 @@
     }
   }
 }
+
+.fireaway {
+  @include caseStudyContainer;
+  @include centeredBackgroundImage;
+
+  background-color: $alabaster;
+}

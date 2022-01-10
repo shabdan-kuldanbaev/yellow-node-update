@@ -439,7 +439,8 @@
 .writer-chrome-extension,
 .natp,
 .drive-focus,
-.meateater {
+.meateater,
+.fireaway {
   @extend .container;
 
   .nextProjectContainer {
@@ -557,4 +558,8 @@
   .more {
     border: 1px solid $white;
   }
+}
+
+.fireaway {
+  background: $cornflower-blue;
 }
