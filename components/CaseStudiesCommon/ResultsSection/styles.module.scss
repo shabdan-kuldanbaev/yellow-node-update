@@ -308,7 +308,7 @@
       color: $white;
 
       @include phone {
-        font-size: 27px;
+        @include fontSize(27px);
       }
     }
 
