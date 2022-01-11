@@ -1,0 +1,259 @@
+.fireaway {
+  @extend .container;
+
+  padding-top: 245px;
+
+  @include tablet {
+    padding-top: 145px;
+  }
+
+  @include phone {
+    padding-top: 122px;
+  }
+
+  .experiencesContainer {
+    @include full-hd {
+      max-width: 1210px;
+      padding-top: 20px;
+    }
+
+    @include phone {
+      padding-top: 50%;
+    }
+
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    @include full-hd {
+      margin-left: 6%;
+    }
+
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(90px);
+
+      @include tablet {
+        @include fontSize(60px);
+      }
+    }
+
+    .projectSubtitle {
+      font-family: $case-studies-font;
+      font-weight: 500;
+      line-height: 150%;
+      color: $white;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      max-width: 518px;
+      color: rgba($white, 0.7);
+    }
+  }
+
+  .imageContainer {
+    @include phone {
+      height: 490px;
+    }
+
+    .image {
+      max-width: 785px;
+      left: 38%;
+      transform: translate(-76%, -31%);
+
+      @include full-hd {
+        left: 62%;
+        transform: translate(-91%, -33%);
+      }
+
+      @include tablet {
+        transform: translate(-72%, -38%);
+      }
+
+      @include below-tablet {
+        transform: translate(-76%, -38%);
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+
+    &:nth-child(3) {
+      top: 0;
+      right: 0;
+      transform: translate(5%, -9%);
+
+      @include full-hd {
+        transform: translate(-11%, -8%);
+      }
+
+      @include macbook-fifteen {
+        transform: translate(-3%, 0%);
+        width: 100%;
+      }
+
+      @include tablet {
+        transform: translate(-6%, 64%);
+        max-width: 1345px;
+      }
+
+      @include below-tablet {
+        transform: translate(-6%, 81%);
+        max-width: 1200px;
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    &:nth-child(4) {
+      max-width: 60px;
+      top: 50%;
+      right: 0;
+      transform: translate(-120%, -200%);
+
+      @include full-hd {
+        top: 21%;
+        right: 14%;
+        transform: translate(-200%, -200%);
+      }
+
+      @include macbook-fifteen {
+        transform: translate(-82%, -170%);
+      }
+
+      @include tablet {
+        top: 0;
+        right: 0;
+        transform: translate(-27vw, 48vh);
+      }
+
+      @include below-tablet {
+        top: 0;
+        right: 0;
+        transform: translate(-26vw, 60vh);
+      }
+
+      @include phone {
+        max-width: 47px;
+        transform: translate(30%, 575%);
+      }
+    }
+
+    &:nth-child(5) {
+      max-width: 115px;
+      top: 50%;
+      left: 0;
+      transform: translate(85%, 165%);
+
+      @include full-hd {
+        top: 18%;
+        left: 80%;
+        transform: translate(120%, 165%);
+      }
+
+      @include macbook-fifteen {
+        transform: translate(150%, 154%);
+      }
+
+      @include desktop {
+        transform: translate(137%, 154%);
+      }
+
+      @include tablet {
+        transform: translate(62%, 454%);
+      }
+
+      @include below-tablet {
+        transform: translate(62%, 454%);
+      }
+
+      @include phone {
+        max-width: 75px;
+        transform: translate(-12vw, 123vh);
+      }
+    }
+
+    &:nth-child(6) {
+      max-width: 140px;
+      top: 50%;
+      left: 0;
+      transform: translate(85%, 165%);
+
+      @include full-hd {
+        top: 36%;
+        left: 0;
+      }
+
+      @include macbook-fifteen {
+        transform: translate(50%, 220%);
+      }
+
+      @include below-tablet {
+        transform: translate(26%, 465%);
+      }
+
+      @include phone {
+        max-width: 95px;
+        transform: translate(-43%, 684%);
+      }
+    }
+
+    &:nth-child(7) {
+      display: none;
+
+      @include phone {
+        display: block;
+        width: 410px;
+        top: 38%;
+      }
+    }
+
+    &:nth-child(8) {
+      display: none;
+
+      @include phone {
+        display: block;
+        width: 320px;
+        top: 42%;
+      }
+    }
+  }
+
+  .introSection {
+    margin-bottom: 350px;
+
+    @include tablet {
+      margin-bottom: 220px;
+    }
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    border: 1px solid $white;
+
+    @include phone {
+      bottom: 66%;
+      position: absolute;
+    }
+  }
+}

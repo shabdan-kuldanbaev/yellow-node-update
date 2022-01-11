@@ -563,7 +563,8 @@
   }
 }
 
-.ubichat {
+.ubichat,
+.fireaway {
   @extend .container;
 
   .containerBackground {
@@ -583,21 +584,25 @@
   }
 
   .featureContainer {
-    margin-bottom: 60px;
-
-    .contentContainer {
-      max-width: 350px;
-      padding-top: 8px;
-
-      @include phone {
-        padding: 0 10px;
-      }
+    @include phone {
+      padding: 0 10px;
     }
 
     .checkMark {
       color: $white;
-      background: $dodger-blue;
       background: $mariner;
+    }
+
+    .contentContainer {
+      padding-top: 8px;
+    }
+  }
+}
+
+.fireaway {
+  .featureContainer {
+    .checkMark {
+      background: $cornflower-blue;
     }
   }
 }

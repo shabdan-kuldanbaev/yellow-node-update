@@ -59,4 +59,12 @@ module.exports.redirects = [
     from: '/7-benefits-of-using-chatbots-for-your-business',
     to: '/blog/10-benefits-of-using-chatbots-for-your-business',
   },
+  {
+    from: '/blog/six-reasons-to-fall-in-love-with-react',
+    to: '/blog/benefits-of-react',
+  },
+  {
+    from: '/tag/marketing',
+    to: '/blog/marketing',
+  },
 ];

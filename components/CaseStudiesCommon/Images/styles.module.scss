@@ -52,7 +52,8 @@
 .fairy,
 .tell,
 .travel-trivia,
-.cash-chat {
+.cash-chat,
+.fireaway {
   @extend .imagContainer;
 }
 
@@ -151,7 +152,8 @@
 .separate-us,
 .open-sense,
 .beautonomy,
-.drive-focus {
+.drive-focus,
+.fireaway {
   @extend .imagContainer;
 
   background-color: $white;
@@ -206,7 +208,8 @@
   }
 }
 
-.smartcenter {
+.smartcenter,
+.meateater {
   .image:first-child {
     display: block;
     max-width: 1076px;
@@ -237,6 +240,30 @@
 
     @include tablet {
       max-width: 100%;
+    }
+  }
+}
+
+.meateater {
+  .image:first-child {
+    display: block;
+    max-width: 1076px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  .image:last-child {
+    display: none;
+    max-width: 340px;
+    margin: 0 auto;
+
+    @include phone {
+      display: block;
+      margin: 16px 0 0 3px;
     }
   }
 }

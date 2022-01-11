@@ -382,6 +382,8 @@ export const CASE_STUDIES = {
   smartcenter: 'smartcenter',
   telemojo: 'telemojo',
   ubiChat: 'ubichat',
+  meatEater: 'meateater',
+  fireaway: 'fireaway',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -399,6 +401,8 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.driveFocus).path,
   ROUTES.project.getRoute(CASE_STUDIES.cashChat).path,
   ROUTES.project.getRoute(CASE_STUDIES.travelTrivia).path,
+  ROUTES.project.getRoute(CASE_STUDIES.meatEater).path,
+  ROUTES.project.getRoute(CASE_STUDIES.fireaway).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,

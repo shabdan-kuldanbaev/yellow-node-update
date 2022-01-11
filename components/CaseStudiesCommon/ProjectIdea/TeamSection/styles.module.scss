@@ -189,6 +189,10 @@
       padding-right: 0;
     }
   }
+
+  @include tablet {
+    padding-top: 80px;
+  }
 }
 
 .drive-focus,
@@ -223,6 +227,29 @@
 
   @include phone {
     padding: 80px 0;
+  }
+}
+
+.meateater {
+  @extend .container;
+
+  position: absolute;
+  background-color: $alabaster;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 180px;
+  width: 100%;
+  max-width: initial;
+  bottom: 0;
+  padding: 80px 0;
+  margin: 150px 0;
+  justify-content: center;
+
+  @include phone {
+    margin: 80px 0;
+  }
+
+  .title {
+    grid-row: 1/4;
   }
 }
 

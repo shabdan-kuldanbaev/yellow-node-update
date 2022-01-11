@@ -1,0 +1,41 @@
+.seven-pm-thursday {
+  @include caseStudyContainer;
+
+  background-color: $dark-blue-1;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    margin-bottom: 110px;
+    color: $silver-chalice;
+  }
+
+  .container {
+    margin: 0 0 200px;
+    text-align: center;
+
+    @include tablet {
+      margin: 0 0 100px;
+    }
+
+    @include phone {
+      margin: 0 0 40px;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+
+    .title {
+      margin: 0 0 40px;
+      font-family: $case-studies-font;
+      font-weight: 600;
+      line-height: 37px;
+      color: $white;
+
+      @include fontSize(25px);
+    }
+  }
+}

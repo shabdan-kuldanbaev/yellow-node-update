@@ -60,7 +60,8 @@
   }
 }
 
-.fernwayer {
+.fernwayer,
+.fireaway {
   @extend .imagesContainer;
 
   &::before {
@@ -194,6 +195,7 @@
 }
 
 .beautonomy,
+.meateater,
 .separate-us {
   @extend .imagesContainer;
 
@@ -235,6 +237,16 @@
 
   .image {
     max-height: 527px;
+  }
+}
+
+.meateater {
+  &:last-of-type {
+    margin-top: 40px;
+  }
+
+  .animatedContainer {
+    animation-duration: 22s;
   }
 }
 
