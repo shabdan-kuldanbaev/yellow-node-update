@@ -189,6 +189,10 @@
       padding-right: 0;
     }
   }
+
+  @include tablet {
+    padding-top: 80px;
+  }
 }
 
 .drive-focus,

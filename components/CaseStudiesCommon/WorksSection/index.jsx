@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
@@ -34,15 +35,30 @@ const WorksSection = ({ data, type }) => {
           }
 
           return (
-            <div className={styles.step}>
+            <div
+              className={styles.step}
+              key={index}
+            >
               <div className={styles.markNumber}>
                 <h3 className={styles.contentMarkNumber}>
-                  {index + 1}
+                  {fields.subtitle}
                 </h3>
               </div>
               <h3 className={styles.stepTitle}>
                 {fields.title}
               </h3>
+              {fields.imagesBundles && fields.imagesBundles.map((bundle, indexBundleImage) => {
+                const bundleUrl = getFileUrl(bundle);
+
+                return (
+                  <img
+                    className={cn(styles.bundleImage, styles[`bundleImage-${indexBundleImage + 1}`])}
+                    src={bundleUrl}
+                    alt={bundle.fields.title}
+                    key={`images-bundles/${bundleUrl}`}
+                  />
+                );
+              })}
             </div>
           );
         })}
@@ -53,6 +69,7 @@ const WorksSection = ({ data, type }) => {
             className={styles.image}
             src={fields.file.url}
             alt={fields.title}
+            key={fields.file.fileName}
           />
         ))}
       </div>

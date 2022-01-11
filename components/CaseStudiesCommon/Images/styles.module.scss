@@ -52,7 +52,8 @@
 .fairy,
 .tell,
 .travel-trivia,
-.cash-chat {
+.cash-chat,
+.fireaway {
   @extend .imagContainer;
 }
 
@@ -151,7 +152,8 @@
 .separate-us,
 .open-sense,
 .beautonomy,
-.drive-focus {
+.drive-focus,
+.fireaway {
   @extend .imagContainer;
 
   background-color: $white;

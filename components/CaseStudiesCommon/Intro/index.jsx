@@ -10,6 +10,7 @@ export const Intro = (props) => {
   case CASE_STUDIES.stickerbox:
   case CASE_STUDIES.fairy:
   case CASE_STUDIES.sevenPmThursday:
+  case CASE_STUDIES.fireaway:
   case CASE_STUDIES.natp:
   case CASE_STUDIES.meatEater:
   case CASE_STUDIES.driveFocus:
