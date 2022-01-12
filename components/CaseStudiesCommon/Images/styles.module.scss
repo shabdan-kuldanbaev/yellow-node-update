@@ -153,7 +153,8 @@
 .open-sense,
 .beautonomy,
 .drive-focus,
-.fireaway {
+.fireaway,
+.telemojo {
   @extend .imagContainer;
 
   background-color: $white;
@@ -263,9 +264,38 @@
 
     @include phone {
       display: block;
-      margin: 16px 0 0 3px;
     }
   }
 }
 
-@import './styles/telemojo.scss';
+.telemojo {
+  &.firstSectionView {
+    display: block;
+    max-width: 1076px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &.secondSectionView {
+    .image:first-child {
+      display: block;
+      max-width: 1076px;
+      width: 100%;
+      margin: 0 auto;
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    .image:last-child {
+      display: none;
+      max-width: 340px;
+      margin: 0 auto;
+
+      @include phone {
+        display: block;
+      }
+    }
+  }
+}

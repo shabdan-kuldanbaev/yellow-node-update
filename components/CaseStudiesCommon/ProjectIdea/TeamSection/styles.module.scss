@@ -169,7 +169,8 @@
 }
 
 .writer-chrome-extension,
-.open-sense {
+.open-sense,
+.telemojo {
   @extend .container;
 
   grid-template-columns: repeat(3, auto);
@@ -253,4 +254,12 @@
   }
 }
 
-@import './styles/telemojo.scss';
+.telemojo {
+  grid-auto-flow: unset;
+
+  @include phone {
+    .title {
+      padding-right: 0;
+    }
+  }
+}

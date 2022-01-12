@@ -195,7 +195,8 @@
 }
 
 .open-sense,
-.separate-us {
+.separate-us,
+.telemojo {
   @extend .container;
 }
 
@@ -469,5 +470,3 @@
     }
   }
 }
-
-@import './styles/telemojo.scss';

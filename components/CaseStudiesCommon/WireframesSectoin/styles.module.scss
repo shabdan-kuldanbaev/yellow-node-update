@@ -1,4 +1,5 @@
 @import 'styles/utils/mixins';
+@import './styles/telemojo.scss';
 
 .fernwayer,
 .ubichat,
@@ -135,5 +136,3 @@
     max-width: 825px;
   }
 }
-
-@import './styles/telemojo.scss';

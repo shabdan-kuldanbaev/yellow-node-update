@@ -181,10 +181,5 @@
 .telemojo {
   @include caseStudyContainer;
 
-  padding: 0 40px 150px;
   background: $selago;
-
-  @include phone {
-    padding: 0 15px 80px;
-  }
 }
