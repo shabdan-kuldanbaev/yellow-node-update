@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { Svg } from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-import app from 'next/app';
 import {
   isIntroHasBackground,
   isTitleHasBackground,
