@@ -727,6 +727,137 @@
       }
     }
   }
+
+  &.fourthSectionView {
+    padding: 0 130px;
+    background-color: $green;
+
+    @include flex(row, initial, center);
+
+    @include macbook-fifteen {
+      padding: 0 90px;
+    }
+
+    @include macbook-twelve {
+      padding: 0 50px;
+    }
+
+    @include tablet {
+      padding: 60px 50px;
+
+      @include flex(row, center, center);
+    }
+
+    @include phone {
+      padding: 24px;
+    }
+
+    .projectInfoContainer {
+      max-width: 385px;
+      height: max-content;
+
+      @include tablet {
+        margin-bottom: 0;
+      }
+
+      .projectTitle {
+        margin: 0;
+        color: $white;
+
+        @include fontSize(58px);
+
+        @include macbook-fifteen {
+          @include fontSize(42px);
+        }
+
+        @include tablet {
+          @include fontSize(32px);
+        }
+
+        @include phone {
+          @include fontSize(22px);
+        }
+      }
+
+      .projectSubtitle {
+        font-weight: 500;
+        margin: 30px 0 0;
+        color: $white;
+
+        @include fontSize(20px);
+
+        @include tablet {
+          @include fontSize(15px);
+        }
+      }
+
+      .projectDescription {
+        font-weight: 400;
+        margin: 15px 0 10px;
+        color: $white;
+        opacity: 0.8;
+
+        @include fontSize(19px);
+
+        @include tablet {
+          @include fontSize(14px);
+        }
+      }
+
+      p:not(.projectSubtitle, .projectDescription) {
+        color: $shuttle-gray;
+        max-width: 330px;
+
+        @include fontSize(13px);
+
+        @include tablet {
+          @include fontSize(12px);
+        }
+      }
+    }
+
+    .appStore {
+      path {
+        fill: $white;
+      }
+    }
+
+    .imageContainer {
+      position: relative;
+      z-index: 1;
+      width: 475px;
+
+      @include macbook-fifteen {
+        width: 200px;
+      }
+
+      @include tablet {
+        width: 400px;
+        height: 100%;
+      }
+
+      .image {
+        max-width: 520px;
+
+        @include centered;
+
+        @include macbook-fifteen {
+          max-width: 500px;
+          transform: translate(-40%, -45%);
+        }
+
+        @include tablet {
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    .projectPreview {
+      @include tablet {
+        height: 100%;
+      }
+    }
+  }
 }
 
 .webAppDevelopmentProjectPreview {

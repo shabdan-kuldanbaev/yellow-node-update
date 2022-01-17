@@ -10,7 +10,7 @@ import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
 export const FeaturesSection = ({ type, data }) => {
-  const { contentModules, title } = data;
+  const { contentModules, title, image } = data;
 
   if (!contentModules || !contentModules.length) {
     return null;
