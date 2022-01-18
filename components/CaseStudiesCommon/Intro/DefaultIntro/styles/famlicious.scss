@@ -1,0 +1,177 @@
+.famlicious {
+  @extend .container;
+
+  --color: $black;
+
+  padding-top: 245px;
+
+  @include tablet {
+    padding-top: 145px;
+  }
+
+  @include phone {
+    padding-top: 122px;
+  }
+
+  .experiencesContainer {
+    & > * {
+      z-index: 3;
+    }
+
+    @include full-hd {
+      max-width: 1210px;
+      padding-top: 20px;
+    }
+
+    @include phone {
+      padding-top: 50%;
+    }
+
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: var(--color);
+      }
+
+      p {
+        color: rgba(var(--color), 0.4);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    @include full-hd {
+      margin-left: 6%;
+    }
+
+    .projectTitle {
+      color: var(--color);
+      margin-bottom: 0;
+
+      @include fontSize(90px);
+
+      @include tablet {
+        @include fontSize(60px);
+      }
+    }
+
+    .projectSubtitle {
+      font-family: $case-studies-font;
+      font-weight: 500;
+      line-height: 150%;
+      color: var(--color);
+      margin-bottom: 34px;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      max-width: 518px;
+      color: rgba(var(--color), 0.7);
+    }
+  }
+
+  .imageContainer {
+    z-index: 1;
+
+    @include phone {
+      height: 490px;
+    }
+
+    .image {
+      max-width: 375px;
+      left: 38%;
+      transform: translate(-76%, -31%);
+      height: auto;
+      z-index: 6;
+
+      @include full-hd {
+        left: 62%;
+        transform: translate(-91%, -33%);
+      }
+
+      @include desktop {
+        transform: translate(-69%, -33%);
+      }
+
+      @include tablet {
+        transform: translate(-72%, -38%);
+      }
+
+      @include below-tablet {
+        transform: translate(-76%, -38%);
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 95%;
+    left: 63%;
+
+    @include full-hd {
+      top: 90%;
+      left: 69%;
+    }
+
+    @include desktop {
+      top: 75%;
+      left: 50%;
+    }
+
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      z-index: 2;
+      max-width: 82px;
+
+      @include tablet {
+        max-width: 46px;
+      }
+    }
+
+    &:nth-child(3) {
+      transform: translate(-460%, 375%);
+    }
+
+    &:nth-child(4) {
+      transform: translate(470%, 255%);
+    }
+
+    &:nth-child(5) {
+      transform: translate(460%, -475%);
+    }
+
+    &:nth-child(6) {
+      @include phone {
+        max-width: 75px;
+      }
+    }
+  }
+
+  .introSection {
+    margin-bottom: 465px;
+    z-index: 0;
+    position: relative;
+
+    @include tablet {
+      margin-bottom: 220px;
+    }
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    border: 1px solid var(--color);
+
+    @include phone {
+      bottom: 66%;
+      position: absolute;
+    }
+  }
+}
