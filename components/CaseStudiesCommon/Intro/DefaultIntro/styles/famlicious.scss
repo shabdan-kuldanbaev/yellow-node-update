@@ -155,23 +155,23 @@
   }
 
   .introSection {
-    margin-bottom: 465px;
+    margin-bottom: 400px;
     z-index: 0;
     position: relative;
 
     @include tablet {
       margin-bottom: 220px;
     }
-  }
 
-  a {
-    @extend .webSiteLink;
+    a {
+      @extend .webSiteLink;
 
-    border: 1px solid var(--color);
+      padding: 0;
 
-    @include phone {
-      bottom: 66%;
-      position: absolute;
+      path {
+        color: $black;
+        fill: $black;
+      }
     }
   }
 }
