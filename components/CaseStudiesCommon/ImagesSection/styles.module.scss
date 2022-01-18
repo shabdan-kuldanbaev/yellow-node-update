@@ -15,7 +15,8 @@
 .smartcenter,
 .meateater,
 .ubichat,
-.fireaway {
+.fireaway,
+.famlicious {
   @include caseStudyContainer;
 
   background-color: $white;
@@ -58,5 +59,12 @@
 
   @include phone {
     padding-bottom: 110px;
+  }
+}
+
+.famlicious {
+  img {
+    margin: 0 auto;
+    display: block;
   }
 }
