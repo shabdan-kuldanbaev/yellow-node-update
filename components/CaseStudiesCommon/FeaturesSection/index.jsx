@@ -35,7 +35,7 @@ export const FeaturesSection = ({ type, data }) => {
 
             return (
               <Animated
-                key={title}
+                key={`${title} ${index}`}
                 delay={50 * index}
                 {...ANIMATION_CASE_STUDY_PROPS}
               >

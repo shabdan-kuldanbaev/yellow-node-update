@@ -48,7 +48,7 @@ const VerticalIntro = ({
             <img
               className={styles.logo}
               src={appLogoUrl}
-              alt={appLogoUrl}
+              alt={title}
             />
           )}
           <div className={styles.title}>

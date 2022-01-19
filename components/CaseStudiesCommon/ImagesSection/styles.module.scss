@@ -15,7 +15,8 @@
 .smartcenter,
 .meateater,
 .ubichat,
-.fireaway {
+.fireaway,
+.telemojo {
   @include caseStudyContainer;
 
   background-color: $white;
@@ -61,4 +62,8 @@
   }
 }
 
-@import './styles/telemojo.scss';
+.telemojo {
+  @include centeredBackgroundImage;
+
+  overflow: hidden;
+}
