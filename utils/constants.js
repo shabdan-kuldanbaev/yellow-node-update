@@ -380,6 +380,7 @@ export const CASE_STUDIES = {
   travelTrivia: 'travel-trivia',
   beautonomy: 'beautonomy',
   smartcenter: 'smartcenter',
+  telemojo: 'telemojo',
   ubiChat: 'ubichat',
   meatEater: 'meateater',
   fireaway: 'fireaway',

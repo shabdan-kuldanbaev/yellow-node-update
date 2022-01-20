@@ -197,3 +197,27 @@
 
   background-color: $alabaster;
 }
+
+.telemojo {
+  @include caseStudyContainer;
+
+  background: linear-gradient(180deg, #4398FF 0%, #0670F2 100%);
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  &.firstSectionView {
+    .contentContainer {
+      .infoContainer {
+        h2 {
+          color: $dark-grey;
+        }
+
+        p {
+          color: $silver-chalice;
+        }
+      }
+    }
+  }
+}

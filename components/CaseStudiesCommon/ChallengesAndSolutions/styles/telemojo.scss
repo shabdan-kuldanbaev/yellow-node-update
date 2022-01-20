@@ -1,0 +1,60 @@
+.telemojo {
+  &.firstSectionView {
+    .special {
+      .image {
+        filter: unset;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .infoContainer {
+      max-width: 490px;
+
+      h2 {
+        color: $white;
+
+        @include fontSize(40px);
+
+        @include tablet {
+          @include fontSize(40px);
+        }
+
+        @include phone {
+          @include fontSize(32px);
+        }
+      }
+
+      h3 {
+        @include fontSize(18px);
+
+        font-weight: 700;
+        color: $white;
+      }
+
+      p {
+        max-width: 518px;
+        line-height: 32px;
+        font-weight: 400;
+        color: $bright-gray;
+
+        @include fontSize(18px);
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+      }
+    }
+
+    .title {
+      line-height: 56px;
+      max-width: 425px;
+
+      @include fontSize(40px);
+
+      @include tablet {
+        @include fontSize(16px);
+      }
+    }
+  }
+}
