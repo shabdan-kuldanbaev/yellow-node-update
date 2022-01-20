@@ -563,3 +563,24 @@
 .fireaway {
   background: $cornflower-blue;
 }
+
+.famlicious {
+  @extend .container;
+
+  background-color: $white;
+  color: $black;
+
+  .link,
+  .subtitle {
+    color: $dark-grey;
+  }
+
+  .more,
+  .iconLink {
+    color: $black;
+  }
+
+  .more {
+    border: 1px solid $black;
+  }
+}
