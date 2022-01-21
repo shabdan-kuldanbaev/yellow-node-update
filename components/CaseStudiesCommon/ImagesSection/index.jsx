@@ -8,21 +8,27 @@ import styles from './styles.module.scss';
 const ImagesSection = ({
   data,
   type,
-}) => (
-  <section
-    className={cn(styles[type], styles[data.view])}
-  >
-    <SectionTitle
-      data={data}
-      type={type}
-    />
-    <Images
-      data={data}
-      type={type}
-      view={data.view}
-    />
-  </section>
-);
+}) => {
+  const extraClasses = {
+    [styles.famliciousTechnologies]: data.title === 'Technologies',
+  };
+
+  return (
+    <section
+      className={cn(styles[type], styles[data.view], extraClasses)}
+    >
+      <SectionTitle
+        data={data}
+        type={type}
+      />
+      <Images
+        data={data}
+        type={type}
+        view={data.view}
+      />
+    </section>
+  );
+};
 
 ImagesSection.prototype = {
   data: PropTypes.instanceOf(Object).isRequired,

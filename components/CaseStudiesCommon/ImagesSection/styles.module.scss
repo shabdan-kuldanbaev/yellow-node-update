@@ -63,8 +63,29 @@
 }
 
 .famlicious {
+  background-color: $athens-gray-1;
+  position: relative;
+
+  &Technologies {
+    background-color: $white;
+  }
+
+  &::before {
+    content: '';
+    background: $white;
+    width: 752px;
+    height: 752px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -35%);
+    border-radius: 50%;
+  }
+
   img {
     margin: 0 auto;
     display: block;
+    width: auto;
+    max-width: 100%;
   }
 }
