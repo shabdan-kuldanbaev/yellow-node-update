@@ -3,6 +3,14 @@
   .contentContainer {
     .image {
       filter: unset;
+      max-width: 396px;
+      margin-top: 15px;
+      margin-right: 135px;
+
+      @include phone {
+        margin-right: 0;
+        transform: translate(-11%, 0%);
+      }
     }
 
     & > div:last-child {
@@ -50,7 +58,7 @@
           max-width: 95px;
           left: 54px;
           bottom: 233px;
-          transform: translate(-45%, -55%);
+          transform: translate(-45%, 0%);
 
           @include macbook-twelve {
             display: none;
@@ -85,7 +93,8 @@
     }
 
     .image {
-      max-width: 374px;
+      max-width: 290px;
+      transform: translate(25%, 9%);
 
       @include tablet {
         max-height: 512px;
@@ -97,17 +106,18 @@
 
       @include phone {
         max-height: 405px;
-        transform: translate(-3%, 0);
+        transform: translate(0, 0);
+        margin-top: 30px;
       }
     }
 
     & > div:last-child {
       .imageBundle {
         &:nth-child(2) {
-          max-width: 374px;
+          max-width: 290px;
           top: 0;
           right: 0;
-          transform: translate(165%, 40%);
+          transform: translate(181%, 40%);
 
           @include tablet {
             max-height: 512px;
@@ -125,10 +135,10 @@
         }
 
         &:nth-child(3) {
-          max-width: 190px;
+          max-width: 222px;
           top: 0;
           right: 0;
-          transform: translate(-115%, -80%);
+          transform: translate(-110%, -60%);
 
           @include tablet {
             max-width: 148px;
@@ -168,7 +178,7 @@
       .image {
         display: block;
         max-height: 405px;
-        transform: translate(-3%, 0);
+        transform: translate(0, 0);
       }
     }
   }

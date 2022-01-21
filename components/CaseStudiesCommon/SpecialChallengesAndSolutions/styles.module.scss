@@ -246,3 +246,9 @@
     }
   }
 }
+
+.telemojo {
+  @include caseStudyContainer;
+
+  background: $selago;
+}
