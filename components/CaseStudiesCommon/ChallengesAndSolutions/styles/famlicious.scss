@@ -1,0 +1,40 @@
+.famlicious {
+  .contentContainer {
+    margin: 0 auto 70px;
+
+    @include phone {
+      padding-top: 80px;
+    }
+
+    .image {
+      filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.05));
+      border-radius: 20px;
+
+      @include phone {
+        margin-top: 0;
+      }
+    }
+
+    &:nth-child(1) .image {
+      margin-top: -61px;
+    }
+
+    &:nth-child(2) {
+      flex-direction: column;
+      align-items: center;
+
+      & > *:nth-child(2) {
+        position: relative;
+      }
+
+      .imageBundle {
+        position: absolute;
+        bottom: 100%;
+
+        &:nth-child(3) {
+          transform: translate(-100%, -60%);
+        }
+      }
+    }
+  }
+}

@@ -177,3 +177,72 @@
     padding-top: 40px;
   }
 }
+
+.famlicious {
+  @include caseStudyContainer;
+
+  padding-top: 0;
+  background: $athens-gray-1;
+}
+
+.famlicious + .famlicious {
+  background: $white;
+  padding-bottom: 0;
+
+  & > * > * {
+    display: flex;
+    flex-direction: row-reverse !important;
+    padding-top: 137px;
+
+    img {
+      margin-top: 0 !important;
+    }
+
+    &:nth-child(1) {
+      position: relative;
+
+      img:nth-of-type(2) {
+        position: absolute;
+        left: 62%;
+        top: 35%;
+      }
+    }
+
+    &:nth-child(3) {
+      transform: translate(12%, -30%);
+      position: relative;
+
+      & > *:nth-child(1) {
+        transform: translateY(50%);
+      }
+
+      img:not(:first-child) {
+        position: absolute;
+      }
+
+      img:first-child {
+        transform: translateX(15%);
+      }
+
+      img:nth-of-type(2) {
+        left: 50%;
+        top: 35%;
+      }
+
+      img:nth-of-type(3) {
+        left: 52%;
+        top: 85%;
+      }
+
+      img:nth-of-type(4) {
+        left: 35%;
+        top: 95%;
+      }
+
+      img:nth-of-type(5) {
+        left: -17%;
+        top: 25%;
+      }
+    }
+  }
+}

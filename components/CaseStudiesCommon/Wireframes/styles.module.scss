@@ -61,7 +61,8 @@
 }
 
 .fernwayer,
-.fireaway {
+.fireaway,
+.famlicious {
   @extend .imagesContainer;
 
   &::before {
@@ -247,5 +248,16 @@
 
   .animatedContainer {
     animation-duration: 22s;
+  }
+}
+
+.famlicious {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      max-height: 660px;
+      margin-left: 30px;
+    }
   }
 }
