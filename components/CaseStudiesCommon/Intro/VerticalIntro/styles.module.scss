@@ -415,7 +415,7 @@
       right: 0;
       height: 56vh;
       width: 100%;
-      transform: translate(0%, 68%);
+      transform: translate(0%, 85%);
 
       @include macbook-fifteen {
         height: 52vh;
@@ -423,7 +423,8 @@
       }
 
       @include macbook-thirteen {
-        height: 50vh;
+        height: 55vh;
+        transform: translate(0%, 80%);
       }
 
       @include tablet {
