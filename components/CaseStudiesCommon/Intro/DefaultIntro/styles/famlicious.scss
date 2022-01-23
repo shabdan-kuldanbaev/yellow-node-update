@@ -30,11 +30,11 @@
     /* stylelint-disable-next-line */
     .experience {
       .infoTitle {
-        color: var(--color);
+        color: $black;
       }
 
       p {
-        color: rgba(var(--color), 0.4);
+        color: rgba($black, 0.4);
       }
     }
   }
@@ -45,7 +45,7 @@
     }
 
     .projectTitle {
-      color: var(--color);
+      color: $black;
       margin-bottom: 0;
 
       @include fontSize(90px);
@@ -59,7 +59,7 @@
       font-family: $case-studies-font;
       font-weight: 500;
       line-height: 150%;
-      color: var(--color);
+      color: $black;
       margin-bottom: 34px;
 
       @include fontSize(24px);
@@ -67,7 +67,7 @@
 
     .projectDescription {
       max-width: 518px;
-      color: rgba(var(--color), 0.7);
+      color: rgba($black, 0.7);
     }
   }
 
