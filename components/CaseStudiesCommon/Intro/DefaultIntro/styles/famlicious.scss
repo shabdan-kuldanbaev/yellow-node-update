@@ -1,8 +1,6 @@
 .famlicious {
   @extend .container;
 
-  --color: $black;
-
   padding-top: 245px;
 
   @include tablet {
