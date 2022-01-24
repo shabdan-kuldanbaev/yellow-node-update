@@ -263,3 +263,15 @@
     }
   }
 }
+
+.famlicious {
+  @extend .container;
+
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 110px;
+
+  .title {
+    grid-row: 1/4;
+  }
+}
