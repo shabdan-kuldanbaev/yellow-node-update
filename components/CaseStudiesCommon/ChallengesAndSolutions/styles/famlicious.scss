@@ -1,39 +1,290 @@
+/*  stylelint-disable no-descending-specificity */
 .famlicious {
-  .contentContainer {
-    margin: 0 auto 70px;
+  .image {
+    filter: none;
+  }
 
-    @include phone {
-      padding-top: 80px;
-    }
+  &.firstSectionView {
+    .contentContainer {
+      margin: 0 auto 70px;
 
-    .image {
-      filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.05));
-      border-radius: 20px;
+      .image {
+        filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.05));
+        border-radius: 20px;
+      }
 
-      @include phone {
-        margin-top: 0;
+      &:nth-child(1) {
+        .image {
+          margin-top: -61px;
+
+          @include tablet {
+            margin-top: 0;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        @include flex(column, initial, center);
+
+        margin-bottom: 0;
+
+        .infoContainer {
+          max-width: 327px;
+          transform: translateX(40%);
+          margin-top: 15px;
+
+          @include tablet {
+            transform: translateX(30%);
+          }
+
+          @include phone {
+            transform: translateX(0);
+            order: 0;
+            text-align: center;
+            margin-top: 0;
+          }
+        }
+
+        .images {
+          position: relative;
+
+          @include phone {
+            margin: 150px 15px 0 auto;
+            padding-left: 50px;
+          }
+        }
+
+        .image {
+          min-width: initial;
+        }
+
+        .imageBundle {
+          position: absolute;
+          bottom: 100%;
+          right: 100%;
+
+          @include phone {
+            zoom: 0.5;
+            right: 80%;
+          }
+
+          &:nth-of-type(3) {
+            transform: translate(-40%, -57%);
+          }
+
+          &:nth-of-type(2) {
+            transform: translateX(60%);
+          }
+        }
       }
     }
+  }
 
-    &:nth-child(1) .image {
-      margin-top: -61px;
-    }
+  &.secondSectionView {
+    .contentContainer {
+      @include flex(row-reverse, space-between, center);
 
-    &:nth-child(2) {
-      flex-direction: column;
+      padding-top: 137px;
+      gap: 35px;
       align-items: center;
+      position: relative;
 
-      & > *:nth-child(2) {
-        position: relative;
+      @include tablet {
+        flex-direction: column;
+      }
+
+      &:nth-child(even) {
+        @include tablet {
+          flex-direction: column-reverse;
+        }
+
+        @include phone {
+          flex-direction: column;
+        }
+      }
+
+      & + .contentContainer {
+        padding-top: 60px;
+      }
+
+      .infoContainer {
+        margin: 0;
+
+        @include tablet {
+          text-align: center;
+        }
       }
 
       .imageBundle {
         position: absolute;
-        bottom: 100%;
+      }
 
-        &:nth-child(3) {
-          transform: translate(-100%, -60%);
+      &:nth-child(1) {
+        .imageBundle {
+          top: 35%;
+          right: 250px;
+
+          @include tablet {
+            right: 50%;
+            transform: translateX(50%);
+            top: 0;
+          }
         }
+      }
+
+      &:nth-child(3) {
+        @include flex(column-reverse, initial, center);
+
+        margin-top: -350px;
+
+        @include tablet {
+          flex-direction: column;
+          margin-top: 0;
+        }
+
+        .title {
+          display: none;
+
+          @include tablet {
+            display: initial;
+          }
+        }
+
+        .infoContainer {
+          margin-left: 650px;
+          max-width: 405px;
+
+          @include tablet {
+            margin-left: 0;
+          }
+        }
+
+        .images {
+          margin-right: 200px;
+          position: relative;
+
+          @include tablet {
+            margin-right: 0;
+            margin-left: 200px;
+          }
+
+          @include phone {
+            margin-left: 150px;
+          }
+        }
+
+        .imageBundle {
+          &:nth-of-type(2) {
+            top: 35%;
+            left: 95%;
+            transform: scale(0.8);
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-of-type(3) {
+            top: 85%;
+            left: 104%;
+            transform: scale(0.8);
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-of-type(4) {
+            top: 95%;
+            left: 75%;
+            transform: scale(0.8);
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-of-type(5) {
+            top: 15%;
+            right: 90%;
+            transform: scale(0.8);
+
+            @include tablet {
+              width: 200px;
+            }
+
+            @include phone {
+              width: 125px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .contentContainer {
+      @include flex(column, initial, center);
+
+      @include tablet {
+        padding-top: 0;
+      }
+
+      &:not(:last-child) > .infoContainer, /* Last section has weird structure, had to exclude it and use &:last-child */
+      &:last-child {
+        @include flex(row, space-between, flex-start);
+
+        @include tablet {
+          @include flex(column, space-between, center);
+
+          text-align: center;
+          margin-top: 0;
+        }
+
+        width: 100%;
+        max-width: 1060px;
+        margin: 0 auto !important;
+
+        & > *:nth-child(2) {
+          flex: 0 0 50%;
+        }
+
+        p:nth-of-type(2) {
+          margin-bottom: 0;
+        }
+      }
+
+      &:nth-of-type(even):not(:last-child) {
+        flex-direction: column-reverse;
+
+        @include phone {
+          flex-direction: column;
+        }
+      }
+
+      /* stylelint-disable-next-line */
+      .infoContainer {
+        max-width: initial;
+      }
+    }
+
+    .title {
+      margin-right: 35px;
+
+      @include tablet {
+        margin-right: 0;
+      }
+    }
+
+    .separatedTitle {
+      margin-right: 0;
+    }
+
+    img {
+      margin-top: 150px;
+
+      @include tablet {
+        margin-top: 40px;
       }
     }
   }
