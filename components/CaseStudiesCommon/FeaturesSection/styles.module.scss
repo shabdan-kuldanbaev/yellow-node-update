@@ -147,6 +147,10 @@
     column-gap: 40px;
     row-gap: 80px;
 
+    @include phone {
+      margin-bottom: 25px;
+    }
+
     .featureContainer {
       .checkMark {
         color: $white;
