@@ -77,52 +77,5 @@
 
   &Technologies {
     background-color: $white;
-
-    &::before {
-      display: none;
-    }
-
-    img {
-      @include tablet {
-        max-width: 630px !important;
-      }
-    }
-  }
-
-  &::before {
-    --size: 752px;
-
-    content: '';
-    background: $white;
-    width: var(--size);
-    height: var(--size);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -35%);
-    border-radius: 50%;
-
-    @include tablet {
-      --size: 600px;
-    }
-
-    @include phone {
-      --size: 345px;
-    }
-  }
-
-  img {
-    margin: 0 auto;
-    display: block;
-    width: auto;
-    max-width: 100%;
-
-    @include tablet {
-      max-width: 320px;
-    }
-
-    @include phone {
-      max-width: 200px;
-    }
   }
 }

@@ -262,16 +262,16 @@
       &:last-child {
         @include flex(row, space-between, flex-start);
 
+        width: 100%;
+        max-width: 1060px;
+        margin: 0 auto;
+
         @include tablet {
           @include flex(column, space-between, center);
 
           text-align: center;
           margin-top: 0;
         }
-
-        width: 100%;
-        max-width: 1060px;
-        margin: 0 auto !important;
 
         & > *:nth-child(2) {
           flex: 0 0 50%;
