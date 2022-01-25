@@ -11,6 +11,7 @@ const {
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,
+  trailingSlashRedirect,
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
@@ -50,6 +51,7 @@ app
     server.use(httpsRedirect);
     server.use(clearUrlRedirect);
     server.use(urlRedirect);
+    server.use(trailingSlashRedirect);
 
     server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));
