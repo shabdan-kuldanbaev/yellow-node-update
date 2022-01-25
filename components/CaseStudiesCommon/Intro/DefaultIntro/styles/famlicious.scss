@@ -38,9 +38,7 @@
   }
 
   .projectInfoContainer {
-    @include full-hd {
-      margin-left: 6%;
-    }
+    margin-bottom: 0;
 
     .projectTitle {
       color: $black;
@@ -70,38 +68,53 @@
   }
 
   .imageContainer {
+    position: relative;
     z-index: 1;
+    height: auto;
+    margin-top: -60px;
+
+    @include tablet {
+      transform: scale(0.7);
+      //margin-top: 0;
+    }
 
     @include phone {
-      height: 490px;
+      order: 3;
     }
 
     .image {
-      max-width: 375px;
-      left: 38%;
-      transform: translate(-76%, -31%);
-      height: auto;
+      position: relative;
+      height: 812px;
       z-index: 6;
-
-      @include full-hd {
-        left: 62%;
-        transform: translate(-91%, -33%);
-      }
-
-      @include desktop {
-        transform: translate(-69%, -33%);
-      }
+      margin: 0 auto;
 
       @include tablet {
-        transform: translate(-72%, -38%);
-      }
-
-      @include below-tablet {
-        transform: translate(-76%, -38%);
+        transform: none;
+        display: block;
+        left: 0;
       }
 
       @include phone {
-        display: none;
+        //max-width: 200px;
+      }
+    }
+
+    &::before {
+      --size: 1024px;
+
+      content: '';
+      position: absolute;
+      background: $white;
+      border-radius: 50%;
+      width: var(--size);
+      height: var(--size);
+      box-shadow: 0 0 0 178px rgba($white, 0.5);
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+
+      @include tablet {
+        --size: 550px;
       }
     }
   }
@@ -109,16 +122,11 @@
   .bundleImage {
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 95%;
-    left: 63%;
+    top: 50%;
+    left: 70%;
 
-    @include full-hd {
-      top: 90%;
-      left: 69%;
-    }
-
-    @include desktop {
-      top: 75%;
+    @include tablet {
+      top: 67%;
       left: 50%;
     }
 
@@ -134,15 +142,15 @@
     }
 
     &:nth-child(3) {
-      transform: translate(-460%, 375%);
+      transform: translate(-475%, 255%);
     }
 
     &:nth-child(4) {
-      transform: translate(470%, 255%);
+      transform: translate(500%, 255%);
     }
 
     &:nth-child(5) {
-      transform: translate(460%, -475%);
+      transform: translate(500%, -500%);
     }
 
     &:nth-child(6) {
@@ -153,12 +161,12 @@
   }
 
   .introSection {
-    margin-bottom: 400px;
+    margin: 0 auto 100px;
     z-index: 0;
     position: relative;
 
     @include tablet {
-      margin-bottom: 220px;
+      margin-bottom: 0;
     }
 
     a {

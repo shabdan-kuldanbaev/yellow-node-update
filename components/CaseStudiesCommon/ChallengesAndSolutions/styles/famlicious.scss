@@ -55,7 +55,7 @@
         }
 
         .image {
-          min-width: initial;
+          min-width: 0;
         }
 
         .imageBundle {
@@ -169,8 +169,13 @@
           }
 
           @include phone {
-            margin-left: 150px;
+            margin-left: 75px;
           }
+        }
+
+        .image {
+          max-width: 207px;
+          min-width: 0;
         }
 
         .imageBundle {
