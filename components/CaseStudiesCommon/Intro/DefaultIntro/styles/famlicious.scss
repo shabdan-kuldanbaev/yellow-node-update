@@ -22,7 +22,7 @@
     }
 
     @include phone {
-      padding-top: 50%;
+      padding-top: 0;
     }
 
     /* stylelint-disable-next-line */
@@ -64,6 +64,10 @@
     .projectDescription {
       max-width: 518px;
       color: rgba($black, 0.7);
+
+      @include phone {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -75,7 +79,6 @@
 
     @include tablet {
       transform: scale(0.7);
-      //margin-top: 0;
     }
 
     @include phone {
@@ -95,7 +98,8 @@
       }
 
       @include phone {
-        //max-width: 200px;
+        height: auto;
+        max-width: 300px;
       }
     }
 
@@ -115,6 +119,10 @@
 
       @include tablet {
         --size: 550px;
+      }
+
+      @include phone {
+        --size: 450px;
       }
     }
   }
@@ -143,14 +151,38 @@
 
     &:nth-child(3) {
       transform: translate(-475%, 255%);
+
+      @include below-tablet {
+        transform: translate(-430%, 185%);
+      }
+
+      @include phone {
+        transform: translate(-350%, 125%);
+      }
     }
 
     &:nth-child(4) {
       transform: translate(500%, 255%);
+
+      @include below-tablet {
+        transform: translate(400%, 205%);
+      }
+
+      @include phone {
+        transform: translate(250%, 205%);
+      }
     }
 
     &:nth-child(5) {
       transform: translate(500%, -500%);
+
+      @include below-tablet {
+        transform: translate(350%, -300%);
+      }
+
+      @include below-tablet {
+        transform: translate(300%, -300%);
+      }
     }
 
     &:nth-child(6) {
@@ -173,6 +205,10 @@
       @extend .webSiteLink;
 
       padding: 0;
+
+      @include phone {
+        margin-bottom: 40px;
+      }
 
       path {
         color: $black;

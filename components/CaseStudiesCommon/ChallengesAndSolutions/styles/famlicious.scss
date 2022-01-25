@@ -60,20 +60,43 @@
 
         .imageBundle {
           position: absolute;
-          bottom: 100%;
-          right: 100%;
+          top: 0;
+          left: 0;
+
+          @include tablet {
+            left: 10%;
+          }
+
+          @include below-tablet {
+            left: 20%;
+          }
 
           @include phone {
-            zoom: 0.5;
-            right: 80%;
+            top: -5%;
           }
 
           &:nth-of-type(3) {
-            transform: translate(-40%, -57%);
+            transform: translate(-137%, -157%);
+
+            @include below-tablet {
+              transform: scale(0.8) translate(-137%, -157%);
+            }
+
+            @include phone {
+              transform: scale(0.5) translate(-137%, -157%);
+            }
           }
 
           &:nth-of-type(2) {
-            transform: translateX(60%);
+            transform: translate(-40%, -100%);
+
+            @include below-tablet {
+              transform: scale(0.8) translate(-40%, -100%);
+            }
+
+            @include phone {
+              transform: scale(0.5) translate(-40%, -100%);
+            }
           }
         }
       }

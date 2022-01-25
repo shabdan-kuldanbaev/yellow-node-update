@@ -306,10 +306,22 @@
 .famlicious {
   @extend .infoContainer;
 
-  @include phone {
-    @include flex(column, center, flex-start);
+  gap: 45px;
 
-    padding: 0 65px;
+  @include desktop {
+    gap: 20px;
+  }
+
+  @include tablet {
+    @include flex(column, center, flex-start);
+  }
+
+  @include phone {
+    gap: 0;
+  }
+
+  &.mobileAdditionalInformation {
+    margin-top: 0;
   }
 
   /* stylelint-disable-next-line */
