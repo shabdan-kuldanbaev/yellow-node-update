@@ -16,6 +16,7 @@
 .meateater,
 .ubichat,
 .fireaway,
+.famlicious,
 .telemojo {
   @include caseStudyContainer;
 
@@ -66,4 +67,15 @@
   @include centeredBackgroundImage;
 
   overflow: hidden;
+}
+
+.famlicious {
+  @include caseStudyContainer;
+
+  background-color: $athens-gray-1;
+  position: relative;
+
+  &Technologies {
+    background-color: $white;
+  }
 }

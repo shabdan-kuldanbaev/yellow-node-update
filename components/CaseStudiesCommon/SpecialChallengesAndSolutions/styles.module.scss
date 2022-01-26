@@ -178,6 +178,21 @@
   }
 }
 
+.famlicious {
+  @include caseStudyContainer;
+
+  padding-top: 0;
+  background: $athens-gray-1;
+
+  & + .famlicious {
+    background: $white;
+  }
+
+  &.secondSectionView {
+    padding-bottom: 0;
+  }
+}
+
 .telemojo {
   @include caseStudyContainer;
 

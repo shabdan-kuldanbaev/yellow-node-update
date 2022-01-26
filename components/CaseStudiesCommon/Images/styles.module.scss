@@ -53,7 +53,8 @@
 .tell,
 .travel-trivia,
 .cash-chat,
-.fireaway {
+.fireaway,
+.famlicious {
   @extend .imagContainer;
 }
 
@@ -295,6 +296,53 @@
 
       @include phone {
         display: block;
+      }
+    }
+  }
+}
+
+.famlicious {
+  &.firstSectionView {
+    overflow: initial;
+
+    &::before {
+      --size: 752px;
+
+      content: '';
+      background: $white;
+      width: var(--size);
+      height: var(--size);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: -1;
+
+      @include tablet {
+        --size: 600px;
+      }
+
+      @include phone {
+        --size: 345px;
+      }
+    }
+
+    img {
+      @include tablet {
+        max-width: 320px;
+      }
+
+      @include phone {
+        max-width: 200px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    img {
+      @include tablet {
+        max-width: 630px;
       }
     }
   }

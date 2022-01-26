@@ -74,7 +74,7 @@ const ChallengesAndSolutions = ({
                   alt={title}
                 />
               )}
-              {imageUrl && (
+              { imageUrl && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
                     <h2 className={cn(styles.title, styles[`title-${index + 1}`])}>
@@ -111,7 +111,7 @@ const ChallengesAndSolutions = ({
                 delay={500}
                 {...ANIMATION_CASE_STUDY_PROPS}
               >
-                <div>
+                <div className={styles.images}>
                   <img
                     className={styles.image}
                     src={imageUrl}
