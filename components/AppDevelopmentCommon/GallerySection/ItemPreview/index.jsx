@@ -22,12 +22,13 @@ export const ItemPreview = ({ data, type }) => {
     appBackgroundImageUrl,
     appLogoUrl,
     sectionStyle,
+    projectSlug,
   } = getItemPreviewProps(data);
 
   return (
     <section
       style={sectionStyle}
-      className={cn(styles[type], styles[view])}
+      className={cn(styles[type], styles[view], styles[projectSlug])}
     >
       <div className={styles.projectPreview}>
         <div className={styles.projectInfoContainer}>
