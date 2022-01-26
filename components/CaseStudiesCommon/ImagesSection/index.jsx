@@ -11,7 +11,7 @@ const ImagesSection = ({
 }) => (
   <section
     className={cn(styles[type], styles[data.view], {
-      [styles.famliciousTechnologies]: data.title === 'Technologies',
+      [styles.famliciousTechnologies]: data.title === 'Technology Stack',
     })}
   >
     <SectionTitle
