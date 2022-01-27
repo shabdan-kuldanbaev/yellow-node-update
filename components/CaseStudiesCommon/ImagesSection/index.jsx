@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import Images from 'components/CaseStudiesCommon/Images';
+import { SPECIAL_IMG_SECTIONS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const ImagesSection = ({
@@ -10,9 +11,7 @@ const ImagesSection = ({
   type,
 }) => (
   <section
-    className={cn(styles[type], styles[data.view], {
-      [styles.famliciousTechnologies]: data.title === 'Technologies',
-    })}
+    className={cn(styles[type], styles[data.view])}
   >
     <SectionTitle
       data={data}

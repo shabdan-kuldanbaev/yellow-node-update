@@ -111,6 +111,7 @@
       gap: 35px;
       align-items: center;
       position: relative;
+      margin-bottom: 0;
 
       @include tablet {
         flex-direction: column;
@@ -158,7 +159,7 @@
       &:nth-child(3) {
         @include flex(column-reverse, initial, center);
 
-        margin-top: -350px;
+        margin-top: -250px;
 
         @include tablet {
           flex-direction: column;
@@ -197,7 +198,6 @@
         }
 
         .image {
-          max-width: 207px;
           min-width: 0;
         }
 
