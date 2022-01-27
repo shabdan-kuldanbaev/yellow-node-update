@@ -460,7 +460,3 @@ export const ARTICLE_TABLE_TYPES = {
   tableWithHeader: 'Table with header',
   tableWithTwoHeader: 'Table with two headers',
 };
-
-export const SPECIAL_IMG_SECTIONS = [
-  'Technology Stack',
-];

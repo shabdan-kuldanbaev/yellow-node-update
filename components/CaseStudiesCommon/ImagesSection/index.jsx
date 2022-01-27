@@ -11,9 +11,7 @@ const ImagesSection = ({
   type,
 }) => (
   <section
-    className={cn(styles[type], styles[data.view], {
-      [styles.specialSection]: SPECIAL_IMG_SECTIONS.includes(data.title),
-    })}
+    className={cn(styles[type], styles[data.view])}
   >
     <SectionTitle
       data={data}

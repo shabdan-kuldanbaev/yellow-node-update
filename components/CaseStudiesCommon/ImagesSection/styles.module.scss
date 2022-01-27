@@ -72,10 +72,8 @@
 .famlicious {
   @include caseStudyContainer;
 
-  background-color: $athens-gray-1;
-  position: relative;
-
-  &.specialSection {
-    background-color: $white;
+  &.firstSectionView {
+    background-color: $athens-gray-1;
+    position: relative;
   }
 }
