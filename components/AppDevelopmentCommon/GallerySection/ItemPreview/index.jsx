@@ -12,7 +12,6 @@ import styles from './styles.module.scss';
 export const ItemPreview = ({ data, type }) => {
   const {
     view,
-    slug,
     title,
     subtitle,
     description,
@@ -22,13 +21,13 @@ export const ItemPreview = ({ data, type }) => {
     appBackgroundImageUrl,
     appLogoUrl,
     sectionStyle,
-    projectSlug,
+    slug,
   } = getItemPreviewProps(data);
 
   return (
     <section
       style={sectionStyle}
-      className={cn(styles[type], styles[view], styles[projectSlug])}
+      className={cn(styles[type], styles[view], styles[slug])}
     >
       <div className={styles.projectPreview}>
         <div className={styles.projectInfoContainer}>

@@ -36,8 +36,7 @@ export const getItemPreviewProps = (data) => {
     images,
     contentModules,
     view,
-    title: slug,
-    projectSlug,
+    projectSlug: slug,
   } = getDocumentFields(
     data,
     [
@@ -88,7 +87,6 @@ export const getItemPreviewProps = (data) => {
     appBackgroundImageUrl,
     appLogoUrl,
     sectionStyle,
-    projectSlug,
   };
 };
 

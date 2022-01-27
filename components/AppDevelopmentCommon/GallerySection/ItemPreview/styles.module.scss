@@ -111,7 +111,7 @@
     height: 100vh;
   }
 
-  &.firstSectionView {
+  &.tell {
     @include centeredBackgroundImage;
 
     padding: 0 70px;
@@ -182,7 +182,7 @@
     }
   }
 
-  &.secondSectionView {
+  &.fairy {
     padding: 0 100px 0 160px;
     background-color: $violet;
 
@@ -283,7 +283,7 @@
     }
   }
 
-  &.thirdSectionView {
+  &.stickerbox {
     padding: 0 115px;
     background: linear-gradient(180deg, #26282D 0%, #181A1D 100%);
 
@@ -372,7 +372,7 @@
     height: 60vw;
   }
 
-  &.firstSectionView {
+  &.fernwayer {
     padding: 0 120px;
     background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
 
@@ -468,7 +468,7 @@
     }
   }
 
-  &.secondSectionView {
+  &.famlicious {
     padding: 0 130px;
     background-color: $athens-gray-1;
 
@@ -590,7 +590,7 @@
     }
   }
 
-  &.thirdSectionView {
+  &.fireaway {
     padding: 0 160px;
     background-color: $cornflower-blue;
 
@@ -778,7 +778,7 @@
     height: 90vh;
   }
 
-  &.firstSectionView {
+  &.separateUs {
     background-color: $alabaster;
 
     .projectInfoContainer {
@@ -821,7 +821,7 @@
     }
   }
 
-  &.secondSectionView {
+  &.meatEater {
     background-color: $shark-2;
 
     .projectInfoContainer {
@@ -851,7 +851,7 @@
     }
   }
 
-  &.thirdSectionView {
+  &.bionorica {
     .imageContainer {
       width: auto;
 
@@ -873,7 +873,7 @@
     }
   }
 
-  &.fourthSectionView {
+  &.openSense {
     @include centeredBackgroundImage;
 
     .projectPreview {
@@ -966,7 +966,7 @@
     }
   }
 
-  &.fifthSectionView {
+  &.beautonomy {
     background-color: $coffee;
 
     .projectInfoContainer {
@@ -1001,7 +1001,7 @@
     }
   }
 
-  &.sixthSectionView {
+  &.smartcenter {
     background-image: linear-gradient(to bottom, $regent-gray 0%, $slate-gray3 100%);
 
     .projectInfoContainer {
@@ -1039,7 +1039,7 @@
     }
   }
 
-  &.seventhSectionView {
+  &.natp {
     position: relative;
     background-image: linear-gradient(to bottom, $nevada-2 0%, $shark-3 100%);
 
