@@ -302,3 +302,42 @@
     }
   }
 }
+
+.famlicious {
+  @extend .infoContainer;
+
+  gap: 45px;
+
+  @include desktop {
+    gap: 20px;
+  }
+
+  @include tablet {
+    @include flex(column, center, flex-start);
+  }
+
+  @include phone {
+    gap: 0;
+  }
+
+  &.mobileAdditionalInformation {
+    margin-top: 0;
+  }
+
+  /* stylelint-disable-next-line */
+  .container {
+    .title {
+      color: $dark-grey;
+    }
+
+    .listItemContainer {
+      margin-bottom: 15px;
+      padding-right: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $dark-grey;
+      }
+    }
+  }
+}

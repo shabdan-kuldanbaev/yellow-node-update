@@ -221,3 +221,9 @@
     }
   }
 }
+
+.famlicious {
+  @include caseStudyContainer;
+
+  background-color: $athens-gray-1;
+}

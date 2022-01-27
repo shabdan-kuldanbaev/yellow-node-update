@@ -384,6 +384,7 @@ export const CASE_STUDIES = {
   ubiChat: 'ubichat',
   meatEater: 'meateater',
   fireaway: 'fireaway',
+  famlicious: 'famlicious',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -411,6 +412,9 @@ export const PAGES_WITH_DARK_HEADER = [
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
   CASE_STUDIES.openSense,
   CASE_STUDIES.beautonomy,
+
+  // TODO: Temporarily solution, doesnt fit design
+  CASE_STUDIES.famlicious,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [

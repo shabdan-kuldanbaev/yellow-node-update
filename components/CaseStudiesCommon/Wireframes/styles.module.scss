@@ -61,7 +61,8 @@
 }
 
 .fernwayer,
-.fireaway {
+.fireaway,
+.famlicious {
   @extend .imagesContainer;
 
   &::before {
@@ -260,5 +261,16 @@
 
   &::after {
     background: linear-gradient(90deg, rgba(249, 251, 254, 0) 0%, $selago 78.3%);
+  }
+}
+
+.famlicious {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      max-height: 660px;
+      margin-left: 30px;
+    }
   }
 }
