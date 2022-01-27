@@ -36,7 +36,7 @@ export const getItemPreviewProps = (data) => {
     images,
     contentModules,
     view,
-    title: slug,
+    projectSlug: slug,
   } = getDocumentFields(
     data,
     [
@@ -44,6 +44,7 @@ export const getItemPreviewProps = (data) => {
       'contentModules',
       'view',
       'title',
+      'projectSlug',
     ],
   );
 
