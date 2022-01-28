@@ -728,7 +728,7 @@
     }
   }
 
-  &.fourthSectionView {
+  &.cashchat {
     padding: 0 130px;
     background-color: $green;
 
@@ -753,7 +753,7 @@
     }
 
     .projectInfoContainer {
-      max-width: 385px;
+      max-width: 320px;
       height: max-content;
 
       @include tablet {
@@ -763,12 +763,6 @@
       .projectTitle {
         margin: 0;
         color: $white;
-
-        @include fontSize(58px);
-
-        @include macbook-fifteen {
-          @include fontSize(42px);
-        }
 
         @include tablet {
           @include fontSize(32px);
@@ -796,12 +790,6 @@
         margin: 15px 0 10px;
         color: $white;
         opacity: 0.8;
-
-        @include fontSize(19px);
-
-        @include tablet {
-          @include fontSize(14px);
-        }
       }
 
       p:not(.projectSubtitle, .projectDescription) {
@@ -842,8 +830,8 @@
         @include centered;
 
         @include macbook-fifteen {
-          max-width: 500px;
-          transform: translate(-40%, -45%);
+          max-width: 420px;
+          transform: translate(-35%, -50%);
         }
 
         @include tablet {
