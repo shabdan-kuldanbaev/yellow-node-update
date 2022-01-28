@@ -292,7 +292,8 @@
   }
 }
 
-.open-sense {
+.open-sense,
+.telemojo {
   @extend .container;
 
   .containerBackground {
@@ -563,7 +564,8 @@
   }
 }
 
-.ubichat {
+.ubichat,
+.fireaway {
   @extend .container;
 
   .containerBackground {
@@ -583,23 +585,74 @@
   }
 
   .featureContainer {
-    margin-bottom: 60px;
-
-    .contentContainer {
-      max-width: 350px;
-      padding-top: 8px;
-
-      @include phone {
-        padding: 0 10px;
-      }
+    @include phone {
+      padding: 0 10px;
     }
 
     .checkMark {
       color: $white;
-      background: $dodger-blue;
       background: $mariner;
+    }
+
+    .contentContainer {
+      padding-top: 8px;
     }
   }
 }
 
-@import './styles/telemojo.scss';
+.fireaway {
+  .featureContainer {
+    .checkMark {
+      background: $cornflower-blue;
+    }
+  }
+}
+
+.telemojo {
+  .containerBackground {
+    @include phone {
+      left: -30%;
+    }
+
+    @include phone-height-500 {
+      max-width: 430px;
+    }
+  }
+
+  .featureContainer {
+    .contentContainer {
+      .title {
+        @include fontSize(21px);
+      }
+    }
+  }
+}
+
+.famlicious {
+  @extend .container;
+
+  .containerBackground {
+    left: -23%;
+    right: 0;
+    opacity: 0.5;
+
+    @include phone {
+      left: -30%;
+      right: 7%;
+    }
+  }
+
+  .contentContainer {
+    & > p {
+      max-width: 330px;
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: $famlicious-check-mark;
+    }
+  }
+}

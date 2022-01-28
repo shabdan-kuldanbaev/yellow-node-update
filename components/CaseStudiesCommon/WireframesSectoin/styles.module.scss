@@ -1,7 +1,10 @@
 @import 'styles/utils/mixins';
+@import './styles/telemojo';
 
 .fernwayer,
-.ubichat {
+.ubichat,
+.fireaway,
+.famlicious {
   @include caseStudyContainer;
   @include wireframes;
 
@@ -101,7 +104,8 @@
   }
 }
 
-.beautonomy {
+.beautonomy,
+.meateater {
   @include caseStudyContainer;
   @include wireframes;
 
@@ -117,4 +121,19 @@
   }
 }
 
-@import './styles/telemojo.scss';
+.fireaway {
+  padding: 50px 40px 140px;
+
+  @include phone {
+    padding: 50px 20px 140px;
+
+    & > div:first-of-type {
+      padding: 0 1px;
+    }
+  }
+
+  [data-case-study-description] {
+    color: rgba($dark-grey, 0.5);
+    max-width: 825px;
+  }
+}

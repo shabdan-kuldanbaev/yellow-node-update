@@ -60,7 +60,9 @@
   }
 }
 
-.fernwayer {
+.fernwayer,
+.fireaway,
+.famlicious {
   @extend .imagesContainer;
 
   &::before {
@@ -194,6 +196,7 @@
 }
 
 .beautonomy,
+.meateater,
 .separate-us {
   @extend .imagesContainer;
 
@@ -238,4 +241,36 @@
   }
 }
 
-@import './styles/telemojo.scss';
+.meateater {
+  &:last-of-type {
+    margin-top: 40px;
+  }
+
+  .animatedContainer {
+    animation-duration: 22s;
+  }
+}
+
+.telemojo {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(90deg, rgba(249, 251, 254, 0) 0%, $selago 78.3%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
+  &::after {
+    background: linear-gradient(90deg, rgba(249, 251, 254, 0) 0%, $selago 78.3%);
+  }
+}
+
+.famlicious {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      max-height: 660px;
+      margin-left: 30px;
+    }
+  }
+}

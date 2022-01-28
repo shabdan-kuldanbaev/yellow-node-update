@@ -12,7 +12,7 @@ import {
   Animated,
   LinkWrapper,
 } from 'components';
-import { Table } from 'components/Common/Table';
+import Table from 'components/Common/Table';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,

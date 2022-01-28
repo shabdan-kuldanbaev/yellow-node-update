@@ -161,6 +161,10 @@
         color: $sea-blue;
       }
     }
+
+    @include tablet {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -238,7 +242,8 @@
   }
 }
 
-.ubichat {
+.ubichat,
+.fireaway {
   @extend .infoContainer;
 
   @include phone {
@@ -266,6 +271,72 @@
 
       @include phone {
         text-align: center;
+      }
+    }
+  }
+}
+
+.meateater {
+  @extend .infoContainer;
+
+  @include phone {
+    @include flex(column, center, flex-start);
+
+    padding: 0 65px;
+  }
+
+  /* stylelint-disable-next-line */
+  .container {
+    .title {
+      color: $dark-grey;
+    }
+
+    .listItemContainer {
+      margin-bottom: 15px;
+      padding-right: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $dark-grey;
+      }
+    }
+  }
+}
+
+.famlicious {
+  @extend .infoContainer;
+
+  gap: 45px;
+
+  @include desktop {
+    gap: 20px;
+  }
+
+  @include tablet {
+    @include flex(column, center, flex-start);
+  }
+
+  @include phone {
+    gap: 0;
+  }
+
+  &.mobileAdditionalInformation {
+    margin-top: 0;
+  }
+
+  /* stylelint-disable-next-line */
+  .container {
+    .title {
+      color: $dark-grey;
+    }
+
+    .listItemContainer {
+      margin-bottom: 15px;
+      padding-right: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $dark-grey;
       }
     }
   }

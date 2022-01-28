@@ -1,0 +1,80 @@
+.meateater {
+  @extend .container;
+
+  height: 1200px;
+  background-size: cover;
+  background-color: $raisin-black;
+
+  @include phone {
+    height: 978px;
+  }
+
+  .introSection {
+    margin-bottom: 300px;
+
+    @include tablet {
+      margin-bottom: 100px;
+    }
+  }
+
+  .projectInfoContainer {
+    color: $white;
+
+    .projectTitle {
+      @include fontSize(65px);
+
+      @include phone {
+        @include fontSize(44px);
+      }
+    }
+
+    .projectSubtitle {
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      @include fontSize(18px);
+    }
+  }
+
+  .imageContainer {
+    @include tablet {
+      width: 100%;
+      height: unset;
+    }
+
+    .image {
+      max-width: 1084px;
+      transform: translate(-38%, -45%);
+
+      @include tablet {
+        position: relative;
+        width: 100%;
+        height: unset;
+        transform: unset;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      color: $white;
+
+      p {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @include phone {
+      display: none;
+    }
+  }
+}

@@ -5,7 +5,7 @@
 
   background-color: $white;
   font-family: $case-studies-font;
-  margin-top: 150px;
+  position: relative;
 
   .image {
     width: 100%;
@@ -13,6 +13,7 @@
     max-height: 812px;
     display: block;
     object-fit: contain;
+    z-index: 1;
 
     @include tablet {
       min-width: 317px;
@@ -89,10 +90,39 @@
 
     @include tablet {
       @include flex(column, flex-start, flex-start);
+
+      margin-bottom: 60px;
     }
   }
 
   & .imagesConatiner {
     @include flex(column, center, center);
   }
+
+  & .bundleImage {
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 645px;
+    height: 645px;
+
+    @include tablet {
+      width: 450px;
+      height: 450px;
+    }
+
+    @include phone {
+      transform: translate(100px, -90px);
+      width: 218px;
+      height: 218px;
+    }
+  }
+}
+
+.famlicious {
+  @include caseStudyContainer;
+
+  background-color: $athens-gray-1;
+  font-family: $case-studies-font;
+  position: relative;
 }

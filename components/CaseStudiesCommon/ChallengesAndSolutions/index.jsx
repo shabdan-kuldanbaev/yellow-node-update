@@ -27,7 +27,7 @@ const ChallengesAndSolutions = ({
 
   return (
     <div className={cn(styles[type], styles[view])}>
-      {data.contentModules.map((document) => {
+      {data.contentModules.map((document, index) => {
         const {
           title,
           images,
@@ -61,7 +61,7 @@ const ChallengesAndSolutions = ({
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.infoContainer, styles.separatedTitle)}>
                   <h2 className={styles.title}>
-                    <span>{title}</span>
+                    {title}
                   </h2>
                 </div>
               </Animated>
@@ -74,11 +74,13 @@ const ChallengesAndSolutions = ({
                   alt={title}
                 />
               )}
-              {imageUrl && (
+              { imageUrl && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-                  <h2 className={styles.title}>
-                    {title}
-                  </h2>
+                  <div>
+                    <h2 className={cn(styles.title, styles[`title-${index + 1}`])}>
+                      {title}
+                    </h2>
+                  </div>
                 </Animated>
               )}
               {text && (
@@ -91,9 +93,9 @@ const ChallengesAndSolutions = ({
               )}
               {!!contentList.length && (
                 <ul className={styles.listContainer}>
-                  {contentList.map((item, index) => (
+                  {contentList.map((item, contentIndex) => (
                     <Animated
-                      delay={100 + 10 * index}
+                      delay={100 + 10 * contentIndex}
                       {...ANIMATION_CASE_STUDY_PROPS}
                     >
                       <li className={styles.listItem}>
@@ -109,18 +111,18 @@ const ChallengesAndSolutions = ({
                 delay={500}
                 {...ANIMATION_CASE_STUDY_PROPS}
               >
-                <div>
+                <div className={styles.images}>
                   <img
                     className={styles.image}
                     src={imageUrl}
                     alt={title}
                   />
-                  {imagesBundles && imagesBundles.map((bundle, index) => {
+                  {imagesBundles && imagesBundles.map((bundle, imagesBundlesIndex) => {
                     const bundleUrl = getFileUrl(bundle);
 
                     return (
                       <img
-                        className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
+                        className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                         src={bundleUrl}
                         alt={title}
                         key={`bundles-images/${bundleUrl}`}

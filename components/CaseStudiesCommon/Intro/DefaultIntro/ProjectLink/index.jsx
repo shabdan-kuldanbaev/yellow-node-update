@@ -15,7 +15,14 @@ export const ProjectLink = ({
   case CASE_STUDIES.fernwayer:
   case CASE_STUDIES.stickerbox:
   case CASE_STUDIES.fairy:
+  case CASE_STUDIES.fireaway:
+    return (
+      <LinkWrapper path={downloadLink.url}>
+        {downloadLink.buttonTitle}
+      </LinkWrapper>
+    );
   case CASE_STUDIES.sevenPmThursday:
+  case CASE_STUDIES.famlicious:
     return (
       <LinkWrapper path={downloadLink.url}>
         <Svg
@@ -25,6 +32,7 @@ export const ProjectLink = ({
       </LinkWrapper>
     );
   case CASE_STUDIES.natp:
+  case CASE_STUDIES.meatEater:
   case CASE_STUDIES.driveFocus:
   case CASE_STUDIES.writerChromeExtension:
   case CASE_STUDIES.beautonomy:

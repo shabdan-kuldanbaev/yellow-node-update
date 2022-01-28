@@ -438,7 +438,9 @@
 
 .writer-chrome-extension,
 .natp,
-.drive-focus {
+.drive-focus,
+.meateater,
+.fireaway {
   @extend .container;
 
   .nextProjectContainer {
@@ -479,6 +481,10 @@
 
 .natp {
   background: linear-gradient(360deg, $shark -10.75%, $nevada 243.07%);
+}
+
+.meateater {
+  background: linear-gradient(116.68deg, $raisin-black 0%, $black-olive 100%);
 }
 
 .drive-focus {
@@ -551,5 +557,30 @@
 
   .more {
     border: 1px solid $white;
+  }
+}
+
+.fireaway {
+  background: $cornflower-blue;
+}
+
+.famlicious {
+  @extend .container;
+
+  background-color: $white;
+  color: $black;
+
+  .link,
+  .subtitle {
+    color: $dark-grey;
+  }
+
+  .more,
+  .iconLink {
+    color: $black;
+  }
+
+  .more {
+    border: 1px solid $black;
   }
 }

@@ -1,7 +1,23 @@
 .telemojo {
-  .contentContainer {
+  &.firstSectionView {
+    .special {
+      .image {
+        filter: unset;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @include phone {
+      padding: 0 18px;
+    }
+
     .infoContainer {
+      max-width: 490px;
+
       h2 {
+        color: $white;
+
         @include fontSize(40px);
 
         @include tablet {
@@ -9,7 +25,7 @@
         }
 
         @include phone {
-          @include fontSize(32px);
+          @include fontSize(22px);
         }
       }
 
@@ -24,20 +40,27 @@
         max-width: 518px;
         line-height: 32px;
         font-weight: 400;
-        color: $gallery-400;
+        color: $bright-gray;
 
         @include fontSize(18px);
 
         @include tablet {
           @include fontSize(16px);
         }
+
+        @include phone {
+          @include fontSize(14px);
+        }
       }
     }
 
     .title {
       line-height: 56px;
-      max-width: 403px;
-      color: $white;
+      max-width: 425px;
+
+      @include macbook-thirteen {
+        max-width: 430px;
+      }
 
       @include fontSize(40px);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { Video } from 'components/Common/Video';
@@ -18,8 +19,10 @@ const ResultsSection = ({ data, type }) => {
     imagesBundlesData,
   } = getResultProps(data);
 
+  const { view } = data;
+
   return (
-    <section className={styles[type]}>
+    <section className={cn([styles[type]], [styles[view]])}>
       <SectionTitle
         data={data}
         type={type}

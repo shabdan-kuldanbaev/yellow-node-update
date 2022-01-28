@@ -169,7 +169,8 @@
 }
 
 .writer-chrome-extension,
-.open-sense {
+.open-sense,
+.telemojo {
   @extend .container;
 
   grid-template-columns: repeat(3, auto);
@@ -188,6 +189,10 @@
     @include tablet {
       padding-right: 0;
     }
+  }
+
+  @include tablet {
+    padding-top: 80px;
   }
 }
 
@@ -226,4 +231,47 @@
   }
 }
 
-@import './styles/telemojo.scss';
+.meateater {
+  @extend .container;
+
+  position: absolute;
+  background-color: $alabaster;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 180px;
+  width: 100%;
+  max-width: initial;
+  bottom: 0;
+  padding: 80px 0;
+  margin: 150px 0;
+  justify-content: center;
+
+  @include phone {
+    margin: 80px 0;
+  }
+
+  .title {
+    grid-row: 1/4;
+  }
+}
+
+.telemojo {
+  grid-auto-flow: unset;
+
+  @include phone {
+    .title {
+      padding-right: 0;
+    }
+  }
+}
+
+.famlicious {
+  @extend .container;
+
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 110px;
+
+  .title {
+    grid-row: 1/4;
+  }
+}

@@ -195,12 +195,14 @@
 }
 
 .open-sense,
-.separate-us {
+.separate-us,
+.telemojo {
   @extend .container;
 }
 
 .writer-chrome-extension,
-.natp {
+.natp,
+.meateater {
   @extend .container;
 
   background-color: $white;
@@ -406,4 +408,115 @@
   }
 }
 
-@import './styles/telemojo.scss';
+.meateater {
+  position: relative;
+  padding: 150px 40px;
+
+  @include tablet {
+    flex-direction: column;
+    padding: 80px 0 400px 0;
+  }
+
+  @include phone {
+    padding: 80px 15px 580px;
+  }
+
+  .contentContainer {
+    padding-bottom: 150px;
+
+    @include flex(column, center, center);
+
+    @include phone {
+      padding-bottom: 0;
+    }
+
+    .descriptionContainer {
+      @include phone {
+        @include flex(column, center, center);
+      }
+    }
+  }
+}
+
+.fireaway {
+  @extend .container;
+
+  background-color: $white;
+  position: relative;
+
+  @include phone {
+    padding: 80px 15px 35px;
+  }
+
+  .contentContainer {
+    padding-bottom: 0;
+
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          & > p {
+            padding: 0 6px;
+          }
+        }
+      }
+    }
+  }
+
+  .mobileAdditionalInformation {
+    flex-direction: column;
+
+    & > div {
+      margin-top: 80px;
+    }
+  }
+}
+
+.famlicious {
+  @extend .container;
+
+  background-color: $white;
+  position: relative;
+
+  @include phone {
+    padding: 80px 15px 35px;
+  }
+
+  .contentContainer {
+    padding-bottom: 0;
+
+    .descriptionContainer {
+      @include desktop {
+        margin-left: 40px;
+      }
+
+      @include tablet {
+        margin-left: 60px;
+      }
+
+      @include phone {
+        margin-left: 0;
+        margin-bottom: 0;
+      }
+
+      .descriptionIntro {
+        .description {
+          & > p {
+            padding: 0 6px;
+          }
+        }
+      }
+    }
+  }
+
+  .mobileAdditionalInformation {
+    flex-direction: column;
+
+    & > div {
+      margin-top: 80px;
+
+      @include phone {
+        margin-top: 40px;
+      }
+    }
+  }
+}

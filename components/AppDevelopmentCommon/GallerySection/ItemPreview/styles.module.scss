@@ -111,7 +111,7 @@
     height: 100vh;
   }
 
-  &.firstSectionView {
+  &.tell {
     @include centeredBackgroundImage;
 
     padding: 0 70px;
@@ -182,7 +182,7 @@
     }
   }
 
-  &.secondSectionView {
+  &.fairy {
     padding: 0 100px 0 160px;
     background-color: $violet;
 
@@ -283,7 +283,7 @@
     }
   }
 
-  &.thirdSectionView {
+  &.stickerbox {
     padding: 0 115px;
     background: linear-gradient(180deg, #26282D 0%, #181A1D 100%);
 
@@ -372,7 +372,7 @@
     height: 60vw;
   }
 
-  &.firstSectionView {
+  &.fernwayer {
     padding: 0 120px;
     background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
 
@@ -468,7 +468,7 @@
     }
   }
 
-  &.secondSectionView {
+  &.famlicious {
     padding: 0 130px;
     background-color: $athens-gray-1;
 
@@ -590,7 +590,7 @@
     }
   }
 
-  &.thirdSectionView {
+  &.fireaway {
     padding: 0 160px;
     background-color: $cornflower-blue;
 
@@ -909,7 +909,7 @@
     height: 90vh;
   }
 
-  &.firstSectionView {
+  &.separateUs {
     background-color: $alabaster;
 
     .projectInfoContainer {
@@ -952,7 +952,7 @@
     }
   }
 
-  &.secondSectionView {
+  &.meatEater {
     background-color: $shark-2;
 
     .projectInfoContainer {
@@ -982,7 +982,7 @@
     }
   }
 
-  &.thirdSectionView {
+  &.bionorica {
     .imageContainer {
       width: auto;
 
@@ -1004,7 +1004,7 @@
     }
   }
 
-  &.fourthSectionView {
+  &.openSense {
     @include centeredBackgroundImage;
 
     .projectPreview {
@@ -1093,6 +1093,150 @@
         @include phone {
           max-width: 80vw;
         }
+      }
+    }
+  }
+
+  &.beautonomy {
+    background-color: $coffee;
+
+    .projectInfoContainer {
+      transform: translateY(50px);
+
+      @include tablet {
+        transform: initial;
+      }
+
+      .projectTitle {
+        color: $dark-grey;
+        margin-bottom: 0;
+      }
+    }
+
+    .imageContainer {
+      width: 75%;
+      transform: translateY(50px);
+
+      @include tablet {
+        transform: initial;
+        width: 80%;
+      }
+
+      @include phone {
+        width: 100%;
+      }
+
+      .image {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &.smartcenter {
+    background-image: linear-gradient(to bottom, $regent-gray 0%, $slate-gray3 100%);
+
+    .projectInfoContainer {
+      @include phone {
+        max-width: 90%;
+      }
+
+      .projectTitle {
+        color: $white;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+
+      .projectDescription {
+        color: $white;
+        margin-bottom: 30px;
+      }
+    }
+
+    .imageContainer {
+      width: 100%;
+      max-width: 679px;
+
+      @include macbook-fifteen {
+        max-width: 490px;
+      }
+
+      @include phone {
+        max-width: 80vw;
+      }
+
+      .image {
+        width: 100%;
+      }
+    }
+  }
+
+  &.natp {
+    position: relative;
+    background-image: linear-gradient(to bottom, $nevada-2 0%, $shark-3 100%);
+
+    .projectPreview {
+      flex-direction: row;
+      padding-left: 10%;
+
+      @include phone {
+        flex-direction: column;
+        padding-left: 0;
+      }
+    }
+
+    .projectInfoContainer {
+      align-items: flex-start;
+      max-width: 300px;
+
+      @include phone {
+        align-items: center;
+        max-width: 90%;
+      }
+
+      .projectTitle {
+        color: $white;
+        margin-bottom: 14px;
+      }
+
+      .projectDescription {
+        color: rgba($white, 0.7);
+        text-align: left;
+
+        @include phone {
+          text-align: center;
+        }
+      }
+
+      svg rect {
+        fill: $sushi-1;
+        stroke: $sushi-1;
+      }
+    }
+
+    .imageContainer {
+      width: 55%;
+
+      @include phone {
+        width: 90%;
+      }
+
+      .image {
+        width: 100%;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+      width: 80%;
+      height: 180%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      @include phone {
+        width: 430px;
+        height: 430px;
+        bottom: initial;
       }
     }
   }
