@@ -25,6 +25,8 @@ ObjectAssign.polyfill();
 es6promise.polyfill();
 
 function* fetchPage({ slug }) {
+  yield put({ type: actionTypes.SET_DATA_LOADING, payload: true });
+
   try {
     const { items = null } = yield contentfulClient.getEntries({
       contentType: 'page',
