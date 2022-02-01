@@ -79,4 +79,10 @@ export const ogMetaData = [
     metaDescription: 'Yellow can provide you with iOS development services. If you want to create an iPhone or iPad app, we are here to help.',
     url: `${rootUrl}${ROUTES.developmentServices.path}`,
   },
+  {
+    pageName: ROUTES.androidDevelopmentServices.slug,
+    metaTitle: 'Custom Android App Development Company | Yellow',
+    metaDescription: 'Yellow is ready to provide you with Android development services to bring your idea to life.',
+    url: `${rootUrl}${ROUTES.androidDevelopmentServices.path}`,
+  },
 ];

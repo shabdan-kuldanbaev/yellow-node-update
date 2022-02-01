@@ -44,6 +44,7 @@ export const NAV_LINKS = [
     routes.customWebApp.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
+    routes.androidDevelopmentServices.slug,
     routes.signatureGenerator.slug,
   ].includes(slug)),
 ];
@@ -436,8 +437,8 @@ export const SUB_NAVIGATION_LINKS = {
       title: 'Mobile app development',
       slug: ROUTES.customMobileApp.path,
       items: [
-        { slug: ROUTES.customMobileApp.path, title: 'Building mobile apps for all platforms' },
         { slug: ROUTES.developmentServices.path, title: 'iOS app development services' },
+        { slug: ROUTES.androidDevelopmentServices.path, title: 'Android app development services' },
       ],
     },
     {
