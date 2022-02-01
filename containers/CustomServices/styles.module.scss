@@ -1,0 +1,55 @@
+@import 'styles/utils/mixins';
+
+.сontainer {
+  margin: 0 auto;
+
+  .pageTitle,
+  .breadcrumbs {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .breadcrumbs {
+    padding: 0 40px;
+
+    @include phone {
+      padding: 0 15px;
+    }
+  }
+
+  &.chatApp {
+    padding: calc(#{$header-height} + 60px) 0 200px;
+
+    @include phone {
+      padding: calc(#{$header-height} + 40px) 0 100px;
+    }
+  }
+
+  &.mobileApp,
+  &.webApp {
+    padding: calc(#{$header-height} + 60px) 0 0;
+
+    @include phone {
+      padding: calc(#{$header-height} + 40px) 0 0;
+    }
+  }
+
+  &.webApp {
+    background-color: $cod-gray-1;
+
+    .breadcrumbs {
+      ol {
+        a,
+        li::after {
+          color: $white;
+          opacity: 0.3;
+        }
+
+        li:last-child > a {
+          color: $white;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
