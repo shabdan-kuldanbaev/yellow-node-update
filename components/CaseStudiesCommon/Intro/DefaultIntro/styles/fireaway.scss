@@ -69,7 +69,7 @@
     }
 
     .image {
-      max-width: 785px;
+      max-width: 464px;
       left: 38%;
       transform: translate(-76%, -31%);
 
@@ -154,7 +154,7 @@
 
       @include phone {
         max-width: 47px;
-        transform: translate(30%, 575%);
+        transform: translate(-9vw, 75vh);
       }
     }
 

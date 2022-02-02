@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
 import SwiperCore, {
-  Pagination,
   EffectCoverflow,
   Mousewheel,
+  Pagination,
 } from 'swiper/core';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { getItemLink, getItemPreviewProps } from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
+import { connect } from 'react-redux';
+import { selectIsLoading } from 'redux/selectors/layout';
 import { ItemPreview } from './ItemPreview';
 import { GalleryCallToAction } from './GalleryCallToAction';
 import { getGalleryProps } from './utils/galleryHelper';
@@ -25,6 +27,7 @@ export const GallerySection = ({
   sectionData,
   type,
   handleOnCTAClick,
+  pageLoading,
 }) => {
   const {
     title,
@@ -37,37 +40,39 @@ export const GallerySection = ({
     <section className={styles[type]}>
       <div className={styles.gallerySection}>
         <SectionTitle title={title} />
-        <Swiper {...params}>
-          {slides && slides.map((slide) => {
-            const link = getItemLink(slide);
-            const { title: slideTitle } = getItemPreviewProps(slide);
+        {!pageLoading && (
+          <Swiper {...params}>
+            {slides && slides.map((slide) => {
+              const link = getItemLink(slide);
+              const { title: slideTitle } = getItemPreviewProps(slide);
 
-            if (link) {
+              if (link) {
+                return (
+                  <div key={`gallery-section/${slideTitle}`}>
+                    <LinkWrapper
+                      path={link}
+                      isLocalLink
+                    >
+                      <ItemPreview
+                        data={slide}
+                        type={type}
+                      />
+                    </LinkWrapper>
+                  </div>
+                );
+              }
+
               return (
                 <div key={`gallery-section/${slideTitle}`}>
-                  <LinkWrapper
-                    path={link}
-                    isLocalLink
-                  >
-                    <ItemPreview
-                      data={slide}
-                      type={type}
-                    />
-                  </LinkWrapper>
+                  <ItemPreview
+                    data={slide}
+                    type={type}
+                  />
                 </div>
               );
-            }
-
-            return (
-              <div key={`gallery-section/${slideTitle}`}>
-                <ItemPreview
-                  data={slide}
-                  type={type}
-                />
-              </div>
-            );
-          })}
-        </Swiper>
+            })}
+          </Swiper>
+        )}
       </div>
       {linkData && (
         <GalleryCallToAction
@@ -82,10 +87,16 @@ export const GallerySection = ({
 
 GallerySection.defaultProps = {
   handleOnCTAClick: () => {},
+  pageLoading: false,
 };
 
 GallerySection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
+  pageLoading: PropTypes.bool,
 };
+
+export default connect(
+  (state) => ({ pageLoading: selectIsLoading(state) }),
+)(GallerySection);

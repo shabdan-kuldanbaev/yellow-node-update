@@ -22,6 +22,7 @@ export const ProjectLink = ({
       </LinkWrapper>
     );
   case CASE_STUDIES.sevenPmThursday:
+  case CASE_STUDIES.famlicious:
     return (
       <LinkWrapper path={downloadLink.url}>
         <Svg

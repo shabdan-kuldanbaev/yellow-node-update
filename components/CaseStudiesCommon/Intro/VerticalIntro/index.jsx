@@ -44,11 +44,13 @@ const VerticalIntro = ({
       )}
       <div className={styles.introSection}>
         <div className={styles.projectInfoContainer}>
-          <img
-            className={styles.logo}
-            src={appLogoUrl}
-            alt={appLogoUrl}
-          />
+          {appLogoUrl && (
+            <img
+              className={styles.logo}
+              src={appLogoUrl}
+              alt={title}
+            />
+          )}
           <div className={styles.title}>
             <TitleText
               type={type}

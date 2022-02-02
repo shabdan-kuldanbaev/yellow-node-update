@@ -13,6 +13,7 @@ const projects = {
   famlicious: 'famlicious',
   fernwayer: 'fernwayer',
   fireaway: 'fireaway',
+  cashchat: 'cashchat',
 };
 
 export const getAppstoreSvgType = (slug) => {
@@ -21,6 +22,7 @@ export const getAppstoreSvgType = (slug) => {
   case projects.fairy:
   case projects.fernwayer:
   case projects.famlicious:
+  case projects.cashchat:
     return SVG_IMAGES_TYPES.appstore;
   case projects.tell:
     return SVG_IMAGES_TYPES.blackFillAppstore;
@@ -36,7 +38,7 @@ export const getItemPreviewProps = (data) => {
     images,
     contentModules,
     view,
-    title: slug,
+    projectSlug: slug,
   } = getDocumentFields(
     data,
     [
@@ -44,6 +46,7 @@ export const getItemPreviewProps = (data) => {
       'contentModules',
       'view',
       'title',
+      'projectSlug',
     ],
   );
 

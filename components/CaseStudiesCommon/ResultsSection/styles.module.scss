@@ -500,3 +500,34 @@
     }
   }
 }
+
+.telemojo {
+  @include caseStudyContainer;
+
+  @include phone {
+    [data-case-study-description] {
+      margin-bottom: -65px;
+    }
+  }
+
+  padding-bottom: 0;
+
+  .circle {
+    position: static;
+    transform: translateX(0);
+    width: 100%;
+    max-width: 1076px;
+    margin: 100px auto 0;
+
+    @include phone {
+      height: 70px;
+    }
+
+    .mockup {
+      width: 100%;
+      filter: unset;
+      position: static;
+      transform: translate(0, 0);
+    }
+  }
+}

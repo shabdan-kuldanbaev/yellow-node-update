@@ -118,3 +118,11 @@
     }
   }
 }
+
+.famlicious {
+  @include caseStudyContainer;
+
+  background-color: $athens-gray-1;
+  font-family: $case-studies-font;
+  position: relative;
+}

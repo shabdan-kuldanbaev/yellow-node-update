@@ -19,9 +19,11 @@ export const Intro = (props) => {
   case CASE_STUDIES.writerChromeExtension:
   case CASE_STUDIES.ubiChat:
   case CASE_STUDIES.beautonomy:
+  case CASE_STUDIES.famlicious:
     return <DefaultIntro {...props} />;
   case CASE_STUDIES.openSense:
   case CASE_STUDIES.separateUs:
+  case CASE_STUDIES.telemojo:
   case CASE_STUDIES.smartcenter:
     return <VerticalIntro {...props} />;
   default:

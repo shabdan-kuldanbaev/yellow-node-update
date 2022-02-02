@@ -11,6 +11,7 @@ const {
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,
+  trailingSlashRedirect,
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
@@ -47,6 +48,7 @@ app
     // The request handler must be the first middleware on the app
     server.use(Sentry.Handlers.requestHandler());
 
+    server.use(trailingSlashRedirect);
     server.use(httpsRedirect);
     server.use(clearUrlRedirect);
     server.use(urlRedirect);

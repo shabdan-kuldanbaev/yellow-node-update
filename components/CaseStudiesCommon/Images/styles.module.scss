@@ -53,7 +53,8 @@
 .tell,
 .travel-trivia,
 .cash-chat,
-.fireaway {
+.fireaway,
+.famlicious {
   @extend .imagContainer;
 }
 
@@ -153,7 +154,8 @@
 .open-sense,
 .beautonomy,
 .drive-focus,
-.fireaway {
+.fireaway,
+.telemojo {
   @extend .imagContainer;
 
   background-color: $white;
@@ -263,7 +265,85 @@
 
     @include phone {
       display: block;
-      margin: 16px 0 0 3px;
+    }
+  }
+}
+
+.telemojo {
+  &.firstSectionView {
+    display: block;
+    max-width: 1076px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &.secondSectionView {
+    .image:first-child {
+      display: block;
+      max-width: 1076px;
+      width: 100%;
+      margin: 0 auto;
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    .image:last-child {
+      display: none;
+      max-width: 340px;
+      margin: 0 auto;
+
+      @include phone {
+        display: block;
+      }
+    }
+  }
+}
+
+.famlicious {
+  &.firstSectionView {
+    overflow: initial;
+
+    &::before {
+      --size: 752px;
+
+      content: '';
+      background: $white;
+      width: var(--size);
+      height: var(--size);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: -1;
+
+      @include tablet {
+        --size: 600px;
+      }
+
+      @include phone {
+        --size: 345px;
+      }
+    }
+
+    img {
+      @include tablet {
+        max-width: 320px;
+      }
+
+      @include phone {
+        max-width: 200px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    img {
+      @include tablet {
+        max-width: 630px;
+      }
     }
   }
 }

@@ -15,7 +15,9 @@
 .smartcenter,
 .meateater,
 .ubichat,
-.fireaway {
+.fireaway,
+.famlicious,
+.telemojo {
   @include caseStudyContainer;
 
   background-color: $white;
@@ -58,5 +60,20 @@
 
   @include phone {
     padding-bottom: 110px;
+  }
+}
+
+.telemojo {
+  @include centeredBackgroundImage;
+
+  overflow: hidden;
+}
+
+.famlicious {
+  @include caseStudyContainer;
+
+  &.firstSectionView {
+    background-color: $athens-gray-1;
+    position: relative;
   }
 }

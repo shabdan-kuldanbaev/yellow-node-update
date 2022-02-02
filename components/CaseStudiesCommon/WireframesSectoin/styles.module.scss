@@ -1,8 +1,10 @@
 @import 'styles/utils/mixins';
+@import './styles/telemojo';
 
 .fernwayer,
 .ubichat,
-.fireaway {
+.fireaway,
+.famlicious {
   @include caseStudyContainer;
   @include wireframes;
 
