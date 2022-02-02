@@ -44,3 +44,8 @@ export const setIsDropMenuOpened = (payload) => ({
   type: actionTypes.SET_IS_DROP_MENU_STATE,
   payload,
 });
+
+export const setDataLoading = (payload) => ({
+  type: actionTypes.SET_DATA_LOADING,
+  payload,
+});

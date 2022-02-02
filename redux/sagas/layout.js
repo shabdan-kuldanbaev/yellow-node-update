@@ -25,6 +25,9 @@ ObjectAssign.polyfill();
 es6promise.polyfill();
 
 function* fetchPage({ slug }) {
+  // TODO: It's better to use PAGE_READY_TO_DISPLAY, but now it doesn't work, so...
+  yield put({ type: actionTypes.SET_DATA_LOADING, payload: true });
+
   try {
     const { items = null } = yield contentfulClient.getEntries({
       contentType: 'page',

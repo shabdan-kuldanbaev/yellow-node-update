@@ -71,6 +71,7 @@ const handlers = {
   }),
   [actionTypes.SET_PAGE_READY_TO_DISPLAY]: (state, { payload }) => ({ ...state, isPageReadyToDisplay: payload }),
   [actionTypes.SET_IS_DROP_MENU_STATE]: (state, { payload }) => ({ ...state, isDropMenuOpened: payload }),
+  [actionTypes.SET_DATA_LOADING]: (state, { payload }) => ({ ...state, isLoading: payload }),
   DEFAULT: (state) => state,
 };
 
