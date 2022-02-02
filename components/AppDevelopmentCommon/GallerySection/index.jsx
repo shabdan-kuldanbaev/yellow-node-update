@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
-import SwiperCore, { EffectCoverflow, Mousewheel, Pagination } from 'swiper/core';
+import SwiperCore, {
+  EffectCoverflow,
+  Mousewheel,
+  Pagination,
+} from 'swiper/core';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
-import {
-  getItemLink,
-  getItemPreviewProps,
-} from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
+import { getItemLink, getItemPreviewProps } from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
 import { connect } from 'react-redux';
 import { selectIsLoading } from 'redux/selectors/layout';
 import { ItemPreview } from './ItemPreview';
@@ -97,7 +98,5 @@ GallerySection.propTypes = {
 };
 
 export default connect(
-  (state) => ({
-    pageLoading: selectIsLoading(state),
-  }),
+  (state) => ({ pageLoading: selectIsLoading(state) }),
 )(GallerySection);
