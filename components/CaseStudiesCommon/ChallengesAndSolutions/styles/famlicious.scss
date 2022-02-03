@@ -139,19 +139,27 @@
         }
       }
 
+      .images {
+        position: relative;
+      }
+
       .imageBundle {
         position: absolute;
       }
 
       &:nth-child(1) {
         .imageBundle {
-          top: 35%;
-          right: 250px;
+          top: 150px;
+          right: -460px;
+
+          @include macbook-twelve {
+            right: -32vw;
+          }
 
           @include tablet {
             right: 50%;
-            transform: translateX(50%);
-            top: 0;
+            top: -50%;
+            transform: translate(50%, 0);
           }
         }
       }
@@ -170,7 +178,7 @@
           display: none;
 
           @include tablet {
-            display: initial;
+            display: block;
           }
         }
 
@@ -193,7 +201,7 @@
           }
 
           @include phone {
-            margin-left: 75px;
+            margin-left: 120px;
           }
         }
 
@@ -242,7 +250,7 @@
             }
 
             @include phone {
-              width: 125px;
+              width: 165px;
             }
           }
         }
