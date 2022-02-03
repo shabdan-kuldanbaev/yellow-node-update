@@ -1,5 +1,35 @@
 .telemojo {
   &.firstSectionView {
+    .infoContainer {
+      max-width: 295px;
+    }
+
+    .contentContainer {
+      &:nth-child(odd) {
+        .infoContainer {
+          @include tablet {
+            margin-right: 40px;
+          }
+
+          @include phone {
+            margin-right: 0;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        .infoContainer {
+          @include tablet {
+            margin-left: 40px;
+          }
+
+          @include phone {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
     .special {
       .image {
         filter: unset;
@@ -12,6 +42,14 @@
       padding: 0 18px;
     }
 
+    // stylelint-disable-next-line
+    .contentContainer {
+      @include phone {
+        margin-bottom: 30px;
+      }
+    }
+
+    // stylelint-disable-next-line
     .infoContainer {
       max-width: 490px;
 
@@ -66,6 +104,11 @@
 
       @include tablet {
         @include fontSize(16px);
+      }
+
+      @include phone {
+        line-height: initial;
+        margin-bottom: 40px;
       }
     }
   }
