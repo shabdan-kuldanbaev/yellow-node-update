@@ -12,6 +12,12 @@
       padding: 0 18px;
     }
 
+    .contentContainer {
+      @include phone {
+        margin-bottom: 30px;
+      }
+    }
+
     .infoContainer {
       max-width: 490px;
 
@@ -66,6 +72,11 @@
 
       @include tablet {
         @include fontSize(16px);
+      }
+
+      @include phone {
+        line-height: initial;
+        margin-bottom: 40px;
       }
     }
   }
