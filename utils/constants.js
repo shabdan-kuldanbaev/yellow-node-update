@@ -422,6 +422,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.homepage.path,
   ROUTES.customWebApp.path,
   ROUTES.developmentServices.path,
+  ROUTES.androidDevelopmentServices.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -461,3 +462,8 @@ export const ARTICLE_TABLE_TYPES = {
   tableWithHeader: 'Table with header',
   tableWithTwoHeader: 'Table with two headers',
 };
+
+export const PAGES_WITH_DARK_BREADCRUMBS = [
+  PAGES.customMobileApp,
+  PAGES.customChatApp,
+];

@@ -100,6 +100,7 @@ const CustomServiceContainer = ({
         [styles.webApp]: pathname === PAGES.customWebApp,
         [styles.iosDevelopment]: pathname === PAGES.developmentServices,
         [styles.chatApp]: pathname === PAGES.customChatApp,
+        [styles.androidDevelopmentServices]: pathname === PAGES.androidDevelopmentServices,
       })}
       >
         <PageHeader

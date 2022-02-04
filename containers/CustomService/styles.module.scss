@@ -31,7 +31,8 @@
   }
 
   &.webApp,
-  &.iosDevelopment {
+  &.iosDevelopment,
+  &.androidDevelopmentServices {
     background-color: $cod-gray-1;
 
     .breadcrumbs {

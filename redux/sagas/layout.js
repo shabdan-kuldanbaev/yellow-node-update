@@ -121,6 +121,7 @@ function* fetchPageData({
     case PAGES.customWebApp:
     case PAGES.designServices:
     case PAGES.developmentServices:
+    case PAGES.androidDevelopmentServices:
     case PAGES.notFound:
     case PAGES.signatureGenerator:
       yield call(fetchPage, { slug });
