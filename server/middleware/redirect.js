@@ -21,16 +21,6 @@ const httpsRedirect = (req, res, next) => {
   }
 };
 
-const trailingSlashRedirect = (req, res, next) => {
-  if (req.path.substr(-1) === '/' && req.path.length > 1) {
-    const query = req.url.slice(req.path.length);
-    const safePath = req.path.slice(0, -1).replace(/\/+/g, '/');
-    res.redirect(301, safePath + query);
-  } else {
-    next();
-  }
-};
-
 const clearUrlRedirect = (req, res, next) => {
   const host = req.get('Host');
   const testWWW = /^www\./g.test(host);
@@ -95,5 +85,4 @@ module.exports = {
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,
-  trailingSlashRedirect,
 };

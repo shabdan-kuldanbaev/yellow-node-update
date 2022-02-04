@@ -114,6 +114,12 @@
     }
   }
 
+  .title {
+    @include desktop {
+      margin-bottom: 0;
+    }
+  }
+
   .imageContainer {
     & > div:last-child {
       position: relative;
@@ -121,20 +127,19 @@
       &::after {
         content: "";
         position: absolute;
-        width: 56%;
-        height: 88%;
-        top: 24px;
+        width: 35%;
+        top: 0;
+        bottom: 0;
         z-index: 10;
         right: 0;
         transform: translate(10px, -1px);
         background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
 
         @include macbook-fifteen {
-          top: 17px;
           right: 10px;
         }
 
-        @include phone {
+        @include tablet {
           display: none;
         }
       }
@@ -146,8 +151,14 @@
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
     row-gap: 80px;
+    margin-right: 150px;
 
-    @include phone {
+    @include desktop {
+      margin-right: 60px;
+    }
+
+    @include tablet {
+      margin-right: 0;
       margin-bottom: 25px;
     }
 

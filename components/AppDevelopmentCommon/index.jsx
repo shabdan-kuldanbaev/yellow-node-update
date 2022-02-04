@@ -7,7 +7,7 @@ import ProcessSection from 'components/AppDevelopmentCommon/ProcessSection';
 import { CheckListSection } from 'components/AppDevelopmentCommon/CheckListSection';
 import { SliderSection } from 'components/AppDevelopmentCommon/SliderSection';
 import SvgListSection from 'components/AppDevelopmentCommon/SvgListSection';
-import { GallerySection } from 'components/AppDevelopmentCommon/GallerySection';
+import GallerySection from 'components/AppDevelopmentCommon/GallerySection';
 import { FaqSection } from 'components/AppDevelopmentCommon/FaqSection';
 import { ReviewsSection } from 'components/AppDevelopmentCommon/ReviewsSection';
 import { ImagesListSection } from 'components/AppDevelopmentCommon/ImagesListSection';
