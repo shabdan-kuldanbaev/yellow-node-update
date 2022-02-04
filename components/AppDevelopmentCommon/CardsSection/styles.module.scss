@@ -335,7 +335,8 @@
   }
 }
 
-.ios-mobile-app-development-services {
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services {
   @include appDevelopmentContainer;
 
   .callToAction {
