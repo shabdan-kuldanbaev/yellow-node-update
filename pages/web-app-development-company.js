@@ -1,11 +1,11 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
-import CustomWebAppContainer from 'containers/CustomWebAppDevelopment';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
+import CustomServices from 'containers/CustomService';
 
-const CustomWebApp = ({ introSection }) => <CustomWebAppContainer introSection={introSection} />;
+const CustomWebApp = ({ introSection }) => <CustomServices introSection={introSection} />;
 
 CustomWebApp.getInitialProps = async ({ store, req }) => {
   try {
