@@ -1,11 +1,16 @@
 @import 'styles/utils/mixins';
 
-.сontainer {
+.container {
   margin: 0 auto;
+  padding: calc(#{$header-height} + 60px) 0 0;
+
+  @include phone {
+    padding: calc(#{$header-height} + 40px) 0 0;
+  }
 
   .pageTitle,
   .breadcrumbs {
-    max-width: 1300px;
+    max-width: $max-content-width;
     margin: 0 auto;
   }
 
@@ -25,16 +30,8 @@
     }
   }
 
-  &.mobileApp,
-  &.webApp {
-    padding: calc(#{$header-height} + 60px) 0 0;
-
-    @include phone {
-      padding: calc(#{$header-height} + 40px) 0 0;
-    }
-  }
-
-  &.webApp {
+  &.webApp,
+  &.iosDevelopment {
     background-color: $cod-gray-1;
 
     .breadcrumbs {

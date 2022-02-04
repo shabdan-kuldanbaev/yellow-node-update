@@ -1,11 +1,11 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
-import DesignServicesContainer from 'containers/DesignServices';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
+import CustomServices from 'containers/CustomService';
 
-const DesignServices = () => <DesignServicesContainer />;
+const DesignServices = () => <CustomServices />;
 
 DesignServices.getInitialProps = async ({ store, req }) => {
   try {
