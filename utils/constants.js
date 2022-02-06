@@ -198,6 +198,13 @@ export const APP_DEVELOPMENT_ICONS = {
   titledKotlin: 'titledKotlin',
   titledObjectiveC: 'titledObjectiveC',
   titledPostgre: 'titledPostgre',
+  titledReactJs: 'titledReactJs',
+  titledSwagger: 'titledSwagger',
+  titledPostgreSql: 'titledPostgreSql',
+  titledFlutter: 'titledFlutter',
+  titledAndroidSdk: 'titledAndroidSdk',
+  titledKotlin2: 'titledKotlin2',
+  titledDocker: 'titledDocker',
   twilio: 'twilio',
   pubnub: 'pubnub',
   react: 'react',
@@ -213,6 +220,7 @@ export const APP_DEVELOPMENT_ICONS = {
   productHunt: 'productHunt',
   esquire: 'esquire',
   theWeek: 'theWeek',
+
   // chat app page, types of chat section
   communication: 'communication',
   sales: 'sales',
