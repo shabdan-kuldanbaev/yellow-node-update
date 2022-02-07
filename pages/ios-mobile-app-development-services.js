@@ -1,11 +1,16 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
+import CustomService from 'containers/CustomService';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
-import CustomService from 'containers/CustomService';
 
-const IOSDevelopment = ({ introSection }) => <CustomService introSection={introSection} />;
+const IOSDevelopment = ({ introSection }) => (
+  <CustomService
+    introSection={introSection}
+    type={PAGES.developmentServices}
+  />
+);
 
 IOSDevelopment.getInitialProps = async ({ store, req }) => {
   try {

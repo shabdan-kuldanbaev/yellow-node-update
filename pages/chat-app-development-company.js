@@ -1,11 +1,11 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
+import CustomService from 'containers/CustomService';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
-import CustomService from 'containers/CustomService';
 
-const CustomChatApp = () => <CustomService />;
+const CustomChatApp = () => <CustomService type={PAGES.customChatApp} />;
 
 CustomChatApp.getInitialProps = async ({ store, req }) => {
   try {

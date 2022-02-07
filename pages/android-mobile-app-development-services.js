@@ -1,11 +1,16 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
+import CustomService from 'containers/CustomService';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
-import CustomService from 'containers/CustomService';
 
-const AndroidDevelopment = ({ introSection }) => <CustomService introSection={introSection} />;
+const AndroidDevelopment = ({ introSection }) => (
+  <CustomService
+    introSection={introSection}
+    type={PAGES.androidDevelopmentServices}
+  />
+);
 
 AndroidDevelopment.getInitialProps = async ({ store, req }) => {
   try {

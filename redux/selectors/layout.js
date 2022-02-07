@@ -51,6 +51,4 @@ export const selectComponents = (state) => state.layout.components;
 
 export const selectMetaData = (state) => state.layout.metaData;
 
-export const selectType = (state) => state.layout.type;
-
 export const selectIsDropMenuOpened = (state) => state.layout.isDropMenuOpened;

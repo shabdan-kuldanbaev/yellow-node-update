@@ -2,11 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
-import {
-  selectComponents,
-  selectMetaData,
-  selectType,
-} from 'redux/selectors/layout';
+import { selectComponents, selectMetaData } from 'redux/selectors/layout';
 import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 import { PageHeader } from 'components/Common/PageHeader';
 import { MetaTags } from 'components/Common/MetaTags';
@@ -96,6 +92,5 @@ export default connect(
   (state) => ({
     pageData: selectComponents(state),
     metaData: selectMetaData(state),
-    type: selectType(state),
   }),
 )(CustomServiceContainer);
