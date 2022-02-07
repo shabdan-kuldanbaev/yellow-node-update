@@ -13,7 +13,7 @@ import { MetaTags } from 'components/Common/MetaTags';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { getDocumentFields, rootUrl } from 'utils/helper';
-import { CONTACT_FORM_TITLES, PAGES } from 'utils/constants';
+import { CONTACT_FORM_TITLES, PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
 import { getServicePageInfo } from './utils/servicePageHelper';
 import styles from './styles.module.scss';
 
@@ -30,10 +30,7 @@ const CustomServiceContainer = ({
   const { pageMicrodata, breadcrumbs } = getServicePageInfo(type);
   const pageMetadata = { ...metaData, url: `${rootUrl}/${type}` };
 
-  const breadcrumbsTheme = [
-    PAGES.customMobileApp,
-    PAGES.customChatApp,
-  ].includes(type) ? 'dark' : null;
+  const breadcrumbsTheme = PAGES_WITH_DARK_BREADCRUMBS.includes(type) ? 'dark' : null;
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
