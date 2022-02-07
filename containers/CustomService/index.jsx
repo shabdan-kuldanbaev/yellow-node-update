@@ -1,38 +1,39 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { connect } from 'react-redux';
-import { selectComponents, selectMetaData } from 'redux/selectors/layout';
+import {
+  selectComponents,
+  selectMetaData,
+  selectType,
+} from 'redux/selectors/layout';
+import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 import { PageHeader } from 'components/Common/PageHeader';
 import { MetaTags } from 'components/Common/MetaTags';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { CONTACT_FORM_TITLES, PAGES } from 'utils/constants';
-import { useRouter } from 'next/router';
-import cn from 'classnames';
-import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
-import styles from './styles.module.scss';
 import { getServicePageInfo } from './utils/servicePageHelper';
+import styles from './styles.module.scss';
 
 const CustomServiceContainer = ({
   pageData,
   metaData,
   introSection,
+  type,
 }) => {
-  const { pathname: rawPathname } = useRouter();
-  const pathname = rawPathname.slice(1);
-
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const { main: contentModules, hasFeedbackForm } = pageData;
 
-  const { pageMicrodata, breadcrumbs } = getServicePageInfo(pathname);
-  const pageMetadata = { ...metaData, url: `${rootUrl}/${pathname}` };
+  const { pageMicrodata, breadcrumbs } = getServicePageInfo(type);
+  const pageMetadata = { ...metaData, url: `${rootUrl}/${type}` };
 
   const breadcrumbsTheme = [
     PAGES.customMobileApp,
     PAGES.customChatApp,
-  ].includes(pathname) ? 'dark' : null;
+  ].includes(type) ? 'dark' : null;
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
@@ -43,18 +44,12 @@ const CustomServiceContainer = ({
   return (
     <Fragment>
       <MetaTags
-        page={pathname}
+        page={type}
         pageMetadata={pageMetadata}
         pageMicrodata={pageMicrodata}
         breadcrumbs={breadcrumbs}
       />
-      <div className={cn(styles.container, {
-        [styles.webApp]: pathname === PAGES.customWebApp,
-        [styles.iosDevelopment]: pathname === PAGES.developmentServices,
-        [styles.chatApp]: pathname === PAGES.customChatApp,
-        [styles.androidDevelopmentServices]: pathname === PAGES.androidDevelopmentServices,
-      })}
-      >
+      <div className={cn(styles.container, styles[type])}>
         <PageHeader
           breadcrumbs={breadcrumbs}
           titleStyles={styles.pageTitle}
@@ -66,19 +61,19 @@ const CustomServiceContainer = ({
 
           return (
             <AppDevelopmentCommon
-              key={`${pathname}/${sectionType}-${view || ''}`}
+              key={`${type}/${sectionType}-${view || ''}`}
               section={module}
               handleOnCTAClick={openFullscreenEstimation}
-              type={pathname}
+              type={type}
               introSection={introSection}
             />
           );
         })}
         {hasFeedbackForm && (
-          <div className={styles[pathname] || styles.feedBackContainer}>
+          <div className={styles[type] || styles.feedBackContainer}>
             <FeedbackFormContainer
-              type={pathname}
-              title={CONTACT_FORM_TITLES[pathname]}
+              type={type}
+              title={CONTACT_FORM_TITLES[type]}
             />
           </div>
         )}
@@ -97,11 +92,13 @@ CustomServiceContainer.propTypes = {
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
   }).isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default connect(
   (state) => ({
     pageData: selectComponents(state),
     metaData: selectMetaData(state),
+    type: selectType(state),
   }),
 )(CustomServiceContainer);

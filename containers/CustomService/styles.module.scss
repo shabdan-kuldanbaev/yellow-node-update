@@ -22,7 +22,7 @@
     }
   }
 
-  &.chatApp {
+  &.chat-app-development-company {
     padding: calc(#{$header-height} + 60px) 0 200px;
 
     @include phone {
@@ -30,9 +30,9 @@
     }
   }
 
-  &.webApp,
-  &.iosDevelopment,
-  &.androidDevelopmentServices {
+  &.web-app-development-company,
+  &.ios-mobile-app-development-services,
+  &.android-mobile-app-development-services {
     background-color: $cod-gray-1;
 
     .breadcrumbs {

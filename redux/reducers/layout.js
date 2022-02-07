@@ -19,6 +19,7 @@ const initialState = {
     metaTitle: '',
     metaDescription: '',
   },
+  type: '',
 };
 
 const handlers = {
@@ -34,6 +35,7 @@ const handlers = {
       metaTitle,
       metaDescription,
       hasFeedbackForm,
+      slug,
     } = getDocumentFields(
       (payload && payload[0]) ? payload[0] : {},
       [
@@ -41,6 +43,7 @@ const handlers = {
         'metaTitle',
         'metaDescription',
         'hasFeedbackForm',
+        'slug',
       ],
     );
 
@@ -55,6 +58,7 @@ const handlers = {
         metaTitle,
         metaDescription,
       },
+      type: slug,
     });
   },
   [actionTypes.FETCH_PAGE_FAILED]: (state, { payload }) => ({
