@@ -112,6 +112,93 @@
     height: 100vh;
   }
 
+  &.seven-pm {
+    background: $dark-blue-1;
+    position: relative;
+    padding: 0 130px;
+
+    @include macbook-fifteen {
+      padding: 0 100px;
+    }
+
+    @include macbook-twelve {
+      padding: 0 50px;
+    }
+
+    @include tablet {
+      padding: 36px 24px;
+    }
+
+    .logo {
+      border-radius: 8px;
+    }
+
+    .projectPreview {
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+
+      @include tablet {
+        justify-content: space-between;
+      }
+    }
+
+    .projectTitle,
+    .projectSubtitle {
+      color: $white;
+    }
+
+    .imageContainer {
+      flex: 1 1 auto;
+      position: relative;
+
+      &::before {
+        @include centered;
+
+        --size: 23vw;
+
+        content: '';
+        width: var(--size);
+        height: var(--size);
+        z-index: -1;
+        border-radius: 50%;
+        background-image: linear-gradient(159.7deg, #FF2A89 10.47%, #FF4934 98.88%);
+        box-shadow:
+          0 0 0 100px rgba(#FF2A89, 0.1),
+          0 0 0 200px rgba(#FF2A89, 0.05);
+
+        @include tablet {
+          --size: 40vw;
+        }
+
+        @include phone {
+          --size: 65vw;
+        }
+      }
+
+      img {
+        @include centered;
+
+        height: auto;
+        max-width: 30vw;
+
+        @include tablet {
+          max-width: 155%;
+        }
+
+        @include phone {
+          max-width: 110%;
+        }
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+      left: 7%;
+      bottom: 7%;
+    }
+  }
+
   &.famlicious {
     padding: 0 130px;
     background-color: $athens-gray-1;
