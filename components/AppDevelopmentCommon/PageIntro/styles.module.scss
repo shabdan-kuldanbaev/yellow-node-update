@@ -282,6 +282,30 @@
   }
 }
 
+.ios-mobile-app-development-services {
+  .pageIntroSection {
+    .pageIntroWrapper {
+      border-bottom: 1px solid rgba($alto, 0.2);
+      padding-bottom: 180px;
+
+      @include macbook-twelve {
+        padding-bottom: 120px;
+      }
+
+      @include below-tablet {
+        @include flex(column-reverse, space-between, center);
+
+        padding-bottom: 80px;
+      }
+
+      @include phone {
+        margin-bottom: 60px;
+        padding-bottom: 60px;
+      }
+    }
+  }
+}
+
 .ios-mobile-app-development-services,
 .android-mobile-app-development-services {
   @extend .pageIntroContainer;
@@ -299,23 +323,6 @@
   .pageIntroSection {
     .pageIntroWrapper {
       margin-bottom: 80px;
-      padding-bottom: 180px;
-      border-bottom: 1px solid rgba($alto, 0.2);
-
-      @include macbook-twelve {
-        padding-bottom: 120px;
-      }
-
-      @include below-tablet {
-        @include flex(column-reverse, space-between, center);
-
-        padding-bottom: 80px;
-      }
-
-      @include phone {
-        margin-bottom: 60px;
-        padding-bottom: 60px;
-      }
 
       .pageTitle {
         color: $white;
