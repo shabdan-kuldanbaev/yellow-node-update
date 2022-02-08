@@ -3,7 +3,7 @@ import { SVG_IMAGES_TYPES } from 'utils/constants';
 export const socialNetworks = [
   {
     name: 'behance',
-    href: 'https://www.behance.net/yellowstudio',
+    href: 'https://www.behance.net/yellow_systems',
     iconType: SVG_IMAGES_TYPES.behance,
   },
   {
