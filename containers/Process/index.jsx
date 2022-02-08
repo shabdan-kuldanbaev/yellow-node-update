@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
@@ -7,7 +7,7 @@ import {
   Process,
   MetaTags,
   PageHeader,
-  FullLayout,
+  FullLayout, FullScreenEstimation,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
@@ -21,12 +21,17 @@ const ProcessContainer = ({
     metaDescription,
   },
 }) => {
+  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
+
   const breadcrumbs = pagesBreadcrumbs.process();
   const pageMetadata = {
     metaTitle,
     metaDescription,
     url: `${rootUrl}/process`,
   };
+
+  const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
+  const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
   return (
     <Fragment>
@@ -40,8 +45,16 @@ const ProcessContainer = ({
           title={ROUTES.process.title}
           breadcrumbs={breadcrumbs}
         />
-        <Process processes={json} />
+        <Process
+          processes={json}
+          handleOnCTAClick={openFullscreenEstimation}
+        />
       </FullLayout>
+
+      <FullScreenEstimation
+        isFullscreenEstimation={isFullscreenEstimation}
+        closeFullscreenEstimation={closeFullscreenEstimation}
+      />
     </Fragment>
   );
 };
