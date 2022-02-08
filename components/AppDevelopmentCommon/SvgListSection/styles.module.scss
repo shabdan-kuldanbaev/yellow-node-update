@@ -167,6 +167,22 @@
   }
 }
 
+.android-mobile-app-development-services {
+  @extend .svgSection;
+
+  .svgListWrapper {
+    .svgList {
+      @extend .svgListWrapperSeveralRows;
+
+      max-width: unset;
+
+      & > div {
+        margin-top: 40px;
+      }
+    }
+  }
+}
+
 .ios-mobile-app-development-services {
   @extend .svgSection;
 
@@ -180,6 +196,7 @@
     .svgList {
       max-width: 855px;
       margin: 0 auto;
+      flex-wrap: wrap;
 
       & > div {
         margin-top: 20px;

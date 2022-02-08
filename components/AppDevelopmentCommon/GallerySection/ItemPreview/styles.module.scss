@@ -96,7 +96,8 @@
 
 .mobile-app-development-company,
 .ui-ux-services,
-.ios-mobile-app-development-services {
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services {
   @extend .container;
 
   @include macbook-fifteen {
@@ -109,6 +110,128 @@
 
   @include phone {
     height: 100vh;
+  }
+
+  &.famlicious {
+    padding: 0 130px;
+    background-color: $athens-gray-1;
+
+    @include macbook-fifteen {
+      padding: 0 100px;
+    }
+
+    @include macbook-twelve {
+      padding: 0 50px;
+    }
+
+    @include tablet {
+      padding: 24px;
+    }
+
+    .projectInfoContainer {
+      max-width: 385px;
+      height: max-content;
+
+      @include tablet {
+        margin-bottom: 0;
+      }
+
+      .projectTitle {
+        margin: 0;
+        color: $dark-grey-2;
+
+        @include fontSize(58px);
+
+        @include macbook-fifteen {
+          @include fontSize(42px);
+        }
+
+        @include tablet {
+          @include fontSize(32px);
+        }
+
+        @include phone {
+          @include fontSize(22px);
+        }
+      }
+
+      .projectSubtitle {
+        font-weight: 600;
+        margin: 0;
+        color: $dark-grey;
+
+        @include fontSize(17px);
+
+        @include tablet {
+          @include fontSize(15px);
+        }
+      }
+
+      .projectDescription {
+        font-weight: 500;
+        margin: 15px 0 10px;
+        color: $dark-grey-2;
+
+        @include fontSize(16px);
+
+        @include tablet {
+          @include fontSize(14px);
+        }
+      }
+
+      p:not(.projectSubtitle, .projectDescription) {
+        color: $shuttle-gray;
+        max-width: 330px;
+
+        @include fontSize(13px);
+
+        @include tablet {
+          @include fontSize(12px);
+        }
+      }
+    }
+
+    .appStore {
+      path {
+        fill: $black;
+      }
+    }
+
+    .imageContainer {
+      position: relative;
+      z-index: 1;
+      width: 475px;
+
+      @include macbook-fifteen {
+        width: 200px;
+      }
+
+      @include tablet {
+        width: 400px;
+        height: 100%;
+      }
+
+      .image {
+        max-width: 800px;
+
+        @include centered;
+
+        @include macbook-fifteen {
+          max-width: 500px;
+          transform: translate(-40%, -45%);
+        }
+
+        @include tablet {
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    .projectPreview {
+      @include tablet {
+        height: 100%;
+      }
+    }
   }
 
   &.tell {

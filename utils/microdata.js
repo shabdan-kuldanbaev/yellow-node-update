@@ -116,6 +116,13 @@ export const microdata = {
     description: 'Yellow can provide you with iOS development services. If you want to create an iPhone or iPad app, we are here to help.',
     breadcrumb: 'Homepage > iOS App Development Services',
   }),
+  customAndroidApp: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Custom Android App Development Company | Yellow',
+    description: 'Yellow is ready to provide you with Android development services to bring your idea to life.',
+    breadcrumb: 'Homepage > Android App Development Services',
+  }),
   customWebApp: () => ({
     '@context': context,
     '@type': 'WebPage',

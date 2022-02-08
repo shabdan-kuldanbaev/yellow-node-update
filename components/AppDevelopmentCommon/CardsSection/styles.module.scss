@@ -336,6 +336,39 @@
 }
 
 .ios-mobile-app-development-services {
+  &.secondSectionView {
+    background: $black;
+
+    .imageWrapper {
+      background: $white;
+
+      & > div {
+        background: $white;
+      }
+    }
+
+    .titleStyle,
+    .typeTitle {
+      color: $white;
+    }
+  }
+}
+
+.android-mobile-app-development-services {
+  &.secondSectionView {
+    background: $alabaster;
+
+    .imageWrapper {
+      &,
+      & > * {
+        background: none;
+      }
+    }
+  }
+}
+
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services {
   @include appDevelopmentContainer;
 
   .callToAction {
@@ -429,8 +462,6 @@
   }
 
   &.secondSectionView {
-    background: inherit;
-
     .contentWrapper {
       @include smallSectionWrapper;
 
@@ -443,7 +474,6 @@
 
           .imageWrapper {
             width: 100%;
-            background: white;
 
             & > div {
               width: 100%;
@@ -451,7 +481,6 @@
               background-repeat: no-repeat;
               background-size: contain;
               background-position: center;
-              background-color: $white;
 
               @include tablet {
                 padding-top: 72%;
@@ -462,7 +491,6 @@
           .cardContent {
             .typeTitle {
               margin: 24px 0 10px;
-              color: white;
 
               @include phone {
                 margin: 20px 0 10px;
@@ -502,7 +530,6 @@
       }
 
       .titleStyle {
-        color: $white;
         margin-bottom: 120px;
 
         h2 {

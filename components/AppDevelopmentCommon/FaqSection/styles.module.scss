@@ -5,7 +5,8 @@
 .mobile-app-development-company,
 .web-app-development-company,
 .ios-mobile-app-development-services,
-.ui-ux-services {
+.ui-ux-services,
+.android-mobile-app-development-services {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
@@ -27,7 +28,8 @@
 
 .web-app-development-company,
 .ios-mobile-app-development-services,
-.ui-ux-services {
+.ui-ux-services,
+.android-mobile-app-development-services {
   background-color: $white;
 
   & > div {
