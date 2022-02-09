@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated, CallToAction, LinkWrapper } from 'components';
+import {
+  Animated,
+  CallToAction,
+  LinkWrapper,
+} from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 

@@ -7,7 +7,8 @@ import {
   Process,
   MetaTags,
   PageHeader,
-  FullLayout, FullScreenEstimation,
+  FullLayout,
+  FullScreenEstimation,
 } from 'components';
 import { PAGES, ROUTES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
