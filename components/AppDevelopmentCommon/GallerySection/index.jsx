@@ -39,7 +39,10 @@ export const GallerySection = ({
   return (
     <section className={styles[type]}>
       <div className={styles.gallerySection}>
-        <SectionTitle title={title} />
+        <SectionTitle
+          title={title}
+          className={styles.sectionTitle}
+        />
         {!pageLoading && (
           <Swiper {...params}>
             {slides && slides.map((slide) => {

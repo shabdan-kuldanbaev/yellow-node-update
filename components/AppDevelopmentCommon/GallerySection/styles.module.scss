@@ -260,3 +260,13 @@
     margin: 0;
   }
 }
+
+.android-mobile-app-development-services {
+  .sectionTitle {
+    margin: 0 auto 40px;
+
+    @include below-tablet {
+      max-width: 343px;
+    }
+  }
+}
