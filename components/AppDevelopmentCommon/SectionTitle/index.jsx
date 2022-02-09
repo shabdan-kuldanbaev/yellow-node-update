@@ -11,6 +11,7 @@ export const SectionTitle = ({
   title,
   subtitle,
   description,
+  className,
 }) => {
   const animationProps = {
     type: ANIMATED_TYPE.isCustom,
@@ -20,7 +21,7 @@ export const SectionTitle = ({
   };
 
   return (
-    <div className={cn(styles[type], { [titleStyle]: titleStyle })}>
+    <div className={cn(styles[type], className, { [titleStyle]: titleStyle })}>
       <Animated
         {...animationProps}
         transitionDelay={250}
@@ -58,6 +59,7 @@ SectionTitle.defaultProps = {
   titleStyle: '',
   subtitle: '',
   description: '',
+  className: null,
 };
 
 SectionTitle.propTypes = {
@@ -66,4 +68,5 @@ SectionTitle.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   description: PropTypes.string,
+  className: PropTypes.string,
 };
