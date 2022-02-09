@@ -22,6 +22,7 @@ export const PageIntro = ({
     return null;
   }
 
+  // TODO: use rich text instead of splitting
   const descriptionParagraphs = description.split('||');
 
   return (
@@ -44,17 +45,14 @@ export const PageIntro = ({
               {...animatedProps}
               transitionDelay={250}
             >
-              {
-                descriptionParagraphs.map((text, id) => (
-                  <p
-                    className={styles.subtitle}
-                    key={`paragraph/${id}`}
-                  >
-                    {text}
-                  </p>
-                ))
-              }
-
+              {descriptionParagraphs.map((text, id) => (
+                <p
+                  className={styles.subtitle}
+                  key={`paragraph/${id}`}
+                >
+                  {text}
+                </p>
+              ))}
             </Animated>
           </div>
           <Animated
