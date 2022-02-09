@@ -336,6 +336,15 @@
 }
 
 .ios-mobile-app-development-services {
+  &.firstSectionView {
+    .contentWrapper {
+      .smallCards {
+        row-gap: 120px;
+        column-gap: 260px;
+      }
+    }
+  }
+
   &.secondSectionView {
     background: $black;
 
@@ -355,6 +364,17 @@
 }
 
 .android-mobile-app-development-services {
+  &.firstSectionView {
+    .smallCards {
+      gap: 40px;
+
+      & > div {
+        box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
+        padding: 50px 50px 40px;
+      }
+    }
+  }
+
   &.secondSectionView {
     background: $alabaster;
 
@@ -386,9 +406,6 @@
       @include smallSectionWrapper;
 
       .smallCards {
-        row-gap: 120px;
-        column-gap: 260px;
-
         & > div {
           flex-direction: column;
 
