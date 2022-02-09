@@ -112,6 +112,65 @@
     height: 100vh;
   }
 
+  &.ava {
+    background: $sky-blue-white;
+    padding: 0 80px;
+
+    @include macbook-fifteen {
+      padding: 0 100px;
+    }
+
+    @include macbook-twelve {
+      padding: 0 50px;
+    }
+
+    @include tablet {
+      padding: 36px 24px;
+    }
+
+    .logo {
+      border-radius: 8px;
+    }
+
+    .projectPreview {
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+
+      @include tablet {
+        justify-content: space-between;
+      }
+    }
+
+    .projectTitle {
+      color: $black;
+    }
+
+    .projectSubtitle {
+      color: $nevada-1;
+    }
+
+    .imageContainer {
+      flex: 1 1 auto;
+      position: relative;
+
+      img {
+        @include centered;
+
+        height: auto;
+        max-width: 100%;
+      }
+    }
+
+    .projectInfoContainer {
+      flex: 0 0 40%;
+
+      @include tablet {
+        flex: 0 0 20%;
+      }
+    }
+  }
+
   &.seven-pm {
     background: $dark-blue-1;
     position: relative;
