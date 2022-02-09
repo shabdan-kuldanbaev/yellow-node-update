@@ -22,6 +22,8 @@ export const PageIntro = ({
     return null;
   }
 
+  const descriptionParagraphs = description.split('||');
+
   return (
     <section
       className={styles[type]}
@@ -42,9 +44,17 @@ export const PageIntro = ({
               {...animatedProps}
               transitionDelay={250}
             >
-              <p className={styles.subtitle}>
-                {description}
-              </p>
+              {
+                descriptionParagraphs.map((text, id) => (
+                  <p
+                    className={styles.subtitle}
+                    key={`paragraph/${id}`}
+                  >
+                    {text}
+                  </p>
+                ))
+              }
+
             </Animated>
           </div>
           <Animated
