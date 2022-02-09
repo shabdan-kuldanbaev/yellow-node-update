@@ -341,6 +341,17 @@
       .smallCards {
         row-gap: 120px;
         column-gap: 260px;
+
+        & > div {
+          @include below-tablet {
+            justify-content: center;
+            text-align: center;
+
+            .imageWrapper {
+              margin: auto;
+            }
+          }
+        }
       }
     }
   }
@@ -438,15 +449,6 @@
               @include below-tablet {
                 max-width: 100%;
               }
-            }
-          }
-
-          @include below-tablet {
-            justify-content: center;
-            text-align: center;
-
-            .imageWrapper {
-              margin: auto;
             }
           }
         }
