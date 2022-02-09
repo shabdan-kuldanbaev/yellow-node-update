@@ -1,11 +1,11 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
-import CustomMobileAppContainer from 'containers/CustomMobileAppDevelopment';
+import CustomService from 'containers/CustomService';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 
-const CustomMobileApp = () => <CustomMobileAppContainer />;
+const CustomMobileApp = () => <CustomService type={PAGES.customMobileApp} />;
 
 CustomMobileApp.getInitialProps = async ({ store, req }) => {
   try {

@@ -224,6 +224,12 @@ export const routes = {
     dynamicPath: '/ios-mobile-app-development-services',
     slug: 'ios-mobile-app-development-services',
   },
+  androidDevelopmentServices: {
+    title: 'Android mobile app development services',
+    path: '/android-mobile-app-development-services',
+    dynamicPath: '/android-mobile-app-development-services',
+    slug: 'android-mobile-app-development-services',
+  },
   signatureGenerator: {
     title: 'Signature Generator',
     path: '/signature-generator',

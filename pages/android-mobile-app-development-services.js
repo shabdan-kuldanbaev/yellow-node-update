@@ -5,11 +5,16 @@ import CustomService from 'containers/CustomService';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 
-const CustomChatApp = () => <CustomService type={PAGES.customChatApp} />;
+const AndroidDevelopment = ({ introSection }) => (
+  <CustomService
+    introSection={introSection}
+    type={PAGES.androidDevelopmentServices}
+  />
+);
 
-CustomChatApp.getInitialProps = async ({ store, req }) => {
+AndroidDevelopment.getInitialProps = async ({ store, req }) => {
   try {
-    store.dispatch(fetchLayoutData({ slug: PAGES.customChatApp }));
+    store.dispatch(fetchLayoutData({ slug: PAGES.androidDevelopmentServices }));
 
     if (req) {
       store.dispatch(END);
@@ -20,9 +25,9 @@ CustomChatApp.getInitialProps = async ({ store, req }) => {
   } catch (error) {
     errorHelper.handleError({
       error,
-      message: 'Error in the CustomChatApp.getInitialProps function',
+      message: 'Error in the AndroidDevelopment.getInitialProps function',
     });
   }
 };
 
-export default CustomChatApp;
+export default AndroidDevelopment;

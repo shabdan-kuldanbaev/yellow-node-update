@@ -1,33 +1,32 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
+import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 import { PageHeader } from 'components/Common/PageHeader';
 import { MetaTags } from 'components/Common/MetaTags';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import { microdata } from 'utils/microdata';
-import { rootUrl, getDocumentFields } from 'utils/helper';
-import { PAGES } from 'utils/constants';
+import { getDocumentFields, rootUrl } from 'utils/helper';
+import { CONTACT_FORM_TITLES, PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
+import { getServicePageInfo } from './utils/servicePageHelper';
 import styles from './styles.module.scss';
 
-const CustomChatAppContainer = ({
+const CustomServiceContainer = ({
   pageData,
-  metaData: {
-    metaTitle,
-    metaDescription,
-  },
+  metaData,
+  introSection,
+  type,
 }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const breadcrumbs = pagesBreadcrumbs.customChatApp();
-  const { main: contentModules } = pageData;
-  const pageMetadata = {
-    metaTitle,
-    metaDescription,
-    url: `${rootUrl}/chat-app-development-company`,
-  };
 
+  const { main: contentModules, hasFeedbackForm } = pageData;
+
+  const { pageMicrodata, breadcrumbs } = getServicePageInfo(type);
+  const pageMetadata = { ...metaData, url: `${rootUrl}/${type}` };
+
+  const breadcrumbsTheme = PAGES_WITH_DARK_BREADCRUMBS.includes(type) ? 'dark' : null;
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
@@ -38,29 +37,39 @@ const CustomChatAppContainer = ({
   return (
     <Fragment>
       <MetaTags
-        page={PAGES.customChatApp}
+        page={type}
         pageMetadata={pageMetadata}
-        pageMicrodata={microdata.customChatApp()}
+        pageMicrodata={pageMicrodata}
         breadcrumbs={breadcrumbs}
       />
-      <div className={styles.сontainer}>
+      <div className={cn(styles.container, styles[type])}>
         <PageHeader
           breadcrumbs={breadcrumbs}
           titleStyles={styles.pageTitle}
           breadcrumbsStyles={styles.breadcrumbs}
+          breadcrumbsTheme={breadcrumbsTheme}
         />
         {contentModules.map((module) => {
           const { type: sectionType, view } = getDocumentFields(module);
 
           return (
             <AppDevelopmentCommon
-              key={`chat-app/${sectionType}-${view || ''}`}
+              key={`${type}/${sectionType}-${view || ''}`}
               section={module}
               handleOnCTAClick={openFullscreenEstimation}
-              type="chat-app-development-company"
+              type={type}
+              introSection={introSection}
             />
           );
         })}
+        {hasFeedbackForm && (
+          <div className={styles[type] || styles.feedBackContainer}>
+            <FeedbackFormContainer
+              type={type}
+              title={CONTACT_FORM_TITLES[type]}
+            />
+          </div>
+        )}
       </div>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
@@ -70,12 +79,13 @@ const CustomChatAppContainer = ({
   );
 };
 
-CustomChatAppContainer.propTypes = {
+CustomServiceContainer.propTypes = {
   pageData: PropTypes.instanceOf(Object).isRequired,
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
   }).isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default connect(
@@ -83,4 +93,4 @@ export default connect(
     pageData: selectComponents(state),
     metaData: selectMetaData(state),
   }),
-)(CustomChatAppContainer);
+)(CustomServiceContainer);

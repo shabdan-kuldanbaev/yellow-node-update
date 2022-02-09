@@ -283,23 +283,10 @@
 }
 
 .ios-mobile-app-development-services {
-  @extend .pageIntroContainer;
-
-  background-color: inherit;
-
-  @include below-tablet {
-    padding: 60px 40px;
-  }
-
-  @include phone {
-    padding: 60px 16px;
-  }
-
   .pageIntroSection {
     .pageIntroWrapper {
-      margin-bottom: 80px;
-      padding-bottom: 180px;
       border-bottom: 1px solid rgba($alto, 0.2);
+      padding-bottom: 180px;
 
       @include macbook-twelve {
         padding-bottom: 120px;
@@ -315,6 +302,27 @@
         margin-bottom: 60px;
         padding-bottom: 60px;
       }
+    }
+  }
+}
+
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services {
+  @extend .pageIntroContainer;
+
+  background-color: inherit;
+
+  @include below-tablet {
+    padding: 60px 40px;
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+
+  .pageIntroSection {
+    .pageIntroWrapper {
+      margin-bottom: 80px;
 
       .pageTitle {
         color: $white;

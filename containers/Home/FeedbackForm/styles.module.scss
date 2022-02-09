@@ -151,13 +151,14 @@
 }
 
 .web-app-development-company,
-.ui-ux-services {
+.ui-ux-services,
+.android-mobile-app-development-services {
   @extend .formContainer;
 
   padding: 100px 16px;
 
   @include tablet {
-    padding: 80 16px;
+    padding: 80px 16px;
   }
 
   .title {

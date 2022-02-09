@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated, LinkWrapper } from 'components';
+import {
+  Animated,
+  CallToAction,
+  LinkWrapper,
+} from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const Process = ({ processes }) => {
+export const Process = ({ processes, handleOnCTAClick }) => {
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -65,14 +69,29 @@ export const Process = ({ processes }) => {
           </Animated>
         </div>
       ))}
+
+      <Animated
+        {...animatedProps}
+        transitionDelay={550}
+      >
+        <CallToAction
+          type="card"
+          title="Kickstart your dream project with us!"
+          buttonTitle="Request proposal"
+          handleOnClick={handleOnCTAClick}
+          className={styles.callToAction}
+        />
+      </Animated>
     </div>
   );
 };
 
 Process.defaultProps = {
   processes: [],
+  handleOnCTAClick: () => {},
 };
 
 Process.propTypes = {
   processes: PropTypes.instanceOf(Array),
+  handleOnCTAClick: PropTypes.func,
 };

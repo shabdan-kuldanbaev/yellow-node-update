@@ -315,4 +315,21 @@
       }
     }
   }
+
+  .callToAction {
+    background: none;
+    flex-direction: column;
+
+    h3 {
+      font-size: 56px;
+      line-height: 67px;
+      text-align: center;
+      margin-bottom: 80px;
+      max-width: 879px;
+    }
+
+    & > div {
+      font-weight: bold;
+    }
+  }
 }

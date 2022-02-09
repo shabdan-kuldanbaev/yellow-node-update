@@ -44,6 +44,7 @@ export const NAV_LINKS = [
     routes.customWebApp.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
+    routes.androidDevelopmentServices.slug,
     routes.signatureGenerator.slug,
   ].includes(slug)),
 ];
@@ -197,6 +198,13 @@ export const APP_DEVELOPMENT_ICONS = {
   titledKotlin: 'titledKotlin',
   titledObjectiveC: 'titledObjectiveC',
   titledPostgre: 'titledPostgre',
+  titledReactJs: 'titledReactJs',
+  titledSwagger: 'titledSwagger',
+  titledPostgreSql: 'titledPostgreSql',
+  titledFlutter: 'titledFlutter',
+  titledAndroidSdk: 'titledAndroidSdk',
+  titledKotlin2: 'titledKotlin2',
+  titledDocker: 'titledDocker',
   twilio: 'twilio',
   pubnub: 'pubnub',
   react: 'react',
@@ -212,6 +220,7 @@ export const APP_DEVELOPMENT_ICONS = {
   productHunt: 'productHunt',
   esquire: 'esquire',
   theWeek: 'theWeek',
+
   // chat app page, types of chat section
   communication: 'communication',
   sales: 'sales',
@@ -421,6 +430,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.homepage.path,
   ROUTES.customWebApp.path,
   ROUTES.developmentServices.path,
+  ROUTES.androidDevelopmentServices.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -436,8 +446,8 @@ export const SUB_NAVIGATION_LINKS = {
       title: 'Mobile app development',
       slug: ROUTES.customMobileApp.path,
       items: [
-        { slug: ROUTES.customMobileApp.path, title: 'Building mobile apps for all platforms' },
         { slug: ROUTES.developmentServices.path, title: 'iOS app development services' },
+        { slug: ROUTES.androidDevelopmentServices.path, title: 'Android app development services' },
       ],
     },
     {
@@ -459,4 +469,18 @@ export const ARTICLE_TABLE_TYPES = {
   simpleTable: 'Simple table',
   tableWithHeader: 'Table with header',
   tableWithTwoHeader: 'Table with two headers',
+};
+
+export const PAGES_WITH_DARK_BREADCRUMBS = [
+  PAGES.customMobileApp,
+  PAGES.customChatApp,
+];
+
+export const CONTACT_FORM_TITLES = {
+  [PAGES.customMobileApp]: '',
+  [PAGES.customChatApp]: '',
+  [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
+  [PAGES.designServices]: 'Yellow is ready to give you a hand with UX/UI design',
+  [PAGES.developmentServices]: '',
+  [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
 };
