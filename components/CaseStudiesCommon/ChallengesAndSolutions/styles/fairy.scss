@@ -1,0 +1,7 @@
+.fairy {
+  .image {
+    @include phone {
+      min-width: 250px;
+    }
+  }
+}
