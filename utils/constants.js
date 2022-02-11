@@ -331,7 +331,7 @@ export const CONTACTS_DATA = {
     {
       title: 'Behance',
       type: SVG_IMAGES_TYPES.behanceRoundWhite,
-      link: '',
+      link: '//www.behance.net/yellow_systems',
     },
     {
       title: 'Medium',

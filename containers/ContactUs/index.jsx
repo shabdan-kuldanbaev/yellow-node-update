@@ -52,8 +52,8 @@ const ContactUsContainer = ({
           breadcrumbs={breadcrumbs}
         />
         <div className={styles.pageIntro}>
-          <CompanyContacts />
           <FeedbackFormWithTitle />
+          <CompanyContacts />
         </div>
         <CompanyPeoplePhoto photo={peopleImageUrl} />
       </FullLayout>
