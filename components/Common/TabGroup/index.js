@@ -7,8 +7,9 @@ const TabGroup = ({
   activeIndex,
   items,
   onChange,
+  className,
 }) => (
-  <ul className={styles.buttonGroup}>
+  <ul className={cn(styles.buttonGroup, className)}>
     {
       items.map((item, i) => (
         <li
@@ -28,10 +29,15 @@ const TabGroup = ({
   </ul>
 );
 
+TabGroup.defaultProps = {
+  className: '',
+};
+
 TabGroup.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string).isRequired,
   activeIndex: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default TabGroup;

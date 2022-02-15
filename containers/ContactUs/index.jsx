@@ -20,6 +20,7 @@ import {
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
+import CompanyPlacement from '../../components/ContactUsCommon/CompanyPlacement';
 
 const ContactUsContainer = ({
   introSection,
@@ -56,6 +57,7 @@ const ContactUsContainer = ({
           <CompanyContacts />
         </div>
         <CompanyPeoplePhoto photo={peopleImageUrl} />
+        <CompanyPlacement />
       </FullLayout>
     </Fragment>
   );
