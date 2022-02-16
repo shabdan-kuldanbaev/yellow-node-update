@@ -45,7 +45,7 @@ const Article = ({
         </div>
         <div className={styles.container}>
           <p className={styles.date}>
-            {formatDate(publishedAt, { format: 'MMMM D, YYYY' })}
+            {formatDate(publishedAt)}
           </p>
           <h1 className={styles.h1}>
             {title}

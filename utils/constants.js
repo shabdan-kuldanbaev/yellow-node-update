@@ -346,7 +346,7 @@ export const CONTACTS_DATA = {
   ],
 };
 
-export const DEFAULT_DATE_FORMAT = 'DD MMMM, YYYY';
+export const DEFAULT_DATE_FORMAT = 'MMMM D, YYYY';
 
 export const HEADER_HEIGHT = 66;
 
