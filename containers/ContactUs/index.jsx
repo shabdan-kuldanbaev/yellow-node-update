@@ -19,6 +19,7 @@ import {
 } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import CompanyPlacement from 'components/ContactUsCommon/CompanyPlacement';
 import styles from './styles.module.scss';
 
 const ContactUsContainer = ({
@@ -46,16 +47,20 @@ const ContactUsContainer = ({
         pageMicrodata={microdata.contact()}
         breadcrumbs={breadcrumbs}
       />
-      <FullLayout introSection={introSection}>
+      <FullLayout
+        introSection={introSection}
+        disableOverflowHiding
+      >
         <PageHeader
           title={ROUTES.contact.title}
           breadcrumbs={breadcrumbs}
         />
         <div className={styles.pageIntro}>
-          <CompanyContacts />
           <FeedbackFormWithTitle />
+          <CompanyContacts />
         </div>
         <CompanyPeoplePhoto photo={peopleImageUrl} />
+        <CompanyPlacement />
       </FullLayout>
     </Fragment>
   );

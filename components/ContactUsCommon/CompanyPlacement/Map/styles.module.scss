@@ -1,0 +1,26 @@
+@import "styles/utils/variables";
+@import "styles/utils/mixins";
+
+.map {
+  box-shadow: 0 10px 60px -10px rgba(0, 0, 0, 0.15);
+  height: 732px;
+  position: relative;
+
+  @include tablet {
+    height: 480px;
+  }
+
+  .controlPanel {
+    top: 15px;
+    right: 15px;
+    position: absolute;
+
+    button {
+      border: solid 1px $alabaster;
+
+      span {
+        background: $white;
+      }
+    }
+  }
+}

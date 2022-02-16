@@ -20,6 +20,10 @@
   }
 }
 
+.disableOverflowHiding {
+  overflow-x: visible;
+}
+
 .disableMaxWidth {
   max-width: none;
   width: 100vw;
