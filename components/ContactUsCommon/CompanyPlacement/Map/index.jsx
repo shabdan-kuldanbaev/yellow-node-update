@@ -1,9 +1,12 @@
 import React, {
-  useCallback, useEffect, useRef, useState,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 import MapGL, { Marker } from 'react-map-gl';
-import { MAPBOX_TOKEN } from 'utils/constants';
 import PropTypes from 'prop-types';
+import { MAPBOX_TOKEN } from 'utils/constants';
 import { markers, MapPointValidator } from '../utils';
 import YellowLogo from '../assets/yellow-logo.svg';
 import styles from './styles.module.scss';
@@ -34,18 +37,16 @@ const Map = ({ mapData: { center, zoom } }) => {
         onViewportChange={handleViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN}
       >
-        {
-          Object.entries(markers).map(([country, marker]) => (
-            <Marker
-              key={country}
-              longitude={marker.lng}
-              latitude={marker.lat}
-              anchor="center"
-            >
-              <YellowLogo />
-            </Marker>
-          ))
-        }
+        {Object.entries(markers).map(([country, marker]) => (
+          <Marker
+            key={country}
+            longitude={marker.lng}
+            latitude={marker.lat}
+            anchor="center"
+          >
+            <YellowLogo />
+          </Marker>
+        ))}
       </MapGL>
     </div>
   );

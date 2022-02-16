@@ -10,22 +10,20 @@ const TabGroup = ({
   className,
 }) => (
   <ul className={cn(styles.buttonGroup, className)}>
-    {
-      items.map((item, i) => (
-        <li
-          key={`tabGroup/${item}`}
-          className={cn(styles.item, { [styles.activeItem]: i === activeIndex })}
+    {items.map((item, i) => (
+      <li
+        key={`tabGroup/${item}`}
+        className={cn(styles.item, { [styles.activeItem]: i === activeIndex })}
+      >
+        <button
+          type="button"
+          className={styles.button}
+          onClick={() => onChange(i)}
         >
-          <button
-            type="button"
-            className={styles.button}
-            onClick={() => onChange(i)}
-          >
-            {item}
-          </button>
-        </li>
-      ))
-    }
+          {item}
+        </button>
+      </li>
+    ))}
   </ul>
 );
 

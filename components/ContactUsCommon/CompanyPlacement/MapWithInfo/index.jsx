@@ -6,15 +6,17 @@ import {
   MapPointValidator,
   markers,
 } from '../utils';
-import Map from './Map';
+import Map from '../Map';
 import styles from './styles.module.scss';
 
 const MapWithInfo = ({ mapData, placementInfo }) => (
   <>
-    <Animated
-      {...animatedProps}
-    >
-      {placementInfo.map((info) => <p className={styles.placementInfo}>{info}</p>)}
+    <Animated {...animatedProps}>
+      {placementInfo.map((info) => (
+        <p className={styles.placementInfo}>
+          {info}
+        </p>
+      ))}
     </Animated>
     <Animated {...animatedProps}>
       <Map
