@@ -8,24 +8,28 @@ const TabGroup = ({
   items,
   onChange,
   className,
-}) => (
-  <ul className={cn(styles.buttonGroup, className)}>
-    {items.map((item, i) => (
-      <li
-        key={`tabGroup/${item}`}
-        className={cn(styles.item, { [styles.activeItem]: i === activeIndex })}
-      >
-        <button
-          type="button"
-          className={styles.button}
-          onClick={() => onChange(i)}
+}) => {
+  const handleTabClick = (i) => () => onChange(i);
+
+  return (
+    <ul className={cn(styles.buttonGroup, className)}>
+      {items.map((item, i) => (
+        <li
+          key={`tabGroup/${item}`}
+          className={cn(styles.item, { [styles.activeItem]: i === activeIndex })}
         >
-          {item}
-        </button>
-      </li>
-    ))}
-  </ul>
-);
+          <button
+            type="button"
+            className={styles.button}
+            onClick={handleTabClick(i)}
+          >
+            {item}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 TabGroup.defaultProps = {
   className: '',
