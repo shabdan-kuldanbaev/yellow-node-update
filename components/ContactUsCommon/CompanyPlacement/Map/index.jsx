@@ -4,7 +4,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import MapGL, { Marker } from 'react-map-gl';
+import MapGL, {
+  Marker,
+  NavigationControl,
+} from 'react-map-gl';
 import PropTypes from 'prop-types';
 import { MAPBOX_TOKEN } from 'utils/constants';
 import { markers, MapPointValidator } from '../utils';
@@ -36,7 +39,9 @@ const Map = ({ mapData: { center, zoom } }) => {
         height="100%"
         onViewportChange={handleViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN}
+        scrollZoom={false}
       >
+        <NavigationControl className={styles.controlPanel} />
         {Object.entries(markers).map(([country, marker]) => (
           <Marker
             key={country}
