@@ -47,7 +47,10 @@ const ContactUsContainer = ({
         pageMicrodata={microdata.contact()}
         breadcrumbs={breadcrumbs}
       />
-      <FullLayout introSection={introSection}>
+      <FullLayout
+        introSection={introSection}
+        disableOverflowHiding
+      >
         <PageHeader
           title={ROUTES.contact.title}
           breadcrumbs={breadcrumbs}

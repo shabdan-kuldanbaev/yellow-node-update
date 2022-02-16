@@ -1,5 +1,21 @@
+@import "styles/utils/variables";
+
 .map {
   box-shadow: 0 10px 60px -10px rgba(0, 0, 0, 0.15);
   height: 732px;
-  margin: 0 50px;
+  position: relative;
+
+  .controlPanel {
+    top: 15px;
+    right: 15px;
+    position: absolute;
+
+    button {
+      border: solid 1px $alabaster;
+
+      span {
+        background: $white;
+      }
+    }
+  }
 }

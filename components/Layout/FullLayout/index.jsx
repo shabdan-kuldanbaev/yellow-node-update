@@ -9,6 +9,7 @@ export const FullLayout = ({
   disableTopPadding,
   disableSidePadding,
   disableBottomPadding,
+  disableOverflowHiding,
   introSection,
 }) => {
   const layoutStyles = cn(styles.fullLayout, {
@@ -16,6 +17,7 @@ export const FullLayout = ({
     [styles.disableTopPadding]: disableTopPadding,
     [styles.disableSidePadding]: disableSidePadding,
     [styles.disableBottomPadding]: disableBottomPadding,
+    [styles.disableOverflowHiding]: disableOverflowHiding,
   });
 
   return (
