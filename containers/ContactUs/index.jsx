@@ -19,6 +19,7 @@ import {
 } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import CompanyPlacement from 'components/ContactUsCommon/CompanyPlacement';
 import styles from './styles.module.scss';
 
 const ContactUsContainer = ({
@@ -52,10 +53,11 @@ const ContactUsContainer = ({
           breadcrumbs={breadcrumbs}
         />
         <div className={styles.pageIntro}>
-          <CompanyContacts />
           <FeedbackFormWithTitle />
+          <CompanyContacts />
         </div>
         <CompanyPeoplePhoto photo={peopleImageUrl} />
+        <CompanyPlacement />
       </FullLayout>
     </Fragment>
   );

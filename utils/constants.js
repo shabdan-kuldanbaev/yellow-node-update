@@ -331,7 +331,7 @@ export const CONTACTS_DATA = {
     {
       title: 'Behance',
       type: SVG_IMAGES_TYPES.behanceRoundWhite,
-      link: '',
+      link: '//www.behance.net/yellow_systems',
     },
     {
       title: 'Medium',
@@ -484,3 +484,6 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
 };
+
+// eslint-disable-next-line
+export const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;

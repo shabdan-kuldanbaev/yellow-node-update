@@ -1,0 +1,32 @@
+@import "styles/utils/mixins";
+
+.companyPlacement {
+  & > *:first-child {
+    align-items: flex-start;
+
+    @include tablet {
+      align-items: center;
+    }
+  }
+
+  .title {
+    text-align: left;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  .tabGroup {
+    @include tablet {
+      @include flex(column, initial, center);
+
+      margin-top: 15px;
+
+      li + li {
+        margin-left: 0;
+        margin-top: 15px;
+      }
+    }
+  }
+}
