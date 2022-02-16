@@ -163,7 +163,7 @@
       color: $white;
 
       @include phone {
-        font-size: 35px;
+        @include fontSize(35px);
       }
     }
 
