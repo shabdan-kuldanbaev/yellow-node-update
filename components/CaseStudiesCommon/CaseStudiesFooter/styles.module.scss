@@ -150,6 +150,10 @@
 
   background: $light-violet-1;
 
+  @include phone {
+    padding: 0 10px 20px;
+  }
+
   .nextProjectContainer {
     .subtitle {
       color: rgba($white, 0.7);
@@ -157,6 +161,10 @@
 
     .projectName {
       color: $white;
+
+      @include phone {
+        @include fontSize(35px);
+      }
     }
 
     .more {
