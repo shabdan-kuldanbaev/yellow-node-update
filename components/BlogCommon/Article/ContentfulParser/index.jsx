@@ -41,6 +41,7 @@ export const ContentfulParser = ({ document }) => {
             get(node, 'data.target', ''),
             ['articleSingleImageType', 'image', 'title'],
           );
+          const { description: imageDescription } = getDocumentFields(image, ['description']);
           const imageUrl = getFileUrl(image);
 
           return articleSingleImageType && imageUrl && (
@@ -52,7 +53,8 @@ export const ContentfulParser = ({ document }) => {
                 <Animated type={ANIMATED_TYPE.imageZoom}>
                   <img
                     src={imageUrl}
-                    alt={imageUrl}
+                    alt={imageDescription}
+                    title={imageDescription}
                   />
                 </Animated>
                 {title && (
