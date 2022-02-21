@@ -38,6 +38,7 @@ export const Home = ({
   metaData: {
     metaTitle,
     metaDescription,
+    ogImage,
   },
 }) => {
   const gradientRef = useRef(null);
@@ -47,6 +48,7 @@ export const Home = ({
     metaTitle,
     metaDescription,
     url: `${rootUrl}`,
+    ogImage,
   };
 
   useEffect(() => {
@@ -124,6 +126,7 @@ Home.propTypes = {
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    ogImage: PropTypes.string,
   }).isRequired,
 };
 
