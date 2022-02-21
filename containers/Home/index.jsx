@@ -35,20 +35,14 @@ export const Home = ({
   isPageReadyToDisplay,
   fetchDuck: fetchDuckData,
   duck,
-  metaData: {
-    metaTitle,
-    metaDescription,
-    ogImage,
-  },
+  metaData,
 }) => {
   const gradientRef = useRef(null);
   const { contentModules } = getDocumentFields(photosData, ['contentModules']);
   const { contextData, setContextData } = useContext(AppContext);
   const pageMetadata = {
-    metaTitle,
-    metaDescription,
+    ...metaData,
     url: `${rootUrl}`,
-    ogImage,
   };
 
   useEffect(() => {

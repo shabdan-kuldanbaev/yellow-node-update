@@ -38,7 +38,9 @@ export const MetaTags = ({
   const getImage = (img) => {
     if (ogImage) return ogImage;
 
-    return isArticle ? image : img;
+    if (isArticle) return image;
+
+    return img;
   };
 
   const date = isArticle ? publishedAt : new Date();

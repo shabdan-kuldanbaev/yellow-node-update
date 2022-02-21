@@ -17,16 +17,12 @@ import styles from './styles.module.scss';
 const PortfolioContainer = ({
   introSection,
   portfolioProjects,
-  metaData: {
-    metaTitle,
-    metaDescription,
-  },
+  metaData,
 }) => {
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.portfolio();
   const pageMetadata = {
-    metaTitle,
-    metaDescription,
+    ...metaData,
     url: `${rootUrl}/works`,
   };
 
@@ -64,6 +60,7 @@ PortfolioContainer.propTypes = {
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    ogImage: PropTypes.string,
   }).isRequired,
 };
 
