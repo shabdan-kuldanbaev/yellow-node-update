@@ -36,9 +36,16 @@
 .socialMediaList {
   @include flex();
 
+  @include tablet {
+    justify-content: space-between;
+  }
+
   & > a {
-    margin-right: 16px;
     transition: transform 0.2s ease-out;
+
+    & + a {
+      margin-left: 16px;
+    }
 
     &:hover {
       transform: translateY(-5px);
@@ -65,7 +72,6 @@
 
 .email {
   padding-bottom: 4px;
-  width: max-content;
 
   @extend .smallText;
 

@@ -1,6 +1,12 @@
 @import "styles/utils/mixins";
 
 .companyPlacement {
+  padding: 0 0 150px;
+
+  @include tablet {
+    padding: 0 0 80px;
+  }
+
   & > *:first-child {
     align-items: flex-start;
 
