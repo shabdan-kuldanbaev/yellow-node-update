@@ -4,14 +4,17 @@
   column-gap: 20px;
   justify-items: start;
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 0 -25px 0 auto;
 
   @include phone {
     display: block;
+    margin-right: auto;
   }
 
   .contentContainer {
-    flex-direction: column;
+    @include flex(column, initial);
+
+    margin: 0 25px 80px 0;
 
     @include phone {
       width: 100%;
