@@ -536,18 +536,18 @@
 .bionorica {
   @include caseStudyContainer;
 
-  @include phone {
-    [data-case-study-description] {
-      margin-bottom: -65px;
-    }
-  }
+  padding-bottom: 0;
+  margin-bottom: 150px;
 
   @include tablet {
     padding-bottom: 0;
   }
 
-  padding-bottom: 0;
-  margin-bottom: 150px;
+  @include phone {
+    [data-case-study-description] {
+      margin-bottom: -65px;
+    }
+  }
 
   .circle {
     position: static;

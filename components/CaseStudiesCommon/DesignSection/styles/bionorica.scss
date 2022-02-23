@@ -12,7 +12,7 @@
 
   .container {
     display: flex;
-    max-width: 1300px;
+    max-width: $max-content-width;
     margin: 0 auto 120px;
 
     @include phone {

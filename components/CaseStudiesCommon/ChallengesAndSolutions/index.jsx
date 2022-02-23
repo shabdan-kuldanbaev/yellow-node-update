@@ -82,7 +82,7 @@ const ChallengesAndSolutions = ({
                     alt={title}
                   />
                 )}
-                { imageUrl && (
+                {imageUrl && (
                   <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                     <div>
                       <h2 className={cn(styles.title, styles[`title-${index + 1}`])}>
