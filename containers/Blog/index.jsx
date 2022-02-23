@@ -31,10 +31,7 @@ const BlogContainer = ({
   setIsSubscribed: setSubscribed,
   currentPage,
   articlesNumberPerPage,
-  metaData: {
-    metaTitle,
-    metaDescription,
-  },
+  metaData,
 }) => {
   const {
     pathname,
@@ -44,8 +41,7 @@ const BlogContainer = ({
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
   const breadcrumbs = pagesBreadcrumbs.blog(slug);
   const pageMetadata = {
-    metaTitle,
-    metaDescription,
+    ...metaData,
     url: `${rootUrl}${asPath}`,
     pageNumber: currentPage,
   };
@@ -113,6 +109,7 @@ BlogContainer.propTypes = {
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    ogImage: PropTypes.string,
   }).isRequired,
 };
 

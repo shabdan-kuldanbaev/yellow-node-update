@@ -30,18 +30,14 @@ const CompanyContainer = ({
   photosData,
   managementTeam,
   whatMakesSpecial,
-  metaData: {
-    metaTitle,
-    metaDescription,
-  },
+  metaData,
 }) => {
   const { contentModules: carouselContent } = getDocumentFields(photosData, ['contentModules']);
   const { contentModules: teamContent } = getDocumentFields(managementTeam, ['contentModules']);
   const { contentModules: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.company();
   const pageMetadata = {
-    metaTitle,
-    metaDescription,
+    ...metaData,
     url: `${rootUrl}/company`,
   };
 
@@ -101,6 +97,7 @@ CompanyContainer.propTypes = {
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    ogImage: PropTypes.string,
   }).isRequired,
 };
 
