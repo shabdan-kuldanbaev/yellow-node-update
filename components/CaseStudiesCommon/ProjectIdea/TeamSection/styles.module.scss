@@ -290,7 +290,7 @@
   max-width: initial;
   padding: 80px 0;
   margin: 150px 0;
-  background-color: $alabaster;
+  background: linear-gradient(180deg, rgba($selago, 0) 0%, $selago 20.83%, $selago 49.48%, $selago 74.48%, rgba($selago, 0) 100%);
 
   @include phone {
     margin: 80px 0;

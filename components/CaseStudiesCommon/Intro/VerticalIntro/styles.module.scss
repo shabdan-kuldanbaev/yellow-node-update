@@ -453,6 +453,10 @@
   padding: 230px 40px 150px;
   background-color: $white;
 
+  @include tablet {
+    padding-bottom: 80px;
+  }
+
   .projectInfoContainer {
     @include flex(column, center, center);
 
