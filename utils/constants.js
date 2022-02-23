@@ -205,6 +205,8 @@ export const APP_DEVELOPMENT_ICONS = {
   titledAndroidSdk: 'titledAndroidSdk',
   titledKotlin2: 'titledKotlin2',
   titledDocker: 'titledDocker',
+  titledSqlLite: 'titledSqlLite',
+  titledGradle: 'titledGradle',
   twilio: 'twilio',
   pubnub: 'pubnub',
   react: 'react',
