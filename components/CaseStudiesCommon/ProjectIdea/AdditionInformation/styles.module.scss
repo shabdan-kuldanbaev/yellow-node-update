@@ -341,3 +341,44 @@
     }
   }
 }
+
+.fusion-markets {
+  @extend .infoContainer;
+
+  @include phone {
+    @include flex(column, center, flex-start);
+
+    padding: 0 65px;
+  }
+
+  /* stylelint-disable-next-line */
+  .container {
+    &:not(:last-of-type) {
+      margin-right: 50px;
+    }
+
+    .title {
+      color: $white;
+
+      @include phone {
+        @include fontSize(18px);
+      }
+    }
+
+    .listContainer {
+      li:first-child {
+        padding-right: 20px;
+      }
+    }
+
+    .listItemContainer {
+      margin-bottom: 15px;
+      padding-right: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $jacksons-purple;
+      }
+    }
+  }
+}

@@ -325,7 +325,8 @@
   }
 }
 
-.smartcenter {
+.smartcenter,
+.fusion-markets {
   @extend .container;
 
   background: linear-gradient(to bottom, $regent-gray 0%, $slate-gray2 100%);
@@ -440,6 +441,51 @@
       @include phone {
         height: 22vh;
         transform: translate(0%, 220%);
+      }
+    }
+  }
+}
+
+.fusion-markets {
+  background: $eerie-black;
+  padding-top: 160px;
+
+  .projectInfoContainer {
+    .title {
+      .projectTitle {
+        @include fontSize(80px);
+
+        @include phone {
+          @include fontSize(44px);
+        }
+      }
+    }
+
+    .projectSubtitle {
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      color: $silver-chalice;
+      max-width: 764px;
+
+      @include phone {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    .experience {
+      max-width: 220px;
+
+      p:not(.infoTitle) {
+        color: $silver-chalice;
+      }
+
+      @include phone {
+        max-width: unset;
       }
     }
   }
