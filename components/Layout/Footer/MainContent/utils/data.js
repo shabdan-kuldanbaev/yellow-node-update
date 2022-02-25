@@ -97,7 +97,7 @@ export const footerData = [
     ],
     type: 'polandAddress',
   },
-  {
+/*  {
     title: '\xa0',
     links: [
       {
@@ -106,5 +106,5 @@ export const footerData = [
       },
     ],
     type: 'ukraineAddress',
-  },
+  }, */
 ];
