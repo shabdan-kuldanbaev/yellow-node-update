@@ -67,7 +67,22 @@ export const footerData = [
     ],
     type: 'sevices',
   },
+
+  // TODO: Delete when become unneeded
   {
+    title: 'Find us in Europe',
+    links: [
+      {
+        title: 'Poland',
+        subtitle: 'Warszawa 00-8P55 \nGrzybowska 62',
+      },
+    ],
+    type: 'polandAddress',
+  },
+];
+
+// TODO: Uncomment when the above become unneeded
+/*  {
     title: 'Find us in Europe',
     links: [
       {
@@ -97,7 +112,7 @@ export const footerData = [
     ],
     type: 'polandAddress',
   },
-/*  {
+  {
     title: '\xa0',
     links: [
       {
@@ -106,5 +121,5 @@ export const footerData = [
       },
     ],
     type: 'ukraineAddress',
-  }, */
-];
+  },
+]; */
