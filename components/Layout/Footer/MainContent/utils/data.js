@@ -69,6 +69,7 @@ export const footerData = [
   },
 
   // TODO: Delete when become unneeded
+
   {
     title: 'Find us in Europe',
     links: [
@@ -82,6 +83,8 @@ export const footerData = [
 ];
 
 // TODO: Uncomment when the above become unneeded
+// Commented due to unstable political situation
+
 /*  {
     title: 'Find us in Europe',
     links: [
