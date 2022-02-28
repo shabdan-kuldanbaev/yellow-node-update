@@ -84,6 +84,7 @@ CustomServiceContainer.propTypes = {
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    ogImage: PropTypes.string,
   }).isRequired,
   type: PropTypes.string.isRequired,
 };

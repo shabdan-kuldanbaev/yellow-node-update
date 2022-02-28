@@ -25,16 +25,24 @@ export const MetaTags = ({
     keyWords,
     pageNumber,
     url,
+    ogImage,
   } = pageMetadata;
   const {
     metaTitle: defaultMetaTitle,
     metaDescription: defaultMetaDescription,
   } = defaultMetaData.find((metaData) => metaData.pageName === page);
-
   const getTitle = (title) => ((pageNumber && pageNumber !== 1)
     ? `Page ${pageNumber}. ${title}`
     : title);
-  const getImage = (img) => (isArticle ? image : img);
+
+  const getImage = (img) => {
+    if (ogImage) return ogImage;
+
+    if (isArticle) return image;
+
+    return img;
+  };
+
   const date = isArticle ? publishedAt : new Date();
   const type = isArticle ? 'article' : 'website';
 
@@ -108,6 +116,7 @@ MetaTags.propTypes = {
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
     image: PropTypes.string,
+    ogImage: PropTypes.string,
     publishedAt: PropTypes.string,
     categoryTag: PropTypes.string,
     keyWords: PropTypes.instanceOf(Array),

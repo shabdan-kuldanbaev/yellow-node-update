@@ -23,6 +23,7 @@ const CaseStudiesCommon = (props) => {
   case CASE_STUDIES_TYPES.projectIdea:
     return <ProjectIdea {...props} />;
   case CASE_STUDIES_TYPES.challenges:
+  case CASE_STUDIES_TYPES.challengesSlider:
     return <ChallengesAndSolutionsWithWireframes {...props} />;
   case CASE_STUDIES_TYPES.specialChallenges:
     return <SpecialChallengesAndSolutions {...props} />;

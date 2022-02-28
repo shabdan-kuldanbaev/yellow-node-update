@@ -17,17 +17,13 @@ import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 const ProcessContainer = ({
   introSection,
   processes: { json },
-  metaData: {
-    metaTitle,
-    metaDescription,
-  },
+  metaData,
 }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const breadcrumbs = pagesBreadcrumbs.process();
   const pageMetadata = {
-    metaTitle,
-    metaDescription,
+    ...metaData,
     url: `${rootUrl}/process`,
   };
 
@@ -66,6 +62,7 @@ ProcessContainer.propTypes = {
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    ogImage: PropTypes.string,
   }).isRequired,
 };
 

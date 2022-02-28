@@ -444,3 +444,70 @@
     }
   }
 }
+
+.bionorica {
+  @extend .container;
+
+  @include centeredBackgroundImage;
+
+  padding: 230px 40px 150px;
+  background-color: $white;
+
+  @include tablet {
+    padding-bottom: 80px;
+  }
+
+  .projectInfoContainer {
+    @include flex(column, center, center);
+
+    .logo {
+      width: 63px;
+      height: 63px;
+    }
+
+    .title {
+      position: relative;
+
+      .projectTitle {
+        margin-bottom: 65px;
+      }
+    }
+
+    .projectSubtitle {
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      max-width: 650px;
+      color: $silver-chalice;
+      text-align: center;
+    }
+  }
+
+  .imageContainer {
+    max-width: 1016px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 8px 80px 80px 0 rgba($color: $shuttle-gray-2, $alpha: 0.07);
+  }
+
+  a {
+    @extend .webSiteLink;
+
+    background-color: $dodger-blue;
+  }
+
+  .experiencesContainer {
+    .experience {
+      max-width: 220px;
+
+      p:not(.infoTitle) {
+        color: $silver-chalice;
+      }
+
+      @include phone {
+        max-width: unset;
+      }
+    }
+  }
+}

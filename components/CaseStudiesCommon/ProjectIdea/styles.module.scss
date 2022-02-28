@@ -202,7 +202,8 @@
 
 .writer-chrome-extension,
 .natp,
-.meateater {
+.meateater,
+.bionorica {
   @extend .container;
 
   background-color: $white;
@@ -408,7 +409,8 @@
   }
 }
 
-.meateater {
+.meateater,
+.bionorica {
   position: relative;
   padding: 150px 40px;
 

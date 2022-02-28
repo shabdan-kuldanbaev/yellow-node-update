@@ -1,0 +1,40 @@
+.bionorica {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 50px;
+  justify-items: start;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  @include phone {
+    display: block;
+    margin-right: auto;
+  }
+
+  .contentContainer {
+    display: block;
+    margin: 0 auto 60px;
+
+    @include phone {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .infoContainer {
+    max-width: initial;
+  }
+
+  .swiperBullet {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    border-radius: 100%;
+    background-color: $white;
+  }
+
+  .swiperBulletActive {
+    background-color: $regal-blue-2;
+  }
+}

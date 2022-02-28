@@ -205,6 +205,8 @@ export const APP_DEVELOPMENT_ICONS = {
   titledAndroidSdk: 'titledAndroidSdk',
   titledKotlin2: 'titledKotlin2',
   titledDocker: 'titledDocker',
+  titledSqlLite: 'titledSqlLite',
+  titledGradle: 'titledGradle',
   twilio: 'twilio',
   pubnub: 'pubnub',
   react: 'react',
@@ -366,6 +368,7 @@ export const CASE_STUDIES_TYPES = {
   caseStudyEvent: 'case-study-event',
   fullscreenImage: 'case-study-fullscreen-image',
   works: 'case-study-how-it-works',
+  challengesSlider: 'case-study-challenges-slider',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -394,6 +397,7 @@ export const CASE_STUDIES = {
   meatEater: 'meateater',
   fireaway: 'fireaway',
   famlicious: 'famlicious',
+  bionorica: 'bionorica',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -421,6 +425,7 @@ export const PAGES_WITH_DARK_HEADER = [
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
   CASE_STUDIES.openSense,
   CASE_STUDIES.beautonomy,
+  CASE_STUDIES.bionorica,
 
   // TODO: Temporarily solution, doesnt fit design
   CASE_STUDIES.famlicious,
