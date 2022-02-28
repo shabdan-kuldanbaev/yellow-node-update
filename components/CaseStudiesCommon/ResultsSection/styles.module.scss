@@ -565,6 +565,20 @@
       transform: translate(0, 0);
       border-radius: 20px;
       box-shadow: 0 14px 44px 0 rgba($color: $shuttle-gray-2, $alpha: 0.07);
+      z-index: 1;
+    }
+  }
+
+  .imageBundle {
+    position: absolute;
+    left: -288px;
+    top: 40%;
+    z-index: -1;
+
+    @include tablet {
+      height: 500px;
+      left: -10%;
+      top: 60%;
     }
   }
 }

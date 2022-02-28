@@ -78,3 +78,46 @@
     position: relative;
   }
 }
+
+.bionorica {
+  position: relative;
+
+  & > * {
+    z-index: 10;
+  }
+
+  .bundleImage {
+    position: absolute;
+    z-index: 0;
+
+    &:nth-of-type(1) {
+      left: 0;
+      top: -20%;
+
+      @include tablet {
+        height: 500px;
+        left: -10%;
+      }
+
+      @include phone {
+        height: 300px;
+        top: -10%;
+      }
+    }
+
+    &:nth-of-type(2) {
+      right: 0;
+      bottom: -20%;
+
+      @include tablet {
+        height: 300px;
+        right: -10%;
+      }
+
+      @include phone {
+        height: 250px;
+        bottom: -10%;
+      }
+    }
+  }
+}

@@ -299,4 +299,17 @@
   .title {
     grid-row: 1/4;
   }
+
+  .bundleImage {
+    position: absolute;
+    right: 0;
+    top: -50%;
+    height: 370px;
+    z-index: -1;
+
+    @include tablet {
+      top: -20%;
+      height: 250px;
+    }
+  }
 }
