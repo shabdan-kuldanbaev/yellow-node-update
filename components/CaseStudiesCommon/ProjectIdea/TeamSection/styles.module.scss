@@ -96,6 +96,12 @@
   }
 }
 
+.fusion-markets {
+  .teamItem {
+    color: $silver-chalice;
+  }
+}
+
 .fairy {
   @extend .container;
 
@@ -276,11 +282,3 @@
     grid-row: 1/4;
   }
 }
-
-/*
-.fusion-markets {
-  .teamItem {
-    color: $silver-chalice;
-  }
-}
-*/
