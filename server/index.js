@@ -47,9 +47,9 @@ app
     // The request handler must be the first middleware on the app
     server.use(Sentry.Handlers.requestHandler());
 
-    server.use(httpsRedirect);
-    server.use(clearUrlRedirect);
-    server.use(urlRedirect);
+    // server.use(httpsRedirect);
+    // server.use(clearUrlRedirect);
+    // server.use(urlRedirect);
 
     server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));
