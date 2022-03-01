@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
+import { getFileUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import { TitleUnderline } from './TitleUnderline';
 import styles from './styles.module.scss';
@@ -10,7 +11,11 @@ const TeamSection = ({ type, data }) => {
     return null;
   }
 
-  const { title, contentList } = data;
+  const {
+    title,
+    contentList,
+    imagesBundles,
+  } = data;
 
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
@@ -27,6 +32,18 @@ const TeamSection = ({ type, data }) => {
             {member}
           </p>
         ))}
+        {imagesBundles && imagesBundles.map((image) => {
+          const imgUrl = getFileUrl(image);
+
+          return (
+            <img
+              className={styles.bundleImage}
+              src={imgUrl}
+              alt={title}
+              key={`intro-images-bundles/${imgUrl}`}
+            />
+          );
+        })}
       </div>
     </Animated>
   );
