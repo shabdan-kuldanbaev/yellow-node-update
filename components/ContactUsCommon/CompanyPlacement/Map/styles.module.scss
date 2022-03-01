@@ -2,17 +2,27 @@
 @import "styles/utils/mixins";
 
 .map {
-  height: 732px;
+  height: 400px;
+  max-width: 630px;
   position: relative;
 
   @include tablet {
     height: 480px;
-    margin: 0 -40px;
+    margin: 0 auto;
   }
 
   @include phone {
-    margin: 0 -15px;
     height: 274px;
+  }
+
+  & > div {
+    @include tablet {
+      margin: 0 -40px;
+    }
+
+    @include phone {
+      margin: 0 -15px;
+    }
   }
 
   .controlPanel {

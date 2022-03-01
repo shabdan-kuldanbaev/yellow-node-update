@@ -8,15 +8,23 @@ import MapGL, {
   Marker,
   NavigationControl,
 } from 'react-map-gl';
-import PropTypes from 'prop-types';
 import { MAPBOX_TOKEN } from 'utils/constants';
-import { markers, MapPointValidator } from '../utils';
+import {
+  markers,
+  INITIAL_MAP_LAT,
+  INITIAL_MAP_LNG,
+  INITIAL_MAP_ZOOM,
+} from '../utils';
 import YellowLogo from '../assets/yellow-logo.svg';
 import styles from './styles.module.scss';
 
-const Map = ({ mapData: { center, zoom } }) => {
+const MAP_MAX_WIDTH = 320;
+
+const Map = () => {
   const [viewport, setViewport] = useState(null);
-  const mapRef = useRef();
+  const mapRef = useRef(null);
+  const mapWidthRef = useRef(0);
+
   const handleViewportChange = useCallback(
     (newViewport) => setViewport(newViewport),
     [],
@@ -24,18 +32,41 @@ const Map = ({ mapData: { center, zoom } }) => {
 
   useEffect(() => {
     setViewport({
-      latitude: center.lat,
-      longitude: center.lng,
-      zoom,
+      latitude: INITIAL_MAP_LAT,
+      longitude: INITIAL_MAP_LNG,
+      zoom: INITIAL_MAP_ZOOM,
     });
-  }, [center, zoom]);
+  }, []);
+
+  useEffect(() => {
+    if (!mapRef.current) return;
+
+    const handleOnResize = () => {
+      const { _width: width } = mapRef.current;
+
+      if (width === mapWidthRef.current) return;
+
+      mapWidthRef.current = width;
+
+      setViewport(({ zoom: mapZoom, ...prev }) => {
+        const calculatedZoom = INITIAL_MAP_ZOOM - 1 + (width / MAP_MAX_WIDTH);
+
+        return ({ ...prev, zoom: calculatedZoom });
+      });
+    };
+
+    handleOnResize();
+    window.addEventListener('resize', handleOnResize);
+
+    return () => window.removeEventListener('resize', handleOnResize);
+  }, [mapRef]);
 
   return (
     <div className={styles.map}>
       <MapGL
         ref={mapRef}
         {...viewport}
-        width="100%"
+        width="auto"
         height="100%"
         onViewportChange={handleViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN}
@@ -55,13 +86,6 @@ const Map = ({ mapData: { center, zoom } }) => {
       </MapGL>
     </div>
   );
-};
-
-Map.propTypes = {
-  mapData: PropTypes.shape({
-    center: MapPointValidator,
-    zoom: PropTypes.number,
-  }).isRequired,
 };
 
 export default Map;
