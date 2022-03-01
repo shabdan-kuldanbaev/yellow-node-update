@@ -47,9 +47,7 @@ const ContactUsContainer = ({
         introSection={introSection}
         disableOverflowHiding
       >
-        <PageHeader
-          breadcrumbs={breadcrumbs}
-        />
+        <PageHeader breadcrumbs={breadcrumbs} />
         <div className={styles.pageIntro}>
           <FeedbackFormWithTitle />
           <CompanyContacts />

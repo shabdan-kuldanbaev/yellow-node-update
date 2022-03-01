@@ -39,19 +39,26 @@ const Map = () => {
   }, []);
 
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current) {
+      return;
+    }
 
     const handleOnResize = () => {
       const { _width: width } = mapRef.current;
 
-      if (width === mapWidthRef.current) return;
+      if (width === mapWidthRef.current) {
+        return;
+      }
 
       mapWidthRef.current = width;
 
       setViewport(({ zoom: mapZoom, ...prev }) => {
         const calculatedZoom = INITIAL_MAP_ZOOM - 1 + (width / MAP_MAX_WIDTH);
 
-        return ({ ...prev, zoom: calculatedZoom });
+        return ({
+          ...prev,
+          zoom: calculatedZoom,
+        });
       });
     };
 
