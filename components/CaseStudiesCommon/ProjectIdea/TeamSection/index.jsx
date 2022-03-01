@@ -11,7 +11,11 @@ const TeamSection = ({ type, data }) => {
     return null;
   }
 
-  const { title, contentList, imagesBundles } = data;
+  const {
+    title,
+    contentList,
+    imagesBundles,
+  } = data;
 
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>

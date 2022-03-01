@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import cn from 'classnames';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import Images from 'components/CaseStudiesCommon/Images';
-import get from 'lodash/get';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -14,9 +14,7 @@ const ImagesSection = ({
   const { imagesBundles } = getDocumentFields(get(data, 'contentModules[0]'), ['imagesBundles']);
 
   return (
-    <section
-      className={cn(styles[type], styles[data.view])}
-    >
+    <section className={cn(styles[type], styles[data.view])}>
       {imagesBundles && imagesBundles.map((image) => {
         const imgUrl = getFileUrl(image);
 
