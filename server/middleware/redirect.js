@@ -5,7 +5,35 @@ dotenv.config('./env');
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const redirectToCustomDomain = (req, res, next) => {
+const trailingSlashRedirect = (req, res, next) => {
+  const { url, path } = req;
+
+  if (path.substr(-1) !== '/' || path.length <= 1) {
+    return next();
+  }
+
+  const query = url.slice(path.length);
+  const safePath = path.slice(0, -1).replace(/\/+/g, '/');
+  res.redirect(301, safePath + query);
+};
+
+const wwwRedirect = (req, res, next) => {
+  const {
+    method,
+    protocol,
+    xhr,
+    originalUrl,
+  } = req;
+  const host = req.get('host');
+
+  if (host.indexOf('www.') === -1 || method !== 'GET' || xhr) {
+    return next();
+  }
+
+  res.redirect(301, `${protocol}://${host.substring(4)}${originalUrl}`);
+};
+
+const customDomainRedirect = (req, res, next) => {
   if (req.hostname.includes('yellow-systems-nextjs-prod')) {
     res.redirect(301, `https://${process.env.CUSTOM_DOMAIN}${req.url}`);
   } else {
@@ -81,8 +109,10 @@ const urlRedirect = (req, res, next) => {
 };
 
 module.exports = {
-  redirectToCustomDomain,
+  customDomainRedirect,
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,
+  wwwRedirect,
+  trailingSlashRedirect,
 };
