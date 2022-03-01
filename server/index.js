@@ -50,10 +50,10 @@ app
     // The request handler must be the first middleware on the app
     server.use(Sentry.Handlers.requestHandler());
 
-    server.use(trailingSlashRedirect);
-    server.use(wwwRedirect);
-    server.use(httpsRedirect);
+    // server.use(httpsRedirect);
     server.use(customDomainRedirect);
+    server.use(wwwRedirect);
+    server.use(trailingSlashRedirect);
 
     // server.use(clearUrlRedirect);
     // server.use(urlRedirect);
