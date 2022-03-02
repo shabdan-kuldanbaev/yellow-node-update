@@ -11,7 +11,7 @@ import {
   PageHeader,
   FullLayout,
 } from 'components';
-import { PAGES, ROUTES } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
@@ -47,16 +47,13 @@ const ContactUsContainer = ({
         introSection={introSection}
         disableOverflowHiding
       >
-        <PageHeader
-          title={ROUTES.contact.title}
-          breadcrumbs={breadcrumbs}
-        />
+        <PageHeader breadcrumbs={breadcrumbs} />
         <div className={styles.pageIntro}>
           <FeedbackFormWithTitle />
           <CompanyContacts />
         </div>
-        <CompanyPeoplePhoto photo={peopleImageUrl} />
         <CompanyPlacement />
+        <CompanyPeoplePhoto photo={peopleImageUrl} />
       </FullLayout>
     </Fragment>
   );

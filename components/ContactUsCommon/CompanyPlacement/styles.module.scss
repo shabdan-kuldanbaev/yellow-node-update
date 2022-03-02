@@ -1,7 +1,25 @@
 @import "styles/utils/mixins";
 
 .companyPlacement {
-  & > *:first-child {
+  @include flex(row, space-between, center);
+
+  padding: 0 0 150px;
+
+  @include tablet {
+    @include flex(column, initial, stretch);
+
+    padding: 0 0 80px;
+  }
+
+  & > div + div {
+    flex: 0 0 540px;
+
+    @include tablet {
+      flex-basis: auto;
+    }
+  }
+
+  & > div > *:first-child {
     align-items: flex-start;
 
     @include tablet {
@@ -28,5 +46,32 @@
         margin-top: 15px;
       }
     }
+  }
+}
+
+.placementList {
+  @include flex(row, justify-content, initial, wrap);
+
+  list-style: none;
+  margin-right: -15px;
+  padding-left: 0;
+
+  li {
+    flex: 0 0 45%;
+    margin-right: 15px;
+  }
+}
+
+.placementInfo {
+  @include tablet {
+    text-align: center;
+  }
+
+  &:first-child {
+    margin-top: 40px;
+  }
+
+  &:last-child {
+    margin-bottom: 60px;
   }
 }
