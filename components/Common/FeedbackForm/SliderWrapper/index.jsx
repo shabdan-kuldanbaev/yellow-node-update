@@ -32,12 +32,14 @@ export const SliderWrapper = withStyles((theme) => ({
   },
   markLabel: {
     color: theme.palette.text.secondary,
+    transform: 'none',
+    left: 'auto !important',
     top: 30,
     '&[data-index="0"]': {
       left: '1% !important',
     },
     '&[data-index="1"]': {
-      left: '90% !important',
+      right: '1% !important',
     },
     cursor: 'default',
   },
@@ -48,7 +50,7 @@ export const SliderWrapper = withStyles((theme) => ({
         left: '2% !important',
       },
       '&[data-index="1"]': {
-        left: '85% !important',
+        right: '2% !important',
       },
     },
   },
