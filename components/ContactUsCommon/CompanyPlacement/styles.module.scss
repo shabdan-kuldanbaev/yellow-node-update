@@ -50,9 +50,8 @@
 }
 
 .placementList {
-  @include flex(row, justify-content);
+  @include flex(row, justify-content, initial, wrap);
 
-  flex-wrap: wrap;
   list-style: none;
   margin-right: -15px;
   padding-left: 0;
