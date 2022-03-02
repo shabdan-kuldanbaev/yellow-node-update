@@ -1,39 +1,39 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { SectionTitle } from 'components/Common/SectionTitle';
-import TabGroup from 'components/Common/TabGroup';
+import { Animated } from 'components/Common/Animated';
+import PlacementInfoItem from './PlacementInfoItem';
+import Map from './Map';
 import {
+  animatedProps,
   mapData,
+  markers,
   placementInfo,
-  tabGroupItems,
 } from './utils';
-import MapWithInfo from './MapWithInfo';
 import styles from './styles.module.scss';
 
-const CompanyPlacement = () => {
-  const [currentTab, setCurrentTab] = useState(0);
-
-  const handleTabChange = useCallback((tabIndex) => {
-    setCurrentTab(tabIndex);
-  }, []);
-
-  return (
-    <section className={styles.companyPlacement}>
+const CompanyPlacement = () => (
+  <section className={styles.companyPlacement}>
+    <Animated {...animatedProps}>
       <SectionTitle
         title="Our offices"
         styleTitle={styles.title}
       />
-      <TabGroup
-        items={tabGroupItems}
-        onChange={handleTabChange}
-        activeIndex={currentTab}
-        className={styles.tabGroup}
+      <ul className={styles.placementList}>
+        {Object.entries(placementInfo).map(([country, info]) => (
+          <PlacementInfoItem
+            country={country}
+            placementInfo={info}
+          />
+        ))}
+      </ul>
+    </Animated>
+    <Animated {...animatedProps}>
+      <Map
+        mapData={mapData.USA}
+        marker={markers.USA}
       />
-      <MapWithInfo
-        mapData={mapData[tabGroupItems[currentTab]]}
-        placementInfo={placementInfo[tabGroupItems[currentTab]]}
-      />
-    </section>
-  );
-};
+    </Animated>
+  </section>
+);
 
 export default CompanyPlacement;

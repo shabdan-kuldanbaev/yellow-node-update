@@ -69,6 +69,10 @@ export const markers = {
   // },
 };
 
+export const INITIAL_MAP_ZOOM = 0.4;
+export const INITIAL_MAP_LAT = 31.925781;
+export const INITIAL_MAP_LNG = -40.781234;
+
 export const tabGroupItems = [
   'USA',
   'Poland',

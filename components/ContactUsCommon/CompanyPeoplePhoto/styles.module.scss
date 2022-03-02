@@ -2,13 +2,6 @@
 
 .companyPeoplePhoto {
   width: 100%;
-  padding: 100px 0;
-
-  @include flex(column, center, center);
-
-  @include phone {
-    padding: 60px 0 $mobile-section-indent - 20px;
-  }
 
   .subtitle {
     @include phone {
@@ -17,46 +10,10 @@
   }
 
   .photoContainer {
-    position: relative;
-    max-width: $max-content-width;
-    width: calc(#{$max-content-width} * 0.8);
-    height: calc(#{$max-content-width} * 0.46);
-    margin: 70px auto 0;
-
-    @include flex(column, center, center);
-
-    @include macbook-twelve {
-      width: calc(100vw - (80px * 2));
-      height: 53vw;
-    }
-
-    @include tablet {
-      width: calc(100vw - (40px * 2));
-    }
-
-    @include phone {
-      width: calc(100vw - (#{$side-indent} * 2));
-      margin-top: 25px;
-    }
+    width: 100%;
 
     .photoWrap {
-      position: absolute;
-      width: calc((#{$max-content-width} * 0.8) - 300px);
-      height: calc((#{$max-content-width} * 0.46) - 300px);
-      will-change: width, height, opacity;
-
-      @include macbook-twelve {
-        width: calc(100% - 150px);
-        height: calc(53vw - 150px);
-      }
-
-      @include phone {
-        width: calc(100% - 50px);
-        height: calc(53vw - 50px);
-      }
-
       & > div {
-        position: relative;
         width: 100%;
         height: 100%;
         overflow: hidden;
@@ -64,26 +21,8 @@
         @include flex(column, center, center);
 
         img {
-          position: absolute;
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          width: calc(#{$max-content-width} * 0.8);
-          height: calc(#{$max-content-width} * 0.46);
+          width: 100%;
           opacity: 0;
-
-          @include macbook-twelve {
-            width: calc(100vw - (80px * 2));
-            height: 53vw;
-          }
-
-          @include tablet {
-            width: calc(100vw - (40px * 2));
-          }
-
-          @include phone {
-            width: calc(100vw - (#{$side-indent} * 2));
-          }
         }
       }
     }
