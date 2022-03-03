@@ -16,6 +16,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
     contentModules,
     metaTitle,
     metaDescription,
+    ogImage,
     hasFeedbackForm,
     pageTitle,
   } = getDocumentFields(
@@ -34,6 +35,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
     metaTitle: metaTitle || (pageTitle && `${pageTitle} | Yellow`),
     metaDescription: metaDescription || (pageTitle && `Yellow professionals have created ${pageTitle}. Read our case study to find more!`),
     url: `${rootUrl}/${PAGES.portfolio}/${slug}`,
+    ogImage,
   };
 
   return (

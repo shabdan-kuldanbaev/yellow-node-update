@@ -7,6 +7,7 @@ import Images from 'components/CaseStudiesCommon/Images';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
+import { getBackgroundStyle } from './utils/designHelper';
 import styles from './styles.module.scss';
 
 const DesignSection = ({ data, type }) => {
@@ -14,10 +15,15 @@ const DesignSection = ({ data, type }) => {
     return null;
   }
 
+  const sectionBackgroundImage = getBackgroundStyle(type, data);
+
   const { view } = data;
 
   return (
-    <section className={cn([styles[type]], [styles[view]])}>
+    <section
+      className={cn([styles[type]], [styles[view]])}
+      style={sectionBackgroundImage}
+    >
       <SectionTitle
         data={data}
         type={type}

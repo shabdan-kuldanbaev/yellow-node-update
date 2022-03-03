@@ -11,7 +11,7 @@ import {
   PageHeader,
   FullLayout,
 } from 'components';
-import { PAGES, ROUTES } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
@@ -25,17 +25,13 @@ import styles from './styles.module.scss';
 const ContactUsContainer = ({
   introSection,
   peoplePhoto,
-  metaData: {
-    metaTitle,
-    metaDescription,
-  },
+  metaData,
 }) => {
   const { images: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['images']);
   const peopleImageUrl = getFileUrl(get(peoplePhotoContent, '[0]', {}));
   const breadcrumbs = pagesBreadcrumbs.contact();
   const pageMetadata = {
-    metaTitle,
-    metaDescription,
+    ...metaData,
     url: `${rootUrl}/contact`,
   };
 
@@ -51,16 +47,13 @@ const ContactUsContainer = ({
         introSection={introSection}
         disableOverflowHiding
       >
-        <PageHeader
-          title={ROUTES.contact.title}
-          breadcrumbs={breadcrumbs}
-        />
+        <PageHeader breadcrumbs={breadcrumbs} />
         <div className={styles.pageIntro}>
           <FeedbackFormWithTitle />
           <CompanyContacts />
         </div>
-        <CompanyPeoplePhoto photo={peopleImageUrl} />
         <CompanyPlacement />
+        <CompanyPeoplePhoto photo={peopleImageUrl} />
       </FullLayout>
     </Fragment>
   );
@@ -76,6 +69,7 @@ ContactUsContainer.propTypes = {
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    ogImage: PropTypes.string,
   }).isRequired,
 };
 

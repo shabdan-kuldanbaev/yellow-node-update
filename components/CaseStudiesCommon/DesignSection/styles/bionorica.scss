@@ -1,0 +1,40 @@
+@import "styles/utils/mixins";
+
+.bionorica {
+  @include caseStudyContainer;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 65px;
+
+  @include tablet {
+    padding-bottom: 40px;
+  }
+
+  [data-case-study-description] {
+    max-width: 854px;
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    max-width: $max-content-width;
+    margin: 0 auto 40px;
+
+    &:nth-of-type(odd) {
+      justify-content: flex-end;
+    }
+
+    &:nth-of-type(even) {
+      justify-content: flex-start;
+    }
+
+    img {
+      height: auto;
+      max-width: 1020px;
+      border-radius: 20px;
+      box-shadow: 7px 60px 67px 0 rgba($color: $shuttle-gray-2, $alpha: 0.07);
+    }
+  }
+}

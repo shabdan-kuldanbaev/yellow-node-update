@@ -1,15 +1,13 @@
 @import 'styles/utils/mixins';
 
 .pageIntro {
-  padding: 100px 0 0;
-
   @include flex();
+
+  padding: 30px 0 150px;
 
   @include tablet {
     @include flex(column);
-  }
 
-  @include phone {
-    padding: 60px 0;
+    padding: 10px 0 0;
   }
 }

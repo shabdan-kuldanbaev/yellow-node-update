@@ -532,3 +532,52 @@
     }
   }
 }
+
+.bionorica {
+  @include caseStudyContainer;
+
+  padding-bottom: 0;
+  margin-bottom: 150px;
+
+  @include tablet {
+    padding-bottom: 0;
+    margin-bottom: 80px;
+  }
+
+  @include phone {
+    [data-case-study-description] {
+      margin-bottom: -65px;
+    }
+  }
+
+  .circle {
+    position: static;
+    transform: translateX(0);
+    width: 100%;
+    max-width: 1076px;
+    margin: 100px auto 0;
+    height: auto;
+
+    .mockup {
+      width: 100%;
+      filter: unset;
+      position: static;
+      transform: translate(0, 0);
+      border-radius: 20px;
+      box-shadow: 0 14px 44px 0 rgba($color: $shuttle-gray-2, $alpha: 0.07);
+    }
+  }
+
+  .imageBundle {
+    position: absolute;
+    left: -30vw;
+    top: 40%;
+    z-index: -1;
+
+    @include tablet {
+      height: 500px;
+      left: -10%;
+      top: 60%;
+    }
+  }
+}

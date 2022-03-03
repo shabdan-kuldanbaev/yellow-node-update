@@ -274,3 +274,18 @@
     }
   }
 }
+
+.bionorica {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    .image {
+      max-height: 440px;
+      margin-left: 0;
+
+      @include phone {
+        max-height: 312px;
+      }
+    }
+  }
+}

@@ -276,7 +276,8 @@
   }
 }
 
-.meateater {
+.meateater,
+.bionorica {
   @extend .infoContainer;
 
   @include phone {

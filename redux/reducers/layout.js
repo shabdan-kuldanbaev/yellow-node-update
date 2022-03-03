@@ -1,5 +1,5 @@
 import { actionTypes } from 'actions/actionTypes';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 const initialState = {
   isMobileMenuOpened: false,
@@ -18,6 +18,7 @@ const initialState = {
   metaData: {
     metaTitle: '',
     metaDescription: '',
+    ogImage: '',
   },
 };
 
@@ -32,6 +33,7 @@ const handlers = {
     const {
       contentModules,
       metaTitle,
+      ogImage,
       metaDescription,
       hasFeedbackForm,
     } = getDocumentFields(
@@ -41,6 +43,7 @@ const handlers = {
         'metaTitle',
         'metaDescription',
         'hasFeedbackForm',
+        'ogImage',
       ],
     );
 
@@ -54,6 +57,7 @@ const handlers = {
       metaData: {
         metaTitle,
         metaDescription,
+        ogImage: getFileUrl(ogImage),
       },
     });
   },
