@@ -55,22 +55,15 @@ const httpsRedirect = (req, res, next) => {
 
 const clearUrlRedirect = (req, res, next) => {
   const host = req.get('Host');
-  const testWWW = /^www\./g.test(host);
 
   const firstUrlPart = `${req.protocol}://${host}`;
   const fullUrl = `${firstUrlPart}${req.originalUrl}`;
 
-  const testDoubleSlashes = (url) => /([^:]\/)\/+/g.test(url);
-
-  if (testDoubleSlashes(fullUrl)) {
+  if (host === 'yellow.id') {
     return res.redirect(301, fullUrl);
   }
 
-  if (host === 'yellow.id' || testWWW) {
-    return res.redirect(301, fullUrl);
-  }
-
-  if (host === 'blog.yellow.id' || testWWW) {
+  if (host === 'blog.yellow.id') {
     if (req.originalUrl === '/') {
       return res.redirect(301, `${firstUrlPart}/blog`);
     }

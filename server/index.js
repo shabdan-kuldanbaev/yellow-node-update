@@ -54,9 +54,8 @@ app
     server.use(customDomainRedirect);
     server.use(wwwRedirect);
     server.use(trailingSlashRedirect);
-
-    // server.use(clearUrlRedirect);
-    // server.use(urlRedirect);
+    server.use(clearUrlRedirect);
+    server.use(urlRedirect);
 
     server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));
