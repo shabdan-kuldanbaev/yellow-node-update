@@ -126,7 +126,7 @@ app
     // The error handler must be before any other error middleware and after all controllers
     server.use(Sentry.Handlers.errorHandler());
 
-    server.listen(port, (err) => {
+    server.listen(port, '0.0.0.0', (err) => {
       if (err) throw err;
 
       // eslint-disable-next-line no-console
