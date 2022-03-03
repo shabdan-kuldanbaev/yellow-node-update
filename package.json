@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development node server/index.js",
     "build": "cross-env NODE_ENV=production NODE_PATH=./ next build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
+    "start": "cross-env node server/index.js",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env  BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
