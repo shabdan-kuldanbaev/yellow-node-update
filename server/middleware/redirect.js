@@ -1,13 +1,10 @@
 const dotenv = require('dotenv');
 const { redirects } = require('../utils/redirects');
+const { devHosts } = require('../utils/constants');
 
 dotenv.config('./env');
 
 const isProd = process.env.NODE_ENV === 'production';
-const excludedHosts = [
-  'www.yws-dev.xyz',
-  'yws-dev.xyz',
-];
 
 const trailingSlashRedirect = (req, res, next) => {
   const { url, path } = req;
@@ -46,7 +43,7 @@ const customDomainRedirect = (req, res, next) => {
 };
 
 const httpsRedirect = (req, res, next) => {
-  if (req.headers['x-forwarded-proto'] !== 'https' && isProd && !excludedHosts.includes(req.hostname)) {
+  if (req.headers['x-forwarded-proto'] !== 'https' && isProd && !devHosts.includes(req.hostname)) {
     res.redirect(301, `https://${req.hostname}${req.url}`);
   } else {
     next();
