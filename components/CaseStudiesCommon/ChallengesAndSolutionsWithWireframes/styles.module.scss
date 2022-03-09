@@ -191,6 +191,38 @@
   }
 }
 
+.fusion-markets {
+  &.thirdSectionView {
+    background: $eerie-black;
+
+    [data-case-study-title] {
+      color: $white;
+      font-weight: bold;
+
+      @include fontSize(56px);
+
+      @include phone {
+        @include fontSize(32px);
+      }
+    }
+
+    [data-case-study-description] {
+      background-color: $eerie-black;
+      color: $silver-chalice;
+      opacity: 0.7;
+      max-width: 741px;
+
+      @include fontSize(18px);
+
+      @include phone {
+        max-width: 300px;
+
+        @include fontSize(14px);
+      }
+    }
+  }
+}
+
 .fireaway {
   @include caseStudyContainer;
   @include centeredBackgroundImage;

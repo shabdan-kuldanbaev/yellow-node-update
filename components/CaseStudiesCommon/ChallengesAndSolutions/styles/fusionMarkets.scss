@@ -1,0 +1,126 @@
+/* stylelint-disable no-descending-specificity */
+.fusion-markets {
+  background: $eerie-black;
+
+  &.firstSectionView,
+  &.secondSectionView {
+    padding: 0 225px;
+
+    @include macbook-fifteen {
+      padding: 0 120px;
+    }
+
+    @include macbook-thirteen {
+      padding: 0 100px;
+    }
+
+    @include phone {
+      padding: 32px 0;
+    }
+
+    @include flex(column);
+
+    .special {
+      margin-bottom: 0;
+
+      &:nth-child(2n + 1) {
+        margin-left: 0;
+
+        @include flex(column, flex-start);
+
+        @include phone {
+          margin-left: auto;
+        }
+      }
+
+      &:nth-child(2n) {
+        margin-right: 0;
+
+        @include flex(column, flex-end);
+
+        @include phone {
+          margin-right: auto;
+        }
+      }
+
+      .infoContainer {
+        max-width: 442px;
+
+        @include tablet {
+          max-width: 280px;
+        }
+
+        @include phone {
+          max-width: 340px;
+        }
+
+        .h2,
+        p {
+          line-height: 1.7;
+        }
+
+        h2 {
+          color: $white;
+          filter: drop-shadow(-30px 32px 37px $ocean-blue);
+
+          @include fontSize(32px);
+
+          @include tablet {
+            @include fontSize(24px);
+          }
+
+          @include phone {
+            filter: drop-shadow(0 0 18px $ocean-blue);
+
+            @include fontSize(24px);
+          }
+        }
+
+        p {
+          @include phone {
+            max-width: 315px;
+          }
+
+          filter: drop-shadow(-115px -83px 128px $ocean-blue);
+
+          @include fontSize(18px);
+
+          @include tablet {
+            @include fontSize(16px);
+          }
+
+          @include phone {
+            filter: drop-shadow(0 -37px 33px $ocean-blue);
+
+            @include fontSize(14px);
+          }
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @include phone {
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+
+    .contentContainer {
+      .infoContainer {
+        h2 {
+          background: linear-gradient(to right, $ocean-blue 0%, $jacksons-purple 50%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        h3 {
+          color: $white;
+        }
+
+        p {
+          color: $silver-chalice;
+        }
+      }
+    }
+  }
+}
