@@ -11,6 +11,9 @@ const {
   httpsRedirect,
   clearUrlRedirect,
   urlRedirect,
+  trailingSlashRedirect,
+  wwwRedirect,
+  customDomainRedirect,
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
@@ -48,6 +51,9 @@ app
     server.use(Sentry.Handlers.requestHandler());
 
     server.use(httpsRedirect);
+    server.use(customDomainRedirect);
+    server.use(wwwRedirect);
+    server.use(trailingSlashRedirect);
     server.use(clearUrlRedirect);
     server.use(urlRedirect);
 
@@ -119,7 +125,7 @@ app
     // The error handler must be before any other error middleware and after all controllers
     server.use(Sentry.Handlers.errorHandler());
 
-    server.listen(port, (err) => {
+    server.listen(port, '0.0.0.0', (err) => {
       if (err) throw err;
 
       // eslint-disable-next-line no-console

@@ -203,6 +203,7 @@
 .writer-chrome-extension,
 .natp,
 .meateater,
+.bionorica,
 .fusion-markets {
   @extend .container;
 
@@ -409,7 +410,8 @@
   }
 }
 
-.meateater {
+.meateater,
+.bionorica {
   position: relative;
   padding: 150px 40px;
 

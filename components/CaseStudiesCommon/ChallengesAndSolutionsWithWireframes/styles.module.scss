@@ -259,3 +259,15 @@
 
   background-color: $athens-gray-1;
 }
+
+.bionorica {
+  @include caseStudyContainer;
+
+  background-repeat: no-repeat;
+  background-position: 100% 120%;
+
+  @include tablet {
+    background-position: bottom right;
+    background-size: 60%;
+  }
+}

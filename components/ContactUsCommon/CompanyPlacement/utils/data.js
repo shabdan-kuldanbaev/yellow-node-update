@@ -1,20 +1,22 @@
+// TODO: Uncomment everything. Commented due to unstable political situation
+
 export const placementInfo = {
   USA: [
     '44 Tehama St San Francisco, CA 94105',
     '+1 (415) 670-90-70',
   ],
-  Belarus: [
-    '5-303 Nemiga St. Minsk 220030',
-    '+375 (29) 311-52-49',
-  ],
+  // Belarus: [
+  //   '5-303 Nemiga St. Minsk 220030',
+  //   '+375 (29) 311-52-49',
+  // ],
   Poland: [
     'Warszawa 00-8P55',
     'Grzybowska 62',
   ],
-  Ukraine: [
-    'Kyiv 02000',
-    'Kruglouniversytetska St. 7',
-  ],
+  // Ukraine: [
+  //   'Kyiv 02000',
+  //   'Kruglouniversytetska St. 7',
+  // ],
 };
 
 export const mapData = {
@@ -53,18 +55,27 @@ export const markers = {
     lng: -122.39665899408364,
     lat: 37.78758480017879,
   },
-  Belarus: {
-    lng: 27.550862231480124,
-    lat: 53.903100284712764,
-  },
   Poland: {
     lng: 20.986031099330717,
     lat: 52.23421983438129,
   },
-  Ukraine: {
-    lng: 30.523815710930137,
-    lat: 50.44395421370663,
-  },
+  // Belarus: {
+  //   lng: 27.550862231480124,
+  //   lat: 53.903100284712764,
+  // },
+  // Ukraine: {
+  //   lng: 30.523815710930137,
+  //   lat: 50.44395421370663,
+  // },
 };
 
-export const tabGroupItems = ['USA', 'Belarus', 'Poland', 'Ukraine'];
+export const INITIAL_MAP_ZOOM = 0.4;
+export const INITIAL_MAP_LAT = 31.925781;
+export const INITIAL_MAP_LNG = -40.781234;
+
+export const tabGroupItems = [
+  'USA',
+  'Poland',
+  // 'Belarus',
+  // 'Ukraine',
+];

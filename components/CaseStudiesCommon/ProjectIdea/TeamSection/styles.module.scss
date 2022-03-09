@@ -282,3 +282,41 @@
     grid-row: 1/4;
   }
 }
+
+.bionorica {
+  @extend .container;
+
+  position: absolute;
+  bottom: 0;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: initial;
+  grid-column-gap: 180px;
+  justify-content: center;
+  width: 100%;
+  max-width: initial;
+  padding: 80px 0;
+  margin: 150px 0;
+  background: linear-gradient(180deg, rgba($selago, 0) 0%, $selago 20.83%, $selago 49.48%, $selago 74.48%, rgba($selago, 0) 100%);
+
+  @include phone {
+    margin: 80px 0;
+  }
+
+  .title {
+    grid-row: 1/4;
+  }
+
+  .bundleImage {
+    position: absolute;
+    right: 0;
+    top: -50%;
+    height: 370px;
+    z-index: -1;
+
+    @include tablet {
+      top: -20%;
+      height: 250px;
+    }
+  }
+}
