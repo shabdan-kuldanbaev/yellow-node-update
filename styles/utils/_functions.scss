@@ -3,5 +3,7 @@
 }
 
 @function getPathWithCdn($path) {
-  @return $cdnURL + $path;
+  @return $path;
+  // TODO: Uncomment when cdn will be fixed
+  //@return $cdnURL + $path;
 }
