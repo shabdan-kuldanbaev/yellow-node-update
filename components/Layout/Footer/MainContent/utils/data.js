@@ -64,6 +64,11 @@ export const footerData = [
         path: ROUTES.developmentServices.path,
         type: 'navigation',
       },
+      {
+        subtitle: 'Android app development services',
+        path: ROUTES.androidDevelopmentServices.path,
+        type: 'navigation',
+      },
     ],
     type: 'sevices',
   },
