@@ -6,6 +6,8 @@
   &.secondSectionView {
     padding: 0 225px;
 
+    @include flex(column);
+
     @include macbook-fifteen {
       padding: 0 120px;
     }
@@ -17,8 +19,6 @@
     @include phone {
       padding: 32px 0;
     }
-
-    @include flex(column);
 
     .special {
       margin-bottom: 0;
@@ -77,10 +77,6 @@
         }
 
         p {
-          @include phone {
-            max-width: 315px;
-          }
-
           filter: drop-shadow(-115px -83px 128px $ocean-blue);
 
           @include fontSize(18px);
@@ -90,6 +86,7 @@
           }
 
           @include phone {
+            max-width: 315px;
             filter: drop-shadow(0 -37px 33px $ocean-blue);
 
             @include fontSize(14px);
