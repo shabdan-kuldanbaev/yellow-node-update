@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const { devHosts } = require('../utils/constants');
-const { safePageRedirect } = require('../utils/pageRedirectUrl');
+const { safePageRedirect } = require('../utils/safePageRedirect');
 
 dotenv.config('./env');
 
