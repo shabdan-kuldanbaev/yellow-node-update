@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
-const { redirects } = require('../utils/redirects');
 const { devHosts } = require('../utils/constants');
-const { pageRedirectUrl } = require('../utils/pageRedirectUrl');
+const { safePageRedirect } = require('../utils/pageRedirectUrl');
 
 dotenv.config('./env');
 
@@ -72,42 +71,11 @@ const clearUrlRedirect = (req, res, next) => {
   next();
 };
 
-const urlRedirect = (req, res, next) => {
-  const redirectPage = redirects.find((page) => req.originalUrl.includes(page.from));
-
-  if (req.originalUrl.match(/^\/blog\/$/) !== null) {
-    res.writeHead(301, { location: '/blog' });
-    res.end();
-  }
-
-  if (req.originalUrl.match(/^\/works\/$/) !== null) {
-    res.writeHead(301, { location: '/works' });
-    res.end();
-  }
-
-  if (req.originalUrl.match(/^\/process\/$/) !== null) {
-    res.writeHead(301, { location: '/process' });
-    res.end();
-  }
-
-  if (req.originalUrl.match(/^\/company\/$/) !== null) {
-    res.writeHead(301, { location: '/company' });
-    res.end();
-  }
-
-  if (redirectPage) {
-    res.writeHead(301, { location: redirectPage.to });
-    res.end();
-  }
-
-  next();
-};
-
-const pagesRedirect = (req, res, next) => {
+const pageRedirect = (req, res, next) => {
   const { url, path } = req;
   const query = url.slice(path.length);
 
-  const getRedirectUrl = pageRedirectUrl(query);
+  const getRedirectUrl = safePageRedirect(query);
   const redirectPath = getRedirectUrl(path);
 
   if (!redirectPath) {
@@ -121,8 +89,7 @@ module.exports = {
   customDomainRedirect,
   httpsRedirect,
   clearUrlRedirect,
-  urlRedirect,
   wwwRedirect,
   trailingSlashRedirect,
-  pagesRedirect,
+  pageRedirect,
 };
