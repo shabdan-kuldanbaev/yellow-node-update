@@ -14,6 +14,7 @@ const {
   trailingSlashRedirect,
   wwwRedirect,
   customDomainRedirect,
+  pagesRedirect,
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
@@ -56,6 +57,7 @@ app
     server.use(trailingSlashRedirect);
     server.use(clearUrlRedirect);
     server.use(urlRedirect);
+    server.use(pagesRedirect);
 
     server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));

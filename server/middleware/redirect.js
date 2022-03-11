@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const { redirects } = require('../utils/redirects');
 const { devHosts } = require('../utils/constants');
+const { pageRedirectUrl } = require('../utils/pageRedirectUrl');
 
 dotenv.config('./env');
 
@@ -102,6 +103,20 @@ const urlRedirect = (req, res, next) => {
   next();
 };
 
+const pagesRedirect = (req, res, next) => {
+  const { url, path } = req;
+  const query = url.slice(path.length);
+
+  const getRedirectUrl = pageRedirectUrl(query);
+  const redirectPath = getRedirectUrl(path);
+
+  if (!redirectPath) {
+    return next();
+  }
+
+  res.redirect(301, redirectPath);
+};
+
 module.exports = {
   customDomainRedirect,
   httpsRedirect,
@@ -109,4 +124,5 @@ module.exports = {
   urlRedirect,
   wwwRedirect,
   trailingSlashRedirect,
+  pagesRedirect,
 };
