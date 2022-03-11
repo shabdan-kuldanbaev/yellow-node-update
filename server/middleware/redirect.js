@@ -15,6 +15,7 @@ const trailingSlashRedirect = (req, res, next) => {
 
   const query = url.slice(path.length);
   const safePath = path.slice(0, -1).replace(/\/+/g, '/');
+
   res.redirect(301, safePath + query);
 };
 
