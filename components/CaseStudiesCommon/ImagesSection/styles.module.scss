@@ -122,3 +122,14 @@
     }
   }
 }
+
+.fusion-markets {
+  @include caseStudyContainer;
+
+  background: $eerie-black;
+  padding: 80px 40px;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}

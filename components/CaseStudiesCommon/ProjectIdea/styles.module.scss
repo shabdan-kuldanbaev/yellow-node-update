@@ -203,7 +203,8 @@
 .writer-chrome-extension,
 .natp,
 .meateater,
-.bionorica {
+.bionorica,
+.fusion-markets {
   @extend .container;
 
   background-color: $white;
@@ -518,6 +519,30 @@
 
       @include phone {
         margin-top: 40px;
+      }
+    }
+  }
+}
+
+.fusion-markets {
+  background-color: $eerie-black;
+
+  .contentContainer {
+    .descriptionContainer {
+      .descriptionIntro {
+        .title {
+          background: linear-gradient(to right, $ocean-blue 0%, $jacksons-purple 50%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+          max-width: 518px;
+
+          @include phone {
+            max-width: 340px;
+          }
+        }
       }
     }
   }

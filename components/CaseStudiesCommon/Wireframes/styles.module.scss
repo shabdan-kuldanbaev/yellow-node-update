@@ -197,7 +197,8 @@
 
 .beautonomy,
 .meateater,
-.separate-us {
+.separate-us,
+.fusion-markets {
   @extend .imagesContainer;
 
   .animatedContainer {
@@ -287,5 +288,15 @@
         max-height: 312px;
       }
     }
+  }
+}
+
+.fusion-markets {
+  &::before {
+    background: linear-gradient(90deg, $dark-blue 0%, rgba($dark-blue, 0) 100%);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $dark-blue 0%, rgba($dark-blue, 0) 100%);
   }
 }

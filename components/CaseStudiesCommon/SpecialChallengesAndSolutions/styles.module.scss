@@ -198,3 +198,20 @@
 
   background: $selago;
 }
+
+.fusion-markets {
+  @include caseStudyContainer;
+
+  background-color: $eerie-black;
+  padding-top: 70px;
+  padding-bottom: 0;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  @include phone {
+    padding-top: 40px;
+    padding-bottom: 0;
+  }
+}

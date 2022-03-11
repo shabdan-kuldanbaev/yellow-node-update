@@ -77,7 +77,8 @@
   }
 }
 
-.seven-pm-thursday {
+.seven-pm-thursday,
+.fusion-markets {
   @extend .container;
 
   grid-template-rows: repeat(4, auto);
@@ -92,6 +93,12 @@
   .teamItem {
     font-weight: 500;
     color: $white;
+  }
+}
+
+.fusion-markets {
+  .teamItem {
+    color: $silver-chalice;
   }
 }
 
