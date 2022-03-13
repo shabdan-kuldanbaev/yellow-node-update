@@ -6,6 +6,7 @@ const Develop = require('./Develop.json');
 const Review = require('./Review.json');
 const Test = require('./Test.json');
 const Launch = require('./Launch.json');
+const Redirects = require('./Redirects.json');
 
 module.exports = {
   Idea,
@@ -16,4 +17,5 @@ module.exports = {
   Review,
   Test,
   Launch,
+  Redirects,
 };
