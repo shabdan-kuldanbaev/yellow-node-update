@@ -72,7 +72,7 @@ export const ANIMATED_TYPE = {
   isCSS: 'isCSS',
 };
 
-export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
+export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
   acc[slug] = title;
 
   return acc;
@@ -439,6 +439,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.customWebApp.path,
   ROUTES.developmentServices.path,
   ROUTES.androidDevelopmentServices.path,
+  ROUTES.mvpDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
