@@ -45,6 +45,7 @@ export const NAV_LINKS = [
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
+    routes.mvpDevelopment.slug,
     routes.signatureGenerator.slug,
   ].includes(slug)),
 ];
@@ -466,6 +467,11 @@ export const SUB_NAVIGATION_LINKS = {
       title: 'UI/UX design services',
       subtitle: 'Beautiful, smart, efficient, logical',
       slug: ROUTES.designServices.path,
+    },
+    {
+      title: 'MVP development services',
+      subtitle: '_____',
+      slug: ROUTES.mvpDevelopment.path,
     },
   ],
 };
