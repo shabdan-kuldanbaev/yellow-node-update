@@ -786,4 +786,12 @@
       }
     }
   }
+
+  &.thirdSectionView {
+    padding-bottom: 150px;
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
+  }
 }
