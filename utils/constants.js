@@ -290,6 +290,11 @@ export const APP_DEVELOPMENT_ICONS = {
   businessBeforeTechnology: 'businessBeforeTechnology',
   creatingOwnApps: 'creatingOwnApps',
   dataProtection: 'dataProtection',
+  businessAnalysis: 'businessAnalysis',
+  validation: 'validation',
+  profits: 'profits',
+  trophy: 'trophy',
+  laptop: 'laptop',
   // common
   arrow: 'arrow',
 };

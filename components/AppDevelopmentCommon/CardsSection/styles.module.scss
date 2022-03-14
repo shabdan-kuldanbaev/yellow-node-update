@@ -399,7 +399,8 @@
 }
 
 .ios-mobile-app-development-services,
-.android-mobile-app-development-services {
+.android-mobile-app-development-services,
+.mvp-app-development-company {
   @include appDevelopmentContainer;
 
   .callToAction {
@@ -731,6 +732,57 @@
 
       .callToAction {
         background-color: $white;
+      }
+    }
+  }
+}
+
+.mvp-app-development-company {
+  &.firstSectionView {
+    .contentWrapper .smallCards > div {
+      @include phone {
+        flex-direction: row;
+      }
+
+      .imageWrapper {
+        margin-bottom: 20px;
+
+        @include phone {
+          flex-shrink: 0;
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background: $alabaster;
+
+    .imageWrapper {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: $yellow;
+
+      @include flex(row, center, center);
+
+      @include tablet {
+        width: 70px;
+        height: 70px;
+
+        svg {
+          width: 40%;
+        }
+      }
+    }
+
+    .cards > div,
+    .callToAction {
+      background: $white;
+
+      h3 {
+        margin-right: 40px;
       }
     }
   }
