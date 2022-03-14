@@ -44,9 +44,11 @@
   }
 
   .plus {
+    flex-shrink: 0;
     width: 20px;
     height: 20px;
     position: relative;
+    transform: translateY(50%);
 
     & > span {
       position: absolute;

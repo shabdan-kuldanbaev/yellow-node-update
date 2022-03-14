@@ -502,6 +502,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.designServices]: 'Yellow is ready to give you a hand with UX/UI design',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
+  [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
 };
 
 // eslint-disable-next-line
