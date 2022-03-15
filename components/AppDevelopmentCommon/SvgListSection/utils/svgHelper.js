@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 
@@ -18,11 +17,7 @@ export const getSvgSectionProps = (data, isMobileResolution) => {
       'view',
     ],
   );
-  const { contentList: technologies } = getDocumentFields(
-    get(contentModules, '[0]', []),
-    ['contentList'],
-  );
-  const linkData = get(contentModules, '[1]', null);
+  const linkData = contentModules.find((modules) => modules.sys.contentType.sys.type === 'link');
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: isMobileResolution ? '0' : '2.82352941em',
@@ -47,9 +42,11 @@ export const getSvgSectionProps = (data, isMobileResolution) => {
   return {
     title,
     description,
-    technologies,
     link,
     view,
     animatedProps,
+    contentModules,
   };
 };
+
+export const getSvgGroupProps = (data) => getDocumentFields(data, ['title', 'contentList']);
