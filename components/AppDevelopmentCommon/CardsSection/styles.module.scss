@@ -787,6 +787,10 @@
     background: $alabaster;
     padding-bottom: 150px;
 
+    .cards > div {
+      background: $white;
+    }
+
     @include below-tablet {
       padding-bottom: 60px;
     }
