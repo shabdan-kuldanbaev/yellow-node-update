@@ -485,7 +485,7 @@ export const SUB_NAVIGATION_LINKS = {
     },
     {
       title: 'MVP development services',
-      subtitle: '_____',
+      subtitle: 'Minimum viable product for your idea',
       slug: ROUTES.mvpDevelopment.path,
     },
   ],
