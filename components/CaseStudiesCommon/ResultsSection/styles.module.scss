@@ -547,7 +547,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: 1400px;
     margin: 100px auto 0;
     height: initial;
 
@@ -566,14 +566,16 @@
 
   &.secondSectionView,
   &.thirdSectionView {
+    padding-bottom: 40px;
+
     @include phone {
       padding-top: 1px;
-      padding-bottom: 40px;
     }
   }
 
   &.fourthSectionView {
     padding-top: 140px;
+    padding-bottom: 10px;
 
     @include phone {
       padding-top: 70px;

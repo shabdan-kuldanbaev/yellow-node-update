@@ -85,7 +85,8 @@
   }
 }
 
-.seven-pm-thursday {
+.seven-pm-thursday,
+.fusion-markets {
   @extend .formContainer;
 
   background-color: $dark-blue-1;
@@ -115,6 +116,18 @@
 
   & > div:last-child {
     & > form {
+      ::placeholder {
+        color: $white;
+      }
+
+      :-ms-input-placeholder {
+        color: $white;
+      }
+
+      ::-ms-input-placeholder {
+        color: $white;
+      }
+
       & > div:last-child {
         a {
           div {
@@ -125,6 +138,11 @@
       }
     }
   }
+}
+
+.fusion-markets {
+  padding: 40px 0;
+  background: $eerie-black;
 }
 
 .open-sense {
