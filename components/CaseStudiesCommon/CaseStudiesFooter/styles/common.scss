@@ -440,7 +440,8 @@
 .natp,
 .drive-focus,
 .meateater,
-.fireaway {
+.fireaway,
+.fusion-markets {
   @extend .container;
 
   .nextProjectContainer {
@@ -485,6 +486,10 @@
 
 .meateater {
   background: linear-gradient(116.68deg, $raisin-black 0%, $black-olive 100%);
+}
+
+.fusion-markets {
+  background: $eerie-black;
 }
 
 .drive-focus {

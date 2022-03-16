@@ -533,6 +533,64 @@
   }
 }
 
+.fusion-markets {
+  @include caseStudyContainer;
+
+  background: $eerie-black;
+  padding-top: 1px;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  .circle {
+    position: static;
+    transform: translateX(0);
+    width: 100%;
+    max-width: 1400px;
+    margin: 100px auto 0;
+    height: initial;
+
+    @include phone {
+      height: initial;
+      margin-top: 0;
+    }
+
+    .mockup {
+      width: 100%;
+      filter: unset;
+      position: static;
+      transform: translate(0, 0);
+    }
+  }
+
+  &.secondSectionView,
+  &.thirdSectionView {
+    padding-bottom: 40px;
+
+    @include phone {
+      padding-top: 1px;
+    }
+  }
+
+  &.fourthSectionView {
+    padding-top: 140px;
+    padding-bottom: 10px;
+
+    @include phone {
+      padding-top: 70px;
+    }
+
+    [data-case-study-description] {
+      max-width: 775px;
+
+      @include phone {
+        max-width: 300px;
+      }
+    }
+  }
+}
+
 .bionorica {
   @include caseStudyContainer;
 

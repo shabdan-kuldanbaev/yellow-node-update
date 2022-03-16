@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
-const { redirects } = require('../utils/redirects');
 const { devHosts } = require('../utils/constants');
+const { safePageRedirect } = require('../utils/safePageRedirect');
 
 dotenv.config('./env');
 
@@ -15,6 +15,7 @@ const trailingSlashRedirect = (req, res, next) => {
 
   const query = url.slice(path.length);
   const safePath = path.slice(0, -1).replace(/\/+/g, '/');
+
   res.redirect(301, safePath + query);
 };
 
@@ -71,42 +72,25 @@ const clearUrlRedirect = (req, res, next) => {
   next();
 };
 
-const urlRedirect = (req, res, next) => {
-  const redirectPage = redirects.find((page) => req.originalUrl.includes(page.from));
+const pageRedirect = (req, res, next) => {
+  const { url, path } = req;
+  const query = url.slice(path.length);
 
-  if (req.originalUrl.match(/^\/blog\/$/) !== null) {
-    res.writeHead(301, { location: '/blog' });
-    res.end();
+  const getRedirectUrl = safePageRedirect(query);
+  const redirectPath = getRedirectUrl(path);
+
+  if (!redirectPath) {
+    return next();
   }
 
-  if (req.originalUrl.match(/^\/works\/$/) !== null) {
-    res.writeHead(301, { location: '/works' });
-    res.end();
-  }
-
-  if (req.originalUrl.match(/^\/process\/$/) !== null) {
-    res.writeHead(301, { location: '/process' });
-    res.end();
-  }
-
-  if (req.originalUrl.match(/^\/company\/$/) !== null) {
-    res.writeHead(301, { location: '/company' });
-    res.end();
-  }
-
-  if (redirectPage) {
-    res.writeHead(301, { location: redirectPage.to });
-    res.end();
-  }
-
-  next();
+  res.redirect(301, redirectPath);
 };
 
 module.exports = {
   customDomainRedirect,
   httpsRedirect,
   clearUrlRedirect,
-  urlRedirect,
   wwwRedirect,
   trailingSlashRedirect,
+  pageRedirect,
 };

@@ -10,10 +10,10 @@ const axios = require('axios');
 const {
   httpsRedirect,
   clearUrlRedirect,
-  urlRedirect,
   trailingSlashRedirect,
   wwwRedirect,
   customDomainRedirect,
+  pageRedirect,
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
@@ -55,7 +55,7 @@ app
     server.use(wwwRedirect);
     server.use(trailingSlashRedirect);
     server.use(clearUrlRedirect);
-    server.use(urlRedirect);
+    server.use(pageRedirect);
 
     server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));
