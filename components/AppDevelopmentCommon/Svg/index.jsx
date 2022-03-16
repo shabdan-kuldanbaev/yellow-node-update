@@ -6,12 +6,12 @@ import PropTypes from 'prop-types';
 import { APP_DEVELOPMENT_ICONS } from 'utils/constants';
 import { ReactComponent as TitledExpress } from './svgs/titledExpress.svg';
 import { ReactComponent as TitledAwsLambda } from './svgs/titledAwsLambda.svg';
-import { ReactComponent as ProductLab } from './svgs/chemistry 1.svg';
+import { ReactComponent as ProductLab } from './svgs/productLab.svg';
 import { ReactComponent as Research } from './svgs/research.svg';
-import { ReactComponent as LightBulb } from './svgs/Lightbulb.svg';
+import { ReactComponent as LightBulb } from './svgs/lightBulb.svg';
 import { ReactComponent as DevelopmentGear } from './svgs/developmentGear.svg';
 import { ReactComponent as CodeDesktop } from './svgs/codeDesktop.svg';
-import { ReactComponent as DesktopTower } from './svgs/DesktopTower.svg';
+import { ReactComponent as DesktopTower } from './svgs/desktopTower.svg';
 
 // TODO rewrite it
 export const Svg = ({ type }) => {
