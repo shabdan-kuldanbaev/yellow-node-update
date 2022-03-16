@@ -56,8 +56,7 @@
     .imageWrapper {
       svg {
         @include phone {
-          width: 48px;
-          height: 48px;
+          transform: scale(0.7);
         }
       }
     }
@@ -686,8 +685,8 @@
 
             svg {
               @include phone {
-                width: 30px;
-                height: 30px;
+                //max-width: 30px;
+                //max-height: 30px;
               }
             }
 
