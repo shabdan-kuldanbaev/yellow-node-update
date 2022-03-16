@@ -13,3 +13,9 @@
 
   background-color: $dark-blue-1;
 }
+
+.fusion-markets {
+  @extend .feedBackContainer;
+
+  background: $eerie-black;
+}
