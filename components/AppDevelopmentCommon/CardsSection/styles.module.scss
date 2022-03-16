@@ -743,15 +743,15 @@
       @include phone {
         flex-direction: row;
       }
+    }
 
-      .imageWrapper {
-        margin-bottom: 20px;
+    .imageWrapper {
+      margin-bottom: 20px;
 
-        @include phone {
-          flex-shrink: 0;
-          width: 48px;
-          height: 48px;
-        }
+      @include phone {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
       }
     }
   }

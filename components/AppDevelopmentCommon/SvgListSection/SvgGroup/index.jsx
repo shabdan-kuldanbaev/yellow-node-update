@@ -17,7 +17,7 @@ const SvgGroup = ({
       {title && <h3>{title}</h3>}
 
       <div className={className}>
-        {technologies.map((technology, technologyIndex) => {
+        {technologies.map((technology, i) => {
           if (isMobileResolution) {
             return (
               <div key={`technologies/${technology}`}>
@@ -30,7 +30,7 @@ const SvgGroup = ({
             <Animated
               key={`technologies/${technology}`}
               {...animatedProps}
-              transitionDelay={300 + 50 * technologyIndex}
+              transitionDelay={300 + 50 * i}
             >
               <Svg type={technology} />
             </Animated>
