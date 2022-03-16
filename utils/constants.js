@@ -302,6 +302,10 @@ export const APP_DEVELOPMENT_ICONS = {
   laptop: 'laptop',
   // common
   arrow: 'arrow',
+  lightBulb: 'lightBulb',
+  developmentGear: 'developmentGear',
+  codeDesktop: 'codeDesktop',
+  desktopTower: 'desktopTower',
 };
 
 export const APP_DEVELOPMENT_TYPES = {

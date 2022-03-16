@@ -8,10 +8,22 @@ import { ReactComponent as TitledExpress } from './svgs/titledExpress.svg';
 import { ReactComponent as TitledAwsLambda } from './svgs/titledAwsLambda.svg';
 import { ReactComponent as ProductLab } from './svgs/chemistry 1.svg';
 import { ReactComponent as Research } from './svgs/research.svg';
+import { ReactComponent as LightBulb } from './svgs/Lightbulb.svg';
+import { ReactComponent as DevelopmentGear } from './svgs/developmentGear.svg';
+import { ReactComponent as CodeDesktop } from './svgs/codeDesktop.svg';
+import { ReactComponent as DesktopTower } from './svgs/DesktopTower.svg';
 
 // TODO rewrite it
 export const Svg = ({ type }) => {
   switch (type) {
+  case APP_DEVELOPMENT_ICONS.desktopTower:
+    return <DesktopTower />;
+  case APP_DEVELOPMENT_ICONS.codeDesktop:
+    return <CodeDesktop />;
+  case APP_DEVELOPMENT_ICONS.developmentGear:
+    return <DevelopmentGear />;
+  case APP_DEVELOPMENT_ICONS.lightBulb:
+    return <LightBulb />;
   case APP_DEVELOPMENT_ICONS.titledAwsLambda:
     return <TitledAwsLambda />;
   case APP_DEVELOPMENT_ICONS.titledSQLite:

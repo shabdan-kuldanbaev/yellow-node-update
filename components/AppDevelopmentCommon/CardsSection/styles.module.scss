@@ -791,4 +791,52 @@
       padding-bottom: 60px;
     }
   }
+
+  &.fourthSectionView {
+    position: relative;
+    background: $white;
+
+    .contentWrapper {
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 160px 148px;
+
+        @include macbook-twelve {
+          grid-template-columns: 1fr;
+          grid-gap: 60px;
+        }
+      }
+    }
+
+    .imagesBundle {
+      position: absolute;
+      right: 50%;
+      top: 99%;
+
+      &:nth-of-type(1) {
+        left: 99%;
+        top: 50%;
+
+        @include macbook-twelve {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(2) {
+        display: none;
+
+        @include macbook-twelve {
+          display: initial;
+        }
+      }
+    }
+
+    .cards > div:nth-of-type(3) {
+      .imagesBundle:nth-of-type(1) {
+        left: auto;
+        right: 49%;
+        top: 99%;
+      }
+    }
+  }
 }
