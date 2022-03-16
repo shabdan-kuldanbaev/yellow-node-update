@@ -788,6 +788,7 @@
   }
 
   &.thirdSectionView {
+    background: $alabaster;
     padding-bottom: 150px;
 
     @include below-tablet {

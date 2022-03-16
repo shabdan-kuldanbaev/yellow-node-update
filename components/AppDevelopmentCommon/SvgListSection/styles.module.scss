@@ -262,6 +262,8 @@
 
         @include tablet {
           @include flex(row, flex-start, center, nowrap);
+
+          margin-right: 0;
         }
 
         & > div {
