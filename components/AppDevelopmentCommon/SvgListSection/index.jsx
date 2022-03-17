@@ -6,9 +6,9 @@ import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
 import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SvgGroup from './SvgGroup';
 import { getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
-import SvgGroup from './SvgGroup';
 
 const SvgListSection = ({
   sectionData,

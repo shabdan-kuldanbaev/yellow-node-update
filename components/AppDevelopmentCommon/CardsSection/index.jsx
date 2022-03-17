@@ -79,15 +79,13 @@ export const CardsSection = ({
                   </div>
                   <ContentfulParser document={text} />
                 </div>
-                {
-                  imagesBundles && imagesBundles.map((image) => (
-                    <img
-                      src={getFileUrl(image)}
-                      alt=""
-                      className={styles.imagesBundle}
-                    />
-                  ))
-                }
+                {imagesBundles && imagesBundles.map((image) => (
+                  <img
+                    src={getFileUrl(image)}
+                    alt=""
+                    className={styles.imagesBundle}
+                  />
+                ))}
               </Animated>
             );
           })}

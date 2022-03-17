@@ -683,13 +683,6 @@
 
             @include flex(row, center, center);
 
-            svg {
-              @include phone {
-                //max-width: 30px;
-                //max-height: 30px;
-              }
-            }
-
             @include phone {
               width: 60px;
               height: 60px;
