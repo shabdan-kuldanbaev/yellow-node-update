@@ -731,9 +731,17 @@
 
 .mvp-app-development-company {
   &.firstSectionView {
-    .contentWrapper .smallCards > div {
-      @include phone {
-        flex-direction: row;
+    .contentWrapper .smallCards {
+      grid-gap: 80px 250px;
+
+      @include macbook-twelve {
+        grid-gap: 40px 80px;
+      }
+
+      & > div {
+        @include phone {
+          flex-direction: row;
+        }
       }
     }
 
