@@ -40,6 +40,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.designServices(),
     };
 
+  case PAGES.mvpDevelopment:
+    return {
+      pageMicrodata: microdata.mvpDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.mvpDevelopment(),
+    };
+
   default:
     return {
       pageMicrodata: null,

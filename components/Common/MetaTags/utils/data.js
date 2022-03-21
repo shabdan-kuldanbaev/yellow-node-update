@@ -85,4 +85,11 @@ export const ogMetaData = [
     metaDescription: 'Yellow is ready to provide you with Android development services to bring your idea to life.',
     url: `${rootUrl}${ROUTES.androidDevelopmentServices.path}`,
   },
+  {
+    pageName: ROUTES.mvpDevelopment.slug,
+    metaTitle: 'MVP development company | Yellow',
+    metaDescription: 'A minimum viable product will help you get enough feedback to determine whether '
+      + 'you should continue a given project. Yellow is ready to help with your MVP development.',
+    url: `${rootUrl}${ROUTES.mvpDevelopment.path}`,
+  },
 ];

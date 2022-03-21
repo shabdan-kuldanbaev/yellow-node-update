@@ -56,8 +56,7 @@
     .imageWrapper {
       svg {
         @include phone {
-          width: 48px;
-          height: 48px;
+          transform: scale(0.7);
         }
       }
     }
@@ -399,7 +398,8 @@
 }
 
 .ios-mobile-app-development-services,
-.android-mobile-app-development-services {
+.android-mobile-app-development-services,
+.mvp-app-development-company {
   @include appDevelopmentContainer;
 
   .callToAction {
@@ -683,13 +683,6 @@
 
             @include flex(row, center, center);
 
-            svg {
-              @include phone {
-                width: 30px;
-                height: 30px;
-              }
-            }
-
             @include phone {
               width: 60px;
               height: 60px;
@@ -731,6 +724,122 @@
 
       .callToAction {
         background-color: $white;
+      }
+    }
+  }
+}
+
+.mvp-app-development-company {
+  &.firstSectionView {
+    .contentWrapper .smallCards {
+      grid-gap: 80px 250px;
+
+      @include macbook-twelve {
+        grid-gap: 40px 80px;
+      }
+
+      & > div {
+        @include phone {
+          flex-direction: row;
+        }
+      }
+    }
+
+    .imageWrapper {
+      margin-bottom: 20px;
+
+      @include phone {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background: $alabaster;
+
+    .imageWrapper {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: $yellow;
+
+      @include flex(row, center, center);
+
+      @include tablet {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    .cards > div,
+    .callToAction {
+      background: $white;
+
+      h3 {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background: $alabaster;
+    padding-bottom: 150px;
+
+    .cards > div {
+      background: $white;
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
+  }
+
+  &.fourthSectionView {
+    position: relative;
+    background: $white;
+
+    .contentWrapper {
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 160px 148px;
+
+        @include macbook-twelve {
+          grid-template-columns: 1fr;
+          grid-gap: 60px;
+        }
+      }
+    }
+
+    .imagesBundle {
+      position: absolute;
+      right: 50%;
+      top: 99%;
+
+      &:nth-of-type(1) {
+        left: 99%;
+        top: 50%;
+
+        @include macbook-twelve {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(2) {
+        display: none;
+
+        @include macbook-twelve {
+          display: initial;
+        }
+      }
+    }
+
+    .cards > div:nth-of-type(3) {
+      .imagesBundle:nth-of-type(1) {
+        left: auto;
+        right: 49%;
+        top: 99%;
       }
     }
   }

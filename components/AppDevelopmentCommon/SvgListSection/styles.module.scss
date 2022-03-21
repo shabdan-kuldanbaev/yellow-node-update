@@ -5,6 +5,16 @@
 .svgSection {
   @include appDevelopmentContainer;
 
+  h3 {
+    @include fontSize(32px);
+
+    text-align: center;
+
+    @include tablet {
+      @include fontSize(24px);
+    }
+  }
+
   .svgListWrapper {
     margin: 0 auto;
     max-width: 1076px;
@@ -208,16 +218,58 @@
         @include tablet {
           width: 50%;
           margin: 85px 0 0;
-
-          &:nth-of-type(1),
-          &:nth-of-type(2) {
-            margin-top: 5px;
-          }
         }
       }
 
       @include tablet {
         flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+.mvp-app-development-company {
+  @extend .svgSection;
+
+  .svgListWrapper {
+    @extend .svgListWrapperOneRow;
+
+    .svgList {
+      @include flex(row, center, center);
+
+      @include tablet {
+        justify-content: flex-start;
+      }
+
+      & > div {
+        margin: 20px 80px 0 0;
+
+        @include tablet {
+          margin: 0 40px 0 0;
+        }
+
+        & > svg {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:nth-of-type(4) {
+      @extend .svgListWrapperSeveralRows;
+
+      .svgList {
+        margin-right: -60px;
+
+        @include tablet {
+          @include flex(row, flex-start, center, nowrap);
+
+          margin-right: 0;
+        }
+
+        & > div {
+          flex-basis: auto;
+          margin: 20px 80px 0 0;
+        }
       }
     }
   }
