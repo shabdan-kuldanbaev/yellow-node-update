@@ -92,4 +92,10 @@ export const ogMetaData = [
       + 'you should continue a given project. Yellow is ready to help with your MVP development.',
     url: `${rootUrl}${ROUTES.mvpDevelopment.path}`,
   },
+  {
+    pageName: ROUTES.cloudDevelopment.slug,
+    metaTitle: 'Cloud app development company | Yellow',
+    metaDescription: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
+    url: `${rootUrl}${ROUTES.cloudDevelopment.path}`,
+  },
 ];

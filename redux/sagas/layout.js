@@ -123,6 +123,7 @@ function* fetchPageData({
     case PAGES.developmentServices:
     case PAGES.androidDevelopmentServices:
     case PAGES.mvpDevelopment:
+    case PAGES.cloudDevelopment:
     case PAGES.notFound:
     case PAGES.signatureGenerator:
       yield call(fetchPage, { slug });

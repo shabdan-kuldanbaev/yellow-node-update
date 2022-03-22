@@ -45,6 +45,7 @@ export const NAV_LINKS = [
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
+    routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
     routes.signatureGenerator.slug,
   ].includes(slug)),
@@ -487,6 +488,11 @@ export const SUB_NAVIGATION_LINKS = {
       title: 'MVP development services',
       subtitle: 'Minimum viable product for your idea',
       slug: ROUTES.mvpDevelopment.path,
+    },
+    {
+      title: 'Cloud app development services',
+      subtitle: '__',
+      slug: ROUTES.cloudDevelopment.path,
     },
   ],
 };
