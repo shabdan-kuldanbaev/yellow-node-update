@@ -491,7 +491,7 @@ export const SUB_NAVIGATION_LINKS = {
     },
     {
       title: 'Cloud app development services',
-      subtitle: '__',
+      subtitle: 'No physical space is occupied',
       slug: ROUTES.cloudDevelopment.path,
     },
   ],
