@@ -269,6 +269,10 @@
         & > div {
           flex-basis: auto;
           margin: 20px 80px 0 0;
+
+          @include tablet {
+            margin: 0 40px 0 0;
+          }
         }
       }
     }
