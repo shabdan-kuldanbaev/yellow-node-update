@@ -471,7 +471,6 @@
 
     .image {
       transform: translate(10%, 0);
-      max-width: 170%;
 
       @include tablet {
         transform: unset;
