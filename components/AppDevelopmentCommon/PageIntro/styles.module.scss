@@ -308,7 +308,8 @@
 
 .ios-mobile-app-development-services,
 .android-mobile-app-development-services,
-.mvp-app-development-company {
+.mvp-app-development-company,
+.cloud-based-app-development-services {
   @extend .pageIntroContainer;
 
   background-color: inherit;
@@ -386,19 +387,9 @@
   }
 }
 
-.android-mobile-app-development-services {
-  .pageIntroSection {
-    .pageIntroWrapper {
-      margin-bottom: 0;
-
-      .pageTitleContainer {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
-
-.mvp-app-development-company {
+.android-mobile-app-development-services,
+.mvp-app-development-company,
+.cloud-based-app-development-services {
   .pageIntroSection {
     .pageIntroWrapper {
       margin-bottom: 0;
