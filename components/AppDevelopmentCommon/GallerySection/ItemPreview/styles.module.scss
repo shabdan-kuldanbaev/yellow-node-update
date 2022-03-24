@@ -432,6 +432,10 @@
         transform: unset;
         max-width: 100%;
       }
+
+      @include phone {
+        max-width: 170%;
+      }
     }
   }
 }
@@ -594,8 +598,7 @@
 
   .imageContainer {
     z-index: 1;
-    max-width: 500px;
-    width: 100%;
+    max-width: 450px;
 
     @include tablet {
       height: 100%;
@@ -609,6 +612,10 @@
       @include tablet {
         transform: unset;
         max-width: 100%;
+      }
+
+      @include phone {
+        max-width: 150%;
       }
     }
   }
@@ -633,16 +640,6 @@
       margin-bottom: 0;
     }
 
-    .projectTitle {
-      @include tablet {
-        @include fontSize(32px);
-      }
-
-      @include phone {
-        @include fontSize(22px);
-      }
-    }
-
     .projectDescription {
       max-width: 310px;
 
@@ -664,6 +661,7 @@
     @include tablet {
       height: 100%;
       max-width: 250px;
+      margin: -25px;
     }
 
     .image {
@@ -672,7 +670,7 @@
 
       @include tablet {
         transform: unset;
-        max-width: 100%;
+        max-width: 120%;
       }
 
       @include phone {
@@ -709,17 +707,13 @@
       transform: translate(10%, 0);
       max-width: 170%;
 
-      @include desktop {
-        max-width: 120%;
-      }
-
       @include tablet {
         transform: unset;
         max-width: 100%;
       }
 
       @include phone {
-        max-width: 250%;
+        max-width: 200%;
       }
     }
   }
@@ -898,23 +892,24 @@
 }
 
 .bionorica {
-  .imageContainer {
-    width: auto;
+  @extend .verticalContainer;
 
-    .image {
-      max-width: 800px;
+  background: linear-gradient(180deg, $light-grayish-blue 0%, $white 100%);
 
-      @include macbook-fifteen {
-        max-width: 650px;
-      }
+  .projectDescription {
+    color: $silver-chalice;
+  }
 
-      @include tablet {
-        max-width: 450px;
-      }
+  .image {
+    max-height: 330px;
 
-      @include phone {
-        max-width: 80vw;
-      }
+    @include tablet {
+      max-height: initial;
+      max-width: 450px;
+    }
+
+    @include phone {
+      max-width: 80vw;
     }
   }
 }
@@ -956,66 +951,66 @@
     }
   }
 
-  .projectInfoContainer {
-    .titleText {
-      position: relative;
+  .titleText {
+    position: relative;
 
-      .projectTitle {
-        margin-bottom: 20px;
-        color: $midnight;
+    .projectTitle {
+      margin-bottom: 20px;
+      color: $midnight;
 
-        @include fontSize(56px);
+      @include fontSize(56px);
 
-        @include macbook-twelve {
-          @include fontSize(45px);
-        }
-
-        @include tablet {
-          @include fontSize(55px);
-        }
-
-        @include phone {
-          @include fontSize(25px);
-        }
+      @include macbook-twelve {
+        @include fontSize(45px);
       }
 
-      .titleBackground {
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translate(-30px, -63px);
-        width: 467px;
+      @include tablet {
+        @include fontSize(55px);
+      }
 
-        @include macbook-twelve {
-          width: 390px;
-          transform: translate(-30px, -75px);
-        }
-
-        @include tablet {
-          width: 455px;
-          transform: translate(-25px, -65px);
-        }
-
-        @include phone {
-          display: none;
-        }
+      @include phone {
+        @include fontSize(25px);
       }
     }
 
-    .projectSubtitle {
-      color: $dark-grey;
+    .titleBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-30px, -63px);
+      width: 467px;
 
-      @include fontSize(14px);
+      @include macbook-twelve {
+        width: 390px;
+        transform: translate(-30px, -75px);
+      }
+
+      @include tablet {
+        width: 455px;
+        transform: translate(-25px, -65px);
+      }
+
+      @include phone {
+        display: none;
+      }
     }
+  }
 
-    .projectDescription {
-      color: $dark-grey;
-      max-width: 360px;
-      opacity: 0.7;
-      text-align: center;
-      margin-bottom: -25px;
+  .projectSubtitle {
+    color: $dark-grey;
 
-      @include fontSize(12px);
+    @include fontSize(14px);
+  }
+
+  .projectDescription {
+    color: $dark-grey;
+    max-width: 360px;
+    opacity: 0.7;
+    text-align: center;
+    margin-bottom: -50px;
+
+    @include phone {
+      margin-bottom: 0;
     }
   }
 
@@ -1048,8 +1043,12 @@
   }
 
   .projectDescription {
-    margin-bottom: 0;
+    margin-bottom: -50px;
     color: $silver-chalice;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
   }
 
   .imageContainer {
@@ -1121,7 +1120,6 @@
 
   .projectDescription {
     color: rgba($white, 0.7);
-    text-align: left;
 
     @include phone {
       text-align: center;
