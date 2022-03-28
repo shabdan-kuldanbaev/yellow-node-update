@@ -17,7 +17,7 @@ const SvgGroup = ({
     <div className={listWrapperClassName}>
       {title && <h3>{title}</h3>}
       <div className={className}>
-        {technologies.map((technology, i) => {
+        {technologies && technologies.map((technology, i) => {
           if (isMobileResolution) {
             return (
               <div key={`technologies/${technology}`}>
