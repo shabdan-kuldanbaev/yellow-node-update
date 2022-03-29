@@ -143,14 +143,6 @@
   }
 }
 
-.cardsWithShadow {
-  .smallCards > div {
-    padding: 50px;
-    box-shadow: $card-bow-shadow;
-    background: $white;
-  }
-}
-
 .cardsWithFullWidthImage {
   .smallCards {
     column-gap: 15vw;
@@ -543,20 +535,25 @@
 }
 
 .cloud-based-app-development-services {
-  &.firstSectionView {
-    //@extend .cardsWithShadow;
-  }
-
   &.secondSectionView {
     background: $alabaster;
 
-    .cards > div {
-      background: none;
-      box-shadow: none;
-      padding: 0;
+    .cards {
+      column-gap: 15vw;
+      row-gap: 80px;
 
       @include tablet {
-        @include flex();
+        column-gap: 6vw;
+      }
+
+      & > div {
+        background: none;
+        box-shadow: none;
+        padding: 0;
+
+        @include tablet {
+          @include flex();
+        }
       }
     }
 
@@ -573,6 +570,21 @@
 
     .callToAction {
       background: $white;
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .cardsWithFullWidthImage;
+
+    background: $cod-gray-1;
+
+    .imageWrapper {
+      background: $white;
+    }
+
+    .typeTitle,
+    .titleStyle h2 {
+      color: $white;
     }
   }
 }
