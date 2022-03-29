@@ -278,3 +278,25 @@
     }
   }
 }
+
+.cloud-based-app-development-services {
+  @extend .svgSection;
+
+  .svgListWrapper {
+    @extend .svgListWrapperSeveralRows;
+
+    .svgList {
+      @include tablet {
+        @include flex(row, flex-start, flex-end, nowrap);
+
+        overflow-x: scroll;
+        margin-right: -40px;
+
+        & > div {
+          flex-basis: auto;
+          margin: 0 40px 0 0;
+        }
+      }
+    }
+  }
+}
