@@ -13,10 +13,25 @@ import { ReactComponent as DevelopmentGear } from './svgs/developmentGear.svg';
 import { ReactComponent as CodeDesktop } from './svgs/codeDesktop.svg';
 import { ReactComponent as DesktopTower } from './svgs/desktopTower.svg';
 import { ReactComponent as CoreData } from './svgs/coreData.svg';
+import { ReactComponent as Cloud } from './svgs/cloud.svg';
+import { ReactComponent as CloudNetwork } from './svgs/cloudNetwork.svg';
+import { ReactComponent as Collaboration } from './svgs/collaboration.svg';
+import { ReactComponent as Migration } from './svgs/migration.svg';
+import { ReactComponent as UxDesign2 } from './svgs/uxDesign2.svg';
 
 // TODO rewrite it
 export const Svg = ({ type }) => {
   switch (type) {
+  case APP_DEVELOPMENT_ICONS.cloud:
+    return <Cloud />;
+  case APP_DEVELOPMENT_ICONS.cloudNetwork:
+    return <CloudNetwork />;
+  case APP_DEVELOPMENT_ICONS.collaboration:
+    return <Collaboration />;
+  case APP_DEVELOPMENT_ICONS.migration:
+    return <Migration />;
+  case APP_DEVELOPMENT_ICONS.uxDesign2:
+    return <UxDesign2 />;
   case APP_DEVELOPMENT_ICONS.desktopTower:
     return <DesktopTower />;
   case APP_DEVELOPMENT_ICONS.codeDesktop:

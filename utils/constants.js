@@ -307,6 +307,11 @@ export const APP_DEVELOPMENT_ICONS = {
   developmentGear: 'developmentGear',
   codeDesktop: 'codeDesktop',
   desktopTower: 'desktopTower',
+  migration: 'migration',
+  cloud: 'cloud',
+  cloudNetwork: 'cloudNetwork',
+  collaboration: 'collaboration',
+  uxDesign2: 'uxDesign2',
 };
 
 export const APP_DEVELOPMENT_TYPES = {

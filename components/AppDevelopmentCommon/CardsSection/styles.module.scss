@@ -54,10 +54,15 @@
     }
 
     .imageWrapper {
-      svg {
-        @include phone {
-          transform: scale(0.7);
-        }
+      @include flex(row, center, center);
+
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba($turbo-100, 0.5);
+
+      @include phone {
+        transform: scale(0.7);
       }
     }
   }
@@ -138,43 +143,96 @@
   }
 }
 
-.mobile-app-development-company {
+.cardsWithShadow {
+  .smallCards > div {
+    padding: 50px;
+    box-shadow: $card-bow-shadow;
+    background: $white;
+  }
+}
+
+.cardsWithFullWidthImage {
+  .smallCards {
+    column-gap: 15vw;
+    row-gap: 160px;
+
+    & > div {
+      flex-direction: column;
+
+      .imageWrapper {
+        width: 100%;
+
+        & > div {
+          width: 100%;
+          padding-top: 85%;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+
+          @include tablet {
+            padding-top: 72%;
+          }
+        }
+      }
+
+      .cardContent {
+        .typeTitle {
+          margin: 24px 0 10px;
+
+          @include phone {
+            margin: 20px 0 10px;
+          }
+        }
+      }
+
+      @include below-tablet {
+        text-align: center;
+
+        .imageWrapper {
+          margin: auto;
+        }
+      }
+    }
+
+    @include below-tablet {
+      row-gap: 60px;
+    }
+  }
+}
+
+/* General styles */
+
+.chat-app-development-company,
+.mobile-app-development-company,
+.web-app-development-company,
+.ui-ux-services,
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services,
+.cloud-based-app-development-services,
+.mvp-app-development-company {
   @include appDevelopmentContainer;
 
   .contentWrapper {
     @include smallSectionWrapper;
-
-    .titleStyle {
-      p {
-        color: $silver-chalice;
-        line-height: 2;
-        text-align: center;
-        max-width: 950px;
-        width: unset;
-
-        @include fontSize(18px);
-
-        @include macbook-fifteen {
-          @include fontSize(16px);
-        }
-
-        @include below-tablet {
-          width: 90vw;
-        }
-
-        @include phone {
-          @include fontSize(14px);
-        }
-      }
-    }
   }
 
   .callToAction {
     @include defaultCallToAction;
 
-    margin: 150px 0 0;
-  }
+    margin-top: 150px;
 
+    @include tablet {
+      margin-top: 60px;
+      padding: 40px;
+    }
+
+    @include phone {
+      margin-top: 30px;
+    }
+  }
+}
+
+.mobile-app-development-company {
   &.firstSectionView {
     background-color: $alabaster;
   }
@@ -188,67 +246,23 @@
 
     .contentWrapper {
       @extend .threeColumnCards;
-
-      max-width: 1300px;
-    }
-
-    .callToAction {
-      padding: 0;
-      margin-top: 80px;
     }
   }
 
   &.secondSectionView {
     background-color: $alabaster;
 
-    .contentWrapper {
-      @include smallSectionWrapper;
-
-      .cards {
-        .typeTitle {
-          max-width: 235px;
-        }
-
-        p {
-          max-width: 365px;
-        }
-      }
+    .typeTitle {
+      max-width: 235px;
     }
   }
 }
 
 .web-app-development-company {
-  @include appDevelopmentContainer;
-
-  .contentWrapper {
-    @include smallSectionWrapper;
-
-    .titleStyle {
-      h2 {
-        margin: 0;
-      }
-
-      p {
-        max-width: 745px;
-        width: unset;
-      }
+  .titleStyle {
+    p {
+      max-width: 745px;
     }
-
-    .smallCards {
-      padding-bottom: 150px;
-
-      @include tablet {
-        padding-bottom: 100px;
-      }
-
-      @include phone {
-        padding-bottom: 80px;
-      }
-    }
-  }
-
-  .callToAction {
-    @include defaultCallToAction;
   }
 
   &.firstSectionView {
@@ -258,18 +272,12 @@
   &.secondSectionView {
     background-color: $cod-gray-1;
 
-    .contentWrapper {
-      .titleStyle {
-        h2 {
-          color: $white;
-        }
-      }
+    .titleStyle h2 {
+      color: $white;
+    }
 
-      .cards {
-        & > div {
-          background-color: $white;
-        }
-      }
+    .cards > div {
+      background-color: $white;
     }
   }
 
@@ -282,73 +290,45 @@
   }
 
   &.fourthSectionView {
-    .contentWrapper {
-      & > div:last-child {
-        width: 100%;
-      }
+    .contentWrapper > div:last-child {
+      width: 100%;
     }
   }
 }
 
 .ui-ux-services {
-  @include appDevelopmentContainer;
+  .titleStyle {
+    h2 {
+      max-width: 855px;
+    }
 
-  .callToAction {
-    @include defaultCallToAction;
-  }
-
-  &.firstSectionView {
-    .contentWrapper {
-      @include smallSectionWrapper;
-
-      .titleStyle {
-        h2 {
-          max-width: 710px;
-        }
-
-        p {
-          max-width: 855px;
-          width: unset;
-        }
-      }
+    p {
+      max-width: 800px;
+      width: unset;
     }
   }
 
   &.thirdSectionView {
     background-color: $alabaster;
-
-    .contentWrapper {
-      @include smallSectionWrapper;
-
-      .titleStyle {
-        h2 {
-          max-width: 855px;
-        }
-
-        p {
-          max-width: 800px;
-          width: unset;
-        }
-      }
-    }
   }
 }
 
 .ios-mobile-app-development-services {
   &.firstSectionView {
-    .contentWrapper {
-      .smallCards {
-        row-gap: 120px;
-        column-gap: 260px;
+    .cards {
+      row-gap: 120px;
+      column-gap: 15vw;
 
-        & > div {
-          @include below-tablet {
-            justify-content: center;
-            text-align: center;
+      & > div {
+        box-shadow: none;
+        padding: 0;
 
-            .imageWrapper {
-              margin: auto;
-            }
+        @include below-tablet {
+          justify-content: center;
+          text-align: center;
+
+          .imageWrapper {
+            margin: auto;
           }
         }
       }
@@ -356,14 +336,12 @@
   }
 
   &.secondSectionView {
+    @extend .cardsWithFullWidthImage;
+
     background: $black;
 
     .imageWrapper {
       background: $white;
-
-      & > div {
-        background: $white;
-      }
     }
 
     .titleStyle,
@@ -371,408 +349,112 @@
       color: $white;
     }
   }
-}
-
-.android-mobile-app-development-services {
-  &.firstSectionView {
-    .smallCards {
-      gap: 40px;
-
-      & > div {
-        box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
-        padding: 50px 50px 40px;
-      }
-    }
-  }
-
-  &.secondSectionView {
-    background: $alabaster;
-
-    .imageWrapper {
-      &,
-      & > * {
-        background: none;
-      }
-    }
-  }
-}
-
-.ios-mobile-app-development-services,
-.android-mobile-app-development-services,
-.mvp-app-development-company,
-.cloud-based-app-development-services {
-  @include appDevelopmentContainer;
-
-  .callToAction {
-    @include defaultCallToAction;
-
-    margin-top: 150px;
-
-    @include phone {
-      margin-top: 30px;
-    }
-  }
-
-  &.firstSectionView {
-    .contentWrapper {
-      @include smallSectionWrapper;
-
-      .smallCards {
-        & > div {
-          flex-direction: column;
-
-          .imageWrapper {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background-color: $yellow;
-
-            @include flex(row, center, center);
-
-            @include below-tablet {
-              width: 70px;
-              height: 70px;
-
-              svg {
-                width: 40%;
-              }
-            }
-          }
-
-          .cardContent {
-            p {
-              max-width: 405px;
-
-              @include tablet {
-                max-width: 325px;
-              }
-
-              @include below-tablet {
-                max-width: 100%;
-              }
-            }
-          }
-        }
-
-        @include tablet {
-          column-gap: 130px;
-        }
-
-        @include below-tablet {
-          row-gap: 60px;
-        }
-      }
-
-      .titleStyle {
-        margin-bottom: 120px;
-
-        h2 {
-          max-width: 935px;
-        }
-
-        p {
-          max-width: 855px;
-        }
-
-        @include below-tablet {
-          margin-bottom: 60px;
-        }
-      }
-    }
-  }
-
-  &.secondSectionView {
-    .contentWrapper {
-      @include smallSectionWrapper;
-
-      .smallCards {
-        column-gap: 264px;
-        row-gap: 160px;
-
-        & > div {
-          flex-direction: column;
-
-          .imageWrapper {
-            width: 100%;
-
-            & > div {
-              width: 100%;
-              padding-top: 85%;
-              background-repeat: no-repeat;
-              background-size: contain;
-              background-position: center;
-
-              @include tablet {
-                padding-top: 72%;
-              }
-            }
-          }
-
-          .cardContent {
-            .typeTitle {
-              margin: 24px 0 10px;
-
-              @include phone {
-                margin: 20px 0 10px;
-              }
-            }
-
-            p {
-              max-width: 405px;
-
-              @include tablet {
-                max-width: 325px;
-              }
-
-              @include below-tablet {
-                max-width: 100%;
-              }
-            }
-          }
-
-          @include below-tablet {
-            justify-content: center;
-            text-align: center;
-
-            .imageWrapper {
-              margin: auto;
-            }
-          }
-        }
-
-        @include tablet {
-          column-gap: 130px;
-        }
-
-        @include below-tablet {
-          row-gap: 60px;
-        }
-      }
-
-      .titleStyle {
-        margin-bottom: 120px;
-
-        h2 {
-          max-width: 935px;
-        }
-
-        p {
-          max-width: 855px;
-        }
-
-        @include below-tablet {
-          margin-bottom: 60px;
-        }
-      }
-    }
-  }
 
   &.thirdSectionView {
     padding-bottom: 0;
 
-    .contentWrapper {
-      @include smallSectionWrapper;
+    .typeTitle {
+      margin: 0 0 0 25px;
+    }
 
-      .cards {
-        width: 100%;
-        column-gap: 40px;
-        row-gap: 30px;
+    .cards > div {
+      @include flex(row, start, center);
 
-        & > div {
-          padding: 30px 30px 30px 50px;
+      padding: 30px 40px;
 
-          @include flex(row, initial, center, wrap);
-
-          .imageWrapper {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: $turbo-100;
-
-            @include flex(row, center, center);
-
-            svg {
-              @include phone {
-                width: 12px;
-                height: 9px;
-              }
-            }
-          }
-
-          .cardContent {
-            .typeTitle {
-              margin: 0 0 0 15px;
-
-              @include fontSize(24px);
-
-              @include tablet {
-                @include fontSize(16px);
-              }
-            }
-
-            p {
-              max-width: 405px;
-
-              @include tablet {
-                max-width: 325px;
-              }
-
-              @include below-tablet {
-                max-width: 100%;
-              }
-            }
-          }
-
-          @include macbook-twelve {
-            width: 460px;
-          }
-
-          @include tablet {
-            width: 100%;
-            max-width: unset;
-          }
-        }
-
-        @include macbook-twelve {
-          width: unset;
-        }
-
-        @include below-tablet {
-          width: 460px;
-        }
-
-        @include phone {
-          width: unset;
-          grid-gap: 16px;
-        }
+      .cardContent {
+        flex: 1 1 auto;
       }
+    }
 
-      .titleStyle {
-        margin-bottom: 120px;
-
-        p {
-          max-width: 855px;
-        }
-
-        @include below-tablet {
-          margin-bottom: 60px;
-        }
-      }
+    .imageWrapper {
+      width: 40px;
+      height: 40px;
     }
   }
 
   &.fourthSectionView {
     background-color: $alabaster;
 
-    .contentWrapper {
-      @include smallSectionWrapper;
+    .cards > div,
+    .callToAction {
+      background: $white;
+    }
+  }
+}
 
-      max-width: $max-content-width;
+.android-mobile-app-development-services {
+  &.secondSectionView {
+    @extend .cardsWithFullWidthImage;
 
-      .cards {
-        grid-template-columns: repeat(3, 1fr);
+    background: $alabaster;
+  }
 
-        & > div {
-          max-width: 405px;
-          padding-right: 30px;
+  &.thirdSectionView {
+    padding-bottom: 0;
 
-          .imageWrapper {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: $yellow;
+    .typeTitle {
+      margin: 0 0 0 25px;
+    }
 
-            @include flex(row, center, center);
+    .cards > div {
+      @include flex(row, start, center);
 
-            @include phone {
-              width: 60px;
-              height: 60px;
-            }
-          }
+      padding: 30px 40px;
 
-          @include macbook-thirteen {
-            max-width: 390px;
-          }
-
-          @include tablet {
-            width: 100%;
-            max-width: unset;
-          }
-        }
-
-        @include macbook-twelve {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include tablet {
-          grid-template-columns: 1fr;
-        }
-
-        @include phone {
-          grid-gap: 16px;
-        }
+      .cardContent {
+        flex: 1 1 auto;
       }
+    }
 
-      .titleStyle {
-        p {
-          max-width: 855px;
-        }
+    .imageWrapper {
+      width: 40px;
+      height: 40px;
+    }
+  }
 
-        @include below-tablet {
-          margin-bottom: 60px;
-        }
+  &.fourthSectionView {
+    background: $alabaster;
+
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
+
+      @include tablet {
+        grid-template-columns: 1fr;
       }
+    }
 
-      .callToAction {
-        background-color: $white;
-      }
+    .callToAction {
+      background: $white;
     }
   }
 }
 
 .mvp-app-development-company {
   &.firstSectionView {
-    .contentWrapper .smallCards {
-      grid-gap: 80px 250px;
+    .cards > div {
+      box-shadow: none;
+      padding: 0;
 
-      @include macbook-twelve {
-        grid-gap: 40px 80px;
+      @include tablet {
+        @include flex();
       }
 
-      & > div {
-        @include phone {
-          flex-direction: row;
-        }
+      .imageWrapper {
+        flex: 0 0 auto;
+        margin-right: 16px;
       }
     }
 
-    .imageWrapper {
-      margin-bottom: 20px;
-
-      @include phone {
-        flex-shrink: 0;
-        width: 48px;
-        height: 48px;
+    .typeTitle {
+      @include tablet {
+        margin: 0;
       }
     }
   }
 
   &.secondSectionView {
     background: $alabaster;
-
-    .imageWrapper {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background-color: $yellow;
-
-      @include flex(row, center, center);
-
-      @include tablet {
-        width: 70px;
-        height: 70px;
-      }
-    }
 
     .cards > div,
     .callToAction {
@@ -785,15 +467,25 @@
   }
 
   &.thirdSectionView {
-    background: $alabaster;
-    padding-bottom: 150px;
+    padding-bottom: 0;
 
-    .cards > div {
-      background: $white;
+    .typeTitle {
+      margin: 0 0 0 25px;
     }
 
-    @include below-tablet {
-      padding-bottom: 60px;
+    .cards > div {
+      @include flex(row, start, center);
+
+      padding: 30px 40px;
+
+      .cardContent {
+        flex: 1 1 auto;
+      }
+    }
+
+    .imageWrapper {
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -842,6 +534,45 @@
         right: 49%;
         top: 99%;
       }
+    }
+  }
+
+  .callToAction {
+    background-color: $white;
+  }
+}
+
+.cloud-based-app-development-services {
+  &.firstSectionView {
+    //@extend .cardsWithShadow;
+  }
+
+  &.secondSectionView {
+    background: $alabaster;
+
+    .cards > div {
+      background: none;
+      box-shadow: none;
+      padding: 0;
+
+      @include tablet {
+        @include flex();
+      }
+    }
+
+    .imageWrapper {
+      flex: 0 0 auto;
+      margin-right: 16px;
+    }
+
+    .typeTitle {
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    .callToAction {
+      background: $white;
     }
   }
 }
