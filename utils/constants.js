@@ -532,6 +532,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.cloudDevelopment]: 'Only the sky\'s the limit',
 };
 
 // eslint-disable-next-line
