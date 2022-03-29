@@ -3,10 +3,6 @@
 @import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
 .gallerySection {
-  @include below-tablet {
-    margin: 100px 0;
-  }
-
   .swiperPaginationBullet {
     width: 12px;
     height: 12px;
@@ -230,7 +226,8 @@
 .web-app-development-company,
 .ios-mobile-app-development-services,
 .android-mobile-app-development-services,
-.mvp-app-development-company {
+.mvp-app-development-company,
+.cloud-based-app-development-services {
   padding: 150px 0;
   background-color: $white;
 
@@ -240,10 +237,6 @@
 
   @include phone {
     padding: 64px 0;
-  }
-
-  .gallerySection {
-    margin-bottom: 70px;
   }
 
   .callToAction {

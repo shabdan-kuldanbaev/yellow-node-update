@@ -606,6 +606,8 @@
   &.fourthSectionView {
     @extend .removeCardsShadow;
 
+    background: $alabaster;
+
     .cards > div {
       @include below-tablet {
         @include flex;
@@ -613,7 +615,13 @@
     }
 
     .typeTitle {
-      margin-top: 0;
+      @include below-tablet {
+        margin-top: 0;
+      }
+    }
+
+    .callToAction {
+      background: $white;
     }
   }
 }
