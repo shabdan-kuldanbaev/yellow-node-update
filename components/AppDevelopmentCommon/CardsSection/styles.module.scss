@@ -56,13 +56,21 @@
     .imageWrapper {
       @include flex(row, center, center);
 
-      width: 90px;
-      height: 90px;
+      --size: 90px;
+
+      flex: 0 0 auto;
+      width: var(--size);
+      height: var(--size);
       border-radius: 50%;
       background: rgba($turbo-100, 0.5);
+      margin-right: 16px;
 
       @include phone {
-        transform: scale(0.7);
+        --size: 60px;
+
+        svg {
+          transform: scale(0.7);
+        }
       }
     }
   }
@@ -192,6 +200,17 @@
   }
 }
 
+.removeCardsShadow {
+  .cards,
+  .smallCards {
+    & > div {
+      box-shadow: none;
+      padding: 0;
+      background: none;
+    }
+  }
+}
+
 /* General styles */
 
 .chat-app-development-company,
@@ -307,14 +326,13 @@
 
 .ios-mobile-app-development-services {
   &.firstSectionView {
+    @extend .removeCardsShadow;
+
     .cards {
       row-gap: 120px;
       column-gap: 15vw;
 
       & > div {
-        box-shadow: none;
-        padding: 0;
-
         @include below-tablet {
           justify-content: center;
           text-align: center;
@@ -424,10 +442,9 @@
 
 .mvp-app-development-company {
   &.firstSectionView {
-    .cards > div {
-      box-shadow: none;
-      padding: 0;
+    @extend .removeCardsShadow;
 
+    .cards > div {
       @include tablet {
         @include flex();
       }
@@ -536,6 +553,8 @@
 
 .cloud-based-app-development-services {
   &.secondSectionView {
+    @extend .removeCardsShadow;
+
     background: $alabaster;
 
     .cards {
@@ -547,10 +566,6 @@
       }
 
       & > div {
-        background: none;
-        box-shadow: none;
-        padding: 0;
-
         @include below-tablet {
           @include flex();
         }
@@ -585,6 +600,20 @@
     .typeTitle,
     .titleStyle h2 {
       color: $white;
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .removeCardsShadow;
+
+    .cards > div {
+      @include below-tablet {
+        @include flex;
+      }
+    }
+
+    .typeTitle {
+      margin-top: 0;
     }
   }
 }

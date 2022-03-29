@@ -26,10 +26,13 @@ import { ReactComponent as TitledNode } from './svgs/titledNode.svg';
 import { ReactComponent as TitledRds } from './svgs/titledRds.svg';
 import { ReactComponent as TitledS3 } from './svgs/titledS3.svg';
 import { ReactComponent as TitledAws } from './svgs/titledAws.svg';
+import { ReactComponent as Headset } from './svgs/headset.svg';
 
 // TODO rewrite it
 export const Svg = ({ type }) => {
   switch (type) {
+  case APP_DEVELOPMENT_ICONS.headset:
+    return <Headset />;
   case APP_DEVELOPMENT_ICONS.titledAngular:
     return <TitledAngular />;
   case APP_DEVELOPMENT_ICONS.titledAws:

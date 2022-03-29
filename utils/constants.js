@@ -319,6 +319,7 @@ export const APP_DEVELOPMENT_ICONS = {
   cloudNetwork: 'cloudNetwork',
   collaboration: 'collaboration',
   uxDesign2: 'uxDesign2',
+  headset: 'headset',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
