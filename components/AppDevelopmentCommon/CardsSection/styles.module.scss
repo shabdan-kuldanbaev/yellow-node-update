@@ -551,7 +551,7 @@
         box-shadow: none;
         padding: 0;
 
-        @include tablet {
+        @include below-tablet {
           @include flex();
         }
       }
