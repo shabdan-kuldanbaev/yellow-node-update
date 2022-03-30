@@ -1071,19 +1071,18 @@
   }
 
   .imageContainer {
-    width: 100%;
-    max-width: 679px;
+    width: 75%;
 
-    @include macbook-fifteen {
-      max-width: 490px;
+    @include tablet {
+      width: 80%;
     }
 
     @include phone {
-      max-width: 80vw;
+      width: 100%;
     }
 
     .image {
-      width: 100%;
+      max-width: 100%;
     }
   }
 
