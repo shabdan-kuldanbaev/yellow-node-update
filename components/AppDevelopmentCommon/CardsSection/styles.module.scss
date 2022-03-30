@@ -606,7 +606,7 @@
   &.fourthSectionView {
     @extend .removeCardsShadow;
 
-    background: $alabaster;
+    padding-bottom: 0;
 
     .cards > div {
       @include below-tablet {
@@ -618,10 +618,6 @@
       @include below-tablet {
         margin-top: 0;
       }
-    }
-
-    .callToAction {
-      background: $white;
     }
   }
 }
