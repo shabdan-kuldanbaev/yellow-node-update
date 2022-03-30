@@ -17,7 +17,7 @@ export const getSvgSectionProps = (data, isMobileResolution) => {
       'view',
     ],
   );
-  const linkData = contentModules.find((modules) => modules.sys.contentType.sys.type === 'link');
+  const linkData = contentModules.find((modules) => modules.sys.contentType.sys.id === 'link');
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: isMobileResolution ? '0' : '2.82352941em',

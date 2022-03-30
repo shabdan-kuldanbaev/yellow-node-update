@@ -19,6 +19,7 @@
     border-radius: 5px;
     max-width: 518px;
     box-sizing: border-box;
+    background: $white;
 
     @include below-tablet {
       width: 100%;

@@ -25,13 +25,16 @@ const SvgListSection = ({
     contentModules,
   } = getSvgSectionProps(sectionData, isMobileResolution);
 
+  const technologiesGroup = contentModules.filter((modules) => modules.sys.contentType.sys.id !== 'link');
+
   return (
     <section className={cn(styles[type], styles[view])}>
       <SectionTitle
         title={title}
         description={description}
+        titleStyle={styles.titleStyle}
       />
-      {contentModules.map((group) => (
+      {technologiesGroup.map((group) => (
         <SvgGroup
           data={group}
           isMobileResolution={isMobileResolution}

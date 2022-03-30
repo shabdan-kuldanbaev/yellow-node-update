@@ -120,11 +120,14 @@
   }
 
   .callToAction {
+    @include defaultCallToAction;
+
     & > h3 {
-      margin: 0;
+      margin-right: 15px;
+      text-align: left;
 
       @include phone {
-        margin-bottom: 32px;
+        text-align: center;
       }
     }
   }
