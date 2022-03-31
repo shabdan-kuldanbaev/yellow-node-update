@@ -7,7 +7,7 @@ import { Svg } from 'components/Common/Svg';
 import { getFileUrl } from 'utils/helper';
 import { TitleText } from './TitleText';
 import { getAppstoreSvgType, getItemPreviewProps } from './utils/itemPreviewHelper';
-import styles from './styles/styles.module.scss';
+import styles from './styles.module.scss';
 
 export const ItemPreview = ({ data, type }) => {
   const {

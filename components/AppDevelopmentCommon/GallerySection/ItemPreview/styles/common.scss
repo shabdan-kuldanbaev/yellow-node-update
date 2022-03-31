@@ -145,3 +145,14 @@
   height: 40px;
   margin: 20px auto;
 }
+
+.mobile-app-development-company,
+.ui-ux-services,
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services,
+.chat-app-development-company,
+.mvp-app-development-company,
+.web-app-development-company,
+.cloud-based-app-development-services {
+  @extend .container;
+}
