@@ -236,6 +236,12 @@ export const routes = {
     dynamicPath: '/mvp-app-development-company',
     slug: 'mvp-app-development-company',
   },
+  cloudDevelopment: {
+    title: 'Cloud app development services',
+    path: '/cloud-based-app-development-services',
+    dynamicPath: '/cloud-based-app-development-services',
+    slug: 'cloud-based-app-development-services',
+  },
   signatureGenerator: {
     title: 'Signature Generator',
     path: '/signature-generator',

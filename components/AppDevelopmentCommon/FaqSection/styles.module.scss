@@ -7,7 +7,8 @@
 .ios-mobile-app-development-services,
 .ui-ux-services,
 .android-mobile-app-development-services,
-.mvp-app-development-company {
+.mvp-app-development-company,
+.cloud-based-app-development-services {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
@@ -31,7 +32,8 @@
 .ios-mobile-app-development-services,
 .ui-ux-services,
 .android-mobile-app-development-services,
-.mvp-app-development-company {
+.mvp-app-development-company,
+.cloud-based-app-development-services {
   background-color: $white;
 
   & > div {
@@ -39,7 +41,8 @@
   }
 }
 
-.web-app-development-company {
+.web-app-development-company,
+.cloud-based-app-development-services {
   padding-bottom: 0;
 }
 

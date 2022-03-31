@@ -1,0 +1,76 @@
+.traveltrivia {
+  background: linear-gradient(51.28deg, #E66BCE 11.39%, #EB6B96 81.95%);
+  padding: 0 84px 0 130px;
+
+  @include macbook-fifteen {
+    padding: 0 100px;
+  }
+
+  @include macbook-twelve {
+    padding: 0 50px;
+  }
+
+  @include tablet {
+    padding: 36px 24px;
+  }
+
+  .logo {
+    border-radius: 8px;
+  }
+
+  .projectPreview {
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+
+    @include tablet {
+      justify-content: space-between;
+    }
+  }
+
+  .projectTitle,
+  .projectSubtitle,
+  .projectDescription {
+    color: $white;
+
+    @include tablet {
+      margin-bottom: 11px;
+    }
+  }
+
+  .projectTitle {
+    @include tablet {
+      font-size: 22px;
+    }
+  }
+
+  .projectInfoContainer {
+    flex: 1 1 40%;
+
+    @include tablet {
+      margin-bottom: 0;
+      flex-basis: auto;
+    }
+  }
+
+  .imageContainer {
+    flex: 1 1 auto;
+    position: relative;
+
+    @include tablet {
+      flex: 0 0 60%;
+    }
+
+    img {
+      @include centered;
+
+      height: auto;
+      max-width: 100%;
+
+      @include tablet {
+        width: auto;
+        max-height: 100%;
+      }
+    }
+  }
+}

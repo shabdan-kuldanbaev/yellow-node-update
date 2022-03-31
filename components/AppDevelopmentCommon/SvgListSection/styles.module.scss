@@ -120,11 +120,14 @@
   }
 
   .callToAction {
+    @include defaultCallToAction;
+
     & > h3 {
-      margin: 0;
+      margin-right: 15px;
+      text-align: left;
 
       @include phone {
-        margin-bottom: 32px;
+        text-align: center;
       }
     }
   }
@@ -272,6 +275,31 @@
 
           @include tablet {
             margin: 0 40px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cloud-based-app-development-services {
+  @extend .svgSection;
+
+  .svgListWrapper {
+    @extend .svgListWrapperSeveralRows;
+
+    .svgList {
+      @include tablet {
+        @include flex(row, flex-start, flex-end, nowrap);
+
+        overflow-x: scroll;
+
+        & > div {
+          flex-basis: auto;
+          margin: 0 40px 0 0;
+
+          &:last-child {
+            margin-right: 0;
           }
         }
       }

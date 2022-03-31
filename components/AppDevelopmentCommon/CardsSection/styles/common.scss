@@ -1,0 +1,238 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+
+  @include below-tablet {
+    grid-gap: 20px;
+    width: 100%;
+    grid-template-columns: auto;
+  }
+
+  & > div {
+    padding: 50px;
+    box-shadow: $card-bow-shadow;
+    border-radius: 5px;
+    max-width: 518px;
+    box-sizing: border-box;
+    background: $white;
+
+    @include below-tablet {
+      width: 100%;
+      max-width: unset;
+    }
+
+    .typeTitle {
+      line-height: 1.8;
+      font-weight: 700;
+      margin: 20px 0 10px;
+
+      @include fontSize(24px);
+
+      @include macbook-twelve {
+        @include fontSize(22px);
+      }
+
+      @include phone {
+        @include fontSize(18px);
+      }
+    }
+
+    p {
+      color: $silver-chalice;
+      line-height: 1.8;
+      margin: 0;
+
+      @include fontSize(18px);
+
+      @include phone {
+        @include fontSize(16px);
+      }
+    }
+
+    .imageWrapper {
+      @include flex(row, center, center);
+
+      --size: 90px;
+
+      flex: 0 0 auto;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background: rgba($turbo-100, 0.5);
+      margin-right: 16px;
+
+      @include phone {
+        --size: 60px;
+
+        svg {
+          transform: scale(0.7);
+        }
+      }
+    }
+  }
+}
+
+.smallCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+
+  @include below-tablet {
+    grid-gap: 20px;
+    width: 100%;
+    grid-template-columns: auto;
+  }
+
+  & > div {
+    padding: 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    @include flex();
+
+    @include below-tablet {
+      width: 100%;
+      max-width: unset;
+    }
+
+    .imageWrapper {
+      margin-right: 40px;
+
+      @include phone {
+        margin-right: 16px;
+      }
+
+      svg {
+        @include phone {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+
+    .cardContent {
+      .typeTitle {
+        line-height: 1.8;
+        font-weight: 700;
+        margin: 0 0 10px;
+
+        @include fontSize(24px);
+
+        @include macbook-twelve {
+          @include fontSize(22px);
+        }
+
+        @include phone {
+          @include fontSize(18px);
+        }
+      }
+
+      p {
+        color: $silver-chalice;
+        line-height: 1.8;
+        margin: 0;
+        max-width: 390px;
+
+        @include fontSize(18px);
+
+        @include below-tablet {
+          max-width: unset;
+        }
+
+        @include phone {
+          @include fontSize(16px);
+        }
+      }
+    }
+  }
+}
+
+.removeCardsShadow {
+  .cards,
+  .smallCards {
+    & > div {
+      box-shadow: none;
+      padding: 0;
+      background: none;
+    }
+  }
+}
+
+.cardsWithFullWidthImage {
+  .smallCards {
+    grid-gap: 160px 15vw;
+
+    & > div {
+      flex-direction: column;
+
+      .imageWrapper {
+        width: 100%;
+
+        & > div {
+          @include centeredBackgroundImage;
+
+          width: 100%;
+          padding-top: 85%;
+          background-size: contain;
+
+          @include tablet {
+            padding-top: 72%;
+          }
+        }
+      }
+
+      .cardContent {
+        .typeTitle {
+          margin: 24px 0 10px;
+
+          @include phone {
+            margin: 20px 0 10px;
+          }
+        }
+      }
+
+      @include below-tablet {
+        text-align: center;
+
+        .imageWrapper {
+          margin: auto;
+        }
+      }
+    }
+
+    @include below-tablet {
+      row-gap: 60px;
+    }
+  }
+}
+
+.chat-app-development-company,
+.mobile-app-development-company,
+.web-app-development-company,
+.ui-ux-services,
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services,
+.cloud-based-app-development-services,
+.mvp-app-development-company {
+  @include appDevelopmentContainer;
+
+  .contentWrapper {
+    @include smallSectionWrapper;
+  }
+
+  .callToAction {
+    @include defaultCallToAction;
+
+    margin-top: 150px;
+
+    @include tablet {
+      margin-top: 60px;
+      padding: 40px;
+    }
+
+    @include phone {
+      margin-top: 30px;
+    }
+  }
+}

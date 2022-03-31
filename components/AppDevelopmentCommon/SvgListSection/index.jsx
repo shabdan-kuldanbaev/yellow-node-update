@@ -22,7 +22,7 @@ const SvgListSection = ({
     link,
     view,
     animatedProps,
-    contentModules,
+    technologiesGroup,
   } = getSvgSectionProps(sectionData, isMobileResolution);
 
   return (
@@ -30,8 +30,9 @@ const SvgListSection = ({
       <SectionTitle
         title={title}
         description={description}
+        titleStyle={styles.titleStyle}
       />
-      {contentModules.map((group) => (
+      {technologiesGroup.map((group) => (
         <SvgGroup
           data={group}
           isMobileResolution={isMobileResolution}
