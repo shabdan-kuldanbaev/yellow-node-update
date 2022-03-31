@@ -18,10 +18,12 @@ export const getSvgSectionProps = (data, isMobileResolution) => {
     ],
   );
   const linkData = contentModules.find((modules) => modules.sys.contentType.sys.id === 'link');
+  const technologiesGroup = contentModules.filter((modules) => modules.sys.contentType.sys.id !== 'link');
+
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: isMobileResolution ? '0' : '2.82352941em',
-    opasityDuration: 1,
+    opacityDuration: 1,
     transformDuration: 1,
   };
 
@@ -45,7 +47,7 @@ export const getSvgSectionProps = (data, isMobileResolution) => {
     link,
     view,
     animatedProps,
-    contentModules,
+    technologiesGroup,
   };
 };
 

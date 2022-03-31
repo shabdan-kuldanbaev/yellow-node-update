@@ -22,10 +22,8 @@ const SvgListSection = ({
     link,
     view,
     animatedProps,
-    contentModules,
+    technologiesGroup,
   } = getSvgSectionProps(sectionData, isMobileResolution);
-
-  const technologiesGroup = contentModules.filter((modules) => modules.sys.contentType.sys.id !== 'link');
 
   return (
     <section className={cn(styles[type], styles[view])}>
