@@ -1,0 +1,41 @@
+@import "styles/utils/mixins";
+@import "../../utils/styles.module";
+@import "./chatAppDevelopment";
+@import "./mobileAppDevelopment";
+@import "./webAppDevelopment";
+@import "./iosMobileAppDevelopment";
+@import "./uiUxServices";
+@import "androidMobileAppDevelopment";
+@import "./mvpAppDevelopment";
+@import "cloudBasedAppDevelopment";
+@import "./common";
+
+.chat-app-development-company,
+.mobile-app-development-company,
+.web-app-development-company,
+.ui-ux-services,
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services,
+.cloud-based-app-development-services,
+.mvp-app-development-company {
+  @include appDevelopmentContainer;
+
+  .contentWrapper {
+    @include smallSectionWrapper;
+  }
+
+  .callToAction {
+    @include defaultCallToAction;
+
+    margin-top: 150px;
+
+    @include tablet {
+      margin-top: 60px;
+      padding: 40px;
+    }
+
+    @include phone {
+      margin-top: 30px;
+    }
+  }
+}

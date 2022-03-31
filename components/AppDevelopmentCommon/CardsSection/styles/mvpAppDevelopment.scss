@@ -1,0 +1,112 @@
+@import "../../utils/styles.module";
+
+.mvp-app-development-company {
+  &.firstSectionView {
+    @extend .removeCardsShadow;
+
+    .imageWrapper {
+      flex: 0 0 auto;
+      margin-right: 16px;
+    }
+
+    .cards > div {
+      @include tablet {
+        @include flex();
+      }
+    }
+
+    .typeTitle {
+      @include tablet {
+        margin: 0;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background: $alabaster;
+
+    .callToAction,
+    .cards > div {
+      background: $white;
+
+      h3 {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    padding-bottom: 0;
+
+    .imageWrapper {
+      width: 40px;
+      height: 40px;
+    }
+
+    .typeTitle {
+      margin: 0 0 0 25px;
+    }
+
+    .cards > div {
+      @include flex(row, start, center);
+
+      padding: 30px 40px;
+
+      .cardContent {
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    position: relative;
+    background: $white;
+
+    .contentWrapper {
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 160px 148px;
+
+        @include macbook-twelve {
+          grid-template-columns: 1fr;
+          grid-gap: 60px;
+        }
+      }
+    }
+
+    .callToAction {
+      background-color: $white;
+    }
+
+    .imagesBundle {
+      position: absolute;
+      right: 50%;
+      top: 99%;
+
+      &:nth-of-type(1) {
+        left: 99%;
+        top: 50%;
+
+        @include macbook-twelve {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(2) {
+        display: none;
+
+        @include macbook-twelve {
+          display: initial;
+        }
+      }
+    }
+
+    .cards > div:nth-of-type(3) {
+      .imagesBundle:nth-of-type(1) {
+        left: auto;
+        right: 49%;
+        top: 99%;
+      }
+    }
+  }
+}

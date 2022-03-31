@@ -1,0 +1,39 @@
+@import "../../utils/styles.module";
+
+.web-app-development-company {
+  .titleStyle {
+    p {
+      max-width: 745px;
+    }
+  }
+
+  &.firstSectionView {
+    background-color: $alabaster;
+  }
+
+  &.secondSectionView {
+    background-color: $cod-gray-1;
+
+    .titleStyle h2 {
+      color: $white;
+    }
+
+    .cards > div {
+      background-color: $white;
+    }
+  }
+
+  &.thirdSectionView {
+    padding-bottom: 0;
+
+    .contentWrapper {
+      @extend .threeColumnCards;
+    }
+  }
+
+  &.fourthSectionView {
+    .contentWrapper > div:last-child {
+      width: 100%;
+    }
+  }
+}

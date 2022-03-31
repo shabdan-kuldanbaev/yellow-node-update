@@ -1,0 +1,21 @@
+@import "../../utils/styles.module";
+
+.chat-app-development-company {
+  @include appDevelopmentContainer;
+
+  &.firstSectionView {
+    background-color: $alabaster;
+
+    .contentWrapper {
+      @extend .threeColumnCards;
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $alabaster;
+
+    .typeTitle {
+      max-width: 235px;
+    }
+  }
+}

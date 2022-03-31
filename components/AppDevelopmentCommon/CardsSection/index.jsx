@@ -9,7 +9,7 @@ import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { getCardsProps } from './utils/cardsHelper';
-import styles from './styles.module.scss';
+import styles from './styles/styles.module.scss';
 
 export const CardsSection = ({
   sectionData,
