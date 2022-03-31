@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Svg } from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { isTitleHasBackground } from 'components/CaseStudiesCommon/Intro/VerticalIntro/utils/introHelper';
-import styles from '../styles.module.scss';
+import styles from '../styles/styles.module.scss';
 
 export const TitleText = ({ type, data }) => {
   switch (type) {

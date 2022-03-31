@@ -1,0 +1,32 @@
+/* stylelint-disable no-descending-specificity */
+@import 'styles/utils/mixins';
+@import "separateUs";
+@import "tell";
+@import "ava";
+@import "sevenPm";
+@import "famlicious";
+@import "fairy";
+@import "stickerbox";
+@import "fernwayer";
+@import "fireaway";
+@import "cashchat";
+@import "traveltrivia";
+@import "meatEater";
+@import "bionorica";
+@import "fusionmarkets";
+@import "opensense";
+@import "beautonomy";
+@import "smartcenter";
+@import "natp";
+@import "common";
+
+.mobile-app-development-company,
+.ui-ux-services,
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services,
+.chat-app-development-company,
+.mvp-app-development-company,
+.web-app-development-company,
+.cloud-based-app-development-services {
+  @extend .container;
+}

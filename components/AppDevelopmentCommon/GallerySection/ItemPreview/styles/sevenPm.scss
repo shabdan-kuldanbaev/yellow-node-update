@@ -1,0 +1,83 @@
+@import 'styles/utils/mixins';
+
+.seven-pm {
+  background: $dark-blue-1;
+  position: relative;
+  padding: 0 130px;
+
+  @include macbook-fifteen {
+    padding: 0 100px;
+  }
+
+  @include macbook-twelve {
+    padding: 0 50px;
+  }
+
+  @include tablet {
+    padding: 36px 24px;
+  }
+
+  .logo {
+    border-radius: 8px;
+  }
+
+  .projectPreview {
+    width: 100%;
+    height: 100%;
+  }
+
+  .projectTitle,
+  .projectSubtitle {
+    color: $white;
+  }
+
+  .imageContainer {
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 50px;
+
+    @include tablet {
+      max-width: 250px;
+    }
+
+    &::before {
+      @include centered;
+
+      --size: 23vw;
+
+      content: '';
+      width: var(--size);
+      height: var(--size);
+      z-index: -1;
+      border-radius: 50%;
+      background-image: linear-gradient(159.7deg, #FF2A89 10.47%, #FF4934 98.88%);
+      box-shadow:
+        0 0 0 100px rgba(#FF2A89, 0.1),
+        0 0 0 200px rgba(#FF2A89, 0.05);
+
+      @include tablet {
+        --size: 40vw;
+      }
+
+      @include phone {
+        --size: 65vw;
+      }
+    }
+
+    .image {
+      max-width: 170%;
+
+      @include tablet {
+        transform: unset;
+      }
+    }
+  }
+
+  .imageBundle {
+    position: absolute;
+    left: 7%;
+    bottom: 7%;
+  }
+}

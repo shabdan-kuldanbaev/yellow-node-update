@@ -1,0 +1,40 @@
+@import 'styles/utils/mixins';
+
+.smartcenter {
+  @extend .verticalContainer;
+
+  background-image: linear-gradient(to bottom, $regent-gray 0%, $slate-gray3 100%);
+
+  .projectInfoContainer {
+    @include phone {
+      max-width: 90%;
+    }
+
+    .projectTitle {
+      color: $white;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.7);
+    }
+  }
+
+  .imageContainer {
+    width: 100%;
+    max-width: 679px;
+
+    @include macbook-fifteen {
+      max-width: 490px;
+    }
+
+    @include phone {
+      max-width: 80vw;
+    }
+
+    .image {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import 'styles/utils/mixins';
+
+.fireaway {
+  padding: 0 120px;
+  background-color: $cornflower-blue;
+
+  @include macbook-fifteen {
+    padding: 0 100px;
+  }
+
+  .projectInfoContainer {
+    color: $white;
+    min-width: 30%;
+  }
+
+  .imageContainer {
+    z-index: 1;
+    max-width: 500px;
+    width: 100%;
+
+    @include tablet {
+      height: 100%;
+      max-width: 350px;
+    }
+
+    .image {
+      transform: translate(10%, 0);
+      max-width: 170%;
+
+      @include tablet {
+        transform: unset;
+        max-width: 100%;
+      }
+
+      @include phone {
+        max-width: 200%;
+      }
+    }
+  }
+}
