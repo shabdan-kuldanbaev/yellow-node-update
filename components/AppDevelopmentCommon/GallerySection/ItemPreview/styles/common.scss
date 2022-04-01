@@ -59,6 +59,12 @@
   }
 }
 
+.image {
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .verticalContainer {
   .projectPreview {
     @include flex(column, center, center);
@@ -131,12 +137,6 @@
 
   @include phone {
     max-width: 450px;
-  }
-
-  .image {
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 100%;
   }
 }
 
