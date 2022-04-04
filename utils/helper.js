@@ -213,9 +213,9 @@ export const getFeedbackFormData = (data) => {
 
 export const isNumeric = (value) => !isNaN(value);
 
-export const getPathWithCdn = (path) => (`${path}`);
+// export const getPathWithCdn = (path) => (`${path}`);
 // TODO: Uncomment when cdn will be fixed
-// export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
+export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
   isObject(value)
