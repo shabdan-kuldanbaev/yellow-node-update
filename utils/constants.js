@@ -47,6 +47,7 @@ export const NAV_LINKS = [
     routes.androidDevelopmentServices.slug,
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
+    routes.mlDevelopment.slug,
     routes.signatureGenerator.slug,
   ].includes(slug)),
 ];

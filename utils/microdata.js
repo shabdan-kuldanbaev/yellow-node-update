@@ -154,6 +154,13 @@ export const microdata = {
     description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
     breadcrumb: 'Homepage > Cloud app development services',
   }),
+  mlDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Machine Learning App Development Company | Yellow',
+    description: 'If you want to boost your business with a machine learning solution, Yellow is here to back you up',
+    breadcrumb: 'Homepage > Machine Learning Development Services',
+  }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',

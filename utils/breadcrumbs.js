@@ -108,4 +108,10 @@ export const pagesBreadcrumbs = {
       to: ROUTES.cloudDevelopment.path,
     },
   ]),
+  mlDevelopment: () => ([
+    {
+      title: ROUTES.mlDevelopment.title,
+      to: ROUTES.mlDevelopment.path,
+    },
+  ]),
 };
