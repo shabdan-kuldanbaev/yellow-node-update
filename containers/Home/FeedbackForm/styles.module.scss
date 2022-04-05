@@ -86,7 +86,8 @@
 }
 
 .seven-pm-thursday,
-.fusion-markets {
+.fusion-markets,
+.blackbird {
   @extend .formContainer;
 
   background-color: $dark-blue-1;
@@ -143,6 +144,17 @@
 .fusion-markets {
   padding: 40px 0;
   background: $eerie-black;
+}
+
+.blackbird {
+  padding: 120px 0;
+  margin-top: 140px;
+  background: $chinese-black;
+
+  @include phone {
+    padding: 0;
+    margin-top: 0;
+  }
 }
 
 .open-sense {
