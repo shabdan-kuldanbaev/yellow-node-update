@@ -306,3 +306,13 @@
     }
   }
 }
+
+.machine-learning-development-services {
+  @extend .svgSection;
+
+  background: $alabaster;
+
+  .svgListWrapper {
+    @extend .svgListWrapperOneRow;
+  }
+}

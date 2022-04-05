@@ -33,10 +33,28 @@ import { ReactComponent as MagnifyingGlassEye } from './svgs/magnifyingGlassEye.
 import { ReactComponent as MobileDevelopment } from './svgs/mobileDevelopment.svg';
 import { ReactComponent as TreeStructure } from './svgs/treeStructure.svg';
 import { ReactComponent as TargetAudience } from './svgs/targetAudience.svg';
+import { ReactComponent as TitledAwsMachineLearning } from './svgs/titledAwsMachineLearning.svg';
+import { ReactComponent as TitledKeras } from './svgs/titledKeras.svg';
+import { ReactComponent as TitledPython } from './svgs/titledPython.svg';
+import { ReactComponent as TitledScala } from './svgs/titledScala.svg';
+import { ReactComponent as TitledTensorFlow } from './svgs/titledTensorFlow.svg';
+import { ReactComponent as TitledPyTorch } from './svgs/titledPyTorch.svg';
 
 // TODO rewrite it
 export const Svg = ({ type }) => {
   switch (type) {
+  case APP_DEVELOPMENT_ICONS.titledAwsMachineLearning:
+    return <TitledAwsMachineLearning />;
+  case APP_DEVELOPMENT_ICONS.titledKeras:
+    return <TitledKeras />;
+  case APP_DEVELOPMENT_ICONS.titledPython:
+    return <TitledPython />;
+  case APP_DEVELOPMENT_ICONS.titledPyTorch:
+    return <TitledPyTorch />;
+  case APP_DEVELOPMENT_ICONS.titledScala:
+    return <TitledScala />;
+  case APP_DEVELOPMENT_ICONS.titledTensorFlow:
+    return <TitledTensorFlow />;
   case APP_DEVELOPMENT_ICONS.targetAudience:
     return <TargetAudience />;
   case APP_DEVELOPMENT_ICONS.conversation:

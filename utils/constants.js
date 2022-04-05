@@ -327,6 +327,12 @@ export const APP_DEVELOPMENT_ICONS = {
   uxDesign2: 'uxDesign2',
   headset: 'headset',
   targetAudience: 'targetAudience',
+  titledAwsMachineLearning: 'titledAwsMachineLearning',
+  titledKeras: 'titledKeras',
+  titledPython: 'titledPython',
+  titledPyTorch: 'titledPyTorch',
+  titledScala: 'titledScala',
+  titledTensorFlow: 'titledTensorFlow',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
