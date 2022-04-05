@@ -547,6 +547,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
+  [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
 };
 
 // eslint-disable-next-line
