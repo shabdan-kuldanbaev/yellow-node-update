@@ -27,10 +27,28 @@ import { ReactComponent as TitledRds } from './svgs/titledRds.svg';
 import { ReactComponent as TitledS3 } from './svgs/titledS3.svg';
 import { ReactComponent as TitledAws } from './svgs/titledAws.svg';
 import { ReactComponent as Headset } from './svgs/headset.svg';
+import { ReactComponent as Clipboard } from './svgs/clipboard.svg';
+import { ReactComponent as Conversation } from './svgs/conversation.svg';
+import { ReactComponent as MagnifyingGlassEye } from './svgs/magnifyingGlassEye.svg';
+import { ReactComponent as MobileDevelopment } from './svgs/mobileDevelopment.svg';
+import { ReactComponent as TreeStructure } from './svgs/treeStructure.svg';
+import { ReactComponent as TargetAudience } from './svgs/targetAudience.svg';
 
 // TODO rewrite it
 export const Svg = ({ type }) => {
   switch (type) {
+  case APP_DEVELOPMENT_ICONS.targetAudience:
+    return <TargetAudience />;
+  case APP_DEVELOPMENT_ICONS.conversation:
+    return <Conversation />;
+  case APP_DEVELOPMENT_ICONS.magnifyingGlassEye:
+    return <MagnifyingGlassEye />;
+  case APP_DEVELOPMENT_ICONS.mobileDevelopment:
+    return <MobileDevelopment />;
+  case APP_DEVELOPMENT_ICONS.treeStructure:
+    return <TreeStructure />;
+  case APP_DEVELOPMENT_ICONS.clipboard:
+    return <Clipboard />;
   case APP_DEVELOPMENT_ICONS.headset:
     return <Headset />;
   case APP_DEVELOPMENT_ICONS.titledAngular:

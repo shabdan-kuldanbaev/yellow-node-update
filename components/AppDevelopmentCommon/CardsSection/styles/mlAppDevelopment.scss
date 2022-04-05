@@ -1,0 +1,9 @@
+.machine-learning-development-services {
+  &.firstSectionView {
+    background: $alabaster;
+  }
+
+  &.secondSectionView {
+    @extend .removeCardsShadow;
+  }
+}

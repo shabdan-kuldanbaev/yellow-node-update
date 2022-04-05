@@ -238,6 +238,11 @@ export const APP_DEVELOPMENT_ICONS = {
   productHunt: 'productHunt',
   esquire: 'esquire',
   theWeek: 'theWeek',
+  clipboard: 'clipboard',
+  treeStructure: 'treeStructure',
+  magnifyingGlassEye: 'magnifyingGlassEye',
+  conversation: 'conversation',
+  mobileDevelopment: 'mobileDevelopment',
 
   // chat app page, types of chat section
   communication: 'communication',
@@ -321,6 +326,7 @@ export const APP_DEVELOPMENT_ICONS = {
   collaboration: 'collaboration',
   uxDesign2: 'uxDesign2',
   headset: 'headset',
+  targetAudience: 'targetAudience',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
