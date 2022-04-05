@@ -522,6 +522,11 @@ export const SUB_NAVIGATION_LINKS = {
       subtitle: 'No physical space is occupied',
       slug: ROUTES.cloudDevelopment.path,
     },
+    {
+      title: 'Machine learning development services',
+      subtitle: 'Artificial intelligence at your service',
+      slug: ROUTES.mlDevelopment.path,
+    },
   ],
 };
 

@@ -6,4 +6,31 @@
   &.secondSectionView {
     @extend .removeCardsShadow;
   }
+
+  &.thirdSectionView {
+    .imageWrapper {
+      display: none;
+    }
+
+    .cards > div {
+      padding: 30px 30px 30px 48px;
+    }
+
+    .cardContent {
+      position: relative;
+
+      &::before {
+        content: '';
+        background: $turbo-100;
+        height: 100%;
+        width: 2px;
+        position: absolute;
+        left: -16px;
+      }
+    }
+
+    .typeTitle {
+      margin-top: 0;
+    }
+  }
 }
