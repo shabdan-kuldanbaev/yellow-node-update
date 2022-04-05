@@ -198,7 +198,8 @@
 .beautonomy,
 .meateater,
 .separate-us,
-.fusion-markets {
+.fusion-markets,
+.blackbird {
   @extend .imagesContainer;
 
   .animatedContainer {
@@ -298,5 +299,23 @@
 
   &::after {
     background: linear-gradient(270deg, $dark-blue 0%, rgba($dark-blue, 0) 100%);
+  }
+}
+
+.blackbird {
+  .animatedContainer {
+    margin-bottom: 150px;
+
+    @include phone {
+      margin-bottom: 40px;
+    }
+  }
+
+  &::before {
+    background: none;
+  }
+
+  &::after {
+    background: none;
   }
 }

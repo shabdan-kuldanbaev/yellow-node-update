@@ -371,3 +371,53 @@
     }
   }
 }
+
+.blackbird {
+  @extend .imagContainer;
+
+  &.secondSectionView {
+    .image:first-child {
+      display: block;
+      max-width: 1076px;
+      width: 100%;
+      margin: 0 auto;
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    .image:last-child {
+      display: none;
+      width: 100%;
+      margin: 0 auto;
+
+      @include phone {
+        display: block;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .image:first-child {
+      display: block;
+      max-width: 1076px;
+      width: 100%;
+      margin: 0 auto;
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    .image:last-child {
+      display: none;
+      width: 100%;
+      margin: 0 auto;
+
+      @include phone {
+        display: block;
+      }
+    }
+  }
+}

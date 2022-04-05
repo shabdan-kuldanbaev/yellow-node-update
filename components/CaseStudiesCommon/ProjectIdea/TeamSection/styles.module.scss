@@ -123,6 +123,31 @@
   }
 }
 
+.blackbird {
+  @extend .container;
+
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 180px;
+  width: 100%;
+  max-width: initial;
+  bottom: 0;
+  justify-content: center;
+
+  .title {
+    grid-row: 1/4;
+
+    @include phone {
+      @include fontSize(32px);
+    }
+  }
+
+  .teamItem {
+    @include phone {
+      @include fontSize(18px);
+    }
+  }
+}
+
 .beautonomy,
 .travel-trivia {
   @extend .container;

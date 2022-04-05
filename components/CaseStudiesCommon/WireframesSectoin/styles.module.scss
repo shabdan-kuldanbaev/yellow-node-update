@@ -159,3 +159,24 @@
 
   background-color: $eerie-black;
 }
+
+.blackbird {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  padding: 0;
+  background: $chinese-black;
+
+  [data-case-study-title] {
+    margin-top: 150px;
+    color: $white;
+
+    @include phone {
+      margin-top: 40px;
+    }
+  }
+
+  [data-case-study-description] {
+    max-width: 576px;
+  }
+}

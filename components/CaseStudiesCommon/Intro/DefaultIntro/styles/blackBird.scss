@@ -1,0 +1,76 @@
+.blackbird {
+  @extend .container;
+
+  background: $chinese-black;
+  height: unset;
+
+  .imageContainer {
+    @include tablet {
+      width: 100%;
+      height: unset;
+    }
+
+    .image {
+      max-width: 400px;
+      transform: translate(-38%, -45%);
+
+      @include tablet {
+        position: relative;
+        width: 100%;
+        height: unset;
+        transform: unset;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1178px;
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 295px;
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    @include phone {
+      margin-bottom: 0;
+    }
+
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectSubtitle {
+      width: 372px;
+      color: $white;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      max-width: 300px;
+      color: rgba($white, 0.4);
+    }
+  }
+
+  .introSection {
+    max-width: 1076px;
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
+    }
+  }
+}
