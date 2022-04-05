@@ -67,7 +67,7 @@ const ProcessSection = ({ sectionData, pageType }) => {
                   relations={relations}
                 >
                   <div className={styles.cardContainer}>
-                    <div className={styles.svgWrapper}>
+                    <div className={styles.imageWrapper}>
                       <Svg type={svgType} />
                     </div>
                     <div className={styles.cardContent}>

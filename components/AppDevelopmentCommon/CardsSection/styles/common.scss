@@ -1,4 +1,6 @@
 .cards {
+  @include iconsWithinCircle;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 40px;
@@ -47,27 +49,6 @@
 
       @include phone {
         @include fontSize(16px);
-      }
-    }
-
-    .imageWrapper {
-      @include flex(row, center, center);
-
-      --size: 90px;
-
-      flex: 0 0 auto;
-      width: var(--size);
-      height: var(--size);
-      border-radius: 50%;
-      background: rgba($turbo-100, 0.5);
-      margin-right: 16px;
-
-      @include phone {
-        --size: 60px;
-
-        svg {
-          transform: scale(0.7);
-        }
       }
     }
   }

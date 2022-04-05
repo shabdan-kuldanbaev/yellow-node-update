@@ -390,6 +390,30 @@
   background-position: center;
 }
 
+@mixin iconsWithinCircle($col: $turbo-100, $defaultSize: 90px, $smallerSize: 60px) {
+  .imageWrapper {
+    @include flex(row, center, center);
+
+    --size: $defaultSize;
+
+    flex: 0 0 auto;
+    width: $defaultSize;
+    height: $defaultSize;
+    border-radius: 50%;
+    background: rgba($col, 0.5);
+    margin-right: 16px;
+
+    @include phone {
+      width: $smallerSize;
+      height: $smallerSize;
+
+      svg {
+        transform: scale(0.7);
+      }
+    }
+  }
+}
+
 @font-face {
   font-family: 'Sonny Gothic Condensed Ultra Black';
   font-display: swap;

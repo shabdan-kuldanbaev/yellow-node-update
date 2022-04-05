@@ -19,6 +19,7 @@
     border-radius: 5px;
     max-width: 518px;
     box-sizing: border-box;
+    background: $white;
 
     @include below-tablet {
       width: 100%;
@@ -53,7 +54,7 @@
       }
     }
 
-    .svgWrapper {
+    .imageWrapper {
       svg {
         @include phone {
           width: 48px;
@@ -70,8 +71,10 @@
   }
 }
 
-.ui-ux-services {
+.ui-ux-services,
+.machine-learning-development-services {
   @include appDevelopmentContainer;
+  @include iconsWithinCircle;
 
   background-color: $alabaster;
 
