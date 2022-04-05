@@ -470,6 +470,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.androidDevelopmentServices.path,
   ROUTES.mvpDevelopment.path,
   ROUTES.cloudDevelopment.path,
+  ROUTES.mlDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
