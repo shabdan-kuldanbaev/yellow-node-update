@@ -5,14 +5,26 @@
 .svgSection {
   @include appDevelopmentContainer;
 
+  h3 {
+    @include fontSize(32px);
+
+    text-align: center;
+
+    @include tablet {
+      @include fontSize(24px);
+    }
+  }
+
   .svgListWrapper {
     margin: 0 auto;
     max-width: 1076px;
 
     .svgList {
-      @include flex(row, space-between, center, wrap);
+      @include flex(row, space-between, flex-end, wrap);
 
       & > div {
+        @include flex(row, center, flex-end);
+
         flex: 1 0 20%;
         text-align: center;
         margin-top: 80px;
@@ -39,7 +51,7 @@
   max-width: 855px;
 
   .svgList {
-    @include flex(row, center, center, wrap);
+    @include flex(row, center, flex-end, wrap);
 
     & > div {
       flex: 0 0 25%;
@@ -65,7 +77,7 @@
   .svgList {
     overflow-x: scroll;
 
-    @include flex(row, space-between, center, nowrap);
+    @include flex(row, space-between, flex-end, nowrap);
 
     & > div {
       flex: unset;
@@ -108,11 +120,14 @@
   }
 
   .callToAction {
+    @include defaultCallToAction;
+
     & > h3 {
-      margin: 0;
+      margin-right: 15px;
+      text-align: left;
 
       @include phone {
-        margin-bottom: 32px;
+        text-align: center;
       }
     }
   }
@@ -208,16 +223,85 @@
         @include tablet {
           width: 50%;
           margin: 85px 0 0;
-
-          &:nth-of-type(1),
-          &:nth-of-type(2) {
-            margin-top: 5px;
-          }
         }
       }
 
       @include tablet {
         flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+.mvp-app-development-company {
+  @extend .svgSection;
+
+  .svgListWrapper {
+    @extend .svgListWrapperOneRow;
+
+    .svgList {
+      @include tablet {
+        justify-content: flex-start;
+      }
+
+      & > div {
+        margin: 20px 80px 0 0;
+
+        @include tablet {
+          margin: 0 40px 0 0;
+        }
+
+        & > svg {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:nth-of-type(4) {
+      @extend .svgListWrapperSeveralRows;
+
+      .svgList {
+        margin-right: -60px;
+
+        @include tablet {
+          @include flex(row, flex-start, flex-end, nowrap);
+
+          margin-right: 0;
+        }
+
+        & > div {
+          flex-basis: auto;
+          margin: 20px 80px 0 0;
+
+          @include tablet {
+            margin: 0 40px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cloud-based-app-development-services {
+  @extend .svgSection;
+
+  .svgListWrapper {
+    @extend .svgListWrapperSeveralRows;
+
+    .svgList {
+      @include tablet {
+        @include flex(row, flex-start, flex-end, nowrap);
+
+        overflow-x: scroll;
+
+        & > div {
+          flex-basis: auto;
+          margin: 0 40px 0 0;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
       }
     }
   }

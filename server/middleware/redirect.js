@@ -36,7 +36,7 @@ const wwwRedirect = (req, res, next) => {
 };
 
 const customDomainRedirect = (req, res, next) => {
-  if (req.hostname.includes('yellow-systems-nextjs-prod')) {
+  if (req.hostname.includes('yellow-systems-nextjs-prod') && req.headers['user-agent'] !== 'Amazon CloudFront') {
     res.redirect(301, `https://${process.env.CUSTOM_DOMAIN}${req.url}`);
   } else {
     next();

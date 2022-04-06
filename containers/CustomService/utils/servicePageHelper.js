@@ -4,6 +4,11 @@ import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 
 export const getServicePageInfo = (pathname) => {
   switch (pathname) {
+  case PAGES.cloudDevelopment:
+    return {
+      pageMicrodata: microdata.cloudDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.cloudDevelopment(),
+    };
   case PAGES.androidDevelopmentServices:
     return {
       pageMicrodata: microdata.customAndroidApp(),
@@ -38,6 +43,12 @@ export const getServicePageInfo = (pathname) => {
     return {
       pageMicrodata: microdata.designServices(),
       breadcrumbs: pagesBreadcrumbs.designServices(),
+    };
+
+  case PAGES.mvpDevelopment:
+    return {
+      pageMicrodata: microdata.mvpDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.mvpDevelopment(),
     };
 
   default:

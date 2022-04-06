@@ -1,0 +1,16 @@
+.ui-ux-services {
+  .titleStyle {
+    h2 {
+      max-width: 855px;
+    }
+
+    p {
+      max-width: 800px;
+      width: unset;
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $alabaster;
+  }
+}

@@ -1,0 +1,83 @@
+.stickerbox {
+  padding: 0 100px;
+  background: linear-gradient(180deg, #26282D 0%, #181A1D 100%);
+
+  @include tablet {
+    padding: 0 24px;
+  }
+
+  .projectInfoContainer {
+    max-width: 505px;
+    height: max-content;
+    color: $white;
+
+    @include tablet {
+      max-width: unset;
+      margin-bottom: 0;
+    }
+
+    .projectTitle {
+      @include fontSize(58px);
+
+      margin-bottom: 15px;
+
+      @include tablet {
+        @include fontSize(45px);
+
+        margin-bottom: 6px;
+      }
+
+      @include phone {
+        @include fontSize(35px);
+      }
+    }
+
+    .projectSubtitle,
+    .projectDescription {
+      max-width: 300px;
+
+      @include tablet {
+        margin: 0 auto;
+      }
+
+      @include phone {
+        @include fontSize(14px);
+      }
+    }
+
+    .projectDescription {
+      color: $grey-chateau;
+      margin-top: 6px;
+
+      @include fontSize(13px);
+    }
+  }
+
+  .imageContainer {
+    z-index: 1;
+    max-width: 450px;
+
+    @include tablet {
+      height: 100%;
+      max-width: 250px;
+    }
+
+    .image {
+      transform: translate(10%, 0);
+      max-width: 170%;
+
+      @include tablet {
+        transform: unset;
+        max-width: 100%;
+      }
+
+      @include phone {
+        max-width: 150%;
+      }
+    }
+  }
+
+  .projectPreview {
+    width: 100%;
+  }
+}

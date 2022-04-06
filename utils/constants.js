@@ -45,6 +45,8 @@ export const NAV_LINKS = [
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
+    routes.cloudDevelopment.slug,
+    routes.mvpDevelopment.slug,
     routes.signatureGenerator.slug,
   ].includes(slug)),
 ];
@@ -71,7 +73,7 @@ export const ANIMATED_TYPE = {
   isCSS: 'isCSS',
 };
 
-export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
+export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
   acc[slug] = title;
 
   return acc;
@@ -207,6 +209,19 @@ export const APP_DEVELOPMENT_ICONS = {
   titledDocker: 'titledDocker',
   titledSqlLite: 'titledSqlLite',
   titledGradle: 'titledGradle',
+  titledSwiftUI: 'titledSwiftUI',
+  titledReactiveSwift: 'titledReactiveSwift',
+  titledUIKit: 'titledUIKit',
+  titledSQLite: 'titledSQLite',
+  titledAwsLambda: 'titledAwsLambda',
+  titledAws: 'titledAws',
+  titledAngular: 'titledAngular',
+  titledDynamoDB: 'titledDynamoDB',
+  titledHtml: 'titledHtml',
+  titledJavaScript: 'titledJavaScript',
+  titledNode: 'titledNode',
+  titledRds: 'titledRds',
+  titledS3: 'titledS3',
   twilio: 'twilio',
   pubnub: 'pubnub',
   react: 'react',
@@ -251,7 +266,6 @@ export const APP_DEVELOPMENT_ICONS = {
   titledReact: 'titledReact',
   titledVue: 'titledVue',
   titledNest: 'titledNest',
-  titledAws: 'titledAws',
   titledExpress: 'titledExpress',
   titledNuxt: 'titledNuxt',
   // web app page, why choose yellow
@@ -289,8 +303,23 @@ export const APP_DEVELOPMENT_ICONS = {
   businessBeforeTechnology: 'businessBeforeTechnology',
   creatingOwnApps: 'creatingOwnApps',
   dataProtection: 'dataProtection',
+  businessAnalysis: 'businessAnalysis',
+  validation: 'validation',
+  profits: 'profits',
+  trophy: 'trophy',
+  laptop: 'laptop',
   // common
   arrow: 'arrow',
+  lightBulb: 'lightBulb',
+  developmentGear: 'developmentGear',
+  codeDesktop: 'codeDesktop',
+  desktopTower: 'desktopTower',
+  migration: 'migration',
+  cloud: 'cloud',
+  cloudNetwork: 'cloudNetwork',
+  collaboration: 'collaboration',
+  uxDesign2: 'uxDesign2',
+  headset: 'headset',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -440,6 +469,8 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.customWebApp.path,
   ROUTES.developmentServices.path,
   ROUTES.androidDevelopmentServices.path,
+  ROUTES.mvpDevelopment.path,
+  ROUTES.cloudDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -469,6 +500,16 @@ export const SUB_NAVIGATION_LINKS = {
       subtitle: 'Beautiful, smart, efficient, logical',
       slug: ROUTES.designServices.path,
     },
+    {
+      title: 'MVP development services',
+      subtitle: 'Minimum viable product for your idea',
+      slug: ROUTES.mvpDevelopment.path,
+    },
+    {
+      title: 'Cloud app development services',
+      subtitle: 'No physical space is occupied',
+      slug: ROUTES.cloudDevelopment.path,
+    },
   ],
 };
 
@@ -492,6 +533,8 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.designServices]: 'Yellow is ready to give you a hand with UX/UI design',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
+  [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.cloudDevelopment]: 'The sky\'s the limit',
 };
 
 // eslint-disable-next-line

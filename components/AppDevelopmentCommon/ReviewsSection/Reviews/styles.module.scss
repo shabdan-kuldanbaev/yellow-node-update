@@ -29,7 +29,6 @@
 
     @include phone {
       display: block;
-      width: 100vw;
     }
 
     :global(.swiper-container) {

@@ -1,0 +1,32 @@
+.separateUs {
+  @extend .verticalContainer;
+
+  background-color: $alabaster;
+
+  .projectTitle {
+    color: $mercury-1;
+
+    .pinkText {
+      color: $brink-pink;
+    }
+  }
+
+  .projectSubtitle {
+    color: rgba($dark-grey, 0.7);
+  }
+
+  .imageContainer {
+    .image {
+      max-height: 300px;
+
+      @include tablet {
+        max-height: initial;
+        max-width: 450px;
+      }
+
+      @include phone {
+        max-width: 80vw;
+      }
+    }
+  }
+}
