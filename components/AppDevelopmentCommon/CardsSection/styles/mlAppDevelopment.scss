@@ -5,6 +5,18 @@
 
   &.secondSectionView {
     @extend .removeCardsShadow;
+
+    .cards > div {
+      @include tablet {
+        @include flex;
+      }
+    }
+
+    .typeTitle {
+      @include tablet {
+        margin-top: 0;
+      }
+    }
   }
 
   &.thirdSectionView {
