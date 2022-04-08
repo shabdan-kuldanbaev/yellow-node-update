@@ -23,7 +23,7 @@
     @include centered;
 
     @include phone {
-      width: 240px;
+      width: 238px;
       filter: $shadow-filter-phone;
     }
   }
@@ -671,7 +671,7 @@
 
   .appImage {
     filter: unset;
-    width: 356px;
+    width: 358px;
     border-radius: 40px;
 
     @include phone {
