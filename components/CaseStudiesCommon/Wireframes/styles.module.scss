@@ -311,10 +311,7 @@
     }
   }
 
-  &::before {
-    background: none;
-  }
-
+  &::before,
   &::after {
     background: none;
   }
