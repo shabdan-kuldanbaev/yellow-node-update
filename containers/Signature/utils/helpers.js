@@ -13,7 +13,6 @@ export const getSignatureProps = (props) => {
     ],
   );
   const {
-    text: content,
     title: signatureGeneratedTitle,
     contentList: titledList,
     images,
@@ -22,17 +21,9 @@ export const getSignatureProps = (props) => {
     [
       'title',
       'contentList',
-      'text',
       'images',
     ],
   );
-  const bottomText = get(content, [
-    'content',
-    '0',
-    'content',
-    '0',
-    'value',
-  ], '');
   const yellowUrl = getFileUrl(images[0]);
   const telegramUrl = getFileUrl(images[1]);
 
@@ -43,7 +34,6 @@ export const getSignatureProps = (props) => {
     titledList,
     yellowUrl,
     telegramUrl,
-    bottomText,
   };
 };
 
