@@ -12,7 +12,6 @@ const SignatureGenerated = ({
   yellowUrl,
   formRef,
   telegramUrl,
-  bottomText,
 }) => {
   const {
     employee,
@@ -117,17 +116,6 @@ const SignatureGenerated = ({
               </tr>
             </tbody>
           </table>
-          <hr />
-          <br />
-          <table className={styles.signatureBottomContainer}>
-            <tbody>
-              <tr>
-                <td className={styles.signatureBottom}>
-                  {bottomText}
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
       <button
@@ -147,7 +135,6 @@ SignatureGenerated.propTypes = {
   formRef: PropTypes.instanceOf(Object).isRequired,
   yellowUrl: PropTypes.string.isRequired,
   telegramUrl: PropTypes.string.isRequired,
-  bottomText: PropTypes.string.isRequired,
 };
 
 export default SignatureGenerated;

@@ -12,25 +12,15 @@
   transition-timing-function: linear;
   min-height: 100vh;
 
-  @include flex(row, space-evenly, center);
+  @include flex(row-reverse, space-evenly, center);
 
-  &:nth-child(2n) {
-    flex-direction: row-reverse;
+  &:nth-child(even) {
+    flex-direction: row;
 
     .parallax {
       div {
-        @include quad-hd {
-          justify-content: flex-start;
-          margin-left: 0.6vw;
-        }
-
         @include below-tablet {
-          justify-content: center;
-        }
-
-        @include small-phone {
-          justify-content: flex-start;
-          margin-left: -6.5vw;
+          justify-content: flex-end;
         }
       }
     }
@@ -42,41 +32,14 @@
     padding: 100px 0;
   }
 
-  @include below-tablet-horizontal {
-    @include flex(row, center, center);
-  }
-
   @include below-tablet {
     height: auto;
+    padding: 50px 0;
 
-    @include flex(column, space-evenly, center);
+    @include flex(column-reverse, space-evenly, center);
 
-    &:nth-child(1n) {
+    &:nth-child(even) {
       flex-direction: column-reverse;
-    }
-  }
-
-  @include horizontal-big-mobile {
-    @include flex(row, center, center);
-
-    &:nth-child(1n) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
-    }
-  }
-
-  @include horizontal-iphone-x {
-    @include flex(row, center, center);
-
-    &:nth-child(1n) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
     }
   }
 
@@ -87,10 +50,6 @@
     margin-left: 20px;
 
     @include flex(column-reverse, center, center);
-
-    &:nth-child(1n) {
-      flex-direction: column-reverse;
-    }
   }
 
   @include horizontal-mobile {
@@ -98,11 +57,7 @@
 
     @include flex(row, center, center);
 
-    &:nth-child(1n) {
-      flex-direction: row;
-    }
-
-    &:nth-child(2n) {
+    &:nth-child(odd) {
       flex-direction: row-reverse;
     }
   }
@@ -235,18 +190,27 @@
     }
   }
 
+  & + .work {
+    @include below-tablet {
+      margin-top: -150px;
+    }
+  }
+
   .parallax {
     width: 50%;
     height: 100%;
     max-height: 100%;
     margin: 0;
 
-    @include below-tablet-horizontal {
-      width: 50%;
+    @include below-tablet {
+      width: 100%;
+      height: 60vh;
+      padding: 150px 0 0;
     }
 
     @include phone {
       width: 100%;
+      margin: 0 -20px;
     }
 
     @include horizontal-mobile {
@@ -257,7 +221,6 @@
       max-width: 95vw;
       max-height: 100vh;
       width: 95vw;
-      height: max-content;
     }
 
     @include small-phone {
@@ -269,23 +232,14 @@
     div {
       vertical-align: middle;
 
-      @include flex(row, center, center);
+      @include flex(row, flex-start, center);
 
       height: 48.4375vw;
 
-      @include small-phone {
-        width: 50%;
-      }
-
-      @include phone {
-        max-width: 95vw;
-        max-height: 100vh;
-        width: 95vw;
-        height: 180vw;
-      }
-
-      @include small-phone {
-        width: 40%;
+      @include below-tablet {
+        justify-content: stretch;
+        height: 80%;
+        width: auto;
       }
 
       .imgWrapper {
@@ -324,13 +278,15 @@
 
         img {
           max-width: 100%;
+          max-height: 100%;
           height: 48.4375vw;
           z-index: 10;
 
-          @include phone {
+          @include below-tablet {
             max-width: 100vw;
             max-height: 100vh;
-            height: 90%;
+            height: unset;
+            width: 95vw;
             transform: translateX(-9.5vw) scale(1.2);
           }
 
@@ -343,21 +299,23 @@
       .firstShadow {
         @extend .imgWrapper;
 
-        transform: translateX(-3vw);
+        transform: translateX(-5vw);
 
-        @include phone {
-          transform: translateX(-4vw);
+        @include below-tablet {
+          height: 60vh;
+          transform: translateY(-7vh);
         }
 
         img {
           width: 110%;
-          height: auto;
           max-width: 110%;
           z-index: 10;
 
-          @include phone {
+          @include below-tablet {
             max-width: 100vw;
             max-height: 100vh;
+            height: unset;
+            width: 95vw;
             transform: translateX(0);
           }
 
@@ -376,20 +334,18 @@
           transform: translateX(4.2vw);
         }
 
-        @include phone {
+        @include below-tablet {
+          height: 60vh;
           transform: translateX(0);
         }
 
         img {
-          @include phone {
+          max-width: unset;
+
+          @include below-tablet {
             max-width: 100vw;
             max-height: 100vh;
-            height: 90%;
-            transform: translateX(-11vw) scale(1.2);
-          }
-
-          @include small-phone {
-            transform: translateX(0) scale(1);
+            transform: none;
           }
         }
 
@@ -418,15 +374,14 @@
         @extend .imgWrapper;
 
         img {
-          @include phone {
-            max-width: 100vw;
-            max-height: 100vh;
-            height: 90%;
-            transform: translateX(-9.5vw) scale(1.2);
-          }
+          max-width: unset;
+          height: 35vw;
 
-          @include small-phone {
-            transform: translateX(0) scale(1);
+          @include below-tablet {
+            max-width: 100%;
+            height: unset;
+            width: 90vw;
+            transform: none;
           }
         }
       }
@@ -443,6 +398,24 @@
           transform: translateY(-20px);
         }
       }
+    }
+  }
+
+  &:nth-child(2) {
+    h1,
+    a > div {
+      color: $dark-grey;
+    }
+
+    p {
+      color: $silver-chalice;
+    }
+  }
+
+  &:nth-child(3) {
+    .parallax div,
+    .parallax {
+      justify-content: center;
     }
   }
 }
