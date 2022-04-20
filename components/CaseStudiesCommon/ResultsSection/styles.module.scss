@@ -643,40 +643,65 @@
 .blackbird {
   @include caseStudyContainer;
 
-  margin-bottom: 120px;
-  overflow: hidden;
-  background-color: $white;
-
-  [data-case-study-description] {
-    max-width: 850px;
-    color: rgba($silver-chalice, 0.4);
-  }
-
-  .circle {
-    background: $bright-navy;
-    width: 560px;
-    height: 560px;
-    margin-top: 200px;
-
-    @include phone {
-      width: 320px;
-      height: 320px;
-      margin-top: 135px;
-    }
-  }
-
   .mockup {
     filter: unset;
   }
 
-  .appImage {
-    filter: unset;
-    width: 358px;
-    border-radius: 40px;
+  &.firstSectionView {
+    margin-bottom: 120px;
+    overflow: hidden;
+    background-color: $white;
 
-    @include phone {
-      width: 215px;
-      border-radius: 28px;
+    [data-case-study-description] {
+      max-width: 850px;
+      color: rgba($silver-chalice, 0.4);
+    }
+
+    .circle {
+      background: $bright-navy;
+      width: 560px;
+      height: 560px;
+      margin-top: 200px;
+
+      @include phone {
+        width: 320px;
+        height: 320px;
+        margin-top: 135px;
+      }
+    }
+
+    .appImage {
+      filter: unset;
+      width: 358px;
+      border-radius: 40px;
+
+      @include phone {
+        width: 215px;
+        border-radius: 28px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    [data-case-study-description] {
+      margin: 80px auto;
+      max-width: 800px;
+      text-align: center;
+      color: $silver-chalice;
+
+      @include phone {
+        margin-top: 40px;
+      }
+    }
+
+    .circle {
+      height: 240px;
+
+      @include phone {
+        width: 240px;
+        height: 160px;
+        margin-top: -40px;
+      }
     }
   }
 }

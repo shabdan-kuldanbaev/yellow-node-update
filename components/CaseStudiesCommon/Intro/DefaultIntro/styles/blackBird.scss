@@ -11,16 +11,72 @@
     }
 
     .image {
-      max-width: 400px;
-      transform: translate(-38%, -45%);
+      max-width: 1046px;
+      transform: translate(-34%, -42%);
+
+      @include macbook-fifteen {
+        max-width: 858px;
+        transform: translate(-42%, -44%);
+      }
 
       @include tablet {
-        position: relative;
-        width: 100%;
+        max-width: 620px;
+        transform: translate(-50%, -7%);
         height: unset;
-        transform: unset;
-        top: 0;
-        left: 0;
+      }
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+
+    &:nth-child(3) {
+      top: 0;
+      right: 0;
+      transform: translate(0%, 30%);
+
+      @include macbook-fifteen {
+        height: 52vh;
+        transform: translate(15%, 38%);
+      }
+
+      @include macbook-thirteen {
+        height: 55vh;
+        transform: translate(16%, 33%);
+      }
+
+      @include tablet {
+        height: 61vh;
+        transform: translate(0%, 100%);
+      }
+
+      @include below-tablet {
+        height: 52vh;
+        transform: translate(0%, 160%);
+      }
+
+      @include phone {
+        height: 50vh;
+        transform: translate(0%, 106%);
+      }
+    }
+
+    &:nth-child(4) {
+      display: none;
+
+      @include below-tablet {
+        display: block;
+        height: 52vh;
+        transform: translate(0%, 160%);
+      }
+
+      @include phone {
+        height: 50vh;
+        transform: translate(10%, 75%);
       }
     }
   }
@@ -50,6 +106,12 @@
 
     .projectTitle {
       color: $white;
+
+      @include fontSize(76px);
+
+      @include phone {
+        @include fontSize(44px);
+      }
     }
 
     .projectSubtitle {
@@ -57,11 +119,24 @@
       color: $white;
 
       @include fontSize(24px);
+
+      @include phone {
+        width: 346px;
+
+        @include fontSize(22px);
+      }
     }
 
     .projectDescription {
-      max-width: 300px;
+      max-width: 400px;
+      width: 400px;
       color: rgba($white, 0.4);
+
+      @include phone {
+        max-width: 315px;
+
+        @include fontSize(18px);
+      }
     }
   }
 
@@ -71,6 +146,11 @@
 
     @include tablet {
       margin: 0 auto 60px;
+      height: 825px;
+    }
+
+    @include phone {
+      height: 755px;
     }
   }
 }
