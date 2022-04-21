@@ -11,72 +11,16 @@
     }
 
     .image {
-      max-width: 1046px;
+      max-width: 762px;
       transform: translate(-34%, -42%);
 
       @include macbook-fifteen {
-        max-width: 858px;
+        max-width: 600px;
         transform: translate(-42%, -44%);
       }
 
       @include tablet {
-        max-width: 620px;
-        transform: translate(-50%, -7%);
-        height: unset;
-      }
-
-      @include below-tablet {
         display: none;
-      }
-    }
-  }
-
-  .bundleImage {
-    position: absolute;
-
-    &:nth-child(3) {
-      top: 0;
-      right: 0;
-      transform: translate(0%, 30%);
-
-      @include macbook-fifteen {
-        height: 52vh;
-        transform: translate(15%, 38%);
-      }
-
-      @include macbook-thirteen {
-        height: 55vh;
-        transform: translate(16%, 33%);
-      }
-
-      @include tablet {
-        height: 61vh;
-        transform: translate(0%, 100%);
-      }
-
-      @include below-tablet {
-        height: 52vh;
-        transform: translate(0%, 160%);
-      }
-
-      @include phone {
-        height: 50vh;
-        transform: translate(0%, 106%);
-      }
-    }
-
-    &:nth-child(4) {
-      display: none;
-
-      @include below-tablet {
-        display: block;
-        height: 52vh;
-        transform: translate(0%, 160%);
-      }
-
-      @include phone {
-        height: 50vh;
-        transform: translate(10%, 75%);
       }
     }
   }
@@ -151,6 +95,24 @@
 
     @include phone {
       height: 755px;
+    }
+  }
+
+  .bundleImage {
+    &:nth-of-type(1) {
+      position: absolute;
+      left: 0;
+      top: 15%;
+    }
+
+    &:nth-of-type(2) {
+      position: static;
+      display: none;
+      transform: translateX(10%);
+
+      @include tablet {
+        display: initial;
+      }
     }
   }
 }
