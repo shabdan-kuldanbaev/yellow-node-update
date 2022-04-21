@@ -36,7 +36,11 @@
     margin: 16px;
 
     table {
-      font-family: $case-studies-font;
+      font-family: $signature-font;
+
+      * {
+        font-size: 14px;
+      }
     }
 
     hr {
