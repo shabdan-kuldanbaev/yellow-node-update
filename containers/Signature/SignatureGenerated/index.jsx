@@ -65,7 +65,10 @@ const SignatureGenerated = ({
           <table>
             <tbody>
               <tr>
-                <td className={styles.signatureLogoContainer}>
+                <td
+                  rowSpan={4}
+                  className={styles.signatureLogoContainer}
+                >
                   <LinkWrapper
                     isLocalLink={false}
                     path={YELLOW_LINK}
@@ -84,6 +87,12 @@ const SignatureGenerated = ({
                   <p className={styles.signatureDataJob}>
                     {employeeJob}
                   </p>
+                </td>
+
+              </tr>
+              <tr>
+                <td className={styles.signatureData}>
+                  {' '}
                   <p className={styles.signatureDataEmail}>
                     <LinkWrapper
                       isLocalLink={false}
@@ -92,6 +101,10 @@ const SignatureGenerated = ({
                       {employeeMail}
                     </LinkWrapper>
                   </p>
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.signatureData}>
                   <p className={styles.signatureDataYellow}>
                     <LinkWrapper
                       isLocalLink={false}
@@ -100,6 +113,10 @@ const SignatureGenerated = ({
                       {YELLOW_LINK}
                     </LinkWrapper>
                   </p>
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.signatureData}>
                   {employeeTelegram && (
                     <LinkWrapper
                       isLocalLink={false}
