@@ -41,17 +41,39 @@
       @include flex(column);
     }
 
-    .special {
-      .image {
-        filter: unset;
-        padding-top: 80px;
+    .images {
+      @include flex(row, stretch, stretch);
 
-        @include phone {
-          padding-top: 40px;
-          padding-bottom: 40px;
-        }
+      position: relative;
+      height: 657px;
+      width: 328px;
+      margin-top: 80px;
+
+      @include phone {
+        margin: 40px 0;
       }
+    }
 
+    .imageBundle {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+    }
+
+    .contentContainer .image {
+      filter: unset;
+      height: 100%;
+      border-radius: 45px;
+
+      @include tablet {
+        max-height: unset;
+        min-width: unset;
+      }
+    }
+
+    .special {
       .title {
         color: $white;
       }
@@ -68,8 +90,12 @@
         @include flex(column, initial, center);
       }
 
+      .images {
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
       width: 372px;
-      margin-right: 0;
 
       .title {
         text-align: left;
