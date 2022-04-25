@@ -17,6 +17,7 @@ export const Intro = (props) => {
   case CASE_STUDIES.cashChat:
   case CASE_STUDIES.travelTrivia:
   case CASE_STUDIES.writerChromeExtension:
+  case CASE_STUDIES.blackBird:
   case CASE_STUDIES.ubiChat:
   case CASE_STUDIES.beautonomy:
   case CASE_STUDIES.famlicious:

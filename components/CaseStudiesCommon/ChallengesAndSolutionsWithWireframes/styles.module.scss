@@ -271,3 +271,13 @@
     background-size: 60%;
   }
 }
+
+.blackbird {
+  @include caseStudyContainer;
+
+  background-color: $chinese-black;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}
