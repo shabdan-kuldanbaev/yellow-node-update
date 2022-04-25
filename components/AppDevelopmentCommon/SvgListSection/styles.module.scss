@@ -306,3 +306,32 @@
     }
   }
 }
+
+.machine-learning-development-services {
+  @extend .svgSection;
+
+  background: $alabaster;
+
+  .svgListWrapper {
+    @extend .svgListWrapperOneRow;
+
+    .svgList {
+      @include below-tablet {
+        flex-wrap: wrap;
+      }
+
+      & > div {
+        @include below-tablet {
+          flex: 1 1 50%;
+          margin: 40px 0 0;
+        }
+
+        &:nth-child(4) {
+          @include below-tablet {
+            order: 10;
+          }
+        }
+      }
+    }
+  }
+}

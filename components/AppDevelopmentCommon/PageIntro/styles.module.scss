@@ -309,7 +309,8 @@
 .ios-mobile-app-development-services,
 .android-mobile-app-development-services,
 .mvp-app-development-company,
-.cloud-based-app-development-services {
+.cloud-based-app-development-services,
+.machine-learning-development-services {
   @extend .pageIntroContainer;
 
   background-color: inherit;
@@ -389,7 +390,8 @@
 
 .android-mobile-app-development-services,
 .mvp-app-development-company,
-.cloud-based-app-development-services {
+.cloud-based-app-development-services,
+.machine-learning-development-services {
   .pageIntroSection {
     .pageIntroWrapper {
       margin-bottom: 0;
@@ -398,5 +400,11 @@
         margin-bottom: 0;
       }
     }
+  }
+}
+
+.machine-learning-development-services {
+  .pageTitleContainer {
+    flex: 1 1 140%;
   }
 }

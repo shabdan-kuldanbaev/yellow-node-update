@@ -47,6 +47,7 @@ export const NAV_LINKS = [
     routes.androidDevelopmentServices.slug,
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
+    routes.mlDevelopment.slug,
     routes.signatureGenerator.slug,
   ].includes(slug)),
 ];
@@ -237,6 +238,11 @@ export const APP_DEVELOPMENT_ICONS = {
   productHunt: 'productHunt',
   esquire: 'esquire',
   theWeek: 'theWeek',
+  clipboard: 'clipboard',
+  treeStructure: 'treeStructure',
+  magnifyingGlassEye: 'magnifyingGlassEye',
+  conversation: 'conversation',
+  mobileDevelopment: 'mobileDevelopment',
 
   // chat app page, types of chat section
   communication: 'communication',
@@ -320,6 +326,13 @@ export const APP_DEVELOPMENT_ICONS = {
   collaboration: 'collaboration',
   uxDesign2: 'uxDesign2',
   headset: 'headset',
+  targetAudience: 'targetAudience',
+  titledAwsMachineLearning: 'titledAwsMachineLearning',
+  titledKeras: 'titledKeras',
+  titledPython: 'titledPython',
+  titledPyTorch: 'titledPyTorch',
+  titledScala: 'titledScala',
+  titledTensorFlow: 'titledTensorFlow',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -471,6 +484,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.androidDevelopmentServices.path,
   ROUTES.mvpDevelopment.path,
   ROUTES.cloudDevelopment.path,
+  ROUTES.mlDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -510,6 +524,11 @@ export const SUB_NAVIGATION_LINKS = {
       subtitle: 'No physical space is occupied',
       slug: ROUTES.cloudDevelopment.path,
     },
+    {
+      title: 'Machine learning development services',
+      subtitle: 'Artificial intelligence at your service',
+      slug: ROUTES.mlDevelopment.path,
+    },
   ],
 };
 
@@ -535,6 +554,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
+  [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
 };
 
 // eslint-disable-next-line

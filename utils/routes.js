@@ -242,6 +242,12 @@ export const routes = {
     dynamicPath: '/cloud-based-app-development-services',
     slug: 'cloud-based-app-development-services',
   },
+  mlDevelopment: {
+    title: 'Machine Learning App Development Company',
+    path: '/machine-learning-development-services',
+    dynamicPath: '/machine-learning-development-services',
+    slug: 'machine-learning-development-services',
+  },
   signatureGenerator: {
     title: 'Signature Generator',
     path: '/signature-generator',

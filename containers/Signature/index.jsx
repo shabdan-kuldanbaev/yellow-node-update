@@ -18,7 +18,6 @@ const SignatureGenerator = ({ pageData: { main } }) => {
     titledList,
     yellowUrl,
     telegramUrl,
-    bottomText,
   } = getSignatureProps(main);
 
   const [
@@ -40,7 +39,6 @@ const SignatureGenerator = ({ pageData: { main } }) => {
           yellowUrl={yellowUrl}
           formRef={formRef}
           telegramUrl={telegramUrl}
-          bottomText={bottomText}
         />
       ) : (
         <SignatureGenerate

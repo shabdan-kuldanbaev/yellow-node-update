@@ -27,10 +27,46 @@ import { ReactComponent as TitledRds } from './svgs/titledRds.svg';
 import { ReactComponent as TitledS3 } from './svgs/titledS3.svg';
 import { ReactComponent as TitledAws } from './svgs/titledAws.svg';
 import { ReactComponent as Headset } from './svgs/headset.svg';
+import { ReactComponent as Clipboard } from './svgs/clipboard.svg';
+import { ReactComponent as Conversation } from './svgs/conversation.svg';
+import { ReactComponent as MagnifyingGlassEye } from './svgs/magnifyingGlassEye.svg';
+import { ReactComponent as MobileDevelopment } from './svgs/mobileDevelopment.svg';
+import { ReactComponent as TreeStructure } from './svgs/treeStructure.svg';
+import { ReactComponent as TargetAudience } from './svgs/targetAudience.svg';
+import { ReactComponent as TitledAwsMachineLearning } from './svgs/titledAwsMachineLearning.svg';
+import { ReactComponent as TitledKeras } from './svgs/titledKeras.svg';
+import { ReactComponent as TitledPython } from './svgs/titledPython.svg';
+import { ReactComponent as TitledScala } from './svgs/titledScala.svg';
+import { ReactComponent as TitledTensorFlow } from './svgs/titledTensorFlow.svg';
+import { ReactComponent as TitledPyTorch } from './svgs/titledPyTorch.svg';
 
 // TODO rewrite it
 export const Svg = ({ type }) => {
   switch (type) {
+  case APP_DEVELOPMENT_ICONS.titledAwsMachineLearning:
+    return <TitledAwsMachineLearning />;
+  case APP_DEVELOPMENT_ICONS.titledKeras:
+    return <TitledKeras />;
+  case APP_DEVELOPMENT_ICONS.titledPython:
+    return <TitledPython />;
+  case APP_DEVELOPMENT_ICONS.titledPyTorch:
+    return <TitledPyTorch />;
+  case APP_DEVELOPMENT_ICONS.titledScala:
+    return <TitledScala />;
+  case APP_DEVELOPMENT_ICONS.titledTensorFlow:
+    return <TitledTensorFlow />;
+  case APP_DEVELOPMENT_ICONS.targetAudience:
+    return <TargetAudience />;
+  case APP_DEVELOPMENT_ICONS.conversation:
+    return <Conversation />;
+  case APP_DEVELOPMENT_ICONS.magnifyingGlassEye:
+    return <MagnifyingGlassEye />;
+  case APP_DEVELOPMENT_ICONS.mobileDevelopment:
+    return <MobileDevelopment />;
+  case APP_DEVELOPMENT_ICONS.treeStructure:
+    return <TreeStructure />;
+  case APP_DEVELOPMENT_ICONS.clipboard:
+    return <Clipboard />;
   case APP_DEVELOPMENT_ICONS.headset:
     return <Headset />;
   case APP_DEVELOPMENT_ICONS.titledAngular:
