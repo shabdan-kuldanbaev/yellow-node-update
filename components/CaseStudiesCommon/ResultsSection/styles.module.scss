@@ -143,7 +143,7 @@
 
     .appImage {
       width: 308px;
-      filter: inset;
+      filter: unset;
 
       @include phone {
         width: 196px;
@@ -645,6 +645,7 @@
 
   .mockup {
     filter: unset;
+    width: 320px;
   }
 
   &.firstSectionView {
@@ -659,9 +660,9 @@
 
     .circle {
       background: $bright-navy;
-      width: 560px;
-      height: 560px;
-      margin-top: 200px;
+      width: 470px;
+      height: 470px;
+      margin-top: 170px;
 
       @include phone {
         width: 320px;
@@ -672,7 +673,7 @@
 
     .appImage {
       filter: unset;
-      width: 358px;
+      width: 290px;
       border-radius: 40px;
 
       @include phone {

@@ -11,12 +11,10 @@
     }
 
     .image {
-      max-width: 762px;
-      transform: translate(-34%, -42%);
+      max-width: 1000px;
 
       @include macbook-fifteen {
-        max-width: 600px;
-        transform: translate(-42%, -44%);
+        max-width: 800px;
       }
 
       @include tablet {
@@ -85,7 +83,7 @@
   }
 
   .introSection {
-    max-width: 1076px;
+    max-width: 1178px;
     margin: 0 auto 300px;
 
     @include tablet {
