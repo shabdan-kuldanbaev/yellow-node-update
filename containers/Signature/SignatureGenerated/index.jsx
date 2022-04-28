@@ -88,7 +88,6 @@ const SignatureGenerated = ({
                     {employeeJob}
                   </p>
                 </td>
-
               </tr>
               <tr>
                 <td className={styles.signatureData}>
