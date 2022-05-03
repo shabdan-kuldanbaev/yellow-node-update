@@ -1,0 +1,116 @@
+.blackbird {
+  @extend .container;
+
+  background: $chinese-black;
+  height: unset;
+
+  .imageContainer {
+    @include tablet {
+      width: 100%;
+      height: unset;
+    }
+
+    .image {
+      max-width: 1000px;
+
+      @include macbook-fifteen {
+        max-width: 800px;
+      }
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1178px;
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 295px;
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    @include phone {
+      margin-bottom: 0;
+    }
+
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(76px);
+
+      @include phone {
+        @include fontSize(44px);
+      }
+    }
+
+    .projectSubtitle {
+      width: 372px;
+      color: $white;
+
+      @include fontSize(24px);
+
+      @include phone {
+        width: 346px;
+
+        @include fontSize(22px);
+      }
+    }
+
+    .projectDescription {
+      max-width: 400px;
+      width: 400px;
+      color: rgba($white, 0.4);
+
+      @include phone {
+        max-width: 315px;
+
+        @include fontSize(18px);
+      }
+    }
+  }
+
+  .introSection {
+    max-width: 1178px;
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
+      height: 825px;
+    }
+
+    @include phone {
+      height: 755px;
+    }
+  }
+
+  .bundleImage {
+    &:nth-of-type(1) {
+      position: absolute;
+      left: 0;
+      top: 15%;
+    }
+
+    &:nth-of-type(2) {
+      position: static;
+      display: none;
+      transform: translateX(10%);
+
+      @include tablet {
+        display: initial;
+      }
+    }
+  }
+}

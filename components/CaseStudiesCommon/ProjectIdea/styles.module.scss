@@ -547,3 +547,27 @@
     }
   }
 }
+
+.blackbird {
+  @extend .container;
+
+  background-color: $white;
+
+  .contentContainer {
+    .descriptionContainer {
+      @include phone {
+        margin-bottom: 0;
+      }
+
+      .descriptionIntro {
+        .description {
+          max-width: 518px;
+
+          @include phone {
+            max-width: 340px;
+          }
+        }
+      }
+    }
+  }
+}
