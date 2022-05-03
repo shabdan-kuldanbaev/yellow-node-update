@@ -17,7 +17,9 @@ const SignatureGenerator = ({ pageData: { main } }) => {
     signatureGeneratedTitle,
     titledList,
     yellowUrl,
-    telegramUrl,
+    linkedInImgUrl,
+    instagramImgUrl,
+    twitterImgUrl,
   } = getSignatureProps(main);
 
   const [
@@ -38,7 +40,9 @@ const SignatureGenerator = ({ pageData: { main } }) => {
           signatureContainer={signatureContainer}
           yellowUrl={yellowUrl}
           formRef={formRef}
-          telegramUrl={telegramUrl}
+          linkedInImgUrl={linkedInImgUrl}
+          instagramImgUrl={instagramImgUrl}
+          twitterImgUrl={twitterImgUrl}
         />
       ) : (
         <SignatureGenerate
