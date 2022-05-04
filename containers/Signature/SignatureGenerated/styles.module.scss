@@ -7,6 +7,10 @@
   }
 }
 
+td {
+  padding: 0;
+}
+
 .signature {
   @include signature-button;
 
@@ -38,36 +42,34 @@
     table {
       font-family: $signature-font;
       border-collapse: separate;
-      border-spacing: 8px 5px;
-    }
-
-    hr {
-      border: 0;
-      border-bottom: 1px solid lightgrey;
-      color: lightgrey;
-      height: 1px;
+      border-spacing: 8px 8px;
     }
   }
 
   &Logo {
     &Container {
-      width: 64px;
       height: 100px;
       vertical-align: top;
-      padding-right: 16px;
-      margin-right: 16px;
+      padding: 0 16px 0 0;
       position: relative;
       border-right: solid 2px $athens-gray;
 
       a {
-        display: block;
+        display: table;
+        padding: 0;
         background: $turbo-100;
-        padding: 16px;
         border-radius: 17px;
+        height: 100%;
+        max-height: 100px;
+        width: 100px;
+        position: relative;
       }
 
       img {
-        display: block;
+        // email specific centering
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
       }
     }
   }
@@ -95,7 +97,8 @@
   }
 
   &Data {
-    font-size: 11pt;
+    @include fontSize(11pt);
+
     line-height: 150%;
     padding-left: 8px;
 
@@ -117,16 +120,16 @@
 
     &Email {
       @include signatureLinkMixin;
+      @include fontSize(9pt);
 
-      font-size: 9pt;
-      line-height: 120%;
+      line-height: 100%;
     }
 
     &Yellow {
       @include signatureLinkMixin;
+      @include fontSize(9pt);
 
-      font-size: 9pt;
-      line-height: 120%;
+      line-height: 100%;
       padding-left: 8px;
       border-left: solid 2px $athens-gray;
 
@@ -135,8 +138,23 @@
       }
     }
 
-    a + a {
-      margin-left: 8px;
+    &Social {
+      line-height: 100%;
+      padding: 0 0 0 8px;
+
+      a {
+        line-height: 100%;
+        margin-top: auto;
+        vertical-align: bottom;
+      }
+
+      a + a {
+        margin-left: 8px;
+      }
+
+      img {
+        vertical-align: bottom;
+      }
     }
   }
 

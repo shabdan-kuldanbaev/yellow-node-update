@@ -1,7 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { getEmployeeInfo } from 'containers/Signature/utils/helpers';
-import { SIGNATURE_BUTTON_NAMES, YELLOW_DOMAIN, YELLOW_LINK } from 'containers/Signature/utils/constants';
+import {
+  SIGNATURE_BUTTON_NAMES,
+  YELLOW_DOMAIN,
+  YELLOW_LINK,
+} from 'containers/Signature/utils/constants';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
 import styles from './styles.module.scss';
@@ -117,7 +122,7 @@ const SignatureGenerated = ({
               </tr>
               <tr>
                 <td
-                  className={styles.signatureData}
+                  className={cn(styles.signatureData, styles.signatureDataSocial)}
                   colSpan={2}
                 >
                   <LinkWrapper
