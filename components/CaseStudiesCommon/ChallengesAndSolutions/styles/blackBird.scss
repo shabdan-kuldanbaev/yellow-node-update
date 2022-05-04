@@ -21,6 +21,7 @@
 
       .imageBundle {
         display: none;
+        max-height: 486px;
 
         @include phone {
           display: block;
@@ -86,6 +87,8 @@
     .special:first-of-type {
       @include flex(column,initial, flex-start);
 
+      width: 372px;
+
       @include phone {
         @include flex(column, initial, center);
       }
@@ -94,8 +97,6 @@
         padding: 10px;
         box-sizing: border-box;
       }
-
-      width: 372px;
 
       .title {
         text-align: left;
@@ -118,6 +119,8 @@
 
     .special:last-of-type {
       @include flex(column-reverse, initial, flex-end);
+
+      width: 372px;
 
       @include phone {
         @include flex(column, initial, center);
