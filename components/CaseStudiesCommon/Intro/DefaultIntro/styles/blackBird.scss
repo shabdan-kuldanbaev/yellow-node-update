@@ -110,6 +110,13 @@
 
       @include tablet {
         display: initial;
+        max-height: 500px;
+        margin-top: -50px;
+      }
+
+      @include phone {
+        margin-top: 0;
+        max-height: 392px;
       }
     }
   }

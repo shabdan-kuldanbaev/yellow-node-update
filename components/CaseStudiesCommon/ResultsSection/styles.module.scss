@@ -646,6 +646,10 @@
   .mockup {
     filter: unset;
     width: 320px;
+
+    @include phone {
+      width: 240px;
+    }
   }
 
   &.firstSectionView {
