@@ -42,7 +42,7 @@ td {
     table {
       font-family: $signature-font;
       border-collapse: separate;
-      border-spacing: 8px 8px;
+      border-spacing: 8px;
     }
   }
 
@@ -97,10 +97,10 @@ td {
   }
 
   &Data {
-    @include fontSize(11pt);
-
     line-height: 150%;
     padding-left: 8px;
+
+    @include fontSize(11pt);
 
     & + & {
       padding-left: 0;
@@ -120,18 +120,20 @@ td {
 
     &Email {
       @include signatureLinkMixin;
-      @include fontSize(9pt);
 
       line-height: 100%;
+
+      @include fontSize(9pt);
     }
 
     &Yellow {
       @include signatureLinkMixin;
-      @include fontSize(9pt);
 
       line-height: 100%;
       padding-left: 8px;
       border-left: solid 2px $athens-gray;
+
+      @include fontSize(9pt);
 
       a {
         color: revert;
