@@ -120,10 +120,10 @@
     .special:last-of-type {
       @include flex(column-reverse, initial, flex-end);
 
-      width: 372px;
-
       @include phone {
         @include flex(column, initial, center);
+
+        max-width: 320px;
       }
 
       .title {
@@ -149,6 +149,7 @@
     .contentContainer {
       .image {
         filter: unset;
+        max-height: 657px;
       }
 
       .infoContainer {
