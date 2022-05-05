@@ -7,6 +7,10 @@
   }
 }
 
+td {
+  padding: 0;
+}
+
 .signature {
   @include signature-button;
 
@@ -38,22 +42,35 @@
     table {
       font-family: $signature-font;
       border-collapse: separate;
-      border-spacing: 0 5px;
-    }
-
-    hr {
-      border: 0;
-      border-bottom: 1px solid lightgrey;
-      color: lightgrey;
-      height: 1px;
+      border-spacing: 8px;
     }
   }
 
   &Logo {
     &Container {
-      width: 64px;
+      height: 100px;
       vertical-align: top;
-      padding-right: 16px;
+      padding: 0 16px 0 0;
+      position: relative;
+      border-right: solid 2px $athens-gray;
+
+      a {
+        display: table;
+        padding: 0;
+        background: $turbo-100;
+        border-radius: 17px;
+        height: 100%;
+        max-height: 100px;
+        width: 100px;
+        position: relative;
+      }
+
+      img {
+        // email specific centering
+        display: table-cell;
+        height: 100%;
+        margin: auto;
+      }
     }
   }
 
@@ -80,8 +97,14 @@
   }
 
   &Data {
-    font-size: 11pt;
     line-height: 150%;
+    padding-left: 8px;
+
+    @include fontSize(11pt);
+
+    & + & {
+      padding-left: 0;
+    }
 
     p {
       margin: 0;
@@ -97,10 +120,43 @@
 
     &Email {
       @include signatureLinkMixin;
+
+      line-height: 100%;
+
+      @include fontSize(9pt);
     }
 
     &Yellow {
       @include signatureLinkMixin;
+
+      line-height: 100%;
+      padding-left: 8px;
+      border-left: solid 2px $athens-gray;
+
+      @include fontSize(9pt);
+
+      a {
+        color: revert;
+      }
+    }
+
+    &Social {
+      line-height: 100%;
+      padding: 0 0 0 8px;
+
+      a {
+        line-height: 100%;
+        margin-top: auto;
+        vertical-align: bottom;
+      }
+
+      a + a {
+        margin-left: 8px;
+      }
+
+      img {
+        vertical-align: bottom;
+      }
     }
   }
 
