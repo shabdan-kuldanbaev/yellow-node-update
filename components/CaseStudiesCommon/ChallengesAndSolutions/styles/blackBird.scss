@@ -13,6 +13,7 @@
       .image {
         filter: unset;
         transform: translate(10px, 205px);
+        height: auto;
 
         @include phone {
           display: none;
