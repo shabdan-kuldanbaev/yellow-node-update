@@ -5,6 +5,7 @@ import SwiperCore, {
   EffectCoverflow,
   Mousewheel,
   Pagination,
+  Navigation,
 } from 'swiper/core';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
@@ -16,11 +17,13 @@ import { GalleryCallToAction } from './GalleryCallToAction';
 import { getGalleryProps } from './utils/galleryHelper';
 import styles from './styles.module.scss';
 import 'swiper/components/pagination/pagination.scss';
+import SwiperNavButton from '../../SwiperNavButton';
 
 SwiperCore.use([
   EffectCoverflow,
   Pagination,
   Mousewheel,
+  Navigation,
 ]);
 
 export const GallerySection = ({
@@ -44,7 +47,21 @@ export const GallerySection = ({
           className={styles.sectionTitle}
         />
         {!pageLoading && (
-          <Swiper {...params}>
+          <Swiper
+            {...params}
+            renderNextButton={({ navigation }) => (
+              <SwiperNavButton
+                type="next"
+                className={navigation.nextEl}
+              />
+            )}
+            renderPrevButton={({ navigation }) => (
+              <SwiperNavButton
+                type="prev"
+                className={navigation.prevEl}
+              />
+            )}
+          >
             {slides && slides.map((slide) => {
               const link = getItemLink(slide);
               const { title: slideTitle } = getItemPreviewProps(slide);

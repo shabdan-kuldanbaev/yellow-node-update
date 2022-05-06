@@ -18,8 +18,9 @@ export const getGalleryProps = (data) => {
     mousewheel: {
       forceToAxis: true,
     },
-    pagination: {
-      el: '.swiper-pagination',
+    navigation: {
+      nextEl: '.swiper-next-el',
+      prevEl: '.swiper-prev-el',
     },
     coverflowEffect: {
       rotate: 0,
