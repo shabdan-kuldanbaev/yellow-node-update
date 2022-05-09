@@ -13,6 +13,7 @@
       .image {
         filter: unset;
         transform: translate(10px, 205px);
+        max-width: 740px;
 
         @include phone {
           display: none;
