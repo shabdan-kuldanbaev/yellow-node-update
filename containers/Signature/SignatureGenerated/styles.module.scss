@@ -55,19 +55,14 @@ td {
       border-right: solid 2px $athens-gray;
 
       a {
-        display: table;
+        display: block;
         padding: 0;
-        background: $turbo-100;
-        border-radius: 17px;
         height: 100%;
         max-height: 100px;
         width: 100px;
-        position: relative;
       }
 
       img {
-        // email specific centering
-        display: table-cell;
         height: 100%;
         margin: auto;
       }
