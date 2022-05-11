@@ -49,16 +49,16 @@ export const GallerySection = ({
         {!pageLoading && (
           <Swiper
             {...params}
-            renderNextButton={({ navigation }) => (
+            renderNextButton={() => (
               <SwiperNavButton
                 type="next"
-                className={navigation.nextEl}
+                className="swiper-next-el"
               />
             )}
-            renderPrevButton={({ navigation }) => (
+            renderPrevButton={() => (
               <SwiperNavButton
                 type="prev"
-                className={navigation.prevEl}
+                className="swiper-prev-el"
               />
             )}
           >
