@@ -9,15 +9,6 @@
     opacity: 1;
   }
 
-  .swiperNavigation {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-    border: solid $dark-grey 1px;
-    bottom: 0;
-  }
-
   :global(.swiper-container) {
     padding-bottom: 100px;
   }
@@ -40,17 +31,13 @@
   }
 
   :global(.swiper-next-el) {
-    @extend .swiperNavigation;
+    bottom: 0;
+    left: 51%;
+  }
 
-    left: 52%;
-    background-image: url("components/AppDevelopmentCommon/Svg/svgs/clipboard.svg");
-    background-color: rgba(0, 0, 0, 0.66);
-    background-repeat: no-repeat;
-    background-position: center;
-
-    &:hover {
-      background-color: $turbo-100;
-    }
+  :global(.swiper-prev-el) {
+    bottom: 0;
+    right: 51%;
   }
 }
 

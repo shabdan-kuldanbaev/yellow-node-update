@@ -16,14 +16,7 @@
   }
 }
 
-.navButtonNext {
-  @extend .navButton;
-
-  left: 51%;
-}
-
+.navButtonNext,
 .navButtonPrev {
   @extend .navButton;
-
-  right: 51%;
 }
