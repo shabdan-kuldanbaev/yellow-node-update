@@ -79,7 +79,6 @@ const SignatureGenerated = ({
                     path={YELLOW_LINK}
                   >
                     <img
-                      width="66"
                       src={yellowUrl}
                       alt="yellow logo"
                     />
