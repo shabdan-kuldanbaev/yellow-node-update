@@ -33,11 +33,19 @@
   :global(.swiper-next-el) {
     bottom: 0;
     left: 51%;
+
+    @include phone {
+      display: none;
+    }
   }
 
   :global(.swiper-prev-el) {
     bottom: 0;
     right: 51%;
+
+    @include phone {
+      display: none;
+    }
   }
 }
 
