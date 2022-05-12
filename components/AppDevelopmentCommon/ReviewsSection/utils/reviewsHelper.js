@@ -38,3 +38,17 @@ export const getReviewsProps = (data) => {
     title,
   };
 };
+
+export const getGroupReducer = (groupBy) => (acc, review) => {
+  const lastGroup = acc.length - 1;
+
+  if (acc[lastGroup].length < groupBy) {
+    acc[lastGroup].push(review);
+
+    return acc;
+  }
+
+  acc.push([review]);
+
+  return acc;
+};
