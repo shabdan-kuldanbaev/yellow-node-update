@@ -11,25 +11,25 @@ import SwiperCors, { EffectCoverflow } from 'swiper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { Comment } from './Comment';
 import styles from './styles.module.scss';
+import { getGroupReducer } from '../utils/reviewsHelper';
 
 SwiperCors.use([EffectCoverflow]);
 
 // TODO rewrite component without js logic for resize
 export const Reviews = ({ reviews }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
+  const [desktopReviews, setDesktopReviews] = useState([]);
   const swiperRef = useRef(null);
-  const [
-    firstRef,
-    secondRef,
-    thirdRef,
-  ] = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
+  const ref4 = useRef(null);
+  const ref5 = useRef(null);
+  const ref6 = useRef(null);
+
   const infoRefs = useMemo(
-    () => [firstRef, secondRef, thirdRef],
-    [firstRef, secondRef, thirdRef],
+    () => [ref1, ref2, ref3, ref4, ref5, ref6],
+    [ref1, ref2, ref3, ref4, ref5, ref6],
   );
 
   const params = {
@@ -74,9 +74,9 @@ export const Reviews = ({ reviews }) => {
         }
       }
 
-      const isInfoRefsExsists = infoRefs.reduce((previousValue, infoRef) => !!(get(infoRef, 'current.children[0]', [])), false);
+      const isInfoRefsExists = infoRefs.reduce((previousValue, infoRef) => !!(get(infoRef, 'current.children[0]', [])).length, false);
 
-      if (isInfoRefsExsists) {
+      if (isInfoRefsExists) {
         const newHeight = infoRefs.reduce((previousValue, infoRef) => (
           previousValue >= infoRef.current.children[0].offsetHeight
             ? previousValue
@@ -97,28 +97,51 @@ export const Reviews = ({ reviews }) => {
     return () => window.removeEventListener('resize', handleOnResize);
   }, [infoRefs]);
 
+  useEffect(() => {
+    if (!reviews) return;
+
+    const groupReducer = getGroupReducer(3);
+
+    const groupedReviews = reviews.reduce(groupReducer, [[]]);
+
+    setDesktopReviews(groupedReviews);
+  }, [reviews]);
+
   return (
     <div className={styles.reviews}>
-      <div className={styles.desctopReviews}>
-        {reviews && reviews.map((comment, index) => {
-          const delay = 100 + 150 * index;
-          const animatioProps = {
-            type: ANIMATED_TYPE.isCustom,
-            translateY: '2.82352941em',
-            opasityDuration: 1,
-            transformDuration: 1,
-            transitionDelay: delay,
-          };
+      <div className={styles.desktopReviews}>
+        <Swiper
+          {...params}
+          slidesPerView={3}
+          // slidesPerGroup={3}
+          spaceBetween={40}
+          effect="slide"
+          centeredSlides={false}
 
-          return (
-            <Comment
-              key={`desctopReviews/${comment.name}`}
-              comment={comment}
-              animatioProps={animatioProps}
-              infoRef={infoRefs[index]}
-            />
-          );
-        })}
+        >
+          {
+            reviews.map((comment, index) => {
+              const delay = 100 + 150 * index;
+              const animationProps = {
+                type: ANIMATED_TYPE.isCustom,
+                translateY: '2.82352941em',
+                opacityDuration: 1,
+                transformDuration: 1,
+                transitionDelay: delay,
+              };
+
+              return (
+                <div key={`desktopReviews/${comment.name}`}>
+                  <Comment
+                    comment={comment}
+                    animatioProps={animationProps}
+                    infoRef={infoRefs[index]}
+                  />
+                </div>
+              );
+            })
+          }
+        </Swiper>
       </div>
       <div
         className={styles.mobileReviews}

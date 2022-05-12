@@ -4,7 +4,7 @@
   max-width: 1300px;
   margin: 0 auto;
 
-  .desctopReviews {
+  .desktopReviews {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 40px;
@@ -21,6 +21,10 @@
 
     @include phone {
       display: none;
+    }
+
+    :global(.swiper-slide) {
+      //width: 400px !important;
     }
   }
 
