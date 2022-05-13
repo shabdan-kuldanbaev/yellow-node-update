@@ -17,7 +17,6 @@ import { GalleryCallToAction } from './GalleryCallToAction';
 import { getGalleryProps } from './utils/galleryHelper';
 import styles from './styles.module.scss';
 import 'swiper/components/pagination/pagination.scss';
-import SwiperNavButton from '../../SwiperNavButton';
 
 SwiperCore.use([
   EffectCoverflow,
@@ -47,21 +46,7 @@ export const GallerySection = ({
           className={styles.sectionTitle}
         />
         {!pageLoading && (
-          <Swiper
-            {...params}
-            renderNextButton={() => (
-              <SwiperNavButton
-                type="next"
-                className="swiper-next-el"
-              />
-            )}
-            renderPrevButton={() => (
-              <SwiperNavButton
-                type="prev"
-                className="swiper-prev-el"
-              />
-            )}
-          >
+          <Swiper {...params}>
             {slides && slides.map((slide) => {
               const link = getItemLink(slide);
               const { title: slideTitle } = getItemPreviewProps(slide);

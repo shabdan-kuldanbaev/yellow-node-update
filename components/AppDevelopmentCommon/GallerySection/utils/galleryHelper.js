@@ -1,5 +1,7 @@
+import React from 'react';
 import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
+import SwiperNavButton from 'components/SwiperNavButton';
 
 export const getGalleryProps = (data) => {
   const {
@@ -28,6 +30,18 @@ export const getGalleryProps = (data) => {
       depth: 150,
       slideShadows: false,
     },
+    renderNextButton: () => (
+      <SwiperNavButton
+        type="next"
+        className="swiper-next-el"
+      />
+    ),
+    renderPrevButton: () => (
+      <SwiperNavButton
+        type="prev"
+        className="swiper-prev-el"
+      />
+    ),
     breakpoints: {
       1025: {
         slidesPerView: 1.8,
