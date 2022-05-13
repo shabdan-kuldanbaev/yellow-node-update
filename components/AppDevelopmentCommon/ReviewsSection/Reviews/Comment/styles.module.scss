@@ -141,7 +141,6 @@
 
         .info {
           height: 100%;
-          max-width: 200px;
           margin-left: 22px;
 
           @include flex(column, flex-start, flex-start);
