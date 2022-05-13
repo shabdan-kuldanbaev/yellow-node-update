@@ -49,6 +49,9 @@ export const getSwiperParams = () => {
     centeredSlides: true,
     loop: false,
     passiveListeners: true,
+    mousewheel: {
+      forceToAxis: true,
+    },
     coverflowEffect: {
       rotate: 0,
       stretch: -30,
