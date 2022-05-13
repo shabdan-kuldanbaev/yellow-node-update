@@ -4,3 +4,5 @@ export const SIGNATURE_BUTTON_NAMES = {
 };
 
 export const YELLOW_LINK = `https://${process.env.CUSTOM_DOMAIN}`;
+
+export const YELLOW_DOMAIN = process.env.CUSTOM_DOMAIN;

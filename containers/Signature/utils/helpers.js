@@ -24,8 +24,11 @@ export const getSignatureProps = (props) => {
       'images',
     ],
   );
+
   const yellowUrl = getFileUrl(images[0]);
-  const telegramUrl = getFileUrl(images[1]);
+  const linkedInImgUrl = getFileUrl(images[1]);
+  const instagramImgUrl = getFileUrl(images[2]);
+  const twitterImgUrl = getFileUrl(images[3]);
 
   return {
     signatureGeneratorTitle,
@@ -33,7 +36,9 @@ export const getSignatureProps = (props) => {
     signatureGeneratedTitle,
     titledList,
     yellowUrl,
-    telegramUrl,
+    linkedInImgUrl,
+    instagramImgUrl,
+    twitterImgUrl,
   };
 };
 
@@ -44,7 +49,6 @@ export const getEmployeeInfo = (formRef) => {
     employee: getEmployee(0),
     employeeJob: getEmployee(1),
     employeeMail: getEmployee(2),
-    employeeTelegram: getEmployee(3),
   };
 };
 
