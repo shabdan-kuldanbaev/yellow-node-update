@@ -1,5 +1,7 @@
+import React from 'react';
 import get from 'lodash/get';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
+import SwiperNavButton from 'components/SwiperNavButton';
 
 export const getReviewsProps = (data) => {
   let reviews = [];
@@ -39,16 +41,61 @@ export const getReviewsProps = (data) => {
   };
 };
 
-export const getGroupReducer = (groupBy) => (acc, review) => {
-  const lastGroup = acc.length - 1;
+export const getSwiperParams = () => {
+  const mobileSwiperParams = {
+    effect: 'coverflow',
+    slidesPerView: 1.2,
+    spaceBetween: 0,
+    centeredSlides: true,
+    loop: false,
+    passiveListeners: true,
+    coverflowEffect: {
+      rotate: 0,
+      stretch: -30,
+      depth: 110,
+      modifier: 1,
+      slideShadows: false,
+    },
+    breakpoints: {
+      480: {
+        coverflowEffect: {
+          stretch: -45,
+        },
+      },
+    },
+  };
 
-  if (acc[lastGroup].length < groupBy) {
-    acc[lastGroup].push(review);
+  const desktopSwiperParams = {
+    ...mobileSwiperParams,
+    effect: 'slide',
+    centeredSlides: false,
+    slidesPerView: 1,
+    breakpoints: {
+      769: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.swiper-next-el',
+      prevEl: '.swiper-prev-el',
+    },
+    renderNextButton: () => (
+      <SwiperNavButton
+        type="next"
+        className="swiper-next-el"
+      />
+    ),
+    renderPrevButton: () => (
+      <SwiperNavButton
+        type="prev"
+        className="swiper-prev-el"
+      />
+    ),
+  };
 
-    return acc;
-  }
-
-  acc.push([review]);
-
-  return acc;
+  return { mobileSwiperParams, desktopSwiperParams };
 };

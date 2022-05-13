@@ -5,26 +5,23 @@
   margin: 0 auto;
 
   .desktopReviews {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 40px;
-
-    @include macbook-fifteen {
-      margin: 20px 0 0;
+    :global(.swiper-container) {
+      margin-top: -120px;
+      padding-top: 120px;
     }
 
-    @include tablet {
-      grid-template-columns: auto;
-      grid-template-rows: repeat(3, 1fr);
-      grid-row-gap: 40px;
+    :global(.swiper-next-el) {
+      top: 0;
+      right: 0;
+    }
+
+    :global(.swiper-prev-el) {
+      top: 0;
+      right: 80px;
     }
 
     @include phone {
       display: none;
-    }
-
-    :global(.swiper-slide) {
-      //width: 400px !important;
     }
   }
 
