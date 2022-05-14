@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { logoSize } from 'styles/utils/_variables.scss';
 import { ReactComponent as YellowLogoWithBg } from './svgs/yellowLogoBg.svg';
+import { ReactComponent as InstagramDark } from './svgs/Instagram.svg';
+import { ReactComponent as LinkedInDark } from './svgs/LinkedIn.svg';
+import { ReactComponent as TwitterDark } from './svgs/Twitter.svg';
 
 export const Svg = ({
   type,
@@ -13,6 +16,12 @@ export const Svg = ({
   handleOnClick,
 }) => {
   switch (type) {
+  case SVG_IMAGES_TYPES.instagramDark:
+    return <InstagramDark />;
+  case SVG_IMAGES_TYPES.linkedInDark:
+    return <LinkedInDark />;
+  case SVG_IMAGES_TYPES.twitterDark:
+    return <TwitterDark />;
   case SVG_IMAGES_TYPES.yellowLogoWithBg:
     return <YellowLogoWithBg />;
   case SVG_IMAGES_TYPES.searchSvg:

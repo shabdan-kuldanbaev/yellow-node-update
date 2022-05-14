@@ -15,9 +15,6 @@ const SignatureGenerated = ({
   titledList,
   signatureContainer,
   formRef,
-  linkedInImgUrl,
-  instagramImgUrl,
-  twitterImgUrl,
 }) => {
   const {
     employee,
@@ -124,31 +121,20 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path="https://www.linkedin.com/company/yellow-systems/"
                   >
-                    <img
-                      width="24"
-                      src={linkedInImgUrl}
-                      alt="linkedIn"
-                    />
+                    <Svg type="linkedInDark" />
                   </LinkWrapper>
                   <LinkWrapper
                     isLocalLink={false}
                     path="https://www.instagram.com/yellow.systems/"
                   >
-                    <img
-                      width="24"
-                      src={instagramImgUrl}
-                      alt="instagram"
-                    />
+                    <Svg type="instagramDark" />
+
                   </LinkWrapper>
                   <LinkWrapper
                     isLocalLink={false}
                     path="https://twitter.com/yellow_systems"
                   >
-                    <img
-                      width="24"
-                      src={twitterImgUrl}
-                      alt="twitter"
-                    />
+                    <Svg type="twitterDark" />
                   </LinkWrapper>
                 </td>
               </tr>
@@ -171,9 +157,6 @@ SignatureGenerated.propTypes = {
   titledList: PropTypes.instanceOf(Object).isRequired,
   signatureContainer: PropTypes.instanceOf(Object).isRequired,
   formRef: PropTypes.instanceOf(Object).isRequired,
-  linkedInImgUrl: PropTypes.string.isRequired,
-  instagramImgUrl: PropTypes.string.isRequired,
-  twitterImgUrl: PropTypes.string.isRequired,
 };
 
 export default SignatureGenerated;
