@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { Svg } from 'components/Common/Svg';
 import styles from './styles.module.scss';
 
 export const Comment = ({
@@ -24,8 +23,9 @@ export const Comment = ({
     >
       <div className={styles.messageWrapper}>
         <div className={styles.imgContainer}>
-          <Svg
-            type={logo}
+          <img
+            src={logo}
+            alt="company logo"
             className={styles.logo}
           />
         </div>

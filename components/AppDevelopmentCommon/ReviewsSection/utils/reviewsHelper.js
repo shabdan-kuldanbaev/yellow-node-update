@@ -14,11 +14,11 @@ export const getReviewsProps = (data) => {
   if (reviewsData) {
     reviews = reviewsData.map((module) => {
       const {
-        contentList,
         contentModules: review,
         text,
+        images,
       } = getDocumentFields(module);
-      const logo = get(contentList, '[0]', '');
+      const logo = getFileUrl(get(images, '[0]', ''));
       const {
         avatar,
         fullName: name,
