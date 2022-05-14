@@ -116,6 +116,7 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  yellowLogoWithBg: 'yellowLogoWithBg',
   arrow: 'arrowSvg',
   behance: 'behanceSvg',
   checkMark: 'checkMarkSvg',

@@ -14,7 +14,6 @@ import styles from './styles.module.scss';
 const SignatureGenerated = ({
   titledList,
   signatureContainer,
-  yellowUrl,
   formRef,
   linkedInImgUrl,
   instagramImgUrl,
@@ -78,10 +77,7 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path={YELLOW_LINK}
                   >
-                    <img
-                      src={yellowUrl}
-                      alt="yellow logo"
-                    />
+                    <Svg type="yellowLogoWithBg" />
                   </LinkWrapper>
                 </td>
                 <td
@@ -175,7 +171,6 @@ SignatureGenerated.propTypes = {
   titledList: PropTypes.instanceOf(Object).isRequired,
   signatureContainer: PropTypes.instanceOf(Object).isRequired,
   formRef: PropTypes.instanceOf(Object).isRequired,
-  yellowUrl: PropTypes.string.isRequired,
   linkedInImgUrl: PropTypes.string.isRequired,
   instagramImgUrl: PropTypes.string.isRequired,
   twitterImgUrl: PropTypes.string.isRequired,
