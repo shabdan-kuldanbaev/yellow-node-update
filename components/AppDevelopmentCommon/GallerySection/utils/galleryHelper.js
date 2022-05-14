@@ -17,6 +17,7 @@ export const getGalleryProps = (data) => {
     centeredSlides: true,
     loop: true,
     passiveListeners: true,
+    speed: 500,
     mousewheel: {
       forceToAxis: true,
     },
