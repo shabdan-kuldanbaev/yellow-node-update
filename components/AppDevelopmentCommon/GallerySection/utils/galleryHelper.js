@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
-import { getDocumentFields } from 'utils/helper';
 import SwiperNavButton from 'components/SwiperNavButton';
+import { getDocumentFields } from 'utils/helper';
 
 export const getGalleryProps = (data) => {
   const {

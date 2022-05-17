@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import SwiperNavButton from 'components/SwiperNavButton';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export const getReviewsProps = (data) => {
   let reviews = [];
