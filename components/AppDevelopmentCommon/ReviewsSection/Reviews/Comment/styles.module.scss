@@ -189,11 +189,10 @@
       position: relative;
 
       &::after {
-        content: 'Blackbird';
-        font-weight: bold;
-
         @include centered;
 
+        content: 'Blackbird';
+        font-weight: bold;
         left: 100%;
       }
     }

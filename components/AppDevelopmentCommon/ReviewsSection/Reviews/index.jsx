@@ -68,9 +68,7 @@ export const Reviews = ({ reviews = [] }) => {
   return (
     <div className={styles.reviews}>
       <div className={styles.desktopReviews}>
-        <Swiper
-          {...desktopSwiperParams}
-        >
+        <Swiper {...desktopSwiperParams}>
           {reviews.map((comment, index) => (
             <div key={`desktopReviews/${comment.name}`}>
               <Comment

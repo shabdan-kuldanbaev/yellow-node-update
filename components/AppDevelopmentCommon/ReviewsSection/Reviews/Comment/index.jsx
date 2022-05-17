@@ -14,9 +14,7 @@ export const Comment = ({
   },
   infoRef,
 }) => (
-  <div
-    className={styles.commentWrapper}
-  >
+  <div className={styles.commentWrapper}>
     <section
       className={styles.commentContainer}
       ref={infoRef}
@@ -29,17 +27,12 @@ export const Comment = ({
             className={styles.logo}
           />
         </div>
-        <div
-          className={styles.message}
-
-        >
+        <div className={styles.message}>
           {message}
           <ContentfulParser document={text} />
         </div>
       </div>
-      <div
-        className={styles.categoryName}
-      >
+      <div className={styles.categoryName}>
         <div className={styles.person}>
           <div className={styles.avatarContainer}>
             <img
