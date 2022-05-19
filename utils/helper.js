@@ -246,3 +246,5 @@ export const serverSideRedirect = ({ res }, {
 };
 
 export const formatDate = (date, { format = DEFAULT_DATE_FORMAT } = {}) => dayjs(date).format(format);
+
+export const getLimitedList = (list, { start = 0, limit = 1 }) => list.slice(start, limit);
