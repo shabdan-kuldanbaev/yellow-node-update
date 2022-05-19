@@ -1,0 +1,26 @@
+@import "styles/utils/mixins";
+
+.selectorElement {
+  @include fontSize(18px);
+
+  padding: 8px 30px;
+  border-radius: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 180%;
+  margin-left: 20px;
+
+  &.typeSelector {
+    background: $wild-sand;
+
+    &.selected {
+      background: $cod-gray-1;
+      color: $white;
+    }
+  }
+
+  input {
+    display: none;
+  }
+}
