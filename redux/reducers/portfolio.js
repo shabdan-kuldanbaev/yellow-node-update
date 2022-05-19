@@ -3,6 +3,7 @@ import { actionTypes } from 'actions/actionTypes';
 const initialState = {
   project: {},
   error: {},
+  tags: [],
 };
 
 const handlers = {
@@ -11,6 +12,14 @@ const handlers = {
     project: payload,
   }),
   [actionTypes.GET_PROJECT_FAILED]: (state, { payload }) => ({
+    ...state,
+    error: payload,
+  }),
+  [actionTypes.GET_PORTFOLIO_TAGS_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    tags: payload,
+  }),
+  [actionTypes.GET_PORTFOLIO_TAGS_FAILED]: (state, { payload }) => ({
     ...state,
     error: payload,
   }),

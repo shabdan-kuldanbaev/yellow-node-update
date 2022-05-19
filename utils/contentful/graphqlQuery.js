@@ -32,6 +32,20 @@ function getFilterParams(where) {
 }
 
 export const GRAPHQL_QUERY = {
+  loadPortfolioTags({ order }) {
+    return `
+      query {
+        workTagCollection(
+          ${getParam({ order })}
+        ) {
+          items {
+            slug
+            displayName
+          }
+        }
+      }
+    `;
+  },
   loadPreviewArticles({
     limit,
     order,
