@@ -41,7 +41,10 @@ export const WORK_TYPES = {
 };
 
 export const filterWorks = (works, { workType = WORK_TYPES.all, tags: selectedTags = [] }) => works.filter(({ tags, types }) => {
-  if (!tags.map(({ slug }) => slug).some((tag) => selectedTags.includes(tag))) return false;
+  const castedSelectedTags = selectedTags.map(({ slug }) => slug);
+  const castedWorkTags = tags.map(({ slug }) => slug);
+
+  if (selectedTags.length && !castedWorkTags.some((tag) => castedSelectedTags.includes(tag))) return false;
 
   return !(workType !== WORK_TYPES.all && !types.includes(workType));
 });

@@ -1,0 +1,18 @@
+@import "styles/utils/mixins";
+
+.container {
+  @include flex(row, flex-start, flex-start, wrap);
+
+  margin-left: -20px;
+}
+
+.title {
+  align-items: flex-start;
+  margin-top: 80px;
+
+  h2 {
+    @include fontSize(24px);
+
+    margin-bottom: 30px;
+  }
+}

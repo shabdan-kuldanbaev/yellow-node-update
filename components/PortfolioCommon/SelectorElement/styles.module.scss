@@ -20,6 +20,17 @@
     }
   }
 
+  &.tagSelector {
+    color: $silver-chalice;
+    border: solid 1px $athens-gray;
+
+    &.selected {
+      background: $turbo-100;
+      border-color: $turbo-100;
+      color: $cod-gray-1;
+    }
+  }
+
   input {
     display: none;
   }

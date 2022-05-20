@@ -5,14 +5,12 @@ import { selectPortfolioProjectsPreview, selectMetaData } from 'redux/selectors/
 import {
   Portfolio,
   MetaTags,
-  Paginator,
   PageHeader,
   FullLayout,
 } from 'components';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import styles from './styles.module.scss';
 
 const PortfolioContainer = ({
   introSection,
@@ -20,6 +18,12 @@ const PortfolioContainer = ({
   metaData,
 }) => {
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
+  const works = contentModules.map((module) => {
+    const { tags, types, ...rest } = getDocumentFields(module, ['title', 'description', 'types', 'tags', 'previewImage', 'slug']);
+
+    return { ...rest, types: types || [], tags: tags ? tags.map((tag) => getDocumentFields(tag, ['slug', 'displayName'])) : [] };
+  });
+
   const breadcrumbs = pagesBreadcrumbs.portfolio();
   const pageMetadata = {
     ...metaData,
@@ -38,13 +42,7 @@ const PortfolioContainer = ({
           title={ROUTES.portfolio.title}
           breadcrumbs={breadcrumbs}
         />
-        <Portfolio works={contentModules} />
-        {/* <Paginator
-        pagesCounter={8}
-        currentPage={1}
-        pageSlug={ROUTES.portfolio.slug}
-        className={styles.paginator}
-      /> */}
+        <Portfolio works={works} />
       </FullLayout>
     </Fragment>
   );
