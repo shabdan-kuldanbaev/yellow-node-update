@@ -9,6 +9,7 @@ const SelectorElement = ({
   type,
   onClick,
   selected,
+  className,
 }) => (
   <Animated
     {...animatedProps}
@@ -17,7 +18,7 @@ const SelectorElement = ({
     <button
       type="button"
       onClick={onClick}
-      className={cn(styles.selectorElement, styles[type], { [styles.selected]: selected })}
+      className={cn(styles.selectorElement, styles[type], { [styles.selected]: selected }, className)}
     >
       {displayName}
     </button>

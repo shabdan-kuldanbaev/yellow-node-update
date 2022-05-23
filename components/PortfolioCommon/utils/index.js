@@ -1,9 +1,9 @@
 import { ANIMATED_TYPE } from 'utils/constants';
 
-const animatedProps = {
+export const animatedProps = {
   type: ANIMATED_TYPE.isCustom,
   translateY: '2.82352941em',
-  opacityDuration: 1,
+  opasityDuration: 1,
   transformDuration: 1,
 };
 

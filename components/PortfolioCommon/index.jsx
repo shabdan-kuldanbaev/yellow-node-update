@@ -1,20 +1,21 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
-import { Animated, PreviewImage } from 'components';
 import { withScroll } from 'hocs/withScroll';
 import { ROUTES } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import gaHelper from 'utils/ga';
-import { animatedFields, filterWorks, WORK_TYPES } from './utils';
-import { FieldsWrapper } from './FieldsWrapper';
+import { filterWorks, WORK_TYPES } from './utils';
 import styles from './styles.module.scss';
 import TypeSelector from './TypeSelector';
 import TagsSelector from './TagsSelector';
+import Work from './Work';
 
 const Portfolio = ({
   works,
   maxScrollPosition,
-  animatedFields: animatedFieldsList,
 }) => {
   const [worksDisplay, setWorksDisplay] = useState([]);
   const [selectedType, setSelectedType] = useState(WORK_TYPES.all);
@@ -22,7 +23,6 @@ const Portfolio = ({
 
   const slugs = {
     Fernwayer: 'fernwayer',
-    '7pm Thursday': 'seven-pm-thursday',
     Fairy: 'fairy',
   };
 
@@ -65,60 +65,24 @@ const Portfolio = ({
         onSelectionChange={onSelectedTagsChange}
       />
       <div className={styles.worksContainer}>
-        {worksDisplay.map((work, index) => {
-          const documentFields = getDocumentFields(
-            work,
-            ['previewImage', 'title', 'description', 'slug', 'types', 'tags'],
-          );
-          const {
-            previewImage,
-            title,
-            description,
-          } = work;
-
-          // TODO: remove this after rebuild works page
-          const slug = documentFields.slug || slugs[title];
-
-          return (
-            <div
-              className={styles.work}
-              key={`works/${title}`}
-              data-index={index}
-            >
-              <div className={styles.workWrapper}>
-                <div className={styles.desc}>
-                  {animatedFieldsList && animatedFieldsList.map((animated) => (
-                    <Animated
-                      {...animated}
-                      key={`fields/${title}/${animated.field}`}
-                    >
-                      <FieldsWrapper
-                        animated={animated}
-                        title={title}
-                        description={description}
-                        slug={slug}
-                      />
-                    </Animated>
-                  ))}
-                </div>
-                <PreviewImage image={getFileUrl(previewImage)} />
-              </div>
-            </div>
-          );
-        })}
+        {worksDisplay.map((work) => (
+          <Work
+            key={work.title}
+            work={work}
+            customSlug={slugs[work.title]}
+          />
+        ))}
       </div>
     </>
   );
 };
 
 Portfolio.defaultProps = {
-  animatedFields,
   works: [],
 };
 
 Portfolio.propTypes = {
   works: PropTypes.instanceOf(Array),
-  animatedFields: PropTypes.instanceOf(Array),
   maxScrollPosition: PropTypes.instanceOf(Object).isRequired,
 };
 

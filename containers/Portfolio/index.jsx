@@ -19,9 +19,17 @@ const PortfolioContainer = ({
 }) => {
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
   const works = contentModules.map((module) => {
-    const { tags, types, ...rest } = getDocumentFields(module, ['title', 'description', 'types', 'tags', 'previewImage', 'slug']);
+    const {
+      types,
+      tags,
+      ...rest
+    } = getDocumentFields(module, ['title', 'description', 'types', 'tags', 'previewImage', 'slug']);
 
-    return { ...rest, types: types || [], tags: tags ? tags.map((tag) => getDocumentFields(tag, ['slug', 'displayName'])) : [] };
+    return {
+      types: types || [],
+      tags: tags ? tags.map((tag) => getDocumentFields(tag, ['slug', 'displayName'])) : [],
+      ...rest,
+    };
   });
 
   const breadcrumbs = pagesBreadcrumbs.portfolio();

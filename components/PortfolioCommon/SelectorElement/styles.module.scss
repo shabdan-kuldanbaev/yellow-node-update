@@ -31,6 +31,12 @@
     }
   }
 
+  &.tagDisplay {
+    color: $silver-chalice;
+    background: rgba($white, 0.5);
+    cursor: default;
+  }
+
   input {
     display: none;
   }
