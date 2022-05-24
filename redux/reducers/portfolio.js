@@ -4,6 +4,7 @@ const initialState = {
   project: {},
   error: {},
   tags: [],
+  types: [],
 };
 
 const handlers = {
@@ -19,7 +20,15 @@ const handlers = {
     ...state,
     tags: payload,
   }),
+  [actionTypes.GET_PORTFOLIO_TYPES_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    types: [...state.types, ...payload],
+  }),
   [actionTypes.GET_PORTFOLIO_TAGS_FAILED]: (state, { payload }) => ({
+    ...state,
+    error: payload,
+  }),
+  [actionTypes.GET_PORTFOLIO_TYPES_FAILED]: (state, { payload }) => ({
     ...state,
     error: payload,
   }),

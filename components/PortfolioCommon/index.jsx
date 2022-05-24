@@ -1,24 +1,20 @@
-import React, {
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withScroll } from 'hocs/withScroll';
-import { ROUTES } from 'utils/constants';
+import { DEFAULT_WORK_TYPE, ROUTES } from 'utils/constants';
 import gaHelper from 'utils/ga';
-import { filterWorks, WORK_TYPES } from './utils';
-import styles from './styles.module.scss';
 import TypeSelector from './TypeSelector';
 import TagsSelector from './TagsSelector';
 import Work from './Work';
+import { filterWorks } from './utils';
+import styles from './styles.module.scss';
 
 const Portfolio = ({
   works,
   maxScrollPosition,
 }) => {
   const [worksDisplay, setWorksDisplay] = useState([]);
-  const [selectedType, setSelectedType] = useState(WORK_TYPES.all);
+  const [selectedType, setSelectedType] = useState(DEFAULT_WORK_TYPE);
   const [selectedTags, setSelectedTags] = useState([]);
 
   const slugs = {
@@ -27,8 +23,10 @@ const Portfolio = ({
   };
 
   const onSelectedTypeChange = useCallback((type) => {
-    setSelectedType(WORK_TYPES[type]);
-  }, []);
+    if (type === selectedType) return;
+
+    setSelectedType(type);
+  }, [selectedType]);
 
   const onSelectedTagsChange = useCallback((tag) => {
     if (selectedTags.includes(tag)) {

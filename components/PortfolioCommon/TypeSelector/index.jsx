@@ -1,11 +1,17 @@
 import React from 'react';
 import { SectionTitle } from 'components/Common/SectionTitle';
+import { connect } from 'react-redux';
+import { selectTypes } from 'redux/selectors/portfolio';
+import { DEFAULT_WORK_TYPE } from 'utils/constants';
 import SelectorElement from '../SelectorElement';
 import { SELECTOR_ELEMENT_TYPES } from '../SelectorElement/utils';
-import { WORK_TYPES } from '../utils';
 import styles from './styles.module.scss';
 
-const TypeSelector = ({ selectedType, onSelectedTypeChange }) => (
+const TypeSelector = ({
+  selectedType,
+  onSelectedTypeChange,
+  typeList,
+}) => (
   <>
     <SectionTitle
       title="Types"
@@ -13,17 +19,20 @@ const TypeSelector = ({ selectedType, onSelectedTypeChange }) => (
     />
 
     <div className={styles.container}>
-      {Object.entries(WORK_TYPES).map(([typeSlug, typeName]) => (
+      {[DEFAULT_WORK_TYPE, ...typeList].map((type) => (
         <SelectorElement
           type={SELECTOR_ELEMENT_TYPES.typeSelector}
-          displayName={typeName}
-          onClick={() => onSelectedTypeChange(typeSlug)}
-          selected={WORK_TYPES[typeSlug] === selectedType}
+          displayName={type.displayName}
+          onClick={() => onSelectedTypeChange(type)}
+          selected={type === selectedType}
           className={styles.type}
+          key={`WORK-TYPE/${type.slug}`}
         />
       ))}
     </div>
   </>
 );
 
-export default TypeSelector;
+export default connect(
+  (state) => ({ typeList: selectTypes(state) }),
+)(TypeSelector);

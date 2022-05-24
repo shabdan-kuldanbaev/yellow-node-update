@@ -26,7 +26,7 @@ const PortfolioContainer = ({
     } = getDocumentFields(module, ['title', 'description', 'types', 'tags', 'previewImage', 'slug']);
 
     return {
-      types: types || [],
+      types: types ? types.map((type) => getDocumentFields(type, ['slug', 'displayName'])) : [],
       tags: tags ? tags.map((tag) => getDocumentFields(tag, ['slug', 'displayName'])) : [],
       ...rest,
     };

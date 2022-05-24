@@ -63,4 +63,7 @@ export const actionTypes = {
   /* ------------------------ */
   GET_PORTFOLIO_TAGS_SUCCESS: 'process/GET_PORTFOLIO_TAGS_SUCCESS',
   GET_PORTFOLIO_TAGS_FAILED: 'process/GET_PORTFOLIO_TAGS_FAILED',
+  /* ------------------------ */
+  GET_PORTFOLIO_TYPES_SUCCESS: 'process/GET_PORTFOLIO_TYPES_SUCCESS',
+  GET_PORTFOLIO_TYPES_FAILED: 'process/GET_PORTFOLIO_TYPES_FAILED',
 };

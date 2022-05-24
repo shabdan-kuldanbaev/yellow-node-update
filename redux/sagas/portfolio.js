@@ -10,9 +10,9 @@ import { GRAPHQL_QUERY } from '../../utils/contentful/graphqlQuery';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function getGraphqlResultTags(graphqlResult) {
-  return get(graphqlResult, 'workTagCollection.items', []);
-}
+const getGraphqlResultTags = (graphqlResult) => get(graphqlResult, 'workTagCollection.items', []);
+
+const getGraphqlResultTypes = (graphqlResult) => get(graphqlResult, 'workTypeCollection.items', []);
 
 export function* fetchProject({ projectSlug }) {
   try {
@@ -36,12 +36,24 @@ export function* fetchTags() {
   try {
     const response = yield contentfulClient.graphql(GRAPHQL_QUERY.loadPortfolioTags({ order: '[displayName_ASC]' }));
 
-    // console.log(response);
     yield put({
       type: actionTypes.GET_PORTFOLIO_TAGS_SUCCESS,
       payload: getGraphqlResultTags(response),
     });
   } catch (e) {
     yield put({ type: actionTypes.GET_PORTFOLIO_TAGS_FAILED, payload: e });
+  }
+}
+
+export function* fetchTypes() {
+  try {
+    const response = yield contentfulClient.graphql(GRAPHQL_QUERY.loadPortfolioTypes({ order: '[displayName_ASC]' }));
+
+    yield put({
+      type: actionTypes.GET_PORTFOLIO_TYPES_SUCCESS,
+      payload: getGraphqlResultTypes(response),
+    });
+  } catch (e) {
+    yield put({ type: actionTypes.GET_PORTFOLIO_TYPES_FAILED, payload: e });
   }
 }
