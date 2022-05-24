@@ -2,62 +2,34 @@ import React, {
   useRef,
   useEffect,
   useState,
+  createRef,
   useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Swiper from 'react-id-swiper';
-import SwiperCors, { EffectCoverflow } from 'swiper';
+import SwiperCors, {
+  EffectCoverflow,
+  Navigation,
+} from 'swiper';
 import { ANIMATED_TYPE } from 'utils/constants';
+import { getMaxVal } from 'utils/helper';
 import { Comment } from './Comment';
+import { getSwiperParams } from '../utils/reviewsHelper';
 import styles from './styles.module.scss';
 
-SwiperCors.use([EffectCoverflow]);
+SwiperCors.use([EffectCoverflow, Navigation]);
 
 // TODO rewrite component without js logic for resize
-export const Reviews = ({ reviews }) => {
+export const Reviews = ({ reviews = [] }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
-  const [
-    firstRef,
-    secondRef,
-    thirdRef,
-  ] = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
-  const infoRefs = useMemo(
-    () => [firstRef, secondRef, thirdRef],
-    [firstRef, secondRef, thirdRef],
-  );
-
-  const params = {
-    effect: 'coverflow',
-    slidesPerView: 1.2,
-    spaceBetween: 0,
-    centeredSlides: true,
-    loop: true,
-    passiveListeners: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: -30,
-      depth: 110,
-      modifier: 1,
-      slideShadows: false,
-    },
-    breakpoints: {
-      480: {
-        coverflowEffect: {
-          stretch: -45,
-        },
-      },
-    },
-  };
+  const infoRefs = useRef(reviews.map(() => createRef()));
+  const { desktopSwiperParams, mobileSwiperParams } = useMemo(() => getSwiperParams(), []);
 
   useEffect(() => {
     const handleOnResize = () => {
-      if (swiperRef && swiperRef.current) {
+      if (swiperRef.current) {
         const swiperWrapperChildren = get(swiperRef, 'current.children[0].children', []);
 
         if (swiperWrapperChildren && swiperWrapperChildren.length > 0) {
@@ -74,17 +46,13 @@ export const Reviews = ({ reviews }) => {
         }
       }
 
-      const isInfoRefsExsists = infoRefs.reduce((previousValue, infoRef) => !!(get(infoRef, 'current.children[0]', [])), false);
+      const isInfoRefsExists = infoRefs.current.reduce((previousValue, infoRef) => !!(get(infoRef, 'current', [])), false);
 
-      if (isInfoRefsExsists) {
-        const newHeight = infoRefs.reduce((previousValue, infoRef) => (
-          previousValue >= infoRef.current.children[0].offsetHeight
-            ? previousValue
-            : infoRef.current.children[0].offsetHeight
-        ), 0);
+      if (isInfoRefsExists) {
+        const newHeight = infoRefs.current.reduce((previousValue, ref) => getMaxVal(previousValue, ref.current.offsetHeight), 0);
 
         if (newHeight) {
-          infoRefs.forEach((infoRef) => {
+          infoRefs.current.forEach((infoRef) => {
             infoRef.current.style.height = `${newHeight}px`;
           });
         }
@@ -99,36 +67,27 @@ export const Reviews = ({ reviews }) => {
 
   return (
     <div className={styles.reviews}>
-      <div className={styles.desctopReviews}>
-        {reviews && reviews.map((comment, index) => {
-          const delay = 100 + 150 * index;
-          const animatioProps = {
-            type: ANIMATED_TYPE.isCustom,
-            translateY: '2.82352941em',
-            opasityDuration: 1,
-            transformDuration: 1,
-            transitionDelay: delay,
-          };
-
-          return (
-            <Comment
-              key={`desctopReviews/${comment.name}`}
-              comment={comment}
-              animatioProps={animatioProps}
-              infoRef={infoRefs[index]}
-            />
-          );
-        })}
+      <div className={styles.desktopReviews}>
+        <Swiper {...desktopSwiperParams}>
+          {reviews.map((comment, index) => (
+            <div key={`desktopReviews/${comment.name}`}>
+              <Comment
+                comment={comment}
+                infoRef={infoRefs.current[index]}
+              />
+            </div>
+          ))}
+        </Swiper>
       </div>
       <div
         className={styles.mobileReviews}
         style={{ height: `${maxCardHeight}` }}
       >
         <Swiper
+          {...mobileSwiperParams}
           ref={swiperRef}
-          {...params}
         >
-          {reviews && reviews.map((comment) => (
+          {reviews.map((comment) => (
             <div key={`mobileReviews/${comment.name}`}>
               <Comment
                 comment={comment}

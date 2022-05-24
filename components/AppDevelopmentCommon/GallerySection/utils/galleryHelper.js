@@ -1,4 +1,6 @@
+import React from 'react';
 import get from 'lodash/get';
+import SwiperNavButton from 'components/SwiperNavButton';
 import { getDocumentFields } from 'utils/helper';
 
 export const getGalleryProps = (data) => {
@@ -15,11 +17,13 @@ export const getGalleryProps = (data) => {
     centeredSlides: true,
     loop: true,
     passiveListeners: true,
+    speed: 500,
     mousewheel: {
       forceToAxis: true,
     },
-    pagination: {
-      el: '.swiper-pagination',
+    navigation: {
+      nextEl: '.swiper-next-el',
+      prevEl: '.swiper-prev-el',
     },
     coverflowEffect: {
       rotate: 0,
@@ -27,6 +31,18 @@ export const getGalleryProps = (data) => {
       depth: 150,
       slideShadows: false,
     },
+    renderNextButton: () => (
+      <SwiperNavButton
+        type="next"
+        className="swiper-next-el"
+      />
+    ),
+    renderPrevButton: () => (
+      <SwiperNavButton
+        type="prev"
+        className="swiper-prev-el"
+      />
+    ),
     breakpoints: {
       1025: {
         slidesPerView: 1.8,

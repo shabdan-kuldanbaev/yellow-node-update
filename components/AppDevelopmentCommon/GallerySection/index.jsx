@@ -5,6 +5,7 @@ import SwiperCore, {
   EffectCoverflow,
   Mousewheel,
   Pagination,
+  Navigation,
 } from 'swiper/core';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
@@ -21,6 +22,7 @@ SwiperCore.use([
   EffectCoverflow,
   Pagination,
   Mousewheel,
+  Navigation,
 ]);
 
 export const GallerySection = ({
