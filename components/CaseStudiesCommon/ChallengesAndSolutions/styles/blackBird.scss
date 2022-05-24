@@ -1,0 +1,173 @@
+/* stylelint-disable no-descending-specificity */
+.blackbird {
+  &.firstSectionView {
+    .special {
+      .infoContainer {
+        justify-content: flex-start;
+
+        @include phone {
+          width: 338px;
+        }
+      }
+
+      .image {
+        filter: unset;
+        transform: translate(10px, 205px);
+        max-width: 740px;
+
+        @include phone {
+          display: none;
+        }
+      }
+
+      .imageBundle {
+        display: none;
+        max-height: 486px;
+
+        @include phone {
+          display: block;
+          transform: translate(10px, 5px);
+        }
+      }
+
+      .title {
+        color: $white;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @include flex(row, space-between, flex-start);
+
+    @include phone {
+      @include flex(column);
+    }
+
+    .images {
+      @include flex(row, stretch, stretch);
+
+      position: relative;
+      height: 657px;
+      width: 328px;
+      margin-top: 80px;
+
+      @include phone {
+        margin: 40px 0;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+    }
+
+    .contentContainer .image {
+      filter: unset;
+      height: 100%;
+      border-radius: 45px;
+
+      @include tablet {
+        max-height: unset;
+        min-width: unset;
+      }
+    }
+
+    .special {
+      .title {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.7);
+      }
+    }
+
+    .special:first-of-type {
+      @include flex(column,initial, flex-start);
+
+      width: 372px;
+
+      @include phone {
+        @include flex(column, initial, center);
+      }
+
+      .images {
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .title {
+        text-align: left;
+
+        @include phone {
+          text-align: center;
+        }
+      }
+
+      p {
+        text-align: left;
+        width: 372px;
+
+        @include phone {
+          text-align: center;
+          width: 320px;
+        }
+      }
+    }
+
+    .special:last-of-type {
+      @include flex(column-reverse, initial, flex-end);
+
+      @include phone {
+        @include flex(column, initial, center);
+
+        max-width: 320px;
+      }
+
+      .title {
+        text-align: right;
+
+        @include phone {
+          margin-top: 80px;
+          text-align: center;
+        }
+      }
+
+      p {
+        text-align: right;
+
+        @include phone {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .contentContainer {
+      .image {
+        filter: unset;
+        max-height: 657px;
+      }
+
+      .infoContainer {
+        max-width: 454px;
+
+        h2 {
+          color: $white;
+        }
+
+        h3 {
+          color: $white;
+        }
+
+        p {
+          color: $silver-chalice;
+        }
+      }
+    }
+  }
+}

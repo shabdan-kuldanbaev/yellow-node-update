@@ -441,7 +441,8 @@
 .drive-focus,
 .meateater,
 .fireaway,
-.fusion-markets {
+.fusion-markets,
+.blackbird {
   @extend .container;
 
   .nextProjectContainer {
@@ -588,4 +589,8 @@
   .more {
     border: 1px solid $black;
   }
+}
+
+.blackbird {
+  background: $bright-navy;
 }

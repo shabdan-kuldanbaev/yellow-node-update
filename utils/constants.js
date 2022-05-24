@@ -441,6 +441,7 @@ export const CASE_STUDIES = {
   famlicious: 'famlicious',
   bionorica: 'bionorica',
   fusionMarkets: 'fusion-markets',
+  blackBird: 'blackbird',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -461,6 +462,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.meatEater).path,
   ROUTES.project.getRoute(CASE_STUDIES.fireaway).path,
   ROUTES.project.getRoute(CASE_STUDIES.fusionMarkets).path,
+  ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -559,3 +561,8 @@ export const CONTACT_FORM_TITLES = {
 export const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All1' };
+
+export const SWIPER_NAV_BUTTON_TYPES = {
+  next: 'next',
+  prev: 'prev',
+};

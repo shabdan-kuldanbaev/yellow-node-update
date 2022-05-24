@@ -133,3 +133,41 @@
     color: $white;
   }
 }
+
+.blackbird {
+  @include caseStudyContainer;
+
+  &.firstSectionView {
+    background-color: $white;
+  }
+
+  &.secondSectionView {
+    background: $chinese-black;
+
+    [data-case-study-title] {
+      color: $white;
+    }
+
+    [data-case-study-description] {
+      max-width: 651px;
+      color: $silver-chalice;
+    }
+  }
+
+  &.thirdSectionView {
+    background: $white;
+    padding: 80px 15px;
+
+    [data-case-study-title] {
+      @include fontSize(24px);
+    }
+
+    [data-case-study-description] {
+      max-width: 458px;
+
+      @include phone {
+        max-width: 327px;
+      }
+    }
+  }
+}

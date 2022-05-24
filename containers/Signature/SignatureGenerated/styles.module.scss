@@ -7,6 +7,10 @@
   }
 }
 
+td {
+  padding: 0;
+}
+
 .signature {
   @include signature-button;
 
@@ -36,22 +40,32 @@
     margin: 16px;
 
     table {
-      font-family: $case-studies-font;
-    }
-
-    hr {
-      border: 0;
-      border-bottom: 1px solid lightgrey;
-      color: lightgrey;
-      height: 1px;
+      font-family: $signature-font;
+      border-collapse: separate;
+      border-spacing: 8px;
     }
   }
 
   &Logo {
     &Container {
-      width: 64px;
-      padding-top: 24px;
+      height: 100px;
       vertical-align: top;
+      padding: 0 16px 0 0;
+      position: relative;
+      border-right: solid 2px $athens-gray;
+
+      a {
+        display: block;
+        padding: 0;
+        height: 100%;
+        max-height: 100px;
+        width: 100px;
+      }
+
+      img {
+        height: 100%;
+        margin: auto;
+      }
     }
   }
 
@@ -78,30 +92,66 @@
   }
 
   &Data {
-    padding: 24px 0 24px 15px;
+    line-height: 150%;
+    padding-left: 8px;
 
-    @include fontSize(12px);
+    @include fontSize(11pt);
+
+    & + & {
+      padding-left: 0;
+    }
+
+    p {
+      margin: 0;
+    }
 
     &Employee {
-      margin: 0;
       font-weight: 600;
     }
 
     &Job {
-      margin: 0 0 8px;
       color: $silver-chalice;
     }
 
     &Email {
-      margin: 0 0 8px;
-
       @include signatureLinkMixin;
+
+      line-height: 100%;
+
+      @include fontSize(9pt);
     }
 
     &Yellow {
-      margin: 0 0 8px;
-
       @include signatureLinkMixin;
+
+      line-height: 100%;
+      padding-left: 8px;
+      border-left: solid 2px $athens-gray;
+
+      @include fontSize(9pt);
+
+      a {
+        color: revert;
+      }
+    }
+
+    &Social {
+      line-height: 100%;
+      padding: 0 0 0 8px;
+
+      a {
+        line-height: 100%;
+        margin-top: auto;
+        vertical-align: bottom;
+      }
+
+      a + a {
+        margin-left: 8px;
+      }
+
+      img {
+        vertical-align: bottom;
+      }
     }
   }
 
