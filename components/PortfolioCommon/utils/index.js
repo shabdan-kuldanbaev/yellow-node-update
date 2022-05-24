@@ -36,8 +36,11 @@ export const DEFAULT_WORKS_LIMIT = 8;
 
 export const WORK_TYPES = {
   all: 'All',
-  web: 'Web Design',
-  app: 'App Design',
+  mobile: 'Mobile development',
+  uiUx: 'UI/UX design',
+  chat: 'Chat development',
+  web: 'Web development',
+  aiMl: 'AI & ML',
 };
 
 export const filterWorks = (works, { workType = WORK_TYPES.all, tags: selectedTags = [] }) => works.filter(({ tags, types }) => {

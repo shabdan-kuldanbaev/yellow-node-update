@@ -20,6 +20,7 @@ const TagsSelector = ({ selectedTags, onSelectionChange, tagList }) => (
           displayName={tag.displayName}
           onClick={() => onSelectionChange(tag)}
           selected={selectedTags.includes(tag)}
+          className={styles.tag}
         />
       ))}
     </div>

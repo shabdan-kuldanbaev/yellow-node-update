@@ -34,6 +34,7 @@ const Work = ({ work, customSlug }) => {
               <SelectorElement
                 displayName={tag.displayName}
                 type={SELECTOR_ELEMENT_TYPES.tagDisplay}
+                className={styles.tag}
               />
             ))}
           </div>

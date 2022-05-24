@@ -38,11 +38,17 @@
 }
 
 .tagsWrapper {
+  @include flex(row, flex-start, flex-start, wrap);
+
   margin-left: -20px;
 
   @include below-tablet {
     display: none;
   }
+}
+
+.tag {
+  margin: 0 0 10px 10px;
 }
 
 .title {
@@ -109,6 +115,10 @@
 .stickerbox,
 .fairy {
   color: $white;
+
+  .tag {
+    background: rgba($white, 0.04);
+  }
 
   .buttonStyle {
     color: $white;

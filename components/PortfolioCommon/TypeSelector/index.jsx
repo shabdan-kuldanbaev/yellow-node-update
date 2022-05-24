@@ -19,6 +19,7 @@ const TypeSelector = ({ selectedType, onSelectedTypeChange }) => (
           displayName={typeName}
           onClick={() => onSelectedTypeChange(typeSlug)}
           selected={WORK_TYPES[typeSlug] === selectedType}
+          className={styles.type}
         />
       ))}
     </div>
