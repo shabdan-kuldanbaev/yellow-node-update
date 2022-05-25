@@ -22,7 +22,7 @@ const handlers = {
   }),
   [actionTypes.GET_PORTFOLIO_TYPES_SUCCESS]: (state, { payload }) => ({
     ...state,
-    types: [...state.types, ...payload],
+    types: payload,
   }),
   [actionTypes.GET_PORTFOLIO_TAGS_FAILED]: (state, { payload }) => ({
     ...state,
