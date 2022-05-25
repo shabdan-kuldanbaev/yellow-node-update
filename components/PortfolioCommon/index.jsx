@@ -18,8 +18,11 @@ const Portfolio = ({
   const [selectedTags, setSelectedTags] = useState([]);
 
   const slugs = {
+    Fireaway: 'fireaway',
     Fernwayer: 'fernwayer',
     Fairy: 'fairy',
+    'Ubi.chat': 'ubi-chat',
+    BibleMania: 'biblemania',
   };
 
   const onSelectedTypeChange = useCallback((type) => {

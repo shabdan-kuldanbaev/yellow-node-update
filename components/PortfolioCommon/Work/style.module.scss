@@ -4,6 +4,7 @@
   height: 530px;
   position: relative;
   color: $dark-grey;
+  overflow: hidden;
 
   .contentWrapper {
     @include flex(column, space-between, flex-start);
@@ -15,6 +16,7 @@
     backdrop-filter: blur(74px);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    z-index: 1;
 
     @include below-tablet {
       display: block;
@@ -30,6 +32,7 @@
 
   @include below-tablet {
     height: auto;
+    overflow: visible;
 
     * {
       text-align: center;
@@ -55,7 +58,7 @@
   @include fontSize(56px);
 
   line-height: 67px;
-  margin: 30px 0 20px;
+  margin: 30px 0 0;
 
   @include below-tablet {
     @include fontSize(18px);
@@ -96,24 +99,38 @@
   }
 }
 
-.image {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+.images {
+  @include covered;
 
   @include below-tablet {
-    position: static;
+    position: relative;
     height: 290px;
+  }
+
+  .backgroundImage {
+    @include covered;
+
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .mainImage {
+    @include centered;
+
+    max-width: 90%;
+    max-height: 80%;
+    z-index: 0;
   }
 }
 
+/* Works with dark background */
+
 .seven-pm-thursday,
 .stickerbox,
-.fairy {
+.fairy,
+.blackbird,
+.fusion-markets,
+.meateater {
   color: $white;
 
   .tag {
@@ -133,4 +150,150 @@
       border-color: $dark-grey;
     }
   }
+}
+
+.blackbird .images {
+  background: $chinese-black;
+}
+
+.fusion-markets .images {
+  background: $eerie-black;
+}
+
+.stickerbox {
+  .images {
+    background: $cod-gray-1;
+
+    .backgroundImage {
+      @include centered;
+
+      width: auto;
+      height: auto;
+      max-height: 90%;
+      max-width: 90%;
+    }
+
+    .mainImage {
+      transform: translate(-50%, -43%);
+    }
+  }
+}
+
+.separate-us .images {
+  background: $alabaster;
+}
+
+.fernwayer .images {
+  background: linear-gradient(180deg, #D45D94 0%, #FA717D 100%);
+}
+
+.seven-pm-thursday .images {
+  background: $dark-blue-1;
+}
+
+.telemojo .images {
+  background: linear-gradient(180deg, #4398FF 0%, #0670F2 100%);
+}
+
+.fairy .images {
+  background: $violet;
+}
+
+.beautonomy {
+  .images {
+    background: $coffee;
+
+    .mainImage {
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.drive-focus {
+  .images {
+    background: linear-gradient(180deg, #FF8512 0%, #FFA34C 100%);
+
+    .mainImage {
+      transform: translate(-53%, -45%);
+    }
+  }
+}
+
+.travel-trivia {
+  .images {
+    background: linear-gradient(51.28deg, #E66BCE 11.39%, #EB6B96 81.95%);
+
+    .backgroundImage {
+      @include centered;
+
+      width: auto;
+      height: auto;
+      max-height: 90%;
+      max-width: 90%;
+    }
+
+    .mainImage {
+      max-height: 100%;
+      transform: translate(-60%, -50%);
+    }
+  }
+}
+
+.cash-chat .images {
+  background: linear-gradient(196.83deg, #01AE5E 9.68%, #028046 166.96%);
+}
+
+.smartcenter .images {
+  background: linear-gradient(180deg, #8293A3 0%, #778797 100%);
+}
+
+.natp .images {
+  background: linear-gradient(180deg, #5E676D 0%, #2C2F31 100%);
+}
+
+.writer-chrome-extension .images {
+  background: $sea-blue;
+}
+
+.ubi-chat .images {
+  background: linear-gradient(180deg, #2C54DB 0%, #2C54DB 100%);
+}
+
+.meateater .images {
+  background: $shark-2;
+}
+
+.bionorica .images {
+  background: linear-gradient(180deg, #EBEEF4 0%, #fff 100%);
+}
+
+.fireaway .images {
+  background: $cornflower-blue;
+
+  .backgroundImage {
+    @include centered;
+
+    width: auto;
+    height: auto;
+    max-height: 90%;
+    max-width: 90%;
+  }
+
+  .mainImage {
+    transform: translate(-60%, -50%);
+  }
+}
+
+.famlicious .images {
+  background: $athens-gray-1;
+
+  .mainImage {
+    max-height: 100%;
+    max-width: unset;
+  }
+}
+
+.biblemania .images {
+  background: linear-gradient(180deg, #1D7CF8 0%, #043867 100%);
 }

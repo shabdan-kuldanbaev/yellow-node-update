@@ -14,7 +14,8 @@ const Work = ({ work, customSlug }) => {
     description,
     tags,
     slug,
-    previewImage,
+    mainImage,
+    backgroundImage,
   } = work;
 
   return (
@@ -23,11 +24,22 @@ const Work = ({ work, customSlug }) => {
       transitionDelay={700}
     >
       <div className={cn(styles.work, styles[customSlug || slug])}>
-        <img
-          src={getFileUrl(previewImage)}
-          className={styles.image}
-          alt="work preview"
-        />
+        <div className={styles.images}>
+          {backgroundImage && (
+            <img
+              src={getFileUrl(backgroundImage)}
+              className={styles.backgroundImage}
+              alt=""
+            />
+          )}
+          {mainImage && (
+            <img
+              src={getFileUrl(mainImage)}
+              className={styles.mainImage}
+              alt="work preview"
+            />
+          )}
+        </div>
         <div className={styles.contentWrapper}>
           <div className={styles.tagsWrapper}>
             {tags.map((tag) => (
