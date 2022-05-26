@@ -6,10 +6,8 @@ import gaHelper from 'utils/ga';
 import TypeSelector from './TypeSelector';
 import TagsSelector from './TagsSelector';
 import Work from './Work';
-import { animatedProps, filterWorks } from './utils';
+import { filterWorks } from './utils';
 import styles from './styles.module.scss';
-import { Animated } from '../Common/Animated';
-import { CallToAction } from '../Common/CallToAction';
 
 const Portfolio = ({
   works,
@@ -76,18 +74,6 @@ const Portfolio = ({
           />
         ))}
       </div>
-      <Animated
-        {...animatedProps}
-        transitionDelay={550}
-      >
-        {/* <CallToAction */}
-        {/*  type="card" */}
-        {/*  title={link.linkTitle} */}
-        {/*  buttonTitle={link.buttonTitle} */}
-        {/*  handleOnClick={handleOnCTAClick} */}
-        {/*  className={styles.callToAction} */}
-        {/* /> */}
-      </Animated>
     </>
   );
 };

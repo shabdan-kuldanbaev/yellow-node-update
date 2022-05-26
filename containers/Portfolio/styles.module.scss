@@ -44,3 +44,21 @@
     margin-bottom: 40px;
   }
 }
+
+.callToAction {
+  @include flex(column, center, center);
+
+  margin-bottom: 150px;
+
+  @include below-tablet {
+    margin: 100px 0 0;
+  }
+
+  & > h3 {
+    max-width: 750px;
+  }
+
+  div[role='button'] {
+    margin-top: 20px;
+  }
+}
