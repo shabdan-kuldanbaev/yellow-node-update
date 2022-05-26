@@ -4,6 +4,10 @@
   @include flex(row, flex-start, flex-start, wrap);
 
   margin-left: -20px;
+
+  @include below-tablet {
+    margin-left: -10px;
+  }
 }
 
 .type {

@@ -9,3 +9,38 @@
     transform: scale(1);
   }
 }
+
+.title {
+  @include fontSize(56px);
+
+  line-height: 67px;
+  margin-top: 100px;
+
+  @include below-tablet {
+    @include fontSize(32px);
+
+    line-height: 48px;
+    margin-top: 50px;
+  }
+
+  @include phone {
+    @include fontSize(24px);
+
+    line-height: 32px;
+  }
+}
+
+.subtitle {
+  @include fontSize(24px);
+
+  line-height: 43px;
+  color: $silver-chalice;
+  margin-bottom: 80px;
+
+  @include below-tablet {
+    @include fontSize(18px);
+
+    line-height: 24px;
+    margin-bottom: 40px;
+  }
+}

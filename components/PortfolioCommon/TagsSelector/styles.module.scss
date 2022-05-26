@@ -4,6 +4,10 @@
   @include flex(row, flex-start, flex-start, wrap);
 
   margin-left: -20px;
+
+  @include below-tablet {
+    margin-left: -10px;
+  }
 }
 
 .tag {
@@ -13,6 +17,10 @@
 .title {
   align-items: flex-start;
   margin-top: 80px;
+
+  @include below-tablet {
+    margin-top: 40px;
+  }
 
   h2 {
     @include fontSize(24px);
