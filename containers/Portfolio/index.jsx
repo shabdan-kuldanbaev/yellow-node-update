@@ -1,20 +1,32 @@
 import React, {
-  Fragment, useCallback, useMemo, useState,
+  Fragment,
+  useCallback,
+  useMemo,
+  useState,
 } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
-  selectPortfolioProjectsPreview, selectMetaData, selectTitle, selectSubtitle, selectCTA,
+  selectCTA,
+  selectMetaData,
+  selectPortfolioProjectsPreview,
+  selectSubtitle,
 } from 'redux/selectors/layout';
 import {
-  Portfolio,
+  Animated,
+  CallToAction,
+  FullLayout,
+  FullScreenEstimation,
   MetaTags,
   PageHeader,
-  FullLayout,
-  CallToAction, Animated, FullScreenEstimation,
+  Portfolio,
 } from 'components';
 import { getDocumentFields, rootUrl } from 'utils/helper';
-import { ANIMATED_TYPE, PAGES, ROUTES } from 'utils/constants';
+import {
+  ANIMATED_TYPE,
+  PAGES,
+  ROUTES,
+} from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
@@ -22,7 +34,6 @@ const PortfolioContainer = ({
   introSection,
   portfolioProjects,
   metaData,
-  title,
   subtitle,
   linkCTA,
 }) => {
@@ -73,7 +84,6 @@ const PortfolioContainer = ({
           transformDuration={1}
           transitionDelay={250}
         >
-          <h2 className={styles.title}>{title}</h2>
           <p className={styles.subtitle}>{subtitle}</p>
         </Animated>
         <Portfolio works={works} />
@@ -105,7 +115,6 @@ PortfolioContainer.propTypes = {
     metaDescription: PropTypes.string,
     ogImage: PropTypes.string,
   }).isRequired,
-  title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   linkCTA: PropTypes.instanceOf(Object).isRequired,
 };
@@ -114,7 +123,6 @@ export default connect(
   (state) => ({
     portfolioProjects: selectPortfolioProjectsPreview(state),
     metaData: selectMetaData(state),
-    title: selectTitle(state),
     subtitle: selectSubtitle(state),
     linkCTA: selectCTA(state),
   }),

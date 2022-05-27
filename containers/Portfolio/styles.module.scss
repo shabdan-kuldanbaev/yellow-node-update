@@ -31,9 +31,9 @@
 }
 
 .subtitle {
-  @include fontSize(24px);
+  @include fontSize(18px);
 
-  line-height: 43px;
+  line-height: 32px;
   color: $silver-chalice;
   margin-bottom: 80px;
 
