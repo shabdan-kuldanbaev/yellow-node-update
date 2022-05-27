@@ -48,7 +48,8 @@
 .callToAction {
   @include flex(column, center, center);
 
-  margin-bottom: 150px;
+  margin-top: 150px;
+  margin-bottom: 100px;
 
   @include below-tablet {
     margin: 100px 0 0;
@@ -56,6 +57,7 @@
 
   & > h3 {
     max-width: 750px;
+    margin-top: 0;
   }
 
   div[role='button'] {
