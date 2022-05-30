@@ -4,7 +4,6 @@ import { withScroll } from 'hocs/withScroll';
 import { ANIMATED_TYPE, DEFAULT_WORK_TYPE, ROUTES } from 'utils/constants';
 import gaHelper from 'utils/ga';
 import TypeSelector from './TypeSelector';
-import TagsSelector from './TagsSelector';
 import Work from './Work';
 import { DEFAULT_WORKS_LIMIT, filterWorks } from './utils';
 import styles from './styles.module.scss';
@@ -43,8 +42,8 @@ const Portfolio = ({
   const onSelectedTagsChange = useCallback((tag) => {
     setCurrentLimit(DEFAULT_WORKS_LIMIT);
 
-    if (selectedTags.includes(tag)) {
-      return setSelectedTags((prev) => prev.filter((selectedTag) => selectedTag !== tag));
+    if (selectedTags.find(({ slug }) => slug === tag.slug)) {
+      return setSelectedTags((prev) => prev.filter(({ slug }) => slug !== tag.slug));
     }
 
     setSelectedTags((prev) => [...prev, tag]);
@@ -84,16 +83,18 @@ const Portfolio = ({
         selectedType={selectedType}
         onSelectedTypeChange={onSelectedTypeChange}
       />
-      <TagsSelector
-        selectedTags={selectedTags}
-        onSelectionChange={onSelectedTagsChange}
-      />
+      {/* <TagsSelector */}
+      {/*  selectedTags={selectedTags} */}
+      {/*  onSelectionChange={onSelectedTagsChange} */}
+      {/* /> */}
       <div className={styles.worksContainer}>
         {worksDisplay.map((work) => (
           <Work
             key={work.title}
             work={work}
             customSlug={slugs[work.title]}
+            onTagClick={onSelectedTagsChange}
+            selectedTags={selectedTags}
           />
         ))}
       </div>

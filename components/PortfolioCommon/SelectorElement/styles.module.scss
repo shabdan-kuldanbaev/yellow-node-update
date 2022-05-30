@@ -40,7 +40,13 @@
   &.tagDisplay {
     color: $silver-chalice;
     background: rgba($white, 0.5);
-    cursor: default;
+
+    &.selected,
+    &:hover {
+      background: $turbo-100;
+      border-color: $turbo-100;
+      color: $cod-gray-1;
+    }
   }
 
   input {

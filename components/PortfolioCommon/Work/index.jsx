@@ -8,7 +8,9 @@ import { animatedProps } from '../utils';
 import { SELECTOR_ELEMENT_TYPES } from '../SelectorElement/utils';
 import styles from './style.module.scss';
 
-const Work = ({ work, customSlug }) => {
+const Work = ({
+  work, customSlug, onTagClick, selectedTags,
+}) => {
   const {
     title,
     description,
@@ -44,9 +46,12 @@ const Work = ({ work, customSlug }) => {
           <div className={styles.tagsWrapper}>
             {tags.map((tag) => (
               <SelectorElement
+                key={tag.slug}
                 displayName={tag.displayName}
                 type={SELECTOR_ELEMENT_TYPES.tagDisplay}
                 className={styles.tag}
+                selected={selectedTags.find(({ tagSlug }) => tagSlug === tag.slug)}
+                onClick={() => onTagClick(tag)}
               />
             ))}
           </div>
