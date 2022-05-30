@@ -16,6 +16,7 @@ const SignatureGenerator = ({ pageData: { main } }) => {
     inputsList,
     signatureGeneratedTitle,
     titledList,
+    images,
   } = getSignatureProps(main);
 
   const [
@@ -35,6 +36,7 @@ const SignatureGenerator = ({ pageData: { main } }) => {
           titledList={titledList}
           signatureContainer={signatureContainer}
           formRef={formRef}
+          images={images}
         />
       ) : (
         <SignatureGenerate

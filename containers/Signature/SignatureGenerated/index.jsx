@@ -15,6 +15,7 @@ const SignatureGenerated = ({
   titledList,
   signatureContainer,
   formRef,
+  images,
 }) => {
   const {
     employee,
@@ -73,7 +74,10 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path={YELLOW_LINK}
                   >
-                    <Svg type="yellowLogoWithBg" />
+                    <img
+                      src={images.yellowUrl}
+                      alt="yellow logo"
+                    />
                   </LinkWrapper>
                 </td>
                 <td
@@ -109,20 +113,28 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path="https://www.linkedin.com/company/yellow-systems/"
                   >
-                    <Svg type="linkedInDark" />
+                    <img
+                      src={images.linkedInImgUrl}
+                      alt="linkedin logo"
+                    />
                   </LinkWrapper>
                   <LinkWrapper
                     isLocalLink={false}
                     path="https://www.instagram.com/yellow.systems/"
                   >
-                    <Svg type="instagramDark" />
-
+                    <img
+                      src={images.instagramImgUrl}
+                      alt="instagram logo"
+                    />
                   </LinkWrapper>
                   <LinkWrapper
                     isLocalLink={false}
                     path="https://twitter.com/yellow_systems"
                   >
-                    <Svg type="twitterDark" />
+                    <img
+                      src={images.twitterImgUrl}
+                      alt="twitter logo"
+                    />
                   </LinkWrapper>
                 </td>
               </tr>
