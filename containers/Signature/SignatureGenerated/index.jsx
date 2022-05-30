@@ -19,7 +19,6 @@ const SignatureGenerated = ({
   const {
     employee,
     employeeJob,
-    employeeMail,
   } = getEmployeeInfo(formRef);
 
   const selectElementContents = () => {
@@ -90,17 +89,6 @@ const SignatureGenerated = ({
                 </td>
               </tr>
               <tr>
-                <td className={styles.signatureData}>
-                  {' '}
-                  <p className={styles.signatureDataEmail}>
-                    <LinkWrapper
-                      isLocalLink={false}
-                      path={`mailto:${employeeMail}`}
-                    >
-                      {employeeMail}
-                    </LinkWrapper>
-                  </p>
-                </td>
                 <td className={styles.signatureData}>
                   <p className={styles.signatureDataYellow}>
                     <LinkWrapper
