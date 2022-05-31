@@ -115,8 +115,9 @@ td {
     }
 
     &Job {
-      font-size: 5px;
       color: $silver-chalice;
+
+      @include fontSize(12pt);
     }
 
     &Email {
@@ -131,7 +132,8 @@ td {
       @include signatureLinkMixin;
 
       line-height: 150%;
-      font-size: 4pt;
+
+      @include fontSize(9pt);
 
       a {
         color: revert;
