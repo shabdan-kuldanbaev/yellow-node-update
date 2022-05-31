@@ -14,6 +14,10 @@ td {
 .signature {
   @include signature-button;
 
+  * {
+    background: $white;
+  }
+
   &Bottom {
     background-color: $gray-300;
     color: $silver-chalice;
