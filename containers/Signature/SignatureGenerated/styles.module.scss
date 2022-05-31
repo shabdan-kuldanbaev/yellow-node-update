@@ -110,6 +110,7 @@ td {
     }
 
     &Job {
+      font-size: 14px;
       color: $silver-chalice;
     }
 
@@ -125,8 +126,7 @@ td {
       @include signatureLinkMixin;
 
       line-height: 150%;
-
-      @include fontSize(9pt);
+      font-size: 9pt;
 
       a {
         color: revert;
