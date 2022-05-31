@@ -1,5 +1,7 @@
 @import 'styles/utils/mixins';
 
+/* stylelint-disable no-descending-specificity */
+
 @mixin signatureLinkMixin {
   a {
     color: black;
@@ -13,11 +15,6 @@ td {
 
 .signature {
   @include signature-button;
-
-  * {
-    background: $white;
-    -webkit-text-size-adjust: none;
-  }
 
   &Bottom {
     background-color: $gray-300;
@@ -43,6 +40,11 @@ td {
 
   &Container {
     margin: 16px;
+
+    * {
+      background: $white;
+      -webkit-text-size-adjust: none;
+    }
 
     table {
       font-family: $signature-font;
@@ -135,8 +137,9 @@ td {
 
       @include fontSize(9pt);
 
-      a {
-        color: revert;
+      a,
+      a:visited {
+        color: #007AFF;
       }
     }
 
