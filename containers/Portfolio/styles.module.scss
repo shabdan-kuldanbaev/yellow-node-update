@@ -35,7 +35,7 @@
 
   line-height: 32px;
   color: $silver-chalice;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 
   @include below-tablet {
     @include fontSize(18px);

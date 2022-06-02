@@ -1,5 +1,4 @@
 import React from 'react';
-import { SectionTitle } from 'components/Common/SectionTitle';
 import { connect } from 'react-redux';
 import { selectTypes } from 'redux/selectors/portfolio';
 import { DEFAULT_WORK_TYPE } from 'utils/constants';
@@ -13,11 +12,6 @@ const TypeSelector = ({
   typeList,
 }) => (
   <>
-    <SectionTitle
-      title="Types"
-      containerStyle={styles.title}
-    />
-
     <div className={styles.container}>
       {[DEFAULT_WORK_TYPE, ...typeList].map((type) => (
         <SelectorElement

@@ -9,7 +9,10 @@ import { SELECTOR_ELEMENT_TYPES } from '../SelectorElement/utils';
 import styles from './style.module.scss';
 
 const Work = ({
-  work, customSlug, onTagClick, selectedTags,
+  work,
+  customSlug,
+  onTagClick,
+  selectedTag,
 }) => {
   const {
     title,
@@ -50,7 +53,7 @@ const Work = ({
                 displayName={tag.displayName}
                 type={SELECTOR_ELEMENT_TYPES.tagDisplay}
                 className={styles.tag}
-                selected={selectedTags.find(({ tagSlug }) => tagSlug === tag.slug)}
+                selected={selectedTag && tag.slug === selectedTag.slug}
                 onClick={() => onTagClick(tag)}
               />
             ))}

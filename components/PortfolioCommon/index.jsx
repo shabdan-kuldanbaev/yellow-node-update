@@ -19,7 +19,7 @@ const Portfolio = ({
   const [worksDisplay, setWorksDisplay] = useState([]);
   const [currentLimit, setCurrentLimit] = useState(DEFAULT_WORKS_LIMIT);
   const [selectedType, setSelectedType] = useState(DEFAULT_WORK_TYPE);
-  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedTag, setSelectedTag] = useState(null);
 
   const slugs = {
     Fireaway: 'fireaway',
@@ -39,15 +39,15 @@ const Portfolio = ({
     setSelectedType(type);
   }, [selectedType]);
 
-  const onSelectedTagsChange = useCallback((tag) => {
+  const onSelectedTagChange = useCallback((tag) => {
     setCurrentLimit(DEFAULT_WORKS_LIMIT);
 
-    if (selectedTags.find(({ slug }) => slug === tag.slug)) {
-      return setSelectedTags((prev) => prev.filter(({ slug }) => slug !== tag.slug));
+    if (selectedTag && selectedTag.slug === tag.slug) {
+      return setSelectedTag(null);
     }
 
-    setSelectedTags((prev) => [...prev, tag]);
-  }, [selectedTags]);
+    setSelectedTag(tag);
+  }, [selectedTag]);
 
   const onShowMoreClick = useCallback(() => {
     setCurrentLimit((prev) => prev + DEFAULT_WORKS_LIMIT);
@@ -56,8 +56,8 @@ const Portfolio = ({
   useEffect(() => {
     if (!works.length) return;
 
-    setFilteredWorks(filterWorks(works, { tags: selectedTags, workType: selectedType }));
-  }, [selectedType, selectedTags, works]);
+    setFilteredWorks(filterWorks(works, { tag: selectedTag, workType: selectedType }));
+  }, [selectedType, selectedTag, works]);
 
   useEffect(() => {
     if (isFilteringEnabled) {
@@ -93,8 +93,8 @@ const Portfolio = ({
             key={work.title}
             work={work}
             customSlug={slugs[work.title]}
-            onTagClick={onSelectedTagsChange}
-            selectedTags={selectedTags}
+            onTagClick={onSelectedTagChange}
+            selectedTag={selectedTag}
           />
         ))}
       </div>
