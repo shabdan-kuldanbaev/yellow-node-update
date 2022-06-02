@@ -1,5 +1,6 @@
 @import "styles/utils/mixins";
 
+/* stylelint-disable no-descending-specificity */
 .work {
   height: 530px;
   position: relative;
@@ -13,10 +14,9 @@
     padding: 70px 60px;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(74px);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    z-index: 1;
+    position: relative;
 
     @include below-tablet {
       display: block;
@@ -26,8 +26,15 @@
     }
   }
 
-  &:hover .contentWrapper {
-    opacity: 1;
+  &:hover {
+    .images * {
+      filter: blur(40px);
+    }
+
+    .contentWrapper {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out 0.3s;
+    }
   }
 
   @include below-tablet {
@@ -101,6 +108,10 @@
 
 .images {
   @include covered;
+
+  * {
+    transition: all 0.3s ease-in-out;
+  }
 
   @include below-tablet {
     position: relative;

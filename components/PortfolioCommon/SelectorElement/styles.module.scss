@@ -39,13 +39,14 @@
 
   &.tagDisplay {
     color: $silver-chalice;
-    background: rgba($white, 0.5);
+    border: solid $silver-chalice 1px;
+    background: none;
 
     &.selected,
     &:hover {
-      background: $turbo-100;
-      border-color: $turbo-100;
-      color: $cod-gray-1;
+      background: $cod-gray-1;
+      border-color: $cod-gray-1;
+      color: $white;
     }
   }
 
