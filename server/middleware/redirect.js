@@ -6,6 +6,19 @@ dotenv.config('./env');
 
 const isProd = process.env.NODE_ENV === 'production';
 
+const multiSlashRedirect = (req, res, next) => {
+  const { url, path } = req;
+
+  if (!path.includes('//') || path.length <= 1) {
+    return next();
+  }
+
+  const query = url.slice(path.length);
+  const safePath = path.replace(/(\/\/)+/g, '/');
+
+  res.redirect(301, safePath + query);
+};
+
 const trailingSlashRedirect = (req, res, next) => {
   const { url, path } = req;
 
@@ -93,4 +106,5 @@ module.exports = {
   wwwRedirect,
   trailingSlashRedirect,
   pageRedirect,
+  multiSlashRedirect,
 };
