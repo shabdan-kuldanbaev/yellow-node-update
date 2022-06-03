@@ -14,10 +14,8 @@ const ProjectContainer = ({ introSection, currentProject }) => {
     body,
     metaTitle,
     metaDescription,
-  } = getDocumentFields(
-    get(currentProject, 'items[0]', {}),
-    ['body'],
-  );
+  } = getDocumentFields(get(currentProject, 'items[0]', {}));
+
   const pageMetadata = {
     metaTitle,
     metaDescription,
