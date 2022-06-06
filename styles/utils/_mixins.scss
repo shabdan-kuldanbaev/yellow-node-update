@@ -314,6 +314,14 @@
   }
 }
 
+@mixin buttonTransition {
+  transition:
+    background-color $shadow-time-for-yellow-button,
+    border-color $shadow-time-for-yellow-button * 2,
+    color $shadow-time-for-yellow-button,
+    transform $shadow-time-for-yellow-button cubic-bezier(0, 0, 0.2, 1);
+}
+
 @mixin seLocationSubscribe($subscribesPosition, $articleCount) {
   & > section:first-child {
     order: $subscribesPosition;

@@ -38,15 +38,20 @@
   }
 
   &.tagDisplay {
-    color: $silver-chalice;
-    border: solid $silver-chalice 1px;
+    color: rgba($white, 0.7);
+    border: solid rgba($white, 0.7) 1px;
     background: none;
+
+    @include below-tablet {
+      color: $silver-chalice;
+      border-color: $silver-chalice;
+    }
 
     &.selected,
     &:hover {
-      background: $cod-gray-1;
-      border-color: $cod-gray-1;
-      color: $white;
+      background: $turbo-100;
+      border-color: $turbo-100;
+      color: $cod-gray-1;
     }
   }
 
