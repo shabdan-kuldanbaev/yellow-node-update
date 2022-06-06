@@ -14,6 +14,7 @@ const {
   wwwRedirect,
   customDomainRedirect,
   pageRedirect,
+  multiSlashRedirect,
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
@@ -56,6 +57,7 @@ app
     server.use(trailingSlashRedirect);
     server.use(clearUrlRedirect);
     server.use(pageRedirect);
+    server.use(multiSlashRedirect);
 
     server.use(cors());
     server.use(express.static(path.join(__dirname, 'public')));
