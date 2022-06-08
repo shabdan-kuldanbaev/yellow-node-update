@@ -1,7 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withScroll } from 'hocs/withScroll';
-import { ANIMATED_TYPE, DEFAULT_WORK_TYPE, ROUTES } from 'utils/constants';
+import {
+  ANIMATED_TYPE,
+  DEFAULT_WORK_TYPE,
+  ROUTES,
+} from 'utils/constants';
 import gaHelper from 'utils/ga';
 import TypeSelector from './TypeSelector';
 import Work from './Work';
@@ -83,10 +87,6 @@ const Portfolio = ({
         selectedType={selectedType}
         onSelectedTypeChange={onSelectedTypeChange}
       />
-      {/* <TagsSelector */}
-      {/*  selectedTags={selectedTags} */}
-      {/*  onSelectionChange={onSelectedTagsChange} */}
-      {/* /> */}
       <div className={styles.worksContainer}>
         {worksDisplay.map((work) => (
           <Work
