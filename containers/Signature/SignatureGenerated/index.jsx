@@ -157,6 +157,7 @@ SignatureGenerated.propTypes = {
   titledList: PropTypes.instanceOf(Object).isRequired,
   signatureContainer: PropTypes.instanceOf(Object).isRequired,
   formRef: PropTypes.instanceOf(Object).isRequired,
+  images: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default SignatureGenerated;

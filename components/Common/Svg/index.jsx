@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { logoSize } from 'styles/utils/_variables.scss';
 import { ReactComponent as YellowLogoWithBg } from './svgs/yellowLogoBg.svg';
-import { ReactComponent as InstagramDark } from './svgs/Instagram.svg';
-import { ReactComponent as LinkedInDark } from './svgs/LinkedIn.svg';
-import { ReactComponent as TwitterDark } from './svgs/Twitter.svg';
+import { ReactComponent as InstagramDark } from './svgs/instagram.svg';
+import { ReactComponent as LinkedInDark } from './svgs/linkedIn.svg';
+import { ReactComponent as TwitterDark } from './svgs/twitter.svg';
 
 export const Svg = ({
   type,
@@ -17,13 +17,13 @@ export const Svg = ({
 }) => {
   switch (type) {
   case SVG_IMAGES_TYPES.instagramDark:
-    return <InstagramDark />;
+    return <InstagramDark className={className} onClick={handleOnClick} />;
   case SVG_IMAGES_TYPES.linkedInDark:
-    return <LinkedInDark />;
+    return <LinkedInDark className={className} onClick={handleOnClick} />;
   case SVG_IMAGES_TYPES.twitterDark:
-    return <TwitterDark />;
+    return <TwitterDark className={className} onClick={handleOnClick} />;
   case SVG_IMAGES_TYPES.yellowLogoWithBg:
-    return <YellowLogoWithBg />;
+    return <YellowLogoWithBg className={className} onClick={handleOnClick} />;
   case SVG_IMAGES_TYPES.searchSvg:
     return (
       <svg className={className} onClick={handleOnClick} width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
