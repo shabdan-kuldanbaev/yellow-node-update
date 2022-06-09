@@ -687,6 +687,10 @@
     left: -23%;
     right: 0;
     background-color: $alabaster;
+
+    @include phone {
+      left: -42%;
+    }
   }
 
   /* stylelint-disable-next-line */

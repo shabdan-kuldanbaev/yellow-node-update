@@ -19,7 +19,7 @@
         &::after {
           right: 0;
           transform: translate(10px, -1px);
-          background: linear-gradient(90deg, rgba($white, 0) 0%, $white 100%);
+          background: linear-gradient(90deg, rgba($white, 0) 0%, $white 73%);
 
           @include phone {
             display: none;
@@ -37,6 +37,20 @@
 
       @include tablet {
         padding-right: 0;
+      }
+
+      & > div:last-child {
+        @extend .openSenseGradient;
+
+        &::after {
+          left: 0;
+          transform: translate(10px, -1px);
+          background: linear-gradient(270deg, rgba($white, 0) 0%, $white 73%);
+
+          @include phone {
+            display: none;
+          }
+        }
       }
     }
 
@@ -138,6 +152,30 @@
 
           &::marker {
             color: $white;
+          }
+        }
+
+        @include phone {
+          padding: 0;
+          margin: 0 10px;
+
+          & > li {
+            list-style: none;
+
+            & > p {
+              position: relative;
+
+              &:before {
+                position: absolute;
+                top: 10px;
+                left: -7px;
+                content: ' ';
+                height: 4px;
+                width: 4px;
+                border-radius: 10px;
+                background-color: $white;
+              }
+            }
           }
         }
       }
