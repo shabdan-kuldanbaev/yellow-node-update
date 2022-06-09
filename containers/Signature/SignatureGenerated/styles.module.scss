@@ -1,6 +1,6 @@
-@import 'styles/utils/mixins';
-
 /* stylelint-disable no-descending-specificity */
+
+@import 'styles/utils/mixins';
 
 @mixin signatureLinkMixin {
   a {
@@ -139,7 +139,7 @@ td {
 
       a,
       a:visited {
-        color: #007AFF;
+        color: $pure-blue;
       }
     }
 
