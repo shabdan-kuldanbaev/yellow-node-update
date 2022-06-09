@@ -6,7 +6,6 @@
   --gap: 40px;
 
   padding: 0 0 80px;
-  width: 100%;
   background-color: $white;
   margin: 20px 0 0 calc(-1 * var(--gap));
 
@@ -35,10 +34,6 @@
 
   @include ultra-hd {
     max-width: $max-content-width;
-  }
-
-  @include macbook-fifteen {
-    width: 100%;
   }
 
   @include tablet {

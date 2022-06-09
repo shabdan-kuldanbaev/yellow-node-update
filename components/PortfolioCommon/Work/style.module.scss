@@ -19,7 +19,11 @@
     position: relative;
     color: $white;
 
-    @include below-tablet {
+    @include macbook-twelve {
+      padding: 50px 30px;
+    }
+
+    @include tablet {
       display: block;
       opacity: 1;
       padding: 0;
@@ -33,7 +37,7 @@
     .images * {
       filter: blur(20px);
 
-      @include below-tablet {
+      @include tablet {
         filter: none;
       }
     }
@@ -44,7 +48,7 @@
     }
   }
 
-  @include below-tablet {
+  @include tablet {
     height: auto;
     overflow: visible;
 
@@ -59,7 +63,7 @@
 
   margin-left: -10px;
 
-  @include below-tablet {
+  @include tablet {
     justify-content: center;
   }
 }
@@ -76,7 +80,14 @@
   line-height: 67px;
   margin: 30px 0 0;
 
-  @include below-tablet {
+  @include macbook-fifteen {
+    @include fontSize(42px);
+
+    margin-top: 20px;
+    line-height: 50px;
+  }
+
+  @include tablet {
     @include fontSize(18px);
 
     line-height: 21px;
@@ -91,7 +102,7 @@
   line-height: 32px;
   color: rgba($white, 0.7);
 
-  @include below-tablet {
+  @include tablet {
     @include fontSize(12px);
 
     line-height: 21px;
@@ -103,7 +114,7 @@
   @include button-more($white, $dark-grey, transparent, $turbo-100, $white, $turbo-100);
 
   align-self: flex-start;
-  margin-top: 60px;
+  margin-top: 0;
   width: auto;
   padding: 20px 38px;
   border-radius: 8px;
@@ -113,7 +124,9 @@
     transform: scale(0.96);
   }
 
-  @include below-tablet {
+  @include tablet {
+    @include fontSize(14px);
+
     padding: 14px 54px;
     margin: 20px auto 0;
     width: max-content;
@@ -127,6 +140,11 @@
 
   * {
     transition: all 0.15s ease-in-out;
+  }
+
+  @include tablet {
+    position: relative;
+    height: 420px;
   }
 
   @include below-tablet {

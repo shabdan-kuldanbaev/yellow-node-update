@@ -1,12 +1,18 @@
 @import "styles/utils/mixins";
 
 .container {
-  @include flex(row, flex-start, flex-start, wrap);
+  overflow: hidden;
+}
 
-  margin-left: -20px;
+.slide {
+  flex: 0 0 max-content;
 
-  @include below-tablet {
-    margin-left: -10px;
+  & + .slide {
+    margin-left: 20px;
+
+    @include below-tablet {
+      margin-left: 10px;
+    }
   }
 }
 
