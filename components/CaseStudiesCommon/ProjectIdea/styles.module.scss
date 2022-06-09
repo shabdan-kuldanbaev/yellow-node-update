@@ -571,3 +571,15 @@
     }
   }
 }
+
+.marketplace-for-clairvoyant-services {
+  @extend .container;
+
+  position: relative;
+  padding: 150px 40px;
+  background-color: $white;
+
+  .contentContainer {
+    padding-bottom: 0;
+  }
+}

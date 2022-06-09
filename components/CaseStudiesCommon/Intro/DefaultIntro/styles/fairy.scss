@@ -1,0 +1,58 @@
+.fairy {
+  @extend .container;
+
+  background: $violet no-repeat center;
+  background-size: cover;
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      margin-right: 15px;
+
+      &:nth-last-child(2) {
+        p:not(.infoTitle) {
+          max-width: 295px;
+        }
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+
+        p:not(.infoTitle) {
+          max-width: 200px;
+        }
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p:not(.infoTitle) {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectSubtitle {
+      color: rgba($white, 0.8);
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.6);
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 630px;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

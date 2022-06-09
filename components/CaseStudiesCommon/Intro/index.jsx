@@ -28,6 +28,7 @@ export const Intro = (props) => {
   case CASE_STUDIES.telemojo:
   case CASE_STUDIES.smartcenter:
   case CASE_STUDIES.bionorica:
+  case CASE_STUDIES.goodPsychics:
     return <VerticalIntro {...props} />;
   default:
     return null;
