@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
 import { getFileUrl } from 'utils/helper';
@@ -71,6 +72,17 @@ const Work = ({
       </div>
     </Animated>
   );
+};
+
+Work.defaultProps = {
+  customSlug: null,
+};
+
+Work.propTypes = {
+  work: PropTypes.instanceOf(Object).isRequired,
+  customSlug: PropTypes.string,
+  onTagClick: PropTypes.func.isRequired,
+  selectedTag: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Work;

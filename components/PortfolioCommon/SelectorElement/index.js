@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 const SelectorElement = ({
@@ -16,7 +17,19 @@ const SelectorElement = ({
   >
     {displayName}
   </button>
-
 );
+
+SelectorElement.defaultProps = {
+  selected: null,
+  className: '',
+};
+
+SelectorElement.propTypes = {
+  displayName: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  selected: PropTypes.bool,
+  className: PropTypes.string,
+};
 
 export default SelectorElement;

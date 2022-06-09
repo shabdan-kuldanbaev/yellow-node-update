@@ -1,6 +1,7 @@
 import React from 'react';
 import Swiper from 'react-id-swiper';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { selectTypes } from 'redux/selectors/portfolio';
 import { Animated } from 'components/Common/Animated';
 import SelectorElement from '../SelectorElement';
@@ -44,6 +45,12 @@ const TypeSelector = ({
       </Animated>
     </>
   );
+};
+
+TypeSelector.propTypes = {
+  selectedType: PropTypes.arrayOf(Object).isRequired,
+  onSelectedTypeChange: PropTypes.func.isRequired,
+  typeList: PropTypes.arrayOf(Object).isRequired,
 };
 
 export default connect(
