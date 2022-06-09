@@ -53,15 +53,6 @@
 
   .experiencesContainer {
     .experience {
-      @include phone {
-        margin-right: 80px;
-
-        .infoTitle,
-        p {
-          @include fontSize(14px);
-        }
-      }
-
       p {
         line-height: 1.5;
         color: $silver-chalice;
@@ -71,6 +62,15 @@
 
       .infoTitle {
         color: $dark-grey;
+      }
+
+      @include phone {
+        margin-right: 80px;
+
+        .infoTitle,
+        p {
+          @include fontSize(14px);
+        }
       }
     }
   }
