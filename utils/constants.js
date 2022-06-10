@@ -116,6 +116,10 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  twitterDark: 'twitterDark',
+  linkedInDark: 'linkedInDark',
+  instagramDark: 'instagramDark',
+  yellowLogoWithBg: 'yellowLogoWithBg',
   arrow: 'arrowSvg',
   behance: 'behanceSvg',
   checkMark: 'checkMarkSvg',
