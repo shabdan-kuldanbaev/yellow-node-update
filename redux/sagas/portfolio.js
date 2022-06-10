@@ -47,7 +47,7 @@ export function* fetchTags() {
 
 export function* fetchTypes() {
   try {
-    const response = yield contentfulClient.graphql(GRAPHQL_QUERY.loadPortfolioTypes({ order: '[displayName_ASC]' }));
+    const response = yield contentfulClient.graphql(GRAPHQL_QUERY.loadPortfolioTypes({ order: '[entryName_ASC]' }));
 
     yield put({
       type: actionTypes.GET_PORTFOLIO_TYPES_SUCCESS,
