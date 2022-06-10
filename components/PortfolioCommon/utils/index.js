@@ -1,11 +1,4 @@
-import { ANIMATED_TYPE, DEFAULT_WORK_TYPE } from 'utils/constants';
-
-export const animatedProps = {
-  type: ANIMATED_TYPE.isCustom,
-  translateY: '2.82352941em',
-  opasityDuration: 1,
-  transformDuration: 1,
-};
+import { DEFAULT_WORK_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 
 const linkProps = {
   isLocalLink: true,
@@ -17,17 +10,17 @@ export const animatedFields = [
   {
     field: 'title',
     transitionDelay: 200,
-    ...animatedProps,
+    ...REVEAL_ANIMATION_PROPS,
   },
   {
     field: 'description',
     transitionDelay: 250,
-    ...animatedProps,
+    ...REVEAL_ANIMATION_PROPS,
   },
   {
     field: 'link',
     transitionDelay: 300,
-    ...animatedProps,
+    ...REVEAL_ANIMATION_PROPS,
     ...linkProps,
   },
 ];

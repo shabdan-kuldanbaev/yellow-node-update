@@ -23,8 +23,8 @@ import {
 } from 'components';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import {
-  ANIMATED_TYPE,
   PAGES,
+  REVEAL_ANIMATION_PROPS,
   ROUTES,
 } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
@@ -77,13 +77,7 @@ const PortfolioContainer = ({
           title={ROUTES.portfolio.title}
           breadcrumbs={breadcrumbs}
         />
-        <Animated
-          type={ANIMATED_TYPE.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={250}
-        >
+        <Animated {...REVEAL_ANIMATION_PROPS}>
           <p className={styles.subtitle}>{subtitle}</p>
         </Animated>
         <Portfolio works={works} />

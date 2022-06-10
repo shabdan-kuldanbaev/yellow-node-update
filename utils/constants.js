@@ -566,3 +566,10 @@ export const SWIPER_NAV_BUTTON_TYPES = {
   next: 'next',
   prev: 'prev',
 };
+
+export const REVEAL_ANIMATION_PROPS = {
+  type: ANIMATED_TYPE.isCustom,
+  translateY: '2.82352941em',
+  opasityDuration: 1,
+  transformDuration: 1,
+};

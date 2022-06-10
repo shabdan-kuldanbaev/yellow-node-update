@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { selectTypes } from 'redux/selectors/portfolio';
 import { Animated } from 'components/Common/Animated';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import SelectorElement from '../SelectorElement';
-import { animatedProps, SELECTOR_ELEMENT_TYPES } from '../SelectorElement/utils';
+import { SELECTOR_ELEMENT_TYPES } from '../SelectorElement/utils';
 import styles from './styles.module.scss';
 
 const TypeSelector = ({
@@ -27,7 +28,7 @@ const TypeSelector = ({
   return (
     <>
       <Animated
-        {...animatedProps}
+        {...REVEAL_ANIMATION_PROPS}
         transitionDelay={250}
       >
         <Swiper {...params}>

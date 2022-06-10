@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
 import { getFileUrl } from 'utils/helper';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import SelectorElement from '../SelectorElement';
-import { animatedProps } from '../utils';
 import { SELECTOR_ELEMENT_TYPES } from '../SelectorElement/utils';
 import styles from './style.module.scss';
 
@@ -26,7 +26,7 @@ const Work = ({
 
   return (
     <Animated
-      {...animatedProps}
+      {...REVEAL_ANIMATION_PROPS}
       transitionDelay={700}
     >
       <div className={cn(styles.work, styles[customSlug || slug])}>

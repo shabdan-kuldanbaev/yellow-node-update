@@ -1,9 +1,13 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { withScroll } from 'hocs/withScroll';
 import {
-  ANIMATED_TYPE,
   DEFAULT_WORK_TYPE,
+  REVEAL_ANIMATION_PROPS,
   ROUTES,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
@@ -99,13 +103,7 @@ const Portfolio = ({
         ))}
       </div>
       {hasHiddenItems && (
-        <Animated
-          type={ANIMATED_TYPE.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={250}
-        >
+        <Animated {...REVEAL_ANIMATION_PROPS}>
           <ButtonMore
             title="See more projects"
             buttonStyle={styles.showMoreButton}
