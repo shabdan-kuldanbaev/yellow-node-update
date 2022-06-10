@@ -119,7 +119,7 @@ td {
     &Job {
       color: $silver-chalice;
 
-      @include fontSize(12pt);
+      @include fontSize(11pt);
     }
 
     &Email {
