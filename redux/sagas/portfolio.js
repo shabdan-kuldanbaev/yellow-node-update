@@ -40,8 +40,8 @@ export function* fetchTags() {
       type: actionTypes.GET_PORTFOLIO_TAGS_SUCCESS,
       payload: getGraphqlResultTags(response),
     });
-  } catch (e) {
-    yield put({ type: actionTypes.GET_PORTFOLIO_TAGS_FAILED, payload: e });
+  } catch (error) {
+    yield put({ type: actionTypes.GET_PORTFOLIO_TAGS_FAILED, payload: error });
   }
 }
 
@@ -53,7 +53,7 @@ export function* fetchTypes() {
       type: actionTypes.GET_PORTFOLIO_TYPES_SUCCESS,
       payload: getGraphqlResultTypes(response),
     });
-  } catch (e) {
-    yield put({ type: actionTypes.GET_PORTFOLIO_TYPES_FAILED, payload: e });
+  } catch (error) {
+    yield put({ type: actionTypes.GET_PORTFOLIO_TYPES_FAILED, payload: error });
   }
 }
