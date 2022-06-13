@@ -40,7 +40,7 @@ const PortfolioContainer = ({
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
-  const works = contentModules.map((module) => {
+  const works = contentModules && contentModules.map((module) => {
     const {
       types,
       tags,
@@ -86,13 +86,15 @@ const PortfolioContainer = ({
           </p>
         </Animated>
         <Portfolio works={works} />
-        <CallToAction
-          type="page"
-          title={link.title}
-          buttonTitle={link.buttonTitle}
-          handleOnClick={openFullscreenEstimation}
-          className={styles.callToAction}
-        />
+        {link && (
+          <CallToAction
+            type="page"
+            title={link.title}
+            buttonTitle={link.buttonTitle}
+            handleOnClick={openFullscreenEstimation}
+            className={styles.callToAction}
+          />
+        )}
       </FullLayout>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}

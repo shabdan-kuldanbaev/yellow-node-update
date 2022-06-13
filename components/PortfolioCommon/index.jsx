@@ -37,7 +37,7 @@ const Portfolio = ({
     BibleMania: 'biblemania',
   };
 
-  const isFilteringEnabled = filteredWorks.length !== works.length;
+  const isFilteringEnabled = works && filteredWorks.length !== works.length;
   const hasHiddenItems = !isFilteringEnabled && worksDisplay.length !== filteredWorks.length;
 
   const onSelectedTypeChange = useCallback((type) => {
@@ -62,7 +62,7 @@ const Portfolio = ({
   }, []);
 
   useEffect(() => {
-    if (!works.length) return;
+    if (!works || !works.length) return;
 
     setFilteredWorks(filterWorks(works, { tag: selectedTag, workType: selectedType }));
   }, [selectedType, selectedTag, works]);
