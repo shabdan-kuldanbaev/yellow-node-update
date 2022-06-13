@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import { contentfulClient, contentfulPreviewClient } from 'utils/contentful/client';
 
 export const fetchContentfulNearbyArticles = async ({ publishedAt, isOlder }) => {
@@ -44,3 +45,7 @@ export const findArticlesByValue = async (value, field = 'keyWords') => {
     console.error('The error catched from finding articles: ');
   }
 };
+
+export const getGraphqlResultTags = (graphqlResult) => get(graphqlResult, 'workTagCollection.items', []);
+
+export const getGraphqlResultTypes = (graphqlResult) => get(graphqlResult, 'workTypeCollection.items', []);

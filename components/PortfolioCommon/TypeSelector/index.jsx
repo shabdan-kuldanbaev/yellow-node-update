@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { selectTypes } from 'redux/selectors/portfolio';
 import { Animated } from 'components/Common/Animated';
+import SelectorElement from 'components/PortfolioCommon/SelectorElement';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import SelectorElement from '../SelectorElement';
-import { SELECTOR_ELEMENT_TYPES } from '../SelectorElement/utils';
+import { SELECTOR_ELEMENT_TYPES } from 'components/PortfolioCommon/SelectorElement/utils';
 import styles from './styles.module.scss';
 
 const TypeSelector = ({

@@ -13,7 +13,10 @@ const SelectorElement = ({
   <button
     type="button"
     onClick={onClick}
-    className={cn(styles.selectorElement, styles[type], { [styles.selected]: selected }, className)}
+    className={cn(styles.selectorElement,
+      styles[type],
+      { [styles.selected]: selected },
+      className)}
   >
     {displayName}
   </button>

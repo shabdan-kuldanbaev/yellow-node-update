@@ -5,19 +5,19 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { withScroll } from 'hocs/withScroll';
+import ButtonMore from 'components/Common/ButtonMore';
+import { Animated } from 'components/Common/Animated';
 import {
   DEFAULT_WORK_TYPE,
   REVEAL_ANIMATION_PROPS,
   ROUTES,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
-import TypeSelector from './TypeSelector';
+import { getLimitedList } from 'utils/helper';
 import Work from './Work';
+import TypeSelector from './TypeSelector';
 import { DEFAULT_WORKS_LIMIT, filterWorks } from './utils';
 import styles from './styles.module.scss';
-import { getLimitedList } from '../../utils/helper';
-import ButtonMore from '../Common/ButtonMore';
-import { Animated } from '../Common/Animated';
 
 const Portfolio = ({
   works,
@@ -103,7 +103,10 @@ const Portfolio = ({
         ))}
       </div>
       {hasHiddenItems && (
-        <Animated {...REVEAL_ANIMATION_PROPS}>
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={250}
+        >
           <ButtonMore
             title="See more projects"
             buttonStyle={styles.showMoreButton}

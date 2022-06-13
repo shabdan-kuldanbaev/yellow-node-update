@@ -1,8 +1,6 @@
 @import "styles/utils/mixins";
 
 .selectorElement {
-  @include fontSize(18px);
-
   padding: 0.55em 1.7em;
   border-radius: 50px;
   background: none;
@@ -10,9 +8,7 @@
   cursor: pointer;
   line-height: 180%;
 
-  @include tablet {
-    @include fontSize(14px);
-  }
+  @include fontSize(18px);
 
   &.typeSelector {
     background: $wild-sand;
@@ -39,16 +35,20 @@
     border: solid rgba($white, 0.7) 1px;
     background: none;
 
-    @include tablet {
-      color: $silver-chalice;
-      border-color: $silver-chalice;
-    }
-
     &.selected,
     &:hover {
       background: $turbo-100;
       border-color: $turbo-100;
       color: $cod-gray-1;
     }
+
+    @include tablet {
+      color: $silver-chalice;
+      border-color: $silver-chalice;
+    }
+  }
+
+  @include tablet {
+    @include fontSize(14px);
   }
 }

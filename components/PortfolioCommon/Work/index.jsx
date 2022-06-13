@@ -3,10 +3,10 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
+import SelectorElement from 'components/PortfolioCommon/SelectorElement';
 import { getFileUrl } from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import SelectorElement from '../SelectorElement';
-import { SELECTOR_ELEMENT_TYPES } from '../SelectorElement/utils';
+import { SELECTOR_ELEMENT_TYPES } from 'components/PortfolioCommon/SelectorElement/utils';
 import styles from './style.module.scss';
 
 const Work = ({
@@ -23,6 +23,8 @@ const Work = ({
     mainImage,
     backgroundImage,
   } = work;
+
+  const handleTagClick = (tag) => () => onTagClick(tag);
 
   return (
     <Animated
@@ -55,7 +57,7 @@ const Work = ({
                 type={SELECTOR_ELEMENT_TYPES.tagDisplay}
                 className={styles.tag}
                 selected={selectedTag && tag.slug === selectedTag.slug}
-                onClick={() => onTagClick(tag)}
+                onClick={handleTagClick(tag)}
               />
             ))}
           </div>

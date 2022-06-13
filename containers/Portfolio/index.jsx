@@ -77,8 +77,13 @@ const PortfolioContainer = ({
           title={ROUTES.portfolio.title}
           breadcrumbs={breadcrumbs}
         />
-        <Animated {...REVEAL_ANIMATION_PROPS}>
-          <p className={styles.subtitle}>{subtitle}</p>
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={250}
+        >
+          <p className={styles.subtitle}>
+            {subtitle}
+          </p>
         </Animated>
         <Portfolio works={works} />
         <CallToAction

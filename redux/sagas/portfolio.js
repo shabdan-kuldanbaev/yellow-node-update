@@ -1,18 +1,14 @@
-import get from 'lodash/get';
 import { put } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { contentfulClient } from 'utils/contentful/client';
 import { CASE_STUDIES_SLUGS } from 'utils/constants';
-import { GRAPHQL_QUERY } from '../../utils/contentful/graphqlQuery';
+import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
+import { getGraphqlResultTags, getGraphqlResultTypes } from 'utils/contentful/helper';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
-
-const getGraphqlResultTags = (graphqlResult) => get(graphqlResult, 'workTagCollection.items', []);
-
-const getGraphqlResultTypes = (graphqlResult) => get(graphqlResult, 'workTypeCollection.items', []);
 
 export function* fetchProject({ projectSlug }) {
   try {
