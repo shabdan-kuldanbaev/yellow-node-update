@@ -46,6 +46,6 @@ export const findArticlesByValue = async (value, field = 'keyWords') => {
   }
 };
 
-export const getGraphqlResultTags = (graphqlResult) => get(graphqlResult, 'workTagCollection.items', []);
+export const getGraphqlResultWorkTags = (graphqlResult) => get(graphqlResult, 'workTagCollection.items', []);
 
-export const getGraphqlResultTypes = (graphqlResult) => get(graphqlResult, 'workTypeCollection.items', []);
+export const getGraphqlResultWorkTypes = (graphqlResult) => get(graphqlResult, 'workTypeCollection.items', []);

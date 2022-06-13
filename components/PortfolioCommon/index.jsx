@@ -5,8 +5,8 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { withScroll } from 'hocs/withScroll';
-import ButtonMore from 'components/Common/ButtonMore';
 import { Animated } from 'components/Common/Animated';
+import ButtonMore from 'components/Common/ButtonMore';
 import {
   DEFAULT_WORK_TYPE,
   REVEAL_ANIMATION_PROPS,
