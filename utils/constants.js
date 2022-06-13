@@ -446,6 +446,7 @@ export const CASE_STUDIES = {
   bionorica: 'bionorica',
   fusionMarkets: 'fusion-markets',
   blackBird: 'blackbird',
+  goodPsychics: 'marketplace-for-clairvoyant-services',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

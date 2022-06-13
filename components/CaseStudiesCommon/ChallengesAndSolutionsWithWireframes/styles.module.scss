@@ -281,3 +281,13 @@
     color: $white;
   }
 }
+
+.marketplace-for-clairvoyant-services {
+  @include caseStudyContainer;
+
+  background-color: $white;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}
