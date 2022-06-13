@@ -300,7 +300,8 @@
   }
 }
 
-.fairy, .meetava {
+.fairy,
+.meetava {
   @extend .container;
 
   background: $light-violet-1;
@@ -336,7 +337,7 @@
 }
 
 .meetava {
-  background: #18B095;
+  background: $green-aloha;
 }
 
 .tell {

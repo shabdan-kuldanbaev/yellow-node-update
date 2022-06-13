@@ -711,14 +711,23 @@
   }
 }
 
-.meetava{
+.meetava {
   @include caseStudyContainer;
+
   .mockup {
-    filter: unset;
+    filter: drop-shadow(2px 2px 3px #000);
     width: 760px;
 
     @include phone {
-      width: 240px;
+      width: 300px;
+      top: 90%;
+    }
+  }
+
+  .circle {
+    @include phone {
+      height: 150px;
+      margin-top: 0;
     }
   }
 }

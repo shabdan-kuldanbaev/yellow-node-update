@@ -285,7 +285,7 @@
 .meetava {
   @include caseStudyContainer;
 
-  background-color: #18B095;
+  background-color: $green-aloha;
 
   [data-case-study-title] {
     color: $white;

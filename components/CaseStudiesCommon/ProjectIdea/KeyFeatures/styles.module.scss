@@ -680,17 +680,15 @@
   }
 }
 
-// .meetava {
-//   // @extend .container;
+.meetava {
+  .containerBackground {
+    left: -23%;
+    right: 0;
+    opacity: 0.5;
 
-//   .containerBackground {
-//     left: -23%;
-//     right: 0;
-//     opacity: 0.5;
-
-//     @include phone {
-//       left: -30%;
-//       width: 414px;
-//     }
-//   }
-// }
+    @include phone {
+      left: -30%;
+      width: 414px;
+    }
+  }
+}

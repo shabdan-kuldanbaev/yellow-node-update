@@ -246,8 +246,6 @@
 
 .meetava {
   @include caseStudyContainer;
-  background: #F8FDFC;
-  .image {
-    box-shadow: 0px 10.9713px 32.914px rgba(0, 0, 0, 0.05);
-  }
+
+  background: $melting-grey;
 }

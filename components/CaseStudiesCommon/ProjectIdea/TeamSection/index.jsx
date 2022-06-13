@@ -25,12 +25,12 @@ const TeamSection = ({ type, data }) => {
           <TitleUnderline type={type} />
         </h2>
         {contentList && contentList.map((member) => (
-          <p
+          <li
             key={member}
             className={styles.teamItem}
           >
             {member}
-          </p>
+          </li>
         ))}
         {imagesBundles && imagesBundles.map((image) => {
           const imgUrl = getFileUrl(image);

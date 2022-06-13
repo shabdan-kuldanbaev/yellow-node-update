@@ -1,9 +1,14 @@
 .meetava.secondSectionView {
-    background-color: #18B095 !important;
+    background-color: $green-aloha;
 
-    .contentContainer{
+    .contentContainer {
         margin: 0 auto 10px;
+
+        .image {
+            filter: unset;
+        }
     }
+
     &.secondSectionView {
         .contentContainer {
           .infoContainer {

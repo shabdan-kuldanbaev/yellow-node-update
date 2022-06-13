@@ -1264,3 +1264,11 @@
     }
   }
 }
+
+.meetava {
+  .contentContainer {
+    .image {
+      filter: $shadow-filter-image;
+    }
+  }
+}

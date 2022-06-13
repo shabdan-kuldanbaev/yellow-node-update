@@ -575,17 +575,22 @@
 .meetava {
   @extend .container;
 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: $white;
   position: relative;
 
   @include phone {
-    padding: 80px 15px 35px;
+    padding: 80px 15px 45px;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .contentContainer {
     padding-bottom: 0;
-    // @include flex(column, left, center);
-    
+    justify-content: space-between;
+
     .descriptionContainer {
       @include desktop {
         margin-left: 40px;
@@ -603,7 +608,12 @@
       .descriptionIntro {
         .description {
           & > p {
+            width: 560px;
             padding: 0 6px;
+
+            @include phone {
+              width: 250px;
+            }
           }
         }
       }

@@ -37,7 +37,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
     url: `${rootUrl}/${PAGES.portfolio}/${slug}`,
     ogImage,
   };
-  
+
   return (
     <Fragment>
       <MetaTags
