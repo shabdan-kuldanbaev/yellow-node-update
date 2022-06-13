@@ -692,3 +692,25 @@
     }
   }
 }
+
+.marketplace-for-clairvoyant-services {
+  @extend .container;
+
+  .containerBackground {
+    left: -23%;
+    right: 0;
+    background-color: $alabaster;
+
+    @include phone {
+      left: -42%;
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: linear-gradient(96.14deg, #3953B0 0%, #6144D6 100%);
+    }
+  }
+}

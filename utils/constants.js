@@ -116,6 +116,10 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  twitterDark: 'twitterDark',
+  linkedInDark: 'linkedInDark',
+  instagramDark: 'instagramDark',
+  yellowLogoWithBg: 'yellowLogoWithBg',
   arrow: 'arrowSvg',
   behance: 'behanceSvg',
   checkMark: 'checkMarkSvg',
@@ -443,6 +447,7 @@ export const CASE_STUDIES = {
   fusionMarkets: 'fusion-markets',
   blackBird: 'blackbird',
   meetAva: 'meetava',
+  goodPsychics: 'marketplace-for-clairvoyant-services',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

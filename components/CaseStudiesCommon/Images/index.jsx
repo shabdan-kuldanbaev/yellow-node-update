@@ -64,7 +64,7 @@ const Images = ({
 };
 
 Images.defaultProps = {
-  type: 'imagContainer',
+  type: 'imageContainer',
   view: '',
   isMobileResolution: false,
 };
