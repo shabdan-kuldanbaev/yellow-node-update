@@ -571,3 +571,42 @@
     }
   }
 }
+
+.meetava {
+  @extend .container;
+
+  background-color: $white;
+  position: relative;
+
+  @include phone {
+    padding: 80px 15px 35px;
+  }
+
+  .contentContainer {
+    padding-bottom: 0;
+    // @include flex(column, left, center);
+    
+    .descriptionContainer {
+      @include desktop {
+        margin-left: 40px;
+      }
+
+      @include tablet {
+        margin-left: 60px;
+      }
+
+      @include phone {
+        margin-left: 0;
+        margin-bottom: 0;
+      }
+
+      .descriptionIntro {
+        .description {
+          & > p {
+            padding: 0 6px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -710,3 +710,15 @@
     }
   }
 }
+
+.meetava{
+  @include caseStudyContainer;
+  .mockup {
+    filter: unset;
+    width: 760px;
+
+    @include phone {
+      width: 240px;
+    }
+  }
+}

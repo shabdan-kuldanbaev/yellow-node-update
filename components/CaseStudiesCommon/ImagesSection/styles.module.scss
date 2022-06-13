@@ -171,3 +171,12 @@
     }
   }
 }
+
+.meetava{
+  @include caseStudyContainer;
+  background-color: #18B095;
+  
+  [data-case-study-title] {
+    color: $white;
+  }
+}

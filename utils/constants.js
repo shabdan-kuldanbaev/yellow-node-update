@@ -442,6 +442,7 @@ export const CASE_STUDIES = {
   bionorica: 'bionorica',
   fusionMarkets: 'fusion-markets',
   blackBird: 'blackbird',
+  meetAva: 'meetava',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -463,6 +464,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fireaway).path,
   ROUTES.project.getRoute(CASE_STUDIES.fusionMarkets).path,
   ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
+  ROUTES.project.getRoute(CASE_STUDIES.meetAva).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,

@@ -1,0 +1,21 @@
+.meetava.secondSectionView {
+    background-color: #18B095 !important;
+
+    .contentContainer{
+        margin: 0 auto 10px;
+    }
+    &.secondSectionView {
+        .contentContainer {
+          .infoContainer {
+            h2,
+            h3 {
+              color: $white;
+            }
+    
+            p {
+              color: rgba($white, 0.7);
+            }
+          }
+        }
+      }
+}

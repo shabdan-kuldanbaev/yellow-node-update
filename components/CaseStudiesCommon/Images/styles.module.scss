@@ -212,7 +212,8 @@
 }
 
 .smartcenter,
-.meateater {
+.meateater, 
+.meetava {
   .image:first-child {
     display: block;
     max-width: 1076px;
@@ -226,7 +227,7 @@
 
   .image:last-child {
     display: none;
-    max-width: 160px;
+    max-width: 250px;
     margin: 0 auto;
 
     @include phone {

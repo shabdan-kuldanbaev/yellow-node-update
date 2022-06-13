@@ -300,7 +300,7 @@
   }
 }
 
-.fairy {
+.fairy, .meetava {
   @extend .container;
 
   background: $light-violet-1;
@@ -333,6 +333,10 @@
   .iconLink {
     color: $white;
   }
+}
+
+.meetava {
+  background: #18B095;
 }
 
 .tell {

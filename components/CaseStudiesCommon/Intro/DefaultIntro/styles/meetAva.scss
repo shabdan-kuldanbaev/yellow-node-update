@@ -1,0 +1,112 @@
+.meetava {
+    @extend .container;
+    background: #18B095;
+    height: 1150px;
+    
+    @include phone {
+        height: 920px;
+    }
+    
+    .projectInfoContainer {
+        color: $white;
+        @include phone {
+            margin-bottom: 20px;
+        }
+
+        .projectTitle {
+            font-size: 48px;
+            max-width: 450px;
+            @include phone {
+                font-size: 30px;
+
+            }
+        }
+
+        .projectDescription{
+            font-size: 14px;
+            color: rgba($white, 0.4);
+        }
+    }
+
+    .imageContainer {
+    @include tablet {
+      width: 100%;
+      height: 600px;
+    }
+
+    @include phone {
+        height: 300px;
+
+    }
+
+    .image {
+    //   max-width: 750px;
+
+      @include macbook-fifteen {
+        max-width: 800px;
+      }
+
+      @include tablet {
+        max-width: 500px;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1178px;
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 245px;
+      }
+    }
+  }
+
+  .introSection {
+    max-width: 1178px;
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
+      height: 825px;
+    }
+
+    @include phone {
+        height: 555px;
+        margin: 0 auto 60px;
+    }
+  }
+  
+  .bundleImage {
+      width: 1300px;
+    &:nth-of-type(1) {
+      position: absolute;
+      left: 300px;
+      top: 0;
+    }
+
+    &:nth-of-type(2) {
+      position: static;
+      display: none;
+      transform: translateX(10%);
+
+      @include tablet {
+        display: initial;
+        max-height: 500px;
+        margin-top: -50px;
+      }
+
+      @include phone {
+        margin-top: 0;
+        max-height: 392px;
+      }
+    }
+  }
+}

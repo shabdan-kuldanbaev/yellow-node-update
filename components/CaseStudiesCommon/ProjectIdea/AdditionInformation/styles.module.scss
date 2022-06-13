@@ -277,11 +277,12 @@
 }
 
 .meateater,
-.bionorica {
+.bionorica,
+.meetava {
   @extend .infoContainer;
 
   @include phone {
-    @include flex(column, center, flex-start);
+    @include flex(column, center, flex-end);
 
     padding: 0 65px;
   }

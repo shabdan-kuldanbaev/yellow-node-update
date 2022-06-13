@@ -87,7 +87,8 @@
 
 .seven-pm-thursday,
 .fusion-markets,
-.blackbird {
+.blackbird,
+.meetava {
   @extend .formContainer;
 
   background-color: $dark-blue-1;
@@ -154,6 +155,65 @@
   @include phone {
     padding: 0;
     margin-top: 0;
+  }
+}
+
+.meetava {
+  padding: 120px 0;
+  // margin-top: 140px;
+  background: $white;
+  color: $black;
+
+  @include phone {
+    padding: 0 auto;
+    margin-top: 0;
+  }
+  
+  .title {
+    color: $black;
+  }
+
+  .subtitle {
+    color: rgba(#171717, 0.3);
+
+    /* stylelint-disable-next-line */
+    span {
+      /* stylelint-disable-next-line */
+      a {
+        color: rgba(#171717, 0.3);
+
+        /* stylelint-disable-next-line */
+        &::before {
+          border-bottom: 1px rgba(#171717, 0.3) solid;
+          background-color: rgba(#171717, 0.3);
+        }
+      }
+    }
+  }
+
+  & > div:last-child {
+    & > form {
+      ::placeholder {
+        color: rgba(#171717, 0.3);
+      }
+
+      :-ms-input-placeholder {
+        color: rgba(#171717, 0.3);
+      }
+
+      ::-ms-input-placeholder {
+        color: rgba(#171717, 0.3);
+      }
+
+      & > div:last-child {
+        a {
+          div {
+            color: rgba(#171717, 0.3);
+            border-color: rgba(#171717, 0.3);
+          }
+        }
+      }
+    }
   }
 }
 

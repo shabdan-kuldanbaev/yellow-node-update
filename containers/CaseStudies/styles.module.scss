@@ -25,3 +25,9 @@
 
   background: $chinese-black;
 }
+
+.meetava {
+  @extend .feedBackContainer;
+
+  background: $white;
+}
