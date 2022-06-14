@@ -5,7 +5,7 @@ import { actionTypes } from 'redux/actions/actionTypes';
 import { contentfulClient } from 'utils/contentful/client';
 import { CASE_STUDIES_SLUGS } from 'utils/constants';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
-import { getGraphqlResultTags, getGraphqlResultTypes } from 'utils/contentful/helper';
+import { getGraphqlResultWorkTags, getGraphqlResultWorkTypes } from 'utils/contentful/helper';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -34,7 +34,7 @@ export function* fetchTags() {
 
     yield put({
       type: actionTypes.GET_PORTFOLIO_TAGS_SUCCESS,
-      payload: getGraphqlResultTags(response),
+      payload: getGraphqlResultWorkTags(response),
     });
   } catch (error) {
     yield put({ type: actionTypes.GET_PORTFOLIO_TAGS_FAILED, payload: error });
@@ -47,7 +47,7 @@ export function* fetchTypes() {
 
     yield put({
       type: actionTypes.GET_PORTFOLIO_TYPES_SUCCESS,
-      payload: getGraphqlResultTypes(response),
+      payload: getGraphqlResultWorkTypes(response),
     });
   } catch (error) {
     yield put({ type: actionTypes.GET_PORTFOLIO_TYPES_FAILED, payload: error });
