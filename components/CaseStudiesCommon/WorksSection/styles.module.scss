@@ -1,5 +1,56 @@
 @import 'styles/utils/mixins';
 
+.dindon {
+  @include caseStudyContainer;
+
+  background-color: $pale-pink;
+
+  & .sequenceOfSteps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 148px;
+    grid-row-gap: 100px;
+    max-width: 1300px;
+    margin: 0 auto;
+
+    .step {
+      background: $white;
+      box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
+      border-radius: 5px;
+      padding: 30px;
+
+      .contentMarkNumber {
+        @include flex(row, center, center);
+
+        margin: 0;
+        background: $cherry-red;
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+
+        @include fontSize(34px);
+
+        line-height: 180%;
+        color: $white;
+      }
+
+      .stepTitle {
+        @include fontSize(24px);
+
+        line-height: 180%;
+        color: $dark-grey;
+      }
+
+      .description {
+        @include fontSize(18px);
+
+        line-height: 180%;
+        color: $silver-chalice;
+      }
+    }
+  }
+}
+
 .writer-chrome-extension {
   @include caseStudyContainer;
 

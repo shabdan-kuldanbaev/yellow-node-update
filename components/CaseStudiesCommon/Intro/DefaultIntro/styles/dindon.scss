@@ -1,0 +1,57 @@
+.dindon {
+  @extend .container;
+
+  background: $cherry-red;
+  background-position: bottom -707px right -961px;
+  background-repeat: no-repeat;
+
+  .introSection {
+    margin: 0 auto 340px;
+  }
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.7);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectSubtitle {
+      color: $white;
+      max-width: 450px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.7);
+      max-width: 470px;
+    }
+  }
+
+  .imageContainer {
+    .image {
+      position: absolute;
+      top: -56%;
+      left: -35%;
+      transform: scale(1);
+    }
+  }
+}

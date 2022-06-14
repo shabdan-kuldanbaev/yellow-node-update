@@ -421,6 +421,7 @@ export const ARTICLE_PREVIEW_TYPES = {
 
 export const CASE_STUDIES = {
   fernwayer: 'fernwayer',
+  dindon: 'dindon',
   stickerbox: 'stickerbox',
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',

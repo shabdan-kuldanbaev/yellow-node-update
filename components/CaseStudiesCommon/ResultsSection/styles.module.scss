@@ -710,3 +710,35 @@
     }
   }
 }
+
+.dindon {
+  @include caseStudyContainer;
+
+  background: #A1C52B;
+  background-position: bottom -300px right -957px;
+  background-repeat: no-repeat;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  .mockup {
+    display: none;
+  }
+
+  .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+    transform: unset;
+    margin-top: 0;
+    left: auto;
+
+    .imageBundle {
+      max-width: 332px;
+      max-height: 180px;
+    }
+  }
+}

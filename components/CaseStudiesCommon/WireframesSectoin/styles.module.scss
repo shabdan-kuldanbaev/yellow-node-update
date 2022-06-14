@@ -104,6 +104,7 @@
   }
 }
 
+.dindon,
 .beautonomy,
 .meateater,
 .bionorica {
@@ -119,6 +120,12 @@
 
   @include tablet {
     padding: 0;
+  }
+}
+
+.dindon {
+  [data-case-study-description] {
+    max-width: 545px;
   }
 }
 

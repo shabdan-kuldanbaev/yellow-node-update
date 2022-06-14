@@ -65,6 +65,36 @@
   grid-column-gap: 180px;
 }
 
+.dindon {
+  min-width: 300px;
+
+  .title {
+    font-size: 56px;
+    line-height: 120%;
+    margin-bottom: 30px;
+  }
+
+  .teamItem {
+    margin: 0;
+    font-family: $case-studies-font;
+    font-size: 18px;
+    line-height: 180%;
+    color: #a0a0a0;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: $cherry-red;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+  }
+}
+
 .stickerbox {
   @extend .container;
 

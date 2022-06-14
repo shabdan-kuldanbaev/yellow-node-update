@@ -276,6 +276,7 @@
   }
 }
 
+.dindon,
 .meateater,
 .bionorica {
   @extend .infoContainer;
@@ -288,6 +289,12 @@
 
   /* stylelint-disable-next-line */
   .container {
+    max-width: 285px;
+
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+
     .title {
       color: $dark-grey;
     }
@@ -379,6 +386,16 @@
 
       &::marker {
         color: $jacksons-purple;
+      }
+    }
+  }
+}
+
+.dindon {
+  .container {
+    .listItemContainer {
+      &::marker {
+        color: $cherry-red;
       }
     }
   }

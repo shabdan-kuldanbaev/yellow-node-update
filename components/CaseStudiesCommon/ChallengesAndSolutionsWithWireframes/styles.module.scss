@@ -260,6 +260,18 @@
   background-color: $athens-gray-1;
 }
 
+.dindon {
+  @include caseStudyContainer;
+
+  background-color: $cherry-red;
+  background-position: top -144px right -957px;
+  background-repeat: no-repeat;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}
+
 .bionorica {
   @include caseStudyContainer;
 

@@ -243,3 +243,13 @@
     }
   }
 }
+
+.dindon {
+  @include caseStudyContainer;
+
+  background: #FAFDFA;
+
+  [data-case-study-title] {
+    margin-bottom: 200px;
+  }
+}

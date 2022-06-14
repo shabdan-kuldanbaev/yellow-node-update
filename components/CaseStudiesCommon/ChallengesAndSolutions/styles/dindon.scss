@@ -1,0 +1,96 @@
+.dindon {
+  &.secondSectionView {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+    justify-items: start;
+    max-width: 1300px;
+    margin: 0 auto;
+    color: $white;
+
+    @include phone {
+      display: block;
+      margin-right: auto;
+    }
+
+    .title {
+      color: $white;
+    }
+
+    .contentContainer {
+      display: block;
+      margin: 0 auto 60px;
+      max-width: 545px;
+
+      @include phone {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .infoContainer {
+      max-width: initial;
+
+      h3 {
+        color: $white;
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    .swiperBullet {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border-radius: 100%;
+      background-color: $white;
+    }
+
+    .swiperBulletActive {
+      background-color: $regal-blue-2;
+    }
+  }
+
+  &.firstSectionView {
+    overflow: hidden;
+
+    .contentContainer {
+      margin: 0 auto 320px;
+
+      .infoContainer {
+        max-width: unset;
+      }
+
+      .image {
+        filter: none;
+      }
+    }
+
+    .special {
+      position: relative;
+
+      &:nth-child(odd) {
+        .image {
+          transform: scale(2) translate(30%, 0%);
+        }
+      }
+
+      &:nth-child(even) {
+        .image {
+          transform: scale(2) translate(-30%, 0%);
+        }
+
+        .imageBundle-1 {
+          position: absolute;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 700px;
+      }
+    }
+  }
+}
