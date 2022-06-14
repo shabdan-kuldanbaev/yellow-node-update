@@ -1268,7 +1268,79 @@
 .meetava {
   .contentContainer {
     .image {
-      filter: $shadow-filter-image;
+      filter: unset;
     }
   }
+
+  .special {
+    &:nth-child(3) {
+      position: relative;
+
+      & > div:first-child{
+
+        & > div:last-child{
+          p {
+            width: 450px;
+
+            @include phone {
+              width: 290px;
+            }
+          }
+        }
+      }
+      & > div:last-child {
+
+        .imageBundle:nth-child(2) {
+          max-width: 150px;
+          position: absolute;
+          top: 12%;
+          left: 43%;
+
+          @include phone {
+            display: none;
+          }
+        }
+
+        & :nth-child(3) {
+          max-width: 150px;
+          position: absolute;
+          top: 71%;
+          left: 30%;
+
+          @include phone {
+            display: none;
+          }
+        }
+
+        & :last-child {
+          max-width: 150px;
+          position: absolute;
+          top: 60%;
+          left: 103%;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      position: relative;
+
+      & > div:last-child {
+
+        .imageBundle:nth-child(2) {
+          width: 170px;
+          position: absolute;
+          top: 21%;
+          left: 42%;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+    }
+  }  
 }

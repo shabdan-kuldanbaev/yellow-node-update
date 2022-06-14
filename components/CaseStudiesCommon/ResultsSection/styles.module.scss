@@ -715,7 +715,7 @@
   @include caseStudyContainer;
 
   .mockup {
-    filter: drop-shadow(2px 2px 3px #000);
+    filter: unset;
     width: 760px;
 
     @include phone {

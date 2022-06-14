@@ -347,14 +347,15 @@
 }
 
 .meetava {
-  width: 600px;
-
   @extend .container;
 
-  display: flex;
-  flex-direction: column;
+  width: 600px;
+  
+  @include flex(column);
 
   @include phone {
+    justify-content: center;
+    width: 100%;
     justify-content: center;
     padding-top: 30px;
   }
@@ -362,24 +363,30 @@
   .title {
     grid-row: 1/4;
     font-size: 3.5rem;
+    padding-left: 20px;
 
     @include phone {
+      align-self: center;
       font-size: 2rem;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
+      margin-top: 20px;
+    }
+  }
+
+  ul {
+    @include phone {
+      align-self: center;
     }
   }
 
   .teamItem {
+    margin-bottom: 18px;
     padding-right: 5px;
     color: $silver-chalice;
     font-weight: normal;
 
     &::marker {
       color: $green-aloha;
-    }
-
-    &:first-child {
-      margin-top: 15px;
     }
   }
 }

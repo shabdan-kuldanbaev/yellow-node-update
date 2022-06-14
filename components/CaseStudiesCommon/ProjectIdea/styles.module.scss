@@ -575,11 +575,10 @@
 .meetava {
   @extend .container;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   background-color: $white;
   position: relative;
+
+  @include flex(row, space-around, center);
 
   @include phone {
     padding: 80px 15px 45px;

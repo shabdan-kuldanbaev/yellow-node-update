@@ -1,26 +1,26 @@
 .meetava.secondSectionView {
-    background-color: $green-aloha;
+  background-color: $green-aloha;
 
-    .contentContainer {
-        margin: 0 auto 10px;
+  .contentContainer {
+    margin: 0 auto 10px;
 
-        .image {
-            filter: unset;
-        }
+    .image {
+        filter: unset;
     }
+  }
 
-    &.secondSectionView {
-        .contentContainer {
-          .infoContainer {
-            h2,
-            h3 {
-              color: $white;
-            }
-    
-            p {
-              color: rgba($white, 0.7);
-            }
-          }
+  &.secondSectionView {
+    .contentContainer {
+      .infoContainer {
+        h2,
+        h3 {
+          color: $white;
+        }
+
+        p {
+          color: rgba($white, 0.7);
         }
       }
+    }
+  }
 }
