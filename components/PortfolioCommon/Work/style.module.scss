@@ -8,8 +8,6 @@
   overflow: hidden;
 
   .contentWrapper {
-    @include flex(column, space-between, flex-start);
-
     background: rgba($thunder, 0.72);
     box-sizing: border-box;
     padding: 70px 60px;
@@ -19,6 +17,8 @@
     transition: opacity 0.15s ease-in-out;
     position: relative;
     color: $white;
+
+    @include flex(column, space-between, flex-start);
 
     @include macbook-twelve {
       padding: 50px 30px;
@@ -60,9 +60,9 @@
 }
 
 .tagsWrapper {
-  @include flex(row, flex-start, flex-start, wrap);
-
   margin-left: -10px;
+
+  @include flex(row, flex-start, flex-start, wrap);
 
   @include tablet {
     justify-content: center;
@@ -70,38 +70,38 @@
 }
 
 .tag {
-  @include buttonTransition;
-
   margin: 0 0 10px 10px;
+
+  @include buttonTransition;
 }
 
 .title {
-  @include fontSize(56px);
-
   line-height: 67px;
   margin: 30px 0 0;
 
-  @include macbook-fifteen {
-    @include fontSize(42px);
+  @include fontSize(56px);
 
+  @include macbook-fifteen {
     margin-top: 20px;
     line-height: 50px;
+
+    @include fontSize(42px);
   }
 
   @include tablet {
-    @include fontSize(18px);
-
     line-height: 21px;
     margin-top: 10px;
+
+    @include fontSize(18px);
   }
 }
 
 .description {
-  @include fontSize(18px);
-
   flex: 1 1 auto;
   line-height: 32px;
   color: rgba($white, 0.7);
+
+  @include fontSize(18px);
 
   @include tablet {
     @include fontSize(12px);
@@ -112,8 +112,6 @@
 }
 
 .buttonStyle {
-  @include button-more($white, $dark-grey, transparent, $turbo-100, $white, $turbo-100);
-
   align-self: flex-start;
   margin-top: 0;
   width: auto;
@@ -125,23 +123,25 @@
     transform: scale(0.96);
   }
 
-  @include tablet {
-    @include fontSize(14px);
+  @include button-more($white, $dark-grey, transparent, $turbo-100, $white, $turbo-100);
 
+  @include tablet {
     padding: 14px 54px;
     margin: 20px auto 0;
     width: max-content;
     color: $cod-gray-1;
     border-color: $cod-gray-1;
+
+    @include fontSize(14px);
   }
 }
 
 .images {
-  @include covered;
-
   * {
     transition: all 0.15s ease-in-out;
   }
+
+  @include covered;
 
   @include tablet {
     position: relative;
@@ -154,17 +154,17 @@
   }
 
   .backgroundImage {
-    @include covered;
-
     object-fit: cover;
     z-index: 0;
+
+    @include covered;
   }
 
   .mainImage {
-    @include centered;
-
     max-width: 90%;
     max-height: 80%;
     z-index: 0;
+
+    @include centered;
   }
 }

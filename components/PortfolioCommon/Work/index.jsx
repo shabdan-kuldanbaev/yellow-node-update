@@ -61,8 +61,12 @@ const Work = ({
               />
             ))}
           </div>
-          <h3 className={styles.title}>{title}</h3>
-          <p className={styles.description}>{description}</p>
+          <h3 className={styles.title}>
+            {title}
+          </h3>
+          <p className={styles.description}>
+            {description}
+          </p>
           {slug && (
             <ButtonMore
               title="View case"

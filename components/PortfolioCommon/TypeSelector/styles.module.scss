@@ -25,8 +25,8 @@
   align-items: flex-start;
 
   h2 {
-    @include fontSize(24px);
-
     margin-bottom: 30px;
+
+    @include fontSize(24px);
   }
 }

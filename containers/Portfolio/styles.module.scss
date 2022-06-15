@@ -11,45 +11,45 @@
 }
 
 .title {
-  @include fontSize(56px);
-
   line-height: 67px;
   margin-top: 100px;
 
-  @include below-tablet {
-    @include fontSize(32px);
+  @include fontSize(56px);
 
+  @include below-tablet {
     line-height: 48px;
     margin-top: 50px;
+
+    @include fontSize(32px);
   }
 
   @include phone {
-    @include fontSize(24px);
-
     line-height: 32px;
+
+    @include fontSize(24px);
   }
 }
 
 .subtitle {
-  @include fontSize(18px);
-
   line-height: 32px;
   color: $silver-chalice;
   margin-bottom: 60px;
 
-  @include below-tablet {
-    @include fontSize(18px);
+  @include fontSize(18px);
 
+  @include below-tablet {
     line-height: 24px;
     margin-bottom: 40px;
+
+    @include fontSize(18px);
   }
 }
 
 .callToAction {
-  @include flex(column, center, center);
-
   margin-top: 150px;
   margin-bottom: 100px;
+
+  @include flex(column, center, center);
 
   @include below-tablet {
     margin: 100px 0 0;
