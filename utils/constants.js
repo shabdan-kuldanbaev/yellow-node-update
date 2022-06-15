@@ -565,7 +565,16 @@ export const CONTACT_FORM_TITLES = {
 // eslint-disable-next-line
 export const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;
 
+export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
+
 export const SWIPER_NAV_BUTTON_TYPES = {
   next: 'next',
   prev: 'prev',
+};
+
+export const REVEAL_ANIMATION_PROPS = {
+  type: ANIMATED_TYPE.isCustom,
+  translateY: '2.82352941em',
+  opasityDuration: 1,
+  transformDuration: 1,
 };
