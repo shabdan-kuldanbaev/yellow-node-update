@@ -248,3 +248,5 @@ export const serverSideRedirect = ({ res }, {
 export const formatDate = (date, { format = DEFAULT_DATE_FORMAT } = {}) => dayjs(date).format(format);
 
 export const getMaxVal = (...args) => args.reduce((currentMax, val) => (val > currentMax ? val : currentMax), args[0]);
+
+export const getLimitedList = (list, { start = 0, limit = 1 }) => list.slice(start, limit);
