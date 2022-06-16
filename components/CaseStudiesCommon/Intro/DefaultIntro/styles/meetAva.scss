@@ -22,7 +22,6 @@
 
       @include phone {
         @include fontSize (30px);
-
       }
     }
 
@@ -45,7 +44,7 @@
 
     .image {
       @include macbook-fifteen {
-        max-width: 800px;
+        max-width: 700px;
       }
 
       @include tablet {
@@ -88,12 +87,12 @@
   }
   
   .bundleImage {
-    width: 1300px;
+    width: 1310px;
 
     &:nth-of-type(1) {
       position: absolute;
-      left: 300px;
-      top: 0;
+      left: 250px;
+      top: -40px;
     }
 
     &:nth-of-type(2) {

@@ -1266,19 +1266,30 @@
 }
 
 .meetava {
+  overflow: hidden;
+
   .contentContainer {
     .image {
       filter: unset;
+      max-width: 350px;
+      height: 640px;
     }
   }
 
   .special {
+    &:first-child {
+      .infoContainer {
+        margin-left: 22px;
+      }
+    }
+
     &:nth-child(3) {
-      position: relative;
+      .infoContainer {
+        margin-left: 25px;
+      }
 
-      & > div:first-child{
-
-        & > div:last-child{
+      & > div:first-child {
+        & > div:last-child {
           p {
             width: 450px;
 
@@ -1288,31 +1299,33 @@
           }
         }
       }
+
       & > div:last-child {
+        position: relative;
 
         .imageBundle:nth-child(2) {
           max-width: 150px;
           position: absolute;
           top: 12%;
-          left: 43%;
+          left: -45%;
 
           @include phone {
             display: none;
           }
         }
 
-        & :nth-child(3) {
+        .imageBundle:nth-child(3) {
           max-width: 150px;
           position: absolute;
-          top: 71%;
-          left: 30%;
+          top: 77%;
+          left: -90%;
 
           @include phone {
             display: none;
           }
         }
 
-        & :last-child {
+        .imageBundle:last-child {
           max-width: 150px;
           position: absolute;
           top: 60%;
@@ -1326,15 +1339,14 @@
     }
 
     &:last-child {
-      position: relative;
-
       & > div:last-child {
+        position: relative;
 
         .imageBundle:nth-child(2) {
-          width: 170px;
+          width: 180px;
           position: absolute;
-          top: 21%;
-          left: 42%;
+          top: 15%;
+          left: 130%;
 
           @include phone {
             display: none;

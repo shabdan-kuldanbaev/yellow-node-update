@@ -248,6 +248,13 @@
   @include caseStudyContainer;
 
   background: $melting-grey;
+
+  &.firstSectionView {
+    .contentContainer {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  }
 }
 
 .marketplace-for-clairvoyant-services {

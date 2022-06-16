@@ -350,7 +350,7 @@
   @extend .container;
 
   width: 600px;
-  
+
   @include flex(column);
 
   @include phone {
@@ -364,6 +364,7 @@
     grid-row: 1/4;
     font-size: 3.5rem;
     padding-left: 20px;
+    padding-bottom: 5px;
 
     @include phone {
       align-self: center;
