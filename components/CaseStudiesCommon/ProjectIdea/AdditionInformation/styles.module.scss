@@ -384,3 +384,26 @@
     }
   }
 }
+
+.marketplace-for-clairvoyant-services {
+  .container {
+    .title {
+      @include fontSize(40px);
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      margin-left: 20px;
+      list-style: initial;
+
+      .listItemContainer {
+        &::marker {
+          color: $violet;
+        }
+      }
+    }
+  }
+}
