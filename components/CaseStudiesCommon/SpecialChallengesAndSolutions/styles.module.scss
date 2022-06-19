@@ -258,3 +258,12 @@
     }
   }
 }
+
+.marketplace-for-clairvoyant-services {
+  @include caseStudyContainer;
+
+  padding-left: 0;
+  padding-right: 0;
+  background-color: $white;
+  overflow-x: hidden;
+}

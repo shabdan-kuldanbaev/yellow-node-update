@@ -1,0 +1,100 @@
+.seven-pm-thursday {
+  @extend .container;
+
+  padding-top: 245px;
+  background: $dark-blue-1;
+
+  @include tablet {
+    padding-top: 145px;
+  }
+
+  @include phone {
+    padding-top: 135px;
+  }
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+
+      @include fontSize(90px);
+
+      @include tablet {
+        @include fontSize(60px);
+      }
+    }
+
+    .projectSubtitle {
+      font-family: $case-studies-font;
+      font-weight: 500;
+      line-height: 150%;
+      color: $silver-chalice;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      max-width: 518px;
+      color: rgba($white, 0.4);
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 1000px;
+      transform: translate(-50%, -44%);
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+
+    &:nth-child(3) {
+      top: 0;
+      right: 0;
+      transform: translate(5%, -9%);
+    }
+
+    &:nth-child(4) {
+      max-width: 85px;
+      top: 50%;
+      right: 0;
+      transform: translate(-120%, -200%);
+
+      @include macbook-fifteen {
+        display: none;
+      }
+    }
+
+    &:nth-child(5) {
+      max-width: 100px;
+      top: 50%;
+      left: 0;
+      transform: translate(85%, 165%);
+
+      @include macbook-fifteen {
+        display: none;
+      }
+    }
+  }
+
+  .introSection {
+    margin-bottom: 350px;
+
+    @include tablet {
+      margin-bottom: 60px;
+    }
+  }
+}

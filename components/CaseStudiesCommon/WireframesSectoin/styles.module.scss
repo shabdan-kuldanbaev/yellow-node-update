@@ -191,3 +191,11 @@
     max-width: 576px;
   }
 }
+
+.marketplace-for-clairvoyant-services {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  padding: 0;
+  background-color: $white;
+}

@@ -1,0 +1,40 @@
+.fernwayer {
+  @extend .container;
+
+  background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.7);
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.7);
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 1380px;
+    }
+  }
+}

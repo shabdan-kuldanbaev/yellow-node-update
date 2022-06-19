@@ -12,7 +12,11 @@ import {
   fetchBlogData,
   loadArticles,
 } from 'redux/sagas/blog';
-import { fetchProject } from 'redux/sagas/portfolio';
+import {
+  fetchProject,
+  fetchTags,
+  fetchTypes,
+} from 'redux/sagas/portfolio';
 import { actionTypes } from 'redux/actions/actionTypes';
 import { loadJSON } from 'redux/sagas/process';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
@@ -114,6 +118,13 @@ function* fetchPageData({
 
       break;
     case PAGES.portfolio:
+      yield all([
+        yield call(fetchPage, { slug }),
+        yield call(fetchTags),
+        yield call(fetchTypes),
+      ]);
+
+      break;
     case PAGES.contact:
     case PAGES.company:
     case PAGES.customChatApp:

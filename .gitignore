@@ -21,6 +21,7 @@
 
 .idea
 .vscode
+.nvmrc
 
 # debug
 npm-debug.log*

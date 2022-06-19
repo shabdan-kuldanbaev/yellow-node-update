@@ -14,16 +14,12 @@ import styles from './styles.module.scss';
 const SignatureGenerated = ({
   titledList,
   signatureContainer,
-  yellowUrl,
   formRef,
-  linkedInImgUrl,
-  instagramImgUrl,
-  twitterImgUrl,
+  images,
 }) => {
   const {
     employee,
     employeeJob,
-    employeeMail,
   } = getEmployeeInfo(formRef);
 
   const selectElementContents = () => {
@@ -79,7 +75,7 @@ const SignatureGenerated = ({
                     path={YELLOW_LINK}
                   >
                     <img
-                      src={yellowUrl}
+                      src={images.yellowUrl}
                       alt="yellow logo"
                     />
                   </LinkWrapper>
@@ -97,17 +93,6 @@ const SignatureGenerated = ({
                 </td>
               </tr>
               <tr>
-                <td className={styles.signatureData}>
-                  {' '}
-                  <p className={styles.signatureDataEmail}>
-                    <LinkWrapper
-                      isLocalLink={false}
-                      path={`mailto:${employeeMail}`}
-                    >
-                      {employeeMail}
-                    </LinkWrapper>
-                  </p>
-                </td>
                 <td className={styles.signatureData}>
                   <p className={styles.signatureDataYellow}>
                     <LinkWrapper
@@ -129,9 +114,8 @@ const SignatureGenerated = ({
                     path="https://www.linkedin.com/company/yellow-systems/"
                   >
                     <img
-                      width="24"
-                      src={linkedInImgUrl}
-                      alt="linkedIn"
+                      src={images.linkedInImgUrl}
+                      alt="linkedin logo"
                     />
                   </LinkWrapper>
                   <LinkWrapper
@@ -139,9 +123,8 @@ const SignatureGenerated = ({
                     path="https://www.instagram.com/yellow.systems/"
                   >
                     <img
-                      width="24"
-                      src={instagramImgUrl}
-                      alt="instagram"
+                      src={images.instagramImgUrl}
+                      alt="instagram logo"
                     />
                   </LinkWrapper>
                   <LinkWrapper
@@ -149,9 +132,8 @@ const SignatureGenerated = ({
                     path="https://twitter.com/yellow_systems"
                   >
                     <img
-                      width="24"
-                      src={twitterImgUrl}
-                      alt="twitter"
+                      src={images.twitterImgUrl}
+                      alt="twitter logo"
                     />
                   </LinkWrapper>
                 </td>
@@ -175,10 +157,7 @@ SignatureGenerated.propTypes = {
   titledList: PropTypes.instanceOf(Object).isRequired,
   signatureContainer: PropTypes.instanceOf(Object).isRequired,
   formRef: PropTypes.instanceOf(Object).isRequired,
-  yellowUrl: PropTypes.string.isRequired,
-  linkedInImgUrl: PropTypes.string.isRequired,
-  instagramImgUrl: PropTypes.string.isRequired,
-  twitterImgUrl: PropTypes.string.isRequired,
+  images: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default SignatureGenerated;
