@@ -126,6 +126,10 @@
 .dindon {
   [data-case-study-description] {
     max-width: 545px;
+
+    @include phone {
+      max-width: 345px;
+    }
   }
 }
 

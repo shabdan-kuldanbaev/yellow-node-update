@@ -263,12 +263,34 @@
 .dindon {
   @include caseStudyContainer;
 
-  background-color: $cherry-red;
-  background-position: top -144px right -957px;
-  background-repeat: no-repeat;
+  &.secondSectionView {
+    background-color: $cherry-red;
+    background-position: top -144px right -957px;
+    background-repeat: no-repeat;
 
-  [data-case-study-title] {
-    color: $white;
+    @include macbook-twelve {
+      background-size: 1800px;
+      background-position: bottom -1000px right -1515px;
+    }
+
+    [data-case-study-title] {
+      color: $white;
+    }
+  }
+
+  &.thirdSectionView {
+    background: #A1C52B;
+    background-position: bottom -300px right -957px;
+    background-repeat: no-repeat;
+
+    @include macbook-twelve {
+      background-size: 1800px;
+      background-position: bottom -244px right -1510px;
+    }
+
+    [data-case-study-title] {
+      color: $white;
+    }
   }
 }
 

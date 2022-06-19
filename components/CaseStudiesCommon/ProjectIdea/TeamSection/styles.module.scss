@@ -68,10 +68,23 @@
 .dindon {
   min-width: 300px;
 
+  @include tablet {
+    margin: 0 auto;
+    min-width: unset;
+  }
+
   .title {
     font-size: 56px;
     line-height: 120%;
     margin-bottom: 30px;
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include phone {
+      @include fontSize(32px);
+    }
   }
 
   .teamItem {
@@ -82,6 +95,14 @@
     color: #a0a0a0;
     display: flex;
     align-items: center;
+
+    @include tablet {
+      margin-bottom: 12px;
+    }
+
+    @include phone {
+      @include fontSize(14px);
+    }
 
     &::before {
       content: '';

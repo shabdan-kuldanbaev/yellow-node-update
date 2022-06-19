@@ -184,6 +184,14 @@
 
 .dindon {
   background-size: 140%;
+
+  @include tablet {
+    background-size: 240%;
+  }
+
+  @include phone {
+    background-size: 460%;
+  }
 }
 
 .travel-trivia {

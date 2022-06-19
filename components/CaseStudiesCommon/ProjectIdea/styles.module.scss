@@ -203,15 +203,37 @@
   align-items: flex-start;
   flex-direction: row;
 
+  @include tablet {
+    flex-direction: column;
+  }
+
+  @include tablet {
+    align-items: center;
+  }
+
   .contentContainer {
     width: auto;
     margin-right: 260px;
 
+    @include tablet {
+      width: 345px;
+      margin: 0 auto;
+    }
+
     .descriptionContainer {
       margin: 0;
 
+      @include tablet {
+        max-width: unset;
+      }
+
       .description {
         max-width: 548px;
+
+        @include phone {
+          max-width: 350px;
+          margin-bottom: 0;
+        }
       }
     }
   }

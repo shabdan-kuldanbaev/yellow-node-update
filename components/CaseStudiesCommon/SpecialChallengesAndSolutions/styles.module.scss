@@ -245,11 +245,16 @@
 }
 
 .dindon {
-  @include caseStudyContainer;
-
+  overflow: hidden;
   background: #FAFDFA;
+
+  @include caseStudyContainer;
 
   [data-case-study-title] {
     margin-bottom: 200px;
+
+    @include tablet {
+      margin-bottom: 30px;
+    }
   }
 }

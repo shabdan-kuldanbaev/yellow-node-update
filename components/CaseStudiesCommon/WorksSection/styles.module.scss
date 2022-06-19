@@ -13,6 +13,11 @@
     max-width: 1300px;
     margin: 0 auto;
 
+    @include tablet {
+      grid-template-columns: repeat(1, 1fr);
+      grid-row-gap: 61px;
+    }
+
     .step {
       background: $white;
       box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
@@ -20,32 +25,45 @@
       padding: 30px;
 
       .contentMarkNumber {
-        @include flex(row, center, center);
-
         margin: 0;
         background: $cherry-red;
         border-radius: 50%;
         width: 90px;
         height: 90px;
-
-        @include fontSize(34px);
-
         line-height: 180%;
         color: $white;
+
+        @include fontSize(34px);
+        @include flex(row, center, center);
+
+        @include phone {
+          width: 48px;
+          height: 48px;
+
+          @include fontSize(22px);
+        }
       }
 
       .stepTitle {
-        @include fontSize(24px);
-
         line-height: 180%;
         color: $dark-grey;
+
+        @include fontSize(24px);
+
+        @include phone {
+          @include fontSize(18px);
+        }
       }
 
       .description {
-        @include fontSize(18px);
-
         line-height: 180%;
         color: $silver-chalice;
+
+        @include fontSize(18px);
+
+        @include phone {
+          @include fontSize(14px);
+        }
       }
     }
   }

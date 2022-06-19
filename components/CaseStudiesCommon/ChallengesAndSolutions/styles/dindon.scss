@@ -8,6 +8,10 @@
     margin: 0 auto;
     color: $white;
 
+    @include below-tablet {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     @include phone {
       display: block;
       margin-right: auto;
@@ -15,6 +19,10 @@
 
     .title {
       color: $white;
+
+      @include below-tablet {
+        text-align: center;
+      }
     }
 
     .contentContainer {
@@ -31,12 +39,24 @@
     .infoContainer {
       max-width: initial;
 
+      @include below-tablet {
+        margin: auto;
+      }
+
       h3 {
         color: $white;
+
+        @include below-tablet {
+          text-align: center;
+        }
       }
 
       p {
         color: rgba(255, 255, 255, 0.7);
+
+        @include below-tablet {
+          text-align: center;
+        }
       }
     }
 
@@ -46,22 +66,74 @@
       height: 8px;
       margin: 0 4px;
       border-radius: 100%;
-      background-color: $white;
+      border: 1px solid $white;
     }
 
     .swiperBulletActive {
-      background-color: $regal-blue-2;
+      background-color: $white;
+    }
+  }
+
+  &.thirdSectionView {
+    display: grid;
+    grid-template-columns: repeat(3, 332px);
+    grid-column-gap: 40px;
+    justify-content: center;
+
+    @include macbook-twelve {
+      grid-template-columns: repeat(1, 345px);
+      grid-row-gap: 16px;
+    }
+
+    .contentContainer {
+      margin: 0;
+      padding: 60px 26px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid $white;
+      box-shadow: 0 10px 30px rgba(170, 181, 193, 0.05);
+      border-radius: 24px;
+      display: block;
+
+      .infoContainer {
+        margin: 0 auto;
+      }
+
+      .title {
+        font-size: 20px;
+        line-height: 150%;
+        color: $white;
+        text-align: center;
+        margin: 0;
+      }
     }
   }
 
   &.firstSectionView {
-    overflow: hidden;
+    @include tablet {
+      padding-bottom: 0;
+    }
 
     .contentContainer {
       margin: 0 auto 320px;
 
+      @include tablet {
+        margin-bottom: 60px;
+      }
+
       .infoContainer {
         max-width: unset;
+
+        @include tablet {
+          margin: 0;
+          order: 0;
+        }
+
+        .title,
+        p {
+          @include tablet {
+            text-align: center;
+          }
+        }
       }
 
       .image {
@@ -72,24 +144,56 @@
     .special {
       position: relative;
 
+      @include tablet {
+        flex-direction: column;
+      }
+
+      .images {
+        position: relative;
+      }
+
       &:nth-child(odd) {
         .image {
           transform: scale(2) translate(30%, 0%);
+
+          @include tablet {
+            transform: none;
+          }
         }
       }
 
       &:nth-child(even) {
         .image {
           transform: scale(2) translate(-30%, 0%);
+
+          @include tablet {
+            transform: none;
+          }
         }
 
         .imageBundle-1 {
           position: absolute;
+
+          @include tablet {
+            position: static;
+            width: 100%;
+            transform: translate(0, -140px);
+          }
         }
       }
 
       &:last-child {
         margin-bottom: 700px;
+
+        @include tablet {
+          margin-bottom: 0;
+        }
+
+        .image {
+          @include tablet {
+            transform: translate(-140px, 0);
+          }
+        }
       }
     }
   }

@@ -392,7 +392,20 @@
 }
 
 .dindon {
+  @include phone {
+    align-items: center;
+    padding: 0;
+  }
+
   .container {
+    .title {
+      @include phone {
+        text-align: center;
+
+        @include fontSize(18px);
+      }
+    }
+
     .listItemContainer {
       &::marker {
         color: $cherry-red;
