@@ -32,7 +32,7 @@ const AdditionInformation = ({
                   key={info}
                   className={styles.listItemContainer}
                 >
-                  {info}
+                  <span>{info}</span>
                 </li>
               ))}
             </ul>
