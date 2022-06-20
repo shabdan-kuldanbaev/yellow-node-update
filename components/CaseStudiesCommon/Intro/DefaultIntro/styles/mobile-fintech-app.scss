@@ -1,4 +1,4 @@
-.meetava {
+.mobile-fintech-app {
   @extend .container;
 
   background: $green-aloha;
@@ -43,6 +43,8 @@
     }
 
     .image {
+      max-width: 700px;
+
       @include macbook-fifteen {
         max-width: 700px;
       }
@@ -93,6 +95,15 @@
       position: absolute;
       left: 250px;
       top: -40px;
+
+      @media (min-width: $full-hd) {
+        left: 810px;
+        top: -40px;
+      }
+
+      @include phone {
+        display: none;
+      }
     }
 
     &:nth-of-type(2) {

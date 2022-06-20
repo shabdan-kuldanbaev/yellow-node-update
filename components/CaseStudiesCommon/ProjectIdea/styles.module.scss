@@ -572,7 +572,7 @@
   }
 }
 
-.meetava {
+.mobile-fintech-app {
   @extend .container;
 
   background-color: $white;
@@ -611,6 +611,10 @@
           & > p {
             width: 560px;
             padding: 0 6px;
+
+            @include below-tablet {
+              width: 400px;
+            }
 
             @include phone {
               width: 250px;

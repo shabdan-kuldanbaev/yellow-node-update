@@ -279,11 +279,11 @@
 
 .meateater,
 .bionorica,
-.meetava {
+.mobile-fintech-app {
   @extend .infoContainer;
 
   @include phone {
-    @include flex(column, center, flex-end);
+    @include flex(column, center, flex-start);
 
     padding: 0 65px;
   }
@@ -294,6 +294,26 @@
       color: $dark-grey;
     }
 
+    .listItemContainer {
+      margin-bottom: 15px;
+      padding-right: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $dark-grey;
+      }
+    }
+  }
+}
+
+.mobile-fintech-app {
+  @include phone {
+    @include flex(column, center, center);
+
+    padding: 0;
+  }
+  
+  .container {
     .listItemContainer {
       margin-bottom: 15px;
       padding-right: 5px;

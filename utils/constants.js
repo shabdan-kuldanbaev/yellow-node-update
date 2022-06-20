@@ -446,7 +446,7 @@ export const CASE_STUDIES = {
   bionorica: 'bionorica',
   fusionMarkets: 'fusion-markets',
   blackBird: 'blackbird',
-  meetAva: 'meetava',
+  mobileFintechApp: 'mobile-fintech-app',
   goodPsychics: 'marketplace-for-clairvoyant-services',
 };
 
@@ -469,7 +469,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fireaway).path,
   ROUTES.project.getRoute(CASE_STUDIES.fusionMarkets).path,
   ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
-  ROUTES.project.getRoute(CASE_STUDIES.meetAva).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mobileFintechApp).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -580,3 +580,7 @@ export const REVEAL_ANIMATION_PROPS = {
   opasityDuration: 1,
   transformDuration: 1,
 };
+
+export const LI_VIEW = [
+  'mobile-fintech-app',
+]

@@ -5,6 +5,7 @@ import { getFileUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import { TitleUnderline } from './TitleUnderline';
 import styles from './styles.module.scss';
+import { LI_VIEW } from 'utils/constants';
 
 const TeamSection = ({ type, data }) => {
   if (!data) {
@@ -24,16 +25,28 @@ const TeamSection = ({ type, data }) => {
           {title}
           <TitleUnderline type={type} />
         </h2>
-        <ul>
-          {contentList && contentList.map((member) => (
-            <li
-              key={member}
-              className={styles.teamItem}
-            >
-              {member}
-            </li>
-          ))}
-        </ul>
+        {
+          (type && LI_VIEW.includes(type)) ? 
+            (<ul>
+              {contentList && contentList.map((member) => (
+                <li
+                  key={member}
+                  className={styles.teamItem}
+                >
+                  {member}
+                </li>
+              ))}
+            </ul>
+            ) : 
+              contentList && contentList.map((member) => (
+                <p
+                  key={member}
+                  className={styles.teamItem}
+                >
+                  {member}
+                </p>
+              ))
+        }
         {imagesBundles && imagesBundles.map((image) => {
           const imgUrl = getFileUrl(image);
 

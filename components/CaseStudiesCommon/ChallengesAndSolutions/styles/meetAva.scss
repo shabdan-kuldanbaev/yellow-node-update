@@ -1,4 +1,104 @@
-.meetava.secondSectionView {
+.mobile-fintech-app.firstSectionView{
+  overflow: hidden;
+
+  .contentContainer {
+    .image {
+      filter: unset;
+      max-width: 400px;
+      height: 640px;
+    }
+  }
+
+  .special {
+    &:first-child {
+      .infoContainer {
+        margin-left: 22px;
+
+        @include phone {
+          margin: 0;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      .infoContainer {
+        margin-left: 25px;
+
+        @include phone {
+          margin: 0;
+        }
+      }
+
+      & > div:first-child {
+        & > div:last-child {
+          p {
+            width: 450px;
+
+            @include phone {
+              width: 290px;
+            }
+          }
+        }
+      }
+
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle:nth-child(2) {
+          max-width: 63px;
+          position: absolute;
+          top: 12%;
+          left: -45%;
+
+          @include phone {
+            display: none;
+          }
+        }
+
+        .imageBundle:nth-child(3) {
+          max-width: 76px;
+          position: absolute;
+          top: 77%;
+          left: -90%;
+
+          @include phone {
+            display: none;
+          }
+        }
+
+        .imageBundle:last-child {
+          max-width: 66px;
+          position: absolute;
+          top: 60%;
+          left: 103%;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle:nth-child(2) {
+          width: 180px;
+          position: absolute;
+          top: 15%;
+          left: 130%;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+    }
+  }  
+}
+
+.mobile-fintech-app.secondSectionView {
   background-color: $green-aloha;
 
   .contentContainer {

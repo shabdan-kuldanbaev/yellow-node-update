@@ -42,7 +42,16 @@ const KeyFeatures = ({ features, type }) => {
               {...ANIMATION_CASE_STUDY_PROPS}
             >
               <div className={cn(styles.featureContainer, styles[`featureContainer-${index + 1}`])}>
+                <div className={styles.checkMark}>
+                  <Svg
+                    className={styles.icon}
+                    type={SVG_IMAGES_TYPES.checkMark}
+                  />
+                </div>
                 <div className={styles.contentContainer}>
+                  <h3 className={styles.title}>
+                    {title}
+                  </h3>
                   <ContentfulParser document={text} />
                 </div>
               </div>

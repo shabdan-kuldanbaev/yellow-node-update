@@ -346,29 +346,44 @@
   }
 }
 
-.meetava {
+.mobile-fintech-app {
   @extend .container;
 
   width: 600px;
 
   @include flex(column);
 
+  @include tablet {
+    margin-left: 150px;
+    margin-bottom: 70px;
+  }
+
   @include phone {
-    justify-content: center;
     width: 100%;
     justify-content: center;
     padding-top: 30px;
+    margin: 0;
   }
 
   .title {
     grid-row: 1/4;
-    font-size: 3.5rem;
+    
+    @include fontSize(56px);
+
     padding-left: 20px;
     padding-bottom: 5px;
 
+    @include tablet {
+      @include fontSize(40px);
+
+      margin: 0;
+    }
+
     @include phone {
       align-self: center;
-      font-size: 2rem;
+
+      @include fontSize(32px);
+
       margin-bottom: 5px;
       margin-top: 20px;
     }

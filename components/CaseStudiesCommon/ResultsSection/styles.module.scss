@@ -711,7 +711,7 @@
   }
 }
 
-.meetava {
+.mobile-fintech-app {
   @include caseStudyContainer;
 
   .mockup {
@@ -728,6 +728,7 @@
     @include phone {
       height: 150px;
       margin-top: 0;
+      width: unset;
     }
   }
 }
