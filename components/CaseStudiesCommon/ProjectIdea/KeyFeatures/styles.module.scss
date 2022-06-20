@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
+@import "styles/utils/mixins", "styles/utils/variables";
 
 .container {
   position: relative;
@@ -698,7 +698,7 @@
 
     .checkMark {
       color: $white;
-      background: linear-gradient(96.14deg, #3953B0 0%, #6144D6 100%);
+      background: linear-gradient(96.14deg, $violet-blue 0%, $majorelle-blue 100%);
     }
   }
 

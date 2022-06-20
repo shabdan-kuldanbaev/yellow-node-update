@@ -20,9 +20,6 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "lint-staged": {
-    "*.scss": [
-      "yarn lint:style"
-    ],
     "*.{js,jsx}": [
       "yarn lint:js"
     ]
