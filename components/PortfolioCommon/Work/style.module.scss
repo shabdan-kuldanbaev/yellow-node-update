@@ -1,0 +1,170 @@
+/* stylelint-disable no-descending-specificity */
+
+@import "styles/utils/mixins";
+
+.work {
+  height: 530px;
+  position: relative;
+  overflow: hidden;
+
+  .contentWrapper {
+    background: rgba($thunder, 0.72);
+    box-sizing: border-box;
+    padding: 70px 60px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    position: relative;
+    color: $white;
+
+    @include flex(column, space-between, flex-start);
+
+    @include macbook-twelve {
+      padding: 50px 30px;
+    }
+
+    @include tablet {
+      display: block;
+      opacity: 1;
+      padding: 0;
+      margin-top: 14px;
+      background: none;
+      color: $cod-gray-1;
+    }
+  }
+
+  &:hover {
+    .images * {
+      filter: blur(20px);
+
+      @include tablet {
+        filter: none;
+      }
+    }
+
+    .contentWrapper {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+
+  @include tablet {
+    height: auto;
+    overflow: visible;
+
+    * {
+      text-align: center;
+    }
+  }
+}
+
+.tagsWrapper {
+  margin-left: -10px;
+
+  @include flex(row, flex-start, flex-start, wrap);
+
+  @include tablet {
+    justify-content: center;
+  }
+}
+
+.tag {
+  margin: 0 0 10px 10px;
+
+  @include buttonTransition;
+}
+
+.title {
+  line-height: 67px;
+  margin: 30px 0 0;
+
+  @include fontSize(56px);
+
+  @include macbook-fifteen {
+    margin-top: 20px;
+    line-height: 50px;
+
+    @include fontSize(42px);
+  }
+
+  @include tablet {
+    line-height: 21px;
+    margin-top: 10px;
+
+    @include fontSize(18px);
+  }
+}
+
+.description {
+  flex: 1 1 auto;
+  line-height: 32px;
+  color: rgba($white, 0.7);
+
+  @include fontSize(18px);
+
+  @include tablet {
+    @include fontSize(12px);
+
+    line-height: 21px;
+    color: $silver-chalice;
+  }
+}
+
+.buttonStyle {
+  align-self: flex-start;
+  margin-top: 0;
+  width: auto;
+  padding: 20px 38px;
+  border-radius: 8px;
+  font-weight: 600;
+
+  &:hover {
+    transform: scale(0.96);
+  }
+
+  @include button-more($white, $dark-grey, transparent, $turbo-100, $white, $turbo-100);
+
+  @include tablet {
+    padding: 14px 54px;
+    margin: 20px auto 0;
+    width: max-content;
+    color: $cod-gray-1;
+    border-color: $cod-gray-1;
+
+    @include fontSize(14px);
+  }
+}
+
+.images {
+  * {
+    transition: all 0.15s ease-in-out;
+  }
+
+  @include covered;
+
+  @include tablet {
+    position: relative;
+    height: 420px;
+  }
+
+  @include below-tablet {
+    position: relative;
+    height: 290px;
+  }
+
+  .backgroundImage {
+    object-fit: cover;
+    z-index: 0;
+
+    @include covered;
+  }
+
+  .mainImage {
+    max-width: 90%;
+    max-height: 80%;
+    z-index: 0;
+
+    @include centered;
+  }
+}

@@ -1,190 +1,70 @@
 @import 'styles/utils/mixins';
 
 .worksContainer {
-  padding: 0 0 100px;
-  width: 100%;
+  @include flex(row, flex-start, flex-start, wrap);
+
+  --gap: 40px;
+
+  padding: 0 0 80px;
   background-color: $white;
+  margin: 20px 0 0 calc(-1 * var(--gap));
+
+  @include below-tablet {
+    margin: 15px 0 0;
+  }
+
+  & > * {
+    flex: 1 1 calc(45% - var(--gap) / 2);
+    margin: 0 0 var(--gap) var(--gap);
+
+    &:nth-child(8n + 3),
+    &:nth-child(8n + 8) {
+      flex-basis: calc(50% - var(--gap) / 2);
+    }
+
+    &:nth-child(8n + 4),
+    &:nth-child(8n + 7) {
+      flex-basis: calc(30% - var(--gap) / 2);
+    }
+
+    @include below-tablet {
+      margin: 40px 0 0;
+    }
+  }
 
   @include ultra-hd {
     max-width: $max-content-width;
   }
 
-  @include macbook-fifteen {
-    width: 100%;
-  }
-
   @include tablet {
     padding: 0;
+    display: block;
+  }
+}
+
+.showMoreButton {
+  @include button-more($black, $black, none, $turbo-100, $black, $turbo-100);
+
+  margin: 40px auto 0;
+  border-radius: 8px;
+  font-weight: 600;
+
+  @include below-tablet {
+    border: none;
+    text-decoration: underline;
   }
 
-  .workWrapper {
-    width: 100%;
+  &:hover {
+    background: $turbo-100;
+    border-color: $turbo-100;
+    color: $dark-grey;
+    transform: scale(0.96);
 
-    @include flex(row, space-between);
-
-    @include ultra-hd {
-      max-width: $max-content-width;
-    }
-
-    @include macbook-fifteen {
-      width: 100%;
-    }
-
-    @include tablet {
-      flex-direction: column-reverse;
-    }
-
-    @include below-tablet-horizontal {
-      @include flex(row, center, center);
-    }
-
-    @include phone {
-      height: auto;
-      margin-bottom: 0;
-      margin-top: 0;
-      padding-bottom: 100px;
-
-      @include flex(column-reverse, center, center);
-
-      &:first-child {
-        padding-top: 0;
-        margin-top: 0;
-      }
-    }
-
-    @include horizontal-mobile {
-      height: auto;
-
-      @include flex(row, center, flex-start);
-    }
-  }
-
-  .work {
-    position: relative;
-    z-index: 5;
-    width: 100%;
-    height: auto;
-    will-change: background-color;
-    transition: background-color $default-transition-time ease;
-    transition-timing-function: linear;
-    margin-top: 200px;
-
-    @include flex(row, space-between, center);
-
-    &:first-child {
-      margin-top: 100px;
-    }
-
-    @include macbook-fifteen {
-      margin-top: 200px;
-
-      &:first-child {
-        margin-top: calc(#{$section-indent} - 20px);
-      }
-    }
-
-    @include tablet {
-      width: 100%;
-      margin: auto;
-      padding-bottom: 120px;
-
-      @include flex(column-reverse, flex-end, center);
-
-      &:first-child {
-        margin-top: calc(#{$section-indent} - 20px);
-      }
-    }
-
-    @include below-tablet-horizontal {
-      @include flex(row, center, center);
-    }
-
-    @include phone {
-      height: auto;
-      margin-bottom: 0;
-      margin-top: 0;
-      padding-bottom: 0;
-
-      @include flex(column-reverse, center, center);
-
-      &:first-child {
-        padding-top: calc(#{$mobile-section-indent} - 20px);
-        margin-top: 0;
-      }
-    }
-
-    @include horizontal-mobile {
-      height: auto;
-
-      @include flex(row, center, center);
-
-      &:first-child {
-        margin-top: 120px;
-      }
-    }
-
-    .desc {
-      width: 40%;
-      margin-top: 60px;
-
-      @include flex(column, flex-start, flex-start);
-
-      @include tablet {
-        width: 100%;
-        justify-content: normal;
-        max-height: 50%;
-        margin-top: 50px;
-      }
-
-      @include below-tablet {
-        width: 100%;
-        margin-top: 30px;
-      }
-
-      @include below-tablet-horizontal {
-        width: 50%;
-        justify-content: center;
-      }
-
-      @include phone {
-        width: 100%;
-        margin-top: auto;
-      }
-
-      @include horizontal-mobile {
-        margin-top: 0;
-      }
-
-      div {
-        max-width: 80%;
-        opacity: 1;
-        will-change: transform;
-        transition: transform $default-transition-time, opacity $default-transition-time;
-
-        @include tablet {
-          max-width: calc(100% - (#{$side-indent} * 2));
-        }
-
-        @include below-tablet-horizontal {
-          padding-left: 0;
-        }
-
-        @include phone {
-          width: 100%;
-          max-width: 100%;
-          margin: 0;
-          padding-left: 0;
-          text-align: left;
-
-          @include flex(column, center, flex-start);
-        }
-
-        @include horizontal-mobile {
-          margin-left: $side-indent * 2;
-          margin-right: $side-indent;
-          max-width: calc(100% - (#{$side-indent} * 3));
-        }
-      }
+    @include below-tablet {
+      transform: none;
+      border: none;
+      background: none;
+      color: $silver-chalice;
     }
   }
 }

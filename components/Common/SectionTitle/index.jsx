@@ -14,6 +14,7 @@ export const SectionTitle = ({
   isFeedbackForm,
   linkText,
   isMainTitle,
+  styleContainer,
 }) => {
   const TitleTag = `h${isMainTitle ? 1 : 2}`;
   const animatedProps = {
@@ -24,7 +25,7 @@ export const SectionTitle = ({
   };
 
   return (
-    <div className={styles.titleContainer}>
+    <div className={cn(styles.titleContainer, styleContainer)}>
       <Animated
         {...animatedProps}
         transitionDelay={250}
@@ -70,9 +71,11 @@ SectionTitle.defaultProps = {
   subtitle: '',
   linkText: null,
   isMainTitle: false,
+  styleContainer: '',
 };
 
 SectionTitle.propTypes = {
+  styleContainer: PropTypes.string,
   title: PropTypes.string.isRequired,
   styleTitle: PropTypes.string,
   subtitle: PropTypes.string,

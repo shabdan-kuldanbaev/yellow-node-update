@@ -35,10 +35,12 @@ export const getSignatureProps = (props) => {
     inputsList,
     signatureGeneratedTitle,
     titledList,
-    yellowUrl,
-    linkedInImgUrl,
-    instagramImgUrl,
-    twitterImgUrl,
+    images: {
+      yellowUrl,
+      linkedInImgUrl,
+      instagramImgUrl,
+      twitterImgUrl,
+    },
   };
 };
 
