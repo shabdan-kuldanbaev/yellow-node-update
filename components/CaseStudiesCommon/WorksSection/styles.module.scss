@@ -20,7 +20,7 @@
 
     .step {
       background: $white;
-      box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
+      box-shadow: 0 8px 35px $case-study-step-box-shadow;
       border-radius: 5px;
       padding: 30px;
 

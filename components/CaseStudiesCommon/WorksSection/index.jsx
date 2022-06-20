@@ -47,7 +47,12 @@ const WorksSection = ({ data, type }) => {
               <h3 className={styles.stepTitle}>
                 {fields.title}
               </h3>
-              {fields.description && <p className={styles.description}>{fields.description}</p>}
+              {fields.description
+                && (
+                  <p className={styles.description}>
+                    {fields.description}
+                  </p>
+                )}
               {fields.imagesBundles && fields.imagesBundles.map((bundle, indexBundleImage) => {
                 const bundleUrl = getFileUrl(bundle);
 

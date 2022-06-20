@@ -74,9 +74,10 @@
   }
 
   .title {
-    font-size: 56px;
     line-height: 120%;
     margin-bottom: 30px;
+
+    @include fontSize(56px);
 
     @include tablet {
       text-align: center;
@@ -90,11 +91,12 @@
   .teamItem {
     margin: 0;
     font-family: $case-studies-font;
-    font-size: 18px;
     line-height: 180%;
-    color: #a0a0a0;
+    color: $silver-chalice;
     display: flex;
     align-items: center;
+
+    @include fontSize(18px);
 
     @include tablet {
       margin-bottom: 12px;

@@ -52,7 +52,7 @@
       }
 
       p {
-        color: rgba(255, 255, 255, 0.7);
+        color: $case-study-dindon-paragraph;
 
         @include below-tablet {
           text-align: center;
@@ -88,9 +88,9 @@
     .contentContainer {
       margin: 0;
       padding: 60px 26px;
-      background: rgba(255, 255, 255, 0.15);
+      background: $case-study-dindon-background;
       border: 1px solid $white;
-      box-shadow: 0 10px 30px rgba(170, 181, 193, 0.05);
+      box-shadow: 0 10px 30px $case-study-dindon-box-shadow;
       border-radius: 24px;
       display: block;
 
