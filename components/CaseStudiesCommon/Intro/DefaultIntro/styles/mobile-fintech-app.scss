@@ -16,9 +16,9 @@
     }
 
     .projectTitle {
-      @include fontSize (48px);
-
       max-width: 450px;
+
+      @include fontSize (48px);
 
       @include phone {
         @include fontSize (30px);
