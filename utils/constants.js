@@ -468,6 +468,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fireaway).path,
   ROUTES.project.getRoute(CASE_STUDIES.fusionMarkets).path,
   ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
+  ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,

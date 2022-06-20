@@ -581,5 +581,17 @@
 
   .contentContainer {
     padding-bottom: 0;
+
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          max-width: 520px;
+
+          @include phone {
+            max-width: 340px;
+          }
+        }
+      }
+    }
   }
 }
