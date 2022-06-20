@@ -1,20 +1,21 @@
-// TODO try to replace with this and reduce the final build
-// import { Vector2 } from 'node_modules/three/src/math/Vector2';
-// import { Vector3 } from 'node_modules/three/src/math/Vector3';
-// import { PerspectiveCamera } from 'node_modules/three/src/cameras/PerspectiveCamera';
-// import { Scene } from 'node_modules/three/src/scenes/Scene';
-// import { ShaderMaterial } from 'node_modules/three/src/materials/ShaderMaterial';
-// import { WebGLRenderer } from 'node_modules/three/src/renderers/WebGLRenderer';
-// import { Points } from 'node_modules/three/src/objects/Points';
-// import { Color } from 'node_modules/three/src/math/Color';
-// import { PointsMaterial } from 'node_modules/three/src/materials/PointsMaterial';
+import { Vector2 } from 'node_modules/three/src/math/Vector2';
+import { Vector3 } from 'node_modules/three/src/math/Vector3';
+import { PerspectiveCamera } from 'node_modules/three/src/cameras/PerspectiveCamera';
+import { Scene } from 'node_modules/three/src/scenes/Scene';
+import { ShaderMaterial } from 'node_modules/three/src/materials/ShaderMaterial';
+import { WebGLRenderer } from 'node_modules/three/src/renderers/WebGLRenderer';
+import { Points } from 'node_modules/three/src/objects/Points';
+import { Color } from 'node_modules/three/src/math/Color';
+import { PointsMaterial } from 'node_modules/three/src/materials/PointsMaterial';
 // import { BufferGeometry } from 'node_modules/three/src/core/BufferGeometry';
 // import { BufferAttribute } from 'node_modules/three/src/core/BufferAttribute';
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-import * as THREE from 'three';
-import { GLTFLoader } from 'node_modules/three/examples/jsm/loaders/GLTFLoader';
-import { DRACOLoader } from 'node_modules/three/examples/jsm/loaders/DRACOLoader';
+import {
+  BufferGeometry,
+  BufferAttribute,
+  DynamicDrawUsage,
+} from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import anime from 'animejs';
 import { getPathWithCdn } from 'utils/helper';
 import errorHelper from 'utils/error';
@@ -52,12 +53,12 @@ export const three = {
       }
     });
 
-    return new THREE.BufferAttribute(combined, 3);
+    return new BufferAttribute(combined, 3);
   },
   /* ------------------------ */
   createCamera: (isMobile) => {
-    const createdCamera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 1, 50000);
-    const createdScene = new THREE.Scene();
+    const createdCamera = new PerspectiveCamera(10, window.innerWidth / window.innerHeight, 1, 50000);
+    const createdScene = new Scene();
 
     if (isMobile) createdCamera.position.set(6000, 0, 0);
     else createdCamera.position.set(0, 0, 5000);
@@ -67,7 +68,7 @@ export const three = {
     return { createdCamera, createdScene };
   },
   /* ------------------------ */
-  creatMat: () => new THREE.ShaderMaterial({
+  creatMat: () => new ShaderMaterial({
     uniforms: {
       time: {
         type: 'f',
@@ -75,11 +76,11 @@ export const three = {
       },
       resolution: {
         type: 'v2',
-        value: new THREE.Vector2(window.innerWidth, window.innerHeight),
+        value: new Vector2(window.innerWidth, window.innerHeight),
       },
       mouse: {
         type: 'v3',
-        value: new THREE.Vector3(0, 0, 0),
+        value: new Vector3(0, 0, 0),
       },
       scale: {
         type: 'f',
@@ -101,14 +102,14 @@ export const three = {
     meshes,
     meshClones,
   ) => {
-    const geometry = new THREE.BufferGeometry();
+    const geometry = new BufferGeometry();
 
     geometry.setAttribute('position', positions.clone());
     geometry.setAttribute('initialPosition', positions.clone());
-    geometry.attributes.position.setDynamic(true);
+    geometry.attributes.position.setUsage(DynamicDrawUsage);
     // geometry.addAttribute('position', positions.clone());
     // geometry.addAttribute('initialPosition', positions.clone());
-    // TODO geometry.attributes.position.setDynamic(true);
+    // TODO geometry.attributes.positions.setDynamic(true);
 
     if (isMobile) {
       if (window.innerHeight <= 700) { originals = [{ positions: { x: 0, y: 100, z: 0 } }]; }
@@ -141,7 +142,7 @@ export const three = {
     ];
 
     originals.forEach((original) => {
-      const mesh = new THREE.Points(geometry, mat);
+      const mesh = new Points(geometry, mat);
 
       mesh.scale.x = options.default.meshScale;
       mesh.scale.y = options.default.meshScale;
@@ -163,7 +164,7 @@ export const three = {
     });
 
     clones.forEach((clone) => {
-      const mesh = new THREE.Points(geometry, new THREE.PointsMaterial({ size: 10 }));
+      const mesh = new Points(geometry, new PointsMaterial({ size: 10 }));
 
       mesh.position.x = options.default.meshPositionX + clone.positions.x;
       mesh.position.y = options.default.meshPositionY + clone.positions.y;
@@ -173,7 +174,7 @@ export const three = {
       mesh.rotation.y = options.default.meshRotationY;
       mesh.rotation.z = options.default.meshRotationZ;
 
-      mesh.material.color = new THREE.Color(`rgb(${clone.color.r}, ${clone.color.g}, ${clone.color.b})`);
+      mesh.material.color = new Color(`rgb(${clone.color.r}, ${clone.color.g}, ${clone.color.b})`);
       mesh.material.transparent = true;
       mesh.material.opacity = clone.opacity;
 
@@ -186,7 +187,7 @@ export const three = {
   },
   /* ------------------------ */
   createRenderer: () => {
-    const renderer = new THREE.WebGLRenderer({
+    const renderer = new WebGLRenderer({
       alpha: true,
       antialias: true,
       powerPreference: 'high-performance',

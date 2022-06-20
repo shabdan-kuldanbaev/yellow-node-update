@@ -4,6 +4,7 @@ import React, {
   useRef,
   useContext,
 } from 'react';
+import dynamic from 'next/dynamic';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchDuck } from 'redux/actions/home';
@@ -13,11 +14,7 @@ import {
   selectMetaData,
 } from 'redux/selectors/layout';
 import { selectDuck } from 'redux/selectors/home';
-import Blog from 'containers/Home/Blog';
-import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 import Intro from 'containers/Home/Intro';
-import Portfolio from 'containers/Home/Portfolio';
-import { ReviewsContainer } from 'containers/Home/Reviews';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import { MetaTags } from 'components/Common/MetaTags';
@@ -27,6 +24,11 @@ import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
 import { AppContext } from 'utils/appContext';
 import LoadingPlaceholder from './LoadingPlaceholder';
+
+const Portfolio = dynamic(() => import('containers/Home/Portfolio'));
+const ReviewsContainer = dynamic(() => import('containers/Home/Reviews'));
+const Blog = dynamic(() => import('containers/Home/Blog'));
+const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 
 export const Home = ({
   theme,
@@ -81,7 +83,7 @@ export const Home = ({
             duck={duck}
             isFirstHomepageVisit={contextData.isFirstHomepageVisit}
           />
-          <Portfolio gradientRef={gradientRef} />
+          {Portfolio && <Portfolio gradientRef={gradientRef} />}
           {/* // TODO wrap all page in full layout */}
           <FullLayout
             disableTopPadding

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Swiper from 'react-id-swiper';
 import SwiperCore, { Pagination } from 'swiper/core';
-import 'swiper/components/pagination/pagination.scss';
 import styles from '../styles.module.scss';
 
 SwiperCore.use([Pagination]);

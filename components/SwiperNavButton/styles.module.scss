@@ -18,15 +18,15 @@
   @include below-tablet {
     display: none;
   }
-}
 
-:global(.swiper-button-disabled) {
-  opacity: 0.5;
+  &:global(.swiper-button-disabled) {
+    opacity: 0.5;
 
-  &:hover {
-    background: none;
-    border-color: $dark-grey;
-    cursor: default;
+    &:hover {
+      background: none;
+      border-color: $dark-grey;
+      cursor: default;
+    }
   }
 }
 

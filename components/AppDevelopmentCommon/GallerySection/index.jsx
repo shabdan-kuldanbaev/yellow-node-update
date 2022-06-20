@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Swiper from 'react-id-swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {
   EffectCoverflow,
   Mousewheel,
   Pagination,
   Navigation,
-} from 'swiper/core';
+} from 'swiper';
+import { connect } from 'react-redux';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { getItemLink, getItemPreviewProps } from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
-import { connect } from 'react-redux';
 import { selectIsLoading } from 'redux/selectors/layout';
 import { ItemPreview } from './ItemPreview';
 import { GalleryCallToAction } from './GalleryCallToAction';
 import { getGalleryProps } from './utils/galleryHelper';
 import styles from './styles.module.scss';
-import 'swiper/components/pagination/pagination.scss';
 
 SwiperCore.use([
   EffectCoverflow,
@@ -53,7 +52,7 @@ export const GallerySection = ({
 
               if (link) {
                 return (
-                  <div key={`gallery-section/${slideTitle}`}>
+                  <SwiperSlide key={`gallery-section/${slideTitle}`}>
                     <LinkWrapper
                       path={link}
                       isLocalLink
@@ -63,17 +62,17 @@ export const GallerySection = ({
                         type={type}
                       />
                     </LinkWrapper>
-                  </div>
+                  </SwiperSlide>
                 );
               }
 
               return (
-                <div key={`gallery-section/${slideTitle}`}>
+                <SwiperSlide key={`gallery-section/${slideTitle}`}>
                   <ItemPreview
                     data={slide}
                     type={type}
                   />
-                </div>
+                </SwiperSlide>
               );
             })}
           </Swiper>

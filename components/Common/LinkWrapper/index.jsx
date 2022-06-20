@@ -21,7 +21,7 @@ export const LinkWrapper = ({
 }) => {
   const finalPath = isLocalLink
     ? path.replace(rootUrl, '')
-    : path;
+    : path.replace('//', '');
 
   const handleOnClick = () => {
     if (!isEmpty(googleAnalyticProps)) {

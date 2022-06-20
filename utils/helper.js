@@ -8,13 +8,12 @@ import {
   DEFAULT_DATE_FORMAT,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
-import {
-  phoneResolution,
-  horizontalMobile,
-  bigTabletResolution,
-  fullHdResolution,
-  defaultTabletResolution,
-} from 'styles/utils/_variables.scss';
+
+const phoneResolution = 568;
+const horizontalMobile = 450;
+const bigTabletResolution = 1024;
+const fullHdResolution = 1920;
+const defaultTabletResolution = 768;
 
 export const themes = {
   dark: {

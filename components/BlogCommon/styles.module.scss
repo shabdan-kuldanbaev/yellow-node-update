@@ -173,7 +173,7 @@
   &::before {
     position: absolute;
     left: -5px;
-    content: url('./images/bracket.svg');
+    content: url('Article/images/bracket.svg');
 
     @include below-tablet {
       transform: scale(0.8);

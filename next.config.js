@@ -1,6 +1,3 @@
-const withSass = require('@zeit/next-sass');
-const withCSS = require('@zeit/next-css');
-const withImages = require('next-images');
 const withPlugins = require('next-compose-plugins');
 const withObj = require('webpack-obj-loader');
 const withFonts = require('next-fonts');
@@ -57,37 +54,15 @@ const nextConfig = {
       },
     });
 
-    // TODO remove it after migrate to the next.js 10
-    // filtering "chunk styles [mini-css-extract-plugin]" worning
-    config.plugins.push(
-      new FilterWarningsPlugin({
-        exclude: /mini-css-extract-plugin[^]*Conflicting order between:/,
-      }),
-    );
-
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }
-
-    // needed for react-archer package, to solve error in production
-    config.optimization.minimizer[0].options.terserOptions.compress.inline = false;
 
     return config;
   },
 };
 
 module.exports = withPlugins([
-  [withSass, {
-    cssModules: true,
-    cssLoaderOptions: {
-      importLoaders: 1,
-      localIdentName: '[local]___[hash:base64:5]',
-    },
-  }],
-  withImages,
-  [withCSS, {
-    cssModules: false,
-  }],
   withObj,
   withFonts,
   withVideos,

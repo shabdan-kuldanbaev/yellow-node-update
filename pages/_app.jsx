@@ -18,7 +18,9 @@ import { AppContext } from 'utils/appContext';
 import errorHelper from 'utils/error';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
-import 'swiper/swiper-bundle.min.css';
+import 'swiper/css/bundle';
+import 'swiper/scss/scrollbar';
+import 'swiper/scss/pagination';
 import 'styles/index.scss';
 
 const App = ({ Component, pageProps }) => {

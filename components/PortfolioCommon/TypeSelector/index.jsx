@@ -1,7 +1,7 @@
 import React from 'react';
-import Swiper from 'react-id-swiper';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { selectTypes } from 'redux/selectors/portfolio';
 import { Animated } from 'components/Common/Animated';
 import SelectorElement from 'components/PortfolioCommon/SelectorElement';
@@ -32,14 +32,16 @@ const TypeSelector = ({
     >
       <Swiper {...params}>
         {typeList.map((type) => (
-          <SelectorElement
-            type={SELECTOR_ELEMENT_TYPES.typeSelector}
-            displayName={type.displayName}
-            onClick={() => onSelectedTypeChange(type)}
-            selected={type === selectedType}
-            className={styles.type}
-            key={`WORK-TYPE/${type.slug}`}
-          />
+          <SwiperSlide>
+            <SelectorElement
+              type={SELECTOR_ELEMENT_TYPES.typeSelector}
+              displayName={type.displayName}
+              onClick={() => onSelectedTypeChange(type)}
+              selected={type === selectedType}
+              className={styles.type}
+              key={`WORK-TYPE/${type.slug}`}
+            />
+          </SwiperSlide>
         ))}
       </Swiper>
     </Animated>

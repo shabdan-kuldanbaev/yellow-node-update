@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Swiper from 'react-id-swiper';
-import SwiperCore, { Scrollbar, Mousewheel } from 'swiper/core';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Scrollbar, Mousewheel } from 'swiper';
 import { Animated } from 'components/Common/Animated';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
 import { getSliderProps } from './utils/sliderHelper';
 import styles from './styles.module.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
 
 SwiperCore.use([
   Scrollbar,
@@ -50,17 +49,19 @@ export const SliderSection = ({ sectionData, type }) => {
                 );
 
                 return (
-                  <div
-                    className={styles.item}
-                    key={`slides/${slideTitle}`}
-                  >
-                    <p className={styles.slideTitle}>
-                      {slideTitle}
-                    </p>
-                    <p className={styles.slideSubtitle}>
-                      {slideDescription}
-                    </p>
-                  </div>
+                  <SwiperSlide>
+                    <div
+                      className={styles.item}
+                      key={`slides/${slideTitle}`}
+                    >
+                      <p className={styles.slideTitle}>
+                        {slideTitle}
+                      </p>
+                      <p className={styles.slideSubtitle}>
+                        {slideDescription}
+                      </p>
+                    </div>
+                  </SwiperSlide>
                 );
               })}
             </Swiper>

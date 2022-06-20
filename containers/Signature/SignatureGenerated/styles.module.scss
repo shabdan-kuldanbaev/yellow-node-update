@@ -9,10 +9,6 @@
   }
 }
 
-td {
-  padding: 0;
-}
-
 .signature {
   @include signature-button;
 
@@ -167,5 +163,9 @@ td {
     padding-bottom: 24px;
     margin: 24px 10px 32px;
     box-shadow: 0 4px 24px 0 rgba($black, 0.08);
+
+    td {
+      padding: 0;
+    }
   }
 }

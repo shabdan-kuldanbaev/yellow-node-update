@@ -4,11 +4,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-import { logoSize } from 'styles/utils/_variables.scss';
 import { ReactComponent as YellowLogoWithBg } from './svgs/yellowLogoBg.svg';
 import { ReactComponent as InstagramDark } from './svgs/instagram.svg';
 import { ReactComponent as LinkedInDark } from './svgs/linkedIn.svg';
 import { ReactComponent as TwitterDark } from './svgs/twitter.svg';
+
+const logoSize = 120;
 
 export const Svg = ({
   type,

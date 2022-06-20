@@ -12,15 +12,11 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 // TODO try to replace with this and reduce the final build
-// import { Raycaster } from 'node_modules/three/src/core/Raycaster';
-// import { Plane } from 'node_modules/three/src/math/Plane';
-// import { Vector3 } from 'node_modules/three/src/math/Vector3';
-// import { EffectComposer } from 'node_modules/three/examples/jsm/postprocessing/EffectComposer';
-// import { RenderPass } from 'node_modules/three/examples/jsm/postprocessing/RenderPass';
-// import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-// import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import * as THREE from 'three';
-import { EffectComposer, RenderPass } from 'postprocessing';
+import { Raycaster } from 'node_modules/three/src/core/Raycaster';
+import { Plane } from 'node_modules/three/src/math/Plane';
+import { Vector3 } from 'node_modules/three/src/math/Vector3';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { Animated } from 'components/Common/Animated';
 import IntroText from 'components/HomeCommon/IntroText';
 import { mobileResolution } from 'utils/helper';
@@ -60,8 +56,8 @@ export const Duck = ({ duck }) => {
   let renderer;
   let originals;
   let clones;
-  const raycaster = new THREE.Raycaster();
-  const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+  const raycaster = new Raycaster();
+  const plane = new Plane(new Vector3(0, 0, 1), 0);
   const mouse = { x: 0, y: 0 };
   let scatterStep = 0;
 
@@ -165,23 +161,37 @@ export const Duck = ({ duck }) => {
     }
   };
 
+  const positionsCalculations = (positions, startIndex, endIndex) => new Promise((resolve, reject) => {
+    for (let i = startIndex; i < endIndex; i += 1) {
+      positions.setXYZ(
+        i,
+        Math.random() * (Math.random() * (100) - 50),
+        Math.random() * (Math.random() * (900) - 450),
+        Math.random() * (Math.random() * (900) - 450),
+      );
+    }
+
+    resolve();
+  });
+
   const render = () => {
     // animation
     switch (options.initial.currentAnimation) {
     case 'appear':
-      meshes.forEach((mesh) => {
+      meshes.forEach(async (mesh) => {
         const positions = mesh.geometry.attributes.position;
         mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
 
         if (!options.initial.isAppear) {
-          for (let i = 0; i < positions.count; i += 1) {
-            positions.setXYZ(
-              i,
-              Math.random() * (Math.random() * (100) - 50),
-              Math.random() * (Math.random() * (900) - 450),
-              Math.random() * (Math.random() * (900) - 450),
-            );
+          const tasksCount = positions.count / 10;
+          const tasks = new Array(10);
+          // eslint-disable-next-line prefer-const,no-restricted-syntax
+          for (let [index, task] of tasks.entries()) {
+            task = positionsCalculations(positions, tasksCount * index, tasksCount * (index + 1));
           }
+
+          await Promise.all(tasks);
+          positionsCalculations(positions, 0, positions.count);
         }
 
         positions.needsUpdate = true;

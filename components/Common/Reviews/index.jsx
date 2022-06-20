@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import Swiper from 'react-id-swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCors, { EffectCoverflow } from 'swiper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { Comment } from './Comment';
@@ -130,7 +130,7 @@ export const Reviews = ({ reviews }) => {
           {...params}
         >
           {reviews && reviews.map((comment) => (
-            <div key={`mobileReviews/${comment.name}`}>
+            <SwiperSlide key={`mobileReviews/${comment.name}`}>
               <Comment
                 comment={comment}
                 animatioProps={{
@@ -138,7 +138,7 @@ export const Reviews = ({ reviews }) => {
                   translateY: '0px',
                 }}
               />
-            </div>
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>
