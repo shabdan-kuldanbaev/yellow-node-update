@@ -19,6 +19,7 @@ const CompanyPlacement = () => (
       <ul className={styles.placementList}>
         {Object.entries(placementInfo).map(([country, info]) => (
           <PlacementInfoItem
+            key={country}
             country={country}
             placementInfo={info}
           />

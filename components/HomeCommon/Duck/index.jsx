@@ -39,7 +39,7 @@ const meshClones = [];
 let composer;
 let mat = 0;
 
-export const Duck = ({ duck }) => {
+const Duck = ({ duck }) => {
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);
   const [canvas, setCanvas] = useState(null);
@@ -485,3 +485,5 @@ Duck.propTypes = {
 // document.addEventListener('touchmove', onDocumentTouchMove, false);
 // document.addEventListener('touchstart', onDocumentMouseMove, false);
 // const introBottom = containerCanvas.current.getBoundingClientRect().bottom;
+
+export default Duck;

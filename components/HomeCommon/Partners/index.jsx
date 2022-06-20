@@ -6,7 +6,7 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { partners } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Partners = ({ partners: partnersList }) => {
+const Partners = ({ partners: partnersList }) => {
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -49,3 +49,5 @@ Partners.defaultProps = {
 Partners.propTypes = {
   partners: PropTypes.instanceOf(Array),
 };
+
+export default Partners;

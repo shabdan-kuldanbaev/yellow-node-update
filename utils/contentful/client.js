@@ -121,7 +121,7 @@ class ContentfulClient {
         message: 'Error in the graphql function',
       });
     }
-  }
+  };
 }
 
 export const contentfulClient = new ContentfulClient(ACCESS_TO_CONTENTFUL);

@@ -17,6 +17,7 @@ import { EventSection } from 'components/CaseStudiesCommon/EventSection';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
 const CaseStudiesCommon = (props) => {
+  // eslint-disable-next-line react/destructuring-assignment
   switch (props.data.type) {
   case CASE_STUDIES_TYPES.intro:
     return <Intro {...props} />;

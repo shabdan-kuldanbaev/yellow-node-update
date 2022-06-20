@@ -18,7 +18,6 @@ import Intro from 'containers/Home/Intro';
 import { FullLayout } from 'components/Layout/FullLayout';
 import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import { MetaTags } from 'components/Common/MetaTags';
-import PhotoGallery from 'components/Common/PhotoGallery';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
@@ -28,6 +27,7 @@ import LoadingPlaceholder from './LoadingPlaceholder';
 const Portfolio = dynamic(() => import('containers/Home/Portfolio'));
 const ReviewsContainer = dynamic(() => import('containers/Home/Reviews'));
 const Blog = dynamic(() => import('containers/Home/Blog'));
+const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 
 export const Home = ({

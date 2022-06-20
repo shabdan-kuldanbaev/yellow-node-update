@@ -48,7 +48,7 @@
         $bxshadow: append($bxshadow, (random(400) + 0px) (random(200) + 0px) gray, comma);
       }
 
-      @return unquote($bxshadow);
+      @return $bxshadow;
     }
 
     $bxshadow-small: box-shadow(15);

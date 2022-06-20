@@ -5,7 +5,7 @@ import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { SUB_NAVIGATION_LINKS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const DropDownMenu = ({
+const DropDownMenu = ({
   isDropMenuOpened,
   isPageScrolledDown,
   slug,
@@ -102,3 +102,5 @@ DropDownMenu.propTypes = {
   closeMobileMenu: PropTypes.func,
   closeDropDownMenu: PropTypes.func,
 };
+
+export default DropDownMenu;

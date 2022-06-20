@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
 import { Animated } from 'components/Common/Animated';
-import { DropDownMenu } from 'components/Layout/Header/DropDownMenu';
 import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
 import { isHasSubNavigation } from 'helpers/navigation';
 import styles from './styles.module.scss';
+
+const DropDownMenu = dynamic(() => import('components/Layout/Header/DropDownMenu'));
 
 export const NavItem = ({
   slug,

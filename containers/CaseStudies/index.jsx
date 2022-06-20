@@ -1,14 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
 import { selectProject } from 'redux/selectors/portfolio';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import { MetaTags } from 'components/Common/MetaTags';
-import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 
 const CaseStudiesContainer = ({ introSection, currentProject }) => {
   const {

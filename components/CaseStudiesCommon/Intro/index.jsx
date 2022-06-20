@@ -4,6 +4,7 @@ import VerticalIntro from 'components/CaseStudiesCommon/Intro/VerticalIntro';
 import { CASE_STUDIES } from 'utils/constants';
 
 export const Intro = (props) => {
+  // eslint-disable-next-line react/destructuring-assignment
   switch (props.type) {
   case CASE_STUDIES.tell:
   case CASE_STUDIES.fernwayer:

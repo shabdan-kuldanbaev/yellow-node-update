@@ -5,7 +5,7 @@
 .work {
   position: relative;
   z-index: 5;
-  width: calc(100% - (80 * 2));
+  width: calc(100% - (80px * 2));
   margin: 0 80px;
   will-change: background-color;
   transition: background-color $default-transition-time ease;

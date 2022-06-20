@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
@@ -7,8 +8,9 @@ import { setIsDropMenuOpened } from 'redux/actions/layout';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { NAV_LINKS } from 'utils/constants';
 import { isHasSubNavigation } from 'helpers/navigation';
-import { DropDownMenu } from '../DropDownMenu';
 import styles from './styles.module.scss';
+
+const DropDownMenu = dynamic(() => import('components/Layout/Header/DropDownMenu'));
 
 const Nav = ({
   theme,

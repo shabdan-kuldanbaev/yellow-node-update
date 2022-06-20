@@ -137,7 +137,8 @@ export const ContentfulParser = ({ document }) => {
       ),
       [BLOCKS.UL_LIST]: (node, children) => (
         <ul className={styles.ul}>
-          {children && children.map((child) => (
+          {/* eslint-disable-next-line react/destructuring-assignment */}
+          {children?.map((child) => (
             <li key={child.key}>
               {child.props.children}
             </li>
@@ -149,7 +150,8 @@ export const ContentfulParser = ({ document }) => {
           type="1"
           className={styles.ol}
         >
-          {children && children.map((child) => (
+          {/* eslint-disable-next-line react/destructuring-assignment */}
+          {children?.map((child) => (
             <li key={child.key}>
               {child.props.children}
             </li>

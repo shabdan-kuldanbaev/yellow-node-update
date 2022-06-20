@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import Script from 'next/script';
 import isEmpty from 'lodash/isEmpty';
 import { getPathWithCdn } from 'utils/helper';
 import { microdata } from 'utils/microdata';
@@ -78,15 +79,17 @@ export const MetaTags = ({
         <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
         <link rel="manifest" href="/manifest.json" />
         {!isEmpty(pageMicrodata) && (
-          <script
+          <Script
             key={`JSON-LD-${pageMicrodata.name}`}
+            strategy="afterInteractive"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(pageMicrodata) }}
           />
         )}
         {!isEmpty(breadcrumbs) && (
-          <script
+          <Script
             key="JSON-LD-breadcrumbs"
+            strategy="afterInteractive"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(microdata.breadcrumbs({ breadcrumbsList: breadcrumbs })),

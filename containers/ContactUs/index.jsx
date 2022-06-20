@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import get from 'lodash/get';
 import { connect } from 'react-redux';
 import { selectCompanyPhoto, selectMetaData } from 'redux/selectors/layout';
 import {
   FeedbackFormWithTitle,
-  CompanyPeoplePhoto,
   CompanyContacts,
   MetaTags,
   PageHeader,
@@ -19,8 +19,10 @@ import {
 } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import CompanyPlacement from 'components/ContactUsCommon/CompanyPlacement';
 import styles from './styles.module.scss';
+
+const CompanyPlacement = dynamic(() => import('components/ContactUsCommon/CompanyPlacement'));
+const CompanyPeoplePhoto = dynamic(() => import('components/ContactUsCommon/CompanyPeoplePhoto'));
 
 const ContactUsContainer = ({
   introSection,

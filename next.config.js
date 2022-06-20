@@ -1,10 +1,7 @@
 const withPlugins = require('next-compose-plugins');
 const withObj = require('webpack-obj-loader');
-const withFonts = require('next-fonts');
-const withVideos = require('next-videos');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
-const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -20,16 +17,6 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     /* eslint-disable */
     require('dotenv').config();
-
-    // Unshift polyfills in main entrypoint.
-    const originalEntry = config.entry;
-    config.entry = async () => {
-      const entries = await originalEntry();
-      if (entries['main.js']) {
-        entries['main.js'].unshift('./polyfills.js');
-      }
-      return entries;
-    };
 
     config.plugins = config.plugins || [];
 
@@ -54,6 +41,12 @@ const nextConfig = {
       },
     });
 
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
+    });
+
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }
@@ -64,7 +57,5 @@ const nextConfig = {
 
 module.exports = withPlugins([
   withObj,
-  withFonts,
-  withVideos,
   [withBundleAnalyzer],
 ], nextConfig);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
-import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
+import FeedbackFormContainer from 'containers/Home/FeedbackForm';
 import { PageHeader } from 'components/Common/PageHeader';
 import { MetaTags } from 'components/Common/MetaTags';
 import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';

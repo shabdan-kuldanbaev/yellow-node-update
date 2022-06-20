@@ -6,11 +6,17 @@
     "fetch": true,
     "localStorage": true
   },
-  "parser": "babel-eslint",
   "extends": [
     "airbnb",
     "plugin:json/recommended"
   ],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "plugins": [
     "react-hooks"
   ],
