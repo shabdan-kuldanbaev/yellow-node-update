@@ -458,6 +458,7 @@ export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key
 
 export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
+  ROUTES.project.getRoute(CASE_STUDIES.dindon).path,
   ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
   ROUTES.project.getRoute(CASE_STUDIES.sevenPmThursday).path,
   ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
