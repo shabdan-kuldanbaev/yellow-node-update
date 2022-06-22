@@ -290,12 +290,6 @@
 
   /* stylelint-disable-next-line */
   .container {
-    max-width: 285px;
-
-    &:not(:last-child) {
-      margin-right: 60px;
-    }
-
     .title {
       color: $dark-grey;
     }
@@ -399,6 +393,12 @@
   }
 
   .container {
+    max-width: 285px;
+
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+
     .title {
       @include phone {
         text-align: center;

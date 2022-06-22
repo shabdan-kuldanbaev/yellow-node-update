@@ -93,9 +93,8 @@
     font-family: $case-studies-font;
     line-height: 180%;
     color: $silver-chalice;
-    display: flex;
-    align-items: center;
 
+    @include flex(row, initial, center);
     @include fontSize(18px);
 
     @include tablet {

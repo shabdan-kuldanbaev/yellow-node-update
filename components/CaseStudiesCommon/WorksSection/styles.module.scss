@@ -8,9 +8,8 @@
   & .sequenceOfSteps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 148px;
-    grid-row-gap: 100px;
-    max-width: 1300px;
+    grid-gap: 100px 148px;
+    max-width: $max-content-width;
     margin: 0 auto;
 
     @include tablet {
