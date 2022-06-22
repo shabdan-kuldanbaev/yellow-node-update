@@ -34,7 +34,7 @@ const SubscribeBlock = ({
     })}
     >
       <div className={styles.subscribeText}>
-        <h3>Subscribe to new posts.</h3>
+        <h2>Subscribe to new posts.</h2>
         <p>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</p>
       </div>
       <form className={styles.subscribeForm}>

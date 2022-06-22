@@ -13,7 +13,7 @@
     padding: calc($section-indent - 40px) $side-indent $section-indent;
   }
 
-  h1 {
+  h2 {
     @include h1-title;
 
     color: $white !important;

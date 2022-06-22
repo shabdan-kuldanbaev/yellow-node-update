@@ -2,6 +2,39 @@
   .special {
     max-width: unset;
 
+    & > div:last-child {
+      position: relative;
+
+      .image {
+        filter: unset;
+        width: 100%;
+        height: unset;
+        max-height: unset;
+        max-width: 1110px;
+      }
+
+      .imageBundle {
+        position: absolute;
+        max-width: 157px;
+        top: 50%;
+        transform: translate(-40%, -110%);
+
+        @include macbook-twelve {
+          max-width: 130px;
+          transform: translate(-30%, -125%);
+        }
+
+        @include below-tablet {
+          max-width: 100px;
+          transform: translate(-50%, -125%);
+        }
+
+        @include phone {
+          display: none;
+        }
+      }
+    }
+
     &:nth-child(2n + 1) {
       @include flex(row, flex-end);
 
@@ -92,39 +125,6 @@
         }
       }
     }
-
-    & > div:last-child {
-      position: relative;
-
-      .image {
-        filter: unset;
-        width: 100%;
-        height: unset;
-        max-height: unset;
-        max-width: 1110px;
-      }
-
-      .imageBundle {
-        position: absolute;
-        max-width: 157px;
-        top: 50%;
-        transform: translate(-40%, -110%);
-
-        @include macbook-twelve {
-          max-width: 130px;
-          transform: translate(-30%, -125%);
-        }
-
-        @include below-tablet {
-          max-width: 100px;
-          transform: translate(-50%, -125%);
-        }
-
-        @include phone {
-          display: none;
-        }
-      }
-    }
   }
 
   .contentContainer:not(.special) {
@@ -165,7 +165,7 @@
             & > p {
               position: relative;
 
-              &:before {
+              &::before {
                 position: absolute;
                 top: 10px;
                 left: -7px;
