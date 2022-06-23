@@ -22,6 +22,7 @@ export const Intro = (props) => {
   case CASE_STUDIES.ubiChat:
   case CASE_STUDIES.beautonomy:
   case CASE_STUDIES.famlicious:
+  case CASE_STUDIES.dindon:
     return <DefaultIntro {...props} />;
   case CASE_STUDIES.openSense:
   case CASE_STUDIES.fusionMarkets:
