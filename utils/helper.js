@@ -6,14 +6,13 @@ import {
   FEEDBACK_FORM_FIELDS,
   IMAGES,
   DEFAULT_DATE_FORMAT,
+  PHONE_RESOLUTION,
+  FULL_HD_RESOLUTION,
+  HORIZONTAL_MOBILE,
+  DEFAULT_TABLET_RESOLUTION,
+  BIG_TABLET_RESOLUTION,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
-
-const phoneResolution = 568;
-const horizontalMobile = 450;
-const bigTabletResolution = 1024;
-const fullHdResolution = 1920;
-const defaultTabletResolution = 768;
 
 export const themes = {
   dark: {
@@ -55,11 +54,11 @@ export const getYoutubeVideoIdFromUrl = (url) => {
   return url.match(/[^/]+$/i)[0];
 };
 
-export const mobileResolution = toInt(phoneResolution);
-export const fullResolution = toInt(fullHdResolution);
-export const horizontalPhone = toInt(horizontalMobile);
-export const tabletResolution = toInt(bigTabletResolution);
-export const smallTabletResolution = toInt(defaultTabletResolution);
+export const mobileResolution = toInt(PHONE_RESOLUTION);
+export const fullResolution = toInt(FULL_HD_RESOLUTION);
+export const horizontalPhone = toInt(HORIZONTAL_MOBILE);
+export const tabletResolution = toInt(BIG_TABLET_RESOLUTION);
+export const smallTabletResolution = toInt(DEFAULT_TABLET_RESOLUTION);
 
 export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'initial';

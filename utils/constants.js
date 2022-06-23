@@ -581,3 +581,9 @@ export const REVEAL_ANIMATION_PROPS = {
   opasityDuration: 1,
   transformDuration: 1,
 };
+
+export const PHONE_RESOLUTION = 568;
+export const HORIZONTAL_MOBILE = 450;
+export const DEFAULT_TABLET_RESOLUTION = 768;
+export const BIG_TABLET_RESOLUTION = 1024;
+export const FULL_HD_RESOLUTION = 1920;
