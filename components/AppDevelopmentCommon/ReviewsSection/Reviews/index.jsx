@@ -71,12 +71,10 @@ export const Reviews = ({ reviews = [] }) => {
         <Swiper {...desktopSwiperParams}>
           {reviews.map((comment, index) => (
             <SwiperSlide key={`desktopReviews/${comment.name}`}>
-              <div>
-                <Comment
-                  comment={comment}
-                  infoRef={infoRefs.current[index]}
-                />
-              </div>
+              <Comment
+                comment={comment}
+                infoRef={infoRefs.current[index]}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -91,15 +89,13 @@ export const Reviews = ({ reviews = [] }) => {
         >
           {reviews.map((comment) => (
             <SwiperSlide key={`mobileReviews/${comment.name}`}>
-              <div>
-                <Comment
-                  comment={comment}
-                  animatioProps={{
-                    type: ANIMATED_TYPE.isCustom,
-                    translateY: '0px',
-                  }}
-                />
-              </div>
+              <Comment
+                comment={comment}
+                animatioProps={{
+                  type: ANIMATED_TYPE.isCustom,
+                  translateY: '0px',
+                }}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

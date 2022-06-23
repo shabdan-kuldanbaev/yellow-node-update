@@ -49,18 +49,16 @@ export const SliderSection = ({ sectionData, type }) => {
                 );
 
                 return (
-                  <SwiperSlide>
-                    <div
-                      className={styles.item}
-                      key={`slides/${slideTitle}`}
-                    >
-                      <p className={styles.slideTitle}>
-                        {slideTitle}
-                      </p>
-                      <p className={styles.slideSubtitle}>
-                        {slideDescription}
-                      </p>
-                    </div>
+                  <SwiperSlide
+                    className={styles.item}
+                    key={`slides/${slideTitle}`}
+                  >
+                    <p className={styles.slideTitle}>
+                      {slideTitle}
+                    </p>
+                    <p className={styles.slideSubtitle}>
+                      {slideDescription}
+                    </p>
                   </SwiperSlide>
                 );
               })}
