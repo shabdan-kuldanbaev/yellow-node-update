@@ -9,6 +9,10 @@
     .experience {
       margin-right: 15px;
 
+      p:not(.infoTitle) {
+        color: rgba($white, 0.4);
+      }
+
       &:nth-last-child(2) {
         p:not(.infoTitle) {
           max-width: 295px;
@@ -25,10 +29,6 @@
 
       .infoTitle {
         color: $white;
-      }
-
-      p:not(.infoTitle) {
-        color: rgba($white, 0.4);
       }
     }
   }

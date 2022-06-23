@@ -2,6 +2,70 @@
   .special {
     max-width: unset;
 
+    & > div:last-child {
+      position: relative;
+
+      .image {
+        filter: unset;
+        width: 100%;
+        height: unset;
+        max-height: unset;
+        max-width: 1110px;
+      }
+
+      .imageBundle {
+        position: absolute;
+        max-width: 157px;
+        top: 50%;
+        transform: translate(-40%, -110%);
+
+        @include macbook-twelve {
+          max-width: 130px;
+          transform: translate(-30%, -125%);
+        }
+
+        @include below-tablet {
+          max-width: 100px;
+          transform: translate(-50%, -125%);
+        }
+
+        @include phone {
+          display: none;
+        }
+      }
+    }
+
+    .infoContainer {
+      h2 {
+        @include fontSize(36px);
+
+        line-height: 43px;
+
+        @include tablet {
+          @include fontSize(30px);
+
+          line-height: 34px;
+        }
+
+        @include phone {
+          @include fontSize(24px);
+
+          line-height: 28px;
+        }
+      }
+
+      p {
+        max-width: 429px;
+        line-height: 32px;
+
+        @include fontSize(18px);
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+      }
+    }
+
     &:nth-child(2n + 1) {
       @include flex(row, flex-end);
 
@@ -65,70 +129,6 @@
         @include flex(column, center, center);
       }
     }
-
-    .infoContainer {
-      h2 {
-        @include fontSize(36px);
-
-        line-height: 43px;
-
-        @include tablet {
-          @include fontSize(30px);
-
-          line-height: 34px;
-        }
-
-        @include phone {
-          @include fontSize(24px);
-
-          line-height: 28px;
-        }
-      }
-
-      p {
-        max-width: 429px;
-        line-height: 32px;
-
-        @include fontSize(18px);
-
-        @include tablet {
-          @include fontSize(16px);
-        }
-      }
-    }
-
-    & > div:last-child {
-      position: relative;
-
-      .image {
-        filter: unset;
-        width: 100%;
-        height: unset;
-        max-height: unset;
-        max-width: 1110px;
-      }
-
-      .imageBundle {
-        position: absolute;
-        max-width: 157px;
-        top: 50%;
-        transform: translate(-40%, -110%);
-
-        @include macbook-twelve {
-          max-width: 130px;
-          transform: translate(-30%, -125%);
-        }
-
-        @include below-tablet {
-          max-width: 100px;
-          transform: translate(-50%, -125%);
-        }
-
-        @include phone {
-          display: none;
-        }
-      }
-    }
   }
 
   .contentContainer:not(.special) {
@@ -156,7 +156,7 @@
             position: relative;
             margin-bottom: 0;
 
-            &:before {
+            &::before {
               position: absolute;
               left: -15px;
               content: ' ';
@@ -180,7 +180,7 @@
             & > p {
               position: relative;
 
-              &:before {
+              &::before {
                 position: absolute;
                 top: 10px;
                 left: -7px;

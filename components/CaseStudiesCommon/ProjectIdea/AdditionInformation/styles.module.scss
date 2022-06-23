@@ -277,6 +277,7 @@
   }
 }
 
+.dindon,
 .meateater,
 .bionorica {
   @extend .infoContainer;
@@ -385,6 +386,35 @@
   }
 }
 
+.dindon {
+  @include phone {
+    align-items: center;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 285px;
+
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+
+    .title {
+      @include phone {
+        text-align: center;
+
+        @include fontSize(18px);
+      }
+    }
+
+    .listItemContainer {
+      &::marker {
+        color: $cherry-red;
+      }
+    }
+  }
+}
+
 .marketplace-for-clairvoyant-services {
   .container {
     .title {
@@ -405,7 +435,7 @@
         & > span {
           position: relative;
 
-          &:before {
+          &::before {
             position: absolute;
             left: -15px;
             content: ' ';
