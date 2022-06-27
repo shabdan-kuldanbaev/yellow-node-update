@@ -244,6 +244,21 @@
   }
 }
 
+.dindon {
+  overflow: hidden;
+  background: $wild-send-2;
+
+  @include caseStudyContainer;
+
+  [data-case-study-title] {
+    margin-bottom: 200px;
+
+    @include tablet {
+      margin-bottom: 30px;
+    }
+  }
+}
+
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
 

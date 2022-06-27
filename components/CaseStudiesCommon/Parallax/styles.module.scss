@@ -41,6 +41,16 @@
     }
   }
 
+  &dindon {
+    background-color: $white;
+    padding-top: 150px;
+
+    [data-case-study-description] {
+      max-width: 525px;
+      color: $silver-chalice;
+    }
+  }
+
   &separate-us {
     background-color: $white;
     padding-top: 140px;
@@ -167,8 +177,21 @@
 .drive-focus,
 .travel-trivia,
 .beautonomy,
+.dindon,
 .cash-chat {
   @extend .parallax;
+}
+
+.dindon {
+  background-size: 140%;
+
+  @include tablet {
+    background-size: 240%;
+  }
+
+  @include phone {
+    background-size: 460%;
+  }
 }
 
 .travel-trivia {
