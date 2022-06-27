@@ -92,4 +92,18 @@ module.exports = withPlugins([
   withFonts,
   withVideos,
   [withBundleAnalyzer],
-], nextConfig);
+], {
+  async headers() {
+    return [
+      {
+        source: '/(.*)?',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+        ],
+      },
+    ];
+  },
+}, nextConfig);
