@@ -70,20 +70,20 @@
 
     .infoContainer {
       h2 {
-        @include fontSize(36px);
-
         line-height: 43px;
 
-        @include tablet {
-          @include fontSize(30px);
+        @include fontSize(36px);
 
+        @include tablet {
           line-height: 34px;
+
+          @include fontSize(30px);
         }
 
         @include phone {
-          @include fontSize(24px);
-
           line-height: 28px;
+
+          @include fontSize(24px);
         }
       }
 
