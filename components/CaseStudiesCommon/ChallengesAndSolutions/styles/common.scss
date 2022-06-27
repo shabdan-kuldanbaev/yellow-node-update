@@ -428,6 +428,10 @@
       }
     }
 
+    &:last-child {
+      margin-bottom: 130px;
+    }
+
     /* stylelint-disable-next-line */
     .infoContainer {
       .title {
