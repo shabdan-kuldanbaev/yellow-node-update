@@ -159,6 +159,7 @@
   }
 }
 
+.dindon,
 .fernwayer,
 .travel-trivia {
   @extend .container;
@@ -593,4 +594,10 @@
 
 .blackbird {
   background: $bright-navy;
+}
+
+.dindon {
+  @extend .container;
+
+  background: $cherry-red;
 }

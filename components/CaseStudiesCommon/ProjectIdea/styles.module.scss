@@ -194,6 +194,51 @@
   }
 }
 
+.dindon {
+  @extend .container;
+
+  background-color: $white;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+  flex-direction: row;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  @include tablet {
+    align-items: center;
+  }
+
+  .contentContainer {
+    width: auto;
+    margin-right: 260px;
+
+    @include tablet {
+      width: 345px;
+      margin: 0 auto;
+    }
+
+    .descriptionContainer {
+      margin: 0;
+
+      @include tablet {
+        max-width: unset;
+      }
+
+      .description {
+        max-width: 548px;
+
+        @include phone {
+          max-width: 350px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
 .open-sense,
 .separate-us,
 .telemojo {
@@ -531,7 +576,12 @@
     .descriptionContainer {
       .descriptionIntro {
         .title {
-          background: linear-gradient(to right, $ocean-blue 0%, $jacksons-purple 50%);
+          background:
+            linear-gradient(
+              to right,
+              $ocean-blue 0%,
+              $jacksons-purple 50%
+            );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -581,5 +631,17 @@
 
   .contentContainer {
     padding-bottom: 0;
+
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          max-width: 520px;
+
+          @include phone {
+            max-width: 340px;
+          }
+        }
+      }
+    }
   }
 }

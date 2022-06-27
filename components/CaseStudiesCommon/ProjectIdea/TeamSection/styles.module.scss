@@ -65,6 +65,58 @@
   grid-column-gap: 180px;
 }
 
+.dindon {
+  min-width: 300px;
+
+  @include tablet {
+    margin: 0 auto;
+    min-width: unset;
+  }
+
+  .title {
+    line-height: 120%;
+    margin-bottom: 30px;
+
+    @include fontSize(56px);
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include phone {
+      @include fontSize(32px);
+    }
+  }
+
+  .teamItem {
+    margin: 0;
+    font-family: $case-studies-font;
+    line-height: 180%;
+    color: $silver-chalice;
+
+    @include flex(row, initial, center);
+    @include fontSize(18px);
+
+    @include tablet {
+      margin-bottom: 12px;
+    }
+
+    @include phone {
+      @include fontSize(14px);
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: $cherry-red;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+  }
+}
+
 .stickerbox {
   @extend .container;
 

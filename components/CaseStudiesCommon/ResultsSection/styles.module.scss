@@ -717,16 +717,20 @@
   .circle {
     position: static;
     transform: translateX(0);
-    height: 988px;
+    height: min-content;
     width: 100%;
     max-width: 1076px;
-    margin: 100px auto 0;
+    margin: 0;
 
     .mockup {
       width: 100%;
       filter: unset;
       position: static;
       transform: translate(0, 0);
+    }
+
+    @include phone {
+      padding-bottom: 0;
     }
   }
 }

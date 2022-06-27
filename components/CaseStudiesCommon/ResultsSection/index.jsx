@@ -4,7 +4,7 @@ import cn from 'classnames';
 import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { Video } from 'components/Common/Video';
-import { getFileUrl } from 'utils/helper';
+import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { isResultHasVideo, getResultProps } from './utils/resultsHelper';
 import styles from './styles.module.scss';
 
@@ -12,6 +12,12 @@ const ResultsSection = ({ data, type }) => {
   if (!get(data, 'images')) {
     return null;
   }
+
+  const sectionBackgroundImage = getOptimizedContentfulImage(
+    getFileUrl(get(data, 'background', {})),
+    { fm: 'png' },
+  );
+  const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
 
   const {
     smartphoneUrl,
@@ -22,7 +28,10 @@ const ResultsSection = ({ data, type }) => {
   const { view } = data;
 
   return (
-    <section className={cn([styles[type]], [styles[view]])}>
+    <section
+      className={cn([styles[type]], [styles[view]])}
+      style={sectionStyle}
+    >
       <SectionTitle
         data={data}
         type={type}

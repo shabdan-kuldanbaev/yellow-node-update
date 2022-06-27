@@ -277,6 +277,7 @@
   }
 }
 
+.dindon,
 .meateater,
 .bionorica {
   @extend .infoContainer;
@@ -380,6 +381,72 @@
 
       &::marker {
         color: $jacksons-purple;
+      }
+    }
+  }
+}
+
+.dindon {
+  @include phone {
+    align-items: center;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 285px;
+
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+
+    .title {
+      @include phone {
+        text-align: center;
+
+        @include fontSize(18px);
+      }
+    }
+
+    .listItemContainer {
+      &::marker {
+        color: $cherry-red;
+      }
+    }
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  .container {
+    .title {
+      @include fontSize(40px);
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      margin-left: 20px;
+      list-style: initial;
+
+      .listItemContainer {
+        list-style: none;
+
+        & > span {
+          position: relative;
+
+          &::before {
+            position: absolute;
+            left: -15px;
+            content: ' ';
+            height: 6px;
+            width: 6px;
+            border-radius: 10px;
+            background-color: $violet;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
       }
     }
   }
