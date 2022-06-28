@@ -25,3 +25,11 @@
 
   background: $chinese-black;
 }
+
+.marketplace-for-clairvoyant-services {
+  @extend .feedBackContainer;
+
+  @include phone {
+    padding-top: 0;
+  }
+}

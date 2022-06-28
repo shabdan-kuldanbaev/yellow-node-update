@@ -679,3 +679,35 @@
     }
   }
 }
+
+.marketplace-for-clairvoyant-services {
+  @extend .container;
+
+  padding: 180px 92px;
+
+  .containerBackground {
+    left: -23%;
+    right: 0;
+    background-color: $alabaster;
+    transform: rotateY(-10deg) translateZ(-200px);
+  }
+
+  /* stylelint-disable-next-line */
+  .featureContainer {
+    margin-bottom: 30px;
+
+    .checkMark {
+      color: $white;
+      background: linear-gradient(96.14deg, $violet-blue 0%, $majorelle-blue 100%);
+    }
+  }
+
+  @include phone {
+    padding: 80px 15px;
+
+    .containerBackground {
+      left: -40%;
+      transform: rotateY(-16deg) translateZ(-200px);
+    }
+  }
+}

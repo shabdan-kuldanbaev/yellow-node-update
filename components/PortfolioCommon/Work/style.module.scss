@@ -126,13 +126,13 @@
   }
 
   @include tablet {
+    @include fontSize(14px);
+
     padding: 14px 54px;
     margin: 20px auto 0;
     width: max-content;
     color: $cod-gray-1;
     border-color: $cod-gray-1;
-
-    @include fontSize(14px);
   }
 }
 

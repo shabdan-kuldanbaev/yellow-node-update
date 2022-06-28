@@ -97,3 +97,11 @@
 .hide {
   display: none;
 }
+
+.marketplace-for-clairvoyant-services {
+  @extend .uploadFile;
+
+  @include phone {
+    margin: 0;
+  }
+}

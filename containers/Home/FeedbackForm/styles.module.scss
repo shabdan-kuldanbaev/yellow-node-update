@@ -232,3 +232,18 @@
     max-width: 878px;
   }
 }
+
+.marketplace-for-clairvoyant-services {
+  @extend .formContainer;
+
+  @include phone {
+    padding-top: 0;
+
+    .title {
+      @include fontSize(32px);
+
+      font-weight: 700;
+      font-family: $case-studies-font;
+    }
+  }
+}

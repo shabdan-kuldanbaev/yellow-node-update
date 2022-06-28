@@ -6,7 +6,7 @@
   @include appDevelopmentContainer;
 
   .pageIntroSection {
-    max-width: 1300px;
+    max-width: $max-content-width;
     margin: 0 auto;
 
     @include flex(column);

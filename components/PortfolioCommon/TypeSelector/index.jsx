@@ -26,25 +26,23 @@ const TypeSelector = ({
   };
 
   return (
-    <>
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={250}
-      >
-        <Swiper {...params}>
-          {typeList.map((type) => (
-            <SelectorElement
-              type={SELECTOR_ELEMENT_TYPES.typeSelector}
-              displayName={type.displayName}
-              onClick={() => onSelectedTypeChange(type)}
-              selected={type === selectedType}
-              className={styles.type}
-              key={`WORK-TYPE/${type.slug}`}
-            />
-          ))}
-        </Swiper>
-      </Animated>
-    </>
+    <Animated
+      {...REVEAL_ANIMATION_PROPS}
+      transitionDelay={250}
+    >
+      <Swiper {...params}>
+        {typeList.map((type) => (
+          <SelectorElement
+            type={SELECTOR_ELEMENT_TYPES.typeSelector}
+            displayName={type.displayName}
+            onClick={() => onSelectedTypeChange(type)}
+            selected={type === selectedType}
+            className={styles.type}
+            key={`WORK-TYPE/${type.slug}`}
+          />
+        ))}
+      </Swiper>
+    </Animated>
   );
 };
 
