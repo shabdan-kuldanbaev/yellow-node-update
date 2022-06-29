@@ -38,9 +38,9 @@ const ProjectIdea = ({
         <div className={styles.descriptionContainer}>
           <div className={styles.descriptionIntro}>
             <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-              <h3 className={styles.sectionName}>
+              <span className={styles.sectionName}>
                 {subtitle}
-              </h3>
+              </span>
               <h2 className={styles.title}>
                 {title}
               </h2>
