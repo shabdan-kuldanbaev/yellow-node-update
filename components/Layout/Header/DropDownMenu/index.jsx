@@ -46,9 +46,9 @@ export const DropDownMenu = ({
               tabIndex="0"
               key={`links/${subMenuSlug}`}
             >
-              <h3 className={styles.title}>
+              <p className={styles.title}>
                 {title}
-              </h3>
+              </p>
               {subtitle && (
                 <span className={styles.subtitle}>
                   {subtitle}

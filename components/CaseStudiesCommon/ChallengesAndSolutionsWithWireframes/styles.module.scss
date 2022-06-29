@@ -324,4 +324,19 @@
   [data-case-study-title] {
     color: $white;
   }
+
+  [data-case-study-description] {
+    margin: 80px auto 30px;
+    font-weight: 700;
+    line-height: 120%;
+    color: $white;
+
+    @include fontSize(40px);
+
+    @include phone {
+      margin: 40px auto 16px;
+
+      @include fontSize(24px);
+    }
+  }
 }
