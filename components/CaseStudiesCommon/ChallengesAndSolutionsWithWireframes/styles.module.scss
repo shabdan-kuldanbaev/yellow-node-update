@@ -260,6 +260,40 @@
   background-color: $athens-gray-1;
 }
 
+.dindon {
+  @include caseStudyContainer;
+
+  &.secondSectionView {
+    background-color: $cherry-red;
+    background-position: top -144px right -957px;
+    background-repeat: no-repeat;
+
+    @include macbook-twelve {
+      background-size: 1800px;
+      background-position: bottom -1000px right -1515px;
+    }
+
+    [data-case-study-title] {
+      color: $white;
+    }
+  }
+
+  &.thirdSectionView {
+    background: $sushi-2;
+    background-position: bottom -300px right -957px;
+    background-repeat: no-repeat;
+
+    @include macbook-twelve {
+      background-size: 1800px;
+      background-position: bottom -244px right -1510px;
+    }
+
+    [data-case-study-title] {
+      color: $white;
+    }
+  }
+}
+
 .bionorica {
   @include caseStudyContainer;
 
@@ -276,6 +310,16 @@
   @include caseStudyContainer;
 
   background-color: $chinese-black;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  @include caseStudyContainer;
+
+  background-color: $white;
 
   [data-case-study-title] {
     color: $white;

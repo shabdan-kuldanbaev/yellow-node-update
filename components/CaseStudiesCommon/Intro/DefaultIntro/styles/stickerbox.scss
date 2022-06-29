@@ -1,0 +1,47 @@
+.stickerbox {
+  @extend .container;
+
+  background: linear-gradient(180deg, $grey-darker 0%, $dark-grey-2 100%);
+  height: unset;
+
+  .experiencesContainer {
+    /* stylelint-disable-next-line */
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 295px;
+      }
+    }
+  }
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $white;
+    }
+
+    .projectSubtitle {
+      color: $silver-chalice;
+
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      color: rgba($white, 0.4);
+    }
+  }
+
+  .introSection {
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
+    }
+  }
+}

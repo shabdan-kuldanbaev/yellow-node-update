@@ -1,7 +1,7 @@
 /* stylelint-disable no-descending-specificity */
 @import "styles/utils/mixins", "styles/utils/theme/animations";
 
-.imagContainer {
+.imageContainer {
   position: relative;
   overflow-x: auto;
   text-align: center;
@@ -46,6 +46,7 @@
   }
 }
 
+.dindon,
 .fernwayer,
 .stickerbox,
 .seven-pm-thursday,
@@ -56,7 +57,7 @@
 .fireaway,
 .famlicious,
 .fusion-markets {
-  @extend .imagContainer;
+  @extend .imageContainer;
 }
 
 .fernwayer2 {
@@ -156,14 +157,15 @@
 .beautonomy,
 .drive-focus,
 .fireaway,
-.telemojo {
-  @extend .imagContainer;
+.telemojo,
+.marketplace-for-clairvoyant-services {
+  @extend .imageContainer;
 
   background-color: $white;
 }
 
 .natp {
-  @extend .imagContainer;
+  @extend .imageContainer;
 
   background-color: $white;
 
@@ -373,7 +375,7 @@
 }
 
 .blackbird {
-  @extend .imagContainer;
+  @extend .imageContainer;
 
   &.secondSectionView {
     .image:first-child {

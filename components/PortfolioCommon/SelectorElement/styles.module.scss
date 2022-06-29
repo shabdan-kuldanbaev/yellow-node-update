@@ -1,0 +1,54 @@
+@import "styles/utils/mixins";
+
+.selectorElement {
+  padding: 0.55em 1.7em;
+  border-radius: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 180%;
+
+  @include fontSize(18px);
+
+  &.typeSelector {
+    background: $wild-sand;
+
+    &.selected {
+      background: $cod-gray-1;
+      color: $white;
+    }
+  }
+
+  &.tagSelector {
+    color: $silver-chalice;
+    border: solid 1px $athens-gray;
+
+    &.selected {
+      background: $turbo-100;
+      border-color: $turbo-100;
+      color: $cod-gray-1;
+    }
+  }
+
+  &.tagDisplay {
+    color: rgba($white, 0.7);
+    border: solid rgba($white, 0.7) 1px;
+    background: none;
+
+    &.selected,
+    &:hover {
+      background: $turbo-100;
+      border-color: $turbo-100;
+      color: $cod-gray-1;
+    }
+
+    @include tablet {
+      color: $silver-chalice;
+      border-color: $silver-chalice;
+    }
+  }
+
+  @include tablet {
+    @include fontSize(14px);
+  }
+}

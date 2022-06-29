@@ -1,0 +1,32 @@
+@import "styles/utils/mixins";
+
+.container {
+  overflow: hidden;
+}
+
+.slide {
+  flex: 0 0 max-content;
+  min-width: max-content;
+
+  & + .slide {
+    margin-left: 20px;
+
+    @include below-tablet {
+      margin-left: 10px;
+    }
+  }
+}
+
+.type {
+  margin-bottom: 20px;
+}
+
+.title {
+  align-items: flex-start;
+
+  h2 {
+    margin-bottom: 30px;
+
+    @include fontSize(24px);
+  }
+}

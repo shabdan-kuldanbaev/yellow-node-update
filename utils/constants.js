@@ -116,6 +116,10 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  twitterDark: 'twitterDark',
+  linkedInDark: 'linkedInDark',
+  instagramDark: 'instagramDark',
+  yellowLogoWithBg: 'yellowLogoWithBg',
   arrow: 'arrowSvg',
   behance: 'behanceSvg',
   checkMark: 'checkMarkSvg',
@@ -421,6 +425,7 @@ export const ARTICLE_PREVIEW_TYPES = {
 
 export const CASE_STUDIES = {
   fernwayer: 'fernwayer',
+  dindon: 'dindon',
   stickerbox: 'stickerbox',
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',
@@ -442,6 +447,7 @@ export const CASE_STUDIES = {
   bionorica: 'bionorica',
   fusionMarkets: 'fusion-markets',
   blackBird: 'blackbird',
+  goodPsychics: 'marketplace-for-clairvoyant-services',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -452,6 +458,7 @@ export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key
 
 export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
+  ROUTES.project.getRoute(CASE_STUDIES.dindon).path,
   ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
   ROUTES.project.getRoute(CASE_STUDIES.sevenPmThursday).path,
   ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
@@ -463,6 +470,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fireaway).path,
   ROUTES.project.getRoute(CASE_STUDIES.fusionMarkets).path,
   ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
+  ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -560,7 +568,16 @@ export const CONTACT_FORM_TITLES = {
 // eslint-disable-next-line
 export const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;
 
+export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
+
 export const SWIPER_NAV_BUTTON_TYPES = {
   next: 'next',
   prev: 'prev',
+};
+
+export const REVEAL_ANIMATION_PROPS = {
+  type: ANIMATED_TYPE.isCustom,
+  translateY: '2.82352941em',
+  opasityDuration: 1,
+  transformDuration: 1,
 };

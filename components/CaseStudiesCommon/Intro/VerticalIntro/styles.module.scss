@@ -326,7 +326,8 @@
 }
 
 .smartcenter,
-.fusion-markets {
+.fusion-markets,
+.marketplace-for-clairvoyant-services {
   @extend .container;
 
   background: linear-gradient(to bottom, $regent-gray 0%, $slate-gray2 100%);
@@ -558,6 +559,57 @@
       }
 
       @include phone {
+        max-width: unset;
+      }
+    }
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  padding-top: 197px;
+  padding-bottom: 110px;
+  background-color: $white;
+
+  .projectInfoContainer {
+    .title {
+      .projectTitle {
+        margin-bottom: 26px;
+
+        @include fontSize(53px);
+
+        @include phone {
+          @include fontSize(32px);
+        }
+      }
+    }
+
+    .projectSubtitle {
+      @include fontSize(24px);
+    }
+
+    .projectDescription {
+      color: $silver-chalice;
+      max-width: 100%;
+
+      @include phone {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+
+  .imageContainer {
+    max-width: 1142px;
+  }
+
+  .experiencesContainer {
+    max-width: 1200px;
+
+    .experience {
+      max-width: unset;
+
+      p:not(.infoTitle) {
+        color: $silver-chalice;
         max-width: unset;
       }
     }

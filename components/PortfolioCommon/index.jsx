@@ -1,24 +1,79 @@
-import React, { useEffect } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
-import { Animated, PreviewImage } from 'components';
 import { withScroll } from 'hocs/withScroll';
-import { ROUTES } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { Animated } from 'components/Common/Animated';
+import ButtonMore from 'components/Common/ButtonMore';
+import {
+  DEFAULT_WORK_TYPE,
+  REVEAL_ANIMATION_PROPS,
+  ROUTES,
+} from 'utils/constants';
 import gaHelper from 'utils/ga';
-import { animatedFields } from './utils';
-import { FieldsWrapper } from './FieldsWrapper';
+import { getLimitedList } from 'utils/helper';
+import Work from './Work';
+import TypeSelector from './TypeSelector';
+import { DEFAULT_WORKS_LIMIT, filterWorks } from './utils';
 import styles from './styles.module.scss';
 
 const Portfolio = ({
   works,
   maxScrollPosition,
-  animatedFields: animatedFieldsList,
 }) => {
+  const [filteredWorks, setFilteredWorks] = useState([]);
+  const [worksDisplay, setWorksDisplay] = useState([]);
+  const [currentLimit, setCurrentLimit] = useState(DEFAULT_WORKS_LIMIT);
+  const [selectedType, setSelectedType] = useState(DEFAULT_WORK_TYPE);
+  const [selectedTag, setSelectedTag] = useState(null);
+
   const slugs = {
+    Fireaway: 'fireaway',
     Fernwayer: 'fernwayer',
-    '7pm Thursday': 'seven-pm-thursday',
     Fairy: 'fairy',
+    'Ubi.chat': 'ubi-chat',
+    BibleMania: 'biblemania',
   };
+
+  const isFilteringEnabled = works && filteredWorks.length !== works.length;
+  const hasHiddenItems = !isFilteringEnabled && worksDisplay.length !== filteredWorks.length;
+
+  const onSelectedTypeChange = useCallback((type) => {
+    if (type === selectedType) return;
+
+    setCurrentLimit(DEFAULT_WORKS_LIMIT);
+    setSelectedType(type);
+  }, [selectedType]);
+
+  const onSelectedTagChange = useCallback((tag) => {
+    setCurrentLimit(DEFAULT_WORKS_LIMIT);
+
+    if (selectedTag && selectedTag.slug === tag.slug) {
+      return setSelectedTag(null);
+    }
+
+    setSelectedTag(tag);
+  }, [selectedTag]);
+
+  const onShowMoreClick = useCallback(() => {
+    setCurrentLimit((prev) => prev + DEFAULT_WORKS_LIMIT);
+  }, []);
+
+  useEffect(() => {
+    if (!works || !works.length) return;
+
+    setFilteredWorks(filterWorks(works, { tag: selectedTag, workType: selectedType }));
+  }, [selectedType, selectedTag, works]);
+
+  useEffect(() => {
+    if (isFilteringEnabled) {
+      return setWorksDisplay(filteredWorks);
+    }
+
+    setWorksDisplay(getLimitedList(filteredWorks, { limit: currentLimit }));
+  }, [isFilteringEnabled, currentLimit, filteredWorks]);
 
   useEffect(() => () => {
     gaHelper.trackEvent(
@@ -31,59 +86,44 @@ const Portfolio = ({
   }, []);
 
   return works && (
-    <div className={styles.worksContainer}>
-      {works && works.map((work, index) => {
-        const documentFields = getDocumentFields(
-          work,
-          ['previewImage', 'title', 'description', 'slug'],
-        );
-        const {
-          previewImage,
-          title,
-          description,
-        } = documentFields;
-        // TODO: remove this after rebuild works page
-        const slug = documentFields.slug || slugs[title];
-
-        return (
-          <div
-            className={styles.work}
-            key={`works/${title}`}
-            data-index={index}
-          >
-            <div className={styles.workWrapper}>
-              <div className={styles.desc}>
-                {animatedFieldsList && animatedFieldsList.map((animated) => (
-                  <Animated
-                    {...animated}
-                    key={`fields/${title}/${animated.field}`}
-                  >
-                    <FieldsWrapper
-                      animated={animated}
-                      title={title}
-                      description={description}
-                      slug={slug}
-                    />
-                  </Animated>
-                ))}
-              </div>
-              <PreviewImage image={getFileUrl(previewImage)} />
-            </div>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <TypeSelector
+        selectedType={selectedType}
+        onSelectedTypeChange={onSelectedTypeChange}
+      />
+      <div className={styles.worksContainer}>
+        {worksDisplay.map((work) => (
+          <Work
+            key={work.title}
+            work={work}
+            customSlug={slugs[work.title]}
+            onTagClick={onSelectedTagChange}
+            selectedTag={selectedTag}
+          />
+        ))}
+      </div>
+      {hasHiddenItems && (
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={250}
+        >
+          <ButtonMore
+            title="See more projects"
+            buttonStyle={styles.showMoreButton}
+            handleOnClick={onShowMoreClick}
+          />
+        </Animated>
+      )}
+    </>
   );
 };
 
 Portfolio.defaultProps = {
-  animatedFields,
   works: [],
 };
 
 Portfolio.propTypes = {
   works: PropTypes.instanceOf(Array),
-  animatedFields: PropTypes.instanceOf(Array),
   maxScrollPosition: PropTypes.instanceOf(Object).isRequired,
 };
 
