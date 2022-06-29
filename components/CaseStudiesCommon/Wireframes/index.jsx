@@ -57,14 +57,9 @@ const Wireframe = ({
 
 Wireframe.defaultProps = {
   isMobileResolution: false,
-  // eslint-disable-next-line react/default-props-match-prop-types
-  data: {
-    images: [],
-  },
 };
 
 Wireframe.propTypes = {
-  // eslint-disable-next-line react/require-default-props
   data: PropTypes.shape({
     images: PropTypes.instanceOf(Array),
   }).isRequired,
