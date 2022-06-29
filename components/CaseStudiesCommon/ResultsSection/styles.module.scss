@@ -724,7 +724,7 @@
 
     .mockup {
       width: 100%;
-      filter: unset;
+      filter: drop-shadow(0 14px 54px rgba($black, 0.08));
       position: static;
       transform: translate(0, 0);
     }
