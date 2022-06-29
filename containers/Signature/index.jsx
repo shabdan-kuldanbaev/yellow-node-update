@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -30,29 +31,38 @@ const SignatureGenerator = ({ pageData: { main } }) => {
   const isTitleChanged = currentSignatureTitle === signatureGeneratedTitle;
 
   return (
-    <div className={cn(styles.signature, { [styles.signatureWithGenerated]: isTitleChanged })}>
-      <h2 className={styles.signatureTitle}>
-        {currentSignatureTitle}
-      </h2>
-      {isTitleChanged ? (
-        <SignatureGenerated
-          titledList={titledList}
-          signatureContainer={signatureContainer}
-          yellowUrl={yellowUrl}
-          formRef={formRef}
-          linkedInImgUrl={linkedInImgUrl}
-          instagramImgUrl={instagramImgUrl}
-          twitterImgUrl={twitterImgUrl}
+    <>
+      <Head>
+        <meta
+          name="robots"
+          content="noindex,follow"
         />
-      ) : (
-        <SignatureGenerate
-          formRef={formRef}
-          setCurrentSignatureTitle={setCurrentSignatureTitle}
-          signatureGeneratedTitle={signatureGeneratedTitle}
-          inputsList={inputsList}
-        />
-      )}
-    </div>
+        <title>Signature generator</title>
+      </Head>
+      <div className={cn(styles.signature, { [styles.signatureWithGenerated]: isTitleChanged })}>
+        <h2 className={styles.signatureTitle}>
+          {currentSignatureTitle}
+        </h2>
+        {isTitleChanged ? (
+          <SignatureGenerated
+            titledList={titledList}
+            signatureContainer={signatureContainer}
+            yellowUrl={yellowUrl}
+            formRef={formRef}
+            linkedInImgUrl={linkedInImgUrl}
+            instagramImgUrl={instagramImgUrl}
+            twitterImgUrl={twitterImgUrl}
+          />
+        ) : (
+          <SignatureGenerate
+            formRef={formRef}
+            setCurrentSignatureTitle={setCurrentSignatureTitle}
+            signatureGeneratedTitle={signatureGeneratedTitle}
+            inputsList={inputsList}
+          />
+        )}
+      </div>
+    </>
   );
 };
 
