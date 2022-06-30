@@ -711,7 +711,7 @@
   }
 }
 
-.mobile-fintech-app {
+.fintech-app-for-credit-score {
   @include caseStudyContainer;
 
   .mockup {
@@ -739,16 +739,20 @@
   .circle {
     position: static;
     transform: translateX(0);
-    height: 988px;
+    height: min-content;
     width: 100%;
     max-width: 1076px;
-    margin: 100px auto 0;
+    margin: 0 auto;
 
     .mockup {
       width: 100%;
-      filter: unset;
+      filter: drop-shadow(0 14px 54px rgba($black, 0.08));
       position: static;
       transform: translate(0, 0);
+    }
+
+    @include phone {
+      padding-bottom: 0;
     }
   }
 }

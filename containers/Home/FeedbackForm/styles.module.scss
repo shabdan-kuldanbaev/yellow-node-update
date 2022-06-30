@@ -88,7 +88,7 @@
 .seven-pm-thursday,
 .fusion-markets,
 .blackbird,
-.mobile-fintech-app {
+.fintech-app-for-credit-score {
   @extend .formContainer;
 
   background-color: $dark-blue-1;
@@ -158,7 +158,7 @@
   }
 }
 
-.mobile-fintech-app {
+.fintech-app-for-credit-score {
   padding: 120px 0;
   background: $white;
   color: $black;
@@ -289,5 +289,20 @@
 .mvp-app-development-company {
   .title {
     max-width: 878px;
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  @extend .formContainer;
+
+  @include phone {
+    padding-top: 0;
+
+    .title {
+      @include fontSize(32px);
+
+      font-weight: 700;
+      font-family: $case-studies-font;
+    }
   }
 }

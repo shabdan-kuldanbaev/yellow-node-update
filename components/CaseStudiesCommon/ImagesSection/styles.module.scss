@@ -16,6 +16,7 @@
 .meateater,
 .ubichat,
 .fireaway,
+.dindon,
 .famlicious,
 .telemojo,
 .bionorica,
@@ -135,6 +136,16 @@
   }
 }
 
+.fintech-app-for-credit-score {
+  @include caseStudyContainer;
+
+  background-color: $green-aloha;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}
+
 .blackbird {
   @include caseStudyContainer;
 
@@ -170,15 +181,5 @@
         max-width: 327px;
       }
     }
-  }
-}
-
-.mobile-fintech-app {
-  @include caseStudyContainer;
-
-  background-color: $green-aloha;
-
-  [data-case-study-title] {
-    color: $white;
   }
 }

@@ -244,7 +244,7 @@
   }
 }
 
-.mobile-fintech-app {
+.fintech-app-for-credit-score {
   @include caseStudyContainer;
 
   background: $melting-grey;
@@ -253,6 +253,21 @@
     .contentContainer {
       max-width: 1000px;
       margin: 0 auto;
+    }
+  }
+}
+
+.dindon {
+  overflow: hidden;
+  background: $wild-send-2;
+
+  @include caseStudyContainer;
+
+  [data-case-study-title] {
+    margin-bottom: 200px;
+
+    @include tablet {
+      margin-bottom: 30px;
     }
   }
 }

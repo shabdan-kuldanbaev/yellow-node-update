@@ -1,13 +1,13 @@
-.mobile-fintech-app {
+.fintech-app-for-credit-score {
   @extend .container;
 
   background: $green-aloha;
   height: 1150px;
-    
+
   @include phone {
     height: 920px;
   }
-    
+
   .projectInfoContainer {
     color: $white;
 
@@ -26,9 +26,9 @@
     }
 
     .projectDescription {
-      @include fontSize (14px);
+      color: $project-white;
 
-      color: rgba($white, 0.4);
+      @include fontSize (14px);
     }
   }
 
@@ -87,7 +87,7 @@
       margin: 0 auto 60px;
     }
   }
-  
+
   .bundleImage {
     width: 1310px;
 

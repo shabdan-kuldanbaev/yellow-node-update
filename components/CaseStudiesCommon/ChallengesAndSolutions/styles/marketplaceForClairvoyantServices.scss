@@ -18,8 +18,9 @@
 
         &::after {
           right: 0;
+          height: 107%;
           transform: translate(10px, -1px);
-          background: linear-gradient(90deg, rgba($white, 0) 0%, $white 73%);
+          background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
 
           @include phone {
             display: none;
@@ -44,8 +45,9 @@
 
         &::after {
           left: 0;
-          transform: translate(10px, -1px);
-          background: linear-gradient(270deg, rgba($white, 0) 0%, $white 73%);
+          height: 107%;
+          transform: translate(0px, -1px);
+          background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
 
           @include phone {
             display: none;
@@ -56,33 +58,37 @@
 
     &:nth-child(2n + 1),
     &:nth-child(2n) {
+      .infoContainer {
+        max-width: 460px;
+        margin: 0;
+      }
+
       @include phone {
         @include flex(column, center, center);
       }
     }
 
     .infoContainer {
-      max-width: 451px;
-
       h2 {
-        @include fontSize(36px);
-
         line-height: 43px;
 
-        @include tablet {
-          @include fontSize(30px);
+        @include fontSize(36px);
 
+        @include tablet {
           line-height: 34px;
+
+          @include fontSize(30px);
         }
 
         @include phone {
-          @include fontSize(24px);
-
           line-height: 28px;
+
+          @include fontSize(24px);
         }
       }
 
       p {
+        max-width: 429px;
         line-height: 32px;
 
         @include fontSize(18px);
@@ -97,38 +103,31 @@
       position: relative;
 
       .image {
-        filter: unset;
         width: 100%;
         height: unset;
         max-height: unset;
         max-width: 1110px;
-      }
-
-      .imageBundle {
-        position: absolute;
-        max-width: 157px;
-        top: 50%;
-        transform: translate(-40%, -110%);
-
-        @include macbook-twelve {
-          max-width: 130px;
-          transform: translate(-30%, -125%);
-        }
-
-        @include below-tablet {
-          max-width: 100px;
-          transform: translate(-50%, -125%);
-        }
-
-        @include phone {
-          display: none;
-        }
+        filter: drop-shadow(0 14px 44px rgba($black, 0.07));
       }
     }
   }
 
   .contentContainer:not(.special) {
+    display: inline-flex;
+    max-width: calc(50% - 20px);
+
+    &:first-of-type {
+      margin-right: 20px;
+    }
+
+    &:last-of-type {
+      margin-left: 20px;
+    }
+
     .infoContainer {
+      max-width: unset;
+      margin: 0;
+
       .title,
       h3 {
         color: $white;
@@ -140,18 +139,29 @@
       }
 
       ul {
-        margin-left: -15px;
+        margin-left: 18px;
         margin-top: 0;
+        padding: 0;
 
         & > li {
-          margin-bottom: 0;
+          margin: 13px 0 0;
+          list-style: none;
 
           p {
+            position: relative;
             margin-bottom: 0;
-          }
 
-          &::marker {
-            color: $white;
+            &:before {
+              position: absolute;
+              left: -15px;
+              content: ' ';
+              height: 6px;
+              width: 6px;
+              border-radius: 10px;
+              background-color: $white;
+              top: 50%;
+              transform: translateY(-50%);
+            }
           }
         }
 
@@ -178,6 +188,16 @@
             }
           }
         }
+      }
+    }
+
+    @include phone {
+      display: block;
+      max-width: 100%;
+
+      &:first-of-type,
+      &:last-of-type {
+        margin: 20px 0 0;
       }
     }
   }

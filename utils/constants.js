@@ -425,6 +425,7 @@ export const ARTICLE_PREVIEW_TYPES = {
 
 export const CASE_STUDIES = {
   fernwayer: 'fernwayer',
+  dindon: 'dindon',
   stickerbox: 'stickerbox',
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',
@@ -446,7 +447,7 @@ export const CASE_STUDIES = {
   bionorica: 'bionorica',
   fusionMarkets: 'fusion-markets',
   blackBird: 'blackbird',
-  mobileFintechApp: 'mobile-fintech-app',
+  mobileFintechApp: 'fintech-app-for-credit-score',
   goodPsychics: 'marketplace-for-clairvoyant-services',
 };
 
@@ -458,6 +459,7 @@ export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key
 
 export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
+  ROUTES.project.getRoute(CASE_STUDIES.dindon).path,
   ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
   ROUTES.project.getRoute(CASE_STUDIES.sevenPmThursday).path,
   ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
@@ -470,6 +472,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fusionMarkets).path,
   ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileFintechApp).path,
+  ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -582,5 +585,5 @@ export const REVEAL_ANIMATION_PROPS = {
 };
 
 export const LI_VIEW = [
-  'mobile-fintech-app',
-]
+  'fintech-app-for-credit-score',
+];

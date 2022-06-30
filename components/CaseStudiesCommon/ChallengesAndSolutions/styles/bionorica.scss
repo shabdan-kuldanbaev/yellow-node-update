@@ -3,7 +3,7 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 50px;
   justify-items: start;
-  max-width: 1300px;
+  max-width: $max-content-width;
   margin: 0 auto;
 
   @include phone {

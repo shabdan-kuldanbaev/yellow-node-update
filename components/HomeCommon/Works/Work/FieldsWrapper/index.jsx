@@ -12,9 +12,9 @@ export const FieldsWrapper = ({
   switch (field) {
   case 'title':
     return (
-      <h1 className={styles.h1}>
+      <h2 className={styles.h2}>
         {title}
-      </h1>
+      </h2>
     );
   case 'description':
     return (

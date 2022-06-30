@@ -159,6 +159,7 @@
   }
 }
 
+.dindon,
 .fernwayer,
 .travel-trivia {
   @extend .container;
@@ -301,7 +302,7 @@
 }
 
 .fairy,
-.mobile-fintech-app {
+.fintech-app-for-credit-score {
   @extend .container;
 
   background: $light-violet-1;
@@ -336,7 +337,7 @@
   }
 }
 
-.mobile-fintech-app {
+.fintech-app-for-credit-score {
   background: $green-aloha;
 }
 
@@ -598,4 +599,10 @@
 
 .blackbird {
   background: $bright-navy;
+}
+
+.dindon {
+  @extend .container;
+
+  background: $cherry-red;
 }

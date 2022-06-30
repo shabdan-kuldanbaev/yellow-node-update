@@ -393,7 +393,7 @@
     }
 
     .contentContainer {
-      h3 {
+      h2 {
         margin-bottom: 0;
       }
     }
@@ -680,7 +680,7 @@
   }
 }
 
-.mobile-fintech-app {
+.fintech-app-for-credit-score {
   .containerBackground {
     left: -23%;
     right: 0;
@@ -696,21 +696,31 @@
 .marketplace-for-clairvoyant-services {
   @extend .container;
 
+  padding: 180px 92px;
+
   .containerBackground {
     left: -23%;
     right: 0;
     background-color: $alabaster;
-
-    @include phone {
-      left: -42%;
-    }
+    transform: rotateY(-10deg) translateZ(-200px);
   }
 
   /* stylelint-disable-next-line */
   .featureContainer {
+    margin-bottom: 30px;
+
     .checkMark {
       color: $white;
-      background: linear-gradient(96.14deg, #3953B0 0%, #6144D6 100%);
+      background: linear-gradient(96.14deg, $violet-blue 0%, $majorelle-blue 100%);
+    }
+  }
+
+  @include phone {
+    padding: 80px 15px;
+
+    .containerBackground {
+      left: -40%;
+      transform: rotateY(-16deg) translateZ(-200px);
     }
   }
 }

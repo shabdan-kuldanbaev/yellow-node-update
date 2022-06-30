@@ -26,8 +26,16 @@
   background: $chinese-black;
 }
 
-.mobile-fintech-app {
+.fintech-app-for-credit-score {
   @extend .feedBackContainer;
 
   background: $white;
+}
+
+.marketplace-for-clairvoyant-services {
+  @extend .feedBackContainer;
+
+  @include phone {
+    padding-top: 0;
+  }
 }
