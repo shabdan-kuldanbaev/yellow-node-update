@@ -100,9 +100,15 @@
       top: -56%;
       left: -35%;
       transform: scale(1);
+      max-width: 1264px;
+
+      @include macbook-thirteen {
+        max-width: 1020px;
+        top: -40%;
+      }
 
       @include desktop {
-        left: -0%;
+        left: -5%;
       }
 
       @include tablet {

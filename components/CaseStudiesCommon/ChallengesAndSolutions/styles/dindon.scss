@@ -156,6 +156,10 @@
         .image {
           transform: scale(2) translate(30%, 0%);
 
+          @include macbook-thirteen {
+            transform: scale(2) translate(20%, 0%);
+          }
+
           @include tablet {
             transform: none;
           }
@@ -165,6 +169,10 @@
       &:nth-child(even) {
         .image {
           transform: scale(2) translate(-30%, 0%);
+
+          @include macbook-thirteen {
+            transform: scale(2) translate(-20%, 0%);
+          }
 
           @include tablet {
             transform: none;

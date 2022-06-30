@@ -42,6 +42,12 @@
   }
 }
 
+@mixin tablet-size-horizontal {
+  @media (max-width: $tablet-size-horizontal) {
+    @content;
+  }
+}
+
 @mixin quad-hd {
   @media (max-width: $quad-hd) {
     @content;
