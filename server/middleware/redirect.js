@@ -6,6 +6,17 @@ dotenv.config('./env');
 
 const isProd = process.env.NODE_ENV === 'production';
 
+const upperCaseRedirect = (req, res, next) => {
+  const { path } = req;
+  const lowerCasePath = path.toLowerCase();
+
+  if (path === lowerCasePath) {
+    return next();
+  }
+
+  res.redirect(301, lowerCasePath);
+};
+
 const multiSlashRedirect = (req, res, next) => {
   const { url, path } = req;
 
@@ -107,4 +118,5 @@ module.exports = {
   trailingSlashRedirect,
   pageRedirect,
   multiSlashRedirect,
+  upperCaseRedirect,
 };
