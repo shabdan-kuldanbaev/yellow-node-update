@@ -625,12 +625,12 @@
 .fintech-app-for-credit-score {
   @extend .container;
 
+  @include flex(row, space-around, center);
+
   background-color: $white;
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-
-  @include flex(row, space-around, center);
 
   @include phone {
     padding: 80px 15px 45px;

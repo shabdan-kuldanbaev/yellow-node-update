@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
-import { LI_VIEW } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import { TitleUnderline } from './TitleUnderline';
@@ -25,29 +24,14 @@ const TeamSection = ({ type, data }) => {
           {title}
           <TitleUnderline type={type} />
         </h2>
-        {
-          (type && LI_VIEW.includes(type))
-            ? (
-              <ul>
-                {contentList && contentList.map((member) => (
-                  <li
-                    key={member}
-                    className={styles.teamItem}
-                  >
-                    {member}
-                  </li>
-                ))}
-              </ul>
-            )
-            : contentList && contentList.map((member) => (
-              <p
-                key={member}
-                className={styles.teamItem}
-              >
-                {member}
-              </p>
-            ))
-        }
+        {contentList && contentList.map((member) => (
+          <p
+            key={member}
+            className={styles.teamItem}
+          >
+            {member}
+          </p>
+        ))}
         {imagesBundles && imagesBundles.map((image) => {
           const imgUrl = getFileUrl(image);
 

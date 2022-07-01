@@ -583,7 +583,3 @@ export const REVEAL_ANIMATION_PROPS = {
   opasityDuration: 1,
   transformDuration: 1,
 };
-
-export const LI_VIEW = [
-  'fintech-app-for-credit-score',
-];
