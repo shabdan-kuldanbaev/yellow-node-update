@@ -214,6 +214,7 @@
   .contentContainer {
     width: auto;
     margin-right: 260px;
+    padding-bottom: 0;
 
     @include tablet {
       width: 345px;

@@ -47,7 +47,7 @@ const TypeSelector = ({
 };
 
 TypeSelector.propTypes = {
-  selectedType: PropTypes.arrayOf(Object).isRequired,
+  selectedType: PropTypes.instanceOf(Object).isRequired,
   onSelectedTypeChange: PropTypes.func.isRequired,
   typeList: PropTypes.arrayOf(Object).isRequired,
 };

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
 import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
-import { selectIsMobileResolutions, selectMetaData } from 'redux/selectors/layout';
+import { selectMetaData } from 'redux/selectors/layout';
 import {
   SelectionBlock,
   ArticlesList,
@@ -25,7 +25,6 @@ import { categoriesMetaData } from './utils/data';
 const BlogContainer = ({
   introSection,
   articles,
-  isMobileResolution,
   totalArticles,
   subscribe: addNewSubscriber,
   setIsSubscribed: setSubscribed,
@@ -36,13 +35,12 @@ const BlogContainer = ({
   const {
     pathname,
     query: { slug },
-    asPath,
   } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
   const breadcrumbs = pagesBreadcrumbs.blog(slug);
   const pageMetadata = {
     ...metaData,
-    url: `${rootUrl}${asPath}`,
+    url: `${rootUrl}/${PAGES.blog}`,
     pageNumber: currentPage,
   };
 
@@ -93,14 +91,9 @@ const BlogContainer = ({
   );
 };
 
-BlogContainer.defaultProps = {
-  isMobileResolution: false,
-};
-
 BlogContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   articles: PropTypes.instanceOf(Array).isRequired,
-  isMobileResolution: PropTypes.bool,
   subscribe: PropTypes.func.isRequired,
   totalArticles: PropTypes.number.isRequired,
   setIsSubscribed: PropTypes.func.isRequired,
@@ -117,7 +110,6 @@ export default connect(
   (state) => ({
     articles: selectArticles(state),
     totalArticles: selectTotalCount(state),
-    isMobileResolution: selectIsMobileResolutions(state),
     metaData: selectMetaData(state),
   }),
   {

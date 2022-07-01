@@ -384,12 +384,12 @@ export const CONTACTS_DATA = {
     {
       title: 'Medium',
       type: SVG_IMAGES_TYPES.mediumRoundWhite,
-      link: '//medium.com/@yellow',
+      link: '//yellow.medium.com/',
     },
     {
       title: 'Instagram',
       type: SVG_IMAGES_TYPES.instaRoundWhite,
-      link: '//www.instagram.com/yellow.systems',
+      link: '//www.instagram.com/yellow.systems/',
     },
   ],
 };
