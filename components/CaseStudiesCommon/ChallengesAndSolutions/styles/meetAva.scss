@@ -29,15 +29,11 @@
         }
       }
 
-      & > div:first-child {
-        & > div:last-child {
-          p {
-            width: 450px;
+      p {
+        width: 450px;
 
-            @include phone {
-              width: 290px;
-            }
-          }
+        @include phone {
+          width: 290px;
         }
       }
 
