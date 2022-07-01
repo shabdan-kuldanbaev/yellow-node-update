@@ -221,14 +221,10 @@
 
   &.firstSectionView {
     margin-bottom: 150px;
-
-    @include phone {
-      margin-bottom: 20px;
-    }
-
     background: linear-gradient($chinese-black 0%, $chinese-black 75%, $white 75%, $white 100%);
 
     @include phone {
+      margin-bottom: 20px;
       background: linear-gradient($chinese-black 0%, $chinese-black 60%, $white 60%, $white 100%);
     }
   }
@@ -251,7 +247,7 @@
 
   &.firstSectionView {
     .contentContainer {
-      max-width: 1000px;
+      max-width: $max-content-width-macbook-twelve;
       margin: 0 auto;
     }
   }

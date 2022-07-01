@@ -207,18 +207,6 @@
 
   width: 600px;
 
-  @include tablet {
-    margin: 0 auto;
-    margin-bottom: 70px;
-  }
-
-  @include phone {
-    width: unset;
-    justify-content: center;
-    padding-top: 30px;
-    margin: 0;
-  }
-
   .title {
     @include fontSize(56px);
 
@@ -272,6 +260,17 @@
     @include phone {
       @include fontSize(14px);
     }
+  }
+
+  @include tablet {
+    margin: 0 auto 70px;
+  }
+
+  @include phone {
+    width: unset;
+    justify-content: center;
+    padding-top: 30px;
+    margin: 0;
   }
 }
 

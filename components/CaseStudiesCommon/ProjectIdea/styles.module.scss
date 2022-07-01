@@ -633,30 +633,11 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  @include phone {
-    padding: 80px 15px 45px;
-    flex-direction: column;
-    justify-content: center;
-  }
-
   .contentContainer {
     padding-bottom: 0;
     justify-content: space-between;
 
     .descriptionContainer {
-      @include desktop {
-        margin-left: 40px;
-      }
-
-      @include tablet {
-        margin-left: 60px;
-      }
-
-      @include phone {
-        margin-left: 0;
-        margin-bottom: 0;
-      }
-
       .descriptionIntro {
         .description {
           & > p {
@@ -673,7 +654,26 @@
           }
         }
       }
+
+      @include desktop {
+        margin-left: 40px;
+      }
+
+      @include tablet {
+        margin-left: 60px;
+      }
+
+      @include phone {
+        margin-left: 0;
+        margin-bottom: 0;
+      }
     }
+  }
+
+  @include phone {
+    padding: 80px 15px 45px;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
