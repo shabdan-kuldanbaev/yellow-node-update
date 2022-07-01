@@ -74,6 +74,21 @@ const nextConfig = {
 
     return config;
   },
+
+  // This header prevents the site from being displayed in an iframe.
+  async headers() {
+    return [
+      {
+        source: '/(.*)?',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = withPlugins([
@@ -92,18 +107,4 @@ module.exports = withPlugins([
   withFonts,
   withVideos,
   [withBundleAnalyzer],
-], {
-  async headers() {
-    return [
-      {
-        source: '/(.*)?',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-        ],
-      },
-    ];
-  },
-}, nextConfig);
+], nextConfig);
