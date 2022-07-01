@@ -36,7 +36,7 @@ export const socialNetworks = [
   },
   {
     title: 'medium',
-    href: '//medium.com/@yellow',
+    href: '//yellow.medium.com/',
     image: (main) => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
