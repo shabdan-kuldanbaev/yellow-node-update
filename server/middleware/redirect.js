@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-const { devHosts } = require('../utils/constants');
+const { devHosts, indexFiles } = require('../utils/constants');
 const { safePageRedirect } = require('../utils/safePageRedirect');
 
 dotenv.config('./env');
@@ -48,6 +48,14 @@ const wwwRedirect = (req, res, next) => {
   res.redirect(301, `${protocol}://${host.substring(4)}${originalUrl}`);
 };
 
+const indexDirRedirect = (req, res, next) => {
+  if (indexFiles.includes(`${req.protocol}://${req.get('host')}${req.originalUrl}`)) {
+    res.redirect(301, 'https://yellow.systems/');
+  } else {
+    next();
+  }
+};
+
 const customDomainRedirect = (req, res, next) => {
   if (req.hostname.includes('yellow-systems-nextjs-prod') && req.headers['user-agent'] !== 'Amazon CloudFront') {
     res.redirect(301, `https://${process.env.CUSTOM_DOMAIN}${req.url}`);
@@ -58,8 +66,7 @@ const customDomainRedirect = (req, res, next) => {
 
 const httpsRedirect = (req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https' && isProd && !devHosts.includes(req.hostname)) {
-    const hostName = isProd ? process.env.CUSTOM_DOMAIN : req.hostname;
-    res.redirect(301, `https://${hostName}${req.url}`);
+    res.redirect(301, `https://${req.hostname}${req.url}`);
   } else {
     next();
   }
@@ -108,4 +115,5 @@ module.exports = {
   trailingSlashRedirect,
   pageRedirect,
   multiSlashRedirect,
+  indexDirRedirect,
 };
