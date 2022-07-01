@@ -61,7 +61,7 @@ const wwwRedirect = (req, res, next) => {
 
 const indexDirRedirect = (req, res, next) => {
   if (indexFiles.includes(`${req.protocol}://${req.get('host')}${req.originalUrl}`)) {
-    res.redirect(301, 'https://yellow.systems/');
+    res.redirect(301, `https://${process.env.CUSTOM_DOMAIN}/`);
   } else {
     next();
   }
