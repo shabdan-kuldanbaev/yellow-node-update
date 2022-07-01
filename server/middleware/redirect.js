@@ -1,10 +1,21 @@
 const dotenv = require('dotenv');
-const { devHosts } = require('../utils/constants');
+const { devHosts, indexFiles } = require('../utils/constants');
 const { safePageRedirect } = require('../utils/safePageRedirect');
 
 dotenv.config('./env');
 
 const isProd = process.env.NODE_ENV === 'production';
+
+const upperCaseRedirect = (req, res, next) => {
+  const { path } = req;
+  const lowerCasePath = path.toLowerCase();
+
+  if (path === lowerCasePath) {
+    return next();
+  }
+
+  res.redirect(301, lowerCasePath);
+};
 
 const multiSlashRedirect = (req, res, next) => {
   const { url, path } = req;
@@ -46,6 +57,14 @@ const wwwRedirect = (req, res, next) => {
   }
 
   res.redirect(301, `${protocol}://${host.substring(4)}${originalUrl}`);
+};
+
+const indexDirRedirect = (req, res, next) => {
+  if (indexFiles.includes(`${req.protocol}://${req.get('host')}${req.originalUrl}`)) {
+    res.redirect(301, `https://${process.env.CUSTOM_DOMAIN}/`);
+  } else {
+    next();
+  }
 };
 
 const customDomainRedirect = (req, res, next) => {
@@ -108,4 +127,6 @@ module.exports = {
   trailingSlashRedirect,
   pageRedirect,
   multiSlashRedirect,
+  indexDirRedirect,
+  upperCaseRedirect,
 };

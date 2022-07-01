@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {
   Animated,
   CallToAction,
-  LinkWrapper,
 } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -22,7 +21,6 @@ export const Process = ({ processes, handleOnCTAClick }) => {
       {processes && processes.map(({
         name,
         description,
-        link,
         json,
       }, index) => (
         <div
@@ -45,16 +43,6 @@ export const Process = ({ processes, handleOnCTAClick }) => {
               transitionDelay={300 + 50}
             >
               <p>{description}</p>
-              <LinkWrapper
-                isLocalLink
-                dynamicRouting={link}
-                path={link}
-                className={styles.buttonWrap}
-              >
-                <button type="button">
-                  Details
-                </button>
-              </LinkWrapper>
             </Animated>
           </div>
           <Animated

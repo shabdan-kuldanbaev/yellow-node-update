@@ -28,11 +28,14 @@ Sitemap.getInitialProps = async ({ res }) => {
     const [
       articles,
       projects,
-      caseStudies,
+      pages,
     ] = await Promise.all([
       contentfulClient.getEntries({
         contentType: 'article',
         searchType: '[match]',
+        additionalQueryParams: {
+          limit: 200,
+        },
       }),
       contentfulClient.getEntries({
         contentType: 'project',
@@ -59,7 +62,7 @@ Sitemap.getInitialProps = async ({ res }) => {
         updatedAt: getDate(new Date()),
       });
     });
-    const caseStudiesLinks = caseStudies.items.reduce((acc, caseStudy) => {
+    const caseStudiesLinks = pages.items.reduce((acc, caseStudy) => {
       const { slug } = getDocumentFields(caseStudy, ['slug']);
 
       if (CASE_STUDIES_SLUGS.includes(slug)) {
@@ -71,6 +74,11 @@ Sitemap.getInitialProps = async ({ res }) => {
 
       return acc;
     }, []);
+    const customBlogs = ROUTES.blog.categories.map((blog) => ({
+      path: ROUTES.blog.getRoute(blog.slug).path,
+      updatedAt: getDate(new Date()),
+    }));
+
     const feedObject = {
       urlset: {
         '@xmlns': 'http://www.sitemaps.org/schemas/sitemap/0.9',
@@ -92,6 +100,7 @@ Sitemap.getInitialProps = async ({ res }) => {
         ...projectLinks,
         ...caseStudiesLinks,
         ...postLinks,
+        ...customBlogs,
       ]),
     );
 

@@ -24,11 +24,11 @@ export const socialMedia = [
   {
     title: 'Medium',
     type: SVG_IMAGES_TYPES.mediumRoundBlack,
-    link: '//medium.com/@yellow',
+    link: '//yellow.medium.com/',
   },
   {
     title: 'Instagram',
     type: SVG_IMAGES_TYPES.instaRoundBlack,
-    link: '//www.instagram.com/yellow.systems',
+    link: '//www.instagram.com/yellow.systems/',
   },
 ];

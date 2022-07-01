@@ -9,9 +9,11 @@
 
   .projectInfoContainer {
     color: $white;
+    transform: translateX(40%);
 
     @include tablet {
       margin-bottom: 0;
+      transform: unset;
     }
 
     .projectTitle {
@@ -26,7 +28,7 @@
 
     .projectDescription {
       opacity: 0.7;
-      max-width: 407px;
+      max-width: 550px;
     }
   }
 
@@ -44,6 +46,11 @@
 
     .image {
       width: 100%;
+      transform: translate(-35%, -50%);
+
+      @include phone {
+        transform: translate(-50%, -50%);
+      }
     }
   }
 
@@ -52,7 +59,7 @@
     bottom: 0;
     right: 0;
     top: 0;
-    width: 95%;
+    width: 100%;
     height: 100%;
     z-index: -1;
 
