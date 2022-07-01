@@ -82,13 +82,14 @@ const Work = ({
 
 Work.defaultProps = {
   customSlug: null,
+  selectedTag: null,
 };
 
 Work.propTypes = {
   work: PropTypes.instanceOf(Object).isRequired,
   customSlug: PropTypes.string,
   onTagClick: PropTypes.func.isRequired,
-  selectedTag: PropTypes.instanceOf(Object).isRequired,
+  selectedTag: PropTypes.instanceOf(Object),
 };
 
 export default Work;
