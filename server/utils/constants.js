@@ -24,5 +24,4 @@ module.exports.indexFiles = [
   'https://yellow.systems/index.htm',
   'https://yellow.systems/index.html',
   'https://yellow.systems/index.php',
-  'http://yws-dev.xyz/index.asp',
 ];
