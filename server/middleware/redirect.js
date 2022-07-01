@@ -66,7 +66,8 @@ const customDomainRedirect = (req, res, next) => {
 
 const httpsRedirect = (req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https' && isProd && !devHosts.includes(req.hostname)) {
-    res.redirect(301, `https://${req.hostname}${req.url}`);
+    const hostName = isProd ? process.env.CUSTOM_DOMAIN : req.hostname;
+    res.redirect(301, `https://${hostName}${req.url}`);
   } else {
     next();
   }
