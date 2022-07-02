@@ -412,20 +412,24 @@
 
     &:nth-of-type(2n + 1) {
       .infoContainer:not(.separatedTitle) {
+        @include infoContainerPhone;
+
         order: 2;
         margin: 0 0 0 66px;
-
-        @include infoContainerPhone;
       }
     }
 
     &:nth-of-type(2n) {
       .infoContainer:not(.separatedTitle) {
+        @include infoContainerPhone;
+
         order: inherit;
         margin: 0 66px 0 0;
-
-        @include infoContainerPhone;
       }
+    }
+
+    &:last-child {
+      margin-bottom: 130px;
     }
 
     /* stylelint-disable-next-line */

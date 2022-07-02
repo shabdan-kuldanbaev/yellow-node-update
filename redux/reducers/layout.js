@@ -20,6 +20,8 @@ const initialState = {
     metaDescription: '',
     ogImage: '',
   },
+  title: null,
+  subtitle: null,
 };
 
 const handlers = {
@@ -36,6 +38,8 @@ const handlers = {
       ogImage,
       metaDescription,
       hasFeedbackForm,
+      pageTitle,
+      subtitle,
     } = getDocumentFields(
       (payload && payload[0]) ? payload[0] : {},
       [
@@ -44,6 +48,8 @@ const handlers = {
         'metaDescription',
         'hasFeedbackForm',
         'ogImage',
+        'pageTitle',
+        'subtitle',
       ],
     );
 
@@ -59,6 +65,8 @@ const handlers = {
         metaDescription,
         ogImage: getFileUrl(ogImage),
       },
+      title: pageTitle,
+      subtitle,
     });
   },
   [actionTypes.FETCH_PAGE_FAILED]: (state, { payload }) => ({

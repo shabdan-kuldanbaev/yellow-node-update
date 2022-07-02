@@ -141,7 +141,6 @@
 
         .info {
           height: 100%;
-          max-width: 200px;
           margin-left: 22px;
 
           @include flex(column, flex-start, flex-start);
@@ -177,6 +176,53 @@
           }
         }
       }
+    }
+  }
+}
+
+:global(.swiper-slide) {
+  &:nth-of-type(4) {
+    .commentWrapper .messageWrapper .imgContainer {
+      height: 40px;
+      margin: -7px 0;
+      width: 90px;
+      position: relative;
+
+      &::after {
+        @include centered;
+
+        content: 'Blackbird';
+        font-weight: bold;
+        left: 100%;
+      }
+    }
+  }
+
+  &:nth-of-type(5) {
+    .commentWrapper .messageWrapper .imgContainer {
+      height: 120px;
+      margin: -45px 0;
+    }
+  }
+
+  &:nth-of-type(6) {
+    .commentWrapper .messageWrapper .imgContainer {
+      height: 130px;
+      margin: -50px 0;
+    }
+  }
+
+  &:nth-of-type(7) {
+    .commentWrapper .messageWrapper .imgContainer {
+      height: 110px;
+      margin: -40px 0;
+    }
+  }
+
+  &:nth-of-type(8) {
+    .commentWrapper .messageWrapper .imgContainer {
+      height: 90px;
+      margin: -30px 0;
     }
   }
 }

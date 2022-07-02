@@ -63,7 +63,7 @@ const CustomServiceContainer = ({
           );
         })}
         {hasFeedbackForm && (
-          <div className={styles[type] || styles.feedBackContainer}>
+          <div className={cn(styles[type], styles.feedbackContainer)}>
             <FeedbackFormContainer
               type={type}
               title={CONTACT_FORM_TITLES[type]}

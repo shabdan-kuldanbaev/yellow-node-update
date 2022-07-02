@@ -17,7 +17,10 @@ export const ReviewsSection = ({ data, type }) => {
 
   return (
     <section className={styles[type]}>
-      <SectionTitle title={title} />
+      <SectionTitle
+        title={title}
+        titleStyle={styles.title}
+      />
       <Reviews reviews={reviews} />
     </section>
   );

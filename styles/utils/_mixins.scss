@@ -28,8 +28,22 @@
   transform: translate(-50%, -50%);
 }
 
+@mixin covered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 @mixin ultra-hd {
   @media (max-width: $ultra-hd) {
+    @content;
+  }
+}
+
+@mixin tablet-size-horizontal {
+  @media (max-width: $tablet-size-horizontal) {
     @content;
   }
 }
@@ -306,6 +320,14 @@
   }
 }
 
+@mixin buttonTransition {
+  transition:
+    background-color $shadow-time-for-yellow-button,
+    border-color $shadow-time-for-yellow-button * 2,
+    color $shadow-time-for-yellow-button,
+    transform $shadow-time-for-yellow-button cubic-bezier(0, 0, 0.2, 1);
+}
+
 @mixin seLocationSubscribe($subscribesPosition, $articleCount) {
   & > section:first-child {
     order: $subscribesPosition;
@@ -388,6 +410,30 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@mixin iconsWithinCircle($col: $turbo-100, $defaultSize: 90px, $smallerSize: 60px) {
+  .imageWrapper {
+    @include flex(row, center, center);
+
+    --size: $defaultSize;
+
+    flex: 0 0 auto;
+    width: $defaultSize;
+    height: $defaultSize;
+    border-radius: 50%;
+    background: rgba($col, 0.5);
+    margin-right: 16px;
+
+    @include phone {
+      width: $smallerSize;
+      height: $smallerSize;
+
+      svg {
+        transform: scale(0.7);
+      }
+    }
+  }
 }
 
 @font-face {

@@ -19,17 +19,10 @@
     grid-template-columns: repeat(2, auto);
     grid-gap: 40px 50px;
     grid-template-areas:
-      "usa-address company"
-      "poland-address sevices"
+      "usa-address services"
+      "company services"
       "poland-address ."
       "ukraine-address .";
-
-    // Commented due to unstable political situation
-    //grid-template-areas:
-    //  "usa-address company"
-    //  "belarus-address sevices"
-    //  "poland-address ."
-    //  "ukraine-address .";
   }
 
   .dataContainer {

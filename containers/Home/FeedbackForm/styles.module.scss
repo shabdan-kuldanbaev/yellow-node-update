@@ -86,7 +86,9 @@
 }
 
 .seven-pm-thursday,
-.fusion-markets {
+.fusion-markets,
+.blackbird,
+.fintech-app-for-credit-score {
   @extend .formContainer;
 
   background-color: $dark-blue-1;
@@ -145,6 +147,75 @@
   background: $eerie-black;
 }
 
+.blackbird {
+  padding: 120px 0;
+  margin-top: 140px;
+  background: $chinese-black;
+
+  @include phone {
+    padding: 0;
+    margin-top: 0;
+  }
+}
+
+.fintech-app-for-credit-score {
+  padding: 120px 0;
+  background: $white;
+  color: $black;
+
+  @include phone {
+    padding: 0 auto;
+    margin-top: 0;
+  }
+
+  .title {
+    color: $black;
+  }
+
+  .subtitle {
+    color: $feedback-form-grey;
+
+    /* stylelint-disable-next-line */
+    span {
+      /* stylelint-disable-next-line */
+      a {
+        color: $feedback-form-grey;
+
+        /* stylelint-disable-next-line */
+        &::before {
+          border-bottom: 1px $feedback-form-grey solid;
+          background-color: $feedback-form-grey;
+        }
+      }
+    }
+  }
+
+  & > div:last-child {
+    & > form {
+      ::placeholder {
+        color: $feedback-form-grey;
+      }
+
+      :-ms-input-placeholder {
+        color: $feedback-form-grey;
+      }
+
+      ::-ms-input-placeholder {
+        color: $feedback-form-grey;
+      }
+
+      & > div:last-child {
+        a {
+          div {
+            color: $feedback-form-grey;
+            border-color: $feedback-form-grey;
+          }
+        }
+      }
+    }
+  }
+}
+
 .open-sense {
   @extend .formContainer;
 
@@ -170,7 +241,9 @@
 
 .web-app-development-company,
 .ui-ux-services,
-.android-mobile-app-development-services {
+.android-mobile-app-development-services,
+.mvp-app-development-company,
+.machine-learning-development-services {
   @extend .formContainer;
 
   padding: 100px 16px;
@@ -210,5 +283,26 @@
 
   @include phone {
     padding: 0;
+  }
+}
+
+.mvp-app-development-company {
+  .title {
+    max-width: 878px;
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  @extend .formContainer;
+
+  @include phone {
+    padding-top: 0;
+
+    .title {
+      @include fontSize(32px);
+
+      font-weight: 700;
+      font-family: $case-studies-font;
+    }
   }
 }

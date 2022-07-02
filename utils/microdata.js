@@ -139,6 +139,28 @@ export const microdata = {
                   Users love good-looking software. Make mobile your app or website captivating with Yellow.`,
     breadcrumb: 'Homepage > UI/UX design services',
   }),
+  mvpDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'MVP development company | Yellow',
+    description: 'A minimum viable product will help you get enough feedback to determine whether you should '
+      + 'continue a given project. Yellow is ready to help with your MVP development.',
+    breadcrumb: 'Homepage > MVP development services',
+  }),
+  cloudDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Cloud app development company | Yellow',
+    description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
+    breadcrumb: 'Homepage > Cloud app development services',
+  }),
+  mlDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Machine Learning App Development Company | Yellow',
+    description: 'If you want to boost your business with a machine learning solution, Yellow is here to back you up',
+    breadcrumb: 'Homepage > Machine Learning Development Services',
+  }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',

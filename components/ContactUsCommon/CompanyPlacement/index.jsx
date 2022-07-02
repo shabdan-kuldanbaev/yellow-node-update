@@ -5,8 +5,6 @@ import PlacementInfoItem from './PlacementInfoItem';
 import Map from './Map';
 import {
   animatedProps,
-  mapData,
-  markers,
   placementInfo,
 } from './utils';
 import styles from './styles.module.scss';
@@ -28,10 +26,7 @@ const CompanyPlacement = () => (
       </ul>
     </Animated>
     <Animated {...animatedProps}>
-      <Map
-        mapData={mapData.USA}
-        marker={markers.USA}
-      />
+      <Map />
     </Animated>
   </section>
 );

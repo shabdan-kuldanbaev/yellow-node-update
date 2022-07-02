@@ -15,12 +15,12 @@ export const TitleText = ({ type, data }) => {
     }
 
     return (
-      <h1 className={styles.projectTitle}>
+      <h3 className={styles.projectTitle}>
         <span className={styles.pinkText}>
           {`${titleWords[0]}.`}
         </span>
         {titleWords[1]}
-      </h1>
+      </h3>
     );
   case 'meatEater':
     const titleFirstPart = data && data.slice(0, 4);
@@ -31,19 +31,19 @@ export const TitleText = ({ type, data }) => {
     }
 
     return (
-      <h1 className={styles.projectTitle}>
+      <h3 className={styles.projectTitle}>
         <span className={styles.orangeText}>
           {titleFirstPart}
         </span>
         {titleSecondPart}
-      </h1>
+      </h3>
     );
   case 'openSense':
     return (
       <div className={styles.titleText}>
-        <h1 className={styles.projectTitle}>
+        <h3 className={styles.projectTitle}>
           {data}
-        </h1>
+        </h3>
         {isTitleHasBackground('open-sense') && (
           <Svg
             type={SVG_IMAGES_TYPES.opensenseTitleBorder}
@@ -54,9 +54,9 @@ export const TitleText = ({ type, data }) => {
     );
   default:
     return (
-      <h1 className={styles.projectTitle}>
+      <h3 className={styles.projectTitle}>
         {data}
-      </h1>
+      </h3>
     );
   }
 };

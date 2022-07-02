@@ -60,6 +60,7 @@
   }
 }
 
+.dindon,
 .fernwayer,
 .fireaway,
 .famlicious {
@@ -198,7 +199,9 @@
 .beautonomy,
 .meateater,
 .separate-us,
-.fusion-markets {
+.fusion-markets,
+.blackbird,
+.fintech-app-for-credit-score {
   @extend .imagesContainer;
 
   .animatedContainer {
@@ -298,5 +301,49 @@
 
   &::after {
     background: linear-gradient(270deg, $dark-blue 0%, rgba($dark-blue, 0) 100%);
+  }
+}
+
+.blackbird {
+  .animatedContainer {
+    margin-bottom: 150px;
+
+    @include phone {
+      margin-bottom: 40px;
+    }
+  }
+
+  &::before,
+  &::after {
+    background: none;
+  }
+}
+
+.fintech-app-for-credit-score {
+  .animatedContainer {
+    margin-bottom: 150px;
+
+    @include phone {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(270deg, rgba($white, 0) 0%, rgba($white, 0.87) 78.3%);
+  }
+
+  &::after {
+    background: linear-gradient(90deg, rgba($white, 0) 0%, rgba($white, 0.87) 78.3%);
+  }
+
+  .animatedContainer {
+    .image {
+      max-height: 541px;
+      margin-left: 30px;
+    }
   }
 }

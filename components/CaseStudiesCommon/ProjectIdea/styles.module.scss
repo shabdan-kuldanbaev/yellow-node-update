@@ -194,6 +194,52 @@
   }
 }
 
+.dindon {
+  @extend .container;
+
+  background-color: $white;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+  flex-direction: row;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  @include tablet {
+    align-items: center;
+  }
+
+  .contentContainer {
+    width: auto;
+    margin-right: 260px;
+    padding-bottom: 0;
+
+    @include tablet {
+      width: 345px;
+      margin: 0 auto;
+    }
+
+    .descriptionContainer {
+      margin: 0;
+
+      @include tablet {
+        max-width: unset;
+      }
+
+      .description {
+        max-width: 548px;
+
+        @include phone {
+          max-width: 350px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
 .open-sense,
 .separate-us,
 .telemojo {
@@ -531,13 +577,120 @@
     .descriptionContainer {
       .descriptionIntro {
         .title {
-          background: linear-gradient(to right, $ocean-blue 0%, $jacksons-purple 50%);
+          background:
+            linear-gradient(
+              to right,
+              $ocean-blue 0%,
+              $jacksons-purple 50%
+            );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 
         .description {
           max-width: 518px;
+
+          @include phone {
+            max-width: 340px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.blackbird {
+  @extend .container;
+
+  background-color: $white;
+
+  .contentContainer {
+    .descriptionContainer {
+      @include phone {
+        margin-bottom: 0;
+      }
+
+      .descriptionIntro {
+        .description {
+          max-width: 518px;
+
+          @include phone {
+            max-width: 340px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fintech-app-for-credit-score {
+  @extend .container;
+
+  @include flex(row, space-around, center);
+
+  background-color: $white;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .contentContainer {
+    padding-bottom: 0;
+    justify-content: space-between;
+
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          & > p {
+            width: 560px;
+            padding: 0 6px;
+
+            @include below-tablet {
+              width: 400px;
+            }
+
+            @include phone {
+              width: 250px;
+            }
+          }
+        }
+      }
+
+      @include desktop {
+        margin-left: 40px;
+      }
+
+      @include tablet {
+        margin-left: 60px;
+      }
+
+      @include phone {
+        margin-left: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include phone {
+    padding: 80px 15px 45px;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  @extend .container;
+
+  position: relative;
+  padding: 150px 40px;
+  background-color: $white;
+
+  .contentContainer {
+    padding-bottom: 0;
+
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          max-width: 520px;
 
           @include phone {
             max-width: 340px;

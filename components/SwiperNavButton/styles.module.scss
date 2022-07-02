@@ -1,0 +1,36 @@
+@import "styles/utils/mixins";
+
+.navButton {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: solid $dark-grey 1px;
+  bottom: 0;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    background: $turbo-100;
+    border-color: $turbo-100;
+  }
+
+  @include below-tablet {
+    display: none;
+  }
+}
+
+:global(.swiper-button-disabled) {
+  opacity: 0.5;
+
+  &:hover {
+    background: none;
+    border-color: $dark-grey;
+    cursor: default;
+  }
+}
+
+.navButtonNext,
+.navButtonPrev {
+  @extend .navButton;
+}

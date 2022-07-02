@@ -16,9 +16,11 @@
 .meateater,
 .ubichat,
 .fireaway,
+.dindon,
 .famlicious,
 .telemojo,
-.bionorica {
+.bionorica,
+.marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
 
   background-color: $white;
@@ -131,5 +133,53 @@
 
   [data-case-study-title] {
     color: $white;
+  }
+}
+
+.fintech-app-for-credit-score {
+  @include caseStudyContainer;
+
+  background-color: $green-aloha;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}
+
+.blackbird {
+  @include caseStudyContainer;
+
+  &.firstSectionView {
+    background-color: $white;
+  }
+
+  &.secondSectionView {
+    background: $chinese-black;
+
+    [data-case-study-title] {
+      color: $white;
+    }
+
+    [data-case-study-description] {
+      max-width: 651px;
+      color: $silver-chalice;
+    }
+  }
+
+  &.thirdSectionView {
+    background: $white;
+    padding: 80px 15px;
+
+    [data-case-study-title] {
+      @include fontSize(24px);
+    }
+
+    [data-case-study-description] {
+      max-width: 458px;
+
+      @include phone {
+        max-width: 327px;
+      }
+    }
   }
 }

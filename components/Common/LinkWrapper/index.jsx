@@ -46,17 +46,18 @@ export const LinkWrapper = ({
       href={dynamicRouting.length > 0 ? dynamicRouting : finalPath}
       as={finalPath}
     >
+      {/* eslint-disable-next-line react/jsx-no-target-blank */}
       <a
         className={cn(styles.link, { [className]: !isImage })}
         href={finalPath}
-        target={`${isLocalLink ? '' : '_blank'}`}
-        rel={`${isLocalLink ? '' : `noopener noreferrer ${isSocialLink ? '' : 'nofollow'}`}`}
+        target={!isLocalLink ? '_blank' : undefined}
+        rel={!isLocalLink ? `noopener noreferrer ${isSocialLink ? '' : 'nofollow'}` : undefined}
         onClick={handleOnClick}
       >
         {!isImage ? children : (
           <div>
             <img
-              className={cn({ [className]: isImage })}
+              className={className}
               src={imageUrl}
               alt={imageText}
             />

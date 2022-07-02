@@ -260,6 +260,40 @@
   background-color: $athens-gray-1;
 }
 
+.dindon {
+  @include caseStudyContainer;
+
+  &.secondSectionView {
+    background-color: $cherry-red;
+    background-position: top -144px right -957px;
+    background-repeat: no-repeat;
+
+    @include macbook-twelve {
+      background-size: 1800px;
+      background-position: bottom -1000px right -1515px;
+    }
+
+    [data-case-study-title] {
+      color: $white;
+    }
+  }
+
+  &.thirdSectionView {
+    background: $sushi-2;
+    background-position: bottom -300px right -957px;
+    background-repeat: no-repeat;
+
+    @include macbook-twelve {
+      background-size: 1800px;
+      background-position: bottom -244px right -1510px;
+    }
+
+    [data-case-study-title] {
+      color: $white;
+    }
+  }
+}
+
 .bionorica {
   @include caseStudyContainer;
 
@@ -269,5 +303,50 @@
   @include tablet {
     background-position: bottom right;
     background-size: 60%;
+  }
+}
+
+.blackbird {
+  @include caseStudyContainer;
+
+  background-color: $chinese-black;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}
+
+.fintech-app-for-credit-score {
+  @include caseStudyContainer;
+
+  background-color: $green-aloha;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  @include caseStudyContainer;
+
+  background-color: $white;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  [data-case-study-description] {
+    margin: 80px auto 30px;
+    font-weight: 700;
+    line-height: 120%;
+    color: $white;
+
+    @include fontSize(40px);
+
+    @include phone {
+      margin: 40px auto 16px;
+
+      @include fontSize(24px);
+    }
   }
 }

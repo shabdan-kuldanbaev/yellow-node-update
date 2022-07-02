@@ -1,10 +1,34 @@
 const dotenv = require('dotenv');
-const { devHosts } = require('../utils/constants');
+const { devHosts, indexFiles } = require('../utils/constants');
 const { safePageRedirect } = require('../utils/safePageRedirect');
 
 dotenv.config('./env');
 
 const isProd = process.env.NODE_ENV === 'production';
+
+const upperCaseRedirect = (req, res, next) => {
+  const { path } = req;
+  const lowerCasePath = path.toLowerCase();
+
+  if (path === lowerCasePath) {
+    return next();
+  }
+
+  res.redirect(301, lowerCasePath);
+};
+
+const multiSlashRedirect = (req, res, next) => {
+  const { url, path } = req;
+
+  if (!path.includes('//') || path.length <= 1) {
+    return next();
+  }
+
+  const query = url.slice(path.length);
+  const safePath = path.replace(/(\/\/)+/g, '/');
+
+  res.redirect(301, safePath + query);
+};
 
 const trailingSlashRedirect = (req, res, next) => {
   const { url, path } = req;
@@ -35,8 +59,16 @@ const wwwRedirect = (req, res, next) => {
   res.redirect(301, `${protocol}://${host.substring(4)}${originalUrl}`);
 };
 
+const indexDirRedirect = (req, res, next) => {
+  if (indexFiles.includes(`${req.protocol}://${req.get('host')}${req.originalUrl}`)) {
+    res.redirect(301, `https://${process.env.CUSTOM_DOMAIN}/`);
+  } else {
+    next();
+  }
+};
+
 const customDomainRedirect = (req, res, next) => {
-  if (req.hostname.includes('yellow-systems-nextjs-prod')) {
+  if (req.hostname.includes('yellow-systems-nextjs-prod') && req.headers['user-agent'] !== 'Amazon CloudFront') {
     res.redirect(301, `https://${process.env.CUSTOM_DOMAIN}${req.url}`);
   } else {
     next();
@@ -45,7 +77,8 @@ const customDomainRedirect = (req, res, next) => {
 
 const httpsRedirect = (req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https' && isProd && !devHosts.includes(req.hostname)) {
-    res.redirect(301, `https://${req.hostname}${req.url}`);
+    const hostName = isProd ? process.env.CUSTOM_DOMAIN : req.hostname;
+    res.redirect(301, `https://${hostName}${req.url}`);
   } else {
     next();
   }
@@ -93,4 +126,7 @@ module.exports = {
   wwwRedirect,
   trailingSlashRedirect,
   pageRedirect,
+  multiSlashRedirect,
+  indexDirRedirect,
+  upperCaseRedirect,
 };

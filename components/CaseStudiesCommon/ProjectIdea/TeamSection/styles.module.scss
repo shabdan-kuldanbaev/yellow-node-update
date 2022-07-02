@@ -65,6 +65,58 @@
   grid-column-gap: 180px;
 }
 
+.dindon {
+  min-width: 300px;
+
+  @include tablet {
+    margin: 0 auto;
+    min-width: unset;
+  }
+
+  .title {
+    line-height: 120%;
+    margin-bottom: 30px;
+
+    @include fontSize(56px);
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include phone {
+      @include fontSize(32px);
+    }
+  }
+
+  .teamItem {
+    margin: 0;
+    font-family: $case-studies-font;
+    line-height: 180%;
+    color: $silver-chalice;
+
+    @include flex(row, initial, center);
+    @include fontSize(18px);
+
+    @include tablet {
+      margin-bottom: 12px;
+    }
+
+    @include phone {
+      @include fontSize(14px);
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: $cherry-red;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+  }
+}
+
 .stickerbox {
   @extend .container;
 
@@ -120,6 +172,105 @@
 
   .teamItem {
     font-weight: 500;
+  }
+}
+
+.blackbird {
+  @extend .container;
+
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 180px;
+  width: 100%;
+  max-width: initial;
+  bottom: 0;
+  justify-content: center;
+
+  .title {
+    grid-row: 1/4;
+
+    @include phone {
+      @include fontSize(32px);
+    }
+  }
+
+  .teamItem {
+    @include phone {
+      @include fontSize(18px);
+    }
+  }
+}
+
+.fintech-app-for-credit-score {
+  @extend .container;
+
+  @include flex(column);
+
+  width: 600px;
+
+  .title {
+    @include fontSize(56px);
+
+    grid-row: 1/4;
+    padding-bottom: 5px;
+
+    @include tablet {
+      @include fontSize(40px);
+
+      margin: 0;
+    }
+
+    @include phone {
+      @include fontSize(32px);
+
+      align-self: center;
+      margin-bottom: 5px;
+      margin-top: 20px;
+    }
+  }
+
+  ul {
+    @include phone {
+      align-self: center;
+    }
+  }
+
+  .teamItem {
+    @include flex(row, initial, center);
+    @include fontSize(18px);
+
+    margin-bottom: 15px;
+    padding-right: 5px;
+    color: $silver-chalice;
+    font-weight: normal;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: $green-aloha;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+
+    @include tablet {
+      margin-bottom: 12px;
+    }
+
+    @include phone {
+      @include fontSize(14px);
+    }
+  }
+
+  @include tablet {
+    margin: 0 auto 70px;
+  }
+
+  @include phone {
+    width: unset;
+    justify-content: center;
+    padding-top: 30px;
+    margin: 0;
   }
 }
 

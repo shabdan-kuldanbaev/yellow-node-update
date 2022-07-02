@@ -1,0 +1,69 @@
+.cloud-based-app-development-services {
+  &.secondSectionView {
+    @extend .removeCardsShadow;
+
+    background: $alabaster;
+
+    .cards {
+      grid-gap: 80px 15vw;
+
+      @include tablet {
+        column-gap: 6vw;
+      }
+
+      & > div {
+        @include below-tablet {
+          @include flex();
+        }
+      }
+    }
+
+    .imageWrapper {
+      flex: 0 0 auto;
+      margin-right: 16px;
+    }
+
+    .typeTitle {
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    .callToAction {
+      background: $white;
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .cardsWithFullWidthImage;
+
+    background: $cod-gray-1;
+
+    .imageWrapper {
+      background: $white;
+    }
+
+    .typeTitle,
+    .titleStyle h2 {
+      color: $white;
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .removeCardsShadow;
+
+    padding-bottom: 0;
+
+    .cards > div {
+      @include below-tablet {
+        @include flex;
+      }
+    }
+
+    .typeTitle {
+      @include below-tablet {
+        margin-top: 0;
+      }
+    }
+  }
+}

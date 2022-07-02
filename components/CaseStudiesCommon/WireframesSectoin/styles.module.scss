@@ -104,6 +104,7 @@
   }
 }
 
+.dindon,
 .beautonomy,
 .meateater,
 .bionorica {
@@ -119,6 +120,16 @@
 
   @include tablet {
     padding: 0;
+  }
+}
+
+.dindon {
+  [data-case-study-description] {
+    max-width: 545px;
+
+    @include phone {
+      max-width: 345px;
+    }
   }
 }
 
@@ -158,4 +169,41 @@
   }
 
   background-color: $eerie-black;
+}
+
+.blackbird {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  padding: 0;
+  background: $chinese-black;
+
+  [data-case-study-title] {
+    margin-top: 150px;
+    color: $white;
+
+    @include phone {
+      margin-top: 40px;
+    }
+  }
+
+  [data-case-study-description] {
+    max-width: 576px;
+  }
+}
+
+.fintech-app-for-credit-score {
+  background-color: $white;
+
+  [data-case-study-description] {
+    color: $silver-chalice;
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  padding: 0;
+  background-color: $white;
 }

@@ -2,15 +2,28 @@ import { ROUTES } from 'utils/constants';
 
 export const footerData = [
   {
-    title: 'Contact us in USA',
+    title: 'Find us',
     links: [
       {
+        title: 'In USA',
         subtitle: '44 Tehama St San Francisco,\nCA 94105',
       },
       {
         subtitle: '+1 (415) 670-90-70',
         path: 'tel:+14156709070',
         type: 'phone',
+      },
+      {
+        title: 'In Israel',
+        subtitle: 'Ahad Ha’Am 9\nTel Aviv',
+      },
+      {
+        title: 'In Argentina',
+        subtitle: 'Av. Corrientes 1312, C1043 ABN\nBuenos Aires',
+      },
+      {
+        title: 'In Poland',
+        subtitle: 'Warszawa 00-8P55 \nGrzybowska 62',
       },
     ],
     type: 'usaAddress',
@@ -69,65 +82,22 @@ export const footerData = [
         path: ROUTES.androidDevelopmentServices.path,
         type: 'navigation',
       },
-    ],
-    type: 'sevices',
-  },
-
-  // TODO: Delete when become unneeded
-
-  {
-    title: 'Find us in Europe',
-    links: [
       {
-        title: 'Poland',
-        subtitle: 'Warszawa 00-8P55 \nGrzybowska 62',
+        subtitle: 'MVP development services',
+        path: ROUTES.mvpDevelopment.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'Cloud-based app development services',
+        path: ROUTES.cloudDevelopment.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'Machine learning development services',
+        path: ROUTES.mlDevelopment.path,
+        type: 'navigation',
       },
     ],
-    type: 'polandAddress',
+    type: 'services',
   },
 ];
-
-// TODO: Uncomment when the above become unneeded
-// Commented due to unstable political situation
-
-/*  {
-    title: 'Find us in Europe',
-    links: [
-      {
-        title: 'Belarus',
-        subtitle: '5-303 Nemiga St. Minsk 220030',
-      },
-      {
-        subtitle: '+375 (29) 311-52-49',
-        path: 'tel:+375293115249',
-        type: 'phone',
-      },
-      {
-        subtitle: 'hi@yellow.systems',
-        path: 'mailto:hi@yellow.systems',
-        type: 'email',
-      },
-    ],
-    type: 'belarusAddress',
-  },
-  {
-    title: '\xa0',
-    links: [
-      {
-        title: 'Poland',
-        subtitle: 'Warszawa 00-8P55 \nGrzybowska 62',
-      },
-    ],
-    type: 'polandAddress',
-  },
-  {
-    title: '\xa0',
-    links: [
-      {
-        title: 'Ukraine',
-        subtitle: 'Kyiv 01024 \nKruglouniversytetska St. 7',
-      },
-    ],
-    type: 'ukraineAddress',
-  },
-]; */

@@ -45,6 +45,9 @@ export const NAV_LINKS = [
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
+    routes.cloudDevelopment.slug,
+    routes.mvpDevelopment.slug,
+    routes.mlDevelopment.slug,
     routes.signatureGenerator.slug,
   ].includes(slug)),
 ];
@@ -71,7 +74,7 @@ export const ANIMATED_TYPE = {
   isCSS: 'isCSS',
 };
 
-export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug, title }]) => {
+export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
   acc[slug] = title;
 
   return acc;
@@ -113,6 +116,10 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  twitterDark: 'twitterDark',
+  linkedInDark: 'linkedInDark',
+  instagramDark: 'instagramDark',
+  yellowLogoWithBg: 'yellowLogoWithBg',
   arrow: 'arrowSvg',
   behance: 'behanceSvg',
   checkMark: 'checkMarkSvg',
@@ -207,6 +214,19 @@ export const APP_DEVELOPMENT_ICONS = {
   titledDocker: 'titledDocker',
   titledSqlLite: 'titledSqlLite',
   titledGradle: 'titledGradle',
+  titledSwiftUI: 'titledSwiftUI',
+  titledReactiveSwift: 'titledReactiveSwift',
+  titledUIKit: 'titledUIKit',
+  titledSQLite: 'titledSQLite',
+  titledAwsLambda: 'titledAwsLambda',
+  titledAws: 'titledAws',
+  titledAngular: 'titledAngular',
+  titledDynamoDB: 'titledDynamoDB',
+  titledHtml: 'titledHtml',
+  titledJavaScript: 'titledJavaScript',
+  titledNode: 'titledNode',
+  titledRds: 'titledRds',
+  titledS3: 'titledS3',
   twilio: 'twilio',
   pubnub: 'pubnub',
   react: 'react',
@@ -222,6 +242,11 @@ export const APP_DEVELOPMENT_ICONS = {
   productHunt: 'productHunt',
   esquire: 'esquire',
   theWeek: 'theWeek',
+  clipboard: 'clipboard',
+  treeStructure: 'treeStructure',
+  magnifyingGlassEye: 'magnifyingGlassEye',
+  conversation: 'conversation',
+  mobileDevelopment: 'mobileDevelopment',
 
   // chat app page, types of chat section
   communication: 'communication',
@@ -251,7 +276,6 @@ export const APP_DEVELOPMENT_ICONS = {
   titledReact: 'titledReact',
   titledVue: 'titledVue',
   titledNest: 'titledNest',
-  titledAws: 'titledAws',
   titledExpress: 'titledExpress',
   titledNuxt: 'titledNuxt',
   // web app page, why choose yellow
@@ -289,8 +313,30 @@ export const APP_DEVELOPMENT_ICONS = {
   businessBeforeTechnology: 'businessBeforeTechnology',
   creatingOwnApps: 'creatingOwnApps',
   dataProtection: 'dataProtection',
+  businessAnalysis: 'businessAnalysis',
+  validation: 'validation',
+  profits: 'profits',
+  trophy: 'trophy',
+  laptop: 'laptop',
   // common
   arrow: 'arrow',
+  lightBulb: 'lightBulb',
+  developmentGear: 'developmentGear',
+  codeDesktop: 'codeDesktop',
+  desktopTower: 'desktopTower',
+  migration: 'migration',
+  cloud: 'cloud',
+  cloudNetwork: 'cloudNetwork',
+  collaboration: 'collaboration',
+  uxDesign2: 'uxDesign2',
+  headset: 'headset',
+  targetAudience: 'targetAudience',
+  titledAwsMachineLearning: 'titledAwsMachineLearning',
+  titledKeras: 'titledKeras',
+  titledPython: 'titledPython',
+  titledPyTorch: 'titledPyTorch',
+  titledScala: 'titledScala',
+  titledTensorFlow: 'titledTensorFlow',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -338,12 +384,12 @@ export const CONTACTS_DATA = {
     {
       title: 'Medium',
       type: SVG_IMAGES_TYPES.mediumRoundWhite,
-      link: '//medium.com/@yellow',
+      link: '//yellow.medium.com/',
     },
     {
       title: 'Instagram',
       type: SVG_IMAGES_TYPES.instaRoundWhite,
-      link: '//www.instagram.com/yellow.systems',
+      link: '//www.instagram.com/yellow.systems/',
     },
   ],
 };
@@ -379,6 +425,7 @@ export const ARTICLE_PREVIEW_TYPES = {
 
 export const CASE_STUDIES = {
   fernwayer: 'fernwayer',
+  dindon: 'dindon',
   stickerbox: 'stickerbox',
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',
@@ -399,6 +446,9 @@ export const CASE_STUDIES = {
   famlicious: 'famlicious',
   bionorica: 'bionorica',
   fusionMarkets: 'fusion-markets',
+  blackBird: 'blackbird',
+  mobileFintechApp: 'fintech-app-for-credit-score',
+  goodPsychics: 'marketplace-for-clairvoyant-services',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -409,6 +459,7 @@ export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key
 
 export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
+  ROUTES.project.getRoute(CASE_STUDIES.dindon).path,
   ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
   ROUTES.project.getRoute(CASE_STUDIES.sevenPmThursday).path,
   ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
@@ -419,6 +470,9 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.meatEater).path,
   ROUTES.project.getRoute(CASE_STUDIES.fireaway).path,
   ROUTES.project.getRoute(CASE_STUDIES.fusionMarkets).path,
+  ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mobileFintechApp).path,
+  ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -438,6 +492,9 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.customWebApp.path,
   ROUTES.developmentServices.path,
   ROUTES.androidDevelopmentServices.path,
+  ROUTES.mvpDevelopment.path,
+  ROUTES.cloudDevelopment.path,
+  ROUTES.mlDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -467,6 +524,21 @@ export const SUB_NAVIGATION_LINKS = {
       subtitle: 'Beautiful, smart, efficient, logical',
       slug: ROUTES.designServices.path,
     },
+    {
+      title: 'MVP development services',
+      subtitle: 'Minimum viable product for your idea',
+      slug: ROUTES.mvpDevelopment.path,
+    },
+    {
+      title: 'Cloud app development services',
+      subtitle: 'No physical space is occupied',
+      slug: ROUTES.cloudDevelopment.path,
+    },
+    {
+      title: 'Machine learning development services',
+      subtitle: 'Artificial intelligence at your service',
+      slug: ROUTES.mlDevelopment.path,
+    },
   ],
 };
 
@@ -490,7 +562,24 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.designServices]: 'Yellow is ready to give you a hand with UX/UI design',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
+  [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.cloudDevelopment]: 'The sky\'s the limit',
+  [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
 };
 
 // eslint-disable-next-line
 export const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;
+
+export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
+
+export const SWIPER_NAV_BUTTON_TYPES = {
+  next: 'next',
+  prev: 'prev',
+};
+
+export const REVEAL_ANIMATION_PROPS = {
+  type: ANIMATED_TYPE.isCustom,
+  translateY: '2.82352941em',
+  opasityDuration: 1,
+  transformDuration: 1,
+};

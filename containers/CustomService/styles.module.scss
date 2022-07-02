@@ -32,7 +32,10 @@
 
   &.web-app-development-company,
   &.ios-mobile-app-development-services,
-  &.android-mobile-app-development-services {
+  &.android-mobile-app-development-services,
+  &.mvp-app-development-company,
+  &.cloud-based-app-development-services,
+  &.machine-learning-development-services {
     background-color: $cod-gray-1;
 
     .breadcrumbs {
@@ -48,6 +51,14 @@
           opacity: 0.7;
         }
       }
+    }
+  }
+}
+
+.machine-learning-development-services {
+  .feedbackContainer {
+    h2 {
+      max-width: 880px;
     }
   }
 }

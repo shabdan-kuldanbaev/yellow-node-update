@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 export const BottomContent = () => (
   <div className={styles.bottomContent}>
     <div className={styles.text}>
-      <span>© All right reserved. Yellow 2021</span>
+      <span>© All right reserved. Yellow 2022</span>
     </div>
     <div className={styles.rocket}>
       <Animated

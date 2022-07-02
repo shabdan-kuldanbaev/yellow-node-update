@@ -78,6 +78,10 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.customWebApp}`, updatedAt },
   { path: `/${PAGES.designServices}`, updatedAt },
   { path: `/${PAGES.developmentServices}`, updatedAt },
+  { path: `/${PAGES.mlDevelopment}`, updatedAt },
+  { path: `/${PAGES.cloudDevelopment}`, updatedAt },
+  { path: `/${PAGES.androidDevelopmentServices}`, updatedAt },
+  { path: `/${PAGES.mvpDevelopment}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
@@ -213,9 +217,9 @@ export const getFeedbackFormData = (data) => {
 
 export const isNumeric = (value) => !isNaN(value);
 
-export const getPathWithCdn = (path) => (`${path}`);
+// export const getPathWithCdn = (path) => (`${path}`);
 // TODO: Uncomment when cdn will be fixed
-// export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
+export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
   isObject(value)
@@ -246,3 +250,7 @@ export const serverSideRedirect = ({ res }, {
 };
 
 export const formatDate = (date, { format = DEFAULT_DATE_FORMAT } = {}) => dayjs(date).format(format);
+
+export const getMaxVal = (...args) => args.reduce((currentMax, val) => (val > currentMax ? val : currentMax), args[0]);
+
+export const getLimitedList = (list, { start = 0, limit = 1 }) => list.slice(start, limit);

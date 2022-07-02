@@ -1,7 +1,7 @@
 /* stylelint-disable no-descending-specificity */
 @import "styles/utils/mixins", "styles/utils/theme/animations";
 
-.imagContainer {
+.imageContainer {
   position: relative;
   overflow-x: auto;
   text-align: center;
@@ -46,6 +46,7 @@
   }
 }
 
+.dindon,
 .fernwayer,
 .stickerbox,
 .seven-pm-thursday,
@@ -56,7 +57,7 @@
 .fireaway,
 .famlicious,
 .fusion-markets {
-  @extend .imagContainer;
+  @extend .imageContainer;
 }
 
 .fernwayer2 {
@@ -156,14 +157,15 @@
 .beautonomy,
 .drive-focus,
 .fireaway,
-.telemojo {
-  @extend .imagContainer;
+.telemojo,
+.marketplace-for-clairvoyant-services {
+  @extend .imageContainer;
 
   background-color: $white;
 }
 
 .natp {
-  @extend .imagContainer;
+  @extend .imageContainer;
 
   background-color: $white;
 
@@ -212,7 +214,8 @@
 }
 
 .smartcenter,
-.meateater {
+.meateater,
+.fintech-app-for-credit-score {
   .image:first-child {
     display: block;
     max-width: 1076px;
@@ -232,6 +235,12 @@
     @include phone {
       display: block;
     }
+  }
+}
+
+.fintech-app-for-credit-score {
+  .image:last-child {
+    max-width: 250px;
   }
 }
 
@@ -368,6 +377,40 @@
 
     @include phone {
       display: block;
+    }
+  }
+}
+
+.blackbird {
+  @extend .imageContainer;
+
+  &.secondSectionView {
+    .image:first-child {
+      display: block;
+      max-width: 1076px;
+      width: 100%;
+      margin: 0 auto;
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    .image:last-child {
+      display: none;
+      width: 100%;
+      margin: 0 auto;
+
+      @include phone {
+        display: block;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .image:first-child {
+      max-width: 1076px;
+      margin: 0 auto;
     }
   }
 }

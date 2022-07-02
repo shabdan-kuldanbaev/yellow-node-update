@@ -1,7 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { getEmployeeInfo } from 'containers/Signature/utils/helpers';
-import { SIGNATURE_BUTTON_NAMES, YELLOW_LINK } from 'containers/Signature/utils/constants';
+import {
+  SIGNATURE_BUTTON_NAMES,
+  YELLOW_DOMAIN,
+  YELLOW_LINK,
+} from 'containers/Signature/utils/constants';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
 import styles from './styles.module.scss';
@@ -9,16 +14,12 @@ import styles from './styles.module.scss';
 const SignatureGenerated = ({
   titledList,
   signatureContainer,
-  yellowUrl,
   formRef,
-  telegramUrl,
-  bottomText,
+  images,
 }) => {
   const {
     employee,
     employeeJob,
-    employeeMail,
-    employeeTelegram,
   } = getEmployeeInfo(formRef);
 
   const selectElementContents = () => {
@@ -62,68 +63,79 @@ const SignatureGenerated = ({
           ref={signatureContainer}
           className={styles.signatureContainer}
         >
-          <hr />
           <table>
             <tbody>
               <tr>
-                <td className={styles.signatureLogoContainer}>
+                <td
+                  rowSpan={4}
+                  className={styles.signatureLogoContainer}
+                >
                   <LinkWrapper
                     isLocalLink={false}
                     path={YELLOW_LINK}
                   >
                     <img
-                      width="64"
-                      src={yellowUrl}
+                      src={images.yellowUrl}
                       alt="yellow logo"
                     />
                   </LinkWrapper>
                 </td>
-                <td className={styles.signatureData}>
+                <td
+                  className={styles.signatureData}
+                  colSpan={2}
+                >
                   <p className={styles.signatureDataEmployee}>
                     {employee}
                   </p>
                   <p className={styles.signatureDataJob}>
                     {employeeJob}
                   </p>
-                  <p className={styles.signatureDataEmail}>
-                    <LinkWrapper
-                      isLocalLink={false}
-                      path={`mailto:${employeeMail}`}
-                    >
-                      {employeeMail}
-                    </LinkWrapper>
-                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.signatureData}>
                   <p className={styles.signatureDataYellow}>
                     <LinkWrapper
                       isLocalLink={false}
                       path={YELLOW_LINK}
                     >
-                      {YELLOW_LINK}
+                      {YELLOW_DOMAIN}
                     </LinkWrapper>
                   </p>
-                  {employeeTelegram && (
-                    <LinkWrapper
-                      isLocalLink={false}
-                      path={`https://t.me/${employeeTelegram.substring(1)}`}
-                    >
-                      <img
-                        width="24"
-                        src={telegramUrl}
-                        alt="telegram"
-                      />
-                    </LinkWrapper>
-                  )}
                 </td>
               </tr>
-            </tbody>
-          </table>
-          <hr />
-          <br />
-          <table className={styles.signatureBottomContainer}>
-            <tbody>
               <tr>
-                <td className={styles.signatureBottom}>
-                  {bottomText}
+                <td
+                  className={cn(styles.signatureData, styles.signatureDataSocial)}
+                  colSpan={2}
+                >
+                  <LinkWrapper
+                    isLocalLink={false}
+                    path="https://www.linkedin.com/company/yellow-systems/"
+                  >
+                    <img
+                      src={images.linkedInImgUrl}
+                      alt="linkedin logo"
+                    />
+                  </LinkWrapper>
+                  <LinkWrapper
+                    isLocalLink={false}
+                    path="https://www.instagram.com/yellow.systems/"
+                  >
+                    <img
+                      src={images.instagramImgUrl}
+                      alt="instagram logo"
+                    />
+                  </LinkWrapper>
+                  <LinkWrapper
+                    isLocalLink={false}
+                    path="https://twitter.com/yellow_systems"
+                  >
+                    <img
+                      src={images.twitterImgUrl}
+                      alt="twitter logo"
+                    />
+                  </LinkWrapper>
                 </td>
               </tr>
             </tbody>
@@ -145,9 +157,7 @@ SignatureGenerated.propTypes = {
   titledList: PropTypes.instanceOf(Object).isRequired,
   signatureContainer: PropTypes.instanceOf(Object).isRequired,
   formRef: PropTypes.instanceOf(Object).isRequired,
-  yellowUrl: PropTypes.string.isRequired,
-  telegramUrl: PropTypes.string.isRequired,
-  bottomText: PropTypes.string.isRequired,
+  images: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default SignatureGenerated;

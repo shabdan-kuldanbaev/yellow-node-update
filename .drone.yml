@@ -1,0 +1,22 @@
+kind: pipeline
+name: develop
+
+trigger:
+  branch: develop
+  event:
+    include:
+      - push
+    exclude:
+      - tag
+
+steps:
+  - name: deploy
+    image: node:17.0
+    environment:
+      HEROKU_API_KEY:
+        from_secret: heroku_api_key
+    commands:
+      - apt-get update -yq
+      - apt-get install -y ruby-dev
+      - gem install dpl
+      - dpl --provider=heroku --app=yellow-systems-nextjs-dev --api_key=$HEROKU_API_KEY

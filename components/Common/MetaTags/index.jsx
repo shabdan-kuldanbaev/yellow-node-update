@@ -35,12 +35,12 @@ export const MetaTags = ({
     ? `Page ${pageNumber}. ${title}`
     : title);
 
-  const getImage = (img) => {
+  const getImage = () => {
     if (ogImage) return ogImage;
 
     if (isArticle) return image;
 
-    return img;
+    return getPathWithCdn('/apple-touch-icon.png');
   };
 
   const date = isArticle ? publishedAt : new Date();
@@ -61,7 +61,7 @@ export const MetaTags = ({
         <meta property="og:description" content={description} />
         <meta property="og:title" content={getTitle(title)} />
         <meta property="og:url" content={url} />
-        <meta property="og:image" content={getImage(getPathWithCdn('/apple-touch-icon.png'))} />
+        <meta property="og:image" content={getImage()} />
         {categoryTag && <meta property="article:section" content={categoryTag} />}
         {publishedAt && <meta property="article:published_time" content={publishedAt} />}
         {keyWords && keyWords.map((keyWord) => (

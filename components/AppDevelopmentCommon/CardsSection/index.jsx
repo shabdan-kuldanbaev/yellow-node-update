@@ -44,10 +44,10 @@ export const CardsSection = ({
           {cardsList.map((card, index) => {
             const {
               title: typeTitle,
-              description: typeDescription,
               contentList,
               text,
               images,
+              imagesBundles,
             } = getDocumentFields(
               card,
               [
@@ -56,6 +56,7 @@ export const CardsSection = ({
                 'contentList',
                 'text',
                 'images',
+                'imagesBundles',
               ],
             );
             const imageUrl = getFileUrl(get(images, '[0]'));
@@ -78,6 +79,13 @@ export const CardsSection = ({
                   </div>
                   <ContentfulParser document={text} />
                 </div>
+                {imagesBundles && imagesBundles.map((image) => (
+                  <img
+                    src={getFileUrl(image)}
+                    alt=""
+                    className={styles.imagesBundle}
+                  />
+                ))}
               </Animated>
             );
           })}

@@ -159,6 +159,7 @@
   }
 }
 
+.dindon,
 .fernwayer,
 .travel-trivia {
   @extend .container;
@@ -300,7 +301,8 @@
   }
 }
 
-.fairy {
+.fairy,
+.fintech-app-for-credit-score {
   @extend .container;
 
   background: $light-violet-1;
@@ -333,6 +335,10 @@
   .iconLink {
     color: $white;
   }
+}
+
+.fintech-app-for-credit-score {
+  background: $green-aloha;
 }
 
 .tell {
@@ -441,7 +447,8 @@
 .drive-focus,
 .meateater,
 .fireaway,
-.fusion-markets {
+.fusion-markets,
+.blackbird {
   @extend .container;
 
   .nextProjectContainer {
@@ -588,4 +595,14 @@
   .more {
     border: 1px solid $black;
   }
+}
+
+.blackbird {
+  background: $bright-navy;
+}
+
+.dindon {
+  @extend .container;
+
+  background: $cherry-red;
 }

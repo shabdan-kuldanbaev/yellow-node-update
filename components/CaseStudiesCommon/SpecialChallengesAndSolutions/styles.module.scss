@@ -215,3 +215,64 @@
     padding-bottom: 0;
   }
 }
+
+.blackbird {
+  @include caseStudyContainer;
+
+  &.firstSectionView {
+    margin-bottom: 150px;
+    background: linear-gradient($chinese-black 0%, $chinese-black 75%, $white 75%, $white 100%);
+
+    @include phone {
+      margin-bottom: 20px;
+      background: linear-gradient($chinese-black 0%, $chinese-black 60%, $white 60%, $white 100%);
+    }
+  }
+
+  &.secondSectionView {
+    padding-bottom: 10px;
+    background: linear-gradient(to right, $chinese-black 0%, $chinese-black 50%, $bright-navy 50%, $bright-navy 100%);
+
+    @include phone {
+      padding: 80px 0;
+      background: linear-gradient($chinese-black 0%, $chinese-black 50%, $bright-navy 50%, $bright-navy 100%);
+    }
+  }
+}
+
+.fintech-app-for-credit-score {
+  @include caseStudyContainer;
+
+  background: $melting-grey;
+
+  &.firstSectionView {
+    .contentContainer {
+      max-width: $max-content-width-macbook-twelve;
+      margin: 0 auto;
+    }
+  }
+}
+
+.dindon {
+  overflow: hidden;
+  background: $wild-send-2;
+
+  @include caseStudyContainer;
+
+  [data-case-study-title] {
+    margin-bottom: 240px;
+
+    @include tablet {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.marketplace-for-clairvoyant-services {
+  @include caseStudyContainer;
+
+  padding-left: 0;
+  padding-right: 0;
+  background-color: $white;
+  overflow-x: hidden;
+}

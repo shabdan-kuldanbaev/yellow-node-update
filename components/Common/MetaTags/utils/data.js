@@ -85,4 +85,23 @@ export const ogMetaData = [
     metaDescription: 'Yellow is ready to provide you with Android development services to bring your idea to life.',
     url: `${rootUrl}${ROUTES.androidDevelopmentServices.path}`,
   },
+  {
+    pageName: ROUTES.mvpDevelopment.slug,
+    metaTitle: 'MVP development company | Yellow',
+    metaDescription: 'A minimum viable product will help you get enough feedback to determine whether '
+      + 'you should continue a given project. Yellow is ready to help with your MVP development.',
+    url: `${rootUrl}${ROUTES.mvpDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.cloudDevelopment.slug,
+    metaTitle: 'Cloud app development company | Yellow',
+    metaDescription: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
+    url: `${rootUrl}${ROUTES.cloudDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.mlDevelopment.slug,
+    metaTitle: 'Machine Learning App Development Company | Yellow',
+    metaDescription: 'If you want to boost your business with a machine learning solution, Yellow is here to back you up',
+    url: `${rootUrl}${ROUTES.mlDevelopment.path}`,
+  },
 ];
