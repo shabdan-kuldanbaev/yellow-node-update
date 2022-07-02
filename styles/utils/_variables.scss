@@ -150,6 +150,8 @@ $very-pale-lime-green: #f9fffa;
 $chinese-black: #111;
 $clear-chill: #2591ff;
 $bright-navy: #0e75de;
+$green-aloha: #18B095;
+$melting-grey: #f8fdfc;
 $cherry-red: #e40040;
 $pale-pink: #FFFAFB;
 $violet-blue: #3953B0;
@@ -167,10 +169,12 @@ $work-beautonomy-title-shadow: rgba(0, 0, 0, 0.25);
 $nearby-articles-block-box-shadow-color: rgba(0, 0, 0, 0.07);
 $article-preview-box-shadow: 0 10px 60px -10px rgba(0, 0, 0, 0.15);
 $card-bow-shadow: 0 8px 35px rgba($pale-sky, 0.1);
+$feedback-form-grey: rgba(#171717, 0.3);
 $case-study-dindon-paragraph: rgba(255, 255, 255, 0.7);
 $case-study-dindon-background: rgba(255, 255, 255, 0.15);
 $case-study-dindon-box-shadow: rgba(170, 181, 193, 0.05);
 $case-study-step-box-shadow: rgba(110, 120, 130, 0.1);
+$project-white: rgba($white, 0.4);
 
 //time
 $default-transition-time: 0.5s;
@@ -241,6 +245,7 @@ $max-article-margin: 24px;
 
 //filters
 $shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
+$shadow-filter-image: drop-shadow(2px 2px 3px #000);
 $shadow-filter-phone: drop-shadow(
   -12.8201px 12.8201px 30.4602px rgba(0, 0, 0, 0.4)
 );

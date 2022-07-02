@@ -200,7 +200,8 @@
 .meateater,
 .separate-us,
 .fusion-markets,
-.blackbird {
+.blackbird,
+.fintech-app-for-credit-score {
   @extend .imagesContainer;
 
   .animatedContainer {
@@ -315,6 +316,16 @@
   &::before,
   &::after {
     background: none;
+  }
+}
+
+.fintech-app-for-credit-score {
+  .animatedContainer {
+    margin-bottom: 150px;
+
+    @include phone {
+      margin-bottom: 40px;
+    }
   }
 }
 
