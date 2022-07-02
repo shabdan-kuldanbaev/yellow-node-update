@@ -15,8 +15,8 @@ const {
   customDomainRedirect,
   pageRedirect,
   multiSlashRedirect,
-  upperCaseRedirect,
-  // indexDirRedirect,
+  // upperCaseRedirect,
+  indexDirRedirect,
 } = require('./middleware/redirect');
 const subscribeHelper = require('./subscribe/subscribeHelper');
 const { processes } = require('./utils/processes');
@@ -53,8 +53,8 @@ app
     // The request handler must be the first middleware on the app
     server.use(Sentry.Handlers.requestHandler());
 
-    // server.use(indexDirRedirect);
-    server.use(upperCaseRedirect);
+    server.use(indexDirRedirect);
+    // server.use(upperCaseRedirect);
     server.use(httpsRedirect);
     server.use(customDomainRedirect);
     server.use(wwwRedirect);
