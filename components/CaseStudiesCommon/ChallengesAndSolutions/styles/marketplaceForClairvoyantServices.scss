@@ -2,6 +2,49 @@
   .special {
     max-width: unset;
 
+    .infoContainer {
+      h2 {
+        line-height: 43px;
+
+        @include fontSize(36px);
+
+        @include tablet {
+          line-height: 34px;
+
+          @include fontSize(30px);
+        }
+
+        @include phone {
+          line-height: 28px;
+
+          @include fontSize(24px);
+        }
+      }
+
+      p {
+        max-width: 429px;
+        line-height: 32px;
+
+        @include fontSize(18px);
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+      }
+    }
+
+    & > div:last-child {
+      position: relative;
+
+      .image {
+        width: 100%;
+        height: unset;
+        max-height: unset;
+        max-width: 1110px;
+        filter: drop-shadow(0 14px 44px rgba($black, 0.07));
+      }
+    }
+
     &:nth-child(2n + 1) {
       @include flex(row, flex-end);
 
@@ -46,7 +89,7 @@
         &::after {
           left: 0;
           height: 107%;
-          transform: translate(0px, -1px);
+          transform: translate(0, -1px);
           background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
 
           @include phone {
@@ -65,49 +108,6 @@
 
       @include phone {
         @include flex(column, center, center);
-      }
-    }
-
-    .infoContainer {
-      h2 {
-        line-height: 43px;
-
-        @include fontSize(36px);
-
-        @include tablet {
-          line-height: 34px;
-
-          @include fontSize(30px);
-        }
-
-        @include phone {
-          line-height: 28px;
-
-          @include fontSize(24px);
-        }
-      }
-
-      p {
-        max-width: 429px;
-        line-height: 32px;
-
-        @include fontSize(18px);
-
-        @include tablet {
-          @include fontSize(16px);
-        }
-      }
-    }
-
-    & > div:last-child {
-      position: relative;
-
-      .image {
-        width: 100%;
-        height: unset;
-        max-height: unset;
-        max-width: 1110px;
-        filter: drop-shadow(0 14px 44px rgba($black, 0.07));
       }
     }
   }
@@ -151,7 +151,7 @@
             position: relative;
             margin-bottom: 0;
 
-            &:before {
+            &::before {
               position: absolute;
               left: -15px;
               content: ' ';
@@ -175,7 +175,7 @@
             & > p {
               position: relative;
 
-              &:before {
+              &::before {
                 position: absolute;
                 top: 10px;
                 left: -7px;
