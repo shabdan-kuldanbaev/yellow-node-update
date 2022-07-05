@@ -40,15 +40,13 @@ export const DropDownMenu = ({
         }) => (
           <div
             className={styles.itemContainer}
-            onClick={handleOnClick(subMenuSlug)}
-            role="button"
-            tabIndex="0"
             key={`links/${subMenuSlug}`}
           >
             <LinkWrapper
               isLocalLink
               path={subMenuSlug}
               key={`links/${subMenuSlug}`}
+              onClick={handleOnClick(subMenuSlug)}
             >
               <p className={styles.title}>
                 {title}
