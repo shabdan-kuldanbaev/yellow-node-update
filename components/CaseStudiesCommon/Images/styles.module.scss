@@ -214,7 +214,8 @@
 }
 
 .smartcenter,
-.meateater {
+.meateater,
+.fintech-app-for-credit-score {
   .image:first-child {
     display: block;
     max-width: 1076px;
@@ -234,6 +235,12 @@
     @include phone {
       display: block;
     }
+  }
+}
+
+.fintech-app-for-credit-score {
+  .image:last-child {
+    max-width: 250px;
   }
 }
 

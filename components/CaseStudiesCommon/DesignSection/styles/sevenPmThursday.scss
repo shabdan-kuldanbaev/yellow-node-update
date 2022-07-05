@@ -16,6 +16,34 @@
     margin: 0 0 200px;
     text-align: center;
 
+    &:nth-child(2) {
+      margin-bottom: 150px;
+
+      img {
+        max-width: 450px;
+
+        @include phone {
+          max-width: 352px;
+        }
+      }
+
+      @include phone {
+        margin-bottom: 100px;
+      }
+    }
+
+    &:nth-child(4) {
+      margin-bottom: 120px;
+
+      img {
+        max-width: 795px;
+
+        @include phone {
+          max-width: 352px;
+        }
+      }
+    }
+
     @include tablet {
       margin: 0 0 100px;
     }
@@ -29,13 +57,13 @@
     }
 
     .title {
+      @include fontSize(25px);
+
       margin: 0 0 40px;
       font-family: $case-studies-font;
       font-weight: 600;
       line-height: 37px;
       color: $white;
-
-      @include fontSize(25px);
     }
   }
 }

@@ -9,12 +9,12 @@ const {
 export const socialNetworks = [
   {
     title: 'instagram',
-    href: '//www.instagram.com/yellow.systems',
+    href: '//www.instagram.com/yellow.systems/',
     type: instaIcon,
   },
   {
     title: 'medium',
-    href: '//medium.com/@yellow',
+    href: '//yellow.medium.com/',
     type: mediumIcon,
   },
   {

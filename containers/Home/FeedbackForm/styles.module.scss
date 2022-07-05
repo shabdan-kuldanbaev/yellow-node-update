@@ -87,7 +87,8 @@
 
 .seven-pm-thursday,
 .fusion-markets,
-.blackbird {
+.blackbird,
+.fintech-app-for-credit-score {
   @extend .formContainer;
 
   background-color: $dark-blue-1;
@@ -154,6 +155,64 @@
   @include phone {
     padding: 0;
     margin-top: 0;
+  }
+}
+
+.fintech-app-for-credit-score {
+  padding: 120px 0;
+  background: $white;
+  color: $black;
+
+  @include phone {
+    padding: 0 auto;
+    margin-top: 0;
+  }
+
+  .title {
+    color: $black;
+  }
+
+  .subtitle {
+    color: $feedback-form-grey;
+
+    /* stylelint-disable-next-line */
+    span {
+      /* stylelint-disable-next-line */
+      a {
+        color: $feedback-form-grey;
+
+        /* stylelint-disable-next-line */
+        &::before {
+          border-bottom: 1px $feedback-form-grey solid;
+          background-color: $feedback-form-grey;
+        }
+      }
+    }
+  }
+
+  & > div:last-child {
+    & > form {
+      ::placeholder {
+        color: $feedback-form-grey;
+      }
+
+      :-ms-input-placeholder {
+        color: $feedback-form-grey;
+      }
+
+      ::-ms-input-placeholder {
+        color: $feedback-form-grey;
+      }
+
+      & > div:last-child {
+        a {
+          div {
+            color: $feedback-form-grey;
+            border-color: $feedback-form-grey;
+          }
+        }
+      }
+    }
   }
 }
 

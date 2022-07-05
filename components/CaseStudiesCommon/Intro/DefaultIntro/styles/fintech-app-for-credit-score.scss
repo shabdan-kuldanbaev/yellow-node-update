@@ -1,0 +1,126 @@
+.fintech-app-for-credit-score {
+  @extend .container;
+
+  background: $green-aloha;
+  height: 1150px;
+
+  .projectInfoContainer {
+    color: $white;
+
+    .projectTitle {
+      @include fontSize (48px);
+
+      max-width: 450px;
+
+      @include phone {
+        @include fontSize (30px);
+      }
+    }
+
+    .projectDescription {
+      @include fontSize (14px);
+
+      color: $project-white;
+    }
+
+    @include phone {
+      margin-bottom: 20px;
+    }
+  }
+
+  .imageContainer {
+    .image {
+      max-width: 700px;
+
+      @include macbook-fifteen {
+        max-width: 700px;
+      }
+
+      @include tablet {
+        max-width: 500px;
+      }
+    }
+
+    @include tablet {
+      width: 100%;
+      height: 600px;
+    }
+
+    @include phone {
+      height: 300px;
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1178px;
+
+    .experience {
+      .infoTitle {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+
+      p:not(.infoTitle) {
+        max-width: 245px;
+      }
+    }
+  }
+
+  .introSection {
+    max-width: 1178px;
+    margin: 0 auto 300px;
+
+    @include tablet {
+      margin: 0 auto 60px;
+      height: 825px;
+    }
+
+    @include phone {
+      height: 555px;
+      margin: 0 auto 60px;
+    }
+  }
+
+  .bundleImage {
+    width: 1310px;
+
+    &:nth-of-type(1) {
+      position: absolute;
+      left: 250px;
+      top: -40px;
+
+      @include full-hd {
+        left: 810px;
+        top: -40px;
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(2) {
+      position: static;
+      display: none;
+      transform: translateX(10%);
+
+      @include tablet {
+        display: initial;
+        max-height: 500px;
+        margin-top: -50px;
+      }
+
+      @include phone {
+        margin-top: 0;
+        max-height: 392px;
+      }
+    }
+  }
+
+  @include phone {
+    height: 920px;
+  }
+}

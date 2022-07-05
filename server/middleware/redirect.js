@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-const { devHosts } = require('../utils/constants');
+const { devHosts, indexFiles } = require('../utils/constants');
 const { safePageRedirect } = require('../utils/safePageRedirect');
 
 dotenv.config('./env');
@@ -57,6 +57,14 @@ const wwwRedirect = (req, res, next) => {
   }
 
   res.redirect(301, `${protocol}://${host.substring(4)}${originalUrl}`);
+};
+
+const indexDirRedirect = (req, res, next) => {
+  if (indexFiles.includes(`${req.protocol}://${req.get('host')}${req.originalUrl}`)) {
+    res.redirect(301, `https://${process.env.CUSTOM_DOMAIN}/`);
+  } else {
+    next();
+  }
 };
 
 const customDomainRedirect = (req, res, next) => {
@@ -119,5 +127,6 @@ module.exports = {
   trailingSlashRedirect,
   pageRedirect,
   multiSlashRedirect,
+  indexDirRedirect,
   upperCaseRedirect,
 };

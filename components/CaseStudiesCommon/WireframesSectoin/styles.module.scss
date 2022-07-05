@@ -192,6 +192,14 @@
   }
 }
 
+.fintech-app-for-credit-score {
+  background-color: $white;
+
+  [data-case-study-description] {
+    color: $silver-chalice;
+  }
+}
+
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
   @include wireframes;

@@ -181,6 +181,7 @@
 
         .imageBundle-1 {
           position: absolute;
+          max-width: 1120px;
 
           @include tablet {
             position: static;

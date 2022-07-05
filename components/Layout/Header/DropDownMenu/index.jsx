@@ -37,13 +37,17 @@ export const DropDownMenu = ({
           subtitle,
           slug: subMenuSlug,
           items,
-        }) => {
-          const subMenuItem = (
-            <div
-              className={styles.itemContainer}
-              onClick={handleOnClick(subMenuSlug)}
-              role="button"
-              tabIndex="0"
+        }) => (
+          <div
+            className={styles.itemContainer}
+            onClick={handleOnClick(subMenuSlug)}
+            role="button"
+            tabIndex="0"
+            key={`links/${subMenuSlug}`}
+          >
+            <LinkWrapper
+              isLocalLink
+              path={subMenuSlug}
               key={`links/${subMenuSlug}`}
             >
               <p className={styles.title}>
@@ -54,37 +58,26 @@ export const DropDownMenu = ({
                   {subtitle}
                 </span>
               )}
-              {items && items.map(({ slug: itemSlug, title: itemTitle }) => (
-                <LinkWrapper
-                  className={styles.menuLink}
-                  isLocalLink
-                  path={itemSlug}
-                  key={`links/${itemTitle}`}
-                >
-                  <span
-                    onClick={closeMobileMenu}
-                    role="button"
-                    tabIndex="0"
-                  >
-                    {itemTitle}
-                  </span>
-                </LinkWrapper>
-              ))}
-            </div>
-          );
+            </LinkWrapper>
 
-          return subMenuSlug
-            ? (
+            {items && items.map(({ slug: itemSlug, title: itemTitle }) => (
               <LinkWrapper
+                className={styles.menuLink}
                 isLocalLink
-                path={subMenuSlug}
-                key={`links/${subMenuSlug}`}
+                path={itemSlug}
+                key={`links/${itemTitle}`}
               >
-                {subMenuItem}
+                <span
+                  onClick={closeMobileMenu}
+                  role="button"
+                  tabIndex="0"
+                >
+                  {itemTitle}
+                </span>
               </LinkWrapper>
-            )
-            : subMenuItem;
-        })}
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -316,6 +316,16 @@
   }
 }
 
+.fintech-app-for-credit-score {
+  @include caseStudyContainer;
+
+  background-color: $green-aloha;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}
+
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
 

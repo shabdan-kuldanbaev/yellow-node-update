@@ -279,7 +279,8 @@
 
 .dindon,
 .meateater,
-.bionorica {
+.bionorica,
+.fintech-app-for-credit-score {
   @extend .infoContainer;
 
   @include phone {
@@ -301,6 +302,26 @@
 
       &::marker {
         color: $dark-grey;
+      }
+    }
+  }
+}
+
+.fintech-app-for-credit-score {
+  @include phone {
+    padding: 0;
+
+    @include flex(column, center, center);
+  }
+
+  .container {
+    .listItemContainer {
+      margin-bottom: 15px;
+      padding-right: 5px;
+      color: $silver-chalice;
+
+      &::marker {
+        color: $green-aloha;
       }
     }
   }
