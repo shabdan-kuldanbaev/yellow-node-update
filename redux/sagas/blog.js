@@ -14,7 +14,7 @@ import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
 import { contentfulClient } from 'utils/contentful/client';
 import { fetchContentfulArticles } from 'utils/contentful/helper';
-import { PAGES } from 'utils/constants';
+import { PAGES, CATEGORY_BLOG_SLUGS, CATEGORY_BLOG_TAGS } from 'utils/constants';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 
 ObjectAssign.polyfill();
@@ -41,22 +41,34 @@ function* getArticle({ articleSlug, isPreviewMode }) {
   }
 }
 
+const getWhere = (category) => {
+  if (CATEGORY_BLOG_SLUGS.includes(category)) {
+    return {
+      keyWords_contains_some: [CATEGORY_BLOG_TAGS[category]],
+    };
+  }
+
+  return {
+    ...(category
+      ? { categoryTag: category }
+      : { categoryTag_exists: true }
+    ),
+  };
+};
+
 export function* loadArticles({
   currentLimit,
   skip,
   category,
 }) {
   try {
+    const order = category === 'software-development' ? '[title_ASC]' : '[publishedAt_DESC]';
+    const where = getWhere(category);
     const response = yield contentfulClient.graphql(GRAPHQL_QUERY.loadPreviewArticles({
       skip,
       limit: currentLimit,
-      order: '[publishedAt_DESC]',
-      where: {
-        ...(category
-          ? { categoryTag: category }
-          : { categoryTag_exists: true }
-        ),
-      },
+      order,
+      where,
     }));
 
     yield put({

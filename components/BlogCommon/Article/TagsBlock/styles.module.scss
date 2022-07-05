@@ -29,6 +29,7 @@
     @include flex();
 
     .tag {
+      text-decoration: none;
       padding: 12px 20px;
       margin-right: 20px;
       color: $silver-chalice;

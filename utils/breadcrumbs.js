@@ -1,5 +1,5 @@
 import { isNumeric } from 'utils/helper';
-import { CATEGORY_TAGS, ROUTES } from 'utils/constants';
+import { CATEGORY_TAGS, CATEGORY_BLOG_TAGS, ROUTES } from 'utils/constants';
 
 export const pagesBreadcrumbs = {
   blog: (category) => {
@@ -12,7 +12,7 @@ export const pagesBreadcrumbs = {
 
     if (category && !isNumeric(category)) {
       breadcrumbs.push({
-        title: CATEGORY_TAGS[category],
+        title: CATEGORY_TAGS[category] || CATEGORY_BLOG_TAGS[category],
         to: ROUTES.blog.getRoute(category),
       });
     }

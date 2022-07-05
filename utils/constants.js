@@ -86,6 +86,16 @@ export const CATEGORY_SLUGS = Object.entries(routes.blog.categories).reduce((acc
   return acc;
 }, []);
 
+export const CATEGORY_BLOG_SLUGS = Object.entries(routes.blog.tagsCategories).reduce((acc, [key, { slug }]) => {
+  acc[key] = slug;
+
+  return acc;
+}, []);
+
+export const CATEGORY_BLOG_TAGS = Object.entries(routes.blog.tagsCategories).reduce((acc, [_, { slug, title }]) => ({ ...acc, [slug]: title }), {});
+
+export const CATEGORY_BLOG_TITLE_TAGS = Object.entries(CATEGORY_BLOG_TAGS).map(([_, title]) => title);
+
 export const FEEDBACK_FORM_FIELDS = {
   name: 'name',
   email: 'email',
