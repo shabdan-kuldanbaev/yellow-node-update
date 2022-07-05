@@ -64,12 +64,9 @@ export const DropDownMenu = ({
                 isLocalLink
                 path={itemSlug}
                 key={`links/${itemTitle}`}
+                onClick={closeMobileMenu}
               >
-                <span
-                  onClick={closeMobileMenu}
-                  role="button"
-                  tabIndex="0"
-                >
+                <span>
                   {itemTitle}
                 </span>
               </LinkWrapper>
