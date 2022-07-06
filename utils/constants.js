@@ -49,6 +49,8 @@ export const NAV_LINKS = [
     routes.mvpDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.signatureGenerator.slug,
+    routes.privacyPolicy.slug,
+    routes.termsAndConditions.slug,
   ].includes(slug)),
 ];
 

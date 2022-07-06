@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { formatDate } from 'utils/helper';
 import { Animated, Breadcrumbs } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -10,6 +11,7 @@ export const PageHeader = ({
   breadcrumbs,
   titleStyles,
   breadcrumbsStyles,
+  updatedAt,
 }) => (
   <Fragment>
     <Breadcrumbs
@@ -25,6 +27,12 @@ export const PageHeader = ({
           transformDuration={1}
           transitionDelay={250}
         >
+          {updatedAt && (
+            <p>
+              Last updated:
+              {formatDate(updatedAt)}
+            </p>
+          )}
           <h1>{title}</h1>
         </Animated>
       </div>

@@ -104,4 +104,16 @@ export const ogMetaData = [
     metaDescription: 'If you want to boost your business with a machine learning solution, Yellow is here to back you up',
     url: `${rootUrl}${ROUTES.mlDevelopment.path}`,
   },
+  {
+    pageName: ROUTES.privacyPolicy.slug,
+    metaTitle: 'Privacy Policy | Yellow',
+    metaDescription: 'Privacy Policy',
+    url: `${rootUrl}${ROUTES.privacyPolicy.path}`,
+  },
+  {
+    pageName: ROUTES.termsAndConditions.slug,
+    metaTitle: 'Terms and Conditions | Yellow',
+    metaDescription: 'Terms and Conditions',
+    url: `${rootUrl}${ROUTES.termsAndConditions.path}`,
+  },
 ];

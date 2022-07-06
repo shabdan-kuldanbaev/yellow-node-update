@@ -114,4 +114,16 @@ export const pagesBreadcrumbs = {
       to: ROUTES.mlDevelopment.path,
     },
   ]),
+  privacyPolicy: () => ([
+    {
+      title: ROUTES.privacyPolicy.title,
+      to: ROUTES.privacyPolicy.path,
+    },
+  ]),
+  termsAndConditions: () => ([
+    {
+      title: ROUTES.termsAndConditions.title,
+      to: ROUTES.termsAndConditions.path,
+    },
+  ]),
 };
