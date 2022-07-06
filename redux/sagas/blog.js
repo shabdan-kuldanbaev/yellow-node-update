@@ -14,8 +14,12 @@ import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
 import { contentfulClient } from 'utils/contentful/client';
 import { fetchContentfulArticles } from 'utils/contentful/helper';
-import { PAGES, CATEGORY_BLOG_SLUGS, CATEGORY_BLOG_TAGS } from 'utils/constants';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
+import {
+  PAGES,
+  CATEGORY_BLOG_SLUGS,
+  CATEGORY_BLOG_TAGS,
+} from 'utils/constants';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();

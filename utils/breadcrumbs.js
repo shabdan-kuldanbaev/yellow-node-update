@@ -1,5 +1,9 @@
 import { isNumeric } from 'utils/helper';
-import { CATEGORY_TAGS, CATEGORY_BLOG_TAGS, ROUTES } from 'utils/constants';
+import {
+  CATEGORY_TAGS,
+  CATEGORY_BLOG_TAGS,
+  ROUTES,
+} from 'utils/constants';
 
 export const pagesBreadcrumbs = {
   blog: (category) => {

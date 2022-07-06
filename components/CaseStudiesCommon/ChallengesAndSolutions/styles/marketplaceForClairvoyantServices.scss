@@ -1,33 +1,31 @@
-/* stylelint-disable no-descending-specificity */
-
 .marketplace-for-clairvoyant-services {
   .special {
     max-width: unset;
 
     .infoContainer {
       h2 {
-        line-height: 43px;
-
         @include fontSize(36px);
 
-        @include tablet {
-          line-height: 34px;
+        line-height: 43px;
 
+        @include tablet {
           @include fontSize(30px);
+
+          line-height: 34px;
         }
 
         @include phone {
-          line-height: 28px;
-
           @include fontSize(24px);
+
+          line-height: 28px;
         }
       }
 
       p {
+        @include fontSize(18px);
+
         max-width: 429px;
         line-height: 32px;
-
-        @include fontSize(18px);
 
         @include tablet {
           @include fontSize(16px);
@@ -50,14 +48,6 @@
     &:nth-child(2n + 1) {
       @include flex(row, flex-end);
 
-      @include macbook-fifteen {
-        padding-left: 100px;
-      }
-
-      @include tablet {
-        padding-left: 0;
-      }
-
       & > div:last-child {
         @extend .openSenseGradient;
 
@@ -72,18 +62,18 @@
           }
         }
       }
+
+      @include macbook-fifteen {
+        padding-left: 100px;
+      }
+
+      @include tablet {
+        padding-left: 0;
+      }
     }
 
     &:nth-child(2n) {
       @include flex(row, flex-start);
-
-      @include macbook-fifteen {
-        padding-right: 100px;
-      }
-
-      @include tablet {
-        padding-right: 0;
-      }
 
       & > div:last-child {
         @extend .openSenseGradient;
@@ -98,6 +88,14 @@
             display: none;
           }
         }
+      }
+
+      @include macbook-fifteen {
+        padding-right: 100px;
+      }
+
+      @include tablet {
+        padding-right: 0;
       }
     }
 
