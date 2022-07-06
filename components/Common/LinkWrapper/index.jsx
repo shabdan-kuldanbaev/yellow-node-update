@@ -51,7 +51,7 @@ export const LinkWrapper = ({
         className={cn(styles.link, { [className]: !isImage })}
         href={finalPath}
         target={!isLocalLink ? '_blank' : undefined}
-        rel={!isLocalLink && !isSocialLink ? 'noopener noreferrer nofollow' : undefined}
+        rel={(!isLocalLink && !isSocialLink) ? 'noopener noreferrer nofollow' : undefined}
         onClick={handleOnClick}
       >
         {!isImage ? children : (
