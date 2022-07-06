@@ -7,14 +7,14 @@ dotenv.config('./env');
 const isProd = process.env.NODE_ENV === 'production';
 
 const upperCaseRedirect = (req, res, next) => {
-  const { url, hostname } = req;
+  const { url, hostname, protocol } = req;
   const lowerCaseUrl = url.toLowerCase();
 
   if (url === lowerCaseUrl) {
     return next();
   }
 
-  res.redirect(301, `https://${hostname}${lowerCaseUrl}`);
+  res.redirect(301, `${protocol}://${hostname}${lowerCaseUrl}`);
 };
 
 const multiSlashRedirect = (req, res, next) => {
