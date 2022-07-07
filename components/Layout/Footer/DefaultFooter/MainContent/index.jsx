@@ -16,9 +16,9 @@ export const MainContent = ({ footerData: footerLinksData }) => (
         className={cn(styles.dataContainer, styles[type])}
         key={`footer/${type}`}
       >
-        <h3 className={styles.title}>
+        <span className={styles.title}>
           {title}
-        </h3>
+        </span>
         {links && links.map(({
           title: linkTitle,
           path,

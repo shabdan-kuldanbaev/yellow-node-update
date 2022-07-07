@@ -7,6 +7,7 @@ const FeedbackFormWithTitle = () => (
   <section className={styles.feedbackFormWithTitle}>
     <div>
       <SectionTitle
+        isMainTitle
         title="Got a project in mind?"
         styleTitle={styles.title}
         styleSubtitle={styles.subtitle}

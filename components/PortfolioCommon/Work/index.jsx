@@ -61,9 +61,9 @@ const Work = ({
               />
             ))}
           </div>
-          <h3 className={styles.title}>
+          <h2 className={styles.title}>
             {title}
-          </h3>
+          </h2>
           <p className={styles.description}>
             {description}
           </p>

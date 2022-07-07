@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { DEV_HOSTS } from 'utils/constants';
+import { DEV_HOSTS, INDEX_FILES } from 'utils/constants';
 import { Redirects } from '../utils/json';
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -34,6 +34,7 @@ export function middleware(req, event) {
   const {
     method,
     protocol,
+    hostname,
     xhr,
     originalUrl,
     url,
@@ -102,6 +103,22 @@ export function middleware(req, event) {
   if (!multiSlashRedirect) {
     return NextResponse.redirect(
       path.replace(/(\/\/)+/g, '/') + query,
+      301,
+    );
+  }
+
+  if (INDEX_FILES.includes(`${req.protocol}://${req.get('host')}${req.originalUrl}`)) {
+    return NextResponse.redirect(
+      `https://${process.env.CUSTOM_DOMAIN}/`,
+      301,
+    );
+  }
+
+  const lowerCaseUrl = url.toLowerCase();
+
+  if (url !== lowerCaseUrl) {
+    return NextResponse.redirect(
+      `${protocol}://${hostname}${lowerCaseUrl}`,
       301,
     );
   }

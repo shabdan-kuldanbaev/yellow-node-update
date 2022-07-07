@@ -49,9 +49,9 @@ const KeyFeatures = ({ features, type }) => {
                   />
                 </div>
                 <div className={styles.contentContainer}>
-                  <h3 className={styles.title}>
+                  <h2 className={styles.title}>
                     {title}
-                  </h3>
+                  </h2>
                   <ContentfulParser document={text} />
                 </div>
               </div>

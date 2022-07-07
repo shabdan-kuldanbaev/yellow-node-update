@@ -384,12 +384,12 @@ export const CONTACTS_DATA = {
     {
       title: 'Medium',
       type: SVG_IMAGES_TYPES.mediumRoundWhite,
-      link: '//medium.com/@yellow',
+      link: '//yellow.medium.com/',
     },
     {
       title: 'Instagram',
       type: SVG_IMAGES_TYPES.instaRoundWhite,
-      link: '//www.instagram.com/yellow.systems',
+      link: '//www.instagram.com/yellow.systems/',
     },
   ],
 };
@@ -447,6 +447,7 @@ export const CASE_STUDIES = {
   bionorica: 'bionorica',
   fusionMarkets: 'fusion-markets',
   blackBird: 'blackbird',
+  mobileFintechApp: 'fintech-app-for-credit-score',
   goodPsychics: 'marketplace-for-clairvoyant-services',
 };
 
@@ -470,6 +471,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.fireaway).path,
   ROUTES.project.getRoute(CASE_STUDIES.fusionMarkets).path,
   ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mobileFintechApp).path,
   ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
@@ -591,4 +593,27 @@ export const FULL_HD_RESOLUTION = 1920;
 export const DEV_HOSTS = [
   'www.yws-dev.xyz',
   'yws-dev.xyz',
+];
+
+export const INDEX_FILES = [
+  'http://www.yellow.systems/index.asp',
+  'http://www.yellow.systems/index.aspx',
+  'http://www.yellow.systems/index.htm',
+  'http://www.yellow.systems/index.html',
+  'http://www.yellow.systems/index.php',
+  'http://yellow.systems/index.asp',
+  'http://yellow.systems/index.aspx',
+  'http://yellow.systems/index.htm',
+  'http://yellow.systems/index.html',
+  'http://yellow.systems/index.php',
+  'https://www.yellow.systems/index.asp',
+  'https://www.yellow.systems/index.aspx',
+  'https://www.yellow.systems/index.htm',
+  'https://www.yellow.systems/index.html',
+  'https://www.yellow.systems/index.php',
+  'https://yellow.systems/index.asp',
+  'https://yellow.systems/index.aspx',
+  'https://yellow.systems/index.htm',
+  'https://yellow.systems/index.html',
+  'https://yellow.systems/index.php',
 ];

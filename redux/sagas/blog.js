@@ -47,10 +47,11 @@ export function* loadArticles({
   category,
 }) {
   try {
+    const order = category === 'software-development' ? '[title_ASC]' : '[publishedAt_DESC]';
     const response = yield contentfulClient.graphql(GRAPHQL_QUERY.loadPreviewArticles({
       skip,
       limit: currentLimit,
-      order: '[publishedAt_DESC]',
+      order,
       where: {
         ...(category
           ? { categoryTag: category }

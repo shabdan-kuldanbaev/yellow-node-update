@@ -214,6 +214,7 @@
   .contentContainer {
     width: auto;
     margin-right: 260px;
+    padding-bottom: 0;
 
     @include tablet {
       width: 345px;
@@ -619,6 +620,60 @@
         }
       }
     }
+  }
+}
+
+.fintech-app-for-credit-score {
+  @extend .container;
+
+  @include flex(row, space-around, center);
+
+  background-color: $white;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .contentContainer {
+    padding-bottom: 0;
+    justify-content: space-between;
+
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          & > p {
+            width: 560px;
+            padding: 0 6px;
+
+            @include below-tablet {
+              width: 400px;
+            }
+
+            @include phone {
+              width: 250px;
+            }
+          }
+        }
+      }
+
+      @include desktop {
+        margin-left: 40px;
+      }
+
+      @include tablet {
+        margin-left: 60px;
+      }
+
+      @include phone {
+        margin-left: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include phone {
+    padding: 80px 15px 45px;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 

@@ -65,7 +65,7 @@ const ChallengesAndSolutions = ({
               key={title || imageUrl}
               className={cn(styles.contentContainer, { [styles.special]: isSpecial })}
             >
-              {!imageUrl && (
+              {(!imageUrl && title) && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div className={cn(styles.infoContainer, styles.separatedTitle)}>
                     <h2 className={styles.title}>

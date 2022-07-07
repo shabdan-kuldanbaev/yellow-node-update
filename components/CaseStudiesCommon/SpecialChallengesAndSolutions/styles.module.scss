@@ -221,14 +221,10 @@
 
   &.firstSectionView {
     margin-bottom: 150px;
-
-    @include phone {
-      margin-bottom: 20px;
-    }
-
     background: linear-gradient($chinese-black 0%, $chinese-black 75%, $white 75%, $white 100%);
 
     @include phone {
+      margin-bottom: 20px;
       background: linear-gradient($chinese-black 0%, $chinese-black 60%, $white 60%, $white 100%);
     }
   }
@@ -244,6 +240,19 @@
   }
 }
 
+.fintech-app-for-credit-score {
+  @include caseStudyContainer;
+
+  background: $melting-grey;
+
+  &.firstSectionView {
+    .contentContainer {
+      max-width: $max-content-width-macbook-twelve;
+      margin: 0 auto;
+    }
+  }
+}
+
 .dindon {
   overflow: hidden;
   background: $wild-send-2;
@@ -251,7 +260,7 @@
   @include caseStudyContainer;
 
   [data-case-study-title] {
-    margin-bottom: 200px;
+    margin-bottom: 240px;
 
     @include tablet {
       margin-bottom: 30px;

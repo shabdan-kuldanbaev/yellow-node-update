@@ -711,6 +711,28 @@
   }
 }
 
+.fintech-app-for-credit-score {
+  @include caseStudyContainer;
+
+  .mockup {
+    filter: unset;
+    width: 760px;
+
+    @include phone {
+      width: 300px;
+      top: 90%;
+    }
+  }
+
+  .circle {
+    @include phone {
+      height: 150px;
+      margin-top: 0;
+      width: unset;
+    }
+  }
+}
+
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
 
@@ -720,11 +742,11 @@
     height: min-content;
     width: 100%;
     max-width: 1076px;
-    margin: 0;
+    margin: 0 auto;
 
     .mockup {
       width: 100%;
-      filter: unset;
+      filter: drop-shadow(0 14px 54px rgba($black, 0.08));
       position: static;
       transform: translate(0, 0);
     }

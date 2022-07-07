@@ -393,7 +393,7 @@
     }
 
     .contentContainer {
-      h3 {
+      h2 {
         margin-bottom: 0;
       }
     }
@@ -676,6 +676,19 @@
     .checkMark {
       color: $white;
       background: $clear-chill;
+    }
+  }
+}
+
+.fintech-app-for-credit-score {
+  .containerBackground {
+    left: -23%;
+    right: 0;
+    opacity: 0.5;
+
+    @include phone {
+      left: -30%;
+      width: 414px;
     }
   }
 }
