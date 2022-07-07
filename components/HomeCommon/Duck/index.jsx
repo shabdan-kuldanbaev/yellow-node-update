@@ -17,7 +17,7 @@ import { Plane } from 'node_modules/three/src/math/Plane';
 import { Vector3 } from 'node_modules/three/src/math/Vector3';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import IntroText from 'components/HomeCommon/IntroText';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';

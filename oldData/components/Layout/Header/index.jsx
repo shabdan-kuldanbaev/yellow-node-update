@@ -5,11 +5,8 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { selectIsMobileMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
-import {
-  SelectionBlock,
-  Logo,
-  TopProgressBar,
-} from 'components';
+import Logo from 'components/Common/Logo';
+import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
 import styles from './styles.module.scss';

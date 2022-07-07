@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { Svg } from 'components/Common/Svg';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import Svg from 'components/Common/Svg';
 import { getFileUrl } from 'utils/helper';
 import { TitleText } from './TitleText';
 import { getAppstoreSvgType, getItemPreviewProps } from './utils/itemPreviewHelper';

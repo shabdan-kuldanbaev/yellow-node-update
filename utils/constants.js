@@ -587,3 +587,8 @@ export const HORIZONTAL_MOBILE = 450;
 export const DEFAULT_TABLET_RESOLUTION = 768;
 export const BIG_TABLET_RESOLUTION = 1024;
 export const FULL_HD_RESOLUTION = 1920;
+
+export const DEV_HOSTS = [
+  'www.yws-dev.xyz',
+  'yws-dev.xyz',
+];

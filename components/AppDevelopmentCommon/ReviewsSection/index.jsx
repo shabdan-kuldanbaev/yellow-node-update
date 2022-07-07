@@ -5,7 +5,7 @@ import { getReviewsProps } from './utils/reviewsHelper';
 import { Reviews } from './Reviews';
 import styles from './styles.module.scss';
 
-export const ReviewsSection = ({ data, type }) => {
+const ReviewsSection = ({ data, type }) => {
   const {
     title,
     reviews,
@@ -30,3 +30,5 @@ ReviewsSection.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
+
+export default ReviewsSection;

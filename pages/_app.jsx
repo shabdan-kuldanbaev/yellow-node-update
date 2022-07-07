@@ -2,13 +2,12 @@ import React, {
   useState,
   useRef,
   useEffect,
-  Fragment,
+  Fragment, useMemo,
 } from 'react';
 import { wrapper } from 'redux/store';
 import { useDispatch } from 'react-redux';
 import Router from 'next/router';
 import Head from 'next/head';
-import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
 import { setPageReadyToDisplay } from 'redux/actions/layout';
@@ -23,7 +22,7 @@ import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
 
-const App = ({ Component, pageProps }) => {
+function App({ Component, pageProps }) {
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
     isFirstHomepageVisit: false,
@@ -31,7 +30,7 @@ const App = ({ Component, pageProps }) => {
   const [theme] = useState('dark');
   const introSection = useRef(null);
   const dispatch = useDispatch();
-  const isCustomDomain = pageProps.hostname.includes(process.env.CUSTOM_DOMAIN);
+  const isCustomDomain = pageProps.hostname?.includes(process.env.CUSTOM_DOMAIN);
 
   useEffect(() => {
     const handleRouteChangeComplete = () => dispatch(setPageReadyToDisplay(false));
@@ -50,10 +49,13 @@ const App = ({ Component, pageProps }) => {
       jssStyles.parentElement.removeChild(jssStyles);
     }
 
-    Sentry.init({ dsn: process.env.SENTRY_DNS });
-
     smoothscroll.polyfill();
   }, []);
+
+  const AppContextValue = useMemo(() => ({
+    contextData,
+    setContextData,
+  }), [contextData, setContextData]);
 
   return (
     <Fragment>
@@ -65,7 +67,7 @@ const App = ({ Component, pageProps }) => {
           />
         )}
       </Head>
-      <AppContext.Provider value={{ contextData, setContextData }}>
+      <AppContext.Provider value={AppContextValue}>
         <ThemeProvider theme={customTheme}>
           <Layout introSection={introSection}>
             <Component
@@ -78,7 +80,7 @@ const App = ({ Component, pageProps }) => {
       </AppContext.Provider>
     </Fragment>
   );
-};
+}
 
 App.getInitialProps = async ({ Component, ctx }) => {
   try {

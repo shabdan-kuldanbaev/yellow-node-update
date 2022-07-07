@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { SectionTitle, Animated } from 'components';
+import SectionTitle from 'components/Common/SectionTitle';
+import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,

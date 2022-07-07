@@ -14,7 +14,7 @@ import styles from './styles.module.scss';
 
 SwiperCors.use([EffectCoverflow]);
 
-export const Reviews = ({ reviews }) => {
+const Reviews = ({ reviews }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
   const [
@@ -149,3 +149,5 @@ export const Reviews = ({ reviews }) => {
 Reviews.propTypes = {
   reviews: PropTypes.instanceOf(Array).isRequired,
 };
+
+export default Reviews;

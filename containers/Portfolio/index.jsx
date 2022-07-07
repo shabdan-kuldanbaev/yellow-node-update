@@ -4,23 +4,21 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   selectCTA,
   selectMetaData,
   selectPortfolioProjectsPreview,
   selectSubtitle,
 } from 'redux/selectors/layout';
-import {
-  Animated,
-  CallToAction,
-  FullLayout,
-  FullScreenEstimation,
-  MetaTags,
-  PageHeader,
-  Portfolio,
-} from 'components';
+import Animated from 'components/Common/Animated';
+import FullLayout from 'components/Layout/FullLayout';
+import FullScreenEstimation from 'components/Common/FullScreenEstimation';
+import MetaTags from 'components/Common/MetaTags';
+import PageHeader from 'components/Common/PageHeader';
+import Portfolio from 'components/PortfolioCommon';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import {
   PAGES,
@@ -30,17 +28,18 @@ import {
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
-const PortfolioContainer = ({
-  introSection,
-  portfolioProjects,
-  metaData,
-  subtitle,
-  linkCTA,
-}) => {
+const CallToAction = dynamic(() => import('components/Common/CallToAction'));
+
+function PortfolioContainer({ introSection }) {
+  const portfolioProjects = useSelector(selectPortfolioProjectsPreview);
+  const metaData = useSelector(selectMetaData);
+  const subtitle = useSelector(selectSubtitle);
+  const linkCTA = useSelector(selectCTA);
+
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
-  const works = contentModules && contentModules.map((module) => {
+  const works = contentModules?.map((module) => {
     const {
       types,
       tags,
@@ -48,8 +47,8 @@ const PortfolioContainer = ({
     } = getDocumentFields(module, ['title', 'description', 'types', 'tags', 'previewImage', 'backgroundImage', 'slug']);
 
     return {
-      types: types ? types.map((type) => getDocumentFields(type, ['slug', 'displayName'])) : [],
-      tags: tags ? tags.map((tag) => getDocumentFields(tag, ['slug', 'displayName'])) : [],
+      types: types?.map((type) => getDocumentFields(type, ['slug', 'displayName'])) ?? [],
+      tags: tags?.map((tag) => getDocumentFields(tag, ['slug', 'displayName'])) ?? [],
       ...rest,
     };
   });
@@ -86,7 +85,7 @@ const PortfolioContainer = ({
           </p>
         </Animated>
         <Portfolio works={works} />
-        {link && (
+        {(link && CallToAction) && (
           <CallToAction
             type="page"
             title={link.title}
@@ -102,29 +101,10 @@ const PortfolioContainer = ({
       />
     </Fragment>
   );
-};
-
-PortfolioContainer.defaultProps = {
-  portfolioProjects: {},
-};
+}
 
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  portfolioProjects: PropTypes.instanceOf(Object),
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-    ogImage: PropTypes.string,
-  }).isRequired,
-  subtitle: PropTypes.string.isRequired,
-  linkCTA: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect(
-  (state) => ({
-    portfolioProjects: selectPortfolioProjectsPreview(state),
-    metaData: selectMetaData(state),
-    subtitle: selectSubtitle(state),
-    linkCTA: selectCTA(state),
-  }),
-)(PortfolioContainer);
+export default PortfolioContainer;

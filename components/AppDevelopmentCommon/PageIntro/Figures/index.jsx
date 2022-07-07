@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components/Common/Animated';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import Animated from 'components/Common/Animated';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import FiguresItem from './FiguresItem';

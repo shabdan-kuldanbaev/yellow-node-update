@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components/Common/Animated';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import Animated from 'components/Common/Animated';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { advantages, animatedFields } from './utils/data';
 import styles from './styles.module.scss';
 
-export const AdvantagesItems = ({ advantages: advantagesList, animatedFields: animatedFieldsList }) => {
+const AdvantagesItems = ({ advantages: advantagesList, animatedFields: animatedFieldsList }) => {
   const switchRender = ({ field }, adv) => { // TODO create separate component
     switch (field) {
     case 'img':
@@ -76,3 +76,5 @@ AdvantagesItems.propTypes = {
   advantages: PropTypes.instanceOf(Array),
   animatedFields: PropTypes.instanceOf(Array),
 };
+
+export default AdvantagesItems;

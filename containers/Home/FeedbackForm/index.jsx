@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FeedbackForm from 'components/Common/FeedbackForm';
-import { SectionTitle } from 'components/Common/SectionTitle';
+import SectionTitle from 'components/Common/SectionTitle';
 import styles from './styles.module.scss';
 
 const FeedbackFormContainer = ({ type, title }) => (

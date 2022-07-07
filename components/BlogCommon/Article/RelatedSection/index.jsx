@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
-import { LinkWrapper, Svg } from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Svg from 'components/Common/Svg';
 import {
   ROUTES,
   ARTICLE_PREVIEW_TYPES,

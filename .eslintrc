@@ -140,6 +140,7 @@
           "maximum": 1
       }
     ],
-    "no-return-await": "off"
+    "no-return-await": "off",
+    "react/function-component-definition": "off",
   }
 }

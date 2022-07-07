@@ -4,8 +4,8 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { withScroll } from 'hocs/withScroll';
-import { Animated } from 'components/Common/Animated';
+import withScroll from 'hocs/withScroll';
+import Animated from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
 import {
   DEFAULT_WORK_TYPE,
@@ -50,7 +50,7 @@ const Portfolio = ({
   const onSelectedTagChange = useCallback((tag) => {
     setCurrentLimit(DEFAULT_WORKS_LIMIT);
 
-    if (selectedTag && selectedTag.slug === tag.slug) {
+    if (selectedTag?.slug === tag.slug) {
       return setSelectedTag(null);
     }
 

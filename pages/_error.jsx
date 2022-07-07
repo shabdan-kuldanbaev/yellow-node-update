@@ -5,12 +5,9 @@ import PageNotFound from 'containers/PageNotFound';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 
-const Error = ({ statusCode, err }) => (
-  <Fragment>
-    {statusCode
-      ? statusCode === 404 && <PageNotFound />
-      : `An error occurred on client ${err}`}
-  </Fragment>
+const Error = ({ statusCode, err }) => (statusCode
+  ? statusCode === 404 && <PageNotFound />
+  : `An error occurred on client ${err}`
 );
 
 Error.getInitialProps = async ({

@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import gaHelper from 'utils/ga';
-import { rootUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const LinkWrapper = ({
+const LinkWrapper = ({
   isLocalLink,
   path,
   dynamicRouting,
@@ -19,9 +18,7 @@ export const LinkWrapper = ({
   googleAnalyticProps,
   isSocialLink,
 }) => {
-  const finalPath = isLocalLink
-    ? path.replace(rootUrl, '')
-    : path.replace('//', '');
+  const finalPath = path.replace(/(\/\/)?(rootUrl)?/g, '');
 
   const handleOnClick = () => {
     if (!isEmpty(googleAnalyticProps)) {
@@ -102,3 +99,5 @@ LinkWrapper.propTypes = {
   ]),
   isSocialLink: PropTypes.bool,
 };
+
+export default LinkWrapper;

@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { ScrollIcon } from 'components/HomeCommon/ScrollIcon';
-import { SocialIcons } from 'components/HomeCommon/SocialIcons';
+import SocialIcons from 'components/HomeCommon/SocialIcons';
 import useAppearingAnimation from 'hooks/useAppearingAnimation';
 import styles from './styles.module.scss';
 
-export const AddFooter = ({ theme }) => {
+const AddFooter = ({ theme }) => {
   const [direction, isTopOfPage] = useAppearingAnimation();
 
   return (
     <section className={cn(
       styles.addFooterContainer,
-      styles[direction], {
+      styles[direction],
+      {
         [styles.notOnTop]: !isTopOfPage,
       },
     )}
@@ -31,3 +31,5 @@ AddFooter.defaultProps = {
 AddFooter.propTypes = {
   theme: PropTypes.string,
 };
+
+export default AddFooter;

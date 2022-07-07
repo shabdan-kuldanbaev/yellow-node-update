@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import SubMenuItem from 'components/Layout/Header/DropDownMenu/SubMenuItem';
 import { SUB_NAVIGATION_LINKS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const DropDownMenu = ({
+function DropDownMenu({
   isDropMenuOpened,
   isPageScrolledDown,
   slug,
   closeMobileMenu,
   closeDropDownMenu,
-}) => {
+}) {
   const subNavigationLinks = SUB_NAVIGATION_LINKS[slug];
 
   const handleOnClick = (subMenuSlug) => () => {
@@ -37,58 +37,21 @@ const DropDownMenu = ({
           subtitle,
           slug: subMenuSlug,
           items,
-        }) => {
-          const subMenuItem = (
-            <div
-              className={styles.itemContainer}
-              onClick={handleOnClick(subMenuSlug)}
-              role="button"
-              tabIndex="0"
-              key={`links/${subMenuSlug}`}
-            >
-              <h3 className={styles.title}>
-                {title}
-              </h3>
-              {subtitle && (
-                <span className={styles.subtitle}>
-                  {subtitle}
-                </span>
-              )}
-              {items && items.map(({ slug: itemSlug, title: itemTitle }) => (
-                <LinkWrapper
-                  className={styles.menuLink}
-                  isLocalLink
-                  path={itemSlug}
-                  key={`links/${itemTitle}`}
-                >
-                  <span
-                    onClick={closeMobileMenu}
-                    role="button"
-                    tabIndex="0"
-                  >
-                    {itemTitle}
-                  </span>
-                </LinkWrapper>
-              ))}
-            </div>
-          );
-
-          return subMenuSlug
-            ? (
-              <LinkWrapper
-                isLocalLink
-                path={subMenuSlug}
-                key={`links/${subMenuSlug}`}
-              >
-                {subMenuItem}
-              </LinkWrapper>
-            )
-            : subMenuItem;
-        })}
+        }) => (
+          <SubMenuItem
+            key={`link/${subMenuSlug}`}
+            closeMobileMenu={closeMobileMenu}
+            handleOnClick={handleOnClick(subMenuSlug)}
+            subtitle={subtitle}
+            title={title}
+            items={items}
+            subMenuSlug={subMenuSlug}
+          />
+        ))}
       </div>
     </div>
   );
-};
+}
 
 DropDownMenu.defaultProps = {
   closeMobileMenu: () => {},

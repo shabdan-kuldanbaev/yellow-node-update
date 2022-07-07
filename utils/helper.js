@@ -248,3 +248,13 @@ export const formatDate = (date, { format = DEFAULT_DATE_FORMAT } = {}) => dayjs
 export const getMaxVal = (...args) => args.reduce((currentMax, val) => (val > currentMax ? val : currentMax), args[0]);
 
 export const getLimitedList = (list, { start = 0, limit = 1 }) => list.slice(start, limit);
+
+export const runMiddleware = (req, res, fn) => new Promise((resolve, reject) => {
+  fn(req, res, (result) => {
+    if (result instanceof Error) {
+      return reject(result);
+    }
+
+    return resolve(result);
+  });
+});

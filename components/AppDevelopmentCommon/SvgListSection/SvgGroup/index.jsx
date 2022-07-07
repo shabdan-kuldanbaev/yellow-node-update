@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import { Svg } from 'components/AppDevelopmentCommon/Svg';
 import { getSvgGroupProps } from '../utils/svgHelper';
+
+const Animated = dynamic(() => import('components/Common/Animated'));
 
 const SvgGroup = ({
   data,
@@ -17,7 +19,7 @@ const SvgGroup = ({
     <div className={listWrapperClassName}>
       {title && <h3>{title}</h3>}
       <div className={className}>
-        {technologies && technologies.map((technology, i) => {
+        {technologies?.map((technology, i) => {
           if (isMobileResolution) {
             return (
               <div key={`technologies/${technology}`}>

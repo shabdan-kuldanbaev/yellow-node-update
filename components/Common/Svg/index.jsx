@@ -9,7 +9,7 @@ import { ReactComponent as InstagramDark } from './svgs/instagram.svg';
 import { ReactComponent as LinkedInDark } from './svgs/linkedIn.svg';
 import { ReactComponent as TwitterDark } from './svgs/twitter.svg';
 
-export const Svg = ({
+const Svg = ({
   type,
   className,
   handleOnClick,
@@ -355,3 +355,5 @@ Svg.propTypes = {
   className: PropTypes.string,
   handleOnClick: PropTypes.func,
 };
+
+export default Svg;

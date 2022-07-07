@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';

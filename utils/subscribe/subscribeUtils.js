@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 const Mailchimp = require('mailchimp-api-v3');
 const md5 = require('md5');
-const errorHelper = require('../utils/error');
+const errorHelper = require('../error');
 
 dotenv.config('./env');
 

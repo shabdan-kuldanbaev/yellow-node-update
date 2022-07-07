@@ -1,18 +1,20 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import get from 'lodash/get';
 import { selectProject } from 'redux/selectors/portfolio';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
-import { MetaTags } from 'components/Common/MetaTags';
+import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 
-const CaseStudiesContainer = ({ introSection, currentProject }) => {
+function CaseStudiesContainer({ introSection }) {
+  const currentProject = useSelector(selectProject);
+
   const {
     slug,
     contentModules,
@@ -46,7 +48,7 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
         page={PAGES.portfolio}
         pageMetadata={projectMetadata}
       />
-      {contentModules && contentModules.map(({ fields, sys }) => (
+      {contentModules?.map(({ fields, sys }) => (
         <CaseStudiesCommon
           key={sys.id}
           type={slug}
@@ -61,13 +63,10 @@ const CaseStudiesContainer = ({ introSection, currentProject }) => {
       )}
     </Fragment>
   );
-};
+}
 
 CaseStudiesContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  currentProject: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect(
-  (state) => ({ currentProject: selectProject(state) }),
-)(CaseStudiesContainer);
+export default CaseStudiesContainer;

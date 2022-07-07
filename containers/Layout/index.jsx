@@ -11,11 +11,10 @@ import {
   setFullResolution,
 } from 'redux/actions/layout';
 import CookiesNotification from 'components/Common/CookiesNotification';
-import { GAnalytic } from 'components/Layout/GAnalytic';
+import GAnalytic from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
-import { Footer } from 'components/Layout/Footer';
-import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
-import { ToTopButton } from 'components/Common/ToTopButton';
+import Footer from 'components/Layout/Footer';
+import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import {
   mobileResolution,
   tabletResolution,
@@ -26,7 +25,6 @@ export const Layout = ({ children, introSection }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
-  const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
   useEffect(() => {

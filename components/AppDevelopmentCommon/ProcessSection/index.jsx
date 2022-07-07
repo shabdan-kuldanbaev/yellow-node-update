@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { ArcherContainer, ArcherElement } from 'react-archer';
 import { Svg } from 'components/AppDevelopmentCommon/Svg';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, smallTabletResolution } from 'utils/helper';
 import { getCardsProps, getCardRelations } from './utils/cardsHelper';
 import styles from './styles.module.scss';

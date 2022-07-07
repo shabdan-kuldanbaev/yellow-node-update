@@ -1,5 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 const withObj = require('webpack-obj-loader');
+// const { withSentryConfig } = require('@sentry/nextjs');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -12,7 +13,6 @@ const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
   : {};
 
 const nextConfig = {
-  distDir: 'build',
   ...withCDN,
   webpack: (config, { isServer }) => {
     /* eslint-disable */
@@ -46,10 +46,6 @@ const nextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
     });
-
-    if (!isServer) {
-      config.resolve.alias['@sentry/node'] = '@sentry/browser';
-    }
 
     return config;
   },

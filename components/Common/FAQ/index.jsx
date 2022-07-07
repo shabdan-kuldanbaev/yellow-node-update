@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import isEmpty from 'lodash/isEmpty';
-import { FullLayout } from 'components/Layout/FullLayout';
+import FullLayout from 'components/Layout/FullLayout';
 import { microdata } from 'utils/microdata';
 import { Question } from './Question';
 import styles from './styles.module.scss';

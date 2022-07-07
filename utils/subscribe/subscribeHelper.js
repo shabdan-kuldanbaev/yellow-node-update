@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const subscribeUtils = require('./subscribeUtils');
-const errorHelper = require('../utils/error');
+const errorHelper = require('../error');
 
 dotenv.config('./env');
 

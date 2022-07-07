@@ -1,6 +1,6 @@
 import React from 'react';
-import { SectionTitle } from 'components/Common/SectionTitle';
-import { Animated } from 'components/Common/Animated';
+import SectionTitle from 'components/Common/SectionTitle';
+import Animated from 'components/Common/Animated';
 import PlacementInfoItem from './PlacementInfoItem';
 import Map from './Map';
 import {

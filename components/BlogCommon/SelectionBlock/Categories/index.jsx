@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { setOverflowForBody, isNumeric } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import CloseIcon from './images/close.svg';

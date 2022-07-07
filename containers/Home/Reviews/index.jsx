@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Reviews } from 'components/Common/Reviews';
-import { SectionTitle } from 'components/Common/SectionTitle';
+import Reviews from 'components/Common/Reviews';
+import SectionTitle from 'components/Common/SectionTitle';
 import { reviews } from './utils/data';
 import styles from './styles.module.scss';
 

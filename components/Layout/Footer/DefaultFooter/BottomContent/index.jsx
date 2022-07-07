@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import rocket from './json/rocket.json';
 import styles from './styles.module.scss';

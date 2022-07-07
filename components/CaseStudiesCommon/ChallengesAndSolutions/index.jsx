@@ -4,8 +4,8 @@ import cn from 'classnames';
 import get from 'lodash/get';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { Animated } from 'components/Common/Animated';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import Animated from 'components/Common/Animated';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import {
   getDocumentFields,
   getFileUrl,

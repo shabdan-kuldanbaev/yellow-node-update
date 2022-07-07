@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { useRouter } from 'next/router';
 import {
   selectManagementTeam,
   selectWhatMakesSpecial,
@@ -9,17 +8,15 @@ import {
   selectMetaData,
 } from 'redux/selectors/layout';
 import { reviews } from 'containers/Home/Reviews/utils/data';
-import {
-  AboutUs,
-  WhatMakesUsSpecial,
-  ManagementTeam,
-  PhotoGallery,
-  Awards,
-  Reviews,
-  MetaTags,
-  PageHeader,
-  FullLayout,
-} from 'components';
+import AboutUs from 'components/CompanyCommon/AboutUs';
+import WhatMakesUsSpecial from 'components/CompanyCommon/WhatMakesUsSpecial';
+import ManagementTeam from 'components/CompanyCommon/ManagementTeam';
+import Awards from 'components/CompanyCommon/Awards';
+import Reviews from 'components/Common/Reviews';
+import MetaTags from 'components/Common/MetaTags';
+import PageHeader from 'components/Common/PageHeader';
+import PhotoGallery from 'components/Common/PhotoGallery';
+import FullLayout from 'components/Layout/FullLayout';
 import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';

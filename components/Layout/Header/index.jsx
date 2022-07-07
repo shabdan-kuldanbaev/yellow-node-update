@@ -7,7 +7,7 @@ import { selectIsMobileMenuOpened, selectIsDropMenuOpened } from 'redux/selector
 import { setMobileMenuState } from 'redux/actions/layout';
 import LinearIndeterminate from 'components/Common/LinearIndeterminate';
 import Logo from 'components/Common/Logo';
-import { TopProgressBar } from 'components/Common/TopProgressBar';
+import TopProgressBar from 'components/Common/TopProgressBar';
 import {
   ROUTES,
   CASE_STUDIES_SLUGS,

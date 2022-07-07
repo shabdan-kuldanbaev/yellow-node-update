@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
-import styles from 'components/Layout/Footer/MainContent/styles.module.scss';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import styles from 'components/Layout/Footer/DefaultFooter/MainContent/styles.module.scss';
 
 export const FieldsWrapper = ({
   type,

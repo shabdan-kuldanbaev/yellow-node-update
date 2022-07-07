@@ -8,7 +8,7 @@ import { getPathWithCdn } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { ogMetaData } from './utils/data';
 
-export const MetaTags = ({
+const MetaTags = ({
   page,
   pageMetadata,
   children,
@@ -133,3 +133,5 @@ MetaTags.propTypes = {
   isArticle: PropTypes.bool,
   defaultMetaData: PropTypes.instanceOf(Array),
 };
+
+export default MetaTags;

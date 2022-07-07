@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import {
   getDocumentFields,
   getFileUrl,

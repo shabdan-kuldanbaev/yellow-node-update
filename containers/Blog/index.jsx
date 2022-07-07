@@ -5,14 +5,12 @@ import { connect } from 'react-redux';
 import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
 import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
 import { selectIsMobileResolutions, selectMetaData } from 'redux/selectors/layout';
-import {
-  SelectionBlock,
-  ArticlesList,
-  Paginator,
-  MetaTags,
-  PageHeader,
-  FullLayout,
-} from 'components';
+import SelectionBlock from 'components/BlogCommon/SelectionBlock';
+import ArticlesList from 'components/BlogCommon/ArticlesList';
+import MetaTags from 'components/Common/MetaTags';
+import PageHeader from 'components/Common/PageHeader';
+import Paginator from 'components/Common/Paginator';
+import FullLayout from 'components/Layout/FullLayout';
 import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
 import {
   PAGES,

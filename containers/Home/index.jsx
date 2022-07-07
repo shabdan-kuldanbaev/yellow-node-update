@@ -15,9 +15,9 @@ import {
 } from 'redux/selectors/layout';
 import { selectDuck } from 'redux/selectors/home';
 import Intro from 'containers/Home/Intro';
-import { FullLayout } from 'components/Layout/FullLayout';
+import FullLayout from 'components/Layout/FullLayout';
 import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
-import { MetaTags } from 'components/Common/MetaTags';
+import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';

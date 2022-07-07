@@ -7,11 +7,9 @@ import {
 } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import get from 'lodash/get';
-import {
-  GalleryCard,
-  Animated,
-  LinkWrapper,
-} from 'components';
+import GalleryCard from 'components/BlogCommon/Article/GalleryCard';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Animated from 'components/Common/Animated';
 import Table from 'components/Common/Table';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
@@ -23,7 +21,7 @@ import { ArticleLink } from './ArticleLink';
 import styles from './styles.module.scss';
 
 // TODO move it to the common folder
-export const ContentfulParser = ({ document }) => {
+const ContentfulParser = ({ document }) => {
   const options = {
     renderMark: {
       [MARKS.CODE]: (node) => <sub>{node}</sub>,
@@ -185,3 +183,5 @@ ContentfulParser.defaultProps = {
 ContentfulParser.propTypes = {
   document: PropTypes.instanceOf(Object),
 };
+
+export default ContentfulParser;

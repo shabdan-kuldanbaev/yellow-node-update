@@ -5,7 +5,7 @@ import { Attach } from './Attach';
 import { AttachedFile } from './AttachedFile';
 import styles from './styles.module.scss';
 
-export const Upload = ({
+const Upload = ({
   projectDescription,
   selectedFiles,
   handleOnDescriptionChange,
@@ -84,3 +84,5 @@ Upload.propTypes = {
   updateSelectedFileInfo: PropTypes.func.isRequired,
   style: PropTypes.string,
 };
+
+export default Upload;

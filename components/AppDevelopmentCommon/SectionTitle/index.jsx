@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 

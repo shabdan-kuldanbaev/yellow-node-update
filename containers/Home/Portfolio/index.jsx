@@ -2,7 +2,6 @@ import React, {
   useState,
   useRef,
   useEffect,
-  Fragment,
 } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
@@ -10,10 +9,10 @@ import { connect } from 'react-redux';
 import get from 'lodash/get';
 import { selectHomepageProjectsPreview } from 'redux/selectors/layout';
 import { Advantages } from 'containers/Home/Advantages';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
-import { SectionTitle } from 'components/Common/SectionTitle';
-import { Works } from 'components/HomeCommon/Works';
+import SectionTitle from 'components/Common/SectionTitle';
+import Works from 'components/HomeCommon/Works';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { blockNumbers } from './utils/data';
@@ -96,48 +95,46 @@ const Portfolio = ({ gradientRef, projects }) => {
   }, []);
 
   return (
-    <Fragment>
-      <div
-        className={styles.gradient}
-        ref={gradientRef}
+    <div
+      className={styles.gradient}
+      ref={gradientRef}
+    >
+      <Advantages
+        refs={refs}
+        className={styles[backgroundColor]}
+      />
+      <section
+        ref={portfolioRef}
+        className={cn(styles.portfolio, styles[backgroundColor])}
       >
-        <Advantages
+        <Works
           refs={refs}
-          className={styles[backgroundColor]}
+          works={contentModules}
         />
-        <section
-          ref={portfolioRef}
-          className={cn(styles.portfolio, styles[backgroundColor])}
-        >
-          <Works
-            refs={refs}
-            works={contentModules}
+        <div className={styles.bottomOfPortfolio}>
+          <SectionTitle
+            title="Check out more works by Yellow"
+            styleTitle={styles.title}
+            subtitle="We brainstorm, contribute, and grow your product together. Every step of the way."
+            styleSubtitle={styles.subtitle}
           />
-          <div className={styles.bottomOfPortfolio}>
-            <SectionTitle
-              title="Check out more works by Yellow"
-              styleTitle={styles.title}
-              subtitle="We brainstorm, contribute, and grow your product together. Every step of the way."
-              styleSubtitle={styles.subtitle}
+          <Animated
+            type={ANIMATED_TYPE.isCustom}
+            translateY="2.82352941em"
+            opasityDuration={1}
+            transformDuration={1}
+            transitionDelay={350}
+          >
+            <ButtonMore
+              href={ROUTES.portfolio.path}
+              dynamicRouting={ROUTES.portfolio.dynamicPath}
+              title="EXPLORE OUR WORKS"
+              buttonStyle={styles.portfolioButton}
             />
-            <Animated
-              type={ANIMATED_TYPE.isCustom}
-              translateY="2.82352941em"
-              opasityDuration={1}
-              transformDuration={1}
-              transitionDelay={350}
-            >
-              <ButtonMore
-                href={ROUTES.portfolio.path}
-                dynamicRouting={ROUTES.portfolio.dynamicPath}
-                title="EXPLORE OUR WORKS"
-                buttonStyle={styles.portfolioButton}
-              />
-            </Animated>
-          </div>
-        </section>
-      </div>
-    </Fragment>
+          </Animated>
+        </div>
+      </section>
+    </div>
   );
 };
 

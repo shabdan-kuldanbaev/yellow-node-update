@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { animated, useSpring } from 'react-spring/web.cjs';
+import { animated, useSpring } from 'react-spring';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import cn from 'classnames';
@@ -20,7 +20,7 @@ const ParallaxWrapper = ({
   const classNames = cn({ [className]: className });
   const style = {
     position: position || 'absolute',
-    transform: offset.interpolate(calc),
+    transform: offset.to(calc),
   };
 
   useEffect(() => {

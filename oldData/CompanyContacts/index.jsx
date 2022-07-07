@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Animated } from 'components';
+import Animated from 'components/Common/Animated';
 import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';

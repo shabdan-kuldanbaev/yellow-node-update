@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { Animated } from 'components/Common/Animated';
-import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import SvgGroup from './SvgGroup';
 import { getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('components/Common/Animated'));
+const CallToAction = dynamic(() => import('components/Common/CallToAction'));
+
 const SvgListSection = ({
   sectionData,
   handleOnCTAClick,
   type,
-  isMobileResolution,
 }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
   const {
     title,
     description,
@@ -61,16 +63,12 @@ const SvgListSection = ({
 
 SvgListSection.defaultProps = {
   handleOnCTAClick: () => {},
-  isMobileResolution: false,
 };
 
 SvgListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(SvgListSection);
+export default SvgListSection;

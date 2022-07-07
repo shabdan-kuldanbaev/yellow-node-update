@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Carousel, SectionTitle } from 'components';
+import SectionTitle from 'components/Common/SectionTitle';
+import Carousel from 'oldData/Carousel';
+
 import styles from './styles.module.scss';
 
-export const Reviews = ({ className }) => (
+const Reviews = ({ className }) => (
   <section className={cn(styles.reviews, { [className]: className })}>
     <SectionTitle title="What people say" />
     <Carousel />
@@ -18,3 +20,5 @@ Reviews.defaultProps = {
 Reviews.propTypes = {
   className: PropTypes.string,
 };
+
+export default Reviews;

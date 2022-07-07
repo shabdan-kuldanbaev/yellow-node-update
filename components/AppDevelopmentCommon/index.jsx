@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
-import { ImageSection } from 'components/AppDevelopmentCommon/ImageSection';
-import { CardsSection } from 'components/AppDevelopmentCommon/CardsSection';
-import ProcessSection from 'components/AppDevelopmentCommon/ProcessSection';
-import { CheckListSection } from 'components/AppDevelopmentCommon/CheckListSection';
-import { SliderSection } from 'components/AppDevelopmentCommon/SliderSection';
 import SvgListSection from 'components/AppDevelopmentCommon/SvgListSection';
-import GallerySection from 'components/AppDevelopmentCommon/GallerySection';
-import { FaqSection } from 'components/AppDevelopmentCommon/FaqSection';
-import { ReviewsSection } from 'components/AppDevelopmentCommon/ReviewsSection';
-import { ImagesListSection } from 'components/AppDevelopmentCommon/ImagesListSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
+
+const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
+const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/CheckListSection'));
+const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
+const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
+const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
+const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSection'));
+const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'));
+const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
+const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));
 
 export const AppDevelopmentCommon = ({
   type,

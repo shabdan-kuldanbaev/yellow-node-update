@@ -2,7 +2,7 @@ import React from 'react';
 import { instaPhotos } from './utils/data';
 import styles from './styles.module.scss';
 
-export const InstaTape = ({ instaPhotos: photos }) => (
+const InstaTape = ({ instaPhotos: photos }) => (
   <div className={styles.instaTape}>
     {photos && photos.map((photo) => (
       <div
@@ -21,3 +21,5 @@ export const InstaTape = ({ instaPhotos: photos }) => (
 InstaTape.defaultProps = {
   instaPhotos,
 };
+
+export default InstaTape;

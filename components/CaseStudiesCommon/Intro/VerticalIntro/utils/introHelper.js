@@ -1,6 +1,6 @@
 import React from 'react';
 import get from 'lodash/get';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { CASE_STUDIES } from 'utils/constants';
 import {
   getDocumentFields,

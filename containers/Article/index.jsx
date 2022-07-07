@@ -10,15 +10,13 @@ import {
   selectNearbyArticles,
 } from 'redux/selectors/blog';
 import { subscribe } from 'redux/actions/subscribe';
-import {
-  Article,
-  RelatedSection,
-  SubscribeBlock,
-  NextPrev,
-  MetaTags,
-  PageHeader,
-  FullLayout,
-} from 'components';
+import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
+import PageHeader from 'components/Common/PageHeader';
+import MetaTags from 'components/Common/MetaTags';
+import Article from 'components/BlogCommon/Article';
+import SubscribeBlock from 'components/Common/SubscribeBlock';
+import FullLayout from 'components/Layout/FullLayout';
+import NextPrev from 'components/BlogCommon/Article/NextPrev';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import { FAQ } from 'components/Common/FAQ';

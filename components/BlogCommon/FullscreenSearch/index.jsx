@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
 import { findArticles, clearFoundArticles } from 'redux/actions/blog';
-import { ModalWindow } from 'components/Common/ModalWindow';
+import ModalWindow from 'components/Common/ModalWindow';
 import SearchResult from './SearchResult';
 import styles from './styles.module.scss';
 
