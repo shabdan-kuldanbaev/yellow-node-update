@@ -89,6 +89,7 @@ function* fetchPageData({
       break;
     }
     case PAGES.blog:
+    case PAGES.tagBlog:
       yield all([
         yield call(fetchPage, { slug }),
         yield call(fetchBlogData, {

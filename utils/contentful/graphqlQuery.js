@@ -113,4 +113,46 @@ export const GRAPHQL_QUERY = {
       }
     `;
   },
+  getAllArticalTags() {
+    return `
+      query {
+        articalTagCollection {
+          items {
+            title
+            slug
+          }
+        }
+      }
+    `;
+  },
+  loadPreviewArticlesByTags({
+    limit,
+    where,
+  }) {
+    return `
+      query {
+        articalTagCollection(
+          ${getParam({ limit })}
+          ${getFilterParams(where)}
+        ) {
+          items {
+            linkedFrom {
+              articleCollection {
+                items {
+                  title
+                  slug
+                  previewImageUrl {
+                    url
+                  }
+                  introduction
+                  categoryTag
+                  publishedAt
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+  },
 };

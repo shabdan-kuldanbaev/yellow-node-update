@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import { toInt, isNumeric } from 'utils/helper';
@@ -6,10 +7,11 @@ import {
   PAGES,
   CATEGORY_SLUGS,
   ARTICLES_NUMBER_PER_PAGE,
-  CATEGORY_BLOG_SLUGS,
 } from 'utils/constants';
+import { contentfulClient } from 'utils/contentful/client';
+import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 
-export const isArticle = (slug) => !!slug && !CATEGORY_BLOG_SLUGS.includes(slug) && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
+export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
 
 // TODO think a better solution
 const fetchBlogData = async ({
@@ -18,6 +20,7 @@ const fetchBlogData = async ({
     slug: category = '',
     page = 1,
   },
+  routeSlug,
 }) => {
   let queryParams = {
     category,
@@ -40,7 +43,7 @@ const fetchBlogData = async ({
   const currentPage = toInt(queryParams.page);
 
   store.dispatch(fetchLayoutData({
-    slug: PAGES.blog,
+    slug: routeSlug,
     currentLimit: ARTICLES_NUMBER_PER_PAGE,
     category: queryParams.category,
     skip: (currentPage - 1) * ARTICLES_NUMBER_PER_PAGE,
@@ -72,7 +75,7 @@ export const getInitialBlogProps = async (ctx) => {
         slug: PAGES.article,
       }));
     } else {
-      const { articlesNumberPerPage, currentPage } = await fetchBlogData(ctx);
+      const { articlesNumberPerPage, currentPage } = await fetchBlogData({ ...ctx, routeSlug: PAGES.blog });
 
       props = {
         articlesNumberPerPage,
@@ -92,6 +95,49 @@ export const getInitialBlogProps = async (ctx) => {
           if (res) {
             res.statusCode = 404;
           }
+        }
+      }
+    }
+
+    return props;
+  } catch (error) {
+    errorHelper.handleError({
+      error,
+      message: 'Error in the getInitialBlogProps function',
+    });
+  }
+};
+
+export const getInitialTagBlogProps = async (ctx) => {
+  try {
+    const {
+      store,
+      req,
+      query: {
+        slug,
+      },
+      res,
+    } = ctx;
+    const response = await contentfulClient.graphql(GRAPHQL_QUERY.getAllArticalTags());
+    const tagsList = get(response, 'articalTagCollection.items', []);
+
+    const { articlesNumberPerPage, currentPage } = await fetchBlogData({ ...ctx, routeSlug: PAGES.tagBlog });
+    const props = {
+      articlesNumberPerPage,
+      currentPage,
+      statusCode: 200,
+    };
+
+    if (req) {
+      store.dispatch(END);
+      await store.sagaTask.toPromise();
+      const isValidPath = tagsList.some((tag) => tag.slug === slug);
+
+      if (!isValidPath) {
+        props.statusCode = 404;
+
+        if (res) {
+          res.statusCode = 404;
         }
       }
     }

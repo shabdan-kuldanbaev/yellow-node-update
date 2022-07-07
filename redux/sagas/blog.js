@@ -15,11 +15,7 @@ import { getDocumentFields } from 'utils/helper';
 import { contentfulClient } from 'utils/contentful/client';
 import { fetchContentfulArticles } from 'utils/contentful/helper';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
-import {
-  PAGES,
-  CATEGORY_BLOG_SLUGS,
-  CATEGORY_BLOG_TAGS,
-} from 'utils/constants';
+import { PAGES } from 'utils/constants';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -30,6 +26,14 @@ function getGraphqlResultArticles(graphqlResult) {
 
 function getGraphqlResultTotalArticlesCount(graphqlResult) {
   return get(graphqlResult, 'articleCollection.total', []);
+}
+
+function getGraphqlResultArticlesByTags(graphqlResult) {
+  return get(graphqlResult, 'articalTagCollection.items[0].linkedFrom.articleCollection.items', []);
+}
+
+function getGraphqlResultTotalArticlesCountByTags(graphqlResult) {
+  return get(graphqlResult, 'articalTagCollection.items[0].linkedFrom.articleCollection.total', []);
 }
 
 function* getArticle({ articleSlug, isPreviewMode }) {
@@ -45,41 +49,51 @@ function* getArticle({ articleSlug, isPreviewMode }) {
   }
 }
 
-const getWhere = (category) => {
-  if (CATEGORY_BLOG_SLUGS.includes(category)) {
-    return {
-      keyWords_contains_some: [CATEGORY_BLOG_TAGS[category]],
-    };
+const getGraphqlQuery = ({
+  limit, skip, category, slug, order,
+}) => {
+  if (slug === PAGES.tagBlog) {
+    return GRAPHQL_QUERY.loadPreviewArticlesByTags({
+      limit,
+      where: { slug: category },
+    });
   }
 
-  return {
-    ...(category
-      ? { categoryTag: category }
-      : { categoryTag_exists: true }
-    ),
-  };
+  return GRAPHQL_QUERY.loadPreviewArticles({
+    skip,
+    limit,
+    order,
+    where: {
+      ...(category
+        ? { categoryTag: category }
+        : { categoryTag_exists: true }
+      ),
+    },
+  });
 };
 
 export function* loadArticles({
   currentLimit,
   skip,
   category,
+  slug,
 }) {
   try {
     const order = category === 'software-development' ? '[title_ASC]' : '[publishedAt_DESC]';
-    const where = getWhere(category);
-    const response = yield contentfulClient.graphql(GRAPHQL_QUERY.loadPreviewArticles({
-      skip,
-      limit: currentLimit,
-      order,
-      where,
-    }));
+    const graphqlQuery = getGraphqlQuery({
+      limit: currentLimit, skip, category, slug, order,
+    });
+    const response = yield contentfulClient.graphql(graphqlQuery);
 
     yield put({
       type: actionTypes.LOAD_ARTICLES_SUCCESS,
       payload: {
-        items: getGraphqlResultArticles(response),
-        total: getGraphqlResultTotalArticlesCount(response),
+        items: slug === PAGES.tagBlog
+          ? getGraphqlResultArticlesByTags(response)
+          : getGraphqlResultArticles(response),
+        total: slug === PAGES.tagBlog
+          ? getGraphqlResultTotalArticlesCountByTags(response)
+          : getGraphqlResultTotalArticlesCount(response),
       },
     });
   } catch (error) {
@@ -183,11 +197,13 @@ export function* fetchBlogData({
   skip,
   isPreviewMode,
 }) {
-  if (slug === PAGES.blog) {
+  if (slug === PAGES.blog || slug === PAGES.tagBlog) {
+    console.log('category', category);
     yield call(loadArticles, {
       currentLimit,
       category,
       skip,
+      slug,
     });
   } else {
     yield call(getArticle, { articleSlug, isPreviewMode });
