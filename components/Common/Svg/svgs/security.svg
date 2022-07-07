@@ -1,0 +1,29 @@
+<svg
+  width="90"
+  height="90"
+  viewBox="0 0 90 90"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    opacity="0.5"
+    cx="45"
+    cy="45"
+    r="45"
+    fill="#FFE603"
+  ></circle>
+  <path
+    d="M31.25 41.6667V32.5C31.25 32.1685 31.3817 31.8505 31.6161 31.6161C31.8505 31.3817 32.1685 31.25 32.5 31.25H57.5C57.8315 31.25 58.1495 31.3817 58.3839 31.6161C58.6183 31.8505 58.75 32.1685 58.75 32.5V41.6667C58.75 54.7941 47.6084 59.1433 45.3838 59.8808C45.1351 59.9664 44.8649 59.9664 44.6162 59.8808C42.3916 59.1433 31.25 54.7941 31.25 41.6667Z"
+    stroke="#161616"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+  <path
+    d="M51.875 40L42.7083 48.75L38.125 44.375"
+    stroke="#161616"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+</svg>

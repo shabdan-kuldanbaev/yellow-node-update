@@ -1,0 +1,47 @@
+<svg
+  width="90"
+  height="90"
+  viewBox="0 0 90 90"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    opacity="0.5"
+    cx="45"
+    cy="45"
+    r="45"
+    fill="#FFE603"
+  ></circle>
+  <path
+    d="M42.5 53.75H30C29.337 53.75 28.7011 53.4866 28.2322 53.0178C27.7634 52.5489 27.5 51.913 27.5 51.25V40C27.5 39.337 27.7634 38.7011 28.2322 38.2322C28.7011 37.7634 29.337 37.5 30 37.5H42.5"
+    stroke="#161616"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+  <path
+    d="M42.5 58.75H35"
+    stroke="#161616"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+  <path
+    d="M61.25 31.25H48.75C48.0596 31.25 47.5 31.8096 47.5 32.5V57.5C47.5 58.1904 48.0596 58.75 48.75 58.75H61.25C61.9404 58.75 62.5 58.1904 62.5 57.5V32.5C62.5 31.8096 61.9404 31.25 61.25 31.25Z"
+    stroke="#161616"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+  <path
+    d="M38.75 53.75V58.75"
+    stroke="#161616"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  ></path>
+  <path
+    d="M55 55C56.0355 55 56.875 54.1605 56.875 53.125C56.875 52.0895 56.0355 51.25 55 51.25C53.9645 51.25 53.125 52.0895 53.125 53.125C53.125 54.1605 53.9645 55 55 55Z"
+    fill="#161616"
+  ></path>
+</svg>
