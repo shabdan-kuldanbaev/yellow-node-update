@@ -44,6 +44,18 @@
         text-align: center;
       }
     }
+
+    @include below-tablet {
+      flex-direction: column;
+      padding: 24px;
+
+      h3 {
+        @include fontSize(18px);
+
+        text-align: center;
+        margin: 0 0 24px;
+      }
+    }
   }
 
   @include phone {
