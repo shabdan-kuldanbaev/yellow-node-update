@@ -5,6 +5,12 @@
 .svgSection {
   @include appDevelopmentContainer;
 
+  .titleStyle {
+    p {
+      width: auto;
+    }
+  }
+
   h3 {
     @include fontSize(32px);
 
