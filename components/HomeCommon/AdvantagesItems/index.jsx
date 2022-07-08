@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
 import LinkWrapper from 'components/Common/LinkWrapper';
+import CustomImage from 'components/Common/CustomImage';
 import { advantages, animatedFields } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -10,9 +11,13 @@ const AdvantagesItems = ({ advantages: advantagesList, animatedFields: animatedF
     switch (field) {
     case 'img':
       return (
-        <img
+        <CustomImage
           src={adv.image}
           alt={adv.title}
+          layout="responsive"
+          width={400}
+          height={400}
+          containerClasses={styles.imageContainer}
         />
       );
     case 'title':
@@ -35,8 +40,8 @@ const AdvantagesItems = ({ advantages: advantagesList, animatedFields: animatedF
 
   return (
     <div className={styles.advantagesContainer}>
-      {advantagesList && advantagesList.map((adv) => {
-        const items = animatedFieldsList && animatedFieldsList.map((animated, index) => (
+      {advantagesList?.map((adv) => {
+        const items = animatedFieldsList?.map((animated, index) => (
           <Animated
             {...animated}
             transitionDelay={animated.transitionDelay(index)}

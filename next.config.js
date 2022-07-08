@@ -13,6 +13,12 @@ const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
   : {};
 
 const nextConfig = {
+  images: {
+    domains: ['images.ctfassets.net'],
+    loader: 'custom',
+    path: '',
+    deviceSizes: [390, 450, 568, 768, 1024, 1200, 1440, 1920, 2560, 3840],
+  },
   ...withCDN,
   webpack: (config, { isServer }) => {
     /* eslint-disable */

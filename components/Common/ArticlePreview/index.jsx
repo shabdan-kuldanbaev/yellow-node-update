@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import Animated from 'components/Common/Animated';
+import CustomImage from 'components/Common/CustomImage';
 import { ROUTES, CATEGORY_TAGS } from 'utils/constants';
 import { formatDate } from 'utils/helper';
 import styles from './styles.module.scss';
@@ -39,6 +40,14 @@ export const ArticlePreview = ({
     }
   };
 
+  const imageSizes = index === 0 ? {
+    width: 625,
+    height: 428,
+  } : {
+    width: 297,
+    height: 223,
+  };
+
   return (
     <article
       className={cn(styles[type], { [styles.medium]: index === 0 })}
@@ -46,9 +55,12 @@ export const ArticlePreview = ({
     >
       <Animated {...animatioProps}>
         <LinkWrapper {...articleLinkProps}>
-          <div
-            className={styles.imgContainer}
-            style={{ backgroundImage: `url(${image})` }}
+          <CustomImage
+            src={image}
+            alt={title}
+            layout="responsive"
+            {...imageSizes}
+            containerClasses={styles.imgContainer}
           />
         </LinkWrapper>
         <div className={styles.articleContent}>

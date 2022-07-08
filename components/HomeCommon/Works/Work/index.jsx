@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions, selectIsFullResolutions } from 'redux/selectors/layout';
+import CustomImage from 'components/Common/CustomImage';
 import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { getOptimizedContentfulImage } from 'utils/helper';
 import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields, imagesSizes } from './utils';
 import styles from './styles.module.scss';
@@ -14,13 +14,14 @@ const Work = ({
   refs,
   index,
   animatedFields: animatedFieldsList,
-  isMobileResolution,
-  isFullResolution,
   imageUrl,
   title,
   description,
   slug,
 }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isFullResolution = useSelector(selectIsFullResolutions);
+
   let sizeOfImage; // TODO rewrite it after the release
   const {
     mobileFirst,
@@ -70,18 +71,11 @@ const Work = ({
               { [styles.thirdShadow]: index === 2 },
             )}
           >
-            <img
-              src={sizeOfImage
-                ? getOptimizedContentfulImage(
-                  imageUrl,
-                  {
-                    width: sizeOfImage,
-                    fm: 'png',
-                    fl: 'png8',
-                  },
-                )
-                : imageUrl}
+            <CustomImage
+              src={imageUrl}
               alt={title}
+              layout="fill"
+              className={styles.img}
             />
           </div>
         </Animated>
@@ -107,9 +101,4 @@ Work.propTypes = {
   slug: PropTypes.string,
 };
 
-export default connect(
-  (state) => ({
-    isMobileResolution: selectIsMobileResolutions(state),
-    isFullResolution: selectIsFullResolutions(state),
-  }),
-)(Work);
+export default Work;

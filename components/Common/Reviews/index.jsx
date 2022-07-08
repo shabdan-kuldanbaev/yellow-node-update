@@ -129,7 +129,7 @@ const Reviews = ({ reviews }) => {
           ref={swiperRef}
           {...params}
         >
-          {reviews && reviews.map((comment) => (
+          {reviews?.map((comment) => (
             <SwiperSlide key={`mobileReviews/${comment.name}`}>
               <Comment
                 comment={comment}

@@ -1,0 +1,9 @@
+.picture {
+  display: flex;
+  justify-content: center;
+
+  & > span {
+    display: block !important;
+    overflow: visible !important;
+  }
+}

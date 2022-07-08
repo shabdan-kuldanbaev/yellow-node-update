@@ -306,7 +306,7 @@
           transform: translateY(-7vh);
         }
 
-        img {
+        .img {
           width: 110%;
           height: unset;
           max-width: 110%;
@@ -340,7 +340,7 @@
           transform: translateX(0);
         }
 
-        img {
+        .img {
           max-width: unset;
 
           @include below-tablet {
@@ -374,7 +374,7 @@
       .thirdShadow {
         @extend .imgWrapper;
 
-        img {
+        .img {
           max-width: unset;
           height: 35vw;
 

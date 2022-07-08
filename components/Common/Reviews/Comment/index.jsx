@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
+import CustomImage from 'components/Common/CustomImage';
 import Svg from 'components/Common/Svg';
 import styles from './styles.module.scss';
 
@@ -38,13 +39,15 @@ export const Comment = ({
           >
             <div className={styles.person}>
               <div>
-                <div className={styles.avatarContainer}>
-                  <img
-                    src={avatar}
-                    alt={name}
-                    className={styles.photo}
-                  />
-                </div>
+                <CustomImage
+                  src={avatar}
+                  alt={name}
+                  layout="responsive"
+                  width={58}
+                  height={58}
+                  containerClasses={styles.avatarContainer}
+                  className={styles.photo}
+                />
                 <div className={styles.info}>
                   <span className={styles.name}>
                     {name}

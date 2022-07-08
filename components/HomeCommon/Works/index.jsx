@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 
 const Works = ({ refs, works }) => (
   <div className={styles.worksContainer}>
-    {works && works.map((work, index) => {
+    {works?.map((work, index) => {
       const {
         previewImage,
         title,
