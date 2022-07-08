@@ -353,6 +353,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentImagesList: 'app-development-images-list',
   appDevelopmentNumberedList: 'app-development-numbered-list',
   appDevelopmentProcess: 'app-development-process',
+  appDevelopmentCheckSocial: 'app-development-check-social',
 };
 
 export const CONTACTS_DATA = {

@@ -10,6 +10,24 @@
     }
   }
 
+  &.firstSectionView {
+    .titleStyle {
+      h2 {
+        max-width: 705px;
+      }
+    }
+
+    .callToAction {
+      @include defaultCallToAction;
+
+      box-shadow: $card-bow-shadow;
+
+      h3 {
+        max-width: 572px;
+      }
+    }
+  }
+
   &.thirdSectionView {
     background-color: $alabaster;
   }

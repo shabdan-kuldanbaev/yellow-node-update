@@ -1,0 +1,83 @@
+/* stylelint-disable no-descending-specificity */
+@import "styles/utils/mixins";
+@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+
+.ui-ux-services {
+  .linksBlock {
+    max-width: 675px;
+    margin: 140px auto;
+
+    @include tablet {
+      margin-top: 100px;
+    }
+
+    @include phone {
+      margin-top: 60px;
+    }
+
+    .linksBlockTitle {
+      text-align: center;
+      margin: 0 auto 85px;
+
+      @include fontSize(40px);
+
+      @include tablet {
+        @include fontSize(35px);
+      }
+
+      @include phone {
+        margin: 0 auto 65px;
+        max-width: 300px;
+
+        @include fontSize(24px);
+      }
+    }
+
+    .linksList {
+      @include flex(row, space-between, center);
+
+      @include tablet {
+        justify-content: space-around;
+      }
+
+      @include phone {
+        flex-direction: column;
+      }
+
+      .linkContainer {
+        @include phone {
+          &:first-of-type {
+            margin-bottom: 40px;
+          }
+        }
+
+        a {
+          @include flex(row, center, center);
+
+          .linkText {
+            color: $dark-grey;
+            font-weight: 700;
+            margin: 0 18px 0 15px;
+
+            @include fontSize(24px);
+
+            @include phone {
+              @include fontSize(20px);
+            }
+          }
+
+          &:hover {
+            .arrow {
+              transform: translateX(5px);
+              transition: transform 0.4s ease-out;
+            }
+          }
+
+          .arrow {
+            transition: transform 0.4s ease-out;
+          }
+        }
+      }
+    }
+  }
+}

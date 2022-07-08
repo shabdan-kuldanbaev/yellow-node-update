@@ -97,7 +97,8 @@
 .ui-ux-services {
   @include appDevelopmentContainer;
 
-  padding-bottom: 0;
+  background-color: $alabaster;
+  padding-bottom: 120px;
 
   .sectionContainer {
     @include smallSectionWrapper;
@@ -153,5 +154,7 @@
 
   .callToAction {
     @include defaultCallToAction;
+
+    box-shadow: $card-bow-shadow;
   }
 }
