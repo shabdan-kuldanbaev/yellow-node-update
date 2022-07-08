@@ -10,6 +10,7 @@ export const getReviewsProps = (data) => {
     contentModules,
   } = getDocumentFields(data);
   const { contentModules: reviewsData } = getDocumentFields(get(contentModules, '[0]', {}));
+  const link = getDocumentFields(get(contentModules, '[1]', {}));
 
   if (reviewsData) {
     reviews = reviewsData.map((module) => {
@@ -38,6 +39,7 @@ export const getReviewsProps = (data) => {
   return {
     reviews,
     title,
+    link,
   };
 };
 
