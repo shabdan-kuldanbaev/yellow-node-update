@@ -21,7 +21,6 @@ const ChallengesSlider = ({ isMobileResolution, isSlider, children }) => {
 };
 
 ChallengesSlider.propTypes = {
-  isMobileResolution: PropTypes.bool.isRequired,
   isSlider: PropTypes.bool.isRequired,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
 };

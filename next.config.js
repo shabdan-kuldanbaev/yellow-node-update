@@ -1,8 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 const withObj = require('webpack-obj-loader');
 // const { withSentryConfig } = require('@sentry/nextjs');
-const Dotenv = require('dotenv-webpack');
-const path = require('path');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -20,20 +18,7 @@ const nextConfig = {
     deviceSizes: [390, 450, 568, 768, 1024, 1200, 1440, 1920, 2560, 3840],
   },
   ...withCDN,
-  webpack: (config, { isServer }) => {
-    /* eslint-disable */
-    require('dotenv').config();
-
-    config.plugins = config.plugins || [];
-
-    config.plugins = [
-      ...config.plugins,
-
-      new Dotenv({
-        path: path.join(__dirname, '.env'),
-        systemvars: true,
-      }),
-    ];
+  webpack: (config, { isServer, DefinePlugin }) => {
     /* eslint-enable */
 
     config.module.rules.push({

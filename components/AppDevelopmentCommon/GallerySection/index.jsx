@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {
   EffectCoverflow,
@@ -8,7 +9,6 @@ import SwiperCore, {
   Navigation,
 } from 'swiper';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import LinkWrapper from 'components/Common/LinkWrapper';
 import { getItemLink, getItemPreviewProps } from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
 import { ItemPreview } from './ItemPreview';
 import { GalleryCallToAction } from './GalleryCallToAction';
@@ -27,12 +27,18 @@ export const GallerySection = ({
   type,
   handleOnCTAClick,
 }) => {
+  const router = useRouter();
+
   const {
     title,
     slides,
     linkData,
     params,
   } = getGalleryProps(sectionData);
+
+  const navigateToLink = (link) => () => {
+    router.push(link);
+  };
 
   return (
     <section className={styles[type]}>
@@ -47,7 +53,10 @@ export const GallerySection = ({
             const { title: slideTitle } = getItemPreviewProps(slide);
 
             return (
-              <SwiperSlide key={`gallery-section/${slideTitle}`}>
+              <SwiperSlide
+                key={`gallery-section/${slideTitle}`}
+                onClick={link && navigateToLink(link)}
+              >
                 <ItemPreview
                   data={slide}
                   type={type}

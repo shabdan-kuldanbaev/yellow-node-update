@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import SubscribeBlock from 'components/Common/SubscribeBlock';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
@@ -15,9 +15,10 @@ export const ArticlesList = ({
   isBlogPage,
   currentPage,
   handleOnFormSubmit,
-  isMobileResolution,
   handleOnCloseModalWindow,
 }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
+
   const articleType = isSearch
     ? ARTICLE_PREVIEW_TYPES.search
     : ARTICLE_PREVIEW_TYPES.blog;
@@ -34,7 +35,7 @@ export const ArticlesList = ({
           handleOnSubmit={handleOnFormSubmit}
         />
       )}
-      {articles && articles.map((article, index) => {
+      {articles?.map((article, index) => {
         const articleProps = getArticleProps({
           article,
           index,
@@ -68,7 +69,6 @@ ArticlesList.defaultProps = {
   isBlogPage: false,
   handleOnFormSubmit: () => {},
   handleOnCloseModalWindow: () => {},
-  isMobileResolution: false,
 };
 
 ArticlesList.propTypes = {
@@ -77,10 +77,7 @@ ArticlesList.propTypes = {
   isBlogPage: PropTypes.bool,
   currentPage: PropTypes.number.isRequired,
   handleOnFormSubmit: PropTypes.func,
-  isMobileResolution: PropTypes.bool,
   handleOnCloseModalWindow: PropTypes.func,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(ArticlesList);
+export default ArticlesList;

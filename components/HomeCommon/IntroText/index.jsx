@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import useAppearingAnimation from 'hooks/useAppearingAnimation';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const IntroText = ({ className, isMobileResolution }) => {
+const IntroText = ({ className }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
   const [direction, isTopOfPage] = useAppearingAnimation(isMobileResolution);
 
   return (
@@ -43,9 +44,6 @@ IntroText.defaultProps = {
 
 IntroText.propTypes = {
   className: PropTypes.string,
-  isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(IntroText);
+export default IntroText;

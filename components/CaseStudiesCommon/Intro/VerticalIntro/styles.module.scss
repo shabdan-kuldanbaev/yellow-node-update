@@ -2,6 +2,10 @@
 /* stylelint-disable no-eol-whitespace */
 @import "styles/utils/mixins";
 
+.sectionBackground {
+  z-index: 0;
+}
+
 .container {
   box-sizing: border-box;
   padding: 330px 40px 150px;
@@ -18,7 +22,7 @@
   }
 
   .projectInfoContainer {
-    z-index: 100;
+    z-index: inherit;
 
     @include tablet {
       margin-bottom: 60px;
@@ -41,6 +45,8 @@
     }
 
     .title {
+      z-index: inherit;
+
       .projectTitle {
         margin: 0 0 30px;
         font-family: $case-studies-font;
@@ -106,6 +112,7 @@
 
     .experience {
       margin-right: 15px;
+      z-index: inherit;
 
       @include phone {
         margin-right: 40px;
@@ -130,6 +137,8 @@
 
   .imageContainer {
     position: relative;
+    display: block;
+    width: 100%;
     z-index: 1;
 
     .image {
@@ -142,6 +151,7 @@
 .introSection {
   max-width: 1400px;
   margin: 0 auto 240px;
+  z-index: 1;
 
   @include tablet {
     margin: 0 auto 60px;
@@ -190,6 +200,8 @@
 
   .projectInfoContainer {
     @include flex(column, center, center);
+
+    z-index: inherit;
 
     .title {
       position: relative;
@@ -350,7 +362,7 @@
 
   .projectInfoContainer {
     text-align: center;
-    z-index: initial;
+    z-index: inherit;
 
     .logo {
       position: absolute;

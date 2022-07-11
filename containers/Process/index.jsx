@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { selectProcessPage } from 'redux/selectors/process';
 import { selectMetaData } from 'redux/selectors/layout';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
@@ -12,8 +11,7 @@ import { PAGES, ROUTES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 
-const ProcessContainer = ({ introSection }) => {
-  const { json } = useSelector(selectProcessPage);
+const ProcessContainer = ({ introSection, json }) => {
   const metaData = useSelector(selectMetaData);
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
@@ -53,6 +51,7 @@ const ProcessContainer = ({ introSection }) => {
 
 ProcessContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
+  json: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default ProcessContainer;

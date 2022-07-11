@@ -4,10 +4,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-import { ReactComponent as YellowLogoWithBg } from './svgs/yellowLogoBg.svg';
-import { ReactComponent as InstagramDark } from './svgs/instagram.svg';
-import { ReactComponent as LinkedInDark } from './svgs/linkedIn.svg';
-import { ReactComponent as TwitterDark } from './svgs/twitter.svg';
+import YellowLogoWithBg from './svgs/yellowLogoBg.svg';
+import InstagramDark from './svgs/instagram.svg';
+import LinkedInDark from './svgs/linkedIn.svg';
+import TwitterDark from './svgs/twitter.svg';
 
 const Svg = ({
   type,

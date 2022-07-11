@@ -53,25 +53,19 @@ export const getIntroProps = (type, data) => {
     ['contentModules'],
   );
   const downloadLink = getDocumentFields(get(contentModules, '[0]'));
-  const appLogoUrl = getOptimizedContentfulImage(
-    getFileUrl(get(images, '[1]', '')),
-    { fm: 'png', fl: 'png8' },
-  );
-  const appBackgroundImageUrl = getOptimizedContentfulImage(
-    getFileUrl(get(images, '[0]', '')),
-    { fm: 'png', fl: 'png8' },
-  );
-  const backgroundImageUrl = getOptimizedContentfulImage(
-    getFileUrl(get(data, 'images[0]', '')),
-    { fm: 'png' },
-  );
+  const appLogoUrl = getFileUrl(get(images, '[1]', ''));
+  const appBackgroundImageUrl = getFileUrl(get(images, '[0]', ''));
+  const backgroundImageUrl = getFileUrl(get(data, 'images[0]', ''));
   const sectionStyle = (backgroundImageUrl && !isIntroHasBackground(type))
     ? { backgroundImage: `url(${backgroundImageUrl})` }
     : {};
 
+  const sectionBackground = backgroundImageUrl;
+
   return {
     sectionStyle,
     backgroundImageUrl,
+    sectionBackground,
     appLogoUrl,
     title,
     subtitle,

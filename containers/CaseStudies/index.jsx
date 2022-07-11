@@ -12,7 +12,7 @@ import styles from './styles.module.scss';
 
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 
-function CaseStudiesContainer({ introSection }) {
+const CaseStudiesContainer = ({ introSection }) => {
   const currentProject = useSelector(selectProject);
 
   const {
@@ -63,7 +63,7 @@ function CaseStudiesContainer({ introSection }) {
       )}
     </Fragment>
   );
-}
+};
 
 CaseStudiesContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,

@@ -27,7 +27,7 @@ export const ItemPreview = ({ data, type }) => {
   return (
     <section
       style={sectionStyle}
-      className={cn(styles[type], styles[view], styles[slug])}
+      className={cn(styles.previewContainer, styles[type], styles[view], styles[slug])}
     >
       <div className={styles.projectPreview}>
         <div className={styles.projectInfoContainer}>

@@ -60,6 +60,7 @@ export const ArticlePreview = ({
             alt={title}
             layout="responsive"
             {...imageSizes}
+            scale={2}
             containerClasses={styles.imgContainer}
           />
         </LinkWrapper>

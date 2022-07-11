@@ -5,7 +5,7 @@ import React, {
   useContext,
 } from 'react';
 import dynamic from 'next/dynamic';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchDuck } from 'redux/actions/home';
 import {
@@ -18,13 +18,13 @@ import Intro from 'containers/Home/Intro';
 import FullLayout from 'components/Layout/FullLayout';
 import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import MetaTags from 'components/Common/MetaTags';
+import Portfolio from 'containers/Home/Portfolio';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
 import { AppContext } from 'utils/appContext';
 import LoadingPlaceholder from './LoadingPlaceholder';
 
-const Portfolio = dynamic(() => import('containers/Home/Portfolio'));
 const ReviewsContainer = dynamic(() => import('containers/Home/Reviews'));
 const Blog = dynamic(() => import('containers/Home/Blog'));
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
@@ -33,12 +33,13 @@ const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm
 export const Home = ({
   theme,
   introSection,
-  photosData,
-  isPageReadyToDisplay,
-  fetchDuck: fetchDuckData,
-  duck,
-  metaData,
 }) => {
+  const dispatch = useDispatch();
+  const photosData = useSelector(selectImageCarousel);
+  const isPageReadyToDisplay = useSelector(selectIsPageReadyToDisplay);
+  const duck = useSelector(selectDuck);
+  const metaData = useSelector(selectMetaData);
+
   const gradientRef = useRef(null);
   const { contentModules } = getDocumentFields(photosData, ['contentModules']);
   const { contextData, setContextData } = useContext(AppContext);
@@ -49,10 +50,10 @@ export const Home = ({
 
   useEffect(() => {
     if (!duck) {
-      fetchDuckData({
+      dispatch(fetchDuck({
         isFirstHomepageVisit: contextData.isFirstHomepageVisit,
         loadDuck,
-      });
+      }));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duck]);
@@ -107,31 +108,9 @@ export const Home = ({
   );
 };
 
-Home.defaultProps = {
-  photosData: {},
-  duck: null,
-};
-
 Home.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   theme: PropTypes.string.isRequired,
-  photosData: PropTypes.instanceOf(Object),
-  isPageReadyToDisplay: PropTypes.bool.isRequired,
-  fetchDuck: PropTypes.func.isRequired,
-  duck: PropTypes.instanceOf(Object),
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-    ogImage: PropTypes.string,
-  }).isRequired,
 };
 
-export default connect(
-  (state) => ({
-    photosData: selectImageCarousel(state),
-    isPageReadyToDisplay: selectIsPageReadyToDisplay(state),
-    duck: selectDuck(state),
-    metaData: selectMetaData(state),
-  }),
-  { fetchDuck },
-)(Home);
+export default Home;

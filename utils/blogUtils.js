@@ -11,8 +11,7 @@ import {
 export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
 
 // TODO think a better solution
-const fetchBlogData = async ({
-  store,
+const fetchBlogData = async (store, {
   query: {
     slug: category = '',
     page = 1,
@@ -53,10 +52,9 @@ const fetchBlogData = async ({
 
 const isArticleLoaded = (store) => store.getState().blog.single.total !== 0;
 
-export const getInitialBlogProps = async (ctx) => {
+export const getInitialBlogProps = async (store, ctx) => {
   try {
     const {
-      store,
       req,
       query: {
         slug,
@@ -71,7 +69,7 @@ export const getInitialBlogProps = async (ctx) => {
         slug: PAGES.article,
       }));
     } else {
-      const { articlesNumberPerPage, currentPage } = await fetchBlogData(ctx);
+      const { articlesNumberPerPage, currentPage } = await fetchBlogData(store, ctx);
 
       props = {
         articlesNumberPerPage,
@@ -95,7 +93,9 @@ export const getInitialBlogProps = async (ctx) => {
       }
     }
 
-    return props;
+    return {
+      props,
+    };
   } catch (error) {
     errorHelper.handleError({
       error,

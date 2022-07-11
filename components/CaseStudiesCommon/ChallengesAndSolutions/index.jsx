@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
@@ -20,9 +20,10 @@ const ChallengesAndSolutions = ({
   data,
   type,
   isSpecial,
-  isMobileResolution,
   view,
 }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
+
   if (!get(data, 'contentModules')) {
     return null;
   }
@@ -125,7 +126,7 @@ const ChallengesAndSolutions = ({
                       src={imageUrl}
                       alt={title}
                     />
-                    {imagesBundles && imagesBundles.map((bundle, imagesBundlesIndex) => {
+                    {imagesBundles?.map((bundle, imagesBundlesIndex) => {
                       const bundleUrl = getFileUrl(bundle);
 
                       return (
@@ -152,17 +153,13 @@ ChallengesAndSolutions.defaultProps = {
   type: '',
   isSpecial: false,
   view: '',
-  isMobileResolution: false,
 };
 
 ChallengesAndSolutions.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,
   isSpecial: PropTypes.bool,
-  isMobileResolution: PropTypes.bool,
   view: PropTypes.string,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(ChallengesAndSolutions);
+export default ChallengesAndSolutions;

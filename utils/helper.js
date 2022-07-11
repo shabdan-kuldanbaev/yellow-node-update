@@ -1,18 +1,22 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
 import dayjs from 'dayjs';
+import { END } from 'redux-saga';
+import { wrapper } from 'redux/store';
+import { fetchLayoutData } from 'redux/actions/layout';
 import {
-  PAGES,
-  FEEDBACK_FORM_FIELDS,
-  IMAGES,
+  BIG_TABLET_RESOLUTION,
   DEFAULT_DATE_FORMAT,
-  PHONE_RESOLUTION,
+  DEFAULT_TABLET_RESOLUTION,
+  FEEDBACK_FORM_FIELDS,
   FULL_HD_RESOLUTION,
   HORIZONTAL_MOBILE,
-  DEFAULT_TABLET_RESOLUTION,
-  BIG_TABLET_RESOLUTION,
+  IMAGES,
+  PAGES,
+  PHONE_RESOLUTION,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
+import errorHelper from './error';
 
 export const themes = {
   dark: {
@@ -121,6 +125,15 @@ export const addHttpsToUrl = (url) => (/^\/\//.test(url) ? `https:${url}` : url)
 
 export const getFileUrl = (file) => addHttpsToUrl(get(file, 'fields.file.url', ''));
 
+export const getImage = (file) => {
+  const imageData = get(file, 'fields.file', '');
+
+  return {
+    ...imageData.details.image,
+    url: addHttpsToUrl(imageData.url),
+  };
+};
+
 export const getDocumentFields = (document, fields = []) => {
   if (fields.length) {
     return fields.reduce((acc, field) => {
@@ -215,9 +228,9 @@ export const getFeedbackFormData = (data) => {
 
 export const isNumeric = (value) => !isNaN(value);
 
-// export const getPathWithCdn = (path) => (`${path}`);
+export const getPathWithCdn = (path) => (`${path}`);
 // TODO: Uncomment when cdn will be fixed
-export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
+// export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
 export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
   isObject(value)
@@ -261,4 +274,23 @@ export const runMiddleware = (req, res, fn) => new Promise((resolve, reject) => 
 
     return resolve(result);
   });
+});
+
+export const getStaticPropsWrapper = (slug) => wrapper.getStaticProps((store) => async () => {
+  try {
+    store.dispatch(fetchLayoutData({ slug }));
+
+    store.dispatch(END);
+    await store.sagaTask.toPromise();
+
+    return {
+      props: {},
+      revalidate: 10,
+    };
+  } catch (error) {
+    errorHelper.handleError({
+      error,
+      message: `Error in the ${slug}.getStaticProps function`,
+    });
+  }
 });

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SWIPER_NAV_BUTTON_TYPES } from 'utils/constants';
-import { ReactComponent as Next } from './icons/next.svg';
-import { ReactComponent as Prev } from './icons/prev.svg';
+import Next from './icons/next.svg';
+import Prev from './icons/prev.svg';
 import styles from './styles.module.scss';
 
 const SwiperNavButton = ({ type, className }) => {

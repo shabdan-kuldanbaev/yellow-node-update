@@ -3,6 +3,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
+import CustomImage from 'components/Common/CustomImage';
 import SelectorElement from 'components/PortfolioCommon/SelectorElement';
 import { getFileUrl } from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
@@ -32,22 +33,29 @@ const Work = ({
       transitionDelay={700}
     >
       <div className={cn(styles.work, styles[customSlug || slug])}>
-        <div className={styles.images}>
-          {backgroundImage && (
-            <img
-              src={getFileUrl(backgroundImage)}
-              className={styles.backgroundImage}
-              alt=""
-            />
-          )}
-          {mainImage && (
-            <img
-              src={getFileUrl(mainImage)}
-              className={styles.mainImage}
-              alt="work preview"
-            />
-          )}
-        </div>
+        {backgroundImage && (
+          <CustomImage
+            src={getFileUrl(backgroundImage)}
+            layout="fill"
+            width={700}
+            height={700}
+            scale={2}
+            containerClasses={styles.imageContainer}
+            className={styles.backgroundImage}
+          />
+        )}
+        {mainImage && (
+          <CustomImage
+            src={getFileUrl(mainImage)}
+            alt="work preview"
+            layout="responsive"
+            width={700}
+            height={700}
+            scale={2}
+            containerClasses={styles.imageContainer}
+            className={styles.mainImage}
+          />
+        )}
         <div className={styles.contentWrapper}>
           <div className={styles.tagsWrapper}>
             {tags.map((tag) => (

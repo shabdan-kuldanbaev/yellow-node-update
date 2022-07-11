@@ -37,6 +37,7 @@ const CustomImage = ({
   src,
   backgroundColor,
   isRounded,
+  style,
   scale,
   ...other
 }) => {
@@ -56,13 +57,21 @@ const CustomImage = ({
     }),
   } : undefined;
 
-  const imageSize = layout !== 'fill' ? {
-    width,
-    height,
-  } : {};
+  const imageSize = {};
+
+  if (width) {
+    imageSize.width = width;
+  }
+
+  if (height) {
+    imageSize.height = height;
+  }
 
   return (
-    <picture className={cn(styles.picture, containerClasses)}>
+    <picture
+      style={style}
+      className={cn(styles.picture, containerClasses)}
+    >
       <source srcSet={getOptimizedContentfulImage(src, {
         fm: 'jpg',
         fl: 'progressive',
@@ -75,8 +84,8 @@ const CustomImage = ({
       <Image
         loader={ContentfulImageLoader}
         src={getOptimizedContentfulImage(src, {
-          width,
-          height,
+          width: width * scale,
+          height: height * scale,
           bg: backgroundColor,
           fm,
           fit,
@@ -106,13 +115,13 @@ CustomImage.defaultProps = {
   priority: false,
   objectFit: 'cover',
   isRounded: false,
+  style: null,
   scale: 1,
   className: '',
   containerClasses: '',
 };
 
 CustomImage.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
   width: PropTypes.number,
   height: PropTypes.number,
   priority: PropTypes.bool,
@@ -148,6 +157,7 @@ CustomImage.propTypes = {
     undefined,
   ]),
   isRounded: PropTypes.bool,
+  style: PropTypes.instanceOf(Object),
   scale: PropTypes.number,
   className: PropTypes.string,
   containerClasses: PropTypes.string,

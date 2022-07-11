@@ -80,6 +80,7 @@ const MetaTags = ({
         <link rel="manifest" href="/manifest.json" />
         {!isEmpty(pageMicrodata) && (
           <Script
+            id={`JSON-LD-${pageMicrodata.name}`}
             key={`JSON-LD-${pageMicrodata.name}`}
             strategy="afterInteractive"
             type="application/ld+json"
@@ -88,6 +89,7 @@ const MetaTags = ({
         )}
         {!isEmpty(breadcrumbs) && (
           <Script
+            id="JSON-LD-breadcrumbs"
             key="JSON-LD-breadcrumbs"
             strategy="afterInteractive"
             type="application/ld+json"

@@ -32,6 +32,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <Script
+            id="gtm-script"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -42,6 +43,7 @@ class MyDocument extends Document {
             }}
           />
           <Script
+            id="crisp-script"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="${CRISP_WEBSITE_ID}";

@@ -3,20 +3,22 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
 import { selectHomepageProjectsPreview } from 'redux/selectors/layout';
-import { Advantages } from 'containers/Home/Advantages';
 import Animated from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
 import SectionTitle from 'components/Common/SectionTitle';
-import Works from 'components/HomeCommon/Works';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { blockNumbers } from './utils/data';
 import styles from './styles.module.scss';
+
+const Advantages = dynamic(() => import('containers/Home/Advantages'));
+const Works = dynamic(() => import('components/HomeCommon/Works'));
 
 const Portfolio = ({ gradientRef, projects }) => {
   const [backgroundColor, setBackgroundColor] = useState('firstBlock');
@@ -99,18 +101,22 @@ const Portfolio = ({ gradientRef, projects }) => {
       className={styles.gradient}
       ref={gradientRef}
     >
-      <Advantages
-        refs={refs}
-        className={styles[backgroundColor]}
-      />
+      {Advantages && (
+        <Advantages
+          refs={refs}
+          className={styles[backgroundColor]}
+        />
+      )}
       <section
         ref={portfolioRef}
         className={cn(styles.portfolio, styles[backgroundColor])}
       >
-        <Works
-          refs={refs}
-          works={contentModules}
-        />
+        {Works && (
+          <Works
+            refs={refs}
+            works={contentModules}
+          />
+        )}
         <div className={styles.bottomOfPortfolio}>
           <SectionTitle
             title="Check out more works by Yellow"
