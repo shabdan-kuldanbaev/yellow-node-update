@@ -17,7 +17,8 @@
     "lint:js:fix": "yarn lint:js -- --fix",
     "lint:style": "npx stylelint {components,containers,styles}/**/**/**/**/**/*.scss --syntax=scss --ignore-path .gitignore",
     "lint:style:fix": "yarn lint:style -- --fix",
-    "lint": "yarn lint:js && yarn lint:style"
+    "lint": "yarn lint:js && yarn lint:style",
+    "svgo": "npx svgo -q --folder components/Common/Svg/svgs"
   },
   "lint-staged": {
     "*.scss": [
@@ -25,6 +26,9 @@
     ],
     "*.{js,jsx}": [
       "yarn lint:js"
+    ],
+    "*.svg": [
+      "yarn svgo"
     ]
   },
   "husky": {
@@ -129,6 +133,7 @@
     "redux-devtools-extension": "^2.13.8",
     "string-replace-loader": "^3.0.1",
     "stylelint": "^13.12.0",
-    "stylelint-config-standard": "^21.0.0"
+    "stylelint-config-standard": "^21.0.0",
+    "svgo": "^2.8.0"
   }
 }
