@@ -9,6 +9,7 @@ module.exports = {
           inlineStyles: {
             onlyMatchedOnce: false,
           },
+          removeViewBox: false,
         },
       },
     },
