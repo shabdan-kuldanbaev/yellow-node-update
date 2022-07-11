@@ -6,6 +6,16 @@
 
     .contentWrapper {
       @extend .threeColumnCards;
+
+      @include below-tablet {
+        .cards {
+          grid-template-rows: repeat(3, auto);
+
+          & > div {
+            padding: 24px;
+          }
+        }
+      }
     }
 
     .callToAction {
@@ -23,6 +33,16 @@
 
     .typeTitle {
       max-width: 235px;
+    }
+
+    @include below-tablet {
+      .cards {
+        grid-template-rows: repeat(3, auto);
+
+        & > div {
+          padding: 24px;
+        }
+      }
     }
   }
 }
