@@ -40,7 +40,7 @@ export const LinkWrapper = ({
       );
     }
 
-    onClick && onClick();
+    onClick();
   };
 
   return (
@@ -82,7 +82,7 @@ LinkWrapper.defaultProps = {
   children: null,
   googleAnalyticProps: {},
   isSocialLink: false,
-  onClick: null,
+  onClick: () => {},
 };
 
 LinkWrapper.propTypes = {
