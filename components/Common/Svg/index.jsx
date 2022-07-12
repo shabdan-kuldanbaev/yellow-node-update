@@ -9,14 +9,15 @@ export const Svg = ({
   className,
   handleOnClick: onClick,
   ...props
-}) => React.createElement(Icon[type],
+  // TODO: remove console log, keep it here until testing icons after refactoring
+}) => ((Icon[type] || console.log({ type })) ? React.createElement(Icon[type],
   {
     className,
     onClick,
     width: type === SVG_IMAGES_TYPES.yellowLogoText ? logoSize : undefined,
     ...props,
   },
-  undefined);
+  undefined) : null);
 
 Svg.defaultProps = {
   className: '',
