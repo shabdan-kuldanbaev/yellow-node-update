@@ -32,8 +32,12 @@ export const MetaTags = ({
     metaDescription: defaultMetaDescription,
   } = defaultMetaData.find((metaData) => metaData.pageName === page);
   const getTitle = (title) => ((pageNumber && pageNumber !== 1)
-    ? `Page ${pageNumber}. ${title}`
+    ? `${title} | Page ${pageNumber}`
     : title);
+
+  const getDescription = (description) => ((pageNumber && pageNumber !== 1)
+    ? `${description} | Page ${pageNumber}`
+    : description);
 
   const getImage = () => {
     if (ogImage) return ogImage;
@@ -53,12 +57,12 @@ export const MetaTags = ({
     <Head>
       <Fragment key={`meta/${title}`}>
         <title>{getTitle(title)}</title>
-        <meta name="description" content={description} />
+        <meta name="description" content={getDescription(description)} />
         <meta name="date" content={date} />
         <link rel="canonical" href={url} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content={type} />
-        <meta property="og:description" content={description} />
+        <meta property="og:description" content={getDescription(description)} />
         <meta property="og:title" content={getTitle(title)} />
         <meta property="og:url" content={url} />
         <meta property="og:image" content={getImage()} />
