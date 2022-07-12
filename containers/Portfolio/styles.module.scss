@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .paginator {
   @include macbook-fifteen {
@@ -60,7 +60,7 @@
     margin-top: 0;
   }
 
-  div[role='button'] {
+  div[role="button"] {
     margin-top: 20px;
   }
 }

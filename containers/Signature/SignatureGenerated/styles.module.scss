@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 @mixin signatureLinkMixin {
   a {
@@ -39,7 +39,7 @@
 
     * {
       background: $white;
-      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
     }
 
     table {
@@ -162,7 +162,7 @@
   &Generated {
     padding-bottom: 24px;
     margin: 24px 10px 32px;
-    box-shadow: 0 4px 24px 0 rgba($black, 0.08);
+    box-shadow: 0 4px 24px 0 rgb($black 0.08);
 
     td {
       padding: 0;

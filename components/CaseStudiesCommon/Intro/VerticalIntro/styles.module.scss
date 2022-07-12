@@ -295,7 +295,7 @@
     }
 
     .projectSubtitle {
-      color: rgba($dark-grey, 0.7);
+      color: rgb($dark-grey 0.7);
       margin-bottom: 100px;
 
       @include fontSize(24px);
@@ -502,7 +502,7 @@
     max-width: 1016px;
     margin: 0 auto;
     border-radius: 20px;
-    box-shadow: 8px 80px 80px 0 rgba($color: $shuttle-gray-2, $alpha: 0.07);
+    box-shadow: 8px 80px 80px 0 rgb($color: $shuttle-gray-2 $alpha: 7%);
   }
 
   a {

@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .categories {
   line-height: 2;
@@ -36,7 +36,7 @@
       right: 0;
       width: 10%;
       z-index: 2;
-      background: linear-gradient(90deg, rgba($white, 0) 0, rgba($white, 1) 100%);
+      background: linear-gradient(90deg, rgb($white 0) 0, rgb($white 1) 100%);
     }
   }
 

@@ -1,5 +1,5 @@
-@import 'styles/utils/mixins';
-@import 'styles/utils/theme/animations';
+@import "styles/utils/mixins";
+@import "styles/utils/theme/animations";
 
 .burgerOpened > div > span {
   background-color: $white;

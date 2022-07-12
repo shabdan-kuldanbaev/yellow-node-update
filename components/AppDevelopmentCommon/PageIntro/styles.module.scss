@@ -142,7 +142,7 @@
 
   .pageIntroSection {
     .pageIntroWrapper {
-      border-bottom: 1px solid rgba($alto, 0.2);
+      border-bottom: 1px solid rgb($alto 0.2);
       margin-bottom: 120px;
 
       @include below-tablet {
@@ -285,7 +285,7 @@
 .ios-mobile-app-development-services {
   .pageIntroSection {
     .pageIntroWrapper {
-      border-bottom: 1px solid rgba($alto, 0.2);
+      border-bottom: 1px solid rgb($alto 0.2);
       padding-bottom: 180px;
 
       @include macbook-twelve {

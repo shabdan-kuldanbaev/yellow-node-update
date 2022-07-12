@@ -1,5 +1,5 @@
-@import 'styles/utils/mixins';
-@import './styles/telemojo';
+@import "styles/utils/mixins";
+@import "./styles/telemojo";
 
 .fernwayer,
 .ubichat,
@@ -37,7 +37,7 @@
   }
 
   [data-case-study-description] {
-    color: rgba($white, 0.4);
+    color: rgb($white 0.4);
   }
 }
 
@@ -52,7 +52,7 @@
   }
 
   [data-case-study-description] {
-    color: rgba($white, 0.4);
+    color: rgb($white 0.4);
   }
 }
 
@@ -145,7 +145,7 @@
   }
 
   [data-case-study-description] {
-    color: rgba($dark-grey, 0.5);
+    color: rgb($dark-grey 0.5);
     max-width: 825px;
   }
 }

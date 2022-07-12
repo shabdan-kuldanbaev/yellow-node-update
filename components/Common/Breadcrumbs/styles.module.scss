@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .breadcrumbs {
   padding-bottom: calc(#{$section-indent} / 2);
@@ -25,7 +25,7 @@
     }
 
     li::after {
-      content: '/';
+      content: "/";
       margin: 0 8px;
       user-select: none;
       color: $mountain-mis;

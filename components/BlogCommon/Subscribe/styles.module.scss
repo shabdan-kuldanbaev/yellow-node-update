@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .subscribeBlock {
   width: 100%;
@@ -112,8 +112,8 @@
           width: 223px;
           height: 56px;
           border-radius: 82px;
-          background-color: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
+          background-color: rgb(255 255 255 / 95%);
+          box-shadow: 0 0 29px 0 rgb(0 0 0 / 8%);
           border: none;
           font-size: 1.125rem;
           padding: 0 35px;

@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .blogPage {
   width: 100%;
@@ -98,7 +98,7 @@
       min-width: 300px;
       flex-grow: 1;
       padding: 18px;
-      border: 1px solid rgba(23, 23, 23, 0.3);
+      border: 1px solid rgb(23 23 23 / 30%);
       border-radius: 8px;
       color: $tundora;
       outline: none;

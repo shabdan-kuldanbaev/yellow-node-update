@@ -22,7 +22,7 @@
           right: 0;
           height: 107%;
           transform: translate(10px, -1px);
-          background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
+          background: linear-gradient(90deg, rgb($white 0) 0%, $white 83%);
 
           @include phone {
             display: none;
@@ -49,7 +49,7 @@
           left: 0;
           height: 107%;
           transform: translate(0, -1px);
-          background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
+          background: linear-gradient(270deg, rgb($white 0) 0%, $white 83%);
 
           @include phone {
             display: none;
@@ -109,7 +109,7 @@
         height: unset;
         max-height: unset;
         max-width: 1110px;
-        filter: drop-shadow(0 14px 44px rgba($black, 0.07));
+        filter: drop-shadow(0 14px 44px rgb($black 0.07));
       }
     }
   }
@@ -137,7 +137,7 @@
 
       p {
         margin-bottom: 10px;
-        color: rgba($white, 0.7);
+        color: rgb($white 0.7);
       }
 
       ul {
@@ -156,7 +156,7 @@
             &::before {
               position: absolute;
               left: -15px;
-              content: ' ';
+              content: " ";
               height: 6px;
               width: 6px;
               border-radius: 10px;
@@ -181,7 +181,7 @@
                 position: absolute;
                 top: 10px;
                 left: -7px;
-                content: ' ';
+                content: " ";
                 height: 4px;
                 width: 4px;
                 border-radius: 10px;

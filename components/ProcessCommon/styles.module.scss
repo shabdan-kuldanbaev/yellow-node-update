@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .processContainer {
   background-color: $white;
@@ -170,7 +170,7 @@
           @include phone {
             max-width: calc(100% - 40px);
             font-size: 2.5rem;
-            margin: 40px 0 25px 0;
+            margin: 40px 0 25px;
           }
 
           span {
@@ -240,7 +240,7 @@
             padding: 0;
 
             &::after {
-              content: '';
+              content: "";
               cursor: pointer;
               position: absolute;
               bottom: -5px;

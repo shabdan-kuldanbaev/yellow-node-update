@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .smallText {
   font-style: normal;
@@ -83,7 +83,7 @@
 
     &::before {
       width: 98%;
-      content: '';
+      content: "";
       cursor: pointer;
       position: absolute;
       bottom: -5px;

@@ -34,7 +34,7 @@
       }
 
       p {
-        color: rgba($white, 0.7);
+        color: rgb($white 0.7);
 
         @include phone {
           @include fontSize(14px);
@@ -73,7 +73,7 @@
     }
 
     .projectDescription {
-      color: rgba($white, 0.7);
+      color: rgb($white 0.7);
       max-width: 470px;
 
       @include below-tablet {

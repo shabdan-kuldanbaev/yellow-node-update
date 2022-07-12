@@ -55,7 +55,7 @@
   }
 
   &:nth-child(2) {
-    margin: 60px auto 0 auto;
+    margin: 60px auto 0;
   }
 
   .imageContainer {
@@ -218,14 +218,14 @@
     width: auto;
 
     &:nth-child(2) {
-      margin: 60px 0 0 0;
+      margin: 60px 0 0;
     }
   }
 
   @include phone {
     width: 100%;
     padding: 0;
-    margin: 100px 0 0 0;
+    margin: 100px 0 0;
 
     &:not(:nth-of-type(1)) {
       margin-top: 15%;

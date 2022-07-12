@@ -1,13 +1,13 @@
 /* stylelint-disable no-descending-specificity */
-@import '../../../../../styles/utils/mixins';
-@import '../../../../../styles/utils/theme/animations';
+@import "../../../../../styles/utils/mixins";
+@import "../../../../../styles/utils/theme/animations";
 
 .bottomContent {
   width: 100%;
   max-width: $max-content-width;
   margin-top: 60px;
   padding-top: 30px;
-  border-top: 1px solid rgba($white, 0.2);
+  border-top: 1px solid rgb($white 0.2);
 
   @include phone {
     margin-top: 40px;
