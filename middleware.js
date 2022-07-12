@@ -119,10 +119,11 @@ export function middleware(req, event) {
   const lowerCaseUrl = url.toLowerCase();
 
   if (url !== lowerCaseUrl) {
-    return NextResponse.redirect(
-      `${protocol}://${hostname}${lowerCaseUrl}`,
-      301,
-    );
+    const nextUrl = req.nextUrl.clone();
+    nextUrl.pathname = lowerCaseUrl;
+    NextResponse.rewrite(lowerCaseUrl);
+
+    return NextResponse.rewrite(lowerCaseUrl);
   }
 
   return NextResponse.next();
