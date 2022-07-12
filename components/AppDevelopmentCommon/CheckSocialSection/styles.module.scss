@@ -7,14 +7,6 @@
     max-width: 675px;
     margin: 140px auto;
 
-    @include tablet {
-      margin-top: 100px;
-    }
-
-    @include phone {
-      margin-top: 60px;
-    }
-
     .linksBlockTitle {
       @include fontSize(40px);
 
@@ -35,14 +27,6 @@
 
     .linksList {
       @include flex(row, space-between, center);
-
-      @include tablet {
-        justify-content: space-around;
-      }
-
-      @include phone {
-        flex-direction: column;
-      }
 
       .linkContainer {
         @include phone {
@@ -78,6 +62,22 @@
           }
         }
       }
+
+      @include tablet {
+        justify-content: space-around;
+      }
+
+      @include phone {
+        flex-direction: column;
+      }
+    }
+
+    @include tablet {
+      margin-top: 100px;
+    }
+
+    @include phone {
+      margin-top: 60px;
     }
   }
 }
