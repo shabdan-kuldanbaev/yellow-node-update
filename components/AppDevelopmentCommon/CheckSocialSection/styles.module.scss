@@ -16,20 +16,20 @@
     }
 
     .linksBlockTitle {
+      @include fontSize(40px);
+
       text-align: center;
       margin: 0 auto 85px;
-
-      @include fontSize(40px);
 
       @include tablet {
         @include fontSize(35px);
       }
 
       @include phone {
+        @include fontSize(24px);
+
         margin: 0 auto 65px;
         max-width: 300px;
-
-        @include fontSize(24px);
       }
     }
 
@@ -55,11 +55,11 @@
           @include flex(row, center, center);
 
           .linkText {
+            @include fontSize(24px);
+
             color: $dark-grey;
             font-weight: 700;
             margin: 0 18px 0 15px;
-
-            @include fontSize(24px);
 
             @include phone {
               @include fontSize(20px);
