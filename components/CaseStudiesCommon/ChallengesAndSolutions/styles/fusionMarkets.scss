@@ -112,7 +112,7 @@
       .infoContainer {
         h2 {
           background: linear-gradient(to right, $ocean-blue 0%, $jacksons-purple 50%);
-          background-clip: text;
+          -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 

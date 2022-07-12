@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .container {
   @include caseStudyContainer;
@@ -133,7 +133,7 @@
         z-index: 10;
         right: 0;
         transform: translate(10px, -1px);
-        background: linear-gradient(90deg, rgb($white 0) 0%, $white 78.3%);
+        background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
 
         @include macbook-fifteen {
           right: 10px;

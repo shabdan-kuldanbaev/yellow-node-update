@@ -106,7 +106,7 @@
     }
 
     &::before {
-      content: "";
+      content: '';
       display: inline-block;
       width: 6px;
       height: 6px;
@@ -244,7 +244,7 @@
     font-weight: normal;
 
     &::before {
-      content: "";
+      content: '';
       display: inline-block;
       width: 6px;
       height: 6px;
@@ -448,7 +448,7 @@
   max-width: initial;
   padding: 80px 0;
   margin: 150px 0;
-  background: linear-gradient(180deg, rgb($selago 0) 0%, $selago 20.83%, $selago 49.48%, $selago 74.48%, rgb($selago 0) 100%);
+  background: linear-gradient(180deg, rgba($selago, 0) 0%, $selago 20.83%, $selago 49.48%, $selago 74.48%, rgba($selago, 0) 100%);
 
   @include phone {
     margin: 80px 0;

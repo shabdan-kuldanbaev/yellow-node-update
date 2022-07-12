@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .commentWrapper {
   transition: transform 0.2s ease-in-out;
@@ -48,7 +48,7 @@
 
   & > div:first-child {
     height: 100%;
-    box-shadow: 0 10px 60px -10px rgb(0 0 0 / 15%);
+    box-shadow: 0 10px 60px -10px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
   }
 
@@ -191,7 +191,7 @@
       &::after {
         @include centered;
 
-        content: "Blackbird";
+        content: 'Blackbird';
         font-weight: bold;
         left: 100%;
       }

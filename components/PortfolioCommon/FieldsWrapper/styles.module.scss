@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .h1 {
   @include defaultSecondHeader;
@@ -62,7 +62,7 @@
     padding: 0;
 
     &::after {
-      content: "";
+      content: '';
       cursor: pointer;
       position: absolute;
       bottom: -5px;

@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .work {
   position: relative;
@@ -159,7 +159,7 @@
           }
 
           &::after {
-            content: "";
+            content: '';
             cursor: pointer;
             position: absolute;
             bottom: -5px;
@@ -327,7 +327,7 @@
           z-index: 10;
 
           & img {
-            filter: drop-shadow(0 24px 44px rgb($black 0.45));
+            filter: drop-shadow(0 24px 44px rgba($black, 0.45));
           }
 
           @include below-tablet {
@@ -358,7 +358,7 @@
           max-width: unset;
 
           & img {
-            filter: drop-shadow(0 16px 34px rgb($black 0.1));
+            filter: drop-shadow(0 16px 34px rgba($black, 0.1));
           }
 
           @include below-tablet {

@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .desktopMenu {
   transition: margin $default-transition-time;
@@ -152,7 +152,7 @@
     overflow: hidden;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;

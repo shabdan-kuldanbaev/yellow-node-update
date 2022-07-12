@@ -1,5 +1,5 @@
 @import "styles/utils/variables";
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .buttonGroup {
   @include flex;
@@ -27,7 +27,7 @@
   opacity: 0.3;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     background: $black;
     height: 2px;

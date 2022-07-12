@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .feedbackFormWithTitle {
   position: relative;
@@ -69,7 +69,7 @@
         font-size: 0.9rem;
         line-height: 1.55;
         letter-spacing: 0.5px;
-        color: rgb($dark-grey 0.3);
+        color: rgba($dark-grey, 0.3);
 
         span {
           cursor: pointer;
@@ -85,20 +85,20 @@
             border: none;
             outline: none;
             background-color: transparent;
-            color: rgb($dark-grey 0.3);
+            color: rgba($dark-grey, 0.3);
             position: relative;
             display: inline-block;
             padding: 0;
 
             &::before {
-              content: "";
+              content: '';
               cursor: pointer;
               position: absolute;
               bottom: -2px;
               right: 0;
               width: 100%;
-              border-bottom: 1px rgb($dark-grey 0.3) solid;
-              background-color: rgb($dark-grey 0.3);
+              border-bottom: 1px rgba($dark-grey, 0.3) solid;
+              background-color: rgba($dark-grey, 0.3);
               transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
             }
           }
@@ -111,7 +111,7 @@
                 width: 0;
                 will-change: transition;
                 transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-                transform: translateZ(0);
+                -webkit-transform: translateZ(0);
               }
             }
           }

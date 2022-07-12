@@ -31,8 +31,8 @@
   }
 
   &.tagDisplay {
-    color: rgb($white 0.7);
-    border: solid rgb($white 0.7) 1px;
+    color: rgba($white, 0.7);
+    border: solid rgba($white, 0.7) 1px;
     background: none;
 
     &.selected,

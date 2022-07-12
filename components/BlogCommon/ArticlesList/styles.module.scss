@@ -1,5 +1,5 @@
-@import "styles/utils/mixins";
-@import "styles/utils/theme/_animations";
+@import 'styles/utils/mixins';
+@import 'styles/utils/theme/_animations';
 
 .locationSubscribe {
   @include seLocationSubscribe(7, 12);

@@ -34,7 +34,7 @@
       height: auto;
       max-width: 1020px;
       border-radius: 20px;
-      box-shadow: 7px 60px 67px 0 rgb($color: $shuttle-gray-2 $alpha: 7%);
+      box-shadow: 7px 60px 67px 0 rgba($color: $shuttle-gray-2, $alpha: 0.07);
     }
   }
 }

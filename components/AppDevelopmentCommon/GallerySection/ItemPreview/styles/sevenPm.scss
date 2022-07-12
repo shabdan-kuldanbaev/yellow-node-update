@@ -45,15 +45,15 @@
 
       --size: 23vw;
 
-      content: "";
+      content: '';
       width: var(--size);
       height: var(--size);
       z-index: -1;
       border-radius: 50%;
       background-image: linear-gradient(159.7deg, #FF2A89 10.47%, #FF4934 98.88%);
       box-shadow:
-        0 0 0 100px rgb(#FF2A89 0.1),
-        0 0 0 200px rgb(#FF2A89 0.05);
+        0 0 0 100px rgba(#FF2A89, 0.1),
+        0 0 0 200px rgba(#FF2A89, 0.05);
 
       @include tablet {
         --size: 40vw;

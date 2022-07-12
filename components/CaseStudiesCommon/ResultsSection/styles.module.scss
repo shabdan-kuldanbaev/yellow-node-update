@@ -60,7 +60,7 @@
   }
 
   [data-case-study-description] {
-    color: rgb($white 0.4);
+    color: rgba($white, 0.4);
   }
 
   .circle {
@@ -105,7 +105,7 @@
 
   [data-case-study-description] {
     max-width: 850px;
-    color: rgb($white 0.4);
+    color: rgba($white, 0.4);
   }
 
   .circle {
@@ -134,7 +134,7 @@
 
     .mockup {
       width: 330px;
-      filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgb(0 0 0 / 60%)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 50%));
+      filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6)) drop-shadow(-14.7997px 14.7997px 29.5993px rgba(0, 0, 0, 0.5));
 
       @include phone {
         width: 209px;
@@ -622,7 +622,7 @@
       position: static;
       transform: translate(0, 0);
       border-radius: 20px;
-      box-shadow: 0 14px 44px 0 rgb($color: $shuttle-gray-2 $alpha: 7%);
+      box-shadow: 0 14px 44px 0 rgba($color: $shuttle-gray-2, $alpha: 0.07);
     }
   }
 
@@ -659,7 +659,7 @@
 
     [data-case-study-description] {
       max-width: 850px;
-      color: rgb($silver-chalice 0.4);
+      color: rgba($silver-chalice, 0.4);
     }
 
     .circle {
@@ -746,7 +746,7 @@
 
     .mockup {
       width: 100%;
-      filter: drop-shadow(0 14px 54px rgb($black 0.08));
+      filter: drop-shadow(0 14px 54px rgba($black, 0.08));
       position: static;
       transform: translate(0, 0);
     }

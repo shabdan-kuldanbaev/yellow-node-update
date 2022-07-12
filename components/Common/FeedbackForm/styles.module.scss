@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .feedbackForm {
   position: relative;
@@ -13,8 +13,8 @@
     transition: none;
 
     & > div {
-      color: rgb($dark-grey 0.3);
-      border-color: rgb($dark-grey 0.3);
+      color: rgba($dark-grey, 0.3);
+      border-color: rgba($dark-grey, 0.3);
     }
   }
 
