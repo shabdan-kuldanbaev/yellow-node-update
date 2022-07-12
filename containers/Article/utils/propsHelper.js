@@ -53,7 +53,6 @@ export function getArticleProps({ article } = {}) {
       'headImageUrl',
       'publishedAt',
       'updatedAt',
-      'keyWords',
       'tagsList',
       'categoryTag',
       'metaTitle',

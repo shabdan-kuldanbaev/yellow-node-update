@@ -14,6 +14,7 @@ import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
 import { contentfulClient } from 'utils/contentful/client';
 import { fetchContentfulArticles } from 'utils/contentful/helper';
+import { getGraphqlQuery } from 'utils/blogUtils';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 import { PAGES } from 'utils/constants';
 
@@ -36,6 +37,20 @@ function getGraphqlResultTotalArticlesCountByTags(graphqlResult) {
   return get(graphqlResult, 'articalTagCollection.items[0].linkedFrom.articleCollection.total', []);
 }
 
+const findArticlesByValue = async (params) => await contentfulClient.graphql(
+  GRAPHQL_QUERY.loadPreviewArticles({
+    order: '[publishedAt_DESC]',
+    ...params,
+  }),
+);
+
+const findArticlesByTagValue = async (params) => await contentfulClient.graphql(
+  GRAPHQL_QUERY.loadPreviewArticlesByTags({
+    order: '[publishedAt_DESC]',
+    ...params,
+  }),
+);
+
 function* getArticle({ articleSlug, isPreviewMode }) {
   try {
     const article = yield fetchContentfulArticles(
@@ -49,29 +64,6 @@ function* getArticle({ articleSlug, isPreviewMode }) {
   }
 }
 
-const getGraphqlQuery = ({
-  limit, skip, category, isTagBlog, order,
-}) => {
-  if (isTagBlog) {
-    return GRAPHQL_QUERY.loadPreviewArticlesByTags({
-      limit,
-      where: { slug: category },
-    });
-  }
-
-  return GRAPHQL_QUERY.loadPreviewArticles({
-    skip,
-    limit,
-    order,
-    where: {
-      ...(category
-        ? { categoryTag: category }
-        : { categoryTag_exists: true }
-      ),
-    },
-  });
-};
-
 export function* loadArticles({
   currentLimit,
   skip,
@@ -81,7 +73,11 @@ export function* loadArticles({
   try {
     const order = category === 'software-development' ? '[title_ASC]' : '[publishedAt_DESC]';
     const graphqlQuery = getGraphqlQuery({
-      limit: currentLimit, skip, category, isTagBlog, order,
+      limit: currentLimit,
+      skip,
+      category,
+      isTagBlog,
+      order,
     });
     const response = yield contentfulClient.graphql(graphqlQuery);
 
@@ -151,20 +147,13 @@ function* loadNearbyArticles({ publishedAt }) {
 
 export function* findArticles({ payload: { value } }) {
   try {
-    const findArticlesByValue = async (params) => await contentfulClient.graphql(
-      GRAPHQL_QUERY.loadPreviewArticles({
-        order: '[publishedAt_DESC]',
-        ...params,
-      }),
-    );
-
     const [
-      resultByKey,
+      resultByTag,
       resultByBody,
       resultByOldBody,
     ] = yield all([
-      call(findArticlesByValue, {
-        where: { keyWords_contains_some: [value] },
+      call(findArticlesByTagValue, {
+        where: { title: [value] },
       }),
       call(findArticlesByValue, {
         where: { body_contains: value },
@@ -176,7 +165,7 @@ export function* findArticles({ payload: { value } }) {
 
     const result = uniqWith(
       [
-        ...getGraphqlResultArticles(resultByKey),
+        ...getGraphqlResultArticlesByTags(resultByTag),
         ...getGraphqlResultArticles(resultByBody),
         ...getGraphqlResultArticles(resultByOldBody),
       ],

@@ -115,3 +115,30 @@ export const getInitialBlogProps = async (ctx) => {
     });
   }
 };
+
+export const getGraphqlQuery = ({
+  limit,
+  skip,
+  category,
+  isTagBlog,
+  order,
+}) => {
+  if (isTagBlog) {
+    return GRAPHQL_QUERY.loadPreviewArticlesByTags({
+      limit,
+      where: { slug: category },
+    });
+  }
+
+  return GRAPHQL_QUERY.loadPreviewArticles({
+    skip,
+    limit,
+    order,
+    where: {
+      ...(category
+        ? { categoryTag: category }
+        : { categoryTag_exists: true }
+      ),
+    },
+  });
+};

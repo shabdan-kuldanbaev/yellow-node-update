@@ -128,11 +128,13 @@ export const GRAPHQL_QUERY = {
   loadPreviewArticlesByTags({
     limit,
     where,
+    order,
   }) {
     return `
       query {
         articalTagCollection(
           ${getParam({ limit })}
+          ${getParam({ order })}
           ${getFilterParams(where)}
         ) {
           items {
