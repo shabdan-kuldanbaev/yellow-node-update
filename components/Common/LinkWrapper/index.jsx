@@ -18,6 +18,7 @@ export const LinkWrapper = ({
   children,
   googleAnalyticProps,
   isSocialLink,
+  onClick,
 }) => {
   const finalPath = isLocalLink
     ? path.replace(rootUrl, '')
@@ -38,6 +39,8 @@ export const LinkWrapper = ({
         label || data,
       );
     }
+
+    onClick();
   };
 
   return (
@@ -79,6 +82,7 @@ LinkWrapper.defaultProps = {
   children: null,
   googleAnalyticProps: {},
   isSocialLink: false,
+  onClick: () => {},
 };
 
 LinkWrapper.propTypes = {
@@ -102,4 +106,5 @@ LinkWrapper.propTypes = {
     PropTypes.element,
   ]),
   isSocialLink: PropTypes.bool,
+  onClick: PropTypes.func,
 };
