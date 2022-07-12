@@ -17,7 +17,7 @@ export const TagsBlock = ({ tags }) => {
         {tags.map(({ title, slug }) => (
           <a
             key={title}
-            href={ROUTES.tagBlog.getRoute(slug).path}
+            href={ROUTES.blog.getRoute(slug).path}
             className={styles.tag}
           >
             {title}

@@ -174,14 +174,6 @@ export const routes = {
       },
     ],
   },
-  tagBlog: {
-    title: 'Blog',
-    slug: 'blog/tag',
-    getRoute: (slug) => ({
-      path: !!slug && `/blog/tag/${slug}`,
-      dynamicPath: !!slug && '/blog/tag/[slug]',
-    }),
-  },
   article: {
     title: 'Article',
     getRoute: (slug) => ({

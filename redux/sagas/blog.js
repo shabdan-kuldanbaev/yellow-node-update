@@ -50,9 +50,9 @@ function* getArticle({ articleSlug, isPreviewMode }) {
 }
 
 const getGraphqlQuery = ({
-  limit, skip, category, slug, order,
+  limit, skip, category, isTagBlog, order,
 }) => {
-  if (slug === PAGES.tagBlog) {
+  if (isTagBlog) {
     return GRAPHQL_QUERY.loadPreviewArticlesByTags({
       limit,
       where: { slug: category },
@@ -76,22 +76,22 @@ export function* loadArticles({
   currentLimit,
   skip,
   category,
-  slug,
+  isTagBlog,
 }) {
   try {
     const order = category === 'software-development' ? '[title_ASC]' : '[publishedAt_DESC]';
     const graphqlQuery = getGraphqlQuery({
-      limit: currentLimit, skip, category, slug, order,
+      limit: currentLimit, skip, category, isTagBlog, order,
     });
     const response = yield contentfulClient.graphql(graphqlQuery);
 
     yield put({
       type: actionTypes.LOAD_ARTICLES_SUCCESS,
       payload: {
-        items: slug === PAGES.tagBlog
+        items: isTagBlog
           ? getGraphqlResultArticlesByTags(response)
           : getGraphqlResultArticles(response),
-        total: slug === PAGES.tagBlog
+        total: isTagBlog
           ? getGraphqlResultTotalArticlesCountByTags(response)
           : getGraphqlResultTotalArticlesCount(response),
       },
@@ -196,14 +196,14 @@ export function* fetchBlogData({
   category,
   skip,
   isPreviewMode,
+  isTagBlog,
 }) {
-  if (slug === PAGES.blog || slug === PAGES.tagBlog) {
-    console.log('category', category);
+  if (slug === PAGES.blog || isTagBlog) {
     yield call(loadArticles, {
       currentLimit,
       category,
       skip,
-      slug,
+      isTagBlog,
     });
   } else {
     yield call(getArticle, { articleSlug, isPreviewMode });

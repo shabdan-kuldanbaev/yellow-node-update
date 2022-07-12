@@ -6,6 +6,7 @@ import PageNotFound from 'containers/PageNotFound';
 import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
 
 const Article = ({
+  isTagBlog,
   currentPage,
   introSection,
   statusCode,
@@ -17,7 +18,7 @@ const Article = ({
     return <PageNotFound />;
   }
 
-  return isArticle(slug)
+  return isArticle(slug) && !isTagBlog
     ? <ArticleContainer introSection={introSection} />
     : (
       <BlogContainer
