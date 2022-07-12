@@ -21,7 +21,7 @@ export const Svg = ({
 
 Svg.defaultProps = {
   className: '',
-  handleOnClick: null,
+  handleOnClick: undefined,
 };
 
 Svg.propTypes = {
