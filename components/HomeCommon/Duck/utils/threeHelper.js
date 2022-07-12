@@ -1,14 +1,15 @@
-import { Vector2 } from 'node_modules/three/src/math/Vector2';
-import { Vector3 } from 'node_modules/three/src/math/Vector3';
-import { PerspectiveCamera } from 'node_modules/three/src/cameras/PerspectiveCamera';
-import { Scene } from 'node_modules/three/src/scenes/Scene';
-import { ShaderMaterial } from 'node_modules/three/src/materials/ShaderMaterial';
-import { WebGLRenderer } from 'node_modules/three/src/renderers/WebGLRenderer';
-import { Points } from 'node_modules/three/src/objects/Points';
-import { Color } from 'node_modules/three/src/math/Color';
-import { PointsMaterial } from 'node_modules/three/src/materials/PointsMaterial';
-// import { BufferGeometry } from 'node_modules/three/src/core/BufferGeometry';
-// import { BufferAttribute } from 'node_modules/three/src/core/BufferAttribute';
+import {
+  Vector2,
+  Vector3,
+  PerspectiveCamera,
+  Scene,
+  ShaderMaterial,
+  WebGLRenderer,
+  Points,
+  Color,
+  PointsMaterial,
+// eslint-disable-next-line import/extensions
+} from 'node_modules/three/build/three.module.js';
 import {
   BufferGeometry,
   BufferAttribute,

@@ -82,7 +82,6 @@ export const Home = ({
             theme={theme}
             introSection={introSection}
             duck={duck}
-            isFirstHomepageVisit={contextData.isFirstHomepageVisit}
           />
           {Portfolio && <Portfolio gradientRef={gradientRef} />}
           {/* // TODO wrap all page in full layout */}

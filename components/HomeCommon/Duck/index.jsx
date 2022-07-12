@@ -11,10 +11,12 @@ import React, {
   useContext,
 } from 'react';
 import PropTypes from 'prop-types';
-// TODO try to replace with this and reduce the final build
-import { Raycaster } from 'node_modules/three/src/core/Raycaster';
-import { Plane } from 'node_modules/three/src/math/Plane';
-import { Vector3 } from 'node_modules/three/src/math/Vector3';
+import {
+  Raycaster,
+  Plane,
+  Vector3,
+// eslint-disable-next-line import/extensions
+} from 'node_modules/three/build/three.module.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import Animated from 'components/Common/Animated';
@@ -183,15 +185,15 @@ const Duck = ({ duck }) => {
         mesh.rotation.y += -0.1 * options.initial.rotationSpeed;
 
         if (!options.initial.isAppear) {
-          const tasksCount = positions.count / 10;
-          const tasks = new Array(10);
+          const tasksCount = positions.count / 17;
+          const tasks = new Array(17);
           // eslint-disable-next-line prefer-const,no-restricted-syntax
           for (let [index, task] of tasks.entries()) {
             task = positionsCalculations(positions, tasksCount * index, tasksCount * (index + 1));
           }
 
           await Promise.all(tasks);
-          positionsCalculations(positions, 0, positions.count);
+          await positionsCalculations(positions, 0, positions.count);
         }
 
         positions.needsUpdate = true;

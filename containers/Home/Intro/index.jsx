@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import dynamic from 'next/dynamic';
 import AddFooter from 'components/HomeCommon/AddFooter';
+import Partners from 'components/HomeCommon/Partners';
+import Duck from 'components/HomeCommon/Duck';
 import styles from './styles.module.scss';
-
-const Partners = dynamic(() => import('components/HomeCommon/Partners'));
-const Duck = dynamic(() => import('components/HomeCommon/Duck'));
 
 const Intro = ({
   theme,

@@ -1,6 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 const withObj = require('webpack-obj-loader');
-// const { withSentryConfig } = require('@sentry/nextjs');
+const { withSentryConfig } = require('@sentry/nextjs');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -18,7 +18,7 @@ const nextConfig = {
     deviceSizes: [390, 450, 568, 768, 1024, 1200, 1440, 1920, 2560, 3840],
   },
   ...withCDN,
-  webpack: (config, { isServer, DefinePlugin }) => {
+  webpack: (config, { dev }) => {
     /* eslint-enable */
 
     config.module.rules.push({
@@ -59,5 +59,7 @@ const nextConfig = {
 
 module.exports = withPlugins([
   withObj,
+  // eslint-disable-next-line global-require
   [withBundleAnalyzer],
+  [withSentryConfig, { silent: true }],
 ], nextConfig);

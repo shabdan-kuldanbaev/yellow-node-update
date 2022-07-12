@@ -1,5 +1,5 @@
 import Cors from 'cors';
-// import { withSentry } from '@sentry/nextjs';
+import { withSentry } from '@sentry/nextjs';
 import { runMiddleware } from 'utils/helper';
 import formDataHelper from 'utils/formDataHelper';
 
@@ -11,5 +11,4 @@ const handler = async (req, res) => {
   await formDataHelper.sendFormData(req, res);
 };
 
-// export default withSentry(handler);
-export default handler;
+export default withSentry(handler);
