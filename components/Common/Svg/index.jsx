@@ -9,6 +9,8 @@ import { ReactComponent as YellowLogoWithBg } from './svgs/yellowLogoBg.svg';
 import { ReactComponent as InstagramDark } from './svgs/instagram.svg';
 import { ReactComponent as LinkedInDark } from './svgs/linkedIn.svg';
 import { ReactComponent as TwitterDark } from './svgs/twitter.svg';
+import { ReactComponent as Next } from './svgs/next.svg';
+import { ReactComponent as Prev } from './svgs/prev.svg';
 
 export const Svg = ({
   type,
@@ -24,6 +26,10 @@ export const Svg = ({
     return <TwitterDark className={className} onClick={handleOnClick} />;
   case SVG_IMAGES_TYPES.yellowLogoWithBg:
     return <YellowLogoWithBg className={className} onClick={handleOnClick} />;
+  case SVG_IMAGES_TYPES.next:
+    return <Next className={className} onClick={handleOnClick} />;
+  case SVG_IMAGES_TYPES.prev:
+    return <Prev className={className} onClick={handleOnClick} />;
   case SVG_IMAGES_TYPES.searchSvg:
     return (
       <svg className={className} onClick={handleOnClick} width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -340,6 +346,18 @@ export const Svg = ({
     return (
       <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M12 0C5.37058 0 0 5.37135 0 12C0 18.6286 5.37135 24 12 24C18.6294 24 24 18.6286 24 12C24 5.37135 18.6286 0 12 0ZM17.8939 8.22116L15.9244 17.5022C15.7788 18.1603 15.3871 18.3197 14.8405 18.0101L11.8405 15.799L10.3935 17.1925C10.2341 17.352 10.0986 17.4875 9.7889 17.4875L10.0018 14.4341L15.5613 9.4111C15.8036 9.19819 15.5079 9.07742 15.1881 9.29032L8.31716 13.6157L5.35587 12.6914C4.71252 12.4885 4.69781 12.048 5.49135 11.7383L17.0609 7.27665C17.5982 7.0831 18.0674 7.40748 17.8932 8.22039L17.8939 8.22116Z" fill="#171717" />
+      </svg>
+    );
+  case SVG_IMAGES_TYPES.arrowLeft:
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" width="31" height="8" fill="none">
+        <path fill="#171717" d="M.646 4.353a.5.5 0 0 1 0-.708L3.828.463a.5.5 0 0 1 .708.708L1.707 3.999l2.829 2.828a.5.5 0 1 1-.708.708L.646 4.353ZM31 4.499H1v-1h30v1Z" />
+      </svg>
+    );
+  case SVG_IMAGES_TYPES.arrowRight:
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" width="31" height="8" fill="none">
+        <path fill="#171717" d="M30.354 4.353a.5.5 0 0 0 0-.708L27.172.463a.5.5 0 1 0-.707.708l2.828 2.828-2.828 2.828a.5.5 0 1 0 .707.708l3.182-3.182ZM0 4.499h30v-1H0v1Z" />
       </svg>
     );
   default: return null;

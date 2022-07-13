@@ -116,6 +116,10 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  next: 'next',
+  prev: 'prev',
+  arrowLeft: 'arrowLeft',
+  arrowRight: 'arrowRight',
   twitterDark: 'twitterDark',
   linkedInDark: 'linkedInDark',
   instagramDark: 'instagramDark',
@@ -178,6 +182,8 @@ export const SVG_IMAGES_TYPES = {
 };
 
 export const APP_DEVELOPMENT_ICONS = {
+  arrowLeft: 'arrowLeft',
+  arrowRight: 'arrowRight',
   // mobile app page, development services section
   iOSAppDevelopment: 'iOSAppDevelopment',
   androidAppDevelopment: 'androidAppDevelopment',

@@ -1,4 +1,10 @@
 .machine-learning-development-services {
+  .cards {
+    .imageWrapper {
+      background-color: $turbo-100;
+    }
+  }
+
   &.firstSectionView {
     background: $alabaster;
   }
