@@ -10,6 +10,7 @@ import {
 } from 'utils/constants';
 import { contentfulClient } from 'utils/contentful/client';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
+import { getGraphqlResultTags } from 'utils/contentful/helper';
 
 export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
 
@@ -72,8 +73,8 @@ export const getInitialBlogProps = async (ctx) => {
       res,
     } = ctx;
     let props = {};
-    const response = await contentfulClient.graphql(GRAPHQL_QUERY.getAllArticalTags());
-    const tagsList = get(response, 'articalTagCollection.items', []);
+    const response = await contentfulClient.graphql(GRAPHQL_QUERY.loadTag({ where: { type: 'artical' } }));
+    const tagsList = getGraphqlResultTags(response);
     const isTagBlog = checkIsTagBlog(slug, tagsList);
 
     if (!isTagBlog && isArticle(slug)) {

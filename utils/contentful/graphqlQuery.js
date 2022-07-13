@@ -32,24 +32,26 @@ function getFilterParams(where) {
 }
 
 export const GRAPHQL_QUERY = {
-  loadPortfolioTypes({ order }) {
+  loadTag({ order, where }) {
     return `
       query {
-        workTypeCollection(
+        tagCollection(
           ${getParam({ order })}
+          ${getFilterParams(where)}
         ) {
           items {
             slug
-            displayName
+            title
+            type
           }
         }
       }
     `;
   },
-  loadPortfolioTags({ order }) {
+  loadPortfolioTypes({ order }) {
     return `
       query {
-        workTagCollection(
+        workTypeCollection(
           ${getParam({ order })}
         ) {
           items {
@@ -113,18 +115,6 @@ export const GRAPHQL_QUERY = {
       }
     `;
   },
-  getAllArticalTags() {
-    return `
-      query {
-        articalTagCollection {
-          items {
-            title
-            slug
-          }
-        }
-      }
-    `;
-  },
   loadPreviewArticlesByTags({
     limit,
     where,
@@ -132,7 +122,7 @@ export const GRAPHQL_QUERY = {
   }) {
     return `
       query {
-        articalTagCollection(
+        tagCollection(
           ${getParam({ limit })}
           ${getParam({ order })}
           ${getFilterParams(where)}

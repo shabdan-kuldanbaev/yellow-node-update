@@ -39,7 +39,6 @@ const BlogContainer = ({
   } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
   const breadcrumbs = pagesBreadcrumbs.blog(slug, tagsList);
-  console.log('breadcrumbs: ', breadcrumbs);
   const pageMetadata = {
     ...metaData,
     url: `${rootUrl}/${PAGES.blog}`,

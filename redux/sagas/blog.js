@@ -30,11 +30,11 @@ function getGraphqlResultTotalArticlesCount(graphqlResult) {
 }
 
 function getGraphqlResultArticlesByTags(graphqlResult) {
-  return get(graphqlResult, 'articalTagCollection.items[0].linkedFrom.articleCollection.items', []);
+  return get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.items', []);
 }
 
 function getGraphqlResultTotalArticlesCountByTags(graphqlResult) {
-  return get(graphqlResult, 'articalTagCollection.items[0].linkedFrom.articleCollection.total', []);
+  return get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.total', []);
 }
 
 const findArticlesByValue = async (params) => await contentfulClient.graphql(
