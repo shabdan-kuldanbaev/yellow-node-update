@@ -7,6 +7,7 @@ import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
 
 const Article = ({
   isTagBlog,
+  tagsList,
   currentPage,
   introSection,
   statusCode,
@@ -22,6 +23,7 @@ const Article = ({
     ? <ArticleContainer introSection={introSection} />
     : (
       <BlogContainer
+        tagsList={tagsList}
         articlesNumberPerPage={articlesNumberPerPage}
         currentPage={currentPage}
         introSection={introSection}

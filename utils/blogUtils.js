@@ -88,6 +88,7 @@ export const getInitialBlogProps = async (ctx) => {
         articlesNumberPerPage,
         currentPage,
         isTagBlog,
+        tagsList,
       };
     }
 
