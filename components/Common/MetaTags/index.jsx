@@ -31,11 +31,11 @@ export const MetaTags = ({
     metaTitle: defaultMetaTitle,
     metaDescription: defaultMetaDescription,
   } = defaultMetaData.find((metaData) => metaData.pageName === page);
-  const getTitle = (title) => ((pageNumber > 1)
+  const getTitle = (title) => (pageNumber > 1
     ? `${title} | Page ${pageNumber}`
     : title);
 
-  const getDescription = (description) => ((pageNumber > 1)
+  const getDescription = (description) => (pageNumber > 1
     ? `${description} | Page ${pageNumber}`
     : description);
 
