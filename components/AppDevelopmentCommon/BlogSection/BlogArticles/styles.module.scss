@@ -1,0 +1,103 @@
+/* stylelint-disable no-descending-specificity */
+@import "styles/utils/mixins";
+
+.articlesContainer {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  background-color: $white;
+
+  .desktopArticles {
+    :global(.swiper-container) {
+      overflow: visible;
+    }
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  .mobileArticles {
+    display: none;
+
+    & > div {
+      overflow: visible;
+    }
+
+    @include phone {
+      display: block;
+
+      :global {
+        .swiper-next-el,
+        .swiper-prev-el {
+          bottom: -60px;
+        }
+      }
+    }
+  }
+
+  .articleTile {
+    position: relative;
+    max-width: 407px;
+    height: 478px;
+    border-radius: 5px;
+    box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
+    overflow: hidden;
+
+    @include flex(column);
+
+    @include phone {
+      height: 343px;
+      border-radius: 0;
+    }
+
+    .articleImage {
+      width: 100%;
+      height: 304px;
+      object-fit: cover;
+
+      @include phone {
+        height: 200px;
+      }
+    }
+
+    .description {
+      padding: 26px;
+      display: flex !important;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+
+      @include hidden-text(ellipsis, 2);
+
+      .articleTitle {
+        margin: 0;
+        font-weight: 700;
+        line-height: 150%;
+        color: $dark-grey;
+
+        @include fontSize(20px);
+      }
+
+      .readMore {
+        line-height: 180%;
+        color: $dark-grey;
+
+        @include fontSize(18px);
+      }
+
+      @include phone {
+        .articleTitle {
+          line-height: 120%;
+
+          @include fontSize(16px);
+        }
+
+        .readMore {
+          line-height: 180%;
+
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+}

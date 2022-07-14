@@ -21,6 +21,8 @@ export instaIcon from './instaIcon.svg';
 export linkedinIcon from './linkedinIcon.svg';
 export mediumIcon from './mediumIcon.svg';
 export arrow from './arrow.svg';
+export arrowRight from './arrowRight.svg';
+export arrowLeft from './arrowLeft.svg';
 export behance from './behance.svg';
 export dribble from './dribble.svg';
 export instagram from './instagram.svg';

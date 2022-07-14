@@ -30,7 +30,36 @@
   }
 }
 
-.navButtonNext,
-.navButtonPrev {
-  @extend .navButton;
+.arrowRight,
+.arrowLeft {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+
+  .text {
+    padding: 0 10px;
+    line-height: 180%;
+
+    @include fontSize(18px);
+  }
+}
+
+.arrowRight {
+  left: unset;
+  right: 10%;
+
+  & > svg {
+    order: 2;
+  }
+
+  &:global(.swiper-next-el) {
+    left: unset;
+  }
+}
+
+.arrowLeft {
+  right: unset;
+  left: 10%;
 }
