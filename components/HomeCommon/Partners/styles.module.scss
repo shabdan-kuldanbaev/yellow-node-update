@@ -1,16 +1,16 @@
 @import 'styles/utils/mixins';
 
 .partnersContainer {
-  padding: $section-indent $side-indent 200px;
+  padding: calc($section-indent + 100vh) $side-indent 200px;
 
   @include flex(column, center, center);
 
   @include below-tablet {
-    padding: $section-indent $side-indent 100px;
+    padding: calc($section-indent + 100vh) $side-indent 100px;
   }
 
   @include phone {
-    padding: calc($section-indent - 40px) $side-indent $section-indent;
+    padding: calc($section-indent - 40px + 100vh) $side-indent $section-indent;
   }
 
   h2 {

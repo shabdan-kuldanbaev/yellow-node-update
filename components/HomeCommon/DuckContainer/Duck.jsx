@@ -24,13 +24,17 @@ import IntroText from 'components/HomeCommon/IntroText';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { AppContext } from 'utils/appContext';
+import { useDispatch, useSelector } from 'react-redux';
 import { animationTypes } from './utils/data';
 import {
   three,
   slogan,
-  getSpeed,
+  getSpeed, loadDuck,
 } from './utils/threeHelper';
 import * as styles from './styles.module.scss';
+import { fetchDuck } from '../../../redux/actions/home';
+import { selectIsPageReadyToDisplay } from '../../../redux/selectors/layout';
+import { selectDuck } from '../../../redux/selectors/home';
 
 let camera;
 let animationId = 0;
@@ -41,15 +45,30 @@ const meshClones = [];
 let composer;
 let mat = 0;
 
-const Duck = ({ duck }) => {
+const Duck = ({ sloganRef }) => {
+  const dispatch = useDispatch();
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);
   const [canvas, setCanvas] = useState(null);
-  const { contextData: { isHomepageVisit } } = useContext(AppContext);
+  const duck = useSelector(selectDuck);
 
   const containerCanvas = useRef(null);
-  const containerText = useRef(null);
-  const sloganRef = useRef(null);
+
+  useEffect(() => {
+    if (!duck) {
+      dispatch(fetchDuck({
+        isFirstHomepageVisit: false,
+        loadDuck,
+      }));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [duck]);
+
+  useEffect(() => () => {
+    meshes.length = 0;
+    meshClones.length = 0;
+    mat = 0;
+  }, []);
 
   const initialAnimationTime = 500; // 500 = 9s
   let animationDelay = 0.0001;
@@ -336,7 +355,7 @@ const Duck = ({ duck }) => {
   useEffect(() => {
     let timer;
 
-    if (window && window.srollY > 400 && isDuckBuilt) {
+    if (window?.srollY > 400 && isDuckBuilt) {
       cancelAnimationFrame(animationId);
       animationId = 0;
       isRender = false;
@@ -356,36 +375,11 @@ const Duck = ({ duck }) => {
 
         isRender = true;
         init();
-
-        if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';
-
-        slogan.setOpacity(canvas, containerCanvas);
-        slogan.animateSlogan(sloganRef);
         animate();
-
-        if (!isHomepageVisit) {
-          slogan.sloganOpacityAnimation(!isMobile ? 0.1 : 1);
-        } else {
-          slogan.sloganBlurAnimation(
-            sloganRef,
-            !isMobile ? 0.1 : 1,
-            styles.setBlur,
-          );
-        }
 
         window.addEventListener('resize', onWindowResize, false);
 
-        if (!isHomepageVisit) {
-          timer = setTimeout(() => {
-            options.initial.currentAnimation = animationTypes[1];
-
-            if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
-
-            document.addEventListener('mousedown', onDocumentMouseDown, false);
-            document.addEventListener('mouseup', onDocumentMouseUp, false);
-            document.addEventListener('mousemove', onDocumentMouseMove, false);
-          }, 5700);
-        } else {
+        timer = setTimeout(() => {
           options.initial.currentAnimation = animationTypes[1];
 
           if (sloganRef.current) sloganRef.current.classList.add(styles.setBlur);
@@ -393,7 +387,7 @@ const Duck = ({ duck }) => {
           document.addEventListener('mousedown', onDocumentMouseDown, false);
           document.addEventListener('mouseup', onDocumentMouseUp, false);
           document.addEventListener('mousemove', onDocumentMouseMove, false);
-        }
+        }, 2000);
       }
     } else {
       options.initial.isAppear = true;
@@ -424,68 +418,16 @@ const Duck = ({ duck }) => {
     };
   }, [duck, isAnimate]);
 
-  useEffect(() => () => {
-    if (isHomepageVisit) {
-      isRender = true;
-      meshes.length = 0;
-      meshClones.length = 0;
-      mat = 0;
-    }
-  }, [isHomepageVisit]);
-
   return (
-    <Fragment>
-      <div
-        className={styles.text}
-        ref={containerText}
-      >
-        <Animated
-          type={ANIMATED_TYPE.isParallaxSpring}
-          position="absolute"
-          speed={0.3}
-          elementRef={containerText}
-          isHomepageIntro
-        >
-          <h1
-            ref={sloganRef}
-            className="letter-container"
-          />
-        </Animated>
-      </div>
-      <IntroText className={styles.subText} />
-      <Animated
-        type={ANIMATED_TYPE.isParallaxSpring}
-        className={styles.canvasContainer}
-        elementRef={containerCanvas}
-        position="relative"
-        speed={0.09}
-        isHomepageIntro
-      />
-    </Fragment>
+    <Animated
+      type={ANIMATED_TYPE.isParallaxSpring}
+      className={styles.canvasContainer}
+      elementRef={containerCanvas}
+      position="relative"
+      speed={0.09}
+      isHomepageIntro
+    />
   );
 };
-
-Duck.defaultProps = {
-  duck: null,
-};
-
-Duck.propTypes = {
-  duck: PropTypes.instanceOf(Object),
-};
-
-// TODO
-// const onDocumentTouchMove = (ev) => {
-//   cancelAnimationFrame(animationId);
-//   animationId = 0;
-// };
-// const setTextPosition = pageYOffset => {
-//   if (pageYOffset > 0 && pageYOffset < 200) {
-//     movement = pageYOffset * .5;
-//     text.style.transform = `translate3d(0, ${movement}px, 0)`;
-//   };
-// };
-// document.addEventListener('touchmove', onDocumentTouchMove, false);
-// document.addEventListener('touchstart', onDocumentMouseMove, false);
-// const introBottom = containerCanvas.current.getBoundingClientRect().bottom;
 
 export default Duck;

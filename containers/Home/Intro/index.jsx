@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AddFooter from 'components/HomeCommon/AddFooter';
 import Partners from 'components/HomeCommon/Partners';
-import Duck from 'components/HomeCommon/Duck';
+import DuckContainer from 'components/HomeCommon/DuckContainer';
 import styles from './styles.module.scss';
 
 const Intro = ({
@@ -14,7 +14,7 @@ const Intro = ({
     ref={introSection}
     className={styles.intro}
   >
-    <Duck duck={duck} />
+    <DuckContainer />
     <AddFooter theme={theme} />
     <Partners />
   </section>
