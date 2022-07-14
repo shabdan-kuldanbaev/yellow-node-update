@@ -1,5 +1,131 @@
 .mobile-app-development-company {
+  .contentWrapper {
+    .smallCards {
+      .imageWrapper {
+        @include phone {
+          width: 50px;
+        }
+      }
+    }
+  }
+
   &.firstSectionView {
     background-color: $alabaster;
+
+    .cards > div {
+      .imageWrapper {
+        @include phone {
+          width: 90px;
+          background: $white;
+        }
+      }
+
+      @include phone {
+        padding: 20px !important;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $white;
+
+    .cards > div {
+      box-shadow: none;
+
+      .imageWrapper {
+        @include phone {
+          width: 90px;
+          background: $white;
+        }
+      }
+
+      @include phone {
+        padding: 20px !important;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $very-dark-gray;
+    color: $white;
+
+    .cards > div {
+      background-color: $very-dark-gray;
+      box-shadow: none;
+
+      .imageWrapper {
+        @include phone {
+          background: $very-dark-gray;
+          width: 90px;
+        }
+      }
+
+      .typeTitle {
+        color: $white;
+      }
+
+      @include phone {
+        padding: 10px 0;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    .contentWrapper {
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+
+        & > div {
+          padding: 0;
+          width: 400px;
+
+          @include phone {
+            width: 295px;
+          }
+        }
+
+        .imageWrapper {
+          width: 100%;
+          height: 304px;
+          background: $white;
+
+          div {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px 5px 0 0;
+          }
+        }
+
+        .cardContent {
+          padding: 26px;
+
+          .typeTitle {
+            @include fontSize(20px);
+          }
+
+          p {
+            @include fontSize(16px);
+
+            margin-bottom: 20px;
+          }
+        }
+
+        a {
+          @include fontSize(18px);
+
+          text-decoration: none;
+          color: $very-dark-gray;
+        }
+
+        @include below-tablet {
+          overflow-x: scroll;
+          overflow-y: hidden;
+          padding: 20px;
+        }
+      }
+    }
   }
 }

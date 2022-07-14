@@ -48,6 +48,7 @@ export const CardsSection = ({
               text,
               images,
               imagesBundles,
+              contentModules,
             } = getDocumentFields(
               card,
               [
@@ -57,10 +58,13 @@ export const CardsSection = ({
                 'text',
                 'images',
                 'imagesBundles',
+                'contentModules',
               ],
             );
             const imageUrl = getFileUrl(get(images, '[0]'));
             const svgType = get(contentList, '[0]');
+            const buttonTitle = get(contentModules, '[0].fields.buttonTitle');
+            const url = get(contentModules, '[0].fields.url');
 
             return (
               <Animated
@@ -78,6 +82,9 @@ export const CardsSection = ({
                     {typeTitle}
                   </div>
                   <ContentfulParser document={text} />
+                  <a href={url}>
+                    {buttonTitle}
+                  </a>
                 </div>
                 {imagesBundles && imagesBundles.map((image) => (
                   <img
