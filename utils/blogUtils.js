@@ -118,7 +118,7 @@ export const getInitialBlogProps = async (ctx) => {
   }
 };
 
-export const getGraphqlQuery = ({
+export const getBlogGraphqlQuery = ({
   limit,
   skip,
   category,

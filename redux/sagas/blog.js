@@ -14,7 +14,7 @@ import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
 import { contentfulClient } from 'utils/contentful/client';
 import { fetchContentfulArticles } from 'utils/contentful/helper';
-import { getGraphqlQuery } from 'utils/blogUtils';
+import { getBlogGraphqlQuery } from 'utils/blogUtils';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 import { PAGES } from 'utils/constants';
 
@@ -72,7 +72,7 @@ export function* loadArticles({
 }) {
   try {
     const order = category === 'software-development' ? '[title_ASC]' : '[publishedAt_DESC]';
-    const graphqlQuery = getGraphqlQuery({
+    const graphqlQuery = getBlogGraphqlQuery({
       limit: currentLimit,
       skip,
       category,
