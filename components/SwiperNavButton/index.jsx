@@ -6,7 +6,9 @@ import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const SwiperNavButton = ({
-  type, text, className,
+  type,
+  text,
+  className,
 }) => (
   <button
     type="button"

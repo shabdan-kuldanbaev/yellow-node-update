@@ -34,15 +34,13 @@ export const getGalleryProps = (data) => {
     },
     renderNextButton: () => (
       <SwiperNavButton
-        type="arrowRight"
-        text="next"
+        type="next"
         className="swiper-next-el"
       />
     ),
     renderPrevButton: () => (
       <SwiperNavButton
-        type="arrowLeft"
-        text="previous"
+        type="prev"
         className="swiper-prev-el"
       />
     ),
