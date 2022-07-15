@@ -6,6 +6,7 @@ import { getDocumentFields } from 'utils/helper';
 export const getGalleryProps = (data) => {
   const {
     title,
+    description,
     contentModules,
   } = getDocumentFields(data);
   const galleryData = get(contentModules, '[0]', {});
@@ -58,6 +59,7 @@ export const getGalleryProps = (data) => {
 
   return {
     title,
+    description,
     slides,
     linkData,
     params,

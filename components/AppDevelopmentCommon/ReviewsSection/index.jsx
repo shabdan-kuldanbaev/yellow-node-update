@@ -21,7 +21,7 @@ export const ReviewsSection = ({ data, type }) => {
         title={title}
         titleStyle={styles.title}
       />
-      <Reviews reviews={reviews} />
+      <Reviews reviews={reviews.slice(0, 3)} />
     </section>
   );
 };
