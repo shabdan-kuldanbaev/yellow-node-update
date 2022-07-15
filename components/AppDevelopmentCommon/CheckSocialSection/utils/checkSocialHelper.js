@@ -8,7 +8,5 @@ export const getCheckSocialProps = (data) => {
   } = getDocumentFields(data);
   const linkData = get(contentModules, '[0]', null);
 
-  return {
-    linkData,
-  };
+  return getDocumentFields(linkData);
 };

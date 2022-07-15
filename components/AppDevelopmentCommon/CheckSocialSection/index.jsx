@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getDocumentFields } from 'utils/helper';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { Svg } from 'components/Common/Svg';
+import { getDocumentFields } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getCheckSocialProps } from './utils/checkSocialHelper';
 import styles from './styles.module.scss';
@@ -12,13 +12,9 @@ export const CheckSocialSection = ({
   type,
 }) => {
   const {
-    linkData,
-  } = getCheckSocialProps(sectionData);
-
-  const {
     title,
     contentModules: links,
-  } = getDocumentFields(linkData);
+  } = getCheckSocialProps(sectionData);
 
   return (
     <section className={styles[type]}>
