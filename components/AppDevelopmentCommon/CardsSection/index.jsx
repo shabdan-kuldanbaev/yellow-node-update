@@ -5,6 +5,7 @@ import cn from 'classnames';
 import { Animated } from 'components/Common/Animated';
 import { CallToAction } from 'components/Common/CallToAction';
 import CardImage from 'components/AppDevelopmentCommon/CardsSection/CardImage';
+import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
@@ -82,9 +83,9 @@ export const CardsSection = ({
                     {typeTitle}
                   </div>
                   <ContentfulParser document={text} />
-                  <a href={url}>
+                  <LinkWrapper path={url} className={styles.link}>
                     {buttonTitle}
-                  </a>
+                  </LinkWrapper>
                 </div>
                 {imagesBundles && imagesBundles.map((image) => (
                   <img

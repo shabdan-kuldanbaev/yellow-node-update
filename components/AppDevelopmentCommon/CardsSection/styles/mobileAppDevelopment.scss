@@ -111,13 +111,13 @@
 
             margin-bottom: 20px;
           }
-        }
 
-        a {
-          @include fontSize(18px);
+          .link {
+            @include fontSize(18px);
 
-          text-decoration: none;
-          color: $very-dark-gray;
+            text-decoration: none;
+            color: $black;
+          }
         }
 
         @include below-tablet {
