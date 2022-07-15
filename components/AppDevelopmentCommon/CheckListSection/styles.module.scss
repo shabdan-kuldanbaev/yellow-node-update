@@ -1,7 +1,7 @@
 @import "styles/utils/mixins";
 @import "components/AppDevelopmentCommon/utils/styles.module.scss";
 
-.chekListSection {
+.checkListSection {
   @include smallSectionWrapper;
 
   @include below-tablet {
@@ -76,11 +76,13 @@
 .chat-app-development-company,
 .mobile-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.mvp-app-development-company,
+.android-mobile-app-development-services {
   @include appDevelopmentContainer;
 
   .sectionContainer {
-    @extend .chekListSection;
+    @extend .checkListSection;
   }
 }
 
@@ -90,7 +92,8 @@
   }
 }
 
-.cloud-based-app-development-services {
+.cloud-based-app-development-services,
+.mvp-app-development-company {
   background-color: $alabaster;
 }
 

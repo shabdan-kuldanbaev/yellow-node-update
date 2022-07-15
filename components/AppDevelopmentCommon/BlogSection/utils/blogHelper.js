@@ -1,12 +1,23 @@
-import { getDocumentFields, getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
-import SwiperNavButton from "../../../SwiperNavButton";
-import React from "react";
+import React from 'react';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getOptimizedContentfulImage,
+} from 'utils/helper';
+import SwiperNavButton from 'components/SwiperNavButton';
 
 export function getBlogArticles(blogArticles = []) {
   return blogArticles.map((article) => {
-    const { title, previewImageUrl, slug } = getDocumentFields(
-      article,
-      ['title', 'previewImageUrl', 'slug'],
+    const {
+      title,
+      previewImageUrl,
+      slug,
+    } = getDocumentFields(
+      article, [
+        'title',
+        'previewImageUrl',
+        'slug',
+      ],
     );
 
     const previewUrl = getOptimizedContentfulImage(

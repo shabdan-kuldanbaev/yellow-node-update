@@ -202,3 +202,4 @@ export titledTensorFlow from './titledTensorFlow.svg';
 export titledPyTorch from './titledPyTorch.svg';
 export next from './next.svg';
 export prev from './prev.svg';
+export titledCoreData from './titledCoreData.svg';

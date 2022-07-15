@@ -416,13 +416,11 @@
   .imageWrapper {
     @include flex(row, center, center);
 
-    --size: $defaultSize;
-
     flex: 0 0 auto;
     width: $defaultSize;
     height: $defaultSize;
     border-radius: 50%;
-    background: rgba($col, 0.5);
+    background: rgba($col, 0.7);
     margin-right: 16px;
 
     @include phone {

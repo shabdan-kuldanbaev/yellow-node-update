@@ -1,31 +1,19 @@
 .mvp-app-development-company {
-  .cards {
-    .imageWrapper {
-      background-color: $turbo-100;
-    }
-
-    & > div {
-      width: 335px;
-      padding: 30px;
-    }
-  }
-
   &.firstSectionView {
     @extend .removeCardsShadow;
 
     .imageWrapper {
-      flex: 0 0 auto;
       margin-right: 16px;
     }
 
     .cards > div {
-      @include tablet {
+      @include below-tablet {
         @include flex();
       }
     }
 
     .typeTitle {
-      @include tablet {
+      @include below-tablet {
         margin: 0;
       }
     }
@@ -37,15 +25,11 @@
     .callToAction,
     .cards > div {
       background: $white;
-      box-shadow: none;
+      padding: 50px;
 
       h3 {
         margin-right: 40px;
       }
-    }
-
-    .cards > div {
-      background: $alabaster;
     }
   }
 
@@ -72,62 +56,62 @@
     }
   }
 
-  &.fourthSectionView {
-    position: relative;
-    background: $white;
-
-    .contentWrapper {
-      .cards {
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 160px 148px;
-
-        @include macbook-twelve {
-          grid-template-columns: 1fr;
-          grid-gap: 60px;
-        }
-      }
-    }
-
-    .callToAction {
-      background-color: $white;
-    }
-
-    .imagesBundle {
-      position: absolute;
-      right: 50%;
-      top: 99%;
-
-      &:nth-of-type(1) {
-        left: 99%;
-        top: 50%;
-
-        @include macbook-twelve {
-          display: none;
-        }
-      }
-
-      &:nth-of-type(2) {
-        display: none;
-
-        @include macbook-twelve {
-          display: initial;
-        }
-      }
-    }
-
-    .cards {
-      & > div {
-        width: 335px;
-        padding: 30px;
-
-        &:nth-of-type(3) {
-          .imagesBundle:nth-of-type(1) {
-            left: auto;
-            right: 49%;
-            top: 99%;
-          }
-        }
-      }
-    }
-  }
+  //&.fourthSectionView {
+  //  position: relative;
+  //  background: $white;
+  //
+  //  .contentWrapper {
+  //    .cards {
+  //      grid-template-columns: repeat(3, 1fr);
+  //      grid-gap: 160px 148px;
+  //
+  //      @include macbook-twelve {
+  //        grid-template-columns: 1fr;
+  //        grid-gap: 60px;
+  //      }
+  //    }
+  //  }
+  //
+  //  .callToAction {
+  //    background-color: $white;
+  //  }
+  //
+  //  .imagesBundle {
+  //    position: absolute;
+  //    right: 50%;
+  //    top: 99%;
+  //
+  //    &:nth-of-type(1) {
+  //      left: 99%;
+  //      top: 50%;
+  //
+  //      @include macbook-twelve {
+  //        display: none;
+  //      }
+  //    }
+  //
+  //    &:nth-of-type(2) {
+  //      display: none;
+  //
+  //      @include macbook-twelve {
+  //        display: initial;
+  //      }
+  //    }
+  //  }
+  //
+  //  .cards {
+  //    & > div {
+  //      width: 335px;
+  //      padding: 30px;
+  //
+  //      &:nth-of-type(3) {
+  //        .imagesBundle:nth-of-type(1) {
+  //          left: auto;
+  //          right: 49%;
+  //          top: 99%;
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
 }
