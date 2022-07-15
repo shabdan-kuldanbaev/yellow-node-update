@@ -7,10 +7,14 @@ dotenv.config('./env');
 const isProd = process.env.NODE_ENV === 'production';
 
 const upperCaseRedirect = (req, res, next) => {
-  const { url, hostname, protocol } = req;
-  const lowerCaseUrl = url.toLowerCase();
+  const {
+    hostname,
+    protocol,
+    originalUrl,
+  } = req;
+  const lowerCaseUrl = originalUrl.toLowerCase();
 
-  if (url === lowerCaseUrl) {
+  if (originalUrl === lowerCaseUrl || originalUrl.includes('_next')) {
     return next();
   }
 

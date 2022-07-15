@@ -30,7 +30,24 @@
   }
 }
 
-.navButtonNext,
-.navButtonPrev {
-  @extend .navButton;
+.arrowRight,
+.arrowLeft {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+
+  .text {
+    padding: 10px;
+  }
+}
+
+.arrowRight {
+  left: unset;
+  right: 10%;
+
+  & > svg {
+    order: 2;
+  }
 }

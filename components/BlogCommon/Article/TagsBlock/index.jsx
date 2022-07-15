@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const TagsBlock = ({ tags }) => {
@@ -13,13 +14,14 @@ export const TagsBlock = ({ tags }) => {
         Tags
       </span>
       <div className={styles.tagsList}>
-        {tags.map((tag) => (
-          <div
-            key={tag}
+        {tags.map(({ title, slug }) => (
+          <a
+            key={title}
+            href={ROUTES.blog.getRoute(slug).path}
             className={styles.tag}
           >
-            {tag}
-          </div>
+            {title}
+          </a>
         ))}
       </div>
     </div>

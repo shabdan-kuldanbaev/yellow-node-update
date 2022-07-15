@@ -217,3 +217,5 @@ export titledGit from './titledGit.svg';
 export titledApacheJMeter from './titledApacheJMeter.svg';
 export desktopTower2 from './desktopTower2.svg';
 export codeDesktop2 from './codeDesktop2.svg';
+export next from './next.svg';
+export prev from './prev.svg';

@@ -86,18 +86,6 @@ export const getSwiperParams = () => {
       nextEl: '.swiper-next-el',
       prevEl: '.swiper-prev-el',
     },
-    renderNextButton: () => (
-      <SwiperNavButton
-        type="next"
-        className="swiper-next-el"
-      />
-    ),
-    renderPrevButton: () => (
-      <SwiperNavButton
-        type="prev"
-        className="swiper-prev-el"
-      />
-    ),
   };
 
   return { mobileSwiperParams, desktopSwiperParams };

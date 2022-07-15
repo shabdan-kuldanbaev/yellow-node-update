@@ -224,11 +224,13 @@
 .ui-ux-services {
   @extend .pageIntroContainer;
 
+  padding-bottom: 75px;
   overflow: hidden;
 
   .pageIntroSection {
     .pageIntroWrapper {
       margin-bottom: 0;
+      border-bottom: 1px solid $wild-sand;
 
       .pageTitle {
         @include defaultFirstHeader;
@@ -269,7 +271,7 @@
       }
 
       .subtitle {
-        max-width: 520px;
+        max-width: 475px;
 
         @include phone {
           text-align: center;
