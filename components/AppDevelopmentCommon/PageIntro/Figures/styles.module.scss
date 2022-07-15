@@ -50,45 +50,17 @@
 }
 
 .mobile-app-development-company {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-column-gap: 150px;
-
-  @include tablet {
-    grid-template-columns: repeat(1, auto);
-  }
-
-  .text {
-    & > div {
-      max-width: 590px;
-
-      p {
-        margin: 0 0 30px;
-        color: $dark-grey;
-        line-height: 1.8;
-
-        @include fontSize(18px);
-
-        @include tablet {
-          @include fontSize(16px);
-        }
-
-        @include phone {
-          @include fontSize(14px);
-        }
-      }
-    }
-  }
+  @include flex(row, space-between);
 
   .figures {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(4, auto);
     grid-template-rows: repeat(2, max-content);
-    grid-gap: 70px 50px;
+    grid-gap: 70px 161px;
 
     & > div {
       padding-left: 16px;
-      border-left: 2px solid $turbo-100;
       height: fit-content;
       width: fit-content;
 
@@ -118,6 +90,18 @@
         }
       }
     }
+
+    @include tablet {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @include phone {
+      grid-gap: 50px 60px;
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, auto);
   }
 }
 
