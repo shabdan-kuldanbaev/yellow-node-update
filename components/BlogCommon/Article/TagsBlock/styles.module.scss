@@ -1,20 +1,16 @@
 @import 'styles/utils/mixins';
 
 .tagsBlock {
-  margin: 150px 0;
-
   @include flex(column);
 
-  @include tablet {
-    margin: 100px 0;
-  }
+  margin: 150px 0;
 
   .title {
+    @include fontSize(24px);
+
     font-weight: 700;
     color: $tundora;
     margin-bottom: 30px;
-
-    @include fontSize(24px);
 
     @include tablet {
       @include fontSize(20px);
@@ -29,6 +25,9 @@
     @include flex();
 
     .tag {
+      @include flex(row, initial, center);
+
+      text-decoration: none;
       padding: 12px 20px;
       margin-right: 20px;
       color: $silver-chalice;
@@ -40,13 +39,11 @@
         border-color 0.4s ease,
         color 0.4s ease;
 
-      @include flex(row, initial, center);
-
       @include phone {
+        @include fontSize(14px);
+
         padding: 8px 14px;
         margin-right: 10px;
-
-        @include fontSize(14px);
       }
 
       &:hover {
@@ -57,5 +54,9 @@
           color 0.4s ease;
       }
     }
+  }
+
+  @include tablet {
+    margin: 100px 0;
   }
 }

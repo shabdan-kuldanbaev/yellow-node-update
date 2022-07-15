@@ -116,21 +116,25 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  next: 'next',
+  prev: 'prev',
+  arrowLeft: 'arrowLeft',
+  arrowRight: 'arrowRight',
   twitterDark: 'twitterDark',
   linkedInDark: 'linkedInDark',
   instagramDark: 'instagramDark',
   yellowLogoWithBg: 'yellowLogoWithBg',
-  arrow: 'arrowSvg',
-  behance: 'behanceSvg',
-  checkMark: 'checkMarkSvg',
-  dribble: 'dribbleSvg',
-  instagram: 'instagramSvg',
+  arrow: 'arrow1',
+  behance: 'behance',
+  checkMark: 'checkMark',
+  dribble: 'dribble',
+  instagram: 'instagram',
   logoWhite: 'logoWhite',
-  searchSvg: 'searchSvg',
-  yellowLogoSvg: 'yellowLogoSvg',
-  unpinSvg: 'unpinSvg',
-  closeSvg: 'closeSvg',
-  scrollIconSvg: 'scrollIconSvg',
+  searchSvg: 'search',
+  yellowLogoSvg: 'yellowLogo',
+  unpinSvg: 'unpin',
+  closeSvg: 'close',
+  scrollIconSvg: 'scrollIcon',
   esquirePartner: 'esquirePartner',
   productHuntPartner: 'productHuntPartner',
   techCrunchPartner: 'techCrunchPartner',
@@ -178,6 +182,8 @@ export const SVG_IMAGES_TYPES = {
 };
 
 export const APP_DEVELOPMENT_ICONS = {
+  arrowLeft: 'arrowLeft',
+  arrowRight: 'arrowRight',
   // mobile app page, development services section
   iOSAppDevelopment: 'iOSAppDevelopment',
   androidAppDevelopment: 'androidAppDevelopment',

@@ -7,8 +7,7 @@
 .ui-ux-services,
 .android-mobile-app-development-services,
 .mvp-app-development-company,
-.cloud-based-app-development-services,
-.machine-learning-development-services {
+.cloud-based-app-development-services {
   @include appDevelopmentContainer;
 
   @include phone {
@@ -42,4 +41,26 @@
 .cloud-based-app-development-services,
 .machine-learning-development-services {
   background-color: $alabaster;
+}
+
+.mvp-app-development-company,
+.machine-learning-development-services {
+  padding: 120px 0 60px;
+
+  @include phone {
+    padding: 60px 0 24px;
+  }
+
+  .title {
+    div {
+      h2 {
+        max-width: unset;
+        text-align: center;
+
+        @include below-tablet {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }

@@ -3,11 +3,13 @@ import BlogContainer from 'containers/Blog';
 import { getInitialBlogProps } from 'utils/blogUtils';
 
 const Blog = ({
+  tagsList,
   currentPage,
   introSection,
   articlesNumberPerPage,
 }) => (
   <BlogContainer
+    tagsList={tagsList}
     articlesNumberPerPage={articlesNumberPerPage}
     currentPage={currentPage}
     introSection={introSection}

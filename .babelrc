@@ -16,5 +16,5 @@
       }
     ]
   ],
-  "plugins": ["inline-react-svg"]
+  "plugins": ["inline-react-svg", "@babel/plugin-proposal-export-default-from"]
 }
