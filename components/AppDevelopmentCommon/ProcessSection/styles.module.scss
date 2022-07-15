@@ -140,3 +140,13 @@
     background-color: $turbo-100;
   }
 }
+
+.ui-ux-services {
+  background-color: $white;
+
+  .titleStyle {
+    p {
+      width: 58vw;
+    }
+  }
+}
