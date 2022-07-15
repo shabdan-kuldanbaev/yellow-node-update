@@ -54,8 +54,7 @@ app
     server.use(Sentry.Handlers.requestHandler());
 
     server.use(indexDirRedirect);
-    // Disabled until fix. Causes 404-error after reload
-    // server.use(upperCaseRedirect);
+    server.use(upperCaseRedirect);
     server.use(httpsRedirect);
     server.use(customDomainRedirect);
     server.use(wwwRedirect);

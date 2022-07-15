@@ -12,6 +12,7 @@ import { FaqSection } from 'components/AppDevelopmentCommon/FaqSection';
 import { ReviewsSection } from 'components/AppDevelopmentCommon/ReviewsSection';
 import { ImagesListSection } from 'components/AppDevelopmentCommon/ImagesListSection';
 import BlogSection from 'components/AppDevelopmentCommon/BlogSection';
+import { CheckSocialSection } from 'components/AppDevelopmentCommon/CheckSocialSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -134,6 +135,13 @@ export const AppDevelopmentCommon = ({
       <BlogSection
         sectionData={section}
         pageType={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentCheckSocial:
+    return (
+      <CheckSocialSection
+        sectionData={section}
+        type={type}
       />
     );
   default:

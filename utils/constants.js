@@ -116,6 +116,10 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  next: 'next',
+  prev: 'prev',
+  arrowLeft: 'arrowLeft',
+  arrowRight: 'arrowRight',
   twitterDark: 'twitterDark',
   linkedInDark: 'linkedInDark',
   instagramDark: 'instagramDark',
@@ -192,6 +196,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentNumberedList: 'app-development-numbered-list',
   appDevelopmentProcess: 'app-development-process',
   appDevelopmentBlog: 'app-development-blog',
+  appDevelopmentCheckSocial: 'app-development-check-social',
 };
 
 export const CONTACTS_DATA = {

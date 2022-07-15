@@ -39,10 +39,10 @@
   border: none;
 
   .text {
+    @include fontSize(18px);
+
     padding: 0 10px;
     line-height: 180%;
-
-    @include fontSize(18px);
   }
 }
 

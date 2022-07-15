@@ -3,6 +3,11 @@
     .imageWrapper {
       background-color: $turbo-100;
     }
+
+    & > div {
+      width: 335px;
+      padding: 30px;
+    }
   }
 
   &.firstSectionView {

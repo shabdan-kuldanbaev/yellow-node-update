@@ -200,3 +200,5 @@ export titledPython from './titledPython.svg';
 export titledScala from './titledScala.svg';
 export titledTensorFlow from './titledTensorFlow.svg';
 export titledPyTorch from './titledPyTorch.svg';
+export next from './next.svg';
+export prev from './prev.svg';

@@ -37,6 +37,7 @@ export const GallerySection = ({
     slides,
     linkData,
     params,
+    description,
   } = getGalleryProps(sectionData);
 
   return (

@@ -5,11 +5,15 @@ import { Svg } from 'components/Common/Svg';
 import styles from './styles.module.scss';
 
 const SwiperNavButton = ({
-  type, text, className,
+  type,
+  text,
+  className,
 }) => (
   <button
     type="button"
-    className={cn(className, styles.navButton, styles[type])}
+    className={cn(className,
+      styles.navButton,
+      styles[type])}
   >
     <Svg type={type} />
     {text && (

@@ -1,28 +1,20 @@
 @import 'styles/utils/mixins';
 
 .selectionBlock {
+  @include flex(row, space-between, center);
+
   position: relative;
   width: 100%;
   padding: $section-indent 0 0;
 
-  @include flex(row, space-between, center);
-
-  @include macbook-fifteen {
-    padding: calc(#{$section-indent} - 20px) 0 0;
-  }
-
-  @include phone {
-    padding: 60px 0 0;
-  }
-
   .buttons {
+    @include flex(row, flex-end, center);
+
     min-height: 43px;
     width: 25%;
     position: relative;
     z-index: 1;
     transition: z-index 0.5s cubic-bezier(0.575, 0.41, 0.3, 1);
-
-    @include flex(row, flex-end, center);
 
     @include phone {
       width: auto;
@@ -33,11 +25,6 @@
     }
 
     .imgContainer {
-      @include phone {
-        opacity: 1 !important;
-        transform: translate(0, 0) !important;
-      }
-
       position: relative;
       width: 16.5px;
       right: 40px;
@@ -48,6 +35,8 @@
       }
 
       @include phone {
+        opacity: 1 !important;
+        transform: translate(0, 0) !important;
         right: 0;
         width: 21px;
       }
@@ -69,15 +58,15 @@
         width $shadow-time-for-yellow-button,
         transform 0.4s cubic-bezier(0, 0, 0.2, 1);
 
-      @include phone {
-        display: none;
-      }
-
       &:hover {
         padding: 10px 15px;
         border: none;
         transform: scale(0.96);
         transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+      }
+
+      @include phone {
+        display: none;
       }
     }
 
@@ -99,6 +88,14 @@
       display: none;
       outline: none;
     }
+  }
+
+  @include macbook-fifteen {
+    padding: calc(#{$section-indent} - 20px) 0 0;
+  }
+
+  @include phone {
+    padding: 60px 0 0;
   }
 }
 
