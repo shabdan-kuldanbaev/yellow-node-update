@@ -57,11 +57,9 @@
 
     .description {
       @include hidden-text(ellipsis, 2);
+      @include flex(column, space-between);
 
       padding: 26px;
-      display: flex !important;
-      flex-direction: column;
-      justify-content: space-between;
       flex-grow: 1;
 
       .articleTitle {
@@ -78,6 +76,11 @@
 
         line-height: 180%;
         color: $dark-grey;
+        align-self: flex-start;
+
+        &:hover {
+          color: $mid-gray;
+        }
       }
 
       @include phone {

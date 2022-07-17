@@ -1,40 +1,38 @@
 import React from 'react';
+import SwiperNavButton from 'components/SwiperNavButton';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import SwiperNavButton from 'components/SwiperNavButton';
 
-export function getBlogArticles(blogArticles = []) {
-  return blogArticles.map((article) => {
-    const {
-      title,
-      previewImageUrl,
-      slug,
-    } = getDocumentFields(
-      article, [
-        'title',
-        'previewImageUrl',
-        'slug',
-      ],
-    );
+export const getBlogArticles = (blogArticles = []) => blogArticles.map((article) => {
+  const {
+    title,
+    previewImageUrl,
+    slug,
+  } = getDocumentFields(
+    article, [
+      'title',
+      'previewImageUrl',
+      'slug',
+    ],
+  );
 
-    const previewUrl = getOptimizedContentfulImage(
-      getFileUrl(previewImageUrl),
-      {
-        width: 407,
-        height: 304,
-      },
-    );
+  const previewUrl = getOptimizedContentfulImage(
+    getFileUrl(previewImageUrl),
+    {
+      width: 407,
+      height: 304,
+    },
+  );
 
-    return {
-      articleTitle: title,
-      slug,
-      previewUrl,
-    };
-  });
-}
+  return {
+    articleTitle: title,
+    slug,
+    previewUrl,
+  };
+});
 
 export const getSwiperParams = () => {
   const mobileSwiperParams = {

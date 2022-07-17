@@ -1,15 +1,11 @@
-import React, { useMemo } from 'react';
-import Swiper from 'react-id-swiper';
-import SwiperCors, {
-  EffectCoverflow,
-  Navigation,
-} from 'swiper';
+import React from 'react';
+import PropTypes from 'prop-types';
+import SwiperCors, { EffectCoverflow, Navigation } from 'swiper';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
-import { getBlogArticles, getSwiperParams } from './utils/blogHelper';
-import styles from './styles.module.scss';
-import BlogArticle from './BlogArticles/BlogArticle';
 import BlogArticles from './BlogArticles';
+import { getBlogArticles } from './utils/blogHelper';
+import styles from './styles.module.scss';
 
 SwiperCors.use([EffectCoverflow, Navigation]);
 
@@ -38,6 +34,10 @@ const BlogSection = ({ sectionData }) => {
       <BlogArticles blogArticles={blogArticles} />
     </section>
   );
+};
+
+BlogSection.propTypes = {
+  sectionData: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default BlogSection;
