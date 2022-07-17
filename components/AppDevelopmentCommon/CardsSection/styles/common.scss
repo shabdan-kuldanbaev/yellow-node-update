@@ -206,6 +206,19 @@
 
     margin-top: 150px;
 
+    @include below-tablet {
+      display: block;
+
+      h3 {
+        margin: 0 auto 15px;
+      }
+
+      & > * {
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+
     @include tablet {
       margin-top: 60px;
       padding: 40px;
