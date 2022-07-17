@@ -51,7 +51,6 @@
 
 .mobile-app-development-company {
   display: grid;
-  grid-template-columns: repeat(2, auto);
   grid-column-gap: 150px;
 
   .text {
@@ -81,7 +80,8 @@
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-template-rows: repeat(2, max-content);
-    grid-gap: 70px 161px;
+    grid-gap: 70px 25px;
+    justify-content: space-between;
 
     & > div {
       padding-left: 16px;
