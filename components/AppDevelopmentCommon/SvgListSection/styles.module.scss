@@ -54,7 +54,6 @@
     @include flex(row, center, flex-end, wrap);
 
     & > div {
-      flex: 0 0 25%;
       text-align: center;
       margin: 40px 0;
 
