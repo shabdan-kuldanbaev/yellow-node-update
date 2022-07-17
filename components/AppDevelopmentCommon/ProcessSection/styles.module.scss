@@ -73,6 +73,7 @@
 
 .ui-ux-services,
 .machine-learning-development-services,
+.mvp-app-development-company,
 .web-app-development-company {
   @include appDevelopmentContainer;
   @include iconsWithinCircle;
@@ -142,7 +143,8 @@
   }
 }
 
-.ui-ux-services {
+.ui-ux-services,
+.mvp-app-development-company {
   background-color: $white;
 
   .titleStyle {

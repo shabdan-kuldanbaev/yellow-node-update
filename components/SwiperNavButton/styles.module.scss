@@ -39,7 +39,10 @@
   border: none;
 
   .text {
-    padding: 10px;
+    @include fontSize(18px);
+
+    padding: 0 10px;
+    line-height: 180%;
   }
 }
 
@@ -50,4 +53,13 @@
   & > svg {
     order: 2;
   }
+
+  &:global(.swiper-next-el) {
+    left: unset;
+  }
+}
+
+.arrowLeft {
+  right: unset;
+  left: 10%;
 }

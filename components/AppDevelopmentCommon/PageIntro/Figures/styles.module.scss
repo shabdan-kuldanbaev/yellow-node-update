@@ -77,14 +77,14 @@
   }
 
   .figures {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(4, auto);
     grid-template-rows: repeat(2, max-content);
-    grid-gap: 70px 50px;
+    grid-gap: 70px 161px;
 
     & > div {
       padding-left: 16px;
-      border-left: 2px solid $turbo-100;
       height: fit-content;
       width: fit-content;
 
@@ -114,10 +114,22 @@
         }
       }
     }
+
+    @include tablet {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @include phone {
+      grid-gap: 50px 60px;
+    }
   }
 
   @include tablet {
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @include tablet {
+    grid-template-columns: auto;
   }
 }
 

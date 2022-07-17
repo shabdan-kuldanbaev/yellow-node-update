@@ -54,7 +54,6 @@
     @include flex(row, center, flex-end, wrap);
 
     & > div {
-      flex: 0 0 25%;
       text-align: center;
       margin: 40px 0;
 
@@ -100,6 +99,25 @@
   &.firstSectionView {
     .svgListWrapper {
       @extend .svgListWrapperSeveralRows;
+
+      margin: 0 auto;
+
+      h3 {
+        @include fontSize(32px);
+
+        text-align: center;
+      }
+
+      .svgList {
+        @include flex(row, center, flex-end, nowrap);
+
+        @include tablet {
+          overflow-x: scroll;
+          overflow-y: hidden;
+          max-width: 1024px;
+          justify-content: flex-start;
+        }
+      }
     }
   }
 

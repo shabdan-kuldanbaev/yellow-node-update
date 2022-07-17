@@ -33,10 +33,10 @@ export const GallerySection = ({
 }) => {
   const {
     title,
+    description,
     slides,
     linkData,
     params,
-    description,
   } = getGalleryProps(sectionData);
 
   return (

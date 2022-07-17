@@ -11,6 +11,7 @@ import GallerySection from 'components/AppDevelopmentCommon/GallerySection';
 import { FaqSection } from 'components/AppDevelopmentCommon/FaqSection';
 import { ReviewsSection } from 'components/AppDevelopmentCommon/ReviewsSection';
 import { ImagesListSection } from 'components/AppDevelopmentCommon/ImagesListSection';
+import BlogSection from 'components/AppDevelopmentCommon/BlogSection';
 import { CheckSocialSection } from 'components/AppDevelopmentCommon/CheckSocialSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
@@ -125,6 +126,13 @@ export const AppDevelopmentCommon = ({
   case APP_DEVELOPMENT_TYPES.appDevelopmentProcess:
     return (
       <ProcessSection
+        sectionData={section}
+        pageType={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentBlog:
+    return (
+      <BlogSection
         sectionData={section}
         pageType={type}
       />

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Svg } from 'components/Common/Svg';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const SwiperNavButton = ({
@@ -12,7 +11,9 @@ const SwiperNavButton = ({
 }) => (
   <button
     type="button"
-    className={cn(className, styles.navButton, styles[type])}
+    className={cn(className,
+      styles.navButton,
+      styles[type])}
   >
     <Svg type={type} />
     {text && (
@@ -29,7 +30,7 @@ SwiperNavButton.defaultProps = {
 };
 
 SwiperNavButton.propTypes = {
-  type: PropTypes.oneOf(Object.values(SVG_IMAGES_TYPES)).isRequired,
+  type: PropTypes.string.isRequired,
   text: PropTypes.string,
   className: PropTypes.string,
 };

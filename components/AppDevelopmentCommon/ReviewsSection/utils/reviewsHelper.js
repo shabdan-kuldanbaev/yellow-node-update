@@ -1,6 +1,5 @@
 import React from 'react';
 import get from 'lodash/get';
-import SwiperNavButton from 'components/SwiperNavButton';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export const getReviewsProps = (data) => {
@@ -12,7 +11,7 @@ export const getReviewsProps = (data) => {
   const { contentModules: reviewsData } = getDocumentFields(get(contentModules, '[0]', {}));
 
   if (reviewsData) {
-    reviews = reviewsData.map((module) => {
+    reviews = reviewsData.slice(0, 3).map((module) => {
       const {
         contentModules: review,
         text,
