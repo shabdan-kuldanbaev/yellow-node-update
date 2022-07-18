@@ -43,8 +43,8 @@ export const getRelatedServicesProps = (sectionData) => {
 
 export const getSwiperParams = () => ({
   effect: 'slide',
-  slidesPerView: 1,
-  centeredSlides: false,
+  slidesPerView: 1.2,
+  centeredSlides: true,
   spaceBetween: 40,
   loop: false,
   passiveListeners: true,
@@ -54,6 +54,7 @@ export const getSwiperParams = () => ({
   breakpoints: {
     1024: {
       slidesPerView: 3,
+      centeredSlides: false,
     },
   },
   navigation: {

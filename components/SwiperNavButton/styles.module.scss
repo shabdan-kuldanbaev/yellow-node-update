@@ -17,10 +17,6 @@
       fill: $turbo-100;
     }
   }
-
-  @include below-tablet {
-    display: none;
-  }
 }
 
 :global(.swiper-button-disabled) {
@@ -50,6 +46,10 @@
 
     padding: 0 10px;
     line-height: 180%;
+  }
+
+  @include below-tablet {
+    display: none;
   }
 }
 

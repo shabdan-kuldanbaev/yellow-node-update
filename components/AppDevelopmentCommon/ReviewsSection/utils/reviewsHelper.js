@@ -1,6 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
+import SwiperNavButton from '../../../SwiperNavButton';
 
 export const getReviewsProps = (data) => {
   let reviews = [];
@@ -67,6 +68,24 @@ export const getSwiperParams = () => {
         },
       },
     },
+    navigation: {
+      nextEl: '.swiper-next-el',
+      prevEl: '.swiper-prev-el',
+    },
+    renderNextButton: () => (
+      <SwiperNavButton
+        type="arrowRight"
+        text="next"
+        className="swiper-next-el"
+      />
+    ),
+    renderPrevButton: () => (
+      <SwiperNavButton
+        type="arrowLeft"
+        text="previous"
+        className="swiper-prev-el"
+      />
+    ),
   };
 
   const desktopSwiperParams = {
