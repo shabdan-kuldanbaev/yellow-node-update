@@ -12,7 +12,7 @@ export const getReviewsProps = (data) => {
   const link = getDocumentFields(get(contentModules, '[1]', {}));
 
   if (reviewsData) {
-    reviews = reviewsData.slice(0, 3).map((module) => {
+    reviews = reviewsData.map((module) => {
       const {
         contentModules: review,
         text,

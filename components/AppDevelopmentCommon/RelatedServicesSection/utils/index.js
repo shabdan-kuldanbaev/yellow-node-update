@@ -1,4 +1,6 @@
+import React from 'react';
 import get from 'lodash/get';
+import SwiperNavButton from 'components/SwiperNavButton';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 
@@ -54,4 +56,22 @@ export const getSwiperParams = () => ({
       slidesPerView: 3,
     },
   },
+  navigation: {
+    nextEl: '.swiper-next-el',
+    prevEl: '.swiper-prev-el',
+  },
+  renderNextButton: () => (
+    <SwiperNavButton
+      type="arrowRight"
+      text="next"
+      className="swiper-next-el"
+    />
+  ),
+  renderPrevButton: () => (
+    <SwiperNavButton
+      type="arrowLeft"
+      text="previous"
+      className="swiper-prev-el"
+    />
+  ),
 });

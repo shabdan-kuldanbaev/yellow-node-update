@@ -2,12 +2,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Swiper from 'react-id-swiper';
 import get from 'lodash/get';
+import SwiperCore, { Mousewheel, Navigation } from 'swiper';
 import { Animated } from 'components/Common/Animated';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { getSwiperParams } from '../utils';
 import styles from './styles.module.scss';
+
+SwiperCore.use([Mousewheel, Navigation]);
 
 export const RelatedServices = ({ services }) => {
   const swiperParams = getSwiperParams();

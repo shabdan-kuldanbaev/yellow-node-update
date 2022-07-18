@@ -9,10 +9,13 @@
   bottom: 0;
   background: none;
   cursor: pointer;
+  z-index: 999;
 
   &:hover {
-    background: $turbo-100;
-    border-color: $turbo-100;
+    * {
+      color: $turbo-100;
+      fill: $turbo-100;
+    }
   }
 
   @include below-tablet {
@@ -22,11 +25,15 @@
 
 :global(.swiper-button-disabled) {
   opacity: 0.5;
+  color: $dark-grey;
 
   &:hover {
-    background: none;
-    border-color: $dark-grey;
     cursor: default;
+
+    * {
+      fill: $dark-grey;
+      color: $dark-grey;
+    }
   }
 }
 
