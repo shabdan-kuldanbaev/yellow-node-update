@@ -14,52 +14,54 @@ export const RelatedServices = ({ services }) => {
 
   return (
     <Animated {...REVEAL_ANIMATION_PROPS}>
-      <Swiper {...swiperParams}>
-        {services.map((service) => {
-          const {
-            title,
-            images,
-            contentModules,
-          } = getDocumentFields(
-            service,
-            [
-              'title',
-              'images',
-              'contentModules',
-            ],
-          );
+      <div className={styles.serviceList}>
+        <Swiper {...swiperParams}>
+          {services.map((service) => {
+            const {
+              title,
+              images,
+              contentModules,
+            } = getDocumentFields(
+              service,
+              [
+                'title',
+                'images',
+                'contentModules',
+              ],
+            );
 
-          const imageUrl = getFileUrl(get(images, '[0]'));
-          const buttonTitle = get(contentModules, '[0].fields.buttonTitle');
-          const url = get(contentModules, '[0].fields.url');
+            const imageUrl = getFileUrl(get(images, '[0]'));
+            const buttonTitle = get(contentModules, '[0].fields.buttonTitle');
+            const url = get(contentModules, '[0].fields.url');
 
-          return (
+            return (
 
-            <div
-              className={styles.service}
-              key={`service/${title}`}
-            >
-              <img
-                src={imageUrl}
-                className={styles.image}
-                alt="service page"
-              />
-              <div className={styles.cardContent}>
-                <h3 className={styles.typeTitle}>
-                  {title}
-                </h3>
-                <LinkWrapper
-                  path={url}
-                  className={styles.link}
-                >
-                  {buttonTitle}
-                </LinkWrapper>
+              <div
+                className={styles.service}
+                key={`service/${title}`}
+              >
+                <img
+                  src={imageUrl}
+                  className={styles.image}
+                  alt="service page"
+                />
+                <div className={styles.cardContent}>
+                  <h3 className={styles.typeTitle}>
+                    {title}
+                  </h3>
+                  <LinkWrapper
+                    path={url}
+                    className={styles.link}
+                  >
+                    {buttonTitle}
+                  </LinkWrapper>
+                </div>
               </div>
-            </div>
 
-          );
-        })}
-      </Swiper>
+            );
+          })}
+        </Swiper>
+      </div>
     </Animated>
   );
 };
