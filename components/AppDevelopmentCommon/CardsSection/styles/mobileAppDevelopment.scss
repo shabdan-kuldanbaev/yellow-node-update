@@ -1,6 +1,10 @@
 .mobile-app-development-company {
   .contentWrapper {
     .smallCards {
+      & > div {
+        @include flex();
+      }
+
       .imageWrapper {
         @include phone {
           width: 50px;

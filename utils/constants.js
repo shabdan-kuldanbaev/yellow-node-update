@@ -179,6 +179,7 @@ export const SVG_IMAGES_TYPES = {
   browser: 'browser',
   cross: 'cross',
   telegram: 'telegram',
+  attachment: 'attachment',
 };
 
 export const APP_DEVELOPMENT_TYPES = {

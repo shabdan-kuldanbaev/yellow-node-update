@@ -25,13 +25,23 @@
     padding-bottom: 0;
 
     .contentWrapper {
-      @extend .threeColumnCards;
+      @extend .twoСolumnsСards;
+
+      .smallCards {
+        grid-gap: 72px 264px;
+      }
     }
   }
 
   &.fourthSectionView {
-    .contentWrapper > div:last-child {
-      width: 100%;
+    .contentWrapper {
+      .smallCards {
+        grid-gap: 72px 264px;
+      }
+
+      & > div:last-child {
+        width: 100%;
+      }
     }
   }
 }

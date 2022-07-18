@@ -109,7 +109,7 @@
       }
 
       .svgList {
-        @include flex(row, center, flex-end, nowrap);
+        @include flex(row, space-between, flex-end, nowrap);
 
         @include tablet {
           overflow-x: scroll;
