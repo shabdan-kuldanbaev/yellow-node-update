@@ -198,6 +198,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentProcess: 'app-development-process',
   appDevelopmentBlog: 'app-development-blog',
   appDevelopmentCheckSocial: 'app-development-check-social',
+  appDevelopmentRelatedServices: 'app-development-related-services',
 };
 
 export const CONTACTS_DATA = {
