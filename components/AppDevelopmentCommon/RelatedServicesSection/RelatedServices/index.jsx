@@ -21,34 +21,44 @@ export const RelatedServices = ({ services }) => {
               title,
               images,
               contentModules,
+              description,
+              imagesBundles,
             } = getDocumentFields(
               service,
               [
                 'title',
                 'images',
                 'contentModules',
+                'description',
+                'imagesBundles',
               ],
             );
 
             const imageUrl = getFileUrl(get(images, '[0]'));
+            const imageBgUrls = getFileUrl(get(imagesBundles, '[0]'));
             const buttonTitle = get(contentModules, '[0].fields.buttonTitle');
             const url = get(contentModules, '[0].fields.url');
 
             return (
-
               <div
                 className={styles.service}
                 key={`service/${title}`}
               >
-                <img
-                  src={imageUrl}
-                  className={styles.image}
-                  alt="service page"
-                />
+                <div
+                  className={styles.imageWrapper}
+                  style={imageBgUrls ? { background: `url(${imageBgUrls})` } : undefined}
+                >
+                  <img
+                    src={imageUrl}
+                    className={styles.image}
+                    alt="service page"
+                  />
+                </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.typeTitle}>
                     {title}
                   </h3>
+                  {description && <p>{description}</p>}
                   <LinkWrapper
                     path={url}
                     className={styles.link}
