@@ -24,6 +24,8 @@
   @extend .imageSection;
 
   &.firstSectionView {
+    padding: 0 40px 75px;
+
     .imagesList {
       justify-content: space-around;
 
@@ -72,6 +74,8 @@
   }
 
   &.secondSectionView {
+    padding-top: 75px;
+
     .imagesList {
       justify-content: center;
 

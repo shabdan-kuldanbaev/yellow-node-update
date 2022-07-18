@@ -7,10 +7,10 @@ import SwiperCore, {
   Pagination,
   Navigation,
 } from 'swiper/core';
+import { connect } from 'react-redux';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { getItemLink, getItemPreviewProps } from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
-import { connect } from 'react-redux';
 import { selectIsLoading } from 'redux/selectors/layout';
 import { ItemPreview } from './ItemPreview';
 import { GalleryCallToAction } from './GalleryCallToAction';
@@ -33,6 +33,7 @@ export const GallerySection = ({
 }) => {
   const {
     title,
+    description,
     slides,
     linkData,
     params,
@@ -43,6 +44,7 @@ export const GallerySection = ({
       <div className={styles.gallerySection}>
         <SectionTitle
           title={title}
+          description={description}
           className={styles.sectionTitle}
         />
         {!pageLoading && (

@@ -73,3 +73,25 @@
 .chat-app-development-company {
   background-color: $alabaster;
 }
+
+.mvp-app-development-company,
+.machine-learning-development-services {
+  padding: 120px 0 60px;
+
+  @include phone {
+    padding: 60px 0 24px;
+  }
+
+  .title {
+    div {
+      h2 {
+        max-width: unset;
+        text-align: center;
+
+        @include below-tablet {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

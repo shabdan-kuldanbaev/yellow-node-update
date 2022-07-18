@@ -1,6 +1,5 @@
 import React from 'react';
 import get from 'lodash/get';
-import SwiperNavButton from 'components/SwiperNavButton';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export const getReviewsProps = (data) => {
@@ -13,7 +12,7 @@ export const getReviewsProps = (data) => {
   const link = getDocumentFields(get(contentModules, '[1]', {}));
 
   if (reviewsData) {
-    reviews = reviewsData.map((module) => {
+    reviews = reviewsData.slice(0, 3).map((module) => {
       const {
         contentModules: review,
         text,
@@ -88,18 +87,6 @@ export const getSwiperParams = () => {
       nextEl: '.swiper-next-el',
       prevEl: '.swiper-prev-el',
     },
-    renderNextButton: () => (
-      <SwiperNavButton
-        type="next"
-        className="swiper-next-el"
-      />
-    ),
-    renderPrevButton: () => (
-      <SwiperNavButton
-        type="prev"
-        className="swiper-prev-el"
-      />
-    ),
   };
 
   return { mobileSwiperParams, desktopSwiperParams };

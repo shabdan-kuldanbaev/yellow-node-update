@@ -32,8 +32,9 @@ const SvgListSection = ({
         description={description}
         titleStyle={styles.titleStyle}
       />
-      {technologiesGroup.map((group) => (
+      {technologiesGroup.map((group, i) => (
         <SvgGroup
+          key={i}
           data={group}
           isMobileResolution={isMobileResolution}
           className={styles.svgList}

@@ -49,7 +49,7 @@ const PortfolioContainer = ({
 
     return {
       types: types ? types.map((type) => getDocumentFields(type, ['slug', 'displayName'])) : [],
-      tags: tags ? tags.map((tag) => getDocumentFields(tag, ['slug', 'displayName'])) : [],
+      tags: tags ? tags.map((tag) => getDocumentFields(tag, ['slug', 'title'])) : [],
       ...rest,
     };
   });

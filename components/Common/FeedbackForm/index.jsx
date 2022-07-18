@@ -241,7 +241,7 @@ const FeedbackForm = ({
         >
           <ButtonMore
             href="/"
-            title="Send"
+            title="Contact Us"
             buttonStyle={styles.submit}
             handleOnClick={handleOnSubmitClick}
             isDisabled={isDisabled}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
-import { Svg } from 'components/AppDevelopmentCommon/Svg';
+import { Svg } from 'components/Common/Svg';
 import { getSvgGroupProps } from '../utils/svgHelper';
 
 const SvgGroup = ({
