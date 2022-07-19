@@ -99,6 +99,7 @@ export const getSwiperParams = () => {
         centeredSlides: false,
       },
       1024: {
+        centeredSlides: false,
         slidesPerView: 3,
       },
     },
