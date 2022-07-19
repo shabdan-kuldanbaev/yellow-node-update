@@ -179,9 +179,14 @@
     .svgListWrapper {
       @extend .svgListWrapperOneRow;
 
-      .svgList > div {
-        @include phone {
-          margin-top: 0;
+
+      .svgList {
+        align-items: center;
+
+        & > div {
+          @include phone {
+            margin-top: 0;
+          }
         }
       }
     }
