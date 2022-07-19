@@ -16,5 +16,19 @@
       }
     ]
   ],
-  "plugins": ["inline-react-svg", "@babel/plugin-proposal-export-default-from"]
+  "plugins": [
+    ["inline-react-svg",
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "name": "removeViewBox",
+              "active": false
+            }
+          ]
+        }
+      }
+    ],
+    "@babel/plugin-proposal-export-default-from"
+  ]
 }
