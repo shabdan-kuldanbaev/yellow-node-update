@@ -137,6 +137,10 @@
 .chat-app-development-company {
   @extend .svgSection;
 
+  .titleStyle {
+    margin-bottom: 0;
+  }
+
   .svgListWrapper {
     .svgList {
       margin-bottom: 150px;
