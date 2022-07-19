@@ -22,21 +22,41 @@
   }
 
   &.thirdSectionView {
+    @include iconsWithinCircle;
+
     padding-bottom: 0;
+
+    .cardContent .typeTitle {
+      margin-top: 20px;
+    }
 
     .contentWrapper {
       @extend .twoСolumnsСards;
 
       .smallCards {
         grid-gap: 72px 264px;
+
+        @include below-tablet {
+          grid-gap: 40px;
+        }
       }
     }
   }
 
   &.fourthSectionView {
+    @include iconsWithinCircle;
+
+    .cardContent .typeTitle {
+      margin-top: 20px;
+    }
+
     .contentWrapper {
       .smallCards {
         grid-gap: 72px 264px;
+
+        @include below-tablet {
+          grid-gap: 24px;
+        }
       }
 
       & > div:last-child {
