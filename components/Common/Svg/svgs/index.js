@@ -104,7 +104,7 @@ export titledApacheJMeter from './titledApacheJMeter.svg';
 export titledCoreData from './titledCoreData.svg';
 export titledKotlin2 from './titledKotlin.svg';
 export titledDocker from './titledDocker.svg';
-export titledSqlLite from './titledSqlLite.svg';
+export titledSQLite from './titledSQLite.svg';
 export titledGradle from './titledGradle.svg';
 export titledAndroidSdk from './titledAndroidSdk.svg';
 export titledFlutter from './titledFlutter.svg';
