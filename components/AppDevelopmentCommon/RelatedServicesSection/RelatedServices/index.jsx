@@ -40,7 +40,7 @@ export const RelatedServices = ({ services }) => {
             const imageUrl = getFileUrl(get(images, '[0]'));
             const imageBgUrls = getFileUrl(get(imagesBundles, '[0]'));
             const buttonTitle = get(contentModules, '[0].fields.buttonTitle');
-            const url = get(contentModules, '[0].fields.url');
+            const serviceUrl = get(contentModules, '[0].fields.url');
 
             return (
               <div
@@ -63,7 +63,7 @@ export const RelatedServices = ({ services }) => {
                   </h3>
                   {description && <p>{description}</p>}
                   <LinkWrapper
-                    path={url}
+                    path={serviceUrl}
                     className={styles.link}
                   >
                     {buttonTitle}
