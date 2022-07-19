@@ -139,6 +139,10 @@
 
   .titleStyle {
     margin-bottom: 0;
+
+    @include tablet {
+      margin-bottom: 60px;
+    }
   }
 
   .svgListWrapper {

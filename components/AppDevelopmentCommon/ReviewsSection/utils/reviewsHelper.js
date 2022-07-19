@@ -91,11 +91,12 @@ export const getSwiperParams = () => {
   const desktopSwiperParams = {
     ...mobileSwiperParams,
     effect: 'slide',
-    centeredSlides: false,
-    slidesPerView: 1,
+    centeredSlides: true,
+    slidesPerView: 1.2,
     breakpoints: {
       769: {
         slidesPerView: 2,
+        centeredSlides: false,
       },
       1024: {
         slidesPerView: 3,
