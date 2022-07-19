@@ -133,7 +133,7 @@ export const SVG_IMAGES_TYPES = {
   searchSvg: 'search',
   yellowLogoSvg: 'yellowLogo',
   unpinSvg: 'unpin',
-  closeSvg: 'close',
+  closeSvg: 'cancel',
   scrollIconSvg: 'scrollIcon',
   esquirePartner: 'esquirePartner',
   productHuntPartner: 'productHuntPartner',

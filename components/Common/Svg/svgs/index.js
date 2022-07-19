@@ -156,6 +156,7 @@ export research from './research.svg';
 export support from './support.svg';
 export iosCheck from './iosCheck.svg';
 export treeStructure from './treeStructure.svg';
+export treeStructure1 from './treeStructure1.svg';
 export search from './search.svg';
 export wireframe from './wireframe.svg';
 export agile from './agile.svg';
