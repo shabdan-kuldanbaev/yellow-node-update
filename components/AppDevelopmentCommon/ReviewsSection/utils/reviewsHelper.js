@@ -1,6 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { SWIPER_NAV_PARAMS } from 'utils/constants';
 
 export const getReviewsProps = (data) => {
   let reviews = [];
@@ -9,9 +10,10 @@ export const getReviewsProps = (data) => {
     contentModules,
   } = getDocumentFields(data);
   const { contentModules: reviewsData } = getDocumentFields(get(contentModules, '[0]', {}));
+  const link = getDocumentFields(get(contentModules, '[1]', {}));
 
   if (reviewsData) {
-    reviews = reviewsData.slice(0, 3).map((module) => {
+    reviews = reviewsData.map((module) => {
       const {
         contentModules: review,
         text,
@@ -37,6 +39,7 @@ export const getReviewsProps = (data) => {
   return {
     reviews,
     title,
+    link,
   };
 };
 
@@ -65,18 +68,21 @@ export const getSwiperParams = () => {
         },
       },
     },
+    ...SWIPER_NAV_PARAMS,
   };
 
   const desktopSwiperParams = {
     ...mobileSwiperParams,
     effect: 'slide',
-    centeredSlides: false,
-    slidesPerView: 1,
+    centeredSlides: true,
+    slidesPerView: 1.2,
     breakpoints: {
       769: {
         slidesPerView: 2,
+        centeredSlides: false,
       },
       1024: {
+        centeredSlides: false,
         slidesPerView: 3,
       },
     },

@@ -1,0 +1,75 @@
+@import "styles/utils/mixins";
+
+.serviceList {
+  max-width: $max-content-width;
+  margin: 0 auto;
+
+  :global(.swiper-container) {
+    padding: 30px 0 80px;
+    margin: -30px 0 -80px;
+  }
+
+  :global(.swiper-next-el) {
+    bottom: 0;
+    right: 10%;
+  }
+
+  :global(.swiper-prev-el) {
+    bottom: 0;
+    left: 10%;
+  }
+}
+
+.service {
+  box-shadow: $card-bow-shadow;
+  background: $white;
+
+  .cardContent {
+    padding: 26px;
+
+    .typeTitle {
+      @include fontSize(20px);
+
+      margin: 0 0 10px;
+    }
+
+    p {
+      @include fontSize(16px);
+
+      margin-bottom: 20px;
+      line-height: 25px;
+      color: $silver-chalice;
+    }
+
+    .link {
+      @include fontSize(18px);
+
+      margin-top: 20px;
+      text-decoration: none;
+      color: $black;
+      display: inline-block;
+
+      &:hover {
+        color: $silver-chalice;
+      }
+    }
+  }
+}
+
+.imageWrapper {
+  @include flex(column, center, center);
+
+  object-fit: cover;
+  width: 100%;
+  height: 304px;
+  background: $dark-grey;
+
+  @include phone {
+    height: 200px;
+  }
+}
+
+.image {
+  max-width: 80%;
+  max-height: 80%;
+}

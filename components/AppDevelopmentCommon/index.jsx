@@ -13,6 +13,7 @@ import { ReviewsSection } from 'components/AppDevelopmentCommon/ReviewsSection';
 import { ImagesListSection } from 'components/AppDevelopmentCommon/ImagesListSection';
 import BlogSection from 'components/AppDevelopmentCommon/BlogSection';
 import { CheckSocialSection } from 'components/AppDevelopmentCommon/CheckSocialSection';
+import RelatedServicesSection from 'components/AppDevelopmentCommon/RelatedServicesSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -50,6 +51,14 @@ export const AppDevelopmentCommon = ({
         sectionData={section}
         pageType={type}
         sectionType="cards"
+        handleOnCTAClick={handleOnCTAClick}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentRelatedServices:
+    return (
+      <RelatedServicesSection
+        sectionData={section}
+        type={type}
         handleOnCTAClick={handleOnCTAClick}
       />
     );
@@ -114,6 +123,7 @@ export const AppDevelopmentCommon = ({
       <ReviewsSection
         data={section}
         type={type}
+        handleOnCTAClick={handleOnCTAClick}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentImagesList:

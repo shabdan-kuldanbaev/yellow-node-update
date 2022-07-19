@@ -7,30 +7,46 @@
 .ui-ux-services,
 .android-mobile-app-development-services,
 .mvp-app-development-company,
+.cloud-based-app-development-services,
 .machine-learning-development-services,
-.cloud-based-app-development-services {
+.chat-app-development-company {
   @include appDevelopmentContainer;
-
-  @include phone {
-    padding: 64px 0;
-  }
 
   .title {
     max-width: $max-content-width;
     margin: 0 auto 80px;
+  }
 
-    div {
-      width: 100%;
+  .callToAction {
+    @include defaultCallToAction;
 
-      h2 {
-        text-align: left;
+    background: $white;
+    margin-top: 120px;
 
-        @include below-tablet {
-          text-align: center;
-          margin-bottom: 0;
-        }
+    & > h3 {
+      margin-right: 15px;
+      text-align: left;
+
+      @include phone {
+        text-align: center;
       }
     }
+
+    @include below-tablet {
+      flex-direction: column;
+      padding: 24px;
+
+      h3 {
+        @include fontSize(18px);
+
+        text-align: center;
+        margin: 0 0 24px;
+      }
+    }
+  }
+
+  @include phone {
+    padding: 64px 0;
   }
 }
 
@@ -40,7 +56,9 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.chat-app-development-company,
+.mobile-app-development-company {
   background-color: $alabaster;
 }
 

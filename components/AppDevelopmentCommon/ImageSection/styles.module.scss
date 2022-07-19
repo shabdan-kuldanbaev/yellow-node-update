@@ -67,4 +67,8 @@
   @include appDevelopmentContainer;
 
   padding-top: 0;
+
+  .imageSection {
+    margin-bottom: 0;
+  }
 }

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
 import { Svg } from 'components/Common/Svg';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getSvgGroupProps } from '../utils/svgHelper';
 
 const SvgGroup = ({
   data,
-  animatedProps,
   className,
   listWrapperClassName,
   isMobileResolution,
@@ -29,8 +29,8 @@ const SvgGroup = ({
           return (
             <Animated
               key={`technologies/${technology}`}
-              {...animatedProps}
-              transitionDelay={300 + 50 * i}
+              {...REVEAL_ANIMATION_PROPS}
+              transitionDelay={300 + 70 * i}
             >
               <Svg type={technology} />
             </Animated>
@@ -49,7 +49,6 @@ SvgGroup.defaultProps = {
 
 SvgGroup.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
-  animatedProps: PropTypes.instanceOf(Object).isRequired,
   className: PropTypes.string,
   listWrapperClassName: PropTypes.string,
   isMobileResolution: PropTypes.bool,

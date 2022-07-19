@@ -8,9 +8,15 @@
 }
 
 .figureSubtitle {
+  @include fontSize(18px);
+
+  line-height: 180%;
   margin: 0;
-  font-size: 0.75rem;
   color: $silver-chalice;
+
+  @include below-tablet {
+    @include fontSize(14px);
+  }
 }
 
 .chat-app-development-company {

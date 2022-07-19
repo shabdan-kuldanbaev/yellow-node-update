@@ -35,6 +35,10 @@
         @include fontSize(22px);
       }
 
+      @include below-tablet {
+        margin-top: 16px;
+      }
+
       @include phone {
         @include fontSize(18px);
       }
@@ -66,13 +70,6 @@
 
     .imageWrapper {
       margin-right: 40px;
-
-      svg {
-        @include phone {
-          width: 48px;
-          height: 48px;
-        }
-      }
 
       @include phone {
         margin-right: 16px;
@@ -196,6 +193,7 @@
 .mvp-app-development-company,
 .machine-learning-development-services {
   @include appDevelopmentContainer;
+  @include iconsWithinCircle;
 
   .contentWrapper {
     @include smallSectionWrapper;

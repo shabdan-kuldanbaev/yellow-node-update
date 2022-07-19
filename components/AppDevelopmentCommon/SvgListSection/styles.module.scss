@@ -5,6 +5,12 @@
 .svgSection {
   @include appDevelopmentContainer;
 
+  .titleStyle {
+    p {
+      width: auto;
+    }
+  }
+
   h3 {
     @include fontSize(32px);
 
@@ -31,11 +37,6 @@
 
         @include tablet {
           flex: 1 0 50%;
-
-          &:nth-of-type(1),
-          &:nth-of-type(2) {
-            margin-top: 0;
-          }
         }
       }
     }
@@ -131,6 +132,10 @@
 .chat-app-development-company {
   @extend .svgSection;
 
+  .titleStyle {
+    margin-bottom: 0;
+  }
+
   .svgListWrapper {
     .svgList {
       margin-bottom: 150px;
@@ -173,9 +178,14 @@
     .svgListWrapper {
       @extend .svgListWrapperOneRow;
 
-      .svgList > div {
-        @include phone {
-          margin-top: 0;
+
+      .svgList {
+        align-items: center;
+
+        & > div {
+          @include phone {
+            margin-top: 0;
+          }
         }
       }
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
-import SwiperNavButton from 'components/SwiperNavButton';
 import { getDocumentFields } from 'utils/helper';
+import { SWIPER_NAV_PARAMS } from 'utils/constants';
 
 export const getGalleryProps = (data) => {
   const {
@@ -22,30 +22,13 @@ export const getGalleryProps = (data) => {
     mousewheel: {
       forceToAxis: true,
     },
-    navigation: {
-      nextEl: '.swiper-next-el',
-      prevEl: '.swiper-prev-el',
-    },
     coverflowEffect: {
       rotate: 0,
       stretch: -40,
       depth: 150,
       slideShadows: false,
     },
-    renderNextButton: () => (
-      <SwiperNavButton
-        type="arrowRight"
-        text="next"
-        className="swiper-next-el"
-      />
-    ),
-    renderPrevButton: () => (
-      <SwiperNavButton
-        type="arrowLeft"
-        text="previous"
-        className="swiper-prev-el"
-      />
-    ),
+    ...SWIPER_NAV_PARAMS,
     breakpoints: {
       1025: {
         slidesPerView: 1.8,
