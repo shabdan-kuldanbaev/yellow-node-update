@@ -4,12 +4,6 @@
       & > div {
         @include flex();
       }
-
-      .imageWrapper {
-        @include phone {
-          width: 50px;
-        }
-      }
     }
   }
 
@@ -17,13 +11,6 @@
     background-color: $alabaster;
 
     .cards > div {
-      .imageWrapper {
-        @include phone {
-          width: 90px;
-          background: $white;
-        }
-      }
-
       @include phone {
         padding: 20px !important;
       }
@@ -33,18 +20,15 @@
   &.secondSectionView {
     background-color: $white;
 
-    .cards > div {
-      box-shadow: none;
+    .cards {
+      grid-gap: 0;
 
-      .imageWrapper {
+      & > div {
+        box-shadow: none;
+
         @include phone {
-          width: 90px;
-          background: $white;
+          padding: 20px !important;
         }
-      }
-
-      @include phone {
-        padding: 20px !important;
       }
     }
   }
@@ -60,7 +44,14 @@
       .imageWrapper {
         @include phone {
           background: $very-dark-gray;
-          width: 90px;
+          justify-content: flex-start;
+          width: unset;
+          height: unset;
+
+          svg {
+            transform: scale(0.7);
+            margin: 0 0 -13px -13px;
+          }
         }
       }
 
@@ -72,5 +63,27 @@
         padding: 10px 0;
       }
     }
+  }
+
+  &.fourthSectionView {
+    background: $alabaster;
+
+    .callToAction {
+      background: $white;
+    }
+  }
+
+  &.fifthSectionView {
+    background: $white;
+
+    .cards > div {
+      @include below-tablet {
+        padding: 24px;
+      }
+    }
+  }
+
+  &.sixthSectionView {
+    background: $white;
   }
 }

@@ -35,6 +35,10 @@
         @include fontSize(22px);
       }
 
+      @include below-tablet {
+        margin-top: 16px;
+      }
+
       @include phone {
         @include fontSize(18px);
       }
@@ -189,6 +193,7 @@
 .mvp-app-development-company,
 .machine-learning-development-services {
   @include appDevelopmentContainer;
+  @include iconsWithinCircle;
 
   .contentWrapper {
     @include smallSectionWrapper;
