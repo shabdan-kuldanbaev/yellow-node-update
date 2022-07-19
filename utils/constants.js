@@ -1,3 +1,5 @@
+import React from 'react';
+import SwiperNavButton from 'components/SwiperNavButton';
 import { routes } from 'utils/routes';
 
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
@@ -428,4 +430,25 @@ export const REVEAL_ANIMATION_PROPS = {
   translateY: '2.82352941em',
   opasityDuration: 1,
   transformDuration: 1,
+};
+
+export const SWIPER_NAV_PARAMS = {
+  navigation: {
+    nextEl: '.swiper-next-el',
+    prevEl: '.swiper-prev-el',
+  },
+  renderNextButton: () => (
+    <SwiperNavButton
+      type="arrowRight"
+      text="next"
+      className="swiper-next-el"
+    />
+  ),
+  renderPrevButton: () => (
+    <SwiperNavButton
+      type="arrowLeft"
+      text="previous"
+      className="swiper-prev-el"
+    />
+  ),
 };

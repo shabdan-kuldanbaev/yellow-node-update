@@ -1,8 +1,40 @@
 import React from 'react';
 import get from 'lodash/get';
-import SwiperNavButton from 'components/SwiperNavButton';
-import { getDocumentFields } from 'utils/helper';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { ANIMATED_TYPE, SWIPER_NAV_PARAMS } from 'utils/constants';
+
+export const getServiceParams = (service) => {
+  const {
+    title,
+    images,
+    contentModules,
+    description,
+    imagesBundles,
+  } = getDocumentFields(
+    service,
+    [
+      'title',
+      'images',
+      'contentModules',
+      'description',
+      'imagesBundles',
+    ],
+  );
+
+  const imageUrl = getFileUrl(get(images, '[0]'));
+  const imageBgUrl = getFileUrl(get(imagesBundles, '[0]'));
+  const buttonTitle = get(contentModules, '[0].fields.buttonTitle');
+  const serviceUrl = get(contentModules, '[0].fields.url');
+
+  return {
+    title,
+    description,
+    imageUrl,
+    imageBgUrl,
+    buttonTitle,
+    serviceUrl,
+  };
+};
 
 export const getRelatedServicesProps = (sectionData) => {
   const {
@@ -61,22 +93,5 @@ export const getSwiperParams = () => ({
       centeredSlides: false,
     },
   },
-  navigation: {
-    nextEl: '.swiper-next-el',
-    prevEl: '.swiper-prev-el',
-  },
-  renderNextButton: () => (
-    <SwiperNavButton
-      type="arrowRight"
-      text="next"
-      className="swiper-next-el"
-    />
-  ),
-  renderPrevButton: () => (
-    <SwiperNavButton
-      type="arrowLeft"
-      text="previous"
-      className="swiper-prev-el"
-    />
-  ),
+  ...SWIPER_NAV_PARAMS,
 });

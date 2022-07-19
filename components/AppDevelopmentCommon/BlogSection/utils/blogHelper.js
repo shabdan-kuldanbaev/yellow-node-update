@@ -1,10 +1,10 @@
 import React from 'react';
-import SwiperNavButton from 'components/SwiperNavButton';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
+import { SWIPER_NAV_PARAMS } from 'utils/constants';
 
 export const getBlogArticles = (blogArticles = []) => blogArticles.map((article) => {
   const {
@@ -52,24 +52,6 @@ export const getSwiperParams = () => {
       modifier: 1,
       slideShadows: false,
     },
-    navigation: {
-      nextEl: '.swiper-next-el',
-      prevEl: '.swiper-prev-el',
-    },
-    renderNextButton: () => (
-      <SwiperNavButton
-        type="arrowRight"
-        text="next"
-        className="swiper-next-el"
-      />
-    ),
-    renderPrevButton: () => (
-      <SwiperNavButton
-        type="arrowLeft"
-        text="previous"
-        className="swiper-prev-el"
-      />
-    ),
     breakpoints: {
       480: {
         coverflowEffect: {
@@ -77,6 +59,7 @@ export const getSwiperParams = () => {
         },
       },
     },
+    ...SWIPER_NAV_PARAMS,
   };
 
   const desktopSwiperParams = {

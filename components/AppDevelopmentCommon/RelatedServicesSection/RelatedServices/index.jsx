@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Swiper from 'react-id-swiper';
-import get from 'lodash/get';
 import SwiperCore, { Mousewheel, Navigation } from 'swiper';
 import { Animated } from 'components/Common/Animated';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { getSwiperParams } from '../utils';
+import { getServiceParams, getSwiperParams } from '../utils';
 import styles from './styles.module.scss';
 
 SwiperCore.use([Mousewheel, Navigation]);
@@ -22,25 +20,12 @@ export const RelatedServices = ({ services }) => {
           {services.map((service) => {
             const {
               title,
-              images,
-              contentModules,
               description,
-              imagesBundles,
-            } = getDocumentFields(
-              service,
-              [
-                'title',
-                'images',
-                'contentModules',
-                'description',
-                'imagesBundles',
-              ],
-            );
-
-            const imageUrl = getFileUrl(get(images, '[0]'));
-            const imageBgUrls = getFileUrl(get(imagesBundles, '[0]'));
-            const buttonTitle = get(contentModules, '[0].fields.buttonTitle');
-            const serviceUrl = get(contentModules, '[0].fields.url');
+              imageUrl,
+              imageBgUrl,
+              buttonTitle,
+              serviceUrl,
+            } = getServiceParams(service);
 
             return (
               <div
@@ -49,7 +34,7 @@ export const RelatedServices = ({ services }) => {
               >
                 <div
                   className={styles.imageWrapper}
-                  style={imageBgUrls ? { background: `url(${imageBgUrls})` } : undefined}
+                  style={imageBgUrl ? { background: `url(${imageBgUrl})` } : undefined}
                 >
                   <img
                     src={imageUrl}

@@ -3,12 +3,16 @@ import cn from 'classnames';
 import React from 'react';
 import { Animated } from 'components/Common/Animated';
 import { CallToAction } from 'components/Common/CallToAction';
-import styles from './styles.module.scss';
 import { SectionTitle } from '../SectionTitle';
-import { getRelatedServicesProps } from './utils';
 import { RelatedServices } from './RelatedServices';
+import { getRelatedServicesProps } from './utils';
+import styles from './styles.module.scss';
 
-const RelatedServicesSection = ({ type, sectionData, handleOnCTAClick }) => {
+const RelatedServicesSection = ({
+  type,
+  sectionData,
+  handleOnCTAClick,
+}) => {
   const {
     title,
     description,
