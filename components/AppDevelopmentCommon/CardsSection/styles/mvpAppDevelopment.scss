@@ -20,16 +20,16 @@
   }
 
   &.secondSectionView {
+    @extend .removeCardsShadow;
+
     background: $alabaster;
 
-    .callToAction,
-    .cards > div {
-      background: $white;
-      padding: 50px;
+    .cards {
+      grid-gap: 40px 200px;
+    }
 
-      h3 {
-        margin-right: 40px;
-      }
+    .callToAction {
+      background: $white;
     }
   }
 
