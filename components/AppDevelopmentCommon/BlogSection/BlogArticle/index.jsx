@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
 import { PAGES } from 'utils/constants';
 import styles from '../BlogArticles/styles.module.scss';
@@ -9,7 +10,10 @@ const BlogArticle = ({
   articleTitle,
   slug,
 }) => (
-  <div className={styles.articleTile}>
+  <LinkWrapper
+    className={cn(styles.articleTile)}
+    path={`${PAGES.blog}/${slug}`}
+  >
     <img
       src={previewUrl}
       alt={articleTitle}
@@ -17,14 +21,11 @@ const BlogArticle = ({
     />
     <div className={styles.description}>
       <h3 className={styles.articleTitle}>{articleTitle}</h3>
-      <LinkWrapper
-        className={styles.readMore}
-        path={`${PAGES.blog}/${slug}`}
-      >
+      <span className={styles.readMore}>
         Read more
-      </LinkWrapper>
+      </span>
     </div>
-  </div>
+  </LinkWrapper>
 );
 
 BlogArticle.propTypes = {

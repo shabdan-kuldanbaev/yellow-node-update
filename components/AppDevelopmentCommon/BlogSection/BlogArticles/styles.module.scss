@@ -6,101 +6,83 @@
   margin: 0 auto;
   background-color: $white;
 
-  .desktopArticles {
-    :global(.swiper-container) {
-      overflow: visible;
+  :global(.swiper-container) {
+    padding-bottom: 100px;
+
+    @include below-tablet {
+      margin: 0 -40px;
     }
 
     @include phone {
-      display: none;
+      margin: 0 -15px;
+    }
+  }
+}
+
+.articleTile {
+  @include flex(column);
+
+  position: relative;
+  height: 478px;
+  border-radius: 5px;
+  box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
+  overflow: hidden;
+
+  .articleImage {
+    width: 100%;
+    height: 304px;
+    object-fit: cover;
+
+    @include phone {
+      height: 200px;
     }
   }
 
-  .mobileArticles {
-    display: none;
+  .description {
+    @include hidden-text(ellipsis, 2);
+    @include flex(column, space-between);
 
-    & > div {
-      overflow: visible;
+    padding: 26px;
+    flex-grow: 1;
+    color: $dark-grey;
+
+    .articleTitle {
+      @include fontSize(20px, 150%);
+
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .readMore {
+      @include fontSize(18px, 180%);
+
+      align-self: flex-start;
+      margin-top: 30px;
     }
 
     @include phone {
-      display: block;
-
-      :global {
-        .swiper-next-el,
-        .swiper-prev-el {
-          bottom: -60px;
-        }
-      }
-    }
-  }
-
-  .articleTile {
-    @include flex(column);
-
-    position: relative;
-    max-width: 407px;
-    height: 478px;
-    border-radius: 5px;
-    box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
-    overflow: hidden;
-
-    .articleImage {
-      width: 100%;
-      height: 304px;
-      object-fit: cover;
-
-      @include phone {
-        height: 200px;
-      }
-    }
-
-    .description {
-      @include hidden-text(ellipsis, 2);
-      @include flex(column, space-between);
-
-      padding: 26px;
-      flex-grow: 1;
-
       .articleTitle {
-        @include fontSize(20px);
+        @include fontSize(16px);
 
-        margin: 0;
-        font-weight: 700;
-        line-height: 150%;
-        color: $dark-grey;
+        line-height: 120%;
       }
 
       .readMore {
-        @include fontSize(18px);
+        @include fontSize(14px);
 
         line-height: 180%;
-        color: $dark-grey;
-        align-self: flex-start;
-
-        &:hover {
-          color: $mid-gray;
-        }
-      }
-
-      @include phone {
-        .articleTitle {
-          @include fontSize(16px);
-
-          line-height: 120%;
-        }
-
-        .readMore {
-          @include fontSize(14px);
-
-          line-height: 180%;
-        }
       }
     }
+  }
 
-    @include phone {
-      height: 343px;
-      border-radius: 0;
+  &:hover {
+    .description {
+      color: $mid-gray;
     }
+  }
+
+  @include phone {
+    height: 343px;
+    border-radius: 0;
   }
 }
