@@ -94,6 +94,8 @@
   @include appDevelopmentContainer;
 
   &.firstSectionView {
+    padding-bottom: 0;
+
     .svgListWrapper {
       @extend .svgListWrapperSeveralRows;
 
@@ -119,6 +121,9 @@
   }
 
   &.secondSectionView {
+    background: $alabaster;
+    padding-top: 0;
+
     .svgListWrapper {
       @extend .svgListWrapperOneRow;
     }

@@ -1,6 +1,4 @@
 .cards {
-  @include iconsWithinCircle;
-
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 40px;
@@ -8,48 +6,38 @@
   @include below-tablet {
     grid-gap: 20px;
     width: 100%;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
   }
 
   & > div {
     padding: 50px;
     box-shadow: $card-bow-shadow;
     border-radius: 5px;
-    max-width: 518px;
     box-sizing: border-box;
     background: $white;
 
-    @include below-tablet {
-      width: 100%;
-      max-width: unset;
-    }
-
     .typeTitle {
-      line-height: 1.8;
+      @include fontSize(24px, 150%);
+
       font-weight: 700;
       margin: 20px 0 10px;
-
-      @include fontSize(24px);
 
       @include macbook-twelve {
         @include fontSize(22px);
       }
 
       @include below-tablet {
-        margin-top: 16px;
-      }
-
-      @include phone {
         @include fontSize(18px);
+
+        margin-top: 16px;
       }
     }
 
     p {
-      color: $silver-chalice;
-      line-height: 1.8;
-      margin: 0;
+      @include fontSize(18px, 180%);
 
-      @include fontSize(18px);
+      color: $silver-chalice;
+      margin: 0;
 
       @include phone {
         @include fontSize(16px);
@@ -78,9 +66,8 @@
 
     .cardContent {
       .typeTitle {
-        @include fontSize(24px);
+        @include fontSize(24px, 180%);
 
-        line-height: 1.8;
         font-weight: 700;
         margin: 0 0 10px;
 
@@ -94,16 +81,10 @@
       }
 
       p {
-        @include fontSize(18px);
+        @include fontSize(18px, 180%);
 
         color: $silver-chalice;
-        line-height: 1.8;
         margin: 0;
-        max-width: 390px;
-
-        @include below-tablet {
-          max-width: unset;
-        }
 
         @include phone {
           @include fontSize(16px);
@@ -201,29 +182,5 @@
 
   .callToAction {
     @include defaultCallToAction;
-
-    margin-top: 150px;
-
-    @include below-tablet {
-      display: block;
-
-      h3 {
-        margin: 0 auto 15px;
-      }
-
-      & > * {
-        margin: 0 auto;
-        text-align: center;
-      }
-    }
-
-    @include tablet {
-      margin-top: 60px;
-      padding: 40px;
-    }
-
-    @include phone {
-      margin-top: 30px;
-    }
   }
 }

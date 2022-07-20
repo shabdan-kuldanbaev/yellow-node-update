@@ -17,8 +17,12 @@
   -webkit-box-orient: vertical;
 }
 
-@mixin fontSize($size) {
+@mixin fontSize($size, $lineHeight: null) {
   font-size: calcRem($size);
+
+  @if ($lineHeight) {
+    line-height: $lineHeight;
+  }
 }
 
 @mixin centered {

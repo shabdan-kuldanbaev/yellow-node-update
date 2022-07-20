@@ -34,7 +34,7 @@
       @extend .twoСolumnsСards;
 
       .smallCards {
-        grid-gap: 72px 264px;
+        grid-gap: 72px 10vw;
 
         @include below-tablet {
           grid-gap: 40px;
@@ -52,7 +52,7 @@
 
     .contentWrapper {
       .smallCards {
-        grid-gap: 72px 264px;
+        grid-gap: 72px 7vw;
 
         @include below-tablet {
           grid-gap: 24px;
