@@ -134,6 +134,10 @@
     padding-top: 100px;
   }
 
+  @include below-tablet {
+    padding-bottom: 0;
+  }
+
   @include phone {
     padding-top: 64px;
   }

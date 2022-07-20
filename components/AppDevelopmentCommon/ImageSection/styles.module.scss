@@ -70,5 +70,25 @@
 
   .imageSection {
     margin-bottom: 0;
+
+    @include below-tablet {
+      margin-top: 0;
+    }
+  }
+
+  .titleStyle {
+    p {
+      @include fontSize(40px);
+
+      line-height: 120%;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+  }
+
+  @include below-tablet {
+    padding-top: 0;
   }
 }
