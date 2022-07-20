@@ -55,14 +55,20 @@
 
 .arrowRight {
   right: 0;
-  left: unset;
 
   & > svg {
     order: 2;
+  }
+
+  @include below-tablet {
+    right: 10%;
   }
 }
 
 .arrowLeft {
   left: 0;
-  right: unset;
+
+  @include below-tablet {
+    left: 10%;
+  }
 }

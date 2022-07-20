@@ -21,6 +21,16 @@
   :global(.swiper-slide-active) {
     box-shadow: 0 10px 60px -10px rgba($black, 0.15);
   }
+
+  :global(.swiper-next-el) {
+    right: unset;
+    left: 73vw;
+  }
+
+  :global(.swiper-prev-el) {
+    left: unset;
+    right: 73vw;
+  }
 }
 
 .web-app-development-company,
@@ -43,16 +53,6 @@
 
   @include below-tablet {
     padding-bottom: 30px;
-  }
-
-  :global(.swiper-next-el) {
-    right: unset;
-    left: 73vw;
-  }
-
-  :global(.swiper-prev-el) {
-    left: unset;
-    right: 73vw;
   }
 }
 

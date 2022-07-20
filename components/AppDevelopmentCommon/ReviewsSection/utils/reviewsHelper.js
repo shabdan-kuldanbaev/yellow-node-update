@@ -75,9 +75,9 @@ export const getSwiperParams = () => {
     ...mobileSwiperParams,
     effect: 'slide',
     centeredSlides: true,
-    slidesPerView: 1.2,
+    slidesPerView: 1.05,
     breakpoints: {
-      769: {
+      768: {
         slidesPerView: 2,
         centeredSlides: false,
       },
