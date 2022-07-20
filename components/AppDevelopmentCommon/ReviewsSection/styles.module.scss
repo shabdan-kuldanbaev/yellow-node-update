@@ -12,10 +12,6 @@
 .chat-app-development-company {
   @include appDevelopmentContainer;
 
-  .title {
-    max-width: $max-content-width;
-  }
-
   .callToAction {
     @include defaultCallToAction;
   }
