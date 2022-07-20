@@ -259,10 +259,11 @@
 
 .ui-ux-services {
   .title {
+    @include fontSize(56px);
+
     letter-spacing: unset;
     margin-bottom: 30px;
-
-    @include fontSize(56px);
+    max-width: 912px;
 
     @include tablet {
       @include fontSize(44px);
