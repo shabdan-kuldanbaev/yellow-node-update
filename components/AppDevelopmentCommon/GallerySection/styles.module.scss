@@ -5,236 +5,17 @@
 .gallerySection {
   padding-bottom: 30px;
 
-  .swiperPaginationBullet {
-    width: 12px;
-    height: 12px;
-    opacity: 1;
-  }
-
   :global(.swiper-container) {
     padding-bottom: 100px;
-  }
-
-  :global(.swiper-pagination) {
-    position: relative;
-    margin-top: 60px;
-  }
-
-  :global(.swiper-pagination-bullet) {
-    @extend .swiperPaginationBullet;
-
-    background: $wild-sand;
-  }
-
-  :global(.swiper-pagination-bullet-active) {
-    @extend .swiperPaginationBullet;
-
-    background: $silver-chalice;
-  }
-
-  :global(.swiper-next-el) {
-    bottom: 0;
-    left: 51%;
+    margin: 0 -40px;
 
     @include phone {
-      display: none;
+      margin: 0 -15px;
     }
   }
 
-  :global(.swiper-prev-el) {
-    bottom: 0;
-    right: 51%;
-
-    @include phone {
-      display: none;
-    }
-  }
-}
-
-.mobile-app-development-company,
-.ui-ux-services {
-  padding-bottom: 150px;
-
-  @include tablet {
-    padding-bottom: 100px;
-  }
-
-  @include phone {
-    padding-bottom: 64px;
-  }
-
-  .gallerySection {
-    margin-bottom: 70px;
-  }
-
-  .callToAction {
-    max-width: 720px;
-    margin: auto;
-    padding: 0 15px;
-    background-color: unset;
-
-    @include flex(column, center, center);
-
-    & > h3 {
-      text-align: center;
-    }
-
-    & > div {
-      padding: 20px 60px;
-      width: unset;
-    }
-  }
-
-  :global(.swiper-pagination) {
-    display: none;
-  }
-}
-
-.ui-ux-services {
-  .gallerySection {
-    margin: 0;
-    padding-top: 120px;
-
-    @include tablet {
-      padding-top: 100px;
-    }
-
-    @include phone {
-      padding-top: 64px;
-    }
-  }
-
-  .linksBlock {
-    max-width: 675px;
-    margin: 140px auto 0;
-
-    @include tablet {
-      margin-top: 100px;
-    }
-
-    @include phone {
-      margin-top: 60px;
-    }
-
-    .linksBlockTitle {
-      text-align: center;
-      margin: 0 auto 85px;
-
-      @include fontSize(40px);
-
-      @include tablet {
-        @include fontSize(35px);
-      }
-
-      @include phone {
-        margin: 0 auto 65px;
-        max-width: 300px;
-
-        @include fontSize(24px);
-      }
-    }
-
-    .linksList {
-      @include flex(row, space-between, center);
-
-      @include tablet {
-        justify-content: space-around;
-      }
-
-      @include phone {
-        flex-direction: column;
-      }
-
-      .linkContainer {
-        @include phone {
-          &:first-of-type {
-            margin-bottom: 40px;
-          }
-        }
-
-        a {
-          @include flex(row, center, center);
-
-          .linkText {
-            color: $dark-grey;
-            font-weight: 700;
-            margin: 0 18px 0 15px;
-
-            @include fontSize(24px);
-
-            @include phone {
-              @include fontSize(20px);
-            }
-          }
-
-          &:hover {
-            .arrow {
-              transform: translateX(5px);
-              transition: transform 0.4s ease-out;
-            }
-          }
-
-          .arrow {
-            transition: transform 0.4s ease-out;
-          }
-        }
-      }
-    }
-  }
-
-  :global(.swiper-wrapper) {
-    padding: 75px 0;
-  }
-
-  :global(.swiper-slide-active) {
-    box-shadow: 0 10px 60px -10px rgba($black, 0.15);
-  }
-}
-
-.chat-app-development-company {
-  @extend .gallerySection;
-
-  padding-top: 150px;
-
-  @include tablet {
-    padding-top: 100px;
-  }
-
-  @include phone {
-    padding-top: 64px;
-  }
-
-  :global(.swiper-container) {
-    &::before,
-    &::after {
-      content: " ";
-      height: 100%;
-      position: absolute;
-      top: 0;
-      width: 20%;
-      z-index: 2;
-    }
-
-    &::before {
-      background:
-        linear-gradient(
-          90deg,
-          rgba($white, 1) -20%,
-          rgba($white, 0) 80%
-        );
-      transform: translateX(-15px);
-    }
-
-    &::after {
-      background:
-        linear-gradient(
-          90deg,
-          rgba($white, 0) 10%,
-          rgba($white, 1) 120%
-        );
-      transform: translateX(0);
-      right: 0;
-    }
+  :global(.swiper-slide) {
+    transition-property: box-shadow, transform;
   }
 
   :global(.swiper-slide-active) {
@@ -247,64 +28,37 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
-  padding: 150px 0;
+.machine-learning-development-services,
+.ui-ux-services,
+.chat-app-development-company,
+.mobile-app-development-company {
+  @include appDevelopmentContainer;
+
   background-color: $white;
-
-  @include tablet {
-    padding: 100px 0;
-  }
-
-  @include phone {
-    padding: 64px 0;
-  }
+  padding-bottom: 90px;
 
   .callToAction {
     @include defaultCallToAction;
   }
 
-  :global(.swiper-slide) {
-    filter: drop-shadow(0 8px 35px $case-study-step-box-shadow);
+  @include below-tablet {
+    padding-bottom: 30px;
   }
 }
 
-.ios-mobile-app-development-services,
-.android-mobile-app-development-services {
-  .gallerySection {
-    margin: 0;
+/* Sections with grey background */
+.mobile-app-development-company {
+  background: $alabaster;
+
+  .callToAction {
+    background: $white;
   }
 }
 
 .android-mobile-app-development-services {
   .sectionTitle {
-    margin: 0 auto 40px;
-
     @include below-tablet {
       max-width: 343px;
-    }
-  }
-}
-
-.mobile-app-development-company {
-  background: $alabaster;
-  padding-top: 120px;
-
-  .callToAction {
-    background: $white;
-    padding: 70px;
-
-    h3 {
-      margin-top: 0;
-
-      @include below-tablet {
-        @include fontSize(18px);
-
-        line-height: 120%;
-      }
-    }
-
-    @include below-tablet {
-      padding: 24px;
     }
   }
 }

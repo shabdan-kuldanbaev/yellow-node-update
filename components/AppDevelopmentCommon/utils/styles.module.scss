@@ -22,29 +22,48 @@
 }
 
 @mixin defaultCallToAction {
+  @include flex(row, space-between, center);
+
   box-sizing: border-box;
   width: 100%;
   max-width: 1076px;
-  padding: 80px;
+  padding: 70px;
   margin: 80px auto 0;
 
-  @include phone {
-    padding: 40px 24px;
-    margin-top: 60px;
-  }
-
   h3 {
-    margin: 0 80px 0 0;
-    max-width: 610px;
-
     @include fontSize(24px);
 
-    @include phone {
-      margin: 0 0 30px;
-      text-align: center;
+    max-width: 610px;
+    line-height: 120%;
 
-      @include fontSize(20px);
+    @include below-tablet {
+      @include fontSize(18px);
+
+      margin: 0 0 24px;
+      text-align: center;
     }
+  }
+
+  div[role=button] {
+    font-weight: 500;
+    height: unset;
+    padding: 20px 0;
+    margin-left: 40px;
+    min-width: 220px;
+
+    @include below-tablet {
+      @include fontSize(14px);
+
+      padding: 14px 0;
+      width: 180px;
+      margin: auto;
+    }
+  }
+
+  @include below-tablet {
+    padding: 40px 24px;
+    margin-top: 60px;
+    flex-direction: column;
   }
 }
 
