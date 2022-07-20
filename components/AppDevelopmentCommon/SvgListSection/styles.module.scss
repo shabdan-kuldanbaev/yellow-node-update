@@ -86,10 +86,6 @@
       &:last-child {
         margin-right: 0;
       }
-
-      & > svg {
-        opacity: 0.5;
-      }
     }
   }
 }
@@ -174,10 +170,10 @@
 
   &.secondSectionView {
     background-color: $alabaster;
+    padding-top: 0;
 
     .svgListWrapper {
       @extend .svgListWrapperOneRow;
-
 
       .svgList {
         align-items: center;

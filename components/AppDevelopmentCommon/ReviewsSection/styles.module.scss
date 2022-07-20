@@ -14,35 +14,10 @@
 
   .title {
     max-width: $max-content-width;
-    margin: 0 auto 80px;
   }
 
   .callToAction {
     @include defaultCallToAction;
-
-    background: $white;
-    margin-top: 120px;
-
-    & > h3 {
-      margin-right: 15px;
-      text-align: left;
-
-      @include phone {
-        text-align: center;
-      }
-    }
-
-    @include below-tablet {
-      flex-direction: column;
-      padding: 24px;
-
-      h3 {
-        @include fontSize(18px);
-
-        text-align: center;
-        margin: 0 0 24px;
-      }
-    }
   }
 
   @include phone {
@@ -60,26 +35,4 @@
 .chat-app-development-company,
 .mobile-app-development-company {
   background-color: $alabaster;
-}
-
-.mvp-app-development-company,
-.machine-learning-development-services {
-  padding: 120px 0 60px;
-
-  @include phone {
-    padding: 60px 0 24px;
-  }
-
-  .title {
-    div {
-      h2 {
-        max-width: unset;
-        text-align: center;
-
-        @include below-tablet {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
 }
