@@ -44,6 +44,16 @@
   @include below-tablet {
     padding-bottom: 30px;
   }
+
+  :global(.swiper-next-el) {
+    right: unset;
+    left: 73vw;
+  }
+
+  :global(.swiper-prev-el) {
+    left: unset;
+    right: 73vw;
+  }
 }
 
 /* Sections with grey background */

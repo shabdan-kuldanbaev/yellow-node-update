@@ -54,8 +54,8 @@
 }
 
 .arrowRight {
+  right: 0;
   left: unset;
-  right: 10%;
 
   & > svg {
     order: 2;
@@ -63,6 +63,6 @@
 }
 
 .arrowLeft {
+  left: 0;
   right: unset;
-  left: 10%;
 }
