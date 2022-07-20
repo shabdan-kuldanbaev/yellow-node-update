@@ -75,8 +75,6 @@
   max-width: $max-content-width;
 
   .svgList {
-    overflow-x: scroll;
-
     @include flex(row, space-between, flex-end, nowrap);
 
     & > div {
@@ -94,8 +92,6 @@
   @include appDevelopmentContainer;
 
   &.firstSectionView {
-    padding-bottom: 0;
-
     .svgListWrapper {
       @extend .svgListWrapperSeveralRows;
 
@@ -121,11 +117,19 @@
   }
 
   &.secondSectionView {
-    background: $alabaster;
+    background-color: $alabaster;
     padding-top: 0;
 
     .svgListWrapper {
       @extend .svgListWrapperOneRow;
+
+      align-items: center;
+
+      .svgList > div {
+        @include flex(row, center, center);
+
+        margin-right: 20px;
+      }
     }
   }
 }
@@ -180,14 +184,12 @@
     .svgListWrapper {
       @extend .svgListWrapperOneRow;
 
-      .svgList {
-        align-items: center;
+      align-items: center;
 
-        & > div {
-          @include phone {
-            margin-top: 0;
-          }
-        }
+      .svgList > div {
+        @include flex(row, center, center);
+
+        margin-right: 20px;
       }
     }
   }
@@ -342,7 +344,7 @@
   background: $alabaster;
 
   .svgListWrapper {
-    @extend .svgListWrapperOneRow;
+    @extend .svgListWrapperSeveralRows;
 
     .svgList {
       @include below-tablet {

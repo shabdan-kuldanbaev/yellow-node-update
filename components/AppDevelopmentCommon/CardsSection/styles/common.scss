@@ -125,6 +125,9 @@
 
       .imageWrapper {
         width: 100%;
+        height: auto;
+        border-radius: 0;
+        background: none;
 
         & > div {
           @include centeredBackgroundImage;
