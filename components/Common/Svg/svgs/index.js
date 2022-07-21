@@ -223,7 +223,7 @@ export user from './user.svg';
 export uxDesign from './uxDesign.svg';
 export videoAudio from './videoAudio.svg';
 export webDevelopment from './webDevelopment.svg';
-export whatsApp from './whatsApp.svg';
+export whatsapp from './whatsapp.svg';
 export browser from './browser.svg';
 export cross from './cross.svg';
 export iPhone from './iPhone.svg';

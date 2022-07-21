@@ -1,35 +1,33 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import Swiper from 'react-id-swiper';
 import PropTypes from 'prop-types';
-import { getSwiperParams } from '../utils/blogHelper';
 import BlogArticle from '../BlogArticle';
+import { getSwiperParams } from '../utils/blogHelper';
 import styles from './styles.module.scss';
 
-const BlogArticles = ({ blogArticles }) => {
-  const desktopSwiperParams = useMemo(() => getSwiperParams(), []);
+const desktopSwiperParams = getSwiperParams();
 
-  return (
-    <div className={styles.articlesContainer}>
-      <div className={styles.desktopArticles}>
-        <Swiper {...desktopSwiperParams}>
-          {blogArticles.map(({
-            articleTitle,
-            slug,
-            previewUrl,
-          }) => (
-            <div key={slug}>
-              <BlogArticle
-                previewUrl={previewUrl}
-                articleTitle={articleTitle}
-                slug={slug}
-              />
-            </div>
-          ))}
-        </Swiper>
-      </div>
+const BlogArticles = ({ blogArticles }) => (
+  <div className={styles.articlesContainer}>
+    <div className={styles.desktopArticles}>
+      <Swiper {...desktopSwiperParams}>
+        {blogArticles.map(({
+          articleTitle,
+          slug,
+          previewUrl,
+        }) => (
+          <div key={slug}>
+            <BlogArticle
+              previewUrl={previewUrl}
+              articleTitle={articleTitle}
+              slug={slug}
+            />
+          </div>
+        ))}
+      </Swiper>
     </div>
-  );
-};
+  </div>
+);
 
 BlogArticles.propTypes = {
   blogArticles: PropTypes.arrayOf(PropTypes.shape({
