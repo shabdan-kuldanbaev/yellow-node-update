@@ -70,15 +70,16 @@
 
   background: $white;
 
+  .titleStyle {
+    @include defaultTitle;
+  }
+
   .cards > div {
     @include defaultCard;
   }
 
   .contentWrapper {
     @extend .twoColumnsCards;
-  }
-
-  .contentWrapper {
     @include smallSectionWrapper;
   }
 

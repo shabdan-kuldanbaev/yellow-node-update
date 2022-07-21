@@ -14,7 +14,7 @@
 }
 
 @mixin smallSectionWrapper {
-  max-width: 1076px;
+  max-width: $max-small-section-content-width;
   margin: 0 auto;
   position: relative;
 
@@ -66,6 +66,19 @@
     padding: 40px 24px;
     margin-top: 60px;
     flex-direction: column;
+  }
+}
+
+@mixin defaultTitle {
+  max-width: $max-small-section-content-width;
+  margin: 0 auto 60px;
+
+  h2 {
+    max-width: 100%;
+  }
+
+  @include below-tablet {
+    margin-bottom: 40px;
   }
 }
 

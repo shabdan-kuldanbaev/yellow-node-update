@@ -12,6 +12,10 @@
 
   &.secondSectionView {
     @extend .cardsWithFullWidthImage;
+
+    .titleStyle {
+      max-width: 908px;
+    }
   }
 
   &.thirdSectionView {
