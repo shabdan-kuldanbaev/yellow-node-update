@@ -190,6 +190,20 @@
   }
 }
 
+.smallCards {
+  .contentWrapper .cards {
+    grid-gap: 40px;
+
+    & > div {
+      @include flex;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+
 .threeColumnsCards {
   @include smallSectionWrapper;
 
