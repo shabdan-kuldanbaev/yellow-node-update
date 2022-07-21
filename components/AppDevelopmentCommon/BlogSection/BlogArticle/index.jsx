@@ -19,7 +19,9 @@ const BlogArticle = ({
       className={styles.articleImage}
     />
     <div className={styles.description}>
-      <h3 className={styles.title}>{articleTitle}</h3>
+      <h3 className={styles.title}>
+        {articleTitle}
+      </h3>
       <span className={styles.readMore}>
         Read more
       </span>
