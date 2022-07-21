@@ -159,6 +159,7 @@
   .callToAction {
     @include defaultCallToAction;
 
+    background: $white;
     box-shadow: $card-bow-shadow;
   }
 }

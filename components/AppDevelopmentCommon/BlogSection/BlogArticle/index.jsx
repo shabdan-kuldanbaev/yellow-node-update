@@ -9,22 +9,24 @@ const BlogArticle = ({
   articleTitle,
   slug,
 }) => (
-  <div className={styles.articleTile}>
+  <LinkWrapper
+    className={styles.articleTile}
+    path={`${PAGES.blog}/${slug}`}
+  >
     <img
       src={previewUrl}
       alt={articleTitle}
       className={styles.articleImage}
     />
     <div className={styles.description}>
-      <h3 className={styles.articleTitle}>{articleTitle}</h3>
-      <LinkWrapper
-        className={styles.readMore}
-        path={`${PAGES.blog}/${slug}`}
-      >
+      <h3 className={styles.title}>
+        {articleTitle}
+      </h3>
+      <span className={styles.readMore}>
         Read more
-      </LinkWrapper>
+      </span>
     </div>
-  </div>
+  </LinkWrapper>
 );
 
 BlogArticle.propTypes = {

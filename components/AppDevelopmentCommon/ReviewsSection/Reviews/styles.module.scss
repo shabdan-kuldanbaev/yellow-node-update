@@ -6,18 +6,15 @@
 
   .desktopReviews {
     :global(.swiper-container) {
-      margin: -120px 0 -50px;
-      padding: 120px 0 80px;
-    }
+      padding-bottom: 100px;
 
-    :global(.swiper-next-el) {
-      bottom: 0;
-      right: 10%;
-    }
+      @include below-tablet {
+        margin: 0 -40px;
+      }
 
-    :global(.swiper-prev-el) {
-      bottom: 0;
-      left: 10%;
+      @include phone {
+        margin: 0 -15px;
+      }
     }
 
     @include phone {
@@ -34,7 +31,7 @@
 
     :global(.swiper-container) {
       overflow: hidden;
-      padding: 60px 0;
+      padding: 0 0 60px;
     }
 
     :global(.swiper-slide) {

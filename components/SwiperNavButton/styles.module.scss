@@ -17,6 +17,10 @@
       fill: $turbo-100;
     }
   }
+
+  @include below-tablet {
+    display: none;
+  }
 }
 
 :global(.swiper-button-disabled) {
@@ -47,26 +51,24 @@
     padding: 0 10px;
     line-height: 180%;
   }
-
-  @include below-tablet {
-    display: none;
-  }
 }
 
 .arrowRight {
-  left: unset;
-  right: 10%;
+  right: 0;
 
   & > svg {
     order: 2;
   }
 
-  &:global(.swiper-next-el) {
-    left: unset;
+  @include below-tablet {
+    right: 10%;
   }
 }
 
 .arrowLeft {
-  right: unset;
-  left: 10%;
+  left: 0;
+
+  @include below-tablet {
+    left: 10%;
+  }
 }

@@ -36,6 +36,7 @@ export const ImageSection = ({ sectionData, type }) => {
             title={title}
             subtitle={description}
             type="side"
+            titleStyle={styles.titleStyle}
           />
           <Animated
             {...animatedProps}

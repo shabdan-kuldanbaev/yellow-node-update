@@ -404,10 +404,10 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
 ];
 
 export const CONTACT_FORM_TITLES = {
-  [PAGES.customMobileApp]: '',
+  [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
   [PAGES.customChatApp]: '',
   [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
-  [PAGES.designServices]: 'Yellow is ready to give you a hand with UX/UI design',
+  [PAGES.designServices]: 'Tailored UX design services for your business',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',

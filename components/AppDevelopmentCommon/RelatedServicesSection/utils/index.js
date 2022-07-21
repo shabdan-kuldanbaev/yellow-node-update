@@ -75,9 +75,9 @@ export const getRelatedServicesProps = (sectionData) => {
 
 export const getSwiperParams = () => ({
   effect: 'slide',
-  slidesPerView: 1.2,
+  slidesPerView: 1.05,
   centeredSlides: true,
-  spaceBetween: 40,
+  spaceBetween: 30,
   loop: false,
   passiveListeners: true,
   mousewheel: {

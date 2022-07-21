@@ -34,52 +34,25 @@ export const getBlogArticles = (blogArticles = []) => blogArticles.map((article)
   };
 });
 
-export const getSwiperParams = () => {
-  const mobileSwiperParams = {
-    effect: 'coverflow',
-    slidesPerView: 1.1,
-    spaceBetween: 20,
-    centeredSlides: true,
-    loop: false,
-    passiveListeners: true,
-    mousewheel: {
-      forceToAxis: true,
+export const getSwiperParams = () => ({
+  effect: 'slide',
+  slidesPerView: 1.05,
+  centeredSlides: true,
+  spaceBetween: 30,
+  loop: false,
+  passiveListeners: true,
+  mousewheel: {
+    forceToAxis: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      centeredSlides: false,
     },
-    coverflowEffect: {
-      rotate: 0,
-      stretch: -30,
-      depth: 110,
-      modifier: 1,
-      slideShadows: false,
+    1024: {
+      slidesPerView: 3,
+      centeredSlides: false,
     },
-    breakpoints: {
-      480: {
-        coverflowEffect: {
-          stretch: -45,
-        },
-      },
-    },
-    ...SWIPER_NAV_PARAMS,
-  };
-
-  const desktopSwiperParams = {
-    ...mobileSwiperParams,
-    effect: 'slide',
-    centeredSlides: false,
-    slidesPerView: 1,
-    breakpoints: {
-      769: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-    navigation: {},
-    renderNextButton: () => null,
-    renderPrevButton: () => null,
-    spaceBetween: 30,
-  };
-
-  return { mobileSwiperParams, desktopSwiperParams };
-};
+  },
+  ...SWIPER_NAV_PARAMS,
+});

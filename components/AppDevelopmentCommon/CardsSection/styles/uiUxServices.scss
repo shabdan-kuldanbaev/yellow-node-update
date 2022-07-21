@@ -33,5 +33,11 @@
   &.thirdSectionView {
     background-color: $alabaster;
     padding-bottom: 120px;
+
+    .titleStyle {
+      p {
+        max-width: 742px;
+      }
+    }
   }
 }
