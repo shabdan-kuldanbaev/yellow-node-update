@@ -1,40 +1,28 @@
 .ui-ux-services {
-  background-color: $alabaster;
-
-  .titleStyle {
-    h2 {
-      max-width: 855px;
-    }
-
-    p {
-      max-width: 800px;
-      width: unset;
-    }
+  &.firstSectionView,
+  &.secondSectionView {
+    @extend .greySection;
   }
 
   &.firstSectionView {
+    @extend .cardsWithShadow;
+    @include iconsWithinCircle;
+
     .titleStyle {
       h2 {
         max-width: 705px;
       }
     }
-
-    .callToAction {
-      @include defaultCallToAction;
-
-      box-shadow: $card-bow-shadow;
-
-      h3 {
-        max-width: 572px;
-      }
-    }
   }
 
-  &.thirdSectionView {
-    background-color: $alabaster;
-    padding-bottom: 120px;
+  &.secondSectionView {
+    @include iconsWithinCircle;
 
     .titleStyle {
+      h2 {
+        max-width: 742px;
+      }
+
       p {
         max-width: 742px;
       }

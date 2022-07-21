@@ -108,6 +108,10 @@
   .sectionContainer {
     @include smallSectionWrapper;
 
+    .titleStyle h2 {
+      max-width: 896px;
+    }
+
     .checkList {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -120,6 +124,7 @@
         padding: 35px;
         box-shadow: $card-bow-shadow;
         border-radius: 5px;
+        background: $white;
 
         .itemContainer {
           width: 100%;
