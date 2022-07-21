@@ -1,6 +1,5 @@
 .cloud-based-app-development-services {
   &.secondSectionView {
-    @extend .removeCardsShadow;
 
     background: $alabaster;
 
@@ -50,7 +49,6 @@
   }
 
   &.fourthSectionView {
-    @extend .removeCardsShadow;
 
     padding-bottom: 0;
 

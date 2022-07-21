@@ -1,49 +1,5 @@
 .cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 40px;
-
-  @include below-tablet {
-    grid-gap: 20px;
-    width: 100%;
-    grid-template-columns: 1fr;
-  }
-
-  & > div {
-    padding: 50px;
-    box-shadow: $card-bow-shadow;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background: $white;
-
-    .typeTitle {
-      @include fontSize(24px, 150%);
-
-      font-weight: 700;
-      margin: 20px 0 10px;
-
-      @include macbook-twelve {
-        @include fontSize(22px);
-      }
-
-      @include below-tablet {
-        @include fontSize(18px);
-
-        margin-top: 16px;
-      }
-    }
-
-    p {
-      @include fontSize(18px, 180%);
-
-      color: $silver-chalice;
-      margin: 0;
-
-      @include phone {
-        @include fontSize(16px);
-      }
-    }
-  }
+  @extend .twoСolumnsСards;
 }
 
 .smallCards {
@@ -105,64 +61,38 @@
   }
 }
 
-.removeCardsShadow {
-  .cards,
-  .smallCards {
-    & > div {
-      box-shadow: none;
-      padding: 0;
-      background: none;
+.cardsWithFullWidthImage {
+  .cards {
+    @include below-tablet {
+      grid-gap: 33px;
     }
   }
-}
 
-.cardsWithFullWidthImage {
-  .smallCards {
-    grid-gap: 160px 15vw;
+  .imageWrapper {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    background: none;
 
     & > div {
-      flex-direction: column;
+      @include centeredBackgroundImage;
 
-      .imageWrapper {
-        width: 100%;
-        height: auto;
-        border-radius: 0;
-        background: none;
+      width: 100%;
+      padding-top: 85%;
+      background-size: contain;
 
-        & > div {
-          @include centeredBackgroundImage;
-
-          width: 100%;
-          padding-top: 85%;
-          background-size: contain;
-
-          @include tablet {
-            padding-top: 72%;
-          }
-        }
-      }
-
-      .cardContent {
-        .typeTitle {
-          margin: 24px 0 10px;
-
-          @include phone {
-            margin: 20px 0 10px;
-          }
-        }
-      }
-
-      @include below-tablet {
-        text-align: center;
-
-        .imageWrapper {
-          margin: auto;
-        }
+      @include tablet {
+        padding-top: 72%;
       }
     }
+  }
+
+  .typeTitle {
+    margin: 24px 0 10px;
 
     @include below-tablet {
-      row-gap: 60px;
+      margin: 20px 0 10px;
+      text-align: center;
     }
   }
 }
@@ -177,7 +107,9 @@
 .mvp-app-development-company,
 .machine-learning-development-services {
   @include appDevelopmentContainer;
-  @include iconsWithinCircle;
+  @extend .twoСolumnsСards;
+
+  background: $white;
 
   .contentWrapper {
     @include smallSectionWrapper;
