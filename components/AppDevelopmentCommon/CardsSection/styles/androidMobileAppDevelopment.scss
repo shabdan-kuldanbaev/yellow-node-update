@@ -2,16 +2,12 @@
   &.firstSectionView,
   &.secondSectionView,
   &.thirdSectionView {
-    background: $alabaster;
-
-    .callToAction {
-      background: $white;
-    }
+    @extend .greySection;
   }
 
   &.firstSectionView {
+    @extend .cardsWithShadow;
     @include iconsWithinCircle;
-    @include cardsWithShadow;
   }
 
   &.secondSectionView {
@@ -19,8 +15,11 @@
   }
 
   &.thirdSectionView {
+    @extend .cardsWithShadow;
     @include iconsWithinCircle;
-    @include cardsWithShadow;
-    @extend .threeColumnCards;
+
+    .contentWrapper {
+      @extend .threeColumnsCards;
+    }
   }
 }

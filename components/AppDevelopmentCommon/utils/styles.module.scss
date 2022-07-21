@@ -30,6 +30,7 @@
   padding: 70px;
   margin: 80px auto 0;
   background: $alabaster;
+  border-radius: 5px;
 
   h3 {
     @include fontSize(24px);
@@ -107,6 +108,7 @@
   box-shadow: $card-bow-shadow;
   padding: 50px;
   display: block;
+  border-radius: 5px;
 
   @include below-tablet {
     padding: 24px;
@@ -166,7 +168,7 @@
 }
 
 .cardsWithShadow {
-  .cards {
+  .contentWrapper .cards {
     grid-gap: 40px;
 
     & > div {
