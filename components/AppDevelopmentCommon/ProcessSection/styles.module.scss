@@ -81,7 +81,7 @@
   background-color: $alabaster;
 
   .contentWrapper {
-    @extend .threeColumnCards;
+    @extend .threeColumnsCards;
 
     .cards {
       grid-gap: 150px 140px;

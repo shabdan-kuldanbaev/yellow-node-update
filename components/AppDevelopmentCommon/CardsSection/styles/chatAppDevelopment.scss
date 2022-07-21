@@ -1,11 +1,9 @@
 .chat-app-development-company {
-  @include appDevelopmentContainer;
-
   &.firstSectionView {
     background-color: $alabaster;
 
     .contentWrapper {
-      @extend .threeColumnCards;
+      @extend .threeColumnsCards;
 
       @include below-tablet {
         .cards {

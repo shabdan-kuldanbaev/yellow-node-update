@@ -1,7 +1,3 @@
-.cards {
-  @extend .twoСolumnsСards;
-}
-
 .smallCards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -61,55 +57,26 @@
   }
 }
 
-.cardsWithFullWidthImage {
-  .cards {
-    @include below-tablet {
-      grid-gap: 33px;
-    }
-  }
-
-  .imageWrapper {
-    width: 100%;
-    height: auto;
-    border-radius: 0;
-    background: none;
-
-    & > div {
-      @include centeredBackgroundImage;
-
-      width: 100%;
-      padding-top: 85%;
-      background-size: contain;
-
-      @include tablet {
-        padding-top: 72%;
-      }
-    }
-  }
-
-  .typeTitle {
-    margin: 24px 0 10px;
-
-    @include below-tablet {
-      margin: 20px 0 10px;
-      text-align: center;
-    }
-  }
-}
-
-.chat-app-development-company,
-.mobile-app-development-company,
-.web-app-development-company,
-.ui-ux-services,
-.ios-mobile-app-development-services,
 .android-mobile-app-development-services,
+.chat-app-development-company,
 .cloud-based-app-development-services,
+.ios-mobile-app-development-services,
+.machine-learning-development-services,
+.mobile-app-development-company,
 .mvp-app-development-company,
-.machine-learning-development-services {
+.ui-ux-services,
+.web-app-development-company {
   @include appDevelopmentContainer;
-  @extend .twoСolumnsСards;
 
   background: $white;
+
+  .cards > div {
+    @include defaultCard;
+  }
+
+  .contentWrapper {
+    @extend .twoColumnsCards;
+  }
 
   .contentWrapper {
     @include smallSectionWrapper;
