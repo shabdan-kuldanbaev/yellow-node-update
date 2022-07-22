@@ -157,6 +157,7 @@ $pale-pink: #FFFAFB;
 $violet-blue: #3953B0;
 $majorelle-blue: #6144D6;
 $pure-blue: #007AFF;
+$very-dark-gray: #161616;
 
 //transparency color
 $pagination: rgba(35, 37, 44, 0.25);
@@ -255,15 +256,3 @@ $primary-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 // TODO rework it with enviroment variable
 $cdnURL: "https://dn75rr69j9vc.cloudfront.net";
-
-:export {
-  firstColor: $science-blue;
-  secondColor: $english-walnut;
-  thirdColor: $thunder;
-  phoneResolution: $max-mobile-size;
-  logoSize: $logo-size;
-  horizontalMobile: $horizontal-mobile;
-  bigTabletResolution: $max-tablet-size;
-  defaultTabletResolution: $default-tablet-size;
-  fullHdResolution: $full-hd;
-}

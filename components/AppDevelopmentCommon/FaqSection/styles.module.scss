@@ -9,13 +9,22 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services, {
+.machine-learning-development-services,
+.chat-app-development-company {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
 
+  .title {
+    margin-bottom: 60px;
+
+    @include below-tablet {
+      margin-bottom: 30px;
+    }
+  }
+
   & > div:last-child {
-    padding: 50px 0 0;
+    padding: 0;
     margin-top: 0;
 
     & > div {
@@ -35,7 +44,8 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.chat-app-development-company {
   background-color: $white;
 
   & > div {
@@ -45,6 +55,8 @@
 
 .web-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.chat-app-development-company,
+.ui-ux-services {
   padding-bottom: 0;
 }

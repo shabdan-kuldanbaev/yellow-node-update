@@ -50,7 +50,7 @@ const ArticleContainer = ({
     introduction,
     publishedAt,
     updatedAt,
-    keyWords = [],
+    tagsList,
     categoryTag = '',
     metaTitle,
     metaDescription,
@@ -63,7 +63,7 @@ const ArticleContainer = ({
     metaDescription: metaDescription || (title && `Read our new article about ${title}.`),
     publishedAt,
     image: headImage,
-    keyWords,
+    keyWords: tagsList.map((tag) => tag.title),
     categoryTag,
     slug: articleSlug,
     url: `${rootUrl}${asPath}`,
@@ -111,7 +111,7 @@ const ArticleContainer = ({
           faqList={faqList}
           type="withFullLayout"
         />
-        <TagsBlock tags={keyWords} />
+        <TagsBlock tags={tagsList} />
         {relatedArticles
           && !!relatedArticles.length
           && <RelatedSection articles={relatedArticles} />}

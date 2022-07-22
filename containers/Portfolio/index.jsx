@@ -48,7 +48,7 @@ function PortfolioContainer({ introSection }) {
 
     return {
       types: types?.map((type) => getDocumentFields(type, ['slug', 'displayName'])) ?? [],
-      tags: tags?.map((tag) => getDocumentFields(tag, ['slug', 'displayName'])) ?? [],
+      tags: tags?.map((tag) => getDocumentFields(tag, ['slug', 'title'])) ?? [],
       ...rest,
     };
   });

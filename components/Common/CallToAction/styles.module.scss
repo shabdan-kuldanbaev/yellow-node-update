@@ -2,13 +2,14 @@
 
 .button {
   @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+  @include flex (row, center);
+  @include fontSize(18px);
 
+  line-height: 150%;
   border-radius: $button-border-radius;
   letter-spacing: 0.5px;
   border: none;
   transform: scale(1);
-
-  @include flex (row, center);
 
   &:hover {
     border: none;
@@ -17,22 +18,22 @@
 }
 
 .blog {
+  @include flex(row, space-between, center);
+
   padding: 40px;
   background-color: $alabaster;
   border-radius: 5px;
   margin: 80px 0;
 
-  @include flex(row, space-between, center);
-
   .h3 {
+    @include fontSize(24px);
+
     color: $tundora;
     font-weight: 700;
     line-height: 1.5;
     border-left: 2px solid $tundora;
     padding-left: 20px;
     margin: 0 40px 0 0;
-
-    @include fontSize(24px);
 
     @include macbook-twelve {
       @include fontSize(22px);
@@ -44,17 +45,17 @@
   }
 
   .button {
+    @include fontSize(18px);
+
     font-weight: 500;
     padding: 20px 0;
     margin-top: 0;
 
-    @include fontSize(18px);
-
     @include phone {
+      @include fontSize(16px);
+
       margin-top: 20px;
       padding: 20px;
-
-      @include fontSize(16px);
     }
   }
 
@@ -64,23 +65,15 @@
 }
 
 .page {
+  @include flex(column, center, center);
+
   margin-bottom: 250px;
   padding: 0 20px;
 
-  @include flex(column, center, center);
-
-  @include macbook-fifteen {
-    padding: 0 80px;
-  }
-
-  @include tablet {
-    padding: 0 20px;
-  }
-
   .h3 {
-    text-align: center;
-
     @include fontSize(45px);
+
+    text-align: center;
 
     @include below-tablet {
       @include fontSize(35px);
@@ -92,10 +85,10 @@
   }
 
   .p {
+    @include fontSize(20px);
+
     text-align: center;
     line-height: 1.8;
-
-    @include fontSize(20px);
 
     @include phone {
       @include fontSize(16px);
@@ -112,14 +105,41 @@
       font-weight: 500;
     }
   }
+
+  @include macbook-fifteen {
+    padding: 0 80px;
+  }
+
+  @include tablet {
+    padding: 0 20px;
+  }
 }
 
 .card {
+  @include flex(row, space-between, center);
+
   padding: 70px;
   background-color: $alabaster;
   border-radius: 5px;
 
-  @include flex(row, space-between, center);
+  .h3 {
+    @include fontSize(32px);
+
+    white-space: pre-line;
+    line-height: 1.6;
+
+    @include phone {
+      @include fontSize(20px);
+
+      margin-bottom: 32px;
+      text-align: center;
+    }
+  }
+
+  .button {
+    padding: 22px 18px;
+    margin-top: 0;
+  }
 
   @include below-tablet {
     padding: 30px;
@@ -127,24 +147,5 @@
 
   @include phone {
     @include flex(column, center, center);
-  }
-
-  .h3 {
-    white-space: pre-line;
-    line-height: 1.6;
-
-    @include fontSize(32px);
-
-    @include phone {
-      margin-bottom: 32px;
-      text-align: center;
-
-      @include fontSize(20px);
-    }
-  }
-
-  .button {
-    padding: 22px 18px;
-    margin-top: 0;
   }
 }

@@ -5,6 +5,12 @@
 .svgSection {
   @include appDevelopmentContainer;
 
+  .titleStyle {
+    p {
+      width: auto;
+    }
+  }
+
   h3 {
     @include fontSize(32px);
 
@@ -31,11 +37,6 @@
 
         @include tablet {
           flex: 1 0 50%;
-
-          &:nth-of-type(1),
-          &:nth-of-type(2) {
-            margin-top: 0;
-          }
         }
       }
     }
@@ -54,7 +55,6 @@
     @include flex(row, center, flex-end, wrap);
 
     & > div {
-      flex: 0 0 25%;
       text-align: center;
       margin: 40px 0;
 
@@ -75,8 +75,6 @@
   max-width: $max-content-width;
 
   .svgList {
-    overflow-x: scroll;
-
     @include flex(row, space-between, flex-end, nowrap);
 
     & > div {
@@ -85,10 +83,6 @@
 
       &:last-child {
         margin-right: 0;
-      }
-
-      & > svg {
-        opacity: 0.5;
       }
     }
   }
@@ -100,18 +94,52 @@
   &.firstSectionView {
     .svgListWrapper {
       @extend .svgListWrapperSeveralRows;
+
+      margin: 0 auto;
+
+      h3 {
+        @include fontSize(32px);
+
+        text-align: center;
+      }
+
+      .svgList {
+        @include flex(row, space-between, flex-end, nowrap);
+
+        @include tablet {
+          overflow-x: scroll;
+          overflow-y: hidden;
+          max-width: 1024px;
+          justify-content: flex-start;
+        }
+      }
     }
   }
 
   &.secondSectionView {
+    background-color: $alabaster;
+    padding-top: 0;
+
     .svgListWrapper {
       @extend .svgListWrapperOneRow;
+
+      align-items: center;
+
+      .svgList > div {
+        @include flex(row, center, center);
+
+        margin-right: 20px;
+      }
     }
   }
 }
 
 .chat-app-development-company {
   @extend .svgSection;
+
+  .titleStyle {
+    margin-bottom: 0;
+  }
 
   .svgListWrapper {
     .svgList {
@@ -151,14 +179,17 @@
 
   &.secondSectionView {
     background-color: $alabaster;
+    padding-top: 0;
 
     .svgListWrapper {
       @extend .svgListWrapperOneRow;
 
+      align-items: center;
+
       .svgList > div {
-        @include phone {
-          margin-top: 0;
-        }
+        @include flex(row, center, center);
+
+        margin-right: 20px;
       }
     }
   }
@@ -313,7 +344,7 @@
   background: $alabaster;
 
   .svgListWrapper {
-    @extend .svgListWrapperOneRow;
+    @extend .svgListWrapperSeveralRows;
 
     .svgList {
       @include below-tablet {

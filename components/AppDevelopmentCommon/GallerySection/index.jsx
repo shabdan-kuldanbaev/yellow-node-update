@@ -31,6 +31,7 @@ export const GallerySection = ({
 
   const {
     title,
+    description,
     slides,
     linkData,
     params,
@@ -45,6 +46,7 @@ export const GallerySection = ({
       <div className={styles.gallerySection}>
         <SectionTitle
           title={title}
+          description={description}
           className={styles.sectionTitle}
         />
         <Swiper {...params}>

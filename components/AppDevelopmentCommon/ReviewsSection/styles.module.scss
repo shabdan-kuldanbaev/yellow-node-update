@@ -8,29 +8,16 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.chat-app-development-company {
   @include appDevelopmentContainer;
+
+  .callToAction {
+    @include defaultCallToAction;
+  }
 
   @include phone {
     padding: 64px 0;
-  }
-
-  .title {
-    max-width: $max-content-width;
-    margin: 0 auto 80px;
-
-    div {
-      width: 100%;
-
-      h2 {
-        text-align: left;
-
-        @include below-tablet {
-          text-align: center;
-          margin-bottom: 0;
-        }
-      }
-    }
   }
 }
 
@@ -40,6 +27,12 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.chat-app-development-company,
+.mobile-app-development-company {
   background-color: $alabaster;
+
+  .callToAction {
+    background: $white;
+  }
 }

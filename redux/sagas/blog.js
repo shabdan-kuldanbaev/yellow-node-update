@@ -14,8 +14,9 @@ import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
 import { contentfulClient } from 'utils/contentful/client';
 import { fetchContentfulArticles } from 'utils/contentful/helper';
-import { PAGES } from 'utils/constants';
+import { getBlogGraphqlQuery } from 'utils/blogUtils';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
+import { PAGES } from 'utils/constants';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -27,6 +28,28 @@ function getGraphqlResultArticles(graphqlResult) {
 function getGraphqlResultTotalArticlesCount(graphqlResult) {
   return get(graphqlResult, 'articleCollection.total', []);
 }
+
+function getGraphqlResultArticlesByTags(graphqlResult) {
+  return get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.items', []);
+}
+
+function getGraphqlResultTotalArticlesCountByTags(graphqlResult) {
+  return get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.total', []);
+}
+
+const findArticlesByValue = async (params) => await contentfulClient.graphql(
+  GRAPHQL_QUERY.loadPreviewArticles({
+    order: '[publishedAt_DESC]',
+    ...params,
+  }),
+);
+
+const findArticlesByTagValue = async (params) => await contentfulClient.graphql(
+  GRAPHQL_QUERY.loadPreviewArticlesByTags({
+    order: '[publishedAt_DESC]',
+    ...params,
+  }),
+);
 
 function* getArticle({ articleSlug, isPreviewMode }) {
   try {
@@ -45,26 +68,28 @@ export function* loadArticles({
   currentLimit,
   skip,
   category,
+  isTagBlog,
 }) {
   try {
     const order = category === 'software-development' ? '[title_ASC]' : '[publishedAt_DESC]';
-    const response = yield contentfulClient.graphql(GRAPHQL_QUERY.loadPreviewArticles({
-      skip,
+    const graphqlQuery = getBlogGraphqlQuery({
       limit: currentLimit,
+      skip,
+      category,
+      isTagBlog,
       order,
-      where: {
-        ...(category
-          ? { categoryTag: category }
-          : { categoryTag_exists: true }
-        ),
-      },
-    }));
+    });
+    const response = yield contentfulClient.graphql(graphqlQuery);
 
     yield put({
       type: actionTypes.LOAD_ARTICLES_SUCCESS,
       payload: {
-        items: getGraphqlResultArticles(response),
-        total: getGraphqlResultTotalArticlesCount(response),
+        items: isTagBlog
+          ? getGraphqlResultArticlesByTags(response)
+          : getGraphqlResultArticles(response),
+        total: isTagBlog
+          ? getGraphqlResultTotalArticlesCountByTags(response)
+          : getGraphqlResultTotalArticlesCount(response),
       },
     });
   } catch (error) {
@@ -122,20 +147,13 @@ function* loadNearbyArticles({ publishedAt }) {
 
 export function* findArticles({ payload: { value } }) {
   try {
-    const findArticlesByValue = async (params) => await contentfulClient.graphql(
-      GRAPHQL_QUERY.loadPreviewArticles({
-        order: '[publishedAt_DESC]',
-        ...params,
-      }),
-    );
-
     const [
-      resultByKey,
+      resultByTag,
       resultByBody,
       resultByOldBody,
     ] = yield all([
-      call(findArticlesByValue, {
-        where: { keyWords_contains_some: [value] },
+      call(findArticlesByTagValue, {
+        where: { title: [value] },
       }),
       call(findArticlesByValue, {
         where: { body_contains: value },
@@ -147,7 +165,7 @@ export function* findArticles({ payload: { value } }) {
 
     const result = uniqWith(
       [
-        ...getGraphqlResultArticles(resultByKey),
+        ...getGraphqlResultArticlesByTags(resultByTag),
         ...getGraphqlResultArticles(resultByBody),
         ...getGraphqlResultArticles(resultByOldBody),
       ],
@@ -167,12 +185,14 @@ export function* fetchBlogData({
   category,
   skip,
   isPreviewMode,
+  isTagBlog,
 }) {
-  if (slug === PAGES.blog) {
+  if (slug === PAGES.blog || isTagBlog) {
     yield call(loadArticles, {
       currentLimit,
       category,
       skip,
+      isTagBlog,
     });
   } else {
     yield call(getArticle, { articleSlug, isPreviewMode });

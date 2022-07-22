@@ -22,16 +22,46 @@
   }
 
   &.thirdSectionView {
+    @include iconsWithinCircle;
+
     padding-bottom: 0;
 
+    .cardContent .typeTitle {
+      margin-top: 20px;
+    }
+
     .contentWrapper {
-      @extend .threeColumnCards;
+      @extend .twoСolumnsСards;
+
+      .smallCards {
+        grid-gap: 72px 10vw;
+
+        @include below-tablet {
+          grid-gap: 40px;
+        }
+      }
     }
   }
 
   &.fourthSectionView {
-    .contentWrapper > div:last-child {
-      width: 100%;
+    @include iconsWithinCircle;
+
+    .cardContent .typeTitle {
+      margin-top: 20px;
+    }
+
+    .contentWrapper {
+      .smallCards {
+        grid-gap: 72px 7vw;
+
+        @include below-tablet {
+          grid-gap: 24px;
+        }
+      }
+
+      & > div:last-child {
+        width: 100%;
+      }
     }
   }
 }

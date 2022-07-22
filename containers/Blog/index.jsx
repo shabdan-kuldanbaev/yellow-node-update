@@ -21,6 +21,7 @@ import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { categoriesMetaData } from './utils/data';
 
 const BlogContainer = ({
+  tagsList,
   introSection,
   currentPage,
   articlesNumberPerPage,
@@ -36,7 +37,7 @@ const BlogContainer = ({
     asPath,
   } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
-  const breadcrumbs = pagesBreadcrumbs.blog(slug);
+  const breadcrumbs = pagesBreadcrumbs.blog(slug, tagsList);
   const pageMetadata = {
     ...metaData,
     url: `${rootUrl}${asPath}`,

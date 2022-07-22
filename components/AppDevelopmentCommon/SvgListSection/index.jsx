@@ -5,6 +5,7 @@ import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import SvgGroup from './SvgGroup';
 import { getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
@@ -34,8 +35,9 @@ const SvgListSection = ({
         description={description}
         titleStyle={styles.titleStyle}
       />
-      {technologiesGroup.map((group) => (
+      {technologiesGroup.map((group, i) => (
         <SvgGroup
+          key={i}
           data={group}
           isMobileResolution={isMobileResolution}
           className={styles.svgList}

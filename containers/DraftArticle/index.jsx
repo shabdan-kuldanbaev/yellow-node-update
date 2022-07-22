@@ -17,7 +17,7 @@ const DraftArticle = ({ introSection, currentArticle }) => {
     body,
     introduction,
     publishedAt,
-    keyWords = [],
+    tagsList,
     headImage,
     author,
     faqList,
@@ -43,7 +43,7 @@ const DraftArticle = ({ introSection, currentArticle }) => {
           author={author}
           publishedAt={publishedAt}
         />
-        <TagsBlock tags={keyWords} />
+        <TagsBlock tags={tagsList} />
         <FAQ
           faqList={faqList}
           type="withFullLayout"

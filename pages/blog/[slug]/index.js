@@ -7,6 +7,8 @@ import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
 import { wrapper } from 'redux/store';
 
 const Article = ({
+  isTagBlog,
+  tagsList,
   currentPage,
   introSection,
   statusCode,
@@ -18,10 +20,11 @@ const Article = ({
     return <PageNotFound />;
   }
 
-  return isArticle(slug)
+  return isArticle(slug) && !isTagBlog
     ? <ArticleContainer introSection={introSection} />
     : (
       <BlogContainer
+        tagsList={tagsList}
         articlesNumberPerPage={articlesNumberPerPage}
         currentPage={currentPage}
         introSection={introSection}

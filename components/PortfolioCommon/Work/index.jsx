@@ -61,7 +61,7 @@ const Work = ({
             {tags.map((tag) => (
               <SelectorElement
                 key={tag.slug}
-                displayName={tag.displayName}
+                displayName={tag.title}
                 type={SELECTOR_ELEMENT_TYPES.tagDisplay}
                 className={styles.tag}
                 selected={selectedTag && tag.slug === selectedTag.slug}

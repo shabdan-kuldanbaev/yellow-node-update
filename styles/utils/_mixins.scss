@@ -17,8 +17,12 @@
   -webkit-box-orient: vertical;
 }
 
-@mixin fontSize($size) {
+@mixin fontSize($size, $lineHeight: null) {
   font-size: calcRem($size);
+
+  @if ($lineHeight) {
+    line-height: $lineHeight;
+  }
 }
 
 @mixin centered {
@@ -416,13 +420,11 @@
   .imageWrapper {
     @include flex(row, center, center);
 
-    --size: $defaultSize;
-
     flex: 0 0 auto;
     width: $defaultSize;
     height: $defaultSize;
     border-radius: 50%;
-    background: rgba($col, 0.5);
+    background: rgba($col, 0.7);
     margin-right: 16px;
 
     @include phone {
@@ -500,8 +502,6 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   src:
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-regular.woff2')) format('woff2'),
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-regular.woff')) format('woff');
@@ -511,8 +511,6 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   src:
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-500.woff2')) format('woff2'),
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-500.woff')) format('woff');
@@ -522,8 +520,6 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   src:
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-600.woff2')) format('woff2'),
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-600.woff')) format('woff');
@@ -533,8 +529,6 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   src:
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-700.woff2')) format('woff2'),
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-700.woff')) format('woff');
@@ -544,8 +538,6 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 800;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   src:
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-800.woff2')) format('woff2'),
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-800.woff')) format('woff');
@@ -555,8 +547,6 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 900;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   src:
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-900.woff2')) format('woff2'),
     url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-900.woff')) format('woff');

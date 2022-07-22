@@ -7,12 +7,6 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 40px;
 
-  @include below-tablet {
-    grid-gap: 20px;
-    width: 100%;
-    grid-template-columns: auto;
-  }
-
   .cardContainer {
     padding: 50px;
     box-shadow: $card-bow-shadow;
@@ -21,17 +15,12 @@
     box-sizing: border-box;
     background: $white;
 
-    @include below-tablet {
-      width: 100%;
-      max-width: unset;
-    }
-
     .typeTitle {
+      @include fontSize(24px);
+
       line-height: 1.8;
       font-weight: 700;
       margin: 20px 0 10px;
-
-      @include fontSize(24px);
 
       @include macbook-twelve {
         @include fontSize(22px);
@@ -43,11 +32,11 @@
     }
 
     p {
+      @include fontSize(18px);
+
       color: $silver-chalice;
       line-height: 1.8;
       margin: 0;
-
-      @include fontSize(18px);
 
       @include phone {
         @include fontSize(16px);
@@ -68,11 +57,24 @@
     .longConnectingLine {
       display: none;
     }
+
+    @include below-tablet {
+      width: 100%;
+      max-width: unset;
+    }
+  }
+
+  @include below-tablet {
+    grid-gap: 20px;
+    width: 100%;
+    grid-template-columns: auto;
   }
 }
 
 .ui-ux-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.mvp-app-development-company,
+.web-app-development-company {
   @include appDevelopmentContainer;
   @include iconsWithinCircle;
 
@@ -131,6 +133,23 @@
           }
         }
       }
+    }
+  }
+}
+
+.machine-learning-development-services {
+  .imageWrapper {
+    background-color: $turbo-100;
+  }
+}
+
+.ui-ux-services,
+.mvp-app-development-company {
+  background-color: $white;
+
+  .titleStyle {
+    p {
+      width: 58vw;
     }
   }
 }

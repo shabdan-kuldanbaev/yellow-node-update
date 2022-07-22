@@ -9,28 +9,66 @@
   bottom: 0;
   background: none;
   cursor: pointer;
+  z-index: 999;
 
   &:hover {
-    background: $turbo-100;
-    border-color: $turbo-100;
+    * {
+      color: $turbo-100;
+      fill: $turbo-100;
+    }
+  }
+
+  :global(.swiper-button-disabled) {
+    opacity: 0.5;
+    color: $dark-grey;
+
+    &:hover {
+      cursor: default;
+
+      * {
+        fill: $dark-grey;
+        color: $dark-grey;
+      }
+    }
   }
 
   @include below-tablet {
     display: none;
   }
+}
 
-  &:global(.swiper-button-disabled) {
-    opacity: 0.5;
+.arrowRight,
+.arrowLeft {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  border: none;
 
-    &:hover {
-      background: none;
-      border-color: $dark-grey;
-      cursor: default;
-    }
+  .text {
+    @include fontSize(18px);
+
+    padding: 0 10px;
+    line-height: 180%;
   }
 }
 
-.navButtonNext,
-.navButtonPrev {
-  @extend .navButton;
+.arrowRight {
+  right: 0;
+
+  & > svg {
+    order: 2;
+  }
+
+  @include below-tablet {
+    right: 10%;
+  }
+}
+
+.arrowLeft {
+  left: 0;
+
+  @include below-tablet {
+    left: 10%;
+  }
 }

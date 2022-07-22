@@ -1,28 +1,15 @@
-import React, {
-  Fragment,
-  useEffect,
-  useRef,
-  useContext,
-} from 'react';
+import React, { useRef } from 'react';
 import dynamic from 'next/dynamic';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchDuck } from 'redux/actions/home';
-import {
-  selectImageCarousel,
-  selectIsPageReadyToDisplay,
-  selectMetaData,
-} from 'redux/selectors/layout';
-import { selectDuck } from 'redux/selectors/home';
+import { selectImageCarousel, selectMetaData } from 'redux/selectors/layout';
 import Intro from 'containers/Home/Intro';
 import FullLayout from 'components/Layout/FullLayout';
-import { loadDuck } from 'components/HomeCommon/DuckContainer/utils/threeHelper';
 import MetaTags from 'components/Common/MetaTags';
 import Portfolio from 'containers/Home/Portfolio';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
-import { AppContext } from 'utils/appContext';
 
 const ReviewsContainer = dynamic(() => import('containers/Home/Reviews'));
 const Blog = dynamic(() => import('containers/Home/Blog'));
@@ -44,7 +31,7 @@ export const Home = ({
   };
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.homepage}
         pageMetadata={pageMetadata}
@@ -72,7 +59,7 @@ export const Home = ({
         </FullLayout>
         <FeedbackFormContainer />
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 

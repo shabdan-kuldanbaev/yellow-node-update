@@ -1,31 +1,31 @@
 @import 'styles/utils/mixins';
 
 .partnersContainer {
-  padding: calc($section-indent + 100vh) $side-indent 200px;
-
   @include flex(column, center, center);
 
-  @include below-tablet {
-    padding: calc($section-indent + 100vh) $side-indent 100px;
-  }
-
-  @include phone {
-    padding: calc($section-indent - 40px + 100vh) $side-indent $section-indent;
-  }
+  padding: $section-indent $side-indent 200px;
 
   h2 {
     @include h1-title;
 
     color: $white !important;
   }
+
+  @include below-tablet {
+    padding: $section-indent $side-indent 100px;
+  }
+
+  @include phone {
+    padding: calc($section-indent - 40px) $side-indent $section-indent;
+  }
 }
 
 .partners {
+  @include flex(row, space-between, center, wrap);
+
   width: 100%;
   max-width: $max-content-width;
   margin-top: 42.5px;
-
-  @include flex(row, space-between, center, wrap);
 
   @include full-hd {
     max-width: $max-content-width-full-hd;
@@ -63,7 +63,6 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
 
   @include below-tablet {
     margin-bottom: 70px;

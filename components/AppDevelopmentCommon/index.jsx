@@ -15,6 +15,9 @@ const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSect
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'));
 const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
 const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));
+const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
+const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
+const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -50,6 +53,14 @@ export const AppDevelopmentCommon = ({
         sectionData={section}
         pageType={type}
         sectionType="cards"
+        handleOnCTAClick={handleOnCTAClick}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentRelatedServices:
+    return (
+      <RelatedServicesSection
+        sectionData={section}
+        type={type}
         handleOnCTAClick={handleOnCTAClick}
       />
     );
@@ -114,6 +125,7 @@ export const AppDevelopmentCommon = ({
       <ReviewsSection
         data={section}
         type={type}
+        handleOnCTAClick={handleOnCTAClick}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentImagesList:
@@ -128,6 +140,20 @@ export const AppDevelopmentCommon = ({
       <ProcessSection
         sectionData={section}
         pageType={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentBlog:
+    return (
+      <BlogSection
+        sectionData={section}
+        pageType={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentCheckSocial:
+    return (
+      <CheckSocialSection
+        sectionData={section}
+        type={type}
       />
     );
   default:
