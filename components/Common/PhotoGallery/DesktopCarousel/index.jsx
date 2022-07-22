@@ -13,7 +13,7 @@ import {
 import styles from './styles.module.scss';
 
 const DesktopCarousel = ({ photos }) => {
-  const gallery = photos.concat(photos, photos, photos);
+  const gallery = photos?.concat(photos, photos, photos);
   const [fullListWidth, setFullListWidth] = useState(0);
   const [carouselContainerRef, listRef] = [useRef(null), useRef(null)];
   let offsetValue = 0;
@@ -52,7 +52,7 @@ const DesktopCarousel = ({ photos }) => {
   const handleOnMouseLeave = () => clearInterval(timer);
 
   useEffect(() => {
-    if (listRef) {
+    if (listRef && photos) {
       let sum = 0;
       for (let i = 0; i < photos.length; i += 1) {
         sum += listRef.current.children[i].offsetWidth;

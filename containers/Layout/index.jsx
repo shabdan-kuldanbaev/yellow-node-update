@@ -21,7 +21,7 @@ import {
   fullResolution,
 } from 'utils/helper';
 
-export const Layout = ({ children, introSection }) => {
+const Layout = ({ children, introSection }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
@@ -72,3 +72,5 @@ Layout.propTypes = {
   children: PropTypes.instanceOf(Object),
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
+
+export default React.memo(Layout);

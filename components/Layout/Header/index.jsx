@@ -130,4 +130,4 @@ Header.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default React.memo(Header);
+export default Header;

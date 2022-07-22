@@ -40,4 +40,4 @@ CookiesNotification.propTypes = {
   text: PropTypes.string,
 };
 
-export default CookiesNotification;
+export default React.memo(CookiesNotification);

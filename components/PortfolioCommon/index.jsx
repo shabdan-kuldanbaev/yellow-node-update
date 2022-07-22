@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import withScroll from 'hocs/withScroll';
 import Animated from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
@@ -15,9 +16,10 @@ import {
 import gaHelper from 'utils/ga';
 import { getLimitedList } from 'utils/helper';
 import Work from './Work';
-import TypeSelector from './TypeSelector';
 import { DEFAULT_WORKS_LIMIT, filterWorks } from './utils';
 import styles from './styles.module.scss';
+
+const TypeSelector = dynamic(() => import('./TypeSelector'));
 
 const Portfolio = ({
   works,
