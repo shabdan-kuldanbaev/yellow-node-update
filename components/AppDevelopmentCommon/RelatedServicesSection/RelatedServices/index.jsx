@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Swiper from 'react-id-swiper';
+import cn from 'classnames';
 import SwiperCore, { Mousewheel, Navigation } from 'swiper';
 import { Animated } from 'components/Common/Animated';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
@@ -28,9 +29,9 @@ export const RelatedServices = ({ services }) => {
             } = getServiceParams(service);
 
             return (
-              <div
-                className={styles.service}
-                key={`service/${title}`}
+              <LinkWrapper
+                path={serviceUrl}
+                className={cn(styles.link, styles.service)}
               >
                 <div
                   className={styles.imageWrapper}
@@ -47,15 +48,11 @@ export const RelatedServices = ({ services }) => {
                     {title}
                   </h3>
                   {description && <p>{description}</p>}
-                  <LinkWrapper
-                    path={serviceUrl}
-                    className={styles.link}
-                  >
+                  <span className={styles.readMore}>
                     {buttonTitle}
-                  </LinkWrapper>
+                  </span>
                 </div>
-              </div>
-
+              </LinkWrapper>
             );
           })}
         </Swiper>
