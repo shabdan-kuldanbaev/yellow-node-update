@@ -1,4 +1,8 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useCallback,
+} from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -14,16 +18,12 @@ const DropDownMenu = dynamic(() => import('components/Layout/Header/DropDownMenu
 
 const Nav = ({
   theme,
-  currentPage,
-  isPageScrolledDown,
-  isTransparentHeader,
+  isPageScrolling,
   navLinks: links,
   isHeader,
 }) => {
   const dispatch = useDispatch();
   const isDropMenuOpened = useSelector(selectIsDropMenuOpened);
-  // TODO rework this checks
-  const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
   const navRef = useRef(null);
 
   const openDropDownMenu = (slug) => {
@@ -64,7 +64,7 @@ const Nav = ({
       className={cn(styles.desktopMenu, { [styles.pageScrolled]: isPageScrolling })}
       ref={navRef}
     >
-      {links && links.map(({
+      {links?.map(({
         title,
         path,
         dynamicPath,
@@ -111,18 +111,14 @@ const Nav = ({
 Nav.defaultProps = {
   theme: 'dark',
   navLinks: NAV_LINKS,
-  isTransparentHeader: false,
   isHeader: false,
-  isPageScrolledDown: false,
 };
 
 Nav.propTypes = {
+  isPageScrolling: PropTypes.bool.isRequired,
   theme: PropTypes.string,
-  currentPage: PropTypes.string.isRequired,
-  isPageScrolledDown: PropTypes.bool,
-  isTransparentHeader: PropTypes.bool,
   navLinks: PropTypes.instanceOf(Array),
   isHeader: PropTypes.bool,
 };
 
-export default Nav;
+export default React.memo(Nav);

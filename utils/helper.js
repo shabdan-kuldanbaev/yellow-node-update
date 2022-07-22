@@ -37,7 +37,7 @@ export const removeThousandsSeparators = (value) => toInt(value.replaceAll(',', 
 
 export const validateEmail = (email) => {
   // eslint-disable-next-line max-len
-  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}])|(([a-zA-Z\-\d]+\.)+[a-zA-Z]{2,}))$/;
 
   if (reg.test(email) === false) {
     return false;
@@ -87,7 +87,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
-  ? process.env.DEV_URL
+  ? process.env.ROOT_URL
   : process.env.PROD_URL;
 
 export const isServer = typeof window === 'undefined';

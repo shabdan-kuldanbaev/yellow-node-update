@@ -28,7 +28,7 @@ const MobileMenu = ({
       })}
       >
         <ul>
-          {links && links.map(({
+          {links?.map(({
             title,
             path,
             dynamicPath,
@@ -65,4 +65,4 @@ MobileMenu.propTypes = {
   isPageScrolledDown: PropTypes.bool.isRequired,
 };
 
-export default MobileMenu;
+export default React.memo(MobileMenu);

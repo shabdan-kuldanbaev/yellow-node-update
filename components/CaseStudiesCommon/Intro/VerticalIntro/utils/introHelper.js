@@ -2,11 +2,7 @@ import React from 'react';
 import get from 'lodash/get';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { CASE_STUDIES } from 'utils/constants';
-import {
-  getDocumentFields,
-  getFileUrl,
-  getOptimizedContentfulImage,
-} from 'utils/helper';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 const sectionsWithBackgrounds = [CASE_STUDIES.openSense];
 

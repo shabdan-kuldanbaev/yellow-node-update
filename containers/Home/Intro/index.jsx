@@ -8,7 +8,6 @@ import styles from './styles.module.scss';
 const Intro = ({
   theme,
   introSection,
-  duck,
 }) => (
   <section
     ref={introSection}
@@ -27,7 +26,6 @@ Intro.defaultProps = {
 Intro.propTypes = {
   theme: PropTypes.string,
   introSection: PropTypes.instanceOf(Object).isRequired,
-  duck: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Intro;

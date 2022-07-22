@@ -1,8 +1,4 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-/* eslint-disable default-case */
-/* eslint-disable no-undef */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable no-param-reassign */
 import React, {
   useEffect,
   useRef,

@@ -1,37 +1,33 @@
 import React, {
-  useState,
   useEffect,
   useRef,
+  useCallback,
 } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
 import { setMobileCategoriesState } from 'redux/actions/layout';
 import ButtonMore from 'components/Common/ButtonMore';
 import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
 import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
 import Svg from 'components/Common/Svg';
+import useToggle from 'hooks/useToggle';
 import { setOverflowForBody } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import Categories from './Categories';
 import styles from './styles.module.scss';
 
-const SelectionBlock = ({
-  isMobileCategoties,
-  setMobileCategoriesState: setMobileCategories,
-  handleOnSubmit,
-}) => {
-  const [isFullscreenSearch, setFullscreenSearch] = useState(false);
-  const [isFullscreenSubscribe, setFullscreenSubscribe] = useState(false);
+const SelectionBlock = ({ handleOnSubmit }) => {
+  const dispatch = useDispatch();
+  const isMobileCategoties = useSelector(selectIsMobileCategotiesOpened);
+  const [isFullscreenSearch, toggleFullscreenSearch] = useToggle(false);
+  const [isFullscreenSubscribe, toggleFullscreenSubscribe] = useToggle(false);
   const subscribeRef = useRef(null);
 
-  const openFullscreenSearch = () => setFullscreenSearch(true);
-  const closeFullscreenSearch = () => setFullscreenSearch(false);
-  const openFullscreenSubscribe = () => setFullscreenSubscribe(true);
-  const closeFullscreenSubscribe = () => setFullscreenSubscribe(false);
-  const openMobileCategoties = () => setMobileCategories(true);
-  const closeMobileCategoties = () => setMobileCategories(false);
+  const handleMobileCategoties = useCallback((state) => () => {
+    dispatch(setMobileCategoriesState(state));
+  }, [dispatch]);
 
   useEffect(() => {
     setOverflowForBody(isMobileCategoties);
@@ -42,26 +38,23 @@ const SelectionBlock = ({
       [styles.showCategories]: isMobileCategoties,
     })}
     >
-      <Categories
-        isMobileCategoties={isMobileCategoties}
-        closeMobileCategoties={closeMobileCategoties}
-      />
+      <Categories isMobileCategoties={isMobileCategoties} />
       {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
         <Svg
           type={SVG_IMAGES_TYPES.searchSvg}
-          handleOnClick={openFullscreenSearch}
+          handleOnClick={toggleFullscreenSearch}
           className={styles.imgContainer}
         />
         <ButtonMore
           buttonRef={subscribeRef}
-          handleOnClick={openFullscreenSubscribe}
+          handleOnClick={toggleFullscreenSubscribe}
           title="Subscribe"
           buttonStyle={styles.button}
         />
         <span
           className={styles.categoryTitleInHeader}
-          onClick={openMobileCategoties}
+          onClick={handleMobileCategoties(true)}
           role="button"
           tabIndex="0"
         >
@@ -70,11 +63,11 @@ const SelectionBlock = ({
       </div>
       <FullscreenSearch
         isFullscreenSearch={isFullscreenSearch}
-        closeFullscreenSearch={closeFullscreenSearch}
+        closeFullscreenSearch={toggleFullscreenSearch}
       />
       <FullscreenSubscribe
         isFullscreenSubscribe={isFullscreenSubscribe}
-        closeFullscreenSubscribe={closeFullscreenSubscribe}
+        closeFullscreenSubscribe={toggleFullscreenSubscribe}
         handleOnSubmit={handleOnSubmit}
       />
     </div>
@@ -82,16 +75,11 @@ const SelectionBlock = ({
 };
 
 SelectionBlock.defaultProps = {
-  handleOnSubmit: () => {},
+  handleOnSubmit: () => null,
 };
 
 SelectionBlock.propTypes = {
-  isMobileCategoties: PropTypes.bool.isRequired,
-  setMobileCategoriesState: PropTypes.func.isRequired,
   handleOnSubmit: PropTypes.func,
 };
 
-export default connect(
-  (state) => ({ isMobileCategoties: selectIsMobileCategotiesOpened(state) }),
-  { setMobileCategoriesState },
-)(SelectionBlock);
+export default SelectionBlock;

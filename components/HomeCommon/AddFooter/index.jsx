@@ -12,9 +12,7 @@ const AddFooter = ({ theme }) => {
     <section className={cn(
       styles.addFooterContainer,
       styles[direction],
-      {
-        [styles.notOnTop]: !isTopOfPage,
-      },
+      { [styles.notOnTop]: !isTopOfPage },
     )}
     >
       <SocialIcons theme={theme} />

@@ -1,4 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -26,7 +30,6 @@ const Header = ({ introSection }) => {
   const isPageWithTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
   const isCaseStudyWithTransparentHeader = CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(project)
   || CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(asPath);
-  const isHomepage = currentPage === '';
   const headerTheme = [
     CASE_STUDIES.tell,
     CASE_STUDIES.openSense,
@@ -90,6 +93,8 @@ const Header = ({ introSection }) => {
     dispatch(setMobileMenuState());
   }, [dispatch]);
 
+  const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
+
   return (
     <header className={cn({
       [styles.headerContainer]: true,
@@ -106,8 +111,8 @@ const Header = ({ introSection }) => {
         theme={navTheme}
         isPageScrolledDown={isPageScrolledDown}
         isTransparentHeader={isTransparentHeader}
-        currentPage={currentPage}
         isMobileMenuOpened={isMobileMenuOpened}
+        isPageScrolling={isPageScrolling}
         setMobileMenuState={setMobileMenu}
         isHeader
       />
@@ -125,4 +130,4 @@ Header.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default Header;
+export default React.memo(Header);

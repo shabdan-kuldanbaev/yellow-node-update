@@ -187,6 +187,8 @@
       margin: 70px 0 !important;
 
       & > p {
+        @include fontSize(40px);
+
         position: relative;
         box-sizing: border-box;
         width: 100%;
@@ -195,24 +197,22 @@
         color: $mirage;
         text-align: center;
 
-        @include fontSize(40px);
-
         @include macbook-fifteen {
-          line-height: 1.5;
-
           @include fontSize(35px);
+
+          line-height: 1.5;
         }
 
         @include tablet {
-          margin: 40px 0;
-
           @include fontSize(25px);
+
+          margin: 40px 0;
         }
 
         @include phone {
-          line-height: 1.4;
-
           @include fontSize(20px);
+
+          line-height: 1.4;
         }
       }
 

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import get from 'lodash/get';
 import {
@@ -29,11 +29,12 @@ import styles from './styles.module.scss';
 
 const ArticleContainer = ({
   introSection,
-  articles: relatedArticles,
-  nearbyArticles,
-  currentArticle,
-  subscribe: addNewSubscriber,
 }) => {
+  const dispatch = useDispatch();
+  const currentArticle = useSelector(selectArticle);
+  const relatedArticles = useSelector(selectRelatedArticles);
+  const nearbyArticles = useSelector(selectNearbyArticles);
+
   const {
     query: { slug },
     pathname,
@@ -78,7 +79,7 @@ const ArticleContainer = ({
   });
   const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
 
-  const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
+  const handleOnFormSubmit = (email) => dispatch(subscribe({ email, pathname }));
 
   return (
     <Fragment>
@@ -129,17 +130,6 @@ const ArticleContainer = ({
 
 ArticleContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  articles: PropTypes.instanceOf(Array).isRequired,
-  currentArticle: PropTypes.instanceOf(Object).isRequired,
-  nearbyArticles: PropTypes.instanceOf(Object).isRequired,
-  subscribe: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({
-    currentArticle: selectArticle(state),
-    articles: selectRelatedArticles(state),
-    nearbyArticles: selectNearbyArticles(state),
-  }),
-  { subscribe },
-)(ArticleContainer);
+export default ArticleContainer;

@@ -2,7 +2,7 @@ import React, {
   useState,
   useRef,
   useEffect,
-  Fragment, useMemo,
+  useMemo,
 } from 'react';
 import { wrapper } from 'redux/store';
 import { useDispatch } from 'react-redux';
@@ -28,7 +28,6 @@ function App({ Component, pageProps }) {
   const [theme] = useState('dark');
   const introSection = useRef(null);
   const dispatch = useDispatch();
-  // const isCustomDomain = pageProps.hostname?.includes(process.env.CUSTOM_DOMAIN);
 
   useEffect(() => {
     const handleRouteChangeComplete = () => dispatch(setPageReadyToDisplay(false));
@@ -56,7 +55,7 @@ function App({ Component, pageProps }) {
   }), [contextData, setContextData]);
 
   return (
-    <Fragment>
+    <>
       <Head>
         <meta
           name="robots"
@@ -74,7 +73,7 @@ function App({ Component, pageProps }) {
           </Layout>
         </ThemeProvider>
       </AppContext.Provider>
-    </Fragment>
+    </>
   );
 }
 

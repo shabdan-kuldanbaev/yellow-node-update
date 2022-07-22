@@ -5,10 +5,9 @@ import { useRouter } from 'next/router';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { setOverflowForBody, isNumeric } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
-import CloseIcon from './images/close.svg';
 import styles from './styles.module.scss';
 
-const Categories = ({ isMobileCategoties, closeMobileCategoties }) => {
+const Categories = ({ isMobileCategoties }) => {
   const { asPath, query: { slug: currentCategory } } = useRouter();
 
   useEffect(() => {
@@ -48,7 +47,6 @@ Categories.defaultProps = {
 
 Categories.propTypes = {
   isMobileCategoties: PropTypes.bool,
-  closeMobileCategoties: PropTypes.func.isRequired,
 };
 
-export default Categories;
+export default React.memo(Categories);

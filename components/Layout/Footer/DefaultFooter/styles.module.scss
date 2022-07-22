@@ -2,6 +2,8 @@
 @import 'styles/utils/mixins';
 
 .footerContainer {
+  @include flex(column, center, center);
+
   position: relative;
   z-index: 99999;
   width: 100%;
@@ -10,17 +12,15 @@
   color: $white;
   box-sizing: border-box;
 
-  @include flex(column, center, center);
-
   @include macbook-twelve {
     padding: 70px 20px 35px;
   }
 
   .footer {
+    @include flex(row, space-between);
+
     width: 100%;
     max-width: $max-content-width;
-
-    @include flex(row, space-between);
 
     @include below-tablet {
       flex-direction: column;

@@ -5,13 +5,13 @@ import SubMenuItem from 'components/Layout/Header/DropDownMenu/SubMenuItem';
 import { SUB_NAVIGATION_LINKS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-function DropDownMenu({
+const DropDownMenu = ({
   isDropMenuOpened,
   isPageScrolledDown,
   slug,
   closeMobileMenu,
   closeDropDownMenu,
-}) {
+}) => {
   const subNavigationLinks = SUB_NAVIGATION_LINKS[slug];
 
   const handleOnClick = (subMenuSlug) => () => {
@@ -51,7 +51,7 @@ function DropDownMenu({
       </div>
     </div>
   );
-}
+};
 
 DropDownMenu.defaultProps = {
   closeMobileMenu: () => {},

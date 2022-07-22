@@ -14,4 +14,4 @@ const DefaultFooter = () => (
   </footer>
 );
 
-export default DefaultFooter;
+export default React.memo(DefaultFooter);

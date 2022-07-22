@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Image from 'next/image';
-
-import styles from './styles.module.scss';
-// eslint-disable-next-line import/named
 import { getOptimizedContentfulImage, patchImageUrl } from './utils/helper';
+import styles from './styles.module.scss';
 
 function ContentfulImageLoader({
-  src, quality, width, height,
+  src,
+  quality,
+  width,
+  height,
 }) {
   let url = src;
 

@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
+import { useSelector } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
 import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
@@ -15,12 +15,9 @@ import styles from './styles.module.scss';
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
 
-const CustomServiceContainer = ({
-  pageData,
-  metaData,
-  introSection,
-  type,
-}) => {
+const CustomServiceContainer = ({ introSection, type }) => {
+  const pageData = useSelector(selectComponents);
+  const metaData = useSelector(selectMetaData);
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const { main: contentModules, hasFeedbackForm } = pageData;
@@ -82,18 +79,7 @@ const CustomServiceContainer = ({
 };
 
 CustomServiceContainer.propTypes = {
-  pageData: PropTypes.instanceOf(Object).isRequired,
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-    ogImage: PropTypes.string,
-  }).isRequired,
   type: PropTypes.string.isRequired,
 };
 
-export default connect(
-  (state) => ({
-    pageData: selectComponents(state),
-    metaData: selectMetaData(state),
-  }),
-)(CustomServiceContainer);
+export default CustomServiceContainer;
