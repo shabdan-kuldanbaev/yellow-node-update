@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Swiper from 'swiper';
+import { Swiper } from 'swiper/react';
 import SwiperCore, { Pagination } from 'swiper/core';
 import styles from '../styles.module.scss';
 

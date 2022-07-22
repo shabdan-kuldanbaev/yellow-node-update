@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import React from 'react';
-import { Animated } from 'components/Common/Animated';
-import { CallToAction } from 'components/Common/CallToAction';
+import Animated from 'components/Common/Animated';
+import CallToAction from 'components/Common/CallToAction';
 import { SectionTitle } from '../SectionTitle';
 import { RelatedServices } from './RelatedServices';
 import { getRelatedServicesProps } from './utils';

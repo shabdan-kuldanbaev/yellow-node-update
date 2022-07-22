@@ -7,7 +7,7 @@ import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getCheckSocialProps } from './utils/checkSocialHelper';
 import styles from './styles.module.scss';
 
-export const CheckSocialSection = ({
+const CheckSocialSection = ({
   sectionData,
   type,
 }) => {
@@ -60,3 +60,5 @@ CheckSocialSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
+
+export default CheckSocialSection;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Swiper from 'react-id-swiper';
+import { Swiper } from 'swiper/react';
 import PropTypes from 'prop-types';
 import BlogArticle from '../BlogArticle';
 import { getSwiperParams } from '../utils/blogHelper';

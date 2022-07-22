@@ -5,7 +5,7 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import CallToAction from 'components/Common/CallToAction';
 import CardImage from 'components/AppDevelopmentCommon/CardsSection/CardImage';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';

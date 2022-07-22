@@ -22,7 +22,7 @@ SwiperCore.use([
   Navigation,
 ]);
 
-export const GallerySection = ({
+const GallerySection = ({
   sectionData,
   type,
   handleOnCTAClick,

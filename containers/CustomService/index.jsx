@@ -48,7 +48,7 @@ const CustomServiceContainer = ({ introSection, type }) => {
           breadcrumbsStyles={styles.breadcrumbs}
           breadcrumbsTheme={breadcrumbsTheme}
         />
-        {contentModules.map((module) => {
+        {contentModules?.map((module) => {
           const { type: sectionType, view } = getDocumentFields(module);
 
           return (

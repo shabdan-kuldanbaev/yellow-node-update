@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SectionTitle from 'components/AppDevelopmentCommon/SectionTitle';
+import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import Animated from 'components/Common/Animated';
 import CallToAction from 'components/Common/CallToAction';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';

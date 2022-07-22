@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Swiper from 'react-id-swiper';
-import SwiperCore, { Mousewheel, Navigation } from 'swiper';
-import { Animated } from 'components/Common/Animated';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import { Swiper } from 'swiper/react';
+import SwiperCore, { Mousewheel, Navigation } from 'swiper/core';
+import Animated from 'components/Common/Animated';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getServiceParams, getSwiperParams } from '../utils';
 import styles from './styles.module.scss';
@@ -11,13 +11,17 @@ import styles from './styles.module.scss';
 SwiperCore.use([Mousewheel, Navigation]);
 
 export const RelatedServices = ({ services }) => {
+  if (!services) {
+    return null;
+  }
+
   const swiperParams = getSwiperParams();
 
   return (
     <Animated {...REVEAL_ANIMATION_PROPS}>
       <div className={styles.serviceList}>
         <Swiper {...swiperParams}>
-          {services.map((service) => {
+          {services?.map((service) => {
             const {
               title,
               description,
