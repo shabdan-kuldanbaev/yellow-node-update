@@ -1,15 +1,15 @@
 import React from 'react';
 import CustomService from 'containers/CustomService';
-import { getStaticPropsWrapper } from 'utils/helper';
+import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
-const CloudAppDevelopment = ({ introSection }) => (
+const CloudAppDevelopment = (pageProps) => (
   <CustomService
-    introSection={introSection}
     type={PAGES.cloudDevelopment}
+    {...pageProps}
   />
 );
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.cloudDevelopment);
+export const getStaticProps = getStaticPropsWrapper(PAGES.cloudDevelopment, getServicePageProps);
 
 export default CloudAppDevelopment;

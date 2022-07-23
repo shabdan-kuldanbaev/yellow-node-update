@@ -12,7 +12,7 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { slogan } from './utils/threeHelper';
 import * as styles from './styles.module.scss';
 
-const Duck = dynamic(() => import('./Duck'));
+const Duck = dynamic(() => import('./Duck'), { ssr: false });
 
 const DuckContainer = () => {
   const containerText = useRef(null);

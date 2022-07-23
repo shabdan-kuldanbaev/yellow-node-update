@@ -1,9 +1,6 @@
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
 import dayjs from 'dayjs';
-import { END } from 'redux-saga';
-import { wrapper } from 'redux/store';
-import { fetchLayoutData } from 'redux/actions/layout';
 import {
   BIG_TABLET_RESOLUTION,
   DEFAULT_DATE_FORMAT,
@@ -16,7 +13,6 @@ import {
   PHONE_RESOLUTION,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
-import errorHelper from './error';
 
 export const themes = {
   dark: {
@@ -274,23 +270,4 @@ export const runMiddleware = (req, res, fn) => new Promise((resolve, reject) => 
 
     return resolve(result);
   });
-});
-
-export const getStaticPropsWrapper = (slug) => wrapper.getStaticProps((store) => async () => {
-  try {
-    store.dispatch(fetchLayoutData({ slug }));
-
-    store.dispatch(END);
-    await store.sagaTask.toPromise();
-
-    return {
-      props: {},
-      revalidate: 10,
-    };
-  } catch (error) {
-    errorHelper.handleError({
-      error,
-      message: `Error in the ${slug}.getStaticProps function`,
-    });
-  }
 });

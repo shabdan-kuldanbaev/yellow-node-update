@@ -2,8 +2,6 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import { useSelector } from 'react-redux';
-import { selectComponents, selectMetaData } from 'redux/selectors/layout';
 import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
@@ -15,9 +13,12 @@ import styles from './styles.module.scss';
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
 
-const CustomServiceContainer = ({ introSection, type }) => {
-  const pageData = useSelector(selectComponents);
-  const metaData = useSelector(selectMetaData);
+const CustomServiceContainer = ({
+  introSection,
+  pageData,
+  metaData,
+  type,
+}) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const { main: contentModules, hasFeedbackForm } = pageData;

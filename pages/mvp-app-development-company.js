@@ -1,15 +1,15 @@
 import React from 'react';
 import CustomService from 'containers/CustomService';
-import { getStaticPropsWrapper } from 'utils/helper';
+import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
-const MvpDevelopment = ({ introSection }) => (
+const MvpDevelopment = (pageProps) => (
   <CustomService
-    introSection={introSection}
     type={PAGES.mvpDevelopment}
+    {...pageProps}
   />
 );
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.mvpDevelopment);
+export const getStaticProps = getStaticPropsWrapper(PAGES.mvpDevelopment, getServicePageProps);
 
 export default MvpDevelopment;

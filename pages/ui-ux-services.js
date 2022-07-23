@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomServices from 'containers/CustomService';
-import { getStaticPropsWrapper } from 'utils/helper';
+import { getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
 const DesignServices = (pageData) => (

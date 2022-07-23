@@ -1,71 +1,68 @@
-import React, { useRef } from 'react';
+import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { selectImageCarousel, selectMetaData } from 'redux/selectors/layout';
 import Intro from 'containers/Home/Intro';
 import FullLayout from 'components/Layout/FullLayout';
 import MetaTags from 'components/Common/MetaTags';
-import Portfolio from 'containers/Home/Portfolio';
-import { getDocumentFields, rootUrl } from 'utils/helper';
+import PhotoGallery from 'components/Common/PhotoGallery';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
 
-const ReviewsContainer = dynamic(() => import('containers/Home/Reviews'));
+const Portfolio = dynamic(() => import('containers/Home/Portfolio'), { suspense: true, ssr: false });
+const ReviewsContainer = dynamic(() => import('containers/Home/Reviews'), { ssr: false });
 const Blog = dynamic(() => import('containers/Home/Blog'));
-const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 
 export const Home = ({
   theme,
   introSection,
-}) => {
-  const photosData = useSelector(selectImageCarousel);
-  const metaData = useSelector(selectMetaData);
-
-  const gradientRef = useRef(null);
-  const { contentModules } = getDocumentFields(photosData, ['contentModules']);
-  const pageMetadata = {
-    ...metaData,
-    url: `${rootUrl}`,
-  };
-
-  return (
-    <>
-      <MetaTags
-        page={PAGES.homepage}
-        pageMetadata={pageMetadata}
-        pageMicrodata={microdata.homepage()}
-      />
-      <Intro
-        theme={theme}
-        introSection={introSection}
-      />
-      {Portfolio && <Portfolio gradientRef={gradientRef} />}
-      {/* // TODO wrap all page in full layout */}
+  pageMetadata,
+  photos,
+  projects,
+}) => (
+  <>
+    <MetaTags
+      page={PAGES.homepage}
+      pageMetadata={pageMetadata}
+      pageMicrodata={microdata.homepage()}
+    />
+    <Intro
+      theme={theme}
+      introSection={introSection}
+    />
+    <Suspense>
+      <Portfolio projects={projects} />
+    </Suspense>
+    {/* // TODO wrap all page in full layout */}
+    <FullLayout
+      disableTopPadding
+      disableBottomPadding
+    >
+      <ReviewsContainer />
+      <Blog />
       <FullLayout
+        disableMaxWidth
         disableTopPadding
+        disableSidePadding
         disableBottomPadding
       >
-        <ReviewsContainer />
-        <Blog />
-        <FullLayout
-          disableMaxWidth
-          disableTopPadding
-          disableSidePadding
-          disableBottomPadding
-        >
-          <PhotoGallery photos={contentModules} />
-        </FullLayout>
-        <FeedbackFormContainer />
+        <PhotoGallery photos={photos} />
       </FullLayout>
-    </>
-  );
+      <FeedbackFormContainer />
+    </FullLayout>
+  </>
+);
+
+Home.defaultProps = {
+  projects: {},
 };
 
 Home.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
+  pageMetadata: PropTypes.instanceOf(Object).isRequired,
+  photos: PropTypes.instanceOf(Array).isRequired,
   theme: PropTypes.string.isRequired,
+  projects: PropTypes.instanceOf(Object),
 };
 
 export default Home;

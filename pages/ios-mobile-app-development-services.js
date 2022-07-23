@@ -1,15 +1,15 @@
 import React from 'react';
 import CustomService from 'containers/CustomService';
-import { getStaticPropsWrapper } from 'utils/helper';
+import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
-const IOSDevelopment = ({ introSection }) => (
+const IOSDevelopment = (pageProps) => (
   <CustomService
-    introSection={introSection}
     type={PAGES.developmentServices}
+    {...pageProps}
   />
 );
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.developmentServices);
+export const getStaticProps = getStaticPropsWrapper(PAGES.developmentServices, getServicePageProps);
 
 export default IOSDevelopment;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactUsContainer from 'containers/ContactUs';
-import { getStaticPropsWrapper } from 'utils/helper';
+import { getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
 const ContactUs = ({ introSection }) => <ContactUsContainer introSection={introSection} />;

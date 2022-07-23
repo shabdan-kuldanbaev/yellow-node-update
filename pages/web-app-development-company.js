@@ -1,15 +1,15 @@
 import React from 'react';
 import CustomServices from 'containers/CustomService';
-import { getStaticPropsWrapper } from 'utils/helper';
+import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
-const CustomWebApp = ({ introSection }) => (
+const CustomWebApp = (pageProps) => (
   <CustomServices
-    introSection={introSection}
     type={PAGES.customWebApp}
+    {...pageProps}
   />
 );
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.customWebApp);
+export const getStaticProps = getStaticPropsWrapper(PAGES.customWebApp, getServicePageProps);
 
 export default CustomWebApp;

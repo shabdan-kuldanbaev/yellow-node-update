@@ -1,15 +1,15 @@
 import React from 'react';
 import CustomService from 'containers/CustomService';
-import { getStaticPropsWrapper } from 'utils/helper';
+import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
-const MLDevelopment = ({ introSection }) => (
+const MLDevelopment = (pageProps) => (
   <CustomService
-    introSection={introSection}
     type={PAGES.mlDevelopment}
+    {...pageProps}
   />
 );
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.mlDevelopment);
+export const getStaticProps = getStaticPropsWrapper(PAGES.mlDevelopment, getServicePageProps);
 
 export default MLDevelopment;

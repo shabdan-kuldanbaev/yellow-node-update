@@ -1,31 +1,10 @@
 import React from 'react';
-import { END } from 'redux-saga';
 import PortfolioContainer from 'containers/Portfolio';
-import { fetchLayoutData } from 'redux/actions/layout';
-import { wrapper } from 'redux/store';
 import { PAGES } from 'utils/constants';
-import errorHelper from 'utils/error';
+import { getPortfolioPageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
 
-const Portfolio = ({ introSection }) => <PortfolioContainer introSection={introSection} />;
+const Portfolio = (pageData) => <PortfolioContainer {...pageData} />;
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req }) => {
-  try {
-    store.dispatch(fetchLayoutData({ slug: PAGES.portfolio }));
-
-    if (req) {
-      store.dispatch(END);
-      await store.sagaTask.toPromise();
-    }
-
-    return {
-      props: {},
-    };
-  } catch (error) {
-    errorHelper.handleError({
-      error,
-      message: 'Error in the MLDevelopment.getStaticProps function',
-    });
-  }
-});
+export const getStaticProps = getStaticPropsWrapper(PAGES.portfolio, getPortfolioPageProps);
 
 export default Portfolio;
