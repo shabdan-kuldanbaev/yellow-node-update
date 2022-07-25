@@ -36,6 +36,7 @@ const CheckListSection = ({
         <SectionTitle
           title={title}
           description={description}
+          titleStyle={styles.titleStyle}
         />
         <div className={styles.checkList}>
           {listData.map((item, index) => {

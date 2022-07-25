@@ -427,7 +427,7 @@
     background: rgba($col, 0.7);
     margin-right: 16px;
 
-    @include phone {
+    @include below-tablet {
       width: $smallerSize;
       height: $smallerSize;
 

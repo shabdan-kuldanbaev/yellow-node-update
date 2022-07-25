@@ -23,7 +23,7 @@
 
   .svgListWrapper {
     margin: 0 auto;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
 
     .svgList {
       @include flex(row, space-between, flex-end, wrap);

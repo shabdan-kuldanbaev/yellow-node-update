@@ -1,89 +1,62 @@
 .mobile-app-development-company {
-  .contentWrapper {
-    .smallCards {
-      & > div {
-        @include flex();
-      }
-    }
+  &.firstSectionView,
+  &.thirdSectionView {
+    @extend .greySection;
   }
 
   &.firstSectionView {
-    background-color: $alabaster;
-
-    .cards > div {
-      @include phone {
-        padding: 20px !important;
-      }
-    }
+    @extend .cardsWithShadow;
+    @include iconsWithinCircle;
   }
 
   &.secondSectionView {
-    background-color: $white;
+    @include iconsWithinCircle;
 
-    .cards {
-      grid-gap: 0;
+    @include below-tablet {
+      .cards > div {
+        display: block;
 
-      & > div {
-        box-shadow: none;
-
-        @include phone {
-          padding: 20px !important;
+        h3 {
+          margin-top: 16px;
         }
       }
     }
   }
 
   &.thirdSectionView {
+    @extend .smallCards;
+    @include iconsWithinCircle;
+  }
+
+  &.fourthSectionView {
+    @extend .cardsWithShadow;
+    @include iconsWithinCircle;
+  }
+
+  &.fifthSectionView {
     background-color: $very-dark-gray;
-    color: $white;
 
     .cards > div {
       background-color: $very-dark-gray;
       box-shadow: none;
 
-      .imageWrapper {
-        @include phone {
-          background: $very-dark-gray;
-          justify-content: flex-start;
-          width: unset;
-          height: unset;
+      @include below-tablet {
+        display: block;
 
-          svg {
-            transform: scale(0.7);
-            margin: 0 0 -13px -13px;
-          }
+        h3 {
+          margin-top: 16px;
+        }
+
+        svg {
+          transform: scale(0.7);
+          margin: 0 0 -13px -13px;
         }
       }
-
-      .typeTitle {
-        color: $white;
-      }
-
-      @include phone {
-        padding: 10px 0;
-      }
     }
-  }
 
-  &.fourthSectionView {
-    background: $alabaster;
-
-    .callToAction {
-      background: $white;
+    .titleStyle h2,
+    .typeTitle {
+      color: $white;
     }
-  }
-
-  &.fifthSectionView {
-    background: $white;
-
-    .cards > div {
-      @include below-tablet {
-        padding: 24px;
-      }
-    }
-  }
-
-  &.sixthSectionView {
-    background: $white;
   }
 }

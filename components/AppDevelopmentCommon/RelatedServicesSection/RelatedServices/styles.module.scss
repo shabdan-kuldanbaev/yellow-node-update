@@ -28,6 +28,7 @@
       @include fontSize(20px);
 
       margin: 0 0 10px;
+      color: $dark-grey;
     }
 
     p {
@@ -38,7 +39,7 @@
       color: $silver-chalice;
     }
 
-    .link {
+    .readMore {
       @include fontSize(18px);
 
       margin-top: 20px;
@@ -49,6 +50,13 @@
       &:hover {
         color: $silver-chalice;
       }
+    }
+  }
+
+  &:hover {
+    .typeTitle,
+    .readMore {
+      color: $silver-chalice;
     }
   }
 }

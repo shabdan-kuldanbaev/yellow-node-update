@@ -5,7 +5,7 @@
   @include smallSectionWrapper;
 
   .checkList {
-    @include flex(row, initial, center, wrap);
+    @include flex(row, initial, stretch, wrap);
 
     width: 100%;
     margin-bottom: -30px;
@@ -79,7 +79,8 @@
 .cloud-based-app-development-services,
 .machine-learning-development-services,
 .mvp-app-development-company,
-.android-mobile-app-development-services {
+.android-mobile-app-development-services,
+.ios-mobile-app-development-services {
   @include appDevelopmentContainer;
 
   .sectionContainer {
@@ -107,6 +108,10 @@
   .sectionContainer {
     @include smallSectionWrapper;
 
+    .titleStyle h2 {
+      max-width: 896px;
+    }
+
     .checkList {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -119,6 +124,7 @@
         padding: 35px;
         box-shadow: $card-bow-shadow;
         border-radius: 5px;
+        background: $white;
 
         .itemContainer {
           width: 100%;

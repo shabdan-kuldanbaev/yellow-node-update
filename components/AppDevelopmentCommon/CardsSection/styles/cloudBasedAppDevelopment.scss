@@ -1,37 +1,12 @@
 .cloud-based-app-development-services {
+  &.firstSectionView {
+    @extend .greySection;
+    @extend .cardsWithShadow;
+    @include iconsWithinCircle;
+  }
+
   &.secondSectionView {
-    @extend .removeCardsShadow;
-
-    background: $alabaster;
-
-    .cards {
-      grid-gap: 80px 15vw;
-
-      @include tablet {
-        column-gap: 6vw;
-      }
-
-      & > div {
-        @include below-tablet {
-          @include flex();
-        }
-      }
-    }
-
-    .imageWrapper {
-      flex: 0 0 auto;
-      margin-right: 16px;
-    }
-
-    .typeTitle {
-      @include tablet {
-        margin: 0;
-      }
-    }
-
-    .callToAction {
-      background: $white;
-    }
+    @include iconsWithinCircle;
   }
 
   &.thirdSectionView {
@@ -47,23 +22,15 @@
     .titleStyle h2 {
       color: $white;
     }
+
+    .titleStyle {
+      max-width: 762px;
+    }
   }
 
   &.fourthSectionView {
-    @extend .removeCardsShadow;
+    @include iconsWithinCircle;
 
     padding-bottom: 0;
-
-    .cards > div {
-      @include below-tablet {
-        @include flex;
-      }
-    }
-
-    .typeTitle {
-      @include below-tablet {
-        margin-top: 0;
-      }
-    }
   }
 }
