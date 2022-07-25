@@ -2,7 +2,7 @@
 import React, {
   useEffect,
   useRef,
-  Fragment,
+  Suspense,
 } from 'react';
 import dynamic from 'next/dynamic';
 import Animated from 'components/Common/Animated';
@@ -12,7 +12,7 @@ import { ANIMATED_TYPE } from 'utils/constants';
 import { slogan } from './utils/threeHelper';
 import * as styles from './styles.module.scss';
 
-const Duck = dynamic(() => import('./Duck'), { ssr: false });
+const Duck = dynamic(() => import('./Duck'), { ssr: false, suspense: true });
 
 const DuckContainer = () => {
   const containerText = useRef(null);
@@ -29,7 +29,7 @@ const DuckContainer = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <div
         className={styles.text}
         ref={containerText}
@@ -48,8 +48,10 @@ const DuckContainer = () => {
         </Animated>
       </div>
       <IntroText className={styles.subText} />
-      <Duck sloganRef={sloganRef} />
-    </Fragment>
+      <Suspense>
+        <Duck sloganRef={sloganRef} />
+      </Suspense>
+    </>
   );
 };
 
