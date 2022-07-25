@@ -19,6 +19,7 @@ import Intro from 'containers/Home/Intro';
 import Portfolio from 'containers/Home/Portfolio';
 import { ReviewsContainer } from 'containers/Home/Reviews';
 import { FullLayout } from 'components/Layout/FullLayout';
+import { Partners } from 'components/HomeCommon/Partners';
 import { loadDuck } from 'components/HomeCommon/Duck/utils/threeHelper';
 import { MetaTags } from 'components/Common/MetaTags';
 import PhotoGallery from 'components/Common/PhotoGallery';
@@ -86,8 +87,15 @@ export const Home = ({
           <FullLayout
             disableTopPadding
             disableBottomPadding
+            backgroundColor="alabaster"
           >
+            <Partners />
             <ReviewsContainer />
+          </FullLayout>
+          <FullLayout
+            disableTopPadding
+            disableBottomPadding
+          >
             <Blog />
             <FullLayout
               disableMaxWidth

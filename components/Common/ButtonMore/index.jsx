@@ -13,6 +13,7 @@ const ButtonMore = ({
   buttonRef,
   isDisabled,
   disabledButtonStyle,
+  type,
 }) => (href.length === 0
   ? (
     <div
@@ -30,7 +31,11 @@ const ButtonMore = ({
       isLocalLink
       path={href}
       dynamicRouting={dynamicRouting}
-      className={cn(styles.link, { [disabledButtonStyle]: isDisabled })}
+      className={cn(
+        styles.link,
+        styles[type],
+        { [disabledButtonStyle]: isDisabled },
+      )}
     >
       <div
         className={cn({ [buttonStyle]: buttonStyle })}
@@ -47,6 +52,7 @@ ButtonMore.defaultProps = {
   href: '',
   dynamicRouting: '',
   buttonStyle: null,
+  type: '',
   buttonRef: null,
   handleOnClick: null,
   isDisabled: false,
@@ -61,6 +67,7 @@ ButtonMore.propTypes = {
   ]),
   title: PropTypes.string.isRequired,
   buttonStyle: PropTypes.string,
+  type: PropTypes.string,
   handleOnClick: PropTypes.func,
   buttonRef: PropTypes.instanceOf(Object),
   isDisabled: PropTypes.bool,

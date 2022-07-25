@@ -11,6 +11,14 @@
   line-height: 1.2;
   color: $white;
 
+  &.home {
+    @include fontSize(56px);
+
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
   @include below-tablet {
     font-size: 3rem;
     margin-top: 40px;
@@ -24,12 +32,24 @@
     max-width: calc(100% - 40px);
     font-size: 2.5rem;
     margin: 10px auto 25px 0;
+
+    &.home {
+      @include fontSize(32px);
+
+      margin: 0 auto 15px;
+    }
   }
 
   @include small-phone {
     max-width: 50%;
     font-size: 1.5rem;
     margin: 20px auto 25px 0;
+
+    &.home {
+      @include fontSize(32px);
+
+      margin: 0 auto 15px;
+    }
   }
 }
 
@@ -40,6 +60,15 @@
   letter-spacing: 0.5px;
   color: $white;
   word-wrap: normal;
+
+  &.home {
+    @include fontSize(18px);
+
+    margin-bottom: 40px;
+    font-weight: 400;
+    line-height: 180%;
+    color: rgba($white, 0.7);
+  }
 
   @include below-tablet-horizontal {
     font-size: 1rem;
@@ -53,10 +82,22 @@
     font-size: 1rem;
     max-width: 100%;
     margin: auto 20px 25px 0;
+
+    &.home {
+      @include fontSize(14px);
+
+      margin: 0 auto 20px;
+      line-height: 180%;
+      text-align: center;
+    }
   }
 
   @include small-phone {
     font-size: 0.8rem;
+
+    &.home {
+      @include fontSize(14px);
+    }
   }
 }
 
@@ -68,6 +109,13 @@
   border-radius: $button-border-radius;
   font-weight: 600;
   outline: none;
+
+  &.home {
+    margin: 0;
+    padding: 20px 38px;
+    width: fit-content;
+    border-color: $white;
+  }
 
   @include tablet {
     margin-left: 0;
@@ -82,5 +130,9 @@
     display: block;
     max-width: 250px;
     text-align: center;
+
+    &.home {
+      padding: 14px 30px;
+    }
   }
 }

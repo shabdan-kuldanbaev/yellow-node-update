@@ -21,7 +21,7 @@ export const Partners = ({ partners: partnersList }) => {
         transitionDelay={100}
       >
         <div>
-          <h2>And get featured on</h2>
+          <h2>Our projects got featured on</h2>
         </div>
       </Animated>
       <div className={styles.partners}>

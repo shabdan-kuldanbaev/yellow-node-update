@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated } from 'components/Common/Animated';
 import { LinkWrapper } from 'components/Common/LinkWrapper';
+import { Svg } from 'components/Common/Svg';
 import { advantages, animatedFields } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -10,10 +11,7 @@ export const AdvantagesItems = ({ advantages: advantagesList, animatedFields: an
     switch (field) {
     case 'img':
       return (
-        <img
-          src={adv.image}
-          alt={adv.title}
-        />
+        <Svg type={adv.icon} />
       );
     case 'title':
       return (

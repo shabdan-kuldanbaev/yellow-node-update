@@ -22,7 +22,6 @@ const Intro = ({
   >
     <Duck duck={duck} />
     <AddFooter theme={theme} />
-    <Partners />
   </section>
 );
 

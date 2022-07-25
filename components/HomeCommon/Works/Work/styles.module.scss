@@ -97,7 +97,7 @@
 
     & > div {
       max-width: 650px;
-      width: 80%;
+      //width: 80%;
       height: 100%;
       opacity: 1;
       will-change: transform;
@@ -210,7 +210,12 @@
 
     @include phone {
       width: 100%;
+      height: 75vw;
       margin: 0 -20px;
+
+      &:nth-of-type(2) {
+        height: 80vw;
+      }
     }
 
     @include horizontal-mobile {
@@ -238,8 +243,12 @@
 
       @include below-tablet {
         justify-content: stretch;
-        height: 80%;
+        //height: 80%;
         width: auto;
+      }
+
+      @include phone {
+        height: 70vw;
       }
 
       .imgWrapper {
@@ -306,6 +315,10 @@
           transform: translateY(-7vh);
         }
 
+        @include phone {
+          height: fit-content;
+        }
+
         img {
           width: 110%;
           height: unset;
@@ -338,6 +351,10 @@
         @include below-tablet {
           height: 60vh;
           transform: translateX(0);
+        }
+
+        @include phone {
+          height: fit-content;
         }
 
         img {
@@ -395,7 +412,7 @@
 
       .parallax {
         & > div {
-          height: 100vw;
+          height: 70vw;
           transform: translateY(-20px);
         }
       }

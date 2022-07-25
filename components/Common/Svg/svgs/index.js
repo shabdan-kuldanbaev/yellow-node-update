@@ -235,3 +235,13 @@ export scrollIconSvg from './scrollIconSvg.svg';
 export checkMark from './checkMark.svg';
 export bookmarkIcon from './bookmarkIcon.svg';
 export yellowCheckMark from './yellowCheckMark.svg';
+
+/* App Development */
+export uiUxDevelopmentIllustration from './ui&ux.svg';
+export chatsDevelopmentIllustration from './chats.svg';
+export mobileDevelopmentIllustration from './mobile.svg';
+export cloudDevelopmentIllustration from './cloud.svg';
+export webDevelopmentIllustration from './webDevelopmentIllustration.svg';
+export mlDevelopmentIllustration from './mlDevelopmentIllustration.svg';
+export mvpDevelopmentIllustration from './mvpDevelopmentIllustration.svg';
+export softDevelopmentIllustration from './softDevelopmentIllustration.svg';

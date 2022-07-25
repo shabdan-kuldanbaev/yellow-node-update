@@ -16,11 +16,11 @@ import styles from './styles.module.scss';
 const Blog = ({ articles }) => (
   <section className={styles.blog}>
     <SectionTitle
-      title="Blog"
-      subtitle="How we do what we do"
+      title="Software development blog"
+      subtitle="Recent news and tech insights from the experienced software development company"
     />
     <ArticlesList
-      articles={articles}
+      articles={articles.slice(0, 3)}
       currentPage={HOMEPAGE_BLOG_CURRENT_PAGE}
     />
     <Animated
@@ -32,7 +32,7 @@ const Blog = ({ articles }) => (
     >
       <ButtonMore
         href={ROUTES.blog.path}
-        title="READ MORE STORIES"
+        title="Read more"
         buttonStyle={styles.blogButton}
       />
     </Animated>

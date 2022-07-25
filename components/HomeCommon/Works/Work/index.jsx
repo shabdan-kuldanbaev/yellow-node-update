@@ -44,7 +44,7 @@ const Work = ({
       className={styles.work}
       key={`works/${title}`}
       data-index={index}
-      ref={refs[index + 1]}
+      ref={refs[index]}
     >
       <div className={styles.desc}>
         {animatedFieldsList && animatedFieldsList.map((animated) => (
@@ -57,6 +57,7 @@ const Work = ({
               title={title}
               description={description}
               slug={slug}
+              type="home"
             />
           </Animated>
         ))}
