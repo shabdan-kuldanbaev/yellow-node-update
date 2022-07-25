@@ -171,7 +171,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
 
     .mockup {
@@ -196,7 +196,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
 
     @include phone {
@@ -224,7 +224,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
     height: initial;
 
@@ -520,7 +520,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
     height: auto;
 
@@ -612,7 +612,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
     height: auto;
 
@@ -741,7 +741,7 @@
     transform: translateX(0);
     height: min-content;
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 0 auto;
 
     .mockup {

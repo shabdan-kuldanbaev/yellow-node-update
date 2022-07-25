@@ -1,185 +1,26 @@
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 40px;
-
-  @include below-tablet {
-    grid-gap: 20px;
-    width: 100%;
-    grid-template-columns: 1fr;
-  }
-
-  & > div {
-    padding: 50px;
-    box-shadow: $card-bow-shadow;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background: $white;
-
-    .typeTitle {
-      @include fontSize(24px, 150%);
-
-      font-weight: 700;
-      margin: 20px 0 10px;
-
-      @include macbook-twelve {
-        @include fontSize(22px);
-      }
-
-      @include below-tablet {
-        @include fontSize(18px);
-
-        margin-top: 16px;
-      }
-    }
-
-    p {
-      @include fontSize(18px, 180%);
-
-      color: $silver-chalice;
-      margin: 0;
-
-      @include phone {
-        @include fontSize(16px);
-      }
-    }
-  }
-}
-
-.smallCards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 40px;
-
-  & > div {
-    padding: 0;
-    border-radius: 5px;
-    box-sizing: border-box;
-
-    .imageWrapper {
-      margin-right: 40px;
-
-      @include phone {
-        margin-right: 16px;
-      }
-    }
-
-    .cardContent {
-      .typeTitle {
-        @include fontSize(24px, 180%);
-
-        font-weight: 700;
-        margin: 0 0 10px;
-
-        @include macbook-twelve {
-          @include fontSize(22px);
-        }
-
-        @include phone {
-          @include fontSize(18px);
-        }
-      }
-
-      p {
-        @include fontSize(18px, 180%);
-
-        color: $silver-chalice;
-        margin: 0;
-
-        @include phone {
-          @include fontSize(16px);
-        }
-      }
-    }
-
-    @include below-tablet {
-      width: 100%;
-      max-width: unset;
-    }
-  }
-
-  @include below-tablet {
-    grid-gap: 20px;
-    width: 100%;
-    grid-template-columns: auto;
-  }
-}
-
-.removeCardsShadow {
-  .cards,
-  .smallCards {
-    & > div {
-      box-shadow: none;
-      padding: 0;
-      background: none;
-    }
-  }
-}
-
-.cardsWithFullWidthImage {
-  .smallCards {
-    grid-gap: 160px 15vw;
-
-    & > div {
-      flex-direction: column;
-
-      .imageWrapper {
-        width: 100%;
-        height: auto;
-        border-radius: 0;
-        background: none;
-
-        & > div {
-          @include centeredBackgroundImage;
-
-          width: 100%;
-          padding-top: 85%;
-          background-size: contain;
-
-          @include tablet {
-            padding-top: 72%;
-          }
-        }
-      }
-
-      .cardContent {
-        .typeTitle {
-          margin: 24px 0 10px;
-
-          @include phone {
-            margin: 20px 0 10px;
-          }
-        }
-      }
-
-      @include below-tablet {
-        text-align: center;
-
-        .imageWrapper {
-          margin: auto;
-        }
-      }
-    }
-
-    @include below-tablet {
-      row-gap: 60px;
-    }
-  }
-}
-
-.chat-app-development-company,
-.mobile-app-development-company,
-.web-app-development-company,
-.ui-ux-services,
-.ios-mobile-app-development-services,
 .android-mobile-app-development-services,
+.chat-app-development-company,
 .cloud-based-app-development-services,
+.ios-mobile-app-development-services,
+.machine-learning-development-services,
+.mobile-app-development-company,
 .mvp-app-development-company,
-.machine-learning-development-services {
+.ui-ux-services,
+.web-app-development-company {
   @include appDevelopmentContainer;
-  @include iconsWithinCircle;
+
+  background: $white;
+
+  .titleStyle {
+    @include defaultTitle;
+  }
+
+  .cards > div {
+    @include defaultCard;
+  }
 
   .contentWrapper {
+    @extend .twoColumnsCards;
     @include smallSectionWrapper;
   }
 

@@ -28,9 +28,9 @@ export const RelatedServices = ({ services }) => {
             } = getServiceParams(service);
 
             return (
-              <div
+              <LinkWrapper
+                path={serviceUrl}
                 className={styles.service}
-                key={`service/${title}`}
               >
                 <div
                   className={styles.imageWrapper}
@@ -47,15 +47,11 @@ export const RelatedServices = ({ services }) => {
                     {title}
                   </h3>
                   {description && <p>{description}</p>}
-                  <LinkWrapper
-                    path={serviceUrl}
-                    className={styles.link}
-                  >
+                  <span className={styles.readMore}>
                     {buttonTitle}
-                  </LinkWrapper>
+                  </span>
                 </div>
-              </div>
-
+              </LinkWrapper>
             );
           })}
         </Swiper>

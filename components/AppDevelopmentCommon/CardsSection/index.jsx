@@ -79,11 +79,14 @@ export const CardsSection = ({
                   className={styles.imageWrapper}
                 />
                 <div className={styles.cardContent}>
-                  <div className={styles.typeTitle}>
+                  <h3 className={styles.typeTitle}>
                     {typeTitle}
-                  </div>
+                  </h3>
                   <ContentfulParser document={text} />
-                  <LinkWrapper path={url} className={styles.link}>
+                  <LinkWrapper
+                    path={url}
+                    className={styles.link}
+                  >
                     {buttonTitle}
                   </LinkWrapper>
                 </div>
