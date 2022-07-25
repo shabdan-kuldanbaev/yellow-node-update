@@ -2,6 +2,7 @@ import React, {
   useRef,
   useEffect,
   useCallback,
+  Suspense,
 } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
@@ -14,7 +15,7 @@ import { NAV_LINKS } from 'utils/constants';
 import { isHasSubNavigation } from 'helpers/navigation';
 import styles from './styles.module.scss';
 
-const DropDownMenu = dynamic(() => import('components/Layout/Header/DropDownMenu'));
+const DropDownMenu = dynamic(() => import('components/Layout/Header/DropDownMenu'), { suspense: true });
 
 const Nav = ({
   theme,
@@ -94,12 +95,14 @@ const Nav = ({
               )
               : itemContent}
             {isHasSubNavigation(slug) && isHeader && (
-              <DropDownMenu
-                isDropMenuOpened={isDropMenuOpened}
-                isPageScrolledDown={isPageScrolling}
-                slug={slug}
-                closeDropDownMenu={closeDropDownMenu}
-              />
+              <Suspense>
+                <DropDownMenu
+                  isDropMenuOpened={isDropMenuOpened}
+                  isPageScrolledDown={isPageScrolling}
+                  slug={slug}
+                  closeDropDownMenu={closeDropDownMenu}
+                />
+              </Suspense>
             )}
           </li>
         );

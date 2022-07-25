@@ -69,7 +69,7 @@ const MetaTags = ({
         <meta property="og:image" content={getImage()} />
         {categoryTag && <meta property="article:section" content={categoryTag} />}
         {publishedAt && <meta property="article:published_time" content={publishedAt} />}
-        {keyWords && keyWords.map((keyWord) => (
+        {keyWords?.map((keyWord) => (
           <meta
             key={`meta/tag/${keyWord}`}
             property="article:tag"

@@ -28,6 +28,7 @@ export { default as burger } from './burger.svg';
 export { default as ok } from './ok.svg';
 
 /* Social Media */
+export { default as facebookRoundWhite } from './facebookRoundWhite.svg';
 export { default as linkedinRoundWhite } from './linkedinRoundWhite.svg';
 export { default as linkedinRoundBlack } from './linkedinRoundBlack.svg';
 export { default as linkedinIcon } from './linkedinIcon.svg';
