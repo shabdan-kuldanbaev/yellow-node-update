@@ -24,7 +24,15 @@
   }
 
   &.chat-app-development-company {
-    padding: calc(#{$header-height} + 60px) 0 120px;
+    padding: calc(#{$header-height} + 60px) 0 0;
+
+    .feedbackContainer {
+      background: $alabaster;
+
+      & > div {
+        background: none;
+      }
+    }
 
     @include phone {
       padding: calc(#{$header-height} + 40px) 0 80px;
