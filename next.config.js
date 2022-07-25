@@ -61,5 +61,5 @@ module.exports = withPlugins([
   withObj,
   // eslint-disable-next-line global-require
   [withBundleAnalyzer],
-  [withSentryConfig, { silent: true }],
+  // [withSentryConfig, { silent: true }],
 ], nextConfig);
