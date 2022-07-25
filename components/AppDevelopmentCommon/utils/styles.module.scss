@@ -14,7 +14,7 @@
 }
 
 @mixin smallSectionWrapper {
-  max-width: $max-small-section-content-width;
+  max-width: $max-content-width-small-section;
   margin: 0 auto;
   position: relative;
 
@@ -26,7 +26,7 @@
 
   box-sizing: border-box;
   width: 100%;
-  max-width: 1076px;
+  max-width: $max-content-width-small-section;
   padding: 70px;
   margin: 80px auto 0;
   background: $alabaster;
@@ -70,7 +70,7 @@
 }
 
 @mixin defaultTitle {
-  max-width: $max-small-section-content-width;
+  max-width: $max-content-width-small-section;
   margin: 0 auto 60px;
 
   h2 {
@@ -210,9 +210,9 @@
   max-width: $max-content-width;
 
   .cards {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 40px;
-    display: grid;
 
     @include tablet {
       grid-template-columns: auto;

@@ -66,7 +66,7 @@
       transform: translate(-25%, -45%);
 
       @include macbook-twelve {
-        max-width: 1076px;
+        max-width: $max-content-width-small-section;
       }
 
       @include tablet {
