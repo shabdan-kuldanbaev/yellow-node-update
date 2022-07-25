@@ -3,7 +3,7 @@
 .partnersContainer {
   @include flex(column, center, center);
 
-  padding: $section-indent $side-indent 200px;
+  padding: calc(100vh + $section-indent) $side-indent 200px;
 
   h2 {
     @include h1-title;
@@ -12,11 +12,11 @@
   }
 
   @include below-tablet {
-    padding: $section-indent $side-indent 100px;
+    padding: calc(100vh + $section-indent) $side-indent 100px;
   }
 
   @include phone {
-    padding: calc($section-indent - 40px) $side-indent $section-indent;
+    padding: calc(100vh + $section-indent - 40px) $side-indent $section-indent;
   }
 }
 
