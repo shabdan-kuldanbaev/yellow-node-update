@@ -14,7 +14,7 @@ const safePageRedirect = (query) => (pathRedirectFrom) => {
   return (`${newPath}${query}`);
 };
 
-export function middleware(req, event) {
+export function middleware1(req, event) {
   if (isProd
     && req.headers.get('x-forwarded-proto') !== 'https'
     && !DEV_HOSTS.includes(req.hostname)) {
@@ -118,13 +118,13 @@ export function middleware(req, event) {
 
   const lowerCaseUrl = url.toLowerCase();
 
-  if (url !== lowerCaseUrl) {
-    const nextUrl = req.nextUrl.clone();
-    nextUrl.pathname = lowerCaseUrl;
-    NextResponse.rewrite(lowerCaseUrl);
-
-    return NextResponse.rewrite(lowerCaseUrl);
-  }
+  // if (url !== lowerCaseUrl) {
+  //   const nextUrl = req.nextUrl.clone();
+  //   nextUrl.pathname = lowerCaseUrl;
+  //   NextResponse.rewrite(lowerCaseUrl);
+  //
+  //   return NextResponse.rewrite(lowerCaseUrl);
+  // }
 
   return NextResponse.next();
 }
