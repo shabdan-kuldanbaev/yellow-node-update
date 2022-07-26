@@ -61,5 +61,6 @@ module.exports = withPlugins([
   withObj,
   // eslint-disable-next-line global-require
   [withBundleAnalyzer],
+  // TODO: uncomment when sentry app will be created
   // [withSentryConfig, { silent: true }],
 ], nextConfig);

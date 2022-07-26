@@ -29,7 +29,8 @@ import { animationTypes } from './utils/data';
 import {
   three,
   slogan,
-  getSpeed, loadDuck,
+  getSpeed,
+  loadDuck,
 } from './utils/threeHelper';
 import * as styles from './styles.module.scss';
 import { fetchDuck } from '../../../redux/actions/home';
