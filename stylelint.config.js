@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     'stylelint-config-standard',
+    'postcss-scss',
   ],
   ignoreFiles: [
     '/build',
