@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsTabletResolutions } from 'redux/selectors/layout';
 import { Animated } from 'components/Common/Animated';
 import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import { PAGES, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import SvgGroup from './SvgGroup';
-import { getSvgSectionProps } from './utils/svgHelper';
+import { checkSwiperEnabled, getSvgSectionProps, isSwiperEnabled } from './utils/svgHelper';
 import styles from './styles.module.scss';
 
 const SvgListSection = ({
   sectionData,
   handleOnCTAClick,
   type,
-  isMobileResolution,
+  isTabletResolution,
 }) => {
   const {
     title,
@@ -23,7 +24,12 @@ const SvgListSection = ({
     view,
     animatedProps,
     technologiesGroup,
-  } = getSvgSectionProps(sectionData, isMobileResolution);
+  } = getSvgSectionProps(sectionData);
+
+  const isSwiperEnabled = useMemo(() => checkSwiperEnabled(type, view, isTabletResolution),
+    [type,
+      view,
+      isTabletResolution]);
 
   return (
     <section className={cn(styles[type], styles[view])}>
@@ -36,15 +42,13 @@ const SvgListSection = ({
         <SvgGroup
           key={i}
           data={group}
-          isMobileResolution={isMobileResolution}
           className={styles.svgList}
-          animatedProps={animatedProps}
-          listWrapperClassName={styles.svgListWrapper}
+          isSwiperEnabled={isSwiperEnabled}
         />
       ))}
       {link && (
         <Animated
-          {...animatedProps}
+          {...REVEAL_ANIMATION_PROPS}
           transitionDelay={550}
         >
           <CallToAction
@@ -62,16 +66,18 @@ const SvgListSection = ({
 
 SvgListSection.defaultProps = {
   handleOnCTAClick: () => {},
-  isMobileResolution: false,
+  isTabletResolution: false,
 };
 
 SvgListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool,
+  isTabletResolution: PropTypes.bool,
 };
 
 export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
+  (state) => ({
+    isTabletResolution: selectIsTabletResolutions(state),
+  }),
 )(SvgListSection);
