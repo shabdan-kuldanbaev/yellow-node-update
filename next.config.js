@@ -5,10 +5,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const isProd = process.env.NODE_ENV === 'production';
-const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
-  ? { assetPrefix: process.env.EDGE_URL }
-  : {};
+// const isProd = process.env.NODE_ENV === 'production';
+// const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
+//   ? { assetPrefix: process.env.EDGE_URL }
+//   : {};
 
 const nextConfig = {
   images: {
@@ -17,7 +17,6 @@ const nextConfig = {
     path: '',
     deviceSizes: [390, 450, 568, 768, 1024, 1200, 1440, 1920, 2560, 3840],
   },
-  ...withCDN,
   webpack: (config, { dev }) => {
     /* eslint-enable */
 

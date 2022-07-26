@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { DEV_HOSTS, INDEX_FILES } from 'utils/constants';
+import { DEV_HOSTS, INDEX_FILES, ROUTES } from 'utils/constants';
 import { Redirects } from './utils/json';
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -117,8 +117,9 @@ export function middleware(req, event) {
   }
 
   const lowerCaseUrl = url.toLowerCase();
+  const isPage = Object.values(ROUTES).some(({ slug }) => url.includes(slug));
 
-  if (url !== lowerCaseUrl) {
+  if (isPage && url !== lowerCaseUrl) {
     const nextUrl = req.nextUrl.clone();
     nextUrl.pathname = lowerCaseUrl;
     NextResponse.rewrite(lowerCaseUrl);
