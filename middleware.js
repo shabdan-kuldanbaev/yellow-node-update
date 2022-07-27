@@ -1,131 +1,59 @@
 import { NextResponse } from 'next/server';
-import { DEV_HOSTS, INDEX_FILES } from 'utils/constants';
-import { Redirects } from './utils/json';
+import {
+  CUSTOM_DOMAIN,
+  INDEX_FILES,
+} from 'utils/constants';
+import { getNewPathname, isUrlChanged } from './utils/middlewares';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const safePageRedirect = (query) => (pathRedirectFrom) => {
-  const newPath = Redirects[pathRedirectFrom];
+export function middleware(req) {
+  const {
+    protocol, // http | https
+    host, // localhost:3000 | yellow.systems | yws-dev.xyz
+    hostname, // localhost | yellow.systems | yws-dev.xyz
+    pathname, // /url/path
+  } = req.nextUrl;
 
-  if (!newPath) {
-    return null;
+  const {
+    headers,
+    method,
+  } = req;
+
+  if (pathname.includes('_next')) {
+    return NextResponse.next();
   }
 
-  return (`${newPath}${query}`);
-};
+  const url = req.nextUrl.clone();
 
-export function middleware(req, event) {
-  // if (isProd
-  //   && req.headers.get('x-forwarded-proto') !== 'https'
-  //   && !DEV_HOSTS.includes(req.hostname)) {
-  //   return NextResponse.redirect(
-  //     `https://${req.nextUrl.hostname}${req.nextUrl.pathname}`,
-  //     301,
-  //   );
-  // }
-  //
-  // if (req.nextUrl.hostname.includes('yellow-systems-nextjs-prod') && req.headers.get('user-agent') !== 'Amazon CloudFront') {
-  //   return NextResponse.redirect(
-  //     `https://${process.env.CUSTOM_DOMAIN}${req.url}`,
-  //     301,
-  //   );
-  // }
-  //
-  // const {
-  //   method,
-  //   xhr,
-  //   originalUrl,
-  //   url,
-  // } = req;
-  // const {
-  //   host,
-  //   hostname,
-  //   protocol,
-  //   pathname: path,
-  // } = req.nextUrl;
-  // const wwwRedirect = host.indexOf('www.') === -1 || method !== 'GET' || xhr;
-  //
-  // if (!wwwRedirect) {
-  //   return NextResponse.redirect(
-  //     `${protocol}://${host.substring(4)}${originalUrl}`,
-  //     301,
-  //   );
-  // }
-  //
-  // const trailingSlashRedirect = path.substr(-1) !== '/' || path.length <= 1;
-  //
-  // if (!trailingSlashRedirect) {
-  //   const query = url.slice(path.length);
-  //   const safePath = path.slice(0, -1).replace(/\/+/g, '/');
-  //
-  //   return NextResponse.redirect(
-  //     safePath + query,
-  //     301,
-  //   );
-  // }
-  //
-  // const firstUrlPart = `${req.nextUrl.protocol}://${host}`;
-  // const fullUrl = `${firstUrlPart}${req.originalUrl}`;
-  //
-  // if (host === 'yellow.id') {
-  //   return NextResponse.redirect(
-  //     fullUrl,
-  //     301,
-  //   );
-  // }
-  //
-  // if (host === 'blog.yellow.id') {
-  //   if (req.originalUrl === '/') {
-  //     return NextResponse.redirect(
-  //       `${firstUrlPart}/blog`,
-  //       301,
-  //     );
-  //   }
-  //
-  //   return NextResponse.redirect(
-  //     `${firstUrlPart}${req.originalUrl.replace('posts/', 'blog/')}`,
-  //     301,
-  //   );
-  // }
-  //
-  // const query = url.slice(path.length);
-  //
-  // const getRedirectUrl = safePageRedirect(query);
-  // const redirectPath = getRedirectUrl(path);
-  //
-  // if (redirectPath) {
-  //   return NextResponse.redirect(
-  //     redirectPath,
-  //     301,
-  //   );
-  // }
-  //
-  // const multiSlashRedirect = !path.includes('//') || path.length <= 1;
-  //
-  // if (!multiSlashRedirect) {
-  //   return NextResponse.redirect(
-  //     path.replace(/(\/\/)+/g, '/') + query,
-  //     301,
-  //   );
-  // }
-  //
-  // if (INDEX_FILES.includes(`${req.nextUrl.protocol}://${req.nextUrl.host}${req.originalUrl}`)) {
-  //   return NextResponse.redirect(
-  //     `https://${process.env.CUSTOM_DOMAIN}/`,
-  //     301,
-  //   );
-  // }
-  //
-  // const lowerCaseUrl = url.toLowerCase();
-  // const isPage = Object.values(ROUTES).some(({ slug }) => url.includes(slug));
-  //
-  // if (isPage && url !== lowerCaseUrl) {
-  //   const nextUrl = req.nextUrl.clone();
-  //   nextUrl.pathname = lowerCaseUrl;
-  //   NextResponse.rewrite(lowerCaseUrl);
-  //
-  //   return NextResponse.rewrite(lowerCaseUrl);
-  // }
+  if (isProd && protocol !== 'https:') {
+    url.protocol = 'https:';
+  }
 
-  return NextResponse.next();
+  /* TODO: Test if there's no need in xhr check */
+  if (method === 'GET' && host.includes('www.')) {
+    url.host = host.substring(4);
+  }
+
+  if (hostname.includes('yellow-systems-nextjs-prod') && headers.get('user-agent') !== 'Amazon CloudFront') {
+    url.host = CUSTOM_DOMAIN;
+  }
+
+  if (hostname === 'yellow.id') {
+    url.host = CUSTOM_DOMAIN;
+  }
+
+  if (INDEX_FILES.includes(pathname)) {
+    url.pathname = '/';
+  }
+
+  const newPathname = getNewPathname(pathname);
+
+  if (newPathname) {
+    url.pathname = newPathname;
+  }
+
+  if (isUrlChanged(req.nextUrl, url)) {
+    return NextResponse.redirect(url, 301);
+  }
 }

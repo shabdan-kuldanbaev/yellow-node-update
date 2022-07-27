@@ -1,3 +1,6 @@
+// destructuring doesn't work poperly with process.env
+/* eslint-disable prefer-destructuring */
+
 import React from 'react';
 import SwiperNavButton from 'components/SwiperNavButton';
 import { routes } from 'utils/routes';
@@ -415,7 +418,6 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
 };
 
-// eslint-disable-next-line
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
@@ -464,25 +466,12 @@ export const DEV_HOSTS = [
   'yws-dev.xyz',
 ];
 
+export const CUSTOM_DOMAIN = process.env.CUSTOM_DOMAIN;
+
 export const INDEX_FILES = [
-  'http://www.yellow.systems/index.asp',
-  'http://www.yellow.systems/index.aspx',
-  'http://www.yellow.systems/index.htm',
-  'http://www.yellow.systems/index.html',
-  'http://www.yellow.systems/index.php',
-  'http://yellow.systems/index.asp',
-  'http://yellow.systems/index.aspx',
-  'http://yellow.systems/index.htm',
-  'http://yellow.systems/index.html',
-  'http://yellow.systems/index.php',
-  'https://www.yellow.systems/index.asp',
-  'https://www.yellow.systems/index.aspx',
-  'https://www.yellow.systems/index.htm',
-  'https://www.yellow.systems/index.html',
-  'https://www.yellow.systems/index.php',
-  'https://yellow.systems/index.asp',
-  'https://yellow.systems/index.aspx',
-  'https://yellow.systems/index.htm',
-  'https://yellow.systems/index.html',
-  'https://yellow.systems/index.php',
+  '/index.asp',
+  '/index.aspx',
+  '/index.htm',
+  '/index.html',
+  '/index.php',
 ];
