@@ -1,16 +1,16 @@
-@import './variables';
-@import './functions';
+@import "./variables";
+@import "./functions";
 
 @mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
   display: flex;
+  flex-flow: $fd $fw;
   flex-direction: $fd;
   justify-content: $jc;
   align-items: $ai;
-  flex-wrap: $fw;
 }
 
 @mixin hidden-text($textOverflow: ellipsis, $lineClamp: 1) {
-  display: -webkit-box;
+  display: box;
   overflow: hidden;
   text-overflow: $textOverflow;
   -webkit-line-clamp: $lineClamp;
@@ -437,9 +437,3 @@
     }
   }
 }
-
-//@font-face {
-//  font-family: 'Sonny Gothic Condensed Ultra Black';
-//  font-display: optional;
-//  src: url('/fonts/sonnyGothic/Sonny-Gothic-Condensed-Ultra-Black.otf') format('opentype');
-//}

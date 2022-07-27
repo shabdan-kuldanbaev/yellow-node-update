@@ -21,7 +21,7 @@ export const RelatedServices = ({ services }) => {
     <Animated {...REVEAL_ANIMATION_PROPS}>
       <div className={styles.serviceList}>
         <Swiper {...swiperParams}>
-          {services?.map((service) => {
+          {services.map((service) => {
             const {
               title,
               description,

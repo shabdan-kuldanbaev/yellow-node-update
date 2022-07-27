@@ -117,14 +117,15 @@ export function middleware(req, event) {
   // }
   //
   // const lowerCaseUrl = url.toLowerCase();
+  // const isPage = Object.values(ROUTES).some(({ slug }) => url.includes(slug));
   //
-  // // if (url !== lowerCaseUrl) {
-  // //   const nextUrl = req.nextUrl.clone();
-  // //   nextUrl.pathname = lowerCaseUrl;
-  // //   NextResponse.rewrite(lowerCaseUrl);
-  // //
-  // //   return NextResponse.rewrite(lowerCaseUrl);
-  // // }
+  // if (isPage && url !== lowerCaseUrl) {
+  //   const nextUrl = req.nextUrl.clone();
+  //   nextUrl.pathname = lowerCaseUrl;
+  //   NextResponse.rewrite(lowerCaseUrl);
+  //
+  //   return NextResponse.rewrite(lowerCaseUrl);
+  // }
 
   return NextResponse.next();
 }

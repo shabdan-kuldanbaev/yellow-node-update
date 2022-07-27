@@ -19,7 +19,6 @@ const DuckContainer = () => {
   const sloganRef = useRef(null);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const isMobile = window.innerWidth < mobileResolution;
 
     if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';

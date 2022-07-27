@@ -19,22 +19,23 @@ import {
 } from 'node_modules/three/build/three.module.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import Animated from 'components/Common/Animated';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDuck } from 'redux/actions/home';
+import { selectIsPageReadyToDisplay } from 'redux/selectors/layout';
+import { selectDuck } from 'redux/selectors/home';
 import IntroText from 'components/HomeCommon/IntroText';
+import Animated from 'components/Common/Animated';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { AppContext } from 'utils/appContext';
-import { useDispatch, useSelector } from 'react-redux';
 import { animationTypes } from './utils/data';
 import {
   three,
   slogan,
-  getSpeed, loadDuck,
+  getSpeed,
+  loadDuck,
 } from './utils/threeHelper';
 import * as styles from './styles.module.scss';
-import { fetchDuck } from '../../../redux/actions/home';
-import { selectIsPageReadyToDisplay } from '../../../redux/selectors/layout';
-import { selectDuck } from '../../../redux/selectors/home';
 
 let camera;
 let animationId = 0;
