@@ -392,11 +392,11 @@
       .thirdShadow {
         @extend .imgWrapper;
 
-        transform: translateX(-80px);
+        transform: translate(-80px, -40px);
         will-change: transform;
 
         @include below-tablet {
-          transform: translateX(0);
+          transform: translate(0, 0);
         }
 
         .img {

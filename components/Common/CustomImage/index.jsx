@@ -51,7 +51,7 @@ const CustomImage = ({
     placeholder: 'blur',
     blurDataURL: getOptimizedContentfulImage(src, {
       width: 50,
-      fm: 'jpg',
+      fm: 'png',
       fl: 'progressive',
       bg: backgroundColor,
       isRounded,
