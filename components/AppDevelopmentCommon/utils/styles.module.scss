@@ -132,6 +132,12 @@
   }
 }
 
+@mixin centeredIcons {
+  :global(.swiper-wrapper) {
+    align-items: center;
+  }
+}
+
 .cardsWithFullWidthImage {
   .cards {
     @include below-tablet {

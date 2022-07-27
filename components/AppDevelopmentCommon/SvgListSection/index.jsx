@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsTabletResolutions } from 'redux/selectors/layout';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import SvgGroup from './SvgGroup';
-import { getSvgSectionProps } from './utils/svgHelper';
+import { checkSwiperEnabled, getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('components/Common/Animated'));
@@ -18,15 +18,21 @@ const SvgListSection = ({
   handleOnCTAClick,
   type,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isTabletResolution = useSelector(selectIsTabletResolutions);
   const {
     title,
     description,
     link,
     view,
-    animatedProps,
     technologiesGroup,
-  } = getSvgSectionProps(sectionData, isMobileResolution);
+  } = getSvgSectionProps(sectionData);
+
+  const isSwiperEnabled = useMemo(
+    () => checkSwiperEnabled(type, view, isTabletResolution),
+    [type,
+      view,
+      isTabletResolution],
+  );
 
   return (
     <section className={cn(styles[type], styles[view])}>
@@ -39,15 +45,13 @@ const SvgListSection = ({
         <SvgGroup
           key={i}
           data={group}
-          isMobileResolution={isMobileResolution}
           className={styles.svgList}
-          animatedProps={animatedProps}
-          listWrapperClassName={styles.svgListWrapper}
+          isSwiperEnabled={isSwiperEnabled}
         />
       ))}
       {link && (
         <Animated
-          {...animatedProps}
+          {...REVEAL_ANIMATION_PROPS}
           transitionDelay={550}
         >
           <CallToAction
