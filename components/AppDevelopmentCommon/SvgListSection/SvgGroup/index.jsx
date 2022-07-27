@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import Svg from 'components/Common/Svg';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import Swiper from 'react-id-swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import cn from 'classnames';
 import { getSvgGroupProps } from '../utils/svgHelper';
 import styles from '../styles.module.scss';
@@ -44,7 +44,7 @@ const SvgGroup = ({
         enabled
       >
         {technologies?.map((technology, i) => (
-          <span className={styles.item}>
+          <SwiperSlide className={styles.item}>
             <Animated
               key={`technologies/${technology}`}
               {...REVEAL_ANIMATION_PROPS}
@@ -52,7 +52,7 @@ const SvgGroup = ({
             >
               <Svg type={technology} />
             </Animated>
-          </span>
+          </SwiperSlide>
         ))}
       </Swiper>
     </div>

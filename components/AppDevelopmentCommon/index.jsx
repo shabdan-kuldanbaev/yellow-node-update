@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
-import SvgListSection from 'components/AppDevelopmentCommon/SvgListSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -12,12 +11,13 @@ const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/Gal
 const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSection'));
-const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'));
+const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
 const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
 const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));
 const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
+const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'), { ssr: false });
 
 export const AppDevelopmentCommon = ({
   type,
