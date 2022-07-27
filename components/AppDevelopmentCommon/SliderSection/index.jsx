@@ -38,7 +38,10 @@ const SliderSection = ({ sectionData, type }) => {
             {...animationProps}
             transitionDelay={300}
           >
-            <Swiper {...params}>
+            <Swiper
+              {...params}
+              scrollbar={{ draggable: true }}
+            >
               {slides.map((slide) => {
                 const {
                   title: slideTitle,
