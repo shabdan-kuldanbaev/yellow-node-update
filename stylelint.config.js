@@ -3,6 +3,7 @@ module.exports = {
     'stylelint-config-standard',
     'postcss-scss',
   ],
+  customSyntax: 'postcss-scss',
   ignoreFiles: [
     '/build',
     '/node_modules',
