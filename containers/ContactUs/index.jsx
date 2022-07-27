@@ -17,9 +17,9 @@ import {
 } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import CompanyPlacement from 'components/ContactUsCommon/CompanyPlacement';
 import styles from './styles.module.scss';
 
-const CompanyPlacement = dynamic(() => import('components/ContactUsCommon/CompanyPlacement'));
 const CompanyPeoplePhoto = dynamic(() => import('components/ContactUsCommon/CompanyPeoplePhoto'));
 
 const ContactUsContainer = ({

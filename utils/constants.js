@@ -416,7 +416,7 @@ export const CONTACT_FORM_TITLES = {
 };
 
 // eslint-disable-next-line
-export const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;
+export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
 
