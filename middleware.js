@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import {
   CUSTOM_DOMAIN,
+  DEV_HOSTS,
   INDEX_FILES,
 } from 'utils/constants';
 import { getNewPathname, isUrlChanged } from './utils/middlewares';
@@ -26,7 +27,8 @@ export function middleware(req) {
 
   const url = req.nextUrl.clone();
 
-  if (isProd && protocol !== 'https:') {
+  if (isProd && !DEV_HOSTS.includes(host) && protocol !== 'https:') {
+    console.log(host, req.hostname);
     url.protocol = 'https:';
   }
 
@@ -54,6 +56,13 @@ export function middleware(req) {
   }
 
   if (isUrlChanged(req.nextUrl, url)) {
+    console.log({
+      from: req.nextUrl.toString(),
+      to: url.toString(),
+    });
+
     return NextResponse.redirect(url, 301);
   }
+
+  return NextResponse.next();
 }
