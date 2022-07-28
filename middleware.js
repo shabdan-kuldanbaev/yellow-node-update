@@ -2,11 +2,13 @@ import { NextResponse } from 'next/server';
 import {
   CUSTOM_DOMAIN,
   INDEX_FILES,
+  IS_PROD,
 } from 'utils/constants';
 import { getNewPathname, isPage, isUrlChanged } from 'utils/middlewares';
 
 export function middleware(req) {
   const {
+    protocol,
     host, // localhost:3000 | yellow.systems | yws-dev.xyz
     hostname, // localhost | yellow.systems | yws-dev.xyz
     pathname, // /url/path
@@ -15,6 +17,7 @@ export function middleware(req) {
   const {
     headers,
     method,
+    host: reqHost,
   } = req;
 
   if (pathname.includes('_next')) {
@@ -23,7 +26,7 @@ export function middleware(req) {
 
   const url = req.nextUrl.clone();
 
-  if (isProd && protocol !== 'https:') {
+  if (IS_PROD && protocol !== 'https:') {
     url.protocol = 'https:';
   }
 
@@ -36,6 +39,8 @@ export function middleware(req) {
     url.host = CUSTOM_DOMAIN;
   }
 
+  console.log({ host: [headers.host, reqHost] });
+
   if (hostname === 'yellow.id') {
     url.host = CUSTOM_DOMAIN;
   }
@@ -44,7 +49,7 @@ export function middleware(req) {
     url.pathname = '/';
   }
 
-  const pathnameLowerCase = pathname.lowerCase();
+  const pathnameLowerCase = pathname.toLowerCase();
 
   if (isPage(pathname) && pathnameLowerCase !== pathname) {
     url.pathname = pathnameLowerCase;
