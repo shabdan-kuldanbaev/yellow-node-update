@@ -14,6 +14,10 @@
 .chat-app-development-company {
   @include appDevelopmentContainer;
 
+  &.reviews {
+    @extend .greySection;
+  }
+
   .callToAction {
     @include defaultCallToAction;
   }
@@ -21,16 +25,4 @@
   @include phone {
     padding: 64px 0;
   }
-}
-
-.web-app-development-company,
-.ios-mobile-app-development-services,
-.ui-ux-services,
-.android-mobile-app-development-services,
-.mvp-app-development-company,
-.cloud-based-app-development-services,
-.machine-learning-development-services,
-.chat-app-development-company,
-.mobile-app-development-company {
-  @extend .greySection;
 }
