@@ -3,13 +3,10 @@ import {
   CUSTOM_DOMAIN,
   INDEX_FILES,
 } from 'utils/constants';
-import { getNewPathname, isUrlChanged } from './utils/middlewares';
-
-const isProd = process.env.NODE_ENV === 'production';
+import { getNewPathname, isPage, isUrlChanged } from 'utils/middlewares';
 
 export function middleware(req) {
   const {
-    protocol, // http | https
     host, // localhost:3000 | yellow.systems | yws-dev.xyz
     hostname, // localhost | yellow.systems | yws-dev.xyz
     pathname, // /url/path
@@ -43,6 +40,12 @@ export function middleware(req) {
     url.pathname = '/';
   }
 
+  const pathnameLowerCase = pathname.lowerCase();
+
+  if (isPage(pathname) && pathnameLowerCase !== pathname) {
+    url.pathname = pathnameLowerCase;
+  }
+
   const newPathname = getNewPathname(pathname);
 
   if (newPathname) {
@@ -50,7 +53,8 @@ export function middleware(req) {
   }
 
   if (isUrlChanged(req.nextUrl, url)) {
-    console.log({
+    // eslint-disable-next-line no-console
+    console.log({ // This log is for tracing redirects. Server-side only
       from: req.nextUrl.toString(),
       to: url.toString(),
     });
