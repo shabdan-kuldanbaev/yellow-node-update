@@ -28,7 +28,6 @@ export function middleware(req) {
   const url = req.nextUrl.clone();
 
   if (isProd && !DEV_HOSTS.includes(host) && protocol !== 'https:') {
-    console.log(host, req.hostname);
     url.protocol = 'https:';
   }
 

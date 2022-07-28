@@ -1,13 +1,11 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
-import { useSelector } from 'react-redux';
-import { selectIsTabletResolutions } from 'redux/selectors/layout';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SvgGroup from 'components/AppDevelopmentCommon/SvgListSection/SvgGroup';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import SvgGroup from './SvgGroup';
-import { checkSwiperEnabled, getSvgSectionProps } from './utils/svgHelper';
+import { getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('components/Common/Animated'));
@@ -18,21 +16,22 @@ const SvgListSection = ({
   handleOnCTAClick,
   type,
 }) => {
-  const isTabletResolution = useSelector(selectIsTabletResolutions);
   const {
     title,
     description,
     link,
     view,
-    technologiesGroup,
+    iconsGroup,
   } = getSvgSectionProps(sectionData);
 
-  const isSwiperEnabled = useMemo(
-    () => checkSwiperEnabled(type, view, isTabletResolution),
-    [type,
-      view,
-      isTabletResolution],
-  );
+  // TODO: uncomment when restoring default values in global store will be fixed
+  // const isTabletResolution = useSelector(selectIsTabletResolutions);
+  // const isSwiperEnabled = useMemo(
+  //   () => checkSwiperEnabled(type, view, isTabletResolution),
+  //   [type,
+  //     view,
+  //     isTabletResolution],
+  // );
 
   return (
     <section className={cn(styles[type], styles[view])}>
@@ -41,12 +40,12 @@ const SvgListSection = ({
         description={description}
         titleStyle={styles.titleStyle}
       />
-      {technologiesGroup.map((group, i) => (
+      {iconsGroup.map((group, i) => (
         <SvgGroup
           key={i}
           data={group}
           className={styles.svgList}
-          isSwiperEnabled={isSwiperEnabled}
+          isSwiperEnabled
         />
       ))}
       {link && (

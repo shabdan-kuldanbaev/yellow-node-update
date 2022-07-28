@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import Svg from 'components/Common/Svg';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode } from 'swiper';
 import cn from 'classnames';
 import { getSvgGroupProps } from '../utils/svgHelper';
 import styles from '../styles.module.scss';
@@ -18,6 +19,7 @@ export const getSwiperParams = ({ isEnabled = true }) => ({
   mousewheel: {
     forceToAxis: true,
   },
+  modules: [FreeMode],
 });
 
 const Animated = dynamic(() => import('components/Common/Animated'));
@@ -27,7 +29,7 @@ const SvgGroup = ({
   isSwiperEnabled,
   className,
 }) => {
-  const { title, contentList: technologies } = getSvgGroupProps(data);
+  const { title, contentList: icons } = getSvgGroupProps(data);
 
   const swiperParams = getSwiperParams({ isEnabled: isSwiperEnabled });
 
@@ -43,7 +45,7 @@ const SvgGroup = ({
         {...swiperParams}
         enabled
       >
-        {technologies?.map((technology, i) => (
+        {icons?.map((technology, i) => (
           <SwiperSlide className={styles.item}>
             <Animated
               key={`technologies/${technology}`}

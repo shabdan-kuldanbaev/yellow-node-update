@@ -3,10 +3,19 @@
   margin: 0 auto;
 
   :global(.swiper-wrapper) {
-    @include flex(row, space-between, flex-end);
-
+    align-items: stretch;
     margin-right: -60px;
     width: auto;
+  }
+
+  :global(.swiper-slide) {
+    & > div,
+    & {
+      @include flex(row, center, flex-end);
+
+      flex: 1 1 auto;
+      height: auto;
+    }
   }
 
   &.multiline {
