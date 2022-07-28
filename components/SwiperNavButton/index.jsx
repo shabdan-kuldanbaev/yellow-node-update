@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Svg from 'components/Common/Svg';
@@ -8,8 +8,9 @@ const SwiperNavButton = ({
   type,
   text,
   className,
-}) => (
+}, ref) => (
   <button
+    ref={ref}
     type="button"
     className={cn(
       className,
@@ -37,4 +38,4 @@ SwiperNavButton.propTypes = {
   className: PropTypes.string,
 };
 
-export default SwiperNavButton;
+export default forwardRef(SwiperNavButton);

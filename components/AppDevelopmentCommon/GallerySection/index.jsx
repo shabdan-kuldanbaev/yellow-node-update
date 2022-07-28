@@ -1,26 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, {
-  EffectCoverflow,
-  Mousewheel,
-  Pagination,
-  Navigation,
-} from 'swiper';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { getItemLink, getItemPreviewProps } from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
+import {
+  getItemLink,
+  getItemPreviewProps,
+} from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
+import SwiperNavButton from 'components/SwiperNavButton';
 import { ItemPreview } from './ItemPreview';
 import { GalleryCallToAction } from './GalleryCallToAction';
 import { getGalleryProps } from './utils/galleryHelper';
 import styles from './styles.module.scss';
-
-SwiperCore.use([
-  EffectCoverflow,
-  Pagination,
-  Mousewheel,
-  Navigation,
-]);
 
 const GallerySection = ({
   sectionData,
@@ -41,6 +32,14 @@ const GallerySection = ({
     router.push(link);
   };
 
+  const navPrev = useRef(null);
+  const navNext = useRef(null);
+
+  const swiperNavigation = {
+    nextEl: navNext.current,
+    prevEl: navPrev.current,
+  };
+
   return (
     <section className={styles[type]}>
       <div className={styles.gallerySection}>
@@ -49,7 +48,10 @@ const GallerySection = ({
           description={description}
           className={styles.sectionTitle}
         />
-        <Swiper {...params}>
+        <Swiper
+          {...params}
+          navigation={swiperNavigation}
+        >
           {slides?.map((slide) => {
             const link = getItemLink(slide);
             const { title: slideTitle } = getItemPreviewProps(slide);
@@ -66,6 +68,18 @@ const GallerySection = ({
               </SwiperSlide>
             );
           })}
+          <SwiperNavButton
+            type="arrowLeft"
+            text="previous"
+            className={styles.swiperPrevEl}
+            ref={navPrev}
+          />
+          <SwiperNavButton
+            type="arrowRight"
+            text="next"
+            className={styles.swiperNextEl}
+            ref={navNext}
+          />
         </Swiper>
       </div>
       {linkData && (

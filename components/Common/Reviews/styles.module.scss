@@ -1,4 +1,4 @@
-@import 'styles/utils/mixins';
+@import "styles/utils/mixins";
 
 .reviews {
   max-width: 1500px;
@@ -28,7 +28,7 @@
       width: 100vw;
     }
 
-    :global(.swiper-container) {
+    :global(.swiper) {
       overflow-x: initial;
       overflow-y: hidden;
       padding: 80px 0;

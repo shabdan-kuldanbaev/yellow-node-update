@@ -34,3 +34,12 @@
     }
   }
 }
+
+.mobile-app-development-company,
+.chat-app-development-company {
+  &.relatedServices {
+    @extend .greySection;
+
+    padding-top: 0;
+  }
+}

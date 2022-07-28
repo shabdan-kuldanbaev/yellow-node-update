@@ -18,7 +18,7 @@
     }
   }
 
-  :global(.swiper-button-disabled) {
+  &[disabled] {
     opacity: 0.5;
     color: $dark-grey;
 

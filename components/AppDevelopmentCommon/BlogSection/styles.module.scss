@@ -5,8 +5,8 @@
 .sectionContainer {
   @include appDevelopmentContainer;
 
-  padding-bottom: 0;
-  background-color: $white;
+  padding-top: 0;
+  background-color: $alabaster;
 
   @include phone {
     padding: 60px 0 70px;

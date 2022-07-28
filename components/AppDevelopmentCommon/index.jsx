@@ -14,8 +14,8 @@ const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSect
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
 const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
 const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));
-const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
-const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
+const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
+const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
 const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'), { ssr: false });
 
