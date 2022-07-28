@@ -3,6 +3,7 @@ import React, {
   useEffect,
   useCallback,
 } from 'react';
+import dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -16,9 +17,10 @@ import {
   PAGES_WITH_TRANSPARENT_HEADER,
   CASE_STUDIES_WITH_TRANSPARENT_HEADER,
 } from 'utils/constants';
-import MobileMenu from './MobileMenu';
-import Nav from './Nav';
 import styles from './styles.module.scss';
+
+const MobileMenu = dynamic(() => import('./MobileMenu'));
+const Nav = dynamic(() => import('./Nav'));
 
 const Header = ({ introSection }) => {
   const dispatch = useDispatch();
