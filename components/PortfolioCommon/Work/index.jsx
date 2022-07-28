@@ -25,7 +25,13 @@ const Work = ({
     backgroundImage,
   } = work;
 
-  const handleTagClick = (tag) => () => onTagClick(tag);
+  const handleTagClick = (tag) => () => {
+    onTagClick(tag);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <Animated

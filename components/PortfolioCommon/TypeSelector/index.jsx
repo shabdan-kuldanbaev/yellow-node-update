@@ -24,7 +24,10 @@ function TypeSelector({ selectedType, onSelectedTypeChange }) {
     >
       <Swiper {...SWIPER_CONFIG}>
         {typeList.map((type) => (
-          <SwiperSlide key={type.displayName}>
+          <SwiperSlide
+            key={type.displayName}
+            className={styles.slide}
+          >
             <SelectorElement
               type={SELECTOR_ELEMENT_TYPES.typeSelector}
               displayName={type.displayName}
