@@ -3,6 +3,8 @@
 @import 'styles/utils/mixins';
 
 .work {
+  @include flex(row-reverse, space-evenly, center);
+
   position: relative;
   z-index: 5;
   width: calc(100% - (80px * 2));
@@ -11,8 +13,6 @@
   transition: background-color $default-transition-time ease;
   transition-timing-function: linear;
   min-height: 100vh;
-
-  @include flex(row-reverse, space-evenly, center);
 
   &:nth-child(even) {
     flex-direction: row;
@@ -326,8 +326,13 @@
           height: 100%;
           z-index: 10;
 
-          & img {
+          * {
+            overflow: visible;
+          }
+
+          img {
             filter: drop-shadow(0 24px 44px rgba($black, 0.45));
+            object-position: right;
           }
 
           @include below-tablet {
@@ -335,6 +340,10 @@
             max-height: 100vh;
             width: 95vw;
             transform: translateX(0);
+
+            img {
+              object-position: center;
+            }
           }
 
           @include small-phone {
@@ -357,14 +366,19 @@
         .img {
           max-width: unset;
 
-          & img {
+          img {
             filter: drop-shadow(0 16px 34px rgba($black, 0.1));
+            object-position: left;
           }
 
           @include below-tablet {
             max-width: 100vw;
             max-height: 100vh;
             transform: none;
+
+            img {
+              object-position: center;
+            }
           }
         }
 
