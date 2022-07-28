@@ -67,7 +67,7 @@ const Duck = ({ sloganRef }) => {
   }, []);
 
   const initialAnimationTime = 500; // 500 = 9s
-  let animationDelay = 100000;
+  let animationDelay = 0.0001;
   let isMobile = 0;
   let scene;
   let renderer;
