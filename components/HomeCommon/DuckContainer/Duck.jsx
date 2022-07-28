@@ -6,9 +6,7 @@
 import React, {
   useEffect,
   useRef,
-  Fragment,
   useState,
-  useContext,
 } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -21,13 +19,10 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDuck } from 'redux/actions/home';
-import { selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import { selectDuck } from 'redux/selectors/home';
-import IntroText from 'components/HomeCommon/IntroText';
 import Animated from 'components/Common/Animated';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { AppContext } from 'utils/appContext';
 import { animationTypes } from './utils/data';
 import {
   three,
@@ -72,7 +67,7 @@ const Duck = ({ sloganRef }) => {
   }, []);
 
   const initialAnimationTime = 500; // 500 = 9s
-  let animationDelay = 0.0001;
+  let animationDelay = 100000;
   let isMobile = 0;
   let scene;
   let renderer;
