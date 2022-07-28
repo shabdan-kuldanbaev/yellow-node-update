@@ -26,10 +26,6 @@ export function middleware(req) {
 
   const url = req.nextUrl.clone();
 
-  if (isProd && protocol !== 'https:') {
-    url.protocol = 'https:';
-  }
-
   /* TODO: Test if there's no need in xhr check */
   if (method === 'GET' && host.includes('www.')) {
     url.host = host.substring(4);

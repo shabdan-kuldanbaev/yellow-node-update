@@ -11,6 +11,7 @@ const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
   : {};
 
 const nextConfig = {
+  compress: false,
   images: {
     domains: ['images.ctfassets.net'],
     loader: 'custom',
