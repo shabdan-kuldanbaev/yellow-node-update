@@ -1,6 +1,5 @@
 const withPlugins = require('next-compose-plugins');
 const withObj = require('webpack-obj-loader');
-const { withSentryConfig } = require('@sentry/nextjs');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -11,6 +10,7 @@ const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
   : {};
 
 const nextConfig = {
+  compress: false,
   images: {
     domains: ['images.ctfassets.net'],
     loader: 'custom',
@@ -18,7 +18,7 @@ const nextConfig = {
     deviceSizes: [390, 450, 568, 768, 1024, 1200, 1440, 1920, 2560, 3840],
   },
   ...withCDN,
-  webpack: (config, { dev }) => {
+  webpack: (config) => {
     /* eslint-enable */
 
     config.module.rules.push({

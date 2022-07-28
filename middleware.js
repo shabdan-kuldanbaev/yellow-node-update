@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import {
   CUSTOM_DOMAIN,
-  DEV_HOSTS,
   INDEX_FILES,
 } from 'utils/constants';
 import { getNewPathname, isUrlChanged } from './utils/middlewares';
@@ -26,10 +25,6 @@ export function middleware(req) {
   }
 
   const url = req.nextUrl.clone();
-
-  if (isProd && !DEV_HOSTS.includes(host) && protocol !== 'https:') {
-    url.protocol = 'https:';
-  }
 
   /* TODO: Test if there's no need in xhr check */
   if (method === 'GET' && host.includes('www.')) {
