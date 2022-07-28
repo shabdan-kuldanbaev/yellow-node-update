@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 @mixin appDevelopmentContainer {
   padding: 120px 40px;
@@ -46,7 +46,7 @@
     }
   }
 
-  div[role="button"] {
+  div[role='button'] {
     font-weight: 500;
     height: unset;
     padding: 20px 0;

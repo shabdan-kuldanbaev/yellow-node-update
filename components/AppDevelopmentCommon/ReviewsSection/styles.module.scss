@@ -1,5 +1,7 @@
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+/* stylelint-disable no-duplicate-selectors */
+
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .mobile-app-development-company,
 .web-app-development-company,
@@ -30,9 +32,5 @@
 .machine-learning-development-services,
 .chat-app-development-company,
 .mobile-app-development-company {
-  background-color: $alabaster;
-
-  .callToAction {
-    background: $white;
-  }
+  @extend .greySection;
 }

@@ -16,7 +16,7 @@
     visibility 0.2s,
     opacity 0.3s ease;
   box-shadow: none;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 0.5px solid rgb(255 255 255 / 0.4);
 
   @include macbook-twelve {
     padding-bottom: 80px;
@@ -145,7 +145,7 @@
 
 .pageScrolling {
   background-color: $white;
-  box-shadow: 0 40px 60px -40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 40px 60px -40px rgb(0 0 0 / 0.1);
   border-bottom: none;
 
   .dropDownNavContainer {

@@ -6,6 +6,7 @@
 
   &.firstSectionView {
     @extend .cardsWithShadow;
+
     @include iconsWithinCircle;
 
     .titleStyle {

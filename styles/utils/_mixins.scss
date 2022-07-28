@@ -1,5 +1,5 @@
-@import "./variables";
-@import "./functions";
+@import './variables';
+@import './functions';
 
 @mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
   display: flex;
@@ -10,7 +10,7 @@
 }
 
 @mixin hidden-text($textOverflow: ellipsis, $lineClamp: 1) {
-  display: box;
+  display: contents;
   overflow: hidden;
   text-overflow: $textOverflow;
   -webkit-line-clamp: $lineClamp;

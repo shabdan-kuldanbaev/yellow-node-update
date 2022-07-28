@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .advantagesContainer {
   width: 100%;
@@ -55,7 +55,7 @@
   }
 
   &:nth-child(2) {
-    margin: 60px auto 0 auto;
+    margin: 60px auto 0;
   }
 
   .imageContainer {
@@ -189,7 +189,7 @@
       position: relative;
 
       &::after {
-        content: "";
+        content: '';
         display: block;
         height: 2px;
         width: 0;
@@ -218,14 +218,14 @@
     width: auto;
 
     &:nth-child(2) {
-      margin: 60px 0 0 0;
+      margin: 60px 0 0;
     }
   }
 
   @include phone {
     width: 100%;
     padding: 0;
-    margin: 100px 0 0 0;
+    margin: 100px 0 0;
 
     &:not(:nth-of-type(1)) {
       margin-top: 15%;
