@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .picture {
-  @include flex(initial, center);
+  @include flex(row, center);
 
   & > span {
     display: block !important;

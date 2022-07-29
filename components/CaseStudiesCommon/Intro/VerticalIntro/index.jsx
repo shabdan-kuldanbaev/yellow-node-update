@@ -19,7 +19,6 @@ const VerticalIntro = ({
   data,
 }) => {
   const {
-    sectionStyle,
     backgroundImageUrl,
     appLogoUrl,
     title,
@@ -83,8 +82,8 @@ const VerticalIntro = ({
           src={appBackgroundImageUrl}
           alt={appBackgroundImageUrl}
           layout="responsive"
-          width={1400}
-          height={900}
+          width={1016}
+          height={603}
           objectFit="contain"
           containerClasses={styles.imageContainer}
           className={styles.image}
