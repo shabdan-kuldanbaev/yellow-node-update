@@ -1,14 +1,9 @@
 import { NextResponse } from 'next/server';
-import {
-  CUSTOM_DOMAIN,
-  INDEX_FILES,
-  IS_PROD,
-} from 'utils/constants';
+import { CUSTOM_DOMAIN, INDEX_FILES } from 'utils/constants';
 import { getNewPathname, isPage, isUrlChanged } from 'utils/middlewares';
 
 export function middleware(req) {
   const {
-    protocol,
     host, // localhost:3000 | yellow.systems | yws-dev.xyz
     hostname, // localhost | yellow.systems | yws-dev.xyz
     pathname, // /url/path
@@ -17,7 +12,6 @@ export function middleware(req) {
   const {
     headers,
     method,
-    host: reqHost,
   } = req;
 
   if (pathname.includes('_next')) {
@@ -25,10 +19,6 @@ export function middleware(req) {
   }
 
   const url = req.nextUrl.clone();
-
-  if (IS_PROD && protocol !== 'https:') {
-    url.protocol = 'https:';
-  }
 
   /* TODO: Test if there's no need in xhr check */
   if (method === 'GET' && host.includes('www.')) {
@@ -38,8 +28,6 @@ export function middleware(req) {
   if (hostname.includes('yellow-systems-nextjs-prod') && headers.get('user-agent') !== 'Amazon CloudFront') {
     url.host = CUSTOM_DOMAIN;
   }
-
-  console.log({ host: [headers.host, reqHost] });
 
   if (hostname === 'yellow.id') {
     url.host = CUSTOM_DOMAIN;
