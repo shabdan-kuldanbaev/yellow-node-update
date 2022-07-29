@@ -95,6 +95,7 @@ const CustomImage = ({
           focusArea,
           isRounded,
         })}
+        unoptimized={isStatic}
         objectFit={objectFit}
         priority={priority}
         layout={layout}

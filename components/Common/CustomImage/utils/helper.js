@@ -28,7 +28,16 @@ export const getOptimizedContentfulImage = (imageUrl, {
     queryProps.r = height;
   }
 
-  const url = new URL(imageUrl);
+  let url;
+
+  try {
+    url = new URL(imageUrl);
+  } catch {
+    // TODO: remove as soon as the entire project will be testedd
+    console.log({ imageUrl });
+
+    return imageUrl;
+  }
 
   return appendParamsToUrl(url, queryProps).toString();
 };

@@ -18,6 +18,7 @@ const AdvantagesItems = ({ advantages: advantagesList, animatedFields: animatedF
           width={400}
           height={400}
           containerClasses={styles.imageContainer}
+          isStatic
         />
       );
     case 'title':
