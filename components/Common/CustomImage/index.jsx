@@ -24,6 +24,8 @@ function ContentfulImageLoader({
   return `${url}&q=${quality}`;
 }
 
+const staticImageLoader = ({ src }) => src;
+
 const CustomImage = ({
   width,
   height,
@@ -40,6 +42,7 @@ const CustomImage = ({
   isRounded,
   style,
   scale,
+  isStatic,
   ...other
 }) => {
   if (!src) {
@@ -49,7 +52,7 @@ const CustomImage = ({
   const lazyProps = !priority ? {
     loading: 'lazy',
     placeholder: 'blur',
-    blurDataURL: getOptimizedContentfulImage(src, {
+    blurDataURL: isStatic ? src : getOptimizedContentfulImage(src, {
       width: 50,
       fm: 'png',
       bg: backgroundColor,
@@ -72,7 +75,7 @@ const CustomImage = ({
       style={style}
       className={cn(styles.picture, containerClasses)}
     >
-      <source srcSet={getOptimizedContentfulImage(src, {
+      <source srcSet={isStatic ? src : getOptimizedContentfulImage(src, {
         fm: 'jpg',
         fl: 'progressive',
         fit,
@@ -82,8 +85,8 @@ const CustomImage = ({
       })}
       />
       <Image
-        loader={ContentfulImageLoader}
-        src={getOptimizedContentfulImage(src, {
+        loader={isStatic ? staticImageLoader : ContentfulImageLoader}
+        src={isStatic ? src : getOptimizedContentfulImage(src, {
           width: width * scale,
           height: height * scale,
           bg: backgroundColor,

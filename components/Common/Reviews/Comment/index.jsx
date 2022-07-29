@@ -38,24 +38,23 @@ export const Comment = ({
             ref={infoRef}
           >
             <div className={styles.person}>
-              <div>
-                <CustomImage
-                  src={avatar}
-                  alt={name}
-                  layout="responsive"
-                  width={58}
-                  height={58}
-                  containerClasses={styles.avatarContainer}
-                  className={styles.photo}
-                />
-                <div className={styles.info}>
-                  <span className={styles.name}>
-                    {name}
-                  </span>
-                  <span className={styles.position}>
-                    {position}
-                  </span>
-                </div>
+              <CustomImage
+                src={avatar}
+                alt={name}
+                width={58}
+                height={58}
+                quality={undefined}
+                containerClasses={styles.avatarContainer}
+                className={styles.photo}
+                isStatic
+              />
+              <div className={styles.info}>
+                <span className={styles.name}>
+                  {name}
+                </span>
+                <span className={styles.position}>
+                  {position}
+                </span>
               </div>
             </div>
           </div>
