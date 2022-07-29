@@ -3,33 +3,17 @@
 /* eslint-disable no-undef */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
-import React, {
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
-import PropTypes from 'prop-types';
-import {
-  Raycaster,
-  Plane,
-  Vector3,
-// eslint-disable-next-line import/extensions
-} from 'node_modules/three/build/three.module.js';
+import React, { useEffect, useRef, useState } from 'react';
+import { Plane, Raycaster, Vector3 } from 'node_modules/three/build/three.module';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchDuck } from 'redux/actions/home';
+import { useSelector } from 'react-redux';
 import { selectDuck } from 'redux/selectors/home';
 import Animated from 'components/Common/Animated';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { animationTypes } from './utils/data';
-import {
-  three,
-  slogan,
-  getSpeed,
-  loadDuck,
-} from './utils/threeHelper';
+import { getSpeed, slogan, three } from './utils/threeHelper';
 import * as styles from './styles.module.scss';
 
 let camera;
@@ -42,23 +26,12 @@ let composer;
 let mat = 0;
 
 const Duck = ({ sloganRef }) => {
-  const dispatch = useDispatch();
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);
   const [canvas, setCanvas] = useState(null);
   const duck = useSelector(selectDuck);
 
   const containerCanvas = useRef(null);
-
-  useEffect(() => {
-    if (!duck) {
-      dispatch(fetchDuck({
-        isFirstHomepageVisit: false,
-        loadDuck,
-      }));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [duck]);
 
   useEffect(() => () => {
     meshes.length = 0;
@@ -383,7 +356,7 @@ const Duck = ({ sloganRef }) => {
           document.addEventListener('mousedown', onDocumentMouseDown, false);
           document.addEventListener('mouseup', onDocumentMouseUp, false);
           document.addEventListener('mousemove', onDocumentMouseMove, false);
-        }, 2000);
+        }, 6500);
       }
     } else {
       options.initial.isAppear = true;
