@@ -1,13 +1,10 @@
-const getQueryString = (params) => params && Object
-  .entries(params)
-  .reduce(([key, value], queryProps) => {
-    if (value) {
-      return [...queryProps, `${key}=${value}`];
-    }
+const appendParamsToUrl = (url, params) => {
+  Object.entries(params).map(
+    ([key, value]) => value && url.searchParams.append(key, `${value}`),
+  );
 
-    return queryProps;
-  }, [])
-  .join('&');
+  return url;
+};
 
 export const getOptimizedContentfulImage = (imageUrl, {
   width,
@@ -31,9 +28,9 @@ export const getOptimizedContentfulImage = (imageUrl, {
     queryProps.r = height;
   }
 
-  const queryString = getQueryString(queryProps);
+  const url = new URL(imageUrl);
 
-  return `${imageUrl}?${queryString}`;
+  return appendParamsToUrl(url, queryProps).toString();
 };
 
 export const patchImageUrl = (url, replace, replaceSymbol) => {
