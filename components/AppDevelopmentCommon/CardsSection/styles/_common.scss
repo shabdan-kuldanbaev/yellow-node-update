@@ -12,7 +12,7 @@
   background: $white;
 
   .titleStyle {
-    @include defaultTitle;
+    @include defaultSectionTitle;
   }
 
   .cards > div {

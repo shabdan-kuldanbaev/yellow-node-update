@@ -13,6 +13,10 @@
     padding: $mobile-section-indent 0 $mobile-section-indent - 20px;
   }
 
+  .title {
+    @include defaultSectionTitle;
+  }
+
   & > div:first-child {
     width: 100%;
     text-align: center;

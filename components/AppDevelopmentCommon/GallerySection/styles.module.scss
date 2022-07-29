@@ -47,6 +47,10 @@
   background-color: $white;
   padding-bottom: 90px;
 
+  .sectionTitle {
+    @include defaultSectionTitle;
+  }
+
   .callToAction {
     @include defaultCallToAction;
   }

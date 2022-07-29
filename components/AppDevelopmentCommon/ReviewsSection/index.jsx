@@ -28,7 +28,7 @@ const ReviewsSection = ({
     <section className={cn(styles.reviews, styles[type])}>
       <SectionTitle
         title={title}
-        titleStyle={styles.title}
+        titleStyle={styles.titleStyle}
       />
       <Reviews reviews={reviews} />
       {link && (

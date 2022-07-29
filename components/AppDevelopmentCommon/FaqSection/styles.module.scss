@@ -17,11 +17,7 @@
   background-color: $alabaster;
 
   .title {
-    margin-bottom: 60px;
-
-    @include below-tablet {
-      margin-bottom: 30px;
-    }
+    @include defaultSectionTitle;
   }
 
   & > div:last-child {

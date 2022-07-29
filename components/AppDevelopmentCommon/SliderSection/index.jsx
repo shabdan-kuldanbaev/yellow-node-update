@@ -32,6 +32,7 @@ const SliderSection = ({ sectionData, type }) => {
         <SectionTitle
           title={title}
           description={description}
+          titleStyle={styles.titleStyle}
         />
         <div className={styles.sliderList}>
           <Animated

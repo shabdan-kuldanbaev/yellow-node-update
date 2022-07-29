@@ -437,3 +437,31 @@
     }
   }
 }
+
+@mixin defaultSectionTitle {
+  max-width: $max-content-width-small-section;
+  margin: 0 auto 60px;
+
+  h2 {
+    @include fontSize(56px, 120%);
+
+    max-width: 100%;
+    letter-spacing: normal;
+
+    @include tablet {
+      @include fontSize(46px);
+    }
+
+    @include below-tablet {
+      @include fontSize(40px);
+    }
+
+    @include phone {
+      @include fontSize(32px);
+    }
+  }
+
+  @include below-tablet {
+    margin-bottom: 40px;
+  }
+}

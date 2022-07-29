@@ -8,6 +8,10 @@
 
   @include flex(column, center, center);
 
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
+
   .sliderList {
     padding: 150px;
     box-shadow: $card-bow-shadow;

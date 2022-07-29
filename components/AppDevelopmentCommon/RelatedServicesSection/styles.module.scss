@@ -4,6 +4,10 @@
 .relatedServices {
   @include appDevelopmentContainer;
 
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
+
   .contentWrapper {
     .serviceList {
       grid-template-columns: repeat(3, 1fr);

@@ -18,6 +18,10 @@
     @extend .greySection;
   }
 
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
+
   .callToAction {
     @include defaultCallToAction;
   }

@@ -69,19 +69,6 @@
   }
 }
 
-@mixin defaultTitle {
-  max-width: $max-content-width-small-section;
-  margin: 0 auto 60px;
-
-  h2 {
-    max-width: 100%;
-  }
-
-  @include below-tablet {
-    margin-bottom: 40px;
-  }
-}
-
 @mixin defaultCard {
   h3 {
     @include fontSize(24px, 150%);

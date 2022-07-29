@@ -58,7 +58,7 @@
   @include appDevelopmentContainer;
 
   .titleStyle {
-    @include defaultTitle;
+    @include defaultSectionTitle;
   }
 
   .callToAction {

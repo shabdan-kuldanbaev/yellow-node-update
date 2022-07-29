@@ -4,6 +4,10 @@
 .checkListSection {
   @include smallSectionWrapper;
 
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
+
   .checkList {
     @include flex(row, initial, stretch, wrap);
 
