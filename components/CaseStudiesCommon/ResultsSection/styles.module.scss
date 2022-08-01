@@ -733,6 +733,7 @@
   }
 }
 
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
 
@@ -754,5 +755,13 @@
     @include phone {
       padding-bottom: 0;
     }
+  }
+}
+
+.hotel-data-cloud {
+  [data-case-study-description] {
+    max-width: 620px;
+    text-align: center;
+    margin-bottom: 0;
   }
 }

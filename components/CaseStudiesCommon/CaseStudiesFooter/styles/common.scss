@@ -159,6 +159,7 @@
   }
 }
 
+.hotel-data-cloud,
 .dindon,
 .fernwayer,
 .travel-trivia {
@@ -605,4 +606,8 @@
   @extend .container;
 
   background: $cherry-red;
+}
+
+.hotel-data-cloud {
+  background-color: $case-study-data-cloud-background;
 }

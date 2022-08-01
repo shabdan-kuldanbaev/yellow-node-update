@@ -677,6 +677,7 @@
   }
 }
 
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @extend .container;
 
@@ -698,5 +699,11 @@
         }
       }
     }
+  }
+}
+
+.hotel-data-cloud {
+  @include phone {
+    padding: 80px 15px;
   }
 }

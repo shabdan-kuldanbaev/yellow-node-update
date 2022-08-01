@@ -325,6 +325,7 @@
   }
 }
 
+.hotel-data-cloud,
 .smartcenter,
 .fusion-markets,
 .marketplace-for-clairvoyant-services {
@@ -613,5 +614,37 @@
         max-width: unset;
       }
     }
+  }
+}
+
+.hotel-data-cloud {
+  background-color: $case-study-data-cloud-background;
+  background-position: left 50% top 50%;
+  background-repeat: no-repeat;
+
+  .introSection {
+    .projectInfoContainer { 
+      .projectSubtitle {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1300px;
+
+    .experience {
+      p:not(.infoTitle) {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  @include tablet {
+    background-size: 920px;
+  }
+
+  @include phone {
+    background-size: 576px;
   }
 }

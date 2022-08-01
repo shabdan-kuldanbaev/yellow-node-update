@@ -268,6 +268,7 @@
   }
 }
 
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
 
@@ -275,4 +276,8 @@
   padding-right: 0;
   background-color: $white;
   overflow-x: hidden;
+}
+
+.hotel-data-cloud {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9FCFF 17.19%, #F9FCFF 79.17%, #FFFFFF 100%);
 }

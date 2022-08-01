@@ -350,3 +350,23 @@
     }
   }
 }
+
+.hotel-data-cloud {
+  @include caseStudyContainer;
+
+  background-color: $case-study-data-cloud-background;
+  background-position: left 50% top 50%;
+  background-repeat: no-repeat;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  @include tablet {
+    background-size: 920px;
+  }
+
+  @include phone {
+    background-image: none !important;
+  }
+}

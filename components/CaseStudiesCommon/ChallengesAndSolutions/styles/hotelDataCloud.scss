@@ -1,0 +1,150 @@
+/* stylelint-disable no-descending-specificity */
+.hotel-data-cloud {
+  &.firstSectionView {
+    .special {
+      max-width: unset;
+  
+      .image {
+        filter: none;
+      }
+
+      .infoContainer {
+        margin: 0;
+        max-width: 440px;
+
+        .title {
+          font-weight: 700;
+          font-size: 32px;
+          line-height: 120%;
+
+          color: #171717;
+
+          @include tablet {
+            text-align: center;
+          }
+
+          @include phone {
+            font-size: 24px;
+          }
+        }
+
+        p {
+          font-size: 18px;
+          line-height: 180%;
+          color: #A0A0A0;
+
+          max-width: 385px;
+
+          @include tablet {
+            text-align: center;
+            margin: 0 auto;
+          }
+
+          @include phone {
+            font-size: 14px;
+          }
+        }
+
+        @include tablet {
+          margin: 0 !important;
+          order: 0 !important;
+          max-width: none !important;
+        }
+      }
+
+      &:nth-child(2n + 1) {
+        @include flex(row, flex-start);
+
+        padding-right: 100px;
+
+        .infoContainer {
+          order: 2;
+          margin-left: 170px;
+
+          @include macbook-twelve {
+            margin-left: 70px;
+          }
+        }
+
+        & > div:last-child {
+          &::after {
+            right: 0;
+            height: 107%;
+            transform: translate(10px, -1px);
+            background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
+  
+            @include phone {
+              display: none;
+            }
+          }
+        }
+
+        @include macbook-twelve {
+          padding-right: 40px;
+        }
+  
+        @include tablet {
+          padding-right: 0;
+        }
+      }
+  
+      &:nth-child(2n) {
+        @include flex(row, flex-end);
+
+        padding-left: 100px;
+
+        .infoContainer {
+          order: 0;
+          margin-right: 170px;
+
+          @include macbook-twelve {
+            margin-right: 70px;
+          }
+        }
+
+        & > div:last-child {
+          &::after {
+            left: 0;
+            height: 107%;
+            transform: translate(0, -1px);
+            background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
+  
+            @include phone {
+              display: none;
+            }
+          }
+        }
+  
+        @include macbook-twelve {
+          padding-left: 40px;
+        }
+
+        @include tablet {
+          padding-left: 0;
+        }
+      }
+
+      @include tablet {
+        flex-direction: column !important;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      .title {
+        color: $white;
+      }
+    }
+  
+    .infoContainer {
+      h3 {
+        color: $white;
+      }
+  
+      p {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+}

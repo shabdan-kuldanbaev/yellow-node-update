@@ -275,6 +275,7 @@ export const CASE_STUDIES = {
   fernwayer: 'fernwayer',
   dindon: 'dindon',
   stickerbox: 'stickerbox',
+  hotelDataCloud: 'hotel-data-cloud',
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',
   tell: 'tell',

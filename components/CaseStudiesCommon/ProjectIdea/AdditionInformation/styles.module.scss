@@ -244,6 +244,7 @@
 
 .ubichat,
 .fireaway,
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @extend .infoContainer;
 
@@ -470,5 +471,31 @@
         }
       }
     }
+  }
+}
+
+.hotel-data-cloud {
+  .container {
+    .title {
+      @include fontSize(40px);
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      list-style: initial;
+
+      .listItemContainer {
+        list-style: none;
+      }
+    }
+  }
+}
+
+.hotel-data-cloud {
+  @include phone {
+    justify-content: center;
   }
 }

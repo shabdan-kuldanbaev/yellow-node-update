@@ -46,6 +46,7 @@
   }
 }
 
+.hotel-data-cloud,
 .dindon,
 .fernwayer,
 .stickerbox,
@@ -412,5 +413,11 @@
       max-width: $max-content-width-small-section;
       margin: 0 auto;
     }
+  }
+}
+
+.hotel-data-cloud {
+  .image {
+    max-width: 1056px;
   }
 }
