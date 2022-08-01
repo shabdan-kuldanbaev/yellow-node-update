@@ -1,31 +1,44 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Svg from 'components/Common/Svg';
+import { useSwiper } from 'swiper/react';
 import styles from './styles.module.scss';
 
 const SwiperNavButton = ({
   type,
   text,
   className,
-}, ref) => (
-  <button
-    ref={ref}
-    type="button"
-    className={cn(
-      className,
-      styles.navButton,
-      styles[type],
-    )}
-  >
-    <Svg type={type} />
-    {text && (
-      <span className={styles.text}>
-        {text}
-      </span>
-    )}
-  </button>
-);
+}) => {
+  const swiper = useSwiper();
+
+  const handleNavButtonClick = () => {
+    if (type === 'next') {
+      return swiper.slideNext();
+    }
+
+    swiper.slidePrev();
+  };
+
+  return (
+    <button
+      onClick={handleNavButtonClick}
+      type="button"
+      className={cn(
+        className,
+        styles.navButton,
+        styles[type],
+      )}
+    >
+      <Svg type={type === 'next' ? 'arrowRight' : 'arrowLeft'} />
+      {text && (
+        <span className={styles.text}>
+          {text}
+        </span>
+      )}
+    </button>
+  );
+};
 
 SwiperNavButton.defaultProps = {
   className: '',
@@ -33,9 +46,9 @@ SwiperNavButton.defaultProps = {
 };
 
 SwiperNavButton.propTypes = {
-  type: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['next', 'prev']).isRequired,
   text: PropTypes.string,
   className: PropTypes.string,
 };
 
-export default forwardRef(SwiperNavButton);
+export default SwiperNavButton;

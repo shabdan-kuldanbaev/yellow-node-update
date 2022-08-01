@@ -12,12 +12,12 @@ import SwiperCors, {
   EffectCoverflow,
   Navigation,
 } from 'swiper';
+import SwiperNavButton from 'components/SwiperNavButton';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getMaxVal } from 'utils/helper';
 import { Comment } from './Comment';
 import { getSwiperParams } from '../utils/reviewsHelper';
 import styles from './styles.module.scss';
-import SwiperNavButton from '../../../SwiperNavButton';
 
 SwiperCors.use([EffectCoverflow, Navigation]);
 

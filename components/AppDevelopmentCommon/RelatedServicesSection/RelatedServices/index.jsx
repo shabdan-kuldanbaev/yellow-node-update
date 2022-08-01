@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Mousewheel, Navigation } from 'swiper/core';
 import Animated from 'components/Common/Animated';
@@ -12,27 +12,16 @@ import styles from './styles.module.scss';
 SwiperCore.use([Mousewheel, Navigation]);
 
 export const RelatedServices = ({ services }) => {
-  const navPrev = useRef(null);
-  const navNext = useRef(null);
-
   if (!services) {
     return null;
   }
 
   const swiperParams = getSwiperParams();
 
-  const swiperNavigation = {
-    nextEl: navNext.current,
-    prevEl: navPrev.current,
-  };
-
   return (
     <Animated {...REVEAL_ANIMATION_PROPS}>
       <div className={styles.serviceList}>
-        <Swiper
-          {...swiperParams}
-          navigation={swiperNavigation}
-        >
+        <Swiper {...swiperParams}>
           {services.map((service) => {
             const {
               title,
@@ -44,7 +33,7 @@ export const RelatedServices = ({ services }) => {
             } = getServiceParams(service);
 
             return (
-              <SwiperSlide>
+              <SwiperSlide key={`slide/${title}`}>
                 <LinkWrapper
                   path={serviceUrl}
                   className={styles.service}
@@ -73,14 +62,12 @@ export const RelatedServices = ({ services }) => {
             );
           })}
           <SwiperNavButton
-            type="arrowLeft"
+            type="prev"
             text="previous"
-            ref={navPrev}
           />
           <SwiperNavButton
-            type="arrowRight"
+            type="next"
             text="next"
-            ref={navNext}
           />
         </Swiper>
       </div>

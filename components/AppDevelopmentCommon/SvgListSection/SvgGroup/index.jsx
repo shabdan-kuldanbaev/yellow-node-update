@@ -46,9 +46,11 @@ const SvgGroup = ({
         enabled
       >
         {icons?.map((technology, i) => (
-          <SwiperSlide className={styles.item}>
+          <SwiperSlide
+            className={styles.item}
+            key={`technologies/${technology}`}
+          >
             <Animated
-              key={`technologies/${technology}`}
               {...REVEAL_ANIMATION_PROPS}
               transitionDelay={isSwiperEnabled ? 0 : (300 + 70 * i)}
             >

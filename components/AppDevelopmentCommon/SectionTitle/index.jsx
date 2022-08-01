@@ -60,12 +60,13 @@ SectionTitle.defaultProps = {
   subtitle: '',
   description: '',
   className: null,
+  title: null,
 };
 
 SectionTitle.propTypes = {
   type: PropTypes.string,
   titleStyle: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   subtitle: PropTypes.string,
   description: PropTypes.string,
   className: PropTypes.string,
