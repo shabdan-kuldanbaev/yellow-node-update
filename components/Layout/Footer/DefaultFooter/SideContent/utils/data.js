@@ -4,31 +4,31 @@ export const socialMedia = [
   {
     title: 'LinkedIn',
     type: SVG_IMAGES_TYPES.linkedinRoundBlack,
-    link: '//www.linkedin.com/company/yellow-systems',
+    link: 'https://www.linkedin.com/company/yellow-systems',
   },
   {
     title: 'Twitter',
     type: SVG_IMAGES_TYPES.twitterRoundBlack,
-    link: '//mobile.twitter.com/yellow_systems',
+    link: 'https://mobile.twitter.com/yellow_systems',
   },
   {
     title: 'Dribble',
     type: SVG_IMAGES_TYPES.dribbleRoundBlack,
-    link: '//dribbble.com/yellow_systems',
+    link: 'https://dribbble.com/yellow_systems',
   },
   {
     title: 'Behance',
     type: SVG_IMAGES_TYPES.behanceRoundBlack,
-    link: '//www.behance.net/yellow_systems',
+    link: 'https://www.behance.net/yellow_systems',
   },
   {
     title: 'Medium',
     type: SVG_IMAGES_TYPES.mediumRoundBlack,
-    link: '//yellow.medium.com/',
+    link: 'https://yellow.medium.com/',
   },
   {
     title: 'Instagram',
     type: SVG_IMAGES_TYPES.instaRoundBlack,
-    link: '//www.instagram.com/yellow.systems/',
+    link: 'https://www.instagram.com/yellow.systems/',
   },
 ];

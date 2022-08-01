@@ -219,27 +219,27 @@ export const CONTACTS_DATA = {
     {
       title: 'LinkedIn',
       type: SVG_IMAGES_TYPES.linkedinRoundWhite,
-      link: '//www.linkedin.com/company/yellow-systems',
+      link: 'https://www.linkedin.com/company/yellow-systems',
     },
     {
       title: 'Twitter',
       type: SVG_IMAGES_TYPES.twitterRoundWhite,
-      link: '//mobile.twitter.com/yellow_systems',
+      link: 'https://mobile.twitter.com/yellow_systems',
     },
     {
       title: 'Behance',
       type: SVG_IMAGES_TYPES.behanceRoundWhite,
-      link: '//www.behance.net/yellow_systems',
+      link: 'https://www.behance.net/yellow_systems',
     },
     {
       title: 'Medium',
       type: SVG_IMAGES_TYPES.mediumRoundWhite,
-      link: '//yellow.medium.com/',
+      link: 'https://yellow.medium.com/',
     },
     {
       title: 'Instagram',
       type: SVG_IMAGES_TYPES.instaRoundWhite,
-      link: '//www.instagram.com/yellow.systems/',
+      link: 'https://www.instagram.com/yellow.systems/',
     },
   ],
 };
