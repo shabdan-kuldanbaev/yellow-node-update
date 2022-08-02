@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -32,14 +32,6 @@ const GallerySection = ({
     router.push(link);
   };
 
-  const navPrev = useRef(null);
-  const navNext = useRef(null);
-
-  const swiperNavigation = {
-    nextEl: navNext.current,
-    prevEl: navPrev.current,
-  };
-
   return (
     <section className={styles[type]}>
       <div className={styles.gallerySection}>
@@ -48,10 +40,7 @@ const GallerySection = ({
           description={description}
           className={styles.sectionTitle}
         />
-        <Swiper
-          {...params}
-          navigation={swiperNavigation}
-        >
+        <Swiper {...params}>
           {slides?.map((slide) => {
             const link = getItemLink(slide);
             const { title: slideTitle } = getItemPreviewProps(slide);
@@ -69,16 +58,14 @@ const GallerySection = ({
             );
           })}
           <SwiperNavButton
-            type="arrowLeft"
+            type="prev"
             text="previous"
             className={styles.swiperPrevEl}
-            ref={navPrev}
           />
           <SwiperNavButton
-            type="arrowRight"
+            type="next"
             text="next"
             className={styles.swiperNextEl}
-            ref={navNext}
           />
         </Swiper>
       </div>

@@ -20,6 +20,8 @@ const SwiperNavButton = ({
     swiper.slidePrev();
   };
 
+  const svgType = (type === 'next') ? 'arrowRight' : 'arrowLeft';
+
   return (
     <button
       onClick={handleNavButtonClick}
@@ -30,7 +32,7 @@ const SwiperNavButton = ({
         styles[type],
       )}
     >
-      <Svg type={type === 'next' ? 'arrowRight' : 'arrowLeft'} />
+      <Svg type={svgType} />
       {text && (
         <span className={styles.text}>
           {text}

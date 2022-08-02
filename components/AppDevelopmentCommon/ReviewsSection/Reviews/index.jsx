@@ -66,21 +66,10 @@ export const Reviews = ({ reviews = [] }) => {
     return () => window.removeEventListener('resize', handleOnResize);
   }, [infoRefs]);
 
-  const navPrev = useRef(null);
-  const navNext = useRef(null);
-
-  const swiperNavigation = {
-    nextEl: navNext.current,
-    prevEl: navPrev.current,
-  };
-
   return (
     <div className={styles.reviews}>
       <div className={styles.desktopReviews}>
-        <Swiper
-          {...desktopSwiperParams}
-          navigation={swiperNavigation}
-        >
+        <Swiper {...desktopSwiperParams}>
           {reviews.map((comment, index) => (
             <SwiperSlide key={`desktopReviews/${comment.name}`}>
               <Comment
@@ -89,16 +78,13 @@ export const Reviews = ({ reviews = [] }) => {
               />
             </SwiperSlide>
           ))}
-
           <SwiperNavButton
-            type="arrowLeft"
+            type="prev"
             text="previous"
-            ref={navPrev}
           />
           <SwiperNavButton
-            type="arrowRight"
+            type="next"
             text="next"
-            ref={navNext}
           />
         </Swiper>
       </div>
