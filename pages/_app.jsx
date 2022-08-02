@@ -7,7 +7,6 @@ import React, {
 import { wrapper } from 'redux/store';
 import { useDispatch } from 'react-redux';
 import Router from 'next/router';
-import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
 import { setPageReadyToDisplay } from 'redux/actions/layout';
@@ -55,25 +54,17 @@ function App({ Component, pageProps }) {
   }), [contextData, setContextData]);
 
   return (
-    <>
-      <Head>
-        <meta
-          name="robots"
-          content="none"
-        />
-      </Head>
-      <AppContext.Provider value={AppContextValue}>
-        <ThemeProvider theme={customTheme}>
-          <Layout introSection={introSection}>
-            <Component
-              theme={theme}
-              introSection={introSection}
-              {...pageProps}
-            />
-          </Layout>
-        </ThemeProvider>
-      </AppContext.Provider>
-    </>
+    <AppContext.Provider value={AppContextValue}>
+      <ThemeProvider theme={customTheme}>
+        <Layout introSection={introSection}>
+          <Component
+            theme={theme}
+            introSection={introSection}
+            {...pageProps}
+          />
+        </Layout>
+      </ThemeProvider>
+    </AppContext.Provider>
   );
 }
 
