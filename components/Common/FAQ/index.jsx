@@ -21,7 +21,7 @@ export const FAQ = ({ faqList, type }) => {
             id="JSON-LD-faq"
             key="JSON-LD-faq"
             type="application/ld+json"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(microdata.faq({ faqList })),
             }}

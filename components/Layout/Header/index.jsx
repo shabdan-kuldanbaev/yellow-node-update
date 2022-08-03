@@ -91,8 +91,8 @@ const Header = ({ introSection }) => {
     setIsPageScrolledDown(false);
   }, [asPath]);
 
-  const setMobileMenu = useCallback(() => {
-    dispatch(setMobileMenuState());
+  const setMobileMenu = useCallback((state) => () => {
+    dispatch(setMobileMenuState(state));
   }, [dispatch]);
 
   const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
@@ -111,16 +111,12 @@ const Header = ({ introSection }) => {
       </div>
       <Nav
         theme={navTheme}
-        isPageScrolledDown={isPageScrolledDown}
-        isTransparentHeader={isTransparentHeader}
-        isMobileMenuOpened={isMobileMenuOpened}
         isPageScrolling={isPageScrolling}
-        setMobileMenuState={setMobileMenu}
         isHeader
       />
       <MobileMenu
-        isMobileMenuOpened={isMobileMenuOpened}
-        setMobileMenuState={setMobileMenu}
+        isMobileMenuOpened={!!isMobileMenuOpened}
+        setMobileMenuState={setMobileMenu(!isMobileMenuOpened)}
         isPageScrolledDown={isPageScrolledDown}
       />
       {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}

@@ -86,7 +86,7 @@ const MetaTags = ({
           <Script
             id={`JSON-LD-${pageMicrodata.name}`}
             key={`JSON-LD-${pageMicrodata.name}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(pageMicrodata) }}
           />
@@ -95,7 +95,7 @@ const MetaTags = ({
           <Script
             id="JSON-LD-breadcrumbs"
             key="JSON-LD-breadcrumbs"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(microdata.breadcrumbs({ breadcrumbsList: breadcrumbs })),

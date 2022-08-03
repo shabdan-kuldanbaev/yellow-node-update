@@ -13,8 +13,6 @@ const MobileMenu = ({
   setMobileMenuState,
   isPageScrolledDown,
 }) => {
-  const closeMenu = () => setMobileMenuState(!isMobileMenuOpened);
-
   useEffect(() => {
     setOverflowForBody(isMobileMenuOpened);
   }, [isMobileMenuOpened]);
@@ -40,14 +38,14 @@ const MobileMenu = ({
               title={title}
               path={path}
               dynamicPath={dynamicPath}
-              closeMenu={closeMenu}
+              closeMenu={setMobileMenuState}
             />
           ))}
         </ul>
       </div>
       <Burger
         isMobileMenuOpened={isMobileMenuOpened}
-        handleOnClick={closeMenu}
+        handleOnClick={setMobileMenuState}
         isPageScrolledDown={isPageScrolledDown}
       />
     </Fragment>
