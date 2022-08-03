@@ -1,0 +1,100 @@
+.humankind {
+  &.firstSectionView {
+    @include tablet {
+      padding-bottom: 0;
+    }
+
+    .contentContainer {
+      margin: 0 auto 320px;
+
+      @include tablet {
+        margin-bottom: 60px;
+      }
+
+      .infoContainer {
+        max-width: unset;
+
+        @include tablet {
+          margin: 0;
+          order: 0;
+        }
+
+        .title,
+        p {
+          @include tablet {
+            text-align: center;
+          }
+        }
+      }
+
+      .image {
+        filter: none;
+      }
+    }
+
+    .special {
+      position: relative;
+
+      @include tablet {
+        flex-direction: column;
+      }
+
+      .images {
+        position: relative;
+      }
+
+      &:nth-child(odd) {
+        .image {
+          transform: scale(2) translate(30%, 0%);
+
+          @include macbook-thirteen {
+            transform: scale(2) translate(20%, 0%);
+          }
+
+          @include tablet {
+            transform: none;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        .image {
+          transform: scale(2) translate(-30%, 0%);
+
+          @include macbook-thirteen {
+            transform: scale(2) translate(-20%, 0%);
+          }
+
+          @include tablet {
+            transform: none;
+          }
+        }
+
+        .imageBundle-1 {
+          position: absolute;
+          max-width: 1120px;
+
+          @include tablet {
+            position: static;
+            width: 100%;
+            transform: translate(0, -140px);
+          }
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .title {
+      color: $white;
+    }
+
+    h3 {
+      color: $white;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}

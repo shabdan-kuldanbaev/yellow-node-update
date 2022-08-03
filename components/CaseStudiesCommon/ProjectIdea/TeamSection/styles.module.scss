@@ -148,6 +148,14 @@
   }
 }
 
+.humankind {
+  @extend .container;
+
+  grid-auto-flow: unset;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 160px;
+}
+
 .fusion-markets {
   .teamItem {
     color: $silver-chalice;

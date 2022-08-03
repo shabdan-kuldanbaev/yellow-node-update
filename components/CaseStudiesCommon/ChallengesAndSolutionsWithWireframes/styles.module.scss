@@ -370,3 +370,14 @@
     background-image: none !important;
   }
 }
+
+.humankind {
+  @include caseStudyContainer;
+
+  background: $case-study-humankind-background;
+
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}

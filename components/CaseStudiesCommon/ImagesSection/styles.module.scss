@@ -20,6 +20,7 @@
 .dindon,
 .famlicious,
 .telemojo,
+.humankind,
 .bionorica,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
@@ -37,6 +38,16 @@
   @include phone {
     padding-top: 40px;
   }
+}
+
+.humankind {
+  @include caseStudyContainer;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  background: $case-study-humankind-background;
 }
 
 .seven-pm-thursday {

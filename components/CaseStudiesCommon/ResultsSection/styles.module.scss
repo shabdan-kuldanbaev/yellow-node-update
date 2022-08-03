@@ -733,6 +733,7 @@
   }
 }
 
+.humankind,
 .hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
@@ -763,5 +764,15 @@
     max-width: 620px;
     text-align: center;
     margin-bottom: 0;
+  }
+}
+
+.humankind {
+  background: #F8F8FA;
+
+  .circle {
+    .mockup {
+      filter: none;
+    }
   }
 }

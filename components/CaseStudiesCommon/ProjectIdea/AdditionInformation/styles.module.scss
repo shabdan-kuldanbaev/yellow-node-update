@@ -367,6 +367,41 @@
   }
 }
 
+.humankind {
+  @extend .infoContainer;
+  @include flex(column, center, flex-start);
+  
+  margin-top: 35px;
+
+  @include tablet {
+    max-width: 345px;
+    margin: 0 auto;
+  }
+
+  .container {
+    margin-right: 0;
+    margin-bottom: 30px;
+    max-width: 340px;
+
+    .listItemContainer {
+      .title {
+        text-align: center;
+      }
+
+      span {
+        font-size: 18px;
+        line-height: 180%;
+
+        color: #A0A0A0;
+      }
+
+      &::marker {
+        color: #617B67;
+      }
+    }
+  }
+}
+
 .fusion-markets {
   @extend .infoContainer;
 

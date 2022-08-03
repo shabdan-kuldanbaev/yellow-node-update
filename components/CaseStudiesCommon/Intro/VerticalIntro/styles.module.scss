@@ -328,6 +328,7 @@
 .hotel-data-cloud,
 .smartcenter,
 .fusion-markets,
+.humankind,
 .marketplace-for-clairvoyant-services {
   @extend .container;
 
@@ -403,6 +404,37 @@
         @include fontSize(18px);
       }
     }
+  }
+}
+
+.humankind {
+  background-color: $case-study-humankind-background;
+  background-position: left 50% top 10%;
+  background-repeat: no-repeat;
+
+  .projectSubtitle {
+    max-width: 595px;
+    color: $white;
+    opacity: 0.7;
+  }
+
+  .experiencesContainer {
+    max-width: 1300px;
+
+    .experience {
+      p:not(.infoTitle) {
+        color: $white;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  @include tablet {
+    background-size: 920px;
+  }
+
+  @include phone {
+    background-size: 576px;
   }
 }
 

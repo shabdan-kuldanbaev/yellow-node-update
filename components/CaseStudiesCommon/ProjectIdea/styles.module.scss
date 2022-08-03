@@ -194,6 +194,52 @@
   }
 }
 
+.humankind {
+  @extend .container;
+
+  background: #F8F8FA;
+
+  .contentContainer {
+    padding-bottom: 0;
+
+    @include flex(column-reverse, center, center);
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    .descriptionContainer {
+      padding-bottom: 120px;
+      max-width: unset;
+      margin-left: 0;
+
+      @include flex(row, center);
+
+      @include tablet {
+        flex-direction: column;
+        padding-bottom: 0px;
+      }
+
+      @include phone {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .descriptionIntro {
+        margin-right: 245px;
+
+        @include tablet {
+          margin-right: 0;
+        }
+
+        .description {
+          max-width: 643px;
+        }
+      }
+    }
+  }
+}
+
 .dindon {
   @extend .container;
 
@@ -205,9 +251,6 @@
 
   @include tablet {
     flex-direction: column;
-  }
-
-  @include tablet {
     align-items: center;
   }
 

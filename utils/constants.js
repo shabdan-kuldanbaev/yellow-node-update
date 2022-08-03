@@ -298,6 +298,7 @@ export const CASE_STUDIES = {
   blackBird: 'blackbird',
   mobileFintechApp: 'fintech-app-for-credit-score',
   goodPsychics: 'marketplace-for-clairvoyant-services',
+  humankind: 'humankind',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
