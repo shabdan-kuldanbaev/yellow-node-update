@@ -22,6 +22,9 @@
     "svgo": "npx svgo -q --folder components/Common/Svg/svgs"
   },
   "lint-staged": {
+    "*.{scss}": [
+      "yarn lint:style"
+    ],
     "*.{js,jsx}": [
       "yarn lint:js"
     ]

@@ -34,22 +34,24 @@ const handlers = {
   [actionTypes.FETCH_PAGE_SUCCESS]: (state, { payload }) => {
     const {
       contentModules,
-      metaTitle,
-      ogImage,
-      metaDescription,
       hasFeedbackForm,
       pageTitle,
       subtitle,
+      metaTitle,
+      ogImage,
+      metaDescription,
+      metaRobots,
     } = getDocumentFields(
       (payload && payload[0]) ? payload[0] : {},
       [
         'contentModules',
-        'metaTitle',
-        'metaDescription',
         'hasFeedbackForm',
-        'ogImage',
         'pageTitle',
         'subtitle',
+        'metaTitle',
+        'metaDescription',
+        'ogImage',
+        'metaRobots',
       ],
     );
 
@@ -64,6 +66,7 @@ const handlers = {
         metaTitle,
         metaDescription,
         ogImage: getFileUrl(ogImage),
+        metaRobots,
       },
       title: pageTitle,
       subtitle,
