@@ -1,4 +1,16 @@
-/* stylelint-disable no-descending-specificity */
+.hotelDataCloudGradient {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    top: 0;
+    z-index: 10;
+  }
+}
+
 .hotel-data-cloud {
   &.firstSectionView {
     .special {
@@ -6,6 +18,10 @@
   
       .image {
         filter: none;
+      }
+
+      .contentContainer {
+        position: relative;
       }
 
       .infoContainer {
@@ -52,6 +68,51 @@
         }
       }
 
+      &:nth-child(1) {
+        .imageBundle-1 {
+          position: absolute;
+          top: -50px;
+          left: -76px;
+        }
+      }
+
+      &:nth-child(2) {
+        .imageBundle-1 {
+          position: absolute;
+          top: 20%;
+          left: -30%;
+        }
+      }
+
+      &:nth-child(3) {
+        .imageBundle-1 {
+          position: absolute;
+          top: 20%;
+          left: 95%;
+  
+          @include macbook-twelve {
+            position: absolute;
+            top: 5%;
+            left: 89%;
+          }
+  
+          @include tablet {
+            display: none;
+            background: none;
+            transform: translate(0px, 0px);
+          }
+        }
+
+        .imageBundle-2 {
+          position: absolute;
+          top: 0px;
+          right: -50%;
+
+          width: 675px;
+          height: 675px;
+        }
+      }
+
       &:nth-child(2n + 1) {
         @include flex(row, flex-start);
 
@@ -59,22 +120,33 @@
 
         .infoContainer {
           order: 2;
-          margin-left: 170px;
+          margin-left: 130px;
 
           @include macbook-twelve {
             margin-left: 70px;
           }
         }
 
-        & > div:last-child {
-          &::after {
-            right: 0;
+        .images {
+          @extend .openSenseGradient;
+
+          &::after {  
+            left: 0;
             height: 107%;
-            transform: translate(10px, -1px);
-            background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
+            transform: translate(0, -1px);
+            background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
   
-            @include phone {
+            @include tablet {
               display: none;
+              background: none;
+            }
+          }
+
+          .image {
+            transform: translate(-40px, 0px);
+
+            @include tablet {
+              transform: translate(0px, 0px);
             }
           }
         }
@@ -95,22 +167,33 @@
 
         .infoContainer {
           order: 0;
-          margin-right: 170px;
+          margin-right: 130px;
 
           @include macbook-twelve {
             margin-right: 70px;
           }
         }
 
-        & > div:last-child {
+        .images {
+          @extend .openSenseGradient;
+
           &::after {
-            left: 0;
+            right: 0;
             height: 107%;
-            transform: translate(0, -1px);
-            background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
+            transform: translate(10px, -1px);
+            background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
   
-            @include phone {
+            @include tablet {
               display: none;
+              background: none;
+            }
+          }
+
+          .image {
+            transform: translate(40px, 0px);
+
+            @include tablet {
+              transform: translate(0px, 0px);
             }
           }
         }
