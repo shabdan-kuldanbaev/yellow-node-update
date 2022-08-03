@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
-import { CUSTOM_DOMAIN, INDEX_FILES, IS_PROD } from 'utils/constants';
+import { CUSTOM_DOMAIN, INDEX_FILES } from 'utils/constants';
 import { getNewPathname, isPage, isUrlChanged } from 'utils/middlewares';
 
 export function middleware(req) {
   const {
-    protocol, // http: | https:
     host, // localhost:3000 | yellow.systems | yws-dev.xyz
     hostname, // localhost | yellow.systems | yws-dev.xyz
     pathname, // /url/path
@@ -20,10 +19,6 @@ export function middleware(req) {
   }
 
   const url = req.nextUrl.clone();
-
-  if (IS_PROD && protocol !== 'https:') {
-    url.protocol = 'https:';
-  }
 
   /* TODO: Test if there's no need in xhr check */
   if (method === 'GET' && host.includes('www.')) {
