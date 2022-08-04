@@ -1,16 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import get from 'lodash/get';
 import { connect } from 'react-redux';
 import { selectCompanyPhoto, selectMetaData } from 'redux/selectors/layout';
-import {
-  FeedbackFormWithTitle,
-  CompanyPeoplePhoto,
-  CompanyContacts,
-  MetaTags,
-  PageHeader,
-  FullLayout,
-} from 'components';
+import CompanyContacts from 'components/ContactUsCommon/CompanyContacts';
+import MetaTags from 'components/Common/MetaTags';
+import PageHeader from 'components/Common/PageHeader';
+import FullLayout from 'components/Layout/FullLayout';
+import FeedbackFormWithTitle from 'components/ContactUsCommon/FeedbackFormWithTitle';
 import { PAGES } from 'utils/constants';
 import {
   getDocumentFields,
@@ -21,6 +19,8 @@ import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import CompanyPlacement from 'components/ContactUsCommon/CompanyPlacement';
 import styles from './styles.module.scss';
+
+const CompanyPeoplePhoto = dynamic(() => import('components/ContactUsCommon/CompanyPeoplePhoto'));
 
 const ContactUsContainer = ({
   introSection,

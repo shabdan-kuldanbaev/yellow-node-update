@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { selectArticle } from 'redux/selectors/blog';
 import { getArticleProps } from 'containers/Article/utils/propsHelper';
 import Article from 'components/BlogCommon/Article';
-import { FullLayout } from 'components/Layout/FullLayout';
+import FullLayout from 'components/Layout/FullLayout';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import { FAQ } from 'components/Common/FAQ';
 

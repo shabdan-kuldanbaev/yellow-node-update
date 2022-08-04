@@ -7,8 +7,8 @@ import {
   YELLOW_DOMAIN,
   YELLOW_LINK,
 } from 'containers/Signature/utils/constants';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { Svg } from 'components/Common/Svg';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Svg from 'components/Common/Svg';
 import styles from './styles.module.scss';
 
 const SignatureGenerated = ({

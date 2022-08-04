@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AnimatedInput from 'components/Common/AnimatedInput';
-import { Svg } from 'components/Common/Svg';
+import Svg from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { AttachedFile } from './AttachedFile';
 import styles from './styles.module.scss';
 
-export const Upload = ({
+const Upload = ({
   projectDescription,
   selectedFiles,
   handleOnDescriptionChange,
@@ -85,3 +85,5 @@ Upload.propTypes = {
   updateSelectedFileInfo: PropTypes.func.isRequired,
   style: PropTypes.string,
 };
+
+export default Upload;

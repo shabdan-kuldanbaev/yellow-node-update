@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectArticles } from 'redux/selectors/blog';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { ArticlesList } from 'components/BlogCommon/ArticlesList';
 import ButtonMore from 'components/Common/ButtonMore';
-import { SectionTitle } from 'components/Common/SectionTitle';
+import SectionTitle from 'components/Common/SectionTitle';
 import {
   ANIMATED_TYPE,
   HOMEPAGE_BLOG_CURRENT_PAGE,

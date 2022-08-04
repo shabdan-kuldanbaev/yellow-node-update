@@ -1,7 +1,8 @@
 import React from 'react';
 import get from 'lodash/get';
+import { Navigation } from 'swiper';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { ANIMATED_TYPE, SWIPER_NAV_PARAMS } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 
 export const getServiceParams = (service) => {
   const {
@@ -74,6 +75,7 @@ export const getRelatedServicesProps = (sectionData) => {
 };
 
 export const getSwiperParams = () => ({
+  modules: [Navigation],
   effect: 'slide',
   slidesPerView: 1.05,
   centeredSlides: true,
@@ -93,5 +95,4 @@ export const getSwiperParams = () => ({
       centeredSlides: false,
     },
   },
-  ...SWIPER_NAV_PARAMS,
 });

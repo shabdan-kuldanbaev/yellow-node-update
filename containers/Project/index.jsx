@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import get from 'lodash/get';
 import { useRouter } from 'next/router';
 import { selectProject } from 'redux/selectors/portfolio';
-import { Project, MetaTags } from 'components';
+import Project from 'components/ProjectCommon';
+import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 

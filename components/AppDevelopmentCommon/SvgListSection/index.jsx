@@ -1,29 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { Animated } from 'components/Common/Animated';
-import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import SvgGroup from './SvgGroup';
+import SvgGroup from 'components/AppDevelopmentCommon/SvgListSection/SvgGroup';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('components/Common/Animated'));
+const CallToAction = dynamic(() => import('components/Common/CallToAction'));
 
 const SvgListSection = ({
   sectionData,
   handleOnCTAClick,
   type,
-  isMobileResolution,
 }) => {
   const {
     title,
     description,
     link,
     view,
-    animatedProps,
-    technologiesGroup,
-  } = getSvgSectionProps(sectionData, isMobileResolution);
+    iconsGroup,
+  } = getSvgSectionProps(sectionData);
+
+  // TODO: uncomment when restoring default values in global store will be fixed
+  // const isTabletResolution = useSelector(selectIsTabletResolutions);
+  // const isSwiperEnabled = useMemo(
+  //   () => checkSwiperEnabled(type, view, isTabletResolution),
+  //   [type,
+  //     view,
+  //     isTabletResolution],
+  // );
 
   return (
     <section className={cn(styles[type], styles[view])}>
@@ -32,19 +40,17 @@ const SvgListSection = ({
         description={description}
         titleStyle={styles.titleStyle}
       />
-      {technologiesGroup.map((group, i) => (
+      {iconsGroup.map((group, i) => (
         <SvgGroup
           key={i}
           data={group}
-          isMobileResolution={isMobileResolution}
           className={styles.svgList}
-          animatedProps={animatedProps}
-          listWrapperClassName={styles.svgListWrapper}
+          isSwiperEnabled
         />
       ))}
       {link && (
         <Animated
-          {...animatedProps}
+          {...REVEAL_ANIMATION_PROPS}
           transitionDelay={550}
         >
           <CallToAction
@@ -62,16 +68,12 @@ const SvgListSection = ({
 
 SvgListSection.defaultProps = {
   handleOnCTAClick: () => {},
-  isMobileResolution: false,
 };
 
 SvgListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(SvgListSection);
+export default SvgListSection;

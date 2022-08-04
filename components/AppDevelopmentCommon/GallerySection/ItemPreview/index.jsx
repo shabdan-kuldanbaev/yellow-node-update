@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getFileUrl } from 'utils/helper';
 import { TitleText } from './TitleText';
 import { getItemPreviewProps } from './utils/itemPreviewHelper';
@@ -24,7 +24,7 @@ export const ItemPreview = ({ data, type }) => {
   return (
     <section
       style={sectionStyle}
-      className={cn(styles[type], styles[view], styles[slug])}
+      className={cn(styles.previewContainer, styles[type], styles[view], styles[slug])}
     >
       <div className={styles.projectPreview}>
         <div className={styles.projectInfoContainer}>

@@ -1,28 +1,15 @@
 import React from 'react';
-import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
 import CustomService from 'containers/CustomService';
+import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
-import errorHelper from 'utils/error';
 
-const CustomChatApp = () => <CustomService type={PAGES.customChatApp} />;
+const CustomChatApp = (pageProps) => (
+  <CustomService
+    type={PAGES.customChatApp}
+    {...pageProps}
+  />
+);
 
-CustomChatApp.getInitialProps = async ({ store, req }) => {
-  try {
-    store.dispatch(fetchLayoutData({ slug: PAGES.customChatApp }));
-
-    if (req) {
-      store.dispatch(END);
-      await store.sagaTask.toPromise();
-    }
-
-    return {};
-  } catch (error) {
-    errorHelper.handleError({
-      error,
-      message: 'Error in the CustomChatApp.getInitialProps function',
-    });
-  }
-};
+export const getStaticProps = getStaticPropsWrapper(PAGES.customChatApp, getServicePageProps);
 
 export default CustomChatApp;

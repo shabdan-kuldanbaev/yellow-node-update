@@ -7,6 +7,7 @@
 
   &.firstSectionView {
     @extend .cardsWithShadow;
+
     @include iconsWithinCircle;
   }
 
@@ -20,6 +21,7 @@
 
   &.thirdSectionView {
     @extend .cardsWithShadow;
+
     @include iconsWithinCircle;
 
     .contentWrapper {

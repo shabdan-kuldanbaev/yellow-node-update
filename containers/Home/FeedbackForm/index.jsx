@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import FeedbackForm from 'components/Common/FeedbackForm';
-import { SectionTitle } from 'components/Common/SectionTitle';
+import SectionTitle from 'components/Common/SectionTitle';
 import styles from './styles.module.scss';
 
-export const FeedbackFormContainer = ({ type, title }) => (
+const FeedbackFormContainer = ({ type, title }) => (
   <div className={styles[type] || styles.formContainer}>
     <SectionTitle
       title={title}
@@ -31,3 +30,5 @@ FeedbackFormContainer.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string,
 };
+
+export default FeedbackFormContainer;

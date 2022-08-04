@@ -18,6 +18,7 @@ const reducers = combineReducers({
   process,
 });
 
+// eslint-disable-next-line default-param-last
 export default ((state = {}, action) => {
   switch (action.type) {
   case HYDRATE: return { ...action.payload };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
-export const FullLayout = ({
+const FullLayout = ({
   children,
   disableMaxWidth,
   disableTopPadding,
@@ -13,14 +13,17 @@ export const FullLayout = ({
   backgroundColor,
   introSection,
 }) => {
-  const layoutStyles = cn(styles.fullLayout,
-    styles[backgroundColor], {
+  const layoutStyles = cn(
+    styles.fullLayout,
+    styles[backgroundColor],
+    {
       [styles.disableMaxWidth]: disableMaxWidth,
       [styles.disableTopPadding]: disableTopPadding,
       [styles.disableSidePadding]: disableSidePadding,
       [styles.disableBottomPadding]: disableBottomPadding,
       [styles.disableOverflowHiding]: disableOverflowHiding,
-    });
+    },
+  );
 
   return (
     <div
@@ -51,3 +54,5 @@ FullLayout.propTypes = {
   backgroundColor: PropTypes.string,
   introSection: PropTypes.instanceOf(Object),
 };
+
+export default FullLayout;

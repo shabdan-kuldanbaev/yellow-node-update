@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import ReactPaginate from 'react-paginate';
 import Router, { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { loadArticles, setTotalCount } from 'redux/actions/blog';
@@ -11,7 +10,7 @@ import {
   selectDesktopLimit,
   selectMobileLimit,
 } from 'redux/selectors/blog';
-import { SelectionBlock } from 'components';
+import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import { mobileResolution, toInt } from 'utils/helper';
 import Articles from '../Articles';
 import { articlesData, arrows } from './utils/data';

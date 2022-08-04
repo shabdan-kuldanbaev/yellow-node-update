@@ -3,6 +3,7 @@ import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import DraftArticle from 'containers/DraftArticle';
 import PageNotFound from 'containers/PageNotFound';
+import { wrapper } from 'redux/store';
 import errorHelper from 'utils/error';
 import { PAGES } from 'utils/constants';
 
@@ -14,10 +15,9 @@ const DraftArticleContainer = ({ introSection, statusCode }) => {
   return <DraftArticle introSection={introSection} />;
 };
 
-DraftArticleContainer.getInitialProps = async (ctx) => {
+export const getServerSideProps = wrapper.getServerSideProps((store) => async (ctx) => {
   try {
     const {
-      store,
       req,
       query: {
         slug,
@@ -52,6 +52,6 @@ DraftArticleContainer.getInitialProps = async (ctx) => {
       message: 'Error in the getInitialBlogProps function in DraftArticle',
     });
   }
-};
+});
 
 export default DraftArticleContainer;

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper, Svg } from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Svg from 'components/Common/Svg';
 import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const BookmarkCard = ({ slug, title }) => {
+const BookmarkCard = ({ slug, title }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
 
   return slug && (
@@ -41,3 +42,5 @@ BookmarkCard.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
+
+export default BookmarkCard;

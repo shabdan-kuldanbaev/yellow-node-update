@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  SectionTitle,
-  FeedbackForm,
-  ModalWindow,
-} from 'components';
+import ModalWindow from 'components/Common/ModalWindow';
+import SectionTitle from 'components/Common/SectionTitle';
+import FeedbackForm from 'components/Common/FeedbackForm';
 import styles from './styles.module.scss';
 
-export const FullScreenEstimation = ({
+const FullScreenEstimation = ({
   isFullscreenEstimation,
   closeFullscreenEstimation,
 }) => (
@@ -39,3 +37,5 @@ FullScreenEstimation.propTypes = {
   isFullscreenEstimation: PropTypes.bool.isRequired,
   closeFullscreenEstimation: PropTypes.func.isRequired,
 };
+
+export default FullScreenEstimation;

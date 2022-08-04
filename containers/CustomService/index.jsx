@@ -1,22 +1,22 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { selectComponents, selectMetaData } from 'redux/selectors/layout';
-import { FeedbackFormContainer } from 'containers/Home/FeedbackForm';
-import { PageHeader } from 'components/Common/PageHeader';
-import { MetaTags } from 'components/Common/MetaTags';
-import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
+import dynamic from 'next/dynamic';
+import PageHeader from 'components/Common/PageHeader';
+import MetaTags from 'components/Common/MetaTags';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { CONTACT_FORM_TITLES, PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
 import { getServicePageInfo } from './utils/servicePageHelper';
 import styles from './styles.module.scss';
 
+const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
+const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
+
 const CustomServiceContainer = ({
+  introSection,
   pageData,
   metaData,
-  introSection,
   type,
 }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
@@ -49,7 +49,7 @@ const CustomServiceContainer = ({
           breadcrumbsStyles={styles.breadcrumbs}
           breadcrumbsTheme={breadcrumbsTheme}
         />
-        {contentModules.map((module) => {
+        {contentModules?.map((module) => {
           const { type: sectionType, view } = getDocumentFields(module);
 
           return (
@@ -80,18 +80,7 @@ const CustomServiceContainer = ({
 };
 
 CustomServiceContainer.propTypes = {
-  pageData: PropTypes.instanceOf(Object).isRequired,
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-    ogImage: PropTypes.string,
-  }).isRequired,
   type: PropTypes.string.isRequired,
 };
 
-export default connect(
-  (state) => ({
-    pageData: selectComponents(state),
-    metaData: selectMetaData(state),
-  }),
-)(CustomServiceContainer);
+export default CustomServiceContainer;

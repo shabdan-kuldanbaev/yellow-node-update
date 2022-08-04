@@ -30,11 +30,13 @@
 
     .title {
       @include fontSize(56px);
+
       line-height: 120%;
     }
 
     .subtitle {
       @include fontSize(18px);
+
       text-align: center;
       color: rgba($dark-grey, 0.6);
 

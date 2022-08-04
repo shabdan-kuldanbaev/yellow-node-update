@@ -1,22 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import PageNotFound from 'containers/PageNotFound';
+import { wrapper } from 'redux/store';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 
-const Error = ({ statusCode, err }) => (
-  <Fragment>
-    {statusCode
-      ? statusCode === 404 && <PageNotFound />
-      : `An error occurred on client ${err}`}
-  </Fragment>
+const Error = ({ statusCode, err }) => (statusCode
+  ? statusCode === 404 && <PageNotFound />
+  : `An error occurred on client ${err}`
 );
 
-Error.getInitialProps = async ({
+Error.getInitialProps = wrapper.getInitialPageProps((store) => async ({
   err,
   res,
-  store,
   req,
   asPath,
 }) => {
@@ -51,6 +48,6 @@ Error.getInitialProps = async ({
     statusCode,
     err,
   };
-};
+});
 
 export default Error;

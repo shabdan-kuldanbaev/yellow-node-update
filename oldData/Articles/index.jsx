@@ -1,12 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {
-  LinkWrapper,
-  Loader,
-  Animated,
-  Subscribe,
-} from 'components';
+import Loader from 'oldData/Loader';
+import Animated from 'components/Common/Animated';
+import Subscribe from 'components/BlogCommon/Subscribe';
 import { animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 

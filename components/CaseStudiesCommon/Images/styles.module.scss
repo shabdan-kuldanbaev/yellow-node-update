@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins", "styles/utils/theme/animations";
+@import 'styles/utils/mixins';
+@import 'styles/utils/theme/animations';
 
 .imageContainer {
   position: relative;
@@ -71,7 +72,7 @@
     width: 320px;
     transform: translate(-14%, 0) scale(0.8);
     transition: transform 2s $primary-bezier 100ms;
-    filter: drop-shadow(-10px 10px 25px rgba(57, 57, 57, 0.2));
+    filter: drop-shadow(-10px 10px 25px rgb(57 57 57 / 0.2));
 
     @include phone {
       width: 190px;

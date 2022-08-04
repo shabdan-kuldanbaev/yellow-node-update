@@ -1,34 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import dynamic from 'next/dynamic';
+import { useSelector } from 'react-redux';
 import { selectIsTabletResolutions, selectIsMobileResolutions } from 'redux/selectors/layout';
-import { DesktopCarousel } from './DesktopCarousel';
-import { MobileCarousel } from './MobileCarousel';
+
+const DesktopCarousel = dynamic(() => import('./DesktopCarousel'));
+const MobileCarousel = dynamic(() => import('./MobileCarousel'));
 
 const PhotoGallery = ({
   photos,
-  isTabletResolutions,
-  isMobileResolution,
-}) => photos && (
-  (isTabletResolutions || isMobileResolution)
-    ? <MobileCarousel photos={photos} />
-    : <DesktopCarousel photos={photos} />
-);
+}) => {
+  const isTabletResolutions = useSelector(selectIsTabletResolutions);
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
 
-PhotoGallery.defaultProps = {
-  isTabletResolutions: false,
-  isMobileResolution: false,
+  if (photos && (isTabletResolutions || isMobileResolution)) {
+    return <MobileCarousel photos={photos} />;
+  }
+
+  return <DesktopCarousel photos={photos} />;
 };
 
 PhotoGallery.propTypes = {
   photos: PropTypes.instanceOf(Array).isRequired,
-  isTabletResolutions: PropTypes.bool,
-  isMobileResolution: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({
-    isTabletResolutions: selectIsTabletResolutions(state),
-    isMobileResolution: selectIsMobileResolutions(state),
-  }),
-)(PhotoGallery);
+export default PhotoGallery;

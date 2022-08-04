@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import Script from 'next/script';
 import isEmpty from 'lodash/isEmpty';
-import { FullLayout } from 'components/Layout/FullLayout';
+import FullLayout from 'components/Layout/FullLayout';
 import { microdata } from 'utils/microdata';
 import { Question } from './Question';
 import styles from './styles.module.scss';
@@ -16,9 +17,11 @@ export const FAQ = ({ faqList, type }) => {
     <Fragment>
       <Head>
         {!isEmpty(faqList) && (
-          <script
+          <Script
+            id="JSON-LD-faq"
             key="JSON-LD-faq"
             type="application/ld+json"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(microdata.faq({ faqList })),
             }}

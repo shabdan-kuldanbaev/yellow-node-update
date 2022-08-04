@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .navButton {
   position: absolute;
@@ -18,27 +18,27 @@
     }
   }
 
+  &[disabled] {
+    opacity: 0.5;
+    color: $dark-grey;
+
+    &:hover {
+      cursor: default;
+
+      * {
+        fill: $dark-grey;
+        color: $dark-grey;
+      }
+    }
+  }
+
   @include below-tablet {
     display: none;
   }
 }
 
-:global(.swiper-button-disabled) {
-  opacity: 0.5;
-  color: $dark-grey;
-
-  &:hover {
-    cursor: default;
-
-    * {
-      fill: $dark-grey;
-      color: $dark-grey;
-    }
-  }
-}
-
-.arrowRight,
-.arrowLeft {
+.prev,
+.next {
   display: flex;
   align-items: center;
   width: fit-content;
@@ -53,7 +53,7 @@
   }
 }
 
-.arrowRight {
+.next {
   right: 0;
 
   & > svg {
@@ -65,7 +65,7 @@
   }
 }
 
-.arrowLeft {
+.prev {
   left: 0;
 
   @include below-tablet {

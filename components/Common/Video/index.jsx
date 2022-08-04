@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Video = ({ src, className }) => (
+const Video = ({ src, className }) => (
   <video
     autoPlay
     loop
@@ -20,3 +20,5 @@ Video.propTypes = {
   src: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
 };
+
+export default Video;

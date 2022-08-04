@@ -2,11 +2,9 @@ import React, { useState, Fragment } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import Slider from 'rc-slider';
-import {
-  SectionTitle,
-  Upload,
-  AnimatedInput,
-} from 'components';
+import Upload from 'components/Common/Upload';
+import SectionTitle from 'components/Common/SectionTitle';
+import AnimatedInput from 'components/Common/AnimatedInput';
 import { addThousandsSeparators } from 'utils/helper';
 import { services, budget } from './utils/data';
 
@@ -19,7 +17,7 @@ const FeedbackForm = () => {
   const [email, setEmail] = useState('');
   const budgetClassName = cn({
     [`${styles.budget}`]: true,
-    [`${styles.initialBudget}`]: projectBudget.length === 1, 
+    [`${styles.initialBudget}`]: projectBudget.length === 1,
   });
 
   const handleOnClick = ({ target: { classList } }) => {
@@ -36,7 +34,7 @@ const FeedbackForm = () => {
 
   const handleOnEmailChange = ({ target: { value } }) => {
     setEmail(value);
-  }; 
+  };
 
   const sliderSettings = {
     ...budget,
@@ -91,10 +89,10 @@ const FeedbackForm = () => {
           }
           <Slider {...sliderSettings} />
         </div>
-        
 
-        
-        
+
+
+
         <div className={styles.inputs}>
           <AnimatedInput
             value={fullName}

@@ -3,14 +3,14 @@
 
 @mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
   display: flex;
+  flex-flow: $fd $fw;
   flex-direction: $fd;
   justify-content: $jc;
   align-items: $ai;
-  flex-wrap: $fw;
 }
 
 @mixin hidden-text($textOverflow: ellipsis, $lineClamp: 1) {
-  display: -webkit-box;
+  display: contents;
   overflow: hidden;
   text-overflow: $textOverflow;
   -webkit-line-clamp: $lineClamp;
@@ -438,128 +438,30 @@
   }
 }
 
-@font-face {
-  font-family: 'Sonny Gothic Condensed Ultra Black';
-  font-display: swap;
-  src: url(getPathWithCdn('/fonts/sonnyGothic/Sonny-Gothic-Condensed-Ultra-Black.otf')) format('opentype');
-}
+@mixin defaultSectionTitle {
+  max-width: $max-content-width-small-section;
+  margin: 0 auto 60px;
 
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src:
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-regular.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-regular.woff')) format('woff');
-}
+  h2 {
+    @include fontSize(56px, 120%);
 
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  src:
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-500.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-500.woff')) format('woff');
-}
+    max-width: 100%;
+    letter-spacing: normal;
 
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  src:
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-600.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-600.woff')) format('woff');
-}
+    @include tablet {
+      @include fontSize(46px);
+    }
 
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src:
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-700.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-700.woff')) format('woff');
-}
+    @include below-tablet {
+      @include fontSize(40px);
+    }
 
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 800;
-  src:
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-800.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-800.woff')) format('woff');
-}
+    @include phone {
+      @include fontSize(32px);
+    }
+  }
 
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 900;
-  src:
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-900.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/montserrat/montserrat-v15-latin-900.woff')) format('woff');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  src:
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-regular.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-regular.woff')) format('woff');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  src:
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-500.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-500.woff')) format('woff');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  src:
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-600.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-600.woff')) format('woff');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  src:
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-700.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-700.woff')) format('woff');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 800;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  src:
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-800.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-800.woff')) format('woff');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 900;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  src:
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-900.woff2')) format('woff2'),
-    url(getPathWithCdn('/fonts/poppins/poppins-v15-latin-900.woff')) format('woff');
+  @include below-tablet {
+    margin-bottom: 40px;
+  }
 }

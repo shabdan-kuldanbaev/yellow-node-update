@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import throttle from 'lodash/throttle';
 
-export const withScroll = (Component) => (props) => {
+const withScroll = (Component) => (props) => {
   const maxScrollPosition = useRef(0);
   const lastScrollTop = useRef(0);
 
@@ -80,3 +80,5 @@ export const withScroll = (Component) => (props) => {
     />
   );
 };
+
+export default withScroll;

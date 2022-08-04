@@ -4,6 +4,7 @@ import ArticleContainer from 'containers/Article';
 import BlogContainer from 'containers/Blog';
 import PageNotFound from 'containers/PageNotFound';
 import { getInitialBlogProps, isArticle } from 'utils/blogUtils';
+import { wrapper } from 'redux/store';
 
 const Article = ({
   isTagBlog,
@@ -31,6 +32,6 @@ const Article = ({
     );
 };
 
-Article.getInitialProps = async (ctx) => getInitialBlogProps(ctx);
+export const getServerSideProps = wrapper.getServerSideProps((store) => async (ctx) => getInitialBlogProps(store, ctx));
 
 export default Article;

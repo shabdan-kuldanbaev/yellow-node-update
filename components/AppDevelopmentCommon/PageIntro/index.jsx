@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { Figures } from './Figures';
 import { getPageIntroProps } from './utils/pageIntroHelper';
 import styles from './styles.module.scss';

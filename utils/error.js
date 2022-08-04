@@ -1,25 +1,17 @@
-import * as SentryNode from '@sentry/node';
-import * as SentryBrowser from '@sentry/browser';
+import * as Sentry from '@sentry/nextjs';
 
 const isServer = typeof window === 'undefined';
 const isDev = process.env.NODE_ENV !== 'production';
 
 const handleError = ({ error = {}, ...extra } = {}) => {
-  if (isServer) {
-    SentryNode.captureException(error, {
-      extra: {
-        ...extra,
-        message: `Next.js Server-side: ${extra.message || error.message}`,
-      },
-    });
-  } else {
-    SentryBrowser.captureException(error, {
-      extra: {
-        ...extra,
-        message: `Next.js Client-side: ${extra.message || error.message}`,
-      },
-    });
-  }
+  const messageSide = isServer ? 'Server-side' : 'Client-side';
+
+  Sentry.captureException(error, {
+    extra: {
+      ...extra,
+      message: `Next.js ${messageSide}: ${extra.message || error.message}`,
+    },
+  });
 
   if (isDev) {
     console.error(error.message, extra.message || extra);
@@ -28,18 +20,33 @@ const handleError = ({ error = {}, ...extra } = {}) => {
 };
 
 const handleMessage = ({ message } = {}) => {
-  if (isServer) {
-    SentryNode.captureMessage(`Next.js Server-side: ${message}`);
-  } else {
-    SentryBrowser.captureMessage(`Next.js Client-side: ${message}`);
-  }
+  const messageSide = isServer ? 'Server-side' : 'Client-side';
+
+  Sentry.captureMessage(`Next.js ${messageSide}: ${message}`);
 
   if (isDev) {
     console.warn(message);
   }
 };
 
+export const handleApiError = ({ error = {}, ...extra } = {}) => {
+  Sentry.captureException(error, {
+    extra: {
+      ...extra,
+      message: `Server: ${extra.message || error.message}`,
+    },
+  });
+  console.error(error.message, extra.message || extra);
+  console.error(error);
+};
+
+const handleApiMessage = ({ message } = {}) => {
+  Sentry.captureMessage(`Server: ${message}`);
+};
+
 export default {
   handleError,
   handleMessage,
+  handleApiError,
+  handleApiMessage,
 };

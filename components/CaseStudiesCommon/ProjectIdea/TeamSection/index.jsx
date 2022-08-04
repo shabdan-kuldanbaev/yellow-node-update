@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { getFileUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import { TitleUnderline } from './TitleUnderline';

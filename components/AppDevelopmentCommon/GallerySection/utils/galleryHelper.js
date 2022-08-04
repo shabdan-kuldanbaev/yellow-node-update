@@ -1,7 +1,12 @@
 import React from 'react';
 import get from 'lodash/get';
+import {
+  EffectCoverflow,
+  Mousewheel,
+  Navigation,
+  Pagination,
+} from 'swiper';
 import { getDocumentFields } from 'utils/helper';
-import { SWIPER_NAV_PARAMS } from 'utils/constants';
 
 export const getGalleryProps = (data) => {
   const {
@@ -28,7 +33,12 @@ export const getGalleryProps = (data) => {
       depth: 150,
       slideShadows: false,
     },
-    ...SWIPER_NAV_PARAMS,
+    modules: [
+      EffectCoverflow,
+      Pagination,
+      Mousewheel,
+      Navigation,
+    ],
     breakpoints: {
       1025: {
         slidesPerView: 1.8,

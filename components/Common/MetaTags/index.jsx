@@ -2,12 +2,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import Script from 'next/script';
 import isEmpty from 'lodash/isEmpty';
 import { getPathWithCdn } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { ogMetaData } from './utils/data';
 
-export const MetaTags = ({
+const MetaTags = ({
   page,
   pageMetadata,
   children,
@@ -68,7 +69,7 @@ export const MetaTags = ({
         <meta property="og:image" content={getImage()} />
         {categoryTag && <meta property="article:section" content={categoryTag} />}
         {publishedAt && <meta property="article:published_time" content={publishedAt} />}
-        {keyWords && keyWords.map((keyWord) => (
+        {keyWords?.map((keyWord) => (
           <meta
             key={`meta/tag/${keyWord}`}
             property="article:tag"
@@ -82,15 +83,19 @@ export const MetaTags = ({
         <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
         <link rel="manifest" href="/manifest.json" />
         {!isEmpty(pageMicrodata) && (
-          <script
+          <Script
+            id={`JSON-LD-${pageMicrodata.name}`}
             key={`JSON-LD-${pageMicrodata.name}`}
+            strategy="afterInteractive"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(pageMicrodata) }}
           />
         )}
         {!isEmpty(breadcrumbs) && (
-          <script
+          <Script
+            id="JSON-LD-breadcrumbs"
             key="JSON-LD-breadcrumbs"
+            strategy="afterInteractive"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(microdata.breadcrumbs({ breadcrumbsList: breadcrumbs })),
@@ -134,3 +139,5 @@ MetaTags.propTypes = {
   isArticle: PropTypes.bool,
   defaultMetaData: PropTypes.instanceOf(Array),
 };
+
+export default MetaTags;

@@ -3,16 +3,16 @@
 @import 'styles/utils/mixins';
 
 .work {
+  @include flex(row-reverse, space-evenly, center);
+
   position: relative;
   z-index: 5;
-  width: calc(100% - (80 * 2));
+  width: calc(100% - (80px * 2));
   margin: 0 80px;
   will-change: background-color;
   transition: background-color $default-transition-time ease;
   transition-timing-function: linear;
   min-height: 100vh;
-
-  @include flex(row-reverse, space-evenly, center);
 
   &:nth-child(even) {
     flex-direction: row;
@@ -97,7 +97,6 @@
 
     & > div {
       max-width: 650px;
-      //width: 80%;
       height: 100%;
       opacity: 1;
       will-change: transform;
@@ -202,6 +201,12 @@
     max-height: 100%;
     margin: 0;
 
+    .parallaxContainer {
+      & > div {
+        width: 100%;
+      }
+    }
+
     @include below-tablet {
       width: 100%;
       height: 60vh;
@@ -212,10 +217,6 @@
       width: 100%;
       height: 75vw;
       margin: 0 -20px;
-
-      &:nth-of-type(2) {
-        height: 80vw;
-      }
     }
 
     @include horizontal-mobile {
@@ -243,7 +244,6 @@
 
       @include below-tablet {
         justify-content: stretch;
-        //height: 80%;
         width: auto;
       }
 
@@ -285,11 +285,16 @@
           }
         }
 
-        img {
-          max-width: 100%;
+        .img {
+          display: block;
+          width: 100%;
           max-height: 100%;
           height: 48.4375vw;
           z-index: 10;
+
+          img {
+            object-fit: cover;
+          }
 
           @include below-tablet {
             max-width: 100vw;
@@ -297,6 +302,10 @@
             height: unset;
             width: 95vw;
             transform: translateX(-9.5vw) scale(1.2);
+
+            img {
+              object-fit: contain !important;
+            }
           }
 
           @include small-phone {
@@ -308,29 +317,36 @@
       .firstShadow {
         @extend .imgWrapper;
 
-        transform: translateX(-5vw);
+        transform: translateX(-80px);
+        will-change: transform;
 
         @include below-tablet {
           height: 60vh;
           transform: translateY(-7vh);
         }
 
-        @include phone {
-          height: fit-content;
-        }
-
-        img {
-          width: 110%;
-          height: unset;
-          max-width: 110%;
+        .img {
+          height: 100%;
           z-index: 10;
+
+          * {
+            overflow: visible;
+          }
+
+          img {
+            filter: drop-shadow(0 24px 44px rgba($black, 0.45));
+            object-position: right;
+          }
 
           @include below-tablet {
             max-width: 100vw;
             max-height: 100vh;
-            height: unset;
             width: 95vw;
             transform: translateX(0);
+
+            img {
+              object-position: center;
+            }
           }
 
           @include small-phone {
@@ -342,22 +358,15 @@
       .secondShadow {
         @extend .imgWrapper;
 
-        transform: translateX(2.7vw);
-
-        @include tablet {
-          transform: translateX(4.2vw);
-        }
+        transform: translateX(80px);
+        will-change: transform;
 
         @include below-tablet {
           height: 60vh;
           transform: translateX(0);
         }
 
-        @include phone {
-          height: fit-content;
-        }
-
-        img {
+        .img {
           max-width: unset;
 
           @include below-tablet {
@@ -391,7 +400,14 @@
       .thirdShadow {
         @extend .imgWrapper;
 
-        img {
+        transform: translate(-80px, -40px);
+        will-change: transform;
+
+        @include below-tablet {
+          transform: translate(0, 0);
+        }
+
+        .img {
           max-width: unset;
           height: 35vw;
 
