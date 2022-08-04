@@ -269,8 +269,6 @@
   }
 }
 
-
-
 .hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
@@ -281,6 +279,15 @@
   overflow-x: hidden;
 }
 
+.humankind,
 .hotel-data-cloud {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F9FCFF 17.19%, #F9FCFF 79.17%, #FFFFFF 100%);
+  overflow: hidden;
+
+  background: linear-gradient(180deg, $white 0%, $white-cloud 17.19%, $white-cloud 79.17%, $white 100%);
+}
+
+.humankind {
+  [data-case-study-title] {
+    margin-bottom: 40px;
+  }
 }

@@ -5,7 +5,7 @@
     }
 
     .contentContainer {
-      margin: 0 auto 320px;
+      margin: 0 auto 121px;
 
       @include tablet {
         margin-bottom: 60px;
@@ -13,6 +13,7 @@
 
       .infoContainer {
         max-width: unset;
+        margin: 0;
 
         @include tablet {
           margin: 0;
@@ -21,6 +22,8 @@
 
         .title,
         p {
+          max-width: 430px;
+
           @include tablet {
             text-align: center;
           }
@@ -33,52 +36,95 @@
     }
 
     .special {
-      position: relative;
+      max-width: unset;
+  
+      &:nth-child(2n + 1) {
+        @include flex(row, flex-end);
 
-      @include tablet {
-        flex-direction: column;
-      }
+        padding-left: 200px;
 
-      .images {
-        position: relative;
-      }
-
-      &:nth-child(odd) {
-        .image {
-          transform: scale(2) translate(30%, 0%);
-
-          @include macbook-thirteen {
-            transform: scale(2) translate(20%, 0%);
-          }
-
-          @include tablet {
-            transform: none;
-          }
+        @include macbook-fifteen {
+          padding-left: 100px;
         }
-      }
+  
+        @include macbook-twelve {
+          padding-left: 40px;
+        }
 
-      &:nth-child(even) {
+        @include tablet {
+          padding-left: 0;
+        }
+
         .image {
-          transform: scale(2) translate(-30%, 0%);
-
-          @include macbook-thirteen {
-            transform: scale(2) translate(-20%, 0%);
-          }
+          transform: translate(140px, 0px);
 
           @include tablet {
             transform: none;
           }
         }
 
-        .imageBundle-1 {
-          position: absolute;
-          max-width: 1120px;
+        & > div:last-child {
+          @extend .openSenseGradient;
+  
+          &::after {
+            right: -40px;
+            transform: translate(40px, 0px);
+            background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
+  
+            @include tablet {
+              display: none;
+            }
+          }
+        }
+      }
+  
+      &:nth-child(2n) {
+        @include flex(row, flex-start);
+        padding-right: 200px;
+
+        @include macbook-fifteen {
+          padding-right: 100px;
+        }
+  
+        @include macbook-twelve {
+          padding-right: 40px;
+        }
+
+        @include tablet {
+          padding-right: 0;
+        }
+
+        .image {
+          transform: translate(-140px, 0px);
 
           @include tablet {
-            position: static;
-            width: 100%;
-            transform: translate(0, -140px);
+            transform: none;
           }
+        }
+  
+        & > div:last-child {
+          @extend .openSenseGradient;
+  
+          &::after {
+            left: -40px;
+            transform: translate(-40px, 0px);
+            background: linear-gradient(
+              269.82deg,
+              rgba($white, 0) 0.15%,
+              $white 60.38%
+            );
+  
+            @include tablet {
+              display: none;
+            }
+          }
+        }
+      }
+  
+      &:nth-child(2n + 1),
+      &:nth-child(2n) {
+        @include tablet {
+          @include flex(column, center, center);
         }
       }
     }
@@ -94,7 +140,8 @@
     }
 
     p {
-      color: rgba(255, 255, 255, 0.7);
+      color: $white;
+      opacity: 0.7;
     }
   }
 }

@@ -197,7 +197,7 @@
 .humankind {
   @extend .container;
 
-  background: #F8F8FA;
+  background: $athens-gray;
 
   .contentContainer {
     padding-bottom: 0;
@@ -234,6 +234,10 @@
 
         .description {
           max-width: 643px;
+
+          @include phone {
+            margin-bottom: 40px;
+          }
         }
       }
     }

@@ -1,4 +1,16 @@
-/* stylelint-disable no-descending-specificity */
+.hotelDataCloudGradient {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    top: 0;
+    z-index: 10;
+  }
+}
+
 .hotel-data-cloud {
   &.firstSectionView {
     .special {
@@ -6,6 +18,11 @@
   
       .image {
         filter: none;
+        max-width: 1008px;
+      }
+
+      .contentContainer {
+        position: relative;
       }
 
       .infoContainer {
@@ -17,7 +34,7 @@
           font-size: 32px;
           line-height: 120%;
 
-          color: #171717;
+          color: $dark-grey;
 
           @include tablet {
             text-align: center;
@@ -31,9 +48,10 @@
         p {
           font-size: 18px;
           line-height: 180%;
-          color: #A0A0A0;
+          color: $silver-chalice;
 
           max-width: 385px;
+          min-width: 350px;
 
           @include tablet {
             text-align: center;
@@ -52,6 +70,60 @@
         }
       }
 
+      &:nth-child(1) {
+        .imageBundle-1 {
+          position: absolute;
+          top: -50px;
+          left: -76px;
+        }
+      }
+
+      &:nth-child(2) {
+        .imageBundle-1 {
+          position: absolute;
+          top: 20%;
+          left: -30%;
+
+          width: 687px;
+          height: 687px;
+        }
+      }
+
+      &:nth-child(3) {
+        .imageBundle-1 {
+          position: absolute;
+          top: 20%;
+          left: 95%;
+          width: 157px;
+          height: 157px;
+
+          @include desktop {
+            top: 5%;
+            left: 85%;
+          }
+
+          @include macbook-twelve {
+            top: 5%;
+            left: 89%;
+          }
+  
+          @include tablet {
+            display: none;
+            background: none;
+            transform: translate(0px, 0px);
+          }
+        }
+
+        .imageBundle-2 {
+          position: absolute;
+          top: 0px;
+          right: -50%;
+
+          width: 675px;
+          height: 675px;
+        }
+      }
+
       &:nth-child(2n + 1) {
         @include flex(row, flex-start);
 
@@ -59,22 +131,33 @@
 
         .infoContainer {
           order: 2;
-          margin-left: 170px;
+          margin-left: 130px;
 
-          @include macbook-twelve {
-            margin-left: 70px;
+          @include desktop {
+            margin-left: 30px;
           }
         }
 
-        & > div:last-child {
-          &::after {
-            right: 0;
+        .images {
+          @extend .openSenseGradient;
+
+          &::after {  
+            left: 0;
             height: 107%;
-            transform: translate(10px, -1px);
-            background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
+            transform: translate(0, -1px);
+            background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
   
-            @include phone {
+            @include tablet {
               display: none;
+              background: none;
+            }
+          }
+
+          .image {
+            transform: translate(-40px, 0px);
+
+            @include tablet {
+              transform: translate(0px, 0px);
             }
           }
         }
@@ -95,22 +178,33 @@
 
         .infoContainer {
           order: 0;
-          margin-right: 170px;
+          margin-right: 130px;
 
-          @include macbook-twelve {
-            margin-right: 70px;
+          @include desktop {
+            margin-right: 30px;
           }
         }
 
-        & > div:last-child {
+        .images {
+          @extend .openSenseGradient;
+
           &::after {
-            left: 0;
+            right: 0;
             height: 107%;
-            transform: translate(0, -1px);
-            background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
+            transform: translate(10px, -1px);
+            background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
   
-            @include phone {
+            @include tablet {
               display: none;
+              background: none;
+            }
+          }
+
+          .image {
+            transform: translate(40px, 0px);
+
+            @include tablet {
+              transform: translate(0px, 0px);
             }
           }
         }
@@ -143,7 +237,8 @@
       }
   
       p {
-        color: rgba(255, 255, 255, 0.7);
+        color: $white;
+        opacity: 0.7;
       }
     }
   }
