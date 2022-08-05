@@ -350,3 +350,16 @@
     }
   }
 }
+
+.machine-learning-in-real-estate {
+  @include caseStudyContainer;
+
+  background-color: $very-dark-blue;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+}

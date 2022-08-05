@@ -297,6 +297,7 @@ export const CASE_STUDIES = {
   blackBird: 'blackbird',
   mobileFintechApp: 'fintech-app-for-credit-score',
   goodPsychics: 'marketplace-for-clairvoyant-services',
+  mlInRealEstate: 'machine-learning-in-real-estate',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -321,6 +322,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileFintechApp).path,
   ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,

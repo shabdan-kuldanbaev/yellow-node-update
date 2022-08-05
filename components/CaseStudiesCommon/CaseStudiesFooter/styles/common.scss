@@ -302,7 +302,8 @@
 }
 
 .fairy,
-.fintech-app-for-credit-score {
+.fintech-app-for-credit-score,
+.machine-learning-in-real-estate {
   @extend .container;
 
   background: $light-violet-1;
@@ -339,6 +340,10 @@
 
 .fintech-app-for-credit-score {
   background: $green-aloha;
+}
+
+.machine-learning-in-real-estate {
+  background-color: $very-dark-blue;
 }
 
 .tell {

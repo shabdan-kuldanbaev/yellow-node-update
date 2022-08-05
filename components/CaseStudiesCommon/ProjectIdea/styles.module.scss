@@ -700,3 +700,88 @@
     }
   }
 }
+
+.machine-learning-in-real-estate {
+  @extend .container;
+
+  background-color: $very-dark-blue;
+  color: $white;
+  position: relative;
+
+  .contentContainer {
+    padding-bottom: 0;
+
+    .descriptionContainer {
+      max-width: unset;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-left: unset;
+
+      .descriptionIntro {
+        .sectionName {
+          color: $white;
+        }
+
+        .title {
+          color: $white;
+        }
+
+        .description {
+          color: $white;
+          max-width: unset;
+          width: 517px;
+
+          @include below-tablet {
+            width: 300px;
+          }
+        }
+
+        @include below-tablet {
+          width: 300px;
+        }
+
+        @include phone {
+          margin: 0 auto;
+        }
+      }
+
+      @include phone {
+        flex-direction: column;
+        margin-bottom: unset;
+      }
+    }
+  }
+
+  .mobileAdditionalInformation {
+    & > div {
+      @include phone {
+        margin-top: unset;
+      }
+    }
+  }
+
+  & > div:last-child {
+    position: absolute;
+    top: 53%;
+    left: 64.8%;
+
+    @include tablet {
+      top: 40%;
+      left: 60.8%;
+    }
+
+    @include below-tablet {
+      top: 35%;
+    }
+
+    @include phone {
+      top: 73%;
+      left: 30%;
+    }
+  }
+
+  @include phone {
+    padding: 30px 15px 100px;
+  }
+}

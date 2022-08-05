@@ -158,7 +158,8 @@
 .drive-focus,
 .fireaway,
 .telemojo,
-.marketplace-for-clairvoyant-services {
+.marketplace-for-clairvoyant-services,
+.machine-learning-in-real-estate {
   @extend .imageContainer;
 
   background-color: $white;
@@ -215,7 +216,8 @@
 
 .smartcenter,
 .meateater,
-.fintech-app-for-credit-score {
+.fintech-app-for-credit-score,
+.machine-learning-in-real-estate {
   .image:first-child {
     display: block;
     max-width: $max-content-width-small-section;
@@ -411,6 +413,20 @@
     .image:first-child {
       max-width: $max-content-width-small-section;
       margin: 0 auto;
+    }
+  }
+}
+
+.machine-learning-in-real-estate {
+  background-color: $very-dark-blue;
+
+  .image:last-child {
+    display: none;
+    max-width: 300px;
+    margin: 0 auto;
+
+    @include phone {
+      display: block;
     }
   }
 }

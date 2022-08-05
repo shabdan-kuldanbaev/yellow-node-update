@@ -183,3 +183,46 @@
     }
   }
 }
+
+.machine-learning-in-real-estate {
+  background-color: $very-dark-blue;
+  color: $white;
+
+  [data-case-study-title] {
+    padding-top: 150px;
+    width: 909px;
+    margin: 0 auto 40px;
+
+    @include tablet {
+      width: 600px;
+    }
+
+    @include below-tablet {
+      width: 500px;
+    }
+
+    @include phone {
+      @include fontSize (32px);
+
+      width: 300px;
+      padding-top: 80px;
+    }
+  }
+
+  [data-case-study-description] {
+    max-width: unset;
+    width: 870px;
+
+    @include tablet {
+      width: 700px;
+    }
+
+    @include below-tablet {
+      width: 600px;
+    }
+
+    @include phone {
+      width: 300px;
+    }
+  }
+}

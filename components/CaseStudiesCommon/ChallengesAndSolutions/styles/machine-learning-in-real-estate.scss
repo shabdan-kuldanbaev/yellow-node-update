@@ -1,0 +1,25 @@
+.machine-learning-in-real-estate {
+  background-size: cover;
+  background-position: center;
+  color: $white;
+
+  .title {
+    color: $white;
+  }
+
+  .contentContainer {
+    margin: 0 auto 60px;
+
+    .infoContainer {
+      max-width: 460px;
+
+      h3 {
+        color: $white;
+      }
+
+      p {
+        color: $white;
+      }
+    }
+  }
+}

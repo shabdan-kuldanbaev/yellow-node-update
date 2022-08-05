@@ -756,3 +756,60 @@
     }
   }
 }
+
+.machine-learning-in-real-estate {
+  @include caseStudyContainer;
+
+  background-color: $very-dark-blue;
+  padding: 20px 40px;
+
+  [data-case-study-title] {
+    color: $white;
+    margin: 0 0 50px;
+
+    @include below-tablet {
+      margin: 0 0 20px;
+    }
+  }
+
+  .mockup {
+    filter: unset;
+    width: 760px;
+
+    @include phone {
+      width: 300px;
+      top: 90%;
+    }
+  }
+
+  .circle {
+    height: 250px;
+    margin-top: unset;
+
+    & > img:first-child {
+      width: 1000px;
+
+      @include below-tablet {
+        width: 700px;
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    & > img:last-child {
+      display: none;
+
+      @include phone {
+        display: block;
+      }
+    }
+
+    @include phone {
+      height: 150px;
+      margin-top: 100px;
+      width: unset;
+    }
+  }
+}

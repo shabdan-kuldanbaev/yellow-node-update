@@ -308,3 +308,57 @@
     }
   }
 }
+
+.machine-learning-in-real-estate {
+  @extend .formContainer;
+
+  background: $very-dark-blue;
+  padding: 120px 0;
+
+  .title {
+    color: $white;
+  }
+
+  .subtitle {
+    color: $white;
+
+    /* stylelint-disable-next-line */
+    span {
+      /* stylelint-disable-next-line */
+      a {
+        color: $white;
+
+        /* stylelint-disable-next-line */
+        &::before {
+          border-bottom: 1px $white solid;
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+  & > div:last-child {
+    & > form {
+      ::placeholder {
+        color: $white;
+      }
+
+      :-ms-input-placeholder {
+        color: $white;
+      }
+
+      ::-ms-input-placeholder {
+        color: $white;
+      }
+
+      & > div:last-child {
+        a {
+          div {
+            color: $white;
+            border-color: $white;
+          }
+        }
+      }
+    }
+  }
+}
