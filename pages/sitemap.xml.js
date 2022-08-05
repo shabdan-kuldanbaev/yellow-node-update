@@ -1,6 +1,5 @@
 import * as builder from 'xmlbuilder';
 import dayjs from 'dayjs';
-import { wrapper } from 'redux/store';
 import {
   getMainLinksForSitemap,
   rootUrl,

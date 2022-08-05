@@ -79,6 +79,7 @@ export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps
     return {
       props: {
         metaData: selectMetaData(state),
+        type: slug,
         ...pageData,
       },
       revalidate: 10,

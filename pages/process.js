@@ -2,13 +2,6 @@ import React from 'react';
 import ProcessContainer from 'containers/Process';
 import { processes } from 'utils/processes';
 
-const Process = ({ introSection, json }) => (
-  <ProcessContainer
-    introSection={introSection}
-    json={json}
-  />
-);
-
 export const getStaticProps = () => ({
   props: {
     json: processes,
@@ -16,4 +9,4 @@ export const getStaticProps = () => ({
   revalidate: 10,
 });
 
-export default Process;
+export default ProcessContainer;

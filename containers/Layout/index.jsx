@@ -3,6 +3,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import {
@@ -13,13 +14,14 @@ import {
 import CookiesNotification from 'components/Common/CookiesNotification';
 import GAnalytic from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
-import Footer from 'components/Layout/Footer';
-import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import {
   mobileResolution,
   tabletResolution,
   fullResolution,
 } from 'utils/helper';
+
+const Footer = dynamic(() => import('components/Layout/Footer'));
+const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
 
 const Layout = ({ children, introSection }) => {
   const dispatch = useDispatch();

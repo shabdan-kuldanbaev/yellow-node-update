@@ -28,4 +28,4 @@ Intro.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default Intro;
+export default React.memo(Intro);
