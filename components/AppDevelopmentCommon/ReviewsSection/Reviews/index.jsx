@@ -12,7 +12,7 @@ import SwiperCors, {
   EffectCoverflow,
   Navigation,
 } from 'swiper';
-import SwiperNavButton from 'components/SwiperNavButton';
+import { SwiperNavigation } from 'components/SwiperNavigation';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getMaxVal } from 'utils/helper';
 import { Comment } from './Comment';
@@ -78,14 +78,7 @@ export const Reviews = ({ reviews = [] }) => {
               />
             </SwiperSlide>
           ))}
-          <SwiperNavButton
-            type="prev"
-            text="previous"
-          />
-          <SwiperNavButton
-            type="next"
-            text="next"
-          />
+          <SwiperNavigation />
         </Swiper>
       </div>
       <div

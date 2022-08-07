@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import { SwiperNavigation } from 'components/SwiperNavigation';
+import { ItemPreview } from './ItemPreview';
+import { GalleryCallToAction } from './GalleryCallToAction';
 import {
   getItemLink,
   getItemPreviewProps,
-} from 'components/AppDevelopmentCommon/GallerySection/ItemPreview/utils/itemPreviewHelper';
-import SwiperNavButton from 'components/SwiperNavButton';
-import { ItemPreview } from './ItemPreview';
-import { GalleryCallToAction } from './GalleryCallToAction';
+} from './ItemPreview/utils/itemPreviewHelper';
 import { getGalleryProps } from './utils/galleryHelper';
 import styles from './styles.module.scss';
 
@@ -57,16 +57,7 @@ const GallerySection = ({
               </SwiperSlide>
             );
           })}
-          <SwiperNavButton
-            type="prev"
-            text="previous"
-            className={styles.swiperPrevEl}
-          />
-          <SwiperNavButton
-            type="next"
-            text="next"
-            className={styles.swiperNextEl}
-          />
+          <SwiperNavigation className={styles.navigation} />
         </Swiper>
       </div>
       {linkData && (
