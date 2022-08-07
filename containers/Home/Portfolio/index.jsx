@@ -19,9 +19,10 @@ import styles from './styles.module.scss';
 const Portfolio = ({ projects }) => {
   const [backgroundColor, setBackgroundColor] = useState('firstBlock');
   const [blockNumber, setBlockNumber] = useState(0);
-  const refs = [useRef(null), useRef(null), useRef(null)];
+  const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const portfolioRef = useRef(null);
-  const [currentNumber, setCurrentNumber] = useState(3);
+  const gradientRef = useRef(null);
+  const [currentNumber, setCurrentNumber] = useState(4);
   const { contentModules } = getDocumentFields(projects, ['contentModules']);
 
   const changeStyle = (index) => {
@@ -42,6 +43,7 @@ const Portfolio = ({ projects }) => {
 
     if (isWorksRefsExist) {
       const [
+        zeroBlock,
         firstBottom,
         secondBottom,
         thirdBottom,
@@ -49,28 +51,29 @@ const Portfolio = ({ projects }) => {
         refs[0].current.getBoundingClientRect().bottom,
         refs[1].current.getBoundingClientRect().bottom,
         refs[2].current.getBoundingClientRect().bottom,
+        refs[3].current.getBoundingClientRect().bottom,
       ];
 
-      if (firstBottom > halfHeight && secondBottom > halfHeight && thirdBottom > halfHeight) {
-        if (currentNumber !== 0) {
-          setBlockNumber(0);
-          changeStyle(0);
-          setCurrentNumber(0);
-        }
-      } else if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
+      if (zeroBlock < halfHeight && (firstBottom > halfHeight && secondBottom > halfHeight && thirdBottom > halfHeight)) {
         if (currentNumber !== 1) {
-          setBlockNumber(1);
+          setBlockNumber(0);
           changeStyle(1);
           setCurrentNumber(1);
         }
-      } else if (secondBottom < halfHeight) {
-        if (currentNumber !== 1) {
-          setBlockNumber(2);
+      } else if (firstBottom < halfHeight && (secondBottom > halfHeight && thirdBottom > halfHeight)) {
+        if (currentNumber !== 2) {
+          setBlockNumber(1);
           changeStyle(2);
           setCurrentNumber(2);
         }
+      } else if (secondBottom < halfHeight) {
+        if (currentNumber !== 3) {
+          setBlockNumber(2);
+          changeStyle(3);
+          setCurrentNumber(3);
+        }
       } else if (currentNumber !== 0) {
-        setBlockNumber(0);
+        setBlockNumber(1);
         changeStyle(0);
         setCurrentNumber(0);
       }
@@ -91,7 +94,10 @@ const Portfolio = ({ projects }) => {
   }, []);
 
   return (
-    <div className={styles.gradient}>
+    <div
+      className={styles.gradient}
+      ref={gradientRef}
+    >
       <Advantages
         refs={refs}
         className={styles[backgroundColor]}

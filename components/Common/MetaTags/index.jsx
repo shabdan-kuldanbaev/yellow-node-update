@@ -6,6 +6,7 @@ import Script from 'next/script';
 import isEmpty from 'lodash/isEmpty';
 import { getPathWithCdn } from 'utils/helper';
 import { microdata } from 'utils/microdata';
+import { IS_PROD } from 'utils/constants';
 import { ogMetaData } from './utils/data';
 
 const MetaTags = ({
@@ -20,6 +21,7 @@ const MetaTags = ({
   const {
     metaTitle,
     metaDescription,
+    metaRobots,
     image,
     publishedAt,
     categoryTag,
@@ -32,6 +34,7 @@ const MetaTags = ({
     metaTitle: defaultMetaTitle,
     metaDescription: defaultMetaDescription,
   } = defaultMetaData.find((metaData) => metaData.pageName === page);
+
   const getTitle = (title) => (pageNumber > 1
     ? `${title} | Page ${pageNumber}`
     : title);
@@ -53,6 +56,7 @@ const MetaTags = ({
 
   const title = metaTitle || defaultMetaTitle;
   const description = metaDescription || defaultMetaDescription;
+  const robots = !IS_PROD ? 'none' : metaRobots;
 
   return (
     <Head>
@@ -60,6 +64,7 @@ const MetaTags = ({
         <title>{getTitle(title)}</title>
         <meta name="description" content={getDescription(description)} />
         <meta name="date" content={date} />
+        {robots && <meta name="robots" content={robots} />}
         <link rel="canonical" href={url} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content={type} />
@@ -86,7 +91,7 @@ const MetaTags = ({
           <Script
             id={`JSON-LD-${pageMicrodata.name}`}
             key={`JSON-LD-${pageMicrodata.name}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(pageMicrodata) }}
           />
@@ -95,7 +100,7 @@ const MetaTags = ({
           <Script
             id="JSON-LD-breadcrumbs"
             key="JSON-LD-breadcrumbs"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(microdata.breadcrumbs({ breadcrumbsList: breadcrumbs })),

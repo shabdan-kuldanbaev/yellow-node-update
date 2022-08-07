@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectMetaData } from 'redux/selectors/layout';
@@ -31,7 +31,7 @@ const PageNotFound = ({
   };
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.notFound}
         pageMetadata={pageMetadata}
@@ -66,7 +66,7 @@ const PageNotFound = ({
           </Animated>
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

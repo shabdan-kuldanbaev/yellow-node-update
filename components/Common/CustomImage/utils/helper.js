@@ -55,3 +55,24 @@ export const patchImageUrl = (url, replace, replaceSymbol) => {
 
   return url;
 };
+
+export const ContentfulImageLoader = ({
+  src,
+  quality,
+  width,
+  height,
+}) => {
+  let url = src;
+
+  if (width) {
+    url = patchImageUrl(url, width, 'w');
+  }
+
+  if (height) {
+    url = patchImageUrl(url, height, 'h');
+  }
+
+  return `${url}&q=${quality}`;
+};
+
+export const staticImageLoader = ({ src }) => src;

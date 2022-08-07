@@ -369,10 +369,19 @@
         .img {
           max-width: unset;
 
+          img {
+            filter: drop-shadow(0 16px 34px rgba($black, 0.1));
+            object-position: left;
+          }
+
           @include below-tablet {
             max-width: 100vw;
             max-height: 100vh;
             transform: none;
+
+            img {
+              object-position: center;
+            }
           }
         }
 

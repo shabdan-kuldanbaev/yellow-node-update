@@ -58,7 +58,6 @@ const Work = ({
             height={700}
             scale={2}
             objectFit={index === 2 ? 'contain' : 'cover'}
-            sizes="(max-width: 768px) 100vw, 50vw"
             containerClasses={styles.img}
           />
         </div>

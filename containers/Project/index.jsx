@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
@@ -24,7 +24,7 @@ const ProjectContainer = ({ introSection, currentProject }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.portfolio}
         pageMetadata={pageMetadata}
@@ -33,7 +33,7 @@ const ProjectContainer = ({ introSection, currentProject }) => {
         body={body}
         introSection={introSection}
       />
-    </Fragment>
+    </>
   );
 };
 

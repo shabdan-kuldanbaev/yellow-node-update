@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import CustomImage from 'components/Common/CustomImage';
 import Animated from 'components/Common/Animated';
-import { getImage } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
+import { getImage } from 'utils/helper';
 import { IMAGE_SIZES } from './config';
 import styles from './styles.module.scss';
 

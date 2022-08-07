@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -16,10 +16,10 @@ const LinkWrapper = ({
   className,
   children,
   googleAnalyticProps,
-  isSocialLink,
+  isSocialLink: isExternalLink,
   onClick,
 }) => {
-  const finalPath = path.replace(/(\/\/)?(rootUrl)?/g, '');
+  const finalPath = isExternalLink ? path : path.replace(/(\/\/)?(rootUrl)?/g, '');
 
   const handleOnClick = () => {
     if (!isEmpty(googleAnalyticProps)) {
@@ -40,8 +40,10 @@ const LinkWrapper = ({
     onClick();
   };
 
+  const Wrapper = isExternalLink ? Fragment : Link;
+
   return (
-    <Link
+    <Wrapper
       prefetch={false}
       href={dynamicRouting.length > 0 ? dynamicRouting : finalPath}
       as={finalPath}
@@ -51,7 +53,7 @@ const LinkWrapper = ({
         className={cn(styles.link, { [className]: !isImage })}
         href={finalPath}
         target={!isLocalLink ? '_blank' : undefined}
-        rel={(!isLocalLink && !isSocialLink) ? 'noopener noreferrer nofollow' : undefined}
+        rel={(!isLocalLink && !isExternalLink) ? 'noopener noreferrer nofollow' : undefined}
         onClick={handleOnClick}
       >
         {!isImage ? children : (
@@ -64,7 +66,7 @@ const LinkWrapper = ({
           </div>
         )}
       </a>
-    </Link>
+    </Wrapper>
   );
 };
 

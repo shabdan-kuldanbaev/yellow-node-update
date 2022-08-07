@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -82,7 +82,7 @@ const ArticleContainer = ({
   const handleOnFormSubmit = (email) => dispatch(subscribe({ email, pathname }));
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.blog}
         isArticle
@@ -124,7 +124,7 @@ const ArticleContainer = ({
         </div>
         <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 

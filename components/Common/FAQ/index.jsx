@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -14,14 +14,14 @@ export const FAQ = ({ faqList, type }) => {
   }
 
   const faqBlock = (
-    <Fragment>
+    <>
       <Head>
         {!isEmpty(faqList) && (
           <Script
             id="JSON-LD-faq"
             key="JSON-LD-faq"
             type="application/ld+json"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(microdata.faq({ faqList })),
             }}
@@ -36,7 +36,7 @@ export const FAQ = ({ faqList, type }) => {
           />
         ))}
       </div>
-    </Fragment>
+    </>
   );
 
   switch (type) {

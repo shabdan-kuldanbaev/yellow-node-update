@@ -38,7 +38,7 @@ class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin
+            crossOrigin="true"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
@@ -51,7 +51,7 @@ class MyDocument extends Document {
           />
           <Script
             id="gtm-script"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -62,7 +62,7 @@ class MyDocument extends Document {
           />
           <Script
             id="crisp-script"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="${CRISP_WEBSITE_ID}";
             (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;

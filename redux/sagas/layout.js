@@ -50,7 +50,7 @@ function* fetchDuck({ payload: { isFirstHomepageVisit, loadDuck } }) {
   try {
     const [duck] = yield all([
       yield loadDuck(),
-      !isFirstHomepageVisit && !(yield select(selectIsFirstPageLoaded)) && (yield call(artificialDelay, 1000)),
+      !isFirstHomepageVisit && !(yield select(selectIsFirstPageLoaded)),
     ]);
 
     yield put({ type: actionTypes.SET_DUCK, payload: duck });

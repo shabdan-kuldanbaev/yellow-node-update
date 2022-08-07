@@ -142,6 +142,6 @@
       }
     ],
     "no-return-await": "off",
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
   }
 }

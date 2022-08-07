@@ -1,15 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Mousewheel, Navigation } from 'swiper/core';
 import Animated from 'components/Common/Animated';
 import LinkWrapper from 'components/Common/LinkWrapper';
+import { SwiperNavigation } from 'components/SwiperNavigation';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import SwiperNavButton from 'components/SwiperNavButton';
 import { getServiceParams, getSwiperParams } from '../utils';
 import styles from './styles.module.scss';
-
-SwiperCore.use([Mousewheel, Navigation]);
 
 export const RelatedServices = ({ services }) => {
   if (!services) {
@@ -61,14 +58,7 @@ export const RelatedServices = ({ services }) => {
               </SwiperSlide>
             );
           })}
-          <SwiperNavButton
-            type="prev"
-            text="previous"
-          />
-          <SwiperNavButton
-            type="next"
-            text="next"
-          />
+          <SwiperNavigation />
         </Swiper>
       </div>
     </Animated>

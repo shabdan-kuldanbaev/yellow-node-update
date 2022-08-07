@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddFooter from 'components/HomeCommon/AddFooter';
+import Partners from 'components/HomeCommon/Partners';
 import DuckContainer from 'components/HomeCommon/DuckContainer';
 import styles from './styles.module.scss';
 
@@ -14,6 +15,7 @@ const Intro = ({
   >
     <DuckContainer />
     <AddFooter theme={theme} />
+    <Partners />
   </section>
 );
 
@@ -26,4 +28,4 @@ Intro.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default Intro;
+export default React.memo(Intro);

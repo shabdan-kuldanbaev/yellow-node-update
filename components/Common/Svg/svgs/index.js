@@ -236,13 +236,3 @@ export { default as scrollIconSvg } from './scrollIconSvg.svg';
 export { default as checkMark } from './checkMark.svg';
 export { default as bookmarkIcon } from './bookmarkIcon.svg';
 export { default as yellowCheckMark } from './yellowCheckMark.svg';
-
-/* App Development */
-export { default as uiUxDevelopmentIllustration } from './ui&ux.svg';
-export { default as chatsDevelopmentIllustration } from './chats.svg';
-export { default as mobileDevelopmentIllustration } from './mobile.svg';
-export { default as cloudDevelopmentIllustration } from './cloud.svg';
-export { default as webDevelopmentIllustration } from './webDevelopmentIllustration.svg';
-export { default as mlDevelopmentIllustration } from './mlDevelopmentIllustration.svg';
-export { default as mvpDevelopmentIllustration } from './mvpDevelopmentIllustration.svg';
-export { default as softDevelopmentIllustration } from './softDevelopmentIllustration.svg';

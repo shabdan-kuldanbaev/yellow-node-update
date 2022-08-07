@@ -446,13 +446,7 @@ export const DEV_HOSTS = [
 
 export const CUSTOM_DOMAIN = process.env.CUSTOM_DOMAIN;
 
-/* TODO: replace it with NODE_ENV or smth
-  The reason of using CONTENTFUL_ENV is that it's the only env-variable which allows to determine
-  if the app runs at stage-server. NODE_ENV is set to 'production' during build and so it can't be used
-
-  Possible way is to add BASE_URL env-variable and check if it one of dev-domains
- */
-export const IS_PROD = process.env.CONTENTFUL_ENV === 'production';
+export const IS_PROD = process.env.NEXT_PUBLIC_CURRENT_ENV === 'production';
 
 export const INDEX_FILES = [
   '/index.asp',

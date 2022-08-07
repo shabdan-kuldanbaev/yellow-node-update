@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
@@ -37,14 +37,14 @@ const IOSDevelopmentContainer = ({
   }
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.developmentServices}
         pageMetadata={pageMetadata}
         pageMicrodata={microdata.customIOSApp()}
         breadcrumbs={breadcrumbs}
       />
-      <div className={styles.сontainer}>
+      <div className={styles.container}>
         <PageHeader
           breadcrumbs={breadcrumbs}
           titleStyles={styles.pageTitle}
@@ -69,7 +69,7 @@ const IOSDevelopmentContainer = ({
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
       />
-    </Fragment>
+    </>
   );
 };
 

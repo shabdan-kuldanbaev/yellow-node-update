@@ -1,31 +1,14 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import React, {
-  useEffect,
-  useRef,
-  Suspense,
-} from 'react';
-import dynamic from 'next/dynamic';
+import React, { useRef } from 'react';
 import Animated from 'components/Common/Animated';
 import IntroText from 'components/HomeCommon/IntroText';
-import { mobileResolution } from 'utils/helper';
+import DuckWrapper from 'components/HomeCommon/DuckContainer/DuckWrapper';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { slogan } from './utils/threeHelper';
 import * as styles from './styles.module.scss';
-
-const Duck = dynamic(() => import('./Duck'), { ssr: false, suspense: true });
 
 const DuckContainer = () => {
   const containerText = useRef(null);
   const sloganRef = useRef(null);
-
-  useEffect(() => {
-    const isMobile = window.innerWidth < mobileResolution;
-
-    if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';
-
-    slogan.animateSlogan(sloganRef);
-    slogan.sloganOpacityAnimation(!isMobile ? 0.1 : 1);
-  }, []);
 
   return (
     <>
@@ -47,9 +30,7 @@ const DuckContainer = () => {
         </Animated>
       </div>
       <IntroText className={styles.subText} />
-      <Suspense>
-        <Duck sloganRef={sloganRef} />
-      </Suspense>
+      <DuckWrapper sloganRef={sloganRef} />
     </>
   );
 };

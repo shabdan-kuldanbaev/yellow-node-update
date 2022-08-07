@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import ButtonMore from 'components/Common/ButtonMore';
 import styles from './styles.module.scss';
 
@@ -9,19 +8,18 @@ export const FieldsWrapper = ({
   title,
   description,
   slug,
-  type,
 }) => {
   switch (field) {
   case 'title':
     return (
-      <h2 className={cn(styles.h2, styles[type])}>
+      <h2 className={styles.h2}>
         {title}
       </h2>
     );
   case 'description':
     return (
-      <Fragment>
-        <p className={cn(styles.p, styles[type])}>
+      <>
+        <p className={styles.p}>
           {description}
         </p>
         { // TODO delete slug&&: when created ubi.chat page
@@ -29,12 +27,11 @@ export const FieldsWrapper = ({
             <ButtonMore
               href={slug}
               title="View case"
-              type="home"
-              buttonStyle={cn(styles.viewButton, styles[type])}
+              buttonStyle={styles.viewButton}
             />
           )
         }
-      </Fragment>
+      </>
     );
   default:
     return null;
@@ -43,7 +40,6 @@ export const FieldsWrapper = ({
 
 FieldsWrapper.defaultProps = {
   slug: '',
-  type: '',
 };
 
 FieldsWrapper.propTypes = {
@@ -53,5 +49,4 @@ FieldsWrapper.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   slug: PropTypes.string,
-  type: PropTypes.string,
 };

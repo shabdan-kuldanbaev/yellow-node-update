@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
@@ -41,7 +41,7 @@ const CompanyContainer = ({
   };
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.company}
         pageMetadata={pageMetadata}
@@ -78,7 +78,7 @@ const CompanyContainer = ({
         </FullLayout>
         <Awards />
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 

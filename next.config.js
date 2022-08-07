@@ -10,6 +10,12 @@ const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
   : {};
 
 const nextConfig = {
+  reactStrictMode: !isProd,
+  swcMinify: true,
+  onDemandEntries: {
+    maxInactiveAge: 50 * 1000,
+    pagesBufferLength: 5,
+  },
   images: {
     domains: ['images.ctfassets.net'],
     loader: 'custom',

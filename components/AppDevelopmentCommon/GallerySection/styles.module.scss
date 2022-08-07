@@ -22,14 +22,12 @@
     box-shadow: 0 10px 60px -10px rgba($black, 0.15);
   }
 
-  .swiperNextEl {
-    right: unset;
-    left: 73vw;
-  }
+  .navigation {
+    max-width: 60vw;
 
-  .swiperPrevEl {
-    left: unset;
-    right: 73vw;
+    @include tablet {
+      max-width: 90vw;
+    }
   }
 }
 

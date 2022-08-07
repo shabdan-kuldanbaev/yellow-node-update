@@ -7,8 +7,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Plane, Raycaster, Vector3 } from 'node_modules/three/build/three.module';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { useSelector } from 'react-redux';
-import { selectDuck } from 'redux/selectors/home';
 import Animated from 'components/Common/Animated';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
@@ -25,11 +23,10 @@ const meshClones = [];
 let composer;
 let mat = 0;
 
-const Duck = ({ sloganRef }) => {
+const Duck = ({ sloganRef, duck }) => {
   const [isAnimate, setAnimate] = useState(false);
   const [isDuckLoad, setDuckLoad] = useState(false);
   const [canvas, setCanvas] = useState(null);
-  const duck = useSelector(selectDuck);
 
   const containerCanvas = useRef(null);
 
@@ -118,9 +115,8 @@ const Duck = ({ sloganRef }) => {
       camera.updateProjectionMatrix();
       camera.lookAt(scene.position);
 
-      if (renderer) renderer.setSize(window.innerWidth, window.innerHeight);
-
-      if (composer) composer.setSize(window.innerWidth, window.innerHeight);
+      renderer?.setSize(window.innerWidth, window.innerHeight);
+      composer?.setSize(window.innerWidth, window.innerHeight);
     }
   };
 
