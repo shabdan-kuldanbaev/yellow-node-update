@@ -11,6 +11,7 @@ const handlers = {
   DEFAULT: (state) => state,
 };
 
+// eslint-disable-next-line default-param-last
 export default (state = initialState, action) => {
   const handler = handlers[action.type] || handlers.DEFAULT;
 

@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
-import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
-import { MetaTags } from 'components/Common/MetaTags';
-import { PageHeader } from 'components/Common/PageHeader';
+import FullScreenEstimation from 'components/Common/FullScreenEstimation';
+import MetaTags from 'components/Common/MetaTags';
+import PageHeader from 'components/Common/PageHeader';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES } from 'utils/constants';
@@ -37,14 +37,14 @@ const IOSDevelopmentContainer = ({
   }
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.developmentServices}
         pageMetadata={pageMetadata}
         pageMicrodata={microdata.customIOSApp()}
         breadcrumbs={breadcrumbs}
       />
-      <div className={styles.сontainer}>
+      <div className={styles.container}>
         <PageHeader
           breadcrumbs={breadcrumbs}
           titleStyles={styles.pageTitle}
@@ -69,7 +69,7 @@ const IOSDevelopmentContainer = ({
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
       />
-    </Fragment>
+    </>
   );
 };
 

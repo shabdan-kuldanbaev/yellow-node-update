@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 import {
   selectManagementTeam,
   selectWhatMakesSpecial,
@@ -9,21 +9,20 @@ import {
   selectMetaData,
 } from 'redux/selectors/layout';
 import { reviews } from 'containers/Home/Reviews/utils/data';
-import {
-  AboutUs,
-  WhatMakesUsSpecial,
-  ManagementTeam,
-  PhotoGallery,
-  Awards,
-  Reviews,
-  MetaTags,
-  PageHeader,
-  FullLayout,
-} from 'components';
+import AboutUs from 'components/CompanyCommon/AboutUs';
+import WhatMakesUsSpecial from 'components/CompanyCommon/WhatMakesUsSpecial';
+import MetaTags from 'components/Common/MetaTags';
+import PageHeader from 'components/Common/PageHeader';
+import FullLayout from 'components/Layout/FullLayout';
 import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
+
+const ManagementTeam = dynamic(() => import('components/CompanyCommon/ManagementTeam'));
+const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
+const Reviews = dynamic(() => import('components/Common/Reviews'));
+const Awards = dynamic(() => import('components/CompanyCommon/Awards'));
 
 const CompanyContainer = ({
   introSection,
@@ -42,7 +41,7 @@ const CompanyContainer = ({
   };
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.company}
         pageMetadata={pageMetadata}
@@ -56,7 +55,7 @@ const CompanyContainer = ({
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />
         <ManagementTeam managementTeam={teamContent} />
-        {carouselContent && (
+        {(carouselContent && PhotoGallery) && (
           <FullLayout
             disableMaxWidth
             disableTopPadding
@@ -79,7 +78,7 @@ const CompanyContainer = ({
         </FullLayout>
         <Awards />
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 

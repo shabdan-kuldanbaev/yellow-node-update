@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components/Common/Animated';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import Animated from 'components/Common/Animated';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { CustomYoutubePlayer } from 'components/Common/CustomYoutubePlayer';
 import { getYoutubeVideoIdFromUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';

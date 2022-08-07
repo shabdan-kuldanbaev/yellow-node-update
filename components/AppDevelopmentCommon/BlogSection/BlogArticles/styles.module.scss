@@ -1,14 +1,11 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .articlesContainer {
   max-width: $max-content-width;
   margin: 0 auto;
-  background-color: $white;
 
-  :global(.swiper-container) {
-    padding-bottom: 100px;
-
+  :global(.swiper) {
     @include below-tablet {
       margin: 0 -40px;
     }
@@ -25,8 +22,9 @@
   position: relative;
   height: 478px;
   border-radius: 5px;
-  box-shadow: 0 8px 35px rgba($black, 0.1);
+  border: $card-border;
   overflow: hidden;
+  background: $white;
 
   .articleImage {
     width: 100%;

@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
+import { Navigation } from 'swiper';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { SWIPER_NAV_PARAMS } from 'utils/constants';
 
 export const getReviewsProps = (data) => {
   let reviews = [];
@@ -45,6 +45,7 @@ export const getReviewsProps = (data) => {
 
 export const getSwiperParams = () => {
   const mobileSwiperParams = {
+    modules: [Navigation],
     effect: 'coverflow',
     slidesPerView: 1.2,
     spaceBetween: 0,
@@ -68,7 +69,6 @@ export const getSwiperParams = () => {
         },
       },
     },
-    ...SWIPER_NAV_PARAMS,
   };
 
   const desktopSwiperParams = {

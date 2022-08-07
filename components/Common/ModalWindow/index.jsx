@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Svg } from 'components/Common/Svg';
+import Svg from 'components/Common/Svg';
 import { setOverflowForBody } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const ModalWindow = ({
+const ModalWindow = ({
   isModalWindow,
   closeModalWindow,
   children,
@@ -65,3 +65,5 @@ ModalWindow.propTypes = {
   children: PropTypes.instanceOf(Object).isRequired,
   className: PropTypes.string,
 };
+
+export default ModalWindow;

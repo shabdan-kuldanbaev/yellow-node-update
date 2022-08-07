@@ -1,12 +1,7 @@
-const dotenv = require('dotenv');
-const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const get = require('lodash/get');
 const { handler } = require('./utils/Contentful/handler');
 const ContentfulManagement = require('./utils/Contentful/management');
-
-dotenv.config('./env');
 
 const contentfulManagement = new ContentfulManagement({
   space: process.env.CONTENTFUL_SPACE,

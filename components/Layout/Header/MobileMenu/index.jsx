@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { NAV_LINKS } from 'utils/constants';
@@ -13,14 +13,12 @@ const MobileMenu = ({
   setMobileMenuState,
   isPageScrolledDown,
 }) => {
-  const closeMenu = () => setMobileMenuState(!isMobileMenuOpened);
-
   useEffect(() => {
     setOverflowForBody(isMobileMenuOpened);
   }, [isMobileMenuOpened]);
 
   return (
-    <Fragment>
+    <>
       <div className={cn(styles.mobileMenu, {
         [styles.mobileMenuOpened]: isMobileMenuOpened,
         [styles.mobileMenuClosed]: !isMobileMenuOpened,
@@ -28,7 +26,7 @@ const MobileMenu = ({
       })}
       >
         <ul>
-          {links && links.map(({
+          {links?.map(({
             title,
             path,
             dynamicPath,
@@ -40,17 +38,17 @@ const MobileMenu = ({
               title={title}
               path={path}
               dynamicPath={dynamicPath}
-              closeMenu={closeMenu}
+              closeMenu={setMobileMenuState}
             />
           ))}
         </ul>
       </div>
       <Burger
         isMobileMenuOpened={isMobileMenuOpened}
-        handleOnClick={closeMenu}
+        handleOnClick={setMobileMenuState}
         isPageScrolledDown={isPageScrolledDown}
       />
-    </Fragment>
+    </>
   );
 };
 
@@ -65,4 +63,4 @@ MobileMenu.propTypes = {
   isPageScrolledDown: PropTypes.bool.isRequired,
 };
 
-export default MobileMenu;
+export default React.memo(MobileMenu);

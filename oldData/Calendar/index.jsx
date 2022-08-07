@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SectionTitle } from 'components';
+import SectionTitle from 'components/Common/SectionTitle';
 import { Location } from './Location';
 import styles from './styles.module.scss';
 

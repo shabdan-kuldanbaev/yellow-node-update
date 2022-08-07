@@ -4,7 +4,7 @@ import React from 'react';
 export const socialNetworks = [
   {
     title: 'instagram',
-    href: '//www.instagram.com/yellow.systems/',
+    href: 'https://www.instagram.com/yellow.systems/',
     image: (main) => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export const socialNetworks = [
   },
   {
     title: 'medium',
-    href: '//yellow.medium.com/',
+    href: 'https://yellow.medium.com/',
     image: (main) => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ export const socialNetworks = [
   },
   {
     title: 'clutch',
-    href: '//clutch.co/profile/yellow',
+    href: 'https://clutch.co/profile/yellow',
     image: (main) => (
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Swiper from 'react-id-swiper';
+import { Swiper } from 'swiper/react';
 import SwiperCore, { Pagination } from 'swiper/core';
-import 'swiper/components/pagination/pagination.scss';
 import styles from '../styles.module.scss';
 
 SwiperCore.use([Pagination]);
@@ -22,7 +21,6 @@ const ChallengesSlider = ({ isMobileResolution, isSlider, children }) => {
 };
 
 ChallengesSlider.propTypes = {
-  isMobileResolution: PropTypes.bool.isRequired,
   isSlider: PropTypes.bool.isRequired,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
 };

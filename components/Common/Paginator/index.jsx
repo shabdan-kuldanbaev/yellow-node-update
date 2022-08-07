@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import Router, { useRouter } from 'next/router';
 import cn from 'classnames';
@@ -10,13 +10,13 @@ import { arrows } from './utils/data';
 import styles from './styles.module.scss';
 
 const Paginator = ({
-  isMobileResolution,
   arrows: navigationArrows,
   pagesCounter,
   currentPage,
   pageSlug,
   className,
 }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
   const { query: { slug: category } } = useRouter();
   let [mobilePrevious, desktopPrevious, mobileNext, desktopNext] = ['', '', '', ''];
 
@@ -74,11 +74,9 @@ const Paginator = ({
 Paginator.defaultProps = {
   className: '',
   arrows,
-  isMobileResolution: false,
 };
 
 Paginator.propTypes = {
-  isMobileResolution: PropTypes.bool,
   arrows: PropTypes.instanceOf(Object),
   pagesCounter: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
@@ -86,6 +84,4 @@ Paginator.propTypes = {
   className: PropTypes.string,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(Paginator);
+export default Paginator;

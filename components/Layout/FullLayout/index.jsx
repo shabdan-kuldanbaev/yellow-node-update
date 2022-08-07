@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
-export const FullLayout = ({
+const FullLayout = ({
   children,
   disableMaxWidth,
   disableTopPadding,
@@ -47,3 +47,5 @@ FullLayout.propTypes = {
   disableBottomPadding: PropTypes.bool,
   introSection: PropTypes.instanceOf(Object),
 };
+
+export default FullLayout;

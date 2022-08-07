@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import {
   getDocumentFields,
   getFileUrl,
@@ -16,8 +16,9 @@ const DefaultIntro = ({
   type,
   introSection,
   data,
-  isMobileResolution,
 }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
+
   const {
     title,
     subtitle,
@@ -139,17 +140,10 @@ const DefaultIntro = ({
   );
 };
 
-DefaultIntro.defaultProps = {
-  isMobileResolution: '',
-};
-
 DefaultIntro.propTypes = {
   type: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
   data: PropTypes.instanceOf(Object).isRequired,
-  isMobileResolution: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(DefaultIntro);
+export default DefaultIntro;

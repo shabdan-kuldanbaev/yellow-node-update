@@ -4,7 +4,7 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components';
+import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { formatDate } from 'utils/helper';
 import styles from './styles.module.scss';

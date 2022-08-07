@@ -10,6 +10,7 @@
 
   &.secondSectionView {
     @extend .cardsWithShadow;
+
     @include iconsWithinCircle;
   }
 

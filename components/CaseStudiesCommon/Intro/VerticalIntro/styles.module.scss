@@ -1,11 +1,16 @@
 /* stylelint-disable no-descending-specificity */
 /* stylelint-disable no-eol-whitespace */
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
+
+.sectionBackground {
+  z-index: 0;
+}
 
 .container {
   box-sizing: border-box;
   padding: 330px 40px 150px;
   overflow: hidden;
+  position: relative;
 
   @include tablet {
     height: auto;
@@ -18,11 +23,15 @@
   }
 
   .projectInfoContainer {
-    z-index: 100;
+    z-index: inherit;
 
     @include tablet {
       margin-bottom: 60px;
       text-align: center;
+    }
+
+    & > * {
+      z-index: 1;
     }
 
     .logo {
@@ -41,6 +50,8 @@
     }
 
     .title {
+      z-index: inherit;
+
       .projectTitle {
         margin: 0 0 30px;
         font-family: $case-studies-font;
@@ -106,6 +117,7 @@
 
     .experience {
       margin-right: 15px;
+      z-index: inherit;
 
       @include phone {
         margin-right: 40px;
@@ -130,6 +142,8 @@
 
   .imageContainer {
     position: relative;
+    display: block;
+    width: 100%;
     z-index: 1;
 
     .image {
@@ -142,6 +156,7 @@
 .introSection {
   max-width: 1400px;
   margin: 0 auto 240px;
+  z-index: 1;
 
   @include tablet {
     margin: 0 auto 60px;
@@ -190,6 +205,8 @@
 
   .projectInfoContainer {
     @include flex(column, center, center);
+
+    z-index: inherit;
 
     .title {
       position: relative;
@@ -350,7 +367,7 @@
 
   .projectInfoContainer {
     text-align: center;
-    z-index: initial;
+    z-index: inherit;
 
     .logo {
       position: absolute;
@@ -457,6 +474,15 @@
 
   @include tablet {
     padding-bottom: 80px;
+  }
+
+  .sectionBackground {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
   }
 
   .projectInfoContainer {

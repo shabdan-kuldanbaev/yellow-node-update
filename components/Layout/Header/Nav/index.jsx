@@ -1,36 +1,42 @@
-import React, { useRef, useEffect } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useCallback,
+  Suspense,
+} from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectIsDropMenuOpened } from 'redux/selectors/layout';
 import { setIsDropMenuOpened } from 'redux/actions/layout';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { NAV_LINKS } from 'utils/constants';
 import { isHasSubNavigation } from 'helpers/navigation';
-import { DropDownMenu } from '../DropDownMenu';
 import styles from './styles.module.scss';
+
+const DropDownMenu = dynamic(() => import('components/Layout/Header/DropDownMenu'), { suspense: true });
 
 const Nav = ({
   theme,
-  currentPage,
-  isPageScrolledDown,
-  isTransparentHeader,
+  isPageScrolling,
   navLinks: links,
-  setIsDropMenuOpened: setIsDropMenuOpenedAction,
-  isDropMenuOpened,
   isHeader,
 }) => {
-  // TODO rework this checks
-  const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
+  const dispatch = useDispatch();
+  const isDropMenuOpened = useSelector(selectIsDropMenuOpened);
   const navRef = useRef(null);
 
   const openDropDownMenu = (slug) => {
     if (isHeader && isHasSubNavigation(slug)) {
-      setIsDropMenuOpenedAction(true);
+      dispatch(setIsDropMenuOpened(true));
     }
   };
 
-  const closeDropDownMenu = () => setIsDropMenuOpenedAction(false);
+  const closeDropDownMenu = useCallback(
+    () => dispatch(setIsDropMenuOpened(false)),
+    [dispatch],
+  );
 
   const handleOnClick = (slug) => () => {
     if (isDropMenuOpened) {
@@ -52,14 +58,14 @@ const Nav = ({
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [closeDropDownMenu]);
 
   return (
     <ul
       className={cn(styles.desktopMenu, { [styles.pageScrolled]: isPageScrolling })}
       ref={navRef}
     >
-      {links && links.map(({
+      {links?.map(({
         title,
         path,
         dynamicPath,
@@ -89,12 +95,14 @@ const Nav = ({
               )
               : itemContent}
             {isHasSubNavigation(slug) && isHeader && (
-              <DropDownMenu
-                isDropMenuOpened={isDropMenuOpened}
-                isPageScrolledDown={isPageScrolling}
-                slug={slug}
-                closeDropDownMenu={closeDropDownMenu}
-              />
+              <Suspense>
+                <DropDownMenu
+                  isDropMenuOpened={isDropMenuOpened}
+                  isPageScrolledDown={isPageScrolling}
+                  slug={slug}
+                  closeDropDownMenu={closeDropDownMenu}
+                />
+              </Suspense>
             )}
           </li>
         );
@@ -106,23 +114,14 @@ const Nav = ({
 Nav.defaultProps = {
   theme: 'dark',
   navLinks: NAV_LINKS,
-  isTransparentHeader: false,
   isHeader: false,
-  isPageScrolledDown: false,
 };
 
 Nav.propTypes = {
+  isPageScrolling: PropTypes.bool.isRequired,
   theme: PropTypes.string,
-  currentPage: PropTypes.string.isRequired,
-  isPageScrolledDown: PropTypes.bool,
-  isTransparentHeader: PropTypes.bool,
   navLinks: PropTypes.instanceOf(Array),
-  setIsDropMenuOpened: PropTypes.func.isRequired,
-  isDropMenuOpened: PropTypes.bool.isRequired,
   isHeader: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isDropMenuOpened: selectIsDropMenuOpened(state) }),
-  { setIsDropMenuOpened },
-)(Nav);
+export default React.memo(Nav);

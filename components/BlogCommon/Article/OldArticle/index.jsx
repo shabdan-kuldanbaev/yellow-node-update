@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { createMarkup } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const OldArticle = ({ oldBody }) => (
+const OldArticle = ({ oldBody }) => (
   <div className={styles.articleContent}>
     <div dangerouslySetInnerHTML={createMarkup(oldBody)} />
   </div>
@@ -12,3 +12,5 @@ export const OldArticle = ({ oldBody }) => (
 OldArticle.propTypes = {
   oldBody: PropTypes.string.isRequired,
 };
+
+export default OldArticle;

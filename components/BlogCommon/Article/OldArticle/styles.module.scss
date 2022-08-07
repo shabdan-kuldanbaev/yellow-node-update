@@ -1,108 +1,6 @@
 @import 'styles/utils/mixins';
 @import 'components/BlogCommon/styles.module.scss';
 
-:global {
-  .link-to-contact-screen {
-    margin: 70px 0 !important;
-
-    & > p {
-      position: relative;
-      box-sizing: border-box;
-      width: 100%;
-      font-weight: 500;
-      line-height: 1.3;
-      color: $mirage;
-      text-align: center;
-
-      @include fontSize(40px);
-
-      @include macbook-fifteen {
-        line-height: 1.5;
-
-        @include fontSize(35px);
-      }
-
-      @include tablet {
-        margin: 40px 0;
-
-        @include fontSize(25px);
-      }
-
-      @include phone {
-        line-height: 1.4;
-
-        @include fontSize(20px);
-      }
-    }
-
-    a {
-      @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
-
-      display: block;
-      margin: auto;
-      padding: 22px 30px;
-      border-radius: 8px;
-      min-width: 290px;
-      font-weight: 600;
-      text-transform: uppercase;
-      text-decoration: none;
-
-      @include phone {
-        width: initial;
-        min-width: initial;
-      }
-    }
-  }
-
-  .wide-image {
-    position: relative;
-    transform: translateX(-220px);
-    width: 1160px;
-    max-width: none !important;
-
-    @include macbook-thirteen {
-      position: relative;
-      max-width: none;
-      width: 100%;
-      transform: translateX(0);
-    }
-
-    @include tablet {
-      width: 100%;
-      transform: translateX(0);
-    }
-  }
-
-  .img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 3rem auto;
-
-    & + p,
-    & + p + p {
-      color: $gray-200;
-      line-height: 22px;
-      font-size: 0.85rem;
-      margin: 0.7rem 0;
-
-      @include below-tablet {
-        font-size: 1rem;
-      }
-    }
-  }
-
-  .with-description {
-    margin-bottom: 0;
-  }
-
-  video {
-    margin: 0 auto;
-    max-width: 100%;
-    display: block;
-  }
-}
-
 .articleContent {
   @extend .paragraph;
 
@@ -224,6 +122,106 @@
   }
 
   :global {
+    .link-to-contact-screen {
+      margin: 70px 0 !important;
+
+      & > p {
+        @include fontSize(40px);
+
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        font-weight: 500;
+        line-height: 1.3;
+        color: $mirage;
+        text-align: center;
+
+        @include macbook-fifteen {
+          @include fontSize(35px);
+
+          line-height: 1.5;
+        }
+
+        @include tablet {
+          @include fontSize(25px);
+
+          margin: 40px 0;
+        }
+
+        @include phone {
+          @include fontSize(20px);
+
+          line-height: 1.4;
+        }
+      }
+
+      a {
+        @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
+
+        display: block;
+        margin: auto;
+        padding: 22px 30px;
+        border-radius: 8px;
+        min-width: 290px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        @include phone {
+          width: initial;
+          min-width: initial;
+        }
+      }
+    }
+
+    .wide-image {
+      position: relative;
+      transform: translateX(-220px);
+      width: 1160px;
+      max-width: none !important;
+
+      @include macbook-thirteen {
+        position: relative;
+        max-width: none;
+        width: 100%;
+        transform: translateX(0);
+      }
+
+      @include tablet {
+        width: 100%;
+        transform: translateX(0);
+      }
+    }
+
+    .img-responsive {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 3rem auto;
+
+      & + p,
+      & + p + p {
+        color: $gray-200;
+        line-height: 22px;
+        font-size: 0.85rem;
+        margin: 0.7rem 0;
+
+        @include below-tablet {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .with-description {
+      margin-bottom: 0;
+    }
+
+    video {
+      margin: 0 auto;
+      max-width: 100%;
+      display: block;
+    }
+
     .image-table {
       display: flex;
       justify-content: center;
@@ -253,13 +251,13 @@
       }
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: -14px;
         left: 40px;
         width: 23px;
         height: 27px;
-        background-image: url("./images/bookmark.png");
+        background-image: url('./images/bookmark.png');
         background-size: 100% 100%;
       }
 

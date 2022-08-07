@@ -1,11 +1,9 @@
 import React from 'react';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
-import {
-  Animated,
-  BookmarkCard,
-  GalleryCard,
-} from 'components';
+import Animated from 'components/Common/Animated';
+import BookmarkCard from 'components/BlogCommon/Article/BookmarkCard';
+import GalleryCard from 'components/BlogCommon/Article/GalleryCard'
 import { articleTags, animatedType } from 'utils/constants';
 import styles from './styles.module.scss';
 

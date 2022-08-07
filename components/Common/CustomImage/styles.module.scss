@@ -1,0 +1,10 @@
+@import 'styles/utils/mixins';
+
+.picture {
+  @include flex(row, center);
+
+  & > span {
+    display: block !important;
+    overflow: visible !important;
+  }
+}

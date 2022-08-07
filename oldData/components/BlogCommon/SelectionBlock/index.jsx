@@ -9,12 +9,9 @@ import { connect } from 'react-redux';
 import { selectIsBlogOpen, selectIsFirstVisit } from 'redux/selectors/blog';
 import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
 import { setMobileCategoriesState } from 'redux/actions/layout';
-// import { setFirstVisit } from 'redux/actions/blog';
-import {
-  ButtonMore,
-  FullscreenSearch,
-  FullscreenSubscribe,
-} from 'components';
+import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
+import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
+import ButtonMore from 'components/Common/ButtonMore';
 import { setOverflowForBody } from 'utils/helper';
 import { TAGS_FOR_BLOG } from 'utils/constants';
 import Categories from './Categories';

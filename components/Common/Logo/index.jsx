@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { Svg } from 'components/Common/Svg';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Svg from 'components/Common/Svg';
 import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -31,4 +31,4 @@ Logo.propTypes = {
   type: PropTypes.string,
 };
 
-export default Logo;
+export default React.memo(Logo);

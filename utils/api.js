@@ -3,7 +3,7 @@ import { rootUrl } from 'utils/helper';
 
 // TODO rework it
 const apiClient = axios.create({
-  baseURL: rootUrl,
+  baseURL: `${rootUrl}/api`,
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',

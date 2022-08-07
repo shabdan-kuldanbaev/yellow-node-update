@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 const PlacementInfoItem = ({ country, placementInfo }) => (
   <li>
     <h3>{country}</h3>
-    {placementInfo.map((info) => <p>{info}</p>)}
+    {placementInfo.map((info) => (
+      <p key={info}>
+        {info}
+      </p>
+    ))}
   </li>
 );
 
