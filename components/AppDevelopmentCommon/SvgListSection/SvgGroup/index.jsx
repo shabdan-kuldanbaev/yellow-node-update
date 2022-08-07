@@ -1,26 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import dynamic from 'next/dynamic';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Svg from 'components/Common/Svg';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from 'swiper';
-import cn from 'classnames';
-import { getSvgGroupProps } from '../utils/svgHelper';
+import { getSvgGroupProps, getSwiperParams } from '../utils/svgHelper';
 import styles from '../styles.module.scss';
-
-export const getSwiperParams = ({ isEnabled = true }) => ({
-  enabled: isEnabled,
-  slidesPerView: 'auto',
-  spaceBetween: 60,
-  passiveListeners: true,
-  freeMode: true,
-  grabCursor: true,
-  mousewheel: {
-    forceToAxis: true,
-  },
-  modules: [FreeMode],
-});
 
 const Animated = dynamic(() => import('components/Common/Animated'));
 
@@ -40,7 +26,11 @@ const SvgGroup = ({
       { [styles.multiline]: !isSwiperEnabled },
     )}
     >
-      {title && <h3 className={styles.groupTitle}>{title}</h3>}
+      {title && (
+        <h3 className={styles.groupTitle}>
+          {title}
+        </h3>
+      )}
       <Swiper
         {...swiperParams}
         enabled

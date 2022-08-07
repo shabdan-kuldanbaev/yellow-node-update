@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { NAV_LINKS } from 'utils/constants';
@@ -18,7 +18,7 @@ const MobileMenu = ({
   }, [isMobileMenuOpened]);
 
   return (
-    <Fragment>
+    <>
       <div className={cn(styles.mobileMenu, {
         [styles.mobileMenuOpened]: isMobileMenuOpened,
         [styles.mobileMenuClosed]: !isMobileMenuOpened,
@@ -48,7 +48,7 @@ const MobileMenu = ({
         handleOnClick={setMobileMenuState}
         isPageScrolledDown={isPageScrolledDown}
       />
-    </Fragment>
+    </>
   );
 };
 

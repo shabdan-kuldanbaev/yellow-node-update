@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
@@ -35,7 +35,7 @@ const CustomServiceContainer = ({
   }
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={type}
         pageMetadata={pageMetadata}
@@ -75,7 +75,7 @@ const CustomServiceContainer = ({
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
       />
-    </Fragment>
+    </>
   );
 };
 

@@ -1,5 +1,4 @@
 import React, {
-  Fragment,
   useEffect,
   useState,
 } from 'react';
@@ -50,7 +49,7 @@ const Layout = ({ children, introSection }) => {
   }, [dispatch]);
 
   return (
-    <Fragment>
+    <>
       <CookiesNotification />
       <Header introSection={introSection} />
       {children}
@@ -62,7 +61,7 @@ const Layout = ({ children, introSection }) => {
       <GAnalytic />
       {/* TODO return it when issue with design will be resolved */}
       {/* <ToTopButton /> */}
-    </Fragment>
+    </>
   );
 };
 

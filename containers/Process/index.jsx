@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectMetaData } from 'redux/selectors/layout';
@@ -25,7 +25,7 @@ const ProcessContainer = ({ introSection, json }) => {
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.process}
         pageMetadata={pageMetadata}
@@ -45,7 +45,7 @@ const ProcessContainer = ({ introSection, json }) => {
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
       />
-    </Fragment>
+    </>
   );
 };
 

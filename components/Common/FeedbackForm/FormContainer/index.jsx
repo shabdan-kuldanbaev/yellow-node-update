@@ -1,5 +1,4 @@
 import React, {
-  Fragment,
   useState,
   useEffect,
 } from 'react';
@@ -49,7 +48,7 @@ const FormContainer = ({
   }, [isFormDataSent]);
 
   return (
-    <Fragment>
+    <>
       <a.form
         className={cn(styles.form, styles.animation)}
         style={{
@@ -87,7 +86,7 @@ const FormContainer = ({
           </p>
         </div>
       </a.section>
-    </Fragment>
+    </>
   );
 };
 

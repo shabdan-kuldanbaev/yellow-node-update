@@ -56,12 +56,10 @@ export const getIntroProps = (type, data) => {
     ? { backgroundImage: `url(${backgroundImageUrl})` }
     : {};
 
-  const sectionBackground = backgroundImageUrl;
-
   return {
     sectionStyle,
     backgroundImageUrl,
-    sectionBackground,
+    sectionBackground: backgroundImageUrl,
     appLogoUrl,
     title,
     subtitle,

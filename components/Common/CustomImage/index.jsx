@@ -2,29 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Image from 'next/image';
-import { getOptimizedContentfulImage, patchImageUrl } from './utils/helper';
+import {
+  ContentfulImageLoader,
+  getOptimizedContentfulImage,
+  staticImageLoader,
+} from './utils/helper';
 import styles from './styles.module.scss';
-
-function ContentfulImageLoader({
-  src,
-  quality,
-  width,
-  height,
-}) {
-  let url = src;
-
-  if (width) {
-    url = patchImageUrl(url, width, 'w');
-  }
-
-  if (height) {
-    url = patchImageUrl(url, height, 'h');
-  }
-
-  return `${url}&q=${quality}`;
-}
-
-const staticImageLoader = ({ src }) => src;
 
 const CustomImage = ({
   width,

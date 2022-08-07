@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getEmployeeInfo } from 'containers/Signature/utils/helpers';
@@ -43,7 +43,7 @@ const SignatureGenerated = ({
   };
 
   return (
-    <Fragment>
+    <>
       <div className={styles.signatureGenerated}>
         <div className={styles.signatureHeader}>
           <Svg
@@ -149,7 +149,7 @@ const SignatureGenerated = ({
       >
         {SIGNATURE_BUTTON_NAMES.copySignature}
       </button>
-    </Fragment>
+    </>
   );
 };
 

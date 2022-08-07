@@ -1,6 +1,5 @@
 import React, {
   useState,
-  Fragment,
   useEffect,
   useRef,
 } from 'react';
@@ -199,13 +198,13 @@ const FeedbackForm = ({
             >
               {projectBudget.length > 1
                 ? (
-                  <Fragment>
+                  <>
                     <span>Your budget is up to </span>
                     <span className={styles.price}>
                       {`$ ${projectBudget}`}
                     </span>
                     {projectBudget === addThousandsSeparators(budgetData.max) && <span> or more</span>}
-                  </Fragment>
+                  </>
                 )
                 : <span>Your budget</span>}
               <SliderWrapper

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import get from 'lodash/get';
@@ -36,7 +36,7 @@ const ContactUsContainer = ({
   };
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.contact}
         pageMetadata={pageMetadata}
@@ -55,7 +55,7 @@ const ContactUsContainer = ({
         <CompanyPlacement />
         <CompanyPeoplePhoto photo={peopleImageUrl} />
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 

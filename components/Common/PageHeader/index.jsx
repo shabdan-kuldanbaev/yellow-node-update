@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
@@ -12,7 +12,7 @@ const PageHeader = ({
   titleStyles,
   breadcrumbsStyles,
 }) => (
-  <Fragment>
+  <>
     <Breadcrumbs
       breadcrumbs={breadcrumbs}
       breadcrumbsStyles={breadcrumbsStyles}
@@ -30,7 +30,7 @@ const PageHeader = ({
         </Animated>
       </div>
     )}
-  </Fragment>
+  </>
 );
 
 PageHeader.defaultProps = {

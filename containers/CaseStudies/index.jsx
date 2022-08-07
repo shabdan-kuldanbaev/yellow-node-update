@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
@@ -43,7 +43,7 @@ const CaseStudiesContainer = ({ introSection }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.portfolio}
         pageMetadata={projectMetadata}
@@ -61,7 +61,7 @@ const CaseStudiesContainer = ({ introSection }) => {
           <FeedbackFormContainer type={slug} />
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

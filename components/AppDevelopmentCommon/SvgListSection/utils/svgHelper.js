@@ -1,5 +1,6 @@
+import { FreeMode } from 'swiper';
 import { getDocumentFields } from 'utils/helper';
-import { PAGES } from '../../../../utils/constants';
+import { PAGES } from 'utils/constants';
 
 export const getSvgSectionProps = (data) => {
   let link = null;
@@ -56,3 +57,16 @@ export const checkSwiperEnabled = (type, view, isTabletResolution) => {
 
   return !(type === PAGES.androidDevelopmentServices && view === 'firstSectionView' && !isTabletResolution);
 };
+
+export const getSwiperParams = ({ isEnabled = true }) => ({
+  enabled: isEnabled,
+  slidesPerView: 'auto',
+  spaceBetween: 60,
+  passiveListeners: true,
+  freeMode: true,
+  grabCursor: true,
+  mousewheel: {
+    forceToAxis: true,
+  },
+  modules: [FreeMode],
+});

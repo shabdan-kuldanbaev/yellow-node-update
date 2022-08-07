@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -63,7 +63,7 @@ const BlogContainer = ({
   }, []);
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.blog}
         pageMetadata={pageMetadata}
@@ -87,7 +87,7 @@ const BlogContainer = ({
           pageSlug={ROUTES.blog.slug}
         />
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 
