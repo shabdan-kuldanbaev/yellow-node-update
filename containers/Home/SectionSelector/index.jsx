@@ -1,8 +1,11 @@
 import React from 'react';
-import Blog from 'containers/Home/Blog';
-import CardsSection from 'components/AppDevelopmentCommon/CardsSection';
+import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
+
+const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
+const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
+const Blog = dynamic(() => import('containers/Home/Blog'));
 
 const SectionSelector = ({ section, type }) => {
   const { type: sectionType } = getDocumentFields(section);
@@ -14,6 +17,14 @@ const SectionSelector = ({ section, type }) => {
         sectionData={section}
         pageType={type}
         sectionType="cards"
+      />
+    );
+
+  case HOMEPAGE_SECTION_TYPES.reviews:
+    return (
+      <ReviewsSection
+        data={section}
+        type={type}
       />
     );
 

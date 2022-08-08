@@ -16,6 +16,7 @@ const ReviewsSection = ({
 }) => {
   const {
     title,
+    description,
     reviews,
     link,
   } = getReviewsProps(data);
@@ -28,6 +29,7 @@ const ReviewsSection = ({
     <section className={cn(styles.reviews, styles[type])}>
       <SectionTitle
         title={title}
+        description={description}
         titleStyle={styles.titleStyle}
       />
       <Reviews reviews={reviews} />
