@@ -207,7 +207,7 @@ export const APP_DEVELOPMENT_TYPES = {
 
 export const HOMEPAGE_SECTION_TYPES = {
   cards: 'cards',
-  svgSection: 'svg-section',
+  svgDisplay: 'svg-display',
   porfolio: 'portfolio',
   reviews: 'reviews',
   blog: 'blog',

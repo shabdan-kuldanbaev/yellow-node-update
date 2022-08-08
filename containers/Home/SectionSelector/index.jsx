@@ -2,6 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
+import SvgListSection from '../../../components/AppDevelopmentCommon/SvgListSection';
 
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
@@ -17,6 +18,14 @@ const SectionSelector = ({ section, type }) => {
         sectionData={section}
         pageType={type}
         sectionType="cards"
+      />
+    );
+
+  case HOMEPAGE_SECTION_TYPES.svgDisplay:
+    return (
+      <SvgListSection
+        sectionData={section}
+        type={type}
       />
     );
 
