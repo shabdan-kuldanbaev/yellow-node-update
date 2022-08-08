@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Swiper from 'react-id-swiper';
-import SwiperCore, { Scrollbar, Mousewheel } from 'swiper/core';
-import { Animated } from 'components/Common/Animated';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Scrollbar, Mousewheel } from 'swiper';
+import Animated from 'components/Common/Animated';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
 import { getSliderProps } from './utils/sliderHelper';
 import styles from './styles.module.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
 
 SwiperCore.use([
   Scrollbar,
   Mousewheel,
 ]);
 
-export const SliderSection = ({ sectionData, type }) => {
+const SliderSection = ({ sectionData, type }) => {
   const {
     title,
     description,
@@ -33,13 +32,17 @@ export const SliderSection = ({ sectionData, type }) => {
         <SectionTitle
           title={title}
           description={description}
+          titleStyle={styles.titleStyle}
         />
         <div className={styles.sliderList}>
           <Animated
             {...animationProps}
             transitionDelay={300}
           >
-            <Swiper {...params}>
+            <Swiper
+              {...params}
+              scrollbar={{ draggable: true }}
+            >
               {slides.map((slide) => {
                 const {
                   title: slideTitle,
@@ -50,7 +53,7 @@ export const SliderSection = ({ sectionData, type }) => {
                 );
 
                 return (
-                  <div
+                  <SwiperSlide
                     className={styles.item}
                     key={`slides/${slideTitle}`}
                   >
@@ -60,7 +63,7 @@ export const SliderSection = ({ sectionData, type }) => {
                     <p className={styles.slideSubtitle}>
                       {slideDescription}
                     </p>
-                  </div>
+                  </SwiperSlide>
                 );
               })}
             </Swiper>
@@ -75,3 +78,5 @@ SliderSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
+
+export default SliderSection;

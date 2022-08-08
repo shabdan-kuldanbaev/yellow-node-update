@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { PAGES } from 'utils/constants';
 import styles from '../BlogArticles/styles.module.scss';
 

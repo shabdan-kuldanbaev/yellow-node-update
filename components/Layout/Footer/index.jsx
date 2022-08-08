@@ -1,13 +1,12 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import CaseStudiesFooter from 'components/CaseStudiesCommon/CaseStudiesFooter';
+import dynamic from 'next/dynamic';
 import { CASE_STUDIES_SLUGS } from 'utils/constants';
-import { SideContent } from './SideContent';
-import { MainContent } from './MainContent';
-import { BottomContent } from './BottomContent';
-import styles from './styles.module.scss';
 
-export const Footer = () => {
+const CaseStudiesFooter = dynamic(() => import('components/CaseStudiesCommon/CaseStudiesFooter'));
+const DefaultFooter = dynamic(() => import('./DefaultFooter'));
+
+const Footer = () => {
   const { query: { project }, pathname } = useRouter();
 
   if (CASE_STUDIES_SLUGS.includes(project)) {
@@ -19,13 +18,7 @@ export const Footer = () => {
     );
   }
 
-  return (
-    <footer className={styles.footerContainer}>
-      <div className={styles.footer}>
-        <SideContent />
-        <MainContent />
-      </div>
-      <BottomContent />
-    </footer>
-  );
+  return <DefaultFooter />;
 };
+
+export default Footer;

@@ -23,7 +23,7 @@ const buildUrlObject = (data) => data.map((item) => {
 
 const Sitemap = () => (null);
 
-Sitemap.getInitialProps = async ({ res }) => {
+export const getServerSideProps = async ({ req, res }) => {
   try {
     const [
       articles,

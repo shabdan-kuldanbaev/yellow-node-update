@@ -1,28 +1,20 @@
 import React from 'react';
-import Swiper from 'react-id-swiper';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { selectTypes } from 'redux/selectors/portfolio';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import SelectorElement from 'components/PortfolioCommon/SelectorElement';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { SELECTOR_ELEMENT_TYPES } from 'components/PortfolioCommon/SelectorElement/utils';
+import { SWIPER_CONFIG } from '.config';
 import styles from './styles.module.scss';
 
-const TypeSelector = ({
-  selectedType,
-  onSelectedTypeChange,
-  typeList,
-}) => {
-  const params = {
-    containerClass: styles.container,
-    slideClass: styles.slide,
-    slidesPerView: 'auto',
-    passiveListeners: true,
-    speed: 500,
-    mousewheel: {
-      forceToAxis: true,
-    },
+function TypeSelector({ selectedType, onSelectedTypeChange }) {
+  const typeList = useSelector(selectTypes);
+
+  const handleTypeChange = (type) => () => {
+    onSelectedTypeChange(type);
   };
 
   return (
@@ -30,28 +22,33 @@ const TypeSelector = ({
       {...REVEAL_ANIMATION_PROPS}
       transitionDelay={250}
     >
-      <Swiper {...params}>
+      <Swiper {...SWIPER_CONFIG}>
         {typeList.map((type) => (
-          <SelectorElement
-            type={SELECTOR_ELEMENT_TYPES.typeSelector}
-            displayName={type.displayName}
-            onClick={() => onSelectedTypeChange(type)}
-            selected={type === selectedType}
-            className={styles.type}
-            key={`WORK-TYPE/${type.slug}`}
-          />
+          <SwiperSlide
+            key={type.displayName}
+            className={styles.slide}
+          >
+            <SelectorElement
+              type={SELECTOR_ELEMENT_TYPES.typeSelector}
+              displayName={type.displayName}
+              onClick={handleTypeChange(type)}
+              selected={type === selectedType}
+              className={styles.type}
+              key={`WORK-TYPE/${type.slug}`}
+            />
+          </SwiperSlide>
         ))}
       </Swiper>
     </Animated>
   );
-};
+}
 
 TypeSelector.propTypes = {
-  selectedType: PropTypes.instanceOf(Object).isRequired,
+  selectedType: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    displayName: PropTypes.string.isRequired,
+  }).isRequired,
   onSelectedTypeChange: PropTypes.func.isRequired,
-  typeList: PropTypes.arrayOf(Object).isRequired,
 };
 
-export default connect(
-  (state) => ({ typeList: selectTypes(state) }),
-)(TypeSelector);
+export default TypeSelector;

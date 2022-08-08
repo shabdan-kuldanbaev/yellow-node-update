@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Animated } from 'components/Common/Animated';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import Animated from 'components/Common/Animated';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const SectionTitle = ({
+const SectionTitle = ({
   title,
   styleTitle,
   subtitle,
@@ -84,3 +84,5 @@ SectionTitle.propTypes = {
   linkText: PropTypes.string,
   isMainTitle: PropTypes.bool,
 };
+
+export default SectionTitle;

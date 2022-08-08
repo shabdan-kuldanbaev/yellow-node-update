@@ -5,8 +5,8 @@ import {
   TwitterShareButton,
   LinkedinShareButton,
 } from 'react-share';
-import cn from 'classnames';
 import { useRouter } from 'next/router';
+import Svg from 'components/Common/Svg';
 import gaHelper from 'utils/ga';
 import styles from './styles.module.scss';
 
@@ -26,24 +26,30 @@ export const ShareThumbnails = ({ url, title }) => {
       <LinkedinShareButton
         url={url}
         title={title}
-        className={cn(styles.svg, styles.iconLinkedin)}
+        className={styles.svg}
         data-socialname="LinkedIn"
         onClick={trackSocialShareClick}
-      />
+      >
+        <Svg type="linkedinRoundWhite" />
+      </LinkedinShareButton>
       <TwitterShareButton
         url={url}
         title={title}
-        className={cn(styles.svg, styles.iconTwitter)}
+        className={styles.svg}
         data-socialname="Twitter"
         onClick={trackSocialShareClick}
-      />
+      >
+        <Svg type="twitterRoundWhite" />
+      </TwitterShareButton>
       <FacebookShareButton
         url={url}
         quote={title}
-        className={cn(styles.svg, styles.iconFacebook)}
+        className={styles.svg}
         data-socialname="Facebook"
         onClick={trackSocialShareClick}
-      />
+      >
+        <Svg type="facebookRoundWhite" />
+      </FacebookShareButton>
     </div>
   );
 };

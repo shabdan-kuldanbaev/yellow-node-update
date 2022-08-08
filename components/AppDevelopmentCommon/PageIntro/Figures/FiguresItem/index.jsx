@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Svg } from 'components/Common/Svg';
+import Svg from 'components/Common/Svg';
 import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -12,7 +12,7 @@ const FiguresItem = ({
   switch (type) {
   case ROUTES.customWebApp.slug: {
     return (
-      <Fragment>
+      <>
         <div className={styles.checkMarkWrapper}>
           <div className={styles.checkMark}>
             <Svg
@@ -22,7 +22,7 @@ const FiguresItem = ({
           </div>
         </div>
         {figureContent}
-      </Fragment>
+      </>
     );
   }
   case ROUTES.developmentServices.slug: {

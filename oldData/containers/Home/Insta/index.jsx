@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  InstaLogo,
-  InstaTape,
-  SectionTitle,
-  ButtonMore,
-} from 'components';
+import InstaLogo from 'components/HomeCommon/InstaLogo';
+import InstaTape from 'components/HomeCommon/InstaTape';
+import SectionTitle from 'components/Common/SectionTitle';
+import ButtonMore from 'components/Common/ButtonMore';
 import styles from './styles.module.scss';
 
-export const Insta = () => (
+const Insta = () => (
   <section className={styles.insta}>
     <InstaLogo />
     <SectionTitle
@@ -22,3 +20,5 @@ export const Insta = () => (
     />
   </section>
 );
+
+export default Insta;

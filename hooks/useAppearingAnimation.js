@@ -40,6 +40,7 @@ function useAppearingAnimation(isMobileResolution = false) {
     window.addEventListener('scroll', handleOnScroll);
 
     return () => window.removeEventListener('scroll', handleOnScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return [direction, isTopOfPage];

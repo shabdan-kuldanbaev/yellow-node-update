@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { Svg } from 'components/Common/Svg';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Svg from 'components/Common/Svg';
 import { getDocumentFields } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getCheckSocialProps } from './utils/checkSocialHelper';
 import styles from './styles.module.scss';
 
-export const CheckSocialSection = ({
+const CheckSocialSection = ({
   sectionData,
   type,
 }) => {
@@ -60,3 +60,5 @@ CheckSocialSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
+
+export default CheckSocialSection;

@@ -1,11 +1,11 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .gallerySection {
   padding-bottom: 30px;
 
-  :global(.swiper-container) {
+  :global(.swiper) {
     padding-bottom: 100px;
     margin: 0 -40px;
 
@@ -22,14 +22,12 @@
     box-shadow: 0 10px 60px -10px rgba($black, 0.15);
   }
 
-  :global(.swiper-next-el) {
-    right: unset;
-    left: 73vw;
-  }
+  .navigation {
+    max-width: 60vw;
 
-  :global(.swiper-prev-el) {
-    left: unset;
-    right: 73vw;
+    @include tablet {
+      max-width: 90vw;
+    }
   }
 }
 
@@ -46,6 +44,10 @@
 
   background-color: $white;
   padding-bottom: 90px;
+
+  .sectionTitle {
+    @include defaultSectionTitle;
+  }
 
   .callToAction {
     @include defaultCallToAction;

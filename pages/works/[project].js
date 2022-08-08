@@ -5,6 +5,7 @@ import { fetchLayoutData } from 'redux/actions/layout';
 import CaseStudiesContainer from 'containers/CaseStudies';
 import ProjectContainer from 'containers/Project';
 import PageNotFound from 'containers/PageNotFound';
+import { wrapper } from 'redux/store';
 import { PAGES, CASE_STUDIES_SLUGS } from 'utils/constants';
 import errorHelper from 'utils/error';
 
@@ -20,12 +21,7 @@ const Project = ({ introSection, statusCode }) => {
     : <ProjectContainer introSection={introSection} />;
 };
 
-Project.getInitialProps = async ({
-  store,
-  req,
-  res,
-  query: { project },
-}) => {
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req, res, query: { project } }) => {
   try {
     let statusCode = '';
     store.dispatch(fetchLayoutData({
@@ -47,13 +43,17 @@ Project.getInitialProps = async ({
       }
     }
 
-    return { statusCode };
+    return {
+      props: {
+        statusCode,
+      },
+    };
   } catch (error) {
     errorHelper.handleError({
       error,
       message: 'Error in the Project.getInitialProps function',
     });
   }
-};
+});
 
 export default Project;

@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  SectionTitle,
-  ButtonMore,
-  Animated,
-} from 'components';
-import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
+import Animated from 'components/Common/Animated';
+import SectionTitle from 'components/Common/SectionTitle';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { CompanyFigures } from './CompanyFigures';
 import { aboutUsText } from './utils/data';
 import styles from './styles.module.scss';
 
-export const AboutUs = ({ aboutUsText: aboutUs }) => {
+const AboutUs = ({ aboutUsText: aboutUs }) => {
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -46,3 +43,5 @@ AboutUs.defaultProps = {
 AboutUs.propTypes = {
   aboutUsText: PropTypes.instanceOf(Array),
 };
+
+export default AboutUs;

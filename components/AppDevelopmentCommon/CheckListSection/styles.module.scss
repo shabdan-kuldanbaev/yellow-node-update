@@ -1,8 +1,12 @@
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .checkListSection {
   @include smallSectionWrapper;
+
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
 
   .checkList {
     @include flex(row, initial, stretch, wrap);

@@ -1,8 +1,12 @@
-@import "styles/utils/mixins";
-@import "../utils/styles.module";
+@import 'styles/utils/mixins';
+@import '../utils/styles.module';
 
 .relatedServices {
   @include appDevelopmentContainer;
+
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
 
   .contentWrapper {
     .serviceList {
@@ -32,5 +36,14 @@
         }
       }
     }
+  }
+}
+
+.mobile-app-development-company,
+.chat-app-development-company {
+  &.relatedServices {
+    @extend .greySection;
+
+    padding-top: 0;
   }
 }

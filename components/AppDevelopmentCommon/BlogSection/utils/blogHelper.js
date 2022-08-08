@@ -4,20 +4,17 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { SWIPER_NAV_PARAMS } from 'utils/constants';
 
 export const getBlogArticles = (blogArticles = []) => blogArticles.map((article) => {
   const {
     title,
     previewImageUrl,
     slug,
-  } = getDocumentFields(
-    article, [
-      'title',
-      'previewImageUrl',
-      'slug',
-    ],
-  );
+  } = getDocumentFields(article, [
+    'title',
+    'previewImageUrl',
+    'slug',
+  ]);
 
   const previewUrl = getOptimizedContentfulImage(
     getFileUrl(previewImageUrl),
@@ -54,5 +51,4 @@ export const getSwiperParams = () => ({
       centeredSlides: false,
     },
   },
-  ...SWIPER_NAV_PARAMS,
 });

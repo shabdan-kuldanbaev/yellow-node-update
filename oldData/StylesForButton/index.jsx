@@ -1,5 +1,6 @@
 import React from 'react';
-import { ButtonMore, LinkWrapper } from 'components';
+import ButtonMore from 'components/Common/ButtonMore';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 import { menuList } from '../../components/Layout/Header/Nav/utils/data';

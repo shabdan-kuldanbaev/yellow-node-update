@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SectionTitle, Animated } from 'components';
+import SectionTitle from 'components/Common/SectionTitle';
+import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { developFor } from './utils/data';
 import styles from './styles.module.scss';
 
-export const WeDevelopFor = ({ developFor: developForList }) => (
+const WeDevelopFor = ({ developFor: developForList }) => (
   <section className={styles.blockOfWeDevelopFor}>
     <SectionTitle title="We develop for" />
     <div className={styles.developFor}>
@@ -34,3 +35,5 @@ WeDevelopFor.defaultProps = {
 WeDevelopFor.propTypes = {
   developFor: PropTypes.instanceOf(Array),
 };
+
+export default WeDevelopFor;

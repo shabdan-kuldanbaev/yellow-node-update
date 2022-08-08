@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getFileUrl } from 'utils/helper';
 import { getImageSectionProps } from './utils/imageHelper';
 import styles from './styles.module.scss';
 
-export const ImagesListSection = ({ sectionData, type }) => {
+const ImagesListSection = ({ sectionData, type }) => {
   const {
     title,
     description,
@@ -50,3 +50,5 @@ ImagesListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
+
+export default ImagesListSection;

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import dayjs from 'dayjs';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { LinkWrapper } from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import styles from './styles.module.scss';
 
 export default function Post({

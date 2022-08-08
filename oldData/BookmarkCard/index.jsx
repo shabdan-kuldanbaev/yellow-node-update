@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import Like from './images/like.svg';

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkWrapper } from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import styles from './styles.module.scss';
 
-export const CheckboxContainer = ({
+const CheckboxContainer = ({
   text,
   isThereLink,
   linkText,
@@ -49,3 +49,5 @@ CheckboxContainer.propTypes = {
   linkText: PropTypes.string,
   handleOnChange: PropTypes.func,
 };
+
+export default CheckboxContainer;

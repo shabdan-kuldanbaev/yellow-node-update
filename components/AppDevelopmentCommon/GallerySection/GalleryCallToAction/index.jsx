@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CallToAction } from 'components/Common/CallToAction';
-import { Svg } from 'components/Common/Svg';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import CallToAction from 'components/Common/CallToAction';
+import Svg from 'components/Common/Svg';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import styles from 'components/AppDevelopmentCommon/GallerySection/styles.module.scss';

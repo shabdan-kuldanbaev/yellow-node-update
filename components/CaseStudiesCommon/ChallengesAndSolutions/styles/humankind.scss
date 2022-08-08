@@ -31,7 +31,8 @@
       }
 
       .image {
-        filter: none;
+        filter: drop-shadow(12px 12px 74px rgba(0, 0, 0, 0.08));
+        max-width: 1110px;
       }
     }
 
@@ -67,10 +68,10 @@
           @extend .openSenseGradient;
   
           &::after {
-            right: -40px;
-            transform: translate(40px, 0px);
+            right: -240px;
             background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
-  
+            width: 80%;
+
             @include tablet {
               display: none;
             }
@@ -106,13 +107,13 @@
           @extend .openSenseGradient;
   
           &::after {
-            left: -40px;
-            transform: translate(-40px, 0px);
+            left: -340px;
             background: linear-gradient(
               269.82deg,
               rgba($white, 0) 0.15%,
               $white 60.38%
             );
+            width: 80%;
   
             @include tablet {
               display: none;

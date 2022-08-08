@@ -23,6 +23,8 @@
     background-position: center;
     margin-bottom: 15px;
     background-color: inherit;
+    border-radius: 50%;
+    overflow: hidden;
 
     &:last-child {
       margin-bottom: 0;
@@ -31,21 +33,6 @@
     @include macbook-fifteen {
       width: 40px;
       height: 40px;
-    }
-  }
-
-  // TODO rewrite icons with svg component
-  .icon {
-    &Twitter {
-      background-image: url(getPathWithCdn('/images/article/twitter.svg'));
-    }
-
-    &Facebook {
-      background-image: url(getPathWithCdn('/images/article/facebook.svg'));
-    }
-
-    &Linkedin {
-      background-image: url(getPathWithCdn('/images/article/linkedin.svg'));
     }
   }
 }

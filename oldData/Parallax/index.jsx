@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Parallax } from 'react-scroll-parallax';
 import cn from 'classnames';
 
-export const ParallaxContainer = ({
+const ParallaxContainer = ({
   yTop,
   yBottom,
   children,
@@ -30,3 +30,5 @@ ParallaxContainer.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
+
+export default ParallaxContainer;

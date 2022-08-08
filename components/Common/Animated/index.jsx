@@ -12,7 +12,7 @@ import ImageZoom from './ImageZoom';
 import { Gsap } from './Gsap';
 import { ExpandWrapper } from './Expand';
 
-export const Animated = (props) => {
+const Animated = (props) => {
   switch (props.type) {
   case ANIMATED_TYPE.isReveal:
     return (
@@ -86,3 +86,5 @@ Animated.defaultProps = {
   isFade: false,
   isCustom: false,
 };
+
+export default Animated;

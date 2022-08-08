@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonMore from 'components/Common/ButtonMore';
 import styles from './styles.module.scss';
@@ -18,7 +18,7 @@ export const FieldsWrapper = ({
     );
   case 'description':
     return (
-      <Fragment>
+      <>
         <p className={styles.p}>
           {description}
         </p>
@@ -31,7 +31,7 @@ export const FieldsWrapper = ({
             />
           )
         }
-      </Fragment>
+      </>
     );
   default:
     return null;

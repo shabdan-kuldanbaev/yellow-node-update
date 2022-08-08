@@ -6,11 +6,18 @@
     "fetch": true,
     "localStorage": true
   },
-  "parser": "babel-eslint",
   "extends": [
     "airbnb",
-    "plugin:json/recommended"
+    "plugin:json/recommended",
+    "plugin:@next/next/recommended",
   ],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "plugins": [
     "react-hooks"
   ],
@@ -127,12 +134,14 @@
     ],
     "consistent-return": "off", // TODO re-review
     "no-unused-vars": "off", // TODO re-review
+    "react/destructuring-assignment": "off",
     "react/jsx-max-props-per-line": [
       1,
       {
           "maximum": 1
       }
     ],
-    "no-return-await": "off"
+    "no-return-await": "off",
+    "react/function-component-definition": "off",
   }
 }

@@ -1,5 +1,7 @@
+// destructuring doesn't work poperly with process.env
+/* eslint-disable prefer-destructuring */
+
 import React from 'react';
-import SwiperNavButton from 'components/SwiperNavButton';
 import { routes } from 'utils/routes';
 
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
@@ -217,27 +219,27 @@ export const CONTACTS_DATA = {
     {
       title: 'LinkedIn',
       type: SVG_IMAGES_TYPES.linkedinRoundWhite,
-      link: '//www.linkedin.com/company/yellow-systems',
+      link: 'https://www.linkedin.com/company/yellow-systems',
     },
     {
       title: 'Twitter',
       type: SVG_IMAGES_TYPES.twitterRoundWhite,
-      link: '//mobile.twitter.com/yellow_systems',
+      link: 'https://mobile.twitter.com/yellow_systems',
     },
     {
       title: 'Behance',
       type: SVG_IMAGES_TYPES.behanceRoundWhite,
-      link: '//www.behance.net/yellow_systems',
+      link: 'https://www.behance.net/yellow_systems',
     },
     {
       title: 'Medium',
       type: SVG_IMAGES_TYPES.mediumRoundWhite,
-      link: '//yellow.medium.com/',
+      link: 'https://yellow.medium.com/',
     },
     {
       title: 'Instagram',
       type: SVG_IMAGES_TYPES.instaRoundWhite,
-      link: '//www.instagram.com/yellow.systems/',
+      link: 'https://www.instagram.com/yellow.systems/',
     },
   ],
 };
@@ -417,8 +419,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
 };
 
-// eslint-disable-next-line
-export const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;
+export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
 
@@ -434,23 +435,25 @@ export const REVEAL_ANIMATION_PROPS = {
   transformDuration: 1,
 };
 
-export const SWIPER_NAV_PARAMS = {
-  navigation: {
-    nextEl: '.swiper-next-el',
-    prevEl: '.swiper-prev-el',
-  },
-  renderNextButton: () => (
-    <SwiperNavButton
-      type="arrowRight"
-      text="next"
-      className="swiper-next-el"
-    />
-  ),
-  renderPrevButton: () => (
-    <SwiperNavButton
-      type="arrowLeft"
-      text="previous"
-      className="swiper-prev-el"
-    />
-  ),
-};
+export const PHONE_RESOLUTION = 568;
+export const HORIZONTAL_MOBILE = 450;
+export const DEFAULT_TABLET_RESOLUTION = 768;
+export const BIG_TABLET_RESOLUTION = 1024;
+export const FULL_HD_RESOLUTION = 1920;
+
+export const DEV_HOSTS = [
+  'www.yws-dev.xyz',
+  'yws-dev.xyz',
+];
+
+export const CUSTOM_DOMAIN = process.env.CUSTOM_DOMAIN;
+
+export const IS_PROD = process.env.NEXT_PUBLIC_CURRENT_ENV === 'production';
+
+export const INDEX_FILES = [
+  '/index.asp',
+  '/index.aspx',
+  '/index.htm',
+  '/index.html',
+  '/index.php',
+];

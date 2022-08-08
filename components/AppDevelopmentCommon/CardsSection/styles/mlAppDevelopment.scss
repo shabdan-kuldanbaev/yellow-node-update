@@ -1,10 +1,8 @@
 .machine-learning-development-services {
   &.firstSectionView {
     @extend .greySection;
-  }
-
-  &.firstSectionView {
     @extend .cardsWithShadow;
+
     @include iconsWithinCircle;
   }
 

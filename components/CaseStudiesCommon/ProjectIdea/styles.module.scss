@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .container {
   @include caseStudyContainer;
@@ -510,7 +510,7 @@
 
   @include tablet {
     flex-direction: column;
-    padding: 80px 0 400px 0;
+    padding: 80px 0 400px;
   }
 
   @include phone {
@@ -630,7 +630,7 @@
               $ocean-blue 0%,
               $jacksons-purple 50%
             );
-          -webkit-background-clip: text;
+          background-clip: text;
           -webkit-text-fill-color: transparent;
         }
 

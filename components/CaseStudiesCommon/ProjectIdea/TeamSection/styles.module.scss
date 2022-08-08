@@ -1,9 +1,8 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .container {
   display: grid;
-  grid-row-gap: 15px;
-  grid-column-gap: 15px;
+  grid-gap: 15px;
   grid-template-columns: repeat(3, minmax(315px, 410px));
   grid-template-rows: repeat(3, auto);
   grid-auto-flow: column;
@@ -326,8 +325,7 @@
 .beautonomy {
   @include tablet {
     display: grid;
-    grid-row-gap: 10px;
-    grid-column-gap: 110px;
+    grid-gap: 10px;
     align-items: unset;
     padding-top: 80px;
   }
@@ -470,7 +468,15 @@
   max-width: initial;
   padding: 80px 0;
   margin: 150px 0;
-  background: linear-gradient(180deg, rgba($selago, 0) 0%, $selago 20.83%, $selago 49.48%, $selago 74.48%, rgba($selago, 0) 100%);
+  background:
+    linear-gradient(
+      180deg,
+      rgba($selago, 0) 0%,
+      $selago 20.83%,
+      $selago 49.48%,
+      $selago 74.48%,
+      rgba($selago, 0) 100%
+    );
 
   @include phone {
     margin: 80px 0;

@@ -1,5 +1,5 @@
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .sliderSection {
   max-width: $max-content-width;
@@ -7,6 +7,10 @@
   position: relative;
 
   @include flex(column, center, center);
+
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
 
   .sliderList {
     padding: 150px;

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
-import { Animated } from 'components/Common/Animated';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { Svg } from 'components/Common/Svg';
+import Animated from 'components/Common/Animated';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import Svg from 'components/Common/Svg';
 import {
   getDocumentFields,
   getFileUrl,

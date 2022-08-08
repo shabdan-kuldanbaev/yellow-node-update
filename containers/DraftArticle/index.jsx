@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { connect } from 'react-redux';
 import { selectArticle } from 'redux/selectors/blog';
 import { getArticleProps } from 'containers/Article/utils/propsHelper';
 import Article from 'components/BlogCommon/Article';
-import { FullLayout } from 'components/Layout/FullLayout';
+import FullLayout from 'components/Layout/FullLayout';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import { FAQ } from 'components/Common/FAQ';
 
@@ -24,7 +24,7 @@ const DraftArticle = ({ introSection, currentArticle }) => {
   } = getArticleProps({ article: currentArticle });
 
   return (
-    <Fragment>
+    <>
       <Head>
         <meta
           name="robots"
@@ -49,7 +49,7 @@ const DraftArticle = ({ introSection, currentArticle }) => {
           type="withFullLayout"
         />
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 

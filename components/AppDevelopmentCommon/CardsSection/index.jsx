@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
-import { Animated } from 'components/Common/Animated';
-import { CallToAction } from 'components/Common/CallToAction';
+import Animated from 'components/Common/Animated';
+import CallToAction from 'components/Common/CallToAction';
 import CardImage from 'components/AppDevelopmentCommon/CardsSection/CardImage';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { getCardsProps } from './utils/cardsHelper';
 import styles from './styles.module.scss';
 
-export const CardsSection = ({
+const CardsSection = ({
   sectionData,
   handleOnCTAClick,
   pageType,
@@ -130,3 +130,5 @@ CardsSection.propTypes = {
   sectionType: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
 };
+
+export default CardsSection;

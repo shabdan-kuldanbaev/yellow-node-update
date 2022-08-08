@@ -39,17 +39,20 @@
   // TODO: the first image does not animated on desktop safari
   .animatedContainer {
     position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-left: 70px;
     animation: image-scroll 30s linear infinite;
 
-    .image {
-      display: block;
-      height: 100%;
-      margin-left: 70px;
+    span {
+      width: inherit;
+      height: inherit;
+    }
 
-      @include phone {
-        height: 400px;
-        margin-left: 40px;
-      }
+    @include phone {
+      height: 400px;
+      margin-left: 40px;
     }
   }
 
@@ -170,7 +173,6 @@
   }
 }
 
-.humankind,
 .travel-trivia,
 .cash-chat {
   @extend .imagesContainer;
@@ -184,6 +186,8 @@
 }
 
 .humankind {
+  @extend .imagesContainer;
+
   &::before {
     background: linear-gradient(270deg, $white 0%, $case-study-humankind-wireframes 100%);
     transform: matrix(-1, 0, 0, 1, 0, 0);
@@ -357,9 +361,11 @@
   }
 
   .animatedContainer {
-    .image {
-      max-height: 541px;
-      margin-left: 30px;
+    height: 541px;
+    margin-left: 30px;
+
+    @include phone {
+      height: 400px;
     }
   }
 }

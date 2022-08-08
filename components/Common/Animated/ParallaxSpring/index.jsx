@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { animated, useSpring } from 'react-spring/web.cjs';
-import { connect } from 'react-redux';
+import { animated, useSpring } from 'react-spring';
+import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import cn from 'classnames';
 
@@ -12,15 +12,15 @@ const ParallaxWrapper = ({
   position,
   speed,
   isHomepageIntro,
-  isMobileResolution,
 }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
   const containerRef = useRef(null);
   const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
   const calc = (o) => `translateY(${o * (isHomepageIntro ? speed : 0.09)}px)`;
   const classNames = cn({ [className]: className });
   const style = {
     position: position || 'absolute',
-    transform: offset.interpolate(calc),
+    transform: offset.to(calc),
   };
 
   useEffect(() => {
@@ -96,9 +96,6 @@ ParallaxWrapper.propTypes = {
   position: PropTypes.string,
   speed: PropTypes.number,
   isHomepageIntro: PropTypes.bool,
-  isMobileResolution: PropTypes.bool.isRequired,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(ParallaxWrapper);
+export default ParallaxWrapper;

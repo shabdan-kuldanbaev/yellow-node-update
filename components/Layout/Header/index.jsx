@@ -1,36 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
+import dynamic from 'next/dynamic';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { selectIsMobileMenuOpened, selectIsDropMenuOpened } from 'redux/selectors/layout';
 import { setMobileMenuState } from 'redux/actions/layout';
-import LinearIndeterminate from 'components/Common/LinearIndeterminate';
 import Logo from 'components/Common/Logo';
-import { TopProgressBar } from 'components/Common/TopProgressBar';
+import TopProgressBar from 'components/Common/TopProgressBar';
 import {
-  ROUTES,
-  CASE_STUDIES_SLUGS,
   CASE_STUDIES,
   PAGES_WITH_TRANSPARENT_HEADER,
   CASE_STUDIES_WITH_TRANSPARENT_HEADER,
 } from 'utils/constants';
-import MobileMenu from './MobileMenu';
-import Nav from './Nav';
 import styles from './styles.module.scss';
 
-const Header = ({
-  introSection,
-  isMobileMenuOpened,
-  setMobileMenuState: setMobileMenu,
-  isDropMenuOpened,
-}) => {
+const MobileMenu = dynamic(() => import('./MobileMenu'));
+const Nav = dynamic(() => import('./Nav'));
+
+const Header = ({ introSection }) => {
+  const dispatch = useDispatch();
+  const isMobileMenuOpened = useSelector(selectIsMobileMenuOpened);
+  const isDropMenuOpened = useSelector(selectIsDropMenuOpened);
+
   const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
   const isPageWithTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
   const isCaseStudyWithTransparentHeader = CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(project)
   || CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(asPath);
-  const isHomepage = currentPage === '';
   const headerTheme = [
     CASE_STUDIES.tell,
     CASE_STUDIES.openSense,
@@ -90,6 +91,12 @@ const Header = ({
     setIsPageScrolledDown(false);
   }, [asPath]);
 
+  const setMobileMenu = useCallback((state) => () => {
+    dispatch(setMobileMenuState(state));
+  }, [dispatch]);
+
+  const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
+
   return (
     <header className={cn({
       [styles.headerContainer]: true,
@@ -104,19 +111,14 @@ const Header = ({
       </div>
       <Nav
         theme={navTheme}
-        isPageScrolledDown={isPageScrolledDown}
-        isTransparentHeader={isTransparentHeader}
-        currentPage={currentPage}
-        isMobileMenuOpened={isMobileMenuOpened}
-        setMobileMenuState={setMobileMenu}
+        isPageScrolling={isPageScrolling}
         isHeader
       />
       <MobileMenu
-        isMobileMenuOpened={isMobileMenuOpened}
-        setMobileMenuState={setMobileMenu}
+        isMobileMenuOpened={!!isMobileMenuOpened}
+        setMobileMenuState={setMobileMenu(!isMobileMenuOpened)}
         isPageScrolledDown={isPageScrolledDown}
       />
-      {!isHomepage && <LinearIndeterminate />}
       {(asPath.includes('blog/') && !page) && <TopProgressBar elementRef={introSection} />}
     </header>
   );
@@ -124,15 +126,6 @@ const Header = ({
 
 Header.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  isMobileMenuOpened: PropTypes.bool.isRequired,
-  setMobileMenuState: PropTypes.func.isRequired,
-  isDropMenuOpened: PropTypes.bool.isRequired,
 };
 
-export default connect(
-  (state) => ({
-    isMobileMenuOpened: selectIsMobileMenuOpened(state),
-    isDropMenuOpened: selectIsDropMenuOpened(state),
-  }),
-  { setMobileMenuState },
-)(Header);
+export default Header;

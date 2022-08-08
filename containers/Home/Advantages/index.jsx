@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { AdvantagesItems } from 'components/HomeCommon/AdvantagesItems';
-import { SectionTitle } from 'components/Common/SectionTitle';
+import AdvantagesItems from 'components/HomeCommon/AdvantagesItems';
+import SectionTitle from 'components/Common/SectionTitle';
 import styles from './styles.module.scss';
 
-export const Advantages = ({ refs, className }) => (
+const Advantages = ({ refs, className }) => (
   <section
     ref={refs[0]}
     className={cn(styles.advantages, { [className]: className })}
@@ -27,3 +27,5 @@ Advantages.propTypes = {
   refs: PropTypes.instanceOf(Array).isRequired,
   className: PropTypes.string,
 };
+
+export default Advantages;

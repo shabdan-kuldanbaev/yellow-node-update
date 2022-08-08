@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated, LinkWrapper } from 'components';
+import Animated from 'components/Common/Animated';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { animatedType } from 'utils/constants';
 import { processes } from './utils/data';
 import styles from './styles.module.scss';
