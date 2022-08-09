@@ -2,11 +2,12 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
-import SvgListSection from '../../../components/AppDevelopmentCommon/SvgListSection';
 
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
+const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
 const Blog = dynamic(() => import('containers/Home/Blog'));
+const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
 
 const SectionSelector = ({ section, type }) => {
   const { type: sectionType } = getDocumentFields(section);
@@ -39,6 +40,9 @@ const SectionSelector = ({ section, type }) => {
 
   case HOMEPAGE_SECTION_TYPES.blog:
     return <Blog sectionData={section} />;
+
+  case HOMEPAGE_SECTION_TYPES.photos:
+    return <PhotoGallery sectionData={section} />;
 
   default:
     return null;
