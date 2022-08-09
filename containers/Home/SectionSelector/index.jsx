@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
 
+const Portfolio = dynamic(() => import('containers/Home/Portfolio'), { ssr: false });
 const TextSection = dynamic(() => import('components/TextSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'));
@@ -21,6 +22,7 @@ const SectionSelector = ({ section, type }) => {
         type={type}
       />
     );
+
   case HOMEPAGE_SECTION_TYPES.cards:
     return (
       <CardsSection
@@ -28,6 +30,11 @@ const SectionSelector = ({ section, type }) => {
         pageType={type}
         sectionType="cards"
       />
+    );
+
+  case HOMEPAGE_SECTION_TYPES.porfolio:
+    return (
+      <Portfolio sectionData={section} />
     );
 
   case HOMEPAGE_SECTION_TYPES.svgDisplay:

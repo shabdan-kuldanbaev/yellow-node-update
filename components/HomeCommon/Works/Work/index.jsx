@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import CustomImage from 'components/Common/CustomImage';
@@ -8,20 +8,19 @@ import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
-const Work = ({
-  refs,
+const Work = forwardRef(({
   index,
   animatedFields: animatedFieldsList,
   imageUrl,
   title,
   description,
   slug,
-}) => (
+}, ref) => (
   <div
     className={styles.work}
     key={`works/${title}`}
     data-index={index}
-    ref={refs[index + 1]}
+    ref={ref}
   >
     <div className={styles.desc}>
       {animatedFieldsList?.map((animated) => (
@@ -64,7 +63,7 @@ const Work = ({
       </Animated>
     </div>
   </div>
-);
+));
 
 Work.defaultProps = {
   animatedFields,
@@ -72,7 +71,6 @@ Work.defaultProps = {
 };
 
 Work.propTypes = {
-  refs: PropTypes.instanceOf(Object).isRequired,
   index: PropTypes.number.isRequired,
   animatedFields: PropTypes.instanceOf(Array),
   imageUrl: PropTypes.string.isRequired,
