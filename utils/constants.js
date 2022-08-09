@@ -206,6 +206,7 @@ export const APP_DEVELOPMENT_TYPES = {
 };
 
 export const HOMEPAGE_SECTION_TYPES = {
+  text: 'text',
   cards: 'cards',
   svgDisplay: 'svg-display',
   porfolio: 'portfolio',

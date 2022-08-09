@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
 
+const TextSection = dynamic(() => import('components/TextSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
@@ -13,6 +14,13 @@ const SectionSelector = ({ section, type }) => {
   const { type: sectionType } = getDocumentFields(section);
 
   switch (sectionType) {
+  case HOMEPAGE_SECTION_TYPES.text:
+    return (
+      <TextSection
+        sectionData={section}
+        type={type}
+      />
+    );
   case HOMEPAGE_SECTION_TYPES.cards:
     return (
       <CardsSection
