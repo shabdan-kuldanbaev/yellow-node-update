@@ -16,7 +16,7 @@
     @include defaultSectionTitle;
   }
 
-  .cards > div {
+  .cards > * {
     @include defaultCard;
   }
 

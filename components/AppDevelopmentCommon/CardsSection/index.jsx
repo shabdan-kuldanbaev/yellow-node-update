@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
@@ -64,40 +64,41 @@ const CardsSection = ({
             );
             const imageUrl = getFileUrl(get(images, '[0]'));
             const svgType = get(contentList, '[0]');
-            const buttonTitle = get(contentModules, '[0].fields.buttonTitle');
             const url = get(contentModules, '[0].fields.url');
 
+            const Wrapper = url
+              ? ((props) => <LinkWrapper {...props} />) : (({ key }) => <Fragment key={key} />);
+
             return (
-              <Animated
+              <Wrapper
+                path={url}
+                className={styles.link}
                 key={`cards/${typeTitle}`}
-                {...animatedProps}
-                transitionDelay={400 + 50 * index}
               >
-                <CardImage
-                  imageUrl={imageUrl}
-                  svgType={svgType}
-                  className={styles.imageWrapper}
-                />
-                <div className={styles.cardContent}>
-                  <h3 className={styles.typeTitle}>
-                    {typeTitle}
-                  </h3>
-                  <ContentfulParser document={text} />
-                  <LinkWrapper
-                    path={url}
-                    className={styles.link}
-                  >
-                    {buttonTitle}
-                  </LinkWrapper>
-                </div>
-                {imagesBundles && imagesBundles.map((image) => (
-                  <img
-                    src={getFileUrl(image)}
-                    alt=""
-                    className={styles.imagesBundle}
+                <Animated
+                  {...animatedProps}
+                  transitionDelay={400 + 50 * index}
+                >
+                  <CardImage
+                    imageUrl={imageUrl}
+                    svgType={svgType}
+                    className={styles.imageWrapper}
                   />
-                ))}
-              </Animated>
+                  <div className={styles.cardContent}>
+                    <h3 className={styles.typeTitle}>
+                      {typeTitle}
+                    </h3>
+                    <ContentfulParser document={text} />
+                  </div>
+                  {imagesBundles && imagesBundles.map((image) => (
+                    <img
+                      src={getFileUrl(image)}
+                      alt=""
+                      className={styles.imagesBundle}
+                    />
+                  ))}
+                </Animated>
+              </Wrapper>
             );
           })}
         </div>
