@@ -46,7 +46,7 @@
     }
   }
 
-  div[role=button] {
+  div[role='button'] {
     font-weight: 500;
     height: unset;
     padding: 20px 0;
@@ -66,19 +66,6 @@
     padding: 40px 24px;
     margin-top: 40px;
     flex-direction: column;
-  }
-}
-
-@mixin defaultTitle {
-  max-width: $max-content-width-small-section;
-  margin: 0 auto 60px;
-
-  h2 {
-    max-width: 100%;
-  }
-
-  @include below-tablet {
-    margin-bottom: 40px;
   }
 }
 
@@ -128,6 +115,22 @@
 
     h3 {
       margin-top: 16px;
+    }
+  }
+}
+
+@mixin centeredIcons {
+  :global(.swiper-wrapper) {
+    align-items: center;
+  }
+
+  :global(.swiper-slide) {
+    & > div,
+    & {
+      @include flex(row, center, center);
+
+      flex: 1 1 auto;
+      height: auto;
     }
   }
 }

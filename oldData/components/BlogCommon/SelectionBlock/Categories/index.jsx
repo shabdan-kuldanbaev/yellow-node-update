@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { setOverflowForBody } from 'utils/helper';
 import CloseIcon from './images/close.svg';
 import styles from './styles.module.scss';

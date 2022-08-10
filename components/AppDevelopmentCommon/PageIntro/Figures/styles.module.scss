@@ -2,9 +2,22 @@
 @import 'styles/utils/mixins';
 
 .figureTitle {
-  font-size: 2.625rem;
+  @include fontSize(56px, 120%);
+
   font-weight: 800;
   color: $black;
+
+  @include tablet {
+    @include fontSize(40px);
+  }
+
+  @include below-tablet {
+    @include fontSize(32px);
+  }
+
+  @include phone {
+    @include fontSize(24px);
+  }
 }
 
 .figureSubtitle {
@@ -21,7 +34,10 @@
 
 .chat-app-development-company {
   .figures {
-    @include flex(row, space-between);
+    display: grid;
+    gap: 8vw;
+    justify-content: space-between;
+    grid-template-columns: repeat(4, 1fr);
 
     & > div {
       width: 100%;
@@ -36,7 +52,6 @@
         @extend .figureSubtitle;
 
         text-align: left;
-        padding-right: 100px;
       }
 
       @include below-tablet {
@@ -49,8 +64,8 @@
       margin-right: 0;
     }
 
-    @include below-tablet {
-      @include flex(row, space-between, initial, wrap);
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }

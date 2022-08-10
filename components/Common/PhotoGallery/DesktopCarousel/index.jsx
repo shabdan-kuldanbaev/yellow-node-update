@@ -4,16 +4,16 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
+import CustomImage from 'components/Common/CustomImage';
 import {
   getDocumentFields,
   getFileUrl,
-  getOptimizedContentfulImage,
 } from 'utils/helper';
-import { sizesOfImages } from '../utils/data';
 import styles from './styles.module.scss';
 
-export const DesktopCarousel = ({ photos }) => {
-  const gallery = photos.concat(photos, photos, photos);
+const DesktopCarousel = ({ photos }) => {
+  const gallery = photos?.concat(photos, photos, photos);
   const [fullListWidth, setFullListWidth] = useState(0);
   const [carouselContainerRef, listRef] = [useRef(null), useRef(null)];
   let offsetValue = 0;
@@ -52,7 +52,7 @@ export const DesktopCarousel = ({ photos }) => {
   const handleOnMouseLeave = () => clearInterval(timer);
 
   useEffect(() => {
-    if (listRef) {
+    if (listRef && photos) {
       let sum = 0;
       for (let i = 0; i < photos.length; i += 1) {
         sum += listRef.current.children[i].offsetWidth;
@@ -88,24 +88,22 @@ export const DesktopCarousel = ({ photos }) => {
             ref={listRef}
             className={styles.unorderedList}
           >
-            {gallery && gallery.map((photoData, index) => {
+            {gallery?.map((photoData, index) => {
               const { image, carouselImageType } = getDocumentFields(
                 photoData,
                 ['image', 'carouselImageType'],
               );
-              const imageUrl = getOptimizedContentfulImage(
-                getFileUrl(image),
-                { width: sizesOfImages[`${carouselImageType}ImgDesctop`] },
-              );
+              const imageUrl = getFileUrl(image);
 
               return (
-                <li
-                  key={`gallary/photo/${index}`}
-                  className={styles[`${carouselImageType}Img`]}
-                >
-                  <img
+                <li key={`gallary/photo/${index}`}>
+                  <CustomImage
                     src={imageUrl}
-                    alt=""
+                    layout="responsive"
+                    width={600}
+                    height={540}
+                    objectFit="contain"
+                    containerClasses={cn(styles.imageContainer, styles[`${carouselImageType}Img`])}
                   />
                 </li>
               );
@@ -120,3 +118,5 @@ export const DesktopCarousel = ({ photos }) => {
 DesktopCarousel.propTypes = {
   photos: PropTypes.instanceOf(Array).isRequired,
 };
+
+export default DesktopCarousel;

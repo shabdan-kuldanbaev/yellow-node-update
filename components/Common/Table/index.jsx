@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { FullLayout } from 'components/Layout/FullLayout';
+import FullLayout from 'components/Layout/FullLayout';
 import { ARTICLE_TABLE_TYPES } from 'utils/constants';
 import { TableContent } from './TableContent';
 import styles from './styles.module.scss';

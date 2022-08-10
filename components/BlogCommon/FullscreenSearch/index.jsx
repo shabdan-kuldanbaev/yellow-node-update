@@ -6,28 +6,24 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { findArticles, clearFoundArticles } from 'redux/actions/blog';
-import { ModalWindow } from 'components/Common/ModalWindow';
+import ModalWindow from 'components/Common/ModalWindow';
 import SearchResult from './SearchResult';
 import styles from './styles.module.scss';
 
-const FullscreenSearch = ({
-  isFullscreenSearch,
-  closeFullscreenSearch,
-  findArticles: loadArticles,
-  clearFoundArticles: removeFoundArticles,
-}) => {
+const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
+  const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const delayedQuery = useCallback(debounce((value) => loadArticles({ value }), 1000), []);
+  const delayedQuery = useCallback(debounce((value) => dispatch(findArticles({ value })), 1000), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
 
     if (value.length === 0) {
-      removeFoundArticles();
+      dispatch(clearFoundArticles());
       delayedQuery.cancel();
     }
 
@@ -38,7 +34,7 @@ const FullscreenSearch = ({
   const handleOnCloseModalWindow = () => {
     closeFullscreenSearch();
     setInputValue('');
-    removeFoundArticles();
+    dispatch(clearFoundArticles());
   };
 
   useEffect(() => {
@@ -85,14 +81,6 @@ FullscreenSearch.defaultProps = {
 FullscreenSearch.propTypes = {
   isFullscreenSearch: PropTypes.bool,
   closeFullscreenSearch: PropTypes.func.isRequired,
-  findArticles: PropTypes.func.isRequired,
-  clearFoundArticles: PropTypes.func.isRequired,
 };
 
-export default connect(
-  null,
-  {
-    findArticles,
-    clearFoundArticles,
-  },
-)(FullscreenSearch);
+export default React.memo(FullscreenSearch);

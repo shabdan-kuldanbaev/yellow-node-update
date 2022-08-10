@@ -2,6 +2,7 @@
   &.firstSectionView {
     @extend .greySection;
     @extend .cardsWithShadow;
+
     @include iconsWithinCircle;
   }
 

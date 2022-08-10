@@ -225,4 +225,14 @@
       width: 300px;
     }
   }
+
+  &.firstSectionView {
+    [data-case-study-title] {
+      padding-bottom: 80px;
+
+      @include phone {
+        padding-bottom: 30px;
+      }
+    }
+  }
 }

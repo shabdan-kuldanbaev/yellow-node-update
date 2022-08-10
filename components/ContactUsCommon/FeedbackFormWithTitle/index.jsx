@@ -1,5 +1,6 @@
 import React from 'react';
-import { SectionTitle, FeedbackForm } from 'components';
+import SectionTitle from 'components/Common/SectionTitle';
+import FeedbackForm from 'components/Common/FeedbackForm';
 import styles from './styles.module.scss';
 
 const FeedbackFormWithTitle = () => (

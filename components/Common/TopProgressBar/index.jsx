@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-export const TopProgressBar = ({ elementRef }) => {
+const TopProgressBar = ({ elementRef }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -34,3 +34,5 @@ export const TopProgressBar = ({ elementRef }) => {
 TopProgressBar.propTypes = {
   elementRef: PropTypes.instanceOf(Object).isRequired,
 };
+
+export default TopProgressBar;

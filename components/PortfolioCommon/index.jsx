@@ -4,8 +4,9 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { withScroll } from 'hocs/withScroll';
-import { Animated } from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
+import withScroll from 'hocs/withScroll';
+import Animated from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
 import {
   DEFAULT_WORK_TYPE,
@@ -15,9 +16,10 @@ import {
 import gaHelper from 'utils/ga';
 import { getLimitedList } from 'utils/helper';
 import Work from './Work';
-import TypeSelector from './TypeSelector';
 import { DEFAULT_WORKS_LIMIT, filterWorks } from './utils';
 import styles from './styles.module.scss';
+
+const TypeSelector = dynamic(() => import('./TypeSelector'));
 
 const Portfolio = ({
   works,
@@ -50,7 +52,7 @@ const Portfolio = ({
   const onSelectedTagChange = useCallback((tag) => {
     setCurrentLimit(DEFAULT_WORKS_LIMIT);
 
-    if (selectedTag && selectedTag.slug === tag.slug) {
+    if (selectedTag?.slug === tag.slug) {
       return setSelectedTag(null);
     }
 

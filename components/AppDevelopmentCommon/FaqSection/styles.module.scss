@@ -1,6 +1,7 @@
-/* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+/* stylelint-disable no-duplicate-selectors */
+
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .mobile-app-development-company,
 .web-app-development-company,
@@ -16,11 +17,7 @@
   background-color: $alabaster;
 
   .title {
-    margin-bottom: 60px;
-
-    @include below-tablet {
-      margin-bottom: 30px;
-    }
+    @include defaultSectionTitle;
   }
 
   & > div:last-child {
@@ -60,8 +57,4 @@
 .ui-ux-services,
 .mobile-app-development-company {
   padding-bottom: 0;
-}
-
-.chat-app-development-company {
-  padding-top: 0;
 }

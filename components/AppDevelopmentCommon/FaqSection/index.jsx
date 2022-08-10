@@ -6,7 +6,7 @@ import { getDocumentFields } from 'utils/helper';
 import { getFAQList } from './utils/faqHelper';
 import styles from './styles.module.scss';
 
-export const FaqSection = ({ data, type }) => {
+const FaqSection = ({ data, type }) => {
   const {
     title,
     contentModules,
@@ -33,3 +33,5 @@ FaqSection.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
+
+export default FaqSection;

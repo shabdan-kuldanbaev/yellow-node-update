@@ -50,7 +50,7 @@ function* fetchDuck({ payload: { isFirstHomepageVisit, loadDuck } }) {
   try {
     const [duck] = yield all([
       yield loadDuck(),
-      !isFirstHomepageVisit && !(yield select(selectIsFirstPageLoaded)) && (yield call(artificialDelay, 4000)),
+      !isFirstHomepageVisit && !(yield select(selectIsFirstPageLoaded)),
     ]);
 
     yield put({ type: actionTypes.SET_DUCK, payload: duck });
@@ -168,8 +168,8 @@ function* fetchPageData({
 
 export function* fetchPageWatcher() {
   yield all([
+    yield takeLatest(actionTypes.SET_DUCK_PENDING, fetchDuck),
     yield takeLatest(actionTypes.FIND_ARTICLES_PENDING, findArticles),
     yield takeLatest(actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING, fetchPageData),
-    yield takeLatest(actionTypes.SET_DUCK_PENDING, fetchDuck),
   ]);
 }

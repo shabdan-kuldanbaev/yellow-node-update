@@ -8,6 +8,7 @@
   z-index: 99999;
   width: calc(100% - 70px);
   padding: 45px 35px;
+  will-change: transform, opacity;
 
   @include flex(row, space-between, flex-start);
 
@@ -26,21 +27,17 @@
 }
 
 .animate {
-  will-change: transform;
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
 .down {
-  will-change: transform;
   transform: translate3d(0, 40px, 0);
   opacity: 0;
   transition: transform $default-transition-time, opacity $default-transition-time;
 }
 
 .up {
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
   opacity: 1;
   transition: transform $default-transition-time, opacity $default-transition-time;
 }

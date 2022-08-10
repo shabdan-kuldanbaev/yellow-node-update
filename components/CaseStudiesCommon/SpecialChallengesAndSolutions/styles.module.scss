@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .fernwayer {
   @include caseStudyContainer;
@@ -156,14 +156,14 @@
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-areas:
-    "h h"
-    "l r";
+    'h h'
+    'l r';
 
   @include phone {
     grid-template-areas:
-      "h h"
-      "l l"
-      "r r";
+      'h h'
+      'l l'
+      'r r';
   }
 }
 

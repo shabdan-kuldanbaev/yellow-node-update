@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins", "styles/utils/theme/animations";
+@import "styles/utils/mixins";
+@import "styles/utils/theme/animations";
 
 .imageContainer {
   position: relative;
@@ -427,6 +428,22 @@
 
     @include phone {
       display: block;
+    }
+  }
+
+  &.fourthSectionView {
+    .image:last-child {
+      @include phone {
+        max-width: unset;
+        width: 280px;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    .image:last-child {
+      max-width: unset;
+      width: 650px;
     }
   }
 }

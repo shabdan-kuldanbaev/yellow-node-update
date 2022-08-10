@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins", "styles/utils/theme/animations";
+@import 'styles/utils/mixins', 'styles/utils/theme/animations';
 
 .circle {
   position: relative;
@@ -134,7 +134,9 @@
 
     .mockup {
       width: 330px;
-      filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6)) drop-shadow(-14.7997px 14.7997px 29.5993px rgba(0, 0, 0, 0.5));
+      filter:
+        drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 0.6))
+        drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 0.5));
 
       @include phone {
         width: 209px;
@@ -803,6 +805,8 @@
 
       @include phone {
         display: block;
+        width: 325px;
+        margin-top: 40px;
       }
     }
 

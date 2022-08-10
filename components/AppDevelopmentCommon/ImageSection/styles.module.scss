@@ -1,5 +1,5 @@
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .imageSection {
   max-width: $max-content-width;
@@ -78,11 +78,11 @@
 
   .titleStyle {
     p {
-      @include fontSize(40px);
+      @include fontSize(56px, 120%);
 
-      line-height: 120%;
+      @include tablet {
+        @include fontSize(32px);
 
-      @include below-tablet {
         text-align: center;
       }
     }

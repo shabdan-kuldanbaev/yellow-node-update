@@ -82,6 +82,14 @@
           padding: 0 46px;
         }
 
+        .imageContainer {
+          display: block;
+
+          span {
+            height: 100% !important;
+          }
+        }
+
         .squareImg {
           width: 420px;
           height: 420px;

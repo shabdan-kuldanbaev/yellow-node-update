@@ -7,11 +7,12 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import Swiper from 'react-id-swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCors, {
   EffectCoverflow,
   Navigation,
 } from 'swiper';
+import { SwiperNavigation } from 'components/SwiperNavigation';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getMaxVal } from 'utils/helper';
 import { Comment } from './Comment';
@@ -70,13 +71,14 @@ export const Reviews = ({ reviews = [] }) => {
       <div className={styles.desktopReviews}>
         <Swiper {...desktopSwiperParams}>
           {reviews.map((comment, index) => (
-            <div key={`desktopReviews/${comment.name}`}>
+            <SwiperSlide key={`desktopReviews/${comment.name}`}>
               <Comment
                 comment={comment}
                 infoRef={infoRefs.current[index]}
               />
-            </div>
+            </SwiperSlide>
           ))}
+          <SwiperNavigation />
         </Swiper>
       </div>
       <div
@@ -88,7 +90,7 @@ export const Reviews = ({ reviews = [] }) => {
           ref={swiperRef}
         >
           {reviews.map((comment) => (
-            <div key={`mobileReviews/${comment.name}`}>
+            <SwiperSlide key={`mobileReviews/${comment.name}`}>
               <Comment
                 comment={comment}
                 animatioProps={{
@@ -96,7 +98,7 @@ export const Reviews = ({ reviews = [] }) => {
                   translateY: '0px',
                 }}
               />
-            </div>
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>

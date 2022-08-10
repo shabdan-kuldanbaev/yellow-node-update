@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ContentfulParser, OldArticle } from 'components';
-import { withScroll } from 'hocs/withScroll';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import OldArticle from 'components/BlogCommon/Article/OldArticle';
+import withScroll from 'hocs/withScroll';
 import gaHelper from 'utils/ga';
 import { formatDate } from 'utils/helper';
 import { Author } from './Author';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -60,12 +60,13 @@ SectionTitle.defaultProps = {
   subtitle: '',
   description: '',
   className: null,
+  title: null,
 };
 
 SectionTitle.propTypes = {
   type: PropTypes.string,
   titleStyle: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   subtitle: PropTypes.string,
   description: PropTypes.string,
   className: PropTypes.string,

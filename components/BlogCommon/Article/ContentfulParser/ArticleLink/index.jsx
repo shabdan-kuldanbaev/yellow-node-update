@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CallToAction } from 'components/Common/CallToAction';
-import { BookmarkCard } from 'components/BlogCommon/Article/BookmarkCard';
+import CallToAction from 'components/Common/CallToAction';
+import BookmarkCard from 'components/BlogCommon/Article/BookmarkCard';
 
 export const ArticleLink = ({
   type,

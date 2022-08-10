@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { clearMessage } from 'redux/actions/subscribe';
 import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
 import { withValidateEmail } from 'hocs/withValidateEmail';
@@ -12,10 +12,11 @@ const SubscribeBlock = ({
   email,
   handleOnEmailChange,
   handleOnSubmit,
-  message,
-  clearMessage: clearAlertMessage,
-  isSubscribed,
 }) => {
+  const dispatch = useDispatch();
+  const message = useSelector(selectSubscribeMessage);
+  const isSubscribed = useSelector(selectIsSubscribed);
+
   const handleOnClick = (event) => {
     event.preventDefault();
 
@@ -23,8 +24,8 @@ const SubscribeBlock = ({
   };
 
   useEffect(
-    () => () => clearAlertMessage(),
-    [clearAlertMessage],
+    () => () => dispatch(clearMessage()),
+    [dispatch],
   );
 
   return (!isSubscribed && (
@@ -63,7 +64,6 @@ const SubscribeBlock = ({
 
 SubscribeBlock.defaultProps = {
   isBlog: false,
-  isSubscribed: false,
 };
 
 SubscribeBlock.propTypes = {
@@ -71,15 +71,6 @@ SubscribeBlock.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnSubmit: PropTypes.func.isRequired,
-  message: PropTypes.string.isRequired,
-  clearMessage: PropTypes.func.isRequired,
-  isSubscribed: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({
-    message: selectSubscribeMessage(state),
-    isSubscribed: selectIsSubscribed(state),
-  }),
-  { clearMessage },
-)(withValidateEmail(SubscribeBlock));
+export default withValidateEmail(SubscribeBlock);

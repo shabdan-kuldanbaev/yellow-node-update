@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
-import { Video } from 'components/Common/Video';
+import Video from 'components/Common/Video';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { isResultHasVideo, getResultProps } from './utils/resultsHelper';
 import styles from './styles.module.scss';

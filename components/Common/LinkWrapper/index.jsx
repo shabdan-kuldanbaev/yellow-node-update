@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import gaHelper from 'utils/ga';
-import { rootUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const LinkWrapper = ({
+const LinkWrapper = ({
   isLocalLink,
   path,
   dynamicRouting,
@@ -17,12 +16,10 @@ export const LinkWrapper = ({
   className,
   children,
   googleAnalyticProps,
-  isSocialLink,
+  isSocialLink: isExternalLink,
   onClick,
 }) => {
-  const finalPath = isLocalLink
-    ? path.replace(rootUrl, '')
-    : path;
+  const finalPath = isExternalLink ? path : path.replace(/(\/\/)?(rootUrl)?/g, '');
 
   const handleOnClick = () => {
     if (!isEmpty(googleAnalyticProps)) {
@@ -43,8 +40,10 @@ export const LinkWrapper = ({
     onClick();
   };
 
+  const Wrapper = isExternalLink ? Fragment : Link;
+
   return (
-    <Link
+    <Wrapper
       prefetch={false}
       href={dynamicRouting.length > 0 ? dynamicRouting : finalPath}
       as={finalPath}
@@ -54,7 +53,7 @@ export const LinkWrapper = ({
         className={cn(styles.link, { [className]: !isImage })}
         href={finalPath}
         target={!isLocalLink ? '_blank' : undefined}
-        rel={(!isLocalLink && !isSocialLink) ? 'noopener noreferrer nofollow' : undefined}
+        rel={(!isLocalLink && !isExternalLink) ? 'noopener noreferrer nofollow' : undefined}
         onClick={handleOnClick}
       >
         {!isImage ? children : (
@@ -67,7 +66,7 @@ export const LinkWrapper = ({
           </div>
         )}
       </a>
-    </Link>
+    </Wrapper>
   );
 };
 
@@ -108,3 +107,5 @@ LinkWrapper.propTypes = {
   isSocialLink: PropTypes.bool,
   onClick: PropTypes.func,
 };
+
+export default LinkWrapper;

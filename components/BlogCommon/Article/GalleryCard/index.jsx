@@ -1,12 +1,12 @@
 import React, { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { Animated } from 'components';
+import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE, ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const GalleryCard = ({ images, photoCaption }) => {
+const GalleryCard = ({ images, photoCaption }) => {
   const imageRef = useRef(null); // TODO replace imageRef with something for the garrely row key
   const rowsCount = Math.ceil(images.length / ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE);
 
@@ -77,3 +77,5 @@ GalleryCard.propTypes = {
   images: PropTypes.instanceOf(Array).isRequired,
   photoCaption: PropTypes.string,
 };
+
+export default GalleryCard;
