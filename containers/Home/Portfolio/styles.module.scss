@@ -94,6 +94,6 @@
   }
 
   @include phone {
-    padding: 0 $side-indent $mobile-section-indent;
+    padding: $mobile-section-indent $side-indent;
   }
 }

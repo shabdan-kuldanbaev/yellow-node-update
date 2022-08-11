@@ -46,10 +46,14 @@
   @include phone {
     padding: 100px 0 0;
     height: auto;
-    margin-right: 20px;
-    margin-left: 20px;
+    width: 90vw;
 
-    @include flex(column-reverse, center, center);
+    @include flex(column-reverse, center, stretch);
+
+    * {
+      text-align: center;
+      margin: 25px auto 0;
+    }
   }
 
   @include horizontal-mobile {
