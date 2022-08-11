@@ -14,6 +14,7 @@ const SvgGroup = ({
   data,
   isSwiperEnabled,
   className,
+  hideTitle,
 }) => {
   const { title, contentList: icons } = getSvgGroupProps(data);
 
@@ -26,7 +27,7 @@ const SvgGroup = ({
       { [styles.multiline]: !isSwiperEnabled },
     )}
     >
-      {title && (
+      {title && !hideTitle && (
         <h3 className={styles.groupTitle}>
           {title}
         </h3>
@@ -56,12 +57,14 @@ const SvgGroup = ({
 SvgGroup.defaultProps = {
   className: '',
   isSwiperEnabled: true,
+  hideTitle: false,
 };
 
 SvgGroup.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   isSwiperEnabled: PropTypes.bool,
   className: PropTypes.string,
+  hideTitle: PropTypes.bool,
 };
 
 export default SvgGroup;

@@ -19,7 +19,7 @@ export const getSvgSectionProps = (data) => {
     ],
   );
   const linkData = contentModules.find((modules) => modules.sys.contentType.sys.id === 'link');
-  const iconsGroup = contentModules.filter((modules) => modules.sys.contentType.sys.id !== 'link');
+  const iconsGroups = contentModules.filter((modules) => modules.sys.contentType.sys.id !== 'link');
 
   if (linkData) {
     const {
@@ -40,7 +40,7 @@ export const getSvgSectionProps = (data) => {
     description,
     link,
     view,
-    iconsGroup,
+    iconsGroups,
   };
 };
 

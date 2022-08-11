@@ -2,8 +2,13 @@
   max-width: $max-content-width-small-section;
   margin: 0 auto;
 
+  :global(.swiper) {
+    width: min-content;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
   :global(.swiper-wrapper) {
-    align-items: stretch;
     margin-right: -60px;
     width: auto;
   }
@@ -13,7 +18,7 @@
     & {
       @include flex(row, center, flex-end);
 
-      flex: 1 1 auto;
+      flex: 0 0 auto;
       height: auto;
     }
   }

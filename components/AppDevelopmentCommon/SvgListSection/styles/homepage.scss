@@ -1,4 +1,11 @@
 .homepage {
+  &.firstSectionView {
+    .svgGroup {
+      width: min(100%, $max-content-width);
+      max-width: unset;
+    }
+  }
+
   &.secondSectionView {
     @extend .greySection;
 

@@ -45,6 +45,15 @@ const SectionSelector = ({ section, type }) => {
       />
     );
 
+  case HOMEPAGE_SECTION_TYPES.svgDisplayWithSelector:
+    return (
+      <SvgListSection
+        sectionData={section}
+        type={type}
+        withSelector
+      />
+    );
+
   case HOMEPAGE_SECTION_TYPES.reviews:
     return (
       <ReviewsSection

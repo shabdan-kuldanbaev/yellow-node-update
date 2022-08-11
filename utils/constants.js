@@ -209,6 +209,7 @@ export const HOMEPAGE_SECTION_TYPES = {
   text: 'text',
   cards: 'cards',
   svgDisplay: 'svg-display',
+  svgDisplayWithSelector: 'svg-display-with-selector',
   porfolio: 'portfolio',
   reviews: 'reviews',
   blog: 'blog',
