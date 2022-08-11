@@ -36,17 +36,6 @@ export const Home = ({
           type={type}
         />
       ))}
-      {/* <Portfolio projects={projects} /> */}
-      {/* <ReviewsContainer /> */}
-      {/* <Blog /> */}
-      {/* <FullLayout */}
-      {/*  disableMaxWidth */}
-      {/*  disableTopPadding */}
-      {/*  disableSidePadding */}
-      {/*  disableBottomPadding */}
-      {/* > */}
-      {/*  <PhotoGallery photos={photos} /> */}
-      {/* </FullLayout> */}
       {hasFeedbackForm && <FeedbackFormContainer />}
     </>
   );
