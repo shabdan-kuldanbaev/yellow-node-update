@@ -17,6 +17,7 @@ const CardsSection = ({
   handleOnCTAClick,
   pageType,
   sectionType,
+  withOverlay,
 }) => {
   const {
     title,
@@ -91,7 +92,7 @@ const CardsSection = ({
                     <h3 className={styles.typeTitle}>
                       {typeTitle}
                     </h3>
-                    <ContentfulParser document={text} />
+                    {!withOverlay && <ContentfulParser document={text} />}
                   </div>
                   {imagesBundles && imagesBundles.map((image) => (
                     <img
@@ -100,6 +101,14 @@ const CardsSection = ({
                       className={styles.imagesBundle}
                     />
                   ))}
+                  {withOverlay && (
+                    <div className={styles.overlay}>
+                      <h3 className={styles.typeTitle}>
+                        {typeTitle}
+                      </h3>
+                      <ContentfulParser document={text} />
+                    </div>
+                  )}
                 </Animated>
               </Wrapper>
             );
@@ -126,6 +135,7 @@ const CardsSection = ({
 
 CardsSection.defaultProps = {
   handleOnCTAClick: () => {},
+  withOverlay: false,
 };
 
 CardsSection.propTypes = {
@@ -133,6 +143,7 @@ CardsSection.propTypes = {
   pageType: PropTypes.string.isRequired,
   sectionType: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
+  withOverlay: PropTypes.bool,
 };
 
 export default CardsSection;

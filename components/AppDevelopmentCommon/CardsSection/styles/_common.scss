@@ -26,6 +26,10 @@
     @include smallSectionWrapper;
   }
 
+  .overlay {
+    @include overlay;
+  }
+
   .callToAction {
     @include defaultCallToAction;
   }

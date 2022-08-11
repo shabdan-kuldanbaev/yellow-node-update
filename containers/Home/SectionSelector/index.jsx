@@ -32,6 +32,16 @@ const SectionSelector = ({ section, type }) => {
       />
     );
 
+  case HOMEPAGE_SECTION_TYPES.cardsWithOverlay:
+    return (
+      <CardsSection
+        sectionData={section}
+        pageType={type}
+        sectionType="cards"
+        withOverlay
+      />
+    );
+
   case HOMEPAGE_SECTION_TYPES.porfolio:
     return (
       <Portfolio sectionData={section} />
