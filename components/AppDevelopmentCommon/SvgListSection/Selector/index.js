@@ -6,17 +6,19 @@ const Selector = ({ displayNames, selectedIndex, onSelectedIndexChange }) => {
   const handleSelectedIndexChange = (i) => () => onSelectedIndexChange(i);
 
   return (
-    <ul className={styles.selector}>
-      {displayNames.map((name, i) => (
-        <li
-          key={name}
-          className={cn(styles.item, { [styles.selected]: i === selectedIndex })}
-          onClick={handleSelectedIndexChange(i)}
-        >
-          {name}
-        </li>
-      ))}
-    </ul>
+    <div className={styles.wrapper}>
+      <ul className={styles.selector}>
+        {displayNames.map((name, i) => (
+          <li
+            key={name}
+            className={cn(styles.item, { [styles.selected]: i === selectedIndex })}
+            onClick={handleSelectedIndexChange(i)}
+          >
+            {name}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

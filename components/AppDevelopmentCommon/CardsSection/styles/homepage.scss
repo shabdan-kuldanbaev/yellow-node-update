@@ -81,7 +81,12 @@
 
           @include below-tablet {
             flex-basis: 80%;
+            display: block;
           }
+        }
+
+        @include below-tablet {
+          @include flex(column, flex-start, stretch);
         }
       }
     }
