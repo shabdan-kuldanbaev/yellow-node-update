@@ -119,6 +119,20 @@
           grid-template-columns: repeat(1, 1fr);
         }
       }
+
+      .cardContent p {
+        display: none;
+
+        @include below-tablet {
+          display: block;
+        }
+      }
+    }
+
+    .overlay {
+      @include below-tablet {
+        display: none;
+      }
     }
   }
 

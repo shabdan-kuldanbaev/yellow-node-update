@@ -92,7 +92,7 @@ const CardsSection = ({
                     <h3 className={styles.typeTitle}>
                       {typeTitle}
                     </h3>
-                    {!withOverlay && <ContentfulParser document={text} />}
+                    <ContentfulParser document={text} />
                   </div>
                   {imagesBundles && imagesBundles.map((image) => (
                     <img
