@@ -19,6 +19,7 @@ export { default as nearbyArrow } from './nearbyArrow.svg';
 export { default as arrow } from './arrow.svg';
 export { default as arrowRight } from './arrowRight.svg';
 export { default as arrowLeft } from './arrowLeft.svg';
+export { default as arrowBottom } from './arrowBottom.svg';
 
 /* Symbols */
 export { default as plus } from './plus.svg';
