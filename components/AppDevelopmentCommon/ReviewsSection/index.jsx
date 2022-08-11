@@ -32,7 +32,10 @@ const ReviewsSection = ({
         description={description}
         titleStyle={styles.titleStyle}
       />
-      <Reviews reviews={reviews} />
+      <Reviews
+        reviews={reviews}
+        type={type}
+      />
       {link && (
         <Animated
           {...REVEAL_ANIMATION_PROPS}
