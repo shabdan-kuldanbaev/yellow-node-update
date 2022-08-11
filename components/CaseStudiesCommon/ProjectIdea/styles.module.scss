@@ -200,20 +200,20 @@
   background: $athens-gray;
 
   .contentContainer {
-    padding-bottom: 0;
-
     @include flex(column-reverse, center, center);
+ 
+    padding-bottom: 0;
 
     @include phone {
       flex-direction: column;
     }
 
     .descriptionContainer {
+      @include flex(row, center);
+
       padding-bottom: 120px;
       max-width: unset;
       margin-left: 0;
-
-      @include flex(row, center);
 
       @include tablet {
         flex-direction: column;
@@ -228,16 +228,16 @@
       .descriptionIntro {
         margin-right: 245px;
 
-        @include tablet {
-          margin-right: 0;
-        }
-
         .description {
           max-width: 643px;
 
           @include phone {
             margin-bottom: 40px;
           }
+        }
+
+        @include tablet {
+          margin-right: 0;
         }
       }
     }
