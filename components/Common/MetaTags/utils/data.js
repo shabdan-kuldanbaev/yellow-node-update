@@ -104,4 +104,10 @@ export const ogMetaData = [
     metaDescription: 'If you want to boost your business with a machine learning solution, Yellow is here to back you up',
     url: `${rootUrl}${ROUTES.mlDevelopment.path}`,
   },
+  {
+    pageName: ROUTES.fintechDevelopment.slug,
+    metaTitle: 'Fintech Software Development Services | Yellow',
+    metaDescription: 'If you want to boost your business with a machine learning solution, Yellow is here to back you up',
+    url: `${rootUrl}${ROUTES.fintechDevelopment.path}`,
+  },
 ];

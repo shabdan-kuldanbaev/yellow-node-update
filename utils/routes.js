@@ -256,6 +256,12 @@ export const routes = {
     dynamicPath: '/signature-generator',
     slug: 'signature-generator',
   },
+  fintechDevelopment: {
+    title: 'Fintech Software Development Services',
+    path: '/fintech-software-development-services',
+    dynamicPath: '/fintech-software-development-services',
+    slug: 'fintech-software-development-services',
+  },
   notFound: {
     title: '404 | Yellow',
     path: '/not-found',

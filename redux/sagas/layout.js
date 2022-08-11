@@ -137,6 +137,7 @@ function* fetchPageData({
     case PAGES.androidDevelopmentServices:
     case PAGES.mvpDevelopment:
     case PAGES.cloudDevelopment:
+    case PAGES.fintechDevelopment:
     case PAGES.mlDevelopment:
     case PAGES.notFound:
     case PAGES.signatureGenerator:

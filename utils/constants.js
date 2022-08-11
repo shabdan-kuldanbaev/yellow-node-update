@@ -46,6 +46,7 @@ export const NAV_LINKS = [
     routes.customChatApp.slug,
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
+    routes.fintechDevelopment.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
@@ -326,6 +327,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
+  ROUTES.fintechDevelopment.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
@@ -345,6 +347,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.mvpDevelopment.path,
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
+  ROUTES.fintechDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -389,6 +392,11 @@ export const SUB_NAVIGATION_LINKS = {
       subtitle: 'Artificial intelligence at your service',
       slug: ROUTES.mlDevelopment.path,
     },
+    {
+      title: 'Fintech Software Development Services',
+      subtitle: 'Bebebebebe',
+      slug: ROUTES.fintechDevelopment.path,
+    },
   ],
 };
 
@@ -409,6 +417,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
   [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
   [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
+  [PAGES.fintechDevelopment]: 'Contact Yellow for a free estimation',
   [PAGES.designServices]: 'Tailored UX design services for your business',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
