@@ -20,4 +20,5 @@ export const IMAGE_SIZES = {
   telemojo: 540,
   famlicious: 660,
   bionorica: 440,
+  humankind: 630,
 };

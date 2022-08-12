@@ -56,12 +56,12 @@ const ResultsSection = ({ data, type }) => {
               alt={appScreenUrl}
             />
           )}
-        {imagesBundlesData && imagesBundlesData.imagesBundles.map((bundle) => {
+        {imagesBundlesData && imagesBundlesData.imagesBundles.map((bundle, index) => {
           const bundleUrl = getFileUrl(bundle);
 
           return (
             <img
-              className={styles.imageBundle}
+              className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
               src={bundleUrl}
               alt={type}
               key={`result-images-bundles/${bundleUrl}`}

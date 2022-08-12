@@ -277,6 +277,7 @@ export const CASE_STUDIES = {
   fernwayer: 'fernwayer',
   dindon: 'dindon',
   stickerbox: 'stickerbox',
+  hotelDataCloud: 'hotel-data-cloud',
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',
   tell: 'tell',
@@ -299,6 +300,7 @@ export const CASE_STUDIES = {
   blackBird: 'blackbird',
   mobileFintechApp: 'fintech-app-for-credit-score',
   goodPsychics: 'marketplace-for-clairvoyant-services',
+  humankind: 'humankind',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

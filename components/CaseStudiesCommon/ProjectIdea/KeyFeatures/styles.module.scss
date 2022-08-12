@@ -693,6 +693,7 @@
   }
 }
 
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @extend .container;
 
@@ -721,6 +722,26 @@
     .containerBackground {
       left: -40%;
       transform: rotateY(-16deg) translateZ(-200px);
+    }
+  }
+}
+
+.hotel-data-cloud {
+  .featureContainer {
+    margin-bottom: 40px;
+
+    .checkMark {
+      background: $case-study-data-cloud-background;
+    }
+  }
+
+  .contentContainer {
+    .title {
+      margin-bottom: 10px;
+    }
+
+    & > p {
+      max-width: 330px;
     }
   }
 }

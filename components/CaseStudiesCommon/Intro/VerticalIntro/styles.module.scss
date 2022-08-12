@@ -342,8 +342,10 @@
   }
 }
 
+.hotel-data-cloud,
 .smartcenter,
 .fusion-markets,
+.humankind,
 .marketplace-for-clairvoyant-services {
   @extend .container;
 
@@ -419,6 +421,59 @@
         @include fontSize(18px);
       }
     }
+  }
+}
+
+.humankind {
+  background: $case-study-humankind-background;
+  background-position: left 50% top 10%;
+  background-repeat: no-repeat;
+
+  .introSection {
+    @include phone {
+      margin-bottom: 50px;
+    }
+    .projectInfoContainer {
+      @include phone {
+        margin-bottom: 0;
+      }
+  
+      .projectSubtitle {
+        max-width: 595px;
+        color: $white;
+        opacity: 0.7;
+        margin-bottom: 60px;
+    
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1300px;
+
+    .experience {
+      .infoTitle {
+        @include fontSize(14px);
+      }
+
+      p:not(.infoTitle) {
+        @include fontSize(14px);
+
+        color: $white;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  @include tablet {
+    background-size: 920px;
+  }
+
+  @include phone {
+    background-size: 576px;
   }
 }
 
@@ -639,5 +694,38 @@
         max-width: unset;
       }
     }
+  }
+}
+
+.hotel-data-cloud {
+  background: $case-study-data-cloud-background;
+  background-position: left 50% top 50%;
+  background-repeat: no-repeat;
+
+  .introSection {
+    .projectInfoContainer { 
+      .projectSubtitle {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1300px;
+
+    .experience {
+      p:not(.infoTitle) {
+        color: $white;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  @include tablet {
+    background-size: 920px;
+  }
+
+  @include phone {
+    background-size: 576px;
   }
 }

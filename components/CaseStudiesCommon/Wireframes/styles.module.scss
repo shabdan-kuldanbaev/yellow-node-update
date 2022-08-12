@@ -185,6 +185,19 @@
   }
 }
 
+.humankind {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(270deg, $white 0%, $case-study-humankind-wireframes 100%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $white 0%, $case-study-humankind-wireframes 100%);
+  }
+}
+
 .open-sense {
   @extend .imagesContainer;
 

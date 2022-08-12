@@ -147,6 +147,28 @@
   }
 }
 
+.humankind {
+  @extend .container;
+
+  grid-auto-flow: unset;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 160px;
+
+  @include phone {
+    padding-top: 50px;
+  }
+
+  .title {
+    @include fontSize(40px);
+
+    @include phone {
+      @include fontSize(36px);
+
+      margin-bottom: 15px;
+    }
+  }
+}
+
 .fusion-markets {
   .teamItem {
     color: $silver-chalice;
