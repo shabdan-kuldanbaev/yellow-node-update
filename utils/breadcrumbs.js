@@ -2,7 +2,7 @@ import { isNumeric } from 'utils/helper';
 import { CATEGORY_TAGS, ROUTES } from 'utils/constants';
 
 export const pagesBreadcrumbs = {
-  blog: (category) => {
+  blog: (category, tagsList) => {
     const breadcrumbs = [
       {
         title: ROUTES.blog.title,
@@ -11,8 +11,10 @@ export const pagesBreadcrumbs = {
     ];
 
     if (category && !isNumeric(category)) {
+      const tag = tagsList.find(({ slug }) => slug === category);
+
       breadcrumbs.push({
-        title: CATEGORY_TAGS[category],
+        title: CATEGORY_TAGS[category] || tag.title,
         to: ROUTES.blog.getRoute(category),
       });
     }

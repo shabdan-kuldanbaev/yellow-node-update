@@ -1,4 +1,4 @@
-// colors
+/* colors */
 $turbo-100: #ffe603;
 $turbo-200: #f5dc00;
 $turbo-300: #e1c14c;
@@ -129,6 +129,7 @@ $mariner: #2c54db;
 $black-olive: #3f3d3e;
 $raisin-black: #221f20;
 $platinum: #e5e5e5;
+$white-cloud: #F9FCFF;
 $slate-gray3: #778797;
 $sushi-1: #81c242;
 $shark-3: #2c2f31;
@@ -151,29 +152,37 @@ $chinese-black: #111;
 $clear-chill: #2591ff;
 $bright-navy: #0e75de;
 $green-aloha: #18B095;
-$melting-grey: #f8fdfc;
+$melting-grey: #F5FBFB;
 $cherry-red: #e40040;
 $pale-pink: #FFFAFB;
 $violet-blue: #3953B0;
 $majorelle-blue: #6144D6;
-$pure-blue: #007AFF;
+$pure-blue-1: #007AFF;
+$pure-blue-2: #2F5997;
+$pure-blue-3: #16396D;
+$very-dark-gray: #161616;
+$mint-blue-1: #5C92CC;
+$mint-blue-2: #78ACE4;
 
 //transparency color
-$pagination: rgba(35, 37, 44, 0.25);
-$header-additional-color: rgba(255, 255, 255, 1);
-$blog-search-background-color: rgba(255, 255, 255, 0.98);
-$blog-selection-block-mobile-categories-border-color: rgba(0, 0, 0, 0.5);
-$blog-subscribe-input-box-shadow-color: rgba(0, 0, 0, 0.04);
-$blog-subscribe-input-box-shadow-focus-color: rgba(0, 0, 0, 0.1);
-$work-beautonomy-title-shadow: rgba(0, 0, 0, 0.25);
-$nearby-articles-block-box-shadow-color: rgba(0, 0, 0, 0.07);
-$article-preview-box-shadow: 0 10px 60px -10px rgba(0, 0, 0, 0.15);
+$pagination: rgb(35 37 44 / 0.25);
+$header-additional-color: rgb(255 255 255 / 1);
+$blog-search-background-color: rgb(255 255 255 / 0.98);
+$blog-selection-block-mobile-categories-border-color: rgb(0 0 0 / 0.5);
+$blog-subscribe-input-box-shadow-color: rgb(0 0 0 / 0.04);
+$blog-subscribe-input-box-shadow-focus-color: rgb(0 0 0 / 0.1);
+$work-beautonomy-title-shadow: rgb(0 0 0 / 0.25);
+$nearby-articles-block-box-shadow-color: rgb(0 0 0 / 0.07);
+$article-preview-box-shadow: 0 10px 60px -10px rgb(0 0 0 / 0.15);
 $card-bow-shadow: 0 8px 35px rgba($pale-sky, 0.1);
 $feedback-form-grey: rgba(#171717, 0.3);
-$case-study-dindon-paragraph: rgba(255, 255, 255, 0.7);
-$case-study-dindon-background: rgba(255, 255, 255, 0.15);
-$case-study-dindon-box-shadow: rgba(170, 181, 193, 0.05);
-$case-study-step-box-shadow: rgba(110, 120, 130, 0.1);
+$case-study-data-cloud-background: rgb(120, 172, 228);
+$case-study-humankind-background: rgb(47, 89, 151);
+$case-study-humankind-wireframes: rgba(255, 255, 255, 0);
+$case-study-dindon-paragraph: rgb(255 255 255 / 0.7);
+$case-study-dindon-background: rgb(255 255 255 / 0.15);
+$case-study-dindon-box-shadow: rgb(170 181 193 / 0.05);
+$case-study-step-box-shadow: rgb(110 120 130 / 0.1);
 $project-white: rgba($white, 0.4);
 
 //time
@@ -183,7 +192,7 @@ $burger-transition-time: 0.8s;
 $shadow-time-for-yellow-button: 0.4s;
 $shadow-time-for-border-yellow-button: 0.1s;
 $accelerated-transition-time: calc(#{$default-transition-time} / 2);
-$changing-portfolio-color: 1.5s;
+$changing-portfolio-color: 1s;
 
 //radius
 $buttonRadius: 60px;
@@ -203,7 +212,8 @@ $max-content-width: 1300px;
 $max-content-width-full-hd: 1170px;
 $max-content-width-macbook-fifteen: 1050px;
 $max-content-width-macbook-twelve: 1000px;
-$shadow-for-yellow-button: 0 5px 20px -10px rgba(0, 0, 0, 0.57);
+$max-content-width-small-section: 1076px;
+$shadow-for-yellow-button: 0 5px 20px -10px rgb(0 0 0 / 0.57);
 $burger-item-1: 27px;
 $burger-item-2: 33px;
 $burger-item-3: 39px;
@@ -224,10 +234,10 @@ $max-mobile-size: 568px;
 $horizontal-mobile: 450px;
 
 //fonts
-$default-font: "Montserrat";
-$case-studies-font: "Poppins", sans-serif;
-$main-title-font: "Sonny Gothic Condensed Ultra Black", sans-serif;
-$signature-font: "Arial", sans-serif;
+$default-font: 'Poppins', sans-serif;
+$case-studies-font: 'Poppins', sans-serif;
+$main-title-font: 'Poppins', sans-serif;
+$signature-font: 'Arial', sans-serif;
 
 //insta
 $imgIndent: 7.5px;
@@ -237,33 +247,24 @@ $initial-radius: 50px;
 $max-radius: 300px;
 $gradient-border: linear-gradient(45deg, #fccc63, #e95950, #bc2a8d);
 $gradient-dot: linear-gradient(45deg, #e95950, #bc2a8d);
-$insta-tape-box-shadow-color: rgba(0, 0, 0, 0.07);
+$insta-tape-box-shadow-color: rgb(0 0 0 / 0.07);
 
 //margins
 $min-article-margin: 14px;
 $max-article-margin: 24px;
 
 //filters
-$shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgba(0, 0, 0, 0.6));
+$shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgb(0 0 0 / 0.6));
 $shadow-filter-image: drop-shadow(2px 2px 3px #000);
 $shadow-filter-phone: drop-shadow(
-  -12.8201px 12.8201px 30.4602px rgba(0, 0, 0, 0.4)
+  -12.8201px 12.8201px 30.4602px rgb(0 0 0 / 0.4)
 );
 
 //timing functions
 $primary-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 // TODO rework it with enviroment variable
-$cdnURL: "https://dn75rr69j9vc.cloudfront.net";
+$cdnURL: 'https://dn75rr69j9vc.cloudfront.net';
 
-:export {
-  firstColor: $science-blue;
-  secondColor: $english-walnut;
-  thirdColor: $thunder;
-  phoneResolution: $max-mobile-size;
-  logoSize: $logo-size;
-  horizontalMobile: $horizontal-mobile;
-  bigTabletResolution: $max-tablet-size;
-  defaultTabletResolution: $default-tablet-size;
-  fullHdResolution: $full-hd;
-}
+//cards common
+$card-border: solid 1px $mercury;

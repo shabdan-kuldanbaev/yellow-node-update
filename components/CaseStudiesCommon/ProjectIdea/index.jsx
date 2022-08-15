@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import KeyFeatures from 'components/CaseStudiesCommon/ProjectIdea/KeyFeatures';
 import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import TeamSection from 'components/CaseStudiesCommon/ProjectIdea/TeamSection';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
@@ -15,8 +15,9 @@ import styles from './styles.module.scss';
 const ProjectIdea = ({
   type,
   data,
-  isMobileResolution,
 }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
+
   const {
     title,
     subtitle,
@@ -90,6 +91,4 @@ ProjectIdea.propTypes = {
   isMobileResolution: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(ProjectIdea);
+export default ProjectIdea;

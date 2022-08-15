@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { LinkWrapper } from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Article from 'components/BlogCommon/Article';
 import { ROUTES } from 'utils/constants';
-import { Article } from './Article';
 import { Arrow } from './images';
 import styles from './styles.module.scss';
 

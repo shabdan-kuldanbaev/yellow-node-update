@@ -1,12 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectMetaData } from 'redux/selectors/layout';
-import {
-  MetaTags,
-  Animated,
-  ButtonMore,
-} from 'components';
+import MetaTags from 'components/Common/MetaTags';
+import Animated from 'components/Common/Animated';
+import ButtonMore from 'components/Common/ButtonMore';
 import { ANIMATED_TYPE, PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import json from './json/Idea.json';
@@ -33,7 +31,7 @@ const PageNotFound = ({
   };
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.notFound}
         pageMetadata={pageMetadata}
@@ -68,7 +66,7 @@ const PageNotFound = ({
           </Animated>
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

@@ -1,4 +1,3 @@
-const dotenv = require('dotenv');
 const get = require('lodash/get');
 const dayjs = require('dayjs');
 const { cloneDeep } = require('lodash');
@@ -9,8 +8,6 @@ const {
   addImageToFields,
 } = require('./contentfulUtils');
 const { axiosTemporaryClient } = require('./api');
-
-dotenv.config('./env');
 
 const contentfulManagement = new ContentfulManagement({
   space: process.env.CONTENTFUL_SPACE,

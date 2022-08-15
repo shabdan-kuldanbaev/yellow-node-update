@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import isObject from 'lodash/isObject';
-import { Animated, LinkWrapper } from 'components';
+import Animated from 'components/Common/Animated';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 

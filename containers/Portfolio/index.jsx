@@ -1,27 +1,16 @@
 import React, {
-  Fragment,
   useCallback,
-  useMemo,
   useState,
+  Suspense,
 } from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import {
-  selectCTA,
-  selectMetaData,
-  selectPortfolioProjectsPreview,
-  selectSubtitle,
-} from 'redux/selectors/layout';
-import {
-  Animated,
-  CallToAction,
-  FullLayout,
-  FullScreenEstimation,
-  MetaTags,
-  PageHeader,
-  Portfolio,
-} from 'components';
-import { getDocumentFields, rootUrl } from 'utils/helper';
+import Animated from 'components/Common/Animated';
+import FullLayout from 'components/Layout/FullLayout';
+import FullScreenEstimation from 'components/Common/FullScreenEstimation';
+import MetaTags from 'components/Common/MetaTags';
+import PageHeader from 'components/Common/PageHeader';
+import Portfolio from 'components/PortfolioCommon';
 import {
   PAGES,
   REVEAL_ANIMATION_PROPS,
@@ -30,43 +19,23 @@ import {
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
+const CallToAction = dynamic(() => import('components/Common/CallToAction'), { suspense: true });
+
 const PortfolioContainer = ({
   introSection,
-  portfolioProjects,
-  metaData,
+  pageMetadata,
+  works,
   subtitle,
-  linkCTA,
+  link,
 }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-
-  const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
-  const works = contentModules && contentModules.map((module) => {
-    const {
-      types,
-      tags,
-      ...rest
-    } = getDocumentFields(module, ['title', 'description', 'types', 'tags', 'previewImage', 'backgroundImage', 'slug']);
-
-    return {
-      types: types ? types.map((type) => getDocumentFields(type, ['slug', 'displayName'])) : [],
-      tags: tags ? tags.map((tag) => getDocumentFields(tag, ['slug', 'displayName'])) : [],
-      ...rest,
-    };
-  });
-
-  const link = useMemo(() => getDocumentFields(linkCTA), [linkCTA]);
-
   const breadcrumbs = pagesBreadcrumbs.portfolio();
-  const pageMetadata = {
-    ...metaData,
-    url: `${rootUrl}/works`,
-  };
 
   const openFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(true), []);
   const closeFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(false), []);
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.portfolio}
         breadcrumbs={breadcrumbs}
@@ -87,44 +56,31 @@ const PortfolioContainer = ({
         </Animated>
         <Portfolio works={works} />
         {link && (
-          <CallToAction
-            type="page"
-            title={link.title}
-            buttonTitle={link.buttonTitle}
-            handleOnClick={openFullscreenEstimation}
-            className={styles.callToAction}
-          />
+          <Suspense>
+            <CallToAction
+              type="page"
+              title={link.title}
+              buttonTitle={link.buttonTitle}
+              handleOnClick={openFullscreenEstimation}
+              className={styles.callToAction}
+            />
+          </Suspense>
         )}
       </FullLayout>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
       />
-    </Fragment>
+    </>
   );
-};
-
-PortfolioContainer.defaultProps = {
-  portfolioProjects: {},
 };
 
 PortfolioContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  portfolioProjects: PropTypes.instanceOf(Object),
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-    ogImage: PropTypes.string,
-  }).isRequired,
+  pageMetadata: PropTypes.instanceOf(Object).isRequired,
+  works: PropTypes.instanceOf(Array).isRequired,
+  link: PropTypes.instanceOf(Object).isRequired,
   subtitle: PropTypes.string.isRequired,
-  linkCTA: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect(
-  (state) => ({
-    portfolioProjects: selectPortfolioProjectsPreview(state),
-    metaData: selectMetaData(state),
-    subtitle: selectSubtitle(state),
-    linkCTA: selectCTA(state),
-  }),
-)(PortfolioContainer);
+export default PortfolioContainer;

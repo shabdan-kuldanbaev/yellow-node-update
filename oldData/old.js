@@ -4,10 +4,10 @@ import {
   OldFooterEmail,
   ButtonOverlap,
   DesktopMenu,
-  FeedbackForm,
   Carousel,
   Blog,
 } from '.';
+import FeedbackForm from 'components/Common/FeedbackForm';
 
 const CompanyContainer = () => (
   <section style={{ margin: '15vh 0', padding: '5vh' }}>

@@ -1,6 +1,7 @@
-/* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+/* stylelint-disable no-duplicate-selectors */
+
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .mobile-app-development-company,
 .web-app-development-company,
@@ -9,13 +10,18 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services, {
+.machine-learning-development-services,
+.chat-app-development-company {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
 
+  .title {
+    @include defaultSectionTitle;
+  }
+
   & > div:last-child {
-    padding: 50px 0 0;
+    padding: 0;
     margin-top: 0;
 
     & > div {
@@ -35,7 +41,9 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.chat-app-development-company,
+.mobile-app-development-company {
   background-color: $white;
 
   & > div {
@@ -45,6 +53,8 @@
 
 .web-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.ui-ux-services,
+.mobile-app-development-company {
   padding-bottom: 0;
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { LinkWrapper } from 'components';
-import { Svg } from 'components/Common/Svg';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Svg from 'components/Common/Svg';
 import { CONTACTS_DATA } from 'utils/constants';
 import styles from './styles.module.scss';
 

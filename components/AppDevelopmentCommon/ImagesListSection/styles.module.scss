@@ -1,5 +1,5 @@
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .imageSection {
   @include appDevelopmentContainer;
@@ -24,6 +24,8 @@
   @extend .imageSection;
 
   &.firstSectionView {
+    padding: 0 40px 75px;
+
     .imagesList {
       justify-content: space-around;
 
@@ -72,6 +74,8 @@
   }
 
   &.secondSectionView {
+    padding-top: 0;
+
     .imagesList {
       justify-content: center;
 

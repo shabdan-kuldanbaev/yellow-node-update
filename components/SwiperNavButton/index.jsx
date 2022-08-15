@@ -1,44 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { SWIPER_NAV_BUTTON_TYPES } from 'utils/constants';
-import { ReactComponent as Next } from './icons/next.svg';
-import { ReactComponent as Prev } from './icons/prev.svg';
+import Svg from 'components/Common/Svg';
+import { useSwiper } from 'swiper/react';
 import styles from './styles.module.scss';
 
-const SwiperNavButton = ({ type, className }) => {
-  switch (type) {
-  case SWIPER_NAV_BUTTON_TYPES.next:
-    return (
-      <button
-        type="button"
-        className={cn(className, styles.navButtonNext)}
-      >
-        <Next />
-      </button>
-    );
+const SwiperNavButton = ({
+  type,
+  text,
+  className,
+}) => {
+  const swiper = useSwiper();
 
-  case SWIPER_NAV_BUTTON_TYPES.prev:
-    return (
-      <button
-        type="button"
-        className={cn(className, styles.navButtonPrev)}
-      >
-        <Prev />
-      </button>
-    );
+  const handleNavButtonClick = () => {
+    if (type === 'next') {
+      return swiper.slideNext();
+    }
 
-  default:
-    return null;
-  }
+    swiper.slidePrev();
+  };
+
+  const svgType = (type === 'next') ? 'arrowRight' : 'arrowLeft';
+
+  return (
+    <button
+      onClick={handleNavButtonClick}
+      type="button"
+      className={cn(
+        className,
+        styles.navButton,
+        styles[type],
+      )}
+    >
+      <Svg type={svgType} />
+      {text && (
+        <span className={styles.text}>
+          {text}
+        </span>
+      )}
+    </button>
+  );
 };
 
 SwiperNavButton.defaultProps = {
   className: '',
+  text: '',
 };
 
 SwiperNavButton.propTypes = {
-  type: PropTypes.oneOf(Object.values(SWIPER_NAV_BUTTON_TYPES)).isRequired,
+  type: PropTypes.oneOf(['next', 'prev']).isRequired,
+  text: PropTypes.string,
   className: PropTypes.string,
 };
 

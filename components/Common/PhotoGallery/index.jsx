@@ -1,34 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import dynamic from 'next/dynamic';
+import { useSelector } from 'react-redux';
 import { selectIsTabletResolutions, selectIsMobileResolutions } from 'redux/selectors/layout';
-import { DesktopCarousel } from './DesktopCarousel';
-import { MobileCarousel } from './MobileCarousel';
+import { getDocumentFields } from 'utils/helper';
 
-const PhotoGallery = ({
-  photos,
-  isTabletResolutions,
-  isMobileResolution,
-}) => photos && (
-  (isTabletResolutions || isMobileResolution)
-    ? <MobileCarousel photos={photos} />
-    : <DesktopCarousel photos={photos} />
-);
+const DesktopCarousel = dynamic(() => import('./DesktopCarousel'));
+const MobileCarousel = dynamic(() => import('./MobileCarousel'));
 
-PhotoGallery.defaultProps = {
-  isTabletResolutions: false,
-  isMobileResolution: false,
+const PhotoGallery = ({ sectionData }) => {
+  const { contentModules } = getDocumentFields(sectionData);
+
+  const isTabletResolutions = useSelector(selectIsTabletResolutions);
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
+
+  if (contentModules && (isTabletResolutions || isMobileResolution)) {
+    return <MobileCarousel photos={contentModules} />;
+  }
+
+  return <DesktopCarousel photos={contentModules} />;
 };
 
 PhotoGallery.propTypes = {
-  photos: PropTypes.instanceOf(Array).isRequired,
-  isTabletResolutions: PropTypes.bool,
-  isMobileResolution: PropTypes.bool,
+  sectionData: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect(
-  (state) => ({
-    isTabletResolutions: selectIsTabletResolutions(state),
-    isMobileResolution: selectIsMobileResolutions(state),
-  }),
-)(PhotoGallery);
+export default PhotoGallery;

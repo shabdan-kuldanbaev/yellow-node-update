@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins", "styles/utils/theme/animations";
+@import 'styles/utils/mixins', 'styles/utils/theme/animations';
 
 .circle {
   position: relative;
@@ -134,7 +134,9 @@
 
     .mockup {
       width: 330px;
-      filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgba(0, 0, 0, 0.6)) drop-shadow(-14.7997px 14.7997px 29.5993px rgba(0, 0, 0, 0.5));
+      filter:
+        drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 0.6))
+        drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 0.5));
 
       @include phone {
         width: 209px;
@@ -171,7 +173,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
 
     .mockup {
@@ -196,7 +198,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
 
     @include phone {
@@ -224,7 +226,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
     height: initial;
 
@@ -520,7 +522,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
     height: auto;
 
@@ -612,7 +614,7 @@
     position: static;
     transform: translateX(0);
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 100px auto 0;
     height: auto;
 
@@ -733,6 +735,8 @@
   }
 }
 
+.humankind,
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
 
@@ -741,7 +745,7 @@
     transform: translateX(0);
     height: min-content;
     width: 100%;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 0 auto;
 
     .mockup {
@@ -753,6 +757,45 @@
 
     @include phone {
       padding-bottom: 0;
+    }
+  }
+}
+
+.hotel-data-cloud {
+  position: relative;
+  overflow: hidden;
+
+  [data-case-study-description] {
+    max-width: 620px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .imageBundle-1 {
+    width: 687px;
+    height: 687px;
+
+    position: absolute;
+    top: -68%;
+    left: -30%;
+  }
+
+  .imageBundle-2 {
+    width: 687px;
+    height: 687px;
+
+    position: absolute;
+    bottom: -50%;
+    right: -15px;
+  }
+}
+
+.humankind {
+  background: $athens-gray;
+
+  .circle {
+    .mockup {
+      filter: none;
     }
   }
 }

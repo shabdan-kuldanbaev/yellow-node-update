@@ -4,9 +4,9 @@ import { getDocumentFields, getFileUrl } from 'utils/helper';
 import Work from './Work';
 import styles from './styles.module.scss';
 
-export const Works = ({ refs, works }) => (
+const Works = ({ refs, works }) => (
   <div className={styles.worksContainer}>
-    {works && works.map((work, index) => {
+    {works?.map((work, index) => {
       const {
         previewImage,
         title,
@@ -16,12 +16,13 @@ export const Works = ({ refs, works }) => (
         work,
         ['previewImage', 'title', 'description', 'slug'],
       );
+
       const imageUrl = getFileUrl(previewImage);
 
       return (
         <Work
           key={title}
-          refs={refs}
+          ref={refs.current[index]}
           index={index}
           title={title}
           description={description}
@@ -41,3 +42,5 @@ Works.propTypes = {
   refs: PropTypes.instanceOf(Object).isRequired,
   works: PropTypes.instanceOf(Array),
 };
+
+export default Works;

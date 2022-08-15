@@ -1,16 +1,32 @@
 .ui-ux-services {
-  .titleStyle {
-    h2 {
-      max-width: 855px;
-    }
+  &.firstSectionView,
+  &.secondSectionView {
+    @extend .greySection;
+  }
 
-    p {
-      max-width: 800px;
-      width: unset;
+  &.firstSectionView {
+    @extend .cardsWithShadow;
+
+    @include iconsWithinCircle;
+
+    .titleStyle {
+      h2 {
+        max-width: 705px;
+      }
     }
   }
 
-  &.thirdSectionView {
-    background-color: $alabaster;
+  &.secondSectionView {
+    @include iconsWithinCircle;
+
+    .titleStyle {
+      h2 {
+        max-width: 742px;
+      }
+
+      p {
+        max-width: 742px;
+      }
+    }
   }
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { Svg } from 'components/Common/Svg';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import CustomImage from 'components/Common/CustomImage';
+import Svg from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import {
   isIntroHasBackground,
@@ -18,7 +19,6 @@ const VerticalIntro = ({
   data,
 }) => {
   const {
-    sectionStyle,
     backgroundImageUrl,
     appLogoUrl,
     title,
@@ -26,6 +26,7 @@ const VerticalIntro = ({
     description,
     downloadLink,
     appBackgroundImageUrl,
+    sectionBackground,
     experiences,
   } = getIntroProps(type, data);
 
@@ -33,8 +34,12 @@ const VerticalIntro = ({
     <section
       ref={introSection}
       className={styles[type]}
-      style={sectionStyle}
     >
+      <CustomImage
+        src={sectionBackground}
+        layout="fill"
+        containerClasses={styles.sectionBackground}
+      />
       {isIntroHasBackground(type) && (
         <img
           src={backgroundImageUrl}
@@ -73,13 +78,16 @@ const VerticalIntro = ({
           </p>
         </div>
         {caseStudyLink(type, downloadLink)}
-        <div className={styles.imageContainer}>
-          <img
-            className={styles.image}
-            src={appBackgroundImageUrl}
-            alt={appBackgroundImageUrl}
-          />
-        </div>
+        <CustomImage
+          src={appBackgroundImageUrl}
+          alt={appBackgroundImageUrl}
+          layout="responsive"
+          width={1016}
+          height={603}
+          objectFit="contain"
+          containerClasses={styles.imageContainer}
+          className={styles.image}
+        />
       </div>
       {experiences && (
         <div className={styles.experiencesContainer}>

@@ -5,19 +5,16 @@
   margin: 0 auto;
 
   .desktopReviews {
-    :global(.swiper-container) {
-      margin-top: -120px;
-      padding-top: 120px;
-    }
+    :global(.swiper) {
+      padding-bottom: 100px;
 
-    :global(.swiper-next-el) {
-      top: 0;
-      right: 0;
-    }
+      @include below-tablet {
+        margin: 0 -40px;
+      }
 
-    :global(.swiper-prev-el) {
-      top: 0;
-      right: 80px;
+      @include phone {
+        margin: 0 -15px;
+      }
     }
 
     @include phone {
@@ -32,14 +29,21 @@
       display: block;
     }
 
-    :global(.swiper-container) {
-      overflow-x: initial;
-      overflow-y: hidden;
-      padding: 60px 0;
+    :global(.swiper) {
+      overflow: hidden;
+      padding: 0 0 60px;
     }
 
     :global(.swiper-slide) {
       margin: auto;
+    }
+  }
+
+  .navigation {
+    max-width: 80vw;
+
+    @include below-tablet {
+      bottom: -20px;
     }
   }
 }

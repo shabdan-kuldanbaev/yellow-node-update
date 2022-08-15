@@ -1,0 +1,99 @@
+/* stylelint-disable no-descending-specificity */
+@import 'styles/utils/mixins';
+@import 'styles/utils/theme/animations';
+
+.bottomContent {
+  width: 100%;
+  max-width: $max-content-width;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba($white, 0.2);
+
+  @include phone {
+    margin-top: 40px;
+  }
+
+  .text {
+    @include macbook-twelve {
+      @include fontSize(14px);
+    }
+
+    @include phone {
+      text-align: center;
+    }
+  }
+
+  .rocket {
+    text-align: center;
+    position: relative;
+
+    @include flex(column, center, center);
+
+    & > div:nth-of-type(1) {
+      display: none;
+      z-index: 5;
+
+      @include phone {
+        display: block;
+        max-width: 120px;
+        margin-top: 40px;
+      }
+    }
+
+    @function box-shadow($stars) {
+      $bxshadow: ();
+
+      @for $i from 1 to $stars {
+        /* stylelint-disable length-zero-no-unit */
+        $bxshadow: append($bxshadow, (random(400) + 0px) (random(200) + 0px) gray, comma);
+      }
+
+      @return $bxshadow;
+    }
+
+    $bxshadow-small: box-shadow(15);
+    $bxshadow-middle: box-shadow(8);
+
+    img {
+      display: none;
+    }
+
+    @include higher-phone {
+      .stars {
+        position: absolute;
+        height: 2px;
+        width: 2px;
+        border-radius: 50%;
+        z-index: 0;
+        box-shadow: $bxshadow-small;
+        will-change: transform;
+        transform: translate(-130px, -80px);
+        animation: flicker 2.2s linear infinite;
+      }
+
+      .stars2 {
+        position: absolute;
+        height: 3px;
+        width: 3px;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: $bxshadow-middle;
+        will-change: transform;
+        transform: translate(-130px, -80px);
+        animation: flicker 3s linear infinite 1s;
+      }
+
+      .stars3 {
+        position: absolute;
+        height: 2px;
+        width: 2px;
+        border-radius: 50%;
+        z-index: 0;
+        box-shadow: $bxshadow-small;
+        will-change: transform;
+        transform: translate(-130px, -80px);
+        animation: flicker 1.5s linear infinite 1.5s;
+      }
+    }
+  }
+}

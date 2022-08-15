@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { awards } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Awards = ({ awards: awardsList }) => {
+const Awards = ({ awards: awardsList }) => {
   const [hostname, setHost] = useState('');
 
   useEffect(() => {
@@ -33,3 +33,5 @@ Awards.defaultProps = {
 Awards.propTypes = {
   awards: PropTypes.instanceOf(Array),
 };
+
+export default Awards;

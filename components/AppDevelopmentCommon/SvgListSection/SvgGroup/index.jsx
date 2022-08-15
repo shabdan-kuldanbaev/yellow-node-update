@@ -1,58 +1,70 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components/Common/Animated';
-import { Svg } from 'components/AppDevelopmentCommon/Svg';
-import { getSvgGroupProps } from '../utils/svgHelper';
+import cn from 'classnames';
+import dynamic from 'next/dynamic';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Svg from 'components/Common/Svg';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import { getSvgGroupProps, getSwiperParams } from '../utils/svgHelper';
+import styles from '../styles.module.scss';
+
+const Animated = dynamic(() => import('components/Common/Animated'));
 
 const SvgGroup = ({
   data,
-  animatedProps,
+  isSwiperEnabled,
   className,
-  listWrapperClassName,
-  isMobileResolution,
+  hideTitle,
 }) => {
-  const { title, contentList: technologies } = getSvgGroupProps(data);
+  const { title, contentList: icons } = getSvgGroupProps(data);
+
+  const swiperParams = getSwiperParams({ isEnabled: isSwiperEnabled });
 
   return (
-    <div className={listWrapperClassName}>
-      {title && <h3>{title}</h3>}
-      <div className={className}>
-        {technologies && technologies.map((technology, i) => {
-          if (isMobileResolution) {
-            return (
-              <div key={`technologies/${technology}`}>
-                <Svg type={technology} />
-              </div>
-            );
-          }
-
-          return (
+    <div className={cn(
+      className,
+      styles.svgGroup,
+      { [styles.multiline]: !isSwiperEnabled },
+    )}
+    >
+      {title && !hideTitle && (
+        <h3 className={styles.groupTitle}>
+          {title}
+        </h3>
+      )}
+      <Swiper
+        {...swiperParams}
+        enabled
+      >
+        {icons?.map((technology, i) => (
+          <SwiperSlide
+            className={styles.item}
+            key={`technologies/${technology}`}
+          >
             <Animated
-              key={`technologies/${technology}`}
-              {...animatedProps}
-              transitionDelay={300 + 50 * i}
+              {...REVEAL_ANIMATION_PROPS}
+              transitionDelay={isSwiperEnabled ? 0 : (300 + 70 * i)}
             >
               <Svg type={technology} />
             </Animated>
-          );
-        })}
-      </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
 
 SvgGroup.defaultProps = {
   className: '',
-  listWrapperClassName: '',
-  isMobileResolution: false,
+  isSwiperEnabled: true,
+  hideTitle: false,
 };
 
 SvgGroup.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
-  animatedProps: PropTypes.instanceOf(Object).isRequired,
+  isSwiperEnabled: PropTypes.bool,
   className: PropTypes.string,
-  listWrapperClassName: PropTypes.string,
-  isMobileResolution: PropTypes.bool,
+  hideTitle: PropTypes.bool,
 };
 
 export default SvgGroup;

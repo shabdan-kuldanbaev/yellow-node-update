@@ -16,7 +16,7 @@
     visibility 0.2s,
     opacity 0.3s ease;
   box-shadow: none;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 0.5px solid rgb(255 255 255 / 0.4);
 
   @include macbook-twelve {
     padding-bottom: 80px;
@@ -74,59 +74,69 @@
         }
       }
 
-      .title {
-        font-weight: 500;
-        line-height: 1.5;
-        margin: 0 0 7px;
-        color: $white;
-        transition: color 0.3s ease-in-out;
+      .link {
+        display: block;
+        margin: 0;
 
-        @include fontSize(20px);
+        .title {
+          margin: 0 0 7px;
+          font-weight: 500;
+          line-height: 1.5;
+          color: $white;
+          transition: color 0.3s ease-in-out;
 
-        @include phone {
-          @include fontSize(14px);
+          @include fontSize(20px);
         }
-      }
 
-      .subtitle {
-        line-height: 2;
-        color: $silver-chalice;
+        .subtitle {
+          line-height: 2;
+          color: $silver-chalice;
+          transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
-        @include fontSize(18px);
+          @include fontSize(18px);
+        }
+
+        &:hover {
+          .title {
+            color: $turbo-100;
+          }
+
+          & > span {
+            color: $turbo-100;
+            opacity: 0.7;
+          }
+        }
 
         @include phone {
-          @include fontSize(14px);
+          .title,
+          .subtitle {
+            @include fontSize(14px);
+          }
         }
       }
 
       .menuLink {
         display: block;
-      }
-
-      a {
         margin: 0;
-        display: block;
-
-        & > span {
-          line-height: 2;
-          color: $silver-chalice;
-          outline: none;
-          opacity: 0.7;
-          transition: color 0.3s ease-in-out;
-        }
 
         @include fontSize(18px);
 
-        @include phone {
-          @include fontSize(14px);
+        .menuText {
+          line-height: 2;
+          color: $silver-chalice;
+          outline: none;
+          transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
         }
 
         &:hover {
-          .title,
-          span {
+          .menuText {
             color: $turbo-100;
-            transition: color 0.3s ease-in-out;
+            opacity: 0.7;
           }
+        }
+
+        @include phone {
+          @include fontSize(14px);
         }
       }
     }
@@ -135,13 +145,15 @@
 
 .pageScrolling {
   background-color: $white;
-  box-shadow: 0 40px 60px -40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 40px 60px -40px rgb(0 0 0 / 0.1);
   border-bottom: none;
 
   .dropDownNavContainer {
     .itemContainer {
-      .title {
-        color: $dark-grey;
+      .link {
+        .title {
+          color: $dark-grey;
+        }
       }
     }
   }

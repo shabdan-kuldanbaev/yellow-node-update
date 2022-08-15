@@ -1,5 +1,4 @@
 import React, {
-  Fragment,
   useState,
   useEffect,
 } from 'react';
@@ -10,7 +9,7 @@ import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
 import { connect } from 'react-redux';
 import { setIsFormDataSent } from 'redux/actions/contact';
 import { selectIsFormDataSent } from 'redux/selectors/contact';
-import { Svg } from 'components';
+import Svg from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -49,7 +48,7 @@ const FormContainer = ({
   }, [isFormDataSent]);
 
   return (
-    <Fragment>
+    <>
       <a.form
         className={cn(styles.form, styles.animation)}
         style={{
@@ -87,7 +86,7 @@ const FormContainer = ({
           </p>
         </div>
       </a.section>
-    </Fragment>
+    </>
   );
 };
 

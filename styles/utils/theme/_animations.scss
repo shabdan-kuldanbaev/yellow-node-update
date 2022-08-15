@@ -377,13 +377,11 @@
 
 @keyframes image-scroll {
   0% {
-    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 
   100% {
-    -webkit-transform: translateX(-100vw);
-    transform: translateX(-100vw);
+    transform: translateX(-100%);
   }
 }
 

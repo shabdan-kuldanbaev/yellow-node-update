@@ -1,3 +1,7 @@
+// destructuring doesn't work poperly with process.env
+/* eslint-disable prefer-destructuring */
+
+import React from 'react';
 import { routes } from 'utils/routes';
 
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
@@ -118,21 +122,25 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  next: 'next',
+  prev: 'prev',
+  arrowLeft: 'arrowLeft',
+  arrowRight: 'arrowRight',
   twitterDark: 'twitterDark',
   linkedInDark: 'linkedInDark',
   instagramDark: 'instagramDark',
   yellowLogoWithBg: 'yellowLogoWithBg',
-  arrow: 'arrowSvg',
-  behance: 'behanceSvg',
-  checkMark: 'checkMarkSvg',
-  dribble: 'dribbleSvg',
-  instagram: 'instagramSvg',
+  arrow: 'arrow1',
+  behance: 'behance',
+  checkMark: 'checkMark',
+  dribble: 'dribble',
+  instagram: 'instagram',
   logoWhite: 'logoWhite',
-  searchSvg: 'searchSvg',
-  yellowLogoSvg: 'yellowLogoSvg',
-  unpinSvg: 'unpinSvg',
-  closeSvg: 'closeSvg',
-  scrollIconSvg: 'scrollIconSvg',
+  searchSvg: 'search',
+  yellowLogoSvg: 'yellowLogo',
+  unpinSvg: 'unpin',
+  closeSvg: 'cancel',
+  scrollIconSvg: 'scrollIcon',
   esquirePartner: 'esquirePartner',
   productHuntPartner: 'productHuntPartner',
   techCrunchPartner: 'techCrunchPartner',
@@ -177,168 +185,7 @@ export const SVG_IMAGES_TYPES = {
   browser: 'browser',
   cross: 'cross',
   telegram: 'telegram',
-};
-
-export const APP_DEVELOPMENT_ICONS = {
-  // mobile app page, development services section
-  iOSAppDevelopment: 'iOSAppDevelopment',
-  androidAppDevelopment: 'androidAppDevelopment',
-  enterpriseMobileAppDevelopment: 'enterpriseMobileAppDevelopment',
-  mobileUXDesign: 'mobileUXDesign',
-  // mobile app page, benefits section
-  profitsRaise: 'profitsRaise',
-  standOutFrom: 'standOutFrom',
-  increasedRecognition: 'increasedRecognition',
-  costReduction: 'costReduction',
-  processAutomation: 'processAutomation',
-  customerEngagement: 'customerEngagement',
-  // mobile app page, mobile app types section
-  mobileChats: 'mobileChats',
-  socialMedia: 'socialMedia',
-  fitness: 'fitness',
-  travel: 'travel',
-  dating: 'dating',
-  artificialIntelligence: 'artificialIntelligence',
-  // icons for svg list sections
-  titledReactNative: 'titledReactNative',
-  titledSwift: 'titledSwift',
-  titledJava: 'titledJava',
-  titledFirebase: 'titledFirebase',
-  titledKotlin: 'titledKotlin',
-  titledObjectiveC: 'titledObjectiveC',
-  titledPostgre: 'titledPostgre',
-  titledReactJs: 'titledReactJs',
-  titledSwagger: 'titledSwagger',
-  titledPostgreSql: 'titledPostgreSql',
-  titledFlutter: 'titledFlutter',
-  titledAndroidSdk: 'titledAndroidSdk',
-  titledKotlin2: 'titledKotlin2',
-  titledDocker: 'titledDocker',
-  titledSqlLite: 'titledSqlLite',
-  titledGradle: 'titledGradle',
-  titledSwiftUI: 'titledSwiftUI',
-  titledReactiveSwift: 'titledReactiveSwift',
-  titledUIKit: 'titledUIKit',
-  titledSQLite: 'titledSQLite',
-  titledAwsLambda: 'titledAwsLambda',
-  titledAws: 'titledAws',
-  titledAngular: 'titledAngular',
-  titledDynamoDB: 'titledDynamoDB',
-  titledHtml: 'titledHtml',
-  titledJavaScript: 'titledJavaScript',
-  titledNode: 'titledNode',
-  titledRds: 'titledRds',
-  titledS3: 'titledS3',
-  twilio: 'twilio',
-  pubnub: 'pubnub',
-  react: 'react',
-  java: 'java',
-  firebase: 'firebase',
-  webRtc: 'webRtc',
-  swift: 'swift',
-  kotlin: 'kotlin',
-  postgreSql: 'postgreSql',
-  objC: 'objC',
-  techCrunch: 'techCrunch',
-  time: 'time',
-  productHunt: 'productHunt',
-  esquire: 'esquire',
-  theWeek: 'theWeek',
-  clipboard: 'clipboard',
-  treeStructure: 'treeStructure',
-  magnifyingGlassEye: 'magnifyingGlassEye',
-  conversation: 'conversation',
-  mobileDevelopment: 'mobileDevelopment',
-
-  // chat app page, types of chat section
-  communication: 'communication',
-  sales: 'sales',
-  customerService: 'customerService',
-  // chat app page, developers advantages section
-  provenExperience: 'provenExperience',
-  highQualityCode: 'highQualityCode',
-  recommended: 'recommended',
-  greatDesign: 'greatDesign',
-  // web app page, web development services
-  customWebDevelopment: 'customWebDevelopment',
-  headlessCMSDevelopment: 'headlessCMSDevelopment',
-  mvpDevelopment: 'mvpDevelopment',
-  pwaDevelopment: 'pwaDevelopment',
-  webDesign: 'webDesign',
-  supportMaintenance: 'supportMaintenance',
-  // web app page, benefits of custom web development services
-  adaptability: 'adaptability',
-  security: 'security',
-  scalability: 'scalability',
-  easeOfMaintenance: 'easeOfMaintenance',
-  // web app page, industries we serve
-  eLearning: 'eLearning',
-  retail: 'retail',
-  // web app page, technologies we use
-  titledReact: 'titledReact',
-  titledVue: 'titledVue',
-  titledNest: 'titledNest',
-  titledExpress: 'titledExpress',
-  titledNuxt: 'titledNuxt',
-  // web app page, why choose yellow
-  businessFirstApproach: 'businessFirstApproach',
-  productLab: 'productLab',
-  contentfulPartner: 'contentfulPartner',
-  // design services page, design services
-  webAppDesign: 'webAppDesign',
-  mobileAppDesign: 'mobileAppDesign',
-  // design services page, benefits
-  bestUserExperience: 'bestUserExperience',
-  innovativeSolutions: 'innovativeSolutions',
-  focusOnTheTargetAudience: 'focusOnTheTargetAudience',
-  detailOrientedDesign: 'detailOrientedDesign',
-  // design services page, our process
-  research: 'research',
-  userPortrait: 'userPortrait',
-  cjm: 'cjm',
-  userStories: 'userStories',
-  sitemap: 'sitemap',
-  userFlow: 'userFlow',
-  wireframes: 'wireframes',
-  visualResearch: 'visualResearch',
-  uiDesign: 'uiDesign',
-  // web app page, ios app development services
-  prototyping: 'prototyping',
-  uiUxDesign: 'uiUxDesign',
-  iosDevelopment: 'iosDevelopment',
-  redesign: 'redesign',
-  ipadDevelopment: 'ipadDevelopment',
-  testing: 'testing',
-  support: 'support',
-  iosCheck: 'iosCheck',
-  titledCoreData: 'titledCoreData',
-  businessBeforeTechnology: 'businessBeforeTechnology',
-  creatingOwnApps: 'creatingOwnApps',
-  dataProtection: 'dataProtection',
-  businessAnalysis: 'businessAnalysis',
-  validation: 'validation',
-  profits: 'profits',
-  trophy: 'trophy',
-  laptop: 'laptop',
-  // common
-  arrow: 'arrow',
-  lightBulb: 'lightBulb',
-  developmentGear: 'developmentGear',
-  codeDesktop: 'codeDesktop',
-  desktopTower: 'desktopTower',
-  migration: 'migration',
-  cloud: 'cloud',
-  cloudNetwork: 'cloudNetwork',
-  collaboration: 'collaboration',
-  uxDesign2: 'uxDesign2',
-  headset: 'headset',
-  targetAudience: 'targetAudience',
-  titledAwsMachineLearning: 'titledAwsMachineLearning',
-  titledKeras: 'titledKeras',
-  titledPython: 'titledPython',
-  titledPyTorch: 'titledPyTorch',
-  titledScala: 'titledScala',
-  titledTensorFlow: 'titledTensorFlow',
+  attachment: 'attachment',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -355,6 +202,21 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentImagesList: 'app-development-images-list',
   appDevelopmentNumberedList: 'app-development-numbered-list',
   appDevelopmentProcess: 'app-development-process',
+  appDevelopmentBlog: 'app-development-blog',
+  appDevelopmentCheckSocial: 'app-development-check-social',
+  appDevelopmentRelatedServices: 'app-development-related-services',
+};
+
+export const HOMEPAGE_SECTION_TYPES = {
+  text: 'text',
+  cards: 'cards',
+  cardsWithOverlay: 'cards-with-overlay',
+  svgDisplay: 'svg-display',
+  svgDisplayWithSelector: 'svg-display-with-selector',
+  porfolio: 'portfolio',
+  reviews: 'reviews',
+  blog: 'blog',
+  photos: 'photos',
 };
 
 export const CONTACTS_DATA = {
@@ -371,27 +233,27 @@ export const CONTACTS_DATA = {
     {
       title: 'LinkedIn',
       type: SVG_IMAGES_TYPES.linkedinRoundWhite,
-      link: '//www.linkedin.com/company/yellow-systems',
+      link: 'https://www.linkedin.com/company/yellow-systems',
     },
     {
       title: 'Twitter',
       type: SVG_IMAGES_TYPES.twitterRoundWhite,
-      link: '//mobile.twitter.com/yellow_systems',
+      link: 'https://mobile.twitter.com/yellow_systems',
     },
     {
       title: 'Behance',
       type: SVG_IMAGES_TYPES.behanceRoundWhite,
-      link: '//www.behance.net/yellow_systems',
+      link: 'https://www.behance.net/yellow_systems',
     },
     {
       title: 'Medium',
       type: SVG_IMAGES_TYPES.mediumRoundWhite,
-      link: '//yellow.medium.com/',
+      link: 'https://yellow.medium.com/',
     },
     {
       title: 'Instagram',
       type: SVG_IMAGES_TYPES.instaRoundWhite,
-      link: '//www.instagram.com/yellow.systems/',
+      link: 'https://www.instagram.com/yellow.systems/',
     },
   ],
 };
@@ -429,6 +291,7 @@ export const CASE_STUDIES = {
   fernwayer: 'fernwayer',
   dindon: 'dindon',
   stickerbox: 'stickerbox',
+  hotelDataCloud: 'hotel-data-cloud',
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',
   tell: 'tell',
@@ -451,6 +314,7 @@ export const CASE_STUDIES = {
   blackBird: 'blackbird',
   mobileFintechApp: 'fintech-app-for-credit-score',
   goodPsychics: 'marketplace-for-clairvoyant-services',
+  humankind: 'humankind',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -558,10 +422,10 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
 ];
 
 export const CONTACT_FORM_TITLES = {
-  [PAGES.customMobileApp]: '',
-  [PAGES.customChatApp]: '',
+  [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
+  [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
   [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
-  [PAGES.designServices]: 'Yellow is ready to give you a hand with UX/UI design',
+  [PAGES.designServices]: 'Tailored UX design services for your business',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
@@ -569,8 +433,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
 };
 
-// eslint-disable-next-line
-export const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;
+export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
 
@@ -585,3 +448,26 @@ export const REVEAL_ANIMATION_PROPS = {
   opasityDuration: 1,
   transformDuration: 1,
 };
+
+export const PHONE_RESOLUTION = 568;
+export const HORIZONTAL_MOBILE = 450;
+export const DEFAULT_TABLET_RESOLUTION = 768;
+export const BIG_TABLET_RESOLUTION = 1024;
+export const FULL_HD_RESOLUTION = 1920;
+
+export const DEV_HOSTS = [
+  'www.yws-dev.xyz',
+  'yws-dev.xyz',
+];
+
+export const CUSTOM_DOMAIN = process.env.CUSTOM_DOMAIN;
+
+export const IS_PROD = process.env.NEXT_PUBLIC_CURRENT_ENV === 'production';
+
+export const INDEX_FILES = [
+  '/index.asp',
+  '/index.aspx',
+  '/index.htm',
+  '/index.html',
+  '/index.php',
+];

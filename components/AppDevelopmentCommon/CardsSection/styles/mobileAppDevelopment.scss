@@ -1,5 +1,65 @@
 .mobile-app-development-company {
+  &.firstSectionView,
+  &.thirdSectionView {
+    @extend .greySection;
+  }
+
   &.firstSectionView {
-    background-color: $alabaster;
+    @extend .cardsWithShadow;
+
+    @include iconsWithinCircle;
+  }
+
+  &.secondSectionView {
+    @include iconsWithinCircle;
+
+    @include below-tablet {
+      .cards > div {
+        display: block;
+
+        h3 {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .smallCards;
+
+    @include iconsWithinCircle;
+  }
+
+  &.fourthSectionView {
+    @extend .cardsWithShadow;
+
+    @include iconsWithinCircle;
+  }
+
+  &.fifthSectionView {
+    background-color: $very-dark-gray;
+
+    .cards > div {
+      background-color: $very-dark-gray;
+      box-shadow: none;
+
+      @include below-tablet {
+        display: block;
+
+        h3 {
+          margin-top: 16px;
+        }
+
+        svg {
+          transform: scale(0.7);
+          margin: 0 0 -13px -13px;
+        }
+      }
+    }
+
+    .titleStyle h2,
+    .typeTitle {
+      color: $white;
+    }
   }
 }

@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import {
-  ButtonMore,
-  AnimatedInput,
-  Animated,
-} from 'components';
+import Animated from 'components/Common/Animated';
+import AnimatedInput from 'components/Common/AnimatedInput';
+import ButtonMore from 'components/Common/ButtonMore';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 
 const Subscribe = ({
-  isMobileResolution,
   email,
   handleOnEmailChange,
   handleOnBlurEmail,
 }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
+
   const placeholderText = 'Email';
   const [currentPlaceholder, setCurrentPlaceholder] = useState(placeholderText);
   const animatedProps = {
@@ -106,7 +104,4 @@ Subscribe.propTypes = {
   handleOnBlurEmail: PropTypes.func.isRequired,
 };
 
-export default compose(
-  connect((state) => ({ isMobileResolution: selectIsMobileResolutions(state) })),
-  withValidateEmail,
-)(Subscribe);
+export default withValidateEmail(Subscribe);

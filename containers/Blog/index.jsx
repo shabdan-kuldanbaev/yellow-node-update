@@ -1,18 +1,16 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
 import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
 import { selectMetaData } from 'redux/selectors/layout';
-import {
-  SelectionBlock,
-  ArticlesList,
-  Paginator,
-  MetaTags,
-  PageHeader,
-  FullLayout,
-} from 'components';
+import SelectionBlock from 'components/BlogCommon/SelectionBlock';
+import ArticlesList from 'components/BlogCommon/ArticlesList';
+import MetaTags from 'components/Common/MetaTags';
+import PageHeader from 'components/Common/PageHeader';
+import Paginator from 'components/Common/Paginator';
+import FullLayout from 'components/Layout/FullLayout';
 import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
 import {
   PAGES,
@@ -23,24 +21,26 @@ import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { categoriesMetaData } from './utils/data';
 
 const BlogContainer = ({
+  tagsList,
   introSection,
-  articles,
-  totalArticles,
-  subscribe: addNewSubscriber,
-  setIsSubscribed: setSubscribed,
   currentPage,
   articlesNumberPerPage,
-  metaData,
 }) => {
+  const dispatch = useDispatch();
+  const articles = useSelector(selectArticles);
+  const totalArticles = useSelector(selectTotalCount);
+  const metaData = useSelector(selectMetaData);
+
   const {
     pathname,
     query: { slug },
+    asPath,
   } = useRouter();
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
-  const breadcrumbs = pagesBreadcrumbs.blog(slug);
+  const breadcrumbs = pagesBreadcrumbs.blog(slug, tagsList);
   const pageMetadata = {
     ...metaData,
-    url: `${rootUrl}/${PAGES.blog}`,
+    url: `${rootUrl}${asPath}`,
     pageNumber: currentPage,
   };
 
@@ -54,16 +54,16 @@ const BlogContainer = ({
   }
 
   const handleOnFormSubmit = (email) => {
-    addNewSubscriber({ email, pathname });
+    dispatch(subscribe({ email, pathname }));
   };
 
   useEffect(() => {
-    setSubscribed(getDataFromLocalStorageWithExpire('isSubscribed'));
+    dispatch(setIsSubscribed(getDataFromLocalStorageWithExpire('isSubscribed')));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.blog}
         pageMetadata={pageMetadata}
@@ -87,33 +87,14 @@ const BlogContainer = ({
           pageSlug={ROUTES.blog.slug}
         />
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 
 BlogContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  articles: PropTypes.instanceOf(Array).isRequired,
-  subscribe: PropTypes.func.isRequired,
-  totalArticles: PropTypes.number.isRequired,
-  setIsSubscribed: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
   articlesNumberPerPage: PropTypes.number.isRequired,
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-    ogImage: PropTypes.string,
-  }).isRequired,
 };
 
-export default connect(
-  (state) => ({
-    articles: selectArticles(state),
-    totalArticles: selectTotalCount(state),
-    metaData: selectMetaData(state),
-  }),
-  {
-    subscribe,
-    setIsSubscribed,
-  },
-)(BlogContainer);
+export default BlogContainer;

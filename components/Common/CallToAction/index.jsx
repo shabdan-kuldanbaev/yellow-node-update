@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { ButtonMore } from 'components';
+import ButtonMore from 'components/Common/ButtonMore';
 import styles from './styles.module.scss';
 
-export const CallToAction = ({
+const CallToAction = ({
   title,
   subtitle,
   buttonTitle,
@@ -48,3 +48,5 @@ CallToAction.propTypes = {
   handleOnClick: PropTypes.func,
   className: PropTypes.string,
 };
+
+export default CallToAction;

@@ -1,20 +1,17 @@
 import get from 'lodash/get';
-import isObject from 'lodash/isObject';
 import dayjs from 'dayjs';
 import {
-  PAGES,
-  FEEDBACK_FORM_FIELDS,
-  IMAGES,
+  BIG_TABLET_RESOLUTION,
   DEFAULT_DATE_FORMAT,
+  DEFAULT_TABLET_RESOLUTION,
+  FEEDBACK_FORM_FIELDS,
+  FULL_HD_RESOLUTION,
+  HORIZONTAL_MOBILE,
+  IMAGES,
+  PAGES,
+  PHONE_RESOLUTION,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
-import {
-  phoneResolution,
-  horizontalMobile,
-  bigTabletResolution,
-  fullHdResolution,
-  defaultTabletResolution,
-} from 'styles/utils/_variables.scss';
 
 export const themes = {
   dark: {
@@ -35,7 +32,7 @@ export const removeThousandsSeparators = (value) => toInt(value.replaceAll(',', 
 
 export const validateEmail = (email) => {
   // eslint-disable-next-line max-len
-  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}])|(([a-zA-Z\-\d]+\.)+[a-zA-Z]{2,}))$/;
 
   if (reg.test(email) === false) {
     return false;
@@ -56,11 +53,11 @@ export const getYoutubeVideoIdFromUrl = (url) => {
   return url.match(/[^/]+$/i)[0];
 };
 
-export const mobileResolution = toInt(phoneResolution);
-export const fullResolution = toInt(fullHdResolution);
-export const horizontalPhone = toInt(horizontalMobile);
-export const tabletResolution = toInt(bigTabletResolution);
-export const smallTabletResolution = toInt(defaultTabletResolution);
+export const mobileResolution = toInt(PHONE_RESOLUTION);
+export const fullResolution = toInt(FULL_HD_RESOLUTION);
+export const horizontalPhone = toInt(HORIZONTAL_MOBILE);
+export const tabletResolution = toInt(BIG_TABLET_RESOLUTION);
+export const smallTabletResolution = toInt(DEFAULT_TABLET_RESOLUTION);
 
 export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'initial';
@@ -124,6 +121,15 @@ export const createMarkup = (data) => ({ __html: data });
 export const addHttpsToUrl = (url) => (/^\/\//.test(url) ? `https:${url}` : url);
 
 export const getFileUrl = (file) => addHttpsToUrl(get(file, 'fields.file.url', ''));
+
+export const getImage = (file) => {
+  const imageData = get(file, 'fields.file', '');
+
+  return {
+    ...imageData.details.image,
+    url: addHttpsToUrl(imageData.url),
+  };
+};
 
 export const getDocumentFields = (document, fields = []) => {
   if (fields.length) {
@@ -219,19 +225,19 @@ export const getFeedbackFormData = (data) => {
 
 export const isNumeric = (value) => !isNaN(value);
 
-// export const getPathWithCdn = (path) => (`${path}`);
+export const getPathWithCdn = (path) => (`${path}`);
 // TODO: Uncomment when cdn will be fixed
-export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
+// export const getPathWithCdn = (path) => (process.env.EDGE_URL ? `${process.env.EDGE_URL}${path}` : path);
 
-export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
-  isObject(value)
-    ? acc[key] = addCdnToImages(value)
-    : acc[key] = getPathWithCdn(value);
+// export const addCdnToImages = (images) => Object.entries(images).reduce((acc, [key, value]) => {
+//   isObject(value)
+//     ? acc[key] = addCdnToImages(value)
+//     : acc[key] = getPathWithCdn(value);
+//
+//   return acc;
+// }, {});
 
-  return acc;
-}, {});
-
-export const staticImagesUrls = ({ ...addCdnToImages(IMAGES) });
+export const staticImagesUrls = IMAGES;
 
 export const getConvertedFileSize = (size) => {
   const kilobytes = (size / 1024).toFixed(2);
@@ -256,3 +262,13 @@ export const formatDate = (date, { format = DEFAULT_DATE_FORMAT } = {}) => dayjs
 export const getMaxVal = (...args) => args.reduce((currentMax, val) => (val > currentMax ? val : currentMax), args[0]);
 
 export const getLimitedList = (list, { start = 0, limit = 1 }) => list.slice(start, limit);
+
+export const runMiddleware = (req, res, fn) => new Promise((resolve, reject) => {
+  fn(req, res, (result) => {
+    if (result instanceof Error) {
+      return reject(result);
+    }
+
+    return resolve(result);
+  });
+});

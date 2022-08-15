@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {
-  Animated,
-  ParallaxContainer,
-  LinkWrapper,
-} from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Animated from 'components/Common/Animated';
 import { mobileResolution, horizontalPhone } from 'utils/helper';
 import { animatedType } from 'utils/constants';
-import ImageWithController from './ImageWithController';
 import { works } from './utils/data';
 import styles from './styles.module.scss';
 

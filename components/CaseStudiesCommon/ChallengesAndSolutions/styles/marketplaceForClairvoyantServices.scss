@@ -1,99 +1,31 @@
-/* stylelint-disable no-descending-specificity */
-
 .marketplace-for-clairvoyant-services {
   .special {
     max-width: unset;
 
-    &:nth-child(2n + 1) {
-      @include flex(row, flex-end);
-
-      @include macbook-fifteen {
-        padding-left: 100px;
-      }
-
-      @include tablet {
-        padding-left: 0;
-      }
-
-      & > div:last-child {
-        @extend .openSenseGradient;
-
-        &::after {
-          right: 0;
-          height: 107%;
-          transform: translate(10px, -1px);
-          background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
-
-          @include phone {
-            display: none;
-          }
-        }
-      }
-    }
-
-    &:nth-child(2n) {
-      @include flex(row, flex-start);
-
-      @include macbook-fifteen {
-        padding-right: 100px;
-      }
-
-      @include tablet {
-        padding-right: 0;
-      }
-
-      & > div:last-child {
-        @extend .openSenseGradient;
-
-        &::after {
-          left: 0;
-          height: 107%;
-          transform: translate(0, -1px);
-          background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
-
-          @include phone {
-            display: none;
-          }
-        }
-      }
-    }
-
-    &:nth-child(2n + 1),
-    &:nth-child(2n) {
-      .infoContainer {
-        max-width: 460px;
-        margin: 0;
-      }
-
-      @include phone {
-        @include flex(column, center, center);
-      }
-    }
-
     .infoContainer {
       h2 {
-        line-height: 43px;
-
         @include fontSize(36px);
 
-        @include tablet {
-          line-height: 34px;
+        line-height: 43px;
 
+        @include tablet {
           @include fontSize(30px);
+
+          line-height: 34px;
         }
 
         @include phone {
-          line-height: 28px;
-
           @include fontSize(24px);
+
+          line-height: 28px;
         }
       }
 
       p {
+        @include fontSize(18px);
+
         max-width: 429px;
         line-height: 32px;
-
-        @include fontSize(18px);
 
         @include tablet {
           @include fontSize(16px);
@@ -110,6 +42,72 @@
         max-height: unset;
         max-width: 1110px;
         filter: drop-shadow(0 14px 44px rgba($black, 0.07));
+      }
+    }
+
+    &:nth-child(2n + 1) {
+      @include flex(row, flex-end);
+
+      & > div:last-child {
+        @extend .openSenseGradient;
+
+        &::after {
+          right: 0;
+          height: 107%;
+          transform: translate(10px, -1px);
+          background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      @include macbook-fifteen {
+        padding-left: 100px;
+      }
+
+      @include tablet {
+        padding-left: 0;
+      }
+    }
+
+    &:nth-child(2n) {
+      @include flex(row, flex-start);
+
+      & > div:last-child {
+        @extend .openSenseGradient;
+
+        &::after {
+          left: 0;
+          height: 107%;
+          transform: translate(0, -1px);
+          background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      @include macbook-fifteen {
+        padding-right: 100px;
+      }
+
+      @include tablet {
+        padding-right: 0;
+      }
+    }
+
+    &:nth-child(2n + 1),
+    &:nth-child(2n) {
+      .infoContainer {
+        max-width: 460px;
+        margin: 0;
+      }
+
+      @include phone {
+        @include flex(column, center, center);
       }
     }
   }

@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import {
-  SectionTitle,
-  Upload,
-  AnimatedInput,
-  ButtonMore,
-  CheckboxContainer,
-} from 'components';
+import SectionTitle from 'components/Common/SectionTitle';
+import CheckboxContainer from 'components/Common/CheckboxContainer';
+import Upload from 'components/Common/Upload';
+import ButtonMore from 'components/Common/ButtonMore';
+import AnimatedInput from 'components/Common/AnimatedInput';
 import { withValidateEmail } from 'hocs';
 import styles from './styles.module.scss';
 

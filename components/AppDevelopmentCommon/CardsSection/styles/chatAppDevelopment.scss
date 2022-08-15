@@ -1,19 +1,36 @@
 .chat-app-development-company {
-  @include appDevelopmentContainer;
+  &.firstSectionView,
+  &.secondSectionView {
+    @extend .greySection;
+  }
 
   &.firstSectionView {
-    background-color: $alabaster;
+    @extend .cardsWithShadow;
+
+    @include iconsWithinCircle;
 
     .contentWrapper {
-      @extend .threeColumnCards;
+      @extend .threeColumnsCards;
+    }
+
+    .callToAction {
+      margin: 60px auto 0;
+      padding: 0;
+      background: none;
+
+      div[role='button'] {
+        margin: auto;
+      }
     }
   }
 
   &.secondSectionView {
-    background-color: $alabaster;
+    @extend .cardsWithShadow;
 
-    .typeTitle {
-      max-width: 235px;
+    @include iconsWithinCircle;
+
+    .titleStyle {
+      max-width: 805px;
     }
   }
 }

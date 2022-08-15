@@ -1,5 +1,7 @@
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+/* stylelint-disable no-duplicate-selectors */
+
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .mobile-app-development-company,
 .web-app-development-company,
@@ -8,38 +10,24 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.chat-app-development-company,
+.homepage {
   @include appDevelopmentContainer;
+
+  &.reviews {
+    @extend .greySection;
+  }
+
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
+
+  .callToAction {
+    @include defaultCallToAction;
+  }
 
   @include phone {
     padding: 64px 0;
   }
-
-  .title {
-    max-width: $max-content-width;
-    margin: 0 auto 80px;
-
-    div {
-      width: 100%;
-
-      h2 {
-        text-align: left;
-
-        @include below-tablet {
-          text-align: center;
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-}
-
-.web-app-development-company,
-.ios-mobile-app-development-services,
-.ui-ux-services,
-.android-mobile-app-development-services,
-.mvp-app-development-company,
-.cloud-based-app-development-services,
-.machine-learning-development-services {
-  background-color: $alabaster;
 }

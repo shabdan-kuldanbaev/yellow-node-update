@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './styles.module.scss';
 
-export const Carousel = () => {
+const Carousel = () => {
   const settings = {
     adaptiveHeight: true,
     speed: 500,
@@ -27,3 +27,5 @@ export const Carousel = () => {
     </Slider>
   );
 };
+
+export default Carousel;

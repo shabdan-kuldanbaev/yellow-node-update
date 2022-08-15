@@ -1,7 +1,7 @@
-import { createMuiTheme } from '@material-ui/core';
+import { createTheme } from '@material-ui/core';
 import red from '@material-ui/core/colors/red';
 
-export const customTheme = createMuiTheme({
+export const customTheme = createTheme({
   palette: {
     primary: {
       main: '#ffe603',

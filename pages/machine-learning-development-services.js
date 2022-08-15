@@ -1,33 +1,8 @@
 import React from 'react';
-import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
 import CustomService from 'containers/CustomService';
+import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
-import errorHelper from 'utils/error';
 
-const MLDevelopment = ({ introSection }) => (
-  <CustomService
-    introSection={introSection}
-    type={PAGES.mlDevelopment}
-  />
-);
+export const getStaticProps = getStaticPropsWrapper(PAGES.mlDevelopment, getServicePageProps);
 
-MLDevelopment.getInitialProps = async ({ store, req }) => {
-  try {
-    store.dispatch(fetchLayoutData({ slug: PAGES.mlDevelopment }));
-
-    if (req) {
-      store.dispatch(END);
-      await store.sagaTask.toPromise();
-    }
-
-    return {};
-  } catch (error) {
-    errorHelper.handleError({
-      error,
-      message: 'Error in the MLDevelopment.getInitialProps function',
-    });
-  }
-};
-
-export default MLDevelopment;
+export default CustomService;

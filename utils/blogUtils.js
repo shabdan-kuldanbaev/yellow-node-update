@@ -7,17 +7,26 @@ import {
   CATEGORY_SLUGS,
   ARTICLES_NUMBER_PER_PAGE,
 } from 'utils/constants';
+import { contentfulClient } from 'utils/contentful/client';
+import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
+import { getGraphqlResultTags } from 'utils/contentful/helper';
 
 export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
 
+export const checkIsTagBlog = (slug, tagsList) => !!slug && !!tagsList && tagsList.some((tag) => tag.slug === slug);
+
 // TODO think a better solution
-const fetchBlogData = async ({
+const fetchBlogData = async (
   store,
-  query: {
-    slug: category = '',
-    page = 1,
+  {
+    query: {
+      slug: category = '',
+      page = 1,
+    },
+    routeSlug,
+    isTagBlog,
   },
-}) => {
+) => {
   let queryParams = {
     category,
     page,
@@ -39,10 +48,11 @@ const fetchBlogData = async ({
   const currentPage = toInt(queryParams.page);
 
   store.dispatch(fetchLayoutData({
-    slug: PAGES.blog,
+    slug: routeSlug,
     currentLimit: ARTICLES_NUMBER_PER_PAGE,
     category: queryParams.category,
     skip: (currentPage - 1) * ARTICLES_NUMBER_PER_PAGE,
+    isTagBlog,
   }));
 
   return {
@@ -53,10 +63,9 @@ const fetchBlogData = async ({
 
 const isArticleLoaded = (store) => store.getState().blog.single.total !== 0;
 
-export const getInitialBlogProps = async (ctx) => {
+export const getInitialBlogProps = async (store, ctx) => {
   try {
     const {
-      store,
       req,
       query: {
         slug,
@@ -64,18 +73,23 @@ export const getInitialBlogProps = async (ctx) => {
       res,
     } = ctx;
     let props = {};
+    const response = await contentfulClient.graphql(GRAPHQL_QUERY.loadTag({ where: { type: 'article' } }));
+    const tagsList = getGraphqlResultTags(response);
+    const isTagBlog = checkIsTagBlog(slug, tagsList);
 
-    if (isArticle(slug)) {
+    if (!isTagBlog && isArticle(slug)) {
       store.dispatch(fetchLayoutData({
         articleSlug: slug,
         slug: PAGES.article,
       }));
     } else {
-      const { articlesNumberPerPage, currentPage } = await fetchBlogData(ctx);
+      const { articlesNumberPerPage, currentPage } = await fetchBlogData(store, { ...ctx, isTagBlog, routeSlug: PAGES.blog });
 
       props = {
         articlesNumberPerPage,
         currentPage,
+        isTagBlog,
+        tagsList,
       };
     }
 
@@ -95,11 +109,40 @@ export const getInitialBlogProps = async (ctx) => {
       }
     }
 
-    return props;
+    return {
+      props,
+    };
   } catch (error) {
     errorHelper.handleError({
       error,
       message: 'Error in the getInitialBlogProps function',
     });
   }
+};
+
+export const getBlogGraphqlQuery = ({
+  limit,
+  skip,
+  category,
+  isTagBlog,
+  order,
+}) => {
+  if (isTagBlog) {
+    return GRAPHQL_QUERY.loadPreviewArticlesByTags({
+      limit,
+      where: { slug: category, type: 'article' },
+    });
+  }
+
+  return GRAPHQL_QUERY.loadPreviewArticles({
+    skip,
+    limit,
+    order,
+    where: {
+      ...(category
+        ? { categoryTag: category }
+        : { categoryTag_exists: true }
+      ),
+    },
+  });
 };

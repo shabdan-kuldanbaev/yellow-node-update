@@ -35,5 +35,5 @@ TitleText.defaulrProps = {
 
 TitleText.propTypes = {
   type: PropTypes.string.isRequired,
-  data: PropTypes.instanceOf(Object).isRequired,
+  data: PropTypes.string.isRequired,
 };

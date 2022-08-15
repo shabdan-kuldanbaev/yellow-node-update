@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import get from 'lodash/get';
 import {
@@ -10,15 +10,13 @@ import {
   selectNearbyArticles,
 } from 'redux/selectors/blog';
 import { subscribe } from 'redux/actions/subscribe';
-import {
-  Article,
-  RelatedSection,
-  SubscribeBlock,
-  NextPrev,
-  MetaTags,
-  PageHeader,
-  FullLayout,
-} from 'components';
+import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
+import PageHeader from 'components/Common/PageHeader';
+import MetaTags from 'components/Common/MetaTags';
+import Article from 'components/BlogCommon/Article';
+import SubscribeBlock from 'components/Common/SubscribeBlock';
+import FullLayout from 'components/Layout/FullLayout';
+import NextPrev from 'components/BlogCommon/Article/NextPrev';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import { FAQ } from 'components/Common/FAQ';
@@ -31,11 +29,12 @@ import styles from './styles.module.scss';
 
 const ArticleContainer = ({
   introSection,
-  articles: relatedArticles,
-  nearbyArticles,
-  currentArticle,
-  subscribe: addNewSubscriber,
 }) => {
+  const dispatch = useDispatch();
+  const currentArticle = useSelector(selectArticle);
+  const relatedArticles = useSelector(selectRelatedArticles);
+  const nearbyArticles = useSelector(selectNearbyArticles);
+
   const {
     query: { slug },
     pathname,
@@ -51,7 +50,7 @@ const ArticleContainer = ({
     introduction,
     publishedAt,
     updatedAt,
-    keyWords = [],
+    tagsList,
     categoryTag = '',
     metaTitle,
     metaDescription,
@@ -64,7 +63,7 @@ const ArticleContainer = ({
     metaDescription: metaDescription || (title && `Read our new article about ${title}.`),
     publishedAt,
     image: headImage,
-    keyWords,
+    keyWords: tagsList.map((tag) => tag.title),
     categoryTag,
     slug: articleSlug,
     url: `${rootUrl}${asPath}`,
@@ -80,10 +79,10 @@ const ArticleContainer = ({
   });
   const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
 
-  const handleOnFormSubmit = (email) => addNewSubscriber({ email, pathname });
+  const handleOnFormSubmit = (email) => dispatch(subscribe({ email, pathname }));
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={PAGES.blog}
         isArticle
@@ -112,7 +111,7 @@ const ArticleContainer = ({
           faqList={faqList}
           type="withFullLayout"
         />
-        <TagsBlock tags={keyWords} />
+        <TagsBlock tags={tagsList} />
         {relatedArticles
           && !!relatedArticles.length
           && <RelatedSection articles={relatedArticles} />}
@@ -125,23 +124,12 @@ const ArticleContainer = ({
         </div>
         <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 
 ArticleContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  articles: PropTypes.instanceOf(Array).isRequired,
-  currentArticle: PropTypes.instanceOf(Object).isRequired,
-  nearbyArticles: PropTypes.instanceOf(Object).isRequired,
-  subscribe: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({
-    currentArticle: selectArticle(state),
-    articles: selectRelatedArticles(state),
-    nearbyArticles: selectNearbyArticles(state),
-  }),
-  { subscribe },
-)(ArticleContainer);
+export default ArticleContainer;

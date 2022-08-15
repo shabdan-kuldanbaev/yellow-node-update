@@ -1,19 +1,20 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import Animated from 'components/Common/Animated';
+import Breadcrumbs from 'components/Common/Breadcrumbs';
 import { formatDate } from 'utils/helper';
-import { Animated, Breadcrumbs } from 'components';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const PageHeader = ({
+const PageHeader = ({
   title,
   breadcrumbs,
   titleStyles,
   breadcrumbsStyles,
   updatedAt,
 }) => (
-  <Fragment>
+  <>
     <Breadcrumbs
       breadcrumbs={breadcrumbs}
       breadcrumbsStyles={breadcrumbsStyles}
@@ -37,7 +38,7 @@ export const PageHeader = ({
         </Animated>
       </div>
     )}
-  </Fragment>
+  </>
 );
 
 PageHeader.defaultProps = {
@@ -53,3 +54,5 @@ PageHeader.propTypes = {
   titleStyles: PropTypes.string,
   breadcrumbsStyles: PropTypes.string,
 };
+
+export default PageHeader;

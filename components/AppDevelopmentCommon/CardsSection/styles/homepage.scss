@@ -1,0 +1,144 @@
+.homepage {
+  &.firstSectionView {
+    @extend .cardsWithFullWidthImage;
+
+    background: $turbo-100;
+
+    * {
+      text-align: center;
+    }
+
+    .titleStyle {
+      p {
+        color: rgba($dark-grey, 0.6);
+      }
+    }
+
+    .imageWrapper > div {
+      transition: transform 0.3s ease-in-out;
+      padding-top: 75%;
+    }
+
+    .typeTitle {
+      position: relative;
+      width: fit-content;
+      margin: 20px auto;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        background: $black;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        right: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+
+    a {
+      color: $black;
+
+      &:hover {
+        .imageWrapper > div {
+          transform: translateY(-3%);
+        }
+
+        .typeTitle::after {
+          transform: none;
+        }
+      }
+    }
+
+    .contentWrapper {
+      @extend .threeColumnsCards;
+
+      --gap-x: 40px;
+      --gap-y: 60px;
+
+      overflow: hidden;
+
+      .cards {
+        @include flex(row, center, center, wrap);
+
+        gap: 0;
+        margin: 0 calc(-1 * var(--gap-x)) calc(-1 * var(--gap-y)) 0;
+
+        & > * {
+          flex: 0 0 30%;
+          margin: 0 var(--gap-x) var(--gap-y) 0;
+
+          p {
+            color: $dark-grey;
+            opacity: 0.6;
+          }
+
+          @include tablet {
+            flex-basis: 50%;
+          }
+
+          @include below-tablet {
+            flex-basis: 80%;
+            display: block;
+          }
+        }
+
+        @include below-tablet {
+          @include flex(column, flex-start, stretch);
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .cardsWithShadow;
+    @extend .cardsWithFullWidthImage;
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: 1300px;
+
+      .cards {
+        grid-template-columns: repeat(4, 1fr);
+
+        * {
+          text-align: center;
+        }
+
+        & > div {
+          padding: 20px 15px;
+        }
+
+        @include tablet {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include below-tablet {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      .cardContent p {
+        display: none;
+
+        @include below-tablet {
+          display: block;
+        }
+      }
+    }
+
+    .overlay {
+      @include below-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .smallCards;
+
+    @include iconsWithinCircle;
+  }
+}

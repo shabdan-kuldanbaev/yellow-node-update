@@ -3,22 +3,27 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './styles.module.scss';
 
-export const FullLayout = ({
+const FullLayout = ({
   children,
   disableMaxWidth,
   disableTopPadding,
   disableSidePadding,
   disableBottomPadding,
   disableOverflowHiding,
+  backgroundColor,
   introSection,
 }) => {
-  const layoutStyles = cn(styles.fullLayout, {
-    [styles.disableMaxWidth]: disableMaxWidth,
-    [styles.disableTopPadding]: disableTopPadding,
-    [styles.disableSidePadding]: disableSidePadding,
-    [styles.disableBottomPadding]: disableBottomPadding,
-    [styles.disableOverflowHiding]: disableOverflowHiding,
-  });
+  const layoutStyles = cn(
+    styles.fullLayout,
+    styles[backgroundColor],
+    {
+      [styles.disableMaxWidth]: disableMaxWidth,
+      [styles.disableTopPadding]: disableTopPadding,
+      [styles.disableSidePadding]: disableSidePadding,
+      [styles.disableBottomPadding]: disableBottomPadding,
+      [styles.disableOverflowHiding]: disableOverflowHiding,
+    },
+  );
 
   return (
     <div
@@ -36,6 +41,7 @@ FullLayout.defaultProps = {
   disableTopPadding: false,
   disableSidePadding: false,
   disableBottomPadding: false,
+  backgroundColor: '',
   introSection: null,
 };
 
@@ -45,5 +51,8 @@ FullLayout.propTypes = {
   disableTopPadding: PropTypes.bool,
   disableSidePadding: PropTypes.bool,
   disableBottomPadding: PropTypes.bool,
+  backgroundColor: PropTypes.string,
   introSection: PropTypes.instanceOf(Object),
 };
+
+export default FullLayout;

@@ -1,5 +1,5 @@
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .imageSection {
   max-width: $max-content-width;
@@ -67,4 +67,28 @@
   @include appDevelopmentContainer;
 
   padding-top: 0;
+
+  .imageSection {
+    margin-bottom: 0;
+
+    @include below-tablet {
+      margin-top: 0;
+    }
+  }
+
+  .titleStyle {
+    p {
+      @include fontSize(56px, 120%);
+
+      @include tablet {
+        @include fontSize(32px);
+
+        text-align: center;
+      }
+    }
+  }
+
+  @include below-tablet {
+    padding-top: 0;
+  }
 }

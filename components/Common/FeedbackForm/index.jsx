@@ -1,6 +1,5 @@
 import React, {
   useState,
-  Fragment,
   useEffect,
   useRef,
 } from 'react';
@@ -10,10 +9,10 @@ import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { selectError } from 'redux/selectors/contact';
 import { sendEmail } from 'redux/actions/contact';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
-import { Upload } from 'components/Common/Upload';
+import Upload from 'components/Common/Upload';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
@@ -199,13 +198,13 @@ const FeedbackForm = ({
             >
               {projectBudget.length > 1
                 ? (
-                  <Fragment>
+                  <>
                     <span>Your budget is up to </span>
                     <span className={styles.price}>
                       {`$ ${projectBudget}`}
                     </span>
                     {projectBudget === addThousandsSeparators(budgetData.max) && <span> or more</span>}
-                  </Fragment>
+                  </>
                 )
                 : <span>Your budget</span>}
               <SliderWrapper
@@ -241,7 +240,7 @@ const FeedbackForm = ({
         >
           <ButtonMore
             href="/"
-            title="Send"
+            title="Contact Us"
             buttonStyle={styles.submit}
             handleOnClick={handleOnSubmitClick}
             isDisabled={isDisabled}

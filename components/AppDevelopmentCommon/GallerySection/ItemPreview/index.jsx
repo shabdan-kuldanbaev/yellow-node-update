@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { Svg } from 'components/Common/Svg';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getFileUrl } from 'utils/helper';
 import { TitleText } from './TitleText';
-import { getAppstoreSvgType, getItemPreviewProps } from './utils/itemPreviewHelper';
+import { getItemPreviewProps } from './utils/itemPreviewHelper';
 import styles from './styles.module.scss';
 
 export const ItemPreview = ({ data, type }) => {
@@ -17,7 +15,6 @@ export const ItemPreview = ({ data, type }) => {
     description,
     text,
     imagesBundles,
-    downloadLink,
     appBackgroundImageUrl,
     appLogoUrl,
     sectionStyle,
@@ -27,7 +24,12 @@ export const ItemPreview = ({ data, type }) => {
   return (
     <section
       style={sectionStyle}
-      className={cn(styles[type], styles[view], styles[slug])}
+      className={cn(
+        styles.previewContainer,
+        styles[type],
+        styles[view],
+        styles[slug],
+      )}
     >
       <div className={styles.projectPreview}>
         <div className={styles.projectInfoContainer}>
@@ -53,14 +55,6 @@ export const ItemPreview = ({ data, type }) => {
             </p>
           )}
           <ContentfulParser document={text} />
-          {downloadLink && (
-            <LinkWrapper path={downloadLink.url}>
-              <Svg
-                className={styles.appStore}
-                type={getAppstoreSvgType(slug)}
-              />
-            </LinkWrapper>
-          )}
         </div>
         <div className={styles.imageContainer}>
           <img

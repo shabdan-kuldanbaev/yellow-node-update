@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 @mixin appDevelopmentContainer {
-  padding: 150px 40px;
+  padding: 120px 40px;
   background-color: $white;
 
   @include tablet {
@@ -14,74 +14,257 @@
 }
 
 @mixin smallSectionWrapper {
-  max-width: 1076px;
+  max-width: $max-content-width-small-section;
   margin: 0 auto;
   position: relative;
 
-  @include flex(column, center, center);
+  @include flex(column, center, stretch);
 }
 
 @mixin defaultCallToAction {
+  @include flex(row, space-between, center);
+
   box-sizing: border-box;
   width: 100%;
-  max-width: 1076px;
-  padding: 80px;
+  max-width: $max-content-width-small-section;
+  padding: 70px;
   margin: 80px auto 0;
-
-  @include phone {
-    padding: 40px 24px;
-    margin-top: 60px;
-  }
+  background: $alabaster;
+  border-radius: 5px;
 
   h3 {
-    margin: 0 80px 0 0;
-    max-width: 610px;
-
     @include fontSize(24px);
 
-    @include phone {
-      margin: 0 0 30px;
-      text-align: center;
+    max-width: 610px;
+    line-height: 120%;
 
-      @include fontSize(20px);
+    @include below-tablet {
+      @include fontSize(18px);
+
+      margin: 0 0 24px;
+      text-align: center;
+    }
+  }
+
+  div[role='button'] {
+    font-weight: 500;
+    height: unset;
+    padding: 20px 0;
+    margin-left: 40px;
+    min-width: 220px;
+
+    @include below-tablet {
+      @include fontSize(14px);
+
+      padding: 14px 0;
+      width: 180px;
+      margin: auto;
+    }
+  }
+
+  @include below-tablet {
+    padding: 40px 24px;
+    margin-top: 40px;
+    flex-direction: column;
+  }
+}
+
+@mixin defaultCard {
+  position: relative;
+
+  h3 {
+    @include fontSize(24px, 150%);
+
+    font-weight: 700;
+    margin: 20px 0 0;
+
+    @include below-tablet {
+      @include fontSize(18px);
+
+      margin-top: 16px;
+    }
+  }
+
+  p {
+    @include fontSize(16px, 180%);
+
+    color: $silver-chalice;
+    margin: 10px 0 0;
+
+    @include below-tablet {
+      @include fontSize(14px);
+    }
+  }
+
+  @include below-tablet {
+    @include flex(row);
+
+    h3 {
+      margin-top: 0;
     }
   }
 }
 
-.threeColumnCards {
+@mixin cardWithShadow {
+  background: $white;
+  box-shadow: $card-bow-shadow;
+  padding: 50px;
+  display: block;
+  border-radius: 5px;
+
+  @include below-tablet {
+    padding: 24px;
+
+    h3 {
+      margin-top: 16px;
+    }
+  }
+}
+
+@mixin overlay {
+  @include flex(column, flex-start, center);
+
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $white;
+  padding: 105px 15px 15px;
+
+  h3 {
+    transform: scale(0.9);
+    transition: transform 0.1s ease-in-out;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    h3 {
+      transform: none;
+    }
+  }
+}
+
+@mixin centeredIcons {
+  :global(.swiper-wrapper) {
+    align-items: center;
+  }
+
+  :global(.swiper-slide) {
+    & > div,
+    & {
+      @include flex(row, center, center);
+
+      flex: 1 1 auto;
+      height: auto;
+    }
+  }
+}
+
+.cardsWithFullWidthImage {
+  .cards {
+    @include below-tablet {
+      grid-gap: 33px;
+    }
+
+    & > div {
+      display: block;
+    }
+  }
+
+  .imageWrapper {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    background: none;
+
+    & > div {
+      @include centeredBackgroundImage;
+
+      width: 100%;
+      padding-top: 85%;
+      background-size: contain;
+
+      @include tablet {
+        padding-top: 72%;
+      }
+    }
+  }
+
+  .typeTitle {
+    margin: 24px 0 10px;
+
+    @include below-tablet {
+      margin: 20px 0 10px;
+      text-align: center;
+    }
+  }
+}
+
+.greySection {
+  background: $alabaster;
+
+  .callToAction {
+    background: $white;
+  }
+}
+
+.cardsWithShadow {
+  .contentWrapper .cards {
+    grid-gap: 40px;
+
+    & > div {
+      @include cardWithShadow;
+    }
+  }
+}
+
+.smallCards {
+  .contentWrapper .cards {
+    grid-gap: 40px;
+
+    & > div {
+      @include flex;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+
+.threeColumnsCards {
   @include smallSectionWrapper;
 
   max-width: $max-content-width;
 
   .cards {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+
+    @include tablet {
+      grid-template-columns: auto;
+      grid-gap: 20px;
+    }
+  }
+}
+
+.twoColumnsCards {
+  @include smallSectionWrapper;
+
+  max-width: 100%;
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px 24%;
 
     @include below-tablet {
-      width: 100%;
       grid-template-columns: auto;
-      grid-template-rows: repeat(3, 1fr);
-      grid-row-gap: 20px;
-    }
-
-    & > div {
-      padding: 40px;
-
-      @include below-tablet {
-        width: 100%;
-        max-width: unset;
-      }
-
-      p {
-        color: $silver-chalice;
-        line-height: 1.8;
-        margin: 0;
-
-        @include fontSize(16px);
-
-        @include phone {
-          @include fontSize(14px);
-        }
-      }
+      grid-gap: 24px;
     }
   }
 }

@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Animated,
-  CallToAction,
-} from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import Animated from 'components/Common/Animated';
+import CallToAction from 'components/Common/CallToAction';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const Process = ({ processes, handleOnCTAClick }) => {
+const Process = ({ processes, handleOnCTAClick }) => {
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -21,6 +20,7 @@ export const Process = ({ processes, handleOnCTAClick }) => {
       {processes && processes.map(({
         name,
         description,
+        link,
         json,
       }, index) => (
         <div
@@ -43,6 +43,16 @@ export const Process = ({ processes, handleOnCTAClick }) => {
               transitionDelay={300 + 50}
             >
               <p>{description}</p>
+              <LinkWrapper
+                isLocalLink
+                dynamicRouting={link}
+                path={link}
+                className={styles.buttonWrap}
+              >
+                <button type="button">
+                  Details
+                </button>
+              </LinkWrapper>
             </Animated>
           </div>
           <Animated
@@ -83,3 +93,5 @@ Process.propTypes = {
   processes: PropTypes.instanceOf(Array),
   handleOnCTAClick: PropTypes.func,
 };
+
+export default Process;
