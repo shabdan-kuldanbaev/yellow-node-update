@@ -195,11 +195,11 @@
   }
 
   &::before {
-    background: linear-gradient(90deg, $zircon 0%, rgb($white / 0) 100%);
+    background: linear-gradient(90deg, $zircon 0%, rgba($white, 0) 100%);
   }
 
   &::after {
-    background: linear-gradient(270deg, $zircon 0%, rgb($white / 0) 100%);
+    background: linear-gradient(270deg, $zircon 0%, rgba($white, 0) 100%);
   }
 }
 
@@ -266,12 +266,12 @@
   @extend .imagesContainer;
 
   &::before {
-    background: linear-gradient(90deg, rgba($white / 0) 0%, $selago 78.3%);
+    background: linear-gradient(90deg, rgba($white, 0) 0%, $selago 78.3%);
     transform: matrix(-1, 0, 0, 1, 0, 0);
   }
 
   &::after {
-    background: linear-gradient(90deg, rgba($white / 0) 0%, $selago 78.3%);
+    background: linear-gradient(90deg, rgba($white, 0) 0%, $selago 78.3%);
   }
 }
 
