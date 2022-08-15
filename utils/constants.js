@@ -4,6 +4,7 @@
 import React from 'react';
 import { routes } from 'utils/routes';
 
+export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
 export const HOMEPAGE_BLOG_CURRENT_PAGE = 1;
@@ -11,15 +12,15 @@ export const ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE = 3;
 export const ROUTES = { ...routes };
 
 export const ACCESS_TO_CONTENTFUL = {
-  space: process.env.CONTENTFUL_SPACE,
-  environment: process.env.CONTENTFUL_ENV,
-  accessToken: process.env.CONTENTFUL_TOKEN,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_TOKEN,
 };
 
 export const ACCESS_TO_CONTENTFUL_PREVIEW = {
-  space: process.env.CONTENTFUL_SPACE,
-  environment: process.env.CONTENTFUL_ENV,
-  accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_TOKEN,
   isPreview: true,
 };
 
