@@ -67,7 +67,7 @@ const CardsSection = ({
             const svgType = get(contentList, '[0]');
             const url = get(contentModules, '[0].fields.url');
 
-            // This looks awful but it works, I will rewrite it later, now I dont have enough time
+            // TODO: This looks awful but it works, I will rewrite it later, now I dont have enough time
             const Wrapper = url
               ? ((props) => <LinkWrapper {...props} />)
               // eslint-disable-next-line react/jsx-no-useless-fragment
