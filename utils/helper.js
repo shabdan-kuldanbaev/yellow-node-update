@@ -1,5 +1,4 @@
 import get from 'lodash/get';
-import isObject from 'lodash/isObject';
 import dayjs from 'dayjs';
 import {
   BIG_TABLET_RESOLUTION,

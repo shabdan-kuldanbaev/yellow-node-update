@@ -62,7 +62,7 @@ const CompanyContainer = ({
             disableSidePadding
             disableBottomPadding
           >
-            <PhotoGallery photos={carouselContent} />
+            <PhotoGallery sectionData={photosData} />
           </FullLayout>
         )}
         <FullLayout

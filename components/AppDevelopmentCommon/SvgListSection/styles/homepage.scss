@@ -1,0 +1,16 @@
+.homepage {
+  &.firstSectionView {
+    .svgGroup {
+      width: min(100%, $max-content-width);
+      max-width: unset;
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    @include centeredIcons;
+
+    padding-bottom: 0;
+  }
+}

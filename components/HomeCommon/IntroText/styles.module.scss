@@ -109,5 +109,6 @@
 
   @include phone {
     opacity: 1 !important;
+    transform: translateX(-50%);
   }
 }

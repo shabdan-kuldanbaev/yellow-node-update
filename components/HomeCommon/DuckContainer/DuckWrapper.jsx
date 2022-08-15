@@ -1,9 +1,9 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import dynamic from 'next/dynamic';
 import { selectDuck } from 'redux/selectors/home';
 import { fetchDuck } from 'redux/actions/home';
 import LoadingScreen from 'components/Common/LoadingScreen';
-import dynamic from 'next/dynamic';
 import { mobileResolution } from 'utils/helper';
 import { loadDuck, slogan } from './utils/threeHelper';
 
@@ -28,7 +28,7 @@ const DuckWrapper = ({ sloganRef }) => {
       }));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, duck]);
+  }, [duck]);
 
   return (
     <>

@@ -1,35 +1,52 @@
 import { ANIMATED_TYPE } from 'utils/constants';
-import { staticImagesUrls } from 'utils/helper';
-
-const {
-  ai,
-  chats,
-  cloud,
-  mobile,
-} = staticImagesUrls.advantagesIcons;
 
 export const advantages = [
   {
+    title: 'Web application development',
+    desc: 'Custom web business software solutions to meet your needs',
+    icon: 'mobileDevelopmentIllustration',
+    to: '/web-app-development-company',
+  },
+  {
+    title: 'UI/UX design services',
+    desc: 'Beautiful, functional, eye-pleasing, and user-friendly',
+    icon: 'uiUxDevelopmentIllustration',
+    to: '/ui-ux-services',
+  },
+  {
     title: 'Mobile',
-    desc: '<span>Killer features all over the place</span>',
-    image: mobile,
+    desc: 'Killer features all over the place',
+    icon: 'mobileDevelopmentIllustration',
     to: '/mobile-app-development-company',
   },
   {
-    title: 'Cloud',
-    desc: '<span>Sky is the limit</span>',
-    image: cloud,
+    title: 'Machine learning development',
+    desc: 'Making machines smart again',
+    icon: 'mlDevelopmentIllustration',
+    to: '/machine-learning-development-services',
   },
   {
-    title: 'AI',
-    desc: '<span>Making machines smart again</span>',
-    image: ai,
+    title: 'MVP app development',
+    desc: 'A small start is a good start',
+    icon: 'mvpDevelopmentIllustration',
+    to: '/mvp-app-development-company',
   },
   {
-    title: 'Chats',
-    desc: 'Our speciality is everything real-time:</br><span>chats, bots, voice, video and what have you</span>',
-    image: chats,
+    title: 'Cloud application development',
+    desc: 'The sky\'s the limit',
+    icon: 'cloudDevelopmentIllustration',
+    to: '/cloud-based-app-development-services',
+  },
+  {
+    title: 'Chat app development',
+    desc: 'Chats, bots, calls, and whatever you may have',
+    icon: 'chatsDevelopmentIllustration',
     to: '/chat-app-development-company',
+  },
+  {
+    title: 'Software development',
+    icon: 'softDevelopmentIllustration',
+    desc: 'Any software development services you need',
   },
 ];
 

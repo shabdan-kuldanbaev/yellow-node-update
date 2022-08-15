@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
@@ -7,6 +7,8 @@ import SvgGroup from 'components/AppDevelopmentCommon/SvgListSection/SvgGroup';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
+import Selector from './Selector';
+import { getDocumentFields } from '../../../utils/helper';
 
 const Animated = dynamic(() => import('components/Common/Animated'));
 const CallToAction = dynamic(() => import('components/Common/CallToAction'));
@@ -15,23 +17,29 @@ const SvgListSection = ({
   sectionData,
   handleOnCTAClick,
   type,
+  withSelector,
 }) => {
   const {
     title,
     description,
     link,
     view,
-    iconsGroup,
-  } = getSvgSectionProps(sectionData);
+    iconsGroups,
+  } = useMemo(() => getSvgSectionProps(sectionData), [sectionData]);
 
-  // TODO: uncomment when restoring default values in global store will be fixed
-  // const isTabletResolution = useSelector(selectIsTabletResolutions);
-  // const isSwiperEnabled = useMemo(
-  //   () => checkSwiperEnabled(type, view, isTabletResolution),
-  //   [type,
-  //     view,
-  //     isTabletResolution],
-  // );
+  const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
+
+  const displayNames = iconsGroups.map((group) => getDocumentFields(group, ['title']).title);
+
+  const handleSelectedGroupIndexChange = (i) => setSelectedGroupIndex(i);
+
+  useEffect(() => {
+    if (!withSelector) {
+      return;
+    }
+
+    setSelectedGroupIndex(0);
+  }, [withSelector]);
 
   return (
     <section className={cn(styles[type], styles[view])}>
@@ -40,7 +48,23 @@ const SvgListSection = ({
         description={description}
         titleStyle={styles.titleStyle}
       />
-      {iconsGroup.map((group, i) => (
+      {withSelector && (
+        <Selector
+          displayNames={displayNames}
+          selectedIndex={selectedGroupIndex}
+          onSelectedIndexChange={handleSelectedGroupIndexChange}
+        />
+      )}
+      {withSelector
+        && (
+          <SvgGroup
+            data={iconsGroups[selectedGroupIndex]}
+            className={styles.svgList}
+            isSwiperEnabled
+            hideTitle
+          />
+        ) }
+      {!withSelector && iconsGroups.map((group, i) => (
         <SvgGroup
           key={i}
           data={group}
@@ -68,12 +92,14 @@ const SvgListSection = ({
 
 SvgListSection.defaultProps = {
   handleOnCTAClick: () => {},
+  withSelector: false,
 };
 
 SvgListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
+  withSelector: PropTypes.bool,
 };
 
 export default SvgListSection;

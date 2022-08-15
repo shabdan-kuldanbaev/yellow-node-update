@@ -205,6 +205,18 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentRelatedServices: 'app-development-related-services',
 };
 
+export const HOMEPAGE_SECTION_TYPES = {
+  text: 'text',
+  cards: 'cards',
+  cardsWithOverlay: 'cards-with-overlay',
+  svgDisplay: 'svg-display',
+  svgDisplayWithSelector: 'svg-display-with-selector',
+  porfolio: 'portfolio',
+  reviews: 'reviews',
+  blog: 'blog',
+  photos: 'photos',
+};
+
 export const CONTACTS_DATA = {
   email: 'hi@yellow.systems',
   telephoneNumbers: [
