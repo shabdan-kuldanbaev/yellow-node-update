@@ -128,6 +128,8 @@ function* fetchPageData({
       break;
     case PAGES.contact:
     case PAGES.company:
+    case PAGES.privacyPolicy:
+    case PAGES.termsAndConditions:
     case PAGES.customChatApp:
     case PAGES.customMobileApp:
     case PAGES.customWebApp:

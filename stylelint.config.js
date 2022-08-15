@@ -18,15 +18,7 @@ module.exports = {
     'keyframes-name-pattern': null,
     linebreaks: 'unix',
     'function-url-quotes': null,
-    'function-no-unknown': [
-      true,
-      {
-        ignoreFunctions: [
-          'calcRem',
-          'getPathWithCdn',
-        ],
-      },
-    ],
+    'function-no-unknown': null,
     'alpha-value-notation': 'number',
     'string-quotes': 'single',
     'at-rule-no-unknown': [
