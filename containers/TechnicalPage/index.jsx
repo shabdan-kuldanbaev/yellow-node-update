@@ -7,7 +7,7 @@ import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import FullLayout from 'components/Layout/FullLayout';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import { ANIMATED_TYPE } from 'utils/constants';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
@@ -46,10 +46,7 @@ const TechnicalPageContainer = ({
           updatedAt={contentModules[0].sys.updatedAt}
         />
         <Animated
-          type={ANIMATED_TYPE.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
+          {...REVEAL_ANIMATION_PROPS}
           transitionDelay={250}
         >
           <div className={styles.container}>
