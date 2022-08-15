@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { selectComponents, selectMetaData } from 'redux/selectors/layout';
 import Animated from 'components/Common/Animated';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
@@ -9,16 +10,16 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import { selectComponents, selectMetaData } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
 const TechnicalPageContainer = ({
-  pageData,
-  metaData,
   introSection,
   type,
   title,
 }) => {
+  const pageData = useSelector(selectComponents);
+  const metaData = useSelector(selectMetaData);
+
   const { main: contentModules } = pageData;
 
   const breadcrumbs = pagesBreadcrumbs.privacyPolicy();
@@ -61,19 +62,8 @@ const TechnicalPageContainer = ({
 };
 
 TechnicalPageContainer.propTypes = {
-  pageData: PropTypes.instanceOf(Object).isRequired,
   introSection: PropTypes.instanceOf(Object).isRequired,
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-    ogImage: PropTypes.string,
-  }).isRequired,
   type: PropTypes.string.isRequired,
 };
 
-export default connect(
-  (state) => ({
-    pageData: selectComponents(state),
-    metaData: selectMetaData(state),
-  }),
-)(TechnicalPageContainer);
+export default TechnicalPageContainer;

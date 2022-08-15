@@ -1,9 +1,9 @@
 import React from 'react';
 import Animated from 'components/Common/Animated';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { ANIMATED_TYPE, PAGES } from 'utils/constants';
 import rocket from './json/rocket.json';
 import styles from './styles.module.scss';
-import LinkWrapper from '../../../../Common/LinkWrapper';
 
 export const BottomContent = () => (
   <div className={styles.bottomContent}>
