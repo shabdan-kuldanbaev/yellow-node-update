@@ -1,9 +1,7 @@
 import React from 'react';
-import { END } from 'redux-saga';
 import TechnicalPageContainer from 'containers/TechnicalPage';
-import { fetchLayoutData } from 'redux/actions/layout';
 import { PAGES, ROUTES } from 'utils/constants';
-import errorHelper from 'utils/error';
+import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
 
 const PrivacyPolicy = ({ introSection }) => (
   <TechnicalPageContainer
@@ -13,22 +11,6 @@ const PrivacyPolicy = ({ introSection }) => (
   />
 );
 
-PrivacyPolicy.getInitialProps = async ({ store, req }) => {
-  try {
-    store.dispatch(fetchLayoutData({ slug: PAGES.privacyPolicy }));
-
-    if (req) {
-      store.dispatch(END);
-      await store.sagaTask.toPromise();
-    }
-
-    return {};
-  } catch (error) {
-    errorHelper.handleError({
-      error,
-      message: 'Error in the PrivacyPolicy.getInitialProps function',
-    });
-  }
-};
+export const getStaticProps = getStaticPropsWrapper(PAGES.privacyPolicy, getServicePageProps);
 
 export default PrivacyPolicy;

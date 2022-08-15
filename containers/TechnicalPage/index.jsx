@@ -1,17 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  Animated,
-  ContentfulParser,
-  MetaTags,
-  PageHeader,
-  FullLayout,
-} from 'components';
+import Animated from 'components/Common/Animated';
+import MetaTags from 'components/Common/MetaTags';
+import PageHeader from 'components/Common/PageHeader';
+import FullLayout from 'components/Layout/FullLayout';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import { selectComponents, selectMetaData } from '../../redux/selectors/layout';
+import { selectComponents, selectMetaData } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
 const TechnicalPageContainer = ({
@@ -34,7 +32,7 @@ const TechnicalPageContainer = ({
   }
 
   return (
-    <Fragment>
+    <>
       <MetaTags
         page={type}
         pageMetadata={pageMetadata}
@@ -58,7 +56,7 @@ const TechnicalPageContainer = ({
           </div>
         </Animated>
       </FullLayout>
-    </Fragment>
+    </>
   );
 };
 
