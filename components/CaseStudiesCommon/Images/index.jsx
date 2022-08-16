@@ -19,7 +19,6 @@ const Images = ({
   if (!get(data, 'images')) {
     return null;
   }
-  console.log(data);
 
   const classes = `${type}${data.images.length}`;
 
