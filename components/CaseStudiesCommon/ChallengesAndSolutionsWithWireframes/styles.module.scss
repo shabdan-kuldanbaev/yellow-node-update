@@ -358,8 +358,60 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  animation: none;
 
   [data-case-study-title] {
     color: $white;
+    width: 780px;
+    margin: 0 auto 50px;
+
+    @include below-tablet {
+      width: 500px;
+    }
+
+    @include phone {
+      @include fontSize (25px);
+
+      width: 300px;
+    }
+  }
+
+  &.thirdSectionView {
+    .title {
+      width: 980px;
+      margin: 20px auto 0;
+    }
+
+    [data-case-study-description] {
+      color: $white;
+    }
+
+    & > div:last-child {
+      @include flex(row, initial, initial, wrap);
+      @include fontSize(14px);
+    }
+  }
+
+  &.sixthSectionView {
+    padding: 0;
+
+    & > div:nth-child(2) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 0 50px;
+
+      @include below-tablet {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include phone {
+        grid-template-columns: 1fr;
+        padding: unset;
+      }
+    }
+
+    @include phone {
+      padding: 40px 0 20px;
+    }
   }
 }

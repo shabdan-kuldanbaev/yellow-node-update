@@ -361,6 +361,21 @@
 .machine-learning-in-real-estate {
   background-color: $very-dark-blue;
 
+  .animatedContainer:first-child {
+    display: none;
+  }
+
+  .animatedContainer {
+    animation: none;
+    min-width: unset !important;
+    width: 100%;
+    margin-left: 0;
+
+    @include tablet {
+      height: auto !important;
+    }
+  }
+
   &::before {
     background: none;
   }

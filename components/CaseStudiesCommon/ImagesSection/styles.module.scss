@@ -202,7 +202,7 @@
     }
 
     @include phone {
-      @include fontSize (32px);
+      @include fontSize (25px);
 
       width: 300px;
       padding-top: 80px;

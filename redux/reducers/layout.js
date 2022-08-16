@@ -22,6 +22,7 @@ const initialState = {
   },
   title: null,
   subtitle: null,
+  background: null,
 };
 
 const handlers = {
@@ -41,6 +42,7 @@ const handlers = {
       ogImage,
       metaDescription,
       metaRobots,
+      background,
     } = getDocumentFields(
       (payload && payload[0]) ? payload[0] : {},
       [
@@ -52,6 +54,7 @@ const handlers = {
         'metaDescription',
         'ogImage',
         'metaRobots',
+        'background',
       ],
     );
 
@@ -70,6 +73,7 @@ const handlers = {
       },
       title: pageTitle,
       subtitle,
+      background,
     });
   },
   [actionTypes.FETCH_PAGE_FAILED]: (state, { payload }) => ({

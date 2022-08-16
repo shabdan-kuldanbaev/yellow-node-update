@@ -2,11 +2,12 @@
   @extend .container;
 
   background: $very-dark-blue;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+	background-position: center center;
   color: $white;
   height: auto;
-  padding: 200px 40px 150px;
+  padding: 100px 40px 150px;
 
   .projectInfoContainer {
 		width: 800px;

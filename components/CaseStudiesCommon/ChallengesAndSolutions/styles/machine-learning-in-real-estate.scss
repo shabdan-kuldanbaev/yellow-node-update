@@ -19,6 +19,89 @@
 
       p {
         color: $white;
+
+        @include below-tablet {
+          width: 420px;
+        }
+
+        @include phone {
+          width: 300px;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .contentContainer {
+      .infoContainer {
+        h3 {
+          @include fontSize(24px);
+
+          @include below-tablet {
+            @include fontSize(16px);
+          }
+        }
+
+        p {
+          @include fontSize(18px);
+
+          @include below-tablet {
+            @include fontSize(13px);
+
+            width: unset;
+          }
+        }
+
+        ul {
+          li {
+            line-height: 0%;
+
+            p {
+              line-height: 0%;
+            }
+          }
+        }
+      }
+
+      @include tablet {
+        max-width: 400px;
+      }
+
+      @include below-tablet {
+        max-width: 340px;
+      }
+    }
+  }
+
+  &.sixthSectionView {
+    .contentContainer {
+      .infoContainer {
+        margin: 0;
+
+        h3 {
+          @include fontSize(35px);
+
+          @include below-tablet {
+            @include fontSize(25px);
+          }
+        }
+
+        p {
+          @include fontSize(15px);
+
+          width: 280px;
+
+          @include below-tablet {
+            @include fontSize(12px);
+          }
+        }
+      }
+
+      @include phone {
+        margin-bottom: 25px;
       }
     }
   }

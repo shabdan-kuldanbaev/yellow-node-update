@@ -431,11 +431,34 @@
     }
   }
 
+  &.firstSectionView {
+    .image:first-child {
+      @include tablet {
+        width: 950px;
+      }
+      @include below-tablet {
+        max-width: unset;
+        width: 710px;
+      }
+
+      @include phone {
+        padding-bottom: 30px;
+      }
+    }
+  }
+
   &.fourthSectionView {
+    .image:first-child {
+      @include below-tablet {
+        max-width: unset;
+        width: 710px;
+      }
+    }
+
     .image:last-child {
       @include phone {
         max-width: unset;
-        width: 280px;
+        width: 270px;
       }
     }
   }
@@ -444,6 +467,15 @@
     .image:last-child {
       max-width: unset;
       width: 650px;
+    }
+  }
+
+  &.sixthSectionView {
+    .image {
+      display: block;
+      height: 500px;
+      max-width: unset;
+      width: 100%;
     }
   }
 }
