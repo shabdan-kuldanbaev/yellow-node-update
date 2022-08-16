@@ -1,7 +1,8 @@
 import { END } from 'redux-saga';
 import {
   selectComponents,
-  selectCTA, selectHomepageProjectsPreview, selectImageCarousel,
+  selectCTA,
+  selectHomepageProjectsPreview,
   selectMetaData,
   selectPortfolioProjectsPreview,
   selectSubtitle,
@@ -55,13 +56,12 @@ export const getHomePageDataPros = (state) => {
     url: `${rootUrl}`,
   };
 
-  const photosData = selectImageCarousel(state);
-  const { contentModules } = getDocumentFields(photosData, ['contentModules']);
+  const components = selectComponents(state);
 
   const projects = selectHomepageProjectsPreview(state);
 
   return {
-    photos: contentModules,
+    pageData: components,
     pageMetadata,
     projects,
   };

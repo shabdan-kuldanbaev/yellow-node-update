@@ -47,6 +47,7 @@
   }
 }
 
+.hotel-data-cloud,
 .dindon,
 .fernwayer,
 .stickerbox,
@@ -56,6 +57,7 @@
 .travel-trivia,
 .cash-chat,
 .fireaway,
+.humankind,
 .famlicious,
 .fusion-markets {
   @extend .imageContainer;
@@ -477,5 +479,10 @@
       max-width: unset;
       width: 100%;
     }
+  }
+}
+.hotel-data-cloud {
+  .image {
+    max-width: 1056px;
   }
 }

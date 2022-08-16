@@ -19,6 +19,7 @@ export { default as nearbyArrow } from './nearbyArrow.svg';
 export { default as arrow } from './arrow.svg';
 export { default as arrowRight } from './arrowRight.svg';
 export { default as arrowLeft } from './arrowLeft.svg';
+export { default as arrowBottom } from './arrowBottom.svg';
 
 /* Symbols */
 export { default as plus } from './plus.svg';
@@ -121,6 +122,9 @@ export { default as titledPostgreSql } from './titledPostgreSql.svg';
 export { default as titledPubNub } from './titledPubNub.svg';
 export { default as titledTwilio } from './titledTwilio.svg';
 export { default as titledWebRtc } from './titledWebRtc.svg';
+export { default as titledKubernetes } from './titledKubernetes.svg';
+export { default as titledContentful } from './titledContentful.svg';
+export { default as titledSeleniumWebDriver } from './titledSeleniumWebDriver.svg';
 
 /* Partners */
 export { default as techCrunch } from './techCrunch.svg';

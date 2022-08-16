@@ -70,6 +70,8 @@
 }
 
 @mixin defaultCard {
+  position: relative;
+
   h3 {
     @include fontSize(24px, 150%);
 
@@ -115,6 +117,32 @@
 
     h3 {
       margin-top: 16px;
+    }
+  }
+}
+
+@mixin overlay {
+  @include flex(column, flex-start, center);
+
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $white;
+  padding: 105px 15px 15px;
+
+  h3 {
+    transform: scale(0.9);
+    transition: transform 0.1s ease-in-out;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    h3 {
+      transform: none;
     }
   }
 }

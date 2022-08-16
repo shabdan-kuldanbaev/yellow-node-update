@@ -9,7 +9,7 @@
   "extends": [
     "airbnb",
     "plugin:json/recommended",
-    "plugin:@next/next/recommended",
+    "plugin:@next/next/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 2022,

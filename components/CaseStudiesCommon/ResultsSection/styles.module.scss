@@ -735,6 +735,8 @@
   }
 }
 
+.humankind,
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
 
@@ -814,6 +816,45 @@
       height: 150px;
       margin-top: 100px;
       width: unset;
+    }
+  }
+}
+
+.hotel-data-cloud {
+  position: relative;
+  overflow: hidden;
+
+  [data-case-study-description] {
+    max-width: 620px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .imageBundle-1 {
+    width: 687px;
+    height: 687px;
+
+    position: absolute;
+    top: -68%;
+    left: -30%;
+  }
+
+  .imageBundle-2 {
+    width: 687px;
+    height: 687px;
+
+    position: absolute;
+    bottom: -50%;
+    right: -15px;
+  }
+}
+
+.humankind {
+  background: $athens-gray;
+
+  .circle {
+    .mockup {
+      filter: none;
     }
   }
 }

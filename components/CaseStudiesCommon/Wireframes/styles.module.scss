@@ -185,6 +185,19 @@
   }
 }
 
+.humankind {
+  @extend .imagesContainer;
+
+  &::before {
+    background: linear-gradient(270deg, $white 0%, $case-study-humankind-wireframes 100%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
+  &::after {
+    background: linear-gradient(270deg, $white 0%, $case-study-humankind-wireframes 100%);
+  }
+}
+
 .open-sense {
   @extend .imagesContainer;
 
@@ -195,11 +208,11 @@
   }
 
   &::before {
-    background: linear-gradient(90deg, $zircon 0%, rgba(248, 250, 255, 0) 100%);
+    background: linear-gradient(90deg, $zircon 0%, rgba($white, 0) 100%);
   }
 
   &::after {
-    background: linear-gradient(270deg, $zircon 0%, rgba(248, 250, 255, 0) 100%);
+    background: linear-gradient(270deg, $zircon 0%, rgba($white, 0) 100%);
   }
 }
 
@@ -267,12 +280,12 @@
   @extend .imagesContainer;
 
   &::before {
-    background: linear-gradient(90deg, rgba(249, 251, 254, 0) 0%, $selago 78.3%);
+    background: linear-gradient(90deg, rgba($white, 0) 0%, $selago 78.3%);
     transform: matrix(-1, 0, 0, 1, 0, 0);
   }
 
   &::after {
-    background: linear-gradient(90deg, rgba(249, 251, 254, 0) 0%, $selago 78.3%);
+    background: linear-gradient(90deg, rgba($white, 0) 0%, $selago 78.3%);
   }
 }
 

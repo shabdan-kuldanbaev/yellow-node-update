@@ -29,9 +29,11 @@ export const Intro = (props) => {
   case CASE_STUDIES.fusionMarkets:
   case CASE_STUDIES.separateUs:
   case CASE_STUDIES.telemojo:
+  case CASE_STUDIES.humankind:
   case CASE_STUDIES.smartcenter:
   case CASE_STUDIES.bionorica:
   case CASE_STUDIES.goodPsychics:
+  case CASE_STUDIES.hotelDataCloud:
     return <VerticalIntro {...props} />;
   default:
     return null;

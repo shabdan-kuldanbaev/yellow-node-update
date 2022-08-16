@@ -25,12 +25,22 @@
     padding: $mobile-section-indent $side-indent;
   }
 
-  .subtitle {
-    line-height: 1.55;
-    letter-spacing: 0.5px;
-    text-align: center;
-    color: $black;
+  .container {
+    max-width: 744px;
 
-    @include flex(column, center, center);
+    .title {
+      @include fontSize(56px);
+
+      line-height: 120%;
+    }
+
+    .subtitle {
+      @include fontSize(18px);
+
+      text-align: center;
+      color: rgba($dark-grey, 0.6);
+
+      @include flex(column, center, center);
+    }
   }
 }

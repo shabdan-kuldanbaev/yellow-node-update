@@ -38,4 +38,12 @@
       margin: auto;
     }
   }
+
+  .navigation {
+    max-width: 80vw;
+
+    @include below-tablet {
+      bottom: -20px;
+    }
+  }
 }

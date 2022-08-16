@@ -1,21 +1,15 @@
 @import 'styles/utils/mixins';
 
 .blog {
+  @include flex(column, flex-start, center);
+
+  max-width: $max-content-width;
   padding: $section-indent 0;
   background-color: $white;
-
-  @include flex(column, flex-start, center);
+  margin: 0 auto;
 
   & > div:first-child {
     margin-bottom: 70px;
-  }
-
-  @include phone {
-    padding: #{$mobile-section-indent} 0;
-
-    & > div:first-child {
-      margin-bottom: -$after-mobile-title-margin + 20px;
-    }
   }
 
   & > div:nth-of-type(2) {
@@ -39,6 +33,10 @@
     }
   }
 
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
+
   .blogButton {
     @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
 
@@ -50,6 +48,14 @@
     @include phone {
       min-width: 300px;
       margin-top: $mobile-more-button-indent;
+    }
+  }
+
+  @include phone {
+    padding: #{$mobile-section-indent} 0;
+
+    & > div:first-child {
+      margin-bottom: -$after-mobile-title-margin + 20px;
     }
   }
 }

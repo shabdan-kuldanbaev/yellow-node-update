@@ -11,9 +11,11 @@ const Advantages = ({ refs, className }) => (
     className={cn(styles.advantages, { [className]: className })}
   >
     <SectionTitle
-      title="We kick ass on"
-      subtitle="We brainstorm, contribute, and grow your product together. Every step of the way."
+      title="Software development services we kick ass on"
+      subtitle="If you wonder how a partnership with Yellow can benefit you, here are the main types of custom software development our team can help you with."
+      styleTitle={styles.title}
       styleSubtitle={styles.subtitle}
+      styleContainer={styles.container}
     />
     <AdvantagesItems />
   </section>

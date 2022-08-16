@@ -16,12 +16,13 @@ const Works = ({ refs, works }) => (
         work,
         ['previewImage', 'title', 'description', 'slug'],
       );
+
       const imageUrl = getFileUrl(previewImage);
 
       return (
         <Work
           key={title}
-          refs={refs}
+          ref={refs.current[index]}
           index={index}
           title={title}
           description={description}

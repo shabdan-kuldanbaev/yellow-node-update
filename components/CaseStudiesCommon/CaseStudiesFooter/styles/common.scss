@@ -159,6 +159,8 @@
   }
 }
 
+.humankind,
+.hotel-data-cloud,
 .dindon,
 .fernwayer,
 .travel-trivia {
@@ -610,4 +612,12 @@
   @extend .container;
 
   background: $cherry-red;
+}
+
+.hotel-data-cloud {
+  background: $case-study-data-cloud-background;
+}
+
+.humankind {
+  background: linear-gradient(112.74deg, $pure-blue-2 0%, $pure-blue-3 100%);
 }

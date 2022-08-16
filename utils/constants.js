@@ -53,6 +53,8 @@ export const NAV_LINKS = [
     routes.mvpDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.signatureGenerator.slug,
+    routes.privacyPolicy.slug,
+    routes.termsAndConditions.slug,
   ].includes(slug)),
 ];
 
@@ -205,6 +207,18 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentRelatedServices: 'app-development-related-services',
 };
 
+export const HOMEPAGE_SECTION_TYPES = {
+  text: 'text',
+  cards: 'cards',
+  cardsWithOverlay: 'cards-with-overlay',
+  svgDisplay: 'svg-display',
+  svgDisplayWithSelector: 'svg-display-with-selector',
+  porfolio: 'portfolio',
+  reviews: 'reviews',
+  blog: 'blog',
+  photos: 'photos',
+};
+
 export const CONTACTS_DATA = {
   email: 'hi@yellow.systems',
   telephoneNumbers: [
@@ -277,6 +291,7 @@ export const CASE_STUDIES = {
   fernwayer: 'fernwayer',
   dindon: 'dindon',
   stickerbox: 'stickerbox',
+  hotelDataCloud: 'hotel-data-cloud',
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',
   tell: 'tell',
@@ -300,6 +315,7 @@ export const CASE_STUDIES = {
   mobileFintechApp: 'fintech-app-for-credit-score',
   goodPsychics: 'marketplace-for-clairvoyant-services',
   mlInRealEstate: 'machine-learning-in-real-estate',
+  humankind: 'humankind',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

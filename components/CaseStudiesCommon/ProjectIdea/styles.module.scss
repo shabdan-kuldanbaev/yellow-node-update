@@ -194,6 +194,56 @@
   }
 }
 
+.humankind {
+  @extend .container;
+
+  background: $athens-gray;
+
+  .contentContainer {
+    @include flex(column-reverse, center, center);
+ 
+    padding-bottom: 0;
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    .descriptionContainer {
+      @include flex(row, center);
+
+      padding-bottom: 120px;
+      max-width: unset;
+      margin-left: 0;
+
+      @include tablet {
+        flex-direction: column;
+        padding-bottom: 0px;
+      }
+
+      @include phone {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .descriptionIntro {
+        margin-right: 245px;
+
+        .description {
+          max-width: 643px;
+
+          @include phone {
+            margin-bottom: 40px;
+          }
+        }
+
+        @include tablet {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
 .dindon {
   @extend .container;
 
@@ -205,9 +255,6 @@
 
   @include tablet {
     flex-direction: column;
-  }
-
-  @include tablet {
     align-items: center;
   }
 
@@ -677,6 +724,7 @@
   }
 }
 
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @extend .container;
 
@@ -783,5 +831,11 @@
 
   @include phone {
     padding: 30px 15px 100px;
+  }
+}
+
+.hotel-data-cloud {
+  @include phone {
+    padding: 80px 15px;
   }
 }

@@ -1,3 +1,11 @@
+@import 'styles/utils/mixins';
+
 .link {
   text-decoration: none;
+
+  @include phone {
+    &.home {
+      margin: 0 auto;
+    }
+  }
 }
