@@ -10,12 +10,20 @@
     background: $black;
 
     .imageWrapper {
-      background: $white;
+      div {
+        background-position: left;
+      }
     }
 
     .titleStyle h2,
     .typeTitle {
       color: $white;
+    }
+
+    .cardContent {
+      p {
+        max-width: 370px;
+      }
     }
   }
 
