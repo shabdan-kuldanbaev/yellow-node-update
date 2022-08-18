@@ -22,7 +22,7 @@ const handleError = ({ error = {}, ...extra } = {}) => {
 const handleMessage = ({ message } = {}) => {
   const messageSide = isServer ? 'Server-side' : 'Client-side';
 
-  Sentry.captureMessage(`Next.js ${messageSide}: ${message}`);
+  Sentry.captureMessage(`Next.js ${messageSide}: ${message}`, 'info');
 
   if (isDev) {
     console.warn(message);
