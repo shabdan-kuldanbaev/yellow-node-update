@@ -1,9 +1,8 @@
 import axios from 'axios';
-import { rootUrl } from 'utils/helper';
 
 // TODO rework it
 const apiClient = axios.create({
-  baseURL: `${rootUrl}/api`,
+  baseURL: '/api',
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
