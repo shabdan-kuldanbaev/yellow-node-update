@@ -6,7 +6,6 @@ import MetaTags from 'components/Common/MetaTags';
 import SectionSelector from 'containers/Home/SectionSelector';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
-import errorHelper from "../../utils/error";
 
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 
@@ -18,7 +17,6 @@ export const Home = ({
   type,
 }) => {
   const { main: contentModules, hasFeedbackForm } = pageData;
-  errorHelper.handleMessage({ message: 'my 12312312 3message' });
 
   return (
     <>
