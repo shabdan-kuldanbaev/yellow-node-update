@@ -1,46 +1,31 @@
 .android-mobile-app-development-services {
+  &.firstSectionView,
+  &.secondSectionView,
+  &.thirdSectionView {
+    @extend .greySection;
+  }
+
+  &.firstSectionView {
+    @extend .cardsWithShadow;
+
+    @include iconsWithinCircle;
+  }
+
   &.secondSectionView {
     @extend .cardsWithFullWidthImage;
 
-    background: $alabaster;
+    .titleStyle {
+      max-width: 908px;
+    }
   }
 
   &.thirdSectionView {
-    padding-bottom: 0;
+    @extend .cardsWithShadow;
 
-    .typeTitle {
-      margin: 0 0 0 25px;
-    }
+    @include iconsWithinCircle;
 
-    .cards > div {
-      @include flex(row, start, center);
-
-      padding: 30px 40px;
-
-      .cardContent {
-        flex: 1 1 auto;
-      }
-    }
-
-    .imageWrapper {
-      width: 40px;
-      height: 40px;
-    }
-  }
-
-  &.fourthSectionView {
-    background: $alabaster;
-
-    .cards {
-      grid-template-columns: repeat(3, 1fr);
-
-      @include tablet {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .callToAction {
-      background: $white;
+    .contentWrapper {
+      @extend .threeColumnsCards;
     }
   }
 }

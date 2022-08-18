@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
-import { Svg } from 'components/Common/Svg';
+import Svg from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 

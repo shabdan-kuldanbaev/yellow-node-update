@@ -1,7 +1,9 @@
 module.exports = {
   extends: [
     'stylelint-config-standard',
+    'postcss-scss',
   ],
+  customSyntax: 'postcss-scss',
   ignoreFiles: [
     '/build',
     '/node_modules',
@@ -11,6 +13,14 @@ module.exports = {
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
   rules: {
+    'no-descending-specificity': null,
+    'selector-class-pattern': null,
+    'keyframes-name-pattern': null,
+    linebreaks: 'unix',
+    'function-url-quotes': null,
+    'function-no-unknown': null,
+    'alpha-value-notation': 'number',
+    'string-quotes': 'single',
     'at-rule-no-unknown': [
       true,
       {
@@ -56,7 +66,6 @@ module.exports = {
         ],
       },
     ],
-    'function-calc-no-invalid': null,
     'property-case': null,
     'color-hex-case': null,
   },

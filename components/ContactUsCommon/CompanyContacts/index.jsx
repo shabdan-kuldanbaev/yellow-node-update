@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { FieldsWrapper } from './FieldsWrapper';
 import { animatedFields } from './utils';
 import styles from './styles.module.scss';
 
-export const CompanyContacts = ({ animatedFieldsList }) => (
+const CompanyContacts = ({ animatedFieldsList }) => (
   <address className={styles.address}>
     {animatedFieldsList && animatedFieldsList.map((animated) => (
       <Animated
@@ -25,3 +25,5 @@ CompanyContacts.defaultProps = {
 CompanyContacts.propTypes = {
   animatedFieldsList: PropTypes.instanceOf(Array),
 };
+
+export default CompanyContacts;

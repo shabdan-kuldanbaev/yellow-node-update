@@ -14,7 +14,6 @@
   box-sizing: border-box;
   overflow: hidden;
   height: 35vw;
-  max-width: 1076px;
   width: 100%;
   margin: 0 auto;
   border-radius: 5px;
@@ -156,4 +155,8 @@
 .cloud-based-app-development-services,
 .machine-learning-development-services {
   @extend .container;
+}
+
+.previewContainer {
+  cursor: pointer;
 }

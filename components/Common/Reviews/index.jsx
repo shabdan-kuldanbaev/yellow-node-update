@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import Swiper from 'react-id-swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCors, { EffectCoverflow } from 'swiper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { Comment } from './Comment';
@@ -14,7 +14,7 @@ import styles from './styles.module.scss';
 
 SwiperCors.use([EffectCoverflow]);
 
-export const Reviews = ({ reviews }) => {
+const Reviews = ({ reviews }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
   const [
@@ -129,8 +129,8 @@ export const Reviews = ({ reviews }) => {
           ref={swiperRef}
           {...params}
         >
-          {reviews && reviews.map((comment) => (
-            <div key={`mobileReviews/${comment.name}`}>
+          {reviews?.map((comment) => (
+            <SwiperSlide key={`mobileReviews/${comment.name}`}>
               <Comment
                 comment={comment}
                 animatioProps={{
@@ -138,7 +138,7 @@ export const Reviews = ({ reviews }) => {
                   translateY: '0px',
                 }}
               />
-            </div>
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>
@@ -149,3 +149,5 @@ export const Reviews = ({ reviews }) => {
 Reviews.propTypes = {
   reviews: PropTypes.instanceOf(Array).isRequired,
 };
+
+export default Reviews;

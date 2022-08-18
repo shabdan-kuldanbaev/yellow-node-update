@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Animated } from 'components/Common/Animated';
-import { Svg } from 'components/Common/Svg';
+import Animated from 'components/Common/Animated';
+import Svg from 'components/Common/Svg';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
-import { CallToAction } from 'components/Common/CallToAction';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import CallToAction from 'components/Common/CallToAction';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 import { getCheckListProps } from './utils/checkListHepler';
 import styles from './styles.module.scss';
 
-export const CheckListSection = ({
+const CheckListSection = ({
   sectionData,
   type,
   isNumberedList,
@@ -36,6 +36,7 @@ export const CheckListSection = ({
         <SectionTitle
           title={title}
           description={description}
+          titleStyle={styles.titleStyle}
         />
         <div className={styles.checkList}>
           {listData.map((item, index) => {
@@ -46,7 +47,7 @@ export const CheckListSection = ({
 
             return (
               <Animated
-                key={`check-list/${itemTitle}`}
+                key={`check-list/${index}`}
                 {...animationProps}
                 transitionDelay={250 + 50 * index}
               >
@@ -100,3 +101,5 @@ CheckListSection.propTypes = {
   isNumberedList: PropTypes.bool,
   handleOnCTAClick: PropTypes.func,
 };
+
+export default CheckListSection;

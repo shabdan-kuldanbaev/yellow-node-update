@@ -4,12 +4,9 @@ import { connect } from 'react-redux';
 import { selectProcessPage } from 'redux/selectors/process';
 import { selectIsLoadingScreenCompleted } from 'redux/selectors/layout';
 import { getJSON } from 'redux/actions/process';
-import {
-  Process,
-  // TODO SectionTitle,
-  MetaTags,
-  LoadingScreen,
-} from 'components';
+import MetaTags from 'components/Common/MetaTags';
+import Process from 'components/ProcessCommon';
+import LoadingScreen from 'components/Common/LoadingScreen';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 

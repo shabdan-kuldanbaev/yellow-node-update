@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Svg } from 'components/AppDevelopmentCommon/Svg';
+import Svg from 'components/Common/Svg';
 
 const CardImage = ({
   imageUrl,

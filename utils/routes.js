@@ -3,6 +3,7 @@ const getDynamicPaths = (rootPath) => ({
   slug: `${rootPath}/[slug]`,
   page: `${rootPath}/[slug]/[page]`,
 });
+
 const createPageRoutes = (rootPath, dynamicPaths) => ({
   root: () => ({
     path: rootPath,
@@ -17,10 +18,11 @@ const createPageRoutes = (rootPath, dynamicPaths) => ({
     dynamicPath: dynamicPaths.page,
   }),
 });
+
 const getPageRoute = (
   category,
-  page = '1',
   route,
+  page = '1',
 ) => {
   if (category === '') {
     return route.root();
@@ -58,8 +60,8 @@ export const routes = {
     path: rootPortfolioPath,
     getRoute: (category, page = '1') => getPageRoute(
       category,
-      page,
       portfolioRoutes,
+      page,
     ),
     dynamicPath: {
       ...dynamicPortfolioPaths,
@@ -140,8 +142,8 @@ export const routes = {
     // TODO think a better solution
     getRoute: (category, page = '1') => getPageRoute(
       category,
-      page,
       blogRoutes,
+      page,
     ),
     dynamicPath: {
       ...dynamicBlogPaths,
@@ -253,6 +255,18 @@ export const routes = {
     path: '/signature-generator',
     dynamicPath: '/signature-generator',
     slug: 'signature-generator',
+  },
+  privacyPolicy: {
+    title: 'Yellow Systems Privacy Policy',
+    path: '/privacy-policy',
+    dynamicPath: '/privacy-policy',
+    slug: 'privacy-policy',
+  },
+  termsAndConditions: {
+    title: 'Terms and Conditions',
+    path: '/terms-and-conditions',
+    dynamicPath: '/terms-and-conditions',
+    slug: 'terms-and-conditions',
   },
   notFound: {
     title: '404 | Yellow',

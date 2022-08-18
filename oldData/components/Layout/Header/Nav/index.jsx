@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { LinkWrapper } from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { menuList } from '../utils/data';
 import styles from './styles.module.scss';
 

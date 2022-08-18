@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
-import { Video } from 'components/Common/Video';
+import Video from 'components/Common/Video';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { isResultHasVideo, getResultProps } from './utils/resultsHelper';
 import styles from './styles.module.scss';
@@ -56,12 +56,12 @@ const ResultsSection = ({ data, type }) => {
               alt={appScreenUrl}
             />
           )}
-        {imagesBundlesData && imagesBundlesData.imagesBundles.map((bundle) => {
+        {imagesBundlesData && imagesBundlesData.imagesBundles.map((bundle, index) => {
           const bundleUrl = getFileUrl(bundle);
 
           return (
             <img
-              className={styles.imageBundle}
+              className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
               src={bundleUrl}
               alt={type}
               key={`result-images-bundles/${bundleUrl}`}

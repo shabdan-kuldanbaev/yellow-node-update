@@ -1,20 +1,17 @@
 .web-app-development-company {
-  .titleStyle {
-    p {
-      max-width: 745px;
-    }
+  &.firstSectionView,
+  &.fourthSectionView {
+    @extend .greySection;
   }
 
   &.firstSectionView {
-    background-color: $alabaster;
+    @extend .cardsWithShadow;
+
+    @include iconsWithinCircle;
   }
 
   &.secondSectionView {
-    background-color: $cod-gray-1;
-
-    .titleStyle h2 {
-      color: $white;
-    }
+    @include iconsWithinCircle;
 
     .cards > div {
       background-color: $white;
@@ -22,16 +19,18 @@
   }
 
   &.thirdSectionView {
-    padding-bottom: 0;
+    @extend .cardsWithShadow;
 
-    .contentWrapper {
-      @extend .threeColumnCards;
+    @include iconsWithinCircle;
+
+    background: $dark-grey;
+
+    .titleStyle h2 {
+      color: $white;
     }
   }
 
   &.fourthSectionView {
-    .contentWrapper > div:last-child {
-      width: 100%;
-    }
+    @include iconsWithinCircle;
   }
 }

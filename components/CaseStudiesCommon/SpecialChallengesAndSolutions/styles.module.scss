@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .fernwayer {
   @include caseStudyContainer;
@@ -156,14 +156,14 @@
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-areas:
-    "h h"
-    "l r";
+    'h h'
+    'l r';
 
   @include phone {
     grid-template-areas:
-      "h h"
-      "l l"
-      "r r";
+      'h h'
+      'l l'
+      'r r';
   }
 }
 
@@ -253,6 +253,7 @@
   }
 }
 
+.humankind,
 .dindon {
   overflow: hidden;
   background: $wild-send-2;
@@ -268,6 +269,7 @@
   }
 }
 
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
 
@@ -275,4 +277,16 @@
   padding-right: 0;
   background-color: $white;
   overflow-x: hidden;
+}
+
+.humankind,
+.hotel-data-cloud {
+  overflow: hidden;
+  background: linear-gradient(180deg, $white 0%, $white-cloud 17.19%, $white-cloud 79.17%, $white 100%);
+}
+
+.humankind {
+  [data-case-study-title] {
+    margin-bottom: 80px;
+  }
 }

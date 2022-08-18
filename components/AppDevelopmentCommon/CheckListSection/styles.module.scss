@@ -1,32 +1,28 @@
-@import "styles/utils/mixins";
-@import "components/AppDevelopmentCommon/utils/styles.module.scss";
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
-.chekListSection {
+.checkListSection {
   @include smallSectionWrapper;
 
-  @include below-tablet {
-    margin: 0;
-    padding: 0;
+  .titleStyle {
+    @include defaultSectionTitle;
   }
 
   .checkList {
+    @include flex(row, initial, stretch, wrap);
+
     width: 100%;
-
-    @include flex(row, initial, center, wrap);
-
-    @include below-tablet {
-      @include flex(column, initial, center);
-    }
+    margin-bottom: -30px;
 
     & > div {
+      @include flex(row, flex-start);
+
       padding: 30px 50px;
       margin-bottom: 30px;
       box-shadow: $card-bow-shadow;
       border-radius: 5px;
       background: $white;
       width: calc(50% - 115px);
-
-      @include flex(row, flex-start);
 
       &:nth-of-type(odd) {
         margin-right: 30px;
@@ -36,25 +32,14 @@
         }
       }
 
-      @include tablet {
-        margin-right: 20px;
-        padding: 20px 40px;
-      }
-
-      @include below-tablet {
-        margin-right: 0;
-        margin-bottom: 30px;
-        width: calc(100% - 80px);
-      }
-
       .itemContainer {
         @include flex(row, center, center);
 
         .itemText {
+          @include fontSize(24px);
+
           font-weight: 700;
           margin: 0 0 0 25px;
-
-          @include fontSize(24px);
 
           @include macbook-twelve {
             @include fontSize(22px);
@@ -69,18 +54,41 @@
           }
         }
       }
+
+      @include tablet {
+        margin-right: 20px;
+        padding: 20px 40px;
+      }
+
+      @include below-tablet {
+        margin-right: 0;
+        margin-bottom: 30px;
+        width: calc(100% - 80px);
+      }
     }
+
+    @include below-tablet {
+      @include flex(column, initial, center);
+    }
+  }
+
+  @include below-tablet {
+    margin: 0;
+    padding: 0;
   }
 }
 
 .chat-app-development-company,
 .mobile-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.mvp-app-development-company,
+.android-mobile-app-development-services,
+.ios-mobile-app-development-services {
   @include appDevelopmentContainer;
 
   .sectionContainer {
-    @extend .chekListSection;
+    @extend .checkListSection;
   }
 }
 
@@ -90,17 +98,23 @@
   }
 }
 
-.cloud-based-app-development-services {
+.cloud-based-app-development-services,
+.mvp-app-development-company {
   background-color: $alabaster;
 }
 
 .ui-ux-services {
   @include appDevelopmentContainer;
 
-  padding-bottom: 0;
+  background-color: $alabaster;
+  padding-bottom: 120px;
 
   .sectionContainer {
     @include smallSectionWrapper;
+
+    .titleStyle h2 {
+      max-width: 896px;
+    }
 
     .checkList {
       display: grid;
@@ -108,23 +122,13 @@
       grid-template-rows: repeat(2, 1fr);
       grid-gap: 20px 35px;
 
-      @include below-tablet {
-        width: 100%;
-        grid-template-columns: auto;
-        grid-template-rows: repeat(3, 1fr);
-        grid-row-gap: 20px;
-      }
-
       & > div {
+        @include flex(row, center);
+
         padding: 35px;
         box-shadow: $card-bow-shadow;
         border-radius: 5px;
-
-        @include flex(row, center);
-
-        @include phone {
-          padding: 30px;
-        }
+        background: $white;
 
         .itemContainer {
           width: 100%;
@@ -133,12 +137,12 @@
           border-left: 2px solid $turbo-100;
 
           .number {
+            @include fontSize(40px);
+
             font-weight: 700;
             line-height: 1.2;
             margin: 0;
             color: $cod-gray-1;
-
-            @include fontSize(40px);
           }
 
           p {
@@ -147,11 +151,25 @@
             margin: 0;
           }
         }
+
+        @include phone {
+          padding: 30px;
+        }
+      }
+
+      @include below-tablet {
+        width: 100%;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, 1fr);
+        grid-row-gap: 20px;
       }
     }
   }
 
   .callToAction {
     @include defaultCallToAction;
+
+    background: $white;
+    box-shadow: $card-bow-shadow;
   }
 }

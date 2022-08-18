@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components';
+import LinkWrapper from 'components/Common/LinkWrapper';
 import { getOptimizedImage } from 'utils/helper';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';

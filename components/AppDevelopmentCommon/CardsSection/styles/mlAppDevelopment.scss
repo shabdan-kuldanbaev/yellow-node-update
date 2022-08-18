@@ -1,31 +1,30 @@
 .machine-learning-development-services {
   &.firstSectionView {
-    background: $alabaster;
+    @extend .greySection;
+    @extend .cardsWithShadow;
+
+    @include iconsWithinCircle;
   }
 
   &.secondSectionView {
-    @extend .removeCardsShadow;
-
-    .cards > div {
-      @include tablet {
-        @include flex;
-      }
-    }
-
-    .typeTitle {
-      @include tablet {
-        margin-top: 0;
-      }
-    }
+    @include iconsWithinCircle;
   }
 
   &.thirdSectionView {
+    @extend .cardsWithShadow;
+
+    padding-bottom: 0;
+
     .imageWrapper {
       display: none;
     }
 
-    .cards > div {
-      padding: 30px 30px 30px 48px;
+    .contentWrapper {
+      @extend .threeColumnsCards;
+
+      .cards > div {
+        padding: 30px 30px 30px 48px;
+      }
     }
 
     .cardContent {

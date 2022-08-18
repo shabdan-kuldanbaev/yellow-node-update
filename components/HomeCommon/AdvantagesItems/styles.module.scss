@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .advantagesContainer {
   width: 100%;
@@ -55,31 +55,41 @@
   }
 
   &:nth-child(2) {
-    margin: 60px auto 0 auto;
+    margin: 60px auto 0;
   }
 
-  & img {
-    width: auto;
-    height: 120px;
+  .imageContainer {
+    display: block;
 
-    @include ultra-hd {
-      height: 400px;
-    }
+    & span {
+      height: 120px !important;
+      width: 120px !important;
+      margin: auto !important;
 
-    @include full-hd {
-      height: 300px;
-    }
+      @include ultra-hd {
+        height: 400px !important;
+        width: 400px !important;
+      }
 
-    @include desktop {
-      height: 310px;
-    }
+      @include full-hd {
+        height: 300px !important;
+        width: 300px !important;
+      }
 
-    @include macbook-fifteen {
-      height: 260px;
-    }
+      @include desktop {
+        height: 310px !important;
+        width: 310px !important;
+      }
 
-    @include phone {
-      height: 300px;
+      @include macbook-fifteen {
+        height: 260px !important;
+        width: 260px !important;
+      }
+
+      @include phone {
+        height: 300px !important;
+        width: 300px !important;
+      }
     }
   }
 
@@ -133,7 +143,7 @@
       }
     }
 
-    img {
+    span {
       margin-bottom: -60px;
 
       @include full-hd {
@@ -171,7 +181,7 @@
   }
 
   & > a {
-    img {
+    span {
       transition: transform 0.4s ease;
     }
 
@@ -179,7 +189,7 @@
       position: relative;
 
       &::after {
-        content: "";
+        content: '';
         display: block;
         height: 2px;
         width: 0;
@@ -191,7 +201,7 @@
     }
 
     &:hover {
-      img {
+      span {
         transform: translateY(-10px);
         transition: transform 0.4s ease;
       }
@@ -208,14 +218,14 @@
     width: auto;
 
     &:nth-child(2) {
-      margin: 60px 0 0 0;
+      margin: 60px 0 0;
     }
   }
 
   @include phone {
     width: 100%;
     padding: 0;
-    margin: 100px 0 0 0;
+    margin: 100px 0 0;
 
     &:not(:nth-of-type(1)) {
       margin-top: 15%;
@@ -226,7 +236,7 @@
     }
 
     :global(.animated) {
-      img {
+      span {
         width: 100%;
       }
 

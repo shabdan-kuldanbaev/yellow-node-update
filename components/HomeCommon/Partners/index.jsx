@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'components/Common/Animated';
-import { Svg } from 'components/Common/Svg';
+import Animated from 'components/Common/Animated';
+import Svg from 'components/Common/Svg';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { partners } from './utils/data';
 import styles from './styles.module.scss';
 
-export const Partners = ({ partners: partnersList }) => {
+const Partners = ({ partners: partnersList }) => {
   const animatedProps = {
     type: ANIMATED_TYPE.isCustom,
     translateY: '2.82352941em',
@@ -21,7 +21,7 @@ export const Partners = ({ partners: partnersList }) => {
         transitionDelay={100}
       >
         <div>
-          <h2>And get featured on</h2>
+          <h2>Our projects got featured on</h2>
         </div>
       </Animated>
       <div className={styles.partners}>
@@ -49,3 +49,5 @@ Partners.defaultProps = {
 Partners.propTypes = {
   partners: PropTypes.instanceOf(Array),
 };
+
+export default Partners;

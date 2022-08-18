@@ -13,6 +13,10 @@
     padding: $mobile-section-indent 0 $mobile-section-indent - 20px;
   }
 
+  .title {
+    @include defaultSectionTitle;
+  }
+
   & > div:first-child {
     width: 100%;
     text-align: center;
@@ -164,7 +168,7 @@
   color: $black;
 
   @include phone {
-    padding: 0 auto;
+    padding: 0;
     margin-top: 0;
   }
 
@@ -243,7 +247,9 @@
 .ui-ux-services,
 .android-mobile-app-development-services,
 .mvp-app-development-company,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.mobile-app-development-company,
+.chat-app-development-company {
   @extend .formContainer;
 
   padding: 100px 16px;
@@ -259,10 +265,11 @@
 
 .ui-ux-services {
   .title {
+    @include fontSize(56px);
+
     letter-spacing: unset;
     margin-bottom: 30px;
-
-    @include fontSize(56px);
+    max-width: 912px;
 
     @include tablet {
       @include fontSize(44px);

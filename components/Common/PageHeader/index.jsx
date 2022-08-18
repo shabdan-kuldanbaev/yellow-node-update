@@ -1,35 +1,37 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Animated, Breadcrumbs } from 'components';
-import { ANIMATED_TYPE } from 'utils/constants';
+import Animated from 'components/Common/Animated';
+import Breadcrumbs from 'components/Common/Breadcrumbs';
+import { formatDate } from 'utils/helper';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const PageHeader = ({
+const PageHeader = ({
   title,
   breadcrumbs,
   titleStyles,
   breadcrumbsStyles,
+  updatedAt,
 }) => (
-  <Fragment>
+  <>
     <Breadcrumbs
       breadcrumbs={breadcrumbs}
       breadcrumbsStyles={breadcrumbsStyles}
     />
     {title && (
       <div className={cn(styles.titleContainer, { [titleStyles]: titleStyles })}>
-        <Animated
-          type={ANIMATED_TYPE.isCustom}
-          translateY="2.82352941em"
-          opasityDuration={1}
-          transformDuration={1}
-          transitionDelay={250}
-        >
+        <Animated {...REVEAL_ANIMATION_PROPS}>
+          {updatedAt && (
+            <p>
+              {`Last updated: ${formatDate(updatedAt)}`}
+            </p>
+          )}
           <h1>{title}</h1>
         </Animated>
       </div>
     )}
-  </Fragment>
+  </>
 );
 
 PageHeader.defaultProps = {
@@ -45,3 +47,5 @@ PageHeader.propTypes = {
   titleStyles: PropTypes.string,
   breadcrumbsStyles: PropTypes.string,
 };
+
+export default PageHeader;

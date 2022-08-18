@@ -4,7 +4,7 @@ import cn from 'classnames';
 import get from 'lodash/get';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { Animated } from 'components/Common/Animated';
+import Animated from 'components/Common/Animated';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';

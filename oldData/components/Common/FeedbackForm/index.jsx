@@ -6,13 +6,10 @@ import React, {
 import PropTypes from 'prop-types';
 import Slider from 'rc-slider';
 import cn from 'classnames';
-import {
-  Upload,
-  AnimatedInput,
-  ButtonMore,
-  Animated,
-  InformationMessage,
-} from 'components';
+import Upload from 'components/Common/Upload';
+import Animated from 'components/Common/Animated';
+import ButtonMore from 'components/Common/ButtonMore';
+import AnimatedInput from 'components/Common/AnimatedInput';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { withValidateEmail } from 'hocs';

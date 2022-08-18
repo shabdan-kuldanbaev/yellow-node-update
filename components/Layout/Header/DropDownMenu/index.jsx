@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { LinkWrapper } from 'components/Common/LinkWrapper';
+import SubMenuItem from 'components/Layout/Header/DropDownMenu/SubMenuItem';
 import { SUB_NAVIGATION_LINKS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-export const DropDownMenu = ({
+const DropDownMenu = ({
   isDropMenuOpened,
   isPageScrolledDown,
   slug,
@@ -38,45 +38,15 @@ export const DropDownMenu = ({
           slug: subMenuSlug,
           items,
         }) => (
-          <div
-            className={styles.itemContainer}
-            onClick={handleOnClick(subMenuSlug)}
-            role="button"
-            tabIndex="0"
-            key={`links/${subMenuSlug}`}
-          >
-            <LinkWrapper
-              isLocalLink
-              path={subMenuSlug}
-              key={`links/${subMenuSlug}`}
-            >
-              <p className={styles.title}>
-                {title}
-              </p>
-              {subtitle && (
-                <span className={styles.subtitle}>
-                  {subtitle}
-                </span>
-              )}
-            </LinkWrapper>
-
-            {items && items.map(({ slug: itemSlug, title: itemTitle }) => (
-              <LinkWrapper
-                className={styles.menuLink}
-                isLocalLink
-                path={itemSlug}
-                key={`links/${itemTitle}`}
-              >
-                <span
-                  onClick={closeMobileMenu}
-                  role="button"
-                  tabIndex="0"
-                >
-                  {itemTitle}
-                </span>
-              </LinkWrapper>
-            ))}
-          </div>
+          <SubMenuItem
+            key={`link/${subMenuSlug}`}
+            closeMobileMenu={closeMobileMenu}
+            handleOnClick={handleOnClick(subMenuSlug)}
+            subtitle={subtitle}
+            title={title}
+            items={items}
+            subMenuSlug={subMenuSlug}
+          />
         ))}
       </div>
     </div>
@@ -95,3 +65,5 @@ DropDownMenu.propTypes = {
   closeMobileMenu: PropTypes.func,
   closeDropDownMenu: PropTypes.func,
 };
+
+export default DropDownMenu;

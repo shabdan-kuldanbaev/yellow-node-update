@@ -1,29 +1,45 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { Animated } from 'components/Common/Animated';
-import { CallToAction } from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import SvgGroup from './SvgGroup';
+import SvgGroup from 'components/AppDevelopmentCommon/SvgListSection/SvgGroup';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getSvgSectionProps } from './utils/svgHelper';
 import styles from './styles.module.scss';
+import Selector from './Selector';
+import { getDocumentFields } from '../../../utils/helper';
+
+const Animated = dynamic(() => import('components/Common/Animated'));
+const CallToAction = dynamic(() => import('components/Common/CallToAction'));
 
 const SvgListSection = ({
   sectionData,
   handleOnCTAClick,
   type,
-  isMobileResolution,
+  withSelector,
 }) => {
   const {
     title,
     description,
     link,
     view,
-    animatedProps,
-    technologiesGroup,
-  } = getSvgSectionProps(sectionData, isMobileResolution);
+    iconsGroups,
+  } = useMemo(() => getSvgSectionProps(sectionData), [sectionData]);
+
+  const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
+
+  const displayNames = iconsGroups.map((group) => getDocumentFields(group, ['title']).title);
+
+  const handleSelectedGroupIndexChange = (i) => setSelectedGroupIndex(i);
+
+  useEffect(() => {
+    if (!withSelector) {
+      return;
+    }
+
+    setSelectedGroupIndex(0);
+  }, [withSelector]);
 
   return (
     <section className={cn(styles[type], styles[view])}>
@@ -32,18 +48,33 @@ const SvgListSection = ({
         description={description}
         titleStyle={styles.titleStyle}
       />
-      {technologiesGroup.map((group) => (
+      {withSelector && (
+        <Selector
+          displayNames={displayNames}
+          selectedIndex={selectedGroupIndex}
+          onSelectedIndexChange={handleSelectedGroupIndexChange}
+        />
+      )}
+      {withSelector
+        && (
+          <SvgGroup
+            data={iconsGroups[selectedGroupIndex]}
+            className={styles.svgList}
+            isSwiperEnabled
+            hideTitle
+          />
+        ) }
+      {!withSelector && iconsGroups.map((group, i) => (
         <SvgGroup
+          key={i}
           data={group}
-          isMobileResolution={isMobileResolution}
           className={styles.svgList}
-          animatedProps={animatedProps}
-          listWrapperClassName={styles.svgListWrapper}
+          isSwiperEnabled
         />
       ))}
       {link && (
         <Animated
-          {...animatedProps}
+          {...REVEAL_ANIMATION_PROPS}
           transitionDelay={550}
         >
           <CallToAction
@@ -61,16 +92,14 @@ const SvgListSection = ({
 
 SvgListSection.defaultProps = {
   handleOnCTAClick: () => {},
-  isMobileResolution: false,
+  withSelector: false,
 };
 
 SvgListSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool,
+  withSelector: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(SvgListSection);
+export default SvgListSection;

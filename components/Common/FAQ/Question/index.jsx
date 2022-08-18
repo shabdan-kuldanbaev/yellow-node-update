@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import cn from 'classnames';
-import { Animated } from 'components/Common/Animated';
-import { ContentfulParser } from 'components/BlogCommon/Article/ContentfulParser';
+import Animated from 'components/Common/Animated';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 

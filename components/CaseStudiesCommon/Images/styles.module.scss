@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins", "styles/utils/theme/animations";
+@import "styles/utils/mixins";
+@import "styles/utils/theme/animations";
 
 .imageContainer {
   position: relative;
@@ -46,6 +47,7 @@
   }
 }
 
+.hotel-data-cloud,
 .dindon,
 .fernwayer,
 .stickerbox,
@@ -55,6 +57,7 @@
 .travel-trivia,
 .cash-chat,
 .fireaway,
+.humankind,
 .famlicious,
 .fusion-markets {
   @extend .imageContainer;
@@ -218,7 +221,7 @@
 .fintech-app-for-credit-score {
   .image:first-child {
     display: block;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     width: 100%;
     margin: 0 auto;
 
@@ -247,7 +250,7 @@
 .ubichat {
   .image {
     display: block;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     margin: 0 auto;
 
     @include tablet {
@@ -259,7 +262,7 @@
 .meateater {
   .image:first-child {
     display: block;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     width: 100%;
     margin: 0 auto;
 
@@ -282,7 +285,7 @@
 .telemojo {
   &.firstSectionView {
     display: block;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     width: 100%;
     margin: 0 auto;
   }
@@ -290,7 +293,7 @@
   &.secondSectionView {
     .image:first-child {
       display: block;
-      max-width: 1076px;
+      max-width: $max-content-width-small-section;
       width: 100%;
       margin: 0 auto;
 
@@ -361,7 +364,7 @@
 .bionorica {
   .image:first-child {
     display: block;
-    max-width: 1076px;
+    max-width: $max-content-width-small-section;
     width: 100%;
     margin: 0 auto;
 
@@ -387,7 +390,7 @@
   &.secondSectionView {
     .image:first-child {
       display: block;
-      max-width: 1076px;
+      max-width: $max-content-width-small-section;
       width: 100%;
       margin: 0 auto;
 
@@ -409,8 +412,14 @@
 
   &.thirdSectionView {
     .image:first-child {
-      max-width: 1076px;
+      max-width: $max-content-width-small-section;
       margin: 0 auto;
     }
+  }
+}
+
+.hotel-data-cloud {
+  .image {
+    max-width: 1056px;
   }
 }

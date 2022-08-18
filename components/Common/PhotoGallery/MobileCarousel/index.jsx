@@ -1,36 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  getDocumentFields,
-  getFileUrl,
-  getOptimizedContentfulImage,
-} from 'utils/helper';
-import { sizesOfImages } from '../utils/data';
+import cn from 'classnames';
+import CustomImage from 'components/Common/CustomImage';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-export const MobileCarousel = ({ photos }) => (
+const MobileCarousel = ({ photos }) => (
   <section className={styles.gallerySection}>
     <div>
-      {photos && photos.map((photoData, index) => {
+      {photos?.map((photoData, index) => {
         const { image, carouselImageType } = getDocumentFields(
           photoData,
           ['image', 'carouselImageType'],
         );
-        const imageUrl = getOptimizedContentfulImage(
-          getFileUrl(image),
-          { width: sizesOfImages[`${carouselImageType}ImgMobile`] },
-        );
+        const imageUrl = getFileUrl(image);
 
         return (
-          <div
-            key={`photo/${index}`}
-            className={styles[`${carouselImageType}Img`]}
-          >
-            <img
-              style={{ backgroundImage: `url(${imageUrl})` }}
-              alt=""
-            />
-          </div>
+          <CustomImage
+            key={`gallary/photo/${index}`}
+            src={imageUrl}
+            layout="responsive"
+            width={600}
+            height={350}
+            containerClasses={cn(styles.imageContainer, styles[`${carouselImageType}Img`])}
+          />
         );
       })}
     </div>
@@ -40,3 +33,5 @@ export const MobileCarousel = ({ photos }) => (
 MobileCarousel.propTypes = {
   photos: PropTypes.instanceOf(Array).isRequired,
 };
+
+export default MobileCarousel;

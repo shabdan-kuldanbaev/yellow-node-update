@@ -1,8 +1,8 @@
 import React, {
-  Fragment,
   useEffect,
   useState,
 } from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import {
@@ -11,22 +11,21 @@ import {
   setFullResolution,
 } from 'redux/actions/layout';
 import CookiesNotification from 'components/Common/CookiesNotification';
-import { GAnalytic } from 'components/Layout/GAnalytic';
+import GAnalytic from 'components/Layout/GAnalytic';
 import Header from 'components/Layout/Header';
-import { Footer } from 'components/Layout/Footer';
-import { FullScreenEstimation } from 'components/Common/FullScreenEstimation';
-import { ToTopButton } from 'components/Common/ToTopButton';
 import {
   mobileResolution,
   tabletResolution,
   fullResolution,
 } from 'utils/helper';
 
-export const Layout = ({ children, introSection }) => {
+const Footer = dynamic(() => import('components/Layout/Footer'));
+const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
+
+const Layout = ({ children, introSection }) => {
   const dispatch = useDispatch();
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
-  const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
   useEffect(() => {
@@ -50,7 +49,7 @@ export const Layout = ({ children, introSection }) => {
   }, [dispatch]);
 
   return (
-    <Fragment>
+    <>
       <CookiesNotification />
       <Header introSection={introSection} />
       {children}
@@ -62,7 +61,7 @@ export const Layout = ({ children, introSection }) => {
       <GAnalytic />
       {/* TODO return it when issue with design will be resolved */}
       {/* <ToTopButton /> */}
-    </Fragment>
+    </>
   );
 };
 
@@ -74,3 +73,5 @@ Layout.propTypes = {
   children: PropTypes.instanceOf(Object),
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
+
+export default React.memo(Layout);

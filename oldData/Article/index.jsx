@@ -13,7 +13,8 @@ import {
   selectRelatedArticles,
 } from 'redux/selectors/blog';
 import { rootUrl } from 'utils/helper';
-import { Loader, withScroll } from 'components';
+import withScroll from 'hocs/withScroll';
+import Loader from 'oldData/Loader';
 import Subscribe from '../Subscribe';
 import Navigation from '../Navigation';
 import Favorites from '../Favorites';

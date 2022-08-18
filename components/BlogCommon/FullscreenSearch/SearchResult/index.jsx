@@ -2,18 +2,15 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import chunk from 'lodash/chunk';
 import cn from 'classnames';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectFoundArticles, selectSearchMessage } from 'redux/selectors/blog';
 import { ArticlesList } from 'components/BlogCommon/ArticlesList';
 import ButtonMore from 'components/Common/ButtonMore';
 import styles from './styles.module.scss';
 
-const SearchResult = ({
-  foundArticles,
-  searchMessage,
-  searchValue,
-  handleOnCloseModalWindow,
-}) => {
+const SearchResult = ({ searchValue, handleOnCloseModalWindow }) => {
+  const foundArticles = useSelector(selectFoundArticles);
+  const searchMessage = useSelector(selectSearchMessage);
   const [articlesChunks, setArticlesChunks] = useState([]);
   const [currectPage, setCurrentPage] = useState(0);
   const [articles, setArticles] = useState([]);
@@ -69,20 +66,9 @@ const SearchResult = ({
   );
 };
 
-SearchResult.defaultProps = {
-  foundArticles: [],
-};
-
 SearchResult.propTypes = {
-  foundArticles: PropTypes.instanceOf(Array),
-  searchMessage: PropTypes.string.isRequired,
   searchValue: PropTypes.string.isRequired,
   handleOnCloseModalWindow: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({
-    foundArticles: selectFoundArticles(state),
-    searchMessage: selectSearchMessage(state),
-  }),
-)(SearchResult);
+export default SearchResult;

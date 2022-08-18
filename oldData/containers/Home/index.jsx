@@ -17,11 +17,9 @@ import {
   // TODO Insta,
   FeedbackFormContainer,
 } from 'containers';
-import {
-  PhotoGallery,
-  LoadingScreen,
-  MetaTags,
-} from 'components';
+import MetaTags from 'components/Common/MetaTags';
+import PhotoGallery from 'components/Common/PhotoGallery';
+import LoadingScreen from 'components/Common/LoadingScreen';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 

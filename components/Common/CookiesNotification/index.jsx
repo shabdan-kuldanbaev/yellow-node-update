@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { ButtonMore } from 'components';
+import ButtonMore from 'components/Common/ButtonMore';
 import { notificationData } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -40,4 +40,4 @@ CookiesNotification.propTypes = {
   text: PropTypes.string,
 };
 
-export default CookiesNotification;
+export default React.memo(CookiesNotification);

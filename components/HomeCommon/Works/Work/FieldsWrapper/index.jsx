@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonMore from 'components/Common/ButtonMore';
 import styles from './styles.module.scss';
@@ -18,20 +18,16 @@ export const FieldsWrapper = ({
     );
   case 'description':
     return (
-      <Fragment>
+      <>
         <p className={styles.p}>
           {description}
         </p>
-        { // TODO delete slug&&: when created ubi.chat page
-          slug && (
-            <ButtonMore
-              href={slug}
-              title="View case"
-              buttonStyle={styles.viewButton}
-            />
-          )
-        }
-      </Fragment>
+        <ButtonMore
+          href={slug}
+          title="View case"
+          buttonStyle={styles.viewButton}
+        />
+      </>
     );
   default:
     return null;

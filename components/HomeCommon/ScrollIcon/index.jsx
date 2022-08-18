@@ -1,12 +1,11 @@
 import React from 'react';
-import { Svg } from 'components/Common/Svg';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
+import Svg from 'components/Common/Svg';
 import styles from './styles.module.scss';
 
-export const ScrollIcon = () => (
+const ScrollIcon = () => (
   <div className={styles.iconWrapper}>
     <Svg
-      type={SVG_IMAGES_TYPES.scrollIconSvg}
+      type="arrowBottom"
       className={styles.scrollDown}
     />
     <div className={styles.arrow}>
@@ -15,3 +14,5 @@ export const ScrollIcon = () => (
     </div>
   </div>
 );
+
+export default ScrollIcon;
