@@ -55,6 +55,7 @@ export const NAV_LINKS = [
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
     routes.termsAndConditions.slug,
+    routes.cookiesPolicy.slug,
   ].includes(slug)),
 ];
 

@@ -1,33 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import ButtonMore from 'components/Common/ButtonMore';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import useStorage from 'hooks/useStorage';
+import { PAGES } from 'utils/constants';
 import { notificationData } from './utils/data';
 import styles from './styles.module.scss';
 
 const CookiesNotification = ({ text }) => {
-  const [isShown, setIsShown] = useState(false);
+  const [storage, setStorage] = useState(null);
+  const [isHidden, setHidden] = useStorage({
+    storage,
+    key: 'isCookiesNotificationHidden',
+    defaultValue: false,
+  });
 
-  const handlerOnClose = () => setIsShown(false);
+  const handlerOnClose = () => setHidden(true);
 
-  return (
-    <div className={cn(styles.cookiesNotification, { [styles.hide]: !isShown })}>
-      <p>{text}</p>
+  useEffect(() => {
+    setStorage(window.localStorage);
+  }, []);
+
+  if (isHidden === null) return null;
+
+  return !isHidden && (
+    <div className={cn(styles.cookiesNotification, { [styles.hide]: isHidden })}>
+      <p>
+        {text}
+        <LinkWrapper path={PAGES.cookiesPolicy}>Cookies Policy</LinkWrapper>
+      </p>
       <ButtonMore
         handleOnClick={handlerOnClose}
-        href="/"
-        title="ACCEPT COOKIES"
+        title="Accept"
         buttonStyle={styles.button}
       />
-      <div
-        className={styles.cross}
-        onClick={handlerOnClose}
-        role="button"
-        tabIndex="0"
-      >
-        <hr />
-        <hr />
-      </div>
     </div>
   );
 };
