@@ -1,14 +1,23 @@
 import Cors from 'cors';
 import { withSentry } from '@sentry/nextjs';
-import { runMiddleware } from 'utils/helper';
+import formidable from 'formidable';
+import { formParser, runMiddleware } from 'utils/helper';
 import formDataHelper from 'utils/formDataHelper';
 
 const cors = Cors({ methods: ['POST'] });
+const form = formidable({ multiples: true });
 
 const handler = async (req, res) => {
   await runMiddleware(req, res, cors);
+  await runMiddleware(req, res, formParser(form));
 
   await formDataHelper.sendFormData(req, res);
+};
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
 };
 
 export default withSentry(handler);
