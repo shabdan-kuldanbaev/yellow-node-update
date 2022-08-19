@@ -12,6 +12,7 @@ import {
   PHONE_RESOLUTION,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
+import errorHelper from './error';
 
 export const themes = {
   dark: {
@@ -272,3 +273,19 @@ export const runMiddleware = (req, res, fn) => new Promise((resolve, reject) => 
     return resolve(result);
   });
 });
+
+export const formParser = (form) => async (req, _, next) => {
+  form.parse(req, (err, fields, files) => {
+    if (!err) {
+      req.body = fields;
+      req.files = files;
+    } else {
+      errorHelper.handleError({
+        err,
+        message: 'Error in the bodyParser function',
+      });
+    }
+
+    next();
+  });
+};

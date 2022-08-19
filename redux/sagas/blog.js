@@ -16,7 +16,7 @@ import { contentfulClient } from 'utils/contentful/client';
 import { fetchContentfulArticles } from 'utils/contentful/helper';
 import { getBlogGraphqlQuery } from 'utils/blogUtils';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
-import { PAGES } from 'utils/constants';
+import { PAGES, SEARCH_ARTICLES_LIMIT } from 'utils/constants';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -46,7 +46,6 @@ const findArticlesByValue = async (params) => await contentfulClient.graphql(
 
 const findArticlesByTagValue = async (params) => await contentfulClient.graphql(
   GRAPHQL_QUERY.loadPreviewArticlesByTags({
-    order: '[publishedAt_DESC]',
     ...params,
   }),
 );
@@ -149,11 +148,16 @@ export function* findArticles({ payload: { value } }) {
   try {
     const [
       resultByTag,
+      resultByTitle,
       resultByBody,
       resultByOldBody,
     ] = yield all([
       call(findArticlesByTagValue, {
-        where: { title: [value] },
+        where: { title_contains: [value] },
+        limit: SEARCH_ARTICLES_LIMIT,
+      }),
+      call(findArticlesByValue, {
+        where: { title_contains: value },
       }),
       call(findArticlesByValue, {
         where: { body_contains: value },
@@ -166,6 +170,7 @@ export function* findArticles({ payload: { value } }) {
     const result = uniqWith(
       [
         ...getGraphqlResultArticlesByTags(resultByTag),
+        ...getGraphqlResultArticles(resultByTitle),
         ...getGraphqlResultArticles(resultByBody),
         ...getGraphqlResultArticles(resultByOldBody),
       ],
