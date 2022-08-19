@@ -22,17 +22,19 @@ const CookiesNotification = ({ text }) => {
   useEffect(() => {
     setStorage(window.localStorage);
 
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
       if (document.documentElement.scrollTop < 200) {
         return;
       }
 
       setScrolled(true);
-      window.removeEventListener('scroll');
-    });
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll');
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
