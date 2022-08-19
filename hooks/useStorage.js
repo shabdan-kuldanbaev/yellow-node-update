@@ -1,7 +1,15 @@
-import { useCallback, useEffect, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 
-const useStorage = ({ storage = window.sessionStorage, key, defaultValue }) => {
-  const [value, setValue] = useState(null);
+const useStorage = ({
+  storage = window.sessionStorage,
+  key,
+  defaultValue,
+}) => {
+  const [value, setValue] = useState(defaultValue);
 
   useEffect(() => {
     if (!storage || !key) {
