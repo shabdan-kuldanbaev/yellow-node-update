@@ -6,12 +6,19 @@
 
   background-color: $alabaster;
   position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  inset: auto 0 30px;
   width: min(85%, $max-content-width);
   padding: 61px 60px;
   z-index: 999999;
+  margin: 0 auto;
+  transition:
+    transform ease-in-out 0.3s,
+    opacity ease-in-out 0.4s;
+
+  &.notScrolled {
+    transform: translateY(7%);
+    opacity: 0;
+  }
 
   p {
     margin: 0;

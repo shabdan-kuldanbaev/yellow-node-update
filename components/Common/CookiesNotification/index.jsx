@@ -15,17 +15,37 @@ const CookiesNotification = ({ text }) => {
     key: 'isCookiesNotificationHidden',
     defaultValue: false,
   });
+  const [isScrolled, setScrolled] = useState(false);
 
   const handlerOnClose = () => setHidden(true);
 
   useEffect(() => {
     setStorage(window.localStorage);
+
+    window.addEventListener('scroll', () => {
+      if (document.documentElement.scrollTop < 200) {
+        return;
+      }
+
+      setScrolled(true);
+      window.removeEventListener('scroll');
+    });
+
+    return () => {
+      window.removeEventListener('scroll');
+    };
   }, []);
 
-  if (isHidden === null) return null;
+  if (isHidden === null) {
+    return null;
+  }
 
   return !isHidden && (
-    <div className={cn(styles.cookiesNotification, { [styles.hide]: isHidden })}>
+    <div className={cn(styles.cookiesNotification, {
+      [styles.hide]: isHidden,
+      [styles.notScrolled]: !isScrolled,
+    })}
+    >
       <p>
         {text}
         <LinkWrapper
