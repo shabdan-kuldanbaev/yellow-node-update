@@ -760,10 +760,10 @@
     padding-bottom: 0;
 
     .descriptionContainer {
+      @include flex(row, space-around);
+
       max-width: unset;
       width: 100%;
-      flex-direction: row;
-      justify-content: space-around;
       margin-left: unset;
 
       .descriptionIntro {
