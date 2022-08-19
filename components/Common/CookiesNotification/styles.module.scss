@@ -2,6 +2,7 @@
 
 .cookiesNotification {
   @include flex(row, space-between, center);
+  @include fontSize(18px, 1.8);
 
   background-color: $alabaster;
   position: fixed;
@@ -18,29 +19,45 @@
     color: $dark-grey;
 
     @include below-tablet {
+      @include fontSize(14px);
+
       width: auto;
       text-align: center;
     }
   }
 
+  .link {
+    color: $black;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .button {
     @include button-more($black, $black, $turbo-100, $turbo-100, none, none);
+    @include fontSize(18px, 1.5);
 
+    box-sizing: border-box;
+    width: 264px;
+    padding: 20px 38px;
     border-radius: $button-border-radius;
     background-color: $turbo-100;
     color: $woodsmoke;
-    line-height: 1.55;
     letter-spacing: 0.5px;
     text-align: center;
-    font-size: 0.875rem !important;
     margin: auto 0;
-    padding: 10px 0;
 
     &:hover {
       transform: scale(0.96);
     }
 
     @include below-tablet {
+      @include fontSize(14px);
+
+      width: 180px;
+      padding: 14px 0;
       margin: 25px auto 0;
     }
   }

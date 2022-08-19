@@ -28,7 +28,12 @@ const CookiesNotification = ({ text }) => {
     <div className={cn(styles.cookiesNotification, { [styles.hide]: isHidden })}>
       <p>
         {text}
-        <LinkWrapper path={PAGES.cookiesPolicy}>Cookies Policy</LinkWrapper>
+        <LinkWrapper
+          path={PAGES.cookiesPolicy}
+          className={styles.link}
+        >
+          Cookies Policy
+        </LinkWrapper>
       </p>
       <ButtonMore
         handleOnClick={handlerOnClose}
