@@ -20,7 +20,7 @@
     }
 
     .title {
-      margin: 0 0 15px;
+      margin: 0 0 18px;
       text-align: start;
       font-family: $case-studies-font;
       font-weight: bold;
@@ -277,7 +277,8 @@
 .dindon,
 .meateater,
 .bionorica,
-.fintech-app-for-credit-score {
+.fintech-app-for-credit-score,
+.machine-learning-in-real-estate {
   @extend .infoContainer;
 
   @include phone {
@@ -320,6 +321,42 @@
       &::marker {
         color: $green-aloha;
       }
+    }
+  }
+}
+
+.machine-learning-in-real-estate {
+  @include phone {
+    @include flex(column, center, center);
+
+    padding: 0;
+  }
+
+  .container {
+    margin-top: 40px;
+    max-width: unset;
+    width: 350px;
+
+    .title {
+      color: $white;
+    }
+
+    .listItemContainer {
+      margin-bottom: 15px;
+      padding-right: 5px;
+      color: $white;
+
+      &::marker {
+        color: $bright-ocean-blue;
+      }
+    }
+
+    @include below-tablet {
+      width: 230px;
+    }
+
+    @include phone {
+      margin-top: unset;
     }
   }
 }

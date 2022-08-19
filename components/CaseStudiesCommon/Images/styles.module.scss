@@ -161,7 +161,8 @@
 .drive-focus,
 .fireaway,
 .telemojo,
-.marketplace-for-clairvoyant-services {
+.marketplace-for-clairvoyant-services,
+.machine-learning-in-real-estate {
   @extend .imageContainer;
 
   background-color: $white;
@@ -218,7 +219,8 @@
 
 .smartcenter,
 .meateater,
-.fintech-app-for-credit-score {
+.fintech-app-for-credit-score,
+.machine-learning-in-real-estate {
   .image:first-child {
     display: block;
     max-width: $max-content-width-small-section;
@@ -418,6 +420,68 @@
   }
 }
 
+.machine-learning-in-real-estate {
+  background-color: $very-dark-blue;
+
+  .image:last-child {
+    display: none;
+    max-width: 300px;
+    margin: 0 auto;
+
+    @include phone {
+      display: block;
+    }
+  }
+
+  &.firstSectionView {
+    .image:first-child {
+      @include tablet {
+        width: 950px;
+      }
+
+      @include below-tablet {
+        max-width: unset;
+        width: 710px;
+      }
+
+      @include phone {
+        padding-bottom: 30px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    .image:first-child {
+      @include below-tablet {
+        max-width: unset;
+        width: 710px;
+      }
+    }
+
+    .image:last-child {
+      @include phone {
+        max-width: unset;
+        width: 270px;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    .image:last-child {
+      max-width: unset;
+      width: 650px;
+    }
+  }
+
+  &.sixthSectionView {
+    .image {
+      display: block;
+      height: 500px;
+      max-width: unset;
+      width: 100%;
+    }
+  }
+}
 .hotel-data-cloud {
   .image {
     max-width: 1056px;

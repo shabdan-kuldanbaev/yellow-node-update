@@ -315,6 +315,7 @@ export const CASE_STUDIES = {
   blackBird: 'blackbird',
   mobileFintechApp: 'fintech-app-for-credit-score',
   goodPsychics: 'marketplace-for-clairvoyant-services',
+  mlInRealEstate: 'machine-learning-in-real-estate',
   humankind: 'humankind',
 };
 
@@ -340,6 +341,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileFintechApp).path,
   ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -432,6 +434,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
+  [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.'
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

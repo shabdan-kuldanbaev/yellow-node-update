@@ -1,0 +1,82 @@
+.machine-learning-in-real-estate {
+  @extend .container;
+
+  background: $very-dark-blue;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: $white;
+  height: auto;
+  padding: 100px 40px 150px;
+
+  .projectInfoContainer {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+    .projectTitle {
+      @include fontSize(70px);
+
+      @include tablet {
+        @include fontSize(54px);
+      }
+
+      @include below-tablet {
+        @include fontSize(36px);
+      }
+
+      @include phone {
+        @include fontSize(30px);
+      }
+    }
+
+    .projectDescription {
+      margin: 0 auto;
+    }
+
+    @include below-tablet {
+      width: 500px;
+    }
+
+    @include phone {
+      width: 250px;
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    width: 1640px;
+    height: 950px;
+    left: 5%;
+  }
+
+  .introSection {
+    display: block;
+    margin: 0 auto 180px;
+
+    @include tablet {
+      margin: 0 auto 140px;
+    }
+
+    @include below-tablet {
+      margin: 0 auto 30px;
+    }
+
+    @include below-tablet {
+      margin: 0 auto 130px;
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1075px;
+  }
+
+  .imageContainer {
+    display: none;
+  }
+
+  @include phone {
+    background-size: cover;
+    background-position: center;
+  }
+}

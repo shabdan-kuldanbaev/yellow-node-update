@@ -221,7 +221,8 @@
 .separate-us,
 .fusion-markets,
 .blackbird,
-.fintech-app-for-credit-score {
+.fintech-app-for-credit-score,
+.machine-learning-in-real-estate {
   @extend .imagesContainer;
 
   .animatedContainer {
@@ -367,5 +368,29 @@
     @include phone {
       height: 400px;
     }
+  }
+}
+
+.machine-learning-in-real-estate {
+  background-color: $very-dark-blue;
+
+  .animatedContainer:first-child {
+    display: none;
+  }
+
+  .animatedContainer {
+    animation: none;
+    min-width: unset !important;
+    width: 100%;
+    margin-left: 0;
+
+    @include tablet {
+      height: auto !important;
+    }
+  }
+
+  &::before,
+  &::after {
+    background: none;
   }
 }
