@@ -11,72 +11,72 @@
 
   .projectInfoContainer {
     width: 800px;
-		margin: 0 auto;
-		text-align: center;
+    margin: 0 auto;
+    text-align: center;
 
-		.projectTitle {
-			@include fontSize(70px);
+    .projectTitle {
+      @include fontSize(70px);
 
-			@include tablet {
-				@include fontSize(54px);
-			}
+      @include tablet {
+        @include fontSize(54px);
+      }
 
-			@include below-tablet {
-				@include fontSize(36px);
-			}
+      @include below-tablet {
+        @include fontSize(36px);
+      }
 
-			@include phone {
-				@include fontSize(30px);
-			}
-		}
+      @include phone {
+        @include fontSize(30px);
+      }
+    }
 
-		.projectDescription {
-			margin: 0 auto;
-		}
+    .projectDescription {
+      margin: 0 auto;
+    }
 
-		@include below-tablet {
-			width: 500px;
-		}
+    @include below-tablet {
+      width: 500px;
+    }
 
-		@include phone {
-			width: 250px;
-		}
-	}
+    @include phone {
+      width: 250px;
+    }
+  }
 
-	.bundleImage {
-		position: absolute;
-		width: 1640px;
-		height: 950px;
-		left: 5%;
-	}
+  .bundleImage {
+    position: absolute;
+    width: 1640px;
+    height: 950px;
+    left: 5%;
+  }
 
-	.introSection {
-		display: block;
-		margin: 0 auto 180px;
+  .introSection {
+    display: block;
+    margin: 0 auto 180px;
 
-		@include tablet {
-			margin: 0 auto 140px;
-		}
+    @include tablet {
+      margin: 0 auto 140px;
+    }
 
-		@include below-tablet {
-			margin: 0 auto 30px;
-		}
+    @include below-tablet {
+      margin: 0 auto 30px;
+    }
 
-		@include below-tablet {
-			margin: 0 auto 130px;
-		}
-	}
+    @include below-tablet {
+      margin: 0 auto 130px;
+    }
+  }
 
-	.experiencesContainer {
-		max-width: 1075px;
-	}
+  .experiencesContainer {
+    max-width: 1075px;
+  }
 
-	.imageContainer {
-		display: none;
-	}
+  .imageContainer {
+    display: none;
+  }
 
-	@include phone {
-		background-size: cover;
-		background-position: center;
-	}
+  @include phone {
+    background-size: cover;
+    background-position: center;
+  }
 }
