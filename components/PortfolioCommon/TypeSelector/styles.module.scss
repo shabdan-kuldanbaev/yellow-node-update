@@ -5,8 +5,9 @@
 }
 
 .slide {
-  flex: 0 0 max-content;
+  flex: 0 0;
   min-width: max-content;
+  width: auto;
 
   & + .slide {
     margin-left: 20px;
