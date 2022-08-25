@@ -7,6 +7,8 @@
 .slide {
   flex: 0 0 max-content;
   min-width: max-content;
+  flex-shrink: unset;
+  width: unset;
 
   & + .slide {
     margin-left: 20px;
