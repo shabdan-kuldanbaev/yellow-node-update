@@ -113,9 +113,11 @@
   }
 
   .video {
-    max-width: 370px;
+    max-width: 372px;
     transform: translateY(-22px);
     border-radius: 50px;
+    margin: 0 auto;
+    display: block;
 
     @include phone {
       max-width: 223px;
@@ -833,7 +835,6 @@
   .imageBundle-1 {
     width: 687px;
     height: 687px;
-
     position: absolute;
     top: -68%;
     left: -30%;
@@ -842,7 +843,6 @@
   .imageBundle-2 {
     width: 687px;
     height: 687px;
-
     position: absolute;
     bottom: -50%;
     right: -15px;
