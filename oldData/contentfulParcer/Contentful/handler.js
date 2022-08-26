@@ -10,7 +10,7 @@ const {
 const { axiosTemporaryClient } = require('./api');
 
 const contentfulManagement = new ContentfulManagement({
-  space: process.env.CONTENTFUL_SPACE,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
   accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN,
 });
 

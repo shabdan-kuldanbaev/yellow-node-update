@@ -4,7 +4,6 @@
 @mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
   display: flex;
   flex-flow: $fd $fw;
-  flex-direction: $fd;
   justify-content: $jc;
   align-items: $ai;
 }
@@ -440,6 +439,7 @@
 
 @mixin defaultSectionTitle {
   max-width: $max-content-width-small-section;
+  width: 100%;
   margin: 0 auto 60px;
 
   h2 {

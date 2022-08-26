@@ -8,6 +8,7 @@ import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import { CONTACT_FORM_TITLES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
@@ -58,7 +59,10 @@ const CaseStudiesContainer = ({ introSection }) => {
       ))}
       {hasFeedbackForm && (
         <div className={styles[slug] || styles.feedBackContainer}>
-          <FeedbackFormContainer type={slug} />
+          <FeedbackFormContainer
+            type={slug}
+            title={CONTACT_FORM_TITLES[slug]}
+          />
         </div>
       )}
     </>

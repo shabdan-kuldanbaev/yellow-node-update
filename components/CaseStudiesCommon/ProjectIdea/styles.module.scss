@@ -194,6 +194,56 @@
   }
 }
 
+.humankind {
+  @extend .container;
+
+  background: $athens-gray;
+
+  .contentContainer {
+    @include flex(column-reverse, center, center);
+ 
+    padding-bottom: 0;
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    .descriptionContainer {
+      @include flex(row, center);
+
+      padding-bottom: 120px;
+      max-width: unset;
+      margin-left: 0;
+
+      @include tablet {
+        flex-direction: column;
+        padding-bottom: 0px;
+      }
+
+      @include phone {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .descriptionIntro {
+        margin-right: 245px;
+
+        .description {
+          max-width: 643px;
+
+          @include phone {
+            margin-bottom: 40px;
+          }
+        }
+
+        @include tablet {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
 .dindon {
   @extend .container;
 
@@ -205,9 +255,6 @@
 
   @include tablet {
     flex-direction: column;
-  }
-
-  @include tablet {
     align-items: center;
   }
 
@@ -677,6 +724,7 @@
   }
 }
 
+.hotel-data-cloud,
 .marketplace-for-clairvoyant-services {
   @extend .container;
 
@@ -698,5 +746,109 @@
         }
       }
     }
+  }
+}
+
+.machine-learning-in-real-estate {
+  @extend .container;
+
+  background-color: $very-dark-blue;
+  color: $white;
+  position: relative;
+
+  .contentContainer {
+    padding-bottom: 0;
+
+    .descriptionContainer {
+      @include flex(row, space-around);
+
+      max-width: unset;
+      width: 100%;
+      margin-left: unset;
+
+      .descriptionIntro {
+        .sectionName {
+          color: $white;
+        }
+
+        .title {
+          color: $white;
+        }
+
+        .description {
+          color: $white;
+          max-width: unset;
+          width: 517px;
+
+          @include below-tablet {
+            width: 300px;
+          }
+        }
+
+        @include below-tablet {
+          width: 300px;
+        }
+
+        @include phone {
+          margin: 0 auto;
+        }
+      }
+
+      @include phone {
+        flex-direction: column;
+        margin-bottom: unset;
+      }
+    }
+  }
+
+  .mobileAdditionalInformation {
+    & > div {
+      @include phone {
+        margin-top: unset;
+      }
+    }
+  }
+
+  & > div:last-child {
+    position: absolute;
+    top: 53%;
+    left: 64.5%;
+
+    @include quad-hd {
+      left: 69.2%;
+    }
+
+    @include full-hd {
+      top: 53%;
+      left: 67.1%;
+    }
+
+    @include macbook-thirteen {
+      left: 64.5%;
+    }
+
+    @include tablet {
+      top: 40%;
+      left: 60.8%;
+    }
+
+    @include below-tablet {
+      top: 35%;
+    }
+
+    @include phone {
+      top: 73%;
+      left: 30%;
+    }
+  }
+
+  @include phone {
+    padding: 30px 15px 100px;
+  }
+}
+
+.hotel-data-cloud {
+  @include phone {
+    padding: 80px 15px;
   }
 }

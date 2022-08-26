@@ -1,6 +1,7 @@
 import React from 'react';
 import Animated from 'components/Common/Animated';
-import { ANIMATED_TYPE } from 'utils/constants';
+import LinkWrapper from 'components/Common/LinkWrapper';
+import { ANIMATED_TYPE, PAGES } from 'utils/constants';
 import rocket from './json/rocket.json';
 import styles from './styles.module.scss';
 
@@ -8,6 +9,10 @@ export const BottomContent = () => (
   <div className={styles.bottomContent}>
     <div className={styles.text}>
       <span>© All right reserved. Yellow 2022</span>
+    </div>
+    <div className={styles.links}>
+      <LinkWrapper path={PAGES.privacyPolicy}>Privacy Policy</LinkWrapper>
+      <LinkWrapper path={PAGES.termsAndConditions}>Terms & Privacy</LinkWrapper>
     </div>
     <div className={styles.rocket}>
       <Animated

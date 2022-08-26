@@ -15,6 +15,7 @@ import SwiperCors, {
 import { SwiperNavigation } from 'components/SwiperNavigation';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getMaxVal } from 'utils/helper';
+import cn from 'classnames';
 import { Comment } from './Comment';
 import { getSwiperParams } from '../utils/reviewsHelper';
 import styles from './styles.module.scss';
@@ -22,7 +23,7 @@ import styles from './styles.module.scss';
 SwiperCors.use([EffectCoverflow, Navigation]);
 
 // TODO rewrite component without js logic for resize
-export const Reviews = ({ reviews = [] }) => {
+export const Reviews = ({ reviews = [], type }) => {
   const [maxCardHeight, setMaxCardHeight] = useState(500);
   const swiperRef = useRef(null);
   const infoRefs = useRef(reviews.map(() => createRef()));
@@ -67,7 +68,7 @@ export const Reviews = ({ reviews = [] }) => {
   }, [infoRefs]);
 
   return (
-    <div className={styles.reviews}>
+    <div className={cn(styles.reviews, styles[type])}>
       <div className={styles.desktopReviews}>
         <Swiper {...desktopSwiperParams}>
           {reviews.map((comment, index) => (
@@ -78,7 +79,7 @@ export const Reviews = ({ reviews = [] }) => {
               />
             </SwiperSlide>
           ))}
-          <SwiperNavigation />
+          <SwiperNavigation className={styles.navigation} />
         </Swiper>
       </div>
       <div
@@ -100,12 +101,18 @@ export const Reviews = ({ reviews = [] }) => {
               />
             </SwiperSlide>
           ))}
+          <SwiperNavigation className={styles.navigation} />
         </Swiper>
       </div>
     </div>
   );
 };
 
+Reviews.defaultProps = {
+  type: null,
+};
+
 Reviews.propTypes = {
   reviews: PropTypes.instanceOf(Array).isRequired,
+  type: PropTypes.string,
 };

@@ -1,5 +1,5 @@
 import { isNumeric } from 'utils/helper';
-import { CATEGORY_TAGS, ROUTES } from 'utils/constants';
+import { CATEGORY_TAGS, PAGES, ROUTES } from 'utils/constants';
 
 export const pagesBreadcrumbs = {
   blog: (category, tagsList) => {
@@ -122,4 +122,23 @@ export const pagesBreadcrumbs = {
       to: ROUTES.mlDevelopment.path,
     },
   ]),
+  technicalPage: (slug) => {
+    if (slug === PAGES.privacyPolicy) {
+      return [
+        {
+          title: ROUTES.privacyPolicy.title,
+          to: ROUTES.privacyPolicy.path,
+        },
+      ];
+    }
+
+    if (slug === PAGES.termsAndConditions) {
+      return [
+        {
+          title: ROUTES.termsAndConditions.title,
+          to: ROUTES.termsAndConditions.path,
+        },
+      ];
+    }
+  },
 };

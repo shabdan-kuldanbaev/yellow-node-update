@@ -1,5 +1,6 @@
 @import 'styles/utils/mixins';
 
+.hotel-data-cloud,
 .writer-chrome-extension,
 .fernwayer,
 .beautonomy,
@@ -19,6 +20,7 @@
 .dindon,
 .famlicious,
 .telemojo,
+.humankind,
 .bionorica,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
@@ -36,6 +38,16 @@
   @include phone {
     padding-top: 40px;
   }
+}
+
+.humankind {
+  @include caseStudyContainer;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  background: $case-study-humankind-background;
 }
 
 .seven-pm-thursday {
@@ -179,6 +191,59 @@
 
       @include phone {
         max-width: 327px;
+      }
+    }
+  }
+}
+
+.machine-learning-in-real-estate {
+  background-color: $very-dark-blue;
+  color: $white;
+
+  [data-case-study-title] {
+    padding-top: 150px;
+    width: 909px;
+    margin: 0 auto 40px;
+
+    @include tablet {
+      width: 600px;
+    }
+
+    @include below-tablet {
+      width: 500px;
+    }
+
+    @include phone {
+      @include fontSize (25px);
+
+      width: 300px;
+      padding-top: 80px;
+    }
+  }
+
+  [data-case-study-description] {
+    max-width: unset;
+    width: 870px;
+
+    @include tablet {
+      width: 700px;
+    }
+
+    @include below-tablet {
+      width: 600px;
+    }
+
+    @include phone {
+      width: 300px;
+    }
+  }
+
+  &.firstSectionView {
+    [data-case-study-title] {
+      padding-bottom: 80px;
+
+      @include phone {
+        padding-bottom: 30px;
       }
     }
   }

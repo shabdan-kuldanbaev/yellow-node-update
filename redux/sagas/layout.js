@@ -20,7 +20,6 @@ import {
 import { actionTypes } from 'redux/actions/actionTypes';
 import { loadJSON } from 'redux/sagas/process';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
-import { artificialDelay } from 'utils/helper';
 import { contentfulClient } from 'utils/contentful/client';
 import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
@@ -129,6 +128,9 @@ function* fetchPageData({
       break;
     case PAGES.contact:
     case PAGES.company:
+    case PAGES.privacyPolicy:
+    case PAGES.cookiesPolicy:
+    case PAGES.termsAndConditions:
     case PAGES.customChatApp:
     case PAGES.customMobileApp:
     case PAGES.customWebApp:

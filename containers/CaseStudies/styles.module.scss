@@ -39,3 +39,9 @@
     padding-top: 0;
   }
 }
+
+.machine-learning-in-real-estate {
+  @extend .feedBackContainer;
+
+  background: $very-dark-blue;
+}

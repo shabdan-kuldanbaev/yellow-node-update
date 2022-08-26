@@ -22,15 +22,11 @@ export const FieldsWrapper = ({
         <p className={styles.p}>
           {description}
         </p>
-        { // TODO delete slug&&: when created ubi.chat page
-          slug && (
-            <ButtonMore
-              href={slug}
-              title="View case"
-              buttonStyle={styles.viewButton}
-            />
-          )
-        }
+        <ButtonMore
+          href={slug}
+          title="View case"
+          buttonStyle={styles.viewButton}
+        />
       </>
     );
   default:

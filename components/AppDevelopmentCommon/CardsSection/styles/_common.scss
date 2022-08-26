@@ -6,7 +6,8 @@
 .mobile-app-development-company,
 .mvp-app-development-company,
 .ui-ux-services,
-.web-app-development-company {
+.web-app-development-company,
+.homepage {
   @include appDevelopmentContainer;
 
   background: $white;
@@ -15,7 +16,7 @@
     @include defaultSectionTitle;
   }
 
-  .cards > div {
+  .cards > * {
     @include defaultCard;
   }
 
@@ -23,6 +24,10 @@
     @extend .twoColumnsCards;
 
     @include smallSectionWrapper;
+  }
+
+  .overlay {
+    @include overlay;
   }
 
   .callToAction {

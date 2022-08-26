@@ -4,6 +4,7 @@
 import React from 'react';
 import { routes } from 'utils/routes';
 
+export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
 export const HOMEPAGE_BLOG_CURRENT_PAGE = 1;
@@ -11,15 +12,15 @@ export const ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE = 3;
 export const ROUTES = { ...routes };
 
 export const ACCESS_TO_CONTENTFUL = {
-  space: process.env.CONTENTFUL_SPACE,
-  environment: process.env.CONTENTFUL_ENV,
-  accessToken: process.env.CONTENTFUL_TOKEN,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_TOKEN,
 };
 
 export const ACCESS_TO_CONTENTFUL_PREVIEW = {
-  space: process.env.CONTENTFUL_SPACE,
-  environment: process.env.CONTENTFUL_ENV,
-  accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_TOKEN,
   isPreview: true,
 };
 
@@ -54,6 +55,9 @@ export const NAV_LINKS = [
     routes.mvpDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.signatureGenerator.slug,
+    routes.privacyPolicy.slug,
+    routes.termsAndConditions.slug,
+    routes.cookiesPolicy.slug,
   ].includes(slug)),
 ];
 
@@ -206,6 +210,18 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentRelatedServices: 'app-development-related-services',
 };
 
+export const HOMEPAGE_SECTION_TYPES = {
+  text: 'text',
+  cards: 'cards',
+  cardsWithOverlay: 'cards-with-overlay',
+  svgDisplay: 'svg-display',
+  svgDisplayWithSelector: 'svg-display-with-selector',
+  porfolio: 'portfolio',
+  reviews: 'reviews',
+  blog: 'blog',
+  photos: 'photos',
+};
+
 export const CONTACTS_DATA = {
   email: 'hi@yellow.systems',
   telephoneNumbers: [
@@ -278,6 +294,7 @@ export const CASE_STUDIES = {
   fernwayer: 'fernwayer',
   dindon: 'dindon',
   stickerbox: 'stickerbox',
+  hotelDataCloud: 'hotel-data-cloud',
   sevenPmThursday: 'seven-pm-thursday',
   fairy: 'fairy',
   tell: 'tell',
@@ -300,6 +317,8 @@ export const CASE_STUDIES = {
   blackBird: 'blackbird',
   mobileFintechApp: 'fintech-app-for-credit-score',
   goodPsychics: 'marketplace-for-clairvoyant-services',
+  mlInRealEstate: 'machine-learning-in-real-estate',
+  humankind: 'humankind',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -324,6 +343,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileFintechApp).path,
   ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -424,6 +444,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
+  [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.'
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

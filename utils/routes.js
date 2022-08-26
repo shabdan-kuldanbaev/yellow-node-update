@@ -262,6 +262,23 @@ export const routes = {
     dynamicPath: '/fintech-software-development-services',
     slug: 'fintech-software-development-services',
   },
+  privacyPolicy: {
+    title: 'Yellow Systems Privacy Policy',
+    path: '/privacy-policy',
+    dynamicPath: '/privacy-policy',
+    slug: 'privacy-policy',
+  },
+  termsAndConditions: {
+    title: 'Terms and Conditions',
+    path: '/terms-and-conditions',
+    dynamicPath: '/terms-and-conditions',
+    slug: 'terms-and-conditions',
+  },
+  cookiesPolicy: {
+    title: 'Cookies Policy',
+    path: '/cookies-policy',
+    slug: 'cookies-policy',
+  },
   notFound: {
     title: '404 | Yellow',
     path: '/not-found',

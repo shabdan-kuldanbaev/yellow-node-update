@@ -147,6 +147,28 @@
   }
 }
 
+.humankind {
+  @extend .container;
+
+  grid-auto-flow: unset;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 160px;
+
+  @include phone {
+    padding-top: 50px;
+  }
+
+  .title {
+    @include fontSize(40px);
+
+    @include phone {
+      @include fontSize(36px);
+
+      margin-bottom: 15px;
+    }
+  }
+}
+
 .fusion-markets {
   .teamItem {
     color: $silver-chalice;
@@ -199,7 +221,8 @@
   }
 }
 
-.fintech-app-for-credit-score {
+.fintech-app-for-credit-score,
+.machine-learning-in-real-estate {
   @extend .container;
 
   @include flex(column);
@@ -475,5 +498,48 @@
       top: -20%;
       height: 250px;
     }
+  }
+}
+
+.machine-learning-in-real-estate {
+  width: unset;
+
+  .title {
+    @include fontSize(18px);
+
+    font-weight: bold;
+    color: $white;
+  }
+
+  .teamItem {
+    @include flex(row, initial, center);
+    @include fontSize(18px);
+
+    padding-right: 5px;
+    margin-bottom: unset;
+    color: $white;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: $bright-ocean-blue;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    @include phone {
+      @include fontSize(14px);
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    width: 1730px;
+    height: 830px;
+    z-index: -1;
+    left: -993px;
+    top: -500px;
   }
 }

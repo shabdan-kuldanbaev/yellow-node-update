@@ -1,5 +1,4 @@
 import get from 'lodash/get';
-import isObject from 'lodash/isObject';
 import dayjs from 'dayjs';
 import {
   BIG_TABLET_RESOLUTION,
@@ -13,6 +12,7 @@ import {
   PHONE_RESOLUTION,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
+import errorHelper from './error';
 
 export const themes = {
   dark: {
@@ -81,6 +81,8 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.androidDevelopmentServices}`, updatedAt },
   { path: `/${PAGES.mvpDevelopment}`, updatedAt },
   { path: `/${PAGES.fintechDevelopment}`, updatedAt },
+  { path: `/${PAGES.privacyPolicy}`, updatedAt },
+  { path: `/${PAGES.termsAndConditions}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
@@ -272,3 +274,19 @@ export const runMiddleware = (req, res, fn) => new Promise((resolve, reject) => 
     return resolve(result);
   });
 });
+
+export const formParser = (form) => async (req, _, next) => {
+  form.parse(req, (err, fields, files) => {
+    if (!err) {
+      req.body = fields;
+      req.files = files;
+    } else {
+      errorHelper.handleError({
+        err,
+        message: 'Error in the bodyParser function',
+      });
+    }
+
+    next();
+  });
+};

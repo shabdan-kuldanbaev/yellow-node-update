@@ -1,6 +1,7 @@
 @import 'styles/utils/mixins';
 @import './styles/telemojo';
 
+.humankind,
 .fernwayer,
 .ubichat,
 .fireaway,
@@ -206,4 +207,25 @@
 
   padding: 0;
   background-color: $white;
+}
+
+.machine-learning-in-real-estate {
+  background-color: $very-dark-blue;
+
+  [data-case-study-title] {
+    color: $white;
+    width: 783px;
+    margin: 0 auto;
+
+    @include below-tablet {
+      width: 500px;
+    }
+
+    @include phone {
+      @include fontSize (32px);
+
+      width: 300px;
+      padding-top: 80px;
+    }
+  }
 }
