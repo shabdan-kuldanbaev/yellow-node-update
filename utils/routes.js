@@ -268,6 +268,11 @@ export const routes = {
     dynamicPath: '/terms-and-conditions',
     slug: 'terms-and-conditions',
   },
+  cookiesPolicy: {
+    title: 'Cookies Policy',
+    path: '/cookies-policy',
+    slug: 'cookies-policy',
+  },
   notFound: {
     title: '404 | Yellow',
     path: '/not-found',

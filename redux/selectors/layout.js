@@ -68,3 +68,5 @@ export const selectTitle = (state) => state.layout.title;
 export const selectSubtitle = (state) => state.layout.subtitle;
 
 export const selectCTA = (state) => getCTA(state);
+
+export const selectBackground = (state) => state.layout.background;

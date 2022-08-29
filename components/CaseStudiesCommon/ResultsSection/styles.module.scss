@@ -113,9 +113,11 @@
   }
 
   .video {
-    max-width: 370px;
+    max-width: 372px;
     transform: translateY(-22px);
     border-radius: 50px;
+    margin: 0 auto;
+    display: block;
 
     @include phone {
       max-width: 223px;
@@ -761,6 +763,65 @@
   }
 }
 
+.machine-learning-in-real-estate {
+  @include caseStudyContainer;
+
+  background-color: $very-dark-blue;
+  padding: 20px 40px;
+
+  [data-case-study-title] {
+    color: $white;
+    margin: 0 0 50px;
+
+    @include below-tablet {
+      margin: 0 0 20px;
+    }
+  }
+
+  .mockup {
+    filter: unset;
+    width: 760px;
+
+    @include phone {
+      width: 300px;
+      top: 90%;
+    }
+  }
+
+  .circle {
+    height: 250px;
+    margin-top: unset;
+
+    & > img:first-child {
+      width: 1000px;
+
+      @include below-tablet {
+        width: 700px;
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    & > img:last-child {
+      display: none;
+
+      @include phone {
+        display: block;
+        width: 325px;
+        margin-top: 40px;
+      }
+    }
+
+    @include phone {
+      height: 150px;
+      margin-top: 100px;
+      width: unset;
+    }
+  }
+}
+
 .hotel-data-cloud {
   position: relative;
   overflow: hidden;
@@ -774,7 +835,6 @@
   .imageBundle-1 {
     width: 687px;
     height: 687px;
-
     position: absolute;
     top: -68%;
     left: -30%;
@@ -783,7 +843,6 @@
   .imageBundle-2 {
     width: 687px;
     height: 687px;
-
     position: absolute;
     bottom: -50%;
     right: -15px;

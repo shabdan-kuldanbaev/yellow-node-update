@@ -1,7 +1,8 @@
 .android-mobile-app-development-services {
   &.firstSectionView,
   &.secondSectionView,
-  &.thirdSectionView {
+  &.thirdSectionView,
+  &.fourthSectionView {
     @extend .greySection;
   }
 
@@ -23,6 +24,24 @@
     @extend .cardsWithShadow;
 
     @include iconsWithinCircle;
+
+    .contentWrapper {
+      @extend .threeColumnsCards;
+    }
+  }
+
+  &.fourthSectionView {
+    @include iconsWithinCircle;
+
+    .cards > div {
+      @include flex();
+
+      background-color: transparent;
+
+      .typeTitle {
+        margin-top: 0;
+      }
+    }
 
     .contentWrapper {
       @extend .threeColumnsCards;

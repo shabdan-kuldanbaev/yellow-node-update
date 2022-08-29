@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectComponents, selectMetaData } from 'redux/selectors/layout';
-import Animated from 'components/Common/Animated';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import FullLayout from 'components/Layout/FullLayout';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
@@ -22,7 +20,7 @@ const TechnicalPageContainer = ({
 
   const { main: contentModules } = pageData;
 
-  const breadcrumbs = pagesBreadcrumbs.privacyPolicy();
+  const breadcrumbs = pagesBreadcrumbs.technicalPage(type);
   const pageMetadata = {
     ...metaData,
     url: `${rootUrl}/privacy-policy`,
@@ -45,14 +43,9 @@ const TechnicalPageContainer = ({
           breadcrumbs={breadcrumbs}
           updatedAt={contentModules[0].sys.updatedAt}
         />
-        <Animated
-          {...REVEAL_ANIMATION_PROPS}
-          transitionDelay={250}
-        >
-          <div className={styles.container}>
-            <ContentfulParser document={contentModules[0].fields.text} />
-          </div>
-        </Animated>
+        <div className={styles.container}>
+          <ContentfulParser document={contentModules[0].fields.text} />
+        </div>
       </FullLayout>
     </>
   );

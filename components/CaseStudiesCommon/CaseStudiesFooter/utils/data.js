@@ -13,7 +13,7 @@ export const socialNetworks = [
   },
   {
     name: 'instagram',
-    href: '//www.instagram.com/yellow.systems',
+    href: 'https://instagram.com/yellow.systems',
     iconType: SVG_IMAGES_TYPES.instagram,
   },
 ];

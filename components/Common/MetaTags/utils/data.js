@@ -116,4 +116,10 @@ export const ogMetaData = [
     metaDescription: 'Terms and Conditions',
     url: `${rootUrl}${ROUTES.termsAndConditions.path}`,
   },
+  {
+    pageName: ROUTES.cookiesPolicy.slug,
+    metaTitle: 'Cookies Policy | Yellow',
+    metaDescription: 'Cookies Policy',
+    url: `${rootUrl}${ROUTES.cookiesPolicy.path}`,
+  },
 ];

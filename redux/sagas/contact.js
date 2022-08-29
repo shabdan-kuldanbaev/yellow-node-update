@@ -16,6 +16,10 @@ es6promise.polyfill();
 
 function* sendEmail({ payload }) {
   try {
+    errorHelper.handleMessage({
+      message: `New Contact Form submit: ${JSON.stringify(payload)}`,
+    });
+
     const response = yield call(API.sendEmail, getFeedbackFormData(payload));
 
     gaHelper.trackEvent('Contact Form', 'Send');
