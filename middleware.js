@@ -1,9 +1,5 @@
 import { NextResponse } from 'next/server';
-import {
-  CUSTOM_DOMAIN,
-  INDEX_FILES,
-  IS_PROD,
-} from 'utils/constants';
+import { CUSTOM_DOMAIN, IS_PROD } from 'utils/constants';
 import { getNewPathname, isPage } from 'utils/middlewares';
 
 const forceHttps = (req) => {
@@ -20,7 +16,7 @@ const forceHttps = (req) => {
 
 const redirectWwwToNonWww = (req) => {
   const host = req.headers.get('host') || '';
-  const proto = req.headers.get('x-forwarded-proto');
+  const proto = req.headers.get('x-forwarded-proto') || 'http';
   const wwwRegex = /^www\./;
 
   if (!host.includes('localhost') && wwwRegex.test(host)) {
@@ -44,7 +40,7 @@ const redirectToCustomDomain = (req) => {
 
 const redirectToLowerCasePath = (req) => {
   const host = req.headers.get('host') || '';
-  const proto = req.headers.get('x-forwarded-proto');
+  const proto = req.headers.get('x-forwarded-proto') || 'http';
   const { pathname } = req.nextUrl;
 
   const pathnameLowerCase = pathname.toLowerCase();
@@ -56,22 +52,12 @@ const redirectToLowerCasePath = (req) => {
 
 const redirectToNewPath = (req) => {
   const host = req.headers.get('host') || '';
-  const proto = req.headers.get('x-forwarded-proto');
+  const proto = req.headers.get('x-forwarded-proto') || 'http';
   const { pathname } = req.nextUrl;
   const newPathname = getNewPathname(pathname);
 
   if (newPathname) {
     return NextResponse.redirect(`${proto}://${host}${newPathname}`, 301);
-  }
-};
-
-const redirectFromIndexFile = (req) => {
-  const host = req.headers.get('host') || '';
-  const proto = req.headers.get('x-forwarded-proto');
-  const { pathname } = req.nextUrl;
-
-  if (INDEX_FILES.includes(pathname)) {
-    return NextResponse.redirect(`${proto}://${host}`, 301);
   }
 };
 
@@ -101,6 +87,5 @@ export const middleware = (req) => {
     redirectToCustomDomain,
     redirectToLowerCasePath,
     redirectToNewPath,
-    redirectFromIndexFile,
   ]);
 };
