@@ -1,0 +1,129 @@
+.fintech-software-development-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    @include iconsWithinCircle;
+  }
+  
+  &.secondSectionView {
+    @extend .cardsWithShadow;
+    @extend .cardsWithFullWidthImage;
+
+    @include iconsWithinCircle;
+
+    .contentWrapper {
+      max-width: 1300px;
+
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+
+        & > div {
+          height: 400px;
+
+          @include phone {
+            width: 300px;
+          }
+        }
+
+        * {
+          text-align: center;
+        }
+
+        & > div {
+          padding: 20px 15px;
+        }
+
+        @include tablet {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include below-tablet {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        @include phone {
+          overflow-x: scroll;
+          grid-template-columns: repeat(6, 1fr);
+        }
+      }
+
+      .imageWrapper {
+        margin: 60px auto;
+
+        @include below-tablet {
+          display: none;
+        }
+      }
+
+      .typeTitle {
+        @include below-tablet {
+          display: none;
+        }
+      }
+
+      .cardContent p, ul {
+        display: none;
+        text-align: left;
+
+        @include below-tablet {
+          display: block;
+        }
+      }
+    }
+
+    .overlay {
+      .imageWrapper {
+        display: none;
+      }
+
+      .typeTitle {
+        display: none;
+      }
+
+      .cardContent p, ul {
+        display: block;
+
+        @include phone {
+          @include fontSize(10px);
+        }
+      }
+
+      & > p {
+        margin-top: -50px;
+      }
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $very-dark-gray;
+
+    .cards {
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 80px;
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include below-tablet {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .titleStyle h2,
+    .typeTitle {
+      color: $white;
+    }
+
+    li {
+      &::marker {
+        color: $case-study-dindon-paragraph;
+      }
+    }
+  }
+}

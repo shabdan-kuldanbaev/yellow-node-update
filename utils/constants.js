@@ -208,6 +208,9 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentBlog: 'app-development-blog',
   appDevelopmentCheckSocial: 'app-development-check-social',
   appDevelopmentRelatedServices: 'app-development-related-services',
+  svgDisplayWithSelector: 'svg-display-with-selector',
+  cardsWithOverlay: 'cards-with-overlay',
+  appDevelopmentAppFeatures: 'app-development-app-features',
 };
 
 export const HOMEPAGE_SECTION_TYPES = {
@@ -442,6 +445,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.fintechDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.'

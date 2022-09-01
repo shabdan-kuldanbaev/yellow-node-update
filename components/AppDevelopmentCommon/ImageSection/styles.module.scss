@@ -92,3 +92,46 @@
     padding-top: 0;
   }
 }
+
+.fintech-software-development-services {
+  background-color: $white;
+
+  .imageSection {
+    @include flex(column-reverse);
+
+    .image {
+      background-size: contain;
+      padding: 0;
+      width: 635px;
+      height: 420px;
+      margin: 0 auto;
+
+      @include phone {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    .experienceContent {
+      width: 860px;
+      margin: 120px auto 0;
+      padding: 0;
+
+      h2, p {
+        text-align: center;
+      }
+
+      @include tablet {
+        width: 700px;
+      }
+
+      @include phone {
+        width: 300px;
+      }
+    }
+
+    @include below-tablet {
+      margin: unset;
+    }
+  }
+}

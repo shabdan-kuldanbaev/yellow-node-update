@@ -343,7 +343,8 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.fintech-software-development-services {
   @extend .pageIntroContainer;
 
   background-color: inherit;
@@ -440,4 +441,8 @@
   .pageTitleContainer {
     flex: 1 1 140%;
   }
+}
+
+.fintech-software-development-services {
+  background-color: $very-dark-gray;
 }
