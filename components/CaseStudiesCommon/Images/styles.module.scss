@@ -482,8 +482,31 @@
     }
   }
 }
+
 .hotel-data-cloud {
   .image {
     max-width: 1056px;
+  }
+}
+
+.cinnabar {
+  @extend .imageContainer;
+
+  .image {
+    max-width: 1300px;
+
+    &.active {
+      display: none;
+    }
+
+    @include phone {
+      &.active {
+        display: block;
+      }
+
+      &:not(.active) {
+        display: none;
+      }
+    }
   }
 }

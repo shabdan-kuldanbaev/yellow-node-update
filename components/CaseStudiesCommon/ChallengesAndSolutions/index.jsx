@@ -141,6 +141,18 @@ const ChallengesAndSolutions = ({
                   </div>
                 </Animated>
               )}
+              {!imageUrl && imagesBundles?.map((bundle, imagesBundlesIndex) => {
+                const bundleUrl = getFileUrl(bundle);
+
+                return (
+                  <img
+                    className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
+                    src={bundleUrl}
+                    alt={title}
+                    key={`bundles-images/${bundleUrl}`}
+                  />
+                );
+              })}
             </div>
           );
         })}

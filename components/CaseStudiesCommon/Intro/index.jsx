@@ -34,6 +34,7 @@ export const Intro = (props) => {
   case CASE_STUDIES.bionorica:
   case CASE_STUDIES.goodPsychics:
   case CASE_STUDIES.hotelDataCloud:
+  case CASE_STUDIES.cinnabar:
     return <VerticalIntro {...props} />;
   default:
     return null;

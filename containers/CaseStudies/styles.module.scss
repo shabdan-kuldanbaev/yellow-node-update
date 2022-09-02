@@ -45,3 +45,11 @@
 
   background: $very-dark-blue;
 }
+
+.cinnabar {
+  @extend .feedBackContainer;
+
+  @include phone {
+    padding-top: 0;
+  }
+}

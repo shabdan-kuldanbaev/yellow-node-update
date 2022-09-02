@@ -4,7 +4,7 @@
   .logo {
     color: $logo-stroke;
 
-    & > path:first-child {
+    &>path:first-child {
       color: $turbo-100;
     }
   }
@@ -26,7 +26,7 @@
   .logo {
     color: $logo-stroke;
 
-    & > path:first-child {
+    &>path:first-child {
       color: $turbo-100;
     }
   }
@@ -74,11 +74,12 @@
 .travel-trivia,
 .cash-chat,
 .telemojo,
-.web-app-development-company {
+.web-app-development-company,
+.cinnabar {
   .logo {
     color: $white;
 
-    & > path:first-child {
+    &>path:first-child {
       color: transparent;
     }
   }

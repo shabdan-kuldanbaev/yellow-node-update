@@ -97,7 +97,7 @@
   position: relative;
   overflow: hidden;
 
-  & > * {
+  &>* {
     z-index: 10;
   }
 
@@ -246,5 +246,23 @@
         padding-bottom: 30px;
       }
     }
+  }
+}
+
+.cinnabar {
+  padding-bottom: 120px;
+  background-color: $white;
+
+  [data-case-study-title] {
+    margin-bottom: 60px;
+
+    @include phone {
+      margin-bottom: 50px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 60px;
+    padding-top: 30px;
   }
 }

@@ -4,6 +4,7 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import CustomImage from 'components/Common/CustomImage';
 import Svg from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
+import { getFileUrl } from 'utils/helper';
 import {
   isIntroHasBackground,
   isTitleHasBackground,
@@ -28,6 +29,7 @@ const VerticalIntro = ({
     appBackgroundImageUrl,
     sectionBackground,
     experiences,
+    imagesBundles,
   } = getIntroProps(type, data);
 
   return (
@@ -73,9 +75,11 @@ const VerticalIntro = ({
               {subtitle}
             </p>
           )}
-          <p className={styles.projectDescription}>
-            {description}
-          </p>
+          {description && (
+            <p className={styles.projectDescription}>
+              {description}
+            </p>
+          )}
         </div>
         {caseStudyLink(type, downloadLink)}
         <CustomImage
@@ -87,7 +91,20 @@ const VerticalIntro = ({
           objectFit="contain"
           containerClasses={styles.imageContainer}
           className={styles.image}
+          scale={5}
         />
+        {imagesBundles && imagesBundles.map((bundle) => {
+          const bundleUrl = getFileUrl(bundle);
+
+          return (
+            <img
+              className={styles.bundleImage}
+              src={bundleUrl}
+              alt={title}
+              key={`intro-images-bundles/${bundleUrl}`}
+            />
+          );
+        })}
       </div>
       {experiences && (
         <div className={styles.experiencesContainer}>

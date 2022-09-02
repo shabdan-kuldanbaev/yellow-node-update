@@ -198,6 +198,7 @@
   @include centeredBackgroundImage;
 
   .nextProjectContainer {
+
     .subtitle,
     .projectName,
     .more {
@@ -229,6 +230,7 @@
   background-color: $zircon;
 
   .nextProjectContainer {
+
     .subtitle,
     .projectName,
     .more {
@@ -397,6 +399,23 @@
   @extend .container;
 
   background-color: $slate-gray;
+  color: $white;
+
+  .more,
+  .link,
+  .iconLink {
+    color: $white;
+  }
+
+  .more {
+    border: 1px solid $white;
+  }
+}
+
+.cinnabar {
+  @extend .container;
+
+  background: linear-gradient(137.65deg, $froly -14.62%, $carnation 105.11%);
   color: $white;
 
   .more,

@@ -165,6 +165,9 @@ $very-dark-blue: #010029;
 $bright-ocean-blue: #2F5BF9;
 $mint-blue-1: #5C92CC;
 $mint-blue-2: #78ACE4;
+$froly: #F8776C;
+$carnation: #F0445F;
+$rose-white: #FFFAFA;
 
 //transparency color
 $pagination: rgb(35 37 44 / 0.25);
@@ -258,9 +261,7 @@ $max-article-margin: 24px;
 //filters
 $shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgb(0 0 0 / 0.6));
 $shadow-filter-image: drop-shadow(2px 2px 3px #000);
-$shadow-filter-phone: drop-shadow(
-  -12.8201px 12.8201px 30.4602px rgb(0 0 0 / 0.4)
-);
+$shadow-filter-phone: drop-shadow(-12.8201px 12.8201px 30.4602px rgb(0 0 0 / 0.4));
 
 //timing functions
 $primary-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);
