@@ -61,7 +61,7 @@ const MetaTags = ({
   return (
     <Fragment>
       <Head>
-        <Fragment key={`meta/${title}`}>
+        <Fragment>
           <title>{getTitle(title)}</title>
           <meta name="description" content={getDescription(description)} />
           <meta name="date" content={date} />
