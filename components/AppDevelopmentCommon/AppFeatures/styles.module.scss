@@ -1,103 +1,141 @@
 @import 'styles/utils/mixins';
 
 .fintech-software-development-services {
-    background: $white;
-}
+  background: $white;
 
-.container {
-  max-width: 1085px;
-  margin: 0 auto 130px;
-
-  @include flex(row, space-between);
-
-  @include phone {
-    margin: 0;
+  h2 {
+    width: 800px;
+    margin: 0 auto;
+    margin-bottom: 20px;
   }
 
-  .sectionContainer {
-    max-width: 510px;
-    width: 100%;
+  .container {
+    max-width: 1085px;
+    margin: 0 auto 130px;
+  
+    @include flex(row, space-between);
+  
+    @include phone {
+      margin: 0;
+    }
+  
+    .sectionContainer {
+      max-width: 510px;
+      width: 100%;
 
-    .sectionItem {
-      position: relative;
-      padding: 30px 0;
-      border-bottom: 2px solid rgba($silver-chalice, 0.2);
-
-      &:first-of-type {
-        padding-top: 0;
+      & > div {
+        opacity: unset !important;
       }
 
-      &:last-of-type {
-        padding-bottom: 0;
-        border-bottom: none;
-
-        &::after {
-          content: none;
+      .sectionItem {
+        position: relative;
+        padding: 30px 0;
+        border-bottom: 2px solid rgba($silver-chalice, 0.2);
+  
+        &:first-of-type {
+          padding-top: 0;
         }
-      }
+  
+        &:last-of-type {
+          padding-bottom: 0;
+          border-bottom: none;
+  
+          &::after {
+            content: none;
+          }
+        }
+  
+        .title {
+          margin-bottom: 10px;
+          cursor: pointer;
+          transition: color 400ms, margin 400ms;
+          font-weight: bold;
+          line-height: 120%;
+          color: $black;
+  
+          &:hover {
+            color: $silver-chalice;
+            transition: color 400ms;
+          }
+  
+          @include fontSize(20px);
+  
+          @include tablet {
+            @include fontSize(18px);
 
-      .title {
-        margin: 0;
-        cursor: pointer;
-        transition: color 400ms, margin 400ms;
-        font-weight: bold;
-        line-height: 120%;
-        color: rgba($silver-chalice, 0.5);
-
-        &:hover {
+            margin-left: 10px;
+          }
+  
+          @include phone {
+            @include fontSize(17px);
+          }
+        }
+  
+        .description {
+          line-height: 180%;
           color: $silver-chalice;
-          transition: color 400ms;
-        }
+  
+          @include fontSize(15px);
+  
+          @include tablet {
+            @include fontSize(14px);
 
-        @include fontSize(40px);
+            margin-left: 10px;
+          }
 
-        @include tablet {
-          @include fontSize(32px);
-        }
-
-        @include phone {
-          @include fontSize(24px);
-        }
-      }
-
-      .description {
-        line-height: 180%;
-        color: $silver-chalice;
-
-        @include fontSize(18px);
-
-        @include tablet {
-          @include fontSize(16px);
-        }
-
-        @include phone {
-          @include fontSize(14px);
-        }
-
-        & > p {
-          margin: 0;
+          @include below-tablet {
+            @include fontSize(12px);
+          }
+  
+          @include phone {
+            @include fontSize(11px);
+          }
+  
+          & > p {
+            margin: 0;
+          }
         }
       }
-    }
-
-    .sectionActiveItem {
-      /* stylelint-disable-next-line */
-      .title {
-        margin-bottom: 20px;
-        color: $dark-grey;
-
-        &:hover {
+  
+      .sectionActiveItem {
+        /* stylelint-disable-next-line */
+        .title {
+          margin-bottom: 20px;
           color: $dark-grey;
+  
+          &:hover {
+            color: $dark-grey;
+          }
         }
       }
     }
-  }
 
-  .imageContainer {
-    margin-left: 66px;
+    div:last-child {
+      opacity: 1 !important;
+    }
+
+    .imageContainer {
+      width: 700px;
+      margin-left: 66px;
+      margin-right: -175px;
+
+      img {
+        width: 100%;
+      }
+
+      @include below-tablet {
+        margin-left: unset;
+      }
+
+      @include phone {
+        width: 350px;
+      }
+    }
 
     @include phone {
-      display: none;
+      flex-direction: column;
     }
   }
 }
+
+

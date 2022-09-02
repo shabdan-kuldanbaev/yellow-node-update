@@ -43,6 +43,7 @@
 
         @include phone {
           overflow-x: scroll;
+          overflow-y: hidden;
           grid-template-columns: repeat(6, 1fr);
         }
       }
@@ -89,7 +90,7 @@
       }
 
       & > p {
-        margin-top: -50px;
+        margin-top: -70px;
       }
 
       @include below-tablet {

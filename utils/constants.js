@@ -417,7 +417,7 @@ export const SUB_NAVIGATION_LINKS = {
     },
     {
       title: 'Fintech Software Development Services',
-      subtitle: 'Bebebebebe',
+      subtitle: 'Build a successul fintech solution',
       slug: ROUTES.fintechDevelopment.path,
     },
   ],

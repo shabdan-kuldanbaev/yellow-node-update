@@ -135,7 +135,7 @@ export const microdata = {
     '@context': context,
     '@type': 'WebPage',
     name: 'Fintech Software Development Services',
-    description: 'BEbebe',
+    description: 'Build a successul fintech solution',
     breadcrumb: 'Homepage > Fintech Software Development Services',
   }),
   designServices: () => ({
