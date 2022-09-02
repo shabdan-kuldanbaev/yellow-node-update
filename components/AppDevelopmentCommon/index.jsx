@@ -159,7 +159,7 @@ export const AppDevelopmentCommon = ({
     );
   case APP_DEVELOPMENT_TYPES.svgDisplayWithSelector:
     return (
-      <SvgListSection 
+      <SvgListSection
         sectionData={section}
         type={type}
         withSelector
@@ -167,7 +167,7 @@ export const AppDevelopmentCommon = ({
     );
   case APP_DEVELOPMENT_TYPES.cardsWithOverlay:
     return (
-      <CardsSection 
+      <CardsSection
         sectionData={section}
         pageType={type}
         sectionType="cards"
@@ -176,7 +176,7 @@ export const AppDevelopmentCommon = ({
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeatures:
     return (
-      <AppFeatures 
+      <AppFeatures
         data={section.fields}
         type={type}
       />
