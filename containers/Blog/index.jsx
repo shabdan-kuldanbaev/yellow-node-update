@@ -19,6 +19,7 @@ import {
 } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { categoriesMetaData } from './utils/data';
+import { findTagBySlug, getTagSlugs } from './utils/blogContainerHelper';
 
 const BlogContainer = ({
   tagsList,
@@ -43,6 +44,7 @@ const BlogContainer = ({
     url: `${rootUrl}${asPath}`,
     pageNumber: currentPage,
   };
+  let tagTitle = '';
 
   if (CATEGORY_SLUGS.includes(slug) && categoriesMetaData[slug]) {
     const {
@@ -51,6 +53,19 @@ const BlogContainer = ({
     } = categoriesMetaData[slug];
     pageMetadata.metaTitle = categoryMetaTitle;
     pageMetadata.metaDescription = categoryMetaDescription;
+  }
+
+  if (getTagSlugs(tagsList).includes(slug)) {
+    const tagInfo = findTagBySlug(tagsList, slug);
+
+    if (tagInfo.title) {
+      pageMetadata.metaTitle = `Tag: ${tagInfo.title} | Yellow`;
+      tagTitle = tagInfo.title;
+    }
+
+    if (tagInfo.description) {
+      pageMetadata.metaDescription = tagInfo.description;
+    }
   }
 
   const handleOnFormSubmit = (email) => {
@@ -71,7 +86,7 @@ const BlogContainer = ({
       />
       <FullLayout introSection={introSection}>
         <PageHeader
-          title={ROUTES.blog.title}
+          title={tagTitle || ROUTES.blog.title}
           breadcrumbs={breadcrumbs}
         />
         <SelectionBlock handleOnSubmit={handleOnFormSubmit} />
