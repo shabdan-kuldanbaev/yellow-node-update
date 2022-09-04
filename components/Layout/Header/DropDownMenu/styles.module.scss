@@ -78,26 +78,28 @@
         display: block;
         margin: 0;
 
-        .title {
+        &.title {
+          @include fontSize(20px);
+
           margin: 0 0 7px;
           font-weight: 500;
           line-height: 1.5;
           color: $white;
           transition: color 0.3s ease-in-out;
-
-          @include fontSize(20px);
         }
 
         .subtitle {
+          @include fontSize(18px);
+
+          margin-top: 7px;
           line-height: 2;
           color: $silver-chalice;
           transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
-          @include fontSize(18px);
+          display: block;
         }
 
         &:hover {
-          .title {
+          &.title {
             color: $turbo-100;
           }
 
@@ -108,7 +110,7 @@
         }
 
         @include phone {
-          .title,
+          &.title,
           .subtitle {
             @include fontSize(14px);
           }
