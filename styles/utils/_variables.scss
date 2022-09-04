@@ -178,9 +178,9 @@ $nearby-articles-block-box-shadow-color: rgb(0 0 0 / 0.07);
 $article-preview-box-shadow: 0 10px 60px -10px rgb(0 0 0 / 0.15);
 $card-bow-shadow: 0 8px 35px rgba($pale-sky, 0.1);
 $feedback-form-grey: rgba(#171717, 0.3);
-$case-study-data-cloud-background: rgb(120, 172, 228);
-$case-study-humankind-background: rgb(47, 89, 151);
-$case-study-humankind-wireframes: rgba(255, 255, 255, 0);
+$case-study-data-cloud-background: rgb(120 172 228);
+$case-study-humankind-background: rgb(47 89 151);
+$case-study-humankind-wireframes: rgb(255 255 255 / 0);
 $case-study-dindon-paragraph: rgb(255 255 255 / 0.7);
 $case-study-dindon-background: rgb(255 255 255 / 0.15);
 $case-study-dindon-box-shadow: rgb(170 181 193 / 0.05);
@@ -194,7 +194,7 @@ $burger-transition-time: 0.8s;
 $shadow-time-for-yellow-button: 0.4s;
 $shadow-time-for-border-yellow-button: 0.1s;
 $accelerated-transition-time: calc(#{$default-transition-time} / 2);
-$changing-portfolio-color: 1s;
+$changing-portfolio-color: 0.3s;
 
 //radius
 $buttonRadius: 60px;

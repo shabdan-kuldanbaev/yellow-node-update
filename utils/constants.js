@@ -449,9 +449,10 @@ export const SWIPER_NAV_BUTTON_TYPES = {
 
 export const REVEAL_ANIMATION_PROPS = {
   type: ANIMATED_TYPE.isCustom,
-  translateY: '2.82352941em',
-  opasityDuration: 1,
-  transformDuration: 1,
+  translateY: '2.8em',
+  opasityDuration: 0.5,
+  transformDuration: 0.7,
+  transitionDelay: 300,
 };
 
 export const PHONE_RESOLUTION = 568;
