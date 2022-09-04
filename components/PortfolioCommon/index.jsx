@@ -105,10 +105,7 @@ const Portfolio = ({
         ))}
       </div>
       {hasHiddenItems && (
-        <Animated
-          {...REVEAL_ANIMATION_PROPS}
-          transitionDelay={250}
-        >
+        <Animated {...REVEAL_ANIMATION_PROPS}>
           <ButtonMore
             title="See more projects"
             buttonStyle={styles.showMoreButton}
