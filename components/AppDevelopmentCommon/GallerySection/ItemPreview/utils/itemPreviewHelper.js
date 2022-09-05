@@ -61,21 +61,27 @@ export const getItemPreviewProps = (data) => {
   } = getDocumentFields(get(contentModules, '[0]', {}));
 
   const downloadLink = getDocumentFields(get(contentData, '[0]'));
+
   const appBackgroundImageUrl = getOptimizedContentfulImage(
     getFileUrl(get(contentImages, '[0]', '')),
     { fm: 'png', fl: 'png8' },
   );
+
   const appLogoUrl = getOptimizedContentfulImage(
     getFileUrl(get(contentImages, '[1]', '')),
     { fm: 'png', fl: 'png8' },
   );
+
   const sectionBackgroundImageUrl = getOptimizedContentfulImage(
     getFileUrl(get(images, '[0]', '')),
     { fm: 'png' },
   );
+
   const sectionStyle = sectionBackgroundImageUrl
     ? { backgroundImage: `url(${sectionBackgroundImageUrl})` }
     : {};
+
+  const { slug: link } = getDocumentFields(get(contentModules, '[1]')) || {};
 
   return {
     view,
@@ -89,6 +95,7 @@ export const getItemPreviewProps = (data) => {
     appBackgroundImageUrl,
     appLogoUrl,
     sectionStyle,
+    link,
   };
 };
 
