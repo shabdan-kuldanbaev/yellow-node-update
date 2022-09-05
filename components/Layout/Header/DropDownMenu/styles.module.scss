@@ -153,7 +153,7 @@
   .dropDownNavContainer {
     .itemContainer {
       .link {
-        .title {
+        &.title {
           color: $dark-grey;
         }
       }
