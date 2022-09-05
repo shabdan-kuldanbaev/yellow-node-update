@@ -88,7 +88,7 @@ export const microdata = {
   }),
   company: () => ({
     '@context': context,
-	  '@type': 'AboutPage',
+    '@type': 'AboutPage',
     '@id': pageUrl(ROUTES.company.path),
     name: 'Company | Yellow',
     description: '✔ Meet the team behind our web and mobile apps. ✔ Skilled techies and great people. Yellow - we are the people!',
