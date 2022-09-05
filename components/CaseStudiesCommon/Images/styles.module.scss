@@ -59,8 +59,17 @@
 .fireaway,
 .humankind,
 .famlicious,
+.balzano,
 .fusion-markets {
   @extend .imageContainer;
+}
+
+.balzano {
+  @include phone {
+    .image {
+      max-width: 345px;
+    }
+  }
 }
 
 .fernwayer2 {
