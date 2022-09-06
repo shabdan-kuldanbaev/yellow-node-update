@@ -110,6 +110,25 @@
       grid-gap: 80px;
       margin-bottom: 120px;
 
+      .imageWrapper {
+        svg {
+          @include below-tablet {
+            width: 70px;
+            margin-left: 5px;
+          }
+
+          @include phone {
+            width: 50px;
+          }
+        }
+      }
+
+      .cardContent {
+        @include below-tablet {
+          margin: 10px;
+        }
+      }
+
       @include tablet {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -122,6 +141,13 @@
     .titleStyle h2,
     .typeTitle {
       color: $white;
+    }
+
+    .titleStyle h2 {
+      @include phone {
+        width: 320px;
+        padding-top: 60px;
+      }
     }
 
     li {

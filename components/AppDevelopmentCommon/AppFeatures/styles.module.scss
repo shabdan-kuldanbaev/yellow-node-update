@@ -5,9 +5,15 @@
 
   h2 {
     width: 800px;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
     padding-top: 120px;
+
+    @include phone {
+      @include fontSize(32px);
+
+      width: 320px;
+      padding-top: 60px;
+    }
   }
 
   .container {
@@ -94,10 +100,14 @@
   
           & > p {
             margin: 0;
+
+            @include phone {
+              margin: 5px;
+            }
           }
         }
       }
-  
+
       .sectionActiveItem {
         /* stylelint-disable-next-line */
         .title {
@@ -138,5 +148,3 @@
     }
   }
 }
-
-
