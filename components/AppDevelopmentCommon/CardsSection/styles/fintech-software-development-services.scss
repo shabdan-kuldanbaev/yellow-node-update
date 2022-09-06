@@ -8,6 +8,7 @@
   &.secondSectionView {
     @extend .cardsWithShadow;
     @extend .cardsWithFullWidthImage;
+    @extend .greySection;
 
     @include iconsWithinCircle;
 
@@ -101,11 +102,13 @@
 
   &.thirdSectionView {
     background-color: $very-dark-gray;
+    padding: 0;
 
     .cards {
       width: 100%;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 80px;
+      margin-bottom: 120px;
 
       @include tablet {
         grid-template-columns: repeat(2, 1fr);
