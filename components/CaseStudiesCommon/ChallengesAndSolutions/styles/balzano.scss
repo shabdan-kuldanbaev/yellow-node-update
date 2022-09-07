@@ -70,6 +70,19 @@
       color: $white;
     }
 
+    .swiperBullet {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border-radius: 100%;
+      border: 1px solid $white;
+    }
+
+    .swiperBulletActive {
+      background-color: $white;
+    }
+
     h3 {
       color: $white;
     }
