@@ -1,25 +1,21 @@
 import {
-  Vector2,
-  Vector3,
+  Color,
   PerspectiveCamera,
+  Points,
+  PointsMaterial,
   Scene,
   ShaderMaterial,
+  Vector2,
+  Vector3,
   WebGLRenderer,
-  Points,
-  Color,
-  PointsMaterial,
 // eslint-disable-next-line import/extensions
 } from 'node_modules/three/build/three.module.js';
-import {
-  BufferGeometry,
-  BufferAttribute,
-  DynamicDrawUsage,
-} from 'three';
+import { BufferAttribute, BufferGeometry, DynamicDrawUsage } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import anime from 'animejs';
-import { getPathWithCdn } from 'utils/helper';
 import errorHelper from 'utils/error';
+import { HOMEPAGE_SLOGAN } from 'utils/constants';
 import { shaders } from './data';
 
 export const three = {
@@ -282,8 +278,9 @@ export const slogan = {
   },
   /* ------------------------ */
   animateSlogan: (sloganRef) => {
-    if (sloganRef && sloganRef.current) {
-      const str = sloganRef.current.textContent;
+    // TODO: Fix hydration re-render issue to avoid second call of this function (second condition could be deleted right after fix)
+    if (sloganRef?.current && sloganRef.current.innerHTML === HOMEPAGE_SLOGAN) {
+      const str = sloganRef.current.innerHTML;
       let newStr = '';
 
       for (let i = 0; i < str.length; i += 1) {
@@ -328,11 +325,9 @@ export const getSpeed = (distance, time) => distance / time;
 
 export const loadDuck = async () => {
   try {
-    const duck = await new Promise((resolve) => {
+    return await new Promise((resolve) => {
       three.loadModel(resolve);
     });
-
-    return duck;
   } catch (error) {
     errorHelper.handleError({
       error,
