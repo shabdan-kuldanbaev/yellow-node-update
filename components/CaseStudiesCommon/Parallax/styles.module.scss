@@ -5,10 +5,6 @@
   background-attachment: fixed;
 
   @include centeredBackgroundImage;
-
-  @include phone {
-    background-attachment: scroll;
-  }
 }
 
 .parallaxContainer {
