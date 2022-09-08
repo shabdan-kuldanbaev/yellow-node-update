@@ -85,8 +85,8 @@ export const getMainLinksForSitemap = (updatedAt) => [
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
-  ? process.env.DEV_URL
-  : process.env.PROD_URL;
+  ? process.env.NEXT_PUBLIC_DEV_URL
+  : process.env.NEXT_PUBLIC_PROD_URL;
 
 export const isServer = typeof window === 'undefined';
 

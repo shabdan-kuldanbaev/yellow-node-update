@@ -454,7 +454,7 @@ export const REVEAL_ANIMATION_PROPS = {
   translateY: '2.8em',
   opasityDuration: 0.5,
   transformDuration: 0.7,
-  transitionDelay: 300,
+  transitionDelay: 200,
 };
 
 export const PHONE_RESOLUTION = 568;
