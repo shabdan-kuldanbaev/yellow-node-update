@@ -65,10 +65,18 @@
 }
 
 .balzano {
-  @include phone {
+  &.firstSectionView {
     .image {
-      max-width: 345px;
+      max-width: 1076px;
     }
+  }
+
+  &.secondSectionView {
+    .image {
+      @include phone {
+        max-width: 345px;
+      }
+    } 
   }
 }
 
