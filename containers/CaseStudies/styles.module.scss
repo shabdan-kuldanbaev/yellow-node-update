@@ -45,3 +45,11 @@
 
   background: $very-dark-blue;
 }
+
+.balzano {
+  @extend .feedBackContainer;
+
+  @include phone {
+    padding-top: 0;
+  }
+}

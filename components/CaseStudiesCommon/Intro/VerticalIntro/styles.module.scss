@@ -342,6 +342,7 @@
   }
 }
 
+.balzano,
 .hotel-data-cloud,
 .smartcenter,
 .fusion-markets,
@@ -419,6 +420,45 @@
         max-width: 242px;
 
         @include fontSize(18px);
+      }
+    }
+  }
+}
+
+.balzano {
+  background: linear-gradient(120.48deg, $mint-blue-3 0%, $mint-blue-4 100%);
+
+  .introSection {
+    @include phone {
+      margin-bottom: 50px;
+    }
+
+    .projectInfoContainer {
+      @include phone {
+        margin-bottom: 0;
+      }
+  
+      .projectTitle {
+        max-width: 1000px;
+      }
+
+      .projectSubtitle {
+        color: $white;
+        opacity: 0.7;
+    
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1100px;
+
+    .experience {
+      p:not(.infoTitle) {
+        opacity: 0.7;
       }
     }
   }
