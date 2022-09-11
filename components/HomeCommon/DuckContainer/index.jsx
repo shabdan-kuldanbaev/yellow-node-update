@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React, { useRef } from 'react';
+import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import IntroText from 'components/HomeCommon/IntroText';
 import DuckWrapper from 'components/HomeCommon/DuckContainer/DuckWrapper';
-import { ANIMATED_TYPE } from 'utils/constants';
-import * as styles from './styles.module.scss';
+import { ANIMATED_TYPE, HOMEPAGE_SLOGAN } from 'utils/constants';
+import styles from './styles.module.scss';
 
 const DuckContainer = () => {
   const containerText = useRef(null);
@@ -25,8 +26,10 @@ const DuckContainer = () => {
         >
           <h1
             ref={sloganRef}
-            className="letter-container"
-          />
+            className={cn('letter-container', styles.slogan)}
+          >
+            {HOMEPAGE_SLOGAN}
+          </h1>
         </Animated>
       </div>
       <IntroText className={styles.subText} />

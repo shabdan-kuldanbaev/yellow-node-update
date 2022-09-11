@@ -1,9 +1,10 @@
 import {
   put,
-  takeLatest,
   call,
   all,
   select,
+  takeEvery,
+  takeLeading,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
@@ -170,8 +171,8 @@ function* fetchPageData({
 
 export function* fetchPageWatcher() {
   yield all([
-    yield takeLatest(actionTypes.SET_DUCK_PENDING, fetchDuck),
-    yield takeLatest(actionTypes.FIND_ARTICLES_PENDING, findArticles),
-    yield takeLatest(actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING, fetchPageData),
+    yield takeLeading(actionTypes.SET_DUCK_PENDING, fetchDuck),
+    yield takeEvery(actionTypes.FIND_ARTICLES_PENDING, findArticles),
+    yield takeEvery(actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING, fetchPageData),
   ]);
 }

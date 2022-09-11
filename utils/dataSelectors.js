@@ -1,3 +1,5 @@
+import omitBy from 'lodash/omitBy';
+import isNil from 'lodash/isNil';
 import { END } from 'redux-saga';
 import {
   selectComponents,
@@ -74,7 +76,7 @@ export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps
     await store.sagaTask.toPromise();
 
     const state = store.getState();
-    const pageData = selectors ? selectors(state) : {};
+    const pageData = selectors ? omitBy(selectors(state), isNil) : {};
 
     return {
       props: {

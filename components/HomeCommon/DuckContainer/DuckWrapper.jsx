@@ -17,8 +17,6 @@ const DuckWrapper = ({ sloganRef }) => {
     if (duck) {
       const isMobile = window.innerWidth < mobileResolution;
 
-      if (sloganRef.current) sloganRef.current.innerHTML = 'WE CREATE\nFANTASTIC SOFTWARE';
-
       slogan.animateSlogan(sloganRef);
       slogan.sloganOpacityAnimation(!isMobile ? 0.1 : 1);
     } else {

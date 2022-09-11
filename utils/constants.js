@@ -209,6 +209,8 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentRelatedServices: 'app-development-related-services',
 };
 
+export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
+
 export const HOMEPAGE_SECTION_TYPES = {
   text: 'text',
   cards: 'cards',
