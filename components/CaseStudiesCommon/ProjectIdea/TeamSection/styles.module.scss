@@ -57,11 +57,22 @@
   }
 }
 
+.balzano,
 .fernwayer {
   @extend .container;
 
   grid-template-columns: repeat(3, auto);
   grid-column-gap: 180px;
+
+  .title {
+    @include phone {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.balzano {
+  grid-template-columns: repeat(2, auto);
 }
 
 .dindon {

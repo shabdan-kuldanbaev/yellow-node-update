@@ -446,6 +446,22 @@
   }
 }
 
+.balzano {
+  @include caseStudyContainer;
+
+  &.firstSectionView {
+    background: $white-cloud;
+  }
+
+  &.secondSectionView {
+    background: linear-gradient(120.48deg, $mint-blue-3 0%, $mint-blue-4 100%);
+
+    [data-case-study-title] {
+      color: $white;
+    }
+  }
+}
+
 .cinnabar {
   @include caseStudyContainer;
 

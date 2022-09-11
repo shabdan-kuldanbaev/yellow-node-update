@@ -21,6 +21,7 @@
 .famlicious,
 .telemojo,
 .humankind,
+.balzano,
 .bionorica,
 .marketplace-for-clairvoyant-services {
   @include caseStudyContainer;
@@ -48,6 +49,44 @@
   }
 
   background: $case-study-humankind-background;
+}
+
+.balzano {
+  &.firstSectionView {
+    @include caseStudyContainer;
+
+    [data-case-study-title] {
+      color: $white;
+    }
+  
+    background: linear-gradient(120.48deg, $mint-blue-3 0%, $mint-blue-4 100%);
+  }
+
+  &.secondSectionView {
+    @include caseStudyContainer;
+
+    .secondDescription,
+    [data-case-study-description] {
+      max-width: 982px;
+      text-align: center;
+    }
+
+    .secondDescription {
+      max-width: 770px;
+      margin: 60px auto 0;
+      line-height: 180%;
+
+      color: $silver-chalice;
+    }
+
+    @include phone {
+      .secondDescription {
+        @include fontSize(14px);
+
+        margin: 40px auto 0;
+      }
+    }
+  }
 }
 
 .seven-pm-thursday {

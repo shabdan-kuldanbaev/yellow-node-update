@@ -21,4 +21,5 @@ export const IMAGE_SIZES = {
   famlicious: 660,
   bionorica: 440,
   humankind: 630,
+  balzano: 630,
 };

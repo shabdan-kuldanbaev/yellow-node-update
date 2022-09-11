@@ -106,6 +106,7 @@
   }
 }
 
+.balzano,
 .fernwayer {
   @extend .container;
 
@@ -123,11 +124,19 @@
     }
   }
 
-  /* stylelint-disable-next-line */
   .featureContainer {
     .checkMark {
       color: $white;
       background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+    }
+  }
+}
+
+.balzano {
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: linear-gradient(120.48deg, $mint-blue-3 0%, $mint-blue-4 100%);
     }
   }
 }

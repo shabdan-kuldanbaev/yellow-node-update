@@ -91,6 +91,7 @@ const VerticalIntro = ({
           objectFit="contain"
           containerClasses={styles.imageContainer}
           className={styles.image}
+          // Temporary solution until image problems are fixed
           scale={5}
         />
         {imagesBundles && imagesBundles.map((bundle) => {
