@@ -209,6 +209,8 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentRelatedServices: 'app-development-related-services',
 };
 
+export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
+
 export const HOMEPAGE_SECTION_TYPES = {
   text: 'text',
   cards: 'cards',
@@ -318,6 +320,7 @@ export const CASE_STUDIES = {
   goodPsychics: 'marketplace-for-clairvoyant-services',
   mlInRealEstate: 'machine-learning-in-real-estate',
   humankind: 'humankind',
+  balzano: 'balzano',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -327,6 +330,7 @@ export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key
 }, []);
 
 export const PAGES_WITH_DARK_HEADER = [
+  ROUTES.project.getRoute(CASE_STUDIES.balzano).path,
   ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
   ROUTES.project.getRoute(CASE_STUDIES.dindon).path,
   ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
@@ -452,7 +456,7 @@ export const REVEAL_ANIMATION_PROPS = {
   translateY: '2.8em',
   opasityDuration: 0.5,
   transformDuration: 0.7,
-  transitionDelay: 300,
+  transitionDelay: 200,
 };
 
 export const PHONE_RESOLUTION = 568;

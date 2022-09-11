@@ -82,6 +82,55 @@
   }
 }
 
+.balzano {
+  @extend .infoContainer;
+
+  flex-direction: column;
+
+  /* stylelint-disable-next-line */
+  .container {
+    max-width: unset;
+
+    .title {
+      color: $dark-grey;
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      .listItemContainer {
+        color: $silver-chalice;
+  
+        &::marker {
+          color: $pure-blue-4
+        }
+
+        @include phone {
+          text-align: center
+        }
+      }
+
+      @include phone {
+        @include flex(column, center, center);
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+
+      @include phone {
+        margin-bottom: 0;
+      }
+    }
+
+    @include phone {
+      max-width: 300px;
+    }
+  }
+}
+
 .seven-pm-thursday {
   @extend .infoContainer;
 
