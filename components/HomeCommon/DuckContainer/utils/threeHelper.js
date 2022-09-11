@@ -10,7 +10,11 @@ import {
   WebGLRenderer,
 // eslint-disable-next-line import/extensions
 } from 'node_modules/three/build/three.module.js';
-import { BufferAttribute, BufferGeometry, DynamicDrawUsage } from 'three';
+import {
+  BufferAttribute,
+  BufferGeometry,
+  DynamicDrawUsage,
+} from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import anime from 'animejs';

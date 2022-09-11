@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import styles from './styles.module.scss';
+import styles from '../DropDownMenu/styles.module.scss';
 
 const SubMenuItem = ({
   closeMobileMenu,
