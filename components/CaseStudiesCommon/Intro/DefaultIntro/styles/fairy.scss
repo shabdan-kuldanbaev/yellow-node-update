@@ -6,6 +6,7 @@
 
   .experiencesContainer {
     /* stylelint-disable-next-line */
+
     .experience {
       margin-right: 15px;
 
@@ -13,22 +14,16 @@
         color: rgba($white, 0.4);
       }
 
-      &:nth-last-child(2) {
-        p:not(.infoTitle) {
-          max-width: 295px;
-        }
-      }
-
-      &:last-of-type {
-        margin-right: 0;
-
-        p:not(.infoTitle) {
-          max-width: 200px;
-        }
-      }
-
       .infoTitle {
         color: $white;
+      }
+
+      @include tablet {
+        flex: 1 0 150px;
+
+        p {
+          white-space: pre-wrap;
+        }
       }
     }
   }
