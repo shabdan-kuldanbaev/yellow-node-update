@@ -90,87 +90,89 @@
       position: absolute;
     }
 
-    &:nth-of-type(1) {
-      .imageBundle {
-        &-1 {
-          top: -50%;
-          left: -30%;
-          max-width: 160px;
-
-          @include macbook-fifteen {
-            left: -15%;
-          }
-
-          @include phone {
-            display: none;
-          }
-        }
-
-        &-2 {
-          top: -25%;
-          left: -20%;
-          max-width: 77px;
-
-          @include macbook-fifteen {
-            left: -6%;
-          }
-
-          @include phone {
-            display: none;
-          }
-        }
-      }
-    }
-
-    &:nth-of-type(2) {
-      .imageBundle {
-        &-1 {
-          top: 16%;
-          right: -30%;
-          z-index: 1;
-          max-width: 160px;
-
-          @include macbook-fifteen {
-            right: -19%;
-            top: 20%;
-          }
-
-          @include tablet {
-            right: 0%;
-            top: 93%;
-            max-width: 45px;
-          }
-        }
-
-        &-2 {
-          top: 40%;
-          right: -50%;
-          max-width: 468px;
-
-          @include macbook-fifteen {
-            right: -40%;
-          }
-
-          @include tablet {
-            right: -15%;
-            top: 95%;
-            max-width: 133px;
-          }
-        }
-      }
-    }
-
-    @include phone {
-
-      &:nth-child(2),
-      &:nth-child(3) {
+    &:not(.special) {
+      &:nth-of-type(1) {
         .imageBundle {
           &-1 {
-            display: none;
+            top: -50%;
+            left: -30%;
+            max-width: 160px;
+
+            @include macbook-fifteen {
+              left: -15%;
+            }
+
+            @include phone {
+              display: none;
+            }
           }
 
           &-2 {
-            display: none;
+            top: -25%;
+            left: -20%;
+            max-width: 77px;
+
+            @include macbook-fifteen {
+              left: -6%;
+            }
+
+            @include phone {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        .imageBundle {
+          &-1 {
+            top: 16%;
+            right: -30%;
+            z-index: 1;
+            max-width: 160px;
+
+            @include macbook-fifteen {
+              right: -19%;
+              top: 20%;
+            }
+
+            @include tablet {
+              right: 0%;
+              top: 93%;
+              max-width: 45px;
+            }
+          }
+
+          &-2 {
+            top: 40%;
+            right: -50%;
+            max-width: 468px;
+
+            @include macbook-fifteen {
+              right: -40%;
+            }
+
+            @include tablet {
+              right: -15%;
+              top: 95%;
+              max-width: 133px;
+            }
+          }
+        }
+      }
+
+      @include phone {
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          .imageBundle {
+            &-1 {
+              display: none;
+            }
+
+            &-2 {
+              display: none;
+            }
           }
         }
       }
@@ -239,19 +241,23 @@
         .images {
           .imageBundle {
             &-1 {
-              top: 3%;
+              top: -10%;
               right: 10%;
               z-index: 1;
               max-width: 138px;
 
+              @include macbook-fifteen {
+                top: -15%;
+              }
+
               @include tablet {
-                top: 3%;
+                top: -5%;
                 left: -5%;
                 max-width: 119px;
               }
 
               @include phone {
-                top: 1%;
+                top: -8%;
                 left: -13%;
               }
             }
@@ -287,7 +293,7 @@
               max-width: 111px;
 
               @include macbook-fifteen {
-                top: 18%;
+                top: 3%;
                 left: 2%;
               }
 
@@ -314,7 +320,7 @@
               transform: translate(5%, -10%);
 
               @include macbook-fifteen {
-                top: 37%;
+                top: 68%;
                 max-width: 111px;
               }
 
@@ -355,7 +361,7 @@
         .images {
           .imageBundle {
             &:nth-child(2) {
-              top: 46%;
+              top: 19%;
               right: 3%;
               z-index: 1;
               max-width: 123px;
@@ -371,7 +377,7 @@
             }
 
             &:nth-child(3) {
-              top: 43%;
+              top: -8%;
               right: -5%;
               z-index: -1;
               max-width: 270px;
@@ -420,18 +426,14 @@
         .images {
           .imageBundle {
             &:nth-child(2) {
-              top: 74%;
+              top: 24%;
               right: 7%;
               z-index: 1;
               max-width: 57px;
               transform: translate(-20%, -30%);
 
-              @include macbook-fifteen {
-                top: 71%;
-              }
-
               @include tablet {
-                top: 70%;
+                top: -8%;
                 right: 6%;
                 max-width: 38px;
                 transform: translate(20%, 5%);
@@ -443,17 +445,13 @@
             }
 
             &:nth-child(3) {
-              top: 73%;
+              top: 16%;
               right: 5%;
               z-index: -1;
               max-width: 82px;
 
-              @include macbook-fifteen {
-                top: 70%;
-              }
-
               @include tablet {
-                top: 70%;
+                top: -7%;
                 right: -2%;
                 max-width: 96px;
               }
@@ -467,7 +465,7 @@
               display: none;
 
               @include tablet {
-                top: 82%;
+                top: 70%;
                 left: -2%;
                 z-index: -1;
                 display: block;
@@ -482,20 +480,20 @@
         .images {
           .imageBundle {
             &:nth-child(2) {
-              top: 90%;
+              top: 48%;
               left: 12%;
               z-index: -1;
               max-width: 384px;
               transform: translate(0, 6%);
 
               @include macbook-fifteen {
-                top: 89%;
+                top: 49%;
                 left: 1%;
                 transform: translate(0, 2%);
               }
 
               @include tablet {
-                top: 95%;
+                top: 17%;
                 right: -1%;
                 left: unset;
                 max-width: 101px;
@@ -503,19 +501,19 @@
 
               @include phone {
                 right: -5%;
-                top: 58%;
+                top: 27%;
               }
             }
 
             &:nth-child(3) {
-              top: 93%;
+              top: 70%;
               left: 8%;
               z-index: -1;
               max-width: 123px;
               transform: translate(5%, -20%);
 
               @include macbook-fifteen {
-                top: 92%;
+                top: 67%;
                 left: -3%;
               }
 
