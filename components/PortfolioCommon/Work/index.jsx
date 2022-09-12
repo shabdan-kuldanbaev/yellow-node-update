@@ -34,10 +34,7 @@ const Work = ({
   };
 
   return (
-    <Animated
-      {...REVEAL_ANIMATION_PROPS}
-      transitionDelay={700}
-    >
+    <Animated {...REVEAL_ANIMATION_PROPS}>
       <div className={cn(styles.work, styles[customSlug || slug])}>
         {backgroundImage && (
           <CustomImage

@@ -17,15 +17,15 @@
   }
 
   .container {
+    @include flex(row, space-between);
+
     max-width: 1085px;
     margin: 0 auto 130px;
-  
-    @include flex(row, space-between);
-  
+
     @include phone {
       margin: 0;
     }
-  
+
     .sectionContainer {
       max-width: 510px;
       width: 100%;
@@ -38,11 +38,11 @@
         position: relative;
         padding: 30px 0;
         border-bottom: 2px solid rgba($silver-chalice, 0.2);
-  
+
         &:first-of-type {
           padding-top: 0;
         }
-  
+
         &:last-of-type {
           padding-bottom: 0;
           border-bottom: none;
@@ -51,39 +51,39 @@
             content: none;
           }
         }
-  
+
         .title {
+          @include fontSize(20px);
+
           margin-bottom: 10px;
           cursor: pointer;
           transition: color 400ms, margin 400ms;
           font-weight: bold;
           line-height: 120%;
           color: $black;
-  
+
           &:hover {
             color: $silver-chalice;
             transition: color 400ms;
           }
-  
-          @include fontSize(20px);
-  
+
           @include tablet {
             @include fontSize(18px);
 
             margin-left: 10px;
           }
-  
+
           @include phone {
             @include fontSize(17px);
           }
         }
-  
+
         .description {
+          @include fontSize(15px);
+
           line-height: 180%;
           color: $silver-chalice;
-  
-          @include fontSize(15px);
-  
+
           @include tablet {
             @include fontSize(14px);
 
@@ -93,11 +93,11 @@
           @include below-tablet {
             @include fontSize(12px);
           }
-  
+
           @include phone {
             @include fontSize(11px);
           }
-  
+
           & > p {
             margin: 0;
 

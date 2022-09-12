@@ -322,6 +322,7 @@ export const CASE_STUDIES = {
   goodPsychics: 'marketplace-for-clairvoyant-services',
   mlInRealEstate: 'machine-learning-in-real-estate',
   humankind: 'humankind',
+  balzano: 'balzano',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -331,6 +332,7 @@ export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key
 }, []);
 
 export const PAGES_WITH_DARK_HEADER = [
+  ROUTES.project.getRoute(CASE_STUDIES.balzano).path,
   ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
   ROUTES.project.getRoute(CASE_STUDIES.dindon).path,
   ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
@@ -448,7 +450,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.fintechDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
-  [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.'
+  [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
@@ -462,9 +464,10 @@ export const SWIPER_NAV_BUTTON_TYPES = {
 
 export const REVEAL_ANIMATION_PROPS = {
   type: ANIMATED_TYPE.isCustom,
-  translateY: '2.82352941em',
-  opasityDuration: 1,
-  transformDuration: 1,
+  translateY: '2.8em',
+  opasityDuration: 0.5,
+  transformDuration: 0.7,
+  transitionDelay: 300,
 };
 
 export const PHONE_RESOLUTION = 568;

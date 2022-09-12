@@ -5,6 +5,7 @@ import get from 'lodash/get';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -42,6 +43,7 @@ const AppFeatures = ({ data, type }) => {
               <Animated
                 key={title}
                 delay={75 * index}
+                {...REVEAL_ANIMATION_PROPS}
               >
                 <div
                   className={cn(styles.sectionItem, {

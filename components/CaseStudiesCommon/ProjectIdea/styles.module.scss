@@ -136,6 +136,26 @@
   }
 }
 
+.balzano {
+  @extend .container;
+
+  background-color: $white;
+
+  .contentContainer {
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          margin: 0 0 40px;
+
+          @include phone {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
 .stickerbox {
   @extend .container;
 

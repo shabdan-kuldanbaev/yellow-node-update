@@ -20,5 +20,10 @@
   "/blog/10-best-chatbot-examples-to-improve-customer-service-in-2019": "/blog/chatbot-examples-to-improve-customer-service",
   "/7-benefits-of-using-chatbots-for-your-business": "/blog/10-benefits-of-using-chatbots-for-your-business",
   "/blog/six-reasons-to-fall-in-love-with-react": "/blog/benefits-of-react",
-  "/tag/marketing": "/blog/marketing"
+  "/tag/marketing": "/blog/marketing",
+  "/index.asp":  "/",
+  "/index.aspx":  "/",
+  "/index.htm":  "/",
+  "/index.html":  "/",
+  "/index.php":  "/"
 }

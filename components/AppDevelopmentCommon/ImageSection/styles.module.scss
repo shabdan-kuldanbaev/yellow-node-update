@@ -122,6 +122,20 @@
         text-align: center;
       }
 
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      & > div:last-child {
+        & > p {
+          margin-bottom: 60px;
+
+          @include phone {
+            margin-bottom: unset;
+          }
+        }
+      }
+
       @include tablet {
         width: 700px;
       }
@@ -134,5 +148,9 @@
     @include below-tablet {
       margin: unset;
     }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
   }
 }
