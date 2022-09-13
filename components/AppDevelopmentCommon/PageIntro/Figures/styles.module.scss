@@ -250,3 +250,46 @@
     }
   }
 }
+
+.devops-development-services {
+  .figures {
+    display: grid;
+    gap: 8vw;
+    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 60px;
+
+    & > div {
+      width: 100%;
+
+      .title {
+        @extend .figureTitle;
+        color: $white;
+        text-align: left;
+      }
+
+      .description {
+        @extend .figureSubtitle;
+
+        text-align: left;
+      }
+
+      @include below-tablet {
+        margin-bottom: 50px;
+        flex: 1 0 50%;
+      }
+    }
+
+    div:last-child {
+      margin-right: 0;
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include phone {
+      margin-top: 30px;
+    }
+  }
+}

@@ -125,6 +125,20 @@ export { default as titledWebRtc } from './titledWebRtc.svg';
 export { default as titledKubernetes } from './titledKubernetes.svg';
 export { default as titledContentful } from './titledContentful.svg';
 export { default as titledSeleniumWebDriver } from './titledSeleniumWebDriver.svg';
+export { default as titledAwsShort } from './titledAwsShort.svg';
+export { default as titledAzure } from './titledAzure.svg';
+export { default as titledBitbucket } from './titledBitbucket.svg';
+export { default as titledBlazeMeter } from './titledBlazeMeter.svg';
+export { default as titledConfluence } from './titledConfluence.svg';
+export { default as titledGitHub } from './titledGitHub.svg';
+export { default as titledGitLab } from './titledGitLab.svg';
+export { default as titledGoogleCloud } from './titledGoogleCloud.svg';
+export { default as titledJenkins } from './titledJenkins.svg';
+export { default as titledJira } from './titledJira.svg';
+export { default as titledOutlook } from './titledOutlook.svg';
+export { default as titledSlack } from './titledSlack.svg';
+export { default as titledSonarqube } from './titledSonarqube.svg';
+export { default as titledTeams } from './titledTeams.svg';
 
 /* Partners */
 export { default as techCrunch } from './techCrunch.svg';

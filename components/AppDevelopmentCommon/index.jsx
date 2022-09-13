@@ -18,6 +18,8 @@ const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCo
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
 const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'), { ssr: false });
+const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/PlainTextSection'));
+const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -154,6 +156,20 @@ export const AppDevelopmentCommon = ({
       <CheckSocialSection
         sectionData={section}
         type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentPlainTextSection:
+    return (
+      <PlainTextSection
+        sectionData={section}
+        pageType={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentBookmarkCard:
+    return (
+      <BookmarkCardSection
+        sectionData={section}
+        pageType={type}
       />
     );
   default:

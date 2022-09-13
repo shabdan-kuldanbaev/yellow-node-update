@@ -11,6 +11,7 @@
 .mvp-app-development-company,
 .cloud-based-app-development-services,
 .machine-learning-development-services,
+.devops-development-services,
 .chat-app-development-company {
   @include appDevelopmentContainer;
 
@@ -43,7 +44,8 @@
 .cloud-based-app-development-services,
 .machine-learning-development-services,
 .chat-app-development-company,
-.mobile-app-development-company {
+.mobile-app-development-company,
+.devops-development-services {
   background-color: $white;
 
   & > div {

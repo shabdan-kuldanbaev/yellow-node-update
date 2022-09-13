@@ -53,6 +53,7 @@ export const NAV_LINKS = [
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
     routes.mlDevelopment.slug,
+    routes.devOpsDevelopment.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
     routes.termsAndConditions.slug,
@@ -207,6 +208,8 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentBlog: 'app-development-blog',
   appDevelopmentCheckSocial: 'app-development-check-social',
   appDevelopmentRelatedServices: 'app-development-related-services',
+  appDevelopmentPlainTextSection: 'app-development-plain-text',
+  appDevelopmentBookmarkCard: 'app-development-bookmark-card',
 };
 
 export const HOMEPAGE_SECTION_TYPES = {
@@ -365,6 +368,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.mvpDevelopment.path,
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
+  ROUTES.devOpsDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -435,6 +439,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
+  [PAGES.devOpsDevelopment]: 'Still have questions? We\'re ready to answer them',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
 };
 

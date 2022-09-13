@@ -1,0 +1,113 @@
+.devops-development-services {
+  &.firstSectionView {
+    @include iconsWithinCircle;
+
+    padding-bottom: 0;
+  }
+  &.secondSectionView {
+    background-color: $cod-gray-1;
+
+    .typeTitle,
+    .titleStyle h2 {
+      color: $white;
+    }
+
+    .titleStyle {
+      max-width: 935px;
+    }
+
+    .cards {
+      @include flex(row, center, initial, wrap);
+      grid-gap: 40px 15%;
+    }
+
+    .cards > div {
+      width: 296px;
+    }
+
+    .contentWrapper {
+      max-width: 1280px;
+    }
+
+    @include tablet {
+      .cards > div {
+        width: 290px;
+      }
+    }
+
+    @include phone {
+      .cards {
+        @include flex(column, flex-start);
+        grid-gap: 24px 15%;
+      }
+
+      .cards > div {
+        width: 100%;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .cardsWithShadow;
+
+    @include iconsWithinCircle;
+
+    padding-bottom: 0;
+  }
+
+  &.fourthSectionView {
+    .contentWrapper {
+      @extend .threeColumnsCards;
+    }
+
+    background-color: $very-dark-gray;
+
+    .titleStyle {
+      max-width: 945px;
+    }
+
+    .titleStyle p {
+      max-width: 702px;
+    }
+
+    .cardContent {
+      width: 298px;
+    }
+
+    .cards > div {
+      background-color: $very-dark-gray;
+      box-shadow: none;
+      width: 292px;
+
+      @include below-tablet {
+        display: block;
+
+        h3 {
+          margin-top: 16px;
+        }
+
+        svg {
+          transform: scale(0.7);
+          margin: 0 0 -13px -13px;
+        }
+      }
+    }
+
+    .titleStyle h2,
+    .typeTitle {
+      color: $white;
+    }
+  }
+
+  &.fifthSectionView {
+    @include iconsWithinCircle;
+
+    .titleStyle {
+      max-width: 764px;
+    }
+
+    .cardContent {
+      width: 365px;
+    }
+  }
+}

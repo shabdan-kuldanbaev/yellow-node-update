@@ -105,6 +105,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.mlDevelopment.path}`,
   },
   {
+    pageName: ROUTES.devOpsDevelopment.slug,
+    metaTitle: 'DevOps Development Company | Yellow',
+    metaDescription: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
+    url: `${rootUrl}${ROUTES.devOpsDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.privacyPolicy.slug,
     metaTitle: 'Privacy Policy | Yellow',
     metaDescription: 'Privacy Policy',
