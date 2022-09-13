@@ -776,7 +776,10 @@
     background: $rose-white;
 
     @include phone {
-      right: 5%;
+      left: -34%;
+      top: -20%;
+      bottom: -20%;
+      right: 7%;
     }
   }
 

@@ -183,8 +183,8 @@
       color: rgba($silver-chalice, 0.7);
     }
 
-    &>div:last-child {
-      &>div:nth-of-type(1n+1) {
+    & > div:last-child {
+      & > div:nth-of-type(1n+1) {
         animation-direction: inherit;
       }
     }
@@ -386,7 +386,7 @@
       color: $white;
     }
 
-    &>div:last-child {
+    & > div:last-child {
       @include flex(row, initial, initial, wrap);
       @include fontSize(14px);
     }
@@ -395,7 +395,7 @@
   &.sixthSectionView {
     padding: 0;
 
-    &>div:nth-child(2) {
+    & > div:nth-child(2) {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       padding: 0 50px;

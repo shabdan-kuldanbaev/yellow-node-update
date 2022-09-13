@@ -76,7 +76,7 @@
       @include phone {
         max-width: 345px;
       }
-    } 
+    }
   }
 }
 
@@ -509,21 +509,24 @@
 .cinnabar {
   @extend .imageContainer;
 
-  .image {
-    max-width: 1300px;
-
-    &.active {
-      display: none;
-    }
+  .image:first-child {
+    display: block;
+    max-width: $max-content-width-small-section;
+    width: 100%;
+    margin: 0 auto;
 
     @include phone {
-      &.active {
-        display: block;
-      }
+      display: none;
+    }
+  }
 
-      &:not(.active) {
-        display: none;
-      }
+  .image:last-child {
+    display: none;
+    max-height: 110px;
+    margin: 0 auto;
+
+    @include phone {
+      display: block;
     }
   }
 }

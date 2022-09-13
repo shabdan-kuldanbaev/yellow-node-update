@@ -76,6 +76,10 @@
   .contentContainer {
     position: relative;
 
+    @include phone {
+      margin-bottom: 15px;
+    }
+
     .infoContainer {
       max-width: 455px;
 
@@ -242,7 +246,7 @@
           .imageBundle {
             &-1 {
               top: -10%;
-              right: 10%;
+              right: -55%;
               z-index: 1;
               max-width: 138px;
 
@@ -251,33 +255,33 @@
               }
 
               @include tablet {
-                top: -5%;
+                top: -45%;
                 left: -5%;
                 max-width: 119px;
               }
 
               @include phone {
-                top: -8%;
-                left: -13%;
+                top: -90%;
+                left: -17%;
               }
             }
 
             &-2 {
               top: 5%;
-              right: 10%;
+              right: -55%;
               z-index: 1;
               max-width: 59px;
               transform: translate(10%, -35%);
 
               @include tablet {
-                top: 4%;
+                top: -48%;
                 left: 3%;
                 max-width: 62px;
                 transform: translate(0, 10%);
               }
 
               @include phone {
-                top: 3%;
+                top: -69%;
               }
             }
           }
@@ -288,17 +292,17 @@
         .images {
           .imageBundle {
             &-1 {
-              top: 21%;
-              left: 7%;
+              top: 15%;
+              left: -60%;
               max-width: 111px;
 
               @include macbook-fifteen {
                 top: 3%;
-                left: 2%;
               }
 
               @include macbook-twelve {
-                top: 17%;
+                top: -12%;
+                left: -70%;
               }
 
               @include tablet {
@@ -313,40 +317,31 @@
         .images {
           .imageBundle {
             &-1 {
-              top: 38%;
-              left: 6%;
+              top: 39%;
+              left: -24%;
               z-index: 1;
               max-width: 138px;
               transform: translate(5%, -10%);
 
               @include macbook-fifteen {
-                top: 68%;
-                max-width: 111px;
+                top: 34%;
+                left: -27%;
               }
 
               @include macbook-twelve {
-                display: none;
-              }
-
-              @include tablet {
                 display: none;
               }
             }
 
             &-2 {
-              top: 33%;
-              left: 9%;
+              top: -2%;
+              left: -20%;
               z-index: -1;
               max-width: 431px;
               transform: translate(-5%, 5%);
 
-              @include macbook-fifteen {
-                top: 32%;
-              }
-
               @include macbook-twelve {
-                top: 30%;
-                left: 6%;
+                left: -15%;
               }
 
               @include tablet {
@@ -362,12 +357,13 @@
           .imageBundle {
             &:nth-child(2) {
               top: 19%;
-              right: 3%;
+              right: -69%;
               z-index: 1;
               max-width: 123px;
               transform: translate(0, -20%);
 
               @include macbook-fifteen {
+                right: -61%;
                 transform: translate(0, -5%);
               }
 
@@ -378,12 +374,12 @@
 
             &:nth-child(3) {
               top: -8%;
-              right: -5%;
+              right: -82%;
               z-index: -1;
               max-width: 270px;
 
               @include macbook-fifteen {
-                right: -9%;
+                right: -77%;
               }
 
               @include macbook-twelve {
@@ -427,7 +423,7 @@
           .imageBundle {
             &:nth-child(2) {
               top: 24%;
-              right: 7%;
+              right: -57%;
               z-index: 1;
               max-width: 57px;
               transform: translate(-20%, -30%);
@@ -446,7 +442,7 @@
 
             &:nth-child(3) {
               top: 16%;
-              right: 5%;
+              right: -60%;
               z-index: -1;
               max-width: 82px;
 
@@ -480,15 +476,15 @@
         .images {
           .imageBundle {
             &:nth-child(2) {
-              top: 48%;
-              left: 12%;
+              top: 36%;
+              left: -13%;
               z-index: -1;
               max-width: 384px;
               transform: translate(0, 6%);
 
               @include macbook-fifteen {
-                top: 49%;
-                left: 1%;
+                top: 28%;
+                left: -23%;
                 transform: translate(0, 2%);
               }
 
@@ -506,15 +502,15 @@
             }
 
             &:nth-child(3) {
-              top: 70%;
-              left: 8%;
+              top: 60%;
+              left: -19%;
               z-index: -1;
               max-width: 123px;
               transform: translate(5%, -20%);
 
               @include macbook-fifteen {
-                top: 67%;
-                left: -3%;
+                top: 55%;
+                left: -30%;
               }
 
               @include tablet {
@@ -547,16 +543,39 @@
       }
 
       .images {
+        position: relative;
+
         .image {
           max-width: 1115px;
-
+          width: 100%;
+          height: unset;
+          max-height: unset;
           filter: none;
+
+          @include macbook-fifteen {
+            max-width: 890px;
+          }
         }
 
         .imageBundle {
           position: absolute;
         }
       }
+    }
+  }
+
+  &.secondSectionView {
+    .swiperBullet {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border-radius: 100%;
+      border: 1px solid $white;
+    }
+
+    .swiperBulletActive {
+      background-color: $white;
     }
   }
 }

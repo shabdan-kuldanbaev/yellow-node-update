@@ -437,7 +437,7 @@
       @include phone {
         margin-bottom: 0;
       }
-  
+
       .projectTitle {
         max-width: 1000px;
       }
@@ -445,7 +445,7 @@
       .projectSubtitle {
         color: $white;
         opacity: 0.7;
-    
+
         @include phone {
           @include fontSize(14px);
         }
@@ -779,7 +779,7 @@
   color: $white;
 
   .introSection {
-    margin-bottom: 135px;
+    margin-bottom: 85px;
 
     .imageContainer {
       max-width: 1400px;
@@ -799,7 +799,6 @@
         left: 8%;
         z-index: 1;
         max-width: 160px;
-        transform: translate(0, 0);
 
         @include macbook-fifteen {
           top: 15%;
@@ -854,7 +853,11 @@
         top: 53%;
         right: 4%;
         z-index: 1;
-        max-width: 64px;
+        max-width: 138px;
+
+        @include macbook-fifteen {
+          right: -5%;
+        }
 
         @include tablet {
           top: 74%;
@@ -871,7 +874,11 @@
       &:nth-of-type(5) {
         top: 51%;
         right: 4%;
-        max-width: 160px;
+        max-width: 431px;
+
+        @include macbook-fifteen {
+          right: -5%;
+        }
 
         @include tablet {
           top: 65%;

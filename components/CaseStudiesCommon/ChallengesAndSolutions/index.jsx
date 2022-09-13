@@ -148,7 +148,6 @@ const ChallengesAndSolutions = ({
                   <img
                     className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                     src={bundleUrl}
-                    alt={title}
                     key={`bundles-images/${bundleUrl}`}
                   />
                 );

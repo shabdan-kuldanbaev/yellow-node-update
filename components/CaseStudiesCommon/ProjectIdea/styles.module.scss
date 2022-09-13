@@ -83,7 +83,7 @@
 
         @include fontSize(18px);
 
-        &>p {
+        & > p {
           margin: 0;
         }
 
@@ -114,7 +114,7 @@
   .mobileAdditionalInformation {
     flex-direction: column;
 
-    &>div {
+    & > div {
       margin-top: 40px;
       margin-right: 0 !important;
     }
@@ -237,7 +237,7 @@
 
       @include tablet {
         flex-direction: column;
-        padding-bottom: 0px;
+        padding-bottom: 0;
       }
 
       @include phone {
@@ -570,7 +570,7 @@
     .descriptionContainer {
       .descriptionIntro {
         .description {
-          &>p {
+          & > p {
             padding: 0 6px;
           }
         }
@@ -581,7 +581,7 @@
   .mobileAdditionalInformation {
     flex-direction: column;
 
-    &>div {
+    & > div {
       margin-top: 80px;
     }
   }
@@ -616,7 +616,7 @@
 
       .descriptionIntro {
         .description {
-          &>p {
+          & > p {
             padding: 0 6px;
           }
         }
@@ -627,7 +627,7 @@
   .mobileAdditionalInformation {
     flex-direction: column;
 
-    &>div {
+    & > div {
       margin-top: 80px;
 
       @include phone {
@@ -645,9 +645,11 @@
       .descriptionIntro {
         .title {
           background:
-            linear-gradient(to right,
+            linear-gradient(
+              to right,
               $ocean-blue 0%,
-              $jacksons-purple 50%);
+              $jacksons-purple 50%
+            );
           background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -705,7 +707,7 @@
     .descriptionContainer {
       .descriptionIntro {
         .description {
-          &>p {
+          & > p {
             width: 560px;
             padding: 0 6px;
 
@@ -820,14 +822,14 @@
   }
 
   .mobileAdditionalInformation {
-    &>div {
+    & > div {
       @include phone {
         margin-top: unset;
       }
     }
   }
 
-  &>div:last-child {
+  & > div:last-child {
     position: absolute;
     top: 53%;
     left: 64.5%;

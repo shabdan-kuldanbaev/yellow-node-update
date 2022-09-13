@@ -94,14 +94,13 @@ const VerticalIntro = ({
           // Temporary solution until image problems are fixed
           scale={5}
         />
-        {imagesBundles && imagesBundles.map((bundle) => {
+        {imagesBundles?.map((bundle) => {
           const bundleUrl = getFileUrl(bundle);
 
           return (
             <img
               className={styles.bundleImage}
               src={bundleUrl}
-              alt={title}
               key={`intro-images-bundles/${bundleUrl}`}
             />
           );
