@@ -101,6 +101,7 @@ const VerticalIntro = ({
             <img
               className={styles.bundleImage}
               src={bundleUrl}
+              alt=""
               key={`intro-images-bundles/${bundleUrl}`}
             />
           );
