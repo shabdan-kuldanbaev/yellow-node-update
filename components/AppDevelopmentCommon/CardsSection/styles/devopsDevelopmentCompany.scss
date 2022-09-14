@@ -4,6 +4,7 @@
 
     padding-bottom: 0;
   }
+
   &.secondSectionView {
     background-color: $cod-gray-1;
 
@@ -18,6 +19,7 @@
 
     .cards {
       @include flex(row, center, initial, wrap);
+
       grid-gap: 40px 15%;
     }
 
@@ -38,11 +40,16 @@
     @include phone {
       .cards {
         @include flex(column, flex-start);
+
         grid-gap: 24px 15%;
       }
 
       .cards > div {
         width: 100%;
+      }
+
+      .typeTitle {
+        @include fontSize(32px)
       }
     }
   }
@@ -109,6 +116,10 @@
 
     .cardContent {
       width: 365px;
+
+      @include phone {
+        width: 270px;
+      }
     }
   }
 }

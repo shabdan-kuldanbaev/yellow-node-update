@@ -166,7 +166,7 @@ export const microdata = {
     '@type': 'WebPage',
     name: 'DevOps Development Company | Yellow',
     description: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
-    breadcrumb: 'Homepage > Machine Learning Development Services',
+    breadcrumb: 'Homepage > DevOps Development Company',
   }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({

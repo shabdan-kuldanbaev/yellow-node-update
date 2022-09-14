@@ -278,6 +278,15 @@
         margin-bottom: 50px;
         flex: 1 0 50%;
       }
+
+      @include phone {
+        width: 45%;
+        flex: unset;
+
+        .title, .description {
+          text-align: center;
+        }
+      }
     }
 
     div:last-child {
@@ -290,6 +299,9 @@
 
     @include phone {
       margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 }
