@@ -124,6 +124,10 @@
 
       h2 {
         margin-bottom: 20px;
+
+        @include phone {
+          @include fontSize(30px);
+        }
       }
 
       & > div:last-child {
@@ -140,8 +144,12 @@
         width: 700px;
       }
 
+      @include below-tablet {
+        margin: 60px auto 0;
+      }
+
       @include phone {
-        width: 300px;
+        width: 320px;
       }
     }
 

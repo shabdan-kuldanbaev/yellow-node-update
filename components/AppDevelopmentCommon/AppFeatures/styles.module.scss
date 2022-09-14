@@ -79,7 +79,7 @@
         }
 
         .description {
-          @include fontSize(15px);
+          @include fontSize(18px);
 
           line-height: 180%;
           color: $silver-chalice;
@@ -88,14 +88,6 @@
             @include fontSize(14px);
 
             margin-left: 10px;
-          }
-
-          @include below-tablet {
-            @include fontSize(12px);
-          }
-
-          @include phone {
-            @include fontSize(11px);
           }
 
           & > p {
