@@ -43,7 +43,24 @@
       @include phone {
         width: 317px;
         height: 200px;
+        left: -20px;
       }
+    }
+  }
+
+  .imageBundle {
+    position: absolute;
+    height: 590px;
+    right: -30%;
+
+    @include tablet {
+      height: 400px;
+      right: 30%;
+    }
+
+    @include phone {
+      height: 700px;
+      right: -190%;
     }
   }
 }
