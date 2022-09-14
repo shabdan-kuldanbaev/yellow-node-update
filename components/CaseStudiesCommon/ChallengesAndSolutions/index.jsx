@@ -133,7 +133,7 @@ const ChallengesAndSolutions = ({
                         <img
                           className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                           src={bundleUrl}
-                          alt={title}
+                          alt=""
                           key={`bundles-images/${bundleUrl}`}
                         />
                       );
@@ -149,6 +149,7 @@ const ChallengesAndSolutions = ({
                     className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                     src={bundleUrl}
                     key={`bundles-images/${bundleUrl}`}
+                    alt=""
                   />
                 );
               })}
