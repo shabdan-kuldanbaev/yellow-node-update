@@ -889,6 +889,12 @@
       .description {
         max-width: 565px;
       }
+
+      .sectionName {
+        @include phone {
+          display: block;
+        }
+      }
     }
   }
 
