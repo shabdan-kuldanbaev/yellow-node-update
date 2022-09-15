@@ -88,6 +88,11 @@ export const footerData = [
         type: 'navigation',
       },
       {
+        subtitle: 'Fintech Software Development Services',
+        path: ROUTES.fintechDevelopment.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Cloud-based app development services',
         path: ROUTES.cloudDevelopment.path,
         type: 'navigation',

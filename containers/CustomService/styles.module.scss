@@ -44,7 +44,8 @@
   &.android-mobile-app-development-services,
   &.mvp-app-development-company,
   &.cloud-based-app-development-services,
-  &.machine-learning-development-services {
+  &.machine-learning-development-services,
+  &.fintech-software-development-services {
     background-color: $cod-gray-1;
 
     .breadcrumbs {
@@ -65,10 +66,15 @@
 }
 
 .machine-learning-development-services,
-.mobile-app-development-company {
+.mobile-app-development-company,
+.fintech-software-development-services {
   .feedbackContainer {
     h2 {
       max-width: 880px;
     }
   }
+}
+
+.fintech-software-development-services {
+  overflow: hidden;
 }

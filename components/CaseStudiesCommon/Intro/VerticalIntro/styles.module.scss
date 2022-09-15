@@ -30,7 +30,7 @@
       text-align: center;
     }
 
-    & > * {
+    &>* {
       z-index: 1;
     }
 
@@ -437,7 +437,7 @@
       @include phone {
         margin-bottom: 0;
       }
-  
+
       .projectTitle {
         max-width: 1000px;
       }
@@ -445,7 +445,7 @@
       .projectSubtitle {
         color: $white;
         opacity: 0.7;
-    
+
         @include phone {
           @include fontSize(14px);
         }
@@ -473,17 +473,18 @@
     @include phone {
       margin-bottom: 50px;
     }
+
     .projectInfoContainer {
       @include phone {
         margin-bottom: 0;
       }
-  
+
       .projectSubtitle {
         max-width: 595px;
         color: $white;
         opacity: 0.7;
         margin-bottom: 60px;
-    
+
         @include phone {
           @include fontSize(14px);
         }
@@ -743,7 +744,7 @@
   background-repeat: no-repeat;
 
   .introSection {
-    .projectInfoContainer { 
+    .projectInfoContainer {
       .projectSubtitle {
         margin-bottom: 0;
       }
@@ -767,5 +768,181 @@
 
   @include phone {
     background-size: 576px;
+  }
+}
+
+.cinnabar {
+  @extend .container;
+
+  padding-top: 175px;
+  background: linear-gradient(137.65deg, $froly -14.62%, $carnation 105.11%);
+  color: $white;
+
+  .introSection {
+    margin-bottom: 85px;
+
+    .imageContainer {
+      max-width: 1400px;
+      margin: 0 auto;
+
+      &>span>span {
+        padding-top: 62% !important; // TODO temporary solution, change after image component will be updated
+      }
+
+    }
+
+    .bundleImage {
+      position: absolute;
+
+      &:nth-of-type(1) {
+        top: 22%;
+        left: 8%;
+        z-index: 1;
+        max-width: 160px;
+
+        @include macbook-fifteen {
+          top: 15%;
+          left: 8%;
+          max-width: 138px;
+        }
+
+        @include tablet {
+          top: 10%;
+          max-width: 94px;
+        }
+
+        @include phone {
+          top: 13%;
+          left: 4%;
+          max-width: 30px;
+        }
+      }
+
+      &:nth-of-type(2) {
+        top: 22%;
+        left: 8%;
+        max-width: 468px;
+        transform: translate(1%, 5%);
+
+        @include macbook-fifteen {
+          top: 15%;
+          left: 5%;
+          max-width: 431px;
+        }
+
+        @include tablet {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(3) {
+        top: 22%;
+        right: 19%;
+        max-width: 111px;
+
+        @include macbook-fifteen {
+          right: 9%;
+        }
+
+        @include tablet {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(4) {
+        top: 53%;
+        right: 4%;
+        z-index: 1;
+        max-width: 138px;
+
+        @include macbook-fifteen {
+          right: -5%;
+        }
+
+        @include tablet {
+          top: 74%;
+          right: 20%;
+        }
+
+        @include phone {
+          top: 71%;
+          right: 25%;
+          max-width: 30px;
+        }
+      }
+
+      &:nth-of-type(5) {
+        top: 51%;
+        right: 4%;
+        max-width: 431px;
+
+        @include macbook-fifteen {
+          right: -5%;
+        }
+
+        @include tablet {
+          top: 65%;
+          right: 8%;
+        }
+
+        @include phone {
+          top: 62%;
+          right: 7%;
+          max-width: 94px;
+        }
+      }
+    }
+
+    @include phone {
+      margin-bottom: 80px;
+    }
+  }
+
+  .projectInfoContainer {
+    @include flex(column, center, center);
+
+    .title {
+      .projectTitle {
+        margin: 0 0 20px;
+
+        @include fontSize(65px);
+
+        @include tablet {
+          @include fontSize(50px);
+        }
+
+        @include phone {
+          @include fontSize(36px);
+        }
+      }
+    }
+
+    .projectSubtitle {
+      @include fontSize(18px);
+
+      max-width: 670px;
+      text-align: center;
+
+      @include tablet {
+        @include fontSize(16px);
+      }
+
+      @include phone {
+        @include fontSize(14px);
+      }
+    }
+
+    @include phone {
+      margin-bottom: 24px;
+    }
+  }
+
+  .experiencesContainer {
+    max-width: 1155px;
+  }
+
+  @include phone {
+    padding-top: 155px;
+    padding-bottom: 60px;
   }
 }
