@@ -132,6 +132,13 @@ export const microdata = {
                   We are working with websites, PWAs, chatting applications, and landing pages.`,
     breadcrumb: 'Homepage > Custom web application development company',
   }),
+  fintechDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Fintech Software Development Services',
+    description: 'Build a successul fintech solution',
+    breadcrumb: 'Homepage > Fintech Software Development Services',
+  }),
   designServices: () => ({
     '@context': context,
     '@type': 'WebPage',
