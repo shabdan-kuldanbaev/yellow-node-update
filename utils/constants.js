@@ -324,7 +324,7 @@ export const CASE_STUDIES = {
   goodPsychics: 'marketplace-for-clairvoyant-services',
   mlInRealEstate: 'machine-learning-in-real-estate',
   humankind: 'humankind',
-  balzano: 'balzano',
+  balzano: 'software-for-mri-interpretation',
   cinnabar: 'cinnabar',
 };
 
