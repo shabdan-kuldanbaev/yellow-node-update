@@ -76,7 +76,7 @@
       @include phone {
         max-width: 345px;
       }
-    } 
+    }
   }
 }
 
@@ -499,8 +499,34 @@
     }
   }
 }
+
 .hotel-data-cloud {
   .image {
     max-width: 1056px;
+  }
+}
+
+.cinnabar {
+  @extend .imageContainer;
+
+  .image:first-child {
+    display: block;
+    max-width: $max-content-width-small-section;
+    width: 100%;
+    margin: 0 auto;
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  .image:last-child {
+    display: none;
+    max-height: 110px;
+    margin: 0 auto;
+
+    @include phone {
+      display: block;
+    }
   }
 }

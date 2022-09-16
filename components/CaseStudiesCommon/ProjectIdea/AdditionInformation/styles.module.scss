@@ -452,7 +452,7 @@
 .humankind {
   @extend .infoContainer;
   @include flex(column, center, flex-start);
-  
+
   margin-top: 35px;
 
   @include tablet {
@@ -468,7 +468,7 @@
     @include tablet {
       margin: 0 auto 30px;
     }
-    
+
     @include phone {
       margin: 0 0 24px;
       margin-top: 0px !important;
@@ -491,14 +491,14 @@
         span {
           @include fontSize(18px);
           line-height: 180%;
-  
+
           color: $silver-chalice;
 
           @include phone {
             @include fontSize(14px);
           }
         }
-  
+
         &::marker {
           color: #617B67;
         }
@@ -594,7 +594,7 @@
       .listItemContainer {
         list-style: none;
 
-        & > span {
+        &>span {
           position: relative;
 
           &::before {

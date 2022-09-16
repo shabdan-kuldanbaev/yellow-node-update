@@ -86,7 +86,7 @@
         }
       }
 
-      & > p {
+      &>p {
         margin: 0;
         line-height: 150%;
         font-family: $case-studies-font;
@@ -174,7 +174,7 @@
   }
 
   .contentContainer {
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -205,7 +205,7 @@
   }
 
   .contentContainer {
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -242,7 +242,7 @@
         color: $white;
       }
 
-      & > p {
+      &>p {
         max-width: 325px;
       }
     }
@@ -265,14 +265,13 @@
     &:last-child {
       margin-bottom: 0;
     }
+
     /* stylelint-disable declaration-colon-newline-after */
     .checkMark {
       color: $white;
-      background: linear-gradient(
-        142.23deg,
-        $light-violet -12.4%,
-        $dark-violet 151.71%
-      );
+      background: linear-gradient(142.23deg,
+          $light-violet -12.4%,
+          $dark-violet 151.71%);
     }
 
     .contentContainer {
@@ -652,7 +651,7 @@
   }
 
   .contentContainer {
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -749,8 +748,48 @@
       margin-bottom: 10px;
     }
 
-    & > p {
+    &>p {
       max-width: 330px;
+    }
+  }
+}
+
+.cinnabar {
+  @extend .container;
+
+  @include phone {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .featureContainer {
+    margin-bottom: 30px;
+
+    .checkMark {
+      background: linear-gradient(137.65deg, $froly -14.62%, $carnation 105.11%);
+      color: $white;
+    }
+  }
+
+  .containerBackground {
+    left: -25%;
+    background: $rose-white;
+
+    @include phone {
+      left: -34%;
+      top: -20%;
+      bottom: -20%;
+      right: 7%;
+    }
+  }
+
+  .contentContainer {
+    .title {
+      margin-bottom: 10px;
+    }
+
+    &>p {
+      max-width: 370px;
     }
   }
 }

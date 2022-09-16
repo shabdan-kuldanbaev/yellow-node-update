@@ -136,9 +136,7 @@
 
     .mockup {
       width: 330px;
-      filter:
-        drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 0.6))
-        drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 0.5));
+      filter: drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 0.6)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 0.5));
 
       @include phone {
         width: 209px;
@@ -740,7 +738,8 @@
 .software-for-mri-interpretation,
 .humankind,
 .hotel-data-cloud,
-.marketplace-for-clairvoyant-services {
+.marketplace-for-clairvoyant-services,
+.cinnabar {
   @include caseStudyContainer;
 
   .circle {
@@ -863,5 +862,72 @@
     .mockup {
       filter: none;
     }
+  }
+}
+
+.cinnabar {
+  @include caseStudyContainer;
+
+  overflow: hidden;
+  padding-top: 120px;
+  padding-bottom: 80px;
+
+  [data-case-study-title] {
+    margin-bottom: 20px;
+  }
+
+  [data-case-study-description] {
+    max-width: 535px;
+    margin-bottom: 0;
+  }
+
+  .circle {
+    .mockup {
+      filter: none;
+    }
+  }
+
+  .imageBundle {
+    position: absolute;
+
+    &:nth-child(3) {
+      top: 17%;
+      right: -14%;
+      z-index: -1;
+      max-width: 384px;
+
+      @include below-tablet {
+        top: -18%;
+        right: -40%;
+      }
+
+      @include phone {
+        top: -1%;
+        right: -14%;
+        max-width: 141px;
+      }
+    }
+
+    &:nth-child(4) {
+      top: 13%;
+      right: -12%;
+      max-width: 123px;
+
+      @include below-tablet {
+        top: 65%;
+        right: unset;
+        left: -12%;
+      }
+
+      @include phone {
+        left: -6%;
+        z-index: -1;
+        max-width: 48px;
+      }
+    }
+  }
+
+  @include phone {
+    padding-bottom: 0;
   }
 }
