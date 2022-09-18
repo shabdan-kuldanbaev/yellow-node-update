@@ -1,0 +1,15 @@
+.devops-development-services {
+  background-color: $alabaster;
+
+  .titleStyle {
+    margin: 0 auto;
+
+    p {
+      width: 62vw;
+
+      @include phone {
+        width: 92vw;
+      }
+    }
+  }
+}

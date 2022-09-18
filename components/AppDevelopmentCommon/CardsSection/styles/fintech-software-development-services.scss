@@ -4,7 +4,7 @@
 
     @include iconsWithinCircle;
   }
-  
+
   &.secondSectionView {
     @extend .cardsWithShadow;
     @extend .cardsWithFullWidthImage;
@@ -20,6 +20,7 @@
 
         & > div {
           height: 400px;
+          padding: 20px 15px;
 
           @include phone {
             width: 300px;
@@ -28,10 +29,6 @@
 
         * {
           text-align: center;
-        }
-
-        & > div {
-          padding: 20px 15px;
         }
 
         @include tablet {
@@ -63,7 +60,8 @@
         }
       }
 
-      .cardContent p, ul {
+      .cardContent p,
+      ul {
         display: none;
         text-align: left;
 
@@ -106,7 +104,8 @@
         display: none;
       }
 
-      .cardContent p, ul {
+      .cardContent p,
+      ul {
         display: block;
 
         @include phone {

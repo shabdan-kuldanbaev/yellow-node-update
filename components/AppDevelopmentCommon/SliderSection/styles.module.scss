@@ -92,7 +92,7 @@
 
     .item {
       .slideTitle {
-        @include fontSize(24px)
+        @include fontSize(24px);
       }
 
       .slideSubtitle {
@@ -105,7 +105,7 @@
     }
 
     @include phone {
-      padding: 40px 20px; 
+      padding: 40px 20px;
     }
   }
 }
