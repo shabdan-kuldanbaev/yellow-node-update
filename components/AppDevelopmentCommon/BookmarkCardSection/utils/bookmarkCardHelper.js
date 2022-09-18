@@ -16,9 +16,11 @@ export const getBookmarkCardProps = (data) => {
   );
   const linkData = get(contentModules, '[0]', {});
 
+  const url = get(linkData, 'fields.url');
+
   return {
     title,
-    linkData,
     view,
+    url,
   };
 };
