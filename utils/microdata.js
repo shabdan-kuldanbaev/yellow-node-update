@@ -169,6 +169,13 @@ export const microdata = {
     description: 'If you want to boost your business with a machine learning solution, Yellow is here to back you up',
     breadcrumb: 'Homepage > Machine Learning Development Services',
   }),
+  devOpsDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'DevOps Development Company | Yellow',
+    description: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
+    breadcrumb: 'Homepage > DevOps Development Company',
+  }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',

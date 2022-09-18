@@ -1,0 +1,116 @@
+@import 'styles/utils/mixins';
+@import '../utils/styles.module';
+
+.devops-development-services {
+  background-color: $white;
+
+  .contentWrapper {
+    @extend .twoColumnsCards;
+
+    @include smallSectionWrapper;
+
+    max-width: 864px;
+
+    .bookmarkContainer {
+      padding: 40px;
+      margin: 80px 0;
+      border: 2px solid $turbo-100;
+      border-radius: 5px;
+
+      .bookmarkIcon {
+        content: '';
+        position: absolute;
+        top: 68px;
+        left: 40px;
+        width: 23px;
+        height: 27px;
+        background-size: 100% 100%;
+      }
+
+      @include phone {
+        background-color: $alabaster;
+        border: unset;
+        margin: 40px 15px;
+
+        &::before {
+          content: none;
+        }
+      }
+
+      .content {
+        @include flex(column, center, center);
+
+        .title {
+          @include fontSize(24px);
+
+          position: relative;
+          font-weight: 600;
+          line-height: 1.5;
+          text-align: center;
+
+          @include tablet {
+            @include fontSize(20px);
+          }
+
+          @include phone {
+            @include fontSize(18px);
+
+            width: 100%;
+          }
+        }
+
+        a {
+          margin-top: 32px;
+          text-decoration: underline;
+          color: $dark-grey;
+
+          @include phone {
+            padding: 14px 60px;
+            line-height: 150%;
+            border-radius: $button-border-radius;
+            letter-spacing: 0.5px;
+            border: none;
+            transform: scale(1);
+            text-decoration: unset;
+            background-color: $turbo-100;
+          }
+        }
+      }
+    }
+  }
+
+  &.firstSectionView {
+    .contentWrapper {
+      .bookmarkContainer {
+        .content {
+          .title {
+            width: 453px;
+            text-align: center;
+
+            @include phone {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background: $alabaster;
+
+    .contentWrapper {
+      .bookmarkContainer {
+        .content {
+          .title {
+            width: 476px;
+
+            @include phone {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

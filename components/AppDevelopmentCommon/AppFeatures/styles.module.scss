@@ -46,7 +46,7 @@
         &:last-of-type {
           padding-bottom: 0;
           border-bottom: none;
-  
+
           &::after {
             content: none;
           }
@@ -105,7 +105,7 @@
         .title {
           margin-bottom: 20px;
           color: $dark-grey;
-  
+
           &:hover {
             color: $dark-grey;
           }

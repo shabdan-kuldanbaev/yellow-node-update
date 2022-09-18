@@ -12,7 +12,8 @@
 .cloud-based-app-development-services,
 .machine-learning-development-services,
 .chat-app-development-company,
-.fintech-software-development-services {
+.fintech-software-development-services,
+.devops-development-services {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
@@ -45,7 +46,8 @@
 .machine-learning-development-services,
 .chat-app-development-company,
 .mobile-app-development-company,
-.fintech-software-development-services {
+.fintech-software-development-services,
+.devops-development-services {
   background-color: $white;
 
   & > div {

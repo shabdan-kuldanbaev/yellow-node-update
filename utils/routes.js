@@ -250,6 +250,12 @@ export const routes = {
     dynamicPath: '/machine-learning-development-services',
     slug: 'machine-learning-development-services',
   },
+  devOpsDevelopment: {
+    title: 'DevOps Development Company',
+    path: '/devops-development-services',
+    dynamicPath: '/devops-development-services',
+    slug: 'devops-development-services',
+  },
   signatureGenerator: {
     title: 'Signature Generator',
     path: '/signature-generator',
