@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
+import Svg from 'components/Common/Svg';
 import { getBookmarkCardProps } from './utils/bookmarkCardHelper';
 import styles from './styles.module.scss';
-import Svg from '../../Common/Svg';
 
 const BookmarkCardSection = ({
   sectionData,
@@ -13,11 +12,9 @@ const BookmarkCardSection = ({
 }) => {
   const {
     title,
-    linkData,
     view,
+    url,
   } = getBookmarkCardProps(sectionData);
-
-  const url = get(linkData, 'fields.url');
 
   if (!title || !url) {
     return null;
