@@ -253,4 +253,5 @@ export { default as visitSite } from './visitSite.svg';
 export { default as scrollIconSvg } from './scrollIconSvg.svg';
 export { default as checkMark } from './checkMark.svg';
 export { default as bookmarkIcon } from './bookmarkIcon.svg';
+export { default as bookmark } from './bookmark.svg';
 export { default as yellowCheckMark } from './yellowCheckMark.svg';

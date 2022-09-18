@@ -5,6 +5,7 @@ import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { getBookmarkCardProps } from './utils/bookmarkCardHelper';
 import styles from './styles.module.scss';
+import Svg from '../../Common/Svg';
 
 const BookmarkCardSection = ({
   sectionData,
@@ -26,6 +27,10 @@ const BookmarkCardSection = ({
     <div className={cn(styles[pageType], styles[view])}>
       <div className={styles.contentWrapper}>
         <div className={styles.bookmarkContainer}>
+          <Svg
+            type="bookmark"
+            className={styles.bookmarkIcon}
+          />
           <div className={styles.content}>
             <div className={styles.title}>
               {title}

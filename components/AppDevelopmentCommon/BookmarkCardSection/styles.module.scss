@@ -17,14 +17,13 @@
       border: 2px solid $turbo-100;
       border-radius: 5px;
 
-      &::before {
+      .bookmarkIcon {
         content: '';
         position: absolute;
         top: 68px;
         left: 40px;
         width: 23px;
         height: 27px;
-        background-image: url('./image/bookmark.png');
         background-size: 100% 100%;
       }
 
@@ -79,9 +78,7 @@
       }
     }
   }
-}
 
-.devops-development-services {
   &.firstSectionView {
     .contentWrapper {
       .bookmarkContainer {
@@ -100,6 +97,8 @@
   }
 
   &.secondSectionView {
+    background: $alabaster;
+
     .contentWrapper {
       .bookmarkContainer {
         .content {
