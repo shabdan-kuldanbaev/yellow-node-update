@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
-@import "styles/utils/theme/animations";
+@import 'styles/utils/mixins';
+@import 'styles/utils/theme/animations';
 
 .imageContainer {
   position: relative;
@@ -59,8 +59,25 @@
 .fireaway,
 .humankind,
 .famlicious,
+.software-for-mri-interpretation,
 .fusion-markets {
   @extend .imageContainer;
+}
+
+.software-for-mri-interpretation {
+  &.firstSectionView {
+    .image {
+      max-width: 1076px;
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      @include phone {
+        max-width: 345px;
+      }
+    }
+  }
 }
 
 .fernwayer2 {
@@ -74,7 +91,7 @@
     width: 320px;
     transform: translate(-14%, 0) scale(0.8);
     transition: transform 2s $primary-bezier 100ms;
-    filter: drop-shadow(-10px 10px 25px rgba(57, 57, 57, 0.2));
+    filter: drop-shadow(-10px 10px 25px rgba(57 57 57 0.2));
 
     @include phone {
       width: 190px;
@@ -482,8 +499,34 @@
     }
   }
 }
+
 .hotel-data-cloud {
   .image {
     max-width: 1056px;
+  }
+}
+
+.cinnabar {
+  @extend .imageContainer;
+
+  .image:first-child {
+    display: block;
+    max-width: $max-content-width-small-section;
+    width: 100%;
+    margin: 0 auto;
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  .image:last-child {
+    display: none;
+    max-height: 110px;
+    margin: 0 auto;
+
+    @include phone {
+      display: block;
+    }
   }
 }

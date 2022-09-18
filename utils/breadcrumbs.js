@@ -80,6 +80,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.customWebApp.path,
     },
   ]),
+  fintechDevelopment: () => ([
+    {
+      title: ROUTES.fintechDevelopment.title,
+      to: ROUTES.fintechDevelopment.path,
+    },
+  ]),
   designServices: () => ([
     {
       title: ROUTES.designServices.title,

@@ -59,8 +59,8 @@ const MetaTags = ({
   const robots = !IS_PROD ? 'none' : metaRobots;
 
   return (
-    <Head>
-      <Fragment key={`meta/${title}`}>
+    <Fragment>
+      <Head>
         <title>{getTitle(title)}</title>
         <meta name="description" content={getDescription(description)} />
         <meta name="date" content={date} />
@@ -87,29 +87,29 @@ const MetaTags = ({
         <link rel="apple-touch-icon" sizes="180x180" href={getPathWithCdn('/apple-touch-icon.png')} />
         <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
         <link rel="manifest" href="/manifest.json" />
-        {!isEmpty(pageMicrodata) && (
-          <Script
-            id={`JSON-LD-${pageMicrodata.name}`}
-            key={`JSON-LD-${pageMicrodata.name}`}
-            strategy="lazyOnload"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(pageMicrodata) }}
-          />
-        )}
-        {!isEmpty(breadcrumbs) && (
-          <Script
-            id="JSON-LD-breadcrumbs"
-            key="JSON-LD-breadcrumbs"
-            strategy="lazyOnload"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(microdata.breadcrumbs({ breadcrumbsList: breadcrumbs })),
-            }}
-          />
-        )}
-      </Fragment>
-      {children}
-    </Head>
+        {children}
+      </Head>
+      {!isEmpty(pageMicrodata) && (
+        <Script
+          id={`JSON-LD-${pageMicrodata.name}`}
+          key={`JSON-LD-${pageMicrodata.name}`}
+          strategy="lazyOnload"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(pageMicrodata) }}
+        />
+      )}
+      {!isEmpty(breadcrumbs) && (
+        <Script
+          id="JSON-LD-breadcrumbs"
+          key="JSON-LD-breadcrumbs"
+          strategy="lazyOnload"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(microdata.breadcrumbs({ breadcrumbsList: breadcrumbs })),
+          }}
+        />
+      )}
+    </Fragment>
   );
 };
 

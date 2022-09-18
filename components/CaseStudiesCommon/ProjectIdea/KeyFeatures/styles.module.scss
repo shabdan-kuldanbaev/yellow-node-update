@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .container {
   position: relative;
@@ -106,6 +106,7 @@
   }
 }
 
+.software-for-mri-interpretation,
 .fernwayer {
   @extend .container;
 
@@ -123,11 +124,19 @@
     }
   }
 
-  /* stylelint-disable-next-line */
   .featureContainer {
     .checkMark {
       color: $white;
       background: linear-gradient(180deg, $pink 0%, $light-pink 100%);
+    }
+  }
+}
+
+.software-for-mri-interpretation {
+  .featureContainer {
+    .checkMark {
+      color: $white;
+      background: linear-gradient(120.48deg, $mint-blue-3 0%, $mint-blue-4 100%);
     }
   }
 }
@@ -256,14 +265,11 @@
     &:last-child {
       margin-bottom: 0;
     }
+
     /* stylelint-disable declaration-colon-newline-after */
     .checkMark {
       color: $white;
-      background: linear-gradient(
-        142.23deg,
-        $light-violet -12.4%,
-        $dark-violet 151.71%
-      );
+      background: linear-gradient(142.23deg, $light-violet -12.4%, $dark-violet 151.71%);
     }
 
     .contentContainer {
@@ -742,6 +748,46 @@
 
     & > p {
       max-width: 330px;
+    }
+  }
+}
+
+.cinnabar {
+  @extend .container;
+
+  @include phone {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .featureContainer {
+    margin-bottom: 30px;
+
+    .checkMark {
+      background: linear-gradient(137.65deg, $froly -14.62%, $carnation 105.11%);
+      color: $white;
+    }
+  }
+
+  .containerBackground {
+    left: -25%;
+    background: $rose-white;
+
+    @include phone {
+      left: -34%;
+      top: -20%;
+      bottom: -20%;
+      right: 7%;
+    }
+  }
+
+  .contentContainer {
+    .title {
+      margin-bottom: 10px;
+    }
+
+    & > p {
+      max-width: 370px;
     }
   }
 }

@@ -264,6 +264,7 @@
 
       .title {
         @extend .figureTitle;
+
         color: $white;
         text-align: left;
       }
@@ -283,7 +284,8 @@
         width: 45%;
         flex: unset;
 
-        .title, .description {
+        .title,
+        .description {
           text-align: center;
         }
       }

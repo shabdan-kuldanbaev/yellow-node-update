@@ -445,3 +445,35 @@
     color: $white;
   }
 }
+
+.software-for-mri-interpretation {
+  @include caseStudyContainer;
+
+  &.firstSectionView {
+    background: $white-cloud;
+  }
+
+  &.secondSectionView {
+    background: linear-gradient(120.48deg, $mint-blue-3 0%, $mint-blue-4 100%);
+
+    [data-case-study-title] {
+      color: $white;
+    }
+  }
+}
+
+.cinnabar {
+  @include caseStudyContainer;
+
+  overflow: hidden;
+  padding: 120px 40px;
+  background: linear-gradient(137.65deg, $froly -14.62%, $carnation 105.11%);
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}

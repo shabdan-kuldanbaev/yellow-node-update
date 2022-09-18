@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .infoContainer {
   @include flex;
@@ -78,6 +78,55 @@
       &::marker {
         color: $pink-lighter;
       }
+    }
+  }
+}
+
+.software-for-mri-interpretation {
+  @extend .infoContainer;
+
+  flex-direction: column;
+
+  /* stylelint-disable-next-line */
+  .container {
+    max-width: unset;
+
+    .title {
+      color: $dark-grey;
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      .listItemContainer {
+        color: $silver-chalice;
+
+        &::marker {
+          color: $pure-blue-4;
+        }
+
+        @include phone {
+          text-align: center;
+        }
+      }
+
+      @include phone {
+        @include flex(column, center, center);
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+
+      @include phone {
+        margin-bottom: 0;
+      }
+    }
+
+    @include phone {
+      max-width: 300px;
     }
   }
 }
@@ -402,8 +451,9 @@
 
 .humankind {
   @extend .infoContainer;
+
   @include flex(column, center, flex-start);
-  
+
   margin-top: 35px;
 
   @include tablet {
@@ -419,10 +469,9 @@
     @include tablet {
       margin: 0 auto 30px;
     }
-    
+
     @include phone {
-      margin: 0 0 24px;
-      margin-top: 0px !important;
+      margin: 0 0 24px !important;
     }
 
     .title {
@@ -441,15 +490,15 @@
       .listItemContainer {
         span {
           @include fontSize(18px);
+
           line-height: 180%;
-  
           color: $silver-chalice;
 
           @include phone {
             @include fontSize(14px);
           }
         }
-  
+
         &::marker {
           color: #617B67;
         }
@@ -583,9 +632,7 @@
       }
     }
   }
-}
 
-.hotel-data-cloud {
   @include phone {
     justify-content: center;
   }

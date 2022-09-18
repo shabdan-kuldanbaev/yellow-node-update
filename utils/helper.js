@@ -80,14 +80,15 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.cloudDevelopment}`, updatedAt },
   { path: `/${PAGES.androidDevelopmentServices}`, updatedAt },
   { path: `/${PAGES.mvpDevelopment}`, updatedAt },
+  { path: `/${PAGES.fintechDevelopment}`, updatedAt },
   { path: `/${PAGES.devOpsDevelopment}`, updatedAt },
   { path: `/${PAGES.privacyPolicy}`, updatedAt },
   { path: `/${PAGES.termsAndConditions}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
-  ? process.env.DEV_URL
-  : process.env.PROD_URL;
+  ? process.env.NEXT_PUBLIC_DEV_URL
+  : process.env.NEXT_PUBLIC_PROD_URL;
 
 export const isServer = typeof window === 'undefined';
 

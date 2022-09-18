@@ -1,0 +1,142 @@
+@import 'styles/utils/mixins';
+
+.fintech-software-development-services {
+  background: $white;
+
+  h2 {
+    width: 800px;
+    margin: 0 auto 20px;
+    padding-top: 120px;
+
+    @include phone {
+      @include fontSize(32px);
+
+      width: 320px;
+      padding-top: 60px;
+    }
+  }
+
+  .container {
+    @include flex(row, space-between);
+
+    max-width: 1085px;
+    margin: 0 auto 130px;
+
+    @include phone {
+      margin: 0;
+    }
+
+    .sectionContainer {
+      max-width: 510px;
+      width: 100%;
+
+      & > div {
+        opacity: unset !important;
+      }
+
+      .sectionItem {
+        position: relative;
+        padding: 30px 0;
+        border-bottom: 2px solid rgba($silver-chalice, 0.2);
+
+        &:first-of-type {
+          padding-top: 0;
+        }
+
+        &:last-of-type {
+          padding-bottom: 0;
+          border-bottom: none;
+
+          &::after {
+            content: none;
+          }
+        }
+
+        .title {
+          @include fontSize(20px);
+
+          margin-bottom: 10px;
+          cursor: pointer;
+          transition: color 400ms, margin 400ms;
+          font-weight: bold;
+          line-height: 120%;
+          color: $black;
+
+          &:hover {
+            color: $silver-chalice;
+            transition: color 400ms;
+          }
+
+          @include tablet {
+            @include fontSize(18px);
+
+            margin-left: 10px;
+          }
+
+          @include phone {
+            @include fontSize(17px);
+          }
+        }
+
+        .description {
+          @include fontSize(18px);
+
+          line-height: 180%;
+          color: $silver-chalice;
+
+          @include tablet {
+            @include fontSize(14px);
+
+            margin-left: 10px;
+          }
+
+          & > p {
+            margin: 0;
+
+            @include phone {
+              margin: 5px;
+            }
+          }
+        }
+      }
+
+      .sectionActiveItem {
+        /* stylelint-disable-next-line */
+        .title {
+          margin-bottom: 20px;
+          color: $dark-grey;
+
+          &:hover {
+            color: $dark-grey;
+          }
+        }
+      }
+    }
+
+    div:last-child {
+      opacity: 1 !important;
+    }
+
+    .imageContainer {
+      width: 700px;
+      margin-left: 66px;
+      margin-right: -175px;
+
+      img {
+        width: 100%;
+      }
+
+      @include below-tablet {
+        margin-left: unset;
+      }
+
+      @include phone {
+        width: 350px;
+      }
+    }
+
+    @include phone {
+      flex-direction: column;
+    }
+  }
+}

@@ -136,6 +136,26 @@
   }
 }
 
+.software-for-mri-interpretation {
+  @extend .container;
+
+  background-color: $white;
+
+  .contentContainer {
+    .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          margin: 0 0 40px;
+
+          @include phone {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
 .stickerbox {
   @extend .container;
 
@@ -201,7 +221,7 @@
 
   .contentContainer {
     @include flex(column-reverse, center, center);
- 
+
     padding-bottom: 0;
 
     @include phone {
@@ -217,7 +237,7 @@
 
       @include tablet {
         flex-direction: column;
-        padding-bottom: 0px;
+        padding-bottom: 0;
       }
 
       @include phone {
@@ -850,5 +870,39 @@
 .hotel-data-cloud {
   @include phone {
     padding: 80px 15px;
+  }
+}
+
+.cinnabar {
+  @extend .container;
+
+  padding: 120px 40px 90px;
+
+  .contentContainer {
+    padding-bottom: 120px;
+
+    @include phone {
+      padding-bottom: 60px;
+    }
+
+    .descriptionContainer {
+      .description {
+        max-width: 565px;
+      }
+
+      .sectionName {
+        @include phone {
+          display: block;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    padding: 70px 0;
+  }
+
+  @include phone {
+    padding: 60px 15px;
   }
 }

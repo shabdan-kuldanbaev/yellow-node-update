@@ -79,20 +79,21 @@ export const microdata = {
   }),
   contact: () => ({
     '@context': context,
-    '@type': 'Organization',
+    '@type': 'ContactPage',
     '@id': pageUrl(ROUTES.contact.path),
     name: 'Contacts | Yellow',
     description: 'Do you have an awesome idea? Reach us for a free consultation on how to build a great software product for your business!',
     url: pageUrl(ROUTES.contact.path),
-    logo: logoUrl,
-    email,
-    telephone: telephoneNumbers,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: `${country}, ${city}`,
-      postalCode,
-      streetAddress,
-    },
+    image: logoUrl,
+  }),
+  company: () => ({
+    '@context': context,
+    '@type': 'AboutPage',
+    '@id': pageUrl(ROUTES.company.path),
+    name: 'Company | Yellow',
+    description: '✔ Meet the team behind our web and mobile apps. ✔ Skilled techies and great people. Yellow - we are the people!',
+    url: pageUrl(ROUTES.company.path),
+    image: logoUrl,
   }),
   customChatApp: () => ({
     '@context': context,
@@ -130,6 +131,13 @@ export const microdata = {
     description: `Our team is ready to provide you with web development services.
                   We are working with websites, PWAs, chatting applications, and landing pages.`,
     breadcrumb: 'Homepage > Custom web application development company',
+  }),
+  fintechDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Fintech Software Development Services',
+    description: 'Build a successul fintech solution',
+    breadcrumb: 'Homepage > Fintech Software Development Services',
   }),
   designServices: () => ({
     '@context': context,

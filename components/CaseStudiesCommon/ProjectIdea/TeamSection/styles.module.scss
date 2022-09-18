@@ -57,11 +57,22 @@
   }
 }
 
+.software-for-mri-interpretation,
 .fernwayer {
   @extend .container;
 
   grid-template-columns: repeat(3, auto);
   grid-column-gap: 180px;
+
+  .title {
+    @include phone {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.software-for-mri-interpretation {
+  grid-template-columns: repeat(2, auto);
 }
 
 .dindon {
@@ -541,5 +552,21 @@
     z-index: -1;
     left: -993px;
     top: -500px;
+  }
+}
+
+.cinnabar {
+  @extend .container;
+
+  .title {
+    @include phone {
+      @include fontSize(36px);
+
+      margin-bottom: 16px;
+    }
+  }
+
+  @include phone {
+    padding-top: 0;
   }
 }

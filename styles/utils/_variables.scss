@@ -160,11 +160,17 @@ $majorelle-blue: #6144D6;
 $pure-blue-1: #007AFF;
 $pure-blue-2: #2F5997;
 $pure-blue-3: #16396D;
+$pure-blue-4: #2167AD;
 $very-dark-gray: #161616;
 $very-dark-blue: #010029;
 $bright-ocean-blue: #2F5BF9;
 $mint-blue-1: #5C92CC;
 $mint-blue-2: #78ACE4;
+$mint-blue-3: #2570BA;
+$mint-blue-4: #0E4780;
+$froly: #F8776C;
+$carnation: #F0445F;
+$rose-white: #FFFAFA;
 
 //transparency color
 $pagination: rgb(35 37 44 / 0.25);
@@ -178,9 +184,9 @@ $nearby-articles-block-box-shadow-color: rgb(0 0 0 / 0.07);
 $article-preview-box-shadow: 0 10px 60px -10px rgb(0 0 0 / 0.15);
 $card-bow-shadow: 0 8px 35px rgba($pale-sky, 0.1);
 $feedback-form-grey: rgba(#171717, 0.3);
-$case-study-data-cloud-background: rgb(120, 172, 228);
-$case-study-humankind-background: rgb(47, 89, 151);
-$case-study-humankind-wireframes: rgba(255, 255, 255, 0);
+$case-study-data-cloud-background: rgb(120 172 228);
+$case-study-humankind-background: rgb(47 89 151);
+$case-study-humankind-wireframes: rgb(255 255 255 / 0);
 $case-study-dindon-paragraph: rgb(255 255 255 / 0.7);
 $case-study-dindon-background: rgb(255 255 255 / 0.15);
 $case-study-dindon-box-shadow: rgb(170 181 193 / 0.05);
@@ -194,7 +200,7 @@ $burger-transition-time: 0.8s;
 $shadow-time-for-yellow-button: 0.4s;
 $shadow-time-for-border-yellow-button: 0.1s;
 $accelerated-transition-time: calc(#{$default-transition-time} / 2);
-$changing-portfolio-color: 1s;
+$changing-portfolio-color: 0.3s;
 
 //radius
 $buttonRadius: 60px;
@@ -258,9 +264,7 @@ $max-article-margin: 24px;
 //filters
 $shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgb(0 0 0 / 0.6));
 $shadow-filter-image: drop-shadow(2px 2px 3px #000);
-$shadow-filter-phone: drop-shadow(
-  -12.8201px 12.8201px 30.4602px rgb(0 0 0 / 0.4)
-);
+$shadow-filter-phone: drop-shadow(-12.8201px 12.8201px 30.4602px rgb(0 0 0 / 0.4));
 
 //timing functions
 $primary-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);

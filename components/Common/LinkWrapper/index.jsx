@@ -18,6 +18,7 @@ const LinkWrapper = ({
   const isExternalLink = useMemo(() => isExternal(path), [path]);
   const target = isExternalLink ? '_blank' : undefined;
   const rel = (isSocialLink || !isExternalLink) ? undefined : 'noopener noreferrer nofollow';
+  const href = (!isExternalLink && path[0] !== '/') ? `/${path}` : path;
 
   const handleOnClick = (e) => {
     if (!isEmpty(googleAnalyticProps)) {
@@ -39,7 +40,7 @@ const LinkWrapper = ({
   };
 
   return (
-    <Link href={path}>
+    <Link href={href}>
       {/* eslint-disable-next-line react/jsx-no-target-blank,jsx-a11y/anchor-is-valid,jsx-a11y/no-static-element-interactions */}
       <a
         className={cn(styles.link, className)}

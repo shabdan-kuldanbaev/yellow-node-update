@@ -17,6 +17,7 @@ const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/Pro
 const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
+const AppFeatures = dynamic(() => import('components/AppDevelopmentCommon/AppFeatures'));
 const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'), { ssr: false });
 const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/PlainTextSection'));
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
@@ -155,6 +156,30 @@ export const AppDevelopmentCommon = ({
     return (
       <CheckSocialSection
         sectionData={section}
+        type={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.svgDisplayWithSelector:
+    return (
+      <SvgListSection
+        sectionData={section}
+        type={type}
+        withSelector
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.cardsWithOverlay:
+    return (
+      <CardsSection
+        sectionData={section}
+        pageType={type}
+        sectionType="cards"
+        withOverlay
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeatures:
+    return (
+      <AppFeatures
+        data={section.fields}
         type={type}
       />
     );

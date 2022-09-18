@@ -290,3 +290,45 @@
     margin-bottom: 80px;
   }
 }
+
+.cinnabar {
+  &.firstSectionView {
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+    border-radius: 60px;
+    background: linear-gradient(180deg, $rose-white 0%, $rose-white 87.68%, rgb(255 250 250 / 0) 100%);
+
+    [data-case-study-title] {
+      margin-bottom: 120px;
+      color: $white;
+
+      @include phone {
+        margin-bottom: 40px;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      display: block;
+      width: 100%;
+      height: 38%;
+      background: linear-gradient(137.65deg, $froly -14.62%, $carnation 105.11%);
+      border-radius: 60px;
+
+      @include tablet {
+        border-radius: 20px;
+      }
+    }
+
+    @include tablet {
+      border-radius: 20px;
+    }
+
+    @include phone {
+      padding: 60px 0 0;
+    }
+  }
+}

@@ -34,6 +34,7 @@ export const getIntroProps = (type, data) => {
     description,
     images,
     contentModules,
+    imagesBundles,
   } = getDocumentFields(
     get(data, 'contentModules[0]', {}),
     [
@@ -42,6 +43,7 @@ export const getIntroProps = (type, data) => {
       'description',
       'images',
       'contentModules',
+      'imagesBundles',
     ],
   );
   const { contentModules: experiences } = getDocumentFields(
@@ -67,5 +69,6 @@ export const getIntroProps = (type, data) => {
     downloadLink,
     appBackgroundImageUrl,
     experiences,
+    imagesBundles,
   };
 };

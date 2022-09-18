@@ -45,3 +45,19 @@
 
   background: $very-dark-blue;
 }
+
+.software-for-mri-interpretation {
+  @extend .feedBackContainer;
+
+  @include phone {
+    padding-top: 0;
+  }
+}
+
+.cinnabar {
+  @extend .feedBackContainer;
+
+  @include phone {
+    padding-top: 0;
+  }
+}

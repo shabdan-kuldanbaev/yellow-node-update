@@ -5,7 +5,7 @@
   transform: translateY(0);
   border-radius: 5px;
   background-color: $white;
-  border: $card-border;
+  box-shadow: 5px 8px 35px $case-study-step-box-shadow;
 
   @include flex(column);
 

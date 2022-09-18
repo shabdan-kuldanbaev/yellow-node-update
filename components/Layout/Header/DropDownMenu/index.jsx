@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import SubMenuItem from 'components/Layout/Header/DropDownMenu/SubMenuItem';
+import SubMenuItem from 'components/Layout/Header/SubMenuItem';
 import { SUB_NAVIGATION_LINKS } from 'utils/constants';
 import styles from './styles.module.scss';
 

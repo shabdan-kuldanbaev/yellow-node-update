@@ -47,6 +47,7 @@ export const NAV_LINKS = [
     routes.customChatApp.slug,
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
+    routes.fintechDevelopment.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
@@ -208,9 +209,14 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentBlog: 'app-development-blog',
   appDevelopmentCheckSocial: 'app-development-check-social',
   appDevelopmentRelatedServices: 'app-development-related-services',
+  svgDisplayWithSelector: 'svg-display-with-selector',
+  cardsWithOverlay: 'cards-with-overlay',
+  appDevelopmentAppFeatures: 'app-development-app-features',
   appDevelopmentPlainTextSection: 'app-development-plain-text',
   appDevelopmentBookmarkCard: 'app-development-bookmark-card',
 };
+
+export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
 
 export const HOMEPAGE_SECTION_TYPES = {
   text: 'text',
@@ -321,6 +327,8 @@ export const CASE_STUDIES = {
   goodPsychics: 'marketplace-for-clairvoyant-services',
   mlInRealEstate: 'machine-learning-in-real-estate',
   humankind: 'humankind',
+  balzano: 'software-for-mri-interpretation',
+  cinnabar: 'cinnabar',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -330,6 +338,7 @@ export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key
 }, []);
 
 export const PAGES_WITH_DARK_HEADER = [
+  ROUTES.project.getRoute(CASE_STUDIES.balzano).path,
   ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
   ROUTES.project.getRoute(CASE_STUDIES.dindon).path,
   ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
@@ -346,9 +355,11 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.mobileFintechApp).path,
   ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
   ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
+  ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
+  ROUTES.fintechDevelopment.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
@@ -368,6 +379,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.mvpDevelopment.path,
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
+  ROUTES.fintechDevelopment.path,
   ROUTES.devOpsDevelopment.path,
 ];
 
@@ -413,6 +425,11 @@ export const SUB_NAVIGATION_LINKS = {
       subtitle: 'Artificial intelligence at your service',
       slug: ROUTES.mlDevelopment.path,
     },
+    {
+      title: 'Fintech Software Development Services',
+      subtitle: 'Build a successul fintech solution',
+      slug: ROUTES.fintechDevelopment.path,
+    },
   ],
 };
 
@@ -437,6 +454,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.fintechDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
   [PAGES.devOpsDevelopment]: 'Still have questions? We\'re ready to answer them',
@@ -454,9 +472,10 @@ export const SWIPER_NAV_BUTTON_TYPES = {
 
 export const REVEAL_ANIMATION_PROPS = {
   type: ANIMATED_TYPE.isCustom,
-  translateY: '2.82352941em',
-  opasityDuration: 1,
-  transformDuration: 1,
+  translateY: '2.8em',
+  opasityDuration: 0.5,
+  transformDuration: 0.7,
+  transitionDelay: 200,
 };
 
 export const PHONE_RESOLUTION = 568;

@@ -57,6 +57,11 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.mlDevelopment(),
     };
 
+  case PAGES.fintechDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.fintechDevelopment(),
+    };
+
   case PAGES.devOpsDevelopment:
     return {
       breadcrumbs: pagesBreadcrumbs.devOpsDevelopment(),
