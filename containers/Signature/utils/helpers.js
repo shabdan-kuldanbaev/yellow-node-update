@@ -51,6 +51,7 @@ export const getEmployeeInfo = (formRef) => {
     employee: getEmployee(0),
     employeeJob: getEmployee(1),
     employeeMail: getEmployee(2),
+    employeePhone: getEmployee(3),
   };
 };
 

@@ -20,6 +20,8 @@ const SignatureGenerated = ({
   const {
     employee,
     employeeJob,
+    employeeMail,
+    employeePhone,
   } = getEmployeeInfo(formRef);
 
   const selectElementContents = () => {
@@ -85,14 +87,22 @@ const SignatureGenerated = ({
                   colSpan={2}
                 >
                   <p className={styles.signatureDataEmployee}>
-                    {employee}
+                    {`${employee}, `}
+                    <span className={styles.signatureDataJob}>
+                      {employeeJob}
+                    </span>
                   </p>
                   <p className={styles.signatureDataJob}>
-                    {employeeJob}
+                    {employeeMail}
                   </p>
                 </td>
               </tr>
               <tr>
+                <td className={cn(styles.signatureData, styles.signaturePhoneContainer)}>
+                  <p className={styles.signatureataPhone}>
+                    {employeePhone}
+                  </p>
+                </td>
                 <td className={styles.signatureData}>
                   <p className={styles.signatureDataYellow}>
                     <LinkWrapper
