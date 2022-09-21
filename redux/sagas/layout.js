@@ -143,6 +143,7 @@ function* fetchPageData({
     case PAGES.fintechDevelopment:
     case PAGES.mlDevelopment:
     case PAGES.devOpsDevelopment:
+    case PAGES.aiDevelopment:
     case PAGES.notFound:
     case PAGES.signatureGenerator:
       yield call(fetchPage, { slug });

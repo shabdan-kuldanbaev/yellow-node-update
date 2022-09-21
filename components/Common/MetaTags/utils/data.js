@@ -117,6 +117,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.devOpsDevelopment.path}`,
   },
   {
+    pageName: ROUTES.aiDevelopment.slug,
+    metaTitle: 'AI Software Development Services: Best Choice for Your Business | Yellow',
+    metaDescription: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
+    url: `${rootUrl}${ROUTES.aiDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.privacyPolicy.slug,
     metaTitle: 'Privacy Policy | Yellow',
     metaDescription: 'Privacy Policy',
