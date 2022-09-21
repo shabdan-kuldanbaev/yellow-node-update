@@ -139,6 +139,9 @@ export { default as titledOutlook } from './titledOutlook.svg';
 export { default as titledSlack } from './titledSlack.svg';
 export { default as titledSonarqube } from './titledSonarqube.svg';
 export { default as titledTeams } from './titledTeams.svg';
+export { default as titledXGBoost } from './titledXGBoost.svg';
+export { default as titledDotNet } from './titledDotNet.svg';
+export { default as titledBluePrism } from './titledBluePrism.svg';
 
 /* Partners */
 export { default as techCrunch } from './techCrunch.svg';
