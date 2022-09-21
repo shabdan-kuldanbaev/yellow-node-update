@@ -250,6 +250,12 @@ export const routes = {
     dynamicPath: '/machine-learning-development-services',
     slug: 'machine-learning-development-services',
   },
+  erpDevelopment: {
+    title: 'Custom ERP Software Development Services',
+    path: '/custom-erp-software-development-services',
+    dynamicPath: '/custom-erp-software-development-services',
+    slug: 'custom-erp-software-development-services',
+  },
   signatureGenerator: {
     title: 'Signature Generator',
     path: '/signature-generator',

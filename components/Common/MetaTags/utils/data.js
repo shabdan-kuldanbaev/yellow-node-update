@@ -111,6 +111,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.fintechDevelopment.path}`,
   },
   {
+    pageName: ROUTES.erpDevelopment.slug,
+    metaTitle: 'Custom ERP Software Development Services | Yellow',
+    metaDescription: 'Bebebebe',
+    url: `${rootUrl}${ROUTES.erpDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.privacyPolicy.slug,
     metaTitle: 'Privacy Policy | Yellow',
     metaDescription: 'Privacy Policy',

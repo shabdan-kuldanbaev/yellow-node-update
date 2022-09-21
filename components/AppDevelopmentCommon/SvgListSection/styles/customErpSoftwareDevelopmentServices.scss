@@ -1,0 +1,33 @@
+.custom-erp-software-development-services {
+  background-color: $alabaster;
+  padding: 120px 10px;
+
+  .titleStyle {
+    .description {
+      max-width: 870px;
+    }
+  }
+
+  .svgList-1 {
+    margin-bottom: 60px;
+  }
+
+  .svgList-1,
+  .svgList-2 {
+    @include phone {
+      display: none;
+    }
+  }
+
+  .svgList-3 {
+    display: none;
+
+    @include phone {
+      display: block;
+    }
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}

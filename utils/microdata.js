@@ -139,6 +139,13 @@ export const microdata = {
     description: 'Build a successul fintech solution',
     breadcrumb: 'Homepage > Fintech Software Development Services',
   }),
+  erpDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Custom ERP Software Development Services ',
+    description: 'Bebebebe',
+    breadcrumb: 'Homepage > Custom ERP Software Development Services ',
+  }),
   designServices: () => ({
     '@context': context,
     '@type': 'WebPage',

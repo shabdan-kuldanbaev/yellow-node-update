@@ -116,6 +116,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.cloudDevelopment.path,
     },
   ]),
+  erpDevelopment: () => ([
+    {
+      title: ROUTES.erpDevelopment.title,
+      to: ROUTES.erpDevelopment.path,
+    },
+  ]),
   mlDevelopment: () => ([
     {
       title: ROUTES.mlDevelopment.title,

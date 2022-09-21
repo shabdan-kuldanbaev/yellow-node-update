@@ -80,12 +80,14 @@
 }
 
 .chat-app-development-company,
+.custom-erp-software-development-services,
 .fintech-software-development-services {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
 }
 
+.custom-erp-software-development-services,
 .fintech-software-development-services {
   .sliderList {
     padding: 60px 112px;
@@ -106,6 +108,24 @@
 
     @include phone {
       padding: 40px 20px; 
+    }
+  }
+}
+
+.custom-erp-software-development-services {
+  .sliderList { 
+    .item {
+      .slideSubtitle {
+        @include fontSize(14px)
+      }
+    }
+
+    :global(.swiper-scrollbar) {
+      margin-top: 60px;
+
+      @include phone {
+        margin-top: 40px;
+      }
     }
   }
 }
