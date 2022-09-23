@@ -14,6 +14,7 @@ const ButtonMore = ({
   isDisabled,
   disabledButtonStyle,
   type,
+  ...rest
 }) => (href.length === 0
   ? (
     <div
@@ -22,6 +23,7 @@ const ButtonMore = ({
       onClick={handleOnClick}
       role="button"
       tabIndex="0"
+      {...rest}
     >
       {title}
     </div>
@@ -36,6 +38,7 @@ const ButtonMore = ({
         styles[type],
         { [disabledButtonStyle]: isDisabled },
       )}
+      {...rest}
     >
       <div
         className={cn({ [buttonStyle]: buttonStyle })}
