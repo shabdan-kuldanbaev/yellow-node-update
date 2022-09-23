@@ -96,7 +96,7 @@
   }
 
   &Data {
-    @include fontSize(11pt);
+    @include fontSize(10pt, 1.5);
 
     line-height: 150%;
 
@@ -109,22 +109,22 @@
     }
 
     &Employee {
+      @include fontSize(11pt);
+
       font-weight: 600;
     }
 
     &Job {
+      @include fontSize(11pt);
+
       color: $silver-chalice;
       font-weight: normal;
-
-      @include fontSize(11pt);
     }
 
     &Email {
       @include signatureLinkMixin;
 
-      line-height: 100%;
-
-      @include fontSize(9pt);
+      color: $black;
     }
 
     &Yellow {

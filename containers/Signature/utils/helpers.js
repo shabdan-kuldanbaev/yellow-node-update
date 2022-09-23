@@ -29,6 +29,7 @@ export const getSignatureProps = (props) => {
   const linkedInImgUrl = getFileUrl(images[1]);
   const instagramImgUrl = getFileUrl(images[2]);
   const twitterImgUrl = getFileUrl(images[3]);
+  const skypeImgUrl = getFileUrl(images[4]);
 
   return {
     signatureGeneratorTitle,
@@ -40,6 +41,7 @@ export const getSignatureProps = (props) => {
       linkedInImgUrl,
       instagramImgUrl,
       twitterImgUrl,
+      skypeImgUrl,
     },
   };
 };

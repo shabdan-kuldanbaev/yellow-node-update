@@ -92,7 +92,7 @@ const SignatureGenerated = ({
                       {employeeJob}
                     </span>
                   </p>
-                  <p className={styles.signatureDataJob}>
+                  <p className={styles.signatureDataEmail}>
                     {employeeMail}
                   </p>
                 </td>
@@ -144,6 +144,15 @@ const SignatureGenerated = ({
                     <img
                       src={images.twitterImgUrl}
                       alt="twitter logo"
+                    />
+                  </LinkWrapper>
+                  <LinkWrapper
+                    isLocalLink={false}
+                    path="skype:d.rizoy?chat"
+                  >
+                    <img
+                      src={images.skypeImgUrl}
+                      alt="skype logo"
                     />
                   </LinkWrapper>
                 </td>
