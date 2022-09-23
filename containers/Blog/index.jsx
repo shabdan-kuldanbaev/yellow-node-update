@@ -44,6 +44,10 @@ const BlogContainer = ({
     pageNumber: currentPage,
   };
 
+  if (tagsList.map((tag) => tag.slug).includes(slug)) {
+    pageMetadata.metaRobots = 'noindex,follow';
+  }
+
   if (CATEGORY_SLUGS.includes(slug) && categoriesMetaData[slug]) {
     const {
       metaTitle: categoryMetaTitle,
