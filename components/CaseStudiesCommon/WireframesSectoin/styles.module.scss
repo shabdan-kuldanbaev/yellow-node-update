@@ -140,7 +140,7 @@
   @include phone {
     padding: 50px 20px 140px;
 
-    & > div:first-of-type {
+    &>div:first-of-type {
       padding: 0 1px;
     }
   }
@@ -160,7 +160,7 @@
   @include phone {
     padding-top: 20px;
 
-    & > div:first-of-type {
+    &>div:first-of-type {
       padding: 0 21px;
     }
   }
@@ -227,5 +227,25 @@
       width: 300px;
       padding-top: 80px;
     }
+  }
+}
+
+.mobile-bank-application {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  background: $alabaster;
+  padding: 120px 0;
+
+  [data-case-study-description] {
+    max-width: 655px;
+  }
+
+  @include tablet {
+    padding: 70px 0;
+  }
+
+  @include phone {
+    padding: 60px 0;
   }
 }

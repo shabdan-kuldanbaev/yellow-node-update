@@ -1,36 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { SwiperNavigation } from 'components/SwiperNavigation';
-import { CASE_STUDIES_TYPES } from 'utils/constants';
-import { getSwiperParams } from './utils/challengesSliderHelper';
 import styles from '../styles.module.scss';
 
-const ChallengesSlider = ({
+const ProcessSlider = ({
   isMobileResolution,
-  isSlider,
   type,
   children,
 }) => {
-  if (!isMobileResolution || !isSlider) return children;
+  if (!isMobileResolution) return children;
 
-  const isSpecialSwiper = type === CASE_STUDIES_TYPES.challengesSpecialSlider;
-  const swiperParams = getSwiperParams(type);
+  const swiperParams = {
+    modules: [Pagination],
+    slidesPerView: 1,
+    spaceBetween: 30,
+  };
 
   return (
     <Swiper {...swiperParams}>
       {children.map((child, index) => <SwiperSlide key={index}>{child}</SwiperSlide>)}
-      {isSpecialSwiper && <SwiperNavigation className={styles.navigation} />}
+      <SwiperNavigation className={styles.navigation} />
     </Swiper>
   );
 };
 
-ChallengesSlider.propTypes = {
+ProcessSlider.propTypes = {
   isSlider: PropTypes.bool.isRequired,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
   type: PropTypes.string.isRequired,
 };
 
-export default ChallengesSlider;
+export default ProcessSlider;
