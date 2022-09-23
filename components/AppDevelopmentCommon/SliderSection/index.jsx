@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar, Mousewheel } from 'swiper';
 import Animated from 'components/Common/Animated';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
 import { getSliderProps } from './utils/sliderHelper';
@@ -47,9 +48,10 @@ const SliderSection = ({ sectionData, type }) => {
                 const {
                   title: slideTitle,
                   description: slideDescription,
+                  text,
                 } = getDocumentFields(
                   slide,
-                  ['title', 'description'],
+                  ['title', 'description', 'text'],
                 );
 
                 return (
@@ -63,6 +65,7 @@ const SliderSection = ({ sectionData, type }) => {
                     <p className={styles.slideSubtitle}>
                       {slideDescription}
                     </p>
+                    {text && <ContentfulParser document={text} />}
                   </SwiperSlide>
                 );
               })}

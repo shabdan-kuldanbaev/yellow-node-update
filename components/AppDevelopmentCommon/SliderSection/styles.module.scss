@@ -50,6 +50,7 @@
         }
       }
 
+      p,
       .slideSubtitle {
         color: $silver-chalice;
         line-height: 2;
@@ -115,12 +116,14 @@
 .custom-erp-software-development-services {
   .sliderList {
     .item {
+      p,
       .slideSubtitle {
-        @include fontSize(14px); }
+        @include fontSize(14px);
+      }
     }
 
     :global(.swiper-scrollbar) {
-      margin-top: 60px;
+      margin-top: 10px;
 
       @include phone {
         margin-top: 40px;

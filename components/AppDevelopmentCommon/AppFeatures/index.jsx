@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
@@ -38,7 +37,11 @@ const AppFeatures = ({ data, type }) => {
             type={type}
           />
           {data.contentModules.map((document, index) => {
-            const { title, text, imagesBundles } = getDocumentFields(document);
+            const {
+              title,
+              text,
+              imagesBundles,
+            } = getDocumentFields(document);
 
             return (
               <Animated
@@ -51,11 +54,12 @@ const AppFeatures = ({ data, type }) => {
                     [styles.sectionActiveItem]: index === activeIndex,
                   })}
                 >
-                  <div className={styles.wrapperTitle}>
-                    <p
-                      className={styles.title}
-                      onClick={handleOnClick(index)}
-                    >
+                  <div
+                    role="presentation"
+                    className={styles.wrapperTitle}
+                    onClick={handleOnClick(index)}
+                  >
+                    <p className={styles.title}>
                       {title}
                     </p>
                     {imagesBundles?.map((bundle, imagesBundlesIndex) => {
@@ -68,13 +72,6 @@ const AppFeatures = ({ data, type }) => {
                           alt=""
                           key={`bundles-images/${bundleUrl}`}
                         />
-                        // <Image
-                        //   className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
-                        //   src={bundleUrl}
-                        //   key={`bundles-images/${bundleUrl}`}
-                        //   width={bundle.fields.file.details.image.width}
-                        //   height={bundle.fields.file.details.image.height}
-                        // />
                       );
                     })}
                   </div>

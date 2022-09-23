@@ -476,8 +476,8 @@
         .subtitle {
           max-width: 560px;
 
-          @include phone {
-            &:not(:first-child) {
+          &:not(:first-child) {
+            @include phone {
               margin-top: 10px;
             }
           }

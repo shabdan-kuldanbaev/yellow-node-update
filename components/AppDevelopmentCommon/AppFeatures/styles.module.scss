@@ -54,12 +54,12 @@
         .wrapperTitle {
           display: flex;
           align-items: center;
+          cursor: pointer;
 
           .title {
             @include fontSize(20px);
 
             margin-bottom: 10px;
-            cursor: pointer;
             transition: color 400ms, margin 400ms;
             font-weight: bold;
             line-height: 120%;
@@ -197,6 +197,7 @@
         .wrapperTitle {
           .title {
             color: $white;
+            margin: 10px 0px;
           }
         }
 
@@ -211,6 +212,10 @@
 
       img {
         transform: scale(1.6) translate(-220px, 110px);
+
+        @include macbook-thirteen {
+          transform: scale(1.2) translate(-150px, 110px);
+        }
 
         @include tablet-size-horizontal {
           transform: none;

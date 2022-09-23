@@ -218,7 +218,6 @@
     }
 
     @include tablet {
-      display: flex;
       flex-flow: column-reverse nowrap;
       justify-content: space-between;
       margin-top: 0;
