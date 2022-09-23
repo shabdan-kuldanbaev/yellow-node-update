@@ -104,14 +104,13 @@ const SignatureGenerated = ({
                   </p>
                 </td>
                 <td className={cn(styles.signatureData, styles.signatureYellowContainer)}>
-                  <p className={styles.signatureDataYellow}>
-                    <LinkWrapper
-                      isLocalLink={false}
-                      path={YELLOW_LINK}
-                    >
-                      {YELLOW_DOMAIN}
-                    </LinkWrapper>
-                  </p>
+                  <LinkWrapper
+                    isLocalLink={false}
+                    path={YELLOW_LINK}
+                    className={styles.signatureDataYellow}
+                  >
+                    {YELLOW_DOMAIN}
+                  </LinkWrapper>
                 </td>
               </tr>
               <tr>

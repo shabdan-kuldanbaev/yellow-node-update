@@ -130,8 +130,9 @@
     &Yellow {
       @include signatureLinkMixin;
 
-      line-height: 150%;
       margin-left: 10px !important;
+      line-height: 150%;
+      display: block;
 
       a,
       a:visited {
