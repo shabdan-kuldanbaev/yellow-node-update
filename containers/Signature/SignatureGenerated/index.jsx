@@ -103,7 +103,7 @@ const SignatureGenerated = ({
                     {employeePhone}
                   </p>
                 </td>
-                <td className={styles.signatureData}>
+                <td className={cn(styles.signatureData, styles.signatureYellowContainer)}>
                   <p className={styles.signatureDataYellow}>
                     <LinkWrapper
                       isLocalLink={false}
