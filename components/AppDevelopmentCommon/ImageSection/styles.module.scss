@@ -118,7 +118,8 @@
       margin: 120px auto 0;
       padding: 0;
 
-      h2, p {
+      h2,
+      p {
         text-align: center;
       }
 
@@ -165,7 +166,7 @@
 
 .custom-erp-software-development-services {
   background-color: $white;
-  padding: 120px 0px;
+  padding: 120px 0;
   overflow: hidden;
 
   .imageSection {
@@ -174,7 +175,7 @@
     .image {
       padding-left: 74%;
       padding-top: 85%;
-      transform: translate(110px, 0px);
+      transform: translate(110px, 0);
 
       @include tablet {
         transform: none;

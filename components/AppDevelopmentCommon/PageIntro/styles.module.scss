@@ -315,7 +315,8 @@
   }
 }
 
-.ios-mobile-app-development-services {
+.ios-mobile-app-development-services,
+.devops-development-services {
   .pageIntroSection {
     .pageIntroWrapper {
       border-bottom: 1px solid rgba($alto, 0.2);
@@ -345,7 +346,8 @@
 .mvp-app-development-company,
 .cloud-based-app-development-services,
 .machine-learning-development-services,
-.fintech-software-development-services {
+.fintech-software-development-services,
+.devops-development-services {
   @extend .pageIntroContainer;
 
   background-color: inherit;
@@ -426,7 +428,8 @@
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
-.machine-learning-development-services {
+.machine-learning-development-services,
+.devops-development-services {
   .pageIntroSection {
     .pageIntroWrapper {
       margin-bottom: 0;
@@ -469,10 +472,10 @@
             margin-bottom: 15px;
           }
         }
-  
+
         .subtitle {
           max-width: 560px;
-  
+
           @include phone {
             &:not(:first-child) {
               margin-top: 10px;
@@ -495,6 +498,18 @@
 
       @include phone {
         margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.devops-development-services {
+  .pageIntroSection {
+    .pageIntroWrapper {
+      padding-bottom: 60px;
+
+      @include phone {
+        margin-bottom: 30px;
       }
     }
   }

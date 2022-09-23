@@ -66,6 +66,12 @@ export const getServicePageInfo = (pathname) => {
     return {
       breadcrumbs: pagesBreadcrumbs.erpDevelopment(),
     };
+
+  case PAGES.devOpsDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.devOpsDevelopment(),
+    };
+
   default:
     return {
       pageMicrodata: null,

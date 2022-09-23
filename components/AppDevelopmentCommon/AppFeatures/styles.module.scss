@@ -16,7 +16,7 @@
       text-align: left;
       max-width: 800px;
       margin: 0 auto 40px;
-  
+
       @include phone {
         @include fontSize(32px);
 
@@ -45,7 +45,7 @@
         &:last-of-type {
           padding-bottom: 0;
           border-bottom: none;
-  
+
           &::after {
             content: none;
           }
@@ -57,44 +57,44 @@
 
           .title {
             @include fontSize(20px);
-  
+
             margin-bottom: 10px;
             cursor: pointer;
             transition: color 400ms, margin 400ms;
             font-weight: bold;
             line-height: 120%;
             color: $black;
-  
+
             &:hover {
               transition: color 400ms;
             }
-  
+
             @include tablet {
               @include fontSize(18px);
-  
+
               margin-left: 10px;
             }
-  
+
             @include phone {
               @include fontSize(17px);
             }
           }
-  
+
           .description {
             @include fontSize(18px);
-  
+
             line-height: 180%;
             color: $silver-chalice;
-  
+
             @include tablet {
               @include fontSize(14px);
-  
+
               margin-left: 10px;
             }
-  
+
             & > p {
               margin: 0;
-  
+
               @include phone {
                 margin: 5px;
               }
@@ -173,12 +173,12 @@
         text-align: center;
       }
     }
-  
+
     [data-case-study-description] {
       margin: 0;
       max-width: 690px;
       text-align: left;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgb(255 255 255 / 0.7);
       opacity: 0.7;
 
       @include tablet-size-horizontal {
@@ -201,7 +201,7 @@
         }
 
         .description {
-          color: rgba(255, 255, 255, 0.7);
+          color: rgb(255 255 255 / 0.7);
         }
       }
     }

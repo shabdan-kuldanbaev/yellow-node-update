@@ -6,14 +6,12 @@
   margin: 0 auto;
 
   :global(.swiper) {
-    @include below-tablet {
-      margin: 0 -40px;
-    }
-
-    @include phone {
-      margin: 0 -15px;
-    }
+    padding-bottom: 100px;
   }
+}
+
+.navigation {
+  max-width: 80vw;
 }
 
 .articleTile {

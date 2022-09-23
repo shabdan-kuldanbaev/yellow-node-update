@@ -2,7 +2,7 @@
   position: relative;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 25%;
     height: 100%;
@@ -15,7 +15,7 @@
   &.firstSectionView {
     .special {
       max-width: unset;
-  
+
       .image {
         filter: none;
         max-width: 1008px;
@@ -81,7 +81,6 @@
           position: absolute;
           top: 20%;
           left: -30%;
-
           width: 687px;
           height: 687px;
         }
@@ -104,19 +103,18 @@
             top: 5%;
             left: 89%;
           }
-  
+
           @include tablet {
             display: none;
             background: none;
-            transform: translate(0px, 0px);
+            transform: translate(0, 0);
           }
         }
 
         .imageBundle-2 {
           position: absolute;
-          top: 0px;
+          top: 0;
           right: -50%;
-
           width: 675px;
           height: 675px;
         }
@@ -139,12 +137,12 @@
         .images {
           @extend .openSenseGradient;
 
-          &::after {  
+          &::after {
             left: 0;
             height: 107%;
             transform: translate(0, -1px);
             background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
-  
+
             @include tablet {
               display: none;
               background: none;
@@ -152,10 +150,10 @@
           }
 
           .image {
-            transform: translate(-40px, 0px);
+            transform: translate(-40px, 0);
 
             @include tablet {
-              transform: translate(0px, 0px);
+              transform: translate(0, 0);
             }
           }
         }
@@ -163,12 +161,12 @@
         @include macbook-twelve {
           padding-right: 40px;
         }
-  
+
         @include tablet {
           padding-right: 0;
         }
       }
-  
+
       &:nth-child(2n) {
         @include flex(row, flex-end);
 
@@ -191,7 +189,7 @@
             height: 107%;
             transform: translate(10px, -1px);
             background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
-  
+
             @include tablet {
               display: none;
               background: none;
@@ -199,14 +197,14 @@
           }
 
           .image {
-            transform: translate(40px, 0px);
+            transform: translate(40px, 0);
 
             @include tablet {
-              transform: translate(0px, 0px);
+              transform: translate(0, 0);
             }
           }
         }
-  
+
         @include macbook-twelve {
           padding-left: 40px;
         }
@@ -228,12 +226,12 @@
         color: $white;
       }
     }
-  
+
     .infoContainer {
       h3 {
         color: $white;
       }
-  
+
       p {
         color: $white;
         opacity: 0.7;

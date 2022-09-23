@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .infoContainer {
   @include flex;
@@ -102,13 +102,13 @@
     .listContainer {
       .listItemContainer {
         color: $silver-chalice;
-  
+
         &::marker {
-          color: $pure-blue-4
+          color: $pure-blue-4;
         }
 
         @include phone {
-          text-align: center
+          text-align: center;
         }
       }
 
@@ -451,6 +451,7 @@
 
 .humankind {
   @extend .infoContainer;
+
   @include flex(column, center, flex-start);
 
   margin-top: 35px;
@@ -470,8 +471,7 @@
     }
 
     @include phone {
-      margin: 0 0 24px;
-      margin-top: 0px !important;
+      margin: 0 0 24px !important;
     }
 
     .title {
@@ -490,8 +490,8 @@
       .listItemContainer {
         span {
           @include fontSize(18px);
-          line-height: 180%;
 
+          line-height: 180%;
           color: $silver-chalice;
 
           @include phone {
@@ -594,7 +594,7 @@
       .listItemContainer {
         list-style: none;
 
-        &>span {
+        & > span {
           position: relative;
 
           &::before {
@@ -632,9 +632,7 @@
       }
     }
   }
-}
 
-.hotel-data-cloud {
   @include phone {
     justify-content: center;
   }

@@ -46,7 +46,8 @@
     width: auto;
 
     @include below-tablet {
-      max-height: 106px;
+      transform: scale(0.8);
+      margin: -10px;
     }
   }
 }
@@ -60,8 +61,9 @@
 .mvp-app-development-company,
 .ui-ux-services,
 .web-app-development-company,
-.homepage,
-.fintech-software-development-services {
+.devops-development-services,
+.fintech-software-development-services,
+.homepage {
   @include appDevelopmentContainer;
 
   .titleStyle {

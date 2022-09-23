@@ -94,7 +94,7 @@
 
     .item {
       .slideTitle {
-        @include fontSize(24px)
+        @include fontSize(24px);
       }
 
       .slideSubtitle {
@@ -107,17 +107,16 @@
     }
 
     @include phone {
-      padding: 40px 20px; 
+      padding: 40px 20px;
     }
   }
 }
 
 .custom-erp-software-development-services {
-  .sliderList { 
+  .sliderList {
     .item {
       .slideSubtitle {
-        @include fontSize(14px)
-      }
+        @include fontSize(14px); }
     }
 
     :global(.swiper-scrollbar) {

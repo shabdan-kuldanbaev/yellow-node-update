@@ -55,6 +55,7 @@ export const NAV_LINKS = [
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
     routes.mlDevelopment.slug,
+    routes.devOpsDevelopment.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
     routes.termsAndConditions.slug,
@@ -212,6 +213,8 @@ export const APP_DEVELOPMENT_TYPES = {
   svgDisplayWithSelector: 'svg-display-with-selector',
   cardsWithOverlay: 'cards-with-overlay',
   appDevelopmentAppFeatures: 'app-development-app-features',
+  appDevelopmentPlainTextSection: 'app-development-plain-text',
+  appDevelopmentBookmarkCard: 'app-development-bookmark-card',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -380,6 +383,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.mlDevelopment.path,
   ROUTES.fintechDevelopment.path,
   ROUTES.erpDevelopment.path,
+  ROUTES.devOpsDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -449,7 +453,6 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
   [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
   [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
-  [PAGES.fintechDevelopment]: 'Contact Yellow for a free estimation',
   [PAGES.designServices]: 'Tailored UX design services for your business',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
@@ -457,6 +460,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.fintechDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
+  [PAGES.devOpsDevelopment]: 'Still have questions? We\'re ready to answer them',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
 };
 

@@ -30,7 +30,7 @@
       text-align: center;
     }
 
-    &>* {
+    & > * {
       z-index: 1;
     }
 
@@ -785,10 +785,9 @@
       max-width: 1400px;
       margin: 0 auto;
 
-      &>span>span {
+      & > span > span {
         padding-top: 62% !important; // TODO temporary solution, change after image component will be updated
       }
-
     }
 
     .bundleImage {

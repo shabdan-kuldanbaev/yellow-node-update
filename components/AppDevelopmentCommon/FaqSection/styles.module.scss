@@ -13,7 +13,8 @@
 .machine-learning-development-services,
 .chat-app-development-company,
 .custom-erp-software-development-services,
-.fintech-software-development-services {
+.fintech-software-development-services,
+.devops-development-services {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
@@ -47,7 +48,8 @@
 .machine-learning-development-services,
 .chat-app-development-company,
 .mobile-app-development-company,
-.fintech-software-development-services {
+.fintech-software-development-services,
+.devops-development-services {
   background-color: $white;
 
   & > div {
