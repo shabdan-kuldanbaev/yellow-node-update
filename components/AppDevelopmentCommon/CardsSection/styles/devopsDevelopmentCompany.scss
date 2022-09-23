@@ -74,29 +74,14 @@
       max-width: 945px;
     }
 
-    .titleStyle p {
-      max-width: 702px;
-    }
-
-    .cardContent {
-      width: 298px;
-    }
-
     .cards > div {
       background-color: $very-dark-gray;
       box-shadow: none;
-      width: 292px;
 
       @include below-tablet {
-        display: block;
-
-        h3 {
-          margin-top: 16px;
-        }
-
         svg {
           transform: scale(0.7);
-          margin: 0 0 -13px -13px;
+          margin: -13px 0 0 -13px;
         }
       }
     }
@@ -113,15 +98,7 @@
     @include iconsWithinCircle;
 
     .titleStyle {
-      max-width: 764px;
-    }
-
-    .cardContent {
-      width: 365px;
-
-      @include phone {
-        width: 270px;
-      }
+      max-width: 790px;
     }
   }
 }
