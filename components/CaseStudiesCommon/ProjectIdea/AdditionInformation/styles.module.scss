@@ -594,7 +594,7 @@
       .listItemContainer {
         list-style: none;
 
-        & > span {
+        &>span {
           position: relative;
 
           &::before {
@@ -635,5 +635,45 @@
 
   @include phone {
     justify-content: center;
+  }
+}
+
+.mobile-bank-application {
+  @extend .infoContainer;
+
+  flex-direction: column;
+
+  .container {
+    @include fontSize(18px);
+
+    max-width: 304px;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+
+      @include phone {
+        margin: 0;
+      }
+    }
+
+    .title {
+      margin-bottom: 15px;
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .listItemContainer {
+      color: $silver-chalice;
+
+      &::marker {
+        color: $turbo-100;
+      }
+    }
+  }
+
+  @include phone {
+    margin: 24px 0;
   }
 }

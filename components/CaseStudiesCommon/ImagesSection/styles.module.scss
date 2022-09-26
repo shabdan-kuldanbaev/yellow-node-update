@@ -135,7 +135,7 @@
   position: relative;
   overflow: hidden;
 
-  & > * {
+  &>* {
     z-index: 10;
   }
 
@@ -302,5 +302,25 @@
   @include phone {
     padding-bottom: 60px;
     padding-top: 30px;
+  }
+}
+
+.mobile-bank-application {
+  @include caseStudyContainer;
+
+  padding: 120px 0;
+  background-color: $black;
+
+  [data-case-study-title] {
+    color: white;
+  }
+
+  @include tablet {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include phone {
+    padding: 60px 0;
   }
 }

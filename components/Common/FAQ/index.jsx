@@ -17,11 +17,9 @@ export const FAQ = ({ faqList, type }) => {
     <>
       <Head>
         {!isEmpty(faqList) && (
-          <Script
-            id="JSON-LD-faq"
+          <script
             key="JSON-LD-faq"
             type="application/ld+json"
-            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(microdata.faq({ faqList })),
             }}
