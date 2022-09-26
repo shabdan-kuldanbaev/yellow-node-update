@@ -18,10 +18,15 @@
 
   &.reviews {
     @extend .greySection;
+
+    :global(.swiper-wrapper) {
+      padding-top: 5px;
+    }
   }
 
   .titleStyle {
     @include defaultSectionTitle;
+    margin-bottom: 55px;
   }
 
   .callToAction {
