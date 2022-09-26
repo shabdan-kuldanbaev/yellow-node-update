@@ -252,9 +252,9 @@ export const routes = {
   },
   erpDevelopment: {
     title: 'Custom ERP Software Development Services',
-    path: '/custom-erp-software-development-services',
-    dynamicPath: '/custom-erp-software-development-services',
-    slug: 'custom-erp-software-development-services',
+    path: '/enterprise-resource-planning-software-services',
+    dynamicPath: '/enterprise-resource-planning-software-services',
+    slug: 'enterprise-resource-planning-software-services',
   },
   devOpsDevelopment: {
     title: 'DevOps Development Company',

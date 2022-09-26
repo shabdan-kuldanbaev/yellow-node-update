@@ -113,7 +113,7 @@ export const ogMetaData = [
   {
     pageName: ROUTES.erpDevelopment.slug,
     metaTitle: 'Custom ERP Software Development Services | Yellow',
-    metaDescription: 'Bebebebe',
+    metaDescription: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',
     url: `${rootUrl}${ROUTES.erpDevelopment.path}`,
   },
   {
