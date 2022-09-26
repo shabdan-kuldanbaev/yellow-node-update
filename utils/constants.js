@@ -215,6 +215,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentAppFeatures: 'app-development-app-features',
   appDevelopmentPlainTextSection: 'app-development-plain-text',
   appDevelopmentBookmarkCard: 'app-development-bookmark-card',
+  processOverlay: 'app-development-process-overlay',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';

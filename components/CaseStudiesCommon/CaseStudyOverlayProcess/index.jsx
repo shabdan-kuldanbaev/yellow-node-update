@@ -15,12 +15,11 @@ import ProcessSlider from './ProcessSlider';
 const CaseStudyOverlayProcess = ({ data, type }) => {
   const isMobileResolution = useSelector(selectIsMobileResolutions);
 
-  if (!data.contentModules) {
+  if (!data?.contentModules) {
     return null;
   }
 
   const {
-    title,
     cardsList,
     animatedProps,
   } = getCardsProps(data);

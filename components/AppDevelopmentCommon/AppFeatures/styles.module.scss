@@ -106,6 +106,10 @@
             transition: 0.3s;
             transform: rotate(360deg);
           }
+
+          @include phone {
+            justify-content: space-between;
+          }
         }
       }
 
