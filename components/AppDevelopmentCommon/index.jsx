@@ -21,6 +21,7 @@ const AppFeatures = dynamic(() => import('components/AppDevelopmentCommon/AppFea
 const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'), { ssr: false });
 const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/PlainTextSection'));
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
+const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -41,6 +42,13 @@ export const AppDevelopmentCommon = ({
         sectionData={section}
         type={type}
         introSection={introSection}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.processOverlay:
+    return (
+      <AppOverlayProcess
+        data={section.fields}
+        type={type}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentImageSection:
