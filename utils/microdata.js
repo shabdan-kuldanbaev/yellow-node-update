@@ -143,7 +143,7 @@ export const microdata = {
     '@context': context,
     '@type': 'WebPage',
     name: 'Custom ERP Software Development Services ',
-    description: 'Bebebebe',
+    description: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',
     breadcrumb: 'Homepage > Custom ERP Software Development Services ',
   }),
   designServices: () => ({
