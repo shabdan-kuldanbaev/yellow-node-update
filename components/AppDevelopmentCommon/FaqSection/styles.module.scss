@@ -13,7 +13,8 @@
 .machine-learning-development-services,
 .chat-app-development-company,
 .fintech-software-development-services,
-.devops-development-services {
+.devops-development-services,
+.artificial-intelligence-development-services {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
@@ -47,7 +48,8 @@
 .chat-app-development-company,
 .mobile-app-development-company,
 .fintech-software-development-services,
-.devops-development-services {
+.devops-development-services,
+.artificial-intelligence-development-services {
   background-color: $white;
 
   & > div {
@@ -60,6 +62,7 @@
 .machine-learning-development-services,
 .ui-ux-services,
 .mobile-app-development-company,
-.fintech-software-development-services {
+.fintech-software-development-services,
+.artificial-intelligence-development-services {
   padding-bottom: 0;
 }
