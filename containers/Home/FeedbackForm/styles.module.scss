@@ -250,7 +250,8 @@
 .machine-learning-development-services,
 .mobile-app-development-company,
 .devops-development-services,
-.chat-app-development-company {
+.chat-app-development-company,
+.artificial-intelligence-development-services {
   @extend .formContainer;
 
   padding: 100px 16px;
@@ -366,5 +367,11 @@
         }
       }
     }
+  }
+}
+
+.artificial-intelligence-development-services {
+  .title {
+    max-width: 830px;
   }
 }

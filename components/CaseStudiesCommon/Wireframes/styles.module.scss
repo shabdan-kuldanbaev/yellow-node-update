@@ -146,6 +146,7 @@
 
   /* stylelint-disable-next-line */
   .animatedContainer {
+
     /* stylelint-disable-next-line */
     .image {
       max-height: 645px;
@@ -393,4 +394,19 @@
   &::after {
     background: none;
   }
+}
+
+.mobile-bank-application {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    max-height: 572px;
+    margin-left: -10px;
+
+    @include phone {
+      margin-left: 50px;
+    }
+  }
+
+  background: $alabaster;
 }

@@ -48,6 +48,7 @@ export const NAV_LINKS = [
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
     routes.fintechDevelopment.slug,
+    routes.erpDevelopment.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
@@ -215,6 +216,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentAppFeatures: 'app-development-app-features',
   appDevelopmentPlainTextSection: 'app-development-plain-text',
   appDevelopmentBookmarkCard: 'app-development-bookmark-card',
+  processOverlay: 'app-development-process-overlay',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -291,6 +293,9 @@ export const CASE_STUDIES_TYPES = {
   fullscreenImage: 'case-study-fullscreen-image',
   works: 'case-study-how-it-works',
   challengesSlider: 'case-study-challenges-slider',
+  processOverlay: 'case-study-process-overlay',
+  challengesSpecialSlider: 'case-study-special-slider',
+  prototype: 'case-study-prototype',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -330,6 +335,7 @@ export const CASE_STUDIES = {
   humankind: 'humankind',
   balzano: 'software-for-mri-interpretation',
   cinnabar: 'cinnabar',
+  mobileBankApplication: 'mobile-bank-application',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -357,10 +363,12 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
   ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
   ROUTES.fintechDevelopment.path,
+  ROUTES.erpDevelopment.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
@@ -381,6 +389,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
   ROUTES.fintechDevelopment.path,
+  ROUTES.erpDevelopment.path,
   ROUTES.devOpsDevelopment.path,
   ROUTES.aiDevelopment.path,
 ];

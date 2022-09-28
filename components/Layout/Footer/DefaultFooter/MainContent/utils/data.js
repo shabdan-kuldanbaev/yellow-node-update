@@ -93,6 +93,11 @@ export const footerData = [
         type: 'navigation',
       },
       {
+        subtitle: 'Custom ERP Software Development Services',
+        path: ROUTES.erpDevelopment.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Cloud-based app development services',
         path: ROUTES.cloudDevelopment.path,
         type: 'navigation',

@@ -28,28 +28,27 @@ const SvgGroup = ({
     )}
     >
       {title && !hideTitle && (
-        <h3 className={styles.groupTitle}>
-          {title}
-        </h3>
+        <Animated {...REVEAL_ANIMATION_PROPS}>
+          <h3 className={styles.groupTitle}>
+            {title}
+          </h3>
+        </Animated>
       )}
-      <Swiper
-        {...swiperParams}
-        enabled
-      >
-        {icons?.map((technology, i) => (
-          <SwiperSlide
-            className={styles.item}
-            key={`technologies/${technology}`}
-          >
-            <Animated
-              {...REVEAL_ANIMATION_PROPS}
-              transitionDelay={isSwiperEnabled ? 0 : (300 + 70 * i)}
+      <Animated {...REVEAL_ANIMATION_PROPS}>
+        <Swiper
+          {...swiperParams}
+          enabled
+        >
+          {icons?.map((technology) => (
+            <SwiperSlide
+              className={styles.item}
+              key={`technologies/${technology}`}
             >
               <Svg type={technology} />
-            </Animated>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Animated>
     </div>
   );
 };

@@ -46,7 +46,8 @@
     width: auto;
 
     @include below-tablet {
-      max-height: 106px;
+      transform: scale(0.8);
+      margin: -10px;
     }
   }
 }

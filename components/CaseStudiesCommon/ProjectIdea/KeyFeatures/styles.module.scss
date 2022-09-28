@@ -86,7 +86,7 @@
         }
       }
 
-      & > p {
+      &>p {
         margin: 0;
         line-height: 150%;
         font-family: $case-studies-font;
@@ -174,7 +174,7 @@
   }
 
   .contentContainer {
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -205,7 +205,7 @@
   }
 
   .contentContainer {
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -242,7 +242,7 @@
         color: $white;
       }
 
-      & > p {
+      &>p {
         max-width: 325px;
       }
     }
@@ -649,7 +649,7 @@
   }
 
   .contentContainer {
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -746,7 +746,7 @@
       margin-bottom: 10px;
     }
 
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -786,8 +786,37 @@
       margin-bottom: 10px;
     }
 
-    & > p {
+    &>p {
       max-width: 370px;
     }
+  }
+}
+
+.mobile-bank-application {
+  @extend .container;
+
+  .featureContainer {
+    margin-bottom: 30px;
+
+    .checkMark {
+      background: $turbo-100;
+      color: $black;
+    }
+  }
+
+  .containerBackground {
+    left: -25%;
+    background: $alabaster;
+
+    @include phone {
+      left: -33%;
+      top: -18%;
+      bottom: -19%;
+      right: 5%;
+    }
+  }
+
+  @include phone {
+    padding: 0;
   }
 }

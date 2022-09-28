@@ -7,6 +7,7 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
+
 import styles from './styles.module.scss';
 
 const AppFeatures = ({ data, type }) => {
@@ -29,14 +30,18 @@ const AppFeatures = ({ data, type }) => {
 
   return (
     <section className={styles[type]}>
-      <SectionTitle
-        data={data}
-        type={type}
-      />
       <div className={styles.container}>
         <div className={styles.sectionContainer}>
+          <SectionTitle
+            data={data}
+            type={type}
+          />
           {data.contentModules.map((document, index) => {
-            const { title, text } = getDocumentFields(document);
+            const {
+              title,
+              text,
+              imagesBundles,
+            } = getDocumentFields(document);
 
             return (
               <Animated
@@ -49,12 +54,27 @@ const AppFeatures = ({ data, type }) => {
                     [styles.sectionActiveItem]: index === activeIndex,
                   })}
                 >
-                  <p
-                    className={styles.title}
+                  <div
+                    role="presentation"
+                    className={styles.wrapperTitle}
                     onClick={handleOnClick(index)}
                   >
-                    {title}
-                  </p>
+                    <p className={styles.title}>
+                      {title}
+                    </p>
+                    {imagesBundles?.map((bundle, imagesBundlesIndex) => {
+                      const bundleUrl = getFileUrl(bundle);
+
+                      return (
+                        <img
+                          className={styles.imageBundle}
+                          src={bundleUrl}
+                          alt=""
+                          key={`bundles-images/${bundleUrl}`}
+                        />
+                      );
+                    })}
+                  </div>
                   <Animated
                     open={index === activeIndex}
                     type={ANIMATED_TYPE.expandByHeight}

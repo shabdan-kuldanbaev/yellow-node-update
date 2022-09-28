@@ -1,0 +1,456 @@
+.paragrahStyle {
+  @include fontSize(18px);
+
+  @include tablet {
+    @include fontSize(16px);
+  }
+
+  @include phone {
+    @include fontSize(14px);
+  }
+}
+
+.mobile-bank-application {
+  .special {
+    .image {
+      filter: none;
+    }
+  }
+
+  &.firstSectionView {
+    .contentContainer {
+      max-width: $max-content-width;
+      margin-bottom: 80px;
+
+      .infoContainer {
+        max-width: 630px;
+        margin: 0;
+
+        .title {
+          @include fontSize(32px);
+
+          margin-bottom: 8px;
+
+          @include phone {
+            @include fontSize(24px);
+          }
+        }
+
+        h6 {
+          @include fontSize(20px);
+
+          margin: 0 0 32px;
+          font-weight: 400;
+
+          @include tablet {
+            @include fontSize(18px);
+
+            margin-bottom: 24px;
+          }
+
+          @include phone {
+            @include fontSize(16px);
+
+            margin-bottom: 16px;
+          }
+        }
+
+        p {
+          @extend .paragrahStyle;
+
+          margin-bottom: 15px;
+        }
+
+        .subtitle {
+          @include fontSize(14px);
+
+          width: fit-content;
+          margin-bottom: 40px;
+          padding: 12px;
+          font-weight: 400;
+          line-height: 1.5;
+          color: $black;
+          background: linear-gradient(100.13deg, $turbo-100 0%, $turbo-600 100%);
+          border-radius: 40px;
+
+          @include tablet {
+            margin-bottom: 32px;
+          }
+
+          @include phone {
+            @include fontSize(12px);
+
+            margin-bottom: 24px;
+          }
+        }
+
+        @include tablet {
+          order: unset;
+        }
+
+        @include phone {
+          text-align: start;
+          align-items: flex-start;
+        }
+      }
+
+      &:nth-child(2n + 1) {
+        @include flex(row-reverse, flex-end);
+
+        .infoContainer {
+          margin-left: 40px;
+        }
+      }
+
+      &:nth-child(2n) {
+        @include flex(row-reverse, flex-start);
+
+        .infoContainer {
+          margin-right: 40px;
+        }
+      }
+
+      &:nth-child(2n + 1),
+      &:nth-child(2n) {
+        @include tablet {
+          @include flex(column-reverse, center, center);
+
+          .infoContainer {
+            margin: 0;
+            max-width: unset;
+          }
+
+          .image {
+            max-height: unset;
+            margin-bottom: 32px;
+
+            @include tablet {
+              margin-bottom: 24px;
+            }
+
+            @include phone {
+              margin-bottom: 16px;
+            }
+          }
+        }
+      }
+
+      .image {
+        filter: none;
+      }
+    }
+
+    .navigation {
+      z-index: 1;
+    }
+  }
+
+  &.secondSectionView,
+  &.fourthSectionView {
+    padding: 0 40px;
+
+    .special {
+      &:nth-of-type(1) {
+        align-items: flex-start;
+        margin-bottom: -17%;
+
+        .infoContainer {
+          max-width: 527px;
+
+          .title {
+            @include fontSize(36px);
+
+            margin-bottom: 20px;
+            color: $white;
+
+            @include tablet {
+              @include fontSize(30px);
+            }
+
+            @include phone {
+              @include fontSize(24px);
+            }
+          }
+
+          p {
+            @extend .paragrahStyle;
+          }
+        }
+
+        @include phone {
+          align-items: center;
+          margin-bottom: 40px;
+        }
+      }
+
+      &:nth-of-type(2) {
+        align-items: flex-end;
+
+        @include phone {
+          align-items: center;
+        }
+      }
+
+      @include phone {
+        .images {
+          .image {
+            position: relative;
+            transform: translate(-3%, 0);
+          }
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @include flex(row);
+
+    .special {
+      @include flex(column, space-between, center);
+
+      margin: 0;
+      padding: 120px 40px;
+      width: 50%;
+
+      .infoContainer {
+        order: unset;
+        margin: 0 auto;
+      }
+
+      &:nth-of-type(1) {
+        background-color: $black;
+
+        .infoContainer {
+          max-width: 406px;
+
+          .title {
+            @include fontSize(36px);
+
+            margin-bottom: 20px;
+            color: $white;
+
+            @include tablet {
+              @include fontSize(30px);
+            }
+
+            @include phone {
+              @include fontSize(24px);
+
+              text-align: center;
+            }
+          }
+
+          p {
+            @extend .paragrahStyle;
+
+            @include phone {
+              text-align: center;
+            }
+          }
+
+          @include phone {
+            align-items: center;
+          }
+        }
+
+        .images {
+          position: relative;
+
+          .image {
+            position: relative;
+            max-width: 406px;
+            filter: unset;
+            transform: translate(-13%, 0);
+
+            @include phone {
+              transform: translate(-3%, 0);
+            }
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        background-color: $turbo-400;
+
+        .infoContainer {
+          max-width: 406px;
+          align-items: flex-end;
+
+          .title {
+            @include fontSize(36px);
+
+            margin-bottom: 20px;
+            text-align: end;
+
+            @include tablet {
+              @include fontSize(30px);
+            }
+
+            @include phone {
+              @include fontSize(24px);
+
+              text-align: center;
+            }
+          }
+
+          p {
+            @extend .paragrahStyle;
+
+            color: $dark-grey;
+            opacity: 0.7;
+            text-align: end;
+
+            @include phone {
+              text-align: center;
+            }
+          }
+
+          @include phone {
+            align-items: center;
+          }
+        }
+
+        .images {
+          position: relative;
+
+          .image {
+            position: relative;
+            max-width: 406px;
+            filter: unset;
+            transform: translate(5%, 0);
+
+            @include phone {
+              transform: translate(-3%, 0);
+            }
+          }
+        }
+      }
+
+      @include phone {
+        padding: 60px 15px;
+        width: calc(100% - 30px);
+      }
+    }
+
+    @include phone {
+      flex-direction: column;
+    }
+  }
+
+  &.fourthSectionView {
+    .special {
+      &:nth-of-type(1) {
+        .infoContainer {
+          max-width: 550px;
+
+          .title {
+            @include fontSize(36px);
+
+            margin-bottom: 20px;
+            color: $dark-grey;
+
+            @include tablet {
+              @include fontSize(30px);
+            }
+
+            @include phone {
+              @include fontSize(24px);
+            }
+          }
+
+          p {
+            @extend .paragrahStyle;
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        .infoContainer {
+          max-width: 550px;
+
+          .title {
+            @include fontSize(36px);
+
+            margin-bottom: 20px;
+            color: $dark-grey;
+          }
+
+          p {
+            @extend .paragrahStyle;
+
+            color: $dark-grey;
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    .contentContainer {
+      flex-direction: column;
+      align-items: center;
+
+      .infoContainer {
+        flex-direction: row;
+        max-width: unset;
+        margin: 0 !important;
+        order: unset !important;
+
+        .title,
+        h3 {
+          color: white;
+        }
+
+        .title {
+          width: 100%;
+          max-width: 406px;
+          margin-right: 150px;
+        }
+
+        p {
+          max-width: 519px;
+        }
+
+        @include phone {
+          flex-direction: column;
+        }
+      }
+
+      .images {
+        position: relative;
+
+        .image {
+          max-width: 710px;
+          filter: none;
+          transform: translate(-3%, 0);
+        }
+      }
+
+      @include phone {
+        margin-bottom: 30px;
+      }
+    }
+
+    .swiper-pagination {
+      position: relative;
+    }
+
+    .swiperBullet {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border-radius: 100%;
+      border: 1px solid $white;
+    }
+
+    .swiperBulletActive {
+      background-color: $white;
+    }
+
+    @include phone {
+      padding: 0 15px;
+    }
+  }
+}
