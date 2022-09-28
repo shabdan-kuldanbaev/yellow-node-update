@@ -6,7 +6,7 @@ export const footerData = [
     links: [
       {
         title: 'In USA',
-        subtitle: '44 Tehama St San Francisco,\nCA 94105',
+        subtitle: '415 Mission Street\nSt San Francisco',
       },
       {
         subtitle: '+1 (415) 670-90-70',

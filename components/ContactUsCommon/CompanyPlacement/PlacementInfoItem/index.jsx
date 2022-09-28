@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.module.scss';
 
 const PlacementInfoItem = ({ country, placementInfo }) => (
   <li>
     <h3>{country}</h3>
-    {placementInfo.map((info) => (
-      <p key={info}>
+    {placementInfo.map((info, i) => (
+      <p
+        key={i}
+        className={styles.placementInfo}
+      >
         {info}
       </p>
     ))}
