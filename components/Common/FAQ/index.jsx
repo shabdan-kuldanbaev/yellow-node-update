@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Script from 'next/script';
 import isEmpty from 'lodash/isEmpty';
 import FullLayout from 'components/Layout/FullLayout';
 import { microdata } from 'utils/microdata';
@@ -17,11 +16,9 @@ export const FAQ = ({ faqList, type }) => {
     <>
       <Head>
         {!isEmpty(faqList) && (
-          <Script
-            id="JSON-LD-faq"
+          <script
             key="JSON-LD-faq"
             type="application/ld+json"
-            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(microdata.faq({ faqList })),
             }}
