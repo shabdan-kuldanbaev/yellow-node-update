@@ -489,7 +489,7 @@ export const DEV_HOSTS = [
   'yws-dev.xyz',
 ];
 
-export const CUSTOM_DOMAIN = process.env.CUSTOM_DOMAIN;
+export const CUSTOM_DOMAIN = process.env.NEXT_PUBLIC_CUSTOM_DOMAIN;
 
 export const IS_PROD = process.env.NEXT_PUBLIC_CURRENT_ENV === 'production';
 
