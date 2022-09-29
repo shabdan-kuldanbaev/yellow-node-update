@@ -8,6 +8,7 @@
   cursor: pointer;
   padding: 15px 0;
   z-index: 999;
+  color: $dark-grey;
 
   &:hover {
     * {
@@ -45,6 +46,5 @@
 
   .text {
     padding: 0 10px 0 0;
-    color: $dark-grey;
   }
 }
