@@ -1,10 +1,4 @@
-import { CUSTOM_DOMAIN } from 'utils/constants';
-
-export const isExternal = (path) => {
-  if (path.includes(CUSTOM_DOMAIN)) {
-    return false;
-  }
-
+export const isAbsoluteUrl = (path) => {
   try {
     const _ = new URL(path);
 
