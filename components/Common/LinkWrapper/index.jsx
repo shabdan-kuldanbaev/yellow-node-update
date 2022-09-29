@@ -21,7 +21,7 @@ const LinkWrapper = ({
 
   const target = !isLocalLink ? '_blank' : undefined;
   const rel = (isSocialLink || isLocalLink) ? undefined : 'noopener noreferrer nofollow';
-  const href = (isLocalLink && path[0] !== '/') ? `/${path}` : path;
+  const href = (!isAbsoluteLink && path[0] !== '/') ? `/${path}` : path;
 
   const handleOnClick = (e) => {
     if (!isEmpty(googleAnalyticProps)) {
