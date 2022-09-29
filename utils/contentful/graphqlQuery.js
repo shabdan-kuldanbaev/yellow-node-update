@@ -43,6 +43,7 @@ export const GRAPHQL_QUERY = {
             slug
             title
             type
+            description
           }
         }
       }

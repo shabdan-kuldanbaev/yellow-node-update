@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import LinkWrapper from 'components/Common/LinkWrapper';
 import Svg from 'components/Common/Svg';
+import ButtonMore from 'components/Common/ButtonMore';
 import { getBookmarkCardProps } from './utils/bookmarkCardHelper';
 import styles from './styles.module.scss';
 
@@ -29,15 +29,14 @@ const BookmarkCardSection = ({
             className={styles.bookmarkIcon}
           />
           <div className={styles.content}>
-            <div className={styles.title}>
+            <h3 className={styles.title}>
               {title}
-            </div>
-            <LinkWrapper
-              path={url}
+            </h3>
+            <ButtonMore
+              href={url}
               isLocalLink
-            >
-              See post
-            </LinkWrapper>
+              title="See post"
+            />
           </div>
         </div>
       </div>
