@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
+import CardsSlider from 'components/Common/CardsSlider';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
@@ -10,7 +11,6 @@ import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { getCardsProps } from './utils/cardsHelper';
 import styles from './styles.module.scss';
-import ProcessSlider from './ProcessSlider';
 
 const CaseStudyOverlayProcess = ({ data, type }) => {
   const isMobileResolution = useSelector(selectIsMobileResolutions);
@@ -31,7 +31,7 @@ const CaseStudyOverlayProcess = ({ data, type }) => {
         type={type}
       />
       <div className={cn(styles.cardsList)}>
-        <ProcessSlider
+        <CardsSlider
           isMobileResolution={isMobileResolution}
           type={type}
         >
@@ -79,7 +79,7 @@ const CaseStudyOverlayProcess = ({ data, type }) => {
               </Animated>
             );
           })}
-        </ProcessSlider>
+        </CardsSlider>
       </div>
     </div>
   );

@@ -22,6 +22,7 @@ const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/Svg
 const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/PlainTextSection'));
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
+const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -203,6 +204,15 @@ export const AppDevelopmentCommon = ({
       <BookmarkCardSection
         sectionData={section}
         pageType={type}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentSliderCards:
+    return (
+      <AppDevelopmentSliderCards
+        sectionData={section}
+        pageType={type}
+        sectionType="cards"
+        handleOnCTAClick={handleOnCTAClick}
       />
     );
   default:
