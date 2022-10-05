@@ -26,7 +26,7 @@
     }
 
     .sectionContainer {
-      max-width: 510px;
+      max-width: 680px;
       width: 100%;
 
       & > div {
@@ -59,7 +59,7 @@
           .title {
             @include fontSize(20px);
 
-            margin-bottom: 10px;
+            margin: 10px 0px;
             transition: color 400ms, margin 400ms;
             font-weight: bold;
             line-height: 120%;
@@ -85,12 +85,7 @@
 
             line-height: 180%;
             color: $silver-chalice;
-
-            @include tablet {
-              @include fontSize(14px);
-
-              margin-left: 10px;
-            }
+            max-width: 580px;
 
             & > p {
               margin: 0;
@@ -98,6 +93,12 @@
               @include phone {
                 margin: 5px;
               }
+            }
+
+            @include tablet {
+              @include fontSize(14px);
+
+              margin-left: 10px;
             }
           }
 
@@ -116,7 +117,6 @@
       .sectionActiveItem {
         .wrapperTitle {
           .title {
-            margin-bottom: 20px;
             color: $dark-grey;
           }
 
@@ -126,6 +126,10 @@
           }
         }
       }
+
+      @include desktop {
+        max-width: 540px;
+      }
     }
 
     div:last-child {
@@ -133,13 +137,29 @@
     }
 
     .imageContainer {
-      width: 700px;
+      width: 500px;
       margin-left: 66px;
       margin-right: -175px;
 
       img {
-        transform: translate(0, 140px);
+        transform: scale(2.1) translate(125px, 70px);
         width: 100%;
+
+        @include desktop {
+          transform: scale(1.9) translate(25px, 70px);
+        }
+
+        @include tablet-size-horizontal {
+          transform: scale(1.8) translate(80px, 70px);
+        }
+
+        @include below-tablet {
+          transform: scale(1.7) translate(100px, 60px);
+        }
+
+        @include tablet-size-horizontal {
+          transform: unset;
+        }
       }
 
       @include below-tablet {
@@ -212,6 +232,7 @@
     }
 
     .imageContainer {
+      width: 700px;
       margin: 0;
 
       img {
