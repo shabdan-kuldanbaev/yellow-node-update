@@ -16,10 +16,6 @@ const LinkWrapper = ({
   isSocialLink,
   onClick,
 }) => {
-  if (!path) {
-    return children;
-  }
-
   const isAbsoluteLink = useMemo(() => isAbsoluteUrl(path), [path]);
   const isLocalLink = !isAbsoluteLink || path.includes(CUSTOM_DOMAIN);
 
@@ -45,6 +41,10 @@ const LinkWrapper = ({
 
     onClick(e);
   };
+
+  if (!path) {
+    return children;
+  }
 
   return (
     <Link href={href}>
