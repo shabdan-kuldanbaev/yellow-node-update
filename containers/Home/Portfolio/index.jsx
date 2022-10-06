@@ -66,6 +66,8 @@ const Portfolio = ({ sectionData }) => {
   }, [currentPosition]);
 
   useEffect(() => {
+    handleOnScroll();
+
     window.addEventListener('scroll', throttle(handleOnScroll, 100));
 
     return () => window.removeEventListener('scroll', handleOnScroll);
