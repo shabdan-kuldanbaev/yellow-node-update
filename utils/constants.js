@@ -48,6 +48,7 @@ export const NAV_LINKS = [
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
     routes.fintechDevelopment.slug,
+    routes.discoveryPhase.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
@@ -214,6 +215,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentAppFeatures: 'app-development-app-features',
   appDevelopmentPlainTextSection: 'app-development-plain-text',
   appDevelopmentBookmarkCard: 'app-development-bookmark-card',
+  appDevelopmentTabsSection: 'app-development-tabs-section',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';

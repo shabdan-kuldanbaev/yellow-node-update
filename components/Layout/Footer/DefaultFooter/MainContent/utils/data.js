@@ -93,6 +93,11 @@ export const footerData = [
         type: 'navigation',
       },
       {
+        subtitle: 'Project Discovery Phase in Custom Software Development',
+        path: ROUTES.discoveryPhase.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Cloud-based app development services',
         path: ROUTES.cloudDevelopment.path,
         type: 'navigation',

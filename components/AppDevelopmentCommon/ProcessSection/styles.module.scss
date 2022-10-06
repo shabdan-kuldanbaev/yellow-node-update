@@ -71,6 +71,7 @@
 }
 
 .ui-ux-services,
+.discovery-phase-services,
 .machine-learning-development-services,
 .mvp-app-development-company,
 .web-app-development-company {
@@ -155,6 +156,26 @@
   .titleStyle {
     p {
       width: 58vw;
+    }
+  }
+}
+
+.discovery-phase-services {
+  .contentWrapper {
+    .titleStyle {
+      h2 {
+        max-width: 1100px;
+      }
+
+      p {
+        max-width: 1080px;
+      }
+    }
+
+    .cards {
+      .cardContainer {
+        padding: 30px;
+      }
     }
   }
 }

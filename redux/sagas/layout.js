@@ -142,6 +142,7 @@ function* fetchPageData({
     case PAGES.cloudDevelopment:
     case PAGES.fintechDevelopment:
     case PAGES.mlDevelopment:
+    case PAGES.discoveryPhase:
     case PAGES.devOpsDevelopment:
     case PAGES.notFound:
     case PAGES.signatureGenerator:

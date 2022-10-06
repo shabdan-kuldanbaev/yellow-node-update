@@ -248,6 +248,7 @@
   }
 }
 
+.discovery-phase-services,
 .ui-ux-services {
   @extend .pageIntroContainer;
 
@@ -310,6 +311,39 @@
 
       .image {
         padding-top: 100%;
+      }
+    }
+  }
+}
+
+.discovery-phase-services {
+  .pageIntroSection {
+    .pageIntroWrapper {
+      flex-flow: row-reverse nowrap;
+
+      .pageTitleContainer {
+        max-width: 658px;
+
+        .pageTitle {
+          &::after {
+            width: 388px;
+            height: 101px;
+
+            bottom: unset;
+            left: unset;
+            top: -10px;
+            right: -100px;
+          }
+        }
+
+        .subtitle {
+          max-width: 625px;
+          padding: 0;
+        }
+      }
+
+      .image {
+        transform: translate(-100px, 0px);
       }
     }
   }

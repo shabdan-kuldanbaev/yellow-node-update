@@ -1,0 +1,152 @@
+.discovery-phase-services {
+  &.firstSectionView {
+    @include iconsWithinCircle;
+
+    .contentWrapper {
+      .titleStyle {
+        h2 {
+          max-width: 900px;
+        }
+      }
+  
+      .cardContent {
+        p {
+          max-width: 360px;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @include iconsWithinCircle;
+
+    background: $very-dark-gray;
+
+    .contentWrapper {
+      .titleStyle {
+        h2 {
+          color: $white;
+          max-width: 800px;
+        }
+
+        p {
+          color: rgba(255, 255, 255, 0.7);
+        }
+      }
+  
+      .cards {
+        .imageWrapper {
+          background: #FFE603;
+        }
+
+        .cardContent {
+          .typeTitle {
+            color: $white;
+          }
+  
+          p {
+            max-width: 361px;
+            color: rgba(255, 255, 255, 0.7);
+          }
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $alabaster;
+
+    .contentWrapper {
+      max-width: 1300px;
+
+      .cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        grid-gap: unset;
+
+        & > div {
+          width: 405px;
+        }
+
+        .imageWrapper {
+          display: flex;
+          justify-content: center;
+        }
+
+        .cardContent {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    @include iconsWithinCircle;
+
+    .titleStyle {
+      h2 {
+        max-width: 770px;
+      }
+
+      p {
+        max-width: 965px;
+      }
+    }
+
+    .cards {
+      grid-gap: 0 40px;
+
+      & > div {
+        padding: 50px;
+        background: $white;
+
+        ul {
+          list-style: none;
+
+          li {
+            display: flex;
+            p {
+              margin: 0;
+            }
+
+            &::before { 
+              content: "\2022"; 
+              display: inline-block;
+              color: $silver-chalice;
+              width: 1em;
+              margin-left: -1em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    padding-top: 0;
+
+    .contentWrapper {
+      .titleStyle {
+        margin: 0 auto;
+      }
+
+      .cards {
+        display: none;
+      }
+
+      .callToAction {
+        padding: 0;
+        margin: 0;
+        background: unset;
+        justify-content: center;
+
+        .button {
+          margin: 60px auto 0;
+        }
+      }
+    }
+  }
+}

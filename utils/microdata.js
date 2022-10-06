@@ -147,6 +147,13 @@ export const microdata = {
                   Users love good-looking software. Make mobile your app or website captivating with Yellow.`,
     breadcrumb: 'Homepage > UI/UX design services',
   }),
+  discoveryPhase: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Project Discovery Phase in Custom Software Development',
+    description: 'Discovery phase of a project is an important part of software development. Learn more about how Yellow runs a discovery phase to benefit your business.',
+    breadcrumb: 'Homepage > Project Discovery Phase in Custom Software Development',
+  }),
   mvpDevelopment: () => ({
     '@context': context,
     '@type': 'WebPage',

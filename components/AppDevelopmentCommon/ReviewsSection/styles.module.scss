@@ -3,6 +3,7 @@
 @import 'styles/utils/mixins';
 @import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
+.discovery-phase-services,
 .mobile-app-development-company,
 .web-app-development-company,
 .ios-mobile-app-development-services,
@@ -35,6 +36,12 @@
 
   @include phone {
     padding: 64px 0;
+  }
+}
+
+.discovery-phase-services {
+  &.reviews {
+    background-color: $white;
   }
 }
 

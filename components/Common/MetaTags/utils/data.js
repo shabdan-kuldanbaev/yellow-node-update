@@ -111,6 +111,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.fintechDevelopment.path}`,
   },
   {
+    pageName: ROUTES.discoveryPhase.slug,
+    metaTitle: 'Project Discovery Phase in Custom Software Development | Yellow',
+    metaDescription: 'Bebebe',
+    url: `${rootUrl}${ROUTES.discoveryPhase.path}`,
+  },
+  {
     pageName: ROUTES.devOpsDevelopment.slug,
     metaTitle: 'DevOps Development Company | Yellow',
     metaDescription: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
