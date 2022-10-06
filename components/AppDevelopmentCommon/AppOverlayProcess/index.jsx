@@ -1,7 +1,5 @@
 import React from 'react';
-
 import CaseStudyOverlayProcess from 'components/CaseStudiesCommon/CaseStudyOverlayProcess';
-
 import styles from './styles.module.scss';
 
 const AppOverlayProcess = ({ data, type }) => (

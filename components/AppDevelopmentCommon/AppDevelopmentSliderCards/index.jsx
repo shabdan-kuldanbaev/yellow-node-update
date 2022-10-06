@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
-
 import Animated from 'components/Common/Animated';
 import CallToAction from 'components/Common/CallToAction';
 import CardsSlider from 'components/Common/CardsSlider';
@@ -11,10 +11,8 @@ import CardImage from 'components/AppDevelopmentCommon/CardsSection/CardImage';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { getCardsProps } from 'components/AppDevelopmentCommon/CardsSection/utils/cardsHelper';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const AppDevelopmentSliderCards = ({
@@ -101,7 +99,7 @@ const AppDevelopmentSliderCards = ({
                         </h3>
                         <ContentfulParser document={text} />
                       </div>
-                      {imagesBundles && imagesBundles.map((image) => (
+                      {imagesBundles?.map((image) => (
                         <img
                           src={getFileUrl(image)}
                           alt=""

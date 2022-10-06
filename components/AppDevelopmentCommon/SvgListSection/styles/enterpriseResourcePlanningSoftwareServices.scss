@@ -8,22 +8,24 @@
     }
   }
 
-  .svgList-1 {
-    margin-bottom: 60px;
-  }
-
-  .svgList-1,
-  .svgList-2 {
-    @include phone {
-      display: none;
+  .svgGroup {
+    &:nth-child(2) {
+      margin-bottom: 60px;
     }
-  }
-
-  .svgList-3 {
-    display: none;
-
-    @include phone {
-      display: block;
+  
+    &:nth-child(2),
+    &:nth-child(3) {
+      @include phone {
+        display: none;
+      }
+    }
+  
+    &:nth-child(4) {
+      display: none;
+  
+      @include phone {
+        display: block;
+      }
     }
   }
 

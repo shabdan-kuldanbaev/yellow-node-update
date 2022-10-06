@@ -52,17 +52,16 @@
         }
 
         .wrapperTitle {
-          display: flex;
-          align-items: center;
+          @include flex(row, initial, center);
+
           cursor: pointer;
 
           .title {
-            @include fontSize(20px);
+            @include fontSize(20px, 120%);
 
             margin: 10px 0px;
             transition: color 400ms, margin 400ms;
             font-weight: bold;
-            line-height: 120%;
             color: $black;
 
             &:hover {
@@ -81,9 +80,8 @@
           }
 
           .description {
-            @include fontSize(18px);
+            @include fontSize(18px, 180%);
 
-            line-height: 180%;
             color: $silver-chalice;
             max-width: 580px;
 
@@ -202,7 +200,7 @@
       margin: 0;
       max-width: 690px;
       text-align: left;
-      color: rgb(255 255 255 / 0.7);
+      color: rgb($white, 0.7);
       opacity: 0.7;
 
       @include tablet-size-horizontal {
@@ -226,7 +224,7 @@
         }
 
         .description {
-          color: rgb(255 255 255 / 0.7);
+          color: rgb($white, 0.7);
         }
       }
     }

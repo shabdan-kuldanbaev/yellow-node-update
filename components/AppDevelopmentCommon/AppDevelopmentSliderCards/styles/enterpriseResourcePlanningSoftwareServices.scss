@@ -2,10 +2,6 @@
   padding: 120px 40px;
   background: $alabaster;
 
-  @include phone {
-    padding: 60px 15px;
-  }
-
   .contentWrapper {
     margin: 0 auto;
     max-width: $max-content-width;
@@ -14,19 +10,6 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 40px;
-  
-      @include tablet {
-        grid-template-columns: repeat(2, 1fr);
-      }
-  
-      @include below-tablet {
-        grid-template-columns: auto;
-        grid-gap: 24px;
-      }
-  
-      @include phone {
-        display: unset;
-      }
   
       :global(.swiper-slide) {
         min-height: 370px;
@@ -67,7 +50,7 @@
             @include fontSize(18px, 180%);
   
             margin: 5px 0 0;
-            color: #B9B9B9;
+            color: $nevada-2;
       
             @include phone {
               @include fontSize(14px, 180%)
@@ -95,6 +78,19 @@
         @include phone {
           background-color: unset;
         }
+      }
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+  
+      @include below-tablet {
+        grid-template-columns: auto;
+        grid-gap: 24px;
+      }
+  
+      @include phone {
+        display: unset;
       }
     }
   }

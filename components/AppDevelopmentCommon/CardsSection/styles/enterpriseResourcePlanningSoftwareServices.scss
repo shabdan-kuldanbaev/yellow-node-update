@@ -141,16 +141,14 @@
           max-width: 410px;
 
           @include tablet {
-            display: flex;
+            @include flex();
+            
             max-width: 660px;
           }
         }
 
         @include tablet {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          @include flex(column, center, center);
           
           margin-bottom: 60px;
         }
@@ -228,7 +226,7 @@
       @include fontSize(18px);
 
       margin: 5px 0 0;
-      color: #B9B9B9;
+      color: $nevada-2;
 
       @include phone {
         @include fontSize(14px, 180%)
@@ -281,10 +279,7 @@
         }
 
         @include below-tablet {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          @include flex(column, center, center);
         }
       }
 

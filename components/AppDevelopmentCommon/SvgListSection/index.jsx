@@ -68,7 +68,7 @@ const SvgListSection = ({
         <SvgGroup
           key={i}
           data={group}
-          className={cn(styles.svgList, styles[`svgList-${i + 1}`])}
+          className={styles.svgList}
           isSwiperEnabled
         />
       ))}
