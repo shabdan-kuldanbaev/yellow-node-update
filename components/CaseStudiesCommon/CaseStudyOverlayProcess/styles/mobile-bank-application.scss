@@ -3,10 +3,6 @@
   margin: 0 auto;
   padding: 120px 40px;
 
-  @include phone {
-    padding: 60px 15px;
-  }
-
   .cardsList {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -101,5 +97,9 @@
         margin: 10px;
       }
     }
+  }
+
+  @include phone {
+    padding: 60px 15px;
   }
 }

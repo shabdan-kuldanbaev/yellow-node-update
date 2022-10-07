@@ -51,7 +51,11 @@ const SliderSection = ({ sectionData, type }) => {
                   text,
                 } = getDocumentFields(
                   slide,
-                  ['title', 'description', 'text'],
+                  [
+                    'title',
+                    'description',
+                    'text',
+                  ],
                 );
 
                 return (

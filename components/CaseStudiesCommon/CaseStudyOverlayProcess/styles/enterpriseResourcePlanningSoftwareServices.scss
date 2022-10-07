@@ -2,10 +2,9 @@
   @extend .mobile-bank-application;
 
   [data-case-study-description] {
-    @include fontSize(18px);
+    @include fontSize(18px, 180%);
 
     color: $silver-chalice;
-    line-height: 180%;
     max-width: 890px;
     
     @include phone {
