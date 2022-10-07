@@ -22,7 +22,9 @@ const ChallengesSlider = ({ isMobileResolution, isSlider, children }) => {
 
   return (
     <Swiper {...params}>
-      {children.map((child, index) => <SwiperSlide key={index}>{child}</SwiperSlide>)}
+      {children.map((child, index) => (
+        <SwiperSlide key={index}>{child}</SwiperSlide>
+      ))}
     </Swiper>
   );
 };

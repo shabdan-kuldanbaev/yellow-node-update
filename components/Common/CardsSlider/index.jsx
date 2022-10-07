@@ -5,7 +5,6 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { SwiperNavigation } from 'components/SwiperNavigation';
-
 import styles from './styles.module.scss';
 
 const CardsSlider = ({
@@ -22,16 +21,17 @@ const CardsSlider = ({
 
   return (
     <Swiper {...swiperParams}>
-      {children.map((child, index) => <SwiperSlide key={index}>{child}</SwiperSlide>)}
+      {children.map((child, index) => (
+        <SwiperSlide key={index}>{child}</SwiperSlide>
+      ))}
       <SwiperNavigation className={styles.navigation} />
     </Swiper>
   );
 };
 
 CardsSlider.propTypes = {
-  isSlider: PropTypes.bool.isRequired,
+  isMobileResolution: PropTypes.bool.isRequired,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
-  type: PropTypes.string.isRequired,
 };
 
 export default CardsSlider;

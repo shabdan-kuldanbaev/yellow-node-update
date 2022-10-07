@@ -85,17 +85,9 @@ const CaseStudyOverlayProcess = ({ data, type }) => {
   );
 };
 
-CaseStudyOverlayProcess.defaultProps = {
-  handleOnCTAClick: () => {},
-  withOverlay: false,
-};
-
 CaseStudyOverlayProcess.propTypes = {
-  sectionData: PropTypes.instanceOf(Object).isRequired,
-  pageType: PropTypes.string.isRequired,
-  sectionType: PropTypes.string.isRequired,
-  handleOnCTAClick: PropTypes.func,
-  withOverlay: PropTypes.bool,
+  sectdataionData: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default CaseStudyOverlayProcess;
