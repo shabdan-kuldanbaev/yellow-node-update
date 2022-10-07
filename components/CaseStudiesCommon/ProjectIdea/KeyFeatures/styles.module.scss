@@ -791,32 +791,3 @@
     }
   }
 }
-
-.mobile-bank-application {
-  @extend .container;
-
-  .featureContainer {
-    margin-bottom: 30px;
-
-    .checkMark {
-      background: $turbo-100;
-      color: $black;
-    }
-  }
-
-  .containerBackground {
-    left: -25%;
-    background: $alabaster;
-
-    @include phone {
-      left: -33%;
-      top: -18%;
-      bottom: -19%;
-      right: 5%;
-    }
-  }
-
-  @include phone {
-    padding: 0;
-  }
-}

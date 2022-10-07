@@ -568,19 +568,3 @@
     padding-top: 0;
   }
 }
-
-.mobile-bank-application {
-  @extend .container;
-
-  .title {
-    @include phone {
-      @include fontSize(36px);
-
-      margin-bottom: 16px;
-    }
-  }
-
-  @include tablet {
-    padding-top: 0;
-  }
-}

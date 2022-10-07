@@ -530,28 +530,3 @@
     }
   }
 }
-
-.mobile-bank-application {
-  @extend .imageContainer;
-
-  .image:first-child {
-    display: block;
-    max-width: $max-content-width-small-section;
-    width: 100%;
-    margin: 0 auto;
-
-    @include phone {
-      display: none;
-    }
-  }
-
-  .image:last-child {
-    display: none;
-    max-height: 110px;
-    margin: 0 auto;
-
-    @include phone {
-      display: block;
-    }
-  }
-}

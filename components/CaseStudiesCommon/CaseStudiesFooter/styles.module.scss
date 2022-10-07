@@ -198,7 +198,6 @@
   @include centeredBackgroundImage;
 
   .nextProjectContainer {
-
     .subtitle,
     .projectName,
     .more {
@@ -410,26 +409,4 @@
   .more {
     border: 1px solid $white;
   }
-}
-
-.cinnabar,
-.mobile-bank-application {
-  @extend .container;
-
-  background: linear-gradient(137.65deg, $froly -14.62%, $carnation 105.11%);
-  color: $white;
-
-  .more,
-  .link,
-  .iconLink {
-    color: $white;
-  }
-
-  .more {
-    border: 1px solid $white;
-  }
-}
-
-.mobile-bank-application {
-  background: $dark-grey;
 }

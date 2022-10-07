@@ -1,28 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { SwiperNavigation } from 'components/SwiperNavigation';
-import { CASE_STUDIES_TYPES } from 'utils/constants';
-import { getSwiperParams } from './utils/challengesSliderHelper';
 import styles from '../styles.module.scss';
+
+const params = {
+  modules: [Pagination],
+  pagination: {
+    type: 'bullets',
+    clickable: true,
+    bulletClass: styles.swiperBullet,
+    bulletActiveClass: styles.swiperBulletActive,
+  },
+};
 
 const ChallengesSlider = ({
   isMobileResolution,
   isSlider,
-  type,
   children,
 }) => {
   if (!isMobileResolution || !isSlider) return children;
 
-  const isSpecialSwiper = type === CASE_STUDIES_TYPES.challengesSpecialSlider;
-  const swiperParams = getSwiperParams(type);
-
   return (
-    <Swiper {...swiperParams}>
+    <Swiper {...params}>
       {children.map((child, index) => <SwiperSlide key={index}>{child}</SwiperSlide>)}
-      {isSpecialSwiper && <SwiperNavigation className={styles.navigation} />}
     </Swiper>
   );
 };
@@ -30,7 +33,6 @@ const ChallengesSlider = ({
 ChallengesSlider.propTypes = {
   isSlider: PropTypes.bool.isRequired,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
-  type: PropTypes.string.isRequired,
 };
 
 export default ChallengesSlider;

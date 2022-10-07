@@ -229,23 +229,3 @@
     }
   }
 }
-
-.mobile-bank-application {
-  @include caseStudyContainer;
-  @include wireframes;
-
-  background: $alabaster;
-  padding: 120px 0;
-
-  [data-case-study-description] {
-    max-width: 655px;
-  }
-
-  @include tablet {
-    padding: 70px 0;
-  }
-
-  @include phone {
-    padding: 60px 0;
-  }
-}

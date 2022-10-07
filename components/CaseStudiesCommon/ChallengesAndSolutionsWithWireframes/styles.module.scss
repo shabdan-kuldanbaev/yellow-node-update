@@ -477,32 +477,3 @@
     padding: 60px 15px;
   }
 }
-
-.mobile-bank-application {
-  @include caseStudyContainer;
-
-  padding: 120px 40px;
-  background-color: $dark-grey;
-
-  [data-case-study-title] {
-    color: $white;
-  }
-
-  &.firstSectionView {
-    background-color: $alabaster;
-
-    [data-case-study-title] {
-      color: $black;
-    }
-
-    @include phone {
-      padding: 60px 15px;
-    }
-  }
-
-  &.fifthSectionView {
-    @include phone {
-      padding: 60px 0;
-    }
-  }
-}

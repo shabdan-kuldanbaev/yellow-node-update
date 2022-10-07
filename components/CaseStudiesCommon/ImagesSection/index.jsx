@@ -36,7 +36,7 @@ const ImagesSection = ({
         type={type}
         view={data.view}
       />
-      {data.subtitle && <p className={styles.secondDescription}>{data.subtitle}</p>}
+      <p className={styles.secondDescription}>{data.subtitle}</p>
     </section>
   );
 };
