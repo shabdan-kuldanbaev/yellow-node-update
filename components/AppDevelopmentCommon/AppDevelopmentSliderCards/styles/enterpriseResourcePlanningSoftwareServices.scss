@@ -10,7 +10,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 40px;
-  
+
       :global(.swiper-slide) {
         min-height: 370px;
 
@@ -22,44 +22,44 @@
           background-color: $white;
         }
       }
-  
+
       .cardWrapper {
         box-sizing: border-box;
         background-color: $white;
         padding: 30px 30px 30px 46px;
         height: 100%;
-  
+
         .cardContent {
           @include flex(column);
-    
+
           height: 100%;
           position: relative;
-    
+
           .typeTitle {
             @include fontSize(24px, 180%);
-    
+
             margin: 0;
-  
+
             @include phone {
               @include fontSize(18px);
             }
           }
-  
+
           p {
             @include fontSize(18px, 180%);
-  
+
             margin: 5px 0 0;
             color: $nevada-2;
-      
+
             @include phone {
-              @include fontSize(14px, 180%)
+              @include fontSize(14px, 180%);
             }
           }
-          
+
           .imageContainer {
             display: none;
           }
-    
+
           &::before {
             content: '';
             background: $turbo-100;
@@ -68,7 +68,7 @@
             position: absolute;
             left: -16px;
           }
-    
+
           @include phone {
             margin: 10px;
           }
@@ -82,12 +82,12 @@
       @include tablet {
         grid-template-columns: repeat(2, 1fr);
       }
-  
+
       @include below-tablet {
         grid-template-columns: auto;
         grid-gap: 24px;
       }
-  
+
       @include phone {
         display: unset;
       }
@@ -96,7 +96,6 @@
 
   .subtitle {
     @include fontSize(18px, 180%);
-
 
     @include phone {
       @include fontSize(14px);

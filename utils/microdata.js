@@ -183,6 +183,13 @@ export const microdata = {
     description: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
     breadcrumb: 'Homepage > DevOps Development Company',
   }),
+  aiDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'AI Software Development Services: Best Choice for Your Business | Yellow',
+    description: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
+    breadcrumb: 'Homepage > AI Software development services',
+  }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',

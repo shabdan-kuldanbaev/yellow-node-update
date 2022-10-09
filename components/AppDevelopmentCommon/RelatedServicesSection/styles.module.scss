@@ -41,10 +41,18 @@
 
 .android-mobile-app-development-services,
 .mobile-app-development-company,
-.chat-app-development-company {
+.chat-app-development-company,
+.artificial-intelligence-development-services {
   &.relatedServices {
     @extend .greySection;
 
     padding-top: 0;
+  }
+}
+
+.artificial-intelligence-development-services {
+  &.relatedServices {
+    background-color: $white;
+    padding-top: 120px;
   }
 }

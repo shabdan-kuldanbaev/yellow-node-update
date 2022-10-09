@@ -274,6 +274,12 @@ export const routes = {
     dynamicPath: '/fintech-software-development-services',
     slug: 'fintech-software-development-services',
   },
+  aiDevelopment: {
+    title: 'AI Software Development Services',
+    path: '/artificial-intelligence-development-services',
+    dynamicPath: '/artificial-intelligence-development-services',
+    slug: 'artificial-intelligence-development-services',
+  },
   privacyPolicy: {
     title: 'Yellow Systems Privacy Policy',
     path: '/privacy-policy',

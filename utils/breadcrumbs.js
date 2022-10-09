@@ -134,6 +134,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.devOpsDevelopment.path,
     },
   ]),
+  aiDevelopment: () => ([
+    {
+      title: ROUTES.aiDevelopment.title,
+      to: ROUTES.aiDevelopment.path,
+    },
+  ]),
   technicalPage: (slug) => {
     if (slug === PAGES.privacyPolicy) {
       return [

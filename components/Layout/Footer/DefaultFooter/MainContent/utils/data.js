@@ -112,6 +112,11 @@ export const footerData = [
         path: ROUTES.devOpsDevelopment.path,
         type: 'navigation',
       },
+      {
+        subtitle: 'AI software development services',
+        path: ROUTES.aiDevelopment.path,
+        type: 'navigation',
+      },
     ],
     type: 'services',
   },

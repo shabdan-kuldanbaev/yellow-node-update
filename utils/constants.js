@@ -56,6 +56,7 @@ export const NAV_LINKS = [
     routes.mvpDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
+    routes.aiDevelopment.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
     routes.termsAndConditions.slug,
@@ -293,6 +294,9 @@ export const CASE_STUDIES_TYPES = {
   fullscreenImage: 'case-study-fullscreen-image',
   works: 'case-study-how-it-works',
   challengesSlider: 'case-study-challenges-slider',
+  processOverlay: 'case-study-process-overlay',
+  challengesSpecialSlider: 'case-study-special-slider',
+  prototype: 'case-study-prototype',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -386,6 +390,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.fintechDevelopment.path,
   ROUTES.erpDevelopment.path,
   ROUTES.devOpsDevelopment.path,
+  ROUTES.aiDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -463,6 +468,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
   [PAGES.devOpsDevelopment]: 'Still have questions? We\'re ready to answer them',
+  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business? We are here to help!',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
 };
 

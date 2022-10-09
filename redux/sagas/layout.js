@@ -144,6 +144,7 @@ function* fetchPageData({
     case PAGES.erpDevelopment:
     case PAGES.mlDevelopment:
     case PAGES.devOpsDevelopment:
+    case PAGES.aiDevelopment:
     case PAGES.notFound:
     case PAGES.signatureGenerator:
       yield call(fetchPage, { slug });

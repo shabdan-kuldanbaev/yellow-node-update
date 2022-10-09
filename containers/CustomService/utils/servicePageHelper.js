@@ -72,6 +72,11 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.devOpsDevelopment(),
     };
 
+  case PAGES.aiDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.aiDevelopment(),
+    };
+
   default:
     return {
       pageMicrodata: null,
