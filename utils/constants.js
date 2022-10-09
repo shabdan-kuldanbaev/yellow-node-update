@@ -48,6 +48,7 @@ export const NAV_LINKS = [
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
     routes.fintechDevelopment.slug,
+    routes.erpDevelopment.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
@@ -215,6 +216,8 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentAppFeatures: 'app-development-app-features',
   appDevelopmentPlainTextSection: 'app-development-plain-text',
   appDevelopmentBookmarkCard: 'app-development-bookmark-card',
+  processOverlay: 'app-development-process-overlay',
+  appDevelopmentSliderCards: 'app-development-slider-cards-section',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -361,6 +364,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
   ROUTES.fintechDevelopment.path,
+  ROUTES.erpDevelopment.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
@@ -381,6 +385,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
   ROUTES.fintechDevelopment.path,
+  ROUTES.erpDevelopment.path,
   ROUTES.devOpsDevelopment.path,
   ROUTES.aiDevelopment.path,
 ];
@@ -492,7 +497,7 @@ export const DEV_HOSTS = [
   'yws-dev.xyz',
 ];
 
-export const CUSTOM_DOMAIN = process.env.CUSTOM_DOMAIN;
+export const CUSTOM_DOMAIN = process.env.NEXT_PUBLIC_CUSTOM_DOMAIN;
 
 export const IS_PROD = process.env.NEXT_PUBLIC_CURRENT_ENV === 'production';
 

@@ -250,6 +250,12 @@ export const routes = {
     dynamicPath: '/machine-learning-development-services',
     slug: 'machine-learning-development-services',
   },
+  erpDevelopment: {
+    title: 'Custom ERP Software Development Services',
+    path: '/enterprise-resource-planning-software-services',
+    dynamicPath: '/enterprise-resource-planning-software-services',
+    slug: 'enterprise-resource-planning-software-services',
+  },
   devOpsDevelopment: {
     title: 'DevOps Development Company',
     path: '/devops-development-services',

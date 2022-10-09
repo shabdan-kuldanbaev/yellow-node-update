@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import gaHelper from 'utils/ga';
+import { CUSTOM_DOMAIN } from 'utils/constants';
+import { isAbsoluteUrl } from './helpers';
 import styles from './styles.module.scss';
-import { isExternal } from './helpers';
 
 const LinkWrapper = ({
   path,
@@ -15,10 +16,16 @@ const LinkWrapper = ({
   isSocialLink,
   onClick,
 }) => {
-  const isExternalLink = useMemo(() => isExternal(path), [path]);
-  const target = isExternalLink ? '_blank' : undefined;
-  const rel = (isSocialLink || !isExternalLink) ? undefined : 'noopener noreferrer nofollow';
-  const href = (!isExternalLink && path[0] !== '/') ? `/${path}` : path;
+  if (!path) {
+    return children;
+  }
+
+  const isAbsoluteLink = useMemo(() => isAbsoluteUrl(path), [path]);
+  const isLocalLink = !isAbsoluteLink || path.includes(CUSTOM_DOMAIN);
+
+  const target = !isLocalLink ? '_blank' : undefined;
+  const rel = (isSocialLink || isLocalLink) ? undefined : 'noopener noreferrer nofollow';
+  const href = (!isAbsoluteLink && path[0] !== '/') ? `/${path}` : path;
 
   const handleOnClick = (e) => {
     if (!isEmpty(googleAnalyticProps)) {
@@ -55,7 +62,7 @@ const LinkWrapper = ({
 };
 
 LinkWrapper.defaultProps = {
-  path: '/',
+  path: null,
   className: null,
   googleAnalyticProps: {},
   children: null,

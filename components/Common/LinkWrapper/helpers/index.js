@@ -1,4 +1,4 @@
-export const isExternal = (path) => {
+export const isAbsoluteUrl = (path) => {
   try {
     const _ = new URL(path);
 

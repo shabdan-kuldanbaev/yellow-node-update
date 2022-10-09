@@ -2,6 +2,8 @@
 @import '../utils/styles.module';
 
 .devops-development-services {
+  @include appDevelopmentContainer;
+
   background-color: $white;
 
   .contentWrapper {
@@ -10,6 +12,10 @@
     @include smallSectionWrapper;
 
     max-width: 864px;
+
+    h3 {
+      margin: 0;
+    }
 
     .bookmarkContainer {
       padding: 40px;
@@ -27,16 +33,6 @@
         background-size: 100% 100%;
       }
 
-      @include phone {
-        background-color: $alabaster;
-        border: unset;
-        margin: 40px 15px;
-
-        &::before {
-          content: none;
-        }
-      }
-
       .content {
         @include flex(column, center, center);
 
@@ -47,6 +43,7 @@
           font-weight: 600;
           line-height: 1.5;
           text-align: center;
+          margin-bottom: 32px;
 
           @include tablet {
             @include fontSize(20px);
@@ -60,7 +57,6 @@
         }
 
         a {
-          margin-top: 32px;
           text-decoration: underline;
           color: $dark-grey;
 
@@ -74,6 +70,17 @@
             text-decoration: unset;
             background-color: $turbo-100;
           }
+        }
+      }
+
+      @include below-tablet {
+        @include defaultCallToAction;
+
+        background: $alabaster;
+        border: none;
+
+        .bookmarkIcon {
+          display: none;
         }
       }
     }
@@ -90,6 +97,17 @@
             @include phone {
               width: 100%;
             }
+          }
+        }
+
+        @include below-tablet {
+          @include defaultCallToAction;
+
+          background: $alabaster;
+          border: none;
+
+          .bookmarkIcon {
+            display: none;
           }
         }
       }
@@ -109,6 +127,10 @@
               width: 100%;
             }
           }
+        }
+
+        @include below-tablet {
+          background: $white;
         }
       }
     }

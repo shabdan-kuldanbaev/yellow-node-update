@@ -1,6 +1,7 @@
 export const placementInfo = {
   USA: [
-    '44 Tehama St San Francisco, CA 94105',
+    '415 Mission Street',
+    'San Francisco',
     '+1 (415) 670-90-70',
   ],
   Poland: [
@@ -19,8 +20,8 @@ export const placementInfo = {
 
 export const markers = {
   USA: {
-    lng: -122.39665899408364,
-    lat: 37.78758480017879,
+    lng: -122.398559,
+    lat: 37.7888956,
   },
   Poland: {
     lng: 20.986031099330717,

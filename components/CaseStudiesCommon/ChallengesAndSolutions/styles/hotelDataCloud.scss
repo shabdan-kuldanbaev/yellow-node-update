@@ -48,7 +48,7 @@
           font-size: 18px;
           line-height: 180%;
           color: $silver-chalice;
-          max-width: 385px;
+          max-width: 435px;
           min-width: 350px;
 
           @include tablet {
@@ -223,11 +223,14 @@
   &.secondSectionView {
     .contentContainer {
       .title {
+        max-width: 355px;
         color: $white;
       }
     }
 
     .infoContainer {
+      max-width: 450px;
+
       h3 {
         color: $white;
       }

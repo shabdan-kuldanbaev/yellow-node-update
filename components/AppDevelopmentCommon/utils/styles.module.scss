@@ -33,10 +33,9 @@
   border-radius: 5px;
 
   h3 {
-    @include fontSize(24px);
+    @include fontSize(24px, 120%);
 
     max-width: 610px;
-    line-height: 120%;
 
     @include below-tablet {
       @include fontSize(18px);
@@ -47,11 +46,18 @@
   }
 
   div[role='button'] {
+    @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+
+    border-radius: $button-border-radius;
     font-weight: 500;
     height: unset;
     padding: 20px 0;
     margin-left: 40px;
     min-width: 220px;
+
+    &:hover {
+      transform: scale(0.96);
+    }
 
     @include below-tablet {
       @include fontSize(14px);

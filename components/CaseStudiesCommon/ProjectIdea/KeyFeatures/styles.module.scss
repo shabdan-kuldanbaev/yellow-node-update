@@ -71,13 +71,12 @@
       z-index: 10;
 
       .title {
+        @include fontSize(24px, 120%);
+
         margin: 0 0 15px;
         font-family: $case-studies-font;
         font-weight: bold;
-        line-height: 120%;
         color: $dark-grey;
-
-        @include fontSize(24px);
 
         @include phone {
           margin-bottom: 18px;

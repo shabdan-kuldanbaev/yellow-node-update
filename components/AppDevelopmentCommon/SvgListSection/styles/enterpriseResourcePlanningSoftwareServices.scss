@@ -1,0 +1,35 @@
+.enterprise-resource-planning-software-services {
+  background-color: $alabaster;
+  padding: 120px 10px;
+
+  .titleStyle {
+    .description {
+      max-width: 870px;
+    }
+  }
+
+  .svgGroup {
+    &:nth-child(2) {
+      margin-bottom: 60px;
+    }
+  
+    &:nth-child(2),
+    &:nth-child(3) {
+      @include phone {
+        display: none;
+      }
+    }
+  
+    &:nth-child(4) {
+      display: none;
+  
+      @include phone {
+        display: block;
+      }
+    }
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}

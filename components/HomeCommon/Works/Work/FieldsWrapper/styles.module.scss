@@ -13,11 +13,10 @@
   width: 100%;
 
   &.home {
-    @include fontSize(56px);
+    @include fontSize(56px, 120%);
 
     margin-bottom: 20px;
     font-weight: 700;
-    line-height: 120%;
   }
 
   @include below-tablet {
