@@ -136,8 +136,9 @@
 
     .mockup {
       width: 330px;
-
-      filter: drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 0.6)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 0.5));
+      filter:
+        drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 0.6))
+        drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 0.5));
 
       @include phone {
         width: 209px;

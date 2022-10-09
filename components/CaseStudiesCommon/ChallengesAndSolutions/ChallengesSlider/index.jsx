@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 import styles from '../styles.module.scss';
 
 const params = {
@@ -17,7 +16,11 @@ const params = {
   },
 };
 
-const ChallengesSlider = ({ isMobileResolution, isSlider, children }) => {
+const ChallengesSlider = ({
+  isMobileResolution,
+  isSlider,
+  children,
+}) => {
   if (!isMobileResolution || !isSlider) return children;
 
   return (

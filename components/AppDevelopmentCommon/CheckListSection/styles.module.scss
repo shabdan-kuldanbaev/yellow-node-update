@@ -86,7 +86,8 @@
 .mvp-app-development-company,
 .android-mobile-app-development-services,
 .ios-mobile-app-development-services,
-.devops-development-services {
+.devops-development-services,
+.artificial-intelligence-development-services {
   @include appDevelopmentContainer;
 
   .sectionContainer {
@@ -173,5 +174,17 @@
 
     background: $white;
     box-shadow: $card-bow-shadow;
+  }
+}
+
+.artificial-intelligence-development-services {
+  .callToAction {
+    @include defaultCallToAction;
+
+    background: $alabaster;
+
+    div {
+      margin-top: 0 !important;
+    }
   }
 }

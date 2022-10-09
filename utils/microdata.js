@@ -188,7 +188,7 @@ export const microdata = {
     '@type': 'WebPage',
     name: 'AI Software Development Services: Best Choice for Your Business | Yellow',
     description: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
-    breadcrumb: 'Homepage > AI Software development services'
+    breadcrumb: 'Homepage > AI Software development services',
   }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({

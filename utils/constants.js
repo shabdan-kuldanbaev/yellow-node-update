@@ -294,6 +294,9 @@ export const CASE_STUDIES_TYPES = {
   fullscreenImage: 'case-study-fullscreen-image',
   works: 'case-study-how-it-works',
   challengesSlider: 'case-study-challenges-slider',
+  processOverlay: 'case-study-process-overlay',
+  challengesSpecialSlider: 'case-study-special-slider',
+  prototype: 'case-study-prototype',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
