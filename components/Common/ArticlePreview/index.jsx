@@ -41,7 +41,7 @@ export const ArticlePreview = ({
   };
 
   const imageSizes = index === 0 ? {
-    width: 625,
+    width: 720,
     height: 428,
   } : {
     width: 297,
