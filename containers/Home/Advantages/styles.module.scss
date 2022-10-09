@@ -29,9 +29,7 @@
     max-width: 744px;
 
     .title {
-      @include fontSize(56px);
-
-      line-height: 120%;
+      @include fontSize(56px, 120%);
     }
 
     .subtitle {
