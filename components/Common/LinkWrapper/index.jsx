@@ -19,6 +19,10 @@ const LinkWrapper = ({
   const isAbsoluteLink = useMemo(() => isAbsoluteUrl(path), [path]);
   const isLocalLink = !isAbsoluteLink || path.includes(CUSTOM_DOMAIN);
 
+  if (!path) {
+    return children;
+  }
+
   const target = !isLocalLink ? '_blank' : undefined;
   const rel = (isSocialLink || isLocalLink) ? undefined : 'noopener noreferrer nofollow';
   const href = (!isAbsoluteLink && path[0] !== '/') ? `/${path}` : path;
@@ -58,7 +62,7 @@ const LinkWrapper = ({
 };
 
 LinkWrapper.defaultProps = {
-  path: '/',
+  path: null,
   className: null,
   googleAnalyticProps: {},
   children: null,

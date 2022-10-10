@@ -33,10 +33,9 @@
   border-radius: 5px;
 
   h3 {
-    @include fontSize(24px);
+    @include fontSize(24px, 120%);
 
     max-width: 610px;
-    line-height: 120%;
 
     @include below-tablet {
       @include fontSize(18px);

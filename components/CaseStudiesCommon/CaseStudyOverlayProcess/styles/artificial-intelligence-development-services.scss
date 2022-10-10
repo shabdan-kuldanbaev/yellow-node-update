@@ -1,0 +1,28 @@
+.artificial-intelligence-development-services {
+  @extend .mobile-bank-application;
+
+  [data-case-study-description] {
+    @include fontSize(18px);
+
+    color: $silver-chalice;
+    line-height: 180%;
+    max-width: 890px;
+
+    @include phone {
+      @include fontSize(14px);
+    }
+  }
+
+  .cardsList {
+    .cardContainer {
+      background-color: $white;
+      min-height: 350px;
+      padding: 20px 15px;
+
+      @include phone {
+        padding: 20px 15px;
+        margin: 0;
+      }
+    }
+  }
+}

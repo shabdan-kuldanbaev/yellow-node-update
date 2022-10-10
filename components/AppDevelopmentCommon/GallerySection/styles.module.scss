@@ -42,7 +42,8 @@
 .chat-app-development-company,
 .mobile-app-development-company,
 .fintech-software-development-services,
-.devops-development-services {
+.devops-development-services,
+.artificial-intelligence-development-services {
   @include appDevelopmentContainer;
 
   background-color: $white;
@@ -62,7 +63,8 @@
 }
 
 /* Sections with grey background */
-.mobile-app-development-company {
+.mobile-app-development-company,
+.artificial-intelligence-development-services {
   background: $alabaster;
 
   .callToAction {

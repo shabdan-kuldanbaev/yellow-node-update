@@ -16,14 +16,13 @@
   }
 
   .title {
+    @include fontSize(40px, 120%);
+
     margin: 0;
     grid-row: 1/4;
     font-family: $case-studies-font;
     font-weight: bold;
-    line-height: 120%;
     color: $dark-grey;
-
-    @include fontSize(40px);
 
     @include tablet {
       margin-bottom: 40px;
@@ -84,10 +83,9 @@
   }
 
   .title {
-    line-height: 120%;
-    margin-bottom: 30px;
+    @include fontSize(56px, 120%);
 
-    @include fontSize(56px);
+    margin-bottom: 30px;
 
     @include tablet {
       text-align: center;

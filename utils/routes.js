@@ -250,6 +250,12 @@ export const routes = {
     dynamicPath: '/machine-learning-development-services',
     slug: 'machine-learning-development-services',
   },
+  erpDevelopment: {
+    title: 'Custom ERP Software Development Services',
+    path: '/enterprise-resource-planning-software-services',
+    dynamicPath: '/enterprise-resource-planning-software-services',
+    slug: 'enterprise-resource-planning-software-services',
+  },
   devOpsDevelopment: {
     title: 'DevOps Development Company',
     path: '/devops-development-services',
@@ -273,6 +279,12 @@ export const routes = {
     path: '/fintech-software-development-services',
     dynamicPath: '/fintech-software-development-services',
     slug: 'fintech-software-development-services',
+  },
+  aiDevelopment: {
+    title: 'AI Software Development Services',
+    path: '/artificial-intelligence-development-services',
+    dynamicPath: '/artificial-intelligence-development-services',
+    slug: 'artificial-intelligence-development-services',
   },
   privacyPolicy: {
     title: 'Yellow Systems Privacy Policy',

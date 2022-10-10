@@ -139,6 +139,13 @@ export const microdata = {
     description: 'Build a successul fintech solution',
     breadcrumb: 'Homepage > Fintech Software Development Services',
   }),
+  erpDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Custom ERP Software Development Services ',
+    description: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',
+    breadcrumb: 'Homepage > Custom ERP Software Development Services ',
+  }),
   designServices: () => ({
     '@context': context,
     '@type': 'WebPage',
@@ -182,6 +189,13 @@ export const microdata = {
     name: 'DevOps Development Company | Yellow',
     description: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
     breadcrumb: 'Homepage > DevOps Development Company',
+  }),
+  aiDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'AI Software Development Services: Best Choice for Your Business | Yellow',
+    description: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
+    breadcrumb: 'Homepage > AI Software development services',
   }),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({

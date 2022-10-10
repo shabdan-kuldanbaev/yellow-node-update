@@ -1,13 +1,12 @@
 @import 'styles/utils/mixins';
 
 .title {
+  @include fontSize(56px, 120%);
+
   margin: 0 0 80px;
   text-align: center;
   font-family: $case-studies-font;
   font-weight: bold;
-  line-height: 120%;
-
-  @include fontSize(56px);
 
   @include tablet {
     @include fontSize(40px);
