@@ -116,6 +116,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.cloudDevelopment.path,
     },
   ]),
+  erpDevelopment: () => ([
+    {
+      title: ROUTES.erpDevelopment.title,
+      to: ROUTES.erpDevelopment.path,
+    },
+  ]),
   mlDevelopment: () => ([
     {
       title: ROUTES.mlDevelopment.title,
@@ -126,6 +132,12 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.devOpsDevelopment.title,
       to: ROUTES.devOpsDevelopment.path,
+    },
+  ]),
+  aiDevelopment: () => ([
+    {
+      title: ROUTES.aiDevelopment.title,
+      to: ROUTES.aiDevelopment.path,
     },
   ]),
   technicalPage: (slug) => {

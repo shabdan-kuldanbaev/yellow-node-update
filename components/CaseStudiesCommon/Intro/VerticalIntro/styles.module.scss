@@ -53,12 +53,11 @@
       z-index: inherit;
 
       .projectTitle {
+        @include fontSize(100px, 120%);
+
         margin: 0 0 30px;
         font-family: $case-studies-font;
         font-weight: bold;
-        line-height: 120%;
-
-        @include fontSize(100px);
 
         @include tablet {
           @include fontSize(60px);

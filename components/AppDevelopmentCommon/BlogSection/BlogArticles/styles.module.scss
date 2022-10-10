@@ -58,15 +58,11 @@
 
     @include phone {
       .title {
-        @include fontSize(16px);
-
-        line-height: 120%;
+        @include fontSize(16px, 120%);
       }
 
       .readMore {
-        @include fontSize(14px);
-
-        line-height: 180%;
+        @include fontSize(14px, 180%);
       }
     }
   }

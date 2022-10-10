@@ -63,6 +63,7 @@
 .web-app-development-company,
 .devops-development-services,
 .fintech-software-development-services,
+.artificial-intelligence-development-services,
 .homepage {
   @include appDevelopmentContainer;
 
@@ -86,4 +87,8 @@
       margin-bottom: 25px;
     }
   }
+}
+
+.artificial-intelligence-development-services {
+  background-color: $alabaster;
 }

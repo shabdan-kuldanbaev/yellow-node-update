@@ -48,6 +48,7 @@ export const NAV_LINKS = [
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
     routes.fintechDevelopment.slug,
+    routes.erpDevelopment.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
     routes.androidDevelopmentServices.slug,
@@ -55,6 +56,7 @@ export const NAV_LINKS = [
     routes.mvpDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
+    routes.aiDevelopment.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
     routes.termsAndConditions.slug,
@@ -214,6 +216,8 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentAppFeatures: 'app-development-app-features',
   appDevelopmentPlainTextSection: 'app-development-plain-text',
   appDevelopmentBookmarkCard: 'app-development-bookmark-card',
+  processOverlay: 'app-development-process-overlay',
+  appDevelopmentSliderCards: 'app-development-slider-cards-section',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -290,6 +294,9 @@ export const CASE_STUDIES_TYPES = {
   fullscreenImage: 'case-study-fullscreen-image',
   works: 'case-study-how-it-works',
   challengesSlider: 'case-study-challenges-slider',
+  processOverlay: 'case-study-process-overlay',
+  challengesSpecialSlider: 'case-study-special-slider',
+  prototype: 'case-study-prototype',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -360,6 +367,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
   ROUTES.fintechDevelopment.path,
+  ROUTES.erpDevelopment.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
@@ -380,7 +388,9 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
   ROUTES.fintechDevelopment.path,
+  ROUTES.erpDevelopment.path,
   ROUTES.devOpsDevelopment.path,
+  ROUTES.aiDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -458,6 +468,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
   [PAGES.devOpsDevelopment]: 'Still have questions? We\'re ready to answer them',
+  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business? We are here to help!',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
 };
 

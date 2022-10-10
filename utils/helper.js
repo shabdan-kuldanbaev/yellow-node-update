@@ -74,6 +74,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.customChatApp}`, updatedAt },
   { path: `/${PAGES.customMobileApp}`, updatedAt },
   { path: `/${PAGES.customWebApp}`, updatedAt },
+  { path: `/${PAGES.erpDevelopment}`, updatedAt },
   { path: `/${PAGES.designServices}`, updatedAt },
   { path: `/${PAGES.developmentServices}`, updatedAt },
   { path: `/${PAGES.mlDevelopment}`, updatedAt },
@@ -82,6 +83,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.mvpDevelopment}`, updatedAt },
   { path: `/${PAGES.fintechDevelopment}`, updatedAt },
   { path: `/${PAGES.devOpsDevelopment}`, updatedAt },
+  { path: `/${PAGES.aiDevelopment}`, updatedAt },
   { path: `/${PAGES.privacyPolicy}`, updatedAt },
   { path: `/${PAGES.termsAndConditions}`, updatedAt },
 ];

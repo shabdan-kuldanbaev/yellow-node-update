@@ -83,14 +83,14 @@
 
   &.firstBlock {
     background-color: $eerie-black;
+  }
 
-    &.secondBlock {
-      background-color: $very-page-blue;
+  &.secondBlock {
+    background-color: $very-page-blue;
+  }
 
-      &.thirdBlock {
-        background-color: $chinese-black;
-      }
-    }
+  &.thirdBlock {
+    background-color: $chinese-black;
   }
 
   @include phone {

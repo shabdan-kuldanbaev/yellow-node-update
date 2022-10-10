@@ -50,6 +50,7 @@
         }
       }
 
+      p,
       .slideSubtitle {
         color: $silver-chalice;
         line-height: 2;
@@ -80,12 +81,14 @@
 }
 
 .chat-app-development-company,
+.enterprise-resource-planning-software-services,
 .fintech-software-development-services {
   @include appDevelopmentContainer;
 
   background-color: $alabaster;
 }
 
+.enterprise-resource-planning-software-services,
 .fintech-software-development-services {
   .sliderList {
     padding: 60px 112px;
@@ -106,6 +109,25 @@
 
     @include phone {
       padding: 40px 20px;
+    }
+  }
+}
+
+.enterprise-resource-planning-software-services {
+  .sliderList {
+    .item {
+      p,
+      .slideSubtitle {
+        @include fontSize(14px);
+      }
+    }
+
+    :global(.swiper-scrollbar) {
+      margin-top: 10px;
+
+      @include phone {
+        margin-top: 40px;
+      }
     }
   }
 }

@@ -55,13 +55,12 @@
       }
 
       .title {
+        @include fontSize(56px, 120%);
+
         margin: 0 0 30px;
         font-family: $case-studies-font;
         font-weight: bold;
-        line-height: 120%;
         color: $dark-grey;
-
-        @include fontSize(56px);
 
         @include tablet {
           margin: 0 0 15px;

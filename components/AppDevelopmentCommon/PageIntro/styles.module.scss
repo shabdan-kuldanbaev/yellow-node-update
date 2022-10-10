@@ -340,13 +340,15 @@
   }
 }
 
+.enterprise-resource-planning-software-services,
 .ios-mobile-app-development-services,
 .android-mobile-app-development-services,
 .mvp-app-development-company,
 .cloud-based-app-development-services,
 .machine-learning-development-services,
 .fintech-software-development-services,
-.devops-development-services {
+.devops-development-services,
+.artificial-intelligence-development-services {
   @extend .pageIntroContainer;
 
   background-color: inherit;
@@ -462,6 +464,46 @@
   }
 }
 
+.enterprise-resource-planning-software-services {
+  .pageIntroSection {
+    .pageIntroWrapper {
+      .pageTitleContainer {
+        .pageTitle {
+          @include phone {
+            margin-bottom: 15px;
+          }
+        }
+
+        .subtitle {
+          max-width: 560px;
+
+          &:not(:first-child) {
+            @include phone {
+              margin-top: 10px;
+            }
+          }
+        }
+
+        @include phone {
+          margin-bottom: 0;
+        }
+      }
+
+      .image {
+        max-width: 610px;
+
+        @include below-tablet {
+          margin-bottom: 30px;
+        }
+      }
+
+      @include phone {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
 .devops-development-services {
   .pageIntroSection {
     .pageIntroWrapper {
@@ -472,4 +514,8 @@
       }
     }
   }
+}
+
+.artificial-intelligence-development-services {
+  background-color: $very-dark-gray;
 }

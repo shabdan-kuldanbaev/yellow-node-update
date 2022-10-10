@@ -158,13 +158,12 @@
 
   &.thirdSectionView {
     background-color: $very-dark-gray;
-    padding: 0;
+    padding: 120px 15px;
 
     .cards {
       width: 100%;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 80px;
-      margin-bottom: 120px;
 
       .imageWrapper {
         svg {
@@ -192,7 +191,6 @@
       @include below-tablet {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 10px;
-        margin-bottom: 60px;
       }
     }
 
@@ -204,7 +202,6 @@
     .titleStyle h2 {
       @include phone {
         width: 320px;
-        padding-top: 60px;
       }
     }
 
@@ -212,6 +209,10 @@
       &::marker {
         color: $case-study-dindon-paragraph;
       }
+    }
+
+    @include phone {
+      padding: 60px 15px;
     }
   }
 }

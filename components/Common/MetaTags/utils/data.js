@@ -111,10 +111,22 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.fintechDevelopment.path}`,
   },
   {
+    pageName: ROUTES.erpDevelopment.slug,
+    metaTitle: 'Custom ERP Software Development Services | Yellow',
+    metaDescription: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',
+    url: `${rootUrl}${ROUTES.erpDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.devOpsDevelopment.slug,
     metaTitle: 'DevOps Development Company | Yellow',
     metaDescription: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
     url: `${rootUrl}${ROUTES.devOpsDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.aiDevelopment.slug,
+    metaTitle: 'AI Software Development Services: Best Choice for Your Business | Yellow',
+    metaDescription: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
+    url: `${rootUrl}${ROUTES.aiDevelopment.path}`,
   },
   {
     pageName: ROUTES.privacyPolicy.slug,

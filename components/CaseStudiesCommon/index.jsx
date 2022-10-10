@@ -14,6 +14,7 @@ import WorksSection from 'components/CaseStudiesCommon/WorksSection';
 import { FeaturesSection } from 'components/CaseStudiesCommon/FeaturesSection';
 import { StorySection } from 'components/CaseStudiesCommon/StorySection';
 import { EventSection } from 'components/CaseStudiesCommon/EventSection';
+import CaseStudyOverlayProcess from 'components/CaseStudiesCommon/CaseStudyOverlayProcess';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
 const CaseStudiesCommon = (props) => {
@@ -24,6 +25,7 @@ const CaseStudiesCommon = (props) => {
     return <ProjectIdea {...props} />;
   case CASE_STUDIES_TYPES.challenges:
   case CASE_STUDIES_TYPES.challengesSlider:
+  case CASE_STUDIES_TYPES.challengesSpecialSlider:
     return <ChallengesAndSolutionsWithWireframes {...props} />;
   case CASE_STUDIES_TYPES.specialChallenges:
     return <SpecialChallengesAndSolutions {...props} />;
@@ -49,6 +51,8 @@ const CaseStudiesCommon = (props) => {
     return <FullScreenImages {...props} />;
   case CASE_STUDIES_TYPES.works:
     return <WorksSection {...props} />;
+  case CASE_STUDIES_TYPES.processOverlay:
+    return <CaseStudyOverlayProcess {...props} />;
   default:
     return null;
   }
