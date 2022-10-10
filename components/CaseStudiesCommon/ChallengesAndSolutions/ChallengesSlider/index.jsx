@@ -32,9 +32,14 @@ const ChallengesSlider = ({
   );
 };
 
+ChallengesSlider.defaultProps = {
+  isMobileResolution: false,
+};
+
 ChallengesSlider.propTypes = {
   isSlider: PropTypes.bool.isRequired,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
+  isMobileResolution: PropTypes.bool,
 };
 
 export default ChallengesSlider;
