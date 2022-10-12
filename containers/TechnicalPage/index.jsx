@@ -21,9 +21,10 @@ const TechnicalPageContainer = ({
   const { main: contentModules } = pageData;
 
   const breadcrumbs = pagesBreadcrumbs.technicalPage(type);
+
   const pageMetadata = {
     ...metaData,
-    url: `${rootUrl}/privacy-policy`,
+    url: `${rootUrl}/${type}`,
   };
 
   if (!pageData || !contentModules) {
