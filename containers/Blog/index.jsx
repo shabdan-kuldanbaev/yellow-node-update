@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import { subscribe, setIsSubscribed } from 'redux/actions/subscribe';
+import { setIsSubscribed, subscribe } from 'redux/actions/subscribe';
 import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
 import { selectMetaData } from 'redux/selectors/layout';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
@@ -12,14 +12,10 @@ import PageHeader from 'components/Common/PageHeader';
 import Paginator from 'components/Common/Paginator';
 import FullLayout from 'components/Layout/FullLayout';
 import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
-import {
-  PAGES,
-  ROUTES,
-  CATEGORY_SLUGS,
-} from 'utils/constants';
+import { PAGES, ROUTES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { categoriesMetaData } from './utils/data';
-import { findTagBySlug, getTagSlugs } from './utils/blogContainerHelper';
+import { findCategoryBySlug, findTagBySlug } from './utils/blogContainerHelper';
 
 const BlogContainer = ({
   tagsList,
@@ -37,6 +33,10 @@ const BlogContainer = ({
     query: { slug },
     asPath,
   } = useRouter();
+
+  const tag = findTagBySlug(tagsList, slug);
+  const category = findCategoryBySlug(categoriesMetaData, slug);
+
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
   const breadcrumbs = pagesBreadcrumbs.blog(slug, tagsList);
   const pageMetadata = {
@@ -44,32 +44,34 @@ const BlogContainer = ({
     url: `${rootUrl}${asPath}`,
     pageNumber: currentPage,
   };
-  let tagTitle = '';
 
-  if (tagsList.map((tag) => tag.slug).includes(slug)) {
+  if (tag || category) {
     pageMetadata.metaRobots = 'noindex,follow';
   }
 
-  if (CATEGORY_SLUGS.includes(slug) && categoriesMetaData[slug]) {
+  let pageTitle = '';
+
+  if (category) {
     const {
       metaTitle: categoryMetaTitle,
       metaDescription: categoryMetaDescription,
-    } = categoriesMetaData[slug];
+      pageTitle: categoryTitle,
+    } = category;
+
     pageMetadata.metaTitle = categoryMetaTitle;
     pageMetadata.metaDescription = categoryMetaDescription;
+    pageTitle = categoryTitle;
   }
 
-  if (getTagSlugs(tagsList).includes(slug)) {
-    const tagInfo = findTagBySlug(tagsList, slug);
+  if (tag) {
+    const {
+      title: tagTitle,
+      description: tagDescription,
+    } = tag;
 
-    if (tagInfo.title) {
-      pageMetadata.metaTitle = `Tag: ${tagInfo.title} | Yellow`;
-      tagTitle = tagInfo.title;
-    }
-
-    if (tagInfo.description) {
-      pageMetadata.metaDescription = tagInfo.description;
-    }
+    pageMetadata.metaTitle = `Tag: ${tagTitle} | Yellow`;
+    pageMetadata.metaDescription = tagDescription;
+    pageTitle = tagTitle;
   }
 
   const handleOnFormSubmit = (email) => {
@@ -90,7 +92,7 @@ const BlogContainer = ({
       />
       <FullLayout introSection={introSection}>
         <PageHeader
-          title={tagTitle || ROUTES.blog.title}
+          title={pageTitle || ROUTES.blog.title}
           breadcrumbs={breadcrumbs}
         />
         <SelectionBlock handleOnSubmit={handleOnFormSubmit} />
