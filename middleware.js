@@ -2,27 +2,22 @@ import { NextResponse } from 'next/server';
 import { CUSTOM_DOMAIN, IS_PROD } from 'utils/constants';
 import { getNewPathname, isPage } from 'utils/middlewares';
 
-const forceHttps = (req) => {
-  const host = req.headers.get('host') || '';
-
-  if (
-    IS_PROD
-    && !host.includes('localhost')
-    && req.headers.get('x-forwarded-proto') !== 'https'
-  ) {
-    return NextResponse.redirect(`https://${host}${req.nextUrl.pathname}`, 301);
-  }
-};
-
-const redirectWwwToNonWww = (req) => {
-  const host = req.headers.get('host') || '';
-  const proto = req.headers.get('x-forwarded-proto') || 'http';
+const forceHttpsAndNonWww = (req) => {
   const wwwRegex = /^www\./;
+  const host = req.headers.get('host') || '';
 
-  if (!host.includes('localhost') && wwwRegex.test(host)) {
-    const newHost = host.replace(wwwRegex, '');
+  if (!IS_PROD || host.includes('localhost')) {
+    return;
+  }
 
-    return NextResponse.redirect(`${proto}://${newHost}${req.nextUrl.pathname}`, 301);
+  let newHost = host;
+
+  if (wwwRegex.test(host)) {
+    newHost = host.replace(wwwRegex, '');
+  }
+
+  if (newHost !== host || req.headers.get('x-forwarded-proto') !== 'https') {
+    return NextResponse.redirect(`https://${newHost}${req.nextUrl.pathname}`, 301);
   }
 };
 
@@ -82,8 +77,7 @@ export const middleware = (req) => {
   }
 
   return processMiddlewareFunctions(req, [
-    forceHttps,
-    redirectWwwToNonWww,
+    forceHttpsAndNonWww,
     redirectToCustomDomain,
     redirectToLowerCasePath,
     redirectToNewPath,
