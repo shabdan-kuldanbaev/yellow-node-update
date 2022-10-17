@@ -1,7 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-} from 'react';
+import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
@@ -20,13 +17,9 @@ import {
 } from 'utils/helper';
 
 const Footer = dynamic(() => import('components/Layout/Footer'));
-const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
 
 const Layout = ({ children, introSection }) => {
   const dispatch = useDispatch();
-  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-
-  const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
   useEffect(() => {
     const handleOnResize = () => {
@@ -54,10 +47,6 @@ const Layout = ({ children, introSection }) => {
       <Header introSection={introSection} />
       {children}
       <Footer />
-      <FullScreenEstimation
-        isFullscreenEstimation={isFullscreenEstimation}
-        closeFullscreenEstimation={closeFullscreenEstimation}
-      />
       <GAnalytic />
       {/* TODO return it when issue with design will be resolved */}
       {/* <ToTopButton /> */}
@@ -66,11 +55,11 @@ const Layout = ({ children, introSection }) => {
 };
 
 Layout.defaultProps = {
-  children: {},
+  children: null,
 };
 
 Layout.propTypes = {
-  children: PropTypes.instanceOf(Object),
+  children: PropTypes.node,
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
