@@ -83,9 +83,10 @@ const ContentfulParser = ({ document }) => {
             buttonTitle,
             slug,
             type,
+            url,
           } = getDocumentFields(
             get(node, 'data.target', {}),
-            ['title', 'buttonTitle', 'slug', 'type'],
+            ['title', 'buttonTitle', 'slug', 'type', 'url'],
           );
 
           return (
@@ -94,6 +95,8 @@ const ContentfulParser = ({ document }) => {
               buttonTitle={buttonTitle}
               slug={slug}
               type={type}
+              url={url}
+              className={styles.videoSection}
             />
           );
         }
