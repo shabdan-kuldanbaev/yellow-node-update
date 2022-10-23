@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
@@ -12,21 +12,25 @@ import styles from './styles.module.scss';
 
 const AppFeatures = ({ data, type }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const imagesData = get(data, 'contentModules');
 
   const handleOnClick = (index) => () => {
     setActiveIndex(index);
   };
 
-  if (!imagesData) {
+  const images = useMemo(() => {
+    const imagesData = get(data, 'contentModules');
+
+    return imagesData.map((module) => {
+      const { images: moduleImages } = getDocumentFields(module);
+
+      return (getFileUrl(get(moduleImages, '[0]', {}))
+      );
+    });
+  }, [data]);
+
+  if (!images?.length) {
     return null;
   }
-
-  const images = imagesData.map((module) => {
-    const { images: moduleImages } = getDocumentFields(module);
-
-    return getFileUrl(get(moduleImages, '[0]', {}));
-  });
 
   return (
     <section className={styles[type]}>
@@ -74,12 +78,15 @@ const AppFeatures = ({ data, type }) => {
           {...ANIMATION_CASE_STUDY_PROPS}
         >
           <div className={styles.imageContainer}>
-            <img
-              src={images[activeIndex]}
-              // this class is defined in the caseStudyContainer mixin
-              className={styles.image}
-              alt={type}
-            />
+            {images.map((image, i) => (
+              <img
+                src={image}
+                className={cn(styles.image, {
+                  [styles.active]: i === activeIndex,
+                })}
+                alt={type}
+              />
+            ))}
           </div>
         </Animated>
       </div>
