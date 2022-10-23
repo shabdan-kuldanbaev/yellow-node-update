@@ -27,6 +27,10 @@
   @include caseStudyContainer;
 
   background-color: $white;
+
+  .secondDescription {
+    display: none;
+  }
 }
 
 .writer-chrome-extension {
@@ -67,11 +71,8 @@
 
     .secondDescription,
     [data-case-study-description] {
-      max-width: 982px;
+      display: block;
       text-align: center;
-    }
-
-    .secondDescription {
       max-width: 770px;
       margin: 60px auto 0;
       line-height: 180%;
