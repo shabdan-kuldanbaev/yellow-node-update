@@ -637,3 +637,29 @@
     justify-content: center;
   }
 }
+
+.cash-chat {
+  .container {
+    @include below-tablet {
+      display: none;
+    }
+  }
+
+  .title {
+    @include fontSize(44px, 120%);
+
+    margin-top: 0;
+    font-weight: bold;
+  }
+
+  .listContainer {
+    padding-left: 0;
+  }
+
+  .listItemContainer {
+    @include fontSize(18px, 180%);
+
+    font-weight: bold;
+    list-style: none;
+  }
+}
