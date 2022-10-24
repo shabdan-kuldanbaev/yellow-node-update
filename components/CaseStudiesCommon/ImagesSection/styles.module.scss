@@ -23,7 +23,8 @@
 .humankind,
 .software-for-mri-interpretation,
 .bionorica,
-.marketplace-for-clairvoyant-services {
+.marketplace-for-clairvoyant-services,
+.machine-learning-in-real-estate {
   @include caseStudyContainer;
 
   background-color: $white;
@@ -240,9 +241,9 @@
   color: $white;
 
   [data-case-study-title] {
-    padding-top: 150px;
     width: 909px;
     margin: 0 auto 40px;
+    color: $white;
 
     @include tablet {
       width: 600px;
@@ -285,6 +286,10 @@
         padding-bottom: 30px;
       }
     }
+  }
+
+  &.secondSectionView {
+    padding-top: 0;
   }
 }
 
