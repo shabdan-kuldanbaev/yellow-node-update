@@ -1,4 +1,4 @@
-import { FreeMode } from 'swiper';
+import { Autoplay, FreeMode } from 'swiper';
 import { getDocumentFields } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 
@@ -64,9 +64,14 @@ export const getSwiperParams = ({ isEnabled = true }) => ({
   spaceBetween: 60,
   passiveListeners: true,
   freeMode: true,
-  grabCursor: true,
   mousewheel: {
     forceToAxis: true,
   },
-  modules: [FreeMode],
+  rewind: true,
+  autoplay: {
+    delay: 800,
+    disableOnInteraction: false,
+  },
+  speed: 500,
+  modules: [Autoplay, FreeMode],
 });
