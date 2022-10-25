@@ -6,6 +6,10 @@ import {
 } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 
+function pageUrl(pagePath = '') {
+  return `${rootUrl}${pagePath}`;
+}
+
 const context = 'https://schema.org';
 const logoUrl = `${rootUrl}${IMAGES.roundLogo}`;
 const publisherMicrodata = {
@@ -16,6 +20,58 @@ const publisherMicrodata = {
     url: logoUrl,
   },
 };
+const addressMicrodata = [
+  {
+    '@type': 'PostalAddress',
+    addressCountry: 'USA',
+    addressRegion: 'St San Francisco',
+    streetAddress: '415 Mission Street',
+  },
+  {
+    '@type': 'PostalAddress',
+    addressCountry: 'Israel',
+    addressRegion: 'Tel Aviv',
+    streetAddress: 'Ahad Ha\'Am 9',
+  },
+  {
+    '@type': 'PostalAddress',
+    addressCountry: 'Argentina',
+    addressRegion: 'Buenos Aires',
+    streetAddress: 'Av. Corrientes 1312',
+  },
+  {
+    '@type': 'PostalAddress',
+    addressCountry: 'Poland',
+    addressRegion: 'Warszawa 00-8P55',
+    streetAddress: 'Grzybowska 62',
+  },
+];
+const navigationMicrodata = [
+  {
+    '@context': context,
+    '@type': 'SiteNavigationElement',
+    name: 'About Yellow',
+    url: pageUrl(ROUTES.company.path),
+  },
+  {
+    '@context': context,
+    '@type': 'SiteNavigationElement',
+    name: 'Our Works',
+    url: pageUrl(ROUTES.portfolio.path),
+  },
+  {
+    '@context': context,
+    '@type': 'SiteNavigationElement',
+    name: 'The Yellow Blog',
+    url: pageUrl(ROUTES.blog.path),
+  },
+  {
+    '@context': context,
+    '@type': 'SiteNavigationElement',
+    name: 'Contact Us',
+    url: pageUrl(ROUTES.contact.path),
+  },
+];
 const authorMicrodata = ({ author: { fullName, position } }) => ({
   '@type': 'Person',
   name: fullName,
@@ -29,10 +85,6 @@ const {
   postalCode,
   streetAddress,
 } = CONTACTS_DATA;
-
-function pageUrl(pagePath = '') {
-  return `${rootUrl}${pagePath}`;
-}
 
 export const microdata = {
   article: ({
@@ -64,19 +116,28 @@ export const microdata = {
       author: authorMicrodata({ author }),
     },
   }),
-  homepage: () => ({
-    '@context': context,
-    '@type': 'WebSite',
-    '@id': pageUrl(),
-    name: 'Software Development for Startups | Yellow',
-    description: '✔ We provide software development services for startups and businesses. ✔ Reach out for a free consultation!',
-    url: rootUrl,
-    author: {
-      '@type': 'Organization',
-      name: 'Yellow Systems',
-      logo: logoUrl,
+  homepage: () => ([
+    {
+      '@context': context,
+      '@type': 'WebSite',
+      name: 'Yellow',
+      alternateName: 'Yellow Systems',
+      description: '✔ We provide software development services for startups and businesses. ✔ Reach out for a free consultation!',
+      url: rootUrl,
+      mainEntityOfPage: rootUrl,
+      author: publisherMicrodata,
     },
-  }),
+    {
+      '@context': context,
+      '@type': 'LocalBusiness',
+      name: 'Yellow',
+      alternateName: 'Yellow Systems',
+      description: '✔ We provide software development services for startups and businesses. ✔ Reach out for a free consultation!',
+      url: rootUrl,
+      address: addressMicrodata,
+    },
+    ...navigationMicrodata,
+  ]),
   contact: () => ({
     '@context': context,
     '@type': 'ContactPage',
@@ -98,7 +159,7 @@ export const microdata = {
   customChatApp: () => ({
     '@context': context,
     '@type': 'WebPage',
-    name: 'Сhat app development company | Chat app developers | Yellow',
+    name: 'Chat app development company | Chat app developers | Yellow',
     description: `Yellow has more than 5+ years of dedication to the development of chat apps.
                   ✔ 10+ successfully delivered chat apps. ✔ Let's get in touch!`,
     breadcrumb: 'Homepage > Custom chat app development company',
