@@ -100,4 +100,13 @@
 
 .fernwayer {
   @include caseStudyContainer;
+
+
+  .image {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
 }
