@@ -262,3 +262,161 @@
     padding: 60px 15px;
   }
 }
+
+.discovery-phase-services {
+  &.firstSectionView {
+    .container {
+      .sectionContainer {
+        .description {
+          p {
+            margin-top: 0;
+            color: $silver-chalice;
+          }
+        }
+
+        .sectionItem {
+          .title {
+            margin: 10px 0;
+          }
+        }
+      }
+  
+      .imageContainer {
+        img {
+          transform: scale(1) translate(0px, -10px);
+        }
+      }
+
+      @include phone {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: black;
+
+    [data-case-study-title] {
+      color: $white;
+    }
+
+    [data-case-study-description] {
+      color: rgb($white, 0.7);
+      text-align: left;
+      margin: 0 0 32px;
+      max-width: 625px;
+
+      @include phone {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+    }
+
+    .container {
+      max-width: 1300px;
+
+      .sectionContainer {
+        order: 1;
+
+        .sectionItem {
+          .wrapperTitle {
+            cursor: default;
+
+            .title {
+              color: $white;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: row;
+
+              &::before {
+                content: '';
+                background: $white;
+                min-width: 8px;
+                min-height: 8px;
+                border-radius: 50%;
+                margin-right: 16px;
+              }
+            }
+            
+            .imageBundle {
+              transform: none;
+            }
+
+            @include phone {
+              justify-content: center;
+            }
+          }
+        }
+
+        .sectionActiveItem {
+          .wrapperTitle {
+            .imageBundle {
+              transform: none;
+            }
+          }
+        }
+
+        & div {
+          &:nth-child(7) {
+            .sectionItem {
+              margin: 60px auto 40px;
+
+              .wrapperTitle {
+                .title {
+                  color: $turbo-100;
+  
+                  &::before {
+                    content: unset;
+                  }
+
+                  @include phone {
+                    text-align: center;
+                    margin: 0;
+                  }
+                }
+      
+                .imageBundle {
+                  position: absolute;
+                  margin: 0;
+                  top: -190px;
+                  left: -235px;
+
+                  @include tablet {
+                    display: none;
+                  }
+                }
+              }
+
+              @include phone {
+                margin-top: 24px;
+              }
+            }
+          }
+        }
+      }
+
+      .imageContainer {
+        margin: 0 120px 0 0;
+        max-width: 525px;
+
+        img {
+          transform: none;
+        }
+
+        @include tablet {
+          margin: 0 auto;
+        }
+
+        @include phone {
+          margin: 0 auto;
+        }
+      }
+
+      @include tablet {
+        flex-direction: column-reverse;
+        margin: 0 auto;
+      }
+    }
+  }
+}

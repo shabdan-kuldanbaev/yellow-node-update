@@ -5,22 +5,18 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { SwiperNavigation } from 'components/SwiperNavigation';
+import { SWIPER_PARAMS } from './utils';
 import styles from './styles.module.scss';
 
 const CardsSlider = ({
+  type,
   isMobileResolution,
   children,
 }) => {
   if (!isMobileResolution) return children;
 
-  const swiperParams = {
-    modules: [Pagination],
-    slidesPerView: 1,
-    spaceBetween: 30,
-  };
-
   return (
-    <Swiper {...swiperParams}>
+    <Swiper {...SWIPER_PARAMS[type]}>
       {children.map((child, index) => (
         <SwiperSlide key={index}>{child}</SwiperSlide>
       ))}

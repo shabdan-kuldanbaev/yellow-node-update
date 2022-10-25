@@ -8,6 +8,14 @@
           max-width: 900px;
         }
       }
+
+      .cards {
+        & > div {
+          @include below-tablet {
+            justify-content: center;
+          }
+        }
+      }
   
       .cardContent {
         p {
@@ -30,13 +38,19 @@
         }
 
         p {
-          color: rgba(255, 255, 255, 0.7);
+          color: rgba($white, 0.7);
         }
       }
   
       .cards {
+        & > div {
+          @include below-tablet {
+            justify-content: center;
+          }
+        }
+
         .imageWrapper {
-          background: #FFE603;
+          background: $turbo-100;
         }
 
         .cardContent {
@@ -46,7 +60,7 @@
   
           p {
             max-width: 361px;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba($white, 0.7);
           }
         }
       }
@@ -60,22 +74,29 @@
       max-width: 1300px;
 
       .cards {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
+        @include flex(row, center, initial, wrap);
+        
         grid-gap: unset;
 
         & > div {
           width: 405px;
+          margin-bottom: 24px;
+
+          @include below-tablet {
+            flex-direction: column;
+          }
         }
 
         .imageWrapper {
-          display: flex;
-          justify-content: center;
+          @include flex(row, center);
         }
 
         .cardContent {
           text-align: center;
+
+          @include below-tablet {
+            margin-top: 20px;
+          }
         }
       }
     }
@@ -121,30 +142,25 @@
             }
           }
         }
-      }
-    }
-  }
 
-  &.fifthSectionView {
-    padding-top: 0;
+        .imageWrapper {
+          @include below-tablet {
+            margin-bottom: 16px;
+          }
+        }
 
-    .contentWrapper {
-      .titleStyle {
-        margin: 0 auto;
-      }
+        &:not(:last-child) {
+          @include below-tablet {
+            margin-bottom: 24px;
+          }
+        }
 
-      .cards {
-        display: none;
-      }
+        @include below-tablet {
+          flex-direction: column;
+        }
 
-      .callToAction {
-        padding: 0;
-        margin: 0;
-        background: unset;
-        justify-content: center;
-
-        .button {
-          margin: 60px auto 0;
+        @include phone {
+          padding: 24px;
         }
       }
     }

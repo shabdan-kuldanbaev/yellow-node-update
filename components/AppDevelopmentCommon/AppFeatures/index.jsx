@@ -28,7 +28,7 @@ const AppFeatures = ({ data, type }) => {
   });
 
   return (
-    <section className={styles[type]}>
+    <section className={cn(styles[type], styles[data.view])}>
       <div className={styles.container}>
         <div className={styles.sectionContainer}>
           <SectionTitle

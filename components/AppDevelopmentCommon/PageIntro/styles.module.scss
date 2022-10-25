@@ -331,8 +331,29 @@
 
             bottom: unset;
             left: unset;
-            top: -10px;
-            right: -100px;
+            top: 80px;
+            right: 130px;
+
+            @include tablet {
+              top: -10px;
+              right: -30px;
+            }
+
+            @include phone {
+              top: 0px;
+              right: 70px;
+              width: 170px;
+              height: 36px;
+            }
+          }
+          
+          @include tablet {
+            margin-top: 40px;
+            margin-bottom: 15px;
+          }
+
+          @include phone {
+            @include fontSize(32px, 120%);
           }
         }
 
@@ -340,10 +361,26 @@
           max-width: 625px;
           padding: 0;
         }
+
+        @include phone {
+          margin-bottom: 0;
+        }
       }
 
       .image {
         transform: translate(-100px, 0px);
+
+        @include macbook-thirteen {
+          transform: translate(-20px, 0px);
+        }
+
+        @include tablet {
+          transform: unset;
+        }
+      }
+
+      @include tablet {
+        flex-flow: column-reverse;
       }
     }
   }
