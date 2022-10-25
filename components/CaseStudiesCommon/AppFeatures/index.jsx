@@ -23,8 +23,7 @@ const AppFeatures = ({ data, type }) => {
     return imagesData.map((module) => {
       const { images: moduleImages } = getDocumentFields(module);
 
-      return (getFileUrl(get(moduleImages, '[0]', {}))
-      );
+      return getFileUrl(get(moduleImages, '[0]', {}));
     });
   }, [data]);
 
