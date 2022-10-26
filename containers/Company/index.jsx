@@ -17,6 +17,7 @@ import FullLayout from 'components/Layout/FullLayout';
 import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { microdata } from 'utils/microdata';
 import styles from './styles.module.scss';
 
 const ManagementTeam = dynamic(() => import('components/CompanyCommon/ManagementTeam'));
@@ -45,6 +46,7 @@ const CompanyContainer = ({
       <MetaTags
         page={PAGES.company}
         pageMetadata={pageMetadata}
+        pageMicrodata={microdata.company()}
         breadcrumbs={breadcrumbs}
       />
       <FullLayout introSection={introSection}>
