@@ -23,10 +23,15 @@
 .humankind,
 .software-for-mri-interpretation,
 .bionorica,
-.marketplace-for-clairvoyant-services {
+.marketplace-for-clairvoyant-services,
+.machine-learning-in-real-estate {
   @include caseStudyContainer;
 
   background-color: $white;
+
+  .secondDescription {
+    display: none;
+  }
 }
 
 .writer-chrome-extension {
@@ -67,11 +72,8 @@
 
     .secondDescription,
     [data-case-study-description] {
-      max-width: 982px;
+      display: block;
       text-align: center;
-    }
-
-    .secondDescription {
       max-width: 770px;
       margin: 60px auto 0;
       line-height: 180%;
@@ -239,9 +241,9 @@
   color: $white;
 
   [data-case-study-title] {
-    padding-top: 150px;
     width: 909px;
     margin: 0 auto 40px;
+    color: $white;
 
     @include tablet {
       width: 600px;
@@ -284,6 +286,10 @@
         padding-bottom: 30px;
       }
     }
+  }
+
+  &.secondSectionView {
+    padding-top: 0;
   }
 }
 

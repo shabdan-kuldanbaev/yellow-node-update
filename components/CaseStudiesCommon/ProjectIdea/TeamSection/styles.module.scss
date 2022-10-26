@@ -568,3 +568,15 @@
     padding-top: 0;
   }
 }
+
+.cash-chat {
+  display: none;
+
+  * {
+    text-align: center;
+  }
+
+  @include below-tablet {
+    display: block;
+  }
+}

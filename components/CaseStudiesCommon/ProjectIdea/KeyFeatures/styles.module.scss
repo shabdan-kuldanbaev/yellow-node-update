@@ -190,17 +190,15 @@
 .cash-chat {
   @extend .container;
 
-  max-width: 100%;
-  padding: 192px 12px;
-
-  @include flex(row, space-between, center, wrap);
-
-  @include phone {
-    padding: 50px 12px;
-  }
-
   .containerBackground {
-    background: unset;
+    left: -23%;
+    right: 0;
+    opacity: 0.5;
+
+    @include phone {
+      left: -30%;
+      right: 7%;
+    }
   }
 
   .contentContainer {

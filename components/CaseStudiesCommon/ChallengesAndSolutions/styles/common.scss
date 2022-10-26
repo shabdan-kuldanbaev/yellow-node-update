@@ -37,6 +37,14 @@
       text-align: center;
     }
 
+    & > * + * {
+      margin-left: 15px;
+
+      @include below-tablet {
+        margin-left: 0;
+      }
+    }
+
     &:nth-child(2n) {
       margin: 0;
     }
