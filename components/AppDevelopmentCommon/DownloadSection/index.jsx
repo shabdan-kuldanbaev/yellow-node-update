@@ -18,8 +18,6 @@ const DownloadSection = ({
     link,
   } = getProps(data);
 
-  console.log('link: ', link);
-
   return (
     <section className={cn(styles[type], styles[view])}>
       <div className={styles.contentWrapper}>

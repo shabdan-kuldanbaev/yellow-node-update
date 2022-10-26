@@ -215,6 +215,7 @@ export const APP_DEVELOPMENT_TYPES = {
   svgDisplayWithSelector: 'svg-display-with-selector',
   cardsWithOverlay: 'cards-with-overlay',
   appDevelopmentAppFeatures: 'app-development-app-features',
+  appDevelopmentAppFeaturesPromo: 'app-development-app-features-promo',
   appDevelopmentPlainTextSection: 'app-development-plain-text',
   appDevelopmentBookmarkCard: 'app-development-bookmark-card',
   appDevelopmentTabsSection: 'app-development-tabs-section',

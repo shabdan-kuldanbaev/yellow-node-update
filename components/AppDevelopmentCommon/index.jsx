@@ -194,6 +194,14 @@ export const AppDevelopmentCommon = ({
         type={type}
       />
     );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeaturesPromo:
+    return (
+      <AppFeatures
+        data={section.fields}
+        type={type}
+        isPromoImage
+      />
+    );
   case APP_DEVELOPMENT_TYPES.appDevelopmentPlainTextSection:
     return (
       <PlainTextSection

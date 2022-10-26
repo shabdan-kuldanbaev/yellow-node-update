@@ -26,6 +26,7 @@
       .tabTitle {
         @include fontSize(40px, 120%);
 
+        cursor: pointer;
         margin: 0 0 40px;
         color: $silver-chalice;
 

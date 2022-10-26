@@ -294,7 +294,7 @@
   }
 
   &.secondSectionView {
-    background-color: black;
+    background-color: $cod-gray-1;
 
     [data-case-study-title] {
       color: $white;
@@ -400,8 +400,13 @@
         margin: 0 120px 0 0;
         max-width: 525px;
 
+        iframe {
+          border: 0;
+          z-index: 1;
+        }
+
         img {
-          transform: none;
+          display: none;
         }
 
         @include tablet {

@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
+import { useSelector } from 'react-redux';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
-const AppFeatures = ({ data, type }) => {
+const AppFeatures = ({ data, type, isPromoImage }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const imagesData = get(data, 'contentModules');
+  const isMobileResolutions = useSelector(selectIsMobileResolutions);
 
   const handleOnClick = (index) => () => {
     setActiveIndex(index);
@@ -25,6 +28,12 @@ const AppFeatures = ({ data, type }) => {
     const { images: moduleImages } = getDocumentFields(module);
 
     return getFileUrl(get(moduleImages, '[0]', {}));
+  });
+
+  const promoImages = imagesData.map((module) => {
+    const { contentModules } = getDocumentFields(module);
+
+    return get(contentModules, '[0].fields');
   });
 
   return (
@@ -96,6 +105,16 @@ const AppFeatures = ({ data, type }) => {
               className={styles.image}
               alt={type}
             />
+            {isPromoImage && promoImages[activeIndex]
+              && (
+                <iframe
+                  height={isMobileResolutions ? '650' : '700'}
+                  width={isMobileResolutions ? '350' : '450'}
+                  src={`https://www.figma.com/embed?embed_host=astra&url=${promoImages[activeIndex].url}`}
+                  title={data.title}
+                  allowTransparency
+                />
+              )}
           </div>
         </Animated>
       </div>
@@ -103,9 +122,14 @@ const AppFeatures = ({ data, type }) => {
   );
 };
 
+AppFeatures.defaultProps = {
+  isPromoImage: false,
+};
+
 AppFeatures.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
+  isPromoImage: PropTypes.bool,
 };
 
 export default AppFeatures;
