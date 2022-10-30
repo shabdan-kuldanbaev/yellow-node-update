@@ -25,16 +25,18 @@ const CaseStudyPrototype = ({ data, type }) => {
         data={data}
         type={type}
       />
-      <div className={styles.prototypeContainer}>
-        <iframe
-          height={isMobileResolutions ? '650' : '700'}
-          width={isMobileResolutions ? '350' : '450'}
-          src={`https://www.figma.com/embed?embed_host=astra&url=\
-          ${url}`}
-          title={data.title}
-          // eslint-disable-next-line
+      <div className={styles.prototypeWrapper}>
+        <div className={styles.prototypeContainer}>
+          <iframe
+            height={isMobileResolutions ? '650' : '800'}
+            width={isMobileResolutions ? '350' : '500'}
+            src={`https://www.figma.com/embed?embed_host=astra&url=${url}`}
+            title={data.title}
+            // eslint-disable-next-line
           allowTransparency
-        />
+            seamless
+          />
+        </div>
       </div>
     </section>
   );
