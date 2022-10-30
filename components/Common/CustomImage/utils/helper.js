@@ -18,8 +18,6 @@ export const getOptimizedContentfulImage = (imageUrl, {
   }
 
   const queryProps = {
-    w: width,
-    h: height,
     f: focusArea,
     ...rest,
   };
@@ -33,9 +31,6 @@ export const getOptimizedContentfulImage = (imageUrl, {
   try {
     url = new URL(imageUrl);
   } catch {
-    // TODO: remove as soon as the entire project will be testedd
-    console.log({ imageUrl });
-
     return imageUrl;
   }
 
@@ -59,20 +54,6 @@ export const patchImageUrl = (url, replace, replaceSymbol) => {
 export const ContentfulImageLoader = ({
   src,
   quality,
-  width,
-  height,
-}) => {
-  let url = src;
-
-  if (width) {
-    url = patchImageUrl(url, width, 'w');
-  }
-
-  if (height) {
-    url = patchImageUrl(url, height, 'h');
-  }
-
-  return `${url}&q=${quality}`;
-};
+}) => `${src}&q=${quality}`;
 
 export const staticImageLoader = ({ src }) => src;

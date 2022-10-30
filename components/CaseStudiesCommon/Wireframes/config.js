@@ -22,4 +22,5 @@ export const IMAGE_SIZES = {
   bionorica: 440,
   humankind: 630,
   'software-for-mri-interpretation': 630,
+  'mobile-bank-application': 500,
 };

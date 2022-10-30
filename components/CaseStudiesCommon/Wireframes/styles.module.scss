@@ -395,3 +395,18 @@
     background: none;
   }
 }
+
+.mobile-bank-application {
+  @extend .imagesContainer;
+
+  .animatedContainer {
+    max-height: 572px;
+    margin-left: -10px;
+
+    @include phone {
+      margin-left: 50px;
+    }
+  }
+
+  background: $alabaster;
+}

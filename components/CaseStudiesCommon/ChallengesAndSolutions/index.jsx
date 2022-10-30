@@ -28,13 +28,14 @@ const ChallengesAndSolutions = ({
     return null;
   }
 
-  const isSlider = data.type === CASE_STUDIES_TYPES.challengesSlider;
+  const isSlider = [CASE_STUDIES_TYPES.challengesSlider, CASE_STUDIES_TYPES.challengesSpecialSlider].includes(data.type);
 
   return (
     <div className={cn(styles[type], styles[view])}>
       <ChallengesSlider
         isMobileResolution={isMobileResolution}
         isSlider={isSlider}
+        type={data.type}
       >
         {data.contentModules.map((document, index) => {
           const {
@@ -42,6 +43,7 @@ const ChallengesAndSolutions = ({
             images,
             text,
             imagesBundles,
+            subtitle,
             contentList = [],
           } = getDocumentFields(document);
           const imageUrl = getOptimizedContentfulImage(
@@ -82,6 +84,15 @@ const ChallengesAndSolutions = ({
                     src={subImageUrl}
                     alt={title}
                   />
+                )}
+                {imageUrl && subtitle && (
+                  <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+                    <div>
+                      <p className={cn(styles.subtitle, styles[`subtitle-${index + 1}`])}>
+                        {subtitle}
+                      </p>
+                    </div>
+                  </Animated>
                 )}
                 {imageUrl && (
                   <Animated {...ANIMATION_CASE_STUDY_PROPS}>
