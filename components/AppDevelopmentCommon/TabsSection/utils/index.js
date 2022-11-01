@@ -1,7 +1,5 @@
 import get from 'lodash/get';
-import {
-  getDocumentFields,
-} from 'utils/helper';
+import { getDocumentFields } from 'utils/helper';
 
 export const getTabBlocks = (tabsData = []) => tabsData.contentModules.map((tabSection) => {
   const {

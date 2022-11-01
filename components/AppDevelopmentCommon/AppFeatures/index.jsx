@@ -11,7 +11,11 @@ import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
-const AppFeatures = ({ data, type, isPromoImage }) => {
+const AppFeatures = ({
+  data,
+  type,
+  isPromoImage,
+}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const imagesData = get(data, 'contentModules');
   const isMobileResolutions = useSelector(selectIsMobileResolutions);

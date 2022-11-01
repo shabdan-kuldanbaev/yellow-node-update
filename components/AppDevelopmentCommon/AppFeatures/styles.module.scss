@@ -323,11 +323,9 @@
             cursor: default;
 
             .title {
+              @include flex(row, center, center);
+
               color: $white;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              flex-direction: row;
 
               &::before {
                 content: '';

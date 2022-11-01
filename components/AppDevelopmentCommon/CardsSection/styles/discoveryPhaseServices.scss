@@ -128,7 +128,8 @@
           list-style: none;
 
           li {
-            display: flex;
+            @include flex();
+            
             p {
               margin: 0;
             }

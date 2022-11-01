@@ -1,24 +1,12 @@
 import { Pagination } from 'swiper';
 
-const defaultSwiperParams = {
+export const DEFAULT_SWIPER_PARAMS = {
   modules: [Pagination],
   slidesPerView: 1,
   spaceBetween: 30,
 };
 
 export const SWIPER_PARAMS = {
-  'enterprise-resource-planning-software-services': {
-    ...defaultSwiperParams,
-  },
-  'fintech-software-development-services': {
-    ...defaultSwiperParams,
-  },
-  'artificial-intelligence-development-services': {
-    ...defaultSwiperParams,
-  },
-  'mobile-bank-application': {
-    ...defaultSwiperParams,
-  },
   'discovery-phase-services': {
     modules: [Pagination],
     slidesPerView: 'auto',

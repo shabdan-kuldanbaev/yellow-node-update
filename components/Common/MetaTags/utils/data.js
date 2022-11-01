@@ -113,7 +113,7 @@ export const ogMetaData = [
   {
     pageName: ROUTES.discoveryPhase.slug,
     metaTitle: 'Project Discovery Phase in Custom Software Development | Yellow',
-    metaDescription: 'Bebebe',
+    metaDescription: 'Discovery phase of a project is an important part of software development. Learn more about how to run a discovery phase and its benefits to your business.',
     url: `${rootUrl}${ROUTES.discoveryPhase.path}`,
   },
   {

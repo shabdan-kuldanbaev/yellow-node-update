@@ -11,7 +11,7 @@
       max-width: 100%;
 
       @include phone {
-        @include fontSize(32px, 120%);
+        @include fontSize(32px);
       }
     }
 
