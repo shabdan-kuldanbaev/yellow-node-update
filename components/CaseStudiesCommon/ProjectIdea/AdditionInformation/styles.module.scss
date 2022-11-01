@@ -690,11 +690,22 @@
       }
     }
 
-    .listItemContainer {
-      color: $silver-chalice;
+    .listContainer {
+      @include below-tablet {
+        @include flex(column, flex-start, center);
+      }
+    }
 
+    .listItemContainer {
+
+      color: $silver-chalice;
+      
       &::marker {
         color: $turbo-100;
+      }
+      
+      @include below-tablet {
+        text-align: center;
       }
     }
   }
