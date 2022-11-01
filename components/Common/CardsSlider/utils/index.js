@@ -8,9 +8,8 @@ export const DEFAULT_SWIPER_PARAMS = {
 
 export const SWIPER_PARAMS = {
   'discovery-phase-services': {
-    modules: [Pagination],
+    ...DEFAULT_SWIPER_PARAMS,
     slidesPerView: 'auto',
-    spaceBetween: 30,
     breakpoints: {
       300: {
         slidesPerView: 1,

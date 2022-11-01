@@ -18,7 +18,7 @@ const AppFeatures = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const imagesData = get(data, 'contentModules');
-  const isMobileResolutions = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
 
   const handleOnClick = (index) => () => {
     setActiveIndex(index);
@@ -112,8 +112,8 @@ const AppFeatures = ({
             {isPromoImage && promoImages[activeIndex]
               && (
                 <iframe
-                  height={isMobileResolutions ? '650' : '700'}
-                  width={isMobileResolutions ? '350' : '450'}
+                  height={isMobileResolution ? '650' : '700'}
+                  width={isMobileResolution ? '350' : '450'}
                   src={`https://www.figma.com/embed?embed_host=astra&url=${promoImages[activeIndex].url}`}
                   title={data.title}
                   allowTransparency

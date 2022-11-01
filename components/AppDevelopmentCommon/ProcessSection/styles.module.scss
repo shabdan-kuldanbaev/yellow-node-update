@@ -181,7 +181,7 @@
       margin: 0;
 
       @include phone {
-        @include fontSize(24px, 120%);
+        @include fontSize(24px);
       }
     }
 
