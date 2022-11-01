@@ -501,6 +501,8 @@
   }
 
   &.fifthSectionView {
+    background: $eerie-black-2;
+
     @include phone {
       padding: 60px 0;
     }
