@@ -1,0 +1,50 @@
+@import 'styles/utils/mixins';
+
+.huge,
+.large,
+.big,
+.normalsize,
+.medium,
+.footnotesize,
+.small,
+.tiny {
+  color: $dark-grey;
+  font-weight: normal;
+  margin: 0;
+}
+
+.boldText {
+  font-weight: bold;
+}
+
+.huge {
+  @include fontSize(56px, 120%);
+}
+
+.large {
+  @include fontSize(46px, 120%);
+}
+
+.big {
+  @include fontSize(38px, 130%);
+}
+
+.normalsize {
+  @include fontSize(24px, 130%);
+}
+
+.medium {
+  @include fontSize(20px, 150%);
+}
+
+.footnotesize {
+  @include fontSize(16px, 150%);
+}
+
+.small {
+  @include fontSize(14px, 150%);
+}
+
+.tiny {
+  @include fontSize(12px, 150%);
+}

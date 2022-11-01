@@ -37,6 +37,17 @@ export const NON_INTERACTIVE_LINKS = {
   },
 };
 
+export const TYPOGRAPHY_SIZE = {
+  tiny: 'tiny',
+  small: 'small',
+  footnotesize: 'footnotesize', // ?
+  medium: 'medium',
+  normalsize: 'normalsize', // ?
+  big: 'big',
+  large: 'large',
+  huge: 'huge',
+};
+
 export const NAV_LINKS = [
   ...Object.values(NON_INTERACTIVE_LINKS),
   ...Object.values(routes).filter(({ slug }) => ![
