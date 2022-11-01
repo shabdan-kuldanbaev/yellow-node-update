@@ -7,7 +7,6 @@ module.exports = {
   ignoreFiles: [
     '/build',
     '/node_modules',
-    '/oldData',
     '/public',
   ],
   // add your custom config here

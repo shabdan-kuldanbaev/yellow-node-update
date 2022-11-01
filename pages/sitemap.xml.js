@@ -1,6 +1,5 @@
 import * as builder from 'xmlbuilder';
 import dayjs from 'dayjs';
-import { wrapper } from 'redux/store';
 import {
   getMainLinksForSitemap,
   rootUrl,
@@ -22,9 +21,9 @@ const buildUrlObject = (data) => data.map((item) => {
   });
 });
 
-const Sitemap = () => (null);
+const Sitemap = () => null;
 
-export const getServerSideProps = async ({ req, res }) => {
+export const getServerSideProps = async ({ res }) => {
   try {
     const [
       articles,
@@ -47,6 +46,7 @@ export const getServerSideProps = async ({ req, res }) => {
         searchType: '[match]',
       }),
     ]);
+
     const postLinks = articles.items.map((link) => {
       const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
 
@@ -55,6 +55,7 @@ export const getServerSideProps = async ({ req, res }) => {
         updatedAt: getDate(Date.parse(publishedAt)),
       });
     });
+
     const projectLinks = projects.items.map((project) => {
       const { slug } = getDocumentFields(project, ['slug']);
 
@@ -63,6 +64,7 @@ export const getServerSideProps = async ({ req, res }) => {
         updatedAt: getDate(new Date()),
       });
     });
+
     const caseStudiesLinks = pages.items.reduce((acc, caseStudy) => {
       const { slug } = getDocumentFields(caseStudy, ['slug']);
 
@@ -75,6 +77,7 @@ export const getServerSideProps = async ({ req, res }) => {
 
       return acc;
     }, []);
+
     const customBlogs = ROUTES.blog.categories.map((blog) => ({
       path: ROUTES.blog.getRoute(blog.slug).path,
       updatedAt: getDate(new Date()),
@@ -82,15 +85,15 @@ export const getServerSideProps = async ({ req, res }) => {
 
     const feedObject = {
       urlset: {
-        '@xmlns': 'http://www.sitemaps.org/schemas/sitemap/0.9',
-        '@xmlns:image': 'http://www.google.com/schemas/sitemap-image/1.1',
-        '@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
-        '@xmlns:video': 'http://www.google.com/schemas/sitemap-video/1.1',
-        '@xmlns:news': 'http://www.google.com/schemas/sitemap-news/0.9',
-        '@xmlns:mobile': 'http://www.google.com/schemas/sitemap-mobile/1.0',
-        '@xmlns:pagemap': 'http://www.google.com/schemas/sitemap-pagemap/1.0',
-        '@xmlns:xhtml': 'http://www.w3.org/1999/xhtml',
-        '@xsi:schemaLocation': 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd',
+        '@xmlns': 'https://www.sitemaps.org/schemas/sitemap/0.9',
+        '@xmlns:image': 'https://www.google.com/schemas/sitemap-image/1.1',
+        '@xmlns:xsi': 'https://www.w3.org/2001/XMLSchema-instance',
+        '@xmlns:video': 'https://www.google.com/schemas/sitemap-video/1.1',
+        '@xmlns:news': 'https://www.google.com/schemas/sitemap-news/0.9',
+        '@xmlns:mobile': 'https://www.google.com/schemas/sitemap-mobile/1.0',
+        '@xmlns:pagemap': 'https://www.google.com/schemas/sitemap-pagemap/1.0',
+        '@xmlns:xhtml': 'https://www.w3.org/1999/xhtml',
+        '@xsi:schemaLocation': 'https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd',
         url: [],
       },
     };
@@ -113,8 +116,6 @@ export const getServerSideProps = async ({ req, res }) => {
       res.statusCode = 200;
       res.end(sitemap.end({ pretty: true }));
     }
-
-    return;
   } catch (error) {
     errorHelper.handleError({
       error,
