@@ -40,12 +40,18 @@ export const NON_INTERACTIVE_LINKS = {
 export const TYPOGRAPHY_SIZE = {
   tiny: 'tiny',
   small: 'small',
-  footnotesize: 'footnotesize', // ?
+  footnotesize: 'footnotesize',
   medium: 'medium',
-  normalsize: 'normalsize', // ?
+  normalsize: 'normalsize',
   big: 'big',
   large: 'large',
   huge: 'huge',
+};
+
+export const TAGS_TYPE = {
+  dark: 'dark',
+  light: 'light',
+  category: 'category',
 };
 
 export const NAV_LINKS = [
