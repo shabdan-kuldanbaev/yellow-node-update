@@ -5,7 +5,7 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { useCollapseItem } from './utils';
+import { useCollapseItem } from './useCollapseItem';
 import styles from './styles.module.scss';
 
 export const CollapseItem = ({ faq }) => {

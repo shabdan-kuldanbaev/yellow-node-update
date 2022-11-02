@@ -1,22 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import { TYPOGRAPHY_SIZE } from 'utils/constants';
 import { TYPOGRAPHY_TAGS } from './utils';
-import styles from './styles.module.scss';
+import { useTypography } from './useTypography';
 
-const Typography = ({
-  variant,
-  align,
-  isBold,
-  className,
-  children,
-  size,
-}) => {
-  const TitleTag = TYPOGRAPHY_TAGS[variant];
-  const classes = cn(className, styles[size], {
-    [styles.boldText]: isBold,
-  });
+const Typography = (props) => {
+  const {
+    TitleTag, align, classes, children,
+  } = useTypography(props);
 
   return (
     <TitleTag

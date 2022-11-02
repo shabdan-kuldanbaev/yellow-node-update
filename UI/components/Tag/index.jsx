@@ -1,20 +1,20 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import { TAGS_TYPE } from 'utils/constants';
+import { useTag } from './useTag';
 import styles from './styles.module.scss';
 
-const Tag = ({
-  displayName,
-  type,
-  onClick,
-  selected,
-  className,
-  disabled,
-  isSecondary,
-}) => {
-  const isSecondaryTags = TAGS_TYPE.category !== type && isSecondary;
-  const isPrimaryTags = TAGS_TYPE.category !== type && !isSecondary;
+const Tag = (props) => {
+  const {
+    type,
+    onClick,
+    selected,
+    disabled,
+    className,
+    displayName,
+    isSecondary,
+    isPrimary,
+  } = useTag(props);
 
   return (
     <button
@@ -26,8 +26,8 @@ const Tag = ({
         styles[type],
         {
           [styles.selected]: selected,
-          [styles.primary]: isPrimaryTags,
-          [styles.secondary]: isSecondaryTags,
+          [styles.primary]: isPrimary,
+          [styles.secondary]: isSecondary,
         },
         className,
       )}
