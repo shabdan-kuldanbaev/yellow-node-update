@@ -27,56 +27,42 @@ export const getServerSideProps = async ({ res }) => {
   try {
     const [
       articles,
-      projects,
       pages,
     ] = await Promise.all([
       contentfulClient.getEntries({
         contentType: 'article',
         searchType: '[match]',
         additionalQueryParams: {
-          limit: 200,
+          select: ['fields.slug', 'fields.updatedAt'],
         },
-      }),
-      contentfulClient.getEntries({
-        contentType: 'project',
-        searchType: '[match]',
       }),
       contentfulClient.getEntries({
         contentType: 'page',
         searchType: '[match]',
+        additionalQueryParams: {
+          'fields.slug[in]': CASE_STUDIES_SLUGS.join(','),
+          select: ['fields.slug'],
+        },
       }),
     ]);
 
     const postLinks = articles.items.map((link) => {
-      const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
+      const { slug, updatedAt } = getDocumentFields(link, ['slug', 'updatedAt']);
 
       return ({
         path: ROUTES.article.getRoute(slug).path,
-        updatedAt: getDate(Date.parse(publishedAt)),
+        updatedAt: getDate(Date.parse(updatedAt)),
       });
     });
 
-    const projectLinks = projects.items.map((project) => {
-      const { slug } = getDocumentFields(project, ['slug']);
+    const caseStudiesLinks = pages.items.map((caseStudy) => {
+      const { slug } = getDocumentFields(caseStudy, ['slug']);
 
       return ({
         path: ROUTES.portfolio.getRoute(slug).path,
         updatedAt: getDate(new Date()),
       });
     });
-
-    const caseStudiesLinks = pages.items.reduce((acc, caseStudy) => {
-      const { slug } = getDocumentFields(caseStudy, ['slug']);
-
-      if (CASE_STUDIES_SLUGS.includes(slug)) {
-        acc.push({
-          path: ROUTES.portfolio.getRoute(slug).path,
-          updatedAt: getDate(new Date()),
-        });
-      }
-
-      return acc;
-    }, []);
 
     const customBlogs = ROUTES.blog.categories.map((blog) => ({
       path: ROUTES.blog.getRoute(blog.slug).path,
@@ -101,7 +87,6 @@ export const getServerSideProps = async ({ res }) => {
     feedObject.urlset.url.push(
       ...buildUrlObject([
         ...getMainLinksForSitemap(getDate(new Date('2021-05-12'))),
-        ...projectLinks,
         ...caseStudiesLinks,
         ...postLinks,
         ...customBlogs,
@@ -122,6 +107,10 @@ export const getServerSideProps = async ({ res }) => {
       message: 'Error in the Sitemap.getInitialProps function',
     });
   }
+
+  return {
+    props: {},
+  };
 };
 
 export default Sitemap;
