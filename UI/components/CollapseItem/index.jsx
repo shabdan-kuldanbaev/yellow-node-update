@@ -4,12 +4,13 @@ import isEmpty from 'lodash/isEmpty';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import { ANIMATED_TYPE } from 'utils/constants';
+import Typography from 'UI/components/Typography';
+import { ANIMATED_TYPE, TYPOGRAPHY_SIZE } from 'utils/constants';
 import { useCollapseItem } from './useCollapseItem';
 import styles from './styles.module.scss';
 
-export const CollapseItem = ({ faq }) => {
-  const { isAnswerOpened, handleOnQuestionClick } = useCollapseItem();
+const CollapseItem = (props) => {
+  const { isAnswerOpened, handleOnQuestionClick, faq } = useCollapseItem(props);
 
   if (isEmpty(faq)) {
     return null;
@@ -23,7 +24,13 @@ export const CollapseItem = ({ faq }) => {
       tabIndex="0"
     >
       <div className={styles.question}>
-        <p>{faq.question}</p>
+        <Typography
+          isBold
+          size={TYPOGRAPHY_SIZE.headlineS}
+          variant="p"
+        >
+          {faq.question}
+        </Typography>
         <div className={cn(styles.plus, {
           [styles.minus]: isAnswerOpened,
         })}
@@ -36,9 +43,9 @@ export const CollapseItem = ({ faq }) => {
         type={ANIMATED_TYPE.expandByHeight}
         open={isAnswerOpened}
       >
-        <p className={styles.answer}>
+        <Typography className={styles.answer}>
           {faq.answer}
-        </p>
+        </Typography>
         <ContentfulParser document={faq.longAnswer} />
       </Animated>
     </div>
@@ -52,3 +59,5 @@ CollapseItem.defaultProps = {
 CollapseItem.propTypes = {
   faq: PropTypes.instanceOf(Object),
 };
+
+export default CollapseItem;

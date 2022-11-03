@@ -4,7 +4,7 @@ import Head from 'next/head';
 import isEmpty from 'lodash/isEmpty';
 import FullLayout from 'components/Layout/FullLayout';
 import { microdata } from 'utils/microdata';
-import { Question } from './Question';
+import CollapseItem from 'UI/components/CollapseItem';
 import styles from './styles.module.scss';
 
 export const FAQ = ({ faqList, type }) => {
@@ -27,7 +27,7 @@ export const FAQ = ({ faqList, type }) => {
       </Head>
       <div className={styles.frequentlyAskedQuestions}>
         {faqList.map((faq) => (
-          <Question
+          <CollapseItem
             key={`faq-item/${faq.question}`}
             faq={faq}
           />

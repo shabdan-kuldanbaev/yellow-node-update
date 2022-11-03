@@ -61,8 +61,6 @@
       color: $dark-grey;
       font-weight: 700;
 
-      @include fontSize(24px);
-
       @include tablet {
         @include fontSize(20px);
       }

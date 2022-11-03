@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-export const useCollapseItem = () => {
+export const useCollapseItem = ({ faq }) => {
   const [isAnswerOpened, setIsAnswerOpened] = useState(false);
 
   const handleOnQuestionClick = useCallback(() => {
@@ -8,6 +8,7 @@ export const useCollapseItem = () => {
   }, []);
 
   return {
+    faq,
     isAnswerOpened,
     handleOnQuestionClick,
   };
