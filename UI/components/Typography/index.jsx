@@ -6,12 +6,11 @@ import { useTypography } from './useTypography';
 
 const Typography = (props) => {
   const {
-    TitleTag, align, classes, children,
+    TitleTag, classes, children,
   } = useTypography(props);
 
   return (
     <TitleTag
-      align={align}
       className={classes}
     >
       {children}
@@ -20,10 +19,9 @@ const Typography = (props) => {
 };
 
 Typography.defaultProps = {
-  align: 'inherit',
   className: '',
   variant: TYPOGRAPHY_TAGS.p,
-  size: TYPOGRAPHY_SIZE.footnotesize,
+  size: TYPOGRAPHY_SIZE.paragrapghM,
   isBold: false,
 };
 

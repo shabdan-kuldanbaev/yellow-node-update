@@ -17,34 +17,34 @@
   font-weight: bold;
 }
 
-.huge {
+.headline-xl {
   @include fontSize(56px, 120%);
 }
 
-.large {
+.headline-l {
   @include fontSize(46px, 120%);
 }
 
-.big {
+.headline-m {
   @include fontSize(38px, 130%);
 }
 
-.normalsize {
+.headline-s {
   @include fontSize(24px, 130%);
 }
 
-.medium {
+.headline-xs {
   @include fontSize(20px, 150%);
 }
 
-.footnotesize {
+.paragrapgh-m {
   @include fontSize(16px, 150%);
 }
 
-.small {
+.paragrapgh-s {
   @include fontSize(14px, 150%);
 }
 
-.tiny {
+.caption {
   @include fontSize(12px, 150%);
 }

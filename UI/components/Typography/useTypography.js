@@ -4,7 +4,6 @@ import styles from './styles.module.scss';
 
 export const useTypography = ({
   variant,
-  align,
   isBold,
   className,
   children,
@@ -19,6 +18,5 @@ export const useTypography = ({
     TitleTag,
     children,
     classes,
-    align,
   };
 };

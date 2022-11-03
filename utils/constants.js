@@ -38,14 +38,14 @@ export const NON_INTERACTIVE_LINKS = {
 };
 
 export const TYPOGRAPHY_SIZE = {
-  tiny: 'tiny',
-  small: 'small',
-  footnotesize: 'footnotesize',
-  medium: 'medium',
-  normalsize: 'normalsize',
-  big: 'big',
-  large: 'large',
-  huge: 'huge',
+  caption: 'caption',
+  paragrapghS: 'paragrapgh-s',
+  paragrapghM: 'paragrapgh-m',
+  headlineXS: 'headline-xs',
+  headlineS: 'headline-s',
+  headlineM: 'headline-m',
+  headlineL: 'headline-l',
+  headlineXL: 'headline-xl',
 };
 
 export const TAGS_TYPE = {
