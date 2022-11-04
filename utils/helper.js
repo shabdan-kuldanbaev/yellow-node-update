@@ -86,6 +86,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.aiDevelopment}`, updatedAt },
   { path: `/${PAGES.privacyPolicy}`, updatedAt },
   { path: `/${PAGES.termsAndConditions}`, updatedAt },
+  { path: `/${PAGES.discoveryPhase}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
@@ -141,7 +142,9 @@ export const getDocumentFields = (document, fields = []) => {
     return fields.reduce((acc, field) => {
       if (!field) return acc;
 
-      acc[field] = get(document, `fields.${field}`, null);
+      acc[field] = field.indexOf('sys.') === 0
+        ? get(document, field, null)
+        : get(document, `fields.${field}`, null);
 
       return acc;
     }, {});

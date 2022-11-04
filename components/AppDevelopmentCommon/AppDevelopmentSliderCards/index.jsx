@@ -20,6 +20,7 @@ const AppDevelopmentSliderCards = ({
   handleOnCTAClick,
   pageType,
   sectionType,
+  isSliderSection,
 }) => {
   const {
     title,
@@ -31,6 +32,7 @@ const AppDevelopmentSliderCards = ({
     animatedProps,
   } = getCardsProps(sectionData);
   const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isShowSlider = isSliderSection || isMobileResolution;
 
   if (!cardsList || !cardsList.length) {
     return null;
@@ -46,7 +48,7 @@ const AppDevelopmentSliderCards = ({
           titleStyle={styles.titleStyle}
         />
         <div className={cn(styles.cardsList, styles[sectionType])}>
-          <CardsSlider isMobileResolution={isMobileResolution}>
+          <CardsSlider isMobileResolution={isShowSlider} type={pageType}>
             {cardsList.map((card, index) => {
               const {
                 title: typeTitle,
@@ -135,6 +137,7 @@ const AppDevelopmentSliderCards = ({
 AppDevelopmentSliderCards.defaultProps = {
   handleOnCTAClick: () => {},
   withOverlay: false,
+  isSliderSection: true,
 };
 
 AppDevelopmentSliderCards.propTypes = {
@@ -143,6 +146,7 @@ AppDevelopmentSliderCards.propTypes = {
   sectionType: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
   withOverlay: PropTypes.bool,
+  isSliderSection: PropTypes.bool,
 };
 
 export default AppDevelopmentSliderCards;
