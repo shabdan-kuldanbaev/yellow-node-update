@@ -386,47 +386,47 @@
   @extend .container;
 
   background-color: $white;
+  position: relative;
+
+  @include phone {
+    padding: 80px 15px 35px;
+  }
 
   .contentContainer {
     padding-bottom: 0;
-    max-width: 1250px;
-
-    @include flex(column-reverse, center, flex-start);
-
-    @include phone {
-      flex-direction: column;
-    }
 
     .descriptionContainer {
-      max-width: unset;
-      margin-left: 0;
-
-      @include flex(row, center);
+      @include desktop {
+        margin-left: 40px;
+      }
 
       @include tablet {
-        flex-direction: column;
-        padding-bottom: 100px;
+        margin-left: 60px;
       }
 
       @include phone {
+        margin-left: 0;
         margin-bottom: 0;
-        padding-bottom: 0;
       }
 
       .descriptionIntro {
-        margin-right: 150px;
-
-        .sectionName {
-          margin: 20px 0;
-        }
-
         .description {
-          max-width: 407px;
+          & > p {
+            padding: 0 6px;
+          }
         }
+      }
+    }
+  }
 
-        @include tablet {
-          margin-right: 0;
-        }
+  .mobileAdditionalInformation {
+    flex-direction: column;
+
+    & > div {
+      margin-top: 80px;
+
+      @include phone {
+        margin-top: 40px;
       }
     }
   }

@@ -31,7 +31,6 @@ const BlogContainer = ({
   const {
     pathname,
     query: { slug },
-    asPath,
   } = useRouter();
 
   const tag = findTagBySlug(tagsList, slug);
@@ -41,7 +40,7 @@ const BlogContainer = ({
   const breadcrumbs = pagesBreadcrumbs.blog(slug, tagsList);
   const pageMetadata = {
     ...metaData,
-    url: `${rootUrl}${asPath}`,
+    url: `${rootUrl}/${PAGES.blog}`,
     pageNumber: currentPage,
   };
 
