@@ -1,4 +1,3 @@
-
 module.exports = {
   "stories": [
     "../UI/**/*.stories.mdx",

@@ -8,15 +8,14 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'twitter',
-      values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'lightGray', value: '#ffffff' },
-        { name: 'dark', value: '#171717' },
-        { name: 'darkBlue', value: '#002880' },
-      ],
-    },
+  backgrounds: {
+    default: 'twitter',
+    values: [
+      { name: 'white', value: '#ffffff' },
+      { name: 'light gray', value: '#eeeeee' },
+      { name: 'gray', value: '#757575' },
+      { name: 'dark gray', value: '#1f1f1f' },
+      { name: 'black', value: '#000000' },
+    ],
   },
 }

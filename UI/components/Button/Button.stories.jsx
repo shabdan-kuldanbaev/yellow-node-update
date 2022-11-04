@@ -3,16 +3,6 @@ import Button from '.';
 export default {
   title: 'Design system/Components/Button',
   component: Button,
-  parameters: {
-    backgrounds: {
-      default: 'twitter',
-      values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#171717' },
-        { name: 'darkBlue', value: '#002880' },
-      ],
-    },
-  },
 };
 
 const Template = (args) => <Button {...args}>Button</Button>;
@@ -29,7 +19,9 @@ Dark.args = {
   dark: true,
 };
 Dark.parameters = {
-  backgrounds: { default: 'dark' },
+  backgrounds: {
+    default: 'dark',
+  },
   controls: {
     exclude: ['dark'],
   },
