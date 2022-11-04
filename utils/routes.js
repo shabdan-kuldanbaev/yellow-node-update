@@ -49,6 +49,7 @@ const blogRoutes = createPageRoutes(rootBlogPath, dynamicBlogPaths);
 const portfolioRoutes = createPageRoutes(rootPortfolioPath, dynamicPortfolioPaths);
 
 export const routes = {
+  fromRoot: (slug) => (slug === 'homepage' ? '' : `/${slug}`),
   homepage: {
     title: 'Home',
     path: '/',
