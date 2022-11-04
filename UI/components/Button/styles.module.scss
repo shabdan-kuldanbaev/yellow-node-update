@@ -1,0 +1,104 @@
+@import "styles/utils/mixins";
+
+.button {
+  @include fontSize(16px, 24px);
+  @include flex(row, center, center);
+
+  --col-bg: #{color(--yellow500)};
+  --col-content: #{color(--gray900)};
+  --col-border: #{color(--gray900, 0)};
+
+  background: var(--col-bg);
+  color: var(--col-content);
+  border: solid 1px var(--col-border);
+
+  display: inline-block;
+  font-family: var(--default-font);
+  font-weight: 500;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 16px 32px;
+  height: 56px;
+  user-select: none;
+  text-decoration: none;
+  transition: 
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out,
+    transform 0.15s ease-in-out,
+    border-color 0.2s ease-in-out;
+  
+  &:hover {
+    --col-bg: #{color(--yellow300)};
+
+    cursor: pointer;
+    transform: scale(0.95);
+  }
+
+  &:active {
+    --col-bg: #{color(--yellow600)};
+  }
+
+  &:disabled {
+    --col-bg: #{color(--gray50)};
+    --col-content: #{color(--gray400)};
+
+    cursor: default;
+    transform: none;
+  }
+}
+
+.secondary {
+  --col-bg: none;
+  --col-border: #{color(--gray900)};
+
+  &:disabled {
+    --col-bg: none;
+    --col-content: #{color(--gray400)};
+    --col-border: #{color(--gray300)};
+
+    cursor: default;
+  }
+}
+
+.dark {
+  --col-bg: none;
+  --col-content: #{color(--gray0)};
+  --col-border: #{color(--gray0)};
+
+  &:hover {
+    --col-bg: #{color(--yellow300)};
+    --col-content: #{color(--gray900)};
+    --col-border: #{color(--gray100, 0)};
+  }
+
+  &:active {
+    --col-bg: #{color(--yellow600)};
+  }
+
+  &:disabled {
+    --col-bg: none;
+    --col-content: #{color(--gray400)};
+    --col-border: #{color(--gray500)};
+  }
+}
+
+.dark.secondary {
+  --col-content: #{color(--gray400)};
+  --col-border: #{color(--gray500)};
+
+  &:hover {
+    --col-bg: #{color(--gray0)};
+    --col-content: #{color(--gray900)};
+    --col-border: #{color(--gray100, 0)};
+  }
+
+  &:active {
+    --col-bg: #{color(--gray200)};
+  }
+
+  &:disabled {
+    --col-bg: none;
+    --col-content: #{color(--gray400)};
+    --col-border: #{color(--gray500)};
+  }
+}

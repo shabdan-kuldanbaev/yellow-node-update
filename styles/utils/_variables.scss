@@ -1,4 +1,11 @@
-/* colors */
+@import "./colors";
+
+html, body {
+  --default-font: 'Poppins', serif;
+  --signature-font: 'Arial', sans-serif;
+}
+
+/* colors -- OUTDATED, check _colors.scss */ 
 $turbo-100: #ffe603;
 $turbo-200: #f5dc00;
 $turbo-300: #e1c14c;
