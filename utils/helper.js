@@ -142,7 +142,9 @@ export const getDocumentFields = (document, fields = []) => {
     return fields.reduce((acc, field) => {
       if (!field) return acc;
 
-      acc[field] = get(document, `fields.${field}`, null);
+      acc[field] = field.indexOf('sys.') === 0
+        ? get(document, field, null)
+        : get(document, `fields.${field}`, null);
 
       return acc;
     }, {});
