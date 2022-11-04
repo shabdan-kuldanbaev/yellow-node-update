@@ -262,6 +262,12 @@ export const routes = {
     dynamicPath: '/devops-development-services',
     slug: 'devops-development-services',
   },
+  discoveryPhase: {
+    title: 'Project Discovery Phase in Custom Software Development',
+    path: '/discovery-phase-services',
+    dynamicPath: '/discovery-phase-services',
+    slug: 'discovery-phase-services',
+  },
   signatureGenerator: {
     title: 'Signature Generator',
     path: '/signature-generator',

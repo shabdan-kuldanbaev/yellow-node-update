@@ -48,6 +48,7 @@ export const NAV_LINKS = [
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
     routes.fintechDevelopment.slug,
+    routes.discoveryPhase.slug,
     routes.erpDevelopment.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
@@ -214,10 +215,13 @@ export const APP_DEVELOPMENT_TYPES = {
   svgDisplayWithSelector: 'svg-display-with-selector',
   cardsWithOverlay: 'cards-with-overlay',
   appDevelopmentAppFeatures: 'app-development-app-features',
+  appDevelopmentAppFeaturesPromo: 'app-development-app-features-promo',
   appDevelopmentPlainTextSection: 'app-development-plain-text',
   appDevelopmentBookmarkCard: 'app-development-bookmark-card',
+  appDevelopmentTabsSection: 'app-development-tabs-section',
   processOverlay: 'app-development-process-overlay',
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
+  appDevelopmentDownloadSection: 'app-development-download-section',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
