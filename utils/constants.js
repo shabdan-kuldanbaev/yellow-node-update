@@ -39,7 +39,7 @@ export const NON_INTERACTIVE_LINKS = {
 
 export const NAV_LINKS = [
   ...Object.values(NON_INTERACTIVE_LINKS),
-  ...Object.values(routes).filter(({ slug }) => ![
+  ...Object.values(routes).filter(({ slug }) => slug && ![
     routes.homepage.slug,
     routes.article.slug,
     routes.project.slug,
