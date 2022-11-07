@@ -59,7 +59,7 @@
       border-bottom-color: var(--col-error);
 
       & ~ .invalid {
-        display: block;
+        opacity: 1;
       }
     }
   }
@@ -82,8 +82,8 @@
   }
 
   .invalid {
-    display: none;
-    opacity: 1;
+    display: block;
+    opacity: 0;
     transition: opacity 1s cubic-bezier(0.26, 1.04, 0.54, 1);
     font-weight: 400;
     font-size: 12px;

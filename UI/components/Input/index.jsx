@@ -36,7 +36,7 @@ const Input = (props) => {
 
   const className = cn(props.className, styles.input, {
     [styles[style]]: style,
-    [styles.isValidate]: !isValidate,
+    [styles.invalid]: !isValidate,
     [styles.isRequired]: isRequired || isAttached,
     [styles.active]: isInputActive,
     [styles.focus]: isInputFocus && isValidate,
