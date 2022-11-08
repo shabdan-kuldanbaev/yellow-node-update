@@ -16,7 +16,7 @@ import {
   fullResolution,
 } from 'utils/helper';
 
-const Footer = dynamic(() => import('components/Layout/Footer'));
+const Footer = dynamic(() => import('UI/sections/Footer'));
 
 const Layout = ({ children, introSection }) => {
   const dispatch = useDispatch();

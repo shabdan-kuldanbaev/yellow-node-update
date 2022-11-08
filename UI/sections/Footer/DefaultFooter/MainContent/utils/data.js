@@ -6,7 +6,7 @@ export const footerData = [
     links: [
       {
         title: 'In USA',
-        subtitle: '415 Mission Street\nSt San Francisco',
+        subtitle: '44 Tehama St San Francisco, CA 94105',
       },
       {
         subtitle: '+1 (415) 670-90-70',
@@ -18,36 +18,15 @@ export const footerData = [
         subtitle: 'Ahad Ha’Am 9\nTel Aviv',
       },
       {
-        title: 'In Argentina',
-        subtitle: 'Av. Corrientes 1312, C1043 ABN\nBuenos Aires',
-      },
-      {
         title: 'In Poland',
         subtitle: 'Warszawa 00-8P55 \nGrzybowska 62',
       },
+      {
+        title: 'In Argentina',
+        subtitle: 'Av. Corrientes 1312, C1043 ABN\nBuenos Aires',
+      },
     ],
     type: 'usaAddress',
-  },
-  {
-    title: 'Company',
-    links: [
-      {
-        subtitle: ROUTES.portfolio.title,
-        path: ROUTES.portfolio.path,
-        type: 'navigation',
-      },
-      {
-        subtitle: ROUTES.process.title,
-        path: ROUTES.process.path,
-        type: 'navigation',
-      },
-      {
-        subtitle: ROUTES.blog.title,
-        path: ROUTES.blog.path,
-        type: 'navigation',
-      },
-    ],
-    type: 'company',
   },
   {
     title: 'Services',
@@ -119,5 +98,26 @@ export const footerData = [
       },
     ],
     type: 'services',
+  },
+  {
+    title: 'Company',
+    links: [
+      {
+        subtitle: ROUTES.portfolio.title,
+        path: ROUTES.portfolio.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: ROUTES.process.title,
+        path: ROUTES.process.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: ROUTES.blog.title,
+        path: ROUTES.blog.path,
+        type: 'navigation',
+      },
+    ],
+    type: 'company',
   },
 ];

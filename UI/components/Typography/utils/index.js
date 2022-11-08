@@ -6,4 +6,5 @@ export const TYPOGRAPHY_TAGS = {
   h5: 'h5',
   h6: 'h6',
   p: 'p',
+  span: 'span',
 };

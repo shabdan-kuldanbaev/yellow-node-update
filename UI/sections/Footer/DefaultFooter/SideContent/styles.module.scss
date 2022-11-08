@@ -3,14 +3,19 @@
 .sideContent {
   width: 100%;
   max-width: 405px;
-  margin-right: 90px;
+  margin-right: 32px;
 
   @include macbook-twelve {
     margin-right: 50px;
   }
 
-  @include below-tablet {
+  @include tablet {
+    margin-right: 0;
     margin-bottom: 75px;
+  }
+
+  @include phone {
+    margin-bottom: 32px;
   }
 
   & > a:first-child {
@@ -24,16 +29,18 @@
 
   .text {
     max-width: 400px;
-    color: $white;
+    color: $gray400;
     opacity: 0.7;
-    margin: 20px 0 55px;
+    margin: 16px 0 32px;
     line-height: 1.8;
     cursor: default;
 
     @include macbook-twelve {
-      margin-bottom: 40px;
-
       @include fontSize(14px);
+    }
+
+    @include phone {
+      margin-bottom: 24px;
     }
   }
 

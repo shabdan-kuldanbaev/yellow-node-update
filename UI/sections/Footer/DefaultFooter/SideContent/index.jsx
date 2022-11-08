@@ -4,19 +4,20 @@ import { useRouter } from 'next/router';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import Svg from 'components/Common/Svg';
 import Logo from 'components/Common/Logo';
+import Typography from 'UI/components/Typography';
 import { socialMedia } from './utils/data';
 import styles from './styles.module.scss';
 
-export const SideContent = ({ socialMedia: socialMediaList }) => {
+const SideContent = ({ socialMedia: socialMediaList }) => {
   const { pathname } = useRouter();
 
   return (
     <div className={styles.sideContent}>
       <Logo type="footer" />
-      <p className={styles.text}>
+      <Typography className={styles.text}>
         Software innovation powerhouse born to take
         your business to the top!
-      </p>
+      </Typography>
       <div className={styles.socialMediaList}>
         {socialMediaList && socialMediaList.map(({
           type,
@@ -52,3 +53,5 @@ SideContent.defaultProps = {
 SideContent.propTypes = {
   socialMedia: PropTypes.instanceOf(Array),
 };
+
+export default SideContent;

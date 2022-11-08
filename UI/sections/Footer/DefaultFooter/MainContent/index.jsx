@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import Typography from 'UI/components/Typography';
 import { FieldsWrapper } from './FieldsWrapper';
 import { footerData } from './utils/data';
 import styles from './styles.module.scss';
 
-export const MainContent = ({ footerData: footerLinksData }) => (
+const MainContent = ({ footerData: footerLinksData }) => (
   <div className={styles.mainContent}>
     {footerLinksData.map(({
       title,
@@ -16,9 +17,9 @@ export const MainContent = ({ footerData: footerLinksData }) => (
         className={cn(styles.dataContainer, styles[type])}
         key={`footer/${type}`}
       >
-        <span className={styles.title}>
+        <Typography variant="span" className={styles.title}>
           {title}
-        </span>
+        </Typography>
         {links && links.map(({
           title: linkTitle,
           path,
@@ -58,3 +59,5 @@ MainContent.defaultProps = {
 MainContent.propTypes = {
   footerData: PropTypes.instanceOf(Array),
 };
+
+export default MainContent;
