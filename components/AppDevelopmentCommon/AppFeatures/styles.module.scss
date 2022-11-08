@@ -60,6 +60,7 @@
           .title {
             @include fontSize(20px, 120%);
 
+            flex-grow: 1;
             margin: 10px 0;
             transition: color 400ms, margin 400ms;
             font-weight: bold;
@@ -280,7 +281,7 @@
           }
         }
       }
-  
+
       .imageContainer {
         img {
           transform: scale(1) translate(0px, -10px);
@@ -336,7 +337,7 @@
                 margin-right: 16px;
               }
             }
-            
+
             .imageBundle {
               transform: none;
             }
@@ -363,7 +364,7 @@
               .wrapperTitle {
                 .title {
                   color: $turbo-100;
-  
+
                   &::before {
                     content: unset;
                   }
@@ -373,7 +374,7 @@
                     margin: 0;
                   }
                 }
-      
+
                 .imageBundle {
                   position: absolute;
                   margin: 0;
