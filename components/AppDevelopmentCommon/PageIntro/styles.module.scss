@@ -258,7 +258,6 @@
   .pageIntroSection {
     .pageIntroWrapper {
       margin-bottom: 0;
-      border-bottom: 1px solid $wild-sand;
 
       .pageTitle {
         @include defaultFirstHeader;
@@ -339,13 +338,13 @@
             }
 
             @include phone {
-              top: 0px;
+              top: 0;
               right: 70px;
               width: 170px;
               height: 36px;
             }
           }
-          
+
           @include tablet {
             margin-top: 40px;
             margin-bottom: 15px;
