@@ -24,7 +24,6 @@
   "ignorePatterns": [
     "/build",
     "/node_modules",
-    "/oldData",
     "/public",
     "yarn.lock"
   ],
