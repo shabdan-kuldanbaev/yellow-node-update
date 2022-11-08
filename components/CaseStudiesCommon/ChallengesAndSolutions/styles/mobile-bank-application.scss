@@ -422,13 +422,20 @@
         }
       }
 
-      .images {
-        position: relative;
+      &:nth-child(1) {
+        filter: $shadow-filter;
 
-        .image {
-          max-width: 710px;
-          filter: none;
-          transform: translate(-3%, 0);
+        .images {
+          position: relative;
+          width: max-content;
+          overflow: hidden;
+          border-radius: 53px;
+          
+          .image {
+            filter: none;
+            max-width: 710px;
+            margin: -70px -7px -71px 0px;
+          }
         }
       }
 
