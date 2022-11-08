@@ -329,4 +329,18 @@
   @include phone {
     padding: 60px 0;
   }
+
+  &.secondSectionView {
+    background: $alabaster;
+    padding: 120px 15px;
+    
+    [data-case-study-title] {
+      color: $dark-grey;
+    }
+  }
+  
+  &.thirdSectionView {
+    background: $alabaster;
+    padding: 0 25px 120px;
+  }
 }
