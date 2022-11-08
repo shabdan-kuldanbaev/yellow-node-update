@@ -8,6 +8,7 @@ export const getCardsProps = (data) => {
     subtitle,
     contentModules,
     view,
+    fields,
   } = getDocumentFields(
     data,
     [
@@ -16,14 +17,21 @@ export const getCardsProps = (data) => {
       'contentModules',
       'subtitle',
       'view',
+      'fields',
     ],
   );
-  const { contentModules: cardsList } = getDocumentFields(get(contentModules, '[0]', []));
+  const {
+    contentModules: cardsList,
+    subtitle: secondSubtitle,
+    title: secondTitle,
+  } = getDocumentFields(get(contentModules, '[0]', []));
 
   return {
     title,
+    secondTitle,
     description,
     subtitle,
+    secondSubtitle,
     cardsList,
     view,
   };

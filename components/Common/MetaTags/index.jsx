@@ -1,13 +1,11 @@
 /* eslint-disable react/jsx-max-props-per-line */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Script from 'next/script';
-import isEmpty from 'lodash/isEmpty';
 import { getPathWithCdn } from 'utils/helper';
-import { microdata } from 'utils/microdata';
 import { IS_PROD } from 'utils/constants';
 import { ogMetaData } from './utils/data';
+import { useMicrodata } from './utils/useMicrodata';
 
 const MetaTags = ({
   page,
@@ -35,6 +33,8 @@ const MetaTags = ({
     metaDescription: defaultMetaDescription,
   } = defaultMetaData.find((metaData) => metaData.pageName === page);
 
+  const microdata = useMicrodata({ pageMicrodata, breadcrumbs });
+
   const getTitle = (title) => (pageNumber > 1
     ? `${title} | Page ${pageNumber}`
     : title);
@@ -59,62 +59,44 @@ const MetaTags = ({
   const robots = !IS_PROD ? 'none' : metaRobots;
 
   return (
-    <Fragment>
-      <Head>
-        <title>{getTitle(title)}</title>
-        <meta name="description" content={getDescription(description)} />
-        <meta name="date" content={date} />
-        {robots && <meta name="robots" content={robots} />}
-        <link rel="canonical" href={url} />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content={type} />
-        <meta property="og:description" content={getDescription(description)} />
-        <meta property="og:title" content={getTitle(title)} />
-        <meta property="og:url" content={url} />
-        <meta property="og:image" content={getImage()} />
-        {categoryTag && <meta property="article:section" content={categoryTag} />}
-        {publishedAt && <meta property="article:published_time" content={publishedAt} />}
-        {keyWords?.map((keyWord) => (
-          <meta
-            key={`meta/tag/${keyWord}`}
-            property="article:tag"
-            content={keyWord}
-          />
-        ))}
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-        <meta name="google-site-verification" content="Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k" />
-        <link rel="shortcut icon" href={getPathWithCdn('/yellow_logo.ico')} />
-        <link rel="apple-touch-icon" sizes="180x180" href={getPathWithCdn('/apple-touch-icon.png')} />
-        <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
-        <link rel="manifest" href="/manifest.json" />
-        {children}
-      </Head>
-      {!isEmpty(pageMicrodata) && (
-        <Script
-          id={`JSON-LD-${pageMicrodata.name}`}
-          key={`JSON-LD-${pageMicrodata.name}`}
-          strategy="lazyOnload"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(pageMicrodata) }}
+    <Head>
+      <title>{getTitle(title)}</title>
+      <meta name="description" content={getDescription(description)} />
+      <meta name="date" content={date} />
+      {robots && <meta name="robots" content={robots} />}
+      <link rel="canonical" href={url} />
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:type" content={type} />
+      <meta property="og:description" content={getDescription(description)} />
+      <meta property="og:title" content={getTitle(title)} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={getImage()} />
+      {categoryTag && <meta property="article:section" content={categoryTag} />}
+      {publishedAt && <meta property="article:published_time" content={publishedAt} />}
+      {keyWords?.map((keyWord) => (
+        <meta
+          key={`meta/tag/${keyWord}`}
+          property="article:tag"
+          content={keyWord}
         />
-      )}
-      {!isEmpty(breadcrumbs) && (
-        <Script
-          id="JSON-LD-breadcrumbs"
-          key="JSON-LD-breadcrumbs"
-          strategy="lazyOnload"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(microdata.breadcrumbs({ breadcrumbsList: breadcrumbs })),
-          }}
-        />
-      )}
-    </Fragment>
+      ))}
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+      <meta name="google-site-verification" content="Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k" />
+      <link rel="shortcut icon" href={getPathWithCdn('/yellow_logo.ico')} />
+      <link rel="apple-touch-icon" sizes="180x180" href={getPathWithCdn('/apple-touch-icon.png')} />
+      <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
+      <link rel="manifest" href="/manifest.json" />
+      {children}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata, null, 2) }}
+      />
+    </Head>
   );
 };
 
 MetaTags.defaultProps = {
-  pageMicrodata: {},
+  pageMicrodata: null,
   children: null,
   pageMetadata: {},
   breadcrumbs: [],

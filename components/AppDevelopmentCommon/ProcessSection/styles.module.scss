@@ -71,6 +71,7 @@
 }
 
 .ui-ux-services,
+.discovery-phase-services,
 .machine-learning-development-services,
 .mvp-app-development-company,
 .web-app-development-company {
@@ -155,6 +156,53 @@
   .titleStyle {
     p {
       width: 58vw;
+    }
+  }
+}
+
+.discovery-phase-services {
+  .contentWrapper {
+    .titleStyle {
+      margin-bottom: 24px;
+
+      h2 {
+        max-width: 1100px;
+      }
+
+      p {
+        max-width: 1080px;
+      }
+    }
+
+    .secondTitle {
+      @include fontSize(40px, 120%);
+
+      text-align: center;
+      margin: 0;
+
+      @include phone {
+        @include fontSize(24px);
+      }
+    }
+
+    .secondSubtitle {
+      @include fontSize(18px, 180%);
+
+      color: $silver-chalice;
+      text-align: center;
+      margin: 20px 0 60px;
+
+      @include phone {
+        @include fontSize(14px);
+
+        margin-bottom: 40px;
+      }
+    }
+
+    .cards {
+      .cardContainer {
+        padding: 30px;
+      }
     }
   }
 }

@@ -143,6 +143,7 @@ function* fetchPageData({
     case PAGES.fintechDevelopment:
     case PAGES.erpDevelopment:
     case PAGES.mlDevelopment:
+    case PAGES.discoveryPhase:
     case PAGES.devOpsDevelopment:
     case PAGES.aiDevelopment:
     case PAGES.notFound:
