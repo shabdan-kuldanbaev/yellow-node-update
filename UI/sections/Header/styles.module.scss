@@ -64,7 +64,7 @@
   }
 
   &.openedDropDown:not(.pageScrolling, .notHome) {
-    background-color: $black;
+    background-color: $dark-grey;
     transition: background-color 0.3s ease;
   }
 

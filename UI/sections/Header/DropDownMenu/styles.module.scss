@@ -6,39 +6,23 @@
   top: $header-height - 0.5px;
   left: 0;
   width: 100%;
-  padding: 80px 0 40px;
-  background-color: $black;
+  padding: 64px 0;
+  background-color: $dark-grey;
   color: $white;
   z-index: -1;
   opacity: 1;
   visibility: visible;
   transition:
-    visibility 0.2s,
-    opacity 0.3s ease;
+  visibility 0.2s,
+  opacity 0.3s ease;
   box-shadow: none;
-  border-bottom: 0.5px solid rgb(255 255 255 / 0.4);
-
-  @include macbook-twelve {
-    padding-bottom: 80px;
-  }
-
-  @include phone {
-    position: relative;
-    top: 0;
-    padding: 0;
-    margin-top: 20px;
-    width: unset;
-    z-index: unset;
-    background-color: $black;
-  }
 
   .dropDownNavContainer {
     max-width: max-content;
     margin: 0 auto;
-    padding: 0 20px;
     display: grid;
     grid-template-columns: repeat(2, max-content);
-    grid-column-gap: 150px;
+    grid-gap: 32px 120px;
 
     @include macbook-twelve {
       grid-template-columns: repeat(2, auto);
@@ -46,56 +30,37 @@
 
     @include below-tablet {
       display: block;
-      grid-template-columns: unset;
-      margin-left: 40px;
-    }
-
-    @include phone {
       margin: 0;
-      grid-column-gap: unset;
       width: unset;
+      grid-column-gap: unset;
+      grid-template-columns: unset;
     }
 
     .itemContainer {
-      margin-bottom: 40px;
       outline: none;
 
-      @include phone {
-        margin-bottom: 20px;
-        width: 100%;
-      }
-
-      &:nth-child(2) {
-        grid-column: 2/3;
-
-        @include phone {
-          grid-row: unset;
-          grid-column: unset;
-        }
-      }
-
       .link {
+        @include fontSize(16px, 150%);
+
         display: block;
         margin: 0;
 
         &.title {
-          @include fontSize(20px);
-
-          margin: 0 0 7px;
-          font-weight: 500;
-          line-height: 1.5;
+          font-weight: 700;
           color: $white;
           transition: color 0.3s ease-in-out;
         }
 
         .subtitle {
-          @include fontSize(18px);
-
-          margin-top: 7px;
+          font-weight: 400;
           line-height: 2;
           color: $silver-chalice;
           transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
           display: block;
+
+          &:not(:last-child) {
+            margin-bottom: 8px;
+          }
         }
 
         &:hover {
@@ -108,23 +73,15 @@
             opacity: 0.7;
           }
         }
-
-        @include phone {
-          &.title,
-          .subtitle {
-            @include fontSize(14px);
-          }
-        }
       }
 
       .menuLink {
         display: block;
-        margin: 0;
+        margin: 12px 0 0 0;
 
-        @include fontSize(18px);
+        @include fontSize(16px, 150%);
 
         .menuText {
-          line-height: 2;
           color: $silver-chalice;
           outline: none;
           transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -136,12 +93,31 @@
             opacity: 0.7;
           }
         }
+      }
+
+      &:nth-child(2) {
+        grid-column: 2/3;
 
         @include phone {
-          @include fontSize(14px);
+          grid-row: unset;
+          grid-column: unset;
         }
       }
+
+      @include below-tablet {
+        margin-bottom: 20px;
+        width: 100%;
+      }
     }
+  }
+
+  @include below-tablet {
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin-top: 20px;
+    width: unset;
+    z-index: unset;
   }
 }
 
@@ -165,6 +141,28 @@
   opacity: 0;
   visibility: hidden;
   transition:
-    visibility 0.4s,
-    opacity 0.5s ease;
+  visibility 0.4s,
+  opacity 0.5s ease;
+}
+
+.lightTheme {
+  background-color: $white;
+
+  .dropDownNavContainer > .itemContainer {
+    .link {
+      &.title {
+        color: $dark-grey;
+      }
+
+      .subtitle {
+        color: $gray400;
+      }
+    }
+
+    .menuLink {
+      .menuText {
+        color: $gray400;
+      }
+    }
+  }
 }

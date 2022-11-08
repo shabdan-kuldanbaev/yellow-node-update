@@ -5,10 +5,11 @@
   background-color: $white;
 }
 
+.lightTheme,
 .pageScrollingBurger {
   div {
     span {
-      @include phone {
+      @include below-tablet {
         background-color: $black !important;
       }
     }
@@ -18,7 +19,7 @@
 .pageScrollingBurgerOpened {
   div {
     span {
-      @include phone {
+      @include below-tablet {
         background-color: $white !important;
       }
     }
@@ -34,7 +35,7 @@
   cursor: pointer;
   outline: none;
 
-  @include phone {
+  @include below-tablet {
     z-index: -1;
 
     @include flex(column, center, flex-end);

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import SubMenuItem from 'components/Layout/Header/SubMenuItem';
+import SubMenuItem from 'UI/sections/Header/SubMenuItem';
 import { SUB_NAVIGATION_LINKS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const DropDownMenu = ({
+  isLightTheme,
   isDropMenuOpened,
   isPageScrolledDown,
   slug,
@@ -27,6 +28,7 @@ const DropDownMenu = ({
 
   return (
     <div className={cn(styles.dropDownMenu, {
+      [styles.lightTheme]: isLightTheme,
       [styles.pageScrolling]: isPageScrolledDown,
       [styles.closed]: !isDropMenuOpened,
     })}

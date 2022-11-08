@@ -15,7 +15,7 @@ import { NAV_LINKS } from 'utils/constants';
 import { isHasSubNavigation } from 'helpers/navigation';
 import styles from './styles.module.scss';
 
-const DropDownMenu = dynamic(() => import('components/Layout/Header/DropDownMenu'), { suspense: true });
+const DropDownMenu = dynamic(() => import('UI/sections/Header/DropDownMenu'), { suspense: true });
 
 const Nav = ({
   theme,

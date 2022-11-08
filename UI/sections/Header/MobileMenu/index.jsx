@@ -8,6 +8,7 @@ import Burger from '../Burger';
 import styles from './styles.module.scss';
 
 const MobileMenu = ({
+  isLightTheme,
   navLinks: links,
   isMobileMenuOpened,
   setMobileMenuState,
@@ -23,6 +24,7 @@ const MobileMenu = ({
         [styles.mobileMenuOpened]: isMobileMenuOpened,
         [styles.mobileMenuClosed]: !isMobileMenuOpened,
         [styles.pageScrollingMobileMenu]: isPageScrolledDown,
+        [styles.mobileMenulightTheme]: isLightTheme,
       })}
       >
         <ul>
@@ -39,11 +41,13 @@ const MobileMenu = ({
               path={path}
               dynamicPath={dynamicPath}
               closeMenu={setMobileMenuState}
+              isLightTheme={isLightTheme}
             />
           ))}
         </ul>
       </div>
       <Burger
+        isLightTheme={isLightTheme}
         isMobileMenuOpened={isMobileMenuOpened}
         handleOnClick={setMobileMenuState}
         isPageScrolledDown={isPageScrolledDown}

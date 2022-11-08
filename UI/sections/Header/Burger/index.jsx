@@ -6,6 +6,7 @@ import { PAGES_WITH_DARK_HEADER } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Burger = ({
+  isLightTheme,
   isMobileMenuOpened,
   handleOnClick,
   isPageScrolledDown,
@@ -16,6 +17,7 @@ const Burger = ({
     <div
       className={
         cn(styles.burger, {
+          [styles.lightTheme]: isLightTheme,
           [styles.burgerOpened]: isMobileMenuOpened,
           [styles.burgerClosed]: !isMobileMenuOpened,
           [styles.pageScrollingBurger]: isPageScrolledDown || (!isMobileMenuOpened && !PAGES_WITH_DARK_HEADER.includes(asPath)),

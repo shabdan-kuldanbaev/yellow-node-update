@@ -115,6 +115,7 @@ const Header = ({ introSection }) => {
         isHeader
       />
       <MobileMenu
+        isLightTheme={!isPageWithTransparentHeader && !isCaseStudyWithTransparentHeader}
         isMobileMenuOpened={!!isMobileMenuOpened}
         setMobileMenuState={setMobileMenu(!isMobileMenuOpened)}
         isPageScrolledDown={isPageScrolledDown}

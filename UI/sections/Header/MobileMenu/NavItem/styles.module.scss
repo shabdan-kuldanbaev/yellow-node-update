@@ -1,0 +1,116 @@
+@import 'styles/utils/mixins';
+
+.navItem {
+  @include flex(column, center);
+
+  margin: 0 16px;
+  list-style: none;
+  border-bottom: 0.5px solid #757575;
+
+  & > span {
+    outline: none;
+  }
+
+  &.lightTheme {
+    border-color: #CBCBCB;
+  
+    &:last-of-type {
+      border-color: black;
+    }
+
+    .mainLink {
+      .title {
+        color: black
+      }
+  
+      .svgContainer {
+        & > svg > path {
+          stroke: black;
+        }
+      }
+    }
+  }
+
+  .title {
+    @include fontSize(16px, 150%);
+
+    font-weight: 700;
+    display: block;
+    color: $white;
+  }
+
+  .mainLink {
+    @include flex(row, space-between, center);
+
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    outline: none;
+    width: 100%;
+
+    a {
+      color: $white;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 20px 0;
+      width: 100%;
+    }
+
+    .svgContainer {
+      margin-right: 5px;
+      outline: none;
+      transform: rotate(-180deg);
+      transition: transform $default-transition-time ease-in-out;
+    }
+    
+    .svgContainerRight {
+      margin-right: 0;
+      transform: rotate(-90deg);
+    }
+  }
+
+  .openedDropDown {
+    .svgContainer {
+      transform: rotate(0);
+      transition: transform $default-transition-time ease-in-out;
+    }
+  }
+
+  &:nth-of-type(1) {
+    padding: 20px 0;
+  }
+
+  &:nth-last-of-type(2) {
+    border-bottom: none;
+  }
+
+  &:last-of-type {
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid $white;
+    max-width: 130px;
+    margin: 32px auto 0;
+    padding: 0;
+
+    a {
+      @include fontSize(16px, 150%);
+
+      display: block;
+      color: $white;
+      padding: 16px 18px;
+
+      .title {
+        font-weight: 500;
+      }
+    }
+
+    .svgContainer {
+      display: none;
+    }
+  }
+
+  @include small-phone {
+    &:not(:last-of-type) {
+      margin-right: 20px;
+    }
+  }
+}

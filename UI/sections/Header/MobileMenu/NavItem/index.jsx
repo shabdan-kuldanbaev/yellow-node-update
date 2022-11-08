@@ -9,13 +9,14 @@ import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
 import { isHasSubNavigation } from 'helpers/navigation';
 import styles from './styles.module.scss';
 
-const DropDownMenu = dynamic(() => import('components/Layout/Header/DropDownMenu'));
+const DropDownMenu = dynamic(() => import('UI/sections/Header/DropDownMenu'));
 
 export const NavItem = ({
   slug,
   title,
   path,
   dynamicPath,
+  isLightTheme,
   isPageScrolledDown,
   closeMenu,
 }) => {
@@ -41,9 +42,15 @@ export const NavItem = ({
   );
 
   return (
-    <li className={styles.navItem}>
+    <li
+      className={cn(styles.navItem, {
+        [styles.lightTheme]: isLightTheme,
+      })}
+    >
       <div
-        className={cn(styles.mainLink, { [styles.openedDropDown]: isSubMenuExpanded })}
+        className={cn(styles.mainLink, {
+          [styles.openedDropDown]: isSubMenuExpanded,
+        })}
         onClick={handleOnArrowClick}
         role="button"
         tabIndex="0"
@@ -59,11 +66,13 @@ export const NavItem = ({
             </LinkWrapper>
           )
           : itemContent}
-        {isLinkHasSubNavigation && (
-          <div className={styles.svgContainer}>
-            <Svg type={SVG_IMAGES_TYPES.arrowDown} />
-          </div>
-        )}
+        <div
+          className={cn(styles.svgContainer, {
+            [styles.svgContainerRight]: !isLinkHasSubNavigation,
+          })}
+        >
+          <Svg type={SVG_IMAGES_TYPES.arrowDown} />
+        </div>
       </div>
       {isLinkHasSubNavigation && (
         <Animated
@@ -71,6 +80,7 @@ export const NavItem = ({
           open={isSubMenuExpanded}
         >
           <DropDownMenu
+            isLightTheme={isLightTheme}
             isDropMenuOpened={isSubMenuExpanded}
             isPageScrolledDown={isPageScrolledDown}
             slug={slug}

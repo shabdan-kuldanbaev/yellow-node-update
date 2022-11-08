@@ -2,8 +2,8 @@ import React from 'react';
 import ButtonMore from 'components/Common/ButtonMore';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import cn from 'classnames';
+import { menuList } from 'UI/sections/Header/Nav/utils/data';
 import styles from './styles.module.scss';
-import { menuList } from '../../components/Layout/Header/Nav/utils/data';
 
 export const OldFooterEmail = () => (
   <dvi className={styles.oldFooterEmail}>

@@ -9,10 +9,6 @@
   @include flex(row, center, center);
 
   @include below-tablet {
-    padding-inline-start: 0;
-  }
-
-  @include phone {
     display: none;
   }
 
@@ -21,7 +17,7 @@
     user-select: none;
     outline: none;
     margin: 0;
-    padding: 0 27px;
+    padding: 0 24px;
 
     @include tablet {
       padding: 0 7px;
@@ -66,7 +62,7 @@
         height: 100%;
         display: block;
         padding: 10px 16.6px 10px 15px;
-        border-radius: 60px;
+        // border-radius: 60px;
       }
 
       &:hover {
@@ -146,28 +142,16 @@
   }
 
   li:last-child {
-    border-color: $turbo-100;
     color: $black;
     position: relative;
     overflow: hidden;
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      border-radius: 8px;
-      width: 100%;
-      height: 100%;
-      background-color: $turbo-100;
-      z-index: -1;
-      transform: scale(1);
-      transition: transform 0.4s ease-out;
-    }
+    border: 1px solid $dark-grey;
 
     &:hover {
-      border: none;
+      border: 1px solid $turbo-100;
       color: $black;
+      background-color: $turbo-100;
       transform: scale(0.96);
       transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
 

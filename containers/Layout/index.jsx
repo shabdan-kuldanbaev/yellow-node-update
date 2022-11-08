@@ -9,7 +9,7 @@ import {
 } from 'redux/actions/layout';
 import CookiesNotification from 'components/Common/CookiesNotification';
 import GAnalytic from 'components/Layout/GAnalytic';
-import Header from 'components/Layout/Header';
+import Header from 'UI/sections/Header';
 import {
   mobileResolution,
   tabletResolution,

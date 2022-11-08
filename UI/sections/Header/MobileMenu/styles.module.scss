@@ -6,18 +6,17 @@
   transition: transform $default-transition-time ease-in-out;
   z-index: 1600000;
 
-  @include phone {
+  @include below-tablet {
+    @include flex(row, center);
+
     position: fixed;
-    top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     width: 100vw;
-    height: 100vh;
-    background-color: $black;
+    height: calc(100vh - 66px);
+    background-color: $dark-grey;
     overflow-x: scroll;
-
-    @include flex(row, center);
 
     .mobileMenuFooter {
       padding: 0;
@@ -39,7 +38,7 @@
     ul {
       height: 114vw;
       margin-bottom: 20vh;
-      padding: 60px 0 0;
+      padding: 12px 0 0;
       width: 100%;
 
       @include small-phone {
@@ -47,6 +46,10 @@
       }
     }
   }
+}
+
+.mobileMenulightTheme {
+  background-color: $white;
 }
 
 .mobileMenuOpened {
@@ -99,7 +102,7 @@
 }
 
 .pageScrollingMobileMenu {
-  @include phone {
+  @include below-tablet {
     ul {
       li {
         span:not(:last-child) {
