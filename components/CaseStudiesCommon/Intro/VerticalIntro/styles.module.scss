@@ -949,7 +949,7 @@
   @extend .container;
 
   background: $eerie-black-2;
-  padding-top: 177px;
+  padding: 177px 0 0;
 
   .introSection {
     margin-bottom: 0;
@@ -962,6 +962,10 @@
         
         color: $white;
         text-align: center;
+
+        @include below-tablet {
+          @include fontSize(36px);
+        }
       }
     }
     
@@ -971,6 +975,11 @@
       text-align: center;
       margin-bottom: 60px;
     }
+  }
+
+  .imageContainer {
+    max-width: 870px;
+    margin: 0 auto;
   }
 
   .bundleImage {
@@ -986,8 +995,8 @@
     position: relative;
     background: $eerie-black-2;
     color: $white;
-    padding: 60px 40px 0;
-    margin: 0 -40px;
+    padding: 60px 40px;
+    margin: 0 auto;
 
     &::before {
       content: '';
@@ -1002,6 +1011,10 @@
       height: 272px;
       bottom: 100%;
       left: 0;
+    }
+
+    @include below-tablet {
+      padding: 30px;
     }
   }
 }
