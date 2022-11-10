@@ -26,6 +26,10 @@
         max-width: 630px;
         margin: 0;
 
+        & > * + * {
+          margin-left: 0;
+        }
+
         .title {
           @include fontSize(32px);
 
@@ -150,6 +154,12 @@
     padding: 0 40px;
 
     .special {
+      .infoContainer {
+        & > * + * {
+          margin-left: 0;
+        }  
+      }
+
       &:nth-of-type(1) {
         align-items: flex-start;
         margin-bottom: -17%;
@@ -331,9 +341,10 @@
         }
       }
 
-      @include phone {
+      @include below-tablet {
         padding: 60px 15px;
         width: calc(100% - 30px);
+        max-width: 100%;
       }
     }
 

@@ -342,6 +342,14 @@
 
     background-color: $alabaster;
 
+    .contentContainer {
+      background: red;
+      
+      .infoContainer > * + * {
+        margin-left: 0;
+      }
+    }
+
     [data-case-study-title] {
       color: $white;
 
