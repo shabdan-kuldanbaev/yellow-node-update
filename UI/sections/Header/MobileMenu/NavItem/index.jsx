@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -6,40 +6,25 @@ import LinkWrapper from 'components/Common/LinkWrapper';
 import Svg from 'UI/components/Svg';
 import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
-import { isHasSubNavigation } from 'helpers/navigation';
+import { useNavItem } from './useNavItem';
 import styles from './styles.module.scss';
 
 const DropDownMenu = dynamic(() => import('UI/sections/Header/DropDownMenu'));
 
-export const NavItem = ({
-  slug,
-  title,
-  path,
-  dynamicPath,
-  isLightTheme,
-  isPageScrolledDown,
-  closeMenu,
-}) => {
-  const [isSubMenuExpanded, setIsMSubMenuExpanded] = useState(false);
-  const isLinkHasSubNavigation = isHasSubNavigation(slug);
-
-  const handleOnArrowClick = () => setIsMSubMenuExpanded(!isSubMenuExpanded);
-  const handleOnTitleClick = () => {
-    if (path) {
-      closeMenu();
-    }
-  };
-
-  const itemContent = (
-    <span
-      className={styles.title}
-      onClick={handleOnTitleClick}
-      role="button"
-      tabIndex="0"
-    >
-      {title}
-    </span>
-  );
+export const NavItem = (props) => {
+  const {
+    path,
+    slug,
+    title,
+    closeMenu,
+    dynamicPath,
+    isLightTheme,
+    isSubMenuExpanded,
+    isPageScrolledDown,
+    handleOnTitleClick,
+    handleOnArrowClick,
+    isLinkHasSubNavigation,
+  } = useNavItem(props);
 
   return (
     <li
@@ -62,10 +47,26 @@ export const NavItem = ({
               path={path}
               dynamicRouting={dynamicPath}
             >
-              {itemContent}
+              <span
+                className={styles.title}
+                onClick={handleOnTitleClick}
+                role="button"
+                tabIndex="0"
+              >
+                {title}
+              </span>
             </LinkWrapper>
           )
-          : itemContent}
+          : (
+            <span
+              className={styles.title}
+              onClick={handleOnTitleClick}
+              role="button"
+              tabIndex="0"
+            >
+              {title}
+            </span>
+          )}
         <div
           className={cn(styles.svgContainer, {
             [styles.svgContainerRight]: !isLinkHasSubNavigation,

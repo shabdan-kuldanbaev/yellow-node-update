@@ -17,6 +17,20 @@
   opacity 0.3s ease;
   box-shadow: none;
 
+  @include macbook-twelve {
+    padding-bottom: 80px;
+  }
+
+  @include phone {
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin-top: 20px;
+    width: unset;
+    z-index: unset;
+    background-color: $black;
+  }
+
   .dropDownNavContainer {
     max-width: max-content;
     margin: 0 auto;

@@ -1,22 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { NAV_LINKS } from 'utils/constants';
-import { setOverflowForBody } from 'utils/helper';
+import { useMobileMenu } from './useMobileMenu';
 import { NavItem } from './NavItem';
 import Burger from '../Burger';
 import styles from './styles.module.scss';
 
-const MobileMenu = ({
-  isLightTheme,
-  navLinks: links,
-  isMobileMenuOpened,
-  setMobileMenuState,
-  isPageScrolledDown,
-}) => {
-  useEffect(() => {
-    setOverflowForBody(isMobileMenuOpened);
-  }, [isMobileMenuOpened]);
+const MobileMenu = (props) => {
+  const {
+    isLightTheme,
+    links,
+    isMobileMenuOpened,
+    setMobileMenuState,
+    isPageScrolledDown,
+  } = useMobileMenu(props);
 
   return (
     <>

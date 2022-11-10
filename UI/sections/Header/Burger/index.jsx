@@ -1,17 +1,18 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
 import { PAGES_WITH_DARK_HEADER } from 'utils/constants';
+import { useBurger } from './useBurger';
 import styles from './styles.module.scss';
 
-const Burger = ({
-  isLightTheme,
-  isMobileMenuOpened,
-  handleOnClick,
-  isPageScrolledDown,
-}) => {
-  const { asPath } = useRouter();
+const Burger = (props) => {
+  const {
+    asPath,
+    isLightTheme,
+    isMobileMenuOpened,
+    handleOnClick,
+    isPageScrolledDown,
+  } = useBurger(props);
 
   return (
     <div

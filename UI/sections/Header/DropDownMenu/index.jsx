@@ -2,25 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SubMenuItem from 'UI/sections/Header/SubMenuItem';
-import { SUB_NAVIGATION_LINKS } from 'utils/constants';
+import { useDropDownMenu } from './useDropDownMenu';
 import styles from './styles.module.scss';
 
-const DropDownMenu = ({
-  isLightTheme,
-  isDropMenuOpened,
-  isPageScrolledDown,
-  slug,
-  closeMobileMenu,
-  closeDropDownMenu,
-}) => {
-  const subNavigationLinks = SUB_NAVIGATION_LINKS[slug];
-
-  const handleOnClick = (subMenuSlug) => () => {
-    if (subMenuSlug) {
-      closeMobileMenu();
-      closeDropDownMenu();
-    }
-  };
+const DropDownMenu = (props) => {
+  const {
+    isLightTheme,
+    isDropMenuOpened,
+    isPageScrolledDown,
+    handleOnClick,
+    subNavigationLinks,
+    closeMobileMenu,
+  } = useDropDownMenu(props);
 
   if (!subNavigationLinks) {
     return null;
