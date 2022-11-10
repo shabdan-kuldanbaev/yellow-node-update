@@ -1,0 +1,268 @@
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
+
+.imageSection {
+  max-width: $max-content-width;
+  margin: 0 auto;
+
+  @include flex(row, space-between, center);
+
+  @include below-tablet {
+    margin: 100px 0;
+
+    @include flex(column, space-between, center);
+  }
+
+  @include phone {
+    @include flex(column, space-between, center);
+  }
+
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 120%;
+    width: 100%;
+  }
+
+  .experienceContent {
+    padding-left: 32px;
+    width: 100%;
+
+    @include tablet {
+      padding-left: 0;
+    }
+
+    @include below-tablet {
+      padding-left: 0;
+    }
+
+    & > div:first-child {
+      & > div {
+        & > p {
+          @include fontSize(36px);
+          line-height: 49px;
+
+          @include tablet {
+            padding-right: 0;
+            text-align: inherit;
+          }
+
+          @include below-tablet {
+            padding-right: 0;
+            text-align: center;
+          }
+
+          @include phone {
+            @include fontSize(24px);
+            text-align: center;
+            line-height: 31px;
+          }
+        }
+      }
+    }
+
+    & > div:last-child {
+      & > p {
+        margin: 0 0 30px;
+        padding-right: 50px;
+        color: $silver-chalice;
+        line-height: 24px;
+
+        @include fontSize(16px);
+
+        @include macbook-fifteen {
+          @include fontSize(16px);
+        }
+
+        @include below-tablet {
+          padding-right: 0;
+        }
+
+        @include tablet {
+          padding-right: 0;
+        }
+
+        @include phone {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.chat-app-development-company {
+  @include appDevelopmentContainer;
+
+  padding-top: 0;
+
+  .imageSection {
+    margin-bottom: 0;
+
+    @include below-tablet {
+      margin-top: 0;
+    }
+  }
+
+  .titleStyle {
+    p {
+      @include fontSize(56px, 120%);
+
+      @include tablet {
+        @include fontSize(32px);
+
+        text-align: center;
+      }
+    }
+  }
+
+  @include below-tablet {
+    padding-top: 0;
+  }
+}
+
+.fintech-software-development-services {
+  background-color: $white;
+  padding-bottom: 120px;
+
+  .imageSection {
+    @include flex(column-reverse);
+
+    .image {
+      background-size: contain;
+      padding: 0;
+      width: 635px;
+      height: 420px;
+      margin: 0 auto;
+
+      @include phone {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    .experienceContent {
+      width: 860px;
+      margin: 120px auto 0;
+      padding: 0;
+
+      h2,
+      p {
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+
+        @include phone {
+          @include fontSize(30px);
+        }
+      }
+
+      & > div:last-child {
+        & > p {
+          margin-bottom: 60px;
+
+          @include phone {
+            margin-bottom: unset;
+          }
+        }
+      }
+
+      @include tablet {
+        width: 700px;
+      }
+
+      @include below-tablet {
+        margin: 60px auto 0;
+      }
+
+      @include phone {
+        width: 320px;
+      }
+    }
+
+    @include below-tablet {
+      margin: unset;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}
+
+.enterprise-resource-planning-software-services {
+  background-color: $white;
+  padding: 120px 0;
+  overflow: hidden;
+
+  .imageSection {
+    padding-left: 15px;
+
+    .image {
+      padding-left: 74%;
+      padding-top: 85%;
+      transform: translate(110px, 0);
+
+      @include tablet {
+        transform: none;
+        padding-left: 0;
+        padding-top: 49%;
+      }
+    }
+
+    .experienceContent {
+      max-width: 680px;
+      padding-left: 0;
+      order: -1;
+
+      .titleStyle {
+        margin-bottom: 15px;
+
+        @include tablet {
+          text-align: center;
+        }
+      }
+
+      & > div {
+        p {
+          padding-right: 0;
+
+          @include tablet {
+            text-align: center;
+          }
+
+          @include phone {
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      @include tablet {
+        order: 0;
+        max-width: 880px;
+      }
+    }
+
+    @include tablet {
+      @include flex(column-reverse, space-between);
+
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    @include phone {
+      padding: 0;
+    }
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}
