@@ -19,7 +19,7 @@
     "lint:style:fix": "yarn lint:style -- --fix",
     "lint": "yarn lint:js && yarn lint:style",
     "prepare": "husky install",
-    "svgo": "npx svgo -q --folder components/Common/Svg/svgs"
+    "svgo": "npx svgo -q --folder UI/components/Svg/svgs"
   },
   "lint-staged": {
     "*.{js,jsx}": [

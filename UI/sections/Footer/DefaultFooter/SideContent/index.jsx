@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import Logo from 'components/Common/Logo';
 import Typography from 'UI/components/Typography';
 import { socialMedia } from './utils/data';

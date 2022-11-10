@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
 import { ArcherContainer, ArcherElement } from 'react-archer';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, smallTabletResolution } from 'utils/helper';

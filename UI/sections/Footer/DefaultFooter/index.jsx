@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import SideContent from './SideContent';
 import MainContent from './MainContent';
 import BottomContent from './BottomContent';

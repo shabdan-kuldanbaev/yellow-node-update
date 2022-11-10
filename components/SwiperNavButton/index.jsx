@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import { useSwiper } from 'swiper/react';
 import styles from './styles.module.scss';
 

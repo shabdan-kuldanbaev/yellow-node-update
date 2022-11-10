@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
 import { isHasSubNavigation } from 'helpers/navigation';
