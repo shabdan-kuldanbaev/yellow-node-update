@@ -12,7 +12,6 @@ export const Error = Template.bind({});
 
 Normal.args = {
   placeholder: 'Name',
-  required: false,
 };
 
 Error.args = {

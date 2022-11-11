@@ -5,28 +5,11 @@
   --size-text: 16px;
   --col-error: #FF3B30;
 
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  outline: none;
-  margin-bottom: 35px;
-
   @include flex(column);
 
-  label {
-    color: var(--col-text);
-    position: absolute;
-    touch-action: none;
-    user-select: none;
-    cursor: text;
-    will-change: transform;
-    transform: translateY(1px);
-    transition: transform $accelerated-transition-time, font-size $accelerated-transition-time;
-
-    @include phone {
-      transform: translateY(1px);
-    }
-  }
+  position: relative !important;
+  outline: none;
+  margin-bottom: 35px;
 
   input,
   textarea {
@@ -38,14 +21,21 @@
     color: $black;
     outline: none;
     padding: 0 0 12px 0;
-    transition: border 1s cubic-bezier(0.26, 1.04, 0.54, 1),
-    color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
+    transition: border 1s cubic-bezier(0.26, 1.04, 0.54, 1), color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
     line-height: 24px;
     font-size: var(--size-text);
     margin-bottom: 4px;
 
-    &::placeholder {
-      font-family: $default-font;
+    &:invalid {
+      border-color: var(--col-error);
+
+      .error {
+        opacity: 1;
+      }
+
+      & ~ .isInvalid {
+        opacity: 1;
+      }
     }
   }
 
@@ -53,115 +43,64 @@
     resize: none;
     font-family: $default-font;
   }
-
-  input {
-    &:invalid {
-      border-bottom-color: var(--col-error);
-
-      & ~ .invalid {
-        opacity: 1;
-      }
-    }
-  }
-
-  .required {
-    width: min-content !important;
-    font-weight: 300;
-    position: absolute;
-    pointer-events: none;
-    right: 0;
-    color: $boulder;
-    margin-top: -0.4em;
-    font-size: 1.4375rem;
-    line-height: 1.94;
-    letter-spacing: 0.4px;
-
-    @include phone {
-      top: 45%;
-    }
-  }
-
-  .invalid {
-    display: block;
-    opacity: 0;
-    transition: opacity 1s cubic-bezier(0.26, 1.04, 0.54, 1);
-    font-weight: 400;
-    font-size: 12px;
-    color: var(--col-error);
-    pointer-events: none;
-
-    @include phone {
-      top: 45%;
-    }
-  }
 }
 
-.active {
-  input,
-  textarea {
-    border-color: $black;
-    transition: border 1s cubic-bezier(0.26, 1.04, 0.54, 1),
-    color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
-  }
-}
-
-.focus {
-  input,
-  textarea {
-    border-color: $black !important;
-  }
-}
-
-.error {
-  input,
-  textarea {
-    border-bottom-color: $red !important;
-  }
-
-  .required {
-    color: $red;
-  }
-}
-
-.default {
-  input,
-  textarea {
-    border-bottom-color: $iron !important;
-  }
-}
-
-.isRequired {
-  input,
-  textarea {
+.isAttached {
+  input, textarea {
     padding-right: 15px;
   }
 }
 
-.seven-pm-thursday {
-  &.input {
-    input,
-    textarea {
-      color: $silver-chalice;
-      border-bottom-color: $silver-chalice;
-    }
-  }
+.isRequired {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-50%);
+  font-weight: 400;
+  pointer-events: none;
+  color: $boulder;
+  font-size: 1.4375rem;
 
-  &.focus {
-    input,
-    textarea {
-      border-color: $silver-chalice !important;
-    }
+  @include phone {
+    top: 45%;
   }
 }
 
-.open-sense {
-  input,
-  textarea {
-    color: rgba($dark-grey, 0.3);
-    border-bottom-color: rgba($dark-grey, 0.3);
+.isActive {
+  border-color: $black;
+  transition: border 1s cubic-bezier(0.26, 1.04, 0.54, 1), color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
+}
+
+.isFocus {
+  border-color: $black;
+  transition: border 1s cubic-bezier(0.26, 1.04, 0.54, 1), color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
+}
+
+.error {
+  display: block;
+  opacity: 1;
+  transition: opacity 1s cubic-bezier(0.26, 1.04, 0.54, 1);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--col-error);
+  pointer-events: none;
+
+  @include phone {
+    top: 45%;
   }
 }
 
+.placeholder {
+  color: var(--col-text);
+  font-family: $default-font;
+  position: absolute;
+  top: 0;
+  touch-action: none;
+  user-select: none;
+  cursor: text;
+  transition: 0.3s ease;
 
-
-
+  @include phone {
+    transform: translateY(1px);
+  }
+}

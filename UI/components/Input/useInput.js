@@ -1,68 +1,80 @@
 import { useEffect, useRef, useState } from 'react';
 import autosize from 'autosize';
+import cn from 'classnames';
+import styles from './styles.module.scss';
+import { errorMessages, patterns } from './utils/patterns';
 
 export default (props) => {
   const {
     handleOnChange,
-    handleOnBlurEmail,
-    isWithoutLabel,
-    isRequired,
-    isValidate,
     isAttached,
     isTextArea,
+    isRequired,
+    handleOnBlurEmail,
     style,
+    value,
+    type,
     ...rest
   } = props;
 
   const Component = isTextArea ? 'textarea' : 'input';
 
   const inputRef = useRef();
-  const [isInputActive, setActive] = useState(false);
-  const [isInputFocus, setFocus] = useState(false);
+  const [isActive, setActive] = useState(false);
+  const [isFocus, setFocus] = useState(false);
+
+  const className = cn(props.className, styles.input, {
+    [styles[style]]: style,
+    [styles.isAttached]: isRequired || isAttached,
+    [styles.isActive]: isActive,
+    [styles.isFocus]: isFocus,
+  });
+
+  const handleOnFocus = () => setFocus(true);
 
   const handleOnClick = () => {
     inputRef.current?.focus();
     setActive(true);
   };
 
-  const handleOnFocus = () => setFocus(true);
-
   const handleOnBlur = () => {
     setFocus(false);
     setActive(false);
 
-    if (rest.type === 'email' && rest.value !== '' && handleOnBlurEmail) {
-      handleOnBlurEmail(rest.value);
-    }
+    if (type === 'email' && value !== '' && handleOnBlurEmail) handleOnBlurEmail(value);
   };
 
-  const handleOnOutsideClick = () => {
-    rest.value === '' && setActive(false);
+  const inputOptions = {
+    value,
+    id: value,
+    ref: inputRef,
+    type: type || 'text',
+    onChange: handleOnChange,
+    onClick: handleOnClick,
+    onFocus: handleOnFocus,
+    onBlur: handleOnBlur,
+    required: isRequired,
+    pattern: type in patterns ? patterns[type] : null,
   };
 
   useEffect(() => {
-    if (isTextArea && inputRef && inputRef.current) {
-      autosize(inputRef.current);
-    }
+    if (isTextArea && inputRef && inputRef.current) autosize(inputRef.current);
   }, [isTextArea]);
 
   useEffect(() => {
-    if (isTextArea && inputRef && inputRef.current && rest.value === '') {
-      if (inputRef.current?.style.height !== 'auto') {
-        inputRef.current.style.height = 'auto';
-      }
+    if (isTextArea && inputRef && inputRef.current && value === '') {
+      if (inputRef.current?.style.height !== 'auto') inputRef.current.style.height = 'auto';
     }
-  }, [rest.value, isTextArea]);
+  }, [value, isTextArea]);
 
   return ({
     Component,
-    inputRef,
-    handleOnFocus,
-    handleOnBlur,
-    handleOnClick,
-    handleOnOutsideClick,
-    isInputActive,
-    isInputFocus,
-    ...props,
+    className,
+    inputOptions,
+    errorMessages,
+    isRequired,
+    type,
+    value,
+    ...rest,
   });
 };
