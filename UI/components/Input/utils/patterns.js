@@ -4,5 +4,4 @@ export const patterns = {
 
 export const errorMessages = {
   email: 'Invalid mail address',
-  required: 'You need to fill in an empty field',
 };

@@ -26,22 +26,53 @@
     font-size: var(--size-text);
     margin-bottom: 4px;
 
-    &:invalid {
+    &::placeholder {
+      transition: 0.3s ease;
+      color: var(--col-text);
+      font-family: $default-font;
+    }
+
+    &:focus::placeholder {
+      transform: translateX(4px);
+    }
+
+    &:required:invalid {
       border-color: var(--col-error);
+    }
 
-      .error {
-        opacity: 1;
-      }
+    &:invalid ~ .error {
+      opacity: 1;
+    }
 
-      & ~ .isInvalid {
-        opacity: 1;
-      }
+    &:invalid ~ .isInvalid {
+      opacity: 1;
     }
   }
 
   textarea {
     resize: none;
     font-family: $default-font;
+  }
+
+  label {
+    display: block;
+    color: var(--col-text);
+    font-family: $default-font;
+    position: absolute;
+    top: 0;
+    touch-action: none;
+    user-select: none;
+    cursor: text;
+    transition: 0.3s ease;
+
+    @include phone {
+      transform: translateY(1px);
+    }
+  }
+
+  input:focus ~ label,
+  textarea:focus ~ label {
+    transform: translateY(-18px);
   }
 }
 
@@ -55,15 +86,10 @@
   position: absolute;
   top: 0;
   right: 0;
-  transform: translateY(-50%);
   font-weight: 400;
-  pointer-events: none;
   color: $boulder;
-  font-size: 1.4375rem;
-
-  @include phone {
-    top: 45%;
-  }
+  font-size: 23px;
+  pointer-events: none;
 }
 
 .isActive {
@@ -78,7 +104,7 @@
 
 .error {
   display: block;
-  opacity: 1;
+  opacity: 0;
   transition: opacity 1s cubic-bezier(0.26, 1.04, 0.54, 1);
   font-weight: 400;
   font-size: 12px;
@@ -87,20 +113,5 @@
 
   @include phone {
     top: 45%;
-  }
-}
-
-.placeholder {
-  color: var(--col-text);
-  font-family: $default-font;
-  position: absolute;
-  top: 0;
-  touch-action: none;
-  user-select: none;
-  cursor: text;
-  transition: 0.3s ease;
-
-  @include phone {
-    transform: translateY(1px);
   }
 }

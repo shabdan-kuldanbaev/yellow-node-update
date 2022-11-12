@@ -10,10 +10,12 @@ export default (props) => {
     isAttached,
     isTextArea,
     isRequired,
+    isWithoutLabel,
     handleOnBlurEmail,
     style,
     value,
     type,
+    placeholder,
     ...rest
   } = props;
 
@@ -54,6 +56,7 @@ export default (props) => {
     onFocus: handleOnFocus,
     onBlur: handleOnBlur,
     required: isRequired,
+    placeholder: isWithoutLabel && placeholder,
     pattern: type in patterns ? patterns[type] : null,
   };
 
@@ -75,6 +78,8 @@ export default (props) => {
     isRequired,
     type,
     value,
+    placeholder,
+    isWithoutLabel,
     ...rest,
   });
 };

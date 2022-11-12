@@ -37,11 +37,8 @@ const Input = (props) => {
             {...inputOptions}
           />
         )}
-      {!isWithoutLabel && value?.length === 0 && (
-        <label
-          htmlFor={value}
-          className={styles.placeholder}
-        >
+      {!isWithoutLabel && (
+        <label htmlFor={value}>
           {placeholder}
         </label>
       )}
@@ -61,7 +58,6 @@ Input.defaultProps = {
   isWithoutLabel: false,
   handleOnBlurEmail: null,
   type: null,
-  pattern: null,
   isRequired: false,
   isAttached: false,
   isTextArea: false,
@@ -72,7 +68,6 @@ Input.propTypes = {
   value: PropTypes.string.isRequired,
   handleOnChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
-  pattern: PropTypes.string,
   type: PropTypes.string,
   handleOnBlurEmail: PropTypes.func,
   isWithoutLabel: PropTypes.bool,
