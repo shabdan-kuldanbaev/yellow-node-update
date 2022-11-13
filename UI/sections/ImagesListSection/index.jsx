@@ -4,7 +4,8 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getFileUrl } from 'utils/helper';
-import { getImageSectionProps } from './utils/imageHelper';
+import { REVEAL_ANIMATION_PROPS } from '../../../utils/constants';
+import useSectionProps from './useSectionProps';
 import styles from './styles.module.scss';
 
 const ImagesListSection = ({
@@ -16,8 +17,7 @@ const ImagesListSection = ({
     description,
     images,
     view,
-    animatedProps,
-  } = getImageSectionProps(sectionData);
+  } = useSectionProps(sectionData);
 
   return (
     <section className={cn(styles[type], styles[view])}>
@@ -33,7 +33,7 @@ const ImagesListSection = ({
           return (
             <Animated
               key={`images/${imageUrl}`}
-              {...animatedProps}
+              {...REVEAL_ANIMATION_PROPS}
               transitionDelay={300 + 50 * imageIndex}
             >
               <img
