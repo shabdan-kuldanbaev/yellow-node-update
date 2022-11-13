@@ -8,47 +8,47 @@
 
     .imagesList {
       justify-content: space-around;
+    }
 
-      & > div {
-        @include below-tablet {
-          margin-bottom: 32px;
-        }
+    .imagesList > div {
+      @include below-tablet {
+        margin-bottom: 32px;
+      }
 
-        &:nth-of-type(1) {
-          max-width: 201px;
+      .image {
+        width: 100%;
+        height: 100%;
+      }
+    }
 
-          @include phone {
-            max-width: 180px;
-          }
-        }
+    .imagesList > div:nth-of-type(1) {
+      max-width: 201px;
 
-        &:nth-of-type(2) {
-          max-width: 130px;
+      @include phone {
+        max-width: 180px;
+      }
+    }
 
-          @include phone {
-            max-width: 115px;
-          }
-        }
+    .imagesList > div:nth-of-type(2) {
+      max-width: 130px;
 
-        &:nth-of-type(3) {
-          max-width: 165px;
-          margin-bottom: 0;
+      @include phone {
+        max-width: 115px;
+      }
+    }
 
-          @include phone {
-            max-width: 146px;
-          }
-        }
+    .imagesList > div:nth-of-type(3) {
+      max-width: 165px;
+      margin-bottom: 0;
 
-        &:last-of-type {
-          @include below-tablet {
-            margin-bottom: 0;
-          }
-        }
+      @include phone {
+        max-width: 146px;
+      }
+    }
 
-        .image {
-          width: 100%;
-          height: 100%;
-        }
+    .imagesList > div&:last-of-type {
+      @include below-tablet {
+        margin-bottom: 0;
       }
     }
   }
@@ -58,33 +58,33 @@
 
     .imagesList {
       justify-content: center;
+    }
 
-      & > div:nth-of-type(1) {
+    .imagesList > div:nth-of-type(1) {
+      .image {
+        max-width: 920px;
+
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+
+    .imagesList > div:nth-of-type(2) {
+      display: none;
+
+      @include tablet {
+        display: block;
+
         .image {
-          max-width: 920px;
-
-          @include tablet {
-            display: none;
-          }
+          width: 100%;
+          max-width: 500px;
         }
       }
 
-      & > div:nth-of-type(2) {
-        display: none;
-
-        @include tablet {
-          display: block;
-
-          .image {
-            width: 100%;
-            max-width: 500px;
-          }
-        }
-
-        @include phone {
-          .image {
-            max-width: 300px;
-          }
+      @include phone {
+        .image {
+          max-width: 300px;
         }
       }
     }
