@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { getPlainTextProps } from './utils/plainTextHelper';
 import styles from './styles.module.scss';
+import usePlaneTextProps from './usePlaneTextProps';
 
 const PlainTextSection = ({
   sectionData,
@@ -14,7 +14,7 @@ const PlainTextSection = ({
     description,
     subtitle,
     view,
-  } = getPlainTextProps(sectionData);
+  } = usePlaneTextProps(sectionData);
 
   return (
     <div className={cn(styles[pageType], styles[view])}>
