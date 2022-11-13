@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import styles from '../styles.module.scss';
 
 export default (props) => {
   const {
