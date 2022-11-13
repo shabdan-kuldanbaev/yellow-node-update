@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import useButton from './useButton';
+import useButton from './utils/useButton';
 
 const Button = (props) => {
   const {
