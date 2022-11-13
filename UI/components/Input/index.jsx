@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import useInput from './useInput';
+import useInput from './utils/useInput';
 import styles from './styles.module.scss';
 
 const Input = (props) => {

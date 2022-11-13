@@ -1,11 +1,11 @@
 @import 'styles/utils/mixins';
 
 .input {
+  @include flex(column);
+
   --col-text: #{color(--gray400)};
   --size-text: 16px;
   --col-error: #FF3B30;
-
-  @include flex(column);
 
   position: relative !important;
   outline: none;

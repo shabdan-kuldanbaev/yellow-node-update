@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import autosize from 'autosize';
 import cn from 'classnames';
 import styles from './styles.module.scss';
-import { errorMessages, patterns } from './utils/patterns';
+import { errorMessages, patterns } from './patterns';
 
 export default (props) => {
   const {
