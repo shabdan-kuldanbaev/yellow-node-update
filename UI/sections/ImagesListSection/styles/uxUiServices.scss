@@ -46,7 +46,7 @@
       }
     }
 
-    .imagesList > div&:last-of-type {
+    .imagesList > div:last-of-type {
       @include below-tablet {
         margin-bottom: 0;
       }
