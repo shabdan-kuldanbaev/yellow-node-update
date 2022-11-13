@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import styles from './styles.module.scss';
-import usePlaneTextProps from './usePlaneTextProps';
+import usePlaneTextProps from './useSectionProps';
 
 const PlainTextSection = ({
   sectionData,
