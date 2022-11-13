@@ -115,7 +115,7 @@ const ChallengesAndSolutions = ({
                   <ul className={styles.listContainer}>
                     {contentList.map((item, contentIndex) => (
                       <Animated
-                        delay={100 + 10 * contentIndex}
+                        delay={50 + 10 * contentIndex}
                         {...ANIMATION_CASE_STUDY_PROPS}
                       >
                         <li className={styles.listItem}>
@@ -127,10 +127,7 @@ const ChallengesAndSolutions = ({
                 )}
               </div>
               {imageUrl && (
-                <Animated
-                  delay={500}
-                  {...ANIMATION_CASE_STUDY_PROPS}
-                >
+                <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div className={styles.images}>
                     <img
                       className={styles.image}

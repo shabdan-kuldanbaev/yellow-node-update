@@ -23,7 +23,7 @@
       margin-bottom: 80px;
 
       .infoContainer {
-        max-width: 630px;
+        max-width: 50%;
         margin: 0;
 
         & > * + * {
@@ -141,6 +141,10 @@
 
       .image {
         filter: none;
+      }
+
+      @include below-tablet {
+        margin-bottom: 0;
       }
     }
 
@@ -422,6 +426,10 @@
           width: 100%;
           max-width: 406px;
           margin-right: 150px;
+
+          @include below-tablet {
+            margin-right: auto;
+          }
         }
 
         p {
@@ -433,25 +441,44 @@
         }
       }
 
-      &:nth-child(1) {
-        filter: $shadow-filter;
+      @include phone {
+        margin-bottom: 30px;
+      }
+    }
 
+    :global(.swiper-slide) {
+      &:nth-child(1) {
         .images {
           position: relative;
-          width: max-content;
+          max-width: 710px;
           overflow: hidden;
           border-radius: 53px;
           
           .image {
             filter: none;
-            max-width: 710px;
             margin: -70px -7px -71px 0px;
+          }
+  
+          @include below-tablet {
+            max-width: 260px;
+            border-radius: 37px;
+            margin-bottom: 15px;
+  
+            .image {
+              margin: -43px -57px -44px -57px;
+            }
           }
         }
       }
 
-      @include phone {
-        margin-bottom: 30px;
+      &:nth-child(2) {
+        .images {
+          .image {
+            @include below-tablet {
+              max-height: 413px
+            }
+          }
+        }
       }
     }
 
