@@ -8,8 +8,11 @@ export const useTypography = ({
   className,
   children,
   size,
+  onClick,
+  tabIndex,
+  role,
 }) => {
-  const TitleTag = TYPOGRAPHY_TAGS[variant];
+  const TitleTag = TYPOGRAPHY_TAGS[variant] || variant;
   const classes = cn(className, styles[size], {
     [styles.boldText]: isBold,
   });
@@ -18,5 +21,8 @@ export const useTypography = ({
     TitleTag,
     children,
     classes,
+    onClick,
+    tabIndex,
+    role,
   };
 };

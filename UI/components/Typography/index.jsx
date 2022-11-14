@@ -6,12 +6,20 @@ import { useTypography } from './useTypography';
 
 const Typography = (props) => {
   const {
-    TitleTag, classes, children,
+    TitleTag,
+    classes,
+    children,
+    onClick,
+    tabIndex,
+    role,
   } = useTypography(props);
 
   return (
     <TitleTag
       className={classes}
+      onClick={onClick}
+      tabIndex={tabIndex}
+      role={role}
     >
       {children}
     </TitleTag>
@@ -32,6 +40,9 @@ Typography.propTypes = {
   className: PropTypes.string,
   size: PropTypes.string,
   children: PropTypes.instanceOf(Object).isRequired,
+  onClick: PropTypes.func,
+  tabIndex: PropTypes.string,
+  role: PropTypes.string,
 };
 
 export default Typography;
