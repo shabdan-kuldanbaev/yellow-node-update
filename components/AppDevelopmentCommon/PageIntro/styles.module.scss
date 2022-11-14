@@ -248,6 +248,7 @@
   }
 }
 
+.discovery-phase-services,
 .ui-ux-services {
   @extend .pageIntroContainer;
 
@@ -257,7 +258,6 @@
   .pageIntroSection {
     .pageIntroWrapper {
       margin-bottom: 0;
-      border-bottom: 1px solid $wild-sand;
 
       .pageTitle {
         @include defaultFirstHeader;
@@ -310,6 +310,75 @@
 
       .image {
         padding-top: 100%;
+      }
+    }
+  }
+}
+
+.discovery-phase-services {
+  .pageIntroSection {
+    .pageIntroWrapper {
+      flex-flow: row-reverse nowrap;
+
+      .pageTitleContainer {
+        max-width: 658px;
+
+        .pageTitle {
+          &::after {
+            width: 388px;
+            height: 101px;
+            bottom: unset;
+            left: unset;
+            top: 80px;
+            right: 130px;
+
+            @include tablet {
+              top: -10px;
+              right: -30px;
+            }
+
+            @include phone {
+              top: 0;
+              right: 70px;
+              width: 170px;
+              height: 36px;
+            }
+          }
+
+          @include tablet {
+            margin-top: 40px;
+            margin-bottom: 15px;
+          }
+
+          @include phone {
+            @include fontSize(32px, 120%);
+          }
+        }
+
+        .subtitle {
+          max-width: 625px;
+          padding: 0;
+        }
+
+        @include phone {
+          margin-bottom: 0;
+        }
+      }
+
+      .image {
+        transform: translate(-100px, 0px);
+
+        @include macbook-thirteen {
+          transform: translate(-20px, 0px);
+        }
+
+        @include tablet {
+          transform: unset;
+        }
+      }
+
+      @include tablet {
+        flex-flow: column-reverse;
       }
     }
   }

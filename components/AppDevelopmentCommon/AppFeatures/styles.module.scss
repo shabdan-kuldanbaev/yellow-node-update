@@ -1,5 +1,6 @@
 @import 'styles/utils/mixins';
 
+.discovery-phase-services,
 .enterprise-resource-planning-software-services,
 .fintech-software-development-services {
   background: $white;
@@ -59,6 +60,7 @@
           .title {
             @include fontSize(20px, 120%);
 
+            flex-grow: 1;
             margin: 10px 0;
             transition: color 400ms, margin 400ms;
             font-weight: bold;
@@ -259,5 +261,162 @@
 
   @include phone {
     padding: 60px 15px;
+  }
+}
+
+.discovery-phase-services {
+  &.firstSectionView {
+    .container {
+      .sectionContainer {
+        .description {
+          p {
+            margin-top: 0;
+            color: $silver-chalice;
+          }
+        }
+
+        .sectionItem {
+          .title {
+            margin: 10px 0;
+          }
+        }
+      }
+
+      .imageContainer {
+        img {
+          transform: scale(1) translate(0px, -10px);
+        }
+      }
+
+      @include phone {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $cod-gray-1;
+
+    [data-case-study-title] {
+      color: $white;
+    }
+
+    [data-case-study-description] {
+      color: rgb($white, 0.7);
+      text-align: left;
+      margin: 0 0 32px;
+      max-width: 625px;
+
+      @include phone {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+    }
+
+    .container {
+      max-width: 1300px;
+
+      .sectionContainer {
+        order: 1;
+
+        .sectionItem {
+          .wrapperTitle {
+            cursor: default;
+
+            .title {
+              @include flex(row, center, center);
+
+              color: $white;
+
+              &::before {
+                content: '';
+                background: $white;
+                min-width: 8px;
+                min-height: 8px;
+                border-radius: 50%;
+                margin-right: 16px;
+              }
+            }
+
+            .imageBundle {
+              transform: none;
+            }
+
+            @include phone {
+              justify-content: center;
+            }
+          }
+        }
+
+        .sectionActiveItem {
+          .wrapperTitle {
+            .imageBundle {
+              transform: none;
+            }
+          }
+        }
+
+        & div {
+          &:nth-child(7) {
+            .sectionItem {
+              margin: 60px auto 40px;
+
+              .wrapperTitle {
+                .title {
+                  color: $turbo-100;
+
+                  &::before {
+                    content: unset;
+                  }
+
+                  @include phone {
+                    text-align: center;
+                    margin: 0;
+                  }
+                }
+
+                .imageBundle {
+                  position: absolute;
+                  margin: 0;
+                  top: -190px;
+                  left: -235px;
+
+                  @include tablet {
+                    display: none;
+                  }
+                }
+              }
+
+              @include phone {
+                margin-top: 24px;
+              }
+            }
+          }
+        }
+      }
+
+      .imageContainer {
+        margin: 0 120px 0 0;
+        max-width: 525px;
+
+        iframe {
+          border: 0;
+          z-index: 1;
+        }
+
+        img {
+          display: none;
+        }
+
+        @include tablet {
+          margin: 0 auto;
+        }
+      }
+
+      @include tablet {
+        flex-direction: column-reverse;
+        margin: 0 auto;
+      }
+    }
   }
 }
