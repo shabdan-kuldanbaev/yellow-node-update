@@ -1,0 +1,42 @@
+.chat-app-development-company {
+  @extend .pageIntroContainer;
+
+  padding-top: 0;
+
+  .pageIntroWrapper {
+    margin-top: 110px;
+  }
+
+  @include tablet {
+    padding-top: 100px;
+  }
+
+  @include below-tablet {
+    padding-bottom: 0;
+    margin-top: 0;
+
+    .pageIntroSection {
+      .pageIntroWrapper {
+        margin-bottom: 65px;
+
+        .pageTitle {
+          text-align: center;
+          margin: 0 auto 15px;
+        }
+
+        .subtitle {
+          text-align: center;
+          padding-right: 0;
+        }
+      }
+    }
+
+    .pageIntroWrapper {
+      margin-top: 20px;
+    }
+  }
+
+  @include below-tablet {
+    padding-top: 0;
+  }
+}

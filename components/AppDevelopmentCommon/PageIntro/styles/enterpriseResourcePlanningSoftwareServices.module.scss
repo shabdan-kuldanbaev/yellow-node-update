@@ -1,0 +1,39 @@
+.enterprise-resource-planning-software-services {
+  .pageIntroSection {
+    .pageIntroWrapper {
+      .pageTitleContainer {
+        .pageTitle {
+          @include phone {
+            margin-bottom: 15px;
+          }
+        }
+
+        .subtitle {
+          max-width: 560px;
+
+          &:not(:first-child) {
+            @include phone {
+              margin-top: 10px;
+            }
+          }
+        }
+
+        @include phone {
+          margin-bottom: 0;
+        }
+      }
+
+      .image {
+        max-width: 610px;
+
+        @include below-tablet {
+          margin-bottom: 30px;
+        }
+      }
+
+      @include phone {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

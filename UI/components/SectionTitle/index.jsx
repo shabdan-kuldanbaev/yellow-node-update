@@ -17,7 +17,9 @@ const SectionTitle = ({
   type,
   titleStyle,
   title,
+  titleVariant,
   secondTitle,
+  secondTitleVariant,
   subtitle,
   secondSubtitle,
   description,
@@ -32,7 +34,7 @@ const SectionTitle = ({
       <Typography
         isBold
         size={TYPOGRAPHY_SIZE.headlineXL}
-        variant="h2"
+        variant={titleVariant}
         className={styles.title}
       >
         {title}
@@ -66,7 +68,7 @@ const SectionTitle = ({
         <Typography
           isBold
           size={TYPOGRAPHY_SIZE.headlineS}
-          variant="h2"
+          variant={secondTitleVariant}
           className={styles.title}
         >
           {title}
@@ -106,6 +108,8 @@ SectionTitle.defaultProps = {
   secondTitle: '',
   secondSubtitle: '',
   secondDescription: '',
+  titleVariant: 'h2',
+  secondTitleVariant: 'h3',
 };
 
 SectionTitle.propTypes = {
@@ -118,6 +122,8 @@ SectionTitle.propTypes = {
   description: PropTypes.string,
   secondDescription: PropTypes.string,
   className: PropTypes.string,
+  titleVariant: PropTypes.string,
+  secondTitleVariant: PropTypes.string,
 };
 
 export default SectionTitle;

@@ -63,7 +63,7 @@ const SvgListSection = ({
             isSwiperEnabled
             hideTitle
           />
-        ) }
+        )}
       {!withSelector && iconsGroups.map((group, i) => (
         <SvgGroup
           key={i}

@@ -1,0 +1,66 @@
+.ui-ux-services {
+  @extend .pageIntroContainer;
+
+  padding-bottom: 75px;
+  overflow: hidden;
+
+  .pageIntroSection {
+    .pageIntroWrapper {
+      margin-bottom: 0;
+      border-bottom: 1px solid $wild-sand;
+
+      .pageTitle {
+        @include defaultFirstHeader;
+
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          width: 282px;
+          height: 70px;
+          border-radius: 50%;
+          border: 6px solid $turbo-100;
+          left: 0;
+          bottom: 0;
+          transform: translate(-25%, 0);
+          z-index: -1;
+
+          @include macbook-fifteen {
+            width: 238px;
+            transform: translate(-10%, 0);
+          }
+
+          @include phone {
+            width: 170px;
+            height: 42px;
+            border-width: 3px;
+            transform: translate(25%, 0);
+          }
+        }
+
+        @include phone {
+          text-align: center;
+          margin: 0 auto;
+          max-width: 345px;
+        }
+      }
+
+      .subtitle {
+        max-width: 475px;
+
+        @include phone {
+          text-align: center;
+          max-width: 345px;
+          padding-right: 0;
+          margin: 0 auto;
+        }
+      }
+
+      .image {
+        padding-top: 100%;
+      }
+    }
+  }
+}

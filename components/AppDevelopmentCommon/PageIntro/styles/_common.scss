@@ -1,0 +1,202 @@
+.pageIntroContainer {
+  @include appDevelopmentContainer;
+
+  .pageIntroSection {
+    @include flex(column);
+
+    max-width: $max-content-width;
+    margin: 0 auto;
+
+    .pageIntroWrapper {
+      @include flex(row, space-between, center);
+
+      margin-bottom: 160px;
+
+      @include below-tablet {
+        @include flex(column, space-between, center);
+
+        margin-bottom: 100px;
+      }
+
+      .pageTitle {
+        @include fontSize(70px, 120%);
+
+        margin: 0 0 40px;
+
+        @include macbook-twelve {
+          @include fontSize(55px);
+        }
+
+        @include tablet {
+          @include fontSize(46px);
+        }
+
+        @include phone {
+          @include fontSize(32px);
+        }
+      }
+
+      .subtitle {
+        @include fontSize(18px, 180%);
+
+        margin: 0;
+        padding-right: 60px;
+        color: $silver-chalice;
+
+        @include macbook-fifteen {
+          @include fontSize(16px);
+        }
+
+        @include phone {
+          @include fontSize(14px);
+        }
+      }
+
+      & > div {
+        width: 100%;
+        height: 100%;
+      }
+
+      & .pageTitleContainer {
+        @include below-tablet {
+          margin-bottom: 40px;
+        }
+      }
+
+      .image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding-top: 81%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.ios-mobile-app-development-services,
+.devops-development-services {
+  .pageIntroSection {
+    .pageIntroWrapper {
+      border-bottom: 1px solid rgba($alto, 0.2);
+      padding-bottom: 180px;
+
+      @include macbook-twelve {
+        padding-bottom: 120px;
+      }
+
+      @include below-tablet {
+        @include flex(column-reverse, space-between, center);
+
+        padding-bottom: 80px;
+      }
+
+      @include phone {
+        margin-bottom: 60px;
+        padding-bottom: 60px;
+      }
+    }
+  }
+}
+
+.enterprise-resource-planning-software-services,
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services,
+.mvp-app-development-company,
+.cloud-based-app-development-services,
+.machine-learning-development-services,
+.fintech-software-development-services,
+.devops-development-services,
+.artificial-intelligence-development-services {
+  @extend .pageIntroContainer;
+
+  background-color: inherit;
+
+  @include below-tablet {
+    padding: 60px 40px;
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+
+  .pageIntroSection {
+    .pageIntroWrapper {
+      margin-bottom: 80px;
+
+      .pageTitle {
+        @include fontSize(70px);
+
+        color: $white;
+
+        @include macbook-twelve {
+          @include fontSize(65px);
+        }
+
+        @include tablet {
+          @include fontSize(45px);
+        }
+
+        @include below-tablet {
+          text-align: center;
+        }
+
+        @include phone {
+          @include fontSize(32px);
+        }
+      }
+
+      .subtitle {
+        max-width: 518px;
+        margin: 0;
+
+        @include below-tablet {
+          text-align: center;
+          padding: 0;
+          margin: 0 auto;
+        }
+
+        & + .subtitle {
+          margin-top: 30px;
+        }
+      }
+
+      .image {
+        max-width: 555px;
+        min-width: 400px;
+        padding-top: 105%;
+        background-size: contain;
+
+        @include below-tablet {
+          max-width: 380px;
+          min-width: unset;
+          margin: auto;
+        }
+
+        @include phone {
+          margin-bottom: 20px;
+        }
+      }
+
+      @include below-tablet {
+        @include flex(column-reverse, space-between, center);
+      }
+    }
+  }
+}
+
+.android-mobile-app-development-services,
+.mvp-app-development-company,
+.cloud-based-app-development-services,
+.machine-learning-development-services,
+.devops-development-services {
+  .pageIntroSection {
+    .pageIntroWrapper {
+      margin-bottom: 0;
+
+      .pageTitleContainer {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
