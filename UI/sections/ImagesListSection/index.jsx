@@ -5,7 +5,7 @@ import Animated from 'components/Common/Animated';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { getFileUrl } from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from '../../../utils/constants';
-import useSectionProps from './useSectionProps';
+import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
 const ImagesListSection = ({
