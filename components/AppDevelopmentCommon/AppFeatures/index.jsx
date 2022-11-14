@@ -100,27 +100,29 @@ const AppFeatures = ({
             );
           })}
         </div>
-        <Animated
-          delay={500}
-        >
-          <div className={styles.imageContainer}>
-            <img
-              src={images[activeIndex]}
-              className={styles.image}
-              alt={type}
-            />
-            {isPromoImage && promoImages[activeIndex]
-              && (
-                <iframe
-                  height={isMobileResolution ? '650' : '700'}
-                  width={isMobileResolution ? '350' : '450'}
-                  src={`https://www.figma.com/embed?embed_host=astra&url=${promoImages[activeIndex].url}`}
-                  title={data.title}
-                  allowTransparency
-                />
-              )}
-          </div>
-        </Animated>
+        <div className={styles.imageWrapper}>
+
+          <Animated delay={500}>
+            <div className={styles.imageContainer}>
+              <img
+                src={images[activeIndex]}
+                className={styles.image}
+                alt={type}
+              />
+              {isPromoImage && promoImages[activeIndex]
+                && (
+                  <iframe
+                    height={isMobileResolution ? '650' : '700'}
+                    width={isMobileResolution ? '350' : '450'}
+                    src={`https://www.figma.com/embed?embed_host=astra&url=${promoImages[activeIndex].url}`}
+                    title={data.title}
+                    allowTransparency
+                  />
+                )}
+            </div>
+          </Animated>
+        </div>
+
       </div>
     </section>
   );

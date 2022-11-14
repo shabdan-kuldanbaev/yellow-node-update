@@ -320,6 +320,7 @@
         order: 1;
 
         .sectionItem {
+
           .wrapperTitle {
             cursor: default;
 
@@ -395,13 +396,42 @@
         }
       }
 
+      .imageWrapper {
+        @include flex(row, center, center);
+
+        width: 100%;
+        position: relative;
+
+        &::before {
+          @include centered;
+
+          content: '';
+          width: 574px;
+          height: 574px;
+          background: $turbo-100;
+          border-radius: 50%;
+
+          @include phone {
+            width: 345px;
+            height: 345px;
+          }
+        }
+      }
+
       .imageContainer {
-        margin: 0 120px 0 0;
-        max-width: 525px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 51px;
+        margin: 0 auto;
+        width: min-content;
 
         iframe {
-          border: 0;
-          z-index: 1;
+          border: none;
+          margin: -60px -83px -67px;
+
+          @include phone {
+            margin: -71px -50px -78px;
+          }
         }
 
         img {
