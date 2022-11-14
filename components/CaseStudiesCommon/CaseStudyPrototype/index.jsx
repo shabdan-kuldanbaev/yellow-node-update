@@ -32,8 +32,7 @@ const CaseStudyPrototype = ({ data, type }) => {
             width={isMobileResolutions ? '350' : '500'}
             src={`https://www.figma.com/embed?embed_host=astra&url=${url}`}
             title={data.title}
-            // eslint-disable-next-line
-          allowTransparency
+            allowTransparency
             seamless
           />
         </div>
