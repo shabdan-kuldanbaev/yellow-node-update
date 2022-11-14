@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import * as Icons from './svgs';
+import * as IconsOld from './svgsOld';
 
 const Svg = ({
   type,
@@ -9,8 +10,8 @@ const Svg = ({
   handleOnClick,
   ...props
   // TODO: remove console log, keep it here until testing icons after refactoring
-}) => ((Icons[type] || console.log({ type })) ? React.createElement(
-  Icons[type],
+}) => ((IconsOld[type] || console.log({ type })) ? React.createElement(
+  IconsOld[type],
   {
     className,
     onClick: handleOnClick,
