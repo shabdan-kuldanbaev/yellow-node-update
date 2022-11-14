@@ -237,6 +237,12 @@ export { default as instagram } from './outlined/instagram.svg';
 export { default as linkedin } from './outlined/linkedin.svg';
 export { default as medium } from './outlined/medium.svg';
 export { default as twitter } from './outlined/twitter.svg';
+export { default as behanceWhite } from './outlined/behanceWhite.svg';
+export { default as dribbbleWhite } from './outlined/dribbbleWhite.svg';
+export { default as instagramWhite } from './outlined/instagramWhite.svg';
+export { default as linkedinWhite } from './outlined/linkedinWhite.svg';
+export { default as mediumWhite } from './outlined/mediumWhite.svg';
+export { default as twitterWhite } from './outlined/twitterWhite.svg';
 
 /* Outlined Finance */
 export { default as bankNote } from './outlined/bankNote.svg';
@@ -312,7 +318,7 @@ export { default as videoRecorder } from './outlined/videoRecorder.svg';
 export { default as volumeMax } from './outlined/volumeMax.svg';
 export { default as youtube } from './outlined/youtube.svg';
 
-/* Outlined General */
+/* Filled General */
 export { default as activityFilled } from './filled/activityFilled.svg';
 export { default as announcementFilled } from './filled/announcementFilled.svg';
 export { default as bellFilled } from './filled/bellFilled.svg';
@@ -344,7 +350,7 @@ export { default as toolFilled } from './filled/toolFilled.svg';
 export { default as userFilled } from './filled/userFilled.svg';
 export { default as usersFilled } from './filled/usersFilled.svg';
 
-/* Outlined Time & Images & Travel */
+/* Filled Time & Images & Travel */
 export { default as calendarFilled } from './filled/calendarFilled.svg';
 export { default as cameraFilled } from './filled/cameraFilled.svg';
 export { default as clockFilled } from './filled/clockFilled.svg';
@@ -357,15 +363,21 @@ export { default as rocketFilled } from './filled/rocketFilled.svg';
 export { default as truckFilled } from './filled/truckFilled.svg';
 export { default as watchCircleFilled } from './filled/watchCircleFilled.svg';
 
-/* Outlined Social media */
+/* Filled Social media */
 export { default as behanceFilled } from './filled/behanceFilled.svg';
 export { default as dribbbleFilled } from './filled/dribbbleFilled.svg';
 export { default as instagramFilled } from './filled/InstagramFilled.svg';
 export { default as linkedinFilled } from './filled/linkedinFilled.svg';
 export { default as mediumFilled } from './filled/mediumFilled.svg';
 export { default as twitterFilled } from './filled/twitterFilled.svg';
+export { default as behanceFilledWhite } from './filled/behanceFilled.svg';
+export { default as dribbbleFilledWhite } from './filled/dribbbleFilled.svg';
+export { default as instagramFilledWhite } from './filled/instagramFilledWhite.svg';
+export { default as linkedinFilledWhite } from './filled/linkedinFilled.svg';
+export { default as mediumFilledWhite } from './filled/mediumFilled.svg';
+export { default as twitterFilledWhite } from './filled/twitterFilled.svg';
 
-/* Outlined Finance */
+/* Filled Finance */
 export { default as bankNoteFilled } from './filled/bankNoteFilled.svg';
 export { default as barChart02Filled } from './filled/barChart02Filled.svg';
 export { default as barChartFilled } from './filled/barChartFilled.svg';
@@ -380,7 +392,7 @@ export { default as shoppingBagFilled } from './filled/shoppingBagFilled.svg';
 export { default as trendUpFilled } from './filled/trendUpFilled.svg';
 export { default as walletFilled } from './filled/walletFilled.svg';
 
-/* Outlined Education */
+/* Filled Education */
 export { default as awardFilled } from './filled/awardFilled.svg';
 export { default as beakerFilled } from './filled/beakerFilled.svg';
 export { default as bookOpenFilled } from './filled/bookOpenFilled.svg';
@@ -389,7 +401,7 @@ export { default as certificateFilled } from './filled/certificateFilled.svg';
 export { default as graduationHatFilled } from './filled/graduationHatFilled.svg';
 export { default as trophyFilled } from './filled/trophyFilled.svg';
 
-/* Outlined Development */
+/* Filled Development */
 export { default as attachmentFilled } from './filled/attachmentFilled.svg';
 export { default as bezierCurveFilled } from './filled/bezierCurveFilled.svg';
 export { default as bracketsEllipsesFilled } from './filled/bracketsEllipsesFilled.svg';
@@ -432,3 +444,38 @@ export { default as transformFilled } from './filled/transformFilled.svg';
 export { default as videoRecorderFilled } from './filled/videoRecorderFilled.svg';
 export { default as youtubeFilled } from './filled/youtubeFilled.svg';
 
+/* Filed Another */
+export { default as digit1 } from './filled/digit1.svg';
+export { default as digit2 } from './filled/digit2.svg';
+export { default as digit3 } from './filled/digit3.svg';
+export { default as digit4 } from './filled/digit4.svg';
+export { default as digit5 } from './filled/digit5.svg';
+export { default as digit6 } from './filled/digit6.svg';
+export { default as yellowCheckMark } from './filled/yellowCheckMark.svg';
+
+/* Logo Yellow */
+export { default as logoBlack } from './filled/logoBlack.svg';
+export { default as logoColorfulBlack } from './filled/logoColorfulBlack.svg';
+export { default as logoColorfulWhite } from './filled/logoColorfulWhite.svg';
+export { default as logoWhite } from './filled/logoWhite.svg';
+
+/* Other company logos */
+export { default as clutch } from './company/clutch.svg';
+export { default as designRush } from './company/designRush.svg';
+export { default as esquire } from './company/esquire.svg';
+export { default as famliciousReview } from './company/famliciousReview.svg';
+export { default as goodFirms } from './company/goodFirms.svg';
+export { default as oppsitesReview } from './company/oppsitesReview.svg';
+export { default as productHunt } from './company/productHunt.svg';
+export { default as separateReview } from './company/separateReview.svg';
+export { default as terchCrunch } from './company/terchCrunch.svg';
+export { default as theWeek } from './company/theWeek.svg';
+export { default as time } from './company/time.svg';
+export { default as chats } from './illustration/chats.svg';
+export { default as mlDevelopment } from './illustration/mlDevelopment.svg';
+export { default as mobile } from './illustration/mobile.svg';
+export { default as mvpDevelopment } from './illustration/mvpDevelopment.svg';
+export { default as opensenseTitleBorder } from './illustration/opensenseTitleBorder.svg';
+export { default as softDevelopment } from './illustration/softDevelopment.svg';
+export { default as uiUx } from './illustration/ui&ux.svg';
+export { default as webDevelopmentIllustration } from './illustration/webDevelopmentIllustration.svg';

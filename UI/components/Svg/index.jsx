@@ -2,13 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import * as Icons from './svgs';
-import * as IconsOld from './svgsOld';
-
-const checkOldSvgs = (type) => {
-  const SVG_IMAGES_TYPES_OLD = {
-
-  };
-};
 
 const Svg = ({
   type,
