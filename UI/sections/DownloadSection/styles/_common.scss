@@ -27,6 +27,15 @@
       margin-bottom: 40px;
     }
 
+    .callToAction {
+      @include flex(column, center, center);
+    }
+
+    .callToAction > a {
+      display: block;
+      width: min-content;
+    }
+
     .callToAction > a > div {
       @include fontSize(14px, 150%);
 
