@@ -4,7 +4,7 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Animated from 'components/Common/Animated';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { REVEAL_ANIMATION_PROPS } from '../../../utils/constants';
-import useImageSectionProps from './useSectionProps';
+import useImageSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
 const ImageSection = ({

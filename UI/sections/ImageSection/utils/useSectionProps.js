@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { useMemo } from 'react';
-import { getDocumentFields, getFileUrl } from '../../../utils/helper';
+import { getDocumentFields, getFileUrl } from '../../../../utils/helper';
 
 export default (props) => {
   const {
