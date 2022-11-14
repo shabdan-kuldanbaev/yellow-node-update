@@ -18,7 +18,7 @@ const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCo
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
 const AppFeatures = dynamic(() => import('components/AppDevelopmentCommon/AppFeatures'));
-const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'), { ssr: false });
+const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/PlainTextSection'));
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));

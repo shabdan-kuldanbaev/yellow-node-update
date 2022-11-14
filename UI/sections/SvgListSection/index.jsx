@@ -1,45 +1,31 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import SvgGroup from 'components/AppDevelopmentCommon/SvgListSection/SvgGroup';
+import SvgGroup from 'UI/sections/SvgListSection/SvgGroup';
+import Selector from 'UI/components/Selector';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { getSvgSectionProps } from './utils/svgHelper';
+import { useSvgListSection } from './useSvgListSection';
 import styles from './styles.module.scss';
-import Selector from './Selector';
-import { getDocumentFields } from '../../../utils/helper';
 
 const Animated = dynamic(() => import('components/Common/Animated'));
 const CallToAction = dynamic(() => import('components/Common/CallToAction'));
 
-const SvgListSection = ({
-  sectionData,
-  handleOnCTAClick,
-  type,
-  withSelector,
-}) => {
+const SvgListSection = (props) => {
   const {
     title,
     description,
     link,
     view,
     iconsGroups,
-  } = useMemo(() => getSvgSectionProps(sectionData), [sectionData]);
-
-  const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
-
-  const displayNames = iconsGroups.map((group) => getDocumentFields(group, ['title']).title);
-
-  const handleSelectedGroupIndexChange = (i) => setSelectedGroupIndex(i);
-
-  useEffect(() => {
-    if (!withSelector) {
-      return;
-    }
-
-    setSelectedGroupIndex(0);
-  }, [withSelector]);
+    handleOnCTAClick,
+    type,
+    withSelector,
+    handleSelectedGroupIndexChange,
+    displayNames,
+    selectedGroupIndex,
+  } = useSvgListSection(props);
 
   return (
     <section className={cn(styles[type], styles[view])}>

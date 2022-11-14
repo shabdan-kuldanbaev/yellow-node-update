@@ -5,20 +5,20 @@ import dynamic from 'next/dynamic';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Svg from 'components/Common/Svg';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { getSvgGroupProps, getSwiperParams } from '../utils/svgHelper';
+import { useSvgGroup } from './useSvgGroup';
 import styles from '../styles.module.scss';
 
 const Animated = dynamic(() => import('components/Common/Animated'));
 
-const SvgGroup = ({
-  data,
-  isSwiperEnabled,
-  className,
-  hideTitle,
-}) => {
-  const { title, contentList: icons } = getSvgGroupProps(data);
-
-  const swiperParams = getSwiperParams({ isEnabled: isSwiperEnabled });
+const SvgGroup = (props) => {
+  const {
+    icons,
+    title,
+    className,
+    hideTitle,
+    swiperParams,
+    isSwiperEnabled,
+  } = useSvgGroup(props);
 
   return (
     <div className={cn(

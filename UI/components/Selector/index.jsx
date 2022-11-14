@@ -1,9 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
+import { useSelector } from './useSelector';
 import styles from './styles.module.scss';
 
-const Selector = ({ displayNames, selectedIndex, onSelectedIndexChange }) => {
-  const handleSelectedIndexChange = (i) => () => onSelectedIndexChange(i);
+const Selector = (props) => {
+  const {
+    displayNames,
+    selectedIndex,
+    handleSelectedIndexChange,
+  } = useSelector(props);
 
   return (
     <div className={styles.wrapper}>
