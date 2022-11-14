@@ -454,10 +454,10 @@ export { default as digit6 } from './filled/digit6.svg';
 export { default as yellowCheckMark } from './filled/yellowCheckMark.svg';
 
 /* Logo Yellow */
-export { default as logoBlack } from './filled/logoBlack.svg';
-export { default as logoColorfulBlack } from './filled/logoColorfulBlack.svg';
-export { default as logoColorfulWhite } from './filled/logoColorfulWhite.svg';
-export { default as logoWhite } from './filled/logoWhite.svg';
+export { default as logoBlack } from './logo/logoBlack.svg';
+export { default as logoColorfulBlack } from './logo/logoColorfulBlack.svg';
+export { default as logoColorfulWhite } from './logo/logoColorfulWhite.svg';
+export { default as logoWhite } from './logo/logoWhite.svg';
 
 /* Other company logos */
 export { default as clutch } from './company/clutch.svg';
