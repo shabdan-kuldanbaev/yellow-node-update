@@ -454,11 +454,12 @@
             position: relative;
             max-width: 710px;
             overflow: hidden;
-            border-radius: 53px;
+            border-radius: 60px;
             
             .image {
+              width: auto;
               filter: none;
-              margin: -70px -7px -71px 0px;
+              margin: -70px 0 -71px;
             }
 
             @include tablet {
