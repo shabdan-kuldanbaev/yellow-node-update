@@ -35,6 +35,8 @@ const DropDownMenu = (props) => {
         }) => (
           <SubMenuItem
             key={`link/${subMenuSlug}`}
+            isLightTheme={isLightTheme}
+            isPageScrolledDown={isPageScrolledDown}
             closeMobileMenu={closeMobileMenu}
             handleOnClick={handleOnClick(subMenuSlug)}
             subtitle={subtitle}

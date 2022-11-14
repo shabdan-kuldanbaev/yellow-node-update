@@ -2,18 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import styles from '../DropDownMenu/styles.module.scss';
+import Typography from 'UI/components/Typography';
+import styles from './styles.module.scss';
 
 const SubMenuItem = ({
   closeMobileMenu,
   handleOnClick,
+  isLightTheme,
+  isPageScrolledDown,
   title,
   subtitle,
   items,
   subMenuSlug,
 }) => (
   <div
-    className={styles.itemContainer}
+    className={cn(styles.itemContainer, {
+      [styles.lightTheme]: isLightTheme,
+      [styles.pageScrolling]: isPageScrolledDown,
+    })}
     onClick={handleOnClick}
     role="button"
     tabIndex="0"
@@ -25,9 +31,12 @@ const SubMenuItem = ({
     >
       {title}
       {subtitle && (
-        <span className={styles.subtitle}>
+        <Typography
+          variant="span"
+          className={styles.subtitle}
+        >
           {subtitle}
-        </span>
+        </Typography>
       )}
     </LinkWrapper>
     {items?.map(({ slug: itemSlug, title: itemTitle }) => (
@@ -37,14 +46,14 @@ const SubMenuItem = ({
         path={itemSlug}
         key={`links/${itemTitle}`}
       >
-        <span
+        <Typography
           onClick={closeMobileMenu}
           role="button"
           tabIndex="0"
           className={styles.menuText}
         >
           {itemTitle}
-        </span>
+        </Typography>
       </LinkWrapper>
     ))}
   </div>
