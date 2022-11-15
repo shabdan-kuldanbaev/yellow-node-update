@@ -1,7 +1,7 @@
 import cn from 'classnames';
-import styles from './styles.module.scss';
+import styles from '../styles.module.scss';
 
-const TYPOGRAPHY_TAGS = {
+export const TYPOGRAPHY_TAGS = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TYPOGRAPHY_SIZE } from 'utils/constants';
-import { TYPOGRAPHY_TAGS } from './utils';
-import { useTypography } from './utils/useTypography';
+import { useTypography, TYPOGRAPHY_TAGS } from './utils/useTypography';
 
 const Typography = (props) => {
   const {
