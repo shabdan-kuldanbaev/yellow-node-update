@@ -365,40 +365,42 @@
           }
         }
 
-        & div {
-          &:nth-child(7) {
-            .sectionItem {
-              margin: 60px auto 40px;
+        & div:nth-child(7) {
+          position: relative;
+          z-index: 100;
 
-              .wrapperTitle {
-                .title {
-                  color: $turbo-100;
+          .sectionItem {
 
-                  &::before {
-                    content: unset;
-                  }
+            .wrapperTitle {
+              .title {
+                color: $turbo-100;
 
-                  @include phone {
-                    text-align: center;
-                    margin: 0;
-                  }
+                &::before {
+                  content: unset;
                 }
 
-                .imageBundle {
-                  position: absolute;
+                @include phone {
+                  text-align: center;
                   margin: 0;
-                  top: -190px;
-                  left: -235px;
-
-                  @include tablet {
-                    display: none;
-                  }
                 }
               }
 
-              @include phone {
-                margin-top: 24px;
+              .imageBundle {
+                width: 13vw;
+                height: 12vw;
+                position: absolute;
+                margin: 0;
+                bottom: 65px;
+                left: -13vw;
+
+                @include tablet {
+                  display: none;
+                }
               }
+            }
+
+            @include phone {
+              margin-top: 24px;
             }
           }
         }
