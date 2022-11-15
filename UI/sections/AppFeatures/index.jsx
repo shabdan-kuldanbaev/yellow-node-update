@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
-import AppFeaturesItem from './AppFeaturesItem';
+import AppFeaturesItem from 'UI/components/AppFeaturesItem';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
 
