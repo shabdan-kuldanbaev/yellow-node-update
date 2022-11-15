@@ -101,7 +101,6 @@ const AppFeatures = ({
           })}
         </div>
         <div className={styles.imageWrapper}>
-
           <Animated delay={500}>
             <div className={styles.imageContainer}>
               <img
@@ -122,7 +121,6 @@ const AppFeatures = ({
             </div>
           </Animated>
         </div>
-
       </div>
     </section>
   );
