@@ -1,32 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Animated from 'components/Common/Animated';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { REVEAL_ANIMATION_PROPS } from '../../../utils/constants';
-import useImageSectionProps from './utils/useSectionProps';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
-const ImageSection = ({
-  sectionData,
-  type,
-}) => {
+const ImageSection = (props) => {
   const {
     title,
     description,
     text,
     imageUrl,
-  } = useImageSectionProps(sectionData);
+    type,
+  } = useSectionProps(props);
 
   if (!imageUrl || !text) return null;
 
   return (
     <section className={styles[type]}>
       <div className={styles.imageSection}>
-        <Animated
-          {...REVEAL_ANIMATION_PROPS}
-          transitionDelay={250}
-        >
+        <Animated {...REVEAL_ANIMATION_PROPS}>
           <div
             className={styles.image}
             style={{ backgroundImage: `url(${imageUrl})` }}
@@ -39,10 +34,7 @@ const ImageSection = ({
             type="side"
             titleStyle={styles.titleStyle}
           />
-          <Animated
-            {...REVEAL_ANIMATION_PROPS}
-            transitionDelay={350}
-          >
+          <Animated {...REVEAL_ANIMATION_PROPS}>
             <ContentfulParser document={text} />
           </Animated>
         </div>

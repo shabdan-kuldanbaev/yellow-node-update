@@ -1,22 +1,27 @@
 import get from 'lodash/get';
 import { useMemo } from 'react';
-import { getDocumentFields, getFileUrl } from '../../../../utils/helper';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export default (props) => {
+  const {
+    sectionData,
+    type,
+  } = props;
+
   const {
     title,
     description,
     images,
     contentModules,
   } = useMemo(() => getDocumentFields(
-    props,
+    sectionData,
     [
       'title',
       'description',
       'images',
       'contentModules',
     ],
-  ), [props]);
+  ), [sectionData]);
 
   const { text } = getDocumentFields(get(contentModules, '[0]', {}));
   const imageUrl = getFileUrl(get(images, '[0]'));
@@ -26,5 +31,6 @@ export default (props) => {
     description,
     text,
     imageUrl,
+    type,
   };
 };
