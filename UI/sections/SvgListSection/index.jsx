@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import SvgGroup from 'UI/sections/SvgListSection/SvgGroup';
+import SvgGroup from 'UI/containers/SvgGroup';
 import Selector from 'UI/components/Selector';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { useSvgListSection } from './useSvgListSection';
+import { useSvgListSection } from './utils/useSvgListSection';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('components/Common/Animated'));
