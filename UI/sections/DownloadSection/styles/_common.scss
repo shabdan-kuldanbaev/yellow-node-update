@@ -4,44 +4,44 @@
   .contentWrapper {
     max-width: $max-content-width;
     margin: 0 auto;
+  }
 
-    [data-case-study-title] {
-      @include fontSize(56px, 120%);
+  [data-case-study-title] {
+    @include fontSize(56px, 120%);
 
-      max-width: 100%;
+    max-width: 100%;
 
-      @include phone {
-        @include fontSize(32px);
-      }
+    @include phone {
+      @include fontSize(32px);
     }
+  }
 
-    [data-case-study-description] {
-      margin-top: 20px;
+  [data-case-study-description] {
+    margin-top: 20px;
 
-      @include phone {
-        @include fontSize(14px, 120%);
-      }
+    @include phone {
+      @include fontSize(14px, 120%);
     }
+  }
 
-    .titleWrapper {
-      margin-bottom: 40px;
-    }
+  .titleWrapper {
+    margin-bottom: 40px;
+  }
 
-    .callToAction {
-      @include flex(column, center, center);
-    }
+  .callToAction {
+    @include flex(column, center, center);
+  }
 
-    .callToAction > a {
-      display: block;
-      width: min-content;
-    }
+  .callToAction > a {
+    display: block;
+    width: min-content;
+  }
 
-    .callToAction > a > div {
-      @include fontSize(14px, 150%);
+  .callToAction > a > div {
+    @include fontSize(14px, 150%);
 
-      margin: 0 auto;
-      padding: 14px 0;
-    }
+    margin: 0 auto;
+    padding: 14px 0;
   }
 
   @include phone {

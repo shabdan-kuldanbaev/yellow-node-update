@@ -1,22 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 import CallToAction from 'components/Common/CallToAction';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
-const DownloadSection = ({
-  data,
-  type,
-}) => {
+const DownloadSection = (props) => {
   const {
     title,
     description,
     subtitle,
     view,
     link,
-  } = useSectionProps(data);
+    type,
+  } = useSectionProps(props);
 
   return (
     <section className={cn(styles[type], styles[view])}>
@@ -41,7 +39,7 @@ const DownloadSection = ({
 };
 
 DownloadSection.propTypes = {
-  data: PropTypes.instanceOf(Object).isRequired,
+  sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
 

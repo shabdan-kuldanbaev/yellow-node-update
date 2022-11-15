@@ -4,13 +4,18 @@ import { getDocumentFields } from 'utils/helper';
 
 export default (props) => {
   const {
+    sectionData,
+    type,
+  } = props;
+
+  const {
     title,
     description,
     subtitle,
     contentModules,
     view,
   } = useMemo(() => getDocumentFields(
-    props,
+    sectionData,
     [
       'title',
       'description',
@@ -18,7 +23,7 @@ export default (props) => {
       'subtitle',
       'view',
     ],
-  ), [props]);
+  ), [sectionData]);
 
   const link = getDocumentFields(get(contentModules, '[0]'));
 
@@ -28,5 +33,6 @@ export default (props) => {
     subtitle,
     view,
     link,
+    type,
   };
 };
