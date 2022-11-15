@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FAQ from 'UI/components/FAQ';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { useFaqSection } from './useFaqSection';
+import { useFaqSection } from './utils/useFaqSection';
 import styles from './styles.module.scss';
 
 const FaqSection = (props) => {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Logo from 'components/Common/Logo';
 import TopProgressBar from 'components/Common/TopProgressBar';
-import { useHeader } from './useHeader';
+import { useHeader } from './utils/useHeader';
 import styles from './styles.module.scss';
 
 const MobileMenu = dynamic(() => import('./MobileMenu'));

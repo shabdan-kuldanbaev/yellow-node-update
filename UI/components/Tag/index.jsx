@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import { useTag } from './useTag';
+import { useTag } from './utils/useTag';
 import styles from './styles.module.scss';
 
 const Tag = (props) => {

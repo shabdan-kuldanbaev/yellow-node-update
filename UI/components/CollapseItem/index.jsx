@@ -6,7 +6,7 @@ import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Typography from 'UI/components/Typography';
 import { ANIMATED_TYPE, TYPOGRAPHY_SIZE } from 'utils/constants';
-import { useCollapseItem } from './useCollapseItem';
+import { useCollapseItem } from './utils/useCollapseItem';
 import styles from './styles.module.scss';
 
 const CollapseItem = (props) => {

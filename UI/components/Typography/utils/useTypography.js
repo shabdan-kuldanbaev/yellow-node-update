@@ -1,6 +1,16 @@
 import cn from 'classnames';
-import { TYPOGRAPHY_TAGS } from './utils';
 import styles from './styles.module.scss';
+
+const TYPOGRAPHY_TAGS = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
+  p: 'p',
+  span: 'span',
+};
 
 export const useTypography = ({
   variant,
