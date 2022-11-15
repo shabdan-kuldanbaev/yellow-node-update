@@ -2,22 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
-import usePlaneTextProps from './utils/useSectionProps';
 
-const PlainTextSection = ({
-  sectionData,
-  pageType,
-}) => {
+const PlainTextSection = (props) => {
   const {
     title,
     description,
     subtitle,
     view,
-  } = usePlaneTextProps(sectionData);
+    type,
+  } = useSectionProps(props);
 
   return (
-    <div className={cn(styles[pageType], styles[view])}>
+    <div className={cn(styles[type], styles[view])}>
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
@@ -32,7 +30,7 @@ const PlainTextSection = ({
 
 PlainTextSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
-  pageType: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default PlainTextSection;
