@@ -19,7 +19,9 @@
     "lint:style:fix": "yarn lint:style -- --fix",
     "lint": "yarn lint:js && yarn lint:style",
     "prepare": "husky install",
-    "svgo": "npx svgo -q --folder UI/components/Svg/svgs"
+    "svgo": "npx svgo -q --folder UI/components/Svg/svgs",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -103,8 +105,19 @@
     "@lwc/eslint-plugin-lwc": "^1.4.0",
     "@next/eslint-plugin-next": "^12.2.2",
     "@salesforce/eslint-config-lwc": "^3.3.2",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-webpack5": "^6.5.13",
+    "@storybook/manager-webpack5": "^6.5.13",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.5.13",
+    "@storybook/testing-library": "^0.0.13",
     "@svgr/webpack": "^6.2.1",
+    "babel-loader": "^8.2.5",
     "contentful-management": "^10.6.3",
+    "css-loader": "5.2.6",
     "eslint": "^8.19.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
@@ -118,8 +131,11 @@
     "postcss-preset-env": "^7.7.2",
     "postcss-scss": "^4.0.4",
     "redux-devtools-extension": "^2.13.9",
-    "sass": "^1.53.0",
+    "sass": "^1.55.0",
+    "sass-loader": "10.1.1",
+    "storybook-addon-next": "^1.6.9",
     "string-replace-loader": "^3.1.0",
+    "style-loader": "2.0.0",
     "stylelint": "^14.9.1",
     "stylelint-config-standard": "^26.0.0",
     "svgo": "^2.8.0"
