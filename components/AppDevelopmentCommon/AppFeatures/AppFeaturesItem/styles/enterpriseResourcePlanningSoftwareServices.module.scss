@@ -1,0 +1,17 @@
+.enterprise-resource-planning-software-services {
+  &.sectionItem {
+    @include defaultItem();
+
+    .title {
+      color: $white;
+    }
+
+    .description {
+      color: rgb($white, 0.7);
+    }
+  }
+
+  &.sectionActiveItem {
+    @include defaultActiveItem();
+  }
+}

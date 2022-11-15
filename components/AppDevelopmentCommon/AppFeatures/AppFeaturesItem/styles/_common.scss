@@ -1,0 +1,60 @@
+@mixin defaultActiveItem {
+  .imageBundle {
+    transition: 0.5s;
+    transform: rotate(180deg);
+  }
+}
+
+@mixin defaultItem {
+  position: relative;
+
+  .wrapperTitle {
+    @include flex(row, initial, center);
+
+    cursor: pointer;
+
+    @include phone {
+      justify-content: space-between;
+    }
+  }
+
+  .title {
+    @include fontSize(20px, 120%);
+
+    margin: 10px 0;
+    transition: color 400ms, margin 400ms;
+    font-weight: bold;
+
+    &:hover {
+      transition: color 400ms;
+    }
+
+    @include tablet {
+      @include fontSize(18px);
+    }
+
+    @include phone {
+      @include fontSize(16px);
+    }
+  }
+
+  .description {
+    @include fontSize(18px, 150%);
+
+    max-width: 580px;
+
+    & > p {
+      margin: 0;
+    }
+
+    @include tablet {
+      @include fontSize(16px);
+    }
+  }
+
+  .imageBundle {
+    margin-left: 32px;
+    transition: 0.3s;
+    transform: rotate(360deg);
+  }
+}
