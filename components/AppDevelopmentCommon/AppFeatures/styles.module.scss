@@ -28,7 +28,6 @@
 
     .sectionContainer {
       max-width: 680px;
-      width: 100%;
 
       & > div {
         opacity: unset !important;
@@ -129,6 +128,10 @@
 
       @include desktop {
         max-width: 540px;
+      }
+
+      @include tablet {
+        max-width: 100%;
       }
     }
 
@@ -317,6 +320,7 @@
       max-width: 1300px;
 
       .sectionContainer {
+        width: 100%;
         order: 1;
 
         .sectionItem {
@@ -325,7 +329,7 @@
             cursor: default;
 
             .title {
-              @include flex(row, center, center);
+              @include flex(row, start, center);
 
               color: $white;
 
@@ -336,6 +340,10 @@
                 min-height: 8px;
                 border-radius: 50%;
                 margin-right: 16px;
+              }
+
+              @include phone {
+                @include flex(row, center, center);
               }
             }
 
