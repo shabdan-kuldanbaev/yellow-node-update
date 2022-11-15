@@ -10,7 +10,7 @@ const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/C
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
 const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
-const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSection'));
+const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
 const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
 const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));

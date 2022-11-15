@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FAQ } from 'components/Common/FAQ';
+import FAQ from 'UI/components/FAQ';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { getDocumentFields } from 'utils/helper';
-import { getFAQList } from './utils/faqHelper';
+import { useFaqSection } from './useFaqSection';
 import styles from './styles.module.scss';
 
-const FaqSection = ({ data, type }) => {
+const FaqSection = (props) => {
   const {
+    type,
     title,
+    faqList,
     contentModules,
-  } = getDocumentFields(data);
+  } = useFaqSection(props);
 
   if (!contentModules) {
     return null;
   }
-
-  const faqList = getFAQList(contentModules);
 
   return (
     <section className={styles[type]}>
