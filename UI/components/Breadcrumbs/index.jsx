@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Animated from 'UI/components/Animated';
+import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useBreadcrumbs from './utils/useBreadcrumbs';
 
