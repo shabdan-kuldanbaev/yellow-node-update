@@ -23,7 +23,7 @@ export default ({
 
   const { images } = getDocumentFields(get(contentModules, '[0]', {})) || {};
 
-  const imagesUrl = images.map((image) => getFileUrl(image));
+  const imagesUrl = images.length > 0 && images.map((image) => getFileUrl(image));
 
   return {
     title,
