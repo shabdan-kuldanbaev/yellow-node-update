@@ -1,7 +1,6 @@
 import * as builder from 'xmlbuilder';
 import dayjs from 'dayjs';
 import {
-  getMainLinksForSitemap,
   rootUrl,
   getDocumentFields,
 } from 'utils/helper';
@@ -9,9 +8,14 @@ import { ROUTES, CASE_STUDIES_SLUGS } from 'utils/constants';
 import { contentfulClient } from 'utils/contentful/client';
 import errorHelper from 'utils/error';
 
+const excludedPages = [
+  'signature-generator',
+  'not-found',
+];
+
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
 const buildUrlObject = (data) => data.map((item) => {
-  const isHomepage = item.path === ROUTES.homepage.path;
+  const isHomepage = item.path === '';
 
   return ({
     loc: { '#text': `${rootUrl}${item.path}` },
@@ -28,26 +32,35 @@ export const getServerSideProps = async ({ res }) => {
     const [
       articles,
       pages,
+      blogTags,
     ] = await Promise.all([
       contentfulClient.getEntries({
         contentType: 'article',
         searchType: '[match]',
         additionalQueryParams: {
-          select: ['fields.slug', 'fields.updatedAt'],
+          select: ['fields.slug', 'sys.updatedAt'],
         },
       }),
       contentfulClient.getEntries({
         contentType: 'page',
         searchType: '[match]',
         additionalQueryParams: {
-          'fields.slug[in]': CASE_STUDIES_SLUGS.join(','),
-          select: ['fields.slug'],
+          'fields.slug[nin]': excludedPages.join(','),
+          select: ['fields.slug', 'sys.updatedAt'],
+        },
+      }),
+      contentfulClient.getEntries({
+        contentType: 'tag',
+        searchType: '[match]',
+        additionalQueryParams: {
+          'fields.type': 'article',
+          select: ['fields.slug', 'sys.updatedAt'],
         },
       }),
     ]);
 
     const postLinks = articles.items.map((link) => {
-      const { slug, updatedAt } = getDocumentFields(link, ['slug', 'updatedAt']);
+      const { slug, 'sys.updatedAt': updatedAt } = getDocumentFields(link, ['slug', 'sys.updatedAt']);
 
       return ({
         path: ROUTES.article.getRoute(slug).path,
@@ -55,19 +68,23 @@ export const getServerSideProps = async ({ res }) => {
       });
     });
 
-    const caseStudiesLinks = pages.items.map((caseStudy) => {
-      const { slug } = getDocumentFields(caseStudy, ['slug']);
+    const pageLinks = pages.items.map((page) => {
+      const { slug, 'sys.updatedAt': updatedAt } = getDocumentFields(page, ['slug', 'sys.updatedAt']);
 
       return ({
-        path: ROUTES.portfolio.getRoute(slug).path,
-        updatedAt: getDate(new Date()),
+        path: CASE_STUDIES_SLUGS.includes(slug) ? ROUTES.portfolio.getRoute(slug).path : ROUTES.fromRoot(slug),
+        updatedAt: getDate(Date.parse(updatedAt)),
       });
     });
 
-    const customBlogs = ROUTES.blog.categories.map((blog) => ({
-      path: ROUTES.blog.getRoute(blog.slug).path,
-      updatedAt: getDate(new Date()),
-    }));
+    const blogTagLinks = blogTags.items.map((tag) => {
+      const { slug, 'sys.updatedAt': updatedAt } = getDocumentFields(tag, ['slug', 'sys.updatedAt']);
+
+      return ({
+        path: ROUTES.blog.getRoute(slug).path,
+        updatedAt: getDate(Date.parse(updatedAt)),
+      });
+    });
 
     const feedObject = {
       urlset: {
@@ -86,10 +103,9 @@ export const getServerSideProps = async ({ res }) => {
 
     feedObject.urlset.url.push(
       ...buildUrlObject([
-        ...getMainLinksForSitemap(getDate(new Date('2021-05-12'))),
-        ...caseStudiesLinks,
+        ...pageLinks,
         ...postLinks,
-        ...customBlogs,
+        ...blogTagLinks,
       ]),
     );
 

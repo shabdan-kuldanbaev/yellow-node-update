@@ -72,6 +72,11 @@ export const footerData = [
         type: 'navigation',
       },
       {
+        subtitle: 'Project Discovery Phase in Custom Software Development',
+        path: ROUTES.discoveryPhase.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Custom ERP Software Development Services',
         path: ROUTES.erpDevelopment.path,
         type: 'navigation',

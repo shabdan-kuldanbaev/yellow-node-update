@@ -10,6 +10,7 @@ import styles from './styles.module.scss';
 const AppFeaturesItem = (props) => {
   const {
     type,
+    view,
     title,
     text,
     activeIndex,
@@ -28,6 +29,7 @@ const AppFeaturesItem = (props) => {
         className={cn(
           styles.sectionItem,
           styles[type],
+          styles[view],
           {
             [styles.sectionActiveItem]: currentIndex === activeIndex,
           },

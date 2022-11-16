@@ -10,11 +10,15 @@ import styles from './styles.module.scss';
 const AppFeatures = (props) => {
   const {
     type,
+    view,
     data,
     images,
     activeIndex,
     handleOnClick,
     imagesData,
+    promoImages,
+    isMobileResolution,
+    isPromoImage,
   } = useAppFeatures(props);
 
   if (!imagesData) {
@@ -22,7 +26,13 @@ const AppFeatures = (props) => {
   }
 
   return (
-    <section className={cn(styles.section, styles[type])}>
+    <section
+      className={cn(
+        styles.section,
+        styles[type],
+        styles[view],
+      )}
+    >
       <div className={styles.container}>
         <div className={styles.sectionContainer}>
           <SectionTitle
@@ -31,6 +41,7 @@ const AppFeatures = (props) => {
           />
           {data.contentModules.map((document, index) => (
             <AppFeaturesItem
+              view={view}
               type={type}
               data={document}
               currentIndex={index}
@@ -46,6 +57,16 @@ const AppFeatures = (props) => {
               className={styles.image}
               alt={type}
             />
+            {isPromoImage && promoImages[activeIndex]
+              && (
+                <iframe
+                  height={isMobileResolution ? '650' : '700'}
+                  width={isMobileResolution ? '350' : '450'}
+                  src={`https://www.figma.com/embed?embed_host=astra&url=${promoImages[activeIndex].url}`}
+                  title={data.title}
+                  allowTransparency
+                />
+              )}
           </div>
         </Animated>
       </div>
@@ -53,9 +74,14 @@ const AppFeatures = (props) => {
   );
 };
 
+AppFeatures.defaultProps = {
+  isPromoImage: false,
+};
+
 AppFeatures.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
+  isPromoImage: PropTypes.bool,
 };
 
 export default AppFeatures;

@@ -23,6 +23,8 @@ const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/P
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
+const TabsSection = dynamic(() => import('components/AppDevelopmentCommon/TabsSection'));
+const DownloadSection = dynamic(() => import('components/AppDevelopmentCommon/DownloadSection'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -192,6 +194,14 @@ export const AppDevelopmentCommon = ({
         type={type}
       />
     );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeaturesPromo:
+    return (
+      <AppFeatures
+        data={section.fields}
+        type={type}
+        isPromoImage
+      />
+    );
   case APP_DEVELOPMENT_TYPES.appDevelopmentPlainTextSection:
     return (
       <PlainTextSection
@@ -213,6 +223,21 @@ export const AppDevelopmentCommon = ({
         pageType={type}
         sectionType="cards"
         handleOnCTAClick={handleOnCTAClick}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentTabsSection:
+    return (
+      <TabsSection
+        data={section.fields}
+        type={type}
+        handleOnCTAClick={handleOnCTAClick}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
+    return (
+      <DownloadSection
+        type={type}
+        data={section}
       />
     );
   default:

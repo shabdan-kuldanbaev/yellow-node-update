@@ -1,0 +1,46 @@
+.discovery-phase-services {
+  &.firstSectionView {
+    &.sectionItem {
+      @include defaultItem();
+    }
+
+    &.sectionActiveItem {
+      .wrapperTitle {
+        @include defaultActiveItem();
+      }
+    }
+  }
+
+  &.secondSectionView {
+    &.sectionItem {
+      @include defaultItem();
+
+      .wrapperTitle {
+        cursor: default;
+
+        .title {
+          @include flex(row, center, center);
+
+          color: $white;
+
+          &::before {
+            content: '';
+            background: $white;
+            min-width: 8px;
+            min-height: 8px;
+            border-radius: 50%;
+            margin-right: 16px;
+          }
+        }
+
+        .imageBundle {
+          transform: none;
+        }
+
+        @include phone {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

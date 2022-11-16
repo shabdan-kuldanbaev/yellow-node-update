@@ -143,6 +143,7 @@
     "no-return-await": "off",
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "react/no-unused-prop-types": "warn"
   }
 }

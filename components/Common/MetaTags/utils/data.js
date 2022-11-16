@@ -111,6 +111,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.fintechDevelopment.path}`,
   },
   {
+    pageName: ROUTES.discoveryPhase.slug,
+    metaTitle: 'Project Discovery Phase in Custom Software Development | Yellow',
+    metaDescription: 'Discovery phase of a project is an important part of software development. Learn more about how to run a discovery phase and its benefits to your business.',
+    url: `${rootUrl}${ROUTES.discoveryPhase.path}`,
+  },
+  {
     pageName: ROUTES.erpDevelopment.slug,
     metaTitle: 'Custom ERP Software Development Services | Yellow',
     metaDescription: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',

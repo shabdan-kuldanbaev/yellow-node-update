@@ -12,7 +12,7 @@
     margin: 0;
     max-width: 690px;
     text-align: left;
-    color: rgb($white, 0.7);
+    color: $gray400;
 
     @include tablet-size-horizontal {
       text-align: center;
@@ -23,7 +23,7 @@
   .container {
     @include flex(row, space-between);
 
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
 
     div:last-child {

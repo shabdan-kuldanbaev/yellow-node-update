@@ -1,13 +1,9 @@
-.fintech-software-development-services{
+.fintech-software-development-services {
   &.sectionItem {
     @include defaultItem();
 
     .title {
       color: $black;
-    }
-
-    .description {
-      color: $silver-chalice;
     }
   }
 

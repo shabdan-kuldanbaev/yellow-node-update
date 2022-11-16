@@ -41,6 +41,7 @@
   .description {
     @include fontSize(18px, 150%);
 
+    color: $gray400;
     max-width: 580px;
 
     & > p {
