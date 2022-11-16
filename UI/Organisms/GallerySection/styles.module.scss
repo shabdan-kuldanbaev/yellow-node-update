@@ -1,0 +1,82 @@
+/* stylelint-disable no-descending-specificity */
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
+
+.gallerySection {
+  padding-bottom: 30px;
+
+  :global(.swiper) {
+    padding-bottom: 100px;
+    margin: 0 -40px;
+
+    @include phone {
+      margin: 0 -15px;
+    }
+  }
+
+  :global(.swiper-slide) {
+    transition-property: box-shadow, transform;
+  }
+
+  :global(.swiper-slide-active) {
+    box-shadow: 0 10px 60px -10px rgba($black, 0.15);
+  }
+
+  .navigation {
+    max-width: 60vw;
+
+    @include tablet {
+      max-width: 90vw;
+    }
+  }
+}
+
+.discovery-phase-services,
+.web-app-development-company,
+.ios-mobile-app-development-services,
+.android-mobile-app-development-services,
+.mvp-app-development-company,
+.cloud-based-app-development-services,
+.machine-learning-development-services,
+.ui-ux-services,
+.chat-app-development-company,
+.mobile-app-development-company,
+.fintech-software-development-services,
+.devops-development-services,
+.artificial-intelligence-development-services {
+  @include appDevelopmentContainer;
+
+  background-color: $white;
+  padding-bottom: 90px;
+
+  .sectionTitle {
+    @include defaultSectionTitle;
+  }
+
+  .callToAction {
+    @include defaultCallToAction;
+  }
+
+  @include below-tablet {
+    padding-bottom: 30px;
+  }
+}
+
+/* Sections with grey background */
+.discovery-phase-services,
+.mobile-app-development-company,
+.artificial-intelligence-development-services {
+  background: $alabaster;
+
+  .callToAction {
+    background: $white;
+  }
+}
+
+.android-mobile-app-development-services {
+  .sectionTitle {
+    @include below-tablet {
+      max-width: 343px;
+    }
+  }
+}

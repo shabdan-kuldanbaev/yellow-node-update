@@ -1,0 +1,31 @@
+.real-ai {
+  @extend .verticalContainer;
+
+  background: $very-page-blue;
+
+  .projectDescription {
+    color: $silver-chalice;
+    max-width: 514px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .imageContainer {
+    width: 85%;
+
+    @include tablet {
+      width: 80%;
+    }
+
+    @include phone {
+      width: 100%;
+    }
+
+    .image {
+      margin: 0 0 -20px;
+      max-width: 100%;
+    }
+  }
+}
