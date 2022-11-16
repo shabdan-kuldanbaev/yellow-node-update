@@ -148,6 +148,10 @@
       }
     }
 
+    :global(.swiper) {
+      padding-bottom: 50px;
+    }
+
     .navigation {
       z-index: 1;
     }
