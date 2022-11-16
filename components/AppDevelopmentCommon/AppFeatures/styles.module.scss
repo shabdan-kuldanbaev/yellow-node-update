@@ -28,7 +28,6 @@
 
     .sectionContainer {
       max-width: 680px;
-      width: 100%;
 
       & > div {
         opacity: unset !important;
@@ -129,6 +128,10 @@
 
       @include desktop {
         max-width: 540px;
+      }
+
+      @include tablet {
+        max-width: 100%;
       }
     }
 
@@ -317,14 +320,16 @@
       max-width: 1300px;
 
       .sectionContainer {
+        width: 100%;
         order: 1;
 
         .sectionItem {
+
           .wrapperTitle {
             cursor: default;
 
             .title {
-              @include flex(row, center, center);
+              @include flex(row, start, center);
 
               color: $white;
 
@@ -335,6 +340,10 @@
                 min-height: 8px;
                 border-radius: 50%;
                 margin-right: 16px;
+              }
+
+              @include phone {
+                @include flex(row, center, center);
               }
             }
 
@@ -356,52 +365,83 @@
           }
         }
 
-        & div {
-          &:nth-child(7) {
-            .sectionItem {
-              margin: 60px auto 40px;
+        & div:nth-child(7) {
+          position: relative;
+          z-index: 100;
 
-              .wrapperTitle {
-                .title {
-                  color: $turbo-100;
+          .sectionItem {
 
-                  &::before {
-                    content: unset;
-                  }
+            .wrapperTitle {
+              .title {
+                color: $turbo-100;
 
-                  @include phone {
-                    text-align: center;
-                    margin: 0;
-                  }
+                &::before {
+                  content: unset;
                 }
 
-                .imageBundle {
-                  position: absolute;
+                @include phone {
+                  text-align: center;
                   margin: 0;
-                  top: -190px;
-                  left: -235px;
-
-                  @include tablet {
-                    display: none;
-                  }
                 }
               }
 
-              @include phone {
-                margin-top: 24px;
+              .imageBundle {
+                width: 13vw;
+                height: 12vw;
+                position: absolute;
+                margin: 0;
+                bottom: 65px;
+                left: -13vw;
+
+                @include tablet {
+                  display: none;
+                }
               }
+            }
+
+            @include phone {
+              margin-top: 24px;
             }
           }
         }
       }
 
+      .imageWrapper {
+        @include flex(row, center, center);
+
+        width: 100%;
+        position: relative;
+
+        &::before {
+          @include centered;
+
+          content: '';
+          width: 574px;
+          height: 574px;
+          background: $turbo-100;
+          border-radius: 50%;
+
+          @include phone {
+            width: 345px;
+            height: 345px;
+          }
+        }
+      }
+
       .imageContainer {
-        margin: 0 120px 0 0;
-        max-width: 525px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 51px;
+        margin: 0 auto;
+        width: min-content;
 
         iframe {
-          border: 0;
-          z-index: 1;
+          border: none;
+          margin: -60px -83px -67px;
+
+          @include phone {
+            margin: -71px -50px -78px;
+          }
         }
 
         img {
