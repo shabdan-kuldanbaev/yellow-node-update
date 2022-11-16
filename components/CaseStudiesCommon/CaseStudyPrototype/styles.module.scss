@@ -29,11 +29,11 @@
 
   iframe {
     border: none;
-    margin: -60px -83px -67px;
+    // margin: -60px -83px -67px;
 
-    @include phone {
-      margin: -71px -50px -78px;
-    }
+    // @include phone {
+    //   margin: -71px -50px -78px;
+    // }
   }
 
   @include phone {
