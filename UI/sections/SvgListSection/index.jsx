@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import SvgGroup from 'UI/containers/SvgGroup';
-import Selector from 'UI/components/Selector';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import Selector from 'UI/components/Selector';
 import { useSvgListSection } from './utils/useSvgListSection';
 import styles from './styles.module.scss';
 
@@ -28,7 +28,13 @@ const SvgListSection = (props) => {
   } = useSvgListSection(props);
 
   return (
-    <section className={cn(styles[type], styles[view])}>
+    <section
+      className={cn(
+        styles.section,
+        styles[type],
+        styles[view],
+      )}
+    >
       <SectionTitle
         title={title}
         description={description}

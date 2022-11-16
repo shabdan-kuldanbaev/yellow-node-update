@@ -52,29 +52,15 @@
   }
 }
 
-.android-mobile-app-development-services,
-.chat-app-development-company,
-.cloud-based-app-development-services,
-.ios-mobile-app-development-services,
-.machine-learning-development-services,
-.mobile-app-development-company,
-.mvp-app-development-company,
-.ui-ux-services,
-.web-app-development-company,
-.devops-development-services,
-.fintech-software-development-services,
-.artificial-intelligence-development-services,
-.homepage {
-  .groupTitle {
-    @include fontSize(32px, 120%);
+.groupTitle {
+  @include fontSize(32px, 120%);
 
-    text-align: center;
-    margin-bottom: 34px;
+  text-align: center;
+  margin-bottom: 34px;
 
-    @include below-tablet {
-      @include fontSize(24px);
+  @include below-tablet {
+    @include fontSize(24px);
 
-      margin-bottom: 25px;
-    }
+    margin-bottom: 25px;
   }
 }

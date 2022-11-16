@@ -1,14 +1,7 @@
 .enterprise-resource-planning-software-services {
   background-color: $alabaster;
-  padding: 120px 10px;
 
-  .titleStyle {
-    .description {
-      max-width: 870px;
-    }
-  }
-
-  @include phone {
-    padding: 60px 15px;
+  .description {
+    max-width: 870px;
   }
 }
