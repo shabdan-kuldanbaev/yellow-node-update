@@ -476,15 +476,15 @@
               filter: none;
               top: -70px;
               left: -5px;
-              transform: scale(0.51);
             }
-
+            
             @include tablet {
               height: 329px;
               width: 161px;
               border-radius: 30px;
               
               .image {
+                transform: scale(0.51);
                 max-height: initial;
               }
             }
