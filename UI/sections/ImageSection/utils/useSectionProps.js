@@ -2,12 +2,10 @@ import get from 'lodash/get';
 import { useMemo } from 'react';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
-export default (props) => {
-  const {
-    sectionData,
-    type,
-  } = props;
-
+export default ({
+  sectionData,
+  type,
+}) => {
   const {
     title,
     description,
