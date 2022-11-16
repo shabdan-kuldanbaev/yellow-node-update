@@ -412,8 +412,9 @@
 
   &.fifthSectionView {
     .contentContainer {
-      flex-direction: column;
-      align-items: center;
+      @include flex(column, space-between, center);
+
+      height: 100%;
 
       .infoContainer {
         flex-direction: row;
@@ -450,35 +451,41 @@
       }
     }
 
+    :global(.swiper-slide) {
+      align-self: stretch;
+      height: auto;
+      padding-bottom: 70px;
+    }
+
     & > * {
       &.contentContainer, 
       :global(.swiper-slide) {
         &:nth-child(1) {
           .images {
+            @include flex(row, center, center);
+
             position: relative;
-            max-width: 710px;
             overflow: hidden;
             border-radius: 60px;
+            height: 670px;
+            width: 328px;
             
             .image {
-              width: auto;
+              width: 103%;
+              height: auto;
               filter: none;
-              margin: -70px 0 -71px;
+              top: -70px;
+              left: -5px;
+              transform: scale(0.51);
             }
 
             @include tablet {
-              max-width: 260px;
-              border-radius: 44px;
-              margin-bottom: 15px;
+              height: 329px;
+              width: 161px;
+              border-radius: 30px;
               
               .image {
-                margin: -57px -28px;
-              }
-            }
-
-            @include phone {
-              .image {
-                max-height: 650px;
+                max-height: initial;
               }
             }
           }
@@ -486,9 +493,15 @@
 
         &:nth-child(2) {
           .images {
+            @include flex(column, center);
+
+            flex: 1 1 auto;
+
             .image {
-              @include below-tablet {
-                max-height: 413px
+              filter: none;
+              
+              @include tablet {
+                max-height: 336px;
               }
             }
           }
