@@ -1,64 +1,62 @@
 .fintech-software-development-services {
+  padding: 0 16px;
   background-color: $white;
   padding-bottom: 120px;
 
   .imageSection {
     @include flex(column-reverse);
 
-    .image {
-      background-size: contain;
-      padding: 0;
-      width: 635px;
-      height: 420px;
-      margin: 0 auto;
+    @include below-tablet {
+      margin: unset;
+    }
+  }
+
+  .image {
+    background-size: contain;
+    padding: 0;
+    max-width: 635px;
+    height: 420px;
+    margin: 0 auto;
+
+    @include phone {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .experienceContent {
+    max-width: 800px;
+    margin: 120px auto 0;
+    padding: 0;
+
+    h2,
+    p {
+      text-align: center;
+    }
+
+    h2 {
+      @include fontSize(38px);
+
+      line-height: 49px;
+      margin-bottom: 16px;
 
       @include phone {
-        width: 300px;
-        height: 300px;
+        @include fontSize(24px);
+
+        line-height: 31px;
       }
     }
 
-    .experienceContent {
-      width: 860px;
-      margin: 120px auto 0;
-      padding: 0;
-
-      h2,
-      p {
-        text-align: center;
-      }
-
-      h2 {
-        margin-bottom: 20px;
-
-        @include phone {
-          @include fontSize(30px);
-        }
-      }
-
-      & > div:last-child > p {
-        margin-bottom: 60px;
-
-        @include phone {
-          margin-bottom: unset;
-        }
-      }
-
-      @include tablet {
-        width: 700px;
-      }
-
-      @include below-tablet {
-        margin: 60px auto 0;
-      }
+    & > div:last-child > p {
+      margin-bottom: 60px;
 
       @include phone {
-        width: 320px;
+        margin-bottom: unset;
       }
     }
 
     @include below-tablet {
-      margin: unset;
+      margin: 60px auto 0;
     }
   }
 
