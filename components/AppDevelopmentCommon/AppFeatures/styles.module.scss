@@ -420,11 +420,10 @@
           height: 574px;
           background: $turbo-100;
           border-radius: 50%;
+        }
 
-          @include phone {
-            width: 345px;
-            height: 345px;
-          }
+        @include phone {
+          margin-top: 24px;
         }
       }
 
