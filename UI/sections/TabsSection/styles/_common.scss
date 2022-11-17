@@ -1,0 +1,138 @@
+.container {
+  max-width: $max-content-width-small-section;
+  margin: 0 auto;
+}
+
+.tabs {
+  @include flex(row, center);
+}
+
+.tabTitle {
+  @include fontSize(40px, 120%);
+
+  cursor: pointer;
+  margin: 0 0 40px;
+  color: $silver-chalice;
+
+  @include phone {
+    @include fontSize(24px, 150%);
+
+    margin: 0 0 28px;
+  }
+}
+
+.tabTitle:not(:last-child) {
+  margin-right: 120px;
+
+  @include phone {
+    margin-right: 40px;
+  }
+}
+
+.tabTitleActive {
+  color: $dark-grey;
+}
+
+.tabTitleActive::after {
+  content: "";
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 12px;
+  border-bottom: 2px solid $turbo-100;
+
+  @include phone {
+    padding-top: 10px;
+    width: 40px;
+  }
+}
+
+.cardWrapper {
+  display: none;
+}
+
+.cardWrapperActive {
+  display: block;
+}
+
+.card {
+  padding: 50px 60px;
+  background: $white;
+  box-shadow: 0 8px 35px rgba(110, 120, 130, 0.1);
+  border-radius: 5px;
+
+  @include phone {
+    padding: 24px 18px;
+  }
+}
+
+.link {
+  margin: 0 auto;
+
+  h3 {
+    @include fontSize(40px, 120%);
+
+    margin: 40px 0 20px;
+    text-align: center;
+
+    @include phone {
+      @include fontSize(24px, 150%);
+
+      margin: 12px 0 16px;
+    }
+  }
+}
+
+.link > div {
+  margin: 0 auto;
+
+  @include phone {
+    background: transparent;
+    border: 1px solid $cod-gray-1;
+    border-radius: 6px;
+    padding: 15px 0;
+  }
+}
+
+.cardText {
+  @include flex(row, center);
+
+  .cardTextColumn {
+    max-width: 470px;
+  }
+
+  .cardTextColumn:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  h4 {
+    @include fontSize(18px, 120%);
+
+    color: $dark-grey;
+    margin: 0 0 4px;
+  }
+
+  h4:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  ul {
+    @include fontSize(18px, 180%);
+
+    margin: 0 0 0 15px;
+    color: $silver-chalice;
+
+    li,
+    p {
+      margin: 0;
+    }
+
+    @include phone {
+      @include fontSize(14px);
+    }
+  }
+
+  @include phone {
+    flex-direction: column;
+  }
+}
