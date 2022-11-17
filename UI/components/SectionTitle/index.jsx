@@ -27,9 +27,10 @@ const SectionTitle = ({
   className,
 }) => (
   <div className={cn(styles[type], className, { [titleStyle]: titleStyle })}>
+    {console.log('type', type)}
     <Animated
       {...animationProps}
-      transitionDelay={250}
+      transitionDelay={50}
     >
       <Typography
         isBold
@@ -43,7 +44,7 @@ const SectionTitle = ({
     {subtitle && (
       <Animated
         {...animationProps}
-        transitionDelay={300}
+        transitionDelay={100}
       >
         <Typography className={styles.subtitle}>
           {subtitle}
@@ -53,7 +54,7 @@ const SectionTitle = ({
     {description && (
       <Animated
         {...animationProps}
-        transitionDelay={350}
+        transitionDelay={100}
       >
         <Typography className={styles.description}>
           {description}
@@ -63,7 +64,7 @@ const SectionTitle = ({
     {secondTitle && (
       <Animated
         {...animationProps}
-        transitionDelay={250}
+        transitionDelay={150}
       >
         <Typography
           isBold
@@ -78,7 +79,7 @@ const SectionTitle = ({
     {secondSubtitle && (
       <Animated
         {...animationProps}
-        transitionDelay={300}
+        transitionDelay={200}
       >
         <Typography className={styles.subtitle}>
           {secondSubtitle}
@@ -88,7 +89,7 @@ const SectionTitle = ({
     {secondDescription && (
       <Animated
         {...animationProps}
-        transitionDelay={350}
+        transitionDelay={200}
       >
         <Typography className={styles.description}>
           {secondDescription}

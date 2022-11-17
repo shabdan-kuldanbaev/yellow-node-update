@@ -1,13 +1,7 @@
 .fintech-software-development-services {
   &.sectionItem {
-    @include defaultItem();
-
     .title {
       color: $black;
     }
-  }
-
-  &.sectionActiveItem {
-    @include defaultActiveItem();
   }
 }

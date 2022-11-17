@@ -37,6 +37,10 @@
       color: $gray400;
       transition: color $default-transition-time;
     }
+
+    @include phone {
+      padding: 0;
+    }
   }
 
   .paginationContainer {
@@ -57,12 +61,6 @@
             stroke: $flamingo;
             transition: stroke $default-transition-time;
           }
-        }
-      }
-
-      @include phone {
-        svg {
-          height: 10px;
         }
       }
 
@@ -101,20 +99,26 @@
           padding: 0;
         }
       }
+
+      @include phone {
+        svg {
+          height: 10px;
+        }
+      }
     }
 
     .paginationItem {
+      @include flex(row, center, center);
+
       cursor: pointer;
       padding: 5px;
-
-      @include flex(row, center, center);
 
       a {
         font-weight: normal;
       }
 
       @include phone {
-        padding: 10px 5px;
+        padding: 0;
       }
     }
 

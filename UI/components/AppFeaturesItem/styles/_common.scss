@@ -1,11 +1,4 @@
-@mixin defaultActiveItem {
-  .imageBundle {
-    transition: 0.5s;
-    transform: rotate(180deg);
-  }
-}
-
-@mixin defaultItem {
+.sectionItem {
   position: relative;
 
   .wrapperTitle {
@@ -57,5 +50,12 @@
     margin-left: 32px;
     transition: 0.3s;
     transform: rotate(360deg);
+  }
+}
+
+.sectionActiveItem {
+  .imageBundle {
+    transition: 0.5s;
+    transform: rotate(180deg);
   }
 }

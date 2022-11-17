@@ -6,35 +6,29 @@ import { microdata } from 'utils/microdata';
 import CollapseItem from 'UI/components/CollapseItem';
 import styles from './styles.module.scss';
 
-const FAQ = ({ faqList }) => {
-  if (!faqList.length) {
-    return null;
-  }
-
-  return (
-    <>
-      <Head>
-        {!isEmpty(faqList) && (
-          <script
-            key="JSON-LD-faq"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(microdata.faq({ faqList })),
-            }}
-          />
-        )}
-      </Head>
-      <div className={styles.frequentlyAskedQuestions}>
-        {faqList.map((faq) => (
-          <CollapseItem
-            key={`faq-item/${faq.question}`}
-            faq={faq}
-          />
-        ))}
-      </div>
-    </>
-  );
-};
+const FAQ = ({ faqList }) => (
+  <>
+    <Head>
+      {!isEmpty(faqList) && (
+        <script
+          key="JSON-LD-faq"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(microdata.faq({ faqList })),
+          }}
+        />
+      )}
+    </Head>
+    <div className={styles.frequentlyAskedQuestions}>
+      {faqList?.map((faq) => (
+        <CollapseItem
+          key={`faq-item/${faq.question}`}
+          faq={faq}
+        />
+      ))}
+    </div>
+  </>
+);
 
 FAQ.defaultProps = {
   faqList: [],

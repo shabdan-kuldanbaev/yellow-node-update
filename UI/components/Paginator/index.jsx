@@ -1,44 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
-import Router, { useRouter } from 'next/router';
 import cn from 'classnames';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import { ROUTES } from 'utils/constants';
-import { arrows } from './utils/data';
+import { usePaginator } from './utils/usePaginator';
 import styles from './styles.module.scss';
 
-const Paginator = ({
-  arrows: navigationArrows,
-  pagesCounter,
-  currentPage,
-  pageSlug,
-  className,
-}) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
-  const { query: { slug: category } } = useRouter();
-  let [mobilePrevious, desktopPrevious, mobileNext, desktopNext] = ['', '', '', ''];
-
-  if (currentPage > 2) mobilePrevious = pagesCounter > 3 ? 'start' : '';
-
-  if (currentPage > 3) desktopPrevious = pagesCounter > 4 ? 'start' : '';
-
-  if (currentPage <= (pagesCounter - 2)) mobileNext = pagesCounter > 4 ? navigationArrows.next : '';
-
-  if (currentPage <= (pagesCounter - 3)) desktopNext = pagesCounter > 5 ? 'next' : '';
-
-  const pushRouter = (currentCategory, nextPage) => {
-    const { path, dynamicPath } = ROUTES[pageSlug].getRoute(currentCategory, nextPage);
-
-    window.scrollTo(0, 0);
-    Router.push(
-      { pathname: dynamicPath },
-      { pathname: path },
-    );
-  };
-  const handleOnPreviousClick = () => pushRouter(category, 1);
-  const handleOnPageClick = ({ selected }) => pushRouter(category, selected + 1);
+const Paginator = (props) => {
+  const {
+    previous,
+    next,
+    pagesCounter,
+    currentPage,
+    className,
+    isMobileResolution,
+    handleOnPageClick,
+    handleOnPreviousClick,
+  } = usePaginator(props);
 
   return (
     <div className={cn(styles.paginationWrapper, className)}>
@@ -48,13 +25,13 @@ const Paginator = ({
         role="button"
         tabIndex="0"
       >
-        {isMobileResolution ? mobilePrevious : desktopPrevious}
+        {previous}
       </span>
       <ReactPaginate
         pageCount={pagesCounter}
         pageRangeDisplayed={isMobileResolution ? 3 : 4}
         marginPagesDisplayed={0}
-        nextLabel={isMobileResolution ? mobileNext : desktopNext}
+        nextLabel={next}
         containerClassName={styles.paginationContainer}
         pageClassName={styles.paginationItem}
         pageLinkClassName={styles.paginationLink}
@@ -73,11 +50,11 @@ const Paginator = ({
 
 Paginator.defaultProps = {
   className: '',
-  arrows,
+  // arrows,
 };
 
 Paginator.propTypes = {
-  arrows: PropTypes.instanceOf(Object),
+  // arrows: PropTypes.instanceOf(Object),
   pagesCounter: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
   pageSlug: PropTypes.string.isRequired,

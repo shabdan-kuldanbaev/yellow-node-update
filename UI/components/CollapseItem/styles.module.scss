@@ -4,7 +4,7 @@
   max-width: 720px;
   width: 100%;
   padding: 40px;
-  border-bottom: 0.5px solid rgb(23 23 23 / 0.3);
+  border-bottom: 0.5px solid $gray400;
   outline: none;
 
   &:first-child {
@@ -51,88 +51,88 @@
     }
   }
 
-  .question {
-    outline: none;
-
-    @include flex(row, space-between, center);
-
-    & > p {
-      margin: 0 100px 0 0;
-      color: $dark-grey;
-      font-weight: 700;
-
-      @include tablet {
-        @include fontSize(20px);
-      }
-
-      @include phone {
-        @include fontSize(16px);
-      }
-    }
+  @include macbook-fifteen {
+    padding: 30px;
   }
+}
 
-  .plus {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    transform: translateY(50%);
+.question {
+  outline: none;
 
-    & > span {
-      position: absolute;
-      width: 20px;
-      height: 1px;
-      border: 1px solid $tundora;
-      background-color: $tundora;
-      border-radius: 5px;
-      display: inline-block;
+  @include flex(row, space-between, center);
 
-      &:first-child {
-        transform: rotate(90deg);
-        transition: transform 0.4s ease;
-      }
+  & > p {
+    margin: 0 100px 0 0;
+    color: $dark-grey;
+    font-weight: 700;
 
-      &:last-child {
-        transform: rotate(0deg);
-        transition: transform 0.4s ease;
-      }
-
-      @include phone {
-        width: 15px;
-      }
-    }
-  }
-
-  .minus {
-    & > span {
-      &:first-child {
-        transform: rotate(180deg);
-        transition: transform 0.4s ease;
-      }
-
-      &:last-child {
-        transform: rotate(180deg);
-        transition: transform 0.4s ease;
-      }
-    }
-  }
-
-  .answer {
-    color: $silver-chalice;
-    margin: 30px 0 0;
-
-    @include fontSize(18px);
-
-    @include macbook-fifteen {
-      margin-top: 20px;
+    @include tablet {
+      @include fontSize(20px);
     }
 
     @include phone {
       @include fontSize(16px);
     }
   }
+}
+
+.plus {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transform: translateY(50%);
+
+  & > span {
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    border: 1px solid $tundora;
+    background-color: $tundora;
+    border-radius: 5px;
+    display: inline-block;
+
+    &:first-child {
+      transform: rotate(90deg);
+      transition: transform 0.4s ease;
+    }
+
+    &:last-child {
+      transform: rotate(0deg);
+      transition: transform 0.4s ease;
+    }
+
+    @include phone {
+      width: 15px;
+    }
+  }
+}
+
+.minus {
+  & > span {
+    &:first-child {
+      transform: rotate(180deg);
+      transition: transform 0.4s ease;
+    }
+
+    &:last-child {
+      transform: rotate(180deg);
+      transition: transform 0.4s ease;
+    }
+  }
+}
+
+.answer {
+  color: $silver-chalice;
+  margin: 30px 0 0;
+
+  @include fontSize(18px);
 
   @include macbook-fifteen {
-    padding: 30px;
+    margin-top: 20px;
+  }
+
+  @include phone {
+    @include fontSize(16px);
   }
 }
