@@ -25,7 +25,7 @@ const TabsSection = (props) => {
           type={type}
         />
         <div className={styles.tabs}>
-          {tabs.map(({ tabTitle }, index) => (
+          {tabs?.map(({ tabTitle }, index) => (
             <h3
               className={cn(styles.tabTitle, {
                 [styles.tabTitleActive]: index === activeIndex,
@@ -37,7 +37,7 @@ const TabsSection = (props) => {
           ))}
         </div>
         <div className={styles.card}>
-          {tabs.map(({
+          {tabs?.map(({
             texts,
             link,
           }, index) => (
