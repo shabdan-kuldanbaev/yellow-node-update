@@ -1,4 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import {
+  useEffect,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
 import { getDocumentFields } from 'utils/helper';
 import { getSvgSectionProps } from './helpers';
 
@@ -20,7 +25,7 @@ export const useSvgListSection = ({
 
   const displayNames = iconsGroups.map((group) => getDocumentFields(group, ['title']).title);
 
-  const handleSelectedGroupIndexChange = (i) => setSelectedGroupIndex(i);
+  const handleSelectedGroupIndexChange = useCallback((i) => setSelectedGroupIndex(i), []);
 
   useEffect(() => {
     if (!withSelector) {
