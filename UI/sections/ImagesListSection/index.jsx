@@ -24,7 +24,7 @@ const ImagesListSection = (props) => {
         titleStyle={styles.titleStyle}
       />
       <div className={styles.imagesList}>
-        {imagesUrl.length > 0 && imagesUrl.map((url, index) => (
+        {imagesUrl?.map((url, index) => (
           <Animated
             key={`images/${url}`}
             {...REVEAL_ANIMATION_PROPS}
