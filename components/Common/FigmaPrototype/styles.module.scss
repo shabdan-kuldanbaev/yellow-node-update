@@ -9,7 +9,7 @@
   width: 313px !important;
   border-radius: 46px;
   user-select: none;
-  
+
   @include phone {
     border-radius: 0;
   }
@@ -20,11 +20,34 @@
   width: 414px !important;
   height: 860px !important;
 
+  @include tablet {
+    @media (hover: none) and (pointer: coarse) {
+      border-radius: 46px;
+      margin: 13px 40px !important;
+      width: 91.5% !important;
+      height: 96% !important;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      margin: -112px -50px !important;
+      width: 414px !important;
+      height: 860px !important;
+    }
+  }
+
   @include phone {
-    border-radius: 10px;
-    margin: 13px 40px !important;
-    width: 91.5% !important;
-    height: 96% !important;
+    @media (hover: none) and (pointer: coarse) {
+      border-radius: 46px;
+      margin: 13px 40px !important;
+      width: 91.5% !important;
+      height: 96% !important;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      margin: -112px -50px !important;
+      width: 414px !important;
+      height: 860px !important;
+    }
   }
 }
 
@@ -36,7 +59,23 @@
   height: 100%;
   pointer-events: none;
 
+  @include tablet {
+    @media (hover: none) and (pointer: coarse) {
+      display: block;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      display: none;
+    }
+  }
+
   @include phone {
-    display: block;
+    @media (hover: none) and (pointer: coarse) {
+      display: block;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      display: none;
+    }
   }
 }
