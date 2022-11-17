@@ -22,134 +22,107 @@
   @include phone {
     transform: scale(1.1);
   }
+}
 
-  .paginationPrev {
-    cursor: pointer;
-    padding: 15px;
-    color: $black;
-    font-size: 1.125rem;
-    line-height: 40px;
-    background-color: transparent;
+.paginationContainer {
+  @include flex(row, flex-start, center);
+
+  padding-left: 0;
+  list-style: none;
+}
+
+.paginationPrev {
+  cursor: pointer;
+  padding: 15px;
+  color: $black;
+  font-size: 1.125rem;
+  line-height: 40px;
+  background-color: transparent;
+  transition: color $default-transition-time;
+  outline: none;
+
+  &:hover {
+    color: $gray400;
     transition: color $default-transition-time;
+  }
+
+  @include phone {
+    padding: 0;
+  }
+}
+
+.paginationItem,
+.paginationNextWrapper {
+  & > a {
+    font-family: $default-font;
+    color: $black;
+    text-decoration: none;
     outline: none;
+    border-radius: 50%;
+    display: inline-block;
+    min-width: 40px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    transition: background-color 0.7s;
 
     &:hover {
-      color: $gray400;
-      transition: color $default-transition-time;
+      background-color: $gray100;
+      transition: background-color 0.2s;
     }
 
     @include phone {
-      padding: 0;
+      font-size: 1rem;
     }
   }
+}
 
-  .paginationContainer {
-    padding-left: 0;
-    list-style: none;
+.paginationItem {
+  @include flex(row, center, center);
 
-    @include flex(row, flex-start, center);
+  cursor: pointer;
+  padding: 5px;
 
-    li {
-      padding: 15px;
+  a {
+    font-weight: normal;
+  }
 
-      svg {
-        path {
-          stroke: $pagination;
-          transition: stroke $default-transition-time;
+  @include phone {
+    padding: 0;
+  }
+}
 
-          &:hover {
-            stroke: $flamingo;
-            transition: stroke $default-transition-time;
-          }
-        }
-      }
+.paginationNext {
+  cursor: pointer;
+  background-color: transparent !important;
+  transition: color $default-transition-time;
 
-      & > a {
-        font-family: $default-font;
-        color: $black;
-        text-decoration: none;
-        outline: none;
-        background-color: transparent;
-        border-radius: 50%;
-        display: inline-block;
-        min-width: 40px;
-        font-size: 1.125rem;
-        line-height: 40px;
-        text-align: center;
-        transition: background-color 0.7s;
+  &:hover {
+    color: $gray400;
+    transition: color $default-transition-time;
+  }
+}
 
-        &:hover {
-          background-color: $gray100;
-          transition: background-color 0.2s;
-        }
+.paginationActiveClassName {
+  & > a {
+    background-color: $turbo-100;
 
-        @include phone {
-          font-size: 1rem;
-        }
-      }
-
-      &:not(:first-child),
-      &:not(:last-child) {
-        background-color: transparent;
-      }
-
-      &:first-child,
-      &:last-child {
-        @include phone {
-          padding: 0;
-        }
-      }
-
-      @include phone {
-        svg {
-          height: 10px;
-        }
-      }
-    }
-
-    .paginationItem {
-      @include flex(row, center, center);
-
-      cursor: pointer;
-      padding: 5px;
-
-      a {
-        font-weight: normal;
-      }
-
-      @include phone {
-        padding: 0;
-      }
-    }
-
-    .previousClassName {
-      display: none;
-    }
-
-    .paginationNext {
-      cursor: pointer;
-      background-color: transparent !important;
-      transition: color $default-transition-time;
-
-      &:hover {
-        color: $gray400;
-        transition: color $default-transition-time;
-      }
-    }
-
-    .paginationActiveLink {
+    &:hover {
       background-color: $turbo-100;
-      width: 100%;
-      height: 100%;
-      font-weight: 500;
-
-      &:hover {
-        background-color: $turbo-100;
-      }
-    }
-
-    .paginationEmptyItem {
-      display: none;
     }
   }
+}
+
+.paginationNextWrapper {
+  padding: 15px;
+
+  @include phone {
+    padding: 0;
+  }
+}
+
+.previousClassName,
+.paginationEmptyItem {
+  display: none;
 }

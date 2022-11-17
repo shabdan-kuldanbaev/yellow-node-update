@@ -1,6 +1,4 @@
-import { useSelector } from 'react-redux';
 import Router, { useRouter } from 'next/router';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { ROUTES } from 'utils/constants';
 
 export const usePaginator = ({
@@ -11,7 +9,6 @@ export const usePaginator = ({
   className,
 }) => {
   let [previous, next] = ['', ''];
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
   const { query: { slug: category } } = useRouter();
 
   if (currentPage > 3) previous = pagesCounter > 4 ? 'start' : '';
@@ -38,7 +35,6 @@ export const usePaginator = ({
     pagesCounter,
     currentPage,
     className,
-    isMobileResolution,
     handleOnPageClick,
     handleOnPreviousClick,
   };

@@ -12,7 +12,6 @@ const Paginator = (props) => {
     pagesCounter,
     currentPage,
     className,
-    isMobileResolution,
     handleOnPageClick,
     handleOnPreviousClick,
   } = usePaginator(props);
@@ -29,16 +28,18 @@ const Paginator = (props) => {
       </span>
       <ReactPaginate
         pageCount={pagesCounter}
-        pageRangeDisplayed={isMobileResolution ? 3 : 4}
+        pageRangeDisplayed={4}
         marginPagesDisplayed={0}
         nextLabel={next}
         containerClassName={styles.paginationContainer}
         pageClassName={styles.paginationItem}
         pageLinkClassName={styles.paginationLink}
+        activeClassName={styles.paginationActiveClassName}
         activeLinkClassName={styles.paginationActiveLink}
         breakClassName={styles.paginationEmptyItem}
         breakLinkClassName={styles.paginationEmptyLink}
         previousClassName={styles.previousClassName}
+        nextClassName={styles.paginationNextWrapper}
         nextLinkClassName={styles.paginationNext}
         disableInitialCallback
         forcePage={currentPage - 1}
