@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
-import { useSelector } from 'react-redux';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
+import FigmaPrototype from '../../Common/FigmaPrototype';
 
 const AppFeatures = ({
   data,
@@ -18,7 +17,6 @@ const AppFeatures = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const imagesData = get(data, 'contentModules');
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
 
   const handleOnClick = (index) => () => {
     setActiveIndex(index);
@@ -74,7 +72,7 @@ const AppFeatures = ({
                     <p className={styles.title}>
                       {title}
                     </p>
-                    {imagesBundles?.map((bundle, imagesBundlesIndex) => {
+                    {imagesBundles?.map((bundle) => {
                       const bundleUrl = getFileUrl(bundle);
 
                       return (
@@ -110,12 +108,8 @@ const AppFeatures = ({
               />
               {isPromoImage && promoImages[activeIndex]
                 && (
-                  <iframe
-                    height={isMobileResolution ? '650' : '700'}
-                    width={isMobileResolution ? '350' : '450'}
-                    src={`https://www.figma.com/embed?embed_host=astra&url=${promoImages[activeIndex].url}`}
-                    title={data.title}
-                    allowTransparency
+                  <FigmaPrototype
+                    src={promoImages[activeIndex].url}
                   />
                 )}
             </div>
