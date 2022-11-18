@@ -2,16 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
-import { TYPOGRAPHY_SIZE, ANIMATED_TYPE } from 'utils/constants';
+import { TYPOGRAPHY_SIZE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Typography from 'UI/components/Typography';
 import styles from './styles.module.scss';
-
-const animationProps = {
-  type: ANIMATED_TYPE.isCustom,
-  translateY: '2.82352941em',
-  opasityDuration: 1,
-  transformDuration: 1,
-};
 
 const SectionTitle = ({
   type,
@@ -29,7 +22,7 @@ const SectionTitle = ({
   <div className={cn(styles[type], className, { [titleStyle]: titleStyle })}>
     {console.log('type', type)}
     <Animated
-      {...animationProps}
+      {...REVEAL_ANIMATION_PROPS}
       transitionDelay={50}
     >
       <Typography
@@ -43,7 +36,7 @@ const SectionTitle = ({
     </Animated>
     {subtitle && (
       <Animated
-        {...animationProps}
+        {...REVEAL_ANIMATION_PROPS}
         transitionDelay={100}
       >
         <Typography className={styles.subtitle}>
@@ -53,7 +46,7 @@ const SectionTitle = ({
     )}
     {description && (
       <Animated
-        {...animationProps}
+        {...REVEAL_ANIMATION_PROPS}
         transitionDelay={100}
       >
         <Typography className={styles.description}>
@@ -63,7 +56,7 @@ const SectionTitle = ({
     )}
     {secondTitle && (
       <Animated
-        {...animationProps}
+        {...REVEAL_ANIMATION_PROPS}
         transitionDelay={150}
       >
         <Typography
@@ -78,7 +71,7 @@ const SectionTitle = ({
     )}
     {secondSubtitle && (
       <Animated
-        {...animationProps}
+        {...REVEAL_ANIMATION_PROPS}
         transitionDelay={200}
       >
         <Typography className={styles.subtitle}>
@@ -88,7 +81,7 @@ const SectionTitle = ({
     )}
     {secondDescription && (
       <Animated
-        {...animationProps}
+        {...REVEAL_ANIMATION_PROPS}
         transitionDelay={200}
       >
         <Typography className={styles.description}>
