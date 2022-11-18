@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 
 const FigmaPrototype = ({
   src,
-  deviceFrameSrc = '/images/common/devices/iPhone.png',
+  deviceFrameSrc,
   className,
 }) => {
   const url = useMemo(() => {
@@ -38,11 +38,13 @@ const FigmaPrototype = ({
 
 FigmaPrototype.defaultProps = {
   className: null,
+  deviceFrameSrc: '/images/common/devices/iPhone.png',
 };
 
 FigmaPrototype.propTypes = {
   src: PropTypes.string.isRequired,
   className: PropTypes.string,
+  deviceFrameSrc: PropTypes.string,
 };
 
 export default FigmaPrototype;
