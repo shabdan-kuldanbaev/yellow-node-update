@@ -5,10 +5,10 @@ import get from 'lodash/get';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
+import FigmaPrototype from 'components/Common/FigmaPrototype';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
-import FigmaPrototype from '../../Common/FigmaPrototype';
 
 const AppFeatures = ({
   data,
