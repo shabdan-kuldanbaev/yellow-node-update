@@ -21,7 +21,7 @@ export default ({
     ],
   ), [sectionData]);
 
-  const { images } = getDocumentFields(get(contentModules, '[0]', {})) || {};
+  const { images } = getDocumentFields(get(contentModules, '[0]', {}));
 
   const imagesUrl = images?.map((image) => getFileUrl(image));
 
