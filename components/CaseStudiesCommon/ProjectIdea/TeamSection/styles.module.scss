@@ -479,14 +479,12 @@
   padding: 80px 0;
   margin: 150px 0;
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       rgba($selago, 0) 0%,
       $selago 20.83%,
       $selago 49.48%,
       $selago 74.48%,
-      rgba($selago, 0) 100%
-    );
+      rgba($selago, 0) 100%);
 
   @include phone {
     margin: 80px 0;
@@ -565,6 +563,22 @@
   }
 
   @include phone {
+    padding-top: 0;
+  }
+}
+
+.mobile-bank-application {
+  @extend .container;
+
+  .title {
+    @include phone {
+      @include fontSize(36px);
+
+      margin-bottom: 16px;
+    }
+  }
+
+  @include tablet {
     padding-top: 0;
   }
 }

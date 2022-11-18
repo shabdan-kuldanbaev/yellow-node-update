@@ -25,6 +25,7 @@ export const Intro = (props) => {
   case CASE_STUDIES.dindon:
   case CASE_STUDIES.mlInRealEstate:
     return <DefaultIntro {...props} />;
+  case CASE_STUDIES.mobileBankApplication:
   case CASE_STUDIES.openSense:
   case CASE_STUDIES.fusionMarkets:
   case CASE_STUDIES.separateUs:

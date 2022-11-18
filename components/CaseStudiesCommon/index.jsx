@@ -15,6 +15,7 @@ import { FeaturesSection } from 'components/CaseStudiesCommon/FeaturesSection';
 import { StorySection } from 'components/CaseStudiesCommon/StorySection';
 import { EventSection } from 'components/CaseStudiesCommon/EventSection';
 import CaseStudyOverlayProcess from 'components/CaseStudiesCommon/CaseStudyOverlayProcess';
+import CaseStudyPrototype from 'components/CaseStudiesCommon/CaseStudyPrototype';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
 const CaseStudiesCommon = (props) => {
@@ -53,6 +54,8 @@ const CaseStudiesCommon = (props) => {
     return <WorksSection {...props} />;
   case CASE_STUDIES_TYPES.processOverlay:
     return <CaseStudyOverlayProcess {...props} />;
+  case CASE_STUDIES_TYPES.prototype:
+    return <CaseStudyPrototype {...props} />;
   default:
     return null;
   }
