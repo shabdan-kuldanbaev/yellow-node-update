@@ -1,0 +1,55 @@
+@mixin sectionGrayBackground {
+  background: $alabaster;
+
+  .callToAction {
+    background: $white;
+  }
+}
+
+.section {
+  @include appDevelopmentContainer;
+
+  background-color: $white;
+  padding-bottom: 90px;
+
+  @include below-tablet {
+    padding-bottom: 30px;
+  }
+}
+
+.sectionTitle {
+  @include defaultSectionTitle;
+}
+
+.callToAction {
+  @include defaultCallToAction;
+}
+
+.gallerySection {
+  padding-bottom: 30px;
+
+  :global(.swiper) {
+    padding-bottom: 100px;
+    margin: 0 -40px;
+
+    @include phone {
+      margin: 0 -15px;
+    }
+  }
+
+  :global(.swiper-slide) {
+    transition-property: box-shadow, transform;
+  }
+
+  :global(.swiper-slide-active) {
+    box-shadow: 0 10px 60px -10px rgba($black, 0.15);
+  }
+
+  .navigation {
+    max-width: 60vw;
+
+    @include tablet {
+      max-width: 90vw;
+    }
+  }
+}

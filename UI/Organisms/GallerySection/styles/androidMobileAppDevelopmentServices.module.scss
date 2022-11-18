@@ -1,0 +1,7 @@
+.android-mobile-app-development-services {
+  .sectionTitle {
+    @include below-tablet {
+      max-width: 343px;
+    }
+  }
+}
