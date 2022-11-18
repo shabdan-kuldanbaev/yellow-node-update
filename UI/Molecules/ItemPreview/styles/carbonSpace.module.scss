@@ -1,7 +1,7 @@
-.real-ai {
+.carbon-space {
   @extend .verticalContainer;
 
-  background: $very-page-blue;
+  background: $light-grayish-blue-2;
 
   .projectDescription {
     color: $silver-chalice;
@@ -9,11 +9,16 @@
   }
 
   .logo {
-    width: 150px;
+    width: initial;
   }
 
   .imageContainer {
     width: 85%;
+
+    .image {
+      margin: 0 0 -20px;
+      max-width: 100%;
+    }
 
     @include tablet {
       width: 80%;
@@ -22,10 +27,9 @@
     @include phone {
       width: 100%;
     }
+  }
 
-    .image {
-      margin: 0 0 -20px;
-      max-width: 100%;
-    }
+  .projectPreview::after {
+    content: '';
   }
 }

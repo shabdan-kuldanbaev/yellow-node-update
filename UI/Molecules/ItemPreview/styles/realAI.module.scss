@@ -1,7 +1,7 @@
-.renewable {
+.real-ai {
   @extend .verticalContainer;
 
-  background: $very-pale-lime-green;
+  background: $very-page-blue;
 
   .projectDescription {
     color: $silver-chalice;
@@ -9,12 +9,17 @@
   }
 
   .logo {
-    width: initial;
+    width: 150px;
   }
 
   .imageContainer {
     width: 85%;
 
+    .image {
+      margin: 0 0 -20px;
+      max-width: 100%;
+    }
+    
     @include tablet {
       width: 80%;
     }
@@ -22,14 +27,5 @@
     @include phone {
       width: 100%;
     }
-
-    .image {
-      margin: 0 0 -20px;
-      max-width: 100%;
-    }
-  }
-
-  .projectPreview::after {
-    content: '';
   }
 }

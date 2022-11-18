@@ -11,6 +11,8 @@
 }
 
 .container {
+  @include flex(row, center, center);
+
   box-sizing: border-box;
   overflow: hidden;
   height: 35vw;
@@ -18,8 +20,6 @@
   margin: 0 auto;
   border-radius: 5px;
   padding: 0 70px;
-
-  @include flex(row, center, center);
 
   @include macbook-fifteen {
     height: 75vh;
@@ -49,9 +49,9 @@
 }
 
 .projectPreview {
-  max-width: 100%;
-
   @include flex(row, center, center);
+
+  max-width: 100%;
 
   @include tablet {
     @include flex(column, center, center);
@@ -85,12 +85,12 @@
 }
 
 .projectTitle {
+  @include fontSize(50px);
+
   font-family: $case-studies-font;
   font-weight: bold;
   line-height: 1.2;
   margin: 0 0 15px;
-
-  @include fontSize(50px);
 
   @include tablet {
     @include fontSize(35px);
@@ -115,13 +115,13 @@
 }
 
 .projectDescription {
+  @include fontSize(14px);
+
   max-width: 400px;
   margin: 0;
   line-height: 180%;
   font-family: $case-studies-font;
   font-weight: 400;
-
-  @include fontSize(14px);
 
   @include tablet {
     margin-bottom: 6px;

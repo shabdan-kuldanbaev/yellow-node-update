@@ -2,19 +2,10 @@
   padding: 0 100px;
   background: linear-gradient(180deg, #26282D 0%, #181A1D 100%);
 
-  @include tablet {
-    padding: 0 24px;
-  }
-
   .projectInfoContainer {
     max-width: 505px;
     height: max-content;
     color: $white;
-
-    @include tablet {
-      max-width: unset;
-      margin-bottom: 0;
-    }
 
     .projectTitle {
       @include fontSize(58px);
@@ -46,11 +37,17 @@
     }
 
     .projectDescription {
+      @include fontSize(13px);
+
       color: $grey-chateau;
       margin-top: 6px;
-
-      @include fontSize(13px);
     }
+
+    @include tablet {
+      max-width: unset;
+      margin-bottom: 0;
+    }
+
   }
 
   .imageContainer {
@@ -79,5 +76,9 @@
 
   .projectPreview {
     width: 100%;
+  }
+
+  @include tablet {
+    padding: 0 24px;
   }
 }

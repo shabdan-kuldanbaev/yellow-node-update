@@ -3,19 +3,10 @@
 
   padding: 0 70px;
 
-  @include tablet {
-    padding: 0 24px;
-  }
-
   .projectInfoContainer {
     max-width: 385px;
     height: max-content;
     color: $dark-grey;
-
-    @include tablet {
-      max-width: unset;
-      margin-bottom: 0;
-    }
 
     .projectTitle {
       @include fontSize(44px);
@@ -40,6 +31,11 @@
         @include fontSize(14px);
       }
     }
+
+    @include tablet {
+      max-width: unset;
+      margin-bottom: 0;
+    }
   }
 
   .imageContainer {
@@ -57,5 +53,9 @@
         max-height: 350px;
       }
     }
+  }
+
+  @include tablet {
+    padding: 0 24px;
   }
 }

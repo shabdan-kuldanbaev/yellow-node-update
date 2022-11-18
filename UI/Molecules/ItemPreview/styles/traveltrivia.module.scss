@@ -2,18 +2,6 @@
   background: linear-gradient(51.28deg, #E66BCE 11.39%, #EB6B96 81.95%);
   padding: 0 84px 0 130px;
 
-  @include macbook-fifteen {
-    padding: 0 100px;
-  }
-
-  @include macbook-twelve {
-    padding: 0 50px;
-  }
-
-  @include tablet {
-    padding: 36px 24px;
-  }
-
   .logo {
     border-radius: 8px;
   }
@@ -72,5 +60,17 @@
         max-height: 100%;
       }
     }
+  }
+
+  @include macbook-fifteen {
+    padding: 0 100px;
+  }
+
+  @include macbook-twelve {
+    padding: 0 50px;
+  }
+
+  @include tablet {
+    padding: 36px 24px;
   }
 }

@@ -1,33 +1,30 @@
-.famlicious {
-  background-color: $athens-gray-1;
+.cashchat {
+  padding: 0 130px;
+  background-color: $green;
 
   .projectInfoContainer {
+    max-width: 320px;
+
     .projectTitle {
-      margin: 0;
-      color: $dark-grey-2;
+      color: $white;
     }
 
     .projectSubtitle {
-      color: $dark-grey;
+      color: $white;
     }
 
     .projectDescription {
-      font-weight: 500;
+      font-weight: 400;
       margin: 15px 0 10px;
-      color: $dark-grey-2;
-
-      @include fontSize(16px);
-
-      @include tablet {
-        @include fontSize(14px);
-      }
+      color: $white;
+      opacity: 0.8;
     }
 
     p:not(.projectSubtitle, .projectDescription) {
+      @include fontSize(13px);
+
       color: $shuttle-gray;
       max-width: 330px;
-
-      @include fontSize(13px);
 
       @include tablet {
         @include fontSize(12px);
@@ -37,7 +34,7 @@
 
   .appStore {
     path {
-      fill: $black;
+      fill: $white;
     }
   }
 
@@ -45,11 +42,6 @@
     z-index: 1;
     max-width: 500px;
     width: 100%;
-
-    @include tablet {
-      height: 100%;
-      max-width: 250px;
-    }
 
     .image {
       transform: translate(10%, 0);
@@ -63,6 +55,11 @@
       @include phone {
         max-width: 170%;
       }
+    }
+
+    @include tablet {
+      height: 100%;
+      max-width: 250px;
     }
   }
 }

@@ -3,18 +3,6 @@
   position: relative;
   padding: 0 130px;
 
-  @include macbook-fifteen {
-    padding: 0 100px;
-  }
-
-  @include macbook-twelve {
-    padding: 0 50px;
-  }
-
-  @include tablet {
-    padding: 36px 24px;
-  }
-
   .logo {
     border-radius: 8px;
   }
@@ -35,10 +23,6 @@
     max-width: 500px;
     width: 100%;
     margin-left: 50px;
-
-    @include tablet {
-      max-width: 250px;
-    }
 
     &::before {
       @include centered;
@@ -71,11 +55,27 @@
         transform: unset;
       }
     }
+
+    @include tablet {
+      max-width: 250px;
+    }
   }
 
   .imageBundle {
     position: absolute;
     left: 7%;
     bottom: 7%;
+  }
+
+  @include macbook-fifteen {
+    padding: 0 100px;
+  }
+
+  @include macbook-twelve {
+    padding: 0 50px;
+  }
+
+  @include tablet {
+    padding: 36px 24px;
   }
 }

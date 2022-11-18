@@ -1,7 +1,7 @@
-.carbon-space {
+.renewable {
   @extend .verticalContainer;
 
-  background: $light-grayish-blue-2;
+  background: $very-pale-lime-green;
 
   .projectDescription {
     color: $silver-chalice;
@@ -15,17 +15,17 @@
   .imageContainer {
     width: 85%;
 
+    .image {
+      margin: 0 0 -20px;
+      max-width: 100%;
+    }
+
     @include tablet {
       width: 80%;
     }
 
     @include phone {
       width: 100%;
-    }
-
-    .image {
-      margin: 0 0 -20px;
-      max-width: 100%;
     }
   }
 

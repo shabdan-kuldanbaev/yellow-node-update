@@ -14,11 +14,6 @@
     max-width: 500px;
     width: 100%;
 
-    @include tablet {
-      height: 100%;
-      max-width: 450px;
-    }
-
     .image {
       transform: translate(10%, 0);
       max-width: 150%;
@@ -27,6 +22,11 @@
         transform: unset;
         max-width: 100%;
       }
+    }
+
+    @include tablet {
+      height: 100%;
+      max-width: 450px;
     }
   }
 }

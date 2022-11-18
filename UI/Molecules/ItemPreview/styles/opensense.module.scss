@@ -15,10 +15,10 @@
     position: relative;
 
     .projectTitle {
+      @include fontSize(56px);
+
       margin-bottom: 20px;
       color: $midnight;
-
-      @include fontSize(56px);
 
       @include macbook-twelve {
         @include fontSize(45px);
@@ -57,9 +57,9 @@
   }
 
   .projectSubtitle {
-    color: $dark-grey;
-
     @include fontSize(14px);
+
+    color: $dark-grey;
   }
 
   .projectDescription {
