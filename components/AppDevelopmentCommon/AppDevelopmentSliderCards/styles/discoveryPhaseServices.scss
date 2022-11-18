@@ -33,6 +33,10 @@
         order: -1;
       }
     }
+
+    .cardsList > div > div:first-child {
+      margin-bottom: 50px;
+    }
   }
 
   @include phone {

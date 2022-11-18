@@ -1,28 +1,26 @@
 /* stylelint-disable no-descending-specificity */
-@import 'styles/utils/mixins', 'styles/utils/theme/animations';
+@import 'styles/utils/_mixins';
+
+.prototypeWrapper {
+  position: relative;
+
+  &::before {
+    @include centered;
+    
+    content: '';
+    width: 490px;
+    height: 490px;
+    background: $turbo-100;
+    border-radius: 50%;
+  }
+}
+
+.prototype {
+  margin: 0 auto;
+}
 
 .mobile-bank-application {
-  padding: 120px 80px;
-  background-color: $alabaster;
+  @include caseStudyContainer;
 
-  [data-case-study-title] {
-    margin-bottom: 0;
-  }
-
-  .prototypeContainer {
-    iframe {
-      position: relative;
-      left: 50%;
-      transform: translate(-50%, 0);
-      border: none;
-    }
-  }
-
-  @include tablet {
-    padding: 80px 24px;
-  }
-
-  @include tablet {
-    padding: 60px 15px;
-  }
+  overflow: hidden;
 }
