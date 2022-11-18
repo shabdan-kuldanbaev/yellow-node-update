@@ -1,0 +1,13 @@
+.devops-development-services {
+  @include appDevelopmentContainer;
+
+  .titleStyle {
+    @include defaultSectionTitle;
+  }
+
+  .contentWrapper {
+    @extend .twoColumnsCards;
+
+    @include smallSectionWrapper;
+  }
+}
