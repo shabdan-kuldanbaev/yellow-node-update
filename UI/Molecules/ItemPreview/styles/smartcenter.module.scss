@@ -19,13 +19,13 @@
     }
   }
 
+  .image {
+    width: 100%;
+  }
+
   .imageContainer {
     width: 100%;
     max-width: 560px;
-
-    .image {
-      width: 100%;
-    }
 
     @include macbook-fifteen {
       max-width: 490px;

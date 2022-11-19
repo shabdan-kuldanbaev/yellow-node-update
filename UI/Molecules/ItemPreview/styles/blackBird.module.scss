@@ -27,16 +27,16 @@
     }
   }
 
+  .image {
+    max-width: 120%;
+
+    @include tablet {
+      max-width: 70%;
+    }
+  }
+
   .imageContainer {
     max-width: 500px;
     width: 100%;
-
-    .image {
-      max-width: 120%;
-
-      @include tablet {
-        max-width: 70%;
-      }
-    }
   }
 }

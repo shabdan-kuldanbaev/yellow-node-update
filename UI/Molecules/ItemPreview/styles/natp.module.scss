@@ -17,12 +17,12 @@
     }
   }
 
+  .image {
+    max-width: 100%;
+  }
+
   .imageContainer {
     width: 75%;
-
-    .image {
-      max-width: 100%;
-    }
 
     @include tablet {
       width: 80%;

@@ -12,13 +12,13 @@
     width: 150px;
   }
 
+  .image {
+    margin: 0 0 -20px;
+    max-width: 100%;
+  }
+
   .imageContainer {
     width: 85%;
-
-    .image {
-      margin: 0 0 -20px;
-      max-width: 100%;
-    }
     
     @include tablet {
       width: 80%;

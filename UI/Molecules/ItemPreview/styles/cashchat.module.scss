@@ -38,24 +38,24 @@
     }
   }
 
+  .image {
+    transform: translate(10%, 0);
+    max-width: 170%;
+
+    @include tablet {
+      transform: unset;
+      max-width: 100%;
+    }
+
+    @include phone {
+      max-width: 170%;
+    }
+  }
+
   .imageContainer {
     z-index: 1;
     max-width: 500px;
     width: 100%;
-
-    .image {
-      transform: translate(10%, 0);
-      max-width: 170%;
-
-      @include tablet {
-        transform: unset;
-        max-width: 100%;
-      }
-
-      @include phone {
-        max-width: 170%;
-      }
-    }
 
     @include tablet {
       height: 100%;

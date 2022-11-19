@@ -15,18 +15,16 @@
     color: rgba($dark-grey, 0.7);
   }
 
-  .imageContainer {
-    .image {
-      max-height: 300px;
+  .image {
+    max-height: 300px;
 
-      @include tablet {
-        max-height: initial;
-        max-width: 450px;
-      }
+    @include tablet {
+      max-height: initial;
+      max-width: 450px;
+    }
 
-      @include phone {
-        max-width: 80vw;
-      }
+    @include phone {
+      max-width: 80vw;
     }
   }
 }

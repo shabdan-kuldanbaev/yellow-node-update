@@ -17,6 +17,14 @@
     color: $white;
   }
 
+  .image {
+    max-width: 170%;
+
+    @include tablet {
+      transform: unset;
+    }
+  }
+
   .imageContainer {
     position: relative;
     z-index: 1;
@@ -45,14 +53,6 @@
 
       @include phone {
         --size: 65vw;
-      }
-    }
-
-    .image {
-      max-width: 170%;
-
-      @include tablet {
-        transform: unset;
       }
     }
 

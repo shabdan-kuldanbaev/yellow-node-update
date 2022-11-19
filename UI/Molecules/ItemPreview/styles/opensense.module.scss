@@ -74,23 +74,23 @@
     }
   }
 
+  .image {
+    max-width: 727px;
+
+    @include macbook-twelve {
+      max-width: 530px;
+    }
+
+    @include tablet {
+      max-width: 450px;
+    }
+
+    @include phone {
+      max-width: 80vw;
+    }
+  }
+
   .imageContainer {
     margin-top: -40px;
-
-    .image {
-      max-width: 727px;
-
-      @include macbook-twelve {
-        max-width: 530px;
-      }
-
-      @include tablet {
-        max-width: 450px;
-      }
-
-      @include phone {
-        max-width: 80vw;
-      }
-    }
   }
 }

@@ -3,25 +3,24 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import { getFileUrl } from 'utils/helper';
 import { TitleText } from './TitleText';
-import { getItemPreviewProps } from './utils/itemPreviewHelper';
+import { useItemPreview } from './utils/useItemPreview';
 import styles from './styles.module.scss';
 
-export const ItemPreview = ({ data, type }) => {
+const ItemPreview = ({ data, type }) => {
   const {
     view,
     title,
     subtitle,
     description,
     text,
-    imagesBundles,
+    imagesBundlesUrl,
     appBackgroundImageUrl,
     appLogoUrl,
     sectionStyle,
     slug,
     link,
-  } = getItemPreviewProps(data);
+  } = useItemPreview(data);
 
   return (
     <LinkWrapper path={link}>
@@ -66,18 +65,14 @@ export const ItemPreview = ({ data, type }) => {
               alt={appBackgroundImageUrl}
             />
           </div>
-          {imagesBundles && imagesBundles.map((bundle) => {
-            const bundleUrl = getFileUrl(bundle);
-
-            return (
-              <img
-                key={`images-bundles/${bundleUrl}`}
-                className={styles.imageBundle}
-                src={bundleUrl}
-                alt={title}
-              />
-            );
-          })}
+          {imagesBundlesUrl?.map((bundleUrl) => (
+            <img
+              key={`images-bundles/${bundleUrl}`}
+              className={styles.imageBundle}
+              src={bundleUrl}
+              alt={title}
+            />
+          ))}
         </div>
       </section>
     </LinkWrapper>
@@ -88,3 +83,5 @@ ItemPreview.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
+
+export default ItemPreview;

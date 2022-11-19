@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { SwiperNavigation } from 'components/SwiperNavigation';
-import { ItemPreview } from 'UI/Molecules/ItemPreview';
+import ItemPreview from 'UI/Molecules/ItemPreview';
 import CallToAction from 'components/Common/CallToAction';
 import { useGallerySection } from './utils/useGallerySection';
 import { swiperGalleryParams } from './utils/helpers';

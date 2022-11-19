@@ -1,39 +1,11 @@
 import get from 'lodash/get';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
 
-const projects = {
-  stickerbox: 'stickerbox',
-  tell: 'tell',
-  fairy: 'fairy',
-  famlicious: 'famlicious',
-  fernwayer: 'fernwayer',
-  fireaway: 'fireaway',
-  cashchat: 'cashchat',
-};
-
-export const getAppstoreSvgType = (slug) => {
-  switch (slug) {
-  case projects.stickerbox:
-  case projects.fairy:
-  case projects.fernwayer:
-  case projects.famlicious:
-  case projects.cashchat:
-    return SVG_IMAGES_TYPES.appstore;
-  case projects.tell:
-    return SVG_IMAGES_TYPES.blackFillAppstore;
-  case projects.fireaway:
-    return SVG_IMAGES_TYPES.visitSite;
-  default:
-    return '';
-  }
-};
-
-export const getItemPreviewProps = (data) => {
+export const useItemPreview = (data) => {
   const {
     images,
     contentModules,
@@ -83,6 +55,8 @@ export const getItemPreviewProps = (data) => {
 
   const { slug: link } = getDocumentFields(get(contentModules, '[1]')) || {};
 
+  const imagesBundlesUrl = imagesBundles?.map((bundle) => getFileUrl(bundle));
+
   return {
     view,
     slug,
@@ -90,18 +64,11 @@ export const getItemPreviewProps = (data) => {
     subtitle,
     description,
     text,
-    imagesBundles,
+    imagesBundlesUrl,
     downloadLink,
     appBackgroundImageUrl,
     appLogoUrl,
     sectionStyle,
     link,
   };
-};
-
-export const getItemLink = (data) => {
-  const { contentModules } = getDocumentFields(data);
-  const { slug } = getDocumentFields(get(contentModules, '[1]')) || {};
-
-  return slug;
 };

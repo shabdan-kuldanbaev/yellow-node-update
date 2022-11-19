@@ -27,24 +27,24 @@
   .imageContainer {
     width: 440px;
     height: 300px;
+  }
 
-    .image {
-      position: absolute;
-      width: 480px;
-      height: 350px;
+  .image {
+    position: absolute;
+    width: 480px;
+    height: 350px;
+    right: 0;
+
+    @include tablet {
+      margin: 0 auto;
       right: 0;
+      left: 0;
+    }
 
-      @include tablet {
-        margin: 0 auto;
-        right: 0;
-        left: 0;
-      }
-
-      @include phone {
-        width: 317px;
-        height: 200px;
-        left: -20px;
-      }
+    @include phone {
+      width: 317px;
+      height: 200px;
+      left: -20px;
     }
   }
 

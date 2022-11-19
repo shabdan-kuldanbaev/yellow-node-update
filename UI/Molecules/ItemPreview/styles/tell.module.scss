@@ -38,21 +38,21 @@
     }
   }
 
+  .image {
+    @include tablet {
+      max-height: 285px;
+    }
+
+    @include phone {
+      max-height: 350px;
+    }
+  }
+
   .imageContainer {
     position: relative;
     z-index: 1;
     max-width: 515px;
     height: 100%;
-
-    .image {
-      @include tablet {
-        max-height: 285px;
-      }
-
-      @include phone {
-        max-height: 350px;
-      }
-    }
   }
 
   @include tablet {
