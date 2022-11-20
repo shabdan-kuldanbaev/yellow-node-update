@@ -1,9 +1,15 @@
+import { isTitleHasBackground } from 'components/CaseStudiesCommon/Intro/VerticalIntro/utils/introHelper';
 import get from 'lodash/get';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
+import {
+  TITLE_CONFIG,
+  DEFAULT_TITLE_CONFIG,
+  getTitleText,
+} from './helpers';
 
 export const useItemPreview = (data) => {
   const {
@@ -57,6 +63,16 @@ export const useItemPreview = (data) => {
 
   const imagesBundlesUrl = imagesBundles?.map((bundle) => getFileUrl(bundle));
 
+  const {
+    isTitleWithIcon,
+    beginSlice,
+    endSlice,
+  } = TITLE_CONFIG[slug] || DEFAULT_TITLE_CONFIG;
+
+  const isTitleHasIcon = isTitleWithIcon && isTitleHasBackground(slug);
+
+  const { titleFirstPart, titleSecondPart } = getTitleText(title, beginSlice, endSlice);
+
   return {
     view,
     slug,
@@ -70,5 +86,8 @@ export const useItemPreview = (data) => {
     appLogoUrl,
     sectionStyle,
     link,
+    isTitleHasIcon,
+    titleFirstPart,
+    titleSecondPart,
   };
 };

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import { TitleText } from './TitleText';
+import Svg from 'components/Common/Svg';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { useItemPreview } from './utils/useItemPreview';
 import styles from './styles.module.scss';
 
@@ -20,6 +21,9 @@ const ItemPreview = ({ data, type }) => {
     sectionStyle,
     slug,
     link,
+    isTitleHasIcon,
+    titleFirstPart,
+    titleSecondPart,
   } = useItemPreview(data);
 
   console.log('slug', slug);
@@ -44,10 +48,20 @@ const ItemPreview = ({ data, type }) => {
                 alt={appLogoUrl}
               />
             )}
-            <TitleText
-              type={slug}
-              data={title}
-            />
+            <div className={styles.titleText}>
+              <h3 className={styles.projectTitle}>
+                <span className={styles.titleFragment}>
+                  {titleFirstPart}
+                </span>
+                {titleSecondPart}
+              </h3>
+              {isTitleHasIcon && (
+                <Svg
+                  type={SVG_IMAGES_TYPES.opensenseTitleBorder}
+                  className={styles.titleBackground}
+                />
+              )}
+            </div>
             {subtitle && (
               <p className={styles.projectSubtitle}>
                 {subtitle}

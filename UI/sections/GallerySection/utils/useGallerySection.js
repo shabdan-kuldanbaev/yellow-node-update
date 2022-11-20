@@ -14,10 +14,12 @@ export const useGallerySection = (data) => {
   const {
     title: linkTitle,
     buttonTitle: buttonLinkTitle,
-  } = getDocumentFields(linkData);
+  } = linkData ? getDocumentFields(linkData) : { title: '', buttonTitle: '' };
 
   return {
     title,
+    linkTitle,
+    buttonLinkTitle,
     description,
     slides,
     linkData,

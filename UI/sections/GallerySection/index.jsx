@@ -24,8 +24,6 @@ const GallerySection = ({
     buttonTitle,
   } = useGallerySection(sectionData);
 
-  console.log('slides', slides);
-
   return (
     <section className={cn(styles[type], styles.section)}>
       <div className={styles.gallerySection}>
