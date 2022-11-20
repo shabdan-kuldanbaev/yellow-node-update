@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import cn from 'classnames';
 import { ArcherContainer, ArcherElement } from 'react-archer';
 import Svg from 'components/Common/Svg';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import { getDocumentFields, smallTabletResolution } from 'utils/helper';
-import { getCardsProps, getCardRelations } from './utils/cardsHelper';
+import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
-const ProcessSection = ({ sectionData, pageType }) => {
-  const [isSmallTabletResolution, setIsSmallTabletResolution] = useState(false);
+const ProcessSection = ({
+  sectionData,
+  pageType,
+}) => {
   const {
     title,
     secondTitle,
@@ -20,18 +20,8 @@ const ProcessSection = ({ sectionData, pageType }) => {
     secondSubtitle,
     cardsList,
     view,
-  } = getCardsProps(sectionData);
-
-  useEffect(() => {
-    const handleOnResize = () => {
-      setIsSmallTabletResolution(window.innerWidth <= smallTabletResolution);
-    };
-
-    handleOnResize();
-    window.addEventListener('resize', handleOnResize);
-
-    return () => window.removeEventListener('resize', handleOnResize);
-  }, []);
+    renderCards,
+  } = useSectionProps(sectionData);
 
   if (!cardsList || !cardsList.length) {
     return null;
@@ -57,14 +47,14 @@ const ProcessSection = ({ sectionData, pageType }) => {
           noCurves
         >
           <div className={styles.cards}>
-            {cardsList.map((card, index, array) => {
+            {renderCards?.map((card) => {
               const {
-                title: typeTitle,
-                contentList,
+                svgType,
+                relations,
+                typeTitle,
                 text,
-              } = getDocumentFields(card);
-              const svgType = get(contentList, '[0]');
-              const relations = getCardRelations(index, array, isSmallTabletResolution);
+                index,
+              } = card;
 
               return (
                 <ArcherElement
