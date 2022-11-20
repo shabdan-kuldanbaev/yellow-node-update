@@ -22,6 +22,8 @@ const ItemPreview = ({ data, type }) => {
     link,
   } = useItemPreview(data);
 
+  console.log('slug', slug);
+
   return (
     <LinkWrapper path={link}>
       <section

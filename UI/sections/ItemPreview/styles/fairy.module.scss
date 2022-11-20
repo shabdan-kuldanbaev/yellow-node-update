@@ -5,15 +5,15 @@
 
   .projectInfoContainer {
     color: $white;
+  }
 
-    .projectSubtitle,
-    .projectDescription {
-      max-width: 310px;
-    }
+  .projectSubtitle,
+  .projectDescription {
+    max-width: 310px;
+  }
 
-    .projectDescription {
-      color: $prelude;
-    }
+  .projectDescription {
+    color: $prelude;
   }
 
   .image {

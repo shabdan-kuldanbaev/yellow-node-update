@@ -6,9 +6,12 @@ import { isTitleHasBackground } from 'components/CaseStudiesCommon/Intro/Vertica
 import styles from '../styles.module.scss';
 
 export const TitleText = ({ type, data }) => {
+  console.log('type: ', type);
+
   switch (type) {
   case 'separateUs':
     const titleWords = data && data.split('.');
+    console.log('titleWords: ', titleWords);
 
     if (!titleWords) {
       return null;

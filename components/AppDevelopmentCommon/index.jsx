@@ -7,7 +7,7 @@ import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
 const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
 const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/CheckListSection'));
-const GallerySection = dynamic(() => import('UI/Organisms/GallerySection'));
+const GallerySection = dynamic(() => import('UI/sections/GallerySection'));
 const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSection'));

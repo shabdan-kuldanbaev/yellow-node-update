@@ -2,23 +2,23 @@
   padding: 0 130px;
   background-color: $green;
 
+  .projectTitle {
+    color: $white;
+  }
+
+  .projectSubtitle {
+    color: $white;
+  }
+
+  .projectDescription {
+    font-weight: 400;
+    margin: 15px 0 10px;
+    color: $white;
+    opacity: 0.8;
+  }
+
   .projectInfoContainer {
     max-width: 320px;
-
-    .projectTitle {
-      color: $white;
-    }
-
-    .projectSubtitle {
-      color: $white;
-    }
-
-    .projectDescription {
-      font-weight: 400;
-      margin: 15px 0 10px;
-      color: $white;
-      opacity: 0.8;
-    }
 
     p:not(.projectSubtitle, .projectDescription) {
       @include fontSize(13px);

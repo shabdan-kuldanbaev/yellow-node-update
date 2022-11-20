@@ -1,0 +1,61 @@
+.tell {
+  @include centeredBackgroundImage;
+
+  padding: 0 70px;
+
+  .projectTitle {
+    @include fontSize(44px);
+
+    @include tablet {
+      @include fontSize(35px);
+    }
+
+    @include phone {
+      @include fontSize(22px);
+    }
+  }
+
+  .projectSubtitle {
+    max-width: 335px;
+
+    @include tablet {
+      margin: 0 auto 20px;
+    }
+
+    @include phone {
+      @include fontSize(14px);
+    }
+  }
+
+  .projectInfoContainer {
+    max-width: 385px;
+    height: max-content;
+    color: $dark-grey;
+
+    @include tablet {
+      max-width: unset;
+      margin-bottom: 0;
+    }
+  }
+
+  .image {
+    @include tablet {
+      max-height: 285px;
+    }
+
+    @include phone {
+      max-height: 350px;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    z-index: 1;
+    max-width: 515px;
+    height: 100%;
+  }
+
+  @include tablet {
+    padding: 0 24px;
+  }
+}
