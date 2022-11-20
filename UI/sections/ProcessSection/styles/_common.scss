@@ -40,6 +40,8 @@
 
     .imageWrapper {
       svg {
+        height: 60px;
+
         @include phone {
           width: 48px;
           height: 48px;
