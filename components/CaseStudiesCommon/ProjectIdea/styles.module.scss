@@ -82,7 +82,7 @@
 
         @include fontSize(18px);
 
-        & > p {
+        &>p {
           margin: 0;
         }
 
@@ -113,7 +113,7 @@
   .mobileAdditionalInformation {
     flex-direction: column;
 
-    & > div {
+    &>div {
       margin-top: 40px;
       margin-right: 0 !important;
     }
@@ -569,7 +569,7 @@
     .descriptionContainer {
       .descriptionIntro {
         .description {
-          & > p {
+          &>p {
             padding: 0 6px;
           }
         }
@@ -580,7 +580,7 @@
   .mobileAdditionalInformation {
     flex-direction: column;
 
-    & > div {
+    &>div {
       margin-top: 80px;
     }
   }
@@ -615,7 +615,7 @@
 
       .descriptionIntro {
         .description {
-          & > p {
+          &>p {
             padding: 0 6px;
           }
         }
@@ -626,7 +626,7 @@
   .mobileAdditionalInformation {
     flex-direction: column;
 
-    & > div {
+    &>div {
       margin-top: 80px;
 
       @include phone {
@@ -644,11 +644,9 @@
       .descriptionIntro {
         .title {
           background:
-            linear-gradient(
-              to right,
+            linear-gradient(to right,
               $ocean-blue 0%,
-              $jacksons-purple 50%
-            );
+              $jacksons-purple 50%);
           background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -706,7 +704,7 @@
     .descriptionContainer {
       .descriptionIntro {
         .description {
-          & > p {
+          &>p {
             width: 560px;
             padding: 0 6px;
 
@@ -821,14 +819,14 @@
   }
 
   .mobileAdditionalInformation {
-    & > div {
+    &>div {
       @include phone {
         margin-top: unset;
       }
     }
   }
 
-  & > div:last-child {
+  &>div:last-child {
     position: absolute;
     top: 53%;
     left: 64.5%;
@@ -893,6 +891,44 @@
         @include phone {
           display: block;
         }
+      }
+    }
+  }
+
+  @include tablet {
+    padding: 70px 0;
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}
+
+.mobile-bank-application {
+  @extend .container;
+
+  padding: 120px 40px 120px;
+
+  .contentContainer {
+    padding-bottom: 80px;
+
+    @include phone {
+      padding-bottom: 60px;
+    }
+
+    .descriptionContainer {
+      .sectionName {
+        display: block;
+      }
+
+      .title,
+      .sectionName {
+        margin-bottom: 20px;
+      }
+
+      .description {
+        max-width: 576px;
+        margin-bottom: 60px;
       }
     }
   }
