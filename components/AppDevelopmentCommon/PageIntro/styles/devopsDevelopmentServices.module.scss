@@ -1,11 +1,9 @@
 .devops-development-services {
-  .pageIntroSection {
-    .pageIntroWrapper {
-      padding-bottom: 60px;
+  .pageIntroWrapper {
+    padding-bottom: 60px;
 
-      @include phone {
-        margin-bottom: 30px;
-      }
+    @include phone {
+      margin-bottom: 30px;
     }
   }
 }

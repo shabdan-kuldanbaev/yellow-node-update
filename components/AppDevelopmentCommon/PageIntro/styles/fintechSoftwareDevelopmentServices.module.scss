@@ -1,11 +1,9 @@
 .fintech-software-development-services {
   background-color: $very-dark-gray;
 
-  .pageIntroSection {
-    .pageIntroWrapper {
-      @include phone {
-        margin-bottom: 60px;
-      }
+  .pageIntroWrapper {
+    @include phone {
+      margin-bottom: 60px;
     }
   }
 

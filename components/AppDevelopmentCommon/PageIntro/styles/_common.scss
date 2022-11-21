@@ -18,16 +18,16 @@
       height: 100%;
     }
 
-    & .pageTitleContainer {
-      @include below-tablet {
-        margin-bottom: 40px;
-      }
-    }
-
     @include below-tablet {
       @include flex(column, space-between, center);
 
       margin-bottom: 100px;
+    }
+  }
+
+  .pageTitleContainer {
+    @include below-tablet {
+      margin-bottom: 40px;
     }
   }
 
