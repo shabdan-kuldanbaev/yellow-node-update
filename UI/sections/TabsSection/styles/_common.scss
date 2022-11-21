@@ -12,7 +12,7 @@
 
   cursor: pointer;
   margin: 0 0 40px;
-  color: $silver-chalice;
+  color: $gray400;
 
   @include phone {
     @include fontSize(24px, 150%);
@@ -30,7 +30,7 @@
 }
 
 .tabTitleActive {
-  color: $dark-grey;
+  color: $gray900;
 }
 
 .tabTitleActive::after {
@@ -39,7 +39,7 @@
   width: 100%;
   margin: 0 auto;
   padding-top: 12px;
-  border-bottom: 2px solid $turbo-100;
+  border-bottom: 2px solid $yellow500;
 
   @include phone {
     padding-top: 10px;
@@ -57,7 +57,7 @@
 
 .card {
   padding: 50px 60px;
-  background: $white;
+  background: $gray0;
   box-shadow: 0 8px 35px rgb($grey900, 0.1);
   border-radius: 5px;
 
@@ -88,7 +88,7 @@
 
   @include phone {
     background: transparent;
-    border: 1px solid $cod-gray-1;
+    border: 1px solid $gray900;
     border-radius: 6px;
     padding: 15px 0;
   }
@@ -108,7 +108,7 @@
   h4 {
     @include fontSize(18px, 120%);
 
-    color: $dark-grey;
+    color: $gray900;
     margin: 0 0 4px;
   }
 
@@ -120,7 +120,7 @@
     @include fontSize(18px, 180%);
 
     margin: 0 0 0 15px;
-    color: $silver-chalice;
+    color: $gray400;
 
     li,
     p {

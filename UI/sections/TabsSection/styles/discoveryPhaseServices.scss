@@ -1,6 +1,6 @@
 .discovery-phase-services {
   padding: 120px 40px;
-  background-color: $alabaster;
+  background-color: $gray50;
 
   [data-case-study-title] {
     @include fontSize(38px);
@@ -14,7 +14,7 @@
 
     margin: 16px auto 48px;
     max-width: 100%;
-    color: $silver-chalice;
+    color: $gray400;
   }
 
   @include phone {
