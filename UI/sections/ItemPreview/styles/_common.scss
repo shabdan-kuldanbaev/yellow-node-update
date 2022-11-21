@@ -85,11 +85,10 @@
 }
 
 .projectTitle {
-  @include fontSize(50px);
+  @include fontSize(50px, 1.2);
 
   font-family: $case-studies-font;
   font-weight: bold;
-  line-height: 1.2;
   margin: 0 0 15px;
 
   @include tablet {
@@ -115,11 +114,10 @@
 }
 
 .projectDescription {
-  @include fontSize(14px);
+  @include fontSize(14px, 180%);
 
   max-width: 400px;
   margin: 0;
-  line-height: 180%;
   font-family: $case-studies-font;
   font-weight: 400;
 

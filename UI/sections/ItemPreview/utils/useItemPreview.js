@@ -11,7 +11,7 @@ import {
   getTitleText,
 } from './helpers';
 
-export const useItemPreview = (data) => {
+export const useItemPreview = ({ data, type }) => {
   const {
     images,
     contentModules,
@@ -64,16 +64,17 @@ export const useItemPreview = (data) => {
   const imagesBundlesUrl = imagesBundles?.map((bundle) => getFileUrl(bundle));
 
   const {
-    isTitleWithIcon,
+    titleIcon,
     beginSlice,
     endSlice,
   } = TITLE_CONFIG[slug] || DEFAULT_TITLE_CONFIG;
 
-  const isTitleHasIcon = isTitleWithIcon && isTitleHasBackground(slug);
+  const isTitleHasIcon = titleIcon && isTitleHasBackground(slug);
 
   const { titleFirstPart, titleSecondPart } = getTitleText(title, beginSlice, endSlice);
 
   return {
+    type,
     view,
     slug,
     title,
@@ -89,5 +90,6 @@ export const useItemPreview = (data) => {
     isTitleHasIcon,
     titleFirstPart,
     titleSecondPart,
+    titleIcon,
   };
 };

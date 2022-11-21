@@ -10,19 +10,17 @@ import { useGallerySection } from './utils/useGallerySection';
 import { swiperGalleryParams } from './utils/helpers';
 import styles from './styles.module.scss';
 
-const GallerySection = ({
-  type,
-  sectionData,
-  handleOnCTAClick,
-}) => {
+const GallerySection = (props) => {
   const {
+    type,
     title,
     description,
     slides,
     linkData,
     linkTitle,
     buttonTitle,
-  } = useGallerySection(sectionData);
+    handleOnCTAClick,
+  } = useGallerySection(props);
 
   return (
     <section className={cn(styles[type], styles.section)}>
@@ -41,7 +39,6 @@ const GallerySection = ({
               />
             </SwiperSlide>
           ))}
-          {/* TODO: replace with refactored one */}
           <SwiperNavigation className={styles.navigation} />
         </Swiper>
       </div>

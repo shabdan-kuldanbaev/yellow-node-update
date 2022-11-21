@@ -1,15 +1,15 @@
 @mixin sectionGrayBackground {
-  background: $alabaster;
+  background: $gray50;
 
   .callToAction {
-    background: $white;
+    background: $gray0;
   }
 }
 
 .section {
   @include appDevelopmentContainer;
 
-  background-color: $white;
+  background-color: $gray0;
   padding-bottom: 90px;
 
   @include below-tablet {
@@ -42,7 +42,7 @@
   }
 
   :global(.swiper-slide-active) {
-    box-shadow: 0 10px 60px -10px rgba($black, 0.15);
+    box-shadow: 0 10px 60px -10px rgba($gray1000, 0.15);
   }
 
   .navigation {

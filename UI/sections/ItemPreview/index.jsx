@@ -4,12 +4,12 @@ import cn from 'classnames';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import Svg from 'components/Common/Svg';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { useItemPreview } from './utils/useItemPreview';
 import styles from './styles.module.scss';
 
-const ItemPreview = ({ data, type }) => {
+const ItemPreview = (props) => {
   const {
+    type,
     view,
     title,
     subtitle,
@@ -24,7 +24,8 @@ const ItemPreview = ({ data, type }) => {
     isTitleHasIcon,
     titleFirstPart,
     titleSecondPart,
-  } = useItemPreview(data);
+    titleIcon,
+  } = useItemPreview(props);
 
   return (
     <LinkWrapper path={link}>
@@ -55,7 +56,7 @@ const ItemPreview = ({ data, type }) => {
               </h3>
               {isTitleHasIcon && (
                 <Svg
-                  type={SVG_IMAGES_TYPES.opensenseTitleBorder}
+                  type={titleIcon}
                   className={styles.titleBackground}
                 />
               )}

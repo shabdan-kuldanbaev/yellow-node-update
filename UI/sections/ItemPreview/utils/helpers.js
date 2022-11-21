@@ -1,5 +1,7 @@
+import { SVG_IMAGES_TYPES } from 'utils/constants';
+
 export const DEFAULT_TITLE_CONFIG = {
-  isTitleWithIcon: false,
+  titleIcon: null,
   beginSlice: undefined,
   endSlice: 0,
 };
@@ -17,7 +19,7 @@ export const TITLE_CONFIG = {
   },
   openSense: {
     ...DEFAULT_TITLE_CONFIG,
-    isTitleWithIcon: true,
+    titleIcon: SVG_IMAGES_TYPES.opensenseTitleBorder,
   },
 };
 
