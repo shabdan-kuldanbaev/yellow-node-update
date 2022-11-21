@@ -32,10 +32,13 @@
 
     .sectionContainer {
       max-width: 680px;
-      width: 100%;
 
       @include desktop {
         max-width: 540px;
+      }
+
+      @include tablet {
+        max-width: 100%;
       }
     }
 
@@ -43,10 +46,8 @@
       flex-direction: column;
     }
 
-    .imageContainer {
-      img {
-        width: 100%;
-      }
+    .image {
+      width: 100%;
     }
   }
 }

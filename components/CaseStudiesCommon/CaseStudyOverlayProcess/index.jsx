@@ -86,7 +86,7 @@ const CaseStudyOverlayProcess = ({ data, type }) => {
 };
 
 CaseStudyOverlayProcess.propTypes = {
-  sectdataionData: PropTypes.instanceOf(Object).isRequired,
+  data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
 

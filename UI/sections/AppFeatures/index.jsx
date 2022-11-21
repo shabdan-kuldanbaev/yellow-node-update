@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
+import FigmaPrototype from 'components/Common/FigmaPrototype';
 import AppFeaturesItem from 'UI/components/AppFeaturesItem';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
@@ -50,25 +51,23 @@ const AppFeatures = (props) => {
             />
           ))}
         </div>
-        <Animated delay={500}>
-          <div className={styles.imageContainer}>
-            <img
-              src={images[activeIndex]}
-              className={styles.image}
-              alt={type}
-            />
-            {isPromoImage && promoImages[activeIndex]
-              && (
-                <iframe
-                  height={isMobileResolution ? '650' : '700'}
-                  width={isMobileResolution ? '350' : '450'}
-                  src={`https://www.figma.com/embed?embed_host=astra&url=${promoImages[activeIndex].url}`}
-                  title={data.title}
-                  allowTransparency
-                />
-              )}
-          </div>
-        </Animated>
+        <div className={styles.imageWrapper}>
+          <Animated delay={500}>
+            <div className={styles.imageContainer}>
+              <img
+                src={images[activeIndex]}
+                className={styles.image}
+                alt={type}
+              />
+              {isPromoImage && promoImages[activeIndex]
+                && (
+                  <FigmaPrototype
+                    src={promoImages[activeIndex].url}
+                  />
+                )}
+            </div>
+          </Animated>
+        </div>
       </div>
     </section>
   );

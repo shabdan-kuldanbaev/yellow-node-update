@@ -6,71 +6,71 @@
 
     max-width: $max-content-width;
     margin: 0 auto;
+  }
 
-    .pageIntroWrapper {
-      @include flex(row, space-between, center);
+  .pageIntroWrapper {
+    @include flex(row, space-between, center);
 
-      margin-bottom: 160px;
+    margin-bottom: 160px;
 
+    & > div {
+      width: 100%;
+      height: 100%;
+    }
+
+    & .pageTitleContainer {
       @include below-tablet {
-        @include flex(column, space-between, center);
-
-        margin-bottom: 100px;
-      }
-
-      .pageTitle {
-        @include fontSize(70px, 120%);
-
-        margin: 0 0 40px;
-
-        @include macbook-twelve {
-          @include fontSize(55px);
-        }
-
-        @include tablet {
-          @include fontSize(46px);
-        }
-
-        @include phone {
-          @include fontSize(32px);
-        }
-      }
-
-      .subtitle {
-        @include fontSize(18px, 180%);
-
-        margin: 0;
-        padding-right: 60px;
-        color: $silver-chalice;
-
-        @include macbook-fifteen {
-          @include fontSize(16px);
-        }
-
-        @include phone {
-          @include fontSize(14px);
-        }
-      }
-
-      & > div {
-        width: 100%;
-        height: 100%;
-      }
-
-      & .pageTitleContainer {
-        @include below-tablet {
-          margin-bottom: 40px;
-        }
-      }
-
-      .image {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        padding-top: 81%;
-        width: 100%;
+        margin-bottom: 40px;
       }
     }
+
+    @include below-tablet {
+      @include flex(column, space-between, center);
+
+      margin-bottom: 100px;
+    }
+  }
+
+  .pageTitle {
+    @include fontSize(70px, 120%);
+
+    margin: 0 0 40px;
+
+    @include macbook-twelve {
+      @include fontSize(55px);
+    }
+
+    @include tablet {
+      @include fontSize(46px);
+    }
+
+    @include phone {
+      @include fontSize(32px);
+    }
+  }
+
+  .subtitle {
+    @include fontSize(18px, 180%);
+
+    margin: 0;
+    padding-right: 60px;
+    color: $silver-chalice;
+
+    @include macbook-fifteen {
+      @include fontSize(16px);
+    }
+
+    @include phone {
+      @include fontSize(14px);
+    }
+  }
+
+  .image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 81%;
+    width: 100%;
   }
 }
 

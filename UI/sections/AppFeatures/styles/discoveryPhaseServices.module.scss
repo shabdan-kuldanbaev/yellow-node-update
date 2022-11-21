@@ -5,32 +5,32 @@
     background: $white;
 
     .container {
-      .imageContainer {
-        width: 500px;
-
-        img {
-          transform: scale(1) translate(0px, -10px);
-
-          @include desktop {
-            transform: scale(1.9) translate(25px, 70px);
-          }
-  
-          @include tablet-size-horizontal {
-            transform: scale(1.8) translate(80px, 70px);
-          }
-  
-          @include below-tablet {
-            transform: scale(1.7) translate(100px, 60px);
-          }
-  
-          @include tablet-size-horizontal {
-            transform: unset;
-          }
-        }
-      }
-
       @include phone {
         flex-direction: column-reverse;
+      }
+    }
+
+    .imageContainer {
+      width: 500px;
+    }
+
+    .image {
+      transform: scale(1) translate(0px, -10px);
+
+      @include desktop {
+        transform: scale(1.9) translate(25px, 70px);
+      }
+
+      @include tablet-size-horizontal {
+        transform: scale(1.8) translate(80px, 70px);
+      }
+
+      @include below-tablet {
+        transform: scale(1.7) translate(100px, 60px);
+      }
+
+      @include tablet-size-horizontal {
+        transform: unset;
       }
     }
   }
@@ -58,51 +58,73 @@
       .sectionContainer {
         order: 1;
 
-        & > div {
-          &:nth-child(7) {
-            margin: 60px auto 40px;
-            
-            p {
-              color: $turbo-100;
+        & > div:nth-child(7) {
+          z-index: 100;
+          position: relative;
+          margin: 60px auto 40px;
+          
+          p {
+            color: $turbo-100;
 
-              &::before {
-                content: unset;
-              }
-
-              @include phone {
-                text-align: center;
-                margin: 0;
-              }
+            &::before {
+              content: unset;
             }
 
-            img {
-              position: absolute;
+            @include phone {
+              text-align: center;
               margin: 0;
-              top: -190px;
-              left: -235px;
-
-              @include tablet {
-                display: none;
-              }
             }
+          }
 
+          .imageWrapper {
+            @include flex(row, center, center);
+    
+            width: 100%;
+            position: relative;
+    
+            &::before {
+              @include centered;
+    
+              content: '';
+              width: 574px;
+              height: 574px;
+              background: $turbo-100;
+              border-radius: 50%;
+            }
+    
             @include phone {
               margin-top: 24px;
             }
           }
+
+          img {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            margin: 0;
+            bottom: 65px;
+            left: -165px;
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          @include phone {
+            margin-top: 24px;
+          }
         }
+      
       }
 
       .imageContainer {
-        margin: 0 120px 0 0;
-        max-width: 525px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 51px;
+        margin: 0 auto;
+        width: min-content;
 
-        iframe {
-          border: 0;
-          z-index: 1;
-        }
-
-        img {
+        .image {
           display: none;
         }
 
