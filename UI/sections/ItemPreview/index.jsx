@@ -26,11 +26,9 @@ const ItemPreview = ({ data, type }) => {
     titleSecondPart,
   } = useItemPreview(data);
 
-  console.log('slug', slug);
-
   return (
     <LinkWrapper path={link}>
-      <section
+      <div
         style={sectionStyle}
         className={cn(
           styles.previewContainer,
@@ -90,7 +88,7 @@ const ItemPreview = ({ data, type }) => {
             />
           ))}
         </div>
-      </section>
+      </div>
     </LinkWrapper>
   );
 };
