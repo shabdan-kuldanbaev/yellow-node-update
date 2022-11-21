@@ -20,7 +20,6 @@ const SectionTitle = ({
   className,
 }) => (
   <div className={cn(styles[type], className, { [titleStyle]: titleStyle })}>
-    {console.log('type', type)}
     <Animated
       {...REVEAL_ANIMATION_PROPS}
       transitionDelay={50}
