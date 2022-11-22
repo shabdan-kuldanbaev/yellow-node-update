@@ -236,8 +236,8 @@ export const AppDevelopmentCommon = ({
   case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
     return (
       <DownloadSection
-        type={type}
         sectionData={section}
+        type={type}
       />
     );
   default:
