@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { useSelector } from './useSelector';
+import { useSelector } from './utils/useSelector';
 import styles from './styles.module.scss';
 
 const Selector = (props) => {

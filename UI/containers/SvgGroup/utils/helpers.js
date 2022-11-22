@@ -1,6 +1,6 @@
 import { Autoplay, FreeMode } from 'swiper';
 
-export const getSwiperParams = () => ({
+export const SWIPER_PARAMS = {
   enabled: true,
   slidesPerView: 'auto',
   spaceBetween: 60,
@@ -16,4 +16,4 @@ export const getSwiperParams = () => ({
   },
   speed: 500,
   modules: [Autoplay, FreeMode],
-});
+};

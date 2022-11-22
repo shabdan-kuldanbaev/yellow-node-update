@@ -25,8 +25,6 @@ export const useSvgListSection = ({
 
   const displayNames = iconsGroups.map((group) => getDocumentFields(group, ['title']).title);
 
-  const handleSelectedGroupIndexChange = useCallback((i) => setSelectedGroupIndex(i), []);
-
   useEffect(() => {
     if (!withSelector) {
       return;
@@ -44,8 +42,8 @@ export const useSvgListSection = ({
     handleOnCTAClick,
     type,
     withSelector,
-    handleSelectedGroupIndexChange,
     displayNames,
     selectedGroupIndex,
+    handleSelectedGroupIndexChange: setSelectedGroupIndex,
   };
 };

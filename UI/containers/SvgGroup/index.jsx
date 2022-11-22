@@ -5,8 +5,9 @@ import dynamic from 'next/dynamic';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Svg from 'components/Common/Svg';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import CustomSwiper from 'UI/containers/SvgGroup';
+import CustomSwiper from 'UI/containers/CustomSwiper';
 import styles from './styles.module.scss';
+import { SWIPER_PARAMS } from './utils/helpers';
 import { useSvgGroup } from './utils/useSvgGroup';
 
 const Animated = dynamic(() => import('components/Common/Animated'));
@@ -19,7 +20,6 @@ const SvgGroup = (props) => {
     title,
     className,
     hideTitle,
-    swiperParams,
     isSwiperEnabled,
   } = useSvgGroup(props);
 
@@ -40,7 +40,7 @@ const SvgGroup = (props) => {
         </Animated>
       )}
       <Animated {...REVEAL_ANIMATION_PROPS}>
-        <Swiper {...swiperParams}>
+        <CustomSwiper {...SWIPER_PARAMS}>
           {icons?.map((technology) => (
             <SwiperSlide
               className={styles.item}
@@ -49,7 +49,7 @@ const SvgGroup = (props) => {
               <Svg type={technology} />
             </SwiperSlide>
           ))}
-        </Swiper>
+        </CustomSwiper>
       </Animated>
     </div>
   );
