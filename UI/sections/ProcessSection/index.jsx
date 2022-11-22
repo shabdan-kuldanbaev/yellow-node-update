@@ -8,10 +8,7 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
-const ProcessSection = ({
-  sectionData,
-  pageType,
-}) => {
+const ProcessSection = (props) => {
   const {
     title,
     secondTitle,
@@ -21,9 +18,10 @@ const ProcessSection = ({
     cardsList,
     view,
     renderCards,
-  } = useSectionProps(sectionData);
+    pageType,
+  } = useSectionProps(props);
 
-  if (!cardsList || !cardsList.length) {
+  if (!cardsList.length) {
     return null;
   }
 

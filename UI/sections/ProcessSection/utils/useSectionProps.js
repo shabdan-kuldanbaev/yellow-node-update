@@ -3,7 +3,10 @@ import { useEffect, useState } from 'react';
 import { getDocumentFields, smallTabletResolution } from 'utils/helper';
 import getCardRelations from './getCardRelations';
 
-export default (data) => {
+export default ({
+  sectionData,
+  pageType,
+}) => {
   const [isSmallTabletResolution, setIsSmallTabletResolution] = useState(false);
 
   const {
@@ -13,7 +16,7 @@ export default (data) => {
     contentModules,
     view,
   } = getDocumentFields(
-    data,
+    sectionData,
     [
       'title',
       'description',
@@ -69,5 +72,6 @@ export default (data) => {
     view,
     isSmallTabletResolution,
     renderCards,
+    pageType,
   };
 };
