@@ -8,7 +8,7 @@ import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
 const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/CheckListSection'));
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
-const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
+const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
@@ -246,7 +246,8 @@ export const AppDevelopmentCommon = ({
 };
 
 AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {},
+  handleOnCTAClick: () => {
+  },
   introSection: null,
 };
 
