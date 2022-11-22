@@ -8,19 +8,6 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 40px;
 
-    @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include below-tablet {
-      grid-template-columns: auto;
-      grid-gap: 24px;
-    }
-
-    @include phone {
-      display: unset;
-    }
-
     .cardContainer {
       @include flex(column, center, center);
 
@@ -96,6 +83,19 @@
       @include phone {
         margin: 10px;
       }
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include below-tablet {
+      grid-template-columns: auto;
+      grid-gap: 24px;
+    }
+
+    @include phone {
+      display: unset;
     }
   }
 

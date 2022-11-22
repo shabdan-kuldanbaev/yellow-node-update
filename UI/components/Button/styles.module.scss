@@ -1,0 +1,97 @@
+@import "styles/utils/mixins";
+
+.button {
+  @include fontSize(16px, 24px);
+  @include flex(row, center, center);
+
+  background: $yellow500;
+  color: $gray900;
+  border: solid 1px rgb($gray900, 0);
+  display: inline-block;
+  font-family: $default-font;
+  font-weight: 500;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 16px 32px;
+  height: 56px;
+  user-select: none;
+  text-decoration: none;
+  transition: 
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out,
+    transform 0.15s ease-in-out,
+    border-color 0.2s ease-in-out;
+  
+  &:hover {
+    background: $yellow300;
+
+    cursor: pointer;
+    transform: scale(0.95);
+  }
+
+  &:active {
+    background: $yellow600;
+  }
+
+  &:disabled {
+    background: $gray50;
+    color: $gray400;
+    cursor: default;
+    transform: none;
+  }
+}
+
+.secondary {
+  background: none;
+  border-color: $gray900;
+
+  &:disabled {
+    background: none;
+    color: $gray400;
+    border-color: $gray300;
+    cursor: default;
+  }
+}
+
+.dark {
+  background: none;
+  color: $gray0;
+  border-color: $gray0;
+
+  &:hover {
+    background: $yellow300;
+    color: $gray900;
+    border-color: rgb($gray100, 0);
+  }
+
+  &:active {
+    background: $yellow600;
+  }
+
+  &:disabled {
+    background: none;
+    color: $gray400;
+    border-color: $gray500;
+  }
+}
+
+.dark.secondary {
+  color: $gray400;
+  border-color: $gray500;
+
+  &:hover {
+    background: $gray0;
+    color: $gray900;
+    border-color: rgb($gray100, 0);
+  }
+
+  &:active {
+    background: $gray200;
+  }
+
+  &:disabled {
+    background: none;
+    color: $gray400;
+    border-color: $gray500;
+  }
+}
