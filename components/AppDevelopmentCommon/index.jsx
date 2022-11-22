@@ -24,7 +24,7 @@ const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommo
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
 const TabsSection = dynamic(() => import('components/AppDevelopmentCommon/TabsSection'));
-const DownloadSection = dynamic(() => import('components/AppDevelopmentCommon/DownloadSection'));
+const DownloadSection = dynamic(() => import('UI/sections/DownloadSection'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -237,7 +237,7 @@ export const AppDevelopmentCommon = ({
     return (
       <DownloadSection
         type={type}
-        data={section}
+        sectionData={section}
       />
     );
   default:
@@ -246,7 +246,8 @@ export const AppDevelopmentCommon = ({
 };
 
 AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {},
+  handleOnCTAClick: () => {
+  },
   introSection: null,
 };
 
