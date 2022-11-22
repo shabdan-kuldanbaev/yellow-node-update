@@ -21,7 +21,7 @@ const ProcessSection = (props) => {
     pageType,
   } = useSectionProps(props);
 
-  if (!cardsList.length) {
+  if (!cardsList?.length) {
     return null;
   }
 
