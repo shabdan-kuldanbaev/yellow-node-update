@@ -1,0 +1,15 @@
+.meetAva {
+  @include centeredBackgroundImage;
+
+  background-color: $green-aloha;
+
+  .projectInfoContainer {
+    color: $gray0;
+
+    .projectTitle {
+      @include fontSize(30px);
+
+      width: 290px;
+    }
+  }
+}

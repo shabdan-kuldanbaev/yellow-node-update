@@ -1,0 +1,32 @@
+.ava {
+  background: $sky-blue-white;
+
+  .projectTitle {
+    color: $gray1000;
+  }
+
+  .projectSubtitle {
+    color: $nevada-1;
+  }
+
+  .image {
+    transform: translate(10%, 0);
+    max-width: 150%;
+
+    @include tablet {
+      transform: unset;
+      max-width: 100%;
+    }
+  }
+
+  .imageContainer {
+    z-index: 1;
+    max-width: 500px;
+    width: 100%;
+
+    @include tablet {
+      height: 100%;
+      max-width: 450px;
+    }
+  }
+}

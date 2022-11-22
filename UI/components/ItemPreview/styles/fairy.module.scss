@@ -1,0 +1,43 @@
+.fairy {
+  @include centeredBackgroundImage;
+
+  background-color: $violet;
+
+  .projectInfoContainer {
+    color: $gray0;
+  }
+
+  .projectSubtitle,
+  .projectDescription {
+    max-width: 310px;
+  }
+
+  .projectDescription {
+    color: $prelude;
+  }
+
+  .image {
+    transform: translate(10%, 0);
+
+    @include tablet {
+      transform: unset;
+      max-width: 100%;
+    }
+
+    @include phone {
+      max-width: 120%;
+    }
+  }
+
+  .imageContainer {
+    z-index: 1;
+    max-width: 500px;
+    width: 100%;
+
+    @include tablet {
+      height: 100%;
+      max-width: 180px;
+      margin-top: -30px;
+    }
+  }
+}

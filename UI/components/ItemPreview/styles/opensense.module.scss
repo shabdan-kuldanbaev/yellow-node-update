@@ -1,0 +1,96 @@
+.openSense {
+  @include centeredBackgroundImage;
+
+  @extend .verticalContainer;
+
+  .projectPreview {
+    transform: translateY(90px);
+
+    @include tablet {
+      transform: unset;
+    }
+  }
+
+  .titleText {
+    position: relative;
+
+    .projectTitle {
+      @include fontSize(56px);
+
+      margin-bottom: 20px;
+      color: $midnight;
+
+      @include macbook-twelve {
+        @include fontSize(45px);
+      }
+
+      @include tablet {
+        @include fontSize(55px);
+      }
+
+      @include phone {
+        @include fontSize(25px);
+      }
+    }
+
+    .titleBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-30px, -63px);
+      width: 467px;
+
+      @include macbook-twelve {
+        width: 390px;
+        transform: translate(-30px, -75px);
+      }
+
+      @include tablet {
+        width: 455px;
+        transform: translate(-25px, -65px);
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+  }
+
+  .projectSubtitle {
+    @include fontSize(14px);
+
+    color: $gray900;
+  }
+
+  .projectDescription {
+    color: $gray900;
+    max-width: 360px;
+    opacity: 0.7;
+    text-align: center;
+    margin-bottom: -50px;
+
+    @include phone {
+      margin-bottom: 0;
+    }
+  }
+
+  .image {
+    max-width: 727px;
+
+    @include macbook-twelve {
+      max-width: 530px;
+    }
+
+    @include tablet {
+      max-width: 450px;
+    }
+
+    @include phone {
+      max-width: 80vw;
+    }
+  }
+
+  .imageContainer {
+    margin-top: -40px;
+  }
+}

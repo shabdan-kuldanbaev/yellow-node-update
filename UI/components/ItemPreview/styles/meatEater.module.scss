@@ -1,0 +1,28 @@
+.meatEater {
+  @extend .verticalContainer;
+
+  background-color: $shark-2;
+
+  .projectInfoContainer {
+    .projectTitle {
+      color: $gray0;
+      text-transform: uppercase;
+
+      .titleFragment {
+        color: $flamenco;
+      }
+    }
+  }
+
+  .projectDescription {
+    color: rgba($gray0, 0.7);
+  }
+
+  .image {
+    max-height: 330px;
+
+    @include phone {
+      max-width: 80vw;
+    }
+  }
+}
