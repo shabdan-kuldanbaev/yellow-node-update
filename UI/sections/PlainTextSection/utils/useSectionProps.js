@@ -1,12 +1,10 @@
 import { useMemo } from 'react';
 import { getDocumentFields } from 'utils/helper';
 
-export default (props) => {
-  const {
-    sectionData,
-    type,
-  } = props;
-
+export default ({
+  sectionData,
+  type,
+}) => {
   const {
     title,
     description,
