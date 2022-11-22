@@ -23,7 +23,7 @@ const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/P
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
-const TabsSection = dynamic(() => import('components/AppDevelopmentCommon/TabsSection'));
+const TabsSection = dynamic(() => import('UI/sections/TabsSection'));
 const DownloadSection = dynamic(() => import('components/AppDevelopmentCommon/DownloadSection'));
 
 export const AppDevelopmentCommon = ({
@@ -246,7 +246,8 @@ export const AppDevelopmentCommon = ({
 };
 
 AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {},
+  handleOnCTAClick: () => {
+  },
   introSection: null,
 };
 
