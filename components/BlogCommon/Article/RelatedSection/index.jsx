@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import {
   ROUTES,
   ARTICLE_PREVIEW_TYPES,
