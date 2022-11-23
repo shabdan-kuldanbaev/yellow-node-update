@@ -1,0 +1,51 @@
+.web-app-development-company {
+  color: $white;
+
+  @include tablet {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .text {
+    order: 1;
+
+    & > div {
+      max-width: 518px;
+
+      p {
+        @include fontSize(18px);
+
+        margin: 0 0 30px;
+        color: $silver-chalice;
+        line-height: 1.8;
+
+        @include tablet {
+          @include fontSize(16px);
+        }
+
+        @include phone {
+          text-align: center;
+
+          @include fontSize(14px);
+        }
+      }
+    }
+  }
+
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 45px;
+
+    & > div {
+      @include flex(row, initial, center);
+
+      margin-bottom: 40px;
+
+      .title {
+        @include fontSize(24px);
+
+        font-weight: 700;
+      }
+    }
+  }
+}
