@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ArcherContainer } from 'react-archer';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import ProcessCard from 'UI/components/ProcessCard';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
-import ProcessCard from '../../components/ProcessCard';
 
 const ProcessSection = (props) => {
   const {
