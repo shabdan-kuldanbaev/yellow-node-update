@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
+import ProcessSection from 'UI/sections/ProcessSection';
 
 const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
 const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/CheckListSection'));
@@ -13,7 +14,6 @@ const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/Cards
 const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
 const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
-const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));
 const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
@@ -246,7 +246,8 @@ export const AppDevelopmentCommon = ({
 };
 
 AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {},
+  handleOnCTAClick: () => {
+  },
   introSection: null,
 };
 
