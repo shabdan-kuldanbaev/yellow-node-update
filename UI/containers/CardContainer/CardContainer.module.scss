@@ -1,0 +1,19 @@
+@import "styles/utils/mixins";
+
+.cardContainer {
+  position: relative;
+}
+
+.cardContainer:not(.noBackground) {
+  box-shadow: 0px 8px 35px rgba(110, 120, 130, 0.1);
+  padding: 32px;
+  background: $gray0;
+}
+
+/* For Storybook */
+.sb_cardWithOverlay {
+
+  &:hover .overlay {
+    display: block;
+  }
+}
