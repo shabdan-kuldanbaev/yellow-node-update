@@ -13,7 +13,7 @@ const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
-const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
+const ImagesListSection = dynamic(() => import('UI/sections/ImagesListSection'));
 const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));
 const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
