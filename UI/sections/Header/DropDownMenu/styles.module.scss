@@ -1,0 +1,80 @@
+/* stylelint-disable no-descending-specificity */
+@import 'styles/utils/mixins';
+
+.dropDownMenu {
+  position: absolute;
+  top: $header-height - 0.5px;
+  left: 0;
+  width: 100%;
+  padding: 64px 0;
+  background-color: $dark-grey;
+  color: $white;
+  z-index: -1;
+  opacity: 1;
+  visibility: visible;
+  transition:
+  visibility 0.2s,
+  opacity 0.3s ease;
+  box-shadow: none;
+
+  .dropDownNavContainer {
+    max-width: max-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-gap: 32px 120px;
+
+    @include macbook-twelve {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @include below-tablet {
+      display: block;
+      margin: 0;
+      width: unset;
+      grid-column-gap: unset;
+      grid-template-columns: unset;
+    }
+  }
+
+  @include macbook-twelve {
+    padding-bottom: 80px;
+  }
+
+  @include below-tablet {
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin-top: 20px;
+    width: unset;
+    z-index: unset;
+  }
+
+  @include phone {
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin-top: 20px;
+    width: unset;
+    z-index: unset;
+    background-color: $dark-grey;
+  }
+}
+
+.pageScrolling {
+  background-color: $white;
+  box-shadow: 0 40px 60px -40px rgb(0 0 0 / 0.1);
+  border-bottom: none;
+}
+
+.closed {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+  visibility 0.4s,
+  opacity 0.5s ease;
+}
+
+.lightTheme {
+  background-color: $white;
+}

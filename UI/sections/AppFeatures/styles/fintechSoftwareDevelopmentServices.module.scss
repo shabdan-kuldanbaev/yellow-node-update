@@ -1,0 +1,55 @@
+.fintech-software-development-services {
+  @include appFeaturesContainer();
+
+  background: $white;
+
+  [data-case-study-title] {
+    margin-bottom: 32px;
+
+    @include phone {
+      @include fontSize(32px);
+
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+
+  .container {
+    .imageContainer {
+      max-width: 500px;
+
+      img {
+        transform: scale(2.1) translate(125px, 70px);
+
+        @include desktop {
+          transform: scale(1.9) translate(25px, 70px);
+        }
+
+        @include tablet-size-horizontal {
+          transform: scale(1.8) translate(80px, 70px);
+        }
+
+        @include below-tablet {
+          transform: scale(1.7) translate(100px, 60px);
+        }
+
+        @include tablet-size-horizontal {
+          transform: unset;
+        }
+      }
+
+      @include below-tablet {
+        margin-left: unset;
+      }
+
+      @include phone {
+        width: 350px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}

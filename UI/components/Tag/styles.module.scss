@@ -1,0 +1,98 @@
+@import 'styles/utils/mixins';
+
+@mixin tagColor($color: inherit, $border: inherit, $background: transparent) {
+  color: $color;
+  background: $background;
+  border: $border;
+}
+
+.selectorElement {
+  @include fontSize(12px, 150%);
+
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 100px;
+  background: none;
+  border: none;
+  color: $gray900;
+
+  &.dark {
+    &.secondary {
+      @include tagColor($gray400, 1px solid $gray500);
+
+      &:hover:not(:disabled) {
+        @include tagColor($gray900, 1px solid $gray0, $gray0);
+      }
+
+      &:active:not(:disabled) {
+        @include tagColor($gray900, 1px solid $mercury, $mercury);
+      }
+
+      &:disabled {
+        @include tagColor($gray400, 1px solid $gray500);
+      }
+    }
+
+    &.primary {
+      @include tagColor($gray0, 1px solid $gray0);
+
+      &:hover:not(:disabled) {
+        @include tagColor($gray900, 1px solid $yellow300, $yellow300);
+      }
+
+      &:active:not(:disabled) {
+        @include tagColor(inherit, 1px solid $yellow600, $yellow600);
+      }
+
+      &:disabled {
+        @include tagColor($gray400, 1px solid $gray500);
+      }
+    }
+  }
+
+  &.light {
+    &.secondary {
+      @include tagColor(inherit, 1px solid $gray900);
+
+      &:hover:not(:disabled) {
+        @include tagColor(inherit, 1px solid $gray900, $yellow300);
+      }
+
+      &:active:not(:disabled) {
+        @include tagColor(inherit, 1px solid $gray900, $yellow600);
+      }
+
+      &:disabled {
+        @include tagColor($gray400, 1px solid $gray300);
+      }
+    }
+
+    &.primary {
+      @include tagColor($gray900, 1px solid $yellow500, $yellow500);
+
+      &:hover:not(:disabled) {
+        @include tagColor(inherit, 1px solid $yellow300, $yellow300);
+      }
+
+      &:active:not(:disabled) {
+        @include tagColor(inherit, 1px solid $yellow600 $yellow600);
+      }
+
+      &:disabled {
+        @include tagColor($gray400, 1px solid $gray50, $gray50);
+      }
+    }
+  }
+
+  &.category {
+    @include tagColor(inherit, 1px solid $gray100, $gray100);
+
+    &.selected {
+      @include tagColor($gray0, 1px solid $gray900, $gray900);
+    }
+
+    &:hover:not(.selected) {
+      @include tagColor(inherit, 1px solid $gray900, $gray100);
+    }
+  }
+}

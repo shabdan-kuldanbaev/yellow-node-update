@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import styles from './styles.module.scss';
 
 const ScrollIcon = () => (

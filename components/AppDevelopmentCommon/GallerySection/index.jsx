@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { SwiperNavigation } from 'components/SwiperNavigation';
+import { SwiperNavigation } from 'UI/components/SwiperNavigation';
 import { ItemPreview } from './ItemPreview';
 import { GalleryCallToAction } from './GalleryCallToAction';
 import { getItemPreviewProps } from './ItemPreview/utils/itemPreviewHelper';
