@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
+import DownloadSection from 'UI/sections/DownloadSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -24,7 +25,6 @@ const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommo
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
 const TabsSection = dynamic(() => import('components/AppDevelopmentCommon/TabsSection'));
-const DownloadSection = dynamic(() => import('UI/sections/DownloadSection'));
 
 export const AppDevelopmentCommon = ({
   type,
