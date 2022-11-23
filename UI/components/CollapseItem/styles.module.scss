@@ -18,11 +18,10 @@
 
   & > div:last-child {
     p {
+      @include fontSize(18px, 1.7);
+      
       color: $silver-chalice;
       margin: 20px 0 0;
-      line-height: 1.7;
-
-      @include fontSize(18px);
 
       & > a {
         border-bottom: unset;
@@ -57,13 +56,13 @@
 }
 
 .question {
-  outline: none;
-
   @include flex(row, space-between, center);
+
+  outline: none;
 
   & > p {
     margin: 0 100px 0 0;
-    color: $dark-grey;
+    color: $gray900;
     font-weight: 700;
 
     @include tablet {
@@ -123,10 +122,10 @@
 }
 
 .answer {
+  @include fontSize(18px);
+
   color: $silver-chalice;
   margin: 30px 0 0;
-
-  @include fontSize(18px);
 
   @include macbook-fifteen {
     margin-top: 20px;

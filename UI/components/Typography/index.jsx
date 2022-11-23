@@ -5,23 +5,25 @@ import { useTypography, TYPOGRAPHY_TAGS } from './utils/useTypography';
 
 const Typography = (props) => {
   const {
-    TitleTag,
+    Tag,
     classes,
     children,
     onClick,
     tabIndex,
     role,
+    anotherProps,
   } = useTypography(props);
 
   return (
-    <TitleTag
+    <Tag
       className={classes}
       onClick={onClick}
       tabIndex={tabIndex}
       role={role}
+      {...anotherProps}
     >
       {children}
-    </TitleTag>
+    </Tag>
   );
 };
 

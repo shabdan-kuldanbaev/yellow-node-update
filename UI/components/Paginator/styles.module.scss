@@ -34,7 +34,7 @@
 .paginationPrev {
   cursor: pointer;
   padding: 15px;
-  color: $black;
+  color: $gray1000;
   font-size: 1.125rem;
   line-height: 40px;
   background-color: transparent;
@@ -55,7 +55,7 @@
 .paginationNextWrapper {
   & > a {
     font-family: $default-font;
-    color: $black;
+    color: $gray1000;
     text-decoration: none;
     outline: none;
     border-radius: 50%;
@@ -106,10 +106,10 @@
 
 .paginationActiveClassName {
   & > a {
-    background-color: $turbo-100;
+    background-color: $yellow500;
 
     &:hover {
-      background-color: $turbo-100;
+      background-color: $yellow500;
     }
   }
 }

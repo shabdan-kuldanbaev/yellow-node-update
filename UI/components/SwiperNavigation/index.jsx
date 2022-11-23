@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import SwiperNavButton from 'components/SwiperNavButton';
+import SwiperNavButton from 'UI/components/SwiperNavButton';
 import styles from './styles.module.scss';
 
 export const SwiperNavigation = ({ className }) => (

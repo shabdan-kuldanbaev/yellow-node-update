@@ -2,25 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Svg from 'UI/components/Svg';
-import { useSwiper } from 'swiper/react';
+import { useSwiperNavButton } from './utils/useSwiperNavButton';
 import styles from './styles.module.scss';
 
-const SwiperNavButton = ({
-  type,
-  text,
-  className,
-}) => {
-  const swiper = useSwiper();
-
-  const handleNavButtonClick = () => {
-    if (type === 'next') {
-      return swiper.slideNext();
-    }
-
-    swiper.slidePrev();
-  };
-
-  const svgType = (type === 'next') ? 'arrowRight' : 'arrowLeft';
+const SwiperNavButton = (props) => {
+  const {
+    type,
+    text,
+    svgType,
+    className,
+    handleNavButtonClick,
+  } = useSwiperNavButton(props);
 
   return (
     <button

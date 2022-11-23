@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { SwiperNavigation } from 'components/SwiperNavigation';
+import { SwiperNavigation } from 'UI/components/SwiperNavigation';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 import { getSwiperParams } from './utils/challengesSliderHelper';
 import styles from '../styles.module.scss';

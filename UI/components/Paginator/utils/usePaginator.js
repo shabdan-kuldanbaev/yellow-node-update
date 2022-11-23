@@ -2,7 +2,6 @@ import Router, { useRouter } from 'next/router';
 import { ROUTES } from 'utils/constants';
 
 export const usePaginator = ({
-  arrows: navigationArrows,
   pagesCounter,
   currentPage,
   pageSlug,

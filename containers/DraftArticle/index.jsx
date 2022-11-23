@@ -7,7 +7,7 @@ import { getArticleProps } from 'containers/Article/utils/propsHelper';
 import Article from 'components/BlogCommon/Article';
 import FullLayout from 'components/Layout/FullLayout';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
-import FAQ from 'UI/components/FAQ';
+import FAQ from 'UI/containers/FAQ';
 
 const DraftArticle = ({ introSection, currentArticle }) => {
   const {

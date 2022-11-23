@@ -25,6 +25,7 @@ const SectionTitle = ({
       transitionDelay={50}
     >
       <Typography
+        data-title
         isBold
         size={TYPOGRAPHY_SIZE.headlineXL}
         variant={titleVariant}
@@ -38,7 +39,10 @@ const SectionTitle = ({
         {...REVEAL_ANIMATION_PROPS}
         transitionDelay={100}
       >
-        <Typography className={styles.subtitle}>
+        <Typography
+          dataSubtitle
+          className={styles.subtitle}
+        >
           {subtitle}
         </Typography>
       </Animated>
@@ -48,7 +52,10 @@ const SectionTitle = ({
         {...REVEAL_ANIMATION_PROPS}
         transitionDelay={100}
       >
-        <Typography className={styles.description}>
+        <Typography
+          dataDescription
+          className={styles.description}
+        >
           {description}
         </Typography>
       </Animated>
@@ -60,6 +67,7 @@ const SectionTitle = ({
       >
         <Typography
           isBold
+          dataSecondTitle
           size={TYPOGRAPHY_SIZE.headlineS}
           variant={secondTitleVariant}
           className={styles.title}
@@ -73,7 +81,10 @@ const SectionTitle = ({
         {...REVEAL_ANIMATION_PROPS}
         transitionDelay={200}
       >
-        <Typography className={styles.subtitle}>
+        <Typography
+          dataSecondSubtitle
+          className={styles.subtitle}
+        >
           {secondSubtitle}
         </Typography>
       </Animated>
@@ -83,7 +94,10 @@ const SectionTitle = ({
         {...REVEAL_ANIMATION_PROPS}
         transitionDelay={200}
       >
-        <Typography className={styles.description}>
+        <Typography
+          dataSecondDescription
+          className={styles.description}
+        >
           {secondDescription}
         </Typography>
       </Animated>

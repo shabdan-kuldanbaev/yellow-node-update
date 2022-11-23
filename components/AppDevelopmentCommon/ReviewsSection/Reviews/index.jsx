@@ -12,7 +12,7 @@ import SwiperCors, {
   EffectCoverflow,
   Navigation,
 } from 'swiper';
-import { SwiperNavigation } from 'components/SwiperNavigation';
+import { SwiperNavigation } from 'UI/components/SwiperNavigation';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getMaxVal } from 'utils/helper';
 import cn from 'classnames';

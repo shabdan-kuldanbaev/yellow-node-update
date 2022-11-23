@@ -21,18 +21,20 @@ export const useTypography = ({
   onClick,
   tabIndex,
   role,
+  ...anotherProps
 }) => {
-  const TitleTag = TYPOGRAPHY_TAGS[variant] || variant;
+  const Tag = TYPOGRAPHY_TAGS[variant] || variant;
   const classes = cn(className, styles[size], {
     [styles.boldText]: isBold,
   });
 
   return {
-    TitleTag,
+    Tag,
     children,
     classes,
     onClick,
     tabIndex,
     role,
+    anotherProps,
   };
 };
