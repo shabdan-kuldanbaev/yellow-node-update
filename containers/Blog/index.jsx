@@ -9,7 +9,7 @@ import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import ArticlesList from 'components/BlogCommon/ArticlesList';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
-import Paginator from 'components/Common/Paginator';
+import Paginator from 'UI/components/Paginator';
 import FullLayout from 'components/Layout/FullLayout';
 import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
 import { PAGES, ROUTES } from 'utils/constants';

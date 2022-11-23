@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import { getDocumentFields } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getCheckSocialProps } from './utils/checkSocialHelper';

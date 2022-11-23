@@ -1,0 +1,30 @@
+.figureTitle {
+  @include fontSize(56px, 120%);
+
+  font-weight: 800;
+  color: $black;
+
+  @include tablet {
+    @include fontSize(40px);
+  }
+
+  @include below-tablet {
+    @include fontSize(32px);
+  }
+
+  @include phone {
+    @include fontSize(24px);
+  }
+}
+
+.figureSubtitle {
+  @include fontSize(18px);
+
+  line-height: 180%;
+  margin: 0;
+  color: $silver-chalice;
+
+  @include below-tablet {
+    @include fontSize(14px);
+  }
+}
