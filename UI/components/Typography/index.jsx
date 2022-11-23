@@ -11,7 +11,7 @@ const Typography = (props) => {
     onClick,
     tabIndex,
     role,
-    anotherProps,
+    rest,
   } = useTypography(props);
 
   return (
@@ -20,7 +20,7 @@ const Typography = (props) => {
       onClick={onClick}
       tabIndex={tabIndex}
       role={role}
-      {...anotherProps}
+      {...rest}
     >
       {children}
     </Tag>

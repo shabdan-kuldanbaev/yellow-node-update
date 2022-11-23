@@ -21,7 +21,7 @@ export const useTypography = ({
   onClick,
   tabIndex,
   role,
-  ...anotherProps
+  ...rest
 }) => {
   const Tag = TYPOGRAPHY_TAGS[variant] || variant;
   const classes = cn(className, styles[size], {
@@ -35,6 +35,6 @@ export const useTypography = ({
     onClick,
     tabIndex,
     role,
-    anotherProps,
+    rest,
   };
 };
