@@ -19,7 +19,7 @@ import FullLayout from 'components/Layout/FullLayout';
 import NextPrev from 'components/BlogCommon/Article/NextPrev';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
-import FAQ from 'UI/components/FAQ';
+import FAQ from 'UI/containers/FAQ';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';

@@ -43,7 +43,7 @@ const AppFeaturesItem = (props) => {
           <p className={styles.title}>
             {title}
           </p>
-          {imagesUrl?.map((imageUrl) => (
+          {imagesUrl.map((imageUrl) => (
             <img
               className={styles.imageBundle}
               src={imageUrl}

@@ -51,11 +51,9 @@ const Paginator = (props) => {
 
 Paginator.defaultProps = {
   className: '',
-  // arrows,
 };
 
 Paginator.propTypes = {
-  // arrows: PropTypes.instanceOf(Object),
   pagesCounter: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
   pageSlug: PropTypes.string.isRequired,

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FAQ from 'UI/components/FAQ';
+import FAQ from 'UI/containers/FAQ';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { useFaqSection } from './utils/useFaqSection';
 import styles from './styles.module.scss';

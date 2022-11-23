@@ -5,7 +5,7 @@ import { useTypography, TYPOGRAPHY_TAGS } from './utils/useTypography';
 
 const Typography = (props) => {
   const {
-    TitleTag,
+    Tag,
     classes,
     children,
     onClick,
@@ -14,14 +14,14 @@ const Typography = (props) => {
   } = useTypography(props);
 
   return (
-    <TitleTag
+    <Tag
       className={classes}
       onClick={onClick}
       tabIndex={tabIndex}
       role={role}
     >
       {children}
-    </TitleTag>
+    </Tag>
   );
 };
 

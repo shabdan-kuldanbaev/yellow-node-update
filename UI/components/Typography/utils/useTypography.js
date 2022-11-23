@@ -22,13 +22,13 @@ export const useTypography = ({
   tabIndex,
   role,
 }) => {
-  const TitleTag = TYPOGRAPHY_TAGS[variant] || variant;
+  const Tag = TYPOGRAPHY_TAGS[variant] || variant;
   const classes = cn(className, styles[size], {
     [styles.boldText]: isBold,
   });
 
   return {
-    TitleTag,
+    Tag,
     children,
     classes,
     onClick,
