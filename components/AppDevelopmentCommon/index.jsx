@@ -246,8 +246,7 @@ export const AppDevelopmentCommon = ({
 };
 
 AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {
-  },
+  handleOnCTAClick: () => {},
   introSection: null,
 };
 
