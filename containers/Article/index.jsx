@@ -19,7 +19,7 @@ import FullLayout from 'components/Layout/FullLayout';
 import NextPrev from 'components/BlogCommon/Article/NextPrev';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
-import { FAQ } from 'components/Common/FAQ';
+import FAQ from 'UI/containers/FAQ';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
@@ -107,10 +107,14 @@ const ArticleContainer = ({
           url={`${rootUrl}/blog/${slug}`}
           title={title}
         />
-        <FAQ
-          faqList={faqList}
-          type="withFullLayout"
-        />
+        <FullLayout
+          disableMaxWidth
+          disableTopPadding
+          disableSidePadding
+          disableBottomPadding
+        >
+          <FAQ faqList={faqList} />
+        </FullLayout>
         <TagsBlock tags={tagsList} />
         {relatedArticles
           && !!relatedArticles.length

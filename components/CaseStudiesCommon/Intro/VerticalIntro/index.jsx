@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import CustomImage from 'components/Common/CustomImage';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
 import {
