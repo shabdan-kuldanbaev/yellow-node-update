@@ -6,7 +6,7 @@
   @include appDevelopmentContainer;
   @include iconsWithinCircle;
 
-  background-color: $alabaster;
+  background-color: $gray50;
 
   .contentWrapper {
     @extend .threeColumnsCards;
@@ -41,8 +41,8 @@
         width: 11px;
         height: 11px;
         border-radius: 50%;
-        background-color: $white;
-        border: 2px solid $silver-chalice;
+        background-color: $gray0;
+        border: 2px solid $gray400;
         transform: translate(50%, -50%);
 
         @include below-tablet {

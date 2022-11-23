@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { ArcherContainer, ArcherElement } from 'react-archer';
-import Svg from 'components/Common/Svg';
+import { ArcherContainer } from 'react-archer';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+import ProcessCard from '../../components/ProcessCard';
 
 const ProcessSection = (props) => {
   const {
@@ -45,35 +44,12 @@ const ProcessSection = (props) => {
           noCurves
         >
           <div className={styles.cards}>
-            {renderCards?.map((card) => {
-              const {
-                svgType,
-                relations,
-                typeTitle,
-                text,
-                index,
-              } = card;
-
-              return (
-                <ArcherElement
-                  key={`process-section/${svgType}`}
-                  id={`element${index + 1}`}
-                  relations={relations}
-                >
-                  <div className={styles.cardContainer}>
-                    <div className={styles.imageWrapper}>
-                      <Svg type={svgType} />
-                    </div>
-                    <div className={styles.cardContent}>
-                      <div className={styles.typeTitle}>
-                        {typeTitle}
-                      </div>
-                      <ContentfulParser document={text} />
-                    </div>
-                  </div>
-                </ArcherElement>
-              );
-            })}
+            {renderCards?.map((card) => (
+              <ProcessCard
+                {...card}
+                key={`process-section/${card.svgType}`}
+              />
+            ))}
           </div>
         </ArcherContainer>
       </div>

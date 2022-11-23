@@ -8,12 +8,11 @@
     box-shadow: $card-bow-shadow;
     border-radius: 5px;
     box-sizing: border-box;
-    background: $white;
+    background: $gray0;
 
     .typeTitle {
-      @include fontSize(24px);
+      @include fontSize(24px, 1.8);
 
-      line-height: 1.8;
       font-weight: 700;
       margin: 20px 0 10px;
 
@@ -27,10 +26,9 @@
     }
 
     p {
-      @include fontSize(18px);
+      @include fontSize(18px, 1.8);
 
-      color: $silver-chalice;
-      line-height: 1.8;
+      color: $gray400;
       margin: 0;
 
       @include phone {
