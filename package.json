@@ -19,7 +19,7 @@
     "lint:style:fix": "yarn lint:style -- --fix",
     "lint": "yarn lint:js && yarn lint:style",
     "prepare": "husky install",
-    "svgo": "npx svgo -q --folder components/Common/Svg/svgs",
+    "svgo": "npx svgo -q --folder UI/components/Svg/svgs",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

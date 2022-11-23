@@ -1,7 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import PropTypes from 'prop-types';
-import { SwiperNavigation } from 'components/SwiperNavigation';
+import { SwiperNavigation } from 'UI/components/SwiperNavigation';
 import BlogArticle from '../BlogArticle';
 import { getSwiperParams } from '../utils/blogHelper';
 import styles from './styles.module.scss';

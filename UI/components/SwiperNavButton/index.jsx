@@ -1,0 +1,48 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
+import Svg from 'UI/components/Svg';
+import { useSwiperNavButton } from './utils/useSwiperNavButton';
+import styles from './styles.module.scss';
+
+const SwiperNavButton = (props) => {
+  const {
+    type,
+    text,
+    svgType,
+    className,
+    handleNavButtonClick,
+  } = useSwiperNavButton(props);
+
+  return (
+    <button
+      onClick={handleNavButtonClick}
+      type="button"
+      className={cn(
+        className,
+        styles.navButton,
+        styles[type],
+      )}
+    >
+      <Svg type={svgType} />
+      {text && (
+        <span className={styles.text}>
+          {text}
+        </span>
+      )}
+    </button>
+  );
+};
+
+SwiperNavButton.defaultProps = {
+  className: '',
+  text: '',
+};
+
+SwiperNavButton.propTypes = {
+  type: PropTypes.oneOf(['next', 'prev']).isRequired,
+  text: PropTypes.string,
+  className: PropTypes.string,
+};
+
+export default SwiperNavButton;

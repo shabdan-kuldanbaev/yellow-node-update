@@ -9,14 +9,14 @@ import {
 } from 'redux/actions/layout';
 import CookiesNotification from 'components/Common/CookiesNotification';
 import GAnalytic from 'components/Layout/GAnalytic';
-import Header from 'components/Layout/Header';
+import Header from 'UI/sections/Header';
 import {
   mobileResolution,
   tabletResolution,
   fullResolution,
 } from 'utils/helper';
 
-const Footer = dynamic(() => import('components/Layout/Footer'));
+const Footer = dynamic(() => import('UI/sections/Footer'));
 
 const Layout = ({ children, introSection }) => {
   const dispatch = useDispatch();

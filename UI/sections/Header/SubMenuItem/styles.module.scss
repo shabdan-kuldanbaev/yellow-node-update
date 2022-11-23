@@ -1,0 +1,105 @@
+@import 'styles/utils/mixins';
+
+.itemContainer {
+  outline: none;
+
+  .link {
+    @include fontSize(16px, 150%);
+
+    display: block;
+    margin: 0;
+
+    &.title {
+      font-weight: 700;
+      color: $white;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .subtitle {
+      font-weight: 400;
+      line-height: 2;
+      color: $silver-chalice;
+      transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      display: block;
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &:hover {
+      &.title {
+        color: $turbo-100;
+      }
+
+      & > span {
+        color: $turbo-100;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .menuLink {
+    display: block;
+    margin: 12px 0 0 0;
+
+    @include fontSize(16px, 150%);
+
+    .menuText {
+      color: $silver-chalice;
+      outline: none;
+      transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    &:hover {
+      .menuText {
+        color: $turbo-100;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    grid-column: 2/3;
+
+    @include phone {
+      grid-row: unset;
+      grid-column: unset;
+    }
+  }
+
+  @include below-tablet {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
+
+.pageScrolling {
+  &.itemContainer {
+    .link {
+      &.title {
+        color: $dark-grey;
+      }
+    }
+  }
+}
+
+.lightTheme {
+  &.itemContainer {
+    .link {
+      &.title {
+        color: $dark-grey;
+      }
+
+      .subtitle {
+        color: $gray400;
+      }
+    }
+
+    .menuLink {
+      .menuText {
+        color: $gray400;
+      }
+    }
+  }
+}

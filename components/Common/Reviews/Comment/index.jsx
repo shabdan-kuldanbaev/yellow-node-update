@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
 import CustomImage from 'components/Common/CustomImage';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import styles from './styles.module.scss';
 
 export const Comment = ({

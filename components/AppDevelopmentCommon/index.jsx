@@ -11,13 +11,13 @@ const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/C
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
 const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
-const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSection'));
+const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
 const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
 const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
-const AppFeatures = dynamic(() => import('components/AppDevelopmentCommon/AppFeatures'));
+const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'), { ssr: false });
 const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/PlainTextSection'));
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
