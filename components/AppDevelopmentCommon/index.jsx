@@ -10,19 +10,21 @@ const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/C
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
 const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
-const FaqSection = dynamic(() => import('components/AppDevelopmentCommon/FaqSection'));
+const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
 const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
 const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));
 const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
-const AppFeatures = dynamic(() => import('components/AppDevelopmentCommon/AppFeatures'));
+const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/PlainTextSection'));
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
+const TabsSection = dynamic(() => import('components/AppDevelopmentCommon/TabsSection'));
+const DownloadSection = dynamic(() => import('components/AppDevelopmentCommon/DownloadSection'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -192,6 +194,14 @@ export const AppDevelopmentCommon = ({
         type={type}
       />
     );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeaturesPromo:
+    return (
+      <AppFeatures
+        data={section.fields}
+        type={type}
+        isPromoImage
+      />
+    );
   case APP_DEVELOPMENT_TYPES.appDevelopmentPlainTextSection:
     return (
       <PlainTextSection
@@ -213,6 +223,21 @@ export const AppDevelopmentCommon = ({
         pageType={type}
         sectionType="cards"
         handleOnCTAClick={handleOnCTAClick}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentTabsSection:
+    return (
+      <TabsSection
+        data={section.fields}
+        type={type}
+        handleOnCTAClick={handleOnCTAClick}
+      />
+    );
+  case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
+    return (
+      <DownloadSection
+        type={type}
+        data={section}
       />
     );
   default:

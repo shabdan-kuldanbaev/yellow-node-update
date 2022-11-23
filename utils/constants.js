@@ -37,9 +37,26 @@ export const NON_INTERACTIVE_LINKS = {
   },
 };
 
+export const TYPOGRAPHY_SIZE = {
+  caption: 'caption',
+  paragrapghS: 'paragrapgh-s',
+  paragrapghM: 'paragrapgh-m',
+  headlineXS: 'headline-xs',
+  headlineS: 'headline-s',
+  headlineM: 'headline-m',
+  headlineL: 'headline-l',
+  headlineXL: 'headline-xl',
+};
+
+export const TAGS_TYPE = {
+  dark: 'dark',
+  light: 'light',
+  category: 'category',
+};
+
 export const NAV_LINKS = [
   ...Object.values(NON_INTERACTIVE_LINKS),
-  ...Object.values(routes).filter(({ slug }) => ![
+  ...Object.values(routes).filter(({ slug }) => slug && ![
     routes.homepage.slug,
     routes.article.slug,
     routes.project.slug,
@@ -48,6 +65,7 @@ export const NAV_LINKS = [
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
     routes.fintechDevelopment.slug,
+    routes.discoveryPhase.slug,
     routes.erpDevelopment.slug,
     routes.designServices.slug,
     routes.developmentServices.slug,
@@ -214,10 +232,13 @@ export const APP_DEVELOPMENT_TYPES = {
   svgDisplayWithSelector: 'svg-display-with-selector',
   cardsWithOverlay: 'cards-with-overlay',
   appDevelopmentAppFeatures: 'app-development-app-features',
+  appDevelopmentAppFeaturesPromo: 'app-development-app-features-promo',
   appDevelopmentPlainTextSection: 'app-development-plain-text',
   appDevelopmentBookmarkCard: 'app-development-bookmark-card',
+  appDevelopmentTabsSection: 'app-development-tabs-section',
   processOverlay: 'app-development-process-overlay',
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
+  appDevelopmentDownloadSection: 'app-development-download-section',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -336,6 +357,7 @@ export const CASE_STUDIES = {
   humankind: 'humankind',
   balzano: 'software-for-mri-interpretation',
   cinnabar: 'cinnabar',
+  mobileBankApplication: 'mobile-bank-application',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -363,6 +385,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
   ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,

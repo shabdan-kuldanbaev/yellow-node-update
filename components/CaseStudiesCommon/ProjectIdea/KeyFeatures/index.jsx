@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import {
   getDocumentFields,
   getFileUrl,

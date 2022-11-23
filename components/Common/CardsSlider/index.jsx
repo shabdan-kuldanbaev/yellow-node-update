@@ -1,23 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { SwiperNavigation } from 'components/SwiperNavigation';
+import { SwiperNavigation } from 'UI/components/SwiperNavigation';
+import { SWIPER_PARAMS, DEFAULT_SWIPER_PARAMS } from './utils';
 import styles from './styles.module.scss';
 
 const CardsSlider = ({
+  type,
   isMobileResolution,
   children,
 }) => {
   if (!isMobileResolution) return children;
 
-  const swiperParams = {
-    modules: [Pagination],
-    slidesPerView: 1,
-    spaceBetween: 30,
-  };
+  const swiperParams = SWIPER_PARAMS[type] || DEFAULT_SWIPER_PARAMS;
 
   return (
     <Swiper {...swiperParams}>

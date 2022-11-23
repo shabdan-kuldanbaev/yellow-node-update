@@ -1,0 +1,137 @@
+@import 'styles/utils/mixins';
+
+.questionContainer {
+  max-width: 720px;
+  width: 100%;
+  padding: 40px;
+  border-bottom: 0.5px solid $gray400;
+  outline: none;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border: none;
+    padding-bottom: 0;
+  }
+
+  & > div:last-child {
+    p {
+      @include fontSize(18px, 1.7);
+      
+      color: $silver-chalice;
+      margin: 20px 0 0;
+
+      & > a {
+        border-bottom: unset;
+        color: $dodger-blue;
+      }
+
+      @include tablet {
+        @include fontSize(16px);
+      }
+
+      @include phone {
+        margin: 16px 0 0;
+      }
+    }
+
+    ul {
+      li {
+        &::marker {
+          @include fontSize(24px);
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  @include macbook-fifteen {
+    padding: 30px;
+  }
+}
+
+.question {
+  @include flex(row, space-between, center);
+
+  outline: none;
+
+  & > p {
+    margin: 0 100px 0 0;
+    color: $gray900;
+    font-weight: 700;
+
+    @include tablet {
+      @include fontSize(20px);
+    }
+
+    @include phone {
+      @include fontSize(16px);
+    }
+  }
+}
+
+.plus {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transform: translateY(50%);
+
+  & > span {
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    border: 1px solid $tundora;
+    background-color: $tundora;
+    border-radius: 5px;
+    display: inline-block;
+
+    &:first-child {
+      transform: rotate(90deg);
+      transition: transform 0.4s ease;
+    }
+
+    &:last-child {
+      transform: rotate(0deg);
+      transition: transform 0.4s ease;
+    }
+
+    @include phone {
+      width: 15px;
+    }
+  }
+}
+
+.minus {
+  & > span {
+    &:first-child {
+      transform: rotate(180deg);
+      transition: transform 0.4s ease;
+    }
+
+    &:last-child {
+      transform: rotate(180deg);
+      transition: transform 0.4s ease;
+    }
+  }
+}
+
+.answer {
+  @include fontSize(18px);
+
+  color: $silver-chalice;
+  margin: 30px 0 0;
+
+  @include macbook-fifteen {
+    margin-top: 20px;
+  }
+
+  @include phone {
+    @include fontSize(16px);
+  }
+}

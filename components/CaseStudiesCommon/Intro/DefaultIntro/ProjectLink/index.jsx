@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { CASE_STUDIES } from 'utils/constants';
 import { getAppstoreSvgType } from './utils/introHelper';

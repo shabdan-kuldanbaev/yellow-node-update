@@ -67,7 +67,7 @@
 .software-for-mri-interpretation {
   &.firstSectionView {
     .image {
-      max-width: 1076px;
+      max-width: $max-content-width-small-section;
     }
   }
 
@@ -527,6 +527,75 @@
 
     @include phone {
       display: block;
+    }
+  }
+}
+
+.mobile-bank-application {
+  @extend .imageContainer;
+
+  &.firstSectionView {
+    .image:first-child {
+      display: block;
+      max-width: $max-content-width-small-section;
+      width: 100%;
+      margin: 0 auto;
+  
+      @include phone {
+        display: none;
+      }
+    }
+  
+    .image:last-child {
+      display: none;
+      max-height: 110px;
+      margin: 0 auto;
+  
+      @include phone {
+        display: block;
+      }
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: rgba($white, 0.1);
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: $white;
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      margin-bottom: 15px;
+
+      @include below-tablet {
+        max-height: 75px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    width: max-content;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 57px;
+
+    .image {
+      margin: -63px 0 -72px;
+
+      @include tablet {
+        max-height: 550px;
+      }
+    }
+    
+    @include tablet {
+      border-radius: 37px;
+
+      .image {
+        max-height: 550px;
+        margin: -43px 0 -51px;
+      }
     }
   }
 }

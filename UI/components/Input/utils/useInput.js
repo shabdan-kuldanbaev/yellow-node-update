@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import autosize from 'autosize';
 import cn from 'classnames';
-import styles from './styles.module.scss';
 import { errorMessages, patterns } from './patterns';
+import styles from '../styles.module.scss';
 
 export default (props) => {
   const {

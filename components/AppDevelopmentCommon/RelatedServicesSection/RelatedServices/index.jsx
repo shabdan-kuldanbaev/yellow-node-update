@@ -3,7 +3,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Animated from 'components/Common/Animated';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import { SwiperNavigation } from 'components/SwiperNavigation';
+import { SwiperNavigation } from 'UI/components/SwiperNavigation';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getServiceParams, getSwiperParams } from '../utils';
 import styles from './styles.module.scss';

@@ -49,6 +49,7 @@ const blogRoutes = createPageRoutes(rootBlogPath, dynamicBlogPaths);
 const portfolioRoutes = createPageRoutes(rootPortfolioPath, dynamicPortfolioPaths);
 
 export const routes = {
+  fromRoot: (slug) => (slug === 'homepage' ? '' : `/${slug}`),
   homepage: {
     title: 'Home',
     path: '/',
@@ -261,6 +262,12 @@ export const routes = {
     path: '/devops-development-services',
     dynamicPath: '/devops-development-services',
     slug: 'devops-development-services',
+  },
+  discoveryPhase: {
+    title: 'Project Discovery Phase in Custom Software Development',
+    path: '/discovery-phase-services',
+    dynamicPath: '/discovery-phase-services',
+    slug: 'discovery-phase-services',
   },
   signatureGenerator: {
     title: 'Signature Generator',

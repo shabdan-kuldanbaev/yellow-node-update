@@ -137,8 +137,7 @@
     .mockup {
       width: 330px;
       filter:
-        drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 0.6))
-        drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 0.5));
+        drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 0.6)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 0.5));
 
       @include phone {
         width: 209px;
@@ -800,7 +799,7 @@
     height: 250px;
     margin-top: unset;
 
-    & > img:first-child {
+    &>img:first-child {
       width: 1000px;
 
       @include below-tablet {
@@ -812,7 +811,7 @@
       }
     }
 
-    & > img:last-child {
+    &>img:last-child {
       display: none;
 
       @include phone {
@@ -931,5 +930,63 @@
 
   @include phone {
     padding-bottom: 0;
+  }
+}
+
+.mobile-bank-application {
+  @include caseStudyContainer;
+
+  padding: 120px 40px;
+  background-color: $white;
+
+  [data-case-study-title] {
+    margin: 0 0 50px;
+
+    @include below-tablet {
+      margin: 0 0 20px;
+    }
+  }
+
+  [data-case-study-description] {
+    margin: 0 auto;
+  }
+
+  .mockup {
+    max-width: 400px;
+    filter: unset;
+    transform: translate(-55%, -48%);
+
+    @include phone {}
+  }
+
+  .circle {
+    margin-top: 40px;
+
+    @include tablet {
+      height: 450px;
+      width: 100%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 574px;
+      height: 574px;
+      border-radius: 50%;
+      background-color: $turbo-500;
+      transform: translate(-50%, -50%);
+
+      @include tablet {
+        width: 260px;
+        height: 260px;
+      }
+    }
+  }
+
+  @include phone {
+    padding: 60px 15px;
   }
 }

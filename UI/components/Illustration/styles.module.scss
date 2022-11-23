@@ -1,0 +1,10 @@
+.image {
+  position: relative;
+  display: block;
+  
+  img {
+    object-fit: contain;
+    background-size: contain !important;
+    background-image: none !important;
+  }
+}
