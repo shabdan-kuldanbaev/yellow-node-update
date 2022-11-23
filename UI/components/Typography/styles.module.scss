@@ -1,0 +1,50 @@
+@import 'styles/utils/mixins';
+
+.huge,
+.large,
+.big,
+.normalsize,
+.medium,
+.footnotesize,
+.small,
+.tiny {
+  color: $dark-grey;
+  font-weight: normal;
+  margin: 0;
+}
+
+.boldText {
+  font-weight: bold;
+}
+
+.headline-xl {
+  @include fontSize(56px, 120%);
+}
+
+.headline-l {
+  @include fontSize(46px, 120%);
+}
+
+.headline-m {
+  @include fontSize(38px, 130%);
+}
+
+.headline-s {
+  @include fontSize(24px, 130%);
+}
+
+.headline-xs {
+  @include fontSize(20px, 150%);
+}
+
+.paragrapgh-m {
+  @include fontSize(16px, 150%);
+}
+
+.paragrapgh-s {
+  @include fontSize(14px, 150%);
+}
+
+.caption {
+  @include fontSize(12px, 150%);
+}

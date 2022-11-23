@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import ButtonMore from 'components/Common/ButtonMore';
 import { getBookmarkCardProps } from './utils/bookmarkCardHelper';
 import styles from './styles.module.scss';

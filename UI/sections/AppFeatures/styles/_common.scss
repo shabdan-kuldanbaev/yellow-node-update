@@ -1,0 +1,53 @@
+@mixin appFeaturesContainer {
+  padding: 120px 10px;
+  overflow: hidden;
+
+  [data-case-study-title] {
+    margin: 0 0 16px;
+    text-align: left;
+    max-width: 800px;
+  }
+
+  [data-case-study-description] {
+    margin: 0;
+    max-width: 690px;
+    text-align: left;
+    color: $gray400;
+
+    @include tablet-size-horizontal {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+  }
+
+  .container {
+    @include flex(row, space-between);
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+    div:last-child {
+      opacity: 1 !important;
+    }
+
+    .sectionContainer {
+      max-width: 680px;
+
+      @include desktop {
+        max-width: 540px;
+      }
+
+      @include tablet {
+        max-width: 100%;
+      }
+    }
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    .image {
+      width: 100%;
+    }
+  }
+}

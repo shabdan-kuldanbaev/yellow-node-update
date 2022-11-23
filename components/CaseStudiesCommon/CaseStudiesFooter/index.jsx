@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectProject } from 'redux/selectors/portfolio';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getFooterProps } from './utils/propsHelper';

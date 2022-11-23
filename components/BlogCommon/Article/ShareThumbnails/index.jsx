@@ -6,7 +6,7 @@ import {
   LinkedinShareButton,
 } from 'react-share';
 import { useRouter } from 'next/router';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import gaHelper from 'utils/ga';
 import styles from './styles.module.scss';
 
