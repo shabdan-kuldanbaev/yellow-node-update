@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { SwiperSlide } from 'swiper/react';
 import Svg from 'UI/components/Svg';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import CustomSwiper from 'UI/containers/CustomSwiper';

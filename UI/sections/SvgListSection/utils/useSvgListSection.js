@@ -1,6 +1,5 @@
 import {
   useEffect,
-  useCallback,
   useMemo,
   useState,
 } from 'react';
@@ -23,7 +22,10 @@ export const useSvgListSection = ({
 
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
 
-  const displayNames = iconsGroups.map((group) => getDocumentFields(group, ['title']).title);
+  const displayNames = useMemo(
+    () => iconsGroups.map((group) => getDocumentFields(group, ['title']).title),
+    [iconsGroups],
+  );
 
   useEffect(() => {
     if (!withSelector) {
