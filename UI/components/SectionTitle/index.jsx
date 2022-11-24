@@ -40,7 +40,7 @@ const SectionTitle = ({
         transitionDelay={100}
       >
         <Typography
-          dataSubtitle
+          data-subtitle
           className={styles.subtitle}
         >
           {subtitle}
@@ -53,7 +53,7 @@ const SectionTitle = ({
         transitionDelay={100}
       >
         <Typography
-          dataDescription
+          data-description
           className={styles.description}
         >
           {description}
@@ -67,7 +67,7 @@ const SectionTitle = ({
       >
         <Typography
           isBold
-          dataSecondTitle
+          data-second-title
           size={TYPOGRAPHY_SIZE.headlineS}
           variant={secondTitleVariant}
           className={styles.title}
@@ -82,7 +82,7 @@ const SectionTitle = ({
         transitionDelay={200}
       >
         <Typography
-          dataSecondSubtitle
+          data-second-subtitle
           className={styles.subtitle}
         >
           {secondSubtitle}
@@ -95,7 +95,7 @@ const SectionTitle = ({
         transitionDelay={200}
       >
         <Typography
-          dataSecondDescription
+          data-second-description
           className={styles.description}
         >
           {secondDescription}
