@@ -2,28 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { SwiperSlide } from 'swiper/react';
 import Svg from 'UI/components/Svg';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { getSvgGroupProps, getSwiperParams } from '../utils/svgHelper';
-import styles from '../styles.module.scss';
+import CustomSwiper from 'UI/containers/CustomSwiper';
+import styles from './styles.module.scss';
+import { SWIPER_PARAMS } from './utils/helpers';
+import { useSvgGroup } from './utils/useSvgGroup';
 
 const Animated = dynamic(() => import('components/Common/Animated'));
 
-const SvgGroup = ({
-  data,
-  isSwiperEnabled,
-  className,
-  hideTitle,
-}) => {
-  const { title, contentList: icons } = getSvgGroupProps(data);
-
-  const swiperParams = getSwiperParams({ isEnabled: isSwiperEnabled });
+const SvgGroup = (props) => {
+  const {
+    type,
+    view,
+    icons,
+    title,
+    className,
+    hideTitle,
+    isSwiperEnabled,
+  } = useSvgGroup(props);
 
   return (
     <div className={cn(
       className,
       styles.svgGroup,
+      styles[type],
+      styles[view],
       { [styles.multiline]: !isSwiperEnabled },
     )}
     >
@@ -35,10 +40,7 @@ const SvgGroup = ({
         </Animated>
       )}
       <Animated {...REVEAL_ANIMATION_PROPS}>
-        <Swiper
-          {...swiperParams}
-          enabled
-        >
+        <CustomSwiper {...SWIPER_PARAMS}>
           {icons?.map((technology) => (
             <SwiperSlide
               className={styles.item}
@@ -47,7 +49,7 @@ const SvgGroup = ({
               <Svg type={technology} />
             </SwiperSlide>
           ))}
-        </Swiper>
+        </CustomSwiper>
       </Animated>
     </div>
   );

@@ -6,7 +6,7 @@ import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
 const Portfolio = dynamic(() => import('containers/Home/Portfolio'), { ssr: false });
 const TextSection = dynamic(() => import('components/TextSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
-const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'));
+const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
 const Blog = dynamic(() => import('containers/Home/Blog'));
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
