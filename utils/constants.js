@@ -210,6 +210,12 @@ export const SVG_IMAGES_TYPES = {
   cross: 'cross',
   telegram: 'telegram',
   attachment: 'attachment',
+  // new icons,
+  blackLogo: 'blackLogo',
+  defaultLogo: 'defaultLogo',
+  whiteLogo: 'whiteLogo',
+  blackYellowText: 'blackYellowText',
+  whiteYellowText: 'whiteYellowText',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
