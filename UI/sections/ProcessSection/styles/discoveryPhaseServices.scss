@@ -2,7 +2,7 @@
   .titleStyle {
     margin-bottom: 24px;
 
-    h2 {
+    [data-title] {
       @include fontSize(38px, 49px);
 
       max-width: 756px;
@@ -12,33 +12,22 @@
       }
     }
 
+    [data-second-title] {
+      @include fontSize(24px, 31px);
+
+      text-align: center;
+      margin: 0;
+
+      @include phone {
+        @include fontSize(20px, 30px);
+      }
+    }
+
     p {
       @include fontSize(16px, 24px);
 
+      margin: 16px 0 24px;
       max-width: 756px;
-    }
-  }
-
-  .secondTitle {
-    @include fontSize(24px, 31px);
-
-    text-align: center;
-    margin: 0;
-
-    @include phone {
-      @include fontSize(20px, 30px);
-    }
-  }
-
-  .secondSubtitle {
-    @include fontSize(16px, 24px);
-
-    color: $gray400;
-    text-align: center;
-    margin: 16px 0 48px;
-
-    @include phone {
-      margin: 8px 0 24px;
     }
   }
 
