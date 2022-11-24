@@ -27,6 +27,7 @@ const TabsSection = (props) => {
         <div className={styles.tabs}>
           {tabs?.map(({ tabTitle }, index) => (
             <h3
+              key={`tab/${index}`}
               className={cn(styles.tabTitle, {
                 [styles.tabTitleActive]: index === activeIndex,
               })}
@@ -41,13 +42,18 @@ const TabsSection = (props) => {
             texts,
             link,
           }, index) => (
-            <div className={cn(styles.cardWrapper, {
-              [styles.cardWrapperActive]: index === activeIndex,
-            })}
+            <div
+              key={`card/${index}`}
+              className={cn(styles.cardWrapper, {
+                [styles.cardWrapperActive]: index === activeIndex,
+              })}
             >
               <div className={styles.cardText}>
-                {texts.map((text) => (
-                  <div className={styles.cardTextColumn}>
+                {texts.map((text, textIndex) => (
+                  <div
+                    key={`cardText/${textIndex}`}
+                    className={styles.cardTextColumn}
+                  >
                     <ContentfulParser document={text} />
                   </div>
                 ))}

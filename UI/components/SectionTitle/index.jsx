@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
-import { TYPOGRAPHY_SIZE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import { REVEAL_ANIMATION_PROPS, TYPOGRAPHY_SIZE } from 'utils/constants';
 import Typography from 'UI/components/Typography';
 import styles from './styles.module.scss';
 
@@ -40,7 +40,7 @@ const SectionTitle = ({
         transitionDelay={100}
       >
         <Typography
-          dataSubtitle
+          data-subtitle
           className={styles.subtitle}
         >
           {subtitle}
@@ -53,7 +53,7 @@ const SectionTitle = ({
         transitionDelay={100}
       >
         <Typography
-          dataDescription
+          data-description
           className={styles.description}
         >
           {description}
@@ -67,12 +67,12 @@ const SectionTitle = ({
       >
         <Typography
           isBold
-          dataSecondTitle
+          data-second-title
           size={TYPOGRAPHY_SIZE.headlineS}
           variant={secondTitleVariant}
           className={styles.title}
         >
-          {title}
+          {secondTitle}
         </Typography>
       </Animated>
     )}
@@ -82,7 +82,7 @@ const SectionTitle = ({
         transitionDelay={200}
       >
         <Typography
-          dataSecondSubtitle
+          data-second-subtitle
           className={styles.subtitle}
         >
           {secondSubtitle}
@@ -95,7 +95,7 @@ const SectionTitle = ({
         transitionDelay={200}
       >
         <Typography
-          dataSecondDescription
+          data-second-description
           className={styles.description}
         >
           {secondDescription}

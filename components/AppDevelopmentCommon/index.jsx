@@ -2,29 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
+import TabsSection from 'UI/sections/TabsSection';
+import DownloadSection from 'UI/sections/DownloadSection';
+import PlainTextSection from 'UI/sections/PlainTextSection';
+import ProcessSection from 'UI/sections/ProcessSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
 const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
 const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/CheckListSection'));
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
-const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
+const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
-const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
-const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));
+const ImagesListSection = dynamic(() => import('UI/sections/ImagesListSection'));
 const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
 const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
-const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/PlainTextSection'));
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
-const TabsSection = dynamic(() => import('components/AppDevelopmentCommon/TabsSection'));
-const DownloadSection = dynamic(() => import('components/AppDevelopmentCommon/DownloadSection'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -206,7 +206,7 @@ export const AppDevelopmentCommon = ({
     return (
       <PlainTextSection
         sectionData={section}
-        pageType={type}
+        type={type}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentBookmarkCard:
@@ -236,8 +236,8 @@ export const AppDevelopmentCommon = ({
   case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
     return (
       <DownloadSection
+        sectionData={section}
         type={type}
-        data={section}
       />
     );
   default:
