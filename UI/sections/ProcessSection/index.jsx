@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ArcherContainer } from 'react-archer';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import ProcessCard from 'UI/components/ProcessCard';
+import SectionTitle from 'UI/components/SectionTitle';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -32,11 +32,9 @@ const ProcessSection = (props) => {
           subtitle={subtitle}
           description={description}
           titleStyle={styles.titleStyle}
+          secondTitle={secondTitle}
+          secondSubtitle={secondSubtitle}
         />
-        {secondTitle
-          && (<h3 className={styles.secondTitle}>{secondTitle}</h3>)}
-        {secondSubtitle
-          && (<p className={styles.secondSubtitle}>{secondSubtitle}</p>)}
         <ArcherContainer
           strokeColor="#A0A0A0"
           strokeWidth={1}
