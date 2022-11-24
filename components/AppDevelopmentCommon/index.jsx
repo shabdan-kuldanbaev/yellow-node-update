@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
 import TabsSection from 'UI/sections/TabsSection';
+import PlainTextSection from 'UI/sections/PlainTextSection';
 import ProcessSection from 'UI/sections/ProcessSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
@@ -20,7 +21,6 @@ const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSe
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
 const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'), { ssr: false });
-const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/PlainTextSection'));
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
@@ -206,7 +206,7 @@ export const AppDevelopmentCommon = ({
     return (
       <PlainTextSection
         sectionData={section}
-        pageType={type}
+        type={type}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentBookmarkCard:
