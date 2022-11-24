@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
-import { TYPOGRAPHY_SIZE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import { REVEAL_ANIMATION_PROPS, TYPOGRAPHY_SIZE } from 'utils/constants';
 import Typography from 'UI/components/Typography';
 import styles from './styles.module.scss';
 
@@ -72,7 +72,7 @@ const SectionTitle = ({
           variant={secondTitleVariant}
           className={styles.title}
         >
-          {title}
+          {secondTitle}
         </Typography>
       </Animated>
     )}
