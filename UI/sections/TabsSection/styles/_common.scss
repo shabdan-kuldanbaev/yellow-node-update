@@ -58,7 +58,7 @@
 .card {
   padding: 50px 60px;
   background: $gray0;
-  box-shadow: 0 8px 35px rgb($grey900, 0.1);
+  box-shadow: 0 8px 35px rgb($gray900, 0.1);
   border-radius: 5px;
 
   @include phone {

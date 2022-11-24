@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
 import TabsSection from 'UI/sections/TabsSection';
+import DownloadSection from 'UI/sections/DownloadSection';
 import PlainTextSection from 'UI/sections/PlainTextSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
@@ -24,7 +25,6 @@ const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/Svg
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
-const DownloadSection = dynamic(() => import('components/AppDevelopmentCommon/DownloadSection'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -236,8 +236,8 @@ export const AppDevelopmentCommon = ({
   case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
     return (
       <DownloadSection
+        sectionData={section}
         type={type}
-        data={section}
       />
     );
   default:
