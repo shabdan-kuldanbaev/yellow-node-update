@@ -2,4 +2,18 @@
 
 .card {
   @include flex(row, flex-start, center);
+
+  padding: 24px;
+}
+
+.checkMark {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+
+.title {
+  @include below-tablet {
+    @include fontSize(16px);
+  }
 }

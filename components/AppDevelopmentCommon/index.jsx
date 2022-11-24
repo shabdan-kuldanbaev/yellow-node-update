@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
+import { CheckListSection } from 'UI/sections/CheckListSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
 const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
-const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/CheckListSection'));
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
 const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
