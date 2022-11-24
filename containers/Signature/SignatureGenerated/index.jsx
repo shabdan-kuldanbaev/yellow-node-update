@@ -8,7 +8,7 @@ import {
   YELLOW_LINK,
 } from 'containers/Signature/utils/constants';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import styles from './styles.module.scss';
 
 const SignatureGenerated = ({

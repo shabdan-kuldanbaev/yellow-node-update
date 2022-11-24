@@ -37,6 +37,23 @@ export const NON_INTERACTIVE_LINKS = {
   },
 };
 
+export const TYPOGRAPHY_SIZE = {
+  caption: 'caption',
+  paragrapghS: 'paragrapgh-s',
+  paragrapghM: 'paragrapgh-m',
+  headlineXS: 'headline-xs',
+  headlineS: 'headline-s',
+  headlineM: 'headline-m',
+  headlineL: 'headline-l',
+  headlineXL: 'headline-xl',
+};
+
+export const TAGS_TYPE = {
+  dark: 'dark',
+  light: 'light',
+  category: 'category',
+};
+
 export const NAV_LINKS = [
   ...Object.values(NON_INTERACTIVE_LINKS),
   ...Object.values(routes).filter(({ slug }) => slug && ![
@@ -340,6 +357,7 @@ export const CASE_STUDIES = {
   humankind: 'humankind',
   balzano: 'software-for-mri-interpretation',
   cinnabar: 'cinnabar',
+  mobileBankApplication: 'mobile-bank-application',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -367,6 +385,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
   ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,

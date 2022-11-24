@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import { useItemPreview } from './utils/useItemPreview';
 import styles from './styles.module.scss';
 

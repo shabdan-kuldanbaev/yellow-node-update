@@ -11,7 +11,7 @@ import { setMobileCategoriesState } from 'redux/actions/layout';
 import ButtonMore from 'components/Common/ButtonMore';
 import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
 import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import useToggle from 'hooks/useToggle';
 import { setOverflowForBody } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';

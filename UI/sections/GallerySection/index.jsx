@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import { SwiperNavigation } from 'components/SwiperNavigation';
+import { SwiperNavigation } from 'UI/components/SwiperNavigation';
 import ItemPreview from 'UI/components/ItemPreview';
 import CallToAction from 'components/Common/CallToAction';
 import { useGallerySection } from './utils/useGallerySection';
