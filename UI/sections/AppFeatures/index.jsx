@@ -18,7 +18,6 @@ const AppFeatures = (props) => {
     handleOnClick,
     imagesData,
     promoImages,
-    isMobileResolution,
     isPromoImage,
   } = useAppFeatures(props);
 

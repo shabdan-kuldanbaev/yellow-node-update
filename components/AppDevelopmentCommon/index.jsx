@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
+import TabsSection from 'UI/sections/TabsSection';
 import DownloadSection from 'UI/sections/DownloadSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
@@ -9,11 +10,11 @@ import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
 const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/CheckListSection'));
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
-const ImageSection = dynamic(() => import('components/AppDevelopmentCommon/ImageSection'));
+const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
-const ImagesListSection = dynamic(() => import('components/AppDevelopmentCommon/ImagesListSection'));
+const ImagesListSection = dynamic(() => import('UI/sections/ImagesListSection'));
 const ProcessSection = dynamic(() => import('components/AppDevelopmentCommon/ProcessSection'));
 const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
@@ -24,7 +25,6 @@ const PlainTextSection = dynamic(() => import('components/AppDevelopmentCommon/P
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
-const TabsSection = dynamic(() => import('components/AppDevelopmentCommon/TabsSection'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -246,8 +246,7 @@ export const AppDevelopmentCommon = ({
 };
 
 AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {
-  },
+  handleOnCTAClick: () => {},
   introSection: null,
 };
 

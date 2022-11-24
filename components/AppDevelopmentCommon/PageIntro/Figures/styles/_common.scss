@@ -2,7 +2,7 @@
   @include fontSize(56px, 120%);
 
   font-weight: 800;
-  color: $black;
+  color: $gray1000;
 
   @include tablet {
     @include fontSize(40px);
@@ -18,9 +18,8 @@
 }
 
 .figureSubtitle {
-  @include fontSize(18px);
+  @include fontSize(18px, 180%);
 
-  line-height: 180%;
   margin: 0;
   color: $silver-chalice;
 
