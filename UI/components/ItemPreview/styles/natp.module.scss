@@ -1,5 +1,5 @@
 .natp {
-  @extend .verticalContainer;
+  @include verticalContainer;
 
   position: relative;
   background-image: linear-gradient(to bottom, $nevada-2 0%, $shark-3 100%);

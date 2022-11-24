@@ -1,7 +1,6 @@
 .openSense {
   @include centeredBackgroundImage;
-
-  @extend .verticalContainer;
+  @include verticalContainer;
 
   .projectPreview {
     transform: translateY(90px);

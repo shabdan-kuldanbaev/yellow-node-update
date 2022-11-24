@@ -1,5 +1,5 @@
 .carbon-space {
-  @extend .verticalContainer;
+  @include verticalContainer;
 
   background: $light-grayish-blue-2;
 

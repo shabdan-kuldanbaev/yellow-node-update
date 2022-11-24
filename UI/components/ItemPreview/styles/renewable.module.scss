@@ -1,5 +1,5 @@
 .renewable {
-  @extend .verticalContainer;
+  @include verticalContainer;
 
   background: $very-pale-lime-green;
 

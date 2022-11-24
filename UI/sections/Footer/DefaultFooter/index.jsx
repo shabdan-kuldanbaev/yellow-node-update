@@ -28,7 +28,7 @@ const DefaultFooter = () => {
         />
       </CircleButton>
     </footer>
-  )
+  );
 };
 
 export default React.memo(DefaultFooter);

@@ -1,5 +1,5 @@
 .real-ai {
-  @extend .verticalContainer;
+  @include verticalContainer;
 
   background: $very-page-blue;
 

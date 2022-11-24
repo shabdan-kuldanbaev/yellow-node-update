@@ -1,5 +1,5 @@
 .smartcenter {
-  @extend .verticalContainer;
+  @include verticalContainer;
 
   background-image: linear-gradient(to bottom, $regent-gray 0%, $slate-gray3 100%);
 

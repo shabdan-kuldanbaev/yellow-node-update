@@ -1,5 +1,25 @@
 @import 'styles/utils/mixins';
 
+@mixin verticalContainer {
+  .projectPreview {
+    @include flex(column, center, center);
+  }
+
+  .projectInfoContainer {
+    @include flex(column, center, center);
+
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 11px;
+  }
+
+  .image {
+    margin-top: 30px;
+  }
+}
+
 .logo {
   width: 48px;
   height: 48px;
@@ -13,6 +33,7 @@
 .container {
   @include flex(row, center, center);
 
+  cursor: pointer;
   box-sizing: border-box;
   overflow: hidden;
   height: 35vw;
@@ -62,26 +83,6 @@
   object-fit: cover;
   max-width: 100%;
   max-height: 100%;
-}
-
-.verticalContainer {
-  .projectPreview {
-    @include flex(column, center, center);
-  }
-
-  .projectInfoContainer {
-    @include flex(column, center, center);
-
-    text-align: center;
-  }
-
-  .logo {
-    margin-bottom: 11px;
-  }
-
-  .image {
-    margin-top: 30px;
-  }
 }
 
 .projectTitle {
@@ -135,14 +136,4 @@
   @include phone {
     max-width: 450px;
   }
-}
-
-.appStore {
-  width: 120px;
-  height: 40px;
-  margin: 20px auto;
-}
-
-.previewContainer {
-  cursor: pointer;
 }

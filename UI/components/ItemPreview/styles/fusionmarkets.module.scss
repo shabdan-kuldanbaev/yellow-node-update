@@ -1,5 +1,5 @@
 .fusion-markets {
-  @extend .verticalContainer;
+  @include verticalContainer;
 
   background: $eerie-black;
 

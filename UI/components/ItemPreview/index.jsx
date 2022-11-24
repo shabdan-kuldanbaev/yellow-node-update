@@ -27,12 +27,14 @@ const ItemPreview = (props) => {
     titleIcon,
   } = useItemPreview(props);
 
+  console.log({type, slug, view});
+
   return (
     <LinkWrapper path={link}>
       <div
         style={sectionStyle}
         className={cn(
-          styles.previewContainer,
+          styles.container,
           styles[type],
           styles[view],
           styles[slug],

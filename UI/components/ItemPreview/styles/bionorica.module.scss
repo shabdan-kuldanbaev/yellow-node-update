@@ -1,5 +1,5 @@
 .bionorica {
-  @extend .verticalContainer;
+  @include verticalContainer;
 
   background: linear-gradient(180deg, $light-grayish-blue 0%, $gray0 100%);
 
