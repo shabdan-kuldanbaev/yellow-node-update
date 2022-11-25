@@ -1,4 +1,5 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 @mixin appDevelopmentContainer {
   padding: 120px 40px;
@@ -22,7 +23,7 @@
 
   box-sizing: border-box;
   width: 100%;
-  max-width: $max-content-width-small-section;
+  max-width: $default-content-width;
   padding: 70px;
   margin: 80px auto 0;
   background: $alabaster;

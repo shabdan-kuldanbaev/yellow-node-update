@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
 import { CheckListSection } from 'UI/sections/CheckListSection';
+import { NumberedListSection } from 'UI/sections/NumberedListSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -97,10 +98,9 @@ export const AppDevelopmentCommon = ({
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentNumberedList:
     return (
-      <CheckListSection
+      <NumberedListSection
         sectionData={section}
         type={type}
-        isNumberedList
         handleOnCTAClick={handleOnCTAClick}
       />
     );
