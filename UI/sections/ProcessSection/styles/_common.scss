@@ -1,0 +1,67 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+
+  .cardContainer {
+    padding: 50px;
+    box-shadow: $card-bow-shadow;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: $gray0;
+
+    .typeTitle {
+      @include fontSize(24px, 1.8);
+
+      font-weight: 700;
+      margin: 20px 0 10px;
+
+      @include macbook-twelve {
+        @include fontSize(22px);
+      }
+
+      @include phone {
+        @include fontSize(18px);
+      }
+    }
+
+    p {
+      @include fontSize(18px, 1.8);
+
+      color: $gray400;
+      margin: 0;
+
+      @include phone {
+        @include fontSize(16px);
+      }
+    }
+
+    .imageWrapper {
+      svg {
+        height: 60px;
+
+        @include phone {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+
+    .arrow,
+    .connectingLine,
+    .longConnectingLine {
+      display: none;
+    }
+
+    @include below-tablet {
+      width: 100%;
+      max-width: unset;
+    }
+  }
+
+  @include below-tablet {
+    grid-gap: 20px;
+    width: 100%;
+    grid-template-columns: auto;
+  }
+}
