@@ -1,0 +1,37 @@
+.section {
+  @include appDevelopmentContainer;
+}
+
+.titleStyle {
+  @include defaultSectionTitle;
+}
+
+.callToAction {
+  @include defaultCallToAction;
+}
+
+.groupTitle {
+  @include fontSize(32px, 120%);
+
+  text-align: center;
+  margin-bottom: 34px;
+
+  @include below-tablet {
+    @include fontSize(24px);
+
+    margin-bottom: 25px;
+  }
+}
+
+.web-app-development-company,
+.mvp-app-development-company,
+.mobile-app-development-company,
+.homepage {
+  &.secondSectionView {
+    @extend .greySection;
+
+    @include centeredIcons;
+  
+    padding-top: 0;
+  }
+}
