@@ -27,8 +27,6 @@ const ItemPreview = (props) => {
     titleIcon,
   } = useItemPreview(props);
 
-  console.log({type, slug, view});
-
   return (
     <LinkWrapper path={link}>
       <div
