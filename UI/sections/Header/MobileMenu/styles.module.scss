@@ -13,8 +13,9 @@
     left: 0;
     bottom: 0;
     right: 0;
+    top: 0;
     width: 100vw;
-    height: calc(100vh - 66px);
+    height: 100vh;
     background-color: $dark-grey;
     overflow-x: scroll;
 
@@ -36,9 +37,7 @@
     }
 
     ul {
-      height: 114vw;
-      margin-bottom: 20vh;
-      padding: 12px 0 0;
+      padding: 96px 0 0;
       width: 100%;
 
       @include small-phone {

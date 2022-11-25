@@ -28,14 +28,14 @@ export const WHITE_TEXT_LOGO = [
 ];
 
 export const getLogoType = (type) => {
-  const isInlineLogo = WHITE_LOGO_TYPE.includes(type);
-  const isWhiteLogo = BLACK_LOGO_TYPE.includes(type);
+  const isWhiteLogo = WHITE_LOGO_TYPE.includes(type);
+  const isBlackLogo = BLACK_LOGO_TYPE.includes(type);
 
-  if (isInlineLogo) {
+  if (isWhiteLogo) {
     return SVG_IMAGES_TYPES.whiteLogo;
   }
 
-  if (isWhiteLogo) {
+  if (isBlackLogo) {
     return SVG_IMAGES_TYPES.blackLogo;
   }
 

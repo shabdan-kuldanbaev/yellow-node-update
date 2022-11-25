@@ -93,6 +93,10 @@
         left: 0;
       }
     }
+
+    @include below-tablet {
+      z-index: 10000000;
+    }
   }
 
   ul {
