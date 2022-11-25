@@ -2,7 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Logo from 'components/Common/Logo';
+import Logo from 'UI/components/Logo';
 import TopProgressBar from 'components/Common/TopProgressBar';
 import { useHeader } from './utils/useHeader';
 import styles from './styles.module.scss';

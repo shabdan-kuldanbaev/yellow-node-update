@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import Svg from 'UI/components/Svg';
-import Logo from 'components/Common/Logo';
+import Logo from 'UI/components/Logo';
 import Typography from 'UI/components/Typography';
 import { socialMedia } from './utils/data';
 import styles from './styles.module.scss';
