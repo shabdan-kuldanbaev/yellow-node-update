@@ -1,139 +1,27 @@
 @import 'styles/utils/mixins';
 
-@mixin verticalContainer {
-  .projectPreview {
-    @include flex(column, center, center);
-  }
-
-  .projectInfoContainer {
-    @include flex(column, center, center);
-
-    text-align: center;
-  }
-
-  .logo {
-    margin-bottom: 11px;
-  }
-
-  .image {
-    margin-top: 30px;
-  }
-}
-
-.logo {
-  width: 48px;
-  height: 48px;
-  margin: 0 0 30px;
-
-  @include tablet {
-    margin: 0 auto 22px;
-  }
-}
-
 .container {
   @include flex(row, center, center);
 
   cursor: pointer;
   box-sizing: border-box;
   overflow: hidden;
-  height: 35vw;
+  height: 480px;
   width: 100%;
-  margin: 0 auto;
-  border-radius: 5px;
-  padding: 0 70px;
 
-  @include macbook-fifteen {
-    height: 75vh;
-  }
-
-  @include tablet {
-    height: 65vh;
-    padding: 0 24px;
+  @include below-tablet {
+    height: 350px;
   }
 
   @include phone {
-    height: 85vh;
-  }
-}
-
-.projectInfoContainer {
-  @include flex(column, center, flex-start);
-
-  text-align: left;
-  min-width: 40%;
-  z-index: 100;
-
-  @include tablet {
-    align-items: center;
-    text-align: center;
-  }
-}
-
-.projectPreview {
-  @include flex(row, center, center);
-
-  max-width: 100%;
-
-  @include tablet {
-    @include flex(column, center, center);
+    height: 250px;
   }
 }
 
 .image {
+  display: block;
   object-fit: cover;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-.projectTitle {
-  @include fontSize(50px, 1.2);
-
-  font-family: $case-studies-font;
-  font-weight: bold;
-  margin: 0 0 15px;
-
-  @include tablet {
-    @include fontSize(35px);
-
-    margin-bottom: 6px;
-  }
-
-  @include phone {
-    @include fontSize(22px);
-  }
-}
-
-.projectSubtitle {
-  margin: 0 0 15px;
-  font-family: $case-studies-font;
-  font-weight: 500;
-  line-height: 1.5;
-
-  @include tablet {
-    margin-bottom: 6px;
-  }
-}
-
-.projectDescription {
-  @include fontSize(14px, 180%);
-
-  max-width: 400px;
-  margin: 0;
-  font-family: $case-studies-font;
-  font-weight: 400;
-
-  @include tablet {
-    margin-bottom: 6px;
-  }
-}
-
-.imageContainer {
-  @include flex(row, center, center);
-
-  z-index: 1;
-  margin: 0 25px;
-
-  @include phone {
-    max-width: 450px;
-  }
-}

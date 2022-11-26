@@ -1,5 +1,13 @@
 .android-mobile-app-development-services {
   .sectionTitle {
+    h2 {
+      @include fontSize(38px, 49px);
+
+      @include phone {
+        @include fontSize(24px, 31px);
+      }
+    }
+
     @include below-tablet {
       max-width: 343px;
     }

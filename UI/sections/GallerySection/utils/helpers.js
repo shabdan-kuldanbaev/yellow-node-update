@@ -1,8 +1,5 @@
 import {
-  EffectCoverflow,
-  Mousewheel,
-  Navigation,
-  Pagination,
+  EffectCoverflow, Mousewheel, Navigation, Pagination,
 } from 'swiper';
 
 export const swiperGalleryParams = {
@@ -12,6 +9,7 @@ export const swiperGalleryParams = {
   loop: true,
   passiveListeners: true,
   speed: 500,
+  spaceBetween: 20,
   mousewheel: {
     forceToAxis: true,
   },
@@ -21,21 +19,23 @@ export const swiperGalleryParams = {
     depth: 150,
     slideShadows: false,
   },
+  breakpoints: {
+    568: {
+      slidesPerView: 1.3,
+    },
+    768: {
+      slidesPerView: 1.4,
+      spaceBetween: 30,
+    },
+    1024: {
+      slidesPerView: 1.8,
+      spaceBetween: 32,
+    },
+  },
   modules: [
     EffectCoverflow,
     Pagination,
     Mousewheel,
     Navigation,
   ],
-  breakpoints: {
-    1025: {
-      slidesPerView: 1.8,
-      spaceBetween: 0,
-      coverflowEffect: {
-        rotate: 0,
-        stretch: -100,
-        depth: 150,
-      },
-    },
-  },
 };
