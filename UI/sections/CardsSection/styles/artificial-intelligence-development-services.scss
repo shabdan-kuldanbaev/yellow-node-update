@@ -1,0 +1,78 @@
+.artificial-intelligence-development-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    .cardList {
+      .titleStyle {
+        width: 800px;
+
+        h2 {
+          @include phone {
+            @include fontSize(28px);
+          }
+        }
+
+        @include below-tablet {
+          width: 700px;
+        }
+
+        @include phone {
+          width: 300px;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding-bottom: 0;
+
+    .cardList {
+      @extend .threeColumnsCards;
+
+      .cards > div {
+        padding: 30px 30px 30px 48px;
+      }
+    }
+
+    .callToAction {
+      @include defaultCallToAction;
+
+      background: $alabaster;
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .cardsWithFullWidthImage;
+    @extend .greySection;
+
+    .cardList {
+      @extend .threeColumnsCards;
+
+      .cards > div {
+        padding: 30px 30px 30px 48px;
+      }
+
+      .cardContent {
+        .typeTitle {
+          text-align: center;
+        }
+      }
+
+      .cardContent p {
+        display: none;
+
+        @include below-tablet {
+          display: block;
+        }
+      }
+    }
+
+    .overlay {
+      padding: 20px 15px 15px;
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+  }
+}

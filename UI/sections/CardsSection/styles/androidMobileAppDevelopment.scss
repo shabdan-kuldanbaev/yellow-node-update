@@ -1,0 +1,28 @@
+.android-mobile-app-development-services {
+  &.firstSectionView,
+  &.secondSectionView,
+  &.thirdSectionView,
+  &.fourthSectionView {
+    @extend .greySection;
+  }
+
+  &.secondSectionView {
+    @extend .cardsWithFullWidthImage;
+
+    .titleStyle {
+      max-width: 908px;
+    }
+  }
+
+  &.thirdSectionView {
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
+
+  &.fourthSectionView {
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
+}

@@ -214,60 +214,18 @@
   }
 }
 
-.cardsWithShadow {
-  .contentWrapper .cards {
-    grid-gap: 40px;
-
-    & > div {
-      @include cardWithShadow;
-    }
-  }
-}
-
-.smallCards {
-  .contentWrapper .cards {
-    grid-gap: 40px;
-
-    & > div {
-      @include flex;
-    }
-
-    h3 {
-      margin-top: 0;
-    }
-  }
-}
-
 .threeColumnsCards {
-  @include smallSectionWrapper;
+  @include flex(row, center, stretch, wrap);
 
-  max-width: $max-content-width;
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 40px;
-
-    @include tablet {
-      grid-template-columns: auto;
-      grid-gap: 20px;
-    }
+  & > * {
+    flex: 1 1 25%;
   }
 }
 
 .twoColumnsCards {
-  @include smallSectionWrapper;
+  @include flex(row, center, stretch, wrap);
 
-  max-width: 100%;
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px 24%;
-
-    @include below-tablet {
-      grid-template-columns: auto;
-      grid-gap: 24px;
-    }
+  & > * {
+    flex: 1 1 40%;
   }
 }

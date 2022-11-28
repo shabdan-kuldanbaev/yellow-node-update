@@ -1,0 +1,36 @@
+.mobile-app-development-company {
+  &.firstSectionView,
+  &.thirdSectionView {
+    @extend .greySection;
+  }
+
+  &.secondSectionView {
+    @include below-tablet {
+      .cards > div {
+        display: block;
+
+        h3 {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {}
+
+  &.fourthSectionView {}
+
+  &.fifthSectionView {
+    background-color: $very-dark-gray;
+
+    .cards > div {
+      background-color: $very-dark-gray;
+      box-shadow: none;
+    }
+
+    .titleStyle h2,
+    .typeTitle {
+      color: $white;
+    }
+  }
+}

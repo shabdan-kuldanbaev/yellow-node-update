@@ -1,0 +1,28 @@
+@import "styles/utils/mixins";
+
+.card {
+  p {
+    @include fontSize(16px, 1.5);
+
+    font-weight: 400;
+    color: $gray400;
+    margin: 0;
+  }
+}
+
+.card.withoutBackground {
+  @include flex(row, space-between, flex-start);
+
+  .title {
+    margin-top: 0;
+  }
+}
+
+.icon { 
+  flex: 0 0 64px;
+  margin-right: 16px;
+}
+
+.title {
+  margin: 16px 0 8px;
+}

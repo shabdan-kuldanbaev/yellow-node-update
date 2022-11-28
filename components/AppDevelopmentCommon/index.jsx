@@ -8,13 +8,13 @@ import TabsSection from 'UI/sections/TabsSection';
 import DownloadSection from 'UI/sections/DownloadSection';
 import PlainTextSection from 'UI/sections/PlainTextSection';
 import ProcessSection from 'UI/sections/ProcessSection';
+import CardsSection from 'UI/sections/CardsSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
 const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
 const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
-const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
 const ImagesListSection = dynamic(() => import('UI/sections/ImagesListSection'));
@@ -66,7 +66,7 @@ export const AppDevelopmentCommon = ({
     return (
       <CardsSection
         sectionData={section}
-        pageType={type}
+        type={type}
         sectionType="cards"
         handleOnCTAClick={handleOnCTAClick}
       />
@@ -76,15 +76,6 @@ export const AppDevelopmentCommon = ({
       <RelatedServicesSection
         sectionData={section}
         type={type}
-        handleOnCTAClick={handleOnCTAClick}
-      />
-    );
-  case APP_DEVELOPMENT_TYPES.appDevelopmentSmallCards:
-    return (
-      <CardsSection
-        sectionData={section}
-        pageType={type}
-        sectionType="smallCards"
         handleOnCTAClick={handleOnCTAClick}
       />
     );
@@ -182,7 +173,7 @@ export const AppDevelopmentCommon = ({
     return (
       <CardsSection
         sectionData={section}
-        pageType={type}
+        type={type}
         sectionType="cards"
         withOverlay
       />

@@ -1,0 +1,11 @@
+.ios-mobile-app-development-services {
+  &.secondSectionView {}
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
+}

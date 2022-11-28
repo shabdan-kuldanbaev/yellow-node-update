@@ -1,0 +1,12 @@
+.mvp-app-development-company {
+  &.secondSectionView,
+  &.thirdSectionView {
+    @extend .greySection;
+  }
+
+  &.firstSectionView {}
+
+  &.secondSectionView {}
+
+  &.thirdSectionView {}
+}

@@ -1,0 +1,20 @@
+.cloud-based-app-development-services {
+  &.firstSectionView {
+    @extend .greySection;
+  }
+
+  &.thirdSectionView {
+    .typeTitle,
+    .titleStyle h2 {
+      color: $white;
+    }
+
+    .titleStyle {
+      max-width: 762px;
+    }
+  }
+
+  &.fourthSectionView {
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,26 @@
+.cardsSection {
+  @include appDevelopmentContainer;
+
+  background: $white;
+}
+
+.contentWrapper {
+  max-width: $default-content-width;
+  margin: 0 auto;
+}
+
+.cardList {
+  @extend .twoColumnsCards;
+
+  margin: 0 0 -32px -32px;
+  
+  & > * {
+    @include flex(row, center, stretch);
+
+    margin: 0 0 32px 32px;
+  }
+}
+
+.callToAction {
+  @include defaultCallToAction;
+}
