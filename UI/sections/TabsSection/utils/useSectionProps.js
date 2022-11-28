@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import getTabBlocks from './getTabBlocks';
 
 export default ({
-  data,
+  section,
   type,
   handleOnCTAClick,
 }) => {
+  const data = section.fields;
   const [activeIndex, setActiveIndex] = useState(0);
   const tabs = getTabBlocks(data);
 

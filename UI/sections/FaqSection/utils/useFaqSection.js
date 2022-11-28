@@ -1,10 +1,10 @@
 import { getDocumentFields } from 'utils/helper';
 
-export const useFaqSection = ({ data, type }) => {
+export const useFaqSection = ({ section, type }) => {
   const {
     title,
     contentModules,
-  } = getDocumentFields(data);
+  } = getDocumentFields(section);
 
   const faqList = contentModules.map((question) => getDocumentFields(
     question,

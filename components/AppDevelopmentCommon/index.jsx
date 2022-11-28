@@ -27,12 +27,13 @@ const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommo
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 // const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
 
-export const AppDevelopmentCommon = ({
-  type,
-  section,
-  handleOnCTAClick,
-  introSection,
-}) => {
+export const AppDevelopmentCommon = ({ introSection, ...props }) => {
+  const {
+    type,
+    section,
+    handleOnCTAClick,
+  } = props;
+
   if (!section.fields) {
     return null;
   }
@@ -43,24 +44,17 @@ export const AppDevelopmentCommon = ({
   case APP_DEVELOPMENT_TYPES.appDevelopmentPageIntro:
     return (
       <PageIntro
-        sectionData={section}
-        type={type}
         introSection={introSection}
+        {...props}
       />
     );
   case APP_DEVELOPMENT_TYPES.processOverlay:
     return (
-      <AppOverlayProcess
-        data={section.fields}
-        type={type}
-      />
+      <AppOverlayProcess {...props} />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentImageSection:
     return (
-      <ImageSection
-        sectionData={section}
-        type={type}
-      />
+      <ImageSection {...props} />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentCards:
     return (
@@ -97,11 +91,7 @@ export const AppDevelopmentCommon = ({
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentSvgList:
     return (
-      <SvgListSection
-        sectionData={section}
-        handleOnCTAClick={handleOnCTAClick}
-        type={type}
-      />
+      <SvgListSection {...props} />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentSlider:
     return (
@@ -120,10 +110,7 @@ export const AppDevelopmentCommon = ({
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentFAQ:
     return (
-      <FaqSection
-        data={section}
-        type={type}
-      />
+      <FaqSection {...props} />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentReviews:
     return (
@@ -135,17 +122,11 @@ export const AppDevelopmentCommon = ({
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentImagesList:
     return (
-      <ImagesListSection
-        sectionData={section}
-        type={type}
-      />
+      <ImagesListSection {...props} />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentProcess:
     return (
-      <ProcessSection
-        sectionData={section}
-        pageType={type}
-      />
+      <ProcessSection {...props} />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentBlog:
     return (
@@ -164,9 +145,8 @@ export const AppDevelopmentCommon = ({
   case APP_DEVELOPMENT_TYPES.svgDisplayWithSelector:
     return (
       <SvgListSection
-        sectionData={section}
-        type={type}
         withSelector
+        {...props}
       />
     );
   case APP_DEVELOPMENT_TYPES.cardsWithOverlay:
@@ -180,25 +160,18 @@ export const AppDevelopmentCommon = ({
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeatures:
     return (
-      <AppFeatures
-        data={section.fields}
-        type={type}
-      />
+      <AppFeatures {...props} />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeaturesPromo:
     return (
       <AppFeatures
-        data={section.fields}
-        type={type}
         isPromoImage
+        {...props}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentPlainTextSection:
     return (
-      <PlainTextSection
-        sectionData={section}
-        type={type}
-      />
+      <PlainTextSection {...props} />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentBookmarkCard:
     return (
@@ -209,18 +182,11 @@ export const AppDevelopmentCommon = ({
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentTabsSection:
     return (
-      <TabsSection
-        data={section.fields}
-        type={type}
-        handleOnCTAClick={handleOnCTAClick}
-      />
+      <TabsSection {...props} />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
     return (
-      <DownloadSection
-        sectionData={section}
-        type={type}
-      />
+      <DownloadSection {...props} />
     );
   default:
     return null;
