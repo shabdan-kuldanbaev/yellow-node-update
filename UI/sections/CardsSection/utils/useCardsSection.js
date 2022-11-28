@@ -1,13 +1,15 @@
 import get from 'lodash/get';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { selectIsTabletResolutions } from 'redux/selectors/layout';
+import { Navigation } from 'swiper';
+import { selectIsMobileResolutions, selectIsTabletResolutions } from 'redux/selectors/layout';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from '../CardsSection.module.scss';
 
 export default ({
   section,
   type,
+  withSlider: sectionWithSlider,
 }) => {
   const {
     title,
@@ -25,7 +27,19 @@ export default ({
       'view',
     ],
   );
-  const { contentModules: rawCardList } = getDocumentFields(get(contentModules, '[0]', []));
+  const {
+    contentModules: rawCardList,
+    withoutBackground,
+    disableSliderOnMobile,
+  } = getDocumentFields(
+    get(contentModules, '[0]', []),
+    [
+      'contentModules',
+      'withoutBackground',
+      'disableSliderOnMobile',
+    ],
+  );
+
   const cardList = (rawCardList || []).map((card) => {
     const {
       contentList,
@@ -61,18 +75,48 @@ export default ({
   const ctaLink = getDocumentFields(get(contentModules, '[1]'));
 
   const isTabletResolution = useSelector(selectIsTabletResolutions);
-  const withSlider = !isTabletResolution;
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const withSlider = sectionWithSlider || (!disableSliderOnMobile && (isTabletResolution || isMobileResolution));
 
-  console.log({ type });
-  const className = cn(styles.cardsSection, styles[type], styles[view]);
+  const swiperProps = {
+    modules: [Navigation],
+    slidesPerView: 1,
+    spaceBetween: 32,
+    centeredSlides: true,
+    autoheight: true,
+    mousewheel: {
+      forceToAxis: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        centeredSlides: false,
+      },
+      1024: {
+        slidesPerView: 3,
+        centeredSlides: false,
+      },
+    },
+  };
+
+  const className = cn(
+    styles.cardsSection,
+    styles[type],
+    styles[view],
+    {
+      [styles.withSlider]: withSlider,
+    },
+  );
 
   return {
-    withoutSlider: withSlider,
+    withSlider,
     cardList,
     ctaLink,
     title,
     description,
     subtitle,
     className,
+    withoutBackground,
+    swiperProps,
   };
 };

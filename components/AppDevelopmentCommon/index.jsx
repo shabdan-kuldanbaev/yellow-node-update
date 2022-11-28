@@ -58,6 +58,13 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentCards:
     return <CardsSection {...props} />;
+  case APP_DEVELOPMENT_TYPES.appDevelopmentSliderCards:
+    return (
+      <CardsSection
+        {...props}
+        withSlider
+      />
+    );
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentRelatedServices:
     return (
@@ -138,9 +145,8 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   case APP_DEVELOPMENT_TYPES.cardsWithOverlay:
     return (
       <CardsSection
-        sectionData={section}
+        section={section}
         type={type}
-        sectionType="cards"
         withOverlay
       />
     );

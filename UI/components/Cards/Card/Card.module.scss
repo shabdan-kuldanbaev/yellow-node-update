@@ -1,12 +1,16 @@
 @import "styles/utils/mixins";
 
 .card {
-  p {
+  p, ul {
     @include fontSize(16px, 1.5);
 
     font-weight: 400;
     color: $gray400;
     margin: 0;
+  }
+
+  li {
+    margin: 0 0 0 10px;
   }
 }
 

@@ -2,6 +2,20 @@
   @include appDevelopmentContainer;
 
   background: $white;
+
+  :global(.swiper) {
+    padding-bottom: 70px;
+  }
+
+  :global(.swiper-slide) {
+    height: auto;
+    display: flex;
+    align-items: stretch;
+  }
+}
+
+.cardsSection.withSlider .contentWrapper {
+  max-width: $wide-content-width;
 }
 
 .contentWrapper {

@@ -147,62 +147,31 @@
   }
 
   &.thirdSectionView {
-    background-color: $very-dark-gray;
+    background-color: $gray900;
     padding: 120px 15px;
 
-    .cards {
-      width: 100%;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 80px;
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
 
-      .imageWrapper {
-        svg {
-          @include below-tablet {
-            width: 70px;
-            margin-left: 5px;
-          }
-
-          @include phone {
-            width: 50px;
-          }
-        }
-      }
-
-      .cardContent {
-        @include below-tablet {
-          margin: 10px;
-        }
-      }
-
-      @include tablet {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @include below-tablet {
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 10px;
+    .title {
+      h2 {
+        color: $gray0;
       }
     }
 
-    .titleStyle h2,
-    .typeTitle {
-      color: $white;
+    .cardList > div {
+      flex: 1 1 20%;
     }
 
-    .titleStyle h2 {
-      @include phone {
-        width: 320px;
+    .card {
+      padding: 0;
+      background: none;
+      box-shadow: none;
+
+      h3 {
+        color: $gray0;
       }
-    }
-
-    li {
-      &::marker {
-        color: $case-study-dindon-paragraph;
-      }
-    }
-
-    @include phone {
-      padding: 60px 15px;
     }
   }
 }
