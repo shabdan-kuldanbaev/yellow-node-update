@@ -50,7 +50,7 @@
 
     margin: 0;
     padding-right: 60px;
-    color: $silver-chalice;
+    color: $gray400;
 
     @include macbook-fifteen {
       @include fontSize(16px);
@@ -74,7 +74,7 @@
 .devops-development-services {
   .pageIntroSection {
     .pageIntroWrapper {
-      border-bottom: 1px solid rgba($alto, 0.2);
+      border-bottom: 1px solid rgba($gray200, 0.2);
       padding-bottom: 180px;
 
       @include macbook-twelve {
@@ -125,7 +125,7 @@
   .pageTitle {
     @include fontSize(46px, 55px);
 
-    color: $white;
+    color: $gray0;
 
     @include below-tablet {
       text-align: center;
