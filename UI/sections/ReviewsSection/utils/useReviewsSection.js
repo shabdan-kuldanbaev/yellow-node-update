@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import { Navigation } from 'swiper';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export default ({
@@ -64,10 +65,32 @@ export default ({
     };
   });
 
+  const swiperParams = {
+    modules: [Navigation],
+    slidesPerView: 1,
+    spaceBetween: 32,
+    centeredSlides: true,
+    autoheight: true,
+    mousewheel: {
+      forceToAxis: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        centeredSlides: false,
+      },
+      1024: {
+        slidesPerView: 3,
+        centeredSlides: false,
+      },
+    },
+  };
+
   return {
     type,
     handleOnCTAClick,
     reviews,
+    swiperParams,
     ...rest,
   };
 };

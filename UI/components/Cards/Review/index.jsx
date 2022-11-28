@@ -1,11 +1,15 @@
+import cn from 'classnames';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Illustration from 'UI/components/Illustration';
 import CardContainer from 'UI/containers/CardContainer';
+import Typography from 'UI/components/Typography';
+import { TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import useReview from './utils/useReview';
 import styles from './styles.module.scss';
 
 const Review = (props) => {
   const {
+    className,
     companyLogo,
     companyTitle,
     text,
@@ -17,12 +21,12 @@ const Review = (props) => {
   } = useReview(props);
 
   return (
-    <CardContainer className={styles.review}>
-      <div className={styles.messageWrapper}>
+    <CardContainer className={cn(styles.review, className)}>
+      <div className={styles.content}>
         <Illustration
           src={companyLogo}
           alt={`${companyTitle} logo`}
-          className={styles.logo}
+          className={cn(styles.logo, styles[companyTitle])}
         />
 
         <ContentfulParser document={text} />
@@ -35,13 +39,20 @@ const Review = (props) => {
           className={styles.photo}
         />
 
-        <div className={styles.info}>
-          <span className={styles.name}>
+        <div className={styles.authorInfo}>
+          <Typography
+            className={styles.name}
+            variant={TYPOGRAPHY_TAGS.p}
+            isBold
+          >
             {name}
-          </span>
-          <span className={styles.position}>
+          </Typography>
+          <Typography
+            className={styles.position}
+            variant={TYPOGRAPHY_TAGS.p}
+          >
             {position}
-          </span>
+          </Typography>
         </div>
       </div>
     </CardContainer>

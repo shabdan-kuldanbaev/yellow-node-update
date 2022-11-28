@@ -6,7 +6,7 @@ import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from '../CardsSection.module.scss';
 
 export default ({
-  sectionData,
+  section,
   type,
 }) => {
   const {
@@ -16,7 +16,7 @@ export default ({
     view,
     contentModules,
   } = getDocumentFields(
-    sectionData,
+    section,
     [
       'title',
       'description',

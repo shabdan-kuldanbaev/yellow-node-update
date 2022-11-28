@@ -5,6 +5,9 @@ import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import Animated from 'components/Common/Animated';
 import CallToAction from 'components/Common/CallToAction';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import CustomSwiper from 'UI/containers/CustomSwiper';
+import Review from 'UI/components/Cards/Review';
+import { SwiperSlide } from 'swiper/react';
 import styles from './styles.module.scss';
 import useReviewsSection from './utils/useReviewsSection';
 
@@ -16,16 +19,31 @@ const ReviewsSection = (props) => {
     description,
     ctaLink,
     handleOnCTAClick,
+    swiperParams,
   } = useReviewsSection(props);
 
   return (
     <section className={cn(styles.reviews, styles[type])}>
-      <div className="contentContainer">
+      <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
           description={description}
           titleStyle={styles.titleStyle}
         />
+
+        <CustomSwiper
+          swiperParams={swiperParams}
+          isShowNavigation
+        >
+          {reviews?.map((review) => (
+            <SwiperSlide>
+              <Review
+                className={styles.review}
+                {...review}
+              />
+            </SwiperSlide>
+          ))}
+        </CustomSwiper>
 
         {ctaLink && (
           <Animated

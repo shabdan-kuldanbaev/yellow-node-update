@@ -25,7 +25,6 @@ const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
-// const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
 
 export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   const {
@@ -48,23 +47,18 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
         {...props}
       />
     );
+
   case APP_DEVELOPMENT_TYPES.processOverlay:
-    return (
-      <AppOverlayProcess {...props} />
-    );
+    return <AppOverlayProcess {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentImageSection:
     return (
       <ImageSection {...props} />
     );
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentCards:
-    return (
-      <CardsSection
-        sectionData={section}
-        type={type}
-        sectionType="cards"
-        handleOnCTAClick={handleOnCTAClick}
-      />
-    );
+    return <CardsSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentRelatedServices:
     return (
       <RelatedServicesSection
@@ -109,25 +103,17 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentFAQ:
-    return (
-      <FaqSection {...props} />
-    );
+    return <FaqSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentReviews:
-    return (
-      <ReviewsSection
-        data={section}
-        type={type}
-        handleOnCTAClick={handleOnCTAClick}
-      />
-    );
+    return <ReviewsSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentImagesList:
-    return (
-      <ImagesListSection {...props} />
-    );
+    return <ImagesListSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentProcess:
-    return (
-      <ProcessSection {...props} />
-    );
+    return <ProcessSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentBlog:
     return (
       <BlogSection
@@ -158,10 +144,10 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
         withOverlay
       />
     );
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeatures:
-    return (
-      <AppFeatures {...props} />
-    );
+    return <AppFeatures {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeaturesPromo:
     return (
       <AppFeatures
@@ -169,10 +155,10 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
         {...props}
       />
     );
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentPlainTextSection:
-    return (
-      <PlainTextSection {...props} />
-    );
+    return <PlainTextSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentBookmarkCard:
     return (
       <BookmarkCardSection
@@ -181,13 +167,11 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentTabsSection:
-    return (
-      <TabsSection {...props} />
-    );
+    return <TabsSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
-    return (
-      <DownloadSection {...props} />
-    );
+    return <DownloadSection {...props} />;
+
   default:
     return null;
   }
