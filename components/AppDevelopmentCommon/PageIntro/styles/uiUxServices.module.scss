@@ -1,47 +1,44 @@
-.discovery-phase-services,
 .ui-ux-services {
   @extend .pageIntroContainer;
 
-  padding-bottom: 75px;
+  padding: 24px 8% 0;
   overflow: hidden;
 
   .pageIntroWrapper {
     margin-bottom: 0;
-    border-bottom: 1px solid $wild-sand;
   }
 
   .pageTitle {
-    @include defaultFirstHeader;
+    @include fontSize(46px, 55px);
 
+    margin-bottom: 16px;
+    max-width: 557px;
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
       display: inline-block;
-      width: 282px;
+      width: 217px;
       height: 70px;
       border-radius: 50%;
       border: 6px solid $turbo-100;
-      left: 0;
-      bottom: 0;
-      transform: translate(-25%, 0);
+      right: 0;
+      bottom: -15px;
+      transform: translate(-10%, 0);
       z-index: -1;
 
-      @include macbook-fifteen {
-        width: 238px;
-        transform: translate(-10%, 0);
-      }
-
       @include phone {
-        width: 170px;
-        height: 42px;
+        width: 130px;
+        height: 31px;
         border-width: 3px;
-        transform: translate(25%, 0);
+        bottom: -5px;
       }
     }
 
     @include phone {
+      @include fontSize(24px, 31px);
+
       text-align: center;
       margin: 0 auto;
       max-width: 345px;
@@ -49,7 +46,7 @@
   }
 
   .subtitle {
-    max-width: 475px;
+    max-width: 557px;
 
     @include phone {
       text-align: center;
@@ -57,9 +54,5 @@
       padding-right: 0;
       margin: 0 auto;
     }
-  }
-
-  .image {
-    padding-top: 100%;
   }
 }

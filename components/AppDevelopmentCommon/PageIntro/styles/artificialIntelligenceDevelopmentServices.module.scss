@@ -1,3 +1,31 @@
 .artificial-intelligence-development-services {
+  padding: 24px 8% 0;
   background-color: $very-dark-gray;
+
+  .pageIntroWrapper {
+    margin: 0 0 48px;
+
+    @include below-tablet {
+      @include flex(column-reverse);
+
+      margin: 0;
+    }
+  }
+
+  .subtitle {
+    padding: 0;
+  }
+
+  .pageTitleContainer {
+    max-width: 557px;
+  }
+
+  .image{
+    max-width: 415px;
+    margin: 24px auto;
+  }
+
+  @include below-tablet {
+    padding: 24px 16px;
+  }
 }

@@ -2,6 +2,7 @@
   @extend .pageIntroContainer;
 
   background-color: inherit;
+  padding: 24px 8% 0;
 
   .pageIntroWrapper {
     margin-bottom: 40px;
@@ -10,12 +11,8 @@
       @include flex(row, flex-end);
 
       .image {
-        padding-top: 130%;
-        max-width: 555px;
-
-        @include macbook-twelve {
-          padding-top: 140%;
-        }
+        padding-top: 100%;
+        max-width: 373px;
 
         @include below-tablet {
           max-width: 425px;
@@ -44,30 +41,25 @@
   }
 
   .pageTitle {
-    @include fontSize(70px);
+    @include fontSize(46px, 55px);
 
     color: $white;
-
-    @include macbook-twelve {
-      @include fontSize(65px);
-    }
-
-    @include tablet {
-      @include fontSize(45px);
-    }
+    margin-bottom: 16px;
+    max-width: 557px;
 
     @include below-tablet {
       text-align: center;
     }
 
     @include phone {
-      @include fontSize(32px);
+      @include fontSize(24px, 31px);
     }
   }
 
   .subtitle {
     margin: 0;
-    max-width: 518px;
+    padding: 0;
+    max-width: 557px;
 
     @include below-tablet {
       text-align: center;

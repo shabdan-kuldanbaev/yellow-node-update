@@ -1,28 +1,36 @@
 .mobile-app-development-company {
   @extend .pageIntroContainer;
 
-  .pageIntroWrapper {
-    margin-bottom: 120px;
-    padding-bottom: 116px;
-    border-bottom: 1px solid $alto;
+  padding: 0 8% 120px;
 
-    @include phone {
-      margin-bottom: 40px;
-      padding-bottom: 40px;
+  .pageIntroWrapper {
+    margin: 0;
+
+    @include below-tablet{
+      @include flex(column-reverse);
     }
   }
 
   .pageTitle {
-    max-width: 658px;
+    @include fontSize(46px, 55px);
+
+    max-width: 557px;
+    margin-bottom: 16px;
+
+    @include below-tablet {
+      text-align: center;
+    }
 
     @include phone {
-      @include fontSize(35px);
+      @include fontSize(24px, 31px);
     }
   }
 
   .subtitle {
+    @include fontSize(16px, 24px);
+
     padding-right: 0;
-    max-width: 598px;
+    max-width: 557px;
 
     & + .subtitle {
       margin-top: 30px;
@@ -30,14 +38,16 @@
   }
 
   .image {
+    max-width: 518px;
     padding-top: 100%;
-  }
+    margin: 0 auto;
 
-  @include tablet {
-    padding-top: 100px;
+    @include below-tablet {
+      margin-bottom: 24px;
+    }
   }
 
   @include phone {
-    padding-top: 64px;
+    padding: 0 16px 60px;
   }
 }

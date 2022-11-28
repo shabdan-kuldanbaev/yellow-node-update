@@ -10,14 +10,27 @@
 
       .title {
         @extend .figureTitle;
+        @include fontSize(38px, 49px);
 
         text-align: left;
+
+        @include below-tablet {
+          text-align: center;
+        }
+
+        @include phone {
+          @include fontSize(24px, 31px);
+        }
       }
 
       .description {
         @extend .figureSubtitle;
 
         text-align: left;
+
+        @include below-tablet {
+          text-align: center;
+        }
       }
 
       @include below-tablet {

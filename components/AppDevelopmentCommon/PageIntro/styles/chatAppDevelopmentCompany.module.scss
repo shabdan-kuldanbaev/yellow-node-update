@@ -1,40 +1,54 @@
 .chat-app-development-company {
   @extend .pageIntroContainer;
 
-  padding-top: 0;
-
   .pageIntroWrapper {
-    margin-top: 110px;
-  }
+    margin: 0 0 48px;
 
-  @include tablet {
-    padding-top: 100px;
-  }
+    @include below-tablet {
+      @include flex(column-reverse);
 
-  @include below-tablet {
-    padding-bottom: 0;
-    margin-top: 0;
-
-    .pageIntroWrapper {
-      margin-bottom: 65px;
+      margin: 0;
     }
+  }
 
-    .pageTitle {
+  .pageTitleContainer {
+    max-width: 557px;
+
+    @include below-tablet {
+      padding: 0 16px;
+    }
+  }
+
+  .pageTitle {
+    @include fontSize(46px, 55px);
+
+    margin-bottom: 16px;
+
+    @include below-tablet {
       text-align: center;
-      margin: 0 auto 15px;
     }
 
-    .subtitle {
-      text-align: center;
-      padding-right: 0;
-    }
-
-    .pageIntroWrapper {
-      margin-top: 20px;
+    @include phone {
+      @include fontSize(24px, 31px);
     }
   }
 
-  @include below-tablet {
-    padding-top: 0;
+  .subtitle {
+    @include fontSize(16px, 24px);
+
+    padding: 0;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
+  .image {
+    max-width: 582px;
+    margin: 0 auto;
+
+    @include below-tablet {
+      margin-top: 32px;
+    }
   }
 }
