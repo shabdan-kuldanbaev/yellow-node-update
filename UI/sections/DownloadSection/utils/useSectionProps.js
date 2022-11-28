@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
 
 export default ({
-  sectionData,
+  section,
   type,
 }) => {
   const {
@@ -13,7 +13,7 @@ export default ({
     contentModules,
     view,
   } = useMemo(() => getDocumentFields(
-    sectionData,
+    section,
     [
       'title',
       'description',
@@ -21,7 +21,7 @@ export default ({
       'subtitle',
       'view',
     ],
-  ), [sectionData]);
+  ), [section]);
 
   const link = getDocumentFields(get(contentModules, '[0]'));
 

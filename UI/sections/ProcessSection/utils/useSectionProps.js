@@ -4,8 +4,8 @@ import { getDocumentFields, smallTabletResolution } from 'utils/helper';
 import getCardRelations from './getCardRelations';
 
 export default ({
-  sectionData,
-  pageType,
+  section,
+  type,
 }) => {
   const [isSmallTabletResolution, setIsSmallTabletResolution] = useState(false);
 
@@ -16,7 +16,7 @@ export default ({
     contentModules,
     view,
   } = getDocumentFields(
-    sectionData,
+    section,
     [
       'title',
       'description',
@@ -72,6 +72,6 @@ export default ({
     view,
     isSmallTabletResolution,
     renderCards,
-    pageType,
+    type,
   };
 };
