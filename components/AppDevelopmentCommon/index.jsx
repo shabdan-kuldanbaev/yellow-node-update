@@ -16,7 +16,7 @@ const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/Slid
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
 const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
-const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
+const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 const ImagesListSection = dynamic(() => import('UI/sections/ImagesListSection'));
 const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
@@ -25,7 +25,7 @@ const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
-const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
+// const AppDevelopmentSliderCards = dynamic(() => import('components/AppDevelopmentCommon/AppDevelopmentSliderCards'));
 
 export const AppDevelopmentCommon = ({
   type,
@@ -205,15 +205,6 @@ export const AppDevelopmentCommon = ({
       <BookmarkCardSection
         sectionData={section}
         pageType={type}
-      />
-    );
-  case APP_DEVELOPMENT_TYPES.appDevelopmentSliderCards:
-    return (
-      <AppDevelopmentSliderCards
-        sectionData={section}
-        pageType={type}
-        sectionType="cards"
-        handleOnCTAClick={handleOnCTAClick}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentTabsSection:

@@ -60,7 +60,7 @@ const Card = (props) => {
 Card.propTypes = {
   icon: PropTypes.string,
   title: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.instanceOf(Object),
   children: PropTypes.node,
   className: PropTypes.string,
   image: PropTypes.string,
