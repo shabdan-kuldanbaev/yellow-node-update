@@ -1,5 +1,6 @@
 .fintech-software-development-services {
   background-color: $gray900;
+  padding: 24px 8% 0;
 
   .pageIntroWrapper {
     @include phone {
@@ -7,7 +8,12 @@
     }
   }
 
+  .image {
+    max-width: 363px;
+    margin: 0 auto;
+  }
+
   @include phone {
-    padding-bottom: 0;
+    padding:24px 16px 0;
   }
 }
