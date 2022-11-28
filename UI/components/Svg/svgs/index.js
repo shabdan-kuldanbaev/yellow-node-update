@@ -275,6 +275,7 @@ export { default as bracketsEllipses } from './outlined/bracketsEllipses.svg';
 export { default as browser } from './outlined/browser.svg';
 export { default as cloud } from './outlined/cloud.svg';
 export { default as codeSquare } from './outlined/codeSquare.svg';
+export { default as checkMark } from './outlined/checkMark.svg';
 export { default as crop } from './outlined/crop.svg';
 export { default as database } from './outlined/database.svg';
 export { default as faceRecognation } from './outlined/faceRecognation.svg';
