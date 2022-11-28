@@ -21,7 +21,6 @@ const CardsSection = (props) => {
     withoutBackground,
     swiperProps,
   } = useCardsSection(props);
-  console.log(props);
 
   return (
     <section className={className}>
