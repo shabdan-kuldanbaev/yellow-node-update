@@ -1,10 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 
-export const useAppFeatures = ({ data, type, isPromoImage }) => {
+export const useAppFeatures = ({ section, type, isPromoImage }) => {
+  const data = section?.fields;
   const [activeIndex, setActiveIndex] = useState(0);
   const imagesData = get(data, 'contentModules');
   const view = get(data, 'view');
