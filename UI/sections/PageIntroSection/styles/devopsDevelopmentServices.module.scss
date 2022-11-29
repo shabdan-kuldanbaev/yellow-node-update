@@ -1,5 +1,7 @@
 .devops-development-services {
   .pageIntroWrapper {
+    margin-bottom: 32px;
+
     @include below-tablet {
       @include flex(column-reverse);
     }
