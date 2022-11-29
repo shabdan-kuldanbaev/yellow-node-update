@@ -1,0 +1,29 @@
+.web-app-development-company {
+  background-color: inherit;
+
+  .pageIntroWrapper {
+    margin-bottom: 21px;
+
+    @include below-tablet {
+      @include flex(column-reverse, space-between, center);
+
+      margin-bottom: 100px;
+    }
+
+    @include phone {
+      margin-bottom: 80px;
+    }
+  }
+
+  .pageIntroImage {
+    max-width: 373px;
+
+    @include below-tablet {
+      max-width: 343px;
+    }
+  }
+
+  .pageTitle {
+    color: $gray0;
+  }
+}
