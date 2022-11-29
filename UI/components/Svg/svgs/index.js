@@ -169,6 +169,8 @@ export { default as xgboostTitle } from './technologies/xgboostTitle.svg';
 
 /* Outlined General */
 export { default as activity } from './outlined/activity.svg';
+export { default as iPhone } from './outlined/iPhone.svg';
+export { default as iPad } from './outlined/iPad.svg';
 export { default as alertCircle } from './outlined/alertCircle.svg';
 export { default as announcement } from './outlined/announcement.svg';
 export { default as arrowNarrowUp } from './outlined/arrowNarrowUp.svg';
