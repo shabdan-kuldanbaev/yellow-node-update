@@ -113,7 +113,10 @@ const ArticleContainer = ({
           disableSidePadding
           disableBottomPadding
         >
-          <FAQ faqList={faqList} />
+          <FAQ
+            isArticalPage
+            faqList={faqList}
+          />
         </FullLayout>
         <TagsBlock tags={tagsList} />
         {relatedArticles
