@@ -28,7 +28,12 @@ const Card = (props) => {
         className={className}
         noBackground={withoutBackground}
       >
-        {image && <Illustration src={image} />}
+        {image && (
+          <Illustration
+            className={styles.image}
+            src={image}
+          />
+        )}
 
         {icon && (
           <Svg

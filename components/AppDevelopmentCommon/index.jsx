@@ -68,10 +68,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentRelatedServices:
     return (
-      <RelatedServicesSection
-        sectionData={section}
-        type={type}
-        handleOnCTAClick={handleOnCTAClick}
+      <CardsSection
+        {...props}
+        withSlider
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentCheckList:

@@ -1,5 +1,7 @@
 .ios-mobile-app-development-services {
-  &.secondSectionView {}
+  &.secondSectionView {
+    background: $gray900;
+  }
 
   &.thirdSectionView {
     @extend .greySection;

@@ -1,3 +1,10 @@
+.cardWithFullSizeImage {
+  picture {
+    margin: -32px -32px 0 -32px;
+    height: 260px;
+  }
+}
+
 .cardsSection {
   @include appDevelopmentContainer;
 
@@ -11,6 +18,10 @@
     height: auto;
     display: flex;
     align-items: stretch;
+
+    & > * {
+      width: 100%;
+    }
   }
 }
 
