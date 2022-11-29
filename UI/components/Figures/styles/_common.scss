@@ -31,8 +31,8 @@
 .title {
   @include fontSize(20px, 30px);
 
+  color: $gray0;
   font-weight: 700;
-
 
   @include below-tablet {
     text-align: left;
