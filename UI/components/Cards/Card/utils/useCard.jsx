@@ -25,6 +25,7 @@ export default ({
     Wrapper,
     className,
     withoutBackground,
+    path: url,
     ...rest,
   };
 };
