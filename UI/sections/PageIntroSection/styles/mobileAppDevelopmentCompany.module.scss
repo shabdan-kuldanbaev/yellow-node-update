@@ -1,0 +1,13 @@
+.mobile-app-development-company {
+  .pageIntroWrapper {
+    margin: 0;
+
+    @include below-tablet{
+      @include flex(column-reverse);
+    }
+  }
+
+  .pageIntroImage {
+    max-width: 518px;
+  }
+}
