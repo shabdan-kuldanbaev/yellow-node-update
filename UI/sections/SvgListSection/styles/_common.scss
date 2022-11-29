@@ -23,6 +23,7 @@
   }
 }
 
+.android-mobile-app-development-services,
 .web-app-development-company,
 .mvp-app-development-company,
 .mobile-app-development-company,
@@ -33,5 +34,18 @@
     @include centeredIcons;
   
     padding-top: 0;
+  }
+}
+
+.web-app-development-company,
+.mvp-app-development-company,
+.mobile-app-development-company,
+.android-mobile-app-development-services {
+  &.secondSectionView {
+    [data-title] {
+      @include phone {
+        max-width: 305px;
+      }
+    }
   }
 }

@@ -1,0 +1,8 @@
+.machine-learning-development-services {
+  [data-title],
+  [data-description] {
+    @include phone {
+      max-width: 300px;
+    }
+  }
+}

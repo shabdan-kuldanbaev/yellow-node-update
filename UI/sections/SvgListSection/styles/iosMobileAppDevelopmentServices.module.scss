@@ -1,0 +1,10 @@
+.ios-mobile-app-development-services {
+  [data-title],
+  [data-description] {
+    max-width: 670px;
+
+    @include phone {
+      max-width: 375px;
+    }
+  }
+}

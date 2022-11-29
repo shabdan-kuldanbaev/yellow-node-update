@@ -1,0 +1,25 @@
+.chat-app-development-company {
+  [data-title],
+  [data-description] {
+    max-width: 620px;
+  }
+
+  .svgList1 {
+    margin-bottom: 60px;
+  }
+
+  .svgList1,
+  .svgList2 {
+    @include phone {
+      display: none;
+    }
+  }
+
+  .svgList3 {
+    display: none;
+
+    @include phone {
+      display: block;
+    }
+  }
+}

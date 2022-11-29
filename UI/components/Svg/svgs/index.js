@@ -82,6 +82,7 @@ export { default as webrtc } from './technologies/webrtc.svg';
 export { default as xamarin } from './technologies/xamarin.svg';
 export { default as xcode } from './technologies/xcode.svg';
 export { default as xgboost } from './technologies/xgboost.svg';
+export { default as net } from './technologies/net.svg';
 
 /* Technologies Icons + Title */
 export { default as amazonDynamoDbTitle } from './technologies/amazonDynamoDbTitle.svg';
@@ -155,6 +156,7 @@ export { default as sparkTitle } from './technologies/sparkTitle.svg';
 export { default as sqliteTitle } from './technologies/sqliteTitle.svg';
 export { default as swaggerTitle } from './technologies/swaggerTitle.svg';
 export { default as swiftTitle } from './technologies/swiftTitle.svg';
+export { default as swiftUiTitle } from './technologies/swiftUiTitle.svg';
 export { default as tableauTitle } from './technologies/tableauTitle.svg';
 export { default as tensorFlowTitle } from './technologies/tensorFlowTitle.svg';
 export { default as twilioTitle } from './technologies/twilioTitle.svg';
@@ -166,6 +168,8 @@ export { default as webrtcTitle } from './technologies/webrtcTitle.svg';
 export { default as xamarinTitle } from './technologies/xamarinTitle.svg';
 export { default as xcodeTitle } from './technologies/xcodeTitle.svg';
 export { default as xgboostTitle } from './technologies/xgboostTitle.svg';
+export { default as contentfulTitle } from './technologies/contentfulTitle.svg';
+export { default as netTitle } from './technologies/netTitle.svg';
 
 /* Outlined General */
 export { default as activity } from './outlined/activity.svg';
@@ -469,7 +473,7 @@ export { default as goodFirms } from './company/goodFirms.svg';
 export { default as oppsitesReview } from './company/oppsitesReview.svg';
 export { default as productHunt } from './company/productHunt.svg';
 export { default as separateReview } from './company/separateReview.svg';
-export { default as terchCrunch } from './company/terchCrunch.svg';
+export { default as techCrunch } from './company/techCrunch.svg';
 export { default as theWeek } from './company/theWeek.svg';
 export { default as time } from './company/time.svg';
 export { default as chats } from './illustration/chats.svg';

@@ -1,27 +1,48 @@
 @import 'styles/utils/mixins';
 
-.defaultTitle {
+@mixin defaultTitle {
+  @include fontSize(38px);
+
   margin: 0;
 
-  @include fontSize(56px);
-
-  @include macbook-twelve {
-    @include fontSize(50px);
+  @include phone {
+    @include fontSize(24px);
   }
+}
 
-  @include tablet {
-    @include fontSize(45px);
-  }
+@mixin defaultSubtitle {
+  @include fontSize(18px, 150%);
 
   @include phone {
-    @include fontSize(32px);
+    @include fontSize(16px);
   }
 }
 
 .default {
+  @include flex(column, center, center);
+
   margin-bottom: 80px;
 
-  @include flex(column, center, center);
+  .title {
+    @include defaultTitle;
+
+    text-align: center;
+    max-width: 950px;
+  }
+
+  .description,
+  .subtitle {
+    @include defaultSubtitle;
+
+    margin: 16px auto 0;
+    color: $silver-chalice;
+    text-align: center;
+    max-width: 950px;
+
+    @include phone {
+      margin-top: 8px;
+    }
+  }
 
   @include tablet {
     margin-bottom: 60px;
@@ -30,43 +51,11 @@
   @include phone {
     margin-bottom: 40px;
   }
-
-  .title {
-    text-align: center;
-    max-width: 950px;
-
-    @extend .defaultTitle;
-  }
-
-  .description,
-  .subtitle {
-    margin: 30px auto 0;
-    color: $silver-chalice;
-    line-height: 2;
-    text-align: center;
-    width: 55vw;
-    max-width: 950px;
-
-    @include fontSize(18px);
-
-    @include macbook-fifteen {
-      @include fontSize(16px);
-    }
-
-    @include below-tablet {
-      width: 90vw;
-      margin-top: 20px;
-    }
-
-    @include phone {
-      @include fontSize(14px);
-    }
-  }
 }
 
 .side {
   .title {
-    @extend .defaultTitle;
+    @include defaultTitle;
 
     @include below-tablet {
       text-align: center;
@@ -74,23 +63,18 @@
   }
 
   .subtitle {
+    @include defaultSubtitle;
+
     margin: 50px 0 30px;
     padding-right: 50px;
-    line-height: 1.5;
     font-weight: 700;
-
-    @include fontSize(20px);
 
     @include below-tablet {
       padding-right: 0;
-
-      @include fontSize(18px);
     }
 
     @include phone {
       margin-top: 20px;
-
-      @include fontSize(16px);
     }
   }
 }

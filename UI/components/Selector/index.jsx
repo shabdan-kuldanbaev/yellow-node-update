@@ -1,5 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { SWIPER_PARAMS } from './utils/helpers';
 import { useSelector } from './utils/useSelector';
 import styles from './styles.module.scss';
 
@@ -12,17 +14,17 @@ const Selector = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <ul className={styles.selector}>
+      <Swiper {...SWIPER_PARAMS}>
         {displayNames.map((name, i) => (
-          <li
+          <SwiperSlide
             key={name}
             className={cn(styles.item, { [styles.selected]: i === selectedIndex })}
             onClick={handleSelectedIndexChange(i)}
           >
-            {name}
-          </li>
+            <span>{name}</span>
+          </SwiperSlide>
         ))}
-      </ul>
+      </Swiper>
     </div>
   );
 };

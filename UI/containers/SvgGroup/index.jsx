@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import { SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Svg from 'UI/components/Svg';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import CustomSwiper from 'UI/containers/CustomSwiper';
@@ -40,7 +40,7 @@ const SvgGroup = (props) => {
         </Animated>
       )}
       <Animated {...REVEAL_ANIMATION_PROPS}>
-        <CustomSwiper {...SWIPER_PARAMS}>
+        <Swiper {...SWIPER_PARAMS}>
           {icons?.map((technology) => (
             <SwiperSlide
               className={styles.item}
@@ -49,7 +49,7 @@ const SvgGroup = (props) => {
               <Svg type={technology} />
             </SwiperSlide>
           ))}
-        </CustomSwiper>
+        </Swiper>
       </Animated>
     </div>
   );
