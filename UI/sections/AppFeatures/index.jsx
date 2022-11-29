@@ -77,7 +77,7 @@ AppFeatures.defaultProps = {
 };
 
 AppFeatures.propTypes = {
-  data: PropTypes.instanceOf(Object).isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
   isPromoImage: PropTypes.bool,
 };

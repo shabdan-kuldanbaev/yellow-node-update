@@ -50,7 +50,10 @@ const DraftArticle = ({ introSection, currentArticle }) => {
           disableSidePadding
           disableBottomPadding
         >
-          <FAQ faqList={faqList} />
+          <FAQ
+            isArticalPage
+            faqList={faqList}
+          />
         </FullLayout>
       </FullLayout>
     </>
