@@ -29,7 +29,7 @@ const PlainTextSection = (props) => {
 };
 
 PlainTextSection.propTypes = {
-  sectionData: PropTypes.instanceOf(Object).isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
 

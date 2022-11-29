@@ -1,9 +1,15 @@
 @import 'styles/utils/mixins';
 
+.answer {
+  @include fontSize(16px, 150%);
+
+  color: $gray400;
+  margin: 20px 0 0;
+}
+
 .questionContainer {
-  max-width: 720px;
   width: 100%;
-  padding: 40px;
+  padding: 25px 0;
   border-bottom: 0.5px solid $gray400;
   outline: none;
 
@@ -18,22 +24,11 @@
 
   & > div:last-child {
     p {
-      @include fontSize(18px, 1.7);
-      
-      color: $silver-chalice;
-      margin: 20px 0 0;
+      @extend .answer;
 
       & > a {
         border-bottom: unset;
-        color: $dodger-blue;
-      }
-
-      @include tablet {
-        @include fontSize(16px);
-      }
-
-      @include phone {
-        margin: 16px 0 0;
+        color: $gray900;
       }
     }
 
@@ -49,10 +44,6 @@
       }
     }
   }
-
-  @include macbook-fifteen {
-    padding: 30px;
-  }
 }
 
 .question {
@@ -61,7 +52,7 @@
   outline: none;
 
   & > p {
-    margin: 0 100px 0 0;
+    margin: 0 12px 0 0;
     color: $gray900;
     font-weight: 700;
 
@@ -86,8 +77,8 @@
     position: absolute;
     width: 20px;
     height: 1px;
-    border: 1px solid $tundora;
-    background-color: $tundora;
+    border: 1px solid $gray900;
+    background-color: $gray900;
     border-radius: 5px;
     display: inline-block;
 
@@ -121,17 +112,3 @@
   }
 }
 
-.answer {
-  @include fontSize(18px);
-
-  color: $silver-chalice;
-  margin: 30px 0 0;
-
-  @include macbook-fifteen {
-    margin-top: 20px;
-  }
-
-  @include phone {
-    @include fontSize(16px);
-  }
-}

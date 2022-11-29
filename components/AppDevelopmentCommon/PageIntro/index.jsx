@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 
 export const PageIntro = ({
   introSection,
-  sectionData,
+  section,
   type,
 }) => {
   const {
@@ -16,7 +16,7 @@ export const PageIntro = ({
     imageUrl,
     figuresData,
     animatedProps,
-  } = getPageIntroProps(sectionData);
+  } = getPageIntroProps(section);
 
   if (!title || !description || !imageUrl) {
     return null;
@@ -79,7 +79,7 @@ PageIntro.defaultProps = {
 };
 
 PageIntro.propTypes = {
-  sectionData: PropTypes.instanceOf(Object).isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
   introSection: PropTypes.instanceOf(Object),
 };

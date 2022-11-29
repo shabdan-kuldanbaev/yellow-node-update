@@ -1,14 +1,17 @@
 @import 'styles/utils/mixins';
 
 .frequentlyAskedQuestions {
-  background-color: $alabaster;
-  padding: 150px 0;
-  margin-top: 150px;
-
   @include flex(column, center, center);
+
+  margin: 0 auto;
+  max-width: 855px;
+}
+
+.faqArticalPage {
+  padding: 150px 0;
+  max-width: 720px;
 
   @include tablet {
     padding: 100px 40px;
-    margin-top: 100px;
   }
 }

@@ -1,13 +1,9 @@
-import {
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { getDocumentFields } from 'utils/helper';
 import { getSvgSectionProps } from './helpers';
 
 export const useSvgListSection = ({
-  sectionData,
+  section,
   handleOnCTAClick,
   type,
   withSelector,
@@ -18,7 +14,7 @@ export const useSvgListSection = ({
     link,
     view,
     iconsGroups,
-  } = useMemo(() => getSvgSectionProps(sectionData), [sectionData]);
+  } = useMemo(() => getSvgSectionProps(section), [section]);
 
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
 
