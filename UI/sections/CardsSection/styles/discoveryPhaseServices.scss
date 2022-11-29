@@ -1,165 +1,55 @@
 .discovery-phase-services {
   &.firstSectionView {
-    .cardList {
-      .titleStyle {
-        h2 {
-          max-width: 900px;
-        }
-      }
-
-      .cards {
-        & > div {
-          @include below-tablet {
-            justify-content: center;
-          }
-        }
-      }
-  
-      .cardContent {
-        p {
-          max-width: 360px;
-        }
-      }
+    .card {
+      flex-direction: column
     }
   }
 
   &.secondSectionView {
-    background: $very-dark-gray;
+    @extend .blackSection;
 
-    .cardList {
-      .titleStyle {
-        h2 {
-          color: $white;
-          max-width: 800px;
-        }
-
-        p {
-          color: rgba($white, 0.7);
-        }
-      }
-  
-      .cards {
-        & > div {
-          @include below-tablet {
-            justify-content: center;
-          }
-        }
-
-        .imageWrapper {
-          background: $turbo-100;
-        }
-
-        .cardContent {
-          .typeTitle {
-            color: $white;
-          }
-  
-          p {
-            max-width: 361px;
-            color: rgba($white, 0.7);
-          }
-        }
-      }
+    .card {
+      flex-direction: column;
     }
   }
 
   &.thirdSectionView {
     @extend .greySection;
 
-
     .cardList {
-      max-width: 1300px;
+      @include flex(row, center, flex-start, wrap);
 
-      .cards {
-        @include flex(row, center, initial, wrap);
-        
-        grid-gap: unset;
+      & > div {
+        flex: 0 0 30%;
+      }
+    }
 
-        & > div {
-          width: 405px;
-          margin-bottom: 24px;
+    .card {
+      @include flex(column, flex-start, stretch);
 
-          @include below-tablet {
-            flex-direction: column;
-          }
-        }
-
-        .imageWrapper {
-          @include flex(row, center);
-        }
-
-        .cardContent {
-          text-align: center;
-
-          @include below-tablet {
-            margin-top: 20px;
-          }
-        }
+      * {
+        align-self: center;
+        text-align: center;
       }
     }
   }
 
   &.fourthSectionView {
     @extend .greySection;
+  }
 
-    @include iconsWithinCircle;
+  &.fifthSectionView {
+    .card {
+      @include flex(column, flex-start, stretch);
 
-    .titleStyle {
-      h2 {
-        max-width: 770px;
+      picture {
+        width: 276px;
+        height: 276px;
       }
 
-      p {
-        max-width: 965px;
-      }
-    }
-
-    .cards {
-      grid-gap: 0 40px;
-
-      & > div {
-        padding: 50px;
-        background: $white;
-
-        ul {
-          list-style: none;
-
-          li {
-            @include flex();
-            
-            p {
-              margin: 0;
-            }
-
-            &::before { 
-              content: "\2022"; 
-              display: inline-block;
-              color: $silver-chalice;
-              width: 1em;
-              margin-left: -1em;
-            }
-          }
-        }
-
-        .imageWrapper {
-          @include below-tablet {
-            margin-bottom: 16px;
-          }
-        }
-
-        &:not(:last-child) {
-          @include below-tablet {
-            margin-bottom: 24px;
-          }
-        }
-
-        @include below-tablet {
-          flex-direction: column;
-        }
-
-        @include phone {
-          padding: 24px;
-        }
+      * {
+        align-self: center;
+        text-align: center;
       }
     }
   }

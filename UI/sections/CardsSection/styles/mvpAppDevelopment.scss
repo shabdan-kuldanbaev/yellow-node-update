@@ -4,9 +4,23 @@
     @extend .greySection;
   }
 
-  &.firstSectionView {}
+  &.firstSectionView {
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      h3 {
+        margin-top: 16px;
+      }
+    }
+  }
 
   &.secondSectionView {}
 
   &.thirdSectionView {}
+
+  &.fourthSectionView {
+    .card {
+      @extend .cardWithFullSizeImage;
+    }
+  }
 }

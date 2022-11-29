@@ -16,21 +16,17 @@
     }
   }
 
-  &.thirdSectionView {}
-
-  &.fourthSectionView {}
-
   &.fifthSectionView {
-    background-color: $very-dark-gray;
+    @extend .blackSection;
 
-    .cards > div {
-      background-color: $very-dark-gray;
-      box-shadow: none;
+    h3 {
+      color: $gray0;
     }
+  }
 
-    .titleStyle h2,
-    .typeTitle {
-      color: $white;
+  &.sixthSectionView {
+    .card {
+      @extend .cardWithFullSizeImage;
     }
   }
 }

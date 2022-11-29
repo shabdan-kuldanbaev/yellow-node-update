@@ -4,7 +4,61 @@ import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper';
 import { selectIsMobileResolutions, selectIsTabletResolutions } from 'redux/selectors/layout';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { PAGES } from 'utils/constants';
 import styles from '../CardsSection.module.scss';
+
+const cardMapper = (card) => {
+  if (card.sys.contentType.sys.id === 'article') {
+    const {
+      title,
+      previewImageUrl,
+      slug,
+    } = getDocumentFields(card, [
+      'title',
+      'previewImageUrl',
+      'slug',
+    ]);
+
+    const previewUrl = getFileUrl(previewImageUrl);
+
+    return {
+      url: `${PAGES.blog}/${slug}`,
+      image: previewUrl,
+      title,
+      children: 'Read More',
+    };
+  }
+
+  const {
+    contentList,
+    images,
+    contentModules: cardContent,
+    description: text,
+    ...rest
+  } = getDocumentFields(
+    card,
+    [
+      'title',
+      'description',
+      'contentList',
+      'text',
+      'images',
+      'imagesBundles',
+      'contentModules',
+    ],
+  );
+  const image = getFileUrl(get(images, '[0]'));
+  const icon = get(contentList, '[0]');
+  const url = get(cardContent, '[0].fields.url');
+
+  return {
+    url,
+    image,
+    icon,
+    text,
+    ...rest,
+  };
+};
 
 export default ({
   section,
@@ -39,38 +93,8 @@ export default ({
       'disableSliderOnMobile',
     ],
   );
-
-  const cardList = (rawCardList || []).map((card) => {
-    const {
-      contentList,
-      images,
-      contentModules: cardContent,
-      description: text,
-      ...rest
-    } = getDocumentFields(
-      card,
-      [
-        'title',
-        'description',
-        'contentList',
-        'text',
-        'images',
-        'imagesBundles',
-        'contentModules',
-      ],
-    );
-    const image = getFileUrl(get(images, '[0]'));
-    const icon = get(contentList, '[0]');
-    const url = get(cardContent, '[0].fields.url');
-
-    return {
-      url,
-      image,
-      icon,
-      text,
-      ...rest,
-    };
-  });
+  console.log(rawCardList);
+  const cardList = (rawCardList || []).map(cardMapper);
 
   const ctaLink = getDocumentFields(get(contentModules, '[1]'));
 

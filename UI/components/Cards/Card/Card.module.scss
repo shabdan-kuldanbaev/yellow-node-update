@@ -1,6 +1,8 @@
 @import "styles/utils/mixins";
 
 .card {
+  @include flex(column, space-between, flex-start);
+
   p, ul {
     @include fontSize(16px, 1.5);
 
@@ -39,9 +41,16 @@
 
 .icon { 
   flex: 0 0 64px;
-  margin-right: 16px;
+  height: 64px;
+  margin: 0 16px 16px 0;
+}
+
+.content {
+  @include flex(column, flex-start, flex-start);
+
+  flex: 1 1 auto;
 }
 
 .title {
-  margin: 16px 0 8px;
+  margin: 0 0 8px;
 }

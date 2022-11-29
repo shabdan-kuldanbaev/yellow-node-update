@@ -66,172 +66,30 @@
   }
 
   &.thirdSectionView {
-    background-color: $very-dark-gray;
-    padding: 120px 10px;
+    @extend .blackSection;  
 
-    .cardList {
-      max-width: 1300px;
-      margin: 0 auto;
-
-      .cards {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 40px;
-
-        .typeTitle {
-          @include fontSize(24px);
-
-          color: $white;
-
-          @include tablet {
-            margin-top: 0;
-          }
-
-          @include phone {
-            @include fontSize(18px);
-
-            margin-bottom: 0;
-          }
-        }
-
-        .imageWrapper {
-          svg {
-            @include below-tablet {
-              width: 70px;
-              margin-left: 5px;
-            }
-
-            @include phone {
-              width: 50px;
-            }
-          }
-
-          @include tablet {
-            margin-right: 15px;
-          }
-        }
-
-        .cardContent {
-          p {
-            color: $white;
-            opacity: 0.7;
-          }
-
-          @include below-tablet {
-            margin: 10px;
-          }
-
-          @include tablet {
-            flex-direction: column;
-          }
-        }
-
-        p {
-          @include fontSize(18px);
-
-          @include phone {
-            @include fontSize(14px);
-          }
-        }
-
-        div {
-          max-width: 410px;
-
-          @include tablet {
-            @include flex();
-
-            max-width: 660px;
-          }
-        }
-
-        @include tablet {
-          @include flex(column, center, center);
-
-          margin-bottom: 60px;
-        }
-
-        @include phone {
-          margin-bottom: 24px;
-        }
-      }
-
-      .titleStyle h2 {
-        color: $white;
-
-        @include phone {
-          width: 320px;
-        }
-      }
-
-      li {
-        &::marker {
-          color: $case-study-dindon-paragraph;
-        }
-      }
+    .contentWrapper {
+      max-width: $wide-content-width;
     }
 
-    @include phone {
-      padding: 60px 15px;
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      flex-direction: column;
     }
   }
 
   &.fourthSectionView {
     @extend .greySection;
 
-    padding: 120px 10px;
-
-    .titleStyle {
-      .subtitle {
-        width: unset;
-      }
-    }
-
-    .imageWrapper {
-      display: none;
+    .contentWrapper {
+      max-width: $wide-content-width;
     }
 
     .cardList {
       @extend .threeColumnsCards;
-
-      .cards > div {
-        padding: 30px 30px 30px 48px;
-      }
-    }
-
-    .cardContent {
-      position: relative;
-      height: 100%;
-
-      &::before {
-        content: '';
-        background: $turbo-100;
-        height: 100%;
-        width: 2px;
-        position: absolute;
-        left: -16px;
-      }
-    }
-
-    .typeTitle {
-      @include fontSize(24px);
-
-      margin: 0;
-    }
-
-    p {
-      @include fontSize(18px);
-
-      margin: 5px 0 0;
-      color: $nevada-2;
-
-      @include phone {
-        @include fontSize(14px, 180%);
-      }
-    }
-
-    @include phone {
-      padding: 60px 15px;
     }
   }
 

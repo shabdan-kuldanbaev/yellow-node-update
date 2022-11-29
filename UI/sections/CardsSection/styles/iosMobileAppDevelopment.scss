@@ -1,6 +1,29 @@
 .ios-mobile-app-development-services {
+  &.firstSectionView {
+    .card {
+      @include flex(column, flex-start, flex-start);
+    }
+  }
+
   &.secondSectionView {
-    background: $gray900;
+    @extend .blackSection;
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      picture {
+        width: 276px;
+        height: 276px;
+      }
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          text-align: center;
+        }
+      }
+    }
   }
 
   &.thirdSectionView {
@@ -8,6 +31,10 @@
 
     .cardList {
       @extend .threeColumnsCards;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
     }
   }
 }

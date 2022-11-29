@@ -1,177 +1,29 @@
 .fintech-software-development-services {
   &.firstSectionView {
     @extend .greySection;
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+    }
   }
 
   &.secondSectionView {
     @extend .greySection;
-
-    .cardList {
-      .cards {
-        & > div {
-          height: 400px;
-          padding: 20px 15px;
-
-          @include phone {
-            width: 300px;
-          }
-        }
-
-        * {
-          text-align: center;
-        }
-
-        @include tablet {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include below-tablet {
-          grid-template-columns: repeat(1, 1fr);
-        }
-
-        @include phone {
-          overflow-x: scroll;
-          overflow-y: hidden;
-          grid-template-columns: repeat(6, 1fr);
-        }
-      }
-
-      .imageWrapper {
-        margin: 60px auto;
-
-        @include below-tablet {
-          display: none;
-        }
-      }
-
-      .typeTitle {
-        @include below-tablet {
-          display: none;
-        }
-      }
-
-      .cardContent p,
-      ul {
-        display: none;
-        text-align: left;
-
-        @include below-tablet {
-          display: block;
-          margin-left: 0;
-
-          li {
-            @include flex(row, initial, center);
-
-            list-style: none;
-
-            &::before {
-              content: '';
-              display: inline-block;
-              width: 5px;
-              height: 5px;
-              background: $silver-chalice;
-              border-radius: 50%;
-              margin-right: 10px;
-            }
-
-            & > p {
-              @include fontSize(14px);
-
-              text-align: left !important;
-              margin: 0;
-            }
-          }
-        }
-      }
-    }
-
-    .overlay {
-      .imageWrapper {
-        display: none;
-      }
-
-      .typeTitle {
-        display: none;
-      }
-
-      .cardContent p,
-      ul {
-        display: block;
-
-        @include phone {
-          @include fontSize(10px);
-        }
-      }
-
-      ul {
-        @include flex(column);
-
-        align-self: flex-start;
-      }
-
-      li {
-        @include flex(row, initial, center);
-
-        list-style: none;
-
-        &::before {
-          content: '';
-          display: inline-block;
-          width: 5px;
-          height: 5px;
-          background: $silver-chalice;
-          border-radius: 50%;
-          margin-right: 10px;
-        }
-
-        & > p {
-          @include fontSize(14px);
-
-          text-align: left !important;
-          margin: 0;
-        }
-      }
-
-      & > p {
-        @include fontSize(16px);
-
-        margin-top: -70px;
-        text-align: left !important;
-        padding: 30px 30px 0;
-      }
-
-      @include below-tablet {
-        display: none;
-      }
-    }
   }
 
   &.thirdSectionView {
-    background-color: $gray900;
-    padding: 120px 15px;
-
+    @extend .blackSection;
+    
     .contentWrapper {
       max-width: $wide-content-width;
     }
-
-    .title {
-      h2 {
-        color: $gray0;
-      }
-    }
-
-    .cardList > div {
-      flex: 1 1 20%;
+    
+    .cardList {
+      @extend .threeColumnsCards;
     }
 
     .card {
-      padding: 0;
-      background: none;
-      box-shadow: none;
-
-      h3 {
-        color: $gray0;
-      }
+      flex-direction: column;
     }
   }
 }

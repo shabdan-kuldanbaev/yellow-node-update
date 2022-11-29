@@ -1,16 +1,36 @@
 .android-mobile-app-development-services {
-  &.firstSectionView,
   &.secondSectionView,
   &.thirdSectionView,
   &.fourthSectionView {
     @extend .greySection;
   }
 
-  &.secondSectionView {
-    @extend .cardsWithFullWidthImage;
+  &.fourthSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
 
-    .titleStyle {
-      max-width: 908px;
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
+
+  &.secondSectionView {
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      picture {
+        width: 276px;
+        height: 276px;
+      }
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          text-align: center;
+        }
+      }
     }
   }
 
@@ -18,11 +38,15 @@
     .cardList {
       @extend .threeColumnsCards;
     }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
   }
 
-  &.fourthSectionView {
-    .cardList {
-      @extend .threeColumnsCards;
+  &.fifthSectionView {
+    .card {
+      @extend .cardWithFullSizeImage;
     }
   }
 }

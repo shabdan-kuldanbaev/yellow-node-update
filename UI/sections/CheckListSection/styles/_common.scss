@@ -17,7 +17,7 @@
 }
 
 .checkList {
-  @include flex(row, space-between, stretch, wrap);
+  @extend .twoColumnsCards;
 
   margin: 0 0 -32px -32px;
 

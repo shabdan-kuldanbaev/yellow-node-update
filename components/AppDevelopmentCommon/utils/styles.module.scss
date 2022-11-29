@@ -215,19 +215,13 @@
 }
 
 .threeColumnsCards {
-  @include flex(row, center, stretch, wrap);
-
-  & > * {
-    flex: 1 1 25%;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .twoColumnsCards {
-  @include flex(row, center, stretch, wrap);
-
-  & > * {
-    flex: 1 1 40%;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
   @include below-tablet {
     flex-direction: column;
