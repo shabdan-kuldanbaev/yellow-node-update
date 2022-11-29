@@ -1,6 +1,6 @@
 .mobile-app-development-company {
   .pageIntroWrapper {
-    margin: 0;
+    margin-bottom: 32px;
 
     @include below-tablet{
       @include flex(column-reverse);
