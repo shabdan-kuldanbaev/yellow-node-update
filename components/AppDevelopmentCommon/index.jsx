@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import { PageIntro } from 'components/AppDevelopmentCommon/PageIntro';
 import TabsSection from 'UI/sections/TabsSection';
 import DownloadSection from 'UI/sections/DownloadSection';
+import PageIntroSection from 'UI/sections/PageIntroSection';
 import PlainTextSection from 'UI/sections/PlainTextSection';
 import ProcessSection from 'UI/sections/ProcessSection';
 import { getDocumentFields } from 'utils/helper';
@@ -42,7 +42,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   switch (sectionType) {
   case APP_DEVELOPMENT_TYPES.appDevelopmentPageIntro:
     return (
-      <PageIntro
+      <PageIntroSection
         introSection={introSection}
         {...props}
       />
