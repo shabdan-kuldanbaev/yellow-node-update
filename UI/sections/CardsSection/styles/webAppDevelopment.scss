@@ -4,17 +4,25 @@
     @extend .greySection;
   }
 
-  &.firstSectionView {}
-
-  &.secondSectionView {}
-
   &.thirdSectionView {
-    background: $dark-grey;
-
-    .titleStyle h2 {
-      color: $white;
-    }
+    @extend .blackSection;
   }
 
-  &.fourthSectionView {}
+  &.fourthSectionView {
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      h3 {
+        margin-top: 16px;
+      }
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          text-align: center;
+        }
+      }
+    }
+  }
 }

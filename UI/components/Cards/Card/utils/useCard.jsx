@@ -19,7 +19,10 @@ export default ({
     // eslint-disable-next-line react/jsx-no-useless-fragment
     }) => <Fragment {...restWrapper} />);
 
-  const className = classNames(styles.card, classes, { [styles.withoutBackground]: withoutBackground });
+  const className = classNames(styles.card, classes, {
+    [styles.withoutBackground]: withoutBackground,
+    [styles.withLink]: url,
+  });
 
   return {
     Wrapper,

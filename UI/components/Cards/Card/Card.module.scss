@@ -27,6 +27,16 @@
   }
 }
 
+.card.withLink {
+  * {
+    color: $gray900;
+  }
+
+  &:hover * {
+    color: $gray400;
+  }
+}
+
 .icon { 
   flex: 0 0 64px;
   margin-right: 16px;

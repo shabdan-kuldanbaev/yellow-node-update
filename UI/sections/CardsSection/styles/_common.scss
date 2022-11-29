@@ -1,7 +1,21 @@
 .cardWithFullSizeImage {
+  padding: 24px;
+
   picture {
-    margin: -32px -32px 0 -32px;
+    margin: -24px -24px 0 -24px;
     height: 260px;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.blackSection {
+  background: $gray900;
+
+  .title {
+    color: $gray0;
   }
 }
 
@@ -20,9 +34,15 @@
     align-items: stretch;
 
     & > * {
+      @include flex(row, center, stretch);
+
       width: 100%;
     }
   }
+}
+
+.card {
+  width: 100%;
 }
 
 .cardsSection.withSlider .contentWrapper {

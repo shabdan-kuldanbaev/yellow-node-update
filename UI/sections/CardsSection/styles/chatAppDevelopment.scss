@@ -23,6 +23,12 @@
       div[role='button'] {
         margin: auto;
       }
+    } 
+  } 
+
+  &.thirdSectionView {
+    .card {
+      @extend .cardWithFullSizeImage;
     }
   }
 }
