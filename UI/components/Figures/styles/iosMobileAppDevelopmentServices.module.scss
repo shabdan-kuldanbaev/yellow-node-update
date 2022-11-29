@@ -1,0 +1,17 @@
+.ios-mobile-app-development-services {
+  .figures {
+    @include flex(row, space-evenly);
+
+    flex-wrap: wrap;
+
+    & > div {
+      @include flex(row, initial, start);
+    }
+  }
+
+  .circle {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+  }
+}
