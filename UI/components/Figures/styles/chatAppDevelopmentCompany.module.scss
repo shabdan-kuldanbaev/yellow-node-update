@@ -26,4 +26,10 @@
       @include fontSize(24px, 31px);
     }
   }
+
+  .description {
+    @include below-tablet {
+      text-align: center;
+    }
+  }
 }
