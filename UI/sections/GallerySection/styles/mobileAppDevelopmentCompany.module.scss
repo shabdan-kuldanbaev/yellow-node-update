@@ -1,0 +1,7 @@
+.mobile-app-development-company {
+  @include sectionGrayBackground();
+
+  .sectionTitle h2 {
+    @include defaultGalleryTitle;
+  }
+}

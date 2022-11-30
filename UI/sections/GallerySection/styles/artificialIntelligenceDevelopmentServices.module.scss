@@ -1,0 +1,7 @@
+.artificial-intelligence-development-services {
+  @include sectionGrayBackground();
+
+  .sectionTitle h2 {
+    @include defaultGalleryTitle;
+  }
+}

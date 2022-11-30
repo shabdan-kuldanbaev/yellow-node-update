@@ -48,7 +48,10 @@ const AppDevelopmentSliderCards = ({
           titleStyle={styles.titleStyle}
         />
         <div className={cn(styles.cardsList, styles[sectionType])}>
-          <CardsSlider isMobileResolution={isShowSlider} type={pageType}>
+          <CardsSlider
+            isMobileResolution={isShowSlider}
+            type={pageType}
+          >
             {cardsList.map((card, index) => {
               const {
                 title: typeTitle,
