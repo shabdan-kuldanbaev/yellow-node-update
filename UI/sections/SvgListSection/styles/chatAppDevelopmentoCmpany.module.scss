@@ -1,0 +1,8 @@
+.chat-app-development-company {
+  @include sliderTwoRows;
+
+  [data-title],
+  [data-description] {
+    max-width: 620px;
+  }
+}

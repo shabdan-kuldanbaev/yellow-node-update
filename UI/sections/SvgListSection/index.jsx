@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import SvgGroup from 'UI/containers/SvgGroup';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Selector from 'UI/components/Selector';
@@ -60,7 +60,7 @@ const SvgListSection = (props) => {
         <SvgGroup
           key={i}
           data={group}
-          className={styles.svgList}
+          className={cn(styles.svgList, styles[`svgList${i + 1}`])}
           isSwiperEnabled
         />
       ))}
