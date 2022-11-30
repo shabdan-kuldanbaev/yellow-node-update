@@ -1,0 +1,51 @@
+.discovery-phase-services {
+  .pageIntroWrapper {
+    @include below-tablet {
+      @include flex(column-reverse);
+    }
+  }
+
+  .pageIntroImage {
+    max-width: 562px;
+  }
+
+  .pageTitle {
+    @include fontSize(46px, 55px);
+
+    max-width: 557px;
+    margin-bottom: 16px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      width: 251px;
+      height: 70px;
+      border-radius: 50%;
+      border: 6px solid $yellow500;
+      transform: translate(60%, 0);
+      left: 0;
+      top: -9px;
+      z-index: -1;
+
+      @include phone {
+        width: 132px;
+        height: 38px;
+        border-width: 4px;
+        transform: translate(75%, 0);
+      }
+    }
+
+    @include below-tablet {
+      max-width: 100%;
+      text-align: center;
+    }
+
+    @include phone {
+      @include fontSize(24px, 130%);
+
+      max-width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+}
