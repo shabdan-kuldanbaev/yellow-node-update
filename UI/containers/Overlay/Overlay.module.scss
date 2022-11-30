@@ -1,0 +1,8 @@
+@import "styles/utils/mixins";
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background: $gray0;
+}
