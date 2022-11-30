@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
+import Illustration from 'UI/components/Illustration';
 import { useItemPreview } from './utils/useItemPreview';
 import styles from './styles.module.scss';
 
@@ -22,7 +23,7 @@ const ItemPreview = (props) => {
           styles[slug],
         )}
       >
-        <img
+        <Illustration
           className={styles.image}
           src={imageUrl}
           alt={slug}
