@@ -1,21 +1,19 @@
 import get from 'lodash/get';
-import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields } from 'utils/helper';
 
-export const getCheckListProps = (data) => {
-  const animationProps = {
-    type: ANIMATED_TYPE.isCustom,
-    translateY: '2.82352941em',
-    opasityDuration: 1,
-    transformDuration: 1,
-  };
+export default ({
+  sectionData,
+  type,
+  handleOnCTAClick,
+  ...rest
+}) => {
   const {
     title,
     description,
     contentModules,
     view,
   } = getDocumentFields(
-    data,
+    sectionData,
     [
       'title',
       'description',
@@ -23,15 +21,24 @@ export const getCheckListProps = (data) => {
       'view',
     ],
   );
-  const { contentModules: listData } = getDocumentFields(get(contentModules, '[0]', []));
+
   const link = getDocumentFields(get(contentModules, '[1]'));
 
+  const { contentModules: listData } = getDocumentFields(get(contentModules, '[0]', []));
+  const list = (listData || []).map((item) => {
+    const { title: itemTitle } = getDocumentFields(item, ['title']);
+
+    return itemTitle;
+  });
+
   return {
-    animationProps,
     title,
     description,
     view,
+    list,
     link,
-    listData,
+    type,
+    handleOnCTAClick,
+    ...rest,
   };
 };

@@ -1,15 +1,12 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 @mixin appDevelopmentContainer {
   padding: 120px 40px;
   background-color: $white;
 
-  @include tablet {
-    padding: 100px 40px;
-  }
-
-  @include phone {
-    padding: 64px 15px;
+  @include below-tablet {
+    padding: 60px 16px;
   }
 }
 
@@ -26,7 +23,7 @@
 
   box-sizing: border-box;
   width: 100%;
-  max-width: $max-content-width-small-section;
+  max-width: $default-content-width;
   padding: 70px;
   margin: 80px auto 0;
   background: $alabaster;
