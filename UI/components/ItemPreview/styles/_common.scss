@@ -1,5 +1,3 @@
-@import 'styles/utils/mixins';
-
 .container {
   @include flex(row, center, center);
 
