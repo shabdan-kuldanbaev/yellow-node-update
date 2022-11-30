@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { getDocumentFields } from 'utils/helper';
 
 export default ({
-  sectionData,
+  section,
   type,
 }) => {
   const {
@@ -11,14 +11,14 @@ export default ({
     subtitle,
     view,
   } = useMemo(() => getDocumentFields(
-    sectionData,
+    section,
     [
       'title',
       'description',
       'subtitle',
       'view',
     ],
-  ), [sectionData]);
+  ), [section]);
 
   return {
     title,

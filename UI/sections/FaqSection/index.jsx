@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import FAQ from 'UI/containers/FAQ';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import { useFaqSection } from './utils/useFaqSection';
 import styles from './styles.module.scss';
 
@@ -18,7 +19,7 @@ const FaqSection = (props) => {
   }
 
   return (
-    <section className={styles[type]}>
+    <section className={cn(styles[type], styles.container)}>
       <SectionTitle
         title={title}
         className={styles.title}
@@ -29,7 +30,7 @@ const FaqSection = (props) => {
 };
 
 FaqSection.propTypes = {
-  data: PropTypes.instanceOf(Object).isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
 

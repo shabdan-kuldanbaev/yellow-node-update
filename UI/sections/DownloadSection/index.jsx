@@ -39,7 +39,7 @@ const DownloadSection = (props) => {
 };
 
 DownloadSection.propTypes = {
-  sectionData: PropTypes.instanceOf(Object).isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
 };
 

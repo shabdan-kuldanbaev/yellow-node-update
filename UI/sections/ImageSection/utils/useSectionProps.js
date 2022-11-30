@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export default ({
-  sectionData,
+  section,
   type,
 }) => {
   const {
@@ -12,14 +12,14 @@ export default ({
     images,
     contentModules,
   } = useMemo(() => getDocumentFields(
-    sectionData,
+    section,
     [
       'title',
       'description',
       'images',
       'contentModules',
     ],
-  ), [sectionData]);
+  ), [section]);
 
   const { text } = getDocumentFields(get(contentModules, '[0]', {}));
   const imageUrl = getFileUrl(get(images, '[0]'));

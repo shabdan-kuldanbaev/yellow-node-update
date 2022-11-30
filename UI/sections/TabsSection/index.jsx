@@ -76,7 +76,7 @@ const TabsSection = (props) => {
 };
 
 TabsSection.propTypes = {
-  data: PropTypes.instanceOf(Object).isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func.isRequired,
 };

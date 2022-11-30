@@ -88,7 +88,7 @@ SvgListSection.defaultProps = {
 };
 
 SvgListSection.propTypes = {
-  sectionData: PropTypes.instanceOf(Object).isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,
   type: PropTypes.string.isRequired,
   withSelector: PropTypes.bool,
