@@ -2,7 +2,24 @@
   max-width: 1176px;
   margin: 0 auto;
 
-  :global(.swiper) {
+  &.multiline {
+    .swiper {
+      :global(.swiper-wrapper) {
+        @include flex(row, center, flex-end, wrap);
+  
+        margin-top: -60px;
+        margin-right: -60px;
+      }
+  
+      :global(.swiper-slide) {
+        margin-top: 65px;
+      }
+    }
+  }
+}
+
+.swiper {
+  &:global(.swiper) {
     width: min-content;
     max-width: 100%;
     margin: 0 auto;
@@ -20,19 +37,6 @@
 
       flex: 0 0 auto;
       height: auto;
-    }
-  }
-
-  &.multiline {
-    :global(.swiper-wrapper) {
-      @include flex(row, center, flex-end, wrap);
-
-      margin-top: -60px;
-      margin-right: -60px;
-    }
-
-    :global(.swiper-slide) {
-      margin-top: 65px;
     }
   }
 }

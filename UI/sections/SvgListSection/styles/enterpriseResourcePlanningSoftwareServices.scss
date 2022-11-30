@@ -1,4 +1,6 @@
 .enterprise-resource-planning-software-services {
+  @include sliderTwoRows;
+
   background-color: $gray50;
 
   .description {

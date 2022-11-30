@@ -8,8 +8,12 @@ const CustomSwiper = ({
   swiperParams,
   isShowNavigation,
   navigationClassName,
+  className,
 }) => (
-  <Swiper {...swiperParams}>
+  <Swiper
+    {...swiperParams}
+    className={className}
+  >
     {children}
     {isShowNavigation && (
       <SwiperNavigation className={navigationClassName} />

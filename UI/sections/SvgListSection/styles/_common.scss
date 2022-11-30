@@ -1,3 +1,24 @@
+@mixin sliderTwoRows {
+  .svgList1 {
+    margin-bottom: 60px;
+  }
+
+  .svgList1,
+  .svgList2 {
+    @include phone {
+      display: none;
+    }
+  }
+
+  .svgList3 {
+    display: none;
+
+    @include phone {
+      display: block;
+    }
+  }
+}
+
 .section {
   @include appDevelopmentContainer;
 }
@@ -34,14 +55,7 @@
     @include centeredIcons;
   
     padding-top: 0;
-  }
-}
 
-.web-app-development-company,
-.mvp-app-development-company,
-.mobile-app-development-company,
-.android-mobile-app-development-services {
-  &.secondSectionView {
     [data-title] {
       @include phone {
         max-width: 305px;
