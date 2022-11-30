@@ -9,6 +9,10 @@ const Illustration = (props) => {
     ...restProps
   } = useIllustration(props);
 
+  if (!restProps?.src) {
+    return null;
+  }
+
   return (
     <picture
       className={className}
