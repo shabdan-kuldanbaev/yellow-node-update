@@ -50,7 +50,7 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.svgDisplay:
     return (
       <SvgListSection
-        sectionData={section}
+        section={section}
         type={type}
       />
     );
@@ -58,7 +58,7 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.svgDisplayWithSelector:
     return (
       <SvgListSection
-        sectionData={section}
+        section={section}
         type={type}
         withSelector
       />
