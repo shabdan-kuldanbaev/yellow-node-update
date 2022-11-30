@@ -102,23 +102,20 @@
 .card {
   @include flex(row, space-between, center);
 
-  margin-top: 48px;
+  box-sizing: border-box;
+  margin: 48px auto 0;
   padding: 60px;
   background-color: $gray50;
   border-radius: 5px;
   max-width: $default-content-width;
+  min-height: 215px;
 
-  .h3 {
-    @include fontSize(32px);
+  h3 {
+    margin: 0;
 
-    white-space: pre-line;
-    line-height: 1.6;
-
-    @include phone {
-      @include fontSize(20px);
-
-      margin-bottom: 32px;
+    @include below-tablet {
       text-align: center;
+      margin-bottom: 32px;
     }
   }
 
@@ -128,10 +125,12 @@
   }
 
   @include below-tablet {
-    padding: 30px;
-  }
-
-  @include phone {
     @include flex(column, center, center);
+
+    min-height: auto;
+
+    .button {
+      margin: 0 auto;
+    }
   }
 }
