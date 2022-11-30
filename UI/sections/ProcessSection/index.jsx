@@ -17,7 +17,7 @@ const ProcessSection = (props) => {
     cardsList,
     view,
     renderCards,
-    pageType,
+    type,
   } = useSectionProps(props);
 
   if (!cardsList?.length) {
@@ -25,7 +25,7 @@ const ProcessSection = (props) => {
   }
 
   return (
-    <section className={cn(styles.processSection, styles[pageType], styles[view])}>
+    <section className={cn(styles.processSection, styles[type], styles[view])}>
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
@@ -56,8 +56,8 @@ const ProcessSection = (props) => {
 };
 
 ProcessSection.propTypes = {
-  sectionData: PropTypes.instanceOf(Object).isRequired,
-  pageType: PropTypes.string.isRequired,
+  section: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default ProcessSection;
