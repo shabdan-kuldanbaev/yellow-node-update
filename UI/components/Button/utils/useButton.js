@@ -1,18 +1,18 @@
 import cn from 'classnames';
-import styles from '../styles.module.scss';
+import styles from '../Button.module.scss';
 
-export default (props) => {
-  const {
-    dark,
-    secondary,
-    ...rest
-  } = props;
-
-  const Component = props.href ? 'a' : 'button';
+export default ({
+  dark,
+  secondary,
+  href,
+  className: classes,
+  ...rest
+}) => {
+  const Component = href ? 'a' : 'button';
 
   const className = cn(
-    props.className,
     styles.button,
+    classes,
     {
       [styles.secondary]: secondary,
       [styles.dark]: dark,
@@ -22,6 +22,7 @@ export default (props) => {
   return ({
     Component,
     className,
+    href,
     ...rest,
   });
 };

@@ -24,10 +24,6 @@
   margin: 0 auto;
 }
 
-.callToAction {
-  @include defaultCallToAction;
-}
-
 .discovery-phase-services {
   &.reviews {
     background-color: $white;

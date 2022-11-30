@@ -6,10 +6,6 @@
   @include defaultSectionTitle;
 }
 
-.callToAction {
-  @include defaultCallToAction;
-}
-
 .groupTitle {
   @include fontSize(32px, 120%);
 

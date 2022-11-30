@@ -74,8 +74,6 @@
       }
 
       @include below-tablet {
-        @include defaultCallToAction;
-
         background: $alabaster;
         border: none;
 
@@ -101,8 +99,6 @@
         }
 
         @include below-tablet {
-          @include defaultCallToAction;
-
           background: $alabaster;
           border: none;
 
