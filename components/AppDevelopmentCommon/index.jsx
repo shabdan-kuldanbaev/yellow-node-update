@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
+import { CheckListSection } from 'UI/sections/CheckListSection';
+import { NumberedListSection } from 'UI/sections/NumberedListSection';
 import TabsSection from 'UI/sections/TabsSection';
 import DownloadSection from 'UI/sections/DownloadSection';
 import PageIntroSection from 'UI/sections/PageIntroSection';
@@ -10,7 +12,6 @@ import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
 const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
-const CheckListSection = dynamic(() => import('components/AppDevelopmentCommon/CheckListSection'));
 const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
 const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
@@ -91,10 +92,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentNumberedList:
     return (
-      <CheckListSection
+      <NumberedListSection
         sectionData={section}
         type={type}
-        isNumberedList
         handleOnCTAClick={handleOnCTAClick}
       />
     );
