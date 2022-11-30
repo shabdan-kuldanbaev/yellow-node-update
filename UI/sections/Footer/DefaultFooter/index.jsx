@@ -1,5 +1,6 @@
 import React from 'react';
 import Svg from 'UI/components/Svg';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import SideContent from './SideContent';
 import MainContent from './MainContent';
 import BottomContent from './BottomContent';
@@ -23,7 +24,7 @@ const DefaultFooter = () => {
       <BottomContent />
       <CircleButton onClick={onClick}>
         <Svg
-          type="arrowTop"
+          type={SVG_IMAGES_TYPES.arrowNarrowUp}
           className={styles.buttonImage}
         />
       </CircleButton>

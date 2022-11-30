@@ -77,21 +77,18 @@
     transition: width $default-transition-time ease;
 
     & > a {
-      position: relative;
-
-      @include flex(row, flex-start, center);
-
       img {
         width: 44px;
         height: 44px;
       }
 
       svg {
-        position: absolute;
         transition: width $default-transition-time;
-        top: 0;
-        left: 0;
       }
+    }
+
+    @include below-tablet {
+      z-index: 10000000;
     }
   }
 

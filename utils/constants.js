@@ -216,6 +216,7 @@ export const SVG_IMAGES_TYPES = {
   whiteLogo: 'whiteLogo',
   blackYellowText: 'blackYellowText',
   whiteYellowText: 'whiteYellowText',
+  arrowNarrowUp: 'arrowNarrowUp',
 };
 
 export const APP_DEVELOPMENT_TYPES = {

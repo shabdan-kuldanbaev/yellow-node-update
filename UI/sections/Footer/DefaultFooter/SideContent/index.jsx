@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import Svg from 'UI/components/Svg';
-import Logo from 'components/Common/Logo';
+import Logo from 'UI/components/Logo';
 import Typography from 'UI/components/Typography';
 import { socialMedia } from './utils/data';
 import styles from './styles.module.scss';
@@ -13,7 +13,9 @@ const SideContent = ({ socialMedia: socialMediaList }) => {
 
   return (
     <div className={styles.sideContent}>
-      <Logo type="footer" />
+      <div className={styles.logoWrapper}>
+        <Logo type="footer" />
+      </div>
       <Typography className={styles.text}>
         Software innovation powerhouse born to take
         your business to the top!
