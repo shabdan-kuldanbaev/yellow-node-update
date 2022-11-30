@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import { SwiperNavigation } from 'UI/components/SwiperNavigation';
 import ItemPreview from 'UI/components/ItemPreview';
-import CallToAction from 'components/Common/CallToAction';
+import CallToAction from 'UI/components/CallToAction';
 import { useGallerySection } from './utils/useGallerySection';
 import { swiperGalleryParams } from './utils/helpers';
 import styles from './styles.module.scss';
@@ -18,7 +18,7 @@ const GallerySection = (props) => {
     slides,
     linkData,
     linkTitle,
-    buttonTitle,
+    buttonLinkTitle,
     handleOnCTAClick,
   } = useGallerySection(props);
 
@@ -46,7 +46,7 @@ const GallerySection = (props) => {
         <CallToAction
           type="card"
           title={linkTitle}
-          buttonTitle={buttonTitle}
+          buttonTitle={buttonLinkTitle}
           className={styles.callToAction}
           handleOnClick={handleOnCTAClick}
         />
