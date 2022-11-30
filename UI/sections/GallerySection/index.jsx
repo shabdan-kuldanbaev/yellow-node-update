@@ -16,9 +16,7 @@ const GallerySection = (props) => {
     title,
     description,
     slides,
-    linkData,
-    linkTitle,
-    buttonLinkTitle,
+    link,
     handleOnCTAClick,
   } = useGallerySection(props);
 
@@ -42,11 +40,11 @@ const GallerySection = (props) => {
           <SwiperNavigation className={styles.navigation} />
         </Swiper>
       </div>
-      {linkData && (
+      {link && (
         <CallToAction
           type="card"
-          title={linkTitle}
-          buttonTitle={buttonLinkTitle}
+          title={link.title}
+          buttonTitle={link.buttonTitle}
           className={styles.callToAction}
           handleOnClick={handleOnCTAClick}
         />
