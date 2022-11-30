@@ -25,7 +25,7 @@ const ProcessSection = (props) => {
   }
 
   return (
-    <div className={cn(styles[type], styles[view])}>
+    <section className={cn(styles.processSection, styles[type], styles[view])}>
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
@@ -51,7 +51,7 @@ const ProcessSection = (props) => {
           </div>
         </ArcherContainer>
       </div>
-    </div>
+    </section>
   );
 };
 

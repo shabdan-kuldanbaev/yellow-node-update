@@ -184,6 +184,7 @@ export { default as chevronLeft } from './outlined/chevronLeft.svg';
 export { default as chevronRight } from './outlined/chevronRight.svg';
 export { default as chevronUp } from './outlined/chevronUp.svg';
 export { default as copy } from './outlined/copy.svg';
+export { default as code } from './outlined/code.svg';
 export { default as dotsVertical } from './outlined/dotsVertical.svg';
 export { default as download } from './outlined/download.svg';
 export { default as expand01 } from './outlined/expand01.svg';
