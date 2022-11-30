@@ -2,70 +2,61 @@
   &.firstSectionView {
     @extend .greySection;
 
-    .cardList {
-      .titleStyle {
-        width: 800px;
+    .card {
+      flex-direction: column;
 
-        h2 {
-          @include phone {
-            @include fontSize(28px);
-          }
-        }
+      @include below-tablet {
+        align-items: center;
 
-        @include below-tablet {
-          width: 700px;
-        }
-
-        @include phone {
-          width: 300px;
+        * {
+          align-items: center;
+          text-align: center;
+          margin-left: 0;
         }
       }
     }
   }
 
   &.secondSectionView {
-    padding-bottom: 0;
-
-    .cardList {
-      @extend .threeColumnsCards;
-
-      .cards > div {
-        padding: 30px 30px 30px 48px;
-      }
+    .card {
+      @extend .cardWithVerticalLine;
     }
   }
 
   &.thirdSectionView {
-    @extend .cardsWithFullWidthImage;
     @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
 
     .cardList {
       @extend .threeColumnsCards;
-
-      .cards > div {
-        padding: 30px 30px 30px 48px;
-      }
-
-      .cardContent {
-        .typeTitle {
-          text-align: center;
-        }
-      }
-
-      .cardContent p {
-        display: none;
-
-        @include below-tablet {
-          display: block;
-        }
-      }
     }
 
-    .overlay {
-      padding: 20px 15px 15px;
+    .card {
+      @include flex(column, flex-start, flex-start);
 
-      @include below-tablet {
-        display: none;
+      align-items: center;
+
+      picture {
+        width: 80%;
+      }
+
+
+      * {
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    .card {
+      @extend .cardWithFullSizeImage;
+
+      p {
+        margin-top: auto;
       }
     }
   }

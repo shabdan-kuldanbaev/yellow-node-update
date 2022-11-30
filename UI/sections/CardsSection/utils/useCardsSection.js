@@ -1,13 +1,15 @@
 import get from 'lodash/get';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { Navigation } from 'swiper';
+import { Mousewheel, Navigation } from 'swiper';
 import { selectIsMobileResolutions, selectIsTabletResolutions } from 'redux/selectors/layout';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import Card from 'UI/components/Cards/Card';
+import Overlay from 'UI/containers/Overlay';
 import styles from '../CardsSection.module.scss';
 
-const cardMapper = (card) => {
+const cardMapper = (withOverlay) => (card) => {
   if (card.sys.contentType.sys.id === 'article') {
     const {
       title,
@@ -25,7 +27,7 @@ const cardMapper = (card) => {
       url: `${PAGES.blog}/${slug}`,
       image: previewUrl,
       title,
-      children: 'Read More',
+      children: <span>Read more</span>,
     };
   }
 
@@ -33,7 +35,8 @@ const cardMapper = (card) => {
     contentList,
     images,
     contentModules: cardContent,
-    description: text,
+    text,
+    title,
     ...rest
   } = getDocumentFields(
     card,
@@ -51,11 +54,22 @@ const cardMapper = (card) => {
   const icon = get(contentList, '[0]');
   const url = get(cardContent, '[0].fields.url');
 
+  const children = (
+    <Overlay className={styles.overlay}>
+      <Card
+        title={title}
+        text={text}
+      />
+    </Overlay>
+  );
+
   return {
     url,
     image,
     icon,
     text,
+    title,
+    children,
     ...rest,
   };
 };
@@ -64,6 +78,8 @@ export default ({
   section,
   type,
   withSlider: sectionWithSlider,
+  withOverlay,
+  ...rest
 }) => {
   const {
     title,
@@ -93,8 +109,8 @@ export default ({
       'disableSliderOnMobile',
     ],
   );
-  console.log(rawCardList);
-  const cardList = (rawCardList || []).map(cardMapper);
+
+  const cardList = (rawCardList || []).map(cardMapper(withOverlay));
 
   const ctaLink = getDocumentFields(get(contentModules, '[1]'));
 
@@ -103,11 +119,12 @@ export default ({
   const withSlider = sectionWithSlider || (!disableSliderOnMobile && (isTabletResolution || isMobileResolution));
 
   const swiperProps = {
-    modules: [Navigation],
+    modules: [Navigation, Mousewheel],
     slidesPerView: 1,
     spaceBetween: 32,
     centeredSlides: true,
     autoheight: true,
+    passiveListeners: true,
     mousewheel: {
       forceToAxis: true,
     },
@@ -142,5 +159,7 @@ export default ({
     className,
     withoutBackground,
     swiperProps,
+    withOverlay,
+    ...rest,
   };
 };

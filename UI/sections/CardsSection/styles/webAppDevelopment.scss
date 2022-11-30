@@ -6,15 +6,15 @@
 
   &.thirdSectionView {
     @extend .blackSection;
+
+    h3 {
+      color: $gray900;
+    }
   }
 
   &.fourthSectionView {
     .card {
       @include flex(column, flex-start, flex-start);
-
-      h3 {
-        margin-top: 16px;
-      }
 
       @include below-tablet {
         align-items: center;

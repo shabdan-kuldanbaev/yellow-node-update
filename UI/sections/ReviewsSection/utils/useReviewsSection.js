@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { Navigation } from 'swiper';
+import { Mousewheel, Navigation } from 'swiper';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export default ({
@@ -66,7 +66,7 @@ export default ({
   });
 
   const swiperParams = {
-    modules: [Navigation],
+    modules: [Navigation, Mousewheel],
     slidesPerView: 1,
     spaceBetween: 32,
     centeredSlides: true,

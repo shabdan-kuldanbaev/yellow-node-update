@@ -1,5 +1,6 @@
+import cn from 'classnames';
 import { SwiperSlide } from 'swiper/react';
-import CallToAction from 'components/Common/CallToAction';
+import CallToAction from 'UI/components/CallToAction';
 import SectionTitle from 'UI/components/SectionTitle';
 import Animated from 'UI/containers/Animated';
 import Card from 'UI/components/Cards/Card';
@@ -19,6 +20,7 @@ const CardsSection = (props) => {
     className,
     handleOnCTAClick,
     withoutBackground,
+    withOverlay,
     swiperProps,
   } = useCardsSection(props);
 
@@ -59,7 +61,9 @@ const CardsSection = (props) => {
               >
                 <Card
                   key={i}
-                  className={styles.card}
+                  className={cn(styles.card, {
+                    [styles.withOverlay]: withOverlay,
+                  })}
                   withoutBackground={withoutBackground}
                   {...card}
                 />

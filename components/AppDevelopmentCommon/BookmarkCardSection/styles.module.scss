@@ -1,118 +1,76 @@
 @import 'styles/utils/mixins';
 @import '../utils/styles.module';
 
-.devops-development-services {
+.bookmarkSection {
   @include appDevelopmentContainer;
 
-  background-color: $white;
+  padding-top: 48px;
+}
 
-  .contentWrapper {
-    @extend .twoColumnsCards;
+.contentWrapper {
+  max-width: 864px;
+  margin: 0 auto;
+}
 
-    @include smallSectionWrapper;
+.bookmarkContainer {
+  padding: 40px;
+  border: 2px solid $turbo-100;
+  border-radius: 5px;
+  position: relative;
 
-    max-width: 864px;
+  @include below-tablet {
+    padding: 32px;
+  }
+}
 
-    h3 {
-      margin: 0;
-    }
+.bookmarkIcon {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 42px;
+  width: 31px;
+  height: 31px;
+  background-size: 100% 100%;
+}
 
-    .bookmarkContainer {
-      padding: 40px;
-      margin: 80px 0;
-      border: 2px solid $turbo-100;
-      border-radius: 5px;
+.content {
+  @include flex(column, center, center);
 
-      .bookmarkIcon {
-        content: '';
-        position: absolute;
-        top: 68px;
-        left: 40px;
-        width: 23px;
-        height: 27px;
-        background-size: 100% 100%;
-      }
+  a {
+    text-decoration: underline;
+    color: $dark-grey;
+  }
+}
 
-      .content {
-        @include flex(column, center, center);
+.title {
+  @include fontSize(24px, 1.5);
 
-        .title {
-          @include fontSize(24px);
+  position: relative;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto 24px;
+  max-width: 464px;
 
-          position: relative;
-          font-weight: 600;
-          line-height: 1.5;
-          text-align: center;
-          margin-bottom: 32px;
+  @include below-tablet {
+    @include fontSize(20px);
 
-          @include tablet {
-            @include fontSize(20px);
-          }
+    width: 100%;
+  }
+}
 
-          @include phone {
-            @include fontSize(18px);
-
-            width: 100%;
-          }
-        }
-
-        a {
-          text-decoration: underline;
-          color: $dark-grey;
-
-          @include phone {
-            padding: 14px 60px;
-            line-height: 150%;
-            border-radius: $button-border-radius;
-            letter-spacing: 0.5px;
-            border: none;
-            transform: scale(1);
-            text-decoration: unset;
-            background-color: $turbo-100;
-          }
-        }
-      }
+.devops-development-services {
+  &.firstSectionView {
+    .title {
+      width: 453px;
+      text-align: center;
 
       @include below-tablet {
-        background: $alabaster;
-        border: none;
-
-        .bookmarkIcon {
-          display: none;
-        }
-      }
-    }
-  }
-
-  &.firstSectionView {
-    .contentWrapper {
-      .bookmarkContainer {
-        .content {
-          .title {
-            width: 453px;
-            text-align: center;
-
-            @include phone {
-              width: 100%;
-            }
-          }
-        }
-
-        @include below-tablet {
-          background: $alabaster;
-          border: none;
-
-          .bookmarkIcon {
-            display: none;
-          }
-        }
+        width: 100%;
       }
     }
   }
 
   &.secondSectionView {
-    background: $alabaster;
-
     .contentWrapper {
       .bookmarkContainer {
         .content {
@@ -124,11 +82,14 @@
             }
           }
         }
-
-        @include below-tablet {
-          background: $white;
-        }
       }
     }
+  }
+}
+
+.cloud-based-app-development-services {
+  &.firstSectionView {
+    background: $gray50;
+    padding-top: 0;
   }
 }

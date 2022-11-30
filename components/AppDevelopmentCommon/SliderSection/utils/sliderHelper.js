@@ -24,7 +24,7 @@ export const getSliderProps = (data) => {
   };
   const params = {
     slidesPerView: 1,
-    spaceBetween: 150,
+    spaceBetween: 32,
     slidesPerGroup: 1,
     mousewheel: {
       forceToAxis: true,

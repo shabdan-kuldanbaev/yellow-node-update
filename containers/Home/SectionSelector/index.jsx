@@ -27,7 +27,7 @@ const SectionSelector = ({ section, type }) => {
     return (
       <CardsSection
         section={section}
-        pageType={type}
+        type={type}
         sectionType="cards"
       />
     );
@@ -36,8 +36,7 @@ const SectionSelector = ({ section, type }) => {
     return (
       <CardsSection
         section={section}
-        pageType={type}
-        sectionType="cards"
+        type={type}
         withOverlay
       />
     );

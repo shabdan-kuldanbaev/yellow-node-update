@@ -10,6 +10,10 @@
   img {
     object-fit: cover;
   }
+
+  h3 {
+    margin-top: 16px;
+  }
 }
 
 .blackSection {
@@ -18,6 +22,34 @@
   .title,
   h3 {
     color: $gray0;
+  }
+
+  button {
+    color: $gray400;
+  }
+}
+
+.cardCentered {
+  @include flex(column, center, center);
+
+  * {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.cardWithVerticalLine {
+  padding-left: 42px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: $yellow400;
+    width: 2px;
+    top: 24px;
+    left: 24px;
+    bottom: 24px;
   }
 }
 
@@ -31,11 +63,10 @@
   }
 
   :global(.swiper-slide) {
+    @include flex(row, center, stretch);
     height: auto;
-    display: flex;
-    align-items: stretch;
 
-    & > * {
+    &>* {
       @include flex(row, center, stretch);
 
       width: 100%;
@@ -43,8 +74,32 @@
   }
 }
 
+.overlay>* {
+  @include flex(row, center, center);
+
+  flex: 1 1 auto;
+  border: none;
+
+  * {
+    align-items: center;
+    text-align: center;
+  }
+}
+
 .card {
   width: 100%;
+
+  &.withOverlay:hover .overlay {
+    display: flex;
+
+    p {
+      display: block;
+    }
+
+    @include below-tablet {
+      display: none;
+    }
+  }
 }
 
 .cardsSection.withSlider .contentWrapper {
@@ -60,14 +115,14 @@
   @extend .twoColumnsCards;
 
   margin: 0 0 -32px -32px;
-  
-  & > * {
+
+  &>* {
     @include flex(row, center, stretch);
 
     margin: 0 0 32px 32px;
-  }
-}
 
-.callToAction {
-  @include defaultCallToAction;
+    &>* {
+      flex: 1 1 auto;
+    }
+  }
 }

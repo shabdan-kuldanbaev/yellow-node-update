@@ -9,7 +9,13 @@
     @extend .blackSection;
 
     .card {
-      flex-direction: column;
+      @include flex(column, flex-start, center);
+
+      * {
+        text-align: center;
+        align-items: center;
+        margin-right: 0;
+      }
     }
   }
 
@@ -19,7 +25,7 @@
     .cardList {
       @include flex(row, center, flex-start, wrap);
 
-      & > div {
+      &>div {
         flex: 0 0 30%;
       }
     }

@@ -24,7 +24,7 @@
           text-align: center;
         }
 
-        & > div {
+        &>div {
           padding: 20px 15px;
         }
 
@@ -66,7 +66,7 @@
   }
 
   &.thirdSectionView {
-    @extend .blackSection;  
+    @extend .blackSection;
 
     .contentWrapper {
       max-width: $wide-content-width;
@@ -91,53 +91,57 @@
     .cardList {
       @extend .threeColumnsCards;
     }
+
+    .card {
+      @extend .cardWithVerticalLine;
+    }
   }
 
   &.fifthSectionView {
     @extend .greySection;
 
     .cardList {
-      margin: 0 auto;
-      max-width: 1300px;
-      padding: 120px 10px;
+      @extend .threeColumnsCards;
+    }
 
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 0 40px;
+    .card {
+      @include flex(column, center, center);
 
-        div {
-          max-width: 410px;
+      * {
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
 
-          &:not(:last-child) {
-            margin-bottom: 20px;
-          }
-        }
+  &.sixthSectionView {
+    @extend .greySection;
 
-        .imageWrapper {
-          margin: 0 auto;
-        }
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
 
-        .cardContent {
-          .typeTitle {
-            @include fontSize(24px);
+    .cardList {
+      @extend .threeColumnsCards;
+    }
 
-            text-align: center;
-            max-width: 410px;
+    .card {
+      @include flex(column, flex-start, center);
 
-            @include phone {
-              @include fontSize(18px);
-            }
-          }
-        }
+      padding: 24px 16px;
 
-        @include below-tablet {
-          @include flex(column, center, center);
-        }
+      picture {
+        width: 276px;
+        height: 276px;
       }
 
-      @include phone {
-        padding: 60px 15px;
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
       }
     }
   }

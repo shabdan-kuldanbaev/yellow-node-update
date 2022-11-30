@@ -1,89 +1,109 @@
 .devops-development-services {
+  &.firstSectionView {
+    padding-bottom: 0;
+
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
   &.secondSectionView {
-    background-color: $cod-gray-1;
-
-    .typeTitle,
-    .titleStyle h2 {
-      color: $white;
-    }
-
-    .titleStyle {
-      max-width: 935px;
-    }
-
-    .cards {
-      @include flex(row, center, initial, wrap);
-
-      grid-gap: 40px 15%;
-    }
-
-    .cards > div {
-      width: 296px;
-    }
+    @extend .blackSection;
 
     .cardList {
-      max-width: 1280px;
-    }
+      @include flex(row, center, center, wrap);
 
-    @include tablet {
-      .cards > div {
-        width: 290px;
+      &>* {
+        flex: 0 0 30%
+      }
+
+      @include below-tablet {
+        flex-direction: column
       }
     }
 
-    @include phone {
-      .cards {
-        @include flex(column, flex-start);
-
-        grid-gap: 24px 15%;
+    .card {
+      h3 {
+        @include fontSize(38px);
       }
 
-      .cards > div {
-        width: 100%;
-      }
+      @include below-tablet {
+        @include fontSize(24px);
 
-      .typeTitle {
-        @include fontSize(32px);
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
       }
     }
   }
 
   &.thirdSectionView {
     @extend .greySection;
+
+    padding-bottom: 0;
+
+    .card {
+      flex-direction: column;
+    }
   }
 
   &.fourthSectionView {
+    @extend .blackSection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
     .cardList {
       @extend .threeColumnsCards;
     }
 
-    background-color: $very-dark-gray;
-
-    .cards > div {
-      background-color: $very-dark-gray;
-      box-shadow: none;
+    .card {
+      flex-direction: column;
 
       @include below-tablet {
-        svg {
-          transform: scale(0.7);
-          margin: -13px 0 0 -13px;
+        @include fontSize(24px);
+
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
         }
       }
-    }
-
-    .titleStyle h2,
-    .typeTitle {
-      color: $white;
     }
   }
 
   &.fifthSectionView {
     @extend .greySection;
+  }
 
-    @include iconsWithinCircle;
+  &.sixthSectionView {
+    padding-bottom: 0;
 
-    .titleStyle {
-      max-width: 790px;
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+
+      span {
+        margin-top: auto;
+      }
     }
   }
 }

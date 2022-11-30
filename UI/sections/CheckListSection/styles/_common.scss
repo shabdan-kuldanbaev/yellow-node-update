@@ -1,4 +1,4 @@
-.graySection{
+.graySection {
   background-color: $alabaster;
 
   .callToAction {
@@ -21,28 +21,24 @@
 
   margin: 0 0 -32px -32px;
 
-  & > div {
+  &>div {
     @include flex(row, center, stretch);
-    
+
     margin: 0 0 32px 32px;
     flex: 1 1 40%;
   }
 
   @include below-tablet {
     @include flex(column, initial, stretch);
+
+    margin-bottom: -16px;
+
+    &>div {
+      margin-bottom: 16px;
+    }
   }
 }
 
 .card {
   width: 100%;
-}
-
-.callToAction {
-  @include defaultCallToAction;
-
-  background: $alabaster;
-
-  div {
-    margin-top: 0 !important;
-  }
 }

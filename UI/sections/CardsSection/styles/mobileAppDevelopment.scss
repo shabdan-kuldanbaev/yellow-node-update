@@ -8,11 +8,13 @@
     @include below-tablet {
       .cards > div {
         display: block;
-
-        h3 {
-          margin-top: 16px;
-        }
       }
+    }
+  }
+
+  &.thirdSectionView {
+    .card {
+      @extend .cardWithVerticalLine
     }
   }
 

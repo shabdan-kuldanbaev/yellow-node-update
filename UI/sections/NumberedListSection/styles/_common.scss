@@ -35,13 +35,3 @@
 .card {
   width: 100%;
 }
-
-.callToAction {
-  @include defaultCallToAction;
-
-  background: $alabaster;
-
-  div {
-    margin-top: 0 !important;
-  }
-}
