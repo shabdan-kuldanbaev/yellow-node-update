@@ -6,6 +6,14 @@
   }
 }
 
+@mixin defaultGalleryTitle {
+  @include fontSize(38px, 49px);
+
+  @include phone {
+    @include fontSize(24px, 31px);
+  }
+}
+
 .section {
   @include appDevelopmentContainer;
 
