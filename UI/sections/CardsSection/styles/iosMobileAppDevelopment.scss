@@ -1,0 +1,48 @@
+.ios-mobile-app-development-services {
+  &.firstSectionView {
+    .card {
+      @include below-tablet {
+        @include flex(column, center, center);
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .blackSection;
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      picture {
+        width: 276px;
+        height: 276px;
+      }
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+  }
+}

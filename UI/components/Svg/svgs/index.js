@@ -336,6 +336,7 @@ export { default as lockFilled } from './filled/lockFilled.svg';
 export { default as mailFilled } from './filled/mailFilled.svg';
 export { default as messageCircleFilled } from './filled/messageCircleFilled.svg';
 export { default as messageDotsCircleFilled } from './filled/messageDotsCircleFilled.svg';
+export { default as messageHeartCircleFilled } from './filled/messageHeartCircleFilled.svg';
 export { default as minusFilled } from './filled/minusFilled.svg';
 export { default as phoneFilled } from './filled/phoneFilled.svg';
 export { default as plusFilled } from './filled/plusFilled.svg';

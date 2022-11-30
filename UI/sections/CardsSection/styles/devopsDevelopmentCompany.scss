@@ -1,0 +1,109 @@
+.devops-development-services {
+  &.firstSectionView {
+    padding-bottom: 0;
+
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .blackSection;
+
+    .cardList {
+      @include flex(row, center, center, wrap);
+
+      &>* {
+        flex: 0 0 30%
+      }
+
+      @include below-tablet {
+        flex-direction: column
+      }
+    }
+
+    .card {
+      h3 {
+        @include fontSize(38px);
+      }
+
+      @include below-tablet {
+        @include fontSize(24px);
+
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    padding-bottom: 0;
+
+    .card {
+      flex-direction: column;
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .blackSection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        @include fontSize(24px);
+
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    @extend .greySection;
+  }
+
+  &.sixthSectionView {
+    padding-bottom: 0;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+
+      span {
+        margin-top: auto;
+      }
+    }
+  }
+}

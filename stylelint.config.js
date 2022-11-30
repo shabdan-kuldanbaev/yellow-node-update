@@ -12,6 +12,7 @@ module.exports = {
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
   rules: {
+    'selector-combinator-space-after': 'always',
     'no-descending-specificity': null,
     'selector-class-pattern': null,
     'keyframes-name-pattern': null,

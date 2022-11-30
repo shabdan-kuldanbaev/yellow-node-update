@@ -31,10 +31,6 @@
     margin-bottom: 55px;
   }
 
-  .callToAction {
-    @include defaultCallToAction;
-  }
-
   @include phone {
     padding: 64px 0;
   }

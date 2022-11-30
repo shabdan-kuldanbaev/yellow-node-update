@@ -1,0 +1,62 @@
+.discovery-phase-services {
+  &.firstSectionView {
+    .card {
+      flex-direction: column
+    }
+  }
+
+  &.secondSectionView {
+    @extend .blackSection;
+
+    .card {
+      @include flex(column, flex-start, center);
+
+      * {
+        text-align: center;
+        align-items: center;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    .cardList {
+      @include flex(row, center, flex-start, wrap);
+
+      &>div {
+        flex: 0 0 30%;
+      }
+    }
+
+    .card {
+      @include flex(column, flex-start, stretch);
+
+      * {
+        align-self: center;
+        text-align: center;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+  }
+
+  &.fifthSectionView {
+    .card {
+      @include flex(column, flex-start, stretch);
+
+      picture {
+        width: 276px;
+        height: 276px;
+      }
+
+      * {
+        align-self: center;
+        text-align: center;
+      }
+    }
+  }
+}

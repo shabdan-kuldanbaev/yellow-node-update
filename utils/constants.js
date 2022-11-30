@@ -221,7 +221,6 @@ export const SVG_IMAGES_TYPES = {
 export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentPageIntro: 'app-development-page-intro',
   appDevelopmentCards: 'app-development-cards',
-  appDevelopmentSmallCards: 'app-development-small-cards',
   appDevelopmentCheckList: 'app-development-check-list',
   appDevelopmentSvgList: 'app-development-svg-list',
   appDevelopmentGallery: 'app-development-gallery',

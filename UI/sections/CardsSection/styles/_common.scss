@@ -1,0 +1,128 @@
+.cardWithFullSizeImage {
+  padding: 24px;
+
+  picture {
+    align-self: stretch;
+    margin: -24px -24px 0 -24px;
+    height: 260px;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  h3 {
+    margin-top: 16px;
+  }
+}
+
+.blackSection {
+  background: $gray900;
+
+  .title,
+  h3 {
+    color: $gray0;
+  }
+
+  button {
+    color: $gray400;
+  }
+}
+
+.cardCentered {
+  @include flex(column, center, center);
+
+  * {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.cardWithVerticalLine {
+  padding-left: 42px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: $yellow400;
+    width: 2px;
+    top: 24px;
+    left: 24px;
+    bottom: 24px;
+  }
+}
+
+.cardsSection {
+  @include appDevelopmentContainer;
+
+  background: $white;
+
+  :global(.swiper) {
+    padding-bottom: 70px;
+  }
+
+  :global(.swiper-slide) {
+    @include flex(row, center, stretch);
+    height: auto;
+
+    &>* {
+      @include flex(row, center, stretch);
+
+      width: 100%;
+    }
+  }
+}
+
+.overlay>* {
+  @include flex(row, center, center);
+
+  flex: 1 1 auto;
+  border: none;
+
+  * {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.card {
+  width: 100%;
+
+  &.withOverlay:hover .overlay {
+    display: flex;
+
+    p {
+      display: block;
+    }
+
+    @include below-tablet {
+      display: none;
+    }
+  }
+}
+
+.cardsSection.withSlider .contentWrapper {
+  max-width: $wide-content-width;
+}
+
+.contentWrapper {
+  max-width: $default-content-width;
+  margin: 0 auto;
+}
+
+.cardList {
+  @extend .twoColumnsCards;
+
+  margin: 0 0 -32px -32px;
+
+  &>* {
+    @include flex(row, center, stretch);
+
+    margin: 0 0 32px 32px;
+
+    &>* {
+      flex: 1 1 auto;
+    }
+  }
+}

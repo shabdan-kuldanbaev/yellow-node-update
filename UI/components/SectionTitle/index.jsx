@@ -27,7 +27,7 @@ const SectionTitle = ({
       <Typography
         data-title
         isBold
-        size={TYPOGRAPHY_SIZE.headlineXL}
+        size={TYPOGRAPHY_SIZE.headlineM}
         variant={titleVariant}
         className={styles.title}
       >

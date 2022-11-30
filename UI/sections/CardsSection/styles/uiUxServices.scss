@@ -1,0 +1,10 @@
+.ui-ux-services {
+  &.firstSectionView,
+  &.secondSectionView {
+    @extend .greySection;
+  }
+
+  &.firstSectionView {}
+
+  &.secondSectionView {}
+}
