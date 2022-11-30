@@ -1,0 +1,8 @@
+@import 'styles/utils/mixins';
+
+.linkWrapper {
+  @include flex(row, space-between, center);
+
+  height: 100%;
+  width: $logo-size;
+}

@@ -13,7 +13,9 @@ const SideContent = ({ socialMedia: socialMediaList }) => {
 
   return (
     <div className={styles.sideContent}>
-      <Logo type="footer" />
+      <div className={styles.logoWrapper}>
+        <Logo type="footer" />
+      </div>
       <Typography className={styles.text}>
         Software innovation powerhouse born to take
         your business to the top!
