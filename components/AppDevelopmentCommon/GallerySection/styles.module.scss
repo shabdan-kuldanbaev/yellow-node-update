@@ -53,6 +53,10 @@
     @include defaultSectionTitle;
   }
 
+  .callToAction {
+    @include defaultCallToAction;
+  }
+
   @include below-tablet {
     padding-bottom: 30px;
   }

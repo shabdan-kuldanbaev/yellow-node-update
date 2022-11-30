@@ -2,7 +2,9 @@
   &.firstSectionView {
     @extend .greySection;
 
-    .cardList {
+    @include iconsWithinCircle;
+
+    .contentWrapper {
       .titleStyle {
         width: 800px;
 
@@ -24,22 +26,55 @@
   }
 
   &.secondSectionView {
+    @extend .cardsWithShadow;
+
     padding-bottom: 0;
 
-    .cardList {
+    .contentWrapper {
       @extend .threeColumnsCards;
 
       .cards > div {
         padding: 30px 30px 30px 48px;
       }
+
+      h2 {
+        @include phone {
+          @include fontSize(27px);
+        }
+      }
+    }
+
+    .cardContent {
+      position: relative;
+
+      &::before {
+        content: '';
+        background: $turbo-100;
+        height: 100%;
+        width: 2px;
+        position: absolute;
+        left: -16px;
+      }
+    }
+
+    .callToAction {
+      @include defaultCallToAction;
+
+      background: $alabaster;
+      margin-bottom: 120px;
+
+      div {
+        margin-top: 0 !important;
+      }
     }
   }
 
   &.thirdSectionView {
+    @extend .cardsWithShadow;
     @extend .cardsWithFullWidthImage;
     @extend .greySection;
 
-    .cardList {
+    .contentWrapper {
       @extend .threeColumnsCards;
 
       .cards > div {
@@ -66,6 +101,20 @@
 
       @include below-tablet {
         display: none;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .cardsWithShadow;
+
+    @include iconsWithinCircle;
+
+    .contentWrapper {
+      h2 {
+        @include phone {
+          @include fontSize(28px);
+        }
       }
     }
   }
