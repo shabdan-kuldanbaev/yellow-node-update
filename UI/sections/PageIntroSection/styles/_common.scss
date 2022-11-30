@@ -1,8 +1,8 @@
 .pageIntroSection {
-  @include flex(column, initial, initial);
+  @include flex(column);
 
   margin: 0 auto;
-  max-width: $macbook-thirteen;
+  max-width: $max-content-width;
   padding: 32px 120px 120px;
 
   .pageIntroWrapper {

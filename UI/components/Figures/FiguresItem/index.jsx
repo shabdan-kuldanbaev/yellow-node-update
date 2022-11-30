@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
 import Svg from 'UI/components/Svg';
-import { REVEAL_ANIMATION_PROPS, ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
+import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from 'UI/components/Figures/styles.module.scss';
+import Typography from 'UI/components/Typography';
 import useFiguresItemProps from './utils/useFiguresItemProps';
 
 const FiguresItem = (props) => {
   const {
-    index,
     type,
     title,
     description,
@@ -17,31 +16,31 @@ const FiguresItem = (props) => {
   switch (type) {
   case ROUTES.customWebApp.slug: {
     return (
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={400 + 90 * index * 2}
-      >
+      <>
         <div className={styles.circle}>
           <Svg
             className={styles.icon}
             type={SVG_IMAGES_TYPES.checkMark}
           />
         </div>
-        <div className={styles.title}>
+        <Typography
+          variant="h4"
+          className={styles.title}
+        >
           {title}
-        </div>
-        <div className={styles.description}>
+        </Typography>
+        <Typography
+          variant="p"
+          className={styles.description}
+        >
           {description}
-        </div>
-      </Animated>
+        </Typography>
+      </>
     );
   }
   case ROUTES.developmentServices.slug: {
     return (
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={400 + 90 * index * 2}
-      >
+      <>
         <div className={styles.circle}>
           <Svg
             className={styles.icon}
@@ -49,35 +48,43 @@ const FiguresItem = (props) => {
           />
         </div>
         <div>
-          <div className={styles.title}>
+          <Typography
+            variant="h4"
+            className={styles.title}
+          >
             {title}
-          </div>
-          <div className={styles.description}>
+          </Typography>
+          <Typography
+            variant="p"
+            className={styles.description}
+          >
             {description}
-          </div>
+          </Typography>
         </div>
-      </Animated>
+      </>
     );
   }
   default:
     return (
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={400 + 90 * index * 2}
-      >
-        <div className={styles.title}>
+      <>
+        <Typography
+          variant="h4"
+          className={styles.title}
+        >
           {title}
-        </div>
-        <div className={styles.description}>
+        </Typography>
+        <Typography
+          variant="p"
+          className={styles.description}
+        >
           {description}
-        </div>
-      </Animated>
+        </Typography>
+      </>
     );
   }
 };
 
 FiguresItem.propTypes = {
-  index: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
   figureData: PropTypes.instanceOf(Object).isRequired,
 };

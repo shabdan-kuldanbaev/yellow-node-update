@@ -14,7 +14,7 @@ export const Figures = (props) => {
     figures,
   } = useFiguresProps(props);
 
-  if (!figures || !figures?.length) return null;
+  if (!figures?.length) return null;
 
   return (
     <div className={styles[type]}>
@@ -27,12 +27,16 @@ export const Figures = (props) => {
       )}
       <div className={styles.figures}>
         {figures?.map((item, index) => (
-          <FiguresItem
+          <Animated
+            {...REVEAL_ANIMATION_PROPS}
+            transitionDelay={50 * index}
             key={`page-intro-figures/${index}`}
-            type={type}
-            index={index}
-            figureData={item}
-          />
+          >
+            <FiguresItem
+              type={type}
+              figureData={item}
+            />
+          </Animated>
         ))}
       </div>
     </div>

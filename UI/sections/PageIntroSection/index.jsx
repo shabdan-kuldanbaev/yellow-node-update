@@ -4,6 +4,7 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import Typography from 'UI/components/Typography';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -17,8 +18,6 @@ const PageIntroSection = (props) => {
     introSection,
   } = useSectionProps(props);
 
-  if (!title || !description || !imageUrl) return null;
-
   // TODO: use rich text instead of splitting
   const descriptionParagraphs = description.split('||');
 
@@ -30,26 +29,34 @@ const PageIntroSection = (props) => {
       <div className={styles.pageIntroWrapper}>
         <div className={styles.pageTitleContainer}>
           <Animated {...REVEAL_ANIMATION_PROPS}>
-            <h1 className={styles.pageTitle}>
-              {title}
-            </h1>
+            {title && (
+              <Typography
+                variant="h1"
+                className={styles.pageTitle}
+              >
+                {title}
+              </Typography>
+            )}
           </Animated>
           <Animated {...REVEAL_ANIMATION_PROPS}>
             {descriptionParagraphs?.map((text, index) => (
-              <p
+              <Typography
+                variant="p"
                 className={styles.pageIntroSubtitle}
                 key={`paragraph/${index}`}
               >
                 {text}
-              </p>
+              </Typography>
             ))}
           </Animated>
         </div>
         <Animated {...REVEAL_ANIMATION_PROPS}>
-          <div
-            className={styles.pageIntroImage}
-            style={{ backgroundImage: `url(${imageUrl})` }}
-          />
+          {imageUrl && (
+            <div
+              className={styles.pageIntroImage}
+              style={{ backgroundImage: `url(${imageUrl})` }}
+            />
+          )}
         </Animated>
       </div>
       <Figures
