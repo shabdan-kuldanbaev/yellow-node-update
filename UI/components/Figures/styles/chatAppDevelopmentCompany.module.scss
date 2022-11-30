@@ -1,0 +1,35 @@
+.chat-app-development-company {
+  .figures > div {
+    @include flex(column);
+
+    flex: 0 0 20%;
+
+    @include below-tablet {
+      @include flex(column, center, center);
+
+      flex: 0 0 50%;
+    }
+  }
+
+  .title {
+    @include fontSize(38px, 49px);
+
+    color: $gray900;
+    text-align: left;
+    margin-bottom: 8px;
+
+    @include below-tablet {
+      text-align: center;
+    }
+
+    @include phone {
+      @include fontSize(24px, 31px);
+    }
+  }
+
+  .description {
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.fintech-software-development-services {
+  .pageIntroWrapper {
+    @include below-tablet {
+      @include flex(column-reverse);
+    }
+  }
+
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageIntroImage {
+    max-width: 361px;
+  }
+}

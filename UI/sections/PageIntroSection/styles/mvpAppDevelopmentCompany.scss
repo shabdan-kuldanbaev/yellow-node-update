@@ -1,0 +1,15 @@
+.mvp-app-development-company {
+  .pageIntroWrapper {
+    @include below-tablet {
+      @include flex(column-reverse);
+    }
+  }
+
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageIntroImage {
+    max-width: 436px;
+  }
+}
