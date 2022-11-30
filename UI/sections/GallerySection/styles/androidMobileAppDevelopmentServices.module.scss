@@ -1,0 +1,11 @@
+.android-mobile-app-development-services {
+  .sectionTitle {
+    h2 {
+      @include defaultGalleryTitle;
+    }
+
+    @include below-tablet {
+      max-width: 343px;
+    }
+  }
+}

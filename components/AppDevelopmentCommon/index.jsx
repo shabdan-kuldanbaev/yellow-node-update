@@ -13,7 +13,7 @@ import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
 const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
-const GallerySection = dynamic(() => import('components/AppDevelopmentCommon/GallerySection'));
+const GallerySection = dynamic(() => import('UI/sections/GallerySection'));
 const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));

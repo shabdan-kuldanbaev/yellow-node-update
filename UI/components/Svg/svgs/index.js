@@ -178,6 +178,8 @@ export { default as iPad } from './outlined/iPad.svg';
 export { default as alertCircle } from './outlined/alertCircle.svg';
 export { default as announcement } from './outlined/announcement.svg';
 export { default as arrowNarrowUp } from './outlined/arrowNarrowUp.svg';
+export { default as arrowLeft } from './outlined/arrowLeft.svg';
+export { default as arrowRight } from './outlined/arrowRight.svg';
 export { default as bell } from './outlined/bell.svg';
 export { default as bookMark } from './outlined/bookMark.svg';
 export { default as check } from './outlined/check.svg';

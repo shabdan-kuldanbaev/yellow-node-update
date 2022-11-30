@@ -1,0 +1,7 @@
+.discovery-phase-services {
+  @include sectionGrayBackground();
+
+  .sectionTitle h2 {
+    @include defaultGalleryTitle;
+  }
+}

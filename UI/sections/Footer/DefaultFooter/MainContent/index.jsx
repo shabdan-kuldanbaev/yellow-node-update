@@ -17,7 +17,10 @@ const MainContent = ({ footerData: footerLinksData }) => (
         className={cn(styles.dataContainer, styles[type])}
         key={`footer/${type}`}
       >
-        <Typography variant="span" className={styles.title}>
+        <Typography
+          variant="span"
+          className={styles.title}
+        >
           {title}
         </Typography>
         {links && links.map(({
