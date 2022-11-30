@@ -1,19 +1,8 @@
 .ui-ux-services {
   background-color: $gray0;
 
-  .contentWrapper {
-    .cards {
-      grid-gap: 60px 4%;
-    }
-
-    .cardContainer {
-      padding: 32px;
-    }
-  }
-
-  .titleStyle {
-    p {
-      width: 58vw;
-    }
+  .imageWrapper svg {
+    width: 50%;
+    height: 50%;
   }
 }
