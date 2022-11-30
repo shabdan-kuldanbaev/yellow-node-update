@@ -1,0 +1,27 @@
+.mvp-app-development-company {
+
+  &.secondSectionView,
+  &.thirdSectionView {
+    @extend .greySection;
+  }
+
+  &.firstSectionView {
+    .card {
+      @include flex(column, flex-start, flex-start);
+    }
+  }
+
+  &.secondSectionView {}
+
+  &.thirdSectionView {}
+
+  &.fourthSectionView {
+    .card {
+      @extend .cardWithFullSizeImage;
+
+      span {
+        margin-top: auto;
+      }
+    }
+  }
+}

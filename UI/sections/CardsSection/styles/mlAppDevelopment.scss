@@ -1,0 +1,11 @@
+.machine-learning-development-services {
+  &.firstSectionView {
+    @extend .greySection;
+  }
+
+  &.thirdSectionView {
+    .card {
+      @extend .cardWithVerticalLine;
+    }
+  }
+}

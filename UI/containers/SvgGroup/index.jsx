@@ -40,7 +40,10 @@ const SvgGroup = (props) => {
         </Animated>
       )}
       <Animated {...REVEAL_ANIMATION_PROPS}>
-        <CustomSwiper {...SWIPER_PARAMS}>
+        <CustomSwiper
+          swiperParams={SWIPER_PARAMS}
+          className={styles.swiper}
+        >
           {icons?.map((technology) => (
             <SwiperSlide
               className={styles.item}

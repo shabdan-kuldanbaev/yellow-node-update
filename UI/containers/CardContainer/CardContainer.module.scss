@@ -2,15 +2,16 @@
 
 .cardContainer {
   position: relative;
-  box-shadow: 0px 8px 35px rgba(110, 120, 130, 0.1);
-  padding: 32px;
+  border: solid 1px $gray100;
+  border-radius: 5px;
   background: $gray0;
+  padding: 32px;
 }
 
 .cardContainer.noBackground {
-  box-shadow: none;
   padding: 0;
   background: none;
+  border: none;
 }
 
 /* For Storybook */

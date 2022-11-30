@@ -1,0 +1,28 @@
+.web-app-development-company {
+  &.firstSectionView,
+  &.fourthSectionView {
+    @extend .greySection;
+  }
+
+  &.thirdSectionView {
+    @extend .blackSection;
+
+    h3 {
+      color: $gray900;
+    }
+  }
+
+  &.fourthSectionView {
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

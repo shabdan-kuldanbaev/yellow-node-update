@@ -1,0 +1,37 @@
+.mobile-app-development-company {
+
+  &.firstSectionView,
+  &.thirdSectionView {
+    @extend .greySection;
+  }
+
+  &.secondSectionView {
+    @include below-tablet {
+      .cards>div {
+        display: block;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .card {
+      @extend .cardWithVerticalLine
+    }
+  }
+
+  &.fifthSectionView {
+    @extend .blackSection;
+
+    h3 {
+      color: $gray0;
+    }
+  }
+
+  &.sixthSectionView {
+    padding-bottom: 0;
+
+    .card {
+      @extend .cardWithFullSizeImage;
+    }
+  }
+}

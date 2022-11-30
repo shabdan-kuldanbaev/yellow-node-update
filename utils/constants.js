@@ -163,7 +163,7 @@ export const SVG_IMAGES_TYPES = {
   searchSvg: 'search',
   yellowLogoSvg: 'yellowLogo',
   unpinSvg: 'unpin',
-  closeSvg: 'cancel',
+  closeSvg: 'xClose',
   scrollIconSvg: 'scrollIcon',
   esquirePartner: 'esquirePartner',
   productHuntPartner: 'productHuntPartner',
@@ -216,12 +216,12 @@ export const SVG_IMAGES_TYPES = {
   whiteLogo: 'whiteLogo',
   blackYellowText: 'blackYellowText',
   whiteYellowText: 'whiteYellowText',
+  arrowNarrowUp: 'arrowNarrowUp',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentPageIntro: 'app-development-page-intro',
   appDevelopmentCards: 'app-development-cards',
-  appDevelopmentSmallCards: 'app-development-small-cards',
   appDevelopmentCheckList: 'app-development-check-list',
   appDevelopmentSvgList: 'app-development-svg-list',
   appDevelopmentGallery: 'app-development-gallery',

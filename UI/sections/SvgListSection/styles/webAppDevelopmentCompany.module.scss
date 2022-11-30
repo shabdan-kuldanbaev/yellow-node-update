@@ -1,0 +1,23 @@
+.web-app-development-company {
+  .titleStyle {
+    margin-bottom: 32px;
+
+    @include phone {
+      margin-bottom: 24px;
+    }
+  }
+
+  &.firstSectionView {
+    [data-title] {
+      max-width: 730px;
+    }
+
+    [data-description] {
+      max-width: 750px;
+
+      @include phone {
+        max-width: 343px;
+      }
+    }
+  }
+}

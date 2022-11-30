@@ -1,0 +1,63 @@
+.cloud-based-app-development-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    padding-bottom: 0;
+  }
+
+  &.secondSectionView {
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .blackSection;
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      picture {
+        width: 276px;
+        height: 276px;
+      }
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    padding-bottom: 0;
+
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

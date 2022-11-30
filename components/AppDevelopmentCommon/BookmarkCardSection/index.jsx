@@ -21,11 +21,11 @@ const BookmarkCardSection = ({
   }
 
   return (
-    <div className={cn(styles[pageType], styles[view])}>
+    <div className={cn(styles.bookmarkSection, styles[pageType], styles[view])}>
       <div className={styles.contentWrapper}>
         <div className={styles.bookmarkContainer}>
           <Svg
-            type="bookmark"
+            type="bookMark"
             className={styles.bookmarkIcon}
           />
           <div className={styles.content}>

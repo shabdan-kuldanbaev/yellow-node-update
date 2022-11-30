@@ -1,0 +1,20 @@
+.mvp-app-development-company {
+  .titleStyle {
+    margin-bottom: 32px;
+
+    @include phone {
+      margin-bottom: 24px;
+    }
+  }
+
+  &.firstSectionView {
+    [data-title],
+    [data-description] {
+      max-width: 610px;
+  
+      @include phone {
+        max-width: 305px;
+      }
+    }
+  }
+}

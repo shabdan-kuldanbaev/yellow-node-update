@@ -1,0 +1,60 @@
+.fintech-software-development-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          text-align: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .blackSection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+          margin-right: 0;
+        }
+
+        ul {
+          @include flex(column, center, center);
+        }
+      }
+    }
+
+    button {
+      color: $gray400;
+    }
+  }
+}

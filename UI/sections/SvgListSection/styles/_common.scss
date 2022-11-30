@@ -1,13 +1,30 @@
+@mixin sliderTwoRows {
+  .svgList1 {
+    margin-bottom: 60px;
+  }
+
+  .svgList1,
+  .svgList2 {
+    @include phone {
+      display: none;
+    }
+  }
+
+  .svgList3 {
+    display: none;
+
+    @include phone {
+      display: block;
+    }
+  }
+}
+
 .section {
   @include appDevelopmentContainer;
 }
 
 .titleStyle {
   @include defaultSectionTitle;
-}
-
-.callToAction {
-  @include defaultCallToAction;
 }
 
 .groupTitle {
@@ -23,6 +40,7 @@
   }
 }
 
+.android-mobile-app-development-services,
 .web-app-development-company,
 .mvp-app-development-company,
 .mobile-app-development-company,
@@ -33,5 +51,11 @@
     @include centeredIcons;
   
     padding-top: 0;
+
+    [data-title] {
+      @include phone {
+        max-width: 305px;
+      }
+    }
   }
 }

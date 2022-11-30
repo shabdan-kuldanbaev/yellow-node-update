@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
-import CallToAction from 'components/Common/CallToAction';
+import CallToAction from 'UI/components/CallToAction';
 import CheckWithText from 'UI/components/Cards/CheckWithText';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import SectionTitle from 'UI/components/SectionTitle';
@@ -58,7 +58,7 @@ export const CheckListSection = (props) => {
               title={link.title}
               buttonTitle={link.buttonTitle}
               handleOnClick={handleOnCTAClick}
-              className={styles.callToAction}
+              // className={styles.callToAction}
             />
           </Animated>
         )}
