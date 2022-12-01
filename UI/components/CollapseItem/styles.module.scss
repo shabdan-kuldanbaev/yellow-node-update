@@ -49,6 +49,7 @@
 .question {
   @include flex(row, space-between, center);
 
+  cursor: pointer;
   outline: none;
 
   & > p {
