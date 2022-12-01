@@ -4,20 +4,20 @@ export const getContentfulImage = ({
   quality,
   progressive,
   format,
+  transparent,
   ...params
 }) => {
   try {
     const url = new URL(src);
 
-    let fm = format || 'webp';
+    let fm = format || (transparent ? 'webp' : 'jpg');
     let fl = null;
 
     if (!format && src.includes('.svg')) {
       fm = null;
     }
 
-    if (progressive) {
-      fm = 'jpg';
+    if (fm === 'jpg') {
       fl = 'progressive';
     }
 

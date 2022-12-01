@@ -9,7 +9,7 @@ const Illustration = (props) => {
     ...restProps
   } = useIllustration(props);
 
-  if (!restProps?.src) {
+  if (!restProps?.src || (restProps.placeholder === 'blur' && !restProps.blurDataURL)) {
     return null;
   }
 
@@ -25,12 +25,12 @@ const Illustration = (props) => {
 
 Illustration.defaultProps = {
   layout: 'fill',
-  placeholder: 'blur',
   alt: '',
   apiParams: {},
 };
 
 Illustration.propTypes = {
+  transparent: PropTypes.bool,
   // For more props check https://nextjs.org/docs/api-reference/next/legacy/image
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,
