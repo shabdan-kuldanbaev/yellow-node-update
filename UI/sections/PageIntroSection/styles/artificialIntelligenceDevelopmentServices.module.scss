@@ -1,15 +1,9 @@
 .artificial-intelligence-development-services {
-  .pageIntroWrapper {
-    @include below-tablet {
-      @include flex(column-reverse);
-    }
-  }
-
   .pageTitle {
     color: $gray0;
   }
 
-  .pageIntroImage {
+  .pageImage {
     max-width: 415px;
   }
 }
