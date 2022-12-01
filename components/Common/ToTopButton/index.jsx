@@ -28,7 +28,7 @@ export const ToTopButton = () => {
       tabIndex="0"
     >
       <Svg
-        type={SVG_IMAGES_TYPES.arrowUp}
+        type={SVG_IMAGES_TYPES.arrowNarrowUp}
         className={styles.arrowUp}
       />
     </div>
