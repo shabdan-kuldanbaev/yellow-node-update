@@ -5,7 +5,7 @@
   max-width: $max-content-width;
   padding: 32px 120px 120px;
 
-  .pageIntroWrapper {
+  .pageWrapper {
     @include flex(row, space-between, center);
 
     & > div {
@@ -14,11 +14,11 @@
     }
 
     @include below-tablet {
-      @include flex(column, space-between, center);
+      @include flex(column-reverse);
     }
   }
 
-  .pageTitleContainer {
+  .pageTextContainer {
     max-width: 558px;
 
     @include below-tablet {
@@ -44,7 +44,7 @@
     }
   }
 
-  .pageIntroSubtitle {
+  .pageSubtitle {
     @include fontSize(16px, 24px);
 
     color: $gray400;
@@ -56,13 +56,13 @@
     }
   }
 
-  .pageIntroImage {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    margin: 0 auto;
+  .pageImage {
     padding-top: 100%;
     width: 100%;
+
+    @include below-tablet {
+      margin-bottom: 24px;
+    }
   }
 
   @include tablet {
