@@ -150,7 +150,7 @@ export const SVG_IMAGES_TYPES = {
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
   nearbyArrow: 'nearbyArrow',
-  arrowDown: 'arrowDown',
+  chevronDown: 'chevronDown',
   appstore: 'appstore',
   blackFillAppstore: 'blackFillAppstore',
   blackLogo: 'blackLogo',
@@ -354,6 +354,9 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.developmentServices.path,
   ROUTES.fintechDevelopment.path,
   ROUTES.erpDevelopment.path,
+  ROUTES.mvpDevelopment.path,
+  ROUTES.androidDevelopmentServices.path,
+  ROUTES.cloudDevelopment.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
