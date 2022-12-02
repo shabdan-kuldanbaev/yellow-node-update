@@ -36,7 +36,7 @@ const NumberedListSection = (props) => {
           {list.map((text, index) => (
             <Animated
               {...REVEAL_ANIMATION_PROPS}
-              key={`check-list/${index}`}
+              key={`numbered-list/${index}`}
               transitionDelay={50 * index}
             >
               <NumberWithText
