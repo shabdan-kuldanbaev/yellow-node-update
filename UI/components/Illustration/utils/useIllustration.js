@@ -14,8 +14,6 @@ export default ({
   placeholder: placeholderProp,
   ...rest
 }) => {
-  const [blurDataURL, setBlurDataURL] = useState();
-
   const loader = isStatic
     ? ({ src: staticSrc }) => staticSrc
     : (args) => getContentfulImage({ transparent, ...args, ...apiParams });
@@ -24,16 +22,14 @@ export default ({
 
   const placeholder = placeholderProp || (transparent ? 'blur' : 'empty');
 
-  useEffect(() => {
-    if (isStatic || !transparent) {
-      return;
-    }
-
-    (async () => {
-      const base64 = await axios.post('/api/getBase64', { url: src });
-      setBlurDataURL(base64);
-    })();
-  }, [src, isStatic, transparent]);
+  const blurDataURL = isStatic
+    ? src
+    : getContentfulImage({
+      src,
+      quality: 1,
+      format: 'webp',
+      transparent,
+    });
 
   return {
     src,
