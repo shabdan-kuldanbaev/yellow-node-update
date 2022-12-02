@@ -27,7 +27,7 @@ const ItemPreview = (props) => {
           className={styles.image}
           src={imageUrl}
           alt={slug}
-          priority
+          lazyBoundary="2000px"
         />
       </div>
     </LinkWrapper>

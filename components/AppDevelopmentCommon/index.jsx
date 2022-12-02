@@ -1,25 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import { CheckListSection } from 'UI/sections/CheckListSection';
-import { NumberedListSection } from 'UI/sections/NumberedListSection';
-import TabsSection from 'UI/sections/TabsSection';
-import DownloadSection from 'UI/sections/DownloadSection';
 import PageIntroSection from 'UI/sections/PageIntroSection';
 import PlainTextSection from 'UI/sections/PlainTextSection';
-import ProcessSection from 'UI/sections/ProcessSection';
-import CardsSection from 'UI/sections/CardsSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
-const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
+const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
+const ProcessSection = dynamic(() => import('UI/sections/ProcessSection'));
+const DownloadSection = dynamic(() => import('UI/sections/DownloadSection'));
+const TabsSection = dynamic(() => import('UI/sections/TabsSection'));
+const CheckListSection = dynamic(() => import('UI/sections/CheckListSection'));
+const NumberedListSection = dynamic(() => import('UI/sections/NumberedListSection'));
+const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'), {});
 const GallerySection = dynamic(() => import('UI/sections/GallerySection'));
 const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 const ImagesListSection = dynamic(() => import('UI/sections/ImagesListSection'));
-const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
-const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
 const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
@@ -120,13 +118,6 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   case APP_DEVELOPMENT_TYPES.appDevelopmentProcess:
     return <ProcessSection {...props} />;
 
-  case APP_DEVELOPMENT_TYPES.appDevelopmentBlog:
-    return (
-      <BlogSection
-        sectionData={section}
-        pageType={type}
-      />
-    );
   case APP_DEVELOPMENT_TYPES.appDevelopmentCheckSocial:
     return (
       <CheckSocialSection
