@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import { SwiperSlide } from 'swiper/react';
 import Animated from 'components/Common/Animated';
 import CallToAction from 'components/Common/CallToAction';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import Review from 'UI/components/Cards/Review';
-import { SwiperSlide } from 'swiper/react';
+import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 import useReviewsSection from './utils/useReviewsSection';
 
