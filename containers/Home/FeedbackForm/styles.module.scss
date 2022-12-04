@@ -20,7 +20,7 @@
   & > div:first-child {
     width: 100%;
     text-align: center;
-    margin-bottom: $after-mobile-title-margin;
+    margin-bottom: 48px;
 
     .title {
       @include phone {

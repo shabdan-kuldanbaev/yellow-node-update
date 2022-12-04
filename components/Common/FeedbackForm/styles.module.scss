@@ -3,7 +3,7 @@
 .feedbackForm {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 790px;
   transition: height 0.4s ease;
 
   @include flex(row, center, center);
@@ -85,6 +85,7 @@
   .submit {
     @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
 
+    margin-top: 48px;
     border-radius: $button-border-radius;
     max-width: 264px;
     font-weight: 600;

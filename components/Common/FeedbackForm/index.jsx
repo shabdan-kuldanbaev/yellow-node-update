@@ -1,8 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
@@ -10,13 +6,13 @@ import { connect } from 'react-redux';
 import { selectError } from 'redux/selectors/contact';
 import { sendEmail } from 'redux/actions/contact';
 import Animated from 'components/Common/Animated';
-import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
 import Upload from 'components/Common/Upload';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs/withValidateEmail';
+import Input from 'UI/components/Input';
 import { SliderWrapper } from './SliderWrapper';
 import FormContainer from './FormContainer';
 import { budget, marks } from './utils/data';
@@ -161,12 +157,14 @@ const FeedbackForm = ({
             {...animatedProps}
             transitionDelay={500}
           >
-            <AnimatedInput
+            <Input
               value={fullName}
               handleOnChange={handleOnNameChange}
               placeholder="Name *"
-              isValidate
+              isRequired
+              isValid={Boolean(fullName)}
               isWithoutLabel
+              errorMessage="This field is required"
               isContactPage={isContactPage}
               style={type}
             />
@@ -175,13 +173,14 @@ const FeedbackForm = ({
             {...animatedProps}
             transitionDelay={550}
           >
-            <AnimatedInput
+            <Input
               value={email.value}
               handleOnChange={handleOnEmailChange}
               placeholder="Email *"
               type="email"
-              isValidate={email.isValidate}
+              isValid={email.isValidate}
               handleOnBlurEmail={handleOnBlurEmail}
+              errorMessage="Incorrect"
               isWithoutLabel
               style={type}
             />
