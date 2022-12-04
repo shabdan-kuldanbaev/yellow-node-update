@@ -1,11 +1,6 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import autosize from 'autosize';
 import cn from 'classnames';
-import { errorMessages, patterns } from './patterns';
 import styles from '../styles.module.scss';
 
 export default (props) => {
@@ -15,31 +10,35 @@ export default (props) => {
     isTextArea,
     isRequired,
     isWithoutLabel,
+    isValid,
     handleOnBlurEmail,
+    errorMessage,
     style,
     value,
     type,
     placeholder,
     ...rest
   } = props;
-
   const Component = isTextArea ? 'textarea' : 'input';
 
   const inputRef = useRef();
   const [isActive, setActive] = useState(false);
   const [isFocus, setFocus] = useState(false);
+  const [isDirty, setIsDirty] = useState(false);
 
   const className = cn(props.className, styles.input, {
     [styles[style]]: style,
     [styles.isAttached]: isRequired || isAttached,
     [styles.isActive]: isActive,
     [styles.isFocus]: isFocus,
+    [styles.isValid]: isDirty && !isValid,
   });
 
   const handleOnFocus = () => setFocus(true);
 
   const handleOnClick = () => {
     inputRef.current?.focus();
+    setIsDirty(true);
     setActive(true);
   };
 
@@ -59,9 +58,7 @@ export default (props) => {
     onClick: handleOnClick,
     onFocus: handleOnFocus,
     onBlur: handleOnBlur,
-    required: isRequired,
     placeholder: isWithoutLabel && placeholder,
-    pattern: type in patterns ? patterns[type] : null,
   };
 
   useEffect(() => {
@@ -78,8 +75,9 @@ export default (props) => {
     Component,
     className,
     inputOptions,
-    errorMessages,
+    errorMessage,
     isRequired,
+    isValid,
     type,
     value,
     placeholder,

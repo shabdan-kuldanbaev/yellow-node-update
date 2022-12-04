@@ -8,13 +8,13 @@ const Input = (props) => {
     Component,
     value,
     style,
-    isRequired,
     isAttached,
     isWithoutLabel,
+    isValid,
     placeholder,
     className,
     inputOptions,
-    errorMessages,
+    errorMessage,
     type,
     ...rest
   } = useInput(props);
@@ -42,13 +42,8 @@ const Input = (props) => {
           {placeholder}
         </label>
       )}
-      {isRequired && (
-        <span className={styles.isRequired}>
-          *
-        </span>
-      )}
       <span className={styles.error}>
-        {errorMessages[type]}
+        {errorMessage}
       </span>
     </div>
   );
@@ -65,6 +60,7 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
+  isValid: PropTypes.bool,
   value: PropTypes.string.isRequired,
   handleOnChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
