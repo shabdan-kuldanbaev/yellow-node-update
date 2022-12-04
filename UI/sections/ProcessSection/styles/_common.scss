@@ -53,6 +53,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 60px;
+  max-width: $wide-content-width;
+  margin: 0 auto;
 
   @include tablet {
     grid-gap: 40px;
@@ -69,14 +71,14 @@
   border-radius: 5px;
   box-shadow: $card-bow-shadow;
   box-sizing: border-box;
-  padding: 30px;
+  padding: 32px;
   position: relative;
 
   .typeTitle {
     @include fontSize(20px, 30px);
 
     font-weight: 700;
-    margin: 20px 0 10px;
+    margin: 16px 0 8px;
   }
 
   p {
@@ -129,10 +131,6 @@
     top: unset;
     bottom: 0;
     transform: translate(-50%, 50%);
-  }
-
-  @include tablet {
-    padding: 20px;
   }
 
   @include below-tablet {
