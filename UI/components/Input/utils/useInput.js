@@ -26,29 +26,25 @@ export default (props) => {
   const Component = isTextArea ? 'textarea' : 'input';
 
   const inputRef = useRef();
-  const [isActive, setActive] = useState(false);
   const [isFocus, setFocus] = useState(false);
   const [isDirty, setIsDirty] = useState(false);
 
   const className = cn(props.className, styles.input, {
     [styles[style]]: style,
     [styles.isAttached]: isRequired || isAttached,
-    [styles.isActive]: isActive,
     [styles.isFocus]: isFocus,
-    [styles.isInvalid]: isDirty && !isValid,
+    [styles.isInvalid]: isDirty && !isFocus && !isValid,
   });
 
   const handleOnFocus = () => setFocus(true);
 
   const handleOnClick = () => {
-    inputRef.current?.focus();
     setIsDirty(true);
-    setActive(true);
+    inputRef.current?.focus();
   };
 
   const handleOnBlur = () => {
     setFocus(false);
-    setActive(false);
 
     if (type === 'email' && value !== '' && handleOnBlurEmail) handleOnBlurEmail(value);
   };
