@@ -14,9 +14,6 @@ const Burger = (props) => {
     isPageScrolledDown,
   } = useBurger(props);
 
-  console.log('isPageScrolledDown', isPageScrolledDown);
-  console.log('PAGES_WITH_DARK_HEADER.includes(asPath)', PAGES_WITH_DARK_HEADER.includes(asPath));
-
   return (
     <div
       className={
