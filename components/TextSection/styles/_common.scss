@@ -1,0 +1,11 @@
+.titleStyle {
+  @include defaultSectionTitle;
+
+  h2 {
+    color: $white;
+  }
+}
+
+.textSection {
+  @include appDevelopmentContainer;
+}

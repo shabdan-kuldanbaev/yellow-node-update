@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import Animated from 'components/Common/Animated';
 import CallToAction from 'components/Common/CallToAction';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
@@ -30,7 +30,6 @@ const ReviewsSection = (props) => {
           description={description}
           titleStyle={styles.titleStyle}
         />
-
         <CustomSwiper
           swiperParams={swiperParams}
           isShowNavigation

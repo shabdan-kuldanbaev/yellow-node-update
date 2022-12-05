@@ -1,22 +1,4 @@
 @import 'styles/utils/mixins';
 @import 'components/AppDevelopmentCommon/utils/styles.module';
-
-.titleStyle {
-  @include defaultSectionTitle;
-
-  h2 {
-    color: $white;
-  }
-}
-
-.textSection {
-  @include appDevelopmentContainer;
-}
-
-.homepage {
-  background: $cod-gray-1;
-
-  .titleStyle {
-    margin-bottom: 0;
-  }
-}
+@import './styles/common';
+@import './styles/homepage.module.scss';

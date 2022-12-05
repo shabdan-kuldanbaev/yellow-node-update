@@ -1,0 +1,10 @@
+.homepage {
+  [data-title],
+  [data-description] {
+    max-width: 705px;
+
+    @include phone {
+      max-width: 370px;
+    }
+  }
+}

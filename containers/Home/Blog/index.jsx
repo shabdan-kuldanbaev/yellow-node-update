@@ -5,7 +5,7 @@ import { selectArticles } from 'redux/selectors/blog';
 import Animated from 'components/Common/Animated';
 import { ArticlesList } from 'components/BlogCommon/ArticlesList';
 import ButtonMore from 'components/Common/ButtonMore';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import {
   ANIMATED_TYPE,
   HOMEPAGE_BLOG_CURRENT_PAGE,

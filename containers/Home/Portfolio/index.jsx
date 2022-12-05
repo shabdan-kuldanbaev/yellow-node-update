@@ -9,7 +9,7 @@ import throttle from 'lodash/throttle';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import Works from 'components/HomeCommon/Works';
 import { getDocumentFields } from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS, ROUTES } from 'utils/constants';
@@ -90,7 +90,7 @@ const Portfolio = ({ sectionData }) => {
       <div className={styles.bottomOfPortfolio}>
         <SectionTitle
           title="Developing custom software for your business idea"
-          titleStyle={styles.titleStyle}
+          titleStyle={styles.secondTitleStyle}
         />
         <Animated
           {...REVEAL_ANIMATION_PROPS}
@@ -99,7 +99,7 @@ const Portfolio = ({ sectionData }) => {
           <ButtonMore
             href={ROUTES.portfolio.path}
             dynamicRouting={ROUTES.portfolio.dynamicPath}
-            title="EXPLORE OUR WORKS"
+            title="Explore more works by Yellow"
             buttonStyle={styles.portfolioButton}
           />
         </Animated>
