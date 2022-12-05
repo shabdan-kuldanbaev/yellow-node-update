@@ -36,9 +36,8 @@ export default (props) => {
     [styles.isInvalid]: isDirty && !isFocus && !isValid,
   });
 
-  const handleOnFocus = () => setFocus(true);
-
-  const handleOnClick = () => {
+  const handleOnFocus = () => {
+    setFocus(true);
     setIsDirty(true);
     inputRef.current?.focus();
   };
@@ -55,7 +54,6 @@ export default (props) => {
     ref: inputRef,
     type: type || 'text',
     onChange: handleOnChange,
-    onClick: handleOnClick,
     onFocus: handleOnFocus,
     onBlur: handleOnBlur,
     placeholder: isWithoutLabel && placeholder,
