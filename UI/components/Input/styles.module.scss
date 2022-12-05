@@ -83,7 +83,7 @@
   transition: border 1s cubic-bezier(0.26, 1.04, 0.54, 1), color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
 }
 
-.isValid {
+.isInvalid {
   input, textarea {
     border-color: $red500;
   }

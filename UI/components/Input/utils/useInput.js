@@ -35,7 +35,7 @@ export default (props) => {
     [styles.isAttached]: isRequired || isAttached,
     [styles.isActive]: isActive,
     [styles.isFocus]: isFocus,
-    [styles.isValid]: isDirty && !isValid,
+    [styles.isInvalid]: isDirty && !isValid,
   });
 
   const handleOnFocus = () => setFocus(true);
