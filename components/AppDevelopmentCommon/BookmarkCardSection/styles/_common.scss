@@ -1,0 +1,56 @@
+.bookmarkSection {
+  @include appDevelopmentContainer;
+
+  padding-top: 48px;
+}
+
+.contentWrapper {
+  max-width: 864px;
+  margin: 0 auto;
+}
+
+.bookmarkContainer {
+  padding: 40px;
+  border: 2px solid $yellow500;
+  border-radius: 5px;
+  position: relative;
+
+  @include below-tablet {
+    padding: 32px;
+  }
+}
+
+.bookmarkIcon {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 42px;
+  width: 31px;
+  height: 31px;
+  background-size: 100% 100%;
+}
+
+.content {
+  @include flex(column, center, center);
+
+  a {
+    text-decoration: underline;
+    color: $gray900;
+  }
+}
+
+.title {
+  @include fontSize(24px, 130%);
+
+  position: relative;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto 24px;
+  max-width: 464px;
+
+  @include below-tablet {
+    @include fontSize(20px, 150%);
+
+    width: 100%;
+  }
+}
