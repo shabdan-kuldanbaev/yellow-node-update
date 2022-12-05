@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Svg from 'UI/components/Svg';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
 import Input from 'UI/components/Input';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { AttachedFile } from './AttachedFile';
 import styles from './styles.module.scss';
 
