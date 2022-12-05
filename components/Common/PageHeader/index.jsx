@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { string } from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
-import Breadcrumbs from 'components/Common/Breadcrumbs';
+import Breadcrumbs from 'UI/components/Breadcrumbs';
 import { formatDate } from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -12,12 +12,16 @@ const PageHeader = ({
   breadcrumbs,
   titleStyles,
   breadcrumbsStyles,
+  breadcrumbsTheme,
   updatedAt,
+  type,
 }) => (
   <>
     <Breadcrumbs
       breadcrumbs={breadcrumbs}
-      breadcrumbsStyles={breadcrumbsStyles}
+      className={breadcrumbsStyles}
+      type={type}
+      dark={breadcrumbsTheme === 'dark'}
     />
     {title && (
       <div className={cn(styles.titleContainer, { [titleStyles]: titleStyles })}>
@@ -43,6 +47,7 @@ PageHeader.defaultProps = {
 
 PageHeader.propTypes = {
   title: PropTypes.string,
+  type: string.isRequired,
   breadcrumbs: PropTypes.instanceOf(Array),
   titleStyles: PropTypes.string,
   breadcrumbsStyles: PropTypes.string,
