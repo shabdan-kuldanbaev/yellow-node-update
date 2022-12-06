@@ -1,5 +1,5 @@
 .ui-ux-services {
-  padding-bottom: 24px;
+  padding-bottom: 0;
 
   .pageWrapper {
     margin-bottom: 0;
@@ -33,5 +33,9 @@
         transform: translate(-70%, 0);
       }
     }
+  }
+
+  @include below-tablet {
+    padding-bottom: 32px;
   }
 }
