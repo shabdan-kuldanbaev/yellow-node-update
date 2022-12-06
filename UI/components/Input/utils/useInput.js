@@ -34,6 +34,7 @@ export default (props) => {
     [styles.isAttached]: isAttached,
     [styles.isFocus]: isFocus,
     [styles.isDirty]: isDirty,
+    [styles.isWithLabel]: !isWithoutLabel,
   });
 
   const handleOnFocus = () => {
