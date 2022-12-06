@@ -3,10 +3,10 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
 import SectionTitle from 'UI/components/SectionTitle';
+import Illustration from 'UI/components/Illustration';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
-import Illustration from '../../components/Illustration';
 
 const ImagesListSection = (props) => {
   const {
@@ -32,11 +32,6 @@ const ImagesListSection = (props) => {
               {...REVEAL_ANIMATION_PROPS}
               transitionDelay={50 * index}
             >
-              {/* <img */}
-              {/*   className={styles.image} */}
-              {/*   src={url} */}
-              {/*   alt={description} */}
-              {/* /> */}
               <Illustration
                 className={styles.image}
                 src={url}
