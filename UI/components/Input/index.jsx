@@ -10,11 +10,10 @@ const Input = (props) => {
     style,
     isAttached,
     isWithoutLabel,
-    isValid,
     placeholder,
     className,
     inputOptions,
-    errorMessage,
+    errorMessages,
     type,
     ...rest
   } = useInput(props);
@@ -43,7 +42,7 @@ const Input = (props) => {
         </label>
       )}
       <span className={styles.error}>
-        {errorMessage}
+        {type ? errorMessages[type] : errorMessages.text}
       </span>
     </div>
   );
@@ -52,7 +51,7 @@ const Input = (props) => {
 Input.defaultProps = {
   isWithoutLabel: false,
   handleOnBlurEmail: null,
-  type: null,
+  type: 'text',
   isRequired: false,
   isAttached: false,
   isTextArea: false,
@@ -60,7 +59,6 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
-  isValid: PropTypes.bool,
   value: PropTypes.string.isRequired,
   handleOnChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,

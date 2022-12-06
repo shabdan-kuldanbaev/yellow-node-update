@@ -4,8 +4,8 @@
   @include flex(column);
 
   position: relative;
-  outline: none;
   margin-bottom: 35px;
+  outline: none;
 
   input,
   textarea {
@@ -16,6 +16,7 @@
     border: 0 none;
     border-bottom: solid 0.5px $gray300;
     background-color: transparent;
+    font-family: $default-font;
     color: $gray900;
     outline: none;
     padding: 0 0 12px 0;
@@ -30,19 +31,10 @@
     &:focus::placeholder {
       transform: translateX(4px);
     }
-
-    &:required:invalid {
-      border-color: $red500;
-    }
-
-    &:required:invalid ~ .error {
-      opacity: 1;
-    }
   }
 
   textarea {
     resize: none;
-    font-family: $default-font;
   }
 
   label {
@@ -78,16 +70,6 @@
   transition: border 1s cubic-bezier(0.26, 1.04, 0.54, 1), color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
 }
 
-.isInvalid {
-  input, textarea {
-    border-color: $red500;
-  }
-
-  .error {
-    opacity: 1;
-  }
-}
-
 .error {
   display: block;
   opacity: 0;
@@ -99,5 +81,17 @@
 
   @include phone {
     top: 45%;
+  }
+}
+
+.isDirty {
+  input, textarea {
+    &:invalid {
+      border-color: $red500;
+    }
+
+    &:invalid ~ .error {
+      opacity: 1;
+    }
   }
 }
