@@ -37,12 +37,15 @@ const CheckSocialSection = ({
                   key={`gallery-cta/${linkText}`}
                 >
                   <LinkWrapper path={url}>
-                    <Svg type={linkSvgType} />
+                    <Svg
+                      type={linkSvgType}
+                      className={styles.linkSvg}
+                    />
                     <p className={styles.linkText}>
                       {linkText}
                     </p>
                     <Svg
-                      type={SVG_IMAGES_TYPES.nearbyArrow}
+                      type={SVG_IMAGES_TYPES.arrowRight}
                       className={styles.arrow}
                     />
                   </LinkWrapper>

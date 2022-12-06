@@ -37,7 +37,7 @@
 
             color: $dark-grey;
             font-weight: 700;
-            margin: 0 18px 0 15px;
+            margin: 0 12px;
 
             @include phone {
               @include fontSize(20px);
@@ -53,6 +53,11 @@
 
           .arrow {
             transition: transform 0.4s ease-out;
+          }
+
+          .linkSvg {
+            width: 32px;
+            height: 32px;
           }
         }
 
