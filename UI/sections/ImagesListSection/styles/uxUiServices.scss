@@ -1,10 +1,13 @@
 @import 'styles/utils/mixins';
 
 .ui-ux-services {
-  @extend .imageSection;
 
   &.firstSectionView {
     padding: 0 40px 75px;
+
+    .titleStyle {
+      display: none;
+    }
 
     .imagesList {
       justify-content: space-around;
@@ -22,28 +25,15 @@
     }
 
     .imagesList > div:nth-of-type(1) {
-      max-width: 201px;
-
-      @include phone {
-        max-width: 180px;
-      }
+      width: 198px;
     }
 
     .imagesList > div:nth-of-type(2) {
-      max-width: 130px;
-
-      @include phone {
-        max-width: 115px;
-      }
+      width: 106px;
     }
 
     .imagesList > div:nth-of-type(3) {
-      max-width: 165px;
-      margin-bottom: 0;
-
-      @include phone {
-        max-width: 146px;
-      }
+      width: 163px;
     }
 
     .imagesList > div:last-of-type {
