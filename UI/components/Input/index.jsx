@@ -2,19 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useInput from './utils/useInput';
 import styles from './styles.module.scss';
+import { errorMessages } from './utils/patterns';
 
 const Input = (props) => {
   const {
     Component,
-    value,
-    style,
-    isAttached,
-    isWithoutLabel,
-    placeholder,
     className,
     inputOptions,
-    errorMessages,
+    isRequired,
     type,
+    value,
+    placeholder,
+    isWithoutLabel,
     ...rest
   } = useInput(props);
 
@@ -42,7 +41,7 @@ const Input = (props) => {
         </label>
       )}
       <span className={styles.error}>
-        {type ? errorMessages[type] : errorMessages.text}
+        {isRequired && value.length === 0 ? errorMessages.required : errorMessages[type]}
       </span>
     </div>
   );
@@ -51,7 +50,6 @@ const Input = (props) => {
 Input.defaultProps = {
   isWithoutLabel: false,
   handleOnBlurEmail: null,
-  type: 'text',
   isRequired: false,
   isAttached: false,
   isTextArea: false,

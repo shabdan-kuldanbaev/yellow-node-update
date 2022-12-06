@@ -5,7 +5,7 @@ import {
 } from 'react';
 import autosize from 'autosize';
 import cn from 'classnames';
-import { errorMessages, patterns } from './patterns';
+import { patterns } from './patterns';
 import styles from '../styles.module.scss';
 
 export default (props) => {
@@ -75,12 +75,11 @@ export default (props) => {
     Component,
     className,
     inputOptions,
-    errorMessages,
-    isRequired,
     type,
     value,
     placeholder,
     isWithoutLabel,
+    isRequired,
     ...rest,
   });
 };

@@ -4,7 +4,7 @@
   @include flex(column);
 
   position: relative;
-  margin-bottom: 35px;
+  margin-bottom: 21px;
   outline: none;
 
   input,
@@ -21,7 +21,6 @@
     outline: none;
     padding: 0 0 12px 0;
     transition: border 1s cubic-bezier(0.26, 1.04, 0.54, 1), color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
-    margin-bottom: 4px;
 
     &::placeholder {
       transition: 0.3s ease;
@@ -71,7 +70,8 @@
 }
 
 .error {
-  display: block;
+  position: absolute;
+  bottom: -21px;
   opacity: 0;
   transition: opacity 1s cubic-bezier(0.26, 1.04, 0.54, 1);
   font-weight: 400;
