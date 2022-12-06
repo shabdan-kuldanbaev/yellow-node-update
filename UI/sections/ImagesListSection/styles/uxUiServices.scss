@@ -1,7 +1,6 @@
 @import 'styles/utils/mixins';
 
 .ui-ux-services {
-
   &.firstSectionView {
     padding: 0 40px 75px;
 
@@ -11,35 +10,32 @@
 
     .imagesList {
       justify-content: space-around;
+
+      & > div:nth-of-type(1), div:nth-of-type(2) {
+        @include below-tablet {
+          margin-bottom: 32px;
+        }
+      }
     }
 
-    .imagesList > div {
-      @include below-tablet {
-        margin-bottom: 32px;
-      }
-
-      .image {
-        width: 100%;
-        height: 100%;
-      }
+    .image {
+      width: 100%;
+      height: 100%;
     }
 
     .imagesList > div:nth-of-type(1) {
+      height: 84px;
       width: 198px;
     }
 
     .imagesList > div:nth-of-type(2) {
+      height: 140px;
       width: 106px;
     }
 
     .imagesList > div:nth-of-type(3) {
+      height: 84px;
       width: 163px;
-    }
-
-    .imagesList > div:last-of-type {
-      @include below-tablet {
-        margin-bottom: 0;
-      }
     }
   }
 
@@ -47,16 +43,25 @@
     padding-top: 0;
 
     .imagesList {
-      justify-content: center;
+      @include flex(column, center, center);
+
+      max-width: 920px;
+      height: 80px;
+      margin: 0 auto;
+
+      & > div {
+        width: 100%;
+        height: 100%;
+      }
+
+      @include tablet {
+        height: 180px;
+      }
     }
 
     .imagesList > div:nth-of-type(1) {
-      .image {
-        max-width: 920px;
-
-        @include tablet {
-          display: none;
-        }
+      @include tablet {
+        display: none;
       }
     }
 
@@ -65,51 +70,20 @@
 
       @include tablet {
         display: block;
-
-        .image {
-          width: 100%;
-          max-width: 500px;
-        }
       }
+    }
 
-      @include phone {
-        .image {
-          max-width: 300px;
-        }
-      }
+    .image {
+      width: 100%;
+      height: 100%;
     }
   }
 
   .titleStyle {
     margin-bottom: 48px;
 
-    @include phone {
+    @include tablet {
       margin-bottom: 24px;
-    }
-
-    h2 {
-      @include fontSize(38px);
-
-      max-width: 660px;
-      line-height: 49px;
-
-      @include phone {
-        @include fontSize(24px);
-
-        line-height: 31px;
-      }
-    }
-
-    p {
-      @include fontSize(16px);
-
-      max-width: 920px;
-      margin-top: 16px;
-      line-height: 24px;
-
-      @include phone {
-        margin-top: 8px;
-      }
     }
   }
 }
