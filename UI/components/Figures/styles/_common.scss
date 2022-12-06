@@ -2,8 +2,10 @@
   @include flex(row, space-between);
 
   flex-wrap: wrap;
+  max-width: $default-content-width;
+  margin: 0 auto;
 
-  & > div {
+  &>div {
     @include flex(row, initial, center);
 
     flex: 0 1 379px;
@@ -56,4 +58,3 @@
 .icon {
   @include centered;
 }
-
