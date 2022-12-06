@@ -24,12 +24,24 @@
   margin: 0 auto;
 }
 
+.callToAction {
+  background: $gray0;
+}
+
 .discovery-phase-services {
   &.reviews {
     background-color: $white;
+  }
+
+  .callToAction {
+    background: $gray50;
   }
 }
 
 .fintech-software-development-services {
   background-color: $white;
+
+  .callToAction {
+    background: $gray50;
+  }
 }

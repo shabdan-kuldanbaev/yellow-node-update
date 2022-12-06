@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
 import Animated from 'components/Common/Animated';
-import CallToAction from 'components/Common/CallToAction';
+import CallToAction from 'UI/components/CallToAction';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import Review from 'UI/components/Cards/Review';

@@ -21,6 +21,7 @@ export default ({
   );
 
   const { contentModules: rawReviews } = getDocumentFields(get(contentModules, '[0]', []), ['contentModules']);
+  const ctaLink = getDocumentFields(get(contentModules, '[1]', []), ['title', 'buttonTitle']);
   const reviews = (rawReviews || []).map((item) => {
     const {
       contentModules: rawPerson,
@@ -91,6 +92,7 @@ export default ({
     handleOnCTAClick,
     reviews,
     swiperParams,
+    ctaLink,
     ...rest,
   };
 };
