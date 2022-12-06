@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Svg from 'UI/components/Svg';
-import ButtonMore from 'components/Common/ButtonMore';
+import Button from 'UI/components/Button';
+import Link from 'next/link';
 import { getBookmarkCardProps } from './utils/bookmarkCardHelper';
 import styles from './styles.module.scss';
 
@@ -32,11 +33,9 @@ const BookmarkCardSection = ({
             <h3 className={styles.title}>
               {title}
             </h3>
-            <ButtonMore
-              href={url}
-              isLocalLink
-              title="See post"
-            />
+            <Link href={url}>
+              See post
+            </Link>
           </div>
         </div>
       </div>
