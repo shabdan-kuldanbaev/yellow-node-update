@@ -25,9 +25,9 @@ const Upload = ({
           value={projectDescription}
           handleOnChange={handleOnDescriptionChange}
           placeholder="Project details *"
-          isValid
           isWithoutLabel
           isAttached
+          isRequired
           isTextArea
           style={style}
         />

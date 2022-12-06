@@ -161,10 +161,9 @@ const FeedbackForm = ({
               value={fullName}
               handleOnChange={handleOnNameChange}
               placeholder="Name *"
+              type="text"
               isRequired
-              isValid={Boolean(fullName)}
               isWithoutLabel
-              errorMessage="This field is required"
               isContactPage={isContactPage}
               style={type}
             />
@@ -177,10 +176,9 @@ const FeedbackForm = ({
               value={email.value}
               handleOnChange={handleOnEmailChange}
               placeholder="Email *"
+              isRequired
               type="email"
-              isValid={email.isValidate}
               handleOnBlurEmail={handleOnBlurEmail}
-              errorMessage="Incorrect"
               isWithoutLabel
               style={type}
             />
