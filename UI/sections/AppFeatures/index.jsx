@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
-import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import FigmaPrototype from 'components/Common/FigmaPrototype';
 import AppFeaturesItem from 'UI/components/AppFeaturesItem';
+import SectionTitle from 'UI/components/SectionTitle';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
 
@@ -36,7 +36,7 @@ const AppFeatures = (props) => {
       <div className={styles.container}>
         <div className={styles.sectionContainer}>
           <SectionTitle
-            data={data}
+            title={data?.title}
             type={type}
           />
           {data.contentModules.map((document, index) => (
