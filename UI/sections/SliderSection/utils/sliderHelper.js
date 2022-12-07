@@ -15,13 +15,27 @@ export const getSliderProps = (data) => {
       'contentModules',
     ],
   );
-  const { contentModules: slides } = getDocumentFields(get(contentModules, '[0]', []));
-  const animationProps = {
-    type: ANIMATED_TYPE.isCustom,
-    translateY: '2.82352941em',
-    opasityDuration: 1,
-    transformDuration: 1,
-  };
+  const slides = getDocumentFields(get(contentModules, '[0]', []))?.contentModules.map((slide) => {
+    const {
+      title: slideTitle,
+      description: slideDescription,
+      text,
+    } = getDocumentFields(
+      slide,
+      [
+        'title',
+        'description',
+        'text',
+      ],
+    );
+
+    return {
+      slideTitle,
+      slideDescription,
+      text,
+    };
+  });
+
   const params = {
     slidesPerView: 1,
     spaceBetween: 32,
@@ -44,7 +58,6 @@ export const getSliderProps = (data) => {
     title,
     description,
     slides,
-    animationProps,
     params,
   };
 };
