@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useInput from './utils/useInput';
 import styles from './styles.module.scss';
-import { errorMessages } from './utils/patterns';
 
 const Input = (props) => {
   const {
@@ -14,6 +13,7 @@ const Input = (props) => {
     value,
     placeholder,
     isWithoutLabel,
+    errorText,
     ...rest
   } = useInput(props);
 
@@ -41,7 +41,7 @@ const Input = (props) => {
         </label>
       )}
       <span className={styles.error}>
-        {isRequired && value.length === 0 ? errorMessages.required : errorMessages[type]}
+        {errorText}
       </span>
     </div>
   );
@@ -54,6 +54,7 @@ Input.defaultProps = {
   isAttached: false,
   isTextArea: false,
   style: '',
+  type: 'text',
 };
 
 Input.propTypes = {

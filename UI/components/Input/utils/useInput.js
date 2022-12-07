@@ -5,7 +5,7 @@ import {
 } from 'react';
 import autosize from 'autosize';
 import cn from 'classnames';
-import { patterns } from './patterns';
+import { errorMessages, patterns } from './patterns';
 import styles from '../styles.module.scss';
 
 export default (props) => {
@@ -24,6 +24,7 @@ export default (props) => {
   } = props;
 
   const Component = isTextArea ? 'textarea' : 'input';
+  const errorText = isRequired && value.length === 0 ? errorMessages.required : errorMessages[type];
 
   const inputRef = useRef();
   const [isFocus, setFocus] = useState(false);
@@ -81,6 +82,7 @@ export default (props) => {
     placeholder,
     isWithoutLabel,
     isRequired,
+    errorText,
     ...rest,
   });
 };
