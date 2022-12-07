@@ -1,21 +1,16 @@
 .enterprise-resource-planning-software-services {
   @include appFeaturesContainer();
 
-  background-color: $very-dark-gray;
+  background-color: $gray900;
 
-  [data-case-study-title] {
-    color: $white;
-
-    @include tablet-size-horizontal {
-      text-align: center;
-    }
+  [data-title] {
+    color: $gray0;
   }
 
   .container {
-    @include tablet-size-horizontal {
+    @include tablet {
       flex-direction: column-reverse;
-      align-items: center;
-      margin: 0;
+      margin: 0 auto;
     }
   }
 
@@ -26,20 +21,20 @@
   .imageContainer {
     max-width: 700px;
 
-    @include tablet-size-horizontal {
-      margin: 30px auto 0;
+    @include tablet {
+      margin: 32px auto 0;
     }
   }
 
   .image {
-    transform: scale(1.6) translate(-220px, 110px);
+    transform: scale(1.6) translate(-160px, 110px);
 
     @include macbook-thirteen {
-      transform: scale(1.2) translate(-150px, 110px);
+      transform: scale(1.4) translate(-110px, 110px);
     }
 
-    @include tablet-size-horizontal {
-      transform: none;
+    @include tablet {
+      transform: unset;
     }
   }
 }

@@ -5,14 +5,10 @@
     @include flex(row, initial, center);
 
     cursor: pointer;
-
-    @include phone {
-      justify-content: space-between;
-    }
   }
 
   .title {
-    @include fontSize(20px, 120%);
+    @include fontSize(20px, 30px);
 
     margin: 10px 0;
     transition: color 400ms, margin 400ms;
@@ -32,17 +28,12 @@
   }
 
   .description {
-    @include fontSize(18px, 150%);
+    @include fontSize(16px, 24px);
 
     color: $gray400;
-    max-width: 580px;
 
     & > p {
       margin: 0;
-    }
-
-    @include tablet {
-      @include fontSize(16px);
     }
   }
 
