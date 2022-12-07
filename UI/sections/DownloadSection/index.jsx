@@ -17,7 +17,13 @@ const DownloadSection = (props) => {
   } = useSectionProps(props);
 
   return (
-    <section className={cn(styles[type], styles[view])}>
+    <section
+      className={cn(
+        styles[type],
+        styles[view],
+        styles.container,
+      )}
+    >
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
