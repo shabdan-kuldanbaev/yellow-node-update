@@ -2,64 +2,47 @@
 @import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
 .sliderSection {
-  max-width: $max-content-width;
-  margin: 0 auto;
-  position: relative;
-
   @include flex(column, center, center);
 
+  position: relative;
+  max-width: $wide-content-width;
+  margin: 0 auto;
+
   .sliderList {
-    padding: 150px;
+    padding: 48px 100px;
     box-shadow: $card-bow-shadow;
     border-radius: 5px;
-    width: calc(100% - 300px);
-    background-color: $white;
+    box-sizing: border-box;
+    width: 998px;
+    background-color: $gray0;
 
     @include tablet {
-      padding: 100px;
+      width: 700px;
     }
 
     @include below-tablet {
-      padding: 50px;
+      padding: 30px;
+      width: 100%;
     }
 
     @include phone {
-      padding: 30px;
-      width: 100%;
-      box-sizing: border-box;
+      padding: 24px;
     }
 
     .item {
       .slideTitle {
-        margin: 0 0 20px;
-        color: $tundora;
+        @include fontSize(20px, 30px);
+
+        margin: 0 0 8px;
+        color: $gray900;
         font-weight: 700;
-
-        @include fontSize(40px);
-
-        @include macbook-fifteen {
-          @include fontSize(30px);
-        }
-
-        @include phone {
-          @include fontSize(25px);
-        }
       }
 
-      p,
       .slideSubtitle {
-        color: $silver-chalice;
-        line-height: 2;
+        @include fontSize(16px, 24px);
 
-        @include fontSize(18px);
-
-        @include macbook-fifteen {
-          @include fontSize(16px);
-        }
-
-        @include phone {
-          @include fontSize(14px);
-        }
+        color: $gray400;
+        margin: 0;
       }
     }
 
@@ -81,24 +64,12 @@
 .fintech-software-development-services {
   @include appDevelopmentContainer;
 
-  background-color: $alabaster;
+  background-color: $gray50;
 }
 
 .enterprise-resource-planning-software-services,
 .fintech-software-development-services {
   .sliderList {
-    padding: 60px 112px;
-
-    .item {
-      .slideTitle {
-        @include fontSize(24px);
-      }
-
-      .slideSubtitle {
-        @include fontSize(18px);
-      }
-    }
-
     :global(.swiper-scrollbar) {
       margin-top: 0;
     }
