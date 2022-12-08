@@ -21,7 +21,7 @@
 .default {
   @include flex(column, center, center);
 
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 
   .title {
     @include defaultTitle;
