@@ -8,7 +8,7 @@
   }
 
   .title {
-    @include fontSize(20px, 120%);
+    @include fontSize(20px, 130%);
 
     margin: 10px 0;
     transition: color 400ms, margin 400ms;
