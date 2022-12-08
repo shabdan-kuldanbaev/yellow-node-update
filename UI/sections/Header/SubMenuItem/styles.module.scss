@@ -11,14 +11,14 @@
 
     &.title {
       font-weight: 700;
-      color: $white;
+      color: $gray0;
       transition: color 0.3s ease-in-out;
     }
 
     .subtitle {
       font-weight: 400;
       line-height: 2;
-      color: $silver-chalice;
+      color: $gray400;
       transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
       display: block;
 
@@ -29,11 +29,11 @@
 
     &:hover {
       &.title {
-        color: $turbo-100;
+        color: $yellow500;
       }
 
       & > span {
-        color: $turbo-100;
+        color: $yellow500;
         opacity: 0.7;
       }
     }
@@ -46,14 +46,14 @@
     @include fontSize(16px, 150%);
 
     .menuText {
-      color: $silver-chalice;
+      color: $gray400;
       outline: none;
       transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     &:hover {
       .menuText {
-        color: $turbo-100;
+        color: $yellow500;
         opacity: 0.7;
       }
     }
@@ -78,7 +78,11 @@
   &.itemContainer {
     .link {
       &.title {
-        color: $dark-grey;
+        color: $gray900;
+
+        &:hover {
+          color: $yellow500;
+        }
       }
     }
   }
@@ -88,7 +92,7 @@
   &.itemContainer {
     .link {
       &.title {
-        color: $dark-grey;
+        color: $gray900;
       }
 
       .subtitle {

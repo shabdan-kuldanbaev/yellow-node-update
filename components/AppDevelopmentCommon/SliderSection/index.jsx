@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar, Mousewheel } from 'swiper';
+import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'UI/components/SectionTitle';
@@ -28,7 +29,7 @@ const SliderSection = ({ sectionData, type }) => {
   }
 
   return (
-    <section className={styles[type]}>
+    <section className={cn(styles[type], styles.container)}>
       <div className={styles.sliderSection}>
         <SectionTitle
           title={title}

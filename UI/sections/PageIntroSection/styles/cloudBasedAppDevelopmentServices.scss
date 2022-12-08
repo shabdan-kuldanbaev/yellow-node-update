@@ -1,15 +1,21 @@
 .cloud-based-app-development-services {
-  .pageIntroWrapper {
-    @include below-tablet {
-      @include flex(column-reverse);
-    }
-  }
-
   .pageTitle {
     color: $gray0;
   }
 
-  .pageIntroImage {
-    max-width: 381px;
+  .pageTextContainer {
+    max-width: 600px;
+
+    @include below-tablet {
+      max-width: 100%;
+    }
+  }
+
+  .pageSubtitle:first-child {
+    margin-bottom: 24px;
+  }
+
+  .pageImage {
+    max-width: 470px;
   }
 }

@@ -1,13 +1,17 @@
 .mobile-app-development-company {
-  .pageIntroWrapper {
+  .pageWrapper {
     margin-bottom: 32px;
+  }
 
-    @include below-tablet{
-      @include flex(column-reverse);
+  .pageSubtitle:first-child{
+    margin-bottom: 24px;
+
+    @include below-tablet {
+      margin-bottom: 16px;
     }
   }
 
-  .pageIntroImage {
+  .pageImage {
     max-width: 518px;
   }
 }
