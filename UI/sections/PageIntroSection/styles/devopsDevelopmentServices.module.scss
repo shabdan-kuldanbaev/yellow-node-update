@@ -1,19 +1,15 @@
 .devops-development-services {
-  .pageIntroWrapper {
+  .pageWrapper {
     margin-bottom: 32px;
     padding-bottom: 24px;
     border-bottom: 1px solid $gray700;
-
-    @include below-tablet {
-      @include flex(column-reverse);
-    }
   }
 
   .pageTitle {
     color: $gray0;
   }
 
-  .pageIntroImage {
-    max-width: 361px;
+  .pageImage {
+    max-width: 575px;
   }
 }

@@ -4,11 +4,21 @@ import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export const useAppFeatures = ({ section, type, isPromoImage }) => {
   const {
-    contentModules: itemsData,
     title,
-    view,
     description,
-  } = getDocumentFields(section);
+    subtitle,
+    view,
+    contentModules: itemsData,
+  } = getDocumentFields(
+    section,
+    [
+      'title',
+      'description',
+      'contentModules',
+      'subtitle',
+      'view',
+    ],
+  );
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleOnClick = useCallback((index) => () => {
@@ -28,10 +38,11 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
   });
 
   return {
-    title,
-    description,
     view,
     type,
+    title,
+    description,
+    subtitle,
     images,
     activeIndex,
     handleOnClick,

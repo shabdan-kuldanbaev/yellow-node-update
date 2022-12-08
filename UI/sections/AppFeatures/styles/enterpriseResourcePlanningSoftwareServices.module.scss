@@ -5,6 +5,10 @@
 
   [data-title] {
     color: $gray0;
+
+    @include tablet-size-horizontal {
+      text-align: center;
+    }
   }
 
   .container {

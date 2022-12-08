@@ -8,7 +8,7 @@
   }
 
   .title {
-    @include fontSize(20px, 30px);
+    @include fontSize(20px, 120%);
 
     margin: 10px 0;
     transition: color 400ms, margin 400ms;
@@ -28,12 +28,17 @@
   }
 
   .description {
-    @include fontSize(16px, 24px);
+    @include fontSize(16px, 150%);
 
     color: $gray400;
+    max-width: 580px;
 
     & > p {
       margin: 0;
+
+      @include phone {
+        margin-bottom: 16px;
+      }
     }
   }
 

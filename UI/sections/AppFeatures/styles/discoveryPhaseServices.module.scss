@@ -46,11 +46,9 @@
 
     [data-subtitle] {
       color: $gray400;
-      margin-bottom: 16px;
 
       @include phone {
         text-align: center;
-        margin-bottom: 16px;
       }
     }
 
