@@ -10,18 +10,19 @@ import styles from './styles.module.scss';
 
 const AppFeatures = (props) => {
   const {
+    title,
+    description,
     type,
     view,
-    data,
     images,
     activeIndex,
     handleOnClick,
-    imagesData,
+    itemsData,
     promoImages,
     isPromoImage,
   } = useAppFeatures(props);
 
-  if (!imagesData) {
+  if (!itemsData) {
     return null;
   }
 
@@ -36,10 +37,11 @@ const AppFeatures = (props) => {
       <div className={styles.container}>
         <div className={styles.sectionContainer}>
           <SectionTitle
-            title={data?.title}
+            title={title}
+            subtitle={description}
             type={type}
           />
-          {data.contentModules.map((document, index) => (
+          {itemsData.map((document, index) => (
             <AppFeaturesItem
               view={view}
               type={type}
