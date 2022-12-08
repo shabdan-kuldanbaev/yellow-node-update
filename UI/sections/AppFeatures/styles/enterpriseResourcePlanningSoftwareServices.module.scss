@@ -1,10 +1,10 @@
 .enterprise-resource-planning-software-services {
   @include appFeaturesContainer();
 
-  background-color: $very-dark-gray;
+  background-color: $gray900;
 
-  [data-case-study-title] {
-    color: $white;
+  [data-title] {
+    color: $gray0;
 
     @include tablet-size-horizontal {
       text-align: center;
@@ -32,10 +32,10 @@
   }
 
   .image {
-    transform: scale(1.6) translate(-220px, 110px);
+    transform: scale(1.6) translate(-220px, 90px);
 
     @include macbook-thirteen {
-      transform: scale(1.2) translate(-150px, 110px);
+      transform: scale(1.4) translate(-150px, 70px);
     }
 
     @include tablet-size-horizontal {

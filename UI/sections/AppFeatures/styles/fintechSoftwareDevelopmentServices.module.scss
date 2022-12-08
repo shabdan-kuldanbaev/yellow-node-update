@@ -1,9 +1,9 @@
 .fintech-software-development-services {
   @include appFeaturesContainer();
 
-  background: $white;
+  background: $gray0;
 
-  [data-case-study-title] {
+  [data-title] {
     margin-bottom: 32px;
 
     @include phone {
