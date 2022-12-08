@@ -79,17 +79,7 @@
     }
 
     .portfolioButton {
-      @include button-more($gray0, $gray1000, transparent, $turbo-100, $boulder, $turbo-100);
-
-      border-radius: $button-border-radius;
-      min-width: 330px;
-      font-weight: 600;
-      margin-top: 0;
-      outline: none;
-
-      @include phone {
-        min-width: 300px;
-      }
+      min-width: 300px;
     }
   }
 

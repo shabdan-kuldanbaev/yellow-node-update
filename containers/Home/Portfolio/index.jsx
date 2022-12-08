@@ -8,7 +8,7 @@ import React, {
 import throttle from 'lodash/throttle';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
-import ButtonMore from 'components/Common/ButtonMore';
+import Button from 'UI/components/Button';
 import SectionTitle from 'UI/components/SectionTitle';
 import Works from 'components/HomeCommon/Works';
 import { getDocumentFields } from 'utils/helper';
@@ -96,12 +96,13 @@ const Portfolio = ({ sectionData }) => {
           {...REVEAL_ANIMATION_PROPS}
           transitionDelay={350}
         >
-          <ButtonMore
+          <Button
+            dark
             href={ROUTES.portfolio.path}
-            dynamicRouting={ROUTES.portfolio.dynamicPath}
-            title="Explore more works by Yellow"
-            buttonStyle={styles.portfolioButton}
-          />
+            className={styles.portfolioButton}
+          >
+            Explore more works by Yellow
+          </Button>
         </Animated>
       </div>
     </section>

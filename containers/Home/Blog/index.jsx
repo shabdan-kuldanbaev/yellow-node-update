@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { selectArticles } from 'redux/selectors/blog';
 import Animated from 'components/Common/Animated';
 import { ArticlesList } from 'components/BlogCommon/ArticlesList';
-import ButtonMore from 'components/Common/ButtonMore';
+import Button from 'UI/components/Button';
 import SectionTitle from 'UI/components/SectionTitle';
 import {
   ANIMATED_TYPE,
@@ -35,11 +35,13 @@ const Blog = ({ articles, sectionData }) => {
         transformDuration={1}
         transitionDelay={200}
       >
-        <ButtonMore
+        <Button
+          secondary
           href={ROUTES.blog.path}
-          title="Read more"
-          buttonStyle={styles.blogButton}
-        />
+          className={styles.blogButton}
+        >
+          Read more
+        </Button>
       </Animated>
     </section>
   );

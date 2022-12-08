@@ -47,15 +47,5 @@
 }
 
 .blogButton {
-  @include button-more($gray1000, $gray1000, transparent, $yellow500, $gray1000, $yellow500);
-
-  border-radius: $button-border-radius;
-  width: 153px;
-  font-weight: 600;
-  outline: none;
   margin-top: 32px;
-
-  @include phone {
-    margin-top: $mobile-more-button-indent;
-  }
 }
