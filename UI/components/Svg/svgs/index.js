@@ -491,3 +491,5 @@ export { default as opensenseTitleBorder } from './illustration/opensenseTitleBo
 export { default as softDevelopment } from './illustration/softDevelopment.svg';
 export { default as uiUx } from './illustration/ui&ux.svg';
 export { default as webDevelopmentIllustration } from './illustration/webDevelopmentIllustration.svg';
+export { default as appstore } from './illustration/appstore.svg';
+export { default as blackFillAppstore } from './illustration/blackFillAppstore.svg';

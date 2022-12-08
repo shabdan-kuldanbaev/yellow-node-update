@@ -33,7 +33,6 @@ function TypeSelector({ selectedType, onSelectedTypeChange }) {
               displayName={type.displayName}
               onClick={handleTypeChange(type)}
               selected={type === selectedType}
-              className={styles.type}
               key={`WORK-TYPE/${type.slug}`}
             />
           </SwiperSlide>
