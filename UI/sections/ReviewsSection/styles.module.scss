@@ -1,5 +1,4 @@
 /* stylelint-disable no-duplicate-selectors */
-
 @import 'styles/utils/mixins';
 @import 'components/AppDevelopmentCommon/utils/styles.module.scss';
 
@@ -26,7 +25,7 @@
 
 .discovery-phase-services {
   &.reviews {
-    background-color: $white;
+    background-color: $gray0;
   }
 }
 
