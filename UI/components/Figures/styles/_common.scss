@@ -5,7 +5,7 @@
   max-width: $default-content-width;
   margin: 0 auto;
 
-  &>div {
+  & > div {
     @include flex(row, initial, center);
 
     flex: 0 1 379px;
@@ -34,7 +34,6 @@
   @include fontSize(20px, 30px);
 
   margin: 0;
-
   color: $gray0;
   font-weight: 700;
 
