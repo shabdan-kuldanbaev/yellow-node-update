@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar, Mousewheel } from 'swiper';
+import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'UI/components/SectionTitle';
-import classNames from 'classnames';
 import CardContainer from 'UI/containers/CardContainer';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getSliderProps } from './utils/sliderHelper';
@@ -29,7 +29,7 @@ const SliderSection = ({ sectionData, type }) => {
   }
 
   return (
-    <section className={classNames(styles.sliderSection, styles[type])}>
+    <section className={cn(styles.sliderSection, styles[type])}>
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}

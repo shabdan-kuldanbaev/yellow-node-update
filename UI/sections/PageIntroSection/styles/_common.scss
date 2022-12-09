@@ -1,75 +1,71 @@
 .pageIntroSection {
-  @include flex(column);
+  @include appDevelopmentContainer;
 
+  background-color: inherit;
+}
+
+.contentWrapper {
+  max-width: $wide-content-width;
   margin: 0 auto;
-  max-width: $max-content-width;
-  padding: 32px 120px 120px;
+}
 
-  .pageIntroWrapper {
-    @include flex(row, space-between, center);
+.pageWrapper {
+  @include flex(row, space-between, center);
 
-    & > div {
-      width: 100%;
-      height: 100%;
-    }
-
-    @include below-tablet {
-      @include flex(column, space-between, center);
-    }
-  }
-
-  .pageTitleContainer {
-    max-width: 558px;
-
-    @include below-tablet {
-      max-width: 100%;
-    }
-  }
-
-  .pageTitle {
-    @include fontSize(46px, 55px);
-
-    margin: 0 0 16px;
-
-    @include tablet {
-      @include fontSize(38px, 49px);
-    }
-
-    @include below-tablet {
-      text-align: center;
-    }
-
-    @include phone {
-      @include fontSize(24px, 31px);
-    }
-  }
-
-  .pageIntroSubtitle {
-    @include fontSize(16px, 24px);
-
-    color: $gray400;
-    margin: 0;
-    padding: 0;
-
-    @include below-tablet {
-      text-align: center;
-    }
-  }
-
-  .pageIntroImage {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    margin: 0 auto;
-    padding-top: 100%;
+  & > div {
     width: 100%;
+    height: 100%;
   }
+
+  @include below-tablet {
+    @include flex(column-reverse);
+  }
+}
+
+.pageTextContainer {
+  max-width: 558px;
+
+  @include below-tablet {
+    max-width: 100%;
+  }
+}
+
+.pageTitle {
+  @include fontSize(46px, 55px);
+
+  margin: 0 0 16px;
 
   @include tablet {
-    padding: 32px 40px 60px;
+    @include fontSize(38px, 49px);
+  }
+
+  @include below-tablet {
+    text-align: center;
   }
 
   @include phone {
-    padding: 24px 16px 60px;
+    @include fontSize(24px, 31px);
+  }
+}
+
+.pageSubtitle {
+  @include fontSize(16px, 24px);
+
+  color: $gray400;
+  margin: 0;
+  padding: 0;
+
+  @include below-tablet {
+    text-align: center;
+  }
+}
+
+.pageImage {
+  margin: 0 auto;
+  padding-top: 100%;
+  width: 100%;
+
+  @include below-tablet {
+    margin-bottom: 24px;
   }
 }

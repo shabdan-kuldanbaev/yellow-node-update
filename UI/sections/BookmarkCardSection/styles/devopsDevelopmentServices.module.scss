@@ -1,0 +1,30 @@
+.devops-development-services {
+  &.firstSectionView {
+    .title {
+      width: 453px;
+      text-align: center;
+
+      @include below-tablet {
+        width: 100%;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background: $gray50;
+
+    .contentWrapper {
+      .bookmarkContainer {
+        .content {
+          .title {
+            width: 476px;
+
+            @include phone {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

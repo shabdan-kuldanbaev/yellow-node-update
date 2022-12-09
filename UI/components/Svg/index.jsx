@@ -14,7 +14,6 @@ const Svg = ({
   {
     className,
     onClick: handleOnClick,
-    width: type === SVG_IMAGES_TYPES.yellowLogoText ? 120 : undefined,
     ...props,
   },
   undefined,

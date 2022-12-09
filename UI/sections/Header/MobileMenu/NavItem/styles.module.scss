@@ -12,20 +12,20 @@
   }
 
   &.lightTheme {
-    border-color: $silver-1;
+    border-color: $gray300;
   
     &:last-of-type {
-      border-color: $dark-grey;
+      border-color: $gray900;
     }
 
     .mainLink {
       .title {
-        color: $dark-grey
+        color: $gray900
       }
   
       .svgContainer {
         & > svg > path {
-          stroke: $dark-grey;
+          fill: $gray900;
         }
       }
     }
@@ -36,7 +36,7 @@
 
     font-weight: 700;
     display: block;
-    color: $white;
+    color: $gray0;
   }
 
   .mainLink {
@@ -48,7 +48,7 @@
     width: 100%;
 
     a {
-      color: $white;
+      color: $gray0;
       cursor: pointer;
       text-decoration: none;
       padding: 20px 0;
@@ -60,6 +60,10 @@
       outline: none;
       transform: rotate(-180deg);
       transition: transform $default-transition-time ease-in-out;
+
+      & > svg > path {
+        fill: $gray0;
+      }
     }
     
     .svgContainerRight {
@@ -72,6 +76,10 @@
     .svgContainer {
       transform: rotate(0);
       transition: transform $default-transition-time ease-in-out;
+    }
+
+    .svgContainerRight {
+      transform: rotate(-90deg);
     }
   }
 
@@ -89,19 +97,19 @@
 
   .title {
     display: block;
-    color: $white;
+    color: $gray0;
   }
 
   .mainLink {
+    @include flex(row, space-between, center);
+
     font-weight: 500;
     letter-spacing: 0.5px;
     outline: none;
     width: 100%;
 
-    @include flex(row, space-between, center);
-
     a {
-      color: $white;
+      color: $gray0;
       cursor: pointer;
       text-decoration: none;
       padding: 20px 0;
@@ -122,7 +130,7 @@
   &:last-of-type {
     border-radius: 5px;
     background-color: transparent;
-    border: 1px solid $white;
+    border: 1px solid $gray0;
     max-width: 130px;
     margin: 32px auto 0;
     padding: 0;
@@ -131,7 +139,7 @@
       @include fontSize(16px, 150%);
 
       display: block;
-      color: $white;
+      color: $gray0;
       padding: 16px 18px;
 
       .title {
