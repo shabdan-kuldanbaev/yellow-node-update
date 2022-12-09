@@ -6,7 +6,8 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'UI/components/SectionTitle';
-import { getDocumentFields } from 'utils/helper';
+import CardContainer from 'UI/containers/CardContainer';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getSliderProps } from './utils/sliderHelper';
 import styles from './styles.module.scss';
 
@@ -20,7 +21,6 @@ const SliderSection = ({ sectionData, type }) => {
     title,
     description,
     slides,
-    animationProps,
     params,
   } = getSliderProps(sectionData);
 
@@ -29,54 +29,39 @@ const SliderSection = ({ sectionData, type }) => {
   }
 
   return (
-    <section className={cn(styles[type], styles.container)}>
-      <div className={styles.sliderSection}>
+    <section className={cn(styles.sliderSection, styles[type])}>
+      <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
           description={description}
           titleStyle={styles.titleStyle}
         />
-        <div className={styles.sliderList}>
+        <CardContainer className={styles.sliderList}>
           <Animated
-            {...animationProps}
-            transitionDelay={300}
+            {...REVEAL_ANIMATION_PROPS}
+            transitionDelay={50}
           >
             <Swiper
               {...params}
               scrollbar={{ draggable: true }}
             >
-              {slides.map((slide) => {
-                const {
-                  title: slideTitle,
-                  description: slideDescription,
-                  text,
-                } = getDocumentFields(
-                  slide,
-                  [
-                    'title',
-                    'description',
-                    'text',
-                  ],
-                );
-
-                return (
-                  <SwiperSlide
-                    className={styles.item}
-                    key={`slides/${slideTitle}`}
-                  >
-                    <p className={styles.slideTitle}>
-                      {slideTitle}
-                    </p>
-                    <p className={styles.slideSubtitle}>
-                      {slideDescription}
-                    </p>
-                    {text && <ContentfulParser document={text} />}
-                  </SwiperSlide>
-                );
-              })}
+              {slides.map(({ slideTitle, slideDescription, text }) => (
+                <SwiperSlide
+                  className={styles.item}
+                  key={`slides/${slideTitle}`}
+                >
+                  <h3 className={styles.slideTitle}>
+                    {slideTitle}
+                  </h3>
+                  <p className={styles.slideSubtitle}>
+                    {slideDescription}
+                  </p>
+                  {text && <ContentfulParser document={text} />}
+                </SwiperSlide>
+              ))}
             </Swiper>
           </Animated>
-        </div>
+        </CardContainer>
       </div>
     </section>
   );
