@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SwiperSlide } from 'swiper/react';
 import Animated from 'components/Common/Animated';
+import SectionTitle from 'UI/components/SectionTitle';
 import CallToAction from 'UI/components/CallToAction';
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import Review from 'UI/components/Cards/Review';
-import SectionTitle from 'UI/components/SectionTitle';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import styles from './styles.module.scss';
 import useReviewsSection from './utils/useReviewsSection';
+import styles from './styles.module.scss';
 
 const ReviewsSection = (props) => {
   const {
