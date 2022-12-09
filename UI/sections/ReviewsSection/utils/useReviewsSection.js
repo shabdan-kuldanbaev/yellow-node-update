@@ -65,6 +65,9 @@ export default ({
     };
   });
 
+  const rawCtaLink = get(contentModules, '[1]', null);
+  const ctaLink = rawCtaLink && getDocumentFields(rawCtaLink, ['title', 'buttonTitle']);
+
   const swiperParams = {
     modules: [Navigation, Mousewheel],
     slidesPerView: 1,
@@ -91,6 +94,7 @@ export default ({
     handleOnCTAClick,
     reviews,
     swiperParams,
+    ctaLink,
     ...rest,
   };
 };
