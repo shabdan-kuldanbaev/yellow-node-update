@@ -3,7 +3,7 @@ import styles from '../styles.module.scss';
 
 export default ({
   className,
-  breadcrumbs,
+  breadcrumbs = [],
   dark,
 }) => {
   const classNames = cn(styles.breadcrumbs, className, { [styles.dark]: dark });

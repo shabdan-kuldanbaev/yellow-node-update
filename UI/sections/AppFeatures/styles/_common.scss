@@ -44,19 +44,24 @@
     }
   }
 
-  .image {
-    width: 100%;
-  }
-
   .sectionContainer {
-    max-width: 680px;
-
-    @include desktop {
-      max-width: 540px;
-    }
+    max-width: 580px;
 
     @include tablet {
       max-width: 100%;
+      padding: 0 30px
     }
+
+    @include phone {
+      padding: 0;
+    }
+  }
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
   }
 }

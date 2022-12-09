@@ -6,16 +6,14 @@ import styles from './styles.module.scss';
 const Input = (props) => {
   const {
     Component,
-    value,
-    style,
-    isRequired,
-    isAttached,
-    isWithoutLabel,
-    placeholder,
     className,
     inputOptions,
-    errorMessages,
+    isRequired,
     type,
+    value,
+    placeholder,
+    isWithoutLabel,
+    errorText,
     ...rest
   } = useInput(props);
 
@@ -42,13 +40,8 @@ const Input = (props) => {
           {placeholder}
         </label>
       )}
-      {isRequired && (
-        <span className={styles.isRequired}>
-          *
-        </span>
-      )}
       <span className={styles.error}>
-        {errorMessages[type]}
+        {errorText}
       </span>
     </div>
   );
@@ -57,11 +50,11 @@ const Input = (props) => {
 Input.defaultProps = {
   isWithoutLabel: false,
   handleOnBlurEmail: null,
-  type: null,
   isRequired: false,
   isAttached: false,
   isTextArea: false,
   style: '',
+  type: 'text',
 };
 
 Input.propTypes = {
