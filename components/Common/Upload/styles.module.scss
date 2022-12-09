@@ -2,13 +2,9 @@
 
 .uploadFile {
   width: 100%;
-  margin-top: 60px;
+  margin-top: 32px;
 
   @include flex(column, initial, initial, wrap);
-
-  @include below-tablet {
-    margin-top: 40px;
-  }
 
   .attachmentManage {
     position: relative;
@@ -30,7 +26,7 @@
       border: 0 none;
       cursor: pointer;
       right: 0;
-      bottom: 0;
+      top: 15px;
       margin-top: -0.9em;
 
       svg {

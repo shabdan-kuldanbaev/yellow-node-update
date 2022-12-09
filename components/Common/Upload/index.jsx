@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AnimatedInput from 'components/Common/AnimatedInput';
 import Svg from 'UI/components/Svg';
+import Input from 'UI/components/Input';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { AttachedFile } from './AttachedFile';
 import styles from './styles.module.scss';
@@ -21,13 +21,13 @@ const Upload = ({
   return (
     <div className={styles[style] || styles.uploadFile}>
       <div className={styles.attachmentManage}>
-        <AnimatedInput
+        <Input
           value={projectDescription}
           handleOnChange={handleOnDescriptionChange}
           placeholder="Project details *"
-          isValidate
           isWithoutLabel
           isAttached
+          isRequired
           isTextArea
           style={style}
         />
