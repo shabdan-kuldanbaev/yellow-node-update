@@ -13,14 +13,12 @@ import styles from './styles.module.scss';
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
 
-const CustomServiceContainer = (props) => {
-  const {
-    introSection,
-    pageData,
-    metaData,
-    type,
-  } = props;
-
+const CustomServiceContainer = ({
+  introSection,
+  pageData,
+  metaData,
+  type,
+}) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const { main: contentModules, hasFeedbackForm } = pageData;
@@ -35,8 +33,6 @@ const CustomServiceContainer = (props) => {
   if (!pageData || !contentModules) {
     return null;
   }
-
-  console.log(props);
 
   return (
     <>
