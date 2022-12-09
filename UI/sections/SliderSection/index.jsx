@@ -36,7 +36,6 @@ const SliderSection = ({ sectionData, type }) => {
           description={description}
           titleStyle={styles.titleStyle}
         />
-
         <CardContainer className={styles.sliderList}>
           <Animated
             {...REVEAL_ANIMATION_PROPS}
