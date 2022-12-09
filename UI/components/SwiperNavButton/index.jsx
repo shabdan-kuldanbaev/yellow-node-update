@@ -7,22 +7,22 @@ import styles from './styles.module.scss';
 
 const SwiperNavButton = (props) => {
   const {
+    buttonRef,
     type,
     text,
     svgType,
     className,
-    handleNavButtonClick,
   } = useSwiperNavButton(props);
 
   return (
     <button
-      onClick={handleNavButtonClick}
       type="button"
       className={cn(
         className,
         styles.navButton,
         styles[type],
       )}
+      ref={buttonRef}
     >
       <Svg type={svgType} />
       {text && (

@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import CallToAction from 'components/Common/CallToAction';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -17,7 +17,13 @@ const DownloadSection = (props) => {
   } = useSectionProps(props);
 
   return (
-    <section className={cn(styles[type], styles[view])}>
+    <section
+      className={cn(
+        styles[type],
+        styles[view],
+        styles.container,
+      )}
+    >
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}

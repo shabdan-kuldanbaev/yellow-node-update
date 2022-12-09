@@ -5,10 +5,23 @@ import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 
 export const useAppFeatures = ({ section, type, isPromoImage }) => {
-  const data = section?.fields;
+  const {
+    title,
+    description,
+    subtitle,
+    view,
+    contentModules: imagesData,
+  } = getDocumentFields(
+    section,
+    [
+      'title',
+      'description',
+      'contentModules',
+      'subtitle',
+      'view',
+    ],
+  );
   const [activeIndex, setActiveIndex] = useState(0);
-  const imagesData = get(data, 'contentModules');
-  const view = get(data, 'view');
   const isMobileResolution = useSelector(selectIsMobileResolutions);
 
   const handleOnClick = useCallback((index) => () => {
@@ -30,7 +43,9 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
   return {
     view,
     type,
-    data,
+    title,
+    description,
+    subtitle,
     images,
     activeIndex,
     handleOnClick,
