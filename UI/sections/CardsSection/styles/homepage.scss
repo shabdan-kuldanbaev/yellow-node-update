@@ -46,6 +46,10 @@
       p {
         color: $gray500;
       }
+
+      &:hover h3 {
+        color: $gray900;
+      }
     }
   }
 
