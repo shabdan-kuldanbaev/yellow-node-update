@@ -1,19 +1,9 @@
 .machine-learning-development-services {
-  .pageIntroWrapper {
-    @include below-tablet {
-      @include flex(column-reverse);
-    }
-  }
-
   .pageTitle {
     color: $gray0;
   }
 
-  .pageIntroImage {
-    max-width: 451px;
-  }
-
-  @include tablet {
-    padding-bottom: 60px;
+  .pageImage {
+    max-width: 450px;
   }
 }

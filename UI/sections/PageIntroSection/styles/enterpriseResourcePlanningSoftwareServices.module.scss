@@ -1,15 +1,13 @@
 .enterprise-resource-planning-software-services {
-  .pageIntroWrapper {
-    @include below-tablet {
-      @include flex(column-reverse);
-    }
-  }
-
   .pageTitle {
     color: $gray0;
   }
 
-  .pageIntroImage {
+  .pageSubtitle:first-child {
+    margin-bottom: 24px;
+  }
+
+  .pageImage {
     max-width: 562px;
   }
 }
