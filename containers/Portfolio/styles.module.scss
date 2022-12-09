@@ -1,66 +1,22 @@
 @import 'styles/utils/mixins';
 
-.paginator {
-  @include macbook-fifteen {
-    margin-top: 0;
-  }
-
-  @include phone {
-    transform: scale(1);
-  }
-}
-
-.title {
-  line-height: 67px;
-  margin-top: 100px;
-
-  @include fontSize(56px);
-
-  @include below-tablet {
-    line-height: 48px;
-    margin-top: 50px;
-
-    @include fontSize(32px);
-  }
-
-  @include phone {
-    line-height: 32px;
-
-    @include fontSize(24px);
-  }
-}
-
 .subtitle {
-  line-height: 32px;
-  color: $silver-chalice;
-  margin-bottom: 60px;
+  @include fontSize(16px, 150%);
 
-  @include fontSize(18px);
+  color: $gray400;
+  margin-bottom: 32px;
+  max-width: 900px;
 
-  @include below-tablet {
-    line-height: 24px;
-    margin-bottom: 40px;
-
-    @include fontSize(18px);
+  @include phone {
+    margin-bottom: 24px;
   }
 }
 
 .callToAction {
-  margin-top: 150px;
-  margin-bottom: 100px;
-
   @include flex(column, center, center);
-
-  @include below-tablet {
-    margin: 100px 0 0;
-  }
 
   & > h3 {
     max-width: 750px;
     margin-top: 0;
-  }
-
-  div[role='button'] {
-    margin-top: 20px;
   }
 }
