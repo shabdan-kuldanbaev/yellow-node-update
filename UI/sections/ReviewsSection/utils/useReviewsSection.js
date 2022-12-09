@@ -21,7 +21,6 @@ export default ({
   );
 
   const { contentModules: rawReviews } = getDocumentFields(get(contentModules, '[0]', []), ['contentModules']);
-  const ctaLink = getDocumentFields(get(contentModules, '[1]', []), ['title', 'buttonTitle']);
   const reviews = (rawReviews || []).map((item) => {
     const {
       contentModules: rawPerson,
@@ -65,6 +64,9 @@ export default ({
       },
     };
   });
+
+  const rawCtaLink = get(contentModules, '[1]', null);
+  const ctaLink = rawCtaLink && getDocumentFields(rawCtaLink, ['title', 'buttonTitle']);
 
   const swiperParams = {
     modules: [Navigation, Mousewheel],
