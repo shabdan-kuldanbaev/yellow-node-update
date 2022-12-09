@@ -1,22 +1,17 @@
-@mixin downloadSection {
+.container {
   padding: 120px 0;
 
-  .contentWrapper {
-    max-width: $max-content-width;
-    margin: 0 auto;
-  }
+  [data-title] {
+    @include fontSize(38px, 130%);
 
-  [data-case-study-title] {
-    @include fontSize(56px, 120%);
-
-    max-width: 100%;
+    max-width: 800px;
 
     @include phone {
-      @include fontSize(32px);
+      @include fontSize(24px);
     }
   }
 
-  [data-case-study-description] {
+  [data-description] {
     margin-top: 20px;
 
     @include phone {
@@ -24,27 +19,37 @@
     }
   }
 
-  .titleWrapper {
-    margin-bottom: 40px;
-  }
-
-  .callToAction {
-    @include flex(column, center, center);
-  }
-
-  .callToAction > a {
-    display: block;
-    width: min-content;
-  }
-
-  .callToAction > a > div {
-    @include fontSize(14px, 150%);
-
-    margin: 0 auto;
-    padding: 14px 0;
-  }
-
   @include phone {
     padding: 80px 15px;
   }
+}
+
+.contentWrapper {
+  max-width: $max-content-width;
+  margin: 0 auto;
+}
+
+.titleWrapper {
+  margin-bottom: 48px;
+}
+
+.callToAction {
+  @include flex(column, center, center);
+}
+
+.callToAction > a {
+  display: block;
+  width: min-content;
+}
+
+.callToAction > h3 {
+  display: none;
+}
+
+.callToAction > a > div {
+  @include fontSize(14px, 150%);
+
+  max-width: 153px;
+  margin: 0 auto;
+  padding: 16px 0;
 }

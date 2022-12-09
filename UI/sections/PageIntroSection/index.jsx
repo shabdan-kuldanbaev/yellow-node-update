@@ -5,6 +5,7 @@ import Animated from 'components/Common/Animated';
 import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Typography from 'UI/components/Typography';
+import Illustration from 'UI/components/Illustration';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -26,43 +27,47 @@ const PageIntroSection = (props) => {
       ref={introSection}
       className={cn(styles.pageIntroSection, styles[type])}
     >
-      <div className={styles.pageIntroWrapper}>
-        <div className={styles.pageTitleContainer}>
+      <div className={styles.contentWrapper}>
+        <div className={styles.pageWrapper}>
+          <div className={styles.pageTextContainer}>
+            <Animated {...REVEAL_ANIMATION_PROPS}>
+              {title && (
+                <Typography
+                  variant="h1"
+                  className={styles.pageTitle}
+                >
+                  {title}
+                </Typography>
+              )}
+            </Animated>
+            <Animated {...REVEAL_ANIMATION_PROPS}>
+              {descriptionParagraphs?.map((text, index) => (
+                <Typography
+                  variant="p"
+                  className={styles.pageSubtitle}
+                  key={`paragraph/${index}`}
+                >
+                  {text}
+                </Typography>
+              ))}
+            </Animated>
+          </div>
           <Animated {...REVEAL_ANIMATION_PROPS}>
-            {title && (
-              <Typography
-                variant="h1"
-                className={styles.pageTitle}
-              >
-                {title}
-              </Typography>
+            {imageUrl && (
+              <Illustration
+                src={imageUrl}
+                className={styles.pageImage}
+                transparent
+                priority
+              />
             )}
           </Animated>
-          <Animated {...REVEAL_ANIMATION_PROPS}>
-            {descriptionParagraphs?.map((text, index) => (
-              <Typography
-                variant="p"
-                className={styles.pageIntroSubtitle}
-                key={`paragraph/${index}`}
-              >
-                {text}
-              </Typography>
-            ))}
-          </Animated>
         </div>
-        <Animated {...REVEAL_ANIMATION_PROPS}>
-          {imageUrl && (
-            <div
-              className={styles.pageIntroImage}
-              style={{ backgroundImage: `url(${imageUrl})` }}
-            />
-          )}
-        </Animated>
+        <Figures
+          type={type}
+          figuresData={figuresData}
+        />
       </div>
-      <Figures
-        type={type}
-        figuresData={figuresData}
-      />
     </section>
   );
 };
