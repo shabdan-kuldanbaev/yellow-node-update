@@ -19,14 +19,17 @@
       margin: 60px auto 0;
       padding: 0;
       background: none;
+      min-height: auto;
 
       button {
         margin: auto;
       }
-    } 
-  } 
+    }
+  }
 
   &.thirdSectionView {
+    padding-bottom: 0;
+
     .card {
       @extend .cardWithFullSizeImage;
     }

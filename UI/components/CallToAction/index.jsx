@@ -37,6 +37,7 @@ const CallToAction = ({
       href={href}
       onClick={handleOnClick}
       className={styles.button}
+      data-button
     >
       {buttonTitle}
     </Button>
