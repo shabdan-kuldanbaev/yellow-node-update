@@ -4,8 +4,9 @@ import styles from '../styles.module.scss';
 export default ({
   className,
   breadcrumbs,
+  dark,
 }) => {
-  const classNames = cn(styles.breadcrumbs, className);
+  const classNames = cn(styles.breadcrumbs, className, { [styles.dark]: dark });
 
   const items = [
     { to: '/', title: 'Home' },

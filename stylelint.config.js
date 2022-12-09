@@ -12,6 +12,7 @@ module.exports = {
     'string-quotes': 'single',
     'keyframe-selector-notation': 'percentage',
     'selector-class-pattern': null,
+    'no-descending-specificity': null,
     'order/order': [
       [
         {
