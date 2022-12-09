@@ -11,7 +11,7 @@
 }
 
 @mixin defaultSubtitle {
-  @include fontSize(18px, 150%);
+  @include fontSize(16px, 150%);
 
   @include phone {
     @include fontSize(16px);
@@ -21,7 +21,7 @@
 .default {
   @include flex(column, center, center);
 
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 
   .title {
     @include defaultTitle;

@@ -2,7 +2,7 @@
   .figures > div {
     @include flex(column);
 
-    flex: 0 0 300px;
+    flex: 0 0 auto;
 
     @include below-tablet {
       @include flex(column, center, center);

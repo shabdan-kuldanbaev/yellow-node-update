@@ -1,8 +1,10 @@
 .ios-mobile-app-development-services {
   &.firstSectionView {
     .card {
+      @include flex(column, flex-start, flex-start);
+
       @include below-tablet {
-        @include flex(column, center, center);
+        align-items: center;
 
         * {
           align-items: center;

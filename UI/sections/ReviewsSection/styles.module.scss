@@ -1,7 +1,7 @@
 /* stylelint-disable no-duplicate-selectors */
 
 @import 'styles/utils/mixins';
-@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
+@import 'components/AppDevelopmentCommon/utils/styles.module';
 
 .reviews {
   @include appDevelopmentContainer;
@@ -24,14 +24,26 @@
   margin: 0 auto;
 }
 
+.callToAction {
+  background: $gray0;
+}
+
 .discovery-phase-services {
   &.reviews {
     background-color: $gray0;
+  }
+
+  .callToAction {
+    background: $gray50;
   }
 }
 
 .fintech-software-development-services {
   background-color: $gray0;
+
+  .callToAction {
+    background: $gray50;
+  }
 }
 
 .titleStyle {
