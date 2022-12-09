@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import cn from 'classnames';
 import useBreadcrumbs from './utils/useBreadcrumbs';
 import styles from './styles.module.scss';
 

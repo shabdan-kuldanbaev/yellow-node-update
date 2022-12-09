@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import Breadcrumbs from 'UI/components/Breadcrumbs';
@@ -47,7 +47,7 @@ PageHeader.defaultProps = {
 
 PageHeader.propTypes = {
   title: PropTypes.string,
-  type: string.isRequired,
+  type: PropTypes.string.isRequired,
   breadcrumbs: PropTypes.instanceOf(Array),
   titleStyles: PropTypes.string,
   breadcrumbsStyles: PropTypes.string,
