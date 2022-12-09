@@ -10,7 +10,7 @@ export default ({
 
   const items = [
     { to: '/', title: 'Home' },
-    ...breadcrumbs.map(({ to, title }) => ({ to: to.path || to, title })),
+    ...(breadcrumbs || []).map(({ to, title }) => ({ to: to.path || to, title })),
   ];
 
   return {
