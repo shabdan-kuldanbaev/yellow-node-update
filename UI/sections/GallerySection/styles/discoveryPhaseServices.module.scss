@@ -3,5 +3,7 @@
 
   .sectionTitle h2 {
     @include defaultGalleryTitle;
+
+    max-width: 720px;
   }
 }

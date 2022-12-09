@@ -1,3 +1,9 @@
 .ui-ux-services {
   background-color: $gray0;
+
+  .cardContainer {
+    border: 1px solid $gray100;
+    border-radius: 5px;
+    box-shadow: inherit;
+  }
 }

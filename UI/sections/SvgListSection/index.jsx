@@ -10,7 +10,7 @@ import { useSvgListSection } from './utils/useSvgListSection';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('components/Common/Animated'));
-const CallToAction = dynamic(() => import('components/Common/CallToAction'));
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 
 const SvgListSection = (props) => {
   const {

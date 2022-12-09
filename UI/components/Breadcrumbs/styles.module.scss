@@ -9,37 +9,35 @@
   list-style: none;
   color: $gray400;
 
-  a {
-    @include flex();
-
-    color: $gray400;
-
-    &:hover {
-      color: $yellow500;
-    } 
-  }
-
   li {
     @include flex();
-    
-    &::after {
+
+    &:not(:last-child)::after {
       content: '/';
       margin: 0 8px;
       user-select: none;
       color: $gray400;
     }
+  }
+}
 
-    &:last-child {
-      @include hidden-text();
-  
-      &::after {
-        content: none;
-      }
-  
-      a {
-        pointer-events: none;
-        color: $gray900;
-      }
-    }
+.item {
+  @include flex();
+
+  color: $gray400;
+
+  &:hover {
+    color: $yellow500;
+  }
+}
+
+.activeItem {
+  pointer-events: none;
+  color: $gray400;
+}
+
+.dark {
+  .activeItem {
+    color: $gray900;
   }
 }

@@ -12,6 +12,12 @@ module.exports = {
     'string-quotes': 'single',
     'keyframe-selector-notation': 'percentage',
     'selector-class-pattern': null,
+    'selector-pseudo-class-no-unknown': [
+      true,
+      { ignorePseudoClasses: ['global'] },
+    ],
+    'scss/at-extend-no-missing-placeholder': null,
+    'no-descending-specificity': null,
     'order/order': [
       [
         {
