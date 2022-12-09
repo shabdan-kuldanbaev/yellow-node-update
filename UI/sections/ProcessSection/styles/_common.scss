@@ -1,142 +1,113 @@
 .processSection {
+  @include appDevelopmentContainer;
+
   background-color: $gray50;
 
   .titleStyle {
     margin: 0 auto 24px;
     max-width: 756px;
 
-    [data-title] {
-      @include fontSize(38px, 49px);
+    p {
+      margin: 16px 0 24px;
+    }
+  }
 
+  .contentWrapper {
+    @include flex(column);
 
-      @include phone {
-        @include fontSize(24px, 31px);
-      }
+    max-width: $wide-content-width;
+    margin: 0 auto;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 60px;
+
+    @include tablet {
+      grid-gap: 40px;
     }
 
-    [data-second-title] {
-      @include fontSize(24px, 31px);
+    @include below-tablet {
+      grid-template-columns: auto;
+      width: 100%;
+    }
+  }
 
-      text-align: center;
-      margin: 0;
+  .cardContainer {
+    background: $gray0;
+    border-radius: 5px;
+    box-shadow: $card-bow-shadow;
+    box-sizing: border-box;
+    padding: 30px;
+    position: relative;
 
-      @include phone {
-        @include fontSize(20px, 30px);
-      }
+    .typeTitle {
+      @include fontSize(20px, 30px);
+
+      font-weight: 700;
+      margin: 20px 0 10px;
     }
 
     p {
       @include fontSize(16px, 24px);
 
-      margin: 16px 0 24px;
+      color: $gray400;
+      margin: 0;
     }
-  }
-}
 
-.contentWrapper {
-  @include flex(column);
+    .imageWrapper {
+      position: relative;
+      height: 64px;
+      width: 64px;
 
-  max-width: $max-content-width;
-  margin: 0 auto;
-  padding: 120px 40px;
+      svg {
+        @include centered;
 
-  @include tablet {
-    padding: 100px 40px;
-  }
-
-  @include phone {
-    padding: 64px 15px;
-  }
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 60px;
-
-  @include tablet {
-    grid-gap: 40px;
-  }
-
-  @include below-tablet {
-    grid-template-columns: auto;
-    width: 100%;
-  }
-}
-
-.cardContainer {
-  background: $gray0;
-  border-radius: 5px;
-  box-shadow: $card-bow-shadow;
-  box-sizing: border-box;
-  padding: 30px;
-  position: relative;
-
-  .typeTitle {
-    @include fontSize(20px, 30px);
-
-    font-weight: 700;
-    margin: 20px 0 10px;
-  }
-
-  p {
-    @include fontSize(16px, 24px);
-
-    color: $gray400;
-    margin: 0;
-  }
-
-  .imageWrapper {
-    position: relative;
-    height: 64px;
-    width: 64px;
-
-    svg {
-      @include centered;
-
-      width: 100%;
-      height: 100%;
+        width: 100%;
+        height: 100%;
+      }
     }
-  }
 
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    display: block;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background-color: $gray0;
-    border: 2px solid $gray400;
-    transform: translate(50%, -50%);
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      display: block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: $gray0;
+      border: 2px solid $gray400;
+      transform: translate(50%, -50%);
 
-    @include below-tablet {
+      @include below-tablet {
+        left: 50%;
+        top: unset;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+      }
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+
+    &:nth-child(3n + 3)::after {
       left: 50%;
       top: unset;
       bottom: 0;
       transform: translate(-50%, 50%);
     }
-  }
 
-  &:last-child::after {
-    display: none;
-  }
+    @include tablet {
+      padding: 20px;
+    }
 
-  &:nth-child(3n + 3)::after {
-    left: 50%;
-    top: unset;
-    bottom: 0;
-    transform: translate(-50%, 50%);
-  }
-
-  @include tablet {
-    padding: 20px;
-  }
-
-  @include below-tablet {
-    width: 100%;
-    max-width: unset;
+    @include below-tablet {
+      width: 100%;
+      max-width: unset;
+    }
   }
 }

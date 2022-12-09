@@ -1,10 +1,12 @@
 .imageSection {
   @include appDevelopmentContainer;
 
-  .imagesList {
-    max-width: $max-content-width;
+  .contentWrapper {
+    max-width: $wide-content-width;
     margin: 0 auto;
+  }
 
+  .imagesList {
     @include flex(row, space-between, center);
 
     @include below-tablet {
