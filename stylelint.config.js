@@ -17,6 +17,7 @@ module.exports = {
       { ignorePseudoClasses: ['global'] },
     ],
     'scss/at-extend-no-missing-placeholder': null,
+    'no-descending-specificity': null,
     'order/order': [
       [
         {
