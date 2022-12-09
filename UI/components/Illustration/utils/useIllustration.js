@@ -1,6 +1,4 @@
 import cn from 'classnames';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { getContentfulImage } from './helpers';
 import styles from '../styles.module.scss';
 

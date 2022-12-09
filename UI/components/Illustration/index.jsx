@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import useIllustration from './utils/useIllustration';
 
-const Illustration = (props) => {
+const Illustration = memo((props) => {
   const {
     className,
     style,
@@ -21,7 +22,7 @@ const Illustration = (props) => {
       <Image {...restProps} />
     </picture>
   );
-};
+});
 
 Illustration.defaultProps = {
   layout: 'fill',

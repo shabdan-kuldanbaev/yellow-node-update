@@ -12,7 +12,7 @@ const DownloadSection = dynamic(() => import('UI/sections/DownloadSection'));
 const TabsSection = dynamic(() => import('UI/sections/TabsSection'));
 const CheckListSection = dynamic(() => import('UI/sections/CheckListSection'));
 const NumberedListSection = dynamic(() => import('UI/sections/NumberedListSection'));
-const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'), {});
+const SliderSection = dynamic(() => import('UI/sections/SliderSection'));
 const GallerySection = dynamic(() => import('UI/sections/GallerySection'));
 const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
