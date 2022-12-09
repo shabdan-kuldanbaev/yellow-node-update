@@ -164,5 +164,14 @@ export const pagesBreadcrumbs = {
         },
       ];
     }
+
+    if (slug === PAGES.cookiesPolicy) {
+      return [
+        {
+          title: ROUTES.cookiesPolicy.title,
+          to: ROUTES.cookiesPolicy.path,
+        },
+      ];
+    }
   },
 };
