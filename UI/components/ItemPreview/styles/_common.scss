@@ -3,16 +3,20 @@
 
   cursor: pointer;
   box-sizing: border-box;
+  height: 60vh;
   overflow: hidden;
-  height: 480px;
   width: 100%;
 
+  @include tablet {
+    height: 75vh;
+  }
+
   @include below-tablet {
-    height: 350px;
+    height: 90vh;
   }
 
   @include phone {
-    height: 250px;
+    height: 35vh;
   }
 }
 

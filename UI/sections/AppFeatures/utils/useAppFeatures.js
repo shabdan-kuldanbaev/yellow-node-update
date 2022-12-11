@@ -1,8 +1,6 @@
 import { useCallback, useState } from 'react';
 import get from 'lodash/get';
-import { useSelector } from 'react-redux';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
 
 export const useAppFeatures = ({ section, type, isPromoImage }) => {
   const {
@@ -10,7 +8,7 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
     description,
     subtitle,
     view,
-    contentModules: imagesData,
+    contentModules: itemsData,
   } = getDocumentFields(
     section,
     [
@@ -22,19 +20,18 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
     ],
   );
   const [activeIndex, setActiveIndex] = useState(0);
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
 
   const handleOnClick = useCallback((index) => () => {
     setActiveIndex(index);
   });
 
-  const images = imagesData.map((module) => {
+  const images = itemsData.map((module) => {
     const { images: moduleImages } = getDocumentFields(module);
 
     return getFileUrl(get(moduleImages, '[0]', {}));
   });
 
-  const promoImages = imagesData.map((module) => {
+  const promoImages = itemsData.map((module) => {
     const { contentModules } = getDocumentFields(module);
 
     return get(contentModules, '[0].fields');
@@ -49,9 +46,8 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
     images,
     activeIndex,
     handleOnClick,
-    imagesData,
+    itemsData,
     promoImages,
-    isMobileResolution,
     isPromoImage,
   };
 };

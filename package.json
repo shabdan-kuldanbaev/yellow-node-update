@@ -127,9 +127,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^7.7.2",
-    "postcss-scss": "^4.0.4",
+    "postcss": "^8.4.19",
+    "postcss-scss": "^4.0.6",
     "redux-devtools-extension": "^2.13.9",
     "sass": "^1.55.0",
     "sass-loader": "10.1.1",
@@ -137,7 +136,8 @@
     "string-replace-loader": "^3.1.0",
     "style-loader": "2.0.0",
     "stylelint": "^14.9.1",
-    "stylelint-config-standard": "^26.0.0",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-order": "^5.0.0",
     "svgo": "^2.8.0"
   },
   "browserslist": [

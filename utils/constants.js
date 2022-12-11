@@ -146,6 +146,7 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  arrowRight: 'arrowRight',
   arrow: 'arrow1',
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',

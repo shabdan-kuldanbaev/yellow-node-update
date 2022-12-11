@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import CallToAction from 'components/Common/CallToAction';
+import CallToAction from 'UI/components/CallToAction';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
+import CardContainer from 'UI/containers/CardContainer';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -37,7 +38,7 @@ const TabsSection = (props) => {
             </h3>
           ))}
         </div>
-        <div className={styles.card}>
+        <CardContainer className={styles.card}>
           {tabs?.map(({
             texts,
             link,
@@ -69,7 +70,7 @@ const TabsSection = (props) => {
                 )}
             </div>
           ))}
-        </div>
+        </CardContainer>
       </div>
     </section>
   );

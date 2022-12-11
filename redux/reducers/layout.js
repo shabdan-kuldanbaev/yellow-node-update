@@ -6,7 +6,7 @@ const initialState = {
   isMobileCategotiesOpened: false,
   isMobileResolutions: null,
   isTabletResolutions: null,
-  isFullResolution: false,
+  isFullResolution: null,
   isLoading: false,
   isPageReadyToDisplay: false,
   isFirstPageLoaded: false,
