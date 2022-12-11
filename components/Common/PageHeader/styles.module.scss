@@ -2,8 +2,12 @@
 
 .titleContainer {
   h1 {
+    @include fontSize(38px, 130%);
+
     margin: 0;
 
-    @include defaultFirstHeader;
+    @include phone {
+      @include fontSize(24px, 130%);
+    }
   }
 }
