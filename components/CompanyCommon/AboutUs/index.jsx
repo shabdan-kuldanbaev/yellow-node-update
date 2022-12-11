@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
-import SectionTitle from 'components/Common/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { CompanyFigures } from './CompanyFigures';
 import { aboutUsText } from './utils/data';
@@ -17,8 +17,11 @@ const AboutUs = ({ aboutUsText: aboutUs }) => {
 
   return (
     <section className={styles.aboutUs}>
-      <SectionTitle title="About us" />
       <div className={styles.aboutUsContent}>
+        <SectionTitle
+          title="About us"
+          className={styles.titleStyle}
+        />
         <div className={styles.aboutUsText}>
           {aboutUs && aboutUs.map((paragraph, index) => (
             <Animated
@@ -30,8 +33,8 @@ const AboutUs = ({ aboutUsText: aboutUs }) => {
             </Animated>
           ))}
         </div>
-        <CompanyFigures />
       </div>
+      <CompanyFigures />
     </section>
   );
 };
