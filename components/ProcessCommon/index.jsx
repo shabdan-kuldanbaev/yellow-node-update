@@ -17,9 +17,9 @@ const Process = ({ processes, handleOnCTAClick }) => (
         key={`processes/${name}`}
         data-index={index}
       >
-        <div className={styles.desc}>
+        <div className={styles.processItem}>
           <Animated {...REVEAL_ANIMATION_PROPS}>
-            <h2>
+            <h2 className={styles.title}>
               <span>{`${index + 1}.`}</span>
               {name}
             </h2>
@@ -28,7 +28,9 @@ const Process = ({ processes, handleOnCTAClick }) => (
             {...REVEAL_ANIMATION_PROPS}
             transitionDelay={300 + 50}
           >
-            <p>{description}</p>
+            <p className={styles.description}>
+              {description}
+            </p>
           </Animated>
         </div>
         <Animated {...REVEAL_ANIMATION_PROPS}>
@@ -48,7 +50,7 @@ const Process = ({ processes, handleOnCTAClick }) => (
       <CallToAction
         type="card"
         title="Kickstart your dream project with us!"
-        buttonTitle="Request proposal"
+        buttonTitle="Contact us"
         handleOnClick={handleOnCTAClick}
         className={styles.callToAction}
       />

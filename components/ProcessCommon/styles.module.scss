@@ -3,333 +3,82 @@
 @import 'styles/utils/mixins';
 
 .processContainer {
-  background-color: $white;
   width: 100%;
-  min-height: 75vh;
-  padding: 60px 0 100px;
-
-  @include macbook-fifteen {
-    width: 100%;
-    padding-top: 0;
-  }
-
-  @include macbook-twelve {
-    padding-top: 20px;
-  }
-
-  @include tablet {
-    padding-top: 0;
-  }
+  margin-top: 8px;
 
   @include phone {
-    margin-bottom: 50px;
+    margin-top: 16px;
+  }
+}
+
+.process {
+  @include flex(row, space-between, center);
+
+  &:nth-child(2n) {
+    flex-direction: row-reverse;
   }
 
-  .process {
-    position: relative;
-    z-index: 5;
-    width: 100%;
-    height: auto;
-    will-change: background-color;
-    transition: background-color $default-transition-time ease;
-    transition-timing-function: linear;
-    margin-top: 150px;
-
-    @include flex(row, space-between, center);
-
-    @include desktop {
-      margin-top: 100px;
-    }
-
-    @include macbook-fifteen {
-      height: 100%;
-    }
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:nth-child(2n) {
-      flex-direction: row-reverse;
-
-      .desc {
-        @include flex(column, flex-end, center);
-      }
-
-      .imgWrapper {
-        align-items: flex-start;
-
-        @include tablet {
-          align-items: center;
-        }
-      }
-    }
+  & > div:nth-of-type(2) {
+    width: 50%;
 
     @include tablet {
       width: 100%;
-      height: auto;
-      margin: auto;
-      padding-bottom: 120px;
-
-      @include flex(column, space-evenly, center);
-
-      &:nth-child(1n) {
-        flex-direction: column-reverse;
-      }
-    }
-
-    @include below-tablet {
-      padding-bottom: 60px;
-
-      &:first-child {
-        padding-top: 0;
-      }
-    }
-
-    @include below-tablet-horizontal {
-      @include flex(row, center, center);
-
-      &:nth-child(1n) {
-        flex-direction: initial;
-      }
-
-      &:nth-child(2n) {
-        flex-direction: row-reverse;
-      }
-    }
-
-    @include horizontal-mobile {
-      height: auto;
-      padding-bottom: 60px;
-
-      @include flex(row, center, center);
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-
-    @include phone {
-      flex-direction: column-reverse !important;
-      margin-bottom: 0;
-      margin-top: 0;
-      padding-bottom: 50px;
-      height: auto;
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-
-    .desc {
-      width: 40%;
-
-      @include flex(column, flex-start, center);
-
-      @include tablet {
-        width: 100%;
-        justify-content: normal;
-        max-height: 50%;
-        margin-top: 50px;
-      }
-
-      @include below-tablet {
-        width: 100%;
-        margin-top: 30px;
-      }
-
-      @include below-tablet-horizontal {
-        width: 50%;
-        justify-content: center;
-      }
-
-      @include phone {
-        width: 100%;
-        margin-top: auto;
-      }
-
-      @include horizontal-mobile {
-        max-height: initial;
-      }
-
-      & > div:nth-of-type(1) {
-        h2 {
-          @include defaultSecondHeader;
-
-          margin-top: 0;
-          margin-bottom: 60px;
-
-          @include below-tablet {
-            margin-top: 40px;
-          }
-
-          @include below-tablet-horizontal {
-            font-size: 2.5rem;
-          }
-
-          @include phone {
-            max-width: calc(100% - 40px);
-            font-size: 2.5rem;
-            margin: 40px 0 25px;
-          }
-
-          span {
-            margin-right: 10px;
-            color: $saffron;
-          }
-        }
-      }
-
-      & > div {
-        max-width: 100%;
-        width: 100%;
-        height: 100%;
-        opacity: 1;
-        will-change: transform;
-        transition: transform $default-transition-time, opacity $default-transition-time;
-
-        @include below-tablet-horizontal {
-          padding-left: 0;
-        }
-
-        @include phone {
-          width: 100%;
-          max-width: 100%;
-          margin: 0;
-          padding-left: 0;
-          text-align: left;
-
-          @include flex(column, center, flex-start);
-        }
-
-        p {
-          margin: -20px 0 35px;
-          font-size: 1.25rem;
-          line-height: 1.8;
-          letter-spacing: 0.5px;
-          color: $black;
-          word-wrap: normal;
-
-          @include below-tablet-horizontal {
-            font-size: 1rem;
-          }
-
-          @include phone {
-            font-size: 1rem;
-            max-width: 100%;
-            margin: auto 20px 25px 0;
-          }
-        }
-
-        .buttonWrap {
-          display: none;
-          padding: 5px 0 10px;
-          cursor: pointer;
-          width: max-content;
-
-          button {
-            border: none;
-            outline: none;
-            background-color: transparent;
-            color: $black;
-            line-height: 1.55;
-            letter-spacing: 0.5px;
-            font-size: 1.125rem;
-            position: relative;
-            display: inline-block;
-            padding: 0;
-
-            &::after {
-              content: '';
-              cursor: pointer;
-              position: absolute;
-              bottom: -5px;
-              right: 0;
-              width: 100%;
-              border-bottom: 1.5px $black solid;
-              background-color: $black;
-              will-change: transition;
-              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-            }
-          }
-
-          &:hover {
-            cursor: pointer;
-
-            button {
-              cursor: pointer;
-
-              &::after {
-                width: 0;
-                will-change: transition;
-                transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-                transform: translateZ(0);
-              }
-            }
-          }
-        }
-      }
-    }
-
-    & > div:nth-of-type(2) {
-      width: 50%;
-
-      @include flex(column, center, center);
-
-      @include tablet {
-        width: 100%;
-        max-height: 50%;
-      }
-
-      @include below-tablet-horizontal {
-        width: 50%;
-      }
-
-      @include phone {
-        width: 100%;
-      }
-
-      .jsonWrapper {
-        max-width: 100% !important;
-        max-height: 100% !important;
-
-        div {
-          max-width: 100% !important;
-          max-height: 100% !important;
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          will-change: transform;
-          opacity: 1;
-          transition: transform $default-transition-time, opacity $default-transition-time;
-
-          @include flex(column, center, center);
-
-          svg {
-            width: auto !important;
-            height: auto !important;
-            max-width: 100% !important;
-            max-height: 100% !important;
-          }
-        }
-      }
     }
   }
 
-  .callToAction {
-    background: none;
-    flex-direction: column;
-
-    h3 {
-      font-size: 56px;
-      line-height: 67px;
-      text-align: center;
-      margin-bottom: 80px;
-      max-width: 879px;
+  @include tablet {
+    &:nth-child(1n) {
+      flex-direction: column-reverse;
     }
+  }
+}
 
-    & > div {
-      font-weight: bold;
-    }
+.callToAction {
+  background: none;
+  flex-direction: column;
+
+  h3 {
+    margin: 0 0 48px;
+  }
+}
+
+.title {
+  @include fontSize(38px, 130%);
+
+  margin: 0;
+
+  span {
+    color: $yellow500;
+  }
+
+  @include phone {
+    @include fontSize(24px, 130%);
+  }
+}
+
+.description {
+  @include fontSize(16px, 150%);
+
+  color: $gray400;
+  max-width: 585px;
+
+  @include tablet {
+   max-width: none; 
+  }
+}
+
+.processItem {
+  width: 50%;
+
+  @include tablet {
+    width: 100%;
+  }
+}
+
+.jsonWrapper {
+  max-width: 480px;
+
+  div {
+    @include flex(column, center, center);
   }
 }
