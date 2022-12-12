@@ -28,52 +28,20 @@
   width: 100%;
 }
 
+.titleStyle {
+  margin-bottom: 16px;
+}
+
 .experienceContent {
   padding-left: 32px;
   width: 100%;
 
-  & > div:first-child > div > p {
-    @include fontSize(36px);
-
-    line-height: 49px;
-
-    @include tablet {
-      padding-right: 0;
-      text-align: inherit;
-    }
-
-    @include below-tablet {
-      padding-right: 0;
-      text-align: center;
-    }
-
-    @include phone {
-      @include fontSize(24px);
-      text-align: center;
-      line-height: 31px;
-    }
-  }
-
   & > div:last-child > p {
-    @include fontSize(16px);
+    @include fontSize(16px, 150%);
 
-    margin: 0 0 30px;
     color: $gray400;
-    line-height: 24px;
-
-    @include macbook-fifteen {
-      @include fontSize(16px);
-    }
 
     @include below-tablet {
-      padding-right: 0;
-    }
-
-    @include tablet {
-      padding-right: 0;
-    }
-
-    @include phone {
       text-align: center;
     }
   }
