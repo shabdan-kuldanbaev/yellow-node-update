@@ -1,7 +1,7 @@
 .imageSection {
   @include flex(row, space-between, center);
 
-  max-width: $max-content-width;
+  max-width: $wide-content-width;
   margin: 0 auto;
 
   & > div {
@@ -58,7 +58,7 @@
     @include fontSize(16px);
 
     margin: 0 0 30px;
-    color: $silver-chalice;
+    color: $gray400;
     line-height: 24px;
 
     @include macbook-fifteen {
