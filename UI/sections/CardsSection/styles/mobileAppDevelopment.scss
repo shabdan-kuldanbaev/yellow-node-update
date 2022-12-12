@@ -35,8 +35,20 @@
       max-width: 768px;
     }
 
+    .callToAction {
+      h3 {
+        max-width: 535px;
+      }
+    }
+
     .card {
       @extend .cardWithVerticalLine
+    }
+  }
+
+  &.fourthSectionView {
+    .title {
+      max-width: 671px;
     }
   }
 
