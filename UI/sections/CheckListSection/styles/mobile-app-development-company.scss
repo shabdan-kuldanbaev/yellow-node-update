@@ -1,5 +1,10 @@
 .mobile-app-development-company {
+  .sectionTitle {
+    max-width: 671px;
+    margin: 0 auto 48px;
+  }
+
   &.firstSectionView {
-    @extend .graySection
+    @extend .graySection;
   }
 }
