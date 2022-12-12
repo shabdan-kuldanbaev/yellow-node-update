@@ -11,11 +11,11 @@ import {
   HOMEPAGE_BLOG_CURRENT_PAGE,
   ROUTES,
 } from 'utils/constants';
-import { getDocumentFields } from 'utils/helper';
+import { useBlog } from './utils/useBlog';
 import styles from './styles.module.scss';
 
-const Blog = ({ articles, sectionData }) => {
-  const { title, description } = getDocumentFields(sectionData, ['title', 'description']);
+const Blog = (props) => {
+  const { title, description, articles } = useBlog(props);
 
   return (
     <section className={styles.blog}>

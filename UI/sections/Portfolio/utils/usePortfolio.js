@@ -8,7 +8,7 @@ import {
 import throttle from 'lodash/throttle';
 import { getDocumentFields } from 'utils/helper';
 import { blockNumbers } from './data';
-import styles from './styles.module.scss';
+import styles from '../styles.module.scss';
 
 export const usePortfolio = ({ sectionData }) => {
   const {

@@ -8,7 +8,7 @@ import {
   selectImageCarousel,
   selectMetaData,
 } from 'redux/selectors/layout';
-import { reviews } from 'containers/Home/Reviews/utils/data';
+import { reviews } from 'UI/sections/Reviews/utils/data';
 import AboutUs from 'components/CompanyCommon/AboutUs';
 import WhatMakesUsSpecial from 'components/CompanyCommon/WhatMakesUsSpecial';
 import MetaTags from 'components/Common/MetaTags';
