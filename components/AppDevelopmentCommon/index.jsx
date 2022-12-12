@@ -12,18 +12,17 @@ import CardsSection from 'UI/sections/CardsSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
-const SliderSection = dynamic(() => import('components/AppDevelopmentCommon/SliderSection'));
+const SliderSection = dynamic(() => import('UI/sections/SliderSection'));
 const GallerySection = dynamic(() => import('UI/sections/GallerySection'));
 const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 const ImagesListSection = dynamic(() => import('UI/sections/ImagesListSection'));
-const RelatedServicesSection = dynamic(() => import('components/AppDevelopmentCommon/RelatedServicesSection'));
 const BlogSection = dynamic(() => import('components/AppDevelopmentCommon/BlogSection'));
 const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
 const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
-const BookmarkCardSection = dynamic(() => import('components/AppDevelopmentCommon/BookmarkCardSection'));
+const BookmarkCardSection = dynamic(() => import('UI/sections/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 
 export const AppDevelopmentCommon = ({ introSection, ...props }) => {
