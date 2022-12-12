@@ -31,8 +31,18 @@
 
 .gallerySection {
   padding-bottom: 30px;
+}
 
-  :global(.swiper) {
+.navigation {
+  max-width: 80%;
+
+  @include tablet {
+    max-width: 80%;
+  }
+}
+
+.slider {
+  &:global(.swiper) {
     padding-bottom: 100px;
     margin: 0 -40px;
 
@@ -41,19 +51,11 @@
     }
   }
 
-  :global(.swiper-slide) {
+  &:global(.swiper-slide) {
     transition-property: box-shadow, transform;
   }
 
-  :global(.swiper-slide-active) {
+  &:global(.swiper-slide-active) {
     box-shadow: 0 10px 60px -10px rgba($gray1000, 0.15);
-  }
-
-  .navigation {
-    max-width: 80%;
-
-    @include tablet {
-      max-width: 80%;
-    }
   }
 }
