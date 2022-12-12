@@ -4,8 +4,8 @@ import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
 import CardsSection from 'UI/sections/CardsSection';
 
-const Portfolio = dynamic(() => import('containers/Home/Portfolio'), { ssr: false });
-const TextSection = dynamic(() => import('components/TextSection'));
+const Portfolio = dynamic(() => import('UI/sections/Portfolio'), { ssr: false });
+const TextSection = dynamic(() => import('UI/sections/TextSection'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'));
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 const Blog = dynamic(() => import('containers/Home/Blog'));
