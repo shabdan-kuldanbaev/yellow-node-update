@@ -12,40 +12,40 @@
 }
 
 .headerContainer {
+  @include flex(row, space-between, center);
+
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999999;
-  width: calc(100% - 68px);
+  width: calc(100% - 128px);
   max-width: 100vw;
   height: 100%;
-  max-height: 66px;
-  padding: 0 34px;
+  max-height: 56px;
+  padding: 16px 64px;
   opacity: 1;
   transition:
     padding $default-transition-time,
     background-color 0.5s;
 
-  @include flex(row, space-between, center);
-
-  @include full-hd {
-    width: calc(100% - 34px);
-    padding: 0 17px;
+  @include tablet {
+    width: calc(100% - 46px);
+    padding: 16px 23px;
   }
 
   @include phone {
     width: calc(100% - 30px);
-    padding: 10px 15px;
+    padding: 10px 16px;
     height: unset;
   }
 
   &.notHome {
     background-color: $header-additional-color;
-    border-bottom: 0.5px solid $mercury;
+    border-bottom: 0.5px solid $gray200;
 
     div:last-child {
       hr {
-        background-color: $black;
+        background-color: $gray1000;
       }
     }
   }
@@ -64,7 +64,7 @@
   }
 
   &.openedDropDown:not(.pageScrolling, .notHome) {
-    background-color: $dark-grey;
+    background-color: $gray900;
     transition: background-color 0.3s ease;
   }
 
