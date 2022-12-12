@@ -1,9 +1,13 @@
-@import 'styles/utils/_mixins.scss';
+@import 'styles/utils/mixins';
 
 .card {
   @include flex(row, flex-start, center);
 
-  padding: 24px;
+  padding: 24px 32px;
+
+  @include below-tablet {
+    padding: 16px 24px;
+  }
 }
 
 .checkMark {

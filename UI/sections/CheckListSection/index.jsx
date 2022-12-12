@@ -58,7 +58,6 @@ export const CheckListSection = (props) => {
               title={link.title}
               buttonTitle={link.buttonTitle}
               handleOnClick={handleOnCTAClick}
-              // className={styles.callToAction}
             />
           </Animated>
         )}
