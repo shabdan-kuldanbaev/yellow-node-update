@@ -3,7 +3,11 @@
 .card {
   @include flex(row, flex-start, center);
 
-  padding: 24px;
+  padding: 24px 32px;
+
+  @include phone {
+    padding: 16px 24px;
+  }
 }
 
 .checkMark {
