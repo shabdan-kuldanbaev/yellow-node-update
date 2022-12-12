@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FeedbackForm from 'components/Common/FeedbackForm';
-import SectionTitle from 'components/Common/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 
 const FeedbackFormContainer = ({ type, title }) => (
@@ -10,6 +10,7 @@ const FeedbackFormContainer = ({ type, title }) => (
       title={title}
       styleTitle={styles.title}
       styleSubtitle={styles.subtitle}
+      className={styles.title}
       isFeedbackForm
       subtitle="Fill in this form or"
       linkText="send us an e-mail"
