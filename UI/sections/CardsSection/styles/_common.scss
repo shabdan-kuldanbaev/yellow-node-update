@@ -56,7 +56,7 @@
 .cardsSection {
   @include appDevelopmentContainer;
 
-  background: $white;
+  background: $gray0;
 
   :global(.swiper) {
     padding-bottom: 70px;
@@ -102,12 +102,8 @@
   }
 }
 
-.cardsSection.withSlider .contentWrapper {
-  max-width: $wide-content-width;
-}
-
 .contentWrapper {
-  max-width: $default-content-width;
+  max-width: $wide-content-width;
   margin: 0 auto;
 }
 
