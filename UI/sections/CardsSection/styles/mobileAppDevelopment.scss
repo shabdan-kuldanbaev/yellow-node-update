@@ -29,6 +29,11 @@
   }
 
   &.thirdSectionView {
+    .title {
+      max-width: 768px;
+      margin: 0 auto 48px;
+    }
+
     .card {
       @extend .cardWithVerticalLine
     }
