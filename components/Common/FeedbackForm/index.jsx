@@ -4,9 +4,9 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 import Animated from 'components/Common/Animated';
-import ButtonMore from 'components/Common/ButtonMore';
 import Upload from 'components/Common/Upload';
 import Input from 'UI/components/Input';
+import Button from 'UI/components/Button';
 import { selectError } from 'redux/selectors/contact';
 import { sendEmail } from 'redux/actions/contact';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
@@ -235,14 +235,14 @@ const FeedbackForm = ({
           {...animatedProps}
           transitionDelay={700}
         >
-          <ButtonMore
+          <Button
             href="/"
-            title="Contact Us"
-            buttonStyle={styles.submit}
-            handleOnClick={handleOnSubmitClick}
-            isDisabled={isDisabled}
-            disabledButtonStyle={styles.disabled}
-          />
+            onClick={handleOnSubmitClick}
+            disabled={isDisabled}
+            className={styles.submit}
+          >
+            Contact Us
+          </Button>
         </Animated>
       </FormContainer>
     </div>

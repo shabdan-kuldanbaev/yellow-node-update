@@ -4,7 +4,9 @@
   position: relative;
   width: 100%;
   max-width: 790px;
+  min-height: 343px;
   transition: height 0.4s ease;
+  margin: 0 auto;
 
   @include flex(row, center, center);
 
@@ -23,7 +25,6 @@
 
     & > div {
       width: 46%;
-      padding-top: 30px;
     }
 
     @include below-tablet {
@@ -31,17 +32,6 @@
 
       & > div {
         width: 100%;
-        padding-top: 40px;
-      }
-
-      & > div:first-child {
-        padding-top: 0;
-      }
-    }
-
-    @include phone {
-      & > div {
-        padding-top: 0;
       }
     }
   }
@@ -78,17 +68,11 @@
   }
 
   .submit {
-    @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
-
-    margin-top: 48px;
-    border-radius: $button-border-radius;
-    max-width: 264px;
-    font-weight: 600;
-    outline: none;
+    padding: 16px 32px 16px 32px ;
+    font-weight: 500;
 
     @include phone {
       margin: 60px auto 0;
-      min-width: 300px;
     }
   }
 }
