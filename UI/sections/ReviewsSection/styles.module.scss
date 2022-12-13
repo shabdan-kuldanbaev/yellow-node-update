@@ -1,31 +1,6 @@
 @import 'styles/utils/mixins';
 @import 'components/AppDevelopmentCommon/utils/styles.module.scss';
-@import './styles/common.scss';
-@import './styles/discoveryPhaseServices.module.scss';
-@import './styles/fintechSoftwareDevelopmentServices.module.scss';
-
-.reviews {
-  @include appDevelopmentContainer;
-
-  background: $gray50;
-
-  :global(.swiper) {
-    padding-bottom: 70px;
-  }
-
-  :global(.swiper-slide) {
-    height: auto;
-    display: flex;
-    align-items: stretch;
-  }
-}
-
-.contentWrapper {
-  max-width: $wide-content-width;
-  margin: 0 auto;
-}
-
-.callToAction {
-  background: $gray0;
-}
-
+@import './styles/common';
+@import './styles/fintech-software-development-services.scss';
+@import './styles/discovery-phase-services.scss';
+@import './styles/chat-app-development-company.scss';

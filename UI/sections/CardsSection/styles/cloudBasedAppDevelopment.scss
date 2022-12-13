@@ -2,10 +2,22 @@
   &.firstSectionView {
     @extend .greySection;
 
+    [data-description] {
+      max-width: 760px;
+    }
+
     padding-bottom: 0;
   }
 
   &.secondSectionView {
+    [data-title] {
+      max-width: 630px;
+    }
+
+    [data-description] {
+      max-width: 660px;
+    }
+
     .card {
       flex-direction: column;
 
@@ -23,6 +35,14 @@
 
   &.thirdSectionView {
     @extend .blackSection;
+
+    [data-title] {
+      max-width: 630px;
+    }
+
+    [data-description] {
+      max-width: 610px;
+    }
 
     .card {
       @include flex(column, flex-start, flex-start);

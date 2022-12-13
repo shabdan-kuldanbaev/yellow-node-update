@@ -42,7 +42,6 @@ const cardMapper = (withOverlay) => (card) => {
     card,
     [
       'title',
-      'description',
       'contentList',
       'text',
       'images',

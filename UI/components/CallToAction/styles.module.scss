@@ -12,16 +12,16 @@
   .h3 {
     @include fontSize(24px);
 
+    @include macbook-twelve {
+      @include fontSize(22px);
+    }
+
     color: $tundora;
     font-weight: 700;
     line-height: 1.5;
     border-left: 2px solid $tundora;
     padding-left: 20px;
     margin: 0 40px 0 0;
-
-    @include macbook-twelve {
-      @include fontSize(22px);
-    }
 
     @include phone {
       @include fontSize(18px);
@@ -50,6 +50,10 @@
 
 .page {
   @include flex(column, center, center);
+
+  @include macbook-fifteen {
+    padding: 0 80px;
+  }
 
   margin-bottom: 250px;
   padding: 0 20px;
@@ -88,10 +92,6 @@
     @include phone {
       font-weight: 500;
     }
-  }
-
-  @include macbook-fifteen {
-    padding: 0 80px;
   }
 
   @include tablet {

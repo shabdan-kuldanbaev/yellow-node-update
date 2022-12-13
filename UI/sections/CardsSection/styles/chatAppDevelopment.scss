@@ -7,12 +7,12 @@
   &.firstSectionView {
     @include iconsWithinCircle;
 
-    .contentWrapper {
-      max-width: $wide-content-width;
-    }
-
     .cardList {
       @extend .threeColumnsCards;
+    }
+
+    .title {
+      max-width: 671px;
     }
 
     .callToAction {
@@ -24,6 +24,13 @@
       button {
         margin: auto;
       }
+    }
+  }
+
+  &.secondSectionView {
+    [data-title],
+    [data-description] {
+      max-width: 671px;
     }
   }
 
