@@ -1,19 +1,18 @@
 .mvp-app-development-company {
-
   &.secondSectionView,
   &.thirdSectionView {
     @extend .greySection;
   }
 
   &.firstSectionView {
+    .title {
+      max-width: 595px;
+    }
+
     .card {
       @include flex(column, flex-start, flex-start);
     }
   }
-
-  &.secondSectionView {}
-
-  &.thirdSectionView {}
 
   &.fourthSectionView {
     .card {
