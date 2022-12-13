@@ -58,6 +58,7 @@ const CardsSection = (props) => {
               <Animated
                 {...REVEAL_ANIMATION_PROPS}
                 delay={50 * i}
+                key={`card/${i}`}
               >
                 <Card
                   key={i}

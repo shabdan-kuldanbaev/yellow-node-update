@@ -9,7 +9,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 import useCheckListSection from './utils/useCheckListSection';
 
-export const CheckListSection = (props) => {
+const CheckListSection = (props) => {
   const {
     list,
     type,
@@ -75,3 +75,5 @@ CheckListSection.propTypes = {
   type: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
 };
+
+export default CheckListSection;

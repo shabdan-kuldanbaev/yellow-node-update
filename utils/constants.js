@@ -444,6 +444,8 @@ export const ARTICLE_TABLE_TYPES = {
 export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.customMobileApp,
   PAGES.customChatApp,
+  PAGES.designServices,
+  PAGES.discoveryPhase,
 ];
 
 export const CONTACT_FORM_TITLES = {
@@ -476,7 +478,7 @@ export const REVEAL_ANIMATION_PROPS = {
   translateY: '2.8em',
   opasityDuration: 0.5,
   transformDuration: 0.7,
-  transitionDelay: 200,
+  transitionDelay: 50,
 };
 
 export const PHONE_RESOLUTION = 568;
