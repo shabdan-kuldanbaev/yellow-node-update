@@ -27,6 +27,10 @@
   &.thirdSectionView {
     @extend .blackSection;
 
+    .title {
+      max-width: 671px;
+    }
+
     .contentWrapper {
       max-width: $wide-content-width;
     }
