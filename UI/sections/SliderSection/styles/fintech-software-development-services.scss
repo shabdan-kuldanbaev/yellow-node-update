@@ -10,11 +10,11 @@
 
     .item {
       .slideTitle {
-        @include fontSize(24px);
+        @include fontSize(20px, 150%);
       }
 
       .slideSubtitle {
-        @include fontSize(18px);
+        @include fontSize(16px, 150%);
       }
     }
 
