@@ -11,8 +11,7 @@
       @extend .threeColumnsCards;
     }
 
-    [data-title],
-    [data-description] {
+    .title {
       max-width: 671px;
     }
 

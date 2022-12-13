@@ -8,9 +8,9 @@
   }
 
   :global(.swiper-slide) {
+    @include flex(row, initial, stretch);
+
     height: auto;
-    display: flex;
-    align-items: stretch;
   }
 }
 
