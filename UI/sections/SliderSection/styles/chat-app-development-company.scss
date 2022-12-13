@@ -1,7 +1,8 @@
 .chat-app-development-company {
   background: $gray50;
 
-  .titleStyle {
+  [data-title],
+  [data-description] {
     max-width: 670px;
   }
 }
