@@ -6,7 +6,7 @@
   }
 
   .sliderList {
-    padding: 60px 112px;
+    padding: 48px 100px;
 
     .item {
       .slideTitle {
@@ -19,7 +19,7 @@
     }
 
     :global(.swiper-scrollbar) {
-      margin-top: 0;
+      margin-top: 18px;
     }
 
     @include phone {
