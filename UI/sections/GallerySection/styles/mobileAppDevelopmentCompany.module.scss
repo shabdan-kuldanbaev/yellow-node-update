@@ -1,8 +1,7 @@
 .mobile-app-development-company {
   @include sectionGrayBackground();
 
-  [data-title],
-  [data-description] {
+  .sectionTitle {
     max-width: 619px;
   }
 
