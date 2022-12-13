@@ -24,13 +24,14 @@ const IntroText = ({ className }) => {
         },
       )}
     >
-      <p className={styles.text}>
+      <p className={styles.introText}>
         For Y Combinator startups, Fortune 500 companies, and you.&nbsp;
       </p>
       <LinkWrapper
         isLocalLink
         path={ROUTES.contact.path}
         dynamicRouting={ROUTES.contact.dynamicPath}
+        className={styles.introLink}
       >
         Get in touch
       </LinkWrapper>

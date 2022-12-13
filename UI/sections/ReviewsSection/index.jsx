@@ -30,7 +30,6 @@ const ReviewsSection = (props) => {
           description={description}
           titleStyle={styles.titleStyle}
         />
-
         <CustomSwiper
           swiperParams={swiperParams}
           isShowNavigation

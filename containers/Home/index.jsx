@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Intro from 'containers/Home/Intro';
+import Intro from 'UI/sections/Intro';
 import MetaTags from 'components/Common/MetaTags';
 import SectionSelector from 'containers/Home/SectionSelector';
 import { PAGES } from 'utils/constants';

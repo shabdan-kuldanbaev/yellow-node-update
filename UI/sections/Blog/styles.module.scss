@@ -5,14 +5,12 @@
 
   max-width: $max-content-width;
   padding: $section-indent 0;
-  background-color: $white;
+  background-color: $gray0;
   margin: 0 auto;
 
-  & > div:first-child {
-    margin-bottom: 70px;
-  }
-
   & > div:nth-of-type(2) {
+    margin: 0;
+
     & > article:nth-of-type(4),
     & > article:nth-of-type(5) {
       display: none;
@@ -33,24 +31,6 @@
     }
   }
 
-  .titleStyle {
-    @include defaultSectionTitle;
-  }
-
-  .blogButton {
-    @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
-
-    border-radius: $button-border-radius;
-    min-width: 330px;
-    font-weight: 600;
-    outline: none;
-
-    @include phone {
-      min-width: 300px;
-      margin-top: $mobile-more-button-indent;
-    }
-  }
-
   @include phone {
     padding: #{$mobile-section-indent} 0;
 
@@ -58,4 +38,14 @@
       margin-bottom: -$after-mobile-title-margin + 20px;
     }
   }
+}
+
+.titleStyle {
+  [data-description] {
+    max-width: 560px;
+  }
+}
+
+.blogButton {
+  margin-top: 32px;
 }

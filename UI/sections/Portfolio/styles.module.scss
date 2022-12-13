@@ -25,10 +25,22 @@
 }
 
 .titleStyle {
-  @include defaultSectionTitle;
+  [data-title] {
+    color: $gray0;
+  }
 
-  h2 {
-    color: $white;
+  [data-title],
+  [data-description] {
+    max-width: 665px
+  }
+}
+
+.secondTitleStyle {
+  margin-bottom: 48px;
+
+  [data-title] {
+    color: $gray0;
+    max-width: 750px
   }
 }
 
@@ -44,7 +56,7 @@
     @include flex(column, flex-start, center);
 
     .title {
-      color: $white;
+      color: $gray0;
 
       @include below-tablet {
         font-size: 3rem;
@@ -56,10 +68,10 @@
     }
 
     .subtitle {
-      color: $white;
-      max-width: 550px;
-
       @include flex(column, center, center);
+
+      color: $gray0;
+      max-width: 590px;
 
       @include phone {
         font-size: 0.875rem;
@@ -67,17 +79,7 @@
     }
 
     .portfolioButton {
-      @include button-more($white, $black, transparent, $turbo-100, $boulder, $turbo-100);
-
-      border-radius: $button-border-radius;
-      min-width: 330px;
-      font-weight: 600;
-      margin-top: 0;
-      outline: none;
-
-      @include phone {
-        min-width: 300px;
-      }
+      min-width: 300px;
     }
   }
 

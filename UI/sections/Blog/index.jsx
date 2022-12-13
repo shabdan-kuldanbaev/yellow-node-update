@@ -4,18 +4,18 @@ import { connect } from 'react-redux';
 import { selectArticles } from 'redux/selectors/blog';
 import Animated from 'components/Common/Animated';
 import { ArticlesList } from 'components/BlogCommon/ArticlesList';
-import ButtonMore from 'components/Common/ButtonMore';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import Button from 'UI/components/Button';
+import SectionTitle from 'UI/components/SectionTitle';
 import {
   ANIMATED_TYPE,
   HOMEPAGE_BLOG_CURRENT_PAGE,
   ROUTES,
 } from 'utils/constants';
-import { getDocumentFields } from 'utils/helper';
+import { useBlog } from './utils/useBlog';
 import styles from './styles.module.scss';
 
-const Blog = ({ articles, sectionData }) => {
-  const { title, description } = getDocumentFields(sectionData, ['title', 'description']);
+const Blog = (props) => {
+  const { title, description, articles } = useBlog(props);
 
   return (
     <section className={styles.blog}>
@@ -35,11 +35,13 @@ const Blog = ({ articles, sectionData }) => {
         transformDuration={1}
         transitionDelay={200}
       >
-        <ButtonMore
+        <Button
+          secondary
           href={ROUTES.blog.path}
-          title="Read more"
-          buttonStyle={styles.blogButton}
-        />
+          className={styles.blogButton}
+        >
+          Read more
+        </Button>
       </Animated>
     </section>
   );
