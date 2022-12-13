@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
+import { forwardRef } from 'react';
 import useCardContainer from './utils/useCardContainer';
 
-const CardContainer = (props) => {
+const CardContainer = (props, ref) => {
   const {
     children,
     className,
@@ -11,6 +12,7 @@ const CardContainer = (props) => {
   return (
     <div
       className={className}
+      ref={ref}
       {...restProps}
     >
       {children}
@@ -24,4 +26,4 @@ CardContainer.propTypes = {
   className: PropTypes.string,
 };
 
-export default CardContainer;
+export default forwardRef(CardContainer);
