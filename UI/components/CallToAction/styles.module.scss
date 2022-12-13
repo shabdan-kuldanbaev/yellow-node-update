@@ -1,5 +1,6 @@
 @import 'styles/utils/mixins';
 @import 'styles/utils/sizes';
+@import './styles/webAppDevelopmentCompany.module.scss';
 
 .blog {
   @include flex(row, space-between, center);

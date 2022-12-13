@@ -16,6 +16,7 @@
   p {
     @include fontSize(16px, 150%);
     
+    z-index: 1;
     margin-top: 21px;
     color: $gray400;
   }
