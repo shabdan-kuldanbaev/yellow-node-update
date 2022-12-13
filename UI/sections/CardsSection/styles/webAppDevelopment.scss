@@ -1,7 +1,11 @@
 .web-app-development-company {
-  &.firstSectionView,
-  &.fourthSectionView {
+  &.firstSectionView {
     @extend .greySection;
+
+    [data-title],
+    [data-description] {
+      max-width: 560px;
+    }
   }
 
   &.thirdSectionView {
@@ -13,6 +17,8 @@
   }
 
   &.fourthSectionView {
+    @extend .greySection;
+
     .card {
       @include flex(column, flex-start, flex-start);
 

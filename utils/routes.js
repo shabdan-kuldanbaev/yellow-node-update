@@ -210,7 +210,7 @@ export const routes = {
     slug: 'mobile-app-development-company',
   },
   customWebApp: {
-    title: 'Custom web application development company',
+    title: 'Web Application Development Services',
     path: '/web-app-development-company',
     dynamicPath: '/web-app-development-company',
     slug: 'web-app-development-company',
