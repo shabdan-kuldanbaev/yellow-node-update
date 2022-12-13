@@ -32,6 +32,7 @@ const Card = (props) => {
           <Illustration
             className={styles.image}
             src={image}
+            transparent
           />
         )}
 

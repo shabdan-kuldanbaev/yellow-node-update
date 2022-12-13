@@ -9,7 +9,7 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 import useCheckListSection from './utils/useNumberedListSection';
 
-export const NumberedListSection = (props) => {
+const NumberedListSection = (props) => {
   const {
     list,
     type,
@@ -36,7 +36,7 @@ export const NumberedListSection = (props) => {
           {list.map((text, index) => (
             <Animated
               {...REVEAL_ANIMATION_PROPS}
-              key={`check-list/${index}`}
+              key={`numbered-list/${index}`}
               transitionDelay={50 * index}
             >
               <NumberWithText
@@ -78,3 +78,5 @@ NumberedListSection.propTypes = {
   type: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
 };
+
+export default NumberedListSection;
