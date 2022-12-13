@@ -84,6 +84,11 @@
   &.fourthSectionView {
     @extend .greySection;
 
+    [data-title],
+    [data-subtitle] {
+      max-width: 540px;
+    }
+
     .contentWrapper {
       max-width: $wide-content-width;
     }
@@ -111,11 +116,22 @@
         align-items: center;
         text-align: center;
       }
+
+      h3 {
+        @include fontSize(20px, 150%);
+
+        max-width: 270px;
+      }
     }
   }
 
   &.sixthSectionView {
     @extend .greySection;
+
+    [data-title],
+    [data-description] {
+      max-width: 635px;
+    }
 
     .contentWrapper {
       max-width: $wide-content-width;

@@ -13,9 +13,12 @@
   &.secondSectionView {
     @extend .blackSection;
 
-    .title {
-      max-width: 655px;
-      margin: 0 auto 48px;
+    [data-title] {
+      max-width: 580px;
+    }
+
+    [data-description] {
+      max-width: 640px
     }
 
     .card {

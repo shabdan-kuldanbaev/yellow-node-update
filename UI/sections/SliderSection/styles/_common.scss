@@ -20,10 +20,15 @@
     position: relative;
     left: 0;
     width: 100%;
+    background: rgba($gray300, 0.2);
 
     @include below-tablet {
       margin-top: 32px;
     }
+  }
+
+  :global(.swiper-scrollbar-drag) {
+    background: $gray400;
   }
 }
 

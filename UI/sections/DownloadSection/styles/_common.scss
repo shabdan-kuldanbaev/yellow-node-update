@@ -29,27 +29,10 @@
   margin: 0 auto;
 }
 
-.titleWrapper {
-  margin-bottom: 48px;
-}
-
 .callToAction {
   @include flex(column, center, center);
-}
 
-.callToAction > a {
-  display: block;
-  width: min-content;
-}
-
-.callToAction > h3 {
-  display: none;
-}
-
-.callToAction > a > div {
-  @include fontSize(14px, 150%);
-
-  max-width: 153px;
-  margin: 0 auto;
-  padding: 16px 0;
+  h3 {
+    display: none;
+  }
 }
