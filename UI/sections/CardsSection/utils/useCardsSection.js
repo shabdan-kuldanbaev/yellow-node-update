@@ -150,6 +150,8 @@ export default ({
   );
 
   return {
+    type,
+    view,
     withSlider,
     cardList,
     ctaLink,

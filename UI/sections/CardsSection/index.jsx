@@ -11,6 +11,8 @@ import styles from './CardsSection.module.scss';
 
 const CardsSection = (props) => {
   const {
+    type,
+    view,
     title,
     subtitle,
     description,
@@ -79,6 +81,8 @@ const CardsSection = (props) => {
           >
             <CallToAction
               type="card"
+              page={type}
+              view={view}
               title={ctaLink.title}
               buttonTitle={ctaLink.buttonTitle}
               handleOnClick={handleOnCTAClick}
