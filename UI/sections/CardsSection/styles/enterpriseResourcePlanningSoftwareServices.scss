@@ -84,8 +84,7 @@
   &.fourthSectionView {
     @extend .greySection;
 
-    [data-title],
-    [data-subtitle] {
+    .sectionTitle {
       max-width: 540px;
     }
 
@@ -128,8 +127,7 @@
   &.sixthSectionView {
     @extend .greySection;
 
-    [data-title],
-    [data-description] {
+    .sectionTitle {
       max-width: 635px;
     }
 
