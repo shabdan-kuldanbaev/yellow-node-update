@@ -1,6 +1,7 @@
 .fintech-software-development-services {
+  @include appDevelopmentContainer;
+
   background-color: $gray0;
-  padding: 120px 0;
 
   .imageSection {
     @include flex(column-reverse);
@@ -52,10 +53,6 @@
       @include phone {
         margin-bottom: unset;
       }
-    }
-
-    @include below-tablet {
-      margin: 60px auto 0;
     }
   }
 
