@@ -1,7 +1,7 @@
 .mobile-app-development-company {
-  .sectionTitle {
+  [data-title],
+  [data-description] {
     max-width: 671px;
-    margin: 0 auto 48px;
   }
 
   &.firstSectionView {
