@@ -4,6 +4,12 @@
   }
 
   &.thirdSectionView {
+    padding-bottom: 0;
+
+    .title {
+      max-width: 745px;
+    }
+
     .card {
       @extend .cardWithVerticalLine;
     }

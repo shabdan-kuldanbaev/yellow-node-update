@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 .formContainer {
   position: relative;
@@ -238,10 +239,10 @@
 .artificial-intelligence-development-services {
   @extend .formContainer;
 
-  padding: 100px 16px;
+  padding: 120px 16px;
 
-  @include tablet {
-    padding: 80px 16px;
+  @include below-tablet {
+    padding: 60px 16px;
   }
 
   .title {
@@ -349,5 +350,11 @@
 .artificial-intelligence-development-services {
   .title {
     max-width: 830px;
+  }
+}
+
+.machine-learning-development-services {
+  .title {
+    max-width: 790px;
   }
 }
