@@ -27,6 +27,7 @@ const Illustration = memo((props) => {
 Illustration.defaultProps = {
   layout: 'fill',
   alt: '',
+  transparent: false,
   apiParams: {},
 };
 
