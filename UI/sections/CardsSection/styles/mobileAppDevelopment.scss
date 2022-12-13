@@ -1,11 +1,24 @@
 .mobile-app-development-company {
-
   &.firstSectionView,
   &.thirdSectionView {
     @extend .greySection;
   }
 
+  &.firstSectionView {
+    .title {
+      max-width: 800px;
+
+      h2 {
+        max-width: 500px;
+      }
+    }
+  }
+
   &.secondSectionView {
+    .title {
+      max-width: 700px;
+    }
+
     @include below-tablet {
       .cards>div {
         display: block;
@@ -14,8 +27,24 @@
   }
 
   &.thirdSectionView {
+    .title {
+      max-width: 768px;
+    }
+
+    .callToAction {
+      h3 {
+        max-width: 535px;
+      }
+    }
+
     .card {
       @extend .cardWithVerticalLine
+    }
+  }
+
+  &.fourthSectionView {
+    .title {
+      max-width: 671px;
     }
   }
 
@@ -29,6 +58,10 @@
 
   &.sixthSectionView {
     padding-bottom: 0;
+
+    [data-read-more] {
+      display: block;
+    }
 
     .card {
       @extend .cardWithFullSizeImage;
