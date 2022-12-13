@@ -3,10 +3,6 @@
 
   .sectionTitle {
     max-width: 619px;
-
-    h2 {
-      @include defaultGalleryTitle;
-    }
   }
 
   .callToAction h3 {
