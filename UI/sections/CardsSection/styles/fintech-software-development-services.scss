@@ -2,6 +2,15 @@
   &.firstSectionView {
     @extend .greySection;
 
+    .contentWrapper {
+      max-width: $default-content-width;
+      margin: 0 auto;
+    }
+
+    .callToAction h3{
+      max-width: 535px;
+    }
+
     .card {
       @include flex(column, flex-start, flex-start);
 
