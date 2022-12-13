@@ -6,8 +6,7 @@
 
   &.firstSectionView,
   &.secondSectionView {
-    [data-title],
-    [data-description] {
+    .sectionTitle {
       max-width: 560px;
     }
   }
