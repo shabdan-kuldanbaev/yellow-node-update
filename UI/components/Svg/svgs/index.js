@@ -381,12 +381,12 @@ export { default as instagramFilled } from './filled/InstagramFilled.svg';
 export { default as linkedinFilled } from './filled/linkedinFilled.svg';
 export { default as mediumFilled } from './filled/mediumFilled.svg';
 export { default as twitterFilled } from './filled/twitterFilled.svg';
-export { default as behanceFilledWhite } from './filled/behanceFilled.svg';
-export { default as dribbbleFilledWhite } from './filled/dribbbleFilled.svg';
+export { default as behanceFilledWhite } from './filled/behanceFilledWhite.svg';
+export { default as dribbbleFilledWhite } from './filled/dribbbleFilledWhite.svg';
 export { default as instagramFilledWhite } from './filled/instagramFilledWhite.svg';
-export { default as linkedinFilledWhite } from './filled/linkedinFilled.svg';
-export { default as mediumFilledWhite } from './filled/mediumFilled.svg';
-export { default as twitterFilledWhite } from './filled/twitterFilled.svg';
+export { default as linkedinFilledWhite } from './filled/mediumFilledWhite.svg';
+export { default as mediumFilledWhite } from './filled/mediumFilledWhite.svg';
+export { default as twitterFilledWhite } from './filled/twitterFilledWhite.svg';
 
 /* Filled Finance */
 export { default as bankNoteFilled } from './filled/bankNoteFilled.svg';

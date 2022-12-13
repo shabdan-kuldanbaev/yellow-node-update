@@ -42,7 +42,6 @@ const cardMapper = (withOverlay) => (card) => {
     card,
     [
       'title',
-      'description',
       'contentList',
       'text',
       'images',
@@ -150,6 +149,8 @@ export default ({
   );
 
   return {
+    type,
+    view,
     withSlider,
     cardList,
     ctaLink,

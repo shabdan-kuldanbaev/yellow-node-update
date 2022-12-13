@@ -1,4 +1,4 @@
-import React, {
+import {
   useState,
   useRef,
   useEffect,
@@ -6,17 +6,11 @@ import React, {
   useCallback,
 } from 'react';
 import throttle from 'lodash/throttle';
-import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
-import ButtonMore from 'components/Common/ButtonMore';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
-import Works from 'components/HomeCommon/Works';
 import { getDocumentFields } from 'utils/helper';
-import { REVEAL_ANIMATION_PROPS, ROUTES } from 'utils/constants';
-import { blockNumbers } from './utils/data';
-import styles from './styles.module.scss';
+import { blockNumbers } from './data';
+import styles from '../styles.module.scss';
 
-const Portfolio = ({ sectionData }) => {
+export const usePortfolio = ({ sectionData }) => {
   const {
     title,
     description,
@@ -73,47 +67,11 @@ const Portfolio = ({ sectionData }) => {
     return () => window.removeEventListener('scroll', handleOnScroll);
   }, [handleOnScroll]);
 
-  return (
-    <section
-      ref={portfolioRef}
-      className={styles.portfolio}
-    >
-      <SectionTitle
-        title={title}
-        description={description}
-        titleStyle={styles.titleStyle}
-      />
-      <Works
-        refs={refs}
-        works={contentModules}
-      />
-      <div className={styles.bottomOfPortfolio}>
-        <SectionTitle
-          title="Developing custom software for your business idea"
-          titleStyle={styles.titleStyle}
-        />
-        <Animated
-          {...REVEAL_ANIMATION_PROPS}
-          transitionDelay={350}
-        >
-          <ButtonMore
-            href={ROUTES.portfolio.path}
-            dynamicRouting={ROUTES.portfolio.dynamicPath}
-            title="EXPLORE OUR WORKS"
-            buttonStyle={styles.portfolioButton}
-          />
-        </Animated>
-      </div>
-    </section>
-  );
+  return {
+    refs,
+    title,
+    description,
+    portfolioRef,
+    contentModules,
+  };
 };
-
-Portfolio.defaultProps = {
-  sectionData: {},
-};
-
-Portfolio.propTypes = {
-  sectionData: PropTypes.instanceOf(Object),
-};
-
-export default Portfolio;

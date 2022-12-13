@@ -61,7 +61,7 @@ export const ogMetaData = [
   },
   {
     pageName: ROUTES.customWebApp.slug,
-    metaTitle: 'Custom web application development company | Yellow',
+    metaTitle: 'Web Application Development Services | Yellow',
     metaDescription: `Our team is ready to provide you with web development services.
     We are working with websites, PWAs, chatting applications, and landing pages.`,
     url: `${rootUrl}${ROUTES.customWebApp.path}`,

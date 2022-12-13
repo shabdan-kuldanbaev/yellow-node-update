@@ -4,6 +4,13 @@
     @extend .greySection;
   }
 
+  &.firstSectionView,
+  &.secondSectionView {
+    .sectionTitle {
+      max-width: 560px;
+    }
+  }
+
   &.thirdSectionView {
     @extend .blackSection;
 

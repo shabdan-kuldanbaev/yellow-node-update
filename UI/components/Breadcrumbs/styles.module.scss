@@ -1,7 +1,7 @@
 @import 'styles/utils/mixins';
 
 .breadcrumbs {
-  @include flex();
+  @include flex;
   @include fontSize(14px, 150%);
 
   margin: 0;
@@ -10,7 +10,7 @@
   color: $gray400;
 
   li {
-    @include flex();
+    @include flex;
 
     &:not(:last-child)::after {
       content: '/';
@@ -22,7 +22,7 @@
 }
 
 .item {
-  @include flex();
+  @include flex;
 
   color: $gray400;
 
@@ -33,7 +33,7 @@
 
 .activeItem {
   pointer-events: none;
-  color: $gray400;
+  color: $gray0;
 }
 
 .dark {

@@ -35,8 +35,8 @@
       position: relative;
       border-radius: $button-border-radius;
       margin-left: 15px;
-      border: 1px solid $white;
-      color: $white;
+      border: 1px solid $gray0;
+      color: $gray0;
       transition:
         border $default-transition-time,
         padding $default-transition-time,
@@ -58,16 +58,14 @@
       }
 
       a {
-        width: 100%;
-        height: 100%;
-        display: block;
-        padding: 10px 16.6px 10px 15px;
-        // border-radius: 60px;
+        display: flex;
+        max-width: 153px;
+        padding: 16px 32px;
       }
 
       &:hover {
         will-change: border;
-        border: 1px solid $turbo-100;
+        border: 1px solid $yellow500;
         transition:
           border $default-transition-time,
           padding $default-transition-time,
@@ -75,21 +73,22 @@
 
         span {
           will-change: color;
-          color: $turbo-100;
+          color: $yellow500;
           transition: color $default-transition-time;
         }
       }
     }
 
     .underline {
-      font-size: 0.875rem;
+      @include fontSize(16px, 150%);
+
       font-weight: 500;
       text-decoration: none;
       letter-spacing: 0.5px;
       transition: color $default-transition-time;
 
       &:hover {
-        color: $mid-gray;
+        color: $gray500;
         transition: color $default-transition-time;
       }
     }
@@ -107,17 +106,17 @@
 
   .dark {
     span {
-      color: $white;
+      color: $gray0;
     }
   }
 
   .light {
     &:last-child {
-      border-color: $black;
+      border-color: $gray1000;
     }
 
     span {
-      color: $black;
+      color: $gray1000;
     }
   }
 }
@@ -125,14 +124,14 @@
 .pageScrolled {
   .dark {
     span {
-      color: $black;
+      color: $gray1000;
     }
   }
 
   li:not(:last-child) {
     .underline {
       &::before {
-        background-color: $turbo-100;
+        background-color: $yellow500;
       }
     }
   }
@@ -142,36 +141,35 @@
   }
 
   li:last-child {
-    color: $black;
+    color: $gray1000;
     position: relative;
     overflow: hidden;
 
-    border: 1px solid $dark-grey;
+    border: 1px solid $gray900;
 
     &:hover {
-      border: 1px solid $turbo-100;
-      color: $black;
-      background-color: $turbo-100;
+      border: 1px solid $yellow500;
+      color: $gray1000;
+      background-color: $yellow500;
       transform: scale(0.96);
       transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
 
       span {
-        color: $black;
+        color: $gray1000;
         transition: color 0.4s cubic-bezier(0, 0, 0.2, 1);
       }
     }
 
     a {
-      padding: 10px 16.6px 10px 15px;
       transition: padding 0.4s cubic-bezier(0, 0, 0.2, 1);
     }
   }
 
   span {
-    color: $black;
+    color: $gray1000;
 
     &::before {
-      background-color: $black;
+      background-color: $gray1000;
     }
   }
 }

@@ -9,7 +9,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 import useCheckListSection from './utils/useCheckListSection';
 
-export const CheckListSection = (props) => {
+const CheckListSection = (props) => {
   const {
     list,
     type,
@@ -31,6 +31,7 @@ export const CheckListSection = (props) => {
         <SectionTitle
           title={title}
           description={description}
+          className={styles.sectionTitle}
         />
         <div className={styles.checkList}>
           {list.map((text, index) => (
@@ -58,7 +59,6 @@ export const CheckListSection = (props) => {
               title={link.title}
               buttonTitle={link.buttonTitle}
               handleOnClick={handleOnCTAClick}
-              // className={styles.callToAction}
             />
           </Animated>
         )}
@@ -76,3 +76,5 @@ CheckListSection.propTypes = {
   type: PropTypes.string.isRequired,
   handleOnCTAClick: PropTypes.func,
 };
+
+export default CheckListSection;
