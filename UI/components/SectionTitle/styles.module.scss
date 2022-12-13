@@ -21,7 +21,7 @@
 .default {
   @include flex(column, center, center);
 
-  margin-bottom: 48px;
+  margin: 0 auto 48px;
 
   .title {
     @include defaultTitle;
@@ -44,12 +44,8 @@
     }
   }
 
-  @include tablet {
-    margin-bottom: 60px;
-  }
-
-  @include phone {
-    margin-bottom: 40px;
+  @include below-tablet {
+    margin-bottom: 24px;
   }
 }
 
