@@ -28,6 +28,13 @@
     }
   }
 
+  &.secondSectionView {
+    [data-title],
+    [data-description] {
+      max-width: 671px;
+    }
+  }
+
   &.thirdSectionView {
     padding-bottom: 0;
 
