@@ -358,3 +358,18 @@
     max-width: 790px;
   }
 }
+
+.fintech-software-development-services {
+  @include flex(column);
+
+  padding: 120px 0;
+  background-color: $gray0;
+
+  .title {
+    max-width: 790px;
+  }
+
+  @include below-tablet {
+    padding: 30px 16px 60px;
+  }
+}
