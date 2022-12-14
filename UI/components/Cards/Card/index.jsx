@@ -53,7 +53,9 @@ const Card = (props) => {
             {title}
           </Typography>
 
-          <ContentfulParser document={text} />
+          <div className={styles.cardContent}>
+            <ContentfulParser document={text} />
+          </div>
 
           {children}
           <p
