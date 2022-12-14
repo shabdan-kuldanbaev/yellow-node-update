@@ -12,9 +12,14 @@ const FeedbackFormContainer = ({ type, title }) => (
       styleSubtitle={styles.subtitle}
       className={styles.title}
       isFeedbackForm
-      subtitle="Fill in this form or"
-      linkText="send us an e-mail"
-    />
+    >
+      <p className={styles.subtitle}>
+        Fill in this form or
+        <a href="#">
+          send us an e-mail
+        </a>
+      </p>
+    </SectionTitle>
     <FeedbackForm
       formKey="home-page"
       type={type}
