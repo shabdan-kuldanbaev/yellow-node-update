@@ -1,7 +1,7 @@
 .fintech-software-development-services {
-  padding: 0 16px;
+  @include appDevelopmentContainer;
+
   background-color: $gray0;
-  padding-bottom: 120px;
 
   .imageSection {
     @include flex(column-reverse);
@@ -14,8 +14,8 @@
   .image {
     background-size: contain;
     padding: 0;
-    max-width: 635px;
-    height: 420px;
+    max-width: 584px;
+    height: 385px;
     margin: 0 auto;
 
     @include phone {
@@ -26,7 +26,7 @@
 
   .experienceContent {
     max-width: 800px;
-    margin: 120px auto 0;
+    margin: 0 auto;
     padding: 0;
 
     h2,
@@ -53,10 +53,6 @@
       @include phone {
         margin-bottom: unset;
       }
-    }
-
-    @include below-tablet {
-      margin: 60px auto 0;
     }
   }
 

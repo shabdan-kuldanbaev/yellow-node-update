@@ -8,7 +8,6 @@ import {
   selectImageCarousel,
   selectMetaData,
 } from 'redux/selectors/layout';
-import { reviews } from 'UI/sections/Reviews/utils/data';
 import AboutUs from 'components/CompanyCommon/AboutUs';
 import WhatMakesUsSpecial from 'components/CompanyCommon/WhatMakesUsSpecial';
 import MetaTags from 'components/Common/MetaTags';
@@ -18,6 +17,7 @@ import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { microdata } from 'utils/microdata';
+import { reviews } from './utils/helpers';
 import styles from './styles.module.scss';
 
 const ManagementTeam = dynamic(() => import('components/CompanyCommon/ManagementTeam'));
