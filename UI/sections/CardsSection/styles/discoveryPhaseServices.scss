@@ -6,7 +6,7 @@
     }
 
     .card {
-      flex-direction: column
+      flex-direction: column;
     }
   }
 
@@ -18,7 +18,7 @@
     }
 
     [data-description] {
-      max-width: 640px
+      max-width: 640px;
     }
 
     .card {
@@ -42,13 +42,15 @@
     .cardList {
       @include flex(row, center, flex-start, wrap);
 
-      &>div {
+      & > div {
         flex: 0 0 30%;
       }
     }
 
     .card {
       @include flex(column, flex-start, stretch);
+
+      max-width: 296px;
 
       * {
         align-self: center;

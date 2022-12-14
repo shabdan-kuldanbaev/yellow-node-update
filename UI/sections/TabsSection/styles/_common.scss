@@ -34,7 +34,7 @@
 }
 
 .tabTitleActive::after {
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   margin: 0 auto;
@@ -70,7 +70,7 @@
   h3 {
     @include fontSize(40px, 120%);
 
-    margin: 40px 0 20px;
+    margin: 24px 0 16px;
     text-align: center;
 
     @include phone {
@@ -86,7 +86,7 @@
   }
 }
 
-.link>div {
+.link > div {
   margin: 0 auto;
 
   @include phone {
@@ -120,7 +120,7 @@
   }
 
   ul {
-    @include fontSize(18px, 180%);
+    @include fontSize(18px, 150%);
 
     margin: 0 0 0 15px;
     color: $gray400;
