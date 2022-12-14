@@ -2,6 +2,10 @@
   &.firstSectionView {
     padding-bottom: 0;
 
+    .title {
+      max-width: 530px;
+    }
+
     .card {
       flex-direction: column;
 
@@ -55,6 +59,10 @@
 
     padding-bottom: 0;
 
+    [data-title] {
+      max-width: 580px;
+    }
+
     .card {
       flex-direction: column;
     }
@@ -89,6 +97,16 @@
 
   &.fifthSectionView {
     @extend .greySection;
+
+    [data-title] {
+      max-width: 670px;
+    }
+
+    .callToAction {
+      h3 {
+        max-width: 490px;
+      }
+    }
   }
 
   &.sixthSectionView {
