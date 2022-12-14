@@ -175,6 +175,8 @@ export const SVG_IMAGES_TYPES = {
   attachment: 'attachment',
   opensenseTitleBorder: 'opensenseTitleBorder',
   checkMark: 'checkMark',
+  iPhone: 'iPhone',
+  iPad: 'iPad',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
