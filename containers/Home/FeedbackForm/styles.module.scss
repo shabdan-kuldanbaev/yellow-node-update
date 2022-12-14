@@ -304,7 +304,8 @@
   }
 }
 
-.fintech-software-development-services {
+.fintech-software-development-services,
+.enterprise-resource-planning-software-services {
   @include flex(column);
 
   padding: 120px 0;
@@ -319,8 +320,8 @@
   }
 }
 
-.subtitle {
-  margin: 0;
+.linkText {
+  margin: 16px 0 0;
   font-size: 0.9rem;
   line-height: 1.55;
   letter-spacing: 0.5px;

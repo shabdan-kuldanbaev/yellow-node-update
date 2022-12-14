@@ -4,16 +4,17 @@ import FeedbackForm from 'components/Common/FeedbackForm';
 import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = ({ type, title }) => (
+const FeedbackFormContainer = ({ type, titles }) => (
   <div className={styles[type] || styles.formContainer}>
     <SectionTitle
-      title={title}
+      title={titles[0]}
+      secondTitle={titles[1]}
       styleTitle={styles.title}
       styleSubtitle={styles.subtitle}
       className={styles.title}
       isFeedbackForm
     >
-      <p className={styles.subtitle}>
+      <p className={styles.linkText}>
         Fill in this form or
         <a href="#">
           send us an e-mail
