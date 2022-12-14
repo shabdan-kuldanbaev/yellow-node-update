@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 const FeedbackFormContainer = ({ type, titles = [], isChooseBudget }) => (
   <div className={styles[type] || styles.formContainer}>
     <SectionTitle
-      title={titles[0] || 'Let’s move forward'}
+      title={titles[0]}
       secondTitle={titles[1]}
       styleTitle={styles.title}
       styleSubtitle={styles.subtitle}
