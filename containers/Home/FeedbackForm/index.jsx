@@ -15,9 +15,7 @@ const FeedbackFormContainer = ({ type, title }) => (
     >
       <p className={styles.subtitle}>
         Fill in this form or
-        <a
-          href="email:test@test.com"
-        >
+        <a href="#">
           send us an e-mail
         </a>
       </p>

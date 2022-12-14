@@ -30,46 +30,6 @@
     }
   }
 
-  .subtitle {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    letter-spacing: 0.5px;
-    color: rgba($dark-grey, 0.3);
-
-    a {
-      margin-left: 5px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      line-height: 1.55;
-      letter-spacing: 0.5px;
-      transition: color $accelerated-transition-time;
-      border: none;
-      outline: none;
-      background-color: transparent;
-      color: rgba($dark-grey, 0.3);
-      position: relative;
-      display: inline-block;
-      padding: 0;
-
-      &:hover {
-        color: rgba($dark-grey, 0.2);
-      }
-
-      &::before {
-        content: '';
-        cursor: pointer;
-        position: absolute;
-        bottom: -2px;
-        right: 0;
-        width: 100%;
-        border-bottom: 1px rgba($dark-grey, 0) solid;
-        background-color: rgba($dark-grey, 0.2);
-        transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-      }
-    }
-  }
-
   & > form {
     max-width: $max-content-width-macbook-twelve;
   }
@@ -356,5 +316,45 @@
 
   @include below-tablet {
     padding: 30px 16px 60px;
+  }
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  letter-spacing: 0.5px;
+  color: rgba($dark-grey, 0.3);
+
+  a {
+    margin-left: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    letter-spacing: 0.5px;
+    transition: color $accelerated-transition-time;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgba($dark-grey, 0.3);
+    position: relative;
+    display: inline-block;
+    padding: 0;
+
+    &:hover {
+      color: rgba($dark-grey, 0.2);
+    }
+
+    &::before {
+      content: '';
+      cursor: pointer;
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      width: 100%;
+      border-bottom: 1px rgba($dark-grey, 0) solid;
+      background-color: rgba($dark-grey, 0.2);
+      transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
   }
 }
