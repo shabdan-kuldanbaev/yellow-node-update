@@ -3,7 +3,7 @@
     margin-bottom: 32px;
   }
 
-  .pageSubtitle:first-child{
+  .pageSubtitle:first-child {
     margin-bottom: 24px;
 
     @include below-tablet {
@@ -12,6 +12,6 @@
   }
 
   .pageImage {
-    max-width: 518px;
+    padding-top: 504px;
   }
 }
