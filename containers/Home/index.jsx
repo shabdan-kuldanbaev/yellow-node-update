@@ -36,7 +36,7 @@ export const Home = ({
           type={type}
         />
       ))}
-      {hasFeedbackForm && <FeedbackFormContainer />}
+      {hasFeedbackForm && <FeedbackFormContainer isChooseBudget/>}
     </>
   );
 };

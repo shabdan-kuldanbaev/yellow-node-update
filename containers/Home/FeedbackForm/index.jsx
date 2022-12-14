@@ -4,10 +4,10 @@ import FeedbackForm from 'components/Common/FeedbackForm';
 import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = ({ type, titles }) => (
+const FeedbackFormContainer = ({ type, titles = [], isChooseBudget }) => (
   <div className={styles[type] || styles.formContainer}>
     <SectionTitle
-      title={titles[0]}
+      title={titles[0] || 'Let’s move forward'}
       secondTitle={titles[1]}
       styleTitle={styles.title}
       styleSubtitle={styles.subtitle}
@@ -22,6 +22,7 @@ const FeedbackFormContainer = ({ type, titles }) => (
       </p>
     </SectionTitle>
     <FeedbackForm
+      isChooseBudget={isChooseBudget}
       formKey="home-page"
       type={type}
     />
