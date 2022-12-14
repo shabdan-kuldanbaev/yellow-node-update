@@ -3,10 +3,10 @@
 .card {
   @include flex(row, flex-start, center);
 
-  padding: 24px 32px;
+  padding: 24px 32px !important;
 
   @include below-tablet {
-    padding: 16px 24px;
+    padding: 16px 24px !important;
   }
 }
 
