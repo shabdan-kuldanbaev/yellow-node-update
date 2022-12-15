@@ -24,6 +24,7 @@ const CardsSection = (props) => {
     withoutBackground,
     withOverlay,
     swiperProps,
+    isShowNavigation,
   } = useCardsSection(props);
 
   return (
@@ -39,7 +40,7 @@ const CardsSection = (props) => {
         {withSlider && (
           <CustomSwiper
             swiperParams={swiperProps}
-            isShowNavigation
+            isShowNavigation={isShowNavigation}
           >
             {cardList.map((card, i) => (
               <SwiperSlide>
