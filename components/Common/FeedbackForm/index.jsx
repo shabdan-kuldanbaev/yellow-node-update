@@ -240,6 +240,7 @@ const FeedbackForm = ({
             onClick={handleOnSubmitClick}
             disabled={isDisabled}
             className={styles.submit}
+            secondary
           >
             Contact Us
           </Button>
