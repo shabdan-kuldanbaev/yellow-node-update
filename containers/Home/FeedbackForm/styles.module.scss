@@ -294,7 +294,8 @@
 
 .fintech-software-development-services,
 .enterprise-resource-planning-software-services,
-.ui-ux-services {
+.ui-ux-services,
+.android-mobile-app-development-services {
   @include flex(column);
 
   padding: 120px 0;
@@ -364,5 +365,11 @@
 .ui-ux-services {
   .title {
     max-width: 550px;
+  }
+}
+
+.android-mobile-app-development-services {
+  .title {
+    max-width: 700px;
   }
 }
