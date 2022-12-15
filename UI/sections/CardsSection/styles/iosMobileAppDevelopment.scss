@@ -39,6 +39,10 @@
   &.thirdSectionView {
     @extend .greySection;
 
+    .title {
+      max-width: 671px;
+    }
+
     .cardList {
       @extend .threeColumnsCards;
     }
