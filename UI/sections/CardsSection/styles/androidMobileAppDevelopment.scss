@@ -47,8 +47,16 @@
       @extend .threeColumnsCards;
     }
 
+    .title {
+      max-width: 671px;
+    }
+
     .contentWrapper {
       max-width: $wide-content-width;
+    }
+
+    .callToAction h3 {
+      max-width: 450px;
     }
   }
 
