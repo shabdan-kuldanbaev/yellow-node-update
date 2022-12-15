@@ -3,6 +3,14 @@
     color: $gray0;
   }
 
+  .pageSubtitle:first-child {
+    margin-bottom: 24px;
+
+    @include below-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
   .pageImage {
     padding-top: 540px;
   }
