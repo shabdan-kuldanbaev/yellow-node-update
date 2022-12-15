@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperNavigation } from 'UI/components/SwiperNavigation';
+import { SwiperSlide } from 'swiper/react';
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import ItemPreview from 'UI/components/ItemPreview';
 import CallToAction from 'UI/components/CallToAction';
