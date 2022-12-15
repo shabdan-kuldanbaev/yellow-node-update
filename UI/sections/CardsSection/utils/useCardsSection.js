@@ -121,7 +121,7 @@ export default ({
   const isMobileResolution = useSelector(selectIsMobileResolutions);
   const IsFullResolution = useSelector(selectIsFullResolutions);
   const withSlider = sectionWithSlider || (!disableSliderOnMobile && (isTabletResolution || isMobileResolution));
-  const isShowNavigation = !IsFullResolution && cardList?.length <= 3;
+  const isShowNavigation = !(IsFullResolution && cardList?.length <= 3);
 
   const swiperProps = {
     modules: [Navigation, Mousewheel],
