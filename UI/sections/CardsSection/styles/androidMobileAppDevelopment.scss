@@ -6,6 +6,12 @@
     @extend .greySection;
   }
 
+  &.firstSectionView {
+    .title {
+      max-width: 743px;
+    }
+  }
+
   &.fourthSectionView {
     .contentWrapper {
       max-width: $wide-content-width;
