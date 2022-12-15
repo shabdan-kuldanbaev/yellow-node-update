@@ -16,7 +16,7 @@ const FeedbackFormContainer = ({ type, titles, isChooseBudget }) => (
     >
       <p className={styles.linkText}>
         Fill in this form or
-        <a href="#">
+        <a href="mailto:hi@yellow.systems">
           send us an e-mail
         </a>
       </p>
