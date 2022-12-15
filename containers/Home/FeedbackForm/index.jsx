@@ -37,7 +37,7 @@ FeedbackFormContainer.defaultProps = {
 
 FeedbackFormContainer.propTypes = {
   type: PropTypes.string,
-  titles: PropTypes.array(PropTypes.string),
+  titles: PropTypes.arrayOf(PropTypes.string),
   isChooseBudget: PropTypes.bool,
 };
 
