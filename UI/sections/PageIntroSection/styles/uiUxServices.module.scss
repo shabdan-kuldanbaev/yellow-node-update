@@ -7,6 +7,10 @@
 
   .pageImage {
     padding-top: 525px;
+
+    @include below-tablet {
+      padding-top: 304px;
+    }
   }
 
   .pageTitle {

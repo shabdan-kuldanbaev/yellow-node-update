@@ -5,5 +5,9 @@
 
   .pageImage {
     padding-top: 520px;
+
+    @include below-tablet {
+      padding-top: 422px;
+    }
   }
 }

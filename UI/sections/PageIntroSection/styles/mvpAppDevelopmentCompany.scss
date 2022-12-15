@@ -1,11 +1,13 @@
 .mvp-app-development-company {
-  padding: 38px 120px 120px;
-
   .pageTitle {
     color: $gray0;
   }
 
   .pageImage {
     padding-top: 536px;
+
+    @include below-tablet {
+      padding-top: 422px;
+    }
   }
 }
