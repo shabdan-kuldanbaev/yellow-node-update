@@ -4,7 +4,7 @@ import FeedbackForm from 'components/Common/FeedbackForm';
 import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = ({ type, titles = [], isChooseBudget }) => (
+const FeedbackFormContainer = ({ type, titles, isChooseBudget }) => (
   <div className={styles[type] || styles.formContainer}>
     <SectionTitle
       title={titles[0]}
@@ -31,12 +31,14 @@ const FeedbackFormContainer = ({ type, titles = [], isChooseBudget }) => (
 
 FeedbackFormContainer.defaultProps = {
   type: '',
-  title: 'Let’s move forward',
+  titles: [],
+  isChooseBudget: false,
 };
 
 FeedbackFormContainer.propTypes = {
   type: PropTypes.string,
-  title: PropTypes.string,
+  titles: PropTypes.array(PropTypes.string),
+  isChooseBudget: PropTypes.bool,
 };
 
 export default FeedbackFormContainer;
