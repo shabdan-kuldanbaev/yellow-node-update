@@ -464,13 +464,14 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
   [PAGES.devOpsDevelopment]: 'Still have questions?',
-  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business? We are here to help!',
+  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
 };
 
 export const CONTACT_FORM_SECOND_TITLES = {
   [PAGES.erpDevelopment]: 'We\'re ready to answer them',
   [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
+  [PAGES.aiDevelopment]: 'We are here to help!',
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
