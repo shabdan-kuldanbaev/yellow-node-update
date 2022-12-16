@@ -23,6 +23,10 @@
   }
 
   &.secondSectionView {
+    .title {
+      max-width: 835px;
+    }
+
     .card {
       @include flex(column, flex-start, flex-start);
 
