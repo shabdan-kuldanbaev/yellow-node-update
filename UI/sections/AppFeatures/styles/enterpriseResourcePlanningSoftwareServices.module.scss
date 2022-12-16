@@ -31,11 +31,7 @@
   }
 
   .image {
-    transform: scale(1.6) translate(-160px, 110px);
-
-    @include macbook-thirteen {
-      transform: scale(1.4) translate(-110px, 110px);
-    }
+    transform: scale(1.4) translate(-140px, 70px);
 
     @include tablet {
       transform: unset;

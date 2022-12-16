@@ -452,6 +452,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
 ];
 
 export const CONTACT_FORM_TITLES = {
+  [PAGES.homepage]: 'Let’s move forward',
   [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
   [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
   [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
@@ -460,11 +461,18 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.fintechDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.erpDevelopment]: 'Still have questions?',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
-  [PAGES.devOpsDevelopment]: 'Still have questions? We\'re ready to answer them',
-  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business? We are here to help!',
+  [PAGES.devOpsDevelopment]: 'Still have questions?',
+  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
+};
+
+export const CONTACT_FORM_SECOND_TITLES = {
+  [PAGES.erpDevelopment]: 'We\'re ready to answer them',
+  [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
+  [PAGES.aiDevelopment]: 'We are here to help!',
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

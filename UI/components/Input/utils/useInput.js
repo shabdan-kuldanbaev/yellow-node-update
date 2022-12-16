@@ -69,7 +69,7 @@ export default (props) => {
 
   useEffect(() => {
     if (isTextArea && inputRef && inputRef.current && value === '') {
-      if (inputRef.current?.style.height !== 'auto') inputRef.current.style.height = 'auto';
+      if (inputRef.current?.style.height !== '24px') inputRef.current.style.height = '24px';
     }
   }, [value, isTextArea]);
 

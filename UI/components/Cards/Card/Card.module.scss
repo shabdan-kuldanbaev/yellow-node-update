@@ -61,5 +61,7 @@
 }
 
 .cardContent {
+  @include flex(column, flex-end);
+
   flex-grow: 1;
 }
