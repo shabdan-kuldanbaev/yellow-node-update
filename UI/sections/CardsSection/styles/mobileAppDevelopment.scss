@@ -21,7 +21,7 @@
     }
 
     @include below-tablet {
-      .cards>div {
+      .cards > div {
         display: block;
       }
     }
