@@ -1,6 +1,4 @@
 .discovery-phase-services {
-  padding: 48px 120px 120px;
-
   .pageWrapper {
     @include flex(row-reverse, space-between, center);
 
@@ -11,6 +9,10 @@
 
   .pageImage {
     padding-top: 538px;
+
+    @include below-tablet {
+      padding-top: 340px;
+    }
   }
 
   .pageTitle {

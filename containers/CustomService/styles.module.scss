@@ -3,7 +3,7 @@
 
 .container {
   margin: 0 auto;
-  padding: calc(#{$header-height} + 60px) 0 0;
+  padding: 105px 0 0;
 
   .pageTitle,
   .breadcrumbs {
@@ -20,18 +20,12 @@
   }
 
   &.chat-app-development-company {
-    padding: calc(#{$header-height} + 60px) 0 0;
-
     .feedbackContainer {
       background: $gray50;
 
       & > div {
         background: none;
       }
-    }
-
-    @include phone {
-      padding: calc(#{$header-height} + 40px) 0 80px;
     }
   }
 
