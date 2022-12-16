@@ -25,13 +25,10 @@
 }
 
 .titleStyle {
+  max-width: 610px;
+
   [data-title] {
     color: $gray0;
-  }
-
-  [data-title],
-  [data-description] {
-    max-width: 665px
   }
 }
 
@@ -40,14 +37,14 @@
 
   [data-title] {
     color: $gray0;
-    max-width: 750px
+    max-width: 620px
   }
 }
 
 .portfolio {
   @include flex(column, flex-start, center);
 
-  padding: 120px $side-indent 200px $side-indent;
+  padding: 120px $side-indent;
   overflow: hidden;
   background-color: $eerie-black;
   transition: background-color $changing-portfolio-color ease;

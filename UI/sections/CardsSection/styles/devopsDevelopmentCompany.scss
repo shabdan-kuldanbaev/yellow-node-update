@@ -25,7 +25,7 @@
     @extend .blackSection;
 
     .cardList {
-      @include flex(row, center, center, wrap);
+      @include flex(row, center, initial, wrap);
 
       &>* {
         flex: 0 0 30%

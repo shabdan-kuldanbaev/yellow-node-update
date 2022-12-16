@@ -1,6 +1,16 @@
 .machine-learning-development-services {
   &.firstSectionView {
     @extend .greySection;
+
+    .title {
+      max-width: 750px;
+    }
+  }
+
+  &.secondSectionView {
+    .title {
+      max-width: 700px;
+    }
   }
 
   &.thirdSectionView {
