@@ -84,8 +84,8 @@
   &.fourthSectionView {
     @extend .greySection;
 
-    .sectionTitle {
-      max-width: 540px;
+    .title {
+      max-width: 550px;
     }
 
     .contentWrapper {
@@ -127,8 +127,12 @@
   &.sixthSectionView {
     @extend .greySection;
 
-    .sectionTitle {
-      max-width: 635px;
+    [data-title] {
+      max-width: 500px;
+    }
+
+    [data-description] {
+      max-width: 666px;
     }
 
     .contentWrapper {

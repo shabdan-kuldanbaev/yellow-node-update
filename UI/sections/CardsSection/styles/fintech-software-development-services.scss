@@ -28,6 +28,10 @@
   &.secondSectionView {
     @extend .greySection;
 
+    .title {
+      max-width: 750px;
+    }
+
     .contentWrapper {
       max-width: $wide-content-width;
     }

@@ -24,7 +24,7 @@ const Upload = ({
         <Input
           value={projectDescription}
           handleOnChange={handleOnDescriptionChange}
-          placeholder="Project details *"
+          placeholder="Project Details *"
           isWithoutLabel
           isAttached
           isRequired

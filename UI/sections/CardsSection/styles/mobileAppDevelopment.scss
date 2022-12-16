@@ -21,7 +21,7 @@
     }
 
     @include below-tablet {
-      .cards>div {
+      .cards > div {
         display: block;
       }
     }
@@ -37,7 +37,7 @@
     }
 
     .card {
-      @extend .cardWithVerticalLine
+      @extend .cardWithVerticalLine;
     }
   }
 

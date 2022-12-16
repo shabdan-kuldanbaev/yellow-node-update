@@ -292,19 +292,10 @@
   }
 }
 
-.artificial-intelligence-development-services {
-  .title {
-    max-width: 830px;
-  }
-}
-
-.machine-learning-development-services {
-  .title {
-    max-width: 790px;
-  }
-}
-
-.fintech-software-development-services {
+.fintech-software-development-services,
+.enterprise-resource-planning-software-services,
+.ui-ux-services,
+.android-mobile-app-development-services {
   @include flex(column);
 
   padding: 120px 0;
@@ -319,8 +310,8 @@
   }
 }
 
-.subtitle {
-  margin: 0;
+.linkText {
+  margin: 16px 0 0;
   font-size: 0.9rem;
   line-height: 1.55;
   letter-spacing: 0.5px;
@@ -356,5 +347,29 @@
       background-color: rgba($dark-grey, 0.2);
       transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     }
+  }
+}
+
+.artificial-intelligence-development-services {
+  .title {
+    max-width: 790px;
+  }
+}
+
+.machine-learning-development-services {
+  .title {
+    max-width: 790px;
+  }
+}
+
+.ui-ux-services {
+  .title {
+    max-width: 550px;
+  }
+}
+
+.android-mobile-app-development-services {
+  .title {
+    max-width: 700px;
   }
 }

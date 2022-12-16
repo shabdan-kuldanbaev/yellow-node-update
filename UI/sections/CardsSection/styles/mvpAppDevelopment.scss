@@ -15,12 +15,26 @@
   }
 
   &.fourthSectionView {
+    padding-bottom: 0;
+
+    .title {
+      max-width: 580px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
     .card {
       @extend .cardWithFullSizeImage;
 
       span {
         margin-top: auto;
       }
+    }
+
+    @include tablet {
+      padding-bottom: 30px;
     }
   }
 }

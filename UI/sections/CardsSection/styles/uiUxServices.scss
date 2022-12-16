@@ -4,7 +4,27 @@
     @extend .greySection;
   }
 
-  &.firstSectionView {}
+  &.firstSectionView {
+    [data-description] {
+      max-width: 683px;
+    }
 
-  &.secondSectionView {}
+    [data-title] {
+      max-width: 500px;
+    }
+
+    .callToAction h3{
+      max-width: 535px;
+    }
+  }
+
+  &.secondSectionView {
+    [data-description] {
+      max-width: 671px;
+    }
+
+    [data-title] {
+      max-width: 500px;
+    }
+  }
 }

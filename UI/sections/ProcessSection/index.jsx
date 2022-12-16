@@ -31,9 +31,9 @@ const ProcessSection = (props) => {
           title={title}
           subtitle={subtitle}
           description={description}
-          titleStyle={styles.titleStyle}
           secondTitle={secondTitle}
           secondSubtitle={secondSubtitle}
+          className={styles.titleStyle}
         />
         <ArcherContainer
           strokeColor="#A0A0A0"
