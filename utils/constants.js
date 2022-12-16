@@ -463,13 +463,14 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.erpDevelopment]: 'Still have questions?',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
-  [PAGES.devOpsDevelopment]: 'Still have questions? We\'re ready to answer them',
+  [PAGES.devOpsDevelopment]: 'Still have questions?',
   [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business? We are here to help!',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
 };
 
 export const CONTACT_FORM_SECOND_TITLES = {
   [PAGES.erpDevelopment]: 'We\'re ready to answer them',
+  [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
