@@ -360,6 +360,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.mvpDevelopment.path,
   ROUTES.androidDevelopmentServices.path,
   ROUTES.cloudDevelopment.path,
+  ROUTES.mlDevelopment.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
