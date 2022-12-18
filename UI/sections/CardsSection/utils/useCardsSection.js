@@ -2,7 +2,11 @@ import get from 'lodash/get';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { Mousewheel, Navigation } from 'swiper';
-import { selectIsMobileResolutions, selectIsTabletResolutions } from 'redux/selectors/layout';
+import {
+  selectIsFullResolutions,
+  selectIsMobileResolutions,
+  selectIsTabletResolutions,
+} from 'redux/selectors/layout';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import Card from 'UI/components/Cards/Card';
@@ -42,7 +46,6 @@ const cardMapper = (withOverlay) => (card) => {
     card,
     [
       'title',
-      'description',
       'contentList',
       'text',
       'images',
@@ -116,7 +119,9 @@ export default ({
 
   const isTabletResolution = useSelector(selectIsTabletResolutions);
   const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const IsFullResolution = useSelector(selectIsFullResolutions);
   const withSlider = sectionWithSlider || (!disableSliderOnMobile && (isTabletResolution || isMobileResolution));
+  const isShowNavigation = !(IsFullResolution && cardList?.length <= 3);
 
   const swiperProps = {
     modules: [Navigation, Mousewheel],
@@ -150,6 +155,8 @@ export default ({
   );
 
   return {
+    type,
+    view,
     withSlider,
     cardList,
     ctaLink,
@@ -160,6 +167,7 @@ export default ({
     withoutBackground,
     swiperProps,
     withOverlay,
+    isShowNavigation,
     ...rest,
   };
 };

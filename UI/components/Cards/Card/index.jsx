@@ -32,6 +32,7 @@ const Card = (props) => {
           <Illustration
             className={styles.image}
             src={image}
+            transparent
           />
         )}
 
@@ -52,9 +53,17 @@ const Card = (props) => {
             {title}
           </Typography>
 
-          <ContentfulParser document={text} />
+          <div className={styles.cardContent}>
+            <ContentfulParser document={text} />
+          </div>
 
           {children}
+          <p
+            data-read-more
+            className={styles.readMore}
+          >
+            Read more
+          </p>
         </div>
 
       </CardContainer>

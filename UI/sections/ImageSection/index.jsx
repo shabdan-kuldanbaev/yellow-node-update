@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
@@ -30,7 +30,7 @@ const ImageSection = (props) => {
         <div className={styles.experienceContent}>
           <SectionTitle
             title={title}
-            subtitle={description}
+            description={description}
             type="side"
             titleStyle={styles.titleStyle}
           />

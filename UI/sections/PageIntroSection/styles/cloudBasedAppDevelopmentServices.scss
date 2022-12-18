@@ -1,4 +1,6 @@
 .cloud-based-app-development-services {
+  padding-bottom: 120px;
+
   .pageTitle {
     color: $gray0;
   }
@@ -16,6 +18,10 @@
   }
 
   .pageImage {
-    max-width: 470px;
+    padding-top: 470px;
+
+    @include below-tablet {
+      padding-top: 342px;
+    }
   }
 }

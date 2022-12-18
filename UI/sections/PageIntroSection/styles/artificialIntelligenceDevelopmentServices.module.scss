@@ -4,6 +4,10 @@
   }
 
   .pageImage {
-    max-width: 415px;
+    padding-top: 585px;
+
+    @include below-tablet {
+      padding-top: 484px;
+    }
   }
 }

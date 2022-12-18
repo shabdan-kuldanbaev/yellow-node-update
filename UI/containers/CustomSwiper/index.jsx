@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navigation } from 'swiper';
 import { Swiper } from 'swiper/react';
 import { SwiperNavigation } from 'UI/components/SwiperNavigation';
 import { useCustomSwiper } from './utils/useCustomSwiper';

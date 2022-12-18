@@ -1,4 +1,6 @@
 .devops-development-services {
+  padding-bottom: 60px;
+
   .pageWrapper {
     margin-bottom: 32px;
     padding-bottom: 24px;
@@ -10,6 +12,10 @@
   }
 
   .pageImage {
-    max-width: 575px;
+    padding-top: 552px;
+
+    @include below-tablet {
+      padding-top: 330px;
+    }
   }
 }

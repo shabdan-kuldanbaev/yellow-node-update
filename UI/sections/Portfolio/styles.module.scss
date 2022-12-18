@@ -1,0 +1,98 @@
+@import 'styles/utils/mixins';
+@import 'components/AppDevelopmentCommon/utils/styles.module';
+
+.gradient {
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  background:
+    linear-gradient(
+      to bottom,
+      $turbo-100 20%,
+      $java 30%,
+      $thunder 90%
+    );
+
+  @include phone {
+    background:
+      linear-gradient(
+        to bottom,
+        $turbo-100 20%,
+        $java 40%,
+        $thunder 93%
+      );
+  }
+}
+
+.titleStyle {
+  max-width: 610px;
+
+  [data-title] {
+    color: $gray0;
+  }
+}
+
+.secondTitleStyle {
+  margin-bottom: 48px;
+
+  [data-title] {
+    color: $gray0;
+    max-width: 620px
+  }
+}
+
+.portfolio {
+  @include flex(column, flex-start, center);
+
+  padding: 120px $side-indent;
+  overflow: hidden;
+  background-color: $eerie-black;
+  transition: background-color $changing-portfolio-color ease;
+
+  .bottomOfPortfolio {
+    @include flex(column, flex-start, center);
+
+    .title {
+      color: $gray0;
+
+      @include below-tablet {
+        font-size: 3rem;
+      }
+
+      @include phone {
+        font-size: 1.5rem;
+      }
+    }
+
+    .subtitle {
+      @include flex(column, center, center);
+
+      color: $gray0;
+      max-width: 590px;
+
+      @include phone {
+        font-size: 0.875rem;
+      }
+    }
+
+    .portfolioButton {
+      min-width: 300px;
+    }
+  }
+
+  &.firstBlock {
+    background-color: $eerie-black;
+  }
+
+  &.secondBlock {
+    background-color: $very-page-blue;
+  }
+
+  &.thirdBlock {
+    background-color: $chinese-black;
+  }
+
+  @include phone {
+    padding: $mobile-section-indent $side-indent;
+  }
+}

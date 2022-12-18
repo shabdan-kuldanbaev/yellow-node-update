@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SwiperSlide } from 'swiper/react';
-import Animated from 'components/Common/Animated';
 import SectionTitle from 'UI/components/SectionTitle';
+import Animated from 'components/Common/Animated';
 import CallToAction from 'UI/components/CallToAction';
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import Review from 'UI/components/Cards/Review';
@@ -30,13 +30,12 @@ const ReviewsSection = (props) => {
           description={description}
           titleStyle={styles.titleStyle}
         />
-
         <CustomSwiper
           swiperParams={swiperParams}
           isShowNavigation
         >
-          {reviews?.map((review) => (
-            <SwiperSlide>
+          {reviews?.map((review, i) => (
+            <SwiperSlide key={`review/${i}`}>
               <Review
                 className={styles.review}
                 {...review}

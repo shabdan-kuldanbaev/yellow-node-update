@@ -1,15 +1,16 @@
+import { memo } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import useIllustration from './utils/useIllustration';
 
-const Illustration = (props) => {
+const Illustration = memo((props) => {
   const {
     className,
     style,
     ...restProps
   } = useIllustration(props);
 
-  if (!restProps?.src) {
+  if (!restProps?.src || (restProps.placeholder === 'blur' && !restProps.blurDataURL)) {
     return null;
   }
 
@@ -21,16 +22,17 @@ const Illustration = (props) => {
       <Image {...restProps} />
     </picture>
   );
-};
+});
 
 Illustration.defaultProps = {
   layout: 'fill',
-  placeholder: 'blur',
   alt: '',
+  transparent: false,
   apiParams: {},
 };
 
 Illustration.propTypes = {
+  transparent: PropTypes.bool,
   // For more props check https://nextjs.org/docs/api-reference/next/legacy/image
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,

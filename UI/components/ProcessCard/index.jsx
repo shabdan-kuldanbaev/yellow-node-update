@@ -2,6 +2,7 @@ import React from 'react';
 import { ArcherElement } from 'react-archer';
 import Svg from 'UI/components/Svg';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import CardContainer from 'UI/containers/CardContainer';
 import styles from 'UI/sections/ProcessSection/styles.module.scss';
 
 const ProcessCard = (props) => {
@@ -18,7 +19,7 @@ const ProcessCard = (props) => {
       id={`element${index + 1}`}
       relations={relations}
     >
-      <div className={styles.cardContainer}>
+      <CardContainer className={styles.cardContainer}>
         <div className={styles.imageWrapper}>
           <Svg type={svgType} />
         </div>
@@ -28,7 +29,7 @@ const ProcessCard = (props) => {
           </div>
           <ContentfulParser document={text} />
         </div>
-      </div>
+      </CardContainer>
     </ArcherElement>
   );
 };

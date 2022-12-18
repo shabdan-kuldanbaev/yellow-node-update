@@ -39,32 +39,42 @@
 
   &.secondSectionView {
     background-color: $gray900;
+    padding: 120px 60px;
 
     [data-title] {
       color: $gray0;
     }
 
-    [data-subtitle] {
-      color: $gray400;
-
+    [data-description] {
       @include phone {
         text-align: center;
       }
+    }
+
+    .titleWrapper {
+      align-items: flex-start;
+      margin-bottom: 16px;
     }
 
     .container {
       max-width: 1300px;
 
       .sectionContainer {
+        @include flex(column, center);
+
         z-index: 100;
         max-width: 50%;
         order: 1;
 
         & > div:nth-child(7) {
           position: relative;
-          margin: 60px auto 40px;
+          margin-top: 32px;
 
           p {
+            @include fontSize(16px, 150%);
+
+            margin: 0;
+            max-width: 585px;
             color: $yellow500;
 
             &::before {
@@ -82,7 +92,7 @@
             width: 145px;
             height: 145px;
             margin: 0;
-            bottom: 80px;
+            bottom: 30px;
             left: -150px;
 
             @include desktop {
@@ -110,8 +120,8 @@
           @include centered;
 
           content: '';
-          width: 574px;
-          height: 574px;
+          width: 474px;
+          height: 474px;
           background: $yellow500;
           border-radius: 50%;
         }

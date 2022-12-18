@@ -3,7 +3,7 @@
 
   picture {
     align-self: stretch;
-    margin: -24px -24px 0 -24px;
+    margin: -24px -24px 0;
     height: 260px;
   }
 
@@ -39,7 +39,7 @@
 }
 
 .cardWithVerticalLine {
-  padding-left: 42px;
+  padding: 24px 24px 24px 42px;
   position: relative;
 
   &::before {
@@ -56,7 +56,7 @@
 .cardsSection {
   @include appDevelopmentContainer;
 
-  background: $white;
+  background: $gray0;
 
   :global(.swiper) {
     padding-bottom: 70px;
@@ -64,9 +64,10 @@
 
   :global(.swiper-slide) {
     @include flex(row, center, stretch);
+
     height: auto;
 
-    &>* {
+    & > * {
       @include flex(row, center, stretch);
 
       width: 100%;
@@ -74,7 +75,7 @@
   }
 }
 
-.overlay>* {
+.overlay > * {
   @include flex(row, center, center);
 
   flex: 1 1 auto;
@@ -102,10 +103,6 @@
   }
 }
 
-.cardsSection.withSlider .contentWrapper {
-  max-width: $wide-content-width;
-}
-
 .contentWrapper {
   max-width: $default-content-width;
   margin: 0 auto;
@@ -116,12 +113,12 @@
 
   margin: 0 0 -32px -32px;
 
-  &>* {
+  & > * {
     @include flex(row, center, stretch);
 
     margin: 0 0 32px 32px;
 
-    &>* {
+    & > * {
       flex: 1 1 auto;
     }
   }

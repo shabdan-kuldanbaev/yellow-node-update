@@ -6,7 +6,11 @@ import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { getDocumentFields, rootUrl } from 'utils/helper';
-import { CONTACT_FORM_TITLES, PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
+import {
+  CONTACT_FORM_SECOND_TITLES,
+  CONTACT_FORM_TITLES,
+  PAGES_WITH_DARK_BREADCRUMBS,
+} from 'utils/constants';
 import { getServicePageInfo } from './utils/servicePageHelper';
 import styles from './styles.module.scss';
 
@@ -66,7 +70,7 @@ const CustomServiceContainer = ({
           <div className={cn(styles[type], styles.feedbackContainer)}>
             <FeedbackFormContainer
               type={type}
-              title={CONTACT_FORM_TITLES[type]}
+              titles={[CONTACT_FORM_TITLES[type], CONTACT_FORM_SECOND_TITLES[type]]}
             />
           </div>
         )}

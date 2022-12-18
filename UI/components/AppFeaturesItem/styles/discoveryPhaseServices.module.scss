@@ -12,11 +12,12 @@
       .title {
         @include flex(row, center, center);
 
-        color: $white;
+        margin: 6px 0;
+        color: $gray0;
 
         &::before {
           content: '';
-          background: $white;
+          background: $gray0;
           min-width: 8px;
           min-height: 8px;
           border-radius: 50%;

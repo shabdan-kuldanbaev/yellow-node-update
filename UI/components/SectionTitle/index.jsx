@@ -18,6 +18,7 @@ const SectionTitle = ({
   description,
   secondDescription,
   className,
+  children,
 }) => (
   <div className={cn(styles[type], className, { [titleStyle]: titleStyle })}>
     <Animated
@@ -102,6 +103,7 @@ const SectionTitle = ({
         </Typography>
       </Animated>
     )}
+    {children}
   </div>
 );
 

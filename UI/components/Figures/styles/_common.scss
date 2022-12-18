@@ -2,14 +2,21 @@
   @include flex(row, space-between);
 
   flex-wrap: wrap;
-  max-width: $default-content-width;
   margin: 0 auto;
 
   & > div {
-    @include flex(row, initial, center);
+    @include flex(row, flex-start, flex-start);
 
-    flex: 0 1 379px;
+    flex: 0 1 30%;
     margin-bottom: 20px;
+
+    @include tablet {
+      flex: 0 1 50%;
+    }
+
+    @include phone {
+      flex: 0 1 100%;
+    }
   }
 }
 

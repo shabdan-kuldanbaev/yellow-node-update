@@ -15,6 +15,14 @@
       @extend .threeColumnsCards;
     }
 
+    [data-title] {
+      max-width: 500px;
+    }
+
+    [data-description] {
+      max-width: 670px;
+    }
+
     .callToAction {
       margin: 60px auto 0;
       padding: 0;
@@ -24,6 +32,13 @@
       button {
         margin: auto;
       }
+    }
+  }
+
+  &.secondSectionView {
+    [data-title],
+    [data-description] {
+      max-width: 671px;
     }
   }
 

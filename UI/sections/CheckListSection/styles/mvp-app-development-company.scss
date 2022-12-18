@@ -1,5 +1,9 @@
 .mvp-app-development-company {
   &.firstSectionView {
-    @extend .graySection
+    @extend .graySection;
+
+    .sectionTitle {
+      max-width: 573px;
+    }
   }
 }

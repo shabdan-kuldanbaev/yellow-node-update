@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperNavigation } from 'UI/components/SwiperNavigation';
+import { SwiperSlide } from 'swiper/react';
+import CustomSwiper from 'UI/containers/CustomSwiper';
 import ItemPreview from 'UI/components/ItemPreview';
 import CallToAction from 'UI/components/CallToAction';
 import SectionTitle from 'UI/components/SectionTitle';
@@ -28,7 +28,12 @@ const GallerySection = (props) => {
           description={description}
           className={styles.sectionTitle}
         />
-        <Swiper {...swiperGalleryParams}>
+        <CustomSwiper
+          swiperParams={swiperGalleryParams}
+          className={styles.slider}
+          isShowNavigation
+          navigationClassName={styles.navigation}
+        >
           {slides?.map((slide, i) => (
             <SwiperSlide key={`gallery-section/${i}`}>
               <ItemPreview
@@ -37,8 +42,7 @@ const GallerySection = (props) => {
               />
             </SwiperSlide>
           ))}
-          <SwiperNavigation className={styles.navigation} />
-        </Swiper>
+        </CustomSwiper>
       </div>
       {link && (
         <CallToAction

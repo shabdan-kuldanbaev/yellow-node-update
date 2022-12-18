@@ -1,51 +1,7 @@
-/* stylelint-disable no-duplicate-selectors */
-
 @import 'styles/utils/mixins';
-@import 'components/AppDevelopmentCommon/utils/styles.module';
-
-.reviews {
-  @include appDevelopmentContainer;
-
-  background: $gray50;
-
-  :global(.swiper) {
-    padding-bottom: 70px;
-  }
-
-  :global(.swiper-slide) {
-    height: auto;
-    display: flex;
-    align-items: stretch;
-  }
-}
-
-.contentWrapper {
-  max-width: $wide-content-width;
-  margin: 0 auto;
-}
-
-.callToAction {
-  background: $gray0;
-}
-
-.discovery-phase-services {
-  &.reviews {
-    background-color: $gray0;
-  }
-
-  .callToAction {
-    background: $gray50;
-  }
-}
-
-.fintech-software-development-services {
-  background-color: $gray0;
-
-  .callToAction {
-    background: $gray50;
-  }
-}
-
-.titleStyle {
-  margin-bottom: 32px;
-}
+@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
+@import './styles/common';
+@import './styles/fintech-software-development-services.scss';
+@import './styles/discovery-phase-services.scss';
+@import './styles/chat-app-development-company.scss';
+@import './styles/devops-development-services.scss';
