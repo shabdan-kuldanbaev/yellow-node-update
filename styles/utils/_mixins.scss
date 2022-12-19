@@ -1,6 +1,39 @@
 @import './variables';
 @import './functions';
 
+@mixin darkSliderButton {
+  color: $gray0;
+
+  * {
+    fill: $gray0;
+  }
+
+  &:hover {
+    * {
+      color: $yellow500;
+      fill: $yellow500;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    color: $gray400;
+    
+    * {
+      fill: $gray300;
+    }
+
+    &:hover {
+      cursor: default;
+
+      * {
+        fill: $gray300;
+        color: $gray400;
+      }
+    }
+  }
+}
+
 @mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
   display: flex;
   flex-flow: $fd $fw;

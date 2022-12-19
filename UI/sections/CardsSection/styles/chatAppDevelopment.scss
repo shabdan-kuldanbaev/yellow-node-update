@@ -40,6 +40,12 @@
     [data-description] {
       max-width: 671px;
     }
+
+    .card {
+      @include tablet {
+        flex-direction: column;
+      }
+    }
   }
 
   &.thirdSectionView {

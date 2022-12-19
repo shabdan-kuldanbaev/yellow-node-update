@@ -1,5 +1,9 @@
 @import 'styles/utils/mixins';
 
+@mixin blackNabigationButton {
+  
+}
+
 .navButton {
   @include flex(row, flex-start, center);
 
