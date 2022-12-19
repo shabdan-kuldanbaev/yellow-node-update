@@ -2,7 +2,7 @@
 @import 'styles/utils/sizes';
 
 .fullLayout {
-  max-width: $wide-content-width;
+  width: 100%;
   margin: 0 auto;
   padding: calc(#{$header-height} + 32px) 0 120px;
   position: relative;

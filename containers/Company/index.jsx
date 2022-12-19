@@ -22,8 +22,8 @@ import styles from './styles.module.scss';
 
 const ManagementTeam = dynamic(() => import('components/CompanyCommon/ManagementTeam'));
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
-const Reviews = dynamic(() => import('components/Common/Reviews'));
 const Awards = dynamic(() => import('components/CompanyCommon/Awards'));
+const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 
 const CompanyContainer = ({
   introSection,
@@ -67,17 +67,9 @@ const CompanyContainer = ({
             <PhotoGallery sectionData={photosData} />
           </FullLayout>
         )}
-        <FullLayout
-          disableMaxWidth
-          disableTopPadding
-          disableSidePadding
-          disableBottomPadding
-        >
-          {/* TODO check if this div is needed */}
-          <div className={styles.companyReviews}>
-            <Reviews reviews={reviews} />
-          </div>
-        </FullLayout>
+        <div className={styles.companyReviews}>
+          <ReviewsSection reviews={reviews} />
+        </div>
         <Awards />
       </FullLayout>
     </>
