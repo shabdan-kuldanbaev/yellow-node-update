@@ -12,6 +12,10 @@
   }
 
   &.fourthSectionView {
+    [data-subtitle] {
+      max-width: 550px;
+    }
+
     .contentWrapper {
       max-width: $wide-content-width;
     }
