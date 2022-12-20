@@ -2,7 +2,6 @@
   &.firstSectionView {
     .title {
       max-width: 550px;
-      margin: 0 auto 48px;
     }
 
     .card {
@@ -74,8 +73,7 @@
       max-width: 296px;
 
       * {
-        align-self: center;
-        text-align: center;
+        @include flex(column, center, center);
       }
 
       @include phone {
