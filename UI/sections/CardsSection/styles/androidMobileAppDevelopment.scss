@@ -68,6 +68,8 @@
   }
 
   &.fifthSectionView {
+    padding-bottom: 0;
+
     .card {
       @extend .cardWithFullSizeImage;
     }
