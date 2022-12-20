@@ -458,7 +458,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.designServices]: 'Tailored UX design services for your business',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
-  [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.mvpDevelopment]: 'Still have questions?',
   [PAGES.fintechDevelopment]: 'Still have questions? We are ready to answer them',
   [PAGES.erpDevelopment]: 'Still have questions?',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
@@ -472,6 +472,7 @@ export const CONTACT_FORM_SECOND_TITLES = {
   [PAGES.erpDevelopment]: 'We\'re ready to answer them',
   [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
   [PAGES.aiDevelopment]: 'We are here to help!',
+  [PAGES.mvpDevelopment]: 'We are ready to answer them',
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
