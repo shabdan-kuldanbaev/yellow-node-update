@@ -13,6 +13,7 @@ import WhatMakesUsSpecial from 'components/CompanyCommon/WhatMakesUsSpecial';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import FullLayout from 'components/Layout/FullLayout';
+import Reviews from 'components/Common/Reviews';
 import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
@@ -23,7 +24,6 @@ import styles from './styles.module.scss';
 const ManagementTeam = dynamic(() => import('components/CompanyCommon/ManagementTeam'));
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
 const Awards = dynamic(() => import('components/CompanyCommon/Awards'));
-const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 
 const CompanyContainer = ({
   introSection,
@@ -51,6 +51,8 @@ const CompanyContainer = ({
       />
       <FullLayout introSection={introSection}>
         <PageHeader
+          breadcrumbsStyles={styles.breadcrumbsStyles}
+          titleStyles={styles.titleStyles}
           title={ROUTES.company.title}
           breadcrumbs={breadcrumbs}
         />
@@ -67,9 +69,19 @@ const CompanyContainer = ({
             <PhotoGallery sectionData={photosData} />
           </FullLayout>
         )}
-        <div className={styles.companyReviews}>
-          <ReviewsSection reviews={reviews} />
-        </div>
+        <FullLayout
+          disableMaxWidth
+          disableTopPadding
+          disableSidePadding
+          disableBottomPadding
+        >
+          {/* TODO check if this div is needed */}
+          <div className={styles.companyReviews}>
+            <Reviews
+              reviews={reviews}
+            />
+          </div>
+        </FullLayout>
         <Awards />
       </FullLayout>
     </>
