@@ -1,5 +1,7 @@
 .enterprise-resource-planning-software-services {
-  [data-title] {
-    max-width: 500px;
+  &.firstSectionView {
+    [data-title] {
+      max-width: 500px;
+    }
   }
 }
