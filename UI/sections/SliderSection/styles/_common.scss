@@ -10,6 +10,8 @@
 
 .sliderList {
   padding: 48px 103px;
+  border: none;
+  border-radius: 0;
 
   @include below-tablet {
     padding: 32px 24px;
