@@ -1,7 +1,7 @@
 .ios-mobile-app-development-services {
   &.firstSectionView {
     .title {
-      max-width: 620px
+      max-width: 620px;
     }
 
     .card {
@@ -22,7 +22,7 @@
     @extend .blackSection;
 
     .title {
-      max-width: 620px
+      max-width: 620px;
     }
 
     .card {
@@ -31,6 +31,7 @@
       picture {
         width: 276px;
         height: 276px;
+        margin-bottom: 24px;
       }
 
       @include below-tablet {
