@@ -1,28 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { selectMetaData } from 'redux/selectors/layout';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import FullLayout from 'components/Layout/FullLayout';
 import Process from 'UI/components/ProcessList';
 import { PAGES, ROUTES } from 'utils/constants';
-import { rootUrl } from 'utils/helper';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { useProcess } from './utils/useProcess';
 
-const ProcessContainer = ({ introSection, json }) => {
-  const metaData = useSelector(selectMetaData);
-  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-
-  const breadcrumbs = pagesBreadcrumbs.process();
-  const pageMetadata = {
-    ...metaData,
-    url: `${rootUrl}/process`,
-  };
-
-  const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
-  const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
+const ProcessContainer = (props) => {
+  const {
+    json,
+    breadcrumbs,
+    pageMetadata,
+    introSection,
+    isFullscreenEstimation,
+    openFullscreenEstimation,
+    closeFullscreenEstimation,
+  } = useProcess(props);
 
   return (
     <>

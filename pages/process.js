@@ -1,5 +1,4 @@
-import React from 'react';
-import ProcessContainer from 'containers/Process';
+import ProcessContainer from 'UI/sections/Process';
 import { processes } from 'utils/processes';
 
 export const getStaticProps = () => ({
