@@ -45,6 +45,12 @@
     .title {
       max-width: 671px;
     }
+
+    [data-title] {
+      @include phone {
+        max-width: 300px;
+      }
+    }
   }
 
   &.fifthSectionView {

@@ -1,9 +1,12 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .card {
   @include flex(column, space-between, flex-start);
 
-  p, ul {
+  box-sizing: border-box;
+
+  p,
+  ul {
     @include fontSize(16px, 1.5);
 
     font-weight: 400;
@@ -61,7 +64,5 @@
 }
 
 .cardContent {
-  @include flex(column, flex-end);
-
   flex-grow: 1;
 }

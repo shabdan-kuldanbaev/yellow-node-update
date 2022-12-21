@@ -11,6 +11,12 @@
     .title {
       max-width: 700px;
     }
+
+    [data-title] {
+      @include phone {
+        max-width: 290px;
+      }
+    }
   }
 
   &.thirdSectionView {
