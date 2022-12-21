@@ -3,10 +3,24 @@
 
   background-color: $gray900;
 
+  .titleWrapper {
+    align-items: flex-start;
+  }
+
   [data-title] {
     color: $gray0;
 
-    @include tablet-size-horizontal {
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
+  [data-description] {
+    @include desktop {
+      text-align: left;
+    }
+
+    @include below-tablet {
       text-align: center;
     }
   }
@@ -29,7 +43,7 @@
   }
 
   .imageContainer {
-    max-width: 700px;
+    max-width: 600px;
 
     @include tablet {
       margin: 32px auto 0;
@@ -37,7 +51,7 @@
   }
 
   .image {
-    transform: scale(1.4) translate(-140px, 70px);
+    transform: scale(1.5) translate(-130px, 70px);
 
     @include tablet {
       transform: unset;

@@ -14,6 +14,12 @@
     }
   }
 
+  &.thirdSectionView{
+    [data-title] {
+      max-width: 550px;
+    }
+  }
+
   &.fourthSectionView {
     padding-bottom: 0;
 
