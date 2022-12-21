@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 const Process = ({ processes, handleOnCTAClick }) => (
   <div className={styles.processContainer}>
-    {processes && processes.map(({
+    {processes?.map(({
       name,
       description,
       json,

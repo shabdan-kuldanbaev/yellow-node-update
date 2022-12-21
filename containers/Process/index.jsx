@@ -6,7 +6,7 @@ import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import FullLayout from 'components/Layout/FullLayout';
-import Process from 'components/ProcessCommon';
+import Process from 'UI/components/ProcessList';
 import { PAGES, ROUTES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
