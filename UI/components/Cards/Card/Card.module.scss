@@ -1,9 +1,12 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .card {
   @include flex(column, space-between, flex-start);
 
-  p, ul {
+  box-sizing: border-box;
+
+  p,
+  ul {
     @include fontSize(16px, 1.5);
 
     font-weight: 400;
@@ -39,7 +42,7 @@
   }
 }
 
-.icon { 
+.icon {
   flex: 0 0 64px;
   height: 64px;
   margin: 0 16px 16px 0;
@@ -53,4 +56,13 @@
 
 .title {
   margin: 0 0 8px;
+}
+
+.readMore {
+  display: none;
+  padding-top: 24px;
+}
+
+.cardContent {
+  flex-grow: 1;
 }

@@ -24,28 +24,28 @@ export default (props) => {
   } = props;
 
   const Component = isTextArea ? 'textarea' : 'input';
+  const errorText = isRequired && value.length === 0 ? errorMessages.required : errorMessages[type];
 
   const inputRef = useRef();
-  const [isActive, setActive] = useState(false);
   const [isFocus, setFocus] = useState(false);
+  const [isDirty, setIsDirty] = useState(false);
 
   const className = cn(props.className, styles.input, {
     [styles[style]]: style,
-    [styles.isAttached]: isRequired || isAttached,
-    [styles.isActive]: isActive,
+    [styles.isAttached]: isAttached,
     [styles.isFocus]: isFocus,
+    [styles.isDirty]: isDirty,
+    [styles.isWithLabel]: !isWithoutLabel,
   });
 
-  const handleOnFocus = () => setFocus(true);
-
-  const handleOnClick = () => {
+  const handleOnFocus = () => {
     inputRef.current?.focus();
-    setActive(true);
+    setFocus(true);
+    setIsDirty(true);
   };
 
   const handleOnBlur = () => {
     setFocus(false);
-    setActive(false);
 
     if (type === 'email' && value !== '' && handleOnBlurEmail) handleOnBlurEmail(value);
   };
@@ -56,7 +56,6 @@ export default (props) => {
     ref: inputRef,
     type: type || 'text',
     onChange: handleOnChange,
-    onClick: handleOnClick,
     onFocus: handleOnFocus,
     onBlur: handleOnBlur,
     required: isRequired,
@@ -70,7 +69,7 @@ export default (props) => {
 
   useEffect(() => {
     if (isTextArea && inputRef && inputRef.current && value === '') {
-      if (inputRef.current?.style.height !== 'auto') inputRef.current.style.height = 'auto';
+      if (inputRef.current?.style.height !== '24px') inputRef.current.style.height = '24px';
     }
   }, [value, isTextArea]);
 
@@ -78,12 +77,12 @@ export default (props) => {
     Component,
     className,
     inputOptions,
-    errorMessages,
-    isRequired,
     type,
     value,
     placeholder,
     isWithoutLabel,
+    isRequired,
+    errorText,
     ...rest,
   });
 };

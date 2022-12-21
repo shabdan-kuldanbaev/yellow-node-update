@@ -1,20 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FeedbackForm from 'components/Common/FeedbackForm';
-import SectionTitle from 'components/Common/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = ({ type, title }) => (
+const FeedbackFormContainer = ({ type, titles, isChooseBudget }) => (
   <div className={styles[type] || styles.formContainer}>
     <SectionTitle
-      title={title}
+      title={titles[0]}
+      secondTitle={titles[1]}
       styleTitle={styles.title}
       styleSubtitle={styles.subtitle}
+      className={styles.title}
       isFeedbackForm
-      subtitle="Fill in this form or"
-      linkText="send us an e-mail"
-    />
+    >
+      <p className={styles.linkText}>
+        Fill in this form or
+        <a href="mailto:hi@yellow.systems">
+          send us an e-mail
+        </a>
+      </p>
+    </SectionTitle>
     <FeedbackForm
+      isChooseBudget={isChooseBudget}
       formKey="home-page"
       type={type}
     />
@@ -23,12 +31,14 @@ const FeedbackFormContainer = ({ type, title }) => (
 
 FeedbackFormContainer.defaultProps = {
   type: '',
-  title: 'Let’s move forward',
+  titles: [],
+  isChooseBudget: false,
 };
 
 FeedbackFormContainer.propTypes = {
   type: PropTypes.string,
-  title: PropTypes.string,
+  titles: PropTypes.arrayOf(PropTypes.string),
+  isChooseBudget: PropTypes.bool,
 };
 
 export default FeedbackFormContainer;

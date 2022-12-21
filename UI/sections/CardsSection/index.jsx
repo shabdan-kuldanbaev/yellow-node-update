@@ -11,6 +11,8 @@ import styles from './CardsSection.module.scss';
 
 const CardsSection = (props) => {
   const {
+    type,
+    view,
     title,
     subtitle,
     description,
@@ -22,6 +24,7 @@ const CardsSection = (props) => {
     withoutBackground,
     withOverlay,
     swiperProps,
+    isShowNavigation,
   } = useCardsSection(props);
 
   return (
@@ -37,7 +40,8 @@ const CardsSection = (props) => {
         {withSlider && (
           <CustomSwiper
             swiperParams={swiperProps}
-            isShowNavigation
+            isShowNavigation={isShowNavigation}
+            navigationClassName={styles.navigation}
           >
             {cardList.map((card, i) => (
               <SwiperSlide>
@@ -58,6 +62,7 @@ const CardsSection = (props) => {
               <Animated
                 {...REVEAL_ANIMATION_PROPS}
                 delay={50 * i}
+                key={`card/${i}`}
               >
                 <Card
                   key={i}
@@ -79,6 +84,8 @@ const CardsSection = (props) => {
           >
             <CallToAction
               type="card"
+              page={type}
+              view={view}
               title={ctaLink.title}
               buttonTitle={ctaLink.buttonTitle}
               handleOnClick={handleOnCTAClick}

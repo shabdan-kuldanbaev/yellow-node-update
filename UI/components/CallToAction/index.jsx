@@ -13,13 +13,23 @@ const CallToAction = ({
   buttonTitle,
   href,
   type,
+  page,
+  view,
   handleOnClick,
   className,
 }) => (
-  <div className={cn(styles[type], className)}>
+  <div
+    className={cn(
+      styles[type],
+      styles[view],
+      styles[page],
+      className,
+    )}
+  >
     <Typography
       variant={TYPOGRAPHY_TAGS.h3}
       size={TYPOGRAPHY_SIZE.headlineS}
+      className={styles.h3}
     >
       {title}
     </Typography>
@@ -37,6 +47,7 @@ const CallToAction = ({
       href={href}
       onClick={handleOnClick}
       className={styles.button}
+      data-button
     >
       {buttonTitle}
     </Button>

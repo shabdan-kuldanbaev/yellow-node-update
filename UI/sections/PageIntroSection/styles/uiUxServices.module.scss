@@ -1,10 +1,16 @@
 .ui-ux-services {
+  padding-bottom: 0;
+
   .pageWrapper {
     margin-bottom: 0;
   }
 
   .pageImage {
-    max-width: 594px;
+    padding-top: 525px;
+
+    @include below-tablet {
+      padding-top: 304px;
+    }
   }
 
   .pageTitle {
@@ -31,5 +37,9 @@
         transform: translate(-70%, 0);
       }
     }
+  }
+
+  @include below-tablet {
+    padding-bottom: 32px;
   }
 }

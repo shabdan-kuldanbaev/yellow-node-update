@@ -1,5 +1,9 @@
 .ios-mobile-app-development-services {
   &.firstSectionView {
+    .title {
+      max-width: 620px
+    }
+
     .card {
       @include flex(column, flex-start, flex-start);
 
@@ -16,6 +20,10 @@
 
   &.secondSectionView {
     @extend .blackSection;
+
+    .title {
+      max-width: 620px
+    }
 
     .card {
       @include flex(column, flex-start, flex-start);
@@ -38,6 +46,10 @@
 
   &.thirdSectionView {
     @extend .greySection;
+
+    .title {
+      max-width: 671px;
+    }
 
     .cardList {
       @extend .threeColumnsCards;

@@ -7,7 +7,7 @@
 
   :global(.swiper) {
     display: flex;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
   }
 
   :global(.swiper-wrapper) {
@@ -26,13 +26,14 @@
 }
 
 .item {
-  @include fontSize(24px, 150%);
+  @include fontSize(20px, 150%);
 
   width: auto;
   color: $gray400;
   cursor: pointer;
   position: relative;
   user-select: none;
+  padding-bottom: 12px;
 
   &::after {
     content: '';
@@ -41,7 +42,7 @@
     height: 3px;
     width: 0;
     transition: width 0.3s ease-in-out;
-    top: 100%;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
   }

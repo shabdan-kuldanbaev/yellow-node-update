@@ -2,6 +2,17 @@
   &.firstSectionView {
     background: $yellow500;
 
+    [data-title] {
+      max-width: 625px;
+    }
+
+    [data-description] {
+      @include fontSize(16px, 150%);
+
+      max-width: 625px;
+      color: $gray500;
+    }
+
     .contentWrapper {
       max-width: $wide-content-width;
     }
@@ -9,7 +20,7 @@
     .cardList {
       @include flex(row, center, stretch, wrap);
 
-      &>* {
+      & > * {
         flex: 0 0 30%;
       }
 
@@ -34,12 +45,23 @@
 
       p {
         color: $gray500;
+        max-width: 285px;
+      }
+
+      &:hover h3 {
+        color: $gray900;
       }
     }
   }
 
   &.secondSectionView {
     @extend .greySection;
+
+    [data-description] {
+      @include fontSize(16px, 150%);
+
+      max-width: 635px;
+    }
 
     .contentWrapper {
       max-width: $wide-content-width;
@@ -60,6 +82,8 @@
     .card {
       @include flex(column, flex-start, flex-start);
 
+      cursor: pointer;
+      padding: 24px 18px;
       align-items: center;
 
       picture {
@@ -86,6 +110,12 @@
       @include below-tablet {
         display: none;
       }
+    }
+  }
+
+  &.thirdSectionView {
+    .title {
+      margin-bottom: 32px;
     }
   }
 }

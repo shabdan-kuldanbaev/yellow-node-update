@@ -1,0 +1,18 @@
+.enterprise-resource-planning-software-services {
+  background: $gray50;
+
+  [data-description] {
+    max-width: 100%;
+    width: auto;
+  }
+
+  .sliderList {
+    .item {
+
+      p,
+      .slideSubtitle {
+        @include fontSize(14px);
+      }
+    }
+  }
+}

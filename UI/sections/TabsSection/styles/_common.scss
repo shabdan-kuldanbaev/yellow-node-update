@@ -8,7 +8,7 @@
 }
 
 .tabTitle {
-  @include fontSize(40px, 120%);
+  @include fontSize(24px, 120%);
 
   cursor: pointer;
   margin: 0 0 40px;
@@ -34,7 +34,7 @@
 }
 
 .tabTitleActive::after {
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   margin: 0 auto;
@@ -56,23 +56,21 @@
 }
 
 .card {
-  padding: 50px 60px;
-  background: $gray0;
-  box-shadow: 0 8px 35px rgb($gray900, 0.1);
-  border-radius: 5px;
+  padding: 48px;
 
-  @include phone {
-    padding: 24px 18px;
+  @include below-tablet {
+    padding: 24px 16px;
   }
 }
 
 .link {
   margin: 0 auto;
+  display: block;
 
   h3 {
     @include fontSize(40px, 120%);
 
-    margin: 40px 0 20px;
+    margin: 24px 0 16px;
     text-align: center;
 
     @include phone {
@@ -80,6 +78,11 @@
 
       margin: 12px 0 16px;
     }
+  }
+
+  [data-button] {
+    display: block;
+    margin: 0 auto;
   }
 }
 
@@ -117,7 +120,7 @@
   }
 
   ul {
-    @include fontSize(18px, 180%);
+    @include fontSize(18px, 150%);
 
     margin: 0 0 0 15px;
     color: $gray400;

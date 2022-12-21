@@ -4,6 +4,22 @@
     @extend .greySection;
   }
 
+  &.firstSectionView,
+  &.secondSectionView {
+    .title {
+      max-width: 560px;
+    }
+  }
+
+  &.firstSectionView,
+  &.thirdSectionView {
+    .card {
+      @include tablet {
+        flex-direction: column
+      }
+    }
+  }
+
   &.thirdSectionView {
     @extend .blackSection;
 
@@ -19,8 +35,9 @@
       @include below-tablet {
         align-items: center;
 
-        * {
-          text-align: center;
+        & > div {
+          justify-content: center;
+          align-items: center;
         }
       }
     }

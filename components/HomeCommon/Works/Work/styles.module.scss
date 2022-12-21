@@ -26,6 +26,12 @@
     }
   }
 
+  &:last-child {
+    .parallax {
+      width: 51%;
+    }
+  }
+
   @include tablet {
     margin: auto;
     min-height: auto;

@@ -5,16 +5,12 @@
     @include flex(row, initial, center);
 
     cursor: pointer;
-
-    @include phone {
-      justify-content: space-between;
-    }
   }
 
   .title {
-    @include fontSize(20px, 120%);
+    @include fontSize(20px, 150%);
 
-    margin: 10px 0;
+    margin: 9px 0;
     transition: color 400ms, margin 400ms;
     font-weight: bold;
 
@@ -38,7 +34,7 @@
     max-width: 580px;
 
     & > p {
-      margin: 0 0 24px;
+      margin: 0;
 
       @include phone {
         margin-bottom: 16px;
@@ -47,7 +43,7 @@
   }
 
   .imageBundle {
-    margin-left: 32px;
+    margin-left: 22px;
     transition: 0.3s;
     transform: rotate(360deg);
   }

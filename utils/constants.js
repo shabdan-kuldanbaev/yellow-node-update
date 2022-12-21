@@ -146,6 +146,7 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
+  arrowRight: 'arrowRight',
   arrow: 'arrow1',
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
@@ -174,6 +175,8 @@ export const SVG_IMAGES_TYPES = {
   attachment: 'attachment',
   opensenseTitleBorder: 'opensenseTitleBorder',
   checkMark: 'checkMark',
+  iPhone: 'iPhone',
+  iPad: 'iPad',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -357,6 +360,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.mvpDevelopment.path,
   ROUTES.androidDevelopmentServices.path,
   ROUTES.cloudDevelopment.path,
+  ROUTES.mlDevelopment.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
@@ -443,22 +447,33 @@ export const ARTICLE_TABLE_TYPES = {
 export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.customMobileApp,
   PAGES.customChatApp,
+  PAGES.designServices,
+  PAGES.discoveryPhase,
 ];
 
 export const CONTACT_FORM_TITLES = {
+  [PAGES.homepage]: 'Let’s move forward',
   [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
   [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
   [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
   [PAGES.designServices]: 'Tailored UX design services for your business',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
-  [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.mvpDevelopment]: 'Still have questions?',
   [PAGES.fintechDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.erpDevelopment]: 'Still have questions?',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
-  [PAGES.devOpsDevelopment]: 'Still have questions? We\'re ready to answer them',
-  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business? We are here to help!',
+  [PAGES.devOpsDevelopment]: 'Still have questions?',
+  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
+};
+
+export const CONTACT_FORM_SECOND_TITLES = {
+  [PAGES.erpDevelopment]: 'We\'re ready to answer them',
+  [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
+  [PAGES.aiDevelopment]: 'We are here to help!',
+  [PAGES.mvpDevelopment]: 'We are ready to answer them',
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
@@ -475,7 +490,7 @@ export const REVEAL_ANIMATION_PROPS = {
   translateY: '2.8em',
   opasityDuration: 0.5,
   transformDuration: 0.7,
-  transitionDelay: 200,
+  transitionDelay: 50,
 };
 
 export const PHONE_RESOLUTION = 568;

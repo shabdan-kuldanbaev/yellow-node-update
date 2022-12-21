@@ -1,0 +1,11 @@
+.web-app-development-company {
+  .titleStyle {
+    [data-subtitle] {
+      margin-bottom: 0;
+    }
+
+    @include phone {
+      max-width: 350px;
+    }
+  }
+}

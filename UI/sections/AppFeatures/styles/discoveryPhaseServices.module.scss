@@ -1,6 +1,8 @@
 .discovery-phase-services {
   @include appFeaturesContainer();
 
+  padding: 60px 120px;
+
   &.firstSectionView {
     background: $gray0;
 
@@ -37,31 +39,42 @@
 
   &.secondSectionView {
     background-color: $gray900;
+    padding: 120px 60px;
 
     [data-title] {
       color: $gray0;
     }
 
     [data-description] {
-      max-width: 625px;
-
       @include phone {
         text-align: center;
       }
+    }
+
+    .titleWrapper {
+      align-items: flex-start;
+      margin-bottom: 16px;
     }
 
     .container {
       max-width: 1300px;
 
       .sectionContainer {
+        @include flex(column, center);
+
+        z-index: 100;
+        max-width: 50%;
         order: 1;
 
         & > div:nth-child(7) {
-          z-index: 100;
           position: relative;
-          margin: 60px auto 40px;
-          
+          margin-top: 32px;
+
           p {
+            @include fontSize(16px, 150%);
+
+            margin: 0;
+            max-width: 585px;
             color: $yellow500;
 
             &::before {
@@ -74,36 +87,15 @@
             }
           }
 
-          .imageWrapper {
-            @include flex(row, center, center);
-    
-            width: 100%;
-            position: relative;
-    
-            &::before {
-              @include centered;
-    
-              content: '';
-              width: 574px;
-              height: 574px;
-              background: $yellow500;
-              border-radius: 50%;
-            }
-    
-            @include phone {
-              margin-top: 24px;
-            }
-          }
-
           img {
             position: absolute;
-            width: 160px;
-            height: 160px;
+            width: 145px;
+            height: 145px;
             margin: 0;
-            bottom: 65px;
-            left: -165px;
+            bottom: 30px;
+            left: -150px;
 
-            @include tablet {
+            @include desktop {
               display: none;
             }
           }
@@ -112,7 +104,35 @@
             margin-top: 24px;
           }
         }
-      
+
+        @include desktop {
+          max-width: 100%;
+        }
+      }
+
+      .imageWrapper {
+        @include flex(row, center, center);
+
+        width: 50%;
+        position: relative;
+
+        &::before {
+          @include centered;
+
+          content: '';
+          width: 474px;
+          height: 474px;
+          background: $yellow500;
+          border-radius: 50%;
+        }
+
+        @include desktop {
+          width: 100%;
+        }
+
+        @include phone {
+          margin-top: 24px;
+        }
       }
 
       .imageContainer {
@@ -126,15 +146,19 @@
           display: none;
         }
 
-        @include tablet {
+        @include desktop {
           margin: 0 auto;
         }
       }
 
-      @include tablet {
+      @include desktop {
         flex-direction: column-reverse;
         margin: 0 auto;
       }
     }
+  }
+
+  @include below-tablet {
+    padding: 60px 16px;
   }
 }

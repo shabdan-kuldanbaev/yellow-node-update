@@ -1,17 +1,13 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 .container {
   margin: 0 auto;
-  padding: calc(#{$header-height} + 60px) 0 0;
-
-  @include phone {
-    padding: calc(#{$header-height} + 40px) 0 0;
-    overflow: hidden;
-  }
+  padding: 105px 0 0;
 
   .pageTitle,
   .breadcrumbs {
-    max-width: $max-content-width;
+    max-width: $wide-content-width;
     margin: 0 auto;
   }
 
@@ -24,18 +20,12 @@
   }
 
   &.chat-app-development-company {
-    padding: calc(#{$header-height} + 60px) 0 0;
-
     .feedbackContainer {
-      background: $alabaster;
+      background: $gray50;
 
       & > div {
         background: none;
       }
-    }
-
-    @include phone {
-      padding: calc(#{$header-height} + 40px) 0 80px;
     }
   }
 
@@ -49,22 +39,12 @@
   &.fintech-software-development-services,
   &.devops-development-services,
   &.artificial-intelligence-development-services {
-    background-color: $cod-gray-1;
+    background-color: $gray900;
+  }
 
-    .breadcrumbs {
-      ol {
-        a,
-        li::after {
-          color: $white;
-          opacity: 0.3;
-        }
-
-        li:last-child > a {
-          color: $white;
-          opacity: 0.7;
-        }
-      }
-    }
+  @include phone {
+    padding: calc(#{$header-height} + 40px) 0 0;
+    overflow: hidden;
   }
 }
 

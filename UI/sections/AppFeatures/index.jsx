@@ -18,12 +18,12 @@ const AppFeatures = (props) => {
     images,
     activeIndex,
     handleOnClick,
-    imagesData,
+    itemsData,
     promoImages,
     isPromoImage,
   } = useAppFeatures(props);
 
-  if (!imagesData) {
+  if (!itemsData) {
     return null;
   }
 
@@ -43,7 +43,7 @@ const AppFeatures = (props) => {
             description={description}
             className={styles.titleWrapper}
           />
-          {imagesData.map((document, index) => (
+          {itemsData.map((document, index) => (
             <AppFeaturesItem
               view={view}
               type={type}

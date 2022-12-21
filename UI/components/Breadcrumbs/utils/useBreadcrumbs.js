@@ -3,13 +3,14 @@ import styles from '../styles.module.scss';
 
 export default ({
   className,
-  breadcrumbs,
+  breadcrumbs = [],
+  dark,
 }) => {
-  const classNames = cn(styles.breadcrumbs, className);
+  const classNames = cn(styles.breadcrumbs, className, { [styles.dark]: dark });
 
   const items = [
     { to: '/', title: 'Home' },
-    ...breadcrumbs.map(({ to, title }) => ({ to: to.path || to, title })),
+    ...(breadcrumbs || []).map(({ to, title }) => ({ to: to.path || to, title })),
   ];
 
   return {
