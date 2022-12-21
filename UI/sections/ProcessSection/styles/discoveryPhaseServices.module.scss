@@ -1,7 +1,5 @@
 .discovery-phase-services {
-  .titleStyle {
-    [data-second-title] {
-      @include fontSize(24px, 130%);
-    }
+  .titleStyle [data-second-title] {
+    @include fontSize(24px, 130%);
   }
 }
