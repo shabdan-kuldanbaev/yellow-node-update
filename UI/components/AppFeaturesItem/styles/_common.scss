@@ -10,7 +10,7 @@
   .title {
     @include fontSize(20px, 150%);
 
-    margin: 9px 0;
+    margin: 9px 22px 9px 0;
     transition: color 400ms, margin 400ms;
     font-weight: bold;
 
@@ -43,7 +43,6 @@
   }
 
   .imageBundle {
-    margin-left: 22px;
     transition: 0.3s;
     transform: rotate(360deg);
   }
