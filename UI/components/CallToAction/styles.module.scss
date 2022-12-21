@@ -85,13 +85,11 @@
   }
 
   .button {
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 16px 0;
-    margin-top: 80px;
+    padding: 16px 32px;
+    margin-top: 48px;
 
     @include phone {
-      font-weight: 500;
+      margin-top: 24px;
     }
   }
 

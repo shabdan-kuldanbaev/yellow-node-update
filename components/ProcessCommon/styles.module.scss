@@ -30,15 +30,6 @@
     }
   }
 
-  button {
-    margin: 48px 0 0 !important;
-    padding: 16px 32px !important;
-
-    @include phone {
-      margin: 24px 0 0 !important;
-    }
-  }
-
   @include phone {
     padding-top: 60px;
   }
