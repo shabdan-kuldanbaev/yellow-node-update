@@ -1,5 +1,5 @@
 .devops-development-services {
-  padding-bottom: 60px;
+  padding-bottom: 120px;
 
   .pageWrapper {
     margin-bottom: 32px;
@@ -17,5 +17,9 @@
     @include below-tablet {
       padding-top: 330px;
     }
+  }
+
+  @include phone {
+    padding-bottom: 60px;
   }
 }
