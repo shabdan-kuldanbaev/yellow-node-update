@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
-import CallToAction from 'components/Common/CallToAction';
+// import CallToAction from 'components/Common/CallToAction';
+import CallToAction from 'UI/components/CallToAction';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -17,7 +18,7 @@ const Process = ({ processes, handleOnCTAClick }) => (
         key={`processes/${name}`}
         data-index={index}
       >
-        <div className={styles.processItem}>
+        <div>
           <Animated {...REVEAL_ANIMATION_PROPS}>
             <h2 className={styles.title}>
               <span>{`${index + 1}.`}</span>
@@ -48,7 +49,7 @@ const Process = ({ processes, handleOnCTAClick }) => (
       transitionDelay={550}
     >
       <CallToAction
-        type="card"
+        type="page"
         title="Kickstart your dream project with us!"
         buttonTitle="Contact us"
         handleOnClick={handleOnCTAClick}

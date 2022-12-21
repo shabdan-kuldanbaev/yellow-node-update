@@ -11,6 +11,39 @@
   }
 }
 
+.callToAction {
+  @include flex(column, center, center);
+
+  margin: 0 auto;
+  padding-top: 120px;
+
+  h3 {
+    @include fontSize(38px, 130%);
+  
+    text-align: center;
+    margin: 0;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+
+      max-width: 340px;
+    }
+  }
+
+  button {
+    margin: 48px 0 0 !important;
+    padding: 16px 32px !important;
+
+    @include phone {
+      margin: 24px 0 0 !important;
+    }
+  }
+
+  @include phone {
+    padding-top: 60px;
+  }
+}
+
 .process {
   @include flex(row, space-between, center);
 
@@ -18,11 +51,9 @@
     flex-direction: row-reverse;
   }
 
-  & > div:nth-of-type(2) {
-    width: 50%;
-
-    @include tablet {
-      width: 100%;
+  &:nth-child(odd) {
+    .jsonWrapper {
+      margin-left: auto;
     }
   }
 
@@ -30,15 +61,6 @@
     &:nth-child(1n) {
       flex-direction: column-reverse;
     }
-  }
-}
-
-.callToAction {
-  background: none;
-  flex-direction: column;
-
-  h3 {
-    margin: 0 0 48px;
   }
 }
 
@@ -64,14 +86,6 @@
 
   @include tablet {
    max-width: none; 
-  }
-}
-
-.processItem {
-  width: 50%;
-
-  @include tablet {
-    width: 100%;
   }
 }
 
