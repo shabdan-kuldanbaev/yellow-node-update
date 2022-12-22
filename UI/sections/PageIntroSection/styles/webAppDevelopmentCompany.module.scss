@@ -13,9 +13,5 @@
 
   .pageTitle {
     color: $gray0;
-
-    @include below-tablet {
-      padding-top: 521px;
-    }
   }
 }

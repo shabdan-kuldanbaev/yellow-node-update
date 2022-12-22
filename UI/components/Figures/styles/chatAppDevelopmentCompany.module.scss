@@ -4,15 +4,15 @@
 
     flex: 0 0 20%;
 
-    &:nth-child(3),
-    &:nth-child(4) {
-      order: -1;
-    }
-
     @include below-tablet {
       @include flex(column, start, center);
 
       flex: 0 0 50%;
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        order: -1;
+      }
     }
   }
 
