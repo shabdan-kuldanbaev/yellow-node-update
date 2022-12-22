@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
-// import CallToAction from 'components/Common/CallToAction';
 import CallToAction from 'UI/components/CallToAction';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -27,7 +26,7 @@ const Process = ({ processes, handleOnCTAClick }) => (
           </Animated>
           <Animated
             {...REVEAL_ANIMATION_PROPS}
-            transitionDelay={300 + 50}
+            transitionDelay={40}
           >
             <p className={styles.description}>
               {description}
@@ -46,7 +45,7 @@ const Process = ({ processes, handleOnCTAClick }) => (
 
     <Animated
       {...REVEAL_ANIMATION_PROPS}
-      transitionDelay={550}
+      transitionDelay={50}
     >
       <CallToAction
         type="page"
