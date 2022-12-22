@@ -30,6 +30,7 @@ const ProcessContainer = (props) => {
         <PageHeader
           title={ROUTES.process.title}
           breadcrumbs={breadcrumbs}
+          breadcrumbsTheme="dark"
         />
         <Process
           processes={json}
