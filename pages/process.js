@@ -1,4 +1,4 @@
-import ProcessContainer from 'UI/sections/Process';
+import ProcessContainer from 'UI/views/Process';
 import { processes } from 'utils/processes';
 
 export const getStaticProps = () => ({
