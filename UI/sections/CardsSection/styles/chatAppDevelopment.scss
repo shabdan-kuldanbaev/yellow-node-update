@@ -51,8 +51,18 @@
   &.thirdSectionView {
     padding-bottom: 0;
 
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
     .card {
       @extend .cardWithFullSizeImage;
+
+      height: 100%;
+    }
+
+    [data-read-more] {
+      display: block;
     }
   }
 }
