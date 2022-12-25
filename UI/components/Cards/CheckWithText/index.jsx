@@ -19,14 +19,9 @@ const CheckWithText = (props) => {
         type="checkFilled"
         className={styles.checkMark}
       />
-      <Typography
-        className={styles.title}
-        variant={TYPOGRAPHY_TAGS.span}
-        size={TYPOGRAPHY_SIZE.headlineS}
-        isBold
-      >
+      <span className={styles.title}>
         {children}
-      </Typography>
+      </span>
     </CardContainer>
   );
 };
