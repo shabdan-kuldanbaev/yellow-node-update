@@ -20,7 +20,10 @@ export const useItemPreview = ({ data, type }) => {
     { fm: 'png' },
   );
 
-  const { slug: link } = getDocumentFields(get(contentModules, '[1]')) || {};
+  const { slug: link } = getDocumentFields(
+    contentModules.find((modules) => modules.sys.contentType.sys.id === 'link'),
+    ['slug'],
+  );
 
   return {
     type,

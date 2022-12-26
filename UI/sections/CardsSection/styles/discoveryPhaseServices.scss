@@ -71,9 +71,15 @@
       @include flex(column, flex-start, stretch);
 
       max-width: 296px;
+      height: 100%;
 
       * {
-        @include flex(column, center, center);
+        align-self: center;
+        text-align: center;
+      }
+
+      svg {
+        margin: 0 0 16px;
       }
 
       @include phone {
