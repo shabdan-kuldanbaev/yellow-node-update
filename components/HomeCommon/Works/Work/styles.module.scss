@@ -420,11 +420,11 @@
       .thirdShadow {
         @extend .imgWrapper;
 
-        transform: translate(-80px, -40px);
+        transform: translate(0, -40px);
         will-change: transform;
 
         @include below-tablet {
-          transform: translate(0, 0);
+          transform: unset;
         }
 
         .img {
@@ -470,6 +470,10 @@
     .parallax div,
     .parallax {
       justify-content: center;
+    }
+
+    .desc {
+      max-width: 481px;
     }
   }
 }
