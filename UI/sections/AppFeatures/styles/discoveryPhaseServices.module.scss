@@ -5,7 +5,9 @@
     background: $gray0;
 
     .titleWrapper {
+      align-items: flex-start;
       margin: 0;
+
       h2 {
         max-width: 540px;
         margin-bottom: 32px;
@@ -14,6 +16,10 @@
           max-width: 100%;
           text-align: center;
         }
+      }
+
+      @include below-tablet {
+        align-items: center;
       }
     }
 
