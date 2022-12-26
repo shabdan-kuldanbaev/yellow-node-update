@@ -367,7 +367,11 @@
             max-width: 100%;
             height: unset;
             width: 90vw;
-            transform: none;
+            transform: scale(2) translate(0, 80px);
+          }
+
+          @include phone {
+            transform: unset;
           }
         }
 
@@ -439,6 +443,10 @@
     .parallax div,
     .parallax {
       justify-content: center;
+
+      @include phone {
+        align-self: center;
+      }
     }
 
     .desc {
