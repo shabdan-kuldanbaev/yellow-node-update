@@ -64,12 +64,18 @@
   &.sixthSectionView {
     padding-bottom: 0;
 
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
     [data-read-more] {
       display: block;
     }
 
     .card {
       @extend .cardWithFullSizeImage;
+
+      height: 100%;
     }
   }
 }
