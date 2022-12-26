@@ -5,6 +5,16 @@
 .work {
   @include flex(row-reverse, space-evenly, center);
 
+  @include horizontal-mobile {
+    @include flex(row, center, center);
+
+    padding: 50px 0;
+
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+
   position: relative;
   z-index: 5;
   width: calc(100% - (80px * 2));
@@ -32,78 +42,25 @@
     }
   }
 
-  @include tablet {
-    margin: auto;
-    min-height: auto;
-    padding: 100px 0;
-  }
-
-  @include below-tablet {
-    height: auto;
-    padding: 50px 0;
-
-    @include flex(column-reverse, space-evenly, center);
-
-    &:nth-child(even) {
-      flex-direction: column-reverse;
-    }
-  }
-
-  @include phone {
-    padding: 100px 0 0;
-    height: auto;
-    width: 90vw;
-
-    @include flex(column-reverse, center, stretch);
-
-    * {
-      text-align: center;
-      margin: 25px auto 0;
-    }
-  }
-
-  @include horizontal-mobile {
-    padding: 50px 0;
-
-    @include flex(row, center, center);
-
-    &:nth-child(odd) {
-      flex-direction: row-reverse;
-    }
-  }
-
   .desc {
-    z-index: 3;
-
     @include ultra-hd {
-      width: 50%;
-
       @include flex(column, center, center);
+
+      width: 50%;
     }
 
     @include full-hd {
-      width: 50%;
-
       @include flex(column, center, center);
-    }
 
-    @include below-tablet {
-      width: 100%;
-    }
-
-    @include below-tablet-horizontal {
       width: 50%;
-      justify-content: center;
-    }
-
-    @include phone {
-      width: 100%;
     }
 
     @include horizontal-mobile {
       max-height: initial;
       width: 50%;
     }
+
+    z-index: 3;
 
     & > div {
       width: 100%;
@@ -112,6 +69,62 @@
       opacity: 1;
       will-change: transform;
       transition: transform $default-transition-time, opacity $default-transition-time;
+
+      .buttonWrap {
+        padding: 5px 0 10px;
+        cursor: pointer;
+        width: max-content;
+
+        button {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          color: $white;
+          line-height: 1.55;
+          letter-spacing: 0.5px;
+          font-size: 1.125rem;
+          position: relative;
+          display: inline-block;
+          padding: 0;
+
+          &::after {
+            content: '';
+            cursor: pointer;
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 100%;
+            border-bottom: 1.5px $white solid;
+            background-color: $white;
+            will-change: transition;
+            transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+          }
+
+          @include small-phone {
+            font-size: 0.8rem;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          button {
+            cursor: pointer;
+
+            &::after {
+              width: 0;
+              will-change: transition;
+              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+              transform: translateZ(0);
+            }
+          }
+        }
+
+        @include phone {
+          max-width: calc(100% - 40px);
+          margin: 0 auto 0 0;
+        }
+      }
 
       @include tablet {
         margin-left: $side-indent * 2;
@@ -133,70 +146,27 @@
       }
 
       @include phone {
+        @include flex(column, center, flex-start);
+
         width: 100%;
         max-width: 100%;
         margin: 0;
         padding-left: 0;
         text-align: left;
-
-        @include flex(column, center, flex-start);
       }
+    }
 
-      .buttonWrap {
-        padding: 5px 0 10px;
-        cursor: pointer;
-        width: max-content;
+    @include below-tablet {
+      width: 100%;
+    }
 
-        @include phone {
-          max-width: calc(100% - 40px);
-          margin: 0 auto 0 0;
-        }
+    @include below-tablet-horizontal {
+      width: 50%;
+      justify-content: center;
+    }
 
-        button {
-          border: none;
-          outline: none;
-          background-color: transparent;
-          color: $white;
-          line-height: 1.55;
-          letter-spacing: 0.5px;
-          font-size: 1.125rem;
-          position: relative;
-          display: inline-block;
-          padding: 0;
-
-          @include small-phone {
-            font-size: 0.8rem;
-          }
-
-          &::after {
-            content: '';
-            cursor: pointer;
-            position: absolute;
-            bottom: -5px;
-            right: 0;
-            width: 100%;
-            border-bottom: 1.5px $white solid;
-            background-color: $white;
-            will-change: transition;
-            transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-          }
-        }
-
-        &:hover {
-          cursor: pointer;
-
-          button {
-            cursor: pointer;
-
-            &::after {
-              width: 0;
-              will-change: transition;
-              transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-              transform: translateZ(0);
-            }
-          }
-        }
-      }
+    @include phone {
+      width: 100%;
     }
   }
 
@@ -207,6 +177,10 @@
   }
 
   .parallax {
+    @include horizontal-mobile {
+      width: 50%;
+    }
+
     width: 50%;
     height: 100%;
     max-height: 100%;
@@ -218,65 +192,16 @@
       }
     }
 
-    @include below-tablet {
-      width: 100%;
-      height: 60vh;
-      padding: 150px 0 0;
-    }
-
-    @include phone {
-      width: 100%;
-      height: 75vw;
-      margin: 0 -20px;
-    }
-
-    @include horizontal-mobile {
-      width: 50%;
-    }
-
-    @include phone {
-      max-width: 95vw;
-      max-height: 100vh;
-      width: 95vw;
-    }
-
-    @include small-phone {
-      width: 40%;
-
-      @include flex(row, center, center);
-    }
-
     div {
-      vertical-align: middle;
-
       @include flex(row, flex-start, center);
 
+      vertical-align: middle;
       height: 48.4375vw;
-
-      @include below-tablet {
-        justify-content: stretch;
-        width: auto;
-      }
-
-      @include phone {
-        height: 70vw;
-      }
 
       .imgWrapper {
         width: 100%;
         position: relative;
         height: 48.4375vw;
-
-        @include small-phone {
-          width: 50%;
-        }
-
-        @include phone {
-          max-width: 95vw;
-          max-height: 100vh;
-          width: 95vw;
-          height: 100%;
-        }
 
         .video {
           position: absolute;
@@ -323,6 +248,17 @@
             transform: translateX(0) scale(1);
           }
         }
+
+        @include small-phone {
+          width: 50%;
+        }
+
+        @include phone {
+          max-width: 95vw;
+          max-height: 100vh;
+          width: 95vw;
+          height: 100%;
+        }
       }
 
       .firstShadow {
@@ -330,11 +266,6 @@
 
         transform: translateX(-80px);
         will-change: transform;
-
-        @include below-tablet {
-          height: 60vh;
-          transform: translateY(-7vh);
-        }
 
         .img {
           height: 100%;
@@ -364,6 +295,11 @@
             transform: translateX(0) scale(1);
           }
         }
+
+        @include below-tablet {
+          height: 60vh;
+          transform: translateY(-7vh);
+        }
       }
 
       .secondShadow {
@@ -371,11 +307,6 @@
 
         transform: translateX(80px);
         will-change: transform;
-
-        @include below-tablet {
-          height: 60vh;
-          transform: translateX(0);
-        }
 
         .img {
           max-width: unset;
@@ -415,6 +346,11 @@
             transform: translate(9.4vw, -1.8vw);
           }
         }
+
+        @include below-tablet {
+          height: 60vh;
+          transform: translateX(0);
+        }
       }
 
       .thirdShadow {
@@ -422,10 +358,6 @@
 
         transform: translate(0, -40px);
         will-change: transform;
-
-        @include below-tablet {
-          transform: unset;
-        }
 
         .img {
           max-width: unset;
@@ -438,7 +370,44 @@
             transform: none;
           }
         }
+
+        @include below-tablet {
+          transform: unset;
+        }
       }
+
+      @include below-tablet {
+        justify-content: stretch;
+        width: auto;
+      }
+
+      @include phone {
+        height: 70vw;
+      }
+    }
+
+    @include below-tablet {
+      width: 100%;
+      height: 60vh;
+      padding: 150px 0 0;
+    }
+
+    @include phone {
+      width: 100%;
+      height: 75vw;
+      margin: 0 -20px;
+    }
+
+    @include phone {
+      max-width: 95vw;
+      max-height: 100vh;
+      width: 95vw;
+    }
+
+    @include small-phone {
+      @include flex(row, center, center);
+
+      width: 40%;
     }
   }
 
@@ -474,6 +443,36 @@
 
     .desc {
       max-width: 481px;
+    }
+  }
+
+  @include tablet {
+    margin: auto;
+    min-height: auto;
+    padding: 100px 0;
+  }
+
+  @include below-tablet {
+    @include flex(column-reverse, space-evenly, center);
+
+    height: auto;
+    padding: 50px 0;
+
+    &:nth-child(even) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  @include phone {
+    @include flex(column-reverse, center, stretch);
+
+    padding: 100px 0 0;
+    height: auto;
+    width: 90vw;
+
+    * {
+      text-align: center;
+      margin: 25px auto 0;
     }
   }
 }
