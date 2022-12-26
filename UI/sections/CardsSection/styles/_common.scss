@@ -88,15 +88,21 @@
 .card {
   width: 100%;
 
-  &.withOverlay:hover .overlay {
-    display: flex;
-
+  &.withOverlay {
     p {
-      display: block;
+      display: none;
     }
 
-    @include below-tablet {
-      display: none;
+    &:hover .overlay {
+      display: flex;
+
+      p:not([data-read-more]) {
+        display: block;
+      }
+
+      @include below-tablet {
+        display: none;
+      }
     }
   }
 }
