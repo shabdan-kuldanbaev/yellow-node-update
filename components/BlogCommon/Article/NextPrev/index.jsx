@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 

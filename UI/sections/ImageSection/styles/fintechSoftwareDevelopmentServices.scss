@@ -1,0 +1,62 @@
+.fintech-software-development-services {
+  @include appDevelopmentContainer;
+
+  background-color: $gray0;
+
+  .imageSection {
+    @include flex(column-reverse);
+
+    @include below-tablet {
+      margin: unset;
+    }
+  }
+
+  .image {
+    background-size: contain;
+    padding: 0;
+    max-width: 584px;
+    height: 385px;
+    margin: 0 auto;
+
+    @include phone {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .experienceContent {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+
+    h2,
+    p {
+      text-align: center;
+    }
+
+    h2 {
+      @include fontSize(38px);
+
+      line-height: 49px;
+      margin-bottom: 16px;
+
+      @include phone {
+        @include fontSize(24px);
+
+        line-height: 31px;
+      }
+    }
+
+    & > div:last-child > p {
+      margin-bottom: 60px;
+
+      @include phone {
+        margin-bottom: unset;
+      }
+    }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}

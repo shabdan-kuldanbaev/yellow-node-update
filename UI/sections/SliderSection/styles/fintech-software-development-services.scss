@@ -1,0 +1,29 @@
+.fintech-software-development-services {
+  background-color: $gray50;
+
+  .titleStyle {
+    max-width: 671px;
+  }
+
+  .sliderList {
+    padding: 48px 100px;
+
+    .item {
+      .slideTitle {
+        @include fontSize(20px, 150%);
+      }
+
+      .slideSubtitle {
+        @include fontSize(16px, 150%);
+      }
+    }
+
+    :global(.swiper-scrollbar) {
+      margin-top: 18px;
+    }
+
+    @include phone {
+      padding: 40px 20px;
+    }
+  }
+}

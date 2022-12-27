@@ -1,0 +1,43 @@
+.fintech-software-development-services {
+  @include appFeaturesContainer;
+
+  background: $gray0;
+
+  [data-title] {
+    margin-bottom: 32px;
+
+    @include phone {
+      @include fontSize(32px);
+
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+
+  .container {
+    .imageContainer {
+      max-width: 863px;
+
+      img {
+        transform: scale(1.5) translate(20%, 15%);
+
+        @include tablet {
+          transform: unset;
+        }
+      }
+
+      @include tablet {
+        max-width: 100%;
+        margin-left: unset;
+      }
+
+      @include phone {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}

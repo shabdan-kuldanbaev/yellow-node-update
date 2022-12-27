@@ -1,0 +1,9 @@
+.cloud-based-app-development-services {
+  &.firstSectionView {
+    @extend .graySection;
+
+    [data-description] {
+      max-width: 540px;
+    }
+  }
+}

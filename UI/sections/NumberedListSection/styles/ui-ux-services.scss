@@ -1,0 +1,9 @@
+.ui-ux-services {
+  &.firstSectionView {
+    @extend .graySection;
+
+    .checkList > div {
+      height: 145px;
+    }
+  }
+}

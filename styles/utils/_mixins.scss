@@ -1,6 +1,39 @@
 @import './variables';
 @import './functions';
 
+@mixin darkSliderButton {
+  color: $gray0;
+
+  * {
+    fill: $gray0;
+  }
+
+  &:hover {
+    * {
+      color: $yellow500;
+      fill: $yellow500;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    color: $gray400;
+    
+    * {
+      fill: $gray300;
+    }
+
+    &:hover {
+      cursor: default;
+
+      * {
+        fill: $gray300;
+        color: $gray400;
+      }
+    }
+  }
+}
+
 @mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
   display: flex;
   flex-flow: $fd $fw;
@@ -440,28 +473,24 @@
 @mixin defaultSectionTitle {
   max-width: $max-content-width-small-section;
   width: 100%;
-  margin: 0 auto 60px;
+  margin: 0 auto 48px;
 
   h2 {
-    @include fontSize(56px, 120%);
+    @include fontSize(38px, 130%);
 
     max-width: 100%;
     letter-spacing: normal;
 
-    @include tablet {
-      @include fontSize(46px);
-    }
-
-    @include below-tablet {
-      @include fontSize(40px);
-    }
-
     @include phone {
-      @include fontSize(32px);
+      @include fontSize(24px);
     }
   }
 
-  @include below-tablet {
-    margin-bottom: 40px;
+  @include phone {
+    margin-bottom: 24px;
   }
+}
+
+@function color($c, $alfa: 1) {
+  @return rgb(var($c), $alfa);
 }

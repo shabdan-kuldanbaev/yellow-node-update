@@ -1,0 +1,125 @@
+.homepage {
+  &.firstSectionView {
+    background: $yellow500;
+
+    [data-title] {
+      max-width: 625px;
+    }
+
+    [data-description] {
+      @include fontSize(16px, 150%);
+
+      max-width: 625px;
+      color: $gray500;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @include flex(row, center, stretch, wrap);
+
+      & > * {
+        flex: 0 0 30%;
+      }
+
+      @include below-tablet {
+        @include flex(column, center, stretch);
+      }
+    }
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      align-items: center;
+
+      picture {
+        width: 100%;
+      }
+
+      * {
+        align-items: center;
+        text-align: center;
+      }
+
+      p {
+        color: $gray500;
+        max-width: 285px;
+      }
+
+      &:hover h3 {
+        color: $gray900;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    [data-description] {
+      @include fontSize(16px, 150%);
+
+      max-width: 635px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(4, 1fr);
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include below-tablet {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      cursor: pointer;
+      padding: 24px 18px;
+      align-items: center;
+
+      [data-read-more] {
+        display: none !important;
+      }
+
+      picture {
+        width: 100%;
+      }
+
+      * {
+        align-items: center;
+        text-align: center;
+      }
+
+      p {
+        display: none;
+      }
+
+      @include below-tablet {
+        p {
+          display: block;
+        }
+      }
+    }
+
+    .overlay {
+      @include below-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .title {
+      margin-bottom: 32px;
+    }
+  }
+}

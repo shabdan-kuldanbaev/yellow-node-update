@@ -1,24 +1,20 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
+import Animated from 'components/Common/Animated';
+import Upload from 'components/Common/Upload';
+import Input from 'UI/components/Input';
+import Button from 'UI/components/Button';
 import { selectError } from 'redux/selectors/contact';
 import { sendEmail } from 'redux/actions/contact';
-import Animated from 'components/Common/Animated';
-import AnimatedInput from 'components/Common/AnimatedInput';
-import ButtonMore from 'components/Common/ButtonMore';
-import Upload from 'components/Common/Upload';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs/withValidateEmail';
-import { SliderWrapper } from './SliderWrapper';
 import FormContainer from './FormContainer';
+import { SliderWrapper } from './SliderWrapper';
 import { budget, marks } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -161,11 +157,12 @@ const FeedbackForm = ({
             {...animatedProps}
             transitionDelay={500}
           >
-            <AnimatedInput
+            <Input
               value={fullName}
               handleOnChange={handleOnNameChange}
               placeholder="Name *"
-              isValidate
+              type="text"
+              isRequired
               isWithoutLabel
               isContactPage={isContactPage}
               style={type}
@@ -175,12 +172,12 @@ const FeedbackForm = ({
             {...animatedProps}
             transitionDelay={550}
           >
-            <AnimatedInput
+            <Input
               value={email.value}
               handleOnChange={handleOnEmailChange}
               placeholder="Email *"
+              isRequired
               type="email"
-              isValidate={email.isValidate}
               handleOnBlurEmail={handleOnBlurEmail}
               isWithoutLabel
               style={type}
@@ -238,14 +235,14 @@ const FeedbackForm = ({
           {...animatedProps}
           transitionDelay={700}
         >
-          <ButtonMore
+          <Button
             href="/"
-            title="Contact Us"
-            buttonStyle={styles.submit}
-            handleOnClick={handleOnSubmitClick}
-            isDisabled={isDisabled}
-            disabledButtonStyle={styles.disabled}
-          />
+            onClick={handleOnSubmitClick}
+            disabled={isDisabled}
+            className={styles.submit}
+          >
+            Contact Us
+          </Button>
         </Animated>
       </FormContainer>
     </div>

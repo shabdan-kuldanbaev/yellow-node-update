@@ -1,0 +1,62 @@
+@mixin sliderTwoRows {
+  .svgList1 {
+    margin-bottom: 60px;
+  }
+
+  .svgList1,
+  .svgList2 {
+    @include phone {
+      display: none;
+    }
+  }
+
+  .svgList3 {
+    display: none;
+
+    @include phone {
+      display: block;
+    }
+  }
+}
+
+.section {
+  @include appDevelopmentContainer;
+}
+
+.titleStyle {
+  @include defaultSectionTitle;
+}
+
+.groupTitle {
+  @include fontSize(32px, 120%);
+
+  text-align: center;
+  margin-bottom: 34px;
+
+  @include below-tablet {
+    @include fontSize(24px);
+
+    margin-bottom: 25px;
+  }
+}
+
+.machine-learning-development-services,
+.android-mobile-app-development-services,
+.web-app-development-company,
+.mvp-app-development-company,
+.mobile-app-development-company,
+.homepage {
+  &.secondSectionView {
+    @extend .greySection;
+
+    @include centeredIcons;
+
+    padding-top: 0;
+
+    [data-title] {
+      @include phone {
+        max-width: 305px;
+      }
+    }
+  }
+}

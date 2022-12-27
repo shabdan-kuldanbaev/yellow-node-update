@@ -1,0 +1,17 @@
+@import 'styles/utils/mixins';
+
+.frequentlyAskedQuestions {
+  @include flex(column, center, center);
+
+  margin: 0 auto;
+  max-width: 855px;
+}
+
+.faqArticalPage {
+  padding: 150px 0;
+  max-width: 720px;
+
+  @include tablet {
+    padding: 100px 40px;
+  }
+}

@@ -3,10 +3,9 @@
 .worksContainer {
   @include flex(row, flex-start, flex-start, wrap);
 
-  --gap: 40px;
+  --gap: 32px;
 
-  padding: 0 0 80px;
-  background-color: $white;
+  background-color: $gray0;
   margin: 20px 0 0 calc(-1 * var(--gap));
 
   @include below-tablet {
@@ -43,28 +42,30 @@
 }
 
 .showMoreButton {
-  @include button-more($black, $black, none, $turbo-100, $black, $turbo-100);
+  @include button-more($gray1000, $gray1000, none, $yellow500, $gray1000, $yellow500);
+  @include fontSize(16px, 150%);
 
-  margin: 40px auto 0;
+  padding: 16px 0;
+  margin: 8px auto 0;
   border-radius: 8px;
   font-weight: 600;
+  max-width: 210px;
 
-  @include below-tablet {
+  @include tablet {
     border: none;
     text-decoration: underline;
   }
 
   &:hover {
-    background: $turbo-100;
-    border-color: $turbo-100;
-    color: $dark-grey;
+    background: $yellow500;
+    border-color: $yellow500;
+    color: $gray900;
     transform: scale(0.96);
 
-    @include below-tablet {
+    @include tablet {
       transform: none;
       border: none;
       background: none;
-      color: $silver-chalice;
     }
   }
 }

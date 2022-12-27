@@ -1,0 +1,25 @@
+.devops-development-services {
+  padding-bottom: 120px;
+
+  .pageWrapper {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $gray700;
+  }
+
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageImage {
+    padding-top: 552px;
+
+    @include below-tablet {
+      padding-top: 330px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 60px;
+  }
+}

@@ -37,6 +37,23 @@ export const NON_INTERACTIVE_LINKS = {
   },
 };
 
+export const TYPOGRAPHY_SIZE = {
+  caption: 'caption',
+  paragrapghS: 'paragrapgh-s',
+  paragrapghM: 'paragrapgh-m',
+  headlineXS: 'headline-xs',
+  headlineS: 'headline-s',
+  headlineM: 'headline-m',
+  headlineL: 'headline-l',
+  headlineXL: 'headline-xl',
+};
+
+export const TAGS_TYPE = {
+  dark: 'dark',
+  light: 'light',
+  category: 'category',
+};
+
 export const NAV_LINKS = [
   ...Object.values(NON_INTERACTIVE_LINKS),
   ...Object.values(routes).filter(({ slug }) => slug && ![
@@ -129,76 +146,42 @@ export const IMAGES = {
 };
 
 export const SVG_IMAGES_TYPES = {
-  next: 'next',
-  prev: 'prev',
-  arrowLeft: 'arrowLeft',
   arrowRight: 'arrowRight',
-  twitterDark: 'twitterDark',
-  linkedInDark: 'linkedInDark',
-  instagramDark: 'instagramDark',
-  yellowLogoWithBg: 'yellowLogoWithBg',
   arrow: 'arrow1',
-  behance: 'behance',
-  checkMark: 'checkMark',
-  dribble: 'dribble',
-  instagram: 'instagram',
-  logoWhite: 'logoWhite',
-  searchSvg: 'search',
-  yellowLogoSvg: 'yellowLogo',
-  unpinSvg: 'unpin',
-  closeSvg: 'cancel',
-  scrollIconSvg: 'scrollIcon',
-  esquirePartner: 'esquirePartner',
-  productHuntPartner: 'productHuntPartner',
-  techCrunchPartner: 'techCrunchPartner',
-  theWeekPartner: 'theWeekPartner',
-  timePartner: 'timePartner',
-  famliciousReview: 'famliciousReview',
-  natmReview: 'natmReview',
-  oppsitesReview: 'oppsitesReview',
-  separateReview: 'separateReview',
-  dribbleIcon: 'dribbleIcon',
-  instaIcon: 'instaIcon',
-  linkedinIcon: 'linkedinIcon',
-  mediumIcon: 'mediumIcon',
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
   nearbyArrow: 'nearbyArrow',
-  yellowCheckMark: 'yellowCheckMark',
-  yellowLogo: 'yellowLogo',
-  yellowLogoText: 'yellowLogoText',
+  chevronDown: 'chevronDown',
   appstore: 'appstore',
   blackFillAppstore: 'blackFillAppstore',
-  linkedinRoundWhite: 'linkedinRoundWhite',
-  twitterRoundWhite: 'twitterRoundWhite',
-  behanceRoundWhite: 'behanceRoundWhite',
-  mediumRoundWhite: 'mediumRoundWhite',
-  instaRoundWhite: 'instaRoundWhite',
-  linkedinRoundBlack: 'linkedinRoundBlack',
-  twitterRoundBlack: 'twitterRoundBlack',
-  behanceRoundBlack: 'behanceRoundBlack',
-  dribbleRoundBlack: 'dribbleRoundBlack',
-  mediumRoundBlack: 'mediumRoundBlack',
-  instaRoundBlack: 'instaRoundBlack',
+  blackLogo: 'blackLogo',
+  defaultLogo: 'defaultLogo',
+  whiteLogo: 'whiteLogo',
+  blackYellowText: 'blackYellowText',
+  whiteYellowText: 'whiteYellowText',
+  arrowNarrowUp: 'arrowNarrowUp',
+  mediumFilledWhite: 'mediumFilledWhite',
+  linkedinFilledWhite: 'linkedinFilledWhite',
+  twitterFilledWhite: 'twitterFilledWhite',
+  behanceFilled: 'behanceFilled',
+  behanceFilledWhite: 'behanceFilledWhite',
+  mediumFilled: 'mediumFilled',
+  instagramFilled: 'InstagramFilled',
+  instagramFilledWhite: 'instagramFilledWhite',
+  dribbbleFilledWhite: 'dribbbleFilledWhite',
+  dribbbleFilled: 'dribbbleFilled',
+  searchLg: 'searchLg',
+  closeSvg: 'xClose',
+  attachment: 'attachment',
   opensenseTitleBorder: 'opensenseTitleBorder',
-  tellTeamUnderline: 'tellTeamUnderline',
-  visitSite: 'visitSite',
-  arrowDown: 'arrowDown',
-  arrowUp: 'arrowUp',
-  behanceBlackIcon: 'behanceBlackIcon',
-  dribbleBlackIcon: 'dribbleBlackIcon',
+  checkMark: 'checkMark',
   iPhone: 'iPhone',
   iPad: 'iPad',
-  browser: 'browser',
-  cross: 'cross',
-  telegram: 'telegram',
-  attachment: 'attachment',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentPageIntro: 'app-development-page-intro',
   appDevelopmentCards: 'app-development-cards',
-  appDevelopmentSmallCards: 'app-development-small-cards',
   appDevelopmentCheckList: 'app-development-check-list',
   appDevelopmentSvgList: 'app-development-svg-list',
   appDevelopmentGallery: 'app-development-gallery',
@@ -251,27 +234,27 @@ export const CONTACTS_DATA = {
   socialMedia: [
     {
       title: 'LinkedIn',
-      type: SVG_IMAGES_TYPES.linkedinRoundWhite,
+      type: SVG_IMAGES_TYPES.linkedinFilledWhite,
       link: 'https://www.linkedin.com/company/yellow-systems',
     },
     {
       title: 'Twitter',
-      type: SVG_IMAGES_TYPES.twitterRoundWhite,
+      type: SVG_IMAGES_TYPES.twitterFilledWhite,
       link: 'https://mobile.twitter.com/yellow_systems',
     },
     {
       title: 'Behance',
-      type: SVG_IMAGES_TYPES.behanceRoundWhite,
+      type: SVG_IMAGES_TYPES.behanceFilled,
       link: 'https://www.behance.net/yellow_systems',
     },
     {
       title: 'Medium',
-      type: SVG_IMAGES_TYPES.mediumRoundWhite,
+      type: SVG_IMAGES_TYPES.mediumFilled,
       link: 'https://yellow.medium.com/',
     },
     {
       title: 'Instagram',
-      type: SVG_IMAGES_TYPES.instaRoundWhite,
+      type: SVG_IMAGES_TYPES.instagramFilled,
       link: 'https://www.instagram.com/yellow.systems/',
     },
   ],
@@ -374,6 +357,10 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.developmentServices.path,
   ROUTES.fintechDevelopment.path,
   ROUTES.erpDevelopment.path,
+  ROUTES.mvpDevelopment.path,
+  ROUTES.androidDevelopmentServices.path,
+  ROUTES.cloudDevelopment.path,
+  ROUTES.mlDevelopment.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
@@ -460,22 +447,34 @@ export const ARTICLE_TABLE_TYPES = {
 export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.customMobileApp,
   PAGES.customChatApp,
+  PAGES.designServices,
+  PAGES.discoveryPhase,
 ];
 
 export const CONTACT_FORM_TITLES = {
+  [PAGES.homepage]: 'Let’s move forward',
   [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
   [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
   [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
   [PAGES.designServices]: 'Tailored UX design services for your business',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
-  [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
-  [PAGES.fintechDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.mvpDevelopment]: 'Still have questions?',
+  [PAGES.fintechDevelopment]: 'Still have questions?',
+  [PAGES.erpDevelopment]: 'Still have questions?',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
-  [PAGES.devOpsDevelopment]: 'Still have questions? We\'re ready to answer them',
-  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business? We are here to help!',
+  [PAGES.devOpsDevelopment]: 'Still have questions?',
+  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
+};
+
+export const CONTACT_FORM_SECOND_TITLES = {
+  [PAGES.erpDevelopment]: 'We\'re ready to answer them',
+  [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
+  [PAGES.aiDevelopment]: 'We are here to help!',
+  [PAGES.mvpDevelopment]: 'We are ready to answer them',
+  [PAGES.fintechDevelopment]: ' We are ready to answer them',
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
@@ -492,7 +491,7 @@ export const REVEAL_ANIMATION_PROPS = {
   translateY: '2.8em',
   opasityDuration: 0.5,
   transformDuration: 0.7,
-  transitionDelay: 200,
+  transitionDelay: 50,
 };
 
 export const PHONE_RESOLUTION = 568;

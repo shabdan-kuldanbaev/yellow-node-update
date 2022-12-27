@@ -1,15 +1,15 @@
 @import 'styles/utils/mixins';
 
 .introTextContainer {
+  @include fontSize(16px, 150%);
+  @include flex();
+
   position: fixed;
   left: 50%;
   width: max-content;
   top: calc(100vh - 60px);
   transform: translateX(-50%);
   z-index: 100000;
-
-  @include fontSize(20px);
-  @include flex();
 
   @include macbook-fifteen {
     text-align: center;
@@ -21,10 +21,10 @@
 
   @include phone {
     position: absolute;
-    color: $white;
+    color: $gray0;
     opacity: 0.7;
     width: 100%;
-    max-width: 300px;
+    max-width: 340px;
     transform: translateY(-92px) translateX(-50%);
 
     @include flex(column, center, center);
@@ -63,26 +63,33 @@
       transform: translateY(-228px) translateX(-50%);
     }
   }
+}
 
-  .text {
-    color: $white;
-    margin: 0;
+.introText {
+  color: $gray0;
+  margin: 0;
 
-    @include phone {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+  @include phone {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
+
+.introLink {
+  position: relative;
+  color: $yellow500;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    bottom: -4px; 
+    width: 100%;
+    background: $yellow500;
   }
 
-  a {
-    color: $turbo-100;
-    text-decoration: underline;
-
-    @include phone {
-      font-weight: 600;
-      color: $turbo-100;
-      text-decoration: none;
-    }
+  @include phone {
+    font-weight: 600;
   }
 }
 

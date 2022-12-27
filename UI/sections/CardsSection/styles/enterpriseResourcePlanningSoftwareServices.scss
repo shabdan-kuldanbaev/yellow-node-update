@@ -1,0 +1,186 @@
+.enterprise-resource-planning-software-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    padding: 120px 10px;
+
+    .cardList {
+      margin: 0 auto;
+      max-width: 1300px;
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        .imageWrapper {
+          div {
+            margin: 0 auto;
+            max-width: 265px;
+            padding-top: 70%;
+          }
+        }
+
+        * {
+          text-align: center;
+        }
+
+        &>div {
+          padding: 20px 15px;
+        }
+
+        @include tablet {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include below-tablet {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      .cardContent p {
+        display: none;
+
+        @include below-tablet {
+          display: block;
+        }
+      }
+    }
+
+    .overlay {
+      @include overlay;
+
+      padding: 60px 18px;
+
+      .typeTitle {
+        margin: 0;
+      }
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+
+    @include phone {
+      padding: 60px 15px;
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .blackSection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      flex-direction: column;
+
+      @include tablet {
+        @include flex(column, center, center);
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      @include phone {
+        max-width: 350px;
+      }
+    }
+
+    .navigation {
+      button {
+        @include darkSliderButton();
+      }
+      
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    .title {
+      max-width: 550px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      @extend .cardWithVerticalLine;
+    }
+  }
+
+  &.fifthSectionView {
+    @extend .greySection;
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      @include flex(column, center, center);
+
+      * {
+        align-items: center;
+        text-align: center;
+      }
+
+      h3 {
+        @include fontSize(20px, 150%);
+
+        max-width: 270px;
+      }
+    }
+  }
+
+  &.sixthSectionView {
+    @extend .greySection;
+
+    [data-title] {
+      max-width: 500px;
+    }
+
+    [data-description] {
+      max-width: 666px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      @include flex(column, flex-start, center);
+
+      padding: 24px 16px;
+
+      picture {
+        width: 276px;
+        height: 276px;
+      }
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Intro from 'containers/Home/Intro';
+import Intro from 'UI/sections/Intro';
 import MetaTags from 'components/Common/MetaTags';
 import SectionSelector from 'containers/Home/SectionSelector';
-import { PAGES } from 'utils/constants';
+import { CONTACT_FORM_TITLES, PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
 
 const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
@@ -36,7 +36,13 @@ export const Home = ({
           type={type}
         />
       ))}
-      {hasFeedbackForm && <FeedbackFormContainer />}
+      {hasFeedbackForm && (
+        <FeedbackFormContainer
+          isChooseBudget
+          type={type}
+          titles={[CONTACT_FORM_TITLES[type]]}
+        />
+      )}
     </>
   );
 };

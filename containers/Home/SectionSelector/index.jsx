@@ -2,13 +2,13 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
+import CardsSection from 'UI/sections/CardsSection';
 
-const Portfolio = dynamic(() => import('containers/Home/Portfolio'), { ssr: false });
-const TextSection = dynamic(() => import('components/TextSection'));
-const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
-const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'));
-const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
-const Blog = dynamic(() => import('containers/Home/Blog'));
+const Portfolio = dynamic(() => import('UI/sections/Portfolio'), { ssr: false });
+const TextSection = dynamic(() => import('UI/sections/TextSection'));
+const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'));
+const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
+const Blog = dynamic(() => import('UI/sections/Blog'));
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
 
 const SectionSelector = ({ section, type }) => {
@@ -26,8 +26,8 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.cards:
     return (
       <CardsSection
-        sectionData={section}
-        pageType={type}
+        section={section}
+        type={type}
         sectionType="cards"
       />
     );
@@ -35,9 +35,8 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.cardsWithOverlay:
     return (
       <CardsSection
-        sectionData={section}
-        pageType={type}
-        sectionType="cards"
+        section={section}
+        type={type}
         withOverlay
       />
     );
@@ -50,7 +49,7 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.svgDisplay:
     return (
       <SvgListSection
-        sectionData={section}
+        section={section}
         type={type}
       />
     );
@@ -58,7 +57,7 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.svgDisplayWithSelector:
     return (
       <SvgListSection
-        sectionData={section}
+        section={section}
         type={type}
         withSelector
       />
@@ -67,7 +66,7 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.reviews:
     return (
       <ReviewsSection
-        data={section}
+        section={section}
         type={type}
       />
     );

@@ -1,0 +1,33 @@
+.machine-learning-development-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    .title {
+      max-width: 750px;
+    }
+  }
+
+  &.secondSectionView {
+    .title {
+      max-width: 700px;
+    }
+
+    [data-title] {
+      @include phone {
+        max-width: 290px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    padding-bottom: 0;
+
+    .title {
+      max-width: 745px;
+    }
+
+    .card {
+      @extend .cardWithVerticalLine;
+    }
+  }
+}

@@ -19,9 +19,7 @@
   }
 
   & > div:last-child {
-    & > a {
-      @include flex(row, center, center);
-    }
+    @include flex(row, center, center);
   }
 
   label {

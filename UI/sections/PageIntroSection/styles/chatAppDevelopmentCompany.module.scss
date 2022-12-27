@@ -1,0 +1,15 @@
+.chat-app-development-company {
+  padding-bottom: 60px;
+
+  .pageWrapper {
+    margin-bottom: 32px;
+  }
+
+  .pageImage {
+    padding-top: 489px;
+
+    @include below-tablet {
+      padding-top: 285px;
+    }
+  }
+}

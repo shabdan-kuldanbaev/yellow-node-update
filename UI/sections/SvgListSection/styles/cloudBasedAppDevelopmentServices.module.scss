@@ -1,0 +1,12 @@
+.cloud-based-app-development-services {
+  @include sliderTwoRows;
+
+  &.firstSectionView {
+    background-color: $gray0;
+  }
+
+  &.secondSectionView {
+    padding-top: 0;
+    background-color: $gray50;
+  }
+}

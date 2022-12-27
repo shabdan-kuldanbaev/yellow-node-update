@@ -214,10 +214,10 @@ export const microdata = {
   customWebApp: () => ({
     '@context': context,
     '@type': 'WebPage',
-    name: 'Custom web application development company',
+    name: 'Web Application Development Services',
     description: `Our team is ready to provide you with web development services.
                   We are working with websites, PWAs, chatting applications, and landing pages.`,
-    breadcrumb: 'Homepage > Custom web application development company',
+    breadcrumb: 'Homepage > Web Application Development Services',
     image: logoUrl,
   }),
   fintechDevelopment: () => ({

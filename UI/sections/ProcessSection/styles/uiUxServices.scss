@@ -1,0 +1,13 @@
+.ui-ux-services {
+  background-color: $gray0;
+
+  .titleStyle {
+    max-width: 671px;
+  }
+
+  .cardContainer {
+    border: 1px solid $gray100;
+    border-radius: 5px;
+    box-shadow: inherit;
+  }
+}

@@ -1,0 +1,20 @@
+.imageSection {
+  @include appDevelopmentContainer;
+
+  .contentWrapper {
+    max-width: $wide-content-width;
+    margin: 0 auto;
+  }
+
+  .imagesList {
+    @include flex(row, space-between, center);
+
+    @include below-tablet {
+      flex-direction: column;
+    }
+
+    & > div {
+      width: max-content;
+    }
+  }
+}

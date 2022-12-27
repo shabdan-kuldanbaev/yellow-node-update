@@ -1,0 +1,17 @@
+.web-app-development-company {
+  .pageWrapper {
+    margin-bottom: 32px;
+  }
+
+  .pageImage {
+    padding-top: 566px;
+
+    @include below-tablet {
+      padding-top: 521px;
+    }
+  }
+
+  .pageTitle {
+    color: $gray0;
+  }
+}

@@ -1,0 +1,66 @@
+.figures {
+  @include flex(row, space-between);
+
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  & > div {
+    @include flex(row, flex-start, flex-start);
+
+    flex: 0 1 30%;
+    margin-bottom: 20px;
+
+    @include tablet {
+      flex: 0 1 50%;
+    }
+
+    @include phone {
+      flex: 0 1 100%;
+    }
+  }
+}
+
+.circle {
+  flex: 0 0 40px;
+  margin-right: 30px;
+  justify-self: start;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $yellow500;
+
+  @include below-tablet {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.title {
+  @include fontSize(20px, 30px);
+
+  margin: 0;
+  color: $gray0;
+  font-weight: 700;
+
+  @include below-tablet {
+    text-align: left;
+  }
+
+  @include phone {
+    @include fontSize(16px, 24px);
+  }
+}
+
+.description {
+  @include fontSize(16px, 24px);
+
+  color: $gray400;
+  margin: 0;
+  text-align: left;
+}
+
+.icon {
+  @include centered;
+}

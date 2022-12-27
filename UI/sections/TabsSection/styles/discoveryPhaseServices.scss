@@ -1,0 +1,23 @@
+.discovery-phase-services {
+  padding: 120px 40px;
+  background-color: $gray50;
+
+  [data-case-study-title] {
+    @include fontSize(38px);
+
+    margin: 0 auto;
+    max-width: 862px;
+  }
+
+  [data-case-study-description] {
+    @include fontSize(18px, 180%);
+
+    margin: 16px auto 48px;
+    max-width: 100%;
+    color: $gray400;
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}

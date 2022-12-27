@@ -1,15 +1,12 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 @mixin appDevelopmentContainer {
   padding: 120px 40px;
   background-color: $white;
 
-  @include tablet {
-    padding: 100px 40px;
-  }
-
-  @include phone {
-    padding: 64px 15px;
+  @include below-tablet {
+    padding: 60px 16px;
   }
 }
 
@@ -19,60 +16,6 @@
   position: relative;
 
   @include flex(column, center, stretch);
-}
-
-@mixin defaultCallToAction {
-  @include flex(row, space-between, center);
-
-  box-sizing: border-box;
-  width: 100%;
-  max-width: $max-content-width-small-section;
-  padding: 70px;
-  margin: 80px auto 0;
-  background: $alabaster;
-  border-radius: 5px;
-
-  h3 {
-    @include fontSize(24px, 120%);
-
-    max-width: 610px;
-
-    @include below-tablet {
-      @include fontSize(18px);
-
-      margin: 0 0 24px;
-      text-align: center;
-    }
-  }
-
-  div[role='button'] {
-    @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
-
-    border-radius: $button-border-radius;
-    font-weight: 500;
-    height: unset;
-    padding: 20px 0;
-    margin-left: 40px;
-    min-width: 220px;
-
-    &:hover {
-      transform: scale(0.96);
-    }
-
-    @include below-tablet {
-      @include fontSize(14px);
-
-      padding: 14px 0;
-      width: 180px;
-      margin: auto;
-    }
-  }
-
-  @include below-tablet {
-    padding: 40px 24px;
-    margin-top: 40px;
-    flex-direction: column;
-  }
 }
 
 @mixin defaultCard {
@@ -217,60 +160,20 @@
   }
 }
 
-.cardsWithShadow {
-  .contentWrapper .cards {
-    grid-gap: 40px;
-
-    & > div {
-      @include cardWithShadow;
-    }
-  }
-}
-
-.smallCards {
-  .contentWrapper .cards {
-    grid-gap: 40px;
-
-    & > div {
-      @include flex;
-    }
-
-    h3 {
-      margin-top: 0;
-    }
-  }
-}
-
 .threeColumnsCards {
-  @include smallSectionWrapper;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
-  max-width: $max-content-width;
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 40px;
-
-    @include tablet {
-      grid-template-columns: auto;
-      grid-gap: 20px;
-    }
+  @include below-tablet {
+    grid-template-columns: 1fr;
   }
 }
 
 .twoColumnsCards {
-  @include smallSectionWrapper;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
-  max-width: 100%;
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px 24%;
-
-    @include below-tablet {
-      grid-template-columns: auto;
-      grid-gap: 24px;
-    }
+  @include below-tablet {
+    grid-template-columns: 1fr;
   }
 }

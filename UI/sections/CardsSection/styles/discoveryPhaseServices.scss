@@ -1,0 +1,127 @@
+.discovery-phase-services {
+  &.firstSectionView {
+    .title {
+      max-width: 550px;
+    }
+
+    .card {
+      flex-direction: column;
+
+      @include tablet {
+        align-items: center;
+
+        * {
+          text-align: center;
+          align-items: center;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .blackSection;
+
+    [data-title] {
+      max-width: 580px;
+    }
+
+    [data-description] {
+      max-width: 640px;
+    }
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          text-align: center;
+          align-items: center;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    .cardList {
+      @include flex(row, center, flex-start, wrap);
+
+      & > div {
+        flex: 0 0 30%;
+
+        @include phone {
+          flex: none;
+          margin: 0;
+        }
+      }
+
+      @include phone {
+        margin: 0;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+
+    .card {
+      @include flex(column, flex-start, stretch);
+
+      max-width: 296px;
+      height: 100%;
+
+      * {
+        align-self: center;
+        text-align: center;
+      }
+
+      svg {
+        margin: 0 0 16px;
+      }
+
+      @include phone {
+        max-width: 350px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    .title {
+      max-width: 683px;
+      margin: 0 auto 48px;
+    }
+
+    .card {
+      @include tablet {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    .title {
+      max-width: 736px;
+      margin: 0 auto 48px;
+    }
+
+    .card {
+      @include flex(column, flex-start, stretch);
+
+      picture {
+        width: 276px;
+        height: 276px;
+      }
+
+      * {
+        align-self: center;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@import "styles/utils/_mixins.scss";
+
+.review {
+  @include flex(column, space-between, stretch);
+
+  min-height: 376px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.content {
+  @include flex(column, space-between, flex-start);
+
+  p {
+    @include fontSize(16px, 150%);
+    
+    z-index: 1;
+    margin-top: 21px;
+    color: $gray400;
+  }
+}
+
+.author {
+  @include flex(row, space-between, center);
+}
+
+.photo {
+  flex: 0 0 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.authorInfo {
+  flex: 1 1 auto;
+
+  p {
+    margin: 0;
+  }
+}
+
+.position {
+  color: $gray400;
+}
+
+.oppsites {
+  width: 109px;
+  height: 22px;
+}
+
+.famlicious {
+  width: 114px;
+  height: 18px;
+}
+
+.separate-us {
+  width: 122px;
+  height: 31px;
+}
+
+.blackbird {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  margin: -7px 0;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: 'Blackbird';
+    font-weight: bold;
+    left: 100%;
+  }
+}
+
+.qkss {
+  width: 100px;
+  height: 35px;
+  transform: scale(2.7);
+}
+
+.coverium {
+  width: 120px;
+  height: 40px;
+  transform: scale(2.7)
+}
+
+.hyvery-inc {
+  width: 100px;
+  height: 40px;
+  transform: scale(2.3);
+}
+
+.dealstryker {
+  width: 80px;
+  height: 40px;
+  transform: scale(2);
+}

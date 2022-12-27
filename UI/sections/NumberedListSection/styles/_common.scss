@@ -1,0 +1,37 @@
+.graySection{
+  background-color: $alabaster;
+
+  .callToAction {
+    background: $gray0;
+  }
+}
+
+.checkListSection {
+  @include appDevelopmentContainer;
+}
+
+.contentWrapper {
+  max-width: $wide-content-width;
+  margin: 0 auto;
+}
+
+.checkList {
+  @include flex(row, space-between, stretch, wrap);
+
+  margin: 0 0 -32px -32px;
+
+  & > div {
+    @include flex(row, center, stretch);
+    
+    margin: 0 0 32px 32px;
+    flex: 1 1 30%;
+  }
+
+  @include below-tablet {
+    @include flex(column, initial, stretch);
+  }
+}
+
+.card {
+  width: 100%;
+}
