@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TYPOGRAPHY_SIZE } from 'utils/constants';
-import { useTypography, TYPOGRAPHY_TAGS } from './utils/useTypography';
+import { TYPOGRAPHY_SIZE, useTypography, TYPOGRAPHY_TAGS } from './utils/useTypography';
 
 const Typography = (props) => {
   const {
@@ -11,7 +10,7 @@ const Typography = (props) => {
     onClick,
     tabIndex,
     role,
-    rest,
+    ...rest
   } = useTypography(props);
 
   return (
@@ -28,19 +27,17 @@ const Typography = (props) => {
 };
 
 Typography.defaultProps = {
-  className: '',
   variant: TYPOGRAPHY_TAGS.p,
-  size: TYPOGRAPHY_SIZE.paragrapghM,
-  isBold: false,
+  size: TYPOGRAPHY_SIZE.paragrapgh16,
 };
 
 Typography.propTypes = {
+  children: PropTypes.node.isRequired,
   isBold: PropTypes.bool,
   variant: PropTypes.string,
-  align: PropTypes.string,
   className: PropTypes.string,
-  size: PropTypes.string,
-  children: PropTypes.instanceOf(Object).isRequired,
+  size: PropTypes.oneOf(Object.values(TYPOGRAPHY_SIZE)),
+  mobileSize: PropTypes.oneOf(Object.values(TYPOGRAPHY_SIZE)),
   onClick: PropTypes.func,
   tabIndex: PropTypes.string,
   role: PropTypes.string,
