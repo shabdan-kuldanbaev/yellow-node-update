@@ -1,7 +1,37 @@
 .web-app-development-company {
-  color: $gray0;
-
   .figures {
-    max-width: 1200px;
+    max-width: $wide-content-width;
+    margin-left: -32px;
+    flex-wrap: nowrap;
+
+    & > div {
+      flex: 1 1 379px;
+
+      @include below-tablet {
+        flex-basis: auto;
+      }
+    }
+
+    @include below-tablet {
+      flex-direction: column;
+    }
+  }
+
+  .figureItem {
+    @include flex(row, flex-start, center);
+
+    margin-left: 32px;
+  }
+
+  .icon {
+    flex: 0 0 40px;
+  }
+
+  .title {
+    @include fontSize(20px);
+
+    @include below-tablet {
+      @include fontSize(16px);
+    }
   }
 }

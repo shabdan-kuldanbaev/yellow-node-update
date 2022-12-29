@@ -6,6 +6,7 @@ import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
+import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -34,6 +35,8 @@ const PageIntroSection = (props) => {
               {title && (
                 <Typography
                   variant="h1"
+                  size={TYPOGRAPHY_SIZE.headline46}
+                  mobileSize={TYPOGRAPHY_SIZE.headline24}
                   className={styles.pageTitle}
                 >
                   {title}

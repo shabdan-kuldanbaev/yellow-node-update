@@ -37,17 +37,6 @@ export const NON_INTERACTIVE_LINKS = {
   },
 };
 
-export const TYPOGRAPHY_SIZE = {
-  caption: 'caption',
-  paragrapghS: 'paragrapgh-s',
-  paragrapghM: 'paragrapgh-m',
-  headlineXS: 'headline-xs',
-  headlineS: 'headline-s',
-  headlineM: 'headline-m',
-  headlineL: 'headline-l',
-  headlineXL: 'headline-xl',
-};
-
 export const TAGS_TYPE = {
   dark: 'dark',
   light: 'light',

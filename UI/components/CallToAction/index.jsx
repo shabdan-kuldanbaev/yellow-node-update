@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Button from 'UI/components/Button';
 import Typography from 'UI/components/Typography';
-import { TYPOGRAPHY_SIZE } from 'utils/constants';
-import { TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
+import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import styles from './styles.module.scss';
 
 const CallToAction = ({
@@ -28,7 +27,7 @@ const CallToAction = ({
   >
     <Typography
       variant={TYPOGRAPHY_TAGS.h3}
-      size={TYPOGRAPHY_SIZE.headlineS}
+      size={TYPOGRAPHY_SIZE.headline24}
       className={styles.h3}
     >
       {title}
