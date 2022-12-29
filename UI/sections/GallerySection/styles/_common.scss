@@ -18,19 +18,6 @@
   @include appDevelopmentContainer;
 
   background-color: $gray0;
-  padding-bottom: 90px;
-
-  @include below-tablet {
-    padding-bottom: 30px;
-  }
-}
-
-.sectionTitle {
-  @include defaultSectionTitle;
-}
-
-.gallerySection {
-  padding-bottom: 30px;
 }
 
 .navigation {
