@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
-import { REVEAL_ANIMATION_PROPS, TYPOGRAPHY_SIZE } from 'utils/constants';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Typography from 'UI/components/Typography';
+import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
 import styles from './styles.module.scss';
 
 const SectionTitle = ({
@@ -20,7 +21,13 @@ const SectionTitle = ({
   className,
   children,
 }) => (
-  <div className={cn(styles[type], className, { [titleStyle]: titleStyle })}>
+  <div className={cn(
+    styles.sectionTitleContainer,
+    styles[type],
+    className,
+    titleStyle,
+  )}
+  >
     <Animated
       {...REVEAL_ANIMATION_PROPS}
       transitionDelay={50}
@@ -28,7 +35,8 @@ const SectionTitle = ({
       <Typography
         data-title
         isBold
-        size={TYPOGRAPHY_SIZE.headlineM}
+        size={TYPOGRAPHY_SIZE.headline38}
+        mobileSize={TYPOGRAPHY_SIZE.headline24}
         variant={titleVariant}
         className={styles.title}
       >
@@ -42,6 +50,7 @@ const SectionTitle = ({
       >
         <Typography
           data-subtitle
+          size={TYPOGRAPHY_SIZE.paragrapgh16}
           className={styles.subtitle}
         >
           {subtitle}
@@ -55,6 +64,7 @@ const SectionTitle = ({
       >
         <Typography
           data-description
+          size={TYPOGRAPHY_SIZE.paragrapgh16}
           className={styles.description}
         >
           {description}
@@ -69,7 +79,7 @@ const SectionTitle = ({
         <Typography
           isBold
           data-second-title
-          size={TYPOGRAPHY_SIZE.headlineS}
+          size={TYPOGRAPHY_SIZE.headline24}
           variant={secondTitleVariant}
           className={styles.title}
         >

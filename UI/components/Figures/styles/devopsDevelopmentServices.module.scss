@@ -15,5 +15,9 @@
     @include fontSize(38px, 49px);
 
     margin-bottom: 8px;
+
+    @include below-tablet {
+      text-align: center;
+    }
   }
 }

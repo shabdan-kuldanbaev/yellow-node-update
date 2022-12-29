@@ -384,7 +384,7 @@ export { default as twitterFilled } from './filled/twitterFilled.svg';
 export { default as behanceFilledWhite } from './filled/behanceFilledWhite.svg';
 export { default as dribbbleFilledWhite } from './filled/dribbbleFilledWhite.svg';
 export { default as instagramFilledWhite } from './filled/instagramFilledWhite.svg';
-export { default as linkedinFilledWhite } from './filled/mediumFilledWhite.svg';
+export { default as linkedinFilledWhite } from './filled/linkedinFilledWhite.svg';
 export { default as mediumFilledWhite } from './filled/mediumFilledWhite.svg';
 export { default as twitterFilledWhite } from './filled/twitterFilledWhite.svg';
 

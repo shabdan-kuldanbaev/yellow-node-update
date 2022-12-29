@@ -20,7 +20,7 @@ const TextSection = ({ sectionData, type }) => {
         title={title}
         subtitle={subtitle}
         description={description}
-        titleStyle={styles.titleStyle}
+        className={styles.titleStyle}
       />
       {contentModules?.map((document) => {
         const { text } = getDocumentFields(document);
