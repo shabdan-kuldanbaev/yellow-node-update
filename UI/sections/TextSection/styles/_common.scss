@@ -1,7 +1,5 @@
 .titleStyle {
-  @include defaultSectionTitle;
-
-  h2 {
+  [data-title] {
     color: $gray0;
   }
 }
