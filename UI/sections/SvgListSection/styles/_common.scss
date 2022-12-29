@@ -23,10 +23,6 @@
   @include appDevelopmentContainer;
 }
 
-.titleStyle {
-  @include defaultSectionTitle;
-}
-
 .groupTitle {
   @include fontSize(32px, 120%);
 
@@ -48,7 +44,6 @@
 .homepage {
   &.secondSectionView {
     @extend .greySection;
-
     @include centeredIcons;
 
     padding-top: 0;
