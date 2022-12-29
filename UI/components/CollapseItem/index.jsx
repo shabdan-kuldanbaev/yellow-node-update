@@ -5,7 +5,8 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Typography from 'UI/components/Typography';
-import { ANIMATED_TYPE, TYPOGRAPHY_SIZE } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
+import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
 import { useCollapseItem } from './utils/useCollapseItem';
 import styles from './styles.module.scss';
 
@@ -26,7 +27,7 @@ const CollapseItem = (props) => {
       <div className={styles.question}>
         <Typography
           isBold
-          size={TYPOGRAPHY_SIZE.headlineS}
+          size={TYPOGRAPHY_SIZE.headline24}
           variant="p"
         >
           {faq.question}

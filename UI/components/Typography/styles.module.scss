@@ -1,15 +1,6 @@
 @import 'styles/utils/mixins';
 
-.huge,
-.large,
-.big,
-.normalsize,
-.medium,
-.footnotesize,
-.small,
-.tiny {
-  color: $dark-grey;
-  font-weight: normal;
+.typography {
   margin: 0;
 }
 

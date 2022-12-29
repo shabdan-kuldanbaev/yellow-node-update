@@ -1,49 +1,35 @@
 @import 'styles/utils/mixins';
 
-@mixin defaultTitle {
-  @include fontSize(38px);
+.sectionTitleContainer {
+  margin: 0 auto 48px;
+}
 
-  margin: 0;
+.title,
+.subtitle,
+.description {
+  text-align: center;
+  max-width: 950px;
+}
 
-  @include phone {
-    @include fontSize(24px);
+.subtitle,
+.description {
+  color: $gray400;
+  margin: 16px auto 0;
+
+  @include below-tablet {
+    margin-top: 8px;
   }
 }
 
-@mixin defaultSubtitle {
-  @include fontSize(16px, 150%);
+.title {
+  margin: 0 auto 16px;
 
-  @include phone {
-    @include fontSize(16px);
+  @include below-tablet {
+    margin-bottom: 8px;
   }
 }
 
 .default {
-  @include flex(column, center, center);
-
-  margin: 0 auto 48px;
-
-  .title {
-    @include defaultTitle;
-
-    text-align: center;
-    max-width: 950px;
-  }
-
-  .description,
-  .subtitle {
-    @include defaultSubtitle;
-
-    margin: 16px auto 0;
-    color: $silver-chalice;
-    text-align: center;
-    max-width: 950px;
-
-    @include phone {
-      margin-top: 8px;
-    }
-  }
-
   @include below-tablet {
     margin-bottom: 24px;
   }
@@ -51,7 +37,7 @@
 
 .side {
   .title {
-    @include defaultTitle;
+    text-align: center;
 
     @include below-tablet {
       text-align: center;
@@ -59,8 +45,6 @@
   }
 
   .subtitle {
-    @include defaultSubtitle;
-
     margin: 50px 0 30px;
     padding-right: 50px;
     font-weight: 700;
