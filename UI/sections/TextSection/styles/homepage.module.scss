@@ -7,10 +7,10 @@
   }
 
   [data-title] {
-    @include fontSize(46px, 120%);
+    @include fontSize(46px);
 
-    @include phone {
-      @include fontSize(24px, 130%);
+    @include below-tablet {
+      @include fontSize(24px);
     }
   }
 
