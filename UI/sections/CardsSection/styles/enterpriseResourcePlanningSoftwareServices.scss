@@ -97,7 +97,7 @@
       button {
         @include darkSliderButton();
       }
-      
+
     }
   }
 
@@ -168,9 +168,14 @@
 
       padding: 24px 16px;
 
+      h3 {
+        margin: 0;
+      }
+
       picture {
-        width: 276px;
-        height: 276px;
+        width: 244px;
+        height: 228px;
+        margin-bottom: 24px;
       }
 
       @include below-tablet {
