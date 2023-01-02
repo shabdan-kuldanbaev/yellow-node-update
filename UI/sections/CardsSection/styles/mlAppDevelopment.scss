@@ -11,6 +11,16 @@
     .title {
       max-width: 700px;
     }
+
+    .callToAction h3 {
+      max-width: 525px;
+    }
+
+    [data-title] {
+      @include phone {
+        max-width: 290px;
+      }
+    }
   }
 
   &.thirdSectionView {

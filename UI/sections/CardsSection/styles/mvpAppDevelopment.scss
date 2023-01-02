@@ -14,6 +14,12 @@
     }
   }
 
+  &.thirdSectionView {
+    [data-title] {
+      max-width: 550px;
+    }
+  }
+
   &.fourthSectionView {
     padding-bottom: 0;
 
@@ -27,6 +33,8 @@
 
     .card {
       @extend .cardWithFullSizeImage;
+
+      height: 100%;
 
       span {
         margin-top: auto;

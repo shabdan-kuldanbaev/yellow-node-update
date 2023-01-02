@@ -18,7 +18,5 @@
 }
 
 .title {
-  @include below-tablet {
-    @include fontSize(16px);
-  }
+  font-weight: 700;
 }

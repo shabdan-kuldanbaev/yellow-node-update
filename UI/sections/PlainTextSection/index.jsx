@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { SectionTitle } from 'components/AppDevelopmentCommon/SectionTitle';
+import SectionTitle from 'UI/components/SectionTitle';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 

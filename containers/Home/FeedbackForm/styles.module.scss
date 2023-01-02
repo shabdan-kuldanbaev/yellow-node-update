@@ -1,22 +1,13 @@
-/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 @import 'styles/utils/sizes';
 
 .formContainer {
+  @include flex(column, flex-start, center);
+
   position: relative;
   z-index: 2;
   padding: $section-indent 0;
   background-color: $white;
-
-  @include flex(column, flex-start, center);
-
-  @include phone {
-    padding: $mobile-section-indent 0 $mobile-section-indent - 20px;
-  }
-
-  .title {
-    @include defaultSectionTitle;
-  }
 
   & > div:first-child {
     width: 100%;
@@ -33,6 +24,10 @@
   & > form {
     max-width: $max-content-width-macbook-twelve;
   }
+
+  @include phone {
+    padding: $mobile-section-indent 0 $mobile-section-indent - 20px;
+  }
 }
 
 .seven-pm-thursday,
@@ -43,7 +38,6 @@
 
   background-color: $dark-blue-1;
 
-  /* stylelint-disable-next-line */
   .title {
     color: $white;
   }
@@ -51,13 +45,10 @@
   .subtitle {
     color: rgba($white, 0.4);
 
-    /* stylelint-disable-next-line */
     span {
-      /* stylelint-disable-next-line */
       a {
         color: rgba($white, 0.4);
 
-        /* stylelint-disable-next-line */
         &::before {
           border-bottom: 1px rgba($white, 0.4) solid;
           background-color: rgba($white, 0.4);
@@ -105,11 +96,6 @@
   background: $white;
   color: $black;
 
-  @include phone {
-    padding: 0;
-    margin-top: 0;
-  }
-
   .title {
     color: $black;
   }
@@ -117,13 +103,10 @@
   .subtitle {
     color: $feedback-form-grey;
 
-    /* stylelint-disable-next-line */
     span {
-      /* stylelint-disable-next-line */
       a {
         color: $feedback-form-grey;
 
-        /* stylelint-disable-next-line */
         &::before {
           border-bottom: 1px $feedback-form-grey solid;
           background-color: $feedback-form-grey;
@@ -147,6 +130,11 @@
         }
       }
     }
+  }
+
+  @include phone {
+    padding: 0;
+    margin-top: 0;
   }
 }
 
@@ -186,12 +174,12 @@
 
   padding: 120px 16px;
 
-  @include below-tablet {
-    padding: 60px 16px;
-  }
-
   .title {
     max-width: 786px;
+  }
+
+  @include below-tablet {
+    padding: 60px 16px;
   }
 }
 
@@ -199,18 +187,18 @@
   .title {
     @include fontSize(56px);
 
+    max-width: 550px;
     letter-spacing: unset;
     margin-bottom: 30px;
-    max-width: 912px;
 
     @include tablet {
       @include fontSize(44px);
     }
 
     @include phone {
-      margin-bottom: 20px;
-
       @include fontSize(32px);
+
+      margin-bottom: 20px;
     }
   }
 }
@@ -259,13 +247,10 @@
   .subtitle {
     color: $white;
 
-    /* stylelint-disable-next-line */
     span {
-      /* stylelint-disable-next-line */
       a {
         color: $white;
 
-        /* stylelint-disable-next-line */
         &::before {
           border-bottom: 1px $white solid;
           background-color: $white;
@@ -362,14 +347,18 @@
   }
 }
 
-.ui-ux-services {
-  .title {
-    max-width: 550px;
-  }
-}
-
 .android-mobile-app-development-services {
   .title {
     max-width: 700px;
   }
+}
+
+.fintech-software-development-services {
+  .title {
+    max-width: 754px;
+  }
+}
+
+.devops-development-services {
+  padding-top: 0;
 }

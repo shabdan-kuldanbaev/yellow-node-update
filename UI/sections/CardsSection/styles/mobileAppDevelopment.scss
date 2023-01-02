@@ -45,6 +45,12 @@
     .title {
       max-width: 671px;
     }
+
+    [data-title] {
+      @include phone {
+        max-width: 300px;
+      }
+    }
   }
 
   &.fifthSectionView {
@@ -58,12 +64,18 @@
   &.sixthSectionView {
     padding-bottom: 0;
 
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
     [data-read-more] {
       display: block;
     }
 
     .card {
       @extend .cardWithFullSizeImage;
+
+      height: 100%;
     }
   }
 }

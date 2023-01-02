@@ -25,6 +25,12 @@
     }
   }
 
+  .titleWrapper {
+    @include phone {
+      max-width: 350px;
+    }
+  }
+
   .container {
     @include tablet {
       flex-direction: column-reverse;

@@ -25,10 +25,16 @@
 }
 
 .titleStyle {
-  max-width: 610px;
-
   [data-title] {
     color: $gray0;
+  }
+
+  [data-description] {
+    max-width: 700px;
+  }
+
+  @include phone {
+    max-width: 350px;
   }
 }
 

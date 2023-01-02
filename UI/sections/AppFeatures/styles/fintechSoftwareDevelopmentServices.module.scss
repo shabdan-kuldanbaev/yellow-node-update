@@ -1,5 +1,5 @@
 .fintech-software-development-services {
-  @include appFeaturesContainer();
+  @include appFeaturesContainer;
 
   background: $gray0;
 
@@ -19,7 +19,7 @@
       max-width: 863px;
 
       img {
-        transform: scale(1.5) translate(20%, 20%);
+        transform: scale(1.5) translate(20%, 15%);
 
         @include tablet {
           transform: unset;

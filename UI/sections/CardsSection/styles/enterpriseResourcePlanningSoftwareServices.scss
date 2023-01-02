@@ -78,6 +78,26 @@
 
     .card {
       flex-direction: column;
+
+      @include tablet {
+        @include flex(column, center, center);
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      @include phone {
+        max-width: 350px;
+      }
+    }
+
+    .navigation {
+      button {
+        @include darkSliderButton();
+      }
+      
     }
   }
 

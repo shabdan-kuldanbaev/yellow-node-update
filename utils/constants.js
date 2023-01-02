@@ -37,17 +37,6 @@ export const NON_INTERACTIVE_LINKS = {
   },
 };
 
-export const TYPOGRAPHY_SIZE = {
-  caption: 'caption',
-  paragrapghS: 'paragrapgh-s',
-  paragrapghM: 'paragrapgh-m',
-  headlineXS: 'headline-xs',
-  headlineS: 'headline-s',
-  headlineM: 'headline-m',
-  headlineL: 'headline-l',
-  headlineXL: 'headline-xl',
-};
-
 export const TAGS_TYPE = {
   dark: 'dark',
   light: 'light',
@@ -459,8 +448,8 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.designServices]: 'Tailored UX design services for your business',
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
-  [PAGES.mvpDevelopment]: 'Still have questions? We are ready to answer them',
-  [PAGES.fintechDevelopment]: 'Still have questions? We are ready to answer them',
+  [PAGES.mvpDevelopment]: 'Still have questions?',
+  [PAGES.fintechDevelopment]: 'Still have questions?',
   [PAGES.erpDevelopment]: 'Still have questions?',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
@@ -473,6 +462,8 @@ export const CONTACT_FORM_SECOND_TITLES = {
   [PAGES.erpDevelopment]: 'We\'re ready to answer them',
   [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
   [PAGES.aiDevelopment]: 'We are here to help!',
+  [PAGES.mvpDevelopment]: 'We are ready to answer them',
+  [PAGES.fintechDevelopment]: ' We are ready to answer them',
 };
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
