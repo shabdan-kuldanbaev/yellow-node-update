@@ -20,8 +20,8 @@
 
   .image {
     padding-left: 74%;
-    padding-top: 83%;
-    transform: translate(110px, 0);
+    padding-top: 93%;
+    transform: translate(60px, 0);
 
     @include tablet {
       transform: none;
@@ -31,7 +31,7 @@
   }
 
   .experienceContent {
-    max-width: 680px;
+    max-width: 540px;
     padding-left: 0;
     order: -1;
 
@@ -49,28 +49,15 @@
 
     @include tablet {
       order: 0;
-      max-width: 880px;
+      max-width: 100%;
     }
   }
 
-  .titleStyle {
-    margin-bottom: 15px;
-
-    h2 {
-      @include fontSize(38px);
-
-      line-height: 49px;
-
-      @include phone {
-        @include fontSize(24px);
-
-        line-height: 24px;
-      }
-    }
+  [data-title] {
+    text-align: left;
 
     @include tablet {
       text-align: center;
-      margin-bottom: 8px;
     }
   }
 
