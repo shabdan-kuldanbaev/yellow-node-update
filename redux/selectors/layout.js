@@ -51,6 +51,8 @@ export const selectPortfolioProjectsPreview = (state) => getMain(state, BLOCKS_S
 
 export const selectWhatMakesSpecial = (state) => getMain(state, BLOCKS_SLUGS.companyPageWhatMakesSpecial);
 
+export const selectCompanyReviews = (state) => getMain(state, BLOCKS_SLUGS.companyReviews);
+
 export const selectManagementTeam = (state) => getMain(state, BLOCKS_SLUGS.compnayPageManagementTeam);
 
 export const selectCompanyPhoto = (state) => getMain(state, BLOCKS_SLUGS.contactPageCompanyPhoto);
