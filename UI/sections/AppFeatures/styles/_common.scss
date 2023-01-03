@@ -16,7 +16,7 @@
     text-align: left;
     color: $gray400;
 
-    @include tablet-size-horizontal {
+    @include tablet {
       text-align: center;
     }
   }

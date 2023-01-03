@@ -44,6 +44,10 @@
 
     .cardList {
       @extend .threeColumnsCards;
+
+      @include tablet {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .card {
@@ -70,6 +74,8 @@
   }
 
   &.fifthSectionView {
+    padding-bottom: 0;
+
     .contentWrapper {
       max-width: $wide-content-width;
     }

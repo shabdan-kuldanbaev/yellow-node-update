@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
 
-export default (data = []) => data?.contentModules.map((tabSection) => {
+export default (data = []) => data?.map((tabSection) => {
   const {
     title: tabTitle,
     contentModules,
