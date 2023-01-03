@@ -56,7 +56,6 @@ const Card = (props) => {
             <ContentfulParser document={text} />
           </div>
 
-          {children}
           <p
             data-read-more
             className={styles.readMore}
@@ -64,7 +63,7 @@ const Card = (props) => {
             Read more
           </p>
         </div>
-
+        {children}
       </CardContainer>
     </Wrapper>
   );

@@ -38,7 +38,7 @@ const Portfolio = (props) => {
         />
         <Animated
           {...REVEAL_ANIMATION_PROPS}
-          transitionDelay={350}
+          transitionDelay={50}
         >
           <Button
             dark
