@@ -1,5 +1,5 @@
-.graySection{
-  background-color: $alabaster;
+.graySection {
+  background-color: $gray50;
 
   .callToAction {
     background: $gray0;
@@ -8,30 +8,31 @@
 
 .checkListSection {
   @include appDevelopmentContainer;
-}
 
-.contentWrapper {
-  max-width: $wide-content-width;
-  margin: 0 auto;
-}
-
-.checkList {
-  @include flex(row, space-between, stretch, wrap);
-
-  margin: 0 0 -32px -32px;
-
-  & > div {
-    @include flex(row, center, stretch);
-    
-    margin: 0 0 32px 32px;
-    flex: 1 1 30%;
+  .contentWrapper {
+    max-width: $wide-content-width;
+    margin: 0 auto;
   }
 
-  @include below-tablet {
-    @include flex(column, initial, stretch);
-  }
-}
+  .checkList {
+    @include flex(row, space-between, stretch, wrap);
 
-.card {
-  width: 100%;
+    margin: 0 0 -32px -32px;
+
+    & > div {
+      @include flex(row, center, stretch);
+
+      margin: 0 0 32px 32px;
+      flex: 1 1 30%;
+    }
+
+    @include below-tablet {
+      @include flex(column, initial, stretch);
+    }
+  }
+
+  .card {
+    width: 100%;
+    padding: 24px 24px 24px 42px;
+  }
 }
