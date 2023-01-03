@@ -2,11 +2,12 @@
   padding-bottom: 60px;
 
   .pageWrapper {
-    margin-bottom: 32px;
+    margin-bottom: 15px;
   }
 
   .pageImage {
     padding-top: 489px;
+    margin: 28px auto;
 
     @include below-tablet {
       padding-top: 285px;
