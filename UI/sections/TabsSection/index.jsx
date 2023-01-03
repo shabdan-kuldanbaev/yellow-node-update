@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import CallToAction from 'UI/components/CallToAction';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import CardContainer from 'UI/containers/CardContainer';
+import SectionTitle from 'UI/components/SectionTitle';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -14,16 +14,19 @@ const TabsSection = (props) => {
     handleOnCTAClick,
     tabs,
     activeIndex,
-    data,
+    title,
+    description,
+    view,
     type,
   } = useSectionProps(props);
 
   return (
-    <section className={cn(styles[type], styles[data.view])}>
+    <section className={cn(styles[type], styles[view])}>
       <div className={styles.container}>
         <SectionTitle
-          data={data}
-          type={type}
+          title={title}
+          description={description}
+          titleStyle={styles.titleStyle}
         />
         <div className={styles.tabs}>
           {tabs?.map(({ tabTitle }, index) => (

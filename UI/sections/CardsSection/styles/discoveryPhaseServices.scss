@@ -76,6 +76,7 @@
       * {
         align-self: center;
         text-align: center;
+        margin: 0;
       }
 
       svg {
@@ -84,7 +85,7 @@
 
       @include phone {
         max-width: 350px;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
       }
     }
   }
