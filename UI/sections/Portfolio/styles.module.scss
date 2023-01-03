@@ -25,6 +25,8 @@
 }
 
 .titleStyle {
+  margin-bottom: 60px;
+
   [data-title] {
     color: $gray0;
   }
@@ -43,16 +45,14 @@
 
   [data-title] {
     color: $gray0;
-    max-width: 620px
+    max-width: 620px;
   }
 }
 
 .portfolio {
-  @include flex(column, flex-start, center);
-
-  padding: 120px $side-indent;
+  padding: 120px 0;
   overflow: hidden;
-  background-color: $eerie-black;
+  background-color: $gray900;
   transition: background-color $changing-portfolio-color ease;
 
   .bottomOfPortfolio {
@@ -87,7 +87,7 @@
   }
 
   &.firstBlock {
-    background-color: $eerie-black;
+    background-color: $gray900;
   }
 
   &.secondBlock {
@@ -95,10 +95,6 @@
   }
 
   &.thirdBlock {
-    background-color: $chinese-black;
-  }
-
-  @include phone {
-    padding: $mobile-section-indent $side-indent;
+    background-color: $gray900;
   }
 }
