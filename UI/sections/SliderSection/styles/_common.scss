@@ -1,50 +1,50 @@
 .sliderSection {
   @include appDevelopmentContainer;
-}
 
-.contentWrapper {
-  max-width: $default-content-width;
-  margin: 0 auto;
-  position: relative;
-}
-
-.sliderList {
-  padding: 48px 103px;
-  border: none;
-  border-radius: 0;
-
-  @include below-tablet {
-    padding: 32px 24px;
+  .contentWrapper {
+    max-width: $default-content-width;
+    margin: 0 auto;
+    position: relative;
   }
 
-  :global(.swiper-scrollbar) {
-    margin-top: 48px;
-    position: relative;
-    left: 0;
-    width: 100%;
-    background: rgba($gray300, 0.2);
+  .sliderList {
+    padding: 48px 103px;
+    border: none;
+    border-radius: 0;
+
+    :global(.swiper-scrollbar) {
+      margin-top: 48px;
+      position: relative;
+      left: 0;
+      width: 100%;
+      background: rgba($gray300, 0.2);
+
+      @include below-tablet {
+        margin-top: 32px;
+      }
+    }
+
+    :global(.swiper-scrollbar-drag) {
+      background: $gray400;
+    }
 
     @include below-tablet {
-      margin-top: 32px;
+      padding: 32px 24px;
     }
   }
 
-  :global(.swiper-scrollbar-drag) {
-    background: $gray400;
+  .item p {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+    margin: 0;
   }
-}
 
-.item p {
-  @include fontSize(16px, 150%);
+  .slideTitle {
+    @include fontSize(20px, 150%);
 
-  color: $gray400;
-  margin: 0;
-}
-
-.slideTitle {
-  @include fontSize(20px, 150%);
-
-  margin: 0 0 8px;
-  color: $gray900;
-  font-weight: 700;
+    margin: 0 0 8px;
+    color: $gray900;
+    font-weight: 700;
+  }
 }
