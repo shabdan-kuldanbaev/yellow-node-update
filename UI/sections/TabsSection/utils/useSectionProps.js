@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getDocumentFields } from 'utils/helper';
 import getTabBlocks from './getTabBlocks';
 
 export default ({
@@ -6,9 +7,12 @@ export default ({
   type,
   handleOnCTAClick,
 }) => {
-  const data = section.fields;
+  const {
+    title, view, description, contentModules,
+  } = getDocumentFields(section, ['title', 'description', 'contentModules']);
+
   const [activeIndex, setActiveIndex] = useState(0);
-  const tabs = getTabBlocks(data);
+  const tabs = getTabBlocks(contentModules);
 
   const handleOnClick = (index) => () => setActiveIndex(index);
 
@@ -17,7 +21,9 @@ export default ({
     handleOnCTAClick,
     tabs,
     activeIndex,
-    data,
+    title,
+    description,
+    view,
     type,
   };
 };

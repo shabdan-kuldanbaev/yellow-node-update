@@ -9,6 +9,7 @@
 
   .pageImage {
     padding-top: 538px;
+    margin: 28px auto;
 
     @include below-tablet {
       padding-top: 340px;
