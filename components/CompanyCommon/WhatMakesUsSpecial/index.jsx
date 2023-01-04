@@ -29,7 +29,7 @@ const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
             transformDuration={0.8}
             transitionDelay={100 + 150 * index}
           >
-            <div>
+            <div className={styles.title}>
               <img
                 src={imageUrl}
                 alt={title}
