@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SectionTitle from 'components/Common/SectionTitle';
 import Animated from 'components/Common/Animated';
+import SectionTitle from 'UI/components/SectionTitle';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
   <section className={styles.makingUsSpecial}>
-    <SectionTitle title="What makes us special" />
+    <SectionTitle
+      title="What makes us special"
+      className={styles.titleStyle}
+    />
     <div className={styles.specialThings}>
       {makingUsSpecial && makingUsSpecial.map((special, index) => {
         const { image, title } = getDocumentFields(
@@ -26,7 +29,7 @@ const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
             transformDuration={0.8}
             transitionDelay={100 + 150 * index}
           >
-            <div>
+            <div className={styles.title}>
               <img
                 src={imageUrl}
                 alt={title}
