@@ -280,7 +280,8 @@
 .fintech-software-development-services,
 .enterprise-resource-planning-software-services,
 .ui-ux-services,
-.android-mobile-app-development-services {
+.android-mobile-app-development-services,
+.mvp-app-development-company {
   @include flex(column);
 
   padding: 120px 0;
@@ -288,6 +289,20 @@
 
   .title {
     max-width: 790px;
+
+    [data-title] {
+      margin: 0 auto;
+    }
+
+    [data-second-title] {
+      @include fontSize(38px, 130%);
+
+      margin: 0 auto;
+
+      @include below-tablet {
+        @include fontSize(24px, 130%);
+      }
+    }
   }
 
   @include below-tablet {
