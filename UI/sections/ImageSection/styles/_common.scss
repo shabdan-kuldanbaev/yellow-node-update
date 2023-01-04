@@ -30,14 +30,6 @@
 
 .titleStyle {
   margin-bottom: 16px;
-
-  [data-title] {
-    text-align: left;
-
-    @include below-tablet {
-      text-align: center;
-    }
-  }
 }
 
 .experienceContent {
