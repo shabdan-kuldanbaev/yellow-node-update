@@ -80,11 +80,13 @@
     }
 
     .card {
-      @include flex(column, flex-start, flex-start);
+      @include flex(column, flex-start, center);
 
-      cursor: pointer;
       padding: 24px 18px;
-      align-items: center;
+
+      [data-read-more] {
+        display: none !important;
+      }
 
       picture {
         width: 100%;

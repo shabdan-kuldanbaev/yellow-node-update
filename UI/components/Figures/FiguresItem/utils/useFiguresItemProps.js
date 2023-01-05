@@ -1,18 +1,23 @@
 import { getDocumentFields } from 'utils/helper';
 
-export default ({ figureData, type, index }) => {
+export default ({ figureData, index }) => {
   const {
     title,
     description,
+    contentList,
   } = getDocumentFields(
     figureData,
-    ['title', 'description'],
+    [
+      'title',
+      'description',
+      'contentList',
+    ],
   );
 
   return {
     index,
-    type,
     title,
+    icon: (contentList || [])[0],
     description,
   };
 };

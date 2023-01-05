@@ -3,25 +3,29 @@
 .footerContainer {
   @include flex(column, center, center);
 
+  @include macbook-twelve {
+    padding: 48px 15px;
+  }
+
   position: relative;
   z-index: 99999;
   width: 100%;
   background-color: $dark-grey;
-  padding: 48px 0;
+  padding: 48px;
   color: $white;
   box-sizing: border-box;
 
   .footer {
     @include flex(row, space-between);
 
+    @include horizontal-mobile {
+      flex-direction: column;
+    }
+
     width: 100%;
     max-width: $max-content-width;
 
     @include tablet {
-      flex-direction: column;
-    }
-
-    @include horizontal-mobile {
       flex-direction: column;
     }
   }
@@ -34,10 +38,6 @@
       max-width: 24px;
       max-height: 24px;
     }
-  }
-
-  @include macbook-twelve {
-    padding: 48px 15px;
   }
 
   @include phone {

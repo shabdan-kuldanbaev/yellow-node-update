@@ -22,9 +22,12 @@ export const SliderWrapper = withStyles((theme) => ({
   },
   track: {
     ...commonSliderStyles,
+    background: theme.palette.yellow.dark,
   },
   rail: {
     ...commonSliderStyles,
+    opacity: 1,
+    background: theme.palette.yellow.light,
   },
   mark: {
     width: 0,

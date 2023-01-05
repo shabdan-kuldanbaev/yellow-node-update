@@ -71,14 +71,21 @@
       @include flex(column, flex-start, stretch);
 
       max-width: 296px;
+      height: 100%;
 
       * {
-        @include flex(column, center, center);
+        align-self: center;
+        text-align: center;
+        margin: 0;
+      }
+
+      svg {
+        margin: 0 0 16px;
       }
 
       @include phone {
         max-width: 350px;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
       }
     }
   }

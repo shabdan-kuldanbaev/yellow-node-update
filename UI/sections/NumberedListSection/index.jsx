@@ -6,8 +6,8 @@ import Animated from 'UI/containers/Animated';
 import SectionTitle from 'UI/components/SectionTitle';
 import NumberWithText from 'UI/components/Cards/NumberWithText';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import styles from './styles.module.scss';
 import useCheckListSection from './utils/useNumberedListSection';
+import styles from './styles.module.scss';
 
 const NumberedListSection = (props) => {
   const {

@@ -1,37 +1,52 @@
 .discovery-phase-services {
-  @include appFeaturesContainer();
-
-  padding: 60px 120px;
+  @include appFeaturesContainer;
 
   &.firstSectionView {
     background: $gray0;
 
+    .titleWrapper {
+      align-items: flex-start;
+      margin: 0;
+
+      h2 {
+        max-width: 540px;
+        margin-bottom: 32px;
+
+        @include below-tablet {
+          max-width: 100%;
+          text-align: center;
+        }
+      }
+
+      @include below-tablet {
+        align-items: center;
+      }
+    }
+
     .container {
-      @include phone {
+      @include below-tablet {
         flex-direction: column-reverse;
       }
     }
 
+    .sectionContainer {
+      max-width: 100%;
+    }
+
     .imageContainer {
-      width: 500px;
+      max-width: 480px;
+
+      @include below-tablet {
+        margin: 0 auto;
+      }
     }
 
     .image {
-      transform: scale(1) translate(0px, -10px);
-
-      @include desktop {
-        transform: scale(1.9) translate(25px, 70px);
-      }
-
-      @include tablet-size-horizontal {
-        transform: scale(1.8) translate(80px, 70px);
+      @include tablet {
+        transform: scale(1.8) translate(70px, 60px);
       }
 
       @include below-tablet {
-        transform: scale(1.7) translate(100px, 60px);
-      }
-
-      @include tablet-size-horizontal {
         transform: unset;
       }
     }
@@ -39,21 +54,20 @@
 
   &.secondSectionView {
     background-color: $gray900;
-    padding: 120px 60px;
 
     [data-title] {
       color: $gray0;
-    }
 
-    [data-description] {
-      @include phone {
+      @include tablet {
         text-align: center;
       }
     }
 
-    .titleWrapper {
-      align-items: flex-start;
-      margin-bottom: 16px;
+    [data-description] {
+      @include tablet {
+        text-align: center;
+        margin:  0 auto;
+      }
     }
 
     .container {
@@ -63,8 +77,9 @@
         @include flex(column, center);
 
         z-index: 100;
-        max-width: 50%;
+        max-width: 585px;
         order: 1;
+        padding-left: 32px;
 
         & > div:nth-child(7) {
           position: relative;
@@ -74,14 +89,13 @@
             @include fontSize(16px, 150%);
 
             margin: 0;
-            max-width: 585px;
             color: $yellow500;
 
             &::before {
               content: unset;
             }
 
-            @include phone {
+            @include tablet {
               text-align: center;
               margin: 0;
             }
@@ -89,18 +103,18 @@
 
           img {
             position: absolute;
-            width: 145px;
-            height: 145px;
+            width: 200px;
+            height: 200px;
             margin: 0;
-            bottom: 30px;
-            left: -150px;
+            bottom: 50px;
+            left: -215px;
 
             @include desktop {
               display: none;
             }
           }
 
-          @include phone {
+          @include tablet {
             margin-top: 24px;
           }
         }
@@ -130,7 +144,7 @@
           width: 100%;
         }
 
-        @include phone {
+        @include tablet {
           margin-top: 24px;
         }
       }
@@ -151,14 +165,10 @@
         }
       }
 
-      @include desktop {
+      @include tablet {
         flex-direction: column-reverse;
         margin: 0 auto;
       }
     }
-  }
-
-  @include below-tablet {
-    padding: 60px 16px;
   }
 }

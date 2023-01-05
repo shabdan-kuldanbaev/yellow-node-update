@@ -1,80 +1,51 @@
 @import 'styles/utils/mixins';
 
 .companyFigures {
-  margin-bottom: 50px;
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: repeat(2, max-content);
-  grid-gap: 120px 100px;
+  @include flex(row, space-between);
 
-  @include macbook-twelve {
-    margin-bottom: 28px;
+  flex-wrap: wrap;
+  max-width: 379px;
+  margin-left: 32px;
+
+  div {
+    flex: 0 0 50%;
+
+    @include tablet {
+      flex: 0 0 25%;
+    }
+
+    @include phone {
+      flex: 0 0 50%;
+    }
+  }
+
+  .item {
+    max-width: 170px;
+    margin: 0 32px 32px 0;
+
+    div:nth-of-type(1) {
+      @include fontSize(46px, 120%);
+
+      color: $gray900;
+      font-weight: 700;
+      text-align: left;
+
+      @include phone {
+        @include fontSize(24px, 130%);
+      }
+    }
+
+    div:nth-of-type(2) {
+      @include fontSize(16px, 150%);
+
+      color: $gray400;
+      text-align: left;
+    }
   }
 
   @include tablet {
-    width: 100%;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: unset;
-    grid-gap: unset;
-  }
-
-  @include svga {
-    width: 100%;
-    margin-bottom: 0;
-  }
-
-  @include phone {
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(2, max-content);
-    grid-gap: 40px 0;
-  }
-
-  & > div {
-    &:nth-of-type(1) {
-      .item {
-        div:nth-of-type(2) {
-          max-width: 130px;
-        }
-      }
-    }
-
-    &:nth-of-type(2) {
-      .item {
-        div:nth-of-type(2) {
-          max-width: 101px;
-        }
-      }
-    }
-
-    .item {
-      width: max-content;
-
-      div:nth-of-type(1) {
-        text-align: left;
-        font-weight: 700;
-        color: $dark-grey;
-
-        @include fontSize(72px);
-
-        @include macbook-twelve {
-          @include fontSize(42px);
-        }
-      }
-
-      div:nth-of-type(2) {
-        text-align: left;
-        margin: 0;
-        max-width: 183px;
-        color: $silver-chalice;
-
-        @include fontSize(18px);
-
-        @include phone {
-          max-width: 130px;
-
-          @include fontSize(16px);
-        }
-      }
-    }
+    max-width: 100%;
+    margin: 0;
   }
 }
+

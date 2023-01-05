@@ -8,28 +8,13 @@
 
 .scrollDown {
   display: block;
-  width: 35px;
-  height: 35px;
-}
+  width: 32px;
+  height: 27px;
+  transform: rotate(180deg);
+  animation: arrow-down 1.5s;
+  animation-iteration-count: infinite;
 
-.arrow {
-  width: 100%;
-
-  span {
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    border-bottom: 1px solid $white;
-    border-right: 1px solid $white;
-    transform: rotate(45deg);
-    bottom: 10px;
-    margin: auto;
-    left: 0;
-    right: 0;
-    animation: arrow-down 2s ease 0s infinite normal none;
-
-    &:nth-child(2) {
-      animation-delay: -0.4s;
-    }
+  path {
+    fill: $gray0;
   }
 }

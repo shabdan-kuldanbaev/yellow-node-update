@@ -3,15 +3,14 @@
 
   .titleStyle {
     margin-bottom: 0;
+    max-width: 680px !important;
   }
 
   [data-title] {
-    @include fontSize(46px, 120%);
+    @include fontSize(46px);
 
-    max-width: 680px;
-
-    @include phone {
-      @include fontSize(24px, 130%)
+    @include below-tablet {
+      @include fontSize(24px);
     }
   }
 

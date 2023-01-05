@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import CardContainer from 'UI/containers/CardContainer';
 import Typography from 'UI/components/Typography';
-import { TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
-import { TYPOGRAPHY_SIZE } from 'utils/constants';
+import { TYPOGRAPHY_TAGS, TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
 import useCheckWithText from './utils/useNumberWithText';
 import styles from './NumberWithText.module.scss';
 
@@ -17,7 +16,7 @@ const NumberWithText = (props) => {
     <CardContainer className={className}>
       <Typography
         variant={TYPOGRAPHY_TAGS.span}
-        size={TYPOGRAPHY_SIZE.headlineM}
+        size={TYPOGRAPHY_SIZE.headline38}
         className={styles.number}
         isBold
       >
@@ -26,7 +25,7 @@ const NumberWithText = (props) => {
       <Typography
         className={styles.text}
         variant={TYPOGRAPHY_TAGS.p}
-        size={TYPOGRAPHY_SIZE.paragrapghM}
+        size={TYPOGRAPHY_SIZE.paragrapgh16}
       >
         {children}
       </Typography>

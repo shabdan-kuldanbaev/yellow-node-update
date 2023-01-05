@@ -3,9 +3,8 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Illustration from 'UI/components/Illustration';
 import Svg from 'UI/components/Svg';
 import Typography from 'UI/components/Typography';
-import { TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
+import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import CardContainer from 'UI/containers/CardContainer';
-import { TYPOGRAPHY_SIZE } from 'utils/constants';
 import useCard from './utils/useCard';
 import styles from './Card.module.scss';
 
@@ -46,7 +45,7 @@ const Card = (props) => {
         <div className={styles.content}>
           <Typography
             variant={TYPOGRAPHY_TAGS.h3}
-            size={TYPOGRAPHY_SIZE.headlineXS}
+            size={TYPOGRAPHY_SIZE.headline20}
             isBold
             className={styles.title}
           >
@@ -57,7 +56,6 @@ const Card = (props) => {
             <ContentfulParser document={text} />
           </div>
 
-          {children}
           <p
             data-read-more
             className={styles.readMore}
@@ -65,7 +63,7 @@ const Card = (props) => {
             Read more
           </p>
         </div>
-
+        {children}
       </CardContainer>
     </Wrapper>
   );

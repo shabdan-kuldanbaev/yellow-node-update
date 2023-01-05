@@ -31,7 +31,7 @@ const Layout = ({ children, introSection }) => {
       if (innerWidth > mobileResolution && innerWidth <= tabletResolution) dispatch(setTabletResolutions(true));
       else dispatch(setTabletResolutions(false));
 
-      if (innerWidth > tabletResolution && innerWidth <= fullResolution) dispatch(setFullResolution(true));
+      if (innerWidth > tabletResolution) dispatch(setFullResolution(true));
       else dispatch(setFullResolution(false));
     };
 

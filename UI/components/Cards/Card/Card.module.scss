@@ -14,7 +14,7 @@
     margin: 0;
   }
 
-  li {
+  ul li {
     margin: 0 0 0 10px;
   }
 }
@@ -38,7 +38,7 @@
   }
 
   &:hover * {
-    color: $gray400;
+    color: $yellow500;
   }
 }
 

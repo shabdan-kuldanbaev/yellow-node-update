@@ -1,9 +1,10 @@
-@import "styles/utils/_mixins.scss";
+@import 'styles/utils/_mixins';
 
 .review {
   @include flex(column, space-between, stretch);
 
   min-height: 376px;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -15,7 +16,7 @@
 
   p {
     @include fontSize(16px, 150%);
-    
+
     z-index: 1;
     margin-top: 21px;
     color: $gray400;
@@ -86,7 +87,7 @@
 .coverium {
   width: 120px;
   height: 40px;
-  transform: scale(2.7)
+  transform: scale(2.7);
 }
 
 .hyvery-inc {

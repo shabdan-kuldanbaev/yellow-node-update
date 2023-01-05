@@ -1,13 +1,9 @@
 .devops-development-services {
   @include appDevelopmentContainer;
 
-  .titleStyle {
-    @include defaultSectionTitle;
-  }
+  background-color: $gray50;
 
-  .contentWrapper {
-    @extend .twoColumnsCards;
-
-    @include smallSectionWrapper;
+  [data-description] {
+    max-width: 846px;
   }
 }
