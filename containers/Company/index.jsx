@@ -13,7 +13,6 @@ import AboutUs from 'components/CompanyCommon/AboutUs';
 import WhatMakesUsSpecial from 'components/CompanyCommon/WhatMakesUsSpecial';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
-import FullLayout from 'components/Layout/FullLayout';
 import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
@@ -49,11 +48,9 @@ const CompanyContainer = ({
         pageMicrodata={microdata.company()}
         breadcrumbs={breadcrumbs}
       />
-      <FullLayout
-        introSection={introSection}
-        disableBottomPadding
-      >
+      <main className={styles.main}>
         <PageHeader
+          breadcrumbsTheme="dark"
           breadcrumbsStyles={styles.breadcrumbsStyles}
           titleStyles={styles.titleStyles}
           title={ROUTES.company.title}
@@ -62,21 +59,12 @@ const CompanyContainer = ({
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />
         <ManagementTeam managementTeam={teamContent} />
-        {(carouselContent && PhotoGallery) && (
-          <FullLayout
-            disableMaxWidth
-            disableTopPadding
-            disableSidePadding
-            disableBottomPadding
-          >
-            <PhotoGallery sectionData={photosData} />
-          </FullLayout>
-        )}
+        <PhotoGallery sectionData={photosData} />
         <ReviewsSection
           section={companyReviews}
           type="company-reviews"
         />
-      </FullLayout>
+      </main>
     </>
   );
 };
