@@ -4,21 +4,42 @@
 .main {
   width: 100%;
   padding-top: 88.5px;
+  box-sizing: border-box;
   margin: 0;
 
-  .breadcrumbsStyles {
-    max-width: $wide-content-width;
-    margin: 16px auto 0;
+  @include phone {
+    padding-top: 65.5px;
+  }
+}
+
+.breadcrumbsStyles {
+  max-width: $wide-content-width;
+  margin: 16px auto 0;
+  padding: 0 40px;
+
+  @include tablet {
+    padding: 0 32px;
   }
 
-  .titleStyles {
-    @include fontSize(38px, 130%);
+  @include phone {
+    margin: 32px auto 0;
+    padding: 0 16px;
+  }
+}
 
-    max-width: $wide-content-width;
-    margin: 32px auto 8px;
+.titleStyles {
+  @include fontSize(38px, 130%);
 
-    @include phone {
-      margin-top: 16px;
-    }
+  max-width: $wide-content-width;
+  margin: 32px auto 8px;
+  padding: 0 40px;
+
+  @include tablet {
+    padding: 0 32px;
+  }
+
+  @include phone {
+    padding: 0 16px;
+    margin-top: 16px;
   }
 }

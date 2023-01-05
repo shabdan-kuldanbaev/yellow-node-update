@@ -7,7 +7,16 @@
 
 .contentWrapper {
   max-width: $wide-content-width;
+  padding: 0 40px;
   margin: 0 auto;
+
+  @include tablet {
+    padding: 0 32px;
+  }
+
+  @include phone {
+    padding: 0 16px;
+  }
 }
 
 .callToAction {
@@ -30,7 +39,7 @@
   }
 
   @include phone {
-    padding-top: 60px;
+    padding: 60px 0;
   }
 }
 
