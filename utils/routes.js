@@ -287,6 +287,12 @@ export const routes = {
     dynamicPath: '/artificial-intelligence-development-services',
     slug: 'artificial-intelligence-development-services',
   },
+  prototypingServices: {
+    title: 'Mobile App Prototyping Services',
+    path: '/prototyping-services',
+    dynamicPath: '/prototyping-services',
+    slug: 'prototyping-services',
+  },
   privacyPolicy: {
     title: 'Yellow Systems Privacy Policy',
     path: '/privacy-policy',

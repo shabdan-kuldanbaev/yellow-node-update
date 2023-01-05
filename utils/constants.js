@@ -64,6 +64,7 @@ export const NAV_LINKS = [
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
     routes.aiDevelopment.slug,
+    routes.prototypingServices.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
     routes.termsAndConditions.slug,
@@ -350,6 +351,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.androidDevelopmentServices.path,
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
+  ROUTES.prototypingServices.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
@@ -373,6 +375,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.erpDevelopment.path,
   ROUTES.devOpsDevelopment.path,
   ROUTES.aiDevelopment.path,
+  ROUTES.prototypingServices.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -455,6 +458,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
   [PAGES.devOpsDevelopment]: 'Still have questions?',
   [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
+  [PAGES.prototypingServices]: 'Get a detailed estimate of your project',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
 };
 
