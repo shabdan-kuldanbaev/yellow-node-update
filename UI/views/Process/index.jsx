@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
-import FullLayout from 'components/Layout/FullLayout';
 import Process from 'UI/components/ProcessList';
 import { PAGES, ROUTES } from 'utils/constants';
 import { useProcess } from './utils/useProcess';
+import styles from './styles.module.scss';
 
 const ProcessContainer = (props) => {
   const {
@@ -26,17 +26,19 @@ const ProcessContainer = (props) => {
         pageMetadata={pageMetadata}
         breadcrumbs={breadcrumbs}
       />
-      <FullLayout introSection={introSection}>
+      <main className={styles.main}>
         <PageHeader
           title={ROUTES.process.title}
           breadcrumbs={breadcrumbs}
           breadcrumbsTheme="dark"
+          breadcrumbsStyles={styles.breadcrumbsStyles}
+          titleStyles={styles.titleStyles}
         />
         <Process
           processes={json}
           handleOnCTAClick={openFullscreenEstimation}
         />
-      </FullLayout>
+      </main>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}

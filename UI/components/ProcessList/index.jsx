@@ -6,56 +6,58 @@ import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Process = ({ processes, handleOnCTAClick }) => (
-  <div className={styles.processContainer}>
-    {processes?.map(({
-      name,
-      description,
-      json,
-    }, index) => (
-      <div
-        className={styles.process}
-        key={`processes/${name}`}
-        data-index={index}
-      >
-        <div>
+  <section className={styles.sectionProcess}>
+    <div className={styles.contentWrapper}>
+      {processes?.map(({
+        name,
+        description,
+        json,
+      }, index) => (
+        <div
+          className={styles.process}
+          key={`processes/${name}`}
+          data-index={index}
+        >
+          <div>
+            <Animated {...REVEAL_ANIMATION_PROPS}>
+              <h2 className={styles.title}>
+                <span>{`${index + 1}.`}</span>
+                {name}
+              </h2>
+            </Animated>
+            <Animated
+              {...REVEAL_ANIMATION_PROPS}
+              transitionDelay={40}
+            >
+              <p className={styles.description}>
+                {description}
+              </p>
+            </Animated>
+          </div>
           <Animated {...REVEAL_ANIMATION_PROPS}>
-            <h2 className={styles.title}>
-              <span>{`${index + 1}.`}</span>
-              {name}
-            </h2>
-          </Animated>
-          <Animated
-            {...REVEAL_ANIMATION_PROPS}
-            transitionDelay={40}
-          >
-            <p className={styles.description}>
-              {description}
-            </p>
+            <Animated
+              type={ANIMATED_TYPE.isJSON}
+              jsonFile={json}
+              className={styles.jsonWrapper}
+            />
           </Animated>
         </div>
-        <Animated {...REVEAL_ANIMATION_PROPS}>
-          <Animated
-            type={ANIMATED_TYPE.isJSON}
-            jsonFile={json}
-            className={styles.jsonWrapper}
-          />
-        </Animated>
-      </div>
-    ))}
+      ))}
 
-    <Animated
-      {...REVEAL_ANIMATION_PROPS}
-      transitionDelay={50}
-    >
-      <CallToAction
-        type="page"
-        title="Kickstart your dream project with us!"
-        buttonTitle="Contact us"
-        handleOnClick={handleOnCTAClick}
-        className={styles.callToAction}
-      />
-    </Animated>
-  </div>
+      <Animated
+        {...REVEAL_ANIMATION_PROPS}
+        transitionDelay={50}
+      >
+        <CallToAction
+          type="page"
+          title="Kickstart your dream project with us!"
+          buttonTitle="Contact us"
+          handleOnClick={handleOnCTAClick}
+          className={styles.callToAction}
+        />
+      </Animated>
+    </div>
+  </section>
 );
 
 Process.defaultProps = {

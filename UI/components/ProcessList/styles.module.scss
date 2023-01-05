@@ -1,23 +1,24 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
-.processContainer {
+.sectionProcess {
   width: 100%;
-  margin-top: 8px;
+}
 
-  @include phone {
-    margin-top: 16px;
-  }
+.contentWrapper {
+  max-width: $wide-content-width;
+  margin: 0 auto;
 }
 
 .callToAction {
   @include flex(column, center, center);
 
   margin: 0 auto;
-  padding-top: 120px;
+  padding: 120px 0;
 
   h3 {
     @include fontSize(38px, 130%);
-  
+
     text-align: center;
     margin: 0;
 
@@ -74,7 +75,7 @@
   max-width: 585px;
 
   @include tablet {
-   max-width: none; 
+    max-width: none;
   }
 }
 
