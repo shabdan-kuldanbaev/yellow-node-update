@@ -1,33 +1,32 @@
 .enterprise-resource-planning-software-services {
-  @include appFeaturesContainer();
+  @include appFeaturesContainer;
 
   background-color: $gray900;
 
   .titleWrapper {
     align-items: flex-start;
+
+    @include phone {
+      max-width: 350px;
+    }
   }
 
   [data-title] {
     color: $gray0;
+    text-align: left;
 
-    @include below-tablet {
+    @include tablet {
       text-align: center;
+      margin: 0 auto 8px;
     }
   }
 
   [data-description] {
-    @include desktop {
-      text-align: left;
-    }
+    text-align: left;
 
-    @include below-tablet {
+    @include tablet {
       text-align: center;
-    }
-  }
-
-  .titleWrapper {
-    @include phone {
-      max-width: 350px;
+      margin: 0 auto;
     }
   }
 

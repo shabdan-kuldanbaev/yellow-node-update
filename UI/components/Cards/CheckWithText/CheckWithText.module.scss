@@ -18,5 +18,8 @@
 }
 
 .title {
+  @include fontSize(24px, 130%);
+
   font-weight: 700;
+  margin: 0;
 }

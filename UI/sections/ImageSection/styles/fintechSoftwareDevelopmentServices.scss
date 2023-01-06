@@ -34,19 +34,6 @@
       text-align: center;
     }
 
-    h2 {
-      @include fontSize(38px);
-
-      line-height: 49px;
-      margin-bottom: 16px;
-
-      @include phone {
-        @include fontSize(24px);
-
-        line-height: 31px;
-      }
-    }
-
     & > div:last-child > p {
       margin-bottom: 60px;
 
