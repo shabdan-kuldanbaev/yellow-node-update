@@ -1,6 +1,14 @@
 .chat-app-development-company {
   padding: 32px 120px 120px;
 
+  [data-title] {
+    text-align: left;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
   .imageSection {
     margin-bottom: 0;
 
