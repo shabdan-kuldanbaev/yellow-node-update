@@ -24,14 +24,12 @@ const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 
 const CompanyContainer = ({
-  introSection,
   photosData,
   managementTeam,
   whatMakesSpecial,
   metaData,
   companyReviews,
 }) => {
-  const { contentModules: carouselContent } = getDocumentFields(photosData, ['contentModules']);
   const { contentModules: teamContent } = getDocumentFields(managementTeam, ['contentModules']);
   const { contentModules: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.company();
