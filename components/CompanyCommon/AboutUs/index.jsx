@@ -9,24 +9,26 @@ import styles from './styles.module.scss';
 
 const AboutUs = ({ aboutUsText: aboutUs }) => (
   <section className={styles.aboutUs}>
-    <div className={styles.aboutUsContent}>
-      <SectionTitle
-        title="About us"
-        className={styles.titleStyle}
-      />
-      <div className={styles.aboutUsText}>
-        {aboutUs && aboutUs.map((paragraph, index) => (
-          <Animated
-            key={`paragraph${index}`}
-            {...REVEAL_ANIMATION_PROPS}
-            transitionDelay={80 * index}
-          >
-            <p>{paragraph}</p>
-          </Animated>
-        ))}
+    <div className={styles.contentWrapper}>
+      <div className={styles.aboutUsContent}>
+        <SectionTitle
+          title="About us"
+          className={styles.titleStyle}
+        />
+        <div className={styles.aboutUsText}>
+          {aboutUs?.map((paragraph, index) => (
+            <Animated
+              key={`paragraph${index}`}
+              {...REVEAL_ANIMATION_PROPS}
+              transitionDelay={80 * index}
+            >
+              <p>{paragraph}</p>
+            </Animated>
+          ))}
+        </div>
       </div>
+      <CompanyFigures />
     </div>
-    <CompanyFigures />
   </section>
 );
 
