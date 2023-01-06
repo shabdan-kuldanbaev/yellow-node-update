@@ -1,12 +1,44 @@
 @import 'styles/utils/mixins';
 @import 'styles/utils/sizes';
 
-.breadcrumbsStyles {
-  max-width: $wide-content-width;
-  margin: 0 auto;
-}
+.main {
+  width: 100%;
+  padding-top: 88.5px;
+  box-sizing: border-box;
+  margin: 0;
 
-.titleStyles {
-  max-width: $wide-content-width;
-  margin: 0 auto;
+  .breadcrumbsStyles {
+    max-width: $wide-content-width;
+    margin: 16px auto 0;
+    padding: 0 40px;
+
+    @include tablet {
+      padding: 0 32px;
+    }
+
+    @include phone {
+      padding: 0 16px;
+    }
+  }
+
+  .titleStyles {
+    @include fontSize(38px, 130%);
+
+    max-width: $wide-content-width;
+    margin: 32px auto 8px;
+    padding: 0 40px;
+
+    @include tablet {
+      padding: 0 32px;
+    }
+
+    @include phone {
+      padding: 0 16px;
+      margin-top: 16px;
+    }
+  }
+
+  @include phone {
+    padding-top: 65.5px;
+  }
 }
