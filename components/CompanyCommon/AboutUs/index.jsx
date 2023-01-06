@@ -16,7 +16,7 @@ const AboutUs = ({ aboutUsText: aboutUs }) => (
           className={styles.titleStyle}
         />
         <div className={styles.aboutUsText}>
-          {aboutUs && aboutUs.map((paragraph, index) => (
+          {aboutUs?.map((paragraph, index) => (
             <Animated
               key={`paragraph${index}`}
               {...REVEAL_ANIMATION_PROPS}
