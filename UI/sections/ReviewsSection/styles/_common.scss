@@ -1,0 +1,28 @@
+.reviews {
+  @include appDevelopmentContainer;
+
+  background: $gray50;
+
+  :global(.swiper) {
+    padding-bottom: 70px;
+  }
+
+  :global(.swiper-slide) {
+    @include flex(row, initial, stretch);
+
+    height: auto;
+  }
+
+  .contentWrapper {
+    max-width: $wide-content-width;
+    margin: 0 auto;
+  }
+
+  .callToAction {
+    background: $gray0;
+  }
+
+  .titleStyle {
+    margin-bottom: 32px;
+  }
+}

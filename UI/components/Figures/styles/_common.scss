@@ -1,0 +1,27 @@
+.figures {
+  @include flex(row, space-between, flex-start, wrap);
+
+  margin: 0 auto -16px;
+  max-width: $default-content-width;
+}
+
+.figureItem {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  margin-bottom: 16px;
+}
+
+.title {
+  margin-bottom: 8px;
+  color: $gray0;
+}
+
+.description {
+  color: $gray400;
+}
+
+.icon {
+  grid-row: 1 / span 2;
+  margin-right: 16px;
+}

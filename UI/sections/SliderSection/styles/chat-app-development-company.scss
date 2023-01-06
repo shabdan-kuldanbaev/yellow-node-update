@@ -1,0 +1,11 @@
+.chat-app-development-company {
+  background: $gray50;
+
+  [data-title] {
+    max-width: 580px;
+  }
+
+  [data-description] {
+    max-width: 670px;
+  }
+}

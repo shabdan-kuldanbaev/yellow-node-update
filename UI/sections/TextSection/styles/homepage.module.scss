@@ -1,0 +1,22 @@
+.homepage {
+  background: $gray900;
+
+  .titleStyle {
+    margin-bottom: 0;
+    max-width: 680px !important;
+  }
+
+  [data-title] {
+    @include fontSize(46px);
+
+    @include below-tablet {
+      @include fontSize(24px);
+    }
+  }
+
+  [data-description] {
+    @include fontSize(16px, 150%);
+
+    max-width: 680px;
+  }
+}

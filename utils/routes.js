@@ -210,7 +210,7 @@ export const routes = {
     slug: 'mobile-app-development-company',
   },
   customWebApp: {
-    title: 'Custom web application development company',
+    title: 'Web Application Development Services',
     path: '/web-app-development-company',
     dynamicPath: '/web-app-development-company',
     slug: 'web-app-development-company',
@@ -228,7 +228,7 @@ export const routes = {
     slug: 'ios-mobile-app-development-services',
   },
   androidDevelopmentServices: {
-    title: 'Android mobile app development services',
+    title: 'Android App Development Services',
     path: '/android-mobile-app-development-services',
     dynamicPath: '/android-mobile-app-development-services',
     slug: 'android-mobile-app-development-services',
@@ -240,13 +240,13 @@ export const routes = {
     slug: 'mvp-app-development-company',
   },
   cloudDevelopment: {
-    title: 'Cloud app development services',
+    title: 'Cloud-based application development company',
     path: '/cloud-based-app-development-services',
     dynamicPath: '/cloud-based-app-development-services',
     slug: 'cloud-based-app-development-services',
   },
   mlDevelopment: {
-    title: 'Machine Learning App Development Company',
+    title: 'Machine Learning Development Company',
     path: '/machine-learning-development-services',
     dynamicPath: '/machine-learning-development-services',
     slug: 'machine-learning-development-services',
@@ -258,7 +258,7 @@ export const routes = {
     slug: 'enterprise-resource-planning-software-services',
   },
   devOpsDevelopment: {
-    title: 'DevOps Development Company',
+    title: 'DevOps Development Company that Helps You Grow',
     path: '/devops-development-services',
     dynamicPath: '/devops-development-services',
     slug: 'devops-development-services',

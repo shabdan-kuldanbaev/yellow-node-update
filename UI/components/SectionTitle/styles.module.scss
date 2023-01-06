@@ -1,0 +1,55 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
+
+.sectionTitleContainer {
+  margin: 0 auto 48px;
+  max-width: $default-content-width;
+}
+
+.title,
+.subtitle,
+.description {
+  text-align: center;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.subtitle,
+.description {
+  color: $gray400;
+  margin: 16px auto 0;
+
+  @include below-tablet {
+    margin-top: 8px;
+  }
+}
+
+.title {
+  margin: 0 auto 16px;
+
+  @include below-tablet {
+    margin-bottom: 8px;
+  }
+}
+
+.default {
+  @include below-tablet {
+    margin-bottom: 24px;
+  }
+}
+
+.side {
+  .subtitle {
+    margin: 50px 0 30px;
+    padding-right: 50px;
+    font-weight: 700;
+
+    @include below-tablet {
+      padding-right: 0;
+    }
+
+    @include phone {
+      margin-top: 20px;
+    }
+  }
+}

@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import Animated from 'components/Common/Animated';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getDocumentFields, getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';

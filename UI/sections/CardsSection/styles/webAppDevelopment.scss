@@ -1,0 +1,45 @@
+.web-app-development-company {
+  &.firstSectionView,
+  &.fourthSectionView {
+    @extend .greySection;
+  }
+
+  &.firstSectionView,
+  &.secondSectionView {
+    .title {
+      max-width: 560px;
+    }
+  }
+
+  &.firstSectionView,
+  &.thirdSectionView {
+    .card {
+      @include tablet {
+        flex-direction: column
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .blackSection;
+
+    h3 {
+      color: $gray900;
+    }
+  }
+
+  &.fourthSectionView {
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      @include below-tablet {
+        align-items: center;
+
+        & > div {
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import 'styles/utils/mixins';
+
+.card {
+  @include flex(column, space-between, flex-start);
+
+  box-sizing: border-box;
+
+  p,
+  ul {
+    @include fontSize(16px, 1.5);
+
+    font-weight: 400;
+    color: $gray400;
+    margin: 0;
+  }
+
+  ul li {
+    margin: 0 0 0 10px;
+  }
+}
+
+.image {
+  height: 260px;
+  width: auto;
+}
+
+.card.withoutBackground {
+  @include flex(row, space-between, flex-start);
+
+  .title {
+    margin-top: 0;
+  }
+}
+
+.card.withLink {
+  * {
+    color: $gray900;
+  }
+
+  &:hover * {
+    color: $yellow500;
+  }
+}
+
+.icon {
+  flex: 0 0 64px;
+  height: 64px;
+  margin: 0 16px 16px 0;
+}
+
+.content {
+  @include flex(column, flex-start, flex-start);
+
+  flex: 1 1 auto;
+}
+
+.title {
+  margin: 0 0 8px;
+}
+
+.readMore {
+  display: none;
+  padding-top: 24px;
+}
+
+.cardContent {
+  flex-grow: 1;
+}

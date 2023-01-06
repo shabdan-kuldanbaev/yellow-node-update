@@ -1,0 +1,110 @@
+.processSection {
+  @include appDevelopmentContainer;
+
+  background-color: $gray50;
+
+  .titleStyle {
+    margin: 0 auto 24px;
+    max-width: 756px;
+
+    p {
+      margin: 16px 0 24px;
+    }
+  }
+
+  .contentWrapper {
+    @include flex(column);
+
+    max-width: $wide-content-width;
+    margin: 0 auto;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 60px;
+
+    @include tablet {
+      grid-gap: 40px;
+    }
+
+    @include below-tablet {
+      grid-template-columns: auto;
+      width: 100%;
+    }
+  }
+
+  .cardContainer {
+    box-sizing: border-box;
+    padding: 30px;
+    position: relative;
+
+    .typeTitle {
+      @include fontSize(20px, 30px);
+
+      font-weight: 700;
+      margin: 16px 0 8px;
+    }
+
+    p {
+      @include fontSize(16px, 24px);
+
+      color: $gray400;
+      margin: 0;
+    }
+
+    .imageWrapper {
+      position: relative;
+      height: 64px;
+      width: 64px;
+
+      svg {
+        @include centered;
+
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $gray0;
+      border: 2px solid $gray400;
+      transform: translate(50%, -50%);
+
+      @include below-tablet {
+        left: 50%;
+        top: unset;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+      }
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+
+    &:nth-child(3n + 3)::after {
+      left: 50%;
+      top: unset;
+      bottom: 0;
+      transform: translate(-50%, 50%);
+    }
+
+    @include tablet {
+      padding: 20px;
+    }
+
+    @include below-tablet {
+      width: 100%;
+      max-width: unset;
+    }
+  }
+}

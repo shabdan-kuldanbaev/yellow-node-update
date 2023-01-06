@@ -1,0 +1,7 @@
+.discovery-phase-services {
+  padding-top: 0;
+
+  @include phone {
+    padding-top: 0;
+  }
+}

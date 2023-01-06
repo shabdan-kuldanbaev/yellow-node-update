@@ -1,0 +1,9 @@
+.titleStyle {
+  [data-title] {
+    color: $gray0;
+  }
+}
+
+.textSection {
+  @include appDevelopmentContainer;
+}

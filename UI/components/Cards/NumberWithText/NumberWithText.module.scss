@@ -1,0 +1,25 @@
+@import 'styles/utils/_mixins.scss';
+
+.card {
+  padding: 24px 24px 24px 42px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    bottom: 24px;
+    left: 24px;
+    width: 2px;
+    background: $yellow400;
+  }
+}
+
+.number {
+  display: block;
+  color: $gray900;
+}
+
+.text {
+  color: $gray400;
+  margin: 0;
+}

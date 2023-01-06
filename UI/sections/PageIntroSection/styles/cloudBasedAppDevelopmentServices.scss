@@ -1,0 +1,27 @@
+.cloud-based-app-development-services {
+  padding-bottom: 120px;
+
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageTextContainer {
+    max-width: 600px;
+
+    @include below-tablet {
+      max-width: 100%;
+    }
+  }
+
+  .pageSubtitle:first-child {
+    margin-bottom: 24px;
+  }
+
+  .pageImage {
+    padding-top: 470px;
+
+    @include below-tablet {
+      padding-top: 342px;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.chat-app-development-company {
+  &.firstSectionView,
+  &.secondSectionView {
+    @extend .greySection;
+  }
+
+  &.firstSectionView {
+    @include iconsWithinCircle;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    [data-title] {
+      max-width: 500px;
+    }
+
+    [data-description] {
+      max-width: 670px;
+    }
+
+    .callToAction {
+      margin: 60px auto 0;
+      padding: 0;
+      background: none;
+      min-height: auto;
+
+      button {
+        margin: auto;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    [data-title],
+    [data-description] {
+      max-width: 671px;
+    }
+
+    .card {
+      @include tablet {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    padding-bottom: 0;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+
+      height: 100%;
+    }
+
+    [data-read-more] {
+      display: block;
+    }
+  }
+}

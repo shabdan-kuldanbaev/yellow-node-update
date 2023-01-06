@@ -1,0 +1,13 @@
+.artificial-intelligence-development-services {
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageImage {
+    padding-top: 585px;
+
+    @include below-tablet {
+      padding-top: 484px;
+    }
+  }
+}

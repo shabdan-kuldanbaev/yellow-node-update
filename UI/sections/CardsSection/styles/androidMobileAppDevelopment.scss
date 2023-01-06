@@ -1,0 +1,86 @@
+.android-mobile-app-development-services {
+  &.secondSectionView,
+  &.thirdSectionView,
+  &.fourthSectionView {
+    @extend .greySection;
+  }
+
+  &.firstSectionView {
+    .title {
+      max-width: 743px;
+    }
+  }
+
+  &.fourthSectionView {
+    [data-subtitle] {
+      max-width: 550px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
+
+  &.secondSectionView {
+    .title {
+      max-width: 835px;
+    }
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      picture {
+        width: 276px;
+        height: 276px;
+        margin-bottom: 24px;
+      }
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .title {
+      max-width: 671px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .callToAction h3 {
+      max-width: 450px;
+    }
+  }
+
+  &.fifthSectionView {
+    padding-bottom: 0;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+    }
+
+    [data-read-more] {
+      display: block;
+    }
+  }
+}

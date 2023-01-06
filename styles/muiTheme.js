@@ -20,7 +20,7 @@ export const customTheme = createTheme({
     },
     yellow: {
       dark: '#ffe603',
-      light: '#fff492',
+      light: '#FFF59A',
     },
     grey: {
       light: '#f1f1f2',

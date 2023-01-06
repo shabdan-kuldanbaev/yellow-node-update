@@ -1,4 +1,6 @@
-/* colors */
+@import "./colors";
+
+/* colors -- OUTDATED, check _colors.scss */ 
 $turbo-100: #ffe603;
 $turbo-200: #f5dc00;
 $turbo-300: #e1c14c;
@@ -32,8 +34,11 @@ $aluminium: #a7a8ab;
 $mine-shaft: #3a3a3a;
 $nobel: #b7b7b7;
 $gray: #7f7f7f;
+$gray100: #EEEEEE;
 $gray-200: #8c8c8c;
 $gray-300: #ededed;
+$gray400: #AFAFAF;
+$gray500: #757575;
 $mercury: #e6e6e6;
 $mine-shaft: #333;
 $dandelion: #ffd65d;
@@ -220,16 +225,16 @@ $more-button-indent: calc((#{$section-indent} / 2) + 20px);
 $mobile-more-button-indent: calc(#{$mobile-section-indent} / 2);
 $aricleIndent: 10px;
 $after-mobile-title-margin: 60px;
-$logo-size: 120px;
+$logo-size: 136px;
 $max-content-width: 1300px;
 $max-content-width-full-hd: 1170px;
 $max-content-width-macbook-fifteen: 1050px;
 $max-content-width-macbook-twelve: 1000px;
 $max-content-width-small-section: 1076px;
 $shadow-for-yellow-button: 0 5px 20px -10px rgb(0 0 0 / 0.57);
-$burger-item-1: 27px;
-$burger-item-2: 33px;
-$burger-item-3: 39px;
+$burger-item-1: 18px;
+$burger-item-2: 24px;
+$burger-item-3: 30px;
 $header-height: 66px;
 
 //resolutions size

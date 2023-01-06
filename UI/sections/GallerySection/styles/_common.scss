@@ -1,0 +1,56 @@
+@mixin sectionGrayBackground {
+  background: $gray50;
+
+  .callToAction {
+    background: $gray0;
+  }
+}
+
+@mixin defaultGalleryTitle {
+  @include fontSize(38px, 49px);
+
+  @include phone {
+    @include fontSize(24px, 31px);
+  }
+}
+
+.section {
+  @include appDevelopmentContainer;
+
+  background-color: $gray0;
+}
+
+.navigation {
+  max-width: 80%;
+
+  @include tablet {
+    max-width: 80%;
+  }
+}
+
+.slider {
+  &:global(.swiper) {
+    padding-bottom: 100px;
+    margin: 0 -40px;
+
+    @include below-tablet {
+      margin: 0 -16px;
+    }
+  }
+
+  &:global(.swiper-slide) {
+    transition-property: box-shadow, transform;
+  }
+
+  &:global(.swiper-slide-active) {
+    box-shadow: 0 10px 60px -10px rgba($gray1000, 0.15);
+  }
+
+  .navigation {
+    max-width: 80%;
+
+    @include tablet {
+      max-width: 80%;
+    }
+  }
+}

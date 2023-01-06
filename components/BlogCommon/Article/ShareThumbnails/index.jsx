@@ -6,8 +6,9 @@ import {
   LinkedinShareButton,
 } from 'react-share';
 import { useRouter } from 'next/router';
-import Svg from 'components/Common/Svg';
+import Svg from 'UI/components/Svg';
 import gaHelper from 'utils/ga';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 export const ShareThumbnails = ({ url, title }) => {
@@ -30,7 +31,7 @@ export const ShareThumbnails = ({ url, title }) => {
         data-socialname="LinkedIn"
         onClick={trackSocialShareClick}
       >
-        <Svg type="linkedinRoundWhite" />
+        <Svg type={SVG_IMAGES_TYPES.linkedinFilledWhite} />
       </LinkedinShareButton>
       <TwitterShareButton
         url={url}
@@ -39,7 +40,7 @@ export const ShareThumbnails = ({ url, title }) => {
         data-socialname="Twitter"
         onClick={trackSocialShareClick}
       >
-        <Svg type="twitterRoundWhite" />
+        <Svg type={SVG_IMAGES_TYPES.twitterFilledWhite} />
       </TwitterShareButton>
       <FacebookShareButton
         url={url}

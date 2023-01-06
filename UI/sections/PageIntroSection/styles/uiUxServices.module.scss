@@ -1,0 +1,45 @@
+.ui-ux-services {
+  padding-bottom: 0;
+
+  .pageWrapper {
+    margin-bottom: 0;
+  }
+
+  .pageImage {
+    padding-top: 525px;
+
+    @include below-tablet {
+      padding-top: 304px;
+    }
+  }
+
+  .pageTitle {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      width: 217px;
+      height: 70px;
+      border-radius: 50%;
+      border: 6px solid $yellow500;
+      right: 0;
+      bottom: -15px;
+      transform: translate(-10%, 0);
+      z-index: -1;
+
+      @include phone {
+        width: 130px;
+        height: 31px;
+        border-width: 3px;
+        bottom: -5px;
+        transform: translate(-70%, 0);
+      }
+    }
+  }
+
+  @include below-tablet {
+    padding-bottom: 32px;
+  }
+}

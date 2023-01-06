@@ -1,0 +1,30 @@
+.ui-ux-services {
+  &.firstSectionView,
+  &.secondSectionView {
+    @extend .greySection;
+  }
+
+  &.firstSectionView {
+    [data-description] {
+      max-width: 683px;
+    }
+
+    [data-title] {
+      max-width: 500px;
+    }
+
+    .callToAction h3{
+      max-width: 535px;
+    }
+  }
+
+  &.secondSectionView {
+    [data-description] {
+      max-width: 671px;
+    }
+
+    [data-title] {
+      max-width: 500px;
+    }
+  }
+}
