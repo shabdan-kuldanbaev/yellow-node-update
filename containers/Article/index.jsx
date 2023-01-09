@@ -91,7 +91,10 @@ const ArticleContainer = ({
         breadcrumbs={breadcrumbs}
       />
       <FullLayout>
-        <PageHeader breadcrumbs={breadcrumbs} />
+        <PageHeader
+          breadcrumbs={breadcrumbs}
+          breadcrumbsTheme="dark"
+        />
         <Article
           slug={articleSlug}
           title={title}
