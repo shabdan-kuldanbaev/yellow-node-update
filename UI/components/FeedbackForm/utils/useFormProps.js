@@ -15,9 +15,19 @@ export default (props) => {
   const {
     register,
     handleSubmit,
-    formState: { dirtyFields, isDirty, isValid },
+    reset,
+    formState: {
+      dirtyFields,
+      isDirty,
+      isValid,
+    },
   } = useForm({
     mode: 'onChange',
+    defaultValues: {
+      name: '',
+      email: '',
+      description: '',
+    },
   });
 
   const [budget, setBudget] = useState(addThousandsSeparators(budgetData.min));
@@ -33,11 +43,18 @@ export default (props) => {
 
   const submitHandler = handleSubmit((values) => {
     const attachments = selectedFiles.map((file) => file.signedUrl);
-
     sendEmail({
       ...values,
       attachments,
       projectBudget: budget || '',
+    });
+
+    setFiles([]);
+    setBudget(addThousandsSeparators(budgetData.min));
+    reset({
+      name: '',
+      email: '',
+      description: '',
     });
   });
 
