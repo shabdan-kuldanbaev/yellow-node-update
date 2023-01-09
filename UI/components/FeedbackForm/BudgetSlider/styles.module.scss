@@ -3,6 +3,7 @@
 
 .budgetSlider {
   text-align: left;
+  margin-bottom: 28px;
 
   span {
     @include fontSize(16px, 150%);
