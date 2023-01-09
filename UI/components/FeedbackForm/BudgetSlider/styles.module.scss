@@ -1,0 +1,16 @@
+@import "styles/utils/mixins";
+@import 'styles/utils/colors';
+
+.budgetSlider {
+  text-align: left;
+
+  span {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+  }
+
+  .budget {
+    color: $gray900;
+  }
+}

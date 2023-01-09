@@ -31,9 +31,15 @@ TextField.defaultProps = {
 };
 
 TextField.propTypes = {
-  register: PropTypes.func.isRequiredIf((props) => !props.onChange),
-  onChange: PropTypes.func.isRequiredIf((props) => !props.register),
-  value: PropTypes.string.isRequiredIf((props) => !props.register),
+  register: (props, propName, componentName) => {
+    if (!props.onChange) return PropTypes.func.isRequired;
+  },
+  onChange: (props, propName, componentName) => {
+    if (!props.register) return PropTypes.func.isRequired;
+  },
+  value: (props, propName, componentName) => {
+    if (!props.register) return PropTypes.string.isRequired;
+  },
   style: PropTypes.string,
   textarea: PropTypes.bool,
   required: PropTypes.bool,
@@ -44,6 +50,8 @@ TextField.propTypes = {
   pattern: PropTypes.string,
   errorMessage: PropTypes.string,
   attached: PropTypes.bool,
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number,
 };
 
 export default TextField;

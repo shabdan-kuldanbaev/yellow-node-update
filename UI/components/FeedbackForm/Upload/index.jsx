@@ -3,18 +3,19 @@ import Svg from 'UI/components/Svg';
 import TextField from 'UI/components/TextField';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { AttachedFile } from './AttachedFile';
+import useUpload from './utils/useUpload';
 import styles from './styles.module.scss';
 
 const Upload = (props) => {
   const {
     register,
     dirtyFields,
-    files,
+    selectedFiles,
     formKey,
-    onChange,
+    handleFilesChange,
     handleOnUnpinFile,
     updateSelectedFileInfo,
-  } = props;
+  } = useUpload(props);
 
   const inputId = `files_${formKey}`;
 
@@ -22,26 +23,27 @@ const Upload = (props) => {
     <div className={styles.uploadFile}>
       <div className={styles.attachmentManage}>
         <TextField
-          name="name"
+          name="description"
           register={register}
-          placeholder="Name *"
-          errorMessage="Invalid email"
+          placeholder="Description *"
+          errorMessage="This field is required"
           required={dirtyFields?.description}
+          attached
+          textarea
         />
         <label htmlFor={inputId}>
           <Svg type={SVG_IMAGES_TYPES.attachment} />
           <input
             id={inputId}
             type="file"
-            onChange={onChange}
+            onChange={handleFilesChange}
             multiple
             className={styles.hide}
           />
         </label>
       </div>
-      <hr />
       <div className={styles.attachedFiles}>
-        {files?.map((file) => (
+        {selectedFiles?.map((file) => (
           <AttachedFile
             key={file.signedUrl}
             handleOnUnpinFile={handleOnUnpinFile}
@@ -49,14 +51,14 @@ const Upload = (props) => {
             updateSelectedFileInfo={updateSelectedFileInfo}
           />
         ))}
-        {files && !!files?.length && (
+        {selectedFiles && !!selectedFiles?.length && (
           <div className={styles.moreFilesLink}>
             <label htmlFor={`${inputId}/add-more`}>
               add more files
               <input
                 id={`${inputId}/add-more`}
                 type="file"
-                onChange={onChange}
+                onChange={handleFilesChange}
                 multiple
                 className={styles.hide}
               />
