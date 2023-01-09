@@ -31,11 +31,12 @@ TextField.defaultProps = {
 };
 
 TextField.propTypes = {
+  register: PropTypes.func.isRequiredIf((props) => !props.onChange),
+  onChange: PropTypes.func.isRequiredIf((props) => !props.register),
+  value: PropTypes.string.isRequiredIf((props) => !props.register),
   style: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
   textarea: PropTypes.bool,
   required: PropTypes.bool,
-  value: PropTypes.string.isRequired,
   type: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
