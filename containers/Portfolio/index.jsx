@@ -45,6 +45,7 @@ const PortfolioContainer = ({
         <PageHeader
           title={ROUTES.portfolio.title}
           breadcrumbs={breadcrumbs}
+          breadcrumbsTheme="dark"
         />
         <Animated
           {...REVEAL_ANIMATION_PROPS}
