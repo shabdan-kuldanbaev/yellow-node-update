@@ -10,6 +10,8 @@ export default (props) => {
     classname,
     errorMessage,
     attached,
+    register,
+    name,
     ...rest
   } = props;
 
@@ -21,15 +23,16 @@ export default (props) => {
     [styles.attached]: attached,
   });
 
+  useEffect(() => {
+    if (textarea && ref && ref?.current) autosize(ref?.current);
+  }, [textarea]);
+
   const options = {
     ref,
     rows: textarea && 1,
     ...rest,
+    ...register(name),
   };
-
-  useEffect(() => {
-    if (textarea && ref && ref?.current) autosize(ref?.current);
-  }, [textarea]);
 
   return {
     Component,
