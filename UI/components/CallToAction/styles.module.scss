@@ -60,16 +60,12 @@
   padding: 0 20px;
 
   .h3 {
-    @include fontSize(45px);
+    @include fontSize(38px, 130%);
 
     text-align: center;
 
-    @include below-tablet {
-      @include fontSize(35px);
-    }
-
     @include phone {
-      @include fontSize(28px);
+      @include fontSize(24px, 130%);
     }
   }
 
