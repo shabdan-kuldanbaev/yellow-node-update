@@ -49,7 +49,7 @@ export const ShareThumbnails = ({ url, title }) => {
         data-socialname="Facebook"
         onClick={trackSocialShareClick}
       >
-        <Svg type="facebookRoundWhite" />
+        <Svg type="facebookFilledWhite" />
       </FacebookShareButton>
     </div>
   );
