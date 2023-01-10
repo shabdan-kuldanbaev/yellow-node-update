@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 import { addThousandsSeparators } from 'utils/helper';
 import { budget as budgetData, marks } from './data';
 
@@ -20,6 +21,7 @@ export default (props) => {
       dirtyFields,
       isDirty,
       isValid,
+      isSubmitSuccessful,
     },
   } = useForm({
     mode: 'onChange',
@@ -32,6 +34,7 @@ export default (props) => {
 
   const [budget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
+  const router = useRouter();
 
   const sliderOptions = {
     ...budgetData,
@@ -49,13 +52,17 @@ export default (props) => {
       projectBudget: budget || '',
     });
 
-    setFiles([]);
-    setBudget(addThousandsSeparators(budgetData.min));
-    reset({
-      name: '',
-      email: '',
-      description: '',
-    });
+    if (isSubmitSuccessful) {
+      setFiles([]);
+      setBudget(addThousandsSeparators(budgetData.min));
+      reset({
+        name: '',
+        email: '',
+        description: '',
+      });
+
+      router.push('/');
+    }
   });
 
   return {
