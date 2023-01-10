@@ -18,12 +18,19 @@ import CaseStudyOverlayProcess from 'components/CaseStudiesCommon/CaseStudyOverl
 import CaseStudyPrototype from 'components/CaseStudiesCommon/CaseStudyPrototype';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 
+import ProjectIdeaRefactored from 'UI/sections/ProjectIdea';
+import ResultsSectionRefactored from 'UI/sections/ResultsSection';
+
 // After refactoring all pages, remove this variable and check for pages
-const REFACTORED_CASE_STUDIES_PAGES = [];
+const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox'];
 
 const CaseStudiesCommon = (props) => {
   if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
     switch (props.data.type) {
+    case CASE_STUDIES_TYPES.projectIdea:
+      return <ProjectIdeaRefactored {...props} />;
+    case CASE_STUDIES_TYPES.results:
+      return <ResultsSectionRefactored {...props} />;
     default:
       return null;
     }
