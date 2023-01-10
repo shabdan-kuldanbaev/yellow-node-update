@@ -32,6 +32,10 @@
       button {
         margin: auto;
       }
+
+      @include below-tablet {
+        margin: 0 auto;
+      }
     }
   }
 
