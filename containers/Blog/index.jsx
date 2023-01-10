@@ -93,6 +93,7 @@ const BlogContainer = ({
         <PageHeader
           title={pageTitle || ROUTES.blog.title}
           breadcrumbs={breadcrumbs}
+          breadcrumbsTheme="dark"
         />
         <SelectionBlock handleOnSubmit={handleOnFormSubmit} />
         <ArticlesList
