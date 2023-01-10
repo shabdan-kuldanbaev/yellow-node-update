@@ -1,0 +1,41 @@
+.container {
+  @include caseStudyContainer;
+
+  .circle {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 460px;
+    height: 460px;
+    margin-top: 130px;
+    margin-bottom: 98px;
+    border-radius: 50%;
+  }
+
+  .mockup {
+    @include centered;
+
+    width: 318px;
+    filter: $shadow-filter;
+    z-index: 100;
+
+    @include phone {
+      width: 238px;
+      filter: $shadow-filter-phone;
+    }
+  }
+
+  .appImage {
+    @include centered;
+
+    width: 285px;
+    border-radius: 20px;
+    filter: $shadow-filter;
+    z-index: 10;
+
+    @include phone {
+      width: 225px;
+      filter: $shadow-filter-phone;
+    }
+  }
+}

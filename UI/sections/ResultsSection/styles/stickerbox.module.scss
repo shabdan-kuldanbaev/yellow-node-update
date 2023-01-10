@@ -1,0 +1,39 @@
+.stickerbox {
+  overflow: hidden;
+  background-color: $stickerBoxPrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray400;
+    max-width: 450px;
+  }
+
+  .circle {
+    background: linear-gradient(135deg, $grey-darker 0%, $dark-grey-2 100%);
+
+    @include phone {
+      width: 430px;
+      height: 430px;
+      margin-top: 80px;
+    }
+  }
+
+  .mockup {
+    @include phone {
+      width: 250px;
+    }
+  }
+
+  .appImage {
+    @include centered;
+
+    z-index: 10;
+
+    @include phone {
+      width: 220px;
+    }
+  }
+}
