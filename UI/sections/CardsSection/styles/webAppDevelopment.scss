@@ -34,7 +34,7 @@
     }
 
     [data-swiper-button] {
-      @include darkSliderButton();
+      @include darkSliderButton;
     }
   }
 
