@@ -67,7 +67,7 @@ const FeedbackForm = (props) => {
           dirtyFields={dirtyFields}
           setFiles={setFiles}
           selectedFiles={selectedFiles}
-          formKey={formKey}
+          formKey={type}
         />
       </Animated>
       {contactFormError && (
@@ -88,14 +88,12 @@ const FeedbackForm = (props) => {
 
 FeedbackForm.defaultProps = {
   isBudgetSlider: false,
-  formKey: '',
   type: '',
 };
 
 FeedbackForm.propTypes = {
   email: PropTypes.instanceOf(Object).isRequired,
   isBudgetSlider: PropTypes.bool,
-  formKey: PropTypes.string,
   sendEmail: PropTypes.func.isRequired,
   type: PropTypes.string,
 };
