@@ -16,42 +16,49 @@ const CallToAction = ({
   view,
   handleOnClick,
   className,
-}) => (
-  <div
-    className={cn(
-      styles[type],
-      styles[view],
-      styles[page],
-      className,
-    )}
-  >
-    <Typography
-      variant={TYPOGRAPHY_TAGS.h3}
-      size={TYPOGRAPHY_SIZE.headline24}
-      className={styles.h3}
-    >
-      {title}
-    </Typography>
+}) => {
+  const titles = title.split('||');
 
-    {subtitle && (
-      <Typography
-        variant={TYPOGRAPHY_TAGS.p}
-        className={styles.p}
+  return (
+    <div
+      className={cn(
+        styles[type],
+        styles[view],
+        styles[page],
+        className,
+      )}
+    >
+      {titles?.map((titleText, index) => (
+        <Typography
+          variant={TYPOGRAPHY_TAGS.h3}
+          size={TYPOGRAPHY_SIZE.headline24}
+          className={styles.h3}
+          key={`titleText/${index}`}
+        >
+          {titleText}
+        </Typography>
+      ))}
+
+      {subtitle && (
+        <Typography
+          variant={TYPOGRAPHY_TAGS.p}
+          className={styles.p}
+        >
+          {subtitle}
+        </Typography>
+      )}
+
+      <Button
+        href={href}
+        onClick={handleOnClick}
+        className={styles.button}
+        data-button
       >
-        {subtitle}
-      </Typography>
-    )}
-
-    <Button
-      href={href}
-      onClick={handleOnClick}
-      className={styles.button}
-      data-button
-    >
-      {buttonTitle}
-    </Button>
-  </div>
-);
+        {buttonTitle}
+      </Button>
+    </div>
+  );
+};
 
 CallToAction.defaultProps = {
   href: '',
