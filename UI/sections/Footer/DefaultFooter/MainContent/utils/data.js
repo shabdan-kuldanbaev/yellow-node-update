@@ -101,6 +101,11 @@ export const footerData = [
         path: ROUTES.aiDevelopment.path,
         type: 'navigation',
       },
+      {
+        subtitle: 'Mobile App Prototyping Services',
+        path: ROUTES.prototypingServices.path,
+        type: 'navigation',
+      },
     ],
     type: 'services',
   },

@@ -9,6 +9,12 @@
     }
   }
 
+  .image {
+    @include below-tablet {
+      margin-bottom: 24px;
+    }
+  }
+
   .imageSection {
     margin-bottom: 0;
 

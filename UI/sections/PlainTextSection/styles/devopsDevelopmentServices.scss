@@ -3,7 +3,8 @@
 
   background-color: $gray50;
 
-  [data-description] {
+  .titleStyle {
     max-width: 846px;
+    margin: 0 auto;
   }
 }
