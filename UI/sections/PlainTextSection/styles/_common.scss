@@ -1,0 +1,12 @@
+.plainText {
+  @include appDevelopmentContainer;
+
+  max-width: $default-content-width;
+  margin: 0 auto;
+}
+
+.text {
+  p {
+    @include fontSize(16px, 150%);
+  }
+}

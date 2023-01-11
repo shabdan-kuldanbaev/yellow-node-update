@@ -1,31 +1,44 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
-.companyReviews {
+.main {
   width: 100%;
-  overflow-x: hidden;
+  padding-top: 88.5px;
+  box-sizing: border-box;
+  margin: 0;
 
-  & > div {
-    width: 100%;
-    margin: 0 auto;
-    padding: 100px 80px;
-
-    @include ultra-hd {
-      max-width: $max-content-width;
-    }
-
-    @include macbook-fifteen {
-      max-width: calc(100% - 160px);
-    }
+  .breadcrumbsStyles {
+    max-width: $wide-content-width;
+    margin: 16px auto 0;
+    padding: 0 40px;
 
     @include tablet {
-      max-width: calc(100% - 80px);
-      padding: 100px 40px 80px;
+      padding: 0 32px;
     }
 
     @include phone {
-      max-width: 100vw;
-      padding: 0;
-      margin: 0 auto;
+      padding: 0 16px;
     }
+  }
+
+  .titleStyles {
+    @include fontSize(38px, 130%);
+
+    max-width: $wide-content-width;
+    margin: 32px auto 8px;
+    padding: 0 40px;
+
+    @include tablet {
+      padding: 0 32px;
+    }
+
+    @include phone {
+      padding: 0 16px;
+      margin-top: 16px;
+    }
+  }
+
+  @include phone {
+    padding-top: 65.5px;
   }
 }

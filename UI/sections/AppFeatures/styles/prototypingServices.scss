@@ -1,0 +1,152 @@
+.prototyping-services {
+  @include appFeaturesContainer;
+
+  padding: 120px 60px;
+  background-color: $gray900;
+
+  [data-title] {
+    color: $gray0;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  [data-description] {
+    @include phone {
+      text-align: center;
+    }
+
+    @include tablet {
+      margin: 8px auto 0;
+    }
+  }
+
+  .titleWrapper {
+    align-items: flex-start;
+    margin-bottom: 16px;
+    order: 2;
+  }
+
+  .container {
+    max-width: 1300px;
+
+    .sectionContainer {
+      @include flex(column, center);
+
+      z-index: 100;
+      max-width: 50%;
+
+      & > div:nth-child(2) {
+        p {
+          display: none;
+        }
+
+        img {
+          width: 88px;
+          height: 88px;
+          margin-bottom: 24px;
+          transform: none;
+
+          @include tablet {
+            margin: 0 auto 16px;
+          }
+        }
+      }
+
+      & > div:nth-child(3) {
+        position: relative;
+        margin-top: 8px;
+        order: 3;
+
+        p {
+          @include fontSize(16px, 150%);
+
+          max-width: 585px;
+          margin: 0;
+          color: $yellow500;
+
+          &::before {
+            content: unset;
+          }
+
+          @include tablet {
+            margin: 0 auto;
+            text-align: center;
+          }
+        }
+
+        img {
+          position: absolute;
+          width: 520px;
+          margin: 0;
+          bottom: -53px;
+          right: -160px;
+          transform: none;
+
+          @include desktop {
+            display: none;
+          }
+        }
+
+        @include phone {
+          margin-top: 24px;
+        }
+      }
+
+      @include desktop {
+        max-width: 100%;
+      }
+    }
+
+    .imageWrapper {
+      @include flex(row, center, center);
+
+      width: 50%;
+      position: relative;
+
+      &::before {
+        @include centered;
+
+        content: "";
+        width: 474px;
+        height: 474px;
+        background: $yellow500;
+        border-radius: 50%;
+      }
+
+      @include desktop {
+        width: 100%;
+      }
+
+      @include tablet {
+        margin-top: 24px;
+      }
+    }
+
+    .imageContainer {
+      overflow: hidden;
+      position: relative;
+      width: min-content;
+      margin: 0 auto;
+      border-radius: 51px;
+
+      .image {
+        display: none;
+      }
+
+      @include desktop {
+        margin: 0 auto;
+      }
+    }
+
+    @include tablet {
+      flex-direction: column;
+      margin: 0 auto;
+    }
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+}

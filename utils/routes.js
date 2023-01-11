@@ -287,6 +287,18 @@ export const routes = {
     dynamicPath: '/artificial-intelligence-development-services',
     slug: 'artificial-intelligence-development-services',
   },
+  dataScienceDevelopment: {
+    title: 'Data Science Development Services',
+    path: '/data-science-development-company',
+    dynamicPath: '/data-science-development-company',
+    slug: 'data-science-development-company',
+  },
+  prototypingServices: {
+    title: 'Mobile App Prototyping Services',
+    path: '/prototyping-services',
+    dynamicPath: '/prototyping-services',
+    slug: 'prototyping-services',
+  },
   privacyPolicy: {
     title: 'Yellow Systems Privacy Policy',
     path: '/privacy-policy',
@@ -310,4 +322,5 @@ export const routes = {
     dynamicPath: '/not-found',
     slug: 'not-found',
   },
+
 };

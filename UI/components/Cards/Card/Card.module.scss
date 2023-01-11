@@ -33,8 +33,12 @@
 }
 
 .card.withLink {
-  * {
+  h3 {
     color: $gray900;
+  }
+
+  p {
+    color: $gray400;
   }
 
   &:hover * {
@@ -52,15 +56,16 @@
   @include flex(column, flex-start, flex-start);
 
   flex: 1 1 auto;
+
+  [data-read-more] {
+    display: none;
+    color: $gray900;
+    padding-top: 24px;
+  }
 }
 
 .title {
   margin: 0 0 8px;
-}
-
-.readMore {
-  display: none;
-  padding-top: 24px;
 }
 
 .cardContent {

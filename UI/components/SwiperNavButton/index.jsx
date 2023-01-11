@@ -23,6 +23,7 @@ const SwiperNavButton = (props) => {
         styles[type],
       )}
       ref={buttonRef}
+      data-swiper-button
     >
       <Svg type={svgType} />
       {text && (
