@@ -102,6 +102,11 @@ export const footerData = [
         type: 'navigation',
       },
       {
+        subtitle: 'Data science development services',
+        path: ROUTES.dataScienceDevelopment.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Mobile App Prototyping Services',
         path: ROUTES.prototypingServices.path,
         type: 'navigation',

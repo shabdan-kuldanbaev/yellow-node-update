@@ -64,6 +64,7 @@ export const NAV_LINKS = [
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
     routes.aiDevelopment.slug,
+    routes.dataScienceDevelopment.slug,
     routes.prototypingServices.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
@@ -375,6 +376,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.fintechDevelopment.path,
   ROUTES.erpDevelopment.path,
   ROUTES.devOpsDevelopment.path,
+  ROUTES.dataScienceDevelopment.path,
   ROUTES.aiDevelopment.path,
   ROUTES.prototypingServices.path,
 ];

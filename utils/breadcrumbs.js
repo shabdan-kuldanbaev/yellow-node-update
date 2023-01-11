@@ -152,6 +152,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.aiDevelopment.path,
     },
   ]),
+  dataScienceDevelopment: () => ([
+    {
+      title: ROUTES.dataScienceDevelopment.title,
+      to: ROUTES.dataScienceDevelopment.path,
+    },
+  ]),
   technicalPage: (slug) => {
     if (slug === PAGES.privacyPolicy) {
       return [

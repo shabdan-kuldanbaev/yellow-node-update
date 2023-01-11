@@ -1,0 +1,82 @@
+.data-science-development-company {
+  background: $gray900;
+
+  .contentWrapper {
+    @include flex(row, space-between, flex-start);
+  }
+
+  .titleStyle {
+    max-width: 481px;
+    margin: 0 24px 0 0;
+
+    * {
+      text-align: left;
+    }
+  }
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  .text {
+    max-width: 378px;
+
+    h3 {
+      @include fontSize(20px);
+
+      margin: 0 0 16px;
+      color: $gray0;
+    }
+
+    ul {
+      margin: 0 0 0 5px;
+    }
+
+    li {
+      margin-bottom: 8px;
+
+      &::marker {
+        color: $yellow400;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      margin: 0;
+      color: $gray400;
+    }
+
+    & > p:last-child {
+      display: none;
+    }
+  }
+
+  @include below-tablet {
+    .contentWrapper {
+      @include flex(column, flex-start, center);
+    }
+
+    .titleStyle {
+      margin: 0 0 24px;
+
+      * {
+        text-align: center;
+      }
+    }
+
+    .text {
+      * {
+        text-align: center;
+      }
+
+      ul {
+        @include flex(column, flex-start, center);
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}

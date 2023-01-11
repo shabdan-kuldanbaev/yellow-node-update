@@ -1,0 +1,61 @@
+.cardsSection.data-science-development-company {
+  &.firstSectionView {
+    @extend .greySection;
+  }
+
+  &.secondSectionView {
+    [data-title] {
+      max-width: 766px;
+    }
+  }
+
+  &.secondSectionView,
+  &.thirdSectionView,
+  &.fourthSectionView {
+    .card {
+      flex-direction: column;
+
+      svg {
+        width: 64px;
+      }
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
+
+  &.sixthSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+    }
+
+    [data-read-more] {
+      display: block;
+    }
+  }
+}

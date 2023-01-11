@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
 
 export default ({
@@ -10,15 +10,19 @@ export default ({
     description,
     subtitle,
     view,
-  } = useMemo(() => getDocumentFields(
+    contentModules,
+  } = getDocumentFields(
     section,
     [
       'title',
       'description',
       'subtitle',
       'view',
+      'contentModules',
     ],
-  ), [section]);
+  );
+
+  const { text } = getDocumentFields(get(contentModules, '[0]', []), ['text']);
 
   return {
     title,
@@ -26,5 +30,6 @@ export default ({
     subtitle,
     view,
     type,
+    text,
   };
 };

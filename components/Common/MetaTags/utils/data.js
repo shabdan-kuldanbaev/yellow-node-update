@@ -141,6 +141,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.aiDevelopment.path}`,
   },
   {
+    pageName: ROUTES.dataScienceDevelopment.slug,
+    metaTitle: 'Data Science Development Services | Yellow',
+    metaDescription: 'If you are looking for a partner that will help you analyze, process, and structure your data, data science specialists at Yellow are here for you.',
+    url: `${rootUrl}${ROUTES.dataScienceDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.privacyPolicy.slug,
     metaTitle: 'Privacy Policy | Yellow',
     metaDescription: 'Privacy Policy',
