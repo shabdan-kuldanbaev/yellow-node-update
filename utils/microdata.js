@@ -211,6 +211,14 @@ export const microdata = {
     breadcrumb: 'Homepage > Android App Development Services',
     image: logoUrl,
   }),
+  prototypingServices: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Mobile App Prototyping Services | Yellow',
+    description: 'Prototyping is an important stage in mobile app development. Complete it with Yellow!',
+    breadcrumb: 'Homepage > Mobile App Prototyping Services',
+    image: logoUrl,
+  }),
   customWebApp: () => ({
     '@context': context,
     '@type': 'WebPage',

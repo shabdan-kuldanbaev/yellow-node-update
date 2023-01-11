@@ -1,0 +1,37 @@
+.prototyping-services {
+  &.firstSectionView {
+    @extend .greySection;
+  }
+
+  &.secondSectionView {
+    [data-description] {
+      max-width: 776px;
+    }
+
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          margin-left: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: 1200px;
+
+      .cardList {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
