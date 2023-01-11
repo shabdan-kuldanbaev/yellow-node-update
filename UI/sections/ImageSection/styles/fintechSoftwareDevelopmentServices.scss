@@ -3,6 +3,14 @@
 
   background-color: $gray0;
 
+  .titleStyle {
+    max-width: 856px;
+
+    @include phone {
+      max-width: 343px;
+    }
+  }
+
   .imageSection {
     @include flex(column-reverse);
 
