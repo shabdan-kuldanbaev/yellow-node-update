@@ -57,11 +57,12 @@
     }
   }
 
-  @include tablet {
-    flex-direction: column;
-  }
-
   .image {
     width: 100%;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    padding: 60px 16px;
   }
 }
