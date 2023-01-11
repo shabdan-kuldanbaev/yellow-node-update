@@ -6,11 +6,9 @@
   [data-title] {
     margin-bottom: 32px;
 
-    @include below-tablet {
-      @include fontSize(32px);
-
-      margin-bottom: 20px;
+    @include tablet {
       text-align: center;
+      margin: 0 auto 20px;
     }
   }
 
@@ -20,41 +18,21 @@
     .imageContainer {
       max-width: 863px;
 
-      img {
-        transform: scale(1.43) translate(14.5%, 11.5%);
-
-        @include tablet {
-          transform: scale(1.93) translate(20%, 23%);
-        }
-
-        @include below-tablet {
-          transform: unset;
-        }
-      }
-
-      @include below-tablet {
-        margin-left: unset;
-      }
-
-      @include phone {
-        margin: 0 auto;
-      }
-    }
-
-    .sectionContainer {
-      max-width: 584px;
-
-      @include below-tablet {
+      @include tablet {
         max-width: 100%;
       }
     }
 
-    @include below-tablet {
+    .image {
+      transform: scale(1.43) translate(110px, 50px);
+
+      @include tablet {
+        transform: unset;
+      }
+    }
+
+    @include tablet {
       flex-direction: column;
     }
-  }
-
-  @include phone {
-    padding: 60px 15px;
   }
 }

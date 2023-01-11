@@ -58,6 +58,7 @@ const CompanyContainer = ({
           titleStyles={styles.titleStyles}
           title={ROUTES.company.title}
           breadcrumbs={breadcrumbs}
+          breadcrumbsTheme="dark"
         />
         <AboutUs />
         <WhatMakesUsSpecial makingUsSpecial={specialThingsContent} />

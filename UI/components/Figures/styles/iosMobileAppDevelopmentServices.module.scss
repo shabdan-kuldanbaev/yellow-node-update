@@ -1,11 +1,11 @@
 .ios-mobile-app-development-services {
   .figures {
-    @include flex(row, space-evenly);
+    @include flex(row, space-between);
 
     & > div {
       @include flex(row, initial, start);
 
-      flex: 0 1 42%;
+      flex: 0 1 48%;
     }
 
     @include below-tablet {

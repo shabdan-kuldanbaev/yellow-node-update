@@ -43,6 +43,7 @@ const TechnicalPageContainer = ({
           title={title}
           breadcrumbs={breadcrumbs}
           updatedAt={contentModules[0].sys.updatedAt}
+          breadcrumbsTheme="dark"
         />
         <div className={styles.container}>
           <ContentfulParser document={contentModules[0].fields.text} />
