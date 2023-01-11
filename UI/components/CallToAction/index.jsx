@@ -29,14 +29,16 @@ const CallToAction = ({
       )}
     >
       {titles?.map((titleText, index) => (
-        <Typography
-          variant={TYPOGRAPHY_TAGS.h3}
-          size={TYPOGRAPHY_SIZE.headline24}
-          className={styles.h3}
-          key={`titleText/${index}`}
-        >
-          {titleText}
-        </Typography>
+        titleText && (
+          <Typography
+            variant={TYPOGRAPHY_TAGS.h3}
+            size={TYPOGRAPHY_SIZE.headline24}
+            className={styles.h3}
+            key={`titleText/${index}`}
+          >
+            {titleText}
+          </Typography>
+        )
       ))}
 
       {subtitle && (
