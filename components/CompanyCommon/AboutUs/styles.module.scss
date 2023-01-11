@@ -2,50 +2,65 @@
 @import 'styles/utils/sizes';
 
 .aboutUs {
-  @include flex(row, space-between);
+  width: 100%;
 
-  max-width: $wide-content-width;
-  margin: 0 auto;
+  .contentWrapper {
+    @include flex(row, space-between);
 
-  @include tablet {
-    @include flex(column);
-  }
-}
+    max-width: $wide-content-width;
+    margin: 0 auto;
+    padding: 0 40px;
 
-.titleStyle {
-  @include flex(column, space-around, flex-start);
-
-  text-align: left;
-  margin-bottom: 16px;
-
-  h2 {
-    @include fontSize(24px, 130%);
+    @include tablet {
+      flex-direction: column;
+      padding: 0 32px;
+    }
 
     @include phone {
-      @include fontSize(20px, 150%);
+      padding: 0 16px 30px;
     }
   }
-}
 
-.aboutUsContent {
-  position: relative;
-  max-width: 687px;
-  z-index: 2;
+  .titleStyle {
+    @include flex(column, space-around, flex-start);
 
-  @include tablet {
-    max-width: 100%;
+    margin-bottom: 16px;
+
+    [data-title] {
+      @include fontSize(24px, 130%);
+
+      text-align: left;
+
+      @include phone {
+        @include fontSize(20px, 150%);
+      }
+    }
+
+    @include phone {
+      margin-bottom: 8px;
+    }
   }
-}
 
-.aboutUsText {
-  p {
-    @include fontSize(16px, 150%);
+  .aboutUsContent {
+    position: relative;
+    max-width: 687px;
+    z-index: 2;
 
-    color: $gray400;
-    margin: 0 0 24px;
+    @include tablet {
+      max-width: 100%;
+    }
   }
 
-  @include tablet {
-    margin-bottom: 40px;
+  .aboutUsText {
+    p {
+      @include fontSize(16px, 150%);
+
+      color: $gray400;
+      margin: 0 0 24px;
+    }
+
+    @include tablet {
+      margin-bottom: 40px;
+    }
   }
 }

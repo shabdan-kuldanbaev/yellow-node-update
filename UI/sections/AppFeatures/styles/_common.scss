@@ -49,7 +49,7 @@
 
     @include tablet {
       max-width: 100%;
-      padding: 0 30px
+      padding: 0 30px;
     }
 
     @include phone {
@@ -57,11 +57,12 @@
     }
   }
 
-  @include tablet {
-    flex-direction: column;
-  }
-
   .image {
     width: 100%;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    padding: 60px 16px;
   }
 }

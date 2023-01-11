@@ -15,8 +15,14 @@
   &.thirdSectionView {
     .card {
       @include tablet {
-        flex-direction: column
+        flex-direction: column;
       }
+    }
+  }
+
+  &.secondSectionView {
+    .callToAction h3 {
+      max-width: 311px;
     }
   }
 
@@ -25,6 +31,10 @@
 
     h3 {
       color: $gray900;
+    }
+
+    [data-swiper-button] {
+      @include darkSliderButton;
     }
   }
 

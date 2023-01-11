@@ -1,6 +1,6 @@
 @import 'styles/utils/mixins';
 @import 'styles/utils/sizes';
-@import './styles/webAppDevelopmentCompany.module.scss';
+@import './styles/webAppDevelopmentCompany.module';
 
 .blog {
   @include flex(row, space-between, center);
@@ -109,7 +109,10 @@
 
     @include below-tablet {
       text-align: center;
-      margin-bottom: 32px;
+
+      &:last-of-type {
+        margin-bottom: 32px;
+      }
     }
   }
 
