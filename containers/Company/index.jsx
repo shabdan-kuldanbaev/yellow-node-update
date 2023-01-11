@@ -7,6 +7,7 @@ import {
   selectWhatMakesSpecial,
   selectImageCarousel,
   selectMetaData,
+  selectCompanyReviews,
 } from 'redux/selectors/layout';
 import AboutUs from 'components/CompanyCommon/AboutUs';
 import WhatMakesUsSpecial from 'components/CompanyCommon/WhatMakesUsSpecial';
@@ -17,13 +18,11 @@ import { PAGES, ROUTES } from 'utils/constants';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import { microdata } from 'utils/microdata';
-import { reviews } from './utils/helpers';
 import styles from './styles.module.scss';
 
 const ManagementTeam = dynamic(() => import('components/CompanyCommon/ManagementTeam'));
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
-const Reviews = dynamic(() => import('components/Common/Reviews'));
-const Awards = dynamic(() => import('components/CompanyCommon/Awards'));
+const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 
 const CompanyContainer = ({
   introSection,
@@ -31,6 +30,7 @@ const CompanyContainer = ({
   managementTeam,
   whatMakesSpecial,
   metaData,
+  companyReviews,
 }) => {
   const { contentModules: carouselContent } = getDocumentFields(photosData, ['contentModules']);
   const { contentModules: teamContent } = getDocumentFields(managementTeam, ['contentModules']);
@@ -49,8 +49,13 @@ const CompanyContainer = ({
         pageMicrodata={microdata.company()}
         breadcrumbs={breadcrumbs}
       />
-      <FullLayout introSection={introSection}>
+      <FullLayout
+        introSection={introSection}
+        disableBottomPadding
+      >
         <PageHeader
+          breadcrumbsStyles={styles.breadcrumbsStyles}
+          titleStyles={styles.titleStyles}
           title={ROUTES.company.title}
           breadcrumbs={breadcrumbs}
           breadcrumbsTheme="dark"
@@ -68,18 +73,10 @@ const CompanyContainer = ({
             <PhotoGallery sectionData={photosData} />
           </FullLayout>
         )}
-        <FullLayout
-          disableMaxWidth
-          disableTopPadding
-          disableSidePadding
-          disableBottomPadding
-        >
-          {/* TODO check if this div is needed */}
-          <div className={styles.companyReviews}>
-            <Reviews reviews={reviews} />
-          </div>
-        </FullLayout>
-        <Awards />
+        <ReviewsSection
+          section={companyReviews}
+          type="company-reviews"
+        />
       </FullLayout>
     </>
   );
@@ -96,6 +93,7 @@ CompanyContainer.propTypes = {
   photosData: PropTypes.instanceOf(Object),
   managementTeam: PropTypes.instanceOf(Object),
   whatMakesSpecial: PropTypes.instanceOf(Object),
+  companyReviews: PropTypes.instanceOf(Object),
   metaData: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
@@ -109,5 +107,6 @@ export default connect(
     managementTeam: selectManagementTeam(state),
     whatMakesSpecial: selectWhatMakesSpecial(state),
     metaData: selectMetaData(state),
+    companyReviews: selectCompanyReviews(state),
   }),
 )(CompanyContainer);

@@ -15,7 +15,7 @@ export const CompanyFigures = ({ companyFiguresData: companyFigures }) => (
         translateY="0"
         opasityDuration={1}
         transformDuration={1}
-        transitionDelay={1100 + 90 * index * 2}
+        transitionDelay={90 * index * 2}
       >
         <div
           key={item.title}

@@ -80,6 +80,7 @@ export const BLOCKS_SLUGS = {
   compnayPageManagementTeam: 'company-page-management-team',
   contactPageCompanyPhoto: 'contact-page-company-photo',
   processPageProcessPreview: 'process-page-process-preview',
+  companyReviews: 'company-reviews',
 };
 
 export const ANIMATED_TYPE = {

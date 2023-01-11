@@ -1,127 +1,56 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 .managementTeam {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 100px 0;
-
-  @include flex(column, space-around, flex-start);
-
-  @include ultra-hd {
-    max-width: $max-content-width;
-  }
-
-  @include tablet {
-    @include flex(column, center, flex-start);
-  }
-
-  @include svga {
-    width: 100%;
-  }
-
-  @include horizontal-mobile {
-    padding-top: 0;
-  }
+  padding: 60px 0 30px;
 
   @include below-tablet {
-    padding-bottom: 100px;
+    padding: 60px 16px 0;
   }
+}
 
-  @include phone {
-    padding: 60px 0;
+.contentWrapper {
+  max-width: $wide-content-width;
+  margin: 0 auto;
+}
+
+.managers {
+  @include flex(row, space-evenly, center, wrap);
+
+  & > div {
+    flex: 0 0 276px;
   }
+}
 
-  & > div:first-child {
-    width: 100%;
-    text-align: left;
+.card {
+  @include flex(column);
 
-    @include flex(column, space-around, center);
+  margin-bottom: 32px;
+}
 
-    & > div:nth-of-type(1) > h2 {
-      @include defaultSecondHeader;
+.image {
+  height: 276px;
+  width: auto;
+  margin-bottom: 24px;
 
-      margin-bottom: 70px;
-    }
+  img {
+    object-fit: cover;
   }
+}
 
-  .managers {
-    width: 100%;
+.title {
+  @include fontSize(20px, 150%);
 
-    @include flex(row, space-between, flex-start, wrap);
+  font-weight: bold;
+  color: $gray900;
+  text-align: center;
+  margin-bottom: 8px;
+}
 
-    & > div {
-      margin-top: 55px;
+.subtitle {
+  @include fontSize(16px, 150%);
 
-      @for $i from 1 to 5 {
-        &:nth-of-type(#{$i}) {
-          margin-top: 0;
-        }
-      }
-
-      @include phone {
-        width: 100%;
-
-        &:not(:first-child) {
-          margin-top: 35px;
-        }
-      }
-
-      .imageContainer {
-        width: calc(#{$max-content-width} * 0.221);
-        height: calc(#{$max-content-width} * 0.289);
-
-        @include macbook-fifteen {
-          width: 19.666vw;
-          height: 25.125vw;
-        }
-
-        @include phone {
-          width: 100%;
-          height: 94.666vw;
-
-          &:not(:first-child) {
-            margin-top: 30px;
-          }
-        }
-
-        .image {
-          width: 100%;
-          height: 100%;
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-      }
-
-      .title {
-        font-weight: bold;
-        color: $black;
-        margin-top: 15px;
-        font-size: 1.25rem;
-
-        @include macbook-fifteen {
-          font-size: 1.333vw;
-        }
-
-        @include phone {
-          font-size: 1rem;
-        }
-      }
-
-      .subtitle {
-        color: $gray-200;
-        margin-top: 5px;
-        font-size: 0.875rem;
-
-        @include macbook-fifteen {
-          font-size: 0.917vw;
-        }
-
-        @include phone {
-          font-size: 0.6875rem;
-        }
-      }
-    }
-  }
+  color: $gray400;
+  text-align: center;
+  margin-top: 5px;
 }
