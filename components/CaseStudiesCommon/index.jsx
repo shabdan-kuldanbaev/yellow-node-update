@@ -20,6 +20,8 @@ import { CASE_STUDIES_TYPES } from 'utils/constants';
 
 import ProjectIdeaRefactored from 'UI/sections/ProjectIdea';
 import ResultsSectionRefactored from 'UI/sections/ResultsSection';
+import ImagesSectionRefactored from 'UI/sections/ImagesSection';
+import WireframesSectoinRefactored from 'UI/sections/WireframesSectoin';
 
 // After refactoring all pages, remove this variable and check for pages
 const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox'];
@@ -31,6 +33,10 @@ const CaseStudiesCommon = (props) => {
       return <ProjectIdeaRefactored {...props} />;
     case CASE_STUDIES_TYPES.results:
       return <ResultsSectionRefactored {...props} />;
+    case CASE_STUDIES_TYPES.image:
+      return <ImagesSectionRefactored {...props} />;
+    case CASE_STUDIES_TYPES.wireframe:
+      return <WireframesSectoinRefactored {...props} />;
     default:
       return null;
     }
