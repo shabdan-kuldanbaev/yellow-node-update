@@ -110,6 +110,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.androidDevelopmentServices.path,
     },
   ]),
+  prototypingServices: () => ([
+    {
+      title: ROUTES.prototypingServices.title,
+      to: ROUTES.prototypingServices.path,
+    },
+  ]),
   mvpDevelopment: () => ([
     {
       title: ROUTES.mvpDevelopment.title,
@@ -144,6 +150,12 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.aiDevelopment.title,
       to: ROUTES.aiDevelopment.path,
+    },
+  ]),
+  dataScienceDevelopment: () => ([
+    {
+      title: ROUTES.dataScienceDevelopment.title,
+      to: ROUTES.dataScienceDevelopment.path,
     },
   ]),
   technicalPage: (slug) => {

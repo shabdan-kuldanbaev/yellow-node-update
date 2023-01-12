@@ -67,7 +67,7 @@ const SvgListSection = (props) => {
       {link && (
         <Animated
           {...REVEAL_ANIMATION_PROPS}
-          transitionDelay={550}
+          transitionDelay={50}
         >
           <CallToAction
             type="card"

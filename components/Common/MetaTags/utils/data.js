@@ -86,6 +86,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.androidDevelopmentServices.path}`,
   },
   {
+    pageName: ROUTES.prototypingServices.slug,
+    metaTitle: 'Mobile App Prototyping Services | Yellow',
+    metaDescription: 'Prototyping is an important stage in mobile app development. Complete it with Yellow!',
+    url: `${rootUrl}${ROUTES.prototypingServices.path}`,
+  },
+  {
     pageName: ROUTES.mvpDevelopment.slug,
     metaTitle: 'MVP development company | Yellow',
     metaDescription: 'A minimum viable product will help you get enough feedback to determine whether '
@@ -133,6 +139,12 @@ export const ogMetaData = [
     metaTitle: 'AI Software Development Services: Best Choice for Your Business | Yellow',
     metaDescription: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
     url: `${rootUrl}${ROUTES.aiDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.dataScienceDevelopment.slug,
+    metaTitle: 'Data Science Development Services | Yellow',
+    metaDescription: 'If you are looking for a partner that will help you analyze, process, and structure your data, data science specialists at Yellow are here for you.',
+    url: `${rootUrl}${ROUTES.dataScienceDevelopment.path}`,
   },
   {
     pageName: ROUTES.privacyPolicy.slug,

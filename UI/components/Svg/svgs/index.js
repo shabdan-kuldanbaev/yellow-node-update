@@ -96,7 +96,7 @@ export { default as apacheJmeterTitle } from './technologies/apacheJmeterTitle.s
 export { default as awsLambdaTitle } from './technologies/awsLambdaTitle.svg';
 export { default as awsTitle } from './technologies/awsTitle.svg';
 export { default as azureTitle } from './technologies/azureTitle.svg';
-export { default as bigqueryTitle } from './technologies/bigqueryTitle.svg';
+export { default as bigQueryTitle } from './technologies/bigQueryTitle.svg';
 export { default as bitbucketTitle } from './technologies/bitbucketTitle.svg';
 export { default as blazeMeterTitle } from './technologies/blazeMeterTitle.svg';
 export { default as bluePrismTitle } from './technologies/bluePrismTitle.svg';
