@@ -6,7 +6,6 @@ import { budget as budgetData, marks } from './data';
 
 export default (props) => {
   const {
-    formKey,
     isBudgetSlider,
     type,
     sendEmail,
@@ -74,7 +73,6 @@ export default (props) => {
     budget,
     selectedFiles,
     setFiles,
-    formKey,
     isBudgetSlider,
     isDirty,
     isValid,

@@ -210,6 +210,7 @@ export const HOMEPAGE_SECTION_TYPES = {
   reviews: 'reviews',
   blog: 'blog',
   photos: 'photos',
+  feedback: 'feedback',
 };
 
 export const CONTACTS_DATA = {

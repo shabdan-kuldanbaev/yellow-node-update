@@ -15,6 +15,10 @@
     @include fontSize(38px, 130%);
 
     margin: 0 auto;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+    }
   }
 
   .linkText {
