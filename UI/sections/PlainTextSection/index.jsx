@@ -19,7 +19,7 @@ const PlainTextSection = (props) => {
   } = useSectionProps(props);
 
   return (
-    <section className={cn(styles[type], styles[view])}>
+    <section className={cn(styles.plainText, styles[type], styles[view])}>
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
