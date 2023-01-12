@@ -9,6 +9,10 @@
   [data-description] {
     color: $gray400;
     max-width: 450px;
+
+    @include phone {
+      max-width: 375px;
+    }
   }
 
   .circle {
