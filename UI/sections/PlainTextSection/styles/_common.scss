@@ -1,8 +1,10 @@
 .plainText {
   @include appDevelopmentContainer;
 
-  max-width: $default-content-width;
-  margin: 0 auto;
+  .contentWrapper {
+    max-width: $default-content-width;
+    margin: 0 auto;
+  }
 }
 
 .text {
