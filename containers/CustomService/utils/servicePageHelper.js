@@ -15,6 +15,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.androidDevelopmentServices(),
     };
 
+  case PAGES.prototypingServices:
+    return {
+      pageMicrodata: microdata.prototypingServices(),
+      breadcrumbs: pagesBreadcrumbs.prototypingServices(),
+    };
+
   case PAGES.developmentServices:
     return {
       pageMicrodata: microdata.customIOSApp(),

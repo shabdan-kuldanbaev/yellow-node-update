@@ -44,6 +44,10 @@
       max-width: 610px;
     }
 
+    [data-swiper-button] {
+      @include darkSliderButton;
+    }
+
     .card {
       @include flex(column, flex-start, flex-start);
 
