@@ -196,6 +196,7 @@ export const APP_DEVELOPMENT_TYPES = {
   processOverlay: 'app-development-process-overlay',
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
   appDevelopmentDownloadSection: 'app-development-download-section',
+  feedback: 'feedback',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
