@@ -1,0 +1,15 @@
+.stickerbox {
+  background-color: $stickerBoxPrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    max-width: 480px;
+
+    @include phone {
+      max-width: 340px;
+    }
+  }
+}

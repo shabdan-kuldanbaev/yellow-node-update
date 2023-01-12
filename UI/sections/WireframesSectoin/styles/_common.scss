@@ -1,0 +1,6 @@
+.container {
+  @include caseStudyContainer;
+  @include wireframes;
+
+  background-color: $gray0;
+}
