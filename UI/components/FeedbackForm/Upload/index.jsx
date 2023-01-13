@@ -26,7 +26,7 @@ const Upload = (props) => {
           name="description"
           register={register}
           placeholder="Description *"
-          errorMessage="This field is required"
+          errorMessage="Required field"
           required={dirtyFields?.description}
           attached
           textarea

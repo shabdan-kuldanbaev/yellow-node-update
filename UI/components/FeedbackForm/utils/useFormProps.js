@@ -18,18 +18,10 @@ export default (props) => {
     reset,
     formState: {
       dirtyFields,
-      isDirty,
       isValid,
       isSubmitSuccessful,
     },
-  } = useForm({
-    mode: 'onChange',
-    defaultValues: {
-      name: '',
-      email: '',
-      description: '',
-    },
-  });
+  } = useForm();
 
   const [budget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
@@ -74,7 +66,6 @@ export default (props) => {
     selectedFiles,
     setFiles,
     isBudgetSlider,
-    isDirty,
     isValid,
     contactFormError,
   };

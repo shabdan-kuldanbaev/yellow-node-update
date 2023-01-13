@@ -8,8 +8,8 @@ import Button from 'UI/components/Button';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { selectError } from 'redux/selectors/contact';
 import { sendEmail } from 'redux/actions/contact';
-import BudgetSlider from './BudgetSlider';
 import Upload from './Upload';
+import BudgetSlider from './BudgetSlider';
 import useFormProps from './utils/useFormProps';
 import styles from './styles.module.scss';
 
@@ -24,7 +24,6 @@ const FeedbackForm = (props) => {
     setFiles,
     selectedFiles,
     isValid,
-    isDirty,
     type,
     contactFormError,
   } = useFormProps(props);
@@ -40,8 +39,8 @@ const FeedbackForm = (props) => {
             name="name"
             register={register}
             placeholder="Name *"
-            errorMessage="Invalid email"
-            required={dirtyFields?.name}
+            errorMessage="Required field"
+            required={dirtyFields.name}
           />
 
           <TextField
@@ -76,7 +75,7 @@ const FeedbackForm = (props) => {
       )}
       <Button
         type="submit"
-        disabled={!isDirty || !isValid}
+        disabled={!isValid}
         className={styles.formButton}
       >
         Contact Us
