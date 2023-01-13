@@ -23,6 +23,8 @@ import ProjectIdeaRefactored from 'UI/sections/ProjectIdea';
 import ResultsSectionRefactored from 'UI/sections/ResultsSection';
 import ImagesSectionRefactored from 'UI/sections/ImagesSection';
 import WireframesSectoinRefactored from 'UI/sections/WireframesSectoin';
+import SpecialChallengesAndSolutionsRefactored from 'UI/sections/SpecialChallengesAndSolutions';
+import ChallengesAndSolutionsWithWireframesRefactored from 'UI/sections/ChallengesAndSolutionsWithWireframes';
 
 const CaseStudiesCommon = (props) => {
   if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
@@ -37,6 +39,12 @@ const CaseStudiesCommon = (props) => {
       return <ImagesSectionRefactored {...props} />;
     case CASE_STUDIES_TYPES.wireframe:
       return <WireframesSectoinRefactored {...props} />;
+    case CASE_STUDIES_TYPES.specialChallenges:
+      return <SpecialChallengesAndSolutionsRefactored {...props} />;
+    case CASE_STUDIES_TYPES.challenges:
+    case CASE_STUDIES_TYPES.challengesSlider:
+    case CASE_STUDIES_TYPES.challengesSpecialSlider:
+      return <ChallengesAndSolutionsWithWireframesRefactored {...props} />;
     default:
       return null;
     }

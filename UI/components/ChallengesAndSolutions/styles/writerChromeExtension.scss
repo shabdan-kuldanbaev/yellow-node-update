@@ -1,0 +1,143 @@
+.writer-chrome-extension {
+  .imageBundle {
+    position: absolute;
+    z-index: -2;
+
+    @include tablet {
+      width: 500px;
+      height: 500px;
+    }
+
+    @include phone {
+      width: 270px;
+      height: 270px;
+    }
+  }
+
+  .imageBundle-2 {
+    width: 926px;
+    height: 926px;
+    bottom: 0;
+    right: 0;
+
+    @include tablet {
+      width: 500px;
+      height: 500px;
+      transform: translate(100px, 0);
+    }
+
+    @include phone {
+      width: 270px;
+      height: 270px;
+    }
+  }
+
+  .imageBundle-1 {
+    top: 0;
+    left: 0;
+  }
+
+  .contentContainer {
+    @include flex(column, center, center);
+
+    & > div:last-child {
+      .image {
+        filter: unset;
+      }
+    }
+
+    .infoContainer {
+      position: relative;
+      z-index: 1;
+      max-width: unset;
+      margin-right: 0;
+      margin-bottom: 90px;
+      width: 100%;
+
+      @include flex(row, space-between);
+
+      & h3,
+      & p {
+        color: $white;
+      }
+
+      .title {
+        color: $white;
+        position: relative;
+
+        @include tablet {
+          margin-bottom: 40px;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -18px;
+          left: 0;
+          width: 100%;
+          border-bottom: 16px $bright-blue solid;
+          background-color: $bright-blue;
+
+          @include phone {
+            border-bottom: 8px $bright-blue solid;
+          }
+        }
+      }
+
+      .title-1 {
+        width: 400px;
+
+        @include tablet {
+          width: 345px;
+        }
+
+        @include phone {
+          width: 257px;
+        }
+      }
+
+      .title-2 {
+        width: 263px;
+
+        @include tablet {
+          width: 365px;
+        }
+
+        @include phone {
+          width: 275px;
+        }
+      }
+
+      & > div:last-child {
+        max-width: 520px;
+
+        @include below-tablet {
+          max-width: 410px;
+        }
+      }
+
+      @include tablet {
+        margin-bottom: 0;
+
+        @include flex(column, center, center);
+
+        & h2,
+        & h3,
+        & p {
+          text-align: center;
+        }
+      }
+    }
+
+    &:nth-of-type(2n) {
+      .infoContainer:not(.separatedTitle) {
+        order: 0;
+        margin-left: 0;
+      }
+    }
+
+    &:last-child {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,244 @@
+.hotelDataCloudGradient {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+.hotel-data-cloud {
+  &.firstSectionView {
+    .special {
+      max-width: unset;
+
+      .image {
+        filter: none;
+        max-width: 1008px;
+      }
+
+      .contentContainer {
+        position: relative;
+      }
+
+      .infoContainer {
+        margin: 0;
+        max-width: 440px;
+
+        .title {
+          font-weight: 700;
+          font-size: 32px;
+          line-height: 120%;
+          color: $dark-grey;
+
+          @include tablet {
+            text-align: center;
+          }
+
+          @include phone {
+            font-size: 24px;
+          }
+        }
+
+        p {
+          font-size: 18px;
+          line-height: 180%;
+          color: $silver-chalice;
+          max-width: 435px;
+          min-width: 350px;
+
+          @include tablet {
+            text-align: center;
+            margin: 0 auto;
+          }
+
+          @include phone {
+            font-size: 14px;
+          }
+        }
+
+        @include tablet {
+          margin: 0 !important;
+          order: 0 !important;
+          max-width: none !important;
+        }
+      }
+
+      &:nth-child(1) {
+        .imageBundle-1 {
+          position: absolute;
+          top: -50px;
+          left: -76px;
+        }
+      }
+
+      &:nth-child(2) {
+        .imageBundle-1 {
+          position: absolute;
+          top: 20%;
+          left: -30%;
+          width: 687px;
+          height: 687px;
+        }
+      }
+
+      &:nth-child(3) {
+        .imageBundle-1 {
+          position: absolute;
+          top: 20%;
+          left: 95%;
+          width: 157px;
+          height: 157px;
+
+          @include desktop {
+            top: 5%;
+            left: 85%;
+          }
+
+          @include macbook-twelve {
+            top: 5%;
+            left: 89%;
+          }
+
+          @include tablet {
+            display: none;
+            background: none;
+            transform: translate(0, 0);
+          }
+        }
+
+        .imageBundle-2 {
+          position: absolute;
+          top: 0;
+          right: -50%;
+          width: 675px;
+          height: 675px;
+        }
+      }
+
+      &:nth-child(2n + 1) {
+        @include flex(row, flex-start);
+
+        padding-right: 100px;
+
+        .infoContainer {
+          order: 2;
+          margin-left: 130px;
+
+          @include desktop {
+            margin-left: 30px;
+          }
+        }
+
+        .images {
+          @extend .openSenseGradient;
+
+          &::after {
+            left: 0;
+            height: 107%;
+            transform: translate(0, -1px);
+            background: linear-gradient(270deg, rgba($white, 0) 0%, $white 83%);
+
+            @include tablet {
+              display: none;
+              background: none;
+            }
+          }
+
+          .image {
+            transform: translate(-40px, 0);
+
+            @include tablet {
+              transform: translate(0, 0);
+            }
+          }
+        }
+
+        @include macbook-twelve {
+          padding-right: 40px;
+        }
+
+        @include tablet {
+          padding-right: 0;
+        }
+      }
+
+      &:nth-child(2n) {
+        @include flex(row, flex-end);
+
+        padding-left: 100px;
+
+        .infoContainer {
+          order: 0;
+          margin-right: 130px;
+
+          @include desktop {
+            margin-right: 30px;
+          }
+        }
+
+        .images {
+          @extend .openSenseGradient;
+
+          &::after {
+            right: 0;
+            height: 107%;
+            transform: translate(10px, -1px);
+            background: linear-gradient(90deg, rgba($white, 0) 0%, $white 83%);
+
+            @include tablet {
+              display: none;
+              background: none;
+            }
+          }
+
+          .image {
+            transform: translate(40px, 0);
+
+            @include tablet {
+              transform: translate(0, 0);
+            }
+          }
+        }
+
+        @include macbook-twelve {
+          padding-left: 40px;
+        }
+
+        @include tablet {
+          padding-left: 0;
+        }
+      }
+
+      @include tablet {
+        flex-direction: column !important;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      .title {
+        max-width: 355px;
+        color: $white;
+      }
+    }
+
+    .infoContainer {
+      max-width: 450px;
+
+      h3 {
+        color: $white;
+      }
+
+      p {
+        color: $white;
+        opacity: 0.7;
+      }
+    }
+  }
+}

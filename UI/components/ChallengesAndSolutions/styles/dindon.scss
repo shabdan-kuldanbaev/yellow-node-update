@@ -1,0 +1,209 @@
+.dindon {
+  &.secondSectionView {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+    justify-items: start;
+    max-width: $max-content-width;
+    margin: 0 auto;
+    color: $white;
+
+    @include below-tablet {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @include phone {
+      display: block;
+      margin-right: auto;
+    }
+
+    .title {
+      color: $white;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    .contentContainer {
+      display: block;
+      margin: 0 auto 60px;
+      max-width: 545px;
+
+      @include phone {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .infoContainer {
+      max-width: initial;
+
+      @include below-tablet {
+        margin: auto;
+      }
+
+      h3 {
+        color: $white;
+
+        @include below-tablet {
+          text-align: center;
+        }
+      }
+
+      p {
+        color: $case-study-dindon-paragraph;
+
+        @include below-tablet {
+          text-align: center;
+        }
+      }
+    }
+
+    .swiperBullet {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border-radius: 100%;
+      border: 1px solid $white;
+    }
+
+    .swiperBulletActive {
+      background-color: $white;
+    }
+  }
+
+  &.thirdSectionView {
+    display: grid;
+    grid-template-columns: repeat(3, 332px);
+    grid-column-gap: 40px;
+    justify-content: center;
+
+    @include macbook-twelve {
+      grid-template-columns: repeat(1, 345px);
+      grid-row-gap: 16px;
+    }
+
+    .contentContainer {
+      margin: 0;
+      padding: 60px 26px;
+      background: $case-study-dindon-background;
+      border: 1px solid $white;
+      box-shadow: 0 10px 30px $case-study-dindon-box-shadow;
+      border-radius: 24px;
+      display: block;
+
+      .infoContainer {
+        margin: 0 auto;
+      }
+
+      .title {
+        font-size: 20px;
+        line-height: 150%;
+        color: $white;
+        text-align: center;
+        margin: 0;
+      }
+    }
+  }
+
+  &.firstSectionView {
+    @include tablet {
+      padding-bottom: 0;
+    }
+
+    .contentContainer {
+      margin: 0 auto 320px;
+
+      @include tablet {
+        margin-bottom: 60px;
+      }
+
+      .infoContainer {
+        max-width: unset;
+
+        @include tablet {
+          margin: 0;
+          order: 0;
+        }
+
+        .title,
+        p {
+          @include tablet {
+            text-align: center;
+          }
+        }
+      }
+
+      .image {
+        filter: none;
+      }
+    }
+
+    .special {
+      position: relative;
+
+      @include tablet {
+        flex-direction: column;
+      }
+
+      .images {
+        position: relative;
+      }
+
+      &:nth-child(odd) {
+        .image {
+          transform: scale(2) translate(30%, 0%);
+
+          @include macbook-thirteen {
+            transform: scale(2) translate(20%, 0%);
+          }
+
+          @include tablet {
+            transform: none;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        .image {
+          transform: scale(2) translate(-30%, 0%);
+
+          @include macbook-thirteen {
+            transform: scale(2) translate(-20%, 0%);
+          }
+
+          @include tablet {
+            transform: none;
+          }
+        }
+
+        .imageBundle-1 {
+          position: absolute;
+          max-width: 1120px;
+
+          @include tablet {
+            position: static;
+            width: 100%;
+            transform: translate(0, -140px);
+          }
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 700px;
+
+        @include tablet {
+          margin-bottom: 0;
+        }
+
+        .image {
+          @include tablet {
+            transform: translate(-140px, 0);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,327 @@
+/*  stylelint-disable no-descending-specificity */
+.famlicious {
+  .image {
+    filter: none;
+  }
+
+  &.firstSectionView {
+    .contentContainer {
+      margin: 0 auto 70px;
+
+      .image {
+        filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.05));
+        border-radius: 20px;
+      }
+
+      &:nth-child(1) {
+        .image {
+          margin-top: -61px;
+
+          @include tablet {
+            margin-top: 0;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        @include flex(column, initial, center);
+
+        margin-bottom: 0;
+
+        .infoContainer {
+          max-width: 327px;
+          transform: translateX(40%);
+          margin-top: 15px;
+
+          @include tablet {
+            transform: translateX(30%);
+          }
+
+          @include phone {
+            transform: translateX(0);
+            order: 0;
+            text-align: center;
+            margin-top: 0;
+          }
+        }
+
+        .images {
+          position: relative;
+
+          @include phone {
+            margin: 150px 15px 0 auto;
+            padding-left: 50px;
+          }
+        }
+
+        .image {
+          min-width: 0;
+        }
+
+        .imageBundle {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          @include tablet {
+            left: 10%;
+          }
+
+          @include below-tablet {
+            left: 20%;
+          }
+
+          @include phone {
+            top: -5%;
+          }
+
+          &:nth-of-type(3) {
+            transform: translate(-137%, -157%);
+
+            @include below-tablet {
+              transform: scale(0.8) translate(-137%, -157%);
+            }
+
+            @include phone {
+              transform: scale(0.5) translate(-137%, -157%);
+            }
+          }
+
+          &:nth-of-type(2) {
+            transform: translate(-40%, -100%);
+
+            @include below-tablet {
+              transform: scale(0.8) translate(-40%, -100%);
+            }
+
+            @include phone {
+              transform: scale(0.5) translate(-40%, -100%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      @include flex(row-reverse, space-between, center);
+
+      padding-top: 137px;
+      gap: 35px;
+      align-items: center;
+      position: relative;
+      margin-bottom: 0;
+
+      @include tablet {
+        flex-direction: column;
+      }
+
+      &:nth-child(even) {
+        @include tablet {
+          flex-direction: column-reverse;
+        }
+
+        @include phone {
+          flex-direction: column;
+        }
+      }
+
+      & + .contentContainer {
+        padding-top: 60px;
+      }
+
+      .infoContainer {
+        margin: 0;
+
+        @include tablet {
+          text-align: center;
+        }
+      }
+
+      .images {
+        position: relative;
+      }
+
+      .imageBundle {
+        position: absolute;
+      }
+
+      &:nth-child(1) {
+        .imageBundle {
+          top: 150px;
+          right: -460px;
+
+          @include macbook-twelve {
+            right: -32vw;
+          }
+
+          @include tablet {
+            right: 50%;
+            top: -50%;
+            transform: translate(50%, 0);
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        @include flex(column-reverse, initial, center);
+
+        margin-top: -250px;
+
+        @include tablet {
+          flex-direction: column;
+          margin-top: 0;
+        }
+
+        .title {
+          display: none;
+
+          @include tablet {
+            display: block;
+          }
+        }
+
+        .infoContainer {
+          margin-left: 650px;
+          max-width: 405px;
+
+          @include tablet {
+            margin-left: 0;
+          }
+        }
+
+        .images {
+          margin-right: 200px;
+          position: relative;
+
+          @include tablet {
+            margin-right: 0;
+            margin-left: 200px;
+          }
+
+          @include phone {
+            margin-left: 120px;
+          }
+        }
+
+        .image {
+          min-width: 0;
+        }
+
+        .imageBundle {
+          &:nth-of-type(2) {
+            top: 35%;
+            left: 95%;
+            transform: scale(0.8);
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-of-type(3) {
+            top: 85%;
+            left: 104%;
+            transform: scale(0.8);
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-of-type(4) {
+            top: 95%;
+            left: 75%;
+            transform: scale(0.8);
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-of-type(5) {
+            top: 15%;
+            right: 90%;
+            transform: scale(0.8);
+
+            @include tablet {
+              width: 200px;
+            }
+
+            @include phone {
+              width: 165px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .contentContainer {
+      @include flex(column, initial, center);
+
+      @include tablet {
+        padding-top: 0;
+      }
+
+      &:not(:last-child) > .infoContainer, /* Last section has weird structure, had to exclude it and use &:last-child */
+      &:last-child {
+        @include flex(row, space-between, flex-start);
+
+        width: 100%;
+        max-width: 1060px;
+        margin: 0 auto;
+
+        @include tablet {
+          @include flex(column, space-between, center);
+
+          text-align: center;
+          margin-top: 0;
+        }
+
+        & > *:nth-child(2) {
+          flex: 0 0 50%;
+        }
+
+        p:nth-of-type(2) {
+          margin-bottom: 0;
+        }
+      }
+
+      &:nth-of-type(even):not(:last-child) {
+        flex-direction: column-reverse;
+
+        @include phone {
+          flex-direction: column;
+        }
+      }
+
+      /* stylelint-disable-next-line */
+      .infoContainer {
+        max-width: initial;
+      }
+    }
+
+    .title {
+      margin-right: 35px;
+
+      @include tablet {
+        margin-right: 0;
+      }
+    }
+
+    .separatedTitle {
+      margin-right: 0;
+    }
+
+    img {
+      margin-top: 150px;
+
+      @include tablet {
+        margin-top: 40px;
+      }
+    }
+  }
+}
