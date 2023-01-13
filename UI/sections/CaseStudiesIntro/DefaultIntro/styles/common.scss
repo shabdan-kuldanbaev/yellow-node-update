@@ -1,0 +1,173 @@
+.container {
+  box-sizing: border-box;
+  padding: 104px 120px 120px;
+  overflow: hidden;
+  position: relative;
+
+  .projectInfoContainer {
+    @include flex(column, center);
+
+    z-index: 100;
+
+    @include tablet {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+  }
+
+  .logo {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 32px;
+
+    @include phone {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .projectTitle {
+    @include fontSize(46px, 120%);
+
+    margin: 0 0 16px;
+    font-weight: bold;
+
+    @include phone {
+      @include fontSize(24px);
+    }
+  }
+
+  .projectSubtitle {
+    @include fontSize(20px, 150%);
+
+    margin: 0 0 8px;
+    font-weight: bold;
+
+    @include phone {
+      @include fontSize(16px);
+    }
+  }
+
+  .projectDescription {
+    @include fontSize(16px, 150%);
+
+    max-width: 520px;
+    margin: 0 0 40px;
+
+    @include tablet {
+      margin: 0 auto 24px;
+    }
+  }
+
+  .appLink {
+    width: 201px;
+    height: 67px;
+
+    @include tablet {
+      width: 168px;
+      height: 56px;
+    }
+
+    @include phone {
+      width: 135px;
+      height: 45px;
+    }
+  }
+
+  .experiencesContainer {
+    @include fontSize(16px, 150%);
+    @include flex(row, space-between);
+
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @include tablet {
+      @include fontSize(16px);
+    }
+
+    @include phone {
+      overflow-x: auto;
+      white-space: pre;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .experience {
+    margin-right: 15px;
+
+    &:last-of-type {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      line-height: 180%;
+    }
+
+    @include phone {
+      margin-right: 40px;
+    }
+  }
+
+  .infoTitle {
+    margin: 0 0 8px;
+    font-weight: bold;
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 580px;
+    height: 596px;
+    z-index: 1;
+
+    @include tablet {
+      height: calc(100vw - 100px);
+    }
+
+    @include phone {
+      max-width: 450px;
+    }
+  }
+
+  .image {
+    @include centered;
+
+    object-fit: cover;
+    width: 578px;
+  }
+
+  @include tablet {
+    height: auto;
+    padding-top: 145px;
+    padding-bottom: 70px;
+  }
+
+  @include phone {
+    padding: 135px 15px 105px;
+  }
+
+}
+
+.introSection {
+  @include flex(row, space-between);
+
+  max-width: 1200px;
+  margin: 0 auto 48px;
+
+  a {
+    @include phone {
+      margin-top: 60px;
+    }
+  }
+
+  @include tablet {
+    @include flex(column, initial, center);
+
+    margin: 0 auto 60px;
+  }
+}

@@ -16,19 +16,19 @@ import { StorySection } from 'components/CaseStudiesCommon/StorySection';
 import { EventSection } from 'components/CaseStudiesCommon/EventSection';
 import CaseStudyOverlayProcess from 'components/CaseStudiesCommon/CaseStudyOverlayProcess';
 import CaseStudyPrototype from 'components/CaseStudiesCommon/CaseStudyPrototype';
-import { CASE_STUDIES_TYPES } from 'utils/constants';
+import { CASE_STUDIES_TYPES, REFACTORED_CASE_STUDIES_PAGES } from 'utils/constants';
 
+import IntroRefactored from 'UI/sections/CaseStudiesIntro';
 import ProjectIdeaRefactored from 'UI/sections/ProjectIdea';
 import ResultsSectionRefactored from 'UI/sections/ResultsSection';
 import ImagesSectionRefactored from 'UI/sections/ImagesSection';
 import WireframesSectoinRefactored from 'UI/sections/WireframesSectoin';
 
-// After refactoring all pages, remove this variable and check for pages
-const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox'];
-
 const CaseStudiesCommon = (props) => {
   if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
     switch (props.data.type) {
+    case CASE_STUDIES_TYPES.intro:
+      return <IntroRefactored {...props} />;
     case CASE_STUDIES_TYPES.projectIdea:
       return <ProjectIdeaRefactored {...props} />;
     case CASE_STUDIES_TYPES.results:

@@ -4,6 +4,9 @@
 import React from 'react';
 import { routes } from 'utils/routes';
 
+// After refactoring all pages, remove this variable and check for pages
+export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox'];
+
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
