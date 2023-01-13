@@ -105,6 +105,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.cloudDevelopment.path}`,
   },
   {
+    pageName: ROUTES.crossPlatformDevelopmentServices.slug,
+    metaTitle: 'Cross-Platform App Development Services | Yellow',
+    metaDescription: 'Your cross-platform application will rock the stage and Yellow is ready to make it happen.',
+    url: `${rootUrl}${ROUTES.crossPlatformDevelopmentServices.path}`,
+  },
+  {
     pageName: ROUTES.mlDevelopment.slug,
     metaTitle: 'Machine Learning App Development Company | Yellow',
     metaDescription: 'If you want to boost your business with a machine learning solution, Yellow is here to back you up',

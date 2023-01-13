@@ -9,6 +9,13 @@ export const getServicePageInfo = (pathname) => {
       pageMicrodata: microdata.cloudDevelopment(),
       breadcrumbs: pagesBreadcrumbs.cloudDevelopment(),
     };
+
+  case PAGES.crossPlatformDevelopmentServices:
+    return {
+      pageMicrodata: microdata.crossPlatformDevelopmentServices(),
+      breadcrumbs: pagesBreadcrumbs.crossPlatformDevelopmentServices(),
+    };
+
   case PAGES.androidDevelopmentServices:
     return {
       pageMicrodata: microdata.customAndroidApp(),

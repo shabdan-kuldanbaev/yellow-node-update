@@ -277,6 +277,14 @@ export const microdata = {
     breadcrumb: 'Homepage > Cloud app development services',
     image: logoUrl,
   }),
+  crossPlatformDevelopmentServices: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Cross-Platform App Development Services | Yellow',
+    description: 'Your cross-platform application will rock the stage and Yellow is ready to make it happen.',
+    breadcrumb: 'Homepage > Cross-Platform App Development Services',
+    image: logoUrl,
+  }),
   mlDevelopment: () => ({
     '@context': context,
     '@type': 'WebPage',

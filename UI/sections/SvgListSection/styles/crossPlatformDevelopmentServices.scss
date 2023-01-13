@@ -1,0 +1,9 @@
+.cross-platform-development-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    [data-description] {
+      max-width: 771px;
+    }
+  }
+}

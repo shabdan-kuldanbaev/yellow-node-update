@@ -20,102 +20,109 @@ const SectionTitle = ({
   secondDescription,
   className,
   children,
-}) => (
-  <div className={cn(
-    styles.sectionTitleContainer,
-    styles[type],
-    className,
-    titleStyle,
-  )}
-  >
-    <Animated
-      {...REVEAL_ANIMATION_PROPS}
-      transitionDelay={50}
+}) => {
+  const descriptionParagraphs = description?.split('||');
+
+  return (
+    <div className={cn(
+      styles.sectionTitleContainer,
+      styles[type],
+      className,
+      titleStyle,
+    )}
     >
-      <Typography
-        data-title
-        isBold
-        size={TYPOGRAPHY_SIZE.headline38}
-        mobileSize={TYPOGRAPHY_SIZE.headline24}
-        variant={titleVariant}
-        className={styles.title}
-      >
-        {title}
-      </Typography>
-    </Animated>
-    {subtitle && (
       <Animated
         {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={100}
+        transitionDelay={50}
       >
         <Typography
-          data-subtitle
-          size={TYPOGRAPHY_SIZE.paragrapgh16}
-          className={styles.subtitle}
-        >
-          {subtitle}
-        </Typography>
-      </Animated>
-    )}
-    {description && (
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={100}
-      >
-        <Typography
-          data-description
-          size={TYPOGRAPHY_SIZE.paragrapgh16}
-          className={styles.description}
-        >
-          {description}
-        </Typography>
-      </Animated>
-    )}
-    {secondTitle && (
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={150}
-      >
-        <Typography
+          data-title
           isBold
-          data-second-title
-          size={TYPOGRAPHY_SIZE.headline24}
-          variant={secondTitleVariant}
+          size={TYPOGRAPHY_SIZE.headline38}
+          mobileSize={TYPOGRAPHY_SIZE.headline24}
+          variant={titleVariant}
           className={styles.title}
         >
-          {secondTitle}
+          {title}
         </Typography>
       </Animated>
-    )}
-    {secondSubtitle && (
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={200}
-      >
-        <Typography
-          data-second-subtitle
-          className={styles.subtitle}
+      {subtitle && (
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={100}
         >
-          {secondSubtitle}
-        </Typography>
-      </Animated>
-    )}
-    {secondDescription && (
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={200}
-      >
-        <Typography
-          data-second-description
-          className={styles.description}
+          <Typography
+            data-subtitle
+            size={TYPOGRAPHY_SIZE.paragrapgh16}
+            className={styles.subtitle}
+          >
+            {subtitle}
+          </Typography>
+        </Animated>
+      )}
+      {descriptionParagraphs && (
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={100}
         >
-          {secondDescription}
-        </Typography>
-      </Animated>
-    )}
-    {children}
-  </div>
-);
+          {descriptionParagraphs?.map((text, index) => (
+            <Typography
+              data-description
+              size={TYPOGRAPHY_SIZE.paragrapgh16}
+              className={styles.description}
+              key={`paragraph/${index}`}
+            >
+              {text}
+            </Typography>
+          ))}
+        </Animated>
+      )}
+      {secondTitle && (
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={150}
+        >
+          <Typography
+            isBold
+            data-second-title
+            size={TYPOGRAPHY_SIZE.headline24}
+            variant={secondTitleVariant}
+            className={styles.title}
+          >
+            {secondTitle}
+          </Typography>
+        </Animated>
+      )}
+      {secondSubtitle && (
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={200}
+        >
+          <Typography
+            data-second-subtitle
+            className={styles.subtitle}
+          >
+            {secondSubtitle}
+          </Typography>
+        </Animated>
+      )}
+      {secondDescription && (
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={200}
+        >
+          <Typography
+            data-second-description
+            className={styles.description}
+          >
+            {secondDescription}
+          </Typography>
+        </Animated>
+      )}
+      {children}
+    </div>
+  );
+};
 
 SectionTitle.defaultProps = {
   type: 'default',

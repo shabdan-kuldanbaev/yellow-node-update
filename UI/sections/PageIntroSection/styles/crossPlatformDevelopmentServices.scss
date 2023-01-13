@@ -1,0 +1,37 @@
+.cross-platform-development-services {
+  padding-bottom: 120px;
+
+  .pageWrapper {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $gray700;
+  }
+
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageTextContainer {
+    max-width: 558px;
+
+    @include below-tablet {
+      max-width: 100%;
+    }
+  }
+
+  .pageSubtitle:first-child {
+    margin-bottom: 24px;
+  }
+
+  .pageImage {
+    padding-top: 613px;
+
+    @include below-tablet {
+      padding-top: 330px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 60px;
+  }
+}

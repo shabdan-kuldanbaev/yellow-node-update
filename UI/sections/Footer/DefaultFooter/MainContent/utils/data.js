@@ -107,6 +107,11 @@ export const footerData = [
         type: 'navigation',
       },
       {
+        subtitle: 'Cross-Platform App Development Services',
+        path: ROUTES.crossPlatformDevelopmentServices.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Mobile App Prototyping Services',
         path: ROUTES.prototypingServices.path,
         type: 'navigation',
