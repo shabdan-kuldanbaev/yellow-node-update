@@ -7,7 +7,7 @@
       margin: 0 auto;
     }
 
-    .callToAction h3{
+    .callToAction h3 {
       max-width: 535px;
     }
 
@@ -43,6 +43,10 @@
 
   &.thirdSectionView {
     @extend .blackSection;
+
+    [data-swiper-button] {
+      @include darkSliderButton;
+    }
 
     .title {
       max-width: 671px;

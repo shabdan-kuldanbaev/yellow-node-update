@@ -1,0 +1,7 @@
+.cross-platform-development-services {
+  @include sectionGrayBackground();
+
+  [data-description] {
+    max-width: 720px;
+  }
+}

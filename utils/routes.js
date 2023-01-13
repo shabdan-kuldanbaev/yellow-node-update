@@ -245,6 +245,12 @@ export const routes = {
     dynamicPath: '/cloud-based-app-development-services',
     slug: 'cloud-based-app-development-services',
   },
+  crossPlatformDevelopmentServices: {
+    title: 'Cross-Platform Mobile App Development Company',
+    path: '/cross-platform-development-services',
+    dynamicPath: '/cross-platform-development-services',
+    slug: 'cross-platform-development-services',
+  },
   mlDevelopment: {
     title: 'Machine Learning Development Company',
     path: '/machine-learning-development-services',

@@ -128,6 +128,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.cloudDevelopment.path,
     },
   ]),
+  crossPlatformDevelopmentServices: () => ([
+    {
+      title: ROUTES.crossPlatformDevelopmentServices.title,
+      to: ROUTES.crossPlatformDevelopmentServices.path,
+    },
+  ]),
   erpDevelopment: () => ([
     {
       title: ROUTES.erpDevelopment.title,

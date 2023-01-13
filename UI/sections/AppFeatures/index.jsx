@@ -15,7 +15,7 @@ const AppFeatures = (props) => {
     title,
     subtitle,
     description,
-    images,
+    imageSrc,
     activeIndex,
     handleOnClick,
     itemsData,
@@ -58,7 +58,7 @@ const AppFeatures = (props) => {
           <Animated delay={500}>
             <div className={styles.imageContainer}>
               <img
-                src={images[activeIndex]}
+                src={imageSrc}
                 className={styles.image}
                 alt={type}
               />
