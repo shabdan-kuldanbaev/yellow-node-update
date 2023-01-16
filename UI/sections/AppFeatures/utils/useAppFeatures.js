@@ -22,16 +22,22 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleOnClick = useCallback((index) => () => {
-    setActiveIndex(index);
+    if (index === activeIndex) {
+      setActiveIndex(-1);
+    } else {
+      setActiveIndex(index);
+    }
   });
 
-  const images = itemsData.map((module) => {
+  const images = itemsData?.map((module) => {
     const { images: moduleImages } = getDocumentFields(module);
 
     return getFileUrl(get(moduleImages, '[0]', {}));
   });
 
-  const promoImages = itemsData.map((module) => {
+  const imageSrc = images[activeIndex === -1 ? 0 : activeIndex];
+
+  const promoImages = itemsData?.map((module) => {
     const { contentModules } = getDocumentFields(module);
 
     return get(contentModules, '[0].fields');
@@ -43,11 +49,11 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
     title,
     description,
     subtitle,
-    images,
     activeIndex,
     handleOnClick,
     itemsData,
     promoImages,
     isPromoImage,
+    imageSrc,
   };
 };

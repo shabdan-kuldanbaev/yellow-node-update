@@ -128,6 +128,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.cloudDevelopment.path,
     },
   ]),
+  crossPlatformDevelopmentServices: () => ([
+    {
+      title: ROUTES.crossPlatformDevelopmentServices.title,
+      to: ROUTES.crossPlatformDevelopmentServices.path,
+    },
+  ]),
   erpDevelopment: () => ([
     {
       title: ROUTES.erpDevelopment.title,
@@ -150,6 +156,12 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.aiDevelopment.title,
       to: ROUTES.aiDevelopment.path,
+    },
+  ]),
+  dataScienceDevelopment: () => ([
+    {
+      title: ROUTES.dataScienceDevelopment.title,
+      to: ROUTES.dataScienceDevelopment.path,
     },
   ]),
   technicalPage: (slug) => {

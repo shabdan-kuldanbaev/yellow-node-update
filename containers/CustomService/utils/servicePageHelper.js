@@ -9,6 +9,13 @@ export const getServicePageInfo = (pathname) => {
       pageMicrodata: microdata.cloudDevelopment(),
       breadcrumbs: pagesBreadcrumbs.cloudDevelopment(),
     };
+
+  case PAGES.crossPlatformDevelopmentServices:
+    return {
+      pageMicrodata: microdata.crossPlatformDevelopmentServices(),
+      breadcrumbs: pagesBreadcrumbs.crossPlatformDevelopmentServices(),
+    };
+
   case PAGES.androidDevelopmentServices:
     return {
       pageMicrodata: microdata.customAndroidApp(),
@@ -86,6 +93,11 @@ export const getServicePageInfo = (pathname) => {
   case PAGES.aiDevelopment:
     return {
       breadcrumbs: pagesBreadcrumbs.aiDevelopment(),
+    };
+
+  case PAGES.dataScienceDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.dataScienceDevelopment(),
     };
 
   default:

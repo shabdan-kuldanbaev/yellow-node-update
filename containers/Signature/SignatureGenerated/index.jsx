@@ -8,7 +8,6 @@ import {
   YELLOW_LINK,
 } from 'containers/Signature/utils/constants';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'UI/components/Svg';
 import styles from './styles.module.scss';
 
 const SignatureGenerated = ({
@@ -46,10 +45,6 @@ const SignatureGenerated = ({
     <>
       <div className={styles.signatureGenerated}>
         <div className={styles.signatureHeader}>
-          <Svg
-            className={styles.signatureHeaderBrowser}
-            type="browser"
-          />
           <div className={styles.signatureSubHeader}>
             {titledList.map((title, index) => (
               <span key={index}>
