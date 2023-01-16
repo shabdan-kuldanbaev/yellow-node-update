@@ -1,4 +1,9 @@
-import { SUB_NAVIGATION_LINKS } from 'utils/constants';
+import { useState } from 'react';
+import {
+  SUB_NAVIGATION_KEYS,
+  SUB_NAVIGATION_ITEMS,
+  SUB_NAVIGATION_LINKS,
+} from 'utils/constants';
 
 export const useDropDownMenu = ({
   isLightTheme,
@@ -8,10 +13,18 @@ export const useDropDownMenu = ({
   closeMobileMenu,
   closeDropDownMenu,
 }) => {
+  const [activeSubMenu, setActiveSubMenu] = useState(SUB_NAVIGATION_KEYS.services);
+
+  const subNavigationItems = SUB_NAVIGATION_ITEMS[slug];
   const subNavigationLinks = SUB_NAVIGATION_LINKS[slug];
 
-  const handleOnClick = (subMenuSlug) => () => {
-    if (subMenuSlug) {
+  const handleOnSubMenuClick = (subMenuKey) => (e) => {
+    e.stopPropagation();
+    setActiveSubMenu(subMenuKey);
+  };
+
+  const handleOnLinkClick = (subMenuLinkSlug) => () => {
+    if (subMenuLinkSlug) {
       closeMobileMenu();
       closeDropDownMenu();
     }
@@ -21,7 +34,10 @@ export const useDropDownMenu = ({
     isLightTheme,
     isDropMenuOpened,
     isPageScrolledDown,
-    handleOnClick,
+    handleOnSubMenuClick,
+    handleOnLinkClick,
+    activeSubMenu,
+    subNavigationItems,
     subNavigationLinks,
     closeMobileMenu,
   };

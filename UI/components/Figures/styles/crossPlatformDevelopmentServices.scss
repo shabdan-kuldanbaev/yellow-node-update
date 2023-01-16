@@ -1,0 +1,23 @@
+.cross-platform-development-services {
+  .figures > div {
+    @include flex(column);
+
+    flex: 0 0 auto;
+
+    @include below-tablet {
+      @include flex(column, center, center);
+
+      flex: 0 0 100%;
+    }
+  }
+
+  .title {
+    @include fontSize(38px, 49px);
+
+    margin-bottom: 8px;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+}

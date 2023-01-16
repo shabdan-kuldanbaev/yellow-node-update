@@ -140,12 +140,14 @@ function* fetchPageData({
     case PAGES.androidDevelopmentServices:
     case PAGES.mvpDevelopment:
     case PAGES.cloudDevelopment:
+    case PAGES.crossPlatformDevelopmentServices:
     case PAGES.fintechDevelopment:
     case PAGES.erpDevelopment:
     case PAGES.mlDevelopment:
     case PAGES.discoveryPhase:
     case PAGES.devOpsDevelopment:
     case PAGES.aiDevelopment:
+    case PAGES.dataScienceDevelopment:
     case PAGES.prototypingServices:
     case PAGES.notFound:
     case PAGES.signatureGenerator:

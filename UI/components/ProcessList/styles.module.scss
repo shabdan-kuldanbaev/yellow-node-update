@@ -89,9 +89,15 @@
 }
 
 .jsonWrapper {
-  max-width: 480px;
+  width: 480px;
+  height: 481px;
 
   div {
     @include flex(column, center, center);
+  }
+
+  @include phone {
+    width: 343px;
+    height: 343px;
   }
 }

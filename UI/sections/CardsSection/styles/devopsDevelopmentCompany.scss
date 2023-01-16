@@ -27,12 +27,12 @@
     .cardList {
       @include flex(row, center, initial, wrap);
 
-      &>* {
-        flex: 0 0 30%
+      & > * {
+        flex: 0 0 30%;
       }
 
       @include below-tablet {
-        flex-direction: column
+        flex-direction: column;
       }
     }
 
@@ -121,6 +121,7 @@
 
       span {
         margin-top: auto;
+        color: $gray900;
       }
     }
   }
