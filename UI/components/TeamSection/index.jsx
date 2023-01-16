@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
-import { getFileUrl } from 'utils/helper';
+import Typography from 'UI/components/Typography';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { TitleUnderline } from './TitleUnderline';
 import { useTeamSection } from './utils/useTeamSection';
@@ -18,17 +18,18 @@ const TeamSection = (props) => {
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
       <div className={styles[type]}>
-        <h2 className={styles.title}>
+        <Typography variant="h2" className={styles.title}>
           {title}
           <TitleUnderline type={type} />
-        </h2>
+        </Typography>
         {contentList?.map((member) => (
-          <p
+          <Typography
             key={member}
+            variant="p"
             className={styles.teamItem}
           >
             {member}
-          </p>
+          </Typography>
         ))}
         {images.map((imgUrl) => (
           <img
