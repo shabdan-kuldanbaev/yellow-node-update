@@ -44,15 +44,9 @@ const BlogCard = (props) => {
           <p className={styles.introduction}>
             {introduction}
           </p>
-          <LinkWrapper
-            isLocalLink
-            path={categoryPath}
-            className={styles.categoryLink}
-          >
-            <span className={styles.category}>
-              {`#${CATEGORY_TAGS[categoryTag].replace(/\s/g, '')}`}
-            </span>
-          </LinkWrapper>
+          <span className={styles.category}>
+            {`#${CATEGORY_TAGS[categoryTag].replace(/\s/g, '')}`}
+          </span>
         </div>
       </article>
     </LinkWrapper>
