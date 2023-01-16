@@ -1,51 +1,90 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 .blog {
-  @include flex(column, flex-start, center);
-
-  max-width: $max-content-width;
-  padding: $section-indent 0;
+  padding: 120px 40px 60px;
   background-color: $gray0;
-  margin: 0 auto;
 
-  & > div:nth-of-type(2) {
-    margin: 0;
+  .contentWrapper {
+    @include flex(column, initial, center);
 
-    & > article:nth-of-type(4),
-    & > article:nth-of-type(5) {
-      display: none;
+    width: 100%;
+    max-width: $wide-content-width;
+    margin: 0 auto;
+  }
+
+  .swiperNavigation {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  .swiperWrapper {
+    padding: 10px 0;
+    width: 100%;
+
+    & > div > div {
+      width: 23% !important;
+
+      &:first-child {
+        width: 48% !important;
+
+        p {
+          display: none;
+        }
+
+        @include tablet {
+          p {
+            display: block;
+          }
+        }
+
+        @include below-tablet {
+          width: 100% !important;
+        }
+      }
 
       @include tablet {
-        display: block;
+        width: 50% !important;
       }
 
-      @include phone {
-        display: none;
-      }
-    }
-
-    @include below-tablet {
-      & > article:nth-of-type(5) {
-        display: none;
+      @include below-tablet {
+        width: 100% !important;
       }
     }
   }
 
-  @include phone {
-    padding: #{$mobile-section-indent} 0;
-
-    & > div:first-child {
-      margin-bottom: -$after-mobile-title-margin + 20px;
+  .titleStyle {
+    [data-description] {
+      max-width: 560px;
     }
   }
-}
 
-.titleStyle {
-  [data-description] {
-    max-width: 560px;
+  :global(.swiper) {
+    padding-bottom: 0;
+
+    @include tablet {
+      padding-bottom: 70px;
+    }
   }
-}
 
-.blogButton {
-  margin-top: 32px;
+  :global(.swiper-slide) {
+    @include flex(row, center, stretch);
+
+    height: auto;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  .blogButton {
+    margin-top: 32px;
+  }
+
+  @include tablet {
+    padding: 60px 16px 30px;
+  }
 }
