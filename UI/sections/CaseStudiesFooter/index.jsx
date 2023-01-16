@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { selectProject } from 'redux/selectors/portfolio';
 import Svg from 'UI/components/Svg';
 import LinkWrapper from 'UI/components/LinkWrapper';
+import Typography from 'UI/components/Typography';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { socialNetworks } from './utils/data';
 import { useCaseStudiesFooter } from './utils/useCaseStudiesFooter';
@@ -26,29 +27,38 @@ const CaseStudiesFooter = (props) => {
     >
       {slug && (
         <div className={styles.nextProjectContainer}>
-          <p className={styles.subtitle}>
+          <Typography
+            variant="p"
+            className={styles.subtitle}
+          >
             Next project
-          </p>
-          <p className={styles.projectName}>
+          </Typography>
+          <Typography
+            variant="p"
+            className={styles.projectName}
+          >
             {title}
-          </p>
+          </Typography>
           <LinkWrapper
             path={slug}
             className={styles.more}
             isLocalLink
           >
-            <span className={styles.textIndent}>
+            <Typography className={styles.textIndent}>
               {buttonTitle}
-            </span>
+            </Typography>
             <Svg type={SVG_IMAGES_TYPES.arrow} />
           </LinkWrapper>
         </div>
       )}
       <div className={styles.footerLinks}>
         <div className={styles.emailContainer}>
-          <p className={styles.question}>
+          <Typography
+            variant="p"
+            className={styles.question}
+          >
             Not sure where to start?
-          </p>
+          </Typography>
           <LinkWrapper
             path="mailto:hi@yellow.systems"
             className={styles.link}

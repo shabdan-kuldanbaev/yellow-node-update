@@ -7,6 +7,7 @@ import TeamSection from 'UI/components/TeamSection';
 import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
+import Typography from 'UI/components/Typography';
 import { useProjectIdea } from './utils/useProjectIdea';
 import styles from './styles.module.scss';
 
@@ -33,12 +34,15 @@ const ProjectIdea = (props) => {
         <div className={styles.descriptionContainer}>
           <div className={styles.descriptionIntro}>
             <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-              <span className={styles.sectionName}>
+              <Typography className={styles.sectionName}>
                 {subtitle}
-              </span>
-              <h2 className={styles.title}>
+              </Typography>
+              <Typography
+                variant="h2"
+                className={styles.title}
+              >
                 {title}
-              </h2>
+              </Typography>
             </Animated>
             <Animated {...delayedAnimation}>
               <div className={styles.description}>

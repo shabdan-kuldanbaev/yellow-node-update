@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import Typography from 'UI/components/Typography';
 import { ProjectLink } from './ProjectLink';
 import { useDefaultIntro } from './utils/useDefaultIntro';
 import styles from './styles.module.scss';
@@ -37,17 +38,26 @@ const DefaultIntro = (props) => {
               alt={appLogoUrl}
             />
           )}
-          <h1 className={styles.projectTitle}>
+          <Typography
+            variant="h1"
+            className={styles.projectTitle}
+          >
             {title}
-          </h1>
+          </Typography>
           {subtitle && (
-            <p className={styles.projectSubtitle}>
+            <Typography
+              variant="p"
+              className={styles.projectSubtitle}
+            >
               {subtitle}
-            </p>
+            </Typography>
           )}
-          <p className={styles.projectDescription}>
+          <Typography
+            variant="p"
+            className={styles.projectDescription}
+          >
             {description}
-          </p>
+          </Typography>
           {/* TODO rewrite via the grid */}
           {(!isMobileResolution && downloadLink) && (
             <ProjectLink

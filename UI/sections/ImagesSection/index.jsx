@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
 import Images from 'UI/components/Images';
+import Typography from 'UI/components/Typography';
 import { useImageSection } from './utils/useImageSection';
 import styles from './styles.module.scss';
 
@@ -39,9 +40,12 @@ const ImagesSection = (props) => {
       />
       {data.subtitle
         && (
-          <p className={styles.secondDescription}>
+          <Typography
+            variant="p"
+            className={styles.secondDescription}
+          >
             {data.subtitle}
-          </p>
+          </Typography>
         )}
     </section>
   );
