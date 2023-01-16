@@ -5,23 +5,84 @@
   top: $header-height - 0.5px;
   left: 0;
   width: 100%;
-  padding: 64px 0;
+  padding: 16px 0 64px;
   background-color: $dark-grey;
   color: $white;
   z-index: -1;
   opacity: 1;
   visibility: visible;
-  transition:
-  visibility 0.2s,
-  opacity 0.3s ease;
+  transition: visibility 0.2s, opacity 0.3s ease;
   box-shadow: none;
 
-  .dropDownNavContainer {
+  .dropDownItemsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    max-width: max-content;
+    margin: 0 auto 48px;
+
+    .subMenuItem {
+      position: relative;
+      color: $gray400;
+      cursor: pointer;
+
+      &::before {
+        content: " ";
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        width: 80%;
+        height: 3px;
+        border-radius: 2px;
+        background-color: $yellow500;
+        opacity: 0;
+        transform: translateX(-50%);
+        transition: opacity 0.1s ease-out;
+
+        @include phone {
+          display: none;
+        }
+      }
+
+      @include phone {
+        color: $gray0;
+        font-weight: 700;
+      }
+    }
+
+    .subMenuItemActive {
+      color: $gray0;
+      font-weight: 700;
+
+      &::before {
+        opacity: 1;
+        transition: opacity 0.2s ease-out;
+      }
+    }
+
+    @include phone {
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &.pageScrolling {
+      .subMenuItemActive {
+        color: $gray900;
+      }
+  }
+
+  .dropDownLinksContainer {
     max-width: max-content;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, max-content);
+    grid-template-columns: repeat(3, max-content);
     grid-gap: 32px 120px;
+
+    &.expertise {
+      grid-template-columns: repeat(2, max-content);
+    }
 
     @include macbook-twelve {
       grid-template-columns: repeat(2, auto);
@@ -69,9 +130,7 @@
 .closed {
   opacity: 0;
   visibility: hidden;
-  transition:
-  visibility 0.4s,
-  opacity 0.5s ease;
+  transition: visibility 0.4s, opacity 0.5s ease;
 }
 
 .lightTheme {
