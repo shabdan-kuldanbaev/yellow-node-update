@@ -171,6 +171,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.feedback:
     return <FeedbackSection {...props} />;
+
   default:
     return null;
   }
