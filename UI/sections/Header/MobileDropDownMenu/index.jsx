@@ -62,7 +62,7 @@ const MobileDropDownMenu = (props) => {
                 subMenuSlug={slug}
               />
             ))}
-          </Animat>
+          </Animated>
         </>
       ))}
     </div>
