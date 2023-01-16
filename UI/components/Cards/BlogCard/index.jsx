@@ -1,13 +1,13 @@
 import React from 'react';
 import LinkWrapper from 'UI/components/LinkWrapper';
-import { CATEGORY_TAGS } from 'utils/constants';
+import Illustration from 'UI/components/Illustration';
 import { formatDate } from 'utils/helper';
-import CustomImage from 'components/Common/CustomImage';
 import useCardProps from './utils/useCardProps';
 import styles from './styles.module.scss';
 
 const BlogCard = (props) => {
   const {
+    index,
     articlePath,
     categoryPath,
     imageUrl,
@@ -15,7 +15,8 @@ const BlogCard = (props) => {
     publishedAt,
     title,
     introduction,
-    categoryTag,
+    hashLinks,
+    isTabletResolution,
   } = useCardProps(props);
 
   return (
@@ -24,13 +25,13 @@ const BlogCard = (props) => {
       path={articlePath}
     >
       <article className={styles.article}>
-        <CustomImage
+        <Illustration
           {...imageSizes}
           src={imageUrl}
-          alt={articlePath}
-          layout="responsive"
-          scale={2}
-          containerClasses={styles.imgContainer}
+          className={styles.imgContainer}
+          objectFit="cover"
+          layout="fill"
+          transparent
         />
         <div className={styles.articleContent}>
           <span className={styles.date}>
@@ -41,16 +42,18 @@ const BlogCard = (props) => {
               {title}
             </span>
           </h3>
-          <p className={styles.introduction}>
-            {introduction}
-          </p>
+          {(index !== 0 && !isTabletResolution) && (
+            <p className={styles.introduction}>
+              {introduction}
+            </p>
+          )}
           <LinkWrapper
             isLocalLink
             path={categoryPath}
             className={styles.categoryLink}
           >
             <span className={styles.category}>
-              {`#${CATEGORY_TAGS[categoryTag].replace(/\s/g, '')}`}
+              {hashLinks}
             </span>
           </LinkWrapper>
         </div>

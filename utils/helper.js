@@ -57,7 +57,7 @@ export const getYoutubeVideoIdFromUrl = (url) => {
 export const mobileResolution = toInt(PHONE_RESOLUTION);
 export const fullResolution = toInt(FULL_HD_RESOLUTION);
 export const horizontalPhone = toInt(HORIZONTAL_MOBILE);
-export const tabletResolution = toInt(DEFAULT_TABLET_RESOLUTION);
+export const tabletResolution = toInt(BIG_TABLET_RESOLUTION);
 export const smallTabletResolution = toInt(DEFAULT_TABLET_RESOLUTION);
 
 export const setOverflowForBody = (isHidden) => {
