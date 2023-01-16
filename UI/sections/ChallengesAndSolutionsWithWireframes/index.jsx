@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import ChallengesAndSolutions from 'components/CaseStudiesCommon/ChallengesAndSolutions';
+import ChallengesAndSolutions from 'UI/components/ChallengesAndSolutions';
 import SectionTitle from 'UI/components/SectionTitle';
 import Wireframes from 'components/CaseStudiesCommon/Wireframes';
 import { useChallengesAndSolutionsWithWireframes } from './utils/useChallengesAndSolutionsWithWireframes';
@@ -24,8 +24,9 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
         cn(
           styles[type],
           styles[view],
+          styles.container,
           {
-            [styles.challengesWithoutImage]: data.images
+            [styles.challengesWithoutImage]: data.images,
           },
         )
       }

@@ -1,0 +1,149 @@
+.stickerbox {
+  .special {
+    margin-bottom: 0;
+
+    &:first-child {
+      .infoContainer {
+        margin-top: -120px;
+
+        @include phone {
+          margin-top: 0;
+        }
+      }
+  
+      .image {
+        transform: translateY(-120px);
+
+        @include tablet {
+          transform: translateY(-70px);
+        }
+
+        @include phone {
+          transform: none;
+        }
+      }
+    }
+
+    .infoContainer {
+      .title {
+        color: $white;
+      }
+
+      p {
+        color: rgba($white, 0.4);
+      }
+    }
+
+    &:nth-child(1) {
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle {
+          position: absolute;
+          top: 30%;
+          transform: translate(-105%, -65%);
+
+          &:nth-child(2) {
+            @include macbook-twelve {
+              max-width: 450px;
+              transform: translate(-110%, -75%);
+            }
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-child(3) {
+            display: none;
+
+            @include tablet {
+              display: block;
+            }
+
+            @include below-tablet {
+              max-width: 260px;
+              transform: translate(-110%, -110%);
+            }
+
+            @include phone {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(110%, -30%);
+
+          &:nth-child(2) {
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-child(3) {
+            display: none;
+
+            @include tablet {
+              display: block;
+            }
+
+            @include phone {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contentContainer {
+    .image {
+      height: unset;
+      width: unset;
+      overflow: visible;
+      filter: drop-shadow(-33.7256px 22.4837px 89.935px rgba(23, 23, 23, 0.15))
+        drop-shadow(-16.8628px 11.2419px 44.9675px rgba(23, 23, 23, 0.25));
+    }
+
+    &:not(.special) > div:last-child {
+      position: relative;
+
+      .imageBundle {
+        position: absolute;
+        z-index: 1;
+
+        &:nth-child(2) {
+          max-width: 132px;
+          top: 0;
+          right: 0;
+          transform: translate(50%, 85%);
+
+          @include macbook-twelve {
+            transform: translate(20%, 70%);
+          }
+        }
+
+        &:nth-child(3) {
+          max-width: 201px;
+          left: 0;
+          bottom: 0;
+          transform: translate(-45%, -15%);
+
+          @include tablet {
+            transform: translate(-20%, -12%);
+          }
+        }
+      }
+    }
+  }
+}

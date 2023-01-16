@@ -47,7 +47,7 @@ export const useChallengesAndSolutions = ({
       },
     );
 
-    const imagesBundlesWithUrl = imagesBundles.map((bundle) => getFileUrl(bundle)) || [];
+    const imagesBundlesWithUrl = imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
 
     return {
       title,

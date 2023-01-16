@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import ChallengesSlider from 'components/CaseStudiesCommon/ChallengesAndSolutions/ChallengesSlider';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useChallengesAndSolutions } from './utils/useChallengesAndSolutions';
-import ChallengesSlider from './ChallengesSlider';
 import styles from './styles.module.scss';
 
 const ChallengesAndSolutions = (props) => {

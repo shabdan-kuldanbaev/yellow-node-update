@@ -10,6 +10,8 @@
     z-index: 100;
 
     @include tablet {
+      @include flex(column, center, center);
+
       margin-bottom: 60px;
       text-align: center;
     }
@@ -139,6 +141,10 @@
 
     object-fit: cover;
     width: 578px;
+
+    @include phone {
+      width: 343px;
+    }
   }
 
   @include tablet {
