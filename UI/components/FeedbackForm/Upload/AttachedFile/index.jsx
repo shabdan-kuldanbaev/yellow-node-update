@@ -20,23 +20,23 @@ export const AttachedFile = (props) => {
   const [isFileUploaded, setIsFileUploaded] = useState(false);
 
   useEffect(() => {
-    if (!isFileUploaded) {
-      let progress;
+    if (isFileUploaded) return;
 
-      uploadFile(
-        signedUrl,
-        file,
-        (event) => {
-          progress = (Math.round((100 * event.loaded) / event.total));
-          setProgressInfo(progress);
+    let progress;
 
-          if (progress === 100) {
-            updateSelectedFileInfo(signedUrl);
-            setIsFileUploaded(true);
-          }
-        },
-      );
-    }
+    uploadFile(
+      signedUrl,
+      file,
+      (event) => {
+        progress = (Math.round((100 * event.loaded) / event.total));
+        setProgressInfo(progress);
+
+        if (progress === 100) {
+          updateSelectedFileInfo(signedUrl);
+          setIsFileUploaded(true);
+        }
+      },
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
