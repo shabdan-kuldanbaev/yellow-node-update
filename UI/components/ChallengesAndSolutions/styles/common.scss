@@ -1,3 +1,17 @@
+@mixin swiperBullet {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  border-radius: 100%;
+  border: 1px solid $gray0;
+}
+
+@mixin swiperBulletActive {
+  background-color: $gray0;
+}
+
+
 .contentContainer {
   @include flex(row, space-between);
 

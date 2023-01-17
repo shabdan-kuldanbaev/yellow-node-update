@@ -16,12 +16,10 @@
     @include centered;
 
     width: 318px;
-    filter: $shadow-filter;
     z-index: 100;
 
     @include phone {
       width: 238px;
-      filter: $shadow-filter-phone;
     }
   }
 
@@ -30,12 +28,10 @@
 
     width: 285px;
     border-radius: 20px;
-    filter: $shadow-filter;
     z-index: 10;
 
     @include phone {
       width: 225px;
-      filter: $shadow-filter-phone;
     }
   }
 }

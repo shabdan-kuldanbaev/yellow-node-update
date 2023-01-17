@@ -1,0 +1,13 @@
+.stickerbox {
+  :global(.swiper-pagination) {
+    bottom: 0px;
+  }
+
+  .swiperBullet {
+    border: 1px solid $stickerBoxPrimary;
+  }
+  
+  .swiperBulletActive {
+    background-color: $stickerBoxPrimary;
+  }
+}

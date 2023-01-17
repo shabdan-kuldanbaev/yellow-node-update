@@ -15,11 +15,12 @@ export const useChallengesAndSolutions = ({
   isSpecial,
   view,
 }) => {
+  const { type: componentType, contentModules } = data;
   const isMobileResolution = useSelector(selectIsMobileResolutions);
 
   const isSlider = [CASE_STUDIES_TYPES.challengesSlider, CASE_STUDIES_TYPES.challengesSpecialSlider].includes(data.type);
 
-  const content = useMemo(() => data.contentModules?.map((document) => {
+  const content = useMemo(() => contentModules?.map((document) => {
     const {
       title,
       images,
@@ -61,12 +62,12 @@ export const useChallengesAndSolutions = ({
   }), [data.contentModules, isMobileResolution]);
 
   return {
-    data,
     type,
     isSpecial,
     view,
     isSlider,
     isMobileResolution,
     content,
+    componentType,
   };
 };

@@ -126,44 +126,41 @@
         z-index: 1;
 
         &:nth-child(2) {
-          max-width: 182px;
+          max-width: 138px;
           top: 0;
           right: 0;
-          transform: translate(23%, 40%);
+          transform: translate(23%, 105%);
 
           @include phone {
-            transform: translate(23%, 23%);
+            width: 113px;
+            transform: translate(15%, 81%);
           }
         }
 
         &:nth-child(3) {
-          max-width: 201px;
+          max-width: 186px;
           left: 0;
           bottom: 0;
-          transform: translate(-45%, -15%);
+          transform: translate(-45%, -20%);
 
           @include tablet {
-            transform: translate(-20%, -12%);
+            transform: translate(-20%, -20%);
           }
 
           @include phone {
-            transform: translate(-20%, 5%);
+            max-width: 150px;
+            transform: translate(-13%, -17%);
           }
         }
       }
     }
   }
+}
 
-  .swiperBullet {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin: 0 4px;
-    border-radius: 100%;
-    border: 1px solid $white;
-  }
+.swiperBullet {
+  @include swiperBullet();
+}
 
-  .swiperBulletActive {
-    background-color: $white;
-  }
+.swiperBulletActive {
+  @include swiperBulletActive();
 }

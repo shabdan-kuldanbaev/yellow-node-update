@@ -1,26 +1,30 @@
 .stickerbox {
-  .image {
-    max-width: 1200px;
-    margin: 0 auto;
-
-    &:not(:first-child) {
-      display: none;
-    }
-
-    @include tablet {
-      max-width: 995px;
-    
-      &:first-child {
+  &.secondSectionView {
+    .image {
+      max-width: 1200px;
+      max-height: unset;
+      margin: 0 auto;
+  
+      &:not(:first-child) {
         display: none;
       }
+  
+      @include tablet {
+        max-width: 995px;
+        max-height: 532px;
 
-      &:last-child {
-        display: block;
+        &:first-child {
+          display: none;
+        }
+  
+        &:last-child {
+          display: block;
+        }
       }
-    }
-
-    @include phone {
-      max-width: 345px;
+  
+      @include phone {
+        max-width: 345px;
+      }
     }
   }
 }

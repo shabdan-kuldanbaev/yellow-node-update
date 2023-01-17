@@ -3,20 +3,21 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import ChallengesSlider from 'components/CaseStudiesCommon/ChallengesAndSolutions/ChallengesSlider';
+import ChallengesSlider from 'UI/components/ChallengesSlider';
+// import ChallengesSlider from 'components/CaseStudiesCommon/ChallengesAndSolutions/ChallengesSlider';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useChallengesAndSolutions } from './utils/useChallengesAndSolutions';
 import styles from './styles.module.scss';
 
 const ChallengesAndSolutions = (props) => {
   const {
-    data,
     type,
     isSpecial,
     view,
     isSlider,
     isMobileResolution,
     content,
+    componentType,
   } = useChallengesAndSolutions(props);
 
   if (!content) {
@@ -28,7 +29,8 @@ const ChallengesAndSolutions = (props) => {
       <ChallengesSlider
         isMobileResolution={isMobileResolution}
         isSlider={isSlider}
-        type={data.type}
+        componentType={componentType}
+        type={type}
       >
         {content.map(({
           title,

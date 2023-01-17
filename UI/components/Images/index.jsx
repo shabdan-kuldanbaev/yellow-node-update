@@ -10,6 +10,7 @@ import { useImages } from './utils/useImages';
 import styles from './styles.module.scss';
 
 const Images = (props) => {
+  console.log('props: ', props);
   const {
     type,
     view,
