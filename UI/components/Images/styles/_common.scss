@@ -19,14 +19,16 @@
   }
 
   .image {
-    max-height: 532px;
-    max-width: 995px;
+    height: 532px;
+    width: 995px;
+    margin: 0 auto;
+    padding-bottom: 24px;
 
     @include phone {
       width: auto;
 
       &:first-child {
-        max-height: 470px;
+        height: 470px;
       }
     }
   }

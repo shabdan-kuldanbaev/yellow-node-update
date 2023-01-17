@@ -6,7 +6,13 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import ChallengesSlider from 'UI/components/ChallengesSlider';
 // import ChallengesSlider from 'components/CaseStudiesCommon/ChallengesAndSolutions/ChallengesSlider';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
+import Illustration from 'UI/components/Illustration';
+import Typography from 'UI/components/Typography';
 import { useChallengesAndSolutions } from './utils/useChallengesAndSolutions';
+import {
+  PAGE_WITH_TRANSPERENT_IMAGE,
+  PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES,
+} from './utils/helpers';
 import styles from './styles.module.scss';
 
 const ChallengesAndSolutions = (props) => {
@@ -48,15 +54,19 @@ const ChallengesAndSolutions = (props) => {
             {(!imageUrl && title) && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.infoContainer, styles.separatedTitle)}>
-                  <h2 className={styles.title}>
+                  <Typography
+                    variant="h2"
+                    className={styles.title}
+                  >
                     {title}
-                  </h2>
+                  </Typography>
                 </div>
               </Animated>
             )}
             <div className={cn(styles.infoContainer, { [styles.centrefy]: imageUrl })}>
               {subImageUrl && (
-                <img
+                <Illustration
+                  transparent={PAGE_WITH_TRANSPERENT_IMAGE.includes(type)}
                   className={styles.subImage}
                   src={subImageUrl}
                   alt={title}
@@ -65,18 +75,24 @@ const ChallengesAndSolutions = (props) => {
               {imageUrl && subtitle && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
-                    <p className={cn(styles.subtitle, styles[`subtitle-${index + 1}`])}>
+                    <Typography
+                      variant="p"
+                      className={cn(styles.subtitle, styles[`subtitle-${index + 1}`])}
+                    >
                       {subtitle}
-                    </p>
+                    </Typography>
                   </div>
                 </Animated>
               )}
               {imageUrl && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
-                    <h2 className={cn(styles.title, styles[`title-${index + 1}`])}>
+                    <Typography
+                      variant="h2"
+                      className={cn(styles.title, styles[`title-${index + 1}`])}
+                    >
                       {title}
-                    </h2>
+                    </Typography>
                   </div>
                 </Animated>
               )}
@@ -106,13 +122,15 @@ const ChallengesAndSolutions = (props) => {
             {imageUrl && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={styles.images}>
-                  <img
+                  <Illustration
+                    transparent={PAGE_WITH_TRANSPERENT_IMAGE.includes(type)}
                     className={styles.image}
                     src={imageUrl}
                     alt={title}
                   />
                   {imagesBundles.map((bundleUrl, imagesBundlesIndex) => (
-                    <img
+                    <Illustration
+                      transparent={PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES.includes(type)}
                       className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                       src={bundleUrl}
                       alt=""
@@ -123,7 +141,8 @@ const ChallengesAndSolutions = (props) => {
               </Animated>
             )}
             {!imageUrl && imagesBundles.map((bundleUrl, imagesBundlesIndex) => (
-              <img
+              <Illustration
+                transparent={PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES.includes(type)}
                 className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                 src={bundleUrl}
                 key={`bundles-images/${bundleUrl}`}

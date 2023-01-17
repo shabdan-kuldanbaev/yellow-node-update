@@ -4,7 +4,9 @@ import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
 import Images from 'UI/components/Images';
 import Typography from 'UI/components/Typography';
+import Illustration from 'UI/components/Illustration';
 import { useImageSection } from './utils/useImageSection';
+import { PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES } from './utils/helpers';
 import styles from './styles.module.scss';
 
 const ImagesSection = (props) => {
@@ -21,7 +23,8 @@ const ImagesSection = (props) => {
       className={cn(styles[type], styles[data.view], styles.container)}
     >
       {imagesUrl?.map((imgUrl) => (
-        <img
+        <Illustration
+          transparent={PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES.includes(type)}
           className={styles.bundleImage}
           src={imgUrl}
           alt=""

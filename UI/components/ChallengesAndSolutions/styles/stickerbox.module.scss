@@ -2,6 +2,11 @@
   .special {
     margin-bottom: 0;
 
+    .subImage {
+      width: 54px;
+      height: 80px;
+    }
+
     &:first-child {
       .infoContainer {
         margin-top: -120px;
@@ -21,6 +26,18 @@
         @include phone {
           transform: none;
         }
+      }
+
+      .imageBundle {
+        width: 551px;
+        height: 82px;
+      }
+    }
+
+    &:last-child {
+      .imageBundle {
+        width: 160px;
+        height: 260px;
       }
     }
 
@@ -113,20 +130,26 @@
 
   .contentContainer {
     .image {
-      height: unset;
-      width: unset;
+      width: 318px;
+      height: 650px;
       overflow: visible;
     }
 
     &:not(.special) > div:last-child {
       position: relative;
 
+      .image {
+        width: 318px;
+        height: 650px;
+      }
+
       .imageBundle {
         position: absolute;
         z-index: 1;
 
         &:nth-child(2) {
-          max-width: 138px;
+          width: 138px;
+          height: 72px;
           top: 0;
           right: 0;
           transform: translate(23%, 105%);
@@ -138,13 +161,14 @@
         }
 
         &:nth-child(3) {
-          max-width: 186px;
+          width: 186px;
+          height: 162px;
           left: 0;
           bottom: 0;
-          transform: translate(-45%, -20%);
+          transform: translate(-45%, -25%);
 
           @include tablet {
-            transform: translate(-20%, -20%);
+            transform: translate(-20%, -25%);
           }
 
           @include phone {

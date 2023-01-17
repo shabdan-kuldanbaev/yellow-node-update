@@ -1,16 +1,16 @@
 import get from 'lodash/get';
-import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import { getFileUrl } from 'utils/helper';
 
 export const useBackgroundImages = ({ data, type }) => {
   const images = get(data, 'images');
 
-  const imagesWithUrl = images?.map((image) => getOptimizedContentfulImage(
-    getFileUrl(image),
+  const imagesWithUrl = images?.map(
+    (image) => getFileUrl(image),
     {
       fm: 'png',
       fl: 'png8',
     },
-  ));
+  );
 
   return {
     type,

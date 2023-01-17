@@ -1,8 +1,10 @@
 .stickerbox {
   &.secondSectionView {
+    padding-bottom: 24px;
+
     .image {
-      max-width: 1200px;
-      max-height: unset;
+      width: 1200px;
+      height: 695px;
       margin: 0 auto;
   
       &:not(:first-child) {
@@ -10,8 +12,8 @@
       }
   
       @include tablet {
-        max-width: 995px;
-        max-height: 532px;
+        width: 538px;
+        height: 695px;
 
         &:first-child {
           display: none;
@@ -23,7 +25,8 @@
       }
   
       @include phone {
-        max-width: 345px;
+        width: 345px;
+        height: 479px;
       }
     }
   }

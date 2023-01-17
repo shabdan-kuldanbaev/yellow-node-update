@@ -3,8 +3,14 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Typography from 'UI/components/Typography';
+import Illustration from 'UI/components/Illustration';
 import { ProjectLink } from './ProjectLink';
 import { useDefaultIntro } from './utils/useDefaultIntro';
+import {
+  PAGE_WITH_TRANSPERENT_LOGO,
+  PAGE_WITH_TRANSPERENT_IMAGE,
+  PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES,
+} from './utils/helpers';
 import styles from './styles.module.scss';
 
 const DefaultIntro = (props) => {
@@ -32,7 +38,9 @@ const DefaultIntro = (props) => {
       <div className={styles.introSection}>
         <div className={styles.projectInfoContainer}>
           {appLogoUrl && (
-            <img
+            <Illustration
+              priority
+              transparent={PAGE_WITH_TRANSPERENT_LOGO.includes(type)}
               className={styles.logo}
               src={appLogoUrl}
               alt={appLogoUrl}
@@ -68,14 +76,18 @@ const DefaultIntro = (props) => {
           )}
         </div>
         <div className={styles.imageContainer}>
-          <img
+          <Illustration
+            priority
+            transparent={PAGE_WITH_TRANSPERENT_IMAGE.includes(type)}
             className={styles.image}
             src={appBackgroundImageUrl}
             alt={appBackgroundImageUrl}
           />
         </div>
         {imagesBundlesWithUrls.map((bundleUrl) => (
-          <img
+          <Illustration
+            priority
+            transparent={PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES.includes(type)}
             className={styles.bundleImage}
             src={bundleUrl}
             alt={title}

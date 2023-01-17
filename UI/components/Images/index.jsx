@@ -4,9 +4,11 @@ import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import Animated from 'components/Common/Animated';
+import Illustration from 'UI/components/Illustration';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { useImages } from './utils/useImages';
+import { PAGE_WITH_TRANSPERENT_IMAGE } from './utils/helpers';
 import styles from './styles.module.scss';
 
 const Images = (props) => {
@@ -24,7 +26,7 @@ const Images = (props) => {
 
   return (
     <Animated
-      delay={100}
+      delay={50}
       {...ANIMATION_CASE_STUDY_PROPS}
     >
       <div className={cn(
@@ -40,7 +42,8 @@ const Images = (props) => {
             type={ANIMATED_TYPE.isCSS}
             intersectedClasses={cn({ [styles.active]: index })}
           >
-            <img
+            <Illustration
+              transparent={PAGE_WITH_TRANSPERENT_IMAGE.includes(type)}
               className={styles.image}
               src={imageUrl}
               alt={imageUrl}

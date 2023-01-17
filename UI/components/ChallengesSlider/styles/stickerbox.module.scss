@@ -1,6 +1,8 @@
 .stickerbox {
+  padding-bottom: 20px;
+
   :global(.swiper-pagination) {
-    bottom: 0px;
+    bottom: -5px;
   }
 
   .swiperBullet {

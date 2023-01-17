@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import Illustration from 'UI/components/Illustration';
 import { useBackgroundImages } from './utils/useBackgroundImages';
 import styles from './styles.module.scss';
 
@@ -17,7 +18,7 @@ const BackgroundImages = (props) => {
   return (
     <div className={cn(styles[type])}>
       {imagesWithUrl.map((imageUrl) => (
-        <img
+        <Illustration
           src={imageUrl}
           alt={imageUrl}
         />

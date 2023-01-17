@@ -140,10 +140,12 @@
     @include centered;
 
     object-fit: cover;
-    width: 578px;
+    width: 100%;
+    height: 100%;
 
     @include phone {
       width: 343px;
+      height: 354px;
     }
   }
 
