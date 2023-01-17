@@ -122,7 +122,6 @@
     max-height: 650px;
     display: block;
     object-fit: contain;
-    filter: $shadow-filter;
 
     @include tablet {
       min-width: 317px;
@@ -130,7 +129,6 @@
     }
 
     @include phone {
-      filter: $shadow-filter-phone;
       max-height: 500px;
     }
   }

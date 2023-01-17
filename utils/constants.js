@@ -461,6 +461,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.devOpsDevelopment]: 'Still have questions?',
   [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
+  [CASE_STUDIES.stickerbox]: 'Let’s move forward',
 };
 
 export const CONTACT_FORM_SECOND_TITLES = {

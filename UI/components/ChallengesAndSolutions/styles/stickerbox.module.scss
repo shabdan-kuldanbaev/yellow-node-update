@@ -26,11 +26,11 @@
 
     .infoContainer {
       .title {
-        color: $white;
+        color: $gray0;
       }
 
       p {
-        color: rgba($white, 0.4);
+        color: $gray400;
       }
     }
 
@@ -104,6 +104,10 @@
         }
       }
     }
+
+    @include phone {
+      margin-bottom: 32px;
+    }
   }
 
   .contentContainer {
@@ -111,8 +115,6 @@
       height: unset;
       width: unset;
       overflow: visible;
-      filter: drop-shadow(-33.7256px 22.4837px 89.935px rgba(23, 23, 23, 0.15))
-        drop-shadow(-16.8628px 11.2419px 44.9675px rgba(23, 23, 23, 0.25));
     }
 
     &:not(.special) > div:last-child {
@@ -123,13 +125,13 @@
         z-index: 1;
 
         &:nth-child(2) {
-          max-width: 132px;
+          max-width: 182px;
           top: 0;
           right: 0;
-          transform: translate(50%, 85%);
+          transform: translate(23%, 40%);
 
-          @include macbook-twelve {
-            transform: translate(20%, 70%);
+          @include phone {
+            transform: translate(23%, 23%);
           }
         }
 
@@ -142,8 +144,25 @@
           @include tablet {
             transform: translate(-20%, -12%);
           }
+
+          @include phone {
+            transform: translate(-20%, 5%);
+          }
         }
       }
     }
+  }
+
+  .swiperBullet {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    border-radius: 100%;
+    border: 1px solid $white;
+  }
+
+  .swiperBulletActive {
+    background-color: $white;
   }
 }

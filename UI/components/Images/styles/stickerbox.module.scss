@@ -1,0 +1,26 @@
+.stickerbox {
+  .image {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &:not(:first-child) {
+      display: none;
+    }
+
+    @include tablet {
+      max-width: 995px;
+    
+      &:first-child {
+        display: none;
+      }
+
+      &:last-child {
+        display: block;
+      }
+    }
+
+    @include phone {
+      max-width: 345px;
+    }
+  }
+}

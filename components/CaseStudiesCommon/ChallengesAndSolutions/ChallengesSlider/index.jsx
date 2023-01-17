@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SwiperSlide } from 'swiper/react';
-import CustomSwiper from 'UI/containers/CustomSwiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { SwiperNavigation } from 'UI/components/SwiperNavigation';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 import { getSwiperParams } from './utils/challengesSliderHelper';
 import styles from '../styles.module.scss';
@@ -18,15 +20,12 @@ const ChallengesSlider = ({
   const swiperParams = getSwiperParams(type);
 
   return (
-    <CustomSwiper
-      {...swiperParams}
-      isShowNavigation={isSpecialSwiper}
-      navigationClassName={styles.navigation}
-    >
+    <Swiper {...swiperParams}>
       {children.map((child, index) => (
         <SwiperSlide key={index}>{child}</SwiperSlide>
       ))}
-    </CustomSwiper>
+      {isSpecialSwiper && <SwiperNavigation className={styles.navigation} />}
+    </Swiper>
   );
 };
 
