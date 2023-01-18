@@ -252,6 +252,11 @@ export { default as instagramWhite } from './outlined/instagramWhite.svg';
 export { default as linkedinWhite } from './outlined/linkedinWhite.svg';
 export { default as mediumWhite } from './outlined/mediumWhite.svg';
 export { default as twitterWhite } from './outlined/twitterWhite.svg';
+export { default as behanceOutlined } from './outlined/behanceOutlined.svg';
+export { default as instagramOutlined } from './outlined/instagramOutlined.svg';
+export { default as linkedInOultined } from './outlined/linkedInOutlined.svg';
+export { default as mediumOutlined } from './outlined/mediumOutlined.svg';
+export { default as twitterOutlined } from './outlined/twitterOutlined.svg';
 
 /* Outlined Finance */
 export { default as bankNote } from './outlined/bankNote.svg';
