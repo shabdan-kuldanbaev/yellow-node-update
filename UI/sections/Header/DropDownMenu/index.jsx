@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SubMenuItem from 'UI/sections/Header/SubMenuItem';
+import Typography from 'UI/components/Typography';
+import Animated from 'UI/containers/Animated';
+import { ANIMATED_TYPE, SUB_NAVIGATION_KEYS } from 'utils/constants';
 import { useDropDownMenu } from './useDropDownMenu';
 import styles from './styles.module.scss';
 
@@ -10,12 +13,15 @@ const DropDownMenu = (props) => {
     isLightTheme,
     isDropMenuOpened,
     isPageScrolledDown,
-    handleOnClick,
+    handleOnSubMenuClick,
+    handleOnLinkClick,
+    activeSubMenu,
+    subNavigationItems,
     subNavigationLinks,
     closeMobileMenu,
   } = useDropDownMenu(props);
 
-  if (!subNavigationLinks) {
+  if (!subNavigationItems) {
     return null;
   }
 
@@ -26,25 +32,39 @@ const DropDownMenu = (props) => {
       [styles.closed]: !isDropMenuOpened,
     })}
     >
-      <div className={styles.dropDownNavContainer}>
-        {subNavigationLinks.map(({
+      <div className={styles.dropDownItemsContainer}>
+        {subNavigationItems.map(({
           title,
-          subtitle,
-          slug: subMenuSlug,
-          items,
+          key,
         }) => (
-          <SubMenuItem
-            key={`link/${subMenuSlug}`}
-            isLightTheme={isLightTheme}
-            isPageScrolledDown={isPageScrolledDown}
-            closeMobileMenu={closeMobileMenu}
-            handleOnClick={handleOnClick(subMenuSlug)}
-            subtitle={subtitle}
-            title={title}
-            items={items}
-            subMenuSlug={subMenuSlug}
-          />
+          <Typography
+            className={cn(styles.subMenuItem, { [styles.subMenuItemActive]: activeSubMenu === key })}
+            onClick={handleOnSubMenuClick(key)}
+            variant="span"
+          >
+            {title}
+          </Typography>
         ))}
+      </div>
+      <div className={cn(styles.dropDownLinksContainer, styles[activeSubMenu])}>
+        <Animated
+          type={ANIMATED_TYPE.isFade}
+          open
+        >
+          {subNavigationLinks[activeSubMenu].map(({ title, subtitle, slug }) => (
+            <SubMenuItem
+              key={`link/${title}`}
+              isLightTheme={isLightTheme}
+              isPageScrolledDown={isPageScrolledDown}
+              closeMobileMenu={closeMobileMenu}
+              handleOnClick={handleOnLinkClick}
+              activeSubMenu={activeSubMenu}
+              subtitle={subtitle}
+              title={title}
+              subMenuSlug={slug}
+            />
+          ))}
+        </Animated>
       </div>
     </div>
   );
