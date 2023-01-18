@@ -66,6 +66,7 @@ export const NAV_LINKS = [
     routes.aiDevelopment.slug,
     routes.crossPlatformDevelopmentServices.slug,
     routes.dataScienceDevelopment.slug,
+    routes.tradingSoftwareDevelopment.slug,
     routes.prototypingServices.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,

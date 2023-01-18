@@ -299,6 +299,12 @@ export const routes = {
     dynamicPath: '/data-science-development-company',
     slug: 'data-science-development-company',
   },
+  tradingSoftwareDevelopment: {
+    title: 'Custom Trading Software Development Services',
+    path: '/trading-software-development',
+    dynamicPath: '/trading-software-development',
+    slug: 'trading-software-development',
+  },
   prototypingServices: {
     title: 'Mobile App Prototyping Services',
     path: '/prototyping-services',
