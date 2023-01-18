@@ -9,7 +9,7 @@ import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
 import { useNavItem } from './useNavItem';
 import styles from './styles.module.scss';
 
-const DropDownMenu = dynamic(() => import('UI/sections/Header/DropDownMenu'));
+const MobileDropDownMenu = dynamic(() => import('UI/sections/Header/MobileDropDownMenu'));
 
 export const NavItem = (props) => {
   const {
@@ -80,7 +80,7 @@ export const NavItem = (props) => {
           type={ANIMATED_TYPE.expandByHeight}
           open={isSubMenuExpanded}
         >
-          <DropDownMenu
+          <MobileDropDownMenu
             isLightTheme={isLightTheme}
             isDropMenuOpened={isSubMenuExpanded}
             isPageScrolledDown={isPageScrolledDown}
