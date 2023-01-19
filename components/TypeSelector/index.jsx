@@ -1,8 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { selectTypes } from 'redux/selectors/portfolio';
 import Animated from 'components/Common/Animated';
 import SelectorElement from 'components/PortfolioCommon/SelectorElement';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
@@ -10,9 +8,7 @@ import { SELECTOR_ELEMENT_TYPES } from 'components/PortfolioCommon/SelectorEleme
 import { SWIPER_CONFIG } from '.config';
 import styles from './styles.module.scss';
 
-function TypeSelector({ selectedType, onSelectedTypeChange }) {
-  const typeList = useSelector(selectTypes);
-
+function TypeSelector({ selectedType, onSelectedTypeChange, typeList }) {
   const handleTypeChange = (type) => () => {
     onSelectedTypeChange(type);
   };
