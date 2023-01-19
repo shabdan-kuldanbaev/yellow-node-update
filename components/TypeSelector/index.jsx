@@ -5,7 +5,8 @@ import Animated from 'components/Common/Animated';
 import SelectorElement from 'components/PortfolioCommon/SelectorElement';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { SELECTOR_ELEMENT_TYPES } from 'components/PortfolioCommon/SelectorElement/utils';
-import { SWIPER_CONFIG } from '.config';
+import CustomSwiper from 'UI/containers/CustomSwiper';
+import { SWIPER_PARAMS } from './utils';
 import styles from './styles.module.scss';
 
 function TypeSelector({ selectedType, onSelectedTypeChange, typeList }) {
@@ -14,27 +15,22 @@ function TypeSelector({ selectedType, onSelectedTypeChange, typeList }) {
   };
 
   return (
-    <Animated
-      {...REVEAL_ANIMATION_PROPS}
-      transitionDelay={250}
-    >
-      <Swiper {...SWIPER_CONFIG}>
-        {typeList.map((type) => (
-          <SwiperSlide
-            key={type.displayName}
-            className={styles.slide}
-          >
-            <SelectorElement
-              type={SELECTOR_ELEMENT_TYPES.typeSelector}
-              displayName={type.displayName}
-              onClick={handleTypeChange(type)}
-              selected={type === selectedType}
-              key={`WORK-TYPE/${type.slug}`}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </Animated>
+    <CustomSwiper swiperParams={SWIPER_PARAMS}>
+      {typeList.map((type) => (
+        <SwiperSlide
+          key={type.displayName}
+          className={styles.slide}
+        >
+          <SelectorElement
+            type={SELECTOR_ELEMENT_TYPES.typeSelector}
+            displayName={type.displayName}
+            onClick={handleTypeChange(type)}
+            selected={type === selectedType}
+            key={`WORK-TYPE/${type.slug}`}
+          />
+        </SwiperSlide>
+      ))}
+    </CustomSwiper>
   );
 }
 

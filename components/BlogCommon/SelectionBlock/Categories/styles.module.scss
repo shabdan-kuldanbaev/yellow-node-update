@@ -1,73 +1,32 @@
 @import 'styles/utils/mixins';
 
 .categories {
+  @include flex(row, space-between, center, wrap);
+
   line-height: 2;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  width: 60%;
+
+  // max-width: 830px;
   height: 100%;
   margin: 0;
   padding: 0;
   z-index: 2;
-
-  @include flex(row, space-between, center, wrap);
-
-  @include below-tablet {
-    @include flex(row, flex-start, center, wrap);
-  }
-
-  @include below-tablet-horizontal {
-    width: 75%;
-  }
-
-  @include phone {
-    @include flex(row, space-between, center);
-  }
-
-  @include phone {
-    width: 100%;
-
-    &::after {
-      content: '';
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 10%;
-      z-index: 2;
-      background: linear-gradient(90deg, rgba($white, 0) 0, rgba($white, 1) 100%);
-    }
-  }
 
   &::-webkit-scrollbar {
     display: none;
   }
 
   li {
-    list-style-type: none;
-    font-weight: 500;
-    font-size: 0.8438rem;
-    letter-spacing: 0.9px;
-
-    @include tablet {
-      margin-right: 10px;
-    }
-
-    @include below-tablet {
-      margin-right: 20px;
-    }
-
     @include horizontal-mobile {
       margin-right: 5px;
     }
 
-    @include phone {
-      margin: 0 20px 0 0;
-      font-size: 1.125rem;
-      color: $mine-shaft;
-      font-weight: normal;
-    }
+    list-style-type: none;
+    font-weight: 500;
+    font-size: 0.8438rem;
+    letter-spacing: 0.9px;
 
     a {
       color: $mountain-mis;
@@ -89,5 +48,24 @@
         color: $black;
       }
     }
+
+    @include tablet {
+      margin-right: 10px;
+    }
+
+    @include below-tablet {
+      margin-right: 20px;
+    }
+
+    @include phone {
+      margin: 0 20px 0 0;
+      font-size: 1.125rem;
+      color: $mine-shaft;
+      font-weight: normal;
+    }
+  }
+
+  @include below-tablet {
+    @include flex(row, flex-start, center, wrap);
   }
 }
