@@ -6,15 +6,10 @@ import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { getDocumentFields, rootUrl } from 'utils/helper';
-import {
-  CONTACT_FORM_SECOND_TITLES,
-  CONTACT_FORM_TITLES,
-  PAGES_WITH_DARK_BREADCRUMBS,
-} from 'utils/constants';
+import { PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
 import { getServicePageInfo } from './utils/servicePageHelper';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
 
 const CustomServiceContainer = ({
@@ -25,7 +20,7 @@ const CustomServiceContainer = ({
 }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
-  const { main: contentModules, hasFeedbackForm } = pageData;
+  const { main: contentModules } = pageData;
 
   const { pageMicrodata, breadcrumbs } = getServicePageInfo(type);
   const pageMetadata = { ...metaData, url: `${rootUrl}/${type}` };
@@ -66,14 +61,6 @@ const CustomServiceContainer = ({
             />
           );
         })}
-        {hasFeedbackForm && (
-          <div className={cn(styles[type], styles.feedbackContainer)}>
-            <FeedbackFormContainer
-              type={type}
-              titles={[CONTACT_FORM_TITLES[type], CONTACT_FORM_SECOND_TITLES[type]]}
-            />
-          </div>
-        )}
       </div>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
