@@ -16,6 +16,7 @@ export const ArticlesList = ({
   currentPage,
   handleOnFormSubmit,
   handleOnCloseModalWindow,
+  toggleFullscreenSubscribe,
 }) => {
   const isMobileResolution = useSelector(selectIsMobileResolutions);
 
@@ -24,17 +25,7 @@ export const ArticlesList = ({
     : ARTICLE_PREVIEW_TYPES.blog;
 
   return (
-    <div
-      className={cn(styles.articlesList, {
-        [styles.locationSubscribe]: !isSearch,
-      })}
-    >
-      {currentPage === 1 && isBlogPage && (
-        <SubscribeBlock
-          isBlog
-          handleOnSubmit={handleOnFormSubmit}
-        />
-      )}
+    <div className={cn(styles.articlesList)}>
       {articles?.map((article, index) => {
         const articleProps = getArticleProps({
           article,
@@ -44,20 +35,23 @@ export const ArticlesList = ({
         });
 
         return (
-          <ArticlePreview
-            type={articleType}
-            key={articleProps.title}
-            index={index}
-            animatioProps={articleProps.animatioProps}
-            slug={articleProps.slug}
-            title={articleProps.title}
-            category={articleProps.categoryTag}
-            introduction={articleProps.introduction}
-            image={articleProps.previewImage}
-            date={articleProps.publishedAt}
-            isSearch={isSearch}
-            handleOnCloseModalWindow={handleOnCloseModalWindow}
-          />
+          <>
+            {currentPage === 1 && isBlogPage && index === 3 && null}
+            <ArticlePreview
+              type={articleType}
+              key={articleProps.title}
+              index={index}
+              animatioProps={articleProps.animatioProps}
+              slug={articleProps.slug}
+              title={articleProps.title}
+              category={articleProps.categoryTag}
+              introduction={articleProps.introduction}
+              image={articleProps.previewImage}
+              date={articleProps.publishedAt}
+              isSearch={isSearch}
+              handleOnCloseModalWindow={handleOnCloseModalWindow}
+            />
+          </>
         );
       })}
     </div>
@@ -78,6 +72,7 @@ ArticlesList.propTypes = {
   currentPage: PropTypes.number.isRequired,
   handleOnFormSubmit: PropTypes.func,
   handleOnCloseModalWindow: PropTypes.func,
+  toggleFullscreenSubscribe: PropTypes.func,
 };
 
 export default ArticlesList;

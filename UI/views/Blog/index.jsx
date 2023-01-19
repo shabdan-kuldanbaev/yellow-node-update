@@ -110,21 +110,26 @@ const BlogContainer = ({
             className={styles.searchButton}
           />
         </PageHeader>
+
         <SelectionBlock
           toggleFullscreenSearch={toggleFullscreenSearch}
           toggleFullscreenSubscribe={toggleFullscreenSubscribe}
         />
+
         <ArticlesList
           articles={articles}
           isBlogPage
           currentPage={currentPage}
           handleOnFormSubmit={handleOnFormSubmit}
+          toggleFullscreenSubscribe
         />
+
         <Paginator
           pagesCounter={pagesCounter}
           currentPage={currentPage}
           pageSlug={ROUTES.blog.slug}
         />
+
       </FullLayout>
 
       <FullscreenSearch

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Animated from 'components/Common/Animated';
 import CustomImage from 'components/Common/CustomImage';
 import { ROUTES, CATEGORY_TAGS } from 'utils/constants';
 import { formatDate } from 'utils/helper';
+import CardContainer from 'UI/containers/CardContainer';
 import styles from './styles.module.scss';
 
 export const ArticlePreview = ({
@@ -19,7 +19,6 @@ export const ArticlePreview = ({
   index,
   isSearch,
   handleOnCloseModalWindow,
-  animatioProps,
 }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
   const { path: categoryPath, dynamicPath: categoryDynamicPath } = ROUTES.blog.getRoute(category);
@@ -53,7 +52,7 @@ export const ArticlePreview = ({
       className={cn(styles[type], { [styles.medium]: index === 0 })}
       onClick={handleOnArticleClick}
     >
-      <Animated {...animatioProps}>
+      <CardContainer className={styles.card}>
         <LinkWrapper {...articleLinkProps}>
           <CustomImage
             src={image}
@@ -101,7 +100,7 @@ export const ArticlePreview = ({
             </LinkWrapper>
           )}
         </div>
-      </Animated>
+      </CardContainer>
     </article>
   );
 };

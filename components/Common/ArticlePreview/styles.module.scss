@@ -1,5 +1,10 @@
 @import 'styles/utils/mixins';
 
+.card {
+  padding: 0;
+  @include flex(column)
+}
+
 .articlePreview {
   line-height: 1.5;
   transition: transform 0.2s ease-in-out;
@@ -29,7 +34,7 @@
 .articleTitle {
   .title {
     display: inline;
-    color: $mine-shaft;
+    color: $gray900;
     background-image: linear-gradient($turbo-100, $turbo-100);
     background-position: 0 100%;
     background-repeat: no-repeat;
@@ -46,13 +51,13 @@
 }
 
 .related {
+  @extend .articlePreview;
+
   min-width: 150px;
   flex: 1 0 calc(25% - 40px);
   margin: 0 10px;
   cursor: pointer;
-  background-color: $white;
-
-  @extend .articlePreview;
+  background-color: $gray0;
 
   &:first-child {
     margin-left: 0;
@@ -60,6 +65,60 @@
 
   &:last-child {
     margin-right: 0;
+  }
+
+  & > div {
+    border-radius: 5px;
+    height: 100%;
+
+    & > a:first-child {
+      @extend .articleImage;
+    }
+
+    .articleContent {
+      @include flex(column, space-between);
+
+      padding: 20px;
+
+      & > a {
+        color: $gray900;
+        margin-bottom: 15px;
+      }
+
+      & > a:last-child {
+        @extend .articleTitle;
+        @include fontSize(20px);
+
+        display: inline-block;
+        font-weight: 700;
+        margin: 0;
+
+        @include phone {
+          @include fontSize(16px);
+        }
+      }
+
+      .category {
+        @include fontSize(14px);
+
+        @include macbook-twelve {
+          @include fontSize(12px);
+        }
+
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: color 0.4s ease;
+
+        &:hover {
+          color: $jumbo;
+          transition: color 0.4s ease;
+        }
+      }
+
+      @include tablet {
+        padding: 20px;
+      }
+    }
   }
 
   @include tablet {
@@ -84,104 +143,27 @@
       margin-bottom: 0;
     }
   }
-
-  & > div {
-    border-radius: 5px;
-    height: 100%;
-    box-shadow: $article-preview-box-shadow;
-
-    & > a:first-child {
-      @extend .articleImage;
-    }
-
-    .articleContent {
-      padding: 20px;
-
-      @include flex(column);
-
-      @include tablet {
-        padding: 20px;
-      }
-
-      & > a {
-        color: $mine-shaft;
-        margin-bottom: 15px;
-      }
-
-      & > a:last-child {
-        display: inline-block;
-        font-weight: 700;
-        margin: 0;
-
-        @include fontSize(20px);
-
-        @extend .articleTitle;
-
-        @include phone {
-          @include fontSize(16px);
-        }
-      }
-
-      .category {
-        font-weight: 600;
-        text-transform: uppercase;
-        transition: color 0.4s ease;
-
-        @include fontSize(14px);
-
-        @include macbook-twelve {
-          @include fontSize(12px);
-        }
-
-        &:hover {
-          color: $jumbo;
-          transition: color 0.4s ease;
-        }
-      }
-    }
-  }
 }
 
 .blogCard {
-  width: calc(25% - (15px * 2));
-  margin: 15px;
-
-  @include flex(column);
-
   @extend .articlePreview;
-
-  @include macbook-fifteen {
-    width: calc(25% - 2 * 15px);
-  }
-
-  @include tablet {
-    width: calc(33.33% - 2 * 15px);
-  }
-
-  @include below-tablet {
-    width: calc(50% - 2 * 15px);
-  }
-
-  @include phone {
-    margin: 15px 0;
-    width: 100%;
-  }
+  @include flex(column);
 }
 
 .blogArticleContent {
+  @include flex(column);
+
   padding: 30px;
   flex-grow: 1;
   position: relative;
 
-  @include flex(column);
-
   .date {
+    @include fontSize(14px);
+
     margin: 0 0 10px;
     font-weight: 600;
     text-transform: uppercase;
     order: 1;
-
-    @include fontSize(14px);
 
     @include phone {
       @include fontSize(12px);
@@ -196,12 +178,14 @@
 
   .articlePreviewIntroduction {
     order: 3;
+    flex: 1 1 auto;
+    margin-top: 8px;
 
     .introduction {
-      color: $silver-chalice;
-      margin: 10px 0;
-
       @include hidden-text(ellipsis, 5);
+
+      color: $gray400;
+      margin: 10px 0;
 
       @include phone {
         display: none;
@@ -214,11 +198,11 @@
     order: 4;
 
     .category {
-      color: $silver-chalice;
+      @include fontSize(14px);
+
+      color: $gray400;
       transition: color 0.4s ease;
       text-transform: lowercase;
-
-      @include fontSize(14px);
 
       &:hover {
         color: $jumbo;
@@ -247,7 +231,6 @@
   & > div {
     border-radius: 5px;
     height: 100%;
-    box-shadow: $article-preview-box-shadow;
 
     & > a:first-child {
       @extend .articleImage;
@@ -260,8 +243,6 @@
 }
 
 .search {
-  box-shadow: $article-preview-box-shadow;
-
   @extend .blogCard;
 
   div {
@@ -278,20 +259,6 @@
 }
 
 .medium {
-  width: calc(50% - 2 * 15px);
-
-  @include tablet {
-    width: calc(66.66% - 2 * 15px);
-  }
-
-  @include below-tablet {
-    width: calc(50% - 2 * 15px);
-  }
-
-  @include phone {
-    width: 100%;
-  }
-
   .imgContainer {
     max-width: 720px;
     max-height: 426px;
