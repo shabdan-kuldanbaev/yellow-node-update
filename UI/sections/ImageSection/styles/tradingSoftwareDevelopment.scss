@@ -1,0 +1,150 @@
+.trading-software-development {
+  @include appDevelopmentContainer;
+
+  &.firstSectionView {
+    background-color: $gray900;
+    padding: 120px 0px;
+
+    [data-title] {
+      color: $gray0;
+      max-width: 750px;
+
+      @include below-tablet {
+        max-width: 450px;
+      }
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+  
+    p {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto; 
+
+      @include below-tablet {
+        max-width: 550px;
+      }
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+  
+    .imageSection {
+      flex-direction: column-reverse;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  
+    .experienceContent {
+      padding: 0;
+      margin-bottom: 48px;
+    }
+  
+    .image {
+      padding-top: 622px;
+      max-width: 994px;
+      margin: 0 auto;
+
+      @include tablet {
+        padding-top: 469px;
+        max-width: 750px;
+      }
+
+      @include below-tablet {
+        padding-top: 333px;
+        max-width: 532px;
+      }
+
+      @include phone {
+        padding-top: 214px;
+        max-width: 343px;
+      }
+    }
+
+    @include phone {
+      padding: 60px 0;
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $gray50;
+    padding: 160px 0;
+    position: relative;
+    overflow: hidden;
+
+    [data-title] {
+      text-align: left;
+
+      @include tablet {
+        max-width: 560px;
+        text-align: center;
+      }
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+
+    p {
+      max-width: 500px;
+
+      @include tablet {
+        max-width: 540px;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+
+    .imageSection {
+      flex-direction: row-reverse;
+      margin: 0 auto;
+
+
+      @include tablet {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .image {
+      position: absolute;
+      bottom: -300px;
+      left: 0;
+      width: 865px;
+      transform: rotate(-16deg);
+
+      @include tablet {
+        max-width: 765px;
+        padding-top: 525px;
+        margin: 24px auto 0;
+        position: initial;
+        transform: rotate(0);
+      }
+
+      @include below-tablet {
+        max-width: 540px;
+        padding-top: 430px;
+      }
+
+      @include phone {
+        max-width: 343px;
+        padding-top: 244px;
+      }
+    }
+
+    .experienceContent {
+      padding: 0;
+    }
+
+    @include phone {
+      padding: 60px 0;
+    }
+  }
+
+}
