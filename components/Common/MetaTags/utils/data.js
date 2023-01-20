@@ -86,6 +86,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.androidDevelopmentServices.path}`,
   },
   {
+    pageName: ROUTES.lendingSoftwareDevelopment.slug,
+    metaTitle: 'Lending Software Development Company | Yellow',
+    metaDescription: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
+    url: `${rootUrl}${ROUTES.lendingSoftwareDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.prototypingServices.slug,
     metaTitle: 'Mobile App Prototyping Services | Yellow',
     metaDescription: 'Prototyping is an important stage in mobile app development. Complete it with Yellow!',

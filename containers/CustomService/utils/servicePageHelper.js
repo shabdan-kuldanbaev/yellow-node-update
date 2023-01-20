@@ -64,6 +64,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.mvpDevelopment(),
     };
 
+  case PAGES.lendingSoftwareDevelopment:
+    return {
+      pageMicrodata: microdata.lendingSoftwareDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.lendingSoftwareDevelopment(),
+    };
+
   case PAGES.mlDevelopment:
     return {
       pageMicrodata: microdata.mlDevelopment(),
