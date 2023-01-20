@@ -1,4 +1,11 @@
 .stickerbox {
+  &.firstSectionView {
+    .image {
+      width: 995px;
+      height: 556px;
+    }
+  }
+
   &.secondSectionView {
     padding-bottom: 24px;
 
