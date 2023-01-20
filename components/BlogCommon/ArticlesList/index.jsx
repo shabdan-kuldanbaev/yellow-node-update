@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import SubscribeBlock from 'components/Common/SubscribeBlock';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
 import { ARTICLE_PREVIEW_TYPES } from 'utils/constants';
+import BlogSubscribeCard from 'UI/components/Cards/BlogSubscribeCard';
 import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
@@ -14,7 +14,6 @@ export const ArticlesList = ({
   isSearch,
   isBlogPage,
   currentPage,
-  handleOnFormSubmit,
   handleOnCloseModalWindow,
   toggleFullscreenSubscribe,
 }) => {
@@ -36,7 +35,12 @@ export const ArticlesList = ({
 
         return (
           <>
-            {currentPage === 1 && isBlogPage && index === 3 && null}
+            {/* Subscribe Card at 3rd position */}
+            {currentPage === 1
+            && isBlogPage
+            && index === 2
+            && <BlogSubscribeCard toggleFullscreenSubscribe={toggleFullscreenSubscribe} />}
+
             <ArticlePreview
               type={articleType}
               key={articleProps.title}

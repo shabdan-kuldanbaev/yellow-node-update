@@ -121,7 +121,7 @@ const BlogContainer = ({
           isBlogPage
           currentPage={currentPage}
           handleOnFormSubmit={handleOnFormSubmit}
-          toggleFullscreenSubscribe
+          toggleFullscreenSubscribe={toggleFullscreenSubscribe}
         />
 
         <Paginator

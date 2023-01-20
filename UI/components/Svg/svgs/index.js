@@ -499,3 +499,6 @@ export { default as uiUx } from './illustration/ui&ux.svg';
 export { default as webDevelopmentIllustration } from './illustration/webDevelopmentIllustration.svg';
 export { default as appstore } from './illustration/appstore.svg';
 export { default as blackFillAppstore } from './illustration/blackFillAppstore.svg';
+
+/* Processes */
+export { default as processLaunch } from './processes/Launch-1.svg';
