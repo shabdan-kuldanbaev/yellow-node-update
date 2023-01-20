@@ -16,6 +16,7 @@ const ImageSection = (props) => {
     imageUrl,
     type,
     view,
+    textParagraphs,
   } = useSectionProps(props);
 
   if (!imageUrl || !text) return null;

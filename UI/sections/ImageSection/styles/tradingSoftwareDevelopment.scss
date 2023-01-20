@@ -23,6 +23,10 @@
       max-width: 750px;
       margin: 0 auto; 
 
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
       @include below-tablet {
         max-width: 550px;
       }
@@ -30,6 +34,10 @@
       @include phone {
         max-width: 340px;
       }
+    }
+
+    .titleStyle {
+      margin-bottom: 24px;
     }
   
     .imageSection {
@@ -114,7 +122,7 @@
 
     .image {
       position: absolute;
-      bottom: -300px;
+      bottom: -335px;
       left: 0;
       width: 865px;
       transform: rotate(-16deg);
