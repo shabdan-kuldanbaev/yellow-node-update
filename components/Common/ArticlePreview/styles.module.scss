@@ -1,8 +1,10 @@
 @import 'styles/utils/mixins';
 
 .card {
-  padding: 0;
   @include flex(column)
+;
+
+  padding: 0;
 }
 
 .articlePreview {
@@ -216,7 +218,8 @@
   @extend .blogCard;
 
   .imgContainer {
-    max-width: 720px;
+    max-width: 100%;
+    object-position: center center;
     max-height: 426px;
     width: 100%;
     border-radius: 5px 5px 0 0;
@@ -260,7 +263,6 @@
 
 .medium {
   .imgContainer {
-    max-width: 720px;
     max-height: 426px;
     width: 100%;
     border-radius: 5px 5px 0 0;
