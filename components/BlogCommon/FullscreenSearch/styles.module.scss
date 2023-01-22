@@ -1,15 +1,57 @@
 @import 'styles/utils/mixins';
 
 .foundArticles {
-  background: transparent;
-  padding: 0 0 100px;
-  max-width: 1500px;
-  width: 100%;
-
   @include flex(column, flex-start, flex-start);
 
-  @include macbook-fifteen {
-    width: calc(100% - (2 * 55px));
+  background: transparent;
+  margin-bottom: 16px;
+  max-width: 1200px;
+  width: 100%;
+
+  .input {
+    @include fontSize(64px);
+
+    cursor: text;
+    width: 100%;
+    padding: 20px 0;
+    margin: 180px 0 0;
+    border: 0;
+    background: transparent;
+    font-weight: 600;
+    outline: none;
+    color: $black;
+    overflow-x: scroll;
+    font-family: $default-font;
+
+    &::placeholder {
+      color: $mountain-mis;
+    }
+
+    @include tablet {
+      margin-bottom: 80px;
+      width: calc(100% - 80px);
+    }
+
+    @include phone {
+      @include fontSize(32px);
+
+      padding: 0;
+      margin-bottom: 60px;
+      width: 100%;
+    }
+  }
+
+  .nothingFound {
+    margin: 0;
+    padding: 0;
+    font-size: 1.0938rem;
+    font-family: $default-font;
+    font-weight: 500;
+    color: $tundora;
+
+    @include phone {
+      line-height: 24px;
+    }
   }
 
   @include tablet {
@@ -27,52 +69,6 @@
 
     div:nth-of-type(1) {
       margin-top: 0;
-    }
-  }
-
-  .input {
-    cursor: text;
-    width: 100%;
-    padding: 20px 0;
-    margin: 180px 0 130px;
-    border: 0;
-    background: transparent;
-    font-weight: 500;
-    outline: none;
-    color: $black;
-    overflow-x: scroll;
-    font-family: $default-font;
-
-    @include fontSize(64px);
-
-    &::placeholder {
-      color: $mountain-mis;
-    }
-
-    @include tablet {
-      margin-bottom: 80px;
-      width: calc(100% - 80px);
-    }
-
-    @include phone {
-      padding: 0;
-      margin-bottom: 60px;
-      width: 100%;
-
-      @include fontSize(32px);
-    }
-  }
-
-  .nothingFound {
-    margin: 0;
-    padding: 0;
-    font-size: 1.0938rem;
-    font-family: $default-font;
-    font-weight: 500;
-    color: $tundora;
-
-    @include phone {
-      line-height: 24px;
     }
   }
 }
