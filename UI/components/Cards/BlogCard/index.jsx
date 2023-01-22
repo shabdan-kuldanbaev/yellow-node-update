@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Illustration from 'UI/components/Illustration';
 import { formatDate } from 'utils/helper';
@@ -60,6 +61,13 @@ const BlogCard = (props) => {
       </article>
     </LinkWrapper>
   );
+};
+
+BlogCard.propTypes = {
+  index: PropTypes.number,
+  categoryTag: PropTypes.node,
+  previewImageUrl: PropTypes.objectOf(PropTypes.number),
+  publishedAt: PropTypes.string,
 };
 
 export default BlogCard;

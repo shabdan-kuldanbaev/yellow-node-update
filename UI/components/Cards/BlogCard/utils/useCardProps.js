@@ -4,7 +4,6 @@ import { CATEGORY_TAGS, ROUTES } from 'utils/constants';
 
 export default (props) => {
   const {
-    type = 'blog',
     index,
     slug,
     categoryTag,
