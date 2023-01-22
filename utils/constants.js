@@ -217,7 +217,7 @@ export const HOMEPAGE_SECTION_TYPES = {
 export const CONTACTS_DATA = {
   email: 'hi@yellow.systems',
   telephoneNumbers: [
-    '+1 (415) 670-90-70',
+    '+1 (302) 213-37-98',
     '+375 (29) 311-52-49',
   ],
   city: 'Minsk',
@@ -227,27 +227,27 @@ export const CONTACTS_DATA = {
   socialMedia: [
     {
       title: 'LinkedIn',
-      type: SVG_IMAGES_TYPES.linkedinFilledWhite,
+      type: 'linkedInOultined',
       link: 'https://www.linkedin.com/company/yellow-systems',
     },
     {
       title: 'Twitter',
-      type: SVG_IMAGES_TYPES.twitterFilledWhite,
+      type: 'twitterOutlined',
       link: 'https://mobile.twitter.com/yellow_systems',
     },
     {
       title: 'Behance',
-      type: SVG_IMAGES_TYPES.behanceFilled,
+      type: 'behanceOutlined',
       link: 'https://www.behance.net/yellow_systems',
     },
     {
       title: 'Medium',
-      type: SVG_IMAGES_TYPES.mediumFilled,
+      type: 'mediumOutlined',
       link: 'https://yellow.medium.com/',
     },
     {
       title: 'Instagram',
-      type: SVG_IMAGES_TYPES.instagramFilled,
+      type: 'instagramOutlined',
       link: 'https://www.instagram.com/yellow.systems/',
     },
   ],
@@ -385,52 +385,111 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
 
-export const SUB_NAVIGATION_LINKS = {
+export const SUB_NAVIGATION_KEYS = {
+  services: 'services',
+  expertise: 'expertise',
+};
+
+export const SUB_NAVIGATION_ITEMS = {
   [NON_INTERACTIVE_LINKS.whatWeDo.slug]: [
     {
-      title: 'Web app development',
-      subtitle: 'Your website will rock the stage',
-      slug: ROUTES.customWebApp.path,
+      title: 'Services',
+      key: SUB_NAVIGATION_KEYS.services,
     },
     {
-      title: 'Mobile app development',
-      slug: ROUTES.customMobileApp.path,
-      items: [
-        { slug: ROUTES.developmentServices.path, title: 'iOS app development services' },
-        { slug: ROUTES.androidDevelopmentServices.path, title: 'Android app development services' },
-      ],
-    },
-    {
-      title: 'Custom chat app development',
-      subtitle: 'Instant communication rules',
-      slug: ROUTES.customChatApp.path,
-    },
-    {
-      title: 'UI/UX design services',
-      subtitle: 'Beautiful, smart, efficient, logical',
-      slug: ROUTES.designServices.path,
-    },
-    {
-      title: 'MVP development services',
-      subtitle: 'Minimum viable product for your idea',
-      slug: ROUTES.mvpDevelopment.path,
-    },
-    {
-      title: 'Cloud app development services',
-      subtitle: 'No physical space is occupied',
-      slug: ROUTES.cloudDevelopment.path,
-    },
-    {
-      title: 'Machine learning development services',
-      subtitle: 'Artificial intelligence at your service',
-      slug: ROUTES.mlDevelopment.path,
-    },
-    {
-      title: 'Fintech Software Development Services',
-      subtitle: 'Build a successul fintech solution',
-      slug: ROUTES.fintechDevelopment.path,
+      title: 'Expertise',
+      key: SUB_NAVIGATION_KEYS.expertise,
     },
   ],
+};
+
+export const SUB_NAVIGATION_LINKS = {
+  [NON_INTERACTIVE_LINKS.whatWeDo.slug]: {
+    [SUB_NAVIGATION_KEYS.services]: [
+      {
+        title: 'Mobile app development',
+        subtitle: 'Quality solutions for smartphones and tablets',
+        slug: ROUTES.customMobileApp.path,
+      },
+      {
+        title: 'Web app development',
+        subtitle: 'Your website will rock the stage',
+        slug: ROUTES.customWebApp.path,
+      },
+      {
+        title: 'MVP development services',
+        subtitle: 'Minimum viable product for your idea',
+        slug: ROUTES.mvpDevelopment.path,
+      },
+      {
+        title: 'iOS app development services',
+        subtitle: 'Native apps for iPhones and iPads',
+        slug: ROUTES.developmentServices.path,
+      },
+      {
+        title: 'Cloud-based app development services',
+        subtitle: 'No physical space is occupied',
+        slug: ROUTES.cloudDevelopment.path,
+      },
+      {
+        title: 'Prototyping services',
+        subtitle: 'Start with a draft',
+        slug: ROUTES.prototypingServices.path,
+      },
+      {
+        title: 'Android app development services',
+        subtitle: 'Powerful and intuitive Android apps',
+        slug: ROUTES.androidDevelopmentServices.path,
+      },
+      {
+        title: 'DevOps development services',
+        subtitle: 'Connect your software development and IT teams',
+        slug: ROUTES.devOpsDevelopment.path,
+      },
+      {
+        title: 'UI/UX design services',
+        subtitle: 'Beautiful, smart, efficient, logical',
+        slug: ROUTES.designServices.path,
+      },
+      {
+        title: 'Cross platform development services',
+        subtitle: 'Lauch your app to all platforms at once',
+        slug: ROUTES.crossPlatformDevelopmentServices.path,
+      },
+    ],
+    [SUB_NAVIGATION_KEYS.expertise]: [
+      {
+        title: 'Custom chat app development',
+        subtitle: 'Instant communication tules',
+        slug: ROUTES.customChatApp.path,
+      },
+      {
+        title: 'Machine learning development services',
+        subtitle: 'Artificial intelligence at your service',
+        slug: ROUTES.mlDevelopment.path,
+      },
+      {
+        title: 'Fintech software development Services',
+        subtitle: 'Build a successul fintech solution',
+        slug: ROUTES.fintechDevelopment.path,
+      },
+      {
+        title: 'AI software development services',
+        subtitle: 'Letting machines think',
+        slug: ROUTES.aiDevelopment.path,
+      },
+      {
+        title: 'ERP development services',
+        subtitle: 'Top-tier solutions for enterprises',
+        slug: ROUTES.erpDevelopment.path,
+      },
+      {
+        title: 'Data science development services',
+        subtitle: 'Getting insights to boost your business',
+        slug: ROUTES.dataScienceDevelopment.path,
+      },
+    ],
+  },
 };
 
 export const LINKS_WITH_SUB_NAVIGATION = [NON_INTERACTIVE_LINKS.whatWeDo.slug];
