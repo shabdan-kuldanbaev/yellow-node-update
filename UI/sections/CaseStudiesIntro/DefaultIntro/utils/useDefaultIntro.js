@@ -54,6 +54,9 @@ export const useDefaultIntro = ({
 
   const imagesBundlesWithUrls = imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
 
+  const displayProjectLink = !isMobileResolution && downloadLink;
+  const displayProjectLinkMobile = isMobileResolution && downloadLink;
+
   return {
     type,
     style,
@@ -62,10 +65,11 @@ export const useDefaultIntro = ({
     downloadLink,
     appLogoUrl,
     appBackgroundImageUrl,
-    isMobileResolution,
     title,
     subtitle,
     description,
     imagesBundlesWithUrls,
+    displayProjectLink,
+    displayProjectLinkMobile,
   };
 };

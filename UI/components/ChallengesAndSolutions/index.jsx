@@ -4,15 +4,11 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import ChallengesSlider from 'UI/components/ChallengesSlider';
-// import ChallengesSlider from 'components/CaseStudiesCommon/ChallengesAndSolutions/ChallengesSlider';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import Illustration from 'UI/components/Illustration';
 import Typography from 'UI/components/Typography';
 import { useChallengesAndSolutions } from './utils/useChallengesAndSolutions';
-import {
-  PAGE_WITH_TRANSPERENT_IMAGE,
-  PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES,
-} from './utils/helpers';
+import { PAGE_WITH_TRANSPERENT_IMAGE, PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES } from './utils/helpers';
 import styles from './styles.module.scss';
 
 const ChallengesAndSolutions = (props) => {

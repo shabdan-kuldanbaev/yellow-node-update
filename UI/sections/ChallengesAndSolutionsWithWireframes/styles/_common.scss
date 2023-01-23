@@ -1,9 +1,9 @@
 .container {
   @include caseStudyContainer;
 
-  background-color: $alabaster;
+  background-color: $gray50;
 
   &.challengesWithoutImage {
-    background-color: $white;
+    background-color: $gray0;
   }
 }

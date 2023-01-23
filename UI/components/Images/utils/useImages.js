@@ -1,6 +1,6 @@
 import get from 'lodash/get';
-import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
-import { 
+import { getImage } from 'utils/helper';
+import {
   DEFAULT_DESKTOP_HEIGHT,
   DEFAULT_MOBILE_HEIGHT,
   MOBILE_HEIGHT_LIST,
@@ -13,20 +13,13 @@ export const useImages = ({
   view,
   isMobileResolution,
 }) => {
-  const mobileHeight = MOBILE_HEIGHT_LIST[type] || DEFAULT_MOBILE_HEIGHT
-  const desktopHeight = DESKTOP_HEIGHT_LIST[type] || DESKTOP_HEIGHT_LIST;
+  const mobileHeight = MOBILE_HEIGHT_LIST[type] || DEFAULT_MOBILE_HEIGHT;
+  const desktopHeight = DESKTOP_HEIGHT_LIST[type] || DEFAULT_DESKTOP_HEIGHT;
 
   const classes = `${type}${data.images.length}`;
   const images = get(data, 'images');
-
-  const imagesUrl = images?.map((image) => getOptimizedContentfulImage(
-    getFileUrl(image),
-    {
-      height: isMobileResolution ? mobileHeight : desktopHeight,
-      fm: 'png',
-      fl: 'png8',
-    },
-  ));
+  const imageHeight = isMobileResolution ? mobileHeight : desktopHeight;
+  const imagesUrl = images?.map((image) => getImage(image));
 
   return {
     type,
@@ -36,5 +29,6 @@ export const useImages = ({
     imagesUrl,
     classes,
     isMobileResolution,
+    imageHeight,
   };
 };

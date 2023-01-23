@@ -15,7 +15,9 @@ const Wireframe = (props) => {
   }
 
   return wireframeImages.map(({
-    url, height, width,
+    url,
+    height,
+    width,
   }) => (
     <Animated
       key={url}

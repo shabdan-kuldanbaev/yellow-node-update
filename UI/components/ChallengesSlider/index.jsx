@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { SwiperNavigation } from 'UI/components/SwiperNavigation';
+import { SwiperSlide } from 'swiper/react';
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import { useChallengesSlider } from './utils/useChallengesSlider';
 import styles from './styles.module.scss';

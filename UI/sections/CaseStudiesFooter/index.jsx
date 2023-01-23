@@ -5,7 +5,8 @@ import { selectProject } from 'redux/selectors/portfolio';
 import Svg from 'UI/components/Svg';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Typography from 'UI/components/Typography';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
+import SectionTitle from 'UI/components/SectionTitle';
+import { SVG_IMAGES_TYPES, EMAIL_LINK } from 'utils/constants';
 import { socialNetworks } from './utils/data';
 import { useCaseStudiesFooter } from './utils/useCaseStudiesFooter';
 import styles from './styles.module.scss';
@@ -27,18 +28,11 @@ const CaseStudiesFooter = (props) => {
     >
       {slug && (
         <div className={styles.nextProjectContainer}>
-          <Typography
-            variant="p"
-            className={styles.subtitle}
-          >
-            Next project
-          </Typography>
-          <Typography
-            variant="p"
-            className={styles.projectName}
-          >
-            {title}
-          </Typography>
+          <SectionTitle
+            title="Next project"
+            description={title}
+            className={styles.sectionTitle}
+          />
           <LinkWrapper
             path={slug}
             className={styles.more}
@@ -60,7 +54,7 @@ const CaseStudiesFooter = (props) => {
             Not sure where to start?
           </Typography>
           <LinkWrapper
-            path="mailto:hi@yellow.systems"
+            path={EMAIL_LINK}
             className={styles.link}
             isLocalLink
             googleAnalyticProps={{

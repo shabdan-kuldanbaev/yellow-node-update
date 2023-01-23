@@ -43,7 +43,6 @@
   .sectionName {
     @include fontSize(14px, 150%);
   
-    font-family: $case-studies-font;
     font-weight: bold;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -54,7 +53,6 @@
     @include fontSize(38px, 130%);
   
     margin: 16px 0;
-    font-family: $case-studies-font;
     font-weight: bold;
     color: $gray900;
   
@@ -69,7 +67,6 @@
     @include fontSize(16px, 150%);
   
     max-width: 450px;
-    font-family: $case-studies-font;
     color: $gray400;
   
     & > p {

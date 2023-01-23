@@ -20,7 +20,7 @@ export const useChallengesAndSolutions = ({
 
   const isSlider = [CASE_STUDIES_TYPES.challengesSlider, CASE_STUDIES_TYPES.challengesSpecialSlider].includes(data.type);
 
-  const content = useMemo(() => contentModules?.map((document) => {
+  const content = contentModules?.map((document) => {
     const {
       title,
       images,
@@ -30,24 +30,8 @@ export const useChallengesAndSolutions = ({
       contentList = [],
     } = getDocumentFields(document);
 
-    const imageUrl = getOptimizedContentfulImage(
-      getFileUrl(get(images, '[0]')),
-      {
-        height: isMobileResolution ? 500 : 812,
-        fm: 'png',
-        fl: 'png8',
-      },
-    );
-
-    const subImageUrl = getOptimizedContentfulImage(
-      getFileUrl(get(images, '[1]', '')),
-      {
-        height: 100,
-        fm: 'png',
-        fl: 'png8',
-      },
-    );
-
+    const imageUrl = getFileUrl(get(images, '[0]'));
+    const subImageUrl = getFileUrl(get(images, '[1]', ''));
     const imagesBundlesWithUrl = imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
 
     return {
@@ -59,7 +43,7 @@ export const useChallengesAndSolutions = ({
       subImageUrl,
       imagesBundles: imagesBundlesWithUrl,
     };
-  }), [data.contentModules, isMobileResolution]);
+  });
 
   return {
     type,

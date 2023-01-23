@@ -12,7 +12,11 @@
     flex-grow: 1;
   }
 
-  .subtitle {
+  .sectionTitle {
+    margin-bottom: 0;
+  }
+
+  [data-title] {
     @include fontSize(16px, 120%);
 
     margin: 0 0 20px;
@@ -22,7 +26,7 @@
     text-transform: uppercase;
   }
 
-  .projectName {
+  [data-description] {
     @include fontSize(38px, 130%);
 
     margin: 0 0 50px;

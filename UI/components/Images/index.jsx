@@ -12,12 +12,12 @@ import { PAGE_WITH_TRANSPERENT_IMAGE } from './utils/helpers';
 import styles from './styles.module.scss';
 
 const Images = (props) => {
-  console.log('props: ', props);
   const {
     type,
     view,
     imagesUrl,
     classes,
+    imageHeight,
   } = useImages(props);
 
   if (!imagesUrl) {
@@ -36,17 +36,18 @@ const Images = (props) => {
         styles.container,
       )}
       >
-        {imagesUrl.map((imageUrl, index) => (
+        {imagesUrl.map(({ url, alt }, index) => (
           <Animated
-            key={imageUrl}
+            key={url}
             type={ANIMATED_TYPE.isCSS}
             intersectedClasses={cn({ [styles.active]: index })}
           >
             <Illustration
               transparent={PAGE_WITH_TRANSPERENT_IMAGE.includes(type)}
               className={styles.image}
-              src={imageUrl}
-              alt={imageUrl}
+              height={imageHeight}
+              src={url}
+              alt={alt}
             />
           </Animated>
         ))}

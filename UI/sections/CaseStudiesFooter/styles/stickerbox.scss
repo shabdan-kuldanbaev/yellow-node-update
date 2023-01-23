@@ -4,11 +4,11 @@
   background: $stickerBoxPrimary;
 
   .nextProjectContainer {
-    .subtitle {
+    [data-title] {
       color: $gray400;
     }
 
-    .projectName {
+    [data-description] {
       color: $gray0;
     }
 

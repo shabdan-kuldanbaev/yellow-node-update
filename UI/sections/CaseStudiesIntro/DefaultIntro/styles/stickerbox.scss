@@ -15,15 +15,12 @@
     }
   }
 
-  .projectTitle {
+  [data-title],
+  [data-subtitle] {
     color: $gray0;
   }
 
-  .projectSubtitle {
-    color: $gray0;
-  }
-
-  .projectDescription {
+  [data-description] {
     color: $gray400;
   }
 }

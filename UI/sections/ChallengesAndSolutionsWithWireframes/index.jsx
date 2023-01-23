@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import ChallengesAndSolutions from 'UI/components/ChallengesAndSolutions';
 import SectionTitle from 'UI/components/SectionTitle';
-import Wireframes from 'components/CaseStudiesCommon/Wireframes';
+import Wireframes from 'UI/components/Wireframes';
 import { useChallengesAndSolutionsWithWireframes } from './utils/useChallengesAndSolutionsWithWireframes';
 import styles from './styles.module.scss';
 
@@ -13,6 +13,7 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
     type,
     view,
     title,
+    images,
     subtitle,
     description,
     sectionStyle,
@@ -26,7 +27,7 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
           styles[view],
           styles.container,
           {
-            [styles.challengesWithoutImage]: data.images,
+            [styles.challengesWithoutImage]: images?.length,
           },
         )
       }

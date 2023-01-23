@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
+import Animated from 'UI/containers/Animated';
 import Typography from 'UI/components/Typography';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
-import { TitleUnderline } from './TitleUnderline';
 import { useTeamSection } from './utils/useTeamSection';
 import styles from './styles.module.scss';
 
-const TeamSection = (props) => {
+const TeamList = (props) => {
   const {
     type,
     title,
@@ -18,9 +17,11 @@ const TeamSection = (props) => {
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
       <div className={styles[type]}>
-        <Typography variant="h2" className={styles.title}>
+        <Typography
+          variant="h2"
+          className={styles.title}
+        >
           {title}
-          <TitleUnderline type={type} />
         </Typography>
         {contentList?.map((member) => (
           <Typography
@@ -44,9 +45,9 @@ const TeamSection = (props) => {
   );
 };
 
-TeamSection.propTypes = {
+TeamList.propTypes = {
   type: PropTypes.string.isRequired,
   data: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default TeamSection;
+export default TeamList;

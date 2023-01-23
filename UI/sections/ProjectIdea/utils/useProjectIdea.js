@@ -15,11 +15,11 @@ export const useProjectIdea = ({ type, data }) => {
   } = getDocumentFields(get(data, 'contentModules[1]', {}));
   const delayedAnimation = {
     ...ANIMATION_CASE_STUDY_PROPS,
-    delay: 150,
+    delay: 50,
   };
 
   const featuresProps = getDocumentFields(get(data, 'contentModules[0]'));
-  const teamSectionProps = getDocumentFields(get(data, 'contentModules[2]'));
+  const teamListProps = getDocumentFields(get(data, 'contentModules[2]'));
 
   return {
     isMobileResolution,
@@ -30,6 +30,6 @@ export const useProjectIdea = ({ type, data }) => {
     contentModules,
     delayedAnimation,
     featuresProps,
-    teamSectionProps,
+    teamListProps,
   };
 };

@@ -13,7 +13,6 @@ export const useResultsSection = ({ data, type }) => {
     view,
     title,
     description,
-    images,
     smartphoneUrl,
     appScreenUrl,
     imagesBundlesData,
@@ -26,7 +25,6 @@ export const useResultsSection = ({ data, type }) => {
   return {
     view,
     type,
-    images,
     title,
     description,
     smartphoneUrl,

@@ -1,6 +1,21 @@
 .container {
   @include caseStudyContainer;
-  @include wireframes;
 
   background-color: $gray0;
+  overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
+
+  & > div:first-of-type {
+    padding: 0 40px;
+  }
+
+  @include phone {
+    padding-left: 0;
+    padding-right: 0;
+
+    & > div:first-of-type {
+      padding: 0 15px;
+    }
+  }
 }

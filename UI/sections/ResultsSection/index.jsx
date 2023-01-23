@@ -5,16 +5,13 @@ import SectionTitle from 'UI/components/SectionTitle';
 import Video from 'components/Common/Video';
 import Illustration from 'UI/components/Illustration';
 import { useResultsSection } from './utils/useResultsSection';
-import {
-  PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES
-} from './utils/resultsHelper';
+import { PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES } from './utils/resultsHelper';
 import styles from './styles.module.scss';
 
 const ResultsSection = (props) => {
   const {
     view,
     type,
-    images,
     title,
     description,
     smartphoneUrl,
@@ -24,7 +21,7 @@ const ResultsSection = (props) => {
     isResultVideo,
   } = useResultsSection(props);
 
-  if (!images) {
+  if (!smartphoneUrl || !appScreenUrl) {
     return null;
   }
 

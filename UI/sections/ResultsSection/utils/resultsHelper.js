@@ -22,7 +22,6 @@ export const getResultProps = ({
     title,
     description,
     view,
-    images,
     smartphoneUrl,
     appScreenUrl,
     imagesBundlesData,

@@ -4,6 +4,53 @@
   overflow: hidden;
   position: relative;
 
+  [data-title] {
+    @include fontSize(46px, 120%);
+
+    margin: 0 0 16px;
+    font-weight: bold;
+
+    @include phone {
+      @include fontSize(24px);
+    }
+  }
+
+  [data-subtitle] {
+    @include fontSize(20px, 150%);
+
+    margin: 0 0 8px;
+    font-weight: bold;
+
+    @include phone {
+      @include fontSize(16px);
+    }
+  }
+
+  [data-description] {
+    @include fontSize(16px, 150%);
+
+    max-width: 520px;
+    margin: 0 0 40px;
+
+    @include tablet {
+      margin: 0 auto 24px;
+    }
+  }
+
+  [data-title],
+  [data-subtitle],
+  [data-description] {
+    text-align: left;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  .sectionTitle {
+    margin-bottom: 0;
+  }
+
   .projectInfoContainer {
     @include flex(column, center);
 
@@ -26,39 +73,6 @@
       width: 60px;
       height: 60px;
       margin-bottom: 24px;
-    }
-  }
-
-  .projectTitle {
-    @include fontSize(46px, 120%);
-
-    margin: 0 0 16px;
-    font-weight: bold;
-
-    @include phone {
-      @include fontSize(24px);
-    }
-  }
-
-  .projectSubtitle {
-    @include fontSize(20px, 150%);
-
-    margin: 0 0 8px;
-    font-weight: bold;
-
-    @include phone {
-      @include fontSize(16px);
-    }
-  }
-
-  .projectDescription {
-    @include fontSize(16px, 150%);
-
-    max-width: 520px;
-    margin: 0 0 40px;
-
-    @include tablet {
-      margin: 0 auto 24px;
     }
   }
 
@@ -126,10 +140,6 @@
     width: 580px;
     height: 596px;
     z-index: 1;
-
-    @include tablet {
-      height: calc(100vw - 100px);
-    }
 
     @include phone {
       max-width: 450px;

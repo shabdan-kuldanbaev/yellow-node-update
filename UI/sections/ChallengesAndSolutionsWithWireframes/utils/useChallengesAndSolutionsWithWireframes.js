@@ -8,13 +8,14 @@ export const useChallengesAndSolutionsWithWireframes = ({ data, type }) => {
   );
   const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
   const {
-    title, subtitle, description, view,
+    title, subtitle, description, view, images,
   } = data;
 
   return {
     data,
     type,
     view,
+    images,
     title,
     subtitle,
     description,

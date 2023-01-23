@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import KeyFeatures from 'UI/components/KeyFeatures';
-import TeamSection from 'UI/components/TeamSection';
+import TeamList from 'UI/components/TeamList';
 import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
@@ -21,7 +21,7 @@ const ProjectIdea = (props) => {
     contentModules,
     delayedAnimation,
     featuresProps,
-    teamSectionProps,
+    teamListProps,
   } = useProjectIdea(props);
 
   return (
@@ -69,9 +69,9 @@ const ProjectIdea = (props) => {
           />
         </Animated>
       )}
-      {teamSectionProps && (
-        <TeamSection
-          data={teamSectionProps}
+      {teamListProps && (
+        <TeamList
+          data={teamListProps}
           type={type}
         />
       )}

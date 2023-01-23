@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
+import SectionTitle from 'UI/components/SectionTitle';
 import { ProjectLink } from './ProjectLink';
 import { useDefaultIntro } from './utils/useDefaultIntro';
 import {
@@ -22,11 +23,12 @@ const DefaultIntro = (props) => {
     downloadLink,
     appLogoUrl,
     appBackgroundImageUrl,
-    isMobileResolution,
     title,
     subtitle,
     description,
     imagesBundlesWithUrls,
+    displayProjectLink,
+    displayProjectLinkMobile,
   } = useDefaultIntro(props);
 
   return (
@@ -46,28 +48,14 @@ const DefaultIntro = (props) => {
               alt={appLogoUrl}
             />
           )}
-          <Typography
-            variant="h1"
-            className={styles.projectTitle}
-          >
-            {title}
-          </Typography>
-          {subtitle && (
-            <Typography
-              variant="p"
-              className={styles.projectSubtitle}
-            >
-              {subtitle}
-            </Typography>
-          )}
-          <Typography
-            variant="p"
-            className={styles.projectDescription}
-          >
-            {description}
-          </Typography>
-          {/* TODO rewrite via the grid */}
-          {(!isMobileResolution && downloadLink) && (
+          <SectionTitle
+            title={title}
+            titleVariant="h1"
+            subtitle={subtitle}
+            description={description}
+            className={styles.sectionTitle}
+          />
+          {displayProjectLink && (
             <ProjectLink
               type={type}
               downloadLink={downloadLink}
@@ -94,7 +82,7 @@ const DefaultIntro = (props) => {
             key={`intro-images-bundles/${bundleUrl}`}
           />
         ))}
-        {(isMobileResolution && downloadLink) && (
+        {displayProjectLinkMobile && (
           <ProjectLink
             type={type}
             downloadLink={downloadLink}

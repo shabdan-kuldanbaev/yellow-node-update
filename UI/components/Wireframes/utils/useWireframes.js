@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { getImage } from 'utils/helper';
-import { MOBILE_IMAGE_SIZE, DEFAULT_IMAGE_SIZE } from './herlpers';
-import { IMAGE_SIZES } from './config';
+import { MOBILE_IMAGE_SIZE, DEFAULT_IMAGE_SIZE, IMAGE_SIZES } from './herlpers';
 
 export const useWireframes = ({ images, type }) => {
   const isMobileResolution = useSelector(selectIsMobileResolutions);
@@ -12,9 +11,9 @@ export const useWireframes = ({ images, type }) => {
 
     const height = isMobileResolution ? MOBILE_IMAGE_SIZE : IMAGE_SIZES[type] || DEFAULT_IMAGE_SIZE;
 
-    const scaleCoefficient = height / imageData.height;
+    const scale = height / imageData.height;
 
-    const width = Math.trunc(imageData.width * scaleCoefficient);
+    const width = Math.trunc(imageData.width * scale);
 
     return {
       url: imageData.url,
