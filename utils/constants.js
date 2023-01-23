@@ -447,6 +447,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.customChatApp,
   PAGES.designServices,
   PAGES.discoveryPhase,
+  PAGES.tradingSoftwareDevelopment,
 ];
 
 export const CONTACT_FORM_TITLES = {

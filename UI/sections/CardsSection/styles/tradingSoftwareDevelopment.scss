@@ -94,6 +94,13 @@
     }
   }
   
+  &.secondSectionView,
+  &.thirdSectionView {
+    svg {
+      width: 64px;
+    }
+  }
+
   &.fifthSectionView,
   &.sixthSectionView {
     .contentWrapper {
