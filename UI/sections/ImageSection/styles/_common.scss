@@ -1,3 +1,7 @@
+.container {
+  @include appDevelopmentContainer;
+}
+
 .imageSection {
   @include flex(row, space-between, center);
 

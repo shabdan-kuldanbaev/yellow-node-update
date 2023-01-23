@@ -16,13 +16,12 @@ const ImageSection = (props) => {
     imageUrl,
     type,
     view,
-    textParagraphs,
   } = useSectionProps(props);
 
   if (!imageUrl || !text) return null;
 
   return (
-    <section className={cn(styles[type], styles[view])}>
+    <section className={cn(styles[type], styles[view], styles.container)}>
       <div className={styles.imageSection}>
         <Animated {...REVEAL_ANIMATION_PROPS}>
           <div
