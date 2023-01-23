@@ -141,16 +141,16 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
       />
     );
 
-  case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeatures:
-    return <AppFeatures {...props} />;
+  // case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeatures:
+  //   return <AppFeatures {...props} />;
 
-  case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeaturesPromo:
-    return (
-      <AppFeatures
-        isPromoImage
-        {...props}
-      />
-    );
+  // case APP_DEVELOPMENT_TYPES.appDevelopmentAppFeaturesPromo:
+  //   return (
+  //     <AppFeatures
+  //       isPromoImage
+  //       {...props}
+  //     />
+  //   );
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentPlainTextSection:
     return <PlainTextSection {...props} />;

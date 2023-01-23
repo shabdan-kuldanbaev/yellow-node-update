@@ -1,0 +1,89 @@
+.lending-software-development {
+  &.firstSectionView {
+    @extend .blackSection;
+
+    [data-swiper-button] {
+      @include darkSliderButton;
+    }
+
+    .title {
+      max-width: 775px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+          margin-right: 0;
+        }
+      }
+    }
+
+    svg {
+      width: 64px;
+    }
+  } 
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    .title {
+      max-width: 750px;
+    }
+
+    .card {
+      @extend .cardWithVerticalLine;
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    [data-title] {
+      max-width: 745px;
+    }
+  }
+
+  &.sixthSectionView,
+  &.fifthSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+    }
+  }
+
+  &.fifthSectionView {
+    [data-read-more] {
+      display: block;
+    }
+
+    p {
+      margin-top: auto;
+    }
+  }
+
+  &.sixthSectionView {
+    @extend .greySection;
+
+    span {
+      margin-top: auto;
+      color: $gray900;
+    }
+  }
+}
