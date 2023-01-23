@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import CustomImage from 'components/Common/CustomImage';
 import { ROUTES, CATEGORY_TAGS } from 'utils/constants';
 import { formatDate } from 'utils/helper';
 import CardContainer from 'UI/containers/CardContainer';
+import Illustration from 'UI/components/Illustration';
 import styles from './styles.module.scss';
 
 export const ArticlePreview = ({
@@ -54,13 +54,13 @@ export const ArticlePreview = ({
     >
       <CardContainer className={styles.card}>
         <LinkWrapper {...articleLinkProps}>
-          <CustomImage
+          <Illustration
             src={image}
             alt={title}
             layout="responsive"
             {...imageSizes}
             scale={2}
-            containerClasses={styles.imgContainer}
+            className={styles.imgContainer}
           />
         </LinkWrapper>
         <div className={styles.articleContent}>

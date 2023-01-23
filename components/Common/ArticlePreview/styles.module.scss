@@ -61,6 +61,12 @@
   cursor: pointer;
   background-color: $gray0;
 
+  .imgContainer {
+    img {
+      object-fit: cover;
+    }
+  }
+
   &:first-child {
     margin-left: 0;
   }
