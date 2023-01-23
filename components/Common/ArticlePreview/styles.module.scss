@@ -250,6 +250,7 @@
 
   div {
     border-radius: 5px;
+    flex: 1;
 
     & > a:first-child {
       @extend .articleImage;
@@ -288,6 +289,18 @@
           display: none;
         }
       }
+    }
+  }
+
+  &.search {
+    grid-column: auto !important;
+
+    .imgContainer {
+      display: none;
+    }
+
+    .introduction {
+      display: block !important;
     }
   }
 }
