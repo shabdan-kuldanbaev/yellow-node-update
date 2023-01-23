@@ -219,7 +219,7 @@ export const HOMEPAGE_SECTION_TYPES = {
 export const CONTACTS_DATA = {
   email: 'hi@yellow.systems',
   telephoneNumbers: [
-    '+1 (415) 670-90-70',
+    '+1 (302) 213-37-98',
     '+375 (29) 311-52-49',
   ],
   city: 'Minsk',
@@ -229,27 +229,27 @@ export const CONTACTS_DATA = {
   socialMedia: [
     {
       title: 'LinkedIn',
-      type: SVG_IMAGES_TYPES.linkedinFilledWhite,
+      type: 'linkedInOultined',
       link: 'https://www.linkedin.com/company/yellow-systems',
     },
     {
       title: 'Twitter',
-      type: SVG_IMAGES_TYPES.twitterFilledWhite,
+      type: 'twitterOutlined',
       link: 'https://mobile.twitter.com/yellow_systems',
     },
     {
       title: 'Behance',
-      type: SVG_IMAGES_TYPES.behanceFilled,
+      type: 'behanceOutlined',
       link: 'https://www.behance.net/yellow_systems',
     },
     {
       title: 'Medium',
-      type: SVG_IMAGES_TYPES.mediumFilled,
+      type: 'mediumOutlined',
       link: 'https://yellow.medium.com/',
     },
     {
       title: 'Instagram',
-      type: SVG_IMAGES_TYPES.instagramFilled,
+      type: 'instagramOutlined',
       link: 'https://www.instagram.com/yellow.systems/',
     },
   ],
