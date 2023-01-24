@@ -1,9 +1,5 @@
 import get from 'lodash/get';
-import {
-  getDocumentFields,
-  getImage,
-  getFileUrl,
-} from 'utils/helper';
+import { getDocumentFields, getImage } from 'utils/helper';
 
 export const useImageSection = ({ data, type }) => {
   const { title, description } = data;

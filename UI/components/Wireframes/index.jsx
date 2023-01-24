@@ -16,6 +16,7 @@ const Wireframe = (props) => {
 
   return wireframeImages.map(({
     url,
+    alt,
     height,
     width,
   }) => (
@@ -41,7 +42,7 @@ const Wireframe = (props) => {
         />
         <CustomImage
           src={url}
-          alt={url}
+          alt={alt}
           layout="responsive"
           style={{
             minWidth: `${width}px`,
