@@ -4,7 +4,7 @@
 import React from 'react';
 import { routes } from 'utils/routes';
 
-// After refactoring all pages, remove this variable and check for pages
+// TODO: After refactoring all pages, remove this variable and check for pages
 export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox'];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -69,6 +69,7 @@ export const NAV_LINKS = [
     routes.aiDevelopment.slug,
     routes.crossPlatformDevelopmentServices.slug,
     routes.dataScienceDevelopment.slug,
+    routes.tradingSoftwareDevelopment.slug,
     routes.prototypingServices.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
@@ -511,6 +512,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.customChatApp,
   PAGES.designServices,
   PAGES.discoveryPhase,
+  PAGES.tradingSoftwareDevelopment,
 ];
 
 export const CONTACT_FORM_TITLES = {
@@ -522,6 +524,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions?',
+  [PAGES.tradingSoftwareDevelopment]: 'Ready to get started?',
   [PAGES.fintechDevelopment]: 'Still have questions?',
   [PAGES.erpDevelopment]: 'Still have questions?',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',

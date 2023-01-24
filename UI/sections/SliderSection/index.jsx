@@ -19,6 +19,7 @@ SwiperCore.use([
 const SliderSection = ({ sectionData, type }) => {
   const {
     title,
+    subtitle,
     description,
     slides,
     params,
@@ -33,6 +34,7 @@ const SliderSection = ({ sectionData, type }) => {
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
+          subtitle={subtitle}
           description={description}
           titleStyle={styles.titleStyle}
         />

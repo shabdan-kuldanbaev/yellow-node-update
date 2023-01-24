@@ -468,6 +468,9 @@ export { default as digit3 } from './filled/digit3.svg';
 export { default as digit4 } from './filled/digit4.svg';
 export { default as digit5 } from './filled/digit5.svg';
 export { default as digit6 } from './filled/digit6.svg';
+export { default as digit7 } from './filled/digit7.svg';
+export { default as digit8 } from './filled/digit8.svg';
+export { default as digit9 } from './filled/digit9.svg';
 export { default as yellowCheckMark } from './filled/yellowCheckMark.svg';
 
 /* Logo Yellow */

@@ -153,6 +153,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.dataScienceDevelopment.path}`,
   },
   {
+    pageName: ROUTES.tradingSoftwareDevelopment.slug,
+    metaTitle: 'Custom Trading Software Development Services | Yellow',
+    metaDescription: 'If you plan to start trading software development, we can help. Let’s discuss your idea in detail.',
+    url: `${rootUrl}${ROUTES.tradingSoftwareDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.privacyPolicy.slug,
     metaTitle: 'Privacy Policy | Yellow',
     metaDescription: 'Privacy Policy',

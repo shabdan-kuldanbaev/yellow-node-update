@@ -5,12 +5,14 @@ import { ANIMATED_TYPE } from 'utils/constants';
 export const getSliderProps = (data) => {
   const {
     title,
+    subtitle,
     description,
     contentModules,
   } = getDocumentFields(
     data,
     [
       'title',
+      'subtitle',
       'description',
       'contentModules',
     ],
@@ -56,6 +58,7 @@ export const getSliderProps = (data) => {
 
   return {
     title,
+    subtitle,
     description,
     slides,
     params,
