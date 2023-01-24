@@ -30,6 +30,10 @@
     padding-top: 75%;
     border-radius: 5px 5px 0 0;
   }
+
+  img {
+    object-fit: cover;
+  }
 }
 
 .articleTitle {
@@ -59,12 +63,6 @@
   margin: 0 10px;
   cursor: pointer;
   background-color: $gray0;
-
-  .imgContainer {
-    img {
-      object-fit: cover;
-    }
-  }
 
   &:first-child {
     margin-left: 0;
