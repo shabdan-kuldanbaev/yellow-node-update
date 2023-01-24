@@ -18,26 +18,25 @@
 }
 
 .articlesList {
-  margin: 30px -12px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin: 32px 0 0;
   max-width: 100%;
 
-  @include flex(row, initial, initial, wrap);
+  & > *:first-child {
+    grid-column: 1 / span 2;
 
-  @include macbook-fifteen {
-    margin: 20px -15px 0;
-  }
-
-  @include phone {
-    flex-direction: column;
-    margin: 0;
-    padding-top: 40px;
-
-    & > article:first-of-type {
-      margin-top: 15px;
+    @include below-tablet {
+      grid-column: 1;
     }
   }
 
-  @include small-phone {
-    margin-top: 20px;
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include below-tablet {
+    grid-template-columns: 1fr;
   }
 }
