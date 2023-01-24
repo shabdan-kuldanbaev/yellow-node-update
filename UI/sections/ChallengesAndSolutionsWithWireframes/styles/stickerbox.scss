@@ -1,0 +1,9 @@
+.stickerbox {
+  [data-description] {
+    max-width: 550px;
+
+    @include phone {
+      max-width: 345px;
+    }
+  }
+}

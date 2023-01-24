@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/router';
 import { addThousandsSeparators } from 'utils/helper';
 import { budget as budgetData, marks } from './data';
 
@@ -25,7 +24,6 @@ export default (props) => {
 
   const [budget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
-  const router = useRouter();
 
   const sliderOptions = {
     ...budgetData,
@@ -35,7 +33,9 @@ export default (props) => {
     marks,
   };
 
-  const submitHandler = handleSubmit((values) => {
+  const submitHandler = handleSubmit((values, event) => {
+    event.preventDefault();
+
     const attachments = selectedFiles.map((file) => file.signedUrl);
     sendEmail({
       ...values,
@@ -51,8 +51,6 @@ export default (props) => {
         email: '',
         description: '',
       });
-
-      router.push('/');
     }
   });
 
@@ -68,5 +66,6 @@ export default (props) => {
     isBudgetSlider,
     isValid,
     contactFormError,
+    isSubmitSuccessful,
   };
 };

@@ -4,6 +4,9 @@
 import React from 'react';
 import { routes } from 'utils/routes';
 
+// After refactoring all pages, remove this variable and check for pages
+export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox'];
+
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
@@ -168,6 +171,7 @@ export const SVG_IMAGES_TYPES = {
   attachment: 'attachment',
   opensenseTitleBorder: 'opensenseTitleBorder',
   checkMark: 'checkMark',
+  check: 'check',
   iPhone: 'iPhone',
   iPad: 'iPad',
 };
@@ -219,7 +223,7 @@ export const HOMEPAGE_SECTION_TYPES = {
 export const CONTACTS_DATA = {
   email: 'hi@yellow.systems',
   telephoneNumbers: [
-    '+1 (415) 670-90-70',
+    '+1 (302) 213-37-98',
     '+375 (29) 311-52-49',
   ],
   city: 'Minsk',
@@ -229,27 +233,27 @@ export const CONTACTS_DATA = {
   socialMedia: [
     {
       title: 'LinkedIn',
-      type: SVG_IMAGES_TYPES.linkedinFilledWhite,
+      type: 'linkedInOultined',
       link: 'https://www.linkedin.com/company/yellow-systems',
     },
     {
       title: 'Twitter',
-      type: SVG_IMAGES_TYPES.twitterFilledWhite,
+      type: 'twitterOutlined',
       link: 'https://mobile.twitter.com/yellow_systems',
     },
     {
       title: 'Behance',
-      type: SVG_IMAGES_TYPES.behanceFilled,
+      type: 'behanceOutlined',
       link: 'https://www.behance.net/yellow_systems',
     },
     {
       title: 'Medium',
-      type: SVG_IMAGES_TYPES.mediumFilled,
+      type: 'mediumOutlined',
       link: 'https://yellow.medium.com/',
     },
     {
       title: 'Instagram',
-      type: SVG_IMAGES_TYPES.instagramFilled,
+      type: 'instagramOutlined',
       link: 'https://www.instagram.com/yellow.systems/',
     },
   ],
@@ -526,6 +530,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
   [PAGES.prototypingServices]: 'Get a detailed estimate of your project',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
+  [CASE_STUDIES.stickerbox]: 'Let’s move forward',
 };
 
 export const CONTACT_FORM_SECOND_TITLES = {
@@ -575,3 +580,5 @@ export const INDEX_FILES = [
   '/index.html',
   '/index.php',
 ];
+
+export const EMAIL_LINK = 'hi@yellow.systems';

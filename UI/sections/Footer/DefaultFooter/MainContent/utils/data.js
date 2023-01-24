@@ -9,7 +9,7 @@ export const footerData = [
         subtitle: '44 Tehama St San Francisco, CA 94105',
       },
       {
-        subtitle: '+1 (415) 670-90-70',
+        subtitle: '+1 (302) 213-37-98',
         path: 'tel:+14156709070',
         type: 'phone',
       },

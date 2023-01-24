@@ -15,6 +15,7 @@ const PageHeader = ({
   breadcrumbsTheme,
   updatedAt,
   type,
+  children,
 }) => (
   <>
     <Breadcrumbs
@@ -32,6 +33,7 @@ const PageHeader = ({
             </p>
           )}
           <h1>{title}</h1>
+          {children}
         </Animated>
       </div>
     )}
@@ -51,6 +53,7 @@ PageHeader.propTypes = {
   breadcrumbs: PropTypes.instanceOf(Array),
   titleStyles: PropTypes.string,
   breadcrumbsStyles: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default PageHeader;

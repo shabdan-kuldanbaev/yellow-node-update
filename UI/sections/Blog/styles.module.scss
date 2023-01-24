@@ -29,36 +29,37 @@
       width: 23% !important;
 
       &:first-child {
-        width: 48% !important;
+        width: 47% !important;
 
-        p {
-          display: none;
-        }
+        picture {
+          height: 384px;
 
-        @include tablet {
-          p {
-            display: block;
+          @include tablet {
+            height: 270px;
           }
         }
 
-        @include below-tablet {
+        @include phone {
           width: 100% !important;
         }
       }
 
       @include tablet {
-        width: 50% !important;
+        width: 47% !important;
       }
 
-      @include below-tablet {
+      @include phone {
         width: 100% !important;
       }
     }
   }
 
   .titleStyle {
+    margin: 0 auto 32px;
+
     [data-description] {
       max-width: 560px;
+      margin: 0;
     }
   }
 

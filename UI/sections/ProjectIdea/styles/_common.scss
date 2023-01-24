@@ -1,0 +1,84 @@
+.container {
+  @include caseStudyContainer;
+  @include flex(column, center, center);
+
+  padding: 120px;
+
+  .mobileAdditionalInformation {
+    flex-direction: column;
+
+    & > div {
+      margin-top: 40px;
+      margin-right: 0 !important;
+    }
+  }
+
+  .contentContainer {
+    @include flex(row, center, center);
+  
+    width: 100%;
+    padding-bottom: 120px;
+  
+    @include tablet {
+      @include flex(column, center, center);
+
+      padding: 0;
+    }
+  }
+  
+  .descriptionContainer {
+    @include flex(column, center);
+  
+    max-width: 630px;
+    margin-left: 135px;
+  
+    @include tablet {
+      order: 1;
+      max-width: 100%;
+      margin: 0;
+      text-align: center;
+    }
+  }
+  
+  .sectionName {
+    @include fontSize(14px, 150%);
+  
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $gray400;
+  }
+  
+  .title {
+    @include fontSize(38px, 130%);
+  
+    margin: 16px 0;
+    font-weight: bold;
+    color: $gray900;
+  
+    @include phone {
+      @include fontSize(24px, 130%);
+  
+      margin: 0 0 8px;
+    }
+  }
+  
+  .description {
+    @include fontSize(16px, 150%);
+  
+    max-width: 450px;
+    color: $gray400;
+  
+    & > p {
+      margin: 0;
+    }
+  }
+  
+  .additionalInfoContainer {
+    @include flex;
+  
+    @include phone {
+      @include flex(column);
+    }
+  }
+}
