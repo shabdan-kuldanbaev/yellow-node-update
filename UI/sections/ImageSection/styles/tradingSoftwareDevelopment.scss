@@ -83,6 +83,7 @@
 
     [data-title] {
       text-align: left;
+      margin: 0 auto;
 
       @include tablet {
         max-width: 560px;
