@@ -1,8 +1,7 @@
 @import 'styles/utils/mixins';
 
 .card {
-  @include flex(column)
-;
+  @include flex(column);
 
   padding: 0;
 }

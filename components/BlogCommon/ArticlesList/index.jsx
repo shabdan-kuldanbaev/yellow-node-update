@@ -65,7 +65,6 @@ export const ArticlesList = ({
 ArticlesList.defaultProps = {
   isSearch: false,
   isBlogPage: false,
-  handleOnFormSubmit: () => {},
   handleOnCloseModalWindow: () => {},
 };
 
@@ -74,7 +73,6 @@ ArticlesList.propTypes = {
   isSearch: PropTypes.bool,
   isBlogPage: PropTypes.bool,
   currentPage: PropTypes.number.isRequired,
-  handleOnFormSubmit: PropTypes.func,
   handleOnCloseModalWindow: PropTypes.func,
   toggleFullscreenSubscribe: PropTypes.func,
 };

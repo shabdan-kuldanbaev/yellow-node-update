@@ -8,11 +8,10 @@ import { SELECTOR_ELEMENT_TYPES } from 'components/PortfolioCommon/SelectorEleme
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import { SWIPER_PARAMS } from './utils';
 import styles from './styles.module.scss';
+import useTypeSelectorProps from './utils/useTypeSelectorProps';
 
-function TypeSelector({ selectedType, onSelectedTypeChange, typeList }) {
-  const handleTypeChange = (type) => () => {
-    onSelectedTypeChange(type);
-  };
+function TypeSelector(props) {
+  const { selectedType, handleTypeChange, typeList } = useTypeSelectorProps(props);
 
   return (
     <CustomSwiper swiperParams={SWIPER_PARAMS}>
