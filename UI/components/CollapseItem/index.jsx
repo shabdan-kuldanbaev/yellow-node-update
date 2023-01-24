@@ -40,15 +40,17 @@ const CollapseItem = (props) => {
           <span />
         </div>
       </div>
-      <Animated
-        type={ANIMATED_TYPE.expandByHeight}
-        open={isAnswerOpened}
-      >
-        <Typography className={styles.answer}>
-          {faq.answer}
-        </Typography>
-        <ContentfulParser document={faq.longAnswer} />
-      </Animated>
+      <div className={styles.answerWrapper}>
+        <Animated
+          type={ANIMATED_TYPE.expandByHeight}
+          open={isAnswerOpened}
+        >
+          <Typography className={styles.answer}>
+            {faq.answer}
+          </Typography>
+          <ContentfulParser document={faq.longAnswer} />
+        </Animated>
+      </div>
     </div>
   );
 };

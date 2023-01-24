@@ -107,6 +107,11 @@ export const footerData = [
         type: 'navigation',
       },
       {
+        subtitle: 'Custom Trading Software Development Services',
+        path: ROUTES.tradingSoftwareDevelopment.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Cross-Platform App Development Services',
         path: ROUTES.crossPlatformDevelopmentServices.path,
         type: 'navigation',
