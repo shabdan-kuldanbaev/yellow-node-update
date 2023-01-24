@@ -65,13 +65,10 @@
     }
   }
 
-  .categoryLink {
-    margin-top: auto;
-  }
-
   .category {
     @include fontSize(14px, 150%);
 
+    margin-top: auto;
     font-weight: 600;
     text-transform: uppercase;
     transition: color 0.4s ease;

@@ -10,7 +10,6 @@ const BlogCard = (props) => {
   const {
     index,
     articlePath,
-    categoryPath,
     imageUrl,
     imageSizes,
     publishedAt,
@@ -48,15 +47,9 @@ const BlogCard = (props) => {
               {introduction}
             </p>
           )}
-          <LinkWrapper
-            isLocalLink
-            path={categoryPath}
-            className={styles.categoryLink}
-          >
-            <span className={styles.category}>
-              {hashLinks}
-            </span>
-          </LinkWrapper>
+          <span className={styles.category}>
+            {hashLinks}
+          </span>
         </div>
       </article>
     </LinkWrapper>
