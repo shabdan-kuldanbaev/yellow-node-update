@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import PageIntroSection from 'UI/sections/PageIntroSection';
 import PlainTextSection from 'UI/sections/PlainTextSection';
+import FeedbackSection from 'UI/sections/FeedbackSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -167,6 +168,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
     return <DownloadSection {...props} />;
+
+  case APP_DEVELOPMENT_TYPES.feedback:
+    return <FeedbackSection {...props} />;
 
   default:
     return null;
