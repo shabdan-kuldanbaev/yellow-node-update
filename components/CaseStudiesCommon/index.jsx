@@ -16,48 +16,79 @@ import { StorySection } from 'components/CaseStudiesCommon/StorySection';
 import { EventSection } from 'components/CaseStudiesCommon/EventSection';
 import CaseStudyOverlayProcess from 'components/CaseStudiesCommon/CaseStudyOverlayProcess';
 import CaseStudyPrototype from 'components/CaseStudiesCommon/CaseStudyPrototype';
-import { CASE_STUDIES_TYPES } from 'utils/constants';
+import { CASE_STUDIES_TYPES, REFACTORED_CASE_STUDIES_PAGES } from 'utils/constants';
+
+import IntroRefactored from 'UI/sections/CaseStudiesIntro';
+import ProjectIdeaRefactored from 'UI/sections/ProjectIdea';
+import ResultsSectionRefactored from 'UI/sections/ResultsSection';
+import ImagesSectionRefactored from 'UI/sections/ImagesSection';
+import WireframesSectoinRefactored from 'UI/sections/WireframesSectoin';
+import SpecialChallengesAndSolutionsRefactored from 'UI/sections/SpecialChallengesAndSolutions';
+import ChallengesAndSolutionsWithWireframesRefactored from 'UI/sections/ChallengesAndSolutionsWithWireframes';
 
 const CaseStudiesCommon = (props) => {
-  switch (props.data.type) {
-  case CASE_STUDIES_TYPES.intro:
-    return <Intro {...props} />;
-  case CASE_STUDIES_TYPES.projectIdea:
-    return <ProjectIdea {...props} />;
-  case CASE_STUDIES_TYPES.challenges:
-  case CASE_STUDIES_TYPES.challengesSlider:
-  case CASE_STUDIES_TYPES.challengesSpecialSlider:
-    return <ChallengesAndSolutionsWithWireframes {...props} />;
-  case CASE_STUDIES_TYPES.specialChallenges:
-    return <SpecialChallengesAndSolutions {...props} />;
-  case CASE_STUDIES_TYPES.wireframe:
-    return <WireframesSection {...props} />;
-  case CASE_STUDIES_TYPES.appFeatures:
-    return <AppFeatures {...props} />;
-  case CASE_STUDIES_TYPES.image:
-    return <ImagesSection {...props} />;
-  case CASE_STUDIES_TYPES.results:
-    return <ResultsSection {...props} />;
-  case CASE_STUDIES_TYPES.parallax:
-    return <Parallax {...props} />;
-  case CASE_STUDIES_TYPES.design:
-    return <DesignSection {...props} />;
-  case CASE_STUDIES_TYPES.features:
-    return <FeaturesSection {...props} />;
-  case CASE_STUDIES_TYPES.story:
-    return <StorySection {...props} />;
-  case CASE_STUDIES_TYPES.caseStudyEvent:
-    return <EventSection {...props} />;
-  case CASE_STUDIES_TYPES.fullscreenImage:
-    return <FullScreenImages {...props} />;
-  case CASE_STUDIES_TYPES.works:
-    return <WorksSection {...props} />;
-  case CASE_STUDIES_TYPES.processOverlay:
-    return <CaseStudyOverlayProcess {...props} />;
-  case CASE_STUDIES_TYPES.prototype:
-    return <CaseStudyPrototype {...props} />;
-  default:
-    return null;
+  if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
+    switch (props.data.type) {
+    case CASE_STUDIES_TYPES.intro:
+      return <IntroRefactored {...props} />;
+    case CASE_STUDIES_TYPES.projectIdea:
+      return <ProjectIdeaRefactored {...props} />;
+    case CASE_STUDIES_TYPES.results:
+      return <ResultsSectionRefactored {...props} />;
+    case CASE_STUDIES_TYPES.image:
+      return <ImagesSectionRefactored {...props} />;
+    case CASE_STUDIES_TYPES.wireframe:
+      return <WireframesSectoinRefactored {...props} />;
+    case CASE_STUDIES_TYPES.specialChallenges:
+      return <SpecialChallengesAndSolutionsRefactored {...props} />;
+    case CASE_STUDIES_TYPES.challenges:
+    case CASE_STUDIES_TYPES.challengesSlider:
+    case CASE_STUDIES_TYPES.challengesSpecialSlider:
+      return <ChallengesAndSolutionsWithWireframesRefactored {...props} />;
+    default:
+      return null;
+    }
+  } else {
+    switch (props.data.type) {
+    case CASE_STUDIES_TYPES.intro:
+      return <Intro {...props} />;
+    case CASE_STUDIES_TYPES.projectIdea:
+      return <ProjectIdea {...props} />;
+    case CASE_STUDIES_TYPES.challenges:
+    case CASE_STUDIES_TYPES.challengesSlider:
+    case CASE_STUDIES_TYPES.challengesSpecialSlider:
+      return <ChallengesAndSolutionsWithWireframes {...props} />;
+    case CASE_STUDIES_TYPES.specialChallenges:
+      return <SpecialChallengesAndSolutions {...props} />;
+    case CASE_STUDIES_TYPES.wireframe:
+      return <WireframesSection {...props} />;
+    case CASE_STUDIES_TYPES.appFeatures:
+      return <AppFeatures {...props} />;
+    case CASE_STUDIES_TYPES.image:
+      return <ImagesSection {...props} />;
+    case CASE_STUDIES_TYPES.results:
+      return <ResultsSection {...props} />;
+    case CASE_STUDIES_TYPES.parallax:
+      return <Parallax {...props} />;
+    case CASE_STUDIES_TYPES.design:
+      return <DesignSection {...props} />;
+    case CASE_STUDIES_TYPES.features:
+      return <FeaturesSection {...props} />;
+    case CASE_STUDIES_TYPES.story:
+      return <StorySection {...props} />;
+    case CASE_STUDIES_TYPES.caseStudyEvent:
+      return <EventSection {...props} />;
+    case CASE_STUDIES_TYPES.fullscreenImage:
+      return <FullScreenImages {...props} />;
+    case CASE_STUDIES_TYPES.works:
+      return <WorksSection {...props} />;
+    case CASE_STUDIES_TYPES.processOverlay:
+      return <CaseStudyOverlayProcess {...props} />;
+    case CASE_STUDIES_TYPES.prototype:
+      return <CaseStudyPrototype {...props} />;
+    default:
+      return null;
+    }
   }
 };
 

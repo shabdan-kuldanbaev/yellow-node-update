@@ -132,11 +132,15 @@ export const addHttpsToUrl = (url) => (/^\/\//.test(url) ? `https:${url}` : url)
 export const getFileUrl = (file) => addHttpsToUrl(get(file, 'fields.file.url', ''));
 
 export const getImage = (file) => {
-  const imageData = get(file, 'fields.file', '');
+  const imageData = get(file, 'fields', '');
+
+  const url = addHttpsToUrl(imageData.file.url);
+  const alt = imageData.description || url;
 
   return {
-    ...imageData.details.image,
-    url: addHttpsToUrl(imageData.url),
+    ...imageData.file.details.image,
+    alt,
+    url,
   };
 };
 

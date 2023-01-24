@@ -1,0 +1,9 @@
+.container {
+  @include caseStudyContainer;
+
+  background-color: $gray0;
+
+  .secondDescription {
+    display: none;
+  }
+}
