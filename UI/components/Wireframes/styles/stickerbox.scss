@@ -1,0 +1,22 @@
+.stickerbox {
+  &::before,
+  &::after {
+    background: linear-gradient(270deg, $stickerBoxPrimary 0%, rgba($stickerBoxPrimary, 0) 100%);
+  }
+
+  &::before {
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
+  /* stylelint-disable-next-line */
+  .animatedContainer {
+    .image {
+      max-height: 480px;
+      margin-left: 95px;
+
+      @include phone {
+        margin-left: 50px;
+      }
+    }
+  }
+}

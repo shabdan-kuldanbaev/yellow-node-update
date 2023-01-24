@@ -60,7 +60,7 @@ const CaseStudiesContainer = ({ introSection }) => {
         <div className={styles[slug] || styles.feedBackContainer}>
           <FeedbackFormContainer
             type={slug}
-            title={CONTACT_FORM_TITLES[slug]}
+            titles={[CONTACT_FORM_TITLES[slug]]}
           />
         </div>
       )}
