@@ -2,6 +2,9 @@
 
 .form {
   @include flex(column);
+
+  position: relative;
+  overflow: hidden;
 }
 
 .inputsWrapper {
@@ -29,8 +32,4 @@
 
 .formButton {
   align-self: center;
-}
-
-.alertText {
-  text-align: center;
 }

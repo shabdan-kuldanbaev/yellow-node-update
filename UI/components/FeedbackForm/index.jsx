@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 import TextField from 'UI/components/TextField';
 import Animated from 'UI/containers/Animated';
 import Button from 'UI/components/Button';
-import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { selectError } from 'redux/selectors/contact';
 import { sendEmail } from 'redux/actions/contact';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import { selectError, selectIsFormDataSent, selectIsFormPending } from 'redux/selectors/contact';
 import Upload from './Upload';
+import FormAlert from './FormAlert';
 import BudgetSlider from './BudgetSlider';
 import useFormProps from './utils/useFormProps';
 import styles from './styles.module.scss';
@@ -23,10 +24,9 @@ const FeedbackForm = (props) => {
     isBudgetSlider,
     setFiles,
     selectedFiles,
-    isValid,
     type,
     contactFormError,
-    isSubmitSuccessful,
+    isFormPending,
   } = useFormProps(props);
 
   return (
@@ -34,6 +34,7 @@ const FeedbackForm = (props) => {
       className={cn(styles.form, styles[type])}
       onSubmit={submitHandler}
     >
+      <FormAlert />
       <Animated {...REVEAL_ANIMATION_PROPS}>
         <div className={styles.inputsWrapper}>
           <TextField
@@ -74,15 +75,9 @@ const FeedbackForm = (props) => {
           There was an error trying to send your message. Please try again later
         </span>
       )}
-      {isSubmitSuccessful && (
-        <div className={styles.alertText}>
-          <p>We have received your request</p>
-          <p>We will back in a flash</p>
-        </div>
-      )}
       <Button
         type="submit"
-        disabled={!isValid}
+        disabled={isFormPending}
         className={styles.formButton}
       >
         Contact Us
@@ -104,6 +99,10 @@ FeedbackForm.propTypes = {
 };
 
 export default connect(
-  (state) => ({ contactFormError: selectError(state) }),
+  (state) => ({
+    contactFormError: selectError(state),
+    isDataSubmitted: selectIsFormDataSent(state),
+    isFormPending: selectIsFormPending(state),
+  }),
   { sendEmail },
 )(FeedbackForm);
