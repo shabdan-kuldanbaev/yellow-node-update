@@ -29,7 +29,7 @@
   }
 }
 
-.cardCentered {
+@mixin cardCentered {
   @include flex(column, center, center);
 
   * {
@@ -132,4 +132,10 @@
       flex: 1 1 auto;
     }
   }
+}
+
+.cardWithTransperentBackground {
+  background: transparent;
+  border: none;
+  padding: 0;
 }

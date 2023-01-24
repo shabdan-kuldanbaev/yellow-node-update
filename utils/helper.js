@@ -90,6 +90,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.crossPlatformDevelopmentServices}`, updatedAt },
   { path: `/${PAGES.dataScienceDevelopment}`, updatedAt },
   { path: `/${PAGES.prototypingServices}`, updatedAt },
+  { path: `/${PAGES.tradingSoftwareDevelopment}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
