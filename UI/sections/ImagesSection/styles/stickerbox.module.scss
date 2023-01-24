@@ -1,0 +1,16 @@
+.stickerbox {
+  &.firstSectionView,
+  &.secondSectionView {
+    [data-description] {
+      @include phone {
+        max-width: 350px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    [data-description] {
+      max-width: 665px;
+    }
+  }
+}

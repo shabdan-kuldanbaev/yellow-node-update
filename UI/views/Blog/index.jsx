@@ -11,11 +11,16 @@ import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import Paginator from 'UI/components/Paginator';
 import FullLayout from 'components/Layout/FullLayout';
+import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
+import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
 import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
-import { PAGES, ROUTES } from 'utils/constants';
+import { PAGES, ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import useToggle from 'hooks/useToggle';
+import Svg from 'UI/components/Svg';
 import { categoriesMetaData } from './utils/data';
 import { findCategoryBySlug, findTagBySlug } from './utils/blogContainerHelper';
+import styles from './BlogContainer.module.scss';
 
 const BlogContainer = ({
   tagsList,
@@ -27,6 +32,9 @@ const BlogContainer = ({
   const articles = useSelector(selectArticles);
   const totalArticles = useSelector(selectTotalCount);
   const metaData = useSelector(selectMetaData);
+
+  const [isFullscreenSearch, toggleFullscreenSearch] = useToggle(false);
+  const [isFullscreenSubscribe, toggleFullscreenSubscribe] = useToggle(false);
 
   const {
     pathname,
@@ -92,22 +100,47 @@ const BlogContainer = ({
       <FullLayout introSection={introSection}>
         <PageHeader
           title={pageTitle || ROUTES.blog.title}
+          titleStyles={styles.title}
           breadcrumbs={breadcrumbs}
           breadcrumbsTheme="dark"
+        >
+          <Svg
+            type={SVG_IMAGES_TYPES.searchLg}
+            handleOnClick={toggleFullscreenSearch}
+            className={styles.searchButton}
+          />
+        </PageHeader>
+
+        <SelectionBlock
+          toggleFullscreenSearch={toggleFullscreenSearch}
+          toggleFullscreenSubscribe={toggleFullscreenSubscribe}
         />
-        <SelectionBlock handleOnSubmit={handleOnFormSubmit} />
+
         <ArticlesList
           articles={articles}
           isBlogPage
           currentPage={currentPage}
           handleOnFormSubmit={handleOnFormSubmit}
+          toggleFullscreenSubscribe={toggleFullscreenSubscribe}
         />
+
         <Paginator
           pagesCounter={pagesCounter}
           currentPage={currentPage}
           pageSlug={ROUTES.blog.slug}
         />
+
       </FullLayout>
+
+      <FullscreenSearch
+        isFullscreenSearch={isFullscreenSearch}
+        closeFullscreenSearch={toggleFullscreenSearch}
+      />
+      <FullscreenSubscribe
+        isFullscreenSubscribe={isFullscreenSubscribe}
+        closeFullscreenSubscribe={toggleFullscreenSubscribe}
+        handleOnSubmit={handleOnFormSubmit}
+      />
     </>
   );
 };

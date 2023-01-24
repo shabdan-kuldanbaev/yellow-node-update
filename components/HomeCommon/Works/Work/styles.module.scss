@@ -33,6 +33,16 @@
     width: 50vw;
   }
 
+  &:nth-child(odd) {
+    .link:hover {
+      background-color: $yellow500;
+    }
+
+    .link:active {
+      background-color: $yellow300;
+    }
+  }
+
   &:nth-child(even) {
     flex-direction: row;
 

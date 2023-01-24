@@ -29,7 +29,6 @@ const Work = forwardRef(({
       <Button
         href={routes.project.getRoute(slug).path}
         className={styles.link}
-        secondary
         dark={darkButtons.includes(slug)}
       >
         View Case
