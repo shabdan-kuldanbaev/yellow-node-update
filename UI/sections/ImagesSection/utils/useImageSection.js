@@ -10,10 +10,7 @@ export const useImageSection = ({ data, type }) => {
 
   const { imagesBundles } = getDocumentFields(get(data, 'contentModules[0]'), ['imagesBundles']);
 
-  const imagesTest = imagesBundles?.map((image) => getImage(image));
-  console.log('imagesTest: ', imagesTest);
-  const imagesUrl = imagesBundles?.map((image) => getFileUrl(image));
-  console.log('imagesUrl: ', imagesUrl);
+  const imagesUrl = imagesBundles?.map((image) => getImage(image));
 
   return {
     title,

@@ -22,13 +22,13 @@ const ImagesSection = (props) => {
     <section
       className={cn(styles[type], styles[data.view], styles.container)}
     >
-      {imagesUrl?.map((imgUrl) => (
+      {imagesUrl?.map(({ url, alt }) => (
         <Illustration
           transparent={PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES.includes(type)}
           className={styles.bundleImage}
-          src={imgUrl}
-          alt=""
-          key={`intro-images-bundles/${imgUrl}`}
+          src={url}
+          alt={alt}
+          key={`intro-images-bundles/${url}`}
         />
       ))}
       <SectionTitle
