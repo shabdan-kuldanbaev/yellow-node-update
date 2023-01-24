@@ -395,6 +395,7 @@ export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((p
 export const SUB_NAVIGATION_KEYS = {
   services: 'services',
   expertise: 'expertise',
+  fintech: 'fintech',
 };
 
 export const SUB_NAVIGATION_ITEMS = {
@@ -406,6 +407,10 @@ export const SUB_NAVIGATION_ITEMS = {
     {
       title: 'Expertise',
       key: SUB_NAVIGATION_KEYS.expertise,
+    },
+    {
+      title: 'Fintech',
+      key: SUB_NAVIGATION_KEYS.fintech,
     },
   ],
 };
@@ -494,6 +499,13 @@ export const SUB_NAVIGATION_LINKS = {
         title: 'Data science development services',
         subtitle: 'Getting insights to boost your business',
         slug: ROUTES.dataScienceDevelopment.path,
+      },
+    ],
+    [SUB_NAVIGATION_KEYS.fintech]: [
+      {
+        title: 'Trading platform development company',
+        subtitle: 'The way to manage investments',
+        slug: ROUTES.tradingSoftwareDevelopment.path,
       },
     ],
   },
