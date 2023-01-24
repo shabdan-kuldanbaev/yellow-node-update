@@ -26,6 +26,7 @@ const FeedbackForm = (props) => {
     isValid,
     type,
     contactFormError,
+    isSubmitSuccessful,
   } = useFormProps(props);
 
   return (
@@ -72,6 +73,12 @@ const FeedbackForm = (props) => {
         <span className={styles.errorMessage}>
           There was an error trying to send your message. Please try again later
         </span>
+      )}
+      {isSubmitSuccessful && (
+        <div className={styles.alertText}>
+          <p>We have received your request</p>
+          <p>We will back in a flash</p>
+        </div>
       )}
       <Button
         type="submit"
