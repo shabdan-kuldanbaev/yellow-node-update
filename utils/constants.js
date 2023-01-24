@@ -512,4 +512,4 @@ export const INDEX_FILES = [
   '/index.php',
 ];
 
-export const EMAIL_LINK = 'mailto:hi@yellow.systems';
+export const EMAIL_LINK = 'hi@yellow.systems';

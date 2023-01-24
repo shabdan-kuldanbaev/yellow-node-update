@@ -54,7 +54,7 @@ const CaseStudiesFooter = (props) => {
             Not sure where to start?
           </Typography>
           <LinkWrapper
-            path={EMAIL_LINK}
+            path={`mailto:${EMAIL_LINK}`}
             className={styles.link}
             isLocalLink
             googleAnalyticProps={{
