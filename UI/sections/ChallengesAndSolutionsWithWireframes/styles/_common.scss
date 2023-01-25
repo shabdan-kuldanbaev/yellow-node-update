@@ -1,9 +1,18 @@
 .container {
-  @include caseStudyContainer;
+  @include centeredBackgroundImage;
 
+  padding: 120px 40px;
   background-color: $gray50;
 
   &.challengesWithoutImage {
     background-color: $gray0;
+  }
+
+  @include tablet {
+    padding: 60px 32px;
+  }
+
+  @include phone {
+    padding: 60px 16px;
   }
 }
