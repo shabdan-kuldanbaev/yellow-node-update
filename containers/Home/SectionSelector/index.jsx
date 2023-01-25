@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
 import CardsSection from 'UI/sections/CardsSection';
+import FeedbackSection from 'UI/sections/FeedbackSection';
 
 const Portfolio = dynamic(() => import('UI/sections/Portfolio'), { ssr: false });
 const TextSection = dynamic(() => import('UI/sections/TextSection'));
@@ -76,6 +77,14 @@ const SectionSelector = ({ section, type }) => {
 
   case HOMEPAGE_SECTION_TYPES.photos:
     return <PhotoGallery sectionData={section} />;
+
+  case HOMEPAGE_SECTION_TYPES.feedback:
+    return (
+      <FeedbackSection
+        section={section}
+        type={type}
+      />
+    );
 
   default:
     return null;

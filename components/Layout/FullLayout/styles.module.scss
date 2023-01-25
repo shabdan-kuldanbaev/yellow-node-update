@@ -1,15 +1,12 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 .fullLayout {
-  max-width: $max-content-width;
+  max-width: $wide-content-width;
   margin: 0 auto;
   padding: calc(#{$header-height} + 60px) 0 100px;
   position: relative;
   overflow-x: hidden;
-
-  @include macbook-thirteen {
-    padding: calc(#{$header-height} + 60px) 80px 100px;
-  }
 
   @include tablet {
     padding: calc(#{$header-height} + 60px) 40px 100px;

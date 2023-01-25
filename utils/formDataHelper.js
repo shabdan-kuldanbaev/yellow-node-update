@@ -49,7 +49,7 @@ module.exports.sendFormData = async (req, res) => {
       },
     );
 
-    res.status(status).send(JSON.stringify(data));
+    if (status === 200) return data;
   } catch (error) {
     errorHelper.handleError({
       error,
