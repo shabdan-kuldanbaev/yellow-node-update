@@ -17,12 +17,12 @@ import { EventSection } from 'components/CaseStudiesCommon/EventSection';
 import CaseStudyOverlayProcess from 'components/CaseStudiesCommon/CaseStudyOverlayProcess';
 import CaseStudyPrototype from 'components/CaseStudiesCommon/CaseStudyPrototype';
 import { CASE_STUDIES_TYPES, REFACTORED_CASE_STUDIES_PAGES } from 'utils/constants';
-
+// Refactored section, remove old after
 import IntroRefactored from 'UI/sections/CaseStudiesIntro';
 import ProjectIdeaRefactored from 'UI/sections/ProjectIdea';
 import ResultsSectionRefactored from 'UI/sections/ResultsSection';
 import ImagesSectionRefactored from 'UI/sections/ImagesSection';
-import WireframesSectoinRefactored from 'UI/sections/WireframesSectoin';
+import WireframesSectionRefactored from 'UI/sections/WireframesSection';
 import SpecialChallengesAndSolutionsRefactored from 'UI/sections/SpecialChallengesAndSolutions';
 import ChallengesAndSolutionsWithWireframesRefactored from 'UI/sections/ChallengesAndSolutionsWithWireframes';
 import CaseFeedback from 'UI/sections/CaseFeedback';
@@ -39,7 +39,7 @@ const CaseStudiesCommon = (props) => {
     case CASE_STUDIES_TYPES.image:
       return <ImagesSectionRefactored {...props} />;
     case CASE_STUDIES_TYPES.wireframe:
-      return <WireframesSectoinRefactored {...props} />;
+      return <WireframesSectionRefactored {...props} />;
     case CASE_STUDIES_TYPES.specialChallenges:
       return <SpecialChallengesAndSolutionsRefactored {...props} />;
     case CASE_STUDIES_TYPES.challenges:
