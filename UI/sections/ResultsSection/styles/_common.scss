@@ -1,5 +1,19 @@
 .container {
-  @include caseStudyContainer;
+  padding: 120px 40px;
+  overflow: hidden;
+
+  .sectionTitle {
+    margin: 0 auto 32px;
+
+    [data-title] {
+      margin: 0 auto;
+    }
+
+    @include phone {
+      padding: 0 16px;
+      margin: 0 auto 24px;
+    }
+  }
 
   .circle {
     position: relative;
@@ -32,5 +46,9 @@
     @include phone {
       width: 225px;
     }
+  }
+
+  @include tablet {
+    padding: 60px 16px;
   }
 }
