@@ -284,6 +284,7 @@ export const CASE_STUDIES_TYPES = {
   processOverlay: 'case-study-process-overlay',
   challengesSpecialSlider: 'case-study-special-slider',
   prototype: 'case-study-prototype',
+  feedback: 'feedback',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {

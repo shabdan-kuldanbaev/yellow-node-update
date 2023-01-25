@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
 import get from 'lodash/get';
 import { selectProject } from 'redux/selectors/portfolio';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
-import { CONTACT_FORM_TITLES, PAGES } from 'utils/constants';
-import styles from './styles.module.scss';
-
-const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
+import { PAGES } from 'utils/constants';
 
 const CaseStudiesContainer = ({ introSection }) => {
   const currentProject = useSelector(selectProject);
@@ -21,7 +17,6 @@ const CaseStudiesContainer = ({ introSection }) => {
     metaTitle,
     metaDescription,
     ogImage,
-    hasFeedbackForm,
     pageTitle,
   } = getDocumentFields(
     get(currentProject, 'items[0]', {}),
@@ -48,22 +43,16 @@ const CaseStudiesContainer = ({ introSection }) => {
         page={PAGES.portfolio}
         pageMetadata={projectMetadata}
       />
-      {contentModules?.map(({ fields, sys }) => (
-        <CaseStudiesCommon
-          key={sys.id}
-          type={slug}
-          introSection={introSection}
-          data={fields}
-        />
-      ))}
-      {hasFeedbackForm && (
-        <div className={styles[slug] || styles.feedBackContainer}>
-          <FeedbackFormContainer
+      <main>
+        {contentModules?.map(({ fields, sys }) => (
+          <CaseStudiesCommon
+            key={sys.id}
             type={slug}
-            titles={[CONTACT_FORM_TITLES[slug]]}
+            introSection={introSection}
+            data={fields}
           />
-        </div>
-      )}
+        ))}
+      </main>
     </>
   );
 };
