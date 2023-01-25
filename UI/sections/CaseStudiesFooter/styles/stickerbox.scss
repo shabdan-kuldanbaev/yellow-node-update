@@ -1,32 +1,25 @@
 .stickerbox {
-  @extend .container;
-
   background: $stickerBoxPrimary;
 
-  .nextProjectContainer {
-    [data-title] {
-      color: $gray400;
-    }
-
-    [data-description] {
-      color: $gray0;
-    }
-
-    .more {
-      border: 1px solid $gray0;
-      color: $gray0;
-    }
+  [data-title] {
+    color: $gray400;
   }
 
-  .question {
+  [data-description] {
+    color: $gray0;
+  }
+
+  .more {
+    border: 1px solid $gray0;
+    color: $gray0;
+  }
+
+  .question,
+  .iconLink {
     color: $gray0;
   }
 
   .link {
     color: $gray400;
-  }
-
-  .iconLink {
-    color: $gray0;
   }
 }
