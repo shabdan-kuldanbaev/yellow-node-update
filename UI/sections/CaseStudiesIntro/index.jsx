@@ -5,6 +5,7 @@ import DefaultIntro from './DefaultIntro';
 const CaseStudiesIntro = (props) => {
   switch (props.type) {
   case CASE_STUDIES.stickerbox:
+  case CASE_STUDIES.fireaway:
     return <DefaultIntro {...props} />;
   default:
     return null;
