@@ -11,7 +11,7 @@ export const SliderComponent = withStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     border: '2px solid currentColor',
     marginTop: -8,
-    marginLeft: 0,
+    marginLeft: -10,
     '&:focus, &:hover, &$active': {
       boxShadow: '0 0 0 8px rgba(255, 230, 3, 0.16)',
     },
