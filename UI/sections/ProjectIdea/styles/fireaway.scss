@@ -1,0 +1,9 @@
+.fireaway {
+  .descriptionIntro {
+    margin-bottom: 48px;
+
+    @include below-tablet {
+      margin-bottom: 0;
+    }
+  }
+}
