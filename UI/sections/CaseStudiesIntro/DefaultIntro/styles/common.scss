@@ -1,6 +1,6 @@
 .section {
   box-sizing: border-box;
-  padding: 104px 120px 120px;
+  padding: 104px 40px 120px;
   overflow: hidden;
   position: relative;
 
@@ -161,9 +161,7 @@
   }
 
   @include tablet {
-    height: auto;
-    padding-top: 145px;
-    padding-bottom: 70px;
+    padding: 108px 32px 60px;
   }
 
   @include phone {
