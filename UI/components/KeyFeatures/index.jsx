@@ -29,7 +29,7 @@ const KeyFeatures = (props) => {
           className={styles.containerBackground}
           style={containerStyle}
         />
-        {content.map(({ title, text }, index) => (
+        {content?.map(({ title, text }, index) => (
           <Animated
             key={title}
             delay={50 * index}
