@@ -1,6 +1,6 @@
 .fireaway {
   .contentContainer {
-    @include tablet {
+    @include below-tablet {
       @include flex(column, center, center);
     }
   }
@@ -17,7 +17,7 @@
     width: 436px;
     height: 650px;
 
-    @include phone {
+    @include tablet {
       width: 324px;
       height: 483px;
     }
@@ -44,7 +44,7 @@
         width: 113px;
         height: 66px;
 
-        @include phone {
+        @include below-tablet {
           left: -3%;
         }
       }
@@ -55,7 +55,7 @@
         width: 43px;
         height: 56px;
 
-        @include phone {
+        @include below-tablet {
           bottom: -12%;
         }
       }
@@ -66,7 +66,7 @@
         width: 266px;
         height: 120px;
 
-        @include phone {
+        @include below-tablet {
           bottom: -25%;
           right: 1%;
         }
@@ -87,17 +87,7 @@
     }
   }
 
-  @include tablet {
-    .contentContainer-2 {
-      margin-left: -20px;
-    }
-
-    .contentContainer-3 {
-      margin-right: -20px;
-    }
-  }
-
-  @include tablet {
+  @include below-tablet {
     @include flex(column, center, center);
 
     .contentContainer-2,

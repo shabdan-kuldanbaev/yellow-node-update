@@ -14,7 +14,7 @@
           margin-top: 0;
         }
       }
-  
+
       .image {
         transform: translateY(-120px);
 
@@ -132,6 +132,11 @@
       width: 318px;
       height: 650px;
       overflow: visible;
+
+      @include tablet {
+        width: 200px;
+        height: 400px;
+      }
     }
 
     &:not(.special) > div:last-child {
@@ -140,6 +145,11 @@
       .image {
         width: 318px;
         height: 650px;
+
+        @include tablet {
+          width: 200px;
+          height: 400px;
+        }
       }
 
       .imageBundle {
@@ -153,9 +163,10 @@
           right: 0;
           transform: translate(23%, 105%);
 
-          @include phone {
-            width: 113px;
-            transform: translate(15%, 81%);
+          @include tablet {
+            width: 100px;
+            height: 52px;
+            transform: translate(22%, 81%);
           }
         }
 
@@ -167,7 +178,9 @@
           transform: translate(-45%, -25%);
 
           @include tablet {
-            transform: translate(-20%, -25%);
+            width: 134px;
+            height: 117px;
+            transform: translate(-40%, -35%);
           }
 
           @include phone {
