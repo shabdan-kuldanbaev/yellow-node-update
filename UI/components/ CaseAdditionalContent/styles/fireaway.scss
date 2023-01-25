@@ -1,0 +1,24 @@
+.fireaway {
+  .container {
+    .title {
+      @include tablet {
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      list-style: none;
+      padding: 0;
+    }
+
+    .listItem {
+      @include phone {
+        text-align: center;
+      }
+    }
+  }
+
+  @include tablet {
+    justify-content: center;
+  }
+}
