@@ -1,0 +1,114 @@
+.trading-software-development {
+  :global(.swiper-slide) {
+    height: 100%;
+  }
+
+  &.firstSectionView {
+    @extend .greySection;
+
+    [data-title] {
+      max-width: 740px;
+
+      @include phone {
+        max-width: 345px
+      }
+    }
+
+    .card {
+      @extend .cardWithVerticalLine;
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    [data-title] {
+      @include phone {
+        max-width: 300px
+      }
+    }
+
+    .contentWrapper {
+      max-width: 1200px
+    }
+  }
+  
+  &.thirdSectionView {
+    @extend .blackSection;
+
+    [data-title] {
+      @include phone {
+        max-width: 300px
+      }
+    }
+
+    [data-description] {
+      max-width: 810px;
+      
+      @include phone {
+        max-width: 340px
+      }
+    }
+
+    [data-swiper-button] {
+      @include darkSliderButton;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithTransperentBackground;
+
+      @include phone {
+        @include cardCentered;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    [data-title] {
+      max-width: 690px;
+    }
+  }
+
+  &.fifthSectionView {
+    [data-read-more] {
+      display: block;
+    }
+
+    p {
+      margin-top: auto;
+    }
+  }
+
+  &.sixthSectionView {
+    @extend .greySection;
+
+    span {
+      margin-top: auto;
+      color: $gray900;
+    }
+  }
+  
+  &.secondSectionView,
+  &.thirdSectionView {
+    svg {
+      width: 64px;
+    }
+  }
+
+  &.fifthSectionView,
+  &.sixthSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+    }
+  }
+}

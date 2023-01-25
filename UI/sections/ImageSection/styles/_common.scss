@@ -1,3 +1,7 @@
+.container {
+  @include appDevelopmentContainer;
+}
+
 .imageSection {
   @include flex(row, space-between, center);
 
@@ -40,6 +44,11 @@
     @include fontSize(16px, 150%);
 
     color: $gray400;
+
+    a {
+      color: $gray400;
+      border-bottom: 1px solid $gray400;
+    }
 
     @include below-tablet {
       text-align: center;

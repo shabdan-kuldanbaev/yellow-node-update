@@ -1,0 +1,46 @@
+.trading-software-development {
+  .pageSubtitle,
+  .pageTitle {
+    @include phone {
+      max-width: 340px;
+      margin: 0 auto 8px;
+    }
+  }
+
+  .pageWrapper {
+    flex-direction: row-reverse;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid $gray200;
+
+    @include below-tablet {
+      flex-direction: column-reverse;
+    }
+
+    @include phone {
+      padding: 0;
+      margin-bottom: 32px;
+      border: unset;
+    }
+  }
+
+  .pageSubtitle {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .pageImage {
+    max-width: 481px;
+    padding-top: 466px;
+    margin: unset;
+
+    @include below-tablet {
+      margin: 0 auto 24px;
+    }
+
+    @include phone {
+      padding-top: 332px;
+    }
+  }
+}

@@ -106,6 +106,11 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.dataScienceDevelopment(),
     };
 
+  case PAGES.tradingSoftwareDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.tradingSoftwareDevelopment(),
+    };
+
   default:
     return {
       pageMicrodata: null,

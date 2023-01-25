@@ -1,0 +1,42 @@
+.feedbackSection {
+  padding: 120px 40px;
+  background-color: $gray0;
+
+  .contentWrapper {
+    max-width: 790px;
+    margin: 0 auto;
+  }
+
+  [data-title],
+  [data-second-title] {
+    @include fontSize(38px, 130%);
+
+    margin: 0 auto;
+
+    @include below-tablet {
+      @include fontSize(24px, 130%);
+    }
+  }
+
+  .linkText {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+    text-align: center;
+    margin: 16px auto 0;
+  }
+
+  .link {
+    color: $gray400;
+    margin-left: 10px;
+    text-decoration: underline;
+  }
+
+  @include tablet {
+    padding: 60px 32px;
+  }
+
+  @include below-tablet {
+    padding: 60px 16px;
+  }
+}

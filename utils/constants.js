@@ -4,6 +4,9 @@
 import React from 'react';
 import { routes } from 'utils/routes';
 
+// TODO: After refactoring all pages, remove this variable and check for pages
+export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox'];
+
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
@@ -67,6 +70,7 @@ export const NAV_LINKS = [
     routes.aiDevelopment.slug,
     routes.crossPlatformDevelopmentServices.slug,
     routes.dataScienceDevelopment.slug,
+    routes.tradingSoftwareDevelopment.slug,
     routes.prototypingServices.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
@@ -169,6 +173,7 @@ export const SVG_IMAGES_TYPES = {
   attachment: 'attachment',
   opensenseTitleBorder: 'opensenseTitleBorder',
   checkMark: 'checkMark',
+  check: 'check',
   iPhone: 'iPhone',
   iPad: 'iPad',
 };
@@ -199,6 +204,7 @@ export const APP_DEVELOPMENT_TYPES = {
   processOverlay: 'app-development-process-overlay',
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
   appDevelopmentDownloadSection: 'app-development-download-section',
+  feedback: 'feedback',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -213,6 +219,7 @@ export const HOMEPAGE_SECTION_TYPES = {
   reviews: 'reviews',
   blog: 'blog',
   photos: 'photos',
+  feedback: 'feedback',
 };
 
 export const CONTACTS_DATA = {
@@ -389,6 +396,7 @@ export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((p
 export const SUB_NAVIGATION_KEYS = {
   services: 'services',
   expertise: 'expertise',
+  fintech: 'fintech',
 };
 
 export const SUB_NAVIGATION_ITEMS = {
@@ -400,6 +408,10 @@ export const SUB_NAVIGATION_ITEMS = {
     {
       title: 'Expertise',
       key: SUB_NAVIGATION_KEYS.expertise,
+    },
+    {
+      title: 'Fintech',
+      key: SUB_NAVIGATION_KEYS.fintech,
     },
   ],
 };
@@ -495,6 +507,13 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.dataScienceDevelopment.path,
       },
     ],
+    [SUB_NAVIGATION_KEYS.fintech]: [
+      {
+        title: 'Trading platform development company',
+        subtitle: 'The way to manage investments',
+        slug: ROUTES.tradingSoftwareDevelopment.path,
+      },
+    ],
   },
 };
 
@@ -511,6 +530,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.customChatApp,
   PAGES.designServices,
   PAGES.discoveryPhase,
+  PAGES.tradingSoftwareDevelopment,
 ];
 
 export const CONTACT_FORM_TITLES = {
@@ -523,6 +543,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions?',
   [PAGES.lendingSoftwareDevelopment]: 'Build your lending software with us',
+  [PAGES.tradingSoftwareDevelopment]: 'Ready to get started?',
   [PAGES.fintechDevelopment]: 'Still have questions?',
   [PAGES.erpDevelopment]: 'Still have questions?',
   [PAGES.cloudDevelopment]: 'The sky\'s the limit',
@@ -531,6 +552,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
   [PAGES.prototypingServices]: 'Get a detailed estimate of your project',
   [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
+  [CASE_STUDIES.stickerbox]: 'Let’s move forward',
 };
 
 export const CONTACT_FORM_SECOND_TITLES = {
@@ -580,3 +602,5 @@ export const INDEX_FILES = [
   '/index.html',
   '/index.php',
 ];
+
+export const EMAIL_LINK = 'hi@yellow.systems';

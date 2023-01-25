@@ -1,7 +1,9 @@
 @import 'styles/utils/mixins';
-@import '../styles.module.scss';
+@import '../styles.module';
 
 .h1 {
+  @include fontSize(44px);
+
   width: 100%;
   margin: 0;
   padding: 0;
@@ -9,16 +11,6 @@
   line-height: 1.2;
   letter-spacing: -2px;
   color: $timber-green;
-
-  @include fontSize(44px);
-
-  @include macbook-fifteen {
-    @include fontSize(42px);
-  }
-
-  @include macbook-twelve {
-    @include fontSize(35px);
-  }
 
   @include tablet {
     @include fontSize(38px);
@@ -29,9 +21,7 @@
   }
 
   @include phone {
-    line-height: 1.4;
-
-    @include fontSize(25px);
+    @include fontSize(25px, 1.4);
   }
 }
 
@@ -41,41 +31,29 @@
   background-color: $white;
 
   .body {
-    max-width: 720px;
+    max-width: 790px;
     margin: 0 auto;
-
-    @include phone {
-      padding: 0;
-    }
 
     & > p {
       @extend .paragraph;
     }
+
+    @include phone {
+      padding: 0;
+    }
   }
 
   .header {
+    @include flex(row, center, center);
+
     width: 100%;
     padding: 40px 0 0;
     margin-bottom: 8vh;
     color: $black;
 
-    @include flex(row, center, center);
-
-    @include desktop {
-      min-height: 50vh;
-    }
-
-    @include tablet {
-      margin-bottom: 0;
-
-      @include flex(column-reverse, center, center);
-    }
-
-    @include below-tablet {
-      padding: 0;
-    }
-
     .imageWrapper {
+      @include flex(row, center);
+
       width: 50%;
       height: 100%;
       flex: 1 0 50%;
@@ -83,7 +61,14 @@
       max-width: 630px;
       max-height: 630px;
 
-      @include flex(row, center);
+      & > div {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding-top: 100%;
+        width: 100%;
+        opacity: 1;
+      }
 
       @include tablet {
         width: 100%;
@@ -95,21 +80,49 @@
       @include phone {
         padding: 0;
       }
-
-      & > div {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        padding-top: 100%;
-        width: 100%;
-        opacity: 1;
-      }
     }
 
     .container {
       max-width: 100%;
       padding: 0 60px;
       align-items: center;
+
+      & > p {
+        @include fontSize(21px);
+
+        color: $mirage;
+        line-height: 1.5;
+        padding: 0;
+        margin: 4vh 0 80px;
+        font-weight: 500;
+
+        @include tablet {
+          @include fontSize(19px);
+        }
+
+        @include below-tablet {
+          @include fontSize(18px);
+        }
+
+        @include phone {
+          @include fontSize(14px,1.4);
+
+          margin-bottom: 40px;
+        }
+      }
+
+      .date {
+        @include fontSize(14px);
+
+        margin: 0;
+        font-weight: 600;
+        padding-bottom: 30px;
+        text-transform: uppercase;
+
+        @include phone {
+          @include fontSize(12px);
+        }
+      }
 
       @include tablet {
         padding: 0;
@@ -124,52 +137,20 @@
       @include phone {
         margin-bottom: 40px;
       }
+    }
 
-      & > p {
-        color: $mirage;
-        line-height: 1.5;
-        padding: 0;
-        margin: 4vh 0 80px;
-        font-weight: 500;
+    @include desktop {
+      min-height: 50vh;
+    }
 
-        @include fontSize(21px);
+    @include tablet {
+      @include flex(column-reverse, center, center);
 
-        @include macbook-fifteen {
-          @include fontSize(20px);
-        }
+      margin-bottom: 0;
+    }
 
-        @include macbook-twelve {
-          @include fontSize(17px);
-        }
-
-        @include tablet {
-          @include fontSize(19px);
-        }
-
-        @include below-tablet {
-          @include fontSize(18px);
-        }
-
-        @include phone {
-          line-height: 1.4;
-          margin-bottom: 40px;
-
-          @include fontSize(14px);
-        }
-      }
-
-      .date {
-        margin: 0;
-        font-weight: 600;
-        padding-bottom: 30px;
-        text-transform: uppercase;
-
-        @include fontSize(14px);
-
-        @include phone {
-          @include fontSize(12px);
-        }
-      }
+    @include below-tablet {
+      padding: 0;
     }
   }
 }

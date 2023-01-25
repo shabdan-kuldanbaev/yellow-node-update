@@ -1,0 +1,113 @@
+.container {
+  @include flex(column);
+
+  box-sizing: border-box;
+  padding: 120px 120px 60px;
+
+  .nextProjectContainer {
+    @include flex(column, center, center);
+
+    width: fit-content;
+    margin: 0 auto 120px;
+    flex-grow: 1;
+  }
+
+  .sectionTitle {
+    margin-bottom: 0;
+  }
+
+  [data-title] {
+    @include fontSize(16px, 120%);
+
+    margin: 0 0 20px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  [data-description] {
+    @include fontSize(38px, 130%);
+
+    margin: 0 0 50px;
+    font-weight: bold;
+    text-align: center;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+
+      margin-bottom: 40px;
+    }
+  }
+
+  .more {
+    @include fontSize(18px, 150%);
+
+    padding: 16px 36px;
+    box-sizing: border-box;
+    text-decoration: none;
+    border-radius: 8px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .question {
+    @include fontSize(20px, 150%);
+
+    margin: 0 0 4px;
+    font-weight: bold;
+    text-align: center;
+
+    @include phone {
+      margin-bottom: 15px;
+    }
+  }
+
+  .link {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+
+    @include phone {
+      margin-bottom: 30px;
+    }
+  }
+
+  .iconLink {
+    margin: 0;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
+  .footerLinks {
+    @include flex(row, space-between, flex-end);
+
+    &:first-child {
+      padding-top: 84px;
+    }
+
+    .emailContainer {
+      @include phone {
+        margin-bottom: 24px;
+      }
+    }
+
+    @include tablet {
+      padding: 0;
+    }
+
+    @include phone {
+      @include flex(column, center, center);
+
+      text-align: center;
+    }
+  }
+
+  @include below-tablet {
+    padding: 80px 16px 30px;
+  }
+}

@@ -57,7 +57,7 @@ export const getYoutubeVideoIdFromUrl = (url) => {
 export const mobileResolution = toInt(PHONE_RESOLUTION);
 export const fullResolution = toInt(FULL_HD_RESOLUTION);
 export const horizontalPhone = toInt(HORIZONTAL_MOBILE);
-export const tabletResolution = toInt(DEFAULT_TABLET_RESOLUTION);
+export const tabletResolution = toInt(BIG_TABLET_RESOLUTION);
 export const smallTabletResolution = toInt(DEFAULT_TABLET_RESOLUTION);
 
 export const setOverflowForBody = (isHidden) => {
@@ -91,6 +91,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.crossPlatformDevelopmentServices}`, updatedAt },
   { path: `/${PAGES.dataScienceDevelopment}`, updatedAt },
   { path: `/${PAGES.prototypingServices}`, updatedAt },
+  { path: `/${PAGES.tradingSoftwareDevelopment}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
@@ -133,11 +134,15 @@ export const addHttpsToUrl = (url) => (/^\/\//.test(url) ? `https:${url}` : url)
 export const getFileUrl = (file) => addHttpsToUrl(get(file, 'fields.file.url', ''));
 
 export const getImage = (file) => {
-  const imageData = get(file, 'fields.file', '');
+  const imageData = get(file, 'fields', '');
+
+  const url = addHttpsToUrl(imageData.file.url);
+  const alt = imageData.description || url;
 
   return {
-    ...imageData.details.image,
-    url: addHttpsToUrl(imageData.url),
+    ...imageData.file.details.image,
+    alt,
+    url,
   };
 };
 

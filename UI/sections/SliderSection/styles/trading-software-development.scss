@@ -1,0 +1,18 @@
+.trading-software-development {
+  [data-description] {
+    margin-top: 0;
+  }
+
+  [data-description],
+  [data-subtitle] {
+    max-width: 760px;
+
+    @include phone {
+      max-width: 340px;
+    }
+  }
+
+  .sliderList {
+    background-color: $gray50;
+  }
+}

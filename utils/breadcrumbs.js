@@ -170,6 +170,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.dataScienceDevelopment.path,
     },
   ]),
+  tradingSoftwareDevelopment: () => ([
+    {
+      title: ROUTES.tradingSoftwareDevelopment.title,
+      to: ROUTES.tradingSoftwareDevelopment.path,
+    },
+  ]),
   technicalPage: (slug) => {
     if (slug === PAGES.privacyPolicy) {
       return [
