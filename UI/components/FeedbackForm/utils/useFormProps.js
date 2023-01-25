@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { addThousandsSeparators } from 'utils/helper';
 import { budget as budgetData, marks } from './data';
@@ -9,8 +9,9 @@ export default (props) => {
     type,
     sendEmail,
     contactFormError,
+    isDataSubmitted,
+    isFormPending,
   } = props;
-
   const {
     register,
     handleSubmit,
@@ -18,13 +19,10 @@ export default (props) => {
     formState: {
       dirtyFields,
       isValid,
-      isSubmitSuccessful,
     },
   } = useForm();
-
   const [budget, setBudget] = useState(addThousandsSeparators(budgetData.min));
   const [selectedFiles, setFiles] = useState([]);
-
   const sliderOptions = {
     ...budgetData,
     defaultValue: budgetData.min,
@@ -33,7 +31,7 @@ export default (props) => {
     marks,
   };
 
-  const submitHandler = handleSubmit((values, event) => {
+  const submitHandler = handleSubmit(async (values, event) => {
     event.preventDefault();
 
     const attachments = selectedFiles.map((file) => file.signedUrl);
@@ -42,8 +40,10 @@ export default (props) => {
       attachments,
       projectBudget: budget || '',
     });
+  });
 
-    if (isSubmitSuccessful) {
+  useEffect(() => {
+    if (isDataSubmitted) {
       setFiles([]);
       setBudget(addThousandsSeparators(budgetData.min));
       reset({
@@ -52,7 +52,7 @@ export default (props) => {
         description: '',
       });
     }
-  });
+  }, [isDataSubmitted, reset]);
 
   return {
     type,
@@ -66,6 +66,7 @@ export default (props) => {
     isBudgetSlider,
     isValid,
     contactFormError,
-    isSubmitSuccessful,
+    isDataSubmitted,
+    isFormPending,
   };
 };
