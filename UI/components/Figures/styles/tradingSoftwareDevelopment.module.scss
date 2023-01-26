@@ -1,18 +1,3 @@
 .trading-software-development {
-  .title {
-    color: $gray900;
-  }
-
-  .title,
-  .description {
-    @include phone {
-      text-align: center
-    }
-  }
-
-  .figures {
-    @include phone {
-      @include flex(column, center, center);
-    }
-  }
+  @include figuresListMobile;
 }

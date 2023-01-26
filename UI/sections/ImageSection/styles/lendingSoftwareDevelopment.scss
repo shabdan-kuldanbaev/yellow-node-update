@@ -1,0 +1,20 @@
+.lending-software-development {
+  padding: 0;
+
+  .experienceContent {
+    display: none;
+  }
+
+  .imageSection {
+    display: block;
+    max-width: unset;
+  }
+
+  .image {
+    padding-top: 800px;
+
+    @include phone {
+      padding-top: 420px;
+    }
+  }
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SWIPER_PARAMS } from './utils/helpers';
 import { useSelector } from './utils/useSelector';
 import styles from './styles.module.scss';
 
 const Selector = (props) => {
   const {
+    swiperParams,
     displayNames,
     selectedIndex,
     handleSelectedIndexChange,
@@ -14,7 +14,7 @@ const Selector = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <Swiper {...SWIPER_PARAMS}>
+      <Swiper {...swiperParams}>
         {displayNames.map((name, i) => (
           <SwiperSlide
             key={name}

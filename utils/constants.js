@@ -531,6 +531,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.designServices,
   PAGES.discoveryPhase,
   PAGES.tradingSoftwareDevelopment,
+  PAGES.lendingSoftwareDevelopment,
 ];
 
 export const CONTACT_FORM_TITLES = {

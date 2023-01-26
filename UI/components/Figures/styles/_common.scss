@@ -1,3 +1,22 @@
+@mixin figuresListMobile {
+  .title {
+    color: $gray900;
+  }
+
+  .title,
+  .description {
+    @include phone {
+      text-align: center
+    }
+  }
+
+  .figures {
+    @include phone {
+      @include flex(column, center, center);
+    }
+  }
+}
+
 .figures {
   @include flex(row, space-between, flex-start, wrap);
 

@@ -1,6 +1,16 @@
 .lending-software-development {
+  :global(.swiper-slide) {
+    height: 100%;
+  }
+
   &.firstSectionView {
     @extend .blackSection;
+
+    :global(.swiper-wrapper) {
+      @include phone {
+        min-height: 260px;
+      }
+    }
 
     [data-swiper-button] {
       @include darkSliderButton;
@@ -8,6 +18,10 @@
 
     .title {
       max-width: 775px;
+
+      @include phone {
+        max-width: 340px;
+      }
     }
 
     .contentWrapper {
@@ -21,6 +35,10 @@
     .card {
       flex-direction: column;
 
+      svg {
+        width: 64px;
+      }
+
       @include below-tablet {
         align-items: center;
 
@@ -31,10 +49,6 @@
         }
       }
     }
-
-    svg {
-      width: 64px;
-    }
   } 
 
   &.secondSectionView {
@@ -42,10 +56,89 @@
 
     .title {
       max-width: 750px;
+
+      @include below-tablet {
+        max-width: 480px;
+      }
+
+      @include phone {
+        max-width: 340px;
+      }
     }
 
     .card {
       @extend .cardWithVerticalLine;
+    }
+
+    @include phone {
+      :global(.swiper-wrapper) {
+        min-height: 355px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    :global(.swiper-wrapper) {
+      min-height: 450px;
+
+      @include below-tablet {
+        min-height: 450px;
+      }
+    }
+
+    .title {
+      max-width: 780px;
+
+      @include below-tablet {
+        max-width: 500px;
+      }
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+
+    .card {
+      @include flex(column, flex-start, stretch);
+
+      min-height: 450px;
+
+      * {
+        align-self: center;
+        text-align: center;
+        margin: 0;
+      }
+
+      picture {
+        margin: 0 0 16px;
+        width: 276px;
+        height: 276px;
+      }
+
+      @include below-tablet {
+        max-width: 450px;
+        min-height: 350px;
+      }
+
+      @include phone {
+        max-width: 350px;
+        margin-bottom: 16px;
+        min-height: unset;
+      }
+    }
+
+    .cardContent {
+      text-align: center;
+    }
+
+    .callToAction {
+      h3 {
+        max-width: 460px;
+
+        @include phone {
+          max-width: 340px;
+        }
+      }
     }
   }
 
@@ -54,17 +147,10 @@
 
     [data-title] {
       max-width: 745px;
-    }
-  }
 
-  &.sixthSectionView,
-  &.fifthSectionView {
-    .contentWrapper {
-      max-width: $wide-content-width;
-    }
-
-    .card {
-      @extend .cardWithFullSizeImage;
+      @include phone {
+        max-width: 340px;
+      }
     }
   }
 
@@ -84,6 +170,17 @@
     span {
       margin-top: auto;
       color: $gray900;
+    }
+  }
+
+  &.sixthSectionView,
+  &.fifthSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
     }
   }
 }
