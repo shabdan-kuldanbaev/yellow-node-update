@@ -205,6 +205,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
   appDevelopmentDownloadSection: 'app-development-download-section',
   feedback: 'feedback',
+  parallax: 'case-study-parallax',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';

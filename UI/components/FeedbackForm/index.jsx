@@ -16,6 +16,7 @@ import styles from './styles.module.scss';
 
 const FeedbackForm = (props) => {
   const {
+    className,
     submitHandler,
     register,
     dirtyFields,
@@ -31,7 +32,7 @@ const FeedbackForm = (props) => {
 
   return (
     <form
-      className={cn(styles.form, styles[type])}
+      className={cn(styles.form, styles[type], className)}
       onSubmit={submitHandler}
     >
       <FormAlert />
