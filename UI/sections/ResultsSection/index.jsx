@@ -5,7 +5,6 @@ import SectionTitle from 'UI/components/SectionTitle';
 import Video from 'components/Common/Video';
 import Illustration from 'UI/components/Illustration';
 import { useResultsSection } from './utils/useResultsSection';
-import { PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES } from './utils/resultsHelper';
 import styles from './styles.module.scss';
 
 const ResultsSection = (props) => {
@@ -20,10 +19,6 @@ const ResultsSection = (props) => {
     sectionStyle,
     isResultVideo,
   } = useResultsSection(props);
-
-  if (!smartphoneUrl || !appScreenUrl) {
-    return null;
-  }
 
   return (
     <section
@@ -56,9 +51,9 @@ const ResultsSection = (props) => {
               alt={appScreenUrl}
             />
           )}
-        {imagesBundles.map((bundleUrl, index) => (
+        {imagesBundles?.map((bundleUrl, index) => (
           <Illustration
-            transparent={PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES.includes(type)}
+            transparent
             className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
             src={bundleUrl}
             alt={type}

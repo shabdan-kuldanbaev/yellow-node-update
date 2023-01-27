@@ -2,16 +2,10 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
 import { ProjectLink } from './ProjectLink';
 import { useDefaultIntro } from './utils/useDefaultIntro';
-import {
-  PAGE_WITH_TRANSPERENT_LOGO,
-  PAGE_WITH_TRANSPERENT_IMAGE,
-  PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES,
-} from './utils/helpers';
 import styles from './styles.module.scss';
 
 const DefaultIntro = (props) => {
@@ -34,15 +28,15 @@ const DefaultIntro = (props) => {
   return (
     <section
       ref={introSection}
-      className={cn(styles[type], styles.container)}
+      className={cn(styles[type], styles.section)}
       style={style}
     >
       <div className={styles.introSection}>
-        <div className={styles.projectInfoContainer}>
+        <div className={styles.contentWrapper}>
           {appLogoUrl && (
             <Illustration
               priority
-              transparent={PAGE_WITH_TRANSPERENT_LOGO.includes(type)}
+              transparent
               className={styles.logo}
               src={appLogoUrl}
               alt={appLogoUrl}
@@ -66,7 +60,7 @@ const DefaultIntro = (props) => {
         <div className={styles.imageContainer}>
           <Illustration
             priority
-            transparent={PAGE_WITH_TRANSPERENT_IMAGE.includes(type)}
+            transparent
             className={styles.image}
             src={appBackgroundImageUrl}
             alt={appBackgroundImageUrl}
@@ -75,7 +69,7 @@ const DefaultIntro = (props) => {
         {imagesBundlesWithUrls.map((bundleUrl) => (
           <Illustration
             priority
-            transparent={PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES.includes(type)}
+            transparent
             className={styles.bundleImage}
             src={bundleUrl}
             alt={title}

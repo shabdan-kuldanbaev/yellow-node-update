@@ -2,7 +2,7 @@
   position: relative;
   box-sizing: border-box;
   max-width: 585px;
-  padding: 140px 48px;
+  padding: 120px 48px;
   border-radius: 60px;
   perspective: 1000px;
 
@@ -10,46 +10,39 @@
     border-radius: 60px;
     background-color: $gray50;
     position: absolute;
-    top: 0;
-    left: -5%;
-    right: 0;
-    bottom: 0;
+    top: -5%;
+    left: -28%;
+    right: 5%;
+    bottom: -5%;
     transform: rotateY(-16deg) translateZ(-200px);
-  
-    @include tablet {
-      left: -20%;
-    }
-  
+
     @include phone {
-      border-radius: 30px;
-      bottom: -30px;
-      top: -30px;
       left: -30%;
     }
   }
-  
+
   .featureContainer {
     @include flex;
-  
+
     &:not(:last-of-type) {
       margin-bottom: 32px;
     }
   }
-  
+
   .checkMark {
     position: relative;
     min-width: 40px;
     height: 40px;
     margin-right: 16px;
     border-radius: 50%;
-  
+
     .icon {
       @include centered;
-  
+
       width: 15px;
       height: 15px;
     }
-  
+
     @include tablet {
       min-width: 40px;
       height: 40px;
@@ -59,27 +52,27 @@
       margin-right: 8px;
     }
   }
-  
+
   .contentContainer {
     z-index: 10;
-  
+
     & > p {
       @include fontSize(16px, 150%);
-  
+
       margin: 0;
       color: $gray400;
     }
   }
-  
+
   .title {
     @include fontSize(24px, 130%);
-  
+
     margin: 0 0 8px;
     color: $gray900;
-  
+
     @include phone {
       @include fontSize(16px, 150%);
-  
+
       margin-bottom: 4px;
     }
   }

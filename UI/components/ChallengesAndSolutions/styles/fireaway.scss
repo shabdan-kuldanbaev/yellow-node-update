@@ -1,0 +1,98 @@
+.fireaway {
+  .contentContainer {
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .contentContainer-3 {
+    margin-top: -350px;
+  }
+
+  .images {
+    position: relative;
+  }
+
+  .image {
+    width: 436px;
+    height: 650px;
+
+    @include tablet {
+      width: 324px;
+      height: 483px;
+    }
+  }
+
+  .images-1 {
+    .imageBundle {
+      position: absolute;
+
+      &:nth-of-type(2) {
+        top: -5%;
+        right: -30%;
+        width: 120px;
+        height: 118px;
+
+        @include tablet {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(3) {
+        bottom: 10%;
+        left: 5%;
+        width: 113px;
+        height: 66px;
+
+        @include below-tablet {
+          left: -3%;
+        }
+      }
+
+      &:nth-of-type(4) {
+        bottom: -9%;
+        right: 14%;
+        width: 43px;
+        height: 56px;
+
+        @include below-tablet {
+          bottom: -12%;
+        }
+      }
+
+      &:nth-of-type(5) {
+        bottom: -19%;
+        right: 4%;
+        width: 266px;
+        height: 120px;
+
+        @include below-tablet {
+          bottom: -25%;
+          right: 1%;
+        }
+      }
+    }
+  }
+
+  .images-2 {
+    .imageBundle {
+      position: absolute;
+
+      &:nth-of-type(2) {
+        top: -15%;
+        left: 0;
+        width: 120px;
+        height: 118px;
+      }
+    }
+  }
+
+  @include below-tablet {
+    @include flex(column, center, center);
+
+    .contentContainer-2,
+    .contentContainer-3 {
+      display: none;
+    }
+  }
+}

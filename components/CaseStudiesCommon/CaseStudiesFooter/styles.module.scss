@@ -1,4 +1,5 @@
 @import 'styles/utils/mixins';
+@import "styles/utils/colors";
 @import './styles/common';
 @import './styles/ubichat';
 @import './styles/telemojo';
@@ -415,16 +416,22 @@
   @extend .container;
 
   background: linear-gradient(137.65deg, $froly -14.62%, $carnation 105.11%);
-  color: $white;
+  color: $gray0;
 
   .more,
   .link,
   .iconLink {
-    color: $white;
+    color: $gray0;
+  }
+
+  .iconLink {
+    path {
+      fill: $gray0;
+    }
   }
 
   .more {
-    border: 1px solid $white;
+    border: 1px solid $gray0;
   }
 }
 

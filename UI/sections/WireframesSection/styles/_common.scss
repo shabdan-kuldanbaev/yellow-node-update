@@ -1,0 +1,10 @@
+.container {
+  @include wireframes;
+
+  background-color: $gray0;
+  padding: 60px 0;
+
+  @include below-tablet {
+    padding: 30px 0;
+  }
+}

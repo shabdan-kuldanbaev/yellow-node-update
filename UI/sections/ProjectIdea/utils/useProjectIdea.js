@@ -20,6 +20,7 @@ export const useProjectIdea = ({ type, data }) => {
 
   const featuresProps = getDocumentFields(get(data, 'contentModules[0]'));
   const teamListProps = getDocumentFields(get(data, 'contentModules[2]'));
+  const additionalContent = contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList']));
 
   return {
     isMobileResolution,
@@ -27,7 +28,7 @@ export const useProjectIdea = ({ type, data }) => {
     title,
     subtitle,
     text,
-    contentModules,
+    additionalContent,
     delayedAnimation,
     featuresProps,
     teamListProps,

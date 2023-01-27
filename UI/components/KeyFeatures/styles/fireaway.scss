@@ -1,0 +1,17 @@
+.fireaway {
+  @extend .container;
+
+  .containerBackground {
+    opacity: 0.9;
+  }
+
+  .featureContainer {
+    .checkMark {
+      background: $fireawayAccent;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}

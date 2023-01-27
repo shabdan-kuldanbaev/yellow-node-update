@@ -4,10 +4,10 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import KeyFeatures from 'UI/components/KeyFeatures';
 import TeamList from 'UI/components/TeamList';
-import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import Typography from 'UI/components/Typography';
+import CaseAdditionalContent from 'UI/components/ CaseAdditionalContent';
 import { useProjectIdea } from './utils/useProjectIdea';
 import styles from './styles.module.scss';
 
@@ -18,7 +18,7 @@ const ProjectIdea = (props) => {
     title,
     subtitle,
     text,
-    contentModules,
+    additionalContent,
     delayedAnimation,
     featuresProps,
     teamListProps,
@@ -52,8 +52,8 @@ const ProjectIdea = (props) => {
           </div>
           {!isMobileResolution && (
             <Animated {...delayedAnimation}>
-              <AdditionInformation
-                additionInformation={contentModules}
+              <CaseAdditionalContent
+                data={additionalContent}
                 type={type}
               />
             </Animated>
@@ -62,10 +62,9 @@ const ProjectIdea = (props) => {
       </div>
       {isMobileResolution && (
         <Animated {...delayedAnimation}>
-          <AdditionInformation
-            additionInformation={contentModules}
+          <CaseAdditionalContent
+            data={additionalContent}
             type={type}
-            className={styles.mobileAdditionalInformation}
           />
         </Animated>
       )}

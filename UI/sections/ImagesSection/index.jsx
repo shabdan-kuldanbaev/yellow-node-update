@@ -20,7 +20,7 @@ const ImagesSection = (props) => {
 
   return (
     <section
-      className={cn(styles[type], styles[data.view], styles.container)}
+      className={cn(styles[type], styles[data.view], styles.section)}
     >
       {imagesUrl?.map(({ url, alt }) => (
         <Illustration

@@ -1,0 +1,52 @@
+.fireaway {
+  [data-title],
+  [data-subtitle],
+  [data-description],
+  .experience {
+    color: $gray0;
+  }
+
+  .bundleImage {
+    position: absolute;
+
+    &:nth-of-type(1) {
+      width: 53px;
+      height: 53px;
+      right: 6.1%;
+      top: 62%;
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(2) {
+      width: 73px;
+      height: 74px;
+      right: 42.7%;
+      top: 17.3%;
+
+      @include tablet {
+        right: 10%;
+      }
+
+      @include below-tablet {
+        width: 46px;
+        height: 46px;
+        left: 11%;
+        top: 45.3%;
+      }
+    }
+
+    &:nth-of-type(3) {
+      width: 74px;
+      height: 74px;
+      left: 25%;
+      top: 64%;
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+  }
+}

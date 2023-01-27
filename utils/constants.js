@@ -5,7 +5,7 @@ import React from 'react';
 import { routes } from 'utils/routes';
 
 // TODO: After refactoring all pages, remove this variable and check for pages
-export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox'];
+export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox', 'fireaway'];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
@@ -284,6 +284,7 @@ export const CASE_STUDIES_TYPES = {
   processOverlay: 'case-study-process-overlay',
   challengesSpecialSlider: 'case-study-special-slider',
   prototype: 'case-study-prototype',
+  feedback: 'feedback',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
