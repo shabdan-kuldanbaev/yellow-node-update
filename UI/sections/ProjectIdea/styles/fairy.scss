@@ -1,0 +1,7 @@
+.fairy {
+  padding-bottom: 120px;
+
+  @include below-tablet {
+    padding-bottom: 60px;
+  }
+}
