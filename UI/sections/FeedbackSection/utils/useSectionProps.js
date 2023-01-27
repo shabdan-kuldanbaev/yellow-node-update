@@ -1,26 +1,29 @@
-import { getDocumentFields } from 'utils/helper';
+import get from 'lodash/get';
+import { getDocumentFields, getFileUrl, getImage } from 'utils/helper';
 
 export default ({
   section,
   type,
 }) => {
   const {
-    title,
-    secondTitle,
     budget: isSliderBudget,
+    images: rawImages,
+    contentModules,
+    ...rest
   } = getDocumentFields(
     section,
-    [
-      'title',
-      'secondTitle',
-      'budget',
-    ],
   );
 
+  const images = (rawImages || []).map(getImage);
+
+  const { images: rawFiles } = getDocumentFields(get(contentModules, '[0]'), ['images']);
+  const files = (rawFiles || []).map(getFileUrl);
+
   return {
-    type,
-    title,
-    secondTitle,
+    ...rest,
     isSliderBudget,
+    type,
+    images,
+    files,
   };
 };

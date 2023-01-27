@@ -36,7 +36,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
     return null;
   }
 
-  const { type: sectionType } = getDocumentFields(section);
+  const { type: sectionType } = getDocumentFields(section, ['type']);
 
   switch (sectionType) {
   case APP_DEVELOPMENT_TYPES.appDevelopmentPageIntro:
