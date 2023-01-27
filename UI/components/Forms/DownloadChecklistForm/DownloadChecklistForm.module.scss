@@ -1,0 +1,21 @@
+@import 'styles/utils/colors';
+@import 'styles/utils/mixins';
+
+.button {
+  max-width: 146px;
+  margin-top: 11px;
+  display: block;
+
+  @include below-tablet {
+    margin: 11px auto 0;
+  }
+}
+
+.message {
+  margin: 0 0 16px;
+  color: $gray400;
+}
+
+.input {
+  margin-bottom: 32px !important;
+}

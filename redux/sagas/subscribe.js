@@ -10,9 +10,9 @@ import errorHelper from 'utils/error';
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
-function* subscribe({ payload: { email, pathname } }) {
+function* subscribe({ payload: { pathname, ...dataToSend } }) {
   try {
-    const { data } = yield API.subscribe(email);
+    const { data } = yield API.subscribe(dataToSend);
 
     gaHelper.trackEvent(
       'Subscribe',
