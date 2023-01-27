@@ -35,7 +35,7 @@ const SearchResult = ({ searchValue, handleOnCloseModalWindow }) => {
   }, [articlesChunks]);
 
   useEffect(() => {
-    setArticlesChunks(chunk(foundArticles, 11));
+    setArticlesChunks(chunk(foundArticles, 12));
   }, [foundArticles]);
 
   if (!articles.length) {
