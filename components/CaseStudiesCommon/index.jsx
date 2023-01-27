@@ -1,4 +1,5 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import AppFeatures from 'components/CaseStudiesCommon/AppFeatures';
 import ChallengesAndSolutionsWithWireframes from 'components/CaseStudiesCommon/ChallengesAndSolutionsWithWireframes';
 import SpecialChallengesAndSolutions from 'components/CaseStudiesCommon/SpecialChallengesAndSolutions';
@@ -19,13 +20,14 @@ import CaseStudyPrototype from 'components/CaseStudiesCommon/CaseStudyPrototype'
 import { CASE_STUDIES_TYPES, REFACTORED_CASE_STUDIES_PAGES } from 'utils/constants';
 // Refactored section, remove old after
 import IntroRefactored from 'UI/sections/CaseStudiesIntro';
-import ProjectIdeaRefactored from 'UI/sections/ProjectIdea';
-import ResultsSectionRefactored from 'UI/sections/ResultsSection';
-import ImagesSectionRefactored from 'UI/sections/ImagesSection';
-import WireframesSectionRefactored from 'UI/sections/WireframesSection';
-import SpecialChallengesAndSolutionsRefactored from 'UI/sections/SpecialChallengesAndSolutions';
-import ChallengesAndSolutionsWithWireframesRefactored from 'UI/sections/ChallengesAndSolutionsWithWireframes';
 import CaseFeedback from 'UI/sections/CaseFeedback';
+
+const ProjectIdeaRefactored = dynamic(() => import('UI/sections/ProjectIdea'));
+const ResultsSectionRefactored = dynamic(() => import('UI/sections/ResultsSection'));
+const ImagesSectionRefactored = dynamic(() => import('UI/sections/ImagesSection'));
+const WireframesSectionRefactored = dynamic(() => import('UI/sections/WireframesSection'));
+const SpecialChallengesAndSolutionsRefactored = dynamic(() => import('UI/sections/SpecialChallengesAndSolutions'));
+const ChallengesAndSolutionsWithWireframesRefactored = dynamic(() => import('UI/sections/ChallengesAndSolutionsWithWireframes'));
 
 const CaseStudiesCommon = (props) => {
   if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
