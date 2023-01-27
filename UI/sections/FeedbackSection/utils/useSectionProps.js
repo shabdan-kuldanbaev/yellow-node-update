@@ -1,26 +1,31 @@
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, getImage } from 'utils/helper';
 
 export default ({
   section,
   type,
 }) => {
   const {
-    title,
-    secondTitle,
     budget: isSliderBudget,
+    images: rawImages,
+    ...rest
   } = getDocumentFields(
     section,
     [
       'title',
       'secondTitle',
       'budget',
+      'slug',
+      'subtitle',
+      'images',
     ],
   );
 
+  const images = (rawImages || []).map(getImage);
+
   return {
-    type,
-    title,
-    secondTitle,
+    ...rest,
     isSliderBudget,
+    type,
+    images,
   };
 };
