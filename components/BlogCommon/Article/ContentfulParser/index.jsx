@@ -78,19 +78,28 @@ const ContentfulParser = ({ document }) => {
           );
         }
         case 'link': {
+          const data = get(node, 'data.target', {});
+
           const {
             title,
             buttonTitle,
             slug,
             type,
             url,
-          } = getDocumentFields(
-            get(node, 'data.target', {}),
-            ['title', 'buttonTitle', 'slug', 'type', 'url'],
-          );
+            new: isNew,
+          } = getDocumentFields(data, [
+            'title',
+            'buttonTitle',
+            'slug',
+            'type',
+            'url',
+            'new',
+          ]);
 
           return (
             <ArticleLink
+              data={data}
+              new={isNew}
               title={title}
               buttonTitle={buttonTitle}
               slug={slug}

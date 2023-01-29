@@ -20,6 +20,7 @@ const CallToAction = (props) => {
     handleOnClick,
     className,
     images,
+    isNew,
   } = useProps(props);
 
   return (
@@ -29,6 +30,9 @@ const CallToAction = (props) => {
         styles[view],
         styles[page],
         className,
+        {
+          [styles.new]: isNew,
+        },
       )}
     >
       {images.map(({ url, alt }, i) => (
@@ -38,27 +42,29 @@ const CallToAction = (props) => {
           className={cn(styles.image, styles[`image-${i}`])}
         />
       ))}
-      {titles?.map((titleText, index) => (
-        titleText && (
-          <Typography
-            variant={TYPOGRAPHY_TAGS.h3}
-            size={TYPOGRAPHY_SIZE.headline24}
-            className={styles.h3}
-            key={`titleText/${index}`}
-          >
-            {titleText}
-          </Typography>
-        )
-      ))}
 
-      {subtitle && (
-        <Typography
-          variant={TYPOGRAPHY_TAGS.p}
-          className={styles.p}
-        >
-          {subtitle}
-        </Typography>
-      )}
+      <div className={styles.content}>
+        {titles?.map((titleText, index) => (
+          titleText && (
+            <Typography
+              variant={TYPOGRAPHY_TAGS.h3}
+              size={TYPOGRAPHY_SIZE.headline24}
+              className={cn(styles.h3, styles.title)}
+              key={`titleText/${index}`}
+            >
+              {titleText}
+            </Typography>
+          )
+        ))}
+        {subtitle && (
+          <Typography
+            variant={TYPOGRAPHY_TAGS.p}
+            className={cn(styles.p, styles.subtitle)}
+          >
+            {subtitle}
+          </Typography>
+        )}
+      </div>
 
       <Button
         href={href}
@@ -85,9 +91,9 @@ CallToAction.propTypes = {
   data: PropTypes.instanceOf(Object), // It's preferred to pass CTA data with single AS_IS entry. not separate fields
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  buttonTitle: PropTypes.string.isRequired,
+  buttonTitle: PropTypes.string,
   href: PropTypes.string,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   handleOnClick: PropTypes.func,
   className: PropTypes.string,
 };

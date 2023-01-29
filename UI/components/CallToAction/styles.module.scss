@@ -132,3 +132,63 @@
     }
   }
 }
+
+.new {
+  @include flex(row, flex-start, center);
+
+  box-sizing: border-box;
+  min-height: 173px;
+  padding: 24px 32px;
+  background: $gray0;
+  border: 1px solid $gray200;
+  border-radius: 10px;
+  margin: 0;
+
+  .title {
+    @include fontSize(20px);
+  }
+
+  @include tablet {
+    flex-direction: column;
+
+    .image {
+      min-height: 125px;
+      margin: 0 0 24px;
+    }
+
+    .content {
+      max-width: none;
+
+      * {
+        text-align: center;
+      }
+    }
+
+    .button {
+      margin: 24px auto 0;
+    }
+  }
+}
+
+.image {
+  align-self: stretch;
+  min-width: 156px;
+  margin-right: 32px;
+}
+
+.content {
+  max-width: 275px;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: $gray400;
+}
+
+.button {
+  margin-left: auto;
+}

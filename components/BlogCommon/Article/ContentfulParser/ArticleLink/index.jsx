@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CallToAction from 'components/Common/CallToAction';
+import CallToActionNew from 'UI/components/CallToAction';
 import BookmarkCard from 'components/BlogCommon/Article/BookmarkCard';
 import { CustomYoutubePlayer } from 'components/Common/CustomYoutubePlayer';
 import { getYoutubeVideoIdFromUrl } from 'utils/helper';
+import styles from './ArticleLink.module.scss';
 
 export const ArticleLink = ({
+  data,
+  new: isNew,
   type,
   title,
   buttonTitle,
@@ -22,7 +26,16 @@ export const ArticleLink = ({
       />
     );
   case 'call-to-action':
-    return title && buttonTitle && slug && (
+    if (isNew) {
+      return (
+        <CallToActionNew
+          data={data}
+          className={styles.cta}
+        />
+      );
+    }
+
+    return (
       <CallToAction
         title={title}
         buttonTitle={buttonTitle}

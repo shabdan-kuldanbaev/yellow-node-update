@@ -6,13 +6,15 @@ export default ({
   ...props
 }) => {
   const {
-    title,
     new: isNew,
+    title,
+    subtitle,
     imagesBundle,
     buttonTitle,
     type,
   } = getDocumentFields(data, [
     'title',
+    'subtitle',
     'new',
     'imagesBundle',
     'buttonTitle',
@@ -24,10 +26,11 @@ export default ({
   const titles = (title || titleProp).split('||');
 
   return {
+    ...props,
     titles,
+    subtitle,
     images,
     isNew,
     buttonTitle,
-    ...props,
   };
 };
