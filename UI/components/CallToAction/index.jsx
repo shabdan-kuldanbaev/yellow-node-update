@@ -3,21 +3,24 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Button from 'UI/components/Button';
 import Typography from 'UI/components/Typography';
+import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
+import useProps from './utils/useProps';
 import styles from './styles.module.scss';
 
-const CallToAction = ({
-  title,
-  subtitle,
-  buttonTitle,
-  href,
-  type,
-  page,
-  view,
-  handleOnClick,
-  className,
-}) => {
-  const titles = title.split('||');
+const CallToAction = (props) => {
+  const {
+    titles,
+    subtitle,
+    buttonTitle,
+    href,
+    type,
+    page,
+    view,
+    handleOnClick,
+    className,
+    images,
+  } = useProps(props);
 
   return (
     <div
@@ -28,6 +31,13 @@ const CallToAction = ({
         className,
       )}
     >
+      {images.map(({ url, alt }, i) => (
+        <Illustration
+          src={url}
+          alt={alt}
+          className={cn(styles.image, styles[`image-${i}`])}
+        />
+      ))}
       {titles?.map((titleText, index) => (
         titleText && (
           <Typography
@@ -68,9 +78,11 @@ CallToAction.defaultProps = {
   className: '',
   title: '',
   subtitle: '',
+  data: {},
 };
 
 CallToAction.propTypes = {
+  data: PropTypes.instanceOf(Object), // It's preferred to pass CTA data with single AS_IS entry. not separate fields
   title: PropTypes.string,
   subtitle: PropTypes.string,
   buttonTitle: PropTypes.string.isRequired,
