@@ -49,11 +49,11 @@ const CustomServiceContainer = ({
           breadcrumbsTheme={breadcrumbsTheme}
         />
         {contentModules?.map((module) => {
-          const { type: sectionType, view } = getDocumentFields(module);
+          const { type: sectionType, view, slug } = getDocumentFields(module);
 
           return (
             <AppDevelopmentCommon
-              key={`${type}/${sectionType}-${view || ''}`}
+              key={`${type}/${sectionType}-${view || slug}`}
               section={module}
               handleOnCTAClick={openFullscreenEstimation}
               type={type}
