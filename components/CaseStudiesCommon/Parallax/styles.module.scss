@@ -1,10 +1,10 @@
 @import 'styles/utils/mixins';
 
 .parallax {
+  @include centeredBackgroundImage;
+
   height: 100vh;
   background-attachment: fixed;
-
-  @include centeredBackgroundImage;
 }
 
 .parallaxContainer {
@@ -51,14 +51,6 @@
     background-color: $white;
     padding-top: 140px;
 
-    @include tablet {
-      padding-top: 100px;
-    }
-
-    @include phone {
-      padding-top: 80px;
-    }
-
     & > div {
       padding: 0 40px;
 
@@ -81,38 +73,38 @@
         height: 45vh;
       }
     }
+
+    @include tablet {
+      padding-top: 100px;
+    }
+
+    @include phone {
+      padding-top: 80px;
+    }
   }
 
   &natp {
     background-color: $white;
     padding-top: 150px;
 
+    & > section {
+      @include phone {
+        height: 45vh;
+      }
+    }
+
     @include tablet {
       padding-top: 100px;
     }
 
     @include phone {
       padding-top: 80px;
-    }
-
-    & > section {
-      @include phone {
-        height: 45vh;
-      }
     }
   }
 
   &drive-focus {
     background-color: $white;
     padding-top: 150px;
-
-    @include tablet {
-      padding-top: 100px;
-    }
-
-    @include phone {
-      padding-top: 80px;
-    }
 
     & > section {
       @include phone {
@@ -135,6 +127,14 @@
     [data-case-study-description] {
       max-width: 820px;
       color: $silver-chalice;
+    }
+
+    @include tablet {
+      padding-top: 100px;
+    }
+
+    @include phone {
+      padding-top: 80px;
     }
   }
 

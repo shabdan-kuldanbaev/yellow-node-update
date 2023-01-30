@@ -1,12 +1,28 @@
 @import 'styles/utils/mixins';
 
 .imgWrapper {
+  @include flex(column, center, center);
+
   width: 55%;
   height: 100%;
   transform: scale(1);
   will-change: transform, opacity;
 
-  @include flex(column, center, center);
+  div {
+    @include flex(column, center, center);
+
+    width: 100%;
+    height: max-content;
+
+    div {
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      padding-top: calc(100% / (4 / 3));
+      width: 100%;
+      opacity: 1;
+    }
+  }
 
   @include tablet {
     width: 100%;
@@ -19,21 +35,5 @@
 
   @include phone {
     width: 100%;
-  }
-
-  div {
-    width: 100%;
-    height: max-content;
-
-    @include flex(column, center, center);
-
-    div {
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      padding-top: calc(100% / (4 / 3));
-      width: 100%;
-      opacity: 1;
-    }
   }
 }
