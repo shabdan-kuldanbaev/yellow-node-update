@@ -4,6 +4,10 @@
       @include tablet {
         text-align: center;
       }
+
+      @include phone {
+        @include fontSize(24px, 150%);
+      }
     }
 
     .listContainer {
