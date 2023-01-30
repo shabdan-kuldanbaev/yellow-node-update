@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
 import LinkWrapper from 'UI/components/LinkWrapper';
-import FeedbackForm from 'UI/components/FeedbackForm';
+import FeedbackForm from 'UI/components/Forms/FeedbackForm';
 import { EMAIL_LINK } from 'utils/constants';
 import useFeedbackProps from './utils/useFeedbackProps';
 import styles from './styles.module.scss';
