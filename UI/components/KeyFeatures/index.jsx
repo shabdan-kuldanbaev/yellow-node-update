@@ -59,10 +59,6 @@ const KeyFeatures = (props) => {
   );
 };
 
-KeyFeatures.defaultProps = {
-  type: '',
-};
-
 KeyFeatures.propTypes = {
   type: PropTypes.string,
   features: PropTypes.instanceOf(Object).isRequired,
