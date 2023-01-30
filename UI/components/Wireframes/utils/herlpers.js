@@ -1,4 +1,4 @@
-export const MOBILE_IMAGE_SIZE = 400;
+export const DEFAULT_MOBILE_IMAGE_SIZE = 350;
 export const DEFAULT_IMAGE_SIZE = 500;
 
 export const IMAGE_SIZES = {
@@ -26,4 +26,8 @@ export const IMAGE_SIZES = {
   humankind: 630,
   'software-for-mri-interpretation': 630,
   'mobile-bank-application': 500,
+};
+
+export const MOBILE_IMAGE_SIZES = {
+  fireaway: 250,
 };
