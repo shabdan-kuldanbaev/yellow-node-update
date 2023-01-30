@@ -5,6 +5,7 @@ import CallToActionNew from 'UI/components/CallToAction';
 import BookmarkCard from 'components/BlogCommon/Article/BookmarkCard';
 import { CustomYoutubePlayer } from 'components/Common/CustomYoutubePlayer';
 import { getYoutubeVideoIdFromUrl } from 'utils/helper';
+import { LINK_TYPE } from 'utils/constants/linkType';
 import styles from './ArticleLink.module.scss';
 
 export const ArticleLink = ({
@@ -18,14 +19,14 @@ export const ArticleLink = ({
   className,
 }) => {
   switch (type) {
-  case 'bookmark':
+  case LINK_TYPE.bookmark:
     return title && slug && (
       <BookmarkCard
         title={title}
         slug={slug}
       />
     );
-  case 'call-to-action':
+  case LINK_TYPE.callToAction:
     if (isNew) {
       return (
         <CallToActionNew
@@ -43,7 +44,7 @@ export const ArticleLink = ({
         type="blog"
       />
     );
-  case 'youtube-video':
+  case LINK_TYPE.youTube:
     return url && (
       <CustomYoutubePlayer
         src={getYoutubeVideoIdFromUrl(url)}

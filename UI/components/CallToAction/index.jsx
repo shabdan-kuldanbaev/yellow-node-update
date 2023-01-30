@@ -5,6 +5,7 @@ import Button from 'UI/components/Button';
 import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
+import { LINK_TYPE } from 'utils/constants/linkType';
 import useProps from './utils/useProps';
 import styles from './styles.module.scss';
 
@@ -65,6 +66,10 @@ const CallToAction = (props) => {
           </Typography>
         )}
       </div>
+
+      {
+        isNew && type === LINK_TYPE.callToAction && null
+      }
 
       <Button
         href={href}
