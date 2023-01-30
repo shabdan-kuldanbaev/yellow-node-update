@@ -20,7 +20,7 @@ const DownloadChecklistForm = (props) => {
         register={register}
         placeholder="Name *"
         errorMessage="Required field"
-        required={dirtyFields.name}
+        required={dirtyFields?.name}
         classname={styles.input}
       />
       <TextField
@@ -28,7 +28,7 @@ const DownloadChecklistForm = (props) => {
         register={register}
         placeholder="Last Name *"
         errorMessage="Required field"
-        required={dirtyFields.lastName}
+        required={dirtyFields?.lastName}
         classname={styles.input}
       />
       <TextField
@@ -38,7 +38,7 @@ const DownloadChecklistForm = (props) => {
         errorMessage="Incorrect email address"
         required={dirtyFields?.email}
         type="email"
-        classname={styles.input}
+        className={styles.input}
       />
       {message && <p className={styles.message}>{message}</p>}
       <Button
