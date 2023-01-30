@@ -1,6 +1,8 @@
 .fireaway {
   .container {
     .title {
+      color: $gray900;
+
       @include tablet {
         text-align: center;
       }
