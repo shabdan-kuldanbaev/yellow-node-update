@@ -112,6 +112,7 @@
 
   &.thirdSectionView {
     background-color: $gray50;
+    padding: 60px 40px 120px;
 
     .sectionTitle {
       max-width: 666px;
@@ -145,6 +146,14 @@
         width: 343px;
         height: 216px;
       }
+    }
+
+    @include tablet {
+      padding: 30px 32px 60px;
+    }
+
+    @include phone {
+      padding: 30px 16px 60px;
     }
   }
 }
