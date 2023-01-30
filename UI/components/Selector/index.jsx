@@ -15,7 +15,7 @@ const Selector = (props) => {
   return (
     <div className={styles.wrapper}>
       <Swiper {...swiperParams}>
-        {displayNames.map((name, i) => (
+        {displayNames?.map((name, i) => (
           <SwiperSlide
             key={name}
             className={cn(styles.item, { [styles.selected]: i === selectedIndex })}
