@@ -6,9 +6,6 @@ import { getParallaxProps } from './utils/parallaxHelper';
 import styles from './styles.module.scss';
 
 const Parallax = ({ data, type }) => {
-  console.log('data: ', data);
-  console.log('isReturn', !get(data, 'images'));
-
   if (!get(data, 'images')) {
     return null;
   }
@@ -17,8 +14,6 @@ const Parallax = ({ data, type }) => {
     imageUrl,
     contentList,
   } = getParallaxProps(data);
-
-  console.log('imageUrl: ', imageUrl);
 
   return (
     <section className={styles[`parallaxContainer${type}`]}>

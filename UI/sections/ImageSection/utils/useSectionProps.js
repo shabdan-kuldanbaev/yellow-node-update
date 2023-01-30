@@ -23,7 +23,7 @@ export default ({
     ],
   ), [section]);
 
-  const { text } = getDocumentFields(get(contentModules, '[0]', {})) || { text: '' };
+  const { text = '' } = getDocumentFields(get(contentModules, '[0]', {}));
   const imageUrl = getFileUrl(get(images, '[0]'));
 
   return {
