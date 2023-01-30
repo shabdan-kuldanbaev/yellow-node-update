@@ -1,8 +1,12 @@
 import get from 'lodash/get';
+import { useSelector } from 'react-redux';
+import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { getDocumentFields } from 'utils/helper';
 
 export const useProjectIdea = ({ type, data }) => {
+  const isMobileResolution = useSelector(selectIsMobileResolutions);
+
   const {
     title,
     subtitle,
@@ -19,6 +23,7 @@ export const useProjectIdea = ({ type, data }) => {
   const additionalContent = contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList']));
 
   return {
+    isMobileResolution,
     type,
     title,
     subtitle,

@@ -13,6 +13,7 @@ import styles from './styles.module.scss';
 
 const ProjectIdea = (props) => {
   const {
+    isMobileResolution,
     type,
     title,
     subtitle,
@@ -49,14 +50,24 @@ const ProjectIdea = (props) => {
               </div>
             </Animated>
           </div>
-          <Animated {...delayedAnimation}>
-            <CaseAdditionalContent
-              data={additionalContent}
-              type={type}
-            />
-          </Animated>
+          {!isMobileResolution && (
+            <Animated {...delayedAnimation}>
+              <CaseAdditionalContent
+                data={additionalContent}
+                type={type}
+              />
+            </Animated>
+          )}
         </div>
       </div>
+      {isMobileResolution && (
+        <Animated {...delayedAnimation}>
+          <CaseAdditionalContent
+            data={additionalContent}
+            type={type}
+          />
+        </Animated>
+      )}
       {teamListProps && (
         <TeamList
           data={teamListProps}
