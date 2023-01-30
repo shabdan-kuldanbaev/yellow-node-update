@@ -15,14 +15,14 @@
   .contentContainer {
     @include flex(row, space-between, center);
 
-    width: 100%;
     max-width: $wide-content-width;
-    padding-bottom: 120px;
+    width: 100%;
+    margin: 0 auto 60px;
 
     @include tablet {
       @include flex(column, center, center);
 
-      padding: 0;
+      margin-bottom: 30px;
     }
   }
 
@@ -30,7 +30,6 @@
     @include flex(column, center);
 
     max-width: 630px;
-    //margin-left: 135px;
 
     @include tablet {
       order: 1;
@@ -86,7 +85,7 @@
     padding: 120px 32px;
   }
 
-  @include tablet {
-    padding: 120px 16px;
+  @include phone {
+    padding: 60px 16px 30px;
   }
 }
