@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { subscribe } from 'redux/actions/subscribe';
 import { selectSubscribeMessage } from 'redux/selectors/subscribe';
 
-export default ({ downloadLink, ...props }) => {
+const useProps = ({ downloadLink, ...props }) => {
   const dispatch = useDispatch();
 
   const message = useSelector(selectSubscribeMessage);
@@ -36,3 +36,5 @@ export default ({ downloadLink, ...props }) => {
     handleButtonClick,
   };
 };
+
+export default useForm;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Button from 'UI/components/Button';
 import TextField from 'UI/components/TextField';
 import styles from './DownloadChecklistForm.module.scss';
@@ -19,7 +20,7 @@ const DownloadChecklistForm = (props) => {
         register={register}
         placeholder="Name *"
         errorMessage="Required field"
-        required={dirtyFields.name}
+        required={dirtyFields?.name}
         classname={styles.input}
       />
       <TextField
@@ -27,7 +28,7 @@ const DownloadChecklistForm = (props) => {
         register={register}
         placeholder="Last Name *"
         errorMessage="Required field"
-        required={dirtyFields.lastName}
+        required={dirtyFields?.lastName}
         classname={styles.input}
       />
       <TextField
@@ -37,7 +38,7 @@ const DownloadChecklistForm = (props) => {
         errorMessage="Incorrect email address"
         required={dirtyFields?.email}
         type="email"
-        classname={styles.input}
+        className={styles.input}
       />
       {message && <p className={styles.message}>{message}</p>}
       <Button
@@ -49,6 +50,10 @@ const DownloadChecklistForm = (props) => {
       </Button>
     </>
   );
+};
+
+DownloadChecklistForm.propTypes = {
+  downloadLink: PropTypes.string.isRequired,
 };
 
 export default DownloadChecklistForm;
