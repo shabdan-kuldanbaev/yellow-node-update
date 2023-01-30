@@ -13,13 +13,11 @@ const CaseParallax = (props) => {
 
   return (
     <section className={className}>
-      {(title || subtitle) && (
-        <SectionTitle
-          title={title}
-          subtitle={subtitle}
-          titleStyle={styles.titleStyle}
-        />
-      )}
+      <SectionTitle
+        title={title}
+        subtitle={subtitle}
+        titleStyle={styles.titleStyle}
+      />
       <div
         style={{ backgroundImage: `url(${imageUrl})` }}
         className={styles.parallaxImage}
