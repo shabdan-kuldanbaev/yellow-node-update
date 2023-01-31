@@ -35,9 +35,9 @@ const Modal = (props) => {
 };
 
 Modal.propTypes = {
-  isModalWindow: PropTypes.bool.isRequired,
-  closeModalWindow: PropTypes.func.isRequired,
-  children: PropTypes.instanceOf(Object).isRequired,
+  show: PropTypes.bool.isRequired,
+  close: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
 
