@@ -5,6 +5,7 @@ export default ({
   introSection,
   section,
   type,
+  handleOnCTAClick,
 }) => {
   const {
     title,
@@ -22,6 +23,7 @@ export default ({
   );
   const imageUrl = getFileUrl(get(images, '[0]', {}));
   const figuresData = get(contentModules, '[0]', {});
+  const { title: buttonTitle } = getDocumentFields(get(contentModules, '[1]', {}), ['title']);
 
   return {
     type,
@@ -29,6 +31,8 @@ export default ({
     title,
     description,
     imageUrl,
+    buttonTitle,
     figuresData,
+    handleOnCTAClick,
   };
 };

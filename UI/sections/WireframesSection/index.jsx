@@ -24,6 +24,7 @@ const WireframesSection = (props) => {
         title={title}
         description={description}
         type={type}
+        titleStyle={styles.titleStyle}
       />
       <Wireframes
         images={images}

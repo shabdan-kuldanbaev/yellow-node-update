@@ -2,6 +2,8 @@
 
 .signature {
   &Input {
+    @include fontSize(16px);
+
     width: 580px;
     height: 46px;
     padding-left: 5px;
@@ -9,16 +11,10 @@
     font-family: $case-studies-font;
     outline: none;
 
-    @include fontSize(16px);
-
-    @include higher-phone {
-      width: inherit;
-    }
-
     &::placeholder {
-      color: $silver-chalice;
-
       @include fontSize(16px);
+
+      color: $silver-chalice;
     }
 
     &:focus-visible {
@@ -28,25 +24,29 @@
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
+      @include fontSize(16px);
+
       font-family: $case-studies-font;
       color: transparent;
       background: transparent;
       caret-color: transparent;
       transition: background-color 5000s ease-in-out 0s;
-
-      @include fontSize(16px);
     }
 
     &Container {
+      @include flex(row, center, center);
+
       width: max-content;
       margin: 24px auto 0;
       border-bottom: 0.5px solid $silver-1;
 
-      @include flex(row, center, center);
-
       @include higher-phone {
         width: 300px;
       }
+    }
+
+    @include higher-phone {
+      width: inherit;
     }
   }
 

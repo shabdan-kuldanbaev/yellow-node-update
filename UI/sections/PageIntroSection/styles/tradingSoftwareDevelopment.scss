@@ -8,19 +8,12 @@
   }
 
   .pageWrapper {
+    @include pageIntroWithBottomBorder;
+    
     flex-direction: row-reverse;
-    margin-bottom: 60px;
-    padding-bottom: 60px;
-    border-bottom: 1px solid $gray200;
 
     @include below-tablet {
       flex-direction: column-reverse;
-    }
-
-    @include phone {
-      padding: 0;
-      margin-bottom: 32px;
-      border: unset;
     }
   }
 
