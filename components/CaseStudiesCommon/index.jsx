@@ -28,6 +28,7 @@ const ImagesSectionRefactored = dynamic(() => import('UI/sections/ImagesSection'
 const WireframesSectionRefactored = dynamic(() => import('UI/sections/WireframesSection'));
 const SpecialChallengesAndSolutionsRefactored = dynamic(() => import('UI/sections/SpecialChallengesAndSolutions'));
 const ChallengesAndSolutionsWithWireframesRefactored = dynamic(() => import('UI/sections/ChallengesAndSolutionsWithWireframes'));
+const CaseParallax = dynamic(() => import('UI/sections/CaseParallax'));
 const CaseStudyDesign = dynamic(() => import('UI/sections/CaseStudyDesign'));
 
 const CaseStudiesCommon = (props) => {
@@ -49,6 +50,8 @@ const CaseStudiesCommon = (props) => {
     case CASE_STUDIES_TYPES.challengesSlider:
     case CASE_STUDIES_TYPES.challengesSpecialSlider:
       return <ChallengesAndSolutionsWithWireframesRefactored {...props} />;
+    case CASE_STUDIES_TYPES.parallax:
+      return <CaseParallax {...props} />;
     case CASE_STUDIES_TYPES.feedback:
       return <CaseFeedback {...props} />;
     case CASE_STUDIES_TYPES.design:

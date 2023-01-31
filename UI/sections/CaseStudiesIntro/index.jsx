@@ -6,6 +6,7 @@ const CaseStudiesIntro = (props) => {
   switch (props.type) {
   case CASE_STUDIES.stickerbox:
   case CASE_STUDIES.fireaway:
+  case CASE_STUDIES.fairy:
   case CASE_STUDIES.sevenPmThursday:
     return <DefaultIntro {...props} />;
   default:

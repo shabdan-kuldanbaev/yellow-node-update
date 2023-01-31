@@ -8,7 +8,7 @@ export const IMAGE_SIZES = {
   fireaway: 425,
   'seven-pm-thursday': 478,
   stickerbox: 480,
-  fairy: 645,
+  fairy: 478,
   tell: 660,
   'travel-trivia': 660,
   'cash-chat': 660,

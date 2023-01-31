@@ -5,7 +5,7 @@ import React from 'react';
 import { routes } from 'utils/routes';
 
 // TODO: After refactoring all pages, remove this variable and check for pages
-export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox', 'fireaway', 'seven-pm-thursday'];
+export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox', 'fireaway', 'fairy', 'seven-pm-thursday'];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
