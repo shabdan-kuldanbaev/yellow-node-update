@@ -5,6 +5,10 @@
     color: $gray0;
   }
 
+  [data-description] {
+    color: $gray500;
+  }
+
   .titleStyle {
     max-width: 540px;
   }
