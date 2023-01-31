@@ -1,0 +1,11 @@
+.lending-software-development {
+  padding-bottom: 0;
+
+  [data-description] {
+    max-width: 650px;
+
+    @include phone {
+      max-width: 340px;
+    }
+  }
+}
