@@ -4,6 +4,7 @@
   overflow: hidden;
   position: relative;
   background-size: cover;
+  background-position: center;
 
   [data-title] {
     @include fontSize(46px, 120%);
