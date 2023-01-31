@@ -39,6 +39,7 @@ const CardsSection = (props) => {
 
         {withSlider && (
           <CustomSwiper
+            className={styles.swiperList}
             swiperParams={swiperProps}
             isShowNavigation={isShowNavigation}
             navigationClassName={styles.navigation}

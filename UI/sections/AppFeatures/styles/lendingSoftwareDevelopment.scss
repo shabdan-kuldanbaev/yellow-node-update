@@ -1,0 +1,48 @@
+.lending-software-development {
+  @include appFeaturesContainer;
+
+  background: $gray0;
+
+  [data-title] {
+    @include phone {
+      text-align: center;
+      margin: 0 auto;
+      max-width: 343px;
+    }
+  }
+
+  .container {
+    @include flex(row, initial, center);
+
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+
+  .sectionContainer {
+    min-width: 580px;
+
+    @include tablet {
+      min-width: unset;
+    }
+  }
+
+  .imageWrapper {
+    transform: translate(72px, 0);
+    margin-top: 24px;
+
+    @include tablet {
+      transform: unset;
+    }
+  }
+
+  .image {
+    width: 848px;
+    height: 603px;
+
+    @include tablet {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

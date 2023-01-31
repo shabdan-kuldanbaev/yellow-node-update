@@ -9,17 +9,12 @@
   margin-top: 100px;
   border-radius: 50%;
 
-  @include phone {
-    width: 440px;
-    height: 440px;
-  }
-
   .mockup {
+    @include centered;
+
     width: 398px;
     filter: $shadow-filter;
     z-index: 100;
-
-    @include centered;
 
     @include phone {
       width: 238px;
@@ -28,17 +23,22 @@
   }
 
   .appImage {
+    @include centered;
+
     width: 370px;
     border-radius: 20px;
     filter: $shadow-filter;
     z-index: 10;
 
-    @include centered;
-
     @include phone {
       width: 225px;
       filter: $shadow-filter-phone;
     }
+  }
+
+  @include phone {
+    width: 440px;
+    height: 440px;
   }
 }
 
@@ -67,12 +67,6 @@
     height: 700px;
     background: linear-gradient(0deg, $grey-darker 0%, $woodsmoke-2 100%);
 
-    @include phone {
-      width: 430px;
-      height: 430px;
-      margin-top: 80px;
-    }
-
     .mockup {
       @include phone {
         width: 250px;
@@ -80,14 +74,20 @@
     }
 
     .appImage {
+      @include centered;
+
       width: 358px;
       z-index: 10;
-
-      @include centered;
 
       @include phone {
         width: 220px;
       }
+    }
+
+    @include phone {
+      width: 430px;
+      height: 430px;
+      margin-top: 80px;
     }
   }
 }
@@ -135,8 +135,7 @@
 
     .mockup {
       width: 330px;
-      filter:
-        drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 0.6)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 0.5));
+      filter: drop-shadow(-1.9733px 1.9733px 9.8664px rgb(0 0 0 / 60%)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 50%));
 
       @include phone {
         width: 209px;
@@ -190,10 +189,6 @@
 
   padding-bottom: 0;
 
-  @include phone {
-    padding-bottom: 0;
-  }
-
   .circle {
     position: static;
     transform: translateX(0);
@@ -201,26 +196,25 @@
     max-width: $max-content-width-small-section;
     margin: 100px auto 0;
 
-    @include phone {
-      height: initial;
-    }
-
     .mockup {
       width: 100%;
       filter: unset;
       position: static;
       transform: translate(0, 0);
     }
+
+    @include phone {
+      height: initial;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 0;
   }
 }
 
 .ubichat {
   @include caseStudyContainer;
-
-  @include phone {
-    padding-bottom: 0;
-    margin-bottom: -80px;
-  }
 
   .circle {
     position: static;
@@ -230,17 +224,22 @@
     margin: 100px auto 0;
     height: initial;
 
-    @include phone {
-      height: initial;
-      margin-top: 0;
-    }
-
     .mockup {
       width: 100%;
       filter: unset;
       position: static;
       transform: translate(0, 0);
     }
+
+    @include phone {
+      height: initial;
+      margin-top: 0;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 0;
+    margin-bottom: -80px;
   }
 }
 
@@ -250,21 +249,7 @@
   &.firstSectionView {
     background-color: $alabaster;
 
-    @include phone {
-      padding: 80px 15px 20px;
-
-      [data-case-study-description] {
-        margin-left: 18px;
-        margin-right: 18px;
-      }
-    }
-
     .circle {
-      @include phone {
-        width: 320px;
-        margin-top: 10%;
-      }
-
       .mockup {
         filter: none;
         width: 770px;
@@ -294,17 +279,26 @@
           width: 110px;
         }
       }
+
+      @include phone {
+        width: 320px;
+        margin-top: 10%;
+      }
+    }
+
+    @include phone {
+      padding: 80px 15px 20px;
+
+      [data-case-study-description] {
+        margin-left: 18px;
+        margin-right: 18px;
+      }
     }
   }
 
   &.secondSectionView {
     background-color: $cornflower-blue;
     padding: 140px 40px 40px;
-
-    @include phone {
-      padding: 70px 15px 50px;
-      margin-bottom: -75%;
-    }
 
     [data-case-study-title] {
       color: $white;
@@ -315,10 +309,6 @@
     }
 
     .circle {
-      @include phone {
-        width: 375px;
-      }
-
       .mockup {
         filter: none;
         width: 1096px;
@@ -390,6 +380,15 @@
           }
         }
       }
+
+      @include phone {
+        width: 375px;
+      }
+    }
+
+    @include phone {
+      padding: 70px 15px 50px;
+      margin-bottom: -75%;
     }
   }
 
@@ -401,37 +400,15 @@
       max-width: 850px;
     }
 
-    @include below-tablet {
-      padding: 95px 40px 0;
-
-      [data-case-study-description] {
-        margin-bottom: 0;
-      }
-    }
-
-    @include phone {
-      padding: 50px 26px 0;
-      height: 465px;
-    }
-
     .circle {
-      @include below-tablet {
-        margin-top: 0;
-      }
-
-      @include phone {
-        width: 320px;
-        margin-top: 10%;
-      }
-
       .mockup {
-        filter: none;
-        width: 1096px;
-        height: 689px;
-
         @include full-hd {
           transform: translate(-50%, -55%);
         }
+
+        filter: none;
+        width: 1096px;
+        height: 689px;
 
         @include tablet {
           width: 896px;
@@ -499,6 +476,28 @@
           }
         }
       }
+
+      @include below-tablet {
+        margin-top: 0;
+      }
+
+      @include phone {
+        width: 320px;
+        margin-top: 10%;
+      }
+    }
+
+    @include below-tablet {
+      padding: 95px 40px 0;
+
+      [data-case-study-description] {
+        margin-bottom: 0;
+      }
+    }
+
+    @include phone {
+      padding: 50px 26px 0;
+      height: 465px;
     }
   }
 }
@@ -506,17 +505,7 @@
 .telemojo {
   @include caseStudyContainer;
 
-  @include phone {
-    [data-case-study-description] {
-      margin-bottom: -65px;
-    }
-  }
-
   padding-bottom: 0;
-
-  @include tablet {
-    padding-bottom: 0;
-  }
 
   .circle {
     position: static;
@@ -531,6 +520,16 @@
       filter: unset;
       position: static;
       transform: translate(0, 0);
+    }
+  }
+
+  @include tablet {
+    padding-bottom: 0;
+  }
+
+  @include phone {
+    [data-case-study-description] {
+      margin-bottom: -65px;
     }
   }
 }
@@ -553,16 +552,16 @@
     margin: 100px auto 0;
     height: initial;
 
-    @include phone {
-      height: initial;
-      margin-top: 0;
-    }
-
     .mockup {
       width: 100%;
       filter: unset;
       position: static;
       transform: translate(0, 0);
+    }
+
+    @include phone {
+      height: initial;
+      margin-top: 0;
     }
   }
 
@@ -579,16 +578,16 @@
     padding-top: 140px;
     padding-bottom: 10px;
 
-    @include phone {
-      padding-top: 70px;
-    }
-
     [data-case-study-description] {
       max-width: 775px;
 
       @include phone {
         max-width: 300px;
       }
+    }
+
+    @include phone {
+      padding-top: 70px;
     }
   }
 }
@@ -598,17 +597,6 @@
 
   padding-bottom: 0;
   margin-bottom: 150px;
-
-  @include tablet {
-    padding-bottom: 0;
-    margin-bottom: 80px;
-  }
-
-  @include phone {
-    [data-case-study-description] {
-      margin-bottom: -65px;
-    }
-  }
 
   .circle {
     position: static;
@@ -624,7 +612,7 @@
       position: static;
       transform: translate(0, 0);
       border-radius: 20px;
-      box-shadow: 0 14px 44px 0 rgba($color: $shuttle-gray-2, $alpha: 0.07);
+      box-shadow: 0 14px 44px 0 rgba($color: $shuttle-gray-2, $alpha: 7%);
     }
   }
 
@@ -638,6 +626,17 @@
       height: 500px;
       left: -10%;
       top: 60%;
+    }
+  }
+
+  @include tablet {
+    padding-bottom: 0;
+    margin-bottom: 80px;
+  }
+
+  @include phone {
+    [data-case-study-description] {
+      margin-bottom: -65px;
     }
   }
 }
@@ -798,7 +797,7 @@
     height: 250px;
     margin-top: unset;
 
-    &>img:first-child {
+    & > img:first-child {
       width: 1000px;
 
       @include below-tablet {
@@ -810,7 +809,7 @@
       }
     }
 
-    &>img:last-child {
+    & > img:last-child {
       display: none;
 
       @include phone {
@@ -961,11 +960,6 @@
   .circle {
     margin-top: 40px;
 
-    @include tablet {
-      height: 450px;
-      width: 100%;
-    }
-
     &::after {
       content: '';
       position: absolute;
@@ -982,6 +976,11 @@
         width: 260px;
         height: 260px;
       }
+    }
+
+    @include tablet {
+      height: 450px;
+      width: 100%;
     }
   }
 

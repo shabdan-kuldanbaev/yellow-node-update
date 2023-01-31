@@ -16,27 +16,27 @@
 }
 
 .prototype {
-  margin: -112px -50px !important;
-  width: 414px !important;
-  height: 860px !important;
-
   @media (hover: none) and (pointer: coarse) {
     border-radius: 46px;
     margin: 13px 40px !important;
     width: 91.5% !important;
     height: 96% !important;
   }
+
+  margin: -112px -50px !important;
+  width: 414px !important;
+  height: 860px !important;
 }
 
 .deviceFrame {
+  @media (hover: none) and (pointer: coarse) {
+    display: block;
+  }
+
   position: absolute;
   display: none;
   left: -2px;
   width: 101.5%;
   height: 100%;
   pointer-events: none;
-
-  @media (hover: none) and (pointer: coarse) {
-    display: block;
-  }
 }

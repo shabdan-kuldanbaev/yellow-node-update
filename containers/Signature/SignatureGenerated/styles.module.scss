@@ -11,10 +11,10 @@
   @include signature-button;
 
   &Bottom {
+    @include fontSize(10px);
+
     background-color: $gray-300;
     color: $silver-chalice;
-
-    @include fontSize(10px);
 
     &Container {
       margin: 0 16px;
@@ -111,26 +111,24 @@
     }
 
     &Job {
-      color: $silver-chalice;
-
       @include fontSize(11pt);
+
+      color: $silver-chalice;
     }
 
     &Email {
       @include signatureLinkMixin;
+      @include fontSize(9pt);
 
       line-height: 100%;
-
-      @include fontSize(9pt);
     }
 
     &Yellow {
       @include signatureLinkMixin;
+      @include fontSize(9pt);
 
       line-height: 150%;
       margin-bottom: 4px !important;
-
-      @include fontSize(9pt);
 
       a,
       a:visited {

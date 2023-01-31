@@ -5,38 +5,20 @@
   @include flex(column, center, center);
 
   .contentContainer {
+    @include flex(row, center, center);
+
     width: 100%;
     padding-bottom: 140px;
 
-    @include flex(row, center, center);
-
-    @include tablet {
-      padding: 0;
-    }
-
-    @include phone {
-      @include flex(column, center, center);
-    }
-
     .descriptionContainer {
+      @include flex(column, center);
+
       max-width: 630px;
       margin-left: 112px;
 
-      @include flex(column, center);
-
-      @include tablet {
-        max-width: 270px;
-        margin-left: 30px;
-      }
-
-      @include phone {
-        max-width: 100%;
-        margin: 0 0 40px;
-        text-align: center;
-        order: 1;
-      }
-
       .sectionName {
+        @include fontSize(16px);
+
         margin: 0 0 20px;
         font-family: $case-studies-font;
         font-weight: bold;
@@ -45,12 +27,10 @@
         text-transform: uppercase;
         color: $silver-chalice;
 
-        @include fontSize(16px);
-
         @include tablet {
-          margin: 0 0 10px;
-
           @include fontSize(14px);
+
+          margin: 0 0 10px;
         }
       }
 
@@ -63,9 +43,9 @@
         color: $dark-grey;
 
         @include tablet {
-          margin: 0 0 15px;
-
           @include fontSize(40px);
+
+          margin: 0 0 15px;
         }
 
         @include phone {
@@ -74,29 +54,29 @@
       }
 
       .description {
+        @include fontSize(18px);
+
         max-width: 445px;
         margin: 0 0 80px;
         font-family: $case-studies-font;
         line-height: 180%;
         color: $silver-chalice;
 
-        @include fontSize(18px);
-
-        &>p {
+        & > p {
           margin: 0;
         }
 
         @include tablet {
-          max-width: 270px;
-
           @include fontSize(16px);
+
+          max-width: 270px;
         }
 
         @include phone {
+          @include fontSize(14px);
+
           max-width: 345px;
           margin: 0 auto 40px;
-
-          @include fontSize(14px);
         }
       }
 
@@ -107,13 +87,33 @@
           @include flex(column);
         }
       }
+
+      @include tablet {
+        max-width: 270px;
+        margin-left: 30px;
+      }
+
+      @include phone {
+        max-width: 100%;
+        margin: 0 0 40px;
+        text-align: center;
+        order: 1;
+      }
+    }
+
+    @include tablet {
+      padding: 0;
+    }
+
+    @include phone {
+      @include flex(column, center, center);
     }
   }
 
   .mobileAdditionalInformation {
     flex-direction: column;
 
-    &>div {
+    & > div {
       margin-top: 40px;
       margin-right: 0 !important;
     }
@@ -172,14 +172,6 @@
 
   background-color: $dark-blue-1;
 
-  @include tablet {
-    padding-bottom: 100px;
-  }
-
-  @include phone {
-    padding-bottom: 40px;
-  }
-
   .contentContainer {
     .descriptionContainer {
       .title {
@@ -190,6 +182,14 @@
         max-width: 406px;
       }
     }
+  }
+
+  @include tablet {
+    padding-bottom: 100px;
+  }
+
+  @include phone {
+    padding-bottom: 40px;
   }
 }
 
@@ -223,26 +223,12 @@
 
     padding-bottom: 0;
 
-    @include phone {
-      flex-direction: column;
-    }
-
     .descriptionContainer {
       @include flex(row, center);
 
       padding-bottom: 120px;
       max-width: unset;
       margin-left: 0;
-
-      @include tablet {
-        flex-direction: column;
-        padding-bottom: 0;
-      }
-
-      @include phone {
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
 
       .descriptionIntro {
         margin-right: 245px;
@@ -259,6 +245,20 @@
           margin-right: 0;
         }
       }
+
+      @include tablet {
+        flex-direction: column;
+        padding-bottom: 0;
+      }
+
+      @include phone {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    @include phone {
+      flex-direction: column;
     }
   }
 }
@@ -272,27 +272,13 @@
   align-items: flex-start;
   flex-direction: row;
 
-  @include tablet {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .contentContainer {
     width: auto;
     margin-right: 260px;
     padding-bottom: 0;
 
-    @include tablet {
-      width: 345px;
-      margin: 0 auto;
-    }
-
     .descriptionContainer {
       margin: 0;
-
-      @include tablet {
-        max-width: unset;
-      }
 
       .description {
         max-width: 548px;
@@ -302,7 +288,21 @@
           margin-bottom: 0;
         }
       }
+
+      @include tablet {
+        max-width: unset;
+      }
     }
+
+    @include tablet {
+      width: 345px;
+      margin: 0 auto;
+    }
+  }
+
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -322,20 +322,32 @@
   background-color: $white;
 
   .contentContainer {
-    padding-bottom: 0;
-
     @include flex(column-reverse, center, center);
 
-    @include phone {
-      flex-direction: column;
-    }
+    padding-bottom: 0;
 
     .descriptionContainer {
+      @include flex(row, center);
+
       padding-bottom: 150px;
       max-width: unset;
       margin-left: 0;
 
-      @include flex(row, center);
+      .descriptionIntro {
+        margin-right: 150px;
+
+        .sectionName {
+          margin: 0;
+        }
+
+        .description {
+          max-width: 407px;
+        }
+
+        @include tablet {
+          margin-right: 0;
+        }
+      }
 
       @include tablet {
         flex-direction: column;
@@ -346,22 +358,10 @@
         margin-bottom: 0;
         padding-bottom: 0;
       }
+    }
 
-      .descriptionIntro {
-        margin-right: 150px;
-
-        @include tablet {
-          margin-right: 0;
-        }
-
-        .sectionName {
-          margin: 0;
-        }
-
-        .description {
-          max-width: 407px;
-        }
-      }
+    @include phone {
+      flex-direction: column;
     }
   }
 }
@@ -388,14 +388,18 @@
   background-color: $white;
   position: relative;
 
-  @include phone {
-    padding: 80px 15px 35px;
-  }
-
   .contentContainer {
     padding-bottom: 0;
 
     .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          & > p {
+            padding: 0 6px;
+          }
+        }
+      }
+
       @include desktop {
         margin-left: 40px;
       }
@@ -407,14 +411,6 @@
       @include phone {
         margin-left: 0;
         margin-bottom: 0;
-      }
-
-      .descriptionIntro {
-        .description {
-          & > p {
-            padding: 0 6px;
-          }
-        }
       }
     }
   }
@@ -429,6 +425,10 @@
         margin-top: 40px;
       }
     }
+  }
+
+  @include phone {
+    padding: 80px 15px 35px;
   }
 }
 
@@ -455,24 +455,14 @@
     padding-bottom: 0;
     margin-bottom: 150px;
 
-    @include tablet {
-      margin-bottom: 0;
-
-      @include flex(column, center, center);
-    }
-
     .descriptionContainer {
-      max-width: 520px;
-      margin-left: 0;
-
       @include macbook-twelve {
         max-width: max-content;
         margin-left: 30px;
       }
 
-      @include phone {
-        margin: 0;
-      }
+      max-width: 520px;
+      margin-left: 0;
 
       .descriptionIntro {
         .sectionName {
@@ -488,6 +478,16 @@
           }
         }
       }
+
+      @include phone {
+        margin: 0;
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      margin-bottom: 0;
     }
   }
 }
@@ -527,6 +527,22 @@
   position: relative;
   padding: 150px 40px;
 
+  .contentContainer {
+    @include flex(column, center, center);
+
+    padding-bottom: 150px;
+
+    .descriptionContainer {
+      @include phone {
+        @include flex(column, center, center);
+      }
+    }
+
+    @include phone {
+      padding-bottom: 0;
+    }
+  }
+
   @include tablet {
     flex-direction: column;
     padding: 80px 0 400px;
@@ -534,22 +550,6 @@
 
   @include phone {
     padding: 80px 15px 580px;
-  }
-
-  .contentContainer {
-    padding-bottom: 150px;
-
-    @include flex(column, center, center);
-
-    @include phone {
-      padding-bottom: 0;
-    }
-
-    .descriptionContainer {
-      @include phone {
-        @include flex(column, center, center);
-      }
-    }
   }
 }
 
@@ -559,17 +559,13 @@
   background-color: $white;
   position: relative;
 
-  @include phone {
-    padding: 80px 15px 35px;
-  }
-
   .contentContainer {
     padding-bottom: 0;
 
     .descriptionContainer {
       .descriptionIntro {
         .description {
-          &>p {
+          & > p {
             padding: 0 6px;
           }
         }
@@ -580,9 +576,13 @@
   .mobileAdditionalInformation {
     flex-direction: column;
 
-    &>div {
+    & > div {
       margin-top: 80px;
     }
+  }
+
+  @include phone {
+    padding: 80px 15px 35px;
   }
 }
 
@@ -592,14 +592,18 @@
   background-color: $white;
   position: relative;
 
-  @include phone {
-    padding: 80px 15px 35px;
-  }
-
   .contentContainer {
     padding-bottom: 0;
 
     .descriptionContainer {
+      .descriptionIntro {
+        .description {
+          & > p {
+            padding: 0 6px;
+          }
+        }
+      }
+
       @include desktop {
         margin-left: 40px;
       }
@@ -612,27 +616,23 @@
         margin-left: 0;
         margin-bottom: 0;
       }
-
-      .descriptionIntro {
-        .description {
-          &>p {
-            padding: 0 6px;
-          }
-        }
-      }
     }
   }
 
   .mobileAdditionalInformation {
     flex-direction: column;
 
-    &>div {
+    & > div {
       margin-top: 80px;
 
       @include phone {
         margin-top: 40px;
       }
     }
+  }
+
+  @include phone {
+    padding: 80px 15px 35px;
   }
 }
 
@@ -644,9 +644,11 @@
       .descriptionIntro {
         .title {
           background:
-            linear-gradient(to right,
+            linear-gradient(
+              to right,
               $ocean-blue 0%,
-              $jacksons-purple 50%);
+              $jacksons-purple 50%
+            );
           background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -670,10 +672,6 @@
 
   .contentContainer {
     .descriptionContainer {
-      @include phone {
-        margin-bottom: 0;
-      }
-
       .descriptionIntro {
         .description {
           max-width: 518px;
@@ -683,13 +681,16 @@
           }
         }
       }
+
+      @include phone {
+        margin-bottom: 0;
+      }
     }
   }
 }
 
 .fintech-app-for-credit-score {
   @extend .container;
-
   @include flex(row, space-around, center);
 
   background-color: $white;
@@ -704,7 +705,7 @@
     .descriptionContainer {
       .descriptionIntro {
         .description {
-          &>p {
+          & > p {
             width: 560px;
             padding: 0 6px;
 
@@ -819,18 +820,14 @@
   }
 
   .mobileAdditionalInformation {
-    &>div {
+    & > div {
       @include phone {
         margin-top: unset;
       }
     }
   }
 
-  &>div:last-child {
-    position: absolute;
-    top: 53%;
-    left: 64.5%;
-
+  & > div:last-child {
     @include quad-hd {
       left: 69.2%;
     }
@@ -843,6 +840,10 @@
     @include macbook-thirteen {
       left: 64.5%;
     }
+
+    position: absolute;
+    top: 53%;
+    left: 64.5%;
 
     @include tablet {
       top: 40%;
@@ -878,10 +879,6 @@
   .contentContainer {
     padding-bottom: 120px;
 
-    @include phone {
-      padding-bottom: 60px;
-    }
-
     .descriptionContainer {
       .description {
         max-width: 565px;
@@ -892,6 +889,10 @@
           display: block;
         }
       }
+    }
+
+    @include phone {
+      padding-bottom: 60px;
     }
   }
 
@@ -907,14 +908,10 @@
 .mobile-bank-application {
   @extend .container;
 
-  padding: 120px 40px 120px;
+  padding: 120px 40px;
 
   .contentContainer {
     padding-bottom: 80px;
-
-    @include phone {
-      padding-bottom: 60px;
-    }
 
     .descriptionContainer {
       .sectionName {
@@ -930,6 +927,10 @@
         max-width: 576px;
         margin-bottom: 60px;
       }
+    }
+
+    @include phone {
+      padding-bottom: 60px;
     }
   }
 

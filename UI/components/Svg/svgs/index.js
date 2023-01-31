@@ -57,6 +57,7 @@ export { default as pwa } from './technologies/pwa.svg';
 export { default as python } from './technologies/python.svg';
 export { default as pytorch } from './technologies/pytorch.svg';
 export { default as react } from './technologies/react.svg';
+export { default as reactNative } from './technologies/reactNative.svg';
 export { default as reactiveSwift } from './technologies/reactiveSwift.svg';
 export { default as redis } from './technologies/redis.svg';
 export { default as reduxSaga } from './technologies/reduxSaga.svg';
