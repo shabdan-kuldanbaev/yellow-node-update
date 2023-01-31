@@ -3,15 +3,15 @@ import { useForm } from 'react-hook-form';
 import { addThousandsSeparators } from 'utils/helper';
 import { budget as budgetData, marks } from './data';
 
-export default (props) => {
-  const {
-    isBudgetSlider,
-    type,
-    sendEmail,
-    contactFormError,
-    isDataSubmitted,
-    isFormPending,
-  } = props;
+export default ({
+  className,
+  isBudgetSlider,
+  type,
+  sendEmail,
+  contactFormError,
+  isDataSubmitted,
+  isFormPending,
+}) => {
   const {
     register,
     handleSubmit,
@@ -68,5 +68,6 @@ export default (props) => {
     contactFormError,
     isDataSubmitted,
     isFormPending,
+    className,
   };
 };

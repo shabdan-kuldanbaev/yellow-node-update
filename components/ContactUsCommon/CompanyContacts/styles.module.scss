@@ -3,10 +3,6 @@
 .address {
   margin-left: 112px;
 
-  @include tablet {
-    margin: 100px auto;
-  }
-
   & > div:first-child {
     & > span {
       margin-top: 0;
@@ -17,5 +13,9 @@
     @include tablet {
       text-align: center;
     }
+  }
+
+  @include tablet {
+    margin: 100px auto;
   }
 }

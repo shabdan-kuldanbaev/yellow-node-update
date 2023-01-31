@@ -24,6 +24,7 @@ const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const BookmarkCardSection = dynamic(() => import('UI/sections/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
+const Parallax = dynamic(() => import('components/CaseStudiesCommon/Parallax'));
 
 export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   const {
@@ -163,6 +164,15 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
         pageType={type}
       />
     );
+
+  case APP_DEVELOPMENT_TYPES.parallax:
+    return (
+      <Parallax
+        type={type}
+        data={section.fields}
+      />
+    );
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentTabsSection:
     return <TabsSection {...props} />;
 

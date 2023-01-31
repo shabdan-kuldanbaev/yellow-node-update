@@ -42,6 +42,7 @@ const SvgListSection = (props) => {
       />
       {withSelector && (
         <Selector
+          type={type}
           displayNames={displayNames}
           selectedIndex={selectedGroupIndex}
           onSelectedIndexChange={handleSelectedGroupIndexChange}

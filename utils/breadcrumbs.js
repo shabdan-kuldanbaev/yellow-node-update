@@ -122,6 +122,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.mvpDevelopment.path,
     },
   ]),
+  lendingSoftwareDevelopment: () => ([
+    {
+      title: ROUTES.lendingSoftwareDevelopment.title,
+      to: ROUTES.lendingSoftwareDevelopment.path,
+    },
+  ]),
   cloudDevelopment: () => ([
     {
       title: ROUTES.cloudDevelopment.title,

@@ -1,16 +1,16 @@
 @import 'styles/utils/mixins';
 
 .uploadFile {
+  @include flex(column, initial, initial, wrap);
+
   width: 100%;
   margin-top: 32px;
 
-  @include flex(column, initial, initial, wrap);
-
   .attachmentManage {
+    @include flex(row, flex-start, center);
+
     position: relative;
     width: 100%;
-
-    @include flex(row, flex-start, center);
 
     & > div {
       width: 100%;
@@ -32,10 +32,6 @@
       svg {
         height: auto;
 
-        @include phone {
-          width: 13px;
-        }
-
         g {
           path {
             fill: $nobel;
@@ -44,6 +40,10 @@
               fill $default-transition-time,
               filter $default-transition-time;
           }
+        }
+
+        @include phone {
+          width: 13px;
         }
       }
 
@@ -77,9 +77,9 @@
     width: 100%;
 
     .moreFilesLink {
-      padding: 5px 0;
-
       @include flex(column, center, center);
+
+      padding: 5px 0;
 
       label {
         color: $silver;

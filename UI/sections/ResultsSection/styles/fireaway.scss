@@ -3,6 +3,10 @@
     background-color: $gray50;
 
     .sectionTitle {
+      [data-title] {
+        color: $gray900;
+      }
+
       max-width: 583px;
     }
 
@@ -58,7 +62,7 @@
   &.secondSectionView {
     background-color: $fireawayAccent;
 
-    .sectionTitle {
+    [data-title] {
       color: $gray0;
     }
 
@@ -116,6 +120,10 @@
 
     .sectionTitle {
       max-width: 666px;
+
+      [data-title] {
+        color: $gray900;
+      }
 
       @include phone {
         max-width: 343px;

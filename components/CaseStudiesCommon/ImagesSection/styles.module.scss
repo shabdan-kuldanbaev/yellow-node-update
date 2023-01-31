@@ -49,22 +49,22 @@
 .humankind {
   @include caseStudyContainer;
 
+  background: $case-study-humankind-background;
+
   [data-case-study-title] {
     color: $white;
   }
-
-  background: $case-study-humankind-background;
 }
 
 .software-for-mri-interpretation {
   &.firstSectionView {
     @include caseStudyContainer;
 
+    background: linear-gradient(120.48deg, $mint-blue-3 0%, $mint-blue-4 100%);
+
     [data-case-study-title] {
       color: $white;
     }
-
-    background: linear-gradient(120.48deg, $mint-blue-3 0%, $mint-blue-4 100%);
   }
 
   &.secondSectionView {
@@ -321,6 +321,20 @@
     color: white;
   }
 
+  &.secondSectionView {
+    background: $alabaster;
+    padding: 120px 15px;
+
+    [data-case-study-title] {
+      color: $dark-grey;
+    }
+  }
+
+  &.thirdSectionView {
+    background: $alabaster;
+    padding: 0 25px 120px;
+  }
+
   @include tablet {
     padding-left: 0;
     padding-right: 0;
@@ -328,19 +342,5 @@
 
   @include phone {
     padding: 60px 0;
-  }
-
-  &.secondSectionView {
-    background: $alabaster;
-    padding: 120px 15px;
-    
-    [data-case-study-title] {
-      color: $dark-grey;
-    }
-  }
-  
-  &.thirdSectionView {
-    background: $alabaster;
-    padding: 0 25px 120px;
   }
 }

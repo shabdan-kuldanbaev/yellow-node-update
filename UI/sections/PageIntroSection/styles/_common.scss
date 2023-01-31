@@ -1,3 +1,15 @@
+@mixin pageIntroWithBottomBorder {
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid $gray200;
+
+  @include phone {
+    padding: 0;
+    margin-bottom: 32px;
+    border: unset;
+  }
+}
+
 .pageIntroSection {
   padding: 24px 40px 120px;
   background-color: inherit;
@@ -64,5 +76,19 @@
 
   @include below-tablet {
     margin-bottom: 24px;
+  }
+}
+
+.buttonWrapper {
+  @include below-tablet {
+    @include flex(row, center, center)
+  }
+}
+
+.button {
+  margin-top: 32px;
+
+  @include phone {
+    margin-top: 24px;
   }
 }

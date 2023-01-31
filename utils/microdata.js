@@ -269,6 +269,14 @@ export const microdata = {
     breadcrumb: 'Homepage > MVP development services',
     image: logoUrl,
   }),
+  lendingSoftwareDevelopment: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Lending Software Development Company | Yellow',
+    description: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
+    breadcrumb: 'Lending Software Development Company | Yellow',
+    image: logoUrl,
+  }),
   cloudDevelopment: () => ({
     '@context': context,
     '@type': 'WebPage',

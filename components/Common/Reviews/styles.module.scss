@@ -4,10 +4,6 @@
   max-width: 1500px;
   padding-top: 80px;
 
-  @include phone {
-    padding-top: 0;
-  }
-
   .desctopReviews {
     @include flex(row, initial, initial, wrap);
 
@@ -23,11 +19,6 @@
   .mobileReviews {
     display: none;
 
-    @include phone {
-      display: block;
-      width: 100vw;
-    }
-
     :global(.swiper) {
       overflow-x: initial;
       overflow-y: hidden;
@@ -37,5 +28,14 @@
     :global(.swiper-slide) {
       margin: auto;
     }
+
+    @include phone {
+      display: block;
+      width: 100vw;
+    }
+  }
+
+  @include phone {
+    padding-top: 0;
   }
 }

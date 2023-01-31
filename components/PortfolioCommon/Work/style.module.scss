@@ -8,7 +8,11 @@
   .contentWrapper {
     @include flex(column, space-between, flex-start);
 
-    background: rgba(23, 23, 23, 0.72);
+    @include macbook-twelve {
+      padding: 50px 30px;
+    }
+
+    background: rgb(23 23 23 / 72%);
     box-sizing: border-box;
     padding: 70px 60px;
     width: 100%;
@@ -17,10 +21,6 @@
     transition: opacity 0.15s ease-in-out;
     position: relative;
     color: $gray0;
-
-    @include macbook-twelve {
-      padding: 50px 30px;
-    }
 
     @include tablet {
       display: block;
@@ -152,15 +152,15 @@
   .title {
     @include fontSize(48px);
 
-    line-height: 48px;
-    margin-top: 20px;
-
     @include macbook-fifteen {
       @include fontSize(42px);
 
       margin-top: 20px;
       line-height: 50px;
     }
+
+    line-height: 48px;
+    margin-top: 20px;
 
     @include tablet {
       @include fontSize(18px);
