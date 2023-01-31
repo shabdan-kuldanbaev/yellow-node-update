@@ -77,13 +77,14 @@
       }
 
       @include phone {
+        justify-content: flex-start;
         padding: 0 16px;
+        min-height: 625px;
       }
     }
 
     .image {
       position: relative;
-      z-index: 50;
 
       &:before {
         position: absolute;
