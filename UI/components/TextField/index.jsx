@@ -31,15 +31,9 @@ TextField.defaultProps = {
 };
 
 TextField.propTypes = {
-  register: (props, propName, componentName) => {
-    if (!props.onChange) return PropTypes.func.isRequired;
-  },
-  onChange: (props, propName, componentName) => {
-    if (!props.register) return PropTypes.func.isRequired;
-  },
-  value: (props, propName, componentName) => {
-    if (!props.register) return PropTypes.string.isRequired;
-  },
+  register: PropTypes.func,
+  onChange: PropTypes.func,
+  value: PropTypes.func,
   style: PropTypes.string,
   textarea: PropTypes.bool,
   required: PropTypes.bool,

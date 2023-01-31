@@ -1,11 +1,11 @@
-export const MOBILE_IMAGE_SIZE = 400;
+export const DEFAULT_MOBILE_IMAGE_SIZE = 350;
 export const DEFAULT_IMAGE_SIZE = 500;
 
 export const IMAGE_SIZES = {
   'marketplace-for-clairvoyant-services': 541,
   dindon: 665,
   fernwayer: 540,
-  fireaway: 540,
+  fireaway: 425,
   'seven-pm-thursday': 540,
   stickerbox: 480,
   fairy: 645,
@@ -26,4 +26,8 @@ export const IMAGE_SIZES = {
   humankind: 630,
   'software-for-mri-interpretation': 630,
   'mobile-bank-application': 500,
+};
+
+export const MOBILE_IMAGE_SIZES = {
+  fireaway: 250,
 };

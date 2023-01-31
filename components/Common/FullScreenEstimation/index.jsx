@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ModalWindow from 'components/Common/ModalWindow';
-import SectionTitle from 'components/Common/SectionTitle';
-import FeedbackForm from 'components/Common/FeedbackForm';
+import SectionTitle from 'UI/components/SectionTitle';
+import FeedbackForm from 'UI/components/Forms/FeedbackForm';
 import styles from './styles.module.scss';
 
 const FullScreenEstimation = ({
@@ -25,7 +25,8 @@ const FullScreenEstimation = ({
       />
       {isFullscreenEstimation && (
         <FeedbackForm
-          isChooseBudget
+          className={styles.feedbackForm}
+          isBudgetSlider
           formKey="estimation"
         />
       )}

@@ -139,6 +139,7 @@ function* fetchPageData({
     case PAGES.developmentServices:
     case PAGES.androidDevelopmentServices:
     case PAGES.mvpDevelopment:
+    case PAGES.lendingSoftwareDevelopment:
     case PAGES.cloudDevelopment:
     case PAGES.crossPlatformDevelopmentServices:
     case PAGES.fintechDevelopment:

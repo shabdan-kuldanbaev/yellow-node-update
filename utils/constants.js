@@ -5,7 +5,7 @@ import React from 'react';
 import { routes } from 'utils/routes';
 
 // TODO: After refactoring all pages, remove this variable and check for pages
-export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox'];
+export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox', 'fireaway'];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
@@ -64,6 +64,7 @@ export const NAV_LINKS = [
     routes.androidDevelopmentServices.slug,
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
+    routes.lendingSoftwareDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
     routes.aiDevelopment.slug,
@@ -204,6 +205,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
   appDevelopmentDownloadSection: 'app-development-download-section',
   feedback: 'feedback',
+  parallax: 'case-study-parallax',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -284,6 +286,7 @@ export const CASE_STUDIES_TYPES = {
   processOverlay: 'case-study-process-overlay',
   challengesSpecialSlider: 'case-study-special-slider',
   prototype: 'case-study-prototype',
+  feedback: 'feedback',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -444,6 +447,11 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.cloudDevelopment.path,
       },
       {
+        title: 'Cloud-based app development services',
+        subtitle: 'No physical space is occupied',
+        slug: ROUTES.lendingSoftwareDevelopment.path,
+      },
+      {
         title: 'Prototyping services',
         subtitle: 'Start with a draft',
         slug: ROUTES.prototypingServices.path,
@@ -525,6 +533,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.designServices,
   PAGES.discoveryPhase,
   PAGES.tradingSoftwareDevelopment,
+  PAGES.lendingSoftwareDevelopment,
 ];
 
 export const CONTACT_FORM_TITLES = {
@@ -536,6 +545,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions?',
+  [PAGES.lendingSoftwareDevelopment]: 'Build your lending software with us',
   [PAGES.tradingSoftwareDevelopment]: 'Ready to get started?',
   [PAGES.fintechDevelopment]: 'Still have questions?',
   [PAGES.erpDevelopment]: 'Still have questions?',

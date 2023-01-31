@@ -1,0 +1,15 @@
+.fireaway {
+  padding-bottom: 0;
+
+  .descriptionIntro {
+    margin-bottom: 48px;
+
+    @include below-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  @include tablet {
+    padding-bottom: 30px;
+  }
+}

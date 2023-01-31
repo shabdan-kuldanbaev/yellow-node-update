@@ -14,7 +14,7 @@ const Wireframe = (props) => {
     return null;
   }
 
-  return wireframeImages.map(({
+  return wireframeImages?.map(({
     url,
     alt,
     height,
@@ -60,9 +60,7 @@ const Wireframe = (props) => {
 };
 
 Wireframe.propTypes = {
-  data: PropTypes.shape({
-    images: PropTypes.instanceOf(Array),
-  }).isRequired,
+  images: PropTypes.arrayOf(PropTypes.instanceOf(Object)).isRequired,
   type: PropTypes.string.isRequired,
 };
 

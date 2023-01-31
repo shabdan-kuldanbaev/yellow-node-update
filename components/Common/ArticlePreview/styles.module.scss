@@ -260,6 +260,10 @@
     }
   }
 
+  .imgContainer {
+    display: none;
+  }
+
   .articleContent {
     @extend .blogArticleContent;
   }
@@ -297,10 +301,6 @@
 
   &.search {
     grid-column: auto !important;
-
-    .imgContainer {
-      display: none;
-    }
 
     .introduction {
       display: block !important;

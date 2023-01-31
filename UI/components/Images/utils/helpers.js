@@ -1,4 +1,4 @@
-export const PAGE_WITH_TRANSPERENT_IMAGE = ['stickerbox'];
+export const PAGE_WITH_TRANSPERENT_IMAGE = ['stickerbox', 'fireaway'];
 
 export const DEFAULT_DESKTOP_HEIGHT = 812;
 export const DEFAULT_MOBILE_HEIGHT = 500;

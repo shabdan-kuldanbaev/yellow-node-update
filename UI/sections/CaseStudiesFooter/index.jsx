@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectProject } from 'redux/selectors/portfolio';
 import Svg from 'UI/components/Svg';
@@ -23,7 +24,7 @@ const CaseStudiesFooter = (props) => {
 
   return (
     <footer
-      className={styles[type]}
+      className={cn(styles[type], styles.footer)}
       style={footerStyle}
     >
       {slug && (
@@ -66,7 +67,7 @@ const CaseStudiesFooter = (props) => {
           </LinkWrapper>
         </div>
         <div>
-          {socialNetworks.map(({
+          {socialNetworks?.map(({
             name,
             href,
             iconType,

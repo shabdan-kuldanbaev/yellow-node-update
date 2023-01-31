@@ -11,7 +11,7 @@ const apiClient = axios.create({
 
 export const API = {
   sendEmail: (formData) => apiClient.post('/contact-us', formData),
-  subscribe: (email) => apiClient.post('/subscribe', { email }),
+  subscribe: (data) => apiClient.post('/subscribe', { ...data }),
   getJSON: () => apiClient.get('/json'),
   getFileSignedURL: (fileName) => apiClient.post('/signed-file-url', { fileName }),
   uploadFile: (

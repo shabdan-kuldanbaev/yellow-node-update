@@ -239,6 +239,12 @@ export const routes = {
     dynamicPath: '/mvp-app-development-company',
     slug: 'mvp-app-development-company',
   },
+  lendingSoftwareDevelopment: {
+    title: 'Lending Software Development Company',
+    path: '/lending-software-development',
+    dynamicPath: '/lending-software-development',
+    slug: 'lending-software-development',
+  },
   cloudDevelopment: {
     title: 'Cloud-based application development company',
     path: '/cloud-based-app-development-services',
