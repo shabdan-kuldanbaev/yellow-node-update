@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import Button from 'UI/components/Button';
 import TextField from 'UI/components/TextField';
-import styles from './DownloadChecklistForm.module.scss';
 import useProps from './utils/useProps';
+import styles from './DownloadChecklistForm.module.scss';
 
 const DownloadChecklistForm = (props) => {
   const {

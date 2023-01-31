@@ -476,6 +476,11 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Lauch your app to all platforms at once',
         slug: ROUTES.crossPlatformDevelopmentServices.path,
       },
+      {
+        title: 'Lending Software Development Company',
+        subtitle: 'Fast and secure lending process',
+        slug: ROUTES.lendingSoftwareDevelopment.path,
+      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
       {
