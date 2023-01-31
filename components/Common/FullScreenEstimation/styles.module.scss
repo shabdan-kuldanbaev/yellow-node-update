@@ -4,19 +4,15 @@
   z-index: 9999999;
 
   .estimationContainer {
-    width: calc(100% - 40px);
-    top: 0;
-    transform: translateY(10vw);
-
     @include flex(column, center, center);
 
     @include macbook-fifteen {
       transform: translateY(6vw);
     }
 
-    @include phone {
-      transform: translateY(20vw);
-    }
+    width: calc(100% - 40px);
+    top: 0;
+    transform: translateY(10vw);
 
     & > div {
       .subtitle {
@@ -79,5 +75,14 @@
       max-width: 1000px;
       width: 100%;
     }
+
+    @include phone {
+      transform: translateY(20vw);
+    }
+  }
+
+  .feedbackForm {
+    width: 100%;
+    max-width: 790px;
   }
 }

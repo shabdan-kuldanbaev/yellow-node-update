@@ -4,6 +4,7 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import Button from 'UI/components/Button';
 import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
@@ -16,8 +17,10 @@ const PageIntroSection = (props) => {
     title,
     description,
     imageUrl,
+    buttonTitle,
     figuresData,
     introSection,
+    handleOnCTAClick,
   } = useSectionProps(props);
 
   // TODO: use rich text instead of splitting
@@ -54,6 +57,19 @@ const PageIntroSection = (props) => {
                 </Typography>
               ))}
             </Animated>
+            {buttonTitle && (
+              <Animated {...REVEAL_ANIMATION_PROPS}>
+                <div className={styles.buttonWrapper}>
+                  <Button
+                    onClick={handleOnCTAClick}
+                    className={styles.button}
+                    data-button
+                  >
+                    {buttonTitle}
+                  </Button>
+                </div>
+              </Animated>
+            )}
           </div>
           <Animated {...REVEAL_ANIMATION_PROPS}>
             {imageUrl && (

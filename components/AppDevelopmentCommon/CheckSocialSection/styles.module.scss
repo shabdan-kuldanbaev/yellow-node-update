@@ -1,5 +1,5 @@
 @import 'styles/utils/mixins';
-@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
+@import 'components/AppDevelopmentCommon/utils/styles.module';
 
 .ui-ux-services {
   @include appDevelopmentContainer;
@@ -55,6 +55,5 @@
         flex-direction: column;
       }
     }
-
   }
 }

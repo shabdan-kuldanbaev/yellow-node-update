@@ -64,6 +64,7 @@ export const NAV_LINKS = [
     routes.androidDevelopmentServices.slug,
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
+    routes.lendingSoftwareDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
     routes.aiDevelopment.slug,
@@ -204,6 +205,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
   appDevelopmentDownloadSection: 'app-development-download-section',
   feedback: 'feedback',
+  parallax: 'case-study-parallax',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -445,6 +447,11 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.cloudDevelopment.path,
       },
       {
+        title: 'Cloud-based app development services',
+        subtitle: 'No physical space is occupied',
+        slug: ROUTES.lendingSoftwareDevelopment.path,
+      },
+      {
         title: 'Prototyping services',
         subtitle: 'Start with a draft',
         slug: ROUTES.prototypingServices.path,
@@ -468,6 +475,11 @@ export const SUB_NAVIGATION_LINKS = {
         title: 'Cross platform development services',
         subtitle: 'Lauch your app to all platforms at once',
         slug: ROUTES.crossPlatformDevelopmentServices.path,
+      },
+      {
+        title: 'Lending Software Development Company',
+        subtitle: 'Fast and secure lending process',
+        slug: ROUTES.lendingSoftwareDevelopment.path,
       },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
@@ -526,6 +538,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.designServices,
   PAGES.discoveryPhase,
   PAGES.tradingSoftwareDevelopment,
+  PAGES.lendingSoftwareDevelopment,
 ];
 
 export const CONTACT_FORM_TITLES = {
@@ -537,6 +550,7 @@ export const CONTACT_FORM_TITLES = {
   [PAGES.developmentServices]: '',
   [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
   [PAGES.mvpDevelopment]: 'Still have questions?',
+  [PAGES.lendingSoftwareDevelopment]: 'Build your lending software with us',
   [PAGES.tradingSoftwareDevelopment]: 'Ready to get started?',
   [PAGES.fintechDevelopment]: 'Still have questions?',
   [PAGES.erpDevelopment]: 'Still have questions?',

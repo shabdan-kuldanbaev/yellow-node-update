@@ -1,24 +1,23 @@
 @import 'styles/utils/mixins';
 
 .text {
+  @include flex(row, center, center, wrap);
+
   position: absolute;
   top: 0;
   z-index: 0;
   width: 100%;
   height: 100vh;
 
-  @include flex(row, center, center, wrap);
-
-  @include phone {
-    align-items: flex-end;
-    width: 100%;
-  }
-
   & > div {
     width: 100%;
   }
 
   h1 {
+    @include horizontal-mobile {
+      font-size: 2.3rem;
+    }
+
     user-select: none;
     font-family: $main-title-font;
     font-size: 5rem;
@@ -38,18 +37,14 @@
       font-size: 3.8rem;
     }
 
-    @include horizontal-mobile {
-      font-size: 2.3rem;
-    }
-
     @include phone {
+      @include fontSize(26px);
+
       padding: 5px;
       color: $white !important;
       text-shadow: none !important;
       opacity: 1;
       width: calc(100% - 10px);
-
-      @include fontSize(26px);
     }
 
     @include phone-height-500 {
@@ -63,28 +58,33 @@
     }
 
     @include phone-height-650 {
-      transform: translateY(-150px);
-
       @include iOSDevice {
         transform: translateY(-210px);
       }
+
+      transform: translateY(-150px);
     }
 
     @include phone-height-730 {
-      transform: translateY(-180px);
-
       @include iOSDevice {
         transform: translateY(-240px);
       }
+
+      transform: translateY(-180px);
     }
 
     @include phone-height-800 {
-      transform: translateY(-240px);
-
       @include iOSDevice {
         transform: translateY(-290px);
       }
+
+      transform: translateY(-240px);
     }
+  }
+
+  @include phone {
+    align-items: flex-end;
+    width: 100%;
   }
 }
 

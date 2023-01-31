@@ -37,4 +37,4 @@ const useProps = ({ downloadLink, ...props }) => {
   };
 };
 
-export default useForm;
+export default useProps;

@@ -18,7 +18,7 @@ const ImageSection = (props) => {
     view,
   } = useSectionProps(props);
 
-  if (!imageUrl || !text) return null;
+  if (!imageUrl) return null;
 
   return (
     <section className={cn(styles[type], styles[view], styles.container)}>
