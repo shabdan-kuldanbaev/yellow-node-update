@@ -1,0 +1,62 @@
+.seven-pm-thursday {
+  .image {
+    width: 320px;
+    height: 650px;
+  }
+
+  .title {
+    @include fontSize(38px, 130%);
+
+    color: $gray0;
+    margin-bottom: 16px;
+
+    @include below-tablet {
+      margin-bottom: 8px;
+      text-align: center;
+    }
+  }
+
+  .infoContainer p {
+    color: $gray500;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
+  .contentContainer-1 {
+    .infoContainer-1 {
+      margin-right: 0;
+      margin-left: 35px;
+      order: 1;
+
+      @include phone {
+        margin-left: 0;
+      }
+    }
+
+    @include below-tablet {
+      @include flex(column-reverse, center, center);
+    }
+  }
+
+  .contentContainer-2 {
+    &:nth-of-type(2n) {
+      .infoContainer:not(.separatedTitle) {
+        @include infoContainerPhone;
+
+        order: 0;
+        margin-left: 0;
+        margin-right: 35px;
+
+        &:nth-child(2n) {
+          margin: 0;
+        }
+      }
+    }
+
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+  }
+}
