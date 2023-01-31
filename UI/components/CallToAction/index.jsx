@@ -5,9 +5,9 @@ import Button from 'UI/components/Button';
 import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
-import { LINK_TYPE } from 'utils/constants/linkType';
 import useProps from './utils/useProps';
 import styles from './styles.module.scss';
+import SubscribeInCTAForm from '../Forms/SubscribeInCTAForm';
 
 const CallToAction = (props) => {
   const {
@@ -22,6 +22,7 @@ const CallToAction = (props) => {
     className,
     images,
     isNew,
+    isSubscribeFormShown,
   } = useProps(props);
 
   return (
@@ -67,18 +68,18 @@ const CallToAction = (props) => {
         )}
       </div>
 
-      {
-        isNew && type === LINK_TYPE.callToAction && null
-      }
+      {isSubscribeFormShown && <SubscribeInCTAForm />}
 
-      <Button
-        href={href}
-        onClick={handleOnClick}
-        className={styles.button}
-        data-button
-      >
-        {buttonTitle}
-      </Button>
+      {!isSubscribeFormShown && (
+        <Button
+          href={href}
+          onClick={handleOnClick}
+          className={styles.button}
+          data-button
+        >
+          {buttonTitle}
+        </Button>
+      )}
     </div>
   );
 };
