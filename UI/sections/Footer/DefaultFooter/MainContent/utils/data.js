@@ -67,7 +67,7 @@ export const footerData = [
         type: 'navigation',
       },
       {
-        subtitle: 'MVP development services',
+        subtitle: 'Lending Software Development Company',
         path: ROUTES.lendingSoftwareDevelopment.path,
         type: 'navigation',
       },
