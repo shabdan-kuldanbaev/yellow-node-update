@@ -26,6 +26,7 @@ const CallToAction = (props) => {
     isSubscribeFormShown,
     isGetBookShown,
     toggleGetBookModalShown,
+    downloadLink,
   } = useProps(props);
 
   return (
@@ -88,6 +89,8 @@ const CallToAction = (props) => {
         show={isGetBookShown}
         close={toggleGetBookModalShown}
         bookCover={images[0]}
+        buttonText={buttonTitle}
+        downloadLink={downloadLink}
       />
     </div>
   );
