@@ -24,7 +24,7 @@ const KeyFeatures = (props) => {
 
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-      <div className={styles[type]}>
+      <div className={cn(styles[type], styles.container)}>
         <div
           className={styles.containerBackground}
           style={containerStyle}
@@ -57,10 +57,6 @@ const KeyFeatures = (props) => {
       </div>
     </Animated>
   );
-};
-
-KeyFeatures.defaultProps = {
-  type: '',
 };
 
 KeyFeatures.propTypes = {

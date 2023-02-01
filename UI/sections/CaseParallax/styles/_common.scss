@@ -1,0 +1,8 @@
+.parallaxSection {
+  .parallaxImage {
+    @include centeredBackgroundImage;
+
+    background-attachment: fixed;
+    height: 100vh;
+  }
+}
