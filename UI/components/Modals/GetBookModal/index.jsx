@@ -25,8 +25,8 @@ const GetBookModal = (props) => {
     >
       <div className={styles.container}>
         <Illustration
-          src={bookCover.url}
-          alt={bookCover.alt}
+          src={bookCover?.url}
+          alt={bookCover?.alt}
           className={styles.image}
         />
         {!isSubscribed && (
