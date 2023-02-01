@@ -30,10 +30,13 @@
 
     width: 318px;
     z-index: 100;
+  }
 
-    @include phone {
-      width: 238px;
-    }
+  .video {
+    @include centered;
+
+    max-width: 286px;
+    border-radius: 10px;
   }
 
   .appImage {

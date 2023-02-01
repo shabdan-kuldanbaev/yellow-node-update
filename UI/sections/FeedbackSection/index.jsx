@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 import SectionTitle from 'UI/components/SectionTitle';
 import FeedbackForm from 'UI/components/Forms/FeedbackForm';
 import LinkWrapper from 'UI/components/LinkWrapper';
@@ -69,6 +70,11 @@ const FeedbackSection = (props) => {
       })()}
     </section>
   );
+};
+
+FeedbackSection.propTypes = {
+  section: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default FeedbackSection;
