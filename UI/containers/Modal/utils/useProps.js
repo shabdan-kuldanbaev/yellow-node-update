@@ -33,7 +33,9 @@ const useProps = ({
   }, [close]);
 
   return {
-    props,
+    ...props,
+    show,
+    close,
     handleOnClick,
     modalRef,
   };
