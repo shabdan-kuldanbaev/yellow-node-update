@@ -1,5 +1,6 @@
 .seven-pm-thursday {
   background-color: $sevenPmPrimary;
+  padding: 60px 32px;
 
   [data-title] {
     color: $gray0;
@@ -11,5 +12,9 @@
 
   .link {
     color: $gray500;
+  }
+
+  @include phone {
+    padding: 30px 16px;
   }
 }
