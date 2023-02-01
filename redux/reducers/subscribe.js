@@ -15,6 +15,7 @@ const handlers = {
   [actionTypes.SUBSCRIBE_SUCCESS]: (state, { payload }) => ({
     ...state,
     isLoading: false,
+    isSubscribed: true,
     message: payload,
   }),
   [actionTypes.SUBSCRIBE_FAILED]: (state, { payload: { data } }) => ({
