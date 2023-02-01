@@ -27,6 +27,7 @@ export const ArticleLink = ({
       />
     );
   case LINK_TYPE.callToAction:
+  case LINK_TYPE.book:
     if (isNew) {
       return (
         <CallToActionNew

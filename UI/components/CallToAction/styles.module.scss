@@ -136,6 +136,7 @@
 .new {
   @include flex(row, flex-start, center);
 
+  position: relative;
   box-sizing: border-box;
   min-height: 173px;
   padding: 24px 32px;
@@ -146,6 +147,46 @@
 
   .title {
     @include fontSize(20px);
+  }
+
+  &.book {
+    @include flex(column, flex-start, flex-start);
+
+    border-color: $yellow500;
+    padding-left: 40%;
+    margin-top: 130px;
+    background: $gray50;
+
+    .content {
+      max-width: none;
+    }
+
+    .image {
+      position: absolute;
+      width: 167px;
+      height: 245px;
+      left: 60px;
+      bottom: 24px;
+      filter: drop-shadow(10px 24px 42px rgb(0 0 0 / 7%));
+    }
+
+    .button {
+      margin: 16px 0 0;
+    }
+
+    @include tablet {
+      padding: 188px 32px 24px;
+
+      .image {
+        left: 50%;
+        top: -90px;
+        transform: translateX(-50%);
+      }
+
+      .button {
+        margin: 16px auto 0;
+      }
+    }
   }
 
   @include tablet {

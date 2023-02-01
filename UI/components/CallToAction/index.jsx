@@ -6,8 +6,9 @@ import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import useProps from './utils/useProps';
-import styles from './styles.module.scss';
 import SubscribeInCTAForm from '../Forms/SubscribeInCTAForm';
+import GetBookModal from '../Modals/GetBookModal';
+import styles from './styles.module.scss';
 
 const CallToAction = (props) => {
   const {
@@ -23,6 +24,8 @@ const CallToAction = (props) => {
     images,
     isNew,
     isSubscribeFormShown,
+    isGetBookShown,
+    toggleGetBookModalShown,
   } = useProps(props);
 
   return (
@@ -80,6 +83,12 @@ const CallToAction = (props) => {
           {buttonTitle}
         </Button>
       )}
+
+      <GetBookModal
+        show={isGetBookShown}
+        close={toggleGetBookModalShown}
+        bookCover={images[0]}
+      />
     </div>
   );
 };

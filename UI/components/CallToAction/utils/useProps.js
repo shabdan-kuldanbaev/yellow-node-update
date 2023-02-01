@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { getDocumentFields, getImage } from 'utils/helper';
 import { LINK_TYPE } from 'utils/constants/linkType';
+import useToggle from 'hooks/useToggle';
 
 export default ({
   title: titleProp,
@@ -24,15 +24,32 @@ export default ({
     'type',
   ]);
 
-  const [isFormOpen, setFormOpen] = useState(false);
+  const [isFormOpen, setFormOpen] = useToggle(false);
+  const [isGetBookModalShown, toggleGetBookModalShown] = useToggle(false);
 
   const images = (imagesBundle || []).map(getImage);
 
   const titles = (title || titleProp).split('||');
 
   const isSubscribeFormShown = isNew && type === LINK_TYPE.callToAction && isFormOpen;
+  const isGetBookShown = isNew && type === LINK_TYPE.book && isGetBookModalShown;
 
-  const handleOnClick = !isNew ? handleOnClickProp : () => setFormOpen(true);
+  function getOnClickHandler() {
+    if (!isNew) {
+      return handleOnClickProp;
+    }
+
+    switch (type) {
+    case LINK_TYPE.callToAction:
+      return () => setFormOpen();
+
+    case LINK_TYPE.book:
+      return () => toggleGetBookModalShown();
+
+    default:
+      return null;
+    }
+  }
 
   return {
     ...props,
@@ -42,6 +59,9 @@ export default ({
     isNew,
     buttonTitle,
     isSubscribeFormShown,
-    handleOnClick,
+    handleOnClick: getOnClickHandler(),
+    isGetBookShown,
+    toggleGetBookModalShown,
+    type,
   };
 };
