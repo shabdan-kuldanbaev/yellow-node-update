@@ -75,6 +75,7 @@ export const NAV_LINKS = [
     routes.privacyPolicy.slug,
     routes.termsAndConditions.slug,
     routes.cookiesPolicy.slug,
+    routes.lendingSoftwareDevelopment.slug,
   ].includes(slug)),
 ];
 
