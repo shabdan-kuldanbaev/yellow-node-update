@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .mobileDropDownMenu {
   margin-top: 16px;
@@ -8,8 +8,8 @@
     justify-content: space-between;
     align-items: center;
 
-    &:not(:last-child) {
-      margin-bottom: 16px;
+    &:not(:first-child) {
+      margin-top: 16px;
     }
 
     .subMenuItem {
@@ -21,8 +21,10 @@
 
     .svgContainer {
       margin-right: 5px;
+      height: 24px;
       outline: none;
-      transform: rotate(-180deg);
+      transform-origin: 50% 50%;
+      transform: rotate(0);
       transition: transform $default-transition-time ease-in-out;
 
       & > svg > path {
@@ -43,7 +45,7 @@
 
   .openedDropDown {
     .svgContainer {
-      transform: rotate(0);
+      transform: rotate(-180deg);
       transition: transform $default-transition-time ease-in-out;
     }
   }

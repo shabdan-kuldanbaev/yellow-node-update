@@ -41,6 +41,11 @@ module.exports = {
         {
           type: 'at-rule',
           name: 'include',
+          parameter: 'macbook-twelve',
+        },
+        {
+          type: 'at-rule',
+          name: 'include',
           parameter: 'tablet',
         },
         {
