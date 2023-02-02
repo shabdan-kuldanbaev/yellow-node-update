@@ -1,5 +1,14 @@
 .seven-pm-thursday {
   background: $sevenPmPrimary;
+  padding: 60px 40px;
+
+  .contentContainer {
+    margin: 0 auto 120px;
+
+    @include phone {
+      margin: 0 auto 30px;
+    }
+  }
 
   .sectionName {
     color: $gray500;
@@ -15,5 +24,9 @@
 
   .descriptionIntro {
     margin-bottom: 32px;
+  }
+
+  @include phone {
+    padding: 30px 16px;
   }
 }
