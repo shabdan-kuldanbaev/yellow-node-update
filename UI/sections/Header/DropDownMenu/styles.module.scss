@@ -1,8 +1,9 @@
+@import 'styles/utils/sizes';
 @import 'styles/utils/mixins';
 
 .dropDownMenu {
   position: absolute;
-  top: $header-height - 0.5px;
+  top: calc(100% - 1px);
   left: 0;
   width: 100%;
   padding: 16px 0 64px;
@@ -27,7 +28,7 @@
       cursor: pointer;
 
       &::before {
-        content: " ";
+        content: ' ';
         position: absolute;
         bottom: -8px;
         left: 50%;
@@ -68,19 +69,22 @@
   }
 
   &.pageScrolling {
-      .subMenuItemActive {
-        color: $gray900;
-      }
+    .subMenuItemActive {
+      color: $gray900;
+    }
   }
 
   .dropDownLinksContainer {
-    max-width: max-content;
+    max-width: $wide-content-width;
     margin: 0 auto;
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(3, max-content);
-    grid-gap: 32px 120px;
+    grid-gap: 32px 65px;
+    padding: 0 40px;
 
-    &.expertise {
+    &.expertise,
+    &.fintech {
       grid-template-columns: repeat(2, max-content);
     }
 
@@ -95,10 +99,6 @@
       grid-column-gap: unset;
       grid-template-columns: unset;
     }
-  }
-
-  @include macbook-twelve {
-    padding-bottom: 80px;
   }
 
   @include below-tablet {
@@ -123,7 +123,7 @@
 
 .pageScrolling {
   background-color: $white;
-  box-shadow: 0 40px 60px -40px rgb(0 0 0 / 0.1);
+  box-shadow: 0 40px 60px -40px rgb(0 0 0 / 10%);
   border-bottom: none;
 }
 
