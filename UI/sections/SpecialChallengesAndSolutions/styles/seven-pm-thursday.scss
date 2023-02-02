@@ -1,6 +1,6 @@
 .seven-pm-thursday {
   background-color: $sevenPmPrimary;
-  padding: 60px 40px;
+  padding: 60px 40px 120px;
 
   .titleStyle {
     display: none;
@@ -11,6 +11,6 @@
   }
 
   @include phone {
-    padding: 30px 16px;
+    padding: 30px 16px 60px;
   }
 }

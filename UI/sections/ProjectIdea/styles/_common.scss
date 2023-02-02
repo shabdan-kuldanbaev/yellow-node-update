@@ -29,7 +29,7 @@
   .descriptionContainer {
     @include flex(column, center);
 
-    max-width: 630px;
+    max-width: 481px;
 
     @include tablet {
       order: 1;
