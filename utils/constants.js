@@ -482,11 +482,7 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Artificial intelligence at your service',
         slug: ROUTES.mlDevelopment.path,
       },
-      {
-        title: 'Fintech software development Services',
-        subtitle: 'Build a successul fintech solution',
-        slug: ROUTES.fintechDevelopment.path,
-      },
+
       {
         title: 'AI software development services',
         subtitle: 'Letting machines think',
@@ -505,9 +501,19 @@ export const SUB_NAVIGATION_LINKS = {
     ],
     [SUB_NAVIGATION_KEYS.fintech]: [
       {
+        title: 'Fintech software development Services',
+        subtitle: 'Build a successul fintech solution',
+        slug: ROUTES.fintechDevelopment.path,
+      },
+      {
         title: 'Trading platform development company',
         subtitle: 'The way to manage investments',
         slug: ROUTES.tradingSoftwareDevelopment.path,
+      },
+      {
+        title: 'Lending Software Development Company',
+        subtitle: 'Fast and secure lending process',
+        slug: ROUTES.lendingSoftwareDevelopment.path,
       },
     ],
   },
