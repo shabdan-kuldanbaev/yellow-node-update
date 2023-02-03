@@ -10,7 +10,6 @@ const GetBookForm = (props) => {
     isButtonDisabled,
     handleButtonClick,
     dirtyFields,
-    message,
     buttonText,
   } = useProps(props);
 
@@ -33,7 +32,6 @@ const GetBookForm = (props) => {
         type="email"
         classname={styles.input}
       />
-      {message && <p className={styles.message}>{message}</p>}
       <Button
         className={styles.button}
         disabled={isButtonDisabled}

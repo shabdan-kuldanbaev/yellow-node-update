@@ -1,11 +1,23 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectIsSubscribed } from 'redux/selectors/subscribe';
+import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscribe';
+import downloadFile from 'utils/downloadFile';
 
-const useProps = ({ ...props }) => {
-  const subscribed = useSelector(selectIsSubscribed);
+const useProps = ({ downloadLink, show, ...props }) => {
+  const isSubscribed = useSelector(selectIsSubscribed);
+  const isPending = useSelector(selectSubcibePending);
+
+  useEffect(() => {
+    if (!isSubscribed || !show || isPending) {
+      return;
+    }
+
+    downloadFile(downloadLink);
+  }, [isSubscribed, isPending, show, downloadLink]);
 
   return ({
-    subscribed,
+    isSubscribed,
+    show,
     ...props,
   });
 };

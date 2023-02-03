@@ -16,7 +16,6 @@ const CallToAction = (props) => {
     titles,
     subtitle,
     buttonTitle,
-    href,
     type,
     page,
     view,
@@ -134,7 +133,6 @@ const CallToAction = (props) => {
 
       {!isSubscribeFormShown && (
         <Button
-          href={href}
           onClick={handleOnClick}
           className={styles.button}
           data-button

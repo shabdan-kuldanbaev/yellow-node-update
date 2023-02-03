@@ -12,9 +12,9 @@ const GetBookModal = (props) => {
     show,
     close,
     bookCover,
-    downloadLink,
     buttonText,
     isSubscribed,
+    onSubmit,
   } = useProps(props);
 
   return (
@@ -31,7 +31,8 @@ const GetBookModal = (props) => {
         />
         {!isSubscribed && (
           <GetBookForm
-            downloadLink={downloadLink}
+            isOpen={show}
+            onSubmit={onSubmit}
             buttonText={buttonText}
           />
         )}
@@ -40,7 +41,6 @@ const GetBookModal = (props) => {
             <Typography
               size={TYPOGRAPHY_SIZE.headline24}
               isBold
-
             >
               Thank you!
             </Typography>

@@ -3,28 +3,37 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { subscribe } from 'redux/actions/subscribe';
-import { selectIsSubscribed, selectSubscribeError, selectSubscribeMessage } from 'redux/selectors/subscribe';
+import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscribe';
 
-const useProps = ({ downloadLink, onSent, ...props }) => {
+const useProps = ({
+  downloadLink,
+  onSubmit,
+  isOpen,
+  ...props
+}) => {
   const { query } = useRouter();
 
   const dispatch = useDispatch();
 
-  const message = useSelector(selectSubscribeMessage);
-  const subscribed = useSelector(selectIsSubscribed);
+  const isPending = useSelector(selectSubcibePending);
+  const isSubscribed = useSelector(selectIsSubscribed);
 
   useEffect(() => {
-    if (!subscribed) {
+    if (!isSubscribed || !isOpen || isPending) {
       return;
     }
 
-    window.open(downloadLink, '_newtab');
-  }, [subscribed, downloadLink]);
+    onSubmit();
+  }, [
+    isSubscribed,
+    isPending,
+    onSubmit,
+    isOpen,
+  ]);
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: {
       dirtyFields,
       isValid,
@@ -36,15 +45,18 @@ const useProps = ({ downloadLink, onSent, ...props }) => {
     dispatch(subscribe({ ...values, pathname: query }));
   });
 
-  const isButtonDisabled = !getValues().name || !getValues().email || !isValid;
+  const isButtonDisabled = !getValues().name
+  || !getValues().email
+  || !isValid
+  || isPending;
 
   return {
     ...props,
     register,
     dirtyFields,
     isButtonDisabled,
-    message,
     handleButtonClick,
+    isSubscribed,
   };
 };
 

@@ -1,12 +1,13 @@
+import { useSelector } from 'react-redux';
 import {
   getDocumentFields,
   getFileUrl,
   getImage,
 } from 'utils/helper';
 import { LINK_TYPE } from 'utils/constants/linkType';
-import useToggle from 'hooks/useToggle';
-import { useSelector } from 'react-redux';
 import { selectIsSubscribed } from 'redux/selectors/subscribe';
+import downloadFile from 'utils/downloadFile';
+import { useState } from 'react';
 
 export default ({
   title: titleProp,
@@ -34,8 +35,8 @@ export default ({
 
   const isSubscribed = useSelector(selectIsSubscribed);
 
-  const [isFormOpen, setFormOpen] = useToggle(false);
-  const [isGetBookModalShown, toggleGetBookModalShown] = useToggle(false);
+  const [isFormOpen, setFormOpen] = useState(false);
+  const [isGetBookModalShown, setGetBookModalShown] = useState(false);
 
   const images = (imagesBundle || []).map(getImage);
 
@@ -51,16 +52,19 @@ export default ({
       return handleOnClickProp;
     }
 
-    if (isSubscribed) {
-      return () => window.open(files[0], '_newtab');
-    }
-
     switch (type) {
     case LINK_TYPE.callToAction:
-      return () => setFormOpen();
+      return () => setFormOpen(true);
 
     case LINK_TYPE.book:
-      return () => toggleGetBookModalShown();
+      return (e) => {
+        if (isSubscribed) {
+          return downloadFile(files[0]);
+        }
+
+        e.preventDefault();
+        setGetBookModalShown(true);
+      };
 
     default:
       return null;
@@ -81,7 +85,7 @@ export default ({
     isSubscribeFormShown,
     handleOnClick: getOnClickHandler(),
     isGetBookShown,
-    toggleGetBookModalShown,
+    toggleGetBookModalShown: () => setGetBookModalShown(false),
     type,
     isSubscribed,
     onSubscribeSubmit,
