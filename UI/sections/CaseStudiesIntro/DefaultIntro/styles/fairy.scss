@@ -20,6 +20,19 @@
     }
   }
 
+  .imageContainer {
+    @include phone {
+      width: 343px;
+      height: 518px;
+    }
+  }
+
+  .contentWrapper {
+    @include phone {
+      margin: 0;
+    }
+  }
+
   .infoTitle {
     color: $gray0;
   }
