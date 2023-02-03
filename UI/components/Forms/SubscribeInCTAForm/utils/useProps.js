@@ -1,17 +1,14 @@
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import subscribe from 'redux/reducers/subscribe';
+import { useDispatch, useSelector } from 'react-redux';
+import { subscribe } from 'redux/actions/subscribe';
+import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscribe';
 
 const useProps = ({ onSubmit, ...props }) => {
-  const { query } = useRouter();
-
-  const dispatch = useDispatch();
-
   const {
     register,
     handleSubmit,
-    reset,
     formState: {
       dirtyFields,
       isValid,
@@ -19,13 +16,26 @@ const useProps = ({ onSubmit, ...props }) => {
     getValues,
   } = useForm({ reValidateMode: 'onBlur' });
 
+  const { query } = useRouter();
+
+  const isFormPending = useSelector(selectSubcibePending);
+  const isSubscribed = useSelector(selectIsSubscribed);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!isSubscribed || isFormPending) {
+      return;
+    }
+
+    onSubmit();
+  }, [isFormPending, isSubscribed, onSubmit]);
+
   const handleButtonClick = handleSubmit((values) => {
     dispatch(subscribe({ ...values, pathname: query }));
-    reset();
-    onSubmit();
   });
 
-  const isButtonDisabled = !getValues().email || !isValid;
+  const isButtonDisabled = !getValues().email || !isValid || isFormPending;
 
   return ({
     register,

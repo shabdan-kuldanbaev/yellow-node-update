@@ -10,6 +10,7 @@ const SubscribeInCTAForm = (props) => {
     dirtyFields,
     className,
     isButtonDisabled,
+    handleButtonClick,
   } = useProps(props);
 
   return (
@@ -28,9 +29,14 @@ const SubscribeInCTAForm = (props) => {
         type="next"
         className={styles.button}
         disabled={isButtonDisabled}
+        onClick={handleButtonClick}
       />
     </div>
   );
+};
+
+SubscribeInCTAForm.defaultProps = {
+  onSubmit: () => null,
 };
 
 export default SubscribeInCTAForm;
