@@ -69,10 +69,10 @@ export const NavItem = (props) => {
           )}
         <div
           className={cn(styles.svgContainer, {
-            [styles.svgContainerRight]: !isLinkHasSubNavigation,
+            [styles.withSubnavigation]: isLinkHasSubNavigation,
           })}
         >
-          <Svg type={SVG_IMAGES_TYPES.chevronDown} />
+          <Svg type="chevronRight" />
         </div>
       </div>
       {isLinkHasSubNavigation && (

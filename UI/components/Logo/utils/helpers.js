@@ -1,6 +1,9 @@
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 
-export const WHITE_LOGO_TYPE = [];
+export const WHITE_LOGO_TYPE = [
+  'fireaway',
+  'fairy',
+];
 
 export const BLACK_LOGO_TYPE = [];
 
@@ -25,6 +28,7 @@ export const WHITE_TEXT_LOGO = [
   'marketplace-for-clairvoyant-services',
   'fintech-app-for-credit-score',
   'machine-learning-in-real-estate',
+  'fairy',
 ];
 
 export const getLogoType = (type) => {

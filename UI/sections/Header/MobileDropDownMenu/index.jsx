@@ -49,7 +49,7 @@ const MobileDropDownMenu = (props) => {
             type={ANIMATED_TYPE.expandByHeight}
             open={activeSubMenu === key}
           >
-            {subNavigationLinks[activeSubMenu]?.map(({ title: linkTitle, subtitle, slug }) => (
+            {subNavigationLinks[key]?.map(({ title: linkTitle, subtitle, slug }) => (
               <SubMenuItem
                 key={`link/${linkTitle}`}
                 isLightTheme={isLightTheme}

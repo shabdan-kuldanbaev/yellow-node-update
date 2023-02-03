@@ -123,7 +123,7 @@ const ChallengesAndSolutions = (props) => {
                 <div className={cn(styles.images, styles[`images-${index + 1}`])}>
                   <Illustration
                     transparent
-                    className={styles.image}
+                    className={cn(styles.image, styles[`image-${index + 1}`])}
                     src={imageUrl}
                     alt={title}
                   />
