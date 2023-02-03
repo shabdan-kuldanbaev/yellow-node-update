@@ -149,6 +149,16 @@
     @include fontSize(20px);
   }
 
+  &.call-to-action.isSubscribed {
+    .content {
+      max-width: none;
+    }
+
+    .button {
+      display: none;
+    }
+  }
+
   &.book {
     @include flex(column, flex-start, flex-start);
 

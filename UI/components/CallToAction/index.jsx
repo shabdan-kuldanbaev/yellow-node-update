@@ -5,9 +5,10 @@ import Button from 'UI/components/Button';
 import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
+import { LINK_TYPE } from 'utils/constants/linkType';
+import GetBookModal from 'UI/components/Modals/GetBookModal';
 import useProps from './utils/useProps';
 import SubscribeInCTAForm from '../Forms/SubscribeInCTAForm';
-import GetBookModal from '../Modals/GetBookModal';
 import styles from './styles.module.scss';
 
 const CallToAction = (props) => {
@@ -27,6 +28,8 @@ const CallToAction = (props) => {
     isGetBookShown,
     toggleGetBookModalShown,
     downloadLink,
+    isSubscribed,
+    onSubscribeSubmit,
   } = useProps(props);
 
   return (
@@ -38,6 +41,7 @@ const CallToAction = (props) => {
         className,
         {
           [styles.new]: isNew,
+          [styles.isSubscribed]: isSubscribed,
         },
       )}
     >
@@ -50,29 +54,83 @@ const CallToAction = (props) => {
       ))}
 
       <div className={styles.content}>
-        {titles?.map((titleText, index) => (
-          titleText && (
-            <Typography
-              variant={TYPOGRAPHY_TAGS.h3}
-              size={TYPOGRAPHY_SIZE.headline24}
-              className={cn(styles.h3, styles.title)}
-              key={`titleText/${index}`}
-            >
-              {titleText}
-            </Typography>
-          )
-        ))}
-        {subtitle && (
-          <Typography
-            variant={TYPOGRAPHY_TAGS.p}
-            className={cn(styles.p, styles.subtitle)}
-          >
-            {subtitle}
-          </Typography>
-        )}
+        {
+          (() => {
+            switch (type) {
+            case LINK_TYPE.book:
+              return (
+                <>
+                  {titles?.map((titleText, index) => (
+                    titleText && (
+                      <Typography
+                        variant={TYPOGRAPHY_TAGS.h3}
+                        size={TYPOGRAPHY_SIZE.headline24}
+                        className={cn(styles.h3, styles.title)}
+                        key={`titleText/${index}`}
+                      >
+                        {titleText}
+                      </Typography>
+                    )
+                  ))}
+                  {subtitle && (
+                    <Typography
+                      variant={TYPOGRAPHY_TAGS.p}
+                      className={cn(styles.p, styles.subtitle)}
+                    >
+                      {subtitle}
+                    </Typography>
+                  )}
+                </>
+              );
+            case LINK_TYPE.callToAction:
+              return (
+                <>
+                  {isSubscribed && (
+                    <Typography
+                      variant={TYPOGRAPHY_TAGS.h3}
+                      size={TYPOGRAPHY_SIZE.headline24}
+                      className={cn(styles.h3, styles.title)}
+                    >
+                      Thanks for your attention!
+                    </Typography>
+                  )}
+                  {isSubscribed && (
+                    <Typography
+                      variant={TYPOGRAPHY_TAGS.p}
+                      className={cn(styles.p, styles.subtitle)}
+                    >
+                      Check Inbox to confirm your subscription
+                    </Typography>
+                  )}
+                  {!isSubscribed && titles?.map((titleText, index) => (
+                    titleText && (
+                      <Typography
+                        variant={TYPOGRAPHY_TAGS.h3}
+                        size={TYPOGRAPHY_SIZE.headline24}
+                        className={cn(styles.h3, styles.title)}
+                        key={`titleText/${index}`}
+                      >
+                        {titleText}
+                      </Typography>
+                    )
+                  )) }
+                  {!isSubscribed && subtitle && (
+                    <Typography
+                      variant={TYPOGRAPHY_TAGS.p}
+                      className={cn(styles.p, styles.subtitle)}
+                    >
+                      {subtitle}
+                    </Typography>
+                  )}
+                </>
+              );
+            default: return null;
+            }
+          })()
+        }
       </div>
 
-      {isSubscribeFormShown && <SubscribeInCTAForm />}
+      {isSubscribeFormShown && <SubscribeInCTAForm onSubmit={onSubscribeSubmit} />}
 
       {!isSubscribeFormShown && (
         <Button

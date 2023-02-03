@@ -67,6 +67,10 @@ export default ({
     }
   }
 
+  function onSubscribeSubmit() {
+    setFormOpen(false);
+  }
+
   return {
     ...props,
     titles,
@@ -79,6 +83,8 @@ export default ({
     isGetBookShown,
     toggleGetBookModalShown,
     type,
+    isSubscribed,
+    onSubscribeSubmit,
     downloadLink: files[0],
   };
 };
