@@ -4,7 +4,7 @@ export const DEFAULT_IMAGE_SIZE = 500;
 export const IMAGE_SIZES = {
   'marketplace-for-clairvoyant-services': 541,
   dindon: 665,
-  fernwayer: 540,
+  fernwayer: 478,
   fireaway: 425,
   'seven-pm-thursday': 478,
   stickerbox: 480,
