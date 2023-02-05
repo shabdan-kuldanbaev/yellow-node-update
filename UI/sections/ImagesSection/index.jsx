@@ -34,6 +34,7 @@ const ImagesSection = (props) => {
         title={title}
         description={description}
         type={type}
+        titleStyle={styles.titleStyle}
       />
       <Images
         data={data}

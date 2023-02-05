@@ -1,0 +1,18 @@
+.fernwayer {
+  &.firstSectionView {
+    .image {
+      width: 995px;
+      height: 556px;
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      width: auto;
+
+      @include phone {
+        height: 247px;
+      }
+    }
+  }
+}

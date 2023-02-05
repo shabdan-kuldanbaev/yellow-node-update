@@ -1,0 +1,19 @@
+.fernwayer {
+  padding: 60px 0;
+
+  .titleStyle {
+    @include phone {
+      padding: 0 16px;
+    }
+  }
+
+  &.secondSectionView {
+    .titleStyle {
+      max-width: 539px;
+    }
+  }
+
+  @include phone {
+    padding: 30px 0;
+  }
+}
