@@ -15,4 +15,14 @@
       }
     }
   }
+
+  &.thirdSectionView {
+    .image {
+      width: auto;
+
+      @include phone {
+        height: 378px;
+      }
+    }
+  }
 }
