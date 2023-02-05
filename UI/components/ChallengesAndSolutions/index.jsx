@@ -62,7 +62,13 @@ const ChallengesAndSolutions = (props) => {
                 </div>
               </Animated>
             )}
-            <div className={cn(styles.infoContainer, { [styles.centrefy]: imageUrl })}>
+            <div
+              className={cn(
+                styles.infoContainer,
+                styles[`infoContainer-${index + 1}`],
+                { [styles.centrefy]: imageUrl },
+              )}
+            >
               {subImageUrl && (
                 <Illustration
                   transparent

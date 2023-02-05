@@ -9,6 +9,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'stickerbox',
   'fireaway',
   'fairy',
+  'seven-pm-thursday',
   'fernwayer',
 ];
 

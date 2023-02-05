@@ -58,7 +58,7 @@
       @include flex(column, center, center);
 
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 24px;
     }
   }
 
@@ -138,10 +138,6 @@
     width: 580px;
     height: 596px;
     z-index: 1;
-
-    @include phone {
-      max-width: 450px;
-    }
 
     @include phone {
       width: 343px;

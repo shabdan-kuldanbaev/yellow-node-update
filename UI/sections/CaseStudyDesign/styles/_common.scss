@@ -1,0 +1,19 @@
+.container {
+  .block {
+    padding: 60px 40px;
+
+    .imagesContainer {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    @include tablet {
+      padding: 60px 32px;
+    }
+
+    @include phone {
+      padding: 30px 16px;
+    }
+  }
+}
