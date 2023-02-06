@@ -1,4 +1,22 @@
 .fernwayer {
+  .contentContainer {
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .infoContainer {
+    @include below-tablet {
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+
+  .image {
+    width: 300px;
+    height: 650px;
+  }
+
   &.firstSectionView {
     .title {
       @include fontSize(24px, 130%);
@@ -7,12 +25,9 @@
 
       @include below-tablet {
         @include fontSize(24px, 130%);
-      }
-    }
 
-    .image {
-      width: 300px;
-      height: 650px;
+        text-align: center;
+      }
     }
   }
 
@@ -27,6 +42,53 @@
     @include phone {
       margin-bottom: 24px;
       padding: 0 16px;
+    }
+  }
+
+  &.thirdSectionView {
+    .title {
+      @include fontSize(38px, 130%);
+
+      color: $gray0;
+
+      @include below-tablet {
+        @include fontSize(24px, 130%);
+
+        text-align: center;
+      }
+    }
+
+    .infoContainer p {
+      color: $gray0;
+      opacity: 0.7;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    .contentContainer {
+      position: relative;
+    }
+
+    .imageBundle {
+      position: absolute;
+      width: 355px;
+      height: 155px;
+    }
+
+    .contentContainer-1 {
+      .imageBundle {
+        top: -10%;
+        left: -20%;
+      }
+    }
+
+    .contentContainer-2 {
+      .imageBundle {
+        bottom: 0;
+        right: -20%;
+      }
     }
   }
 }
