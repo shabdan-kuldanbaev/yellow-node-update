@@ -28,6 +28,7 @@ const SpecialChallengesAndSolutions = (props) => {
         subtitle={subtitle}
         description={description}
         type={type}
+        titleStyle={styles.titleStyle}
       />
       <ChallengesAndSolutions
         data={data}

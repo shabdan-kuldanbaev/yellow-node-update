@@ -8,7 +8,6 @@ import Illustration from 'UI/components/Illustration';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { useImages } from './utils/useImages';
-import { PAGE_WITH_TRANSPERENT_IMAGE } from './utils/helpers';
 import styles from './styles.module.scss';
 
 const Images = (props) => {
@@ -26,8 +25,8 @@ const Images = (props) => {
 
   return (
     <Animated
-      delay={50}
       {...ANIMATION_CASE_STUDY_PROPS}
+      delay={50}
     >
       <div className={cn(
         styles[type],
@@ -36,14 +35,14 @@ const Images = (props) => {
         styles.container,
       )}
       >
-        {imagesUrl.map(({ url, alt }, index) => (
+        {imagesUrl?.map(({ url, alt }, index) => (
           <Animated
             key={url}
             type={ANIMATED_TYPE.isCSS}
             intersectedClasses={cn({ [styles.active]: index })}
           >
             <Illustration
-              transparent={PAGE_WITH_TRANSPERENT_IMAGE.includes(type)}
+              transparent
               className={styles.image}
               height={imageHeight}
               src={url}

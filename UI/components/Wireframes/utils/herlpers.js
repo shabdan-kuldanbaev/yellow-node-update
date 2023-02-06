@@ -6,7 +6,7 @@ export const IMAGE_SIZES = {
   dindon: 665,
   fernwayer: 540,
   fireaway: 425,
-  'seven-pm-thursday': 540,
+  'seven-pm-thursday': 478,
   stickerbox: 480,
   fairy: 478,
   tell: 660,

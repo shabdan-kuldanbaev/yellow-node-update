@@ -1,0 +1,11 @@
+.seven-pm-thursday {
+  background-color: $sevenPmPrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  .titleStyle {
+    max-width: 481px;
+  }
+}
