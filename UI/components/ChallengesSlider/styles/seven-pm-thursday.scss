@@ -1,0 +1,17 @@
+.seven-pm-thursday {
+  :global(.swiper-wrapper) {
+    margin-bottom: 50px;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: -5px;
+  }
+
+  .swiperBullet {
+    border: 1px solid #FF2B8A;
+  }
+
+  .swiperBulletActive {
+    background: linear-gradient(180deg, #FF2B8A -2.98%, #FF4A34 92.06%);
+  }
+}
