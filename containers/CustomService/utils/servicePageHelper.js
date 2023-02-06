@@ -64,6 +64,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.mvpDevelopment(),
     };
 
+  case PAGES.lendingSoftwareDevelopment:
+    return {
+      pageMicrodata: microdata.lendingSoftwareDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.lendingSoftwareDevelopment(),
+    };
+
   case PAGES.mlDevelopment:
     return {
       pageMicrodata: microdata.mlDevelopment(),
@@ -98,6 +104,11 @@ export const getServicePageInfo = (pathname) => {
   case PAGES.dataScienceDevelopment:
     return {
       breadcrumbs: pagesBreadcrumbs.dataScienceDevelopment(),
+    };
+
+  case PAGES.tradingSoftwareDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.tradingSoftwareDevelopment(),
     };
 
   default:

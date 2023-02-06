@@ -1,0 +1,11 @@
+.stickerbox {
+  @extend .container;
+
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 162px;
+
+  .title {
+    grid-row: 1/5;
+  }
+}

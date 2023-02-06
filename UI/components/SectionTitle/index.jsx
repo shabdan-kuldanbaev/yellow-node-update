@@ -128,7 +128,7 @@ SectionTitle.defaultProps = {
   type: 'default',
   titleStyle: '',
   subtitle: '',
-  description: '',
+  description: null,
   className: null,
   title: null,
   secondTitle: '',

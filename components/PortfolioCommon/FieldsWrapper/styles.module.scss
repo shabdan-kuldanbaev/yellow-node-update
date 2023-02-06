@@ -3,6 +3,10 @@
 .h1 {
   @include defaultSecondHeader;
 
+  @include horizontal-mobile {
+    margin: 20px auto 15px 0;
+  }
+
   margin-top: 0;
   margin-bottom: 60px;
 
@@ -14,13 +18,14 @@
     max-width: calc(100% - 40px);
     margin: 40px auto 25px 0;
   }
-
-  @include horizontal-mobile {
-    margin: 20px auto 15px 0;
-  }
 }
 
 .p {
+  @include horizontal-mobile {
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+
   margin: -20px 0 35px;
   font-size: 1.25rem;
   line-height: 1.8;
@@ -36,11 +41,6 @@
     font-size: 1rem;
     max-width: 100%;
     margin: auto 20px 25px 0;
-  }
-
-  @include horizontal-mobile {
-    margin-bottom: 15px;
-    margin-top: 0;
   }
 }
 

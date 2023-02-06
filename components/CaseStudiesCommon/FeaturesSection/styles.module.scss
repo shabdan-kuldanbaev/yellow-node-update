@@ -28,12 +28,8 @@
     column-gap: 40px;
     row-gap: 80px;
 
-    @include tablet {
-      grid-template-columns: 1fr;
-    }
-
     .featureContainer {
-      @include flex();
+      @include flex;
 
       .checkMark {
         position: relative;
@@ -43,36 +39,40 @@
         border-radius: 50%;
         margin-top: 20px;
 
+        .icon {
+          @include centered;
+        }
+
         @include tablet {
           min-width: 40px;
           height: 40px;
           margin-right: 20px;
-        }
-
-        .icon {
-          @include centered;
         }
       }
 
       .contentContainer {
         max-width: 440px;
 
-        @include tablet {
-          max-width: unset;
-        }
-
         h3 {
-          margin-top: 0;
-
           @include fontSize(24px);
+
+          margin-top: 0;
         }
 
         p {
-          line-height: 1.5;
-
           @include fontSize(18px);
+
+          line-height: 1.5;
+        }
+
+        @include tablet {
+          max-width: unset;
         }
       }
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr;
     }
   }
 }
@@ -124,6 +124,10 @@
       position: relative;
 
       &::after {
+        @include macbook-fifteen {
+          right: 10px;
+        }
+
         content: '';
         position: absolute;
         width: 35%;
@@ -133,10 +137,6 @@
         right: 0;
         transform: translate(10px, -1px);
         background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
-
-        @include macbook-fifteen {
-          right: 10px;
-        }
 
         @include tablet {
           display: none;
@@ -152,15 +152,6 @@
     row-gap: 80px;
     margin-right: 150px;
 
-    @include desktop {
-      margin-right: 60px;
-    }
-
-    @include tablet {
-      margin-right: 0;
-      margin-bottom: 25px;
-    }
-
     .featureContainer {
       .checkMark {
         color: $white;
@@ -169,14 +160,14 @@
 
       .contentContainer {
         & > p {
-          max-width: 440px;
-          color: $silver-chalice;
-
           @include fontSize(18px);
 
           @include macbook-fifteen {
             @include fontSize(14px);
           }
+
+          max-width: 440px;
+          color: $silver-chalice;
 
           @include phone {
             @include fontSize(14px);
@@ -185,6 +176,15 @@
           }
         }
       }
+    }
+
+    @include desktop {
+      margin-right: 60px;
+    }
+
+    @include tablet {
+      margin-right: 0;
+      margin-bottom: 25px;
     }
   }
 }

@@ -4,7 +4,7 @@ import cn from 'classnames';
 import SubMenuItem from 'UI/sections/Header/SubMenuItem';
 import Typography from 'UI/components/Typography';
 import Animated from 'UI/containers/Animated';
-import { ANIMATED_TYPE, SUB_NAVIGATION_KEYS } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { useDropDownMenu } from './useDropDownMenu';
 import styles from './styles.module.scss';
 
@@ -47,11 +47,11 @@ const DropDownMenu = (props) => {
         ))}
       </div>
       <div className={cn(styles.dropDownLinksContainer, styles[activeSubMenu])}>
-        <Animated
-          type={ANIMATED_TYPE.isFade}
-          open
-        >
-          {subNavigationLinks[activeSubMenu].map(({ title, subtitle, slug }) => (
+        {subNavigationLinks[activeSubMenu].map(({ title, subtitle, slug }) => (
+          <Animated
+            type={ANIMATED_TYPE.isFade}
+            open
+          >
             <SubMenuItem
               key={`link/${title}`}
               isLightTheme={isLightTheme}
@@ -63,8 +63,8 @@ const DropDownMenu = (props) => {
               title={title}
               subMenuSlug={slug}
             />
-          ))}
-        </Animated>
+          </Animated>
+        ))}
       </div>
     </div>
   );

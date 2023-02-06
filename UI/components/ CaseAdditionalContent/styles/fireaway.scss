@@ -1,0 +1,35 @@
+.fireaway {
+  .container {
+    .title {
+      color: $gray900;
+
+      @include tablet {
+        text-align: center;
+      }
+
+      @include phone {
+        @include fontSize(24px, 150%);
+      }
+    }
+
+    .listContainer {
+      list-style: none;
+      padding: 0;
+    }
+
+    .listItem {
+      @include fontSize(16px, 150%);
+
+      color: $gray900;
+      margin-bottom: 8px;
+
+      @include phone {
+        text-align: center;
+      }
+    }
+  }
+
+  @include tablet {
+    justify-content: center;
+  }
+}

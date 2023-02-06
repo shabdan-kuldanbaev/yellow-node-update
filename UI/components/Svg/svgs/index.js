@@ -57,6 +57,7 @@ export { default as pwa } from './technologies/pwa.svg';
 export { default as python } from './technologies/python.svg';
 export { default as pytorch } from './technologies/pytorch.svg';
 export { default as react } from './technologies/react.svg';
+export { default as reactNative } from './technologies/reactNative.svg';
 export { default as reactiveSwift } from './technologies/reactiveSwift.svg';
 export { default as redis } from './technologies/redis.svg';
 export { default as reduxSaga } from './technologies/reduxSaga.svg';
@@ -468,6 +469,9 @@ export { default as digit3 } from './filled/digit3.svg';
 export { default as digit4 } from './filled/digit4.svg';
 export { default as digit5 } from './filled/digit5.svg';
 export { default as digit6 } from './filled/digit6.svg';
+export { default as digit7 } from './filled/digit7.svg';
+export { default as digit8 } from './filled/digit8.svg';
+export { default as digit9 } from './filled/digit9.svg';
 export { default as yellowCheckMark } from './filled/yellowCheckMark.svg';
 
 /* Logo Yellow */
@@ -499,3 +503,6 @@ export { default as uiUx } from './illustration/ui&ux.svg';
 export { default as webDevelopmentIllustration } from './illustration/webDevelopmentIllustration.svg';
 export { default as appstore } from './illustration/appstore.svg';
 export { default as blackFillAppstore } from './illustration/blackFillAppstore.svg';
+
+/* Processes */
+export { default as processLaunch } from './processes/Launch-1.svg';

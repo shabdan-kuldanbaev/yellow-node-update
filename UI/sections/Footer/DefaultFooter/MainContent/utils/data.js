@@ -67,6 +67,11 @@ export const footerData = [
         type: 'navigation',
       },
       {
+        subtitle: 'Lending Software Development Company',
+        path: ROUTES.lendingSoftwareDevelopment.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Fintech software development Services',
         path: ROUTES.fintechDevelopment.path,
         type: 'navigation',
@@ -104,6 +109,11 @@ export const footerData = [
       {
         subtitle: 'Data science development services',
         path: ROUTES.dataScienceDevelopment.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'Custom Trading Software Development Services',
+        path: ROUTES.tradingSoftwareDevelopment.path,
         type: 'navigation',
       },
       {

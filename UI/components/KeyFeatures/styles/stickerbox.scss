@@ -1,0 +1,15 @@
+.stickerbox {
+  .containerBackground {
+    opacity: 0.9;
+  }
+
+  .featureContainer {
+    .checkMark {
+      background: $yellow500;
+
+      path {
+        fill: $gray900;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import 'styles/utils/_mixins';
+
+.card {
+  @include flex(column, space-between, center);
+
+  padding: 34px 24px;
+
+  .image {
+    max-width: 100%;
+  }
+
+  .titleSection {
+    margin: 32px 0 16px;
+  }
+
+  [data-title] {
+    @include fontSize(24px, 32px);
+
+    margin-bottom: 0;
+  }
+
+  [data-description] {
+    margin-top: 0;
+  }
+}

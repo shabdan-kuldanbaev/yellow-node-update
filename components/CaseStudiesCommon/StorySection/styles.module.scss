@@ -7,65 +7,56 @@
   background-color: $mercury-1;
 
   .sectionContent {
+    @include flex(row, space-between);
+
     max-width: 1115px;
     margin: 0 auto;
 
-    @include flex(row, space-between);
-
-    @include below-tablet {
-      flex-direction: column-reverse;
-    }
-
     .sectionImage {
+      @include flex(column);
+
       width: 50%;
       max-width: 518px;
       margin-right: 115px;
 
-      @include flex(column);
+      .photoCaption {
+        @include fontSize(25px);
+
+        color: $dark-grey;
+        font-weight: 500;
+        margin: 20px 0 0;
+      }
+
+      .photoSecription {
+        @include fontSize(18px);
+
+        color: $silver-chalice;
+        margin: 5px 0 0;
+      }
 
       @include below-tablet {
         width: 100%;
         margin: 0 auto;
         max-width: unset;
       }
-
-      .photoCaption {
-        color: $dark-grey;
-        font-weight: 500;
-        margin: 20px 0 0;
-
-        @include fontSize(25px);
-      }
-
-      .photoSecription {
-        color: $silver-chalice;
-        margin: 5px 0 0;
-
-        @include fontSize(18px);
-      }
     }
 
     .sectionInfo {
-      width: 50%;
-
       @include flex(column);
 
-      @include below-tablet {
-        width: 100%;
-        margin-bottom: 100px;
-      }
+      width: 50%;
 
       .sectionTitle {
+        @include fontSize(56px);
+
         font-weight: 700;
         color: $dark-grey;
         margin: 30px 0 0;
 
-        @include fontSize(56px);
-
         @include below-tablet {
-          text-align: center;
-
           @include fontSize(40px);
+
+          text-align: center;
         }
 
         @include phone {
@@ -74,11 +65,20 @@
       }
 
       p {
+        @include fontSize(18px);
+
         color: $silver-chalice;
         margin: 30px 0 0;
-
-        @include fontSize(18px);
       }
+
+      @include below-tablet {
+        width: 100%;
+        margin-bottom: 100px;
+      }
+    }
+
+    @include below-tablet {
+      flex-direction: column-reverse;
     }
   }
 

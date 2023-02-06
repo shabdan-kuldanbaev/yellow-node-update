@@ -4,6 +4,9 @@
 import React from 'react';
 import { routes } from 'utils/routes';
 
+// TODO: After refactoring all pages, remove this variable and check for pages
+export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox', 'fireaway', 'fairy'];
+
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
@@ -66,11 +69,13 @@ export const NAV_LINKS = [
     routes.aiDevelopment.slug,
     routes.crossPlatformDevelopmentServices.slug,
     routes.dataScienceDevelopment.slug,
+    routes.tradingSoftwareDevelopment.slug,
     routes.prototypingServices.slug,
     routes.signatureGenerator.slug,
     routes.privacyPolicy.slug,
     routes.termsAndConditions.slug,
     routes.cookiesPolicy.slug,
+    routes.lendingSoftwareDevelopment.slug,
   ].includes(slug)),
 ];
 
@@ -168,6 +173,7 @@ export const SVG_IMAGES_TYPES = {
   attachment: 'attachment',
   opensenseTitleBorder: 'opensenseTitleBorder',
   checkMark: 'checkMark',
+  check: 'check',
   iPhone: 'iPhone',
   iPad: 'iPad',
 };
@@ -279,6 +285,7 @@ export const CASE_STUDIES_TYPES = {
   processOverlay: 'case-study-process-overlay',
   challengesSpecialSlider: 'case-study-special-slider',
   prototype: 'case-study-prototype',
+  feedback: 'feedback',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -390,6 +397,7 @@ export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((p
 export const SUB_NAVIGATION_KEYS = {
   services: 'services',
   expertise: 'expertise',
+  fintech: 'fintech',
 };
 
 export const SUB_NAVIGATION_ITEMS = {
@@ -401,6 +409,10 @@ export const SUB_NAVIGATION_ITEMS = {
     {
       title: 'Expertise',
       key: SUB_NAVIGATION_KEYS.expertise,
+    },
+    {
+      title: 'Fintech',
+      key: SUB_NAVIGATION_KEYS.fintech,
     },
   ],
 };
@@ -470,11 +482,7 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Artificial intelligence at your service',
         slug: ROUTES.mlDevelopment.path,
       },
-      {
-        title: 'Fintech software development Services',
-        subtitle: 'Build a successul fintech solution',
-        slug: ROUTES.fintechDevelopment.path,
-      },
+
       {
         title: 'AI software development services',
         subtitle: 'Letting machines think',
@@ -489,6 +497,23 @@ export const SUB_NAVIGATION_LINKS = {
         title: 'Data science development services',
         subtitle: 'Getting insights to boost your business',
         slug: ROUTES.dataScienceDevelopment.path,
+      },
+    ],
+    [SUB_NAVIGATION_KEYS.fintech]: [
+      {
+        title: 'Fintech software development Services',
+        subtitle: 'Build a successul fintech solution',
+        slug: ROUTES.fintechDevelopment.path,
+      },
+      {
+        title: 'Trading platform development company',
+        subtitle: 'The way to manage investments',
+        slug: ROUTES.tradingSoftwareDevelopment.path,
+      },
+      {
+        title: 'Lending Software Development Company',
+        subtitle: 'Fast and secure lending process',
+        slug: ROUTES.lendingSoftwareDevelopment.path,
       },
     ],
   },
@@ -507,34 +532,8 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.customChatApp,
   PAGES.designServices,
   PAGES.discoveryPhase,
+  PAGES.tradingSoftwareDevelopment,
 ];
-
-export const CONTACT_FORM_TITLES = {
-  [PAGES.homepage]: 'Let’s move forward',
-  [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
-  [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
-  [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
-  [PAGES.designServices]: 'Tailored UX design services for your business',
-  [PAGES.developmentServices]: '',
-  [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
-  [PAGES.mvpDevelopment]: 'Still have questions?',
-  [PAGES.fintechDevelopment]: 'Still have questions?',
-  [PAGES.erpDevelopment]: 'Still have questions?',
-  [PAGES.cloudDevelopment]: 'The sky\'s the limit',
-  [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
-  [PAGES.devOpsDevelopment]: 'Still have questions?',
-  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
-  [PAGES.prototypingServices]: 'Get a detailed estimate of your project',
-  [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
-};
-
-export const CONTACT_FORM_SECOND_TITLES = {
-  [PAGES.erpDevelopment]: 'We\'re ready to answer them',
-  [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
-  [PAGES.aiDevelopment]: 'We are here to help!',
-  [PAGES.mvpDevelopment]: 'We are ready to answer them',
-  [PAGES.fintechDevelopment]: ' We are ready to answer them',
-};
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
@@ -575,3 +574,5 @@ export const INDEX_FILES = [
   '/index.html',
   '/index.php',
 ];
+
+export const EMAIL_LINK = 'hi@yellow.systems';

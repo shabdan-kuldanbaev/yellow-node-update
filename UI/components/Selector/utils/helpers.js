@@ -1,9 +1,14 @@
 import { FreeMode } from 'swiper';
 
-export const SWIPER_PARAMS = {
+const SPACE_BETWEEN_LIST = {
+  'lending-software-development': 40,
+};
+
+const SPACE_BETWEEN_DEFAULT = 80;
+
+const SWIPER_PARAMS = {
   enabled: true,
   slidesPerView: 'auto',
-  spaceBetween: 80,
   passiveListeners: true,
   freeMode: true,
   mousewheel: {
@@ -16,4 +21,13 @@ export const SWIPER_PARAMS = {
   },
   speed: 500,
   modules: [FreeMode],
+};
+
+export const getSwiperParams = (type) => {
+  const spaceBetween = SPACE_BETWEEN_LIST[type] || SPACE_BETWEEN_DEFAULT;
+
+  return {
+    ...SWIPER_PARAMS,
+    spaceBetween,
+  };
 };

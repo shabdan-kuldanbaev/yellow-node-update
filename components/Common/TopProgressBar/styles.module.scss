@@ -8,14 +8,14 @@
   height: 5px;
   z-index: 150;
 
-  @include phone {
-    height: 4px;
-    bottom: -4px;
-  }
-
   .progress {
     width: 100%;
     height: 100%;
     background-color: $turbo-100;
+  }
+
+  @include phone {
+    height: 4px;
+    bottom: -4px;
   }
 }

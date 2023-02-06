@@ -239,6 +239,12 @@ export const routes = {
     dynamicPath: '/mvp-app-development-company',
     slug: 'mvp-app-development-company',
   },
+  lendingSoftwareDevelopment: {
+    title: 'Lending Software Development Company',
+    path: '/lending-software-development',
+    dynamicPath: '/lending-software-development',
+    slug: 'lending-software-development',
+  },
   cloudDevelopment: {
     title: 'Cloud-based application development company',
     path: '/cloud-based-app-development-services',
@@ -298,6 +304,12 @@ export const routes = {
     path: '/data-science-development-company',
     dynamicPath: '/data-science-development-company',
     slug: 'data-science-development-company',
+  },
+  tradingSoftwareDevelopment: {
+    title: 'Custom Trading Software Development Services',
+    path: '/trading-software-development',
+    dynamicPath: '/trading-software-development',
+    slug: 'trading-software-development',
   },
   prototypingServices: {
     title: 'Mobile App Prototyping Services',

@@ -1,0 +1,57 @@
+.container {
+  padding: 120px 40px;
+  overflow: hidden;
+
+  .sectionTitle {
+    margin: 0 auto 32px;
+
+    [data-title] {
+      margin: 0 auto;
+    }
+
+    @include phone {
+      padding: 0 16px;
+      margin: 0 auto 24px;
+    }
+  }
+
+  .circle {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 460px;
+    height: 460px;
+    margin: 130px 0 98px;
+    border-radius: 50%;
+  }
+
+  .mockup {
+    @include centered;
+
+    width: 318px;
+    z-index: 100;
+  }
+
+  .video {
+    @include centered;
+
+    max-width: 286px;
+    border-radius: 10px;
+  }
+
+  .appImage {
+    @include centered;
+
+    width: 285px;
+    border-radius: 20px;
+    z-index: 10;
+
+    @include phone {
+      width: 225px;
+    }
+  }
+
+  @include tablet {
+    padding: 60px 16px;
+  }
+}

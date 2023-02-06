@@ -1,0 +1,25 @@
+.section {
+  padding: 120px 40px 120px;
+
+  background-color: $gray0;
+
+  .secondDescription {
+    display: none;
+  }
+
+  .titleStyles {
+    margin: 0 auto 32px;
+
+    * {
+      margin: 0 auto;
+    }
+
+    @include below-tablet {
+      margin: 0 auto 8px;
+    }
+  }
+
+  @include tablet{
+    padding: 60px 16px;
+  }
+}

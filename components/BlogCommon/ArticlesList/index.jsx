@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import SubscribeBlock from 'components/Common/SubscribeBlock';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
 import { ARTICLE_PREVIEW_TYPES } from 'utils/constants';
+import BlogSubscribeCard from 'UI/components/Cards/BlogSubscribeCard';
 import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
@@ -14,8 +14,8 @@ export const ArticlesList = ({
   isSearch,
   isBlogPage,
   currentPage,
-  handleOnFormSubmit,
   handleOnCloseModalWindow,
+  toggleFullscreenSubscribe,
 }) => {
   const isMobileResolution = useSelector(selectIsMobileResolutions);
 
@@ -24,17 +24,7 @@ export const ArticlesList = ({
     : ARTICLE_PREVIEW_TYPES.blog;
 
   return (
-    <div
-      className={cn(styles.articlesList, {
-        [styles.locationSubscribe]: !isSearch,
-      })}
-    >
-      {currentPage === 1 && isBlogPage && (
-        <SubscribeBlock
-          isBlog
-          handleOnSubmit={handleOnFormSubmit}
-        />
-      )}
+    <div className={cn(styles.articlesList)}>
       {articles?.map((article, index) => {
         const articleProps = getArticleProps({
           article,
@@ -44,20 +34,28 @@ export const ArticlesList = ({
         });
 
         return (
-          <ArticlePreview
-            type={articleType}
-            key={articleProps.title}
-            index={index}
-            animatioProps={articleProps.animatioProps}
-            slug={articleProps.slug}
-            title={articleProps.title}
-            category={articleProps.categoryTag}
-            introduction={articleProps.introduction}
-            image={articleProps.previewImage}
-            date={articleProps.publishedAt}
-            isSearch={isSearch}
-            handleOnCloseModalWindow={handleOnCloseModalWindow}
-          />
+          <>
+            {/* Subscribe Card at 3rd position */}
+            {currentPage === 1
+            && isBlogPage
+            && index === 2
+            && <BlogSubscribeCard toggleFullscreenSubscribe={toggleFullscreenSubscribe} />}
+
+            <ArticlePreview
+              type={articleType}
+              key={articleProps.title}
+              index={index}
+              animatioProps={articleProps.animatioProps}
+              slug={articleProps.slug}
+              title={articleProps.title}
+              category={articleProps.categoryTag}
+              introduction={articleProps.introduction}
+              image={articleProps.previewImage}
+              date={articleProps.publishedAt}
+              isSearch={isSearch}
+              handleOnCloseModalWindow={handleOnCloseModalWindow}
+            />
+          </>
         );
       })}
     </div>
@@ -67,7 +65,6 @@ export const ArticlesList = ({
 ArticlesList.defaultProps = {
   isSearch: false,
   isBlogPage: false,
-  handleOnFormSubmit: () => {},
   handleOnCloseModalWindow: () => {},
 };
 
@@ -76,8 +73,8 @@ ArticlesList.propTypes = {
   isSearch: PropTypes.bool,
   isBlogPage: PropTypes.bool,
   currentPage: PropTypes.number.isRequired,
-  handleOnFormSubmit: PropTypes.func,
   handleOnCloseModalWindow: PropTypes.func,
+  toggleFullscreenSubscribe: PropTypes.func,
 };
 
 export default ArticlesList;

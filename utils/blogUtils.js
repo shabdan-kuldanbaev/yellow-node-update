@@ -49,7 +49,7 @@ const fetchBlogData = async (
 
   store.dispatch(fetchLayoutData({
     slug: routeSlug,
-    currentLimit: ARTICLES_NUMBER_PER_PAGE,
+    currentLimit: currentPage === 1 ? ARTICLES_NUMBER_PER_PAGE - 1 : ARTICLES_NUMBER_PER_PAGE,
     category: queryParams.category,
     skip: (currentPage - 1) * ARTICLES_NUMBER_PER_PAGE,
     isTagBlog,

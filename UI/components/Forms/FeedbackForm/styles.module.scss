@@ -1,0 +1,37 @@
+@import 'styles/utils/mixins';
+
+.form {
+  @include flex(column);
+
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.inputsWrapper {
+  @include flex(row, space-between, center);
+
+  & > div {
+    max-width: 379px;
+    width: 100%;
+    margin-bottom: 32px;
+
+    @include below-tablet {
+      max-width: 100%;
+    }
+  }
+
+  @include below-tablet {
+    flex-direction: column;
+  }
+}
+
+.errorMessage {
+  color: $red500;
+  margin: 0 auto 15px;
+}
+
+.formButton {
+  align-self: center;
+}

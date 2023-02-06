@@ -1,0 +1,13 @@
+.lending-software-development {
+  .wrapperTitle {
+    @include phone {
+      justify-content: space-between;
+    }
+  }
+
+  .description {
+    @include phone {
+      max-width: 340px;
+    }
+  }
+}

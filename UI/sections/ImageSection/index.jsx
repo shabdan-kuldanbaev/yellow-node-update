@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
@@ -14,12 +15,13 @@ const ImageSection = (props) => {
     text,
     imageUrl,
     type,
+    view,
   } = useSectionProps(props);
 
-  if (!imageUrl || !text) return null;
+  if (!imageUrl) return null;
 
   return (
-    <section className={styles[type]}>
+    <section className={cn(styles[type], styles[view], styles.container)}>
       <div className={styles.imageSection}>
         <Animated {...REVEAL_ANIMATION_PROPS}>
           <div

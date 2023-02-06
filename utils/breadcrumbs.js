@@ -122,6 +122,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.mvpDevelopment.path,
     },
   ]),
+  lendingSoftwareDevelopment: () => ([
+    {
+      title: ROUTES.lendingSoftwareDevelopment.title,
+      to: ROUTES.lendingSoftwareDevelopment.path,
+    },
+  ]),
   cloudDevelopment: () => ([
     {
       title: ROUTES.cloudDevelopment.title,
@@ -162,6 +168,12 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.dataScienceDevelopment.title,
       to: ROUTES.dataScienceDevelopment.path,
+    },
+  ]),
+  tradingSoftwareDevelopment: () => ([
+    {
+      title: ROUTES.tradingSoftwareDevelopment.title,
+      to: ROUTES.tradingSoftwareDevelopment.path,
     },
   ]),
   technicalPage: (slug) => {

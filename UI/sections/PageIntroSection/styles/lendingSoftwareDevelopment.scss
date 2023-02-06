@@ -1,0 +1,26 @@
+.lending-software-development {
+  .pageTextContainer {
+    @include below-tablet {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    @include phone {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+  }
+  .pageImage {
+    width: 479px;
+    padding-top: 480px;
+
+    @include phone {
+      width: 343px;
+      padding-top: 344px;
+    }
+  }
+
+  .pageWrapper {
+    @include pageIntroWithBottomBorder;
+  }
+}

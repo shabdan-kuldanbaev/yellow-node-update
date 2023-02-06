@@ -86,6 +86,12 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.androidDevelopmentServices.path}`,
   },
   {
+    pageName: ROUTES.lendingSoftwareDevelopment.slug,
+    metaTitle: 'Lending Software Development Company | Yellow',
+    metaDescription: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
+    url: `${rootUrl}${ROUTES.lendingSoftwareDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.prototypingServices.slug,
     metaTitle: 'Mobile App Prototyping Services | Yellow',
     metaDescription: 'Prototyping is an important stage in mobile app development. Complete it with Yellow!',
@@ -151,6 +157,12 @@ export const ogMetaData = [
     metaTitle: 'Data Science Development Services | Yellow',
     metaDescription: 'If you are looking for a partner that will help you analyze, process, and structure your data, data science specialists at Yellow are here for you.',
     url: `${rootUrl}${ROUTES.dataScienceDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.tradingSoftwareDevelopment.slug,
+    metaTitle: 'Custom Trading Software Development Services | Yellow',
+    metaDescription: 'If you plan to start trading software development, we can help. Let’s discuss your idea in detail.',
+    url: `${rootUrl}${ROUTES.tradingSoftwareDevelopment.path}`,
   },
   {
     pageName: ROUTES.privacyPolicy.slug,

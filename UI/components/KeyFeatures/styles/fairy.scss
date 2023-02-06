@@ -1,0 +1,15 @@
+.fairy {
+  .containerBackground {
+    opacity: 0.9;
+  }
+
+  .featureContainer {
+    .checkMark {
+      background: linear-gradient(142.23deg, #5B5BBD -12.4%, #362761 151.71%);;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}
