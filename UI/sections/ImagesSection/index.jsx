@@ -13,7 +13,7 @@ const ImagesSection = (props) => {
     data,
     type,
     title,
-    description,
+    descriptions,
     imagesUrl,
   } = useImageSection(props);
 
@@ -32,10 +32,20 @@ const ImagesSection = (props) => {
       ))}
       <SectionTitle
         title={title}
-        description={description}
+        description={descriptions.shift()}
         type={type}
         titleStyle={styles.titleStyle}
-      />
+      >
+        {descriptions?.map((text, index) => (
+          <Typography
+            key={index}
+            variant="p"
+            className={styles.text}
+          >
+            {text}
+          </Typography>
+        ))}
+      </SectionTitle>
       <Images
         data={data}
         type={type}

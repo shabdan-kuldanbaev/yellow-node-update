@@ -48,6 +48,7 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
       <Wireframes
         images={images}
         type={type}
+        view={view}
       />
     </section>
   );

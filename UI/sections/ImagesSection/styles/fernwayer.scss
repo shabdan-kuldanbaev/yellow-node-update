@@ -19,6 +19,12 @@
     .titleStyle {
       max-width: 772px;
     }
+
+    .text {
+      color: $gray400;
+      text-align: center;
+      margin: 24px auto 0;
+    }
   }
 
   @include phone {

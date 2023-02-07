@@ -8,9 +8,11 @@ export const useImageSection = ({ data, type }) => {
 
   const imagesUrl = imagesBundles?.map((image) => getImage(image));
 
+  const descriptions = description.split('||');
+
   return {
     title,
-    description,
+    descriptions,
     type,
     data,
     imagesUrl,
