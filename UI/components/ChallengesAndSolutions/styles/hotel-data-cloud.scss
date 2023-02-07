@@ -107,4 +107,25 @@
       }
     }
   }
+
+  &.secondSectionView {
+    .imageBundle {
+      position: absolute;
+      width: 1270px;
+      height: 1270px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h2,
+    h3,
+    p {
+      color: $gray0;
+    }
+
+    p {
+      opacity: 0.7;
+    }
+  }
 }
