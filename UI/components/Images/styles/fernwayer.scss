@@ -11,7 +11,8 @@
       width: 914px;
       height: 650px;
 
-      @include phone {
+      @include tablet {
+        width: auto;
         height: 247px;
       }
     }
@@ -22,8 +23,9 @@
       width: 660px;
       height: 770px;
 
-      @include phone {
-        height: 378px;
+      @include tablet {
+        width: auto;
+        height: 408px;
       }
     }
   }
