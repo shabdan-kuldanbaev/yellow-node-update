@@ -62,6 +62,7 @@ const Wireframe = (props) => {
 Wireframe.propTypes = {
   images: PropTypes.arrayOf(PropTypes.instanceOf(Object)).isRequired,
   type: PropTypes.string.isRequired,
+  view: PropTypes.string,
 };
 
 export default Wireframe;

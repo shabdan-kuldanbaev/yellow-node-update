@@ -4,11 +4,22 @@ export const DEFAULT_IMAGE_SIZE = 500;
 export const IMAGE_SIZES = {
   'marketplace-for-clairvoyant-services': 541,
   dindon: 665,
-  fernwayer: 478,
-  fireaway: 425,
-  'seven-pm-thursday': 478,
-  stickerbox: 480,
-  fairy: 478,
+  fernwayer: {
+    allViews: 478,
+    secondSectionView: 650,
+  },
+  fireaway: {
+    allViews: 425,
+  },
+  'seven-pm-thursday': {
+    allViews: 478,
+  },
+  stickerbox: {
+    allViews: 480,
+  },
+  fairy: {
+    allViews: 478,
+  },
   tell: 660,
   'travel-trivia': 660,
   'cash-chat': 660,
@@ -29,5 +40,7 @@ export const IMAGE_SIZES = {
 };
 
 export const MOBILE_IMAGE_SIZES = {
-  fireaway: 250,
+  fireaway: {
+    allViews: 250,
+  },
 };
