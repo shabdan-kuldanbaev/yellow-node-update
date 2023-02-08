@@ -13,6 +13,7 @@ export default ({
   title: titleProp,
   data,
   handleOnClick: handleOnClickProp,
+  buttonTitle: buttonTitleProp,
   ...props
 }) => {
   const {
@@ -40,7 +41,7 @@ export default ({
 
   const images = (imagesBundle || []).map(getImage);
 
-  const titles = (title || titleProp).split('||');
+  const titles = (titleProp || title).split('||');
 
   const files = (rawFiles || []).map(getFileUrl);
 
@@ -81,7 +82,7 @@ export default ({
     subtitle,
     images,
     isNew,
-    buttonTitle,
+    buttonTitle: buttonTitleProp || buttonTitle,
     isSubscribeFormShown,
     handleOnClick: getOnClickHandler(),
     isGetBookShown,

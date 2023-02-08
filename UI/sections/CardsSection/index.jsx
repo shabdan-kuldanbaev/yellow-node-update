@@ -84,11 +84,7 @@ const CardsSection = (props) => {
             transitionDelay={50}
           >
             <CallToAction
-              type="card"
-              page={type}
-              view={view}
-              title={ctaLink.title}
-              buttonTitle={ctaLink.buttonTitle}
+              data={ctaLink}
               handleOnClick={handleOnCTAClick}
               className={styles.callToAction}
             />

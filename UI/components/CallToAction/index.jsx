@@ -29,6 +29,7 @@ const CallToAction = (props) => {
     downloadLink,
     isSubscribed,
     onSubscribeSubmit,
+    href,
   } = useProps(props);
 
   return (
@@ -123,7 +124,32 @@ const CallToAction = (props) => {
                   )}
                 </>
               );
-            default: return null;
+            default:
+              return (
+                <>
+                  {titles?.map((titleText, index) => (
+                    titleText && (
+                      <Typography
+                        variant={TYPOGRAPHY_TAGS.h3}
+                        size={TYPOGRAPHY_SIZE.headline24}
+                        className={styles.h3}
+                        key={`titleText/${index}`}
+                      >
+                        {titleText}
+                      </Typography>
+                    )
+                  ))}
+
+                  {subtitle && (
+                    <Typography
+                      variant={TYPOGRAPHY_TAGS.p}
+                      className={styles.p}
+                    >
+                      {subtitle}
+                    </Typography>
+                  )}
+                </>
+              );
             }
           })()
         }
@@ -133,6 +159,7 @@ const CallToAction = (props) => {
 
       {!isSubscribeFormShown && (
         <Button
+          href={href}
           onClick={handleOnClick}
           className={styles.button}
           data-button
