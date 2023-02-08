@@ -38,7 +38,7 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
         title={title}
         subtitle={subtitle}
         description={description}
-        titleStyle={styles.titleStyle}
+        className={styles.titleStyle}
       />
       <ChallengesAndSolutions
         data={data}
