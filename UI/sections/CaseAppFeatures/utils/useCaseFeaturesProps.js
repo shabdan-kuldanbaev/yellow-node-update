@@ -15,7 +15,7 @@ export default ({ data, type }) => {
   const promoImage = getFileUrl(data.images[0]);
 
   const imagesData = parsedData?.map((module) => {
-    const { images } = getDocumentFields(module);
+    const { images } = getDocumentFields(module, ['images']);
 
     return getFileUrl(get(images, '[0]', {}));
   });

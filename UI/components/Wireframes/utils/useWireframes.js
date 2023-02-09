@@ -8,13 +8,11 @@ import {
   MOBILE_IMAGE_SIZES,
 } from './herlpers';
 
-export const useWireframes = (props) => {
-  const {
-    images,
-    type,
-    view,
-  } = props;
-
+export const useWireframes = ({
+  images,
+  type,
+  view,
+}) => {
   const isMobileResolution = useSelector(selectIsMobileResolutions);
 
   const wireframeImages = images?.map((image) => {
