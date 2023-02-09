@@ -1,5 +1,5 @@
-@import "styles/utils/mixins";
-@import "styles/utils/colors";
+@import 'styles/utils/mixins';
+@import 'styles/utils/colors';
 
 .container {
   display: grid;
@@ -12,7 +12,7 @@
     @include fontSize(16px, 150%);
 
     grid-column: 1/3;
-    color:$gray0;
+    color: $gray0;
     font-weight: 700;
     margin: 0;
 
