@@ -73,6 +73,7 @@ function* fetchPageData({
     skip,
     isPreviewMode = false,
     isTagBlog = false,
+    isCategory = false,
   },
 }) {
   try {
@@ -100,6 +101,7 @@ function* fetchPageData({
           skip,
           isPreviewMode,
           isTagBlog,
+          isCategory,
         }),
       ]);
 

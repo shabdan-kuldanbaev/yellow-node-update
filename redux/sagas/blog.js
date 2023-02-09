@@ -68,6 +68,7 @@ export function* loadArticles({
   skip,
   category,
   isTagBlog,
+  isCategory,
 }) {
   try {
     const order = category === 'software-development' ? '[title_ASC]' : '[publishedAt_DESC]';
@@ -75,8 +76,9 @@ export function* loadArticles({
       limit: currentLimit,
       skip,
       category,
-      isTagBlog,
       order,
+      isTagBlog,
+      isCategory,
     });
     const response = yield contentfulClient.graphql(graphqlQuery);
 
@@ -191,13 +193,15 @@ export function* fetchBlogData({
   skip,
   isPreviewMode,
   isTagBlog,
+  isCategory,
 }) {
-  if (slug === PAGES.blog || isTagBlog) {
+  if (slug === PAGES.blog || isTagBlog || isCategory) {
     yield call(loadArticles, {
       currentLimit,
       category,
       skip,
       isTagBlog,
+      isCategory,
     });
   } else {
     yield call(getArticle, { articleSlug, isPreviewMode });
