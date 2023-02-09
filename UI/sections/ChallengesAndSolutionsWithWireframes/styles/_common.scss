@@ -5,6 +5,12 @@
   background-color: $gray50;
   overflow: hidden;
 
+  .titleStyle {
+    @include phone {
+      margin: 0 auto 24px;
+    }
+  }
+
   &.challengesWithoutImage {
     background-color: $gray0;
   }

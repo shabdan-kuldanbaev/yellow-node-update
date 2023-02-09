@@ -1,0 +1,15 @@
+.fernwayer {
+  background-color: $gray50;
+
+  .featuresContainer {
+    @include phone {
+      margin: 0;
+    }
+  }
+
+  .imageContainer {
+    @include phone {
+      display: none;
+    }
+  }
+}
