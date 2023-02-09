@@ -8,15 +8,19 @@ import {
   MOBILE_IMAGE_SIZES,
 } from './herlpers';
 
-export const useWireframes = ({ images, type }) => {
+export const useWireframes = ({
+  images,
+  type,
+  view,
+}) => {
   const isMobileResolution = useSelector(selectIsMobileResolutions);
 
   const wireframeImages = images?.map((image) => {
     const imageData = getImage(image);
 
     const height = isMobileResolution
-      ? MOBILE_IMAGE_SIZES[type] || DEFAULT_MOBILE_IMAGE_SIZE
-      : IMAGE_SIZES[type] || DEFAULT_IMAGE_SIZE;
+      ? MOBILE_IMAGE_SIZES[type][view || 'allViews'] || DEFAULT_MOBILE_IMAGE_SIZE
+      : IMAGE_SIZES[type][view || 'allViews'] || DEFAULT_IMAGE_SIZE;
 
     const scale = height / imageData.height;
 

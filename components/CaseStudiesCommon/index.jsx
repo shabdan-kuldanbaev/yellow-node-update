@@ -30,6 +30,7 @@ const SpecialChallengesAndSolutionsRefactored = dynamic(() => import('UI/section
 const ChallengesAndSolutionsWithWireframesRefactored = dynamic(() => import('UI/sections/ChallengesAndSolutionsWithWireframes'));
 const CaseParallax = dynamic(() => import('UI/sections/CaseParallax'));
 const CaseStudyDesign = dynamic(() => import('UI/sections/CaseStudyDesign'));
+const CaseAppFeatures = dynamic(() => import('UI/sections/CaseAppFeatures'));
 
 const CaseStudiesCommon = (props) => {
   if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
@@ -40,6 +41,8 @@ const CaseStudiesCommon = (props) => {
       return <ProjectIdeaRefactored {...props} />;
     case CASE_STUDIES_TYPES.results:
       return <ResultsSectionRefactored {...props} />;
+    case CASE_STUDIES_TYPES.appFeatures:
+      return <CaseAppFeatures {...props} />;
     case CASE_STUDIES_TYPES.image:
       return <ImagesSectionRefactored {...props} />;
     case CASE_STUDIES_TYPES.wireframe:

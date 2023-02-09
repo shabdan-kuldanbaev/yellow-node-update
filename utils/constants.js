@@ -10,6 +10,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'fireaway',
   'fairy',
   'seven-pm-thursday',
+  'fernwayer',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -552,36 +553,6 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.tradingSoftwareDevelopment,
   PAGES.lendingSoftwareDevelopment,
 ];
-
-export const CONTACT_FORM_TITLES = {
-  [PAGES.homepage]: 'Let’s move forward',
-  [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
-  [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
-  [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
-  [PAGES.designServices]: 'Tailored UX design services for your business',
-  [PAGES.developmentServices]: '',
-  [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
-  [PAGES.mvpDevelopment]: 'Still have questions?',
-  [PAGES.lendingSoftwareDevelopment]: 'Build your lending software with us',
-  [PAGES.tradingSoftwareDevelopment]: 'Ready to get started?',
-  [PAGES.fintechDevelopment]: 'Still have questions?',
-  [PAGES.erpDevelopment]: 'Still have questions?',
-  [PAGES.cloudDevelopment]: 'The sky\'s the limit',
-  [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
-  [PAGES.devOpsDevelopment]: 'Still have questions?',
-  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
-  [PAGES.prototypingServices]: 'Get a detailed estimate of your project',
-  [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
-  [CASE_STUDIES.stickerbox]: 'Let’s move forward',
-};
-
-export const CONTACT_FORM_SECOND_TITLES = {
-  [PAGES.erpDevelopment]: 'We\'re ready to answer them',
-  [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
-  [PAGES.aiDevelopment]: 'We are here to help!',
-  [PAGES.mvpDevelopment]: 'We are ready to answer them',
-  [PAGES.fintechDevelopment]: ' We are ready to answer them',
-};
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
