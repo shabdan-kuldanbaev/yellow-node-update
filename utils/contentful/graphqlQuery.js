@@ -28,7 +28,7 @@ function getFilterParams(where) {
     return `where: {${filterParams}},`;
   }
 
-  return '';
+  return 'where: {}';
 }
 
 export const GRAPHQL_QUERY = {

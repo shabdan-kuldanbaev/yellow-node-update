@@ -74,7 +74,7 @@ export const getInitialBlogProps = async (store, ctx) => {
       res,
     } = ctx;
     let props = {};
-    const response = await contentfulClient.graphql(GRAPHQL_QUERY.loadTag({ where: { type: 'article' } }));
+    const response = await contentfulClient.graphql(GRAPHQL_QUERY.loadTag({}));
     const tagsList = getGraphqlResultTags(response);
 
     const tagsSet = new Set([...tagsList.map((item) => item.slug)]);
@@ -142,7 +142,7 @@ export const getBlogGraphqlQuery = ({
   if (isTagBlog && !isCategory) {
     return GRAPHQL_QUERY.loadPreviewArticlesByTags({
       limit,
-      where: { slug: category, type: 'article' },
+      where: { slug: category },
     });
   }
 
