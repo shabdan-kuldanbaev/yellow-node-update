@@ -7,7 +7,9 @@ export const WHITE_LOGO_TYPE = [
   'fernwayer',
 ];
 
-export const BLACK_LOGO_TYPE = [];
+export const BLACK_LOGO_TYPE = [
+  'famlicious',
+];
 
 export const WHITE_TEXT_LOGO = [
   'home',

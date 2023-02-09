@@ -5,20 +5,20 @@ export const IMAGE_SIZES = {
   'marketplace-for-clairvoyant-services': 541,
   dindon: 665,
   fernwayer: {
-    allViews: 478,
+    default: 478,
     secondSectionView: 650,
   },
   fireaway: {
-    allViews: 425,
+    default: 425,
   },
   'seven-pm-thursday': {
-    allViews: 478,
+    default: 478,
   },
   stickerbox: {
-    allViews: 480,
+    default: 480,
   },
   fairy: {
-    allViews: 478,
+    default: 478,
   },
   tell: 660,
   'travel-trivia': 660,
@@ -41,6 +41,6 @@ export const IMAGE_SIZES = {
 
 export const MOBILE_IMAGE_SIZES = {
   fireaway: {
-    allViews: 250,
+    default: 250,
   },
 };

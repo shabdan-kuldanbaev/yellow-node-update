@@ -19,8 +19,8 @@ export const useWireframes = ({
     const imageData = getImage(image);
 
     const height = isMobileResolution
-      ? MOBILE_IMAGE_SIZES[type][view || 'allViews'] || DEFAULT_MOBILE_IMAGE_SIZE
-      : IMAGE_SIZES[type][view || 'allViews'] || DEFAULT_IMAGE_SIZE;
+      ? MOBILE_IMAGE_SIZES[type]?.[view || 'default'] || DEFAULT_MOBILE_IMAGE_SIZE
+      : IMAGE_SIZES[type]?.[view || 'default'] || DEFAULT_IMAGE_SIZE;
 
     const scale = height / imageData.height;
 
