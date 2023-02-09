@@ -1,0 +1,25 @@
+.fernwayer {
+  &.firstSectionView {
+    background-color: $gray50;
+
+    .titleStyle {
+      max-width: 550px;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 120px 0 60px;
+
+    .titleStyle {
+      max-width: 550px;
+
+      @include phone {
+        padding: 0 16px;
+      }
+    }
+
+    @include phone {
+      padding: 60px 0 30px;
+    }
+  }
+}

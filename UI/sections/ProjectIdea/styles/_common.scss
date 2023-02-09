@@ -30,6 +30,7 @@
     @include flex(column, center);
 
     max-width: 481px;
+    margin-left: 32px;
 
     @include tablet {
       order: 1;

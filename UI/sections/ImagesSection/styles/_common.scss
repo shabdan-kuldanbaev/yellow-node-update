@@ -1,25 +1,18 @@
 .section {
-  padding: 120px 40px 120px;
-
+  padding: 120px 40px;
   background-color: $gray0;
 
   .secondDescription {
     display: none;
   }
 
-  .titleStyles {
-    margin: 0 auto 32px;
-
-    * {
-      margin: 0 auto;
-    }
-
-    @include below-tablet {
-      margin: 0 auto 8px;
+  .titleStyle {
+    @include phone {
+      margin: 0 auto 24px;
     }
   }
 
-  @include tablet{
+  @include tablet {
     padding: 60px 16px;
   }
 }
