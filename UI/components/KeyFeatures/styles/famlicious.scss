@@ -1,0 +1,20 @@
+.famlicious {
+  .containerBackground {
+    background: $gray50;
+    opacity: 0.9;
+  }
+
+  .featureContainer {
+    .checkMark {
+      background: $famliciousAccent;
+
+      svg {
+        stroke-width: 5px;
+      }
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}

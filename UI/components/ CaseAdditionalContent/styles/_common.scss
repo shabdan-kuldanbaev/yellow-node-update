@@ -23,13 +23,17 @@
     .listContainer {
       padding-left: 20px;
       margin: 0;
+
+      @include tablet {
+        @include flex(column, center, center);
+      }
     }
 
     .listItem {
       @include fontSize(18px, 180%);
 
       @include phone {
-        text-align: start;
+        text-align: center;
       }
     }
 
@@ -38,11 +42,7 @@
     }
   }
 
-  @include phone {
-    overflow-x: auto;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  @include tablet {
+    @include flex(column, center, center);
   }
 }

@@ -63,6 +63,14 @@
     }
   }
 
+  .descriptionIntro {
+    margin-bottom: 32px;
+
+    @include phone {
+      margin-bottom: 16px;
+    }
+  }
+
   .description {
     @include fontSize(16px, 150%);
 
@@ -86,6 +94,6 @@
   }
 
   @include phone {
-    padding: 60px 16px 30px;
+    padding: 60px 16px;
   }
 }
