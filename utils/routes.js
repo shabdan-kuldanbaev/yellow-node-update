@@ -168,8 +168,8 @@ export const routes = {
         slug: 'software-chat',
       },
       {
-        title: 'Marketing',
-        slug: 'marketing',
+        title: 'Fintech',
+        slug: 'fintech',
       },
       {
         title: 'Yellow',
