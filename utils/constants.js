@@ -363,6 +363,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
+  ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
