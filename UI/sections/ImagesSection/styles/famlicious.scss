@@ -1,0 +1,13 @@
+.famlicious {
+  background: $famliciousBackground;
+  padding: 120px 0;
+
+  .titleStyle {
+    max-width: 539px;
+    padding: 0 16px;
+  }
+
+  @include phone {
+    padding: 60px 0;
+  }
+}

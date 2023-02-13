@@ -1,0 +1,22 @@
+.famlicious {
+  overflow: hidden;
+
+  .image {
+    position: relative;
+    width: 300px;
+    height: 650px;
+    padding: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 460px;
+      height: 460px;
+      background: $gray0;
+      border-radius: 50%;
+    }
+  }
+}
