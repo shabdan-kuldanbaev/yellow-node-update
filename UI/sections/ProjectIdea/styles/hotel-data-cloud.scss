@@ -1,5 +1,20 @@
 .hotel-data-cloud {
+  position: relative;
   padding: 120px 40px 60px;
+  z-index: 1;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    background: $hotelDataCloudGradient;
+    width: 687px;
+    height: 687px;
+    opacity: 0.15;
+    filter: blur(237px);
+    z-index: -1;
+  }
 
   @include tablet {
     padding: 60px 32px;
