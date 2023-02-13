@@ -3,7 +3,7 @@
     .image {
       width: 903px;
       height: 570px;
-      box-shadow: 0 14px 74px 0 rgba(0, 0, 0, 0.04);
+      box-shadow: 0 14px 74px 0 rgb(0 0 0 / 4%);
       border-radius: 25px;
 
       &-1,
@@ -110,6 +110,14 @@
   }
 
   &.secondSectionView {
+    .contentContainer {
+      max-width: 790px;
+
+      .infoContainer {
+        width: 379px;
+      }
+    }
+
     .imageBundle {
       position: absolute;
       width: 1270px;
@@ -117,6 +125,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      z-index: -1;
     }
 
     h2,

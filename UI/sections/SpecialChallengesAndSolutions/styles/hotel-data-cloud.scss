@@ -1,6 +1,12 @@
 .hotel-data-cloud {
   padding: 60px 40px;
 
+  &.firstSectionView {
+    .titleStyle {
+      display: none;
+    }
+  }
+
   @include tablet {
     padding: 60px 32px;
   }
