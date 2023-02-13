@@ -1,14 +1,44 @@
 .hotel-data-cloud {
-  padding: 60px 40px;
+  padding: 60px 0;
 
   &.firstSectionView {
+    position: relative;
+    overflow: initial;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -200px;
+      left: 100px;
+      background: $hotelDataCloudGradient;
+      width: 687px;
+      height: 687px;
+      opacity: 0.15;
+      filter: blur(237px);
+      z-index: -1;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: $hotelDataCloudGradient;
+      width: 687px;
+      height: 687px;
+      opacity: 0.15;
+      filter: blur(237px);
+      z-index: -1;
+    }
+
     .titleStyle {
       display: none;
     }
   }
 
   @include tablet {
-    padding: 60px 32px;
+    padding: 60px 0;
   }
 
   @include phone {

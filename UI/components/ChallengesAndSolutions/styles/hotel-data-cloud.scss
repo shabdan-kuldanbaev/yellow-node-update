@@ -1,5 +1,7 @@
 .hotel-data-cloud {
   &.firstSectionView {
+    overflow: hidden;
+
     .image {
       width: 903px;
       height: 570px;
@@ -37,21 +39,6 @@
     .contentContainer {
       max-width: $wide-content-width;
       flex-direction: row-reverse;
-      position: relative;
-      z-index: 1;
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: $hotelDataCloudGradient;
-        width: 687px;
-        height: 687px;
-        opacity: 0.15;
-        filter: blur(237px);
-        z-index: -1;
-      }
 
       @include below-tablet {
         @include flex(column, center, center);
@@ -69,6 +56,7 @@
         height: 110px;
         right: -20%;
         top: 5%;
+        z-index: -1;
 
         @include tablet {
           display: none;
