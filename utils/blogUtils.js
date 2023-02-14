@@ -80,9 +80,6 @@ export const getInitialBlogProps = async (store, ctx) => {
     const tagsSet = new Set([...tagsList.map((item) => item.slug)]);
     const isTagBlog = checkIsTagBlog(slug, tagsSet);
 
-    const categorySet = new Set([...routes.blog.categories.map((item) => item.slug)]);
-    const isCategory = checkIsTagBlog(slug, categorySet);
-
     if (!isTagBlog && isArticle(slug)) {
       store.dispatch(fetchLayoutData({
         articleSlug: slug,
@@ -93,7 +90,6 @@ export const getInitialBlogProps = async (store, ctx) => {
         ...ctx,
         routeSlug: PAGES.blog,
         isTagBlog,
-        isCategory,
       });
 
       props = {
@@ -137,9 +133,8 @@ export const getBlogGraphqlQuery = ({
   category,
   order,
   isTagBlog,
-  isCategory,
 }) => {
-  if (isTagBlog && !isCategory) {
+  if (isTagBlog) {
     return GRAPHQL_QUERY.loadPreviewArticlesByTags({
       limit,
       where: { slug: category },
@@ -150,11 +145,5 @@ export const getBlogGraphqlQuery = ({
     skip,
     limit,
     order,
-    where: {
-      ...(category
-        ? { categoryTag: category }
-        : { categoryTag_exists: true }
-      ),
-    },
   });
 };
