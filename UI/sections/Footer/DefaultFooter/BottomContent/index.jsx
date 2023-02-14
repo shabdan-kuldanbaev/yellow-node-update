@@ -10,7 +10,7 @@ const BottomContent = () => (
       className={styles.text}
       variant="span"
     >
-      © All right reserved. Yellow 2022
+      © All right reserved. Yellow 2023
     </Typography>
     <div className={styles.links}>
       <LinkWrapper path={PAGES.privacyPolicy}>Privacy Policy</LinkWrapper>

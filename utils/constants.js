@@ -184,6 +184,7 @@ export const SVG_IMAGES_TYPES = {
   check: 'check',
   iPhone: 'iPhone',
   iPad: 'iPad',
+  arrowDown: 'arrowDown',
 };
 
 export const APP_DEVELOPMENT_TYPES = {

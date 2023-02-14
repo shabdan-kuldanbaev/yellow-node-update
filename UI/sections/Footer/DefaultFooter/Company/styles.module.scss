@@ -3,23 +3,14 @@
 .container {
   @include flex(column);
 
-  &.fintech {
-    grid-area: fintech;
-  }
-
-  &.services {
-    grid-area: services;
-  }
-
-  &.expertise {
-    grid-area: expertise;
-  }
+  grid-area: company;
 
   .title {
     @include fontSize(16px, 150%);
 
     margin: 0 0 16px;
     font-weight: 700;
+    cursor: pointer;
   }
 
   a {
@@ -34,9 +25,5 @@
     &:hover {
       color: $yellow500;
     }
-  }
-
-  @include tablet {
-    display: none;
   }
 }
