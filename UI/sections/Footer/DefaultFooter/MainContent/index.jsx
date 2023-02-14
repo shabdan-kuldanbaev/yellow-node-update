@@ -1,66 +1,49 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Typography from 'UI/components/Typography';
 import { FieldsWrapper } from './FieldsWrapper';
-import { footerData } from './utils/data';
+import { mainContent } from '../utils/data';
 import styles from './styles.module.scss';
 
-const MainContent = ({ footerData: footerLinksData }) => (
-  <div className={styles.mainContent}>
-    {footerLinksData.map(({
-      title,
-      links,
-      type,
+const MainContent = ({ mainContent: footerLinksData }) => footerLinksData?.map(({
+  title,
+  links,
+  type,
+}) => (
+  <div
+    key={`footer/${type}`}
+    className={cn(
+      styles.container,
+      styles[type],
+    )}
+  >
+    <Typography
+      variant="span"
+      className={styles.title}
+    >
+      {title}
+    </Typography>
+    {links && links.map(({
+      path,
+      subtitle,
+      type: linkType,
     }) => (
-      <div
-        className={cn(styles.dataContainer, styles[type])}
-        key={`footer/${type}`}
-      >
-        <Typography
-          variant="span"
-          className={styles.title}
-        >
-          {title}
-        </Typography>
-        {links && links.map(({
-          title: linkTitle,
-          path,
-          subtitle,
-          type: linkType,
-        }) => (
-          <Fragment key={`footer-links/${linkTitle || subtitle}`}>
-            {linkTitle && (
-              <p className={cn(styles.text, styles.main)}>
-                {linkTitle}
-              </p>
-            )}
-            {path
-              ? (
-                <FieldsWrapper
-                  type={linkType}
-                  path={path}
-                  subtitle={subtitle}
-                />
-              )
-              : (
-                <p className={styles.text}>
-                  {subtitle}
-                </p>
-              )}
-          </Fragment>
-        ))}
-      </div>
+      <FieldsWrapper
+        type={linkType}
+        path={path}
+        subtitle={subtitle}
+      />
     ))}
   </div>
-);
+));
 
 MainContent.defaultProps = {
-  footerData,
+  mainContent,
 };
 
 MainContent.propTypes = {
-  footerData: PropTypes.instanceOf(Array),
+  mainContent: PropTypes.instanceOf(Array),
 };
 
 export default MainContent;
