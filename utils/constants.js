@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { routes } from 'utils/routes';
+import { youtubeFilledWhite } from '../UI/components/Svg/svgs';
 
 // TODO: After refactoring all pages, remove this variable and check for pages
 export const REFACTORED_CASE_STUDIES_PAGES = [
@@ -185,6 +186,7 @@ export const SVG_IMAGES_TYPES = {
   iPhone: 'iPhone',
   iPad: 'iPad',
   arrowDown: 'arrowDown',
+  youtubeFilledWhite: 'youtubeFilledWhite',
 };
 
 export const APP_DEVELOPMENT_TYPES = {

@@ -183,9 +183,9 @@ export const socialMedia = [
     link: 'https://www.behance.net/yellow_systems',
   },
   {
-    title: 'Medium',
-    type: SVG_IMAGES_TYPES.mediumFilledWhite,
-    link: 'https://yellow.medium.com/',
+    title: 'YouTube',
+    type: SVG_IMAGES_TYPES.youtubeFilledWhite,
+    link: 'https://www.youtube.com/@yellowsystems9900',
   },
   {
     title: 'Instagram',
