@@ -11,6 +11,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'fairy',
   'seven-pm-thursday',
   'fernwayer',
+  'hotel-data-cloud',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -183,6 +184,7 @@ export const SVG_IMAGES_TYPES = {
   check: 'check',
   iPhone: 'iPhone',
   iPad: 'iPad',
+  arrowDown: 'arrowDown',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -362,6 +364,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
+  ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,

@@ -173,6 +173,7 @@ export { default as contentfulTitle } from './technologies/contentfulTitle.svg';
 export { default as netTitle } from './technologies/netTitle.svg';
 
 /* Outlined General */
+export { default as arrowDown } from './outlined/arrowDown.svg';
 export { default as activity } from './outlined/activity.svg';
 export { default as iPhone } from './outlined/iPhone.svg';
 export { default as iPad } from './outlined/iPad.svg';
