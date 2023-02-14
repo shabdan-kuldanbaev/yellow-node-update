@@ -1,0 +1,10 @@
+.famlicious {
+  &.firstSectionView {
+    background: $famliciousBackground;
+    overflow: initial;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+}

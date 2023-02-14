@@ -32,7 +32,7 @@ export const IMAGE_SIZES = {
   'drive-focus': 527,
   ubichat: 527,
   telemojo: 540,
-  famlicious: 660,
+  famlicious: 478,
   bionorica: 440,
   humankind: 630,
   'software-for-mri-interpretation': 630,

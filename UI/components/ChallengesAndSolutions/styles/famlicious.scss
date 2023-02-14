@@ -1,0 +1,77 @@
+.famlicious {
+  .image {
+    width: 300px;
+    height: 650px;
+  }
+
+  .title {
+    @include fontSize(38px, 130%);
+
+    margin-bottom: 16px;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+    }
+  }
+
+  &.firstSectionView {
+    .contentContainer-1 {
+      margin-top: -240px;
+
+      @include phone {
+        margin: 0 auto;
+      }
+    }
+
+    .contentContainer-2 {
+      @include flex(column, center, center);
+
+      position: relative;
+      margin-top: 146px;
+
+      .infoContainer {
+        max-width: 300px;
+        margin: 24px auto 0;
+
+        .title {
+          display: none;
+        }
+      }
+
+      .imageBundle-1 {
+        position: absolute;
+        width: 300px;
+        height: 650px;
+        top: -10%;
+        right: 55%;
+        z-index: -1;
+
+        img {
+          border-radius: 30px;
+        }
+
+        @include below-tablet {
+          display: none;
+        }
+      }
+
+      .imageBundle-2 {
+        position: absolute;
+        width: 172px;
+        height: 108px;
+        top: -25%;
+        left: 5%;
+        z-index: -1;
+
+        @include below-tablet {
+          display: none;
+        }
+      }
+
+      @include phone {
+        flex-direction: column-reverse;
+        margin-top: 24px;
+      }
+    }
+  }
+}
