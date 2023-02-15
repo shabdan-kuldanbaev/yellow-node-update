@@ -1,0 +1,17 @@
+.drive-focus {
+  @extend .container;
+
+  padding-bottom: 60px;
+
+  .descriptionContainer {
+    max-width: 514px;
+  }
+
+  .description {
+    max-width: 481px;
+  }
+
+  .containerBackground {
+    right: 0%;
+  }
+}

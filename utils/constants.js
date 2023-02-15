@@ -11,6 +11,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'fairy',
   'seven-pm-thursday',
   'fernwayer',
+  'drive-focus',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import Animated from 'UI/containers/Animated';
 import Typography from 'UI/components/Typography';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
@@ -16,7 +17,7 @@ const TeamList = (props) => {
 
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-      <div className={styles[type]}>
+      <div className={cn(styles[type], styles.container)}>
         <Typography
           variant="h2"
           className={styles.title}

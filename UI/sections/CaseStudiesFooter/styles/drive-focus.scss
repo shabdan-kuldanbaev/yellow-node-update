@@ -1,0 +1,28 @@
+.drive-focus {
+  background: linear-gradient(180deg, #ff820d 0%, #ffa34d 100%);
+
+  [data-title] {
+    color: rgba($gray0, 0.7);
+  }
+
+  [data-description] {
+    color: $gray0;
+  }
+
+  .more {
+    border: 1px solid $gray0;
+    color: $gray0;
+  }
+
+  .question {
+    color: $gray0;
+  }
+
+  .link {
+    color: rgba($gray0, 0.5);
+  }
+
+  .iconLink {
+    color: $gray0;
+  }
+}
