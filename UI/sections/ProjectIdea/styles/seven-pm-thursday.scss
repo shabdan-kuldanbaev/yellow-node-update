@@ -2,14 +2,6 @@
   background: $sevenPmPrimary;
   padding: 60px 40px;
 
-  .contentContainer {
-    margin: 0 auto 120px;
-
-    @include phone {
-      margin: 0 auto 30px;
-    }
-  }
-
   .sectionName {
     color: $gray500;
   }

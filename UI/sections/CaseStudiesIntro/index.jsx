@@ -9,6 +9,7 @@ const CaseStudiesIntro = (props) => {
   case CASE_STUDIES.fairy:
   case CASE_STUDIES.sevenPmThursday:
   case CASE_STUDIES.fernwayer:
+  case CASE_STUDIES.hotelDataCloud:
   case CASE_STUDIES.famlicious:
     return <DefaultIntro {...props} />;
   default:
