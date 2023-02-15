@@ -5,6 +5,7 @@ export const WHITE_LOGO_TYPE = [
   'fairy',
   'seven-pm-thursday',
   'fernwayer',
+  'hotel-data-cloud',
 ];
 
 export const BLACK_LOGO_TYPE = [];

@@ -5,6 +5,9 @@ import SideContent from './SideContent';
 import MainContent from './MainContent';
 import BottomContent from './BottomContent';
 import CircleButton from './CircleButton';
+import Addresses from './Addresses';
+import Company from './Company';
+import MainContentWithExpand from './MainContentWithExpand';
 import styles from './styles.module.scss';
 
 const DefaultFooter = () => {
@@ -19,7 +22,10 @@ const DefaultFooter = () => {
     <footer className={styles.footerContainer}>
       <div className={styles.footer}>
         <SideContent />
+        <Company />
+        <Addresses />
         <MainContent />
+        <MainContentWithExpand />
       </div>
       <BottomContent />
       <CircleButton onClick={onClick}>

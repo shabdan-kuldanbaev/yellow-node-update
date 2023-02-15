@@ -1,3 +1,11 @@
+@mixin infoContainerRight {
+
+}
+
+@mixin imageRight {
+
+}
+
 .drive-focus {
   &.firstSectionView {
     .title {
@@ -59,12 +67,173 @@
     }
   }
 
-  &.secondSectionView {
-    max-width: unset;
+  &.secondSectionView,
+  &.thirdSectionView,
+  &.fourthSectionView {
+    overflow: hidden;
 
     .image {
-      width: 1200px;
-      height: 500px;
+      width: 980px;
+      height: 580px;
+      border-radius: 25px;
+
+      @include tablet {
+        width: 553px;
+        height: 350px;
+      }
+
+      @include phone {
+        width: 343px;
+        height: 216px;
+      }
+    }
+
+    .contentContainer {
+      max-width: $wide-content-width;
+      flex-direction: row-reverse;
+
+      @include tablet {
+        @include flex(column, center, center);
+      }
+    }
+
+    .infoContainer {
+      margin: 0;
+
+      .title {
+        @include fontSize(38px, 130%);
+
+        margin-bottom: 16px;
+
+        @include tablet {
+          @include fontSize(24px);
+
+          text-align: center;
+        }
+      }
+
+      p {
+        @include tablet {
+          text-align: center;
+        }
+
+        @include phone {
+          max-width: 345px;
+        }
+      }
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      &-1 {
+        margin-left: -355px;
+      }
+
+      &-2 {
+        margin-right: -340px;
+      }
+
+      @include tablet {
+        margin: 0 auto;
+      }
+    }
+
+    .infoContainer {
+      &-1 {
+        margin-left: 48px;
+
+        @include tablet {
+          margin-left: 16px;
+        }
+      }
+
+      &-2 {
+        margin-right: 48px;
+
+        @include tablet {
+          margin-right: 16px;
+          order: initial !important;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    position: relative;
+
+    .infoContainer {
+      z-index: 5;
+    }
+
+    .images {
+      max-width: 480px;
+      min-height: 500px;
+
+      @include tablet {
+        min-height: 400px;
+      }
+
+      @include phone {
+        min-height: 300px;
+      }
+    }
+
+    .image {
+      width: 1602px;
+      height: 661px;
+      position: absolute;
+      right: -320px;
+      top: -155px;
+      transform: rotate(-30deg);
+
+      @include tablet {
+        width: 1000px;
+        height: 350px;
+        left: 0;
+        top: 100px;
+      }
+
+      @include phone {
+        position: absolute;
+        width: 750px;
+        height: 678px;
+        top: -10px;
+        right: -270px;
+        transform: scale(1.2) rotate(-18deg);
+      }
+    }
+  }
+
+  &.thirdSectionView,
+  &.fourthSectionView {
+    .contentContainer {
+      flex-direction: row;
+
+      @include tablet {
+        @include flex(column, center, center);
+      }
+    }
+
+    .image {
+      margin-right: -340px;
+
+      @include tablet {
+        margin: 0 auto;
+      }
+    }
+
+    .infoContainer {
+      margin-right: 48px;
+
+      @include tablet {
+        margin-right: 16px;
+        order: initial !important;
+      }
     }
   }
 }

@@ -10,6 +10,7 @@ const CaseStudiesIntro = (props) => {
   case CASE_STUDIES.sevenPmThursday:
   case CASE_STUDIES.fernwayer:
   case CASE_STUDIES.driveFocus:
+  case CASE_STUDIES.hotelDataCloud:
     return <DefaultIntro {...props} />;
   default:
     return null;
