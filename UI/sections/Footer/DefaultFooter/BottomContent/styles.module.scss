@@ -1,11 +1,12 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 @import 'styles/utils/theme/animations';
 
 .bottomContent {
   @include flex(row, space-between, center);
 
   width: 100%;
-  max-width: $max-content-width;
+  max-width: $wide-content-width;
   margin-top: 32px;
   padding-top: 16px;
   border-top: 1px solid $gray500;
@@ -31,7 +32,7 @@
       color: $gray400;
 
       &:hover {
-        color: rgba($turbo-100, 0.7);
+        color: rgba($yellow500, 0.7);
       }
     }
 

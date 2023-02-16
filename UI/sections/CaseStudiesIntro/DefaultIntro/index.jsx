@@ -66,7 +66,7 @@ const DefaultIntro = (props) => {
             alt={appBackgroundImageUrl}
           />
         </div>
-        {imagesBundlesWithUrls.map((bundleUrl) => (
+        {imagesBundlesWithUrls?.map((bundleUrl) => (
           <Illustration
             priority
             transparent
