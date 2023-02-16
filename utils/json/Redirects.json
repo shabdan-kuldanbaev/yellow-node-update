@@ -26,5 +26,9 @@
   "/index.aspx":  "/",
   "/index.htm":  "/",
   "/index.html":  "/",
-  "/index.php":  "/"
+  "/index.php":  "/",
+  "/blog/monolithic-architecture-vs-microservices-choosing-the-right-architecture-for-the-project": "/blog/microservices-vs-monolithic",
+  "/works/racefully": "/works",
+  "/works/speakfree": "/works",
+  "/cross-platform-vs-native": "/blog/cross-platform-vs-native"
 }

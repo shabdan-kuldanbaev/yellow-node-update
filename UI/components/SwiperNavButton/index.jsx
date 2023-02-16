@@ -12,6 +12,7 @@ const SwiperNavButton = (props) => {
     text,
     svgType,
     className,
+    ...rest
   } = useSwiperNavButton(props);
 
   return (
@@ -24,6 +25,7 @@ const SwiperNavButton = (props) => {
       )}
       ref={buttonRef}
       data-swiper-button
+      {...rest}
     >
       <Svg type={svgType} />
       {text && (

@@ -14,11 +14,11 @@ export const categoriesMetaData = {
     metaDescription: 'The Yellow team will reveal to you all the secrets of software chat development: detailed case studies, lists, guides.',
     pageTitle: 'Software Chat',
   },
-  marketing: {
-    metaTitle: 'Tag: Marketing | Yellow',
-    metaDescription: `In this section, we'll tell you how to successfully launch and promote your product.
-    Read detailed studies about ASO, analytics, advertising.`,
-    pageTitle: 'Marketing',
+  fintech: {
+    metaTitle: 'Tag: Fintech | Yellow',
+    metaDescription: `In this section, we will discuss the best practices of fintech development.
+    Lending platforms, trading services, e-wallets, budgeting apps, and more.`,
+    pageTitle: 'Fintech',
   },
   yellow: {
     metaTitle: 'Tag: Yellow  | Yellow Blog',
