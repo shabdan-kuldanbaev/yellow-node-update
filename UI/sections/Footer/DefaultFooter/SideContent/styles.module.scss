@@ -1,22 +1,8 @@
 @import 'styles/utils/mixins';
 
 .sideContent {
-  width: 100%;
-  max-width: 405px;
-  margin-right: 32px;
-
-  @include macbook-twelve {
-    margin-right: 50px;
-  }
-
-  @include tablet {
-    margin-right: 0;
-    margin-bottom: 75px;
-  }
-
-  @include phone {
-    margin-bottom: 32px;
-  }
+  max-width: 406px;
+  grid-area: side;
 
   & > a:first-child {
     position: relative;
@@ -28,19 +14,14 @@
   }
 
   .text {
-    max-width: 400px;
+    @include fontSize(16px, 150%);
+
     color: $gray400;
     opacity: 0.7;
     margin: 16px 0 32px;
-    line-height: 1.8;
-    cursor: default;
-
-    @include macbook-twelve {
-      @include fontSize(14px);
-    }
 
     @include phone {
-      margin-bottom: 24px;
+      @include fontSize(14px, 150%);
     }
   }
 

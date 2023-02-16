@@ -173,6 +173,7 @@ export { default as contentfulTitle } from './technologies/contentfulTitle.svg';
 export { default as netTitle } from './technologies/netTitle.svg';
 
 /* Outlined General */
+export { default as arrowDown } from './outlined/arrowDown.svg';
 export { default as activity } from './outlined/activity.svg';
 export { default as iPhone } from './outlined/iPhone.svg';
 export { default as iPad } from './outlined/iPad.svg';
@@ -394,6 +395,7 @@ export { default as linkedinFilledWhite } from './filled/linkedinFilledWhite.svg
 export { default as mediumFilledWhite } from './filled/mediumFilledWhite.svg';
 export { default as twitterFilledWhite } from './filled/twitterFilledWhite.svg';
 export { default as facebookFilledWhite } from './filled/facebookRoundWhite.svg';
+export { default as youtubeFilledWhite } from './filled/youtubeFilledWhite.svg';
 
 /* Filled Finance */
 export { default as bankNoteFilled } from './filled/bankNoteFilled.svg';

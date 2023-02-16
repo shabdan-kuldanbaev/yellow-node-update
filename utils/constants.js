@@ -5,7 +5,14 @@ import React from 'react';
 import { routes } from 'utils/routes';
 
 // TODO: After refactoring all pages, remove this variable and check for pages
-export const REFACTORED_CASE_STUDIES_PAGES = ['stickerbox', 'fireaway', 'fairy'];
+export const REFACTORED_CASE_STUDIES_PAGES = [
+  'stickerbox',
+  'fireaway',
+  'fairy',
+  'seven-pm-thursday',
+  'fernwayer',
+  'hotel-data-cloud',
+];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 5;
@@ -64,6 +71,7 @@ export const NAV_LINKS = [
     routes.androidDevelopmentServices.slug,
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
+    routes.lendingSoftwareDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
     routes.aiDevelopment.slug,
@@ -122,6 +130,8 @@ export const FEEDBACK_FORM_FIELDS = {
   projectBudget: 'projectBudget',
   attachments: 'attachments',
   clientId: 'clientId',
+  source: 'source',
+  medium: 'medium',
 };
 
 export const IMAGES = {
@@ -176,6 +186,8 @@ export const SVG_IMAGES_TYPES = {
   check: 'check',
   iPhone: 'iPhone',
   iPad: 'iPad',
+  arrowDown: 'arrowDown',
+  youtubeFilledWhite: 'youtubeFilledWhite',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -205,6 +217,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
   appDevelopmentDownloadSection: 'app-development-download-section',
   feedback: 'feedback',
+  parallax: 'case-study-parallax',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -354,6 +367,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
+  ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -478,12 +492,6 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.customChatApp.path,
       },
       {
-        title: 'Machine learning development services',
-        subtitle: 'Artificial intelligence at your service',
-        slug: ROUTES.mlDevelopment.path,
-      },
-
-      {
         title: 'AI software development services',
         subtitle: 'Letting machines think',
         slug: ROUTES.aiDevelopment.path,
@@ -498,6 +506,11 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Getting insights to boost your business',
         slug: ROUTES.dataScienceDevelopment.path,
       },
+      {
+        title: 'Machine learning development services',
+        subtitle: 'Artificial intelligence at your service',
+        slug: ROUTES.mlDevelopment.path,
+      },
     ],
     [SUB_NAVIGATION_KEYS.fintech]: [
       {
@@ -506,7 +519,7 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.fintechDevelopment.path,
       },
       {
-        title: 'Trading platform development company',
+        title: 'Custom Trading Platform Development',
         subtitle: 'The way to manage investments',
         slug: ROUTES.tradingSoftwareDevelopment.path,
       },
@@ -533,6 +546,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.designServices,
   PAGES.discoveryPhase,
   PAGES.tradingSoftwareDevelopment,
+  PAGES.lendingSoftwareDevelopment,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

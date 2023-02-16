@@ -1,0 +1,15 @@
+.fernwayer {
+  padding-bottom: 60px;
+
+  .descriptionIntro {
+    margin-bottom: 32px;
+
+    @include phone {
+      margin-bottom: 16px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}
