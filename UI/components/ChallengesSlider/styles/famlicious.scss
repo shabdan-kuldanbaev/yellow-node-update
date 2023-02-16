@@ -1,0 +1,17 @@
+.famlicious {
+  :global(.swiper-wrapper) {
+    margin-bottom: 50px;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: -5px;
+  }
+
+  .swiperBullet {
+    border: 1px solid $famliciousAccent;
+  }
+
+  .swiperBulletActive {
+    background-color: $famliciousAccent;
+  }
+}
