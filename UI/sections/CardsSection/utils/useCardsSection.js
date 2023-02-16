@@ -115,7 +115,7 @@ export default ({
 
   const cardList = (rawCardList || []).map(cardMapper(withOverlay));
 
-  const ctaLink = getDocumentFields(get(contentModules, '[1]'));
+  const ctaLink = get(contentModules, '[1]');
 
   const isTabletResolution = useSelector(selectIsTabletResolutions);
   const isMobileResolution = useSelector(selectIsMobileResolutions);
