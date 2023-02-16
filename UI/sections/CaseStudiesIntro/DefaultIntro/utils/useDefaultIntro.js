@@ -53,7 +53,6 @@ export const useDefaultIntro = ({
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
 
   const imagesBundlesWithUrls = imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
-  console.log('imagesBundlesWithUrls: ', imagesBundlesWithUrls);
 
   const displayProjectLink = !isMobileResolution && downloadLink;
   const displayProjectLinkMobile = isMobileResolution && downloadLink;

@@ -1,5 +1,5 @@
 .drive-focus {
-  background: linear-gradient(180deg, #ff820d 0%, #ffa34d 100%);
+  background: $driveFocus;
 
   [data-title] {
     color: rgba($gray0, 0.7);
