@@ -52,7 +52,7 @@ const fetchBlogData = async (
     slug: routeSlug,
     currentLimit: currentPage === 1 ? ARTICLES_NUMBER_PER_PAGE - 1 : ARTICLES_NUMBER_PER_PAGE,
     category: queryParams.category,
-    skip: (currentPage - 1) * ARTICLES_NUMBER_PER_PAGE,
+    skip: (currentPage === 1) ? 0 : (currentPage - 1) * ARTICLES_NUMBER_PER_PAGE - 1,
     isTagBlog,
   }));
 
