@@ -1,4 +1,19 @@
 .famlicious {
+  $famliciousShadow: drop-shadow(0 8px 35px rgb(110 120 130 / 10%));
+
+  .contentContainer {
+    .infoContainer {
+      @include tablet {
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
   .image {
     width: 300px;
     height: 650px;
@@ -18,7 +33,7 @@
     .contentContainer-1 {
       margin-top: -240px;
 
-      @include phone {
+      @include tablet {
         margin: 0 auto;
       }
     }
@@ -36,6 +51,10 @@
         .title {
           display: none;
         }
+
+        @include tablet {
+          order: initial;
+        }
       }
 
       .imageBundle-1 {
@@ -50,7 +69,7 @@
           border-radius: 30px;
         }
 
-        @include below-tablet {
+        @include tablet {
           display: none;
         }
       }
@@ -63,14 +82,169 @@
         left: 5%;
         z-index: -1;
 
-        @include below-tablet {
+        @include tablet {
           display: none;
         }
       }
 
-      @include phone {
+      @include tablet {
         flex-direction: column-reverse;
         margin-top: 24px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer:not(.contentContainer-3) {
+      @include tablet {
+        margin: 0 auto 32px;
+      }
+    }
+
+    .contentContainer-1 {
+      position: relative;
+
+      .infoContainer {
+        order: 2;
+
+        @include tablet {
+          order: initial;
+        }
+      }
+
+      .imageBundle-1 {
+        position: absolute;
+        left: 45%;
+        top: 190px;
+        width: 76px;
+        height: 76px;
+
+        @include tablet {
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 56px;
+          height: 56px;
+        }
+      }
+
+      @include tablet {
+        padding-top: 64px;
+      }
+    }
+
+    .contentContainer-2 {
+      .infoContainer {
+        order: initial;
+      }
+    }
+
+    .contentContainer-3 {
+      position: relative;
+      height: 776px;
+      max-width: 870px;
+      margin: 0 auto;
+
+      .infoContainer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        max-width: 296px;
+        margin: 0;
+
+        .title {
+          display: none;
+        }
+
+        p {
+          margin: 0;
+        }
+
+        @include tablet {
+          position: static;
+          order: 2;
+          max-width: 343px;
+          margin: 16px auto 0;
+        }
+      }
+
+      .image {
+        position: absolute;
+        left: 22%;
+        top: 0;
+        filter: $famliciousShadow;
+
+        img {
+          border-radius: 30px;
+        }
+
+        @include tablet {
+          position: static;
+          margin: 0 auto;
+        }
+      }
+
+      .imageBundle-1 {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 296px;
+        height: 300px;
+        transform: translateY(-50%);
+        filter: $famliciousShadow;
+
+        @include tablet {
+          width: 199px;
+          height: 202px;
+          top: 60%;
+        }
+      }
+
+      .imageBundle-2 {
+        position: absolute;
+        bottom: 136px;
+        right: 146px;
+        width: 150px;
+        height: 40px;
+        filter: $famliciousShadow;
+      }
+
+      .imageBundle-3 {
+        position: absolute;
+        bottom: 103px;
+        right: 296px;
+        width: 120px;
+        height: 33px;
+      }
+
+      .imageBundle-4 {
+        position: absolute;
+        top: 19%;
+        left: 0;
+        width: 170px;
+        height: 120px;
+        filter: $famliciousShadow;
+      }
+
+      .imageBundle-5 {
+        position: absolute;
+        top: 14%;
+        left: 63px;
+        width: 106px;
+        height: 32px;
+      }
+
+      .imageBundle:not(.imageBundle-1) {
+        @include tablet {
+          display: none;
+        }
+      }
+
+      @include tablet {
+        @include flex(column, center, center);
+
+        max-width: 100%;
+        height: auto;
       }
     }
   }
