@@ -395,6 +395,7 @@ export { default as linkedinFilledWhite } from './filled/linkedinFilledWhite.svg
 export { default as mediumFilledWhite } from './filled/mediumFilledWhite.svg';
 export { default as twitterFilledWhite } from './filled/twitterFilledWhite.svg';
 export { default as facebookFilledWhite } from './filled/facebookRoundWhite.svg';
+export { default as youtubeFilledWhite } from './filled/youtubeFilledWhite.svg';
 
 /* Filled Finance */
 export { default as bankNoteFilled } from './filled/bankNoteFilled.svg';
