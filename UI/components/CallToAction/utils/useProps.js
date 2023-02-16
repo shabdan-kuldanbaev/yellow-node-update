@@ -41,7 +41,7 @@ export default ({
 
   const images = (imagesBundle || []).map(getImage);
 
-  const titles = (titleProp || title).split('||');
+  const titles = (title || titleProp).split('||');
 
   const files = (rawFiles || []).map(getFileUrl);
 

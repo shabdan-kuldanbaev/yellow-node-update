@@ -41,6 +41,7 @@ const CallToAction = (props) => {
         className,
         {
           [styles.new]: isNew,
+          [styles.card]: !isNew,
           [styles.isSubscribed]: isSubscribed,
         },
       )}
@@ -155,7 +156,7 @@ const CallToAction = (props) => {
         }
       </div>
 
-      {isSubscribeFormShown && <SubscribeInCTAForm onSubmit={onSubscribeSubmit} />}
+      {isNew && isSubscribeFormShown && <SubscribeInCTAForm onSubmit={onSubscribeSubmit} />}
 
       {!isSubscribeFormShown && (
         <Button
@@ -168,13 +169,15 @@ const CallToAction = (props) => {
         </Button>
       )}
 
-      <GetBookModal
-        show={isGetBookShown}
-        close={toggleGetBookModalShown}
-        bookCover={images[0]}
-        buttonText={buttonTitle}
-        downloadLink={downloadLink}
-      />
+      {type === LINK_TYPE.book && (
+        <GetBookModal
+          show={isGetBookShown}
+          close={toggleGetBookModalShown}
+          bookCover={images[0]}
+          buttonText={buttonTitle}
+          downloadLink={downloadLink}
+        />
+      )}
     </div>
   );
 };
