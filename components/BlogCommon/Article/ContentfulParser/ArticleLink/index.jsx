@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CallToAction from 'components/Common/CallToAction';
+import CallToActionNew from 'UI/components/CallToAction';
 import BookmarkCard from 'components/BlogCommon/Article/BookmarkCard';
 import { CustomYoutubePlayer } from 'components/Common/CustomYoutubePlayer';
 import { getYoutubeVideoIdFromUrl } from 'utils/helper';
+import { LINK_TYPE } from 'utils/constants/linkType';
+import styles from './ArticleLink.module.scss';
 
 export const ArticleLink = ({
+  data,
+  new: isNew,
   type,
   title,
   buttonTitle,
@@ -14,15 +19,25 @@ export const ArticleLink = ({
   className,
 }) => {
   switch (type) {
-  case 'bookmark':
+  case LINK_TYPE.bookmark:
     return title && slug && (
       <BookmarkCard
         title={title}
         slug={slug}
       />
     );
-  case 'call-to-action':
-    return title && buttonTitle && slug && (
+  case LINK_TYPE.callToAction:
+  case LINK_TYPE.book:
+    if (isNew) {
+      return (
+        <CallToActionNew
+          data={data}
+          className={styles.cta}
+        />
+      );
+    }
+
+    return (
       <CallToAction
         title={title}
         buttonTitle={buttonTitle}
@@ -30,7 +45,7 @@ export const ArticleLink = ({
         type="blog"
       />
     );
-  case 'youtube-video':
+  case LINK_TYPE.youTube:
     return url && (
       <CustomYoutubePlayer
         src={getYoutubeVideoIdFromUrl(url)}
