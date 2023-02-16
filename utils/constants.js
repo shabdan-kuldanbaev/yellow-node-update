@@ -187,6 +187,7 @@ export const SVG_IMAGES_TYPES = {
   iPhone: 'iPhone',
   iPad: 'iPad',
   arrowDown: 'arrowDown',
+  youtubeFilledWhite: 'youtubeFilledWhite',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
