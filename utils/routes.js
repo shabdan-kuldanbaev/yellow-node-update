@@ -138,7 +138,8 @@ export const routes = {
     slug: 'process',
   },
   blog: {
-    title: 'Blog',
+    title: 'Insights',
+    slug: 'blog',
     path: rootBlogPath,
     // TODO think a better solution
     getRoute: (category, page = '1') => getPageRoute(
@@ -149,7 +150,6 @@ export const routes = {
     dynamicPath: {
       ...dynamicBlogPaths,
     },
-    slug: 'blog',
     categories: [
       {
         title: 'Latest',
@@ -168,8 +168,8 @@ export const routes = {
         slug: 'software-chat',
       },
       {
-        title: 'Marketing',
-        slug: 'marketing',
+        title: 'Fintech',
+        slug: 'fintech',
       },
       {
         title: 'Yellow',
