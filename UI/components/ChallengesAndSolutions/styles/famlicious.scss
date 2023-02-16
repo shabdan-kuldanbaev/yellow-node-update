@@ -197,6 +197,11 @@
           width: 199px;
           height: 202px;
           top: 60%;
+          right: 20%;
+        }
+
+        @include phone {
+          right: 0;
         }
       }
 
