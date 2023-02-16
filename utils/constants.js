@@ -130,6 +130,8 @@ export const FEEDBACK_FORM_FIELDS = {
   projectBudget: 'projectBudget',
   attachments: 'attachments',
   clientId: 'clientId',
+  source: 'source',
+  medium: 'medium',
 };
 
 export const IMAGES = {
