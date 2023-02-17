@@ -4,6 +4,8 @@ export const WHITE_LOGO_TYPE = [
   'fireaway',
   'fairy',
   'seven-pm-thursday',
+  'fernwayer',
+  'hotel-data-cloud',
 ];
 
 export const BLACK_LOGO_TYPE = [];
@@ -31,6 +33,7 @@ export const WHITE_TEXT_LOGO = [
   'machine-learning-in-real-estate',
   'fairy',
   'seven-pm-thursday',
+  'fernwayer',
 ];
 
 export const getLogoType = (type) => {

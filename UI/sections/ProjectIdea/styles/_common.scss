@@ -17,12 +17,12 @@
 
     max-width: $wide-content-width;
     width: 100%;
-    margin: 0 auto 60px;
+    margin: 0 auto 120px;
 
     @include tablet {
       @include flex(column, center, center);
 
-      margin-bottom: 30px;
+      margin-bottom: 60px;
     }
   }
 
@@ -30,6 +30,7 @@
     @include flex(column, center);
 
     max-width: 481px;
+    margin-left: 32px;
 
     @include tablet {
       order: 1;

@@ -1,0 +1,15 @@
+.fernwayer {
+  .containerBackground {
+    opacity: 0.9;
+  }
+
+  .featureContainer {
+    .checkMark {
+      background: $fernwayerGradient;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}

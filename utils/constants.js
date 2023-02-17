@@ -10,6 +10,8 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'fireaway',
   'fairy',
   'seven-pm-thursday',
+  'fernwayer',
+  'hotel-data-cloud',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -128,6 +130,8 @@ export const FEEDBACK_FORM_FIELDS = {
   projectBudget: 'projectBudget',
   attachments: 'attachments',
   clientId: 'clientId',
+  source: 'source',
+  medium: 'medium',
 };
 
 export const IMAGES = {
@@ -182,6 +186,8 @@ export const SVG_IMAGES_TYPES = {
   check: 'check',
   iPhone: 'iPhone',
   iPad: 'iPad',
+  arrowDown: 'arrowDown',
+  youtubeFilledWhite: 'youtubeFilledWhite',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -361,6 +367,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
+  ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -453,11 +460,6 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.cloudDevelopment.path,
       },
       {
-        title: 'Cloud-based app development services',
-        subtitle: 'No physical space is occupied',
-        slug: ROUTES.lendingSoftwareDevelopment.path,
-      },
-      {
         title: 'Prototyping services',
         subtitle: 'Start with a draft',
         slug: ROUTES.prototypingServices.path,
@@ -482,11 +484,6 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Lauch your app to all platforms at once',
         slug: ROUTES.crossPlatformDevelopmentServices.path,
       },
-      {
-        title: 'Lending Software Development Company',
-        subtitle: 'Fast and secure lending process',
-        slug: ROUTES.lendingSoftwareDevelopment.path,
-      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
       {
@@ -494,12 +491,6 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Instant communication tules',
         slug: ROUTES.customChatApp.path,
       },
-      {
-        title: 'Machine learning development services',
-        subtitle: 'Artificial intelligence at your service',
-        slug: ROUTES.mlDevelopment.path,
-      },
-
       {
         title: 'AI software development services',
         subtitle: 'Letting machines think',
@@ -515,6 +506,11 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Getting insights to boost your business',
         slug: ROUTES.dataScienceDevelopment.path,
       },
+      {
+        title: 'Machine learning development services',
+        subtitle: 'Artificial intelligence at your service',
+        slug: ROUTES.mlDevelopment.path,
+      },
     ],
     [SUB_NAVIGATION_KEYS.fintech]: [
       {
@@ -523,7 +519,7 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.fintechDevelopment.path,
       },
       {
-        title: 'Trading platform development company',
+        title: 'Custom Trading Platform Development',
         subtitle: 'The way to manage investments',
         slug: ROUTES.tradingSoftwareDevelopment.path,
       },
@@ -552,36 +548,6 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.tradingSoftwareDevelopment,
   PAGES.lendingSoftwareDevelopment,
 ];
-
-export const CONTACT_FORM_TITLES = {
-  [PAGES.homepage]: 'Let’s move forward',
-  [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
-  [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
-  [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
-  [PAGES.designServices]: 'Tailored UX design services for your business',
-  [PAGES.developmentServices]: '',
-  [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
-  [PAGES.mvpDevelopment]: 'Still have questions?',
-  [PAGES.lendingSoftwareDevelopment]: 'Build your lending software with us',
-  [PAGES.tradingSoftwareDevelopment]: 'Ready to get started?',
-  [PAGES.fintechDevelopment]: 'Still have questions?',
-  [PAGES.erpDevelopment]: 'Still have questions?',
-  [PAGES.cloudDevelopment]: 'The sky\'s the limit',
-  [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
-  [PAGES.devOpsDevelopment]: 'Still have questions?',
-  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
-  [PAGES.prototypingServices]: 'Get a detailed estimate of your project',
-  [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
-  [CASE_STUDIES.stickerbox]: 'Let’s move forward',
-};
-
-export const CONTACT_FORM_SECOND_TITLES = {
-  [PAGES.erpDevelopment]: 'We\'re ready to answer them',
-  [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
-  [PAGES.aiDevelopment]: 'We are here to help!',
-  [PAGES.mvpDevelopment]: 'We are ready to answer them',
-  [PAGES.fintechDevelopment]: ' We are ready to answer them',
-};
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 

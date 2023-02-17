@@ -34,10 +34,11 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
       style={sectionStyle}
     >
       <SectionTitle
+        type={type}
         title={title}
         subtitle={subtitle}
         description={description}
-        type={type}
+        className={styles.titleStyle}
       />
       <ChallengesAndSolutions
         data={data}
@@ -45,8 +46,9 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
         view={view}
       />
       <Wireframes
-        data={data}
+        images={images}
         type={type}
+        view={view}
       />
     </section>
   );
