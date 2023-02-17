@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Intro from 'UI/sections/Intro';
+import HomeIntro from 'UI/sections/HomeIntro';
 import MetaTags from 'components/Common/MetaTags';
 import SectionSelector from 'containers/Home/SectionSelector';
 import { PAGES } from 'utils/constants';
@@ -22,7 +22,7 @@ export const Home = ({
         pageMetadata={pageMetadata}
         pageMicrodata={microdata.homepage()}
       />
-      <Intro
+      <HomeIntro
         theme={theme}
         introSection={introSection}
       />
