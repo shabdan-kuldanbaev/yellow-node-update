@@ -60,7 +60,7 @@ const CookiesNotification = ({ text }) => {
           </LinkWrapper>
         </p>
         <Button
-          handleOnClick={handlerOnClose}
+          onClick={handlerOnClose}
           className={styles.button}
         >
           Accept
