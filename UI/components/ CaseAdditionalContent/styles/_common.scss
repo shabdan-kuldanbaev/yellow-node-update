@@ -1,37 +1,37 @@
 .additionalContent {
   @include flex;
 
-  .title {
-    @include fontSize(38px, 150%);
-
-    margin: 0 0 16px;
-    text-align: start;
-    font-weight: bold;
-
-    @include tablet {
-      margin-bottom: 8px;
-    }
-
-    @include phone {
-      text-align: center;
-    }
-  }
-
-  .listContainer {
-    padding-left: 20px;
-    margin: 0;
-  }
-
-  .listItem {
-    @include fontSize(18px, 180%);
-
-    @include phone {
-      text-align: start;
-    }
-  }
-
   .container {
     max-width: 280px;
+
+    .title {
+      @include fontSize(38px, 150%);
+
+      margin: 0 0 16px;
+      text-align: start;
+      font-weight: bold;
+
+      @include tablet {
+        margin-bottom: 8px;
+      }
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .listItem {
+      @include fontSize(18px, 180%);
+
+      @include phone {
+        text-align: start;
+      }
+    }
 
     @include phone {
       min-width: 240px;
