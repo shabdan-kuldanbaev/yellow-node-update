@@ -1,0 +1,7 @@
+.separate-us {
+  padding: 60px 0;
+
+  @include phone {
+    padding: 30px 0;
+  }
+}
