@@ -1,11 +1,15 @@
-.fairy {
+.separate-us {
   .containerBackground {
     opacity: 0.9;
+
+    @include phone {
+      left: -35%;
+    }
   }
 
   .featureContainer {
     .checkMark {
-      background: linear-gradient(142.23deg, #5b5bbd -12.4%, #362761 151.71%);
+      background: $separateUsAccent;
 
       path {
         fill: $gray0;

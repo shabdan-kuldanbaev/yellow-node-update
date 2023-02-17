@@ -35,7 +35,7 @@
     @include tablet {
       order: 1;
       max-width: 100%;
-      margin: 0;
+      margin: 0 0 24px;
       text-align: center;
     }
   }
@@ -47,6 +47,7 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: $gray400;
+    margin: 0;
   }
 
   .title {
@@ -59,7 +60,7 @@
     @include phone {
       @include fontSize(24px, 130%);
 
-      margin: 0 0 8px;
+      margin: 16px 0 8px;
     }
   }
 
