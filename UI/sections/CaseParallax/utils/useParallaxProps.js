@@ -4,13 +4,19 @@ import { getFileUrl } from 'utils/helper';
 import styles from '../styles.module.scss';
 
 export default ({ data, type }) => {
-  const { title, subtitle } = data;
+  const {
+    title,
+    subtitle,
+    description,
+  } = data;
+
   const imageUrl = getFileUrl(get(data.images, '[0]', {}));
   const className = cn(styles[type], styles.parallaxSection);
 
   return {
     title,
     subtitle,
+    description,
     imageUrl,
     className,
   };
