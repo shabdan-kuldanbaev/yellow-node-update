@@ -32,6 +32,7 @@ const CaseParallax = dynamic(() => import('UI/sections/CaseParallax'));
 const CaseStudyDesign = dynamic(() => import('UI/sections/CaseStudyDesign'));
 const CaseAppFeatures = dynamic(() => import('UI/sections/CaseAppFeatures'));
 const CaseEvent = dynamic(() => import('UI/sections/CaseEvent'));
+const CaseStudiesStory = dynamic(() => import('UI/sections/CaseStudiesStory'));
 
 const CaseStudiesCommon = (props) => {
   if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
@@ -62,6 +63,8 @@ const CaseStudiesCommon = (props) => {
       return <CaseStudyDesign {...props} />;
     case CASE_STUDIES_TYPES.caseStudyEvent:
       return <CaseEvent {...props} />;
+    case CASE_STUDIES_TYPES.story:
+      return <CaseStudiesStory {...props} />;
     default:
       return null;
     }
