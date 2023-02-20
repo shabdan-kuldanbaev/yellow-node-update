@@ -7,6 +7,14 @@
     }
   }
 
+  .contentContainer {
+    @include flex(row, initial, center);
+
+    .title {
+      margin: auto 0;
+    }
+  }
+
   .featureContainer {
     .checkMark {
       background: $separateUsAccent;

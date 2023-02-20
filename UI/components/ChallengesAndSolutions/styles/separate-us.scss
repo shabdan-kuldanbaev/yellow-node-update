@@ -35,9 +35,13 @@
     margin: 0 auto 12px;
 
     .title {
+      @include fontSize(24px, 130%);
+
       margin-right: 30px;
 
       @include phone {
+        @include fontSize(20px, 150%);
+
         margin: 0;
       }
     }
@@ -48,9 +52,17 @@
     }
 
     & > div {
-      width: 50%;
+      width: 379px;
 
-      @include below-tablet {
+      &:first-child {
+        margin-right: 32px;
+      }
+
+      @include tablet {
+        width: 50%;
+      }
+
+      @include phone {
         width: 100%;
       }
     }
