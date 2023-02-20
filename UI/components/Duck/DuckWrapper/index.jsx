@@ -9,14 +9,10 @@ const DuckWrapper = (props) => {
   const { duck, sloganRef } = useDuckWrapper(props);
 
   return (
-    <>
-      {/* <LoadingScreen /> */}
-      {!duck && <LoadingScreen />}
-      <Duck
-        sloganRef={sloganRef}
-        duck={duck}
-      />
-    </>
+    <Duck
+      sloganRef={sloganRef}
+      duck={duck}
+    />
   );
 };
 

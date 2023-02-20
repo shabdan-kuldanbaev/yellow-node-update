@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { mobileResolution, tabletResolution } from 'utils/helper';
+import { selectDuck } from 'redux/selectors/home';
 import {
   setMobileResolutions,
   setTabletResolutions,
@@ -13,8 +14,10 @@ const HOME_PAGE_PATHNAME = '/';
 export const useLayout = ({ children, introSection }) => {
   const dispatch = useDispatch();
   const { pathname } = useRouter();
-  
+  const duck = useSelector(selectDuck);
+
   const isHomePage = pathname === HOME_PAGE_PATHNAME;
+  const isDuckLoaded = isHomePage && !duck;
 
   useEffect(() => {
     const handleOnResize = () => {
@@ -39,5 +42,6 @@ export const useLayout = ({ children, introSection }) => {
   return {
     children,
     introSection,
+    isDuckLoaded,
   };
 };
