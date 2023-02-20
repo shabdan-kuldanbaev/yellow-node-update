@@ -1,0 +1,23 @@
+.open-sense {
+  background-color: $zircon;
+
+  .nextProjectContainer {
+    .more,
+    [data-description] {
+      color: $gray900;
+    }
+
+    [data-title] {
+      color: $gray400;
+    }
+
+    .more {
+      border: 1px solid $gray900;
+    }
+  }
+
+  .question,
+  .link {
+    color: $gray900;
+  }
+}

@@ -1,0 +1,22 @@
+.open-sense {
+  background: #f8faff;
+
+  [data-title] {
+    margin-bottom: 0;
+  }
+
+  .checkMark {
+    margin-top: 0;
+    background: #296efa;
+
+    path {
+      fill: $gray0;
+    }
+  }
+
+  .contentContainer {
+    p {
+      color: $gray400;
+    }
+  }
+}

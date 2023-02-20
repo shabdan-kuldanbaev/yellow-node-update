@@ -12,6 +12,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'seven-pm-thursday',
   'fernwayer',
   'hotel-data-cloud',
+  'open-sense',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -174,7 +175,7 @@ export const SVG_IMAGES_TYPES = {
   behanceFilled: 'behanceFilled',
   behanceFilledWhite: 'behanceFilledWhite',
   mediumFilled: 'mediumFilled',
-  instagramFilled: 'InstagramFilled',
+  instagramFilled: 'instagramFilled',
   instagramFilledWhite: 'instagramFilledWhite',
   dribbbleFilledWhite: 'dribbbleFilledWhite',
   dribbbleFilled: 'dribbbleFilled',

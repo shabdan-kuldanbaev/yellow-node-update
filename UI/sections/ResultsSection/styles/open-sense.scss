@@ -1,0 +1,14 @@
+.open-sense {
+  [data-description] {
+    max-width: 800px;
+
+    @include phone {
+      max-width: 343px;
+    }
+  }
+
+  .mockup {
+    width: 994px;
+    height: 706px;
+  }
+}

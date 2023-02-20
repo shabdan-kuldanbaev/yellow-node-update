@@ -8,7 +8,6 @@ import LinkWrapper from 'UI/components/LinkWrapper';
 import Typography from 'UI/components/Typography';
 import SectionTitle from 'UI/components/SectionTitle';
 import { SVG_IMAGES_TYPES, EMAIL_LINK } from 'utils/constants';
-import { socialNetworks } from './utils/data';
 import { useCaseStudiesFooter } from './utils/useCaseStudiesFooter';
 import styles from './styles.module.scss';
 
@@ -20,6 +19,7 @@ const CaseStudiesFooter = (props) => {
     slug,
     pathname,
     footerStyle,
+    socialNetworks,
   } = useCaseStudiesFooter(props);
 
   return (
