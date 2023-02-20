@@ -21,7 +21,7 @@
     }
 
     .infoContainer {
-      max-width: 440px;
+      max-width: 378px;
 
       ul {
         margin: 0;
@@ -29,7 +29,6 @@
         list-style-type: none;
 
         & > li {
-          @include fontSize(18px);
           @include flex(row, center, center);
 
           text-align: left;
@@ -40,30 +39,26 @@
             min-width: 8px;
             min-height: 8px;
             margin-right: 12px;
-            background: $driveFocus;
+            background: $driveFocusPrimary;
             border-radius: 50%;
-          }
-
-          @include phone {
-            @include fontSize(14px);
           }
         }
       }
 
       p {
-        @include fontSize(18px);
-
         @include phone {
-          @include fontSize(14px);
-
           text-align: center;
           max-width: 300px;
         }
       }
     }
 
-    .contentContainer:not(:last-child) {
-      margin-bottom: 24px;
+    .contentContainer {
+      max-width: 790px;
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
     }
   }
 
@@ -101,14 +96,16 @@
       margin: 0;
 
       .title {
-        @include fontSize(38px, 130%);
+        @include fontSize(24px, 130%);
 
         margin-bottom: 16px;
 
         @include tablet {
-          @include fontSize(24px);
-
           text-align: center;
+        }
+
+        @include phone {
+          @include fontSize(20px, 150%);
         }
       }
 

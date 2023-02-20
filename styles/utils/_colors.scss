@@ -80,4 +80,5 @@ $fairyPrimary: #140a2f;
 $fernwayerGradient: linear-gradient(180deg, #d45d94 0%, #fa717d 100%);
 $sevenPmPrimary: #121212;
 $hotelDataCloudGradient: linear-gradient(116.68deg, #78ace4 0%, #5c92cc 100%);
-$driveFocus: linear-gradient(180deg, #ff820d 0%, #ffa34d 100%);
+$driveFocusSecondary: #ff820d;
+$driveFocusPrimary: linear-gradient(180deg, $driveFocusSecondary 0%, #ffa34d 100%);

@@ -20,6 +20,9 @@ export const IMAGE_SIZES = {
   fairy: {
     allViews: 478,
   },
+  'drive-focus': {
+    allViews: 440,
+  },
   tell: 660,
   'travel-trivia': 660,
   'cash-chat': 660,
@@ -29,7 +32,6 @@ export const IMAGE_SIZES = {
   'fusion-markets': 600,
   blackbird: 600,
   'fintech-app-for-credit-score': 600,
-  'drive-focus': 527,
   ubichat: 527,
   telemojo: 540,
   famlicious: 660,
