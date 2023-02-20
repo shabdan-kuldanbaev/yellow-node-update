@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddFooter from 'components/HomeCommon/AddFooter';
-import DuckContainer from 'components/HomeCommon/DuckContainer';
+import DuckContainer from 'UI/components/Duck/DuckContainer';
 import styles from './styles.module.scss';
 
 const HomeIntro = ({

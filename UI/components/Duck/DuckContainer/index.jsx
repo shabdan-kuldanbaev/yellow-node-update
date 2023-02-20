@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import IntroText from 'components/HomeCommon/IntroText';
-import DuckWrapper from 'components/HomeCommon/DuckContainer/DuckWrapper';
+import DuckWrapper from 'UI/components/Duck/DuckWrapper';
 import { ANIMATED_TYPE, HOMEPAGE_SLOGAN } from 'utils/constants';
 import { useDuckContainer } from './utils/useDuckContainer';
 import styles from './styles.module.scss';

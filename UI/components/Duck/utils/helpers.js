@@ -18,9 +18,8 @@ import {
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import anime from 'animejs';
-import errorHelper from 'utils/error';
 import { HOMEPAGE_SLOGAN } from 'utils/constants';
-import { shaders } from './data';
+import { shaders } from './constant';
 
 export const three = {
   loadModel: (callback) => {
@@ -323,19 +322,4 @@ export const slogan = {
       containerCanvas.current.style.opacity = (1 - 1.4 * ratio);
     }
   },
-};
-
-export const getSpeed = (distance, time) => distance / time;
-
-export const loadDuck = async () => {
-  try {
-    return await new Promise((resolve) => {
-      three.loadModel(resolve);
-    });
-  } catch (error) {
-    errorHelper.handleError({
-      error,
-      message: 'Error in the loadDuck function',
-    });
-  }
 };

@@ -1,3 +1,5 @@
+export const animationTypes = ['appear', 'getTogether', 'pagination'];
+
 export const shaders = {
   vs: `
       uniform float scale;
@@ -32,5 +34,3 @@ export const shaders = {
       }
 `,
 };
-
-export const animationTypes = ['appear', 'getTogether', 'pagination'];

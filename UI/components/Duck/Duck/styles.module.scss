@@ -1,0 +1,13 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/colors';
+
+.canvasContainer {
+  position: absolute !important;
+  min-height: 100vh;
+}
+
+.setBlur {
+  color: transparent !important;
+  text-shadow: 0 0 10px $gray0;
+  transition: text-shadow $default-transition-time, color $default-transition-time;
+}

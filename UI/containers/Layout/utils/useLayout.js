@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { mobileResolution, tabletResolution } from 'utils/helper';
 import {
@@ -7,8 +8,13 @@ import {
   setFullResolution,
 } from 'redux/actions/layout';
 
+const HOME_PAGE_PATHNAME = '/';
+
 export const useLayout = ({ children, introSection }) => {
   const dispatch = useDispatch();
+  const { pathname } = useRouter();
+  
+  const isHomePage = pathname === HOME_PAGE_PATHNAME;
 
   useEffect(() => {
     const handleOnResize = () => {

@@ -10,8 +10,9 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import Animated from 'components/Common/Animated';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { animationTypes } from './utils/data';
-import { getSpeed, slogan, three } from './utils/threeHelper';
+import { animationTypes } from 'UI/components/Duck/utils/constant';
+import { slogan, three } from 'UI/components/Duck/utils/helpers';
+import { getSpeed } from './utils/herlpers';
 import * as styles from './styles.module.scss';
 
 let camera;

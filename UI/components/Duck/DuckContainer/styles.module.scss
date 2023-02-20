@@ -92,17 +92,6 @@
   white-space: pre-wrap;
 }
 
-.canvasContainer {
-  position: absolute !important;
-  min-height: 100vh;
-}
-
-.setBlur {
-  color: transparent !important;
-  text-shadow: 0 0 10px $white;
-  transition: text-shadow $default-transition-time, color $default-transition-time;
-}
-
 .animate {
   will-change: transform;
   transform: translateY(0) !important;

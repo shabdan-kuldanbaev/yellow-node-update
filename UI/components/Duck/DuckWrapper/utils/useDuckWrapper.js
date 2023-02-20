@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectDuck } from 'redux/selectors/home';
 import { fetchDuck } from 'redux/actions/home';
 import { mobileResolution } from 'utils/helper';
-import { loadDuck, slogan } from './threeHelper';
+import { slogan } from 'UI/components/Duck/utils/helpers';
+import { loadDuck } from './helpers';
 
 export const useDuckWrapper = ({ sloganRef }) => {
   const dispatch = useDispatch();
