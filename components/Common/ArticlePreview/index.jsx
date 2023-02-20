@@ -75,11 +75,14 @@ export const ArticlePreview = ({
             dynamicRouting={categoryDynamicPath}
             className={styles.articlePreviewCategory}
           >
-            <span className={styles.category}>
-              {isCategoryWithHashtag
-                ? `#${CATEGORY_TAGS[category].replace(/\s/g, '')}`
-                : category}
-            </span>
+            {(CATEGORY_TAGS[category] || category)
+            && (
+              <span className={styles.category}>
+                {isCategoryWithHashtag
+                  ? `#${CATEGORY_TAGS[category].replace(/\s/g, '')}`
+                  : category}
+              </span>
+            )}
           </LinkWrapper>
           <LinkWrapper
             {...articleLinkProps}
