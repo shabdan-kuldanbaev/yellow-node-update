@@ -2,9 +2,18 @@
   &.firstSectionView {
     background: $famliciousBackground;
     overflow: initial;
+    padding: 140px 40px 120px;
 
     .titleStyle {
       display: none;
+    }
+
+    @include tablet {
+      padding: 60px 32px;
+    }
+
+    @include phone {
+      padding: 60px 32px;
     }
   }
 
