@@ -35,7 +35,10 @@ const TechnicalPageContainer = (props) => {
           className={styles.titleStyle}
         />
         <div className={styles.container}>
-          <Animated {...REVEAL_ANIMATION_PROPS}>
+          <Animated
+            {...REVEAL_ANIMATION_PROPS}
+            percentIntersection={0}
+          >
             <ContentfulParser document={text} />
           </Animated>
         </div>

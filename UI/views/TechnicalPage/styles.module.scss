@@ -19,7 +19,7 @@
   h4,
   h5 {
     font-weight: 700;
-    margin: 0;
+    margin: 0 0 16px;
   }
 
   h2 {
@@ -62,7 +62,7 @@
     @include fontSize(16px, 150%);
 
     color: $gray400;
-    margin-bottom: 0;
+    margin: 0;
 
     & + p {
       margin-top: 0;
@@ -75,7 +75,9 @@
 
   ul,
   ol {
-    margin-top: 0;
+    &:not([aria-label='breadcrumbs']) {
+      margin: 0 0 0 12px;
+    }
   }
 
   li {
