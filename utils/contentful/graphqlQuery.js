@@ -84,8 +84,12 @@ export const GRAPHQL_QUERY = {
             previewImageUrl {
               url
             }
+            tagsListCollection {
+              items {
+                slug
+              }
+            }
             introduction
-            categoryTag
             publishedAt
           }
         }
@@ -107,7 +111,11 @@ export const GRAPHQL_QUERY = {
           items {
             title
             slug
-            categoryTag
+            tagsListCollection {
+              items {
+                slug
+              }
+            }
             previewImageUrl {
               url
             }
@@ -138,7 +146,6 @@ export const GRAPHQL_QUERY = {
                     url
                   }
                   introduction
-                  categoryTag
                   publishedAt
                 }
               }

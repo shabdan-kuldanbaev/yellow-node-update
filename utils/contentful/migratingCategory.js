@@ -10,13 +10,13 @@ const isArrayDiffers = (a, b) => {
   const s1 = new Set(a);
   const s2 = new Set(b);
 
-  return !(s1.size === s2.size && [...s1].every((item) => s2.has(item)));
+  return !(s1.size === s2.size && [...s1].every((item, i) => item === [...s2][i]));
 };
 
 module.exports = async (client, { makeRequest }) => {
   const tags = (await makeRequest({ mathod: 'GET', url: '/entries?content_type=tag' })).items;
 
-  const categoryTags = tags
+  const categoryTagsObject = tags
     .filter((tag) => {
       console.log(tag.fields);
 
@@ -38,41 +38,31 @@ module.exports = async (client, { makeRequest }) => {
       return acc;
     }, {});
 
-  const tagsIds = tags.map((tag) => tag.sys.id);
-
-  console.log(categoryTags);
+  const categoryTags = Object.values(categoryTagsObject);
 
   client.transformEntries({
     contentType: 'article',
     from: ['categoryTag', 'tagsList', 'slug', 'entryName'],
     to: ['tagsList'],
     transformEntryForLocale: (fields, locale) => {
-      if (!fields?.categoryTag) {
-        return console.log('no category', fields);
+      const oldTagList = (fields.tagsList?.[locale] || []);
+      const tagList = [...oldTagList];
+
+      for (let i = 0; i < tagList.length; i += 1) {
+        const categoryTag = categoryTags.find((tag) => getTagId(tag) === getTagId(tagList[i]));
+
+        if (categoryTag) {
+          tagList.splice(i, 1);
+          tagList.unshift(categoryTag);
+
+          break;
+        }
       }
 
-      const categorySlug = fields.categoryTag['en-US'];
+      if (isArrayDiffers(oldTagList.map(getTagId), tagList.map(getTagId))) {
+        console.log('oldTagsList', oldTagList.map(getTagId), 'newTagsList', tagList.map(getTagId));
 
-      const oldTagList = (fields.tagsList?.[locale] || []);
-
-      const tagList = oldTagList
-        .filter((tag) => tagsIds.includes(tag.sys.id))
-        .map((tag) => {
-          if (tag.sys.id === '6Zq0fESb4zX3RyXYm329Q6') { // Replacing Chat tag with Software-Chat
-            return categoryTags['software-chat'];
-          }
-
-          return tag;
-        });
-
-      const tagsMap = new Map();
-      [...tagList, categoryTags[categorySlug]].forEach((item) => tagsMap.set(item.sys.id, item));
-      const newTagsList = Array.from(tagsMap.values());
-
-      if (isArrayDiffers(oldTagList.map(getTagId), newTagsList.map(getTagId))) {
-        console.log('oldTagsList', oldTagList.map(getTagId), 'newTagsList', newTagsList.map(getTagId));
-
-        return { tagsList: newTagsList };
+        return { tagsList: tagList };
       }
     },
   });
