@@ -190,67 +190,6 @@
         }
       }
 
-      //.imageBundle-1 {
-      //  position: absolute;
-      //  top: 50%;
-      //  right: 0;
-      //  width: 296px;
-      //  height: 300px;
-      //  transform: translateY(-50%);
-      //  filter: $famliciousShadow;
-      //
-      //  @include tablet {
-      //    width: 199px;
-      //    height: 202px;
-      //    top: 60%;
-      //    right: 20%;
-      //  }
-      //
-      //  @include phone {
-      //    right: 0;
-      //  }
-      //}
-      //
-      //.imageBundle-2 {
-      //  position: absolute;
-      //  bottom: 136px;
-      //  right: 146px;
-      //  width: 150px;
-      //  height: 40px;
-      //  filter: $famliciousShadow;
-      //}
-      //
-      //.imageBundle-3 {
-      //  position: absolute;
-      //  bottom: 103px;
-      //  right: 296px;
-      //  width: 120px;
-      //  height: 33px;
-      //}
-      //
-      //.imageBundle-4 {
-      //  position: absolute;
-      //  top: 19%;
-      //  left: 0;
-      //  width: 170px;
-      //  height: 120px;
-      //  filter: $famliciousShadow;
-      //}
-      //
-      //.imageBundle-5 {
-      //  position: absolute;
-      //  top: 14%;
-      //  left: 63px;
-      //  width: 106px;
-      //  height: 32px;
-      //}
-      //
-      //.imageBundle:not(.imageBundle-1) {
-      //  @include tablet {
-      //    display: none;
-      //  }
-      //}
-
       @include tablet {
         @include flex(column, center, center);
 
