@@ -126,19 +126,21 @@ export const GRAPHQL_QUERY = {
   },
   loadPreviewArticlesByTags({
     limit,
+    skip,
     where,
-    order,
   }) {
     return `
       query {
         tagCollection(
-          ${getParam({ limit })}
-          ${getParam({ order })}
           ${getFilterParams(where)}
-        ) {
-          items {
-            linkedFrom {
-              articleCollection {
+          ) {
+            items {
+              linkedFrom {
+                articleCollection(
+                  ${getParam({ limit })}
+                  ${getParam({ skip })}
+              ) {
+                total
                 items {
                   title
                   slug

@@ -129,7 +129,6 @@ const BlogContainer = ({
           currentPage={currentPage}
           pageSlug={ROUTES.blog.slug}
         />
-
       </FullLayout>
 
       <FullscreenSearch
