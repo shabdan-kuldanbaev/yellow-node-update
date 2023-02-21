@@ -3,7 +3,8 @@
 .tagsBlock {
   @include flex(column);
 
-  margin: 150px 0;
+  margin: 0 auto;
+  max-width: 790px;
 
   .title {
     @include fontSize(24px);
@@ -22,7 +23,7 @@
   }
 
   .tagsList {
-    @include flex();
+    @include flex;
 
     .tag {
       @include flex(row, initial, center);
@@ -39,19 +40,19 @@
         border-color 0.4s ease,
         color 0.4s ease;
 
-      @include phone {
-        @include fontSize(14px);
-
-        padding: 8px 14px;
-        margin-right: 10px;
-      }
-
       &:hover {
         border-color: $silver-1;
         color: $jumbo;
         transition:
           border-color 0.4s ease,
           color 0.4s ease;
+      }
+
+      @include phone {
+        @include fontSize(14px);
+
+        padding: 8px 14px;
+        margin-right: 10px;
       }
     }
   }
