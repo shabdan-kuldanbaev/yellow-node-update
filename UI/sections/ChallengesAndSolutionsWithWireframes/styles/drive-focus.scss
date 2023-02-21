@@ -1,4 +1,5 @@
 .drive-focus {
+  padding-top: 60px;
   padding-bottom: 48px;
   background-color: $gray0;
 
@@ -7,6 +8,7 @@
   }
 
   @include phone {
+    padding-top: 30px;
     padding-bottom: 24px;
   }
 }
