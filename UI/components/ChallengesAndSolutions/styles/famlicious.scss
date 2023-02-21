@@ -41,53 +41,47 @@
     .contentContainer-2 {
       @include flex(column, center, center);
 
-      position: relative;
-      margin-top: 146px;
+      margin-top: -160px;
+
+      .image {
+        display: none;
+
+        @include tablet {
+          display: block;
+        }
+      }
 
       .infoContainer {
-        max-width: 300px;
-        margin: 24px auto 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+
+        .subImage {
+          width: 600px;
+          height: 874px;
+          margin: 0 auto;
+
+          @include tablet {
+            display: none;
+          }
+        }
 
         .title {
           display: none;
         }
 
         p {
-          margin: 0;
+          max-width: 300px;
+          margin: 0 auto;
+          transform: translateX(55%);
+
+          @include tablet {
+            transform: unset;
+          }
         }
 
         @include tablet {
           order: initial;
-        }
-      }
-
-      .imageBundle-1 {
-        position: absolute;
-        width: 300px;
-        height: 650px;
-        top: -10%;
-        right: 55%;
-        z-index: -1;
-
-        img {
-          border-radius: 30px;
-        }
-
-        @include tablet {
-          display: none;
-        }
-      }
-
-      .imageBundle-2 {
-        position: absolute;
-        width: 172px;
-        height: 108px;
-        top: -25%;
-        left: 5%;
-        z-index: -1;
-
-        @include tablet {
-          display: none;
         }
       }
 
@@ -144,24 +138,35 @@
     }
 
     .contentContainer-3 {
-      position: relative;
-      height: 776px;
-      max-width: 870px;
       margin: -180px auto 0;
 
       .infoContainer {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        max-width: 296px;
+        max-width: 100%;
+        width: 100%;
         margin: 0;
+
+        .subImage {
+          width: 880px;
+          height: 684px;
+          margin: 0 auto;
+
+          @include tablet {
+            display: none;
+          }
+        }
 
         .title {
           display: none;
         }
 
         p {
-          margin: 0;
+          margin: 0 auto;
+          max-width: 296px;
+          transform: translate(95% ,-35%);
+
+          @include tablet {
+            transform: unset;
+          }
         }
 
         @include tablet {
@@ -173,9 +178,7 @@
       }
 
       .image {
-        position: absolute;
-        left: 22%;
-        top: 0;
+        display: none;
         filter: $famliciousShadow;
 
         img {
@@ -183,71 +186,70 @@
         }
 
         @include tablet {
-          position: static;
-          margin: 0 auto;
+          display: block;
         }
       }
 
-      .imageBundle-1 {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 296px;
-        height: 300px;
-        transform: translateY(-50%);
-        filter: $famliciousShadow;
-
-        @include tablet {
-          width: 199px;
-          height: 202px;
-          top: 60%;
-          right: 20%;
-        }
-
-        @include phone {
-          right: 0;
-        }
-      }
-
-      .imageBundle-2 {
-        position: absolute;
-        bottom: 136px;
-        right: 146px;
-        width: 150px;
-        height: 40px;
-        filter: $famliciousShadow;
-      }
-
-      .imageBundle-3 {
-        position: absolute;
-        bottom: 103px;
-        right: 296px;
-        width: 120px;
-        height: 33px;
-      }
-
-      .imageBundle-4 {
-        position: absolute;
-        top: 19%;
-        left: 0;
-        width: 170px;
-        height: 120px;
-        filter: $famliciousShadow;
-      }
-
-      .imageBundle-5 {
-        position: absolute;
-        top: 14%;
-        left: 63px;
-        width: 106px;
-        height: 32px;
-      }
-
-      .imageBundle:not(.imageBundle-1) {
-        @include tablet {
-          display: none;
-        }
-      }
+      //.imageBundle-1 {
+      //  position: absolute;
+      //  top: 50%;
+      //  right: 0;
+      //  width: 296px;
+      //  height: 300px;
+      //  transform: translateY(-50%);
+      //  filter: $famliciousShadow;
+      //
+      //  @include tablet {
+      //    width: 199px;
+      //    height: 202px;
+      //    top: 60%;
+      //    right: 20%;
+      //  }
+      //
+      //  @include phone {
+      //    right: 0;
+      //  }
+      //}
+      //
+      //.imageBundle-2 {
+      //  position: absolute;
+      //  bottom: 136px;
+      //  right: 146px;
+      //  width: 150px;
+      //  height: 40px;
+      //  filter: $famliciousShadow;
+      //}
+      //
+      //.imageBundle-3 {
+      //  position: absolute;
+      //  bottom: 103px;
+      //  right: 296px;
+      //  width: 120px;
+      //  height: 33px;
+      //}
+      //
+      //.imageBundle-4 {
+      //  position: absolute;
+      //  top: 19%;
+      //  left: 0;
+      //  width: 170px;
+      //  height: 120px;
+      //  filter: $famliciousShadow;
+      //}
+      //
+      //.imageBundle-5 {
+      //  position: absolute;
+      //  top: 14%;
+      //  left: 63px;
+      //  width: 106px;
+      //  height: 32px;
+      //}
+      //
+      //.imageBundle:not(.imageBundle-1) {
+      //  @include tablet {
+      //    display: none;
+      //  }
+      //}
 
       @include tablet {
         @include flex(column, center, center);
