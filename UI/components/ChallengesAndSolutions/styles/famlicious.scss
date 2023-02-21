@@ -57,8 +57,8 @@
         margin: 0;
 
         .subImage {
-          width: 600px;
-          height: 874px;
+          width: 630px;
+          height: 920px;
           margin: 0 auto;
 
           @include tablet {
@@ -146,8 +146,8 @@
         margin: 0;
 
         .subImage {
-          width: 880px;
-          height: 684px;
+          width: 910px;
+          height: 705px;
           margin: 0 auto;
 
           @include tablet {
@@ -162,7 +162,7 @@
         p {
           margin: 0 auto;
           max-width: 296px;
-          transform: translate(95% ,-35%);
+          transform: translate(95%, -35%);
 
           @include tablet {
             transform: unset;
