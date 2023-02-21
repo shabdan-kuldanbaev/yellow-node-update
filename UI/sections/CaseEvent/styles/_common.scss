@@ -16,12 +16,16 @@
 
       @include phone {
         text-align: center;
+        max-width: 100%;
       }
     }
 
     [data-title] {
+      max-width: 281px;
+
       @include phone {
         margin-bottom: 8px;
+        max-width: 100%;
       }
     }
 
