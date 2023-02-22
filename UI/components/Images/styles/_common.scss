@@ -22,7 +22,10 @@
     height: 532px;
     width: 995px;
     margin: 0 auto;
-    padding-bottom: 24px;
+
+    @include tablet {
+      margin: 0 auto 24px;
+    }
 
     @include phone {
       width: auto;

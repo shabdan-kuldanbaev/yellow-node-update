@@ -25,7 +25,10 @@ export const IMAGE_SIZES = {
   'cash-chat': 660,
   beautonomy: 600,
   meateater: 600,
-  'separate-us': 600,
+  'separate-us': {
+    default: 440,
+    allViews: 440,
+  },
   'fusion-markets': 600,
   blackbird: 600,
   'fintech-app-for-credit-score': 600,
@@ -42,5 +45,9 @@ export const IMAGE_SIZES = {
 export const MOBILE_IMAGE_SIZES = {
   fireaway: {
     allViews: 250,
+  },
+  'separate-us': {
+    default: 180,
+    allViews: 180,
   },
 };

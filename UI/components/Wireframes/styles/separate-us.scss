@@ -1,0 +1,11 @@
+.separate-us {
+  margin: 0 0 32px;
+
+  :last-of-type {
+    margin: 0;
+  }
+
+  @include phone {
+    margin: 0 0 16px;
+  }
+}
