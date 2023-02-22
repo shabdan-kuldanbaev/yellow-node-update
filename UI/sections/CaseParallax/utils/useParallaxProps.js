@@ -5,6 +5,17 @@ import styles from '../styles.module.scss';
 
 export default ({ data, type }) => {
   const {
+    image,
+    ...rest
+  }
+
+...
+
+return {
+  imageUrl,
+  className,
+  ...rest
+}
     title,
     subtitle,
     description,
