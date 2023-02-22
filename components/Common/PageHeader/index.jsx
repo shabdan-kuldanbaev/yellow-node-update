@@ -16,6 +16,7 @@ const PageHeader = ({
   updatedAt,
   type,
   children,
+  className,
 }) => (
   <>
     <Breadcrumbs
@@ -25,10 +26,10 @@ const PageHeader = ({
       dark={breadcrumbsTheme === 'dark'}
     />
     {title && (
-      <div className={cn(styles.titleContainer, { [titleStyles]: titleStyles })}>
+      <div className={cn(styles.titleContainer, { [titleStyles]: titleStyles }, className)}>
         <Animated {...REVEAL_ANIMATION_PROPS}>
           {updatedAt && (
-            <p>
+            <p className={styles.updatedAt}>
               {`Last updated: ${formatDate(updatedAt)}`}
             </p>
           )}
