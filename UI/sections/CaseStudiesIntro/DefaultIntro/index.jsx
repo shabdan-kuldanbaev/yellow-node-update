@@ -2,8 +2,10 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import Svg from 'UI/components/Svg';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { ProjectLink } from './ProjectLink';
 import { useDefaultIntro } from './utils/useDefaultIntro';
 import styles from './styles.module.scss';
@@ -23,6 +25,7 @@ const DefaultIntro = (props) => {
     imagesBundlesWithUrls,
     displayProjectLink,
     displayProjectLinkMobile,
+    imageBackgroundTitle,
   } = useDefaultIntro(props);
 
   return (
@@ -48,7 +51,14 @@ const DefaultIntro = (props) => {
             subtitle={subtitle}
             description={description}
             className={styles.sectionTitle}
-          />
+          >
+            {imageBackgroundTitle && (
+              <Svg
+                type={imageBackgroundTitle}
+                className={styles.titleBackground}
+              />
+            )}
+          </SectionTitle>
           {displayProjectLink && (
             <ProjectLink
               type={type}

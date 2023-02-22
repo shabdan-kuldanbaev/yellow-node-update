@@ -6,6 +6,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
+import { SECTION_WITH_BACKGROUND_TITLE } from './helpers';
 
 export const useDefaultIntro = ({
   type,
@@ -57,6 +58,8 @@ export const useDefaultIntro = ({
   const displayProjectLink = !isMobileResolution && downloadLink;
   const displayProjectLinkMobile = isMobileResolution && downloadLink;
 
+  const imageBackgroundTitle = SECTION_WITH_BACKGROUND_TITLE?.[type] || null;
+
   return {
     type,
     style,
@@ -71,5 +74,6 @@ export const useDefaultIntro = ({
     imagesBundlesWithUrls,
     displayProjectLink,
     displayProjectLinkMobile,
+    imageBackgroundTitle,
   };
 };

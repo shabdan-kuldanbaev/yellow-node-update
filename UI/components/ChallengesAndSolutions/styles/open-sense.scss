@@ -1,0 +1,148 @@
+.open-sense {
+  &.firstSectionView {
+    .title {
+      margin-bottom: 16px;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    .infoContainer {
+      margin: 0;
+      max-width: 465px;
+
+      &-2,
+      &-4 {
+        margin-left: 48px;
+
+        @include tablet {
+          margin-left: 16px;
+        }
+
+        @include below-tablet {
+          margin: 0;
+        }
+      }
+
+      &-1,
+      &-3 {
+        margin-right: 48px;
+
+        @include tablet {
+          margin-right: 16px;
+        }
+
+        @include below-tablet {
+          margin: 0;
+        }
+      }
+
+      p {
+        @include below-tablet {
+          text-align: center;
+          max-width: 340px;
+        }
+      }
+
+      @include below-tablet {
+        order: 0 !important;
+      }
+    }
+
+    .image {
+      width: 870px;
+      height: 580px;
+
+      &-1,
+      &-3 {
+        margin-right: -195px;
+
+        &::after {
+          content: '';
+          display: block;
+          height: 100%;
+          width: 325px;
+          margin-left: auto;
+          transform: translate(80px, -1px);
+          background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
+
+          @include below-tablet {
+            display: none;
+          }
+        }
+
+        @include below-tablet {
+          margin: 0 auto;
+        }
+      }
+
+      &-2,
+      &-4 {
+        margin-left: -195px;
+
+        &::after {
+          content: '';
+          display: block;
+          height: 100%;
+          width: 325px;
+          margin-right: auto;
+          transform: translate(-80px, -1px);
+          background: linear-gradient(270deg, rgba($white, 0) 0.15%, $white 60.38%);
+
+          @include below-tablet {
+            display: none;
+          }
+        }
+
+        @include below-tablet {
+          margin: 0 auto;
+        }
+      }
+
+      &-1 {
+        width: 869px;
+        height: 667px;
+
+        @include phone {
+          height: 275px;
+        }
+      }
+
+      @include tablet {
+        width: 553px;
+        height: 350px;
+      }
+
+      @include phone {
+        width: 343px;
+        height: 241px;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+      top: 25%;
+      left: 38%;
+      width: 157px;
+      height: 157px;
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+
+    .contentContainer {
+      position: relative;
+      max-width: $wide-content-width;
+
+      @include below-tablet {
+        @include flex(column, center, center);
+      }
+
+      @include phone {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
