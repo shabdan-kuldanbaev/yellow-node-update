@@ -5,30 +5,16 @@ import styles from '../styles.module.scss';
 
 export default ({ data, type }) => {
   const {
-    image,
+    images,
     ...rest
-  }
-
-...
-
-return {
-  imageUrl,
-  className,
-  ...rest
-}
-    title,
-    subtitle,
-    description,
   } = data;
 
-  const imageUrl = getFileUrl(get(data.images, '[0]', {}));
+  const imageUrl = getFileUrl(get(images, '[0]', {}));
   const className = cn(styles[type], styles.parallaxSection);
 
   return {
-    title,
-    subtitle,
-    description,
     imageUrl,
     className,
+    ...rest,
   };
 };
