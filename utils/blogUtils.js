@@ -10,7 +10,6 @@ import {
 import { contentfulClient } from 'utils/contentful/client';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 import { getGraphqlResultTags } from 'utils/contentful/helper';
-import { routes } from './routes';
 
 export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
 
@@ -137,6 +136,7 @@ export const getBlogGraphqlQuery = ({
   if (isTagBlog) {
     return GRAPHQL_QUERY.loadPreviewArticlesByTags({
       limit,
+      skip,
       where: { slug: category },
     });
   }

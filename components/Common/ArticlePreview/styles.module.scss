@@ -55,6 +55,24 @@
   }
 }
 
+.tags {
+  @include flex(row, flex-start, flex-start, wrap);
+
+  margin-top: 24px;
+}
+
+.tag {
+  @include fontSize(14px, 21px);
+
+  color: $gray400;
+  transition: color 0.1s ease-in-out;
+  margin-right: 16px;
+
+  &:hover {
+    color: $gray500;
+  }
+}
+
 .related {
   @extend .articlePreview;
 
@@ -106,10 +124,6 @@
       .category {
         @include fontSize(14px);
 
-        @include macbook-twelve {
-          @include fontSize(12px);
-        }
-
         font-weight: 600;
         text-transform: uppercase;
         transition: color 0.4s ease;
@@ -117,6 +131,10 @@
         &:hover {
           color: $jumbo;
           transition: color 0.4s ease;
+        }
+
+        @include macbook-twelve {
+          @include fontSize(12px);
         }
       }
 
@@ -168,7 +186,6 @@
     margin: 0 0 10px;
     font-weight: 600;
     text-transform: uppercase;
-    order: 1;
 
     @include phone {
       @include fontSize(12px);
@@ -177,12 +194,9 @@
 
   .articlePreviewTitle {
     @extend .articleTitle;
-
-    order: 2;
   }
 
   .articlePreviewIntroduction {
-    order: 3;
     flex: 1 1 auto;
     margin-top: 8px;
 
@@ -194,24 +208,6 @@
 
       @include phone {
         display: none;
-      }
-    }
-  }
-
-  .articlePreviewCategory {
-    margin-top: 20px;
-    order: 4;
-
-    .category {
-      @include fontSize(14px);
-
-      color: $gray400;
-      transition: color 0.4s ease;
-      text-transform: lowercase;
-
-      &:hover {
-        color: $jumbo;
-        transition: color 0.4s ease;
       }
     }
   }

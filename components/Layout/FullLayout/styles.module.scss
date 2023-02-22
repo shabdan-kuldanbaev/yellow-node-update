@@ -4,16 +4,12 @@
 .fullLayout {
   max-width: $wide-content-width;
   margin: 0 auto;
-  padding: calc(#{$header-height} + 60px) 0 100px;
+  padding: calc(#{$new-header-height} + 16px) 0 120px;
   position: relative;
   overflow-x: hidden;
 
   @include tablet {
-    padding: calc(#{$header-height} + 60px) 40px 100px;
-  }
-
-  @include phone {
-    padding: calc(#{$header-height} + 40px) 15px 100px;
+    padding: calc(#{$new-header-height} + 16px) 16px 60px;
   }
 }
 

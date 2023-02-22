@@ -12,6 +12,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'seven-pm-thursday',
   'fernwayer',
   'hotel-data-cloud',
+  'separate-us',
   'famlicious',
 ];
 
