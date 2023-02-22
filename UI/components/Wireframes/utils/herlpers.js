@@ -20,6 +20,9 @@ export const IMAGE_SIZES = {
   fairy: {
     allViews: 478,
   },
+  'open-sense': {
+    allViews: 440,
+  },
   tell: 660,
   'travel-trivia': 660,
   'cash-chat': 660,
