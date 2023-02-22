@@ -1,37 +1,17 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Lottie from 'react-lottie';
 import { connect } from 'react-redux';
 import { setFirstPageLoaded } from 'redux/actions/layout';
 import { selectIsPageReadyToDisplay, selectIsFirstPageLoaded } from 'redux/selectors/layout';
-import logoAnimation from './json/logo-animation.json';
+import { useLoadingScreen } from './utils/useLoadingScreen';
 import styles from './styles.module.scss';
 
-const LoadingScreen = ({
-  isPageReadyToDisplay,
-  isFirstPageLoaded,
-  setFirstPageLoaded: setPageLoaded,
-}) => {
-  const loadRef = useRef(null);
-  const isPageLoading = useRef(false);
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: logoAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
-  };
-
-  useEffect(() => {
-    isPageLoading.current = !isPageReadyToDisplay;
-
-    return () => !isFirstPageLoaded && setPageLoaded(true);
-  }, [
-    isFirstPageLoaded,
-    isPageReadyToDisplay,
-    setPageLoaded,
-  ]);
+const LoadingScreen = (props) => {
+  const {
+    loadRef,
+    defaultOptions,
+  } = useLoadingScreen(props);
 
   return (
     <div

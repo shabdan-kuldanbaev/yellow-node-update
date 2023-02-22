@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddFooter from 'components/HomeCommon/AddFooter';
-import DuckContainer from 'components/HomeCommon/DuckContainer';
+import DuckContainer from 'UI/components/Duck/DuckContainer';
 import styles from './styles.module.scss';
 
-const Intro = ({
+const HomeIntro = ({
   theme,
   introSection,
 }) => (
@@ -17,13 +17,13 @@ const Intro = ({
   </section>
 );
 
-Intro.defaultProps = {
+HomeIntro.defaultProps = {
   theme: 'dark',
 };
 
-Intro.propTypes = {
+HomeIntro.propTypes = {
   theme: PropTypes.string,
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default React.memo(Intro);
+export default React.memo(HomeIntro);

@@ -10,7 +10,7 @@ import Router from 'next/router';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
 import { setPageReadyToDisplay } from 'redux/actions/layout';
-import Layout from 'containers/Layout';
+import Layout from 'UI/containers/Layout';
 import { AppContext } from 'utils/appContext';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';

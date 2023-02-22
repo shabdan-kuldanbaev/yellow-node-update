@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import dynamic from 'next/dynamic';
 import { selectDuck } from 'redux/selectors/home';
 import { fetchDuck } from 'redux/actions/home';
-import LoadingScreen from 'components/Common/LoadingScreen';
 import { mobileResolution } from 'utils/helper';
-import { loadDuck, slogan } from './utils/threeHelper';
+import { slogan } from 'UI/components/Duck/utils/helpers';
+import { loadDuck } from './helpers';
 
-const Duck = dynamic(() => import('./Duck'), { ssr: false });
-
-const DuckWrapper = ({ sloganRef }) => {
+export const useDuckWrapper = ({ sloganRef }) => {
   const dispatch = useDispatch();
   const duck = useSelector(selectDuck);
 
@@ -28,15 +25,8 @@ const DuckWrapper = ({ sloganRef }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duck]);
 
-  return (
-    <>
-      {!duck && <LoadingScreen />}
-      <Duck
-        sloganRef={sloganRef}
-        duck={duck}
-      />
-    </>
-  );
+  return {
+    duck,
+    sloganRef,
+  };
 };
-
-export default DuckWrapper;
