@@ -81,11 +81,25 @@
     }
   }
 
+  .experiencesContainer {
+    @include phone {
+      white-space: inherit;
+    }
+  }
+
   .experience {
-    flex: 0 0 25%;
+    flex: 0 0 150px;
 
     p {
       color: $gray400;
+    }
+
+    &:nth-child(2) {
+      flex: 0 0 180px;
+    }
+
+    @include phone {
+      margin-right: 42px;
     }
   }
 
