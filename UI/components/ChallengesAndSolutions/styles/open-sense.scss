@@ -145,4 +145,12 @@
       }
     }
   }
+
+  &.secondSectionView {
+    .contentContainer {
+      @include phone {
+        max-width: 343px;
+      }
+    }
+  }
 }
