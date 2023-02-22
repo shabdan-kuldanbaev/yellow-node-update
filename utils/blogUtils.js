@@ -13,7 +13,7 @@ import { getGraphqlResultTags } from 'utils/contentful/helper';
 
 export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
 
-export const checkIsTagBlog = (slug, tagsList) => !!slug && !!tagsList && tagsList.some((tag) => tag.slug === slug);
+export const checkIsTagBlog = (slug, tagsSet) => tagsSet.has(slug);
 
 // TODO think a better solution
 const fetchBlogData = async (
@@ -51,7 +51,7 @@ const fetchBlogData = async (
     slug: routeSlug,
     currentLimit: currentPage === 1 ? ARTICLES_NUMBER_PER_PAGE - 1 : ARTICLES_NUMBER_PER_PAGE,
     category: queryParams.category,
-    skip: (currentPage - 1) * ARTICLES_NUMBER_PER_PAGE,
+    skip: (currentPage === 1) ? 0 : (currentPage - 1) * ARTICLES_NUMBER_PER_PAGE - 1,
     isTagBlog,
   }));
 
@@ -73,9 +73,11 @@ export const getInitialBlogProps = async (store, ctx) => {
       res,
     } = ctx;
     let props = {};
-    const response = await contentfulClient.graphql(GRAPHQL_QUERY.loadTag({ where: { type: 'article' } }));
+    const response = await contentfulClient.graphql(GRAPHQL_QUERY.loadTag({}));
     const tagsList = getGraphqlResultTags(response);
-    const isTagBlog = checkIsTagBlog(slug, tagsList);
+
+    const tagsSet = new Set([...tagsList.map((item) => item.slug)]);
+    const isTagBlog = checkIsTagBlog(slug, tagsSet);
 
     if (!isTagBlog && isArticle(slug)) {
       store.dispatch(fetchLayoutData({
@@ -83,7 +85,11 @@ export const getInitialBlogProps = async (store, ctx) => {
         slug: PAGES.article,
       }));
     } else {
-      const { articlesNumberPerPage, currentPage } = await fetchBlogData(store, { ...ctx, isTagBlog, routeSlug: PAGES.blog });
+      const { articlesNumberPerPage, currentPage } = await fetchBlogData(store, {
+        ...ctx,
+        routeSlug: PAGES.blog,
+        isTagBlog,
+      });
 
       props = {
         articlesNumberPerPage,
@@ -124,13 +130,14 @@ export const getBlogGraphqlQuery = ({
   limit,
   skip,
   category,
-  isTagBlog,
   order,
+  isTagBlog,
 }) => {
   if (isTagBlog) {
     return GRAPHQL_QUERY.loadPreviewArticlesByTags({
       limit,
-      where: { slug: category, type: 'article' },
+      skip,
+      where: { slug: category },
     });
   }
 
@@ -138,11 +145,5 @@ export const getBlogGraphqlQuery = ({
     skip,
     limit,
     order,
-    where: {
-      ...(category
-        ? { categoryTag: category }
-        : { categoryTag_exists: true }
-      ),
-    },
   });
 };

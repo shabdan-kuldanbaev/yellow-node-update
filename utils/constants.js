@@ -13,6 +13,8 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'fernwayer',
   'drive-focus',
   'hotel-data-cloud',
+  'separate-us',
+  'famlicious',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -131,6 +133,8 @@ export const FEEDBACK_FORM_FIELDS = {
   projectBudget: 'projectBudget',
   attachments: 'attachments',
   clientId: 'clientId',
+  source: 'source',
+  medium: 'medium',
 };
 
 export const IMAGES = {
@@ -186,6 +190,7 @@ export const SVG_IMAGES_TYPES = {
   iPhone: 'iPhone',
   iPad: 'iPad',
   arrowDown: 'arrowDown',
+  youtubeFilledWhite: 'youtubeFilledWhite',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -382,9 +387,6 @@ export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
   CASE_STUDIES.openSense,
   CASE_STUDIES.beautonomy,
   CASE_STUDIES.bionorica,
-
-  // TODO: Temporarily solution, doesnt fit design
-  CASE_STUDIES.famlicious,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
@@ -458,11 +460,6 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.cloudDevelopment.path,
       },
       {
-        title: 'Cloud-based app development services',
-        subtitle: 'No physical space is occupied',
-        slug: ROUTES.lendingSoftwareDevelopment.path,
-      },
-      {
         title: 'Prototyping services',
         subtitle: 'Start with a draft',
         slug: ROUTES.prototypingServices.path,
@@ -487,11 +484,6 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Lauch your app to all platforms at once',
         slug: ROUTES.crossPlatformDevelopmentServices.path,
       },
-      {
-        title: 'Lending Software Development Company',
-        subtitle: 'Fast and secure lending process',
-        slug: ROUTES.lendingSoftwareDevelopment.path,
-      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
       {
@@ -499,12 +491,6 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Instant communication tules',
         slug: ROUTES.customChatApp.path,
       },
-      {
-        title: 'Machine learning development services',
-        subtitle: 'Artificial intelligence at your service',
-        slug: ROUTES.mlDevelopment.path,
-      },
-
       {
         title: 'AI software development services',
         subtitle: 'Letting machines think',
@@ -520,6 +506,11 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Getting insights to boost your business',
         slug: ROUTES.dataScienceDevelopment.path,
       },
+      {
+        title: 'Machine learning development services',
+        subtitle: 'Artificial intelligence at your service',
+        slug: ROUTES.mlDevelopment.path,
+      },
     ],
     [SUB_NAVIGATION_KEYS.fintech]: [
       {
@@ -528,7 +519,7 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.fintechDevelopment.path,
       },
       {
-        title: 'Trading platform development company',
+        title: 'Custom Trading Platform Development',
         subtitle: 'The way to manage investments',
         slug: ROUTES.tradingSoftwareDevelopment.path,
       },

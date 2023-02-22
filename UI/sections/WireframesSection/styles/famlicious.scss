@@ -1,0 +1,11 @@
+.famlicious {
+  padding: 120px 0 240px;
+
+  .titleStyle {
+    max-width: 699px;
+  }
+
+  @include phone {
+    padding: 60px 0;
+  }
+}

@@ -34,9 +34,12 @@
 
     @include tablet {
       order: 1;
-      max-width: 100%;
-      margin: 0;
+      margin: 0 0 24px;
       text-align: center;
+    }
+
+    @include phone {
+      max-width: 100%;
     }
   }
 
@@ -47,6 +50,7 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: $gray400;
+    margin: 0;
   }
 
   .title {
@@ -59,7 +63,15 @@
     @include phone {
       @include fontSize(24px, 130%);
 
-      margin: 0 0 8px;
+      margin: 16px 0 8px;
+    }
+  }
+
+  .descriptionIntro {
+    margin-bottom: 32px;
+
+    @include phone {
+      margin-bottom: 16px;
     }
   }
 
@@ -86,6 +98,6 @@
   }
 
   @include phone {
-    padding: 60px 16px 30px;
+    padding: 60px 16px;
   }
 }

@@ -17,6 +17,11 @@
       opacity: 0.15;
       filter: blur(237px);
       z-index: -1;
+
+      @include tablet {
+        width: 70%;
+        height: 50%;
+      }
     }
 
     &::before {
@@ -30,6 +35,11 @@
       opacity: 0.15;
       filter: blur(237px);
       z-index: -1;
+
+      @include tablet {
+        width: 70%;
+        height: 50%;
+      }
     }
 
     .titleStyle {

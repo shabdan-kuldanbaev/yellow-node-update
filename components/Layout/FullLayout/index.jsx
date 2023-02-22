@@ -12,8 +12,10 @@ const FullLayout = ({
   disableOverflowHiding,
   backgroundColor,
   introSection,
+  className,
 }) => {
   const layoutStyles = cn(
+    className,
     styles.fullLayout,
     styles[backgroundColor],
     {

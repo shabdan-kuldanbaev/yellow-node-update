@@ -101,7 +101,7 @@ const createDescriptionPerson = async (data) => {
 const findCurrentOption = (
   options,
   currentSource,
-) => options.find((field) => currentSource?.trim().toLowerCase().includes(field.label.trim().toLowerCase()));
+) => options.find((field) => currentSource?.trim().toLowerCase() === field.label.trim().toLowerCase());
 
 const getCurrentLeadSourceOption = async ({
   leadSourceFieldsOptions,
@@ -138,11 +138,9 @@ module.exports.sendDataPipedrive = async (req, res) => {
       email,
       description,
       clientId,
+      source,
+      medium,
     } = req.body;
-
-    const search = req.headers.referer.split(`${req.headers.origin}/?`).join('');
-    const params = new URLSearchParams(search);
-    const source = params.get('utm_source');
 
     const {
       countryField,
@@ -154,7 +152,7 @@ module.exports.sendDataPipedrive = async (req, res) => {
 
     const leadSourceOptions = await getCurrentLeadSourceOption({
       leadSourceFieldsOptions: leadSourceField.options,
-      currentSource: source,
+      currentSource: `${source}/${medium}`,
       leadSourceField,
     });
 

@@ -5,20 +5,20 @@ export const IMAGE_SIZES = {
   'marketplace-for-clairvoyant-services': 541,
   dindon: 665,
   fernwayer: {
-    allViews: 478,
+    default: 478,
     secondSectionView: 650,
   },
   fireaway: {
-    allViews: 425,
+    default: 425,
   },
   'seven-pm-thursday': {
-    allViews: 478,
+    default: 478,
   },
   stickerbox: {
-    allViews: 480,
+    default: 480,
   },
   fairy: {
-    allViews: 478,
+    default: 478,
   },
   'drive-focus': {
     allViews: 440,
@@ -28,13 +28,16 @@ export const IMAGE_SIZES = {
   'cash-chat': 660,
   beautonomy: 600,
   meateater: 600,
-  'separate-us': 600,
+  'separate-us': {
+    default: 440,
+    allViews: 440,
+  },
   'fusion-markets': 600,
   blackbird: 600,
   'fintech-app-for-credit-score': 600,
   ubichat: 527,
   telemojo: 540,
-  famlicious: 660,
+  famlicious: 478,
   bionorica: 440,
   humankind: 630,
   'software-for-mri-interpretation': 630,
@@ -43,6 +46,10 @@ export const IMAGE_SIZES = {
 
 export const MOBILE_IMAGE_SIZES = {
   fireaway: {
-    allViews: 250,
+    default: 250,
+  },
+  'separate-us': {
+    default: 180,
+    allViews: 180,
   },
 };

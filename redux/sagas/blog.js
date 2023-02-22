@@ -70,13 +70,13 @@ export function* loadArticles({
   isTagBlog,
 }) {
   try {
-    const order = category === 'software-development' ? '[title_ASC]' : '[publishedAt_DESC]';
+    const order = '[publishedAt_DESC]';
     const graphqlQuery = getBlogGraphqlQuery({
       limit: currentLimit,
       skip,
       category,
-      isTagBlog,
       order,
+      isTagBlog,
     });
     const response = yield contentfulClient.graphql(graphqlQuery);
 

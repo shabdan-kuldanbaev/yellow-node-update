@@ -13,16 +13,16 @@
   .h3 {
     @include fontSize(24px);
 
-    @include macbook-twelve {
-      @include fontSize(22px);
-    }
-
     color: $tundora;
     font-weight: 700;
     line-height: 1.5;
     border-left: 2px solid $tundora;
     padding-left: 20px;
     margin: 0 40px 0 0;
+
+    @include macbook-twelve {
+      @include fontSize(22px);
+    }
 
     @include phone {
       @include fontSize(18px);
@@ -104,6 +104,10 @@
   max-width: $default-content-width;
   min-height: 215px;
 
+  .content {
+    max-width: none;
+  }
+
   h3 {
     margin: 0;
 
@@ -131,4 +135,115 @@
       margin: 0 auto;
     }
   }
+}
+
+.new {
+  @include flex(row, flex-start, center);
+
+  position: relative;
+  box-sizing: border-box;
+  min-height: 173px;
+  padding: 24px 32px;
+  background: $gray0;
+  border: 1px solid $gray200;
+  border-radius: 10px;
+  margin: 0;
+
+  .title {
+    @include fontSize(20px);
+  }
+
+  &.call-to-action.isSubscribed {
+    .content {
+      max-width: none;
+    }
+
+    .button {
+      display: none;
+    }
+  }
+
+  &.book {
+    @include flex(column, flex-start, flex-start);
+
+    border-color: $yellow500;
+    padding-left: 40%;
+    margin-top: 130px;
+    background: $gray50;
+
+    .content {
+      max-width: none;
+    }
+
+    .image {
+      position: absolute;
+      width: 167px;
+      height: 245px;
+      left: 60px;
+      bottom: 24px;
+      filter: drop-shadow(10px 24px 42px rgb(0 0 0 / 7%));
+    }
+
+    .button {
+      margin: 16px 0 0;
+    }
+
+    @include tablet {
+      padding: 188px 32px 24px;
+
+      .image {
+        left: 50%;
+        top: -90px;
+        transform: translateX(-50%);
+      }
+
+      .button {
+        margin: 16px auto 0;
+      }
+    }
+  }
+
+  @include tablet {
+    flex-direction: column;
+
+    .image {
+      min-height: 125px;
+      margin: 0 0 24px;
+    }
+
+    .content {
+      max-width: none;
+
+      * {
+        text-align: center;
+      }
+    }
+
+    .button {
+      margin: 24px auto 0;
+    }
+  }
+}
+
+.image {
+  align-self: stretch;
+  min-width: 156px;
+  margin-right: 32px;
+}
+
+.content {
+  max-width: 275px;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: $gray400;
+}
+
+.button {
+  margin-left: auto;
 }

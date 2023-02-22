@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import LinkWrapper from 'components/Common/LinkWrapper';
-import { ROUTES, CATEGORY_TAGS } from 'utils/constants';
+import LinkWrapper from 'UI/components/LinkWrapper';
+import { ROUTES } from 'utils/constants';
 import { formatDate } from 'utils/helper';
 import CardContainer from 'UI/containers/CardContainer';
 import Illustration from 'UI/components/Illustration';
+import { routes } from 'utils/routes';
 import styles from './styles.module.scss';
 
 export const ArticlePreview = ({
   slug,
   title,
   image,
-  category,
+  tags,
   introduction,
   date,
   type,
@@ -20,13 +21,8 @@ export const ArticlePreview = ({
   isSearch,
   handleOnCloseModalWindow,
 }) => {
-  const { path, dynamicPath } = ROUTES.article.getRoute(slug);
-  const { path: categoryPath, dynamicPath: categoryDynamicPath } = ROUTES.blog.getRoute(category);
-  const articleLinkProps = {
-    isLocalLink: true,
-    path,
-    dynamicRouting: dynamicPath,
-  };
+  const { path } = ROUTES.article.getRoute(slug);
+  const articleLinkProps = { path };
   const isCategoryWithHashtag = ['blog', 'search'].includes(type);
 
   if (!slug || !title || !image) {
@@ -70,18 +66,6 @@ export const ArticlePreview = ({
             </span>
           )}
           <LinkWrapper
-            isLocalLink
-            path={categoryPath}
-            dynamicRouting={categoryDynamicPath}
-            className={styles.articlePreviewCategory}
-          >
-            <span className={styles.category}>
-              {isCategoryWithHashtag
-                ? `#${CATEGORY_TAGS[category].replace(/\s/g, '')}`
-                : category}
-            </span>
-          </LinkWrapper>
-          <LinkWrapper
             {...articleLinkProps}
             className={styles.articlePreviewTitle}
           >
@@ -98,6 +82,18 @@ export const ArticlePreview = ({
                 {introduction}
               </p>
             </LinkWrapper>
+          )}
+          {tags?.length && (
+            <div className={styles.tags}>
+              {(tags || []).map(({ slug: tagSlug }) => (
+                <LinkWrapper
+                  path={routes.blog.getRoute(tagSlug).path}
+                  className={styles.tag}
+                >
+                  {`#${tagSlug.replace('-', '')}`}
+                </LinkWrapper>
+              ))}
+            </div>
           )}
         </div>
       </CardContainer>
