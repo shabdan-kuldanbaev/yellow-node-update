@@ -10,4 +10,9 @@
       @include fontSize(24px, 130%);
     }
   }
+
+  .updatedAt {
+    margin-top: 32px;
+    color: $gray900;
+  }
 }

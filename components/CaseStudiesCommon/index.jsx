@@ -19,9 +19,9 @@ import CaseStudyOverlayProcess from 'components/CaseStudiesCommon/CaseStudyOverl
 import CaseStudyPrototype from 'components/CaseStudiesCommon/CaseStudyPrototype';
 import { CASE_STUDIES_TYPES, REFACTORED_CASE_STUDIES_PAGES } from 'utils/constants';
 // Refactored section, remove old after
-import IntroRefactored from 'UI/sections/CaseStudiesIntro';
 import CaseFeedback from 'UI/sections/CaseFeedback';
 
+const IntroRefactored = dynamic(() => import('UI/sections/CaseStudiesIntro'));
 const ProjectIdeaRefactored = dynamic(() => import('UI/sections/ProjectIdea'));
 const ResultsSectionRefactored = dynamic(() => import('UI/sections/ResultsSection'));
 const ImagesSectionRefactored = dynamic(() => import('UI/sections/ImagesSection'));
@@ -31,6 +31,8 @@ const ChallengesAndSolutionsWithWireframesRefactored = dynamic(() => import('UI/
 const CaseParallax = dynamic(() => import('UI/sections/CaseParallax'));
 const CaseStudyDesign = dynamic(() => import('UI/sections/CaseStudyDesign'));
 const CaseAppFeatures = dynamic(() => import('UI/sections/CaseAppFeatures'));
+const CaseEvent = dynamic(() => import('UI/sections/CaseEvent'));
+const CaseStudiesStory = dynamic(() => import('UI/sections/CaseStudiesStory'));
 
 const CaseStudiesCommon = (props) => {
   if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
@@ -59,6 +61,10 @@ const CaseStudiesCommon = (props) => {
       return <CaseFeedback {...props} />;
     case CASE_STUDIES_TYPES.design:
       return <CaseStudyDesign {...props} />;
+    case CASE_STUDIES_TYPES.caseStudyEvent:
+      return <CaseEvent {...props} />;
+    case CASE_STUDIES_TYPES.story:
+      return <CaseStudiesStory {...props} />;
     default:
       return null;
     }

@@ -12,6 +12,8 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'seven-pm-thursday',
   'fernwayer',
   'hotel-data-cloud',
+  'separate-us',
+  'famlicious',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -384,9 +386,6 @@ export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
   CASE_STUDIES.openSense,
   CASE_STUDIES.beautonomy,
   CASE_STUDIES.bionorica,
-
-  // TODO: Temporarily solution, doesnt fit design
-  CASE_STUDIES.famlicious,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
