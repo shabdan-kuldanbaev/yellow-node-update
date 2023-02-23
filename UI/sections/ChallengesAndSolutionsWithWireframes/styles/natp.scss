@@ -1,0 +1,19 @@
+.natp {
+  [data-title] {
+    color: $gray0;
+  }
+
+  &.firstSectionView {
+    background: linear-gradient(180deg, #40464a, #666e72 144.48%) no-repeat;
+    background-size: 100% 53%;
+    padding-bottom: 0;
+
+    .titleStyle {
+      max-width: 519px;
+    }
+
+    @include phone {
+      background-size: 100% 45%;
+    }
+  }
+}
