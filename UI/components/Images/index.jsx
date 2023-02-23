@@ -43,7 +43,7 @@ const Images = (props) => {
           >
             <Illustration
               transparent
-              className={styles.image}
+              className={cn(styles.image, styles[`image-${index + 1}`])}
               height={imageHeight}
               src={url}
               alt={alt}
