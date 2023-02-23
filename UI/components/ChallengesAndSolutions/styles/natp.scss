@@ -67,4 +67,32 @@
       }
     }
   }
+
+  &.secondSectionView {
+    .contentContainer {
+      max-width: 790px;
+    }
+
+    .infoContainer {
+      max-width: 379px;
+      width: 100%;
+      margin: 0;
+
+      h3 {
+        @include fontSize(16px, 150%);
+
+        color: $gray0;
+        font-weight: 700;
+      }
+
+      p {
+        color: $gray0;
+        opacity: 0.7;
+      }
+    }
+
+    .title {
+      color: $gray0;
+    }
+  }
 }
