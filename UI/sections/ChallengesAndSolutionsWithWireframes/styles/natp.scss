@@ -9,16 +9,20 @@
   }
 
   &.firstSectionView {
-    background: linear-gradient(180deg, #40464a, #666e72 144.48%) no-repeat;
-    background-size: 100% 53%;
+    background: $natpGradient no-repeat;
+    background-size: 100% 66%;
     padding-bottom: 0;
 
     .titleStyle {
       max-width: 519px;
     }
 
+    @include tablet {
+      background-size: 100% 55%;
+    }
+
     @include phone {
-      background-size: 100% 45%;
+      background-size: 100% 43%;
     }
   }
 
