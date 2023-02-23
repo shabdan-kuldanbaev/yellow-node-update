@@ -1,0 +1,41 @@
+.natp {
+  .contentContainer {
+    @include flex(column-reverse);
+
+    max-width: $default-content-width;
+    margin: 0 auto;
+
+    @include tablet {
+      @include flex(column);
+    }
+  }
+
+  .descriptionContainer {
+    @include flex(row, space-between);
+
+    max-width: 100%;
+    margin: 0 auto 120px;
+
+    & > div {
+      max-width: 481px;
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      margin: 0 auto 24px;
+
+      & > div {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .descriptionIntro {
+    margin: 0 32px 0 0;
+
+    @include tablet {
+      margin: 0 auto 16px;
+    }
+  }
+}
