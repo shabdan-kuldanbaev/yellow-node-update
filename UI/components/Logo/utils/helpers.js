@@ -6,6 +6,7 @@ export const WHITE_LOGO_TYPE = [
   'seven-pm-thursday',
   'fernwayer',
   'hotel-data-cloud',
+  'natp',
 ];
 
 export const BLACK_LOGO_TYPE = [

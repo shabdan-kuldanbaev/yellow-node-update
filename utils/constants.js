@@ -14,6 +14,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'hotel-data-cloud',
   'separate-us',
   'famlicious',
+  'natp',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
