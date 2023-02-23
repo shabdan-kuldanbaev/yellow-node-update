@@ -23,7 +23,7 @@
   }
 
   .tagsList {
-    @include flex(row, space-between, flex-start, wrap);
+    @include flex(row, flex-start, flex-start, wrap);
 
     .tag {
       @include flex(row, initial, center);
