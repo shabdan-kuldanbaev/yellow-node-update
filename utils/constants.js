@@ -589,3 +589,12 @@ export const INDEX_FILES = [
 ];
 
 export const EMAIL_LINK = 'hi@yellow.systems';
+
+export const VALUABLE_ARTICLE_CATEGORIES_SLUGS = [
+  'fintech',
+  'yellow',
+  'how-we-work',
+  'software-development',
+  'software-chat',
+  'marketing',
+];
