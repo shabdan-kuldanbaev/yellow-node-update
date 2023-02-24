@@ -1,0 +1,53 @@
+.travel-trivia {
+  .image {
+    width: 298px;
+    height: 620px;
+    filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgb(0 0 0 / 30%)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 12%));
+  }
+
+  &.firstSectionView {
+    .title {
+      margin-bottom: 16px;
+
+      @include phone {
+        margin-bottom: 8px;
+      }
+    }
+
+    .image-3 {
+      width: 452px;
+      height: 480px;
+
+      @include phone {
+        width: 330px;
+        height: 350px;
+      }
+    }
+
+    .infoContainer {
+      &-2,
+      &-4 {
+        margin: 0 0 0 32px;
+      }
+
+      &-1,
+      &-3 {
+        margin: 0 32px 0 0;
+      }
+
+      @include phone {
+        margin: 0;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .infoContainer {
+      margin: 0 32px 0 0;
+
+      @include phone {
+        margin: 0;
+      }
+    }
+  }
+}
