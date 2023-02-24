@@ -12,6 +12,7 @@ const CaseStudiesIntro = (props) => {
   case CASE_STUDIES.hotelDataCloud:
   case CASE_STUDIES.separateUs:
   case CASE_STUDIES.famlicious:
+  case CASE_STUDIES.travelTrivia:
     return <DefaultIntro {...props} />;
   default:
     return null;
