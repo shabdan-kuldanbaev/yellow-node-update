@@ -11,44 +11,44 @@
       .title {
         display: none;
       }
+    }
 
-      .listContainer {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        grid-column-gap: 32px;
-        grid-row-gap: 8px;
+    .listContainer {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      grid-column-gap: 32px;
+      grid-row-gap: 8px;
 
-        @include phone {
-          @include flex(column, center, center);
-        }
+      @include phone {
+        @include flex(column, center, center);
+      }
+    }
+
+    .listItem {
+      @include fontSize(16px, 150%);
+      @include flex(row, initial, center);
+
+      position: relative;
+      color: $gray400;
+      padding-left: 20px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $natpAccent;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
       }
 
-      .listItem {
-        @include fontSize(16px, 150%);
-        @include flex(row, initial, center);
+      @include phone {
+        @include flex(row, center, center);
 
-        position: relative;
-        color: $gray400;
-        padding-left: 20px;
-
-        &::before {
-          content: '';
-          position: absolute;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: $natpAccent;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        @include phone {
-          @include flex(row, center, center);
-
-          text-align: center;
-        }
+        text-align: center;
       }
     }
 
