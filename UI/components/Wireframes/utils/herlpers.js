@@ -21,7 +21,7 @@ export const IMAGE_SIZES = {
     default: 478,
   },
   'open-sense': {
-    allViews: 440,
+    default: 440,
   },
   tell: 660,
   'travel-trivia': 660,
