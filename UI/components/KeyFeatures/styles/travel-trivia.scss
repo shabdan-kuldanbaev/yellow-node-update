@@ -1,0 +1,11 @@
+.travel-trivia {
+  .featureContainer {
+    .checkMark {
+      background: $travelTriviaAccent;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}
