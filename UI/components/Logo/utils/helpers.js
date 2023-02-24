@@ -6,6 +6,7 @@ export const WHITE_LOGO_TYPE = [
   'seven-pm-thursday',
   'fernwayer',
   'hotel-data-cloud',
+  'travel-trivia',
 ];
 
 export const BLACK_LOGO_TYPE = [
