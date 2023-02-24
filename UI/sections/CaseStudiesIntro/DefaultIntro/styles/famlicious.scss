@@ -1,0 +1,86 @@
+.famlicious {
+  background: $famliciousBackground;
+  z-index: 1;
+
+  [data-title],
+  [data-subtitle] {
+    color: $gray900;
+  }
+
+  [data-description] {
+    color: $gray400;
+  }
+
+  .infoTitle {
+    color: $gray900;
+  }
+
+  .experience > p {
+    color: $gray400;
+  }
+
+  .imageContainer {
+    width: 254px;
+    height: 550px;
+    margin: 0 auto;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+
+  .bundleImage {
+    &:nth-of-type(1) {
+      position: absolute;
+      width: 1080px;
+      height: 1080px;
+      right: -7%;
+      top: -15%;
+      z-index: -1;
+
+      @include tablet {
+        width: 767px;
+        height: 767px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:nth-of-type(2) {
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      left: 45%;
+      bottom: 35%;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(3) {
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      right: 12%;
+      top: 20%;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(4) {
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      right: 8%;
+      bottom: 28%;
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+}

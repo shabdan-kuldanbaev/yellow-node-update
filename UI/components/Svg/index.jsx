@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
 import * as Icons from './svgs';
 
 const Svg = ({
@@ -8,7 +7,6 @@ const Svg = ({
   className,
   handleOnClick,
   ...props
-  // TODO: remove console log, keep it here until testing icons after refactoring
 }) => (Icons[type] ? React.createElement(
   Icons[type],
   {

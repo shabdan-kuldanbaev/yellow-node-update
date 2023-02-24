@@ -84,8 +84,12 @@ export const GRAPHQL_QUERY = {
             previewImageUrl {
               url
             }
+            tagsListCollection {
+              items {
+                slug
+              }
+            }
             introduction
-            categoryTag
             publishedAt
           }
         }
@@ -107,7 +111,11 @@ export const GRAPHQL_QUERY = {
           items {
             title
             slug
-            categoryTag
+            tagsListCollection {
+              items {
+                slug
+              }
+            }
             previewImageUrl {
               url
             }
@@ -118,19 +126,21 @@ export const GRAPHQL_QUERY = {
   },
   loadPreviewArticlesByTags({
     limit,
+    skip,
     where,
-    order,
   }) {
     return `
       query {
         tagCollection(
-          ${getParam({ limit })}
-          ${getParam({ order })}
           ${getFilterParams(where)}
-        ) {
-          items {
-            linkedFrom {
-              articleCollection {
+          ) {
+            items {
+              linkedFrom {
+                articleCollection(
+                  ${getParam({ limit })}
+                  ${getParam({ skip })}
+              ) {
+                total
                 items {
                   title
                   slug
@@ -138,7 +148,6 @@ export const GRAPHQL_QUERY = {
                     url
                   }
                   introduction
-                  categoryTag
                   publishedAt
                 }
               }

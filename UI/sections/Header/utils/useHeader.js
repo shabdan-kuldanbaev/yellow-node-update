@@ -24,6 +24,7 @@ export const useHeader = ({ introSection }) => {
     CASE_STUDIES.openSense,
     CASE_STUDIES.separateUs,
     CASE_STUDIES.beautonomy,
+    CASE_STUDIES.famlicious,
   ].includes(project)
     ? 'light'
     : 'dark';

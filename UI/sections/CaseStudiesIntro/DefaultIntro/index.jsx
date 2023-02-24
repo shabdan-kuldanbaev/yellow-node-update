@@ -5,7 +5,6 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Svg from 'UI/components/Svg';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { ProjectLink } from './ProjectLink';
 import { useDefaultIntro } from './utils/useDefaultIntro';
 import styles from './styles.module.scss';

@@ -8,6 +8,7 @@ const CaseParallax = (props) => {
   const {
     title,
     subtitle,
+    description,
     imageUrl,
     className,
   } = useParallaxProps(props);
@@ -17,6 +18,7 @@ const CaseParallax = (props) => {
       <SectionTitle
         title={title}
         subtitle={subtitle}
+        description={description}
         titleStyle={styles.titleStyle}
       />
       <div

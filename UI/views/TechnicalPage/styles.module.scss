@@ -1,0 +1,98 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
+
+.container {
+  .titleStyle {
+    h1 {
+      @include fontSize(46px, 56px);
+
+      margin: 32px 0 16px;
+
+      @include below-tablet {
+        @include fontSize(38px, 56px);
+      }
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+
+  h2 {
+    @include fontSize(38px, 50px);
+
+    margin-top: 48px;
+
+    @include below-tablet {
+      @include fontSize(24px, 32px);
+
+      margin-top: 32px;
+    }
+  }
+
+  h3 {
+    @include fontSize(24px, 32px);
+
+    margin-top: 32px;
+
+    @include below-tablet {
+      @include fontSize(20px, 30px);
+
+      margin-top: 24px;
+    }
+  }
+
+  h4 {
+    @include fontSize(20px, 150%);
+
+    margin-top: 24px;
+
+    @include below-tablet {
+      @include fontSize(16px);
+
+      margin-top: 16px;
+    }
+  }
+
+  p {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+    margin: 0;
+
+    & + p {
+      margin-top: 0;
+    }
+  }
+
+  p b {
+    font-weight: normal;
+  }
+
+  ul,
+  ol {
+    &:not([aria-label='breadcrumbs']) {
+      margin: 0 0 0 12px;
+    }
+  }
+
+  li {
+    margin-bottom: 0;
+
+    &::marker {
+      color: $gray400;
+    }
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
