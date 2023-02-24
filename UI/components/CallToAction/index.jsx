@@ -30,6 +30,7 @@ const CallToAction = (props) => {
     isSubscribed,
     onSubscribeSubmit,
     href,
+    isOpenFeedbackForm,
   } = useProps(props);
 
   return (
@@ -40,6 +41,7 @@ const CallToAction = (props) => {
         styles[page],
         className,
         {
+          [styles.openContact]: isOpenFeedbackForm,
           [styles.new]: isNew,
           [styles.card]: !isNew,
           [styles.isSubscribed]: isSubscribed,
