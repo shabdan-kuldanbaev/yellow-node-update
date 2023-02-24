@@ -1,5 +1,5 @@
 .open-sense {
-  background: #f8faff;
+  background: $openSensePrimary;
 
   [data-title] {
     margin-bottom: 0;
@@ -7,7 +7,7 @@
 
   .checkMark {
     margin-top: 0;
-    background: #296efa;
+    background: $openSenseSecondary;
 
     path {
       fill: $gray0;

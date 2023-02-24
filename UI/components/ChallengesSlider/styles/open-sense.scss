@@ -13,10 +13,10 @@
     height: 8px;
     margin: 0 4px;
     border-radius: 100%;
-    border: 1px solid #296efa;
+    border: 1px solid $openSenseSecondary;
   }
 
   .swiperBulletActive {
-    background-color: #296efa;
+    background-color: $openSenseSecondary;
   }
 }

@@ -65,7 +65,7 @@
           width: 325px;
           margin-left: auto;
           transform: translate(40px, -1px);
-          background: linear-gradient(90deg, rgba($white, 0) 0%, $white 78.3%);
+          background: linear-gradient(90deg, rgba($gray0, 0) 0%, $gray0 78.3%);
 
           @include below-tablet {
             display: none;
@@ -88,7 +88,7 @@
           width: 325px;
           margin-right: auto;
           transform: translate(-40px, -1px);
-          background: linear-gradient(270deg, rgba($white, 0) 0.15%, $white 60.38%);
+          background: linear-gradient(270deg, rgba($gray0, 0) 0.15%, $gray0 60.38%);
 
           @include below-tablet {
             display: none;
