@@ -1,0 +1,12 @@
+.drive-focus {
+  padding: 60px 40px 48px;
+  background-color: $gray0;
+
+  .titleStyle {
+    margin: 0;
+  }
+
+  @include phone {
+    padding: 30px 40px 24px;
+  }
+}
