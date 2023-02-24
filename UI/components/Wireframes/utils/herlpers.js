@@ -21,7 +21,7 @@ export const IMAGE_SIZES = {
     default: 478,
   },
   'drive-focus': {
-    allViews: 440,
+    default: 440,
   },
   tell: 660,
   'travel-trivia': 660,
@@ -51,5 +51,8 @@ export const MOBILE_IMAGE_SIZES = {
   'separate-us': {
     default: 180,
     allViews: 180,
+  },
+  'drive-focus': {
+    default: 220,
   },
 };
