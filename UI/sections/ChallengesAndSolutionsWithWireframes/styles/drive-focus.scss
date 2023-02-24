@@ -1,6 +1,5 @@
 .drive-focus {
-  padding-top: 60px;
-  padding-bottom: 48px;
+  padding: 60px 40px 48px;
   background-color: $gray0;
 
   .titleStyle {
@@ -8,7 +7,6 @@
   }
 
   @include phone {
-    padding-top: 30px;
-    padding-bottom: 24px;
+    padding: 30px 40px 24px;
   }
 }

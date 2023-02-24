@@ -10,7 +10,7 @@
 
   &.secondSectionView {
     .image {
-      width: 994px;
+      width: $default-content-width;
 
       &:not(:last-child) {
         margin-bottom: 48px;

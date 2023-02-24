@@ -29,7 +29,7 @@ const CaseFullScreenImages = (props) => {
         description={description}
         className={styles.sectionTitle}
       />
-      <img
+      <Illustration
         className={styles.image}
         src={imageUrl}
         alt={type}
