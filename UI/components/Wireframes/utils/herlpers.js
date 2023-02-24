@@ -21,13 +21,14 @@ export const IMAGE_SIZES = {
     default: 478,
   },
   tell: 660,
-  'travel-trivia': 660,
+  'travel-trivia': {
+    default: 478,
+  },
   'cash-chat': 660,
   beautonomy: 600,
   meateater: 600,
   'separate-us': {
     default: 440,
-    allViews: 440,
   },
   'fusion-markets': 600,
   blackbird: 600,
@@ -48,6 +49,5 @@ export const MOBILE_IMAGE_SIZES = {
   },
   'separate-us': {
     default: 180,
-    allViews: 180,
   },
 };
