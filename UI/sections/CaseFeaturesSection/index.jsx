@@ -4,6 +4,7 @@ import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import SectionTitle from 'UI/components/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import Illustration from 'UI/components/Illustration';
 import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
@@ -20,7 +21,7 @@ const CaseFeaturesSection = (props) => {
     featuresList,
   } = useFeaturesSection(props);
 
-  if (!contentModules || !contentModules.length) {
+  if (!contentModules?.length) {
     return null;
   }
 
@@ -61,11 +62,11 @@ const CaseFeaturesSection = (props) => {
         <div className={styles.imageContainer}>
           {imageUrl && (
             <Animated
-              delay={500}
+              delay={50}
               {...ANIMATION_CASE_STUDY_PROPS}
             >
               <div>
-                <img
+                <Illustration
                   className={styles.image}
                   src={imageUrl}
                   alt={title}
