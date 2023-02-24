@@ -8,7 +8,7 @@ import {
 } from 'utils/helper';
 import { SECTION_WITH_BACKGROUND_TITLE } from './helpers';
 
-export const useDefaultIntro = ({
+export const useCaseStudiesIntro = ({
   type,
   introSection,
   data,
