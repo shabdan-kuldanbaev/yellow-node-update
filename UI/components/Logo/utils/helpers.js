@@ -7,6 +7,7 @@ export const WHITE_LOGO_TYPE = [
   'fernwayer',
   'hotel-data-cloud',
   'natp',
+  'travel-trivia',
 ];
 
 export const BLACK_LOGO_TYPE = [

@@ -1,0 +1,12 @@
+.travel-trivia {
+  background: $gray50;
+  padding: 120px 0;
+
+  .titleStyle {
+    max-width: 519px;
+  }
+
+  @include tablet {
+    padding: 60px 0;
+  }
+}

@@ -17,6 +17,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'separate-us',
   'famlicious',
   'natp',
+  'travel-trivia',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
