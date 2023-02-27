@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'UI/components/LinkWrapper';
-import { ROUTES } from 'utils/constants';
+import { ROUTES, VALUABLE_ARTICLE_CATEGORIES_SLUGS } from 'utils/constants';
 import { formatDate } from 'utils/helper';
 import CardContainer from 'UI/containers/CardContainer';
 import Illustration from 'UI/components/Illustration';
@@ -85,14 +85,16 @@ export const ArticlePreview = ({
           )}
           {tags?.length && (
             <div className={styles.tags}>
-              {(tags || []).map(({ slug: tagSlug }) => (
-                <LinkWrapper
-                  path={routes.blog.getRoute(tagSlug).path}
-                  className={styles.tag}
-                >
-                  {`#${tagSlug.replace('-', '')}`}
-                </LinkWrapper>
-              ))}
+              {(tags || [])
+                .filter(({ slug: tagSlug }) => VALUABLE_ARTICLE_CATEGORIES_SLUGS.includes(tagSlug))
+                .map(({ slug: tagSlug }) => (
+                  <LinkWrapper
+                    path={routes.blog.getRoute(tagSlug).path}
+                    className={styles.tag}
+                  >
+                    {`#${tagSlug.replace('-', '')}`}
+                  </LinkWrapper>
+                ))}
             </div>
           )}
         </div>

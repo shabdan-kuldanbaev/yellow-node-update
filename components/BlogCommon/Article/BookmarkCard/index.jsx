@@ -5,7 +5,7 @@ import Svg from 'UI/components/Svg';
 import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const BookmarkCard = ({ slug, title }) => {
+const BookmarkCard = ({ slug, title, buttonTitle }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
 
   return slug && (
