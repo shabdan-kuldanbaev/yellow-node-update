@@ -1,0 +1,25 @@
+.natp {
+  &.firstSectionView {
+    padding: 48px 40px 60px;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include tablet {
+      padding: 48px 32px 60px;
+    }
+
+    @include phone {
+      padding: 24px 16px 30px;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 60px 0 120px;
+
+    @include tablet {
+      padding: 60px 0;
+    }
+  }
+}

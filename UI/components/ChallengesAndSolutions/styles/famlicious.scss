@@ -138,6 +138,7 @@
     }
 
     .contentContainer-3 {
+      position: relative;
       margin: -180px auto 0;
 
       .infoContainer {
@@ -160,11 +161,12 @@
         }
 
         p {
-          margin: 0 auto;
+          margin: -50px auto 0;
+          transform: translateX(95%);
           max-width: 296px;
-          transform: translate(95%, -35%);
 
           @include tablet {
+            margin: 0 auto;
             transform: unset;
           }
         }
