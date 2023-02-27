@@ -1,6 +1,4 @@
 .seven-pm-thursday {
-  @extend .container;
-
   grid-template-rows: repeat(4, auto);
   grid-template-columns: repeat(3, auto);
   grid-column-gap: 160px;
