@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CookiesNotification from 'components/Common/CookiesNotification';
 import GAnalytic from 'components/Layout/GAnalytic';
 import Header from 'UI/sections/Header';
-import LoadingScreen from 'UI/components/LoadingScreen'
+import LoadingScreen from 'UI/components/LoadingScreen';
 import { useLayout } from './utils/useLayout';
 
 const Footer = dynamic(() => import('UI/sections/Footer'));

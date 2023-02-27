@@ -1,0 +1,21 @@
+.drive-focus {
+  .featureContainer {
+    p {
+      max-width: 326px;
+    }
+
+    .checkMark {
+      background: $driveFocusPrimary;
+
+      svg,
+      path {
+        stroke: $gray0;
+        fill: $gray0;
+      }
+    }
+  }
+
+  @include phone {
+    max-width: unset;
+  }
+}

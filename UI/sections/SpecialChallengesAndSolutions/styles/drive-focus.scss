@@ -1,0 +1,46 @@
+.drive-focus {
+  padding: 0 0 48px;
+
+  &.secondSectionView {
+    padding-top: 60px;
+
+    .titleStyle {
+      @include phone {
+        margin-bottom: 24px;
+      }
+    }
+
+    .contentContainer {
+      margin-bottom: 0;
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $gray50;
+    padding: 24px 0 0;
+    margin-bottom: 48px;
+
+    @include phone {
+      margin-bottom: 24px;
+    }
+  }
+
+  &.fourthSectionView {
+    padding-bottom: 120px;
+
+    @include phone {
+      padding-bottom: 60px;
+    }
+  }
+
+  &.thirdSectionView,
+  &.fourthSectionView {
+    .titleStyle {
+      margin-bottom: 0;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 24px;
+  }
+}
