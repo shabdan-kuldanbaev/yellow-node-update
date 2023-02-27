@@ -1,0 +1,8 @@
+.open-sense {
+  padding: 120px 0;
+  background: $openSensePrimary;
+
+  @include phone {
+    padding: 60px 0;
+  }
+}

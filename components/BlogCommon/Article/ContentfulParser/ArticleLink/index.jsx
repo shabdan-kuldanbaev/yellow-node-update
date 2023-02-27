@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CallToAction from 'components/Common/CallToAction';
 import CallToActionNew from 'UI/components/CallToAction';
-import BookmarkCard from 'components/BlogCommon/Article/BookmarkCard';
 import { CustomYoutubePlayer } from 'components/Common/CustomYoutubePlayer';
 import { getYoutubeVideoIdFromUrl } from 'utils/helper';
 import { LINK_TYPE } from 'utils/constants/linkType';
+import BookmarkContainer from 'UI/containers/BookmarkContainer';
 import styles from './ArticleLink.module.scss';
 
 export const ArticleLink = ({
@@ -21,9 +21,10 @@ export const ArticleLink = ({
   switch (type) {
   case LINK_TYPE.bookmark:
     return title && slug && (
-      <BookmarkCard
+      <BookmarkContainer
         title={title}
-        slug={slug}
+        url={slug}
+        buttonTitle={buttonTitle}
       />
     );
   case LINK_TYPE.callToAction:

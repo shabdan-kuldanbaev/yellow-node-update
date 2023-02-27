@@ -1,3 +1,4 @@
+import { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   getDocumentFields,
@@ -7,7 +8,7 @@ import {
 import { LINK_TYPE } from 'utils/constants/linkType';
 import { selectIsSubscribed } from 'redux/selectors/subscribe';
 import downloadFile from 'utils/downloadFile';
-import { useState } from 'react';
+import { FullscreenEstimationContext } from 'components/Common/FullScreenEstimation';
 
 export default ({
   title: titleProp,
@@ -16,6 +17,8 @@ export default ({
   buttonTitle: buttonTitleProp,
   ...props
 }) => {
+  const { open: handleOnCTAClick } = useContext(FullscreenEstimationContext);
+
   const {
     new: isNew,
     title,
@@ -24,6 +27,7 @@ export default ({
     buttonTitle,
     type,
     files: rawFiles,
+    isOpenFeedbackForm,
   } = getDocumentFields(data, [
     'title',
     'subtitle',
@@ -32,6 +36,7 @@ export default ({
     'buttonTitle',
     'type',
     'files',
+    'isOpenFeedbackForm',
   ]);
 
   const isSubscribed = useSelector(selectIsSubscribed);
@@ -51,6 +56,10 @@ export default ({
   function getOnClickHandler() {
     if (!isNew) {
       return handleOnClickProp;
+    }
+
+    if (isOpenFeedbackForm) {
+      return handleOnCTAClick;
     }
 
     switch (type) {
@@ -91,5 +100,6 @@ export default ({
     isSubscribed,
     onSubscribeSubmit,
     downloadLink: files[0],
+    isOpenFeedbackForm,
   };
 };

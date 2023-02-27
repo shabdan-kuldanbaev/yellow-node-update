@@ -1,0 +1,37 @@
+.drive-focus {
+  margin-top: 32px;
+
+  .container {
+    margin-right: 40px;
+
+    .title {
+      @include fontSize(18px, 180%);
+    }
+
+    .listContainer {
+      @include phone {
+        @include flex(column, center, center);
+      }
+    }
+
+    .listItem {
+      @include fontSize(16px, 150%);
+
+      margin-bottom: 5px;
+      color: $gray400;
+
+      &::marker {
+        color: $driveFocusSecondary;
+      }
+    }
+
+    @include phone {
+      margin-right: 0;
+      margin-bottom: 24px;
+    }
+  }
+
+  @include phone {
+    @include flex(column, center, center);
+  }
+}

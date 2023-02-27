@@ -11,9 +11,12 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'fairy',
   'seven-pm-thursday',
   'fernwayer',
+  'drive-focus',
   'hotel-data-cloud',
+  'open-sense',
   'separate-us',
   'famlicious',
+  'natp',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -176,7 +179,7 @@ export const SVG_IMAGES_TYPES = {
   behanceFilled: 'behanceFilled',
   behanceFilledWhite: 'behanceFilledWhite',
   mediumFilled: 'mediumFilled',
-  instagramFilled: 'InstagramFilled',
+  instagramFilled: 'instagramFilled',
   instagramFilledWhite: 'instagramFilledWhite',
   dribbbleFilledWhite: 'dribbbleFilledWhite',
   dribbbleFilled: 'dribbbleFilled',
@@ -383,7 +386,6 @@ export const PAGES_WITH_DARK_HEADER = [
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
-  CASE_STUDIES.openSense,
   CASE_STUDIES.beautonomy,
   CASE_STUDIES.bionorica,
 ];
@@ -403,6 +405,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.aiDevelopment.path,
   ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
+  CASE_STUDIES.openSense,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -589,3 +592,12 @@ export const INDEX_FILES = [
 ];
 
 export const EMAIL_LINK = 'hi@yellow.systems';
+
+export const VALUABLE_ARTICLE_CATEGORIES_SLUGS = [
+  'fintech',
+  'yellow',
+  'how-we-work',
+  'software-development',
+  'software-chat',
+  'marketing',
+];

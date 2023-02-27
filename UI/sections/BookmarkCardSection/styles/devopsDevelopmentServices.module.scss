@@ -13,17 +13,11 @@
   &.secondSectionView {
     background: $gray50;
 
-    .contentWrapper {
-      .bookmarkContainer {
-        .content {
-          .title {
-            width: 476px;
+    .title {
+      max-width: 476px;
 
-            @include phone {
-              width: 100%;
-            }
-          }
-        }
+      @include phone {
+        width: 100%;
       }
     }
   }

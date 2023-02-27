@@ -18,8 +18,6 @@ module.exports = async (client, { makeRequest }) => {
 
   const categoryTagsObject = tags
     .filter((tag) => {
-      console.log(tag.fields);
-
       switch (tag.fields.slug['en-US']) {
       case 'how-we-work':
       case 'marketing':
@@ -39,6 +37,7 @@ module.exports = async (client, { makeRequest }) => {
     }, {});
 
   const categoryTags = Object.values(categoryTagsObject);
+  console.log('🚀 ~ file: migratingCategory.js:40 ~ module.exports= ~ categoryTags:', categoryTags);
 
   client.transformEntries({
     contentType: 'article',
@@ -48,16 +47,24 @@ module.exports = async (client, { makeRequest }) => {
       const oldTagList = (fields.tagsList?.[locale] || []);
       const tagList = [...oldTagList];
 
-      for (let i = 0; i < tagList.length; i += 1) {
-        const categoryTag = categoryTags.find((tag) => getTagId(tag) === getTagId(tagList[i]));
-
-        if (categoryTag) {
-          tagList.splice(i, 1);
-          tagList.unshift(categoryTag);
-
-          break;
-        }
+      if (tagList.length < 2) {
+        return;
       }
+
+      tagList.sort((a, b) => {
+        const isACategory = !!categoryTags.find((tag) => getTagId(tag) === getTagId(a));
+        const isBCategory = !!categoryTags.find((tag) => getTagId(tag) === getTagId(b));
+
+        if (isACategory && isBCategory) {
+          return 0;
+        }
+
+        if (isACategory) {
+          return -1;
+        }
+
+        return 1;
+      });
 
       if (isArrayDiffers(oldTagList.map(getTagId), tagList.map(getTagId))) {
         console.log('oldTagsList', oldTagList.map(getTagId), 'newTagsList', tagList.map(getTagId));

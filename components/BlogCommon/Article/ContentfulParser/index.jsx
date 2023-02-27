@@ -17,6 +17,7 @@ import {
   getFileUrl,
   rootUrl,
 } from 'utils/helper';
+import EmbedArticleCard from 'UI/components/Cards/EmbedArticleCard';
 import { ArticleLink } from './ArticleLink';
 import styles from './styles.module.scss';
 
@@ -123,6 +124,11 @@ const ContentfulParser = ({ document }) => {
               />
             )
             : null;
+        }
+        case 'article': {
+          const data = get(node, 'data.target', {});
+
+          return <EmbedArticleCard data={data} />;
         }
         default:
           return null;
