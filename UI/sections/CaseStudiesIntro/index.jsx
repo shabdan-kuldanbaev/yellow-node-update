@@ -75,11 +75,11 @@ const CaseStudiesIntro = (props) => {
             alt={appBackgroundImageUrl}
           />
         </div>
-        {imagesBundlesWithUrls?.map((bundleUrl) => (
+        {imagesBundlesWithUrls?.map((bundleUrl, index) => (
           <Illustration
             priority
             transparent
-            className={styles.bundleImage}
+            className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
             src={bundleUrl}
             alt={title}
             key={`intro-images-bundles/${bundleUrl}`}

@@ -1,0 +1,14 @@
+.travel-trivia {
+  &.secondSectionView {
+    padding: 120px 40px 60px;
+    background: $gray0;
+
+    @include tablet {
+      padding: 60px 32px 30px;
+    }
+
+    @include phone {
+      padding: 60px 16px 30px;
+    }
+  }
+}
