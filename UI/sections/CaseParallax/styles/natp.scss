@@ -1,0 +1,54 @@
+.natp {
+  .titleStyle {
+    max-width: 626px;
+    margin: 120px auto 48px;
+
+    @include tablet {
+      margin-top: 60px;
+      padding: 0 16px;
+    }
+
+    @include phone {
+      margin: 30px auto 24px;
+    }
+  }
+
+  .listContainer {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-row-gap: 8px;
+    grid-column-gap: 32px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    @include phone {
+      @include flex(column, center, center);
+    }
+  }
+
+  .listItem {
+    @include flex(row, initial, center);
+    @include fontSize(16px, 150%);
+
+    position: relative;
+    color: $gray400;
+    padding-left: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $natpAccent;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @include phone {
+      text-align: center;
+    }
+  }
+}

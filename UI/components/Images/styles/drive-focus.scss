@@ -1,0 +1,20 @@
+.drive-focus {
+  &.firstSectionView {
+    .image {
+      @include phone {
+        height: 202px;
+        width: 343px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      width: $default-content-width;
+
+      &:not(:last-child) {
+        margin-bottom: 48px;
+      }
+    }
+  }
+}

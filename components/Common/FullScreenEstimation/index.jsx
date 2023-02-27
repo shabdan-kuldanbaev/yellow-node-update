@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import ModalWindow from 'components/Common/ModalWindow';
 import SectionTitle from 'UI/components/SectionTitle';
@@ -38,5 +38,7 @@ FullScreenEstimation.propTypes = {
   isFullscreenEstimation: PropTypes.bool.isRequired,
   closeFullscreenEstimation: PropTypes.func.isRequired,
 };
+
+export const FullscreenEstimationContext = createContext({ isShown: false, open: () => null });
 
 export default FullScreenEstimation;

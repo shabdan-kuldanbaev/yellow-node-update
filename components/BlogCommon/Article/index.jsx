@@ -1,10 +1,16 @@
-import React, { useRef, useEffect } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useMemo,
+} from 'react';
 import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import OldArticle from 'components/BlogCommon/Article/OldArticle';
 import withScroll from 'hocs/withScroll';
 import gaHelper from 'utils/ga';
 import { formatDate } from 'utils/helper';
+import FullScreenEstimation, { FullscreenEstimationContext } from 'components/Common/FullScreenEstimation';
 import { Author } from './Author';
 import { NavigationByTitles } from './NavigationByTitles';
 import styles from './styles.module.scss';
@@ -23,6 +29,8 @@ const Article = ({
 }) => {
   const articleBodyRef = useRef(null);
 
+  const [isFullscreenEstimationOpen, setFullscreenEstimationOpen] = useState(false);
+
   useEffect(() => () => {
     if (slug) {
       gaHelper.trackEvent(
@@ -34,6 +42,11 @@ const Article = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
+
+  const context = useMemo(() => ({
+    isShown: isFullscreenEstimationOpen,
+    open: () => setFullscreenEstimationOpen(true),
+  }), [isFullscreenEstimationOpen]);
 
   return (
     <section
@@ -63,9 +76,18 @@ const Article = ({
           articleBodyRef={articleBodyRef}
           articleSlug={slug}
         />
-        {oldBody
-          ? <OldArticle oldBody={oldBody} />
-          : <ContentfulParser document={body} />}
+
+        <FullscreenEstimationContext.Provider value={context}>
+          {oldBody
+            ? <OldArticle oldBody={oldBody} />
+            : <ContentfulParser document={body} />}
+
+        </FullscreenEstimationContext.Provider>
+
+        <FullScreenEstimation
+          isFullscreenEstimation={isFullscreenEstimationOpen}
+          closeFullscreenEstimation={() => setFullscreenEstimationOpen(false)}
+        />
       </div>
     </section>
   );

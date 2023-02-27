@@ -1,0 +1,42 @@
+.open-sense {
+  padding-bottom: 0;
+
+  [data-description] {
+    max-width: 600px;
+
+    @include phone {
+      max-width: 343px;
+    }
+  }
+
+  .circle {
+    width: 994px;
+    height: 706px;
+    margin: 0 auto;
+    transform: unset;
+    left: 0;
+
+    .mockup {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+
+    @include tablet {
+      width: 740px;
+      height: 540px;
+    }
+
+    @include below-tablet {
+      width: 550px;
+      height: 400px;
+    }
+
+    @include phone {
+      width: 343px;
+      height: 244px;
+    }
+  }
+}
