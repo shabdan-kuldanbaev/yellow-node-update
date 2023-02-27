@@ -1,0 +1,11 @@
+.tell {
+  @include caseStudyContainer;
+
+  [data-description] {
+    max-width: 550px;
+
+    @include phone {
+      max-width: 343px;
+    }
+  }
+}

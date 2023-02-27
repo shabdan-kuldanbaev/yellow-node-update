@@ -1,0 +1,9 @@
+.tell {
+  @include centeredBackgroundImage;
+
+  padding: 120px 0;
+
+  @include phone {
+    padding: 60px 0;
+  }
+}

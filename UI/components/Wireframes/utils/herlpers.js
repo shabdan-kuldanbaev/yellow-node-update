@@ -26,7 +26,9 @@ export const IMAGE_SIZES = {
   'drive-focus': {
     default: 440,
   },
-  tell: 660,
+  tell: {
+    default: 478,
+  },
   'travel-trivia': {
     default: 478,
   },
@@ -51,6 +53,9 @@ export const IMAGE_SIZES = {
 export const MOBILE_IMAGE_SIZES = {
   fireaway: {
     default: 250,
+  },
+  tell: {
+    default: 350,
   },
   'separate-us': {
     default: 180,
