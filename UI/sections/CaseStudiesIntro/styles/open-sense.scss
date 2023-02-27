@@ -1,0 +1,113 @@
+.open-sense {
+  background-size: 120%;
+
+  [data-title] {
+    color: $gray900;
+    text-align: center;
+    margin-bottom: 32px;
+
+    @include phone {
+      margin-bottom: 8px;
+    }
+  }
+
+  [data-subtitle] {
+    @include fontSize(20px, 150%);
+
+    color: $gray900;
+    text-align: center;
+
+    @include phone {
+      @include fontSize(16px, 150%);
+
+      margin-bottom: 4px;
+    }
+  }
+
+  [data-description] {
+    color: $gray400;
+    max-width: 542px;
+    text-align: center;
+
+    @include phone {
+      max-width: 343px;
+      margin: 0 auto;
+    }
+  }
+
+  .contentWrapper,
+  .introSection {
+    @include flex(column, center, center);
+  }
+
+  .sectionTitle {
+    position: relative;
+  }
+
+  .logo {
+    margin-bottom: 12px;
+
+    @include phone {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  .introSection {
+    margin-bottom: 24px;
+  }
+
+  .titleBackground {
+    position: absolute;
+    top: -12px;
+    right: -18px;
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: 693px;
+    margin: 0 auto;
+
+    @include tablet {
+      height: 400px;
+    }
+
+    @include phone {
+      height: 321px;
+    }
+  }
+
+  .experiencesContainer {
+    @include phone {
+      white-space: inherit;
+    }
+  }
+
+  .experience {
+    flex: 0 0 150px;
+
+    p {
+      color: $gray400;
+    }
+
+    &:nth-child(2) {
+      flex: 0 0 180px;
+    }
+
+    @include phone {
+      margin-right: 42px;
+    }
+  }
+
+  @include below-tablet {
+    background-size: auto;
+  }
+
+  @include phone {
+    padding-top: 88px;
+  }
+}

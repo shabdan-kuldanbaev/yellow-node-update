@@ -1,0 +1,6 @@
+.open-sense {
+  @extend .container;
+
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 172px;
+}

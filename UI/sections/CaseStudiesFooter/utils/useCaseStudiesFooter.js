@@ -5,6 +5,11 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
+import {
+  CASES_BLACK_ICONS,
+  socialNetworksWhite,
+  socialNetworksBlack,
+} from './data';
 
 export const useCaseStudiesFooter = ({
   type,
@@ -42,6 +47,10 @@ export const useCaseStudiesFooter = ({
 
   const footerStyle = footerBackgroundImage ? { backgroundImage: `url(${footerBackgroundImage})` } : {};
 
+  const socialNetworks = CASES_BLACK_ICONS.includes(type)
+    ? socialNetworksBlack
+    : socialNetworksWhite;
+
   return {
     type,
     title,
@@ -49,5 +58,6 @@ export const useCaseStudiesFooter = ({
     slug,
     pathname,
     footerStyle,
+    socialNetworks,
   };
 };

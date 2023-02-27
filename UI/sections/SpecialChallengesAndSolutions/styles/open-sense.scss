@@ -1,0 +1,19 @@
+.open-sense {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0%;
+
+  [data-description] {
+    max-width: 710px;
+
+    @include phone {
+      max-width: 343px;
+    }
+  }
+
+  .titleStyle {
+    @include phone {
+      margin-bottom: 24px;
+    }
+  }
+}

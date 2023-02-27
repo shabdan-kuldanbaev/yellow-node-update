@@ -31,6 +31,7 @@ const ChallengesAndSolutionsWithWireframesRefactored = dynamic(() => import('UI/
 const CaseParallax = dynamic(() => import('UI/sections/CaseParallax'));
 const CaseStudyDesign = dynamic(() => import('UI/sections/CaseStudyDesign'));
 const CaseAppFeatures = dynamic(() => import('UI/sections/CaseAppFeatures'));
+const CaseFeaturesSection = dynamic(() => import('UI/sections/CaseFeaturesSection'));
 const CaseFullScreenImages = dynamic(() => import('UI/sections/CaseFullScreenImages'));
 const CaseEvent = dynamic(() => import('UI/sections/CaseEvent'));
 const CaseStudiesStory = dynamic(() => import('UI/sections/CaseStudiesStory'));
@@ -62,6 +63,8 @@ const CaseStudiesCommon = (props) => {
       return <CaseFeedback {...props} />;
     case CASE_STUDIES_TYPES.design:
       return <CaseStudyDesign {...props} />;
+    case CASE_STUDIES_TYPES.features:
+      return <CaseFeaturesSection {...props} />;
     case CASE_STUDIES_TYPES.fullscreenImage:
       return <CaseFullScreenImages {...props} />;
     case CASE_STUDIES_TYPES.caseStudyEvent:

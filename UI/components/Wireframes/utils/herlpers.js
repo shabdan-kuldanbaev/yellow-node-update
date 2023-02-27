@@ -20,6 +20,9 @@ export const IMAGE_SIZES = {
   fairy: {
     default: 478,
   },
+  'open-sense': {
+    default: 440,
+  },
   'drive-focus': {
     default: 440,
   },
