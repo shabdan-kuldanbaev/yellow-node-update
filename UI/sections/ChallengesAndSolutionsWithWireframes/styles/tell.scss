@@ -1,5 +1,9 @@
 .tell {
-  @include caseStudyContainer;
+  padding: 120px 0;
+
+  .titleStyle {
+    padding: 0 16px;
+  }
 
   [data-description] {
     max-width: 550px;
@@ -7,5 +11,9 @@
     @include phone {
       max-width: 343px;
     }
+  }
+
+  @include tablet {
+    padding: 60px 0;
   }
 }

@@ -5,21 +5,84 @@
       max-height: 60px;
     }
 
+    .title {
+      @include fontSize(38px, 130%);
+
+      @include phone {
+        @include fontSize(24px, 130%);
+      }
+    }
+
+    .infoContainer {
+      margin: 0;
+      max-width: 380px;
+
+      &-1 {
+        margin-right: 32px;
+
+        @include phone {
+          margin: 0 auto 24px;
+        }
+      }
+
+      &-2 {
+        margin-left: 32px;
+
+        @include phone {
+          margin: 0 auto 24px;
+        }
+      }
+    }
+
     .image {
       &-1 {
         width: 560px;
         height: 550px;
+
+        @include tablet {
+          width: 343px;
+          height: 350px;
+        }
       }
 
       &-2 {
         width: 514px;
         height: 467px;
+
+        @include tablet {
+          width: 343px;
+          height: 312px;
+        }
       }
     }
 
-    .imageBundle {
-      width: 300px;
-      height: 100px;
+    .contentContainer {
+      position: relative;
+
+      .imageBundle {
+        width: 150px;
+        height: 40px;
+
+        @include tablet {
+          display: none;
+        }
+      }
+
+      &-1 {
+        .imageBundle {
+          position: absolute;
+          top: 30%;
+          left: 25%;
+        }
+      }
+
+      &-2 {
+        .imageBundle {
+          position: absolute;
+          top: 12%;
+          right: 35%;
+        }
+      }
     }
   }
 
