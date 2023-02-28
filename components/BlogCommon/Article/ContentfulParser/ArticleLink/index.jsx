@@ -27,8 +27,16 @@ export const ArticleLink = ({
         buttonTitle={buttonTitle}
       />
     );
-  case LINK_TYPE.callToAction:
-  case LINK_TYPE.book:
+
+  case LINK_TYPE.youTube:
+    return url && (
+      <CustomYoutubePlayer
+        src={getYoutubeVideoIdFromUrl(url)}
+        className={className}
+      />
+    );
+
+  default:
     if (isNew) {
       return (
         <CallToActionNew
@@ -46,15 +54,6 @@ export const ArticleLink = ({
         type="blog"
       />
     );
-  case LINK_TYPE.youTube:
-    return url && (
-      <CustomYoutubePlayer
-        src={getYoutubeVideoIdFromUrl(url)}
-        className={className}
-      />
-    );
-  default:
-    return null;
   }
 };
 

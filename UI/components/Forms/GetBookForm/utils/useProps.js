@@ -46,7 +46,7 @@ const useProps = ({
     dispatch(subscribe({ ...values, pathname: query }));
   });
 
-  const buttonId = `${slug}/get-book-modal`;
+  const buttonId = `${slug}/get-book-subscribed`;
 
   const isButtonDisabled = !getValues().name
   || !getValues().email

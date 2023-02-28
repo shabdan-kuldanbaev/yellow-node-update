@@ -1,14 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Button from 'UI/components/Button';
-import Typography from 'UI/components/Typography';
+import PropTypes from 'prop-types';
 import Illustration from 'UI/components/Illustration';
-import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import { LINK_TYPE } from 'utils/constants/linkType';
-import GetBookModal from 'UI/components/Modals/GetBookModal';
+import Contact from './content/Contact';
+import GetBook from './content/GetBook';
+import Subscribe from './content/Subscribe';
 import useProps from './utils/useProps';
-import SubscribeInCTAForm from '../Forms/SubscribeInCTAForm';
 import styles from './styles.module.scss';
 
 const CallToAction = (props) => {
@@ -19,19 +16,14 @@ const CallToAction = (props) => {
     type,
     page,
     view,
-    handleOnClick,
     className,
     images,
     isNew,
-    isSubscribeFormShown,
-    isGetBookShown,
-    toggleGetBookModalShown,
     downloadLink,
     isSubscribed,
-    onSubscribeSubmit,
-    href,
     isOpenFeedbackForm,
-    buttonId,
+    handleOnClick,
+    slug,
   } = useProps(props);
 
   return (
@@ -56,132 +48,48 @@ const CallToAction = (props) => {
           className={cn(styles.image, styles[`image-${i}`])}
         />
       ))}
-
-      <div className={styles.content}>
-        {
-          (() => {
-            switch (type) {
-            case LINK_TYPE.book:
-              return (
-                <>
-                  {titles?.map((titleText, index) => (
-                    titleText && (
-                      <Typography
-                        variant={TYPOGRAPHY_TAGS.h3}
-                        size={TYPOGRAPHY_SIZE.headline24}
-                        className={cn(styles.h3, styles.title)}
-                        key={`titleText/${index}`}
-                      >
-                        {titleText}
-                      </Typography>
-                    )
-                  ))}
-                  {subtitle && (
-                    <Typography
-                      variant={TYPOGRAPHY_TAGS.p}
-                      className={cn(styles.p, styles.subtitle)}
-                    >
-                      {subtitle}
-                    </Typography>
-                  )}
-                </>
-              );
-            case LINK_TYPE.callToAction:
-              return (
-                <>
-                  {isSubscribed && (
-                    <Typography
-                      variant={TYPOGRAPHY_TAGS.h3}
-                      size={TYPOGRAPHY_SIZE.headline24}
-                      className={cn(styles.h3, styles.title)}
-                    >
-                      Thanks for your attention!
-                    </Typography>
-                  )}
-                  {isSubscribed && (
-                    <Typography
-                      variant={TYPOGRAPHY_TAGS.p}
-                      className={cn(styles.p, styles.subtitle)}
-                    >
-                      Check Inbox to confirm your subscription
-                    </Typography>
-                  )}
-                  {!isSubscribed && titles?.map((titleText, index) => (
-                    titleText && (
-                      <Typography
-                        variant={TYPOGRAPHY_TAGS.h3}
-                        size={TYPOGRAPHY_SIZE.headline24}
-                        className={cn(styles.h3, styles.title)}
-                        key={`titleText/${index}`}
-                      >
-                        {titleText}
-                      </Typography>
-                    )
-                  )) }
-                  {!isSubscribed && subtitle && (
-                    <Typography
-                      variant={TYPOGRAPHY_TAGS.p}
-                      className={cn(styles.p, styles.subtitle)}
-                    >
-                      {subtitle}
-                    </Typography>
-                  )}
-                </>
-              );
-            default:
-              return (
-                <>
-                  {titles?.map((titleText, index) => (
-                    titleText && (
-                      <Typography
-                        variant={TYPOGRAPHY_TAGS.h3}
-                        size={TYPOGRAPHY_SIZE.headline24}
-                        className={styles.h3}
-                        key={`titleText/${index}`}
-                      >
-                        {titleText}
-                      </Typography>
-                    )
-                  ))}
-
-                  {subtitle && (
-                    <Typography
-                      variant={TYPOGRAPHY_TAGS.p}
-                      className={styles.p}
-                    >
-                      {subtitle}
-                    </Typography>
-                  )}
-                </>
-              );
-            }
-          })()
+      {(() => {
+        switch (type) {
+        case LINK_TYPE.subscribe:
+          return (
+            <Subscribe
+              titles={titles}
+              isSubscribed={isSubscribed}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              slug={slug}
+            />
+          );
+        case LINK_TYPE.book:
+          return (
+            <GetBook
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              bookCover={images[0]}
+              downloadLink={downloadLink}
+              slug={slug}
+            />
+          );
+        case LINK_TYPE.callToAction:
+          return (
+            <Contact
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+            />
+          );
+        default:
+          return (
+            <Contact
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              handleOnClick={handleOnClick}
+            />
+          );
         }
-      </div>
-
-      {isNew && isSubscribeFormShown && <SubscribeInCTAForm onSubmit={onSubscribeSubmit} />}
-
-      {!isSubscribeFormShown && (
-        <Button
-          href={href}
-          onClick={handleOnClick}
-          className={styles.button}
-          data-button
-          id={buttonId}
-        >
-          {buttonTitle}
-        </Button>
-      )}
-
-      {type === LINK_TYPE.book && (
-        <GetBookModal
-          show={isGetBookShown}
-          close={toggleGetBookModalShown}
-          bookCover={images[0]}
-          buttonText={buttonTitle}
-          downloadLink={downloadLink}
-        />
-      )}
+      })()}
     </div>
   );
 };
@@ -189,7 +97,7 @@ const CallToAction = (props) => {
 CallToAction.defaultProps = {
   href: '',
   handleOnClick: () => {},
-  className: '',
+  className: null,
   title: '',
   subtitle: '',
   data: {},

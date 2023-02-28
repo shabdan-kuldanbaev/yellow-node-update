@@ -37,7 +37,7 @@ const GetBookForm = (props) => {
         className={styles.button}
         disabled={isButtonDisabled}
         onClick={handleButtonClick}
-        buttonId={buttonId}
+        id={buttonId}
       >
         {buttonText}
       </Button>
