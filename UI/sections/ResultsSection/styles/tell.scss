@@ -46,7 +46,10 @@
 
     @include tablet {
       display: none;
-      overflow: hidden;
     }
+  }
+
+  @include tablet {
+    overflow: hidden;
   }
 }
