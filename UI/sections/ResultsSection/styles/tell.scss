@@ -2,7 +2,7 @@
   @include caseStudyContainer;
 
   padding: 120px 0 0;
-  overflow: hidden;
+  overflow: initial;
 
   .sectionTitle {
     margin-bottom: 48px;
@@ -46,6 +46,7 @@
 
     @include tablet {
       display: none;
+      overflow: hidden;
     }
   }
 }
