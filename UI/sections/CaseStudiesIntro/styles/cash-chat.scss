@@ -1,0 +1,56 @@
+.cash-chat {
+  background-color: $cashChatAccent;
+
+  .introSection {
+    position: relative;
+  }
+
+  [data-title],
+  [data-subtitle] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray0;
+    opacity: 0.7;
+  }
+
+  .experience {
+    color: $gray0;
+
+    p {
+      opacity: 0.7;
+    }
+  }
+
+  .introSection {
+    margin: 0 auto 108px;
+
+    @include tablet {
+      margin: 0 auto 24px;
+    }
+  }
+
+  .imageContainer {
+    width: 300px;
+    height: 540px;
+    filter: drop-shadow(-30px 30px 80px rgb(0 130 70 / 40%)) drop-shadow(-15px 20px 50px rgb(24 45 35 / 60%));
+
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+
+  .bundleImage-1 {
+    position: absolute;
+    right: 27%;
+    top: 13%;
+    width: 250px;
+    height: 522px;
+    filter: drop-shadow(-30px 30px 80px rgb(0 130 70 / 40%)) drop-shadow(-15px 20px 50px rgb(24 45 35 / 60%));
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

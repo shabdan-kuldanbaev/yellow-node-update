@@ -8,6 +8,7 @@ export const WHITE_LOGO_TYPE = [
   'hotel-data-cloud',
   'natp',
   'travel-trivia',
+  'cash-chat',
 ];
 
 export const BLACK_LOGO_TYPE = [
