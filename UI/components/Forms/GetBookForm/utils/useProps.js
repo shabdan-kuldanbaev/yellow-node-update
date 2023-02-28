@@ -12,6 +12,7 @@ const useProps = ({
   ...props
 }) => {
   const { query } = useRouter();
+  const { slug } = query;
 
   const dispatch = useDispatch();
 
@@ -45,6 +46,8 @@ const useProps = ({
     dispatch(subscribe({ ...values, pathname: query }));
   });
 
+  const buttonId = `${slug}/get-book-modal`;
+
   const isButtonDisabled = !getValues().name
   || !getValues().email
   || !isValid
@@ -57,6 +60,7 @@ const useProps = ({
     isButtonDisabled,
     handleButtonClick,
     isSubscribed,
+    buttonId,
   };
 };
 

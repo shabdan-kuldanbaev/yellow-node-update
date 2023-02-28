@@ -31,6 +31,7 @@ const CallToAction = (props) => {
     onSubscribeSubmit,
     href,
     isOpenFeedbackForm,
+    buttonId,
   } = useProps(props);
 
   return (
@@ -166,6 +167,7 @@ const CallToAction = (props) => {
           onClick={handleOnClick}
           className={styles.button}
           data-button
+          id={buttonId}
         >
           {buttonTitle}
         </Button>

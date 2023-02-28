@@ -9,15 +9,18 @@ import { LINK_TYPE } from 'utils/constants/linkType';
 import { selectIsSubscribed } from 'redux/selectors/subscribe';
 import downloadFile from 'utils/downloadFile';
 import { FullscreenEstimationContext } from 'components/Common/FullScreenEstimation';
+import { useRouter } from 'next/router';
 
 export default ({
   title: titleProp,
   data,
   handleOnClick: handleOnClickProp,
   buttonTitle: buttonTitleProp,
+  type,
   ...props
 }) => {
   const { open: handleOnCTAClick } = useContext(FullscreenEstimationContext);
+  const { query: { slug } } = useRouter();
 
   const {
     new: isNew,
@@ -25,7 +28,6 @@ export default ({
     subtitle,
     imagesBundle,
     buttonTitle,
-    type,
     files: rawFiles,
     isOpenFeedbackForm,
   } = getDocumentFields(data, [
@@ -52,6 +54,8 @@ export default ({
 
   const isSubscribeFormShown = isNew && type === LINK_TYPE.callToAction && isFormOpen;
   const isGetBookShown = isNew && type === LINK_TYPE.book && isGetBookModalShown;
+
+  const buttonId = `${slug}/${type}`;
 
   function getOnClickHandler() {
     if (!isNew) {
@@ -101,5 +105,6 @@ export default ({
     onSubscribeSubmit,
     downloadLink: files[0],
     isOpenFeedbackForm,
+    buttonId,
   };
 };
