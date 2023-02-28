@@ -1,5 +1,18 @@
 .tell {
+  position: relative;
   max-width: 790px;
   grid-template-columns: repeat(3, auto);
   grid-column-gap: 190px;
+
+  .bundleImage-1 {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    width: 130px;
+    height: 12px;
+
+    @include tablet {
+      display: none;
+    }
+  }
 }
