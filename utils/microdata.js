@@ -317,6 +317,23 @@ export const microdata = {
     breadcrumb: 'Homepage > AI Software development services',
     image: logoUrl,
   }),
+  tradingSoftwareDevelopment: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'AI Software Development Services: Best Choice for Your Business | Yellow',
+      description: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
+      breadcrumb: 'Homepage > AI Software development services',
+      image: logoUrl,
+    },
+    {
+      '@context': context,
+      '@type': 'Service',
+      name: 'Custom Trading Software Development Services',
+      alternateName: 'Custom Trading Software Development Services | Yellow',
+      description: 'If you plan to start trading software development, we can help. Let’s discuss your idea in detail.',
+    },
+  ]),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({
       '@type': 'ListItem',
