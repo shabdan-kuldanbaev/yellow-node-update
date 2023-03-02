@@ -7,11 +7,7 @@ import {
 } from 'utils/helper';
 
 export const getFooterProps = (currentProject) => {
-  const { contentModules } = getDocumentFields(
-    get(currentProject, 'items[0]', {}),
-    ['contentModules'],
-  );
-  const lastContentModule = last(contentModules);
+  const lastContentModule = last(currentProject);
   const {
     background,
     contentModules: footerContentModules,

@@ -99,7 +99,7 @@ function* fetchPageData({
 
       break;
     case PAGES.project:
-      yield call(fetchProject, { projectSlug });
+      yield call(fetchPage, { slug: projectSlug });
 
       break;
     case PAGES.portfolio:

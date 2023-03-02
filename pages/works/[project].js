@@ -2,10 +2,9 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { END } from 'redux-saga';
 import CaseStudiesContainer from 'containers/CaseStudies';
-import ProjectContainer from 'containers/Project';
 import PageNotFound from 'containers/PageNotFound';
 import { wrapper } from 'redux/store';
-import { PAGES, CASE_STUDIES_SLUGS } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
 import { pageFetchingStarted } from 'redux/reducers/layout';
 
@@ -16,9 +15,7 @@ const Project = ({ introSection, statusCode }) => {
     return <PageNotFound />;
   }
 
-  return CASE_STUDIES_SLUGS.includes(project)
-    ? <CaseStudiesContainer introSection={introSection} />
-    : <ProjectContainer introSection={introSection} />;
+  return <CaseStudiesContainer introSection={introSection} />;
 };
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req, res, query: { project } }) => {

@@ -1,21 +1,14 @@
+import { createSlice } from '@reduxjs/toolkit';
 import { actionTypes } from 'actions/actionTypes';
+import { setRawPayload } from 'utils/redux';
 
 const initialState = {
-  project: {},
-  error: {},
+  error: null,
   tags: [],
   types: [],
 };
 
 const handlers = {
-  [actionTypes.GET_PROJECT_SUCCESS]: (state, { payload }) => ({
-    ...state,
-    project: payload,
-  }),
-  [actionTypes.GET_PROJECT_FAILED]: (state, { payload }) => ({
-    ...state,
-    error: payload,
-  }),
   [actionTypes.GET_PORTFOLIO_TAGS_SUCCESS]: (state, { payload }) => ({
     ...state,
     tags: payload,
@@ -35,9 +28,20 @@ const handlers = {
   DEFAULT: (state) => state,
 };
 
-// eslint-disable-next-line default-param-last
-export default (state = initialState, action) => {
-  const handler = handlers[action.type] || handlers.DEFAULT;
+const portfolioSlice = createSlice({
+  name: 'portfolio',
+  initialState,
+  reducers: {
+    errorOccured: setRawPayload('error'),
+    tagsLoaded: setRawPayload('tags'),
+    typesLoaded: setRawPayload('types'),
+  },
+});
 
-  return handler(state, action);
-};
+export const {
+  errorOccured,
+  tagsLoaded,
+  typesLoaded,
+} = portfolioSlice.actions;
+
+export default portfolioSlice.reducer;

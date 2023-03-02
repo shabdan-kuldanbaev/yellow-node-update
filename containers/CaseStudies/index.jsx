@@ -1,39 +1,30 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import get from 'lodash/get';
-import { selectProject } from 'redux/selectors/portfolio';
+import { selectComponents, selectMetaData, selectTitle } from 'redux/selectors/layout';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import MetaTags from 'components/Common/MetaTags';
-import { getDocumentFields, rootUrl } from 'utils/helper';
+import { rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import { useRouter } from 'next/router';
+import { routes } from 'utils/routes';
 
 const CaseStudiesContainer = ({ introSection }) => {
-  const currentProject = useSelector(selectProject);
+  const { query: { project: slug } } = useRouter();
 
+  const { main: contentModules } = useSelector(selectComponents);
+  const pageTitle = useSelector(selectTitle);
   const {
-    slug,
-    contentModules,
     metaTitle,
     metaDescription,
     ogImage,
-    pageTitle,
-  } = getDocumentFields(
-    get(currentProject, 'items[0]', {}),
-    [
-      'slug',
-      'contentModules',
-      'metaDescription',
-      'metaTitle',
-      'hasFeedbackForm',
-      'pageTitle',
-    ],
-  );
-  // TODO: rework metatags for CaseStudies pages
+    metaRobots,
+  } = useSelector(selectMetaData);
+
   const projectMetadata = {
-    metaTitle: metaTitle || (pageTitle && `${pageTitle} | Yellow`),
+    metaTitle: metaTitle || `${pageTitle} | Yellow`,
     metaDescription: metaDescription || (pageTitle && `Yellow professionals have created ${pageTitle}. Read our case study to find more!`),
-    url: `${rootUrl}/${PAGES.portfolio}/${slug}`,
+    url: `${rootUrl}${routes.portfolio.getRoute(slug).path}`,
+    metaRobots,
     ogImage,
   };
 
@@ -44,7 +35,7 @@ const CaseStudiesContainer = ({ introSection }) => {
         pageMetadata={projectMetadata}
       />
       <main>
-        {contentModules?.map(({ fields, sys }) => (
+        {(contentModules || []).map(({ fields, sys }) => (
           <CaseStudiesCommon
             key={sys.id}
             type={slug}

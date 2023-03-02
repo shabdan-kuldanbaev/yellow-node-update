@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { selectProject } from 'redux/selectors/portfolio';
 import Svg from 'UI/components/Svg';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Typography from 'UI/components/Typography';
@@ -95,9 +93,6 @@ const CaseStudiesFooter = (props) => {
 CaseStudiesFooter.propTypes = {
   type: PropTypes.string.isRequired,
   pathname: PropTypes.string.isRequired,
-  currentProject: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect(
-  (state) => ({ currentProject: selectProject(state) }),
-)(CaseStudiesFooter);
+export default CaseStudiesFooter;

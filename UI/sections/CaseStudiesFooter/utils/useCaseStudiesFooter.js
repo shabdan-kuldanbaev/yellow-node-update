@@ -1,10 +1,12 @@
 import get from 'lodash/get';
 import last from 'lodash/last';
+import { useSelector } from 'react-redux';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
+import { selectComponents } from 'redux/selectors/layout';
 import {
   CASES_BLACK_ICONS,
   socialNetworksWhite,
@@ -14,12 +16,9 @@ import {
 export const useCaseStudiesFooter = ({
   type,
   pathname,
-  currentProject,
 }) => {
-  const { contentModules } = getDocumentFields(
-    get(currentProject, 'items[0]', {}),
-    ['contentModules'],
-  );
+  const { main: contentModules } = useSelector(selectComponents);
+
   const lastContentModule = last(contentModules);
   const {
     background,

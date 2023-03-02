@@ -20,7 +20,6 @@ export const actionTypes = {
   FIND_ARTICLES_FAILED: 'blog/FIND_ARTICLES_FAILED',
   /* ------------------------ */
   GET_PROJECT_SUCCESS: 'portfolio/GET_PROJECT_SUCCESS',
-  GET_PROJECT_FAILED: 'portfolio/GET_PROJECT_FAILED',
   /* ------------------------ */
   SEND_FORM_DATA_PENDING: 'contact/SEND_FORM_DATA_PENDING',
   SEND_FORM_DATA_SUCCESS: 'contact/SEND_FORM_DATA_SUCCESS',
