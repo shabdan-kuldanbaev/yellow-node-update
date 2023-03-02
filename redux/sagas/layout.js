@@ -18,11 +18,7 @@ import {
   findArticles,
   loadArticles,
 } from 'redux/sagas/blog';
-import {
-  fetchProject,
-  fetchTags,
-  fetchTypes,
-} from 'redux/sagas/portfolio';
+import { fetchTags, fetchTypes } from 'redux/sagas/portfolio';
 import { loadJSON } from 'redux/sagas/process';
 import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 import { contentfulClient } from 'utils/contentful/client';
