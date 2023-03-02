@@ -82,7 +82,6 @@ const layoutSlice = createSlice({
   },
 });
 
-// eslint-disable-next-line default-param-last
 export const {
   desktopMenuOpened,
   mobileMenuOpened,
