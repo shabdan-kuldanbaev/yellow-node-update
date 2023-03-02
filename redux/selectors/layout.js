@@ -29,12 +29,6 @@ export const selectIsMobileMenuOpened = (state) => state.layout.isMobileMenuOpen
 
 export const selectIsMobileCategotiesOpened = (state) => state.layout.isMobileCategotiesOpened;
 
-export const selectIsMobileResolutions = (state) => state.layout.isMobileResolutions;
-
-export const selectIsTabletResolutions = (state) => state.layout.isTabletResolutions;
-
-export const selectIsFullResolutions = (state) => state.layout.isFullResolution;
-
 export const selectIsPageReadyToDisplay = (state) => state.layout.isPageReadyToDisplay;
 
 export const selectIsLoadingScreenCompleted = (state) => state.layout.isLoadingScreenCompleted;

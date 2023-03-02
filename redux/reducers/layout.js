@@ -5,10 +5,6 @@ import { setRawPayload } from 'utils/redux';
 const initialState = {
   isMobileMenuOpened: false,
   isMobileCategotiesOpened: false,
-  // Extract Resolutions to separate slice to avoid state reset on hydration
-  isMobileResolutions: null,
-  isTabletResolutions: null,
-  isFullResolution: null,
   isPageReadyToDisplay: false,
   isFirstPageLoaded: false,
   isDropMenuOpened: false,
@@ -37,23 +33,6 @@ const layoutSlice = createSlice({
     mobileMenuOpened: setRawPayload('isMobileMenuOpened'),
     mobileCategoriesOpened: setRawPayload('isMobileCategotiesOpened'),
 
-    // Resolutions
-    mobileResolutionSet(state) {
-      state.isMobileResolutions = true;
-      state.isTabletResolutions = false;
-      state.isFullResolution = false;
-    },
-    tabletResolutionSet(state) {
-      state.isMobileResolutions = false;
-      state.isTabletResolutions = true;
-      state.isFullResolution = false;
-    },
-    desktopResolutionSet(state) {
-      state.isMobileResolutions = false;
-      state.isTabletResolutions = false;
-      state.isFullResolution = true;
-    },
-
     // Fetching Data
     firstPageLoaded: setRawPayload('isFirstPageLoaded'),
     pageFetchingStarted(state) {
@@ -71,7 +50,7 @@ const layoutSlice = createSlice({
     pageFetched(state, { payload }) {
       const {
         contentModules,
-        hasFeedbackForm,
+        hasFeedbackForm = false,
         pageTitle = null,
         subtitle = null,
         metaTitle = '',
@@ -108,9 +87,6 @@ export const {
   desktopMenuOpened,
   mobileMenuOpened,
   mobileCategoriesOpened,
-  mobileResolutionSet,
-  tabletResolutionSet,
-  desktopResolutionSet,
   firstPageLoaded,
   pageFetchingStarted,
   pageFetchingSucceeded,

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
-import { connect } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { useSelector } from 'react-redux';
 import Animated from 'components/Common/Animated';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
+import { isMobile } from 'redux/selectors/client-side';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
@@ -14,8 +14,9 @@ const Images = ({
   data,
   type,
   view,
-  isMobileResolution,
 }) => {
+  const isMobileResolution = useSelector(isMobile);
+
   if (!get(data, 'images')) {
     return null;
   }
@@ -66,16 +67,12 @@ const Images = ({
 Images.defaultProps = {
   type: 'imageContainer',
   view: '',
-  isMobileResolution: false,
 };
 
 Images.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
-  isMobileResolution: PropTypes.bool,
   type: PropTypes.string,
   view: PropTypes.string,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(Images);
+export default Images;

@@ -5,17 +5,18 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import SectionTitle from 'components/Common/SectionTitle';
+import { useSelector } from 'react-redux';
+import { isMobile } from 'redux/selectors/client-side';
 import Animated from 'components/Common/Animated';
 import { getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
+const CompanyPeoplePhoto = ({ photo }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
+
+  const isMobileResolution = useSelector(isMobile);
 
   useEffect(() => {
     const handlerOnScroll = () => {
@@ -56,15 +57,8 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
   );
 };
 
-CompanyPeoplePhoto.defaultProps = {
-  isMobileResolution: false,
-};
-
 CompanyPeoplePhoto.propTypes = {
   photo: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(CompanyPeoplePhoto);
+export default CompanyPeoplePhoto;

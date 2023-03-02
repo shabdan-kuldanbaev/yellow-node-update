@@ -3,6 +3,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import home from './home';
 import layout from './layout';
+import clientSide from './client-side';
 import blog from './blog';
 import portfolio from './portfolio';
 import contact from './contact';
@@ -17,10 +18,13 @@ const reducers = combineReducers({
   contact,
   subscribe,
   process,
+  clientSide,
 });
 
 export default ((state, action) => {
   if (action.type === HYDRATE) {
+    delete action.payload.clientSide;
+
     return {
       ...state,
       ...action.payload,

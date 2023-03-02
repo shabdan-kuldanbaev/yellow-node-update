@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { isMobile } from 'redux/selectors/client-side';
 import {
   getDocumentFields,
   getFileUrl,
@@ -13,7 +13,7 @@ export const useCaseStudiesIntro = ({
   introSection,
   data,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(isMobile);
 
   const {
     title,

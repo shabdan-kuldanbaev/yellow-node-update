@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { selectIsFullResolutions } from 'redux/selectors/layout';
+import { isDesktop } from 'redux/selectors/client-side';
 import styles from '../styles.module.scss';
 
 export const TYPOGRAPHY_TAGS = {
@@ -37,7 +37,7 @@ export const useTypography = ({
   role,
   ...rest
 }) => {
-  const isDesktopResolution = useSelector(selectIsFullResolutions);
+  const isDesktopResolution = useSelector(isDesktop);
 
   const Tag = TYPOGRAPHY_TAGS[variant] || variant;
 

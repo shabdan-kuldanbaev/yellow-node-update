@@ -6,17 +6,17 @@ import {
   desktopResolutionSet,
   mobileResolutionSet,
   tabletResolutionSet,
-} from 'redux/reducers/layout';
+} from 'redux/reducers/client-side';
 import { AppContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
 
 export const useLayout = ({ children, introSection }) => {
-  const dispatch = useDispatch();
   const { pathname } = useRouter();
-  const { contextData: { duck } } = useContext(AppContext);
-
   const isHomePage = pathname === routes.homepage.path;
+  const { contextData: { duck } } = useContext(AppContext);
   const isDuckLoading = isHomePage && !duck;
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleOnResize = () => {

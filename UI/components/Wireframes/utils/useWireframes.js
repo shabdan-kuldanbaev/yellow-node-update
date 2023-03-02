@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { isMobile } from 'redux/selectors/client-side';
 import { getImage } from 'utils/helper';
 import {
   DEFAULT_MOBILE_IMAGE_SIZE,
@@ -13,7 +13,7 @@ export const useWireframes = ({
   type,
   view,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(isMobile);
 
   const wireframeImages = images?.map((image) => {
     const imageData = getImage(image);
