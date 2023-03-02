@@ -4,13 +4,11 @@ import React, {
   useEffect,
   useMemo,
 } from 'react';
-import { wrapper } from 'redux/store';
-import { pageFetchingStarted } from 'redux/reducers/layout';
-import { useDispatch } from 'react-redux';
-import Router from 'next/router';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
+import { wrapper } from 'redux/store';
 import Layout from 'UI/containers/Layout';
+import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
 import { AppContext } from 'utils/appContext';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
@@ -18,7 +16,6 @@ import 'swiper/css/bundle';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
-import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
 
 function App({ Component, pageProps }) {
   const [contextData, setContextData] = useState({
@@ -29,18 +26,6 @@ function App({ Component, pageProps }) {
 
   const [theme] = useState('dark');
   const introSection = useRef(null);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    // TODO: Check if this handler needed
-    const handleRouteChangeComplete = () => dispatch(pageFetchingStarted());
-
-    Router.events.on('routeChangeComplete', handleRouteChangeComplete);
-
-    return () => {
-      Router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    };
-  }, [dispatch]);
 
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
