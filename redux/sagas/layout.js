@@ -1,16 +1,21 @@
-import {
-  put,
-  call,
-  all,
-  select,
-  takeEvery,
-  takeLeading,
-} from 'redux-saga/effects';
-import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
+import es6promise from 'es6-promise';
 import {
-  findArticles,
+  all,
+  call,
+  put,
+  takeEvery,
+} from 'redux-saga/effects';
+import { actionTypes } from 'redux/actions/actionTypes';
+import {
+  pageFetched,
+  pageFetchingFailed,
+  pageFetchingStarted,
+  pageFetchingSucceeded,
+} from 'redux/reducers/layout';
+import {
   fetchBlogData,
+  findArticles,
   loadArticles,
 } from 'redux/sagas/blog';
 import {
@@ -18,48 +23,26 @@ import {
   fetchTags,
   fetchTypes,
 } from 'redux/sagas/portfolio';
-import { actionTypes } from 'redux/actions/actionTypes';
 import { loadJSON } from 'redux/sagas/process';
-import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
-import { contentfulClient } from 'utils/contentful/client';
 import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
+import { contentfulClient } from 'utils/contentful/client';
 import errorHelper from 'utils/error';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
 function* fetchPage({ slug }) {
-  // TODO: It's better to use PAGE_READY_TO_DISPLAY, but now it doesn't work, so...
-  yield put({ type: actionTypes.SET_DATA_LOADING, payload: true });
-
   try {
-    const { items = null } = yield contentfulClient.getEntries({
+    const { items } = yield contentfulClient.getEntries({
       contentType: 'page',
       additionalQueryParams: {
         'fields.slug': slug,
       },
     });
 
-    yield put({ type: actionTypes.FETCH_PAGE_SUCCESS, payload: items });
+    yield put(pageFetched(items[0]));
   } catch (error) {
-    yield put({ type: actionTypes.FETCH_PAGE_FAILED, payload: error });
-  }
-}
-
-function* fetchDuck({ payload: { isFirstHomepageVisit, loadDuck } }) {
-  try {
-    const [duck] = yield all([
-      yield loadDuck(),
-      !isFirstHomepageVisit && !(yield select(selectIsFirstPageLoaded)),
-    ]);
-
-    yield put({ type: actionTypes.SET_DUCK, payload: duck });
-  } catch (error) {
-    errorHelper.handleError({
-      error,
-      message: 'Error in the fetchDuck function',
-    });
-    yield put({ type: actionTypes.SET_DUCK, payload: null });
+    yield put(pageFetchingFailed(error.message));
   }
 }
 
@@ -166,23 +149,19 @@ function* fetchPageData({
     default: throw new Error('Unexpected case in the fetchPageData function');
     }
 
-    yield put({ type: actionTypes.SET_PAGE_READY_TO_DISPLAY_SUCCESS });
+    yield put(pageFetchingSucceeded);
   } catch (error) {
     errorHelper.handleError({
       error,
       message: 'Error in the fetchPageData function',
     });
-    yield put({
-      type: actionTypes.SET_PAGE_READY_TO_DISPLAY_FAILED,
-      payload: error.message,
-    });
+    yield put(pageFetchingFailed(error.message));
   }
 }
 
 export function* fetchPageWatcher() {
   yield all([
-    yield takeLeading(actionTypes.SET_DUCK_PENDING, fetchDuck),
     yield takeEvery(actionTypes.FIND_ARTICLES_PENDING, findArticles),
-    yield takeEvery(actionTypes.SET_PAGE_READY_TO_DISPLAY_PENDING, fetchPageData),
+    yield takeEvery(pageFetchingStarted, fetchPageData),
   ]);
 }

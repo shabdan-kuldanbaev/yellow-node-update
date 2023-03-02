@@ -1,10 +1,10 @@
 import React from 'react';
 import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
 import PageNotFound from 'containers/PageNotFound';
 import { wrapper } from 'redux/store';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
+import { pageFetchingStarted } from 'redux/reducers/layout';
 
 const Error = ({ statusCode, err }) => (statusCode
   ? statusCode === 404 && <PageNotFound />
@@ -26,7 +26,7 @@ Error.getInitialProps = wrapper.getInitialPageProps((store) => async ({
   }
 
   if (statusCode === 404) {
-    store.dispatch(fetchLayoutData({ slug: PAGES.notFound }));
+    store.dispatch(pageFetchingStarted({ slug: PAGES.notFound }));
     errorHelper.handleMessage({
       message: `404 - This page could not be found (${asPath})`,
     });

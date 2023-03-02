@@ -35,8 +35,6 @@ export const selectIsTabletResolutions = (state) => state.layout.isTabletResolut
 
 export const selectIsFullResolutions = (state) => state.layout.isFullResolution;
 
-export const selectIsLoading = (state) => state.layout.isLoading;
-
 export const selectIsPageReadyToDisplay = (state) => state.layout.isPageReadyToDisplay;
 
 export const selectIsLoadingScreenCompleted = (state) => state.layout.isLoadingScreenCompleted;

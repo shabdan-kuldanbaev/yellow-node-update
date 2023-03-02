@@ -1,6 +1,6 @@
 import React from 'react';
 import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
+import { pageFetchingStarted } from 'redux/reducers/layout';
 import DraftArticle from 'containers/DraftArticle';
 import PageNotFound from 'containers/PageNotFound';
 import { wrapper } from 'redux/store';
@@ -26,7 +26,7 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async (c
     } = ctx;
     const props = {};
 
-    store.dispatch(fetchLayoutData({
+    store.dispatch(pageFetchingStarted({
       articleSlug: slug,
       slug: PAGES.article,
       isPreviewMode: true,

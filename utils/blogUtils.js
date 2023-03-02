@@ -1,5 +1,5 @@
 import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
+import { pageFetchingStarted } from 'redux/reducers/layout';
 import { toInt, isNumeric } from 'utils/helper';
 import errorHelper from 'utils/error';
 import {
@@ -47,7 +47,7 @@ const fetchBlogData = async (
 
   const currentPage = toInt(queryParams.page);
 
-  store.dispatch(fetchLayoutData({
+  store.dispatch(pageFetchingStarted({
     slug: routeSlug,
     currentLimit: currentPage === 1 ? ARTICLES_NUMBER_PER_PAGE - 1 : ARTICLES_NUMBER_PER_PAGE,
     category: queryParams.category,
@@ -80,7 +80,7 @@ export const getInitialBlogProps = async (store, ctx) => {
     const isTagBlog = checkIsTagBlog(slug, tagsSet);
 
     if (!isTagBlog && isArticle(slug)) {
-      store.dispatch(fetchLayoutData({
+      store.dispatch(pageFetchingStarted({
         articleSlug: slug,
         slug: PAGES.article,
       }));

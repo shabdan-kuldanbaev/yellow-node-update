@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Lottie from 'react-lottie';
 import { connect } from 'react-redux';
-import { setFirstPageLoaded } from 'redux/actions/layout';
 import { selectIsPageReadyToDisplay, selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import { useLoadingScreen } from './utils/useLoadingScreen';
 import styles from './styles.module.scss';
@@ -39,5 +38,4 @@ export default connect(
     isPageReadyToDisplay: selectIsPageReadyToDisplay(state),
     isFirstPageLoaded: selectIsFirstPageLoaded(state),
   }),
-  { setFirstPageLoaded },
 )(LoadingScreen);

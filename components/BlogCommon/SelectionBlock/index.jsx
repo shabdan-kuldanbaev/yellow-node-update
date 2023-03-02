@@ -1,18 +1,11 @@
-import React, {
-  useEffect,
-  useRef,
-  useCallback,
-} from 'react';
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import cn from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
-import { setMobileCategoriesState } from 'redux/actions/layout';
-import ButtonMore from 'components/Common/ButtonMore';
-
+import PropTypes from 'prop-types';
 import Svg from 'UI/components/Svg';
-import { setOverflowForBody } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
+import { setOverflowForBody } from 'utils/helper';
+import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
 import Categories from './Categories';
 import styles from './styles.module.scss';
 

@@ -10,7 +10,7 @@ import {
   selectSubtitle,
 } from 'redux/selectors/layout';
 import { wrapper } from 'redux/store';
-import { fetchLayoutData } from 'redux/actions/layout';
+import { pageFetchingStarted } from 'redux/reducers/layout';
 import errorHelper from './error';
 import { getDocumentFields, rootUrl } from './helper';
 
@@ -71,7 +71,7 @@ export const getHomePageDataPros = (state) => {
 
 export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps((store) => async () => {
   try {
-    store.dispatch(fetchLayoutData({ slug }));
+    store.dispatch(pageFetchingStarted({ slug }));
     store.dispatch(END);
     await store.sagaTask.toPromise();
 

@@ -1,32 +1,26 @@
-import { applyMiddleware, createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { createWrapper } from 'next-redux-wrapper';
-// import logger from 'redux-logger';
 import rootReducers from 'redux/reducers';
 import rootSaga from 'redux/sagas';
 
-const bindMiddleware = (middleware) => {
-  if (process.env.NODE_ENV !== 'production') {
-    // eslint-disable-next-line
-    const { composeWithDevTools } = require('redux-devtools-extension');
-
-    return composeWithDevTools(applyMiddleware(...middleware /* , logger */));
-  }
-
-  return applyMiddleware(...middleware);
-};
-
-function configureStore(initialState) {
+const makeStore = () => {
   const sagaMiddleware = createSagaMiddleware();
-  const store = createStore(
-    rootReducers,
-    initialState,
-    bindMiddleware([sagaMiddleware]),
-  );
+
+  const store = configureStore({
+    reducer: rootReducers,
+
+    middleware: (getDefaultMiddleware) => {
+      const middleware = getDefaultMiddleware()
+        .concat(sagaMiddleware);
+
+      return middleware;
+    },
+  });
 
   store.sagaTask = sagaMiddleware.run(rootSaga);
 
   return store;
-}
+};
 
-export const wrapper = createWrapper(configureStore, { debug: false });
+export const wrapper = createWrapper(makeStore, { debug: false });

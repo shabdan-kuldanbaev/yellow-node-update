@@ -5,11 +5,11 @@ import React, {
   useMemo,
 } from 'react';
 import { wrapper } from 'redux/store';
+import { pageFetchingStarted } from 'redux/reducers/layout';
 import { useDispatch } from 'react-redux';
 import Router from 'next/router';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
-import { setPageReadyToDisplay } from 'redux/actions/layout';
 import Layout from 'UI/containers/Layout';
 import { AppContext } from 'utils/appContext';
 import { customTheme } from 'styles/muiTheme';
@@ -18,18 +18,22 @@ import 'swiper/css/bundle';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
+import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
 
 function App({ Component, pageProps }) {
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
     isFirstHomepageVisit: false,
+    duck: null,
   });
+
   const [theme] = useState('dark');
   const introSection = useRef(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const handleRouteChangeComplete = () => dispatch(setPageReadyToDisplay(false));
+    // TODO: Check if this handler needed
+    const handleRouteChangeComplete = () => dispatch(pageFetchingStarted());
 
     Router.events.on('routeChangeComplete', handleRouteChangeComplete);
 
@@ -46,6 +50,14 @@ function App({ Component, pageProps }) {
     }
 
     smoothscroll.polyfill();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const duck = await loadDuck();
+
+      setContextData((prev) => ({ ...prev, duck }));
+    })();
   }, []);
 
   const AppContextValue = useMemo(() => ({
