@@ -1,9 +1,4 @@
 export const actionTypes = {
-  SET_DUCK_PENDING: 'home/SET_DUCK_PENDING',
-  SET_DUCK: 'home/SET_DUCK',
-  /* ------------------------ */
-  SET_SCROLL_OF_ADDED_FOOTER: 'home/SET_SCROLL_OF_ADDED_FOOTER',
-  /* ------------------------ */
   CLEAR_CURRENT_ARTICLE: 'blog/CLEAR_CURRENT_ARTICLE',
   /* ------------------------ */
   GET_ARTICLE_SUCCESS: 'blog/GET_ARTICLE_SUCCESS',

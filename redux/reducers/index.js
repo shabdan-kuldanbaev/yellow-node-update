@@ -1,7 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import home from './home';
 import layout from './layout';
 import clientSide from './client-side';
 import blog from './blog';
@@ -11,7 +10,6 @@ import subscribe from './subscribe';
 import process from './process';
 
 const reducers = combineReducers({
-  home,
   layout,
   blog,
   portfolio,
