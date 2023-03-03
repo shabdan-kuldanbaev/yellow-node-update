@@ -18,6 +18,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'separate-us',
   'famlicious',
   'natp',
+  'cash-chat',
   'travel-trivia',
 ];
 

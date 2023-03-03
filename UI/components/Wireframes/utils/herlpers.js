@@ -32,7 +32,9 @@ export const IMAGE_SIZES = {
   'travel-trivia': {
     default: 478,
   },
-  'cash-chat': 660,
+  'cash-chat': {
+    default: 478,
+  },
   beautonomy: 600,
   meateater: 600,
   'separate-us': {
