@@ -26,11 +26,15 @@ export const IMAGE_SIZES = {
   'drive-focus': {
     default: 440,
   },
-  tell: 660,
+  tell: {
+    default: 478,
+  },
   'travel-trivia': {
     default: 478,
   },
-  'cash-chat': 660,
+  'cash-chat': {
+    default: 478,
+  },
   beautonomy: 600,
   meateater: 600,
   'separate-us': {
@@ -51,6 +55,9 @@ export const IMAGE_SIZES = {
 export const MOBILE_IMAGE_SIZES = {
   fireaway: {
     default: 250,
+  },
+  tell: {
+    default: 350,
   },
   'separate-us': {
     default: 180,

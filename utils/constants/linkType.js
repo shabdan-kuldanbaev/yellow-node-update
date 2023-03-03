@@ -4,4 +4,5 @@ export const LINK_TYPE = {
   button: 'button',
   youTube: 'youtube-video',
   book: 'book',
+  subscribe: 'subscribe',
 };

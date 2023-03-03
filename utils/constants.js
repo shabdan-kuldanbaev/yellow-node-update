@@ -8,6 +8,7 @@ import { routes } from 'utils/routes';
 export const REFACTORED_CASE_STUDIES_PAGES = [
   'stickerbox',
   'fireaway',
+  'tell',
   'fairy',
   'seven-pm-thursday',
   'fernwayer',
@@ -17,6 +18,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'separate-us',
   'famlicious',
   'natp',
+  'cash-chat',
   'travel-trivia',
   'writer-chrome-extension',
 ];

@@ -3,6 +3,11 @@
 .container {
   flex: 1 1 auto;
   margin-left: 32px;
+  max-width: 213px;
+
+  @include below-tablet {
+    margin: 0 auto;
+  }
 }
 
 .field {

@@ -33,9 +33,9 @@ const TeamList = (props) => {
             {member}
           </Typography>
         ))}
-        {images.map((imgUrl) => (
+        {images.map((imgUrl, index) => (
           <img
-            className={styles.bundleImage}
+            className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
             src={imgUrl}
             alt={title}
             key={`intro-images-bundles/${imgUrl}`}

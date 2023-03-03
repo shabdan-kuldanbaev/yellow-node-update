@@ -1,0 +1,12 @@
+.cash-chat {
+  background-color: $gray50;
+  padding: 120px 0;
+
+  .titleStyle {
+    max-width: 518px;
+  }
+
+  @include tablet {
+    padding: 60px 0;
+  }
+}

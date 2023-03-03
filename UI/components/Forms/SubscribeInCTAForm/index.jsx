@@ -11,6 +11,7 @@ const SubscribeInCTAForm = (props) => {
     className,
     isButtonDisabled,
     handleButtonClick,
+    slug,
   } = useProps(props);
 
   return (
@@ -30,6 +31,7 @@ const SubscribeInCTAForm = (props) => {
         className={styles.button}
         disabled={isButtonDisabled}
         onClick={handleButtonClick}
+        id={`${slug}/subscribe`}
       />
     </div>
   );
