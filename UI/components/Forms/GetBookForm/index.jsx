@@ -11,6 +11,7 @@ const GetBookForm = (props) => {
     handleButtonClick,
     dirtyFields,
     buttonText,
+    buttonId,
   } = useProps(props);
 
   return (
@@ -36,6 +37,7 @@ const GetBookForm = (props) => {
         className={styles.button}
         disabled={isButtonDisabled}
         onClick={handleButtonClick}
+        id={buttonId}
       >
         {buttonText}
       </Button>

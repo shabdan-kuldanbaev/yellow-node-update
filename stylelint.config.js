@@ -8,6 +8,10 @@ module.exports = {
   ],
   plugins: ['stylelint-order'],
   rules: {
+    'color-hex-case': 'lower',
+    'scss/at-mixin-pattern': null,
+    'keyframes-name-pattern': null,
+    'scss/dollar-variable-pattern': /[a-z][a-zA-Z]+/,
     linebreaks: 'unix',
     'string-quotes': 'single',
     'keyframe-selector-notation': 'percentage',

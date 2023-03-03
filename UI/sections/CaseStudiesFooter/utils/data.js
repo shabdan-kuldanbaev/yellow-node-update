@@ -45,4 +45,4 @@ export const socialNetworksBlack = [
   },
 ];
 
-export const CASES_BLACK_ICONS = ['open-sense'];
+export const CASES_BLACK_ICONS = ['open-sense', 'tell'];
