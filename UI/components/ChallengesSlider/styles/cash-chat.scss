@@ -1,0 +1,17 @@
+.cash-chat {
+  :global(.swiper-wrapper) {
+    margin-bottom: 50px;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: -5px;
+  }
+
+  .swiperBullet {
+    border: 1px solid $cashChatAccent;
+  }
+
+  .swiperBulletActive {
+    background-color: $cashChatAccent;
+  }
+}
