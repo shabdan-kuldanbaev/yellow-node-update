@@ -345,39 +345,6 @@
   background-color: $very-dark-blue;
 }
 
-.tell {
-  @extend .container;
-
-  background-color: $white;
-
-  @include centeredBackgroundImage;
-
-  .nextProjectContainer {
-    .subtitle,
-    .projectName,
-    .more {
-      color: $dark-grey;
-    }
-
-    .more {
-      border: 1px solid $dark-grey;
-    }
-  }
-
-  .question,
-  .link {
-    color: $dark-grey;
-  }
-
-  .link {
-    opacity: 0.5;
-  }
-
-  .iconLink {
-    color: $black;
-  }
-}
-
 .open-sense {
   @extend .container;
 

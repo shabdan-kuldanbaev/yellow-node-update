@@ -1,0 +1,100 @@
+.tell {
+  &.firstSectionView {
+    .subImage {
+      max-width: 60px;
+      max-height: 60px;
+    }
+
+    .title {
+      @include fontSize(38px, 130%);
+
+      @include phone {
+        @include fontSize(24px, 130%);
+      }
+    }
+
+    .infoContainer {
+      margin: 0;
+      max-width: 380px;
+
+      &-1 {
+        margin-right: 32px;
+
+        @include phone {
+          margin: 0 auto 24px;
+        }
+      }
+
+      &-2 {
+        margin-left: 32px;
+
+        @include phone {
+          margin: 0 auto 24px;
+        }
+      }
+    }
+
+    .image {
+      &-1 {
+        width: 560px;
+        height: 550px;
+
+        @include tablet {
+          width: 343px;
+          height: 350px;
+        }
+      }
+
+      &-2 {
+        width: 514px;
+        height: 467px;
+
+        @include tablet {
+          width: 343px;
+          height: 312px;
+        }
+      }
+    }
+
+    .contentContainer {
+      position: relative;
+
+      .imageBundle {
+        width: 150px;
+        height: 40px;
+
+        @include tablet {
+          display: none;
+        }
+      }
+
+      &-1 {
+        .imageBundle {
+          position: absolute;
+          top: 30%;
+          left: 25%;
+        }
+      }
+
+      &-2 {
+        .imageBundle {
+          position: absolute;
+          top: 12%;
+          right: 35%;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgb(0 0 0 / 40%)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 30%));
+      width: 298px;
+      height: 620px;
+    }
+
+    .infoContainer {
+      max-width: 343px;
+    }
+  }
+}
