@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearMessage } from 'redux/actions/subscribe';
+import { messageCleared } from 'redux/reducers/subscribe';
 import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
 import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
@@ -24,7 +24,7 @@ const SubscribeBlock = ({
   };
 
   useEffect(
-    () => () => dispatch(clearMessage()),
+    () => () => dispatch(messageCleared()),
     [dispatch],
   );
 

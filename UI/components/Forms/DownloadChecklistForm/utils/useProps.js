@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { subscribe } from 'redux/actions/subscribe';
+import { subscriptionFetchingStarted } from 'redux/reducers/subscribe';
 import { selectSubscribeMessage } from 'redux/selectors/subscribe';
 
 const useProps = ({ downloadLink, ...props }) => {
@@ -20,7 +20,7 @@ const useProps = ({ downloadLink, ...props }) => {
   } = useForm({ reValidateMode: 'onBlur' });
 
   const handleButtonClick = handleSubmit((values) => {
-    dispatch(subscribe({ ...values, pathname: 'white_paper_mvp' }));
+    dispatch(subscriptionFetchingStarted({ ...values, pathname: 'white_paper_mvp' }));
     reset();
     window.open(downloadLink, '_newtab');
   });

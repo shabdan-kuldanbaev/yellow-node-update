@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { subscribe } from 'redux/actions/subscribe';
+import { subscriptionFetchingStarted } from 'redux/reducers/subscribe';
 import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscribe';
 
 const useProps = ({
@@ -42,7 +42,7 @@ const useProps = ({
   } = useForm({ reValidateMode: 'onBlur' });
 
   const handleButtonClick = handleSubmit((values) => {
-    dispatch(subscribe({ ...values, pathname: query }));
+    dispatch(subscriptionFetchingStarted({ ...values, pathname: query }));
   });
 
   const isButtonDisabled = !getValues().name

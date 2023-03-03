@@ -1,7 +1,7 @@
-export const selectSubscribeMessage = (state) => state.subscribe.message;
+export const selectSubscribeMessage = (state) => state.subscription.message;
 
-export const selectSubscribeError = (state) => state.subscribe.error;
+export const selectSubscribeError = (state) => state.subscription.error;
 
-export const selectIsSubscribed = (state) => state.subscribe.isSubscribed;
+export const selectIsSubscribed = (state) => state.subscription.isSubscribed;
 
-export const selectSubcibePending = (state) => state.subscribe.isLoading;
+export const selectSubcibePending = (state) => state.subscription.isLoading;

@@ -9,7 +9,7 @@ import {
   selectRelatedArticles,
   selectNearbyArticles,
 } from 'redux/selectors/blog';
-import { subscribe } from 'redux/actions/subscribe';
+import { subscriptionFetchingStarted } from 'redux/reducers/subscribe';
 import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
 import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
@@ -79,7 +79,7 @@ const ArticleContainer = ({
   });
   const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
 
-  const handleOnFormSubmit = (email) => dispatch(subscribe({ email, pathname }));
+  const handleOnFormSubmit = (email) => dispatch(subscriptionFetchingStarted({ email, pathname }));
 
   return (
     <>

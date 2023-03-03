@@ -1,43 +1,44 @@
-import { actionTypes } from 'actions/actionTypes';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   isLoading: false,
-  message: '',
+  message: null,
   isSubscribed: false,
   error: null,
 };
 
-const handlers = {
-  [actionTypes.SUBSCRIBE_PENDING]: (state) => ({
-    ...state,
-    isLoading: true,
-  }),
-  [actionTypes.SUBSCRIBE_SUCCESS]: (state, { payload }) => ({
-    ...state,
-    isLoading: false,
-    isSubscribed: true,
-    message: payload,
-  }),
-  [actionTypes.SUBSCRIBE_FAILED]: (state, { payload: { data } }) => ({
-    ...state,
-    isLoading: false,
-    message: data,
-    error: true,
-  }),
-  [actionTypes.CLEAR_MESSAGE]: (state) => ({
-    ...state,
-    message: '',
-  }),
-  [actionTypes.SET_IS_SUBSCRIBED]: (state, { payload }) => ({
-    ...state,
-    isSubscribed: payload,
-  }),
-  DEFAULT: (state) => state,
-};
+const subscriptionSlice = createSlice({
+  name: 'subscription',
+  initialState,
+  reducers: {
+    subscriptionFetchingStarted(state) {
+      state.isLoading = true;
+    },
+    subscriptionSucceeded(state, { payload }) {
+      state.isLoading = false;
+      state.message = payload;
+      state.isSubscribed = true;
+    },
+    subscriptionFailed(state, { payload }) {
+      state.isLoading = false;
+      state.error = payload;
+      state.message = payload.data;
+    },
+    subscriptionSet(state, { payload }) {
+      state.isSubscribed = payload;
+    },
+    messageCleared(state) {
+      state.message = null;
+    },
+  },
+});
 
-// eslint-disable-next-line default-param-last
-export default (state = initialState, action) => {
-  const handler = handlers[action.type] || handlers.DEFAULT;
+export const {
+  subscriptionFetchingStarted,
+  subscriptionSucceeded,
+  subscriptionFailed,
+  subscriptionSet,
+  messageCleared,
+} = subscriptionSlice.actions;
 
-  return handler(state, action);
-};
+export default subscriptionSlice.reducer;

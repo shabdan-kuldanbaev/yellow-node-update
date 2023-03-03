@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsSubscribed, subscribe } from 'redux/actions/subscribe';
+import { subscriptionFetchingStarted, subscriptionSet } from 'redux/reducers/subscribe';
 import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
 import { selectMetaData } from 'redux/selectors/layout';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
@@ -82,13 +82,12 @@ const BlogContainer = ({
   }
 
   const handleOnFormSubmit = (email) => {
-    dispatch(subscribe({ email, pathname }));
+    dispatch(subscriptionFetchingStarted({ email, pathname }));
   };
 
   useEffect(() => {
-    dispatch(setIsSubscribed(getDataFromLocalStorageWithExpire('isSubscribed')));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    dispatch(subscriptionSet(getDataFromLocalStorageWithExpire('isSubscribed')));
+  }, [dispatch]);
 
   return (
     <>
