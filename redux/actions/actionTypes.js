@@ -27,7 +27,4 @@ export const actionTypes = {
   /* ------------------------ */
   SET_IS_FORM_DATA_SENT: 'contact/SET_IS_FORM_DATA_SENT',
   CLEAR_CONTACT_FORM_ERROR: 'contact/CLEAR_CONTACT_FORM_ERROR',
-  /* ------------------------ */
-  GET_JSON_SUCCESS: 'process/GET_JSON_SUCCESS',
-  GET_JSON_FAILED: 'process/GET_JSON_FAILED',
 };

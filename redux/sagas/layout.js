@@ -19,7 +19,6 @@ import {
   loadArticles,
 } from 'redux/sagas/blog';
 import { fetchTags, fetchTypes } from 'redux/sagas/portfolio';
-import { loadJSON } from 'redux/sagas/process';
 import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 import { contentfulClient } from 'utils/contentful/client';
 import errorHelper from 'utils/error';
@@ -133,13 +132,6 @@ function* fetchPageData({
     case PAGES.notFound:
     case PAGES.signatureGenerator:
       yield call(fetchPage, { slug });
-
-      break;
-    case PAGES.process:
-      yield all([
-        yield call(loadJSON),
-        yield call(fetchPage, { slug }),
-      ]);
 
       break;
     default: throw new Error('Unexpected case in the fetchPageData function');
