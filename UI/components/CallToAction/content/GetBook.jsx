@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import Typography from 'UI/components/Typography';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
-import useToggle from 'hooks/useToggle';
 import GetBookModal from 'UI/components/Modals/GetBookModal';
-import downloadFile from 'utils/downloadFile';
 import Button from 'UI/components/Button';
+import downloadFile from 'utils/downloadFile';
+import useToggle from 'hooks/useToggle';
 import { selectIsSubscribed } from 'redux/selectors/subscribe';
 import styles from '../styles.module.scss';
 
