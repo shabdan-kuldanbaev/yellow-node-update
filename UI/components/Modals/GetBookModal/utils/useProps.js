@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscribe';
+import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscription';
 import downloadFile from 'utils/downloadFile';
 
 const useProps = ({ downloadLink, show, ...props }) => {

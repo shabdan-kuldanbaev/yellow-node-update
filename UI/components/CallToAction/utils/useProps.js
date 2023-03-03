@@ -6,7 +6,7 @@ import {
   getImage,
 } from 'utils/helper';
 import { LINK_TYPE } from 'utils/constants/linkType';
-import { selectIsSubscribed } from 'redux/selectors/subscribe';
+import { selectIsSubscribed } from 'redux/selectors/subscription';
 import downloadFile from 'utils/downloadFile';
 import { FullscreenEstimationContext } from 'components/Common/FullScreenEstimation';
 

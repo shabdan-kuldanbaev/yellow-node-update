@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { subscriptionFetchingStarted } from 'redux/reducers/subscribe';
-import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscribe';
+import { subscriptionFetchingStarted } from 'redux/reducers/subscription';
+import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscription';
 
 const useProps = ({
   downloadLink,

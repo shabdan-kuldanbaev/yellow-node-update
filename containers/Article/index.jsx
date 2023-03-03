@@ -9,7 +9,7 @@ import {
   selectRelatedArticles,
   selectNearbyArticles,
 } from 'redux/selectors/blog';
-import { subscriptionFetchingStarted } from 'redux/reducers/subscribe';
+import { subscriptionFetchingStarted } from 'redux/reducers/subscription';
 import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
 import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';

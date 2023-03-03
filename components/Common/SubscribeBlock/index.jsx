@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import { messageCleared } from 'redux/reducers/subscribe';
-import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscribe';
+import { messageCleared } from 'redux/reducers/subscription';
+import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscription';
 import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 

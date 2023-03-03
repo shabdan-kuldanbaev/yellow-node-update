@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import { subscriptionFetchingStarted, subscriptionSet } from 'redux/reducers/subscribe';
+import { subscriptionFetchingStarted, subscriptionSet } from 'redux/reducers/subscription';
 import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
 import { selectMetaData } from 'redux/selectors/layout';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';

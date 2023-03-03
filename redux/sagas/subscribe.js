@@ -5,7 +5,7 @@ import { API } from 'utils/api';
 import { setDataToLocalStorageWithExpire, hoursToMs } from 'utils/helper';
 import gaHelper from 'utils/ga';
 import errorHelper from 'utils/error';
-import { subscriptionFailed, subscriptionFetchingStarted, subscriptionSucceeded } from 'redux/reducers/subscribe';
+import { subscriptionFailed, subscriptionFetchingStarted, subscriptionSucceeded } from 'redux/reducers/subscription';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();

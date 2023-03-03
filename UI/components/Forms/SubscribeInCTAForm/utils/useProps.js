@@ -2,8 +2,11 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { subscriptionFetchingStarted } from 'redux/reducers/subscribe';
-import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscribe';
+import {
+  selectIsSubscribed,
+  subscriptionFetchingStarted,
+  selectSubcibePending,
+} from 'redux/selectors/subscription';
 
 const useProps = ({ onSubmit, ...props }) => {
   const {

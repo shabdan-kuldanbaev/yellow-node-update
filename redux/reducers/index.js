@@ -6,7 +6,7 @@ import clientSide from './client-side';
 import blog from './blog';
 import portfolio from './portfolio';
 import contact from './contact';
-import subscribe from './subscribe';
+import subscription from './subscription';
 import process from './process';
 
 const reducers = combineReducers({
@@ -14,7 +14,7 @@ const reducers = combineReducers({
   blog,
   portfolio,
   contact,
-  subscribe,
+  subscription,
   process,
   clientSide,
 });

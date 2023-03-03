@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSubscribeMessage } from 'redux/selectors/subscribe';
+import { selectSubscribeMessage } from 'redux/selectors/subscription';
 import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
 import ModalWindow from 'components/Common/ModalWindow';
 import { withValidateEmail } from 'hocs/withValidateEmail';
-import { messageCleared } from 'redux/reducers/subscribe';
+import { messageCleared } from 'redux/reducers/subscription';
 import styles from './styles.module.scss';
 
 const FullscreenSubscribe = ({

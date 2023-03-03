@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { subscriptionFetchingStarted } from 'redux/reducers/subscribe';
-import { selectSubscribeMessage } from 'redux/selectors/subscribe';
+import { subscriptionFetchingStarted } from 'redux/reducers/subscription';
+import { selectSubscribeMessage } from 'redux/selectors/subscription';
 
 const useProps = ({ downloadLink, ...props }) => {
   const dispatch = useDispatch();
