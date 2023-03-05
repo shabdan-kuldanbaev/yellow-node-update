@@ -1,0 +1,9 @@
+.writer-chrome-extension {
+  :global(.swiper-wrapper) {
+    margin-bottom: 35px;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: 0;
+  }
+}

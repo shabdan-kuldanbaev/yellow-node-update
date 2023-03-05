@@ -1,0 +1,48 @@
+@mixin circlee($color, $size) {
+  display: none;
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background-color: $color;
+  width: $size;
+  height: $size;
+  z-index: -1;
+
+  @include phone {
+    display: block;
+  }
+}
+
+.writer-chrome-extension {
+  background-color: $writerAccent;
+  position: relative;
+  z-index: 1;
+
+  .titleStyle {
+    position: relative;
+    z-index: 20;
+  }
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray0;
+    opacity: 0.7;
+  }
+
+  &::before {
+    @include circlee($writerSecondary, 338px);
+
+    top: -120px;
+    left: -174px;
+  }
+
+  &::after {
+    @include circlee($writerSecondary, 255px);
+
+    bottom: -67px;
+    right: -122px;
+  }
+}
