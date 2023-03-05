@@ -20,6 +20,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'natp',
   'cash-chat',
   'travel-trivia',
+  'ubichat',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
