@@ -5,6 +5,8 @@
   grid-template-rows: repeat(3, auto);
   grid-auto-flow: column;
   max-width: 1100px;
+  background-size: cover;
+  background-position: center;
 
   .title {
     @include fontSize(38px, 130%);
