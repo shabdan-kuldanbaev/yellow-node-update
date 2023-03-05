@@ -5,4 +5,25 @@
       height: 532px;
     }
   }
+
+  &.secondSectionView {
+    .image-1 {
+      width: 100%;
+      height: 140px;
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+
+    .image-2 {
+      display: none;
+      width: 100%;
+      height: 452px;
+
+      @include below-tablet {
+        display: block;
+      }
+    }
+  }
 }
