@@ -308,6 +308,7 @@ export const CASE_STUDIES_TYPES = {
   challengesSpecialSlider: 'case-study-special-slider',
   prototype: 'case-study-prototype',
   feedback: 'feedback',
+  faq: 'case-study-faq',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
