@@ -1,11 +1,22 @@
 .ubichat {
-  padding: 60px 0 120px;
+  &.firstSectionView {
+    padding: 60px 0 120px;
 
-  .titleStyle {
-    max-width: 539px;
+    @include tablet {
+      padding: 30px 0 60px;
+    }
   }
 
-  @include tablet {
-    padding: 30px 0 60px;
+  &.secondSectionView {
+    padding: 60px 0 0;
+
+    .titleStyle {
+      max-width: 539px;
+      padding: 0 16px;
+    }
+
+    @include tablet {
+      padding-top: 30px;
+    }
   }
 }
