@@ -1,6 +1,16 @@
 .ubichat {
-  .image {
-    width: 995px;
-    height: 532px;
+  &.firstSectionView {
+    .image {
+      width: 995px;
+      height: 532px;
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      width: 995px;
+      height: 578px;
+      transform: scale(1.1);
+    }
   }
 }
