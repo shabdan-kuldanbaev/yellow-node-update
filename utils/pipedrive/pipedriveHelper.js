@@ -10,7 +10,7 @@ const getPipedriveFields = async () => {
       `${process.env.PIPEDRIVE_API_URL}/personFields?api_token=${process.env.PIPEDRIVE_AUTH_TOKEN}`,
     );
 
-    const countryField = pipedriveFields.data.find((field) => field.name === 'Country' && field.id === 9080);
+    const countryField = pipedriveFields.data.find((field) => field.name === 'Person Country' && field.id === 9094);
     const clientIdField = pipedriveFields.data.find((field) => field.name.trim() === 'Client ID' && field.id === 9086);
     const leadSourceField = pipedriveFields.data.find((field) => field.name === 'Lead source' && field.id === 9087);
 
