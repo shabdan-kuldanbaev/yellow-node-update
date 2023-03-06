@@ -257,34 +257,63 @@ export const microdata = {
     '@context': context,
     '@type': 'WebPage',
     name: 'Project Discovery Phase in Custom Software Development',
-    description: 'Discovery phase of a project is an important part of software development. Learn more about how Yellow runs a discovery phase to benefit your business.',
+    description: 'Discovery phase of a project is an important part of software development. '
+    + 'Learn more about how Yellow runs a discovery phase to benefit your business.',
     breadcrumb: 'Homepage > Project Discovery Phase in Custom Software Development',
   }),
-  mvpDevelopment: () => ({
-    '@context': context,
-    '@type': 'WebPage',
-    name: 'MVP development company | Yellow',
-    description: 'A minimum viable product will help you get enough feedback to determine whether you should '
+  mvpDevelopment: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'MVP App Development Services | Yellow',
+      description: 'A minimum viable product will help you get enough feedback to determine whether you should '
       + 'continue a given project. Yellow is ready to help with your MVP development.',
-    breadcrumb: 'Homepage > MVP development services',
-    image: logoUrl,
-  }),
-  lendingSoftwareDevelopment: () => ({
-    '@context': context,
-    '@type': 'WebPage',
-    name: 'Lending Software Development Company | Yellow',
-    description: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
-    breadcrumb: 'Lending Software Development Company | Yellow',
-    image: logoUrl,
-  }),
-  cloudDevelopment: () => ({
-    '@context': context,
-    '@type': 'WebPage',
-    name: 'Cloud app development company | Yellow',
-    description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
-    breadcrumb: 'Homepage > Cloud app development services',
-    image: logoUrl,
-  }),
+      breadcrumb: 'Homepage > MVP App Development Services',
+      image: logoUrl,
+    }, {
+      '@context': context,
+      '@type': 'Service',
+      name: 'MVP App Development Services',
+      alternateName: 'MVP App Development Services | Yellow',
+      description: 'A minimum viable product will help you get enough feedback to determine whether you should '
+      + 'continue a given project. Yellow is ready to help with your MVP development.',
+      provider: publisherMicrodata,
+    },
+  ]),
+  lendingSoftwareDevelopment: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'Lending Software Development Services | Yellow',
+      description: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
+      breadcrumb: 'Lending Software Development Services | Yellow',
+      image: logoUrl,
+    }, {
+      '@context': context,
+      '@type': 'Service',
+      name: 'Lending Software Development Services',
+      alternateName: 'Lending Software Development | Yellow',
+      description: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
+      provider: publisherMicrodata,
+    },
+  ]),
+  cloudDevelopment: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'Cloud Application Development Services | Yellow',
+      description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
+      breadcrumb: 'Homepage > Cloud Application Development Services',
+      image: logoUrl,
+    }, {
+      '@context': context,
+      '@type': 'Service',
+      name: 'Cloud Application Development Services',
+      alternateName: 'Cloud app development | Yellow',
+      description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
+      provider: publisherMicrodata,
+    },
+  ]),
   crossPlatformDevelopmentServices: () => ({
     '@context': context,
     '@type': 'WebPage',
@@ -305,7 +334,8 @@ export const microdata = {
     '@context': context,
     '@type': 'WebPage',
     name: 'DevOps Development Company | Yellow',
-    description: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
+    description: 'If your company wants to integrate DevOps service into its processes and get all '
+    + 'the benefits this technology offers, Yellow is ready to lend a hand!',
     breadcrumb: 'Homepage > DevOps Development Company',
     image: logoUrl,
   }),
@@ -321,9 +351,9 @@ export const microdata = {
     {
       '@context': context,
       '@type': 'WebPage',
-      name: 'AI Software Development Services: Best Choice for Your Business | Yellow',
-      description: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
-      breadcrumb: 'Homepage > AI Software development services',
+      name: 'Custom Trading Software Development Company | Yellow',
+      description: 'If you plan to start trading software development, we can help. Let’s discuss your idea in detail.',
+      breadcrumb: 'Homepage > Custom Trading Software Development Company',
       image: logoUrl,
     },
     {
@@ -332,6 +362,7 @@ export const microdata = {
       name: 'Custom Trading Software Development Services',
       alternateName: 'Custom Trading Software Development Services | Yellow',
       description: 'If you plan to start trading software development, we can help. Let’s discuss your idea in detail.',
+      provider: publisherMicrodata,
     },
   ]),
   breadcrumbs: ({ breadcrumbsList }) => {

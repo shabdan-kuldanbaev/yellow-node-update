@@ -234,19 +234,19 @@ export const routes = {
     slug: 'android-mobile-app-development-services',
   },
   mvpDevelopment: {
-    title: 'MVP development services',
+    title: 'MVP App Development Services',
     path: '/mvp-app-development-company',
     dynamicPath: '/mvp-app-development-company',
     slug: 'mvp-app-development-company',
   },
   lendingSoftwareDevelopment: {
-    title: 'Lending Software Development Company',
+    title: 'Lending Software Development Services',
     path: '/lending-software-development',
     dynamicPath: '/lending-software-development',
     slug: 'lending-software-development',
   },
   cloudDevelopment: {
-    title: 'Cloud-based application development company',
+    title: 'Cloud Application Development Services',
     path: '/cloud-based-app-development-services',
     dynamicPath: '/cloud-based-app-development-services',
     slug: 'cloud-based-app-development-services',
@@ -306,7 +306,7 @@ export const routes = {
     slug: 'data-science-development-company',
   },
   tradingSoftwareDevelopment: {
-    title: 'Custom Trading Software Development Services',
+    title: 'Custom Trading Software Development Company',
     path: '/trading-software-development',
     dynamicPath: '/trading-software-development',
     slug: 'trading-software-development',
