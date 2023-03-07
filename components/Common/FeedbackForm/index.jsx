@@ -2,17 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Animated from 'components/Common/Animated';
 import Upload from 'components/Common/Upload';
 import Input from 'UI/components/Input';
 import Button from 'UI/components/Button';
 import { selectError } from 'redux/selectors/contact';
-import { sendEmail } from 'redux/actions/contact';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs/withValidateEmail';
+import { formSendingStarted } from 'redux/reducers/contact';
 import FormContainer from './FormContainer';
 import { SliderWrapper } from './SliderWrapper';
 import { budget, marks } from './utils/data';
@@ -25,10 +25,10 @@ const FeedbackForm = ({
   isChooseBudget,
   budget: budgetData,
   formKey,
-  contactFormError,
   type,
-  sendEmail: sendFeedback,
 }) => {
+  const dispatch = useDispatch();
+  const contactFormError = useSelector(selectError);
   const { asPath } = useRouter();
   const formRef = useRef(null);
   const sliderRef = useRef(null);
@@ -108,13 +108,13 @@ const FeedbackForm = ({
 
     const filesUrls = selectedFiles.map((file) => file.signedUrl);
 
-    sendFeedback({
+    dispatch(formSendingStarted({
       name: fullName,
       email: email.value,
       description: projectDescription,
       attachments: filesUrls,
       projectBudget: projectBudget || '',
-    });
+    }));
   };
 
   useEffect(() => {
@@ -269,7 +269,4 @@ FeedbackForm.propTypes = {
   sendEmail: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({ contactFormError: selectError(state) }),
-  { sendEmail },
-)(withValidateEmail(FeedbackForm));
+export default withValidateEmail(FeedbackForm);

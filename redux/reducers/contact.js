@@ -1,38 +1,43 @@
-import { actionTypes } from 'actions/actionTypes';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isFormDataSent: false,
+  formSentData: null,
   error: null,
   isPending: false,
 };
 
-const handlers = {
-  [actionTypes.SEND_FORM_DATA_PENDING]: (state) => ({
-    ...state,
-    isPending: true,
-    error: null,
-    isFormDataSent: false,
-  }),
-  [actionTypes.SEND_FORM_DATA_SUCCESS]: (state) => ({
-    ...state,
-    isFormDataSent: true,
-    error: null,
-    isPending: false,
-  }),
-  [actionTypes.SEND_FORM_DATA_FAILED]: (state, { payload }) => ({
-    ...state,
-    isFormDataSent: false,
-    error: payload,
-    isPending: false,
-  }),
-  [actionTypes.SET_IS_FORM_DATA_SENT]: (state, { payload }) => ({ ...state, isFormDataSent: payload }),
-  [actionTypes.CLEAR_CONTACT_FORM_ERROR]: (state) => ({ ...state, error: null }),
-  DEFAULT: (state) => state,
-};
+const contactSlice = createSlice({
+  name: 'contact',
+  initialState,
+  reducers: {
+    formSendingStarted(state) {
+      state.isPending = true;
+      state.error = null;
+      state.formSentData = null;
+    },
+    formSendingFailed(state, { payload }) {
+      state.isPending = false;
+      state.error = payload;
+    },
+    formErrorDismissed(state) {
+      state.error = null;
+    },
+    formSendingSucceeded(state, { payload }) {
+      state.formSentData = payload;
+      state.isPending = false;
+    },
+    formSuccessDismissed(state) {
+      state.formSentData = null;
+    },
+  },
+});
 
-// eslint-disable-next-line default-param-last
-export default (state = initialState, action) => {
-  const handler = handlers[action.type] || handlers.DEFAULT;
+export const {
+  formSendingStarted,
+  formSendingFailed,
+  formErrorDismissed,
+  formSendingSucceeded,
+  formSuccessDismissed,
+} = contactSlice.actions;
 
-  return handler(state, action);
-};
+export default contactSlice.reducer;

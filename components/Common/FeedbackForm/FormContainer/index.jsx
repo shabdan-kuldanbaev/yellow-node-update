@@ -3,23 +3,23 @@ import React, {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
 import { useSpring, a } from '@react-spring/web';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
-import { connect } from 'react-redux';
-import { setIsFormDataSent } from 'redux/actions/contact';
 import { selectIsFormDataSent } from 'redux/selectors/contact';
 import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
+import { formSuccessDismissed } from 'redux/reducers/contact';
 import styles from './styles.module.scss';
 
 const FormContainer = ({
   children,
   formRef,
-  isFormDataSent,
   clearForm,
-  setIsFormDataSent: setFormDataSent,
 }) => {
+  const dispatch = useDispatch();
+  const isFormDataSent = useSelector(selectIsFormDataSent);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isFrontShown, setIsFrontShown] = useState(true);
   const { transform, opacity } = useSpring({
@@ -35,7 +35,7 @@ const FormContainer = ({
   const handleOnCloseClick = () => {
     setIsFlipped(false);
     setIsFrontShown(true);
-    setFormDataSent(false);
+    dispatch(formSuccessDismissed());
   };
 
   useEffect(() => {
@@ -93,12 +93,7 @@ const FormContainer = ({
 FormContainer.propTypes = {
   children: PropTypes.instanceOf(Object).isRequired,
   formRef: PropTypes.instanceOf(Object).isRequired,
-  isFormDataSent: PropTypes.bool.isRequired,
   clearForm: PropTypes.func.isRequired,
-  setIsFormDataSent: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({ isFormDataSent: selectIsFormDataSent(state) }),
-  { setIsFormDataSent },
-)(FormContainer);
+export default FormContainer;

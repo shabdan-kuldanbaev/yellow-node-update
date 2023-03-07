@@ -1,11 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
 import Svg from 'UI/components/Svg';
 import Animated from 'UI/containers/Animated';
 import Typography from 'UI/components/Typography';
-import { setIsFormDataSent } from 'redux/actions/contact';
-import { selectIsFormDataSent } from 'redux/selectors/contact';
 import { REVEAL_ANIMATION_PROPS, SVG_IMAGES_TYPES } from 'utils/constants';
 import useAlertProps from './utils/useAlertProps';
 import styles from './styles.module.scss';
@@ -37,6 +34,4 @@ const FormAlert = (props) => {
   );
 };
 
-export default connect((state) => ({
-  isDataSubmitted: selectIsFormDataSent(state),
-}), { setIsFormDataSent })(FormAlert);
+export default FormAlert;

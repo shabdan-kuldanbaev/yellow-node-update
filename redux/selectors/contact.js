@@ -1,4 +1,4 @@
-export const selectIsFormDataSent = (state) => state.contact.isFormDataSent;
+export const selectIsFormDataSent = (state) => state.contact.formSentData;
 
 export const selectIsFormPending = (state) => state.contact.isPending;
 

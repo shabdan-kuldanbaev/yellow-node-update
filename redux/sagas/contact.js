@@ -5,7 +5,11 @@ import {
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
-import { actionTypes } from 'redux/actions/actionTypes';
+import {
+  formSendingFailed,
+  formSendingStarted,
+  formSendingSucceeded,
+} from 'redux/reducers/contact';
 import { API } from 'utils/api';
 import { getFeedbackFormData } from 'utils/helper';
 import gaHelper from 'utils/ga';
@@ -24,16 +28,17 @@ function* sendEmail({ payload }) {
 
     gaHelper.trackEvent('Contact Form', 'Send');
 
-    yield put({ type: actionTypes.SEND_FORM_DATA_SUCCESS, payload: response });
+    yield put(formSendingSucceeded(response));
   } catch (error) {
+    yield put(formSendingFailed(error));
+
     errorHelper.handleError({
       error,
       message: 'Error in the sendEmail function',
     });
-    yield put({ type: actionTypes.SEND_FORM_DATA_FAILED, payload: error });
   }
 }
 
 export function* sendEmailWatcher() {
-  yield takeLatest(actionTypes.SEND_FORM_DATA_PENDING, sendEmail);
+  yield takeLatest(formSendingStarted, sendEmail);
 }

@@ -20,11 +20,4 @@ export const actionTypes = {
   FIND_ARTICLES_FAILED: 'blog/FIND_ARTICLES_FAILED',
   /* ------------------------ */
   GET_PROJECT_SUCCESS: 'portfolio/GET_PROJECT_SUCCESS',
-  /* ------------------------ */
-  SEND_FORM_DATA_PENDING: 'contact/SEND_FORM_DATA_PENDING',
-  SEND_FORM_DATA_SUCCESS: 'contact/SEND_FORM_DATA_SUCCESS',
-  SEND_FORM_DATA_FAILED: 'contact/SEND_FORM_DATA_FAILED',
-  /* ------------------------ */
-  SET_IS_FORM_DATA_SENT: 'contact/SET_IS_FORM_DATA_SENT',
-  CLEAR_CONTACT_FORM_ERROR: 'contact/CLEAR_CONTACT_FORM_ERROR',
 };

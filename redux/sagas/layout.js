@@ -7,6 +7,7 @@ import {
   takeEvery,
 } from 'redux-saga/effects';
 import { actionTypes } from 'redux/actions/actionTypes';
+import { formErrorDismissed } from 'redux/reducers/contact';
 import {
   pageFetched,
   pageFetchingFailed,
@@ -56,7 +57,7 @@ function* fetchPageData({
   try {
     // TODO without clearing current article google analytics sends event two times
     yield put({ type: actionTypes.CLEAR_CURRENT_ARTICLE });
-    yield put({ type: actionTypes.CLEAR_CONTACT_FORM_ERROR });
+    yield put(formErrorDismissed());
 
     switch (slug) {
     case PAGES.homepage: {

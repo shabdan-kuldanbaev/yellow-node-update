@@ -1,5 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { formSendingStarted } from 'redux/reducers/contact';
+import {
+  selectError,
+  selectIsFormDataSent,
+  selectIsFormPending,
+} from 'redux/selectors/contact';
 import { addThousandsSeparators } from 'utils/helper';
 import visitData from 'utils/gaMetrics/getGaMetrics';
 import { budget as budgetData, marks } from './data';
@@ -8,11 +15,12 @@ export default ({
   className,
   isBudgetSlider,
   type,
-  sendEmail,
-  contactFormError,
-  isDataSubmitted,
-  isFormPending,
 }) => {
+  const dispatch = useDispatch();
+  const contactFormError = useSelector(selectError);
+  const isDataSubmitted = useSelector(selectIsFormDataSent);
+  const isFormPending = useSelector(selectIsFormPending);
+
   const {
     register,
     handleSubmit,
@@ -37,13 +45,13 @@ export default ({
     const sourceMetrics = visitData();
 
     const attachments = selectedFiles.map((file) => file.signedUrl);
-    sendEmail({
+    dispatch(formSendingStarted({
       ...values,
       source: sourceMetrics?.source,
       medium: sourceMetrics?.medium,
       attachments,
       projectBudget: budget || '',
-    });
+    }));
   });
 
   useEffect(() => {
