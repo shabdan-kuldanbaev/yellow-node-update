@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import get from 'lodash/get';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectCompanyPhoto, selectMetaData } from 'redux/selectors/layout';
 import CompanyContacts from 'components/ContactUsCommon/CompanyContacts';
 import MetaTags from 'components/Common/MetaTags';
@@ -22,11 +22,10 @@ import styles from './styles.module.scss';
 
 const CompanyPeoplePhoto = dynamic(() => import('components/ContactUsCommon/CompanyPeoplePhoto'));
 
-const ContactUsContainer = ({
-  introSection,
-  peoplePhoto,
-  metaData,
-}) => {
+const ContactUsContainer = ({ introSection }) => {
+  const peoplePhoto = useSelector(selectCompanyPhoto);
+  const metaData = useSelector(selectMetaData);
+
   const { images: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['images']);
   const peopleImageUrl = getFileUrl(get(peoplePhotoContent, '[0]', {}));
   const breadcrumbs = pagesBreadcrumbs.contact();
@@ -62,23 +61,8 @@ const ContactUsContainer = ({
   );
 };
 
-ContactUsContainer.defaultProps = {
-  peoplePhoto: {},
-};
-
 ContactUsContainer.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
-  peoplePhoto: PropTypes.instanceOf(Object),
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-    ogImage: PropTypes.string,
-  }).isRequired,
 };
 
-export default connect(
-  (state) => ({
-    peoplePhoto: selectCompanyPhoto(state),
-    metaData: selectMetaData(state),
-  }),
-)(ContactUsContainer);
+export default ContactUsContainer;

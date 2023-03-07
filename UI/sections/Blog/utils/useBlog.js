@@ -1,7 +1,11 @@
+import { useSelector } from 'react-redux';
+import { selectArticles } from 'redux/selectors/blog';
 import { Mousewheel, Navigation } from 'swiper';
 import { getDocumentFields } from 'utils/helper';
 
-export const useBlog = ({ articles, sectionData }) => {
+export const useBlog = ({ sectionData }) => {
+  const articles = useSelector(selectArticles);
+
   const { title, description } = getDocumentFields(sectionData, ['title', 'description']);
 
   const swiperProps = {

@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
 import {
   selectManagementTeam,
@@ -23,13 +22,13 @@ const ManagementTeam = dynamic(() => import('components/CompanyCommon/Management
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 
-const CompanyContainer = ({
-  photosData,
-  managementTeam,
-  whatMakesSpecial,
-  metaData,
-  companyReviews,
-}) => {
+const CompanyContainer = () => {
+  const photosData = useSelector(selectImageCarousel);
+  const managementTeam = useSelector(selectManagementTeam);
+  const whatMakesSpecial = useSelector(selectWhatMakesSpecial);
+  const metaData = useSelector(selectMetaData);
+  const companyReviews = useSelector(selectCompanyReviews);
+
   const { contentModules: teamContent } = getDocumentFields(managementTeam, ['contentModules']);
   const { contentModules: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['contentModules']);
   const breadcrumbs = pagesBreadcrumbs.company();
@@ -67,31 +66,4 @@ const CompanyContainer = ({
   );
 };
 
-CompanyContainer.defaultProps = {
-  photosData: {},
-  managementTeam: {},
-  whatMakesSpecial: {},
-};
-
-CompanyContainer.propTypes = {
-  introSection: PropTypes.instanceOf(Object).isRequired,
-  photosData: PropTypes.instanceOf(Object),
-  managementTeam: PropTypes.instanceOf(Object),
-  whatMakesSpecial: PropTypes.instanceOf(Object),
-  companyReviews: PropTypes.instanceOf(Object),
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-    ogImage: PropTypes.string,
-  }).isRequired,
-};
-
-export default connect(
-  (state) => ({
-    photosData: selectImageCarousel(state),
-    managementTeam: selectManagementTeam(state),
-    whatMakesSpecial: selectWhatMakesSpecial(state),
-    metaData: selectMetaData(state),
-    companyReviews: selectCompanyReviews(state),
-  }),
-)(CompanyContainer);
+export default CompanyContainer;
