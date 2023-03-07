@@ -1,5 +1,3 @@
-export const selectIsLoading = (state) => state.blog.isLoading;
-
 export const selectArticle = (state) => state.blog.single;
 
 export const selectArticles = (state) => state.blog.all;

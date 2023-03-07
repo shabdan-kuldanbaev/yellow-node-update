@@ -9,7 +9,13 @@ import ObjectAssign from 'es6-object-assign';
 import get from 'lodash/get';
 import uniqWith from 'lodash/uniqWith';
 import isEqual from 'lodash/isEqual';
-import { actionTypes } from 'redux/actions/actionTypes';
+import {
+  articleLoadingSucceeded,
+  articlesListLoadingSucceeded,
+  errorOccured,
+  nearbyArticlesLoadingSucceeded,
+  relatedArticlesLoadingSucceeded,
+} from 'redux/reducers/blog';
 import { selectArticle } from 'redux/selectors/blog';
 import { getDocumentFields } from 'utils/helper';
 import { contentfulClient } from 'utils/contentful/client';
@@ -57,9 +63,9 @@ function* getArticle({ articleSlug, isPreviewMode }) {
       { 'fields.slug': articleSlug },
     );
 
-    yield put({ type: actionTypes.GET_ARTICLE_SUCCESS, payload: article });
+    yield put(articleLoadingSucceeded(article));
   } catch (error) {
-    yield put({ type: actionTypes.GET_ARTICLE_FAILED, payload: error });
+    yield put(errorOccured(error));
   }
 }
 
@@ -80,19 +86,16 @@ export function* loadArticles({
     });
     const response = yield contentfulClient.graphql(graphqlQuery);
 
-    yield put({
-      type: actionTypes.LOAD_ARTICLES_SUCCESS,
-      payload: {
-        items: isTagBlog
-          ? getGraphqlResultArticlesByTags(response)
-          : getGraphqlResultArticles(response),
-        total: isTagBlog
-          ? getGraphqlResultTotalArticlesCountByTags(response)
-          : getGraphqlResultTotalArticlesCount(response),
-      },
-    });
+    yield put(articlesListLoadingSucceeded({
+      items: isTagBlog
+        ? getGraphqlResultArticlesByTags(response)
+        : getGraphqlResultArticles(response),
+      total: isTagBlog
+        ? getGraphqlResultTotalArticlesCountByTags(response)
+        : getGraphqlResultTotalArticlesCount(response),
+    }));
   } catch (error) {
-    yield put({ type: actionTypes.LOAD_ARTICLES_FAILED, payload: error });
+    yield put(errorOccured(error));
   }
 }
 
@@ -110,12 +113,9 @@ function* loadRelatedArticles({
       },
     }));
 
-    yield put({
-      type: actionTypes.LOAD_RELATED_SUCCESS,
-      payload: getGraphqlResultArticles(response),
-    });
+    yield put(relatedArticlesLoadingSucceeded(getGraphqlResultArticles(response)));
   } catch (error) {
-    yield put({ type: actionTypes.LOAD_RELATED_FAILED, payload: error });
+    yield put(errorOccured(error));
   }
 }
 
@@ -132,15 +132,12 @@ function* loadNearbyArticles({ publishedAt }) {
       where: { publishedAt_gt: publishedAt },
     }));
 
-    yield put({
-      type: actionTypes.LOAD_NEARBY_SUCCESS,
-      payload: {
-        olderArticle: getGraphqlResultArticles(prev)[0],
-        newerArticle: getGraphqlResultArticles(next)[0],
-      },
-    });
+    yield put(nearbyArticlesLoadingSucceeded({
+      olderArticle: getGraphqlResultArticles(prev)[0],
+      newerArticle: getGraphqlResultArticles(next)[0],
+    }));
   } catch (error) {
-    yield put({ type: actionTypes.LOAD_NEARBY_FAILED, payload: error });
+    yield put(errorOccured(error));
   }
 }
 
@@ -177,9 +174,9 @@ export function* findArticles({ payload: { value } }) {
       isEqual,
     );
 
-    yield put({ type: actionTypes.FIND_ARTICLES_SUCCESS, payload: result });
+    yield put(articlesListLoadingSucceeded(result));
   } catch (error) {
-    yield put({ type: actionTypes.FIND_ARTICLES_FAILED, payload: error });
+    yield put(errorOccured(error));
   }
 }
 

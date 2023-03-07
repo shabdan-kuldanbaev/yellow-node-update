@@ -7,7 +7,7 @@ import React, {
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import { useDispatch } from 'react-redux';
-import { findArticles, clearFoundArticles } from 'redux/actions/blog';
+import { searchCleared, searchStarted } from 'redux/reducers/blog';
 import ModalWindow from 'components/Common/ModalWindow';
 import SearchResult from './SearchResult';
 import styles from './styles.module.scss';
@@ -18,12 +18,12 @@ const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
   const inputRef = useRef(null);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const delayedQuery = useCallback(debounce((value) => dispatch(findArticles({ value })), 1000), []);
+  const delayedQuery = useCallback(debounce((value) => dispatch(searchStarted({ value })), 1000), []);
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
 
     if (value.length === 0) {
-      dispatch(clearFoundArticles());
+      dispatch(searchCleared());
       delayedQuery.cancel();
     }
 
@@ -34,7 +34,7 @@ const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
   const handleOnCloseModalWindow = () => {
     closeFullscreenSearch();
     setInputValue('');
-    dispatch(clearFoundArticles());
+    dispatch(searchCleared());
   };
 
   useEffect(() => {

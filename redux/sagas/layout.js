@@ -6,7 +6,7 @@ import {
   put,
   takeEvery,
 } from 'redux-saga/effects';
-import { actionTypes } from 'redux/actions/actionTypes';
+import { articleCleared, searchStarted } from 'redux/reducers/blog';
 import { formErrorDismissed } from 'redux/reducers/contact';
 import {
   pageFetched,
@@ -56,7 +56,7 @@ function* fetchPageData({
 }) {
   try {
     // TODO without clearing current article google analytics sends event two times
-    yield put({ type: actionTypes.CLEAR_CURRENT_ARTICLE });
+    yield put(articleCleared());
     yield put(formErrorDismissed());
 
     switch (slug) {
@@ -150,7 +150,7 @@ function* fetchPageData({
 
 export function* fetchPageWatcher() {
   yield all([
-    yield takeEvery(actionTypes.FIND_ARTICLES_PENDING, findArticles),
+    yield takeEvery(searchStarted, findArticles),
     yield takeEvery(pageFetchingStarted, fetchPageData),
   ]);
 }
