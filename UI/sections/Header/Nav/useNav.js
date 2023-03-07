@@ -37,7 +37,7 @@ export const useNav = ({
     const handleClickOutside = ({ target }) => {
       const { current } = navRef || {};
 
-      if (current && !current.contains(target)) {
+      if (isDropMenuOpened && current && !current.contains(target)) {
         closeDropDownMenu();
       }
     };
@@ -45,7 +45,7 @@ export const useNav = ({
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [closeDropDownMenu]);
+  }, [closeDropDownMenu, isDropMenuOpened]);
 
   return {
     navRef,
