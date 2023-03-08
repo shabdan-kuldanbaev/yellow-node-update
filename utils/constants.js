@@ -20,6 +20,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'natp',
   'cash-chat',
   'travel-trivia',
+  'bionorica',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -390,7 +391,6 @@ export const PAGES_WITH_DARK_HEADER = [
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
   CASE_STUDIES.beautonomy,
-  CASE_STUDIES.bionorica,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
