@@ -1,32 +1,52 @@
 .bionorica {
-  padding: 40px 0 60px;
-  position: relative;
-  background-color: transparent;
-  z-index: 1;
+  &.firstSectionView {
+    padding: 40px 0 60px;
+    position: relative;
+    background-color: transparent;
+    z-index: 1;
 
-  .titleStyle {
-    max-width: 539px;
-  }
+    .titleStyle {
+      max-width: 539px;
+    }
 
-  .bundleImage {
-    position: absolute;
-    top: -100px;
-    left: -168px;
-    width: 596px;
-    height: 328px;
-    transform: rotate(131deg);
-    z-index: -1;
-    opacity: 0.5;
+    .bundleImage {
+      position: absolute;
+      top: -100px;
+      left: -168px;
+      width: 596px;
+      height: 328px;
+      transform: rotate(131deg);
+      z-index: -1;
+      opacity: 0.5;
+
+      @include tablet {
+        width: 285px;
+        height: 157px;
+        left: -147px;
+        top: 80px;
+      }
+    }
 
     @include tablet {
-      width: 285px;
-      height: 157px;
-      left: -147px;
-      top: 80px;
+      padding: 30px 0 60px;
     }
   }
 
-  @include tablet {
-    padding: 30px 0 60px;
+  &.secondSectionView {
+    position: relative;
+    padding: 60px 0;
+
+    .bundleImage {
+      position: absolute;
+      width: 503.35px;
+      height: 305.64px;
+      bottom: -100px;
+      left: -174px;
+      transform: matrix(-0.83, 0.55, 0.55, 0.83, 0, 0);
+    }
+
+    @include tablet {
+      padding: 30px 16px;
+    }
   }
 }
