@@ -7,7 +7,7 @@ import Typography from 'UI/components/Typography';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
-const CaseFaq = (props) => {
+const CaseProcess = (props) => {
   const {
     type,
     style,
@@ -85,9 +85,9 @@ const CaseFaq = (props) => {
   );
 };
 
-CaseFaq.propTypes = {
+CaseProcess.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,
 };
 
-export default CaseFaq;
+export default CaseProcess;
