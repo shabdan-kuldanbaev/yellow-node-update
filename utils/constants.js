@@ -20,6 +20,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'natp',
   'cash-chat',
   'travel-trivia',
+  'ubichat',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -376,6 +377,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
   ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
+  ROUTES.project.getRoute(CASE_STUDIES.ubiChat).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,

@@ -43,7 +43,9 @@ export const IMAGE_SIZES = {
   'fusion-markets': 600,
   blackbird: 600,
   'fintech-app-for-credit-score': 600,
-  ubichat: 527,
+  ubichat: {
+    default: 500,
+  },
   telemojo: 540,
   famlicious: 478,
   bionorica: 440,
@@ -63,6 +65,9 @@ export const MOBILE_IMAGE_SIZES = {
     default: 180,
   },
   'drive-focus': {
+    default: 220,
+  },
+  ubichat: {
     default: 220,
   },
 };
