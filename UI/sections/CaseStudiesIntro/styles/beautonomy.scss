@@ -1,0 +1,37 @@
+.beautonomy {
+  background: $beautonomyBackground;
+
+  [data-title],
+  [data-subtitle] {
+    max-width: 410px;
+    color: $gray900;
+  }
+
+  [data-description] {
+    max-width: 410px;
+  }
+
+  .infoTitle {
+    color: $gray900;
+  }
+
+  .experience > p {
+    color: $gray400;
+  }
+
+  .image {
+    width: 1026px;
+    left: 63%;
+
+    @include phone {
+      width: 100%;
+      left: 50%;
+    }
+  }
+
+  .imageContainer {
+    @include phone {
+      width: 100%;
+    }
+  }
+}

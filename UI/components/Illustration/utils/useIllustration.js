@@ -10,6 +10,7 @@ export default ({
   apiParams,
   transparent,
   placeholder: placeholderProp,
+  priority,
   ...rest
 }) => {
   const loader = isStatic
@@ -29,7 +30,7 @@ export default ({
       transparent,
     });
 
-  return {
+  const props = {
     src,
     loader,
     blurDataURL,
@@ -38,4 +39,10 @@ export default ({
     placeholder,
     ...rest,
   };
+
+  if (!priority) {
+    props.loading = 'lazy';
+  }
+
+  return props;
 };
