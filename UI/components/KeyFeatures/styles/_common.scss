@@ -11,10 +11,10 @@
     background-color: $gray50;
     position: absolute;
     top: -5%;
-    left: -28%;
+    left: -25%;
     right: 5%;
     bottom: -5%;
-    transform: rotateY(-16deg) translateZ(-200px);
+    transform: rotateY(-14deg) translateZ(-200px);
 
     @include phone {
       left: -30%;
