@@ -19,22 +19,6 @@
   .teamList {
     @include flex(column);
 
-    &-1 {
-      grid-area: 2 / 1 / 3 / 2;
-    }
-
-    &-2 {
-      grid-area: 2 / 2 / 3 / 3;
-    }
-
-    &-3 {
-      grid-area: 2 / 3 / 3 / 4;
-    }
-
-    &-4 {
-      grid-area: 2 / 4 / 3 / 5;
-    }
-
     @include tablet {
       align-items: center;
     }
