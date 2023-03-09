@@ -473,3 +473,13 @@
 @function color($c, $alfa: 1) {
   @return rgb(var($c), $alfa);
 }
+
+@mixin circle($color, $size) {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background-color: $color;
+  width: $size;
+  height: $size;
+  z-index: -1;
+}
