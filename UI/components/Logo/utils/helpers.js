@@ -9,6 +9,7 @@ export const WHITE_LOGO_TYPE = [
   'natp',
   'travel-trivia',
   'cash-chat',
+  'ubichat',
   'writer-chrome-extension',
 ];
 
