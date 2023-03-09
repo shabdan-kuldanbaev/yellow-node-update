@@ -3,6 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import { createWrapper } from 'next-redux-wrapper';
 import rootReducers from 'redux/reducers';
 import rootSaga from 'redux/sagas';
+import blogApi from './apis/blog';
 
 const makeStore = () => {
   const sagaMiddleware = createSagaMiddleware();
@@ -12,7 +13,10 @@ const makeStore = () => {
 
     middleware: (getDefaultMiddleware) => {
       const middleware = getDefaultMiddleware()
-        .concat(sagaMiddleware);
+        .concat(
+          sagaMiddleware,
+          blogApi.middleware,
+        );
 
       return middleware;
     },

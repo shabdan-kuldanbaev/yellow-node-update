@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import blogApi from 'redux/apis/blog';
 import { setRawPayload } from 'utils/redux';
 
 const name = 'blog';
@@ -13,6 +14,7 @@ const initialState = {
   searchMessage: '',
   totalCount: 0,
   error: {},
+  tags: null,
 };
 
 const blogSlice = createSlice({
@@ -39,6 +41,15 @@ const blogSlice = createSlice({
       state.pending = false;
       state.searchMessage = payload.length ? '' : 'Nothing Found. Please try again with some different keywords.';
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      // probably it's better to use addMatchet
+      .addMatcher(blogApi.endpoints.getArticlesList.matchFulfilled, (state, { payload: { items, total } }) => {
+        state.all = items;
+        state.totalCount = total;
+      })
+      .addMatcher(blogApi.endpoints.getTags.matchFulfilled, setRawPayload('tags'));
   },
 });
 

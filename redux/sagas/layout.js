@@ -51,7 +51,6 @@ function* fetchPageData({
     category,
     skip,
     isPreviewMode = false,
-    isTagBlog = false,
   },
 }) {
   try {
@@ -69,18 +68,7 @@ function* fetchPageData({
       break;
     }
     case PAGES.blog:
-      yield all([
-        yield call(fetchPage, { slug }),
-        yield call(fetchBlogData, {
-          slug,
-          articleSlug,
-          currentLimit,
-          category,
-          skip,
-          isPreviewMode,
-          isTagBlog,
-        }),
-      ]);
+      yield call(fetchPage, { slug });
 
       break;
     case PAGES.article:

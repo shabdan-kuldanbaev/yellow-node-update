@@ -49,3 +49,19 @@ export const findArticlesByValue = async (value, field = 'keyWords') => {
 export const getGraphqlResultTags = (graphqlResult) => get(graphqlResult, 'tagCollection.items', []);
 
 export const getGraphqlResultWorkTypes = (graphqlResult) => get(graphqlResult, 'workTypeCollection.items', []);
+
+export function getGraphqlResultArticles(graphqlResult) {
+  return get(graphqlResult, 'articleCollection.items', []);
+}
+
+export function getGraphqlResultTotalArticlesCount(graphqlResult) {
+  return get(graphqlResult, 'articleCollection.total', []);
+}
+
+export function getGraphqlResultArticlesByTags(graphqlResult) {
+  return get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.items', []);
+}
+
+export function getGraphqlResultTotalArticlesCountByTags(graphqlResult) {
+  return get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.total', []);
+}
