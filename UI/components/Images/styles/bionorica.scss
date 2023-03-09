@@ -7,19 +7,33 @@
   }
 
   &.secondSectionView {
-    overflow: hidden;
+    max-width: 994px;
+    overflow: initial;
+    margin: 0 auto;
 
     .image {
       width: 994px;
       height: 542px;
-      transform: scale(1.1);
+      box-shadow: 0 8px 35px 0 rgb(110 120 130 / 10%);
+      border-radius: 20px;
+      margin: 0 auto;
+
+      img {
+        border-radius: 20px;
+      }
 
       @include tablet {
-        width: 100%;
+        width: 640px;
         height: 350px;
       }
 
+      @include below-tablet {
+        width: 500px;
+        height: 273px;
+      }
+
       @include phone {
+        width: 343px;
         height: 187px;
       }
     }
