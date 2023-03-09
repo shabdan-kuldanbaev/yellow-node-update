@@ -1,0 +1,16 @@
+.ubichat {
+  padding-bottom: 20px;
+  overflow: initial;
+
+  :global(.swiper-pagination) {
+    bottom: -5px;
+  }
+
+  .swiperBullet {
+    border: 1px solid $gray0;
+  }
+
+  .swiperBulletActive {
+    background-color: $gray0;
+  }
+}

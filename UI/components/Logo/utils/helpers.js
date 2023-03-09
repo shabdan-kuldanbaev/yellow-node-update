@@ -9,6 +9,8 @@ export const WHITE_LOGO_TYPE = [
   'natp',
   'travel-trivia',
   'cash-chat',
+  'ubichat',
+  'writer-chrome-extension',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -41,6 +43,7 @@ export const WHITE_TEXT_LOGO = [
   'fairy',
   'seven-pm-thursday',
   'fernwayer',
+  'writer-chrome-extension',
 ];
 
 export const getLogoType = (type) => {

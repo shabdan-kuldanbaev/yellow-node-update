@@ -20,8 +20,6 @@ const ResultsSection = (props) => {
     isResultVideo,
   } = useResultsSection(props);
 
-  console.log('imagesBundles', imagesBundles);
-
   return (
     <section
       className={cn(styles.container, [styles[type]], [styles[view]])}
