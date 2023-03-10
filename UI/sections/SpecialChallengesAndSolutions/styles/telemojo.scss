@@ -1,0 +1,9 @@
+.telemojo {
+  &.firstSectionView {
+    background: $telemojoSecondary;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+}
