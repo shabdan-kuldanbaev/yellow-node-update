@@ -31,9 +31,8 @@ const BlogContainer = ({
 }) => {
   const dispatch = useDispatch();
 
-  const {
-    data: { items: articles, total: totalArticles },
-  } = useGetArticlesListQuery(query);
+  const { data = {} } = useGetArticlesListQuery(query);
+  const { items: articles, total: totalArticles } = data;
 
   const metaData = useSelector(selectMetaData);
 
