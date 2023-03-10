@@ -1,8 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import blogApi from 'redux/apis/blog';
-
+import baseApi from 'redux/apis';
 import layout from './layout';
 import clientSide from './client-side';
 import blog from './blog';
@@ -17,7 +16,7 @@ const reducers = combineReducers({
   contact,
   subscription,
   clientSide,
-  [blogApi.reducerPath]: blogApi.reducer,
+  [baseApi.reducerPath]: baseApi.reducer,
 });
 
 export default ((state, action) => {

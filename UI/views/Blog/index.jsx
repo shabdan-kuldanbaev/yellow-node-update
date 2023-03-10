@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { subscriptionFetchingStarted, subscriptionSet } from 'redux/reducers/subscription';
-import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
 import { selectMetaData } from 'redux/selectors/layout';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import ArticlesList from 'components/BlogCommon/ArticlesList';
@@ -18,6 +17,7 @@ import { PAGES, ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import useToggle from 'hooks/useToggle';
 import Svg from 'UI/components/Svg';
+import { useGetArticlesListQuery } from 'redux/apis/blog';
 import { categoriesMetaData } from './utils/data';
 import { findCategoryBySlug, findTagBySlug } from './utils/blogContainerHelper';
 import styles from './BlogContainer.module.scss';
@@ -27,10 +27,14 @@ const BlogContainer = ({
   introSection,
   currentPage,
   articlesNumberPerPage,
+  query,
 }) => {
   const dispatch = useDispatch();
-  const articles = useSelector(selectArticles);
-  const totalArticles = useSelector(selectTotalCount);
+
+  const {
+    data: { items: articles, total: totalArticles },
+  } = useGetArticlesListQuery(query);
+
   const metaData = useSelector(selectMetaData);
 
   const [isFullscreenSearch, toggleFullscreenSearch] = useToggle(false);

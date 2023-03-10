@@ -54,6 +54,7 @@ export const getInitialBlogProps = async (store, ctx) => {
         currentPage: page || 1,
         tagsList: tags,
         isArticle,
+        query,
       });
     }
 

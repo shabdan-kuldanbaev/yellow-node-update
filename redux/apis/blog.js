@@ -1,6 +1,3 @@
-import { createApi } from '@reduxjs/toolkit/query/react';
-import { HYDRATE } from 'next-redux-wrapper';
-import { contentfulClient } from 'utils/contentful/client';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 import {
   getGraphqlResultArticles,
@@ -9,47 +6,28 @@ import {
   getGraphqlResultTotalArticlesCount,
   getGraphqlResultTotalArticlesCountByTags,
 } from 'utils/contentful/helper';
+import baseApi from '.';
 
-const contentfulBaseQuery = async (args) => {
-  try {
-    const result = await contentfulClient.graphql(args);
-
-    return { data: result };
-  } catch (e) {
-    return { error: e };
-  }
-};
-
-const blogApi = createApi({
-  reducerPath: 'blogApi',
-  extractRehydrationInfo(action, { reducerPath }) {
-    if (action.type === HYDRATE) {
-      return action.payload[reducerPath];
-    }
-  },
-  baseQuery: contentfulBaseQuery,
+const blogApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getArticlesList: builder.query({
       query({
-        skip,
         slug,
-        isTag,
+        skip,
         limit,
+        isTag = false,
         order = '[publishedAt_DESC]',
       }) {
-        if (isTag) {
-          return GRAPHQL_QUERY.loadPreviewArticlesByTags({
+        return isTag
+          ? GRAPHQL_QUERY.loadPreviewArticlesByTags({
             limit,
             skip,
             where: { slug },
+          }) : GRAPHQL_QUERY.loadPreviewArticles({
+            skip,
+            limit,
+            order,
           });
-        }
-
-        return GRAPHQL_QUERY.loadPreviewArticles({
-          skip,
-          limit,
-          order,
-        });
       },
       transformResponse(response, _, { isTag }) {
         return {
@@ -70,7 +48,19 @@ const blogApi = createApi({
         return getGraphqlResultTags(response);
       },
     }),
+    getArticle: builder.query({
+      extraOptions: {
+        type: 'getEntries',
+      },
+      query({ slug, isPreviewMode = false }) {
+
+      },
+    }),
   }),
 });
+
+export const {
+  useGetArticlesListQuery,
+} = blogApi;
 
 export default blogApi;

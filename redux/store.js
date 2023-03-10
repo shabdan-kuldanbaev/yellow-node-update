@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
 import { createWrapper } from 'next-redux-wrapper';
+import createSagaMiddleware from 'redux-saga';
 import rootReducers from 'redux/reducers';
 import rootSaga from 'redux/sagas';
-import blogApi from './apis/blog';
+import baseApi from './apis';
 
 const makeStore = () => {
   const sagaMiddleware = createSagaMiddleware();
@@ -15,7 +15,7 @@ const makeStore = () => {
       const middleware = getDefaultMiddleware()
         .concat(
           sagaMiddleware,
-          blogApi.middleware,
+          baseApi.middleware,
         );
 
       return middleware;
