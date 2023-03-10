@@ -84,9 +84,9 @@ const blogApi = baseApi.injectEndpoints({
         return {
           data: {
             article,
-            next: next.articleCollection.items?.[0],
-            prev: prev.articleCollection.items?.[0],
-            related: related.tagCollection.items?.[0].linkedFrom.articleCollection.items,
+            next: getGraphqlResultArticles(next)?.[0],
+            prev: getGraphqlResultArticles(prev)?.[0],
+            related: getGraphqlResultArticlesByTags(related),
           },
         };
       },
