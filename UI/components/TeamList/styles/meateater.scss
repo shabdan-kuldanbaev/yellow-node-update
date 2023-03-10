@@ -1,0 +1,13 @@
+.meateater {
+  grid-template-columns: repeat(3, 135px);
+  column-gap: 204px;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 120px 0;
+  background-color: $gray50;
+
+  @include tablet {
+    padding: 60px 0;
+  }
+}

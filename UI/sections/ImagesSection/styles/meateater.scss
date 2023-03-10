@@ -1,0 +1,15 @@
+.meateater {
+  padding: 60px 0 120px;
+
+  @include tablet {
+    padding: 60px 0;
+  }
+
+  &.thirdSectionView {
+    padding: 120px 0 60px;
+
+    @include tablet {
+      padding: 60px 0;
+    }
+  }
+}

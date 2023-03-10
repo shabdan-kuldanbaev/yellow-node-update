@@ -22,6 +22,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'travel-trivia',
   'ubichat',
   'writer-chrome-extension',
+  'meateater',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
