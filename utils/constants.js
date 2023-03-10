@@ -383,6 +383,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
   ROUTES.project.getRoute(CASE_STUDIES.ubiChat).path,
   ROUTES.project.getRoute(CASE_STUDIES.writerChromeExtension).path,
+  ROUTES.project.getRoute(CASE_STUDIES.telemojo).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
