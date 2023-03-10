@@ -74,6 +74,12 @@
 
   &.secondSectionView {
     .contentContainer {
+      max-width: 790px;
+
+      .infoContainer {
+        max-width: 379px;
+      }
+
       .imageBundle {
         position: absolute;
 

@@ -396,7 +396,6 @@ export const PAGES_WITH_DARK_HEADER = [
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
-  CASE_STUDIES.beautonomy,
   CASE_STUDIES.bionorica,
 ];
 
