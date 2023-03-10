@@ -75,12 +75,18 @@ class ContentfulClient {
         include: 10,
       });
 
+      if (entries.total === 0) {
+        throw new Error('404');
+      }
+
       return entries;
     } catch (error) {
       errorHelper.handleError({
         error,
         message: 'Error in the getEntries function',
       });
+
+      throw error;
     }
   };
 

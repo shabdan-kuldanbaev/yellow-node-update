@@ -32,11 +32,13 @@ export const getInitialBlogProps = async (store, ctx) => {
     const actions = [];
 
     if (isArticle) {
-      // TODO: add statusCode 404 to props if no articles found
-      store.dispatch(pageFetchingStarted({
-        articleSlug: slug,
-        slug: PAGES.article,
-      }));
+      const query = { slug };
+      actions.push(store.dispatch(blogApi.endpoints.getArticle.initiate(query)));
+
+      Object.assign(props, {
+        isArticle,
+        query,
+      });
     } else {
       const query = {
         slug,

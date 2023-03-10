@@ -4,11 +4,8 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import get from 'lodash/get';
-import {
-  selectArticle,
-  selectRelatedArticles,
-  selectNearbyArticles,
-} from 'redux/selectors/blog';
+import { useGetArticleQuery } from 'redux/apis/blog';
+import { selectRelatedArticles, selectNearbyArticles } from 'redux/selectors/blog';
 import { subscriptionFetchingStarted } from 'redux/reducers/subscription';
 import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
 import PageHeader from 'components/Common/PageHeader';
@@ -19,6 +16,7 @@ import FullLayout from 'components/Layout/FullLayout';
 import NextPrev from 'components/BlogCommon/Article/NextPrev';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
+import PageNotFound from 'containers/PageNotFound';
 import FAQ from 'UI/containers/FAQ';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
@@ -29,9 +27,11 @@ import styles from './styles.module.scss';
 
 const ArticleContainer = ({
   introSection,
+  query,
 }) => {
   const dispatch = useDispatch();
-  const currentArticle = useSelector(selectArticle);
+  const { data: currentArticle, isError, isLoading } = useGetArticleQuery(query);
+
   const relatedArticles = useSelector(selectRelatedArticles);
   const nearbyArticles = useSelector(selectNearbyArticles);
 
@@ -40,6 +40,15 @@ const ArticleContainer = ({
     pathname,
     asPath,
   } = useRouter();
+
+  if (isError) {
+    return <PageNotFound />;
+  }
+
+  if (isLoading) {
+    return null;
+  }
+
   const prevArticleSlug = get(nearbyArticles, 'olderArticle.slug');
   const nextArticleSlug = get(nearbyArticles, 'newerArticle.slug');
   const {

@@ -13,7 +13,7 @@ async function baseQuery(args, _, {
 
     return { data: result };
   } catch (e) {
-    return { error: e };
+    return { error: e.meesage };
   }
 }
 

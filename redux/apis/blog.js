@@ -40,6 +40,7 @@ const blogApi = baseApi.injectEndpoints({
         };
       },
     }),
+
     getTags: builder.query({
       query() {
         return GRAPHQL_QUERY.loadTag({});
@@ -48,12 +49,19 @@ const blogApi = baseApi.injectEndpoints({
         return getGraphqlResultTags(response);
       },
     }),
+
     getArticle: builder.query({
       extraOptions: {
         type: 'getEntries',
       },
-      query({ slug, isPreviewMode = false }) {
-
+      query({ slug }) {
+        return {
+          contentType: 'article',
+          query: { slug },
+        };
+      },
+      transformResponse(response) {
+        return response.items[0];
       },
     }),
   }),
@@ -61,6 +69,7 @@ const blogApi = baseApi.injectEndpoints({
 
 export const {
   useGetArticlesListQuery,
+  useGetArticleQuery,
 } = blogApi;
 
 export default blogApi;

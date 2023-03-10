@@ -1,7 +1,6 @@
 import React from 'react';
 import ArticleContainer from 'containers/Article';
 import BlogContainer from 'UI/views/Blog';
-import PageNotFound from 'containers/PageNotFound';
 import { getInitialBlogProps } from 'utils/blogUtils';
 import { wrapper } from 'redux/store';
 
@@ -12,22 +11,23 @@ const Article = ({
   statusCode,
   articlesNumberPerPage,
   isArticle,
-}) => {
-  if (statusCode === 404) {
-    return <PageNotFound />;
-  }
-
-  return isArticle
-    ? <ArticleContainer introSection={introSection} />
-    : (
-      <BlogContainer
-        tagsList={tagsList}
-        articlesNumberPerPage={articlesNumberPerPage}
-        currentPage={currentPage}
-        introSection={introSection}
-      />
-    );
-};
+  ...rest
+}) => (isArticle
+  ? (
+    <ArticleContainer
+      introSection={introSection}
+      {...rest}
+    />
+  )
+  : (
+    <BlogContainer
+      tagsList={tagsList}
+      articlesNumberPerPage={articlesNumberPerPage}
+      currentPage={currentPage}
+      introSection={introSection}
+      {...rest}
+    />
+  ));
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async (ctx) => getInitialBlogProps(store, ctx));
 
