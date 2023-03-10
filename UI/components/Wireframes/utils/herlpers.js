@@ -48,7 +48,9 @@ export const IMAGE_SIZES = {
   },
   telemojo: 540,
   famlicious: 478,
-  bionorica: 440,
+  bionorica: {
+    default: 500,
+  },
   humankind: 630,
   'software-for-mri-interpretation': 630,
   'mobile-bank-application': 500,

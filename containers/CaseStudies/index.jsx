@@ -7,6 +7,7 @@ import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
+import styles from './styles.module.scss';
 
 const CaseStudiesContainer = ({ introSection }) => {
   const currentProject = useSelector(selectProject);
@@ -43,7 +44,7 @@ const CaseStudiesContainer = ({ introSection }) => {
         page={PAGES.portfolio}
         pageMetadata={projectMetadata}
       />
-      <main>
+      <main className={styles.main}>
         {contentModules?.map(({ fields, sys }) => (
           <CaseStudiesCommon
             key={sys.id}
