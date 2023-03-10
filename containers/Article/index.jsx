@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
-import get from 'lodash/get';
 import { useGetArticleQuery } from 'redux/apis/blog';
-import { selectRelatedArticles, selectNearbyArticles } from 'redux/selectors/blog';
 import { subscriptionFetchingStarted } from 'redux/reducers/subscription';
-import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
 import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import Article from 'components/BlogCommon/Article';
@@ -22,6 +19,7 @@ import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
 import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
@@ -30,10 +28,14 @@ const ArticleContainer = ({
   query,
 }) => {
   const dispatch = useDispatch();
-  const { data: currentArticle, isError, isLoading } = useGetArticleQuery(query);
 
-  const relatedArticles = useSelector(selectRelatedArticles);
-  const nearbyArticles = useSelector(selectNearbyArticles);
+  const { data = {}, isError, isLoading } = useGetArticleQuery(query);
+  const {
+    article,
+    next: olderArticle,
+    prev: newerArticle,
+    related,
+  } = data;
 
   const {
     query: { slug },
@@ -49,8 +51,9 @@ const ArticleContainer = ({
     return null;
   }
 
-  const prevArticleSlug = get(nearbyArticles, 'olderArticle.slug');
-  const nextArticleSlug = get(nearbyArticles, 'newerArticle.slug');
+  const { slug: prevArticleSlug } = olderArticle;
+  const { slug: nextArticleSlug } = newerArticle;
+
   const {
     slug: articleSlug,
     title,
@@ -66,7 +69,7 @@ const ArticleContainer = ({
     headImage,
     author,
     faqList,
-  } = getArticleProps({ article: currentArticle });
+  } = getArticleProps({ article });
   const articleMetadata = {
     metaTitle: metaTitle || (title && `${title} | Yellow`),
     metaDescription: metaDescription || (title && `Read our new article about ${title}.`),
@@ -130,17 +133,20 @@ const ArticleContainer = ({
             faqList={faqList}
           />
         </FullLayout>
+
         <TagsBlock tags={tagsList} />
-        {relatedArticles
-          && !!relatedArticles.length
-          && <RelatedSection articles={relatedArticles} />}
-        <div className={styles.nextPrevSection}>
+
+        {/* TODO: Fix slider for related articles */}
+
+        {/* {related?.length && <RelatedSection articles={related} />} */}
+
+        {/* <div className={styles.nextPrevSection}>
           <NextPrev slug={prevArticleSlug} />
           <NextPrev
             isNewer
             slug={nextArticleSlug}
           />
-        </div>
+        </div> */}
         <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
       </FullLayout>
     </>

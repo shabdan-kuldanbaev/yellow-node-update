@@ -15,7 +15,6 @@ import {
   pageFetchingSucceeded,
 } from 'redux/reducers/layout';
 import {
-  fetchBlogData,
   findArticles,
   loadArticles,
 } from 'redux/sagas/blog';
@@ -45,12 +44,7 @@ function* fetchPage({ slug }) {
 function* fetchPageData({
   payload: {
     slug,
-    articleSlug,
     projectSlug,
-    currentLimit,
-    category,
-    skip,
-    isPreviewMode = false,
   },
 }) {
   try {
@@ -67,21 +61,6 @@ function* fetchPageData({
 
       break;
     }
-    case PAGES.blog:
-      yield call(fetchPage, { slug });
-
-      break;
-    case PAGES.article:
-      yield call(fetchBlogData, {
-        slug,
-        articleSlug,
-        currentLimit,
-        category,
-        skip,
-        isPreviewMode,
-      });
-
-      break;
     case PAGES.project:
       yield call(fetchPage, { slug: projectSlug });
 

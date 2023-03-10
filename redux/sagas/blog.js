@@ -2,7 +2,6 @@ import {
   put,
   all,
   call,
-  select,
 } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import ObjectAssign from 'es6-object-assign';
@@ -10,19 +9,13 @@ import get from 'lodash/get';
 import uniqWith from 'lodash/uniqWith';
 import isEqual from 'lodash/isEqual';
 import {
-  articleLoadingSucceeded,
   articlesListLoadingSucceeded,
   errorOccured,
-  nearbyArticlesLoadingSucceeded,
-  relatedArticlesLoadingSucceeded,
 } from 'redux/reducers/blog';
-import { selectArticle } from 'redux/selectors/blog';
-import { getDocumentFields } from 'utils/helper';
 import { contentfulClient } from 'utils/contentful/client';
-import { fetchContentfulArticles } from 'utils/contentful/helper';
 import { getBlogGraphqlQuery } from 'utils/blogUtils';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
-import { PAGES, SEARCH_ARTICLES_LIMIT } from 'utils/constants';
+import { SEARCH_ARTICLES_LIMIT } from 'utils/constants';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
@@ -56,19 +49,6 @@ const findArticlesByTagValue = async (params) => await contentfulClient.graphql(
   }),
 );
 
-function* getArticle({ articleSlug, isPreviewMode }) {
-  try {
-    const article = yield fetchContentfulArticles(
-      isPreviewMode,
-      { 'fields.slug': articleSlug },
-    );
-
-    yield put(articleLoadingSucceeded(article));
-  } catch (error) {
-    yield put(errorOccured(error));
-  }
-}
-
 export function* loadArticles({
   currentLimit,
   skip,
@@ -99,48 +79,6 @@ export function* loadArticles({
   }
 }
 
-function* loadRelatedArticles({
-  currentLimit,
-  currentArticleSlug,
-  categoryTag,
-}) {
-  try {
-    const response = yield contentfulClient.graphql(GRAPHQL_QUERY.getNearbyAndRelatedArticle({
-      limit: currentLimit,
-      where: {
-        categoryTag,
-        slug_not: currentArticleSlug,
-      },
-    }));
-
-    yield put(relatedArticlesLoadingSucceeded(getGraphqlResultArticles(response)));
-  } catch (error) {
-    yield put(errorOccured(error));
-  }
-}
-
-function* loadNearbyArticles({ publishedAt }) {
-  try {
-    const prev = yield contentfulClient.graphql(GRAPHQL_QUERY.getNearbyAndRelatedArticle({
-      limit: 1,
-      order: '[publishedAt_DESC]',
-      where: { publishedAt_lt: publishedAt },
-    }));
-    const next = yield contentfulClient.graphql(GRAPHQL_QUERY.getNearbyAndRelatedArticle({
-      limit: 1,
-      order: '[publishedAt_ASC]',
-      where: { publishedAt_gt: publishedAt },
-    }));
-
-    yield put(nearbyArticlesLoadingSucceeded({
-      olderArticle: getGraphqlResultArticles(prev)[0],
-      newerArticle: getGraphqlResultArticles(next)[0],
-    }));
-  } catch (error) {
-    yield put(errorOccured(error));
-  }
-}
-
 export function* findArticles({ payload: { value } }) {
   try {
     const [
@@ -159,7 +97,7 @@ export function* findArticles({ payload: { value } }) {
       call(findArticlesByValue, {
         where: { body_contains: value },
       }),
-      call(findArticlesByValue, {
+      call(findArticlesByValue.items, {
         where: { oldBody_contains: value },
       }),
     ]);
@@ -177,47 +115,5 @@ export function* findArticles({ payload: { value } }) {
     yield put(articlesListLoadingSucceeded(result));
   } catch (error) {
     yield put(errorOccured(error));
-  }
-}
-
-export function* fetchBlogData({
-  slug,
-  articleSlug,
-  currentLimit,
-  category,
-  skip,
-  isPreviewMode,
-  isTagBlog,
-}) {
-  if (slug === PAGES.blog || isTagBlog) {
-    yield call(loadArticles, {
-      currentLimit,
-      category,
-      skip,
-      isTagBlog,
-    });
-  } else {
-    yield call(getArticle, { articleSlug, isPreviewMode });
-
-    const article = yield select(selectArticle);
-    const {
-      slug: currentArticleSlug,
-      categoryTag,
-      publishedAt,
-    } = getDocumentFields(
-      get(article, 'items[0]', {}),
-      ['slug', 'title', 'publishedAt', 'categoryTag'],
-    );
-
-    if (currentArticleSlug && categoryTag && publishedAt) {
-      yield all([
-        yield call(loadNearbyArticles, { publishedAt }),
-        yield call(loadRelatedArticles, {
-          currentLimit: 4,
-          currentArticleSlug,
-          categoryTag,
-        }),
-      ]);
-    }
   }
 }

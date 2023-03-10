@@ -96,7 +96,7 @@ export const GRAPHQL_QUERY = {
       }
     `;
   },
-  getNearbyAndRelatedArticle({
+  getNearbyArticle({
     limit,
     order,
     where,
@@ -118,6 +118,34 @@ export const GRAPHQL_QUERY = {
             }
             previewImageUrl {
               url
+            }
+          }
+        }
+      }
+    `;
+  },
+  getRelatedArticles({
+    limit,
+    where,
+  }) {
+    return `
+      query {
+        tagCollection(
+          ${getFilterParams(where)}
+        ) {
+          items {
+            linkedFrom {
+              articleCollection(
+                ${getParam({ limit })}
+              ) {
+                items {
+                  title
+                  slug
+                  previewImageUrl {
+                    url
+                  }
+                }
+              }
             }
           }
         }

@@ -6,6 +6,8 @@ import {
   getGraphqlResultTotalArticlesCount,
   getGraphqlResultTotalArticlesCountByTags,
 } from 'utils/contentful/helper';
+import { contentfulClient } from 'utils/contentful/client';
+import { getDocumentFields } from 'utils/helper';
 import baseApi from '.';
 
 const blogApi = baseApi.injectEndpoints({
@@ -54,14 +56,39 @@ const blogApi = baseApi.injectEndpoints({
       extraOptions: {
         type: 'getEntries',
       },
-      query({ slug }) {
+      async queryFn({ slug }, _, __, baseQuery) {
+        const article = (await baseQuery({ contentType: 'article', query: { slug } })).data.items[0];
+
+        const {
+          publishedAt,
+          tagsList,
+        } = getDocumentFields(article, ['tagsList', 'publishedAt']);
+
+        const [next, prev, related] = await Promise.all([
+          contentfulClient.graphql(GRAPHQL_QUERY.getNearbyArticle({
+            limit: 1,
+            order: '[publishedAt_DESC]',
+            where: { publishedAt_lt: publishedAt },
+          })),
+          contentfulClient.graphql(GRAPHQL_QUERY.getNearbyArticle({
+            limit: 1,
+            order: '[publishedAt_DESC]',
+            where: { publishedAt_gt: publishedAt },
+          })),
+          contentfulClient.graphql(GRAPHQL_QUERY.getRelatedArticles({
+            limit: 10,
+            where: { slug: tagsList[0].fields.slug },
+          })),
+        ]);
+
         return {
-          contentType: 'article',
-          query: { slug },
+          data: {
+            article,
+            next: next.articleCollection.items?.[0],
+            prev: prev.articleCollection.items?.[0],
+            related: related.tagCollection.items?.[0].linkedFrom.articleCollection.items,
+          },
         };
-      },
-      transformResponse(response) {
-        return response.items[0];
       },
     }),
   }),
