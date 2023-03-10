@@ -22,6 +22,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'travel-trivia',
   'ubichat',
   'writer-chrome-extension',
+  'bionorica',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -395,7 +396,6 @@ export const PAGES_WITH_DARK_HEADER = [
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
   CASE_STUDIES.beautonomy,
-  CASE_STUDIES.bionorica,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [

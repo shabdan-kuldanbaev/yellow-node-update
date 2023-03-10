@@ -11,14 +11,26 @@ const CaseStudyDesign = (props) => {
   const {
     type,
     content,
+    sectionTitle,
+    sectionDescription,
+    style,
   } = useCaseProps(props);
 
   return (
-    <section className={cn(styles[type], styles.container)}>
+    <section
+      className={cn(styles[type], styles.container)}
+      style={style}
+    >
+      <SectionTitle
+        title={sectionTitle}
+        description={sectionDescription}
+        className={styles.titleStyle}
+      />
       {content?.map(({
         title,
         description,
         imagesUrls,
+        imgBundleUrls,
       }, i) => (
         <div
           key={`block-${i}`}
@@ -28,6 +40,7 @@ const CaseStudyDesign = (props) => {
             <SectionTitle
               title={title}
               description={description}
+              className={styles[`blockTitle-${i + 1}`]}
             />
           </Animated>
           <Animated {...REVEAL_ANIMATION_PROPS}>
@@ -36,11 +49,19 @@ const CaseStudyDesign = (props) => {
                 <Illustration
                   src={url}
                   key={`image-${y + 1}`}
-                  className={styles[`image-${y + 1}`]}
+                  className={cn(styles[`image-${y + 1}`], styles.image)}
                   transparent
                 />
               ))}
             </div>
+            {imgBundleUrls?.map(({ url }, x) => (
+              <Illustration
+                src={url}
+                key={`imageBundle-${x + 1}`}
+                className={cn(styles[`imageBundle-${x + 1}`], styles.imageBundle)}
+                transparent
+              />
+            ))}
           </Animated>
         </div>
       ))}
