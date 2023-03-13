@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
-import { selectArticles } from 'redux/selectors/blog';
+import blogApi from 'redux/apis/blog';
 import { Mousewheel, Navigation } from 'swiper';
 import { getDocumentFields } from 'utils/helper';
 
-export const useBlog = ({ sectionData }) => {
-  const articles = useSelector(selectArticles);
+export const useBlog = ({ sectionData, blogQuery }) => {
+  const { data = {} } = blogApi.useGetArticlesListQuery(blogQuery);
+  const { items: articles = [] } = data;
 
   const { title, description } = getDocumentFields(sectionData, ['title', 'description']);
 

@@ -6,7 +6,7 @@ import {
   put,
   takeEvery,
 } from 'redux-saga/effects';
-import { articleCleared, searchStarted } from 'redux/reducers/blog';
+import { articleCleared } from 'redux/reducers/blog';
 import { formErrorDismissed } from 'redux/reducers/contact';
 import {
   pageFetched,
@@ -14,12 +14,8 @@ import {
   pageFetchingStarted,
   pageFetchingSucceeded,
 } from 'redux/reducers/layout';
-import {
-  findArticles,
-  loadArticles,
-} from 'redux/sagas/blog';
 import { fetchTags, fetchTypes } from 'redux/sagas/portfolio';
-import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
+import { PAGES } from 'utils/constants';
 import { contentfulClient } from 'utils/contentful/client';
 import errorHelper from 'utils/error';
 
@@ -56,7 +52,6 @@ function* fetchPageData({
     case PAGES.homepage: {
       yield all([
         yield call(fetchPage, { slug }),
-        yield call(loadArticles, { currentLimit: HOMEPAGE_ARTICLES_LIMIT }),
       ]);
 
       break;
@@ -117,7 +112,6 @@ function* fetchPageData({
 
 export function* fetchPageWatcher() {
   yield all([
-    yield takeEvery(searchStarted, findArticles),
     yield takeEvery(pageFetchingStarted, fetchPageData),
   ]);
 }

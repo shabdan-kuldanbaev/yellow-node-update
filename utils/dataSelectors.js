@@ -11,8 +11,10 @@ import {
 } from 'redux/selectors/layout';
 import { wrapper } from 'redux/store';
 import { pageFetchingStarted } from 'redux/reducers/layout';
+import blogApi from 'redux/apis/blog';
 import errorHelper from './error';
 import { getDocumentFields, rootUrl } from './helper';
+import { HOMEPAGE_ARTICLES_LIMIT } from './constants';
 
 export const getServicePageProps = (state) => ({
   pageData: selectComponents(state),
@@ -51,7 +53,10 @@ export const getPortfolioPageProps = (state) => {
   };
 };
 
-export const getHomePageDataPros = (state) => {
+export const getHomePageDataPros = async (state, store) => {
+  const blogQuery = { limit: HOMEPAGE_ARTICLES_LIMIT };
+  await store.dispatch(blogApi.endpoints.getArticlesList.initiate(blogQuery));
+
   const metaData = selectMetaData(state);
   const pageMetadata = {
     ...metaData,
@@ -66,6 +71,7 @@ export const getHomePageDataPros = (state) => {
     pageData: components,
     pageMetadata,
     projects,
+    blogQuery,
   };
 };
 
@@ -76,7 +82,7 @@ export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps
     await store.sagaTask.toPromise();
 
     const state = store.getState();
-    const pageData = selectors ? omitBy(selectors(state), isNil) : {};
+    const pageData = selectors ? omitBy(await selectors(state, store), isNil) : {};
 
     return {
       props: {

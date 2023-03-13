@@ -1,8 +1,7 @@
 import blogApi from 'redux/apis/blog';
-import { pageFetchingStarted } from 'redux/reducers/layout';
 import { isNumeric } from 'utils/helper';
 import errorHelper from 'utils/error';
-import { PAGES, ARTICLES_NUMBER_PER_PAGE } from 'utils/constants';
+import { ARTICLES_NUMBER_PER_PAGE } from 'utils/constants';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 
 export const checkIfSlugIsTag = (tags, slug) => !!tags.find(({ slug: tagSlug }) => slug === tagSlug);
