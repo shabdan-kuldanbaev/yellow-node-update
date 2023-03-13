@@ -1,3 +1,5 @@
+import isEqual from 'lodash/isEqual';
+import uniqWith from 'lodash/uniqWith';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 import {
   getGraphqlResultArticles,
@@ -8,6 +10,7 @@ import {
 } from 'utils/contentful/helper';
 import { contentfulClient } from 'utils/contentful/client';
 import { getDocumentFields } from 'utils/helper';
+import { SEARCH_ARTICLES_LIMIT } from 'utils/constants';
 import baseApi from '.';
 
 const blogApi = baseApi.injectEndpoints({
@@ -91,12 +94,52 @@ const blogApi = baseApi.injectEndpoints({
         };
       },
     }),
+
+    getSearchResult: builder.query({
+      async queryFn(value, _, __, baseQuery) {
+        if (!value) {
+          return { data: [] };
+        }
+
+        try {
+          const [byTagRaw, byText] = await Promise.all([
+            baseQuery(GRAPHQL_QUERY.loadPreviewArticlesByTags({
+              where: { title_contains: value },
+              limit: SEARCH_ARTICLES_LIMIT,
+            })),
+            baseQuery(GRAPHQL_QUERY.loadPreviewArticles({
+              order: '[publishedAt_DESC]',
+              limit: SEARCH_ARTICLES_LIMIT,
+              where: {
+                OR: [
+                  { title_contains: value },
+                  { oldBody_contains: value },
+                  { title_contains: value },
+                ],
+              },
+            })),
+          ]);
+
+          const result = uniqWith([
+            ...getGraphqlResultArticlesByTags(byTagRaw.data),
+            ...getGraphqlResultArticles(byText.data)], isEqual).sort((a, b) => Date.parse(a) - Date.parse(b));
+
+          return { data: result };
+        } catch (e) {
+          console.log(e);
+
+          return { error: e.message };
+        }
+      },
+    }),
   }),
 });
 
 export const {
   useGetArticlesListQuery,
+  useGetTagsQuery,
   useGetArticleQuery,
+  useGetSearchResultQuery,
 } = blogApi;
 
 export default blogApi;

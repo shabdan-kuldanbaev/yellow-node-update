@@ -23,7 +23,6 @@ export const ArticlePreview = ({
 }) => {
   const { path } = ROUTES.article.getRoute(slug);
   const articleLinkProps = { path };
-  const isCategoryWithHashtag = ['blog', 'search'].includes(type);
 
   if (!slug || !title || !image) {
     return null;
