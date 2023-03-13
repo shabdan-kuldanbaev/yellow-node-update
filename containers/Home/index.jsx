@@ -14,7 +14,7 @@ export const Home = ({
   type,
   ...rest
 }) => {
-  const { main: contentModules } = pageData;
+  const contentModules = pageData;
 
   return (
     <>

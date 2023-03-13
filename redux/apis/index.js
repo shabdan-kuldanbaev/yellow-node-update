@@ -2,9 +2,14 @@ import { createApi } from '@reduxjs/toolkit/dist/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
 import { contentfulClient, contentfulPreviewClient } from 'utils/contentful/client';
 
+export const BASEQUERY_TYPES = {
+  graphql: 'graphql',
+  getEntries: 'getEntries',
+};
+
 async function baseQuery(args, _, {
   isPreview = false,
-  type = 'graphql',
+  type = BASEQUERY_TYPES.getEntries,
 } = {}) {
   const client = isPreview ? contentfulPreviewClient : contentfulClient;
 

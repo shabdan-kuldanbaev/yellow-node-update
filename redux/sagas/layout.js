@@ -49,20 +49,12 @@ function* fetchPageData({
     yield put(formErrorDismissed());
 
     switch (slug) {
-    case PAGES.homepage: {
-      yield all([
-        yield call(fetchPage, { slug }),
-      ]);
-
-      break;
-    }
     case PAGES.project:
       yield call(fetchPage, { slug: projectSlug });
 
       break;
     case PAGES.portfolio:
       yield all([
-        yield call(fetchPage, { slug }),
         yield call(fetchTags),
         yield call(fetchTypes),
       ]);
@@ -73,25 +65,6 @@ function* fetchPageData({
     case PAGES.privacyPolicy:
     case PAGES.cookiesPolicy:
     case PAGES.termsAndConditions:
-    case PAGES.customChatApp:
-    case PAGES.customMobileApp:
-    case PAGES.customWebApp:
-    case PAGES.designServices:
-    case PAGES.developmentServices:
-    case PAGES.androidDevelopmentServices:
-    case PAGES.mvpDevelopment:
-    case PAGES.lendingSoftwareDevelopment:
-    case PAGES.cloudDevelopment:
-    case PAGES.crossPlatformDevelopmentServices:
-    case PAGES.fintechDevelopment:
-    case PAGES.erpDevelopment:
-    case PAGES.mlDevelopment:
-    case PAGES.discoveryPhase:
-    case PAGES.devOpsDevelopment:
-    case PAGES.aiDevelopment:
-    case PAGES.dataScienceDevelopment:
-    case PAGES.tradingSoftwareDevelopment:
-    case PAGES.prototypingServices:
     case PAGES.notFound:
     case PAGES.signatureGenerator:
       yield call(fetchPage, { slug });

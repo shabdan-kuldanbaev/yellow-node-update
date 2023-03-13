@@ -7,6 +7,7 @@ import MetaTags from 'components/Common/MetaTags';
 import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
+import { useFetchPageQuery } from 'redux/apis/page';
 import { getServicePageInfo } from './utils/servicePageHelper';
 import styles from './styles.module.scss';
 
@@ -14,13 +15,13 @@ const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenE
 
 const CustomServiceContainer = ({
   introSection,
-  pageData,
   metaData,
   type,
 }) => {
-  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
+  const { data = {} } = useFetchPageQuery(type);
+  const { contentModules } = data;
 
-  const { main: contentModules } = pageData;
+  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const { pageMicrodata, breadcrumbs } = getServicePageInfo(type);
   const pageMetadata = { ...metaData, url: `${rootUrl}/${type}` };
@@ -29,7 +30,7 @@ const CustomServiceContainer = ({
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
-  if (!pageData || !contentModules) {
+  if (!contentModules) {
     return null;
   }
 

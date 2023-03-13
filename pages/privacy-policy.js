@@ -1,7 +1,7 @@
 import React from 'react';
 import TechnicalPageContainer from 'UI/views/TechnicalPage';
 import { PAGES, ROUTES } from 'utils/constants';
-import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
+import { getStaticPropsWrapper } from 'utils/dataSelectors';
 
 const PrivacyPolicy = ({ introSection }) => (
   <TechnicalPageContainer
@@ -11,6 +11,6 @@ const PrivacyPolicy = ({ introSection }) => (
   />
 );
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.privacyPolicy, getServicePageProps);
+export const getStaticProps = getStaticPropsWrapper(PAGES.privacyPolicy);
 
 export default PrivacyPolicy;

@@ -305,3 +305,9 @@ export const formParser = (form) => async (req, _, next) => {
     next();
   });
 };
+
+export const findBlock = (blocks, blockType) => blocks.find((module) => {
+  const { slug } = getDocumentFields(module, ['slug']);
+
+  return slug === blockType;
+});
