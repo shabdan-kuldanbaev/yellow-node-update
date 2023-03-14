@@ -1,0 +1,35 @@
+.smartcenter {
+  &.secondSectionView {
+    .contentContainer {
+      max-width: 790px;
+      width: 100%;
+
+      & > div {
+        max-width: 379px;
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    .title {
+      color: $gray0;
+    }
+
+    .infoContainer {
+      h3 {
+        color: $gray0;
+      }
+
+      p {
+        color: $gray0;
+        opacity: 0.7;
+        white-space: unset;
+      }
+
+      li::marker {
+        color: $gray0;
+        opacity: 0.7;
+      }
+    }
+  }
+}
