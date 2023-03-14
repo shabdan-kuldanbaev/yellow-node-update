@@ -47,9 +47,6 @@ function* fetchPageData({
     yield put(formErrorDismissed());
 
     switch (slug) {
-    case PAGES.privacyPolicy:
-    case PAGES.cookiesPolicy:
-    case PAGES.termsAndConditions:
     case PAGES.notFound:
     case PAGES.signatureGenerator:
       yield call(fetchPage, { slug });

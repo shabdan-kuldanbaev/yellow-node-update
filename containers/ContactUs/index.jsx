@@ -25,7 +25,7 @@ const CompanyPeoplePhoto = dynamic(() => import('components/ContactUsCommon/Comp
 const ContactUsContainer = ({ introSection, type }) => {
   const { data = {} } = useFetchPageQuery(type);
   const {
-    contentModules,
+    contentModules = [],
     metaData,
   } = data;
   const peoplePhoto = findBlock(contentModules, BLOCKS_SLUGS.contactPageCompanyPhoto);

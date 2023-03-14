@@ -33,7 +33,7 @@ const Portfolio = ({
   const [selectedTag, setSelectedTag] = useState(null);
 
   const { data = {} } = useLoadTagsAndTypesQuery();
-  const { types } = data;
+  const { types = [] } = data;
 
   const slugs = {
     Fireaway: 'fireaway',

@@ -16,6 +16,9 @@ import baseApi, { BASEQUERY_TYPES } from '.';
 const blogApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getArticlesList: builder.query({
+      extraOptions: {
+        type: BASEQUERY_TYPES.graphql,
+      },
       query({
         slug,
         skip,
@@ -83,12 +86,13 @@ const blogApi = baseApi.injectEndpoints({
             where: { slug: tagsList[0].fields.slug },
           })),
         ]);
+        console.log('🚀 ~ file: blog.js:74 ~ queryFn ~ prev:', prev);
 
         return {
           data: {
             article,
-            next: getGraphqlResultArticles(next)?.[0],
-            prev: getGraphqlResultArticles(prev)?.[0],
+            next: getGraphqlResultArticles(next)?.[0] || {},
+            prev: getGraphqlResultArticles(prev)?.[0] || {},
             related: getGraphqlResultArticlesByTags(related),
           },
         };

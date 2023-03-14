@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import Svg from 'UI/components/Svg';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-import { selectComponents } from 'redux/selectors/layout';
+import { useFetchPageQuery } from 'redux/apis/page';
 import { getFooterProps } from './utils/propsHelper';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
@@ -13,7 +12,8 @@ const CaseStudiesFooter = ({
   type,
   pathname,
 }) => {
-  const { main: currentProject } = useSelector(selectComponents);
+  const { data = {} } = useFetchPageQuery(type);
+  const { contentModules: currentProject = [] } = data;
   const {
     title,
     buttonTitle,
