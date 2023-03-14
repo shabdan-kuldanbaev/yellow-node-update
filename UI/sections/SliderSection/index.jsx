@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar, Mousewheel } from 'swiper';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import Animated from 'components/Common/Animated';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'UI/components/SectionTitle';
 import CardContainer from 'UI/containers/CardContainer';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getSliderProps } from './utils/sliderHelper';
 import styles from './styles.module.scss';
+
+const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'), { ssr: false });
 
 SwiperCore.use([
   Scrollbar,

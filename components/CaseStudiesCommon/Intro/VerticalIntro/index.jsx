@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import CustomImage from 'components/Common/CustomImage';
 import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
@@ -37,13 +37,14 @@ const VerticalIntro = ({
       ref={introSection}
       className={styles[type]}
     >
-      <CustomImage
+      <Illustration
         src={sectionBackground}
         layout="fill"
         containerClasses={styles.sectionBackground}
       />
       {isIntroHasBackground(type) && (
-        <img
+        <Illustration
+          layout="responsive"
           src={backgroundImageUrl}
           className={styles.backgroundImage}
           alt={type}
@@ -52,7 +53,8 @@ const VerticalIntro = ({
       <div className={styles.introSection}>
         <div className={styles.projectInfoContainer}>
           {appLogoUrl && (
-            <img
+            <Illustration
+              layout="responsive"
               className={styles.logo}
               src={appLogoUrl}
               alt={title}
@@ -82,7 +84,7 @@ const VerticalIntro = ({
           )}
         </div>
         {caseStudyLink(type, downloadLink)}
-        <CustomImage
+        <Illustration
           src={appBackgroundImageUrl}
           alt={appBackgroundImageUrl}
           layout="responsive"
@@ -98,7 +100,8 @@ const VerticalIntro = ({
           const bundleUrl = getFileUrl(bundle);
 
           return (
-            <img
+            <Illustration
+              layout="responsive"
               className={styles.bundleImage}
               src={bundleUrl}
               alt=""

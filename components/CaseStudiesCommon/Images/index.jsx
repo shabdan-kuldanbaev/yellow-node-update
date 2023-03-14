@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import get from 'lodash/get';
 import { connect } from 'react-redux';
@@ -50,7 +51,8 @@ const Images = ({
               type={ANIMATED_TYPE.isCSS}
               intersectedClasses={imageStyle}
             >
-              <img
+              <Illustration
+                layout="responsive"
                 className={styles.image}
                 src={imageUrl}
                 alt={imageUrl}

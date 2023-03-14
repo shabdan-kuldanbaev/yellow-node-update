@@ -4,12 +4,11 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import SectionTitle from 'components/Common/SectionTitle';
 import Animated from 'components/Common/Animated';
-import { getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -41,12 +40,12 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
             transformDuration={0.8}
             transitionDelay={0}
           >
-            <img
+            <Illustration
+              layout="responsive"
+              width="100%"
+              height="100%"
               ref={photoRef}
-              src={getOptimizedContentfulImage(
-                photo,
-                { width: isMobileResolution ? 530 : 1500 },
-              )}
+              src={photo}
               alt="CompanyPeoplePhoto"
             />
           </Animated>

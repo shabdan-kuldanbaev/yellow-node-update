@@ -4,13 +4,13 @@ import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
-import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
 import { getServicePageInfo } from './utils/servicePageHelper';
 import styles from './styles.module.scss';
 
-const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
+const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'), { ssr: false });
+const AppDevelopmentCommon = dynamic(() => import('components/AppDevelopmentCommon').then((module) => module.AppDevelopmentCommon));
 
 const CustomServiceContainer = ({
   introSection,

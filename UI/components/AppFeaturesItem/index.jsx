@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
@@ -44,7 +45,8 @@ const AppFeaturesItem = (props) => {
             {title}
           </p>
           {imagesUrl.map((imageUrl) => (
-            <img
+            <Illustration
+              layout="responsive"
               className={styles.imageBundle}
               src={imageUrl}
               alt=""

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Lottie from 'react-lottie';
+import Lottie from 'react-lottie-light';
 import { connect } from 'react-redux';
 import { setFirstPageLoaded } from 'redux/actions/layout';
 import { selectIsPageReadyToDisplay, selectIsFirstPageLoaded } from 'redux/selectors/layout';

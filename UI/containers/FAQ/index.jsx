@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import Script from 'next/script';
 import isEmpty from 'lodash/isEmpty';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import { microdata } from 'utils/microdata';
-import CollapseItem from 'UI/components/CollapseItem';
 import styles from './styles.module.scss';
+
+const CollapseItem = dynamic(() => import('UI/components/CollapseItem'));
 
 const FAQ = ({ faqList, isArticalPage }) => (
   <>
     <Head>
       {!isEmpty(faqList) && (
-        <script
+        <Script
+          id="JSON-LD-faq"
           key="JSON-LD-faq"
           type="application/ld+json"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(microdata.faq({ faqList })),
           }}

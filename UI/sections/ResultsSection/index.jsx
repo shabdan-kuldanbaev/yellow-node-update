@@ -32,7 +32,8 @@ const ResultsSection = (props) => {
         className={styles.sectionTitle}
       />
       <div className={styles.circle}>
-        <img
+        <Illustration
+          layout="responsive"
           className={styles.mockup}
           src={smartphoneUrl}
           alt={smartphoneUrl}
@@ -45,7 +46,8 @@ const ResultsSection = (props) => {
             />
           )
           : (
-            <img
+            <Illustration
+              layout="responsive"
               className={styles.appImage}
               src={appScreenUrl}
               alt={appScreenUrl}

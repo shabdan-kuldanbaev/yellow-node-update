@@ -33,15 +33,18 @@
   }
 
   .imageContainer {
-    .backgroundImage {
+    &.backgroundImage {
       @include covered;
 
-      object-fit: cover !important;
       transition: filter 0.15s ease-in-out;
       z-index: 0;
+
+      img {
+        object-fit: cover !important;
+      }
     }
 
-    .mainImage {
+    &.mainImage img {
       @include centered;
 
       max-width: 90%;
@@ -63,8 +66,9 @@
 
   &:hover {
     .imageContainer {
-      .backgroundImage,
-      .mainImage {
+
+      &.backgroundImage,
+      &.mainImage {
         filter: blur(20px);
 
         @include tablet {

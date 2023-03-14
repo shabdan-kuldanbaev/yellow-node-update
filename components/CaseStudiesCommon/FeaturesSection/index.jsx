@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import get from 'lodash/get';
 import Animated from 'components/Common/Animated';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
@@ -64,7 +65,8 @@ export const FeaturesSection = ({ type, data }) => {
               {...ANIMATION_CASE_STUDY_PROPS}
             >
               <div>
-                <img
+                <Illustration
+                  layout="responsive"
                   className={styles.image}
                   src={imageUrl}
                   alt={title}

@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import Animated from 'components/Common/Animated';
 import SectionTitle from 'UI/components/SectionTitle';
-import FigmaPrototype from 'components/Common/FigmaPrototype';
-import AppFeaturesItem from 'UI/components/AppFeaturesItem';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
+
+const AppFeaturesItem = dynamic(() => import('UI/components/AppFeaturesItem'));
+const FigmaPrototype = dynamic(() => import('components/Common/FigmaPrototype'));
 
 const AppFeatures = (props) => {
   const {
@@ -57,7 +60,8 @@ const AppFeatures = (props) => {
         <div className={styles.imageWrapper}>
           <Animated delay={500}>
             <div className={styles.imageContainer}>
-              <img
+              <Illustration
+                layout="responsive"
                 src={imageSrc}
                 className={styles.image}
                 alt={type}

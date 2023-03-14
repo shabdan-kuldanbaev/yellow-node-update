@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
@@ -22,7 +23,7 @@ const FullScreenImages = ({
         data={data}
         type={type}
       />
-      <img
+      <Illustration
         className={styles.image}
         src={imageUrl}
         alt={type}

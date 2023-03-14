@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import CustomImage from 'components/Common/CustomImage';
+import Illustration from 'UI/components/Illustration';
 import Animated from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { getImage } from 'utils/helper';
@@ -36,7 +36,7 @@ const Wireframe = ({
         {...ANIMATION_CASE_STUDY_PROPS}
       >
         <div className={styles[type]}>
-          <CustomImage
+          <Illustration
             src={imageData.url}
             alt={imageData.url}
             layout="responsive"
@@ -50,7 +50,7 @@ const Wireframe = ({
             containerClasses={styles.animatedContainer}
             className={styles.image}
           />
-          <CustomImage
+          <Illustration
             src={imageData.url}
             alt={imageData.url}
             layout="responsive"

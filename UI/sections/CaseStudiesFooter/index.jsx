@@ -2,14 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
+import dynamic from 'next/dynamic';
 import { selectProject } from 'redux/selectors/portfolio';
-import Svg from 'UI/components/Svg';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Typography from 'UI/components/Typography';
-import SectionTitle from 'UI/components/SectionTitle';
 import { SVG_IMAGES_TYPES, EMAIL_LINK } from 'utils/constants';
 import { useCaseStudiesFooter } from './utils/useCaseStudiesFooter';
 import styles from './styles.module.scss';
+
+const SectionTitle = dynamic(() => import('UI/components/SectionTitle'));
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const CaseStudiesFooter = (props) => {
   const {

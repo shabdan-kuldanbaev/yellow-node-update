@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields } from 'utils/helper';
 import styles from './styles.module.scss';
+
+const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
 
 const TextSection = ({ sectionData, type }) => {
   const {

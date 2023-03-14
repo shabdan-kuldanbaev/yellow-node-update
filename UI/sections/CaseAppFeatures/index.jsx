@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import SectionTitle from 'UI/components/SectionTitle';
 import Animated from 'UI/containers/Animated';
 import Typography from 'UI/components/Typography';
+import Illustration from 'UI/components/Illustration';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useCaseFeaturesProps from './utils/useCaseFeaturesProps';
@@ -63,7 +64,8 @@ const CaseAppFeatures = (props) => {
         <div className={styles.imageContainer}>
           <Animated {...REVEAL_ANIMATION_PROPS}>
             {activeIndex !== -1 ? imagesData?.map((image, i) => (
-              <img
+              <Illustration
+                layout="responsive"
                 src={image}
                 className={cn(styles.image, {
                   [styles.activeImage]: i === activeIndex,
@@ -71,7 +73,8 @@ const CaseAppFeatures = (props) => {
                 alt={type}
               />
             )) : (
-              <img
+              <Illustration
+                layout="responsive"
                 src={promoImage}
                 className={styles.promoImage}
                 alt={type}

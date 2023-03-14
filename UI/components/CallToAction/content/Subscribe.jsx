@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
-import Typography from 'UI/components/Typography';
+import dynamic from 'next/dynamic';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
-import SubscribeInCTAForm from 'UI/components/Forms/SubscribeInCTAForm';
-import Button from 'UI/components/Button';
 import { selectIsSubscribed } from 'redux/selectors/subscribe';
 import styles from '../styles.module.scss';
+
+const Typography = dynamic(() => import('UI/components/Typography'));
+const Button = dynamic(() => import('UI/components/Button'));
+const SubscribeInCTAForm = dynamic(() => import('UI/components/Forms/SubscribeInCTAForm'));
 
 export default ({
   titles,

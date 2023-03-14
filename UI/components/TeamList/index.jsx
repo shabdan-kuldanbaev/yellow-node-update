@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Animated from 'UI/containers/Animated';
 import Typography from 'UI/components/Typography';
+import Illustration from 'UI/components/Illustration';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useTeamSection } from './utils/useTeamSection';
 import styles from './styles.module.scss';
@@ -61,7 +62,8 @@ const TeamList = (props) => {
           </div>
         ))}
         {images.map((imgUrl, index) => (
-          <img
+          <Illustration
+            layout="responsive"
             className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
             src={imgUrl}
             alt={title}

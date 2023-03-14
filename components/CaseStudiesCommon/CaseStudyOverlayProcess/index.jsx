@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import get from 'lodash/get';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
@@ -58,7 +59,7 @@ const CaseStudyOverlayProcess = ({ data, type }) => {
               >
                 <div className={styles.cardContainer}>
                   <div className={styles.imageContainer}>
-                    <img
+                    <Illustration
                       className={styles.image}
                       src={imageUrl}
                       alt={cardTitle}

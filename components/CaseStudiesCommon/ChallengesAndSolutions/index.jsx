@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
@@ -79,7 +80,8 @@ const ChallengesAndSolutions = ({
               )}
               <div className={cn(styles.infoContainer, { [styles.centrefy]: imageUrl })}>
                 {subImageUrl && (
-                  <img
+                  <Illustration
+                    layout="responsive"
                     className={styles.subImage}
                     src={subImageUrl}
                     alt={title}
@@ -129,7 +131,8 @@ const ChallengesAndSolutions = ({
               {imageUrl && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div className={styles.images}>
-                    <img
+                    <Illustration
+                      layout="responsive"
                       className={styles.image}
                       src={imageUrl}
                       alt={title}
@@ -138,7 +141,8 @@ const ChallengesAndSolutions = ({
                       const bundleUrl = getFileUrl(bundle);
 
                       return (
-                        <img
+                        <Illustration
+                          layout="responsive"
                           className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                           src={bundleUrl}
                           alt=""
@@ -153,7 +157,8 @@ const ChallengesAndSolutions = ({
                 const bundleUrl = getFileUrl(bundle);
 
                 return (
-                  <img
+                  <Illustration
+                    layout="responsive"
                     className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                     src={bundleUrl}
                     key={`bundles-images/${bundleUrl}`}

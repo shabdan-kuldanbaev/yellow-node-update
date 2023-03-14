@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
+
 import SectionTitle from 'UI/components/SectionTitle';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('components/Common/Animated'));
+const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
 
 const PlainTextSection = (props) => {
   const {

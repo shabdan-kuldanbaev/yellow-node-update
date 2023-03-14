@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import Animated from 'components/Common/Animated';
 import { getFileUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
@@ -36,7 +37,8 @@ const TeamSection = ({ type, data }) => {
           const imgUrl = getFileUrl(image);
 
           return (
-            <img
+            <Illustration
+              layout="responsive"
               className={styles.bundleImage}
               src={imgUrl}
               alt={title}

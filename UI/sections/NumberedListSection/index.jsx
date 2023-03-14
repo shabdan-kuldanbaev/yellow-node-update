@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import CallToAction from 'UI/components/CallToAction';
-import Animated from 'UI/containers/Animated';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
-import NumberWithText from 'UI/components/Cards/NumberWithText';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useCheckListSection from './utils/useNumberedListSection';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('components/Common/Animated'));
+const NumberWithText = dynamic(() => import('UI/components/Cards/NumberWithText'));
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 
 const NumberedListSection = (props) => {
   const {

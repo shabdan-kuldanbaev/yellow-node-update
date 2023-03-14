@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
+import SectionTitle from 'components/Common/SectionTitle';
 import Animated from 'components/Common/Animated';
-import SectionTitle from 'UI/components/SectionTitle';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
@@ -30,7 +31,8 @@ const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
             transitionDelay={100 + 150 * index}
           >
             <div className={styles.title}>
-              <img
+              <Illustration
+                layout="fill"
                 src={imageUrl}
                 alt={title}
               />

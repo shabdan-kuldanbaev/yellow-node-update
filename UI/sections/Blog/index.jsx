@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import dynamic from 'next/dynamic';
 import { SwiperSlide } from 'swiper/react';
 import Button from 'UI/components/Button';
-import BlogCard from 'UI/components/Cards/BlogCard';
 import SectionTitle from 'UI/components/SectionTitle';
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import { REVEAL_ANIMATION_PROPS, ROUTES } from 'utils/constants';
@@ -11,6 +11,8 @@ import Animated from 'UI/containers/Animated';
 import { selectArticles } from 'redux/selectors/blog';
 import { useBlog } from './utils/useBlog';
 import styles from './styles.module.scss';
+
+const BlogCard = dynamic(() => import('UI/components/Cards/BlogCard'), { ssr: false });
 
 const Blog = (props) => {
   const {

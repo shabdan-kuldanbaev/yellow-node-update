@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import Script from 'next/script';
 import { getPathWithCdn } from 'utils/helper';
 import { IS_PROD } from 'utils/constants';
 import { ogMetaData } from './utils/data';
@@ -59,6 +60,7 @@ const MetaTags = ({
   const robots = !IS_PROD ? 'none' : metaRobots;
 
   return (
+    // eslint-disable-next-line @next/next/no-script-component-in-head
     <Head>
       <title>{getTitle(title)}</title>
       <meta name="description" content={getDescription(description)} />
@@ -87,8 +89,11 @@ const MetaTags = ({
       <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
       <link rel="manifest" href="/manifest.json" />
       {children}
-      <script
+      <Script
+        id="JSON-LD-meta"
+        key="JSON-LD-meta"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata, null, 2) }}
       />
     </Head>

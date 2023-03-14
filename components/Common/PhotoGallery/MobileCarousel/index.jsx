@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import CustomImage from 'components/Common/CustomImage';
+import Illustration from 'UI/components/Illustration';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
@@ -16,7 +16,7 @@ const MobileCarousel = ({ photos }) => (
         const imageUrl = getFileUrl(image);
 
         return (
-          <CustomImage
+          <Illustration
             key={`gallary/photo/${index}`}
             src={imageUrl}
             layout="responsive"

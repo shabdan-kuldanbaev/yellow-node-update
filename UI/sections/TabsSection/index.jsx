@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import CallToAction from 'UI/components/CallToAction';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import dynamic from 'next/dynamic';
 import CardContainer from 'UI/containers/CardContainer';
 import SectionTitle from 'UI/components/SectionTitle';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+
+const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 
 const TabsSection = (props) => {
   const {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import get from 'lodash/get';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
@@ -37,7 +38,8 @@ const ResultsSection = ({ data, type }) => {
         type={type}
       />
       <div className={styles.circle}>
-        <img
+        <Illustration
+          layout="responsive"
           className={styles.mockup}
           src={smartphoneUrl}
           alt={smartphoneUrl}
@@ -50,7 +52,8 @@ const ResultsSection = ({ data, type }) => {
             />
           )
           : (
-            <img
+            <Illustration
+              layout="responsive"
               className={styles.appImage}
               src={appScreenUrl}
               alt={appScreenUrl}
@@ -60,7 +63,8 @@ const ResultsSection = ({ data, type }) => {
           const bundleUrl = getFileUrl(bundle);
 
           return (
-            <img
+            <Illustration
+              layout="responsive"
               className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
               src={bundleUrl}
               alt={type}

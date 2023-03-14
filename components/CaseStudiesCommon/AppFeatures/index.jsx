@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import get from 'lodash/get';
 import Animated from 'components/Common/Animated';
@@ -78,7 +79,8 @@ const AppFeatures = ({ data, type }) => {
         >
           <div className={styles.imageContainer}>
             {images.map((image, i) => (
-              <img
+              <Illustration
+                layout="responsive"
                 src={image}
                 className={cn(styles.image, {
                   [styles.active]: i === activeIndex,

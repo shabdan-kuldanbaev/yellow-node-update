@@ -6,20 +6,23 @@ import {
   INLINES,
 } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import dynamic from 'next/dynamic';
 import get from 'lodash/get';
-import GalleryCard from 'components/BlogCommon/Article/GalleryCard';
+import Illustration from 'UI/components/Illustration';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Animated from 'components/Common/Animated';
-import Table from 'components/Common/Table';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
   rootUrl,
 } from 'utils/helper';
-import EmbedArticleCard from 'UI/components/Cards/EmbedArticleCard';
-import { ArticleLink } from './ArticleLink';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('components/Common/Animated'));
+const GalleryCard = dynamic(() => import('components/BlogCommon/Article/GalleryCard'));
+const ArticleLink = dynamic(() => import('./ArticleLink').then((module) => module.ArticleLink));
+const Table = dynamic(() => import('components/Common/Table'));
+const EmbedArticleCard = dynamic(() => import('UI/components/Cards/EmbedArticleCard'));
 
 // TODO move it to the common folder
 const ContentfulParser = ({ document }) => {
@@ -50,7 +53,8 @@ const ContentfulParser = ({ document }) => {
                 : styles.fullImage}
               >
                 <Animated type={ANIMATED_TYPE.imageZoom}>
-                  <img
+                  <Illustration
+                    layout="responsive"
                     src={imageUrl}
                     alt={imageDescription}
                     title={imageDescription}

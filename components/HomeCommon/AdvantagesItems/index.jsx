@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import CustomImage from 'components/Common/CustomImage';
+import Illustration from 'UI/components/Illustration';
 import { advantages, animatedFields } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -11,7 +11,7 @@ const AdvantagesItems = ({ advantages: advantagesList, animatedFields: animatedF
     switch (field) {
     case 'img':
       return (
-        <CustomImage
+        <Illustration
           src={adv.image}
           alt={adv.title}
           layout="responsive"

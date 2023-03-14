@@ -3,7 +3,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
-import CustomImage from 'components/Common/CustomImage';
+import Illustration from 'UI/components/Illustration';
 import SelectorElement from 'components/PortfolioCommon/SelectorElement';
 import { getFileUrl } from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
@@ -37,7 +37,7 @@ const Work = ({
     <Animated {...REVEAL_ANIMATION_PROPS}>
       <div className={cn(styles.work, styles[customSlug || slug])}>
         {backgroundImage && (
-          <CustomImage
+          <Illustration
             src={getFileUrl(backgroundImage)}
             layout="fill"
             width={700}
@@ -48,7 +48,7 @@ const Work = ({
           />
         )}
         {mainImage && (
-          <CustomImage
+          <Illustration
             src={getFileUrl(mainImage)}
             alt="work preview"
             layout="responsive"

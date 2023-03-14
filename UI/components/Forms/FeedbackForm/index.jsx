@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import TextField from 'UI/components/TextField';
 import Animated from 'UI/containers/Animated';
 import Button from 'UI/components/Button';
@@ -10,9 +11,10 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { selectError, selectIsFormDataSent, selectIsFormPending } from 'redux/selectors/contact';
 import Upload from './Upload';
 import FormAlert from './FormAlert';
-import BudgetSlider from './BudgetSlider';
 import useFormProps from './utils/useFormProps';
 import styles from './styles.module.scss';
+
+const BudgetSlider = dynamic(() => import('./BudgetSlider'), { ssr: false });
 
 const FeedbackForm = (props) => {
   const {

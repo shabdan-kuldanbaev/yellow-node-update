@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'UI/components/Svg';
 import SectionTitle from 'UI/components/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getCheckSocialProps } from './utils/checkSocialHelper';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const CheckSocialSection = ({
   sectionData,

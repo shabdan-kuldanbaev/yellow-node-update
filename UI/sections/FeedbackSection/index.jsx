@@ -1,13 +1,15 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
-import FeedbackForm from 'UI/components/Forms/FeedbackForm';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Illustration from 'UI/components/Illustration';
-import DownloadChecklistForm from 'UI/components/Forms/DownloadChecklistForm';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+
+const DownloadChecklistForm = dynamic(() => import('UI/components/Forms/DownloadChecklistForm'), { ssr: false });
+const FeedbackForm = dynamic(() => import('UI/components/Forms/FeedbackForm'), { ssr: false });
 
 const FeedbackSection = (props) => {
   const {

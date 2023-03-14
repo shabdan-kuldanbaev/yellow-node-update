@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Animated from 'components/Common/Animated';
-import CustomImage from 'components/Common/CustomImage';
+import Illustration from 'UI/components/Illustration';
 import Svg from 'UI/components/Svg';
 import styles from './styles.module.scss';
 
@@ -38,7 +38,7 @@ export const Comment = ({
             ref={infoRef}
           >
             <div className={styles.person}>
-              <CustomImage
+              <Illustration
                 src={avatar}
                 alt={name}
                 width={58}

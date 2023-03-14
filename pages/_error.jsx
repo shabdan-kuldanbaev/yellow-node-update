@@ -1,10 +1,13 @@
 import React from 'react';
 import { END } from 'redux-saga';
+import dynamic from 'next/dynamic';
+
 import { fetchLayoutData } from 'redux/actions/layout';
-import PageNotFound from 'containers/PageNotFound';
 import { wrapper } from 'redux/store';
 import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
+
+const PageNotFound = dynamic(() => import('containers/PageNotFound'), { ssr: false });
 
 const Error = ({ statusCode, err }) => (statusCode
   ? statusCode === 404 && <PageNotFound />

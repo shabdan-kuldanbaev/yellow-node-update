@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import { getEmployeeInfo } from 'containers/Signature/utils/helpers';
 import {
@@ -69,7 +70,8 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path={YELLOW_LINK}
                   >
-                    <img
+                    <Illustration
+                      layout="responsive"
                       src={images.yellowUrl}
                       alt="yellow logo"
                     />
@@ -108,8 +110,9 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path="https://www.linkedin.com/company/yellow-systems/"
                   >
-                    <img
-                      src={images.linkedInImgUrl}
+                    <Illustration
+                      layout="responsive"
+                      src={images.linkedInImageUrl}
                       alt="linkedin logo"
                     />
                   </LinkWrapper>
@@ -117,8 +120,9 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path="https://www.instagram.com/yellow.systems/"
                   >
-                    <img
-                      src={images.instagramImgUrl}
+                    <Illustration
+                      layout="responsive"
+                      src={images.instagramImageUrl}
                       alt="instagram logo"
                     />
                   </LinkWrapper>
@@ -126,8 +130,9 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path="https://twitter.com/yellow_systems"
                   >
-                    <img
-                      src={images.twitterImgUrl}
+                    <Illustration
+                      layout="responsive"
+                      src={images.twitterImageUrl}
                       alt="twitter logo"
                     />
                   </LinkWrapper>

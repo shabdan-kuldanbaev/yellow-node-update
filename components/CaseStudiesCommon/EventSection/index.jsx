@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import get from 'lodash/get';
 import Animated from 'components/Common/Animated';
 import LinkWrapper from 'components/Common/LinkWrapper';
@@ -40,7 +41,8 @@ export const EventSection = ({ type, data }) => {
         {...ANIMATION_CASE_STUDY_PROPS}
       >
         <div className={styles.imageContainer}>
-          <img
+          <Illustration
+            layout="responsive"
             src={imageUrl}
             alt={type}
           />

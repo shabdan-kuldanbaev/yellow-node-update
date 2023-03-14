@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import Breadcrumbs from 'UI/components/Breadcrumbs';
 import { formatDate } from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('components/Common/Animated'));
 
 const PageHeader = ({
   title,

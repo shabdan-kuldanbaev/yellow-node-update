@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
@@ -65,7 +66,8 @@ const DefaultIntro = ({
       <div className={styles.introSection}>
         <div className={styles.projectInfoContainer}>
           {appLogoUrl && (
-            <img
+            <Illustration
+              layout="responsive"
               className={styles.logo}
               src={appLogoUrl}
               alt={appLogoUrl}
@@ -92,7 +94,8 @@ const DefaultIntro = ({
           )}
         </div>
         <div className={styles.imageContainer}>
-          <img
+          <Illustration
+            layout="responsive"
             className={styles.image}
             src={appBackgroundImageUrl}
             alt={appBackgroundImageUrl}
@@ -102,7 +105,8 @@ const DefaultIntro = ({
           const bundleUrl = getFileUrl(bundle);
 
           return (
-            <img
+            <Illustration
+              layout="responsive"
               className={styles.bundleImage}
               src={bundleUrl}
               alt={title}

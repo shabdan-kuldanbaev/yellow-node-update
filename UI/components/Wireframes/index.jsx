@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import CustomImage from 'components/Common/CustomImage';
+import Illustration from 'UI/components/Illustration';
 import Animated from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useWireframes } from './utils/useWireframes';
@@ -26,7 +26,7 @@ const Wireframe = (props) => {
       {...ANIMATION_CASE_STUDY_PROPS}
     >
       <div className={cn(styles[type], styles.container)}>
-        <CustomImage
+        <Illustration
           src={url}
           alt={url}
           layout="responsive"
@@ -40,7 +40,7 @@ const Wireframe = (props) => {
           containerClasses={styles.animatedContainer}
           className={styles.image}
         />
-        <CustomImage
+        <Illustration
           src={url}
           alt={alt}
           layout="responsive"

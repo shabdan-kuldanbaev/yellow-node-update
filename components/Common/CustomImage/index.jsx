@@ -26,6 +26,7 @@ const CustomImage = ({
   style,
   scale,
   isStatic,
+  ref,
   ...other
 }) => {
   if (!src) {
@@ -36,10 +37,12 @@ const CustomImage = ({
     loading: 'lazy',
     placeholder: 'blur',
     blurDataURL: isStatic ? src : getOptimizedContentfulImage(src, {
-      width: 50,
-      fm: 'png',
+      width: 1,
+      fm: 'webp',
       bg: backgroundColor,
       isRounded,
+      q: 1,
+      w: 50,
     }),
   } : undefined;
 
@@ -59,7 +62,7 @@ const CustomImage = ({
       className={cn(styles.picture, containerClasses)}
     >
       <source srcSet={isStatic ? src : getOptimizedContentfulImage(src, {
-        fm: 'jpg',
+        fm: 'webp',
         fl: 'progressive',
         fit,
         focusArea,
@@ -68,6 +71,7 @@ const CustomImage = ({
       })}
       />
       <Image
+        ref={ref}
         loader={isStatic ? staticImageLoader : ContentfulImageLoader}
         src={isStatic ? src : getOptimizedContentfulImage(src, {
           width: width * scale,

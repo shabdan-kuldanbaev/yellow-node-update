@@ -4,7 +4,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
-import Lottie from 'react-lottie';
+import Lottie from 'react-lottie-light';
 import PropTypes from 'prop-types';
 import { useIntersection } from 'react-use';
 

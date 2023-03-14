@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import dynamic from 'next/dynamic';
 import { selectProject } from 'redux/selectors/portfolio';
-import Svg from 'UI/components/Svg';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getFooterProps } from './utils/propsHelper';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const CaseStudiesFooter = ({
   type,

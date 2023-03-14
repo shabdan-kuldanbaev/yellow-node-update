@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { CustomYoutubePlayer } from 'components/Common/CustomYoutubePlayer';
@@ -28,7 +29,8 @@ export const StorySection = ({ type, data }) => {
           <div className={styles.sectionImage}>
             {imageUrl && (
               <div className={styles.imageContainer}>
-                <img
+                <Illustration
+                  layout="responsive"
                   className={styles.image}
                   src={imageUrl}
                   alt={imageUrl}

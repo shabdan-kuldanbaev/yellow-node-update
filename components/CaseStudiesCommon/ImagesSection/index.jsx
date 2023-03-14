@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import get from 'lodash/get';
 import cn from 'classnames';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
@@ -19,7 +20,8 @@ const ImagesSection = ({
         const imgUrl = getFileUrl(image);
 
         return (
-          <img
+          <Illustration
+            layout="responsive"
             className={styles.bundleImage}
             src={imgUrl}
             alt=""
