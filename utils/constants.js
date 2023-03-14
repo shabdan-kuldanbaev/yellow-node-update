@@ -23,6 +23,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'ubichat',
   'writer-chrome-extension',
   'bionorica',
+  'fusion-markets',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;

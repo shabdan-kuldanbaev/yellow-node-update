@@ -11,6 +11,7 @@ export const WHITE_LOGO_TYPE = [
   'cash-chat',
   'ubichat',
   'writer-chrome-extension',
+  'fusion-markets',
 ];
 
 export const BLACK_LOGO_TYPE = [

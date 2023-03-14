@@ -1,0 +1,60 @@
+.fusion-markets {
+  padding: 60px 40px;
+  background-color: $fusionMarketsAccent;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    max-width: 661px;
+  }
+
+  .circle {
+    width: 994px;
+    height: 737px;
+    left: 0;
+    margin: 0 auto;
+    transform: none;
+
+    @include tablet {
+      width: 100%;
+    }
+
+    @include below-tablet {
+      height: 500px;
+    }
+
+    @include phone {
+      height: 254px;
+    }
+  }
+
+  .mockup {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.secondSectionView,
+  &.thirdSectionView {
+    padding: 0 40px 60px;
+
+    .sectionTitle {
+      margin: 0;
+    }
+
+    @include phone {
+      padding: 30px 16px;
+    }
+  }
+
+  &.fourthSectionView {
+    [data-description] {
+      max-width: 728px;
+    }
+  }
+
+  @include phone {
+    padding: 30px 16px;
+  }
+}
