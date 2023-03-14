@@ -6,7 +6,7 @@ import {
   isDesktop,
   isMobile,
   isTablet,
-} from 'redux/selectors/client-side';
+} from 'redux/selectors/layout';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import Card from 'UI/components/Cards/Card';

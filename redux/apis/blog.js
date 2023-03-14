@@ -99,6 +99,20 @@ const blogApi = baseApi.injectEndpoints({
       },
     }),
 
+    getDraftArticle: builder.query({
+      extraOptions: {
+        isPreview: true,
+        type: BASEQUERY_TYPES.getEntries,
+
+      },
+      query(slug) {
+        return { contentType: 'article', query: { slug } };
+      },
+      transformResponse(response) {
+        return response.items[0];
+      },
+    }),
+
     getSearchResult: builder.query({
       async queryFn(value, _, __, baseQuery) {
         if (!value) {
@@ -144,6 +158,7 @@ export const {
   useGetTagsQuery,
   useGetArticleQuery,
   useGetSearchResultQuery,
+  useGetDraftArticleQuery,
 } = blogApi;
 
 export default blogApi;

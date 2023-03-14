@@ -11,3 +11,9 @@ export const selectComponents = (state) => state.layout.components;
 export const selectMetaData = (state) => state.layout.metaData;
 
 export const selectIsDropMenuOpened = (state) => state.layout.isDropMenuOpened;
+
+export const isMobile = (state) => state.layout.isMobileResolution;
+
+export const isTablet = (state) => state.layout.isTabletResolution;
+
+export const isDesktop = (state) => state.layout.isDesktopResolution;

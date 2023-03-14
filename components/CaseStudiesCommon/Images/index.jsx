@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import Animated from 'components/Common/Animated';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { isMobile } from 'redux/selectors/client-side';
+import { isMobile } from 'redux/selectors/layout';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 

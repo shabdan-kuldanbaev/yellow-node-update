@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/client-side';
+import { isMobile } from 'redux/selectors/layout';
 import {
   getDocumentFields,
   getFileUrl,

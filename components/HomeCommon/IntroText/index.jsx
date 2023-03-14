@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/client-side';
+import { isMobile } from 'redux/selectors/layout';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import useAppearingAnimation from 'hooks/useAppearingAnimation';
 import { ROUTES } from 'utils/constants';

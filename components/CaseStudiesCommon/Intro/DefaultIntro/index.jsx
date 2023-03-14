@@ -8,7 +8,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { isMobile } from 'redux/selectors/client-side';
+import { isMobile } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 import { ProjectLink } from './ProjectLink';
 

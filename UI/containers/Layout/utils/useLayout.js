@@ -6,7 +6,7 @@ import {
   desktopResolutionSet,
   mobileResolutionSet,
   tabletResolutionSet,
-} from 'redux/reducers/client-side';
+} from 'redux/reducers/layout';
 import { AppContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
 

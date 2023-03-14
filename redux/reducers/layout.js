@@ -1,33 +1,38 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { setRawPayload } from 'utils/redux';
 
 const initialState = {
+  isMobileResolution: false,
+  isTabletResolution: false,
+  isDesktopResolution: true,
   isMobileMenuOpened: false,
   isMobileCategotiesOpened: false,
   isPageReadyToDisplay: false,
   isFirstPageLoaded: false,
   isDropMenuOpened: false,
-  components: {
-    main: null,
-    hasFeedbackForm: false,
-  },
-  metaData: {
-    metaTitle: '',
-    metaDescription: '',
-    metaRobots: '',
-    ogImage: '',
-  },
-  title: null,
-  subtitle: null,
-  background: null,
-  error: null,
 };
 
 const layoutSlice = createSlice({
   name: 'layout',
   initialState,
   reducers: {
+    // Resolutions
+    mobileResolutionSet(state) {
+      state.isMobileResolution = true;
+      state.isTabletResolution = false;
+      state.isDesktopResolution = false;
+    },
+    tabletResolutionSet(state) {
+      state.isMobileResolution = false;
+      state.isTabletResolution = true;
+      state.isDesktopResolution = false;
+    },
+    desktopResolutionSet(state) {
+      state.isMobileResolution = false;
+      state.isTabletResolution = false;
+      state.isDesktopResolution = true;
+    },
+
     // Menus
     desktopMenuOpened: setRawPayload('isDropMenuOpened'),
     mobileMenuOpened: setRawPayload('isMobileMenuOpened'),
@@ -35,62 +40,17 @@ const layoutSlice = createSlice({
 
     // Fetching Data
     firstPageLoaded: setRawPayload('isFirstPageLoaded'),
-    pageFetchingStarted(state) {
-      state.isPageReadyToDisplay = false;
-      state.isDropMenuOpened = false;
-      state.isMobileMenuOpened = false;
-    },
-    pageFetchingSucceeded(state) {
-      state.isPageReadyToDisplay = true;
-    },
-    pageFetchingFailed(state, { payload }) {
-      state.isLoading = false;
-      state.error = payload;
-    },
-    pageFetched(state, { payload }) {
-      const {
-        contentModules,
-        hasFeedbackForm = false,
-        pageTitle = null,
-        subtitle = null,
-        metaTitle = '',
-        metaDescription = '',
-        metaRobots = '',
-        ogImage,
-        background = null,
-      } = getDocumentFields((payload || {}));
-
-      Object.assign(state, {
-        error: null,
-        isLoading: false,
-        isPageReadyToDisplay: true,
-        components: {
-          main: contentModules,
-          hasFeedbackForm,
-        },
-        metaData: {
-          metaTitle,
-          metaDescription,
-          metaRobots,
-          ogImage: getFileUrl(ogImage),
-        },
-        title: pageTitle,
-        subtitle,
-        background,
-      });
-    },
   },
 });
 
 export const {
+  mobileResolutionSet,
+  tabletResolutionSet,
+  desktopResolutionSet,
   desktopMenuOpened,
   mobileMenuOpened,
   mobileCategoriesOpened,
   firstPageLoaded,
-  pageFetchingStarted,
-  pageFetchingSucceeded,
-  pageFetchingFailed,
-  pageFetched,
 } = layoutSlice.actions;
 
 export default layoutSlice.reducer;

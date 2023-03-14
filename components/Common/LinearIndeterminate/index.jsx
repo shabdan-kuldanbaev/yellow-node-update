@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { selectIsPageReadyToDisplay } from 'redux/selectors/layout';
-import { isMobile } from 'redux/selectors/client-side';
+import { selectIsPageReadyToDisplay, isMobile } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
 const LinearIndeterminate = () => {

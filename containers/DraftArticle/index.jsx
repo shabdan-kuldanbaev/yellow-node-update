@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { useSelector } from 'react-redux';
-import { selectArticle } from 'redux/selectors/blog';
 import { getArticleProps } from 'containers/Article/utils/propsHelper';
 import Article from 'components/BlogCommon/Article';
 import FullLayout from 'components/Layout/FullLayout';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import FAQ from 'UI/containers/FAQ';
+import { useGetDraftArticleQuery } from 'redux/apis/blog';
 
-const DraftArticle = ({ introSection }) => {
-  const currentArticle = useSelector(selectArticle);
+const DraftArticle = ({ introSection, slug }) => {
+  const { data: currentArticle } = useGetDraftArticleQuery(slug);
 
   const {
     slug: articleSlug,

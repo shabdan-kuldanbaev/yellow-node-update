@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
-import { isMobile, isTablet } from 'redux/selectors/client-side';
+import { isMobile, isTablet } from 'redux/selectors/layout';
 import { getDocumentFields } from 'utils/helper';
 
 const DesktopCarousel = dynamic(() => import('./DesktopCarousel'));

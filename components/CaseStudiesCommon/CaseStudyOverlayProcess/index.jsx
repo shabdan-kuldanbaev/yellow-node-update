@@ -8,7 +8,7 @@ import CardsSlider from 'components/Common/CardsSlider';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { isMobile } from 'redux/selectors/client-side';
+import { isMobile } from 'redux/selectors/layout';
 import { getCardsProps } from './utils/cardsHelper';
 import styles from './styles.module.scss';
 
