@@ -66,7 +66,6 @@ export const getInitialBlogProps = async (store, ctx) => {
       message: 'Error in the getInitialBlogProps function',
     });
 
-    Object.assign(props, { statusCode: 500 });
     res.statusCode = 500;
   }
 

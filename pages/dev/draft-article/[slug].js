@@ -2,18 +2,11 @@ import React from 'react';
 import { END } from 'redux-saga';
 import { pageFetchingStarted } from 'redux/reducers/layout';
 import DraftArticle from 'containers/DraftArticle';
-import PageNotFound from 'containers/PageNotFound';
 import { wrapper } from 'redux/store';
 import errorHelper from 'utils/error';
 import { PAGES } from 'utils/constants';
 
-const DraftArticleContainer = ({ introSection, statusCode }) => {
-  if (statusCode === 404) {
-    return <PageNotFound />;
-  }
-
-  return <DraftArticle introSection={introSection} />;
-};
+const DraftArticleContainer = ({ introSection }) => <DraftArticle introSection={introSection} />;
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async (ctx) => {
   try {

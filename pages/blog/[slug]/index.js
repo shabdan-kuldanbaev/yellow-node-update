@@ -8,7 +8,6 @@ const Article = ({
   tagsList,
   currentPage,
   introSection,
-  statusCode,
   articlesNumberPerPage,
   isArticle,
   ...rest

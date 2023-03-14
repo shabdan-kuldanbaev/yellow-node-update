@@ -1,26 +1,18 @@
 import React from 'react';
 import { wrapper } from 'redux/store';
 import CaseStudiesContainer from 'containers/CaseStudies';
-import PageNotFound from 'containers/PageNotFound';
 import errorHelper from 'utils/error';
 import pageApi from 'redux/apis/page';
 
 const Project = ({
   introSection,
-  statusCode,
   ...rest
-}) => {
-  if (statusCode === 404) {
-    return <PageNotFound />;
-  }
-
-  return (
-    <CaseStudiesContainer
-      introSection={introSection}
-      {...rest}
-    />
-  );
-};
+}) => (
+  <CaseStudiesContainer
+    introSection={introSection}
+    {...rest}
+  />
+);
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ query: { project } }) => {
   try {
