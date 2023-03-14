@@ -1,0 +1,7 @@
+.smartcenter {
+  padding: 120px 0 0;
+
+  @include tablet {
+    padding: 60px 0 0;
+  }
+}
