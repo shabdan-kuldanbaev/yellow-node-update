@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import get from 'lodash/get';
-import { useSelector } from 'react-redux';
-import { selectCompanyPhoto, selectMetaData } from 'redux/selectors/layout';
 import CompanyContacts from 'components/ContactUsCommon/CompanyContacts';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import FullLayout from 'components/Layout/FullLayout';
 import FeedbackFormWithTitle from 'components/ContactUsCommon/FeedbackFormWithTitle';
-import { PAGES } from 'utils/constants';
+import { BLOCKS_SLUGS, PAGES } from 'utils/constants';
 import {
+  findBlock,
   getDocumentFields,
   getFileUrl,
   rootUrl,
@@ -18,13 +17,18 @@ import {
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import CompanyPlacement from 'components/ContactUsCommon/CompanyPlacement';
+import { useFetchPageQuery } from 'redux/apis/page';
 import styles from './styles.module.scss';
 
 const CompanyPeoplePhoto = dynamic(() => import('components/ContactUsCommon/CompanyPeoplePhoto'));
 
-const ContactUsContainer = ({ introSection }) => {
-  const peoplePhoto = useSelector(selectCompanyPhoto);
-  const metaData = useSelector(selectMetaData);
+const ContactUsContainer = ({ introSection, type }) => {
+  const { data = {} } = useFetchPageQuery(type);
+  const {
+    contentModules,
+    metaData,
+  } = data;
+  const peoplePhoto = findBlock(contentModules, BLOCKS_SLUGS.contactPageCompanyPhoto);
 
   const { images: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['images']);
   const peopleImageUrl = getFileUrl(get(peoplePhotoContent, '[0]', {}));

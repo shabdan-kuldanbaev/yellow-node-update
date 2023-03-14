@@ -39,7 +39,6 @@ function* fetchPage({ slug }) {
 function* fetchPageData({
   payload: {
     slug,
-    projectSlug,
   },
 }) {
   try {
@@ -48,11 +47,6 @@ function* fetchPageData({
     yield put(formErrorDismissed());
 
     switch (slug) {
-    case PAGES.project:
-      yield call(fetchPage, { slug: projectSlug });
-
-      break;
-    case PAGES.contact:
     case PAGES.privacyPolicy:
     case PAGES.cookiesPolicy:
     case PAGES.termsAndConditions:
