@@ -1,24 +1,28 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { selectComponents, selectMetaData, selectTitle } from 'redux/selectors/layout';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import MetaTags from 'components/Common/MetaTags';
 import { rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
-import { useRouter } from 'next/router';
 import { routes } from 'utils/routes';
+import { useFetchPageQuery } from 'redux/apis/page';
 
-const CaseStudiesContainer = ({ introSection }) => {
-  const { query: { project: slug } } = useRouter();
+const CaseStudiesContainer = ({ introSection, slug }) => {
+  const { data = {}, isLoading } = useFetchPageQuery(slug);
 
-  const { main: contentModules } = useSelector(selectComponents);
-  const pageTitle = useSelector(selectTitle);
+  if (isLoading) {
+    return null;
+  }
+
   const {
-    metaTitle,
-    metaDescription,
-    ogImage,
-    metaRobots,
-  } = useSelector(selectMetaData);
+    contentModules,
+    pageTitle,
+    metaData: {
+      metaTitle,
+      metaDescription,
+      ogImage,
+      metaRobots,
+    },
+  } = data;
 
   const projectMetadata = {
     metaTitle: metaTitle || `${pageTitle} | Yellow`,

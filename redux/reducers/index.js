@@ -5,14 +5,12 @@ import baseApi from 'redux/apis';
 import layout from './layout';
 import clientSide from './client-side';
 import blog from './blog';
-import portfolio from './portfolio';
 import contact from './contact';
 import subscription from './subscription';
 
 const reducers = combineReducers({
   layout,
   blog,
-  portfolio,
   contact,
   subscription,
   clientSide,

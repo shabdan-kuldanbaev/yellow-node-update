@@ -3,6 +3,7 @@ import isNil from 'lodash/isNil';
 import { wrapper } from 'redux/store';
 import blogApi from 'redux/apis/blog';
 import pageApi from 'redux/apis/page';
+import worksApi from 'redux/apis/works';
 import {
   BLOCKS_SLUGS,
   HOMEPAGE_ARTICLES_LIMIT,
@@ -11,12 +12,14 @@ import {
 import errorHelper from './error';
 import { findBlock, getDocumentFields, rootUrl } from './helper';
 
-export const getPortfolioPageProps = (state) => {
+export const getPortfolioPageProps = async (state, store) => {
+  await store.dispatch(worksApi.endpoints.loadTagsAndTypes.initiate());
+
   const { data } = pageApi.endpoints.fetchPage.select(PAGES.portfolio)(state);
 
   const portfolioProjects = findBlock(data.contentModules, BLOCKS_SLUGS.worksPagePreviewProjects);
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
-  const works = contentModules?.map((module) => {
+  const works = contentModules.map((module) => {
     const {
       types,
       tags,

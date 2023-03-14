@@ -11,7 +11,7 @@ import {
 import { contentfulClient } from 'utils/contentful/client';
 import { getDocumentFields } from 'utils/helper';
 import { SEARCH_ARTICLES_LIMIT } from 'utils/constants';
-import baseApi from '.';
+import baseApi, { BASEQUERY_TYPES } from '.';
 
 const blogApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -57,7 +57,7 @@ const blogApi = baseApi.injectEndpoints({
 
     getArticle: builder.query({
       extraOptions: {
-        type: 'getEntries',
+        type: BASEQUERY_TYPES.getEntries,
       },
       async queryFn({ slug }, _, __, baseQuery) {
         const article = (await baseQuery({ contentType: 'article', query: { slug } })).data.items[0];

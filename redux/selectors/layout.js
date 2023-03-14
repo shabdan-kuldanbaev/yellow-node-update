@@ -15,16 +15,6 @@ const getMain = (state, pageSlug) => {
   });
 };
 
-const getCTA = (state) => {
-  const { main = null } = state.layout.components;
-
-  if (!main) {
-    return null;
-  }
-
-  return main.find((modules) => modules.sys.contentType.sys.id === 'link');
-};
-
 export const selectIsMobileMenuOpened = (state) => state.layout.isMobileMenuOpened;
 
 export const selectIsMobileCategotiesOpened = (state) => state.layout.isMobileCategotiesOpened;
@@ -33,11 +23,7 @@ export const selectIsPageReadyToDisplay = (state) => state.layout.isPageReadyToD
 
 export const selectIsFirstPageLoaded = (state) => state.layout.isFirstPageLoaded;
 
-export const selectHomepageProjectsPreview = (state) => getMain(state, BLOCKS_SLUGS.homepagePreviewProjects);
-
 export const selectImageCarousel = (state) => getMain(state, BLOCKS_SLUGS.imageCarousel);
-
-export const selectPortfolioProjectsPreview = (state) => getMain(state, BLOCKS_SLUGS.worksPagePreviewProjects);
 
 export const selectWhatMakesSpecial = (state) => getMain(state, BLOCKS_SLUGS.companyPageWhatMakesSpecial);
 

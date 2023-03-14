@@ -14,7 +14,6 @@ import {
   pageFetchingStarted,
   pageFetchingSucceeded,
 } from 'redux/reducers/layout';
-import { fetchTags, fetchTypes } from 'redux/sagas/portfolio';
 import { PAGES } from 'utils/constants';
 import { contentfulClient } from 'utils/contentful/client';
 import errorHelper from 'utils/error';
@@ -51,13 +50,6 @@ function* fetchPageData({
     switch (slug) {
     case PAGES.project:
       yield call(fetchPage, { slug: projectSlug });
-
-      break;
-    case PAGES.portfolio:
-      yield all([
-        yield call(fetchTags),
-        yield call(fetchTypes),
-      ]);
 
       break;
     case PAGES.contact:

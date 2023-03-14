@@ -15,8 +15,7 @@ import {
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
 import { getLimitedList } from 'utils/helper';
-import { useSelector } from 'react-redux';
-import { selectTypes } from 'redux/selectors/portfolio';
+import { useLoadTagsAndTypesQuery } from 'redux/apis/works';
 import Work from './Work';
 import { DEFAULT_WORKS_LIMIT, filterWorks } from './utils';
 import styles from './styles.module.scss';
@@ -33,7 +32,8 @@ const Portfolio = ({
   const [selectedType, setSelectedType] = useState(DEFAULT_WORK_TYPE);
   const [selectedTag, setSelectedTag] = useState(null);
 
-  const typeList = useSelector(selectTypes);
+  const { data = {} } = useLoadTagsAndTypesQuery();
+  const { types } = data;
 
   const slugs = {
     Fireaway: 'fireaway',
@@ -96,7 +96,7 @@ const Portfolio = ({
       <TypeSelector
         selectedType={selectedType}
         onSelectedTypeChange={onSelectedTypeChange}
-        typeList={typeList}
+        typeList={[DEFAULT_WORK_TYPE, ...types]}
       />
       <div className={styles.worksContainer}>
         {worksDisplay.map((work) => (

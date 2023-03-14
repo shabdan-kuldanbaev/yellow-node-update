@@ -1,48 +1,34 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-import { END } from 'redux-saga';
+import { wrapper } from 'redux/store';
 import CaseStudiesContainer from 'containers/CaseStudies';
 import PageNotFound from 'containers/PageNotFound';
-import { wrapper } from 'redux/store';
-import { PAGES } from 'utils/constants';
 import errorHelper from 'utils/error';
-import { pageFetchingStarted } from 'redux/reducers/layout';
+import pageApi from 'redux/apis/page';
 
-const Project = ({ introSection, statusCode }) => {
-  const { query: { project } } = useRouter();
-
+const Project = ({
+  introSection,
+  statusCode,
+  ...rest
+}) => {
   if (statusCode === 404) {
     return <PageNotFound />;
   }
 
-  return <CaseStudiesContainer introSection={introSection} />;
+  return (
+    <CaseStudiesContainer
+      introSection={introSection}
+      {...rest}
+    />
+  );
 };
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req, res, query: { project } }) => {
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ query: { project } }) => {
   try {
-    let statusCode = '';
-    store.dispatch(pageFetchingStarted({
-      slug: PAGES.project,
-      projectSlug: project,
-    }));
-
-    // TODO rewrite it
-    if (req) {
-      store.dispatch(END);
-      await store.sagaTask.toPromise();
-
-      if (store.getState().portfolio.project.total === 0) {
-        statusCode = 404;
-
-        if (res) {
-          res.statusCode = 404;
-        }
-      }
-    }
+    await store.dispatch(pageApi.endpoints.fetchPage.initiate(project));
 
     return {
       props: {
-        statusCode,
+        slug: project,
       },
     };
   } catch (error) {
