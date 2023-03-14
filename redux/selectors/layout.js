@@ -23,14 +23,6 @@ export const selectIsPageReadyToDisplay = (state) => state.layout.isPageReadyToD
 
 export const selectIsFirstPageLoaded = (state) => state.layout.isFirstPageLoaded;
 
-export const selectImageCarousel = (state) => getMain(state, BLOCKS_SLUGS.imageCarousel);
-
-export const selectWhatMakesSpecial = (state) => getMain(state, BLOCKS_SLUGS.companyPageWhatMakesSpecial);
-
-export const selectCompanyReviews = (state) => getMain(state, BLOCKS_SLUGS.companyReviews);
-
-export const selectManagementTeam = (state) => getMain(state, BLOCKS_SLUGS.compnayPageManagementTeam);
-
 export const selectCompanyPhoto = (state) => getMain(state, BLOCKS_SLUGS.contactPageCompanyPhoto);
 
 export const selectComponents = (state) => state.layout.components;
