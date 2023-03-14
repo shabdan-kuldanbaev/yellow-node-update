@@ -1,12 +1,13 @@
 .smartcenter {
   background: $smartCenterGradient;
-  padding: 112px 32px 120px;
+  padding: 112px 32px 96px;
 
   .introSection {
     @include flex(column, center, center);
 
     position: relative;
     max-width: $default-content-width;
+    z-index: 1;
 
     @include phone {
       margin: 0 auto 32px;
@@ -64,6 +65,7 @@
     left: -103px;
     width: 1992px;
     height: 1992px;
+    z-index: -1;
 
     @include phone {
       left: -168px;
@@ -72,6 +74,10 @@
 
   .experience {
     z-index: 1;
+
+    &:nth-child(2) p {
+      max-width: 230px;
+    }
   }
 
   .infoTitle {
@@ -81,6 +87,10 @@
   .experience > p {
     color: $gray0;
     opacity: 0.7;
+  }
+
+  @include tablet {
+    padding: 88px 32px 60px;
   }
 
   @include phone {
