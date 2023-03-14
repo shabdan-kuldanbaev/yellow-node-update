@@ -48,7 +48,6 @@ function* fetchPageData({
 
     switch (slug) {
     case PAGES.notFound:
-    case PAGES.signatureGenerator:
       yield call(fetchPage, { slug });
 
       break;

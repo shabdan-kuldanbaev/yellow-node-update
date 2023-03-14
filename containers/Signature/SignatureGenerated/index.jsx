@@ -6,7 +6,7 @@ import {
   SIGNATURE_BUTTON_NAMES,
   YELLOW_DOMAIN,
   YELLOW_LINK,
-} from 'containers/Signature/utils/constants';
+} from 'containers/Signature/utils';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import styles from './styles.module.scss';
 
