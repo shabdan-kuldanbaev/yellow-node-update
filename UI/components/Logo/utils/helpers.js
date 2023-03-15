@@ -8,11 +8,15 @@ export const WHITE_LOGO_TYPE = [
   'hotel-data-cloud',
   'natp',
   'travel-trivia',
+  'cash-chat',
+  'ubichat',
+  'writer-chrome-extension',
 ];
 
 export const BLACK_LOGO_TYPE = [
   'separate-us',
   'famlicious',
+  'bionorica',
 ];
 
 export const WHITE_TEXT_LOGO = [
@@ -39,6 +43,7 @@ export const WHITE_TEXT_LOGO = [
   'fairy',
   'seven-pm-thursday',
   'fernwayer',
+  'writer-chrome-extension',
 ];
 
 export const getLogoType = (type) => {

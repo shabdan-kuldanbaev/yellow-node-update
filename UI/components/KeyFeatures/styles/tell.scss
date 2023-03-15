@@ -1,0 +1,11 @@
+.tell {
+  .checkMark {
+    background: $gray900;
+
+    svg,
+    path {
+      stroke: $gray0;
+      fill: $gray0;
+    }
+  }
+}

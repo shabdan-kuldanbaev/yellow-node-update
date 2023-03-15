@@ -1,0 +1,9 @@
+.tell {
+  [data-description] {
+    max-width: 614px;
+
+    @include phone {
+      width: 343px;
+    }
+  }
+}

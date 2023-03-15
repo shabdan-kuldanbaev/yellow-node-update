@@ -10,14 +10,19 @@ import styles from './styles.module.scss';
 const TeamList = (props) => {
   const {
     type,
+    style,
     title,
     images,
     contentList,
+    specialTeamList,
   } = useTeamSection(props);
 
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-      <div className={cn(styles[type], styles.container)}>
+      <div
+        style={style}
+        className={cn(styles[type], styles.container)}
+      >
         <Typography
           variant="h2"
           className={styles.title}
@@ -33,9 +38,31 @@ const TeamList = (props) => {
             {member}
           </Typography>
         ))}
-        {images.map((imgUrl) => (
+        {specialTeamList?.map(({ list, listTitle }, index) => (
+          <div
+            key={listTitle}
+            className={styles.teamList}
+          >
+            <Typography
+              variant="p"
+              className={cn(styles.listTitle, styles[`listTitle-${index + 1}`])}
+            >
+              {listTitle}
+            </Typography>
+            {list.map((item) => (
+              <Typography
+                variant="p"
+                key={item}
+                className={styles.listItem}
+              >
+                {item}
+              </Typography>
+            ))}
+          </div>
+        ))}
+        {images.map((imgUrl, index) => (
           <img
-            className={styles.bundleImage}
+            className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
             src={imgUrl}
             alt={title}
             key={`intro-images-bundles/${imgUrl}`}

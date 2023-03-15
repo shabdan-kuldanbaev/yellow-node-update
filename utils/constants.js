@@ -8,6 +8,7 @@ import { routes } from 'utils/routes';
 export const REFACTORED_CASE_STUDIES_PAGES = [
   'stickerbox',
   'fireaway',
+  'tell',
   'fairy',
   'seven-pm-thursday',
   'fernwayer',
@@ -17,7 +18,11 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'separate-us',
   'famlicious',
   'natp',
+  'cash-chat',
   'travel-trivia',
+  'ubichat',
+  'writer-chrome-extension',
+  'bionorica',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -305,6 +310,7 @@ export const CASE_STUDIES_TYPES = {
   challengesSpecialSlider: 'case-study-special-slider',
   prototype: 'case-study-prototype',
   feedback: 'feedback',
+  faq: 'case-study-faq',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -374,6 +380,8 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
   ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
+  ROUTES.project.getRoute(CASE_STUDIES.ubiChat).path,
+  ROUTES.project.getRoute(CASE_STUDIES.writerChromeExtension).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -388,7 +396,6 @@ export const PAGES_WITH_DARK_HEADER = [
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
   CASE_STUDIES.beautonomy,
-  CASE_STUDIES.bionorica,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [

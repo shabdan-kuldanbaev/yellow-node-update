@@ -1,0 +1,15 @@
+.tell {
+  padding-bottom: 0;
+
+  [data-subtitle] {
+    color: $gray900;
+  }
+
+  .contentWrapper {
+    max-width: 520px;
+
+    @include phone {
+      max-width: 340px;
+    }
+  }
+}
