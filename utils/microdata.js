@@ -30,6 +30,7 @@ const publisherMicrodata = {
 
 const SERVICE_CATEGORY = {
   fintech: 'Fintech Development Services',
+  mobile: 'Mobile Development Services',
 };
 
 const addressMicrodata = [
@@ -131,10 +132,38 @@ const OFFERS = {
       + 'solutions that streamline loan origination, servicing, and collections. ',
     },
   ],
+  [ROUTES.mvpDevelopment]: [
+    {
+      name: 'Business analysis',
+      description: 'Prior to the MVP creation process, our team researches your app idea, business model, '
+      + 'target audience, and competitors in order to assess the market demands and preferences.',
+    }, {
+      name: 'MVP prototyping',
+      description: 'A prototype is essential for the development of a real-world MVP. It reveals the '
+      + 'potential errors in the core design so that the team can fix them quickly and economically.',
+    }, {
+      name: 'MVP UI/UX design',
+      description: 'An MVP may not be a full product, but it still requires design work so that users can '
+      + 'try it and provide substantive feedback.',
+    }, {
+      name: 'MVP development',
+      description: 'We will support you in the creation, launch, and post-release support of an MVP. '
+      + "Then, if you decide to continue working toward a full-scale project, we'll be ready.",
+    }, {
+      name: 'MVP quality assurance',
+      description: "Your product's MVP will be tested with the same set of tools we use for full-scale "
+      + "projects. That way, we'll ensure that the MVP functions correctly.",
+    }, {
+      name: 'MVP launch and support',
+      description: 'The Yellow team is ready to help you enter the market with your MVP so that you can '
+      + 'smoothly and efficiently up-scale the project to meet your needs.',
+    },
+  ],
 };
 
 const CATEGORY = {
   [ROUTES.lendingSoftwareDevelopment]: SERVICE_CATEGORY.fintech,
+  [ROUTES.mvpDevelopment]: SERVICE_CATEGORY.mobile,
 };
 
 const authorMicrodata = ({ author: { fullName, position } }) => ({
