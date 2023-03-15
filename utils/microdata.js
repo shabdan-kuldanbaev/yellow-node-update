@@ -187,12 +187,40 @@ const OFFERS = {
       + 'We are prepared to organize the ideal management solutions to help you easily scale up your business.',
     },
   ],
+  [ROUTES.tradingSoftwareDevelopment]: [
+    {
+      name: 'Automated trading software development',
+      description: 'Allows financial institutions and professionals to profit from a wider range of '
+      + 'financial markets more quickly and easily',
+    }, {
+      name: 'Stock trading software development',
+      description: 'Our trading system development is user-friendly, secure, and compatible with '
+      + 'multiple operating systems and devices by request.',
+    }, {
+      name: 'Security and data protection strategies',
+      description: 'To ensure that your business meets all requirements in the fast-changing and '
+      + 'extremely challenging world of FinTech.',
+    }, {
+      name: 'Custom investment software development ',
+      description: 'With cutting-edge development tools developed by Yellow, you can make sure '
+      + 'your client satisfaction ratings and the number of great investment decisions will grow.',
+    }, {
+      name: 'Data analysis',
+      description: 'Data is the new gold, especially in the FinTech market. Our custom solutions '
+      + 'make it comprehensive, which helps you make better trading decisions.',
+    }, {
+      name: 'Cloud Computing',
+      description: 'Going cloud means more security and ease of use for your product. Many businesses '
+      + 'opt for cloud computing instead of worrying about hardware updates and get access online within seconds. ',
+    },
+  ],
 };
 
 const CATEGORY = {
   [ROUTES.lendingSoftwareDevelopment]: SERVICE_CATEGORY.fintech,
   [ROUTES.mvpDevelopment]: SERVICE_CATEGORY.mobile,
   [ROUTES.cloudDevelopment]: SERVICE_CATEGORY.web,
+  [ROUTES.tradingSoftwareDevelopment]: SERVICE_CATEGORY.fintech,
 };
 
 const authorMicrodata = ({ author: { fullName, position } }) => ({
@@ -495,14 +523,7 @@ export const microdata = {
       breadcrumb: 'Homepage > Custom Trading Software Development Company',
       image: logoUrl,
     },
-    {
-      '@context': context,
-      '@type': 'Service',
-      name: 'Custom Trading Software Development Services',
-      alternateName: 'Custom Trading Software Development Services | Yellow',
-      description: 'If you plan to start trading software development, we can help. Let’s discuss your idea in detail.',
-      provider: publisherMicrodata,
-    },
+    getServiceMicrodata(ROUTES.tradingSoftwareDevelopment),
   ]),
   breadcrumbs: ({ breadcrumbsList }) => {
     const items = breadcrumbsList.map((breadcrumb, index) => ({

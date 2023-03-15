@@ -310,10 +310,11 @@ export const routes = {
     slug: 'data-science-development-company',
   },
   tradingSoftwareDevelopment: {
-    title: 'Custom Trading Software Development Company',
+    title: 'Custom Trading Platform Development Services',
     path: '/trading-software-development',
     dynamicPath: '/trading-software-development',
     slug: 'trading-software-development',
+    description: 'Proficient trading software development services to create robust apps and platforms that boost business performance.',
   },
   prototypingServices: {
     title: 'Mobile App Prototyping Services',
