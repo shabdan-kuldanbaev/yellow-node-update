@@ -1,4 +1,91 @@
 .smartcenter {
+  &.firstSectionView {
+    .images {
+      position: relative;
+    }
+
+    .image {
+      width: 610px;
+      height: 620px;
+      transform: translateX(120px);
+
+      @include tablet {
+        width: 343px;
+        height: 348px;
+        transform: unset;
+        margin: 0 auto;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+      right: -259px;
+      top: 0;
+      width: 200px;
+      height: 620px;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    .contentContainer {
+      & > div {
+        max-width: 481px;
+        width: 100%;
+        margin: 0;
+
+        @include tablet {
+          max-width: 100%;
+        }
+      }
+
+      @include tablet {
+        @include flex(column);
+      }
+    }
+
+    .infoContainer {
+      .title {
+        @include fontSize(24px, 130%);
+
+        color: $gray900;
+        margin: 0 0 16px;
+
+        @include tablet {
+          @include fontSize(20px, 150%);
+
+          margin: 0 auto 16px;
+          text-align: center;
+        }
+      }
+
+      h4 {
+        @include fontSize(20px, 150%);
+
+        color: $gray900;
+        margin: 0 0 8px;
+
+        @include tablet {
+          @include fontSize(16px, 150%);
+
+          margin: 0 auto 8px;
+          text-align: center;
+        }
+      }
+
+      p {
+        white-space: unset;
+        margin: 0 0 16px;
+
+        @include tablet {
+          margin: 0 auto 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
   &.secondSectionView {
     .contentContainer {
       max-width: 790px;

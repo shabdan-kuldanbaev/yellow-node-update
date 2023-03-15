@@ -1,2 +1,18 @@
 .smartcenter {
+  &.firstSectionView {
+    background: $gray50;
+    padding: 120px 0;
+
+    .titleStyle {
+      max-width: 677px;
+
+      @include tablet {
+        margin: 0 auto 24px;
+      }
+    }
+
+    @include tablet {
+      padding: 60px 16px;
+    }
+  }
 }
