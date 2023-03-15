@@ -39,6 +39,18 @@
   &.thirdSectionView {
     padding: 0 40px 60px;
 
+    .circle {
+      height: 710px;
+
+      @include below-tablet {
+        height: 500px;
+      }
+  
+      @include phone {
+        height: 254px;
+      }
+    }
+
     .sectionTitle {
       margin: 0;
     }
