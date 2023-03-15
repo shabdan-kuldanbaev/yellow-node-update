@@ -238,12 +238,15 @@ export const routes = {
     path: '/mvp-app-development-company',
     dynamicPath: '/mvp-app-development-company',
     slug: 'mvp-app-development-company',
+    description: 'A minimum viable product will help you get enough feedback to determine whether '
+    + 'you should continue a given project. We are ready to help with your MVP development.',
   },
   lendingSoftwareDevelopment: {
     title: 'Lending Software Development Services',
     path: '/lending-software-development',
     dynamicPath: '/lending-software-development',
     slug: 'lending-software-development',
+    description: 'Revolutionize lending with our cutting-edge software development solutions for financial institutions.',
   },
   cloudDevelopment: {
     title: 'Cloud Application Development Services',

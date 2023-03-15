@@ -12,6 +12,7 @@ function pageUrl(pagePath = '') {
 
 const context = 'https://schema.org';
 const logoUrl = `${rootUrl}${IMAGES.roundLogo}`;
+
 const {
   email,
   telephoneNumbers,
@@ -25,6 +26,10 @@ const publisherMicrodata = {
     '@type': 'ImageObject',
     url: logoUrl,
   },
+};
+
+const SERVICE_CATEGORY = {
+  fintech: 'Fintech Development Services',
 };
 
 const addressMicrodata = [
@@ -98,10 +103,101 @@ const professionalServiceMicrodata = {
   email,
 };
 
+const OFFERS = {
+  [ROUTES.lendingSoftwareDevelopment]: [
+    {
+      name: 'P2P lending solutions development',
+      description: 'Empower your P2P lending platform with our top-notch software development services, '
+      + 'designed to enhance user experience and maximize profitability.',
+    }, {
+      name: 'Crowdfunding platforms development',
+      description: 'Transform your crowdfunding vision into reality with our expert software development '
+      + 'services that deliver seamless and secure platforms tailored to your unique needs.',
+    }, {
+      name: 'Credit risk reporting',
+      description: 'Optimize your credit risk management strategy with our comprehensive credit risk reporting '
+      + 'software, designed to provide accurate insights and actionable recommendations.',
+    }, {
+      name: 'Mortgage solutions development ',
+      description: 'Streamline the mortgage process and improve customer experience with our customized '
+      + 'software development solutions for mortgage lenders and brokers.',
+    }, {
+      name: 'Document management software development',
+      description: 'Efficiently manage your documents with our robust and scalable software development '
+      + 'solutions that automate document processing, storage, and retrieval.',
+    }, {
+      name: 'Loans management software development',
+      description: 'Take control of your loan portfolio with our flexible and secure software development '
+      + 'solutions that streamline loan origination, servicing, and collections. ',
+    },
+  ],
+};
+
+const CATEGORY = {
+  [ROUTES.lendingSoftwareDevelopment]: SERVICE_CATEGORY.fintech,
+};
+
 const authorMicrodata = ({ author: { fullName, position } }) => ({
   '@type': 'Person',
   name: fullName,
   jobTitle: position,
+});
+
+const getServiceOutput = (output) => ({
+  '@type': 'Thing',
+  name: output,
+});
+
+const getOfferCatalog = (name, offers) => ({
+  '@type': 'OfferCatalog',
+  name,
+  itemListElement: offers.map((offer) => ({
+    '@type': 'Offer',
+    itemOffered: {
+      '@type': 'Service',
+      ...offer,
+    },
+  })),
+});
+
+const getPlace = (address) => ({
+  '@type': 'Place',
+  address,
+});
+
+const getServiceChannel = (serviceUrl) => ({
+  '@type': 'ServiceChannel',
+  serviceUrl,
+  name: 'Ready to get started?',
+  description: 'Fill in this form orsend us an e-mail',
+  servicePhone: {
+    '@type': 'ContactPoint',
+    telephone: '+1 (302) 213-37-98',
+    name: 'Yellow Sales Contact Point',
+    description: 'Yellow Sales phone number',
+    contactType: 'sales',
+    availableLanguage: {
+      '@type': 'Language',
+      name: 'English',
+      alternateName: 'en',
+    },
+  },
+});
+
+const getServiceMicrodata = (route) => ({
+  '@context': context,
+  '@type': 'Service',
+  provider: publisherMicrodata,
+  name: route.title,
+  alternateName: `${route.title} | Yellow`,
+  description: route.description,
+  providerMobility: 'dynamic',
+  category: CATEGORY[route],
+  serviceType: route.title,
+  availableChannel: getServiceChannel(pageUrl(route.path)),
+  areaServed: getPlace(addressMicrodata),
+  serviceOutput: getServiceOutput(route.title),
+  hasOfferCatalog: getOfferCatalog(route.title, OFFERS[route]),
 });
 
 export const microdata = {
@@ -149,9 +245,13 @@ export const microdata = {
       '@type': 'LocalBusiness',
       ...nameMicrodata,
       description: '✔ We provide software development services for startups and businesses. ✔ Reach out for a free consultation!',
-      url: rootUrl,
       address: addressMicrodata,
+      url: rootUrl,
+      image: logoUrl,
+      telephone: telephoneNumbers,
+      priceRange: '$$-$$$$',
     },
+    professionalServiceMicrodata,
     ...navigationMicrodata,
   ]),
   contact: () => ([
@@ -270,15 +370,8 @@ export const microdata = {
       + 'continue a given project. Yellow is ready to help with your MVP development.',
       breadcrumb: 'Homepage > MVP App Development Services',
       image: logoUrl,
-    }, {
-      '@context': context,
-      '@type': 'Service',
-      name: 'MVP App Development Services',
-      alternateName: 'MVP App Development Services | Yellow',
-      description: 'A minimum viable product will help you get enough feedback to determine whether you should '
-      + 'continue a given project. Yellow is ready to help with your MVP development.',
-      provider: publisherMicrodata,
     },
+    getServiceMicrodata(ROUTES.mvpDevelopment),
   ]),
   lendingSoftwareDevelopment: () => ([
     {
@@ -288,14 +381,8 @@ export const microdata = {
       description: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
       breadcrumb: 'Lending Software Development Services | Yellow',
       image: logoUrl,
-    }, {
-      '@context': context,
-      '@type': 'Service',
-      name: 'Lending Software Development Services',
-      alternateName: 'Lending Software Development | Yellow',
-      description: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
-      provider: publisherMicrodata,
     },
+    getServiceMicrodata(ROUTES.lendingSoftwareDevelopment),
   ]),
   cloudDevelopment: () => ([
     {
