@@ -46,7 +46,9 @@ export const IMAGE_SIZES = {
   ubichat: {
     default: 500,
   },
-  telemojo: 540,
+  telemojo: {
+    default: 440,
+  },
   famlicious: 478,
   bionorica: {
     default: 500,
@@ -71,5 +73,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   ubichat: {
     default: 220,
+  },
+  telemojo: {
+    default: 206,
   },
 };

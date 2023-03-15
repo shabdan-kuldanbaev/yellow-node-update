@@ -1,0 +1,8 @@
+.telemojo {
+  background: $telemojoSecondary;
+  padding: 120px 0;
+
+  @include tablet {
+    padding: 60px 0;
+  }
+}

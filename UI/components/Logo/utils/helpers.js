@@ -11,6 +11,8 @@ export const WHITE_LOGO_TYPE = [
   'cash-chat',
   'ubichat',
   'writer-chrome-extension',
+  'meateater',
+  'telemojo',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -45,6 +47,7 @@ export const WHITE_TEXT_LOGO = [
   'seven-pm-thursday',
   'fernwayer',
   'writer-chrome-extension',
+  'telemojo',
 ];
 
 export const getLogoType = (type) => {
