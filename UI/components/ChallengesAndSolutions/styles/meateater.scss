@@ -24,7 +24,7 @@
         margin-right: -280px;
 
         &::after {
-          content: "";
+          content: '';
           display: block;
           height: 100%;
           width: 325px;
@@ -51,17 +51,18 @@
         margin-left: -280px;
 
         &::after {
-          content: "";
+          content: '';
           display: block;
           height: 100%;
           width: 325px;
           margin-right: auto;
           transform: translate(-40px, -1px);
-          background: linear-gradient(
-            270deg,
-            rgba($gray0, 0) 0.15%,
-            $gray0 60.38%
-          );
+          background:
+            linear-gradient(
+              270deg,
+              rgba($gray0, 0) 0.15%,
+              $gray0 60.38%
+            );
 
           @include below-tablet {
             display: none;
@@ -70,7 +71,7 @@
 
         @include tablet {
           margin-left: -100px;
-        margin-right: 40px;
+          margin-right: 40px;
         }
 
         @include below-tablet {
@@ -108,7 +109,7 @@
     }
 
     p {
-      white-space:normal;
+      white-space: normal;
     }
   }
 }

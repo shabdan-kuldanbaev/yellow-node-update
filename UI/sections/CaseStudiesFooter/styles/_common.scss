@@ -90,6 +90,10 @@
   .footerLinks {
     @include flex(row, space-between, flex-end);
 
+    max-width: $wide-content-width;
+    width: 100%;
+    margin: 0 auto;
+
     &:first-child {
       padding-top: 84px;
     }
