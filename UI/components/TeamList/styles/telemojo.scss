@@ -6,7 +6,6 @@
   max-width: 790px;
 
   @include tablet {
-    grid-column-gap: 0;
-    grid-row-gap: 8px;
+    grid-gap: 8px 0;
   }
 }
