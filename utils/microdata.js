@@ -31,6 +31,7 @@ const publisherMicrodata = {
 const SERVICE_CATEGORY = {
   fintech: 'Fintech Development Services',
   mobile: 'Mobile Development Services',
+  web: 'Web Development Services',
 };
 
 const addressMicrodata = [
@@ -159,11 +160,39 @@ const OFFERS = {
       + 'smoothly and efficiently up-scale the project to meet your needs.',
     },
   ],
+  [ROUTES.cloudDevelopment]: [
+    {
+      name: 'Cloud migration',
+      description: 'Our specialists work closely with your team to migrate apps and infrastructures to '
+      + "the cloud. We use proven and trusted migration methods to ensure your data's integrity and safety.",
+    }, {
+      name: 'Cloud-native development',
+      description: 'Integrating cloud technology into your business will positively affect the core metrics '
+      + 'and facilitate scaling up and maintenance. We will help you realize the maximum potential of cloud-based solutions.',
+    }, {
+      name: 'Cloud Computing Architecture',
+      description: 'Proper cloud architecture ensures all critical processes are correctly connected with '
+      + 'one another. We create service-oriented architectures to organize data flows.',
+    }, {
+      name: 'Cloud app UI/UX design ',
+      description: 'If your cloud app needs to be designed from scratch or requires a redesign to meet user '
+      + 'needs and optimize flow, our team will take care of it.',
+    }, {
+      name: 'Cloud app testing',
+      description: 'We plan the testing process and conduct both manual and automated tests to make sure '
+      + 'your cloud application will function as it should when delivered to the market.',
+    }, {
+      name: 'Cloud app management',
+      description: 'Efficient management and maintenance of a cloud app is a key factor in its success. '
+      + 'We are prepared to organize the ideal management solutions to help you easily scale up your business.',
+    },
+  ],
 };
 
 const CATEGORY = {
   [ROUTES.lendingSoftwareDevelopment]: SERVICE_CATEGORY.fintech,
   [ROUTES.mvpDevelopment]: SERVICE_CATEGORY.mobile,
+  [ROUTES.cloudDevelopment]: SERVICE_CATEGORY.web,
 };
 
 const authorMicrodata = ({ author: { fullName, position } }) => ({
@@ -421,14 +450,8 @@ export const microdata = {
       description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
       breadcrumb: 'Homepage > Cloud Application Development Services',
       image: logoUrl,
-    }, {
-      '@context': context,
-      '@type': 'Service',
-      name: 'Cloud Application Development Services',
-      alternateName: 'Cloud app development | Yellow',
-      description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
-      provider: publisherMicrodata,
     },
+    getServiceMicrodata(ROUTES.cloudDevelopment),
   ]),
   crossPlatformDevelopmentServices: () => ({
     '@context': context,

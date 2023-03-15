@@ -253,6 +253,7 @@ export const routes = {
     path: '/cloud-based-app-development-services',
     dynamicPath: '/cloud-based-app-development-services',
     slug: 'cloud-based-app-development-services',
+    description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
   },
   crossPlatformDevelopmentServices: {
     title: 'Cross-Platform Mobile App Development Company',
