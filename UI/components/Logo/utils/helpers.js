@@ -19,6 +19,7 @@ export const BLACK_LOGO_TYPE = [
   'separate-us',
   'famlicious',
   'bionorica',
+  'beautonomy',
 ];
 
 export const WHITE_TEXT_LOGO = [

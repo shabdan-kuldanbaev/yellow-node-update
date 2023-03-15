@@ -24,6 +24,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'writer-chrome-extension',
   'meateater',
   'bionorica',
+  'beautonomy',
   'telemojo',
 ];
 
@@ -398,7 +399,7 @@ export const PAGES_WITH_DARK_HEADER = [
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
-  CASE_STUDIES.beautonomy,
+  CASE_STUDIES.bionorica,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
