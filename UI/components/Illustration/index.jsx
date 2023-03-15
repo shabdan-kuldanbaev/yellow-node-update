@@ -19,9 +19,7 @@ const Illustration = memo((props) => {
       className={className}
       style={style}
     >
-      <Image
-        {...restProps}
-      />
+      <Image {...restProps} />
     </picture>
   );
 });
