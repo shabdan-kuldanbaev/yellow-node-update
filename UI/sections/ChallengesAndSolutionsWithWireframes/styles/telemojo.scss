@@ -1,0 +1,9 @@
+.telemojo {
+  &.secondSectionView {
+    background: $telemojoGradient;
+
+    [data-title] {
+      color: $gray0;
+    }
+  }
+}
