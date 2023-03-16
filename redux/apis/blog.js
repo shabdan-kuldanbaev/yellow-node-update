@@ -11,6 +11,7 @@ import {
 import { contentfulClient } from 'utils/contentful/client';
 import { getDocumentFields } from 'utils/helper';
 import { SEARCH_ARTICLES_LIMIT } from 'utils/constants';
+import { handleError } from 'utils/error';
 import baseApi, { BASEQUERY_TYPES } from '.';
 
 const blogApi = baseApi.injectEndpoints({
@@ -86,7 +87,6 @@ const blogApi = baseApi.injectEndpoints({
             where: { slug: tagsList[0].fields.slug },
           })),
         ]);
-        console.log('🚀 ~ file: blog.js:74 ~ queryFn ~ prev:', prev);
 
         return {
           data: {
@@ -144,7 +144,7 @@ const blogApi = baseApi.injectEndpoints({
 
           return { data: result };
         } catch (e) {
-          console.log(e);
+          handleError(e);
 
           return { error: e.message };
         }

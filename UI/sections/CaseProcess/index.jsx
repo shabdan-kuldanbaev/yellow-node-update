@@ -58,7 +58,7 @@ const CaseProcess = (props) => {
                   </Typography>
                 )}
               {imageBundles?.map((url, indexBundleImage) => (
-                <img
+                <Illustration
                   className={cn(styles.bundleImage, styles[`bundleImage-${indexBundleImage + 1}`])}
                   src={url}
                   alt={stepTitle}

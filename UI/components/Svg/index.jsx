@@ -24,7 +24,7 @@ const Svg = ({
     };
 
     loadSvg();
-  }, []);
+  }, [type]);
 
   return (Icon
 
