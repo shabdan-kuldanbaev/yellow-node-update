@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
+import dynamic from 'next/dynamic';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import Animated from 'components/Common/Animated';
 import KeyFeatures from 'components/CaseStudiesCommon/ProjectIdea/KeyFeatures';
 import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
@@ -11,6 +11,8 @@ import TeamSection from 'components/CaseStudiesCommon/ProjectIdea/TeamSection';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const ProjectIdea = ({
   type,

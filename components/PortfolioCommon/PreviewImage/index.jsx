@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import Animated from 'components/Common/Animated';
 import { getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const PreviewImage = ({ image, isMobileResolution }) => (
   <div className={styles.imgWrapper}>

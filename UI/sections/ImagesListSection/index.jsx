@@ -8,7 +8,7 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const ImagesListSection = (props) => {
   const {

@@ -43,6 +43,10 @@ export const useHeader = ({ introSection }) => {
     ? 'dark'
     : headerTheme;
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => setIsMobile(window?.innerWidth <= 768), []);
+
   useEffect(() => {
     const handleOnScroll = () => {
       if (introSection && introSection.current) {
@@ -100,5 +104,6 @@ export const useHeader = ({ introSection }) => {
     logo,
     asPath,
     page,
+    isMobile,
   };
 };

@@ -8,10 +8,6 @@
   .contentWrapper {
     @include flex(column, space-between, flex-start);
 
-    @include macbook-twelve {
-      padding: 50px 30px;
-    }
-
     background: rgb(23 23 23 / 72%);
     box-sizing: border-box;
     padding: 70px 60px;
@@ -21,6 +17,10 @@
     transition: opacity 0.15s ease-in-out;
     position: relative;
     color: $gray0;
+
+    @include macbook-twelve {
+      padding: 50px 30px;
+    }
 
     @include tablet {
       display: block;
@@ -66,7 +66,6 @@
 
   &:hover {
     .imageContainer {
-
       &.backgroundImage,
       &.mainImage {
         filter: blur(20px);

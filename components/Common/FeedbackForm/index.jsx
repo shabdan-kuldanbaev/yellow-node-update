@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import Upload from 'components/Common/Upload';
 import Input from 'UI/components/Input';
 import Button from 'UI/components/Button';
@@ -17,6 +17,8 @@ import FormContainer from './FormContainer';
 import { SliderWrapper } from './SliderWrapper';
 import { budget, marks } from './utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const FeedbackForm = ({
   email,

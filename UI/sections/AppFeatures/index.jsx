@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
 import SectionTitle from 'UI/components/SectionTitle';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const AppFeaturesItem = dynamic(() => import('UI/components/AppFeaturesItem'));
 const FigmaPrototype = dynamic(() => import('components/Common/FigmaPrototype'));
 

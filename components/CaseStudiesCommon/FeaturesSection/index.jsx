@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Illustration from 'UI/components/Illustration';
 import get from 'lodash/get';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getDocumentFields, getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 export const FeaturesSection = ({ type, data }) => {
   const { contentModules, title, images } = data;

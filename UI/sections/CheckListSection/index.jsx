@@ -7,7 +7,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 import useCheckListSection from './utils/useCheckListSection';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 const CheckWithText = dynamic(() => import('UI/components/Cards/CheckWithText'));
 

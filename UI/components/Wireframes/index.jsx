@@ -1,11 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import Illustration from 'UI/components/Illustration';
-import Animated from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useWireframes } from './utils/useWireframes';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Wireframe = (props) => {
   const { type, wireframeImages } = useWireframes(props);

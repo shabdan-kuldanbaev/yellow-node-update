@@ -5,7 +5,6 @@ import React, {
 } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
 import FullLayout from 'components/Layout/FullLayout';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import MetaTags from 'components/Common/MetaTags';
@@ -19,6 +18,7 @@ import {
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const CallToAction = dynamic(() => import('components/Common/CallToAction'), { suspense: true });
 
 const PortfolioContainer = ({

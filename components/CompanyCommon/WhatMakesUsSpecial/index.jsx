@@ -1,11 +1,13 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'components/Common/SectionTitle';
-import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
   <section className={styles.makingUsSpecial}>

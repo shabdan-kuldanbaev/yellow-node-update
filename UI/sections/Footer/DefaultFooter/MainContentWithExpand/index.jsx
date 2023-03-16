@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import Typography from 'UI/components/Typography';
 import Svg from 'UI/components/Svg';
-import Animated from 'UI/containers/Animated';
 import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
 import { FieldsWrapper } from '../MainContent/FieldsWrapper';
 import useProps from './utils/useProps';
 import { mainContent } from '../utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const MainContentWithExpand = (props) => {
   const {

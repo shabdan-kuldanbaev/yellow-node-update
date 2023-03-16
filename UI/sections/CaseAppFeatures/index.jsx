@@ -1,14 +1,16 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import SectionTitle from 'UI/components/SectionTitle';
-import Animated from 'UI/containers/Animated';
 import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useCaseFeaturesProps from './utils/useCaseFeaturesProps';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CaseAppFeatures = (props) => {
   const {

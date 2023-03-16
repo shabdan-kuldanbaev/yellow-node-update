@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-
 import Modal from 'UI/containers/Modal';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';

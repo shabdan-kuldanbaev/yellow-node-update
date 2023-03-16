@@ -7,7 +7,7 @@ import { formatDate } from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const PageHeader = ({
   title,

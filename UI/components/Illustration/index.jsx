@@ -2,7 +2,6 @@ import { memo } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-
 import useIllustration from './utils/useIllustration';
 
 const Illustration = memo((props) => {

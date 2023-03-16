@@ -1,15 +1,17 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import get from 'lodash/get';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const AppFeatures = ({ data, type }) => {
   const [activeIndex, setActiveIndex] = useState(0);

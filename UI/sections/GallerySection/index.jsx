@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SwiperSlide } from 'swiper/react';
 import dynamic from 'next/dynamic';
-
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import SectionTitle from 'UI/components/SectionTitle';
 import { useGallerySection } from './utils/useGallerySection';

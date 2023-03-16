@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
-import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useParallaxProps from './utils/useParallaxProps';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CaseParallax = (props) => {
   const {

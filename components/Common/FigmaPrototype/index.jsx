@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
+import Illustration from 'UI/components/Illustration';
 import { CUSTOM_DOMAIN } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -31,7 +31,6 @@ const FigmaPrototype = ({
       <Illustration
         src={deviceFrameSrc}
         className={styles.deviceFrame}
-        alt=""
       />
     </div>
   );

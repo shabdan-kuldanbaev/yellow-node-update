@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import Button from 'UI/components/Button';
 import SectionTitle from 'UI/components/SectionTitle';
 import Works from 'components/HomeCommon/Works';
 import { REVEAL_ANIMATION_PROPS, ROUTES } from 'utils/constants';
 import { usePortfolio } from './utils/usePortfolio';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Portfolio = (props) => {
   const {

@@ -18,7 +18,7 @@ import {
 } from 'utils/helper';
 import styles from './styles.module.scss';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const GalleryCard = dynamic(() => import('components/BlogCommon/Article/GalleryCard'));
 const ArticleLink = dynamic(() => import('./ArticleLink').then((module) => module.ArticleLink));
 const Table = dynamic(() => import('components/Common/Table'));

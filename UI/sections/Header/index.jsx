@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -25,11 +24,8 @@ const Header = (props) => {
     logo,
     asPath,
     page,
+    isMobile,
   } = useHeader(props);
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => setIsMobile(window?.innerWidth <= 768), []);
 
   return (
     <header className={cn({

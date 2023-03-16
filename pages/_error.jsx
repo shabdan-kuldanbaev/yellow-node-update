@@ -1,7 +1,6 @@
 import React from 'react';
 import { END } from 'redux-saga';
 import dynamic from 'next/dynamic';
-
 import { fetchLayoutData } from 'redux/actions/layout';
 import { wrapper } from 'redux/store';
 import { PAGES } from 'utils/constants';

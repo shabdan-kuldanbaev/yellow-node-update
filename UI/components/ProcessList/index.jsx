@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import CallToAction from 'UI/components/CallToAction';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Process = ({ processes, handleOnCTAClick }) => (
   <section className={styles.sectionProcess}>

@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 import { SWIPER_PARAMS } from './utils/helpers';
 import { useSvgGroup } from './utils/useSvgGroup';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const Svg = dynamic(() => import('UI/components/Svg'));
 
 const SvgGroup = (props) => {

@@ -13,7 +13,7 @@
     width: 100%;
 
     .photoWrap {
-      &>div {
+      & > div {
         @include flex(column, center, center);
 
         width: 100%;
@@ -23,12 +23,12 @@
         picture {
           width: 100%;
 
-          >span {
-            &>span {
+          & > span {
+            & > span {
               display: none !important;
             }
 
-            & img {
+            img {
               position: relative !important;
               height: auto !important;
             }
@@ -51,7 +51,7 @@
         height 0.8s $primary-bezier,
         opacity 0.8s $primary-bezier;
 
-      &>div>img {
+      & > div > img {
         opacity: 1;
         transition: opacity 0.05s $primary-bezier;
       }

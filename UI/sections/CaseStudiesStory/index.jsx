@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import Animated from 'UI/containers/Animated';
+import dynamic from 'next/dynamic';
 import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import { CustomYoutubePlayer } from 'components/Common/CustomYoutubePlayer';
@@ -10,6 +10,8 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { getYoutubeVideoIdFromUrl } from 'utils/helper';
 import useCaseStory from './utils/useCaseStory';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CaseStudiesStory = (props) => {
   const {

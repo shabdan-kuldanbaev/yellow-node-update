@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { useAppFeaturesItem } from './utils/useAppFeaturesItem';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const AppFeaturesItem = (props) => {
   const {

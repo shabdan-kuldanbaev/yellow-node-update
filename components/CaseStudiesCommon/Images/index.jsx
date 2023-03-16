@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import get from 'lodash/get';
+import dynamic from 'next/dynamic';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import Animated from 'components/Common/Animated';
+import Illustration from 'UI/components/Illustration';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Images = ({
   data,

@@ -4,13 +4,15 @@ import React, {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import Animated from 'components/Common/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
   const photoRef = useRef();

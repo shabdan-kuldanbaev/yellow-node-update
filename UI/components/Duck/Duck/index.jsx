@@ -11,13 +11,15 @@ import {
   EffectComposer,
   RenderPass,
 } from 'utils/threeModule';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { animationTypes } from 'UI/components/Duck/utils/constant';
 import { slogan, three } from 'UI/components/Duck/utils/helpers';
 import { getSpeed } from './utils/herlpers';
 import * as styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 let camera;
 let animationId = 0;

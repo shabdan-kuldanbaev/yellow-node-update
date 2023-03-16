@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import KeyFeatures from 'UI/components/KeyFeatures';
 import TeamList from 'UI/components/TeamList';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
@@ -10,6 +10,8 @@ import Typography from 'UI/components/Typography';
 import CaseAdditionalContent from 'UI/components/ CaseAdditionalContent';
 import { useProjectIdea } from './utils/useProjectIdea';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const ProjectIdea = (props) => {
   const {

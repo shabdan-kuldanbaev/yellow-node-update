@@ -5,8 +5,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import withScroll from 'hocs/withScroll';
-import Animated from 'components/Common/Animated';
+import { useSelector } from 'react-redux';
 import ButtonMore from 'components/Common/ButtonMore';
 import {
   DEFAULT_WORK_TYPE,
@@ -15,12 +14,13 @@ import {
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
 import { getLimitedList } from 'utils/helper';
-import { useSelector } from 'react-redux';
+import withScroll from 'hocs/withScroll';
 import { selectTypes } from 'redux/selectors/portfolio';
 import Work from './Work';
 import { DEFAULT_WORKS_LIMIT, filterWorks } from './utils';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const TypeSelector = dynamic(() => import('../TypeSelector'));
 
 const Portfolio = ({

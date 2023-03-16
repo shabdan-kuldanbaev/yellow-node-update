@@ -1,11 +1,13 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
 import Illustration from 'UI/components/Illustration';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import Animated from 'UI/containers/Animated';
 import useCaseProps from './utils/useCaseProps';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CaseStudyDesign = (props) => {
   const {

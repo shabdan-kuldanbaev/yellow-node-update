@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Illustration from 'UI/components/Illustration';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import Illustration from 'UI/components/Illustration';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import {
   getDocumentFields,

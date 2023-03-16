@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import dynamic from 'next/dynamic';
 import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import Illustration from 'UI/components/Illustration';
-import Animated from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { getImage } from 'utils/helper';
 import { IMAGE_SIZES } from './config';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Wireframe = ({
   data: {

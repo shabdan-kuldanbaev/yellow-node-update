@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'UI/containers/Animated';
+import dynamic from 'next/dynamic';
 import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useTeamSection } from './utils/useTeamSection';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const TeamList = (props) => {
   const {

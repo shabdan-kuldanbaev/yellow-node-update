@@ -9,7 +9,7 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useReviewsSection from './utils/useReviewsSection';
 import styles from './styles.module.scss';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 const Review = dynamic(() => import('UI/components/Cards/Review'), { ssr: false });
 

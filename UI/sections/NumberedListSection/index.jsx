@@ -7,7 +7,7 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useCheckListSection from './utils/useNumberedListSection';
 import styles from './styles.module.scss';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const NumberWithText = dynamic(() => import('UI/components/Cards/NumberWithText'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import ButtonMore from 'components/Common/ButtonMore';
 import Illustration from 'UI/components/Illustration';
 import SelectorElement from 'components/PortfolioCommon/SelectorElement';
@@ -9,6 +9,8 @@ import { getFileUrl } from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { SELECTOR_ELEMENT_TYPES } from 'components/PortfolioCommon/SelectorElement/utils';
 import styles from './style.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Work = ({
   work,

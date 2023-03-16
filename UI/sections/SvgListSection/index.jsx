@@ -7,7 +7,7 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { useSvgListSection } from './utils/useSvgListSection';
 import styles from './styles.module.scss';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 const Selector = dynamic(() => import('UI/components/Selector'), { ssr: false });
 const SvgGroup = dynamic(() => import('UI/containers/SvgGroup'));

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
+import { connect } from 'react-redux';
 import {
   selectManagementTeam,
   selectWhatMakesSpecial,

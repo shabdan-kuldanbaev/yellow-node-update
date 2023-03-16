@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Illustration from 'UI/components/Illustration';
 import get from 'lodash/get';
 import cn from 'classnames';
+import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import Images from 'components/CaseStudiesCommon/Images';
 import { getDocumentFields, getFileUrl } from 'utils/helper';

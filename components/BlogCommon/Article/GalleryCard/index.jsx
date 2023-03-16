@@ -8,7 +8,7 @@ import { ANIMATED_TYPE, ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE } from 'utils/cons
 import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const GalleryCard = ({ images, photoCaption }) => {
   const imageRef = useRef(null); // TODO replace imageRef with something for the garrely row key

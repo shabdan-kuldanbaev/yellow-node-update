@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { companyFiguresData } from './utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 export const CompanyFigures = ({ companyFiguresData: companyFigures }) => (
   <div className={styles.companyFigures}>

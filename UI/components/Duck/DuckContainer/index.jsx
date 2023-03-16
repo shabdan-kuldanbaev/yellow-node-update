@@ -1,11 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import IntroText from 'components/HomeCommon/IntroText';
 import DuckWrapper from 'UI/components/Duck/DuckWrapper';
 import { ANIMATED_TYPE, HOMEPAGE_SLOGAN } from 'utils/constants';
 import { useDuckContainer } from './utils/useDuckContainer';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const DuckContainer = (props) => {
   const {
