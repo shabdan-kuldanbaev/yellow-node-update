@@ -42,6 +42,7 @@ const DropDownMenu = (props) => {
             className={cn(styles.subMenuItem, { [styles.subMenuItemActive]: activeSubMenu === key })}
             onClick={handleOnSubMenuClick(key)}
             variant="span"
+            key={key}
           >
             {title}
           </Typography>
@@ -51,6 +52,7 @@ const DropDownMenu = (props) => {
         {subNavigationLinks[activeSubMenu].map(({ title, subtitle, slug }) => (
           <Animated
             type={ANIMATED_TYPE.isFade}
+            key={slug}
             open
           >
             <SubMenuItem

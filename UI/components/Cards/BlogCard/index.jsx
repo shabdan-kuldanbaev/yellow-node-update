@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Illustration from 'UI/components/Illustration';
 import { formatDate } from 'utils/helper';
@@ -58,7 +58,7 @@ const BlogCard = (props) => {
 BlogCard.propTypes = {
   index: PropTypes.number,
   categoryTag: PropTypes.node,
-  previewImageUrl: PropTypes.objectOf(PropTypes.number),
+  previewImageUrl: PropTypes.instanceOf(Object),
   publishedAt: PropTypes.string,
 };
 

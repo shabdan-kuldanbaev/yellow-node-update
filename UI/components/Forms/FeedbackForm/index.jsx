@@ -91,7 +91,6 @@ FeedbackForm.defaultProps = {
 };
 
 FeedbackForm.propTypes = {
-  email: PropTypes.instanceOf(Object).isRequired,
   isBudgetSlider: PropTypes.bool,
   type: PropTypes.string,
 };

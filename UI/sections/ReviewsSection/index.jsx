@@ -35,7 +35,7 @@ const ReviewsSection = (props) => {
           swiperParams={swiperParams}
           isShowNavigation
         >
-          {reviews?.map((review, i) => (
+          {(reviews || []).map((review, i) => (
             <SwiperSlide key={`review/${i}`}>
               <Review
                 className={styles.review}

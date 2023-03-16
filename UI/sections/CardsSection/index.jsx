@@ -47,9 +47,8 @@ const CardsSection = (props) => {
             navigationClassName={styles.navigation}
           >
             {cardList.map((card, i) => (
-              <SwiperSlide>
+              <SwiperSlide key={i}>
                 <Card
-                  key={i}
                   className={styles.card}
                   withoutBackground={withoutBackground}
                   {...card}

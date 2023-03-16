@@ -18,6 +18,7 @@ const Company = ({ data }) => (
       type,
     }) => (
       <FieldsWrapper
+        key={path}
         type={type}
         path={path}
         subtitle={subtitle}

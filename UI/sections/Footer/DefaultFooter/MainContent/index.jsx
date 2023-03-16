@@ -29,6 +29,7 @@ const MainContent = ({ mainContent: footerLinksData }) => footerLinksData?.map((
       type: linkType,
     }) => (
       <FieldsWrapper
+        key={path}
         type={linkType}
         path={path}
         subtitle={subtitle}

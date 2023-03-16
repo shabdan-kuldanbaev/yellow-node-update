@@ -51,6 +51,7 @@ const MainContentWithExpand = (props) => {
                 type: linkType,
               }) => (
                 <FieldsWrapper
+                  key={path}
                   type={linkType}
                   path={path}
                   subtitle={subtitle}

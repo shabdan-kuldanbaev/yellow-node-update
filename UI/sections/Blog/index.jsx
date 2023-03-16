@@ -34,7 +34,7 @@ const Blog = (props) => {
           navigationClassName={styles.swiperNavigation}
         >
           {articles?.slice(0, 3).map((article, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <BlogCard
                 {...article}
                 index={index}
