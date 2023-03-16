@@ -1,15 +1,16 @@
 import Head from 'next/head';
 import { useRef, useState } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { selectComponents } from 'redux/selectors/layout';
 import { getSignatureProps } from 'containers/Signature/utils/helpers';
 import SignatureGenerate from 'containers/Signature/SignatureGenerate';
 import SignatureGenerated from 'containers/Signature/SignatureGenerated';
+import { useFetchPageQuery } from 'redux/apis/page';
+import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const SignatureGenerator = ({ pageData: { main } }) => {
+const SignatureGenerator = () => {
+  const { data: main } = useFetchPageQuery(PAGES.signatureGenerator);
+
   const formRef = useRef(null);
   const signatureContainer = useRef(null);
   const {
@@ -18,7 +19,7 @@ const SignatureGenerator = ({ pageData: { main } }) => {
     signatureGeneratedTitle,
     titledList,
     images,
-  } = getSignatureProps(main);
+  } = getSignatureProps(main.contentModules);
 
   const [
     currentSignatureTitle,
@@ -60,10 +61,4 @@ const SignatureGenerator = ({ pageData: { main } }) => {
   );
 };
 
-SignatureGenerator.propTypes = {
-  pageData: PropTypes.instanceOf(Object).isRequired,
-};
-
-export default connect(
-  (state) => ({ pageData: selectComponents(state) }),
-)(SignatureGenerator);
+export default SignatureGenerator;

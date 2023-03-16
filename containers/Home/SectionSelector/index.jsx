@@ -11,8 +11,12 @@ const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'), { ssr
 const Blog = dynamic(() => import('UI/sections/Blog'), { ssr: false });
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'), { ssr: false });
 
-const SectionSelector = ({ section, type }) => {
-  const { type: sectionType } = getDocumentFields(section);
+const SectionSelector = ({
+  section,
+  type,
+  ...rest
+}) => {
+  const { type: sectionType } = getDocumentFields(section, ['type']);
 
   switch (sectionType) {
   case HOMEPAGE_SECTION_TYPES.text:
@@ -72,7 +76,12 @@ const SectionSelector = ({ section, type }) => {
     );
 
   case HOMEPAGE_SECTION_TYPES.blog:
-    return <Blog sectionData={section} />;
+    return (
+      <Blog
+        sectionData={section}
+        {...rest}
+      />
+    );
 
   case HOMEPAGE_SECTION_TYPES.photos:
     return <PhotoGallery sectionData={section} />;

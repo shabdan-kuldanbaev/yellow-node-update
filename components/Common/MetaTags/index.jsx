@@ -115,6 +115,7 @@ MetaTags.propTypes = {
   pageMetadata: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    metaRobots: PropTypes.string,
     image: PropTypes.string,
     ogImage: PropTypes.string,
     publishedAt: PropTypes.string,

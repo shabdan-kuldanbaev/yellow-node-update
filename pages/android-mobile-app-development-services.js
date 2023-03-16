@@ -1,7 +1,7 @@
 import CustomService from 'containers/CustomService';
-import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
+import { getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.androidDevelopmentServices, getServicePageProps);
+export const getStaticProps = getStaticPropsWrapper(PAGES.androidDevelopmentServices);
 
 export default CustomService;

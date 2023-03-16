@@ -3,9 +3,9 @@ import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { Mousewheel, Navigation } from 'swiper';
 import {
-  selectIsFullResolutions,
-  selectIsMobileResolutions,
-  selectIsTabletResolutions,
+  isDesktop,
+  isMobile,
+  isTablet,
 } from 'redux/selectors/layout';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
@@ -117,9 +117,10 @@ export default ({
 
   const ctaLink = get(contentModules, '[1]');
 
-  const isTabletResolution = useSelector(selectIsTabletResolutions);
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
-  const IsFullResolution = useSelector(selectIsFullResolutions);
+  const isMobileResolution = useSelector(isMobile);
+  const isTabletResolution = useSelector(isTablet);
+  const IsFullResolution = useSelector(isDesktop);
+
   const withSlider = sectionWithSlider || (!disableSliderOnMobile && (isTabletResolution || isMobileResolution));
   const isShowNavigation = !(IsFullResolution && cardList?.length <= 3);
 

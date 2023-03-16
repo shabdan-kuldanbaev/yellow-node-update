@@ -1,13 +1,15 @@
 import { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { useSelector } from 'react-redux';
 import cn from 'classnames';
-import { selectIsPageReadyToDisplay, selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsPageReadyToDisplay, isMobile } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
-const LinearIndeterminate = ({ isPageReadyToDisplay, isMobileResolutuins }) => {
+const LinearIndeterminate = () => {
   const linearRef = useRef();
+
+  const isMobileResolution = useSelector(isMobile);
+  const isPageReadyToDisplay = useSelector(selectIsPageReadyToDisplay);
 
   useEffect(() => {
     if (linearRef.current) {
@@ -22,7 +24,7 @@ const LinearIndeterminate = ({ isPageReadyToDisplay, isMobileResolutuins }) => {
   return (
     <div
       className={cn(styles.linear, {
-        [styles.mobile]: isMobileResolutuins,
+        [styles.mobile]: isMobileResolution,
       })}
       ref={linearRef}
     >
@@ -31,18 +33,4 @@ const LinearIndeterminate = ({ isPageReadyToDisplay, isMobileResolutuins }) => {
   );
 };
 
-LinearIndeterminate.defaultProps = {
-  isMobileResolutuins: false,
-};
-
-LinearIndeterminate.propTypes = {
-  isPageReadyToDisplay: PropTypes.bool.isRequired,
-  isMobileResolutuins: PropTypes.bool,
-};
-
-export default connect(
-  (state) => ({
-    isPageReadyToDisplay: selectIsPageReadyToDisplay(state),
-    isMobileResolutuins: selectIsMobileResolutions(state),
-  }),
-)(LinearIndeterminate);
+export default LinearIndeterminate;

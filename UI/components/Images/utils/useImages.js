@@ -1,4 +1,6 @@
 import get from 'lodash/get';
+import { useSelector } from 'react-redux';
+import { isMobile } from 'redux/selectors/layout';
 import { getImage } from 'utils/helper';
 import {
   DEFAULT_DESKTOP_HEIGHT,
@@ -11,10 +13,11 @@ export const useImages = ({
   data,
   type,
   view,
-  isMobileResolution,
 }) => {
   const mobileHeight = MOBILE_HEIGHT_LIST[type] || DEFAULT_MOBILE_HEIGHT;
   const desktopHeight = DESKTOP_HEIGHT_LIST[type] || DEFAULT_DESKTOP_HEIGHT;
+
+  const isMobileResolution = useSelector(isMobile);
 
   const classes = `${type}${data.images.length}`;
   const images = get(data, 'images');

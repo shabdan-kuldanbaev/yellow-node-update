@@ -1,6 +1,6 @@
 import TechnicalPageContainer from 'UI/views/TechnicalPage';
 import { PAGES, ROUTES } from 'utils/constants';
-import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
+import { getStaticPropsWrapper } from 'utils/dataSelectors';
 
 const TermsAndConditions = ({ introSection }) => (
   <TechnicalPageContainer
@@ -10,6 +10,6 @@ const TermsAndConditions = ({ introSection }) => (
   />
 );
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.termsAndConditions, getServicePageProps);
+export const getStaticProps = getStaticPropsWrapper(PAGES.termsAndConditions);
 
 export default TermsAndConditions;

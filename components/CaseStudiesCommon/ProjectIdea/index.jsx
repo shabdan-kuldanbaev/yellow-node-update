@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { isMobile } from 'redux/selectors/layout';
 import KeyFeatures from 'components/CaseStudiesCommon/ProjectIdea/KeyFeatures';
 import AdditionInformation from 'components/CaseStudiesCommon/ProjectIdea/AdditionInformation';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
@@ -17,7 +17,7 @@ const ProjectIdea = ({
   type,
   data,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(isMobile);
 
   const {
     title,

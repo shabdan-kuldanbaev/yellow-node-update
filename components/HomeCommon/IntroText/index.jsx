@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { isMobile } from 'redux/selectors/layout';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import useAppearingAnimation from 'hooks/useAppearingAnimation';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const IntroText = ({ className }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(isMobile);
   const [direction, isTopOfPage] = useAppearingAnimation(isMobileResolution);
 
   return (

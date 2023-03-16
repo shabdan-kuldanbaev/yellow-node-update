@@ -16,7 +16,6 @@ const GetBookModal = (props) => {
     bookCover,
     buttonText,
     isSubscribed,
-    onSubmit,
   } = useProps(props);
 
   return (
@@ -34,7 +33,6 @@ const GetBookModal = (props) => {
         {!isSubscribed && (
           <GetBookForm
             isOpen={show}
-            onSubmit={onSubmit}
             buttonText={buttonText}
           />
         )}

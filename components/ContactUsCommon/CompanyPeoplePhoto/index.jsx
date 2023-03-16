@@ -3,18 +3,16 @@ import {
   useRef,
   useState,
 } from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import Illustration from 'UI/components/Illustration';
-import cn from 'classnames';
-import { connect } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
+const CompanyPeoplePhoto = ({ photo }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
 
@@ -57,15 +55,8 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
   );
 };
 
-CompanyPeoplePhoto.defaultProps = {
-  isMobileResolution: false,
-};
-
 CompanyPeoplePhoto.propTypes = {
   photo: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(CompanyPeoplePhoto);
+export default CompanyPeoplePhoto;

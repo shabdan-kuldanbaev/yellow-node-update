@@ -2,17 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
 import Upload from 'components/Common/Upload';
 import Input from 'UI/components/Input';
 import Button from 'UI/components/Button';
-import { selectError } from 'redux/selectors/contact';
-import { sendEmail } from 'redux/actions/contact';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs/withValidateEmail';
+import { CONTACT_CASH_KEY, useContactMutation } from 'redux/apis/dataSending';
 import FormContainer from './FormContainer';
 import { SliderWrapper } from './SliderWrapper';
 import { budget, marks } from './utils/data';
@@ -27,10 +25,10 @@ const FeedbackForm = ({
   isChooseBudget,
   budget: budgetData,
   formKey,
-  contactFormError,
   type,
-  sendEmail: sendFeedback,
 }) => {
+  const [contact, { isError }] = useContactMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+
   const { asPath } = useRouter();
   const formRef = useRef(null);
   const sliderRef = useRef(null);
@@ -110,7 +108,7 @@ const FeedbackForm = ({
 
     const filesUrls = selectedFiles.map((file) => file.signedUrl);
 
-    sendFeedback({
+    contact({
       name: fullName,
       email: email.value,
       description: projectDescription,
@@ -228,7 +226,7 @@ const FeedbackForm = ({
             style={type}
           />
         </Animated>
-        {contactFormError && (
+        {isError && (
           <span className={styles.errorMessage}>
             There was an error trying to send your message. Please try again later
           </span>
@@ -271,7 +269,4 @@ FeedbackForm.propTypes = {
   sendEmail: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({ contactFormError: selectError(state) }),
-  { sendEmail },
-)(withValidateEmail(FeedbackForm));
+export default withValidateEmail(FeedbackForm);

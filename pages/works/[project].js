@@ -1,54 +1,29 @@
-import { useRouter } from 'next/router';
-import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
-import CaseStudiesContainer from 'containers/CaseStudies';
-import ProjectContainer from 'containers/Project';
-import PageNotFound from 'containers/PageNotFound';
 import { wrapper } from 'redux/store';
-import { PAGES, CASE_STUDIES_SLUGS } from 'utils/constants';
-import errorHelper from 'utils/error';
+import CaseStudiesContainer from 'containers/CaseStudies';
+import { handleError } from 'utils/error';
+import pageApi from 'redux/apis/page';
 
-const Project = ({ introSection, statusCode }) => {
-  const { query: { project } } = useRouter();
+const Project = ({
+  introSection,
+  ...rest
+}) => (
+  <CaseStudiesContainer
+    introSection={introSection}
+    {...rest}
+  />
+);
 
-  if (statusCode === 404) {
-    return <PageNotFound />;
-  }
-
-  return CASE_STUDIES_SLUGS.includes(project)
-    ? <CaseStudiesContainer introSection={introSection} />
-    : <ProjectContainer introSection={introSection} />;
-};
-
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req, res, query: { project } }) => {
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ query: { project } }) => {
   try {
-    let statusCode = '';
-    store.dispatch(fetchLayoutData({
-      slug: PAGES.project,
-      projectSlug: project,
-    }));
-
-    // TODO rewrite it
-    if (req) {
-      store.dispatch(END);
-      await store.sagaTask.toPromise();
-
-      if (store.getState().portfolio.project.total === 0) {
-        statusCode = 404;
-
-        if (res) {
-          res.statusCode = 404;
-        }
-      }
-    }
+    await store.dispatch(pageApi.endpoints.fetchPage.initiate(project));
 
     return {
       props: {
-        statusCode,
+        slug: project,
       },
     };
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the Project.getInitialProps function',
     });

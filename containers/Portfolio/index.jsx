@@ -16,6 +16,7 @@ import {
   ROUTES,
 } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { useFetchPageQuery } from 'redux/apis/page';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
@@ -25,9 +26,11 @@ const PortfolioContainer = ({
   introSection,
   pageMetadata,
   works,
-  subtitle,
   link,
+  type,
 }) => {
+  const { data = {} } = useFetchPageQuery(type);
+  const { subtitle } = data;
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
   const breadcrumbs = pagesBreadcrumbs.portfolio();
 

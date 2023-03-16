@@ -13,12 +13,12 @@ const Layout = (props) => {
   const {
     children,
     introSection,
-    isDuckLoaded,
+    isDuckLoading,
   } = useLayout(props);
 
   return (
     <>
-      {isDuckLoaded && <LoadingScreen />}
+      {isDuckLoading && <LoadingScreen />}
       <CookiesNotification />
       <Header introSection={introSection} />
       {children}

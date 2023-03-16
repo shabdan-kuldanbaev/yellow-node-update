@@ -13,8 +13,9 @@ export const Home = ({
   pageMetadata,
   pageData,
   type,
+  ...rest
 }) => {
-  const { main: contentModules } = pageData;
+  const contentModules = pageData;
 
   return (
     <>
@@ -32,6 +33,7 @@ export const Home = ({
           key={`section/${i}`}
           section={module}
           type={type}
+          {...rest}
         />
       ))}
     </>

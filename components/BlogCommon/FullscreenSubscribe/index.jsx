@@ -1,11 +1,8 @@
-import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { clearMessage } from 'redux/actions/subscribe';
-import { selectSubscribeMessage } from 'redux/selectors/subscribe';
 import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
 import ModalWindow from 'components/Common/ModalWindow';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 
@@ -16,19 +13,16 @@ const FullscreenSubscribe = ({
   handleOnEmailChange,
   handleOnBlurEmail,
   handleOnSubmit,
-  message,
-  clearMessage: clearAlertMessage,
 }) => {
+  const [_, { data: { message } = {} }] = useSubscribeMutation({
+    fixedCacheKey: SUBSCRIPTION_CASH_KEY,
+  });
+
   const handleOnClick = (event) => {
     event.preventDefault();
 
     handleOnSubmit(email.value);
   };
-
-  useEffect(
-    () => () => clearAlertMessage(),
-    [clearAlertMessage],
-  );
 
   return (
     <ModalWindow
@@ -77,11 +71,6 @@ FullscreenSubscribe.propTypes = {
   handleOnEmailChange: PropTypes.func.isRequired,
   handleOnBlurEmail: PropTypes.func.isRequired,
   handleOnSubmit: PropTypes.func,
-  message: PropTypes.string.isRequired,
-  clearMessage: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({ message: selectSubscribeMessage(state) }),
-  { clearMessage },
-)(withValidateEmail(FullscreenSubscribe));
+export default withValidateEmail(FullscreenSubscribe);

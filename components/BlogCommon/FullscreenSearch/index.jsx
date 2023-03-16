@@ -2,40 +2,37 @@ import {
   useState,
   useEffect,
   useRef,
-  useCallback,
+  useMemo,
   memo,
 } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
-import { useDispatch } from 'react-redux';
-import { findArticles, clearFoundArticles } from 'redux/actions/blog';
 import ModalWindow from 'components/Common/ModalWindow';
+import { useGetSearchResultQuery } from 'redux/apis/blog';
 import SearchResult from './SearchResult';
 import styles from './styles.module.scss';
 
 const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
-  const dispatch = useDispatch();
-  const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const delayedQuery = useCallback(debounce((value) => dispatch(findArticles({ value })), 1000), []);
+  const [inputValue, setInputValue] = useState('');
+  const [searchTerm, setSearchTerm] = useState(inputValue);
+  const { data: articles = [], isFetching } = useGetSearchResultQuery(searchTerm);
+
+  const delayedQuery = useMemo(
+    () => debounce((value) => setSearchTerm(value), 1000),
+    [],
+  );
+
   const handleOnChangeInput = ({ target: { value } }) => {
     setInputValue(value);
-
-    if (value.length === 0) {
-      dispatch(clearFoundArticles());
-      delayedQuery.cancel();
-    }
-
-    if (value.length > 1) {
-      delayedQuery(value);
-    }
+    delayedQuery(value);
   };
+
   const handleOnCloseModalWindow = () => {
     closeFullscreenSearch();
     setInputValue('');
-    dispatch(clearFoundArticles());
+    setSearchTerm('');
   };
 
   useEffect(() => {
@@ -58,10 +55,11 @@ const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
           onChange={handleOnChangeInput}
           value={inputValue}
         />
-        {inputValue.length > 1
+        {searchTerm.length > 1
           ? (
             <SearchResult
-              searchValue={inputValue}
+              foundArticles={articles}
+              isFetching={isFetching}
               handleOnCloseModalWindow={handleOnCloseModalWindow}
             />
           )

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { isMobile } from 'redux/selectors/layout';
 import Illustration from 'UI/components/Illustration';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import {
@@ -24,7 +24,7 @@ const ChallengesAndSolutions = ({
   isSpecial,
   view,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(isMobile);
 
   if (!get(data, 'contentModules')) {
     return null;

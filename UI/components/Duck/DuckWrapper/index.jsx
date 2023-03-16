@@ -6,12 +6,12 @@ const Duck = dynamic(() => import('UI/components/Duck/Duck'), { ssr: false });
 const DuckWrapper = (props) => {
   const { duck, sloganRef } = useDuckWrapper(props);
 
-  return (
+  return (duck && (
     <Duck
       sloganRef={sloganRef}
       duck={duck}
     />
-  );
+  ));
 };
 
 export default DuckWrapper;

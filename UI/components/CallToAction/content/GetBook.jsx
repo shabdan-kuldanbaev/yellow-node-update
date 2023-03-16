@@ -1,11 +1,10 @@
-import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import Button from 'UI/components/Button';
 import downloadFile from 'utils/downloadFile';
 import useToggle from 'hooks/useToggle';
-import { selectIsSubscribed } from 'redux/selectors/subscribe';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import styles from '../styles.module.scss';
 
 const Typography = dynamic(() => import('UI/components/Typography'));
@@ -20,7 +19,10 @@ export default ({
   handleOnClick: handleOnClickProp,
   slug,
 }) => {
-  const isSubscribed = useSelector(selectIsSubscribed);
+  const [
+    _,
+    { data: { isSubscribed } = {} },
+  ] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const [isGetBookShown, toggleGetBookModalShown] = useToggle(false);
 

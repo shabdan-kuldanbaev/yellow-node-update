@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { isMobile } from 'redux/selectors/layout';
 import Illustration from 'UI/components/Illustration';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import {
@@ -9,15 +9,15 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { ProjectLink } from './ProjectLink';
 import styles from './styles.module.scss';
+import { ProjectLink } from './ProjectLink';
 
 const DefaultIntro = ({
   type,
   introSection,
   data,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(isMobile);
 
   const {
     title,

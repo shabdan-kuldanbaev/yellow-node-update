@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { selectIsMobileMenuOpened, selectIsDropMenuOpened } from 'redux/selectors/layout';
-import { setMobileMenuState } from 'redux/actions/layout';
+import { mobileMenuOpened } from 'redux/reducers/layout';
 import {
   CASE_STUDIES,
   PAGES_WITH_TRANSPARENT_HEADER,
@@ -85,7 +85,7 @@ export const useHeader = ({ introSection }) => {
   }, [asPath]);
 
   const setMobileMenu = useCallback((state) => () => {
-    dispatch(setMobileMenuState(state));
+    dispatch(mobileMenuOpened(state));
   }, [dispatch]);
 
   const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));

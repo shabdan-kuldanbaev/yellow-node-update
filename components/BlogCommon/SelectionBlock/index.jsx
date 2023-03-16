@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
 import { setOverflowForBody } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';

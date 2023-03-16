@@ -1,34 +1,31 @@
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import { connect } from 'react-redux';
-import { selectMetaData } from 'redux/selectors/layout';
 import MetaTags from 'components/Common/MetaTags';
 import ButtonMore from 'components/Common/ButtonMore';
-import { ANIMATED_TYPE, PAGES } from 'utils/constants';
+import {
+  ANIMATED_TYPE,
+  PAGES,
+  REVEAL_ANIMATION_PROPS,
+} from 'utils/constants';
 import { rootUrl } from 'utils/helper';
+import { useFetchPageQuery } from 'redux/apis/page';
 import json from './json/Idea.json';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-const PageNotFound = ({
-  animation,
-  metaData: {
-    metaTitle,
-    metaDescription,
-  },
-}) => {
+const PageNotFound = ({ animation }) => {
+  const {
+    data: {
+      metaTitle,
+      metaDescription,
+    } = {},
+  } = useFetchPageQuery(PAGES.notFound);
+
   const pageMetadata = {
     metaTitle,
     metaDescription,
     url: `${rootUrl}/not-found`,
-  };
-  const animatedProps = {
-    type: ANIMATED_TYPE.isCustom,
-    translateY: '2.82352941em',
-    opasityDuration: 1,
-    transformDuration: 1,
-    percentIntersection: 0.1,
   };
 
   return (
@@ -40,7 +37,7 @@ const PageNotFound = ({
       {animation && (
         <div className={styles.pageNotFound}>
           <Animated
-            {...animatedProps}
+            {...REVEAL_ANIMATION_PROPS}
             transitionDelay={300}
           >
             <Animated
@@ -50,13 +47,13 @@ const PageNotFound = ({
             />
           </Animated>
           <Animated
-            {...animatedProps}
+            {...REVEAL_ANIMATION_PROPS}
             transitionDelay={250}
           >
             <p>This page could not be found</p>
           </Animated>
           <Animated
-            {...animatedProps}
+            {...REVEAL_ANIMATION_PROPS}
             transitionDelay={200}
           >
             <ButtonMore
@@ -77,12 +74,6 @@ PageNotFound.defaultProps = {
 
 PageNotFound.propTypes = {
   animation: PropTypes.instanceOf(Object),
-  metaData: PropTypes.shape({
-    metaTitle: PropTypes.string,
-    metaDescription: PropTypes.string,
-  }).isRequired,
 };
 
-export default connect(
-  (state) => ({ metaData: selectMetaData(state) }),
-)(PageNotFound);
+export default PageNotFound;

@@ -12,23 +12,34 @@ function getParam(params) {
   return '';
 }
 
-function getFilterParams(where) {
-  if (!isEmpty(where)) {
-    const filterParams = Object
-      .keys(where)
-      .map((key) => {
-        if (typeof where[key] === 'boolean') {
-          return `${key}: ${where[key]}`;
-        }
-
-        return `${key}: "${where[key]}"`;
-      })
-      .join(',');
-
-    return `where: {${filterParams}},`;
+const queryfy = (obj) => {
+  if (typeof obj === 'number' || typeof obj === 'boolean') {
+    return obj;
   }
 
-  return 'where: {}';
+  if (Array.isArray(obj)) {
+    const props = obj.map((value) => `${queryfy(value)}`).join(',');
+
+    return `[${props}]`;
+  }
+
+  if (typeof obj === 'object') {
+    const props = Object.keys(obj)
+      .map((key) => `${key}:${queryfy(obj[key])}`)
+      .join(',');
+
+    return `{${props}}`;
+  }
+
+  return JSON.stringify(obj);
+};
+
+function getFilterParams(obj) {
+  if (isEmpty(obj)) {
+    return 'where: {}';
+  }
+
+  return `where: ${queryfy(obj)}`;
 }
 
 export const GRAPHQL_QUERY = {
@@ -96,7 +107,7 @@ export const GRAPHQL_QUERY = {
       }
     `;
   },
-  getNearbyAndRelatedArticle({
+  getNearbyArticle({
     limit,
     order,
     where,
@@ -118,6 +129,34 @@ export const GRAPHQL_QUERY = {
             }
             previewImageUrl {
               url
+            }
+          }
+        }
+      }
+    `;
+  },
+  getRelatedArticles({
+    limit,
+    where,
+  }) {
+    return `
+      query {
+        tagCollection(
+          ${getFilterParams(where)}
+        ) {
+          items {
+            linkedFrom {
+              articleCollection(
+                ${getParam({ limit })}
+              ) {
+                items {
+                  title
+                  slug
+                  previewImageUrl {
+                    url
+                  }
+                }
+              }
             }
           }
         }

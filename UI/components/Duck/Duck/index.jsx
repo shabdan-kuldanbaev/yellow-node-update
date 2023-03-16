@@ -340,7 +340,7 @@ const Duck = ({ sloganRef, duck }) => {
       cancelAnimationFrame(animationId);
       animationId = 0;
 
-      if (duck && !isDuckLoad) {
+      if (duck && !isDuckLoad && containerCanvas.current) {
         setDuckLoad(true);
 
         if (isMobile) options.default.meshScale = 70;
@@ -388,7 +388,7 @@ const Duck = ({ sloganRef, duck }) => {
       cancelAnimationFrame(animationId);
       animationId = 0;
     };
-  }, [duck, isAnimate]);
+  }, [duck, isAnimate, containerCanvas]);
 
   return (
     <Animated
