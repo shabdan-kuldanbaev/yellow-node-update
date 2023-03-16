@@ -3,7 +3,11 @@
 /* eslint-disable no-undef */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
-import { useEffect, useRef, useState } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import {
   Plane,
   Raycaster,
@@ -11,15 +15,13 @@ import {
   EffectComposer,
   RenderPass,
 } from 'utils/threeModule';
-import dynamic from 'next/dynamic';
+import Animated from 'UI/containers/Animated';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { animationTypes } from 'UI/components/Duck/utils/constant';
 import { slogan, three } from 'UI/components/Duck/utils/helpers';
 import { getSpeed } from './utils/herlpers';
 import * as styles from './styles.module.scss';
-
-const Animated = dynamic(() => import('UI/containers/Animated'));
 
 let camera;
 let animationId = 0;
@@ -340,7 +342,7 @@ const Duck = ({ sloganRef, duck }) => {
       cancelAnimationFrame(animationId);
       animationId = 0;
 
-      if (duck && !isDuckLoad && containerCanvas.current) {
+      if (duck && !isDuckLoad) {
         setDuckLoad(true);
 
         if (isMobile) options.default.meshScale = 70;
@@ -388,7 +390,7 @@ const Duck = ({ sloganRef, duck }) => {
       cancelAnimationFrame(animationId);
       animationId = 0;
     };
-  }, [duck, isAnimate, containerCanvas]);
+  }, [duck, isAnimate]);
 
   return (
     <Animated
