@@ -1,9 +1,11 @@
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Svg from 'UI/components/Svg';
 import Input from 'UI/components/Input';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { AttachedFile } from './AttachedFile';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const Upload = ({
   projectDescription,

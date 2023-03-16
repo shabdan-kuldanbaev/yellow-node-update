@@ -1,9 +1,11 @@
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'UI/components/Svg';
 import { CONTACTS_DATA } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 export const FieldsWrapper = ({ animated: { field } }) => {
   const { pathname } = useRouter();

@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import {
   useState,
   useEffect,
@@ -9,9 +10,10 @@ import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
 import { connect } from 'react-redux';
 import { setIsFormDataSent } from 'redux/actions/contact';
 import { selectIsFormDataSent } from 'redux/selectors/contact';
-import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const FormContainer = ({
   children,

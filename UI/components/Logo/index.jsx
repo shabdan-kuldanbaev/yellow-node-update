@@ -1,10 +1,12 @@
+import dynamic from 'next/dynamic';
 import { memo } from 'react';
 import PropTypes from 'prop-types';
 import LinkWrapper from 'UI/components/LinkWrapper';
-import Svg from 'UI/components/Svg';
 import { ROUTES } from 'utils/constants';
 import { useLogo } from './utils/useLogo';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const Logo = (props) => {
   const {

@@ -3,7 +3,6 @@ import get from 'lodash/get';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import Svg from 'UI/components/Svg';
 import {
   getDocumentFields,
   getFileUrl,
@@ -14,6 +13,7 @@ import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const KeyFeatures = ({ features, type }) => {
   if (!get(features, 'contentModules')) {

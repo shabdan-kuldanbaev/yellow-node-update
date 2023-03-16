@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import Typography from 'UI/components/Typography';
-import Svg from 'UI/components/Svg';
 import SubMenuItem from 'UI/sections/Header/SubMenuItem';
 import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
 import { useMobileDropDownMenu } from './useMobileDropDownMenu';
 import styles from './styles.module.scss';
 
+const Svg = dynamic(() => import('UI/components/Svg'));
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const MobileDropDownMenu = (props) => {

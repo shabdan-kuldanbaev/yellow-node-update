@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
-import Svg from 'UI/components/Svg';
+import dynamic from 'next/dynamic';
 import Typography from 'UI/components/Typography';
 import styles from 'UI/components/Figures/styles.module.scss';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import useFiguresItemProps from './utils/useFiguresItemProps';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const FiguresItem = (props) => {
   const {

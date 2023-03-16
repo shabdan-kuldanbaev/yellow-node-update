@@ -1,12 +1,14 @@
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import Svg from 'UI/components/Svg';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
 import { ProjectLink } from './ProjectLink';
 import { useCaseStudiesIntro } from './utils/useCaseStudiesIntro';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const CaseStudiesIntro = (props) => {
   const {

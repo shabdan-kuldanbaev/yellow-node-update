@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Svg from 'UI/components/Svg';
+import dynamic from 'next/dynamic';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const SignatureInput = ({
   type,

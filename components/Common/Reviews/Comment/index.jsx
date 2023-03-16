@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import Illustration from 'UI/components/Illustration';
-import Svg from 'UI/components/Svg';
 import styles from './styles.module.scss';
 
+const Svg = dynamic(() => import('UI/components/Svg'));
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
 export const Comment = ({

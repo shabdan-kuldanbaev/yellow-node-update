@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
@@ -17,10 +18,11 @@ import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
 import { PAGES, ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import useToggle from 'hooks/useToggle';
-import Svg from 'UI/components/Svg';
 import { categoriesMetaData } from './utils/data';
 import { findCategoryBySlug, findTagBySlug } from './utils/blogContainerHelper';
 import styles from './BlogContainer.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const BlogContainer = ({
   tagsList,

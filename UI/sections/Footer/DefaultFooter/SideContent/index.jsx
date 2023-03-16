@@ -1,11 +1,13 @@
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'UI/components/Svg';
 import Logo from 'UI/components/Logo';
 import Typography from 'UI/components/Typography';
 import { socialMedia } from '../utils/data';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const SideContent = ({ socialMedia: socialMediaList }) => {
   const { pathname } = useRouter();
