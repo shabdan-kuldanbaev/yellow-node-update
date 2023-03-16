@@ -1,0 +1,12 @@
+.meateater {
+  padding: 120px 40px;
+  background-color: $gray50;
+
+  .titleStyle {
+    margin: 0 auto;
+  }
+
+  @include tablet {
+    padding: 60px 40px;
+  }
+}
