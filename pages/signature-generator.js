@@ -1,4 +1,3 @@
-import React from 'react';
 import Signature from 'containers/Signature';
 import { getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';

@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';

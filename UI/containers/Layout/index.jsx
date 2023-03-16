@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import CookiesNotification from 'components/Common/CookiesNotification';
@@ -37,4 +37,4 @@ Layout.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default React.memo(Layout);
+export default memo(Layout);

@@ -1,8 +1,9 @@
-import React, {
+import {
   useState,
   useEffect,
   useRef,
   useCallback,
+  memo,
 } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
@@ -83,4 +84,4 @@ FullscreenSearch.propTypes = {
   closeFullscreenSearch: PropTypes.func.isRequired,
 };
 
-export default React.memo(FullscreenSearch);
+export default memo(FullscreenSearch);

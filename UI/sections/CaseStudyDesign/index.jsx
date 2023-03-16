@@ -1,4 +1,3 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';

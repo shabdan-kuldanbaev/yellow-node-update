@@ -1,4 +1,3 @@
-import React from 'react';
 import { END } from 'redux-saga';
 import dynamic from 'next/dynamic';
 import { fetchLayoutData } from 'redux/actions/layout';

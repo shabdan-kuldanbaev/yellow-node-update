@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { addThousandsSeparators } from 'utils/helper';
 import visitData from 'utils/gaMetrics/getGaMetrics';

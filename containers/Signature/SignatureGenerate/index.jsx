@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { getInputsData } from 'containers/Signature/utils/helpers';
 import { SIGNATURE_BUTTON_NAMES } from 'containers/Signature/utils/constants';

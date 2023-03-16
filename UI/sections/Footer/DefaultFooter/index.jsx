@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import SideContent from './SideContent';
@@ -38,4 +38,4 @@ const DefaultFooter = () => {
   );
 };
 
-export default React.memo(DefaultFooter);
+export default memo(DefaultFooter);

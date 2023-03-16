@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';

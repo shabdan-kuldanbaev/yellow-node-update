@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import {
+  useEffect,
+  useState,
+  memo,
+} from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'UI/components/LinkWrapper';
@@ -83,4 +87,4 @@ CookiesNotification.propTypes = {
   text: PropTypes.string,
 };
 
-export default React.memo(CookiesNotification);
+export default memo(CookiesNotification);

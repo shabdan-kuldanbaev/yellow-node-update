@@ -1,7 +1,6 @@
 // destructuring doesn't work poperly with process.env
 /* eslint-disable prefer-destructuring */
 
-import React from 'react';
 import { routes } from 'utils/routes';
 
 // TODO: After refactoring all pages, remove this variable and check for pages

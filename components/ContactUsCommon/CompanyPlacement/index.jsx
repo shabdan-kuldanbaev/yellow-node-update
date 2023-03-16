@@ -1,4 +1,3 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 import SectionTitle from 'components/Common/SectionTitle';
 import PlacementInfoItem from './PlacementInfoItem';

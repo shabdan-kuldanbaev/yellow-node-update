@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Illustration from 'UI/components/Illustration';

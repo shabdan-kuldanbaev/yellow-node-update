@@ -1,4 +1,3 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';

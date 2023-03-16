@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { SwiperSlide } from 'swiper/react';
 import SelectorElement from 'components/PortfolioCommon/SelectorElement';

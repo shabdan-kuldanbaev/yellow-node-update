@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';

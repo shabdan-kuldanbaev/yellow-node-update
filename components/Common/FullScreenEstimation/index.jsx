@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import { createContext } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import ModalWindow from 'components/Common/ModalWindow';

@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';

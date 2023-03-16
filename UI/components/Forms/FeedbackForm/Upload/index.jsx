@@ -1,4 +1,3 @@
-import React from 'react';
 import Svg from 'UI/components/Svg';
 import TextField from 'UI/components/TextField';
 import { SVG_IMAGES_TYPES } from 'utils/constants';

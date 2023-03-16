@@ -1,4 +1,3 @@
-import React from 'react';
 import PortfolioContainer from 'containers/Portfolio';
 import { PAGES } from 'utils/constants';
 import { getPortfolioPageProps, getStaticPropsWrapper } from 'utils/dataSelectors';

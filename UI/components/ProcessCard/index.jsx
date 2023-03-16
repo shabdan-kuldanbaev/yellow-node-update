@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArcherElement } from 'react-archer';
 import Svg from 'UI/components/Svg';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';

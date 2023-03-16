@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import Typography from 'UI/components/Typography';

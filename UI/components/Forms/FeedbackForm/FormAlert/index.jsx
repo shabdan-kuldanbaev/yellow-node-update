@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';

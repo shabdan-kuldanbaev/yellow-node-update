@@ -1,5 +1,4 @@
 /* eslint-disable react/destructuring-assignment */
-import React from 'react';
 import dynamic from 'next/dynamic';
 import { ANIMATED_TYPE } from 'utils/constants';
 

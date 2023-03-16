@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRouter } from 'next/router';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';

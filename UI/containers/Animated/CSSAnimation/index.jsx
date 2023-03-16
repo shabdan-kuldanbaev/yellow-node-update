@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { useIntersectionItem } from 'hooks/useIntersectionItem';
 
@@ -6,12 +6,12 @@ export const CSSAnimation = ({ children, intersectedClasses }) => {
   const [intersectRef, isIntersected] = useIntersectionItem(0.2);
 
   if (isIntersected) {
-    return React.Children.map(children, (child) => React.cloneElement(child, {
+    return Children.map(children, (child) => cloneElement(child, {
       className: `${child.props.className} ${intersectedClasses}`,
     }));
   }
 
-  return React.Children.map(children, (child) => React.cloneElement(child, {
+  return Children.map(children, (child) => cloneElement(child, {
     ref: intersectRef,
   }));
 };

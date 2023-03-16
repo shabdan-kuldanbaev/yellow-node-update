@@ -1,4 +1,3 @@
-import React from 'react';
 import { END } from 'redux-saga';
 import { fetchLayoutData } from 'redux/actions/layout';
 import DraftArticle from 'containers/DraftArticle';

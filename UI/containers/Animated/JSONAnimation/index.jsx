@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, {
+import {
   useState,
   useEffect,
   useRef,

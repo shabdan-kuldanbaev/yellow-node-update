@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useSelector } from './utils/useSelector';

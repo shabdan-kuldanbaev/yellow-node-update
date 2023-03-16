@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Illustration from 'UI/components/Illustration';

@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-max-props-per-line */
-import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Script from 'next/script';

@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import get from 'lodash/get';

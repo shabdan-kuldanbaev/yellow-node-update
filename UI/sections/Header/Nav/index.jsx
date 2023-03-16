@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { Suspense, memo } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -86,4 +86,4 @@ Nav.propTypes = {
   isHeader: PropTypes.bool,
 };
 
-export default React.memo(Nav);
+export default memo(Nav);

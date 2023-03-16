@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Lottie from 'react-lottie-light';
 import { connect } from 'react-redux';

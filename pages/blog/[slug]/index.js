@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRouter } from 'next/router';
 import ArticleContainer from 'containers/Article';
 import BlogContainer from 'UI/views/Blog';

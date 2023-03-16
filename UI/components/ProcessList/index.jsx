@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import CallToAction from 'UI/components/CallToAction';

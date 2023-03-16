@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import {
+  useEffect,
+  useState,
+  createElement,
+} from 'react';
 import PropTypes from 'prop-types';
 import * as icons from './svgs';
 
@@ -24,7 +28,7 @@ const Svg = ({
 
   return (Icon
 
-    ? React.createElement(
+    ? createElement(
       Icon,
       {
         className,
