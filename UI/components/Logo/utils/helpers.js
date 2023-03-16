@@ -13,6 +13,7 @@ export const WHITE_LOGO_TYPE = [
   'writer-chrome-extension',
   'meateater',
   'telemojo',
+  'fintech-app-for-credit-score',
 ];
 
 export const BLACK_LOGO_TYPE = [
