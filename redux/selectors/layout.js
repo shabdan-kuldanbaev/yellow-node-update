@@ -6,10 +6,6 @@ export const selectIsPageReadyToDisplay = (state) => state.layout.isPageReadyToD
 
 export const selectIsFirstPageLoaded = (state) => state.layout.isFirstPageLoaded;
 
-export const selectComponents = (state) => state.layout.components;
-
-export const selectMetaData = (state) => state.layout.metaData;
-
 export const selectIsDropMenuOpened = (state) => state.layout.isDropMenuOpened;
 
 export const isMobile = (state) => state.layout.isMobileResolution;

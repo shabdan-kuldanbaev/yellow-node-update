@@ -3,14 +3,12 @@ import React, {
   useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
 import { useSpring, a } from '@react-spring/web';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
-import { selectIsFormDataSent } from 'redux/selectors/contact';
 import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-import { formSuccessDismissed } from 'redux/reducers/contact';
+import { CONTACT_CASH_KEY, useContactMutation } from 'redux/apis/dataSending';
 import styles from './styles.module.scss';
 
 const FormContainer = ({
@@ -18,10 +16,11 @@ const FormContainer = ({
   formRef,
   clearForm,
 }) => {
-  const dispatch = useDispatch();
-  const isFormDataSent = useSelector(selectIsFormDataSent);
+  const [contact, { data: { sent } = {} }] = useContactMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+
   const [isFlipped, setIsFlipped] = useState(false);
   const [isFrontShown, setIsFrontShown] = useState(true);
+
   const { transform, opacity } = useSpring({
     opacity: isFlipped ? 1 : 0,
     transform: `perspective(600px) rotateY(${isFlipped ? 180 : 0}deg)`,
@@ -35,17 +34,17 @@ const FormContainer = ({
   const handleOnCloseClick = () => {
     setIsFlipped(false);
     setIsFrontShown(true);
-    dispatch(formSuccessDismissed());
+    contact({ isSent: false });
   };
 
   useEffect(() => {
-    if (isFormDataSent) {
+    if (sent) {
       setIsFlipped(true);
       setIsFrontShown(false);
       clearForm();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFormDataSent]);
+  }, [sent]);
 
   return (
     <>

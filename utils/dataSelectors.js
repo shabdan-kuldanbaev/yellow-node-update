@@ -9,6 +9,7 @@ import {
   HOMEPAGE_ARTICLES_LIMIT,
   PAGES,
 } from 'utils/constants';
+import { processes } from 'utils/processes';
 import { handleError } from './error';
 import { findBlock, getDocumentFields, rootUrl } from './helper';
 
@@ -77,6 +78,8 @@ export const getHomePageDataPros = async (state, store) => {
     blogQuery,
   };
 };
+
+export const getProcessProps = async (state, store) => ({ json: processes });
 
 export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps((store) => async () => {
   try {

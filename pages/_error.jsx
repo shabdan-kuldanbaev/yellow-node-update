@@ -26,10 +26,6 @@ Error.getInitialProps = wrapper.getInitialPageProps((store) => async ({
 
   if (statusCode === 404) {
     await store.dispatch(pageApi.endpoints.fetchPage.initiate(PAGES.notFound));
-
-    handleMessage({
-      message: `404 - This page could not be found (${asPath})`,
-    });
   }
 
   if (err) {

@@ -3,11 +3,9 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import baseApi from 'redux/apis';
 import layout from './layout';
-import contact from './contact';
 
 const reducers = combineReducers({
   layout,
-  contact,
   [baseApi.reducerPath]: baseApi.reducer,
 });
 

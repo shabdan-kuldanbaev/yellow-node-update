@@ -1,18 +1,15 @@
 import cn from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
-import { formSuccessDismissed } from 'redux/reducers/contact';
-import { selectIsFormDataSent } from 'redux/selectors/contact';
+import { CONTACT_CASH_KEY, useContactMutation } from 'redux/apis/dataSending';
 import styles from '../styles.module.scss';
 
 export default () => {
-  const isDataSubmited = useSelector(selectIsFormDataSent);
+  const [contact, { data: { sent } = {} }] = useContactMutation({ fixedCacheKey: CONTACT_CASH_KEY });
 
-  const dispatch = useDispatch();
-  const handleClose = () => dispatch(formSuccessDismissed());
+  const handleClose = () => contact({ isSent: false });
 
   const className = cn(
     styles.formAlert,
-    { [styles.isVisible]: isDataSubmited },
+    { [styles.isVisible]: sent },
   );
 
   return {

@@ -1,12 +1,11 @@
 import get from 'lodash/get';
 import last from 'lodash/last';
-import { useSelector } from 'react-redux';
 import {
   getDocumentFields,
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { selectComponents } from 'redux/selectors/layout';
+import { useFetchPageQuery } from 'redux/apis/page';
 import {
   CASES_BLACK_ICONS,
   socialNetworksWhite,
@@ -17,7 +16,7 @@ export const useCaseStudiesFooter = ({
   type,
   pathname,
 }) => {
-  const { main: contentModules } = useSelector(selectComponents);
+  const { data: { contentModules } = {} } = useFetchPageQuery(type);
 
   const lastContentModule = last(contentModules);
   const {

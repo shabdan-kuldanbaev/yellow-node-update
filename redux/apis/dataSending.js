@@ -1,10 +1,15 @@
 import { API } from 'utils/api';
 import gaHelper from 'utils/ga';
 import { handleMessage } from 'utils/error';
-import { hoursToMs, setDataToLocalStorageWithExpire } from 'utils/helper';
+import {
+  getFeedbackFormData,
+  hoursToMs,
+  setDataToLocalStorageWithExpire,
+} from 'utils/helper';
 import baseApi from '.';
 
 export const SUBSCRIPTION_CASH_KEY = 'DATA_SENDING_API/SUBSCRIPTION';
+export const CONTACT_CASH_KEY = 'DATA_SENDING_API/CONTACT';
 
 const dataSendingApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -43,20 +48,24 @@ const dataSendingApi = baseApi.injectEndpoints({
     }),
 
     contact: builder.mutation({
-      async queryFn(args) {
+      async queryFn({ isSent, ...args }) {
+        if (typeof isSent !== 'undefined') {
+          return { data: { sent: isSent } };
+        }
+
         handleMessage({
           message: `New Contact Form submit: ${JSON.stringify(args)}`,
         });
 
         try {
-          const response = API.sendEmail(args);
+          const response = await API.sendEmail(getFeedbackFormData(args));
 
           gaHelper.trackEvent(
             'Contact Form',
             'Send',
           );
 
-          return { data: response };
+          return { data: { sent: response.data } };
         } catch (e) {
           return { error: e };
         }

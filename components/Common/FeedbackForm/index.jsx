@@ -2,17 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
 import Animated from 'components/Common/Animated';
 import Upload from 'components/Common/Upload';
 import Input from 'UI/components/Input';
 import Button from 'UI/components/Button';
-import { selectError } from 'redux/selectors/contact';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs/withValidateEmail';
-import { formSendingStarted } from 'redux/reducers/contact';
+import { CONTACT_CASH_KEY, useContactMutation } from 'redux/apis/dataSending';
 import FormContainer from './FormContainer';
 import { SliderWrapper } from './SliderWrapper';
 import { budget, marks } from './utils/data';
@@ -27,8 +25,8 @@ const FeedbackForm = ({
   formKey,
   type,
 }) => {
-  const dispatch = useDispatch();
-  const contactFormError = useSelector(selectError);
+  const [contact, { isError }] = useContactMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+
   const { asPath } = useRouter();
   const formRef = useRef(null);
   const sliderRef = useRef(null);
@@ -108,13 +106,13 @@ const FeedbackForm = ({
 
     const filesUrls = selectedFiles.map((file) => file.signedUrl);
 
-    dispatch(formSendingStarted({
+    contact({
       name: fullName,
       email: email.value,
       description: projectDescription,
       attachments: filesUrls,
       projectBudget: projectBudget || '',
-    }));
+    });
   };
 
   useEffect(() => {
@@ -226,7 +224,7 @@ const FeedbackForm = ({
             style={type}
           />
         </Animated>
-        {contactFormError && (
+        {isError && (
           <span className={styles.errorMessage}>
             There was an error trying to send your message. Please try again later
           </span>
