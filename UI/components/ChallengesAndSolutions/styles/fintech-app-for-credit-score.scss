@@ -49,6 +49,14 @@
     .infoContainer {
       margin: 0;
 
+      .title {
+        margin:  0 0 16px;
+
+        @include tablet {
+          margin:  0 0 8px;
+        }
+      }
+
       p {
         margin-bottom: 16px;
       }
