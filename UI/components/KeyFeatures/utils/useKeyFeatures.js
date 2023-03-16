@@ -13,7 +13,7 @@ export const useKeyFeatures = ({ features, type }) => {
   const containerStyle = containerBackgroundImage ? { backgroundImage: `url(${containerBackgroundImage})` } : {};
   const isEmptyContentModules = !get(features, 'contentModules');
 
-  const content = features.contentModules.map((data) => {
+  const content = features.contentModules?.map((data) => {
     const { title, text } = getDocumentFields(data);
 
     return { title, text };

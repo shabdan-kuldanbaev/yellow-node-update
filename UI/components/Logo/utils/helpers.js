@@ -9,11 +9,17 @@ export const WHITE_LOGO_TYPE = [
   'natp',
   'travel-trivia',
   'cash-chat',
+  'ubichat',
+  'writer-chrome-extension',
+  'meateater',
+  'telemojo',
 ];
 
 export const BLACK_LOGO_TYPE = [
   'separate-us',
   'famlicious',
+  'bionorica',
+  'beautonomy',
 ];
 
 export const WHITE_TEXT_LOGO = [
@@ -40,6 +46,8 @@ export const WHITE_TEXT_LOGO = [
   'fairy',
   'seven-pm-thursday',
   'fernwayer',
+  'writer-chrome-extension',
+  'telemojo',
 ];
 
 export const getLogoType = (type) => {

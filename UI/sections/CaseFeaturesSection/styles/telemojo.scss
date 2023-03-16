@@ -1,0 +1,66 @@
+.telemojo {
+  background: $telemojoSecondary;
+  padding: 120px 16px;
+
+  .mainContainer {
+    max-width: $wide-content-width;
+    width: 100%;
+  }
+
+  .image {
+    width: 991px;
+    height: 580px;
+
+    @include tablet {
+      width: 493px;
+      height: 290px;
+    }
+
+    @include phone {
+      width: 343px;
+      height: 200px;
+    }
+  }
+
+  .imageContainer {
+    margin-right: -28%;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  .featuresList {
+    @include flex(column);
+
+    max-width: 423px;
+    margin-right: 32px;
+    row-gap: 24px;
+
+    h3 {
+      display: none;
+    }
+
+    p {
+      color: $gray400;
+    }
+
+    @include tablet {
+      margin: 0 auto 16px;
+      row-gap: 16px;
+    }
+  }
+
+  .checkMark {
+    margin-top: 0;
+    background: $telemojoGradient;
+
+    path {
+      fill: $gray0;
+    }
+  }
+
+  @include tablet {
+    padding: 60px 16px;
+  }
+}

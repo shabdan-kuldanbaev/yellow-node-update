@@ -1,0 +1,20 @@
+.ubichat {
+  .listContainer {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .listItem {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    @include tablet {
+      text-align: center;
+    }
+  }
+}

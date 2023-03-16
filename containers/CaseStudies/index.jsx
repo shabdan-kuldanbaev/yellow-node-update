@@ -5,6 +5,7 @@ import { rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { routes } from 'utils/routes';
 import { useFetchPageQuery } from 'redux/apis/page';
+import styles from './styles.module.scss';
 
 const CaseStudiesContainer = ({ introSection, slug }) => {
   const { data = {}, isLoading } = useFetchPageQuery(slug);
@@ -38,8 +39,8 @@ const CaseStudiesContainer = ({ introSection, slug }) => {
         page={PAGES.portfolio}
         pageMetadata={projectMetadata}
       />
-      <main>
-        {(contentModules || []).map(({ fields, sys }) => (
+      <main className={styles.main}>
+        {contentModules?.map(({ fields, sys }) => (
           <CaseStudiesCommon
             key={sys.id}
             type={slug}

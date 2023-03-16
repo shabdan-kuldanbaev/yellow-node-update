@@ -1,0 +1,18 @@
+.writer-chrome-extension {
+  &.secondSectionView {
+    padding: 60px 40px 0;
+
+    .titleStyle {
+      position: relative;
+      z-index: 11;
+    }
+
+    @include tablet {
+      padding: 60px 32px 0;
+    }
+
+    @include phone {
+      padding: 30px 16px 0;
+    }
+  }
+}
