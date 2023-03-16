@@ -2,7 +2,7 @@ import React from 'react';
 import PageNotFound from 'containers/PageNotFound';
 import { wrapper } from 'redux/store';
 import { PAGES } from 'utils/constants';
-import errorHelper from 'utils/error';
+import { handleError, handleMessage } from 'utils/error';
 import pageApi from 'redux/apis/page';
 
 const Error = ({ statusCode, err }) => (statusCode
@@ -27,13 +27,13 @@ Error.getInitialProps = wrapper.getInitialPageProps((store) => async ({
   if (statusCode === 404) {
     await store.dispatch(pageApi.endpoints.fetchPage.initiate(PAGES.notFound));
 
-    errorHelper.handleMessage({
+    handleMessage({
       message: `404 - This page could not be found (${asPath})`,
     });
   }
 
   if (err) {
-    errorHelper.handleError({
+    handleError({
       error: err,
       message: 'Error in common (_error.jsx)',
     });

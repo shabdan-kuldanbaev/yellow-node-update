@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
-import { messageCleared } from 'redux/reducers/subscription';
-import { selectSubscribeMessage, selectIsSubscribed } from 'redux/selectors/subscription';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 
@@ -13,20 +10,15 @@ const SubscribeBlock = ({
   handleOnEmailChange,
   handleOnSubmit,
 }) => {
-  const dispatch = useDispatch();
-  const message = useSelector(selectSubscribeMessage);
-  const isSubscribed = useSelector(selectIsSubscribed);
+  const [_, { data: { isSubscribed, message } = {} }] = useSubscribeMutation({
+    fixedCacheKey: SUBSCRIPTION_CASH_KEY,
+  });
 
   const handleOnClick = (event) => {
     event.preventDefault();
 
     handleOnSubmit(email.value);
   };
-
-  useEffect(
-    () => () => dispatch(messageCleared()),
-    [dispatch],
-  );
 
   return (!isSubscribed && (
     <section className={cn(styles.subscribeBlock, {

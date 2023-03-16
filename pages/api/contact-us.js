@@ -3,7 +3,7 @@ import { withSentry } from '@sentry/nextjs';
 import formidable from 'formidable';
 import { formParser, runMiddleware } from 'utils/helper';
 import formDataHelper from 'utils/formDataHelper';
-import pipedriveHelper from 'utils/pipedrive/pipedriveHelper';
+import { sendDataPipedrive } from 'utils/pipedrive/pipedriveHelper';
 
 const cors = Cors({ methods: ['POST'] });
 const form = formidable({ multiples: true });
@@ -13,7 +13,7 @@ const handler = async (req, res) => {
   await runMiddleware(req, res, formParser(form));
 
   await formDataHelper.sendFormData(req, res);
-  await pipedriveHelper.sendDataPipedrive(req, res);
+  await sendDataPipedrive(req, res);
 };
 
 export const config = {

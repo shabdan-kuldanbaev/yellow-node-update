@@ -1,7 +1,8 @@
 import blogApi from 'redux/apis/blog';
 import { isNumeric } from 'utils/helper';
-import errorHelper from 'utils/error';
-import { ARTICLES_NUMBER_PER_PAGE } from 'utils/constants';
+import pageApi from 'redux/apis/page';
+import { handleError } from 'utils/error';
+import { ARTICLES_NUMBER_PER_PAGE, PAGES } from 'utils/constants';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 
 export const checkIfSlugIsTag = (tags, slug) => !!tags.find(({ slug: tagSlug }) => slug === tagSlug);
@@ -50,6 +51,7 @@ export const getInitialBlogProps = async (store, ctx) => {
       Object.assign(query, { skip, limit });
 
       actions.push(store.dispatch(blogApi.endpoints.getArticlesList.initiate(query)));
+      actions.push(store.dispatch(pageApi.endpoints.fetchPage.initiate(PAGES.blog)));
 
       Object.assign(props, {
         currentPage: page || 1,
@@ -61,7 +63,7 @@ export const getInitialBlogProps = async (store, ctx) => {
 
     await Promise.all(actions);
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the getInitialBlogProps function',
     });

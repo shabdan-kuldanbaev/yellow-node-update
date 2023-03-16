@@ -13,14 +13,14 @@ import {
 import { API } from 'utils/api';
 import { getFeedbackFormData } from 'utils/helper';
 import gaHelper from 'utils/ga';
-import errorHelper from 'utils/error';
+import { handleError, handleMessage } from 'utils/error';
 
 ObjectAssign.polyfill();
 es6promise.polyfill();
 
 function* sendEmail({ payload }) {
   try {
-    errorHelper.handleMessage({
+    handleMessage({
       message: `New Contact Form submit: ${JSON.stringify(payload)}`,
     });
 
@@ -32,7 +32,7 @@ function* sendEmail({ payload }) {
   } catch (error) {
     yield put(formSendingFailed(error));
 
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the sendEmail function',
     });

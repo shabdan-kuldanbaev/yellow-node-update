@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
-import { useGetArticleQuery } from 'redux/apis/blog';
-import { subscriptionFetchingStarted } from 'redux/reducers/subscription';
 import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import Article from 'components/BlogCommon/Article';
@@ -13,13 +10,15 @@ import FullLayout from 'components/Layout/FullLayout';
 import NextPrev from 'components/BlogCommon/Article/NextPrev';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
+import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
 import PageNotFound from 'containers/PageNotFound';
 import FAQ from 'UI/containers/FAQ';
+import { useGetArticleQuery } from 'redux/apis/blog';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
 import { getArticleProps } from './utils/propsHelper';
 import styles from './styles.module.scss';
 
@@ -27,7 +26,7 @@ const ArticleContainer = ({
   introSection,
   query,
 }) => {
-  const dispatch = useDispatch();
+  const [subscribe, { isLoading: isSubscribeLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const { data = {}, isError, isLoading } = useGetArticleQuery(query);
   const {
@@ -91,7 +90,13 @@ const ArticleContainer = ({
   });
   const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
 
-  const handleOnFormSubmit = (email) => dispatch(subscriptionFetchingStarted({ email, pathname }));
+  const handleOnFormSubmit = (email) => {
+    if (isSubscribeLoading) {
+      return;
+    }
+
+    subscribe({ email, pathname });
+  };
 
   return (
     <>

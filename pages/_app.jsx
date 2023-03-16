@@ -7,6 +7,7 @@ import React, {
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
 import { wrapper } from 'redux/store';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import Layout from 'UI/containers/Layout';
 import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
 import { AppContext } from 'utils/appContext';
@@ -16,8 +17,11 @@ import 'swiper/css/bundle';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
+import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 
 function App({ Component, pageProps }) {
+  const [subscribe] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
+
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
     isFirstHomepageVisit: false,
@@ -44,6 +48,10 @@ function App({ Component, pageProps }) {
       setContextData((prev) => ({ ...prev, duck }));
     })();
   }, []);
+
+  useEffect(() => {
+    subscribe({ isSubscribed: !!getDataFromLocalStorageWithExpire('isSubscribed') });
+  }, [subscribe]);
 
   const AppContextValue = useMemo(() => ({
     contextData,

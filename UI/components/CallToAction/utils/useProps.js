@@ -1,11 +1,10 @@
-import { useSelector } from 'react-redux';
 import {
   getDocumentFields,
   getFileUrl,
   getImage,
 } from 'utils/helper';
-import { selectIsSubscribed } from 'redux/selectors/subscription';
 import { useRouter } from 'next/router';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 
 export default ({
   title: titleProp,
@@ -33,9 +32,12 @@ export default ({
     'isOpenFeedbackForm',
   ]);
 
-  const { query: { slug } } = useRouter();
+  const [
+    _,
+    { data: { isSubscribed } = {} },
+  ] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
-  const isSubscribed = useSelector(selectIsSubscribed);
+  const { query: { slug } } = useRouter();
 
   const images = (imagesBundle || []).map(getImage);
 

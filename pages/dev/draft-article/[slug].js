@@ -1,8 +1,7 @@
 import React from 'react';
-import { END } from 'redux-saga';
 import DraftArticle from 'containers/DraftArticle';
 import { wrapper } from 'redux/store';
-import errorHelper from 'utils/error';
+import { handleError } from 'utils/error';
 import blogApi from 'redux/apis/blog';
 
 const DraftArticleContainer = ({ introSection, ...rest }) => (
@@ -22,7 +21,7 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async (c
       props: { slug },
     };
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the getInitialBlogProps function in DraftArticle',
     });

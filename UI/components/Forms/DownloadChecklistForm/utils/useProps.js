@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { subscriptionFetchingStarted } from 'redux/reducers/subscription';
-import { selectSubscribeMessage } from 'redux/selectors/subscription';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 
 const useProps = ({ downloadLink, ...props }) => {
-  const dispatch = useDispatch();
+  const [subscribe, { data, isSuccess, error }] = useSubscribeMutation({
+    fixedCacheKey: SUBSCRIPTION_CASH_KEY,
+  });
 
-  const message = useSelector(selectSubscribeMessage);
+  const message = data?.message.data || error?.message || error;
 
   const {
     register,
@@ -19,13 +19,18 @@ const useProps = ({ downloadLink, ...props }) => {
     getValues,
   } = useForm({ reValidateMode: 'onBlur' });
 
-  const handleButtonClick = handleSubmit((values) => {
-    dispatch(subscriptionFetchingStarted({ ...values, pathname: 'white_paper_mvp' }));
+  const handleButtonClick = handleSubmit(async (values) => {
+    await subscribe({ ...values, pathname: 'white_paper_mvp' });
+
+    if (error) {
+      return;
+    }
+
     reset();
     window.open(downloadLink, '_newtab');
   });
 
-  const isButtonDisabled = !getValues().name || !getValues().lastName || !getValues().email || !isValid;
+  const isButtonDisabled = !isSuccess && (!getValues().name || !getValues().lastName || !getValues().email || !isValid);
 
   return {
     ...props,

@@ -1,14 +1,26 @@
 import { API } from 'utils/api';
 import gaHelper from 'utils/ga';
-import errorHelper from 'utils/error';
+import { handleMessage } from 'utils/error';
+import { hoursToMs, setDataToLocalStorageWithExpire } from 'utils/helper';
 import baseApi from '.';
+
+export const SUBSCRIPTION_CASH_KEY = 'DATA_SENDING_API/SUBSCRIPTION';
 
 const dataSendingApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     subscribe: builder.mutation({
-      async queryFn({ pathname, ...args }) {
+      async queryFn({
+        pathname,
+        isSubscribed,
+        message,
+        ...args
+      }) {
+        if (typeof isSubscribed !== 'undefined' || typeof message !== 'undefined') {
+          return { data: { isSubscribed, message } };
+        }
+
         try {
-          const response = API.subscribe(args);
+          const response = await API.subscribe(args);
 
           gaHelper.trackEvent(
             'Subscribe',
@@ -16,7 +28,14 @@ const dataSendingApi = baseApi.injectEndpoints({
             pathname,
           );
 
-          return { data: response };
+          setDataToLocalStorageWithExpire('isSubscribed', true, hoursToMs(24));
+
+          return {
+            data: {
+              isSubscribed: true,
+              message: response.data,
+            },
+          };
         } catch (e) {
           return { error: e };
         }
@@ -25,7 +44,7 @@ const dataSendingApi = baseApi.injectEndpoints({
 
     contact: builder.mutation({
       async queryFn(args) {
-        errorHelper.handleMessage({
+        handleMessage({
           message: `New Contact Form submit: ${JSON.stringify(args)}`,
         });
 
@@ -45,5 +64,10 @@ const dataSendingApi = baseApi.injectEndpoints({
     }),
   }),
 });
+
+export const {
+  useSubscribeMutation,
+  useContactMutation,
+} = dataSendingApi;
 
 export default dataSendingApi;

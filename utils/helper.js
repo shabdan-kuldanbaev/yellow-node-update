@@ -12,7 +12,7 @@ import {
   PHONE_RESOLUTION,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
-import errorHelper from './error';
+import { handleError } from './error';
 
 export const themes = {
   dark: {
@@ -296,7 +296,7 @@ export const formParser = (form) => async (req, _, next) => {
       req.body = fields;
       req.files = files;
     } else {
-      errorHelper.handleError({
+      handleError({
         err,
         message: 'Error in the bodyParser function',
       });

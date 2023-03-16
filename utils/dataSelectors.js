@@ -9,7 +9,7 @@ import {
   HOMEPAGE_ARTICLES_LIMIT,
   PAGES,
 } from 'utils/constants';
-import errorHelper from './error';
+import { handleError } from './error';
 import { findBlock, getDocumentFields, rootUrl } from './helper';
 
 export const getPortfolioPageProps = async (state, store) => {
@@ -95,7 +95,7 @@ export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps
       revalidate: 10,
     };
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: `Error in the ${slug}.getStaticProps function`,
     });
