@@ -1,0 +1,33 @@
+.meateater {
+  &.firstSectionView {
+    .image {
+      &-1 {
+        @include phone {
+          display: none;
+        }
+      }
+
+      &-2 {
+        display: none;
+        width: 2468px;
+
+        @include phone {
+          display: block;
+          height: 140px;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .image {
+      max-width: 488px;
+      max-height: 350px;
+
+      @include tablet {
+        max-width: 100%;
+        max-height: 246px;
+      }
+    }
+  }
+}

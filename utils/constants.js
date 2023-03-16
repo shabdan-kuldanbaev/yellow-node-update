@@ -21,7 +21,10 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'travel-trivia',
   'ubichat',
   'writer-chrome-extension',
+  'meateater',
   'bionorica',
+  'beautonomy',
+  'telemojo',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -381,6 +384,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
   ROUTES.project.getRoute(CASE_STUDIES.ubiChat).path,
   ROUTES.project.getRoute(CASE_STUDIES.writerChromeExtension).path,
+  ROUTES.project.getRoute(CASE_STUDIES.telemojo).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -394,7 +398,7 @@ export const PAGES_WITH_DARK_HEADER = [
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
-  CASE_STUDIES.beautonomy,
+  CASE_STUDIES.bionorica,
 ];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [

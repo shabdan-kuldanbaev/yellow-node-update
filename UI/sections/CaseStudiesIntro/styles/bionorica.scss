@@ -30,12 +30,14 @@
   }
 
   [data-title] {
+    @include fontSize(46px, 120%);
+
     color: $gray900;
     margin: 0 auto 12px;
     text-align: center;
 
     @include phone {
-      @include fontSize(46px, 120%);
+      @include fontSize(24px, 130%);
 
       margin-bottom: 8px;
     }
