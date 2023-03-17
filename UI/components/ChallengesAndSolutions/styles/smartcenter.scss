@@ -8,6 +8,7 @@
       width: 610px;
       height: 620px;
       transform: translateX(120px);
+      box-shadow: 0 8px 35px 0 rgb(110 120 130 / 10%);
 
       @include tablet {
         width: 343px;
