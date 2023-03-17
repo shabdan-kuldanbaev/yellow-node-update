@@ -5,15 +5,15 @@
     }
 
     .image {
+      transform: translateX(120px);
       width: 610px;
       height: 620px;
-      transform: translateX(120px);
       box-shadow: 0 8px 35px 0 rgb(110 120 130 / 10%);
 
       @include tablet {
+        transform: unset;
         width: 343px;
         height: 348px;
-        transform: unset;
         margin: 0 auto;
       }
     }
@@ -50,8 +50,8 @@
       .title {
         @include fontSize(24px, 130%);
 
-        color: $gray900;
         margin: 0 0 16px;
+        color: $gray900;
 
         @include tablet {
           @include fontSize(20px, 150%);
@@ -64,8 +64,8 @@
       h4 {
         @include fontSize(20px, 150%);
 
-        color: $gray900;
         margin: 0 0 8px;
+        color: $gray900;
 
         @include tablet {
           @include fontSize(16px, 150%);
@@ -76,8 +76,8 @@
       }
 
       p {
-        white-space: unset;
         margin: 0 0 16px;
+        white-space: unset;
 
         @include tablet {
           margin: 0 auto 16px;
@@ -93,9 +93,9 @@
       width: 100%;
 
       & > div {
+        margin: 0;
         max-width: 379px;
         width: 100%;
-        margin: 0;
       }
     }
 
