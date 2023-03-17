@@ -1,0 +1,31 @@
+.marketplace-for-clairvoyant-services {
+  padding-bottom: 60px;
+
+  .circle {
+    left: 0;
+    width: 994px;
+    height: 905px;
+    margin: 0 auto;
+    transform: unset;
+
+    .mockup {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    @include below-tablet {
+      width: 100%;
+      height: 650px;
+    }
+
+    @include phone {
+      height: 312px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}

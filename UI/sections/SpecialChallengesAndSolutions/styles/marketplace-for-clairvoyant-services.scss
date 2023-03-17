@@ -1,0 +1,13 @@
+.marketplace-for-clairvoyant-services {
+  padding-top: 60px;
+
+  .titleStyle {
+    @include phone {
+      margin-bottom: 24px;
+    }
+  }
+
+  @include phone {
+    padding-top: 30px;
+  }
+}

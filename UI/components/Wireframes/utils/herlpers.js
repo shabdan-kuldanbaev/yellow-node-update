@@ -72,4 +72,7 @@ export const MOBILE_IMAGE_SIZES = {
   ubichat: {
     default: 220,
   },
+  'marketplace-for-clairvoyant-services': {
+    default: 206,
+  },
 };

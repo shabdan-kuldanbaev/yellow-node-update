@@ -1,0 +1,123 @@
+.marketplace-for-clairvoyant-services {
+  .contentContainer {
+    max-width: 994px;
+  }
+
+  .infoContainer {
+    width: 100%;
+    max-width: 380px;
+    margin-right: 80px;
+
+    .title {
+      margin-bottom: 16px;
+    }
+
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+
+  .image {
+    width: 820px;
+    height: 580px;
+
+    &-1,
+    &-3 {
+      margin-right: -300px;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 325px;
+        margin-left: auto;
+        transform: translate(40px, -1px);
+        background: linear-gradient(90deg, rgba($gray0, 0) 0%, $gray0 78.3%);
+
+        @include below-tablet {
+          display: none;
+        }
+      }
+
+      @include tablet {
+        margin-right: -100px;
+      }
+
+      @include below-tablet {
+        margin: 0 auto;
+      }
+    }
+
+    &-2,
+    &-4 {
+      margin-left: -280px;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 325px;
+        margin-right: auto;
+        transform: translate(-40px, -1px);
+        background: linear-gradient(
+          270deg,
+          rgba($gray0, 0) 0.15%,
+          $gray0 60.38%
+        );
+
+        @include below-tablet {
+          display: none;
+        }
+      }
+
+      @include tablet {
+        margin-left: -100px;
+        margin-right: 40px;
+      }
+
+      @include below-tablet {
+        margin: 0 auto;
+      }
+    }
+
+    @include tablet {
+      max-width: 500px;
+      height: 300px;
+    }
+
+    @include phone {
+      max-width: 100%;
+      height: 241px;
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      max-width: 790px;
+    }
+
+    h2,
+    h3 {
+      color: $gray0;
+    }
+
+    ul {
+      padding-left: 4px;
+      list-style: none;
+
+      li {
+        position: relative;
+        &::before {
+          content: "\2022";
+          position: absolute;
+          left: 3px;
+          top: -2px;
+          display: inline-block;
+          width: 1em;
+          margin-left: -1em;
+          color: $gray400;
+        }
+      }
+    }
+  }
+}
