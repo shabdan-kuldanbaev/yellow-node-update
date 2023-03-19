@@ -34,8 +34,10 @@
       }
 
       .bundleImage-1 {
-        left: 98%;
+        left: calc(100% - 6px);
         top: 50%;
+        width: 66px;
+        height: 20px;
 
         @include tablet {
           display: none;
@@ -47,8 +49,10 @@
 
         @include tablet {
           display: block;
-          top: 98%;
+          top: calc(100% - 6px);
           left: 50%;
+          width: 20px;
+          height: 45px;
         }
       }
 
