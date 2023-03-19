@@ -1,0 +1,11 @@
+.dindon {
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-auto-flow: row;
+  grid-column-gap: 184px;
+  max-width: 790px;
+
+  @include tablet {
+    grid-row-gap: 8px;
+  }
+}
