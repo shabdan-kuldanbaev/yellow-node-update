@@ -70,7 +70,7 @@ const CaseProcess = (props) => {
           ))}
         </div>
         <div className={styles.imagesContainer}>
-          {images.map((url, index) => (
+          {images?.map((url, index) => (
             <Illustration
               transparent
               priority
