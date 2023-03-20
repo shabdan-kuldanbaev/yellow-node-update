@@ -123,6 +123,9 @@
     }
 
     .infoContainer {
+      margin: 0;
+      max-width: 100%;
+
       .title {
         @include fontSize(24px, 150%);
 
