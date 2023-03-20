@@ -22,6 +22,14 @@
     }
   }
 
+  .descriptionIntro {
+    margin: 0;
+
+    @include tablet {
+      margin: 0 auto 16px;
+    }
+  }
+
   @include below-tablet {
     padding: 60px 16px 30px;
   }
