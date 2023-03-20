@@ -10,6 +10,9 @@ export const IMAGE_SIZES = {
   fireaway: {
     default: 425,
   },
+  dindon: {
+    default: 440,
+  },
   'seven-pm-thursday': {
     default: 478,
   },
