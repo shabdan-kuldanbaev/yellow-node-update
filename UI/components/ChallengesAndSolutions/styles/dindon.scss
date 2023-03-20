@@ -95,4 +95,68 @@
       }
     }
   }
+
+  &.secondSectionView {
+    @include flex(row, space-between, initial, wrap);
+
+    margin: 0 auto;
+    max-width: 790px;
+    grid-gap: 32px;
+
+    .contentContainer {
+      @include flex(column);
+
+      margin: 0;
+      max-width: 379px;
+
+      @include tablet {
+        max-width: 320px;
+      }
+
+      @include below-tablet {
+        max-width: 270px;
+      }
+
+      @include phone {
+        margin: 0 auto;
+      }
+    }
+
+    .infoContainer {
+      .title {
+        @include fontSize(24px, 150%);
+
+        color: $gray0;
+
+        @include tablet {
+          @include fontSize(20px, 150%);
+        }
+      }
+
+      h3 {
+        color: $gray0;
+      }
+
+      p {
+        color: $gray0;
+        opacity: 0.7;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+      left: 820px;
+      top: -32px;
+      width: 1996px;
+      height: 1996px;
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+
+    @include tablet {
+      grid-gap: unset;
+    }
+  }
 }
