@@ -42,7 +42,9 @@ export const IMAGE_SIZES = {
   },
   'fusion-markets': 600,
   blackbird: 600,
-  'fintech-app-for-credit-score': 600,
+  'fintech-app-for-credit-score': {
+    default: 480,
+  },
   ubichat: {
     default: 500,
   },
