@@ -50,10 +50,10 @@
       margin: 0;
 
       .title {
-        margin:  0 0 16px;
+        margin: 0 0 16px;
 
         @include tablet {
-          margin:  0 0 8px;
+          margin: 0 0 8px;
         }
       }
 
@@ -108,14 +108,8 @@
         }
       }
 
-      ul {
-        margin: 0;
-      }
-
-      li {
-        margin: 0;
-      }
-
+      ul,
+      li,
       li > p {
         margin: 0;
       }
