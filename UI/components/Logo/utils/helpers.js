@@ -11,8 +11,11 @@ export const WHITE_LOGO_TYPE = [
   'cash-chat',
   'ubichat',
   'writer-chrome-extension',
+  'fusion-markets',
   'meateater',
   'telemojo',
+  'fintech-app-for-credit-score',
+  'smartcenter',
   'dindon',
 ];
 

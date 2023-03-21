@@ -1,0 +1,11 @@
+.smartcenter {
+  .featureContainer {
+    .checkMark {
+      background: $smartCenterGradient;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}

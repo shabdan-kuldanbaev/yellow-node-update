@@ -42,9 +42,10 @@ export const IMAGE_SIZES = {
   'separate-us': {
     default: 440,
   },
-  'fusion-markets': 600,
   blackbird: 600,
-  'fintech-app-for-credit-score': 600,
+  'fintech-app-for-credit-score': {
+    default: 480,
+  },
   ubichat: {
     default: 500,
   },
@@ -58,6 +59,9 @@ export const IMAGE_SIZES = {
   humankind: 630,
   'software-for-mri-interpretation': 630,
   'mobile-bank-application': 500,
+  'fusion-markets': {
+    default: 440,
+  },
 };
 
 export const MOBILE_IMAGE_SIZES = {
@@ -75,6 +79,9 @@ export const MOBILE_IMAGE_SIZES = {
   },
   ubichat: {
     default: 220,
+  },
+  'fusion-markets': {
+    default: 206,
   },
   telemojo: {
     default: 206,
