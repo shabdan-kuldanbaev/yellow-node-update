@@ -3,13 +3,15 @@ export const DEFAULT_IMAGE_SIZE = 500;
 
 export const IMAGE_SIZES = {
   'marketplace-for-clairvoyant-services': 541,
-  dindon: 665,
   fernwayer: {
     default: 478,
     secondSectionView: 650,
   },
   fireaway: {
     default: 425,
+  },
+  dindon: {
+    default: 440,
   },
   'seven-pm-thursday': {
     default: 478,
@@ -83,5 +85,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   telemojo: {
     default: 206,
+  },
+  dindon: {
+    default: 181,
   },
 };
