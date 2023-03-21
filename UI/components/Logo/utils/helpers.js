@@ -15,6 +15,7 @@ export const WHITE_LOGO_TYPE = [
   'meateater',
   'telemojo',
   'fintech-app-for-credit-score',
+  'smartcenter',
 ];
 
 export const BLACK_LOGO_TYPE = [
