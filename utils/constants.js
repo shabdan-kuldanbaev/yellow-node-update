@@ -24,6 +24,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'writer-chrome-extension',
   'meateater',
   'bionorica',
+  'fusion-markets',
   'beautonomy',
   'telemojo',
   'fintech-app-for-credit-score',

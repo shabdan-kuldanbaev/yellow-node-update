@@ -1,0 +1,20 @@
+.fusion-markets {
+  padding: 60px 40px 32px;
+  background-color: $fusionMarketsAccent;
+  overflow: initial;
+
+  .titleStyle {
+    @include phone {
+      margin-bottom: 24px;
+    }
+  }
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  @include phone {
+    padding: 30px 16px 16px;
+    overflow: hidden;
+  }
+}
