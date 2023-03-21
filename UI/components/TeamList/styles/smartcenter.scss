@@ -1,6 +1,6 @@
 .smartcenter {
   box-sizing: border-box;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto, 3);
   grid-template-rows: repeat(auto, 2);
   grid-auto-flow: row;
   justify-content: center;
