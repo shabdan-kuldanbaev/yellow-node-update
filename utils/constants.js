@@ -24,9 +24,11 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'writer-chrome-extension',
   'meateater',
   'bionorica',
+  'fusion-markets',
   'smartcenter',
   'beautonomy',
   'telemojo',
+  'fintech-app-for-credit-score',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
