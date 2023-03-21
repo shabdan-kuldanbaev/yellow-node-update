@@ -1,0 +1,36 @@
+.dindon {
+  padding: 120px 0 60px;
+
+  .contentContainer {
+    max-width: $default-content-width;
+  }
+
+  .descriptionContainer {
+    @include flex(row, space-between, start);
+
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+
+    & > div {
+      max-width: 481px;
+      width: 100%;
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .descriptionIntro {
+    margin: 0;
+
+    @include tablet {
+      margin: 0 auto 16px;
+    }
+  }
+
+  @include below-tablet {
+    padding: 60px 16px 30px;
+  }
+}

@@ -16,6 +16,7 @@ export const WHITE_LOGO_TYPE = [
   'telemojo',
   'fintech-app-for-credit-score',
   'smartcenter',
+  'dindon',
 ];
 
 export const BLACK_LOGO_TYPE = [
