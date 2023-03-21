@@ -1,0 +1,11 @@
+.meateater {
+  &.secondSectionView {
+    background: $meateaterGradient;
+
+    .titleStyle {
+      [data-title] {
+        color: $gray0;
+      }
+    }
+  }
+}

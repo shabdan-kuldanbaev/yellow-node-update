@@ -11,12 +11,18 @@ export const WHITE_LOGO_TYPE = [
   'cash-chat',
   'ubichat',
   'writer-chrome-extension',
+  'fusion-markets',
+  'meateater',
+  'telemojo',
+  'fintech-app-for-credit-score',
+  'smartcenter',
 ];
 
 export const BLACK_LOGO_TYPE = [
   'separate-us',
   'famlicious',
   'bionorica',
+  'beautonomy',
 ];
 
 export const WHITE_TEXT_LOGO = [
@@ -44,6 +50,7 @@ export const WHITE_TEXT_LOGO = [
   'seven-pm-thursday',
   'fernwayer',
   'writer-chrome-extension',
+  'telemojo',
 ];
 
 export const getLogoType = (type) => {

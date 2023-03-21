@@ -1,0 +1,42 @@
+.fusion-markets {
+  padding: 60px 40px;
+  background-color: $fusionMarketsAccent;
+
+  .contentContainer {
+    @include phone {
+      margin-bottom: 36px;
+    }
+  }
+
+  .descriptionContainer {
+    flex-direction: row;
+    max-width: 994px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include below-tablet {
+      flex-direction: column;
+    }
+  }
+
+  .descriptionIntro {
+    max-width: 481px;
+    margin-right: 32px;
+
+    .title {
+      background: $fusionMarketsGradient;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @include below-tablet {
+      max-width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  @include phone {
+    padding: 30px 16px;
+  }
+}
