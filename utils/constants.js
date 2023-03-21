@@ -29,6 +29,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'beautonomy',
   'telemojo',
   'fintech-app-for-credit-score',
+  'dindon',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -316,7 +317,7 @@ export const CASE_STUDIES_TYPES = {
   challengesSpecialSlider: 'case-study-special-slider',
   prototype: 'case-study-prototype',
   feedback: 'feedback',
-  faq: 'case-study-faq',
+  process: 'case-study-process',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
