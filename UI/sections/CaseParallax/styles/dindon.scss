@@ -1,0 +1,11 @@
+.dindon {
+  padding: 120px 0 0;
+
+  .titleStyle {
+    max-width: 614px;
+  }
+
+  @include tablet {
+    padding: 60px 0 0;
+  }
+}
