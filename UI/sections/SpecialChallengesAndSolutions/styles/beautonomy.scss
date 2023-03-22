@@ -1,0 +1,11 @@
+.beautonomy {
+  &.firstSectionView {
+    padding: 0 40px 120px;
+  }
+
+  &.secondSectionView {
+    position: relative;
+    padding: 120px 40px;
+    background: $beautonomyBackground;
+  }
+}

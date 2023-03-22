@@ -1,0 +1,139 @@
+.smartcenter {
+  &.firstSectionView {
+    .images {
+      position: relative;
+    }
+
+    .image {
+      transform: translateX(120px);
+      width: 610px;
+      height: 620px;
+      box-shadow: 0 8px 35px 0 rgb(110 120 130 / 10%);
+
+      @include tablet {
+        transform: unset;
+        width: 343px;
+        height: 348px;
+        margin: 0 auto;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+      right: -259px;
+      top: 0;
+      width: 200px;
+      height: 620px;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    .contentContainer {
+      & > div {
+        max-width: 481px;
+        width: 100%;
+        margin: 0;
+
+        @include tablet {
+          max-width: 100%;
+        }
+      }
+
+      @include tablet {
+        @include flex(column);
+      }
+    }
+
+    .infoContainer {
+      .title {
+        @include fontSize(24px, 130%);
+
+        margin: 0 0 16px;
+        color: $gray900;
+
+        @include tablet {
+          @include fontSize(20px, 150%);
+
+          margin: 0 auto 16px;
+          text-align: center;
+        }
+      }
+
+      h4 {
+        @include fontSize(20px, 150%);
+
+        margin: 0 0 8px;
+        color: $gray900;
+
+        @include tablet {
+          @include fontSize(16px, 150%);
+
+          margin: 0 auto 8px;
+          text-align: center;
+        }
+      }
+
+      p {
+        margin: 0 0 16px;
+        white-space: unset;
+
+        @include tablet {
+          margin: 0 auto 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      max-width: 790px;
+      width: 100%;
+
+      & > div {
+        margin: 0;
+        max-width: 379px;
+        width: 100%;
+      }
+    }
+
+    .title {
+      color: $gray0;
+    }
+
+    .infoContainer {
+      h3 {
+        color: $gray0;
+      }
+
+      p {
+        color: $gray0;
+        opacity: 0.7;
+        white-space: unset;
+
+        &:nth-of-type(2) {
+          margin: 0;
+        }
+      }
+
+      ul {
+        margin: 0;
+      }
+
+      li {
+        margin: 0;
+      }
+
+      li > p {
+        margin: 0;
+      }
+
+      li::marker {
+        color: $gray0;
+        opacity: 0.7;
+      }
+    }
+  }
+}

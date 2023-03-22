@@ -72,7 +72,7 @@ const CaseStudiesCommon = (props) => {
       return <CaseEvent {...props} />;
     case CASE_STUDIES_TYPES.story:
       return <CaseStudiesStory {...props} />;
-    case CASE_STUDIES_TYPES.faq:
+    case CASE_STUDIES_TYPES.process:
       return <CaseProcess {...props} />;
     default:
       return null;

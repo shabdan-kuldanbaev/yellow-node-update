@@ -1,0 +1,11 @@
+.fusion-markets {
+  background-color: $fusionMarketsAccent;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    max-width: 519px;
+  }
+}

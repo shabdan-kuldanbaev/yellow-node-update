@@ -240,22 +240,26 @@ export const routes = {
     slug: 'android-mobile-app-development-services',
   },
   mvpDevelopment: {
-    title: 'MVP development services',
+    title: 'MVP App Development Services',
     path: '/mvp-app-development-company',
     dynamicPath: '/mvp-app-development-company',
     slug: 'mvp-app-development-company',
+    description: 'A minimum viable product will help you get enough feedback to determine whether '
+    + 'you should continue a given project. We are ready to help with your MVP development.',
   },
   lendingSoftwareDevelopment: {
-    title: 'Lending Software Development Company',
+    title: 'Lending Software Development Services',
     path: '/lending-software-development',
     dynamicPath: '/lending-software-development',
     slug: 'lending-software-development',
+    description: 'Revolutionize lending with our cutting-edge software development solutions for financial institutions.',
   },
   cloudDevelopment: {
-    title: 'Cloud-based application development company',
+    title: 'Cloud Application Development Services',
     path: '/cloud-based-app-development-services',
     dynamicPath: '/cloud-based-app-development-services',
     slug: 'cloud-based-app-development-services',
+    description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
   },
   crossPlatformDevelopmentServices: {
     title: 'Cross-Platform Mobile App Development Company',
@@ -312,10 +316,11 @@ export const routes = {
     slug: 'data-science-development-company',
   },
   tradingSoftwareDevelopment: {
-    title: 'Custom Trading Software Development Services',
+    title: 'Custom Trading Platform Development Services',
     path: '/trading-software-development',
     dynamicPath: '/trading-software-development',
     slug: 'trading-software-development',
+    description: 'Proficient trading software development services to create robust apps and platforms that boost business performance.',
   },
   prototypingServices: {
     title: 'Mobile App Prototyping Services',

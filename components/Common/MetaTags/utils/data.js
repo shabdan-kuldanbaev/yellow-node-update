@@ -87,7 +87,7 @@ export const ogMetaData = [
   },
   {
     pageName: ROUTES.lendingSoftwareDevelopment.slug,
-    metaTitle: 'Lending Software Development Company | Yellow',
+    metaTitle: 'Lending Software Development Services | Yellow',
     metaDescription: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
     url: `${rootUrl}${ROUTES.lendingSoftwareDevelopment.path}`,
   },
@@ -99,14 +99,14 @@ export const ogMetaData = [
   },
   {
     pageName: ROUTES.mvpDevelopment.slug,
-    metaTitle: 'MVP development company | Yellow',
+    metaTitle: 'MVP App Development Services | Yellow',
     metaDescription: 'A minimum viable product will help you get enough feedback to determine whether '
       + 'you should continue a given project. Yellow is ready to help with your MVP development.',
     url: `${rootUrl}${ROUTES.mvpDevelopment.path}`,
   },
   {
     pageName: ROUTES.cloudDevelopment.slug,
-    metaTitle: 'Cloud app development company | Yellow',
+    metaTitle: 'Cloud Application Development Services | Yellow',
     metaDescription: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
     url: `${rootUrl}${ROUTES.cloudDevelopment.path}`,
   },
@@ -160,7 +160,7 @@ export const ogMetaData = [
   },
   {
     pageName: ROUTES.tradingSoftwareDevelopment.slug,
-    metaTitle: 'Custom Trading Software Development Services | Yellow',
+    metaTitle: 'Custom Trading Software Development Company | Yellow',
     metaDescription: 'If you plan to start trading software development, we can help. Let’s discuss your idea in detail.',
     url: `${rootUrl}${ROUTES.tradingSoftwareDevelopment.path}`,
   },

@@ -109,6 +109,7 @@ export const getServicePageInfo = (pathname) => {
   case PAGES.tradingSoftwareDevelopment:
     return {
       breadcrumbs: pagesBreadcrumbs.tradingSoftwareDevelopment(),
+      pageMicrodata: microdata.tradingSoftwareDevelopment(),
     };
 
   case PAGES.penetrationTesting:
