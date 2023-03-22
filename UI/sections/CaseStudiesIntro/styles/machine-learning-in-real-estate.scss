@@ -1,0 +1,53 @@
+.machine-learning-in-real-estate {
+  padding: 88px 40px 120px;
+  background-color: $realEstatePrimary;
+
+  .sectionTitle {
+    max-width: 663px;
+  }
+
+  [data-title] {
+    color: $gray0;
+    text-align: center;
+  }
+
+  [data-description] {
+    margin: 0 auto;
+    color: $gray0;
+    opacity: 0.7;
+    text-align: center;
+  }
+
+  .introSection {
+    @include flex(row, center, center);
+
+    margin: 0 auto;
+  }
+
+  .imageContainer {
+    display: none;
+  }
+
+  .contentWrapper {
+    padding: 247px 0 239px;
+
+    @include below-tablet {
+      padding: 172px 0 170px;
+    }
+  }
+
+  .experience {
+    .infoTitle {
+      color: $gray0;
+    }
+
+    & > p {
+      color: $gray0;
+      opacity: 0.7;
+    }
+  }
+
+  @include below-tablet {
+    padding-bottom: 30px;
+  }
+}

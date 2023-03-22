@@ -30,6 +30,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'telemojo',
   'fintech-app-for-credit-score',
   'dindon',
+  'machine-learning-in-real-estate',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
