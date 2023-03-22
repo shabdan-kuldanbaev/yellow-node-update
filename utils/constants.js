@@ -26,6 +26,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'bionorica',
   'beautonomy',
   'telemojo',
+  'blackbird',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;

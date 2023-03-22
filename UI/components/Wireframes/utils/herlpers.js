@@ -41,7 +41,6 @@ export const IMAGE_SIZES = {
     default: 440,
   },
   'fusion-markets': 600,
-  blackbird: 600,
   'fintech-app-for-credit-score': 600,
   ubichat: {
     default: 500,
@@ -52,6 +51,9 @@ export const IMAGE_SIZES = {
   famlicious: 478,
   bionorica: {
     default: 500,
+  },
+  blackbird: {
+    default: 480,
   },
   humankind: 630,
   'software-for-mri-interpretation': 630,
@@ -76,5 +78,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   telemojo: {
     default: 206,
+  },
+  blackbird: {
+    default: 350,
   },
 };

@@ -13,6 +13,7 @@ export const WHITE_LOGO_TYPE = [
   'writer-chrome-extension',
   'meateater',
   'telemojo',
+  'blackbird',
 ];
 
 export const BLACK_LOGO_TYPE = [

@@ -1,0 +1,16 @@
+.blackbird {
+  padding: 120px 0;
+  background-color: $blackbirdPrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    max-width: 481px;
+  }
+
+  @include phone {
+    padding: 60px 0;
+  }
+}

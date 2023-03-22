@@ -1,0 +1,179 @@
+.blackbird {
+  &.firstSectionView {
+    .contentContainer {
+      position: relative;
+
+      @include tablet {
+        justify-content: center;
+      }
+    }
+
+    .infoContainer {
+      max-width: 334px;
+      margin-top: -17px;
+
+      .title {
+        margin-bottom: 15px;
+        color: $gray0;
+      }
+
+      @include tablet {
+        margin-right: 0;
+        text-align: center;
+      }
+    }
+
+    .image {
+      &-1 {
+        position: absolute;
+        top: 164px;
+        left: 366px;
+        width: 628px;
+        height: 600px;
+
+        @include tablet {
+          left: 50%;
+          top: 180px;
+          transform: translateX(-50%);
+        }
+
+        @include phone {
+          display: none;
+        }
+      }
+    }
+
+    .imageBundle {
+      display: none;
+
+      @include phone {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        width: 298px;
+        height: 600px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    display: flex;
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    .contentContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      width: 50%;
+      margin-bottom: 0;
+      padding: 120px 40px;
+
+      @include phone {
+        width: 100%;
+        padding: 60px 16px;
+      }
+
+      &-1 {
+        background-color: $blackbirdPrimary;
+
+        .image {
+          margin-left: 22px;
+
+          @include phone {
+            margin-left: 0;
+          }
+        }
+      }
+
+      &-2 {
+        background-color: $blackbirdAccent;
+
+        .infoContainer {
+          align-items: flex-end;
+          margin: 0 60px 12px 0;
+          text-align: right;
+
+          @include phone {
+            margin: 0 0 24px;
+            align-items: center;
+            text-align: center;
+          }
+        }
+
+        .image {
+          margin-right: 22px;
+
+          @include phone {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .infoContainer {
+      max-width: 334px;
+      margin: 0 0 36px 59px;
+
+      .title {
+        margin-bottom: 15px;
+        color: $gray0;
+      }
+
+      @include phone {
+        margin: 0 0 24px;
+      }
+    }
+
+    .images {
+      order: 2;
+    }
+
+    .image {
+      width: 298px;
+      height: 600px;
+    }
+  }
+
+  &.thirdSectionView {
+    .infoContainer {
+      max-width: 480px;
+      margin-top: 14px;
+
+      .title {
+        margin-bottom: 32px;
+        color: $gray0;
+      }
+
+      h3 {
+        color: $gray0;
+      }
+
+      p:first-of-type {
+        margin-bottom: 24px;
+      }
+
+      @include below-tablet {
+        max-width: 334px;
+      }
+    }
+
+    .contentContainer {
+      &-2 {
+        .infoContainer {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .image {
+      width: 298px;
+      height: 600px;
+    }
+  }
+}
