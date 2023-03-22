@@ -2,7 +2,10 @@
   &.firstSectionView {
     .contentContainer {
       max-width: $wide-content-width;
-      margin: 0 auto 80px;
+
+      &:not(:last-child) {
+        margin: 0 auto 80px;
+      }
 
       .image {
         width: 928px;
