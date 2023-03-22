@@ -1,0 +1,44 @@
+.machine-learning-in-real-estate {
+  @include flex(column);
+
+  .container {
+    max-width: 408px;
+  }
+
+  .title {
+    @include fontSize(20px, 150%);
+
+    color: $gray0;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  .listContainer {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .listItem {
+    @include fontSize(16px, 150%);
+
+    position: relative;
+    margin-bottom: 16px;
+    padding-left: 20px;
+    color: $gray0;
+    opacity: 0.7;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $realEstateAccent;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
