@@ -196,18 +196,24 @@
   &.fourthSectionView {
     @extend .greySection;
 
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
     .cardList {
       grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 32px;
+      margin: 0;
 
       @include below-tablet {
         grid-template-columns: 1fr;
         grid-template-rows:  repeat(3, 1fr);
+        grid-column-gap: 0;
+        grid-row-gap: 16px;
       }
 
       & > div {
-        @include below-tablet {
-          margin-bottom: 16px;
-        }
+        margin: 0;
       }
     }
 
