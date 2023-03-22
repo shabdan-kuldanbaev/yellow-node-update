@@ -111,6 +111,11 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.tradingSoftwareDevelopment(),
     };
 
+  case PAGES.penetrationTesting:
+    return {
+      breadcrumbs: pagesBreadcrumbs.penetrationTesting(),
+    };
+
   default:
     return {
       pageMicrodata: null,

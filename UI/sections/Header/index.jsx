@@ -25,15 +25,16 @@ const Header = (props) => {
     logo,
     asPath,
     page,
+    isPageWithGrayHeader,
   } = useHeader(props);
 
   return (
-    <header className={cn({
-      [styles.headerContainer]: true,
+    <header className={cn(styles.headerContainer, {
       [styles.pageScrolling]: isPageScrolledDown,
       [styles.notHome]: !isPageWithTransparentHeader && !isCaseStudyWithTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
       [styles.openedDropDown]: isHeaderColorNeedChange,
+      [styles.grayHeader]: isPageWithGrayHeader,
     })}
     >
       <div className={styles.logo}>

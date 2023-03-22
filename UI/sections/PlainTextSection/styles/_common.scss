@@ -12,3 +12,32 @@
     @include fontSize(16px, 150%);
   }
 }
+
+.pageImage {
+  margin: 0 auto;
+  padding-top: 100%;
+  width: 100%;
+
+  @include below-tablet {
+    margin-bottom: 24px;
+  }
+}
+
+.seeMoreButton {
+  @include fontSize(16px, 150%);
+
+  display: none;
+  text-decoration: underline;
+  color: $gray900;
+  font-weight: bold;
+  cursor: pointer;
+
+  @include below-tablet {
+    display: block;
+    margin-top: 24px;
+  }
+}
+
+.seeMore {
+  display: block;
+}
