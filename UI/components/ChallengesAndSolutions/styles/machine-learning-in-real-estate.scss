@@ -1,0 +1,43 @@
+.machine-learning-in-real-estate {
+  &.sixthSectionView {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 32px;
+    margin: 0 auto 48px;
+    padding: 0 16px;
+    max-width: $default-content-width;
+
+    .contentContainer {
+      margin: 0;
+      max-width: 310px;
+      width: 100%;
+
+      .infoContainer {
+        margin: 0;
+
+        h3 {
+          @include fontSize(38px, 130%);
+
+          color: $gray0;
+
+          @include tablet {
+            @include fontSize(24px, 130%);
+          }
+        }
+
+        p {
+          margin: 0;
+          color: $gray0;
+          opacity: 0.7;
+        }
+      }
+    }
+
+    @include phone {
+      grid-gap: 16px;
+      grid-template-columns: auto;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+  }
+}

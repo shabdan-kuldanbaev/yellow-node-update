@@ -62,6 +62,9 @@ export const IMAGE_SIZES = {
   'fusion-markets': {
     default: 440,
   },
+  'machine-learning-in-real-estate': {
+    sixthSectionView: 480,
+  },
 };
 
 export const MOBILE_IMAGE_SIZES = {
@@ -88,5 +91,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   dindon: {
     default: 181,
+  },
+  'machine-learning-in-real-estate': {
+    sixthSectionView: 240,
   },
 };
