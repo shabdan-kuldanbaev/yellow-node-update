@@ -14,12 +14,13 @@ export const useSvgListSection = ({
     link,
     view,
     iconsGroups,
+    text,
   } = useMemo(() => getSvgSectionProps(section), [section]);
 
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
 
   const displayNames = useMemo(
-    () => iconsGroups.map((group) => getDocumentFields(group, ['title']).title),
+    () => iconsGroups.map((group) => getDocumentFields(group, ['title', 'description']).title),
     [iconsGroups],
   );
 
@@ -42,6 +43,7 @@ export const useSvgListSection = ({
     withSelector,
     displayNames,
     selectedGroupIndex,
+    text,
     handleSelectedGroupIndexChange: setSelectedGroupIndex,
   };
 };

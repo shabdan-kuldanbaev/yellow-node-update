@@ -182,4 +182,10 @@ export const ogMetaData = [
     metaDescription: 'Cookies Policy',
     url: `${rootUrl}${ROUTES.cookiesPolicy.path}`,
   },
+  {
+    pageName: ROUTES.penetrationTesting.slug,
+    metaTitle: 'Penetration Testing as a Service | Yellow',
+    metaDescription: 'Use penetration testing to make sure your software solution is safe for your users. Yellow will provide you with penetration testing services.',
+    url: `${rootUrl}${ROUTES.penetrationTesting.path}`,
+  },
 ];

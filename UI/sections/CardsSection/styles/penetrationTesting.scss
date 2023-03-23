@@ -1,0 +1,266 @@
+.penetration-testing {
+  &.firstSectionView {
+    background: $gray50;
+
+    :global(.swiper-slide) {
+      height: 380px;
+
+      @include below-tablet {
+        height: 404px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @include flex(column, flex-start, stretch);
+
+      min-height: 380px;
+
+      svg {
+        width: 64px;
+      }
+
+      @include below-tablet {
+        max-width: 450px;
+        min-height: 350px;
+      }
+
+      @include phone {
+        max-width: 350px;
+        margin-bottom: 16px;
+        min-height: unset;
+      }
+    }
+
+    .callToAction {
+      background-color: $gray0;
+
+      & > div {
+        max-width: 535px;
+      }
+
+      h3 {
+        @include phone {
+          max-width: 340px;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $dark-grey;
+
+    :global(.swiper-slide) {
+      height: fit-content;
+
+      @include below-tablet {
+        height: fit-content;
+      }
+    }
+
+    & .contentWrapper {
+      max-width: $wide-content-width;
+
+      & > .title {
+        max-width: 773px;
+
+        h2 {
+          color: $gray0;
+        }
+
+        & p {
+          padding: 0 35px;
+
+          @include below-tablet {
+            padding: 0;
+          }
+        }
+      }
+
+      .card {
+        @include flex(column, flex-start, stretch);
+
+        width: 379px;
+        min-height: 220px;
+
+        @include below-tablet {
+          align-items: center;
+        }
+
+        .cardContent {
+          @include below-tablet {
+            align-items: center;
+          }
+        }
+
+        & h3 {
+          color: $gray0;
+
+          @include below-tablet {
+            margin: 0 auto 8px;
+            text-align: center;
+          }
+        }
+
+        & p {
+
+          @include below-tablet {
+            text-align: center;
+          }
+        }
+
+        svg {
+          width: 64px;
+        }
+
+        @include below-tablet {
+          max-width: 450px;
+          min-height: 220px;
+        }
+
+        @include phone {
+          max-width: 350px;
+          margin-bottom: 16px;
+          min-height: unset;
+        }
+      }
+
+      .navigation {
+        & button {
+          color: $gray0;
+
+          &[disabled] {
+            &:hover {
+              cursor: default;
+
+              * {
+                fill: $gray0;
+                color: $gray0;
+              }
+            }
+          }
+        }
+
+        & svg {
+          fill: $gray0 !important;
+        }
+      }
+    }
+
+    .cardContent p {
+      background-color: red !important;
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $gray50;
+
+    & .contentWrapper {
+      max-width: $wide-content-width;
+
+      .title {
+        max-width: 694px;
+
+        & p {
+          max-width: 694px;
+          padding: 0 61px 0;
+
+          @include below-tablet {
+            padding: 0;
+          }
+        }
+      }
+
+      .cardList {
+        grid-template-columns:  repeat(3, 1fr);
+
+        @include below-tablet() {
+          grid-template-columns: 1fr;
+          grid-template-rows:  repeat(3, 1fr);
+        }
+
+        svg {
+          width: 64px;
+        }
+
+        & > * {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 32px;
+      margin: 0;
+
+      @include below-tablet {
+        grid-template-columns: 1fr;
+        grid-template-rows:  repeat(3, 1fr);
+        grid-column-gap: 0;
+        grid-row-gap: 16px;
+      }
+
+      & > div {
+        margin: 0;
+      }
+    }
+
+    .card {
+      @extend .cardWithVerticalLine;
+
+      min-height: auto;
+    }
+
+    .callToAction h3 {
+      max-width: 535px;
+    }
+
+  }
+
+  &.fifthSectionView {
+    :global(.swiper-slide) {
+      @include below-tablet {
+        height: fit-content;
+      }
+    }
+    background-color: $gray50;
+
+    .card {
+      @include flex(column, flex-start, stretch);
+
+      min-height: 380px;
+
+      @include below-tablet {
+        max-width: 450px;
+        height: fit-content;
+      }
+
+      @include phone {
+        margin-bottom: 0;
+      }
+
+      svg {
+        width: 64px;
+      }
+
+      & b {
+        font-weight: 500;
+        color: $gray900;
+      }
+    }
+
+  }
+}
+
