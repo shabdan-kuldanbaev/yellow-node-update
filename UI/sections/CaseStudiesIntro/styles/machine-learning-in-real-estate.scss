@@ -1,6 +1,7 @@
 .machine-learning-in-real-estate {
   padding: 88px 40px 120px;
   background-color: $realEstatePrimary;
+  overflow: unset;
 
   .sectionTitle {
     max-width: 663px;
@@ -28,12 +29,13 @@
     display: none;
   }
 
-  .bundleImage-1 {
+  .bundleImage {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 3585px;
+    height: 3054.71px;
+    pointer-events: none;
   }
 
   .contentWrapper {
