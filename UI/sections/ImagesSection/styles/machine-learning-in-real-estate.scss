@@ -1,0 +1,15 @@
+.machine-learning-in-real-estate {
+  &.firstSectionView {
+    padding: 60px 0;
+    background-color: $realEstatePrimary;
+
+    .titleStyle {
+      max-width: 519px;
+      color: $gray0;
+    }
+
+    @include phone {
+      padding: 30px 16px;
+    }
+  }
+}
