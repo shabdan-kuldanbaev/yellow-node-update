@@ -1,0 +1,12 @@
+.marketplace-for-clairvoyant-services {
+  display: none;
+  text-align: center;
+
+  .teamItem {
+    margin-bottom: 8px;
+  }
+
+  @include phone {
+    display: block;
+  }
+}
