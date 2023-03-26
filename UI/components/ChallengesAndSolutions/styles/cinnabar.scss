@@ -1,4 +1,10 @@
 .cinnabar {
+  .imageBundle {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+  }
+
   &.firstSectionView {
     .image {
       margin: 0 auto;
@@ -31,12 +37,6 @@
         margin: 0;
         max-width: 100%;
         width: 100%;
-      }
-
-      .imageBundle {
-        position: absolute;
-        z-index: -1;
-        pointer-events: none;
       }
 
       .infoContainer {
@@ -299,6 +299,101 @@
         &:not(&-7) {
           margin-bottom: 24px;
         }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .infoContainer {
+      h3 {
+        color: $gray0;
+      }
+
+      p {
+        margin: 0;
+        color: $gray0;
+        opacity: 0.7;
+      }
+    }
+
+    .contentContainer {
+      max-width: 790px;
+      grid-gap: 32px;
+
+      .title {
+        @include fontSize(24px, 130%);
+
+        margin: 0;
+        color: $gray0;
+
+        @include phone {
+          @include fontSize(20px, 130%);
+        }
+      }
+
+      & > div {
+        margin: 0;
+        max-width: 379px;
+        width: 100%;
+      }
+
+      &-1 {
+        .imageBundle-1 {
+          top: 45px;
+          left: -71px;
+          width: 236px;
+          height: 236px;
+
+          @include phone {
+            top: 20px;
+            left: -40px;
+            width: 117px;
+            height: 117px;
+          }
+        }
+
+        .imageBundle-2 {
+          top: 206px;
+          left: 58px;
+          width: 86px;
+          height: 86px;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      &-2 {
+        .imageBundle-1 {
+          bottom: -170px;
+          right: -71px;
+          width: 392px;
+          height: 392px;
+
+          @include phone {
+            bottom: 0;
+            right: -40px;
+            width: 117px;
+            height: 117px;
+          }
+        }
+
+        .imageBundle-2 {
+          bottom: 170px;
+          right: 86px;
+          width: 86px;
+          height: 86px;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      @include phone {
+        padding: 0 16px;
+        grid-gap: 16px;
       }
     }
   }
