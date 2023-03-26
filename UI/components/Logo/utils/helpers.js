@@ -17,6 +17,7 @@ export const WHITE_LOGO_TYPE = [
   'fintech-app-for-credit-score',
   'smartcenter',
   'dindon',
+  'cinnabar',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -52,6 +53,7 @@ export const WHITE_TEXT_LOGO = [
   'fernwayer',
   'writer-chrome-extension',
   'telemojo',
+  'cinnabar',
 ];
 
 export const getLogoType = (type) => {
