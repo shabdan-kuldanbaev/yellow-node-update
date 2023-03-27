@@ -31,6 +31,8 @@
   color: $gray900;
   font-weight: bold;
   cursor: pointer;
+  background-color: transparent;
+  padding: 0;
 
   @include below-tablet {
     display: block;

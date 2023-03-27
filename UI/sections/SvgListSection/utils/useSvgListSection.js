@@ -14,7 +14,6 @@ export const useSvgListSection = ({
     link,
     view,
     iconsGroups,
-    text,
   } = useMemo(() => getSvgSectionProps(section), [section]);
 
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
@@ -43,7 +42,6 @@ export const useSvgListSection = ({
     withSelector,
     displayNames,
     selectedGroupIndex,
-    text,
     handleSelectedGroupIndexChange: setSelectedGroupIndex,
   };
 };

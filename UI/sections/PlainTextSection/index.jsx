@@ -5,9 +5,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import Illustration from 'UI/components/Illustration';
-import Table from 'components/Common/Table';
-import ButtonMore from 'components/Common/ButtonMore';
+import Button from 'UI/components/Button';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -19,9 +17,6 @@ const PlainTextSection = (props) => {
     view,
     type,
     text,
-    imageUrl,
-    tableContent,
-    tableType,
     hasSeeMoreButton,
     onClickMoreButton,
     isSeeMore,
@@ -45,33 +40,14 @@ const PlainTextSection = (props) => {
             </Animated>
           )}
           {hasSeeMoreButton && (
-            <ButtonMore
-              title="See more"
-              buttonStyle={styles.seeMoreButton}
-              handleOnClick={onClickMoreButton}
-            />
-          ) }
-          {tableContent && tableType && (
-            <Animated {...REVEAL_ANIMATION_PROPS}>
-              <div className={styles.text}>
-                <Table
-                  tableData={tableContent.tableData}
-                  type={tableType}
-                />
-              </div>
-            </Animated>
+            <Button
+              className={styles.seeMoreButton}
+              onClick={onClickMoreButton}
+            >
+              See more
+            </Button>
           )}
         </div>
-        <Animated {...REVEAL_ANIMATION_PROPS}>
-          {imageUrl && (
-            <Illustration
-              src={imageUrl}
-              className={styles.pageImage}
-              transparent
-              priority
-            />
-          )}
-        </Animated>
       </div>
     </section>
   );
