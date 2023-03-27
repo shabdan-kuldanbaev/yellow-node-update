@@ -42,7 +42,6 @@ export const IMAGE_SIZES = {
   'separate-us': {
     default: 440,
   },
-  blackbird: 600,
   'fintech-app-for-credit-score': {
     default: 480,
   },
@@ -55,6 +54,9 @@ export const IMAGE_SIZES = {
   famlicious: 478,
   bionorica: {
     default: 500,
+  },
+  blackbird: {
+    default: 480,
   },
   humankind: 630,
   'software-for-mri-interpretation': 630,
@@ -88,6 +90,9 @@ export const MOBILE_IMAGE_SIZES = {
   },
   telemojo: {
     default: 206,
+  },
+  blackbird: {
+    default: 350,
   },
   dindon: {
     default: 181,

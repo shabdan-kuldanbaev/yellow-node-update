@@ -29,6 +29,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'smartcenter',
   'beautonomy',
   'telemojo',
+  'blackbird',
   'fintech-app-for-credit-score',
   'dindon',
 ];
