@@ -15,41 +15,39 @@ const ButtonMore = ({
   disabledButtonStyle,
   type,
   ...rest
-}) => (href.length === 0
-  ? (
+}) => (!href.length ? (
+  <div
+    ref={buttonRef}
+    className={cn({ [buttonStyle]: buttonStyle })}
+    onClick={handleOnClick}
+    role="button"
+    tabIndex="0"
+    {...rest}
+  >
+    {title}
+  </div>
+) : (
+  <LinkWrapper
+    isLocalLink
+    path={href}
+    dynamicRouting={dynamicRouting}
+    className={cn(
+      styles.link,
+      styles[type],
+      { [disabledButtonStyle]: isDisabled },
+    )}
+    {...rest}
+  >
     <div
-      ref={buttonRef}
       className={cn({ [buttonStyle]: buttonStyle })}
       onClick={handleOnClick}
       role="button"
       tabIndex="0"
-      {...rest}
     >
       {title}
     </div>
-  )
-  : (
-    <LinkWrapper
-      isLocalLink
-      path={href}
-      dynamicRouting={dynamicRouting}
-      className={cn(
-        styles.link,
-        styles[type],
-        { [disabledButtonStyle]: isDisabled },
-      )}
-      {...rest}
-    >
-      <div
-        className={cn({ [buttonStyle]: buttonStyle })}
-        onClick={handleOnClick}
-        role="button"
-        tabIndex="0"
-      >
-        {title}
-      </div>
-    </LinkWrapper>
-  ));
+  </LinkWrapper>
+));
 
 ButtonMore.defaultProps = {
   href: '',

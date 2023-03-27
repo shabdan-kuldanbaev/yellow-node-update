@@ -1,0 +1,56 @@
+.penetration-testing {
+  background-color: $gray900;
+
+  .titleStyle {
+    max-width: 749px;
+    color: $gray0;
+    margin-bottom: 48px;
+
+    @include phone {
+      margin-bottom: 0;
+    }
+  }
+
+  .tableWrapper {
+    table {
+      width: 995px;
+      border-radius: 16px;
+      margin: 0 auto;
+
+      & thead {
+        & th {
+          @include fontSize(20px, 30px);
+
+          padding: 16px 0;
+          border-color: $gray700;
+        }
+      }
+
+      & tbody {
+        background-color: $gray800;
+        color: $gray400;
+
+        & td {
+          @include fontSize(16px, 24px);
+
+          padding: 18px 0;
+          color: $gray400;
+          text-align: center;
+          border-color: $gray700;
+        }
+      }
+
+      @include tablet {
+        width: 650px;
+      }
+
+      @include below-tablet {
+        width: 475px;
+      }
+
+      @include phone {
+        display: none;
+      }
+    }
+  }
+}
