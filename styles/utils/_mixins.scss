@@ -34,11 +34,12 @@
   }
 }
 
-@mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
+@mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap, $ac: initial) {
   display: flex;
   flex-flow: $fd $fw;
   justify-content: $jc;
   align-items: $ai;
+  align-content: $ac;
 }
 
 @mixin hidden-text($textOverflow: ellipsis, $lineClamp: 1) {

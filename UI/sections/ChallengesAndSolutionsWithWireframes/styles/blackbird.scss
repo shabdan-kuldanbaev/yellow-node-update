@@ -1,0 +1,12 @@
+.blackbird {
+  padding: 120px 40px;
+  background-color: $blackbirdPrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+}

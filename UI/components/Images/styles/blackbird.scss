@@ -1,0 +1,57 @@
+.blackbird {
+  &.firstSectionView {
+    .image {
+      @include phone {
+        width: 994px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      &-1 {
+        max-width: 994px;
+        height: 582px;
+
+        @include below-tablet {
+          max-width: 100%;
+        }
+
+        @include phone {
+          display: none;
+        }
+      }
+
+      &-2 {
+        display: none;
+
+        @include phone {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .image {
+      &-1 {
+        max-width: 994px;
+        height: 600px;
+
+        @include phone {
+          display: none;
+        }
+      }
+
+      &-2 {
+        display: none;
+
+        @include phone {
+          display: block;
+          width: 298px;
+          height: 600px;
+        }
+      }
+    }
+  }
+}

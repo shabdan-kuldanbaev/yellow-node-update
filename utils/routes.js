@@ -203,6 +203,12 @@ export const routes = {
     dynamicPath: '/chat-app-development-company',
     slug: 'chat-app-development-company',
   },
+  penetrationTesting: {
+    title: 'Penetration Testing Services to Secure Your Business',
+    path: '/penetration-testing',
+    dynamicPath: '/penetration-testing',
+    slug: 'penetration-testing',
+  },
   customMobileApp: {
     title: 'Custom mobile app development company',
     path: '/mobile-app-development-company',

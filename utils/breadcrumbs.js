@@ -68,6 +68,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.customChatApp.path,
     },
   ]),
+  penetrationTesting: () => ([
+    {
+      title: ROUTES.penetrationTesting.title,
+      to: ROUTES.penetrationTesting.path,
+    },
+  ]),
   customMobileApp: () => ([
     {
       title: ROUTES.customMobileApp.title,

@@ -1,0 +1,99 @@
+.penetration-testing {
+  &.firstSectionView {
+    background-color: $gray900;
+
+    .titleStyle {
+      max-width: 749px;
+      color: $gray0;
+      margin: 0;
+
+      & p:first-child {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .titleStyle {
+      max-width: 823px;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 755px;
+
+      & > p {
+        display: none;
+      }
+
+      & ul {
+        @include flex(column, initial, initial, wrap);
+
+        padding: 0;
+        height: 288px;
+        width: 100%;
+        align-content: space-between;
+        margin: 0;
+
+        & li {
+          @include fontSize(16px, 150%);
+
+          list-style: none;
+          display: inline-block;
+          max-width: 221px;
+          flex: none;
+
+          & p {
+            display: flex;
+            position: relative;
+            padding-left: 16px;
+            margin: 0;
+
+            &::after {
+              content: '';
+              position: absolute;
+              height: 8px;
+              width: 8px;
+              background-color: $yellow500;
+              top: calc(50% - 4px);
+              left: 0;
+              border-radius: 100%;
+            }
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+            margin-right: 0;
+          }
+
+          @include below-tablet {
+            text-align: center;
+            margin-bottom: 12px;
+          }
+        }
+
+        @include below-tablet {
+          height: 240px;
+          overflow: hidden;
+          flex-wrap: nowrap;
+          align-items: center;
+        }
+      }
+
+      &.seeMore > ul {
+        height: fit-content;
+      }
+
+      @include below-tablet {
+        flex-direction: column-reverse;
+        width: initial;
+      }
+    }
+
+    .seeMoreButton {
+      background-color: transparent;
+    }
+  }
+}

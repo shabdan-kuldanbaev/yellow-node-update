@@ -1,0 +1,32 @@
+.penetration-testing {
+  background-color: $gray50;
+
+  .pageSubtitle:first-child {
+    margin-bottom: 24px;
+  }
+
+  .pageTextContainer {
+    padding-top: 22px;
+  }
+
+  .pageWrapper {
+    flex-direction: row-reverse;
+    margin-bottom: 60px;
+
+    @include below-tablet {
+      flex-direction: column-reverse;
+      margin-bottom: 0;
+    }
+  }
+
+  .pageImage {
+    padding-top: 67%;
+    max-width: 481px;
+    width: 100%;
+    margin: 0;
+
+    @include below-tablet {
+      margin: 0 auto;
+    }
+  }
+}

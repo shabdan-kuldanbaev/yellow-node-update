@@ -112,6 +112,11 @@ export const getServicePageInfo = (pathname) => {
       pageMicrodata: microdata.tradingSoftwareDevelopment(),
     };
 
+  case PAGES.penetrationTesting:
+    return {
+      breadcrumbs: pagesBreadcrumbs.penetrationTesting(),
+    };
+
   default:
     return {
       pageMicrodata: null,
