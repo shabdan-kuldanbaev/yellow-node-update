@@ -42,7 +42,6 @@ export const IMAGE_SIZES = {
   'separate-us': {
     default: 440,
   },
-  blackbird: 600,
   'fintech-app-for-credit-score': {
     default: 480,
   },
@@ -56,11 +55,17 @@ export const IMAGE_SIZES = {
   bionorica: {
     default: 500,
   },
+  blackbird: {
+    default: 480,
+  },
   humankind: 630,
   'software-for-mri-interpretation': 630,
   'mobile-bank-application': 500,
   'fusion-markets': {
     default: 440,
+  },
+  'machine-learning-in-real-estate': {
+    sixthSectionView: 480,
   },
 };
 
@@ -89,7 +94,13 @@ export const MOBILE_IMAGE_SIZES = {
   telemojo: {
     default: 206,
   },
+  blackbird: {
+    default: 350,
+  },
   dindon: {
     default: 181,
+  },
+  'machine-learning-in-real-estate': {
+    sixthSectionView: 240,
   },
 };

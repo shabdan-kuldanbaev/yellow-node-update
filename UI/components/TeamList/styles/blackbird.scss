@@ -1,0 +1,14 @@
+.blackbird {
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 214px;
+  max-width: 789px;
+
+  .teamItem {
+    width: 147px;
+  }
+
+  @include phone {
+    text-align: center;
+  }
+}

@@ -5,6 +5,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import Button from 'UI/components/Button';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -16,25 +17,37 @@ const PlainTextSection = (props) => {
     view,
     type,
     text,
+    hasSeeMoreButton,
+    onClickMoreButton,
+    isSeeMore,
   } = useSectionProps(props);
 
   return (
     <section className={cn(styles.plainText, styles[type], styles[view])}>
       <div className={styles.contentWrapper}>
-        <SectionTitle
-          title={title}
-          subtitle={subtitle}
-          description={description}
-          titleStyle={styles.titleStyle}
-        />
-        {text
-         && (
-           <Animated {...REVEAL_ANIMATION_PROPS}>
-             <div className={styles.text}>
-               <ContentfulParser document={text} />
-             </div>
-           </Animated>
-         )}
+        <div className={styles.textContent}>
+          <SectionTitle
+            title={title}
+            subtitle={subtitle}
+            description={description}
+            titleStyle={styles.titleStyle}
+          />
+          {text && (
+            <Animated {...REVEAL_ANIMATION_PROPS}>
+              <div className={cn(styles.text, { [styles.seeMore]: isSeeMore })}>
+                <ContentfulParser document={text} />
+              </div>
+            </Animated>
+          )}
+          {hasSeeMoreButton && (
+            <Button
+              className={styles.seeMoreButton}
+              onClick={onClickMoreButton}
+            >
+              See more
+            </Button>
+          )}
+        </div>
       </div>
     </section>
   );
