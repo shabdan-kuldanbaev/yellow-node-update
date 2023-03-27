@@ -1,0 +1,13 @@
+.fintech-app-for-credit-score {
+  &.firstSectionView {
+    background: $fintechSecondary;
+
+    .titleStyle {
+      margin: 0 auto 48px;
+
+      @include phone {
+        margin: 0 auto 24px;
+      }
+    }
+  }
+}

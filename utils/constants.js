@@ -24,9 +24,14 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'writer-chrome-extension',
   'meateater',
   'bionorica',
+  'marketplace-for-clairvoyant-services',
+  'fusion-markets',
+  'smartcenter',
   'beautonomy',
   'telemojo',
   'blackbird',
+  'fintech-app-for-credit-score',
+  'dindon',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -314,7 +319,7 @@ export const CASE_STUDIES_TYPES = {
   challengesSpecialSlider: 'case-study-special-slider',
   prototype: 'case-study-prototype',
   feedback: 'feedback',
-  faq: 'case-study-faq',
+  process: 'case-study-process',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -387,6 +392,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.ubiChat).path,
   ROUTES.project.getRoute(CASE_STUDIES.writerChromeExtension).path,
   ROUTES.project.getRoute(CASE_STUDIES.telemojo).path,
+  ROUTES.project.getRoute(CASE_STUDIES.smartcenter).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -399,9 +405,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.prototypingServices.path,
 ];
 
-export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
-  CASE_STUDIES.bionorica,
-];
+export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.homepage.path,

@@ -1,0 +1,28 @@
+.fusion-markets {
+  background-color: $fusionMarketsAccent;
+
+  [data-title],
+  .link {
+    color: $gray0;
+  }
+
+  [data-description],
+  .question {
+    color: $gray0;
+  }
+
+  .more {
+    border: 1px solid $gray0;
+    color: $gray0;
+  }
+
+  .iconLink {
+    circle {
+      stroke: $gray300;
+    }
+
+    path {
+      fill: $gray0;
+    }
+  }
+}

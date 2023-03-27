@@ -65,10 +65,8 @@
     }
 
     .contentContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      @include flex('column', 'flex-start', 'center');
+
       box-sizing: border-box;
       width: 50%;
       margin-bottom: 0;
