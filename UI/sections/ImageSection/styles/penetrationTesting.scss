@@ -2,12 +2,6 @@
   .imageSection {
     flex-direction: row-reverse;
 
-    @include below-tablet {
-      @include flex(column-reverse);
-      margin: 0;
-
-    }
-
     .image {
       max-width: 480px;
       height: 449px;
@@ -20,19 +14,21 @@
         background-size: contain;
       }
     }
+
+    @include below-tablet {
+      @include flex(column-reverse);
+
+      margin: 0;
+    }
   }
 
   .experienceContent {
-    margin: 0 32px 0 0 ;
+    margin: 0 32px 0 0;
     max-width: 687px;
 
     .titleStyle {
       text-align: left;
       margin-bottom: 8px;
-
-      @include below-tablet {
-        text-align: center;
-      }
 
       h2 {
         text-align: left;
@@ -40,6 +36,10 @@
         @include below-tablet {
           text-align: center;
         }
+      }
+
+      @include below-tablet {
+        text-align: center;
       }
     }
 
@@ -62,17 +62,6 @@
         max-height: 132px;
         width: 534px;
 
-        @include tablet {
-          width: fit-content;
-          max-height: none;
-        }
-
-        @include below-tablet {
-          @include flex(column);
-          align-items: center;
-          margin: 0 auto;
-        }
-
         & li {
           @include fontSize(16px, 150%);
 
@@ -89,6 +78,18 @@
           &:last-child {
             margin-bottom: 0;
           }
+        }
+
+        @include tablet {
+          width: fit-content;
+          max-height: none;
+        }
+
+        @include below-tablet {
+          @include flex(column);
+
+          align-items: center;
+          margin: 0 auto;
         }
       }
     }

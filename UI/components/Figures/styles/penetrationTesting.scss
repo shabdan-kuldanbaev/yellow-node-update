@@ -1,10 +1,10 @@
 .penetration-testing {
   .figures {
+    @include flex(row, space-between, flex-start);
+
     border-top: 1px solid $gray200;
     padding-top: 60px;
     max-width: $wide-content-width;
-
-    @include flex(row, space-between, flex-start);
 
     svg {
       @include below-tablet {
@@ -19,6 +19,7 @@
 
     @include below-tablet {
       @include flex(column, space-between, flex-start);
+
       border: none;
       padding-top: 32px;
     }
