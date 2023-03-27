@@ -32,6 +32,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'blackbird',
   'fintech-app-for-credit-score',
   'dindon',
+  'cinnabar',
   'machine-learning-in-real-estate',
 ];
 

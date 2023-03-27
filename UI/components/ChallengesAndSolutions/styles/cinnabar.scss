@@ -1,0 +1,400 @@
+.cinnabar {
+  .imageBundle {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  &.firstSectionView {
+    .image {
+      margin: 0 auto;
+      width: 928px;
+      height: 580px;
+      box-shadow: 0 8px 35px 0 rgb(110 120 130 / 10%);
+      border-radius: 20px;
+
+      @include tablet {
+        width: 500px;
+        height: 312px;
+      }
+
+      @include phone {
+        width: 343px;
+        height: 214px;
+      }
+    }
+
+    .contentContainer {
+      position: relative;
+      grid-gap: 80px;
+      max-width: $wide-content-width;
+
+      &:not(&-7) {
+        margin-bottom: 80px;
+      }
+
+      & > div {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .infoContainer {
+        z-index: 1;
+        max-width: 380px;
+
+        .title {
+          @include fontSize(24px, 130%);
+
+          margin-bottom: 16px;
+
+          @include tablet {
+            @include fontSize(20px, 130%);
+          }
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+
+      &-1,
+      &-2,
+      &-3 {
+        .infoContainer {
+          .title {
+            color: $gray0;
+          }
+
+          p {
+            color: $gray0;
+            opacity: 0.7;
+          }
+        }
+      }
+
+      &-4,
+      &-5,
+      &-6,
+      &-7 {
+        .infoContainer {
+          .title {
+            color: $gray900;
+          }
+
+          p {
+            color: $gray400;
+          }
+        }
+      }
+
+      &-3,
+      &-7 {
+        @include flex(column, center, center);
+
+        grid-gap: 32px;
+
+        .infoContainer {
+          .title,
+          p {
+            text-align: center;
+          }
+        }
+      }
+
+      &-1,
+      &-4,
+      &-6 {
+        .infoContainer {
+          order: 2;
+
+          @include phone {
+            order: initial;
+          }
+        }
+
+        .image {
+          margin-left: -200px;
+
+          @include tablet {
+            margin-left: -100px;
+          }
+
+          @include phone {
+            margin: 0 auto;
+          }
+        }
+      }
+
+      &-2,
+      &-5 {
+        .infoContainer {
+          order: initial;
+        }
+
+        .image {
+          margin-right: -200px;
+
+          @include tablet {
+            margin-right: -100px;
+          }
+
+          @include phone {
+            margin: 0 auto;
+          }
+        }
+      }
+
+      &-1 {
+        .imageBundle-1 {
+          top: -48px;
+          right: 0;
+          width: 102px;
+          height: 102px;
+
+          @include phone {
+            width: 72px;
+            height: 72px;
+          }
+        }
+
+        .imageBundle-2 {
+          top: 0;
+          right: 0;
+          width: 48px;
+          height: 48px;
+
+          @include phone {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+
+      &-2 {
+        .imageBundle {
+          top: 0;
+          left: 0;
+          width: 102px;
+          height: 102px;
+
+          @include phone {
+            width: 49px;
+            height: 49px;
+          }
+        }
+      }
+
+      &-3 {
+        .imageBundle-1 {
+          top: 215px;
+          left: 0;
+          width: 327px;
+          height: 327px;
+
+          @include phone {
+            top: 46px;
+            left: 80%;
+            width: 105px;
+            height: 105px;
+          }
+        }
+
+        .imageBundle-2 {
+          bottom: 215px;
+          left: 0;
+          width: 75px;
+          height: 75px;
+
+          @include phone {
+            display: none;
+          }
+        }
+
+        .imageBundle-3 {
+          bottom: -100px;
+          right: -150px;
+          width: 191px;
+          height: 191px;
+
+          @include phone {
+            display: none;
+          }
+        }
+
+        .imageBundle-4 {
+          bottom: -100px;
+          right: -50px;
+          width: 113px;
+          height: 113px;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      &-6 {
+        .imageBundle-1 {
+          top: 0;
+          right: 0;
+          width: 70px;
+          height: 70px;
+
+          @include phone {
+            top: 0;
+            right: -70px;
+            width: 120px;
+            height: 120px;
+          }
+        }
+
+        .imageBundle-2 {
+          top: 40px;
+          right: 40px;
+          width: 40px;
+          height: 40px;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      &-7 {
+        margin: 0 auto;
+
+        .imageBundle-1 {
+          bottom: 0;
+          left: 0;
+          width: 236px;
+          height: 236px;
+
+          @include phone {
+            bottom: -30px;
+            left: -40px;
+            width: 120px;
+            height: 120px;
+          }
+        }
+
+        .imageBundle-2 {
+          bottom: 120px;
+          left: 0;
+          width: 96px;
+          height: 96px;
+
+          @include phone {
+            bottom: -30px;
+            left: 40px;
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+
+      @include tablet {
+        grid-gap: 16px;
+
+        &:not(&-7) {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .infoContainer {
+      h3 {
+        color: $gray0;
+      }
+
+      p {
+        margin: 0;
+        color: $gray0;
+        opacity: 0.7;
+      }
+    }
+
+    .contentContainer {
+      max-width: 790px;
+      grid-gap: 32px;
+
+      .title {
+        @include fontSize(24px, 130%);
+
+        margin: 0;
+        color: $gray0;
+
+        @include phone {
+          @include fontSize(20px, 130%);
+        }
+      }
+
+      & > div {
+        margin: 0;
+        max-width: 379px;
+        width: 100%;
+      }
+
+      &-1 {
+        .imageBundle-1 {
+          top: 45px;
+          left: -71px;
+          width: 236px;
+          height: 236px;
+
+          @include phone {
+            top: 20px;
+            left: -40px;
+            width: 117px;
+            height: 117px;
+          }
+        }
+
+        .imageBundle-2 {
+          top: 206px;
+          left: 58px;
+          width: 86px;
+          height: 86px;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      &-2 {
+        .imageBundle-1 {
+          bottom: -170px;
+          right: -71px;
+          width: 392px;
+          height: 392px;
+
+          @include phone {
+            bottom: 0;
+            right: -40px;
+            width: 117px;
+            height: 117px;
+          }
+        }
+
+        .imageBundle-2 {
+          bottom: 170px;
+          right: 86px;
+          width: 86px;
+          height: 86px;
+
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      @include phone {
+        padding: 0 16px;
+        grid-gap: 16px;
+      }
+    }
+  }
+}

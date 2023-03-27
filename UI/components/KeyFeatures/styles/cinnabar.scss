@@ -1,0 +1,15 @@
+.cinnabar {
+  .contentContainer > p {
+    color: $gray500;
+  }
+
+  .featureContainer {
+    .checkMark {
+      background: $cinnabarGradientPrimary;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}
