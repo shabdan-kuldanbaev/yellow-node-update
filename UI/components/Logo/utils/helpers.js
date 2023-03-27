@@ -14,9 +14,12 @@ export const WHITE_LOGO_TYPE = [
   'fusion-markets',
   'meateater',
   'telemojo',
+  'blackbird',
   'fintech-app-for-credit-score',
   'smartcenter',
   'dindon',
+  'cinnabar',
+  'machine-learning-in-real-estate',
   'software-for-mri-interpretation',
 ];
 
@@ -53,6 +56,7 @@ export const WHITE_TEXT_LOGO = [
   'fernwayer',
   'writer-chrome-extension',
   'telemojo',
+  'cinnabar',
 ];
 
 export const getLogoType = (type) => {

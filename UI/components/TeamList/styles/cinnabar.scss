@@ -1,0 +1,8 @@
+.cinnabar {
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: row;
+  justify-content: center;
+  grid-column-gap: 146px;
+  box-sizing: border-box;
+}
