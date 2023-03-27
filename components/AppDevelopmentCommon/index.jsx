@@ -6,8 +6,8 @@ import PlainTextSection from 'UI/sections/PlainTextSection';
 import FeedbackSection from 'UI/sections/FeedbackSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
-import TableSection from '../../UI/sections/TableSection';
 
+const TableSection = dynamic(() => import('UI/sections/TableSection'));
 const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
 const ProcessSection = dynamic(() => import('UI/sections/ProcessSection'));
 const DownloadSection = dynamic(() => import('UI/sections/DownloadSection'));

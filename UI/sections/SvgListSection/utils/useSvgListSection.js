@@ -19,7 +19,7 @@ export const useSvgListSection = ({
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
 
   const displayNames = useMemo(
-    () => iconsGroups.map((group) => getDocumentFields(group, ['title', 'description']).title),
+    () => iconsGroups.map((group) => getDocumentFields(group, ['title']).title),
     [iconsGroups],
   );
 
