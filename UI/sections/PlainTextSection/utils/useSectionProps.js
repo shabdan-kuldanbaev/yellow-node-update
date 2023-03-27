@@ -1,6 +1,6 @@
 import get from 'lodash/get';
+import { useCallback, useState } from 'react';
 import { getDocumentFields } from 'utils/helper';
-import React, { useCallback, useState } from 'react';
 
 export default ({
   section,

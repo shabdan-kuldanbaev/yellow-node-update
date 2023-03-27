@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import { getDocumentFields } from 'utils/helper';
-import React from 'react';
 
 export default ({
   section,

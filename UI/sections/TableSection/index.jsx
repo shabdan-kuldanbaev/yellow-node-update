@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import dynamic from 'next/dynamic';
 
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
