@@ -17,24 +17,12 @@
       border-radius: 16px;
       margin: 0 auto;
 
-      @include tablet {
-        width: 650px;
-      }
-
-      @include below-tablet {
-        width: 475px;
-      }
-
-      @include phone {
-        display: none;
-      }
-
       & thead {
         & th {
           @include fontSize(20px, 30px);
 
           padding: 16px 0;
-          border-color:  $gray700;
+          border-color: $gray700;
         }
       }
 
@@ -48,8 +36,20 @@
           padding: 18px 0;
           color: $gray400;
           text-align: center;
-          border-color:  $gray700;
+          border-color: $gray700;
         }
+      }
+
+      @include tablet {
+        width: 650px;
+      }
+
+      @include below-tablet {
+        width: 475px;
+      }
+
+      @include phone {
+        display: none;
       }
     }
   }

@@ -86,10 +86,6 @@
         width: 379px;
         min-height: 220px;
 
-        @include below-tablet {
-          align-items: center;
-        }
-
         .cardContent {
           @include below-tablet {
             align-items: center;
@@ -106,7 +102,6 @@
         }
 
         & p {
-
           @include below-tablet {
             text-align: center;
           }
@@ -114,6 +109,10 @@
 
         svg {
           width: 64px;
+        }
+
+        @include below-tablet {
+          align-items: center;
         }
 
         @include below-tablet {
@@ -166,7 +165,7 @@
 
         & p {
           max-width: 694px;
-          padding: 0 61px 0;
+          padding: 0 61px;
 
           @include below-tablet {
             padding: 0;
@@ -175,12 +174,7 @@
       }
 
       .cardList {
-        grid-template-columns:  repeat(3, 1fr);
-
-        @include below-tablet() {
-          grid-template-columns: 1fr;
-          grid-template-rows:  repeat(3, 1fr);
-        }
+        grid-template-columns: repeat(3, 1fr);
 
         svg {
           width: 64px;
@@ -188,6 +182,11 @@
 
         & > * {
           margin-bottom: 16px;
+        }
+
+        @include below-tablet {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(3, 1fr);
         }
       }
     }
@@ -205,15 +204,14 @@
       grid-column-gap: 32px;
       margin: 0;
 
-      @include below-tablet {
-        grid-template-columns: 1fr;
-        grid-template-rows:  repeat(3, 1fr);
-        grid-column-gap: 0;
-        grid-row-gap: 16px;
-      }
-
       & > div {
         margin: 0;
+      }
+
+      @include below-tablet {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 16px 0;
       }
     }
 
@@ -226,30 +224,21 @@
     .callToAction h3 {
       max-width: 535px;
     }
-
   }
 
   &.fifthSectionView {
+    background-color: $gray50;
+
     :global(.swiper-slide) {
       @include below-tablet {
         height: fit-content;
       }
     }
-    background-color: $gray50;
 
     .card {
       @include flex(column, flex-start, stretch);
 
       min-height: 380px;
-
-      @include below-tablet {
-        max-width: 450px;
-        height: fit-content;
-      }
-
-      @include phone {
-        margin-bottom: 0;
-      }
 
       svg {
         width: 64px;
@@ -259,8 +248,15 @@
         font-weight: 500;
         color: $gray900;
       }
-    }
 
+      @include below-tablet {
+        max-width: 450px;
+        height: fit-content;
+      }
+
+      @include phone {
+        margin-bottom: 0;
+      }
+    }
   }
 }
-

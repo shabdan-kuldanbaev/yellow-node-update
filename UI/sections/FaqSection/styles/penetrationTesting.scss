@@ -1,7 +1,7 @@
 .penetration-testing {
   padding-bottom: 60px;
 
-  @include below-tablet() {
+  @include below-tablet {
     padding-bottom: 30px;
   }
 }
