@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import { getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const PreviewImage = ({ image }) => {
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   return (
     <div className={styles.imgWrapper}>

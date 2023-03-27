@@ -3,8 +3,7 @@ import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/layout';
-import Illustration from 'UI/components/Illustration';
+import { selectIsMobile } from 'redux/selectors/layout';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import {
   getDocumentFields,
@@ -12,6 +11,7 @@ import {
   getOptimizedContentfulImage,
 } from 'utils/helper';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
+import Illustration from 'UI/components/Illustration';
 import ChallengesSlider from './ChallengesSlider';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
@@ -24,7 +24,7 @@ const ChallengesAndSolutions = ({
   isSpecial,
   view,
 }) => {
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   if (!get(data, 'contentModules')) {
     return null;

@@ -8,14 +8,14 @@ import CardsSlider from 'components/Common/CardsSlider';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import { getCardsProps } from './utils/cardsHelper';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CaseStudyOverlayProcess = ({ data, type }) => {
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   if (!data?.contentModules) {
     return null;

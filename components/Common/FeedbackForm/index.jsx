@@ -10,7 +10,7 @@ import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs/withValidateEmail';
-import { CONTACT_CASH_KEY, useContactMutation } from 'redux/apis/dataSending';
+import { CONTACT_CASH_KEY, useSendContactFormMutation } from 'redux/apis/dataSending';
 import FormContainer from './FormContainer';
 import { SliderWrapper } from './SliderWrapper';
 import { budget, marks } from './utils/data';
@@ -27,7 +27,7 @@ const FeedbackForm = ({
   formKey,
   type,
 }) => {
-  const [contact, { isError }] = useContactMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+  const [sendForm, { isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
 
   const { asPath } = useRouter();
   const formRef = useRef(null);
@@ -108,7 +108,7 @@ const FeedbackForm = ({
 
     const filesUrls = selectedFiles.map((file) => file.signedUrl);
 
-    contact({
+    sendForm({
       name: fullName,
       email: email.value,
       description: projectDescription,

@@ -2,13 +2,13 @@ import { useEffect, useRef } from 'react';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
-import { selectIsPageReadyToDisplay, isMobile } from 'redux/selectors/layout';
+import { selectIsPageReadyToDisplay, selectIsMobile } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 
 const LinearIndeterminate = () => {
   const linearRef = useRef();
 
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
   const isPageReadyToDisplay = useSelector(selectIsPageReadyToDisplay);
 
   useEffect(() => {

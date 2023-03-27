@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { addThousandsSeparators } from 'utils/helper';
 import visitData from 'utils/gaMetrics/getGaMetrics';
-import { CONTACT_CASH_KEY, useContactMutation } from 'redux/apis/dataSending';
+import { CONTACT_CASH_KEY, useSendContactFormMutation } from 'redux/apis/dataSending';
 import { budget as budgetData, marks } from './data';
 
 export default ({
@@ -10,7 +10,7 @@ export default ({
   isBudgetSlider,
   type,
 }) => {
-  const [contact, { isSuccess, isLoading, isError }] = useContactMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+  const [sendForm, { isSuccess, isLoading, isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
 
   const {
     register,
@@ -36,7 +36,7 @@ export default ({
     const sourceMetrics = visitData();
 
     const attachments = selectedFiles.map((file) => file.signedUrl);
-    await contact({
+    await sendForm({
       ...values,
       source: sourceMetrics?.source,
       medium: sourceMetrics?.medium,

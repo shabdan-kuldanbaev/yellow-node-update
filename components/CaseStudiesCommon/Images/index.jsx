@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import Illustration from 'UI/components/Illustration';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
 
@@ -17,7 +17,7 @@ const Images = ({
   type,
   view,
 }) => {
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   if (!get(data, 'images')) {
     return null;

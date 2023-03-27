@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
@@ -11,7 +11,7 @@ export const useChallengesAndSolutions = ({
   view,
 }) => {
   const { type: componentType, contentModules } = data;
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   const isSlider = [CASE_STUDIES_TYPES.challengesSlider, CASE_STUDIES_TYPES.challengesSpecialSlider].includes(data.type);
 

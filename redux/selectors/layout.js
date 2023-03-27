@@ -8,8 +8,8 @@ export const selectIsFirstPageLoaded = (state) => state.layout.isFirstPageLoaded
 
 export const selectIsDropMenuOpened = (state) => state.layout.isDropMenuOpened;
 
-export const isMobile = (state) => state.layout.isMobileResolution;
+export const selectIsMobile = (state) => state.layout.isMobileResolution;
 
-export const isTablet = (state) => state.layout.isTabletResolution;
+export const selectIsTablet = (state) => state.layout.isTabletResolution;
 
-export const isDesktop = (state) => state.layout.isDesktopResolution;
+export const selectIsDesktop = (state) => state.layout.isDesktopResolution;
