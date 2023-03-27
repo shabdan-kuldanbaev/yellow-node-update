@@ -1,0 +1,17 @@
+.machine-learning-in-real-estate {
+  :global(.swiper-wrapper) {
+    margin-bottom: 35px;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: 0;
+  }
+
+  .swiperBullet {
+    border: 1px solid $realEstateAccent;
+  }
+
+  .swiperBulletActive {
+    background: $realEstateAccent;
+  }
+}

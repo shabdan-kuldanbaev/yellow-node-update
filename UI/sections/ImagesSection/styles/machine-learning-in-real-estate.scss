@@ -1,0 +1,26 @@
+.machine-learning-in-real-estate {
+  padding: 60px 0;
+  background-color: $realEstatePrimary;
+
+  .titleStyle {
+    max-width: 519px;
+    color: $gray0;
+  }
+
+  &.firstSectionView {
+    position: relative;
+
+    .bundleImage {
+      position: absolute;
+      width: 3168.23px;
+      height: 2699.59px;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  }
+
+  @include phone {
+    padding: 30px 16px;
+  }
+}

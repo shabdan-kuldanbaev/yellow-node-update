@@ -1,0 +1,107 @@
+.machine-learning-in-real-estate {
+  .infoContainer {
+    h3 {
+      color: $gray0;
+    }
+
+    p {
+      margin: 0;
+      color: $gray0;
+      opacity: 0.7;
+    }
+  }
+
+  &.firstSectionView {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 32px;
+    margin: 0 auto 48px;
+    padding: 0 16px;
+    max-width: $default-content-width;
+
+    .contentContainer {
+      margin: 0;
+      max-width: 310px;
+      width: 100%;
+
+      .infoContainer {
+        margin: 0;
+
+        h3 {
+          @include fontSize(38px, 130%);
+
+          @include tablet {
+            @include fontSize(24px, 130%);
+          }
+        }
+      }
+    }
+
+    @include phone {
+      grid-gap: 16px;
+      grid-template-columns: auto;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+  }
+
+  &.secondSectionView {
+    @include flex(row, center, initial, wrap);
+
+    margin: 0 auto;
+    grid-gap: 32px;
+    max-width: $default-content-width;
+
+    .contentContainer {
+      margin: 0;
+      max-width: 481px;
+
+      .infoContainer {
+        margin: 0;
+
+        ul {
+          margin-top: 0;
+          margin-bottom: 0;
+
+          li {
+            margin: 0;
+
+            &::marker {
+              color: $gray0;
+            }
+          }
+        }
+      }
+    }
+
+    @include phone {
+      grid-gap: 16px;
+    }
+  }
+
+  &.thirdSectionView {
+    .contentContainer {
+      max-width: 790px;
+
+      .title {
+        @include fontSize(24px, 130%);
+
+        margin: 0;
+        color: $gray0;
+
+        @include phone {
+          @include fontSize(20px, 130%);
+        }
+      }
+
+      & > div {
+        max-width: 379px;
+        width: 100%;
+      }
+
+      @include phone {
+        grid-gap: 16px;
+      }
+    }
+  }
+}
