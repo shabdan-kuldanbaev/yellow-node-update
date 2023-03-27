@@ -65,7 +65,7 @@
     }
 
     .contentContainer {
-      @include flex('column', 'flex-start', 'center');
+      @include flex(column, flex-start, center);
 
       box-sizing: border-box;
       width: 50%;
