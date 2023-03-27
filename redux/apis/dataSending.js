@@ -47,7 +47,7 @@ const dataSendingApi = baseApi.injectEndpoints({
       },
     }),
 
-    contact: builder.mutation({
+    sendContactForm: builder.mutation({
       async queryFn({ isSent, ...args }) {
         if (typeof isSent !== 'undefined') {
           return { data: { sent: isSent } };
@@ -76,7 +76,7 @@ const dataSendingApi = baseApi.injectEndpoints({
 
 export const {
   useSubscribeMutation,
-  useContactMutation,
+  useSendContactFormMutation,
 } = dataSendingApi;
 
 export default dataSendingApi;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import CustomImage from 'components/Common/CustomImage';
 import Animated from 'components/Common/Animated';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
@@ -15,7 +15,7 @@ const Wireframe = ({
   },
   type,
 }) => {
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   if (!images) {
     return null;

@@ -6,7 +6,7 @@ import React, {
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import Animated from 'components/Common/Animated';
 import { getOptimizedContentfulImage } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
@@ -16,7 +16,7 @@ const CompanyPeoplePhoto = ({ photo }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
 
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   useEffect(() => {
     const handlerOnScroll = () => {

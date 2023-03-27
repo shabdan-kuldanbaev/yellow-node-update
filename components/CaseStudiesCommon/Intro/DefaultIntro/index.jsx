@@ -8,7 +8,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import styles from './styles.module.scss';
 import { ProjectLink } from './ProjectLink';
 
@@ -17,7 +17,7 @@ const DefaultIntro = ({
   introSection,
   data,
 }) => {
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   const {
     title,

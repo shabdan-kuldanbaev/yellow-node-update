@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import Animated from 'components/Common/Animated';
 import SectionTitle from 'UI/components/SectionTitle';
 import Illustration from 'UI/components/Illustration';
@@ -14,7 +14,7 @@ import {
 import styles from './styles.module.scss';
 
 export const ManagementTeam = ({ managementTeam }) => {
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   return managementTeam && (
     <section className={styles.managementTeam}>

@@ -8,7 +8,7 @@ import { useSpring, a } from '@react-spring/web';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
 import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-import { CONTACT_CASH_KEY, useContactMutation } from 'redux/apis/dataSending';
+import { CONTACT_CASH_KEY, useSendContactFormMutation } from 'redux/apis/dataSending';
 import styles from './styles.module.scss';
 
 const FormContainer = ({
@@ -16,13 +16,13 @@ const FormContainer = ({
   formRef,
   clearForm,
 }) => {
-  const [contact, { data: { sent } = {} }] = useContactMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+  const [sendForm, { data: { sent } = {} }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
 
   const [isFlipped, setIsFlipped] = useState(false);
   const [isFrontShown, setIsFrontShown] = useState(true);
 
   const { transform, opacity } = useSpring({
-    opacity: isFlipped ? 1 : 0,
+    opacity: Number(isFlipped),
     transform: `perspective(600px) rotateY(${isFlipped ? 180 : 0}deg)`,
     config: {
       mass: 5,
@@ -34,7 +34,7 @@ const FormContainer = ({
   const handleOnCloseClick = () => {
     setIsFlipped(false);
     setIsFrontShown(true);
-    contact({ isSent: false });
+    sendForm({ isSent: false });
   };
 
   useEffect(() => {

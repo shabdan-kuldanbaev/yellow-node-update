@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import Animated from 'components/Common/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import {
@@ -22,7 +22,7 @@ const ChallengesAndSolutions = ({
   isSpecial,
   view,
 }) => {
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   if (!get(data, 'contentModules')) {
     return null;

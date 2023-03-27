@@ -55,7 +55,7 @@ const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
           onChange={handleOnChangeInput}
           value={inputValue}
         />
-        {searchTerm.length > 1
+        {searchTerm.length
           ? (
             <SearchResult
               foundArticles={articles}

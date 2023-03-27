@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { isMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import Animated from 'components/Common/Animated';
 import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
@@ -14,7 +14,7 @@ const Subscribe = ({
   handleOnEmailChange,
   handleOnBlurEmail,
 }) => {
-  const isMobileResolution = useSelector(isMobile);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   const placeholderText = 'Email';
   const [currentPlaceholder, setCurrentPlaceholder] = useState(placeholderText);
