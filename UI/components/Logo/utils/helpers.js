@@ -17,6 +17,7 @@ export const WHITE_LOGO_TYPE = [
   'fintech-app-for-credit-score',
   'smartcenter',
   'dindon',
+  'software-for-mri-interpretation',
 ];
 
 export const BLACK_LOGO_TYPE = [
