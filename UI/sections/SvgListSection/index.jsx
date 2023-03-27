@@ -6,7 +6,6 @@ import SectionTitle from 'UI/components/SectionTitle';
 import SvgGroup from 'UI/containers/SvgGroup';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Selector from 'UI/components/Selector';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { useSvgListSection } from './utils/useSvgListSection';
 import styles from './styles.module.scss';
 
@@ -26,7 +25,6 @@ const SvgListSection = (props) => {
     handleSelectedGroupIndexChange,
     displayNames,
     selectedGroupIndex,
-    text,
   } = useSvgListSection(props);
 
   return (
@@ -57,11 +55,6 @@ const SvgListSection = (props) => {
             hideTitle
           />
         </>
-      )}
-      {text.length && (
-        <div className={cn(styles.textContent, styles[type])}>
-          <ContentfulParser document={text[selectedGroupIndex]} />
-        </div>
       )}
       {!withSelector && iconsGroups.map((group, i) => (
         <SvgGroup

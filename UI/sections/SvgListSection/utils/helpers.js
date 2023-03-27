@@ -2,7 +2,6 @@ import { getDocumentFields } from 'utils/helper';
 
 export const getSvgSectionProps = (data) => {
   let link = null;
-  let text = null;
 
   const {
     title,
@@ -35,16 +34,11 @@ export const getSvgSectionProps = (data) => {
     };
   }
 
-  if (iconsGroups) {
-    text = contentModules.map((modules) => modules.fields.text);
-  }
-
   return {
     title,
     description,
     link,
     view,
     iconsGroups,
-    text,
   };
 };
