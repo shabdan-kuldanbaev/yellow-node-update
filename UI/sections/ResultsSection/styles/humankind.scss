@@ -1,0 +1,39 @@
+.humankind {
+  padding-bottom: 70px;
+
+  [data-description] {
+    max-width: 511px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 22px;
+  }
+
+  .circle {
+    left: 0;
+    width: 1064px;
+    height: 618px;
+    margin: 0 auto;
+    transform: unset;
+
+    .mockup {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    @include below-tablet {
+      width: 100%;
+      height: 650px;
+    }
+
+    @include phone {
+      height: 312px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}

@@ -31,6 +31,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'telemojo',
   'fintech-app-for-credit-score',
   'dindon',
+  'humankind',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;

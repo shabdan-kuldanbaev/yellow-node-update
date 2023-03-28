@@ -1,0 +1,35 @@
+.humankind {
+  padding-bottom: 100px;
+  background-color: $gray50;
+
+  .contentContainer {
+    margin-bottom: 90px;
+
+    @include phone {
+      margin-bottom: 60px;
+    }
+  }
+
+  .descriptionContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 994px;
+    width: 100%;
+    margin: 0 auto;
+
+    
+
+    @include below-tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .descriptionIntro {
+    max-width: 481px;
+  }
+
+  @include phone {
+    padding-bottom: 60px;
+  }
+}
