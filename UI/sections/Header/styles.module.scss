@@ -105,6 +105,11 @@
     will-change: transform;
     transform: translate3d(0, 0, 0);
   }
+
+  &.grayHeader {
+    background-color: $gray50;
+    border-bottom: 0;
+  }
 }
 
 .animate {

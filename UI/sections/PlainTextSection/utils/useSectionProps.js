@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import { useCallback, useState } from 'react';
 import { getDocumentFields } from 'utils/helper';
 
 export default ({
@@ -21,8 +22,12 @@ export default ({
       'contentModules',
     ],
   );
+  const [isSeeMore, setIsSeeMore] = useState(false);
+  const { text, hasSeeMoreButton } = getDocumentFields(get(contentModules, '[0]', []), ['text', 'hasSeeMoreButton']);
 
-  const { text } = getDocumentFields(get(contentModules, '[0]', []), ['text']);
+  const onClickMoreButton = useCallback(() => {
+    setIsSeeMore(!isSeeMore);
+  }, [isSeeMore]);
 
   return {
     title,
@@ -31,5 +36,8 @@ export default ({
     view,
     type,
     text,
+    hasSeeMoreButton,
+    onClickMoreButton,
+    isSeeMore,
   };
 };

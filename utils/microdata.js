@@ -373,6 +373,14 @@ export const microdata = {
     breadcrumb: 'Homepage > Custom chat app development company',
     image: logoUrl,
   }),
+  penetrationTesting: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Penetration testing',
+    description: 'Penetration testing',
+    breadcrumb: 'Homepage > Penetration Testing Services to Secure Your Business',
+    image: logoUrl,
+  }),
   customMobileApp: () => ({
     '@context': context,
     '@type': 'WebPage',

@@ -16,6 +16,7 @@
 
   max-width: 995px;
   margin: 0 auto 48px;
+  grid-gap: 32px;
 
   .centrefy {
     @include flex(column, center);
@@ -25,14 +26,8 @@
     }
   }
 
-  .separatedTitle {
-    margin-left: 0;
-    margin-right: 66px;
-  }
-
   .infoContainer {
     max-width: 480px;
-    margin-right: 66px;
 
     & > * + * {
       @include below-tablet {

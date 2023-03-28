@@ -24,12 +24,16 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'writer-chrome-extension',
   'meateater',
   'bionorica',
+  'marketplace-for-clairvoyant-services',
   'fusion-markets',
   'smartcenter',
   'beautonomy',
   'telemojo',
+  'blackbird',
   'fintech-app-for-credit-score',
   'dindon',
+  'cinnabar',
+  'machine-learning-in-real-estate',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -102,6 +106,7 @@ export const NAV_LINKS = [
     routes.termsAndConditions.slug,
     routes.cookiesPolicy.slug,
     routes.lendingSoftwareDevelopment.slug,
+    routes.penetrationTesting.slug,
   ].includes(slug)),
 ];
 
@@ -234,6 +239,7 @@ export const APP_DEVELOPMENT_TYPES = {
   processOverlay: 'app-development-process-overlay',
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
   appDevelopmentDownloadSection: 'app-development-download-section',
+  appDevelopmentTableSection: 'app-development-table-section',
   feedback: 'feedback',
   parallax: 'case-study-parallax',
 };
@@ -401,6 +407,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
   ROUTES.prototypingServices.path,
+  ROUTES.penetrationTesting.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -421,6 +428,10 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
   CASE_STUDIES.openSense,
+];
+
+export const PAGES_WITH_GRAY_HEADER = [
+  ROUTES.penetrationTesting.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -501,6 +512,11 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Lauch your app to all platforms at once',
         slug: ROUTES.crossPlatformDevelopmentServices.path,
       },
+      {
+        title: 'Penetration Testing as a Service',
+        subtitle: 'Make your software as safe as possible',
+        slug: ROUTES.penetrationTesting.path,
+      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
       {
@@ -564,6 +580,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.discoveryPhase,
   PAGES.tradingSoftwareDevelopment,
   PAGES.lendingSoftwareDevelopment,
+  PAGES.penetrationTesting,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
