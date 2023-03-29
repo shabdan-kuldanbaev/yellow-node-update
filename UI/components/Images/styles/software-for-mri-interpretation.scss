@@ -1,6 +1,23 @@
 .software-for-mri-interpretation {
-  .image {
-    width: 892px;
-    height: 336px;
+  &.firstSectionView {
+    .image {
+      width: 892px;
+      height: 336px;
+    }
+  }
+
+  &.secondSectionView {
+    margin: 0 auto;
+    max-width: 415px;
+    width: 100%;
+
+    .image {
+      width: 100%;
+      height: 446px;
+
+      @include phone {
+        height: 368px;
+      }
+    }
   }
 }

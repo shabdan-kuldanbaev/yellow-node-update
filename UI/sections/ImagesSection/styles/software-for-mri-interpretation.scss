@@ -1,7 +1,44 @@
 .software-for-mri-interpretation {
-  padding: 60px 0 120px;
+  &.firstSectionView {
+    padding: 60px 0 120px;
 
-  @include phone {
-    padding: 30px 0 60px;
+    @include tablet {
+      padding: 30px 0 60px;
+    }
+  }
+
+  &.secondSectionView {
+    background: $balzanoGradient;
+    padding: 60px 0 120px;
+
+    .titleStyle {
+      max-width: 722px;
+    }
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    [data-description] {
+      color: $gray0;
+      opacity: 0.7;
+    }
+
+    .secondDescription {
+      display: block;
+      margin: 48px auto 0;
+      max-width: 625px;
+      color: $gray0;
+      opacity: 0.7;
+      text-align: center;
+
+      @include phone {
+        margin-top: 24px;
+      }
+    }
+
+    @include tablet {
+      padding: 30px 16px 60px;
+    }
   }
 }
