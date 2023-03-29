@@ -178,3 +178,7 @@
     grid-template-columns: 1fr;
   }
 }
+
+.textContent {
+  @include flex(column, initial, center);
+}

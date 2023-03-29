@@ -4,8 +4,10 @@ import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 export default ({ data, type }) => {
   const {
     title,
+    description,
     images: imagesData,
     contentModules,
+    view,
   } = data;
 
   const images = imagesData?.map((module) => getFileUrl(module));
@@ -13,16 +15,18 @@ export default ({ data, type }) => {
   const steps = contentModules?.map(({ fields }) => {
     const {
       title: stepTitle,
-      description,
       subtitle,
+      contentList,
+      text,
     } = fields;
     const imageBundles = fields.imagesBundles?.map((bundle) => getFileUrl(bundle));
 
     return {
       imageBundles,
       subtitle,
-      description,
+      text,
       title: stepTitle,
+      icon: contentList?.[0],
     };
   });
 
@@ -39,7 +43,9 @@ export default ({ data, type }) => {
     type,
     style,
     title,
+    description,
     images,
     steps,
+    view,
   };
 };

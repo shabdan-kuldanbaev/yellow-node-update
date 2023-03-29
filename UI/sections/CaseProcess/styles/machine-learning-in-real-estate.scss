@@ -1,0 +1,189 @@
+.machine-learning-in-real-estate {
+  padding: 60px 32px;
+  background-color: $realEstatePrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray0;
+    opacity: 0.7;
+  }
+
+  .stepsContainer {
+    @include flex(row, center, initial, wrap);
+
+    grid-gap: 32px;
+    margin: 0;
+  }
+
+  &.firstSectionView {
+    position: relative;
+    z-index: 1;
+
+    .image {
+      position: absolute;
+      width: 3168.23px;
+      height: 2699.59px;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .titleStyle {
+      max-width: 500px;
+    }
+
+    .step {
+      @include flex(column, start, center);
+
+      flex: 0 1 310px;
+      box-sizing: border-box;
+
+      h3 {
+        @include fontSize(20px, 150%);
+
+        color: $gray0;
+
+        @include phone {
+          @include fontSize(16px, 150%);
+        }
+      }
+
+      .stepIcon {
+        margin-bottom: 16px;
+        width: 64px;
+        height: 64px;
+
+        circle {
+          fill: $realEstateAccent;
+        }
+
+        path {
+          fill: $gray0;
+        }
+      }
+
+      @include below-tablet {
+        flex: 0 1 155px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .titleStyle {
+      max-width: 661px;
+    }
+
+    .step {
+      @include flex(column);
+
+      flex: 0 1 481px;
+      padding: 32px;
+      border: 1px solid $gray100;
+      border-radius: 30px;
+      box-sizing: border-box;
+
+      h3 {
+        margin: 0 0 8px;
+        color: $gray0;
+        text-align: left;
+      }
+
+      p {
+        margin: 0;
+        color: $gray0;
+        opacity: 0.7;
+      }
+
+      .stepIcon {
+        margin-bottom: 16px;
+        width: 64px;
+        height: 64px;
+
+        circle {
+          fill: $realEstateAccent;
+        }
+
+        path {
+          fill: $gray0;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .titleStyle {
+      max-width: 556px;
+    }
+
+    .step {
+      @include flex(column);
+
+      flex: 0 1 310px;
+      box-sizing: border-box;
+
+      h3 {
+        margin: 0 0 8px;
+        color: $gray0;
+        text-align: left;
+
+        @include phone {
+          text-align: center;
+        }
+      }
+
+      p {
+        @include fontSize(16px, 150%);
+
+        margin: 0;
+        color: $gray0;
+        opacity: 0.7;
+
+        @include phone {
+          text-align: center;
+        }
+      }
+
+      .stepIcon {
+        margin-bottom: 16px;
+        width: 64px;
+        height: 64px;
+
+        circle {
+          fill: $realEstateAccent;
+        }
+
+        path {
+          fill: $gray0;
+        }
+      }
+
+      @include phone {
+        align-items: center;
+      }
+    }
+
+    .step-6 {
+      padding: 35px 16px;
+      border: 1px solid $gray100;
+      border-radius: 30px;
+
+      p {
+        text-align: center;
+        opacity: 1;
+      }
+    }
+
+    @include phone {
+      .stepsContainer {
+        grid-gap: 16px;
+      }
+    }
+  }
+
+  @include below-tablet {
+    padding: 30px 16px;
+  }
+}

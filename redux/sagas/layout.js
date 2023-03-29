@@ -148,6 +148,7 @@ function* fetchPageData({
     case PAGES.discoveryPhase:
     case PAGES.devOpsDevelopment:
     case PAGES.aiDevelopment:
+    case PAGES.penetrationTesting:
     case PAGES.dataScienceDevelopment:
     case PAGES.tradingSoftwareDevelopment:
     case PAGES.prototypingServices:
