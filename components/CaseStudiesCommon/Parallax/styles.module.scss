@@ -175,6 +175,7 @@
 .beautonomy,
 .dindon,
 .cash-chat,
+.e-wallet-app-development,
 .lending-software-development {
   @extend .parallax;
 }
@@ -223,4 +224,10 @@
 
 .natp {
   background-color: $white;
+}
+
+.e-wallet-app-development {
+  @include below-tablet {
+    height: 310px;
+  }
 }

@@ -5,6 +5,7 @@ import { getDocumentFields, getFileUrl } from 'utils/helper';
 export default ({
   section,
   type,
+  handleOnCTAClick,
 }) => {
   const {
     title,
@@ -24,6 +25,7 @@ export default ({
   ), [section]);
 
   const { text = '' } = getDocumentFields(get(contentModules, '[0]', {}));
+  const link = getDocumentFields(get(contentModules, '[1]', {}));
   const imageUrl = getFileUrl(get(images, '[0]'));
 
   return {
@@ -33,5 +35,7 @@ export default ({
     imageUrl,
     type,
     view,
+    link,
+    handleOnCTAClick,
   };
 };

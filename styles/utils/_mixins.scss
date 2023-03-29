@@ -338,36 +338,33 @@
   background-color: $backgroundColor;
   border: solid 1px $borderColor;
   will-change: transition;
-  transition:
-    background-color $shadow-time-for-yellow-button,
-    border-color $shadow-time-for-yellow-button * 2,
-    color $shadow-time-for-yellow-button,
-    transform $shadow-time-for-yellow-button cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color $shadow-time-for-yellow-button,
+  border-color $shadow-time-for-yellow-button * 2,
+  color $shadow-time-for-yellow-button,
+  transform $shadow-time-for-yellow-button cubic-bezier(0, 0, 0.2, 1);
 
   &:hover {
     will-change: transition;
     background-color: $backHoverColor;
     border: solid 1px $borderHoverColor;
     color: $textHoverColor;
-    transition:
-      background-color $shadow-time-for-yellow-button,
-      border-color $shadow-time-for-border-yellow-button,
-      color $shadow-time-for-yellow-button,
-      transform $shadow-time-for-yellow-button cubic-bezier(0, 0, 0.2, 1);
+    transition: background-color $shadow-time-for-yellow-button,
+    border-color $shadow-time-for-border-yellow-button,
+    color $shadow-time-for-yellow-button,
+    transform $shadow-time-for-yellow-button cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
 @mixin buttonTransition {
-  transition:
-    background-color $shadow-time-for-yellow-button,
-    border-color $shadow-time-for-yellow-button * 2,
-    color $shadow-time-for-yellow-button,
-    transform $shadow-time-for-yellow-button cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color $shadow-time-for-yellow-button,
+  border-color $shadow-time-for-yellow-button * 2,
+  color $shadow-time-for-yellow-button,
+  transform $shadow-time-for-yellow-button cubic-bezier(0, 0, 0.2, 1);
 }
 
 @mixin seLocationSubscribe($subscribesPosition, $articleCount) {
   @for $i from 1 to $articleCount {
-    &>article:nth-of-type(#{$i}) {
+    & > article:nth-of-type(#{$i}) {
       @if $i < $subscribesPosition {
         order: calc(#{$i} - 1);
       }
@@ -483,4 +480,56 @@
   width: $size;
   height: $size;
   z-index: -1;
+}
+
+@mixin listWithYellowMarkers() {
+  @media (max-width: 924px) {
+    height: 110px;
+  }
+
+  @include flex(column, initial, initial, wrap, space-around);
+
+  height: 82px;
+  padding: 0;
+  max-width: 980px;
+  width: 100%;
+  margin: 0;
+
+  & li {
+    @include fontSize(16px, 150%);
+
+    list-style: none;
+    display: inline-block;
+    max-width: 314px;
+
+    & p {
+      display: flex;
+      margin: 0;
+      position: relative;
+      padding-left: 16px;
+      overflow-wrap: break-word;
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 8px;
+        width: 8px;
+        background-color: $yellow500;
+        top: calc(50% - 4px);
+        left: 0;
+        border-radius: 100%;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      margin-right: 0;
+    }
+  }
+
+  @include below-tablet {
+    @include flex(column);
+
+    height: fit-content;
+  }
 }
