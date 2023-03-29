@@ -79,6 +79,7 @@
     .callToAction {
       background-color: $gray800;
       border-color: $gray600;
+      min-height: 215px;
 
       & > div {
         max-width: 535px;
@@ -175,6 +176,12 @@
         @include fontSize(16px, 24px);
 
         text-align: center;
+      }
+    }
+
+    .navigation {
+      button {
+        padding: 0;
       }
     }
   }
