@@ -1,9 +1,7 @@
-.cinnabar {
+.software-for-mri-interpretation {
   &.secondSectionView {
-    position: relative;
-    z-index: 1;
     padding: 120px 16px;
-    background: $cinnabarGradientPrimary;
+    background: $balzanoGradient;
 
     .titleStyle {
       color: $gray0;

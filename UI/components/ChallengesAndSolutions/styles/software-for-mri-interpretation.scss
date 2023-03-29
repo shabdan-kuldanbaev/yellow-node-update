@@ -1,0 +1,49 @@
+.software-for-mri-interpretation {
+  &.secondSectionView {
+    .infoContainer {
+      h3 {
+        color: $gray0;
+
+        @include phone {
+          &:last-of-type {
+            margin-top: 12px;
+          }
+        }
+      }
+
+      p {
+        margin: 0;
+        color: $gray0;
+        opacity: 0.7;
+        white-space: unset;
+      }
+    }
+
+    .contentContainer {
+      max-width: 790px;
+      grid-gap: 32px;
+
+      .title {
+        @include fontSize(24px, 130%);
+
+        margin: 0;
+        color: $gray0;
+
+        @include phone {
+          @include fontSize(20px, 130%);
+        }
+      }
+
+      & > div {
+        margin: 0;
+        max-width: 379px;
+        width: 100%;
+      }
+
+      @include phone {
+        padding: 0 16px;
+        grid-gap: 16px;
+      }
+    }
+  }
+}
