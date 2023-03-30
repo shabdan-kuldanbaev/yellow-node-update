@@ -1,0 +1,9 @@
+.smartcenter {
+  &.secondSectionView {
+    background: $smartCenterGradient;
+
+    [data-title] {
+      color: $gray0;
+    }
+  }
+}

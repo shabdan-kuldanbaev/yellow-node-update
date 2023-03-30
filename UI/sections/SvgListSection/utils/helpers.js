@@ -2,6 +2,7 @@ import { getDocumentFields } from 'utils/helper';
 
 export const getSvgSectionProps = (data) => {
   let link = null;
+
   const {
     title,
     description,

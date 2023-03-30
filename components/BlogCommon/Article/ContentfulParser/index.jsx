@@ -15,6 +15,7 @@ import {
   getFileUrl,
   rootUrl,
 } from 'utils/helper';
+import cn from 'classnames';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
@@ -24,6 +25,7 @@ const Table = dynamic(() => import('components/Common/Table'));
 const EmbedArticleCard = dynamic(() => import('UI/components/Cards/EmbedArticleCard'));
 
 // TODO move it to the common folder
+// TODO create constants for cases
 const ContentfulParser = ({ document }) => {
   const options = {
     renderMark: {
@@ -47,9 +49,10 @@ const ContentfulParser = ({ document }) => {
 
           return articleSingleImageType && imageUrl && (
             <div className={styles.imageWrapper}>
-              <div className={articleSingleImageType === 'normal'
-                ? styles.normalImage
-                : styles.fullImage}
+              <div className={cn({
+                [styles.normalImage]: articleSingleImageType === 'normal',
+                [styles.fullImage]: articleSingleImageType !== 'normal',
+              })}
               >
                 <Animated type={ANIMATED_TYPE.imageZoom}>
                   <Illustration
@@ -119,14 +122,12 @@ const ContentfulParser = ({ document }) => {
             ['tableContent', 'tableType'],
           );
 
-          return tableContent
-            ? (
-              <Table
-                tableData={tableContent.tableData}
-                type={tableType}
-              />
-            )
-            : null;
+          return tableContent && (
+            <Table
+              tableData={tableContent.tableData}
+              type={tableType}
+            />
+          );
         }
         case 'article': {
           const data = get(node, 'data.target', {});

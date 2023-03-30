@@ -1,0 +1,12 @@
+.machine-learning-in-real-estate {
+  padding: 60px 40px;
+  background: $realEstatePrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  @include phone {
+    padding: 30px 16px;
+  }
+}

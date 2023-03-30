@@ -1,13 +1,14 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'UI/components/SectionTitle';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
+const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 
 const ImageSection = (props) => {
   const {
@@ -17,6 +18,8 @@ const ImageSection = (props) => {
     imageUrl,
     type,
     view,
+    link,
+    handleOnCTAClick,
   } = useSectionProps(props);
 
   if (!imageUrl) return null;
@@ -42,6 +45,20 @@ const ImageSection = (props) => {
           </Animated>
         </div>
       </div>
+      {!!link && (
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={50}
+        >
+          <CallToAction
+            title={link.title}
+            buttonTitle={link.buttonTitle}
+            data={link}
+            handleOnClick={handleOnCTAClick}
+            className={styles.callToAction}
+          />
+        </Animated>
+      )}
     </section>
   );
 };

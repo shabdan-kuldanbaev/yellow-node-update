@@ -25,7 +25,7 @@ const PageIntroSection = (props) => {
   } = useSectionProps(props);
 
   // TODO: use rich text instead of splitting
-  const descriptionParagraphs = description.split('||');
+  const descriptionParagraphs = description?.split('||');
 
   return (
     <section

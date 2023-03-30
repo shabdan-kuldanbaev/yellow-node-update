@@ -68,6 +68,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.customChatApp.path,
     },
   ]),
+  penetrationTesting: () => ([
+    {
+      title: ROUTES.penetrationTesting.title,
+      to: ROUTES.penetrationTesting.path,
+    },
+  ]),
   customMobileApp: () => ([
     {
       title: ROUTES.customMobileApp.title,
@@ -174,6 +180,12 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.tradingSoftwareDevelopment.title,
       to: ROUTES.tradingSoftwareDevelopment.path,
+    },
+  ]),
+  eWalletAppDevelopment: () => ([
+    {
+      title: ROUTES.eWalletAppDevelopment.title,
+      to: ROUTES.eWalletAppDevelopment.path,
     },
   ]),
   technicalPage: (slug) => {

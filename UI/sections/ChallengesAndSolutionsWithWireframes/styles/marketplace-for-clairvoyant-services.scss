@@ -1,0 +1,11 @@
+.marketplace-for-clairvoyant-services {
+  background: rgba($color: $marketplaceAccent, $alpha: 0.8);
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  @include phone {
+    padding-bottom: 50px;
+  }
+}

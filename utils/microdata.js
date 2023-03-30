@@ -373,6 +373,14 @@ export const microdata = {
     breadcrumb: 'Homepage > Custom chat app development company',
     image: logoUrl,
   }),
+  penetrationTesting: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Penetration testing',
+    description: 'Penetration testing',
+    breadcrumb: 'Homepage > Penetration Testing Services to Secure Your Business',
+    image: logoUrl,
+  }),
   customMobileApp: () => ({
     '@context': context,
     '@type': 'WebPage',
@@ -459,6 +467,16 @@ export const microdata = {
     },
     getServiceMicrodata(ROUTES.mvpDevelopment),
   ]),
+  eWalletAppDevelopment: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'E-Wallet App Development Company | Yellow',
+      description: 'Mobile e-wallet app development services for any industry and any business scale.',
+      breadcrumb: 'Homepage > E-Wallet App Development Company',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.mvpDevelopment)]),
   lendingSoftwareDevelopment: () => ([
     {
       '@context': context,

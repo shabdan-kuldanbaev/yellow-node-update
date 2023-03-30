@@ -1,0 +1,108 @@
+.penetration-testing {
+  background-color: $gray0;
+
+  :global(.swiper-slide) {
+    @include fontSize(20px, 150%);
+
+    margin-right: 60px !important;
+    padding: 0;
+
+    &::after {
+      bottom: -8px;
+    }
+
+    @include below-tablet {
+      @include fontSize(20px, 30px);
+
+      margin-right: 24px !important;
+      z-index: 99999;
+    }
+  }
+
+  & .titleStyle {
+    max-width: 823px;
+    margin-bottom: 47px;
+
+    & p {
+      padding: 0 75px;
+
+      @include below-tablet {
+        padding: 0;
+      }
+    }
+  }
+
+  .card {
+    padding-top: 8px;
+    padding-bottom: 0;
+    border: none;
+
+    & .cardText {
+      display: block;
+
+      & .cardTextColumn {
+        display: block;
+        max-width: 980px;
+      }
+    }
+  }
+
+  ul {
+    @include flex(column, initial, initial, wrap, space-around);
+    @include fontSize(16px, 150%);
+
+    @media (max-width: 924px) {
+      height: 140px;
+    }
+
+    height: 85px;
+    max-width: 980px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: $gray900;
+
+    & li {
+      @include fontSize(16px, 150%);
+
+      display: inline-block;
+      max-width: 314px;
+      margin-bottom: 12px;
+      list-style: none;
+
+      & p {
+        position: relative;
+        display: flex;
+        margin: 0;
+        padding-left: 16px;
+        overflow-wrap: break-word;
+
+        &::after {
+          position: absolute;
+          top: calc(50% - 4px);
+          left: 0;
+          height: 8px;
+          width: 8px;
+          content: '';
+          background-color: $yellow500;
+          border-radius: 100%;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+        margin-right: 0;
+      }
+    }
+
+    @include below-tablet {
+      @include flex(column);
+
+      height: fit-content;
+    }
+  }
+
+  & > div h3 {
+    max-width: 455px;
+  }
+}

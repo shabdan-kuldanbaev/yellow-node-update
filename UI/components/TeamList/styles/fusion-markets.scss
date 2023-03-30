@@ -1,0 +1,14 @@
+.fusion-markets {
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 172px;
+
+  .title {
+    grid-row: 1/5;
+    color: $gray0;
+  }
+
+  .teamItem {
+    color: $gray0;
+    opacity: 0.7;
+  }
+}

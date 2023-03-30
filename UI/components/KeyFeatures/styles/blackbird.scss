@@ -1,0 +1,11 @@
+.blackbird {
+  .featureContainer {
+    .checkMark {
+      background: $blackbirdAccent;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}

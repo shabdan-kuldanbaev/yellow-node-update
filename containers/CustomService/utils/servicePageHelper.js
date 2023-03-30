@@ -112,6 +112,17 @@ export const getServicePageInfo = (pathname) => {
       pageMicrodata: microdata.tradingSoftwareDevelopment(),
     };
 
+  case PAGES.eWalletAppDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.eWalletAppDevelopment(),
+      pageMicrodata: microdata.eWalletAppDevelopment(),
+    };
+
+  case PAGES.penetrationTesting:
+    return {
+      breadcrumbs: pagesBreadcrumbs.penetrationTesting(),
+    };
+
   default:
     return {
       pageMicrodata: null,

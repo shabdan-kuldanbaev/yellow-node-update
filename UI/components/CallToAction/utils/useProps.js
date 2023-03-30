@@ -46,7 +46,6 @@ export default ({
   const files = (rawFiles || []).map(getFileUrl);
 
   return {
-    ...props,
     titles,
     subtitle,
     images,
@@ -57,5 +56,6 @@ export default ({
     downloadLink: files[0],
     isOpenFeedbackForm,
     slug,
+    ...props,
   };
 };

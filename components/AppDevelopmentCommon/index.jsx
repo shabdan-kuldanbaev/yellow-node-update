@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
+const TableSection = dynamic(() => import('UI/sections/TableSection'));
 const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
 const ProcessSection = dynamic(() => import('UI/sections/ProcessSection'));
 const DownloadSection = dynamic(() => import('UI/sections/DownloadSection'));
@@ -57,6 +58,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentCards:
     return <CardsSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentSliderCards:
     return (
       <CardsSection
@@ -178,6 +180,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
     return <DownloadSection {...props} />;
 
+  case APP_DEVELOPMENT_TYPES.appDevelopmentTableSection:
+    return <TableSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.feedback:
     return <FeedbackSection {...props} />;
 
@@ -187,7 +192,8 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 };
 
 AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {},
+  handleOnCTAClick: () => {
+  },
   introSection: null,
 };
 

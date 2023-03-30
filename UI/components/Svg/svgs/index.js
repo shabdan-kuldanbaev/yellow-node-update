@@ -129,6 +129,7 @@ export const kubernetesTitle = '/technologies/kubernetesTitle.svg';
 export const lighthouseTitle = '/technologies/lighthouseTitle.svg';
 export const lookerTitle = '/technologies/lookerTitle.svg';
 export const materialUITitle = '/technologies/materialUITitle.svg';
+export const mongoDbTitle = './technologies/mongoDbTitle.svg';
 export const microsoftOutlookTitle = '/technologies/microsoftOutlookTitle.svg';
 export const microsoftTeamsTitle = '/technologies/microsoftTeamsTitle.svg';
 export const mySQLTitle = '/technologies/mySQLTitle.svg';
@@ -155,6 +156,7 @@ export const soapUiTitle = '/technologies/soapUiTitle.svg';
 export const sonarqubeTitle = '/technologies/sonarqubeTitle.svg';
 export const sparkTitle = '/technologies/sparkTitle.svg';
 export const sqliteTitle = '/technologies/sqliteTitle.svg';
+export const stripeTitle = './technologies/stripeTitle.svg';
 export const swaggerTitle = '/technologies/swaggerTitle.svg';
 export const swiftTitle = '/technologies/swiftTitle.svg';
 export const swiftUiTitle = '/technologies/swiftUiTitle.svg';
@@ -474,6 +476,8 @@ export const digit6 = '/filled/digit6.svg';
 export const digit7 = '/filled/digit7.svg';
 export const digit8 = '/filled/digit8.svg';
 export const digit9 = '/filled/digit9.svg';
+export const digit10 = '/filled/digit10.svg';
+export const digit11 = '/filled/digit11.svg';
 export const yellowCheckMark = '/filled/yellowCheckMark.svg';
 
 /* Logo Yellow */

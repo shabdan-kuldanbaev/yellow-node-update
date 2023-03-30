@@ -3,59 +3,71 @@ import PropTypes from 'prop-types';
 import SectionTitle from 'UI/components/SectionTitle';
 import Illustration from 'UI/components/Illustration';
 import Typography from 'UI/components/Typography';
+import Svg from 'UI/components/Svg';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
 const CaseProcess = (props) => {
   const {
     type,
+    view,
     style,
     title,
     images,
     steps,
+    description,
   } = useSectionProps(props);
 
   return (
     <section
-      className={cn(styles.section, styles[type])}
+      className={cn(styles[view], styles[type], styles.section)}
       style={style}
     >
       <SectionTitle
         title={title}
+        description={description}
         className={styles.titleStyle}
       />
       <div className={styles.container}>
         <div className={styles.stepsContainer}>
-          {steps.map(({
+          {steps?.map(({
             title: stepTitle,
-            description,
+            text,
             subtitle,
             imageBundles,
+            icon,
           }, index) => (
             <div
-              className={styles.step}
+              className={cn(styles.step, styles[`step-${index + 1}`])}
               key={index}
             >
-              <Typography
-                variant="span"
-                className={styles.stepNumber}
-              >
-                {subtitle}
-              </Typography>
-              <Typography
-                variant="h3"
-                className={styles.stepTitle}
-              >
-                {stepTitle}
-              </Typography>
-              {description
+              {icon
                 && (
-                  <Typography
-                    variant="p"
-                    className={styles.stepDescription}
-                  >
-                    {description}
-                  </Typography>
+                  <Svg
+                    type={icon}
+                    className={styles.stepIcon}
+                  />
+                )}
+              {subtitle && (
+                <Typography
+                  variant="span"
+                  className={styles.stepNumber}
+                >
+                  {subtitle}
+                </Typography>
+              )}
+              {stepTitle && (
+                <Typography
+                  variant="h3"
+                  className={styles.stepTitle}
+                >
+                  {stepTitle}
+                </Typography>
+              )}
+              {text
+                && (
+                  <ContentfulParser document={text} />
                 )}
               {imageBundles?.map((url, indexBundleImage) => (
                 <Illustration
@@ -69,7 +81,7 @@ const CaseProcess = (props) => {
           ))}
         </div>
         <div className={styles.imagesContainer}>
-          {images.map((url, index) => (
+          {images?.map((url, index) => (
             <Illustration
               transparent
               priority

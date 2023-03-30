@@ -40,22 +40,21 @@ const SvgListSection = (props) => {
         titleStyle={styles.titleStyle}
       />
       {withSelector && (
-        <Selector
-          type={type}
-          displayNames={displayNames}
-          selectedIndex={selectedGroupIndex}
-          onSelectedIndexChange={handleSelectedGroupIndexChange}
-        />
-      )}
-      {withSelector
-        && (
+        <>
+          <Selector
+            type={type}
+            displayNames={displayNames}
+            selectedIndex={selectedGroupIndex}
+            onSelectedIndexChange={handleSelectedGroupIndexChange}
+          />
           <SvgGroup
             data={iconsGroups[selectedGroupIndex]}
             className={styles.svgList}
             isSwiperEnabled
             hideTitle
           />
-        )}
+        </>
+      )}
       {!withSelector && iconsGroups.map((group, i) => (
         <SvgGroup
           key={i}

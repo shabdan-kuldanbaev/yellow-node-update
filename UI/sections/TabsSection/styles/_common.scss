@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.section {
+  @include appDevelopmentContainer;
+}
+
 .tabs {
   @include flex(row, center);
 }
