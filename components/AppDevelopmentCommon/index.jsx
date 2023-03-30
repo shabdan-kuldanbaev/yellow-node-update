@@ -59,6 +59,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentCards:
     return <CardsSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentSliderCards:
     return (
       <CardsSection
@@ -192,7 +193,8 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 };
 
 AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {},
+  handleOnCTAClick: () => {
+  },
   introSection: null,
 };
 

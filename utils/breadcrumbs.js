@@ -182,6 +182,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.tradingSoftwareDevelopment.path,
     },
   ]),
+  eWalletAppDevelopment: () => ([
+    {
+      title: ROUTES.eWalletAppDevelopment.title,
+      to: ROUTES.eWalletAppDevelopment.path,
+    },
+  ]),
   technicalPage: (slug) => {
     if (slug === PAGES.privacyPolicy) {
       return [

@@ -129,6 +129,8 @@ export { default as kubernetesTitle } from './technologies/kubernetesTitle.svg';
 export { default as lighthouseTitle } from './technologies/lighthouseTitle.svg';
 export { default as lookerTitle } from './technologies/lookerTitle.svg';
 export { default as materialUITitle } from './technologies/materialUITitle.svg';
+export { default as mongoDbTitle } from './technologies/mongoDbTitle.svg';
+export { default as stripeTitle } from './technologies/stripeTitle.svg';
 export { default as microsoftOutlookTitle } from './technologies/microsoftOutlookTitle.svg';
 export { default as microsoftTeamsTitle } from './technologies/microsoftTeamsTitle.svg';
 export { default as mySQLTitle } from './technologies/mySQLTitle.svg';

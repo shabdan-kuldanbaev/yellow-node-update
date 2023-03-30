@@ -467,6 +467,16 @@ export const microdata = {
     },
     getServiceMicrodata(ROUTES.mvpDevelopment),
   ]),
+  eWalletAppDevelopment: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'E-Wallet App Development Company | Yellow',
+      description: 'Mobile e-wallet app development services for any industry and any business scale.',
+      breadcrumb: 'Homepage > E-Wallet App Development Company',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.mvpDevelopment)]),
   lendingSoftwareDevelopment: () => ([
     {
       '@context': context,

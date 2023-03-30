@@ -93,6 +93,7 @@ export const NAV_LINKS = [
     routes.androidDevelopmentServices.slug,
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
+    routes.eWalletAppDevelopment.slug,
     routes.lendingSoftwareDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
@@ -432,6 +433,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
 
 export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.penetrationTesting.path,
+  ROUTES.eWalletAppDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -517,6 +519,11 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Make your software as safe as possible',
         slug: ROUTES.penetrationTesting.path,
       },
+      {
+        title: 'E-Wallet App Development Company',
+        subtitle: 'Having full control over money',
+        slug: ROUTES.eWalletAppDevelopment.path,
+      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
       {
@@ -581,6 +588,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.tradingSoftwareDevelopment,
   PAGES.lendingSoftwareDevelopment,
   PAGES.penetrationTesting,
+  PAGES.eWalletAppDevelopment,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

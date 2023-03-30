@@ -188,4 +188,10 @@ export const ogMetaData = [
     metaDescription: 'Use penetration testing to make sure your software solution is safe for your users. Yellow will provide you with penetration testing services.',
     url: `${rootUrl}${ROUTES.penetrationTesting.path}`,
   },
+  {
+    pageName: ROUTES.eWalletAppDevelopment.slug,
+    metaTitle: 'E-Wallet App Development Company | Yellow',
+    metaDescription: 'Mobile e-wallet app development services for any industry and any business scale.',
+    url: `${rootUrl}${ROUTES.eWalletAppDevelopment.path}`,
+  },
 ];
