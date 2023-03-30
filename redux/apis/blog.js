@@ -51,6 +51,9 @@ const blogApi = baseApi.injectEndpoints({
     }),
 
     getTags: builder.query({
+      extraOptions: {
+        type: BASEQUERY_TYPES.graphql,
+      },
       query() {
         return GRAPHQL_QUERY.loadTag({});
       },
