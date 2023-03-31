@@ -285,6 +285,8 @@ export const routes = {
     path: '/discovery-phase-services',
     dynamicPath: '/discovery-phase-services',
     slug: 'discovery-phase-services',
+    description: 'Discovery phase of a project is an important part of software development. Learn more about how '
+    + 'to run a discovery phase and its benefits to your business.',
   },
   signatureGenerator: {
     title: 'Signature Generator',

@@ -295,6 +295,25 @@ const OFFERS = {
       + 'with the help of data science and machine learning algorithms.',
     },
   ],
+  [ROUTES.discoveryPhase]: [
+    {
+      name: 'Risk reduction',
+      desciption: 'A discovery phase will provide you and your team with the necessary data to decide '
+      + 'whether to continue development. You will know about possible risks and be prepared for them.',
+    }, {
+      name: 'User validation',
+      desciption: 'When you have a clickable prototype on your hands, you can do more than just show '
+      + 'it to stakeholders or investors; you can also beta test groups of your target audience to receive real user feedback.',
+    }, {
+      name: 'Cost reduction',
+      desciption: 'The discovery phase in software development is not costly compared to the full-scale '
+      + 'process, so if you decide that the idea is not worth the risk, your final expenses will be minimal.',
+    }, {
+      name: 'Transparent goals',
+      desciption: 'A discovery phase will give your team a clear understanding of the project. They will know '
+      + 'why each feature is needed and what user pain point it solves.',
+    },
+  ],
 };
 
 const CATEGORY = {
@@ -305,6 +324,7 @@ const CATEGORY = {
   [ROUTES.aiDevelopment]: SERVICE_CATEGORY.web,
   [ROUTES.mlDevelopment]: SERVICE_CATEGORY.web,
   [ROUTES.dataScienceDevelopment]: SERVICE_CATEGORY.web,
+  [ROUTES.discoveryPhase]: SERVICE_CATEGORY.web,
 };
 
 const authorMicrodata = ({ author: { fullName, position } }) => ({
