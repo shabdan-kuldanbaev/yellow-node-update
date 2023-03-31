@@ -11,17 +11,14 @@
   }
 
   .descriptionContainer {
-    flex-direction: row;
-    justify-content: space-between;
+    @include flex(row, space-between);
+
     max-width: 994px;
     width: 100%;
     margin: 0 auto;
 
-    
-
     @include below-tablet {
-      flex-direction: column;
-      align-items: center;
+      @include flex(column, space-between, center);
     }
   }
 
