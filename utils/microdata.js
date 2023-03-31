@@ -245,6 +245,37 @@ const OFFERS = {
       + 'productivity and positively affect user experience.',
     },
   ],
+  [ROUTES.mlDevelopment]: [
+    {
+      name: 'Machine learning development',
+      desciption: 'We offer advanced ML and neural network development for businesses of every scale from '
+      + 'small local startups to multinational enterprises. Specialists from Yellow are ready to build a '
+      + 'solution that will meet your needs and improve the processes you want to address.',
+    }, {
+      name: 'Big data analysis',
+      desciption: 'Working with big data will provide you with definite patterns and valuable insights for '
+      + 'your sales and marketing teams. The Yellow team will build a suitable AI and machine learning solution '
+      + 'that will analyze raw data accurately.',
+    }, {
+      name: 'Predictive algorithms',
+      desciption: 'Predictive analysis is a powerful tool for almost any business. With the help of your '
+      + 'existing data and ML models, you can predict the behavior of your customers and market conditions '
+      + 'in order to prepare for changes in advance.',
+    }, {
+      name: 'Computer vision',
+      desciption: 'This service processes real-world photos and videos with capable algorithms. It can be '
+      + 'used in a variety of applications and perform countless functions ranging from face detection to vehicle tracking. ',
+    }, {
+      name: 'Natural language processing (NLP)',
+      desciption: 'Machine learning solutions based on natural language processing algorithms can be used '
+      + 'for apps in various industries such as IoT, healthcare, smart homes, and business workflow optimization.',
+    }, {
+      name: 'AI-powered chatbots',
+      desciption: 'Chatbots are automated solutions that empower your customer service, facilitate communication '
+      + 'with your clients, and boost internal workflow. They can work with the help of scripts, but AI-based '
+      + 'solutions are more personalized and efficient.',
+    },
+  ],
 };
 
 const CATEGORY = {
@@ -253,6 +284,7 @@ const CATEGORY = {
   [ROUTES.cloudDevelopment]: SERVICE_CATEGORY.web,
   [ROUTES.tradingSoftwareDevelopment]: SERVICE_CATEGORY.fintech,
   [ROUTES.aiDevelopment]: SERVICE_CATEGORY.web,
+  [ROUTES.mlDevelopment]: SERVICE_CATEGORY.web,
 };
 
 const authorMicrodata = ({ author: { fullName, position } }) => ({

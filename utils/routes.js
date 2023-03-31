@@ -266,6 +266,7 @@ export const routes = {
     path: '/machine-learning-development-services',
     dynamicPath: '/machine-learning-development-services',
     slug: 'machine-learning-development-services',
+    description: 'If you want to boost your business with custom machine learning software development, Yellow is here to back you up.',
   },
   erpDevelopment: {
     title: 'Custom ERP Software Development Services',
