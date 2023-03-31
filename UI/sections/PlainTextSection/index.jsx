@@ -8,6 +8,7 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Button from 'UI/components/Button';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+import { Figures } from '../../components/Figures';
 
 const PlainTextSection = (props) => {
   const {
@@ -20,6 +21,7 @@ const PlainTextSection = (props) => {
     hasSeeMoreButton,
     onClickMoreButton,
     isSeeMore,
+    figuresData,
   } = useSectionProps(props);
 
   return (
@@ -46,6 +48,12 @@ const PlainTextSection = (props) => {
             >
               See more
             </Button>
+          )}
+          {figuresData && (
+            <Figures
+              type={type}
+              figuresData={figuresData}
+            />
           )}
         </div>
       </div>

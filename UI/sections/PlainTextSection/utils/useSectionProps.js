@@ -25,6 +25,7 @@ export default ({
   const [isSeeMore, setIsSeeMore] = useState(false);
   const { text, hasSeeMoreButton } = getDocumentFields(get(contentModules, '[0]', []), ['text', 'hasSeeMoreButton']);
 
+  const figuresData = get(contentModules, '[0]', {});
   const onClickMoreButton = useCallback(() => {
     setIsSeeMore(!isSeeMore);
   }, [isSeeMore]);
@@ -39,5 +40,6 @@ export default ({
     hasSeeMoreButton,
     onClickMoreButton,
     isSeeMore,
+    figuresData: Object.keys(figuresData).length ? figuresData : null,
   };
 };

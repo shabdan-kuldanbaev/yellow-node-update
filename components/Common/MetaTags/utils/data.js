@@ -194,4 +194,10 @@ export const ogMetaData = [
     metaDescription: 'Mobile e-wallet app development services for any industry and any business scale.',
     url: `${rootUrl}${ROUTES.eWalletAppDevelopment.path}`,
   },
+  {
+    pageName: ROUTES.bankingSoftwareDevelopmentCompany.slug,
+    metaTitle: 'Banking Software Development Company | Yellow',
+    metaDescription: 'We provide companies and organizations big and small with outstanding banking software development. Check out what we can do for you.',
+    url: `${rootUrl}${ROUTES.bankingSoftwareDevelopmentCompany.path}`,
+  },
 ];

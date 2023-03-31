@@ -1,0 +1,36 @@
+.banking-software-development-company {
+  background-color: $gray900;
+
+  .textContent {
+    display: block;
+  }
+
+  span {
+    &:first-child {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+  }
+
+  .titleStyle {
+    display: block;
+    max-width: 853px;
+    color: $gray0;
+    margin: 0 auto 48px;
+
+    & + div {
+      @include below-tablet {
+        & > div {
+          @include flex(column, initial, center);
+
+          font-size: 24px;
+          text-align: center;
+        }
+      }
+    }
+
+    @include below-tablet {
+      margin-bottom: 24px;
+    }
+  }
+}

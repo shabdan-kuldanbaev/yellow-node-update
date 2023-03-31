@@ -1,0 +1,20 @@
+.banking-software-development-company {
+  background-color: $gray50;
+
+  .pageWrapper {
+    flex-direction: row-reverse;
+
+    @include below-tablet {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .pageTextContainer {
+    max-width: 584px;
+  }
+
+  picture {
+    max-width: 433px;
+    margin-left: 0;
+  }
+}

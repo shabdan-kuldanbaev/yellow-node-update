@@ -1,0 +1,59 @@
+.banking-software-development-company {
+  @include appFeaturesContainer;
+
+  background-color: $gray900;
+
+  [data-title] {
+    color: $gray0;
+
+    @include phone {
+      text-align: center;
+    }
+  }
+
+  .container {
+    @include flex(row, space-between, flex-start);
+
+    color: $gray0;
+
+    & > div:first-child {
+      max-width: 584px;
+    }
+
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+
+  .description {
+    width: 100%;
+    max-width: unset;
+  }
+
+  .sectionContainer {
+    min-width: 584px;
+
+    @include tablet {
+      min-width: unset;
+    }
+  }
+
+  .imageWrapper {
+    margin-top: 17px;
+
+    @include tablet {
+      margin-top: 24px;
+      width: 95vw;
+    }
+  }
+
+  .image {
+    width: 490px;
+    height: 600px;
+
+    @include tablet {
+      margin-left: 50%;
+      transform: translate(-50%, 0%);
+    }
+  }
+}
