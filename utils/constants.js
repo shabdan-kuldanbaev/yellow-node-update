@@ -85,6 +85,7 @@ export const NAV_LINKS = [
     routes.customChatApp.slug,
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
+    routes.crowdfundingPlatform.slug,
     routes.fintechDevelopment.slug,
     routes.discoveryPhase.slug,
     routes.erpDevelopment.slug,
@@ -471,6 +472,11 @@ export const SUB_NAVIGATION_LINKS = {
       },
       {
         title: 'Web app development',
+        subtitle: 'Your website will rock the stage',
+        slug: ROUTES.customWebApp.path,
+      },
+      {
+        title: 'Crowdfunding Platform Development Company',
         subtitle: 'Your website will rock the stage',
         slug: ROUTES.customWebApp.path,
       },

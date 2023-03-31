@@ -135,6 +135,7 @@ function* fetchPageData({
     case PAGES.customChatApp:
     case PAGES.customMobileApp:
     case PAGES.customWebApp:
+    case PAGES.crowdfundingPlatform:
     case PAGES.designServices:
     case PAGES.developmentServices:
     case PAGES.androidDevelopmentServices:

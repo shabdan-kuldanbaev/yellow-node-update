@@ -221,6 +221,12 @@ export const routes = {
     dynamicPath: '/web-app-development-company',
     slug: 'web-app-development-company',
   },
+  crowdfundingPlatform: {
+    title: 'White-Label Crowdfunding Platform Development Company',
+    path: '/crowdfunding-platform-development-company',
+    dynamicPath: '/crowdfunding-platform-development-company',
+    slug: 'crowdfunding-platform-development-company',
+  },
   designServices: {
     title: 'UI/UX design services',
     path: '/ui-ux-services',

@@ -52,6 +52,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.customWebApp(),
     };
 
+  case PAGES.crowdfundingPlatform:
+    return {
+      pageMicrodata: microdata.crowdfundingPlatform(),
+      breadcrumbs: pagesBreadcrumbs.crowdfundingPlatform(),
+    };
+
   case PAGES.designServices:
     return {
       pageMicrodata: microdata.designServices(),
