@@ -314,6 +314,48 @@ const OFFERS = {
       + 'why each feature is needed and what user pain point it solves.',
     },
   ],
+  [ROUTES.erpDevelopment]: [
+    {
+      name: 'ERP consulting services',
+      desciption: 'It all starts with a detailed and careful analysis of your current business environment to '
+      + 'identify where it needs the help of a custom ERP solution. The findings allow us to formulate strategies '
+      + 'to integrate and migrate critical ERP software.',
+    }, {
+      name: 'Custom ERP development',
+      desciption: 'To automate and speed up business processes, make them more transparent and get insights from '
+      + 'them, we develop custom ERP solutions for enterprises of different sizes and from different industries. '
+      + 'They are scalable and are available from different kinds of devices.',
+    }, {
+      name: 'Expert ERP implementation',
+      desciption: 'Yellow’s skilled and experienced specialists will deploy your custom ERP system with data '
+      + 'integrity and zero downtime. You’ll get a comprehensive and easy-to-use system that is aimed at simplifying '
+      + 'the business management and taking it to the next level.',
+    }, {
+      name: 'ERP application development',
+      desciption: 'This module makes working with data easy as one-two-three from any device. Usually, web apps '
+      + 'give the full functionality, desktop apps are suitable for certain software modules that require complex UI, '
+      + 'and mobile apps are great if you need data on-the-go to make decisions fast and stay updated.',
+    }, {
+      name: 'Human Resource management',
+      desciption: 'There’s no longer need in creating multiple folders to create, implement and store contracts '
+      + 'and other documents. With the HRM module, you can assign and manage tasks, schedule calls, get comprehensive '
+      + 'reports, and much more.',
+    }, {
+      name: 'Seamless data migration',
+      desciption: 'We use next-gen technologies to make data migration from your current ERP platform to a new one '
+      + 'easy and smooth. Since the security of the data is of primary importance for all businesses today, we adopt '
+      + 'the newest strategies to ensure that this process is 100% safe and secure.',
+    }, {
+      name: 'ERP dashboards',
+      desciption: 'Having all critical information from multiple reports displayed in one screen is priceless. '
+      + 'Collected data is used to track KPIs and performance, enable predictive analytics, get insights and facilitate '
+      + 'decision-making process.',
+    }, {
+      name: 'ERP system support and maintenance',
+      desciption: 'ERP development services usually include support and maintenance because business needs change fast, '
+      + 'just like today’s business environment. That said, the ERP system may also need some adjustments for better functioning.',
+    },
+  ],
 };
 
 const CATEGORY = {
@@ -325,6 +367,7 @@ const CATEGORY = {
   [ROUTES.mlDevelopment]: SERVICE_CATEGORY.web,
   [ROUTES.dataScienceDevelopment]: SERVICE_CATEGORY.web,
   [ROUTES.discoveryPhase]: SERVICE_CATEGORY.web,
+  [ROUTES.erpDevelopment]: SERVICE_CATEGORY.web,
 };
 
 const authorMicrodata = ({ author: { fullName, position } }) => ({

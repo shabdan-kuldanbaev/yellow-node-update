@@ -273,6 +273,7 @@ export const routes = {
     path: '/enterprise-resource-planning-software-services',
     dynamicPath: '/enterprise-resource-planning-software-services',
     slug: 'enterprise-resource-planning-software-services',
+    description: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',
   },
   devOpsDevelopment: {
     title: 'DevOps Development Company that Helps You Grow',
