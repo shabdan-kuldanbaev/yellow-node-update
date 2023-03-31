@@ -276,6 +276,25 @@ const OFFERS = {
       + 'solutions are more personalized and efficient.',
     },
   ],
+  [ROUTES.dataScienceDevelopment]: [
+    {
+      name: 'Image recognition',
+      desciption: 'Data science can help your security software recognize faces, identify emotions, '
+      + 'and determine the number of objects on the image.',
+    }, {
+      name: 'Personalization',
+      desciption: 'With the help of big data and business intelligence, you can see the patterns of user '
+      + 'behavior and recommend new content to people based on their preferences.',
+    }, {
+      name: 'Route optimization',
+      desciption: 'Machine learning and deep learning solutions will provide drivers with the most efficient '
+      + 'way to deliver the load based on traffic, weather, and GPS.',
+    }, {
+      name: 'Price prediction',
+      desciption: 'Using predictive analytics, it’s possible to predict the price of a real estate property '
+      + 'with the help of data science and machine learning algorithms.',
+    },
+  ],
 };
 
 const CATEGORY = {
@@ -285,6 +304,7 @@ const CATEGORY = {
   [ROUTES.tradingSoftwareDevelopment]: SERVICE_CATEGORY.fintech,
   [ROUTES.aiDevelopment]: SERVICE_CATEGORY.web,
   [ROUTES.mlDevelopment]: SERVICE_CATEGORY.web,
+  [ROUTES.dataScienceDevelopment]: SERVICE_CATEGORY.web,
 };
 
 const authorMicrodata = ({ author: { fullName, position } }) => ({

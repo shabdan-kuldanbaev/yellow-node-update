@@ -311,6 +311,8 @@ export const routes = {
     path: '/data-science-development-company',
     dynamicPath: '/data-science-development-company',
     slug: 'data-science-development-company',
+    descripition: 'If you are looking for a partner that will help you analyze, process, and structure '
+    + 'your data, data science specialists at Yellow are here for you.',
   },
   tradingSoftwareDevelopment: {
     title: 'Custom Trading Platform Development Services',
