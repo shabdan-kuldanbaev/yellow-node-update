@@ -302,6 +302,8 @@ export const routes = {
     path: '/artificial-intelligence-development-services',
     dynamicPath: '/artificial-intelligence-development-services',
     slug: 'artificial-intelligence-development-services',
+    description: 'Yellow is an AI software development company that can provide '
+    + 'you with top-notch artificial intelligence application development.',
   },
   dataScienceDevelopment: {
     title: 'Data Science Development Services',

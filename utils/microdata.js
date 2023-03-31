@@ -214,6 +214,37 @@ const OFFERS = {
       + 'opt for cloud computing instead of worrying about hardware updates and get access online within seconds. ',
     },
   ],
+  [ROUTES.aiDevelopment]: [
+    {
+      name: 'Natural Language Processing',
+      desciption: 'This AI development service can be used to build voice assistants, gather data '
+      + 'about meaning and emotions, and build a more efficient communication strategy.',
+    }, {
+      name: 'Custom AI applications',
+      desciption: 'Whether you want to analyze medical data, prepare a recommendation list for users, '
+      + 'predict prices for sales and marketing strategy, and reach any other of your business goals, our '
+      + 'specialists will analyze your requirements and create a perfect custom solution for them.',
+    }, {
+      name: 'Computer vision',
+      desciption: 'Computer vision works almost like a human eye. It enables a machine to identify, '
+      + 'process, recognize, and understand all types of objects in images and videos. Yellow’s AI software '
+      + 'developers will help you integrate computer vision into your application, website, or platform.',
+    }, {
+      name: 'Data analytics',
+      desciption: 'The process of structuring and analyzing data can be significantly sped up by implementing '
+      + 'artificial intelligence and machine learning algorithms. AI app development will ensure you receive '
+      + 'valuable insights and get organized reports with ease.',
+    }, {
+      name: 'Neural networks',
+      desciption: 'A neural network is a set of algorithms that is trained to notice underlying relationships '
+      + 'in data and conduct predictive analysis.',
+    }, {
+      name: 'Chatbots',
+      desciption: 'Our artificial intelligence developers are experienced in building AI-based chatbots '
+      + 'for websites and mobile apps. A chatbot empowered by AI algorithms can boost your customer service’s '
+      + 'productivity and positively affect user experience.',
+    },
+  ],
 };
 
 const CATEGORY = {
@@ -221,6 +252,7 @@ const CATEGORY = {
   [ROUTES.mvpDevelopment]: SERVICE_CATEGORY.mobile,
   [ROUTES.cloudDevelopment]: SERVICE_CATEGORY.web,
   [ROUTES.tradingSoftwareDevelopment]: SERVICE_CATEGORY.fintech,
+  [ROUTES.aiDevelopment]: SERVICE_CATEGORY.web,
 };
 
 const authorMicrodata = ({ author: { fullName, position } }) => ({
