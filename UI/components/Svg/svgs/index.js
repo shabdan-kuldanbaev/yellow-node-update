@@ -173,6 +173,8 @@ export { default as xcodeTitle } from './technologies/xcodeTitle.svg';
 export { default as xgboostTitle } from './technologies/xgboostTitle.svg';
 export { default as contentfulTitle } from './technologies/contentfulTitle.svg';
 export { default as netTitle } from './technologies/netTitle.svg';
+export { default as rubyTitle } from './technologies/rubyTitle.svg';
+export { default as phpTitle } from './technologies/phpTitle.svg';
 
 /* Outlined General */
 export { default as arrowDown } from './outlined/arrowDown.svg';

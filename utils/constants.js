@@ -595,6 +595,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.lendingSoftwareDevelopment,
   PAGES.penetrationTesting,
   PAGES.eWalletAppDevelopment,
+  PAGES.crowdfundingPlatform,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

@@ -222,7 +222,7 @@ export const routes = {
     slug: 'web-app-development-company',
   },
   crowdfundingPlatform: {
-    title: 'White-Label Crowdfunding Platform Development Company',
+    title: 'Crowdfunding Platform Development Company',
     path: '/crowdfunding-platform-development-company',
     dynamicPath: '/crowdfunding-platform-development-company',
     slug: 'crowdfunding-platform-development-company',

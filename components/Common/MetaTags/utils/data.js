@@ -68,7 +68,7 @@ export const ogMetaData = [
   },
   {
     pageName: ROUTES.crowdfundingPlatform.slug,
-    metaTitle: 'White-Label Crowdfunding Platform Development Company | Yellow',
+    metaTitle: 'Crowdfunding Platform Development Company | Yellow',
     metaDescription: `Yellow is ready to provide you with crowdfunding platform
     development services. High quality, realistic budget estimate, fast speed.`,
     url: `${rootUrl}${ROUTES.crowdfundingPlatform.path}`,
