@@ -245,7 +245,7 @@ export const routes = {
     dynamicPath: '/mvp-app-development-company',
     slug: 'mvp-app-development-company',
     description: 'A minimum viable product will help you get enough feedback to determine whether '
-    + 'you should continue a given project. We are ready to help with your MVP development.',
+      + 'you should continue a given project. We are ready to help with your MVP development.',
   },
   lendingSoftwareDevelopment: {
     title: 'Lending Software Development Services',
@@ -339,6 +339,12 @@ export const routes = {
     path: '/terms-and-conditions',
     dynamicPath: '/terms-and-conditions',
     slug: 'terms-and-conditions',
+  },
+  eWalletAppDevelopment: {
+    title: 'E-Wallet App Development Company',
+    path: '/e-wallet-app-development-company',
+    dynamicPath: '/e-wallet-app-development-company',
+    slug: 'e-wallet-app-development',
   },
   cookiesPolicy: {
     title: 'Cookies Policy',

@@ -152,6 +152,7 @@ function* fetchPageData({
     case PAGES.dataScienceDevelopment:
     case PAGES.tradingSoftwareDevelopment:
     case PAGES.prototypingServices:
+    case PAGES.eWalletAppDevelopment:
     case PAGES.notFound:
     case PAGES.signatureGenerator:
       yield call(fetchPage, { slug });
