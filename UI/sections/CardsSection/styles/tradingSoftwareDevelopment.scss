@@ -1,8 +1,4 @@
 .trading-software-development {
-  :global(.swiper-slide) {
-    height: 100%;
-  }
-
   &.firstSectionView {
     @extend .greySection;
 
@@ -10,7 +6,7 @@
       max-width: 740px;
 
       @include phone {
-        max-width: 345px
+        max-width: 345px;
       }
     }
 
@@ -24,29 +20,29 @@
 
     [data-title] {
       @include phone {
-        max-width: 300px
+        max-width: 300px;
       }
     }
 
     .contentWrapper {
-      max-width: 1200px
+      max-width: 1200px;
     }
   }
-  
+
   &.thirdSectionView {
     @extend .blackSection;
 
     [data-title] {
       @include phone {
-        max-width: 300px
+        max-width: 300px;
       }
     }
 
     [data-description] {
       max-width: 810px;
-      
+
       @include phone {
-        max-width: 340px
+        max-width: 340px;
       }
     }
 
@@ -93,7 +89,7 @@
       color: $gray900;
     }
   }
-  
+
   &.secondSectionView,
   &.thirdSectionView {
     svg {
