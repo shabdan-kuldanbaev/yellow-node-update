@@ -77,6 +77,7 @@ const CallToAction = (props) => {
               titles={titles}
               subtitle={subtitle}
               buttonTitle={buttonTitle}
+              handleOnClick={handleOnClick}
             />
           );
         default:
