@@ -54,8 +54,7 @@
 }
 
 .cardsSection {
-  @include appDevelopmentContainer;
-
+  padding: 120px 40px 50px;
   background: $gray0;
 
   :global(.swiper) {
@@ -70,6 +69,14 @@
     & > * {
       width: 100%;
     }
+  }
+
+  @include tablet {
+    padding: 60px 32px;
+  }
+
+  @include phone {
+    padding: 60px 16px;
   }
 }
 
