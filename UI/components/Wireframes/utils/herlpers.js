@@ -55,10 +55,12 @@ export const IMAGE_SIZES = {
   bionorica: {
     default: 500,
   },
+  humankind: {
+    default: 515,
+  },
   blackbird: {
     default: 480,
   },
-  humankind: 630,
   'software-for-mri-interpretation': 630,
   'mobile-bank-application': 500,
   'fusion-markets': {
@@ -98,6 +100,9 @@ export const MOBILE_IMAGE_SIZES = {
     default: 350,
   },
   dindon: {
+    default: 181,
+  },
+  humankind: {
     default: 181,
   },
   'machine-learning-in-real-estate': {
