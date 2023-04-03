@@ -1,4 +1,3 @@
-import React from 'react';
 import ContactUsContainer from 'containers/ContactUs';
 import { getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';

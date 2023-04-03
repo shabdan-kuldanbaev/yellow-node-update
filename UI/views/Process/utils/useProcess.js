@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectMetaData } from 'redux/selectors/layout';
 import { rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { useFetchPageQuery } from 'redux/apis/page';
+import { PAGES } from 'utils/constants';
 
 export const useProcess = ({ introSection, json }) => {
-  const metaData = useSelector(selectMetaData);
+  const { data: { metaData } = {} } = useFetchPageQuery(PAGES.process);
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const breadcrumbs = pagesBreadcrumbs.process();

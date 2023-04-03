@@ -1,12 +1,14 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import Illustration from 'UI/components/Illustration';
 import { LINK_TYPE } from 'utils/constants/linkType';
-import Contact from './content/Contact';
-import GetBook from './content/GetBook';
-import Subscribe from './content/Subscribe';
 import useProps from './utils/useProps';
 import styles from './styles.module.scss';
+
+const Contact = dynamic(() => import('./content/Contact'));
+const GetBook = dynamic(() => import('./content/GetBook'));
+const Subscribe = dynamic(() => import('./content/Subscribe'));
 
 const CallToAction = (props) => {
   const {
@@ -77,6 +79,7 @@ const CallToAction = (props) => {
               titles={titles}
               subtitle={subtitle}
               buttonTitle={buttonTitle}
+              handleOnClick={handleOnClick}
             />
           );
         default:

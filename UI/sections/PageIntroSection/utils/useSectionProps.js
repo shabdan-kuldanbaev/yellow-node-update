@@ -23,7 +23,11 @@ export default ({
   );
   const imageUrl = getFileUrl(get(images, '[0]', {}));
   const figuresData = get(contentModules, '[0]', {});
-  const { title: buttonTitle } = getDocumentFields(get(contentModules, '[1]', {}), ['title']);
+  const isButtonFirstBlock = figuresData.fields?.entryName.includes('Button');
+
+  const { title: buttonTitle } = !isButtonFirstBlock
+    ? getDocumentFields(get(contentModules, '[1]', {}), ['title'])
+    : getDocumentFields(get(contentModules, '[0]', {}), ['title']);
 
   return {
     type,

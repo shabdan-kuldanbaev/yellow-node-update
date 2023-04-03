@@ -8,13 +8,23 @@
   }
 
   &.firstSectionView {
+    padding: 120px 0;
+
+    .svgList {
+      max-width: $wide-content-width;
+    }
+
     [data-title],
     [data-description] {
       max-width: 610px;
-  
+
       @include phone {
         max-width: 305px;
       }
+    }
+
+    @include tablet {
+      padding: 60px 0;
     }
   }
 }

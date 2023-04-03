@@ -37,8 +37,4 @@ const SubscribeInCTAForm = (props) => {
   );
 };
 
-SubscribeInCTAForm.defaultProps = {
-  onSubmit: () => null,
-};
-
 export default SubscribeInCTAForm;

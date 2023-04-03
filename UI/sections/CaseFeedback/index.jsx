@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
 import LinkWrapper from 'UI/components/LinkWrapper';

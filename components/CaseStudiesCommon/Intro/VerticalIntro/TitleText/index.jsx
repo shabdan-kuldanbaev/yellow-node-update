@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { CASE_STUDIES } from 'utils/constants';
 import styles from '../styles.module.scss';

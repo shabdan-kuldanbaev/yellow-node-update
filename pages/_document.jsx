@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children } from 'react';
 import Document, {
   Html,
   Head,
@@ -21,7 +21,7 @@ class MyDocument extends Document {
 
     return {
       ...initialProps,
-      styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+      styles: [...Children.toArray(initialProps.styles), sheets.getStyleElement()],
     };
   }
 

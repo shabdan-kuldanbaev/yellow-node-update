@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { getDocumentFields } from 'utils/helper';
 import get from 'lodash/get';
 import getTabBlocks from './getTabBlocks';

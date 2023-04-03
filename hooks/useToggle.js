@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import { useReducer } from 'react';
 
 const reducer = (stateHandler) => (state) => {
   if (typeof stateHandler === 'function') {

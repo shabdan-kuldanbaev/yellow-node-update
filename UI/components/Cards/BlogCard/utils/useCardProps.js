@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectIsTabletResolutions } from 'redux/selectors/layout';
+import { selectIsTablet } from 'redux/selectors/layout';
 import { ROUTES } from 'utils/constants';
 
 export default (props) => {
@@ -15,7 +15,7 @@ export default (props) => {
 
   const { slug: tagSlug } = tagsListCollection.items[0];
 
-  const isTabletResolution = useSelector(selectIsTabletResolutions);
+  const isTabletResolution = useSelector(selectIsTablet);
   const { path: articlePath } = ROUTES.article.getRoute(slug);
   const { path: categoryPath } = ROUTES.blog.getRoute(categoryTag);
   const imageUrl = previewImageUrl.url;

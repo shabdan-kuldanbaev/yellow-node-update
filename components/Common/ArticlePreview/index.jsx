@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'UI/components/LinkWrapper';
@@ -23,7 +22,6 @@ export const ArticlePreview = ({
 }) => {
   const { path } = ROUTES.article.getRoute(slug);
   const articleLinkProps = { path };
-  const isCategoryWithHashtag = ['blog', 'search'].includes(type);
 
   if (!slug || !title || !image) {
     return null;

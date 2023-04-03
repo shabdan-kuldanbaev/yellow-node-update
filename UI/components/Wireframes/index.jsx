@@ -1,11 +1,12 @@
-import React from 'react';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import CustomImage from 'components/Common/CustomImage';
-import Animated from 'components/Common/Animated';
+import Illustration from 'UI/components/Illustration';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useWireframes } from './utils/useWireframes';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Wireframe = (props) => {
   const { type, wireframeImages } = useWireframes(props);
@@ -26,7 +27,7 @@ const Wireframe = (props) => {
       {...ANIMATION_CASE_STUDY_PROPS}
     >
       <div className={cn(styles[type], styles.container)}>
-        <CustomImage
+        <Illustration
           src={url}
           alt={url}
           layout="responsive"
@@ -40,7 +41,7 @@ const Wireframe = (props) => {
           containerClasses={styles.animatedContainer}
           className={styles.image}
         />
-        <CustomImage
+        <Illustration
           src={url}
           alt={alt}
           layout="responsive"

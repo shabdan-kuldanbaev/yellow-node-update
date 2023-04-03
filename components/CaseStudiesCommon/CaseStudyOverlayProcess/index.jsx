@@ -1,19 +1,21 @@
-import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
 import CardsSlider from 'components/Common/CardsSlider';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import { getCardsProps } from './utils/cardsHelper';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
+
 const CaseStudyOverlayProcess = ({ data, type }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   if (!data?.contentModules) {
     return null;
@@ -58,7 +60,7 @@ const CaseStudyOverlayProcess = ({ data, type }) => {
               >
                 <div className={styles.cardContainer}>
                   <div className={styles.imageContainer}>
-                    <img
+                    <Illustration
                       className={styles.image}
                       src={imageUrl}
                       alt={cardTitle}
