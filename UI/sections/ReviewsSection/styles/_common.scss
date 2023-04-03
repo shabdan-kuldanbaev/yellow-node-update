@@ -3,10 +3,6 @@
 
   background: $gray50;
 
-  :global(.swiper) {
-    padding-bottom: 70px;
-  }
-
   :global(.swiper-slide) {
     @include flex(row, initial, stretch);
 
