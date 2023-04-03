@@ -47,7 +47,6 @@ const AppFeaturesItem = (props) => {
           </p>
           {imagesUrl.map((imageUrl) => (
             <Illustration
-              layout="responsive"
               className={styles.imageBundle}
               src={imageUrl}
               alt=""

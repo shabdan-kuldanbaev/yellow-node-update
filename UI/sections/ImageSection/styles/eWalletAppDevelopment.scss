@@ -48,6 +48,12 @@
         }
       }
 
+      [data-description] {
+        text-align: left;
+        max-width: 500px;
+        margin: 0;
+      }
+
       @include below-tablet {
         text-align: center;
       }
