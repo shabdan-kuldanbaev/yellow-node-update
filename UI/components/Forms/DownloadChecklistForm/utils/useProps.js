@@ -6,7 +6,7 @@ const useProps = ({ downloadLink, ...props }) => {
     fixedCacheKey: SUBSCRIPTION_CASH_KEY,
   });
 
-  const message = data?.message.data || error?.message || error;
+  const message = data?.message?.data || error?.message || error;
 
   const {
     register,
