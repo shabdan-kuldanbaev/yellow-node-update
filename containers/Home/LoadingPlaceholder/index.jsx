@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import LoadingScreen from 'UI/components/LoadingScreen';

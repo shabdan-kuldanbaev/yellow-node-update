@@ -1,6 +1,6 @@
-import React from 'react';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import styles from './styles.module.scss';
@@ -22,7 +22,8 @@ const BackgroundImages = ({ data, type }) => {
         );
 
         return (
-          <img
+          <Illustration
+            layout="responsive"
             src={imageUrl}
             alt={imageUrl}
           />

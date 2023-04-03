@@ -1,4 +1,3 @@
-import React from 'react';
 import DefaultIntro from 'components/CaseStudiesCommon/Intro/DefaultIntro';
 import VerticalIntro from 'components/CaseStudiesCommon/Intro/VerticalIntro';
 import { CASE_STUDIES } from 'utils/constants';

@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import cn from 'classnames';
-import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 export const ToTopButton = () => {
   const [isHidden, setIsHidden] = useState(true);

@@ -3,7 +3,7 @@ import * as Sentry from '@sentry/nextjs';
 const isServer = typeof window === 'undefined';
 const isDev = process.env.NODE_ENV !== 'production';
 
-const handleError = ({ error = {}, ...extra } = {}) => {
+export const handleError = ({ error = {}, ...extra } = {}) => {
   const messageSide = isServer ? 'Server-side' : 'Client-side';
 
   Sentry.captureException(error, {
@@ -19,7 +19,7 @@ const handleError = ({ error = {}, ...extra } = {}) => {
   }
 };
 
-const handleMessage = ({ message } = {}) => {
+export const handleMessage = ({ message } = {}) => {
   const messageSide = isServer ? 'Server-side' : 'Client-side';
 
   Sentry.captureMessage(`Next.js ${messageSide}: ${message}`, 'info');
@@ -40,7 +40,7 @@ export const handleApiError = ({ error = {}, ...extra } = {}) => {
   console.error(error);
 };
 
-const handleApiMessage = ({ message } = {}) => {
+export const handleApiMessage = ({ message } = {}) => {
   Sentry.captureMessage(`Server: ${message}`);
 };
 

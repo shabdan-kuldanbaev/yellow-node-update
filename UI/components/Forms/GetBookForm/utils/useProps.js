@@ -1,36 +1,20 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { subscribe } from 'redux/actions/subscribe';
-import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscribe';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import downloadFile from 'utils/downloadFile';
 
 const useProps = ({
   downloadLink,
-  onSubmit,
   isOpen,
   ...props
 }) => {
   const { query } = useRouter();
   const { slug } = query;
 
-  const dispatch = useDispatch();
-
-  const isPending = useSelector(selectSubcibePending);
-  const isSubscribed = useSelector(selectIsSubscribed);
-
-  useEffect(() => {
-    if (!isSubscribed || !isOpen || isPending) {
-      return;
-    }
-
-    onSubmit();
-  }, [
-    isSubscribed,
-    isPending,
-    onSubmit,
-    isOpen,
-  ]);
+  const [
+    subscribe,
+    { data: { isSubscribed } = {}, isLoading },
+  ] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const {
     register,
@@ -42,8 +26,12 @@ const useProps = ({
     getValues,
   } = useForm({ reValidateMode: 'onBlur' });
 
-  const handleButtonClick = handleSubmit((values) => {
-    dispatch(subscribe({ ...values, pathname: query }));
+  const handleButtonClick = handleSubmit(async (values) => {
+    await subscribe({ ...values, pathname: query });
+
+    if (isSubscribed) {
+      downloadFile(downloadLink);
+    }
   });
 
   const buttonId = `${slug}/get-book-subscribed`;
@@ -51,7 +39,7 @@ const useProps = ({
   const isButtonDisabled = !getValues().name
   || !getValues().email
   || !isValid
-  || isPending;
+  || isLoading;
 
   return {
     ...props,

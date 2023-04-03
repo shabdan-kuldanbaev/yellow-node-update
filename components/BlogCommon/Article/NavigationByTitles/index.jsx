@@ -1,11 +1,13 @@
 /* eslint-disable no-shadow */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import slugify from 'slugify';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import { ANIMATED_TYPE, HEADER_HEIGHT } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 export const NavigationByTitles = ({ articleBodyRef, articleSlug }) => {
   const [subtitles, setSubtitles] = useState([]);

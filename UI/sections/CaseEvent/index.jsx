@@ -1,6 +1,5 @@
-import React from 'react';
 import cn from 'classnames';
-import Animated from 'UI/containers/Animated';
+import dynamic from 'next/dynamic';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import SectionTitle from 'UI/components/SectionTitle';
@@ -8,6 +7,8 @@ import Illustration from 'UI/components/Illustration';
 import Typography from 'UI/components/Typography';
 import useCaseEvent from './utils/useCaseEvent';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CaseEvent = (props) => {
   const {

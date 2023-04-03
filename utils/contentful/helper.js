@@ -1,21 +1,6 @@
 import get from 'lodash/get';
 import { contentfulClient, contentfulPreviewClient } from 'utils/contentful/client';
 
-export const fetchContentfulNearbyArticles = async ({ publishedAt, isOlder }) => {
-  try {
-    return await contentfulClient.getEntries({
-      contentType: 'article',
-      additionalQueryParams: {
-        [`fields.publishedAt[${isOlder ? 'lt' : 'gt'}]`]: publishedAt,
-        order: `${isOlder ? '-' : ''}fields.publishedAt`,
-      },
-      limit: 1,
-    });
-  } catch (error) {
-    console.error('The error catched from fetching the Nearby article: ', error);
-  }
-};
-
 export const fetchContentfulArticles = async (isPreviewMode, additionalQuery, params = {}) => {
   try {
     const options = {
@@ -49,3 +34,19 @@ export const findArticlesByValue = async (value, field = 'keyWords') => {
 export const getGraphqlResultTags = (graphqlResult) => get(graphqlResult, 'tagCollection.items', []);
 
 export const getGraphqlResultWorkTypes = (graphqlResult) => get(graphqlResult, 'workTypeCollection.items', []);
+
+export function getGraphqlResultArticles(graphqlResult) {
+  return get(graphqlResult, 'articleCollection.items', []);
+}
+
+export function getGraphqlResultTotalArticlesCount(graphqlResult) {
+  return get(graphqlResult, 'articleCollection.total', []);
+}
+
+export function getGraphqlResultArticlesByTags(graphqlResult) {
+  return get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.items', []);
+}
+
+export function getGraphqlResultTotalArticlesCountByTags(graphqlResult) {
+  return get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.total', []);
+}

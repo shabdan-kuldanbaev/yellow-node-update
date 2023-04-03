@@ -1,11 +1,13 @@
+import dynamic from 'next/dynamic';
 import Modal from 'UI/containers/Modal';
 import Illustration from 'UI/components/Illustration';
-import GetBookForm from 'UI/components/Forms/GetBookForm';
-import Typography from 'UI/components/Typography';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
-import Button from 'UI/components/Button';
 import useProps from './utils/useProps';
 import styles from './GetBookModal.module.scss';
+
+const GetBookForm = dynamic(() => import('UI/components/Forms/GetBookForm'));
+const Typography = dynamic(() => import('UI/components/Typography'));
+const Button = dynamic(() => import('UI/components/Button'));
 
 const GetBookModal = (props) => {
   const {
@@ -14,7 +16,6 @@ const GetBookModal = (props) => {
     bookCover,
     buttonText,
     isSubscribed,
-    onSubmit,
   } = useProps(props);
 
   return (
@@ -32,7 +33,6 @@ const GetBookModal = (props) => {
         {!isSubscribed && (
           <GetBookForm
             isOpen={show}
-            onSubmit={onSubmit}
             buttonText={buttonText}
           />
         )}

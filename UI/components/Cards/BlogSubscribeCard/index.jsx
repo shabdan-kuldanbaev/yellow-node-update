@@ -1,8 +1,10 @@
+import dynamic from 'next/dynamic';
 import Button from 'UI/components/Button';
 import SectionTitle from 'UI/components/SectionTitle';
 import CardContainer from 'UI/containers/CardContainer';
-import Svg from 'UI/components/Svg';
 import styles from './BlogSubscribeCard.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const BlogSubscribeCard = ({ toggleFullscreenSubscribe }) => (
   <CardContainer className={styles.card}>

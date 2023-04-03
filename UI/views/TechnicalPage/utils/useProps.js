@@ -1,17 +1,17 @@
-import { useSelector } from 'react-redux';
-import { selectComponents, selectMetaData } from 'redux/selectors/layout';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { useFetchPageQuery } from 'redux/apis/page';
 
 export default function useProps({
   type,
   ...rest
 }) {
-  const pageData = useSelector(selectComponents);
-  const metaData = useSelector(selectMetaData);
+  const { data = {}, isLoading } = useFetchPageQuery(type);
+  const { contentModules = [], metaData } = data;
 
-  const { main: contentModules } = pageData;
-  const { text } = getDocumentFields(contentModules[0], ['text']);
+  const textModule = contentModules[0] || {};
+
+  const { text } = getDocumentFields(textModule, ['text']);
 
   const breadcrumbs = pagesBreadcrumbs.technicalPage(type);
 
@@ -20,7 +20,7 @@ export default function useProps({
     url: `${rootUrl}/${type}`,
   };
 
-  const { updatedAt } = contentModules[0].sys;
+  const { sys: { updatedAt } = {} } = textModule;
 
   return {
     updatedAt,

@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 import AddFooter from 'components/HomeCommon/AddFooter';
 import DuckContainer from 'UI/components/Duck/DuckContainer';
@@ -26,4 +26,4 @@ HomeIntro.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default React.memo(HomeIntro);
+export default memo(HomeIntro);

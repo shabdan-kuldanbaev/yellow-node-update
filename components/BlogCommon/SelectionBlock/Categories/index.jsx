@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import TypeSelector from 'components/TypeSelector';
@@ -43,4 +43,4 @@ Categories.propTypes = {
   isMobileCategoties: PropTypes.bool,
 };
 
-export default React.memo(Categories);
+export default memo(Categories);

@@ -1,11 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import FiguresItem from './FiguresItem';
 import useFiguresProps from './utils/useFiguresProps';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 export const Figures = (props) => {
   const {

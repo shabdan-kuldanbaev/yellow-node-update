@@ -1,13 +1,12 @@
-import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import Animated from 'components/Common/Animated';
 import SectionTitle from 'UI/components/SectionTitle';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 

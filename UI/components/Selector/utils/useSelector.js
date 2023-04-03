@@ -9,7 +9,7 @@ export const useSelector = ({
 }) => {
   const handleSelectedIndexChange = useCallback(
     (i) => () => onSelectedIndexChange(i),
-    [],
+    [onSelectedIndexChange],
   );
 
   const swiperParams = getSwiperParams(type);

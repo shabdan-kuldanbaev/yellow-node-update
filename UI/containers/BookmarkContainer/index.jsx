@@ -1,7 +1,9 @@
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
-import Svg from 'UI/components/Svg';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const BookmarkContainer = ({
   title,
