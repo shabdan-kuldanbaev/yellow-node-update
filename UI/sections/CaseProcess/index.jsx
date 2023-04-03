@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import SectionTitle from 'UI/components/SectionTitle';
@@ -71,7 +70,7 @@ const CaseProcess = (props) => {
                   <ContentfulParser document={text} />
                 )}
               {imageBundles?.map((url, indexBundleImage) => (
-                <img
+                <Illustration
                   className={cn(styles.bundleImage, styles[`bundleImage-${indexBundleImage + 1}`])}
                   src={url}
                   alt={stepTitle}

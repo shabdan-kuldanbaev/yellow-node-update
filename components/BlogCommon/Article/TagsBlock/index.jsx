@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';

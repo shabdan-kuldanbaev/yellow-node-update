@@ -1,10 +1,11 @@
-import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import CallToAction from 'UI/components/CallToAction';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 
 const DownloadSection = (props) => {
   const {
@@ -12,8 +13,9 @@ const DownloadSection = (props) => {
     description,
     subtitle,
     view,
-    link,
+    buttonTitle,
     type,
+    handleOnCTAClick,
   } = useSectionProps(props);
 
   return (
@@ -32,10 +34,10 @@ const DownloadSection = (props) => {
           titleStyle={styles.titleStyle}
           className={styles.titleWrapper}
         />
-        {link && (
+        {buttonTitle && (
           <CallToAction
-            href={link.slug}
-            buttonTitle={link.buttonTitle}
+            handleOnClick={handleOnCTAClick}
+            buttonTitle={buttonTitle}
             className={styles.callToAction}
           />
         )}

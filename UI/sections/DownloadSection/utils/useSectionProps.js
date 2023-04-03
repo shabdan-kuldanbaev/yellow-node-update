@@ -5,6 +5,7 @@ import { getDocumentFields } from 'utils/helper';
 export default ({
   section,
   type,
+  ...props
 }) => {
   const {
     title,
@@ -23,14 +24,15 @@ export default ({
     ],
   ), [section]);
 
-  const link = getDocumentFields(get(contentModules, '[0]'));
+  const { buttonTitle } = getDocumentFields(get(contentModules, '[0]'));
 
   return {
     title,
     description,
     subtitle,
     view,
-    link,
+    buttonTitle,
     type,
+    ...props,
   };
 };

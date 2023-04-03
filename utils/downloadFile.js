@@ -7,7 +7,6 @@ export default function downloadFile(fileUrl) {
 
   document.body.appendChild(anchor);
 
-  console.log('downloading', fileUrl);
   anchor.click();
 
   document.body.removeChild(anchor);

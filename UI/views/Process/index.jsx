@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';

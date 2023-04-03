@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
 import { ARTICLE_PREVIEW_TYPES } from 'utils/constants';
 import BlogSubscribeCard from 'UI/components/Cards/BlogSubscribeCard';
@@ -17,7 +16,7 @@ export const ArticlesList = ({
   handleOnCloseModalWindow,
   toggleFullscreenSubscribe,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   const articleType = isSearch
     ? ARTICLE_PREVIEW_TYPES.search

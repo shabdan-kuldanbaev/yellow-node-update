@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createClient } from 'contentful';
 import { ACCESS_TO_CONTENTFUL, ACCESS_TO_CONTENTFUL_PREVIEW } from 'utils/constants';
-import errorHelper from 'utils/error';
+import { handleError } from 'utils/error';
 
 class ContentfulClient {
   constructor(ACCESS_KEYS) {
@@ -32,7 +32,7 @@ class ContentfulClient {
 
       return client;
     } catch (error) {
-      errorHelper.handleError({
+      handleError({
         error,
         message: 'Error in the getClient function',
       });
@@ -46,7 +46,7 @@ class ContentfulClient {
 
       return space;
     } catch (error) {
-      errorHelper.handleError({
+      handleError({
         error,
         message: 'Error in the getSpace function',
       });
@@ -75,12 +75,18 @@ class ContentfulClient {
         include: 10,
       });
 
+      if (entries.total === 0) {
+        throw new Error('404');
+      }
+
       return entries;
     } catch (error) {
-      errorHelper.handleError({
+      handleError({
         error,
         message: 'Error in the getEntries function',
       });
+
+      throw error;
     }
   };
 
@@ -94,7 +100,7 @@ class ContentfulClient {
 
       return entry;
     } catch (error) {
-      errorHelper.handleError({
+      handleError({
         error,
         message: 'Error in the getEntry function',
       });
@@ -116,7 +122,7 @@ class ContentfulClient {
 
       return response.data.data;
     } catch (error) {
-      errorHelper.handleError({
+      handleError({
         error,
         message: 'Error in the graphql function',
       });

@@ -1,36 +1,34 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { mobileResolution, tabletResolution } from 'utils/helper';
-import { selectDuck } from 'redux/selectors/home';
 import {
-  setMobileResolutions,
-  setTabletResolutions,
-  setFullResolution,
-} from 'redux/actions/layout';
-
-const HOME_PAGE_PATHNAME = '/';
+  desktopResolutionSet,
+  mobileResolutionSet,
+  tabletResolutionSet,
+} from 'redux/reducers/layout';
+import { AppContext } from 'utils/appContext';
+import { routes } from 'utils/routes';
 
 export const useLayout = ({ children, introSection }) => {
-  const dispatch = useDispatch();
   const { pathname } = useRouter();
-  const duck = useSelector(selectDuck);
+  const isHomePage = pathname === routes.homepage.path;
+  const { contextData: { duck } } = useContext(AppContext);
+  const isDuckLoading = isHomePage && !duck;
 
-  const isHomePage = pathname === HOME_PAGE_PATHNAME;
-  const isDuckLoaded = isHomePage && !duck;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleOnResize = () => {
       const { innerWidth } = window;
 
-      if (innerWidth <= mobileResolution) dispatch(setMobileResolutions(true));
-      else dispatch(setMobileResolutions(false));
-
-      if (innerWidth > mobileResolution && innerWidth <= tabletResolution) dispatch(setTabletResolutions(true));
-      else dispatch(setTabletResolutions(false));
-
-      if (innerWidth > tabletResolution) dispatch(setFullResolution(true));
-      else dispatch(setFullResolution(false));
+      if (innerWidth <= mobileResolution) {
+        dispatch(mobileResolutionSet());
+      } else if (innerWidth > mobileResolution && innerWidth <= tabletResolution) {
+        dispatch(tabletResolutionSet());
+      } else {
+        dispatch(desktopResolutionSet());
+      }
     };
 
     handleOnResize();
@@ -42,6 +40,6 @@ export const useLayout = ({ children, introSection }) => {
   return {
     children,
     introSection,
-    isDuckLoaded,
+    isDuckLoading,
   };
 };

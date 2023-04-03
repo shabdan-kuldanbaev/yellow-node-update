@@ -1,47 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import chunk from 'lodash/chunk';
+import chunkCreator from 'lodash/chunk';
 import cn from 'classnames';
-import { useSelector } from 'react-redux';
-import { selectFoundArticles, selectSearchMessage } from 'redux/selectors/blog';
 import { ArticlesList } from 'components/BlogCommon/ArticlesList';
 import ButtonMore from 'components/Common/ButtonMore';
 import styles from './styles.module.scss';
 
-const SearchResult = ({ searchValue, handleOnCloseModalWindow }) => {
-  const foundArticles = useSelector(selectFoundArticles);
-  const searchMessage = useSelector(selectSearchMessage);
+const SearchResult = ({
+  foundArticles,
+  isFetching,
+  handleOnCloseModalWindow,
+}) => {
   const [articlesChunks, setArticlesChunks] = useState([]);
-  const [currectPage, setCurrentPage] = useState(0);
   const [articles, setArticles] = useState([]);
 
   const handleOnButtonClick = () => {
-    setCurrentPage(currectPage + 1);
+    const shiftedChunks = [...articlesChunks];
+    const chunk = shiftedChunks.shift();
+
+    setArticlesChunks(shiftedChunks);
+    setArticles((prev) => [...prev, ...chunk]);
   };
 
   useEffect(() => {
-    const nextChunk = articlesChunks[currectPage];
-
-    if (nextChunk) {
-      setArticles([...articles, ...nextChunk]);
+    if (!foundArticles.length) {
+      return;
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currectPage]);
 
-  useEffect(() => {
-    if (articlesChunks.length) {
-      setArticles(articlesChunks[0]);
-    }
-  }, [articlesChunks]);
+    const chunks = chunkCreator(foundArticles, 12);
 
-  useEffect(() => {
-    setArticlesChunks(chunk(foundArticles, 12));
+    setArticlesChunks(chunks);
+    setArticles(chunks.shift());
   }, [foundArticles]);
 
-  if (!articles.length) {
+  if (!articles.length && !isFetching) {
     return (
       <span className={styles.nothingFound}>
-        {searchMessage}
+        Nothing Found. Please try again with some different keywords.
       </span>
     );
   }
@@ -49,11 +44,9 @@ const SearchResult = ({ searchValue, handleOnCloseModalWindow }) => {
   return (
     <div className={styles.container}>
       <ArticlesList
-        key={searchValue}
         articles={articles}
-        currentPage={2}
-        isSearch
         handleOnCloseModalWindow={handleOnCloseModalWindow}
+        isSearch
       />
       <ButtonMore
         title="Load more"
@@ -67,7 +60,8 @@ const SearchResult = ({ searchValue, handleOnCloseModalWindow }) => {
 };
 
 SearchResult.propTypes = {
-  searchValue: PropTypes.string.isRequired,
+  foundArticles: PropTypes.arrayOf(Object).isRequired,
+  isFetching: PropTypes.bool.isRequired,
   handleOnCloseModalWindow: PropTypes.func.isRequired,
 };
 

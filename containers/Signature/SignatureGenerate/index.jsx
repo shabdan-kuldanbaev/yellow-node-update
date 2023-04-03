@@ -1,7 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { getInputsData } from 'containers/Signature/utils/helpers';
-import { SIGNATURE_BUTTON_NAMES } from 'containers/Signature/utils/constants';
+import { SIGNATURE_BUTTON_NAMES } from 'containers/Signature/utils';
 import SignatureInput from 'containers/Signature/SignatureInput';
 import styles from './styles.module.scss';
 

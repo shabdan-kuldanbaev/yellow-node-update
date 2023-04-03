@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+import {
+  useEffect,
+  useState,
+  memo,
+} from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Button from 'UI/components/Button';
-import Svg from 'UI/components/Svg';
 import useStorage from 'hooks/useStorage';
 import { PAGES } from 'utils/constants';
 import { notificationData } from './utils/data';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const CookiesNotification = ({ text }) => {
   const [storage, setStorage] = useState(null);
@@ -83,4 +89,4 @@ CookiesNotification.propTypes = {
   text: PropTypes.string,
 };
 
-export default React.memo(CookiesNotification);
+export default memo(CookiesNotification);

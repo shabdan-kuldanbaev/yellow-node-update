@@ -1,6 +1,6 @@
-const dotenv = require('dotenv');
-const axios = require('axios');
-const errorHelper = require('../error');
+import dotenv from 'dotenv';
+import axios from 'axios';
+import { handleError } from '../error';
 
 dotenv.config('./env');
 
@@ -20,7 +20,7 @@ const getPipedriveFields = async () => {
       leadSourceField,
     };
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the getPipedriveFields function',
     });
@@ -34,7 +34,7 @@ const getPersonCountry = async () => {
 
     return clientCountry.country_name;
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the getPersonCountry function',
     });
@@ -67,7 +67,7 @@ const createPersonPipedrive = async (data) => {
 
     return newPersonPipedrive.data;
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the createPersonPipedrive function',
     });
@@ -91,7 +91,7 @@ const createDescriptionPerson = async (data) => {
       },
     );
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the createDescriptionPerson function',
     });
@@ -124,14 +124,14 @@ const getCurrentLeadSourceOption = async ({
 
     return leadSourceOptions;
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the getCurrentLeadSourceOption function',
     });
   }
 };
 
-module.exports.sendDataPipedrive = async (req, res) => {
+export async function sendDataPipedrive(req, res) {
   try {
     const {
       name,
@@ -177,10 +177,10 @@ module.exports.sendDataPipedrive = async (req, res) => {
 
     res.status(200).send(JSON.stringify({ newPersonPipedrive }));
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the sendDataPipedrive function',
     });
     res.status(500).json({ error: error.message });
   }
-};
+}

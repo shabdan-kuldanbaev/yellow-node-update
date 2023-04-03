@@ -1,11 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Typography from 'UI/components/Typography';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const SectionTitle = ({
   type,

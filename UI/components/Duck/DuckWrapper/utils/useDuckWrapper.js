@@ -1,29 +1,21 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectDuck } from 'redux/selectors/home';
-import { fetchDuck } from 'redux/actions/home';
-import { mobileResolution } from 'utils/helper';
+import { useContext, useEffect } from 'react';
 import { slogan } from 'UI/components/Duck/utils/helpers';
-import { loadDuck } from './helpers';
+import { AppContext } from 'utils/appContext';
+import { mobileResolution } from 'utils/helper';
 
 export const useDuckWrapper = ({ sloganRef }) => {
-  const dispatch = useDispatch();
-  const duck = useSelector(selectDuck);
+  const { contextData: { duck } } = useContext(AppContext);
 
   useEffect(() => {
-    if (duck) {
-      const isMobile = window.innerWidth < mobileResolution;
-
-      slogan.animateSlogan(sloganRef);
-      slogan.sloganOpacityAnimation(!isMobile ? 0.1 : 1);
-    } else {
-      dispatch(fetchDuck({
-        isFirstHomepageVisit: true,
-        loadDuck,
-      }));
+    if (!duck) {
+      return;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [duck]);
+
+    const isMobile = window.innerWidth < mobileResolution;
+
+    slogan.animateSlogan(sloganRef);
+    slogan.sloganOpacityAnimation(!isMobile ? 0.1 : 1);
+  }, [duck, sloganRef]);
 
   return {
     duck,

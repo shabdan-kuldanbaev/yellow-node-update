@@ -1,9 +1,10 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import { ArcherElement } from 'react-archer';
-import Svg from 'UI/components/Svg';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import CardContainer from 'UI/containers/CardContainer';
 import styles from 'UI/sections/ProcessSection/styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const ProcessCard = (props) => {
   const {

@@ -1,5 +1,3 @@
-const get = require('lodash/get');
-
 const getTagId = (tag) => tag.sys.id;
 
 const isArrayDiffers = (a, b) => {
@@ -37,7 +35,6 @@ module.exports = async (client, { makeRequest }) => {
     }, {});
 
   const categoryTags = Object.values(categoryTagsObject);
-  console.log('🚀 ~ file: migratingCategory.js:40 ~ module.exports= ~ categoryTags:', categoryTags);
 
   client.transformEntries({
     contentType: 'article',
@@ -67,8 +64,6 @@ module.exports = async (client, { makeRequest }) => {
       });
 
       if (isArrayDiffers(oldTagList.map(getTagId), tagList.map(getTagId))) {
-        console.log('oldTagsList', oldTagList.map(getTagId), 'newTagsList', tagList.map(getTagId));
-
         return { tagsList: tagList };
       }
     },

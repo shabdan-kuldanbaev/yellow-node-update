@@ -1,15 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { selectProject } from 'redux/selectors/portfolio';
-import Svg from 'UI/components/Svg';
+import dynamic from 'next/dynamic';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Typography from 'UI/components/Typography';
-import SectionTitle from 'UI/components/SectionTitle';
 import { SVG_IMAGES_TYPES, EMAIL_LINK } from 'utils/constants';
 import { useCaseStudiesFooter } from './utils/useCaseStudiesFooter';
 import styles from './styles.module.scss';
+
+const SectionTitle = dynamic(() => import('UI/components/SectionTitle'));
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const CaseStudiesFooter = (props) => {
   const {
@@ -95,9 +94,6 @@ const CaseStudiesFooter = (props) => {
 CaseStudiesFooter.propTypes = {
   type: PropTypes.string.isRequired,
   pathname: PropTypes.string.isRequired,
-  currentProject: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect(
-  (state) => ({ currentProject: selectProject(state) }),
-)(CaseStudiesFooter);
+export default CaseStudiesFooter;

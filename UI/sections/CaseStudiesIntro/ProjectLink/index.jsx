@@ -1,9 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import Svg from 'UI/components/Svg';
+import dynamic from 'next/dynamic';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { CASE_STUDIES } from 'utils/constants';
 import { getAppstoreSvgType } from './utils/introHelper';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 export const ProjectLink = ({
   linkStyles,

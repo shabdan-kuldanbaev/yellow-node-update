@@ -1,11 +1,11 @@
-import React, {
+import {
   useState,
   useEffect,
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import CustomImage from 'components/Common/CustomImage';
+import Illustration from 'UI/components/Illustration';
 import {
   getDocumentFields,
   getFileUrl,
@@ -97,9 +97,9 @@ const DesktopCarousel = ({ photos }) => {
 
               return (
                 <li key={`gallary/photo/${index}`}>
-                  <CustomImage
+                  <Illustration
                     src={imageUrl}
-                    layout="responsive"
+                    layout="fill"
                     width={600}
                     height={540}
                     objectFit="contain"

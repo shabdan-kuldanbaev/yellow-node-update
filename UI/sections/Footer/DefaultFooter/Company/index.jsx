@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from 'UI/components/Typography';
 import { FieldsWrapper } from '../MainContent/FieldsWrapper';
@@ -19,6 +18,7 @@ const Company = ({ data }) => (
       type,
     }) => (
       <FieldsWrapper
+        key={path}
         type={type}
         path={path}
         subtitle={subtitle}

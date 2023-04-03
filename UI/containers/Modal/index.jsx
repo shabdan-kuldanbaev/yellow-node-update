@@ -1,9 +1,11 @@
-import Svg from 'UI/components/Svg';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import useProps from './utils/useProps';
 import styles from './Modal.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const Modal = (props) => {
   const {

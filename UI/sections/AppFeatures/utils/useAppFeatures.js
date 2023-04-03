@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import get from 'lodash/get';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
@@ -21,13 +21,13 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
   );
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleOnClick = useCallback((index) => () => {
+  const handleOnClick = (index) => () => {
     if (index === activeIndex) {
       setActiveIndex(-1);
     } else {
       setActiveIndex(index);
     }
-  });
+  };
 
   const images = itemsData?.map((module) => {
     const { images: moduleImages } = getDocumentFields(module);

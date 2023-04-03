@@ -1,8 +1,8 @@
 import { useRef, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsDropMenuOpened } from 'redux/selectors/layout';
-import { setIsDropMenuOpened } from 'redux/actions/layout';
 import { isHasSubNavigation } from 'helpers/navigation';
+import { desktopMenuOpened } from 'redux/reducers/layout';
 
 export const useNav = ({
   theme,
@@ -16,12 +16,12 @@ export const useNav = ({
 
   const openDropDownMenu = (slug) => {
     if (isHeader && isHasSubNavigation(slug)) {
-      dispatch(setIsDropMenuOpened(true));
+      dispatch(desktopMenuOpened(true));
     }
   };
 
   const closeDropDownMenu = useCallback(
-    () => dispatch(setIsDropMenuOpened(false)),
+    () => dispatch(desktopMenuOpened(false)),
     [dispatch],
   );
 
@@ -37,7 +37,7 @@ export const useNav = ({
     const handleClickOutside = ({ target }) => {
       const { current } = navRef || {};
 
-      if (current && !current.contains(target)) {
+      if (isDropMenuOpened && current && !current.contains(target)) {
         closeDropDownMenu();
       }
     };
@@ -45,7 +45,7 @@ export const useNav = ({
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [closeDropDownMenu]);
+  }, [closeDropDownMenu, isDropMenuOpened]);
 
   return {
     navRef,

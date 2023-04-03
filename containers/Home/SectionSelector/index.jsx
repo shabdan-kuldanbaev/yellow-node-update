@@ -1,19 +1,22 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
-import CardsSection from 'UI/sections/CardsSection';
-import FeedbackSection from 'UI/sections/FeedbackSection';
 
 const Portfolio = dynamic(() => import('UI/sections/Portfolio'), { ssr: false });
-const TextSection = dynamic(() => import('UI/sections/TextSection'));
-const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'));
-const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
-const Blog = dynamic(() => import('UI/sections/Blog'));
-const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
+const TextSection = dynamic(() => import('UI/sections/TextSection'), { ssr: false });
+const CardsSection = dynamic(() => import('UI/sections/CardsSection'), { ssr: false });
+const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'), { ssr: false });
+const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
+const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'), { ssr: false });
+const Blog = dynamic(() => import('UI/sections/Blog'), { ssr: false });
+const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'), { ssr: false });
 
-const SectionSelector = ({ section, type }) => {
-  const { type: sectionType } = getDocumentFields(section);
+const SectionSelector = ({
+  section,
+  type,
+  ...rest
+}) => {
+  const { type: sectionType } = getDocumentFields(section, ['type']);
 
   switch (sectionType) {
   case HOMEPAGE_SECTION_TYPES.text:
@@ -73,7 +76,12 @@ const SectionSelector = ({ section, type }) => {
     );
 
   case HOMEPAGE_SECTION_TYPES.blog:
-    return <Blog sectionData={section} />;
+    return (
+      <Blog
+        sectionData={section}
+        {...rest}
+      />
+    );
 
   case HOMEPAGE_SECTION_TYPES.photos:
     return <PhotoGallery sectionData={section} />;
