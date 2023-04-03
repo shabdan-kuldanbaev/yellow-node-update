@@ -60,7 +60,6 @@ const AppFeatures = (props) => {
           <Animated delay={500}>
             <div className={styles.imageContainer}>
               <Illustration
-                layout="responsive"
                 src={imageSrc}
                 className={styles.image}
                 alt={type}
