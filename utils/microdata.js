@@ -214,6 +214,148 @@ const OFFERS = {
       + 'opt for cloud computing instead of worrying about hardware updates and get access online within seconds. ',
     },
   ],
+  [ROUTES.aiDevelopment]: [
+    {
+      name: 'Natural Language Processing',
+      desciption: 'This AI development service can be used to build voice assistants, gather data '
+      + 'about meaning and emotions, and build a more efficient communication strategy.',
+    }, {
+      name: 'Custom AI applications',
+      desciption: 'Whether you want to analyze medical data, prepare a recommendation list for users, '
+      + 'predict prices for sales and marketing strategy, and reach any other of your business goals, our '
+      + 'specialists will analyze your requirements and create a perfect custom solution for them.',
+    }, {
+      name: 'Computer vision',
+      desciption: 'Computer vision works almost like a human eye. It enables a machine to identify, '
+      + 'process, recognize, and understand all types of objects in images and videos. Yellow’s AI software '
+      + 'developers will help you integrate computer vision into your application, website, or platform.',
+    }, {
+      name: 'Data analytics',
+      desciption: 'The process of structuring and analyzing data can be significantly sped up by implementing '
+      + 'artificial intelligence and machine learning algorithms. AI app development will ensure you receive '
+      + 'valuable insights and get organized reports with ease.',
+    }, {
+      name: 'Neural networks',
+      desciption: 'A neural network is a set of algorithms that is trained to notice underlying relationships '
+      + 'in data and conduct predictive analysis.',
+    }, {
+      name: 'Chatbots',
+      desciption: 'Our artificial intelligence developers are experienced in building AI-based chatbots '
+      + 'for websites and mobile apps. A chatbot empowered by AI algorithms can boost your customer service’s '
+      + 'productivity and positively affect user experience.',
+    },
+  ],
+  [ROUTES.mlDevelopment]: [
+    {
+      name: 'Machine learning development',
+      desciption: 'We offer advanced ML and neural network development for businesses of every scale from '
+      + 'small local startups to multinational enterprises. Specialists from Yellow are ready to build a '
+      + 'solution that will meet your needs and improve the processes you want to address.',
+    }, {
+      name: 'Big data analysis',
+      desciption: 'Working with big data will provide you with definite patterns and valuable insights for '
+      + 'your sales and marketing teams. The Yellow team will build a suitable AI and machine learning solution '
+      + 'that will analyze raw data accurately.',
+    }, {
+      name: 'Predictive algorithms',
+      desciption: 'Predictive analysis is a powerful tool for almost any business. With the help of your '
+      + 'existing data and ML models, you can predict the behavior of your customers and market conditions '
+      + 'in order to prepare for changes in advance.',
+    }, {
+      name: 'Computer vision',
+      desciption: 'This service processes real-world photos and videos with capable algorithms. It can be '
+      + 'used in a variety of applications and perform countless functions ranging from face detection to vehicle tracking. ',
+    }, {
+      name: 'Natural language processing (NLP)',
+      desciption: 'Machine learning solutions based on natural language processing algorithms can be used '
+      + 'for apps in various industries such as IoT, healthcare, smart homes, and business workflow optimization.',
+    }, {
+      name: 'AI-powered chatbots',
+      desciption: 'Chatbots are automated solutions that empower your customer service, facilitate communication '
+      + 'with your clients, and boost internal workflow. They can work with the help of scripts, but AI-based '
+      + 'solutions are more personalized and efficient.',
+    },
+  ],
+  [ROUTES.dataScienceDevelopment]: [
+    {
+      name: 'Image recognition',
+      desciption: 'Data science can help your security software recognize faces, identify emotions, '
+      + 'and determine the number of objects on the image.',
+    }, {
+      name: 'Personalization',
+      desciption: 'With the help of big data and business intelligence, you can see the patterns of user '
+      + 'behavior and recommend new content to people based on their preferences.',
+    }, {
+      name: 'Route optimization',
+      desciption: 'Machine learning and deep learning solutions will provide drivers with the most efficient '
+      + 'way to deliver the load based on traffic, weather, and GPS.',
+    }, {
+      name: 'Price prediction',
+      desciption: 'Using predictive analytics, it’s possible to predict the price of a real estate property '
+      + 'with the help of data science and machine learning algorithms.',
+    },
+  ],
+  [ROUTES.discoveryPhase]: [
+    {
+      name: 'Risk reduction',
+      desciption: 'A discovery phase will provide you and your team with the necessary data to decide '
+      + 'whether to continue development. You will know about possible risks and be prepared for them.',
+    }, {
+      name: 'User validation',
+      desciption: 'When you have a clickable prototype on your hands, you can do more than just show '
+      + 'it to stakeholders or investors; you can also beta test groups of your target audience to receive real user feedback.',
+    }, {
+      name: 'Cost reduction',
+      desciption: 'The discovery phase in software development is not costly compared to the full-scale '
+      + 'process, so if you decide that the idea is not worth the risk, your final expenses will be minimal.',
+    }, {
+      name: 'Transparent goals',
+      desciption: 'A discovery phase will give your team a clear understanding of the project. They will know '
+      + 'why each feature is needed and what user pain point it solves.',
+    },
+  ],
+  [ROUTES.erpDevelopment]: [
+    {
+      name: 'ERP consulting services',
+      desciption: 'It all starts with a detailed and careful analysis of your current business environment to '
+      + 'identify where it needs the help of a custom ERP solution. The findings allow us to formulate strategies '
+      + 'to integrate and migrate critical ERP software.',
+    }, {
+      name: 'Custom ERP development',
+      desciption: 'To automate and speed up business processes, make them more transparent and get insights from '
+      + 'them, we develop custom ERP solutions for enterprises of different sizes and from different industries. '
+      + 'They are scalable and are available from different kinds of devices.',
+    }, {
+      name: 'Expert ERP implementation',
+      desciption: 'Yellow’s skilled and experienced specialists will deploy your custom ERP system with data '
+      + 'integrity and zero downtime. You’ll get a comprehensive and easy-to-use system that is aimed at simplifying '
+      + 'the business management and taking it to the next level.',
+    }, {
+      name: 'ERP application development',
+      desciption: 'This module makes working with data easy as one-two-three from any device. Usually, web apps '
+      + 'give the full functionality, desktop apps are suitable for certain software modules that require complex UI, '
+      + 'and mobile apps are great if you need data on-the-go to make decisions fast and stay updated.',
+    }, {
+      name: 'Human Resource management',
+      desciption: 'There’s no longer need in creating multiple folders to create, implement and store contracts '
+      + 'and other documents. With the HRM module, you can assign and manage tasks, schedule calls, get comprehensive '
+      + 'reports, and much more.',
+    }, {
+      name: 'Seamless data migration',
+      desciption: 'We use next-gen technologies to make data migration from your current ERP platform to a new one '
+      + 'easy and smooth. Since the security of the data is of primary importance for all businesses today, we adopt '
+      + 'the newest strategies to ensure that this process is 100% safe and secure.',
+    }, {
+      name: 'ERP dashboards',
+      desciption: 'Having all critical information from multiple reports displayed in one screen is priceless. '
+      + 'Collected data is used to track KPIs and performance, enable predictive analytics, get insights and facilitate '
+      + 'decision-making process.',
+    }, {
+      name: 'ERP system support and maintenance',
+      desciption: 'ERP development services usually include support and maintenance because business needs change fast, '
+      + 'just like today’s business environment. That said, the ERP system may also need some adjustments for better functioning.',
+    },
+  ],
 };
 
 const CATEGORY = {
@@ -221,6 +363,11 @@ const CATEGORY = {
   [ROUTES.mvpDevelopment]: SERVICE_CATEGORY.mobile,
   [ROUTES.cloudDevelopment]: SERVICE_CATEGORY.web,
   [ROUTES.tradingSoftwareDevelopment]: SERVICE_CATEGORY.fintech,
+  [ROUTES.aiDevelopment]: SERVICE_CATEGORY.web,
+  [ROUTES.mlDevelopment]: SERVICE_CATEGORY.web,
+  [ROUTES.dataScienceDevelopment]: SERVICE_CATEGORY.web,
+  [ROUTES.discoveryPhase]: SERVICE_CATEGORY.web,
+  [ROUTES.erpDevelopment]: SERVICE_CATEGORY.web,
 };
 
 const authorMicrodata = ({ author: { fullName, position } }) => ({
