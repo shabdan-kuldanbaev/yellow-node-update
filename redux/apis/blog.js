@@ -106,7 +106,6 @@ const blogApi = baseApi.injectEndpoints({
       extraOptions: {
         isPreview: true,
         type: BASEQUERY_TYPES.getEntries,
-
       },
       query(slug) {
         return { contentType: 'article', query: { slug } };
@@ -117,6 +116,9 @@ const blogApi = baseApi.injectEndpoints({
     }),
 
     getSearchResult: builder.query({
+      extraOptions: {
+        type: BASEQUERY_TYPES.graphql,
+      },
       async queryFn(value, _, __, baseQuery) {
         if (!value) {
           return { data: [] };
@@ -141,9 +143,10 @@ const blogApi = baseApi.injectEndpoints({
             })),
           ]);
 
-          const result = uniqWith([
-            ...getGraphqlResultArticlesByTags(byTagRaw.data),
-            ...getGraphqlResultArticles(byText.data)], isEqual).sort((a, b) => Date.parse(a) - Date.parse(b));
+          const result = uniqWith(
+            [...getGraphqlResultArticlesByTags(byTagRaw.data), ...getGraphqlResultArticles(byText.data)],
+            ((article1, article2) => article1.slug === article2.slug),
+          ).sort((a, b) => Date.parse(a) - Date.parse(b));
 
           return { data: result };
         } catch (e) {
