@@ -1,10 +1,14 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import get from 'lodash/get';
-import Animated from 'components/Common/Animated';
+
+import Illustration from 'UI/components/Illustration';
 import { ANIMATED_TYPE, ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE } from 'utils/constants';
 import { getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const GalleryCard = ({ images, photoCaption }) => {
   const imageRef = useRef(null); // TODO replace imageRef with something for the garrely row key
@@ -49,7 +53,8 @@ const GalleryCard = ({ images, photoCaption }) => {
                   type={ANIMATED_TYPE.imageZoom}
                   key={`gallery/${imageUrl}`}
                 >
-                  <img
+                  <Illustration
+                    layout="responsive"
                     src={imageUrl}
                     alt={imageUrl}
                     onLoad={handleOnLoad}

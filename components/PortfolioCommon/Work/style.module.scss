@@ -8,10 +8,6 @@
   .contentWrapper {
     @include flex(column, space-between, flex-start);
 
-    @include macbook-twelve {
-      padding: 50px 30px;
-    }
-
     background: rgb(23 23 23 / 72%);
     box-sizing: border-box;
     padding: 70px 60px;
@@ -21,6 +17,10 @@
     transition: opacity 0.15s ease-in-out;
     position: relative;
     color: $gray0;
+
+    @include macbook-twelve {
+      padding: 50px 30px;
+    }
 
     @include tablet {
       display: block;
@@ -33,15 +33,18 @@
   }
 
   .imageContainer {
-    .backgroundImage {
+    &.backgroundImage {
       @include covered;
 
-      object-fit: cover !important;
       transition: filter 0.15s ease-in-out;
       z-index: 0;
+
+      img {
+        object-fit: cover !important;
+      }
     }
 
-    .mainImage {
+    &.mainImage img {
       @include centered;
 
       max-width: 90%;
@@ -63,8 +66,8 @@
 
   &:hover {
     .imageContainer {
-      .backgroundImage,
-      .mainImage {
+      &.backgroundImage,
+      &.mainImage {
         filter: blur(20px);
 
         @include tablet {

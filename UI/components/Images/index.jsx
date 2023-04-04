@@ -1,14 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import Illustration from 'UI/components/Illustration';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { useImages } from './utils/useImages';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Images = (props) => {
   const {
@@ -68,6 +67,4 @@ Images.propTypes = {
   view: PropTypes.string,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(Images);
+export default Images;

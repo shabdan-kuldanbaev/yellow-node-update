@@ -131,7 +131,8 @@ export const ogMetaData = [
   {
     pageName: ROUTES.discoveryPhase.slug,
     metaTitle: 'Project Discovery Phase in Custom Software Development | Yellow',
-    metaDescription: 'Discovery phase of a project is an important part of software development. Learn more about how to run a discovery phase and its benefits to your business.',
+    metaDescription: 'Discovery phase of a project is an important part of software development. Learn more about '
+    + 'how to run a discovery phase and its benefits to your business.',
     url: `${rootUrl}${ROUTES.discoveryPhase.path}`,
   },
   {
@@ -143,19 +144,22 @@ export const ogMetaData = [
   {
     pageName: ROUTES.devOpsDevelopment.slug,
     metaTitle: 'DevOps Development Company | Yellow',
-    metaDescription: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
+    metaDescription: 'If your company wants to integrate DevOps service into its processes and get all the '
+    + 'benefits this technology offers, Yellow is ready to lend a hand!',
     url: `${rootUrl}${ROUTES.devOpsDevelopment.path}`,
   },
   {
     pageName: ROUTES.aiDevelopment.slug,
     metaTitle: 'AI Software Development Services: Best Choice for Your Business | Yellow',
-    metaDescription: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
+    metaDescription: 'Yellow is an AI software development company that can provide you with top-notch artificial '
+    + 'intelligence application development.',
     url: `${rootUrl}${ROUTES.aiDevelopment.path}`,
   },
   {
     pageName: ROUTES.dataScienceDevelopment.slug,
     metaTitle: 'Data Science Development Services | Yellow',
-    metaDescription: 'If you are looking for a partner that will help you analyze, process, and structure your data, data science specialists at Yellow are here for you.',
+    metaDescription: 'If you are looking for a partner that will help you analyze, process, and structure your '
+    + 'data, data science specialists at Yellow are here for you.',
     url: `${rootUrl}${ROUTES.dataScienceDevelopment.path}`,
   },
   {

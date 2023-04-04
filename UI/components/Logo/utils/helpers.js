@@ -18,6 +18,7 @@ export const WHITE_LOGO_TYPE = [
   'fintech-app-for-credit-score',
   'smartcenter',
   'dindon',
+  'humankind',
   'cinnabar',
   'machine-learning-in-real-estate',
 ];

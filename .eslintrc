@@ -38,6 +38,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/no-array-index-key": "off", // TODO re-review
+    "react/no-unused-prop-types": "off",
     "no-unused-expressions": "off",
     "no-case-declarations": "off", // TODO re-review
     "no-param-reassign": "off", // TODO re-review
@@ -115,20 +116,59 @@
     "jsx-a11y/no-noninteractive-element-interactions": "off", // TODO re-review
     "padding-line-between-statements": [
       "error",
-      { "blankLine": "always", "prev": "*", "next": "return" },
-      { "blankLine": "always", "prev": "*", "next": "continue" },
-      { "blankLine": "always", "prev": "*", "next": "if" },
-      { "blankLine": "always", "prev": "*", "next": "break" },
-      { "blankLine": "always", "prev": "while", "next": "*" },
-      { "blankLine": "always", "prev": "*", "next": "while" },
-      { "blankLine": "always", "prev": "switch", "next": "*" },
-      { "blankLine": "always", "prev": "*", "next": "switch" },
-      { "blankLine": "always", "prev": "if", "next": "*" }
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "continue"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "if"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "break"
+      },
+      {
+        "blankLine": "always",
+        "prev": "while",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "while"
+      },
+      {
+        "blankLine": "always",
+        "prev": "switch",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "switch"
+      },
+      {
+        "blankLine": "always",
+        "prev": "if",
+        "next": "*"
+      }
     ],
     "no-console": [
       "warn",
       {
-        "allow": ["warn", "error"]
+        "allow": [
+          "warn",
+          "error"
+        ]
       }
     ],
     "consistent-return": "off", // TODO re-review
@@ -137,13 +177,12 @@
     "react/jsx-max-props-per-line": [
       1,
       {
-          "maximum": 1
+        "maximum": 1
       }
     ],
     "no-return-await": "off",
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
-    "react/no-unused-prop-types": "warn"
   }
 }

@@ -1,12 +1,13 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SubMenuItem from 'UI/sections/Header/SubMenuItem';
 import Typography from 'UI/components/Typography';
-import Animated from 'UI/containers/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { useDropDownMenu } from './useDropDownMenu';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const DropDownMenu = (props) => {
   const {
@@ -41,6 +42,7 @@ const DropDownMenu = (props) => {
             className={cn(styles.subMenuItem, { [styles.subMenuItemActive]: activeSubMenu === key })}
             onClick={handleOnSubMenuClick(key)}
             variant="span"
+            key={key}
           >
             {title}
           </Typography>
@@ -50,6 +52,7 @@ const DropDownMenu = (props) => {
         {subNavigationLinks[activeSubMenu].map(({ title, subtitle, slug }) => (
           <Animated
             type={ANIMATED_TYPE.isFade}
+            key={slug}
             open
           >
             <SubMenuItem

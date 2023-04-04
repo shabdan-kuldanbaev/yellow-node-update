@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { animated, useSpring } from 'react-spring';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import cn from 'classnames';
 
 const ParallaxWrapper = ({
@@ -13,7 +13,7 @@ const ParallaxWrapper = ({
   speed,
   isHomepageIntro,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(selectIsMobile);
   const containerRef = useRef(null);
   const [{ offset }, set] = useSpring(() => ({ offset: 0 }));
   const calc = (o) => `translateY(${o * (isHomepageIntro ? speed : 0.09)}px)`;

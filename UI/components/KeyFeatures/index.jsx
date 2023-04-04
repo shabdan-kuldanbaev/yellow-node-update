@@ -1,14 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import Typography from 'UI/components/Typography';
 import { useKeyFeatures } from './utils/useKeyFeatures';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const KeyFeatures = (props) => {
   const {

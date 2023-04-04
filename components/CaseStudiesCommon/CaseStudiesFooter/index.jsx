@@ -1,19 +1,20 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { selectProject } from 'redux/selectors/portfolio';
-import Svg from 'UI/components/Svg';
+import dynamic from 'next/dynamic';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
+import { useFetchPageQuery } from 'redux/apis/page';
 import { getFooterProps } from './utils/propsHelper';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
 
+const Svg = dynamic(() => import('UI/components/Svg'));
+
 const CaseStudiesFooter = ({
   type,
   pathname,
-  currentProject,
 }) => {
+  const { data = {} } = useFetchPageQuery(type);
+  const { contentModules: currentProject = [] } = data;
   const {
     title,
     buttonTitle,
@@ -94,9 +95,6 @@ const CaseStudiesFooter = ({
 CaseStudiesFooter.propTypes = {
   type: PropTypes.string.isRequired,
   pathname: PropTypes.string.isRequired,
-  currentProject: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect(
-  (state) => ({ currentProject: selectProject(state) }),
-)(CaseStudiesFooter);
+export default CaseStudiesFooter;

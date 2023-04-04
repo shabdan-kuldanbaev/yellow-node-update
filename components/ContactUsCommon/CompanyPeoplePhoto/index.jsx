@@ -1,19 +1,18 @@
-import React, {
+import {
   useEffect,
   useRef,
   useState,
 } from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { connect } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import SectionTitle from 'components/Common/SectionTitle';
-import Animated from 'components/Common/Animated';
-import { getOptimizedContentfulImage } from 'utils/helper';
+import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
 import { ANIMATED_TYPE } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
+const Animated = dynamic(() => import('UI/containers/Animated'));
+
+const CompanyPeoplePhoto = ({ photo }) => {
   const photoRef = useRef();
   const [isShow, setShow] = useState(false);
 
@@ -41,12 +40,12 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
             transformDuration={0.8}
             transitionDelay={0}
           >
-            <img
+            <Illustration
+              layout="responsive"
+              width="100%"
+              height="100%"
               ref={photoRef}
-              src={getOptimizedContentfulImage(
-                photo,
-                { width: isMobileResolution ? 530 : 1500 },
-              )}
+              src={photo}
               alt="CompanyPeoplePhoto"
             />
           </Animated>
@@ -56,15 +55,8 @@ const CompanyPeoplePhoto = ({ photo, isMobileResolution }) => {
   );
 };
 
-CompanyPeoplePhoto.defaultProps = {
-  isMobileResolution: false,
-};
-
 CompanyPeoplePhoto.propTypes = {
   photo: PropTypes.string.isRequired,
-  isMobileResolution: PropTypes.bool,
 };
 
-export default connect(
-  (state) => ({ isMobileResolution: selectIsMobileResolutions(state) }),
-)(CompanyPeoplePhoto);
+export default CompanyPeoplePhoto;

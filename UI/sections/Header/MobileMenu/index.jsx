@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { NAV_LINKS } from 'utils/constants';
@@ -65,4 +65,4 @@ MobileMenu.propTypes = {
   isPageScrolledDown: PropTypes.bool.isRequired,
 };
 
-export default React.memo(MobileMenu);
+export default memo(MobileMenu);

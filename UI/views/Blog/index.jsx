@@ -1,37 +1,39 @@
-import React, { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { setIsSubscribed, subscribe } from 'redux/actions/subscribe';
-import { selectArticles, selectTotalCount } from 'redux/selectors/blog';
-import { selectMetaData } from 'redux/selectors/layout';
+import Paginator from 'UI/components/Paginator';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import ArticlesList from 'components/BlogCommon/ArticlesList';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
-import Paginator from 'UI/components/Paginator';
 import FullLayout from 'components/Layout/FullLayout';
 import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import { useFetchPageQuery } from 'redux/apis/page';
+import { useGetArticlesListQuery } from 'redux/apis/blog';
 import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
-import { getDataFromLocalStorageWithExpire, rootUrl } from 'utils/helper';
+import { rootUrl } from 'utils/helper';
 import { PAGES, ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import { pagesBreadcrumbs } from 'utils/breadcrumbs';
 import useToggle from 'hooks/useToggle';
-import Svg from 'UI/components/Svg';
 import { categoriesMetaData } from './utils/data';
 import { findCategoryBySlug, findTagBySlug } from './utils/blogContainerHelper';
 import styles from './BlogContainer.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const BlogContainer = ({
   tagsList,
   introSection,
   currentPage,
   articlesNumberPerPage,
+  query,
 }) => {
-  const dispatch = useDispatch();
-  const articles = useSelector(selectArticles);
-  const totalArticles = useSelector(selectTotalCount);
-  const metaData = useSelector(selectMetaData);
+  const [subscribe, { isLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
+
+  const { data: { metaData } = {} } = useFetchPageQuery(PAGES.blog);
+  const { data = {} } = useGetArticlesListQuery(query);
+  const { items: articles, total: totalArticles } = data;
 
   const [isFullscreenSearch, toggleFullscreenSearch] = useToggle(false);
   const [isFullscreenSubscribe, toggleFullscreenSubscribe] = useToggle(false);
@@ -82,13 +84,12 @@ const BlogContainer = ({
   }
 
   const handleOnFormSubmit = (email) => {
-    dispatch(subscribe({ email, pathname }));
-  };
+    if (isLoading) {
+      return;
+    }
 
-  useEffect(() => {
-    dispatch(setIsSubscribed(getDataFromLocalStorageWithExpire('isSubscribed')));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    subscribe({ email, pathname });
+  };
 
   return (
     <>
@@ -120,7 +121,6 @@ const BlogContainer = ({
           articles={articles}
           isBlogPage
           currentPage={currentPage}
-          handleOnFormSubmit={handleOnFormSubmit}
           toggleFullscreenSubscribe={toggleFullscreenSubscribe}
         />
 

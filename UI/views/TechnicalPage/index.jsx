@@ -1,13 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import FullLayout from 'components/Layout/FullLayout';
-import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useProps from './utils/useProps';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const TechnicalPageContainer = (props) => {
   const {
