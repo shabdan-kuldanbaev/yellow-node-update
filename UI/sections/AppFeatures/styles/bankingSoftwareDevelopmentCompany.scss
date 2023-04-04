@@ -26,8 +26,8 @@
   }
 
   .description {
-    width: 100%;
     max-width: unset;
+    width: 100%;
   }
 
   .sectionContainer {
@@ -42,8 +42,8 @@
     margin-top: 17px;
 
     @include tablet {
-      margin-top: 24px;
       width: 95vw;
+      margin-top: 24px;
     }
   }
 

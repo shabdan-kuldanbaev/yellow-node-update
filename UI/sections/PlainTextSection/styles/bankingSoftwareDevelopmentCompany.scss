@@ -7,8 +7,8 @@
 
   span {
     &:first-child {
-      font-size: 38px;
       margin-bottom: 4px;
+      font-size: 38px;
 
       @include below-tablet {
         font-size: 24px;
@@ -19,8 +19,8 @@
   .titleStyle {
     display: block;
     max-width: 853px;
-    color: $gray0;
     margin: 0 auto 48px;
+    color: $gray0;
 
     & + div {
       @include below-tablet {
