@@ -15,40 +15,29 @@
     }
   }
 
-  .circle {
+  .contentWrapper {
+    @include flex(row, center, center);
+
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 460px;
-    height: 460px;
-    margin: 130px 0 98px;
-    border-radius: 50%;
+    z-index: 1;
+    margin: 0 auto;
+    max-width: $default-content-width;
   }
 
-  .mockup {
+  .screen {
     @include centered;
 
-    width: 318px;
     z-index: 100;
   }
 
   .video {
-    @include centered;
-
-    max-width: 286px;
     border-radius: 10px;
   }
 
-  .appImage {
+  .prototype {
     @include centered;
 
-    width: 285px;
-    border-radius: 20px;
     z-index: 10;
-
-    @include phone {
-      width: 225px;
-    }
   }
 
   @include tablet {
