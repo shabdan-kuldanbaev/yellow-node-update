@@ -56,10 +56,10 @@ const ContentfulParser = ({ document }) => {
               >
                 <Animated type={ANIMATED_TYPE.imageZoom}>
                   <Illustration
-                    layout="responsive"
                     src={imageUrl}
                     alt={imageDescription}
                     title={imageDescription}
+                    className={styles.image}
                   />
                 </Animated>
                 {title && (
