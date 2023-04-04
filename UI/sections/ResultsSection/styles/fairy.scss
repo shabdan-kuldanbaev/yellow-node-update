@@ -9,7 +9,30 @@
     max-width: 666px;
   }
 
-  .circle {
-    background: linear-gradient(142.23deg, #5B5BBD -12.4%, #362761 151.71%);
+  .contentWrapper {
+    height: 650px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 460px;
+      height: 460px;
+      background: linear-gradient(142.23deg, #5b5bbd -12.4%, #362761 151.71%);
+      border-radius: 50%;
+    }
+  }
+
+  .screen {
+    width: 318px;
+    height: 650px;
+  }
+
+  .video {
+    width: 286px;
+    height: 620px;
   }
 }

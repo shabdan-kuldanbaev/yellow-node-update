@@ -1,0 +1,21 @@
+.software-for-mri-interpretation {
+  background: $gray50;
+
+  .sectionTitle {
+    max-width: 521px;
+  }
+
+  .video {
+    width: auto;
+    height: 530px;
+    box-shadow: 0 8px 35px 0 #6e78821a;
+
+    @include tablet {
+      height: 300px;
+    }
+
+    @include phone {
+      height: 182px;
+    }
+  }
+}
