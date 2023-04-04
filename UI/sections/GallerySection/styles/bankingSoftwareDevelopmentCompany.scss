@@ -1,0 +1,15 @@
+.banking-software-development-company {
+  :global(.swiper) {
+    padding-bottom: 72px;
+  }
+
+  .navigation {
+    button {
+      padding: 0;
+
+      span {
+        @include fontSize(16px, 150%);
+      }
+    }
+  }
+}

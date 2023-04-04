@@ -1,5 +1,10 @@
 .banking-software-development-company {
   background-color: $gray50;
+  padding-top: 32px;
+
+  @include below-tablet {
+    padding-top: 24px;
+  }
 
   .pageWrapper {
     flex-direction: row-reverse;
@@ -15,6 +20,12 @@
 
   picture {
     max-width: 433px;
+    padding-top: 551px;
+    //margin-top: 8px;
     margin-left: 0;
+
+    @include below-tablet {
+      padding-top: 100%;
+    }
   }
 }
