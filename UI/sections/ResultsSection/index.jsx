@@ -12,8 +12,8 @@ const ResultsSection = (props) => {
     type,
     title,
     description,
-    smartphoneUrl,
-    appScreenUrl,
+    prototypeUrl,
+    screenUrl,
     imagesBundles,
     sectionStyle,
     isResultVideo,
@@ -30,26 +30,26 @@ const ResultsSection = (props) => {
         type={type}
         className={styles.sectionTitle}
       />
-      <div className={styles.circle}>
+      <div className={styles.contentWrapper}>
         <Illustration
-          layout="responsive"
-          className={styles.mockup}
-          src={smartphoneUrl}
-          alt={smartphoneUrl}
+          transparent
+          className={styles.screen}
+          src={screenUrl}
+          alt={screenUrl}
         />
         {isResultVideo
           ? (
             <Video
-              src={appScreenUrl}
+              src={prototypeUrl}
               className={styles.video}
             />
           )
           : (
             <Illustration
-              layout="responsive"
-              className={styles.appImage}
-              src={appScreenUrl}
-              alt={appScreenUrl}
+              transparent
+              className={styles.prototype}
+              src={prototypeUrl}
+              alt={prototypeUrl}
             />
           )}
         {imagesBundles?.map((bundleUrl, index) => (
