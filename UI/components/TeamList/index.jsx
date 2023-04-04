@@ -64,7 +64,7 @@ const TeamList = (props) => {
         ))}
         {images.map((imgUrl, index) => (
           <Illustration
-            layout="responsive"
+            transparent
             className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
             src={imgUrl}
             alt={title}
