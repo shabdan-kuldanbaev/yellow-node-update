@@ -2,26 +2,17 @@
   padding-bottom: 60px;
 
   .sectionTitle {
-    margin-bottom: 22px;
+    max-width: 614px;
   }
 
-  .circle {
-    left: 0;
-    width: 1063px;
-    height: 973px;
-    margin: 0 auto;
-    transform: unset;
+  .prototype {
+    position: static;
+    transform: scale(1.05);
+    width: 994px;
+    height: 905px;
 
-    .mockup {
-      display: block;
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-    }
-
-    @include below-tablet {
-      width: 100%;
-      height: 650px;
+    @include tablet {
+      height: 512px;
     }
 
     @include phone {
