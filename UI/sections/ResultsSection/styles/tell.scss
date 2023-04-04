@@ -6,6 +6,7 @@
     margin-bottom: 48px;
 
     @include phone {
+      margin-bottom: 24px;
       max-width: 345px;
     }
   }
@@ -30,10 +31,10 @@
   .prototype {
     width: 288px;
     height: 610px;
-    border-radius: 30px;
+    border-radius: 43px;
 
     img {
-      border-radius: 30px;
+      border-radius: 43px;
     }
   }
 
@@ -41,6 +42,11 @@
     width: 298px;
     height: 620px;
     box-shadow: 0 13.372475624084473px 26.744951248168945px 0 #8354001a;
+    border-radius: 43px;
+
+    img {
+      border-radius: 43px;
+    }
   }
 
   .imageBundle {
@@ -54,9 +60,5 @@
     @include tablet {
       display: none;
     }
-  }
-
-  @include tablet {
-    overflow: hidden;
   }
 }
