@@ -84,13 +84,13 @@ export const ArticlePreview = ({
           {tags?.length && (
             <div className={styles.tags}>
               {(tags || [])
-                .filter(({ slug: tagSlug }) => VALUABLE_ARTICLE_CATEGORIES_SLUGS.includes(tagSlug))
+                .filter(({ slug: tagSlug }) => (isSearch || VALUABLE_ARTICLE_CATEGORIES_SLUGS.includes(tagSlug)))
                 .map(({ slug: tagSlug }) => (
                   <LinkWrapper
                     path={routes.blog.getRoute(tagSlug).path}
                     className={styles.tag}
                   >
-                    {`#${tagSlug.replace('-', '')}`}
+                    {`#${tagSlug.replaceAll('-', '')}`}
                   </LinkWrapper>
                 ))}
             </div>

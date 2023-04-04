@@ -44,7 +44,12 @@ export function getGraphqlResultTotalArticlesCount(graphqlResult) {
 }
 
 export function getGraphqlResultArticlesByTags(graphqlResult) {
-  return get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.items', []);
+  const result = get(graphqlResult, 'tagCollection.items[0].linkedFrom.articleCollection.items', []);
+  result.forEach((item) => {
+    item.tagsListCollection = { items: [{ slug: get(graphqlResult, 'tagCollection.items[0].slug', []) }] };
+  });
+
+  return result;
 }
 
 export function getGraphqlResultTotalArticlesCountByTags(graphqlResult) {
