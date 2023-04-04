@@ -1,6 +1,4 @@
 .tell {
-  @include caseStudyContainer;
-
   padding: 120px 0 0;
   overflow: initial;
 
@@ -12,28 +10,37 @@
     }
   }
 
-  .circle {
-    background: $gray50;
-    margin: 0;
-    width: 690px;
+  .contentWrapper {
     height: 690px;
-  }
 
-  .mockup {
-    width: 330px;
-    filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgb(0 0 0 / 40%)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 30%));
-
-    @include phone {
-      width: 306px;
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 690px;
+      height: 690px;
+      background: $gray50;
+      border-radius: 50%;
     }
   }
 
-  .appImage {
-    width: 308px;
+  .prototype {
+    width: 288px;
+    height: 610px;
+    border-radius: 30px;
 
-    @include phone {
-      width: 285px;
+    img {
+      border-radius: 30px;
     }
+  }
+
+  .screen {
+    width: 298px;
+    height: 620px;
+    box-shadow: 0 13.372475624084473px 26.744951248168945px 0 #8354001a;
   }
 
   .imageBundle {
