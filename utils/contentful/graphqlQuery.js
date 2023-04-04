@@ -174,6 +174,7 @@ export const GRAPHQL_QUERY = {
           ${getFilterParams(where)}
           ) {
             items {
+              slug
               linkedFrom {
                 articleCollection(
                   ${getParam({ limit })}
