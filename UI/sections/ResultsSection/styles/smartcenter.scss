@@ -6,29 +6,11 @@
     max-width: 649px;
   }
 
-  .circle {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: 0 auto;
-    transform: unset;
-    max-width: 995px;
-    width: 100%;
-    height: auto;
-    border-radius: unset;
-  }
-
-  .appImage {
-    display: none;
-  }
-
-  .mockup {
+  .prototype {
     position: static;
     transform: unset;
-    width: 100%;
+    width: 994px;
     height: 630px;
-    object-fit: contain;
     filter: drop-shadow(0 8px 35px rgb(110 120 130 / 10%));
 
     @include tablet {

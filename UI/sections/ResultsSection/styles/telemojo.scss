@@ -5,31 +5,14 @@
     max-width: 568px;
   }
 
-  .circle {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    max-width: 995px;
-    height: auto;
-    margin: 0 auto;
-    transform: unset;
-  }
-
-  .appImage {
-    display: none;
-  }
-
-  .mockup {
+  .prototype {
     position: static;
-    width: 100%;
+    transform: scale(1.08);
+    width: 994px;
     height: 696px;
-    transform: unset;
-    object-fit: contain;
 
     @include tablet {
-      height: 400px;
+      height: 396px;
     }
 
     @include phone {
