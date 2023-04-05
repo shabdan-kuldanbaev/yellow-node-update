@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Button from 'UI/components/Button';
+import { Figures } from 'UI/components/Figures';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -21,6 +22,7 @@ const PlainTextSection = (props) => {
     hasSeeMoreButton,
     onClickMoreButton,
     isSeeMore,
+    figuresData,
   } = useSectionProps(props);
 
   return (
@@ -47,6 +49,12 @@ const PlainTextSection = (props) => {
             >
               See more
             </Button>
+          )}
+          {figuresData && (
+            <Figures
+              type={type}
+              figuresData={figuresData}
+            />
           )}
         </div>
       </div>
