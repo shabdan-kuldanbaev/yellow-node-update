@@ -204,4 +204,10 @@ export const ogMetaData = [
     metaDescription: 'We provide companies and organizations big and small with outstanding banking software development. Check out what we can do for you.',
     url: `${rootUrl}${ROUTES.bankingSoftwareDevelopmentCompany.path}`,
   },
+  {
+    pageName: ROUTES.deliveryQualityInYellow.slug,
+    metaTitle: 'What Makes Yellow a Good Software Development Partner | Yellow',
+    metaDescription: 'Delivery quality standards we follow to build a perfect project for YOU.',
+    url: `${rootUrl}${ROUTES.deliveryQualityInYellow.path}`,
+  },
 ];
