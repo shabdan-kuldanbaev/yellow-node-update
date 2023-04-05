@@ -26,7 +26,7 @@ export const getContentfulImage = ({
 
     Object.entries(params).forEach(([key, value]) => key && value && url.searchParams.set(key, value));
 
-    return url;
+    return url.href;
   } catch {
     return src;
   }
