@@ -30,11 +30,7 @@ export default ({
   } : {};
 
   return {
-    src: getContentfulImage({
-      src,
-      quality: 100,
-      transparent,
-    }).href,
+    src,
     loader,
     className,
     lazyBoundary,
