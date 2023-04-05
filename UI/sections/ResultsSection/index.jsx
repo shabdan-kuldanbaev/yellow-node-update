@@ -54,7 +54,6 @@ const ResultsSection = (props) => {
           )}
         {imagesBundles?.map((bundleUrl, index) => (
           <Illustration
-            transparent
             className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
             src={bundleUrl}
             alt={type}
