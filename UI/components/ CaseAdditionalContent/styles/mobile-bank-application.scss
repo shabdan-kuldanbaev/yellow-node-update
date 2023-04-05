@@ -1,0 +1,46 @@
+.mobile-bank-application {
+  flex-direction: column;
+
+  .title {
+    @include fontSize(18px, 32px);
+
+    color: $gray900;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  .listContainer {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .listItem {
+    @include fontSize(16px, 150%);
+
+    position: relative;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    color: $gray400;
+    opacity: 0.7;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: $mobileBankAccent;
+    }
+
+    @include phone {
+      &:last-of-type {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

@@ -34,6 +34,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'dindon',
   'cinnabar',
   'machine-learning-in-real-estate',
+  'mobile-bank-application',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;

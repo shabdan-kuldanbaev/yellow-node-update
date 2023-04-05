@@ -20,6 +20,7 @@ export const WHITE_LOGO_TYPE = [
   'dindon',
   'cinnabar',
   'machine-learning-in-real-estate',
+  'mobile-bank-application',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -56,6 +57,7 @@ export const WHITE_TEXT_LOGO = [
   'writer-chrome-extension',
   'telemojo',
   'cinnabar',
+  'mobile-bank-application',
 ];
 
 export const getLogoType = (type) => {

@@ -20,6 +20,7 @@ import CaseStudyPrototype from 'components/CaseStudiesCommon/CaseStudyPrototype'
 import { CASE_STUDIES_TYPES, REFACTORED_CASE_STUDIES_PAGES } from 'utils/constants';
 // Refactored section, remove old after
 import CaseFeedback from 'UI/sections/CaseFeedback';
+import CasePrototype from 'UI/sections/CasePrototype';
 
 const IntroRefactored = dynamic(() => import('UI/sections/CaseStudiesIntro'));
 const ProjectIdeaRefactored = dynamic(() => import('UI/sections/ProjectIdea'));
@@ -74,6 +75,8 @@ const CaseStudiesCommon = (props) => {
       return <CaseStudiesStory {...props} />;
     case CASE_STUDIES_TYPES.process:
       return <CaseProcess {...props} />;
+    case CASE_STUDIES_TYPES.prototype:
+      return <CasePrototype {...props} />;
     default:
       return null;
     }

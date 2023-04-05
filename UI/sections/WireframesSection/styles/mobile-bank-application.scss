@@ -1,0 +1,11 @@
+.mobile-bank-application {
+  padding: 104px 0 84px;
+
+  [data-description] {
+    max-width: 540px;
+  }
+
+  @include phone {
+    padding: 60px 0;
+  }
+}
