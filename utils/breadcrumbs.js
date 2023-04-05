@@ -134,6 +134,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.lendingSoftwareDevelopment.path,
     },
   ]),
+  paymentGatewayDevelopment: () => ([
+    {
+      title: ROUTES.paymentGatewayDevelopment.title,
+      to: ROUTES.paymentGatewayDevelopment.path,
+    },
+  ]),
   cloudDevelopment: () => ([
     {
       title: ROUTES.cloudDevelopment.title,

@@ -98,6 +98,7 @@ export const NAV_LINKS = [
     routes.bankingSoftwareDevelopmentCompany.slug,
     routes.deliveryQualityInYellow.slug,
     routes.lendingSoftwareDevelopment.slug,
+    routes.paymentGatewayDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
     routes.aiDevelopment.slug,
