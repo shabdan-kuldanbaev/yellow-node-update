@@ -1,0 +1,87 @@
+.banking-software-development-company {
+  &.firstSectionView {
+    background-color: $gray50;
+
+    :global(.swiper-slide) {
+      height: 500px;
+    }
+
+    :global(.swiper) {
+      padding-bottom: 80px;
+    }
+
+    :global(.swiper-wrapper) {
+      height: 500px !important;
+    }
+
+    .swiper {
+      padding-bottom: 80px;
+    }
+
+    .contentWrapper {
+      max-width: 1200px;
+    }
+
+    .navigation button {
+      padding: 0;
+    }
+
+    .callToAction {
+      max-width: 994px;
+      height: 215px;
+      margin: 48px auto 0;
+      padding: 76.5px 60px;
+      border: none;
+      border-radius: 0;
+
+      & > div {
+        max-width: 535px;
+      }
+
+      @include below-tablet {
+        height: 245px;
+        margin-top: 60px;
+        padding: 32px 42px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $gray50;
+
+    :global(.swiper-slide) {
+      height: 380px;
+
+      @include below-tablet {
+        height: 434px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: 1200px;
+    }
+
+    .title {
+      max-width: 807px;
+    }
+
+    .callToAction {
+      max-width: 994px;
+      height: 215px;
+      margin: 48px auto 0;
+      padding: 76.5px 60px;
+      font-size: 24px;
+      border: none;
+      border-radius: 0;
+
+      & > div {
+        max-width: 535px;
+      }
+
+      @include below-tablet {
+        margin-top: 60px;
+        padding: 32px 42px;
+      }
+    }
+  }
+}

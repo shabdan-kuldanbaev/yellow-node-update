@@ -188,6 +188,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.eWalletAppDevelopment.path,
     },
   ]),
+  bankingSoftwareDevelopmentCompany: () => ([
+    {
+      title: ROUTES.bankingSoftwareDevelopmentCompany.title,
+      to: ROUTES.bankingSoftwareDevelopmentCompany.path,
+    },
+  ]),
   technicalPage: (slug) => {
     if (slug === PAGES.privacyPolicy) {
       return [
