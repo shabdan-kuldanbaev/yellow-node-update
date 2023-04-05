@@ -18,8 +18,6 @@ const SignatureGenerated = ({
   const {
     employee,
     employeeJob,
-    employeeMail,
-    employeePhone,
   } = getEmployeeInfo(formRef);
 
   const selectElementContents = () => {
@@ -81,8 +79,7 @@ const SignatureGenerated = ({
                   colSpan={2}
                 >
                   <p className={styles.signatureDataEmployee}>
-                    {`${employee}`}
-
+                    {employee}
                   </p>
                   <p className={styles.signatureDataJob}>
                     {employeeJob}
