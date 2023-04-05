@@ -57,7 +57,7 @@
         margin: 0;
 
         @include below-tablet {
-          @include fontSize(16px, 24px)
+          @include fontSize(16px, 24px);
         }
       }
 
