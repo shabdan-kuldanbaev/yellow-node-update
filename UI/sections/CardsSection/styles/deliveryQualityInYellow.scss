@@ -52,10 +52,11 @@
   }
 
   &.thirdSectionView {
-    padding-top: 24px;
+    padding-top: 0;
 
     .title {
       max-width: 671px;
+      margin-bottom: 32px;
 
       h2 {
         @include fontSize(21px, 31.2px);
