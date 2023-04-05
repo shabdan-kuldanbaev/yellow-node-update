@@ -1,26 +1,18 @@
-/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 .formContainer {
+  @include flex(column, flex-start, center);
+
   position: relative;
   z-index: 2;
   padding: $section-indent 0;
   background-color: $white;
 
-  @include flex(column, flex-start, center);
-
-  @include phone {
-    padding: $mobile-section-indent 0 $mobile-section-indent - 20px;
-  }
-
-  .title {
-    @include defaultSectionTitle;
-  }
-
   & > div:first-child {
     width: 100%;
     text-align: center;
-    margin-bottom: $after-mobile-title-margin;
+    margin-bottom: 48px;
 
     .title {
       @include phone {
@@ -29,63 +21,12 @@
     }
   }
 
-  .subtitle {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    letter-spacing: 0.5px;
-    color: rgba($dark-grey, 0.3);
-
-    span {
-      cursor: pointer;
-      padding: 0 0 5px;
-      color: rgba($dark-grey, 0.3);
-
-      a {
-        margin-left: 5px;
-        text-decoration: none;
-        font-size: 0.9rem;
-        line-height: 1.55;
-        letter-spacing: 0.5px;
-        transition: color $accelerated-transition-time;
-        border: none;
-        outline: none;
-        background-color: transparent;
-        color: rgba($dark-grey, 0.3);
-        position: relative;
-        display: inline-block;
-        padding: 0;
-
-        &::before {
-          content: '';
-          cursor: pointer;
-          position: absolute;
-          bottom: -2px;
-          right: 0;
-          width: 100%;
-          border-bottom: 1px rgba($dark-grey, 0) solid;
-          background-color: rgba($dark-grey, 0.2);
-          transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-      }
-
-      &:hover {
-        cursor: pointer;
-
-        a {
-          &::before {
-            width: 0;
-            will-change: transition;
-            transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-            -webkit-transform: translateZ(0);
-          }
-        }
-      }
-    }
-  }
-
   & > form {
     max-width: $max-content-width-macbook-twelve;
+  }
+
+  @include phone {
+    padding: $mobile-section-indent 0 $mobile-section-indent - 20px;
   }
 }
 
@@ -97,7 +38,6 @@
 
   background-color: $dark-blue-1;
 
-  /* stylelint-disable-next-line */
   .title {
     color: $white;
   }
@@ -105,13 +45,10 @@
   .subtitle {
     color: rgba($white, 0.4);
 
-    /* stylelint-disable-next-line */
     span {
-      /* stylelint-disable-next-line */
       a {
         color: rgba($white, 0.4);
 
-        /* stylelint-disable-next-line */
         &::before {
           border-bottom: 1px rgba($white, 0.4) solid;
           background-color: rgba($white, 0.4);
@@ -123,14 +60,6 @@
   & > div:last-child {
     & > form {
       ::placeholder {
-        color: $white;
-      }
-
-      :-ms-input-placeholder {
-        color: $white;
-      }
-
-      ::-ms-input-placeholder {
         color: $white;
       }
 
@@ -167,11 +96,6 @@
   background: $white;
   color: $black;
 
-  @include phone {
-    padding: 0;
-    margin-top: 0;
-  }
-
   .title {
     color: $black;
   }
@@ -179,13 +103,10 @@
   .subtitle {
     color: $feedback-form-grey;
 
-    /* stylelint-disable-next-line */
     span {
-      /* stylelint-disable-next-line */
       a {
         color: $feedback-form-grey;
 
-        /* stylelint-disable-next-line */
         &::before {
           border-bottom: 1px $feedback-form-grey solid;
           background-color: $feedback-form-grey;
@@ -200,14 +121,6 @@
         color: $feedback-form-grey;
       }
 
-      :-ms-input-placeholder {
-        color: $feedback-form-grey;
-      }
-
-      ::-ms-input-placeholder {
-        color: $feedback-form-grey;
-      }
-
       & > div:last-child {
         a {
           div {
@@ -217,6 +130,11 @@
         }
       }
     }
+  }
+
+  @include phone {
+    padding: 0;
+    margin-top: 0;
   }
 }
 
@@ -250,17 +168,18 @@
 .machine-learning-development-services,
 .mobile-app-development-company,
 .devops-development-services,
-.chat-app-development-company {
+.chat-app-development-company,
+.artificial-intelligence-development-services {
   @extend .formContainer;
 
-  padding: 100px 16px;
-
-  @include tablet {
-    padding: 80px 16px;
-  }
+  padding: 120px 16px;
 
   .title {
     max-width: 786px;
+  }
+
+  @include below-tablet {
+    padding: 60px 16px;
   }
 }
 
@@ -268,18 +187,18 @@
   .title {
     @include fontSize(56px);
 
+    max-width: 550px;
     letter-spacing: unset;
     margin-bottom: 30px;
-    max-width: 912px;
 
     @include tablet {
       @include fontSize(44px);
     }
 
     @include phone {
-      margin-bottom: 20px;
-
       @include fontSize(32px);
+
+      margin-bottom: 20px;
     }
   }
 }
@@ -328,13 +247,10 @@
   .subtitle {
     color: $white;
 
-    /* stylelint-disable-next-line */
     span {
-      /* stylelint-disable-next-line */
       a {
         color: $white;
 
-        /* stylelint-disable-next-line */
         &::before {
           border-bottom: 1px $white solid;
           background-color: $white;
@@ -349,14 +265,6 @@
         color: $white;
       }
 
-      :-ms-input-placeholder {
-        color: $white;
-      }
-
-      ::-ms-input-placeholder {
-        color: $white;
-      }
-
       & > div:last-child {
         a {
           div {
@@ -367,4 +275,107 @@
       }
     }
   }
+}
+
+.fintech-software-development-services,
+.enterprise-resource-planning-software-services,
+.ui-ux-services,
+.android-mobile-app-development-services,
+.mvp-app-development-company,
+.devops-development-services,
+.artificial-intelligence-development-services {
+  @include flex(column);
+
+  padding: 120px 0;
+  background-color: $gray0;
+
+  .title {
+    max-width: 790px;
+
+    [data-title] {
+      margin: 0 auto;
+    }
+
+    [data-second-title] {
+      @include fontSize(38px, 130%);
+
+      margin: 0 auto;
+
+      @include below-tablet {
+        @include fontSize(24px, 130%);
+      }
+    }
+  }
+
+  @include below-tablet {
+    padding: 30px 16px 60px;
+  }
+}
+
+.linkText {
+  margin: 16px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  letter-spacing: 0.5px;
+  color: rgba($dark-grey, 0.3);
+
+  a {
+    margin-left: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    letter-spacing: 0.5px;
+    transition: color $accelerated-transition-time;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgba($dark-grey, 0.3);
+    position: relative;
+    display: inline-block;
+    padding: 0;
+
+    &:hover {
+      color: rgba($dark-grey, 0.2);
+    }
+
+    &::before {
+      content: '';
+      cursor: pointer;
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      width: 100%;
+      border-bottom: 1px rgba($dark-grey, 0) solid;
+      background-color: rgba($dark-grey, 0.2);
+      transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+
+.artificial-intelligence-development-services {
+  .title {
+    max-width: 790px;
+  }
+}
+
+.machine-learning-development-services {
+  .title {
+    max-width: 790px;
+  }
+}
+
+.android-mobile-app-development-services {
+  .title {
+    max-width: 700px;
+  }
+}
+
+.fintech-software-development-services {
+  .title {
+    max-width: 754px;
+  }
+}
+
+.devops-development-services {
+  padding-top: 0;
 }

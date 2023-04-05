@@ -1,0 +1,15 @@
+.fireaway {
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-column-gap: 211px;
+  grid-auto-flow: row;
+
+  .title {
+    color: $gray900;
+  }
+
+  .teamItem {
+    font-weight: 500;
+    color: $gray900;
+  }
+}

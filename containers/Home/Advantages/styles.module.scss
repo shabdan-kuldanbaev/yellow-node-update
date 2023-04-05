@@ -1,8 +1,6 @@
 @import 'styles/utils/mixins';
 
 .advantages {
-  min-height: calc(100vh - 100px * 2);
-
   @include flex(column, center, center);
 
   @include ultra-hd {
@@ -17,30 +15,29 @@
     min-height: calc(90vh - 2 * #{$section-indent});
   }
 
+  min-height: calc(100vh - 100px * 2);
+
+  .container {
+    max-width: 744px;
+
+    .title {
+      @include fontSize(56px, 120%);
+    }
+
+    .subtitle {
+      @include fontSize(18px);
+      @include flex(column, center, center);
+
+      text-align: center;
+      color: rgba($dark-grey, 0.6);
+    }
+  }
+
   @include tablet {
     min-height: auto;
   }
 
   @include phone {
     padding: $mobile-section-indent $side-indent;
-  }
-
-  .container {
-    max-width: 744px;
-
-    .title {
-      @include fontSize(56px);
-
-      line-height: 120%;
-    }
-
-    .subtitle {
-      @include fontSize(18px);
-
-      text-align: center;
-      color: rgba($dark-grey, 0.6);
-
-      @include flex(column, center, center);
-    }
   }
 }

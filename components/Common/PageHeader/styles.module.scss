@@ -2,8 +2,17 @@
 
 .titleContainer {
   h1 {
-    margin: 0;
+    @include fontSize(38px, 130%);
 
-    @include defaultFirstHeader;
+    margin: 0 0 8px;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+    }
+  }
+
+  .updatedAt {
+    margin-top: 32px;
+    color: $gray900;
   }
 }

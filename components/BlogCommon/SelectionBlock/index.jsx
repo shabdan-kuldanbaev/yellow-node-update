@@ -1,33 +1,18 @@
-import React, {
-  useEffect,
-  useRef,
-  useCallback,
-} from 'react';
+import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
-import { setMobileCategoriesState } from 'redux/actions/layout';
-import ButtonMore from 'components/Common/ButtonMore';
-import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
-import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
-import Svg from 'components/Common/Svg';
-import useToggle from 'hooks/useToggle';
 import { setOverflowForBody } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import Categories from './Categories';
 import styles from './styles.module.scss';
 
-const SelectionBlock = ({ handleOnSubmit }) => {
-  const dispatch = useDispatch();
-  const isMobileCategoties = useSelector(selectIsMobileCategotiesOpened);
-  const [isFullscreenSearch, toggleFullscreenSearch] = useToggle(false);
-  const [isFullscreenSubscribe, toggleFullscreenSubscribe] = useToggle(false);
-  const subscribeRef = useRef(null);
+const Svg = dynamic(() => import('UI/components/Svg'));
 
-  const handleMobileCategoties = useCallback((state) => () => {
-    dispatch(setMobileCategoriesState(state));
-  }, [dispatch]);
+const SelectionBlock = ({ toggleFullscreenSearch }) => {
+  const isMobileCategoties = useSelector(selectIsMobileCategotiesOpened);
 
   useEffect(() => {
     setOverflowForBody(isMobileCategoties);
@@ -39,47 +24,23 @@ const SelectionBlock = ({ handleOnSubmit }) => {
     })}
     >
       <Categories isMobileCategoties={isMobileCategoties} />
-      {isMobileCategoties && <div className={styles.darkBackground} />}
       <div className={styles.buttons}>
         <Svg
-          type={SVG_IMAGES_TYPES.searchSvg}
+          type={SVG_IMAGES_TYPES.searchLg}
           handleOnClick={toggleFullscreenSearch}
           className={styles.imgContainer}
         />
-        <ButtonMore
-          buttonRef={subscribeRef}
-          handleOnClick={toggleFullscreenSubscribe}
-          title="Subscribe"
-          buttonStyle={styles.button}
-        />
-        <span
-          className={styles.categoryTitleInHeader}
-          onClick={handleMobileCategoties(true)}
-          role="button"
-          tabIndex="0"
-        >
-          Categories
-        </span>
       </div>
-      <FullscreenSearch
-        isFullscreenSearch={isFullscreenSearch}
-        closeFullscreenSearch={toggleFullscreenSearch}
-      />
-      <FullscreenSubscribe
-        isFullscreenSubscribe={isFullscreenSubscribe}
-        closeFullscreenSubscribe={toggleFullscreenSubscribe}
-        handleOnSubmit={handleOnSubmit}
-      />
     </div>
   );
 };
 
 SelectionBlock.defaultProps = {
-  handleOnSubmit: () => null,
+  toggleFullscreenSearch: () => null,
 };
 
 SelectionBlock.propTypes = {
-  handleOnSubmit: PropTypes.func,
+  toggleFullscreenSearch: PropTypes.func,
 };
 
 export default SelectionBlock;

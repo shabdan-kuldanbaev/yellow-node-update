@@ -1,0 +1,51 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
+@import 'styles/utils/theme/animations';
+
+.bottomContent {
+  @include flex(row, space-between, center);
+
+  width: 100%;
+  max-width: $wide-content-width;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid $gray500;
+
+  .text {
+    @include macbook-twelve {
+      @include fontSize(14px);
+    }
+
+    @include below-tablet {
+      order: 1;
+      margin-top: 30px;
+    }
+
+    @include phone {
+      text-align: center;
+      margin-top: 16px;
+    }
+  }
+
+  .links {
+    & > * {
+      color: $gray400;
+
+      &:hover {
+        color: rgba($yellow500, 0.7);
+      }
+    }
+
+    & > * + * {
+      margin-left: 25px;
+    }
+
+    @include below-tablet {
+      order: 0;
+    }
+  }
+
+  @include below-tablet {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,255 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
+@import './styles/webAppDevelopmentCompany.module';
+
+.blog {
+  @include flex(row, space-between, center);
+
+  padding: 40px;
+  background-color: $alabaster;
+  border-radius: 5px;
+  margin: 80px 0;
+
+  .h3 {
+    @include fontSize(24px);
+
+    color: $tundora;
+    font-weight: 700;
+    line-height: 1.5;
+    border-left: 2px solid $tundora;
+    padding-left: 20px;
+    margin: 0 40px 0 0;
+
+    @include macbook-twelve {
+      @include fontSize(22px);
+    }
+
+    @include phone {
+      @include fontSize(18px);
+    }
+  }
+
+  .button {
+    @include fontSize(18px);
+
+    font-weight: 500;
+    padding: 20px 0;
+    margin-top: 0;
+
+    @include phone {
+      @include fontSize(16px);
+
+      margin-top: 20px;
+      padding: 20px;
+    }
+  }
+
+  @include phone {
+    @include flex(column, center, center);
+  }
+}
+
+.card {
+  @include flex(row, space-between, center);
+
+  box-sizing: border-box;
+  margin: 48px auto 0;
+  padding: 60px;
+  background-color: $gray50;
+  border-radius: 5px;
+  max-width: $default-content-width;
+  min-height: 215px;
+
+  .content {
+    max-width: none;
+  }
+
+  h3 {
+    margin: 0;
+
+    @include below-tablet {
+      text-align: center;
+
+      &:last-of-type {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  .button {
+    margin-left: 123px;
+    flex: 0 0 auto;
+  }
+
+  @include below-tablet {
+    @include flex(column, center, center);
+
+    min-height: auto;
+    padding: 32px 16px;
+
+    .button {
+      margin: 0 auto;
+    }
+  }
+}
+
+.new {
+  @include flex(row, flex-start, center);
+
+  position: relative;
+  box-sizing: border-box;
+  min-height: 173px;
+  padding: 24px 32px;
+  background: $gray0;
+  border: 1px solid $gray200;
+  border-radius: 10px;
+  margin: 0;
+
+  .title {
+    @include fontSize(20px);
+  }
+
+  &.book {
+    @include flex(column, flex-start, flex-start);
+
+    border-color: $yellow500;
+    padding-left: 40%;
+    margin-top: 130px;
+    background: $gray50;
+
+    .content {
+      max-width: none;
+    }
+
+    .image {
+      position: absolute;
+      width: 167px;
+      height: 245px;
+      left: 60px;
+      bottom: 24px;
+      filter: drop-shadow(10px 24px 42px rgb(0 0 0 / 7%));
+    }
+
+    .button {
+      margin: 16px 0 0;
+    }
+
+    @include tablet {
+      padding: 188px 32px 24px;
+
+      .image {
+        left: 50%;
+        top: -90px;
+        transform: translateX(-50%);
+      }
+
+      .button {
+        margin: 16px auto 0;
+      }
+    }
+  }
+
+  @include tablet {
+    flex-direction: column;
+
+    .image {
+      min-height: 125px;
+      margin: 0 0 24px;
+    }
+
+    .content {
+      max-width: none;
+
+      * {
+        text-align: center;
+      }
+    }
+
+    .button {
+      margin: 24px auto 0;
+    }
+  }
+}
+
+.image {
+  align-self: stretch;
+  min-width: 156px;
+  margin-right: 32px;
+}
+
+.content {
+  max-width: 275px;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: $gray400;
+}
+
+.button {
+  margin-left: auto;
+}
+
+.openContact {
+  .content {
+    max-width: 462px;
+  }
+}
+
+.subscribe {
+  &.isSubscribed {
+    .content {
+      max-width: none;
+    }
+
+    .button {
+      display: none;
+    }
+  }
+}
+
+.page {
+  @include flex(column, center, center);
+
+  margin: 0 auto;
+  padding: 60px 0 120px;
+  background: $gray0;
+
+  .h3 {
+    @include fontSize(38px, 130%);
+
+    text-align: center;
+    margin: 0;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+    }
+  }
+
+  .p {
+    @include fontSize(20px);
+
+    text-align: center;
+    line-height: 1.8;
+
+    @include phone {
+      @include fontSize(16px);
+    }
+  }
+
+  .button {
+    margin: 48px auto 0;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+
+  @include tablet {
+    padding: 30px 0 60px;
+  }
+}

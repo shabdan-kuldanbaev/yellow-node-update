@@ -1,0 +1,13 @@
+.drive-focus {
+  &.firstSectionView {
+    padding: 0 0 120px;
+
+    .titleStyle {
+      margin: 0;
+    }
+
+    @include phone {
+      padding-bottom: 0;
+    }
+  }
+}

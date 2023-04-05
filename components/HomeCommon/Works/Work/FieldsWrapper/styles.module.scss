@@ -1,23 +1,20 @@
 @import 'styles/utils/mixins';
 
 .h2 {
-  margin-top: 0;
-  margin-bottom: 60px;
-  font-weight: 800;
-  font-size: 4.125rem;
-  letter-spacing: 2.25px;
+  @include fontSize(38px, 130%);
+
+  margin: 0;
+  font-weight: 700;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.2;
-  color: $white;
+  color: $gray0;
   width: 100%;
 
   &.home {
-    @include fontSize(56px);
+    @include fontSize(56px, 120%);
 
     margin-bottom: 20px;
     font-weight: 700;
-    line-height: 120%;
   }
 
   @include below-tablet {
@@ -55,11 +52,12 @@
 }
 
 .p {
-  margin: -20px 0 35px;
-  font-size: 1.25rem;
-  line-height: 1.8;
+  @include fontSize(16px, 150%);
+
+  max-width: 530px;
+  margin: 16px 0 32px;
   letter-spacing: 0.5px;
-  color: $white;
+  color: $gray400;
   word-wrap: normal;
 
   &.home {
@@ -68,7 +66,7 @@
     margin-bottom: 40px;
     font-weight: 400;
     line-height: 180%;
-    color: rgba($white, 0.7);
+    color: rgba($gray0, 0.7);
   }
 
   @include below-tablet-horizontal {
@@ -103,8 +101,9 @@
 }
 
 .viewButton {
-  @include button-more($white, $black, transparent, $turbo-100, $boulder, $turbo-100);
+  @include button-more($gray0, $gray1000, transparent, $yellow500, $gray500, $yellow500);
 
+  padding: 16px 32px;
   max-width: 170px;
   margin: 10px 0;
   border-radius: $button-border-radius;
@@ -115,7 +114,11 @@
     margin: 0;
     padding: 20px 38px;
     width: fit-content;
-    border-color: $white;
+    border-color: $gray0;
+
+    @include phone {
+      padding: 14px 30px;
+    }
   }
 
   @include tablet {
@@ -131,9 +134,5 @@
     display: block;
     max-width: 250px;
     text-align: center;
-
-    &.home {
-      padding: 14px 30px;
-    }
   }
 }

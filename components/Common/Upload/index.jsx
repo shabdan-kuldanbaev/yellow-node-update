@@ -1,10 +1,11 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import AnimatedInput from 'components/Common/AnimatedInput';
-import Svg from 'components/Common/Svg';
+import Input from 'UI/components/Input';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { AttachedFile } from './AttachedFile';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const Upload = ({
   projectDescription,
@@ -21,13 +22,13 @@ const Upload = ({
   return (
     <div className={styles[style] || styles.uploadFile}>
       <div className={styles.attachmentManage}>
-        <AnimatedInput
+        <Input
           value={projectDescription}
           handleOnChange={handleOnDescriptionChange}
-          placeholder="Project details *"
-          isValidate
+          placeholder="Project Details *"
           isWithoutLabel
           isAttached
+          isRequired
           isTextArea
           style={style}
         />

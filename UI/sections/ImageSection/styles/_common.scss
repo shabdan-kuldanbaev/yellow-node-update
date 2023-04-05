@@ -1,0 +1,65 @@
+.container {
+  @include appDevelopmentContainer;
+}
+
+.imageSection {
+  @include flex(row, space-between, center);
+
+  max-width: $wide-content-width;
+  margin: 0 auto;
+
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include below-tablet {
+    margin: 100px 0;
+
+    @include flex(column, space-between, center);
+  }
+
+  @include phone {
+    @include flex(column, space-between, center);
+  }
+}
+
+.image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 120%;
+  width: 100%;
+}
+
+.titleStyle {
+  margin-bottom: 16px;
+}
+
+.experienceContent {
+  padding-left: 32px;
+  width: 100%;
+
+  & > div:last-child > p {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+
+    a {
+      color: $gray400;
+      border-bottom: 1px solid $gray400;
+    }
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
+  @include tablet {
+    padding-left: 0;
+  }
+
+  @include below-tablet {
+    padding-left: 0;
+  }
+}

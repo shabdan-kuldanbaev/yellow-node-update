@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import styles from './styles.module.scss';
 
-export const CustomYoutubePlayer = ({ src }) => (
-  <div className={styles.player}>
+export const CustomYoutubePlayer = ({ src, className }) => (
+  <div className={cn(styles.player, className)}>
     <iframe
       width="853"
       height="480"
@@ -16,6 +16,11 @@ export const CustomYoutubePlayer = ({ src }) => (
   </div>
 );
 
+CustomYoutubePlayer.defaultProps = {
+  className: '',
+};
+
 CustomYoutubePlayer.propTypes = {
   src: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };

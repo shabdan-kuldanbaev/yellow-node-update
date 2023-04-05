@@ -1,0 +1,21 @@
+@import 'styles/utils/_mixins';
+
+.title {
+  margin: 32px 0;
+
+  h1 {
+    margin: 0;
+  }
+
+  & > div {
+    @include flex(row, space-between, center);
+  }
+}
+
+.searchButton {
+  display: none;
+
+  @include below-tablet {
+    display: unset;
+  }
+}

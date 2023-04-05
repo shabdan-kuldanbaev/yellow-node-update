@@ -1,29 +1,12 @@
-/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
-@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
+@import 'components/AppDevelopmentCommon/utils/styles.module';
 
 .ui-ux-services {
+  @include appDevelopmentContainer;
+
   .linksBlock {
     max-width: 675px;
-    margin: 140px auto;
-
-    .linksBlockTitle {
-      @include fontSize(40px);
-
-      text-align: center;
-      margin: 0 auto 85px;
-
-      @include tablet {
-        @include fontSize(35px);
-      }
-
-      @include phone {
-        @include fontSize(24px);
-
-        margin: 0 auto 65px;
-        max-width: 300px;
-      }
-    }
+    margin: 0 auto;
 
     .linksList {
       @include flex(row, space-between, center);
@@ -37,7 +20,7 @@
 
             color: $dark-grey;
             font-weight: 700;
-            margin: 0 18px 0 15px;
+            margin: 0 12px;
 
             @include phone {
               @include fontSize(20px);
@@ -54,30 +37,23 @@
           .arrow {
             transition: transform 0.4s ease-out;
           }
+
+          .linkSvg {
+            width: 32px;
+            height: 32px;
+          }
         }
 
         @include phone {
           &:first-of-type {
-            margin-bottom: 40px;
+            margin-bottom: 24px;
           }
         }
-      }
-
-      @include tablet {
-        justify-content: space-around;
       }
 
       @include phone {
         flex-direction: column;
       }
-    }
-
-    @include tablet {
-      margin-top: 100px;
-    }
-
-    @include phone {
-      margin-top: 60px;
     }
   }
 }

@@ -1,11 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
+import SectionTitle from 'UI/components/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { getCheckSocialProps } from './utils/checkSocialHelper';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const CheckSocialSection = ({
   sectionData,
@@ -20,9 +22,7 @@ const CheckSocialSection = ({
     <section className={styles[type]}>
       {links && (
         <div className={styles.linksBlock}>
-          <h3 className={styles.linksBlockTitle}>
-            {title}
-          </h3>
+          <SectionTitle title={title} />
           <div className={styles.linksList}>
             {links && links.map((link) => {
               const {
@@ -37,12 +37,15 @@ const CheckSocialSection = ({
                   key={`gallery-cta/${linkText}`}
                 >
                   <LinkWrapper path={url}>
-                    <Svg type={linkSvgType} />
+                    <Svg
+                      type={linkSvgType}
+                      className={styles.linkSvg}
+                    />
                     <p className={styles.linkText}>
                       {linkText}
                     </p>
                     <Svg
-                      type={SVG_IMAGES_TYPES.nearbyArrow}
+                      type={SVG_IMAGES_TYPES.arrowRight}
                       className={styles.arrow}
                     />
                   </LinkWrapper>

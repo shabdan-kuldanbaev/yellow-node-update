@@ -1,0 +1,90 @@
+@import 'styles/utils/mixins';
+
+.ui-ux-services {
+  &.firstSectionView {
+    padding: 0 40px 75px;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .imagesList {
+      justify-content: space-around;
+
+      & > div:nth-of-type(1),
+      div:nth-of-type(2) {
+        @include below-tablet {
+          margin-bottom: 32px;
+        }
+      }
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+    }
+
+    .imagesList > div:nth-of-type(1) {
+      height: 84px;
+      width: 198px;
+    }
+
+    .imagesList > div:nth-of-type(2) {
+      height: 140px;
+      width: 106px;
+    }
+
+    .imagesList > div:nth-of-type(3) {
+      height: 84px;
+      width: 163px;
+    }
+  }
+
+  &.secondSectionView {
+    padding-top: 0;
+
+    .imagesList {
+      @include flex(column, center, center);
+
+      max-width: 920px;
+      height: 80px;
+      margin: 0 auto;
+
+      & > div {
+        width: 100%;
+        height: 100%;
+      }
+
+      @include tablet {
+        height: 180px;
+      }
+    }
+
+    .imagesList > div:nth-of-type(1) {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    .imagesList > div:nth-of-type(2) {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .titleStyle {
+    margin-bottom: 48px;
+
+    @include tablet {
+      margin-bottom: 24px;
+    }
+  }
+}

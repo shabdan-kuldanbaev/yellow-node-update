@@ -1,10 +1,11 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
 import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const NextPrev = ({ isNewer, slug }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);

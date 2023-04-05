@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .container {
@@ -71,13 +70,12 @@
       z-index: 10;
 
       .title {
+        @include fontSize(24px, 120%);
+
         margin: 0 0 15px;
         font-family: $case-studies-font;
         font-weight: bold;
-        line-height: 120%;
         color: $dark-grey;
-
-        @include fontSize(24px);
 
         @include phone {
           margin-bottom: 18px;
@@ -86,7 +84,7 @@
         }
       }
 
-      & > p {
+      &>p {
         margin: 0;
         line-height: 150%;
         font-family: $case-studies-font;
@@ -174,7 +172,7 @@
   }
 
   .contentContainer {
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -191,21 +189,19 @@
 .cash-chat {
   @extend .container;
 
-  max-width: 100%;
-  padding: 192px 12px;
-
-  @include flex(row, space-between, center, wrap);
-
-  @include phone {
-    padding: 50px 12px;
-  }
-
   .containerBackground {
-    background: unset;
+    left: -23%;
+    right: 0;
+    opacity: 0.5;
+
+    @include phone {
+      left: -30%;
+      right: 7%;
+    }
   }
 
   .contentContainer {
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -242,7 +238,7 @@
         color: $white;
       }
 
-      & > p {
+      &>p {
         max-width: 325px;
       }
     }
@@ -484,7 +480,7 @@
 
     .checkMark {
       color: $white;
-      background-color: $flamenco;
+      background-color: $driveFocusPrimary;
     }
   }
 }
@@ -649,7 +645,7 @@
   }
 
   .contentContainer {
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -746,7 +742,7 @@
       margin-bottom: 10px;
     }
 
-    & > p {
+    &>p {
       max-width: 330px;
     }
   }
@@ -786,8 +782,37 @@
       margin-bottom: 10px;
     }
 
-    & > p {
+    &>p {
       max-width: 370px;
     }
+  }
+}
+
+.mobile-bank-application {
+  @extend .container;
+
+  .featureContainer {
+    margin-bottom: 30px;
+
+    .checkMark {
+      background: $turbo-100;
+      color: $black;
+    }
+  }
+
+  .containerBackground {
+    left: -25%;
+    background: $alabaster;
+
+    @include phone {
+      left: -33%;
+      top: -18%;
+      bottom: -19%;
+      right: 5%;
+    }
+  }
+
+  @include phone {
+    padding: 0;
   }
 }

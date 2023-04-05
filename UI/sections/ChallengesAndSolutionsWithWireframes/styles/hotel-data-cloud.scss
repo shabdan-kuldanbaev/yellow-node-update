@@ -1,0 +1,9 @@
+.hotel-data-cloud {
+  position: relative;
+  z-index: 1;
+  background: $hotelDataCloudGradient;
+
+  .titleStyle {
+    color: $gray0;
+  }
+}

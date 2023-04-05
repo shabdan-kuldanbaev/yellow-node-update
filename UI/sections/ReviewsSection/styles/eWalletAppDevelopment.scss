@@ -1,0 +1,7 @@
+.e-wallet-app-development {
+  :global(.swiper-slide) {
+    @include phone {
+      height: 376px;
+    }
+  }
+}

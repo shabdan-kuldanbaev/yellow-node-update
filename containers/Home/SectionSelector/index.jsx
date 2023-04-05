@@ -1,18 +1,22 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
 
-const Portfolio = dynamic(() => import('containers/Home/Portfolio'), { ssr: false });
-const TextSection = dynamic(() => import('components/TextSection'));
-const CardsSection = dynamic(() => import('components/AppDevelopmentCommon/CardsSection'));
-const SvgListSection = dynamic(() => import('components/AppDevelopmentCommon/SvgListSection'));
-const ReviewsSection = dynamic(() => import('components/AppDevelopmentCommon/ReviewsSection'), { ssr: false });
-const Blog = dynamic(() => import('containers/Home/Blog'));
-const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'));
+const Portfolio = dynamic(() => import('UI/sections/Portfolio'), { ssr: false });
+const TextSection = dynamic(() => import('UI/sections/TextSection'), { ssr: false });
+const CardsSection = dynamic(() => import('UI/sections/CardsSection'), { ssr: false });
+const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'), { ssr: false });
+const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
+const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'), { ssr: false });
+const Blog = dynamic(() => import('UI/sections/Blog'), { ssr: false });
+const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'), { ssr: false });
 
-const SectionSelector = ({ section, type }) => {
-  const { type: sectionType } = getDocumentFields(section);
+const SectionSelector = ({
+  section,
+  type,
+  ...rest
+}) => {
+  const { type: sectionType } = getDocumentFields(section, ['type']);
 
   switch (sectionType) {
   case HOMEPAGE_SECTION_TYPES.text:
@@ -26,8 +30,8 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.cards:
     return (
       <CardsSection
-        sectionData={section}
-        pageType={type}
+        section={section}
+        type={type}
         sectionType="cards"
       />
     );
@@ -35,9 +39,8 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.cardsWithOverlay:
     return (
       <CardsSection
-        sectionData={section}
-        pageType={type}
-        sectionType="cards"
+        section={section}
+        type={type}
         withOverlay
       />
     );
@@ -50,7 +53,7 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.svgDisplay:
     return (
       <SvgListSection
-        sectionData={section}
+        section={section}
         type={type}
       />
     );
@@ -58,7 +61,7 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.svgDisplayWithSelector:
     return (
       <SvgListSection
-        sectionData={section}
+        section={section}
         type={type}
         withSelector
       />
@@ -67,16 +70,29 @@ const SectionSelector = ({ section, type }) => {
   case HOMEPAGE_SECTION_TYPES.reviews:
     return (
       <ReviewsSection
-        data={section}
+        section={section}
         type={type}
       />
     );
 
   case HOMEPAGE_SECTION_TYPES.blog:
-    return <Blog sectionData={section} />;
+    return (
+      <Blog
+        sectionData={section}
+        {...rest}
+      />
+    );
 
   case HOMEPAGE_SECTION_TYPES.photos:
     return <PhotoGallery sectionData={section} />;
+
+  case HOMEPAGE_SECTION_TYPES.feedback:
+    return (
+      <FeedbackSection
+        section={section}
+        type={type}
+      />
+    );
 
   default:
     return null;

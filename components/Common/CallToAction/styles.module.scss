@@ -3,9 +3,8 @@
 .button {
   @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
   @include flex (row, center);
-  @include fontSize(18px);
+  @include fontSize(18px, 150%);
 
-  line-height: 150%;
   border-radius: $button-border-radius;
   letter-spacing: 0.5px;
   border: none;
@@ -26,18 +25,17 @@
   margin: 80px 0;
 
   .h3 {
-    @include fontSize(24px);
-
-    color: $tundora;
-    font-weight: 700;
-    line-height: 1.5;
-    border-left: 2px solid $tundora;
-    padding-left: 20px;
-    margin: 0 40px 0 0;
+    @include fontSize(24px, 1.5);
 
     @include macbook-twelve {
       @include fontSize(22px);
     }
+
+    color: $tundora;
+    font-weight: 700;
+    border-left: 2px solid $tundora;
+    padding-left: 20px;
+    margin: 0 40px 0 0;
 
     @include phone {
       @include fontSize(18px);
@@ -67,51 +65,31 @@
 .page {
   @include flex(column, center, center);
 
-  margin-bottom: 250px;
-  padding: 0 20px;
+  margin-top: 120px;
+  padding-bottom: 20px;
 
   .h3 {
-    @include fontSize(45px);
+    @include fontSize(38px, 130%);
 
+    margin: 0;
     text-align: center;
 
-    @include below-tablet {
-      @include fontSize(35px);
-    }
-
     @include phone {
-      @include fontSize(28px);
-    }
-  }
-
-  .p {
-    @include fontSize(20px);
-
-    text-align: center;
-    line-height: 1.8;
-
-    @include phone {
-      @include fontSize(16px);
+      @include fontSize(24px);
     }
   }
 
   .button {
-    font-size: 1rem;
-    font-weight: 600;
+    @include fontSize(16px, 150%);
+
+    max-width: 153px;
+    font-weight: 500;
     padding: 16px 0;
-    margin-top: 80px;
-
-    @include phone {
-      font-weight: 500;
-    }
+    margin-top: 48px;
   }
 
-  @include macbook-fifteen {
-    padding: 0 80px;
-  }
-
-  @include tablet {
-    padding: 0 20px;
+  @include phone {
+    margin-top: 60px;
   }
 }
 
@@ -123,10 +101,9 @@
   border-radius: 5px;
 
   .h3 {
-    @include fontSize(32px);
+    @include fontSize(32px, 1.6);
 
     white-space: pre-line;
-    line-height: 1.6;
 
     @include phone {
       @include fontSize(20px);

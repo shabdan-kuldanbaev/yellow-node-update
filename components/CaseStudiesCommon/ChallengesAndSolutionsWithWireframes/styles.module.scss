@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .fernwayer,
@@ -80,16 +79,16 @@
     padding-bottom: 0;
     background-size: 100% 60%;
 
+    [data-case-study-title] {
+      color: $white;
+    }
+
     @include below-tablet {
       background-size: 100% 55%;
     }
 
     @include phone {
       background-size: 100% 45%;
-    }
-
-    [data-case-study-title] {
-      color: $white;
     }
   }
 
@@ -113,14 +112,6 @@
   padding: 140px 40px;
   background-color: $slate-gray;
 
-  @include tablet {
-    padding: 100px 40px;
-  }
-
-  @include phone {
-    padding: 80px 15px;
-  }
-
   .image {
     display: block;
     width: 100%;
@@ -134,6 +125,14 @@
     @include fontSize(56px);
 
     color: $white;
+  }
+
+  @include tablet {
+    padding: 100px 40px;
+  }
+
+  @include phone {
+    padding: 80px 15px;
   }
 }
 
@@ -163,14 +162,6 @@
     color: rgba($white, 0.7);
   }
 
-  @include tablet {
-    padding: 100px 40px;
-  }
-
-  @include phone {
-    padding: 80px 15px;
-  }
-
   &.thirdSectionView {
     background: $white;
     padding: 140px 40px 0;
@@ -189,6 +180,14 @@
       }
     }
   }
+
+  @include tablet {
+    padding: 100px 40px;
+  }
+
+  @include phone {
+    padding: 80px 15px;
+  }
 }
 
 .fusion-markets {
@@ -196,10 +195,10 @@
     background: $eerie-black;
 
     [data-case-study-title] {
+      @include fontSize(56px);
+
       color: $white;
       font-weight: bold;
-
-      @include fontSize(56px);
 
       @include phone {
         @include fontSize(32px);
@@ -207,17 +206,17 @@
     }
 
     [data-case-study-description] {
+      @include fontSize(18px);
+
       background-color: $eerie-black;
       color: $silver-chalice;
       opacity: 0.7;
       max-width: 741px;
 
-      @include fontSize(18px);
-
       @include phone {
-        max-width: 300px;
-
         @include fontSize(14px);
+
+        max-width: 300px;
       }
     }
   }
@@ -233,7 +232,7 @@
 .telemojo {
   @include caseStudyContainer;
 
-  background: linear-gradient(180deg, #4398FF 0%, #0670F2 100%);
+  background: linear-gradient(180deg, #4398ff 0%, #0670f2 100%);
 
   [data-case-study-title] {
     color: $white;
@@ -264,14 +263,14 @@
   @include caseStudyContainer;
 
   &.secondSectionView {
-    background-color: $cherry-red;
-    background-position: top -144px right -957px;
-    background-repeat: no-repeat;
-
     @include macbook-twelve {
       background-size: 1800px;
       background-position: bottom -1000px right -1515px;
     }
+
+    background-color: $cherry-red;
+    background-position: top -144px right -957px;
+    background-repeat: no-repeat;
 
     [data-case-study-title] {
       color: $white;
@@ -279,14 +278,14 @@
   }
 
   &.thirdSectionView {
-    background: $sushi-2;
-    background-position: bottom -300px right -957px;
-    background-repeat: no-repeat;
-
     @include macbook-twelve {
       background-size: 1800px;
       background-position: bottom -244px right -1510px;
     }
+
+    background: $sushi-2;
+    background-position: bottom -300px right -957px;
+    background-repeat: no-repeat;
 
     [data-case-study-title] {
       color: $white;
@@ -336,17 +335,17 @@
   }
 
   [data-case-study-description] {
+    @include fontSize(40px);
+
     margin: 80px auto 30px;
     font-weight: 700;
     line-height: 120%;
     color: $white;
 
-    @include fontSize(40px);
-
     @include phone {
-      margin: 40px auto 16px;
-
       @include fontSize(24px);
+
+      margin: 40px auto 16px;
     }
   }
 }
@@ -475,5 +474,36 @@
 
   @include phone {
     padding: 60px 15px;
+  }
+}
+
+.mobile-bank-application {
+  @include caseStudyContainer;
+
+  padding: 120px 40px;
+  background-color: $dark-grey;
+
+  [data-case-study-title] {
+    color: $white;
+  }
+
+  &.firstSectionView {
+    background-color: $alabaster;
+
+    [data-case-study-title] {
+      color: $black;
+    }
+
+    @include phone {
+      padding: 60px 15px;
+    }
+  }
+
+  &.fifthSectionView {
+    background: $eerie-black-2;
+
+    @include phone {
+      padding: 60px 0;
+    }
   }
 }

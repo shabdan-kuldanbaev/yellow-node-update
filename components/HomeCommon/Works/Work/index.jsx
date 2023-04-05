@@ -1,16 +1,14 @@
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
-import CustomImage from 'components/Common/CustomImage';
-import Animated from 'components/Common/Animated';
-import { ANIMATED_TYPE } from 'utils/constants';
-import { FieldsWrapper } from './FieldsWrapper';
-import { animatedFields } from './utils';
+import { forwardRef } from 'react';
+import Button from 'UI/components/Button';
+import Illustration from 'UI/components/Illustration';
+import SectionTitle from 'UI/components/SectionTitle';
+import { routes } from 'utils/routes';
+import { darkButtons, transparentImages } from './utils';
 import styles from './styles.module.scss';
 
 const Work = forwardRef(({
   index,
-  animatedFields: animatedFieldsList,
   imageUrl,
   title,
   description,
@@ -22,57 +20,32 @@ const Work = forwardRef(({
     data-index={index}
     ref={ref}
   >
-    <div className={styles.desc}>
-      {animatedFieldsList?.map((animated) => (
-        <Animated
-          {...animated}
-          key={`fields/${animated.field}/${title}`}
-        >
-          <FieldsWrapper
-            animated={animated}
-            title={title}
-            description={description}
-            slug={slug}
-          />
-        </Animated>
-      ))}
-    </div>
-    <div className={styles.parallax}>
-      <Animated
-        type={ANIMATED_TYPE.isParallaxSpring}
-        className={styles.parallaxContainer}
+    <div className={styles.contentContainer}>
+      <SectionTitle
+        title={title}
+        description={description}
+        className={styles.content}
+      />
+      <Button
+        href={routes.project.getRoute(slug).path}
+        className={styles.link}
+        dark={darkButtons.includes(slug)}
+        secondary={slug === 'open-sense'}
       >
-        <div
-          className={cn(
-            { [styles.firstShadow]: index === 0 },
-            { [styles.secondShadow]: index === 1 },
-            { [styles.thirdShadow]: index === 2 },
-          )}
-        >
-          <CustomImage
-            src={imageUrl}
-            alt={title}
-            layout="responsive"
-            width={700}
-            height={700}
-            scale={2}
-            objectFit={index === 2 ? 'contain' : 'cover'}
-            containerClasses={styles.img}
-          />
-        </div>
-      </Animated>
+        View Case
+      </Button>
     </div>
+
+    <Illustration
+      src={imageUrl}
+      className={styles.image}
+      transparent={transparentImages.includes(slug)}
+    />
   </div>
 ));
 
-Work.defaultProps = {
-  animatedFields,
-  slug: '',
-};
-
 Work.propTypes = {
   index: PropTypes.number.isRequired,
-  animatedFields: PropTypes.instanceOf(Array),
   imageUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

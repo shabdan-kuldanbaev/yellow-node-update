@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
@@ -14,10 +13,31 @@ const ButtonMore = ({
   isDisabled,
   disabledButtonStyle,
   type,
-}) => (href.length === 0
-  ? (
+  ...rest
+}) => (!href.length ? (
+  <div
+    ref={buttonRef}
+    className={cn({ [buttonStyle]: buttonStyle })}
+    onClick={handleOnClick}
+    role="button"
+    tabIndex="0"
+    {...rest}
+  >
+    {title}
+  </div>
+) : (
+  <LinkWrapper
+    isLocalLink
+    path={href}
+    dynamicRouting={dynamicRouting}
+    className={cn(
+      styles.link,
+      styles[type],
+      { [disabledButtonStyle]: isDisabled },
+    )}
+    {...rest}
+  >
     <div
-      ref={buttonRef}
       className={cn({ [buttonStyle]: buttonStyle })}
       onClick={handleOnClick}
       role="button"
@@ -25,28 +45,8 @@ const ButtonMore = ({
     >
       {title}
     </div>
-  )
-  : (
-    <LinkWrapper
-      isLocalLink
-      path={href}
-      dynamicRouting={dynamicRouting}
-      className={cn(
-        styles.link,
-        styles[type],
-        { [disabledButtonStyle]: isDisabled },
-      )}
-    >
-      <div
-        className={cn({ [buttonStyle]: buttonStyle })}
-        onClick={handleOnClick}
-        role="button"
-        tabIndex="0"
-      >
-        {title}
-      </div>
-    </LinkWrapper>
-  ));
+  </LinkWrapper>
+));
 
 ButtonMore.defaultProps = {
   href: '',

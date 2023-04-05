@@ -1,13 +1,11 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Intro from 'containers/Home/Intro';
+import dynamic from 'next/dynamic';
+import HomeIntro from 'UI/sections/HomeIntro';
 import MetaTags from 'components/Common/MetaTags';
-import SectionSelector from 'containers/Home/SectionSelector';
 import { PAGES } from 'utils/constants';
 import { microdata } from 'utils/microdata';
 
-const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
+const SectionSelector = dynamic(() => import('containers/Home/SectionSelector'));
 
 export const Home = ({
   theme,
@@ -15,8 +13,9 @@ export const Home = ({
   pageMetadata,
   pageData,
   type,
+  ...rest
 }) => {
-  const { main: contentModules, hasFeedbackForm } = pageData;
+  const contentModules = pageData;
 
   return (
     <>
@@ -25,7 +24,7 @@ export const Home = ({
         pageMetadata={pageMetadata}
         pageMicrodata={microdata.homepage()}
       />
-      <Intro
+      <HomeIntro
         theme={theme}
         introSection={introSection}
       />
@@ -34,9 +33,9 @@ export const Home = ({
           key={`section/${i}`}
           section={module}
           type={type}
+          {...rest}
         />
       ))}
-      {hasFeedbackForm && <FeedbackFormContainer />}
     </>
   );
 };

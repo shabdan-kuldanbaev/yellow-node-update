@@ -9,10 +9,23 @@ export const getServicePageInfo = (pathname) => {
       pageMicrodata: microdata.cloudDevelopment(),
       breadcrumbs: pagesBreadcrumbs.cloudDevelopment(),
     };
+
+  case PAGES.crossPlatformDevelopmentServices:
+    return {
+      pageMicrodata: microdata.crossPlatformDevelopmentServices(),
+      breadcrumbs: pagesBreadcrumbs.crossPlatformDevelopmentServices(),
+    };
+
   case PAGES.androidDevelopmentServices:
     return {
       pageMicrodata: microdata.customAndroidApp(),
       breadcrumbs: pagesBreadcrumbs.androidDevelopmentServices(),
+    };
+
+  case PAGES.prototypingServices:
+    return {
+      pageMicrodata: microdata.prototypingServices(),
+      breadcrumbs: pagesBreadcrumbs.prototypingServices(),
     };
 
   case PAGES.developmentServices:
@@ -51,6 +64,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.mvpDevelopment(),
     };
 
+  case PAGES.lendingSoftwareDevelopment:
+    return {
+      pageMicrodata: microdata.lendingSoftwareDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.lendingSoftwareDevelopment(),
+    };
+
   case PAGES.mlDevelopment:
     return {
       pageMicrodata: microdata.mlDevelopment(),
@@ -62,9 +81,52 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.fintechDevelopment(),
     };
 
+  case PAGES.discoveryPhase:
+    return {
+      breadcrumbs: pagesBreadcrumbs.discoveryPhase(),
+    };
+
+  case PAGES.erpDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.erpDevelopment(),
+    };
+
   case PAGES.devOpsDevelopment:
     return {
       breadcrumbs: pagesBreadcrumbs.devOpsDevelopment(),
+    };
+
+  case PAGES.aiDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.aiDevelopment(),
+    };
+
+  case PAGES.dataScienceDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.dataScienceDevelopment(),
+    };
+
+  case PAGES.tradingSoftwareDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.tradingSoftwareDevelopment(),
+      pageMicrodata: microdata.tradingSoftwareDevelopment(),
+    };
+
+  case PAGES.eWalletAppDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.eWalletAppDevelopment(),
+      pageMicrodata: microdata.eWalletAppDevelopment(),
+    };
+
+  case PAGES.bankingSoftwareDevelopmentCompany:
+    return {
+      breadcrumbs: pagesBreadcrumbs.bankingSoftwareDevelopmentCompany(),
+      pageMicrodata: microdata.bankingSoftwareDevelopmentCompany(),
+    };
+
+  case PAGES.penetrationTesting:
+    return {
+      breadcrumbs: pagesBreadcrumbs.penetrationTesting(),
     };
 
   default:

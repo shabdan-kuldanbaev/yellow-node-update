@@ -1,28 +1,23 @@
+import { combineReducers } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
-import { combineReducers } from 'redux';
-import home from './home';
+
+import baseApi from 'redux/apis';
 import layout from './layout';
-import blog from './blog';
-import portfolio from './portfolio';
-import contact from './contact';
-import subscribe from './subscribe';
-import process from './process';
 
 const reducers = combineReducers({
-  home,
   layout,
-  blog,
-  portfolio,
-  contact,
-  subscribe,
-  process,
+  [baseApi.reducerPath]: baseApi.reducer,
 });
 
-// eslint-disable-next-line default-param-last
-export default ((state = {}, action) => {
-  switch (action.type) {
-  case HYDRATE: return { ...action.payload };
+export default ((state, action) => {
+  if (action.type === HYDRATE) {
+    delete action.payload.layout;
 
-  default: return reducers(state, action);
+    return {
+      ...state,
+      ...action.payload,
+    };
   }
+
+  return reducers(state, action);
 });

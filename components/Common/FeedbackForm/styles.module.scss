@@ -1,12 +1,13 @@
 @import 'styles/utils/mixins';
 
 .feedbackForm {
+  @include flex(row, center, center);
+
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 790px;
   transition: height 0.4s ease;
-
-  @include flex(row, center, center);
+  margin: 0 auto;
 
   .disabled {
     pointer-events: none;
@@ -23,12 +24,6 @@
 
     & > div {
       width: 46%;
-      padding-top: 30px;
-
-      & > div {
-        padding: 0;
-        margin: 0;
-      }
     }
 
     @include below-tablet {
@@ -36,28 +31,13 @@
 
       & > div {
         width: 100%;
-        padding-top: 40px;
-      }
-
-      & > div:first-child {
-        padding-top: 0;
-      }
-    }
-
-    @include phone {
-      & > div {
-        padding-top: 0;
       }
     }
   }
 
   .budget {
-    margin-top: 50px;
+    margin-top: 10px;
     text-align: left;
-
-    @include phone {
-      margin-top: 50px;
-    }
 
     span {
       font-size: 1.1875rem;
@@ -75,6 +55,10 @@
         font-size: 1.125rem;
       }
     }
+
+    @include phone {
+      margin-top: 50px;
+    }
   }
 
   .errorMessage {
@@ -83,16 +67,11 @@
   }
 
   .submit {
-    @include button-more($black, $black, transparent, $turbo-100, $black, $turbo-100);
-
-    border-radius: $button-border-radius;
-    max-width: 264px;
-    font-weight: 600;
-    outline: none;
+    padding: 16px 32px;
+    font-weight: 500;
 
     @include phone {
       margin: 60px auto 0;
-      min-width: 300px;
     }
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import {
   FacebookShareButton,
@@ -6,9 +6,11 @@ import {
   LinkedinShareButton,
 } from 'react-share';
 import { useRouter } from 'next/router';
-import Svg from 'components/Common/Svg';
 import gaHelper from 'utils/ga';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 export const ShareThumbnails = ({ url, title }) => {
   const { asPath } = useRouter();
@@ -30,7 +32,7 @@ export const ShareThumbnails = ({ url, title }) => {
         data-socialname="LinkedIn"
         onClick={trackSocialShareClick}
       >
-        <Svg type="linkedinRoundWhite" />
+        <Svg type={SVG_IMAGES_TYPES.linkedinFilledWhite} />
       </LinkedinShareButton>
       <TwitterShareButton
         url={url}
@@ -39,7 +41,7 @@ export const ShareThumbnails = ({ url, title }) => {
         data-socialname="Twitter"
         onClick={trackSocialShareClick}
       >
-        <Svg type="twitterRoundWhite" />
+        <Svg type={SVG_IMAGES_TYPES.twitterFilledWhite} />
       </TwitterShareButton>
       <FacebookShareButton
         url={url}
@@ -48,7 +50,7 @@ export const ShareThumbnails = ({ url, title }) => {
         data-socialname="Facebook"
         onClick={trackSocialShareClick}
       >
-        <Svg type="facebookRoundWhite" />
+        <Svg type="facebookFilledWhite" />
       </FacebookShareButton>
     </div>
   );

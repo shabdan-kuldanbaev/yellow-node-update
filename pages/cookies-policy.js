@@ -1,7 +1,6 @@
-import React from 'react';
-import TechnicalPageContainer from 'containers/TechnicalPage';
+import TechnicalPageContainer from 'UI/views/TechnicalPage';
 import { PAGES, ROUTES } from 'utils/constants';
-import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
+import { getStaticPropsWrapper } from 'utils/dataSelectors';
 
 const CookiesPolicy = ({ introSection }) => (
   <TechnicalPageContainer
@@ -11,6 +10,6 @@ const CookiesPolicy = ({ introSection }) => (
   />
 );
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.cookiesPolicy, getServicePageProps);
+export const getStaticProps = getStaticPropsWrapper(PAGES.cookiesPolicy);
 
 export default CookiesPolicy;

@@ -1,9 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
-import CustomImage from 'components/Common/CustomImage';
-import Svg from 'components/Common/Svg';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 export const Comment = ({
   comment: {
@@ -38,7 +39,7 @@ export const Comment = ({
             ref={infoRef}
           >
             <div className={styles.person}>
-              <CustomImage
+              <Illustration
                 src={avatar}
                 alt={name}
                 width={58}

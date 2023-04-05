@@ -1,0 +1,134 @@
+.section {
+  padding: 120px 40px;
+
+  .contentWrapper {
+    @include flex(row, space-between, center);
+
+    max-width: 994px;
+    margin: 0 auto;
+
+    @include phone {
+      @include flex(column, space-between, center);
+    }
+  }
+
+  .featuresContainer {
+    max-width: 510px;
+    width: 100%;
+
+    @include tablet {
+      margin-bottom: 32px;
+    }
+  }
+
+  .feature {
+    border-bottom: 2px solid rgba($gray300, 1);
+    padding: 24px 0;
+    position: relative;
+    transition: ease 0.3s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      border-radius: 5px;
+      height: 4px;
+      transition: ease 0.3s;
+      background: $fernwayerGradient;
+
+      @include phone {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .title {
+      @include fontSize(24px, 130%);
+
+      color: $gray400;
+      cursor: pointer;
+      font-weight: bold;
+      line-height: 120%;
+      margin: 0;
+      transition: ease 0.3s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      @include tablet {
+        @include fontSize(20px, 150%);
+      }
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .description {
+      @include fontSize(16px, 150%);
+
+      color: $gray400;
+
+      * {
+        margin: 0;
+      }
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    @include tablet {
+      padding: 16px 0;
+    }
+  }
+
+  .activeFeature {
+    &::after {
+      width: 165px;
+    }
+
+    .title {
+      color: $gray900;
+      margin: 0 0 8px;
+
+      &:hover {
+        color: $gray900;
+      }
+    }
+  }
+
+  .imageContainer {
+    max-width: 300px;
+    max-height: 650px;
+    width: 100%;
+    height: 100%;
+    margin-left: 32px;
+  }
+
+  .image {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .promoImage {
+    width: 100%;
+    height: 100%;
+  }
+
+  .activeImage {
+    display: block;
+  }
+
+  @include tablet {
+    padding: 60px 32px;
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+}

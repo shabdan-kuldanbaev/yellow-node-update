@@ -1,0 +1,7 @@
+.humankind {
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 198px;
+  grid-auto-flow: row;
+  max-width: 790px;
+  width: 100%;
+}

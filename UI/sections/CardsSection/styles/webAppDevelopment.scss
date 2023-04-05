@@ -1,0 +1,55 @@
+.web-app-development-company {
+  &.firstSectionView,
+  &.fourthSectionView {
+    @extend .greySection;
+  }
+
+  &.firstSectionView,
+  &.secondSectionView {
+    .title {
+      max-width: 560px;
+    }
+  }
+
+  &.firstSectionView,
+  &.thirdSectionView {
+    .card {
+      @include tablet {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .callToAction h3 {
+      max-width: 535px;
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .blackSection;
+
+    h3 {
+      color: $gray900;
+    }
+
+    [data-swiper-button] {
+      @include darkSliderButton;
+    }
+  }
+
+  &.fourthSectionView {
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      @include below-tablet {
+        align-items: center;
+
+        & > div {
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

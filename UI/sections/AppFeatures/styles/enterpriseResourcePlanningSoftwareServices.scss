@@ -1,0 +1,59 @@
+.enterprise-resource-planning-software-services {
+  @include appFeaturesContainer;
+
+  background-color: $gray900;
+
+  .titleWrapper {
+    align-items: flex-start;
+
+    @include phone {
+      max-width: 350px;
+    }
+  }
+
+  [data-title] {
+    color: $gray0;
+    text-align: left;
+
+    @include tablet {
+      text-align: center;
+      margin: 0 auto 8px;
+    }
+  }
+
+  [data-description] {
+    text-align: left;
+
+    @include tablet {
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+  .container {
+    @include tablet {
+      flex-direction: column-reverse;
+      margin: 0 auto;
+    }
+  }
+
+  .sectionContainer {
+    order: 1;
+  }
+
+  .imageContainer {
+    max-width: 600px;
+
+    @include tablet {
+      margin: 32px auto 0;
+    }
+  }
+
+  .image {
+    transform: scale(1.5) translate(-130px, 70px);
+
+    @include tablet {
+      transform: unset;
+    }
+  }
+}

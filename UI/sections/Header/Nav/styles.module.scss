@@ -1,0 +1,173 @@
+@import 'styles/utils/mixins';
+
+.desktopMenu {
+  transition: margin $default-transition-time;
+  height: 100%;
+
+  @include flex(row, center, center);
+
+  @include below-tablet {
+    display: none;
+  }
+
+  li {
+    display: inline-block;
+    user-select: none;
+    outline: none;
+    margin: 0;
+    padding: 0 24px;
+
+    @include tablet {
+      padding: 0 7px;
+    }
+
+    @include horizontal-mobile {
+      padding: 0 7px;
+    }
+
+    li > svg {
+      display: none;
+    }
+
+    &:last-child {
+      position: relative;
+      border-radius: $button-border-radius;
+      margin-left: 15px;
+      border: 1px solid $gray0;
+      color: $gray0;
+      transition:
+        border $default-transition-time,
+        padding $default-transition-time,
+        color $default-transition-time;
+      opacity: 1 !important;
+      transform: translateY(0);
+      padding: 0;
+
+      @include below-tablet {
+        margin-left: 20px;
+      }
+
+      span {
+        transition: color $default-transition-time;
+      }
+
+      span::before {
+        height: 0;
+      }
+
+      a {
+        display: flex;
+        max-width: 153px;
+        padding: 16px 32px;
+      }
+
+      &:hover {
+        will-change: border;
+        border: 1px solid $yellow500;
+        transition:
+          border $default-transition-time,
+          padding $default-transition-time,
+          color $default-transition-time;
+
+        span {
+          will-change: color;
+          color: $yellow500;
+          transition: color $default-transition-time;
+        }
+      }
+    }
+
+    .underline {
+      @include fontSize(16px, 150%);
+
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color $default-transition-time;
+
+      &:hover {
+        color: $gray500;
+        transition: color $default-transition-time;
+      }
+    }
+  }
+
+  .nonClickableItem {
+    height: 100%;
+
+    @include flex(row, center, center);
+
+    & > span {
+      cursor: pointer;
+    }
+  }
+
+  .dark {
+    span {
+      color: $gray0;
+    }
+  }
+
+  .light {
+    &:last-child {
+      border-color: $gray1000;
+    }
+
+    span {
+      color: $gray1000;
+    }
+  }
+}
+
+.pageScrolled {
+  .dark {
+    span {
+      color: $gray1000;
+    }
+  }
+
+  li:not(:last-child) {
+    .underline {
+      &::before {
+        background-color: $yellow500;
+      }
+    }
+  }
+
+  li {
+    transition: box-shadow $shadow-time-for-yellow-button ease 0s;
+  }
+
+  li:last-child {
+    color: $gray1000;
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid $gray900;
+
+    &:hover {
+      border: 1px solid $yellow500;
+      color: $gray1000;
+      background-color: $yellow500;
+      transform: scale(0.96);
+      transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+
+      span {
+        color: $gray1000;
+        transition: color 0.4s cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+
+    a {
+      transition: padding 0.4s cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+
+  span {
+    color: $gray1000;
+
+    &::before {
+      background-color: $gray1000;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.writer-chrome-extension {
+  background-color: $writerAccent;
+  position: relative;
+  z-index: 1;
+
+  .titleStyle {
+    position: relative;
+    z-index: 20;
+  }
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray0;
+    opacity: 0.7;
+  }
+
+  &::before {
+    @include circle($writerSecondary, 338px);
+
+    display: none;
+    top: -120px;
+    left: -174px;
+
+    @include phone {
+      display: block;
+    }
+  }
+
+  &::after {
+    @include circle($writerSecondary, 255px);
+
+    display: none;
+    bottom: -67px;
+    right: -122px;
+
+    @include phone {
+      display: block;
+    }
+  }
+}

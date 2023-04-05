@@ -1,26 +1,22 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
-import { selectError } from 'redux/selectors/contact';
-import { sendEmail } from 'redux/actions/contact';
-import Animated from 'components/Common/Animated';
-import AnimatedInput from 'components/Common/AnimatedInput';
-import ButtonMore from 'components/Common/ButtonMore';
+import dynamic from 'next/dynamic';
 import Upload from 'components/Common/Upload';
+import Input from 'UI/components/Input';
+import Button from 'UI/components/Button';
 import { ANIMATED_TYPE, ROUTES } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { API } from 'utils/api';
 import { withValidateEmail } from 'hocs/withValidateEmail';
-import { SliderWrapper } from './SliderWrapper';
+import { CONTACT_CASH_KEY, useSendContactFormMutation } from 'redux/apis/dataSending';
 import FormContainer from './FormContainer';
+import { SliderWrapper } from './SliderWrapper';
 import { budget, marks } from './utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const FeedbackForm = ({
   email,
@@ -29,10 +25,10 @@ const FeedbackForm = ({
   isChooseBudget,
   budget: budgetData,
   formKey,
-  contactFormError,
   type,
-  sendEmail: sendFeedback,
 }) => {
+  const [sendForm, { isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+
   const { asPath } = useRouter();
   const formRef = useRef(null);
   const sliderRef = useRef(null);
@@ -112,7 +108,7 @@ const FeedbackForm = ({
 
     const filesUrls = selectedFiles.map((file) => file.signedUrl);
 
-    sendFeedback({
+    sendForm({
       name: fullName,
       email: email.value,
       description: projectDescription,
@@ -161,11 +157,12 @@ const FeedbackForm = ({
             {...animatedProps}
             transitionDelay={500}
           >
-            <AnimatedInput
+            <Input
               value={fullName}
               handleOnChange={handleOnNameChange}
               placeholder="Name *"
-              isValidate
+              type="text"
+              isRequired
               isWithoutLabel
               isContactPage={isContactPage}
               style={type}
@@ -175,12 +172,12 @@ const FeedbackForm = ({
             {...animatedProps}
             transitionDelay={550}
           >
-            <AnimatedInput
+            <Input
               value={email.value}
               handleOnChange={handleOnEmailChange}
               placeholder="Email *"
+              isRequired
               type="email"
-              isValidate={email.isValidate}
               handleOnBlurEmail={handleOnBlurEmail}
               isWithoutLabel
               style={type}
@@ -229,7 +226,7 @@ const FeedbackForm = ({
             style={type}
           />
         </Animated>
-        {contactFormError && (
+        {isError && (
           <span className={styles.errorMessage}>
             There was an error trying to send your message. Please try again later
           </span>
@@ -238,14 +235,14 @@ const FeedbackForm = ({
           {...animatedProps}
           transitionDelay={700}
         >
-          <ButtonMore
+          <Button
             href="/"
-            title="Contact Us"
-            buttonStyle={styles.submit}
-            handleOnClick={handleOnSubmitClick}
-            isDisabled={isDisabled}
-            disabledButtonStyle={styles.disabled}
-          />
+            onClick={handleOnSubmitClick}
+            disabled={isDisabled}
+            className={styles.submit}
+          >
+            Contact Us
+          </Button>
         </Animated>
       </FormContainer>
     </div>
@@ -272,7 +269,4 @@ FeedbackForm.propTypes = {
   sendEmail: PropTypes.func.isRequired,
 };
 
-export default connect(
-  (state) => ({ contactFormError: selectError(state) }),
-  { sendEmail },
-)(withValidateEmail(FeedbackForm));
+export default withValidateEmail(FeedbackForm);

@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 @import 'styles/utils/mixins';
 
 .infoContainer {
@@ -594,7 +593,7 @@
       .listItemContainer {
         list-style: none;
 
-        & > span {
+        &>span {
           position: relative;
 
           &::before {
@@ -635,5 +634,82 @@
 
   @include phone {
     justify-content: center;
+  }
+}
+
+.cash-chat {
+  .container {
+    @include below-tablet {
+      display: none;
+    }
+  }
+
+  .title {
+    @include fontSize(44px, 120%);
+
+    margin-top: 0;
+    font-weight: bold;
+  }
+
+  .listContainer {
+    padding-left: 0;
+  }
+
+  .listItemContainer {
+    @include fontSize(18px, 180%);
+
+    font-weight: bold;
+    list-style: none;
+  }
+}
+
+.mobile-bank-application {
+  @extend .infoContainer;
+
+  flex-direction: column;
+
+  .container {
+    @include fontSize(18px);
+
+    max-width: 304px;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+
+      @include phone {
+        margin: 0;
+      }
+    }
+
+    .title {
+      margin-bottom: 15px;
+
+      @include phone {
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      @include below-tablet {
+        @include flex(column, flex-start, center);
+      }
+    }
+
+    .listItemContainer {
+
+      color: $silver-chalice;
+      
+      &::marker {
+        color: $turbo-100;
+      }
+      
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+  }
+
+  @include phone {
+    margin: 24px 0;
   }
 }

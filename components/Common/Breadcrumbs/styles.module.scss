@@ -4,21 +4,13 @@
   padding-bottom: calc(#{$section-indent} / 2);
   z-index: 3;
 
-  @include phone {
-    padding-bottom: calc(#{$mobile-section-indent} / 2);
-  }
-
   ol {
+    @include flex;
+
     margin: 0;
     padding: 0;
     list-style: none;
     color: $mountain-mis;
-
-    @include flex();
-
-    @include phone {
-      @include fontSize(14px);
-    }
 
     a {
       color: $mountain-mis;
@@ -32,7 +24,7 @@
     }
 
     li:last-child {
-      @include hidden-text();
+      @include hidden-text;
 
       &::after {
         content: none;
@@ -43,5 +35,13 @@
         color: $black;
       }
     }
+
+    @include phone {
+      @include fontSize(14px);
+    }
+  }
+
+  @include phone {
+    padding-bottom: calc(#{$mobile-section-indent} / 2);
   }
 }

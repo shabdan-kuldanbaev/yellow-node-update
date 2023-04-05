@@ -1,11 +1,45 @@
 @import './variables';
 @import './functions';
 
-@mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
+@mixin darkSliderButton {
+  color: $gray0;
+
+  * {
+    fill: $gray0;
+  }
+
+  &:hover {
+    * {
+      color: $yellow500;
+      fill: $yellow500;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    color: $gray400;
+
+    * {
+      fill: $gray300;
+    }
+
+    &:hover {
+      cursor: default;
+
+      * {
+        fill: $gray300;
+        color: $gray400;
+      }
+    }
+  }
+}
+
+@mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap, $ac: initial) {
   display: flex;
   flex-flow: $fd $fw;
   justify-content: $jc;
   align-items: $ai;
+  align-content: $ac;
 }
 
 @mixin hidden-text($textOverflow: ellipsis, $lineClamp: 1) {
@@ -17,9 +51,9 @@
 }
 
 @mixin fontSize($size, $lineHeight: null) {
-  font-size: calcRem($size);
+  font-size: calc-rem($size);
 
-  @if ($lineHeight) {
+  @if $lineHeight {
     line-height: $lineHeight;
   }
 }
@@ -191,6 +225,8 @@
 
 @mixin signature-button {
   &Button {
+    @include fontSize(16px);
+
     width: max-content;
     height: 46px;
     margin: 0 auto;
@@ -202,8 +238,6 @@
     font-family: $case-studies-font;
     transition: background 0.1s linear;
     cursor: pointer;
-
-    @include fontSize(16px);
 
     &Container {
       display: flex;
@@ -234,6 +268,10 @@
 }
 
 @mixin big-title {
+  @include horizontal-mobile {
+    font-size: 3.125rem;
+  }
+
   margin-bottom: 60px;
   font-weight: 800;
   font-size: 4.125rem;
@@ -245,10 +283,6 @@
 
   @include tablet {
     margin-top: 0;
-  }
-
-  @include horizontal-mobile {
-    font-size: 3.125rem;
   }
 
   @include below-tablet {
@@ -332,12 +366,8 @@
 }
 
 @mixin seLocationSubscribe($subscribesPosition, $articleCount) {
-  & > section:first-child {
-    order: $subscribesPosition;
-  }
-
   @for $i from 1 to $articleCount {
-    &>article:nth-of-type(#{$i}) {
+    & > article:nth-of-type(#{$i}) {
       @if $i < $subscribesPosition {
         order: calc(#{$i} - 1);
       }
@@ -351,19 +381,15 @@
       }
     }
   }
+
+  & > section:first-child {
+    order: $subscribesPosition;
+  }
 }
 
 @mixin caseStudyContainer {
   padding: 140px 40px;
   background-color: $white;
-
-  @include tablet {
-    padding: 100px 40px;
-  }
-
-  @include phone {
-    padding: 80px 15px;
-  }
 
   .image {
     display: block;
@@ -380,6 +406,14 @@
 
   [data-case-study-description] {
     color: $silver-chalice;
+  }
+
+  @include tablet {
+    padding: 100px 40px;
+  }
+
+  @include phone {
+    padding: 60px 15px;
   }
 }
 
@@ -437,31 +471,68 @@
   }
 }
 
-@mixin defaultSectionTitle {
-  max-width: $max-content-width-small-section;
+@function color($c, $alfa: 1) {
+  @return rgb(var($c), $alfa);
+}
+
+@mixin circle($color, $size) {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background-color: $color;
+  width: $size;
+  height: $size;
+  z-index: -1;
+}
+
+@mixin listWithYellowMarkers() {
+  @media (max-width: 924px) {
+    height: 110px;
+  }
+
+  @include flex(column, initial, initial, wrap, space-around);
+
+  height: 82px;
+  padding: 0;
+  max-width: 980px;
   width: 100%;
-  margin: 0 auto 60px;
+  margin: 0;
 
-  h2 {
-    @include fontSize(56px, 120%);
+  & li {
+    @include fontSize(16px, 150%);
 
-    max-width: 100%;
-    letter-spacing: normal;
+    list-style: none;
+    display: inline-block;
+    max-width: 314px;
 
-    @include tablet {
-      @include fontSize(46px);
+    & p {
+      display: flex;
+      margin: 0;
+      position: relative;
+      padding-left: 16px;
+      overflow-wrap: break-word;
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 8px;
+        width: 8px;
+        background-color: $yellow500;
+        top: calc(50% - 4px);
+        left: 0;
+        border-radius: 100%;
+      }
     }
 
-    @include below-tablet {
-      @include fontSize(40px);
-    }
-
-    @include phone {
-      @include fontSize(32px);
+    &:last-child {
+      margin-bottom: 0;
+      margin-right: 0;
     }
   }
 
   @include below-tablet {
-    margin-bottom: 40px;
+    @include flex(column);
+
+    height: fit-content;
   }
 }

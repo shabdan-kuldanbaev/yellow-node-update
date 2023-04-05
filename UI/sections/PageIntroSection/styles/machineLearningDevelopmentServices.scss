@@ -1,0 +1,13 @@
+.machine-learning-development-services {
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageImage {
+    padding-top: 520px;
+
+    @include below-tablet {
+      padding-top: 422px;
+    }
+  }
+}

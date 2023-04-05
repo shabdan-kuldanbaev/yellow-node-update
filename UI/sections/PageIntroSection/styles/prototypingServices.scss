@@ -1,0 +1,25 @@
+.prototyping-services {
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageTextContainer {
+    max-width: 507px;
+
+    @include below-tablet {
+      max-width: 100%;
+    }
+  }
+
+  .pageImage {
+    padding-top: 475px;
+
+    @include below-tablet {
+      padding-top: 486px;
+    }
+
+    @include phone {
+      padding-top: 305px;
+    }
+  }
+}

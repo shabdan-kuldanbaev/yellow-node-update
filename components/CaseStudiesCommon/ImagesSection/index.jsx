@@ -1,7 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
+import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import Images from 'components/CaseStudiesCommon/Images';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
@@ -19,7 +19,8 @@ const ImagesSection = ({
         const imgUrl = getFileUrl(image);
 
         return (
-          <img
+          <Illustration
+            layout="responsive"
             className={styles.bundleImage}
             src={imgUrl}
             alt=""
@@ -36,7 +37,7 @@ const ImagesSection = ({
         type={type}
         view={data.view}
       />
-      <p className={styles.secondDescription}>{data.subtitle}</p>
+      {data.subtitle && <p className={styles.secondDescription}>{data.subtitle}</p>}
     </section>
   );
 };

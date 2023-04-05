@@ -1,10 +1,5 @@
 @import 'styles/utils/mixins';
 
 .worksContainer {
-  width: calc(100% + 2 * #{$side-indent});
-  margin: 0 0 120px;
-
-  @include phone {
-    margin: 0 0 $mobile-section-indent;
-  }
+  margin: 0;
 }

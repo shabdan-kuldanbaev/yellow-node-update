@@ -1,0 +1,49 @@
+@import 'styles/utils/mixins';
+
+.navButton {
+  @include flex(row, flex-start, center);
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  color: $dark-grey;
+
+  &:hover {
+    * {
+      color: $turbo-100;
+      fill: $turbo-100;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    color: $dark-grey;
+
+    &:hover {
+      cursor: default;
+
+      * {
+        fill: $dark-grey;
+        color: $dark-grey;
+      }
+    }
+  }
+}
+
+.text {
+  @include fontSize(18px);
+
+  padding: 0 0 0 10px;
+  line-height: 180%;
+}
+
+.next {
+  svg {
+    order: 2;
+  }
+
+  .text {
+    padding: 0 10px 0 0;
+  }
+}

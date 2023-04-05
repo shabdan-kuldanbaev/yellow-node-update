@@ -1,0 +1,14 @@
+.open-sense {
+  padding-top: 0;
+
+  .description {
+    @include phone {
+      max-width: 343px;
+      margin-bottom: 24px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 60px;
+  }
+}

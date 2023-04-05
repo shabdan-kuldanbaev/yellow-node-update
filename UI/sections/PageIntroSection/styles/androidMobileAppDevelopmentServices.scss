@@ -1,0 +1,21 @@
+.android-mobile-app-development-services {
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageSubtitle:first-child {
+    margin-bottom: 24px;
+
+    @include below-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  .pageImage {
+    padding-top: 540px;
+
+    @include below-tablet {
+      padding-top: 486px;
+    }
+  }
+}

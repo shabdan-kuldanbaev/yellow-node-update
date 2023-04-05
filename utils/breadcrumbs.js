@@ -68,6 +68,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.customChatApp.path,
     },
   ]),
+  penetrationTesting: () => ([
+    {
+      title: ROUTES.penetrationTesting.title,
+      to: ROUTES.penetrationTesting.path,
+    },
+  ]),
   customMobileApp: () => ([
     {
       title: ROUTES.customMobileApp.title,
@@ -84,6 +90,12 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.fintechDevelopment.title,
       to: ROUTES.fintechDevelopment.path,
+    },
+  ]),
+  discoveryPhase: () => ([
+    {
+      title: ROUTES.discoveryPhase.title,
+      to: ROUTES.discoveryPhase.path,
     },
   ]),
   designServices: () => ([
@@ -104,16 +116,40 @@ export const pagesBreadcrumbs = {
       to: ROUTES.androidDevelopmentServices.path,
     },
   ]),
+  prototypingServices: () => ([
+    {
+      title: ROUTES.prototypingServices.title,
+      to: ROUTES.prototypingServices.path,
+    },
+  ]),
   mvpDevelopment: () => ([
     {
       title: ROUTES.mvpDevelopment.title,
       to: ROUTES.mvpDevelopment.path,
     },
   ]),
+  lendingSoftwareDevelopment: () => ([
+    {
+      title: ROUTES.lendingSoftwareDevelopment.title,
+      to: ROUTES.lendingSoftwareDevelopment.path,
+    },
+  ]),
   cloudDevelopment: () => ([
     {
       title: ROUTES.cloudDevelopment.title,
       to: ROUTES.cloudDevelopment.path,
+    },
+  ]),
+  crossPlatformDevelopmentServices: () => ([
+    {
+      title: ROUTES.crossPlatformDevelopmentServices.title,
+      to: ROUTES.crossPlatformDevelopmentServices.path,
+    },
+  ]),
+  erpDevelopment: () => ([
+    {
+      title: ROUTES.erpDevelopment.title,
+      to: ROUTES.erpDevelopment.path,
     },
   ]),
   mlDevelopment: () => ([
@@ -126,6 +162,36 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.devOpsDevelopment.title,
       to: ROUTES.devOpsDevelopment.path,
+    },
+  ]),
+  aiDevelopment: () => ([
+    {
+      title: ROUTES.aiDevelopment.title,
+      to: ROUTES.aiDevelopment.path,
+    },
+  ]),
+  dataScienceDevelopment: () => ([
+    {
+      title: ROUTES.dataScienceDevelopment.title,
+      to: ROUTES.dataScienceDevelopment.path,
+    },
+  ]),
+  tradingSoftwareDevelopment: () => ([
+    {
+      title: ROUTES.tradingSoftwareDevelopment.title,
+      to: ROUTES.tradingSoftwareDevelopment.path,
+    },
+  ]),
+  eWalletAppDevelopment: () => ([
+    {
+      title: ROUTES.eWalletAppDevelopment.title,
+      to: ROUTES.eWalletAppDevelopment.path,
+    },
+  ]),
+  bankingSoftwareDevelopmentCompany: () => ([
+    {
+      title: ROUTES.bankingSoftwareDevelopmentCompany.title,
+      to: ROUTES.bankingSoftwareDevelopmentCompany.path,
     },
   ]),
   technicalPage: (slug) => {
@@ -143,6 +209,15 @@ export const pagesBreadcrumbs = {
         {
           title: ROUTES.termsAndConditions.title,
           to: ROUTES.termsAndConditions.path,
+        },
+      ];
+    }
+
+    if (slug === PAGES.cookiesPolicy) {
+      return [
+        {
+          title: ROUTES.cookiesPolicy.title,
+          to: ROUTES.cookiesPolicy.path,
         },
       ];
     }

@@ -1,0 +1,113 @@
+@import 'styles/utils/mixins';
+
+.itemContainer {
+  outline: none;
+
+  .link {
+    @include fontSize(16px, 150%);
+
+    display: block;
+    margin: 0;
+
+    &.title {
+      font-weight: 700;
+      color: $gray0;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .subtitle {
+      font-weight: 400;
+      line-height: 2;
+      color: $gray400;
+      transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      display: block;
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &:hover {
+      &.title {
+        color: $yellow500;
+      }
+
+      & > span {
+        color: $yellow500;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .menuLink {
+    @include fontSize(16px, 150%);
+
+    display: block;
+    margin: 12px 0 0;
+
+    .menuText {
+      color: $gray400;
+      outline: none;
+      transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    &:hover {
+      .menuText {
+        color: $yellow500;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    grid-column: 2/3;
+
+    @include phone {
+      grid-row: unset;
+      grid-column: unset;
+    }
+  }
+
+  @include below-tablet {
+    margin-bottom: 16px;
+    width: 100%;
+
+    &:first-child {
+      margin-top: 16px;
+    }
+  }
+}
+
+.pageScrolling {
+  &.itemContainer {
+    .link {
+      &.title {
+        color: $gray900;
+
+        &:hover {
+          color: $yellow500;
+        }
+      }
+    }
+  }
+}
+
+.lightTheme {
+  &.itemContainer {
+    .link {
+      &.title {
+        color: $gray900;
+      }
+
+      .subtitle {
+        color: $gray400;
+      }
+    }
+
+    .menuLink {
+      .menuText {
+        color: $gray400;
+      }
+    }
+  }
+}

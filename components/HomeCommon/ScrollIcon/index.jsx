@@ -1,17 +1,14 @@
-import React from 'react';
-import Svg from 'components/Common/Svg';
+import dynamic from 'next/dynamic';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const ScrollIcon = () => (
   <div className={styles.iconWrapper}>
     <Svg
-      type="arrowBottom"
+      type="arrowNarrowUp"
       className={styles.scrollDown}
     />
-    <div className={styles.arrow}>
-      <span />
-      <span />
-    </div>
   </div>
 );
 

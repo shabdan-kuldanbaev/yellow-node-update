@@ -39,12 +39,9 @@
 
   background-color: $dark-blue;
   padding-top: 0;
-  padding-bottom: 0;
-  overflow-x: hidden;
 
   @include tablet {
     padding-top: 0;
-    padding-bottom: 0;
   }
 
   @include phone {
@@ -72,9 +69,9 @@
   @include caseStudyContainer;
 
   p {
-    line-height: 1.7;
-
     @include fontSize(18px);
+
+    line-height: 1.7;
   }
 }
 
@@ -86,16 +83,16 @@
   padding-right: 0;
   overflow-x: hidden;
 
+  & > div {
+    max-width: 1920px;
+  }
+
   @include tablet {
     padding: 100px 40px;
   }
 
   @include phone {
     padding: 80px 15px;
-  }
-
-  & > div {
-    max-width: 1920px;
   }
 }
 
@@ -122,12 +119,12 @@
   padding: 0 40px 150px;
   background: $white;
 
-  @include phone {
-    padding: 0 15px 80px;
-  }
-
   &.secondSectionView {
     @include caseStudyContainer;
+
+    @include macbook-twelve {
+      background-size: cover;
+    }
 
     position: relative;
     background: $coffee;
@@ -141,10 +138,10 @@
         margin-bottom: 40px;
       }
     }
+  }
 
-    @include macbook-twelve {
-      background-size: cover;
-    }
+  @include phone {
+    padding: 0 15px 80px;
   }
 }
 
@@ -255,10 +252,10 @@
 
 .humankind,
 .dindon {
+  @include caseStudyContainer;
+
   overflow: hidden;
   background: $wild-send-2;
-
-  @include caseStudyContainer;
 
   [data-case-study-title] {
     margin-bottom: 240px;
@@ -297,7 +294,7 @@
     overflow: hidden;
     padding: 120px 0;
     border-radius: 60px;
-    background: linear-gradient(180deg, $rose-white 0%, $rose-white 87.68%, rgb(255 250 250 / 0) 100%);
+    background: linear-gradient(180deg, $rose-white 0%, $rose-white 87.68%, rgb(255 250 250 / 0%) 100%);
 
     [data-case-study-title] {
       margin-bottom: 120px;
@@ -329,6 +326,79 @@
 
     @include phone {
       padding: 60px 0 0;
+    }
+  }
+}
+
+.mobile-bank-application {
+  &.firstSectionView {
+    padding: 120px 40px;
+    background-color: $alabaster;
+  }
+
+  &.secondSectionView {
+    padding: 120px 0;
+    position: relative;
+    background-color: $alabaster;
+
+    .contentContainer {
+      background: red;
+
+      .infoContainer > * + * {
+        margin-left: 0;
+      }
+    }
+
+    [data-case-study-title] {
+      color: $white;
+
+      @include phone {
+        @include fontSize(32px);
+
+        margin-bottom: 40px;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      display: block;
+      width: 100%;
+      height: 39%;
+      background-color: $eerie-black-2;
+    }
+
+    @include phone {
+      padding: 60px 0;
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $white;
+  }
+
+  &.fourthSectionView {
+    background-color: $white;
+    padding: 120px 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      height: 35%;
+      background: $turbo-400;
+
+      @include phone {
+        height: 25%;
+      }
+    }
+
+    @include phone {
+      padding: 60px 0;
     }
   }
 }

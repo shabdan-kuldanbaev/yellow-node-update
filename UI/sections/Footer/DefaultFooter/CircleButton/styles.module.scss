@@ -1,0 +1,27 @@
+@import 'styles/utils/mixins';
+
+.button {
+  @include flex(row, center, center);
+
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 0;
+  outline: 0;
+  background: #ffe603;
+  top: -32px;
+  right: 120px;
+  cursor: pointer;
+
+  @include below-tablet {
+    right: 60px;
+  }
+
+  @include phone {
+    width: 48px;
+    height: 48px;
+    top: -24px;
+    right: 16px;
+  }
+}

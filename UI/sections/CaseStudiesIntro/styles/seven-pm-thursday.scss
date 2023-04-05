@@ -1,0 +1,71 @@
+.seven-pm-thursday {
+  background: $sevenPmPrimary;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 288.75px;
+    height: 214.97px;
+    left: 0;
+    top: 20%;
+    background: linear-gradient(180deg, #ff2b8a -2.98%, #ff4a34 92.06%);
+    opacity: 0.3;
+    filter: blur(212px);
+    transform: rotate(18.77deg);
+
+    @include phone {
+      top: 5%;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 314.89px;
+    height: 234.44px;
+    right: 0;
+    top: 35%;
+    background: linear-gradient(180deg, #ff2b8a -2.98%, #ff4a34 92.06%);
+    opacity: 0.3;
+    filter: blur(231.192px);
+    transform: rotate(18.77deg);
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  [data-title],
+  [data-subtitle] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray500;
+  }
+
+  .imageContainer {
+    width: 690px;
+    height: 580px;
+    margin-right: -10%;
+
+    @include tablet {
+      width: 570px;
+      height: 480px;
+    }
+
+    @include phone {
+      margin-right: -100%;
+    }
+  }
+
+  .experience {
+    .infoTitle {
+      color: $gray0;
+    }
+
+    & > p {
+      color: $gray500;
+    }
+  }
+}

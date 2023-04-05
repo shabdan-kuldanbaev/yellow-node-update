@@ -1,0 +1,202 @@
+.stickerbox {
+  .special {
+    margin-bottom: 0;
+
+    .subImage {
+      height: 80px;
+    }
+
+    &:first-child {
+      .infoContainer {
+        margin-top: -120px;
+
+        @include phone {
+          margin-top: 0;
+        }
+      }
+
+      .image {
+        transform: translateY(-120px);
+
+        @include tablet {
+          transform: translateY(-70px);
+        }
+
+        @include phone {
+          transform: none;
+        }
+      }
+
+      .imageBundle {
+        width: 551px;
+        height: 82px;
+      }
+    }
+
+    &:last-child {
+      .imageBundle {
+        width: 160px;
+        height: 260px;
+      }
+    }
+
+    .infoContainer {
+      .title {
+        color: $gray0;
+        margin-bottom: 16px;
+      }
+
+      p {
+        color: $gray400;
+      }
+    }
+
+    &:nth-child(1) {
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle {
+          position: absolute;
+          top: 30%;
+          transform: translate(-105%, -65%);
+
+          &:nth-child(2) {
+            @include macbook-twelve {
+              max-width: 450px;
+              transform: translate(-110%, -75%);
+            }
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-child(3) {
+            display: none;
+
+            @include tablet {
+              display: block;
+            }
+
+            @include below-tablet {
+              max-width: 260px;
+              transform: translate(-110%, -110%);
+            }
+
+            @include phone {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      & > div:last-child {
+        position: relative;
+
+        .imageBundle {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(110%, -30%);
+
+          &:nth-child(2) {
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &:nth-child(3) {
+            display: none;
+
+            @include tablet {
+              display: block;
+            }
+
+            @include phone {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    @include phone {
+      margin-bottom: 32px;
+    }
+  }
+
+  .contentContainer {
+    .image {
+      width: 318px;
+      height: 650px;
+      overflow: visible;
+
+      @include tablet {
+        width: 200px;
+        height: 400px;
+      }
+    }
+
+    &:not(.special) > div:last-child {
+      position: relative;
+
+      .image {
+        width: 318px;
+        height: 650px;
+
+        @include tablet {
+          width: 200px;
+          height: 400px;
+        }
+      }
+
+      .imageBundle {
+        position: absolute;
+        z-index: 1;
+
+        &:nth-child(2) {
+          width: 138px;
+          height: 72px;
+          top: 0;
+          right: 0;
+          transform: translate(23%, 105%);
+
+          @include tablet {
+            width: 100px;
+            height: 52px;
+            transform: translate(22%, 81%);
+          }
+        }
+
+        &:nth-child(3) {
+          width: 186px;
+          height: 162px;
+          left: 0;
+          bottom: 0;
+          transform: translate(-45%, -25%);
+
+          @include tablet {
+            width: 134px;
+            height: 117px;
+            transform: translate(-40%, -35%);
+          }
+
+          @include phone {
+            max-width: 150px;
+            transform: translate(-13%, -17%);
+          }
+        }
+      }
+    }
+  }
+}
+
+.swiperBullet {
+  @include swiperBullet();
+}
+
+.swiperBulletActive {
+  @include swiperBulletActive();
+}

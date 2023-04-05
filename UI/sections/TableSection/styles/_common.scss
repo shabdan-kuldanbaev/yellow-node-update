@@ -1,0 +1,14 @@
+.tableSection {
+  @include appDevelopmentContainer;
+
+  .contentWrapper {
+    max-width: $default-content-width;
+    margin: 0 auto;
+  }
+}
+
+.tableWrapper {
+  p {
+    @include fontSize(16px, 150%);
+  }
+}

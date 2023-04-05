@@ -1,0 +1,52 @@
+.natp {
+  .container {
+    max-width: 481px;
+
+    &:nth-of-type(1) {
+      margin-right: 32px;
+
+      @include tablet {
+        margin: 0 0 24px;
+      }
+    }
+
+    .title {
+      @include fontSize(18px, 180%);
+
+      color: $gray900;
+      font-weight: 700;
+
+      @include tablet {
+        @include fontSize(16px, 150%);
+
+        text-align: center;
+      }
+    }
+
+    .listContainer {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .listItem {
+      @include fontSize(16px, 150%);
+
+      position: relative;
+      color: $gray400;
+      margin-bottom: 8px;
+      padding-left: 20px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $natpAccent;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

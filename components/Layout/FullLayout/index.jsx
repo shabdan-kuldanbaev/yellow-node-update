@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './styles.module.scss';
@@ -12,8 +11,10 @@ const FullLayout = ({
   disableOverflowHiding,
   backgroundColor,
   introSection,
+  className,
 }) => {
   const layoutStyles = cn(
+    className,
     styles.fullLayout,
     styles[backgroundColor],
     {

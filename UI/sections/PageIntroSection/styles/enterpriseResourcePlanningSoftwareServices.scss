@@ -1,0 +1,17 @@
+.enterprise-resource-planning-software-services {
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageSubtitle:first-child {
+    margin-bottom: 24px;
+  }
+
+  .pageImage {
+    padding-top: 612px;
+
+    @include below-tablet {
+      padding-top: 374px;
+    }
+  }
+}

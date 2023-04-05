@@ -1,0 +1,44 @@
+@import 'styles/utils/mixins';
+
+.sideContent {
+  max-width: 406px;
+  grid-area: side;
+
+  & > a:first-child {
+    position: relative;
+
+    & > svg:last-child {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  .text {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+    opacity: 0.7;
+    margin: 16px 0 32px;
+
+    @include phone {
+      @include fontSize(14px, 150%);
+    }
+  }
+
+  .socialMediaList {
+    .svg {
+      margin-right: 16px;
+      transform: translateY(0);
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      @include phone {
+        width: 39px;
+        height: 39px;
+      }
+    }
+  }
+}

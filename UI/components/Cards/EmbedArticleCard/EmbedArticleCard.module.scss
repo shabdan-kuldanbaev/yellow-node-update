@@ -1,0 +1,59 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/colors';
+
+.container {
+  @include flex(row, space-between, center);
+
+  padding: 24px 32px;
+  margin-bottom: 40px;
+
+  @include below-tablet {
+    flex-direction: column-reverse;
+    padding: 24px 16px;
+  }
+}
+
+.content {
+  max-width: 425px;
+
+  @include below-tablet {
+    max-width: none;
+  }
+}
+
+.title {
+  margin: 0 0 8px;
+  color: $gray900;
+}
+
+.description {
+  color: $gray400;
+  margin-top: 0;
+}
+
+.link {
+  color: $gray900;
+  text-decoration: underline;
+  transition: color 0.1s ease-in-out;
+
+  &:hover {
+    color: $yellow500;
+  }
+}
+
+.image {
+  height: 160px;
+  flex: 0 0 220px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-left: 25px;
+
+  img {
+    object-fit: cover;
+  }
+
+  @include below-tablet {
+    align-self: stretch;
+    margin: 0 0 16px;
+  }
+}

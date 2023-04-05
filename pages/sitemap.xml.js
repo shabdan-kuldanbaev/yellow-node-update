@@ -1,18 +1,21 @@
 import * as builder from 'xmlbuilder';
 import dayjs from 'dayjs';
-import { wrapper } from 'redux/store';
 import {
-  getMainLinksForSitemap,
   rootUrl,
   getDocumentFields,
 } from 'utils/helper';
 import { ROUTES, CASE_STUDIES_SLUGS } from 'utils/constants';
 import { contentfulClient } from 'utils/contentful/client';
-import errorHelper from 'utils/error';
+import { handleError } from 'utils/error';
+
+const excludedPages = [
+  'signature-generator',
+  'not-found',
+];
 
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
 const buildUrlObject = (data) => data.map((item) => {
-  const isHomepage = item.path === ROUTES.homepage.path;
+  const isHomepage = item.path === '';
 
   return ({
     loc: { '#text': `${rootUrl}${item.path}` },
@@ -22,86 +25,87 @@ const buildUrlObject = (data) => data.map((item) => {
   });
 });
 
-const Sitemap = () => (null);
+const Sitemap = () => null;
 
-export const getServerSideProps = async ({ req, res }) => {
+export const getServerSideProps = async ({ res }) => {
   try {
     const [
       articles,
-      projects,
       pages,
+      blogTags,
     ] = await Promise.all([
       contentfulClient.getEntries({
         contentType: 'article',
         searchType: '[match]',
         additionalQueryParams: {
-          limit: 200,
+          select: ['fields.slug', 'sys.updatedAt'],
         },
-      }),
-      contentfulClient.getEntries({
-        contentType: 'project',
-        searchType: '[match]',
       }),
       contentfulClient.getEntries({
         contentType: 'page',
         searchType: '[match]',
+        additionalQueryParams: {
+          'fields.slug[nin]': excludedPages.join(','),
+          select: ['fields.slug', 'sys.updatedAt'],
+        },
+      }),
+      contentfulClient.getEntries({
+        contentType: 'tag',
+        searchType: '[match]',
+        additionalQueryParams: {
+          'fields.type': 'article',
+          select: ['fields.slug', 'sys.updatedAt'],
+        },
       }),
     ]);
+
     const postLinks = articles.items.map((link) => {
-      const { slug, publishedAt } = getDocumentFields(link, ['slug', 'publishedAt']);
+      const { slug, 'sys.updatedAt': updatedAt } = getDocumentFields(link, ['slug', 'sys.updatedAt']);
 
       return ({
         path: ROUTES.article.getRoute(slug).path,
-        updatedAt: getDate(Date.parse(publishedAt)),
+        updatedAt: getDate(Date.parse(updatedAt)),
       });
     });
-    const projectLinks = projects.items.map((project) => {
-      const { slug } = getDocumentFields(project, ['slug']);
+
+    const pageLinks = pages.items.map((page) => {
+      const { slug, 'sys.updatedAt': updatedAt } = getDocumentFields(page, ['slug', 'sys.updatedAt']);
 
       return ({
-        path: ROUTES.portfolio.getRoute(slug).path,
-        updatedAt: getDate(new Date()),
+        path: CASE_STUDIES_SLUGS.includes(slug) ? ROUTES.portfolio.getRoute(slug).path : ROUTES.fromRoot(slug),
+        updatedAt: getDate(Date.parse(updatedAt)),
       });
     });
-    const caseStudiesLinks = pages.items.reduce((acc, caseStudy) => {
-      const { slug } = getDocumentFields(caseStudy, ['slug']);
 
-      if (CASE_STUDIES_SLUGS.includes(slug)) {
-        acc.push({
-          path: ROUTES.portfolio.getRoute(slug).path,
-          updatedAt: getDate(new Date()),
-        });
-      }
+    const blogTagLinks = blogTags.items.map((tag) => {
+      const { slug, 'sys.updatedAt': updatedAt } = getDocumentFields(tag, ['slug', 'sys.updatedAt']);
 
-      return acc;
-    }, []);
-    const customBlogs = ROUTES.blog.categories.map((blog) => ({
-      path: ROUTES.blog.getRoute(blog.slug).path,
-      updatedAt: getDate(new Date()),
-    }));
+      return ({
+        path: ROUTES.blog.getRoute(slug).path,
+        updatedAt: getDate(Date.parse(updatedAt)),
+      });
+    });
 
     const feedObject = {
       urlset: {
-        '@xmlns': 'http://www.sitemaps.org/schemas/sitemap/0.9',
-        '@xmlns:image': 'http://www.google.com/schemas/sitemap-image/1.1',
-        '@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
-        '@xmlns:video': 'http://www.google.com/schemas/sitemap-video/1.1',
-        '@xmlns:news': 'http://www.google.com/schemas/sitemap-news/0.9',
-        '@xmlns:mobile': 'http://www.google.com/schemas/sitemap-mobile/1.0',
-        '@xmlns:pagemap': 'http://www.google.com/schemas/sitemap-pagemap/1.0',
-        '@xmlns:xhtml': 'http://www.w3.org/1999/xhtml',
-        '@xsi:schemaLocation': 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd',
+        '@xmlns': 'https://www.sitemaps.org/schemas/sitemap/0.9',
+        '@xmlns:image': 'https://www.google.com/schemas/sitemap-image/1.1',
+        '@xmlns:xsi': 'https://www.w3.org/2001/XMLSchema-instance',
+        '@xmlns:video': 'https://www.google.com/schemas/sitemap-video/1.1',
+        '@xmlns:news': 'https://www.google.com/schemas/sitemap-news/0.9',
+        '@xmlns:mobile': 'https://www.google.com/schemas/sitemap-mobile/1.0',
+        '@xmlns:pagemap': 'https://www.google.com/schemas/sitemap-pagemap/1.0',
+        '@xmlns:xhtml': 'https://www.w3.org/1999/xhtml',
+        '@xsi:schemaLocation': 'https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd',
         url: [],
       },
     };
 
     feedObject.urlset.url.push(
       ...buildUrlObject([
-        ...getMainLinksForSitemap(getDate(new Date('2021-05-12'))),
-        ...projectLinks,
-        ...caseStudiesLinks,
+        ...pageLinks,
         ...postLinks,
-        ...customBlogs,
+        ...blogTagLinks,
       ]),
     );
 
@@ -113,14 +117,16 @@ export const getServerSideProps = async ({ req, res }) => {
       res.statusCode = 200;
       res.end(sitemap.end({ pretty: true }));
     }
-
-    return;
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the Sitemap.getInitialProps function',
     });
   }
+
+  return {
+    props: {},
+  };
 };
 
 export default Sitemap;

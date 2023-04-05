@@ -1,10 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import Svg from 'components/Common/Svg';
 import {
   getDocumentFields,
   getFileUrl,
@@ -13,6 +11,9 @@ import {
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const KeyFeatures = ({ features, type }) => {
   if (!get(features, 'contentModules')) {

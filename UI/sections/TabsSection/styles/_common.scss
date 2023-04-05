@@ -1,0 +1,144 @@
+.container {
+  max-width: $max-content-width-small-section;
+  margin: 0 auto;
+}
+
+.section {
+  @include appDevelopmentContainer;
+}
+
+.tabs {
+  @include flex(row, center);
+}
+
+.tabTitle {
+  @include fontSize(24px, 150%);
+
+  cursor: pointer;
+  margin: 0 0 40px;
+  color: $gray400;
+
+  @include phone {
+    margin: 0 0 28px;
+  }
+}
+
+.tabTitle:not(:last-child) {
+  margin-right: 120px;
+
+  @include phone {
+    margin-right: 40px;
+  }
+}
+
+.tabTitleActive {
+  color: $gray900;
+}
+
+.tabTitleActive::after {
+  content: '';
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 12px;
+  border-bottom: 2px solid $yellow500;
+
+  @include phone {
+    padding-top: 10px;
+    width: 40px;
+  }
+}
+
+.cardWrapper {
+  display: none;
+}
+
+.cardWrapperActive {
+  display: block;
+}
+
+.card {
+  padding: 48px;
+
+  @include below-tablet {
+    padding: 24px 16px;
+  }
+}
+
+.link {
+  margin: 0 auto;
+  display: block;
+
+  h3 {
+    @include fontSize(40px, 120%);
+
+    margin: 24px 0 16px;
+    text-align: center;
+
+    @include phone {
+      @include fontSize(24px, 150%);
+
+      margin: 12px 0 16px;
+    }
+  }
+
+  [data-button] {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.link > div {
+  margin: 0 auto;
+
+  @include phone {
+    background: transparent;
+    border: 1px solid $gray900;
+    border-radius: 6px;
+    padding: 15px 0;
+  }
+}
+
+.cardText {
+  @include flex(row, center);
+
+  .cardTextColumn {
+    max-width: 470px;
+  }
+
+  .cardTextColumn:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  h4 {
+    @include fontSize(16px, 120%);
+
+    color: $gray900;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+
+  h4:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  ul {
+    @include fontSize(16px, 150%);
+
+    margin: 0 0 0 15px;
+    color: $gray400;
+
+    li,
+    p {
+      margin: 0;
+    }
+
+    @include phone {
+      @include fontSize(14px);
+    }
+  }
+
+  @include phone {
+    flex-direction: column;
+  }
+}

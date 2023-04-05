@@ -1,14 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import get from 'lodash/get';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import Images from 'components/CaseStudiesCommon/Images';
 import SectionTitle from 'components/CaseStudiesCommon/SectionTitle';
 import { getDocumentFields } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import { getBackgroundStyle } from './utils/designHelper';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const DesignSection = ({ data, type }) => {
   if (!get(data, 'contentModules')) {

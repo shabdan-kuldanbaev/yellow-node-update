@@ -1,11 +1,12 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'components/Common/Svg';
 import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const BookmarkCard = ({ slug, title }) => {
+const Svg = dynamic(() => import('UI/components/Svg'));
+
+const BookmarkCard = ({ slug, title, buttonTitle }) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
 
   return slug && (

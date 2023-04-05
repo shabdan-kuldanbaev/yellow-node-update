@@ -1,0 +1,33 @@
+.mobile-app-development-company {
+  .figures {
+    max-width: $wide-content-width;
+
+    & > div {
+      flex: 0 0 20%;
+
+      &:nth-child(4) {
+        flex-basis: 157px;
+      }
+
+      @include below-tablet {
+        flex: 0 0 48% !important;
+      }
+    }
+  }
+
+  .title {
+    color: $gray900;
+
+    @include below-tablet {
+      @include fontSize(24px);
+
+      text-align: center;
+    }
+  }
+
+  .description {
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+}

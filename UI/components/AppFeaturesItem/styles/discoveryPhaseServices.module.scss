@@ -1,0 +1,39 @@
+.discovery-phase-services {
+  &.secondSectionView {
+    &.sectionItem {
+      .wrapperTitle {
+        cursor: default;
+
+        @include phone {
+          justify-content: center;
+        }
+      }
+
+      .title {
+        @include flex(row, center, center);
+
+        margin: 6px 0;
+        color: $gray0;
+
+        &::before {
+          content: '';
+          background: $gray0;
+          min-width: 8px;
+          min-height: 8px;
+          border-radius: 50%;
+          margin-right: 16px;
+        }
+      }
+
+      .imageBundle {
+        transform: none;
+      }
+    }
+
+    &.sectionActiveItem {
+      .imageBundle {
+        transform: none;
+      }
+    }
+  }
+}

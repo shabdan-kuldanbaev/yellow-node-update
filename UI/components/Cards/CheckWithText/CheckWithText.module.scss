@@ -1,0 +1,25 @@
+@import 'styles/utils/mixins';
+
+.card {
+  @include flex(row, flex-start, center);
+
+  padding: 24px 32px !important;
+
+  @include below-tablet {
+    padding: 16px 24px !important;
+  }
+}
+
+.checkMark {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+
+.title {
+  @include fontSize(24px, 130%);
+
+  font-weight: 700;
+  margin: 0;
+}

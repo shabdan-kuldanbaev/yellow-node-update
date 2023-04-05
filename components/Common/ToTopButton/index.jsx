@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import cn from 'classnames';
-import Svg from 'components/Common/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 export const ToTopButton = () => {
   const [isHidden, setIsHidden] = useState(true);
@@ -28,7 +30,7 @@ export const ToTopButton = () => {
       tabIndex="0"
     >
       <Svg
-        type={SVG_IMAGES_TYPES.arrowUp}
+        type={SVG_IMAGES_TYPES.arrowNarrowUp}
         className={styles.arrowUp}
       />
     </div>

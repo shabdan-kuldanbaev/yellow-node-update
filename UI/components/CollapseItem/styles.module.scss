@@ -1,0 +1,128 @@
+@import 'styles/utils/mixins';
+
+.answer {
+  @include fontSize(16px, 150%);
+
+  color: $gray400;
+  margin: 16px 0 0;
+}
+
+.answerWrapper {
+  ol, 
+  ul {
+    margin: 0;
+    padding-left: 15px;
+
+    li {
+      &::marker {
+        @include fontSize(16px);
+
+        color: $gray400;
+      }
+    }
+  }
+}
+
+.questionContainer {
+  width: 100%;
+  padding: 25px 0;
+  border-bottom: 0.5px solid $gray400;
+  outline: none;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border: none;
+    padding-bottom: 0;
+  }
+
+  & > div:last-child {
+    p {
+      @extend .answer;
+
+      & > a {
+        border-bottom: unset;
+        color: $gray900;
+      }
+    }
+
+    ul {
+      li {
+        &::marker {
+          @include fontSize(24px);
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.question {
+  @include flex(row, space-between, center);
+
+  cursor: pointer;
+  outline: none;
+
+  & > p {
+    @include fontSize(20px, 150%);
+
+    margin: 0 12px 0 0;
+    color: $gray900;
+    font-weight: 700;
+
+    @include phone {
+      @include fontSize(16px, 150%);
+    }
+  }
+}
+
+.plus {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transform: translateY(50%);
+
+  & > span {
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    border: 1px solid $gray900;
+    background-color: $gray900;
+    border-radius: 5px;
+    display: inline-block;
+
+    &:first-child {
+      transform: rotate(90deg);
+      transition: transform 0.4s ease;
+    }
+
+    &:last-child {
+      transform: rotate(0deg);
+      transition: transform 0.4s ease;
+    }
+
+    @include phone {
+      width: 15px;
+    }
+  }
+}
+
+.minus {
+  & > span {
+    &:first-child {
+      transform: rotate(180deg);
+      transition: transform 0.4s ease;
+    }
+
+    &:last-child {
+      transform: rotate(180deg);
+      transition: transform 0.4s ease;
+    }
+  }
+}

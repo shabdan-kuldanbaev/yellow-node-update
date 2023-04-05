@@ -1,0 +1,103 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
+
+.sectionProcess {
+  width: 100%;
+}
+
+.contentWrapper {
+  max-width: $wide-content-width;
+  padding: 0 40px;
+  margin: 0 auto;
+
+  @include tablet {
+    padding: 0 32px;
+  }
+
+  @include phone {
+    padding: 0 16px;
+  }
+}
+
+.callToAction {
+  @include flex(column, center, center);
+
+  margin: 0 auto;
+  padding: 120px 0;
+
+  h3 {
+    @include fontSize(38px, 130%);
+
+    text-align: center;
+    margin: 0;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+
+      max-width: 340px;
+    }
+  }
+
+  @include phone {
+    padding: 60px 0;
+  }
+}
+
+.process {
+  @include flex(row, space-between, center);
+
+  &:nth-child(2n) {
+    flex-direction: row-reverse;
+  }
+
+  &:nth-child(odd) {
+    .jsonWrapper {
+      margin-left: auto;
+    }
+  }
+
+  @include tablet {
+    &:nth-child(1n) {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.title {
+  @include fontSize(38px, 130%);
+
+  margin: 0;
+
+  span {
+    color: $yellow500;
+  }
+
+  @include phone {
+    @include fontSize(24px, 130%);
+  }
+}
+
+.description {
+  @include fontSize(16px, 150%);
+
+  color: $gray400;
+  max-width: 585px;
+
+  @include tablet {
+    max-width: none;
+  }
+}
+
+.jsonWrapper {
+  width: 480px;
+  height: 481px;
+
+  div {
+    @include flex(column, center, center);
+  }
+
+  @include phone {
+    width: 343px;
+    height: 343px;
+  }
+}

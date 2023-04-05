@@ -1,0 +1,12 @@
+.fairy {
+  padding-bottom: 120px;
+
+  .descriptionContainer {
+    max-width: 481px;
+    width: 100%;
+  }
+
+  @include below-tablet {
+    padding-bottom: 60px;
+  }
+}

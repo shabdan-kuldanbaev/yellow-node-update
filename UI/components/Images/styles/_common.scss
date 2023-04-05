@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+  overflow-x: auto;
+  text-align: center;
+
+  &::-webkit-scrollbar {
+    max-width: 210px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $gray50;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $gray300;
+    border-radius: 10px;
+  }
+
+  .image {
+    height: 532px;
+    width: 995px;
+    margin: 0 auto;
+
+    @include tablet {
+      margin: 0 auto 24px;
+    }
+
+    @include phone {
+      width: auto;
+      height: 470px;
+    }
+  }
+}
+
+.scaled {
+  .image {
+    display: block;
+    max-width: 1200px;
+    max-height: 100vw;
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+}

@@ -61,7 +61,7 @@ export const ogMetaData = [
   },
   {
     pageName: ROUTES.customWebApp.slug,
-    metaTitle: 'Custom web application development company | Yellow',
+    metaTitle: 'Web Application Development Services | Yellow',
     metaDescription: `Our team is ready to provide you with web development services.
     We are working with websites, PWAs, chatting applications, and landing pages.`,
     url: `${rootUrl}${ROUTES.customWebApp.path}`,
@@ -86,17 +86,35 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.androidDevelopmentServices.path}`,
   },
   {
+    pageName: ROUTES.lendingSoftwareDevelopment.slug,
+    metaTitle: 'Lending Software Development Services | Yellow',
+    metaDescription: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
+    url: `${rootUrl}${ROUTES.lendingSoftwareDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.prototypingServices.slug,
+    metaTitle: 'Mobile App Prototyping Services | Yellow',
+    metaDescription: 'Prototyping is an important stage in mobile app development. Complete it with Yellow!',
+    url: `${rootUrl}${ROUTES.prototypingServices.path}`,
+  },
+  {
     pageName: ROUTES.mvpDevelopment.slug,
-    metaTitle: 'MVP development company | Yellow',
+    metaTitle: 'MVP App Development Services | Yellow',
     metaDescription: 'A minimum viable product will help you get enough feedback to determine whether '
       + 'you should continue a given project. Yellow is ready to help with your MVP development.',
     url: `${rootUrl}${ROUTES.mvpDevelopment.path}`,
   },
   {
     pageName: ROUTES.cloudDevelopment.slug,
-    metaTitle: 'Cloud app development company | Yellow',
+    metaTitle: 'Cloud Application Development Services | Yellow',
     metaDescription: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
     url: `${rootUrl}${ROUTES.cloudDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.crossPlatformDevelopmentServices.slug,
+    metaTitle: 'Cross-Platform App Development Services | Yellow',
+    metaDescription: 'Your cross-platform application will rock the stage and Yellow is ready to make it happen.',
+    url: `${rootUrl}${ROUTES.crossPlatformDevelopmentServices.path}`,
   },
   {
     pageName: ROUTES.mlDevelopment.slug,
@@ -111,10 +129,44 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.fintechDevelopment.path}`,
   },
   {
+    pageName: ROUTES.discoveryPhase.slug,
+    metaTitle: 'Project Discovery Phase in Custom Software Development | Yellow',
+    metaDescription: 'Discovery phase of a project is an important part of software development. Learn more about '
+    + 'how to run a discovery phase and its benefits to your business.',
+    url: `${rootUrl}${ROUTES.discoveryPhase.path}`,
+  },
+  {
+    pageName: ROUTES.erpDevelopment.slug,
+    metaTitle: 'Custom ERP Software Development Services | Yellow',
+    metaDescription: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',
+    url: `${rootUrl}${ROUTES.erpDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.devOpsDevelopment.slug,
     metaTitle: 'DevOps Development Company | Yellow',
-    metaDescription: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
+    metaDescription: 'If your company wants to integrate DevOps service into its processes and get all the '
+    + 'benefits this technology offers, Yellow is ready to lend a hand!',
     url: `${rootUrl}${ROUTES.devOpsDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.aiDevelopment.slug,
+    metaTitle: 'AI Software Development Services: Best Choice for Your Business | Yellow',
+    metaDescription: 'Yellow is an AI software development company that can provide you with top-notch artificial '
+    + 'intelligence application development.',
+    url: `${rootUrl}${ROUTES.aiDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.dataScienceDevelopment.slug,
+    metaTitle: 'Data Science Development Services | Yellow',
+    metaDescription: 'If you are looking for a partner that will help you analyze, process, and structure your '
+    + 'data, data science specialists at Yellow are here for you.',
+    url: `${rootUrl}${ROUTES.dataScienceDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.tradingSoftwareDevelopment.slug,
+    metaTitle: 'Custom Trading Software Development Company | Yellow',
+    metaDescription: 'If you plan to start trading software development, we can help. Let’s discuss your idea in detail.',
+    url: `${rootUrl}${ROUTES.tradingSoftwareDevelopment.path}`,
   },
   {
     pageName: ROUTES.privacyPolicy.slug,
@@ -133,5 +185,23 @@ export const ogMetaData = [
     metaTitle: 'Cookies Policy | Yellow',
     metaDescription: 'Cookies Policy',
     url: `${rootUrl}${ROUTES.cookiesPolicy.path}`,
+  },
+  {
+    pageName: ROUTES.penetrationTesting.slug,
+    metaTitle: 'Penetration Testing as a Service | Yellow',
+    metaDescription: 'Use penetration testing to make sure your software solution is safe for your users. Yellow will provide you with penetration testing services.',
+    url: `${rootUrl}${ROUTES.penetrationTesting.path}`,
+  },
+  {
+    pageName: ROUTES.eWalletAppDevelopment.slug,
+    metaTitle: 'E-Wallet App Development Company | Yellow',
+    metaDescription: 'Mobile e-wallet app development services for any industry and any business scale.',
+    url: `${rootUrl}${ROUTES.eWalletAppDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.bankingSoftwareDevelopmentCompany.slug,
+    metaTitle: 'Banking Software Development Company | Yellow',
+    metaDescription: 'We provide companies and organizations big and small with outstanding banking software development. Check out what we can do for you.',
+    url: `${rootUrl}${ROUTES.bankingSoftwareDevelopmentCompany.path}`,
   },
 ];

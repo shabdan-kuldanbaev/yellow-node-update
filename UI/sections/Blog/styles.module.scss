@@ -1,0 +1,91 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
+
+.blog {
+  padding: 120px 40px 60px;
+  background-color: $gray0;
+
+  .contentWrapper {
+    @include flex(column, initial, center);
+
+    width: 100%;
+    max-width: $wide-content-width;
+    margin: 0 auto;
+  }
+
+  .swiperNavigation {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  .swiperWrapper {
+    padding: 10px 0;
+    width: 100%;
+
+    & > div > div {
+      width: 23% !important;
+
+      &:first-child {
+        width: 47% !important;
+
+        picture {
+          height: 384px;
+
+          @include tablet {
+            height: 270px;
+          }
+        }
+
+        @include phone {
+          width: 100% !important;
+        }
+      }
+
+      @include tablet {
+        width: 47% !important;
+      }
+
+      @include phone {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .titleStyle {
+    margin: 0 auto 32px;
+
+    [data-description] {
+      max-width: 560px;
+      margin: 0;
+    }
+  }
+
+  :global(.swiper) {
+    padding-bottom: 0;
+
+    @include tablet {
+      padding-bottom: 70px;
+    }
+  }
+
+  :global(.swiper-slide) {
+    @include flex(row, center, stretch);
+
+    height: auto;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  .blogButton {
+    margin-top: 32px;
+  }
+
+  @include tablet {
+    padding: 60px 16px 30px;
+  }
+}

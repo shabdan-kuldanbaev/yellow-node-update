@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
-import { AppDevelopmentCommon } from 'components/AppDevelopmentCommon';
 import { getDocumentFields, rootUrl } from 'utils/helper';
-import { CONTACT_FORM_TITLES, PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
+import { PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
+import { useFetchPageQuery } from 'redux/apis/page';
 import { getServicePageInfo } from './utils/servicePageHelper';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
-const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'));
+const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'), { ssr: false });
+const AppDevelopmentCommon = dynamic(() => import('components/AppDevelopmentCommon').then((module) => module.AppDevelopmentCommon));
 
 const CustomServiceContainer = ({
   introSection,
-  pageData,
   metaData,
   type,
 }) => {
-  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
+  const { data = {} } = useFetchPageQuery(type);
+  const { contentModules } = data;
 
-  const { main: contentModules, hasFeedbackForm } = pageData;
+  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const { pageMicrodata, breadcrumbs } = getServicePageInfo(type);
   const pageMetadata = { ...metaData, url: `${rootUrl}/${type}` };
@@ -30,7 +30,7 @@ const CustomServiceContainer = ({
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
-  if (!pageData || !contentModules) {
+  if (!contentModules) {
     return null;
   }
 
@@ -50,11 +50,11 @@ const CustomServiceContainer = ({
           breadcrumbsTheme={breadcrumbsTheme}
         />
         {contentModules?.map((module) => {
-          const { type: sectionType, view } = getDocumentFields(module);
+          const { type: sectionType, view, slug } = getDocumentFields(module);
 
           return (
             <AppDevelopmentCommon
-              key={`${type}/${sectionType}-${view || ''}`}
+              key={`${type}/${sectionType}-${view || slug}`}
               section={module}
               handleOnCTAClick={openFullscreenEstimation}
               type={type}
@@ -62,14 +62,6 @@ const CustomServiceContainer = ({
             />
           );
         })}
-        {hasFeedbackForm && (
-          <div className={cn(styles[type], styles.feedbackContainer)}>
-            <FeedbackFormContainer
-              type={type}
-              title={CONTACT_FORM_TITLES[type]}
-            />
-          </div>
-        )}
       </div>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}

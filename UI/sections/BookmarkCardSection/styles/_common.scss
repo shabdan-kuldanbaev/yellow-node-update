@@ -1,0 +1,10 @@
+.bookmarkSection {
+  @include appDevelopmentContainer;
+
+  padding-top: 48px;
+}
+
+.contentWrapper {
+  max-width: 864px;
+  margin: 0 auto;
+}

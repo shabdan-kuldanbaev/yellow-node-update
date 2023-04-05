@@ -1,0 +1,12 @@
+.discovery-phase-services {
+  padding: 120px 40px;
+  background-color: $gray50;
+
+  .titleStyle {
+    max-width: 862px;
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}

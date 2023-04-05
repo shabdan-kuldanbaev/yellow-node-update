@@ -1,5 +1,3 @@
-/* stylelint-disable no-descending-specificity */
-
 .container {
   height: 758px;
   box-sizing: border-box;
@@ -39,13 +37,12 @@
     }
 
     .projectName {
+      @include fontSize(60px, 120%);
+
       margin: 0 0 45px;
       font-family: $case-studies-font;
       font-weight: bold;
-      line-height: 120%;
       text-align: center;
-
-      @include fontSize(60px);
 
       @include phone {
         @include fontSize(50px);
@@ -86,13 +83,12 @@
   }
 
   .question {
+    @include fontSize(32px, 120%);
+
     margin: 0 0 20px;
     font-family: $case-studies-font;
     font-weight: bold;
-    line-height: 120%;
     text-align: center;
-
-    @include fontSize(32px);
 
     @include tablet {
       @include fontSize(24px);
@@ -349,39 +345,6 @@
   background-color: $very-dark-blue;
 }
 
-.tell {
-  @extend .container;
-
-  background-color: $white;
-
-  @include centeredBackgroundImage;
-
-  .nextProjectContainer {
-    .subtitle,
-    .projectName,
-    .more {
-      color: $dark-grey;
-    }
-
-    .more {
-      border: 1px solid $dark-grey;
-    }
-  }
-
-  .question,
-  .link {
-    color: $dark-grey;
-  }
-
-  .link {
-    opacity: 0.5;
-  }
-
-  .iconLink {
-    color: $black;
-  }
-}
-
 .open-sense {
   @extend .container;
 
@@ -505,10 +468,6 @@
 
 .fusion-markets {
   background: $eerie-black;
-}
-
-.drive-focus {
-  background-color: $flamenco;
 }
 
 .beautonomy {

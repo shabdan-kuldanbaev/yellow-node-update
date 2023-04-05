@@ -1,0 +1,43 @@
+@import 'styles/utils/mixins';
+
+.breadcrumbs {
+  @include flex;
+  @include fontSize(14px, 150%);
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: $gray400;
+
+  li {
+    @include flex;
+
+    &:not(:last-child)::after {
+      content: '/';
+      margin: 0 8px;
+      user-select: none;
+      color: $gray400;
+    }
+  }
+}
+
+.item {
+  @include flex;
+
+  color: $gray400;
+
+  &:hover {
+    color: $yellow500;
+  }
+}
+
+.activeItem {
+  pointer-events: none;
+  color: $gray0;
+}
+
+.dark {
+  .activeItem {
+    color: $gray900;
+  }
+}

@@ -1,0 +1,66 @@
+.enterprise-resource-planning-software-services {
+  padding: 120px 0;
+  overflow: hidden;
+
+  .imageSection {
+    padding-left: 15px;
+
+    @include tablet {
+      @include flex(column-reverse, space-between);
+
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    @include phone {
+      padding: 0;
+    }
+  }
+
+  .image {
+    padding-left: 74%;
+    padding-top: 93%;
+    transform: translate(60px, 0);
+
+    @include tablet {
+      transform: none;
+      padding-left: 0;
+      padding-top: 49%;
+    }
+  }
+
+  .experienceContent {
+    max-width: 540px;
+    padding-left: 0;
+    order: -1;
+
+    & > div p {
+      padding-right: 0;
+
+      @include tablet {
+        text-align: center;
+      }
+
+      @include phone {
+        margin-bottom: 10px;
+      }
+    }
+
+    @include tablet {
+      order: 0;
+      max-width: 100%;
+    }
+  }
+
+  [data-title] {
+    text-align: left;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  @include phone {
+    padding: 60px 15px;
+  }
+}

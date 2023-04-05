@@ -1,0 +1,56 @@
+.sectionItem {
+  position: relative;
+
+  .wrapperTitle {
+    @include flex(row, initial, center);
+
+    cursor: pointer;
+  }
+
+  .title {
+    @include fontSize(20px, 150%);
+
+    margin: 9px 22px 9px 0;
+    transition: color 400ms, margin 400ms;
+    font-weight: bold;
+
+    &:hover {
+      transition: color 400ms;
+    }
+
+    @include tablet {
+      @include fontSize(18px);
+    }
+
+    @include phone {
+      @include fontSize(16px);
+    }
+  }
+
+  .description {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+    max-width: 580px;
+
+    & > p {
+      margin: 0;
+
+      @include phone {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .imageBundle {
+    transition: 0.3s;
+    transform: rotate(360deg);
+  }
+}
+
+.sectionActiveItem {
+  .imageBundle {
+    transition: 0.5s;
+    transform: rotate(180deg);
+  }
+}

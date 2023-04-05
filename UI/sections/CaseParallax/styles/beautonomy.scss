@@ -1,0 +1,19 @@
+.beautonomy {
+  padding: 120px 40px 0;
+
+  .listContainer {
+    display: grid;
+    max-width: 476px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 8px;
+    margin: 32px auto 0;
+    font-weight: 700;
+
+    @include phone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 0;
+    }
+  }
+}

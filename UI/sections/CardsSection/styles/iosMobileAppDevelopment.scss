@@ -1,0 +1,63 @@
+.ios-mobile-app-development-services {
+  &.firstSectionView {
+    .title {
+      max-width: 620px;
+    }
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .blackSection;
+
+    .title {
+      max-width: 620px;
+    }
+
+    .card {
+      @include flex(column, flex-start, flex-start);
+
+      picture {
+        width: 276px;
+        height: 276px;
+        margin-bottom: 24px;
+      }
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    .title {
+      max-width: 671px;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+  }
+}

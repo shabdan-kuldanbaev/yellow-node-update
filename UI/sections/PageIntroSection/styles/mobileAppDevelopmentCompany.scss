@@ -1,0 +1,21 @@
+.mobile-app-development-company {
+  .pageWrapper {
+    margin-bottom: 32px;
+  }
+
+  .pageSubtitle:first-child {
+    margin-bottom: 24px;
+
+    @include below-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  .pageImage {
+    padding-top: 504px;
+
+    @include below-tablet {
+      padding-top: 334px;
+    }
+  }
+}
