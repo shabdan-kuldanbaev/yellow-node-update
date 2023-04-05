@@ -70,6 +70,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.lendingSoftwareDevelopment(),
     };
 
+  case PAGES.paymentGatewayDevelopment:
+    return {
+      pageMicrodata: microdata.paymentGatewayDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.paymentGatewayDevelopment(),
+    };
+
   case PAGES.mlDevelopment:
     return {
       pageMicrodata: microdata.mlDevelopment(),
