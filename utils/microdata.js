@@ -634,6 +634,16 @@ export const microdata = {
       image: logoUrl,
     },
     getServiceMicrodata(ROUTES.bankingSoftwareDevelopmentCompany)]),
+  deliveryQualityInYellow: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'What Makes Yellow a Good Software Development Partner | Yellow',
+      description: 'Delivery quality standards we follow to build a perfect project for YOU.',
+      breadcrumb: 'Homepage > Yellow’s Delivery Quality Standards',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.deliveryQualityInYellow)]),
   lendingSoftwareDevelopment: () => ([
     {
       '@context': context,

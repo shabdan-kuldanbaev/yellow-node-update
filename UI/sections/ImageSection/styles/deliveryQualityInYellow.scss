@@ -1,0 +1,91 @@
+.delivery-quality-in-yellow {
+  background-color: $gray50;
+
+  .imageSection {
+    flex-direction: row-reverse;
+
+    & > div:first-child {
+      max-width: 481px;
+    }
+
+    .image {
+      max-width: 481px;
+      height: 449px;
+      margin: 0;
+      padding-top: 0;
+      background-size: contain;
+
+      @include below-tablet {
+        height: 320px;
+        margin-bottom: 24px;
+        background-size: contain;
+      }
+    }
+
+    @include below-tablet {
+      @include flex(column, initial, center);
+
+      margin: 0;
+    }
+  }
+
+  .experienceContent {
+    max-width: 687px;
+    width: 100%;
+    margin: 0 32px 0 0;
+    padding: 0;
+
+    .titleStyle {
+      text-align: left;
+      margin-bottom: 8px;
+
+      h2 {
+        text-align: left;
+
+        @include below-tablet {
+          text-align: center;
+        }
+      }
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    & > div {
+      & > p {
+        margin: 0;
+
+        @include below-tablet {
+          @include fontSize(16px, 24px)
+        }
+      }
+
+      & > ul {
+        @include listWithYellowMarkers;
+
+        max-width: 645px;
+        height: unset;
+        margin: 32px 0;
+
+        & li {
+          @include fontSize(16px, 150%);
+
+          width: unset;
+          max-width: unset;
+          margin-bottom: 12px;
+        }
+
+        @include tablet {
+          width: fit-content;
+          max-height: none;
+          margin: 24px auto;
+        }
+      }
+    }
+
+    @include below-tablet {
+      margin: 0;
+    }
+  }
+}
