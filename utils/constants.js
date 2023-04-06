@@ -528,26 +528,6 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Make your software as safe as possible',
         slug: ROUTES.penetrationTesting.path,
       },
-      {
-        title: 'E-Wallet App Development Company',
-        subtitle: 'Having full control over money',
-        slug: ROUTES.eWalletAppDevelopment.path,
-      },
-      {
-        title: 'Banking Software Development Company',
-        subtitle: 'Digital banking all the way',
-        slug: ROUTES.bankingSoftwareDevelopmentCompany.path,
-      },
-      {
-        title: 'Yellow’s Delivery Quality Standards',
-        subtitle: ' Delivery quality standards we follow to build a perfect project for YOU',
-        slug: ROUTES.deliveryQualityInYellow.path,
-      },
-      {
-        title: 'PWA development services company',
-        subtitle: 'Yellow is combining web and mobile worlds and creates progressive web apps that function smoothly on all devices.',
-        slug: ROUTES.pwaDevelopmentServices.path,
-      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
       {
@@ -591,6 +571,16 @@ export const SUB_NAVIGATION_LINKS = {
         title: 'Lending Software Development Company',
         subtitle: 'Fast and secure lending process',
         slug: ROUTES.lendingSoftwareDevelopment.path,
+      },
+      {
+        title: 'E-Wallet App Development Company',
+        subtitle: 'Having full control over money',
+        slug: ROUTES.eWalletAppDevelopment.path,
+      },
+      {
+        title: 'Banking Software Development Company',
+        subtitle: 'Digital banking all the way',
+        slug: ROUTES.bankingSoftwareDevelopmentCompany.path,
       },
     ],
   },

@@ -42,6 +42,11 @@
       img {
         object-fit: cover !important;
       }
+
+      @include tablet {
+        position: relative;
+        height: 60vw;
+      }
     }
 
     &.mainImage img {
