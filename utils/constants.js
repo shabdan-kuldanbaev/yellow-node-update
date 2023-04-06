@@ -432,6 +432,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.aiDevelopment.path,
   ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
+  ROUTES.paymentGatewayDevelopment.path,
   CASE_STUDIES.openSense,
 ];
 
@@ -607,6 +608,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.eWalletAppDevelopment,
   PAGES.bankingSoftwareDevelopmentCompany,
   PAGES.deliveryQualityInYellow,
+  PAGES.paymentGatewayDevelopment,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
