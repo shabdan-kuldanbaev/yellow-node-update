@@ -92,6 +92,13 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.lendingSoftwareDevelopment.path}`,
   },
   {
+    pageName: ROUTES.paymentGatewayDevelopment.slug,
+    metaTitle: 'Payment Software Gateway Development Company | Yellow',
+    metaDescription: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+      + 'transaction security and accuracy. Read more about our services now.',
+    url: `${rootUrl}${ROUTES.paymentGatewayDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.prototypingServices.slug,
     metaTitle: 'Mobile App Prototyping Services | Yellow',
     metaDescription: 'Prototyping is an important stage in mobile app development. Complete it with Yellow!',
@@ -197,5 +204,17 @@ export const ogMetaData = [
     metaTitle: 'E-Wallet App Development Company | Yellow',
     metaDescription: 'Mobile e-wallet app development services for any industry and any business scale.',
     url: `${rootUrl}${ROUTES.eWalletAppDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.bankingSoftwareDevelopmentCompany.slug,
+    metaTitle: 'Banking Software Development Company | Yellow',
+    metaDescription: 'We provide companies and organizations big and small with outstanding banking software development. Check out what we can do for you.',
+    url: `${rootUrl}${ROUTES.bankingSoftwareDevelopmentCompany.path}`,
+  },
+  {
+    pageName: ROUTES.deliveryQualityInYellow.slug,
+    metaTitle: 'What Makes Yellow a Good Software Development Partner | Yellow',
+    metaDescription: 'Delivery quality standards we follow to build a perfect project for YOU.',
+    url: `${rootUrl}${ROUTES.deliveryQualityInYellow.path}`,
   },
 ];

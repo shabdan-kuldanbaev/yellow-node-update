@@ -134,6 +134,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.lendingSoftwareDevelopment.path,
     },
   ]),
+  paymentGatewayDevelopment: () => ([
+    {
+      title: ROUTES.paymentGatewayDevelopment.title,
+      to: ROUTES.paymentGatewayDevelopment.path,
+    },
+  ]),
   cloudDevelopment: () => ([
     {
       title: ROUTES.cloudDevelopment.title,
@@ -186,6 +192,18 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.eWalletAppDevelopment.title,
       to: ROUTES.eWalletAppDevelopment.path,
+    },
+  ]),
+  bankingSoftwareDevelopmentCompany: () => ([
+    {
+      title: ROUTES.bankingSoftwareDevelopmentCompany.title,
+      to: ROUTES.bankingSoftwareDevelopmentCompany.path,
+    },
+  ]),
+  deliveryQualityInYellow: () => ([
+    {
+      title: ROUTES.deliveryQualityInYellow.title,
+      to: ROUTES.deliveryQualityInYellow.path,
     },
   ]),
   technicalPage: (slug) => {

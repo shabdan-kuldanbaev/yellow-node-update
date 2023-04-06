@@ -1,0 +1,30 @@
+.delivery-quality-in-yellow {
+  padding-top: 32px;
+  background-color: $gray50;
+
+  .pageWrapper {
+    flex-direction: row-reverse;
+
+    @include below-tablet {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .pageTextContainer {
+    max-width: 584px;
+  }
+
+  picture {
+    max-width: 497px;
+    margin-left: 0;
+    padding-top: 530px;
+
+    @include below-tablet {
+      padding-top: 100%;
+    }
+  }
+
+  @include below-tablet {
+    padding-top: 24px;
+  }
+}

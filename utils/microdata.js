@@ -623,7 +623,27 @@ export const microdata = {
       breadcrumb: 'Homepage > E-Wallet App Development Company',
       image: logoUrl,
     },
-    getServiceMicrodata(ROUTES.mvpDevelopment)]),
+    getServiceMicrodata(ROUTES.eWalletAppDevelopment)]),
+  bankingSoftwareDevelopmentCompany: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'Banking Software Development Company | Yellow',
+      description: 'We provide companies and organizations big and small with outstanding banking software development. Check out what we can do for you.',
+      breadcrumb: 'Homepage > Banking Software Development Company',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.bankingSoftwareDevelopmentCompany)]),
+  deliveryQualityInYellow: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'What Makes Yellow a Good Software Development Partner | Yellow',
+      description: 'Delivery quality standards we follow to build a perfect project for YOU.',
+      breadcrumb: 'Homepage > Yellow’s Delivery Quality Standards',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.deliveryQualityInYellow)]),
   lendingSoftwareDevelopment: () => ([
     {
       '@context': context,
@@ -631,6 +651,18 @@ export const microdata = {
       name: 'Lending Software Development Services | Yellow',
       description: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
       breadcrumb: 'Lending Software Development Services | Yellow',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.lendingSoftwareDevelopment),
+  ]),
+  paymentGatewayDevelopment: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'Payment Software Gateway Development Company | Yellow',
+      description: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+        + 'transaction security and accuracy. Read more about our services now.',
+      breadcrumb: 'Payment Software Gateway Development Company | Yellow',
       image: logoUrl,
     },
     getServiceMicrodata(ROUTES.lendingSoftwareDevelopment),

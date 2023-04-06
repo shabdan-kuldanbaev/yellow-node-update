@@ -70,6 +70,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.lendingSoftwareDevelopment(),
     };
 
+  case PAGES.paymentGatewayDevelopment:
+    return {
+      pageMicrodata: microdata.paymentGatewayDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.paymentGatewayDevelopment(),
+    };
+
   case PAGES.mlDevelopment:
     return {
       pageMicrodata: microdata.mlDevelopment(),
@@ -116,6 +122,18 @@ export const getServicePageInfo = (pathname) => {
     return {
       breadcrumbs: pagesBreadcrumbs.eWalletAppDevelopment(),
       pageMicrodata: microdata.eWalletAppDevelopment(),
+    };
+
+  case PAGES.bankingSoftwareDevelopmentCompany:
+    return {
+      breadcrumbs: pagesBreadcrumbs.bankingSoftwareDevelopmentCompany(),
+      pageMicrodata: microdata.bankingSoftwareDevelopmentCompany(),
+    };
+
+  case PAGES.deliveryQualityInYellow:
+    return {
+      breadcrumbs: pagesBreadcrumbs.deliveryQualityInYellow(),
+      pageMicrodata: microdata.deliveryQualityInYellow(),
     };
 
   case PAGES.penetrationTesting:

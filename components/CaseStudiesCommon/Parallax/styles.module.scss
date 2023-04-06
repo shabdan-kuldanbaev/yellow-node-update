@@ -176,6 +176,7 @@
 .dindon,
 .cash-chat,
 .e-wallet-app-development,
+.banking-software-development-company,
 .lending-software-development {
   @extend .parallax;
 }
@@ -229,5 +230,11 @@
 .e-wallet-app-development {
   @include below-tablet {
     height: 310px;
+  }
+}
+
+.banking-software-development-company {
+  @include below-tablet {
+    height: 600px;
   }
 }

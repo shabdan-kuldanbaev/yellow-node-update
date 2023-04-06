@@ -34,6 +34,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'humankind',
   'cinnabar',
   'machine-learning-in-real-estate',
+  'software-for-mri-interpretation',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -94,7 +95,10 @@ export const NAV_LINKS = [
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
     routes.eWalletAppDevelopment.slug,
+    routes.bankingSoftwareDevelopmentCompany.slug,
+    routes.deliveryQualityInYellow.slug,
     routes.lendingSoftwareDevelopment.slug,
+    routes.paymentGatewayDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
     routes.aiDevelopment.slug,
@@ -434,6 +438,8 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
 export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.penetrationTesting.path,
   ROUTES.eWalletAppDevelopment.path,
+  ROUTES.bankingSoftwareDevelopmentCompany.path,
+  ROUTES.deliveryQualityInYellow.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -524,6 +530,16 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Having full control over money',
         slug: ROUTES.eWalletAppDevelopment.path,
       },
+      {
+        title: 'Banking Software Development Company',
+        subtitle: 'Digital banking all the way',
+        slug: ROUTES.bankingSoftwareDevelopmentCompany.path,
+      },
+      {
+        title: 'Yellow’s Delivery Quality Standards',
+        subtitle: ' Delivery quality standards we follow to build a perfect project for YOU',
+        slug: ROUTES.deliveryQualityInYellow.path,
+      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
       {
@@ -589,6 +605,8 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.lendingSoftwareDevelopment,
   PAGES.penetrationTesting,
   PAGES.eWalletAppDevelopment,
+  PAGES.bankingSoftwareDevelopmentCompany,
+  PAGES.deliveryQualityInYellow,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
