@@ -623,7 +623,27 @@ export const microdata = {
       breadcrumb: 'Homepage > E-Wallet App Development Company',
       image: logoUrl,
     },
-    getServiceMicrodata(ROUTES.mvpDevelopment)]),
+    getServiceMicrodata(ROUTES.eWalletAppDevelopment)]),
+  bankingSoftwareDevelopmentCompany: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'Banking Software Development Company | Yellow',
+      description: 'We provide companies and organizations big and small with outstanding banking software development. Check out what we can do for you.',
+      breadcrumb: 'Homepage > Banking Software Development Company',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.bankingSoftwareDevelopmentCompany)]),
+  deliveryQualityInYellow: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'What Makes Yellow a Good Software Development Partner | Yellow',
+      description: 'Delivery quality standards we follow to build a perfect project for YOU.',
+      breadcrumb: 'Homepage > Yellow’s Delivery Quality Standards',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.deliveryQualityInYellow)]),
   lendingSoftwareDevelopment: () => ([
     {
       '@context': context,

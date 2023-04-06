@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import { getEmployeeInfo } from 'containers/Signature/utils/helpers';
 import {
@@ -69,8 +68,7 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path={YELLOW_LINK}
                   >
-                    <Illustration
-                      layout="responsive"
+                    <img
                       src={images.yellowUrl}
                       alt="yellow logo"
                     />
@@ -89,15 +87,14 @@ const SignatureGenerated = ({
                 </td>
               </tr>
               <tr>
-                <td className={styles.signatureData}>
-                  <p className={styles.signatureDataYellow}>
-                    <LinkWrapper
-                      isLocalLink={false}
-                      path={YELLOW_LINK}
-                    >
-                      {YELLOW_DOMAIN}
-                    </LinkWrapper>
-                  </p>
+                <td className={cn(styles.signatureData, styles.signatureYellowContainer)}>
+                  <LinkWrapper
+                    isLocalLink={false}
+                    path={YELLOW_LINK}
+                    className={styles.signatureDataYellow}
+                  >
+                    {YELLOW_DOMAIN}
+                  </LinkWrapper>
                 </td>
               </tr>
               <tr>
@@ -109,9 +106,8 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path="https://www.linkedin.com/company/yellow-systems/"
                   >
-                    <Illustration
-                      layout="responsive"
-                      src={images.linkedInImageUrl}
+                    <img
+                      src={images.linkedInImgUrl}
                       alt="linkedin logo"
                     />
                   </LinkWrapper>
@@ -119,9 +115,8 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path="https://www.instagram.com/yellow.systems/"
                   >
-                    <Illustration
-                      layout="responsive"
-                      src={images.instagramImageUrl}
+                    <img
+                      src={images.instagramImgUrl}
                       alt="instagram logo"
                     />
                   </LinkWrapper>
@@ -129,9 +124,8 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path="https://twitter.com/yellow_systems"
                   >
-                    <Illustration
-                      layout="responsive"
-                      src={images.twitterImageUrl}
+                    <img
+                      src={images.twitterImgUrl}
                       alt="twitter logo"
                     />
                   </LinkWrapper>

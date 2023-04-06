@@ -1,0 +1,71 @@
+.delivery-quality-in-yellow {
+  padding-bottom: 48px;
+
+  .titleStyle {
+    max-width: 671px;
+    margin-bottom: 32px;
+  }
+
+  .textContent {
+    & > div:last-child {
+      width: 100%;
+    }
+  }
+
+  .text {
+    @include flex(column, initial, initial, wrap);
+
+    max-height: 204px;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+
+    ul {
+      @include listWithYellowMarkers;
+
+      @media (max-width: 924px) {
+        height: unset;
+      }
+
+      max-width: unset;
+      width: unset;
+      height: unset;
+      margin: 0;
+      align-content: unset;
+
+      &:nth-child(2) {
+        @media (max-width: 924px) {
+          height: unset;
+          max-width: 535px;
+        }
+
+        max-width: 691px;
+        width: 100%;
+
+        @include below-tablet {
+          max-width: unset;
+          margin-bottom: 16px;
+        }
+      }
+
+      & li {
+        max-width: unset;
+        margin: 12px 0 0;
+        color: $gray400;
+      }
+
+      @include below-tablet {
+        height: fit-content;
+      }
+    }
+
+    & * {
+      padding: 0;
+      margin: 0;
+    }
+
+    @include below-tablet {
+      max-height: fit-content;
+    }
+  }
+}

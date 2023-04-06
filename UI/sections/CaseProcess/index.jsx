@@ -71,6 +71,7 @@ const CaseProcess = (props) => {
                 )}
               {imageBundles?.map((url, indexBundleImage) => (
                 <Illustration
+                  trasparent
                   className={cn(styles.bundleImage, styles[`bundleImage-${indexBundleImage + 1}`])}
                   src={url}
                   alt={stepTitle}

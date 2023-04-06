@@ -21,6 +21,7 @@ export const WHITE_LOGO_TYPE = [
   'humankind',
   'cinnabar',
   'machine-learning-in-real-estate',
+  'software-for-mri-interpretation',
 ];
 
 export const BLACK_LOGO_TYPE = [

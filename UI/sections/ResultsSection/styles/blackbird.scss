@@ -10,16 +10,13 @@
       max-width: 623px;
     }
 
-    .circle {
+    .contentWrapper {
+      height: 136px;
+    }
+
+    .prototype {
       width: 224px;
       height: 136px;
-      margin: 0 auto;
-      transform: unset;
-      left: 0;
-
-      .mockup {
-        width: 100%;
-      }
     }
 
     @include phone {
@@ -28,25 +25,34 @@
   }
 
   &.firstSectionView {
-    .circle {
-      margin-top: 117px;
+    .contentWrapper {
+      height: 600px;
 
-      &::before {
-        content: ' ';
-        display: block;
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         width: 460px;
         height: 460px;
         background-color: $blackbirdAccent;
         border-radius: 50%;
       }
+    }
 
-      .mockup {
-        width: 298px;
-        height: 600px;
-      }
+    .screen {
+      width: 298px;
+      height: 600px;
+    }
 
-      .appImage {
-        width: 275px;
+    .prototype {
+      width: 290px;
+      height: 582px;
+      border-radius: 38px;
+
+      img {
         border-radius: 38px;
       }
     }

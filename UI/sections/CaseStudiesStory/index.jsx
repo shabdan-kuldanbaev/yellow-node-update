@@ -31,6 +31,7 @@ const CaseStudiesStory = (props) => {
             {imageUrl && (
               <div className={styles.imageContainer}>
                 <Illustration
+                  transparent
                   className={styles.image}
                   src={imageUrl}
                   alt={imageUrl}

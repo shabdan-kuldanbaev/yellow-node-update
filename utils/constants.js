@@ -34,6 +34,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'humankind',
   'cinnabar',
   'machine-learning-in-real-estate',
+  'software-for-mri-interpretation',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -94,6 +95,8 @@ export const NAV_LINKS = [
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
     routes.eWalletAppDevelopment.slug,
+    routes.bankingSoftwareDevelopmentCompany.slug,
+    routes.deliveryQualityInYellow.slug,
     routes.lendingSoftwareDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
@@ -434,6 +437,8 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
 export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.penetrationTesting.path,
   ROUTES.eWalletAppDevelopment.path,
+  ROUTES.bankingSoftwareDevelopmentCompany.path,
+  ROUTES.deliveryQualityInYellow.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -519,11 +524,6 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Make your software as safe as possible',
         slug: ROUTES.penetrationTesting.path,
       },
-      {
-        title: 'E-Wallet App Development Company',
-        subtitle: 'Having full control over money',
-        slug: ROUTES.eWalletAppDevelopment.path,
-      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
       {
@@ -568,6 +568,16 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Fast and secure lending process',
         slug: ROUTES.lendingSoftwareDevelopment.path,
       },
+      {
+        title: 'E-Wallet App Development Company',
+        subtitle: 'Having full control over money',
+        slug: ROUTES.eWalletAppDevelopment.path,
+      },
+      {
+        title: 'Banking Software Development Company',
+        subtitle: 'Digital banking all the way',
+        slug: ROUTES.bankingSoftwareDevelopmentCompany.path,
+      },
     ],
   },
 };
@@ -589,6 +599,8 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.lendingSoftwareDevelopment,
   PAGES.penetrationTesting,
   PAGES.eWalletAppDevelopment,
+  PAGES.bankingSoftwareDevelopmentCompany,
+  PAGES.deliveryQualityInYellow,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

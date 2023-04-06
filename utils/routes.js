@@ -354,6 +354,18 @@ export const routes = {
     dynamicPath: '/e-wallet-app-development-company',
     slug: 'e-wallet-app-development',
   },
+  bankingSoftwareDevelopmentCompany: {
+    title: 'Banking Software Development Company',
+    path: '/banking-software-development-company',
+    dynamicPath: '/banking-software-development-company',
+    slug: 'banking-software-development-company',
+  },
+  deliveryQualityInYellow: {
+    title: 'Yellow’s Delivery Quality Standards',
+    path: '/delivery-quality-in-yellow',
+    dynamicPath: '/delivery-quality-in-yellow',
+    slug: 'delivery-quality-in-yellow',
+  },
   cookiesPolicy: {
     title: 'Cookies Policy',
     path: '/cookies-policy',

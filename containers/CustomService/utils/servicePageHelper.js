@@ -118,6 +118,18 @@ export const getServicePageInfo = (pathname) => {
       pageMicrodata: microdata.eWalletAppDevelopment(),
     };
 
+  case PAGES.bankingSoftwareDevelopmentCompany:
+    return {
+      breadcrumbs: pagesBreadcrumbs.bankingSoftwareDevelopmentCompany(),
+      pageMicrodata: microdata.bankingSoftwareDevelopmentCompany(),
+    };
+
+  case PAGES.deliveryQualityInYellow:
+    return {
+      breadcrumbs: pagesBreadcrumbs.deliveryQualityInYellow(),
+      pageMicrodata: microdata.deliveryQualityInYellow(),
+    };
+
   case PAGES.penetrationTesting:
     return {
       breadcrumbs: pagesBreadcrumbs.penetrationTesting(),
