@@ -206,6 +206,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.deliveryQualityInYellow.path,
     },
   ]),
+  pwaDevelopmentServices: () => ([
+    {
+      title: ROUTES.pwaDevelopmentServices.title,
+      to: ROUTES.pwaDevelopmentServices.path,
+    },
+  ]),
   technicalPage: (slug) => {
     if (slug === PAGES.privacyPolicy) {
       return [

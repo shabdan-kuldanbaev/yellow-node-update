@@ -374,6 +374,12 @@ export const routes = {
     dynamicPath: '/delivery-quality-in-yellow',
     slug: 'delivery-quality-in-yellow',
   },
+  pwaDevelopmentServices: {
+    title: 'PWA Development Services',
+    path: '/pwa-development-services',
+    dynamicPath: '/pwa-development-services',
+    slug: 'pwa-development-services',
+  },
   cookiesPolicy: {
     title: 'Cookies Policy',
     path: '/cookies-policy',

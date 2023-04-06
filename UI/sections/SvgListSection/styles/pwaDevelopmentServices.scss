@@ -1,0 +1,25 @@
+.pwa-development-services {
+  .titleStyle {
+    max-width: 712px;
+  }
+
+  &.secondSectionView {
+    padding-top: 0;
+    background-color: $gray50;
+
+    :global(.swiper-slide) {
+      align-items: center;
+    }
+
+    :global(.swiper-wrapper) {
+      height: 66px;
+    }
+
+    .titleStyle {
+      @include below-tablet {
+        max-width: 350px;
+        padding: 0 20px;
+      }
+    }
+  }
+}

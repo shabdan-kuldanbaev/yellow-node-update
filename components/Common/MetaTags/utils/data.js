@@ -217,4 +217,10 @@ export const ogMetaData = [
     metaDescription: 'Delivery quality standards we follow to build a perfect project for YOU.',
     url: `${rootUrl}${ROUTES.deliveryQualityInYellow.path}`,
   },
+  {
+    pageName: ROUTES.pwaDevelopmentServices.slug,
+    metaTitle: 'PWA Development Services | Yellow',
+    metaDescription: 'Yellow is combining web and mobile worlds and creates progressive web apps that function smoothly on all devices.',
+    url: `${rootUrl}${ROUTES.pwaDevelopmentServices.path}`,
+  },
 ];

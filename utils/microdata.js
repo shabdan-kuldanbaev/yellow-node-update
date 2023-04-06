@@ -644,6 +644,16 @@ export const microdata = {
       image: logoUrl,
     },
     getServiceMicrodata(ROUTES.deliveryQualityInYellow)]),
+  pwaDevelopmentServices: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'PWA Development Services | Yellow',
+      description: 'Web working as mobile',
+      breadcrumb: 'Homepage > PWA Development Services',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.pwaDevelopmentServices)]),
   lendingSoftwareDevelopment: () => ([
     {
       '@context': context,

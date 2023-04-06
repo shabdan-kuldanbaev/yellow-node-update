@@ -1,0 +1,7 @@
+.pwa-development-services {
+  .navigation {
+    @include below-tablet {
+      max-width: 100%;
+    }
+  }
+}
