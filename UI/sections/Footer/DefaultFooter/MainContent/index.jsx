@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Typography from 'UI/components/Typography';
@@ -30,6 +29,7 @@ const MainContent = ({ mainContent: footerLinksData }) => footerLinksData?.map((
       type: linkType,
     }) => (
       <FieldsWrapper
+        key={path}
         type={linkType}
         path={path}
         subtitle={subtitle}

@@ -1,20 +1,15 @@
-import React, {
-  useEffect,
-  useRef,
-  useCallback,
-} from 'react';
+import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
-import { setMobileCategoriesState } from 'redux/actions/layout';
-import ButtonMore from 'components/Common/ButtonMore';
-
-import Svg from 'UI/components/Svg';
 import { setOverflowForBody } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import Categories from './Categories';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const SelectionBlock = ({ toggleFullscreenSearch }) => {
   const isMobileCategoties = useSelector(selectIsMobileCategotiesOpened);

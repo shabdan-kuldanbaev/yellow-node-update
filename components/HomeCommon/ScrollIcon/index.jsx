@@ -1,6 +1,7 @@
-import React from 'react';
-import Svg from 'UI/components/Svg';
+import dynamic from 'next/dynamic';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const ScrollIcon = () => (
   <div className={styles.iconWrapper}>

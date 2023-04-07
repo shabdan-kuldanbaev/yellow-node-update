@@ -3,11 +3,19 @@
 /* eslint-disable no-undef */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
-import React, { useEffect, useRef, useState } from 'react';
-import { Plane, Raycaster, Vector3 } from 'node_modules/three/build/three.module';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import Animated from 'components/Common/Animated';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import {
+  Plane,
+  Raycaster,
+  Vector3,
+  EffectComposer,
+  RenderPass,
+} from 'utils/threeModule';
+import Animated from 'UI/containers/Animated';
 import { mobileResolution } from 'utils/helper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { animationTypes } from 'UI/components/Duck/utils/constant';

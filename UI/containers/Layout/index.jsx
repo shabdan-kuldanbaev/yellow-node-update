@@ -1,24 +1,24 @@
-import React from 'react';
+import { memo } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import CookiesNotification from 'components/Common/CookiesNotification';
 import GAnalytic from 'components/Layout/GAnalytic';
 import Header from 'UI/sections/Header';
-import LoadingScreen from 'UI/components/LoadingScreen';
 import { useLayout } from './utils/useLayout';
 
 const Footer = dynamic(() => import('UI/sections/Footer'));
+const LoadingScreen = dynamic(() => import('UI/components/LoadingScreen'));
 
 const Layout = (props) => {
   const {
     children,
     introSection,
-    isDuckLoaded,
+    isDuckLoading,
   } = useLayout(props);
 
   return (
     <>
-      {isDuckLoaded && <LoadingScreen />}
+      {isDuckLoading && <LoadingScreen />}
       <CookiesNotification />
       <Header introSection={introSection} />
       {children}
@@ -37,4 +37,4 @@ Layout.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default React.memo(Layout);
+export default memo(Layout);

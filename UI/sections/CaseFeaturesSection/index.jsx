@@ -1,15 +1,16 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Illustration from 'UI/components/Illustration';
-import Svg from 'UI/components/Svg';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useFeaturesSection } from './utils/useFeaturesSection';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CaseFeaturesSection = (props) => {
   const {

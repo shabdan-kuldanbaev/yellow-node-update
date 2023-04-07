@@ -1,15 +1,16 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import { SwiperSlide } from 'swiper/react';
 import SectionTitle from 'UI/components/SectionTitle';
-import Animated from 'components/Common/Animated';
-import CallToAction from 'UI/components/CallToAction';
 import CustomSwiper from 'UI/containers/CustomSwiper';
-import Review from 'UI/components/Cards/Review';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useReviewsSection from './utils/useReviewsSection';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
+const Review = dynamic(() => import('UI/components/Cards/Review'), { ssr: false });
 
 const ReviewsSection = (props) => {
   const {
@@ -34,7 +35,7 @@ const ReviewsSection = (props) => {
           swiperParams={swiperParams}
           isShowNavigation
         >
-          {reviews?.map((review, i) => (
+          {(reviews || []).map((review, i) => (
             <SwiperSlide key={`review/${i}`}>
               <Review
                 className={styles.review}

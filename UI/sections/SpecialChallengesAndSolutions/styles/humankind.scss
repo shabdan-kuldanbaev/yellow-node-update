@@ -1,0 +1,10 @@
+.humankind {
+  &.firstSectionView {
+    padding: 120px 0 66px;
+    background-color: $gray50;
+
+    @include phone {
+      padding: 60px 16px;
+    }
+  }
+}

@@ -6,7 +6,7 @@ import {
 } from 'utils/helper';
 import { ROUTES, CASE_STUDIES_SLUGS } from 'utils/constants';
 import { contentfulClient } from 'utils/contentful/client';
-import errorHelper from 'utils/error';
+import { handleError } from 'utils/error';
 
 const excludedPages = [
   'signature-generator',
@@ -118,7 +118,7 @@ export const getServerSideProps = async ({ res }) => {
       res.end(sitemap.end({ pretty: true }));
     }
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the Sitemap.getInitialProps function',
     });

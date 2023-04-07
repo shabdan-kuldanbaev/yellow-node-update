@@ -1,4 +1,4 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import {
   FacebookShareButton,
@@ -6,10 +6,11 @@ import {
   LinkedinShareButton,
 } from 'react-share';
 import { useRouter } from 'next/router';
-import Svg from 'UI/components/Svg';
 import gaHelper from 'utils/ga';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 export const ShareThumbnails = ({ url, title }) => {
   const { asPath } = useRouter();

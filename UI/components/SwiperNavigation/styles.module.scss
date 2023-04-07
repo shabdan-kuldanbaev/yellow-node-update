@@ -1,15 +1,18 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 .navigationContainer {
   @include flex(row, space-between, center);
 
-  position: absolute;
+  margin: 48px auto 0;
+  max-width: $wide-content-width;
   width: 100%;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
 
   & > * {
     flex: 0 0 auto;
+  }
+
+  @include phone {
+    margin: 24px auto 0;
   }
 }

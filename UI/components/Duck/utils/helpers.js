@@ -8,15 +8,13 @@ import {
   Vector2,
   Vector3,
   WebGLRenderer,
-// eslint-disable-next-line import/extensions
-} from 'node_modules/three/build/three.module.js';
-import {
   BufferAttribute,
   BufferGeometry,
   DynamicDrawUsage,
-} from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+  GLTFLoader,
+  DRACOLoader,
+} from 'utils/threeModule';
+
 import anime from 'animejs';
 import { HOMEPAGE_SLOGAN } from 'utils/constants';
 import { shaders } from './constant';

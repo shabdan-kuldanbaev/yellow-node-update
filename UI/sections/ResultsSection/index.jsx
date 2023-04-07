@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
@@ -13,8 +12,8 @@ const ResultsSection = (props) => {
     type,
     title,
     description,
-    smartphoneUrl,
-    appScreenUrl,
+    prototypeUrl,
+    screenUrl,
     imagesBundles,
     sectionStyle,
     isResultVideo,
@@ -31,29 +30,30 @@ const ResultsSection = (props) => {
         type={type}
         className={styles.sectionTitle}
       />
-      <div className={styles.circle}>
-        <img
-          className={styles.mockup}
-          src={smartphoneUrl}
-          alt={smartphoneUrl}
+      <div className={styles.contentWrapper}>
+        <Illustration
+          transparent
+          className={styles.screen}
+          src={screenUrl}
+          alt={screenUrl}
         />
         {isResultVideo
           ? (
             <Video
-              src={appScreenUrl}
+              src={prototypeUrl}
               className={styles.video}
             />
           )
           : (
-            <img
-              className={styles.appImage}
-              src={appScreenUrl}
-              alt={appScreenUrl}
+            <Illustration
+              transparent
+              className={styles.prototype}
+              src={prototypeUrl}
+              alt={prototypeUrl}
             />
           )}
         {imagesBundles?.map((bundleUrl, index) => (
           <Illustration
-            transparent
             className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
             src={bundleUrl}
             alt={type}

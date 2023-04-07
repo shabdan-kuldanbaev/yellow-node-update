@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getEmployeeInfo } from 'containers/Signature/utils/helpers';
@@ -6,7 +5,7 @@ import {
   SIGNATURE_BUTTON_NAMES,
   YELLOW_DOMAIN,
   YELLOW_LINK,
-} from 'containers/Signature/utils/constants';
+} from 'containers/Signature/utils';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import styles from './styles.module.scss';
 
@@ -88,15 +87,14 @@ const SignatureGenerated = ({
                 </td>
               </tr>
               <tr>
-                <td className={styles.signatureData}>
-                  <p className={styles.signatureDataYellow}>
-                    <LinkWrapper
-                      isLocalLink={false}
-                      path={YELLOW_LINK}
-                    >
-                      {YELLOW_DOMAIN}
-                    </LinkWrapper>
-                  </p>
+                <td className={cn(styles.signatureData, styles.signatureYellowContainer)}>
+                  <LinkWrapper
+                    isLocalLink={false}
+                    path={YELLOW_LINK}
+                    className={styles.signatureDataYellow}
+                  >
+                    {YELLOW_DOMAIN}
+                  </LinkWrapper>
                 </td>
               </tr>
               <tr>

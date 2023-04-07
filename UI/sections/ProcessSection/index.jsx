@@ -1,11 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ArcherContainer } from 'react-archer';
-import ProcessCard from 'UI/components/ProcessCard';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+
+const ProcessCard = dynamic(() => import('UI/components/ProcessCard'));
 
 const ProcessSection = (props) => {
   const {

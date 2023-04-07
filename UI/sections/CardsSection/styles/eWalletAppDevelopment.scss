@@ -132,8 +132,6 @@
     }
 
     :global(.swiper) {
-      padding-bottom: 100px;
-
       @include below-tablet {
         padding-bottom: 70px;
       }

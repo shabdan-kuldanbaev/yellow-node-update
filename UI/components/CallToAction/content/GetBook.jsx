@@ -1,13 +1,14 @@
-import { useSelector } from 'react-redux';
 import cn from 'classnames';
-import Typography from 'UI/components/Typography';
+import dynamic from 'next/dynamic';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
-import GetBookModal from 'UI/components/Modals/GetBookModal';
 import Button from 'UI/components/Button';
 import downloadFile from 'utils/downloadFile';
 import useToggle from 'hooks/useToggle';
-import { selectIsSubscribed } from 'redux/selectors/subscribe';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import styles from '../styles.module.scss';
+
+const Typography = dynamic(() => import('UI/components/Typography'));
+const GetBookModal = dynamic(() => import('UI/components/Modals/GetBookModal'), { ssr: false });
 
 export default ({
   titles,
@@ -18,7 +19,10 @@ export default ({
   handleOnClick: handleOnClickProp,
   slug,
 }) => {
-  const isSubscribed = useSelector(selectIsSubscribed);
+  const [
+    _,
+    { data: { isSubscribed } = {} },
+  ] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const [isGetBookShown, toggleGetBookModalShown] = useToggle(false);
 

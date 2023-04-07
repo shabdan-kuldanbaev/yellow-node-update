@@ -194,6 +194,18 @@ export const pagesBreadcrumbs = {
       to: ROUTES.eWalletAppDevelopment.path,
     },
   ]),
+  bankingSoftwareDevelopmentCompany: () => ([
+    {
+      title: ROUTES.bankingSoftwareDevelopmentCompany.title,
+      to: ROUTES.bankingSoftwareDevelopmentCompany.path,
+    },
+  ]),
+  deliveryQualityInYellow: () => ([
+    {
+      title: ROUTES.deliveryQualityInYellow.title,
+      to: ROUTES.deliveryQualityInYellow.path,
+    },
+  ]),
   technicalPage: (slug) => {
     if (slug === PAGES.privacyPolicy) {
       return [

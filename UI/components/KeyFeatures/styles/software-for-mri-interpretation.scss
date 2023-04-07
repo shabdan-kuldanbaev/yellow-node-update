@@ -1,0 +1,15 @@
+.software-for-mri-interpretation {
+  .containerBackground {
+    opacity: 0.9;
+  }
+
+  .featureContainer {
+    .checkMark {
+      background: $balzanoGradient;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}

@@ -1,9 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import PageIntroSection from 'UI/sections/PageIntroSection';
-import PlainTextSection from 'UI/sections/PlainTextSection';
-import FeedbackSection from 'UI/sections/FeedbackSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -26,6 +22,9 @@ const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr
 const BookmarkCardSection = dynamic(() => import('UI/sections/BookmarkCardSection'));
 const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const Parallax = dynamic(() => import('components/CaseStudiesCommon/Parallax'));
+const PageIntroSection = dynamic(() => import('UI/sections/PageIntroSection'));
+const PlainTextSection = dynamic(() => import('UI/sections/PlainTextSection'));
+const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 
 export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   const {

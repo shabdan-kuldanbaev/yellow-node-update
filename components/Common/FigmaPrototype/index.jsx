@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import Illustration from 'UI/components/Illustration';
 import { CUSTOM_DOMAIN } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -27,10 +28,9 @@ const FigmaPrototype = ({
         title="Figma prototype "
         seamless
       />
-      <img
+      <Illustration
         src={deviceFrameSrc}
         className={styles.deviceFrame}
-        alt=""
       />
     </div>
   );

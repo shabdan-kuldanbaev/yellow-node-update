@@ -1,15 +1,13 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 import SectionTitle from 'components/Common/SectionTitle';
-import Animated from 'components/Common/Animated';
 import PlacementInfoItem from './PlacementInfoItem';
-
 import {
   animatedProps,
   placementInfo,
 } from './utils';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const Map = dynamic(() => import('./Map'), {
   ssr: false,
 });

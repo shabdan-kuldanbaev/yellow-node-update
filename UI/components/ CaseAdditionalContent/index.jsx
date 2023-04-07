@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
@@ -8,10 +7,10 @@ const CaseAdditionalContent = ({
   data,
 }) => (
   <div className={cn(styles[type], styles.additionalContent)}>
-    {data?.map(({ title, contentList }) => (
+    {data?.map(({ title, contentList }, index) => (
       <div
         key={title}
-        className={styles.container}
+        className={cn(styles.container, styles[`container-${index + 1}`])}
       >
         <p className={styles.title}>
           {title}

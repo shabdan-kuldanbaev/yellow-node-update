@@ -1,53 +1,26 @@
-import React from 'react';
-import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
 import DraftArticle from 'containers/DraftArticle';
-import PageNotFound from 'containers/PageNotFound';
 import { wrapper } from 'redux/store';
-import errorHelper from 'utils/error';
-import { PAGES } from 'utils/constants';
+import { handleError } from 'utils/error';
+import blogApi from 'redux/apis/blog';
 
-const DraftArticleContainer = ({ introSection, statusCode }) => {
-  if (statusCode === 404) {
-    return <PageNotFound />;
-  }
-
-  return <DraftArticle introSection={introSection} />;
-};
+const DraftArticleContainer = ({ introSection, ...rest }) => (
+  <DraftArticle
+    introSection={introSection}
+    {...rest}
+  />
+);
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async (ctx) => {
   try {
-    const {
-      req,
-      query: {
-        slug,
-      },
-      res,
-    } = ctx;
-    const props = {};
+    const { query: { slug } } = ctx;
 
-    store.dispatch(fetchLayoutData({
-      articleSlug: slug,
-      slug: PAGES.article,
-      isPreviewMode: true,
-    }));
+    await store.dispatch(blogApi.endpoints.getDraftArticle.initiate(slug));
 
-    if (req) {
-      store.dispatch(END);
-      await store.sagaTask.toPromise();
-
-      if (store.getState().blog.single.total === 0) {
-        props.statusCode = 404;
-
-        if (res) {
-          res.statusCode = 404;
-        }
-      }
-    }
-
-    return props;
+    return {
+      props: { slug },
+    };
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the getInitialBlogProps function in DraftArticle',
     });

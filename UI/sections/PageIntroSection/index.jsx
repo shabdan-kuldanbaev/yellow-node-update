@@ -1,15 +1,16 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import Button from 'UI/components/Button';
-import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const Typography = dynamic(() => import('UI/components/Typography'));
+const Button = dynamic(() => import('UI/components/Button'));
 
 const PageIntroSection = (props) => {
   const {

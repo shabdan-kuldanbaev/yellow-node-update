@@ -164,6 +164,11 @@ export const companyLinks = [
     path: ROUTES.blog.path,
     type: 'navigation',
   },
+  {
+    subtitle: ROUTES.deliveryQualityInYellow.title,
+    path: ROUTES.deliveryQualityInYellow.path,
+    type: 'navigation',
+  },
 ];
 
 export const socialMedia = [

@@ -278,12 +278,14 @@ export const routes = {
     path: '/machine-learning-development-services',
     dynamicPath: '/machine-learning-development-services',
     slug: 'machine-learning-development-services',
+    description: 'If you want to boost your business with custom machine learning software development, Yellow is here to back you up.',
   },
   erpDevelopment: {
     title: 'Custom ERP Software Development Services',
     path: '/enterprise-resource-planning-software-services',
     dynamicPath: '/enterprise-resource-planning-software-services',
     slug: 'enterprise-resource-planning-software-services',
+    description: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',
   },
   devOpsDevelopment: {
     title: 'DevOps Development Company that Helps You Grow',
@@ -296,6 +298,8 @@ export const routes = {
     path: '/discovery-phase-services',
     dynamicPath: '/discovery-phase-services',
     slug: 'discovery-phase-services',
+    description: 'Discovery phase of a project is an important part of software development. Learn more about how '
+    + 'to run a discovery phase and its benefits to your business.',
   },
   signatureGenerator: {
     title: 'Signature Generator',
@@ -314,12 +318,16 @@ export const routes = {
     path: '/artificial-intelligence-development-services',
     dynamicPath: '/artificial-intelligence-development-services',
     slug: 'artificial-intelligence-development-services',
+    description: 'Yellow is an AI software development company that can provide '
+    + 'you with top-notch artificial intelligence application development.',
   },
   dataScienceDevelopment: {
     title: 'Data Science Development Services',
     path: '/data-science-development-company',
     dynamicPath: '/data-science-development-company',
     slug: 'data-science-development-company',
+    descripition: 'If you are looking for a partner that will help you analyze, process, and structure '
+    + 'your data, data science specialists at Yellow are here for you.',
   },
   tradingSoftwareDevelopment: {
     title: 'Custom Trading Platform Development Services',
@@ -351,6 +359,18 @@ export const routes = {
     path: '/e-wallet-app-development-company',
     dynamicPath: '/e-wallet-app-development-company',
     slug: 'e-wallet-app-development',
+  },
+  bankingSoftwareDevelopmentCompany: {
+    title: 'Banking Software Development Company',
+    path: '/banking-software-development-company',
+    dynamicPath: '/banking-software-development-company',
+    slug: 'banking-software-development-company',
+  },
+  deliveryQualityInYellow: {
+    title: 'Yellow’s Delivery Quality Standards',
+    path: '/delivery-quality-in-yellow',
+    dynamicPath: '/delivery-quality-in-yellow',
+    slug: 'delivery-quality-in-yellow',
   },
   cookiesPolicy: {
     title: 'Cookies Policy',

@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 function getAuthorProps({ author } = {}) {
@@ -42,7 +41,7 @@ function getTagsList({ tagsList }) {
 
 export function getArticleProps({ article } = {}) {
   const articleFields = getDocumentFields(
-    get(article, 'items[0]', {}),
+    article,
     [
       'slug',
       'title',

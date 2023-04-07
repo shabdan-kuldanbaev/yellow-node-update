@@ -10,6 +10,7 @@ export default ({
   apiParams,
   transparent,
   placeholder: placeholderProp,
+  priority,
   ...rest
 }) => {
   const loader = isStatic
@@ -18,24 +19,23 @@ export default ({
 
   const className = cn(styles.image, classnames);
 
-  const placeholder = placeholderProp || (transparent ? 'blur' : 'empty');
-
-  const blurDataURL = isStatic
-    ? src
-    : getContentfulImage({
+  const lazyProps = !priority ? {
+    placeholder: placeholderProp || (transparent ? 'blur' : 'empty'),
+    blurDataURL: getContentfulImage({
       src,
       quality: 1,
       format: 'webp',
       transparent,
-    });
+    }),
+  } : {};
 
   return {
     src,
     loader,
-    blurDataURL,
     className,
     lazyBoundary,
-    placeholder,
+    priority,
+    ...lazyProps,
     ...rest,
   };
 };

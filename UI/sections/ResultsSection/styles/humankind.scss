@@ -1,0 +1,31 @@
+.humankind {
+  padding-bottom: 70px;
+  background-color: $gray50;
+
+  [data-description] {
+    max-width: 511px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 22px;
+  }
+
+  .prototype {
+    position: static;
+    transform: scale(1.1);
+    width: 994px;
+    height: 550px;
+
+    @include tablet {
+      height: 310px;
+    }
+
+    @include phone {
+      height: 190px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}
