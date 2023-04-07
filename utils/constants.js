@@ -160,6 +160,7 @@ export const FEEDBACK_FORM_FIELDS = {
   clientId: 'clientId',
   source: 'source',
   medium: 'medium',
+  phone: 'phone',
 };
 
 export const IMAGES = {

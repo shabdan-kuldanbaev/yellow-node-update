@@ -51,11 +51,7 @@ export async function sendFormData(req, res) {
       },
     );
 
-    if (status === 200) {
-      console.log(data);
-
-      return data;
-    }
+    if (status === 200) return data;
   } catch (error) {
     handleError({
       error,

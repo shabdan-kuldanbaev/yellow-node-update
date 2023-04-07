@@ -50,6 +50,7 @@ const createPersonPipedrive = async (data) => {
       clientCountry,
       email,
       name,
+      phone,
       clientId,
       leadSourceOptionId,
     } = data;
@@ -58,6 +59,7 @@ const createPersonPipedrive = async (data) => {
       `${process.env.PIPEDRIVE_API_URL}/persons?api_token=${process.env.PIPEDRIVE_AUTH_TOKEN}`,
       {
         name,
+        phone,
         email: [{ value: email, primary: 'true', label: 'main' }],
         [clientIdFieldKey]: clientId,
         [leadSourceFieldKey]: leadSourceOptionId || '',
@@ -136,6 +138,7 @@ export async function sendDataPipedrive(req, res) {
     const {
       name,
       email,
+      phone,
       description,
       clientId,
       source,
@@ -163,6 +166,7 @@ export async function sendDataPipedrive(req, res) {
       clientCountry,
       email,
       name,
+      phone,
       clientId,
       leadSourceOptionId: leadSourceOptions?.id,
     });
