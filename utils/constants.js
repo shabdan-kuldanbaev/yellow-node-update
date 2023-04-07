@@ -528,6 +528,11 @@ export const SUB_NAVIGATION_LINKS = {
         subtitle: 'Make your software as safe as possible',
         slug: ROUTES.penetrationTesting.path,
       },
+      {
+        title: 'PWA development services company',
+        subtitle: 'Web working as mobile.',
+        slug: ROUTES.pwaDevelopmentServices.path,
+      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
       {
