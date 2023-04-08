@@ -432,7 +432,6 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.aiDevelopment.path,
   ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
-  ROUTES.paymentGatewayDevelopment.path,
   CASE_STUDIES.openSense,
 ];
 
@@ -441,6 +440,7 @@ export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.eWalletAppDevelopment.path,
   ROUTES.bankingSoftwareDevelopmentCompany.path,
   ROUTES.deliveryQualityInYellow.path,
+  ROUTES.paymentGatewayDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
