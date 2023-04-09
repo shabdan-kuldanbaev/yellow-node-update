@@ -35,6 +35,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'cinnabar',
   'machine-learning-in-real-estate',
   'software-for-mri-interpretation',
+  'cedar-valley-farms',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
