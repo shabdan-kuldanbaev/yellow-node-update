@@ -31,7 +31,7 @@
 
     overflow: hidden;
     margin: 0;
-    max-width: $wide-content-width;
+    max-width: unset;
     color: $gray0;
     font-weight: 700;
     text-align: left;
@@ -42,7 +42,7 @@
     @include fontSize(16px, 150%);
 
     margin: 0;
-    max-width: $wide-content-width;
+    max-width: unset;
     color: $gray0;
     font-weight: 700;
     text-align: right;
