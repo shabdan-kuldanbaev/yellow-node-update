@@ -1,0 +1,35 @@
+.cedar-valley-farms {
+  @include flex(column);
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  grid-gap: 12px;
+
+  .container {
+    @include flex(row);
+
+    max-width: 100%;
+    grid-gap: 8px;
+  }
+
+  .title {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    color: $gray0;
+    font-weight: 700;
+  }
+
+  .description {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    color: $gray400;
+  }
+
+  @include tablet {
+    position: static;
+    margin-top: 24px;
+  }
+}

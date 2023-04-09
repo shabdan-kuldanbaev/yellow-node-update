@@ -7,8 +7,10 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import Typography from 'UI/components/Typography';
 import CaseAdditionalContent from 'UI/components/ CaseAdditionalContent';
+import Illustration from 'UI/components/Illustration';
 import { useProjectIdea } from './utils/useProjectIdea';
 import styles from './styles.module.scss';
+import SectionTitle from '../../components/SectionTitle';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
@@ -16,9 +18,13 @@ const ProjectIdea = (props) => {
   const {
     type,
     title,
+    sectionTitle,
+    sectionDescription,
+    sectionSubtitle,
     subtitle,
     text,
     additionalContent,
+    imageUrl,
     delayedAnimation,
     featuresProps,
     teamListProps,
@@ -26,11 +32,30 @@ const ProjectIdea = (props) => {
 
   return (
     <section className={cn(styles[type], styles.container)}>
+      {sectionTitle && (
+        <SectionTitle
+          title={sectionTitle}
+          subtitle={sectionSubtitle}
+          description={sectionDescription}
+          className={styles.titleStyle}
+        />
+      )}
       <div className={styles.contentContainer}>
         <KeyFeatures
           features={featuresProps}
           type={type}
         />
+        {imageUrl && (
+          <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+            <div className={styles.imageContainer}>
+              <Illustration
+                className={styles.image}
+                src={imageUrl}
+                alt={title}
+              />
+            </div>
+          </Animated>
+        )}
         <div className={styles.descriptionContainer}>
           <div className={styles.descriptionIntro}>
             <Animated {...ANIMATION_CASE_STUDY_PROPS}>

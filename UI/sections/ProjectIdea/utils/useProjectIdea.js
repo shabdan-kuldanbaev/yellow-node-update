@@ -1,8 +1,14 @@
 import get from 'lodash/get';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export const useProjectIdea = ({ type, data }) => {
+  const {
+    title: sectionTitle,
+    subtitle: sectionSubtitle,
+    description: sectionDescription,
+  } = data;
+
   const {
     title,
     subtitle,
@@ -16,10 +22,14 @@ export const useProjectIdea = ({ type, data }) => {
 
   const featuresProps = getDocumentFields(get(data, 'contentModules[0]'));
   const teamListProps = getDocumentFields(get(data, 'contentModules[2]'));
-  const additionalContent = contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList']));
+  const additionalContent = contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList', 'description']));
+  const imageUrl = getFileUrl(featuresProps?.images[0]);
 
   return {
     type,
+    sectionTitle,
+    sectionDescription,
+    sectionSubtitle,
     title,
     subtitle,
     text,
@@ -27,5 +37,6 @@ export const useProjectIdea = ({ type, data }) => {
     delayedAnimation,
     featuresProps,
     teamListProps,
+    imageUrl,
   };
 };
