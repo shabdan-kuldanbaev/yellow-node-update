@@ -9,7 +9,7 @@
     max-width: $wide-content-width;
   }
 
-  & .stepsContainer {
+  .stepsContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 60px;
@@ -78,7 +78,7 @@
         line-height: 180%;
       }
 
-      .stepDescription {
+      p {
         @include fontSize(16px, 150%);
 
         flex-grow: 1;

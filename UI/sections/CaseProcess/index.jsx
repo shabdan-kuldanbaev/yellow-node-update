@@ -14,9 +14,10 @@ const CaseProcess = (props) => {
     view,
     style,
     title,
+    subtitle,
+    description,
     images,
     steps,
-    description,
   } = useSectionProps(props);
 
   return (
@@ -26,6 +27,7 @@ const CaseProcess = (props) => {
     >
       <SectionTitle
         title={title}
+        subtitle={subtitle}
         description={description}
         className={styles.titleStyle}
       />
@@ -34,14 +36,22 @@ const CaseProcess = (props) => {
           {steps?.map(({
             title: stepTitle,
             text,
-            subtitle,
+            subtitle: stepSubtitle,
             imageBundles,
             icon,
+            image,
           }, index) => (
             <div
               className={cn(styles.step, styles[`step-${index + 1}`])}
               key={index}
             >
+              {image
+                && (
+                  <Illustration
+                    src={image}
+                    className={styles.stepImage}
+                  />
+                )}
               {icon
                 && (
                   <Svg
@@ -49,12 +59,12 @@ const CaseProcess = (props) => {
                     className={styles.stepIcon}
                   />
                 )}
-              {subtitle && (
+              {stepSubtitle && (
                 <Typography
                   variant="span"
                   className={styles.stepNumber}
                 >
-                  {subtitle}
+                  {stepSubtitle}
                 </Typography>
               )}
               {stepTitle && (
@@ -65,10 +75,9 @@ const CaseProcess = (props) => {
                   {stepTitle}
                 </Typography>
               )}
-              {text
-                && (
-                  <ContentfulParser document={text} />
-                )}
+              {text && (
+                <ContentfulParser document={text} />
+              )}
               {imageBundles?.map((url, indexBundleImage) => (
                 <Illustration
                   trasparent
