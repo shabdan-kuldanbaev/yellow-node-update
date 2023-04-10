@@ -2,4 +2,12 @@
   .titleStyle {
     display: none;
   }
+
+  .parallaxImage {
+    height: 700px;
+
+    @include phone {
+      height: 600px;
+    }
+  }
 }
