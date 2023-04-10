@@ -108,6 +108,7 @@ export const NAV_LINKS = [
     routes.cookiesPolicy.slug,
     routes.lendingSoftwareDevelopment.slug,
     routes.penetrationTesting.slug,
+    routes.softwareDevelopmentPrice.slug,
   ].includes(slug)),
 ];
 
@@ -243,6 +244,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentTableSection: 'app-development-table-section',
   feedback: 'feedback',
   parallax: 'case-study-parallax',
+  softwarePriceForm: 'software-price-form',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -582,6 +584,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.tradingSoftwareDevelopment,
   PAGES.lendingSoftwareDevelopment,
   PAGES.penetrationTesting,
+  PAGES.softwareDevelopmentPrice,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

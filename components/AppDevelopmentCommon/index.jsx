@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import PageIntroSection from 'UI/sections/PageIntroSection';
 import PlainTextSection from 'UI/sections/PlainTextSection';
 import FeedbackSection from 'UI/sections/FeedbackSection';
+import SoftwarePriceSection from 'UI/sections/SoftwarePriceSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
@@ -185,6 +186,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.feedback:
     return <FeedbackSection {...props} />;
+
+  case APP_DEVELOPMENT_TYPES.softwarePriceForm:
+    return <SoftwarePriceSection {...props} />;
 
   default:
     return null;

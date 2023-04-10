@@ -40,6 +40,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.customChatApp(),
     };
 
+  case PAGES.softwareDevelopmentPrice:
+    return {
+      pageMicrodata: microdata.softwareDevelopmentPrice(),
+      breadcrumbs: pagesBreadcrumbs.softwareDevelopmentPrice(),
+    };
+
   case PAGES.customMobileApp:
     return {
       pageMicrodata: microdata.customMobileApp(),

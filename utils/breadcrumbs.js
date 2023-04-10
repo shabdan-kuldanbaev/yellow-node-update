@@ -50,6 +50,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.contact.path,
     },
   ]),
+  softwareDevelopmentPrice: () => ([
+    {
+      title: ROUTES.softwareDevelopmentPrice.title,
+      to: ROUTES.softwareDevelopmentPrice.path,
+    },
+  ]),
   portfolio: () => ([
     {
       title: ROUTES.portfolio.title,

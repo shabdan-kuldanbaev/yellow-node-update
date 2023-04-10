@@ -12,6 +12,7 @@ export default ({
   contactFormError,
   isDataSubmitted,
   isFormPending,
+  extraDescription,
 }) => {
   const {
     register,
@@ -43,6 +44,7 @@ export default ({
       medium: sourceMetrics?.medium,
       attachments,
       projectBudget: budget || '',
+      description: extraDescription ? `${values.description} ${extraDescription}` : values.description,
     });
   });
 

@@ -11,6 +11,7 @@ import styles from './styles.module.scss';
 const FullScreenEstimation = ({
   isFullscreenEstimation,
   closeFullscreenEstimation,
+  extraDescription,
 }) => (
   <ModalWindow
     isModalWindow={isFullscreenEstimation}
@@ -40,6 +41,7 @@ const FullScreenEstimation = ({
           className={styles.feedbackForm}
           isBudgetSlider
           formKey="estimation"
+          extraDescription={extraDescription}
         />
       )}
     </div>
@@ -49,6 +51,7 @@ const FullScreenEstimation = ({
 FullScreenEstimation.propTypes = {
   isFullscreenEstimation: PropTypes.bool.isRequired,
   closeFullscreenEstimation: PropTypes.func.isRequired,
+  extraDescription: PropTypes.string,
 };
 
 export const FullscreenEstimationContext = createContext({ isShown: false, open: () => null });

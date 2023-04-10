@@ -133,6 +133,7 @@ function* fetchPageData({
     case PAGES.cookiesPolicy:
     case PAGES.termsAndConditions:
     case PAGES.customChatApp:
+    case PAGES.softwareDevelopmentPrice:
     case PAGES.customMobileApp:
     case PAGES.customWebApp:
     case PAGES.designServices:

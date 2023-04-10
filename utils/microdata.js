@@ -364,6 +364,19 @@ export const microdata = {
     },
     professionalServiceMicrodata,
   ]),
+  softwareDevelopmentPrice: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'Pricing: Hire a Team for Your Project | Yellow',
+      description: `Calculate how much money you will need to build your software. 
+      We only bill for the time actually spent on work, so it’s easy to manage the budget. No extra fees.`,
+      url: pageUrl(ROUTES.softwareDevelopmentPrice.path),
+      image: logoUrl,
+      breadcrumb: 'Homepage > Pricing',
+    },
+    professionalServiceMicrodata,
+  ]),
   customChatApp: () => ({
     '@context': context,
     '@type': 'WebPage',

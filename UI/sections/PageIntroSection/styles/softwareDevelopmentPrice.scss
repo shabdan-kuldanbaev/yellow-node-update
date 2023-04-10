@@ -1,0 +1,59 @@
+.pricing {
+  .contentWrapper {
+    @include flex(row, space-between, flex-start, nowrap);
+
+    @include phone {
+      flex-direction: column;
+    }
+  }
+
+  .pageWrapper {
+    display: block;
+    width: 67%;
+
+    @include below-tablet {
+      width: 100%;
+    }
+  }
+
+  .pageTitle {
+    margin-bottom: 32px;
+    font-size: 38px;
+    line-height: 38px;
+    white-space: nowrap;
+
+    @include below-tablet {
+      white-space: initial;
+    }
+
+    @include phone {
+      margin-bottom: 16px;
+      font-size: 24px;
+      line-height: 31px;
+      text-align: left;
+    }
+  }
+
+  p {
+    &:first-child {
+      margin-bottom: 16px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 31px;
+      color: $gray900;
+
+      @include phone {
+        margin-bottom: 8px;
+        font-size: 20px;
+      }
+    }
+
+    &:nth-child(2) {
+      margin-bottom: 16px;
+    }
+
+    @include phone {
+      text-align: left;
+    }
+  }
+}

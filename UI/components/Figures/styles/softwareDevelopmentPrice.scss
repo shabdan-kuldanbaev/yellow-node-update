@@ -1,0 +1,27 @@
+.pricing {
+  width: 33%;
+  margin-top: 70px;
+
+  @include phone {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .figureItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: 400;
+    color: $gray900;
+  }
+
+  .icon {
+    padding: 22px;
+    border-radius: 50%;
+    background-color: $yellow500;
+  }
+}
