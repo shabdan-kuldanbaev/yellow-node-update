@@ -1,45 +1,126 @@
 .cedar-valley-farms {
-  .images {
-    max-width: 584px;
-    width: 100%;
+  &.firstSectionView {
+    .images {
+      max-width: 584px;
+      width: 100%;
+    }
+
+    .image {
+      width: 100%;
+      height: 520px;
+
+      img {
+        transition: ease 0.5s;
+      }
+
+      &:hover img {
+        transform: scale3d(1.05, 1.05, 1);
+      }
+
+      @include tablet {
+        height: 410px;
+      }
+
+      @include phone {
+        height: 310px;
+      }
+    }
+
+    .contentContainer {
+      max-width: $wide-content-width;
+
+      @include tablet {
+        @include flex(column-reverse, center, center);
+      }
+    }
+
+    .infoContainer {
+      .title {
+        color: $gray0;
+      }
+
+      h3 {
+        color: $gray0;
+      }
+    }
   }
 
-  .image {
-    width: 100%;
-    height: 520px;
-
-    img {
-      transition: ease 0.5s;
+  &.secondSectionView {
+    .images {
+      max-width: 789px;
+      width: 100%;
     }
 
-    &:hover img {
-      transform: scale3d(1.05, 1.05, 1);
+    .image {
+      width: 100%;
+      height: 517px;
+
+      img {
+        transition: ease 0.5s;
+      }
+
+      &:hover img {
+        transform: scale3d(1.05, 1.05, 1);
+      }
+
+      @include tablet {
+        height: 300px;
+      }
+
+      @include phone {
+        height: 225px;
+      }
     }
 
-    @include tablet {
-      height: 410px;
+    .contentContainer {
+      @include flex(row-reverse, space-between, end);
+
+      max-width: $wide-content-width;
+      grid-gap: 24px;
+
+      @include tablet {
+        @include flex(column-reverse);
+      }
     }
 
-    @include phone {
-      height: 310px;
-    }
-  }
+    .infoContainer {
+      max-width: 276px;
 
-  .contentContainer {
-    max-width: $wide-content-width;
+      p {
+        margin: 0;
+        text-align: left;
+      }
 
-    @include tablet {
-      @include flex(column-reverse, center, center);
-    }
-  }
+      ul {
+        @include flex(column);
 
-  .infoContainer {
-    .title {
-      color: $gray0;
-    }
+        grid-gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
 
-    h3 {
-      color: $gray0;
+        li {
+          position: relative;
+          padding-left: 16px;
+          margin: 0;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border: 2px solid $gray50;
+            box-sizing: border-box;
+          }
+        }
+      }
+
+      @include tablet {
+        max-width: 100%;
+      }
     }
   }
 }
