@@ -1,5 +1,86 @@
 .cedar-valley-farms {
+  .infoContainer {
+    .title {
+      color: $gray0;
+    }
+
+    p {
+      margin: 0;
+      text-align: left;
+    }
+
+    h3 {
+      color: $gray0;
+      text-align: left;
+    }
+
+    ul {
+      @include flex(column);
+
+      grid-gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        position: relative;
+        padding-left: 16px;
+        margin: 0;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 8px;
+          height: 8px;
+          border: 2px solid $gray50;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+
   &.firstSectionView {
+    @include flex(row, space-between, initial, wrap);
+
+    margin: 0 auto;
+    padding-top: 120px;
+    grid-gap: 32px;
+    min-height: 476px;
+    max-width: $wide-content-width;
+
+    .contentContainer {
+      margin: 0;
+      max-width: 378px;
+
+      .separatedTitle {
+        display: none;
+      }
+
+      @include tablet {
+        max-width: 100%;
+      }
+    }
+
+    .infoContainer {
+      height: 100%;
+      max-width: 100%;
+
+      &-2 {
+        @include flex(column, end);
+      }
+    }
+
+    @include tablet {
+      padding-top: 0;
+      min-height: unset;
+      grid-gap: 24px;
+    }
+  }
+
+  &.secondSectionView {
     .images {
       max-width: 584px;
       width: 100%;
@@ -34,18 +115,12 @@
       }
     }
 
-    .infoContainer {
-      .title {
-        color: $gray0;
-      }
-
-      h3 {
-        color: $gray0;
-      }
+    .infoContainer p:first-of-type {
+      margin-bottom: 24px;
     }
   }
 
-  &.secondSectionView {
+  &.thirdSectionView {
     .images {
       max-width: 789px;
       width: 100%;
@@ -85,38 +160,6 @@
 
     .infoContainer {
       max-width: 276px;
-
-      p {
-        margin: 0;
-        text-align: left;
-      }
-
-      ul {
-        @include flex(column);
-
-        grid-gap: 8px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        li {
-          position: relative;
-          padding-left: 16px;
-          margin: 0;
-
-          &::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            border: 2px solid $gray50;
-            box-sizing: border-box;
-          }
-        }
-      }
 
       @include tablet {
         max-width: 100%;

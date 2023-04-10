@@ -49,6 +49,18 @@
     text-align: right;
   }
 
+  &.firstSectionView {
+    .titleStyle::after {
+      left: 141px;
+    }
+  }
+
+  &.thirdSectionView {
+    .titleStyle::after {
+      left: 200px;
+    }
+  }
+
   @include below-tablet {
     padding: 30px 16px;
   }
