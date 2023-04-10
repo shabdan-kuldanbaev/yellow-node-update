@@ -141,6 +141,11 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.penetrationTesting(),
     };
 
+  case PAGES.pwaDevelopmentServices:
+    return {
+      breadcrumbs: pagesBreadcrumbs.pwaDevelopmentServices(),
+    };
+
   default:
     return {
       pageMicrodata: null,

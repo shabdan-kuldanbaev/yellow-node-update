@@ -1,0 +1,33 @@
+.pwa-development-services {
+  .pageWrapper {
+    & > div {
+      max-width: 507px;
+
+      &:last-child {
+        max-width: 431px;
+        margin-right: 80px;
+
+        @include below-tablet {
+          margin-right: 0;
+        }
+      }
+    }
+
+    @include below-tablet {
+      align-items: center;
+    }
+  }
+
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageImage {
+    padding-top: 551px;
+
+    @include below-tablet {
+      margin-bottom: 16px;
+      padding-top: 438px;
+    }
+  }
+}

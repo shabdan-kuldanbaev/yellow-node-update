@@ -97,6 +97,7 @@ export const NAV_LINKS = [
     routes.eWalletAppDevelopment.slug,
     routes.bankingSoftwareDevelopmentCompany.slug,
     routes.deliveryQualityInYellow.slug,
+    routes.pwaDevelopmentServices.slug,
     routes.lendingSoftwareDevelopment.slug,
     routes.paymentGatewayDevelopment.slug,
     routes.mlDevelopment.slug,
@@ -413,6 +414,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.mlDevelopment.path,
   ROUTES.prototypingServices.path,
   ROUTES.penetrationTesting.path,
+  ROUTES.pwaDevelopmentServices.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -432,6 +434,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.aiDevelopment.path,
   ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
+  ROUTES.pwaDevelopmentServices.path,
   CASE_STUDIES.openSense,
 ];
 
@@ -525,6 +528,11 @@ export const SUB_NAVIGATION_LINKS = {
         title: 'Penetration Testing as a Service',
         subtitle: 'Make your software as safe as possible',
         slug: ROUTES.penetrationTesting.path,
+      },
+      {
+        title: 'PWA development services company',
+        subtitle: 'Web working as mobile.',
+        slug: ROUTES.pwaDevelopmentServices.path,
       },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [

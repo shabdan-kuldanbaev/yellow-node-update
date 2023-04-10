@@ -17,6 +17,10 @@
       max-width: $wide-content-width;
     }
 
+    .navigation button {
+      padding: 0;
+    }
+
     .card {
       svg {
         width: 64px;
@@ -140,6 +144,7 @@
 
       @include phone {
         max-width: 350px;
+        margin-bottom: 16px;
         min-height: unset;
       }
     }
@@ -171,6 +176,12 @@
 
   &.fifthSectionView {
     padding-bottom: 60px;
+
+    :global(.swiper-slide) {
+      @include below-tablet {
+        height: 134px !important;
+      }
+    }
 
     .contentWrapper {
       max-width: $wide-content-width;
