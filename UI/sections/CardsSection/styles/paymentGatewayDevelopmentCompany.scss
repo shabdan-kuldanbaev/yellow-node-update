@@ -1,7 +1,7 @@
 .payment-gateway-development-company {
   &.firstSectionView {
     :global(.swiper) {
-      padding-bottom: 80px;
+      padding-bottom: 0;
     }
 
     [data-title],
@@ -20,6 +20,21 @@
     .navigation button {
       padding: 0;
     }
+
+    .card {
+      svg {
+        width: 64px;
+        margin: 0 0 16px;
+      }
+    }
+
+    .navigation button {
+      padding: 0;
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
   }
 
   &.secondSectionView {
@@ -33,6 +48,20 @@
       }
     }
 
+    .contentWrapper {
+      max-width: 994px;
+    }
+
+    .cardList {
+      max-width: 994px;
+      margin: 0;
+      grid-gap: 32px;
+
+      & > div {
+        margin: 0;
+      }
+    }
+
     .card {
       @extend .cardWithVerticalLine;
     }
@@ -43,6 +72,10 @@
       @include phone {
         max-width: 310px;
       }
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
     }
   }
 
@@ -92,6 +125,12 @@
         margin: 0;
       }
 
+      h3 {
+        @include below-tablet {
+          margin-bottom: 8px;
+        }
+      }
+
       picture {
         margin: 0 0 16px;
         width: 276px;
@@ -108,6 +147,18 @@
         margin-bottom: 16px;
         min-height: unset;
       }
+    }
+
+    .navigation {
+      margin-top: 24px;
+
+      @include below-tablet {
+        margin: 0;
+      }
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
     }
   }
 
@@ -139,9 +190,15 @@
     .card h3 {
       max-width: 470px;
     }
-  }
 
-  @include phone {
-    padding-bottom: 30px;
+    .navigation {
+      @include below-tablet {
+        margin-top: 24px;
+      }
+    }
+
+    @include phone {
+      padding-bottom: 30px;
+    }
   }
 }

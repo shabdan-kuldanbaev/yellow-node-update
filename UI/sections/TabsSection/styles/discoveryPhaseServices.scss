@@ -6,6 +6,31 @@
     max-width: 862px;
   }
 
+  .link {
+    @include flex(column, center, center);
+
+    background: none;
+    padding: 0;
+    min-height: auto;
+
+    button {
+      margin: 32px auto 0;
+    }
+
+    & > div {
+      border: none;
+      padding: 0;
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    @include below-tablet {
+      margin-top: 24px;
+    }
+  }
+
   @include phone {
     padding: 60px 15px;
   }
