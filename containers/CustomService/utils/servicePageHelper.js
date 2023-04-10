@@ -76,6 +76,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.lendingSoftwareDevelopment(),
     };
 
+  case PAGES.paymentGatewayDevelopment:
+    return {
+      pageMicrodata: microdata.paymentGatewayDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.paymentGatewayDevelopment(),
+    };
+
   case PAGES.mlDevelopment:
     return {
       pageMicrodata: microdata.mlDevelopment(),
@@ -139,6 +145,11 @@ export const getServicePageInfo = (pathname) => {
   case PAGES.penetrationTesting:
     return {
       breadcrumbs: pagesBreadcrumbs.penetrationTesting(),
+    };
+
+  case PAGES.pwaDevelopmentServices:
+    return {
+      breadcrumbs: pagesBreadcrumbs.pwaDevelopmentServices(),
     };
 
   default:

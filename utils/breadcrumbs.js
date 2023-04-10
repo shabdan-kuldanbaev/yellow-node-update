@@ -140,6 +140,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.lendingSoftwareDevelopment.path,
     },
   ]),
+  paymentGatewayDevelopment: () => ([
+    {
+      title: ROUTES.paymentGatewayDevelopment.title,
+      to: ROUTES.paymentGatewayDevelopment.path,
+    },
+  ]),
   cloudDevelopment: () => ([
     {
       title: ROUTES.cloudDevelopment.title,
@@ -204,6 +210,12 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.deliveryQualityInYellow.title,
       to: ROUTES.deliveryQualityInYellow.path,
+    },
+  ]),
+  pwaDevelopmentServices: () => ([
+    {
+      title: ROUTES.pwaDevelopmentServices.title,
+      to: ROUTES.pwaDevelopmentServices.path,
     },
   ]),
   technicalPage: (slug) => {

@@ -83,6 +83,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.androidDevelopmentServices}`, updatedAt },
   { path: `/${PAGES.mvpDevelopment}`, updatedAt },
   { path: `/${PAGES.lendingSoftwareDevelopment}`, updatedAt },
+  { path: `/${PAGES.paymentGatewayDevelopment}`, updatedAt },
   { path: `/${PAGES.fintechDevelopment}`, updatedAt },
   { path: `/${PAGES.devOpsDevelopment}`, updatedAt },
   { path: `/${PAGES.aiDevelopment}`, updatedAt },

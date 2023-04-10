@@ -99,7 +99,6 @@ const CallToAction = (props) => {
 
 CallToAction.defaultProps = {
   href: '',
-  handleOnClick: () => {},
   className: null,
   title: '',
   subtitle: '',
