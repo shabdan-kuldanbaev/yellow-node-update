@@ -1,4 +1,5 @@
 .cedar-valley-farms {
+  padding: 60px 0;
   background-color: $gray900;
 
   .container {
@@ -91,5 +92,9 @@
     @include tablet {
       grid-gap: 24px;
     }
+  }
+
+  @include below-tablet {
+    padding: 30px 16px;
   }
 }
