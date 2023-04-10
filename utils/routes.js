@@ -254,6 +254,14 @@ export const routes = {
     slug: 'lending-software-development',
     description: 'Revolutionize lending with our cutting-edge software development solutions for financial institutions.',
   },
+  paymentGatewayDevelopment: {
+    title: 'Payment Software Gateway Development Company',
+    path: '/payment-gateway-development-company',
+    dynamicPath: '/payment-gateway-development-company',
+    slug: 'payment-gateway-development-company',
+    description: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+      + 'transaction security and accuracy. Read more about our services now.',
+  },
   cloudDevelopment: {
     title: 'Cloud Application Development Services',
     path: '/cloud-based-app-development-services',

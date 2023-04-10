@@ -655,6 +655,18 @@ export const microdata = {
     },
     getServiceMicrodata(ROUTES.lendingSoftwareDevelopment),
   ]),
+  paymentGatewayDevelopment: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'Payment Software Gateway Development Company | Yellow',
+      description: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+        + 'transaction security and accuracy. Read more about our services now.',
+      breadcrumb: 'Payment Software Gateway Development Company | Yellow',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.lendingSoftwareDevelopment),
+  ]),
   cloudDevelopment: () => ([
     {
       '@context': context,

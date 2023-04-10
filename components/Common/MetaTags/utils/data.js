@@ -92,6 +92,13 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.lendingSoftwareDevelopment.path}`,
   },
   {
+    pageName: ROUTES.paymentGatewayDevelopment.slug,
+    metaTitle: 'Payment Software Gateway Development Company | Yellow',
+    metaDescription: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+      + 'transaction security and accuracy. Read more about our services now.',
+    url: `${rootUrl}${ROUTES.paymentGatewayDevelopment.path}`,
+  },
+  {
     pageName: ROUTES.prototypingServices.slug,
     metaTitle: 'Mobile App Prototyping Services | Yellow',
     metaDescription: 'Prototyping is an important stage in mobile app development. Complete it with Yellow!',
