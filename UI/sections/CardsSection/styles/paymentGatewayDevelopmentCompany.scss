@@ -1,0 +1,204 @@
+.payment-gateway-development-company {
+  &.firstSectionView {
+    :global(.swiper) {
+      padding-bottom: 0;
+    }
+
+    [data-title],
+    [data-description] {
+      max-width: 680px;
+
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .navigation button {
+      padding: 0;
+    }
+
+    .card {
+      svg {
+        width: 64px;
+        margin: 0 0 16px;
+      }
+    }
+
+    .navigation button {
+      padding: 0;
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    [data-title] {
+      max-width: 800px;
+
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: 994px;
+    }
+
+    .cardList {
+      max-width: 994px;
+      margin: 0;
+      grid-gap: 32px;
+
+      & > div {
+        margin: 0;
+      }
+    }
+
+    .card {
+      @extend .cardWithVerticalLine;
+    }
+
+    .callToAction div {
+      max-width: 535px;
+
+      @include phone {
+        max-width: 310px;
+      }
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    :global(.swiper-wrapper) {
+      min-height: 450px;
+
+      @include below-tablet {
+        min-height: 450px;
+      }
+    }
+
+    [data-title] {
+      max-width: 720px;
+
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    [data-description] {
+      max-width: 610px;
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+
+    .callToAction div {
+      max-width: 490px;
+
+      @include phone {
+        max-width: 310px;
+      }
+    }
+
+    .card {
+      @include flex(column, flex-start, stretch);
+
+      min-height: 450px;
+
+      * {
+        align-self: center;
+        text-align: center;
+        margin: 0;
+      }
+
+      h3 {
+        @include below-tablet {
+          margin-bottom: 8px;
+        }
+      }
+
+      picture {
+        margin: 0 0 16px;
+        width: 276px;
+        height: 276px;
+      }
+
+      @include below-tablet {
+        max-width: 450px;
+        min-height: 350px;
+      }
+
+      @include phone {
+        max-width: 350px;
+        margin-bottom: 16px;
+        min-height: unset;
+      }
+    }
+
+    .navigation {
+      margin-top: 24px;
+
+      @include below-tablet {
+        margin: 0;
+      }
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &.fifthSectionView {
+    padding-bottom: 60px;
+
+    :global(.swiper-slide) {
+      @include below-tablet {
+        height: 134px !important;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card h3 {
+      max-width: 470px;
+    }
+
+    .navigation {
+      @include below-tablet {
+        margin-top: 24px;
+      }
+    }
+
+    @include phone {
+      padding-bottom: 30px;
+    }
+  }
+}

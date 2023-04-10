@@ -221,6 +221,12 @@ export const routes = {
     dynamicPath: '/web-app-development-company',
     slug: 'web-app-development-company',
   },
+  crowdfundingPlatform: {
+    title: 'Crowdfunding Platform Development Company',
+    path: '/crowdfunding-platform-development-company',
+    dynamicPath: '/crowdfunding-platform-development-company',
+    slug: 'crowdfunding-platform-development-company',
+  },
   designServices: {
     title: 'UI/UX design services',
     path: '/ui-ux-services',
@@ -253,6 +259,14 @@ export const routes = {
     dynamicPath: '/lending-software-development',
     slug: 'lending-software-development',
     description: 'Revolutionize lending with our cutting-edge software development solutions for financial institutions.',
+  },
+  paymentGatewayDevelopment: {
+    title: 'Payment Software Gateway Development Company',
+    path: '/payment-gateway-development-company',
+    dynamicPath: '/payment-gateway-development-company',
+    slug: 'payment-gateway-development-company',
+    description: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+      + 'transaction security and accuracy. Read more about our services now.',
   },
   cloudDevelopment: {
     title: 'Cloud Application Development Services',
@@ -365,6 +379,12 @@ export const routes = {
     path: '/delivery-quality-in-yellow',
     dynamicPath: '/delivery-quality-in-yellow',
     slug: 'delivery-quality-in-yellow',
+  },
+  pwaDevelopmentServices: {
+    title: 'PWA Development Services',
+    path: '/pwa-development-services',
+    dynamicPath: '/pwa-development-services',
+    slug: 'pwa-development-services',
   },
   cookiesPolicy: {
     title: 'Cookies Policy',

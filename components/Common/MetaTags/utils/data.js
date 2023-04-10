@@ -67,6 +67,13 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.customWebApp.path}`,
   },
   {
+    pageName: ROUTES.crowdfundingPlatform.slug,
+    metaTitle: 'Crowdfunding Platform Development Company | Yellow',
+    metaDescription: `Yellow is ready to provide you with crowdfunding platform
+    development services. High quality, realistic budget estimate, fast speed.`,
+    url: `${rootUrl}${ROUTES.crowdfundingPlatform.path}`,
+  },
+  {
     pageName: ROUTES.designServices.slug,
     metaTitle: 'UI/UX design services | Yellow',
     metaDescription: `Visual content matters, that is where UI/UX design comes into play.
@@ -90,6 +97,13 @@ export const ogMetaData = [
     metaTitle: 'Lending Software Development Services | Yellow',
     metaDescription: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
     url: `${rootUrl}${ROUTES.lendingSoftwareDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.paymentGatewayDevelopment.slug,
+    metaTitle: 'Payment Software Gateway Development Company | Yellow',
+    metaDescription: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+      + 'transaction security and accuracy. Read more about our services now.',
+    url: `${rootUrl}${ROUTES.paymentGatewayDevelopment.path}`,
   },
   {
     pageName: ROUTES.prototypingServices.slug,
@@ -209,5 +223,11 @@ export const ogMetaData = [
     metaTitle: 'What Makes Yellow a Good Software Development Partner | Yellow',
     metaDescription: 'Delivery quality standards we follow to build a perfect project for YOU.',
     url: `${rootUrl}${ROUTES.deliveryQualityInYellow.path}`,
+  },
+  {
+    pageName: ROUTES.pwaDevelopmentServices.slug,
+    metaTitle: 'PWA Development Services | Yellow',
+    metaDescription: 'Yellow is combining web and mobile worlds and creates progressive web apps that function smoothly on all devices.',
+    url: `${rootUrl}${ROUTES.pwaDevelopmentServices.path}`,
   },
 ];

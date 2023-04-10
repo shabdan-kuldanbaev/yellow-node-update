@@ -87,6 +87,7 @@ export const NAV_LINKS = [
     routes.customChatApp.slug,
     routes.customMobileApp.slug,
     routes.customWebApp.slug,
+    routes.crowdfundingPlatform.slug,
     routes.fintechDevelopment.slug,
     routes.discoveryPhase.slug,
     routes.erpDevelopment.slug,
@@ -98,7 +99,9 @@ export const NAV_LINKS = [
     routes.eWalletAppDevelopment.slug,
     routes.bankingSoftwareDevelopmentCompany.slug,
     routes.deliveryQualityInYellow.slug,
+    routes.pwaDevelopmentServices.slug,
     routes.lendingSoftwareDevelopment.slug,
+    routes.paymentGatewayDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
     routes.aiDevelopment.slug,
@@ -415,6 +418,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.mlDevelopment.path,
   ROUTES.prototypingServices.path,
   ROUTES.penetrationTesting.path,
+  ROUTES.pwaDevelopmentServices.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -434,6 +438,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.aiDevelopment.path,
   ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
+  ROUTES.pwaDevelopmentServices.path,
   CASE_STUDIES.openSense,
 ];
 
@@ -442,6 +447,7 @@ export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.eWalletAppDevelopment.path,
   ROUTES.bankingSoftwareDevelopmentCompany.path,
   ROUTES.deliveryQualityInYellow.path,
+  ROUTES.paymentGatewayDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -479,6 +485,11 @@ export const SUB_NAVIGATION_LINKS = {
       },
       {
         title: 'Web app development',
+        subtitle: 'Your website will rock the stage',
+        slug: ROUTES.customWebApp.path,
+      },
+      {
+        title: 'Crowdfunding Platform Development Company',
         subtitle: 'Your website will rock the stage',
         slug: ROUTES.customWebApp.path,
       },
@@ -526,6 +537,11 @@ export const SUB_NAVIGATION_LINKS = {
         title: 'Penetration Testing as a Service',
         subtitle: 'Make your software as safe as possible',
         slug: ROUTES.penetrationTesting.path,
+      },
+      {
+        title: 'PWA development services company',
+        subtitle: 'Web working as mobile.',
+        slug: ROUTES.pwaDevelopmentServices.path,
       },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
@@ -604,6 +620,8 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.eWalletAppDevelopment,
   PAGES.bankingSoftwareDevelopmentCompany,
   PAGES.deliveryQualityInYellow,
+  PAGES.crowdfundingPlatform,
+  PAGES.paymentGatewayDevelopment,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;

@@ -1,0 +1,9 @@
+.crowdfunding-platform-development-company {
+  [data-description] {
+    max-width: 600px;
+
+    @include phone {
+      max-width: 345px;
+    }
+  }
+}

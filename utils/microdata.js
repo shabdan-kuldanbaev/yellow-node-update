@@ -569,6 +569,15 @@ export const microdata = {
     breadcrumb: 'Homepage > Web Application Development Services',
     image: logoUrl,
   }),
+  crowdfundingPlatform: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Crowdfunding Platform Development Company',
+    description: `Yellow is ready to provide you with crowdfunding platform development services. 
+                  High quality, realistic budget estimate, fast speed.`,
+    breadcrumb: 'Homepage > Crowdfunding Platform Development Company',
+    image: logoUrl,
+  }),
   fintechDevelopment: () => ({
     '@context': context,
     '@type': 'WebPage',
@@ -644,6 +653,16 @@ export const microdata = {
       image: logoUrl,
     },
     getServiceMicrodata(ROUTES.deliveryQualityInYellow)]),
+  pwaDevelopmentServices: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'PWA Development Services | Yellow',
+      description: 'Web working as mobile',
+      breadcrumb: 'Homepage > PWA Development Services',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.pwaDevelopmentServices)]),
   lendingSoftwareDevelopment: () => ([
     {
       '@context': context,
@@ -651,6 +670,18 @@ export const microdata = {
       name: 'Lending Software Development Services | Yellow',
       description: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
       breadcrumb: 'Lending Software Development Services | Yellow',
+      image: logoUrl,
+    },
+    getServiceMicrodata(ROUTES.lendingSoftwareDevelopment),
+  ]),
+  paymentGatewayDevelopment: () => ([
+    {
+      '@context': context,
+      '@type': 'WebPage',
+      name: 'Payment Software Gateway Development Company | Yellow',
+      description: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+        + 'transaction security and accuracy. Read more about our services now.',
+      breadcrumb: 'Payment Software Gateway Development Company | Yellow',
       image: logoUrl,
     },
     getServiceMicrodata(ROUTES.lendingSoftwareDevelopment),
