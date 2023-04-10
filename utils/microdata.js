@@ -569,6 +569,15 @@ export const microdata = {
     breadcrumb: 'Homepage > Web Application Development Services',
     image: logoUrl,
   }),
+  crowdfundingPlatform: () => ({
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Crowdfunding Platform Development Company',
+    description: `Yellow is ready to provide you with crowdfunding platform development services. 
+                  High quality, realistic budget estimate, fast speed.`,
+    breadcrumb: 'Homepage > Crowdfunding Platform Development Company',
+    image: logoUrl,
+  }),
   fintechDevelopment: () => ({
     '@context': context,
     '@type': 'WebPage',

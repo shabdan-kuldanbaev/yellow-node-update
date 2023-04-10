@@ -86,6 +86,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.customWebApp.path,
     },
   ]),
+  crowdfundingPlatform: () => ([
+    {
+      title: ROUTES.crowdfundingPlatform.title,
+      to: ROUTES.crowdfundingPlatform.path,
+    },
+  ]),
   fintechDevelopment: () => ([
     {
       title: ROUTES.fintechDevelopment.title,

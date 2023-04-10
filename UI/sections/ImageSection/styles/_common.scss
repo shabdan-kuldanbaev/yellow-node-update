@@ -14,9 +14,9 @@
   }
 
   @include below-tablet {
-    margin: 100px 0;
-
     @include flex(column, space-between, center);
+
+    margin: 100px 0;
   }
 
   @include phone {
@@ -61,5 +61,18 @@
 
   @include below-tablet {
     padding-left: 0;
+  }
+}
+
+.blackSection {
+  background: $gray900;
+
+  h2 {
+    color: $gray0;
+  }
+
+  p,
+  button {
+    color: $gray400;
   }
 }

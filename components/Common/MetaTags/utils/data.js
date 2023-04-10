@@ -67,6 +67,13 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.customWebApp.path}`,
   },
   {
+    pageName: ROUTES.crowdfundingPlatform.slug,
+    metaTitle: 'Crowdfunding Platform Development Company | Yellow',
+    metaDescription: `Yellow is ready to provide you with crowdfunding platform
+    development services. High quality, realistic budget estimate, fast speed.`,
+    url: `${rootUrl}${ROUTES.crowdfundingPlatform.path}`,
+  },
+  {
     pageName: ROUTES.designServices.slug,
     metaTitle: 'UI/UX design services | Yellow',
     metaDescription: `Visual content matters, that is where UI/UX design comes into play.
