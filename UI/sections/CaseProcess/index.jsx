@@ -49,6 +49,7 @@ const CaseProcess = (props) => {
                 && (
                   <Illustration
                     src={image}
+                    unoptimized
                     className={styles.stepImage}
                   />
                 )}
