@@ -11,13 +11,18 @@ export default ({ data, type }) => {
 
   const imageUrl = getFileUrl(get(images, '[0]', {}));
   const subContent = get(data, 'contentModules[0]', null);
-  const { contentList = [] } = getDocumentFields(subContent) || {};
+  const {
+    contentList = [],
+    imagesBundles = [],
+  } = getDocumentFields(subContent) || {};
   const className = cn(styles[type], styles.parallaxSection);
+  const bundleImages = imagesBundles?.map((img) => getFileUrl(img));
 
   return {
     imageUrl,
     contentList,
     className,
+    bundleImages,
     ...rest,
   };
 };
