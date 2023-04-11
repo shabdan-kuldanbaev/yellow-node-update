@@ -13,6 +13,11 @@
       h3 {
         @include fontSize(24px, 130%);
       }
+
+      @include tablet {
+        margin-top: 60px;
+        padding: 32px 16px;
+      }
     }
 
     .card {
