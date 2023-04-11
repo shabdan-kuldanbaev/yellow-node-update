@@ -16,6 +16,14 @@ const Project = ({
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ query: { project } }) => {
   try {
     await store.dispatch(pageApi.endpoints.fetchPage.initiate(project));
+    const state = store.getState();
+    const { data } = pageApi.endpoints.fetchPage.select(project)(state);
+
+    if (!data) {
+      return {
+        notFound: true,
+      };
+    }
 
     return {
       props: {
