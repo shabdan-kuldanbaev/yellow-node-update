@@ -28,6 +28,7 @@ const ProjectIdea = (props) => {
     delayedAnimation,
     featuresProps,
     teamListProps,
+    textContent,
   } = useProjectIdea(props);
 
   return (
