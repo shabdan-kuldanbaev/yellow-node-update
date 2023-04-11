@@ -4,6 +4,17 @@
       max-width: 620px;
     }
 
+    .callToAction {
+      margin-top: 48px;
+      padding: 80px 60px;
+      background-color: $gray50;
+      border: none;
+
+      h3 {
+        @include fontSize(24px, 130%);
+      }
+    }
+
     .card {
       @include flex(column, flex-start, flex-start);
 
