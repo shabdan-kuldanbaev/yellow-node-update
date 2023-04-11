@@ -1,5 +1,5 @@
 .cedar-valley-farms {
-  @include flex(column);
+  @include flex(column, initial, flex-end);
 
   position: absolute;
   right: 0;
@@ -30,6 +30,6 @@
 
   @include tablet {
     position: static;
-    margin-top: 24px;
+    align-items: flex-start;
   }
 }
