@@ -7,10 +7,10 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import Typography from 'UI/components/Typography';
 import CaseAdditionalContent from 'UI/components/ CaseAdditionalContent';
-import Illustration from 'UI/components/Illustration';
+import SectionTitle from 'UI/components/SectionTitle';
+import CaseImageContent from 'UI/components/CaseImageContent';
 import { useProjectIdea } from './utils/useProjectIdea';
 import styles from './styles.module.scss';
-import SectionTitle from '../../components/SectionTitle';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
@@ -46,17 +46,11 @@ const ProjectIdea = (props) => {
           features={featuresProps}
           type={type}
         />
-        {imageUrl && (
-          <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-            <div className={styles.imageContainer}>
-              <Illustration
-                className={styles.image}
-                src={imageUrl}
-                alt={title}
-              />
-            </div>
-          </Animated>
-        )}
+        <CaseImageContent
+          type={type}
+          image={imageUrl}
+          textContent={textContent}
+        />
         <div className={styles.descriptionContainer}>
           <div className={styles.descriptionIntro}>
             <Animated {...ANIMATION_CASE_STUDY_PROPS}>
