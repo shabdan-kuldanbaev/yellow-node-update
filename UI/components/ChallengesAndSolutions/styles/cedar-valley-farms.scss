@@ -46,7 +46,6 @@
     @include flex(row, space-between, initial, wrap);
 
     margin: 0 auto;
-    padding-top: 120px;
     grid-gap: 32px;
     min-height: 476px;
     max-width: $wide-content-width;
@@ -74,7 +73,6 @@
     }
 
     @include tablet {
-      padding-top: 0;
       min-height: unset;
       grid-gap: 24px;
     }

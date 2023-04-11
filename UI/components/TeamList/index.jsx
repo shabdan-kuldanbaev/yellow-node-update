@@ -25,12 +25,14 @@ const TeamList = (props) => {
         style={style}
         className={cn(styles[type], styles.container)}
       >
-        <Typography
-          variant="h2"
-          className={styles.title}
-        >
-          {title}
-        </Typography>
+        {title && (
+          <Typography
+            variant="h2"
+            className={styles.title}
+          >
+            {title}
+          </Typography>
+        )}
         {contentList?.map((member) => (
           <Typography
             key={member}
