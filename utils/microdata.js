@@ -522,7 +522,6 @@ export const microdata = {
       image: logoUrl,
       breadcrumb: 'Homepage > Pricing',
     },
-    professionalServiceMicrodata,
   ]),
   customChatApp: () => ({
     '@context': context,

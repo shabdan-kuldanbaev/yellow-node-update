@@ -110,7 +110,7 @@ const SoftwarePriceForm = (props) => {
 SoftwarePriceForm.propTypes = {
   title: PropTypes.string.isRequired,
   list: PropTypes.arrayOf(PropTypes.string).isRequired,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default SoftwarePriceForm;

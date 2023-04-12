@@ -2,14 +2,9 @@
   width: 33%;
   margin-top: 70px;
 
-  @include phone {
-    width: 100%;
-    margin-top: 24px;
-  }
-
   .figureItem {
-    display: flex;
-    align-items: center;
+    @include flex(row, initial, center);
+
     margin-bottom: 24px;
   }
 
@@ -23,5 +18,10 @@
     padding: 22px;
     border-radius: 50%;
     background-color: $yellow500;
+  }
+
+  @include phone {
+    width: 100%;
+    margin-top: 24px;
   }
 }
