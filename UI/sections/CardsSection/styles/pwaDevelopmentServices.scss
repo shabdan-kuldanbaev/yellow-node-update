@@ -1,0 +1,320 @@
+.pwa-development-services {
+  &.firstSectionView {
+    background-color: $gray50;
+
+    .title {
+      max-width: 790px;
+    }
+
+    .cardList {
+      max-width: 994px;
+      margin: 0 auto;
+      grid-gap: 0 32px;
+
+      & > div {
+        margin: 0;
+      }
+
+      @include below-tablet {
+        grid-gap: 32px 0;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .title {
+      max-width: 776px;
+    }
+
+    .cardList {
+      max-width: 994px;
+      margin: 0 auto;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-gap: 32px;
+
+      & > div {
+        margin: 0;
+        flex-direction: column;
+      }
+    }
+
+    .card {
+      flex-direction: column;
+
+      h3 {
+        @include below-tablet {
+          margin: 0 auto 8px;
+          text-align: center;
+        }
+      }
+
+      svg {
+        @include below-tablet {
+          margin-right: 0;
+        }
+      }
+
+      @include below-tablet {
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    .callToAction {
+      min-height: 215px;
+      margin-top: 48px;
+      padding: 24px 60px;
+      background-color: $gray50;
+      border: none;
+      border-radius: 5px;
+
+      & > div {
+        max-width: 535px;
+      }
+
+      h3 {
+        @include fontSize(24px, 130%);
+      }
+
+      @include below-tablet {
+        padding: 32px 16px;
+        margin-top: 60px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $gray900;
+
+    :global(.swiper-slide) {
+      max-height: 24px;
+    }
+
+    .title {
+      max-width: 671px;
+
+      h2 {
+        color: $gray0;
+      }
+    }
+
+    .contentWrapper {
+      max-width: 1200px;
+    }
+
+    .cardList {
+      @include flex(row, space-evenly, flex-start, wrap);
+
+      margin: 0 auto;
+
+      & > div {
+        margin: 0;
+      }
+    }
+
+    .card {
+      max-width: 379px;
+      margin-bottom: 32px;
+      flex-direction: column;
+
+      svg {
+        margin: 0 0 16px;
+        width: 64px;
+      }
+
+      h3 {
+        color: $gray0;
+
+        @include below-tablet {
+          margin: 0 auto 16px;
+          text-align: center;
+        }
+      }
+
+      @include below-tablet {
+        text-align: center;
+        align-items: center;
+      }
+    }
+
+    .navigation {
+      & button {
+        color: $gray0;
+
+        &[disabled] {
+          &:hover {
+            cursor: default;
+
+            * {
+              fill: $gray0;
+              color: $gray0;
+            }
+          }
+        }
+      }
+
+      & svg {
+        fill: $gray0 !important;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    background-color: $gray50;
+
+    .title {
+      max-width: 786px;
+    }
+
+    .cardList {
+      max-width: 994px;
+      margin: 0;
+      grid-gap: 32px;
+
+      & > div {
+        margin: 0;
+      }
+
+      @include below-tablet {
+        grid-gap: 16px 0;
+      }
+    }
+
+    .card {
+      flex-direction: row;
+      padding: 24px 32px;
+      align-items: center;
+
+      svg {
+        height: 40px;
+        margin: 0 16px 0 0;
+        flex: 0 0 40px;
+
+        @include below-tablet {
+          flex: 0 0 32px;
+        }
+      }
+
+      h3 {
+        margin: 0;
+
+        @include below-tablet {
+          @include fontSize(16px, 24px);
+        }
+      }
+
+      @include below-tablet {
+        padding: 20px 24px;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    background-color: $gray50;
+
+    .title {
+      max-width: 692px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      max-width: $wide-content-width;
+      margin: 0;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 32px;
+
+      & > div {
+        margin: 0;
+      }
+
+      @include below-tablet {
+        grid-template-columns: 1fr;
+        grid-gap: 16px 0;
+      }
+    }
+
+    .card {
+      flex-direction: column;
+      max-height: 360px;
+
+      & > div {
+        margin: 24px auto 0;
+      }
+
+      h3 {
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      picture {
+        width: 100%;
+        min-height: 276px;
+      }
+    }
+  }
+
+  &.sixthSectionView {
+    padding-bottom: 60px;
+
+    .title {
+      max-width: 692px;
+
+      h2 {
+        @include below-tablet {
+          padding: 0 20px;
+        }
+      }
+    }
+
+    .cardList {
+      max-width: 994px;
+      margin: 0 auto;
+      grid-gap: 40px 32px;
+
+      & > div {
+        margin: 0;
+      }
+
+      @include below-tablet {
+        grid-gap: 32px 0;
+      }
+    }
+
+    .callToAction {
+      min-height: 215px;
+      margin-top: 48px;
+      padding: 24px 60px;
+      background-color: $gray50;
+      border: none;
+      border-radius: 5px;
+
+      & > div {
+        max-width: 535px;
+      }
+
+      h3 {
+        @include fontSize(24px, 130%);
+      }
+
+      @include below-tablet {
+        padding: 32px 16px;
+        margin-top: 60px;
+      }
+    }
+
+    .navigation {
+      @include below-tablet {
+        max-width: 1200px;
+        margin-top: 48px;
+      }
+    }
+
+    @include below-tablet {
+      padding-bottom: 30px;
+    }
+  }
+}

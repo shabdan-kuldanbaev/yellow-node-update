@@ -1,32 +1,39 @@
 import omitBy from 'lodash/omitBy';
 import isNil from 'lodash/isNil';
-import { END } from 'redux-saga';
-import {
-  selectComponents,
-  selectCTA,
-  selectHomepageProjectsPreview,
-  selectMetaData,
-  selectPortfolioProjectsPreview,
-  selectSubtitle,
-} from 'redux/selectors/layout';
 import { wrapper } from 'redux/store';
-import { fetchLayoutData } from 'redux/actions/layout';
-import errorHelper from './error';
-import { getDocumentFields, rootUrl } from './helper';
+import blogApi from 'redux/apis/blog';
+import pageApi from 'redux/apis/page';
+import worksApi from 'redux/apis/works';
+import {
+  BLOCKS_SLUGS,
+  HOMEPAGE_ARTICLES_LIMIT,
+  PAGES,
+} from 'utils/constants';
+import { processes } from 'utils/processes';
+import { handleError } from './error';
+import { findBlock, getDocumentFields, rootUrl } from './helper';
 
-export const getServicePageProps = (state) => ({
-  pageData: selectComponents(state),
-});
+export const getPortfolioPageProps = async (state, store) => {
+  await store.dispatch(worksApi.endpoints.loadTagsAndTypes.initiate());
 
-export const getPortfolioPageProps = (state) => {
-  const portfolioProjects = selectPortfolioProjectsPreview(state);
+  const { data } = pageApi.endpoints.fetchPage.select(PAGES.portfolio)(state);
+
+  const portfolioProjects = findBlock(data.contentModules, BLOCKS_SLUGS.worksPagePreviewProjects);
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
-  const works = contentModules?.map((module) => {
+  const works = contentModules.map((module) => {
     const {
       types,
       tags,
       ...rest
-    } = getDocumentFields(module, ['title', 'description', 'types', 'tags', 'previewImage', 'backgroundImage', 'slug']);
+    } = getDocumentFields(module, [
+      'title',
+      'description',
+      'types',
+      'tags',
+      'previewImage',
+      'backgroundImage',
+      'slug',
+    ]);
 
     return {
       types: types?.map((type) => getDocumentFields(type, ['slug', 'displayName'])) ?? [],
@@ -35,59 +42,63 @@ export const getPortfolioPageProps = (state) => {
     };
   });
 
-  const metaData = selectMetaData(state);
   const pageMetadata = {
     url: `${rootUrl}/works`,
-    ...metaData,
+    ...data.metaData,
   };
 
-  const linkCTA = selectCTA(state);
+  const linkCTA = data.contentModules.find((module) => module.sys.contentType.sys.id === 'link');
 
   return {
-    subtitle: selectSubtitle(state),
     link: getDocumentFields(linkCTA),
     pageMetadata,
     works,
   };
 };
 
-export const getHomePageDataPros = (state) => {
-  const metaData = selectMetaData(state);
+export const getHomePageDataPros = async (state, store) => {
+  const blogQuery = { limit: HOMEPAGE_ARTICLES_LIMIT };
+  await store.dispatch(blogApi.endpoints.getArticlesList.initiate(blogQuery));
+
+  const { data } = pageApi.endpoints.fetchPage.select(PAGES.homepage)(state);
+
   const pageMetadata = {
-    ...metaData,
+    ...data.metaData,
     url: `${rootUrl}`,
   };
 
-  const components = selectComponents(state);
+  const components = data.contentModules;
 
-  const projects = selectHomepageProjectsPreview(state);
+  const projects = findBlock(components, BLOCKS_SLUGS.homepagePreviewProjects);
 
   return {
     pageData: components,
     pageMetadata,
     projects,
+    blogQuery,
   };
 };
 
+export const getProcessProps = async (state, store) => ({ json: processes });
+
 export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps((store) => async () => {
   try {
-    store.dispatch(fetchLayoutData({ slug }));
-    store.dispatch(END);
-    await store.sagaTask.toPromise();
+    await store.dispatch(pageApi.endpoints.fetchPage.initiate(slug));
 
     const state = store.getState();
-    const pageData = selectors ? omitBy(selectors(state), isNil) : {};
+    const pageData = selectors ? omitBy(await selectors(state, store), isNil) : {};
+    const { data } = pageApi.endpoints.fetchPage.select(slug)(state);
 
     return {
       props: {
-        metaData: selectMetaData(state),
+        metaData: data.metaData,
         type: slug,
         ...pageData,
       },
       revalidate: 10,
     };
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: `Error in the ${slug}.getStaticProps function`,
     });

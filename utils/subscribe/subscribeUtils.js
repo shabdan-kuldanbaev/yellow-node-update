@@ -1,30 +1,30 @@
-const dotenv = require('dotenv');
-const Mailchimp = require('mailchimp-api-v3');
-const md5 = require('md5');
-const errorHelper = require('../error');
+import dotenv from 'dotenv';
+import Mailchimp from 'mailchimp-api-v3';
+import md5 from 'md5';
+import { handleError } from '../error';
 
 dotenv.config('./env');
 
 const mailchimp = new Mailchimp(process.env.MAILCHIMP_API_KEY);
 const membersPath = (email) => `/lists/${process.env.MAILCHIMP_LIST_ID}/members/${md5(email)}`;
 
-module.exports.getSubscriber = async (email, callback) => {
+export function getSubscriber(email, callback) {
   try {
     const getSubscriberOptions = {
       method: 'get',
       path: membersPath(email),
     };
 
-    await mailchimp.request(getSubscriberOptions, callback);
+    mailchimp.request(getSubscriberOptions, callback);
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the getSubscriber function',
     });
   }
-};
+}
 
-module.exports.addSubscriber = async (email, res) => {
+export function addSubscriber(email, res) {
   try {
     const addSubscriberOptions = {
       method: 'put',
@@ -35,7 +35,7 @@ module.exports.addSubscriber = async (email, res) => {
       },
     };
 
-    await mailchimp.request(addSubscriberOptions, (error) => {
+    mailchimp.request(addSubscriberOptions, (error) => {
       if (error) {
         res.status(502).send('Sorry, there was an error sending you email. Please double check your email adress');
       } else {
@@ -43,9 +43,9 @@ module.exports.addSubscriber = async (email, res) => {
       }
     });
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the addSubscriber function',
     });
   }
-};
+}

@@ -1,0 +1,108 @@
+.e-wallet-app-development {
+  .imageSection {
+    flex-direction: row-reverse;
+
+    & > div {
+      &:first-child {
+        max-width: 481px;
+
+        @include below-tablet {
+          max-width: unset;
+        }
+      }
+    }
+
+    .image {
+      max-width: 481px;
+      height: 449px;
+      padding-top: 0;
+      background-size: contain;
+
+      @include below-tablet {
+        height: 320px;
+        margin: 0 auto;
+        background-size: contain;
+      }
+    }
+
+    @include below-tablet {
+      @include flex(column-reverse);
+
+      margin: 0;
+    }
+  }
+
+  .experienceContent {
+    margin: 0 32px 0 0;
+    max-width: 687px;
+
+    .titleStyle {
+      text-align: left;
+      margin-bottom: 8px;
+
+      h2 {
+        text-align: left;
+
+        @include below-tablet {
+          text-align: center;
+        }
+      }
+
+      [data-description] {
+        text-align: left;
+        max-width: 500px;
+        margin: 0;
+      }
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    & > div {
+      & > p {
+        @include fontSize(16px, 150%);
+
+        color: $gray400;
+        margin-top: 0;
+
+        @include below-tablet {
+          text-align: center;
+        }
+      }
+
+      & ul {
+        @include listWithYellowMarkers;
+        @include flex(column, flex-start, flex-start, wrap, space-between);
+
+        margin: 32px 0 0 5px;
+        height: 155px !important;
+        max-width: 335px;
+
+        & > li {
+          margin: 0 0 12px 8px;
+
+          @include below-tablet {
+            margin-right: 0;
+          }
+        }
+
+        @include below-tablet {
+          @include flex(column, flex-start, flex-start, wrap, space-between);
+
+          margin: 0;
+          max-width: unset;
+        }
+
+        @include phone {
+          max-width: 305px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .callToAction {
+    margin-top: 120px;
+  }
+}

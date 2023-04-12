@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Zoom from 'react-medium-image-zoom';
-import { selectIsMobileResolutions, selectIsTabletResolutions } from 'redux/selectors/layout';
+import { selectIsMobile, selectIsTablet } from 'redux/selectors/layout';
 import 'react-medium-image-zoom/dist/styles.css';
 
 const ImageZoom = ({
@@ -11,8 +10,8 @@ const ImageZoom = ({
   transitionDuration,
   zoomMargin,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
-  const isTabletResolutions = useSelector(selectIsTabletResolutions);
+  const isMobileResolution = useSelector(selectIsMobile);
+  const isTabletResolutions = useSelector(selectIsTablet);
 
   return (
     <Zoom

@@ -1,10 +1,11 @@
-import React from 'react';
-import Svg from 'UI/components/Svg';
+import dynamic from 'next/dynamic';
 import TextField from 'UI/components/TextField';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { AttachedFile } from './AttachedFile';
 import useUpload from './utils/useUpload';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const Upload = (props) => {
   const {

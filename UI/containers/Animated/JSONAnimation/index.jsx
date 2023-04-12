@@ -1,12 +1,12 @@
 /* eslint-disable react/button-has-type */
-import React, {
+import {
   useState,
   useEffect,
   useRef,
 } from 'react';
-import Lottie from 'react-lottie';
 import PropTypes from 'prop-types';
 import { useIntersection } from 'react-use';
+import Lottie from 'react-lottie-light';
 
 export const JSONAnimation = ({ jsonFile, className }) => {
   const [state, setState] = useState({ isStopped: false, isPaused: false });

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { themes } from 'utils/helper';

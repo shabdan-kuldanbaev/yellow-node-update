@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { CASE_STUDIES_SLUGS, REFACTORED_CASE_STUDIES_PAGES } from 'utils/constants';

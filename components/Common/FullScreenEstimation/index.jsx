@@ -1,12 +1,14 @@
-import React, { createContext } from 'react';
+import { createContext } from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import ModalWindow from 'components/Common/ModalWindow';
-import FeedbackForm from 'UI/components/Forms/FeedbackForm';
 import Typography from 'UI/components/Typography';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import { CONTACTS_DATA } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const FeedbackForm = dynamic(() => import('UI/components/Forms/FeedbackForm'), { ssr: false });
 
 const FullScreenEstimation = ({
   isFullscreenEstimation,

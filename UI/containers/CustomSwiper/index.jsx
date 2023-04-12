@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper } from 'swiper/react';
 import { SwiperNavigation } from 'UI/components/SwiperNavigation';
@@ -42,8 +41,8 @@ SwiperNavigation.defaultProps = {
 SwiperNavigation.propTypes = {
   isShowNavigation: PropTypes.bool,
   navigationClassName: PropTypes.string,
-  swiperParams: PropTypes.instanceOf(Object).isRequired,
-  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+  swiperParams: PropTypes.instanceOf(Object),
+  children: PropTypes.arrayOf(PropTypes.node),
 };
 
 export default CustomSwiper;

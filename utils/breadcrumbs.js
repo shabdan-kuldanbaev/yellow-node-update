@@ -92,6 +92,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.customWebApp.path,
     },
   ]),
+  crowdfundingPlatform: () => ([
+    {
+      title: ROUTES.crowdfundingPlatform.title,
+      to: ROUTES.crowdfundingPlatform.path,
+    },
+  ]),
   fintechDevelopment: () => ([
     {
       title: ROUTES.fintechDevelopment.title,
@@ -140,6 +146,12 @@ export const pagesBreadcrumbs = {
       to: ROUTES.lendingSoftwareDevelopment.path,
     },
   ]),
+  paymentGatewayDevelopment: () => ([
+    {
+      title: ROUTES.paymentGatewayDevelopment.title,
+      to: ROUTES.paymentGatewayDevelopment.path,
+    },
+  ]),
   cloudDevelopment: () => ([
     {
       title: ROUTES.cloudDevelopment.title,
@@ -186,6 +198,30 @@ export const pagesBreadcrumbs = {
     {
       title: ROUTES.tradingSoftwareDevelopment.title,
       to: ROUTES.tradingSoftwareDevelopment.path,
+    },
+  ]),
+  eWalletAppDevelopment: () => ([
+    {
+      title: ROUTES.eWalletAppDevelopment.title,
+      to: ROUTES.eWalletAppDevelopment.path,
+    },
+  ]),
+  bankingSoftwareDevelopmentCompany: () => ([
+    {
+      title: ROUTES.bankingSoftwareDevelopmentCompany.title,
+      to: ROUTES.bankingSoftwareDevelopmentCompany.path,
+    },
+  ]),
+  deliveryQualityInYellow: () => ([
+    {
+      title: ROUTES.deliveryQualityInYellow.title,
+      to: ROUTES.deliveryQualityInYellow.path,
+    },
+  ]),
+  pwaDevelopmentServices: () => ([
+    {
+      title: ROUTES.pwaDevelopmentServices.title,
+      to: ROUTES.pwaDevelopmentServices.path,
     },
   ]),
   technicalPage: (slug) => {

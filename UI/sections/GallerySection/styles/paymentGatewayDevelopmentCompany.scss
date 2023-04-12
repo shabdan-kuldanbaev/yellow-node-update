@@ -1,0 +1,13 @@
+.payment-gateway-development-company {
+  padding-top: 60px;
+
+  .navigation {
+    @include below-tablet {
+      max-width: unset;
+    }
+  }
+
+  @include phone {
+    padding-top: 30px;
+  }
+}

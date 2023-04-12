@@ -1,17 +1,17 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'UI/components/Svg';
 import {
   ROUTES,
   ARTICLE_PREVIEW_TYPES,
   SVG_IMAGES_TYPES,
-  ANIMATED_TYPE,
   REVEAL_ANIMATION_PROPS,
 } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const RelatedSection = ({ articles }) => (
   <div className={styles.related}>

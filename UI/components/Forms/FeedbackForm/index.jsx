@@ -1,18 +1,16 @@
-import React from 'react';
 import cn from 'classnames';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import TextField from 'UI/components/TextField';
-import Animated from 'UI/containers/Animated';
 import Button from 'UI/components/Button';
-import { sendEmail } from 'redux/actions/contact';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { selectError, selectIsFormDataSent, selectIsFormPending } from 'redux/selectors/contact';
 import Upload from './Upload';
 import FormAlert from './FormAlert';
-import BudgetSlider from './BudgetSlider';
 import useFormProps from './utils/useFormProps';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const BudgetSlider = dynamic(() => import('./BudgetSlider'), { ssr: false });
 
 const FeedbackForm = (props) => {
   const {
@@ -93,17 +91,8 @@ FeedbackForm.defaultProps = {
 };
 
 FeedbackForm.propTypes = {
-  email: PropTypes.instanceOf(Object).isRequired,
   isBudgetSlider: PropTypes.bool,
-  sendEmail: PropTypes.func.isRequired,
   type: PropTypes.string,
 };
 
-export default connect(
-  (state) => ({
-    contactFormError: selectError(state),
-    isDataSubmitted: selectIsFormDataSent(state),
-    isFormPending: selectIsFormPending(state),
-  }),
-  { sendEmail },
-)(FeedbackForm);
+export default FeedbackForm;

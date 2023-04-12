@@ -1,9 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Animated from 'components/Common/Animated';
+import { SwiperSlide } from 'swiper/react';
 import SelectorElement from 'components/PortfolioCommon/SelectorElement';
-import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { SELECTOR_ELEMENT_TYPES } from 'components/PortfolioCommon/SelectorElement/utils';
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import { SWIPER_PARAMS } from './utils';

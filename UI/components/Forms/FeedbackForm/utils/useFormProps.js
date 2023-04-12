@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { addThousandsSeparators } from 'utils/helper';
 import visitData from 'utils/gaMetrics/getGaMetrics';
+import { CONTACT_CASH_KEY, useSendContactFormMutation } from 'redux/apis/dataSending';
 import { budget as budgetData, marks } from './data';
 
 export default ({
   className,
   isBudgetSlider,
   type,
-  sendEmail,
-  contactFormError,
-  isDataSubmitted,
-  isFormPending,
   extraDescription,
 }) => {
+  const [sendForm, { isSuccess, isLoading, isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+
   const {
     register,
     handleSubmit,
@@ -38,7 +37,7 @@ export default ({
     const sourceMetrics = visitData();
 
     const attachments = selectedFiles.map((file) => file.signedUrl);
-    sendEmail({
+    await sendForm({
       ...values,
       source: sourceMetrics?.source,
       medium: sourceMetrics?.medium,
@@ -46,10 +45,8 @@ export default ({
       projectBudget: budget || '',
       description: extraDescription ? `${values.description} ${extraDescription}` : values.description,
     });
-  });
 
-  useEffect(() => {
-    if (isDataSubmitted) {
+    if (isSuccess) {
       setFiles([]);
       setBudget(addThousandsSeparators(budgetData.min));
       reset({
@@ -58,7 +55,7 @@ export default ({
         description: '',
       });
     }
-  }, [isDataSubmitted, reset]);
+  });
 
   return {
     type,
@@ -71,9 +68,9 @@ export default ({
     setFiles,
     isBudgetSlider,
     isValid,
-    contactFormError,
-    isDataSubmitted,
-    isFormPending,
+    contactFormError: isError,
+    isDataSubmitted: isSuccess,
+    isFormPending: isLoading,
     className,
   };
 };

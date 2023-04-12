@@ -1,0 +1,26 @@
+.software-for-mri-interpretation {
+  &.firstSectionView {
+    padding: 120px 0;
+
+    .titleStyle {
+      padding: 0 16px;
+    }
+
+    @include tablet {
+      padding: 60px 0;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 120px 16px;
+    background: $balzanoGradient;
+
+    .titleStyle {
+      color: $gray0;
+    }
+
+    @include phone {
+      padding: 60px 0;
+    }
+  }
+}

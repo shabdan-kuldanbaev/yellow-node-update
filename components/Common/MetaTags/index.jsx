@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-max-props-per-line */
-import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { getPathWithCdn } from 'utils/helper';
@@ -59,6 +58,7 @@ const MetaTags = ({
   const robots = !IS_PROD ? 'none' : metaRobots;
 
   return (
+    // eslint-disable-next-line @next/next/no-script-component-in-head
     <Head>
       <title>{getTitle(title)}</title>
       <meta name="description" content={getDescription(description)} />
@@ -87,7 +87,9 @@ const MetaTags = ({
       <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
       <link rel="manifest" href="/manifest.json" />
       {children}
+      {/* Somehow microdata doesnt work with next/script so use this instead */}
       <script
+        id="application/ld+json/microdata"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata, null, 2) }}
       />
@@ -111,6 +113,7 @@ MetaTags.propTypes = {
   pageMetadata: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    metaRobots: PropTypes.string,
     image: PropTypes.string,
     ogImage: PropTypes.string,
     publishedAt: PropTypes.string,

@@ -32,19 +32,15 @@
 .callToAction {
   @include flex(column, center, center);
 
-  background: none;
   padding: 0;
-  min-height: 0;
+  min-height: unset;
+  background: none;
 
   h3 {
     display: none;
   }
 
-  a {
-    margin-left: 0 !important;
-
-    @include below-tablet {
-      margin: 0 auto !important;
-    }
+  button {
+    margin: 0 auto !important;
   }
 }

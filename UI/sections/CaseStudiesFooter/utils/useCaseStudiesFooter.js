@@ -5,6 +5,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
+import { useFetchPageQuery } from 'redux/apis/page';
 import {
   CASES_BLACK_ICONS,
   socialNetworksWhite,
@@ -14,12 +15,9 @@ import {
 export const useCaseStudiesFooter = ({
   type,
   pathname,
-  currentProject,
 }) => {
-  const { contentModules } = getDocumentFields(
-    get(currentProject, 'items[0]', {}),
-    ['contentModules'],
-  );
+  const { data: { contentModules } = {} } = useFetchPageQuery(type);
+
   const lastContentModule = last(contentModules);
   const {
     background,

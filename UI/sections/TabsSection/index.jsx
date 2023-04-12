@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
@@ -9,9 +8,9 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
-const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const TabsSection = (props) => {
   const {

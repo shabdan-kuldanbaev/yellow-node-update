@@ -74,6 +74,13 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.customWebApp.path}`,
   },
   {
+    pageName: ROUTES.crowdfundingPlatform.slug,
+    metaTitle: 'Crowdfunding Platform Development Company | Yellow',
+    metaDescription: `Yellow is ready to provide you with crowdfunding platform
+    development services. High quality, realistic budget estimate, fast speed.`,
+    url: `${rootUrl}${ROUTES.crowdfundingPlatform.path}`,
+  },
+  {
     pageName: ROUTES.designServices.slug,
     metaTitle: 'UI/UX design services | Yellow',
     metaDescription: `Visual content matters, that is where UI/UX design comes into play.
@@ -97,6 +104,13 @@ export const ogMetaData = [
     metaTitle: 'Lending Software Development Services | Yellow',
     metaDescription: 'Loan lending app development services for your business. We are ready to help you realize your idea.',
     url: `${rootUrl}${ROUTES.lendingSoftwareDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.paymentGatewayDevelopment.slug,
+    metaTitle: 'Payment Software Gateway Development Company | Yellow',
+    metaDescription: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+      + 'transaction security and accuracy. Read more about our services now.',
+    url: `${rootUrl}${ROUTES.paymentGatewayDevelopment.path}`,
   },
   {
     pageName: ROUTES.prototypingServices.slug,
@@ -138,7 +152,8 @@ export const ogMetaData = [
   {
     pageName: ROUTES.discoveryPhase.slug,
     metaTitle: 'Project Discovery Phase in Custom Software Development | Yellow',
-    metaDescription: 'Discovery phase of a project is an important part of software development. Learn more about how to run a discovery phase and its benefits to your business.',
+    metaDescription: 'Discovery phase of a project is an important part of software development. Learn more about '
+    + 'how to run a discovery phase and its benefits to your business.',
     url: `${rootUrl}${ROUTES.discoveryPhase.path}`,
   },
   {
@@ -150,19 +165,22 @@ export const ogMetaData = [
   {
     pageName: ROUTES.devOpsDevelopment.slug,
     metaTitle: 'DevOps Development Company | Yellow',
-    metaDescription: 'If your company wants to integrate DevOps service into its processes and get all the benefits this technology offers, Yellow is ready to lend a hand!',
+    metaDescription: 'If your company wants to integrate DevOps service into its processes and get all the '
+    + 'benefits this technology offers, Yellow is ready to lend a hand!',
     url: `${rootUrl}${ROUTES.devOpsDevelopment.path}`,
   },
   {
     pageName: ROUTES.aiDevelopment.slug,
     metaTitle: 'AI Software Development Services: Best Choice for Your Business | Yellow',
-    metaDescription: 'Yellow is an AI software development company that can provide you with top-notch artificial intelligence application development.',
+    metaDescription: 'Yellow is an AI software development company that can provide you with top-notch artificial '
+    + 'intelligence application development.',
     url: `${rootUrl}${ROUTES.aiDevelopment.path}`,
   },
   {
     pageName: ROUTES.dataScienceDevelopment.slug,
     metaTitle: 'Data Science Development Services | Yellow',
-    metaDescription: 'If you are looking for a partner that will help you analyze, process, and structure your data, data science specialists at Yellow are here for you.',
+    metaDescription: 'If you are looking for a partner that will help you analyze, process, and structure your '
+    + 'data, data science specialists at Yellow are here for you.',
     url: `${rootUrl}${ROUTES.dataScienceDevelopment.path}`,
   },
   {
@@ -194,5 +212,29 @@ export const ogMetaData = [
     metaTitle: 'Penetration Testing as a Service | Yellow',
     metaDescription: 'Use penetration testing to make sure your software solution is safe for your users. Yellow will provide you with penetration testing services.',
     url: `${rootUrl}${ROUTES.penetrationTesting.path}`,
+  },
+  {
+    pageName: ROUTES.eWalletAppDevelopment.slug,
+    metaTitle: 'E-Wallet App Development Company | Yellow',
+    metaDescription: 'Mobile e-wallet app development services for any industry and any business scale.',
+    url: `${rootUrl}${ROUTES.eWalletAppDevelopment.path}`,
+  },
+  {
+    pageName: ROUTES.bankingSoftwareDevelopmentCompany.slug,
+    metaTitle: 'Banking Software Development Company | Yellow',
+    metaDescription: 'We provide companies and organizations big and small with outstanding banking software development. Check out what we can do for you.',
+    url: `${rootUrl}${ROUTES.bankingSoftwareDevelopmentCompany.path}`,
+  },
+  {
+    pageName: ROUTES.deliveryQualityInYellow.slug,
+    metaTitle: 'What Makes Yellow a Good Software Development Partner | Yellow',
+    metaDescription: 'Delivery quality standards we follow to build a perfect project for YOU.',
+    url: `${rootUrl}${ROUTES.deliveryQualityInYellow.path}`,
+  },
+  {
+    pageName: ROUTES.pwaDevelopmentServices.slug,
+    metaTitle: 'PWA Development Services | Yellow',
+    metaDescription: 'Yellow is combining web and mobile worlds and creates progressive web apps that function smoothly on all devices.',
+    url: `${rootUrl}${ROUTES.pwaDevelopmentServices.path}`,
   },
 ];

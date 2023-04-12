@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Illustration from 'UI/components/Illustration';
-import Svg from 'UI/components/Svg';
 import Typography from 'UI/components/Typography';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import CardContainer from 'UI/containers/CardContainer';
 import useCard from './utils/useCard';
 import styles from './Card.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'), { ssr: false });
 
 const Card = (props) => {
   const {

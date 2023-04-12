@@ -10,6 +10,11 @@ export const mainContent = [
         type: 'navigation',
       },
       {
+        subtitle: 'Crowdfunding Platform Development Company',
+        path: ROUTES.crowdfundingPlatform.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Mobile development',
         path: ROUTES.customMobileApp.path,
         type: 'navigation',
@@ -157,6 +162,11 @@ export const companyLinks = [
   {
     subtitle: ROUTES.blog.title,
     path: ROUTES.blog.path,
+    type: 'navigation',
+  },
+  {
+    subtitle: ROUTES.deliveryQualityInYellow.title,
+    path: ROUTES.deliveryQualityInYellow.path,
     type: 'navigation',
   },
 ];

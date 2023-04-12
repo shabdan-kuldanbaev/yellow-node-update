@@ -1,6 +1,5 @@
-import React from 'react';
 import CustomServices from 'containers/CustomService';
-import { getServicePageProps, getStaticPropsWrapper } from 'utils/dataSelectors';
+import { getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
 const CustomWebApp = (pageProps) => (
@@ -10,6 +9,6 @@ const CustomWebApp = (pageProps) => (
   />
 );
 
-export const getStaticProps = getStaticPropsWrapper(PAGES.customWebApp, getServicePageProps);
+export const getStaticProps = getStaticPropsWrapper(PAGES.customWebApp);
 
 export default CustomWebApp;

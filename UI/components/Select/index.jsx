@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { FormControl, InputLabel, Select as MUISelect } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { useMenuStyles } from './utils/useMenuStyles';
-import { chevronDown } from '../Svg/svgs';
 import styles from './styles.module.scss';
 
 const StyledSelect = withStyles(() => ({
@@ -30,7 +29,6 @@ const Select = ({
       <StyledSelect
         {...props}
         className={styles.styledSelect}
-        IconComponent={chevronDown}
         MenuProps={{
           anchorOrigin: {
             vertical: 'bottom',

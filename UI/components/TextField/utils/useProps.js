@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import cn from 'classnames';
 import autosize from 'autosize';
 import styles from '../styles.module.scss';

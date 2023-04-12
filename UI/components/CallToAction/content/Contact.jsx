@@ -1,10 +1,12 @@
 import { useContext } from 'react';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import Button from 'UI/components/Button';
-import Typography from 'UI/components/Typography';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import { FullscreenEstimationContext } from 'components/Common/FullScreenEstimation';
 import styles from '../styles.module.scss';
+
+const Typography = dynamic(() => import('UI/components/Typography'));
 
 export default ({
   titles,

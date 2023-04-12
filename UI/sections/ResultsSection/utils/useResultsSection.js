@@ -1,34 +1,36 @@
 import get from 'lodash/get';
-import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
-import { isResultHasVideo, getResultProps } from './resultsHelper';
+import { getDocumentFields, getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import { isContentVideo } from './resultsHelper';
 
 export const useResultsSection = ({ data, type }) => {
+  const {
+    title,
+    description,
+    images,
+    contentModules,
+    view,
+    background,
+  } = data;
+
   const sectionBackgroundImage = getOptimizedContentfulImage(
-    getFileUrl(get(data, 'background', {})),
-    { fm: 'png' },
+    getFileUrl(background),
+    { fm: 'webp' },
   );
   const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
 
-  const {
-    view,
-    title,
-    description,
-    smartphoneUrl,
-    appScreenUrl,
-    imagesBundlesData,
-  } = getResultProps(data);
-
-  const isResultVideo = isResultHasVideo(type);
-
-  const imagesBundles = imagesBundlesData?.imagesBundles.map((bundle) => getFileUrl(bundle)) || [];
+  const isResultVideo = isContentVideo(type);
+  const moduleData = getDocumentFields(get(contentModules, '[0]', {}));
+  const prototypeUrl = getFileUrl(images?.[0]);
+  const screenUrl = getFileUrl(moduleData?.images?.[0]);
+  const imagesBundles = moduleData?.imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
 
   return {
     view,
     type,
     title,
     description,
-    smartphoneUrl,
-    appScreenUrl,
+    prototypeUrl,
+    screenUrl,
     imagesBundles,
     sectionStyle,
     isResultVideo,
