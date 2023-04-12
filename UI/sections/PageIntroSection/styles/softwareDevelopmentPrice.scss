@@ -1,4 +1,6 @@
 .pricing {
+  padding-bottom: 49px;
+  
   .contentWrapper {
     @include flex(row, space-between, flex-start, nowrap);
 
