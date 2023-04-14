@@ -8,7 +8,10 @@ import styles from './styles.module.scss';
 
 const CasePrototype = (props) => {
   const {
-    title, description, url, type,
+    title,
+    description,
+    url,
+    type,
   } = usePrototypeSection(props);
 
   return (
