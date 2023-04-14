@@ -18,9 +18,11 @@ export const WHITE_LOGO_TYPE = [
   'fintech-app-for-credit-score',
   'smartcenter',
   'dindon',
+  'humankind',
   'cinnabar',
   'machine-learning-in-real-estate',
   'mobile-bank-application',
+  'software-for-mri-interpretation',
 ];
 
 export const BLACK_LOGO_TYPE = [

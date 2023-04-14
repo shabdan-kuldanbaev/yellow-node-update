@@ -1,16 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
-import get from 'lodash/get';
-import {
-  selectArticle,
-  selectRelatedArticles,
-  selectNearbyArticles,
-} from 'redux/selectors/blog';
-import { subscribe } from 'redux/actions/subscribe';
-import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
 import PageHeader from 'components/Common/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import Article from 'components/BlogCommon/Article';
@@ -19,7 +9,11 @@ import FullLayout from 'components/Layout/FullLayout';
 import NextPrev from 'components/BlogCommon/Article/NextPrev';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
+import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
+import PageNotFound from 'containers/PageNotFound';
 import FAQ from 'UI/containers/FAQ';
+import { useGetArticleQuery } from 'redux/apis/blog';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
@@ -29,19 +23,35 @@ import styles from './styles.module.scss';
 
 const ArticleContainer = ({
   introSection,
+  query,
 }) => {
-  const dispatch = useDispatch();
-  const currentArticle = useSelector(selectArticle);
-  const relatedArticles = useSelector(selectRelatedArticles);
-  const nearbyArticles = useSelector(selectNearbyArticles);
+  const [subscribe, { isLoading: isSubscribeLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
+
+  const { data = {}, isError, isLoading } = useGetArticleQuery(query);
+  const {
+    article,
+    next: olderArticle,
+    prev: newerArticle,
+    related,
+  } = data;
 
   const {
     query: { slug },
     pathname,
     asPath,
   } = useRouter();
-  const prevArticleSlug = get(nearbyArticles, 'olderArticle.slug');
-  const nextArticleSlug = get(nearbyArticles, 'newerArticle.slug');
+
+  if (isError) {
+    return <PageNotFound />;
+  }
+
+  if (isLoading) {
+    return null;
+  }
+
+  const { slug: prevArticleSlug } = olderArticle;
+  const { slug: nextArticleSlug } = newerArticle;
+
   const {
     slug: articleSlug,
     title,
@@ -57,7 +67,7 @@ const ArticleContainer = ({
     headImage,
     author,
     faqList,
-  } = getArticleProps({ article: currentArticle });
+  } = getArticleProps({ article });
   const articleMetadata = {
     metaTitle: metaTitle || (title && `${title} | Yellow`),
     metaDescription: metaDescription || (title && `Read our new article about ${title}.`),
@@ -79,7 +89,13 @@ const ArticleContainer = ({
   });
   const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
 
-  const handleOnFormSubmit = (email) => dispatch(subscribe({ email, pathname }));
+  const handleOnFormSubmit = (email) => {
+    if (isSubscribeLoading) {
+      return;
+    }
+
+    subscribe({ email, pathname });
+  };
 
   return (
     <>
@@ -121,17 +137,20 @@ const ArticleContainer = ({
             faqList={faqList}
           />
         </FullLayout>
+
         <TagsBlock tags={tagsList} />
-        {relatedArticles
-          && !!relatedArticles.length
-          && <RelatedSection articles={relatedArticles} />}
-        <div className={styles.nextPrevSection}>
+
+        {/* TODO: Fix slider for related articles */}
+
+        {/* {related?.length && <RelatedSection articles={related} />} */}
+
+        {/* <div className={styles.nextPrevSection}>
           <NextPrev slug={prevArticleSlug} />
           <NextPrev
             isNewer
             slug={nextArticleSlug}
           />
-        </div>
+        </div> */}
         <SubscribeBlock handleOnSubmit={handleOnFormSubmit} />
       </FullLayout>
     </>

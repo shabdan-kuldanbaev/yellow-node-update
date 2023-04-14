@@ -1,10 +1,11 @@
-import React from 'react';
-import Animated from 'UI/containers/Animated';
+import dynamic from 'next/dynamic';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { budget as budgetData } from '../utils/data';
 import { SliderComponent } from './utils/slider';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const BudgetSlider = ({ budget, sliderOptions }) => (
   <Animated

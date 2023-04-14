@@ -52,6 +52,12 @@ export const getServicePageInfo = (pathname) => {
       breadcrumbs: pagesBreadcrumbs.customWebApp(),
     };
 
+  case PAGES.crowdfundingPlatform:
+    return {
+      pageMicrodata: microdata.crowdfundingPlatform(),
+      breadcrumbs: pagesBreadcrumbs.crowdfundingPlatform(),
+    };
+
   case PAGES.designServices:
     return {
       pageMicrodata: microdata.designServices(),
@@ -68,6 +74,12 @@ export const getServicePageInfo = (pathname) => {
     return {
       pageMicrodata: microdata.lendingSoftwareDevelopment(),
       breadcrumbs: pagesBreadcrumbs.lendingSoftwareDevelopment(),
+    };
+
+  case PAGES.paymentGatewayDevelopment:
+    return {
+      pageMicrodata: microdata.paymentGatewayDevelopment(),
+      breadcrumbs: pagesBreadcrumbs.paymentGatewayDevelopment(),
     };
 
   case PAGES.mlDevelopment:
@@ -112,9 +124,32 @@ export const getServicePageInfo = (pathname) => {
       pageMicrodata: microdata.tradingSoftwareDevelopment(),
     };
 
+  case PAGES.eWalletAppDevelopment:
+    return {
+      breadcrumbs: pagesBreadcrumbs.eWalletAppDevelopment(),
+      pageMicrodata: microdata.eWalletAppDevelopment(),
+    };
+
+  case PAGES.bankingSoftwareDevelopmentCompany:
+    return {
+      breadcrumbs: pagesBreadcrumbs.bankingSoftwareDevelopmentCompany(),
+      pageMicrodata: microdata.bankingSoftwareDevelopmentCompany(),
+    };
+
+  case PAGES.deliveryQualityInYellow:
+    return {
+      breadcrumbs: pagesBreadcrumbs.deliveryQualityInYellow(),
+      pageMicrodata: microdata.deliveryQualityInYellow(),
+    };
+
   case PAGES.penetrationTesting:
     return {
       breadcrumbs: pagesBreadcrumbs.penetrationTesting(),
+    };
+
+  case PAGES.pwaDevelopmentServices:
+    return {
+      breadcrumbs: pagesBreadcrumbs.pwaDevelopmentServices(),
     };
 
   default:

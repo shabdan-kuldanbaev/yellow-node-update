@@ -1,4 +1,3 @@
-import React from 'react';
 import BlogContainer from 'UI/views/Blog';
 import { wrapper } from 'redux/store';
 import { getInitialBlogProps } from 'utils/blogUtils';

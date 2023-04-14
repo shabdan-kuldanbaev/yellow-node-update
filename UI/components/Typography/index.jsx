@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { TYPOGRAPHY_SIZE, useTypography, TYPOGRAPHY_TAGS } from './utils/useTypography';
 

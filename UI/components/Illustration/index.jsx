@@ -1,12 +1,14 @@
 import { memo } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import useIllustration from './utils/useIllustration';
 
 const Illustration = memo((props) => {
   const {
     className,
     style,
+    containerClasses,
     ...restProps
   } = useIllustration(props);
 
@@ -16,7 +18,7 @@ const Illustration = memo((props) => {
 
   return (
     <picture
-      className={className}
+      className={cn(className, containerClasses)}
       style={style}
     >
       <Image {...restProps} />

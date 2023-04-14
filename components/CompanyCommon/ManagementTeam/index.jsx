@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import Animated from 'components/Common/Animated';
+import { selectIsMobile } from 'redux/selectors/layout';
 import SectionTitle from 'UI/components/SectionTitle';
 import Illustration from 'UI/components/Illustration';
 import { ANIMATED_TYPE } from 'utils/constants';
@@ -13,8 +12,10 @@ import {
 } from 'utils/helper';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
+
 export const ManagementTeam = ({ managementTeam }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   return managementTeam && (
     <section className={styles.managementTeam}>

@@ -1,11 +1,10 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { subscribe } from 'redux/actions/subscribe';
-import { selectIsSubscribed, selectSubcibePending } from 'redux/selectors/subscribe';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 
-const useProps = ({ onSubmit, ...props }) => {
+const useProps = ({ ...props }) => {
+  const [subscribe, { data, isLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
+
   const {
     register,
     handleSubmit,
@@ -18,30 +17,20 @@ const useProps = ({ onSubmit, ...props }) => {
 
   const { query } = useRouter();
 
-  const isFormPending = useSelector(selectSubcibePending);
-  const isSubscribed = useSelector(selectIsSubscribed);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!isSubscribed || isFormPending) {
-      return;
-    }
-
-    onSubmit();
-  }, [isFormPending, isSubscribed, onSubmit]);
+  const isSubscribed = data?.isSubscribed;
 
   const handleButtonClick = handleSubmit((values) => {
-    dispatch(subscribe({ ...values, pathname: query }));
+    subscribe({ ...values, pathname: query });
   });
 
-  const isButtonDisabled = !getValues().email || !isValid || isFormPending;
+  const isButtonDisabled = !getValues().email || !isValid || isLoading;
 
   return ({
     register,
     dirtyFields,
     handleButtonClick,
     isButtonDisabled,
+    isSubscribed,
     ...props,
   });
 };

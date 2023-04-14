@@ -221,6 +221,12 @@ export const routes = {
     dynamicPath: '/web-app-development-company',
     slug: 'web-app-development-company',
   },
+  crowdfundingPlatform: {
+    title: 'Crowdfunding Platform Development Company',
+    path: '/crowdfunding-platform-development-company',
+    dynamicPath: '/crowdfunding-platform-development-company',
+    slug: 'crowdfunding-platform-development-company',
+  },
   designServices: {
     title: 'UI/UX design services',
     path: '/ui-ux-services',
@@ -245,7 +251,7 @@ export const routes = {
     dynamicPath: '/mvp-app-development-company',
     slug: 'mvp-app-development-company',
     description: 'A minimum viable product will help you get enough feedback to determine whether '
-    + 'you should continue a given project. We are ready to help with your MVP development.',
+      + 'you should continue a given project. We are ready to help with your MVP development.',
   },
   lendingSoftwareDevelopment: {
     title: 'Lending Software Development Services',
@@ -253,6 +259,14 @@ export const routes = {
     dynamicPath: '/lending-software-development',
     slug: 'lending-software-development',
     description: 'Revolutionize lending with our cutting-edge software development solutions for financial institutions.',
+  },
+  paymentGatewayDevelopment: {
+    title: 'Payment Software Gateway Development Company',
+    path: '/payment-gateway-development-company',
+    dynamicPath: '/payment-gateway-development-company',
+    slug: 'payment-gateway-development-company',
+    description: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+      + 'transaction security and accuracy. Read more about our services now.',
   },
   cloudDevelopment: {
     title: 'Cloud Application Development Services',
@@ -272,12 +286,14 @@ export const routes = {
     path: '/machine-learning-development-services',
     dynamicPath: '/machine-learning-development-services',
     slug: 'machine-learning-development-services',
+    description: 'If you want to boost your business with custom machine learning software development, Yellow is here to back you up.',
   },
   erpDevelopment: {
     title: 'Custom ERP Software Development Services',
     path: '/enterprise-resource-planning-software-services',
     dynamicPath: '/enterprise-resource-planning-software-services',
     slug: 'enterprise-resource-planning-software-services',
+    description: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',
   },
   devOpsDevelopment: {
     title: 'DevOps Development Company that Helps You Grow',
@@ -290,6 +306,8 @@ export const routes = {
     path: '/discovery-phase-services',
     dynamicPath: '/discovery-phase-services',
     slug: 'discovery-phase-services',
+    description: 'Discovery phase of a project is an important part of software development. Learn more about how '
+    + 'to run a discovery phase and its benefits to your business.',
   },
   signatureGenerator: {
     title: 'Signature Generator',
@@ -308,12 +326,16 @@ export const routes = {
     path: '/artificial-intelligence-development-services',
     dynamicPath: '/artificial-intelligence-development-services',
     slug: 'artificial-intelligence-development-services',
+    description: 'Yellow is an AI software development company that can provide '
+    + 'you with top-notch artificial intelligence application development.',
   },
   dataScienceDevelopment: {
     title: 'Data Science Development Services',
     path: '/data-science-development-company',
     dynamicPath: '/data-science-development-company',
     slug: 'data-science-development-company',
+    descripition: 'If you are looking for a partner that will help you analyze, process, and structure '
+    + 'your data, data science specialists at Yellow are here for you.',
   },
   tradingSoftwareDevelopment: {
     title: 'Custom Trading Platform Development Services',
@@ -339,6 +361,30 @@ export const routes = {
     path: '/terms-and-conditions',
     dynamicPath: '/terms-and-conditions',
     slug: 'terms-and-conditions',
+  },
+  eWalletAppDevelopment: {
+    title: 'E-Wallet App Development Company',
+    path: '/e-wallet-app-development-company',
+    dynamicPath: '/e-wallet-app-development-company',
+    slug: 'e-wallet-app-development',
+  },
+  bankingSoftwareDevelopmentCompany: {
+    title: 'Banking Software Development Company',
+    path: '/banking-software-development-company',
+    dynamicPath: '/banking-software-development-company',
+    slug: 'banking-software-development-company',
+  },
+  deliveryQualityInYellow: {
+    title: 'Yellow’s Delivery Quality Standards',
+    path: '/delivery-quality-in-yellow',
+    dynamicPath: '/delivery-quality-in-yellow',
+    slug: 'delivery-quality-in-yellow',
+  },
+  pwaDevelopmentServices: {
+    title: 'PWA Development Services',
+    path: '/pwa-development-services',
+    dynamicPath: '/pwa-development-services',
+    slug: 'pwa-development-services',
   },
   cookiesPolicy: {
     title: 'Cookies Policy',

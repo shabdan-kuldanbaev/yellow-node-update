@@ -1,4 +1,4 @@
-import errorHelper from 'utils/error';
+import { handleError } from 'utils/error';
 import { three } from 'UI/components/Duck/utils/helpers';
 
 export const loadDuck = async () => {
@@ -7,7 +7,7 @@ export const loadDuck = async () => {
       three.loadModel(resolve); // !
     });
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the loadDuck function',
     });

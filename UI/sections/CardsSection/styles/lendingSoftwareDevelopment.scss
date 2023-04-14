@@ -1,8 +1,4 @@
 .lending-software-development {
-  :global(.swiper-slide) {
-    height: 100%;
-  }
-
   &.firstSectionView {
     @extend .blackSection;
 
@@ -49,7 +45,7 @@
         }
       }
     }
-  } 
+  }
 
   &.secondSectionView {
     @extend .greySection;

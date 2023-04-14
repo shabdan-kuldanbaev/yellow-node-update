@@ -1,12 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { CustomYoutubePlayer } from 'components/Common/CustomYoutubePlayer';
 import { getYoutubeVideoIdFromUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import { getStorySectionProps } from './utils/sectionHelper';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 export const StorySection = ({ type, data }) => {
   const {
@@ -28,7 +30,8 @@ export const StorySection = ({ type, data }) => {
           <div className={styles.sectionImage}>
             {imageUrl && (
               <div className={styles.imageContainer}>
-                <img
+                <Illustration
+                  layout="responsive"
                   className={styles.image}
                   src={imageUrl}
                   alt={imageUrl}

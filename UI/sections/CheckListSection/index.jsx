@@ -1,13 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
-import CallToAction from 'UI/components/CallToAction';
-import CheckWithText from 'UI/components/Cards/CheckWithText';
+import dynamic from 'next/dynamic';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import SectionTitle from 'UI/components/SectionTitle';
 import styles from './styles.module.scss';
 import useCheckListSection from './utils/useCheckListSection';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
+const CheckWithText = dynamic(() => import('UI/components/Cards/CheckWithText'));
 
 const CheckListSection = (props) => {
   const {

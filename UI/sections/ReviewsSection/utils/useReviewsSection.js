@@ -73,7 +73,7 @@ export default ({
     slidesPerView: 1,
     spaceBetween: 32,
     centeredSlides: true,
-    autoheight: true,
+    autoheight: 'true',
     mousewheel: {
       forceToAxis: true,
     },

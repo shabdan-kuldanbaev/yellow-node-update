@@ -247,13 +247,9 @@
 .search {
   @extend .blogCard;
 
-  div {
+  .card {
     border-radius: 5px;
     flex: 1;
-
-    & > a:first-child {
-      @extend .articleImage;
-    }
   }
 
   .imgContainer {

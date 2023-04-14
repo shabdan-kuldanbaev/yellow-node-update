@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'UI/components/LinkWrapper';
@@ -23,7 +22,6 @@ export const ArticlePreview = ({
 }) => {
   const { path } = ROUTES.article.getRoute(slug);
   const articleLinkProps = { path };
-  const isCategoryWithHashtag = ['blog', 'search'].includes(type);
 
   if (!slug || !title || !image) {
     return null;
@@ -86,13 +84,13 @@ export const ArticlePreview = ({
           {tags?.length && (
             <div className={styles.tags}>
               {(tags || [])
-                .filter(({ slug: tagSlug }) => VALUABLE_ARTICLE_CATEGORIES_SLUGS.includes(tagSlug))
+                .filter(({ slug: tagSlug }) => (isSearch || VALUABLE_ARTICLE_CATEGORIES_SLUGS.includes(tagSlug)))
                 .map(({ slug: tagSlug }) => (
                   <LinkWrapper
                     path={routes.blog.getRoute(tagSlug).path}
                     className={styles.tag}
                   >
-                    {`#${tagSlug.replace('-', '')}`}
+                    {`#${tagSlug.replaceAll('-', '')}`}
                   </LinkWrapper>
                 ))}
             </div>

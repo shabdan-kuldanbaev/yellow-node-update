@@ -1,4 +1,3 @@
-import React from 'react';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { PAGES } from 'utils/constants';
 import Typography from 'UI/components/Typography';

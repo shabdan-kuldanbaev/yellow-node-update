@@ -311,12 +311,19 @@
     .infoContainer {
       h3 {
         color: $gray0;
+
+        @include phone {
+          &:last-of-type {
+            margin-top: 12px;
+          }
+        }
       }
 
       p {
         margin: 0;
         color: $gray0;
         opacity: 0.7;
+        white-space: unset;
       }
     }
 

@@ -1,7 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import ChallengesSlider from 'UI/components/ChallengesSlider';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
@@ -9,6 +8,8 @@ import Illustration from 'UI/components/Illustration';
 import Typography from 'UI/components/Typography';
 import { useChallengesAndSolutions } from './utils/useChallengesAndSolutions';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const ChallengesAndSolutions = (props) => {
   const {

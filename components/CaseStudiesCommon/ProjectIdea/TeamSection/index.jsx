@@ -1,10 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
 import { getFileUrl } from 'utils/helper';
 import { ANIMATION_CASE_STUDY_PROPS } from '../../utils/data';
 import { TitleUnderline } from './TitleUnderline';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const TeamSection = ({ type, data }) => {
   if (!data) {
@@ -36,7 +38,8 @@ const TeamSection = ({ type, data }) => {
           const imgUrl = getFileUrl(image);
 
           return (
-            <img
+            <Illustration
+              layout="responsive"
               className={styles.bundleImage}
               src={imgUrl}
               alt={title}

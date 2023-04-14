@@ -175,6 +175,9 @@
 .beautonomy,
 .dindon,
 .cash-chat,
+.e-wallet-app-development,
+.crowdfunding-platform-development-company,
+.banking-software-development-company,
 .lending-software-development {
   @extend .parallax;
 }
@@ -223,4 +226,27 @@
 
 .natp {
   background-color: $white;
+}
+
+.e-wallet-app-development {
+  @include below-tablet {
+    height: 310px;
+  }
+}
+
+.banking-software-development-company {
+  @include below-tablet {
+    height: 600px;
+  }
+}
+
+.crowdfunding-platform-development-company {
+  background-color: $crowdfundingSecondary;
+  background-size: 175%;
+  background-position: 38% 45%;
+
+  @include below-tablet {
+    height: 375px;
+    background-size: 390%;
+  }
 }

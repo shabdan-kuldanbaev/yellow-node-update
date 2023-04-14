@@ -1,0 +1,11 @@
+.ios-mobile-app-development-services {
+  padding: 120px 40px 60px;
+
+  @include tablet {
+    padding: 120px 32px 60px;
+  }
+
+  @include below-tablet {
+    padding: 60px 16px 30px;
+  }
+}

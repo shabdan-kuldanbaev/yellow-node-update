@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
-import Svg from 'UI/components/Svg';
+import dynamic from 'next/dynamic';
 import CardContainer from 'UI/containers/CardContainer';
 import Typography from 'UI/components/Typography';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
 import useCheckWithText from './utils/useCheckWithText';
 import styles from './CheckWithText.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const CheckWithText = (props) => {
   const {

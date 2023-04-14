@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import {
   BLOCKS,
@@ -6,21 +5,24 @@ import {
   INLINES,
 } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import dynamic from 'next/dynamic';
 import get from 'lodash/get';
-import GalleryCard from 'components/BlogCommon/Article/GalleryCard';
+import Illustration from 'UI/components/Illustration';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Animated from 'components/Common/Animated';
-import Table from 'components/Common/Table';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
   getFileUrl,
   rootUrl,
 } from 'utils/helper';
-import EmbedArticleCard from 'UI/components/Cards/EmbedArticleCard';
 import cn from 'classnames';
-import { ArticleLink } from './ArticleLink';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const GalleryCard = dynamic(() => import('components/BlogCommon/Article/GalleryCard'));
+const ArticleLink = dynamic(() => import('./ArticleLink').then((module) => module.ArticleLink));
+const Table = dynamic(() => import('components/Common/Table'));
+const EmbedArticleCard = dynamic(() => import('UI/components/Cards/EmbedArticleCard'));
 
 // TODO move it to the common folder
 // TODO create constants for cases
@@ -53,10 +55,11 @@ const ContentfulParser = ({ document }) => {
               })}
               >
                 <Animated type={ANIMATED_TYPE.imageZoom}>
-                  <img
+                  <Illustration
                     src={imageUrl}
                     alt={imageDescription}
                     title={imageDescription}
+                    className={styles.image}
                   />
                 </Animated>
                 {title && (

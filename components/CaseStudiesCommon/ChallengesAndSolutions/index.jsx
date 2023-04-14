@@ -1,10 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import Animated from 'components/Common/Animated';
+import { selectIsMobile } from 'redux/selectors/layout';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import {
   getDocumentFields,
@@ -12,9 +11,12 @@ import {
   getOptimizedContentfulImage,
 } from 'utils/helper';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
+import Illustration from 'UI/components/Illustration';
 import ChallengesSlider from './ChallengesSlider';
 import { ANIMATION_CASE_STUDY_PROPS } from '../utils/data';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const ChallengesAndSolutions = ({
   data,
@@ -22,7 +24,7 @@ const ChallengesAndSolutions = ({
   isSpecial,
   view,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   if (!get(data, 'contentModules')) {
     return null;
@@ -79,7 +81,8 @@ const ChallengesAndSolutions = ({
               )}
               <div className={cn(styles.infoContainer, { [styles.centrefy]: imageUrl })}>
                 {subImageUrl && (
-                  <img
+                  <Illustration
+                    layout="responsive"
                     className={styles.subImage}
                     src={subImageUrl}
                     alt={title}
@@ -129,7 +132,8 @@ const ChallengesAndSolutions = ({
               {imageUrl && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div className={styles.images}>
-                    <img
+                    <Illustration
+                      layout="responsive"
                       className={styles.image}
                       src={imageUrl}
                       alt={title}
@@ -138,7 +142,8 @@ const ChallengesAndSolutions = ({
                       const bundleUrl = getFileUrl(bundle);
 
                       return (
-                        <img
+                        <Illustration
+                          layout="responsive"
                           className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                           src={bundleUrl}
                           alt=""
@@ -153,7 +158,8 @@ const ChallengesAndSolutions = ({
                 const bundleUrl = getFileUrl(bundle);
 
                 return (
-                  <img
+                  <Illustration
+                    layout="responsive"
                     className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
                     src={bundleUrl}
                     key={`bundles-images/${bundleUrl}`}
