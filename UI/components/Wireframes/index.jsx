@@ -8,7 +8,11 @@ import { useWireframes } from './utils/useWireframes';
 import styles from './styles.module.scss';
 
 const Wireframe = (props) => {
-  const { type, wireframeImages } = useWireframes(props);
+  const {
+    type,
+    wireframeImages,
+    isMobileResolution,
+  } = useWireframes(props);
 
   if (!wireframeImages) {
     return null;
@@ -39,6 +43,7 @@ const Wireframe = (props) => {
           scale={2}
           containerClasses={styles.animatedContainer}
           className={styles.image}
+          unoptimized={isMobileResolution}
         />
         <CustomImage
           src={url}

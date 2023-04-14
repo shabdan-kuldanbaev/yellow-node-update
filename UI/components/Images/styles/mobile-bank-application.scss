@@ -34,9 +34,19 @@
     .image {
       width: 394px;
       height: 646px;
+      overflow: hidden;
+
+      span {
+        bottom: -90px !important;
+      }
 
       @include phone {
         width: 320px;
+        height: 495px;
+
+        span {
+          bottom: -40px !important;
+        }
       }
     }
   }

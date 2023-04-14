@@ -70,8 +70,9 @@
         margin-bottom: 95px;
         background-color: $mobileBankPrimary;
 
-        @include phone {
+        @include below-tablet {
           margin-bottom: 334px;
+          padding: 0 16px;
         }
       }
 
@@ -79,7 +80,7 @@
         padding: 44px 223px 60px;
         background-color: $gray50;
 
-        @include phone {
+        @include below-tablet {
           padding: 264px 16px 30px;
         }
       }
@@ -130,10 +131,6 @@
             transform: translateX(-50%);
           }
         }
-      }
-
-      @include phone {
-        padding: 0 16px;
       }
     }
   }

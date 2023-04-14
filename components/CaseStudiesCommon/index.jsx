@@ -37,6 +37,7 @@ const CaseStudiesStory = dynamic(() => import('UI/sections/CaseStudiesStory'));
 const CaseProcess = dynamic(() => import('UI/sections/CaseProcess'));
 const CasePrototype = dynamic(() => import('UI/sections/CasePrototype'));
 const CaseFeedback = dynamic(() => import('UI/sections/CaseFeedback'));
+const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
 
 const CaseStudiesCommon = (props) => {
   if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
@@ -77,6 +78,13 @@ const CaseStudiesCommon = (props) => {
       return <CaseProcess {...props} />;
     case CASE_STUDIES_TYPES.prototype:
       return <CasePrototype {...props} />;
+    case 'cards-with-overlay':
+      return (
+        <CardsSection
+          {...props}
+          withOverlay
+        />
+      );
     default:
       return null;
     }

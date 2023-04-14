@@ -8,7 +8,7 @@
     overflow: hidden;
 
     @include phone {
-      margin: 0 auto 32px;
+      margin: 0 auto -5px;
     }
   }
 
@@ -74,6 +74,7 @@
 
     @include below-tablet {
       padding: 30px;
+      margin: 0 -16px;
     }
   }
 
