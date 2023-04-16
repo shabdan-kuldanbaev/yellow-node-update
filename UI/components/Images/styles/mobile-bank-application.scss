@@ -1,0 +1,53 @@
+.mobile-bank-application {
+  &.firstSectionView {
+    .image {
+      &-1 {
+        max-width: 1200px;
+        width: 100%;
+        height: 340px;
+
+        @include phone {
+          display: none;
+        }
+      }
+
+      &-2 {
+        display: none;
+        width: 2028px;
+        height: 120px;
+
+        @include phone {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      width: 994px;
+      height: 120px;
+    }
+  }
+
+  &.thirdSectionView {
+    .image {
+      width: 394px;
+      height: 646px;
+      overflow: hidden;
+
+      span {
+        bottom: -90px !important;
+      }
+
+      @include phone {
+        width: 320px;
+        height: 495px;
+
+        span {
+          bottom: -40px !important;
+        }
+      }
+    }
+  }
+}

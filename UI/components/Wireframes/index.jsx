@@ -9,7 +9,11 @@ import styles from './styles.module.scss';
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Wireframe = (props) => {
-  const { type, wireframeImages } = useWireframes(props);
+  const {
+    type,
+    wireframeImages,
+    isMobileResolution,
+  } = useWireframes(props);
 
   if (!wireframeImages) {
     return null;
@@ -40,6 +44,7 @@ const Wireframe = (props) => {
           scale={2}
           containerClasses={styles.animatedContainer}
           className={styles.image}
+          unoptimized={isMobileResolution}
         />
         <Illustration
           src={url}

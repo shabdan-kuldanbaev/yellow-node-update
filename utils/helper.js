@@ -148,14 +148,16 @@ export const getImage = (file) => {
   };
 };
 
-export const getDocumentFields = (document, fields = []) => {
+export const getDocumentFields = (document, fields = [], { isNormilized = false } = {}) => {
   if (fields.length) {
     return fields.reduce((acc, field) => {
       if (!field) return acc;
 
-      acc[field] = field.indexOf('sys.') === 0
-        ? get(document, field, null)
-        : get(document, `fields.${field}`, null);
+      if (field.indexOf('sys.') === 0 || isNormilized) {
+        acc[field] = get(document, field, null);
+      } else {
+        acc[field] = get(document, `fields.${field}`, null);
+      }
 
       return acc;
     }, {});

@@ -82,6 +82,7 @@ export default ({
   type,
   withSlider: sectionWithSlider,
   withOverlay,
+  data,
   ...rest
 }) => {
   const {
@@ -91,7 +92,7 @@ export default ({
     view,
     contentModules,
   } = getDocumentFields(
-    section,
+    section || data,
     [
       'title',
       'description',
@@ -99,6 +100,7 @@ export default ({
       'subtitle',
       'view',
     ],
+    { isNormilized: !!data },
   );
   const {
     contentModules: rawCardList,
