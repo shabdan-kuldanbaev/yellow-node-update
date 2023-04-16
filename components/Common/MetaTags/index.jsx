@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-max-props-per-line */
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Script from 'next/script';
 import { getPathWithCdn } from 'utils/helper';
 import { IS_PROD } from 'utils/constants';
 import { ogMetaData } from './utils/data';
@@ -88,11 +87,10 @@ const MetaTags = ({
       <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
       <link rel="manifest" href="/manifest.json" />
       {children}
-      <Script
-        id="JSON-LD-meta"
-        key="JSON-LD-meta"
+      {/* Somehow microdata doesnt work with next/script so use this instead */}
+      <script
+        id="application/ld+json/microdata"
         type="application/ld+json"
-        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata, null, 2) }}
       />
     </Head>

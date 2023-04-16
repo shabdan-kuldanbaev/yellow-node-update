@@ -173,6 +173,8 @@ export const xcodeTitle = '/technologies/xcodeTitle.svg';
 export const xgboostTitle = '/technologies/xgboostTitle.svg';
 export const contentfulTitle = '/technologies/contentfulTitle.svg';
 export const netTitle = '/technologies/netTitle.svg';
+export const phpTitle = '/technologies/phpTitle.svg';
+export const rubyTitle = '/technologies/rubyTitle.svg';
 
 /* Outlined General */
 export const arrowDown = '/outlined/arrowDown.svg';
