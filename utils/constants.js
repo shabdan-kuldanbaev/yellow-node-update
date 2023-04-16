@@ -115,7 +115,6 @@ export const NAV_LINKS = [
     routes.cookiesPolicy.slug,
     routes.lendingSoftwareDevelopment.slug,
     routes.penetrationTesting.slug,
-    routes.softwareDevelopmentPrice.slug,
   ].includes(slug)),
 ];
 
@@ -623,7 +622,6 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.tradingSoftwareDevelopment,
   PAGES.lendingSoftwareDevelopment,
   PAGES.penetrationTesting,
-  PAGES.softwareDevelopmentPrice,
   PAGES.eWalletAppDevelopment,
   PAGES.bankingSoftwareDevelopmentCompany,
   PAGES.deliveryQualityInYellow,
