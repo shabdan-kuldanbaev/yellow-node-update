@@ -17,7 +17,7 @@ const FAQ = ({ faqList, isArticalPage }) => (
           key="JSON-LD-faq"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(microdata.faq({ faqList })),
+            __html: JSON.stringify(microdata.faq({ faqList }, null, 2)),
           }}
         />
       )}

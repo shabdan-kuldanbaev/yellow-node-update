@@ -307,6 +307,11 @@ export const CONTACTS_DATA = {
       type: 'instagramOutlined',
       link: 'https://www.instagram.com/yellow.systems/',
     },
+    {
+      title: 'YouTube',
+      type: 'youtubeOutlined',
+      link: 'https://www.youtube.com/@yellowsystems9900',
+    },
   ],
 };
 
