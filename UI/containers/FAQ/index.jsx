@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Script from 'next/script';
 import isEmpty from 'lodash/isEmpty';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
@@ -13,11 +12,10 @@ const FAQ = ({ faqList, isArticalPage }) => (
   <>
     <Head>
       {!isEmpty(faqList) && (
-        <Script
+        <script
           id="JSON-LD-faq"
           key="JSON-LD-faq"
           type="application/ld+json"
-          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(microdata.faq({ faqList })),
           }}

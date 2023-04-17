@@ -13,6 +13,7 @@ const FeedbackForm = dynamic(() => import('UI/components/Forms/FeedbackForm'), {
 const FullScreenEstimation = ({
   isFullscreenEstimation,
   closeFullscreenEstimation,
+  extraDescription,
 }) => (
   <ModalWindow
     isModalWindow={isFullscreenEstimation}
@@ -42,6 +43,7 @@ const FullScreenEstimation = ({
           className={styles.feedbackForm}
           isBudgetSlider
           formKey="estimation"
+          extraDescription={extraDescription}
         />
       )}
     </div>
@@ -51,6 +53,7 @@ const FullScreenEstimation = ({
 FullScreenEstimation.propTypes = {
   isFullscreenEstimation: PropTypes.bool.isRequired,
   closeFullscreenEstimation: PropTypes.func.isRequired,
+  extraDescription: PropTypes.string,
 };
 
 export const FullscreenEstimationContext = createContext({ isShown: false, open: () => null });

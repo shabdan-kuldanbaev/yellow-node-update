@@ -28,10 +28,6 @@
       }
     }
 
-    .navigation button {
-      padding: 0;
-    }
-
     @include below-tablet {
       padding-bottom: 60px;
     }

@@ -21,6 +21,7 @@ export const WHITE_LOGO_TYPE = [
   'humankind',
   'cinnabar',
   'machine-learning-in-real-estate',
+  'mobile-bank-application',
   'software-for-mri-interpretation',
   'cedar-valley-farms',
 ];
@@ -60,6 +61,7 @@ export const WHITE_TEXT_LOGO = [
   'telemojo',
   'cinnabar',
   'cedar-valley-farms',
+  'mobile-bank-application',
 ];
 
 export const getLogoType = (type) => {

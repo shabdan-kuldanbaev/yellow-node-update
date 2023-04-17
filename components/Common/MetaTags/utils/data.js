@@ -54,6 +54,13 @@ export const ogMetaData = [
     url: `${rootUrl}${ROUTES.customChatApp.path}`,
   },
   {
+    pageName: ROUTES.softwareDevelopmentPrice.slug,
+    metaTitle: 'Pricing: Hire a Team for Your Project | Yellow',
+    metaDescription: `Calculate how much money you will need to build your software.
+     We only bill for the time actually spent  on work, so it’s easy to manage the budget. No extra fees.`,
+    url: `${rootUrl}${ROUTES.softwareDevelopmentPrice.path}`,
+  },
+  {
     pageName: ROUTES.customMobileApp.slug,
     metaTitle: 'Custom mobile app development company | Yellow',
     metaDescription: 'The best talents for Mobile App Development are here. Hire an experienced team to work on your idea.',

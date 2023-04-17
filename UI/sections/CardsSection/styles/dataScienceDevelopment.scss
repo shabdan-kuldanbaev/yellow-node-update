@@ -7,6 +7,22 @@
     [data-title] {
       max-width: 766px;
     }
+
+    .callToAction {
+      margin-top: 48px;
+      padding: 80px 60px;
+      background-color: $gray50;
+      border: none;
+
+      h3 {
+        @include fontSize(24px, 130%);
+      }
+
+      @include tablet {
+        margin-top: 60px;
+        padding: 32px 16px;
+      }
+    }
   }
 
   &.secondSectionView,
@@ -41,6 +57,22 @@
     .cardList {
       @extend .threeColumnsCards;
     }
+
+    .callToAction {
+      margin-top: 48px;
+      padding: 80px 60px;
+      background-color: $gray0;
+      border: none;
+
+      h3 {
+        @include fontSize(24px, 130%);
+      }
+
+      @include tablet {
+        margin-top: 60px;
+        padding: 32px 16px;
+      }
+    }
   }
 
   &.sixthSectionView {
@@ -56,6 +88,22 @@
 
     [data-read-more] {
       display: block;
+    }
+
+    .callToAction {
+      margin-top: 48px;
+      padding: 80px 60px;
+      background-color: $gray0;
+      border: none;
+
+      h3 {
+        @include fontSize(24px, 130%);
+      }
+
+      @include tablet {
+        margin-top: 60px;
+        padding: 32px 16px;
+      }
     }
   }
 }
