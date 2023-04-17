@@ -13,11 +13,13 @@ const getPipedriveFields = async () => {
     const countryField = pipedriveFields.data.find((field) => field.name === 'Person Country' && field.id === 9094);
     const clientIdField = pipedriveFields.data.find((field) => field.name.trim() === 'Client ID' && field.id === 9086);
     const leadSourceField = pipedriveFields.data.find((field) => field.name === 'Lead source' && field.id === 9087);
+    const phoneField = pipedriveFields.data.find((field) => field.name === 'Phone' && field.id === 9041);
 
     return {
       countryField,
       clientIdField,
       leadSourceField,
+      phoneField,
     };
   } catch (error) {
     handleError({
@@ -50,6 +52,8 @@ const createPersonPipedrive = async (data) => {
       clientCountry,
       email,
       name,
+      phoneFieldKey,
+      phone,
       clientId,
       leadSourceOptionId,
     } = data;
@@ -62,6 +66,7 @@ const createPersonPipedrive = async (data) => {
         [clientIdFieldKey]: clientId,
         [leadSourceFieldKey]: leadSourceOptionId || '',
         [countryFieldKey]: clientCountry || '',
+        [phoneFieldKey]: phone || '',
       },
     );
 
@@ -136,6 +141,7 @@ export async function sendDataPipedrive(req, res) {
     const {
       name,
       email,
+      phone,
       description,
       clientId,
       source,
@@ -146,6 +152,7 @@ export async function sendDataPipedrive(req, res) {
       countryField,
       clientIdField,
       leadSourceField,
+      phoneField,
     } = await getPipedriveFields();
 
     const clientCountry = await getPersonCountry();
@@ -163,6 +170,8 @@ export async function sendDataPipedrive(req, res) {
       clientCountry,
       email,
       name,
+      phoneFieldKey: phoneField.key,
+      phone,
       clientId,
       leadSourceOptionId: leadSourceOptions?.id,
     });

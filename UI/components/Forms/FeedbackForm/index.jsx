@@ -35,13 +35,23 @@ const FeedbackForm = (props) => {
     >
       <FormAlert />
       <Animated {...REVEAL_ANIMATION_PROPS}>
+        <TextField
+          name="name"
+          register={register}
+          placeholder="Name *"
+          errorMessage="Required field"
+          required={dirtyFields.name}
+        />
+      </Animated>
+      <Animated {...REVEAL_ANIMATION_PROPS}>
         <div className={styles.inputsWrapper}>
           <TextField
-            name="name"
+            name="phone"
             register={register}
-            placeholder="Name *"
-            errorMessage="Required field"
-            required={dirtyFields.name}
+            placeholder="Phone number*"
+            errorMessage="Incorrect phone number"
+            required={dirtyFields?.phone}
+            type="tel"
           />
 
           <TextField
