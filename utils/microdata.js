@@ -666,7 +666,6 @@ export const microdata = {
       breadcrumb: 'Homepage > E-Wallet App Development Company',
       image: logoUrl,
     },
-    getServiceMicrodata(ROUTES.eWalletAppDevelopment),
   ]),
   bankingSoftwareDevelopmentCompany: () => ([
     {
@@ -678,7 +677,6 @@ export const microdata = {
       breadcrumb: 'Homepage > Banking Software Development Company',
       image: logoUrl,
     },
-    getServiceMicrodata(ROUTES.bankingSoftwareDevelopmentCompany),
   ]),
   deliveryQualityInYellow: () => ([
     {
@@ -689,7 +687,6 @@ export const microdata = {
       breadcrumb: 'Homepage > Yellow’s Delivery Quality Standards',
       image: logoUrl,
     },
-    getServiceMicrodata(ROUTES.deliveryQualityInYellow),
   ]),
   pwaDevelopmentServices: () => ([
     {
@@ -700,7 +697,6 @@ export const microdata = {
       breadcrumb: 'Homepage > PWA Development Services',
       image: logoUrl,
     },
-    getServiceMicrodata(ROUTES.pwaDevelopmentServices),
   ]),
   lendingSoftwareDevelopment: () => ([
     websiteMicrodata,
@@ -717,7 +713,6 @@ export const microdata = {
       breadcrumb: 'Payment Software Gateway Development Company | Yellow',
       image: logoUrl,
     },
-    getServiceMicrodata(ROUTES.lendingSoftwareDevelopment),
   ]),
   cloudDevelopment: () => ([
     websiteMicrodata,
