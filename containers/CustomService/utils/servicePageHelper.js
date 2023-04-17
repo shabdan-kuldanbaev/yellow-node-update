@@ -96,31 +96,37 @@ export const getServicePageInfo = (pathname) => {
 
   case PAGES.fintechDevelopment:
     return {
+      pageMicrodata: microdata.fintechDevelopment(),
       breadcrumbs: pagesBreadcrumbs.fintechDevelopment(),
     };
 
   case PAGES.discoveryPhase:
     return {
+      pageMicrodata: microdata.discoveryPhase(),
       breadcrumbs: pagesBreadcrumbs.discoveryPhase(),
     };
 
   case PAGES.erpDevelopment:
     return {
+      pageMicrodata: microdata.erpDevelopment(),
       breadcrumbs: pagesBreadcrumbs.erpDevelopment(),
     };
 
   case PAGES.devOpsDevelopment:
     return {
+      pageMicrodata: microdata.devOpsDevelopment(),
       breadcrumbs: pagesBreadcrumbs.devOpsDevelopment(),
     };
 
   case PAGES.aiDevelopment:
     return {
+      pageMicrodata: microdata.aiDevelopment(),
       breadcrumbs: pagesBreadcrumbs.aiDevelopment(),
     };
 
   case PAGES.dataScienceDevelopment:
     return {
+      pageMicrodata: microdata.dataScienceDevelopment(),
       breadcrumbs: pagesBreadcrumbs.dataScienceDevelopment(),
     };
 
@@ -150,11 +156,13 @@ export const getServicePageInfo = (pathname) => {
 
   case PAGES.penetrationTesting:
     return {
+      pageMicrodata: microdata.penetrationTesting(),
       breadcrumbs: pagesBreadcrumbs.penetrationTesting(),
     };
 
   case PAGES.pwaDevelopmentServices:
     return {
+      pageMicrodata: microdata.pwaDevelopmentServices(),
       breadcrumbs: pagesBreadcrumbs.pwaDevelopmentServices(),
     };
 

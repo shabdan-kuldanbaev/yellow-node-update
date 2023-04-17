@@ -10,7 +10,7 @@ export const mainContent = [
         type: 'navigation',
       },
       {
-        subtitle: 'Crowdfunding Platform Development Company',
+        subtitle: 'Crowdfunding platform development',
         path: ROUTES.crowdfundingPlatform.path,
         type: 'navigation',
       },
@@ -30,7 +30,7 @@ export const mainContent = [
         type: 'navigation',
       },
       {
-        subtitle: 'Cross-platform \n development company',
+        subtitle: 'Cross-platform development',
         path: ROUTES.crossPlatformDevelopmentServices.path,
         type: 'navigation',
       },
@@ -150,6 +150,11 @@ export const addresses = [
 
 export const companyLinks = [
   {
+    subtitle: ROUTES.deliveryQualityInYellow.title,
+    path: ROUTES.deliveryQualityInYellow.path,
+    type: 'navigation',
+  },
+  {
     subtitle: ROUTES.portfolio.title,
     path: ROUTES.portfolio.path,
     type: 'navigation',
@@ -162,11 +167,6 @@ export const companyLinks = [
   {
     subtitle: ROUTES.blog.title,
     path: ROUTES.blog.path,
-    type: 'navigation',
-  },
-  {
-    subtitle: ROUTES.deliveryQualityInYellow.title,
-    path: ROUTES.deliveryQualityInYellow.path,
     type: 'navigation',
   },
 ];

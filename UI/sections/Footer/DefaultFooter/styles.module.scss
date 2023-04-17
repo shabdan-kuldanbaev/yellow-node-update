@@ -14,9 +14,8 @@
   .footer {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto;
-    grid-column-gap: 70px;
+    grid-template-columns: 379px 1.2fr 1.1fr 1fr;
+    grid-column-gap: 68px;
     grid-row-gap: 24px;
     grid-template-areas:
       'side fintech services expertise'
@@ -25,8 +24,7 @@
     max-width: $wide-content-width;
 
     @include tablet {
-      grid-template-columns: auto auto;
-      grid-template-rows: auto auto auto auto;
+      grid-template-columns: 1fr 1.3fr;
       grid-row-gap: 16px;
       grid-column-gap: 16px;
       grid-template-areas:
