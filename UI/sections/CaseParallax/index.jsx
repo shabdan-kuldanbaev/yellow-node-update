@@ -50,7 +50,7 @@ const CaseParallax = (props) => {
       >
         {bundleImages?.map((src, index) => (
           <Illustration
-            priority
+            lazyBoundary="2000px"
             unoptimized
             transparent
             src={src}
