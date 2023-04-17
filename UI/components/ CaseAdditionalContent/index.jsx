@@ -7,24 +7,33 @@ const CaseAdditionalContent = ({
   data,
 }) => (
   <div className={cn(styles[type], styles.additionalContent)}>
-    {data?.map(({ title, contentList }, index) => (
+    {data?.map(({ title, description, contentList }, index) => (
       <div
         key={title}
         className={cn(styles.container, styles[`container-${index + 1}`])}
       >
-        <p className={styles.title}>
-          {title}
-        </p>
-        <ul className={styles.listContainer}>
-          {contentList && contentList.map((info) => (
-            <li
-              key={info}
-              className={styles.listItem}
-            >
-              <span>{info}</span>
-            </li>
-          ))}
-        </ul>
+        {title && (
+          <p className={styles.title}>
+            {title}
+          </p>
+        )}
+        {description && (
+          <p className={styles.description}>
+            {description}
+          </p>
+        )}
+        {contentList?.length > 0 && (
+          <ul className={styles.listContainer}>
+            {contentList?.map((info) => (
+              <li
+                key={info}
+                className={styles.listItem}
+              >
+                <span>{info}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     ))}
   </div>

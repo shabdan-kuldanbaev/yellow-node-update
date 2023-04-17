@@ -1,0 +1,21 @@
+.cedar-valley-farms {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    position: relative;
+    height: 700px;
+
+    @include phone {
+      height: 600px;
+    }
+  }
+
+  .bundleImage {
+    @include centered;
+
+    width: 650px;
+    height: 650px;
+  }
+}

@@ -23,6 +23,7 @@ export const WHITE_LOGO_TYPE = [
   'machine-learning-in-real-estate',
   'mobile-bank-application',
   'software-for-mri-interpretation',
+  'cedar-valley-farms',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -59,6 +60,7 @@ export const WHITE_TEXT_LOGO = [
   'writer-chrome-extension',
   'telemojo',
   'cinnabar',
+  'cedar-valley-farms',
   'mobile-bank-application',
 ];
 

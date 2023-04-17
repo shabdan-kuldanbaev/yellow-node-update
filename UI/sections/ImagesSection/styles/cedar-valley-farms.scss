@@ -1,0 +1,75 @@
+.cedar-valley-farms {
+  position: relative;
+  padding: 60px 0;
+  background-color: $gray900;
+
+  .titleStyle {
+    @include flex(row, space-between, center);
+
+    position: relative;
+    margin: 0 auto 48px;
+    padding: 0 16px;
+    max-width: $wide-content-width;
+    width: 100%;
+    box-sizing: border-box;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 197px;
+      right: 39px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 1px;
+      background-color: $gray400;
+    }
+
+    @include below-tablet {
+      margin: 0 auto 21px;
+    }
+  }
+
+  [data-title] {
+    @include fontSize(16px, 150%);
+
+    overflow: hidden;
+    margin: 0;
+    max-width: unset;
+    color: $gray0;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  [data-subtitle] {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    max-width: unset;
+    color: $gray0;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  &::before {
+    @include fontSize(170px,150%);
+
+    content: 'Stack';
+    position: absolute;
+    right: 0;
+    bottom: -73px;
+    color: $gray0;
+    font-weight: 900;
+    opacity: 0.02;
+    text-transform: uppercase;
+    pointer-events: none;
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  @include below-tablet {
+    padding: 30px 0;
+  }
+}

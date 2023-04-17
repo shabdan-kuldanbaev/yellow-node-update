@@ -36,6 +36,7 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'machine-learning-in-real-estate',
   'mobile-bank-application',
   'software-for-mri-interpretation',
+  'cedar-valley-farms',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -375,6 +376,7 @@ export const CASE_STUDIES = {
   balzano: 'software-for-mri-interpretation',
   cinnabar: 'cinnabar',
   mobileBankApplication: 'mobile-bank-application',
+  cedar: 'cedar-valley-farms',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -408,6 +410,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.writerChromeExtension).path,
   ROUTES.project.getRoute(CASE_STUDIES.telemojo).path,
   ROUTES.project.getRoute(CASE_STUDIES.smartcenter).path,
+  ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,

@@ -7,6 +7,8 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import Typography from 'UI/components/Typography';
 import CaseAdditionalContent from 'UI/components/ CaseAdditionalContent';
+import SectionTitle from 'UI/components/SectionTitle';
+import CaseImageContent from 'UI/components/CaseImageContent';
 import { useProjectIdea } from './utils/useProjectIdea';
 import styles from './styles.module.scss';
 
@@ -16,20 +18,38 @@ const ProjectIdea = (props) => {
   const {
     type,
     title,
+    sectionTitle,
+    sectionDescription,
+    sectionSubtitle,
     subtitle,
     text,
     additionalContent,
+    imageUrl,
     delayedAnimation,
     featuresProps,
     teamListProps,
+    textContent,
   } = useProjectIdea(props);
 
   return (
     <section className={cn(styles[type], styles.container)}>
+      {sectionTitle && (
+        <SectionTitle
+          title={sectionTitle}
+          subtitle={sectionSubtitle}
+          description={sectionDescription}
+          className={styles.titleStyle}
+        />
+      )}
       <div className={styles.contentContainer}>
         <KeyFeatures
           features={featuresProps}
           type={type}
+        />
+        <CaseImageContent
+          type={type}
+          image={imageUrl}
+          textContent={textContent}
         />
         <div className={styles.descriptionContainer}>
           <div className={styles.descriptionIntro}>
