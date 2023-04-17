@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
 
@@ -56,23 +57,24 @@ const AppFeatures = (props) => {
             />
           ))}
         </div>
-        <div className={styles.imageWrapper}>
-          <Animated delay={500}>
-            <div className={styles.imageContainer}>
-              <Illustration
-                src={imageSrc}
-                className={styles.image}
-                alt={type}
-              />
-              {isPromoImage && promoImages[activeIndex]
-                && (
-                  <FigmaPrototype
-                    src={promoImages[activeIndex].url}
-                  />
-                )}
-            </div>
-          </Animated>
-        </div>
+        <Animated
+          delay={500}
+          {...REVEAL_ANIMATION_PROPS}
+        >
+          <div className={styles.imageContainer}>
+            <Illustration
+              src={imageSrc}
+              className={styles.image}
+              alt={type}
+            />
+            {isPromoImage && promoImages[activeIndex]
+              && (
+                <FigmaPrototype
+                  src={promoImages[activeIndex].url}
+                />
+              )}
+          </div>
+        </Animated>
       </div>
     </section>
   );
