@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import Illustration from 'UI/components/Illustration';
+import Svg from 'UI/components/Svg';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { useAppFeaturesItem } from './utils/useAppFeaturesItem';
@@ -19,6 +20,7 @@ const AppFeaturesItem = (props) => {
     currentIndex,
     handleOnClick,
     imagesUrl,
+    customIcon,
   } = useAppFeaturesItem(props);
 
   return (
@@ -53,6 +55,10 @@ const AppFeaturesItem = (props) => {
               key={`bundles-images/${imageUrl}`}
             />
           ))}
+          <Svg
+            type={customIcon || 'chevronDown'}
+            className={styles.expandIcon}
+          />
         </div>
         <Animated
           open={currentIndex === activeIndex}
