@@ -46,6 +46,7 @@ const ResultsSection = (props) => {
           )
           : (
             <Illustration
+              unoptimized
               transparent
               className={styles.prototype}
               src={prototypeUrl}

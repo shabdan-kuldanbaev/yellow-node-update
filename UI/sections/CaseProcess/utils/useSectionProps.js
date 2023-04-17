@@ -16,7 +16,7 @@ export default ({ data, type }) => {
   const steps = contentModules?.map(({ fields }) => {
     const {
       title: stepTitle,
-      subtitle,
+      subtitle: itemSubtitle,
       contentList,
       text,
     } = fields;
@@ -25,7 +25,7 @@ export default ({ data, type }) => {
 
     return {
       imageBundles,
-      subtitle,
+      itemSubtitle,
       text,
       title: stepTitle,
       icon: contentList?.[0],

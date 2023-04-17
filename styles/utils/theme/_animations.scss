@@ -433,3 +433,9 @@
     transform: translate(390px, 600px) scale(1);
   }
 }
+
+@keyframes cedar-bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-48px); }
+  100% { transform: translateY(0); }
+}

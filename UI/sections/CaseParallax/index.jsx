@@ -50,7 +50,7 @@ const CaseParallax = (props) => {
       >
         {bundleImages?.map((src, index) => (
           <Illustration
-            primary
+            priority
             unoptimized
             transparent
             src={src}
