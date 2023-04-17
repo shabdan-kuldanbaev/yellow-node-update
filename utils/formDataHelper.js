@@ -11,18 +11,20 @@ export async function sendFormData(req, res) {
     const {
       name,
       email,
-      // phone,
+      phone,
       description,
       projectBudget,
       attachments,
       clientId,
     } = req.body;
 
+    const concatDescription = `${description} [Phone number: ${phone}]`;
+
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
     // formData.append('phone', phone);
-    formData.append('description', description);
+    formData.append('description', concatDescription);
     formData.append('client_id', clientId);
     formData.append('client_ip', getClientIp(req));
 
