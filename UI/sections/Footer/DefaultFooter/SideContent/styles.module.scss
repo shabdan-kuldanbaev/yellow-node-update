@@ -17,7 +17,6 @@
     @include fontSize(16px, 150%);
 
     color: $gray400;
-    opacity: 0.7;
     margin: 16px 0 32px;
 
     @include phone {
@@ -40,5 +39,9 @@
         height: 39px;
       }
     }
+  }
+
+  @include tablet {
+    max-width: none;
   }
 }
