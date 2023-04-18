@@ -5,8 +5,10 @@ import CardContainer from 'UI/containers/CardContainer';
 import SectionTitle from 'UI/components/SectionTitle';
 import Selector from 'UI/components/Selector';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import FigmaPrototype from 'components/Common/FigmaPrototype';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+import Illustration from '../../components/Illustration';
 
 const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
@@ -42,7 +44,12 @@ const TabsSection = (props) => {
           onSelectedIndexChange={onChangeActiveTab}
         />
         <CardContainer className={styles.card}>
-          {tabs?.map(({ text, link, texts }, index) => (
+          {tabs?.map(({
+            text,
+            link,
+            texts,
+            content,
+          }, index) => (
             <div
               key={`card/${index}`}
               className={cn(styles.cardWrapper, {
@@ -50,12 +57,31 @@ const TabsSection = (props) => {
               })}
             >
               <div className={styles.cardText}>
-                {tabsHaveContentInBlocks ? texts.map((txt, i) => (
+                {tabsHaveContentInBlocks ? content.map(({
+                  text: blockText,
+                  imageUrl,
+                  prototypeUrl,
+                  deviceFrameSrc,
+                }, i) => (
                   <div
                     key={`cardText/${i}`}
-                    className={styles.cardTextColumn}
+                    className={cn(styles.cardTextColumn, styles[`cardTextColumn-${i + 1}`])}
                   >
-                    <ContentfulParser document={txt} />
+                    {imageUrl && (
+                      <Illustration
+                        src={imageUrl}
+                        className={styles.blockImage}
+                        alt={type}
+                      />
+                    )}
+                    {prototypeUrl
+                      && (
+                        <FigmaPrototype
+                          src={prototypeUrl}
+                          deviceFrameSrc={deviceFrameSrc}
+                        />
+                      )}
+                    {blockText && <ContentfulParser document={blockText} />}
                   </div>
                 )) : (
                   <div
