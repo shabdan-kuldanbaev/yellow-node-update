@@ -27,9 +27,11 @@ const useProps = ({
   } = useForm({ reValidateMode: 'onBlur' });
 
   const handleButtonClick = handleSubmit(async (values) => {
-    await subscribe({ ...values, pathname: query });
+    const {
+      data: { isSubscribed: isSubscribedResult },
+    } = await subscribe({ ...values, pathname: query });
 
-    if (isSubscribed) {
+    if (isSubscribedResult) {
       downloadFile(downloadLink);
     }
   });
