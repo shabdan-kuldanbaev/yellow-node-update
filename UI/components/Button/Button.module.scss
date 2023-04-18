@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 
 .button {
   @include fontSize(16px, 24px);
@@ -13,18 +13,17 @@
   box-sizing: border-box;
   border-radius: 5px;
   padding: 16px 32px;
-  height: 56px;
+  min-height: 56px;
   user-select: none;
   text-decoration: none;
-  transition: 
+  transition:
     background-color 0.1s ease-in-out,
     color 0.1s ease-in-out,
     transform 0.15s ease-in-out,
     border-color 0.2s ease-in-out;
-  
+
   &:hover {
     background: $yellow300;
-
     cursor: pointer;
     transform: scale(0.95);
   }
