@@ -1,4 +1,9 @@
-import { ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
+import {
+  PHONE_NUMBER,
+  PLACEMENT_DATA,
+  SOCIAL_MEDIA,
+} from 'utils/constants/contacts';
 
 export const mainContent = [
   {
@@ -129,22 +134,22 @@ export const mainContent = [
 export const addresses = [
   {
     title: 'In USA',
-    text: '44 Tehama St San Francisco, \n CA 94105',
-    pathText: '+1 (302) 213-37-98',
-    path: 'tel:+14156709070',
+    text: PLACEMENT_DATA.USA.join('\n'),
+    pathText: PHONE_NUMBER.us,
+    path: `tel:${PHONE_NUMBER.us}`,
     type: 'phone',
   },
   {
     title: 'In Argentina',
-    text: 'Av. Corrientes 1312,\n C1043 ABN \n Buenos Aires',
+    text: PLACEMENT_DATA.Argentina.join('\n'),
   },
   {
     title: 'In Poland',
-    text: 'Warszawa 00-8P55 \n Grzybowska 62',
+    text: PLACEMENT_DATA.Poland.join('\n'),
   },
   {
     title: 'In Israel',
-    text: 'Ahad Ha’Am 9 \n Tel Aviv',
+    text: PLACEMENT_DATA.Israel.join('\n'),
   },
 ];
 
@@ -171,35 +176,4 @@ export const companyLinks = [
   },
 ];
 
-export const socialMedia = [
-  {
-    title: 'LinkedIn',
-    type: SVG_IMAGES_TYPES.linkedinFilledWhite,
-    link: 'https://www.linkedin.com/company/yellow-systems',
-  },
-  {
-    title: 'Twitter',
-    type: SVG_IMAGES_TYPES.twitterFilledWhite,
-    link: 'https://mobile.twitter.com/yellow_systems',
-  },
-  {
-    title: 'Dribble',
-    type: SVG_IMAGES_TYPES.dribbbleFilledWhite,
-    link: 'https://dribbble.com/yellow_systems',
-  },
-  {
-    title: 'Behance',
-    type: SVG_IMAGES_TYPES.behanceFilledWhite,
-    link: 'https://www.behance.net/yellow_systems',
-  },
-  {
-    title: 'YouTube',
-    type: SVG_IMAGES_TYPES.youtubeFilledWhite,
-    link: 'https://www.youtube.com/@yellowsystems9900',
-  },
-  {
-    title: 'Instagram',
-    type: SVG_IMAGES_TYPES.instagramFilledWhite,
-    link: 'https://www.instagram.com/yellow.systems/',
-  },
-];
+export const socialMedia = Object.values(SOCIAL_MEDIA).filter((item) => item.id !== 'medium');

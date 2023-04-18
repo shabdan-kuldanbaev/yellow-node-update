@@ -271,50 +271,6 @@ export const HOMEPAGE_SECTION_TYPES = {
   feedback: 'feedback',
 };
 
-export const CONTACTS_DATA = {
-  email: 'hi@yellow.systems',
-  telephoneNumbers: [
-    '+1 (302) 213-37-98',
-    '+375 (29) 311-52-49',
-  ],
-  city: 'Minsk',
-  country: 'Belarus',
-  postalCode: '220030',
-  streetAddress: '5-303 Nemiga street',
-  socialMedia: [
-    {
-      title: 'LinkedIn',
-      type: 'linkedInOultined',
-      link: 'https://www.linkedin.com/company/yellow-systems',
-    },
-    {
-      title: 'Twitter',
-      type: 'twitterOutlined',
-      link: 'https://mobile.twitter.com/yellow_systems',
-    },
-    {
-      title: 'Behance',
-      type: 'behanceOutlined',
-      link: 'https://www.behance.net/yellow_systems',
-    },
-    {
-      title: 'Medium',
-      type: 'mediumOutlined',
-      link: 'https://yellow.medium.com/',
-    },
-    {
-      title: 'Instagram',
-      type: 'instagramOutlined',
-      link: 'https://www.instagram.com/yellow.systems/',
-    },
-    {
-      title: 'YouTube',
-      type: 'youtubeOutlined',
-      link: 'https://www.youtube.com/@yellowsystems9900',
-    },
-  ],
-};
-
 export const DEFAULT_DATE_FORMAT = 'MMMM D, YYYY';
 
 export const HEADER_HEIGHT = 66;
@@ -678,8 +634,6 @@ export const INDEX_FILES = [
   '/index.html',
   '/index.php',
 ];
-
-export const EMAIL_LINK = 'hi@yellow.systems';
 
 export const VALUABLE_ARTICLE_CATEGORIES_SLUGS = [
   'fintech',

@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import { useFetchPageQuery } from 'redux/apis/page';
+import { EMAIL_LINK } from 'utils/constants/contacts';
 import { getFooterProps } from './utils/propsHelper';
 import { socialNetworks } from './utils/data';
 import styles from './styles.module.scss';
@@ -55,7 +56,7 @@ const CaseStudiesFooter = ({
             Not sure where to start?
           </p>
           <LinkWrapper
-            path="mailto:hi@yellow.systems"
+            path={`mailto:${EMAIL_LINK}`}
             className={styles.link}
             isLocalLink
             googleAnalyticProps={{
@@ -63,14 +64,14 @@ const CaseStudiesFooter = ({
               data: 'Email',
             }}
           >
-            hi@yellow.systems
+            {EMAIL_LINK}
           </LinkWrapper>
         </div>
         <div>
           {socialNetworks.map(({
             name,
             href,
-            iconType,
+            iconDark: iconType,
           }) => (
             <LinkWrapper
               key={`networks/${name}`}
