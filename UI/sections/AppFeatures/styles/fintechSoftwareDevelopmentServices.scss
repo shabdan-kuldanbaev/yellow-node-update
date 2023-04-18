@@ -14,25 +14,37 @@
 
   .container {
     justify-content: space-between;
+    grid-gap: 80px;
 
     .imageContainer {
-      max-width: 863px;
+      position: relative;
+      max-width: 584px;
+      width: 100%;
 
       @include tablet {
-        max-width: 100%;
+        margin: 0 auto;
       }
     }
 
     .image {
-      transform: scale(1.43) translate(110px, 50px);
+      position: absolute;
+      left: 0;
+      width: 863px;
+      height: 614px;
 
       @include tablet {
-        transform: unset;
+        position: static;
+        height: 400px;
+      }
+
+      @include phone {
+        height: 244px;
       }
     }
 
     @include tablet {
       flex-direction: column;
+      grid-gap: 24px;
     }
   }
 }

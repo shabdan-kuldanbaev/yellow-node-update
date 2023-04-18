@@ -6,6 +6,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
+import { ANIMATION_CASE_STUDY_PROPS } from '../../../components/CaseStudiesCommon/utils/data';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 const AppFeaturesItem = dynamic(() => import('UI/components/AppFeaturesItem'));
@@ -59,7 +60,7 @@ const AppFeatures = (props) => {
         </div>
         <Animated
           delay={500}
-          {...REVEAL_ANIMATION_PROPS}
+          {...ANIMATION_CASE_STUDY_PROPS}
         >
           <div className={styles.imageContainer}>
             <Illustration

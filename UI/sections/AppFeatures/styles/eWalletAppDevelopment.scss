@@ -3,6 +3,15 @@
 
   background: $gray50;
 
+  .titleWrapper {
+    margin: 0 0 32px;
+    max-width: 540px;
+
+    @include tablet {
+      margin: 0 auto 24px;
+    }
+  }
+
   [data-title] {
     @include phone {
       text-align: center;
@@ -12,34 +21,21 @@
   .container {
     @include flex(row, space-between, flex-start);
 
-    div:last-child {
-      max-width: 584px;
-    }
+    grid-gap: 80px;
 
     @include tablet {
-      flex-direction: column;
-    }
-  }
+      @include flex(column);
 
-  .description {
-    width: 100%;
-    max-width: unset;
+      grid-gap: 24px;
+    }
   }
 
   .sectionContainer {
-    min-width: 584px;
+    max-width: 584px;
+    width: 100%;
 
     @include tablet {
-      min-width: unset;
-    }
-  }
-
-  .imageWrapper {
-    margin-top: 17px;
-
-    @include tablet {
-      margin-top: 24px;
-      width: 95vw;
+      max-width: unset;
     }
   }
 
@@ -48,8 +44,7 @@
     height: 600px;
 
     @include tablet {
-      margin-left: 50%;
-      transform: translate(-50%, 0%);
+      margin: 0 auto;
     }
   }
 
