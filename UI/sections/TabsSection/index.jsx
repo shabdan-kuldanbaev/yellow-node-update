@@ -6,9 +6,9 @@ import SectionTitle from 'UI/components/SectionTitle';
 import Selector from 'UI/components/Selector';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import FigmaPrototype from 'components/Common/FigmaPrototype';
+import Illustration from 'UI/components/Illustration';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
-import Illustration from '../../components/Illustration';
 
 const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
