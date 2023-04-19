@@ -1,6 +1,12 @@
 .discovery-phase-services {
-  .titleStyle [data-second-title] {
-    @include fontSize(24px, 130%);
+  .titleStyle {
+    [data-subtitle] {
+      margin: 0 auto 24px;
+    }
+
+    [data-second-title] {
+      @include fontSize(24px, 130%);
+    }
   }
 
   .imagesList {
