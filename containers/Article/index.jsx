@@ -14,7 +14,6 @@ import { useGetArticleQuery } from 'redux/apis/blog';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
-import { microdata } from 'utils/microdata';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { getArticleProps } from './utils/propsHelper';
 
@@ -46,8 +45,8 @@ const ArticleContainer = ({
     return null;
   }
 
-  const { slug: prevArticleSlug } = olderArticle;
-  const { slug: nextArticleSlug } = newerArticle;
+  // const { slug: prevArticleSlug } = olderArticle;
+  // const { slug: nextArticleSlug } = newerArticle;
 
   const {
     slug: articleSlug,
@@ -75,7 +74,8 @@ const ArticleContainer = ({
     slug: articleSlug,
     url: `${rootUrl}${asPath}`,
   };
-  const articleMicrodata = microdata.article({
+
+  const articleData = {
     metaTitle,
     title,
     publishedAt,
@@ -83,7 +83,7 @@ const ArticleContainer = ({
     headImage,
     articleBody: oldBody || documentToPlainTextString(body),
     author,
-  });
+  };
   const breadcrumbs = getBreadcrumbs(PAGES.article, { title, slug: articleSlug });
 
   const handleOnFormSubmit = (email) => {
@@ -100,8 +100,8 @@ const ArticleContainer = ({
         page={PAGES.article}
         isArticle
         pageMetadata={articleMetadata}
-        pageMicrodata={articleMicrodata}
         breadcrumbs={breadcrumbs}
+        articleData={articleData}
       />
       <FullLayout>
         <PageHeader

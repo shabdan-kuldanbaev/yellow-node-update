@@ -26,7 +26,7 @@ export const mainContent = [
       },
       {
         subtitle: 'iOS app development',
-        path: ROUTES.developmentServices.path,
+        path: ROUTES.iosDevelopmentServices.path,
         type: 'navigation',
       },
       {

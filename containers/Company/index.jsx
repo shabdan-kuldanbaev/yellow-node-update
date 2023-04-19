@@ -6,7 +6,6 @@ import PageHeader from 'components/Common/PageHeader';
 import { BLOCKS_SLUGS, PAGES, ROUTES } from 'utils/constants';
 import { findBlock, getDocumentFields, rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { microdata } from 'utils/microdata';
 import { useFetchPageQuery } from 'redux/apis/page';
 import styles from './styles.module.scss';
 
@@ -39,7 +38,6 @@ const CompanyContainer = ({ type }) => {
       <MetaTags
         page={PAGES.company}
         pageMetadata={pageMetadata}
-        pageMicrodata={microdata.company()}
         breadcrumbs={breadcrumbs}
       />
       <main className={styles.main}>

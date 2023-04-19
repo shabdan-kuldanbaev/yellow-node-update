@@ -93,7 +93,7 @@ export const NAV_LINKS = [
     routes.discoveryPhase.slug,
     routes.erpDevelopment.slug,
     routes.designServices.slug,
-    routes.developmentServices.slug,
+    routes.iosDevelopmentServices.slug,
     routes.androidDevelopmentServices.slug,
     routes.cloudDevelopment.slug,
     routes.mvpDevelopment.slug,
@@ -374,7 +374,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
-  ROUTES.developmentServices.path,
+  ROUTES.iosDevelopmentServices.path,
   ROUTES.fintechDevelopment.path,
   ROUTES.erpDevelopment.path,
   ROUTES.mvpDevelopment.path,
@@ -391,7 +391,7 @@ export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
 export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.homepage.path,
   ROUTES.customWebApp.path,
-  ROUTES.developmentServices.path,
+  ROUTES.iosDevelopmentServices.path,
   ROUTES.androidDevelopmentServices.path,
   ROUTES.mvpDevelopment.path,
   ROUTES.cloudDevelopment.path,
@@ -461,7 +461,7 @@ export const SUB_NAVIGATION_LINKS = {
       {
         title: 'iOS app development services',
         subtitle: 'Native apps for iPhones and iPads',
-        slug: ROUTES.developmentServices.path,
+        slug: ROUTES.iosDevelopmentServices.path,
       },
       {
         title: 'Cloud-based app development services',
