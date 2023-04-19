@@ -7,7 +7,7 @@ import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
 import { useFetchPageQuery } from 'redux/apis/page';
-import { getServicePageInfo } from './utils/servicePageHelper';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'), { ssr: false });
@@ -23,7 +23,7 @@ const CustomServiceContainer = ({
 
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
-  const { pageMicrodata, breadcrumbs } = getServicePageInfo(type);
+  const breadcrumbs = getBreadcrumbs(type);
   const pageMetadata = { ...metaData, url: `${rootUrl}/${type}` };
 
   const breadcrumbsTheme = PAGES_WITH_DARK_BREADCRUMBS.includes(type) ? 'dark' : null;
@@ -39,7 +39,6 @@ const CustomServiceContainer = ({
       <MetaTags
         page={type}
         pageMetadata={pageMetadata}
-        pageMicrodata={pageMicrodata}
         breadcrumbs={breadcrumbs}
       />
       <div className={cn(styles.container, styles[type])}>

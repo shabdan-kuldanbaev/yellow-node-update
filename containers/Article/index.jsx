@@ -6,10 +6,8 @@ import MetaTags from 'components/Common/MetaTags';
 import Article from 'components/BlogCommon/Article';
 import SubscribeBlock from 'components/Common/SubscribeBlock';
 import FullLayout from 'components/Layout/FullLayout';
-import NextPrev from 'components/BlogCommon/Article/NextPrev';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
-import RelatedSection from 'components/BlogCommon/Article/RelatedSection';
 import PageNotFound from 'containers/PageNotFound';
 import FAQ from 'UI/containers/FAQ';
 import { useGetArticleQuery } from 'redux/apis/blog';
@@ -17,9 +15,8 @@ import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSend
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { microdata } from 'utils/microdata';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { getArticleProps } from './utils/propsHelper';
-import styles from './styles.module.scss';
 
 const ArticleContainer = ({
   introSection,
@@ -87,7 +84,7 @@ const ArticleContainer = ({
     articleBody: oldBody || documentToPlainTextString(body),
     author,
   });
-  const breadcrumbs = pagesBreadcrumbs.article(title, articleSlug);
+  const breadcrumbs = getBreadcrumbs(PAGES.article, { title, slug: articleSlug });
 
   const handleOnFormSubmit = (email) => {
     if (isSubscribeLoading) {
@@ -100,7 +97,7 @@ const ArticleContainer = ({
   return (
     <>
       <MetaTags
-        page={PAGES.blog}
+        page={PAGES.article}
         isArticle
         pageMetadata={articleMetadata}
         pageMicrodata={articleMicrodata}

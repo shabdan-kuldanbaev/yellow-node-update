@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import HomeIntro from 'UI/sections/HomeIntro';
 import MetaTags from 'components/Common/MetaTags';
 import { PAGES } from 'utils/constants';
-import { microdata } from 'utils/microdata';
 
 const SectionSelector = dynamic(() => import('containers/Home/SectionSelector'));
 
@@ -22,7 +21,6 @@ export const Home = ({
       <MetaTags
         page={PAGES.homepage}
         pageMetadata={pageMetadata}
-        pageMicrodata={microdata.homepage()}
       />
       <HomeIntro
         theme={theme}

@@ -14,7 +14,7 @@ import { useGetArticlesListQuery } from 'redux/apis/blog';
 import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
 import { rootUrl } from 'utils/helper';
 import { PAGES, ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
 import useToggle from 'hooks/useToggle';
 import { categoriesMetaData } from './utils/data';
 import { findCategoryBySlug, findTagBySlug } from './utils/blogContainerHelper';
@@ -47,7 +47,7 @@ const BlogContainer = ({
   const category = findCategoryBySlug(categoriesMetaData, slug);
 
   const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
-  const breadcrumbs = pagesBreadcrumbs.blog(slug, tagsList);
+  const breadcrumbs = getBreadcrumbs(PAGES.blog, { slug, tagsList });
   const pageMetadata = {
     ...metaData,
     url: `${rootUrl}/${PAGES.blog}`,
