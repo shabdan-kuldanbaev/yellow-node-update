@@ -9,6 +9,7 @@ export default ({
   className,
   isBudgetSlider,
   type,
+  extraDescription,
 }) => {
   const [sendForm, { isSuccess, isLoading, isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
 
@@ -42,6 +43,7 @@ export default ({
       medium: sourceMetrics?.medium,
       attachments,
       projectBudget: budget || '',
+      description: extraDescription ? `${values.description} ${extraDescription}` : values.description,
     });
 
     if (isSuccess) {
@@ -51,6 +53,7 @@ export default ({
         name: '',
         email: '',
         description: '',
+        phone: '',
       });
     }
   });

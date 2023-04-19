@@ -17,9 +17,8 @@ import { EventSection } from 'components/CaseStudiesCommon/EventSection';
 import CaseStudyOverlayProcess from 'components/CaseStudiesCommon/CaseStudyOverlayProcess';
 import CaseStudyPrototype from 'components/CaseStudiesCommon/CaseStudyPrototype';
 import { CASE_STUDIES_TYPES, REFACTORED_CASE_STUDIES_PAGES } from 'utils/constants';
-// Refactored section, remove old after
-import CaseFeedback from 'UI/sections/CaseFeedback';
 
+// Refactored section, remove old after
 const IntroRefactored = dynamic(() => import('UI/sections/CaseStudiesIntro'));
 const ProjectIdeaRefactored = dynamic(() => import('UI/sections/ProjectIdea'));
 const ResultsSectionRefactored = dynamic(() => import('UI/sections/ResultsSection'));
@@ -35,6 +34,9 @@ const CaseFullScreenImages = dynamic(() => import('UI/sections/CaseFullScreenIma
 const CaseEvent = dynamic(() => import('UI/sections/CaseEvent'));
 const CaseStudiesStory = dynamic(() => import('UI/sections/CaseStudiesStory'));
 const CaseProcess = dynamic(() => import('UI/sections/CaseProcess'));
+const CasePrototype = dynamic(() => import('UI/sections/CasePrototype'));
+const CaseFeedback = dynamic(() => import('UI/sections/CaseFeedback'));
+const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
 
 const CaseStudiesCommon = (props) => {
   if (REFACTORED_CASE_STUDIES_PAGES.includes(props.type)) {
@@ -73,6 +75,15 @@ const CaseStudiesCommon = (props) => {
       return <CaseStudiesStory {...props} />;
     case CASE_STUDIES_TYPES.process:
       return <CaseProcess {...props} />;
+    case CASE_STUDIES_TYPES.prototype:
+      return <CasePrototype {...props} />;
+    case 'cards-with-overlay':
+      return (
+        <CardsSection
+          {...props}
+          withOverlay
+        />
+      );
     default:
       return null;
     }

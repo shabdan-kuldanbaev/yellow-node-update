@@ -1,0 +1,17 @@
+@import 'styles/utils/mixins';
+
+.styledSelect {
+  &::before {
+    border-bottom: 1px solid $gray300 !important;
+  }
+}
+
+.label {
+  &[data-shrink="true"] {
+    display: none;
+  }
+}
+
+.menu {
+  background-color: red;
+}

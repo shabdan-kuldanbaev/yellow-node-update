@@ -34,7 +34,9 @@ export const REFACTORED_CASE_STUDIES_PAGES = [
   'humankind',
   'cinnabar',
   'machine-learning-in-real-estate',
+  'mobile-bank-application',
   'software-for-mri-interpretation',
+  'cedar-valley-farms',
 ];
 
 export const SEARCH_ARTICLES_LIMIT = 50;
@@ -114,6 +116,7 @@ export const NAV_LINKS = [
     routes.cookiesPolicy.slug,
     routes.lendingSoftwareDevelopment.slug,
     routes.penetrationTesting.slug,
+    routes.softwareDevelopmentPrice.slug,
   ].includes(slug)),
 ];
 
@@ -162,6 +165,7 @@ export const FEEDBACK_FORM_FIELDS = {
   clientId: 'clientId',
   source: 'source',
   medium: 'medium',
+  phone: 'phone',
 };
 
 export const IMAGES = {
@@ -249,6 +253,7 @@ export const APP_DEVELOPMENT_TYPES = {
   appDevelopmentTableSection: 'app-development-table-section',
   feedback: 'feedback',
   parallax: 'case-study-parallax',
+  softwarePriceForm: 'software-price-form',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -301,6 +306,11 @@ export const CONTACTS_DATA = {
       title: 'Instagram',
       type: 'instagramOutlined',
       link: 'https://www.instagram.com/yellow.systems/',
+    },
+    {
+      title: 'YouTube',
+      type: 'youtubeOutlined',
+      link: 'https://www.youtube.com/@yellowsystems9900',
     },
   ],
 };
@@ -371,6 +381,7 @@ export const CASE_STUDIES = {
   balzano: 'software-for-mri-interpretation',
   cinnabar: 'cinnabar',
   mobileBankApplication: 'mobile-bank-application',
+  cedar: 'cedar-valley-farms',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -404,6 +415,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.writerChromeExtension).path,
   ROUTES.project.getRoute(CASE_STUDIES.telemojo).path,
   ROUTES.project.getRoute(CASE_STUDIES.smartcenter).path,
+  ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.developmentServices.path,
@@ -476,19 +488,14 @@ export const SUB_NAVIGATION_LINKS = {
   [NON_INTERACTIVE_LINKS.whatWeDo.slug]: {
     [SUB_NAVIGATION_KEYS.services]: [
       {
-        title: 'Mobile app development',
-        subtitle: 'Quality solutions for smartphones and tablets',
-        slug: ROUTES.customMobileApp.path,
-      },
-      {
         title: 'Web app development',
         subtitle: 'Your website will rock the stage',
         slug: ROUTES.customWebApp.path,
       },
       {
-        title: 'Crowdfunding Platform Development Company',
-        subtitle: 'Your website will rock the stage',
-        slug: ROUTES.customWebApp.path,
+        title: 'Mobile app development',
+        subtitle: 'Quality solutions for smartphones and tablets',
+        slug: ROUTES.customMobileApp.path,
       },
       {
         title: 'MVP development services',
@@ -531,13 +538,13 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.crossPlatformDevelopmentServices.path,
       },
       {
-        title: 'Penetration Testing as a Service',
+        title: 'Penetration testing as a service',
         subtitle: 'Make your software as safe as possible',
         slug: ROUTES.penetrationTesting.path,
       },
       {
-        title: 'PWA development services company',
-        subtitle: 'Web working as mobile.',
+        title: 'PWA development services',
+        subtitle: 'Web working as mobile',
         slug: ROUTES.pwaDevelopmentServices.path,
       },
     ],
@@ -570,29 +577,39 @@ export const SUB_NAVIGATION_LINKS = {
     ],
     [SUB_NAVIGATION_KEYS.fintech]: [
       {
-        title: 'Fintech software development Services',
+        title: 'Fintech software development services',
         subtitle: 'Build a successul fintech solution',
         slug: ROUTES.fintechDevelopment.path,
       },
       {
-        title: 'Custom Trading Platform Development',
+        title: 'Custom trading platform development',
         subtitle: 'The way to manage investments',
         slug: ROUTES.tradingSoftwareDevelopment.path,
       },
       {
-        title: 'Lending Software Development Company',
+        title: 'Lending software development',
         subtitle: 'Fast and secure lending process',
         slug: ROUTES.lendingSoftwareDevelopment.path,
       },
       {
-        title: 'E-Wallet App Development Company',
+        title: 'E-wallet app development',
         subtitle: 'Having full control over money',
         slug: ROUTES.eWalletAppDevelopment.path,
       },
       {
-        title: 'Banking Software Development Company',
+        title: 'Banking software development',
         subtitle: 'Digital banking all the way',
         slug: ROUTES.bankingSoftwareDevelopmentCompany.path,
+      },
+      {
+        title: 'Crowdfunding platform development',
+        subtitle: 'Make people’s dreams come true',
+        slug: ROUTES.crowdfundingPlatform.path,
+      },
+      {
+        title: 'Payment software gateway development',
+        subtitle: 'Making fast and secure payments',
+        slug: ROUTES.paymentGatewayDevelopment.path,
       },
     ],
   },
@@ -614,6 +631,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.tradingSoftwareDevelopment,
   PAGES.lendingSoftwareDevelopment,
   PAGES.penetrationTesting,
+  PAGES.softwareDevelopmentPrice,
   PAGES.eWalletAppDevelopment,
   PAGES.bankingSoftwareDevelopmentCompany,
   PAGES.deliveryQualityInYellow,

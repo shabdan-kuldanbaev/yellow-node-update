@@ -50,9 +50,19 @@
   }
 }
 
+.expandIcon {
+  transition: 0.5s;
+  flex: 0 0 24px;
+  height: 24px;
+
+  path {
+    fill: $gray400;
+  }
+}
+
 .sectionActiveItem {
-  .imageBundle {
-    transition: 0.5s;
+  .imageBundle,
+  .expandIcon {
     transform: rotate(180deg);
   }
 }

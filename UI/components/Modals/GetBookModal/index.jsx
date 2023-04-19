@@ -16,6 +16,7 @@ const GetBookModal = (props) => {
     bookCover,
     buttonText,
     isSubscribed,
+    downloadLink,
   } = useProps(props);
 
   return (
@@ -34,6 +35,7 @@ const GetBookModal = (props) => {
           <GetBookForm
             isOpen={show}
             buttonText={buttonText}
+            downloadLink={downloadLink}
           />
         )}
         {isSubscribed && (

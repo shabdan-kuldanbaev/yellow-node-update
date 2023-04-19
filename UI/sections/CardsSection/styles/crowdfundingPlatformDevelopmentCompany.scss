@@ -1,6 +1,9 @@
 .crowdfunding-platform-development-company {
-  :global(.swiper-slide) {
-    height: 100%;
+  .callToAction {
+    max-width: $default-content-width;
+    margin: 48px auto 0;
+    background: $gray50;
+    border: none;
   }
 
   &.firstSectionView {
@@ -77,10 +80,6 @@
   }
 
   &.thirdSectionView {
-    :global(.swiper) {
-      padding-bottom: 80px;
-    }
-
     [data-title],
     [data-description] {
       max-width: 680px;

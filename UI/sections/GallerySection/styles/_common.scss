@@ -18,6 +18,11 @@
   @include appDevelopmentContainer;
 
   background-color: $gray0;
+  padding: 120px 0;
+
+  @include below-tablet {
+    padding: 30px 0;
+  }
 }
 
 .slider {

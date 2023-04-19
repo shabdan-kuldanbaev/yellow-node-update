@@ -10,6 +10,7 @@ const useProps = ({
   return ({
     isSubscribed,
     show,
+    downloadLink,
     ...props,
   });
 };

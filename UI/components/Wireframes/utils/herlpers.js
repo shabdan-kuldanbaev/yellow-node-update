@@ -62,12 +62,14 @@ export const IMAGE_SIZES = {
     default: 480,
   },
   'software-for-mri-interpretation': 630,
-  'mobile-bank-application': 500,
   'fusion-markets': {
     default: 440,
   },
   'machine-learning-in-real-estate': {
     sixthSectionView: 480,
+  },
+  'mobile-bank-application': {
+    default: 586,
   },
 };
 
@@ -107,5 +109,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   'machine-learning-in-real-estate': {
     sixthSectionView: 240,
+  },
+  'mobile-bank-application': {
+    default: 550,
   },
 };

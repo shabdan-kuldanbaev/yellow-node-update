@@ -12,6 +12,7 @@ const ImagesSection = (props) => {
     data,
     type,
     title,
+    subtitle,
     description,
     imagesUrl,
   } = useImageSection(props);
@@ -31,6 +32,7 @@ const ImagesSection = (props) => {
       ))}
       <SectionTitle
         title={title}
+        subtitle={subtitle}
         description={description}
         type={type}
         titleStyle={styles.titleStyle}

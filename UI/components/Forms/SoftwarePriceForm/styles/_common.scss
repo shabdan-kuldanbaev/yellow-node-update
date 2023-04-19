@@ -1,0 +1,72 @@
+.softwarePriceForm {
+  @include flex(column, initial, center);
+
+  max-width: 100%;
+  width: 100%;
+  padding: 40px 60px;
+  border: 1px solid $gray200;
+  border-radius: 10px;
+
+  @include phone {
+    width: initial;
+    padding: 32px 16px;
+  }
+
+  .title {
+    margin: 0 0 24px;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+  }
+
+  .listTitle {
+    margin: 0 0 8px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .list {
+    @include flex(column, center, center);
+
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+
+    .listItem {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      color: $gray900;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $yellow500;
+      }
+    }
+  }
+
+  .form {
+    @include flex(column);
+
+    width: 100%;
+
+    .select {
+      margin-bottom: 32px;
+    }
+  }
+
+  .button {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+}

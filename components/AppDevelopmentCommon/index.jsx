@@ -25,6 +25,7 @@ const Parallax = dynamic(() => import('components/CaseStudiesCommon/Parallax'));
 const PageIntroSection = dynamic(() => import('UI/sections/PageIntroSection'));
 const PlainTextSection = dynamic(() => import('UI/sections/PlainTextSection'));
 const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
+const SoftwarePriceSection = dynamic(() => import('UI/sections/SoftwarePriceSection'));
 
 export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   const {
@@ -185,6 +186,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.feedback:
     return <FeedbackSection {...props} />;
+
+  case APP_DEVELOPMENT_TYPES.softwarePriceForm:
+    return <SoftwarePriceSection {...props} />;
 
   default:
     return null;
