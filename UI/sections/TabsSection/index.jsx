@@ -78,7 +78,6 @@ const TabsSection = (props) => {
                       && (
                         <FigmaPrototype
                           src={prototypeUrl}
-                          deviceFrameSrc="images/common/devices/Iphone.png"
                         />
                       )}
                     {blockText && <ContentfulParser document={blockText} />}
