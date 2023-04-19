@@ -1,0 +1,7 @@
+.discovery-phase-services {
+  &.secondSectionView {
+    :global(.swiper-wrapper) {
+      justify-content: center;
+    }
+  }
+}

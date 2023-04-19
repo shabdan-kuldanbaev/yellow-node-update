@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 
 export const useSelector = ({
+  view,
   type,
   displayNames,
   selectedIndex,
@@ -12,6 +13,7 @@ export const useSelector = ({
   );
 
   return {
+    view,
     type,
     displayNames,
     selectedIndex,

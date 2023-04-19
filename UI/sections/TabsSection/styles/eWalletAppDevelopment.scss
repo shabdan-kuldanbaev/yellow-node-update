@@ -31,16 +31,16 @@
     margin-bottom: 48px;
   }
 
-  .card {
+  .cardContainer {
     background-color: transparent;
     border: none;
     padding: 0;
   }
 
-  .cardText {
+  .cardContent {
     display: block;
 
-    & .cardTextColumn {
+    & .contentBlock {
       max-width: unset;
     }
   }

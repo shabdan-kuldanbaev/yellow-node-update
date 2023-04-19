@@ -6,6 +6,7 @@ import styles from './styles.module.scss';
 
 const Selector = (props) => {
   const {
+    view,
     type,
     displayNames,
     selectedIndex,
@@ -13,7 +14,7 @@ const Selector = (props) => {
   } = useSelector(props);
 
   return (
-    <div className={cn(styles.wrapper, styles[type])}>
+    <div className={cn(styles.wrapper, styles[type], styles[view])}>
       <Swiper {...SELECTOR_SWIPER_PARAMS}>
         {displayNames?.map((name, i) => (
           <SwiperSlide

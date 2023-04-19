@@ -5,7 +5,6 @@ import CardContainer from 'UI/containers/CardContainer';
 import SectionTitle from 'UI/components/SectionTitle';
 import Selector from 'UI/components/Selector';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import FigmaPrototype from 'components/Common/FigmaPrototype';
 import Illustration from 'UI/components/Illustration';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
@@ -13,6 +12,7 @@ import styles from './styles.module.scss';
 const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 const Animated = dynamic(() => import('UI/containers/Animated'));
+const FigmaPrototype = dynamic(() => import('components/Common/FigmaPrototype'), { ssr: false });
 
 const TabsSection = (props) => {
   const {
@@ -38,12 +38,13 @@ const TabsSection = (props) => {
           titleStyle={styles.titleStyle}
         />
         <Selector
+          view={view}
           type={type}
           displayNames={displayNames}
           selectedIndex={activeTab}
           onSelectedIndexChange={onChangeActiveTab}
         />
-        <CardContainer className={styles.card}>
+        <CardContainer className={styles.cardContainer}>
           {tabs?.map(({
             text,
             link,
@@ -52,61 +53,68 @@ const TabsSection = (props) => {
           }, index) => (
             <div
               key={`card/${index}`}
-              className={cn(styles.cardWrapper, {
-                [styles.cardWrapperActive]: index === activeTab,
-              })}
+              className={cn(
+                styles.cardWrapper,
+                styles[`cardWrapper-${index + 1}`],
+                {
+                  [styles.cardWrapperActive]: index === activeTab,
+                },
+              )}
             >
-              <div className={styles.cardText}>
-                {tabsHaveContentInBlocks ? content.map(({
-                  text: blockText,
-                  imageUrl,
-                  prototypeUrl,
-                  imagesBundles,
-                }, i) => (
-                  <div
-                    key={`cardText/${i}`}
-                    className={cn(styles.cardTextColumn, styles[`cardTextColumn-${i + 1}`])}
-                  >
-                    {imageUrl && (
-                      <Illustration
-                        src={imageUrl}
-                        className={styles.blockImage}
-                        alt={type}
-                      />
-                    )}
-                    {prototypeUrl
-                      && (
-                        <FigmaPrototype
-                          src={prototypeUrl}
+              <Animated {...REVEAL_ANIMATION_PROPS}>
+                <div className={styles.cardContent}>
+                  {tabsHaveContentInBlocks ? content.map(({
+                    text: blockText,
+                    imageUrl,
+                    prototypeUrl,
+                    imagesBundles,
+                  }, i) => (
+                    <div
+                      key={`cardText/${i}`}
+                      className={cn(styles.contentBlock, styles[`contentBlock-${i + 1}`])}
+                    >
+                      {imageUrl && (
+                        <Illustration
+                          priority
+                          src={imageUrl}
+                          className={styles.blockImage}
+                          alt={type}
                         />
                       )}
-                    {blockText && <ContentfulParser document={blockText} />}
-                    {imagesBundles?.map((src, y) => (
-                      <Illustration
-                        key={y}
-                        src={src}
-                        className={cn(styles.imageBundle, styles[`imageBundle-${y + 1}`])}
-                        alt={type}
-                      />
-                    ))}
-                  </div>
-                )) : (
-                  <div
-                    key={`cardText/${index}`}
-                    className={styles.cardTextColumn}
-                  >
-                    <ContentfulParser document={text} />
-                  </div>
+                      {prototypeUrl && (
+                        <FigmaPrototype
+                          src={prototypeUrl}
+                          className={styles.blockPrototype}
+                        />
+                      )}
+                      {blockText && <ContentfulParser document={blockText} />}
+                      {imagesBundles?.map((src, y) => (
+                        <Illustration
+                          key={y}
+                          src={src}
+                          className={cn(styles.imageBundle, styles[`imageBundle-${y + 1}`])}
+                          alt={type}
+                        />
+                      ))}
+                    </div>
+                  )) : (
+                    <div
+                      key={`cardText/${index}`}
+                      className={styles.contentBlock}
+                    >
+                      <ContentfulParser document={text} />
+                    </div>
+                  )}
+                </div>
+                {link && (
+                  <CallToAction
+                    title={link.title}
+                    buttonTitle={link.buttonTitle}
+                    handleOnClick={handleOnCTAClick}
+                    className={styles.link}
+                  />
                 )}
-              </div>
-              {link && (
-                <CallToAction
-                  title={link.title}
-                  buttonTitle={link.buttonTitle}
-                  handleOnClick={handleOnCTAClick}
-                  className={styles.link}
-                />
-              )}
+              </Animated>
             </div>
           ))}
         </CardContainer>

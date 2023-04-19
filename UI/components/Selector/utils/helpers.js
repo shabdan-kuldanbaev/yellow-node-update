@@ -1,6 +1,7 @@
 import { FreeMode } from 'swiper';
 
 export const SELECTOR_SWIPER_PARAMS = {
+  cssMode: true,
   enabled: true,
   slidesPerView: 'auto',
   passiveListeners: true,
@@ -8,7 +9,6 @@ export const SELECTOR_SWIPER_PARAMS = {
   mousewheel: {
     forceToAxis: true,
   },
-  rewind: true,
   autoplay: {
     delay: 800,
     disableOnInteraction: false,
@@ -16,7 +16,6 @@ export const SELECTOR_SWIPER_PARAMS = {
   speed: 500,
   spaceBetween: 24,
   modules: [FreeMode],
-  loop: true,
   breakpoints: {
     768: {
       spaceBetween: 48,
