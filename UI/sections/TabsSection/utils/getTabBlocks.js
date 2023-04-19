@@ -10,12 +10,12 @@ export default (data = []) => data?.map((tabSection) => {
     'contentModules',
   ]);
 
-  const texts = contentModules.map(({ fields }) => (fields.text));
-  const content = contentModules.map((module) => {
+  const texts = contentModules?.map(({ fields }) => (fields.text));
+  const content = contentModules?.map((module) => {
     const {
       text,
       images,
-      imagesBundles,
+      imagesBundles: bundles,
       contentModules: extraModule,
     } = getDocumentFields(
       module,
@@ -28,14 +28,14 @@ export default (data = []) => data?.map((tabSection) => {
     );
 
     const imageUrl = getFileUrl(images?.[0]);
-    const deviceFrameSrc = getFileUrl(imagesBundles?.[0]);
+    const imagesBundles = bundles?.map((file) => getFileUrl(file));
     const { url: prototypeUrl } = getDocumentFields(get(extraModule, '[0]'), ['url']);
 
     return {
       text,
       imageUrl,
       prototypeUrl,
-      deviceFrameSrc,
+      imagesBundles,
     };
   });
 

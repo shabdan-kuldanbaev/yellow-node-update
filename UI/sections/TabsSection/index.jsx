@@ -61,7 +61,7 @@ const TabsSection = (props) => {
                   text: blockText,
                   imageUrl,
                   prototypeUrl,
-                  deviceFrameSrc,
+                  imagesBundles,
                 }, i) => (
                   <div
                     key={`cardText/${i}`}
@@ -78,10 +78,18 @@ const TabsSection = (props) => {
                       && (
                         <FigmaPrototype
                           src={prototypeUrl}
-                          deviceFrameSrc={deviceFrameSrc}
+                          deviceFrameSrc="images/common/devices/Iphone.png"
                         />
                       )}
                     {blockText && <ContentfulParser document={blockText} />}
+                    {imagesBundles?.map((src, y) => (
+                      <Illustration
+                        key={y}
+                        src={src}
+                        className={cn(styles.imageBundle, styles[`imageBundle-${y + 1}`])}
+                        alt={type}
+                      />
+                    ))}
                   </div>
                 )) : (
                   <div
