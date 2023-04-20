@@ -3,6 +3,7 @@ import { PAGES } from 'utils/constants';
 import FullLayout from 'components/Layout/FullLayout';
 import ImageSection from 'UI/sections/ImageSection';
 import CompanyPlacementWithMap from 'UI/sections/CompanyPlacementWithMap';
+import PageHeader from 'UI/components/PageHeader';
 import useContactUsProps from './utils/useContactUsProps';
 
 const ContactUs = (props) => {
@@ -20,11 +21,11 @@ const ContactUs = (props) => {
         breadcrumbs={breadcrumbs}
       />
       <FullLayout disableOverflowHiding>
-        {/* <PageHeader
+        <PageHeader
           breadcrumbs={breadcrumbs}
           breadcrumbsTheme="dark"
         />
-        <div className={styles.pageIntro}>
+        {/* <div className={styles.pageIntro}>
           <FeedbackFormWithTitle />
           <CompanyContacts />
         </div> */}

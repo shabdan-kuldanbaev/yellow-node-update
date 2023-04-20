@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import PageHeader from 'components/Common/PageHeader';
+import PageHeader from 'UI/components/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
