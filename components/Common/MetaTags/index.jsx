@@ -15,8 +15,8 @@ const MetaTags = ({
   isArticle,
 }) => {
   const {
-    metaTitle: title = defaultMetadata.title,
-    metaDescription: description = defaultMetadata.description,
+    metaTitle,
+    metaDescription,
     metaRobots,
     image,
     publishedAt,
@@ -30,12 +30,12 @@ const MetaTags = ({
   const microdata = getPageMicrodata(page, { breadcrumbs, articleData });
 
   const getTitle = () => (pageNumber > 1
-    ? `${title} | Page ${pageNumber}`
-    : title);
+    ? `${metaTitle || defaultMetadata.title} | Page ${pageNumber}`
+    : metaTitle || defaultMetadata.title);
 
   const getDescription = () => (pageNumber > 1
-    ? `${description} | Page ${pageNumber}`
-    : description);
+    ? `${metaDescription || defaultMetadata.description} | Page ${pageNumber}`
+    : metaDescription || defaultMetadata.description);
 
   const getImage = () => {
     if (ogImage) return ogImage;
@@ -47,21 +47,23 @@ const MetaTags = ({
 
   const date = isArticle ? publishedAt : new Date();
   const type = isArticle ? 'article' : 'website';
+  const title = getTitle();
+  const description = getDescription();
 
   const robots = !IS_PROD ? 'none' : metaRobots;
 
   return (
     // eslint-disable-next-line @next/next/no-script-component-in-head
     <Head>
-      <title>{getTitle()}</title>
-      <meta name="description" content={getDescription()} />
+      <title>{title}</title>
+      <meta name="description" content={description} />
       <meta name="date" content={date} />
       {robots && <meta name="robots" content={robots} />}
       <link rel="canonical" href={url} />
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content={type} />
-      <meta property="og:description" content={getDescription()} />
-      <meta property="og:title" content={getTitle()} />
+      <meta property="og:description" content={description} />
+      <meta property="og:title" content={title} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={getImage()} />
       {categoryTag && <meta property="article:section" content={categoryTag} />}
