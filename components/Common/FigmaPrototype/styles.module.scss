@@ -3,24 +3,24 @@
 .prototypeContainer {
   @include flex(row, center, center);
 
-  overflow: hidden;
   position: relative;
-  height: 600px !important;
-  width: 293px !important;
+  height: 573px !important;
+  width: 263px !important;
   user-select: none;
-  border-radius: 52px;
+  border-radius: 40px;
 
   .prototype {
-    margin: 0 -40px !important;
-    width: 362px !important;
-    height: 750px !important;
+    width: 263px !important;
+    height: 573px !important;
+    border-radius: 40px !important;
   }
 
   .deviceFrame {
     position: absolute;
-    left: -2px;
-    width: 101.5%;
-    height: 100%;
+    left: -15px;
+    top: -13px;
+    width: 293px;
+    height: 600px;
     pointer-events: none;
   }
 }

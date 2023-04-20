@@ -24,8 +24,8 @@ const FigmaPrototype = ({
       <iframe
         src={url}
         className={styles.prototype}
-        frameBorder="0"
         title="Figma prototype "
+        loading="lazy"
         seamless
       />
       <Illustration
