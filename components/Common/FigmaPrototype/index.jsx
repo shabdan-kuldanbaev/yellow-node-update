@@ -21,13 +21,15 @@ const FigmaPrototype = ({
 
   return (
     <div className={cn(styles.prototypeContainer, className)}>
-      <iframe
-        src={url}
-        className={styles.prototype}
-        title="Figma prototype "
-        loading="lazy"
-        seamless
-      />
+      <div className={styles.iframeContainer}>
+        <iframe
+          src={url}
+          className={styles.prototype}
+          title="Figma prototype "
+          loading="lazy"
+          seamless
+        />
+      </div>
       <Illustration
         src={deviceFrameSrc}
         className={styles.deviceFrame}

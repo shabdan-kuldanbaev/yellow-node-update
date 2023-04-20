@@ -1,26 +1,43 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/colors';
 
 .prototypeContainer {
   @include flex(row, center, center);
 
   position: relative;
-  height: 573px !important;
-  width: 263px !important;
+  width: 293px !important;
+  height: 600px !important;
   user-select: none;
-  border-radius: 40px;
+
+  .iframeContainer {
+    @include flex(row, center, center);
+
+    width: 264px !important;
+    height: 574px !important;
+    background-color: $gray900;
+    border-radius: 30px;
+    overflow: hidden;
+    user-select: none;
+  }
 
   .prototype {
+    @media (hover: hover) {
+      margin: -48px !important;
+      width: 427px !important;
+      height: 923px !important;
+    }
+
     width: 263px !important;
     height: 573px !important;
-    border-radius: 40px !important;
+    border: none !important;
   }
 
   .deviceFrame {
     position: absolute;
-    left: -15px;
-    top: -13px;
+    left: 0;
+    top: 0;
     width: 293px;
-    height: 600px;
+    height: 599px;
     pointer-events: none;
   }
 }
