@@ -5,7 +5,7 @@ import ModalWindow from 'components/Common/ModalWindow';
 import Typography from 'UI/components/Typography';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import LinkWrapper from 'UI/components/LinkWrapper';
-import { CONTACTS_DATA } from 'utils/constants';
+import { EMAIL_LINK } from 'utils/constants/contacts';
 import styles from './styles.module.scss';
 
 const FeedbackForm = dynamic(() => import('UI/components/Forms/FeedbackForm'), { ssr: false });
@@ -36,7 +36,7 @@ const FullScreenEstimation = ({
       >
         Fill in this form or
         {' '}
-        <LinkWrapper path={`mailto:${CONTACTS_DATA.email}`}>send us an e-mail</LinkWrapper>
+        <LinkWrapper path={`mailto:${EMAIL_LINK}`}>send us an e-mail</LinkWrapper>
       </Typography>
       {isFullscreenEstimation && (
         <FeedbackForm

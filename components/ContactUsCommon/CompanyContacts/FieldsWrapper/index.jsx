@@ -2,18 +2,17 @@ import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import { CONTACTS_DATA } from 'utils/constants';
+import {
+  EMAIL_LINK,
+  PHONE_NUMBER,
+  SOCIAL_MEDIA,
+} from 'utils/constants/contacts';
 import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 
 export const FieldsWrapper = ({ animated: { field } }) => {
   const { pathname } = useRouter();
-  const {
-    telephoneNumbers,
-    email,
-    socialMedia,
-  } = CONTACTS_DATA;
 
   switch (field) {
   case 'phones':
@@ -25,7 +24,7 @@ export const FieldsWrapper = ({ animated: { field } }) => {
   case 'phoneNumber':
     return (
       <div className={styles.phoneNumber}>
-        {telephoneNumbers && telephoneNumbers.map((telephoneNumber) => (
+        {Object.values(PHONE_NUMBER).map((telephoneNumber) => (
           <LinkWrapper
             key={`contacts/phone/${telephoneNumber}`}
             path={`tel:${telephoneNumber}`}
@@ -47,12 +46,12 @@ export const FieldsWrapper = ({ animated: { field } }) => {
     return (
       <div className={styles.email}>
         <LinkWrapper
-          key={`contacts/email/${email}`}
-          path={`mailto:${email}`}
+          key={`contacts/email/${EMAIL_LINK}`}
+          path={`mailto:${EMAIL_LINK}`}
           isLocalLink
           googleAnalyticProps={{ action: 'Click', data: 'Email' }}
         >
-          {email}
+          {EMAIL_LINK}
         </LinkWrapper>
       </div>
     );
@@ -65,28 +64,30 @@ export const FieldsWrapper = ({ animated: { field } }) => {
   case 'follow':
     return (
       <div className={styles.socialMediaList}>
-        {socialMedia && socialMedia.map(({
-          type,
-          title,
-          link,
-        }) => link && (
-          <LinkWrapper
-            key={`networks/${type}`}
-            path={link}
-            googleAnalyticProps={{
-              action: 'Click',
-              category: 'Social',
-              label: pathname,
-              data: title,
-            }}
-            isSocialLink
-          >
-            <Svg
-              type={type}
-              className={styles.svg}
-            />
-          </LinkWrapper>
-        ))}
+        {Object.values(SOCIAL_MEDIA)
+          .filter((item) => item.id !== 'dribbble')
+          .map(({
+            iconDark: type,
+            title,
+            link,
+          }) => link && (
+            <LinkWrapper
+              key={`networks/${type}`}
+              path={link}
+              googleAnalyticProps={{
+                action: 'Click',
+                category: 'Social',
+                label: pathname,
+                data: title,
+              }}
+              isSocialLink
+            >
+              <Svg
+                type={type}
+                className={styles.svg}
+              />
+            </LinkWrapper>
+          ))}
       </div>
     );
   default: null;

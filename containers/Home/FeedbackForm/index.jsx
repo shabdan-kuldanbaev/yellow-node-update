@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import FeedbackForm from 'components/Common/FeedbackForm';
 import SectionTitle from 'UI/components/SectionTitle';
+import { EMAIL_LINK } from 'utils/constants/contacts';
 import styles from './styles.module.scss';
 
 const FeedbackFormContainer = ({ type, titles, isChooseBudget }) => (
@@ -15,7 +16,7 @@ const FeedbackFormContainer = ({ type, titles, isChooseBudget }) => (
     >
       <p className={styles.linkText}>
         Fill in this form or
-        <a href="mailto:hi@yellow.systems">
+        <a href={`mailto:${EMAIL_LINK}`}>
           send us an e-mail
         </a>
       </p>

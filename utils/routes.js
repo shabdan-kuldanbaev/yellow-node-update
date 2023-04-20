@@ -239,7 +239,7 @@ export const routes = {
     dynamicPath: '/ui-ux-services',
     slug: 'ui-ux-services',
   },
-  developmentServices: {
+  iosDevelopmentServices: {
     title: 'iOS App Development Services',
     path: '/ios-mobile-app-development-services',
     dynamicPath: '/ios-mobile-app-development-services',

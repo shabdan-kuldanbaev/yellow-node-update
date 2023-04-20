@@ -3,7 +3,8 @@ import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Typography from 'UI/components/Typography';
-import { SVG_IMAGES_TYPES, EMAIL_LINK } from 'utils/constants';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
+import { EMAIL_LINK } from 'utils/constants/contacts';
 import { useCaseStudiesFooter } from './utils/useCaseStudiesFooter';
 import styles from './styles.module.scss';
 
@@ -62,14 +63,14 @@ const CaseStudiesFooter = (props) => {
               data: 'Email',
             }}
           >
-            hi@yellow.systems
+            {EMAIL_LINK}
           </LinkWrapper>
         </div>
         <div>
-          {socialNetworks?.map(({
+          {socialNetworks.map(({
             name,
             href,
-            iconType,
+            icon,
           }) => (
             <LinkWrapper
               key={`networks/${name}`}
@@ -82,7 +83,7 @@ const CaseStudiesFooter = (props) => {
               }}
               isSocialLink
             >
-              <Svg type={iconType} />
+              <Svg type={icon} />
             </LinkWrapper>
           ))}
         </div>

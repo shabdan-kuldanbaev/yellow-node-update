@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Illustration from 'UI/components/Illustration';
+import { EMAIL_LINK } from 'utils/constants/contacts';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -55,7 +56,7 @@ const FeedbackSection = (props) => {
                   Fill in this form or
                   <LinkWrapper
                     className={styles.link}
-                    path="mailto:hi@yellow.systems"
+                    path={`mailto:${EMAIL_LINK}`}
                   >
                     send us an e-mail
                   </LinkWrapper>

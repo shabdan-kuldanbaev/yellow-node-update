@@ -22,8 +22,8 @@ const SideContent = ({ socialMedia: socialMediaList }) => {
         your business to the top!
       </Typography>
       <div className={styles.socialMediaList}>
-        {socialMediaList && socialMediaList.map(({
-          type,
+        {socialMediaList.map(({
+          iconLight: type,
           title,
           link,
         }) => link && (

@@ -15,7 +15,7 @@ import {
   REVEAL_ANIMATION_PROPS,
   ROUTES,
 } from 'utils/constants';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { useFetchPageQuery } from 'redux/apis/page';
 import styles from './styles.module.scss';
 
@@ -32,7 +32,7 @@ const PortfolioContainer = ({
   const { data = {} } = useFetchPageQuery(type);
   const { subtitle } = data;
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const breadcrumbs = pagesBreadcrumbs.portfolio();
+  const breadcrumbs = getBreadcrumbs(PAGES.portfolio);
 
   const openFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(true), []);
   const closeFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(false), []);

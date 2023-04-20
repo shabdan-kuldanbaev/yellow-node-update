@@ -8,8 +8,7 @@ import {
 import { useFetchPageQuery } from 'redux/apis/page';
 import {
   CASES_BLACK_ICONS,
-  socialNetworksWhite,
-  socialNetworksBlack,
+  socialNetworks as socials,
 } from './data';
 
 export const useCaseStudiesFooter = ({
@@ -45,9 +44,11 @@ export const useCaseStudiesFooter = ({
 
   const footerStyle = footerBackgroundImage ? { backgroundImage: `url(${footerBackgroundImage})` } : {};
 
-  const socialNetworks = CASES_BLACK_ICONS.includes(type)
-    ? socialNetworksBlack
-    : socialNetworksWhite;
+  const socialNetworks = socials.map((item) => ({
+    name: item.title,
+    icon: CASES_BLACK_ICONS.includes(type) ? item.iconDark : item.iconLight,
+    href: item.link,
+  }));
 
   return {
     type,

@@ -1,5 +1,5 @@
 import { getDocumentFields, rootUrl } from 'utils/helper';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { useFetchPageQuery } from 'redux/apis/page';
 
 export default function useProps({
@@ -13,7 +13,7 @@ export default function useProps({
 
   const { text } = getDocumentFields(textModule, ['text']);
 
-  const breadcrumbs = pagesBreadcrumbs.technicalPage(type);
+  const breadcrumbs = getBreadcrumbs(type);
 
   const pageMetadata = {
     ...metaData,

@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import isEmpty from 'lodash/isEmpty';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import { microdata } from 'utils/microdata';
+import { getFaqMicrodata } from 'utils/microdata/utils';
 import styles from './styles.module.scss';
 
 const CollapseItem = dynamic(() => import('UI/components/CollapseItem'));
@@ -11,16 +10,15 @@ const CollapseItem = dynamic(() => import('UI/components/CollapseItem'));
 const FAQ = ({ faqList, isArticalPage }) => (
   <>
     <Head>
-      {!isEmpty(faqList) && (
-        <script
-          id="JSON-LD-faq"
-          key="JSON-LD-faq"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(microdata.faq({ faqList }, null, 2)),
-          }}
-        />
-      )}
+      {/* Somehow microdata doesnt work with next/script so use this instead */}
+      <script
+        id="JSON-LD-faq"
+        key="JSON-LD-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getFaqMicrodata({ faqList }), null, 2),
+        }}
+      />
     </Head>
     <div
       className={cn(
