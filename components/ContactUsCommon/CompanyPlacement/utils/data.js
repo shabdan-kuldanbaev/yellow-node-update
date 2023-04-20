@@ -1,23 +1,3 @@
-export const placementInfo = {
-  USA: [
-    '415 Mission Street',
-    'San Francisco',
-    '+1 (415) 670-90-70',
-  ],
-  Poland: [
-    'Warszawa 00-8P55',
-    'Grzybowska 62',
-  ],
-  Israel: [
-    'Ahad Ha’Am 9',
-    'Tel Aviv',
-  ],
-  Argentina: [
-    'Av. Corrientes 1312, C1043 ABN',
-    'Buenos Aires',
-  ],
-};
-
 export const markers = {
   USA: {
     lng: -122.398559,

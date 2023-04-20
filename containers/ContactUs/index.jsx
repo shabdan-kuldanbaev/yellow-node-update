@@ -13,8 +13,7 @@ import {
   getFileUrl,
   rootUrl,
 } from 'utils/helper';
-import { microdata } from 'utils/microdata';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
 import CompanyPlacement from 'components/ContactUsCommon/CompanyPlacement';
 import { useFetchPageQuery } from 'redux/apis/page';
 import styles from './styles.module.scss';
@@ -31,7 +30,7 @@ const ContactUsContainer = ({ introSection, type }) => {
 
   const { images: peoplePhotoContent } = getDocumentFields(peoplePhoto, ['images']);
   const peopleImageUrl = getFileUrl(get(peoplePhotoContent, '[0]', {}));
-  const breadcrumbs = pagesBreadcrumbs.contact();
+  const breadcrumbs = getBreadcrumbs(PAGES.contact);
   const pageMetadata = {
     ...metaData,
     url: `${rootUrl}/contact`,
@@ -42,7 +41,6 @@ const ContactUsContainer = ({ introSection, type }) => {
       <MetaTags
         page={PAGES.contact}
         pageMetadata={pageMetadata}
-        pageMicrodata={microdata.contact()}
         breadcrumbs={breadcrumbs}
       />
       <FullLayout

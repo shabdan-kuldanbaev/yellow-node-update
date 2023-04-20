@@ -5,6 +5,7 @@ import { rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { routes } from 'utils/routes';
 import { useFetchPageQuery } from 'redux/apis/page';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
 const CaseStudiesContainer = ({ introSection, slug }) => {
@@ -33,11 +34,19 @@ const CaseStudiesContainer = ({ introSection, slug }) => {
     ogImage,
   };
 
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DONT FORGET TO USE IT DURING RESOLVING MERGE CONFLICT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  const breadcrumbs = getBreadcrumbs(PAGES.project, {
+    slug,
+    title: pageTitle,
+  });
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DONT FORGET TO USE IT DURING RESOLVING MERGE CONFLICT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
   return (
     <>
       <MetaTags
         page={PAGES.portfolio}
         pageMetadata={projectMetadata}
+        breadcrumbs={breadcrumbs} // !!! AND HERE !!!
       />
       <main className={styles.main}>
         {contentModules?.map(({ fields, sys }) => (

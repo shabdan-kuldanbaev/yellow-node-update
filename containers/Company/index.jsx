@@ -5,8 +5,7 @@ import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'components/Common/PageHeader';
 import { BLOCKS_SLUGS, PAGES, ROUTES } from 'utils/constants';
 import { findBlock, getDocumentFields, rootUrl } from 'utils/helper';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
-import { microdata } from 'utils/microdata';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { useFetchPageQuery } from 'redux/apis/page';
 import styles from './styles.module.scss';
 
@@ -28,7 +27,7 @@ const CompanyContainer = ({ type }) => {
 
   const { contentModules: teamContent } = getDocumentFields(managementTeam, ['contentModules']);
   const { contentModules: specialThingsContent } = getDocumentFields(whatMakesSpecial, ['contentModules']);
-  const breadcrumbs = pagesBreadcrumbs.company();
+  const breadcrumbs = getBreadcrumbs(PAGES.company);
   const pageMetadata = {
     ...metaData,
     url: `${rootUrl}/company`,
@@ -39,7 +38,6 @@ const CompanyContainer = ({ type }) => {
       <MetaTags
         page={PAGES.company}
         pageMetadata={pageMetadata}
-        pageMicrodata={microdata.company()}
         breadcrumbs={breadcrumbs}
       />
       <main className={styles.main}>

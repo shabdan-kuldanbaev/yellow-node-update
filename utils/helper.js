@@ -77,7 +77,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.crowdfundingPlatform}`, updatedAt },
   { path: `/${PAGES.erpDevelopment}`, updatedAt },
   { path: `/${PAGES.designServices}`, updatedAt },
-  { path: `/${PAGES.developmentServices}`, updatedAt },
+  { path: `/${PAGES.iosDevelopmentServices}`, updatedAt },
   { path: `/${PAGES.mlDevelopment}`, updatedAt },
   { path: `/${PAGES.cloudDevelopment}`, updatedAt },
   { path: `/${PAGES.androidDevelopmentServices}`, updatedAt },

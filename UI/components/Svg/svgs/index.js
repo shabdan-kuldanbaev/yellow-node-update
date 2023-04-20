@@ -400,6 +400,7 @@ export const mediumFilledWhite = '/filled/mediumFilledWhite.svg';
 export const twitterFilledWhite = '/filled/twitterFilledWhite.svg';
 export const facebookFilledWhite = '/filled/facebookRoundWhite.svg';
 export const youtubeFilledWhite = '/filled/youtubeFilledWhite.svg';
+export const youtubeSocialFilled = '/filled/youtubeSocialFilled.svg';
 
 /* Filled Finance */
 export const bankNoteFilled = '/filled/bankNoteFilled.svg';

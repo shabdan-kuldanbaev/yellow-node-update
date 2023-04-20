@@ -7,6 +7,7 @@ import {
   YELLOW_LINK,
 } from 'containers/Signature/utils';
 import LinkWrapper from 'components/Common/LinkWrapper';
+import { SOCIAL_MEDIA } from 'utils/constants/contacts';
 import styles from './styles.module.scss';
 
 const SignatureGenerated = ({
@@ -104,7 +105,7 @@ const SignatureGenerated = ({
                 >
                   <LinkWrapper
                     isLocalLink={false}
-                    path="https://www.linkedin.com/company/yellow-systems/"
+                    path={SOCIAL_MEDIA.linkedin.link}
                   >
                     <img
                       src={images.linkedInImgUrl}
@@ -113,7 +114,7 @@ const SignatureGenerated = ({
                   </LinkWrapper>
                   <LinkWrapper
                     isLocalLink={false}
-                    path="https://www.instagram.com/yellow.systems/"
+                    path={SOCIAL_MEDIA.instagram.link}
                   >
                     <img
                       src={images.instagramImgUrl}
@@ -122,7 +123,7 @@ const SignatureGenerated = ({
                   </LinkWrapper>
                   <LinkWrapper
                     isLocalLink={false}
-                    path="https://twitter.com/yellow_systems"
+                    path={SOCIAL_MEDIA.twitter.link}
                   >
                     <img
                       src={images.twitterImgUrl}
