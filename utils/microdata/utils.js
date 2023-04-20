@@ -106,6 +106,10 @@ export function getFaqMicrodata({ faqList }) {
 }
 
 export function getBreadcrumbsMicrodata(breadcrumbsList = []) {
+  if (breadcrumbsList.length === 0) {
+    return null;
+  }
+
   const items = breadcrumbsList.map((breadcrumb, index) => ({
     '@type': 'ListItem',
     position: index + 1,

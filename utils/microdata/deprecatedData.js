@@ -12,7 +12,6 @@ export const deprecatedData = {
     We only bill for the time actually spent on work, so it's easy to manage the budget. No extra fees.`,
     image: logoUrl,
   },
-
   [ROUTES.penetrationTesting.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -21,7 +20,6 @@ export const deprecatedData = {
     + 'Yellow will provide you with penetration testing services.',
     image: logoUrl,
   },
-
   [ROUTES.customMobileApp.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -29,7 +27,6 @@ export const deprecatedData = {
     description: 'The best talents for Mobile App Development are here. Hire an experienced team to work on your idea.',
     image: logoUrl,
   },
-
   [ROUTES.iosDevelopmentServices.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -38,7 +35,6 @@ export const deprecatedData = {
     + 'iPad app, we are here to help.',
     image: logoUrl,
   },
-
   [ROUTES.androidDevelopmentServices.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -46,7 +42,6 @@ export const deprecatedData = {
     description: 'Yellow is ready to provide you with Android development services to bring your idea to life.',
     image: logoUrl,
   },
-
   [ROUTES.prototypingServices.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -54,7 +49,6 @@ export const deprecatedData = {
     description: 'Prototyping is an important stage in mobile app development. Complete it with Yellow!',
     image: logoUrl,
   },
-
   [ROUTES.customWebApp.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -63,7 +57,6 @@ export const deprecatedData = {
     + 'We are working with websites, PWAs, chatting applications, and landing pages.',
     image: logoUrl,
   },
-
   [ROUTES.crowdfundingPlatform.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -72,7 +65,6 @@ export const deprecatedData = {
     + 'High quality, realistic budget estimate, fast speed.',
     image: logoUrl,
   },
-
   [ROUTES.fintechDevelopment.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -81,7 +73,6 @@ export const deprecatedData = {
     + 'idea can take the slice of pie?',
     image: logoUrl,
   },
-
   [ROUTES.designServices.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -90,7 +81,6 @@ export const deprecatedData = {
     + 'software. Make mobile your app or website captivating with Yellow.',
     image: logoUrl,
   },
-
   [ROUTES.discoveryPhase.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -98,7 +88,6 @@ export const deprecatedData = {
     description: 'Discovery phase of a project is an important part of software development. '
     + 'Learn more about how Yellow runs a discovery phase to benefit your business.',
   },
-
   [ROUTES.eWalletAppDevelopment.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -106,7 +95,6 @@ export const deprecatedData = {
     description: 'Mobile e-wallet app development services for any industry and any business scale.',
     image: logoUrl,
   },
-
   [ROUTES.bankingSoftwareDevelopmentCompany.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -115,7 +103,6 @@ export const deprecatedData = {
     + 'development. Check out what we can do for you.',
     image: logoUrl,
   },
-
   [ROUTES.deliveryQualityInYellow.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -123,7 +110,6 @@ export const deprecatedData = {
     description: 'Delivery quality standards we follow to build a perfect project for YOU.',
     image: logoUrl,
   },
-
   [ROUTES.pwaDevelopmentServices.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -132,7 +118,6 @@ export const deprecatedData = {
     + 'apps that function smoothly on all devices.',
     image: logoUrl,
   },
-
   [ROUTES.paymentGatewayDevelopment.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -141,7 +126,6 @@ export const deprecatedData = {
       + 'solutions to enhance transaction security and accuracy. Read more about our services now.',
     image: logoUrl,
   },
-
   [ROUTES.crossPlatformDevelopmentServices.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -149,7 +133,6 @@ export const deprecatedData = {
     description: 'Your cross-platform application will rock the stage and Yellow is ready to make it happen.',
     image: logoUrl,
   },
-
   [ROUTES.devOpsDevelopment.slug]: {
     '@context': context,
     '@type': 'WebPage',

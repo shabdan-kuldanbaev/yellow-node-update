@@ -17,14 +17,18 @@ import {
 import { deprecatedData } from './deprecatedData';
 
 export function getPageMicrodata(page, { breadcrumbs, articleData } = {}) {
-  const breadcrumbsMicrodata = getBreadcrumbsMicrodata(breadcrumbs);
   const microdataArray = [
     // TODO: uncomment when deprecated data will be replaced
     // webpageMicrodata,
     websiteMicrodata,
     organisationMicrodata,
-    breadcrumbsMicrodata,
   ];
+
+  const breadcrumbsMicrodata = getBreadcrumbsMicrodata(breadcrumbs);
+
+  if (breadcrumbsMicrodata) {
+    microdataArray.push(breadcrumbsMicrodata);
+  }
 
   switch (page) {
   case ROUTES.homepage.slug:
