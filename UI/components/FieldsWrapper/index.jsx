@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import styles from 'UI/sections/Footer/DefaultFooter/MainContent/styles.module.scss';
 
 export const FieldsWrapper = ({
   type,
   path,
   subtitle,
+  className,
 }) => {
   switch (type) {
   case 'phone':
@@ -13,6 +13,7 @@ export const FieldsWrapper = ({
       <LinkWrapper
         path={path}
         isLocalLink
+        className={className}
         googleAnalyticProps={{
           action: 'Click',
           data: 'Phone',
@@ -21,24 +22,11 @@ export const FieldsWrapper = ({
         {subtitle}
       </LinkWrapper>
     );
-  case 'email':
-    return (
-      <LinkWrapper
-        path={path}
-        isLocalLink
-        googleAnalyticProps={{
-          action: 'Click',
-          data: 'Email',
-        }}
-        className={styles.email}
-      >
-        <span>{subtitle}</span>
-      </LinkWrapper>
-    );
   case 'navigation':
     return (
       <LinkWrapper
         path={path}
+        className={className}
         isLocalLink
       >
         {subtitle}

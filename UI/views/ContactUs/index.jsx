@@ -2,6 +2,7 @@ import MetaTags from 'components/Common/MetaTags';
 import { PAGES } from 'utils/constants';
 import FullLayout from 'components/Layout/FullLayout';
 import ImageSection from 'UI/sections/ImageSection';
+import CompanyPlacementWithMap from 'UI/sections/CompanyPlacementWithMap';
 import useContactUsProps from './utils/useContactUsProps';
 
 const ContactUs = (props) => {
@@ -26,8 +27,8 @@ const ContactUs = (props) => {
         <div className={styles.pageIntro}>
           <FeedbackFormWithTitle />
           <CompanyContacts />
-        </div>
-        <CompanyPlacement /> */}
+        </div> */}
+        <CompanyPlacementWithMap />
         <ImageSection
           section={peoplePhotoSection}
           type="contact"

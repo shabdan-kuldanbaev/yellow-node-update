@@ -6,15 +6,6 @@
   max-width: 630px;
   position: relative;
 
-  @include tablet {
-    height: 480px;
-    margin: 0 auto;
-  }
-
-  @include phone {
-    height: 274px;
-  }
-
   & > div {
     @include tablet {
       margin: 0 -40px;
@@ -30,12 +21,32 @@
     right: 15px;
     position: absolute;
 
+    & > div {
+      background: rgb($gray0, 0.7);
+      border-radius: 7px;
+    }
+
     button {
-      border: solid 1px $alabaster;
+      border: none;
 
       span {
-        background: $white;
+        background: none;
       }
     }
   }
+
+  @include tablet {
+    height: 480px;
+    margin: 0 auto;
+  }
+
+  @include phone {
+    height: 274px;
+  }
+}
+
+.marker > * {
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
 }

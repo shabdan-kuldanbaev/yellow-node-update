@@ -7,7 +7,6 @@ export default ({
   type,
   handleOnCTAClick,
 }) => {
-  console.log('🚀 ~ file: useSectionProps.js:10 ~ section:', section);
   const {
     title,
     description,

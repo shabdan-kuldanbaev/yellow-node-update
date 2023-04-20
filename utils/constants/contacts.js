@@ -96,8 +96,7 @@ export const PLACEMENT_DATA = {
     ADDRESS.il.addressLocality,
   ],
   Argentina: [
-    ADDRESS.ar.streetAddress,
-    ADDRESS.ar.postalCode,
+    `${ADDRESS.ar.streetAddress} ${ADDRESS.ar.postalCode}`,
     ADDRESS.ar.addressLocality,
   ],
 };

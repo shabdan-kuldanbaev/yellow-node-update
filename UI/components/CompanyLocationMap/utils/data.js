@@ -17,6 +17,8 @@ export const markers = {
   },
 };
 
-export const INITIAL_MAP_ZOOM = 0.3;
-export const INITIAL_MAP_LNG = -38.781234;
-export const INITIAL_MAP_LAT = 7.925781;
+export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+
+export const INITIAL_MAP_ZOOM = 1;
+export const INITIAL_MAP_LNG = -40.539046499999266;
+export const INITIAL_MAP_LAT = 17.515557952842894;
