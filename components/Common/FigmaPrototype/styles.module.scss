@@ -5,38 +5,22 @@
 
   overflow: hidden;
   position: relative;
-  height: 636px !important;
-  width: 313px !important;
-  border-radius: 46px;
+  height: 600px !important;
+  width: 293px !important;
   user-select: none;
+  border-radius: 52px;
 
-  @include phone {
-    border-radius: 0;
-  }
-}
-
-.prototype {
-  @media (hover: none) and (pointer: coarse) {
-    border-radius: 46px;
-    margin: 13px 40px !important;
-    width: 91.5% !important;
-    height: 96% !important;
+  .prototype {
+    margin: 0 -40px !important;
+    width: 362px !important;
+    height: 750px !important;
   }
 
-  margin: 50px -50px 0 !important;
-  width: 414px !important;
-  height: 860px !important;
-}
-
-.deviceFrame {
-  @media (hover: none) and (pointer: coarse) {
-    display: block;
+  .deviceFrame {
+    position: absolute;
+    left: -2px;
+    width: 101.5%;
+    height: 100%;
+    pointer-events: none;
   }
-
-  position: absolute;
-  display: none;
-  left: -2px;
-  width: 101.5%;
-  height: 100%;
-  pointer-events: none;
 }
