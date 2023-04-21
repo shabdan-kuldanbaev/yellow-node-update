@@ -1,0 +1,44 @@
+@import 'styles/utils/_mixins';
+
+.formAndContacts {
+  margin: 32px 103px 120px 0;
+
+  @include below-tablet {
+    margin: 32px 0 60px;
+  }
+}
+
+.formContainer {
+  max-width: 753px;
+}
+
+.formTitle {
+  [data-title] {
+    text-align: left;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+}
+
+.formSubtitle {
+  @include below-tablet {
+    text-align: center;
+  }
+}
+
+.formSubtitle,
+.formSubtitle a {
+  color: $gray400;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.form {
+  button {
+    align-self: start;
+  }
+}
