@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
+import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
-import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
-import { ANIMATION_CASE_STUDY_PROPS } from '../../../components/CaseStudiesCommon/utils/data';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 const AppFeaturesItem = dynamic(() => import('UI/components/AppFeaturesItem'));
