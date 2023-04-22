@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import dynamic from 'next/dynamic';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
+import PropTypes from 'prop-types';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
