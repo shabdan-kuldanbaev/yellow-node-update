@@ -1,15 +1,20 @@
-@import 'styles/utils/_mixins';
+@import 'styles/utils/mixins';
 
 .formAndContacts {
-  margin: 32px 103px 120px 0;
+  @include flex(row, space-between, flex-start);
+
+  margin: 32px 0 120px;
 
   @include tablet {
+    display: block;
     margin: 32px 0 60px;
   }
 }
 
 .formContainer {
+  flex: 1 1 auto;
   max-width: 753px;
+  margin-right: 103px;
 
   @include tablet {
     margin: 0 auto;
@@ -48,5 +53,17 @@
 
   @include tablet {
     margin: 0 auto;
+  }
+}
+
+.contacts {
+  flex: 0 0 auto;
+
+  @include tablet {
+    margin-top: 32px;
+
+    * {
+      text-align: center;
+    }
   }
 }

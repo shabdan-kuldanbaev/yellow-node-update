@@ -8,6 +8,7 @@ import FeedbackForm from 'UI/components/Forms/FeedbackForm';
 import SectionTitle from 'UI/components/SectionTitle';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import { EMAIL_LINK } from 'utils/constants/contacts';
+import Contacts from 'UI/components/Contacts';
 import useContactUsProps from './utils/useContactUsProps';
 import styles from './ContactUs.module.scss';
 
@@ -52,9 +53,12 @@ const ContactUs = (props) => {
               className={styles.form}
             />
           </div>
-          {/* <CompanyContacts /> */}
+
+          <Contacts className={styles.contacts} />
         </section>
+
         <CompanyPlacementWithMap />
+
         <ImageSection
           section={peoplePhotoSection}
           type="contact"
