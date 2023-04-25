@@ -1,0 +1,11 @@
+.e-wallet-app-development {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    @include below-tablet {
+      height: 310px;
+    }
+  }
+}
