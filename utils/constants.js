@@ -103,6 +103,7 @@ export const NAV_LINKS = [
     routes.pwaDevelopmentServices.slug,
     routes.lendingSoftwareDevelopment.slug,
     routes.paymentGatewayDevelopment.slug,
+    routes.billingSoftwareDevelopment.slug,
     routes.mlDevelopment.slug,
     routes.devOpsDevelopment.slug,
     routes.aiDevelopment.slug,
@@ -413,6 +414,7 @@ export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.bankingSoftwareDevelopmentCompany.path,
   ROUTES.deliveryQualityInYellow.path,
   ROUTES.paymentGatewayDevelopment.path,
+  ROUTES.billingSoftwareDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -593,6 +595,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.deliveryQualityInYellow,
   PAGES.crowdfundingPlatform,
   PAGES.paymentGatewayDevelopment,
+  PAGES.billingSoftwareDevelopment,
 ];
 
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
