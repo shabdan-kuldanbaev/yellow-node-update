@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
-import dynamic from 'next/dynamic';
-import Illustration from 'UI/components/Illustration';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
+import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
+import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
 
@@ -56,23 +57,24 @@ const AppFeatures = (props) => {
             />
           ))}
         </div>
-        <div className={styles.imageWrapper}>
-          <Animated delay={500}>
-            <div className={styles.imageContainer}>
-              <Illustration
-                src={imageSrc}
-                className={styles.image}
-                alt={type}
-              />
-              {isPromoImage && promoImages[activeIndex]
-                && (
-                  <FigmaPrototype
-                    src={promoImages[activeIndex].url}
-                  />
-                )}
-            </div>
-          </Animated>
-        </div>
+        <Animated
+          delay={500}
+          {...ANIMATION_CASE_STUDY_PROPS}
+        >
+          <div className={styles.imageContainer}>
+            <Illustration
+              src={imageSrc}
+              className={styles.image}
+              alt={type}
+            />
+            {isPromoImage && promoImages[activeIndex]
+              && (
+                <FigmaPrototype
+                  src={promoImages[activeIndex].url}
+                />
+              )}
+          </div>
+        </Animated>
       </div>
     </section>
   );

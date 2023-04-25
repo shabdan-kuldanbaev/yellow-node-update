@@ -32,15 +32,15 @@
     }
   }
 
-  .card {
+  .cardContainer {
     padding-top: 8px;
     padding-bottom: 0;
     border: none;
 
-    & .cardText {
+    & .cardContent {
       display: block;
 
-      & .cardTextColumn {
+      & .contentBlock {
         display: block;
         max-width: 980px;
       }

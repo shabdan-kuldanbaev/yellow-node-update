@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
-import { getSwiperParams } from './helpers';
 
 export const useSelector = ({
+  view,
   type,
   displayNames,
   selectedIndex,
@@ -12,10 +12,9 @@ export const useSelector = ({
     [onSelectedIndexChange],
   );
 
-  const swiperParams = getSwiperParams(type);
-
   return {
-    swiperParams,
+    view,
+    type,
     displayNames,
     selectedIndex,
     handleSelectedIndexChange,
