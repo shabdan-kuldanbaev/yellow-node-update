@@ -38,11 +38,11 @@ const ContactUs = (props) => {
             >
               <p className={styles.formSubtitle}>
                 Fill in this form or
+                {' '}
                 <LinkWrapper
                   // className={styles.link}
                   path={`mailto:${EMAIL_LINK}`}
                 >
-                  {' '}
                   send us an e-mail
                 </LinkWrapper>
               </p>

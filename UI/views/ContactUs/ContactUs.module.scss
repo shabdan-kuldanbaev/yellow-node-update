@@ -3,27 +3,31 @@
 .formAndContacts {
   margin: 32px 103px 120px 0;
 
-  @include below-tablet {
+  @include tablet {
     margin: 32px 0 60px;
   }
 }
 
 .formContainer {
   max-width: 753px;
+
+  @include tablet {
+    margin: 0 auto;
+  }
 }
 
 .formTitle {
   [data-title] {
     text-align: left;
 
-    @include below-tablet {
+    @include tablet {
       text-align: center;
     }
   }
 }
 
 .formSubtitle {
-  @include below-tablet {
+  @include tablet {
     text-align: center;
   }
 }
@@ -40,5 +44,9 @@
 .form {
   button {
     align-self: start;
+  }
+
+  @include tablet {
+    margin: 0 auto;
   }
 }
