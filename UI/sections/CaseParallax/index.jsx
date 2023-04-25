@@ -11,9 +11,7 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CaseParallax = (props) => {
   const {
-    title,
-    subtitle,
-    description,
+    sectionTitles,
     imageUrl,
     bundleImages,
     contentList,
@@ -22,12 +20,7 @@ const CaseParallax = (props) => {
 
   return (
     <section className={className}>
-      <SectionTitle
-        title={title}
-        subtitle={subtitle}
-        description={description}
-        titleStyle={styles.titleStyle}
-      >
+      <SectionTitle {...sectionTitles}>
         {!!contentList.length
           && (
             <Animated
