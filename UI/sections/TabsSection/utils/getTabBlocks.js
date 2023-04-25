@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { getDocumentFields, getImage } from 'utils/helper';
 
 export default (data = []) => data?.map((tabSection) => {
   const {
@@ -27,8 +27,8 @@ export default (data = []) => data?.map((tabSection) => {
       ],
     );
 
-    const imageUrl = getFileUrl(images?.[0]);
-    const imagesBundles = bundles?.map((file) => getFileUrl(file));
+    const [imageUrl] = (images || []).map(getImage);
+    const imagesBundles = (bundles || []).map(getImage);
     const { url: prototypeUrl } = getDocumentFields(get(extraModule, '[0]'), ['url']);
 
     return {

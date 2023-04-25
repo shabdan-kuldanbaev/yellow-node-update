@@ -45,10 +45,9 @@ const TabsSection = (props) => {
           onSelectedIndexChange={onChangeActiveTab}
         />
         <CardContainer className={styles.cardContainer}>
-          {tabs?.map(({
+          {tabs.map(({
             text,
             link,
-            texts,
             content,
           }, index) => (
             <div
@@ -76,9 +75,9 @@ const TabsSection = (props) => {
                       {imageUrl && (
                         <Illustration
                           priority
-                          src={imageUrl}
+                          src={imageUrl.url}
                           className={styles.blockImage}
-                          alt={type}
+                          alt={imageUrl.alt}
                         />
                       )}
                       {prototypeUrl && (
@@ -88,12 +87,12 @@ const TabsSection = (props) => {
                         />
                       )}
                       {blockText && <ContentfulParser document={blockText} />}
-                      {imagesBundles?.map((src, y) => (
+                      {imagesBundles?.map((file, y) => (
                         <Illustration
                           key={y}
-                          src={src}
+                          src={file.url}
                           className={cn(styles.imageBundle, styles[`imageBundle-${y + 1}`])}
-                          alt={type}
+                          alt={file.alt}
                         />
                       ))}
                     </div>
