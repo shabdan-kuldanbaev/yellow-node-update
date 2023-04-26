@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import MailchimpTransactional from '@mailchimp/mailchimp_transactional';
-import { CONTACTS_DATA } from './constants';
+import { EMAIL_LINK } from './constants/contacts';
 import { handleError } from './error';
 
 dotenv.config('./env');
@@ -15,7 +15,7 @@ export async function sendAutoReplyEmail(email) {
       template_content: [],
       message: {
         to: [{ email }],
-        from_email: CONTACTS_DATA.email,
+        from_email: EMAIL_LINK,
         from_name: 'Yellow Systems',
         subject: 'Thanks for contacting Yellow Systems!',
       },
