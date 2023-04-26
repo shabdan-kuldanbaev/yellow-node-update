@@ -30,6 +30,8 @@ const Selector = (props) => {
         {displayNames?.map((name, i) => (
           <div
             key={name}
+            role="tab"
+            tabIndex={0}
             className={cn(styles.item, { [styles.selected]: i === selectedIndex })}
             onClick={handleSelectedIndexChange(i)}
           >
