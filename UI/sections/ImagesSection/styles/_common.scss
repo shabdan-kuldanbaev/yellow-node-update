@@ -2,10 +2,6 @@
   padding: 120px 0;
   background-color: $gray0;
 
-  .secondDescription {
-    display: none;
-  }
-
   .titleStyle {
     @include phone {
       margin: 0 auto 24px;
