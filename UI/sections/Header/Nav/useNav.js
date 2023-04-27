@@ -16,8 +16,6 @@ export const useNav = ({
   const navRef = useRef(null);
 
   const openDropDownMenu = (slug) => {
-    console.log('Work');
-
     if (isHeader && isHasSubNavigation(slug)) {
       dispatch(desktopMenuOpened(true));
     } else if (isHeader && isHasSubSmallNavigation(slug)) {
@@ -36,8 +34,6 @@ export const useNav = ({
   );
 
   const handleOnClick = (slug) => () => {
-    console.log('Work handleOnClick');
-
     if (isDropMenuOpened) {
       closeDropDownMenu();
     } else if (isSmallDropMenuOpened) {

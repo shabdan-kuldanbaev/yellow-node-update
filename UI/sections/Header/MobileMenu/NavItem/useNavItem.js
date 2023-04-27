@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { isHasSubNavigation } from 'helpers/navigation';
+import { isHasSubNavigation, isHasSubSmallNavigation } from 'helpers/navigation';
 
 export const useNavItem = ({
   slug,
@@ -11,7 +11,7 @@ export const useNavItem = ({
   closeMenu,
 }) => {
   const [isSubMenuExpanded, setIsMSubMenuExpanded] = useState(false);
-  const isLinkHasSubNavigation = isHasSubNavigation(slug);
+  const isLinkHasSubNavigation = isHasSubNavigation(slug) || isHasSubSmallNavigation(slug);
 
   const handleOnArrowClick = () => setIsMSubMenuExpanded(!isSubMenuExpanded);
   const handleOnTitleClick = () => {
