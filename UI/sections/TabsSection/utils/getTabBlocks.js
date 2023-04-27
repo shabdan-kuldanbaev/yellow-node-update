@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { getDocumentFields } from 'utils/helper';
+import { getDocumentFields, getImage } from 'utils/helper';
 
 export default (data = []) => data?.map((tabSection) => {
   const {
@@ -10,12 +10,41 @@ export default (data = []) => data?.map((tabSection) => {
     'contentModules',
   ]);
 
-  const texts = contentModules.map(({ fields }) => (fields.text));
+  const texts = contentModules?.map(({ fields }) => (fields.text));
+  const content = contentModules?.map((module) => {
+    const {
+      text,
+      images,
+      imagesBundles: bundles,
+      contentModules: extraModule,
+    } = getDocumentFields(
+      module,
+      [
+        'text',
+        'images',
+        'imagesBundles',
+        'contentModules',
+      ],
+    );
+
+    const [imageUrl] = (images || []).map(getImage);
+    const imagesBundles = (bundles || []).map(getImage);
+    const { url: prototypeUrl } = getDocumentFields(get(extraModule, '[0]'), ['url']);
+
+    return {
+      text,
+      imageUrl,
+      prototypeUrl,
+      imagesBundles,
+    };
+  });
+
   const link = getDocumentFields(get(contentModules, '[2]'));
 
   return {
     tabTitle,
     texts,
+    content,
     link,
   };
 });

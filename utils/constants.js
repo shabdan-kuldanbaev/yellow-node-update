@@ -3,42 +3,6 @@
 
 import { routes } from 'utils/routes';
 
-// TODO: After refactoring all pages, remove this variable and check for pages
-export const REFACTORED_CASE_STUDIES_PAGES = [
-  'stickerbox',
-  'fireaway',
-  'tell',
-  'fairy',
-  'seven-pm-thursday',
-  'fernwayer',
-  'drive-focus',
-  'hotel-data-cloud',
-  'open-sense',
-  'separate-us',
-  'famlicious',
-  'natp',
-  'cash-chat',
-  'travel-trivia',
-  'ubichat',
-  'writer-chrome-extension',
-  'meateater',
-  'bionorica',
-  'marketplace-for-clairvoyant-services',
-  'fusion-markets',
-  'smartcenter',
-  'beautonomy',
-  'telemojo',
-  'blackbird',
-  'fintech-app-for-credit-score',
-  'dindon',
-  'humankind',
-  'cinnabar',
-  'machine-learning-in-real-estate',
-  'mobile-bank-application',
-  'software-for-mri-interpretation',
-  'cedar-valley-farms',
-];
-
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 3;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
@@ -298,6 +262,7 @@ export const CASE_STUDIES_TYPES = {
   prototype: 'case-study-prototype',
   feedback: 'feedback',
   process: 'case-study-process',
+  cardsWithOverlay: 'cards-with-overlay',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {

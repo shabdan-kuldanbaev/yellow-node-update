@@ -9,12 +9,14 @@ export default ({
   const {
     title,
     description,
+    subtitle,
     contentModules,
     view,
   } = useMemo(() => getDocumentFields(
     section,
     [
       'title',
+      'subtitle',
       'description',
       'contentModules',
       'view',
@@ -25,10 +27,18 @@ export default ({
 
   const imagesUrl = images?.map((image) => getFileUrl(image));
 
+  const {
+    subtitle: secondSubtitle,
+    title: secondTitle,
+  } = getDocumentFields(get(contentModules, '[0]', []));
+
   return {
     title,
     description,
     imagesUrl,
+    secondSubtitle,
+    secondTitle,
+    subtitle,
     view,
     type,
   };

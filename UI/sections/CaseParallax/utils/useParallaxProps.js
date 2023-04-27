@@ -6,8 +6,18 @@ import styles from '../styles.module.scss';
 export default ({ data, type }) => {
   const {
     images,
+    title,
+    subtitle,
+    description,
     ...rest
   } = data;
+
+  const sectionTitles = {
+    title,
+    subtitle,
+    description,
+    titleStyle: styles.titleStyle,
+  };
 
   const imageUrl = getFileUrl(get(images, '[0]', {}));
   const subContent = get(data, 'contentModules[0]', null);
@@ -23,6 +33,7 @@ export default ({ data, type }) => {
     contentList,
     className,
     bundleImages,
+    sectionTitles,
     ...rest,
   };
 };
