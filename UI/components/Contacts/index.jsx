@@ -13,7 +13,7 @@ function Contacts({ className }) {
         size={TYPOGRAPHY_SIZE.paragrapgh16}
         className={styles.contactHeadline}
       >
-        Phone:
+        Phones:
       </Typography>
 
       <LinkWrapper
@@ -27,13 +27,6 @@ function Contacts({ className }) {
           {PHONE_NUMBER.us}
         </Typography>
       </LinkWrapper>
-
-      <Typography
-        size={TYPOGRAPHY_SIZE.paragrapgh16}
-        className={styles.contactHeadline}
-      >
-        Email:
-      </Typography>
 
       <LinkWrapper
         path={`mailto:${EMAIL_LINK}`}

@@ -31,20 +31,21 @@ const ContactUs = (props) => {
           breadcrumbs={breadcrumbs}
           breadcrumbsTheme="dark"
         />
+        <SectionTitle
+          title="Got a project in mind?"
+          titleStyle={styles.formTitle}
+        >
+          <p className={styles.formSubtitle}>
+            Fill in this form or
+            {' '}
+            <LinkWrapper path={`mailto:${EMAIL_LINK}`}>
+              send us an e-mail
+            </LinkWrapper>
+          </p>
+        </SectionTitle>
+
         <section className={styles.formAndContacts}>
           <div className={styles.formContainer}>
-            <SectionTitle
-              title="Got a project in mind?"
-              titleStyle={styles.formTitle}
-            >
-              <p className={styles.formSubtitle}>
-                Fill in this form or
-                {' '}
-                <LinkWrapper path={`mailto:${EMAIL_LINK}`}>
-                  send us an e-mail
-                </LinkWrapper>
-              </p>
-            </SectionTitle>
             <FeedbackForm
               isBudgetSlider
               className={styles.form}

@@ -22,8 +22,11 @@
 }
 
 .formTitle {
+  margin: 32px 0 0;
+
   [data-title] {
     text-align: left;
+    margin: 0;
 
     @include tablet {
       text-align: center;
@@ -48,7 +51,11 @@
 
 .form {
   button {
-    align-self: start;
+    align-self: start !important;
+
+    @include tablet {
+      align-self: center !important;
+    }
   }
 
   @include tablet {
