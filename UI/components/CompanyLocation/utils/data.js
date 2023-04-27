@@ -21,3 +21,10 @@ export const addresses = [
     text: PLACEMENT_DATA.Israel,
   },
 ];
+
+export const addressesForContactUs = [
+  addresses[0],
+  addresses[2],
+  addresses[3],
+  addresses[1],
+];

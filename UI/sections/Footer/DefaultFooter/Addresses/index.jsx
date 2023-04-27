@@ -1,5 +1,6 @@
 import Typography from 'UI/components/Typography';
 import CompanyLocation from 'UI/components/CompanyLocation';
+import { addresses } from 'UI/components/CompanyLocation/utils/data';
 import styles from './styles.module.scss';
 
 const Addresses = () => (
@@ -12,6 +13,7 @@ const Addresses = () => (
     </Typography>
 
     <CompanyLocation
+      addresses={addresses}
       containerClass={styles.container}
       itemClass={styles.item}
     />

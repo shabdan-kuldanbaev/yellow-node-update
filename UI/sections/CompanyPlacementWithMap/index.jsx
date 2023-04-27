@@ -3,6 +3,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import CompanyLocation from 'UI/components/CompanyLocation';
 import Map from 'UI/components/CompanyLocationMap';
+import { addressesForContactUs } from 'UI/components/CompanyLocation/utils/data';
 import styles from './CompanyPlacementWithMap.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
@@ -17,6 +18,7 @@ const CompanyPlacementWithMap = () => (
 
       <Animated {...REVEAL_ANIMATION_PROPS}>
         <CompanyLocation
+          addresses={addressesForContactUs}
           itemClass={styles.address}
           containerClass={styles.addressesContainer}
         />

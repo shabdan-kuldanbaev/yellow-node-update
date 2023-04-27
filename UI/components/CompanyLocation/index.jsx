@@ -2,15 +2,15 @@ import cn from 'classnames';
 import { FieldsWrapper } from 'UI/components/FieldsWrapper';
 import Typography from 'UI/components/Typography';
 import styles from 'CompanyLocation.module.scss';
-import { addresses } from './utils/data';
 
 const CompanyLocation = ({
+  addresses,
   containerClass,
   itemClass,
 }) => (
   <div className={cn(styles.container, containerClass)}>
     {
-      addresses?.map(({
+      addresses.map(({
         title,
         text,
         path,
