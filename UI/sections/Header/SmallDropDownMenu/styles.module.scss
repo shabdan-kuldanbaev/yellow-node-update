@@ -1,0 +1,41 @@
+@import 'styles/utils/sizes';
+@import 'styles/utils/mixins';
+
+.smallDropDownMenu {
+  position: absolute;
+  top: calc(100% - 20px);
+  max-width: 265px;
+  padding: 24px;
+  background-color: $gray900;
+  color: $gray0;
+  z-index: -1;
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0.2s, opacity 0.3s ease;
+  border: 1px solid $gray600;
+  border-radius: 5px;
+
+  .container {
+    @include flex(column);
+
+    max-width: max-content;
+
+    & > div {
+      &:not(:last-child) {
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
+
+.pageScrolling,
+.lightTheme {
+  background-color: $gray0;
+  border: 1px solid $gray200;
+}
+
+.closed {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.4s, opacity 0.5s ease;
+}

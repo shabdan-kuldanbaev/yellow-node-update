@@ -34,6 +34,10 @@ export const NON_INTERACTIVE_LINKS = {
     title: 'What we do',
     slug: 'what-we-do',
   },
+  aboutCompany: {
+    title: 'Company',
+    slug: 'about-company',
+  },
 };
 
 export const TAGS_TYPE = {
@@ -46,6 +50,7 @@ export const NAV_LINKS = [
   ...Object.values(NON_INTERACTIVE_LINKS),
   ...Object.values(routes).filter(({ slug }) => slug && ![
     routes.homepage.slug,
+    routes.process.slug,
     routes.article.slug,
     routes.project.slug,
     routes.notFound.slug,
@@ -80,7 +85,7 @@ export const NAV_LINKS = [
     routes.cookiesPolicy.slug,
     routes.lendingSoftwareDevelopment.slug,
     routes.penetrationTesting.slug,
-    routes.softwareDevelopmentPrice.slug,
+    routes.company.slug,
   ].includes(slug)),
 ];
 
@@ -534,9 +539,23 @@ export const SUB_NAVIGATION_LINKS = {
       },
     ],
   },
+  [NON_INTERACTIVE_LINKS.aboutCompany.slug]: [
+    {
+      title: 'About us',
+      subtitle: '',
+      slug: ROUTES.company.path,
+    },
+    {
+      title: 'Delivery Quality Standards',
+      subtitle: '',
+      slug: ROUTES.deliveryQualityInYellow.path,
+    },
+  ],
 };
 
 export const LINKS_WITH_SUB_NAVIGATION = [NON_INTERACTIVE_LINKS.whatWeDo.slug];
+
+export const LINKS_WITH_SUB_SMALL_NAVIGATION = [NON_INTERACTIVE_LINKS.aboutCompany.slug];
 
 export const ARTICLE_TABLE_TYPES = {
   simpleTable: 'Simple table',

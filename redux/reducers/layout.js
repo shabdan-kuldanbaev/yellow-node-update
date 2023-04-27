@@ -10,6 +10,7 @@ const initialState = {
   isPageReadyToDisplay: false,
   isFirstPageLoaded: false,
   isDropMenuOpened: false,
+  isSmallDropMenuOpened: false,
 };
 
 const layoutSlice = createSlice({
@@ -35,6 +36,7 @@ const layoutSlice = createSlice({
 
     // Menus
     desktopMenuOpened: setRawPayload('isDropMenuOpened'),
+    desktopSmallMenuOpened: setRawPayload('isSmallDropMenuOpened'),
     mobileMenuOpened: setRawPayload('isMobileMenuOpened'),
     mobileCategoriesOpened: setRawPayload('isMobileCategotiesOpened'),
 
@@ -48,6 +50,7 @@ export const {
   tabletResolutionSet,
   desktopResolutionSet,
   desktopMenuOpened,
+  desktopSmallMenuOpened,
   mobileMenuOpened,
   mobileCategoriesOpened,
   firstPageLoaded,

@@ -1,8 +1,8 @@
 import { useRef, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsDropMenuOpened } from 'redux/selectors/layout';
-import { isHasSubNavigation } from 'helpers/navigation';
-import { desktopMenuOpened } from 'redux/reducers/layout';
+import { selectIsDropMenuOpened, selectIsSmallDropMenuOpened } from 'redux/selectors/layout';
+import { isHasSubNavigation, isHasSubSmallNavigation } from 'helpers/navigation';
+import { desktopMenuOpened, desktopSmallMenuOpened } from 'redux/reducers/layout';
 
 export const useNav = ({
   theme,
@@ -12,11 +12,16 @@ export const useNav = ({
 }) => {
   const dispatch = useDispatch();
   const isDropMenuOpened = useSelector(selectIsDropMenuOpened);
+  const isSmallDropMenuOpened = useSelector(selectIsSmallDropMenuOpened);
   const navRef = useRef(null);
 
   const openDropDownMenu = (slug) => {
+    console.log('Work');
+
     if (isHeader && isHasSubNavigation(slug)) {
       dispatch(desktopMenuOpened(true));
+    } else if (isHeader && isHasSubSmallNavigation(slug)) {
+      dispatch(desktopSmallMenuOpened(true));
     }
   };
 
@@ -25,9 +30,18 @@ export const useNav = ({
     [dispatch],
   );
 
+  const closeSmallDropDownMenu = useCallback(
+    () => dispatch(desktopSmallMenuOpened(false)),
+    [dispatch],
+  );
+
   const handleOnClick = (slug) => () => {
+    console.log('Work handleOnClick');
+
     if (isDropMenuOpened) {
       closeDropDownMenu();
+    } else if (isSmallDropMenuOpened) {
+      closeSmallDropDownMenu();
     } else {
       openDropDownMenu(slug);
     }
@@ -37,15 +51,16 @@ export const useNav = ({
     const handleClickOutside = ({ target }) => {
       const { current } = navRef || {};
 
-      if (isDropMenuOpened && current && !current.contains(target)) {
+      if ((isDropMenuOpened || isSmallDropMenuOpened) && current && !current.contains(target)) {
         closeDropDownMenu();
+        closeSmallDropDownMenu();
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [closeDropDownMenu, isDropMenuOpened]);
+  }, [closeDropDownMenu, isDropMenuOpened, isSmallDropMenuOpened]);
 
   return {
     navRef,
@@ -54,7 +69,9 @@ export const useNav = ({
     links,
     isHeader,
     handleOnClick,
+    isSmallDropMenuOpened,
     isDropMenuOpened,
     closeDropDownMenu,
+    closeSmallDropDownMenu,
   };
 };

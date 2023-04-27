@@ -15,6 +15,10 @@
       transition: color 0.3s ease-in-out;
     }
 
+    &.titleNotBold {
+      font-weight: 500;
+    }
+
     .subtitle {
       font-weight: 400;
       line-height: 2;
