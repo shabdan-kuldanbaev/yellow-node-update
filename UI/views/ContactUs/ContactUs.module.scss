@@ -74,3 +74,12 @@
     }
   }
 }
+
+.addresses {
+  * {
+    @include below-tablet {
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+}
