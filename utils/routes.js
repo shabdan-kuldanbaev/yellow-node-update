@@ -279,7 +279,7 @@ export const routes = {
     path: '/billing-software-development-services',
     dynamicPath: '/billing-software-development-services',
     slug: 'billing-software-development-services',
-    description: '',
+    description: 'If you want to create brand-new billing software, partner with Yellow and build a top-tier solution.',
   },
   cloudDevelopment: {
     title: 'Cloud Application Development Services',

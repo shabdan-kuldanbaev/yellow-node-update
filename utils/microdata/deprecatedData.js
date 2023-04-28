@@ -130,7 +130,7 @@ export const deprecatedData = {
     '@context': context,
     '@type': 'WebPage',
     name: 'Billing Software Development Services Company | Yellow',
-    description: '',
+    description: 'If you want to create brand-new billing software, partner with Yellow and build a top-tier solution.',
     image: logoUrl,
   },
   [ROUTES.crossPlatformDevelopmentServices.slug]: {
