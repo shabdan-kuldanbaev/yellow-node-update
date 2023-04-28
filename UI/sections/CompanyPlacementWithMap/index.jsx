@@ -8,7 +8,7 @@ import styles from './CompanyPlacementWithMap.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-const CompanyPlacementWithMap = () => (
+const CompanyPlacementWithMap = ({ className }) => (
   <section className={styles.companyPlacement}>
     <div className={styles.content}>
       <SectionTitle
@@ -21,6 +21,7 @@ const CompanyPlacementWithMap = () => (
           addresses={addressesForContactUs}
           itemClass={styles.address}
           containerClass={styles.addressesContainer}
+          className={className}
         />
       </Animated>
     </div>

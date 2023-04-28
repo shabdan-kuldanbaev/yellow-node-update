@@ -7,8 +7,14 @@ const CompanyLocation = ({
   addresses,
   containerClass,
   itemClass,
+  className,
 }) => (
-  <div className={cn(styles.container, containerClass)}>
+  <div className={cn(
+    styles.container,
+    containerClass,
+    className,
+  )}
+  >
     {
       addresses.map(({
         title,
