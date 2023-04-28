@@ -84,8 +84,7 @@ export const ADDRESS = {
 
 export const PLACEMENT_DATA = {
   USA: [
-    `${ADDRESS.us.streetAddress} ${ADDRESS.us.addressLocality}`,
-    ADDRESS.us.postalCode,
+    `${ADDRESS.us.streetAddress} ${ADDRESS.us.addressLocality} ${ADDRESS.us.postalCode}`,
   ],
   Poland: [
     `${ADDRESS.pl.addressLocality} ${ADDRESS.pl.postalCode}`,

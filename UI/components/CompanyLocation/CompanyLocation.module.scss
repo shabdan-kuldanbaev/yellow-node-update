@@ -29,6 +29,7 @@
 .addressText {
   @include fontSize(14px, 150%);
 
+  max-width: 276px;
   margin: 0;
   white-space: pre-line;
 }
