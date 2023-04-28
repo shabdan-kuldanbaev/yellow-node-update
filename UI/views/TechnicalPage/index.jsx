@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import MetaTags from 'components/Common/MetaTags';
-import PageHeader from 'components/Common/PageHeader';
+import PageHeader from 'UI/components/PageHeader';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import FullLayout from 'components/Layout/FullLayout';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';

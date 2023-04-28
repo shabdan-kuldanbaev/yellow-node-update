@@ -1,9 +1,5 @@
 import { ROUTES } from 'utils/constants';
-import {
-  PHONE_NUMBER,
-  PLACEMENT_DATA,
-  SOCIAL_MEDIA,
-} from 'utils/constants/contacts';
+import { SOCIAL_MEDIA } from 'utils/constants/contacts';
 
 export const mainContent = [
   {
@@ -128,28 +124,6 @@ export const mainContent = [
       },
     ],
     type: 'expertise',
-  },
-];
-
-export const addresses = [
-  {
-    title: 'In USA',
-    text: PLACEMENT_DATA.USA.join('\n'),
-    pathText: PHONE_NUMBER.us,
-    path: `tel:${PHONE_NUMBER.us}`,
-    type: 'phone',
-  },
-  {
-    title: 'In Argentina',
-    text: PLACEMENT_DATA.Argentina.join('\n'),
-  },
-  {
-    title: 'In Poland',
-    text: PLACEMENT_DATA.Poland.join('\n'),
-  },
-  {
-    title: 'In Israel',
-    text: PLACEMENT_DATA.Israel.join('\n'),
   },
 ];
 

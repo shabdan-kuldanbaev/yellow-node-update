@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
-import PageHeader from 'components/Common/PageHeader';
+import PageHeader from 'UI/components/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import Article from 'components/BlogCommon/Article';
 import SubscribeBlock from 'components/Common/SubscribeBlock';

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Typography from 'UI/components/Typography';
-import { FieldsWrapper } from '../MainContent/FieldsWrapper';
+import { FieldsWrapper } from 'UI/components/FieldsWrapper';
 import { companyLinks } from '../utils/data';
 import styles from './styles.module.scss';
 

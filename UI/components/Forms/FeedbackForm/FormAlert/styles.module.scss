@@ -2,10 +2,12 @@
 @import 'styles/utils/mixins';
 
 .formAlert {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 100%;
+  @include centered;
+
+  width: 103%;
+  height: 0;
+  bottom: 0;
+  overflow: hidden;
   z-index: 100;
   opacity: 1;
   transition: 0.5s ease;
@@ -40,8 +42,5 @@
 }
 
 .isVisible {
-  top: 0;
-  left: 0;
-  right: 0;
-  opacity: 1;
+  height: 100%;
 }

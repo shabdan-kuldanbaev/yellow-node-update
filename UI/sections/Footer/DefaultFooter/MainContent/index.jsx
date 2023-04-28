@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Typography from 'UI/components/Typography';
-import { FieldsWrapper } from './FieldsWrapper';
+import { FieldsWrapper } from 'UI/components/FieldsWrapper';
 import { mainContent } from '../utils/data';
 import styles from './styles.module.scss';
 
