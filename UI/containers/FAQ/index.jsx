@@ -15,18 +15,11 @@ const FAQ = ({ faqList, isArticalPage }) => (
         id="JSON-LD-faq"
         key="JSON-LD-faq"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getFaqMicrodata({ faqList }), null, 2),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getFaqMicrodata({ faqList }), null, 2) }}
       />
     </Head>
-    <div
-      className={cn(
-        styles.frequentlyAskedQuestions,
-        { [styles.faqArticalPage]: isArticalPage },
-      )}
-    >
-      {faqList?.map((faq) => (
+    <div className={cn(styles.frequentlyAskedQuestions, { [styles.faqArticalPage]: isArticalPage })}>
+      {faqList.map((faq) => (
         <CollapseItem
           key={`faq-item/${faq.question}`}
           faq={faq}
