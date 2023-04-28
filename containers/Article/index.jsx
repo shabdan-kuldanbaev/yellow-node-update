@@ -129,10 +129,12 @@ const ArticleContainer = ({
           disableSidePadding
           disableBottomPadding
         >
-          <FAQ
-            isArticalPage
-            faqList={faqList}
-          />
+          {faqList.length && (
+            <FAQ
+              isArticalPage
+              faqList={faqList}
+            />
+          )}
         </FullLayout>
 
         <TagsBlock tags={tagsList} />

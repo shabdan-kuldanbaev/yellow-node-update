@@ -1,19 +1,21 @@
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useSelector } from './utils/useSelector';
+import { SELECTOR_SWIPER_PARAMS } from './utils/helpers';
 import styles from './styles.module.scss';
 
 const Selector = (props) => {
   const {
-    swiperParams,
+    view,
+    type,
     displayNames,
     selectedIndex,
     handleSelectedIndexChange,
   } = useSelector(props);
 
   return (
-    <div className={styles.wrapper}>
-      <Swiper {...swiperParams}>
+    <div className={cn(styles.wrapper, styles[type], styles[view])}>
+      <Swiper {...SELECTOR_SWIPER_PARAMS}>
         {displayNames?.map((name, i) => (
           <SwiperSlide
             key={name}
@@ -24,6 +26,19 @@ const Selector = (props) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className={styles.itemsContainer}>
+        {displayNames?.map((name, i) => (
+          <div
+            key={name}
+            role="tab"
+            tabIndex={0}
+            className={cn(styles.item, { [styles.selected]: i === selectedIndex })}
+            onClick={handleSelectedIndexChange(i)}
+          >
+            <span>{name}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

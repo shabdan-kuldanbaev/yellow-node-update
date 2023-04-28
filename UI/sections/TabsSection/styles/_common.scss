@@ -57,7 +57,7 @@
   display: block;
 }
 
-.card {
+.cardContainer {
   padding: 48px;
 
   @include below-tablet {
@@ -99,15 +99,13 @@
   }
 }
 
-.cardText {
+.cardContent {
   @include flex(row, center);
 
-  .cardTextColumn {
-    max-width: 470px;
-  }
+  grid-gap: 40px;
 
-  .cardTextColumn:not(:last-child) {
-    margin-right: 40px;
+  .contentBlock {
+    max-width: 470px;
   }
 
   h4 {

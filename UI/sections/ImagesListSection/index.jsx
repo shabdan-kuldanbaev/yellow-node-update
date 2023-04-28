@@ -16,6 +16,9 @@ const ImagesListSection = (props) => {
     imagesUrl,
     view,
     type,
+    subtitle,
+    secondTitle,
+    secondSubtitle,
   } = useSectionProps(props);
 
   return (
@@ -23,7 +26,10 @@ const ImagesListSection = (props) => {
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
+          subtitle={subtitle}
           description={description}
+          secondTitle={secondTitle}
+          secondSubtitle={secondSubtitle}
           titleStyle={styles.titleStyle}
         />
         <div className={styles.imagesList}>
@@ -34,7 +40,7 @@ const ImagesListSection = (props) => {
               transitionDelay={50 * index}
             >
               <Illustration
-                className={styles.image}
+                className={cn(styles.image, styles[`image-${index + 1}`])}
                 src={url}
                 alt={description}
               />

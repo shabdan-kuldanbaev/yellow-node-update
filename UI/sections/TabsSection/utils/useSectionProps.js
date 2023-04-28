@@ -13,7 +13,15 @@ export default ({
     view,
     description,
     contentModules,
-  } = getDocumentFields(section, ['title', 'description', 'contentModules']);
+  } = getDocumentFields(
+    section,
+    [
+      'title',
+      'description',
+      'contentModules',
+      'view',
+    ],
+  );
 
   const [activeTab, setActiveTab] = useState(0);
 

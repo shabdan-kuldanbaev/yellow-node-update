@@ -24,13 +24,16 @@
       opacity: 0.7;
     }
 
-    .secondDescription {
-      display: block;
+    .textContainer {
       margin: 48px auto 0;
       max-width: 625px;
-      color: $gray0;
-      opacity: 0.7;
-      text-align: center;
+
+      p {
+        margin: 0;
+        color: $gray0;
+        opacity: 0.7;
+        text-align: center;
+      }
 
       @include phone {
         margin-top: 24px;

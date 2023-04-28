@@ -91,5 +91,5 @@ const nextConfig = {
 module.exports = withPlugins([
   withObj,
   [withBundleAnalyzer],
-  // [withSentryConfig, { silent: true }],
+  [withSentryConfig, { silent: true }],
 ], nextConfig);

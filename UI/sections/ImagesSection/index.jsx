@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
 import Images from 'UI/components/Images';
-import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { useImageSection } from './utils/useImageSection';
 import styles from './styles.module.scss';
 
@@ -11,16 +11,14 @@ const ImagesSection = (props) => {
   const {
     data,
     type,
-    title,
-    subtitle,
-    description,
     imagesUrl,
+    text,
+    classname,
+    sectionTitles,
   } = useImageSection(props);
 
   return (
-    <section
-      className={cn(styles[type], styles[data.view], styles.section)}
-    >
+    <section className={classname}>
       {imagesUrl?.map(({ url, alt }) => (
         <Illustration
           transparent
@@ -30,27 +28,18 @@ const ImagesSection = (props) => {
           key={`intro-images-bundles/${url}`}
         />
       ))}
-      <SectionTitle
-        title={title}
-        subtitle={subtitle}
-        description={description}
-        type={type}
-        titleStyle={styles.titleStyle}
-      />
+      <SectionTitle {...sectionTitles} />
       <Images
         data={data}
         type={type}
         view={data.view}
       />
-      {data.subtitle
-        && (
-          <Typography
-            variant="p"
-            className={styles.secondDescription}
-          >
-            {data.subtitle}
-          </Typography>
-        )}
+      {text
+      && (
+        <div className={styles.textContainer}>
+          <ContentfulParser document={text} />
+        </div>
+      )}
     </section>
   );
 };
