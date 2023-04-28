@@ -129,6 +129,10 @@
   &.sixthSectionView {
     background-color: $gray50;
 
+    .title {
+      max-width: 756px;
+    }
+
     [data-description] {
       &:first-child {
         @include fontSize(24px, 130%);
