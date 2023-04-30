@@ -1,0 +1,38 @@
+.mobile-budgeting-app {
+  .title {
+    @include fontSize(24px, 130%);
+
+    margin: 0 0 8px;
+    font-weight: normal;
+  }
+
+  .listContainer {
+    @include flex(column, initial, initial);
+
+    margin: 0 0 0 10px;
+
+    &:first-of-type {
+      margin-bottom: 24px;
+    }
+
+    .listItem {
+      margin: 0;
+
+      p {
+        margin: 0;
+        color: $gray900;
+      }
+
+      &::marker {
+        color: $gray900;
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
