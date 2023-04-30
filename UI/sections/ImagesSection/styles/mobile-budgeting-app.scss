@@ -1,0 +1,13 @@
+.mobile-budgeting-app {
+  &.firstSectionView {
+    padding: 0 20px;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include below-tablet {
+      padding: 0 16px;
+    }
+  }
+}

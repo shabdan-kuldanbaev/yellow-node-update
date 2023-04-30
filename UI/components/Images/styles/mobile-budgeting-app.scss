@@ -1,0 +1,36 @@
+.mobile-budgeting-app {
+  &.firstSectionView {
+    @include flex(row,center, center);
+
+    margin: 0 auto;
+    grid-gap: 20px;
+    max-width: calc($macbook-thirteen - 40px);
+    overflow: hidden;
+
+    .image {
+      margin: 0;
+      max-width: 690px;
+      width: 50%;
+      height: 790px;
+
+      img {
+        object-fit: cover;
+      }
+
+      @include tablet {
+        height: 600px;
+      }
+
+      @include below-tablet {
+        width: 100%;
+        height: 670px;
+      }
+    }
+
+    @include below-tablet {
+      @include flex(column, center, center);
+
+      grid-gap: 16px;
+    }
+  }
+}
