@@ -1,0 +1,134 @@
+.mobile-budgeting-app {
+  padding: 112px 40px 120px;
+  background-color: $gray900;
+
+  .introSection {
+    position: relative;
+    max-width: $default-content-width;
+  }
+
+  .sectionTitle {
+    max-width: 526px;
+
+    [data-title] {
+      @include fontSize(56px, 120%);
+
+      color: $gray0;
+      font-weight: 400;
+
+      @include below-tablet {
+        @include fontSize(38px, 130%);
+      }
+    }
+
+    [data-description] {
+      color: $gray0;
+    }
+  }
+
+  .imageContainer {
+    height: 500px;
+    width: 245px;
+  }
+
+  .bundleImage {
+    position: absolute;
+    content: '';
+    user-select: none;
+    pointer-events: none;
+    width: 600px;
+    height: 545px;
+
+    &-1 {
+      top: -170px;
+      right: -267px;
+    }
+
+    &-2 {
+      left: -428px;
+
+      @include below-tablet {
+        top: 244px;
+        left: -277px;
+      }
+    }
+
+    &-3 {
+      bottom: -370px;
+      right: 166px;
+
+      @include below-tablet {
+        bottom: -172px;
+        right: -124px;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    max-width: $default-content-width;
+    grid-gap: 24px;
+
+    @include below-tablet {
+      grid-gap: 12px;
+    }
+  }
+
+  .experience {
+    @include flex(row, center, center);
+
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 16px 24px 16px 34px;
+    color: $gray0;
+    background: rgb(255 255 255 / 20%);
+    border-radius: 50px;
+    white-space: pre;
+
+    .infoTitle {
+      margin: 0;
+      color: $gray400;
+      font-weight: normal;
+    }
+
+    p {
+      margin-left: 6px;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 24px;
+      width: 3px;
+      border-radius: 25px;
+    }
+
+    &:nth-child(1)::before {
+      background: $mobileBudgetingAccent;
+    }
+
+    &:nth-child(2)::before {
+      background: $mobileBudgetingPurple;
+    }
+
+    &:nth-child(3)::before {
+      background: $mobileBudgetingRose;
+    }
+
+    &:nth-child(4)::before {
+      background: $mobileBudgetingBlue;
+    }
+  }
+
+  @include tablet {
+    padding: 88px 32px 60px;
+  }
+
+  @include phone {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
