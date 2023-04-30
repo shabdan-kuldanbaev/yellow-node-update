@@ -13,8 +13,6 @@ const CustomSwiper = dynamic(() => import('UI/containers/CustomSwiper'), { ssr: 
 
 const CardsSection = (props) => {
   const {
-    type,
-    view,
     title,
     subtitle,
     description,

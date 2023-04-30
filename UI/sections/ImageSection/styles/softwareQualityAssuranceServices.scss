@@ -1,0 +1,36 @@
+.software-quality-assurance-services {
+  [data-title] {
+    text-align: left;
+  }
+
+  .imageSection {
+    @include flex(row-reverse, space-between, center);
+
+    & > div:first-child {
+      max-width: 481px;
+    }
+  }
+
+  .image {
+    margin: 0 0 0 auto;
+    max-width: 480px;
+    padding-top: 450px;
+  }
+
+  .experienceContent {
+    padding: 0;
+    max-width: 687px;
+
+    ul {
+      margin: 0;
+    }
+
+    li::marker {
+      color: #ffe603;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.software-quality-assurance-services {
+  background-color: $gray900;
+
+  .pageTitle {
+    color: $gray0;
+
+    @include phone {
+      max-width: 355px;
+      margin: 0 auto 16px;
+    }
+  }
+
+  .pageTextContainer {
+    max-width: 507px;
+
+    @include below-tablet {
+      margin: 0 auto;
+    }
+  }
+
+  .pageSubtitle {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    @include phone {
+      max-width: 355px;
+      margin: 0 auto;
+    }
+  }
+
+  .pageImage {
+    max-width: 565px;
+    padding-top: 533px;
+    margin: 0 0 0 auto;
+
+    @include below-tablet {
+      margin: 0 auto 16px;
+    }
+
+    @include phone {
+      padding-top: 323px;
+    }
+  }
+}

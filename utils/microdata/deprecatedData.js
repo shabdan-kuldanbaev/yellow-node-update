@@ -57,6 +57,14 @@ export const deprecatedData = {
     + 'We are working with websites, PWAs, chatting applications, and landing pages.',
     image: logoUrl,
   },
+  [ROUTES.softwareQualityAssuranceServices.slug]: {
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Software Quality Assurance and Testing Services | Yellow',
+    description: 'Quality assurance is an important part of software product creation since it ensures that users'
+    + ' will receive a convenient and fully-functional solution. If you need QA services, Yellow is ready to provide them!',
+    image: logoUrl,
+  },
   [ROUTES.crowdfundingPlatform.slug]: {
     '@context': context,
     '@type': 'WebPage',
