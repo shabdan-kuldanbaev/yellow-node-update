@@ -34,9 +34,9 @@ const CaseProcess = (props) => {
       <div className={styles.container}>
         <div className={styles.stepsContainer}>
           {steps?.map(({
-            title: stepTitle,
+            stepTitle,
             text,
-            subtitle: stepSubtitle,
+            stepSubtitle,
             imageBundles,
             icon,
             image,
