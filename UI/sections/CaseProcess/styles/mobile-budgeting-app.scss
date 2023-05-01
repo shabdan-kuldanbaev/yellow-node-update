@@ -246,4 +246,74 @@
       padding: 60px 0 30px;
     }
   }
+
+  &.thirdSectionView {
+    padding: 60px 0 120px;
+
+    .titleStyle {
+      max-width: $wide-content-width;
+
+      [data-title] {
+        @include fontSize(56px, 120%);
+
+        margin: 0 0 24px;
+        padding: 0 16px;
+        text-align: left;
+        font-weight: normal;
+
+        @include below-tablet {
+          @include fontSize(38px, 130%);
+        }
+      }
+    }
+
+    .container {
+      padding: 0 16px;
+      max-width: 1070px;
+
+      @include tablet {
+        overflow: scroll;
+      }
+    }
+
+    .stepsContainer {
+      @include flex(row, center, center, wrap);
+
+      position: relative;
+      right: -200px;
+      margin: 0 0 24px;
+      width: 1070px;
+      row-gap: 16px;
+      column-gap: 16px;
+
+      .step {
+        padding: 24px;
+        background: $gray50;
+        border-radius: 80px;
+        white-space: pre;
+
+        .stepTitle {
+          @include fontSize(16px, 150%);
+
+          font-weight: normal;
+        }
+
+        &-5 {
+          margin-left: 70px;
+        }
+
+        &-6 {
+          margin-right: 70px;
+        }
+      }
+
+      @include tablet {
+        right: 0;
+      }
+    }
+
+    @include below-tablet {
+      padding: 30px 0 60px;
+    }
+  }
 }
