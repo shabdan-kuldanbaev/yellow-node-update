@@ -201,6 +201,8 @@
     }
 
     .step {
+      @include flex(column, start, center);
+
       position: relative;
       counter-reset: num var(--num);
       padding: 179px 24px 32px;
@@ -209,6 +211,10 @@
       background: $gray50;
       border-radius: 40px;
       box-sizing: border-box;
+
+      p {
+        margin: 0;
+      }
 
       &::after {
         @include fontSize(56px, 120%);
