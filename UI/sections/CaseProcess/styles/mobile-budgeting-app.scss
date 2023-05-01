@@ -159,4 +159,78 @@
       }
     }
   }
+
+  &.secondSectionView {
+    padding: 120px 0 60px;
+
+    .titleStyle {
+      max-width: $wide-content-width;
+
+      [data-title] {
+        @include fontSize(56px, 120%);
+
+        margin: 0 0 24px;
+        padding: 0 16px;
+        text-align: left;
+        font-weight: normal;
+
+        @include below-tablet {
+          @include fontSize(38px, 130%);
+        }
+      }
+    }
+
+    .container {
+      max-width: $wide-content-width;
+      overflow-x: scroll;
+      padding: 0 16px;
+    }
+
+    .stepsContainer {
+      @include flex(row, space-between);
+
+      width: 1200px;
+      grid-gap: 32px;
+
+      @include below-tablet {
+        grid-gap: 12px;
+      }
+    }
+
+    .step {
+      position: relative;
+      counter-reset: num var(--num);
+      padding: 179px 24px 32px;
+      max-width: 276px;
+      width: 100%;
+      background: $gray50;
+      border-radius: 40px;
+      box-sizing: border-box;
+
+      &::after {
+        @include fontSize(56px, 120%);
+
+        position: absolute;
+        top: 32px;
+        left: 24px;
+        content: counter(num) '%';
+      }
+
+      &-1 {
+        animation: firstCounter 5s infinite ease-in-out;
+      }
+
+      &-2 {
+        animation: secondCounter 5s infinite ease-in-out;
+      }
+
+      &-3 {
+        animation: thirdCounter 5s infinite ease-in-out;
+      }
+
+      &-4 {
+        animation: forthCounter 5s infinite ease-in-out;
+      }
+    }
+  }
 }
