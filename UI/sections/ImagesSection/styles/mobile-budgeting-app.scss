@@ -10,4 +10,60 @@
       padding: 0 16px;
     }
   }
+
+  &.secondSectionView {
+    @include flex(row-reverse, space-between, start);
+
+    margin: 0 auto;
+    padding: 120px 13vw;
+    column-gap: 32px;
+    max-width: calc($macbook-thirteen - 40px);
+    background-color: $mobileBudgetingAccent;
+    box-sizing: border-box;
+
+    .titleStyle {
+      margin: 0;
+      place-self: end;
+      max-width: 380px;
+
+      [data-title] {
+        @include fontSize(56px, 120%);
+
+        font-weight: normal;
+        text-align: left;
+
+        @include below-tablet {
+          @include fontSize(38px, 130%);
+
+          text-align: center;
+        }
+      }
+
+      [data-description] {
+        color: $gray900;
+        text-align: left;
+
+        @include below-tablet {
+          text-align: center;
+        }
+      }
+
+      @include below-tablet {
+        margin: 0 auto;
+        place-self: unset;
+      }
+    }
+
+    @include tablet {
+      padding: 60px 10vw;
+    }
+
+    @include below-tablet {
+      @include flex(column-reverse, center, center);
+
+      row-gap: 24px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
 }

@@ -33,4 +33,15 @@
       grid-gap: 16px;
     }
   }
+
+  &.secondSectionView {
+    width: 270px;
+    height: 550px;
+    overflow-x: unset;
+
+    .image {
+      width: 270px;
+      height: 550px;
+    }
+  }
 }
