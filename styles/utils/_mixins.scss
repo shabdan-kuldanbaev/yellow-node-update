@@ -483,6 +483,8 @@
   width: $size;
   height: $size;
   z-index: -1;
+  user-select: none;
+  pointer-events: none;
 }
 
 @mixin listWithYellowMarkers() {
