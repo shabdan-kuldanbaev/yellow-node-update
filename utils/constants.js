@@ -105,6 +105,7 @@ export const ANIMATED_TYPE = {
   imageZoom: 'imageZoom',
   expandByHeight: 'expandByHeight',
   isCSS: 'isCSS',
+  bounce: 'bounce',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
@@ -575,6 +576,13 @@ export const REVEAL_ANIMATION_PROPS = {
   opasityDuration: 0.5,
   transformDuration: 0.7,
   transitionDelay: 50,
+};
+
+export const BOUNCE_ANIMATION_PROPS = {
+  type: ANIMATED_TYPE.bounce,
+  right: 'right',
+  duration: 1000,
+  ssrFadeout: 'ssrFadeout',
 };
 
 export const PHONE_RESOLUTION = 568;
