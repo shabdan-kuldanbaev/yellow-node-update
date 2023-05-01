@@ -235,5 +235,9 @@
         animation: forthCounter 5s infinite ease-in-out;
       }
     }
+
+    @include below-tablet {
+      padding: 60px 0 30px;
+    }
   }
 }
