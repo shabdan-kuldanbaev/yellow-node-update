@@ -1,0 +1,26 @@
+.mobile-budgeting-app {
+  padding: 0 20px;
+
+  .sectionTitle {
+    display: none;
+  }
+
+  .contentWrapper {
+    max-width: calc($macbook-thirteen - 40px);
+  }
+
+  .video {
+    width: 100%;
+    height: 680px;
+    border-radius: 0;
+    object-fit: cover;
+
+    @include below-tablet {
+      height: 520px;
+    }
+  }
+
+  @include below-tablet {
+    padding: 0 16px;
+  }
+}
