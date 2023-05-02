@@ -1,5 +1,7 @@
 .mobile-budgeting-app {
-  :global(.swiper-pagination) {
-    display: none;
+  &.thirdSectionView {
+    :global(.swiper-pagination) {
+      display: none;
+    }
   }
 }
