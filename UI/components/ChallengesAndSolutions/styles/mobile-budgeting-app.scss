@@ -148,4 +148,97 @@
       row-gap: 32px;
     }
   }
+
+  &.thirdSectionView {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    grid-template-areas:
+      'chatbots taxation'
+      'chatbots margin';
+
+    .contentContainer {
+      @include flex(column, center, center);
+
+      margin: 0;
+      max-width: 584px;
+      width: 100%;
+      height: 100%;
+      border-radius: 60px;
+      box-sizing: border-box;
+
+      .infoContainer {
+        h5 {
+          @include fontSize(56px, 120%);
+
+          margin: 0 0 16px;
+          font-weight: normal;
+          text-align: center;
+
+          @include below-tablet {
+            @include fontSize(38px, 130%);
+
+            margin: 0 0 8px;
+          }
+        }
+
+        p {
+          margin: 0;
+          text-align: center;
+          color: $gray900;
+        }
+      }
+    }
+
+    .contentContainer-1 {
+      padding: 60px;
+      grid-area: chatbots;
+      background: $gray50;
+
+      .image {
+        width: 270px;
+        height: 550px;
+      }
+
+      @include below-tablet {
+        padding: 60px 16px;
+      }
+    }
+
+    .contentContainer-2 {
+      padding: 102px;
+      grid-area: taxation;
+      background-color: $gray900;
+
+      .infoContainer {
+        h5,
+        p {
+          color: $gray0;
+        }
+      }
+
+      @include below-tablet {
+        padding: 100px 16px;
+      }
+    }
+
+    .contentContainer-3 {
+      padding: 102px;
+      grid-area: margin;
+      background-color: $mobileBudgetingAccent;
+
+      @include below-tablet {
+        padding: 100px 16px;
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      gap: 16px;
+    }
+  }
 }

@@ -36,4 +36,17 @@
       padding: 30px 16px 60px;
     }
   }
+
+  &.thirdSectionView {
+    padding: 120px 32px 60px;
+    background-color: $gray0;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include below-tablet {
+      padding: 60px 16px 30px;
+    }
+  }
 }
