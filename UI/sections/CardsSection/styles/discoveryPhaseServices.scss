@@ -125,4 +125,33 @@
       }
     }
   }
+
+  &.sixthSectionView {
+    background-color: $gray50;
+
+    .title {
+      max-width: 756px;
+    }
+
+    [data-description] {
+      &:first-child {
+        @include fontSize(24px, 130%);
+
+        margin: 24px 0 0;
+        color: $gray900;
+        font-weight: 700;
+      }
+
+      &:last-child {
+        @include fontSize(16px, 150%);
+
+        margin: 16px 0 0;
+        color: $gray400;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+  }
 }
