@@ -8,4 +8,48 @@
       @extend .threeColumnsCards;
     }
   }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    [data-description] {
+      max-width: 671px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(5, auto);
+
+      & > div {
+        margin-left: 32px;
+
+        @include below-tablet {
+          flex: 1 1 auto;
+        }
+      }
+
+      @include below-tablet {
+        @include flex(row, center, flex-start, wrap);
+      }
+    }
+
+    .card {
+      * {
+        text-align: center;
+        align-items: center;
+        color: $gray900;
+      }
+
+      h3 {
+        @include fontSize(46px);
+
+        @include below-tablet {
+          @include fontSize(38px);
+        }
+      }
+    }
+  }
 }
