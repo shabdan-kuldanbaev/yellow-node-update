@@ -2,4 +2,38 @@
   &.firstSectionView {
     background-color: $gray900;
   }
+
+  &.secondSectionView {
+    padding: 60px 32px 120px;
+    background-color: $gray0;
+
+    .titleStyle {
+      max-width: $wide-content-width;
+
+      [data-description] {
+        @include fontSize(56px, 120%);
+
+        display: inline;
+
+        &:nth-of-type(1),
+        &:nth-of-type(3),
+        &:nth-of-type(5) {
+          color: $gray400;
+        }
+
+        &:nth-of-type(2),
+        &:nth-of-type(4) {
+          color: $gray900;
+        }
+
+        @include below-tablet {
+          @include fontSize(38px, 130%);
+        }
+      }
+    }
+
+    @include below-tablet {
+      padding: 30px 16px 60px;
+    }
+  }
 }
