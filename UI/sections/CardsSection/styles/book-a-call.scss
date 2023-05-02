@@ -1,0 +1,11 @@
+.book-a-call {
+  &.firstSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
+}
