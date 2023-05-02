@@ -1,0 +1,80 @@
+@import 'styles/utils/mixins';
+
+.companyPlacement {
+  @include flex(row, space-between, flex-start);
+
+  padding: 0 0 120px;
+
+  & > div + div {
+    flex: 0 0 540px;
+
+    @include tablet {
+      flex-basis: auto;
+    }
+  }
+
+  @include tablet {
+    display: block;
+    padding: 0 0 60px;
+  }
+}
+
+.content {
+  flex: 0 1 540px;
+  margin-right: 25px;
+
+  @include tablet {
+    flex-basis: auto;
+    margin: 0 auto 24px;
+  }
+}
+
+.title {
+  margin-bottom: 32px;
+
+  [data-title] {
+    text-align: left;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+}
+
+.addressesContainer {
+  grid-gap: 32px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, auto);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  @include below-tablet {
+    grid-template-columns: auto;
+
+    * {
+      text-align: center;
+    }
+  }
+}
+
+.address {
+  * {
+    color: $gray900;
+  }
+
+  [data-title] {
+    @include fontSize(20px);
+
+    margin-bottom: 16px;
+  }
+
+  [data-text] {
+    @include fontSize(16px);
+  }
+
+  & > * + * {
+    margin-bottom: 8px;
+  }
+}

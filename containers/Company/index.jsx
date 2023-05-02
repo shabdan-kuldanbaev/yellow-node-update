@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import AboutUs from 'components/CompanyCommon/AboutUs';
 import WhatMakesUsSpecial from 'components/CompanyCommon/WhatMakesUsSpecial';
 import MetaTags from 'components/Common/MetaTags';
-import PageHeader from 'components/Common/PageHeader';
+import PageHeader from 'UI/components/PageHeader';
 import { BLOCKS_SLUGS, PAGES, ROUTES } from 'utils/constants';
 import { findBlock, getDocumentFields, rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';

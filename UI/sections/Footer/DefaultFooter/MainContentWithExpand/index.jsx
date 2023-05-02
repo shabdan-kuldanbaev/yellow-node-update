@@ -3,7 +3,7 @@ import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import Typography from 'UI/components/Typography';
 import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
-import { FieldsWrapper } from '../MainContent/FieldsWrapper';
+import { FieldsWrapper } from 'UI/components/FieldsWrapper';
 import useProps from './utils/useProps';
 import { mainContent } from '../utils/data';
 import styles from './styles.module.scss';

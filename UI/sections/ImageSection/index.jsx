@@ -33,17 +33,19 @@ const ImageSection = (props) => {
             style={{ backgroundImage: `url(${imageUrl})` }}
           />
         </Animated>
-        <div className={styles.experienceContent}>
-          <SectionTitle
-            title={title}
-            description={description}
-            type="side"
-            titleStyle={styles.titleStyle}
-          />
-          <Animated {...REVEAL_ANIMATION_PROPS}>
-            <ContentfulParser document={text} />
-          </Animated>
-        </div>
+        {text && (
+          <div className={styles.experienceContent}>
+            <SectionTitle
+              title={title}
+              description={description}
+              type="side"
+              titleStyle={styles.titleStyle}
+            />
+            <Animated {...REVEAL_ANIMATION_PROPS}>
+              <ContentfulParser document={text} />
+            </Animated>
+          </div>
+        )}
       </div>
       {!!link && (
         <Animated

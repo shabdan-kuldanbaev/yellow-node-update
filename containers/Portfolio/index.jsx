@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import FullLayout from 'components/Layout/FullLayout';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import MetaTags from 'components/Common/MetaTags';
-import PageHeader from 'components/Common/PageHeader';
+import PageHeader from 'UI/components/PageHeader';
 import Portfolio from 'components/PortfolioCommon';
 import {
   PAGES,

@@ -563,8 +563,6 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.billingSoftwareDevelopment,
 ];
 
-export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
 
 export const SWIPER_NAV_BUTTON_TYPES = {
