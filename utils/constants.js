@@ -582,7 +582,6 @@ export const BOUNCE_ANIMATION_PROPS = {
   type: ANIMATED_TYPE.bounce,
   right: 'right',
   duration: 1000,
-  ssrFadeout: 'ssrFadeout',
 };
 
 export const PHONE_RESOLUTION = 568;
