@@ -316,4 +316,194 @@
       padding: 30px 0 60px;
     }
   }
+
+  &.fourthSectionView {
+    padding: 0;
+
+    .container {
+      padding: 0 20px;
+      max-width: $macbook-thirteen;
+      box-sizing: border-box;
+
+      @include below-tablet {
+        padding: 0 16px;
+      }
+    }
+
+    .stepsContainer {
+      margin: 0;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(10, 1fr);
+      grid-auto-rows: 90px;
+
+      & > div {
+        width: 100%;
+        height: 100%;
+      }
+
+      & > div:nth-child(1) {
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 4;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 8 / span 2;
+        }
+      }
+
+      & > div:nth-child(2) {
+        grid-column: 4 / span 3;
+        grid-row: 1 / span 3;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 10;
+        }
+      }
+
+      & > div:nth-child(3) {
+        grid-column: 7 / span 2;
+        grid-row: 1 / span 2;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 1;
+        }
+      }
+
+      & > div:nth-child(4) {
+        grid-column: 9 / span 2;
+        grid-row: 1 / span 6;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: span 2;
+        }
+
+        @include below-tablet {
+          grid-row: 2 / span 2;
+        }
+      }
+
+      & > div:nth-child(5) {
+        grid-column: 1 / span 3;
+        grid-row: 5 / span 2;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 7;
+        }
+      }
+
+      & > div:nth-child(6) {
+        grid-column: 4 / span 3;
+        grid-row: 4 / span 3;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 5 / span 2;
+        }
+      }
+
+      & > div:nth-child(7) {
+        grid-column: 7 / span 2;
+        grid-row: 3 / span 4;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 4;
+        }
+      }
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 220px;
+      }
+
+      @include below-tablet {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 180px;
+        grid-gap: 16px;
+      }
+    }
+
+    .step {
+      border-radius: 40px;
+      box-sizing: border-box;
+      overflow: hidden;
+
+      .stepTitle {
+        @include fontSize(35px, 130%);
+
+        font-weight: normal;
+
+        @include below-tablet {
+          @include fontSize(24px, 130%);
+        }
+      }
+
+      .stepImage {
+        width: 100%;
+        height: 100%;
+
+        img {
+          object-fit: cover;
+        }
+      }
+
+      &-2 {
+        padding: 16px;
+        background-color: $mobileBudgetingAccent;
+
+        .stepTitle {
+          max-width: 285px;
+        }
+      }
+
+      &-3,
+      &-5 {
+        padding: 16px;
+        background-color: $gray900;
+
+        .stepTitle {
+          max-width: 183px;
+          color: $gray0;
+        }
+      }
+
+      &-7 {
+        padding: 16px;
+        background-color: $mobileBudgetingAccent;
+
+        .stepTitle {
+          max-width: 215px;
+        }
+      }
+    }
+  }
 }
