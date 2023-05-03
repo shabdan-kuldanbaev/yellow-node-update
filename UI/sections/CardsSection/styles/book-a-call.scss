@@ -52,4 +52,51 @@
       }
     }
   }
+
+  &.thirdSectionView {
+    padding-top: 0;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    :global(.swiper-slide) {
+      &:nth-child(1) {
+        width: 194px;
+      }
+
+      &:nth-child(2) {
+        width: 180px;
+      }
+
+      &:nth-child(3) {
+        width: 252px;
+      }
+
+      &:nth-child(4) {
+        width: 106px;
+      }
+
+      &:nth-child(5) {
+        width: 202px;
+      }
+
+      &:nth-child(6) {
+        width: 221px;
+      }
+
+      &:nth-child(7) {
+        width: 211px;
+      }
+    }
+
+    .card {
+      width: 100%;
+
+      picture {
+        width: 100%;
+        height: 140px;
+      }
+    }
+  }
 }

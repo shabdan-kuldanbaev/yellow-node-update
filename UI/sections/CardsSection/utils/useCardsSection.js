@@ -11,7 +11,20 @@ import { getDocumentFields, getFileUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import Card from 'UI/components/Cards/Card';
 import Overlay from 'UI/containers/Overlay';
+import { routes } from 'utils/routes';
 import styles from '../CardsSection.module.scss';
+
+const SLIDES_PER_VIEW = {
+  [routes.bookCall.slug]: {
+    thirdSectionView: 'auto',
+  },
+};
+
+const SPACE_BETWEEN = {
+  [routes.bookCall.slug]: {
+    thirdSectionView: 66,
+  },
+};
 
 const cardMapper = (withOverlay) => (card) => {
   if (card.sys.contentType.sys.id === 'article') {
@@ -129,7 +142,7 @@ export default ({
   const swiperProps = {
     modules: [Navigation, Mousewheel],
     slidesPerView: 1,
-    spaceBetween: 32,
+    spaceBetween: SPACE_BETWEEN[type]?.[view] || 32,
     centeredSlides: true,
     autoHeight: false,
     passiveListeners: true,
@@ -138,11 +151,11 @@ export default ({
     },
     breakpoints: {
       768: {
-        slidesPerView: 2,
+        slidesPerView: SLIDES_PER_VIEW[type]?.[view] || 2,
         centeredSlides: false,
       },
       1024: {
-        slidesPerView: 3,
+        slidesPerView: SLIDES_PER_VIEW[type]?.[view] || 3,
         centeredSlides: false,
       },
     },
