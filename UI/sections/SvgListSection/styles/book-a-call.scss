@@ -1,6 +1,14 @@
 .book-a-call {
-  .svgList {
-    max-width: none;
-    margin: 0 -40px;
+  &.firstSectionView {
+    .svgList {
+      max-width: none;
+      margin: 0 -40px;
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    padding-top: 0;
   }
 }
