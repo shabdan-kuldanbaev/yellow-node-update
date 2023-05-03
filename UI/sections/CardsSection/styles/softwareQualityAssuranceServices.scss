@@ -9,7 +9,7 @@
     }
 
     [data-description] {
-      max-width: 980px;
+      max-width: 790px;
 
       @include phone {
         max-width: 350px;
@@ -41,11 +41,11 @@
       border: unset;
 
       h3 {
-        max-width: 450px;
+        @include fontSize(24px);
+
+        max-width: 530px;
 
         @include phone {
-          @include fontSize(24px);
-
           max-width: 310px;
         }
       }
@@ -206,11 +206,11 @@
       border: unset;
 
       h3 {
-        max-width: 420px;
+        @include fontSize(24px, 150%);
+
+        max-width: 440px;
 
         @include phone {
-          @include fontSize(24px, 150%);
-
           max-width: 350px;
         }
       }

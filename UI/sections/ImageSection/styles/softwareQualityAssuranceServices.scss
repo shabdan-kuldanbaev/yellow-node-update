@@ -1,13 +1,27 @@
 .software-quality-assurance-services {
   [data-title] {
     text-align: left;
+
+    @include below-tablet {
+      text-align: center;
+    }
+
+    @include phone {
+      max-width: 340px;
+    }
   }
 
   .imageSection {
     @include flex(row-reverse, space-between, center);
 
+    margin: 0 auto;
+
     & > div:first-child {
       max-width: 481px;
+    }
+
+    @include below-tablet {
+      @include flex(column-reverse, space-between, center);
     }
   }
 
@@ -15,6 +29,12 @@
     margin: 0 0 0 auto;
     max-width: 480px;
     padding-top: 450px;
+
+    @include phone {
+      margin: 24px auto 0;
+      padding-top: 320px;
+      max-width: 343px;
+    }
   }
 
   .experienceContent {

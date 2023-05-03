@@ -10,6 +10,14 @@
     }
   }
 
+  .pageWrapper {
+    @include flex(row, space-between, flex-end);
+
+    @include below-tablet {
+      @include flex(column-reverse);
+    }
+  }
+
   .pageTextContainer {
     max-width: 507px;
 
