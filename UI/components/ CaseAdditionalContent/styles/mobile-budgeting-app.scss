@@ -18,8 +18,9 @@
     .listItem {
       margin: 0;
 
-      p {
-        margin: 0;
+      span {
+        @include fontSize(16px, 150%);
+
         color: $gray900;
       }
 
