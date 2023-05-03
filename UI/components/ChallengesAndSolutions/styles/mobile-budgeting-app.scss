@@ -220,6 +220,7 @@
         @include fontSize(16px, 150%);
 
         display: inline;
+        margin-right: 5px;
         color: $gray400;
         font-weight: normal;
       }

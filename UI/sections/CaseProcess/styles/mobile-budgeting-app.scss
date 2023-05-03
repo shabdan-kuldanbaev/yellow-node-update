@@ -320,6 +320,10 @@
   &.fourthSectionView {
     padding: 0;
 
+    .titleStyle {
+      display: none;
+    }
+
     .container {
       padding: 0 20px;
       max-width: $macbook-thirteen;

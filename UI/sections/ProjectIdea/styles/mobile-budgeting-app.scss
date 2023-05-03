@@ -34,6 +34,8 @@
           margin: 0;
 
           p {
+            @include fontSize(16px, 150%);
+
             margin: 0;
             color: $gray900;
           }

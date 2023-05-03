@@ -68,7 +68,7 @@
   }
 
   &.thirdSectionView {
-    @include flex(row-reverse, space-between, start);
+    @include flex(row, space-between, start);
 
     margin: 0 auto;
     padding: 120px 16px;

@@ -67,7 +67,7 @@
     }
 
     @include phone {
-      width: 343px;
+      max-width: 343px;
       height: 330px;
       border-radius: 60px;
     }
