@@ -1,37 +1,33 @@
-import { useRef, useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsDropMenuOpened, selectIsSmallDropMenuOpened } from 'redux/selectors/layout';
+import {
+  useRef,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 import { isHasSubNavigation, isHasSubSmallNavigation } from 'helpers/navigation';
-import { desktopMenuOpened, desktopSmallMenuOpened } from 'redux/reducers/layout';
 
 export const useNav = ({
   theme,
   isPageScrolling,
   navLinks: links,
   isHeader,
+  setDesktopMenu,
+  isDropMenuOpened,
 }) => {
-  const dispatch = useDispatch();
-  const isDropMenuOpened = useSelector(selectIsDropMenuOpened);
-  const isSmallDropMenuOpened = useSelector(selectIsSmallDropMenuOpened);
   const navRef = useRef(null);
+  const [isSmallDropMenuOpened, setIsSmallDropMenuOpened] = useState(false);
 
   const openDropDownMenu = (slug) => {
     if (isHeader && isHasSubNavigation(slug)) {
-      dispatch(desktopMenuOpened(true));
+      setDesktopMenu(true);
     } else if (isHeader && isHasSubSmallNavigation(slug)) {
-      dispatch(desktopSmallMenuOpened(true));
+      setIsSmallDropMenuOpened(true);
     }
   };
 
-  const closeDropDownMenu = useCallback(
-    () => dispatch(desktopMenuOpened(false)),
-    [dispatch],
-  );
+  const closeDropDownMenu = () => setDesktopMenu(false);
 
-  const closeSmallDropDownMenu = useCallback(
-    () => dispatch(desktopSmallMenuOpened(false)),
-    [dispatch],
-  );
+  const closeSmallDropDownMenu = useCallback(() => setIsSmallDropMenuOpened(false), []);
 
   const handleOnClick = (slug) => () => {
     if (isDropMenuOpened) {

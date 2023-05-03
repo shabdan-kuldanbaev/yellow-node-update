@@ -1,8 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-import { selectIsMobileMenuOpened, selectIsDropMenuOpened } from 'redux/selectors/layout';
-import { mobileMenuOpened } from 'redux/reducers/layout';
 import {
   CASE_STUDIES,
   PAGES_WITH_TRANSPARENT_HEADER,
@@ -11,10 +8,6 @@ import {
 } from 'utils/constants';
 
 export const useHeader = ({ introSection }) => {
-  const dispatch = useDispatch();
-  const isMobileMenuOpened = useSelector(selectIsMobileMenuOpened);
-  const isDropMenuOpened = useSelector(selectIsDropMenuOpened);
-
   const { asPath, query: { page, project } } = useRouter();
   const currentPage = asPath.split('/')[1] || '';
   const isPageWithTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
@@ -33,6 +26,8 @@ export const useHeader = ({ introSection }) => {
     : 'dark';
   const [isPageScrolledDown, setIsPageScrolledDown] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
+  const [isDropMenuOpened, setIsDropMenuOpenedNew] = useState(false);
+  const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   // TODO rework this check
   const isTransparentHeader = isPageWithTransparentHeader || isCaseStudyWithTransparentHeader;
   const logo = !isPageScrolledDown && isTransparentHeader
@@ -87,8 +82,12 @@ export const useHeader = ({ introSection }) => {
   }, [asPath]);
 
   const setMobileMenu = useCallback((state) => () => {
-    dispatch(mobileMenuOpened(state));
-  }, [dispatch]);
+    setIsMobileMenuOpened(state);
+  }, []);
+
+  const setDesktopMenu = (isOpen) => {
+    setIsDropMenuOpenedNew(isOpen);
+  };
 
   const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
 
@@ -108,5 +107,7 @@ export const useHeader = ({ introSection }) => {
     page,
     isMobile,
     isPageWithGrayHeader,
+    setDesktopMenu,
+    isDropMenuOpened,
   };
 };

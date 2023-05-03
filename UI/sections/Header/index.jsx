@@ -26,6 +26,8 @@ const Header = (props) => {
     page,
     isMobile,
     isPageWithGrayHeader,
+    setDesktopMenu,
+    isDropMenuOpened,
   } = useHeader(props);
 
   return (
@@ -45,6 +47,8 @@ const Header = (props) => {
           theme={navTheme}
           isPageScrolling={isPageScrolling}
           isHeader
+          setDesktopMenu={setDesktopMenu}
+          isDropMenuOpened={isDropMenuOpened}
         />
       ) : (
         <MobileMenu
