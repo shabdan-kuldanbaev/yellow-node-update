@@ -17,12 +17,14 @@ import styles from '../CardsSection.module.scss';
 const SLIDES_PER_VIEW = {
   [routes.bookCall.slug]: {
     thirdSectionView: 'auto',
+    fourthSectionView: 'auto',
   },
 };
 
 const SPACE_BETWEEN = {
   [routes.bookCall.slug]: {
     thirdSectionView: 66,
+    fourthSectionView: 43,
   },
 };
 
