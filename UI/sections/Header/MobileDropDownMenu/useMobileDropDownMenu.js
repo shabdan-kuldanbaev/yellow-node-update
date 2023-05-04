@@ -9,7 +9,7 @@ export const useMobileDropDownMenu = ({
 }) => {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
 
-  const subNavigationItems = SUB_NAVIGATION_ITEMS[slug];
+  const subNavigationItems = SUB_NAVIGATION_ITEMS[slug] || [];
   const subNavigationLinks = SUB_NAVIGATION_LINKS[slug];
 
   const handleOnSubMenuClick = (subMenuKey) => (e) => {

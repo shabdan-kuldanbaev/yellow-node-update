@@ -23,49 +23,63 @@ const MobileDropDownMenu = (props) => {
 
   return (
     <div className={cn(styles.mobileDropDownMenu, { [styles.light]: isLightTheme })}>
-      {subNavigationItems.map(({
-        title,
-        key,
-      }) => (
-        <>
-          <div
-            className={cn(styles.subMenuItemContainer, {
-              [styles.openedDropDown]: activeSubMenu === key,
-            })}
-            onClick={handleOnSubMenuClick(key)}
-            role="button"
-            tabIndex="0"
-          >
-            <Typography
-              className={cn(styles.subMenuItem, { [styles.subMenuItemActive]: activeSubMenu === key })}
-              variant="span"
+      {subNavigationItems.length
+        ? subNavigationItems.map(({
+          title,
+          key,
+        }) => (
+          <>
+            <div
+              className={cn(styles.subMenuItemContainer, {
+                [styles.openedDropDown]: activeSubMenu === key,
+              })}
+              onClick={handleOnSubMenuClick(key)}
+              role="button"
+              tabIndex="0"
             >
-              {title}
-            </Typography>
-            <div className={styles.svgContainer}>
-              <Svg type={SVG_IMAGES_TYPES.chevronDown} />
+              <Typography
+                className={cn(styles.subMenuItem, { [styles.subMenuItemActive]: activeSubMenu === key })}
+                variant="span"
+              >
+                {title}
+              </Typography>
+              <div className={styles.svgContainer}>
+                <Svg type={SVG_IMAGES_TYPES.chevronDown} />
+              </div>
             </div>
-          </div>
-          <Animated
-            type={ANIMATED_TYPE.expandByHeight}
-            open={activeSubMenu === key}
-          >
-            {subNavigationLinks[key]?.map(({ title: linkTitle, subtitle, slug }) => (
-              <SubMenuItem
-                key={`link/${linkTitle}`}
-                isLightTheme={isLightTheme}
-                isPageScrolledDown={isPageScrolledDown}
-                closeMobileMenu={closeMobileMenu}
-                handleOnClick={handleOnLinkClick}
-                activeSubMenu={activeSubMenu}
-                subtitle={subtitle}
-                title={linkTitle}
-                subMenuSlug={slug}
-              />
-            ))}
-          </Animated>
-        </>
-      ))}
+            <Animated
+              type={ANIMATED_TYPE.expandByHeight}
+              open={activeSubMenu === key}
+            >
+              {subNavigationLinks[key]?.map(({ title: linkTitle, subtitle, slug }) => (
+                <SubMenuItem
+                  key={`link/${linkTitle}`}
+                  isLightTheme={isLightTheme}
+                  isPageScrolledDown={isPageScrolledDown}
+                  closeMobileMenu={closeMobileMenu}
+                  handleOnClick={handleOnLinkClick}
+                  activeSubMenu={activeSubMenu}
+                  subtitle={subtitle}
+                  title={linkTitle}
+                  subMenuSlug={slug}
+                />
+              ))}
+            </Animated>
+          </>
+        ))
+        : subNavigationLinks?.map(({ title: linkTitle, subtitle, slug }) => (
+          <SubMenuItem
+            key={`link/${linkTitle}`}
+            isLightTheme={isLightTheme}
+            isPageScrolledDown={isPageScrolledDown}
+            closeMobileMenu={closeMobileMenu}
+            handleOnClick={handleOnLinkClick}
+            activeSubMenu={activeSubMenu}
+            subtitle={subtitle}
+            title={linkTitle}
+            subMenuSlug={slug}
+          />
+        ))}
     </div>
   );
 };
