@@ -27,15 +27,15 @@
   .h3 {
     @include fontSize(24px, 1.5);
 
-    @include macbook-twelve {
-      @include fontSize(22px);
-    }
-
     color: $tundora;
     font-weight: 700;
     border-left: 2px solid $tundora;
     padding-left: 20px;
     margin: 0 40px 0 0;
+
+    @include macbook-twelve {
+      @include fontSize(22px);
+    }
 
     @include phone {
       @include fontSize(18px);
