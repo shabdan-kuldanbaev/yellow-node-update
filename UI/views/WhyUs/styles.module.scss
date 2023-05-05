@@ -1,0 +1,28 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
+
+.container {
+  background-color: $gray900;
+  margin: 0 auto;
+  padding: 105px 0 0;
+  overflow: hidden;
+
+  .pageTitle,
+  .breadcrumbs {
+    max-width: $wide-content-width;
+    margin: 0 auto;
+  }
+
+  .breadcrumbs {
+    padding: 0 40px;
+
+    @include phone {
+      padding: 0 15px;
+    }
+  }
+
+  @include phone {
+    padding: calc(#{$header-height} + 40px) 0 0;
+    overflow: hidden;
+  }
+}

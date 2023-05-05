@@ -340,6 +340,7 @@ export const volumeMax = '/outlined/volumeMax.svg';
 export const youtube = '/outlined/youtube.svg';
 
 /* Filled General */
+export const starFilled = '/filled/star.svg';
 export const activityFilled = '/filled/activityFilled.svg';
 export const announcementFilled = '/filled/announcementFilled.svg';
 export const bellFilled = '/filled/bellFilled.svg';
@@ -491,6 +492,11 @@ export const blackYellowText = '/logo/blackYellowText.svg';
 export const whiteYellowText = '/logo/whiteYellowText.svg';
 
 /* Other company logos */
+export const allianz = '/company/allianz.svg';
+export const bionorica = '/company/bionorica.svg';
+export const crickLilA = '/company/crickLilA.svg';
+export const macdonalds = '/company/macdonalds.svg';
+
 export const clutch = '/company/clutch.svg';
 export const designRush = '/company/designRush.svg';
 export const esquire = '/company/esquire.svg';

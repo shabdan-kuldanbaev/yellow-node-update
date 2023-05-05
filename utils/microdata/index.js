@@ -39,6 +39,7 @@ export function getPageMicrodata(page, { breadcrumbs, articleData } = {}) {
     break;
 
   case ROUTES.company.slug:
+  case ROUTES.whyUs.slug:
     microdataArray.push(localBusinessMicrodata);
     microdataArray.push(professionalServiceMicrodata);
     microdataArray.push(aboutPageMicrodata);

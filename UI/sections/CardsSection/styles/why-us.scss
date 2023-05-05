@@ -1,0 +1,29 @@
+.why-us {
+  padding-bottom: 60px;
+
+  [data-title] {
+    max-width: 650px;
+  }
+
+  [data-description] {
+    max-width: 810px;
+  }
+
+  .cardList {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 53px;
+  }
+
+  .card {
+    @extend .cardWithTransperentBackground;
+    @include flex(column, center, center);
+
+    svg {
+      margin: 0 0 16px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}
