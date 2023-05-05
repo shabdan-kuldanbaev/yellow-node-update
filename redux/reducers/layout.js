@@ -5,11 +5,9 @@ const initialState = {
   isMobileResolution: false,
   isTabletResolution: false,
   isDesktopResolution: true,
-  isMobileMenuOpened: false,
   isMobileCategotiesOpened: false,
   isPageReadyToDisplay: false,
   isFirstPageLoaded: false,
-  isDropMenuOpened: false,
 };
 
 const layoutSlice = createSlice({
@@ -34,8 +32,6 @@ const layoutSlice = createSlice({
     },
 
     // Menus
-    desktopMenuOpened: setRawPayload('isDropMenuOpened'),
-    mobileMenuOpened: setRawPayload('isMobileMenuOpened'),
     mobileCategoriesOpened: setRawPayload('isMobileCategotiesOpened'),
 
     // Fetching Data
@@ -47,8 +43,6 @@ export const {
   mobileResolutionSet,
   tabletResolutionSet,
   desktopResolutionSet,
-  desktopMenuOpened,
-  mobileMenuOpened,
   mobileCategoriesOpened,
   firstPageLoaded,
 } = layoutSlice.actions;

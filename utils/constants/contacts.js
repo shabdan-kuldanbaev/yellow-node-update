@@ -53,7 +53,7 @@ export const SOCIAL_MEDIA = {
 };
 
 export const PHONE_NUMBER = {
-  us: '+1 (415) 670-90-70',
+  us: '+1 (415) 470-2865',
 };
 
 export const ADDRESS = {
