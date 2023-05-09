@@ -14,6 +14,7 @@ const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 const GallerySection = (props) => {
   const {
     type,
+    view,
     title,
     description,
     slides,
@@ -22,7 +23,7 @@ const GallerySection = (props) => {
   } = useGallerySection(props);
 
   return (
-    <section className={cn(styles[type], styles.section)}>
+    <section className={cn(styles[type], styles.section, styles[view])}>
       <div className={styles.gallerySection}>
         <SectionTitle
           title={title}

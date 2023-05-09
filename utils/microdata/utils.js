@@ -9,7 +9,7 @@ function getServiceOutput(output) {
   };
 }
 
-function getOfferCatalog(name, offers) {
+function getOfferCatalog(name, offers = []) {
   return {
     '@type': 'OfferCatalog',
     name,

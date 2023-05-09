@@ -399,6 +399,12 @@ export const routes = {
     dynamicPath: '/pwa-development-services',
     slug: 'pwa-development-services',
   },
+  bookCall: {
+    title: '',
+    path: '/book-a-call',
+    dynamicPath: '/book-a-call',
+    slug: 'book-a-call',
+  },
   cookiesPolicy: {
     title: 'Cookies Policy',
     path: '/cookies-policy',
@@ -410,5 +416,4 @@ export const routes = {
     dynamicPath: '/not-found',
     slug: 'not-found',
   },
-
 };
