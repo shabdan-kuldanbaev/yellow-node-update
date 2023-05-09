@@ -1,0 +1,5 @@
+.book-a-call {
+  &.firstSectionView {
+    @extend .greySection;
+  }
+}

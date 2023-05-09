@@ -492,6 +492,11 @@ export const whiteYellowText = '/logo/whiteYellowText.svg';
 
 /* Other company logos */
 export const clutch = '/company/clutch.svg';
+export const allianz = '/company/allianz.svg';
+export const bionorica = '/company/bionorica.svg';
+export const chickFilA = '/company/chickFilA.svg';
+export const macdonalds = '/company/macdonalds.svg';
+export const subway = '/company/subway.svg';
 export const designRush = '/company/designRush.svg';
 export const esquire = '/company/esquire.svg';
 export const famliciousReview = '/company/famliciousReview.svg';

@@ -3,7 +3,7 @@
 
 .container {
   margin: 0 auto;
-  padding: 105px 0 0;
+  padding: $new-header-height 0 0;
   overflow: hidden;
 
   .pageTitle,
@@ -27,6 +27,12 @@
       & > div {
         background: none;
       }
+    }
+  }
+
+  &.book-a-call {
+    .breadcrumbs {
+      display: none;
     }
   }
 
