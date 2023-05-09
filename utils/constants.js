@@ -34,6 +34,10 @@ export const NON_INTERACTIVE_LINKS = {
     title: 'What we do',
     slug: 'what-we-do',
   },
+  aboutCompany: {
+    title: 'Company',
+    slug: 'about-company',
+  },
 };
 
 export const TAGS_TYPE = {
@@ -43,45 +47,12 @@ export const TAGS_TYPE = {
 };
 
 export const NAV_LINKS = [
-  ...Object.values(NON_INTERACTIVE_LINKS),
-  ...Object.values(routes).filter(({ slug }) => slug && ![
-    routes.homepage.slug,
-    routes.article.slug,
-    routes.project.slug,
-    routes.notFound.slug,
-    routes.customChatApp.slug,
-    routes.customMobileApp.slug,
-    routes.customWebApp.slug,
-    routes.crowdfundingPlatform.slug,
-    routes.fintechDevelopment.slug,
-    routes.discoveryPhase.slug,
-    routes.erpDevelopment.slug,
-    routes.designServices.slug,
-    routes.iosDevelopmentServices.slug,
-    routes.androidDevelopmentServices.slug,
-    routes.cloudDevelopment.slug,
-    routes.mvpDevelopment.slug,
-    routes.eWalletAppDevelopment.slug,
-    routes.bankingSoftwareDevelopmentCompany.slug,
-    routes.deliveryQualityInYellow.slug,
-    routes.pwaDevelopmentServices.slug,
-    routes.lendingSoftwareDevelopment.slug,
-    routes.paymentGatewayDevelopment.slug,
-    routes.mlDevelopment.slug,
-    routes.devOpsDevelopment.slug,
-    routes.aiDevelopment.slug,
-    routes.crossPlatformDevelopmentServices.slug,
-    routes.dataScienceDevelopment.slug,
-    routes.tradingSoftwareDevelopment.slug,
-    routes.prototypingServices.slug,
-    routes.signatureGenerator.slug,
-    routes.privacyPolicy.slug,
-    routes.termsAndConditions.slug,
-    routes.cookiesPolicy.slug,
-    routes.lendingSoftwareDevelopment.slug,
-    routes.penetrationTesting.slug,
-    routes.softwareDevelopmentPrice.slug,
-  ].includes(slug)),
+  Object.values(NON_INTERACTIVE_LINKS)[0],
+  routes.portfolio,
+  routes.softwareDevelopmentPrice,
+  routes.blog,
+  Object.values(NON_INTERACTIVE_LINKS)[1],
+  routes.contact,
 ];
 
 export const BLOCKS_SLUGS = {
@@ -105,6 +76,7 @@ export const ANIMATED_TYPE = {
   imageZoom: 'imageZoom',
   expandByHeight: 'expandByHeight',
   isCSS: 'isCSS',
+  bounce: 'bounce',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
@@ -303,6 +275,7 @@ export const CASE_STUDIES = {
   cinnabar: 'cinnabar',
   mobileBankApplication: 'mobile-bank-application',
   cedar: 'cedar-valley-farms',
+  mobileBudgetingApp: 'mobile-budgeting-app',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -337,10 +310,12 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.telemojo).path,
   ROUTES.project.getRoute(CASE_STUDIES.smartcenter).path,
   ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mobileBudgetingApp).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.iosDevelopmentServices.path,
   ROUTES.fintechDevelopment.path,
+  ROUTES.softwareQualityAssuranceServices.path,
   ROUTES.erpDevelopment.path,
   ROUTES.mvpDevelopment.path,
   ROUTES.androidDevelopmentServices.path,
@@ -358,6 +333,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.customWebApp.path,
   ROUTES.iosDevelopmentServices.path,
   ROUTES.androidDevelopmentServices.path,
+  ROUTES.softwareQualityAssuranceServices.path,
   ROUTES.mvpDevelopment.path,
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
@@ -378,6 +354,7 @@ export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.bankingSoftwareDevelopmentCompany.path,
   ROUTES.deliveryQualityInYellow.path,
   ROUTES.paymentGatewayDevelopment.path,
+  ROUTES.billingSoftwareDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -534,9 +511,23 @@ export const SUB_NAVIGATION_LINKS = {
       },
     ],
   },
+  [NON_INTERACTIVE_LINKS.aboutCompany.slug]: [
+    {
+      title: 'About us',
+      subtitle: '',
+      slug: ROUTES.company.path,
+    },
+    {
+      title: 'Delivery Quality Standards',
+      subtitle: '',
+      slug: ROUTES.deliveryQualityInYellow.path,
+    },
+  ],
 };
 
 export const LINKS_WITH_SUB_NAVIGATION = [NON_INTERACTIVE_LINKS.whatWeDo.slug];
+
+export const LINKS_WITH_SUB_SMALL_NAVIGATION = [NON_INTERACTIVE_LINKS.aboutCompany.slug];
 
 export const ARTICLE_TABLE_TYPES = {
   simpleTable: 'Simple table',
@@ -558,6 +549,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.deliveryQualityInYellow,
   PAGES.crowdfundingPlatform,
   PAGES.paymentGatewayDevelopment,
+  PAGES.billingSoftwareDevelopment,
 ];
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
@@ -573,6 +565,13 @@ export const REVEAL_ANIMATION_PROPS = {
   opasityDuration: 0.5,
   transformDuration: 0.7,
   transitionDelay: 50,
+};
+
+export const BOUNCE_ANIMATION_PROPS = {
+  type: ANIMATED_TYPE.bounce,
+  right: 'right',
+  duration: 1000,
+  ssrFadeout: 'ssrFadeout',
 };
 
 export const PHONE_RESOLUTION = 568;

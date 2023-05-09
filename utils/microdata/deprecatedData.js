@@ -57,6 +57,14 @@ export const deprecatedData = {
     + 'We are working with websites, PWAs, chatting applications, and landing pages.',
     image: logoUrl,
   },
+  [ROUTES.softwareQualityAssuranceServices.slug]: {
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Software Quality Assurance and Testing Services | Yellow',
+    description: 'Quality assurance is an important part of software product creation since it ensures that users'
+    + ' will receive a convenient and fully-functional solution. If you need QA services, Yellow is ready to provide them!',
+    image: logoUrl,
+  },
   [ROUTES.crowdfundingPlatform.slug]: {
     '@context': context,
     '@type': 'WebPage',
@@ -124,6 +132,13 @@ export const deprecatedData = {
     name: 'Payment Software Gateway Development Company | Yellow',
     description: 'Yellow is a leading Payment Gateway Development company, providing customized '
       + 'solutions to enhance transaction security and accuracy. Read more about our services now.',
+    image: logoUrl,
+  },
+  [ROUTES.billingSoftwareDevelopment.slug]: {
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Billing Software Development Services Company | Yellow',
+    description: 'If you want to create brand-new billing software, partner with Yellow and build a top-tier solution.',
     image: logoUrl,
   },
   [ROUTES.crossPlatformDevelopmentServices.slug]: {

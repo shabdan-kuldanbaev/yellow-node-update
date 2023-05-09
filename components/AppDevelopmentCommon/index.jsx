@@ -26,6 +26,7 @@ const PageIntroSection = dynamic(() => import('UI/sections/PageIntroSection'));
 const PlainTextSection = dynamic(() => import('UI/sections/PlainTextSection'));
 const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 const SoftwarePriceSection = dynamic(() => import('UI/sections/SoftwarePriceSection'));
+const BookCallIntro = dynamic(() => import('UI/sections/BookCallIntro'));
 
 export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   const {
@@ -38,9 +39,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
     return null;
   }
 
-  const { type: sectionType } = getDocumentFields(section, ['type']);
+  const { type: sectionType, slug } = getDocumentFields(section, ['type', 'slug']);
 
-  switch (sectionType) {
+  switch (sectionType || slug) {
   case APP_DEVELOPMENT_TYPES.appDevelopmentPageIntro:
     return (
       <PageIntroSection
@@ -186,6 +187,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.softwarePriceForm:
     return <SoftwarePriceSection {...props} />;
+
+  case 'book-call-intro':
+    return <BookCallIntro {...props} />;
 
   default:
     return null;

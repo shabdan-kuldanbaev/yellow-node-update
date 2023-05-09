@@ -8,16 +8,16 @@
     text-align: center;
   }
 
-  @include macbook-twelve {
-    @include fontSize(16px);
-  }
-
   position: fixed;
   left: 50%;
   width: max-content;
   top: calc(100vh - 60px);
   transform: translateX(-50%);
   z-index: 100000;
+
+  @include macbook-twelve {
+    @include fontSize(16px);
+  }
 
   @include phone {
     @include flex(column, center, center);

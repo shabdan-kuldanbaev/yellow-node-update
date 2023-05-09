@@ -11,6 +11,7 @@ const SubMenuItem = ({
   title,
   subtitle,
   subMenuSlug,
+  isTitleNormalWeight,
 }) => (
   <div
     className={cn(styles.itemContainer, {
@@ -24,7 +25,11 @@ const SubMenuItem = ({
     <LinkWrapper
       isLocalLink
       path={subMenuSlug}
-      className={cn(styles.link, styles.title)}
+      className={cn(
+        styles.link,
+        styles.title,
+        { [styles.titleNotBold]: isTitleNormalWeight },
+      )}
     >
       {title}
       {subtitle && (

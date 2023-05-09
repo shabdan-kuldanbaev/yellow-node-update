@@ -1,0 +1,17 @@
+.software-quality-assurance-services {
+  margin-top: 64px;
+
+  .figures {
+    @include below-tablet {
+      @include flex(column);
+    }
+  }
+
+  .figureItem {
+    margin-bottom: 24px;
+
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+  }
+}

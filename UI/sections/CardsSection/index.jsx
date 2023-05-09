@@ -6,15 +6,13 @@ import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useCardsSection from './utils/useCardsSection';
 import styles from './CardsSection.module.scss';
 
-const Card = dynamic(() => import('UI/components/Cards/Card'), { ssr: false });
+const Card = dynamic(() => import('UI/components/Cards/Card'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 const Animated = dynamic(() => import('UI/containers/Animated'));
 const CustomSwiper = dynamic(() => import('UI/containers/CustomSwiper'), { ssr: false });
 
 const CardsSection = (props) => {
   const {
-    type,
-    view,
     title,
     subtitle,
     description,

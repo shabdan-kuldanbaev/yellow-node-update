@@ -1,0 +1,26 @@
+.billing-software-development-services {
+  [data-description] {
+    @include phone {
+      max-width: 350px;
+    }
+  }
+
+  .svgList1 {
+    margin-bottom: 32px;
+  }
+
+  .svgList3 {
+    display: none;
+  }
+
+  @include phone {
+    .svgList1,
+    .svgList2 {
+      display: none;
+    }
+
+    .svgList3 {
+      display: block;
+    }
+  }
+}
