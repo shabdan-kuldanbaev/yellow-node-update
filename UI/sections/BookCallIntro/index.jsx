@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { InlineWidget } from 'react-calendly';
 import SectionTitle from 'UI/components/SectionTitle';
 import Button from 'UI/components/Button';
+import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import styles from './BookCallIntro.module.scss';
 import useProps from './utils';
 
@@ -12,6 +13,7 @@ function BookCallIntro(props) {
     title,
     subtitle,
     calendlyEventUrl,
+    handleOnCTAClick,
   } = useProps(props);
 
   return (
@@ -27,10 +29,9 @@ function BookCallIntro(props) {
               subtitle={subtitle}
               className={styles.title}
             />
-            <Button className={styles.button}>Book a call</Button>
             <Button
               className={styles.button}
-              secondary
+              onClick={handleOnCTAClick}
             >
               Write a message
             </Button>
@@ -52,6 +53,7 @@ function BookCallIntro(props) {
           </div>
         </div>
       </div>
+      <FullScreenEstimation />
     </section>
   );
 }
