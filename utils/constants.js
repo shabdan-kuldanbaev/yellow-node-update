@@ -76,6 +76,7 @@ export const ANIMATED_TYPE = {
   imageZoom: 'imageZoom',
   expandByHeight: 'expandByHeight',
   isCSS: 'isCSS',
+  bounce: 'bounce',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
@@ -274,6 +275,7 @@ export const CASE_STUDIES = {
   cinnabar: 'cinnabar',
   mobileBankApplication: 'mobile-bank-application',
   cedar: 'cedar-valley-farms',
+  mobileBudgetingApp: 'mobile-budgeting-app',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -308,6 +310,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.telemojo).path,
   ROUTES.project.getRoute(CASE_STUDIES.smartcenter).path,
   ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mobileBudgetingApp).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.iosDevelopmentServices.path,
@@ -560,6 +563,13 @@ export const REVEAL_ANIMATION_PROPS = {
   opasityDuration: 0.5,
   transformDuration: 0.7,
   transitionDelay: 50,
+};
+
+export const BOUNCE_ANIMATION_PROPS = {
+  type: ANIMATED_TYPE.bounce,
+  right: 'right',
+  duration: 1000,
+  ssrFadeout: 'ssrFadeout',
 };
 
 export const PHONE_RESOLUTION = 568;

@@ -53,17 +53,19 @@ const ProjectIdea = (props) => {
         />
         <div className={styles.descriptionContainer}>
           <div className={styles.descriptionIntro}>
-            <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-              <Typography className={styles.sectionName}>
-                {subtitle}
-              </Typography>
-              <Typography
-                variant="h2"
-                className={styles.title}
-              >
-                {title}
-              </Typography>
-            </Animated>
+            {(title || subtitle) && (
+              <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+                <Typography className={styles.sectionName}>
+                  {subtitle}
+                </Typography>
+                <Typography
+                  variant="h2"
+                  className={styles.title}
+                >
+                  {title}
+                </Typography>
+              </Animated>
+            )}
             <Animated {...delayedAnimation}>
               <div className={styles.description}>
                 <ContentfulParser document={text} />

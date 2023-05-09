@@ -12,6 +12,7 @@ const ParallaxWrapper = dynamic(() => import('./ParallaxSpring'));
 const ExpandWrapper = dynamic(() => import('./Expand').then((module) => module.ExpandWrapper));
 const CustomAnimation = dynamic(() => import('./CustomAnimation').then((module) => module.CustomAnimation));
 const JSONAnimation = dynamic(() => import('./JSONAnimation').then((module) => module.JSONAnimation));
+const Bounce = dynamic(() => import('react-reveal/Bounce'));
 
 const Animated = (props) => {
   switch (props.type) {
@@ -82,6 +83,15 @@ const Animated = (props) => {
       </CSSAnimation>
     );
   }
+  case ANIMATED_TYPE.bounce: {
+    return (
+      <Bounce {...props}>
+        <div>
+          {props.children}
+        </div>
+      </Bounce>
+    );
+  }
   default: {
     return (
       <ScrollAnimation {...props}>
@@ -90,12 +100,6 @@ const Animated = (props) => {
     );
   }
   }
-};
-
-Animated.defaultProps = {
-  isReveal: false,
-  isFade: false,
-  isCustom: false,
 };
 
 export default Animated;

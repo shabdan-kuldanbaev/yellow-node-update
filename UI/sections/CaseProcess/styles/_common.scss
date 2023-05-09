@@ -11,20 +11,22 @@
   .stepsContainer {
     @include flex(row, space-between, start);
 
-    grid-column-gap: 53px;
+    column-gap: 53px;
     margin-bottom: 48px;
 
     @include tablet {
       @include flex(row, center, start, wrap);
 
-      grid-column-gap: 0;
-      grid-row-gap: 24px;
+      column-gap: 0;
+      row-gap: 24px;
       margin-bottom: 24px;
     }
   }
 
   .step {
     @include flex(column, center, center);
+
+    height: 100%;
 
     @include tablet {
       flex: 0 0 50%;
