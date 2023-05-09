@@ -18,7 +18,6 @@ export default function useProps({
   );
 
   const { url: calendlyEventUrl } = getDocumentFields(contentModules[1], ['url']);
-  console.log('🚀 ~ file: index.js:21 ~ calendlyEventUrl:', calendlyEventUrl);
 
   return {
     title,

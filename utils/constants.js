@@ -543,7 +543,6 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.deliveryQualityInYellow,
   PAGES.crowdfundingPlatform,
   PAGES.paymentGatewayDevelopment,
-  PAGES.bookCall,
 ];
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };

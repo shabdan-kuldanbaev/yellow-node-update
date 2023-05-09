@@ -34,7 +34,6 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
     section,
     handleOnCTAClick,
   } = props;
-  console.log('🚀 ~ file: index.jsx:37 ~ AppDevelopmentCommon ~ type:', type);
 
   if (!section.fields) {
     return null;
