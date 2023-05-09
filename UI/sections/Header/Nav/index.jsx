@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { NAV_LINKS } from 'utils/constants';
-import { isHasSubNavigation } from 'helpers/navigation';
+import { isHasSubNavigation, isHasSubSmallNavigation } from 'helpers/navigation';
 import { useNav } from './useNav';
 import styles from './styles.module.scss';
 
 const DropDownMenu = dynamic(() => import('UI/sections/Header/DropDownMenu'), { suspense: true });
+const SmallDropDownMenu = dynamic(() => import('UI/sections/Header/SmallDropDownMenu'), { suspense: true });
 
 const Nav = (props) => {
   const {
@@ -18,8 +19,10 @@ const Nav = (props) => {
     links,
     isHeader,
     handleOnClick,
+    isSmallDropMenuOpened,
     isDropMenuOpened,
     closeDropDownMenu,
+    closeSmallDropDownMenu,
   } = useNav(props);
 
   return (
@@ -63,6 +66,16 @@ const Nav = (props) => {
                   isPageScrolledDown={isPageScrolling}
                   slug={slug}
                   closeDropDownMenu={closeDropDownMenu}
+                />
+              </Suspense>
+            )}
+            {isHasSubSmallNavigation(slug) && isHeader && (
+              <Suspense>
+                <SmallDropDownMenu
+                  slug={slug}
+                  isDropMenuOpened={isSmallDropMenuOpened}
+                  isPageScrolledDown={isPageScrolling}
+                  closeDropDownMenu={closeSmallDropDownMenu}
                 />
               </Suspense>
             )}

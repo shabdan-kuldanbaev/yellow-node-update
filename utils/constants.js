@@ -34,6 +34,10 @@ export const NON_INTERACTIVE_LINKS = {
     title: 'What we do',
     slug: 'what-we-do',
   },
+  aboutCompany: {
+    title: 'Company',
+    slug: 'about-company',
+  },
 };
 
 export const TAGS_TYPE = {
@@ -43,45 +47,12 @@ export const TAGS_TYPE = {
 };
 
 export const NAV_LINKS = [
-  ...Object.values(NON_INTERACTIVE_LINKS),
-  ...Object.values(routes).filter(({ slug }) => slug && ![
-    routes.homepage.slug,
-    routes.article.slug,
-    routes.project.slug,
-    routes.notFound.slug,
-    routes.customChatApp.slug,
-    routes.customMobileApp.slug,
-    routes.customWebApp.slug,
-    routes.crowdfundingPlatform.slug,
-    routes.fintechDevelopment.slug,
-    routes.discoveryPhase.slug,
-    routes.erpDevelopment.slug,
-    routes.designServices.slug,
-    routes.iosDevelopmentServices.slug,
-    routes.androidDevelopmentServices.slug,
-    routes.cloudDevelopment.slug,
-    routes.mvpDevelopment.slug,
-    routes.eWalletAppDevelopment.slug,
-    routes.bankingSoftwareDevelopmentCompany.slug,
-    routes.deliveryQualityInYellow.slug,
-    routes.pwaDevelopmentServices.slug,
-    routes.lendingSoftwareDevelopment.slug,
-    routes.paymentGatewayDevelopment.slug,
-    routes.mlDevelopment.slug,
-    routes.devOpsDevelopment.slug,
-    routes.aiDevelopment.slug,
-    routes.crossPlatformDevelopmentServices.slug,
-    routes.dataScienceDevelopment.slug,
-    routes.tradingSoftwareDevelopment.slug,
-    routes.prototypingServices.slug,
-    routes.signatureGenerator.slug,
-    routes.privacyPolicy.slug,
-    routes.termsAndConditions.slug,
-    routes.cookiesPolicy.slug,
-    routes.lendingSoftwareDevelopment.slug,
-    routes.penetrationTesting.slug,
-    routes.softwareDevelopmentPrice.slug,
-  ].includes(slug)),
+  Object.values(NON_INTERACTIVE_LINKS)[0],
+  routes.portfolio,
+  routes.softwareDevelopmentPrice,
+  routes.blog,
+  Object.values(NON_INTERACTIVE_LINKS)[1],
+  routes.contact,
 ];
 
 export const BLOCKS_SLUGS = {
@@ -537,9 +508,23 @@ export const SUB_NAVIGATION_LINKS = {
       },
     ],
   },
+  [NON_INTERACTIVE_LINKS.aboutCompany.slug]: [
+    {
+      title: 'About us',
+      subtitle: '',
+      slug: ROUTES.company.path,
+    },
+    {
+      title: 'Delivery Quality Standards',
+      subtitle: '',
+      slug: ROUTES.deliveryQualityInYellow.path,
+    },
+  ],
 };
 
 export const LINKS_WITH_SUB_NAVIGATION = [NON_INTERACTIVE_LINKS.whatWeDo.slug];
+
+export const LINKS_WITH_SUB_SMALL_NAVIGATION = [NON_INTERACTIVE_LINKS.aboutCompany.slug];
 
 export const ARTICLE_TABLE_TYPES = {
   simpleTable: 'Simple table',

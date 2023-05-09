@@ -137,6 +137,12 @@ export const routes = {
     dynamicPath: '/process',
     slug: 'process',
   },
+  softwareDevelopmentPrice: {
+    title: 'Pricing',
+    path: '/pricing',
+    dynamicPath: '/pricing',
+    slug: 'pricing',
+  },
   blog: {
     title: 'Insights',
     slug: 'blog',
@@ -196,12 +202,6 @@ export const routes = {
     path: '/contact',
     dynamicPath: '/contact',
     slug: 'contact',
-  },
-  softwareDevelopmentPrice: {
-    title: 'Software Development Price',
-    path: '/pricing',
-    dynamicPath: '/pricing',
-    slug: 'pricing',
   },
   customChatApp: {
     title: 'Custom chat app development company',

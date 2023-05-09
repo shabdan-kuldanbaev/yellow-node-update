@@ -83,7 +83,8 @@
     }
   }
 
-  &:nth-of-type(1) {
+  &:nth-of-type(1),
+  &:nth-of-type(5) {
     padding: 20px 0;
   }
 
