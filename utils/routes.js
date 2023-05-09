@@ -203,6 +203,12 @@ export const routes = {
     dynamicPath: '/contact',
     slug: 'contact',
   },
+  softwareQualityAssuranceServices: {
+    title: 'Software Development Price',
+    path: '/software-quality-assurance-services',
+    dynamicPath: '/software-quality-assurance-services',
+    slug: 'software-quality-assurance-services',
+  },
   customChatApp: {
     title: 'Custom chat app development company',
     path: '/chat-app-development-company',

@@ -1,0 +1,9 @@
+.software-quality-assurance-services {
+  [data-description] {
+    max-width: 650px;
+
+    @include phone {
+      max-width: 345px;
+    }
+  }
+}
