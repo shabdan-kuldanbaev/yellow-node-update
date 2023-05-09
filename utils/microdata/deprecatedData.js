@@ -126,6 +126,13 @@ export const deprecatedData = {
       + 'solutions to enhance transaction security and accuracy. Read more about our services now.',
     image: logoUrl,
   },
+  [ROUTES.billingSoftwareDevelopment.slug]: {
+    '@context': context,
+    '@type': 'WebPage',
+    name: 'Billing Software Development Services Company | Yellow',
+    description: 'If you want to create brand-new billing software, partner with Yellow and build a top-tier solution.',
+    image: logoUrl,
+  },
   [ROUTES.crossPlatformDevelopmentServices.slug]: {
     '@context': context,
     '@type': 'WebPage',

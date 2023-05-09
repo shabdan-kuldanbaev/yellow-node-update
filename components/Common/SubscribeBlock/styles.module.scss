@@ -67,10 +67,6 @@
   .subscribeForm {
     @include flex(row, center);
 
-    @include macbook-twelve {
-      height: 70px;
-    }
-
     height: 80px;
     width: 60%;
     position: relative;
@@ -162,6 +158,10 @@
         position: unset;
         text-align: center;
       }
+    }
+
+    @include macbook-twelve {
+      height: 70px;
     }
 
     @include tablet {

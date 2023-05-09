@@ -274,6 +274,13 @@ export const routes = {
     description: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
       + 'transaction security and accuracy. Read more about our services now.',
   },
+  billingSoftwareDevelopment: {
+    title: 'Billing Software Development Services Company',
+    path: '/billing-software-development-services',
+    dynamicPath: '/billing-software-development-services',
+    slug: 'billing-software-development-services',
+    description: 'If you want to create brand-new billing software, partner with Yellow and build a top-tier solution.',
+  },
   cloudDevelopment: {
     title: 'Cloud Application Development Services',
     path: '/cloud-based-app-development-services',

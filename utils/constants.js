@@ -349,6 +349,7 @@ export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.bankingSoftwareDevelopmentCompany.path,
   ROUTES.deliveryQualityInYellow.path,
   ROUTES.paymentGatewayDevelopment.path,
+  ROUTES.billingSoftwareDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
@@ -543,6 +544,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.deliveryQualityInYellow,
   PAGES.crowdfundingPlatform,
   PAGES.paymentGatewayDevelopment,
+  PAGES.billingSoftwareDevelopment,
 ];
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
