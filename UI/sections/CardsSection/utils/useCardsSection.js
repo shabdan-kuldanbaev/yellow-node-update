@@ -28,6 +28,12 @@ const SPACE_BETWEEN = {
   },
 };
 
+const REWIND = {
+  [routes.bookCall.slug]: {
+    firstSectionView: true,
+  },
+};
+
 const cardMapper = (withOverlay) => (card) => {
   if (card.sys.contentType.sys.id === 'article') {
     const {
@@ -148,6 +154,7 @@ export default ({
     centeredSlides: true,
     autoHeight: false,
     passiveListeners: true,
+    rewind: REWIND[type]?.[view] || false,
     mousewheel: {
       forceToAxis: true,
     },
