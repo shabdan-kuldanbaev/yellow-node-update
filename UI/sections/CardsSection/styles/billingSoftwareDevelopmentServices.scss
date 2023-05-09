@@ -1,0 +1,115 @@
+.billing-software-development-services {
+  &.firstSectionView {
+    [data-title] {
+      max-width: 700px;
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+
+    [data-description] {
+      max-width: 700px;
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 32px;
+    }
+
+    .card svg {
+      width: 64px;
+    }
+
+    .callToAction {
+      background-color: $gray50;
+      max-width: 994px;
+      margin: 48px auto 0;
+      border: unset;
+
+      h3 {
+        @include fontSize(24px, 130%);
+
+        max-width: 535px;
+
+        @include phone {
+          max-width: 315px;
+        }
+      }
+
+      @include phone {
+        padding: 32px 16px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    [data-description] {
+      max-width: 750px;
+
+      @include phone {
+        max-width: 350px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 32px;
+
+      & > div {
+        margin: 0;
+      }
+    }
+
+    .card {
+      @extend .cardWithVerticalLine;
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    .callToAction {
+      margin-top: 48px;
+      border: unset;
+
+      h3 {
+        @include fontSize(24px, 130%);
+
+        max-width: 535px;
+      }
+
+      @include phone {
+        padding: 32px 16px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithTransperentBackground;
+
+      flex-direction: row;
+    }
+  }
+}

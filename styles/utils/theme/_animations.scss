@@ -439,3 +439,59 @@
   50% { transform: translateY(-48px); }
   100% { transform: translateY(0); }
 }
+
+@keyframes firstCounter {
+  0% {
+    --num: 0;
+  }
+
+  50% {
+    --num: 66;
+  }
+
+  100% {
+    --num: 66;
+  }
+}
+
+@keyframes secondCounter {
+  0% {
+    --num: 0;
+  }
+
+  50% {
+    --num: 82;
+  }
+
+  100% {
+    --num: 82;
+  }
+}
+
+@keyframes thirdCounter {
+  0% {
+    --num: 0;
+  }
+
+  50% {
+    --num: 27;
+  }
+
+  100% {
+    --num: 27;
+  }
+}
+
+@keyframes forthCounter {
+  0% {
+    --num: 0;
+  }
+
+  50% {
+    --num: 17;
+  }
+
+  100% {
+    --num: 17;
+  }
+}

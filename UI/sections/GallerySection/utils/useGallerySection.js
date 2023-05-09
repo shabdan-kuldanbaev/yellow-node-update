@@ -10,12 +10,14 @@ export const useGallerySection = ({
     title,
     description,
     contentModules,
+    view,
   } = getDocumentFields(sectionData);
   const galleryData = get(contentModules, '[0]', {});
   const { contentModules: slides } = getDocumentFields(galleryData);
   const link = getDocumentFields(get(contentModules, '[1]', null));
 
   return {
+    view,
     type,
     title,
     description,
