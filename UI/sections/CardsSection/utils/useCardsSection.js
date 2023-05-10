@@ -31,6 +31,8 @@ const SPACE_BETWEEN = {
 const REWIND = {
   [routes.bookCall.slug]: {
     firstSectionView: true,
+    secondSectionView: true,
+    thirdSectionView: true,
   },
 };
 

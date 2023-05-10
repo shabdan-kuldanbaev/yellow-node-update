@@ -74,6 +74,7 @@ export default ({
     spaceBetween: 32,
     centeredSlides: true,
     autoheight: 'true',
+    rewind: true,
     mousewheel: {
       forceToAxis: true,
     },
