@@ -20,7 +20,6 @@ const LinkList = dynamic(() => import('UI/sections/LinkList'));
 const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const BookmarkCardSection = dynamic(() => import('UI/sections/BookmarkCardSection'));
-const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const Parallax = dynamic(() => import('UI/sections/CaseParallax'));
 const PageIntroSection = dynamic(() => import('UI/sections/PageIntroSection'));
 const PlainTextSection = dynamic(() => import('UI/sections/PlainTextSection'));
@@ -49,9 +48,6 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
         {...props}
       />
     );
-
-  case APP_DEVELOPMENT_TYPES.processOverlay:
-    return <AppOverlayProcess {...props} />;
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentImageSection:
     return (
