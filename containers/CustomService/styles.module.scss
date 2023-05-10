@@ -3,7 +3,7 @@
 
 .container {
   margin: 0 auto;
-  padding: $new-header-height 0 0;
+  padding: calc($new-header-height + 16px) 0 0;
   overflow: hidden;
 
   .pageTitle,
