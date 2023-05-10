@@ -1,8 +1,4 @@
-import {
-  useCallback,
-  useState,
-  Suspense,
-} from 'react';
+import { useCallback, useState } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import FullLayout from 'components/Layout/FullLayout';
@@ -20,7 +16,7 @@ import { useFetchPageQuery } from 'redux/apis/page';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
-const CallToAction = dynamic(() => import('components/Common/CallToAction'), { suspense: true });
+const CallToAction = dynamic(() => import('components/Common/CallToAction'));
 
 const PortfolioContainer = ({
   introSection,
@@ -60,15 +56,13 @@ const PortfolioContainer = ({
         </Animated>
         <Portfolio works={works} />
         {link && (
-          <Suspense>
-            <CallToAction
-              type="page"
-              title={link.title}
-              buttonTitle={link.buttonTitle}
-              handleOnClick={openFullscreenEstimation}
-              className={styles.callToAction}
-            />
-          </Suspense>
+          <CallToAction
+            type="page"
+            title={link.title}
+            buttonTitle={link.buttonTitle}
+            handleOnClick={openFullscreenEstimation}
+            className={styles.callToAction}
+          />
         )}
       </FullLayout>
       <FullScreenEstimation
