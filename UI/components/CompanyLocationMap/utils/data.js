@@ -7,9 +7,9 @@ export const markers = {
     lng: 20.986031099330717,
     lat: 52.23421983438129,
   },
-  Israel: {
-    lng: 34.7694041,
-    lat: 32.0641198,
+  Cyprus: {
+    lng: 33.621416,
+    lat: 34.910888,
   },
   Argentina: {
     lng: -58.3853582,
