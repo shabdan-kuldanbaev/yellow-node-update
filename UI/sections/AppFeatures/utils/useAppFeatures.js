@@ -1,12 +1,19 @@
 import { useState } from 'react';
+import cn from 'classnames';
 import get from 'lodash/get';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getImage,
+} from 'utils/helper';
+import styles from '../styles.module.scss';
 
 export const useAppFeatures = ({ section, type, isPromoImage }) => {
   const {
     title,
     description,
     subtitle,
+    images,
     view,
     contentModules: itemsData,
   } = getDocumentFields(
@@ -16,6 +23,7 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
       'description',
       'contentModules',
       'subtitle',
+      'images',
       'view',
     ],
   );
@@ -29,30 +37,49 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
     }
   };
 
-  const images = itemsData?.map((module) => {
+  const itemsImages = itemsData?.map((module) => {
     const { images: moduleImages } = getDocumentFields(module);
 
     return getFileUrl(get(moduleImages, '[0]', {}));
   });
 
-  const imageSrc = images[activeIndex === -1 ? 0 : activeIndex];
-
   const promoImages = itemsData?.map((module) => {
-    const { contentModules } = getDocumentFields(module);
+    const { contentModules } = getDocumentFields(module, ['contentModules']);
 
-    return get(contentModules, '[0].fields');
+    const { url } = getDocumentFields(get(contentModules, '[0]', {}), ['url']);
+
+    return url;
   });
+
+  const imageSrc = itemsImages[activeIndex === -1 ? 0 : activeIndex];
+
+  const promoSrc = promoImages[activeIndex === -1 ? 0 : activeIndex];
+
+  const [logoImage] = (images || []).map(getImage);
+
+  const className = cn(
+    styles.section,
+    styles[type],
+    styles[view],
+  );
+
+  const titleProps = {
+    title,
+    description,
+    subtitle,
+    className: styles.titleWrapper,
+  };
 
   return {
     view,
     type,
-    title,
-    description,
-    subtitle,
+    className,
+    titleProps,
     activeIndex,
     handleOnClick,
     itemsData,
-    promoImages,
+    logoImage,
+    promoSrc,
     isPromoImage,
     imageSrc,
   };
