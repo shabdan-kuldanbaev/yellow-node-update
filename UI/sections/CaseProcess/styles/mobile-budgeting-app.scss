@@ -183,7 +183,7 @@
 
     .container {
       max-width: $wide-content-width;
-      overflow-x: scroll;
+      overflow-x: auto;
       padding: 0 16px;
     }
 
@@ -205,40 +205,33 @@
 
       position: relative;
       counter-reset: num var(--num);
-      padding: 179px 24px 32px;
+      padding: 32px 24px;
       max-width: 276px;
       width: 100%;
       background: $gray50;
       border-radius: 40px;
       box-sizing: border-box;
+      gap: 80px;
 
       p {
         margin: 0;
       }
 
-      &::after {
+      .stepTitle {
         @include fontSize(56px, 120%);
 
-        position: absolute;
-        top: 32px;
-        left: 24px;
-        content: counter(num) '%';
-      }
+        position: relative;
+        font-weight: normal;
+        align-self: start;
 
-      &-1 {
-        animation: firstCounter 5s infinite ease-in-out;
-      }
+        &::after {
+          @include fontSize(56px, 120%);
 
-      &-2 {
-        animation: secondCounter 5s infinite ease-in-out;
-      }
-
-      &-3 {
-        animation: thirdCounter 5s infinite ease-in-out;
-      }
-
-      &-4 {
-        animation: forthCounter 5s infinite ease-in-out;
+          content: '%';
+          position: absolute;
+          left: 100%;
+          top: 0;
+        }
       }
     }
 

@@ -13,6 +13,7 @@ const ExpandWrapper = dynamic(() => import('./Expand').then((module) => module.E
 const CustomAnimation = dynamic(() => import('./CustomAnimation').then((module) => module.CustomAnimation));
 const JSONAnimation = dynamic(() => import('./JSONAnimation').then((module) => module.JSONAnimation));
 const Bounce = dynamic(() => import('react-reveal/Bounce'));
+const CounterAnimation = dynamic(() => import('UI/containers/Animated/CounterAnimation'));
 
 const Animated = (props) => {
   switch (props.type) {
@@ -90,6 +91,13 @@ const Animated = (props) => {
           {props.children}
         </div>
       </Bounce>
+    );
+  }
+  case ANIMATED_TYPE.counter: {
+    return (
+      <CounterAnimation {...props}>
+        {props.children}
+      </CounterAnimation>
     );
   }
   default: {

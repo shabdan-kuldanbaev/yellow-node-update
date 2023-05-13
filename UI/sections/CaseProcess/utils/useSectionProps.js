@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import { STEP_TITLE_ANIMATION } from './animations';
 
 export default ({ data, type }) => {
   const {
@@ -33,6 +34,8 @@ export default ({ data, type }) => {
     };
   });
 
+  const isTitleAnimated = STEP_TITLE_ANIMATION[type][view];
+
   const backgroundUrl = getOptimizedContentfulImage(
     getFileUrl(get(data, 'background', {})),
     { fm: 'webp' },
@@ -51,5 +54,6 @@ export default ({ data, type }) => {
     images,
     steps,
     view,
+    isTitleAnimated,
   };
 };
