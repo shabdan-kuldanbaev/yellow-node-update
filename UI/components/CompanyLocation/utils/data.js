@@ -17,8 +17,8 @@ export const addresses = [
     text: PLACEMENT_DATA.Poland,
   },
   {
-    title: 'In Israel',
-    text: PLACEMENT_DATA.Israel,
+    title: 'In Cyprus',
+    text: PLACEMENT_DATA.Cyprus,
   },
 ];
 

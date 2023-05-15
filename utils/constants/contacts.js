@@ -80,6 +80,12 @@ export const ADDRESS = {
     streetAddress: 'Grzybowska 62',
     postalCode: '00-855',
   },
+  cy: {
+    addressCountry: 'Cyprus',
+    addressLocality: 'Larnaca',
+    streetAddress: 'Agias Faneromenis, 143, Flat 201',
+    postalCode: '6031',
+  },
 };
 
 export const PLACEMENT_DATA = {
@@ -90,9 +96,9 @@ export const PLACEMENT_DATA = {
     `${ADDRESS.pl.addressLocality} ${ADDRESS.pl.postalCode}`,
     ADDRESS.pl.streetAddress,
   ],
-  Israel: [
-    ADDRESS.il.streetAddress,
-    ADDRESS.il.addressLocality,
+  Cyprus: [
+    ADDRESS.cy.streetAddress,
+    ADDRESS.cy.addressLocality,
   ],
   Argentina: [
     `${ADDRESS.ar.streetAddress} ${ADDRESS.ar.postalCode}`,
