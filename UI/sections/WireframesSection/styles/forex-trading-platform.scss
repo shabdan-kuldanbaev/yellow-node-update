@@ -1,0 +1,12 @@
+.forex-trading-platform {
+  padding: 120px 0;
+  background-color: $forexSecondary;
+
+  .titleStyle {
+    max-width: 519px;
+  }
+
+  @include below-tablet {
+    padding: 60px 0;
+  }
+}
