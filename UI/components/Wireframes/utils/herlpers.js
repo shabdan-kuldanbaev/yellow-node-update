@@ -71,6 +71,9 @@ export const IMAGE_SIZES = {
   'mobile-bank-application': {
     default: 586,
   },
+  'forex-trading-platform': {
+    default: 560,
+  },
 };
 
 export const MOBILE_IMAGE_SIZES = {
@@ -112,5 +115,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   'mobile-bank-application': {
     default: 550,
+  },
+  'forex-trading-platform': {
+    default: 228,
   },
 };
