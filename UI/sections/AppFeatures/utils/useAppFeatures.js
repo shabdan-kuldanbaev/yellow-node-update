@@ -37,10 +37,19 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
     }
   };
 
-  const itemsImages = itemsData?.map((module) => {
+  const itemsImages = itemsData.map((module) => {
     const { images: moduleImages } = getDocumentFields(module);
 
-    return getFileUrl(get(moduleImages, '[0]', {}));
+    const {
+      alt,
+      url: src,
+    } = getImage(moduleImages?.[0]);
+
+    return {
+      src,
+      alt,
+      className: styles.image,
+    };
   });
 
   const promoImages = itemsData?.map((module) => {
@@ -51,11 +60,22 @@ export const useAppFeatures = ({ section, type, isPromoImage }) => {
     return url;
   });
 
+  const [logoImage] = (images || []).map((file) => {
+    const {
+      alt,
+      url: src,
+    } = getImage(file);
+
+    return {
+      src,
+      alt,
+      className: styles.logoImage,
+    };
+  });
+
   const imageSrc = itemsImages[activeIndex === -1 ? 0 : activeIndex];
 
   const promoSrc = promoImages[activeIndex === -1 ? 0 : activeIndex];
-
-  const [logoImage] = (images || []).map(getImage);
 
   const className = cn(
     styles.section,

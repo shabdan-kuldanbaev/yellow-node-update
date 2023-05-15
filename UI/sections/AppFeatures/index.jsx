@@ -34,11 +34,7 @@ const AppFeatures = (props) => {
     <section className={className}>
       <div className={styles.container}>
         <div className={styles.sectionContainer}>
-          <Illustration
-            src={logoImage.url}
-            className={styles.logoImage}
-            alt={type}
-          />
+          <Illustration {...logoImage} />
           <SectionTitle {...titleProps} />
           {itemsData.map((document, index) => (
             <AppFeaturesItem
@@ -53,14 +49,10 @@ const AppFeatures = (props) => {
         </div>
         <Animated
           {...ANIMATION_CASE_STUDY_PROPS}
-          delay={500}
+          delay={150}
         >
           <div className={styles.imageContainer}>
-            <Illustration
-              src={imageSrc}
-              className={styles.image}
-              alt={type}
-            />
+            <Illustration {...imageSrc} />
             {isPromoImage && <FigmaPrototype src={promoSrc} />}
           </div>
         </Animated>
