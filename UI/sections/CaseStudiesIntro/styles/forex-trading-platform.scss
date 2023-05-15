@@ -47,16 +47,18 @@
     top: 0;
     width: 994px;
     height: 706px;
+    box-shadow: 0 14px 54px 0 #00000026;
     transform: unset;
 
     @include tablet {
       position: static;
       margin: 0 auto;
-      width: 100%;
+      width: 700px;
       height: 500px;
     }
 
     @include below-tablet {
+      width: 340px;
       height: 243px;
     }
   }
