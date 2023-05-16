@@ -1,0 +1,13 @@
+.forex-trading-platform {
+  :global(.swiper-pagination) {
+    bottom: -5px;
+  }
+
+  .swiperBullet {
+    border: 1px solid $forexAccent;
+  }
+
+  .swiperBulletActive {
+    background-color: $forexAccent;
+  }
+}

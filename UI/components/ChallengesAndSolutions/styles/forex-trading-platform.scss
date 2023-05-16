@@ -1,0 +1,27 @@
+.forex-trading-platform {
+  .contentContainer {
+    @include below-tablet {
+      gap: 16px;
+    }
+  }
+
+  .separatedTitle {
+    margin: 0;
+  }
+
+  .infoContainer {
+    max-width: 379px;
+    width: 100%;
+
+    .title {
+      @include fontSize(24px, 130%);
+
+      margin: 0;
+      color: $forexAccent;
+
+      @include below-tablet {
+        @include fontSize(20px, 150%);
+      }
+    }
+  }
+}
