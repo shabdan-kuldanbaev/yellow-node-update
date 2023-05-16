@@ -23,5 +23,13 @@
         @include fontSize(20px, 150%);
       }
     }
+
+    p {
+      white-space: unset;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
   }
 }
