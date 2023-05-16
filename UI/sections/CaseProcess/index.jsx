@@ -6,7 +6,6 @@ import Typography from 'UI/components/Typography';
 import Svg from 'UI/components/Svg';
 import Animated from 'UI/containers/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import { BOUNCE_ANIMATION_PROPS } from 'utils/constants';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -21,6 +20,7 @@ const CaseProcess = (props) => {
     images,
     steps,
     isTitleAnimated,
+    isCardAnimated,
   } = useSectionProps(props);
 
   return (
@@ -46,7 +46,7 @@ const CaseProcess = (props) => {
           }, index) => (
             <Animated
               key={index}
-              {...BOUNCE_ANIMATION_PROPS}
+              {...isCardAnimated}
               delay={50 + ((index + 1) * 50)}
             >
               <div className={cn(styles.step, styles[`step-${index + 1}`])}>
