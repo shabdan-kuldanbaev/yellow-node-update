@@ -20,6 +20,7 @@ const CaseProcess = (props) => {
     description,
     images,
     steps,
+    isTitleAnimated,
   } = useSectionProps(props);
 
   return (
@@ -74,12 +75,22 @@ const CaseProcess = (props) => {
                   </Typography>
                 )}
                 {stepTitle && (
-                  <Typography
-                    variant="h3"
-                    className={styles.stepTitle}
-                  >
-                    {stepTitle}
-                  </Typography>
+                  isTitleAnimated
+                    ? (
+                      <Animated
+                        {...isTitleAnimated}
+                        className={styles.stepTitle}
+                      >
+                        {stepTitle}
+                      </Animated>
+                    ) : (
+                      <Typography
+                        variant="h3"
+                        className={styles.stepTitle}
+                      >
+                        {stepTitle}
+                      </Typography>
+                    )
                 )}
                 {text && (
                   <ContentfulParser document={text} />

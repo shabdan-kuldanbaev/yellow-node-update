@@ -16,11 +16,10 @@ const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 const ImagesListSection = dynamic(() => import('UI/sections/ImagesListSection'));
-const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
+const LinkList = dynamic(() => import('UI/sections/LinkList'));
 const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const BookmarkCardSection = dynamic(() => import('UI/sections/BookmarkCardSection'));
-const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
 const Parallax = dynamic(() => import('UI/sections/CaseParallax'));
 const PageIntroSection = dynamic(() => import('UI/sections/PageIntroSection'));
 const PlainTextSection = dynamic(() => import('UI/sections/PlainTextSection'));
@@ -49,9 +48,6 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
         {...props}
       />
     );
-
-  case APP_DEVELOPMENT_TYPES.processOverlay:
-    return <AppOverlayProcess {...props} />;
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentImageSection:
     return (
@@ -125,10 +121,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentCheckSocial:
     return (
-      <CheckSocialSection
-        sectionData={section}
-        type={type}
-      />
+      <LinkList {...props} />
     );
   case APP_DEVELOPMENT_TYPES.svgDisplayWithSelector:
     return (

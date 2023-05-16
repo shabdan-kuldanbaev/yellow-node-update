@@ -77,6 +77,7 @@ export const ANIMATED_TYPE = {
   expandByHeight: 'expandByHeight',
   isCSS: 'isCSS',
   bounce: 'bounce',
+  counter: 'counter',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
