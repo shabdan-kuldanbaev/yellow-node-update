@@ -31,7 +31,7 @@ export const addresses = [
   },
   {
     '@type': 'PostalAddress',
-    ...ADDRESS.il,
+    ...ADDRESS.cy,
   },
   {
     '@type': 'PostalAddress',

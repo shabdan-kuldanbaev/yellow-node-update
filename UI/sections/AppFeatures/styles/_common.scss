@@ -32,12 +32,8 @@
   .container {
     @include flex(row, space-between);
 
-    max-width: 1200px;
     margin: 0 auto;
-
-    div:last-child {
-      opacity: 1 !important;
-    }
+    max-width: $wide-content-width;
 
     @include phone {
       flex-direction: column;
