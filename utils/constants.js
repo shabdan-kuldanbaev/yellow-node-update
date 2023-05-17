@@ -277,6 +277,7 @@ export const CASE_STUDIES = {
   mobileBankApplication: 'mobile-bank-application',
   cedar: 'cedar-valley-farms',
   mobileBudgetingApp: 'mobile-budgeting-app',
+  forexTradingPlatform: 'forex-trading-platform',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -312,6 +313,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.smartcenter).path,
   ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBudgetingApp).path,
+  ROUTES.project.getRoute(CASE_STUDIES.forexTradingPlatform).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.iosDevelopmentServices.path,

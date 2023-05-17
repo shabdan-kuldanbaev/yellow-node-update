@@ -1,0 +1,14 @@
+.forex-trading-platform {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    background-color: $forexSecondary;
+    height: 780px;
+
+    @include tablet {
+      height: 600px;
+    }
+  }
+}

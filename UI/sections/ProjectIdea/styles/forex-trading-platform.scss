@@ -1,0 +1,35 @@
+.forex-trading-platform {
+  background: $forexSecondary;
+
+  .contentContainer {
+    margin: 0 auto;
+  }
+
+  .descriptionContainer {
+    @include flex(row, space-between, start);
+
+    margin: 0 auto;
+    gap: 32px;
+    max-width: $default-content-width;
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      gap: 16px;
+    }
+  }
+
+  .descriptionIntro {
+    margin: 0;
+    max-width: 481px;
+
+    .sectionName {
+      color: $gray900;
+      opacity: 0.7;
+    }
+
+    .title {
+      color: $forexAccent;
+    }
+  }
+}

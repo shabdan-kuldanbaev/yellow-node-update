@@ -1,0 +1,158 @@
+.forex-trading-platform {
+  padding: 120px 16px;
+
+  .stepsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    gap: 48px;
+
+    @include below-tablet {
+      grid-template-columns: auto;
+      justify-content: center;
+      gap: 24px;
+    }
+  }
+
+  .step {
+    @include flex(column, initial, start);
+
+    max-width: 380px;
+    gap: 16px;
+
+    .stepTitle {
+      @include fontSize(24px, 130%);
+
+      @include below-tablet {
+        @include fontSize(20px, 150%);
+      }
+    }
+
+    p {
+      margin: 0;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    @include below-tablet {
+      @include flex(column, center, center);
+
+      gap: 8px;
+    }
+  }
+
+  .image {
+    margin: 0 auto;
+    width: 994px;
+    height: 706px;
+    box-shadow: 0 14px 54px 0 #00000026;
+
+    @include tablet {
+      width: 700px;
+      height: 500px;
+    }
+
+    @include below-tablet {
+      width: 525px;
+      height: 375px;
+    }
+
+    @include phone {
+      width: 343px;
+      height: 243px;
+    }
+  }
+
+  &.firstSectionView {
+    background: $forexAccent;
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    .step {
+      .stepTitle {
+        color: $gray0;
+      }
+
+      p {
+        color: $gray0;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding: 120px 16px 60px;
+    background: $forexSecondary;
+
+    .step {
+      p {
+        color: $gray400;
+      }
+    }
+
+    @include below-tablet {
+      padding: 60px 16px 30px;
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $forexAccent;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .stepsContainer {
+      margin: 0 auto;
+      padding: 60px;
+      display: grid;
+      gap: 16px 32px;
+      grid-template-columns: repeat(3, auto);
+      grid-auto-flow: column;
+      max-width: 790px;
+      background: rgb(255 255 255 / 10%);
+      border-radius: 30px;
+      box-sizing: border-box;
+
+      & > div:nth-of-type(1) {
+        grid-row: 1/5;
+
+        .stepTitle {
+          @include fontSize(38px, 130%);
+
+          color: $gray0;
+          font-weight: 700;
+
+          @include below-tablet {
+            @include fontSize(24px, 130%);
+          }
+        }
+
+        @include below-tablet {
+          grid-row: unset;
+        }
+      }
+
+      @include below-tablet {
+        grid-template-columns: auto;
+        grid-auto-flow: row;
+      }
+    }
+
+    .stepTitle {
+      @include fontSize(16px, 150%);
+
+      color: $gray0;
+      font-weight: normal;
+      opacity: 0.7;
+    }
+  }
+
+  @include below-tablet {
+    padding: 60px 16px;
+  }
+}

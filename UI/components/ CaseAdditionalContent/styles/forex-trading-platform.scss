@@ -1,0 +1,33 @@
+.forex-trading-platform {
+  max-width: 481px;
+  gap: 24px 32px;
+
+  .container {
+    @include flex(column, initial, start);
+
+    max-width: 250px;
+
+    .title {
+      @include fontSize(18px, 180%);
+
+      white-space: nowrap;
+    }
+
+    .listItem {
+      @include fontSize(16px, 150%);
+
+      color: $gray400;
+
+      &::marker {
+        color: $forexAccent;
+        font-size: 1.5rem;
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      max-width: 100%;
+    }
+  }
+}
