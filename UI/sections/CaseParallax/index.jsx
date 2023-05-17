@@ -21,7 +21,7 @@ const CaseParallax = (props) => {
   return (
     <section className={className}>
       <SectionTitle {...sectionTitles}>
-        {!!contentList.length
+        {!!contentList?.length
           && (
             <Animated
               {...REVEAL_ANIMATION_PROPS}
@@ -44,8 +44,6 @@ const CaseParallax = (props) => {
         {bundleImages?.map((src, index) => (
           <Illustration
             lazyBoundary="2000px"
-            unoptimized
-            transparent
             src={src}
             className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
           />
