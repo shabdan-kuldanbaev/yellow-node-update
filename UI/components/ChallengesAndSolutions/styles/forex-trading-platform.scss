@@ -1,4 +1,7 @@
 .forex-trading-platform {
+  margin: 0 auto;
+  max-width: 790px;
+
   .contentContainer {
     @include below-tablet {
       gap: 16px;

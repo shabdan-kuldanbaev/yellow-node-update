@@ -1,4 +1,8 @@
 .forex-trading-platform {
+  :global(.swiper-wrapper) {
+    margin-bottom: 50px;
+  }
+
   :global(.swiper-pagination) {
     bottom: -5px;
   }
