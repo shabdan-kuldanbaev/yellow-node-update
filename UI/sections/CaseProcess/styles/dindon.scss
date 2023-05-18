@@ -10,19 +10,24 @@
   }
 
   .stepsContainer {
+    position: relative;
+    margin: 0 0 -60px -60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 60px;
-    margin: 0 auto;
+
+    & > div {
+      margin: 0 0 60px 60px;
+      flex: 0 0 360px;
+
+      @include tablet {
+        margin: 0 0 40px 40px;
+      }
+    }
 
     .step {
       @include flex(column, start, start);
 
-      position: relative;
       padding: 32px;
-      height: 100%;
-      width: 100%;
-      max-width: 360px;
       box-sizing: border-box;
       background: $gray0;
       border: 1px solid $gray100;
@@ -56,7 +61,7 @@
         }
       }
 
-      &:nth-child(3) {
+      &-3 {
         .bundleImage-1 {
           top: 98%;
           right: 50%;
@@ -81,8 +86,8 @@
       p {
         @include fontSize(16px, 150%);
 
-        flex-grow: 1;
         margin: 8px 0 0;
+        flex-grow: 1;
         color: $gray400;
         white-space: unset;
       }
@@ -90,14 +95,13 @@
       @include tablet {
         @include flex(column, center, start);
 
-        height: auto;
         max-width: 100%;
       }
     }
 
     @include tablet {
       grid-template-columns: repeat(1, auto);
-      grid-row-gap: 40px;
+      margin: 0 0 -40px -40px;
     }
   }
 }

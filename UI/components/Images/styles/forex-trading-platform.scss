@@ -1,4 +1,11 @@
 .forex-trading-platform {
+  &.secondSectionView {
+    .image {
+      width: 994px;
+      height: 532px;
+    }
+  }
+
   &.firstSectionView,
   &.thirdSectionView {
     overflow-x: unset;

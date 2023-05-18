@@ -10,11 +10,11 @@
   }
 
   .itemsContainer {
+    margin: 0 0 -24px -80px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    grid-column-gap: 80px;
-    grid-row-gap: 24px;
+    box-sizing: border-box;
 
     @include tablet {
       display: none;
@@ -24,6 +24,7 @@
   .item {
     @include fontSize(20px, 150%);
 
+    margin: 0 0 24px 80px;
     width: auto;
     color: $gray400;
     cursor: pointer;
@@ -31,6 +32,7 @@
     user-select: none;
     padding-bottom: 12px;
     box-sizing: border-box;
+    transition: 0.2s ease;
 
     &::after {
       content: '';
@@ -51,6 +53,10 @@
       &::after {
         width: 70px;
       }
+    }
+
+    @include tablet {
+      margin: 0;
     }
 
     @include below-tablet {

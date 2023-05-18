@@ -5,12 +5,15 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     justify-content: space-between;
-    gap: 48px;
+    margin: 0 0 24px -24px;
+
+    & > div {
+      margin: 0 0 24px 24px;
+    }
 
     @include below-tablet {
       grid-template-columns: auto;
       justify-content: center;
-      gap: 24px;
     }
   }
 
@@ -18,7 +21,6 @@
     @include flex(column, initial, start);
 
     max-width: 380px;
-    gap: 16px;
 
     .stepTitle {
       @include fontSize(24px, 130%);
@@ -109,14 +111,21 @@
     .stepsContainer {
       margin: 0 auto;
       padding: 60px;
+      max-width: 790px;
       display: grid;
-      gap: 16px 32px;
       grid-template-columns: repeat(3, auto);
       grid-auto-flow: column;
-      max-width: 790px;
       background: rgb(255 255 255 / 10%);
       border-radius: 30px;
       box-sizing: border-box;
+
+      & > div {
+        margin: 0 0 16px;
+
+        @include below-tablet {
+          margin-bottom: 8px;
+        }
+      }
 
       & > div:nth-of-type(1) {
         grid-row: 1/5;

@@ -37,11 +37,10 @@
     .stepsContainer {
       @include flex(row, center, initial, wrap);
 
-      margin: 0;
-      grid-gap: 32px;
+      margin: 0 0 -16px -32px;
 
-      @include below-tablet {
-        grid-gap: 16px;
+      & > div {
+        margin: 0 0 16px 32px;
       }
     }
 
@@ -185,18 +184,29 @@
       max-width: $wide-content-width;
       overflow-x: auto;
       padding: 0 16px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     .stepsContainer {
       @include flex(row, space-between);
 
-      margin: 0 auto 24px;
+      margin: 0 0 0 -32px;
       width: $wide-content-width;
-      grid-gap: 32px;
 
-      @include below-tablet {
-        grid-gap: 12px;
-        width: calc($wide-content-width - 60px);
+      & > div {
+        margin: 0 0 0 32px;
+        flex: 0 0 276px;
+
+        @include below-tablet {
+          margin: 0 0 0 16px;
+        }
+      }
+
+      @include tablet {
+        margin: 0 0 0 -16px;
       }
     }
 
@@ -204,17 +214,17 @@
       @include flex(column, start, center);
 
       position: relative;
-      counter-reset: num var(--num);
       padding: 32px 24px;
-      max-width: 276px;
       width: 100%;
       background: $gray50;
       border-radius: 40px;
       box-sizing: border-box;
-      gap: 80px;
 
       p {
-        margin: 0;
+        @include fontSize(16px, 150%);
+
+        margin: 80px 0 0;
+        color: $gray900;
       }
 
       .stepTitle {
@@ -273,11 +283,13 @@
       @include flex(row, center, center, wrap);
 
       position: relative;
-      right: -200px;
-      margin: 0 0 24px;
-      width: 1070px;
-      row-gap: 16px;
-      column-gap: 16px;
+      right: -150px;
+      margin: 0 0 -16px -16px;
+      width: $wide-content-width;
+
+      & > div {
+        margin: 0 0 16px 16px;
+      }
 
       .step {
         padding: 24px;
@@ -335,6 +347,7 @@
       grid-auto-rows: 90px;
 
       & > div {
+        margin: 0;
         width: 100%;
         height: 100%;
       }
