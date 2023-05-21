@@ -38,27 +38,28 @@
     height: 706px;
 
     @include tablet {
+      @include flex(row, center, center);
+
       height: unset;
     }
   }
 
-  .image {
+  .video {
+    position: absolute;
     left: 0;
     top: 0;
     width: 994px;
     height: 706px;
     box-shadow: 0 14px 54px 0 #00000026;
-    transform: unset;
 
     @include tablet {
       position: static;
-      margin: 0 auto;
       width: 700px;
       height: 500px;
     }
 
     @include below-tablet {
-      width: 340px;
+      width: 343px;
       height: 243px;
     }
   }
