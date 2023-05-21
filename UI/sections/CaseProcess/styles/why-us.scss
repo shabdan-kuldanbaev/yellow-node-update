@@ -71,6 +71,86 @@
     }
   }
 
+  &.secondSectionView {
+    padding: 120px 16px 60px;
+    background: $gray0;
+
+    .stepsContainer {
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+
+      & > div {
+        margin: 0;
+      }
+
+      &::before {
+        @include circle($yellow500, 286px);
+
+        position: absolute;
+        right: -79px;
+        bottom: -106px;
+
+        @include below-tablet {
+          bottom: -34px;
+          right: -143px;
+        }
+      }
+    }
+
+    .step {
+      padding: 60px;
+      height: auto;
+      background: $gray50;
+      border: 1px solid #e2e2e2;
+      border-radius: 20px;
+
+      p {
+        @include fontSize(16px, 150%);
+
+        color: $gray400;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+      }
+
+      @include below-tablet {
+        padding: 60px 12px;
+      }
+    }
+
+    .stepImage {
+      width: 140px;
+      height: 140px;
+    }
+
+    .stepNumber {
+      @include fontSize(20px, 150%);
+
+      margin: 0 0 4px;
+      display: block;
+      width: unset;
+      height: unset;
+      font-weight: 700;
+      background-color: unset;
+      color: $gray900;
+      border-radius: unset;
+    }
+
+    .stepTitle {
+      @include fontSize(14px, 150%);
+
+      font-style: normal;
+      font-weight: 400;
+      text-align: center;
+      color: $gray400;
+    }
+
+    @include below-tablet {
+      padding: 60px 16px 30px;
+    }
+  }
+
   &.thirdSectionView {
     padding: 60px 16px;
 
