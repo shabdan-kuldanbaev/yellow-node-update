@@ -1,0 +1,53 @@
+.why-us {
+  .contentContainer {
+    max-width: $wide-content-width;
+    gap: unset;
+
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .title {
+    @include fontSize(38px, 130%);
+
+    margin: 0 16px 8px 0;
+
+    @include below-tablet {
+      margin: 0 auto 8px;
+      text-align: center;
+    }
+  }
+
+  .infoContainer {
+    margin: 0;
+    max-width: 584px;
+
+    p {
+      margin: 0;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+  }
+
+  &.firstSectionView {
+    .infoContainer,
+    p {
+      color: $gray900;
+      opacity: 0.6;
+    }
+  }
+
+  &.secondSectionView {
+    .title {
+      color: $gray0;
+    }
+
+    .infoContainer,
+    p {
+      color: $gray400;
+    }
+  }
+}

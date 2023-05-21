@@ -1,0 +1,17 @@
+.why-us {
+  &.firstSectionView {
+    background: $yellow500;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+
+  &.secondSectionView {
+    background: $gray900;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+}

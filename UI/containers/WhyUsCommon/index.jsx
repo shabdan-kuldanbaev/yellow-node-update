@@ -9,6 +9,7 @@ const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const ImagesSection = dynamic(() => import('UI/sections/ImagesSection'));
 const WhyUsIntro = dynamic(() => import('UI/sections/WhyUsIntro'));
+const Challenges = dynamic(() => import('UI/sections/ChallengesAndSolutionsWithWireframes'));
 
 export const WhyUsCommon = (props) => {
   const { type, section } = props;
@@ -49,6 +50,14 @@ export const WhyUsCommon = (props) => {
   case WHY_US_TYPE.parallax:
     return (
       <Parallax
+        type={type}
+        data={section.fields}
+      />
+    );
+
+  case WHY_US_TYPE.challenges:
+    return (
+      <Challenges
         type={type}
         data={section.fields}
       />
