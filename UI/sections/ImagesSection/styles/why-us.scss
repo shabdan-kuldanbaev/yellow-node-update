@@ -1,0 +1,22 @@
+.why-us {
+  &.secondSectionView {
+    padding: 120px 0 0;
+    background: $gray900;
+
+    .titleStyle {
+      max-width: 759px;
+    }
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    [data-description] {
+      color: $gray400;
+    }
+
+    @include below-tablet {
+      padding: 60px 0 0;
+    }
+  }
+}

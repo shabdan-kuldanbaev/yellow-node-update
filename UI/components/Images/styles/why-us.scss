@@ -1,0 +1,38 @@
+.why-us {
+  &.firstSectionView {
+    @include flex(row, center, center, wrap);
+
+    margin: 0 0 -16px -32px;
+
+    .image {
+      margin: 0 0 16px 32px;
+      width: 379px;
+      height: 208px;
+
+      @include below-tablet {
+        width: 343px;
+        height: 188px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    position: relative;
+    overflow: hidden;
+
+    .image-1 {
+      width: 337px;
+      height: 480px;
+    }
+
+    .image-2 {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1056px;
+      height: 1056px;
+      pointer-events: none;
+    }
+  }
+}

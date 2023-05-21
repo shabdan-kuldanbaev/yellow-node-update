@@ -4,10 +4,10 @@ import { getDocumentFields } from 'utils/helper';
 import { WHY_US_TYPE } from 'utils/constants';
 
 const Parallax = dynamic(() => import('UI/sections/CaseParallax'));
-const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
+const Process = dynamic(() => import('UI/sections/CaseProcess'));
 const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
-const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
+const ImagesSection = dynamic(() => import('UI/sections/ImagesSection'));
 const WhyUsIntro = dynamic(() => import('UI/sections/WhyUsIntro'));
 
 export const WhyUsCommon = (props) => {
@@ -25,26 +25,25 @@ export const WhyUsCommon = (props) => {
       <WhyUsIntro {...props} />
     );
 
-  case WHY_US_TYPE.imageSection:
+  case WHY_US_TYPE.imagesSection:
     return (
-      <ImageSection {...props} />
+      <ImagesSection
+        data={section.fields}
+        type={type}
+      />
     );
 
-  case WHY_US_TYPE.cardsSection:
-    return <CardsSection {...props} />;
+  case WHY_US_TYPE.process:
+    return (
+      <Process
+        type={type}
+        data={section.fields}
+      />
+    );
 
   case WHY_US_TYPE.svgList:
     return (
       <SvgListSection {...props} />
-    );
-
-  case WHY_US_TYPE.cardsWithOverlay:
-    return (
-      <CardsSection
-        section={section}
-        type={type}
-        withOverlay
-      />
     );
 
   case WHY_US_TYPE.parallax:

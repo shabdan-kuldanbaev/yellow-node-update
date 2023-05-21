@@ -198,7 +198,8 @@ export const WHY_US_TYPE = {
   svgList: 'app-development-svg-list',
   imageSection: 'app-development-image',
   feedback: 'feedback',
-  cardsSection: 'app-development-cards',
+  process: 'case-study-process',
+  imagesSection: 'case-study-image',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';

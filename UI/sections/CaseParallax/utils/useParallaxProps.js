@@ -9,6 +9,7 @@ export default ({ data, type }) => {
     title,
     subtitle,
     description,
+    view,
     ...rest
   } = data;
 
@@ -25,7 +26,7 @@ export default ({ data, type }) => {
     contentList = [],
     imagesBundles = [],
   } = getDocumentFields(subContent) || {};
-  const className = cn(styles[type], styles.parallaxSection);
+  const className = cn(styles.parallaxSection, styles[type], styles[view]);
   const bundleImages = imagesBundles?.map((img) => getFileUrl(img));
 
   return {
