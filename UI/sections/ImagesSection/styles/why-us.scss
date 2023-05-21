@@ -20,6 +20,19 @@
     }
   }
 
+  &.thirdSectionView {
+    padding: 120px 16px;
+    background: $gray900;
+
+    .titleStyle {
+      color: $gray0;
+    }
+
+    @include below-tablet {
+      padding: 60px 16px;
+    }
+  }
+
   &.fifthSectionView {
     padding: 60px 16px 120px;
     background: $gray50;
