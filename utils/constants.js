@@ -203,6 +203,7 @@ export const WHY_US_TYPE = {
   process: 'case-study-process',
   imagesSection: 'case-study-image',
   challenges: 'case-study-challenges',
+  tabs: 'app-development-tabs-section',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';

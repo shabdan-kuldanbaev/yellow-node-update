@@ -10,6 +10,7 @@ const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr
 const ImagesSection = dynamic(() => import('UI/sections/ImagesSection'));
 const WhyUsIntro = dynamic(() => import('UI/sections/WhyUsIntro'));
 const Challenges = dynamic(() => import('UI/sections/ChallengesAndSolutionsWithWireframes'));
+const Tabs = dynamic(() => import('UI/sections/TabsSection'));
 
 export const WhyUsCommon = (props) => {
   const { type, section } = props;
@@ -61,6 +62,11 @@ export const WhyUsCommon = (props) => {
         type={type}
         data={section.fields}
       />
+    );
+
+  case WHY_US_TYPE.tabs:
+    return (
+      <Tabs {...props} />
     );
 
   case WHY_US_TYPE.feedback:
