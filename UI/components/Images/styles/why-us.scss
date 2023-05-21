@@ -37,4 +37,19 @@
       pointer-events: none;
     }
   }
+
+  &.fifthSectionView {
+    @include flex(row, space-between, center, wrap);
+
+    margin: 0 auto -24px;
+    max-width: 600px;
+    overflow: hidden;
+
+    .image {
+      margin: 0 0 24px;
+      width: 140px;
+      height: 136px;
+      flex-grow: 1;
+    }
+  }
 }
