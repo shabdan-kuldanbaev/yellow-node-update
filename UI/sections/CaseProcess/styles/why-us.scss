@@ -70,4 +70,36 @@
       padding: 60px 16px;
     }
   }
+
+  &.thirdSectionView {
+    padding: 60px 16px;
+
+    .titleStyle {
+      max-width: 651px;
+    }
+
+    .stepsContainer {
+      @include flex(row, space-between, start, wrap);
+
+      margin: 0 0 -24px -24px;
+      max-width: $default-content-width;
+
+      & > div {
+        margin: 0 0 24px 24px;
+        flex: 1 0 30%;
+
+        @include phone {
+          flex: 1 0 auto;
+        }
+      }
+    }
+
+    .stepIcon {
+      margin-bottom: 16px;
+    }
+
+    @include below-tablet {
+      padding: 30px 16px;
+    }
+  }
 }
