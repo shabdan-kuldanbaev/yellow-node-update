@@ -1,0 +1,72 @@
+.why-us {
+  &.firstSectionView {
+    @include flex(row, space-between, start);
+
+    margin: 0 auto;
+    padding: 120px 16px;
+    max-width: $wide-content-width;
+    background: $gray900;
+
+    .titleStyle {
+      margin: 0;
+      max-width: 379px;
+
+      @include below-tablet {
+        margin: 0 auto 24px;
+      }
+    }
+
+    [data-title] {
+      color: $gray0;
+      text-align: left;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    .container {
+      margin: 0;
+      max-width: 584px;
+    }
+
+    .stepsContainer {
+      @include flex(column, initial, start);
+
+      margin: 0 0 -16px;
+
+      & > div {
+        margin: 0 0 16px;
+      }
+    }
+
+    .step {
+      padding: 24px 24px 24px 40px;
+      border: 1px solid #545454;
+      border-radius: 5px;
+      background: rgb(255 255 255 / 3%);
+    }
+
+    .stepTitle {
+      position: relative;
+      color: $gray0;
+      text-align: left;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -16px;
+        width: 2px;
+        height: 100%;
+        background: $yellow400;
+      }
+    }
+
+    @include below-tablet {
+      @include flex(column, center, center);
+
+      padding: 60px 16px;
+    }
+  }
+}
