@@ -1,0 +1,11 @@
+.why-us {
+  .swiper {
+    height: 66px;
+  }
+
+  .item {
+    @include flex(row, center, center);
+
+    height: 100%;
+  }
+}
