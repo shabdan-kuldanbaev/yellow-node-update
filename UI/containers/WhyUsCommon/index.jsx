@@ -11,6 +11,7 @@ const ImagesSection = dynamic(() => import('UI/sections/ImagesSection'));
 const WhyUsIntro = dynamic(() => import('UI/sections/WhyUsIntro'));
 const Challenges = dynamic(() => import('UI/sections/ChallengesAndSolutionsWithWireframes'));
 const Tabs = dynamic(() => import('UI/sections/TabsSection'));
+const Gallery = dynamic(() => import('UI/sections/GallerySection'));
 
 export const WhyUsCommon = (props) => {
   const { type, section } = props;
@@ -23,8 +24,23 @@ export const WhyUsCommon = (props) => {
 
   switch (sectionType) {
   case WHY_US_TYPE.intro:
+    return <WhyUsIntro {...props} />;
+
+  case WHY_US_TYPE.svgList:
+    return <SvgListSection {...props} />;
+
+  case WHY_US_TYPE.tabs:
+    return <Tabs {...props} />;
+
+  case WHY_US_TYPE.feedback:
+    return <FeedbackSection {...props} />;
+
+  case WHY_US_TYPE.gallery:
     return (
-      <WhyUsIntro {...props} />
+      <Gallery
+        type={type}
+        sectionData={section}
+      />
     );
 
   case WHY_US_TYPE.imagesSection:
@@ -43,11 +59,6 @@ export const WhyUsCommon = (props) => {
       />
     );
 
-  case WHY_US_TYPE.svgList:
-    return (
-      <SvgListSection {...props} />
-    );
-
   case WHY_US_TYPE.parallax:
     return (
       <Parallax
@@ -63,14 +74,6 @@ export const WhyUsCommon = (props) => {
         data={section.fields}
       />
     );
-
-  case WHY_US_TYPE.tabs:
-    return (
-      <Tabs {...props} />
-    );
-
-  case WHY_US_TYPE.feedback:
-    return <FeedbackSection {...props} />;
 
   default:
     return null;

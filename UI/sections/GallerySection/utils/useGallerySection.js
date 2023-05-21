@@ -11,9 +11,17 @@ export const useGallerySection = ({
     description,
     contentModules,
     view,
-  } = getDocumentFields(sectionData);
+  } = getDocumentFields(
+    sectionData,
+    [
+      'title',
+      'description',
+      'contentModules',
+      'view',
+    ],
+  );
   const galleryData = get(contentModules, '[0]', {});
-  const { contentModules: slides } = getDocumentFields(galleryData);
+  const { contentModules: slides } = getDocumentFields(galleryData, ['contentModules']);
   const link = getDocumentFields(get(contentModules, '[1]', null));
 
   return {

@@ -204,6 +204,7 @@ export const WHY_US_TYPE = {
   imagesSection: 'case-study-image',
   challenges: 'case-study-challenges',
   tabs: 'app-development-tabs-section',
+  gallery: 'app-development-gallery',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';

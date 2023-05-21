@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import CustomSwiper from 'UI/containers/CustomSwiper';
 import SectionTitle from 'UI/components/SectionTitle';
 import { useGallerySection } from './utils/useGallerySection';
-import { swiperGalleryParams } from './utils/helpers';
+import { swiperGalleryParams, typedSwiperParams } from './utils/helpers';
 import styles from './styles.module.scss';
 
 const ItemPreview = dynamic(() => import('UI/components/ItemPreview'), { ssr: false });
@@ -31,7 +31,7 @@ const GallerySection = (props) => {
           className={styles.sectionTitle}
         />
         <CustomSwiper
-          swiperParams={swiperGalleryParams}
+          swiperParams={typedSwiperParams[type] || swiperGalleryParams}
           className={styles.slider}
           isShowNavigation
           navigationClassName={styles.navigation}

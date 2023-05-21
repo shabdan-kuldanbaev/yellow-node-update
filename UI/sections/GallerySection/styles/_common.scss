@@ -35,10 +35,6 @@
   }
 
   .navigation {
-    max-width: 80%;
-
-    @include tablet {
-      max-width: 80%;
-    }
+    max-width: $wide-content-width;
   }
 }
