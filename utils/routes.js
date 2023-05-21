@@ -209,6 +209,12 @@ export const routes = {
     dynamicPath: '/contact',
     slug: 'contact',
   },
+  softwareQualityAssuranceServices: {
+    title: 'Software Development Price',
+    path: '/software-quality-assurance-services',
+    dynamicPath: '/software-quality-assurance-services',
+    slug: 'software-quality-assurance-services',
+  },
   customChatApp: {
     title: 'Custom chat app development company',
     path: '/chat-app-development-company',
@@ -279,6 +285,13 @@ export const routes = {
     slug: 'payment-gateway-development-company',
     description: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
       + 'transaction security and accuracy. Read more about our services now.',
+  },
+  billingSoftwareDevelopment: {
+    title: 'Billing Software Development Services Company',
+    path: '/billing-software-development-services',
+    dynamicPath: '/billing-software-development-services',
+    slug: 'billing-software-development-services',
+    description: 'If you want to create brand-new billing software, partner with Yellow and build a top-tier solution.',
   },
   cloudDevelopment: {
     title: 'Cloud Application Development Services',
@@ -398,6 +411,12 @@ export const routes = {
     dynamicPath: '/pwa-development-services',
     slug: 'pwa-development-services',
   },
+  bookCall: {
+    title: '',
+    path: '/book-a-call',
+    dynamicPath: '/book-a-call',
+    slug: 'book-a-call',
+  },
   cookiesPolicy: {
     title: 'Cookies Policy',
     path: '/cookies-policy',
@@ -409,5 +428,4 @@ export const routes = {
     dynamicPath: '/not-found',
     slug: 'not-found',
   },
-
 };

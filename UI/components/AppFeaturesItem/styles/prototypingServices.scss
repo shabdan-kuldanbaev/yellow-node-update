@@ -1,5 +1,22 @@
 .prototyping-services {
   .wrapperTitle {
     cursor: default;
+    pointer-events: none;
+  }
+
+  .expandIcon {
+    display: none;
+  }
+
+  .title {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    color: $yellow400;
+    font-weight: 700;
+
+    @include tablet {
+      margin: 0 auto;
+    }
   }
 }

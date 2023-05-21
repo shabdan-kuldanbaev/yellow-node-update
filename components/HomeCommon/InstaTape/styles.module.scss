@@ -11,10 +11,6 @@
     max-width: $max-content-width-macbook-fifteen;
   }
 
-  @include macbook-twelve {
-    max-width: $max-content-width-macbook-twelve;
-  }
-
   @media (max-width: calc(#{$max-content-width} + 4 * #{$aricleIndent})) {
     .imgContainer {
       width: calc(100% / 4 - #{$imgIndent} * 2);
@@ -32,11 +28,6 @@
 
     @include macbook-fifteen {
       width: calc(#{$max-content-width-macbook-fifteen} / 4 - #{$imgIndent} * 2);
-    }
-
-    @include macbook-twelve {
-      max-width: $max-content-width-macbook-twelve;
-      width: calc(#{$max-content-width-macbook-twelve} / 4 - #{$imgIndent} * 2);
     }
 
     width: calc(#{$max-content-width} / 4 - #{$imgIndent} * 2);
@@ -57,6 +48,11 @@
       margin-right: auto;
       padding-top: 50%;
       padding-bottom: 50%;
+    }
+
+    @include macbook-twelve {
+      max-width: $max-content-width-macbook-twelve;
+      width: calc(#{$max-content-width-macbook-twelve} / 4 - #{$imgIndent} * 2);
     }
 
     @include phone {
@@ -81,6 +77,10 @@
         display: none;
       }
     }
+  }
+
+  @include macbook-twelve {
+    max-width: $max-content-width-macbook-twelve;
   }
 
   @include phone {

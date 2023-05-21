@@ -3,7 +3,7 @@
 
 .container {
   margin: 0 auto;
-  padding: 105px 0 0;
+  padding: calc($new-header-height + 16px) 0 0;
   overflow: hidden;
 
   .pageTitle,
@@ -30,6 +30,12 @@
     }
   }
 
+  &.book-a-call {
+    .breadcrumbs {
+      display: none;
+    }
+  }
+
   &.enterprise-resource-planning-software-services,
   &.web-app-development-company,
   &.ios-mobile-app-development-services,
@@ -43,7 +49,8 @@
   &.data-science-development-company,
   &.cross-platform-development-services,
   &.artificial-intelligence-development-services,
-  &.prototyping-services {
+  &.prototyping-services,
+  &.software-quality-assurance-services {
     background-color: $gray900;
   }
 
@@ -51,7 +58,8 @@
   &.banking-software-development-company,
   &.delivery-quality-in-yellow,
   &.payment-gateway-development-company,
-  &.e-wallet-app-development {
+  &.e-wallet-app-development,
+  &.billing-software-development-services {
     background-color: $gray50;
   }
 

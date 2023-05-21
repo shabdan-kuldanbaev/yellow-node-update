@@ -8,24 +8,10 @@
   }
 
   &.secondSectionView {
-    padding-bottom: 0;
     background-color: $gray50;
 
     [data-title] {
       margin-bottom: 14px;
-    }
-  }
-
-  &.thirdSectionView {
-    padding-top: 0;
-    background-color: $gray50;
-
-    .titleStyle {
-      margin: 0;
-    }
-
-    [data-title] {
-      margin: 0;
     }
   }
 }

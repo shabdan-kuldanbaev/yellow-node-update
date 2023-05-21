@@ -24,6 +24,8 @@ export const WHITE_LOGO_TYPE = [
   'mobile-bank-application',
   'software-for-mri-interpretation',
   'cedar-valley-farms',
+  'mobile-budgeting-app',
+  'forex-trading-platform',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -62,6 +64,8 @@ export const WHITE_TEXT_LOGO = [
   'cinnabar',
   'cedar-valley-farms',
   'mobile-bank-application',
+  'mobile-budgeting-app',
+  'forex-trading-platform',
 ];
 
 export const getLogoType = (type) => {

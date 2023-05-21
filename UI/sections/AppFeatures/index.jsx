@@ -15,14 +15,14 @@ const AppFeatures = (props) => {
   const {
     type,
     view,
-    title,
-    subtitle,
-    description,
+    className,
+    titleProps,
     imageSrc,
     activeIndex,
     handleOnClick,
     itemsData,
-    promoImages,
+    promoSrc,
+    logoImage,
     isPromoImage,
   } = useAppFeatures(props);
 
@@ -31,21 +31,11 @@ const AppFeatures = (props) => {
   }
 
   return (
-    <section
-      className={cn(
-        styles.section,
-        styles[type],
-        styles[view],
-      )}
-    >
+    <section className={className}>
       <div className={styles.container}>
         <div className={styles.sectionContainer}>
-          <SectionTitle
-            title={title}
-            subtitle={subtitle}
-            description={description}
-            className={styles.titleWrapper}
-          />
+          <Illustration {...logoImage} />
+          <SectionTitle {...titleProps} />
           {itemsData.map((document, index) => (
             <AppFeaturesItem
               view={view}
@@ -58,21 +48,12 @@ const AppFeatures = (props) => {
           ))}
         </div>
         <Animated
-          delay={500}
           {...ANIMATION_CASE_STUDY_PROPS}
+          delay={150}
         >
           <div className={styles.imageContainer}>
-            <Illustration
-              src={imageSrc}
-              className={styles.image}
-              alt={type}
-            />
-            {isPromoImage && promoImages[activeIndex]
-              && (
-                <FigmaPrototype
-                  src={promoImages[activeIndex].url}
-                />
-              )}
+            <Illustration {...imageSrc} />
+            {isPromoImage && <FigmaPrototype src={promoSrc} />}
           </div>
         </Animated>
       </div>

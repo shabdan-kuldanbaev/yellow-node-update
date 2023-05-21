@@ -48,6 +48,7 @@ const SvgListSection = (props) => {
             onSelectedIndexChange={handleSelectedGroupIndexChange}
           />
           <SvgGroup
+            type={type}
             data={iconsGroups[selectedGroupIndex]}
             className={styles.svgList}
             isSwiperEnabled
@@ -58,6 +59,7 @@ const SvgListSection = (props) => {
       {!withSelector && iconsGroups.map((group, i) => (
         <SvgGroup
           key={i}
+          type={type}
           data={group}
           className={cn(styles.svgList, styles[`svgList${i + 1}`])}
           isSwiperEnabled

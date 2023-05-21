@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
-import { ProjectLink } from './ProjectLink';
 import { useCaseStudiesIntro } from './utils/useCaseStudiesIntro';
 import styles from './styles.module.scss';
 
@@ -16,15 +15,13 @@ const CaseStudiesIntro = (props) => {
     style,
     introSection,
     experiences,
-    downloadLink,
     appLogoUrl,
     appBackgroundImageUrl,
     title,
     subtitle,
     description,
+    introText,
     imagesBundlesWithUrls,
-    displayProjectLink,
-    displayProjectLinkMobile,
     imageBackgroundTitle,
   } = useCaseStudiesIntro(props);
 
@@ -59,13 +56,9 @@ const CaseStudiesIntro = (props) => {
               />
             )}
           </SectionTitle>
-          {displayProjectLink && (
-            <ProjectLink
-              type={type}
-              downloadLink={downloadLink}
-              linkStyles={styles.appLink}
-            />
-          )}
+          <div className={styles.introText}>
+            <ContentfulParser document={introText} />
+          </div>
         </div>
         <div className={styles.imageContainer}>
           <Illustration
@@ -86,13 +79,6 @@ const CaseStudiesIntro = (props) => {
             key={`intro-images-bundles/${bundleUrl}`}
           />
         ))}
-        {displayProjectLinkMobile && (
-          <ProjectLink
-            type={type}
-            downloadLink={downloadLink}
-            linkStyles={styles.appLink}
-          />
-        )}
       </div>
       <div className={styles.experiencesContainer}>
         {experiences?.map(({

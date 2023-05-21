@@ -1,0 +1,53 @@
+.section {
+  padding: 120px 0;
+
+  .container {
+    @include flex(row, space-between, center);
+
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: $wide-content-width;
+    gap: 24px;
+
+    @include below-tablet {
+      flex-direction: column;
+    }
+  }
+
+  .linkContainer {
+    a {
+      @include flex(row, center, center);
+
+      .linkTitle {
+        @include fontSize(24px, 130%);
+
+        margin: 0 12px;
+        color: $gray900;
+        font-weight: 700;
+      }
+
+      &:hover {
+        .arrow {
+          transform: translateX(5px);
+        }
+      }
+
+      .arrow {
+        transition: transform 0.4s ease-out;
+      }
+
+      .linkSvg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  @include tablet {
+    padding: 120px 0;
+  }
+
+  @include below-tablet {
+    padding: 60px 0;
+  }
+}

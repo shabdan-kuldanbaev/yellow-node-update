@@ -55,13 +55,20 @@
   .stepsContainer {
     @include flex(row, center, initial, wrap);
 
-    grid-gap: 32px;
-    margin: 0;
+    margin: 0 0 -32px -32px;
+
+    & > div {
+      margin: 0 0 32px 32px;
+      flex: 0 0 378px;
+
+      @include tablet {
+        margin: 0 0 24px 24px;
+      }
+    }
 
     .step {
       height: 100%;
       box-sizing: border-box;
-      flex: 0 1 378px;
 
       .stepImage {
         width: 132px;
@@ -90,7 +97,7 @@
     }
 
     @include tablet {
-      grid-gap: 24px;
+      margin: 0 0 -24px -24px;
     }
   }
 

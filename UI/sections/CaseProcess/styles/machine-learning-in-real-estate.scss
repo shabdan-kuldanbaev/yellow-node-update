@@ -14,8 +14,11 @@
   .stepsContainer {
     @include flex(row, center, initial, wrap);
 
-    grid-gap: 32px;
-    margin: 0;
+    margin: 0 0 -32px -32px;
+
+    & > div {
+      margin: 0 0 32px 32px;
+    }
   }
 
   &.firstSectionView {
@@ -35,10 +38,17 @@
       max-width: 500px;
     }
 
+    .stepsContainer > div {
+      flex: 0 1 310px;
+
+      @include below-tablet {
+        flex: 0 1 155px;
+      }
+    }
+
     .step {
       @include flex(column, start, center);
 
-      flex: 0 1 310px;
       box-sizing: border-box;
 
       h3 {
@@ -64,10 +74,6 @@
           fill: $gray0;
         }
       }
-
-      @include below-tablet {
-        flex: 0 1 155px;
-      }
     }
   }
 
@@ -76,10 +82,13 @@
       max-width: 661px;
     }
 
+    .stepsContainer > div {
+      flex: 0 1 481px;
+    }
+
     .step {
       @include flex(column);
 
-      flex: 0 1 481px;
       padding: 32px;
       border: 1px solid $gray100;
       border-radius: 30px;
@@ -118,10 +127,27 @@
       max-width: 556px;
     }
 
+    .stepsContainer {
+      & > div {
+        flex: 0 1 310px;
+
+        @include phone {
+          margin: 0 0 16px 16px;
+        }
+
+        @include phone {
+          flex: 0 1 100%;
+        }
+      }
+
+      @include phone {
+        margin: 0 0 -16px -16px;
+      }
+    }
+
     .step {
       @include flex(column);
 
-      flex: 0 1 310px;
       box-sizing: border-box;
 
       h3 {
@@ -173,12 +199,6 @@
       p {
         text-align: center;
         opacity: 1;
-      }
-    }
-
-    @include phone {
-      .stepsContainer {
-        grid-gap: 16px;
       }
     }
   }

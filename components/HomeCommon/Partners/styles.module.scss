@@ -31,13 +31,13 @@
     max-width: $max-content-width-macbook-fifteen;
   }
 
-  @include macbook-twelve {
-    max-width: $max-content-width-macbook-twelve;
-  }
-
   width: 100%;
   max-width: $max-content-width;
   margin-top: 42.5px;
+
+  @include macbook-twelve {
+    max-width: $max-content-width-macbook-twelve;
+  }
 
   @include below-tablet {
     flex-direction: column;

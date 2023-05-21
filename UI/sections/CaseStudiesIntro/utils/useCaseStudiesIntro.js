@@ -1,6 +1,4 @@
 import get from 'lodash/get';
-import { useSelector } from 'react-redux';
-import { selectIsMobile } from 'redux/selectors/layout';
 import {
   getDocumentFields,
   getFileUrl,
@@ -13,14 +11,12 @@ export const useCaseStudiesIntro = ({
   introSection,
   data,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobile);
-
   const {
     title,
     subtitle,
     description,
     images,
-    contentModules,
+    text: introText,
     imagesBundles,
   } = getDocumentFields(
     get(data, 'contentModules[0]', {}),
@@ -29,7 +25,7 @@ export const useCaseStudiesIntro = ({
       'subtitle',
       'description',
       'images',
-      'contentModules',
+      'text',
       'imagesBundles',
     ],
   );
@@ -38,7 +34,7 @@ export const useCaseStudiesIntro = ({
     get(data, 'contentModules[1]', {}),
     ['contentModules'],
   );
-  const downloadLink = getDocumentFields(get(contentModules, '[0]'));
+
   const appLogoUrl = getOptimizedContentfulImage(
     getFileUrl(get(images, '[1]', '')),
     { fm: 'png', fl: 'png8' },
@@ -55,9 +51,6 @@ export const useCaseStudiesIntro = ({
 
   const imagesBundlesWithUrls = imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
 
-  const displayProjectLink = !isMobileResolution && downloadLink;
-  const displayProjectLinkMobile = isMobileResolution && downloadLink;
-
   const imageBackgroundTitle = SECTION_WITH_BACKGROUND_TITLE?.[type] || null;
 
   return {
@@ -65,15 +58,13 @@ export const useCaseStudiesIntro = ({
     style,
     introSection,
     experiences,
-    downloadLink,
     appLogoUrl,
     appBackgroundImageUrl,
     title,
     subtitle,
     description,
+    introText,
     imagesBundlesWithUrls,
-    displayProjectLink,
-    displayProjectLinkMobile,
     imageBackgroundTitle,
   };
 };

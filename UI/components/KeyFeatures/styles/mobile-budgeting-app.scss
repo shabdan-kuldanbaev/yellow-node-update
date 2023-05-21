@@ -1,0 +1,53 @@
+.mobile-budgeting-app {
+  padding: 164.5px 87px;
+  perspective: unset;
+
+  .containerBackground {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: unset;
+    border-radius: 80px;
+  }
+
+  .featureContainer {
+    .checkMark {
+      display: none;
+    }
+
+    .contentContainer {
+      h2 {
+        @include fontSize(56px, 120%);
+
+        margin-bottom: 16px;
+        font-weight: normal;
+
+        @include tablet {
+          @include fontSize(38px, 130%);
+
+          margin-bottom: 8px;
+          text-align: center;
+        }
+      }
+
+      p {
+        color: $gray900;
+
+        @include tablet {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    padding: 60px 32px;
+    border-radius: 60px;
+    order: 1;
+  }
+
+  @include phone {
+    padding: 32px 16px;
+  }
+}

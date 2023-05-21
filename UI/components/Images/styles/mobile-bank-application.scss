@@ -24,30 +24,16 @@
   }
 
   &.secondSectionView {
-    .image {
+    .image-1 {
       width: 994px;
       height: 120px;
     }
-  }
 
-  &.thirdSectionView {
-    .image {
-      width: 394px;
-      height: 646px;
+    .image-2 {
+      margin-top: 48px;
+      width: 269px;
+      height: 550px;
       overflow: hidden;
-
-      span {
-        bottom: -90px !important;
-      }
-
-      @include phone {
-        width: 320px;
-        height: 495px;
-
-        span {
-          bottom: -40px !important;
-        }
-      }
     }
   }
 }

@@ -1,0 +1,36 @@
+.forex-trading-platform {
+  &.firstSectionView,
+  &.thirdSectionView {
+    padding: 120px 16px;
+    background: $forexAccent;
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    [data-description] {
+      color: $gray0;
+      opacity: 0.7;
+    }
+
+    @include below-tablet {
+      padding: 60px 16px;
+    }
+  }
+
+  &.firstSectionView {
+    .titleStyle {
+      max-width: 661px;
+    }
+  }
+
+  &.thirdSectionView {
+    .titleStyle {
+      max-width: 728px;
+    }
+  }
+
+  &.secondSectionView {
+    background: $forexSecondary;
+  }
+}

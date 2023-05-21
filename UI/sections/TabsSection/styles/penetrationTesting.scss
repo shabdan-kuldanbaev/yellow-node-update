@@ -1,24 +1,6 @@
 .penetration-testing {
   background-color: $gray0;
 
-  :global(.swiper-slide) {
-    @include fontSize(20px, 150%);
-
-    margin-right: 60px !important;
-    padding: 0;
-
-    &::after {
-      bottom: -8px;
-    }
-
-    @include below-tablet {
-      @include fontSize(20px, 30px);
-
-      margin-right: 24px !important;
-      z-index: 99999;
-    }
-  }
-
   & .titleStyle {
     max-width: 823px;
     margin-bottom: 47px;

@@ -1,0 +1,32 @@
+.billing-software-development-services {
+  padding: 120px 16px;
+
+  .imageSection {
+    margin: 0 auto;
+    max-width: 994px;
+  }
+
+  .image {
+    padding-top: 707px;
+
+    @include tablet {
+      padding-top: 609px;
+    }
+
+    @include below-tablet {
+      padding-top: 509px;
+    }
+
+    @include phone {
+      padding-top: 270px;
+    }
+  }
+
+  .experienceContent {
+    display: none;
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+}

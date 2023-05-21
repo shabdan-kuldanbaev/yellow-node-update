@@ -1,5 +1,7 @@
 import get from 'lodash/get';
 import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import { STEP_TITLE_ANIMATION, CARD_ANIMATION } from './animations';
 
 export default ({ data, type }) => {
   const {
@@ -16,7 +18,7 @@ export default ({ data, type }) => {
   const steps = contentModules?.map(({ fields }) => {
     const {
       title: stepTitle,
-      subtitle: itemSubtitle,
+      subtitle: stepSubtitle,
       contentList,
       text,
     } = fields;
@@ -25,13 +27,17 @@ export default ({ data, type }) => {
 
     return {
       imageBundles,
-      itemSubtitle,
+      stepSubtitle,
       text,
-      title: stepTitle,
+      stepTitle,
       icon: contentList?.[0],
       image,
     };
   });
+
+  const isTitleAnimated = STEP_TITLE_ANIMATION[type]?.[view];
+
+  const isCardAnimated = CARD_ANIMATION[type]?.[view] || REVEAL_ANIMATION_PROPS;
 
   const backgroundUrl = getOptimizedContentfulImage(
     getFileUrl(get(data, 'background', {})),
@@ -51,5 +57,7 @@ export default ({ data, type }) => {
     images,
     steps,
     view,
+    isTitleAnimated,
+    isCardAnimated,
   };
 };

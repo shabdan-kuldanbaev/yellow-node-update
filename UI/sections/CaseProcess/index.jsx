@@ -4,6 +4,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import Illustration from 'UI/components/Illustration';
 import Typography from 'UI/components/Typography';
 import Svg from 'UI/components/Svg';
+import Animated from 'UI/containers/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
@@ -18,6 +19,8 @@ const CaseProcess = (props) => {
     description,
     images,
     steps,
+    isTitleAnimated,
+    isCardAnimated,
   } = useSectionProps(props);
 
   return (
@@ -34,18 +37,20 @@ const CaseProcess = (props) => {
       <div className={styles.container}>
         <div className={styles.stepsContainer}>
           {steps?.map(({
-            title: stepTitle,
+            stepTitle,
             text,
-            subtitle: stepSubtitle,
+            stepSubtitle,
             imageBundles,
             icon,
             image,
           }, index) => (
-            <div
-              className={cn(styles.step, styles[`step-${index + 1}`])}
+            <Animated
               key={index}
+              {...isCardAnimated}
+              delay={50 + ((index + 1) * 50)}
             >
-              {image
+              <div className={cn(styles.step, styles[`step-${index + 1}`])}>
+                {image
                 && (
                   <Illustration
                     priority
@@ -54,42 +59,54 @@ const CaseProcess = (props) => {
                     className={styles.stepImage}
                   />
                 )}
-              {icon
+                {icon
                 && (
                   <Svg
                     type={icon}
                     className={styles.stepIcon}
                   />
                 )}
-              {stepSubtitle && (
-                <Typography
-                  variant="span"
-                  className={styles.stepNumber}
-                >
-                  {stepSubtitle}
-                </Typography>
-              )}
-              {stepTitle && (
-                <Typography
-                  variant="h3"
-                  className={styles.stepTitle}
-                >
-                  {stepTitle}
-                </Typography>
-              )}
-              {text && (
-                <ContentfulParser document={text} />
-              )}
-              {imageBundles?.map((url, indexBundleImage) => (
-                <Illustration
-                  trasparent
-                  className={cn(styles.bundleImage, styles[`bundleImage-${indexBundleImage + 1}`])}
-                  src={url}
-                  alt={stepTitle}
-                  key={`images-bundles/${url}`}
-                />
-              ))}
-            </div>
+                {stepSubtitle && (
+                  <Typography
+                    variant="span"
+                    className={styles.stepNumber}
+                  >
+                    {stepSubtitle}
+                  </Typography>
+                )}
+                {stepTitle && (
+                  isTitleAnimated
+                    ? (
+                      <Animated
+                        {...isTitleAnimated}
+                        className={styles.stepTitle}
+                      >
+                        {stepTitle}
+                      </Animated>
+                    ) : (
+                      <Typography
+                        variant="h3"
+                        className={styles.stepTitle}
+                      >
+                        {stepTitle}
+                      </Typography>
+                    )
+                )}
+                {text && (
+                  <ContentfulParser document={text} />
+                )}
+                {imageBundles?.map((url, indexBundleImage) => (
+                  <Illustration
+                    trasparent
+                    className={cn(styles.bundleImage, styles[`bundleImage-${indexBundleImage + 1}`])}
+                    src={url}
+                    alt={stepTitle}
+                    key={`images-bundles/${url}`}
+                  />
+                ))}
+              </div>
+            </Animated>
+
           ))}
         </div>
         <div className={styles.imagesContainer}>

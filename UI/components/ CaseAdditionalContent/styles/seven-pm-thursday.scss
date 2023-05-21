@@ -25,14 +25,13 @@
       position: relative;
       color: $gray500;
 
-
-      &:before {
+      &::before {
         content: '';
         position: absolute;
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: linear-gradient(180deg, #FF2B8A -2.98%, #FF4A34 92.06%);
+        background: linear-gradient(180deg, #ff2b8a -2.98%, #ff4a34 92.06%);
         left: 0;
         top: 50%;
         transform: translateY(-50%);

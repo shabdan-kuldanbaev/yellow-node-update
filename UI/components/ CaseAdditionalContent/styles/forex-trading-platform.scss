@@ -1,0 +1,50 @@
+.forex-trading-platform {
+  max-width: 481px;
+  gap: 24px 32px;
+
+  .container {
+    @include flex(column, initial, start);
+
+    max-width: 250px;
+
+    .title {
+      @include fontSize(18px, 180%);
+
+      white-space: nowrap;
+    }
+
+    .listContainer {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .listItem {
+      @include fontSize(16px, 150%);
+
+      margin-bottom: 8px;
+      padding-left: 20px;
+      max-width: 309px;
+      position: relative;
+      color: $gray400;
+      box-sizing: border-box;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $forexAccent;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      max-width: 100%;
+    }
+  }
+}

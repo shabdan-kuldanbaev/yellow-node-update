@@ -1,0 +1,247 @@
+.software-quality-assurance-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    [data-title] {
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    [data-description] {
+      max-width: 790px;
+
+      @include phone {
+        max-width: 350px;
+      }
+    }
+
+    .card {
+      h4 {
+        margin: 16px 0 8px;
+      }
+
+      h5 {
+        @include fontSize(16px, 150%);
+
+        color: $gray900;
+        margin: 0;
+        font-weight: 400;
+      }
+
+      li {
+        &::marker {
+          color: $gray900;
+        }
+      }
+    }
+
+    .callToAction {
+      margin-top: 48px;
+      border: unset;
+
+      h3 {
+        @include fontSize(24px);
+
+        max-width: 530px;
+
+        @include phone {
+          max-width: 310px;
+        }
+      }
+
+      @include phone {
+        padding: 32px 16px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    [data-title] {
+      max-width: 640px;
+    }
+
+    [data-title],
+    [data-description] {
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    .card {
+      @extend .cardWithTransperentBackground;
+
+      h3 {
+        @include phone {
+          margin: 0 auto 8px;
+        }
+      }
+
+      @include phone {
+        @include flex(column, center, center);
+
+        text-align: center;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    [data-title] {
+      max-width: 800px;
+    }
+
+    [data-description] {
+      max-width: 680px;
+    }
+
+    [data-title],
+    [data-description] {
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &.fourthSectionView {
+    [data-title] {
+      max-width: 640px;
+    }
+
+    [data-description] {
+      max-width: 785px;
+    }
+
+    [data-title],
+    [data-description] {
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card svg {
+      width: 64px;
+    }
+  }
+
+  &.fifthSectionView {
+    @extend .greySection;
+
+    [data-description] {
+      max-width: 700px;
+    }
+
+    [data-title],
+    [data-description] {
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    .cardList {
+      margin: 0;
+      grid-gap: 32px;
+
+      & > div {
+        margin: 0;
+      }
+
+      @include below-tablet {
+        grid-gap: 16px 0;
+      }
+    }
+
+    .card {
+      @include flex(row, center, center);
+
+      padding: 24px 32px;
+
+      svg {
+        height: 40px;
+        flex: 0 0 40px;
+        margin: 0 16px 0 0;
+      }
+
+      h3 {
+        margin: 0;
+      }
+    }
+  }
+
+  &.sixthSectionView {
+    @extend .greySection;
+
+    [data-title] {
+      max-width: 640px;
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .callToAction {
+      max-width: 994px;
+      margin: 48px auto 0;
+      border: unset;
+
+      h3 {
+        @include fontSize(24px, 150%);
+
+        max-width: 440px;
+
+        @include phone {
+          max-width: 350px;
+        }
+      }
+
+      @include phone {
+        padding: 32px 16px;
+      }
+    }
+  }
+
+  &.seventhSectionView {
+    @extend .greySection;
+
+    [data-description] {
+      max-width: 675px;
+
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    [data-read-more] {
+      display: block;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+    }
+  }
+}
