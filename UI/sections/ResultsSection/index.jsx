@@ -21,7 +21,7 @@ const ResultsSection = (props) => {
 
   return (
     <section
-      className={cn(styles.container, [styles[type]], [styles[view]])}
+      className={cn(styles.container, styles[type], styles[view])}
       style={sectionStyle}
     >
       <SectionTitle

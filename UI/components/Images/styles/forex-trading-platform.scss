@@ -1,34 +1,8 @@
 .forex-trading-platform {
-  &.secondSectionView {
+  &.firstSectionView {
     .image {
       width: 994px;
       height: 532px;
-    }
-  }
-
-  &.firstSectionView,
-  &.thirdSectionView {
-    overflow-x: unset;
-
-    .image {
-      width: 994px;
-      height: 706px;
-      box-shadow: 0 14px 54px 0 #00000026;
-
-      @include tablet {
-        width: 700px;
-        height: 500px;
-      }
-
-      @include below-tablet {
-        width: 525px;
-        height: 375px;
-      }
-
-      @include phone {
-        width: 343px;
-        height: 243px;
-      }
     }
   }
 }
