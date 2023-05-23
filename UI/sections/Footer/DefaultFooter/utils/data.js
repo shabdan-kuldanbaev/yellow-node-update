@@ -11,11 +11,6 @@ export const mainContent = [
         type: 'navigation',
       },
       {
-        subtitle: 'Crowdfunding platform development',
-        path: ROUTES.crowdfundingPlatform.path,
-        type: 'navigation',
-      },
-      {
         subtitle: 'Mobile development',
         path: ROUTES.customMobileApp.path,
         type: 'navigation',
@@ -51,8 +46,23 @@ export const mainContent = [
         type: 'navigation',
       },
       {
+        subtitle: 'Quality assurance',
+        path: ROUTES.softwareQualityAssuranceServices.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'Penetration testing',
+        path: ROUTES.penetrationTesting.path,
+        type: 'navigation',
+      },
+      {
         subtitle: 'Cloud development',
         path: ROUTES.cloudDevelopment.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'PWA development',
+        path: ROUTES.pwaDevelopmentServices.path,
         type: 'navigation',
       },
       {
@@ -81,6 +91,31 @@ export const mainContent = [
         path: ROUTES.lendingSoftwareDevelopment.path,
         type: 'navigation',
       },
+      {
+        subtitle: 'E-wallet app development',
+        path: ROUTES.eWalletAppDevelopment.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'Banking software development',
+        path: ROUTES.bankingSoftwareDevelopmentCompany.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'Crowdfunding platform development',
+        path: ROUTES.crowdfundingPlatform.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'Billing software development',
+        path: ROUTES.billingSoftwareDevelopment.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'Payment software gateway development',
+        path: ROUTES.paymentGatewayDevelopment.path,
+        type: 'navigation',
+      },
     ],
     type: 'fintech',
   },
@@ -88,13 +123,13 @@ export const mainContent = [
     title: 'Expertise',
     links: [
       {
-        subtitle: 'Chat development',
-        path: ROUTES.customChatApp.path,
+        subtitle: 'Discovery phase',
+        path: ROUTES.discoveryPhase.path,
         type: 'navigation',
       },
       {
-        subtitle: 'Mobile development',
-        path: ROUTES.customMobileApp.path,
+        subtitle: 'Chat development',
+        path: ROUTES.customChatApp.path,
         type: 'navigation',
       },
       {
@@ -115,11 +150,6 @@ export const mainContent = [
       {
         subtitle: 'Data science development',
         path: ROUTES.dataScienceDevelopment.path,
-        type: 'navigation',
-      },
-      {
-        subtitle: 'Discovery phase',
-        path: ROUTES.discoveryPhase.path,
         type: 'navigation',
       },
     ],
