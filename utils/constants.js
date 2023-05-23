@@ -195,7 +195,7 @@ export const APP_DEVELOPMENT_TYPES = {
 };
 
 export const WHY_US_TYPE = {
-  intro: 'why-us-page-intro',
+  intro: 'case-study-intro',
   parallax: 'case-study-parallax',
   svgList: 'app-development-svg-list',
   imageSection: 'app-development-image',

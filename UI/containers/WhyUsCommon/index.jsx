@@ -8,13 +8,16 @@ const Process = dynamic(() => import('UI/sections/CaseProcess'));
 const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const ImagesSection = dynamic(() => import('UI/sections/ImagesSection'));
-const WhyUsIntro = dynamic(() => import('UI/sections/WhyUsIntro'));
 const Challenges = dynamic(() => import('UI/sections/ChallengesAndSolutionsWithWireframes'));
 const Tabs = dynamic(() => import('UI/sections/TabsSection'));
 const Gallery = dynamic(() => import('UI/sections/GallerySection'));
+const Intro = dynamic(() => import('UI/sections/CaseStudiesIntro'));
 
-export const WhyUsCommon = (props) => {
-  const { type, section } = props;
+export const WhyUsCommon = ({ introSection, ...props }) => {
+  const {
+    type,
+    section,
+  } = props;
 
   if (!section.fields) {
     return null;
@@ -24,7 +27,13 @@ export const WhyUsCommon = (props) => {
 
   switch (sectionType) {
   case WHY_US_TYPE.intro:
-    return <WhyUsIntro {...props} />;
+    return (
+      <Intro
+        introSection={introSection}
+        data={section.fields}
+        type={type}
+      />
+    );
 
   case WHY_US_TYPE.svgList:
     return <SvgListSection {...props} />;

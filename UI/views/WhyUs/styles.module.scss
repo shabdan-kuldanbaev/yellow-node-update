@@ -4,7 +4,7 @@
 .container {
   background-color: $gray900;
   margin: 0 auto;
-  padding: 105px 0 0;
+  padding: calc($new-header-height + 16px) 0 0;
   overflow: hidden;
 
   .pageTitle,
