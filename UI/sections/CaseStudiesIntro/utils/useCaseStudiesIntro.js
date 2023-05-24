@@ -4,7 +4,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { SECTION_WITH_BACKGROUND_TITLE } from './helpers';
+import { SECTION_WITH_BACKGROUND_TITLE, isFileVideo } from './helpers';
 
 export const useCaseStudiesIntro = ({
   type,
@@ -53,6 +53,8 @@ export const useCaseStudiesIntro = ({
 
   const imageBackgroundTitle = SECTION_WITH_BACKGROUND_TITLE?.[type] || null;
 
+  const isVideo = isFileVideo(type);
+
   return {
     type,
     style,
@@ -66,5 +68,6 @@ export const useCaseStudiesIntro = ({
     introText,
     imagesBundlesWithUrls,
     imageBackgroundTitle,
+    isVideo,
   };
 };

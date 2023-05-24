@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
+import Video from 'components/Common/Video';
 import { useCaseStudiesIntro } from './utils/useCaseStudiesIntro';
 import styles from './styles.module.scss';
 
@@ -23,6 +24,7 @@ const CaseStudiesIntro = (props) => {
     introText,
     imagesBundlesWithUrls,
     imageBackgroundTitle,
+    isVideo,
   } = useCaseStudiesIntro(props);
 
   return (
@@ -61,13 +63,20 @@ const CaseStudiesIntro = (props) => {
           </div>
         </div>
         <div className={styles.imageContainer}>
-          <Illustration
-            priority
-            transparent
-            className={styles.image}
-            src={appBackgroundImageUrl}
-            alt={appBackgroundImageUrl}
-          />
+          {isVideo ? (
+            <Video
+              src={appBackgroundImageUrl}
+              className={styles.video}
+            />
+          ) : (
+            <Illustration
+              priority
+              transparent
+              className={styles.image}
+              src={appBackgroundImageUrl}
+              alt={appBackgroundImageUrl}
+            />
+          )}
         </div>
         {imagesBundlesWithUrls?.map((bundleUrl, index) => (
           <Illustration
