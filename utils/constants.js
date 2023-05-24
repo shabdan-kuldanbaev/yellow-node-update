@@ -415,24 +415,9 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.customMobileApp.path,
       },
       {
-        title: 'MVP development services',
-        subtitle: 'Minimum viable product for your idea',
-        slug: ROUTES.mvpDevelopment.path,
-      },
-      {
         title: 'iOS app development services',
         subtitle: 'Native apps for iPhones and iPads',
         slug: ROUTES.iosDevelopmentServices.path,
-      },
-      {
-        title: 'Cloud-based app development services',
-        subtitle: 'No physical space is occupied',
-        slug: ROUTES.cloudDevelopment.path,
-      },
-      {
-        title: 'Prototyping services',
-        subtitle: 'Start with a draft',
-        slug: ROUTES.prototypingServices.path,
       },
       {
         title: 'Android app development services',
@@ -440,9 +425,9 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.androidDevelopmentServices.path,
       },
       {
-        title: 'DevOps development services',
-        subtitle: 'Connect your software development and IT teams',
-        slug: ROUTES.devOpsDevelopment.path,
+        title: 'Cross platform development services',
+        subtitle: 'Lauch your app to all platforms at once',
+        slug: ROUTES.crossPlatformDevelopmentServices.path,
       },
       {
         title: 'UI/UX design services',
@@ -450,9 +435,19 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.designServices.path,
       },
       {
-        title: 'Cross platform development services',
-        subtitle: 'Lauch your app to all platforms at once',
-        slug: ROUTES.crossPlatformDevelopmentServices.path,
+        title: 'MVP development services',
+        subtitle: 'Minimum viable product for your idea',
+        slug: ROUTES.mvpDevelopment.path,
+      },
+      {
+        title: 'DevOps development services',
+        subtitle: 'Connect your software development and IT teams',
+        slug: ROUTES.devOpsDevelopment.path,
+      },
+      {
+        title: 'Quality assurance services',
+        subtitle: 'Make sure everything works like clockwork',
+        slug: ROUTES.softwareQualityAssuranceServices.path,
       },
       {
         title: 'Penetration testing as a service',
@@ -460,21 +455,31 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.penetrationTesting.path,
       },
       {
+        title: 'Cloud-based app development services',
+        subtitle: 'No physical space is occupied',
+        slug: ROUTES.cloudDevelopment.path,
+      },
+      {
         title: 'PWA development services',
         subtitle: 'Web working as mobile',
         slug: ROUTES.pwaDevelopmentServices.path,
       },
+      {
+        title: 'Prototyping services',
+        subtitle: 'Start with a draft',
+        slug: ROUTES.prototypingServices.path,
+      },
     ],
     [SUB_NAVIGATION_KEYS.expertise]: [
+      {
+        title: 'Project Discovery',
+        subtitle: 'See what your future project will look like',
+        slug: ROUTES.discoveryPhase.path,
+      },
       {
         title: 'Custom chat app development',
         subtitle: 'Instant communication tules',
         slug: ROUTES.customChatApp.path,
-      },
-      {
-        title: 'AI software development services',
-        subtitle: 'Letting machines think',
-        slug: ROUTES.aiDevelopment.path,
       },
       {
         title: 'ERP development services',
@@ -482,14 +487,19 @@ export const SUB_NAVIGATION_LINKS = {
         slug: ROUTES.erpDevelopment.path,
       },
       {
-        title: 'Data science development services',
-        subtitle: 'Getting insights to boost your business',
-        slug: ROUTES.dataScienceDevelopment.path,
-      },
-      {
         title: 'Machine learning development services',
         subtitle: 'Artificial intelligence at your service',
         slug: ROUTES.mlDevelopment.path,
+      },
+      {
+        title: 'AI software development services',
+        subtitle: 'Letting machines think',
+        slug: ROUTES.aiDevelopment.path,
+      },
+      {
+        title: 'Data science development services',
+        subtitle: 'Getting insights to boost your business',
+        slug: ROUTES.dataScienceDevelopment.path,
       },
     ],
     [SUB_NAVIGATION_KEYS.fintech]: [
@@ -522,6 +532,11 @@ export const SUB_NAVIGATION_LINKS = {
         title: 'Crowdfunding platform development',
         subtitle: 'Make people’s dreams come true',
         slug: ROUTES.crowdfundingPlatform.path,
+      },
+      {
+        title: 'Billing software development',
+        subtitle: 'Let businesses control their invoices',
+        slug: ROUTES.billingSoftwareDevelopment.path,
       },
       {
         title: 'Payment software gateway development',
