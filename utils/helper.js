@@ -69,6 +69,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.portfolio}`, updatedAt },
   { path: `/${PAGES.process}`, updatedAt },
   { path: `/${PAGES.company}`, updatedAt },
+  { path: `/${PAGES.whyUs}`, updatedAt },
   { path: `/${PAGES.contact}`, updatedAt },
   { path: `/${PAGES.blog}`, updatedAt },
   { path: `/${PAGES.customChatApp}`, updatedAt },

@@ -20,4 +20,9 @@ export const CARD_ANIMATION = {
       ...BOUNCE_ANIMATION_PROPS,
     },
   },
+  'why-us': {
+    firstSectionView: {
+      ...BOUNCE_ANIMATION_PROPS,
+    },
+  },
 };

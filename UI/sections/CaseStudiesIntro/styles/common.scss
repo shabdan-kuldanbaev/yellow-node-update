@@ -153,6 +153,11 @@
     height: 100%;
   }
 
+  .bundleImage {
+    user-select: none;
+    pointer-events: none;
+  }
+
   @include tablet {
     padding: 108px 32px 60px;
   }

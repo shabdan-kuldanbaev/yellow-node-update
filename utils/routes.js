@@ -197,6 +197,12 @@ export const routes = {
     dynamicPath: '/company',
     slug: 'company',
   },
+  whyUs: {
+    title: 'Why Us',
+    path: '/why-us',
+    dynamicPath: '/why-us',
+    slug: 'why-us',
+  },
   contact: {
     title: 'Contact Us',
     path: '/contact',

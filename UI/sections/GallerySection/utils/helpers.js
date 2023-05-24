@@ -39,3 +39,17 @@ export const swiperGalleryParams = {
     Navigation,
   ],
 };
+
+export const typedSwiperParams = {
+  'why-us': {
+    ...swiperGalleryParams,
+    slidesPerView: 1,
+    spaceBetween: 0,
+    breakpoints: {
+      1024: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
+    },
+  },
+};

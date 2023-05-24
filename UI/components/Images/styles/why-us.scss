@@ -1,0 +1,113 @@
+.why-us {
+  &.firstSectionView {
+    @include flex(row, center, center, wrap);
+
+    margin: 0 0 -16px -32px;
+
+    .image {
+      margin: 0 0 16px 32px;
+      width: 379px;
+      height: 208px;
+
+      @include below-tablet {
+        width: 343px;
+        height: 188px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    position: relative;
+    overflow: hidden;
+
+    .image-1 {
+      margin: 0 auto;
+      width: 337px;
+      height: 480px;
+    }
+
+    .image-2 {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+      width: 1056px;
+      height: 1056px;
+      pointer-events: none;
+    }
+  }
+
+  &.thirdSectionView {
+    overflow: hidden;
+
+    .image {
+      margin: 0 auto;
+      width: 994px;
+      height: 322px;
+
+      @include tablet {
+        width: 100%;
+        height: 200px;
+      }
+
+      @include phone {
+        height: 127px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    margin-left: 73px;
+    overflow: hidden;
+
+    .image {
+      margin: 0;
+      width: 470px;
+      height: 470px;
+
+      @include below-tablet {
+        width: 343px;
+        height: 343px;
+      }
+    }
+
+    @include tablet {
+      margin-left: 0;
+    }
+  }
+
+  &.fifthSectionView {
+    @include flex(row, space-between, center, wrap);
+
+    margin: 0 auto -24px;
+    max-width: 600px;
+    overflow: hidden;
+
+    .image {
+      margin: 0 0 24px;
+      width: 140px;
+      height: 136px;
+      flex-grow: 1;
+    }
+  }
+
+  &.sixthSectionView {
+    overflow: hidden;
+
+    .image {
+      margin: 0 auto;
+      width: 679px;
+      height: 520px;
+
+      @include below-tablet {
+        width: 100%;
+        height: 400px;
+      }
+
+      @include phone {
+        height: 262px;
+      }
+    }
+  }
+}

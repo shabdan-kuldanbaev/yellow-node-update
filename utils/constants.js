@@ -159,6 +159,7 @@ export const SVG_IMAGES_TYPES = {
   iPad: 'iPad',
   arrowDown: 'arrowDown',
   youtubeFilledWhite: 'youtubeFilledWhite',
+  rocketFilled: 'rocketFilled',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -191,6 +192,19 @@ export const APP_DEVELOPMENT_TYPES = {
   feedback: 'feedback',
   parallax: 'case-study-parallax',
   softwarePriceForm: 'software-price-form',
+};
+
+export const WHY_US_TYPE = {
+  intro: 'case-study-intro',
+  parallax: 'case-study-parallax',
+  svgList: 'app-development-svg-list',
+  imageSection: 'app-development-image',
+  feedback: 'feedback',
+  process: 'case-study-process',
+  imagesSection: 'case-study-image',
+  challenges: 'case-study-challenges',
+  tabs: 'app-development-tabs-section',
+  gallery: 'app-development-gallery',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -316,6 +330,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.forexTradingPlatform).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
+  ROUTES.whyUs.path,
   ROUTES.iosDevelopmentServices.path,
   ROUTES.fintechDevelopment.path,
   ROUTES.softwareQualityAssuranceServices.path,
@@ -348,6 +363,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
   ROUTES.pwaDevelopmentServices.path,
+  ROUTES.whyUs.path,
   CASE_STUDIES.openSense,
 ];
 
@@ -534,6 +550,11 @@ export const SUB_NAVIGATION_LINKS = {
       title: 'About us',
       subtitle: '',
       slug: ROUTES.company.path,
+    },
+    {
+      title: 'Why us',
+      subtitle: '',
+      slug: ROUTES.whyUs.path,
     },
     {
       title: 'Delivery Quality Standards',

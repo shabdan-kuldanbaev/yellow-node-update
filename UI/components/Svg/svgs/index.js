@@ -482,6 +482,7 @@ export const digit9 = '/filled/digit9.svg';
 export const digit10 = '/filled/digit10.svg';
 export const digit11 = '/filled/digit11.svg';
 export const yellowCheckMark = '/filled/yellowCheckMark.svg';
+export const starFilled = '/filled/star.svg';
 
 /* Logo Yellow */
 export const blackLogo = '/logo/blackLogo.svg';
