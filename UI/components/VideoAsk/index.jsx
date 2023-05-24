@@ -17,7 +17,7 @@ export default function VideoAsk() {
               "options": {
                 "widgetType": "VideoThumbnailExtraLarge",
                 "text": "",
-                "backgroundColor": "#FFE603",
+                "backgroundColor": "#000000",
                 "position": "bottom-right",
                 "dismissible": false
               }
