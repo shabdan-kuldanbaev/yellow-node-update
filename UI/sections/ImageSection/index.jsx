@@ -11,7 +11,6 @@ const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/Con
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 
 const ImageSection = (props) => {
-  console.log('props: ', props);
   const {
     title,
     description,

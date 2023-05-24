@@ -43,7 +43,7 @@
 
     .step {
       padding: 24px 24px 24px 40px;
-      border: 1px solid #545454;
+      border: 1px solid $gray600;
       border-radius: 5px;
       background: rgb(255 255 255 / 3%);
     }
@@ -102,7 +102,7 @@
       padding: 60px;
       height: auto;
       background: $gray50;
-      border: 1px solid #e2e2e2;
+      border: 1px solid $gray200;
       border-radius: 20px;
 
       p {
