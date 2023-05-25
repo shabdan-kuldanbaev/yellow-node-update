@@ -5,6 +5,11 @@
   }
 
   .parallaxImage {
-    height: 826px;
+    position: relative;
+    height: 400px;
+    width: 100%;
+    background-position-y: 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
