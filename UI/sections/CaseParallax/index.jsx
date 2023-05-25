@@ -1,5 +1,6 @@
-import cn from 'classnames';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
+import { Parallax } from 'react-parallax';
 import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import Illustration from 'UI/components/Illustration';
@@ -37,10 +38,11 @@ const CaseParallax = (props) => {
             </Animated>
           )}
       </SectionTitle>
-      <div
-        style={{ backgroundImage: `url(${imageUrl})` }}
-        className={styles.parallaxImage}
+      <Parallax
+        strength={-100}
+        bgImage={imageUrl}
       >
+        <div className={styles.parallaxImage} />
         {bundleImages?.map((src, index) => (
           <Illustration
             lazyBoundary="2000px"
@@ -48,7 +50,7 @@ const CaseParallax = (props) => {
             className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
           />
         ))}
-      </div>
+      </Parallax>
     </section>
   );
 };

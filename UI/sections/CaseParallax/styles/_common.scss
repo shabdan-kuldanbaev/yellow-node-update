@@ -1,13 +1,10 @@
 .parallaxSection {
-  .parallaxImage {
-    @include centeredBackgroundImage;
-
-    background-attachment: fixed;
-    height: 100vh;
-  }
-
   .bundleImage {
     user-select: none;
     pointer-events: none;
+  }
+
+  .parallaxImage {
+    height: 826px;
   }
 }
