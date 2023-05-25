@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import {
-  useCallback,
   useEffect,
   useRef,
   useState,
@@ -41,8 +40,11 @@ export default ({ data, type }) => {
   const height = parallaxElRef.current?.scrollHeight;
   const offset = parallaxElRef.current?.offsetTop;
 
-  const onScroll = useCallback(
-    (scroll, win) => (e) => {
+  useEffect(() => {
+    const scroll = window.scrollY;
+    const win = window.innerHeight;
+
+    const onScroll = () => {
       setBgPosition((100 * scroll) / (height + win) + (100 * (win - offset)) / (height + win));
 
       if (bgPosition > 100) {
@@ -50,22 +52,12 @@ export default ({ data, type }) => {
       } else if (bgPosition < 0) {
         setBgPosition(0);
       }
-    },
-    [
-      bgPosition,
-      height,
-      offset,
-    ],
-  );
+    };
 
-  useEffect(() => {
-    const scroll = window.scrollY;
-    const win = window.innerHeight;
-
-    window.addEventListener('scroll', onScroll(scroll, win));
+    window.addEventListener('scroll', onScroll);
 
     return () => {
-      window.removeEventListener('scroll', onScroll(scroll, win));
+      window.removeEventListener('scroll', onScroll);
     };
   });
 
