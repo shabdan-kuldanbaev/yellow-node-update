@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import CookiesNotification from 'components/Common/CookiesNotification';
 import GAnalytic from 'components/Layout/GAnalytic';
 import Header from 'UI/sections/Header';
+import VideoAsk from 'UI/components/VideoAsk';
 import { useLayout } from './utils/useLayout';
 
 const Footer = dynamic(() => import('UI/sections/Footer'));
@@ -24,6 +25,7 @@ const Layout = (props) => {
       {children}
       <Footer />
       <GAnalytic />
+      <VideoAsk />
     </>
   );
 };
