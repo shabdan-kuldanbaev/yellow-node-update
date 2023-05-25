@@ -43,12 +43,12 @@ export default ({ data, type }) => {
 
   const onScroll = useCallback(
     (scroll, win) => (e) => {
+      setBgPosition((100 * scroll) / (height + win) + (100 * (win - offset)) / (height + win));
+
       if (bgPosition > 100) {
         setBgPosition(100);
       } else if (bgPosition < 0) {
         setBgPosition(0);
-      } else {
-        setBgPosition((100 * scroll) / (height + win) + (100 * (win - offset)) / (height + win));
       }
     },
     [
