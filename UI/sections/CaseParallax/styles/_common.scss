@@ -11,10 +11,6 @@
     background-position-y: 0%;
     background-position-x: 50%;
     background-repeat: no-repeat;
-    background-size: 130%;
-
-    @include below-tablet {
-      background-size: 200%;
-    }
+    background-size: cover;
   }
 }
