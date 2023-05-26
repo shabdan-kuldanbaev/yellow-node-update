@@ -1,13 +1,16 @@
 .parallaxSection {
-  .parallaxImage {
-    @include centeredBackgroundImage;
-
-    background-attachment: fixed;
-    height: 100vh;
-  }
-
   .bundleImage {
     user-select: none;
     pointer-events: none;
+  }
+
+  .parallaxImage {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    background-position-y: 0%;
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
