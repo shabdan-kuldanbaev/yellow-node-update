@@ -389,7 +389,7 @@ export const routes = {
   },
   eWalletAppDevelopment: {
     title: 'E-Wallet App Development Company',
-    path: '/e-wallet-app-development-company',
+    path: '/e-wallet-app-development',
     dynamicPath: '/e-wallet-app-development',
     slug: 'e-wallet-app-development',
   },
