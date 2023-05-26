@@ -18,6 +18,7 @@ export const useCaseStudiesIntro = ({
     images,
     text: introText,
     imagesBundles,
+    contentModules,
   } = getDocumentFields(
     get(data, 'contentModules[0]', {}),
     [
@@ -27,8 +28,11 @@ export const useCaseStudiesIntro = ({
       'images',
       'text',
       'imagesBundles',
+      'contentModules',
     ],
   );
+
+  const contentList = contentModules?.map((module) => getDocumentFields(module, ['title', 'text']));
 
   const { contentModules: experiences } = getDocumentFields(
     get(data, 'contentModules[1]', {}),
@@ -55,6 +59,8 @@ export const useCaseStudiesIntro = ({
 
   const isVideo = isFileVideo(type);
 
+  console.log(contentList);
+
   return {
     type,
     style,
@@ -69,5 +75,6 @@ export const useCaseStudiesIntro = ({
     imagesBundlesWithUrls,
     imageBackgroundTitle,
     isVideo,
+    contentList,
   };
 };
