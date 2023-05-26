@@ -1,0 +1,17 @@
+.carbon-space {
+  background: $carbonSpaceGradient;
+
+  [data-title] {
+    max-width: 677px;
+    text-align: center;
+  }
+
+  [data-description] {
+    max-width: 677px;
+    text-align: center;
+  }
+
+  .introSection {
+    @include flex(column, center, center);
+  }
+}
