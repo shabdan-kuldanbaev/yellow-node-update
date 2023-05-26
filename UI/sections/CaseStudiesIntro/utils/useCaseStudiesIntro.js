@@ -59,8 +59,6 @@ export const useCaseStudiesIntro = ({
 
   const isVideo = isFileVideo(type);
 
-  console.log(contentList);
-
   return {
     type,
     style,
