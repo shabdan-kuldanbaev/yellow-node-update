@@ -51,6 +51,13 @@
     .image {
       padding-top: 534px;
       max-width: 749px;
+      box-shadow: 0 14px 54px 0 #00000026;
+      overflow: hidden;
+    }
+
+    [data-description] {
+      color: $gray0;
+      opacity: 0.7;
     }
   }
 
