@@ -12,7 +12,6 @@ const Wireframe = (props) => {
   const {
     type,
     wireframeImages,
-    isMobileResolution,
   } = useWireframes(props);
 
   if (!wireframeImages) {
@@ -41,10 +40,9 @@ const Wireframe = (props) => {
           }}
           width={width}
           height={height}
-          scale={2}
           containerClasses={styles.animatedContainer}
           className={styles.image}
-          unoptimized={isMobileResolution}
+          unoptimized
         />
         <Illustration
           src={url}
@@ -56,9 +54,9 @@ const Wireframe = (props) => {
           }}
           width={width}
           height={height}
-          scale={2}
           containerClasses={styles.animatedContainer}
           className={styles.image}
+          unoptimized
         />
       </div>
     </Animated>
