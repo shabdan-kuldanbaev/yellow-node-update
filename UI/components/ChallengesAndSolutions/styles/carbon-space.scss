@@ -125,6 +125,7 @@
 
         .image {
           position: absolute;
+          z-index: 2;
           right: 0;
           top: 0;
           width: 926px;
@@ -148,12 +149,26 @@
             height: 226px;
           }
         }
+
+        .imageBundle {
+          position: absolute;
+          z-index: 1;
+          left: 50%;
+          top: 50%;
+          width: 3001px;
+          height: 1063px;
+          transform: translate(-50%, -50%) rotate(27.14deg);
+
+          @include below-tablet {
+            display: none;
+          }
+        }
       }
 
       &-3 {
         @include flex(column,center, center);
 
-        margin: 0;
+        margin: 0 auto;
 
         .images {
           width: 100%;
