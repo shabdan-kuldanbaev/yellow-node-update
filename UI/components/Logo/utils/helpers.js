@@ -26,6 +26,7 @@ export const WHITE_LOGO_TYPE = [
   'cedar-valley-farms',
   'mobile-budgeting-app',
   'forex-trading-platform',
+  'crowdfunding-platform',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -66,6 +67,7 @@ export const WHITE_TEXT_LOGO = [
   'mobile-bank-application',
   'mobile-budgeting-app',
   'forex-trading-platform',
+  'crowdfunding-platform',
 ];
 
 export const getLogoType = (type) => {
