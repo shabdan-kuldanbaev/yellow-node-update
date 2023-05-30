@@ -1,0 +1,13 @@
+.crowdfunding-platform {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    height: 700px;
+
+    @include below-tablet {
+      height: 500px;
+    }
+  }
+}
