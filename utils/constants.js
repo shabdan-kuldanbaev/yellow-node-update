@@ -292,6 +292,7 @@ export const CASE_STUDIES = {
   cedar: 'cedar-valley-farms',
   mobileBudgetingApp: 'mobile-budgeting-app',
   forexTradingPlatform: 'forex-trading-platform',
+  crowdfundingPlatform: 'crowdfunding-platform',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
